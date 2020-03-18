@@ -5,20 +5,20 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 01/09/2020
+ms.date: 03/10/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 0e7a814c1607b15e3af0e76a5ae6dfad1594a3b3
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 427117fe47294a1db1fa8d3fa1e46ee1efb91b4d
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77474117"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128509"
 ---
 ## <a name="limitations"></a>Limites
 
 - Actuellement, les hôtes dédiés ne prennent pas en charge les groupes de machines virtuelles identiques.
-- La version initiale prend en charge les séries de machines virtuelles suivantes : DSv3, ESv3, FSv2, LSv2 et MSv2. 
+- Les tailles et les types de matériel disponibles pour les hôtes dédiés varient selon la région. Pour en savoir plus, consultez la [page de tarification de l’hôte](https://aka.ms/ADHPricing).
 
 ## <a name="create-a-host-group"></a>Créer un groupe hôte
 
@@ -36,8 +36,6 @@ Dans cet exemple, nous allons créer un groupe hôte en utilisant 1 zone de disp
 1. Ouvrez le [Portail Microsoft Azure](https://portal.azure.com).
 1. Sélectionnez l’option **Créer une ressource**, en haut à gauche du portail.
 1. Recherchez des **groupes hôtes** et sélectionnez **Host Groups** (Groupes hôtes) dans les résultats.
-
-    ![Résultats d’une recherche de groupes hôtes.](./media/virtual-machines-common-dedicated-hosts-portal/host-group.png)
 1. Dans la page **Host Groups** (Groupes hôtes), sélectionnez **Créer**.
 1. Sélectionnez l’abonnement que vous souhaitez utiliser, puis sélectionnez **Création** pour créer un groupe de ressources.
 1. Indiquez *myDedicatedHostsRG* dans la zone **Nom**, puis sélectionnez **OK**.
@@ -46,8 +44,6 @@ Dans cet exemple, nous allons créer un groupe hôte en utilisant 1 zone de disp
 1. Pour **Zone de disponibilité**, sélectionnez **1**.
 1. Pour **Fault Domain Count** (Nombre de domaines d’erreur), sélectionnez **2**.
 1. Sélectionnez **Vérifier + Créer**, puis attendez la validation.
-
-    ![Paramètres des groupes hôtes](./media/virtual-machines-common-dedicated-hosts-portal/host-group-settings.png)
 1. Lorsque le message **Validation passed** (Validation réussie) apparaît, sélectionnez **Créer** pour créer le groupe hôte.
 
 Cette opération ne prend que quelques instants.
@@ -62,16 +58,12 @@ Si vous définissez un nombre de domaines d’erreur pour votre groupe hôte, vo
 
 1. Sélectionnez l’option **Créer une ressource**, en haut à gauche du portail.
 1. Recherchez un **hôte dédié** et sélectionnez **Dedicated Hosts** (Hôtes dédiés) dans les résultats.
-
-    ![Résultats d’une recherche de groupes hôtes.](./media/virtual-machines-common-dedicated-hosts-portal/host.png)
 1. Dans la page **Dedicated Hosts** (Hôtes dédiés), sélectionnez **Créer**.
 1. Sélectionnez l’abonnement à utiliser.
 1. Sélectionnez *myDedicatedHostsRG* parmi les **groupes de ressources**.
 1. Dans **Détails de l’instance**, saisissez *myHost* dans la zone **Nom** et sélectionnez l’emplacement *USA Est*.
 1. Dans **Hardware Profile** (Profil matériel), sélectionnez *Standard Es3 family – Type 1* (Famille ES3 standard – Type 1) pour **Size Family** (Famille de tailles), *myHostGroup* pour **Host Group** (Groupe hôte) et *1* pour **Fault Domain** (Domaine d’erreur). Conservez les valeurs par défaut pour les autres champs.
 1. Cela fait, sélectionnez **Vérifier + Créer** et attendez la validation.
-
-    ![Paramètres d’hôte](./media/virtual-machines-common-dedicated-hosts-portal/host-settings.png)
 1. Lorsque le message **Validation passed** (Validation réussie) apparaît, sélectionnez **Créer** pour créer l’hôte.
 
 

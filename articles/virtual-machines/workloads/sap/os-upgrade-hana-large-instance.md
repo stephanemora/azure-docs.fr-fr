@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/04/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 83b86b9bc5c09cc9f97a320e3019ddea68434309
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 3a0a5d39a7cb2162186291ea534a623ef45c40d4
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77616459"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78675631"
 ---
 # <a name="operating-system-upgrade"></a>Mise à niveau du système d’exploitation
 Ce document décrit en détail les mises à niveau du système d’exploitation sur les grandes instances HANA.
@@ -58,11 +58,11 @@ Au fil du temps, la configuration du système d’exploitation peut s’écarter
   Pour bénéficier d’un bon niveau de performance réseau et d’une stabilité du système adéquate, il est recommandé de vérifier que la version propre au système d’exploitation des pilotes eNIC et fNIC est installée comme indiqué dans la tableau de compatibilité suivant. Les serveurs sont fournis aux clients avec des versions compatibles. Dans certains cas, notez que la mise à jour corrective du système d’exploitation et/ou du noyau peut entraîner la restauration de la version par défaut des pilotes. Vérifiez que les pilotes s’exécutant après les opérations de mise à jour corrective du système d’exploitation et/ou du noyau correspondent aux bonnes versions.
        
       
-  |  Fournisseur du système d’exploitation    |  Version du package du système d’exploitation     |  Pilote eNIC  |  Pilote fNIC |
-  |---------------|-------------------------|---------------|--------------|
-  |   SuSE        |  SLES 12 SP2            |   2.3.0.40    |   1.6.0.34   |
-  |   SuSE        |  SLES 12 SP3            |   2.3.0.44    |   1.6.0.36   |
-  |   Red Hat     |  RHEL 7.2               |   2.3.0.39    |   1.6.0.34   |
+  |  Fournisseur du système d’exploitation    |  Version du package du système d’exploitation     |  Version du microprogramme  |  Pilote eNIC |  Pilote fNIC | 
+  |---------------|-------------------------|--------------------|--------------|--------------|
+  |   SuSE        |  SLES 12 SP2            |   3.1.3h           |  2.3.0.40    |   1.6.0.34   |
+  |   SuSE        |  SLES 12 SP3            |   3.1.3h           |  2.3.0.44    |   1.6.0.36   |
+  |   Red Hat     |  RHEL 7.2               |   3.1.3h           |  2.3.0.39    |   1.6.0.34   |
  
 
 ### <a name="commands-for-driver-upgrade-and-to-clean-old-rpm-packages"></a>Commandes de mise à niveau des pilotes et de nettoyage des anciens packages rpm

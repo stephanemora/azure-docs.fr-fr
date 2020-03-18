@@ -16,12 +16,12 @@ ms.date: 11/01/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a78a69301ab2ae637531f8643d9d57a8b44b563f
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 99de022b7259b33baab3aa825673a8f85e932bff
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73608397"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968742"
 ---
 # <a name="review-access-of-an-access-package-in-azure-ad-entitlement-management"></a>Révision de l’accès d’un package d’accès dans la gestion des droits d’utilisation Azure AD
 
@@ -34,7 +34,7 @@ Pour examiner les attributions de packages d’accès actives des utilisateurs, 
 - Administrateur général
 - Administrateur d’utilisateurs, propriétaire de catalogue ou gestionnaire de package d’accès désigné
 
-Pour plus d’informations, consultez [Licences requises](entitlement-management-overview.md#license-requirements).
+Pour plus d’informations, consultez [Exigences des licences](entitlement-management-overview.md#license-requirements).
 
 
 ## <a name="open-the-access-review"></a>Ouvrir la révision d’accès
@@ -47,7 +47,7 @@ Utilisez la procédure suivante pour rechercher et ouvrir la révision d’accè
 
 1. Cliquez sur le lien **Réviser l’accès utilisateur** pour ouvrir la révision d’accès. 
 
-1. Si vous n’avez pas reçu l’e-mail, vous trouverez les révisions d’accès en attente en accédant directement à https://myaccess.microsoft.com.
+1. Si vous n’avez pas reçu l’e-mail, vous trouverez les révisions d’accès en attente en accédant directement à https://myaccess.microsoft.com.  (Pour le gouvernement des États-Unis, utilisez `https://myaccess.microsoft.us` à la place.)
 
 1. Cliquez sur **Révisions d’accès** dans la barre de navigation de gauche pour afficher la liste des révisions d’accès en attente qui vous sont affectées.
     
@@ -103,4 +103,4 @@ Pour réviser plus rapidement l’accès de plusieurs utilisateurs, vous pouvez 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Auto-révision des packages d’accès](entitlement-management-access-reviews-self-review.md)
+- [Auto-évaluation des packages d’accès](entitlement-management-access-reviews-self-review.md)

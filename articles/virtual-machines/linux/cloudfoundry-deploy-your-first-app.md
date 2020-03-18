@@ -1,26 +1,18 @@
 ---
 title: Déployer votre première application dans Cloud Foundry sur Microsoft Azure
 description: Déployer une application dans Cloud Foundry sur Azure
-services: virtual-machines-linux
-documentationcenter: ''
 author: seanmck
-manager: gwallace
-editor: ''
-tags: ''
-keywords: ''
-ms.assetid: 8fa04a58-56ad-4e6c-bef4-d02c80d4b60f
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
 ms.date: 06/14/2017
 ms.author: seanmck
-ms.openlocfilehash: b1f9ab5289a41aacb5514e954f1ca01f6ad66152
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 45ae8979a2617d4f380e417e3f0910182ebe145e
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036829"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970070"
 ---
 # <a name="deploy-your-first-app-to-cloud-foundry-on-microsoft-azure"></a>Déployer votre première application dans Cloud Foundry sur Microsoft Azure
 
@@ -39,7 +31,7 @@ Il existe plusieurs façons de créer un environnement Cloud Foundry sur Azure 
 
 ## <a name="connect-to-the-cloud-controller"></a>Connexion au Cloud Controller
 
-Le Cloud Controller est le point d’entrée principal vers un environnement Cloud Foundry pour déployer et gérer des applications. L’API principale du Cloud Controller (CCAPI) est une API REST, mais elle est accessible par le biais de différents outils. Dans le cas présent, nous interagissons avec cette API via [l’interface CLI Cloud Foundry][cf-cli]. Vous pouvez installer l’interface CLI sur Linux, MacOS ou Windows, mais si vous préférez ne pas l’installer, elle est disponible en version pré-installée dans [Azure Cloud Shell][cloudshell-docs].
+Le Cloud Controller est le point d’entrée principal vers un environnement Cloud Foundry pour déployer et gérer des applications. L’API principale du Cloud Controller (CCAPI) est une API REST, mais elle est accessible par le biais de différents outils. Dans le cas présent, nous interagissons avec cette API via [l’interface CLI Cloud Foundry][cf-cli]. Vous pouvez installer l’interface CLI sur Linux, macOS ou Windows, mais, si vous préférez ne pas l’installer, elle est disponible en version préinstallée dans [Azure Cloud Shell][cloudshell-docs].
 
 Pour vous connecter, ajoutez le préfixe `api` à l’URL SYSTEMDOMAINURL que vous avez obtenue à partir du déploiement de la Place de marché. Étant donné que le déploiement par défaut utilise un certificat auto-signé, vous devez également inclure le commutateur `skip-ssl-validation`.
 
@@ -87,7 +79,7 @@ git clone https://github.com/cloudfoundry-samples/hello-spring-cloud
 cd hello-spring-cloud
 ```
 
-### <a name="build-the-application"></a>Création de l'application
+### <a name="build-the-application"></a>Créer l’application
 
 Générez l’application à l’aide [d’Apache Maven](https://maven.apache.org).
 
@@ -132,7 +124,7 @@ cf logs --recent hello-spring-cloud
 
 ## <a name="scale-the-application"></a>Mise à l’échelle de l’application
 
-Par défaut, la commande `cf push` crée une seule instance de votre application. Pour garantir une haute disponibilité et permettre l’augmentation de la taille des instances en vue d’accroître le débit, il est courant d’exécuter plusieurs instances de vos applications. Vous pouvez facilement augmenter la taille des instances des applications déjà déployées à l’aide de la commande `scale` :
+Par défaut, la commande `cf push` crée une seule instance de votre application. Pour garantir une haute disponibilité et permettre le scale-out en vue d’accroître le débit, il est courant d’exécuter plusieurs instances de vos applications. Vous pouvez facilement effectuer un scale-out des applications déjà déployées à l’aide de la commande `scale` :
 
 ```bash
 cf scale -i 2 hello-spring-cloud

@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 10/03/2018
 ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
-ms.openlocfilehash: 7b009a6e2f540dc076340a6803679a541e60adc7
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 63ace9af31dd284c61fae188744b24361f33c170
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77163766"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377916"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Procédure : Effectuer une migration à partir d’Azure Access Control Service
 
@@ -68,13 +68,13 @@ Exécutez la procédure ci-après pour connaître celles de vos applications qui
 ### <a name="download-and-install-acs-powershell"></a>Télécharger et installer ACS PowerShell
 
 1. Accédez à PowerShell Gallery et téléchargez [Acs.Namespaces](https://www.powershellgallery.com/packages/Acs.Namespaces/1.0.2).
-1. Installez le module en exécutant la commande suivante :
+2. Installez le module en exécutant la commande suivante :
 
     ```powershell
     Install-Module -Name Acs.Namespaces
     ```
 
-1. Obtenez la liste de toutes les commandes possibles en exécutant la commande suivante :
+3. Obtenez la liste de toutes les commandes possibles en exécutant la commande suivante :
 
     ```powershell
     Get-Command -Module Acs.Namespaces
@@ -94,8 +94,8 @@ Exécutez la procédure ci-après pour connaître celles de vos applications qui
   
     L’exécution de commandes peut nécessiter que vous exécutiez `Set-ExecutionPolicy -ExecutionPolicy Bypass` au préalable et que vous soyez l’administrateur de ces abonnements.
 
-1. Obtenez la liste de vos abonnements Azure disponibles à l’aide de l’applet de commande **Get-AcsSubscription**.
-1. Obtenez la liste de vos espaces de noms ACS en utilisant l’applet de commande **Get-AcsNamespace**.
+2. Obtenez la liste de vos abonnements Azure disponibles à l’aide de l’applet de commande **Get-AcsSubscription**.
+3. Obtenez la liste de vos espaces de noms ACS en utilisant l’applet de commande **Get-AcsNamespace**.
 
 ### <a name="check-which-applications-will-be-impacted"></a>Vérifier les applications qui vont être affectées
 
@@ -103,8 +103,8 @@ Exécutez la procédure ci-après pour connaître celles de vos applications qui
 
     Par exemple, si l’un des espaces de noms est contoso-test, accédez à l’adresse `https://contoso-test.accesscontrol.windows.net`.
 
-1. Sous **Relations d’approbation**, sélectionnez **Applications par partie de confiance** pour afficher la liste des applications qui vont être affectées par la mise hors service d’ACS.
-1. Répétez les étapes 1 et 2 pour tous les autres espaces de noms ACS dont vous disposez.
+2. Sous **Relations d’approbation**, sélectionnez **Applications par partie de confiance** pour afficher la liste des applications qui vont être affectées par la mise hors service d’ACS.
+3. Répétez les étapes 1 et 2 pour tous les autres espaces de noms ACS dont vous disposez.
 
 ## <a name="retirement-schedule"></a>Planification de la mise hors service
 
@@ -210,7 +210,7 @@ De manière générale, *Azure Active Directory est probablement le meilleur cho
 | Chargement de certificats de signature de jeton personnalisés | Prise en charge | Prise en charge |
 | Personnalisation des revendications dans les jetons |- Transfert direct des revendications d’entrée émis par des fournisseurs d’identité<br />- Obtention de jeton d’accès auprès du fournisseur d’identité en tant que revendication<br />- Émission de revendications de sortie basées sur les valeurs des revendications d’entrée<br />- Émission de revendications de sortie avec des valeurs constantes |- Impossibilité de transférer directement des revendications émises par des fournisseurs d’identité fédérés<br />- Impossibilité d’obtenir un jeton d’accès auprès du fournisseur d’identité sous la forme d’une revendication<br />- Impossibilité d’émettre des revendications de sortie basées sur les valeurs des revendications d’entrée<br />- Possibilité d’émettre des revendications de sortie avec des valeurs constantes<br />- Possibilité d’émettre des revendications de sortie basées sur des propriétés d’utilisateurs synchronisées avec Azure Active Directory |
 | **Automation** | | |
-| Automatisation des tâches de gestion et de configuration | Prise en charge par le service de gestion Access Control Service | Prise en charge par le biais de l’API Graph d’Azure Active Directory et Microsoft Graph |
+| Automatisation des tâches de gestion et de configuration | Prise en charge par le service de gestion Access Control Service | Pris en charge à l’aide de l’API Microsoft Graph |
 
 Si vous décidez qu’Azure Active Directory est la meilleure voie de migration pour vos applications et services, sachez qu’il existe deux manières d’intégrer votre application dans Azure Active Directory.
 
@@ -261,7 +261,7 @@ Le tableau suivant compare les fonctionnalités d’Access Control Service qui s
 | Chargement de certificats de signature de jeton personnalisés | Prise en charge | Clés de signature (et non certificats) personnalisées prises en charge par le biais de stratégies personnalisées |
 | Personnalisation des revendications dans les jetons |- Transfert direct des revendications d’entrée émis par des fournisseurs d’identité<br />- Obtention de jeton d’accès auprès du fournisseur d’identité en tant que revendication<br />- Émission de revendications de sortie basées sur les valeurs des revendications d’entrée<br />- Émission de revendications de sortie avec des valeurs constantes |- Possibilité de transmettre des revendications à partir des fournisseurs d’identité ; stratégies personnalisées requises pour certaines revendications<br />- Impossibilité d’obtenir un jeton d’accès auprès du fournisseur d’identité sous la forme d’une revendication<br />- Possibilité d’émettre des revendications de sortie basées sur les valeurs des revendications d’entrée par le biais de stratégies personnalisées<br />- Possibilité d’émettre des revendications avec des valeurs constantes par le biais de stratégies personnalisées |
 | **Automation** | | |
-| Automatisation des tâches de gestion et de configuration | Prise en charge par le service de gestion Access Control Service |- Création d’utilisateurs possible avec l’API Graph d’Azure Active Directory<br />- Impossibilité de créer des abonnés, des applications ou des stratégies B2C par programmation |
+| Automatisation des tâches de gestion et de configuration | Prise en charge par le service de gestion Access Control Service |- Création d’utilisateurs autorisés à l’aide de l’API Microsoft Graph<br />- Impossibilité de créer des abonnés, des applications ou des stratégies B2C par programmation |
 
 Si vous décidez qu’Azure Active Directory B2C représente la meilleure solution de migration pour vos applications et services, vous devez commencer par les ressources suivantes :
 
@@ -325,7 +325,7 @@ Mais vous pouvez aussi l’utiliser pour l’authentification de serveur à serv
 | Méthodes d’authentification du client |- Mot de passe simple<br />- Jeton SWT signé<br />- Jeton SAML émis par un fournisseur d’identité fédéré |- Mot de passe simple<br />- Jeton JWT signé |
 | Formats de jetons |- JWT<br />- SAML 1.1<br />- SAML 2.0<br />- SWT<br /> | JWT uniquement |
 | Transformation de jeton |- Ajout de revendications personnalisées<br />- Logique if-then simple d’émission de revendications | Ajouter des revendications personnalisées | 
-| Automatisation des tâches de gestion et de configuration | Prise en charge par le service de gestion Access Control Service | Prise en charge par le biais de l’API Graph d’Azure Active Directory et Microsoft Graph |
+| Automatisation des tâches de gestion et de configuration | Prise en charge par le service de gestion Access Control Service | Pris en charge à l’aide de l’API Microsoft Graph |
 
 Pour obtenir des conseils sur l’implémentation des scénarios de serveur à serveur, consultez les ressources suivantes :
 

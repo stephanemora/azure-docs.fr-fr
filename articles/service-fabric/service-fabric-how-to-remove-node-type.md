@@ -6,12 +6,12 @@ manager: sridmad
 ms.topic: conceptual
 ms.date: 02/21/2020
 ms.author: chrpap
-ms.openlocfilehash: d8ee2327f65332d32038806f2d2416cac190875b
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 330b455a61c45ccdb59e5aef8162fd1b04859a00
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77661974"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969401"
 ---
 # <a name="how-to-remove-a-service-fabric-node-type"></a>Supprimer un type de nœud Service Fabric
 Cet article décrit comment mettre à l’échelle un cluster Azure Service Fabric en supprimant un type de nœud existant d’un cluster. Un cluster Service Fabric est un groupe de machines virtuelles ou physiques connectées au réseau, sur lequel vos microservices sont déployés et gérés. Une machine ou une machine virtuelle faisant partie d’un cluster est appelée un nœud. Les groupes de machines virtuelles identiques constituent une ressource de calcul Azure que vous utilisez pour déployer et gérer une collection de machines virtuelles en tant que groupe. Chaque type de nœud défini dans un cluster Azure est [ configuré comme un groupe identique distinct](service-fabric-cluster-nodetypes.md). Chaque type de nœud peut alors faire l’objet d’une gestion séparée. Après avoir créé un cluster Service Fabric, vous pouvez faire évoluer un cluster horizontalement en supprimant un type de nœud (groupe de machines virtuelles identiques) et tous ses nœuds.  Une mise à l’échelle peut s’effectuer à tout moment, même lorsque des charges de travail sont en cours d’exécution sur le cluster.  Lorsque vous mettez vos nœuds à l’échelle, vos applications sont automatiquement mises à l’échelle.
@@ -31,7 +31,7 @@ Service Fabric « gère » les modifications et les mises à jour sous-jacente
 
 Lorsque vous supprimez un type de nœud de niveau Bronze, tous les nœuds dans le type de nœud s’arrêtent immédiatement. Service Fabric ne recouvre pas les mises à jour du groupe de machines virtuelles identiques de nœuds Bronze, par conséquent, toutes les machines virtuelles s’arrêtent immédiatement. Si vous aviez quoi que ce soit avec état sur ces nœuds, les données sont perdues. Cependant, même si vous étiez sans état, tous les nœuds dans Service Fabric participent à l’anneau, un voisinage entier peut donc être perdu, ce qui peut déstabiliser le cluster lui-même.
 
-## <a name="remove-a-non-primary-node-type"></a>Supprimer un type de nœud non principal
+## <a name="remove-a-node-type"></a>Supprimer un type de nœud
 
 1. Les conditions préalables suivantes doivent être réunies avant d'entamer le processus.
 
@@ -122,7 +122,7 @@ Lorsque vous supprimez un type de nœud de niveau Bronze, tous les nœuds dans l
     - Localisez le modèle Azure Resource Manager utilisé pour le déploiement.
     - Recherchez la section relative au type de nœud dans la section Service Fabric.
     - Supprimez la section correspondant au type de nœud.
-    - Pour les clusters Silver et de durabilité supérieure, mettez à jour la ressource de cluster dans le modèle et configurez les stratégies d'intégrité de manière à ignorer l'intégrité de l'application fabric:/System en ajoutant `applicationDeltaHealthPolicies` comme indiqué ci-dessous. La stratégie ci-dessous doit ignorer les erreurs existantes, mais ne pas autoriser de nouvelles erreurs d'intégrité. 
+    - Pour les clusters Silver et de durabilité supérieure uniquement, mettez à jour la ressource de cluster dans le modèle et configurez les stratégies d’intégrité de manière à ignorer l’intégrité de l’application fabric:/System en ajoutant `applicationDeltaHealthPolicies` sous la ressource de cluster `properties` comme indiqué ci-dessous. La stratégie ci-dessous doit ignorer les erreurs existantes, mais ne pas autoriser de nouvelles erreurs d'intégrité. 
  
  
      ```json
@@ -158,7 +158,7 @@ Lorsque vous supprimez un type de nœud de niveau Bronze, tous les nœuds dans l
     },
     ```
 
-    Déployez le modèle Azure Resource Manager modifié. ** Cette étape prendra un certain temps, mais généralement pas plus de deux heures. Cette mise à niveau modifiera les paramètres d'InfrastructureService. Un redémarrage du nœud est donc nécessaire. Dans ce cas, `forceRestart` est ignoré. 
+    - Déployez le modèle Azure Resource Manager modifié. ** Cette étape prendra un certain temps, mais généralement pas plus de deux heures. Cette mise à niveau modifiera les paramètres d'InfrastructureService. Un redémarrage du nœud est donc nécessaire. Dans ce cas, `forceRestart` est ignoré. 
     Le paramètre `upgradeReplicaSetCheckTimeout` spécifie la durée maximale pendant laquelle Service Fabric doit attendre qu'une partition soit sécurisée, si ce n'est pas encore le cas. Une fois les contrôles de sécurité réussis pour toutes les partitions d'un nœud, Service Fabric procède à la mise à niveau sur ce nœud.
     La valeur du paramètre `upgradeTimeout` peut être réduite à 6 heures, mais pour une sécurité maximale, il convient d'utiliser 12 heures.
 

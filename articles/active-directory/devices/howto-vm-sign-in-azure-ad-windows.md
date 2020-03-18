@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70fe718884796ac127be38c375003dd728089be8
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: ffb0f7cdb320d009eb1549efabac60d7710b9b0e
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77016032"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79080091"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Se connecter à une machine virtuelle Windows dans Azure via l’authentification Azure Active Directory (préversion)
 
@@ -103,10 +103,10 @@ Sélectionnez Essayer dans le coin supérieur droit d’un bloc de code.
 Ouvrez Cloud Shell dans votre navigateur.
 Sélectionnez le bouton Cloud Shell dans le menu en haut à droite du [Portail Azure](https://portal.azure.com).
 
-Si vous choisissez d’installer et d’utiliser l’interface CLI localement, cet article vous demande d’exécuter Azure CLI version 2.0.31 ou ultérieure. Pour déterminer la version, exécutez la commande az--version. Si vous devez l’installer ou la mettre à niveau, consultez l’article [Installer Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Si vous choisissez d’installer et d’utiliser l’interface CLI localement, cet article vous demande d’exécuter Azure CLI version 2.0.31 ou ultérieure. Pour déterminer la version, exécutez la commande az--version. Si vous devez l’installer ou la mettre à niveau, consultez l’article [Installer Azure CLI](/cli/azure/install-azure-cli).
 
-1. Créez un groupe de ressources avec la commande [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create). 
-1. Créez une machine virtuelle avec [az vm create](https://docs.microsoft.com/cli/azure/vm#az-vm-create) à l’aide d’une distribution prise en charge dans une région prise en charge. 
+1. Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#az-group-create). 
+1. Créez une machine virtuelle avec [az vm create](/cli/azure/vm#az-vm-create) à l’aide d’une distribution prise en charge dans une région prise en charge. 
 1. Installez l’extension de machine virtuelle de connexion Azure AD. 
 
 L’exemple suivant illustre le déploiement d’une machine virtuelle nommée myVM qui utilise Win2019Datacenter dans un groupe de ressources nommé myResourceGroup dans la région southcentralus. Dans les exemples suivants, vous pouvez indiquer votre propre groupe de ressources et les noms de vos machines virtuelles comme il vous convient.
@@ -128,7 +128,7 @@ az vm create \
 
 La création de la machine virtuelle et des ressources de support ne nécessite que quelques minutes.
 
-Enfin, installez l’extension de machine virtuelle de connexion Azure AD pour activer la connexion Azure AD pour la machine virtuelle Windows. Les extensions de machine virtuelle sont de petites applications permettant d’exécuter des tâches de configuration et d’automatisation post-déploiement sur des machines virtuelles Azure. Utilisez l’ensemble [az vm extension](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) pour installer l’extension AADLoginForWindows sur la machine virtuelle nommée myVM dans le groupe de ressources myResourceGroup :
+Enfin, installez l’extension de machine virtuelle de connexion Azure AD pour activer la connexion Azure AD pour la machine virtuelle Windows. Les extensions de machine virtuelle sont de petites applications permettant d’exécuter des tâches de configuration et d’automatisation post-déploiement sur des machines virtuelles Azure. Utilisez l’ensemble [az vm extension](/cli/azure/vm/extension#az-vm-extension-set) pour installer l’extension AADLoginForWindows sur la machine virtuelle nommée myVM dans le groupe de ressources myResourceGroup :
 
 > [!NOTE]
 > Vous pouvez installer l’extension AADLoginForWindows sur une machine virtuelle existante Windows Server 2019 ou Windows 10 1809 et versions ultérieures existante l’activer pour l’authentification Azure AD. Vous trouverez ci-dessous un exemple d’interface CLI AZ.
@@ -175,9 +175,9 @@ Après quelques instants, le principal de sécurité est attribué au rôle dans
 
 ### <a name="using-the-azure-cloud-shell-experience"></a>À l’aide de l’expérience Azure Cloud Shell
 
-L’exemple suivant illustre l’utilisation de la commande [az role assignment create](https://docs.microsoft.com/cli/azure/role/assignment#az-role-assignment-create) pour attribuer le rôle Connexion de l’administrateur aux machines virtuelles à la machine virtuelle de votre utilisateur Azure actuel. Le nom d’utilisateur de votre compte Azure actif est obtenu à l’aide de la commande [az account show](https://docs.microsoft.com/cli/azure/account#az-account-show), et l’étendue est définie sur la machine virtuelle créée lors d’une étape précédente avec [az vm show](https://docs.microsoft.com/cli/azure/vm#az-vm-show). L’étendue peut également être attribuée au niveau d’un groupe de ressources ou d’un abonnement, et les autorisations d’héritage RBAC normales s’appliquent. Pour plus d’informations, consultez [Contrôle d’accès en fonction du rôle](../../virtual-machines/linux/login-using-aad.md).
+L’exemple suivant illustre l’utilisation de la commande [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) pour attribuer le rôle Connexion de l’administrateur aux machines virtuelles à la machine virtuelle de votre utilisateur Azure actuel. Le nom d’utilisateur de votre compte Azure actif est obtenu à l’aide de la commande [az account show](/cli/azure/account#az-account-show), et l’étendue est définie sur la machine virtuelle créée lors d’une étape précédente avec [az vm show](/cli/azure/vm#az-vm-show). L’étendue peut également être attribuée au niveau d’un groupe de ressources ou d’un abonnement, et les autorisations d’héritage RBAC normales s’appliquent. Pour plus d’informations, consultez [Contrôle d’accès en fonction du rôle](../../virtual-machines/linux/login-using-aad.md).
 
-```AzureCLI
+```   zureCLI
 username=$(az account show --query user.name --output tsv)
 vm=$(az vm show --resource-group myResourceGroup --name myVM --query id -o tsv)
 
@@ -188,13 +188,13 @@ az role assignment create \
 ```
 
 > [!NOTE]
-> Si votre domaine AAD et le domaine du nom d’utilisateur d’ouverture de session ne correspondent pas, vous devez spécifier l’ID d’objet de votre compte d’utilisateur avec `--assignee-object-id`, pas seulement le nom d’utilisateur pour `--assignee`. Vous pouvez obtenir l’ID d’objet de votre compte d’utilisateur avec [az ad user list](https://docs.microsoft.com/cli/azure/ad/user#az-ad-user-list).
+> Si votre domaine AAD et le domaine du nom d’utilisateur d’ouverture de session ne correspondent pas, vous devez spécifier l’ID d’objet de votre compte d’utilisateur avec `--assignee-object-id`, pas seulement le nom d’utilisateur pour `--assignee`. Vous pouvez obtenir l’ID d’objet de votre compte d’utilisateur avec [az ad user list](/cli/azure/ad/user#az-ad-user-list).
 
 Pour plus d’informations sur l’utilisation du contrôle d’accès en fonction du rôle (RBAC) pour gérer l’accès aux ressources de votre abonnement Azure, consultez les articles suivants :
 
-- [Gérer l’accès aux ressources Azure à l’aide du contrôle RBAC et d’Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)
-- [Gérer l’accès aux ressources Azure à l’aide du contrôle RBAC et du portail Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
-- [Gérer l’accès aux ressources Azure à l’aide du contrôle RBAC et d’Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell)
+- [Gérer l’accès aux ressources Azure à l’aide du contrôle RBAC et d’Azure CLI](/azure/role-based-access-control/role-assignments-cli)
+- [Gérer l’accès aux ressources Azure à l’aide du contrôle RBAC et du portail Azure](/azure/role-based-access-control/role-assignments-portal)
+- [Gérer l’accès aux ressources Azure à l’aide du contrôle RBAC et d’Azure PowerShell](/azure/role-based-access-control/role-assignments-powershell)
 
 ## <a name="using-conditional-access"></a>Utilisation d’un accès conditionnel
 
@@ -233,8 +233,7 @@ L’extension AADLoginForWindows doit être installée correctement pour que la 
    C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.ActiveDirectory.AADLoginForWindows\0.3.1.0. 
 
    > [!NOTE]
-   > Si l’extension redémarre après l’échec initial, le journal contenant l’erreur de déploiement est enregistré sous CommandExecution_YYYYMMDDHHMMSSSSS.log. 
-
+   > Si l’extension redémarre après l’échec initial, le journal contenant l’erreur de déploiement est enregistré sous CommandExecution_YYYYMMDDHHMMSSSSS.log. "
 1. Ouvrez une invite de commandes sur la machine virtuelle et vérifiez que ces requêtes par rapport au point de terminaison Instance Metadata Service (IMDS) en cours d’exécution sur l’hôte Azure sont renvoyées :
 
    | Commande à exécuter | Sortie attendue |
@@ -338,7 +337,7 @@ Si le message d’erreur suivant s’affiche lorsque vous établissez une connex
 
 ![Vos informations d’identification n’ont pas fonctionné](./media/howto-vm-sign-in-azure-ad-windows/your-credentials-did-not-work.png)
 
-Vérifiez que le PC Windows 10 que vous utilisez pour établir la connexion Bureau à distance est un ordinateur qui est soit joint à Azure AD, soit hybride joint à Azure AD au même répertoire Azure AD auquel votre machine virtuelle est jointe. Pour plus d’informations sur l’identité d’appareil, consultez l’article [Présentation de l’identité d’appareil](https://docs.microsoft.com/azure/active-directory/devices/overview).
+Vérifiez que le PC Windows 10 que vous utilisez pour établir la connexion Bureau à distance est un ordinateur qui est soit joint à Azure AD, soit hybride joint à Azure AD au même répertoire Azure AD auquel votre machine virtuelle est jointe. Pour plus d’informations sur l’identité d’appareil, consultez l’article [Présentation de l’identité d’appareil](/azure/active-directory/devices/overview).
 
 > [!NOTE]
 > Windows 10 20H1 ajoutera la prise en charge de PC inscrit à Azure AD pour établir une connexion Bureau à distance à votre machine virtuelle. Participez au programme Windows Insider pour l’essayer et découvrir les nouvelles fonctionnalités de Windows 10.
@@ -355,7 +354,7 @@ Si le message d’erreur suivant s’affiche lorsque vous établissez une connex
 
 Si vous avez configuré une stratégie d’accès conditionnel qui requiert un authentification multifacteur (MFA) pour vous permettre d’accéder à la ressource, vous devez vous assurer que le PC Windows 10 qui établit la connexion Bureau à distance à votre machine virtuelle se connecte à l’aide d’une méthode d’authentification forte, telle que Windows Hello. Si vous n’utilisez pas une méthode d’authentification forte pour votre connexion Bureau à distance, l’erreur précédente s’affiche.
 
-Si vous n’avez pas déployé Windows Hello Entreprise et si ce n’est pas possible pour l’instant, vous pouvez exclure l’exigence d’authentification multifacteur en configurant la stratégie d’accès conditionnel qui exclut l’application « Connexion à une machine virtuelle Microsoft Azure » de la liste des applications cloud qui exigent une authentification MFA. Pour en savoir plus sur Windows Hello Entreprise, consultez [vue d’ensemble de Windows Hello Entreprise](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification).
+Si vous n’avez pas déployé Windows Hello Entreprise et si ce n’est pas possible pour l’instant, vous pouvez exclure l’exigence d’authentification multifacteur en configurant la stratégie d’accès conditionnel qui exclut l’application « Connexion à une machine virtuelle Microsoft Azure » de la liste des applications cloud qui exigent une authentification MFA. Pour en savoir plus sur Windows Hello Entreprise, consultez [vue d’ensemble de Windows Hello Entreprise](/windows/security/identity-protection/hello-for-business/hello-identity-verification).
 
 > [!NOTE]
 > L’authentification par code confidentiel Windows Hello Entreprise avec le Bureau à distance a été prise en charge par Windows 10 pour plusieurs versions, mais la prise en charge de l’authentification biométrique avec le Bureau à distance a été ajoutée dans Windows 10 version 1809. L’authentification Windows Hello Entreprise lors de l’utilisation du Bureau à distance n’est disponible que pour les déploiements qui utilisent le modèle approuvé de certificat et qui ne sont actuellement pas disponibles pour le modèle approuvé de clé.
@@ -365,4 +364,5 @@ Si vous n’avez pas déployé Windows Hello Entreprise et si ce n’est pas pos
 Partagez vos commentaires sur cette fonctionnalité d’évaluation ou signalez des problèmes lors de son utilisation sur le [forum de commentaires d’Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur Azure Active Directory, consultez [Qu’est-ce qu’Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)
+
+Pour plus d’informations sur Azure Active Directory, consultez [Qu’est-ce qu’Azure Active Directory ?](/azure/active-directory/fundamentals/active-directory-whatis)

@@ -7,12 +7,13 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: helohr
-ms.openlocfilehash: f38fc45411c89351eb9a50a48f22d22905ee34e6
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+manager: lizross
+ms.openlocfilehash: 2078869aef5964b30723d8b6854c4b15f0423205
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367248"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127536"
 ---
 # <a name="scale-session-hosts-using-azure-automation"></a>Procéder à la mise à l'échelle des hôtes de session à l'aide d'Azure Automation
 
@@ -27,8 +28,8 @@ L'outil de mise à l'échelle fournit une option d'automatisation à faible coû
 Vous pouvez utiliser l'outil de mise à l'échelle pour :
  
 - Planifier le démarrage et l'arrêt des machines virtuelles en fonction des heures de pointe et des heures creuses
-- Monter les machines virtuelles en charge en fonction du nombre de sessions par cœur de processeur
-- Diminuer la taille des instances de machines virtuelles pendant les heures creuses, en continuant à exécuter le nombre minimum de machines virtuelles hôtes de session
+- Effectuez un scale-out des machines virtuelles en fonction du nombre de sessions par cœur de processeur.
+- Effectuez un scale-in des machines virtuelles pendant les heures creuses, en continuant à exécuter le nombre minimum de machines virtuelles hôtes de session
 
 L'outil de mise à l'échelle fonctionne à l'aide de runbooks PowerShell Azure Automation, de webhooks et d'Azure Logic Apps. Lorsque l'outil s'exécute, Azure Logic Apps appelle un webhook pour lancer le runbook Azure Automation. Le runbook crée ensuite un travail.
 
@@ -37,7 +38,7 @@ Aux heures de pointe, le travail vérifie le nombre de sessions actives et la ca
 >[!NOTE]
 >*SessionThresholdPerCPU* ne limite pas le nombre de sessions sur la machine virtuelle. Ce paramètre détermine uniquement quand de nouvelles machines virtuelles doivent être démarrées pour équilibrer la charge des connexions. Pour limiter le nombre de sessions, vous devez suivre les instructions [Set-RdsHostPool](/powershell/module/windowsvirtualdesktop/set-rdshostpool/) et configurer le paramètre *MaxSessionLimit* en conséquence.
 
-Aux heures creuses, le travail détermine quelles machines virtuelles hôtes de session doivent être arrêtées, conformément au paramètre *MinimumNumberOfRDSH*. Le travail configure les machines virtuelles hôtes de session sur le mode de drainage pour empêcher les nouvelles sessions de se connecter aux hôtes. Si vous définissez le paramètre *LimitSecondsToForceLogOffUser* sur une valeur positive différente de zéro, le script envoie une notification aux utilisateurs actuellement connectés pour leur demander d'enregistrer leur travail, attend le laps de temps configuré, puis force les utilisateurs à se déconnecter. Une fois que toutes les sessions utilisateur ont été déconnectées sur la machine virtuelle hôte de session, le script arrête la machine virtuelle.
+Aux heures creuses, le travail détermine quelles machines virtuelles hôtes de session doivent être arrêtées, conformément au paramètre *MinimumNumberOfRDSH*. Le travail configure les machines virtuelles hôtes de session sur le mode de drainage pour empêcher les nouvelles sessions de se connecter aux hôtes. Si vous définissez le paramètre *LimitSecondsToForceLogOffUser* sur une valeur positive différente de zéro, le travail envoie une notification aux utilisateurs actuellement connectés pour leur demander d’enregistrer leur travail, attend le laps de temps configuré, puis force les utilisateurs à se déconnecter. Une fois que toutes les sessions utilisateur ont été déconnectées sur la machine virtuelle hôte de session, le travail arrête la machine virtuelle.
 
 Si vous définissez le paramètre *LimitSecondsToForceLogOffUser* sur zéro, le travail autorise le paramètre de configuration de session des stratégies de groupe spécifiées à gérer la déconnexion des sessions utilisateur. Pour afficher ces stratégies de groupe, accédez à **Configuration ordinateur** > **Stratégies** > **Modèles d'administration** > **Composants Windows** > **Services du terminal** > **Terminal Server** > **Délais d'expiration des sessions**. S'il reste des sessions en cours sur une machine virtuelle hôte de session, le travail laisse la machine virtuelle hôte de session s'exécuter. S'il ne reste aucune session en cours, le travail arrête la machine virtuelle hôte de session.
 
@@ -83,7 +84,9 @@ Tout d'abord, vous devez disposer d'un compte Azure Automation pour exécuter le
 3. Exécutez la cmdlet suivante pour télécharger le script de création du compte Azure Automation :
 
      ```powershell
-     Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Azure/RDS-Templates/master/wvd-templates/wvd-scaling-script/createazureautomationaccount.ps1" -OutFile "your local machine path\ createazureautomationaccount.ps1"
+     Set-Location -Path "c:\temp"
+     $uri = "https://raw.githubusercontent.com/Azure/RDS-Templates/master/wvd-templates/wvd-scaling-script/createazureautomationaccount.ps1"
+     Invoke-WebRequest -Uri $uri -OutFile ".\createazureautomationaccount.ps1"
      ```
 
 4. Exécutez la cmdlet suivante pour exécuter le script et créer le compte Azure Automation :
@@ -175,9 +178,9 @@ Enfin, vous devrez créer l'application logique Azure et configurer un calendrie
 
      $tenantName = Read-Host -Prompt "Enter the name of your WVD tenant"
 
-     $hostPoolName = Read-Host -Prompt "Enter the name of the host pool you’d like to scale"
+     $hostPoolName = Read-Host -Prompt "Enter the name of the host pool you'd like to scale"
 
-     $recurrenceInterval = Read-Host -Prompt "Enter how often you’d like the job to run in minutes, e.g. ‘15’"
+     $recurrenceInterval = Read-Host -Prompt "Enter how often you'd like the job to run in minutes, e.g. '15'"
 
      $beginPeakTime = Read-Host -Prompt "Enter the start time for peak hours in local time, e.g. 9:00"
 
@@ -203,7 +206,7 @@ Enfin, vous devrez créer l'application logique Azure et configurer un calendrie
 
      $automationAccountName = Read-Host -Prompt "Enter the name of the Azure Automation Account"
 
-     $maintenanceTagName = Read-Host -Prompt "Enter the name of the Tag associated with VMs you don’t want to be managed by this scaling tool"
+     $maintenanceTagName = Read-Host -Prompt "Enter the name of the Tag associated with VMs you don't want to be managed by this scaling tool"
 
      .\createazurelogicapp.ps1 -ResourceGroupName $resourceGroupName `
        -AADTenantID $aadTenantId `

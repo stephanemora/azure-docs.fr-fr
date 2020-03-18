@@ -1,7 +1,7 @@
 ---
-title: Sécuriser des services web à l’aide du protocole SSL
+title: Sécuriser des services web à l’aide du protocole TLS
 titleSuffix: Azure Machine Learning
-description: Découvrez comment activer HTTPS afin de sécuriser un service web déployé par le biais d’Azure Machine Learning.
+description: Découvrez comment activer HTTPS afin de sécuriser un service web déployé par le biais d’Azure Machine Learning. Azure Machine Learning utilise la version 1.2 de TLS pour sécuriser les modèles déployés en tant que services web.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
-ms.date: 08/12/2019
+ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 34c6071a127d0fc0c967991582f629c6ae713783
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 1f4b699476902fa24fa285754f13b1c61ddca8f0
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905208"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78355532"
 ---
-# <a name="use-ssl-to-secure-a-web-service-through-azure-machine-learning"></a>Utiliser SSL pour sécuriser un service web par le biais d'Azure Machine Learning
+# <a name="use-tls-to-secure-a-web-service-through-azure-machine-learning"></a>Utiliser TLS pour sécuriser un service web par le biais d’Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Cet article vous expliquer comment sécuriser un service web déployé par le biais d’Azure Machine Learning.

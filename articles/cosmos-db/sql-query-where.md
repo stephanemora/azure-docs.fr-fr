@@ -4,14 +4,14 @@ description: Découvrez la clause SQL WHERE pour Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/03/2020
+ms.date: 03/06/2020
 ms.author: tisande
-ms.openlocfilehash: 31653b598f0f3a79bf7f9c09231b1d111f167a16
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 483a0533eafc81ef8698d260a753062ae074f6d4
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982227"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898771"
 ---
 # <a name="where-clause-in-azure-cosmos-db"></a>Clause WHERE dans Azure Cosmos DB
 
@@ -35,10 +35,11 @@ WHERE <filter_condition>
   
    Expression représentant la valeur à calculer. Consultez la [Expressions scalaires](sql-query-scalar-expressions.md) pour plus d’informations.  
   
-
 ## <a name="remarks"></a>Notes
   
-  Pour que le document soit retourné, une expression spécifiée en tant que filtre de condition doit correspondre à la valeur true. Seule la valeur booléenne true satisfait la condition. Les autres valeurs : undefined, null, false, nombre, tableau ou objet ne satisfont pas la condition. 
+  Pour que le document soit retourné, une expression spécifiée en tant que filtre de condition doit correspondre à la valeur true. Seule la valeur booléenne `true` satisfait la condition. Les autres valeurs : undefined, null, false, nombre, tableau ou objet ne satisfont pas la condition.
+
+  Si vous incluez votre clé de partition dans la clause `WHERE` dans le cadre d’un filtre d’égalité, votre requête sera automatiquement filtrée sur les seules partitions pertinentes.
 
 ## <a name="examples"></a>Exemples
 

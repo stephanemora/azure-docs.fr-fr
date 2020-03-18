@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 11/04/2019
+ms.date: 03/11/2020
 ms.author: cherylmc
-ms.openlocfilehash: 5386cace7191be60534f0d2fbf4a85b592d1ecdd
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 762f62fa0901672c447da42f416e5b003e7419b2
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151621"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127299"
 ---
 # <a name="about-p2s-vpn-client-profiles"></a>À propos des profils clients VPN P2S
 
@@ -60,7 +60,7 @@ Lorsque vous ajoutez une connexion, utilisez les informations que vous avez coll
 
 ## <a name="folder-contents"></a>Contenu du dossier
 
-* Le dossier **OpenVPN** contient le profil *ovpn* qui doit être modifié pour inclure la clé et le certificat. Pour plus d’informations, consultez [Configurer des clients OpenVPN pour la passerelle VPN Azure](vpn-gateway-howto-openvpn-clients.md#windows).
+* Le dossier **OpenVPN** contient le profil *ovpn* qui doit être modifié pour inclure la clé et le certificat. Pour plus d’informations, consultez [Configurer des clients OpenVPN pour la passerelle VPN Azure](vpn-gateway-howto-openvpn-clients.md#windows). Ce dossier ne sera pas présent dans le fichier zip si l’authentification Azure AD est sélectionnée sur la passerelle VPN. À la place, le fichier azurevpnconfig.xml se trouve dans le dossier AzureVPN.
 
 * Le **dossier générique** contient le certificat de serveur public et le fichier VpnSettings.xml. Le fichier VpnSettings.xml contient les informations nécessaires à la configuration d’un client générique.
 

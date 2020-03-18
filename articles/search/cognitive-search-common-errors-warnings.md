@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f17192e738bb82fb348c660488e6296aa550bd25
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 72bf08dce36d857c1fe91bbe9806336dfa185f7e
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77913478"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671977"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Résoudre les erreurs et les avertissements courants de l’indexeur dans la Recherche cognitive Azure
 
@@ -48,7 +48,7 @@ L'indexeur n'a pas pu lire le document à partir de la source de données. Cela 
 
 | Motif | Détails/Exemple | Résolution |
 | --- | --- | --- |
-| types de champs incohérents dans différents documents | Le type de valeur ne correspond pas au type de colonne. Impossible de stocker `'{47.6,-122.1}'` dans la colonne des auteurs.  Le type attendu est JArray. | Assurez-vous que le type de chaque champ est identique dans les différents documents. Par exemple, si le champ `'startTime'` du premier document est un champ DateTime et une chaîne de caractères dans le second document, cette erreur s’affichera. |
+| Types de champs incohérents dans différents documents | « Le type de valeur ne correspond pas au type de colonne. Impossible de stocker `'{47.6,-122.1}'` dans la colonne des auteurs.  Le type attendu est JArray. »  « Erreur lors de la conversion du type de données nvarchar en float. »  « Échec de la conversion lors de la conversion de la valeur nvarchar "12 mois" en type de données int. »  « Une erreur de dépassement arithmétique s'est produite lors de la conversion de l'expression en type de données int. » | Assurez-vous que le type de chaque champ est identique dans les différents documents. Par exemple, si le champ `'startTime'` du premier document est un champ DateTime et une chaîne de caractères dans le second document, cette erreur s’affichera. |
 | erreurs provenant du service sous-jacent de la source de données | (de Cosmos DB) `{"Errors":["Request rate is large"]}` | Vérifiez l’intégrité de votre instance de stockage. Vous devrez peut-être ajuster votre mise à l'échelle/partitionnement. |
 | problèmes temporaires | Une erreur de niveau transport s’est produite lors de la réception des résultats à partir du serveur. (fournisseur : Fournisseur TCP, erreur : 0 - Une connexion existante a été fermée de force par l'hôte distant | Certains problèmes de connectivité inattendus peuvent survenir. Essayez d'exécuter ultérieurement le document dans votre indexeur. |
 

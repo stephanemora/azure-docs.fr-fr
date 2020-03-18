@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 736a543a6f28697dd4f1ddf85317e97a87b86e78
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: 7c684d6f1fbd8128ae020b6fd29da928b286aa18
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78227066"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79126686"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Activer la connexion sans mot de passe avec l'application Microsoft Authenticator (préversion)
 
@@ -62,7 +62,7 @@ Les fonctionnalités d’inscription pour les méthodes d’authentification san
 1. Dans **Microsoft Authenticator**, choisissez **Activer l’authentification** par téléphone dans le menu déroulant Compte.
 1. Suivez les instructions de l’application pour terminer de vous inscrire à l’authentification sans mot de passe. 
 
-Les organisations peuvent diriger leurs utilisateurs l'article [Se connecter à l'aide de votre téléphone et non de votre mot de passe](../user-help/microsoft-authenticator-app-phone-signin-faq.md) pour obtenir une assistance supplémentaire lors de la configuration dans l'application Microsoft Authenticator et de l'activation de l’authentification par téléphone.
+Les organisations peuvent diriger leurs utilisateurs l'article [Se connecter à l'aide de votre téléphone et non de votre mot de passe](../user-help/microsoft-authenticator-app-phone-signin-faq.md) pour obtenir une assistance supplémentaire lors de la configuration dans l'application Microsoft Authenticator et de l'activation de l’authentification par téléphone. Pour appliquer ces paramètres, vous devrez peut-être vous déconnecter du locataire et vous y reconnecter. 
 
 ## <a name="sign-in-with-passwordless-credential"></a>Se connecter avec les informations d’identification sans mot de passe
 

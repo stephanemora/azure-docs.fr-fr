@@ -1,14 +1,14 @@
 ---
 title: Comprendre le langage de requête
 description: Décrit les tables Resource Graph et les fonctions, opérateurs et types de données Kusto disponibles, utilisables avec Azure Resource Graph.
-ms.date: 12/05/2019
+ms.date: 03/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: a3503ce8d83b5bd47872db4b1de0eadb88be432c
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 2f4be4d86a340867e1ad3015ff288f98fc54cecf
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851211"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78927499"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Présentation du langage de requête Azure Resource Graph
 
@@ -28,8 +28,12 @@ Resource Graph fournit plusieurs tables contenant les données qu’il stocke, r
 |---|---|
 |Ressources |Table par défaut si aucune table n’est définie dans la requête. Elle contient la plupart des types de ressources et propriétés Resource Manager. |
 |ResourceContainers |Inclut les données et les types de ressources d’abonnement (en préversion : `Microsoft.Resources/subscriptions`) et de groupe de ressources (`Microsoft.Resources/subscriptions/resourcegroups`). |
+|AdvisorResources |Inclut les ressources _associées_ à `Microsoft.Advisor`. |
 |AlertsManagementResources |Inclut les ressources _associées_ à `Microsoft.AlertsManagement`. |
+|MaintenanceResources |Inclut les ressources _associées_ à `Microsoft.Maintenance`. |
 |SecurityResources |Inclut les ressources _associées_ à `Microsoft.Security`. |
+
+Pour obtenir une liste complète des types de ressources, consultez [Référence : Tables et types de ressources pris en charge](../reference/supported-tables-resources.md).
 
 > [!NOTE]
 > La table _Resources_  est la table par défaut. Quand vous interrogez la table _Resources_ , il n’est pas nécessaire d’indiquer le nom de la table, sauf si vous utilisez `join` ou `union`. Toutefois, la pratique recommandée consiste à toujours inclure la table initiale dans la requête.
@@ -81,7 +85,7 @@ Voici la liste des opérateurs tabulaires KQL pris en charge par Resource Graph 
 |[summarize](/azure/kusto/query/summarizeoperator) |[Compter les ressources Azure](../samples/starter.md#count-resources) |Première page simplifiée uniquement |
 |[take](/azure/kusto/query/takeoperator) |[Lister toutes les adresses IP publiques](../samples/starter.md#list-publicip) |Identique à `limit` |
 |[top](/azure/kusto/query/topoperator) |[Afficher les cinq premières machines virtuelles par nom et leur type de système d’exploitation](../samples/starter.md#show-sorted) | |
-|[union](/azure/kusto/query/unionoperator) |[Combiner les résultats de deux requêtes en un résultat unique](../samples/advanced.md#unionresults) |Table unique autorisée : _T_ `| union` \[`kind=` `inner`\|`outer`\] \[`withsource=`_NomColonne_\] _Table_. Limite de 3 sections `union` dans une requête unique. La résolution approximative des tables avec sections `union` n’est pas autorisée. Peut être utilisé dans une table unique ou entre les tables _Resources_ et _ResourceContainers_. |
+|[union](/azure/kusto/query/unionoperator) |[Combiner les résultats de deux requêtes en un résultat unique](../samples/advanced.md#unionresults) |Table unique autorisée : _T_ `| union` \[`kind=` `inner`\|`outer`\] \[`withsource=`_ColumnName_\] _Table_. Limite de 3 sections `union` dans une requête unique. La résolution approximative des tables avec sections `union` n’est pas autorisée. Peut être utilisé dans une table unique ou entre les tables _Resources_ et _ResourceContainers_. |
 |[where](/azure/kusto/query/whereoperator) |[Afficher les ressources contenant storage](../samples/starter.md#show-storage) | |
 
 ## <a name="escape-characters"></a>Caractères d'échappement

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: f496f6c06d36f817b0a933bdc68d5c53f308e3f2
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: e62f6f8df51c6acf4e2ad8e28e431d264c2c99e8
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78192623"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037244"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Utiliser le stockage Azure avec des clusters Azure HDInsight
 
@@ -25,11 +25,11 @@ Dans cet article, vous découvrez le fonctionnement du stockage Azure avec des c
 > [!IMPORTANT]  
 > Le type de compte de stockage **BlobStorage** peut uniquement être utilisé comme stockage secondaire pour les clusters HDInsight.
 
-| Type de compte de stockage | Services pris en charge | Niveaux de performances pris en charge | Niveaux d’accès pris en charge |
-|----------------------|--------------------|-----------------------------|------------------------|
-| StorageV2 (usage général v2)  | Objet blob     | standard                    | Chaud, froid, archive\*   |
-| Stockage (v1 universel)   | Objet blob     | standard                    | N/A                    |
-| BlobStorage                    | Objet blob     | standard                    | Chaud, froid, archive\*   |
+| Type de compte de stockage | Services pris en charge | Niveaux de performances pris en charge |Niveaux de performances non pris en charge| Niveaux d’accès pris en charge |
+|----------------------|--------------------|-----------------------------|---|------------------------|
+| StorageV2 (usage général v2)  | Objet blob     | standard                    |Premium| Chaud, froid, archive\*   |
+| Stockage (v1 universel)   | Objet blob     | standard                    |Premium| N/A                    |
+| BlobStorage                    | Objet blob     | standard                    |Premium| Chaud, froid, archive\*   |
 
 Nous vous déconseillons d’utiliser le conteneur d’objets blob par défaut pour stocker des données d’entreprise. Nous vous recommandons de supprimer le conteneur d’objets blob par défaut après chaque utilisation pour réduire les coûts de stockage. Le conteneur par défaut contient les journaux des applications et du système. Assurez-vous de récupérer les journaux d’activité avant de supprimer le conteneur.
 

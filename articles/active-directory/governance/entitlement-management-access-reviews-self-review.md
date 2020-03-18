@@ -16,12 +16,12 @@ ms.date: 11/01/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89a346f48856ea33ae5e27e3537f53dfa1ca3ae3
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 45da1170705bab1206a98c59e02c7616c25ce502
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73608361"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78967771"
 ---
 # <a name="self-review-of-an-access-package-in-azure-ad-entitlement-management"></a>Auto-révision d’un package d’accès dans la gestion des droits d’utilisation Azure AD
 
@@ -37,7 +37,7 @@ Pour effectuer une révision d’accès, vous devez d’abord ouvrir la révisio
 
 1. Cliquez sur le lien **Revoir l'accès**.
 
-1. Vous pouvez également accéder directement à https://myaccess.microsoft.com pour trouver vos révisions d’accès en attente si vous ne recevez pas d’e-mail.
+1. Vous pouvez également accéder directement à https://myaccess.microsoft.com pour trouver vos révisions d’accès en attente si vous ne recevez pas d’e-mail.  (Pour le gouvernement des États-Unis, utilisez `https://myaccess.microsoft.us` à la place.)
 
 1. Cliquez sur **Révisions d’accès** dans la barre de navigation de gauche pour afficher la liste des révisions d’accès en attente qui vous sont affectées.
 

@@ -1,6 +1,6 @@
 ---
-title: Supervision et journalisation dans la protection par mot de passe – Azure Active Directory
-description: Comprendre la supervision et la journalisation dans la protection par mot de passe Azure AD
+title: Surveiller la protection par mot de passe Azure AD localement
+description: Découvrez comment surveiller la protection par mot de passe Azure AD dans un environnement Active Directory Domain Services local et en consulter les journaux d’activité
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,14 +11,14 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c74ea99d3a0e39729bb4d89f012d7b790bf0568b
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: fbb533d5565009fb22d686e4082c9b4bfaae6dc1
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847709"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671655"
 ---
-# <a name="azure-ad-password-protection-monitoring-and-logging"></a>Supervision et journalisation dans la protection par mot de passe Azure AD
+# <a name="monitor-and-review-logs-for-on-premises-azure-ad-password-protection-environments"></a>Surveiller les environnements de protection par mot de passe Azure AD locaux et en consulter les journaux d’activité
 
 Après le déploiement de la protection par mot de passe Azure AD, la supervision et la génération de rapports sont des tâches essentielles. Cet article détaillé vous aide à comprendre plusieurs techniques de supervision, notamment en vous expliquant où chaque service journalise les informations et en vous montrant comment créer des rapports sur l’utilisation de la protection par mot de passe Azure AD.
 

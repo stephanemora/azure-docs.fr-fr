@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 02/20/2020
 ms.author: wieastbu
 ms.custom: fasttrack-new
-ms.openlocfilehash: daf38baf9daff5fd192091be977a996c9bd5cfc2
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.openlocfilehash: fde48d63bd343fbed1f82e60819131ffb043a795
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77539846"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78967628"
 ---
 # <a name="protect-spa-backend-with-oauth-20-azure-active-directory-b2c-and-azure-api-management"></a>Protéger le back-end d’une application monopage avec OAuth 2.0 à l’aide d’Azure Active Directory B2C et de Gestion des API Azure
 
 Ce scénario montre comment configurer votre instance de Gestion des API Azure pour protéger une API.
-Nous allons utiliser le protocole OpenID Connect avec Azure AD B2C, en plus de Gestion des API, pour sécuriser un back-end Azure Functions à l’aide d’EasyAuth.
+Nous allons utiliser le protocole OAuth 2.0 avec Azure AD B2C, en plus de Gestion des API, pour sécuriser un principal Azure Functions à l’aide d’EasyAuth.
 
 ## <a name="aims"></a>Objectifs
 Nous allons voir comment le service Gestion des API peut être utilisé dans un scénario simplifié avec Azure Functions et Azure AD B2C. Vous allez créer une application JavaScript (JS) appelant une API, qui connecte les utilisateurs avec Azure AD B2C. Vous utiliserez ensuite les fonctionnalités de la stratégie validate-jwt de Gestion des API pour protéger l’API back-end.
@@ -66,11 +66,11 @@ Ouvrez le panneau Azure AD B2C dans le portail et effectuez les étapes ci-desso
    * Le client front-end
    * L’API de fonction back-end
    * [Facultatif] Le portail des développeurs Gestion des API (sauf si vous exécutez Gestion des API Azure dans le niveau de consommation ; ce scénario sera traité en détail plus loin)
-1. Affectez la valeur Oui à Autoriser un flux implicite et API web/WebApp.
+1. Définissez WebApp/API web pour les trois applications et définissez « Autoriser un flux implicite » sur Oui pour le client frontal uniquement.
 1. Maintenant, définissez l’URI d’ID d’application ; choisissez un nom unique et correspondant au service en cours de création.
 1. Utilisez pour l’instant des espaces réservés pour les URL de réponse, par exemple https://localhost. Nous mettrons à jour ces URL ultérieurement.
 1. Cliquez sur « Créer », puis répétez les étapes 2 à 5 pour chacune des trois applications ci-dessus, en prenant note de l’URI d’ID d’application, du nom et de l’ID d’application pour une utilisation ultérieure pour les trois applications.
-1. Ouvrez l’API back-end dans la liste des applications et sélectionnez l’onglet *Clés* (sous Général), puis cliquez sur « Générer la clé » pour générer une clé d’authentification.
+1. Ouvrez l’API Management Developer Portal Application dans la liste des applications et sélectionnez l’onglet *Clés* (sous Général), puis cliquez sur « Générer la clé » pour générer une clé d’authentification.
 1. Après avoir cliqué sur Enregistrer, consignez la clé à un emplacement sécurisé pour une utilisation ultérieure. Notez que cet emplacement est le SEUL où vous aurez la chance d’afficher et de copier cette clé.
 1. Sélectionnez l’onglet *Étendues publiées* (sous Accès d’API).
 1. Créez et nommez une étendue pour votre API de fonction, et prenez note des valeurs Portée et Valeur de portée complète renseignée, puis cliquez sur « Enregistrer ».
@@ -85,7 +85,7 @@ Ouvrez le panneau Azure AD B2C dans le portail et effectuez les étapes ci-desso
 1. Sélectionnez « Flux utilisateur (stratégies) », puis cliquez sur « Nouveau flux d’utilisateur ».
 1. Choisissez le type de flux utilisateur « Inscription et connexion ».
 1. Donnez un nom à la stratégie et prenez-en note pour une utilisation ultérieure.
-1. Ensuite, sous « Fournisseurs d’identité », cochez « Inscription de l’ID utilisateur », puis cliquez sur OK. 
+1. Ensuite, sous « Fournisseurs d’identité », cochez « Inscription de l’identifiant utilisateur » (cela peut indiquer « S’inscrire par e-mail »), puis cliquez sur OK. 
 1. Sous « Attributs utilisateur et revendications », cliquez sur « Afficher plus... », puis choisissez les options de revendication que vous souhaitez que vos utilisateurs entrent et qui doivent être retournées dans le jeton. Cochez au moins « Nom d’affichage » et « Adresse e-mail » afin de recueillir et retourner ces valeurs, cliquez sur « OK », puis sur « Créer ».
 1. Sélectionnez la stratégie que vous avez créée dans la liste, puis cliquez sur « Exécuter le flux d’utilisateur ».
 1. Cette action ouvre le panneau Exécuter le flux d’utilisateur. Sélectionnez l’application front-end, puis prenez note de l’adresse du domaine b2clogin.com affichée sous la liste déroulante pour « Sélectionner un domaine ».
@@ -98,6 +98,7 @@ Ouvrez le panneau Azure AD B2C dans le portail et effectuez les étapes ci-desso
    > Si vous le souhaitez, vous pouvez cliquer ici sur le bouton « Exécuter le flux d’utilisateur » (pour suivre le processus d’inscription ou de connexion) et vous faire une idée de ce qu’il fera dans la pratique, mais l’étape de redirection à la fin échouera car l’application n’a pas encore été déployée.
 
 ## <a name="build-the-function-api"></a>Générer l’API de fonction
+1. Revenez à votre locataire Azure AD standard dans le Portail Azure afin de pouvoir reconfigurer les éléments de votre abonnement. 
 1. Accédez au panneau Applications de fonctions du portail Azure, ouvrez votre application de fonction vide, puis créez une fonction « Webhook + API » dans le portail par le biais du démarrage rapide.
 1. Collez l’exemple de code ci-dessous dans Run.csx à la place du code existant qui s’affiche.
 
@@ -156,15 +157,16 @@ Ouvrez le panneau Azure AD B2C dans le portail et effectuez les étapes ci-desso
 1. Sélectionnez l’onglet « Fonctionnalités de la plateforme », puis « Authentification/autorisation ».
 1. Activez la fonctionnalité Authentification App Service.
 1. Sous « Fournisseurs d’authentification », choisissez « Azure Active Directory », puis « Avancé » dans le commutateur Mode de gestion.
-1. Collez l’ID d’application de l’API back-end (à partir d’Azure AD B2C dans la zone « ID client »).
+1. Collez l’ID d’application de l’API Backend Function (à partir d’Azure AD B2C dans la zone « ID client »).
 1. Collez le point de terminaison de configuration open-id connu à partir de la stratégie d’inscription ou de connexion dans la zone URL de l’émetteur (nous avons enregistré cette configuration plus tôt).
-1. Ajoutez les trois ID d’application (ou deux si vous utilisez le modèle de consommation Gestion des API) dont vous avez pris note plus tôt pour les applications Azure AD B2C dans la zone Audiences de jeton autorisées. Ce paramètre indique à EasyAuth quelles valeurs de revendication AUD sont autorisées dans les jetons reçus.
-1. Sélectionnez OK, puis cliquez sur Enregistrer.
+1. Sélectionnez OK.
+1. Définissez la liste déroulante Action à exécuter quand une demande n’est pas authentifiée sur « Se connecter avec Azure Active Directory », puis cliquez sur Enregistrer.
 
    > [!NOTE]
-   > Votre API de fonction est désormais déployée et doit lever des erreurs 401 ou 403 pour les requêtes non autorisées, et doit retourner des données quand une requête valide est présentée.
-   > Toutefois, nous n’avons toujours pas de sécurité IP ; si vous avez une clé valide, vous pouvez appeler cette API depuis n’importe où. Dans l’idéal, nous souhaitons forcer toutes les requêtes à venir par le biais de Gestion des API.
-   > De plus, si vous utilisez le niveau de consommation Gestion des API, vous ne pourrez pas effectuer ce verrouillage par adresse IP virtuelle, car il n’y a pas d’adresse IP statique dédiée pour ce niveau. Vous devrez vous appuyer sur la méthode de verrouillage de vos appels d’API par le biais de la clé de fonction à secret partagé ; les étapes 11 à 14 ne seront donc pas possibles.
+   > Votre API Function est désormais déployée et doit lever des réponses 401 si la bonne clé n’est pas fournie et retourner des données quand une requête valide est présentée.
+   > Vous avez ajouté une sécurité supplémentaire de défense approfondie dans EasyAuth en configurant l’option « Se connecter avec Azure Active Directory » pour gérer les demandes non authentifiées. N’oubliez pas que cela modifiera le comportement des demandes non autorisées entre l’application de fonction principale et l’application monopage frontale, car EasyAuth émettra une redirection 302 vers AAD au lieu d’une réponse 401 Non autorisée. Nous corrigerons cela ultérieurement en utilisant Gestion des API.
+   > Aucune sécurité IP n’est encore appliquée ; si on dispose d’une clé et d’un jeton OAuth2 valides, tout le monde peut appeler cette API depuis n’importe où. Dans l’idéal, nous souhaitons forcer toutes les requêtes à venir par le biais de Gestion des API.
+   > Si vous utilisez le niveau de consommation Gestion des API, vous ne pourrez pas effectuer ce verrouillage par adresse IP virtuelle, car il n’y a pas d’adresse IP statique dédiée pour ce niveau. Vous devrez vous appuyer sur la méthode de verrouillage de vos appels d’API par le biais de la clé de fonction à secret partagé ; les étapes 11 à 13 ne seront donc pas possibles.
 
 1. Fermez le panneau « Authentification / Autorisation ». 
 1. Sélectionnez « Mise en réseau », puis « Restrictions d’accès ».
@@ -172,13 +174,13 @@ Ouvrez le panneau Azure AD B2C dans le portail et effectuez les étapes ci-desso
 1. Si vous souhaitez continuer à interagir avec le portail Functions et effectuer les étapes facultatives ci-dessous, vous devez également ajouter ici votre propre plage CIDR ou adresse IP publique.
 1. Une fois que la liste contient une entrée d’autorisation, Azure ajoute une règle de refus implicite afin de bloquer toutes les autres adresses. 
 
-Vous devez ajouter des blocs d’adresses au format CIDR au panneau de restrictions d’adresses IP. Quand vous devez ajouter une adresse unique telle que l’adresse IP virtuelle de Gestion des API, vous devez l’ajouter au format xx.xx.xx.xx/32.
+Vous devez ajouter des blocs d’adresses au format CIDR au panneau de restrictions d’adresses IP. Quand vous devez ajouter une adresse unique telle que l’adresse IP virtuelle de Gestion des API, vous devez l’ajouter au format xx.xx.xx.xx.
 
    > [!NOTE]
    > Désormais, votre API de fonction ne devrait plus pouvoir être appelée à partir d’un emplacement autre que par le biais de Gestion des API, ou votre adresse.
-
+   
 ## <a name="import-the-function-app-definition"></a>Importer la définition de la fonction d’application
-1. Ouvrez le panneau du portail Gestion des API et sélectionnez votre instance de Gestion des API.
+1. Ouvrez le *panneau Gestion des API*, puis ouvrez *votre instance*.
 1. Sélectionnez le panneau des API dans la section Gestion des API de votre instance.
 1. Dans le volet « Ajouter une nouvelle API », choisissez « Function App », puis « Complète » dans la partie supérieure de la fenêtre contextuelle.
 1. Cliquez sur Parcourir, choisissez l’application de fonction dans laquelle vous hébergez l’API, puis cliquez sur Sélectionner.
@@ -186,13 +188,13 @@ Vous devez ajouter des blocs d’adresses au format CIDR au panneau de restricti
 1. Pensez à prendre note de l’URL de base pour une utilisation ultérieure, puis cliquez sur Créer.
 
 ## <a name="configure-oauth2-for-api-management"></a>Configurer Oauth2 pour Gestion des API
-1. Revenez à votre locataire Azure AD standard dans le portail Azure afin de pouvoir reconfigurer les éléments de votre abonnement, ouvrez le panneau *Gestion des API*, puis ouvrez *votre instance*.
+
 1. Ensuite, sélectionnez le panneau OAuth 2.0 sous l’onglet Sécurité, puis cliquez sur « Ajouter ».
 1. Spécifiez des valeurs pour *Nom d’affichage* et *Description* pour le point de terminaison OAuth ajouté (ces valeurs s’affichent à l’étape suivante en tant que point de terminaison Oauth2).
 1. Vous pouvez entrer n’importe quelle valeur dans l’URL de la page d’inscription du client, car cette valeur ne sera pas utilisée.
-1. Activez le type d’octroi *Authentification implicite* et, éventuellement, désactivez le type d’octroi Code d’autorisation.
+1. Activez le type d’octroi *Authentification implicite* et laissez le type d’octroi Code d’autorisation activé.
 1. Accédez aux champs de point de terminaison *Autorisation* et *Jeton*, puis entrez les valeurs que vous avez capturées précédemment à partir du document XML de configuration connue.
-1. Faites défiler vers le bas et renseignez un *Paramètre de corps supplémentaire* appelé « ressource » avec l’ID client de l’API de fonction obtenu à partir de l’inscription de l’application Azure AD B2C.
+1. Faites défiler vers le bas et renseignez un *paramètre de corps supplémentaire* appelé « ressource » avec l’ID client de l’API de fonction principale obtenu à partir de l’inscription de l’application Azure AD B2C.
 1. Sélectionnez « Informations d’identification du client » et affectez l’ID de l’application de la console de développeur comme ID client. Ignorez cette étape si vous utilisez le modèle de consommation Gestion des API.
 1. Affectez la clé dont vous avez pris note précédemment comme clé secrète client. Ignorez cette étape si vous utilisez le modèle de consommation Gestion des API.
 1. Pour finir, prenez note de la valeur redirect_uri de l’octroi de code d’authentification à partir de Gestion des API pour une utilisation ultérieure.
@@ -242,7 +244,6 @@ Vous devez ajouter des blocs d’adresses au format CIDR au panneau de restricti
    ```
 1. Modifiez l’URL openid-config afin qu’elle corresponde à votre point de terminaison Azure AD B2C connu pour la stratégie d’inscription ou de connexion.
 1. Modifiez la valeur de revendication pour qu’elle corresponde à l’ID d’application valide, également appelé ID client pour l’application API back-end, puis cliquez sur Enregistrer.
-1. Sélectionnez l’opération api sous « Toutes les API »
 
    > [!NOTE]
    > Désormais, Gestion des API est capable de répondre aux requêtes cross-origin pour les applications monopages JS, et elle effectuera une limitation, une limitation du débit et une prévalidation du jeton d’authentification JWT qui est passé AVANT de transférer la requête à l’API de fonction.

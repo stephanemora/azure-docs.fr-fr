@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 02/26/2020
-ms.openlocfilehash: 71a02e47db288890d1392f5423da0ef817ecd690
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 6b1c671d2079c7d8ab59e9afe981ccef3f58ef27
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78303118"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79086882"
 ---
 # <a name="data-ingestion-in-azure-machine-learning"></a>Ingestion des données dans Azure Machine Learning
 
@@ -26,7 +26,7 @@ Dans cet article, vous allez découvrir les avantages et les inconvénients des 
 
 L’ingestion des données est le processus dans lequel les données non structurées sont extraites d’une ou de plusieurs sources, puis préparées pour la formation de modèles Machine Learning. Ce processus prend également beaucoup de temps, en particulier s’il est effectué manuellement et si vous avez de grandes quantités de données provenant de plusieurs sources. L’automatisation de ce travail libère des ressources et garantit que vos modèles utilisent les données les plus récentes et les plus pertinentes.
 
-Nous vous recommandons d’utiliser Azure Data Factory (ADF) dans un premier temps, car il est spécifiquement conçu pour extraire, charger et transformer des données. Si ADF ne répond pas à vos besoins, vous pouvez utiliser le Kit de développement logiciel (SDK) Python pour développer une solution de code personnalisée ou utiliser ADF et le Kit de développement logiciel (SDK) Python ensemble pour créer un workflow global d’ingestion des données qui répond à vos besoins.
+Azure Data Factory (ADF) est spécifiquement conçu pour extraire, charger et transformer des données. Toutefois, le Kit de développement logiciel (SDK) Python vous permet de développer une solution de code personnalisée pour les tâches d’ingestion de données de base. Si aucun des deux n’est exactement ce dont vous avez besoin, vous pouvez également utiliser ADF et le Kit de développement logiciel (SDK) Python ensemble pour créer un workflow global d’ingestion de données qui répond à vos besoins. 
 
 ## <a name="use-azure-data-factory"></a>Utilisation d’Azure Data Factory
 
@@ -52,6 +52,8 @@ Ces étapes et le diagramme suivant illustrent le workflow d’ingestion des don
 
 
     ![Ingestion des données ADF](media/concept-data-ingestion/data-ingest-option-one.svg)
+    
+Découvrez comment créer un pipeline d’ingestion de données pour Machine Learning avec [Azure Data Factory](how-to-data-ingest-adf.md).
 
 ## <a name="use-the-python-sdk"></a>Utiliser le SDK Python 
 

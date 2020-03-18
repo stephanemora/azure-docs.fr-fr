@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2018
+ms.date: 03/09/2020
 ms.author: terrylan
-ms.openlocfilehash: 74b0fa4643907493904e77ce333d1ec1dba01f49
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: ad6d3992f03802174eb03aa30b57b8d3dac1d6c4
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727102"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942956"
 ---
 # <a name="azure-sql-database-security-features"></a>Fonctionnalités de sécurité Azure SQL Database    
 Azure SQL Database fournit un service de base de données relationnelle dans Azure. Pour protéger les données des clients et fournir des fonctionnalités de sécurité renforcée que les clients attendent d’un service de base de données relationnelle, SQL Database a ses propres jeux de fonctionnalités de sécurité. Ces fonctionnalités reposent sur les contrôles hérités d’Azure.
@@ -75,7 +75,7 @@ L’isolation du système d’exploitation racine entre des machines virtuelles 
 ### <a name="types-of-rules-on-firewalls"></a>Types de règles de pare-feu
 Une règle est définie comme suit :
 
-{Security Response Center (Src) IP, Port source, IP de destination, Port de destination, Protocole de destination, Entrée/Sortie, Avec état/Sans état, Expiration du flux avec état}.
+{IP Source, Port source, IP de destination, Port de destination, Protocole de destination, Entrée/Sortie, Avec état/Sans état, Expiration du flux avec état}.
 
 Les paquets de caractères synchrones (SYN) sont autorisés en entrée et en sortie seulement si l’une des règles le permet. Pour TCP, Azure utilise des règles sans état dont le principe est d’autoriser uniquement tous les paquets non-SYN entrant ou sortant de la machine virtuelle. Le principe de sécurité est que les piles d’hôtes persistent à ignorer un paquet non-SYN si elles n’ont pas déjà vu de paquet SYN. Le protocole TCP lui-même est avec état, et combiné à la règle basée sur un comportement SYN sans état, il adopte un comportement général d’implémentation avec état.
 
@@ -104,5 +104,3 @@ Pour en savoir plus sur ce que Microsoft fait pour sécuriser l’infrastructure
 - [Surveillance de l’infrastructure Azure](infrastructure-monitoring.md)
 - [Intégrité de l’infrastructure Azure](infrastructure-integrity.md)
 - [Protection des données client Azure](protection-customer-data.md)
-
-

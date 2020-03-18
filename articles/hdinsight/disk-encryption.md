@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: c22ee0ef0393c0dae64674d18bae5a2e92969b4c
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: fd5308574e84ab6d2e30b9352254683b2d1d6fdd
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78206052"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78403565"
 ---
 # <a name="customer-managed-key-disk-encryption"></a>Chiffrement de disque de clés gérées par le client
 
@@ -34,7 +34,7 @@ Vous pouvez utiliser le portail Azure ou Azure CLI pour faire alterner les clés
 
 |Type de cluster |Disque de système d’exploitation (disque managé) |Disque de données (disque managé) |Disque de données temporaire (SSD local) |
 |---|---|---|---|
-|Kafka, HBase avec écritures accélérées|Chiffrement SSE|Chiffrement SSE + chiffrement CMK facultatif|Chiffrement CMK facultatif|
+|Kafka, HBase avec écritures accélérées|[Chiffrement SSE](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#encryption)|Chiffrement SSE + chiffrement CMK facultatif|Chiffrement CMK facultatif|
 |Tous les autres clusters (Spark, interactive, Hadoop, HBase sans écritures accélérées)|Chiffrement SSE|N/A|Chiffrement CMK facultatif|
 
 ## <a name="get-started-with-customer-managed-keys"></a>Prise en main des clés gérées par le client
@@ -48,7 +48,7 @@ Pour créer un cluster HDInsight avec clé gérée par le client, nous allons pa
 1. Création d’un cluster HDInsight avec clé gérée par le client
 1. Rotation de la clé de chiffrement
 
-## <a name="create-managed-identities-for-azure-resources"></a>Créer des identités managées pour les ressources Azure
+## <a name="create-managed-identities-for-azure-resources"></a>Création d’identités managées pour les ressources Azure
 
 Créez une identité gérée affectée par l’utilisateur pour l’authentification auprès de Key Vault.
 

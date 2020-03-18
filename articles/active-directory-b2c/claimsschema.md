@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/24/2020
+ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b997e15b4e987b7a18890606326f52a82cb15212
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 4c3b3318e941723ec333597c7e4b3e48710152d1
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78189922"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78397815"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -56,8 +56,11 @@ L’élément **ClaimType** contient les éléments suivants :
 | Mask | 0:1 | Chaîne facultative de caractères de masquage qui peuvent être appliqués lors de l’affichage de la revendication. Par exemple, le numéro téléphone 324-232-4343 peut être masqué comme suit : XXX-XXX-4343. |
 | UserHelpText | 0:1 | Description du type de revendication qui peut aider les utilisateurs à comprendre sa raison d’être. La valeur peut être [localisée](localization.md). |
 | UserInputType | 0:1 | Type de contrôle d’entrée qui doit être accessible à l’utilisateur lors de l’entrée manuelle des données de revendication pour le type de revendication. Voir les types d’entrées utilisateur définis plus loin dans cette page. |
+| AdminHelpText | 0:1 | Description du type de revendication qui peut aider les administrateurs à comprendre sa raison d’être. |
 | Restriction | 0:1 | Restrictions de la valeur de cette revendication, par exemple une expression régulière (Regex) ou une liste de valeurs acceptables. La valeur peut être [localisée](localization.md). |
 PredicateValidationReference| 0:1 | Référence à un élément **PredicateValidationsInput**. Les éléments **PredicateValidationReference** vous permettent d’effectuer un processus de validation afin de vous assurer que seules des données correctement formées sont entrées. Pour plus d’informations, consultez [Predicates](predicates.md). |
+
+
 
 ### <a name="datatype"></a>DataType
 

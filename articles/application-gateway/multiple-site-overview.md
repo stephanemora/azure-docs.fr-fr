@@ -4,19 +4,19 @@ description: Cet article fournit une vue d’ensemble de la prise en charge de s
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 1/7/2020
+ms.date: 03/11/2020
 ms.author: amsriva
 ms.topic: conceptual
-ms.openlocfilehash: ac9dd31e01b1915642951aeddb10d3eae118d943
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: c43ac0923e0d3d76c25657f4870a0a0431bc8b6e
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77523779"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096433"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Hébergement de plusieurs sites Application Gateway
 
-L’hébergement de plusieurs sites vous permet de configurer plusieurs applications web sur le même port d’une passerelle Application Gateway. Cette fonctionnalité vous permet de configurer une topologie plus efficace pour vos déploiements en ajoutant jusqu’à 100 sites web à une passerelle Application Gateway. Chaque site web peut être dirigé vers son propre pool principal. Dans l’exemple suivant, la passerelle Application Gateway gère le trafic pour contoso.com et fabrikam.com avec deux pools de serveurs principaux : ContosoServerPool et FabrikamServerPool.
+L’hébergement de plusieurs sites vous permet de configurer plusieurs applications web sur le même port d’une passerelle Application Gateway. Cette fonctionnalité vous permet de configurer une topologie plus efficace pour vos déploiements en ajoutant jusqu’à 100 sites web à une passerelle Application Gateway. Chaque site web peut être dirigé vers son propre pool principal. Dans l’exemple suivant, la passerelle d’application gère le trafic pour `contoso.com` et fabrikam.`fabrikam.com` avec deux pools de serveurs principaux : ContosoServerPool et FabrikamServerPool.
 
 ![imageURLroute](./media/multiple-site-overview/multisite.png)
 
@@ -25,7 +25,7 @@ L’hébergement de plusieurs sites vous permet de configurer plusieurs applicat
 
 Les requêtes adressées à `http://contoso.com` sont acheminées vers ContosoServerPool, tandis que les requêtes adressées à `http://fabrikam.com` sont acheminées vers FabrikamServerPool.
 
-De même, deux sous-domaines du même domaine parent peuvent également être hébergés sur le même déploiement de passerelle Application Gateway. Par exemple, les sous-domaines `http://blog.contoso.com` et `http://app.contoso.com` peuvent être hébergés sur un déploiement de passerelle d’application unique.
+De même, vous pouvez héberger de nombreux sous-domaines du même domaine parent sur le même déploiement de passerelle d’application. Par exemple, vous pouvez héberger `http://blog.contoso.com` et `http://app.contoso.com` sur un déploiement unique de passerelle d’application.
 
 ## <a name="host-headers-and-server-name-indication-sni"></a>En-têtes d’hôte et Indication du nom du serveur (SNI)
 
@@ -35,11 +35,17 @@ Il existe trois mécanismes pour activer l’hébergement de plusieurs sites dan
 2. Utilisez le nom d’hôte pour héberger plusieurs applications web sur la même adresse IP.
 3. Utilisez des ports différents pour héberger plusieurs applications web sur la même adresse IP.
 
-Actuellement, une passerelle Application Gateway obtient une adresse IP publique unique sur laquelle elle écoute le trafic. Par conséquent, la prise en charge de plusieurs applications, chacune avec sa propre adresse IP, n’est pas disponible actuellement. La passerelle Application Gateway prend en charge l’hébergement de plusieurs applications écoutant sur des ports différents, mais dans ce scénario, les applications doivent accepter le trafic sur des ports non standard, ce qui est rarement la configuration souhaitée. Application Gateway se base sur des en-têtes d’hôte HTTP 1.1 pour héberger plusieurs sites web sur les mêmes adresses IP et port. Les sites hébergés sur la passerelle Application Gateway peuvent également prendre en charge le déchargement SSL avec l’extension TLS d’indication du nom du serveur (SNI). Ce scénario signifie que le navigateur du client et la batterie de serveurs web principale doivent prendre en charge HTTP/1.1 et l’extension TLS définie dans RFC 6066.
+Actuellement, le service Application Gateway prend en charge une seule IP publique sur laquelle il écoute le trafic. Par conséquent, la prise en charge de plusieurs applications, chacune avec sa propre adresse IP, n’est pas disponible actuellement. 
+
+Application Gateway prend en charge plusieurs applications qui écoutent sur des ports différents, mais ce scénario requiert que les applications acceptent le trafic sur les ports non standard. Il ne s’agit généralement pas de la configuration de votre choix.
+
+Application Gateway se base sur des en-têtes d’hôte HTTP 1.1 pour héberger plusieurs sites web sur les mêmes adresses IP et port. Les sites hébergés sur la passerelle Application Gateway peuvent également prendre en charge le déchargement SSL avec l’extension TLS d’indication du nom du serveur (SNI). Ce scénario signifie que le navigateur du client et la batterie de serveurs web principale doivent prendre en charge HTTP/1.1 et l’extension TLS définie dans RFC 6066.
 
 ## <a name="listener-configuration-element"></a>Élément de configuration d’écouteur
 
-L’élément de configuration HTTPListener existant a été amélioré pour prendre en charge les éléments de nom d’hôte et d’indication du nom du serveur utilisés par la passerelle Application Gateway pour acheminer le trafic vers le pool principal approprié. L’exemple de code suivant est un extrait de l’élément HttpListeners issu du fichier de modèle.
+Les éléments de configuration HTTPListener existants sont améliorés pour prendre en charge les éléments d’indication du nom d’hôte et du nom de serveur. Ils sont utilisés par Application Gateway pour acheminer le trafic vers le pool principal approprié. 
+
+L’exemple de code suivant est un extrait de l’élément HttpListeners issu d’un modèle de fichier :
 
 ```json
 "httpListeners": [

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/16/2019
+ms.date: 03/09/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee0dd0cd83ab27dd728a7572b6fcd69c40bb1b00
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 5a82c69575e82a7cf397955f08c3f114e449ba6b
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848746"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968768"
 ---
 # <a name="what-are-authentication-methods"></a>Que sont les méthodes d’authentification ?
 
@@ -156,25 +156,25 @@ Les utilisateurs peuvent combiner jusqu’à cinq jetons matériels OATH ou des 
 
 ## <a name="oath-hardware-tokens-public-preview"></a>Jetons matériels OATH (préversion publique)
 
-OATH est une norme ouverte qui spécifie le mode de génération des codes de mot de passe (OTP) à usage unique. Azure AD prendra maintenant en charge l’utilisation des jetons OATH-TOTP SHA-1 de 30 secondes ou 60 secondes. Les clients peuvent se procurer ces jetons auprès du fournisseur de leur choix. Les secrets sont limités à 128 caractères et cette limite peut ne pas être compatible avec tous les jetons. Les clés secrètes doivent être encodées en Base32.
+OATH est une norme ouverte qui spécifie le mode de génération des codes de mot de passe (OTP) à usage unique. Azure AD prendra maintenant en charge l’utilisation des jetons OATH-TOTP SHA-1 de 30 secondes ou 60 secondes. Les clients peuvent se procurer ces jetons auprès du fournisseur de leur choix. Les secrets sont limités à 128 caractères et cette limite peut ne pas être compatible avec tous les jetons. La clé secrète peut contenir uniquement les caractères *a à z* ou *A à Z* et les chiffres *1 à 7*, et doit être encodée en Base32.
 
-![Chargement des jetons OATH dans le panneau de jetons OATH du serveur MFA](media/concept-authentication-methods/mfa-server-oath-tokens-azure-ad.png)
+![Chargement des jetons OATH dans le panneau de jetons OATH MFA](media/concept-authentication-methods/mfa-server-oath-tokens-azure-ad.png)
 
-Les jetons matériels OATH seront pris en charge dans le cadre d’une préversion publique. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+Les jetons matériels OATH sont pris en charge dans le cadre d’une préversion publique. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
-Après avoir obtenu les jetons, vous devez les charger dans un fichier de valeurs séparées par des virgules (CSV), contenant l’UPN, le numéro de série, le secret, l’intervalle de temps, le fabricant et le modèle, comme dans l’exemple suivant.
+Après avoir obtenu les jetons, vous devez les charger dans un fichier de valeurs séparées par des virgules (CSV), contenant l’UPN, le numéro de série, la clé secrète, l’intervalle de temps, le fabricant et le modèle, comme indiqué dans l’exemple suivant :
 
 ```csv
 upn,serial number,secret key,time interval,manufacturer,model
-Helga@contoso.com,1234567,1234567890abcdef1234567890abcdef,60,Contoso,HardwareKey
+Helga@contoso.com,1234567,1234567abcdef1234567abcdef,60,Contoso,HardwareKey
 ```
 
 > [!NOTE]
-> Veillez à inclure la ligne d’en-tête dans votre fichier CSV comme indiqué ci-dessus.
+> Veillez à inclure la ligne d’en-tête dans votre fichier CSV.
 
-Une fois que le fichier a été correctement mis en forme au format CSV, l’administrateur peut ensuite se connecter au portail Azure et accéder à **Azure Active Directory**, **Serveur MFA**, **Jetons OATH** afin de charger le fichier CSV créé.
+Une fois que le fichier a été correctement mis en forme au format CSV, l’administrateur peut ensuite se connecter au Portail Azure et accéder à **Azure Active Directory** > **Sécurité** > **MFA** > **Jetons OATH** afin de charger le fichier CSV créé.
 
-L’opération peut prendre plusieurs minutes selon la taille du fichier CSV. Cliquez sur le bouton **Actualiser** pour obtenir l’état actuel. Si le fichier contient des erreurs, vous pouvez télécharger un fichier CSV de toutes les erreurs pour les résoudre plus facilement.
+L’opération peut prendre plusieurs minutes selon la taille du fichier CSV. Cliquez sur le bouton **Actualiser** pour obtenir l’état actuel. Si le fichier contient des erreurs, vous pouvez télécharger un fichier CSV de toutes les erreurs pour les résoudre plus facilement. Les noms de champs dans le fichier CSV téléchargé sont différents de ceux de la version chargée.
 
 Une fois que toutes les erreurs ont été résolues, l’administrateur peut activer chaque clé en cliquant sur **Activer** pour activer le jeton et en entrant l’OTP affiché sur le jeton.
 
@@ -206,7 +206,7 @@ Un SMS est envoyé au numéro de téléphone mobile. Il contient un code de vér
 Un appel vocal automatisé est passé au numéro de téléphone indiqué. Répondez à l’appel et appuyez sur la touche # du clavier du téléphone pour vous authentifier.
 
 > [!IMPORTANT]
-> Depuis mars 2019, les options d’appel téléphonique ne sont plus disponibles pour les utilisateurs MFA et SSPR dans des locataires Azure AD gratuits ou à l’essai. Cette modification n’affecte pas les messages SMS. Les appels téléphoniques continueront à être disponibles pour les utilisateurs de locataires Azure AD payants. Cette modification affecte uniquement les locataires Azure AD gratuits ou à l’essai.
+> Depuis mars 2019, les options d’appel téléphonique ne sont plus disponibles pour les utilisateurs MFA et SSPR dans des locataires Azure AD gratuits ou à l’essai. Cette modification n’affecte pas les messages SMS. Les appels téléphoniques continueront à être disponibles pour les utilisateurs de locataires Azure AD payants. Ce changement affecte uniquement les locataires Azure AD gratuits ou à l’essai.
 
 ### <a name="office-phone"></a>Téléphone de bureau
 
@@ -217,7 +217,7 @@ Pour que tout fonctionne correctement, les numéros de téléphone doivent être
 L’attribut Téléphone de bureau est géré par l’administrateur.
 
 > [!IMPORTANT]
-> Depuis mars 2019, les options d’appel téléphonique ne sont plus disponibles pour les utilisateurs MFA et SSPR dans des locataires Azure AD gratuits ou à l’essai. Cette modification n’affecte pas les messages SMS. Les appels téléphoniques continueront à être disponibles pour les utilisateurs de locataires Azure AD payants. Cette modification affecte uniquement les locataires Azure AD gratuits ou à l’essai.
+> Depuis mars 2019, les options d’appel téléphonique ne sont plus disponibles pour les utilisateurs MFA et SSPR dans des locataires Azure AD gratuits ou à l’essai. Cette modification n’affecte pas les messages SMS. Les appels téléphoniques continueront à être disponibles pour les utilisateurs de locataires Azure AD payants. Ce changement affecte uniquement les locataires Azure AD gratuits ou à l’essai.
 
 > [!NOTE]
 > Il doit y avoir un espace entre l’indicatif du pays et le numéro de téléphone.

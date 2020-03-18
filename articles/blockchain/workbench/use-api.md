@@ -1,56 +1,152 @@
 ---
 title: Utilisation des API REST Azure Blockchain Workbench
 description: Scénarios d’utilisation de l’API REST d’Azure Blockchain Workbench Preview
-ms.date: 10/14/2019
+ms.date: 03/05/2020
 ms.topic: article
 ms.reviewer: brendal
-ms.openlocfilehash: 188bbb9a9f6d289a7950ff74596352dff36e79f2
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 3084fcf343bc42fe01bf352b6791916d62f63540
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74324200"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672751"
 ---
 # <a name="using-the-azure-blockchain-workbench-preview-rest-api"></a>Utilisation de l’API REST d’Azure Blockchain Workbench Preview
 
-L’API REST d’Azure Blockchain Workbench Preview permet aux développeurs et aux professionnels de l’information de créer des intégrations riches à des applications blockchain. Ce document vous guide dans l’utilisation de l’API REST Workbench à l’aide de plusieurs méthodes clés. Par exemple, supposons qu’un développeur souhaite créer un client blockchain personnalisé. Ce client blockchain permet aux utilisateurs connectés d’afficher les applications blockchain qui leur sont affectées et d’interagir avec celles-ci. Ce client permet aux utilisateurs d’afficher les instances du contrat et d’intervenir sur les contrats intelligents. Le client utilise l’API REST Workbench dans le contexte de l’utilisateur connecté pour effectuer les actions suivantes :
-
-* Liste des applications
-* Répertorier les flux de travail d’une application
-* Répertorier les instances de contrat intelligent d’un flux de travail
-* Répertorier les actions disponibles d’un contrat
-* Exécuter une action pour un contrat
-
-Les exemples d’applications blockchain utilisés dans les scénarios peuvent être [téléchargés sur GitHub](https://github.com/Azure-Samples/blockchain).
+L’API REST d’Azure Blockchain Workbench Preview permet aux développeurs et aux professionnels de l’information de créer des intégrations riches à des applications blockchain. Cet article présente plusieurs scénarios d’utilisation de l’API REST Workbench. Supposons, par exemple, que vous souhaitez créer un client blockchain personnalisé pour permettre aux utilisateurs connectés d’afficher les applications blockchain qui leur sont attribuées et d’interagir avec elles. Ce client peut utiliser l’API Blockchain Workbench pour afficher les instances du contrat et intervenir sur les contrats intelligents.
 
 ## <a name="blockchain-workbench-api-endpoint"></a>Point de terminaison d’API Blockchain Workbench
 
 Les API Blockchain Workbench sont accessibles via un point de terminaison pour votre déploiement. Pour obtenir l’URL du point de terminaison de l’API pour votre déploiement :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Dans le volet de navigation de gauche, sélectionnez **Groupes de ressources**.
 1. Choisissez le nom du groupe de ressources de votre Blockchain Workbench déployé.
 1. Sélectionnez l’en-tête de colonne **TYPE** pour trier la liste par ordre alphabétique et par type.
-1. Deux ressources présentent le type **App Service**. Sélectionnez la ressource de type **App Service** *sans* le suffixe « -api ».
+1. Deux ressources présentent le type **App Service**. Sélectionnez la ressource de type **App Service***avec* le suffixe « -api ».
 1. Dans la section **Vue d’ensemble** App Service, copiez la valeur **URL** qui représente l’URL du point de terminaison de l’API sur votre Blockchain Workbench déployé.
 
     ![URL du point de terminaison de l'API App Service](media/use-api/app-service-api.png)
 
+## <a name="authentication"></a>Authentication
+
+Les requêtes envoyées à l’API REST Blockchain Workbench sont protégées par Azure Active Directory (Azure AD).
+
+Pour effectuer une requête authentifiée auprès des API REST, le code client requiert une authentification à l’aide d’informations d’identification valides avant de pouvoir appeler l’API. L’authentification est coordonnée entre les différents intervenants par Azure AD et fournit à votre client un [jeton d’accès](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#access-token) comme preuve d’authentification. Le jeton est alors envoyé dans l’en-tête d’autorisation HTTP des requêtes de l’API REST. Pour en savoir plus sur l’authentification Azure AD, consultez [Azure Active Directory pour les développeurs](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
+
+Pour obtenir des exemples d’authentification, consultez [REST API samples](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/rest-api-samples).
+
+## <a name="using-postman"></a>Utilisation de Postman
+
+Si vous souhaitez tester ou expérimenter les API Workbench, vous pouvez utiliser [Postman](https://www.postman.com) pour envoyer des appels d’API à votre déploiement. [Téléchargez un exemple de la collection Postman composée de requêtes d’API Workbench](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/rest-api-samples/postman) à partir de GitHub. Pour plus d’informations sur l’authentification et l’utilisation des exemples de requêtes d’API, consultez le fichier LISEZ-MOI.
+
+## <a name="create-an-application"></a>Créer une application
+
+Vous utilisez deux appels d’API pour créer une application Blockchain Workbench. Cette méthode ne peut être effectuée que par les utilisateurs qui sont administrateurs Workbench.
+
+Utilisez l’[API POST Applications](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/applicationspost) pour charger le fichier JSON de l’application et récupérer un ID d’application.
+
+### <a name="applications-post-request"></a>Requête POST des applications
+
+Utilisez le paramètre **appFile** pour envoyer le fichier config en tant que partie du corps de la demande.
+
+``` http
+POST /api/v1/applications
+Content-Type: multipart/form-data;
+Authorization : Bearer {access token}
+Content-Disposition: form-data; name="appFile"; filename="/C:/smart-contract-samples/HelloWorld.json"
+Content-Type: application/json
+```
+
+### <a name="applications-post-response"></a>Réponse POST des applications
+
+L’ID d’application créé est retourné dans la réponse. Vous avez besoin de l’ID d’application pour associer le fichier config au fichier de code lorsque vous appelez l’API suivante.
+
+``` http
+HTTP/1.1 200 OK
+Content-Type: "application/json"
+1
+```
+
+### <a name="contract-code-post-request"></a>Requête POST du code de contrat
+
+Utilisez l’[API POST de code de contrat d’applications](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/contractcodepost) en transmettant l’ID d’application pour charger le fichier de code Solidity de l’application. La charge utile peut être un fichier Solidity unique ou un fichier compressé contenant des fichiers Solidity.
+
+Remplacez les valeurs suivantes :
+
+| Paramètre | Valeur |
+|-----------|-------|
+| {applicationId} | Valeur renvoyée de l’API POST Applications. |
+| {ledgerId} | Index du registre. La valeur est généralement 1. Vous pouvez également vérifier la valeur dans la [table Ledger](data-sql-management-studio.md). |
+
+``` http
+POST /api/v1/applications/{applicationId}/contractCode?ledgerId={ledgerId}
+Content-Type: multipart/form-data;
+Authorization : Bearer {access token}
+Content-Disposition: form-data; name="contractFile"; filename="/C:/smart-contract-samples/HelloWorld.sol"
+```
+
+### <a name="contract-code-post-response"></a>Réponse POST de code de contrat
+
+En cas de réussite, la réponse comprend l’ID de code de contrat créé de la [table ContractCode](data-sql-management-studio.md).
+
+``` http
+HTTP/1.1 200 OK
+Content-Type: "application/json"
+2
+```
+
+## <a name="assign-roles-to-users"></a>Attribuer des rôles aux utilisateurs
+
+Utilisez l’[API POST des attributions de rôles d’applications](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/roleassignmentspost) en transmettant l’ID d’application, l’identifiant utilisateur et l’ID de rôle d’application pour créer un mappage utilisateur-rôle dans l’application blockchain spécifiée. Cette méthode ne peut être effectuée que par les utilisateurs qui sont administrateurs Workbench.
+
+### <a name="role-assignments-post-request"></a>Requête POST des attributions de rôles
+
+Remplacez les valeurs suivantes :
+
+| Paramètre | Valeur |
+|-----------|-------|
+| {applicationId} | Valeur renvoyée de l’API POST Applications. |
+| {userId} | Valeur de l’ID utilisateur dans la [table User](data-sql-management-studio.md). |
+| {applicationRoleId} | Valeur d’ID de rôle d’application associée à l’ID d’application dans la [table ApplicationRole](data-sql-management-studio.md). |
+
+``` http
+POST /api/v1/applications/{applicationId}/roleAssignments
+Content-Type: application/json;
+Authorization : Bearer {access token}
+
+{
+  "userId": {userId},
+  "applicationRoleId": {applicationRoleId}
+}
+```
+
+### <a name="role-assignments-post-response"></a>Réponse POST des attributions de rôles
+
+En cas de réussite, la réponse comprend l’ID d’attribution de rôle créé à partir de la [table RoleAssignment](data-sql-management-studio.md).
+
+``` http
+HTTP/1.1 200
+1
+```
+
 ## <a name="list-applications"></a>Liste des applications
 
-Une fois qu’un utilisateur s’est connecté au client blockchain, la première tâche consiste à récupérer toutes les applications Blockchain Workbench qui lui sont associées. Dans ce scénario, l’utilisateur a accès à deux applications :
+Utilisez l’[API GET Applications](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/applicationsget) pour récupérer toutes les applications Blockchain Workbench pour l’utilisateur. Dans cet exemple, l’utilisateur connecté a accès à deux applications :
 
-1. [Asset transfer](https://github.com/Azure-Samples/blockchain/blob/master/blockchain-workbench/application-and-smart-contract-samples/asset-transfer/readme.md) (Transfert d’actifs)
-2. [Refrigerated transportation](https://github.com/Azure-Samples/blockchain/blob/master/blockchain-workbench/application-and-smart-contract-samples/refrigerated-transportation/readme.md) (Transport frigorifique)
+- [Asset transfer](https://github.com/Azure-Samples/blockchain/blob/master/blockchain-workbench/application-and-smart-contract-samples/asset-transfer/readme.md) (Transfert d’actifs)
+- [Refrigerated transportation](https://github.com/Azure-Samples/blockchain/blob/master/blockchain-workbench/application-and-smart-contract-samples/refrigerated-transportation/readme.md) (Transport frigorifique)
 
-Utilisez [l’API Applications GET](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/applicationsget) :
+### <a name="applications-get-request"></a>Requête GET des applications
 
 ``` http
 GET /api/v1/applications
 Authorization : Bearer {access token}
 ```
 
-La réponse recense toutes les applications blockchain auxquelles un utilisateur a accès dans Blockchain Workbench. Les administrateurs Blockchain Workbench obtiennent toutes les applications blockchain. Les administrateurs non Workbench obtiennent toutes les blockchains pour lesquelles ils ont au moins un rôle d’application associé ou un rôle d’instance de contrat intelligent associé.
+### <a name="applications-get-response"></a>Réponse GET des applications
+
+La réponse recense toutes les applications blockchain auxquelles un utilisateur a accès dans Blockchain Workbench. Les administrateurs Blockchain Workbench obtiennent toutes les applications blockchain. Les administrateurs non Workbench obtiennent toutes les applications blockchain pour lesquelles ils ont au moins un rôle d’application associé ou un rôle d’instance de contrat intelligent associé.
 
 ``` http
 HTTP/1.1 200 OK
@@ -84,16 +180,18 @@ Content-type: application/json
 
 ## <a name="list-workflows-for-an-application"></a>Répertorier les flux de travail d’une application
 
-Une fois qu’un utilisateur sélectionne l’application blockchain applicable (par exemple **Asset Transfert**), le client blockchain récupère tous les workflows de l’application blockchain spécifique. Les utilisateurs peuvent alors sélectionner le flux de travail applicable avant de se voir proposer toutes les instances de contrat intelligent pour ce flux. Chaque application blockchain possède un ou plusieurs flux de travail, et chaque flux de travail possède zéro instance de contrat ou des instances de contrat intelligent. Pour une application cliente blockchain comportant un seul workflow, nous recommandons d’éviter le flux d’expérience utilisateur qui permet aux utilisateurs de sélectionner le workflow approprié. Dans ce cas, **Asset Transfer** n’a qu’un seul flux de travail, également appelé **Asset Transfer**.
+Utilisez l’[API GET Applications Workflows](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/workflowsget) pour répertorier tous les workflows d’une application blockchain spécifiée à laquelle un utilisateur a accès dans Blockchain Workbench. Chaque application blockchain possède un ou plusieurs flux de travail, et chaque flux de travail possède zéro instance de contrat ou des instances de contrat intelligent. Pour une application cliente blockchain comportant un seul workflow, nous recommandons d’éviter le flux d’expérience utilisateur qui permet aux utilisateurs de sélectionner le workflow approprié.
 
-Utilisez [l’API Applications Workflows GET](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/workflowsget) :
+### <a name="application-workflows-request"></a>Requête de workflows d’application
 
 ``` http
 GET /api/v1/applications/{applicationId}/workflows
 Authorization: Bearer {access token}
 ```
 
-La réponse recense tous les flux de travail de l’application blockchain spécifiée auxquels un utilisateur a accès dans Blockchain Workbench. Les administrateurs Blockchain Workbench obtiennent tous les workflows blockchain. Les administrateurs non Workbench obtiennent tous les workflows pour lesquels ils ont au moins un rôle d’application associé ou un rôle d’instance de contrat intelligent associé.
+### <a name="application-workflows-response"></a>Réponse de workflows d’application
+
+Les administrateurs Blockchain Workbench obtiennent tous les workflows blockchain. Les administrateurs non Workbench obtiennent tous les workflows pour lesquels ils ont au moins un rôle d’application associé ou un rôle d’instance de contrat intelligent associé.
 
 ``` http
 HTTP/1.1 200 OK
@@ -114,18 +212,72 @@ Content-type: application/json
 }
 ```
 
+## <a name="create-a-contract-instance"></a>Créer une instance de contrat
+
+Utilisez l’[API POST Contracts V2](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/contractsv2/contractpost) pour créer une nouvelle instance de contrat intelligent pour un workflow. Les utilisateurs peuvent uniquement créer une nouvelle instance de contrat intelligent si l’utilisateur est associé à un rôle d’application qui peut lancer une instance de contrat intelligent pour le workflow.
+
+> [!NOTE]
+> Dans cet exemple, la version 2 de l’API est utilisée. Les API de contrat version 2 offrent une plus grande granularité pour les champs ProvisioningStatus associés.
+
+### <a name="contracts-post-request"></a>Requête POST des contrats
+
+Remplacez les valeurs suivantes :
+
+| Paramètre | Valeur |
+|-----------|-------|
+| {workflowId} | La valeur de l’ID de workflow est le ConstructorID du contrat dans la [table Workflow](data-sql-management-studio.md). |
+| {contractCodeId} | Valeur d’ID du code de contrat de la [table ContractCode](data-sql-management-studio.md). Mettez en corrélation l’ID de l’application et l’ID du registre pour l’instance de contrat que vous souhaitez créer. |
+| {connectionId} | Valeur de l’ID de connexion de la [table Connection](data-sql-management-studio.md). |
+
+Pour le corps de la demande, définissez des valeurs à l’aide des informations suivantes :
+
+| Paramètre | Valeur |
+|-----------|-------|
+| workflowFunctionID | ID de la [table WorkflowFunction](data-sql-management-studio.md). |
+| workflowActionParameters | Paires nom/valeur des paramètres transmis au constructeur. Pour chaque paramètre, utilisez la valeur workflowFunctionParameterID de la table [WorkflowFunctionParameter](data-sql-management-studio.md). |
+
+``` http
+POST /api/v2/contracts?workflowId={workflowId}&contractCodeId={contractCodeId}&connectionId={connectionId}
+Content-Type: application/json;
+Authorization : Bearer {access token}
+
+{
+  "workflowFunctionID": 2,
+  "workflowActionParameters": [
+    {
+      "name": "message",
+      "value": "Hello, world!",
+      "workflowFunctionParameterId": 3
+    }
+  ]
+}
+```
+
+### <a name="contracts-post-response"></a>Réponse POST des contrats
+
+En cas de réussite, l’API des attributions de rôles retourne ContractActionID à partir de la [table ContractActionParameter](data-sql-management-studio.md).
+
+``` http
+HTTP/1.1 200 OK
+4
+```
+
 ## <a name="list-smart-contract-instances-for-a-workflow"></a>Répertorier les instances de contrat intelligent d’un flux de travail
 
-Une fois qu’un utilisateur sélectionne le flux de travail applicable (dans ce cas, **Asset Transfer**), le client blockchain récupère toutes les instances de contrat intelligent pour le flux de travail spécifié. Vous pouvez utiliser ces informations pour afficher toutes les instances de contrat intelligent du workflow. Vous pouvez également permettre aux utilisateurs d’explorer en profondeur l’une des instances de contrat intelligent présentées. Dans cet exemple, imaginons qu’un utilisateur souhaite intervenir et ainsi interagir avec l’une des instances de contrat intelligent.
+Utilisez l’[API GET Contracts](/rest/api/azure-blockchain-workbench/contractsv2/contractsget) pour afficher toutes les instances de contrat intelligent pour un workflow. Vous pouvez également permettre aux utilisateurs d’explorer en profondeur l’une des instances de contrat intelligent présentées.
 
-Utilisez [l’API Contracts GET](/rest/api/azure-blockchain-workbench/contractsv2/contractsget) :
+### <a name="contracts-request"></a>Requête de contrats
+
+Dans cet exemple, imaginons qu’un utilisateur souhaite intervenir et ainsi interagir avec l’une des instances de contrat intelligent.
 
 ``` http
 GET api/v1/contracts?workflowId={workflowId}
 Authorization: Bearer {access token}
 ```
 
-La réponse recense toutes les instances de contrat intelligent du flux de travail spécifié. Les administrateurs Workbench obtiennent toutes les instances de contrat intelligent. Les administrateurs non Workbench obtiennent toutes les instances de contrat intelligent pour lesquelles ils ont au moins un rôle d’application associé ou un rôle d’instance de contrat intelligent associé.
+### <a name="contracts-response"></a>Réponse de contrats
+
+La réponse recense toutes les instances de contrat intelligent du workflow spécifié. Les administrateurs Workbench obtiennent toutes les instances de contrat intelligent. Les administrateurs non Workbench obtiennent toutes les instances de contrat intelligent pour lesquelles ils ont au moins un rôle d’application associé ou un rôle d’instance de contrat intelligent associé.
 
 ``` http
 HTTP/1.1 200 OK
@@ -215,19 +367,25 @@ Content-type: application/json
 
 ## <a name="list-available-actions-for-a-contract"></a>Répertorier les actions disponibles d’un contrat
 
-Une fois qu’un utilisateur a décidé d’approfondir un contrat, le client blockchain peut lui présenter les actions utilisateur disponibles en fonction de l’état du contrat. Dans cet exemple, l’utilisateur recherche toutes les actions disponibles pour un nouveau contrat intelligent créé :
+Utilisez l’[API GET Contract Action](/rest/api/azure-blockchain-workbench/contractsv2/contractactionget) pour afficher les actions utilisateur disponibles en fonction de l’état du contrat. 
 
-* Modifier : permet à l’utilisateur de modifier la description et le prix d’une ressource.
-* Terminer : permet à l’utilisateur de mettre fin au contrat de la ressource.
+### <a name="contract-action-request"></a>Requête d’action de contrat
 
-Utilisez [l’API Contract Action GET](/rest/api/azure-blockchain-workbench/contractsv2/contractactionget) :
+Dans cet exemple, l’utilisateur recherche toutes les actions disponibles pour un nouveau contrat intelligent qu’il a créé.
 
 ``` http
 GET /api/v1/contracts/{contractId}/actions
 Authorization: Bearer {access token}
 ```
 
-La réponse recense toutes les actions qu’un utilisateur peut entreprendre étant donné l’état actuel de l’instance de contrat intelligent spécifiée. Les utilisateurs obtiennent toutes les actions applicables si l’utilisateur possède un rôle d’application associé ou est associé à un rôle d’instance de contrat intelligent pour l’état actuel de l’instance de contrat intelligent spécifiée.
+### <a name="contract-action-response"></a>Réponse d’action de contrat
+
+La réponse recense toutes les actions qu’un utilisateur peut entreprendre étant donné l’état actuel de l’instance de contrat intelligent spécifiée.
+
+* Modifier : permet à l’utilisateur de modifier la description et le prix d’une ressource.
+* Terminer : permet à l’utilisateur de mettre fin au contrat de la ressource.
+
+Les utilisateurs obtiennent toutes les actions applicables si l’utilisateur possède un rôle d’application associé ou est associé à un rôle d’instance de contrat intelligent pour l’état actuel de l’instance de contrat intelligent spécifiée.
 
 ``` http
 HTTP/1.1 200 OK
@@ -282,12 +440,11 @@ Content-type: application/json
 
 ## <a name="execute-an-action-for-a-contract"></a>Exécuter une action pour un contrat
 
-Un utilisateur peut ensuite décider d’intervenir pour l’instance de contrat intelligent spécifiée. Dans ce cas, imaginons qu’un utilisateur souhaite modifier la description et le prix d’une ressource pour ce qui suit :
+Utilisez l’[API POST Contract Action](/rest/api/azure-blockchain-workbench/contractsv2/contractactionpost) pour effectuer une action pour l’instance de contrat intelligent spécifiée.
 
-* Description : « My updated car »
-* Prix : 54321
+### <a name="contract-action-post-request"></a>Requête POST d’action de contrat
 
-Utilisez [l’API Contract Action POST](/rest/api/azure-blockchain-workbench/contractsv2/contractactionpost) :
+Dans ce cas, imaginons qu’un utilisateur souhaite modifier la description et le prix d’une ressource.
 
 ``` http
 POST /api/v1/contracts/{contractId}/actions
@@ -307,7 +464,11 @@ actionInformation: {
 }
 ```
 
-L’utilisateur est uniquement en mesure d’intervenir en fonction de l’état actuel de l’instance de contrat intelligent spécifiée et de son rôle d’application ou de son rôle d’instance de contrat intelligent associé. Si la publication aboutit, une réponse HTTP 200 OK est renvoyée sans corps de réponse.
+L’utilisateur est uniquement en mesure d’intervenir en fonction de l’état actuel de l’instance de contrat intelligent spécifiée et de son rôle d’application ou de son rôle d’instance de contrat intelligent associé.
+
+### <a name="contract-action-post-response"></a>Réponse POST d’action de contrat
+
+Si la publication aboutit, une réponse HTTP 200 OK est renvoyée sans corps de réponse.
 
 ``` http
 HTTP/1.1 200 OK
@@ -316,5 +477,4 @@ Content-type: application/json
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-> [!div class="nextstepaction"]
-> [Référence de l’API REST Azure Blockchain Workbench](https://docs.microsoft.com/rest/api/azure-blockchain-workbench)
+Pour obtenir des informations de référence sur les API Blockchain Workbench, consultez la [documentation de référence sur l’API REST Azure Blockchain Workbench](https://docs.microsoft.com/rest/api/azure-blockchain-workbench).

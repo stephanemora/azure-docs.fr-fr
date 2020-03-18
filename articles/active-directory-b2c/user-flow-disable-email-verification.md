@@ -8,21 +8,19 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 03/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c598664ef721103740716ad6215ddaea53bc635f
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 369b4e13baa344a71a51b358ef810d1a66b4b6ae
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78183072"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79126715"
 ---
 # <a name="disable-email-verification-during-customer-sign-up-in-azure-active-directory-b2c"></a>Désactiver la vérification par e-mail lors de l’inscription de client dans Azure Active Directory B2C
 
-Par défaut, Azure Active Directory B2C (Azure AD B2C) vérifie l’adresse e-mail de votre client pour les comptes locaux (comptes des utilisateurs qui s’inscrivent avec une adresse e-mail ou un nom d’utilisateur). Azure AD B2C vérifie la validité de l’adresse e-mail en demandant au client de la confirmer pendant le processus d’inscription. Il empêche également tout acteur malveillant d’utiliser des processus automatisés pour générer des comptes frauduleux dans vos applications.
-
-Certains développeurs d’applications préfèrent ignorer la vérification par e-mail pendant le processus d’inscription et amener les clients à vérifier l’adresse e-mail ultérieurement. Pour ce faire, Azure Active Directory B2C peut être configuré afin de désactiver la vérification par e-mail. Cette opération crée un processus de connexion plus simple et offre aux développeurs la possibilité de différencier les clients qui ont vérifié leur adresse e-mail de ceux qui ne l’ont pas encore fait.
+[!INCLUDE [disable email verification intro](../../includes/active-directory-b2c-disable-email-verification.md)]
 
 Pour désactiver la vérification par e-mail, procédez comme suit :
 
@@ -34,8 +32,10 @@ Pour désactiver la vérification par e-mail, procédez comme suit :
 1. Sélectionnez **Mises en page**.
 1. Sélectionnez **Page d’inscription à un compte Local**.
 1. Sous **Attributs utilisateur**, sélectionnez **Adresse e-mail**.
-1. Dans la liste déroulante **Requiert une vérification**, sélectionnez **Non**.
+1. Dans la liste déroulante **REQUIERT UNE VÉRIFICATION**, sélectionnez **Non**.
 1. Sélectionnez **Enregistrer**. La vérification par e-mail est maintenant désactivée pour ce flux d’utilisateur.
 
-> [!WARNING]
-> La désactivation de la vérification par e-mail dans le processus d’inscription peut entraîner la réception de courrier indésirable. Si vous désactivez la vérification par e-mail par défaut d’Azure AD B2C, nous vous recommandons d’implémenter un système de vérification de remplacement.
+## <a name="next-steps"></a>Étapes suivantes
+
+- Découvrez comment [personnaliser l’interface utilisateur dans Azure Active Directory B2C](customize-ui-overview.md)
+

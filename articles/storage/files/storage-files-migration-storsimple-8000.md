@@ -4,21 +4,26 @@ description: Découvrez comment effectuer une migration d’une appliance StorSi
 author: fauhse
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/02/2020
+ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 78100a5dd38b211f6b0241d5a0bac10cf86b09f6
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: d937852ace8d9bf39495f1fdd92e6edfc4452a0a
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250950"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943583"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>Migration de StorSimple 8100 et 8600 vers Azure File Sync
 
-La série StorSimple 8000 représente deux références SKU distinctes et il est possible de migrer les données de l’une de ces SKU vers un environnement Azure File Sync. Cet article explique comment migrer les deux appliances vers Azure File Sync et fournit les connaissances de base et les étapes de migration nécessaires à la réussite de la migration vers Azure File Sync.
+La série StorSimple 8000 est représentée par les appliances physiques locales 8100 ou 8600 et leurs composants de service cloud. Il est possible de migrer les données de l’une ou l’autre de ces appliances vers un environnement Azure File Sync. Azure File Sync est le service Azure à long terme stratégique et par défaut vers lequel les appliances StorSimple peuvent être migrées.
+
+StorSimple série 8000 atteindra sa [fin de vie](https://support.microsoft.com/en-us/lifecycle/search?alpha=StorSimple%208000%20Series) en décembre 2022. Il est important de commencer à planifier votre migration dès que possible. Cet article décrit les étapes à suivre pour effectuer correctement une migration vers Azure File Sync et fournit les connaissances générales nécessaires. 
 
 ## <a name="azure-file-sync"></a>Azure File Sync
+
+> [!IMPORTANT]
+> Microsoft s’engage à aider les clients lors de la migration. Envoyez un e-mail à l’adresse AzureFilesMigration@microsoft.com pour obtenir un plan de migration personnalisé ainsi qu’une assistance pendant la migration.
 
 Azure File Sync est un service cloud Microsoft basé sur deux composants principaux :
 
@@ -238,10 +243,10 @@ Au cours de ce processus de migration, vous monterez plusieurs clones de volume 
 > [!IMPORTANT]
 > Pour que cela fonctionne, une clé de Registre doit être définie sur le serveur avant de configurer Azure File Sync.
 
-1. Créez un nouveau répertoire sur le lecteur système de la machine virtuelle. Les informations Azure File Sync devront être conservées à cet emplacement plutôt que sur les clones de volume montés. Par exemple : `“C:\syncmetadata”`
+1. Créez un nouveau répertoire sur le lecteur système de la machine virtuelle. Les informations Azure File Sync devront être conservées à cet emplacement plutôt que sur les clones de volume montés. Par exemple : `"C:\syncmetadata"`
 2. Ouvrez Regedit et recherchez la ruche de registre suivante : `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync`
 3. Créez une nouvelle clé de type chaîne, nommée : ***MetadataRootPath***
-4. Définissez le chemin d’accès complet au répertoire que vous avez créé sur le volume système, par exemple : `C:\syncmetadata”`
+4. Définissez le chemin d’accès complet au répertoire que vous avez créé sur le volume système, par exemple : `C:\syncmetadata"`
 
 ### <a name="configure-azure-file-sync-on-the-azure-vm"></a>Configurer Azure File Sync sur la machine virtuelle Azure
 
@@ -376,7 +381,7 @@ Arrière-plan :
       /COPY:copyflag[s]
    :::column-end:::
    :::column span="1":::
-      Fidélité de la copie de fichier (la valeur par défaut est /COPY:DAT), indicateurs de copie : D=Données, A=Attributs, T=Horodatages, S=Sécurity=ACL NTFS, O=Informations propriétaire, U=Informations audit
+      Fidélité de la copie de fichier (la valeur par défaut est /COPY:DAT), indicateurs de copie : D=Données, A=Attributs, T=Horodatages, S=Sécurité=ACL NTFS, O=Informations propriétaire, U=Informations audit
    :::column-end:::
 :::row-end:::
 :::row:::

@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/26/2020
+ms.date: 03/06/2020
 ms.author: radeltch
-ms.openlocfilehash: ff78d44813001e9efdf6d7679616c397c31a1f5b
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: 3e9634b9121cb0ecbcfb01f6ad58984d90ec28e5
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78164761"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78927253"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications-multi-sid-guide"></a>Guide de haute disponibilité multi-SID pour SAP NetWeaver sur les machines virtuelles Azure sur SUSE Linux Enterprise Server pour les applications SAP
 
@@ -246,8 +246,12 @@ Cette documentation suppose ce qui suit :
 
    > [!IMPORTANT]
    > Des tests récents ont révélé des cas où netcat cessait de répondre aux demandes en raison du backlog et de sa capacité à ne gérer qu’une seule connexion. La ressource netcat cesse d’écouter les demandes d’Azure Load Balancer et l’adresse IP flottante devient indisponible.  
-   > 
-   > Pour les clusters Pacemaker existants, nous vous recommandons de remplacer netcat par socat en suivant les instructions de la page [Azure Load-Balancer Detection Hardening](https://www.suse.com/support/kb/doc/?id=7024128). Notez que la modification nécessitera un bref temps d’arrêt.  
+   > Pour les clusters Pacemaker existants, nous vous recommandons de remplacer netcat par socat. Actuellement, nous vous recommandons d’utiliser l’agent de ressources azure-lb, qui fait partie du package resource-agents, avec la configuration requise suivante pour la version du package :
+   > - Pour SLES 12 SP4/SP5, la version doit être au minimum resource-agents-4.3.018.a7fb5035-3.30.1.  
+   > - Pour SLES 15/15 SP1, la version doit être au minimum resource-agents-4.3.0184.6ee15eb2-4.13.1.  
+   >
+   > Notez que la modification nécessitera un bref temps d’arrêt.  
+   > Pour les clusters Pacemaker existants, si la configuration a déjà été modifiée pour utiliser socat comme décrit à la page [Azure Load-Balancer Detection Hardening](https://www.suse.com/support/kb/doc/?id=7024128), il n’est pas nécessaire de passer immédiatement à l’agent de ressources azure-lb.
 
     ```
       sudo crm configure primitive fs_NW2_ASCS Filesystem device='nw2-nfs:/NW2/ASCS' directory='/usr/sap/NW2/ASCS10' fstype='nfs4' \
@@ -259,9 +263,7 @@ Cette documentation suppose ce qui suit :
         params ip=10.3.1.16 cidr_netmask=24 \
         op monitor interval=10 timeout=20
    
-      sudo crm configure primitive nc_NW2_ASCS anything \
-        params binfile="/usr/bin/socat" cmdline_options="-U TCP-LISTEN:62010,backlog=10,fork,reuseaddr /dev/null" \
-        op monitor timeout=20s interval=10 depth=0
+      sudo crm configure primitive nc_NW2_ASCS azure-lb port=62010
    
       sudo crm configure group g-NW2_ASCS fs_NW2_ASCS nc_NW2_ASCS vip_NW2_ASCS \
          meta resource-stickiness=3000
@@ -275,9 +277,7 @@ Cette documentation suppose ce qui suit :
        params ip=10.3.1.13 cidr_netmask=24 \
        op monitor interval=10 timeout=20
    
-      sudo crm configure primitive nc_NW3_ASCS anything \
-        params binfile="/usr/bin/socat" cmdline_options="-U TCP-LISTEN:62020,backlog=10,fork,reuseaddr /dev/null" \
-        op monitor timeout=20s interval=10 depth=0
+      sudo crm configure primitive nc_NW3_ASCS azure-lb port=62020
    
       sudo crm configure group g-NW3_ASCS fs_NW3_ASCS nc_NW3_ASCS vip_NW3_ASCS \
         meta resource-stickiness=3000
@@ -309,12 +309,7 @@ Cette documentation suppose ce qui suit :
       params ip=10.3.1.17 cidr_netmask=24 \
       op monitor interval=10 timeout=20
    
-    sudo crm configure primitive nc_NW2_ERS anything \
-     params binfile="/usr/bin/socat" cmdline_options="-U TCP-LISTEN:62112,backlog=10,fork,reuseaddr /dev/null" \
-     op monitor timeout=20s interval=10 depth=0
-   
-    # WARNING: Resources nc_NW2_ASCS,nc_NW2_ERS violate uniqueness for parameter "binfile": "/usr/bin/socat"
-    # Do you still want to commit (y/n)? y
+    sudo crm configure primitive nc_NW2_ERS azure-lb port=62112
    
     sudo crm configure group g-NW2_ERS fs_NW2_ERS nc_NW2_ERS vip_NW2_ERS
 
@@ -327,12 +322,7 @@ Cette documentation suppose ce qui suit :
       params ip=10.3.1.19 cidr_netmask=24 \
       op monitor interval=10 timeout=20
    
-    sudo crm configure primitive nc_NW3_ERS anything \
-     params binfile="/usr/bin/socat" cmdline_options="-U TCP-LISTEN:62122,backlog=10,fork,reuseaddr /dev/null" \
-     op monitor timeout=20s interval=10 depth=0
-   
-    # WARNING: Resources nc_NW3_ASCS,nc_NW3_ERS violate uniqueness for parameter "binfile": "/usr/bin/socat"
-    # Do you still want to commit (y/n)? y
+    sudo crm configure primitive nc_NW3_ERS azure-lb port=62122
    
     sudo crm configure group g-NW3_ERS fs_NW3_ERS nc_NW3_ERS vip_NW3_ERS
    ```
@@ -532,32 +522,32 @@ Cette documentation suppose ce qui suit :
     #stonith-sbd     (stonith:external/sbd): Started slesmsscl1
     # Resource Group: g-NW1_ASCS
     #     fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started slesmsscl2
-    #     nc_NW1_ASCS        (ocf::heartbeat:anything):      Started slesmsscl2
+    #     nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started slesmsscl2
     #     vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started slesmsscl2
     #     rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started slesmsscl2
     # Resource Group: g-NW1_ERS
     #     fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started slesmsscl1
-    #     nc_NW1_ERS (ocf::heartbeat:anything):      Started slesmsscl1
+    #     nc_NW1_ERS (ocf::heartbeat:azure-lb):      Started slesmsscl1
     #     vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started slesmsscl1
     #     rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started slesmsscl1
     # Resource Group: g-NW2_ASCS
     #     fs_NW2_ASCS        (ocf::heartbeat:Filesystem):    Started slesmsscl1
-    #     nc_NW2_ASCS        (ocf::heartbeat:anything):      Started slesmsscl1
+    #     nc_NW2_ASCS        (ocf::heartbeat:azure-lb):      Started slesmsscl1
     #     vip_NW2_ASCS       (ocf::heartbeat:IPaddr2):       Started slesmsscl1
     #     rsc_sap_NW2_ASCS10 (ocf::heartbeat:SAPInstance):   Started slesmsscl1
     # Resource Group: g-NW2_ERS
     #     fs_NW2_ERS (ocf::heartbeat:Filesystem):    Started slesmsscl2
-    #     nc_NW2_ERS (ocf::heartbeat:anything):      Started slesmsscl2
+    #     nc_NW2_ERS (ocf::heartbeat:azure-lb):      Started slesmsscl2
     #     vip_NW2_ERS        (ocf::heartbeat:IPaddr2):       Started slesmsscl2
     #     rsc_sap_NW2_ERS12  (ocf::heartbeat:SAPInstance):   Started slesmsscl2
     # Resource Group: g-NW3_ASCS
     #     fs_NW3_ASCS        (ocf::heartbeat:Filesystem):    Started slesmsscl1
-    #     nc_NW3_ASCS        (ocf::heartbeat:anything):      Started slesmsscl1
+    #     nc_NW3_ASCS        (ocf::heartbeat:azure-lb):      Started slesmsscl1
     #     vip_NW3_ASCS       (ocf::heartbeat:IPaddr2):       Started slesmsscl1
     #     rsc_sap_NW3_ASCS20 (ocf::heartbeat:SAPInstance):   Started slesmsscl1
     # Resource Group: g-NW3_ERS
     #     fs_NW3_ERS (ocf::heartbeat:Filesystem):    Started slesmsscl2
-    #     nc_NW3_ERS (ocf::heartbeat:anything):      Started slesmsscl2
+    #     nc_NW3_ERS (ocf::heartbeat:azure-lb):      Started slesmsscl2
     #     vip_NW3_ERS        (ocf::heartbeat:IPaddr2):       Started slesmsscl2
     #     rsc_sap_NW3_ERS22  (ocf::heartbeat:SAPInstance):   Started slesmsscl2
     ```
@@ -658,32 +648,32 @@ Les tests présentés se trouvent dans un cluster à deux nœuds, multi-SID, ave
     stonith-sbd     (stonith:external/sbd): Started slesmsscl1
      Resource Group: g-NW1_ASCS
          fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started slesmsscl1
-         nc_NW1_ASCS        (ocf::heartbeat:anything):      Started slesmsscl1
+         nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started slesmsscl1
          vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started slesmsscl1
          rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started slesmsscl1
      Resource Group: g-NW1_ERS
          fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started slesmsscl2
-         nc_NW1_ERS (ocf::heartbeat:anything):      Started slesmsscl2
+         nc_NW1_ERS (ocf::heartbeat:azure-lb):      Started slesmsscl2
          vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started slesmsscl2
          rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started slesmsscl2
      Resource Group: g-NW2_ASCS
          fs_NW2_ASCS        (ocf::heartbeat:Filesystem):    Started slesmsscl1
-         nc_NW2_ASCS        (ocf::heartbeat:anything):      Started slesmsscl1
+         nc_NW2_ASCS        (ocf::heartbeat:azure-lb):      Started slesmsscl1
          vip_NW2_ASCS       (ocf::heartbeat:IPaddr2):       Started slesmsscl1
          rsc_sap_NW2_ASCS10 (ocf::heartbeat:SAPInstance):   Started slesmsscl1
      Resource Group: g-NW2_ERS
          fs_NW2_ERS (ocf::heartbeat:Filesystem):    Started slesmsscl2
-         nc_NW2_ERS (ocf::heartbeat:anything):      Started slesmsscl2
+         nc_NW2_ERS (ocf::heartbeat:azure-lb):      Started slesmsscl2
          vip_NW2_ERS        (ocf::heartbeat:IPaddr2):       Started slesmsscl2
          rsc_sap_NW2_ERS12  (ocf::heartbeat:SAPInstance):   Started slesmsscl2
      Resource Group: g-NW3_ASCS
          fs_NW3_ASCS        (ocf::heartbeat:Filesystem):    Started slesmsscl2
-         nc_NW3_ASCS        (ocf::heartbeat:anything):      Started slesmsscl2
+         nc_NW3_ASCS        (ocf::heartbeat:azure-lb):      Started slesmsscl2
          vip_NW3_ASCS       (ocf::heartbeat:IPaddr2):       Started slesmsscl2
          rsc_sap_NW3_ASCS20 (ocf::heartbeat:SAPInstance):   Started slesmsscl2
      Resource Group: g-NW3_ERS
          fs_NW3_ERS (ocf::heartbeat:Filesystem):    Started slesmsscl1
-         nc_NW3_ERS (ocf::heartbeat:anything):      Started slesmsscl1
+         nc_NW3_ERS (ocf::heartbeat:azure-lb):      Started slesmsscl1
          vip_NW3_ERS        (ocf::heartbeat:IPaddr2):       Started slesmsscl1
          rsc_sap_NW3_ERS22  (ocf::heartbeat:SAPInstance):   Started slesmsscl1
    ```
@@ -708,32 +698,32 @@ Les tests présentés se trouvent dans un cluster à deux nœuds, multi-SID, ave
     stonith-sbd     (stonith:external/sbd): Started slesmsscl1
      Resource Group: g-NW1_ASCS
          fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started slesmsscl1
-         nc_NW1_ASCS        (ocf::heartbeat:anything):      Started slesmsscl1
+         nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started slesmsscl1
          vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started slesmsscl1
          rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started slesmsscl1
      Resource Group: g-NW1_ERS
          fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started slesmsscl2
-         nc_NW1_ERS (ocf::heartbeat:anything):      Started slesmsscl2
+         nc_NW1_ERS (ocf::heartbeat:azure-lb):      Started slesmsscl2
          vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started slesmsscl2
          rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started slesmsscl2
      Resource Group: g-NW2_ASCS
          fs_NW2_ASCS        (ocf::heartbeat:Filesystem):    Started slesmsscl2
-         nc_NW2_ASCS        (ocf::heartbeat:anything):      Started slesmsscl2
+         nc_NW2_ASCS        (ocf::heartbeat:azure-lb):      Started slesmsscl2
          vip_NW2_ASCS       (ocf::heartbeat:IPaddr2):       Started slesmsscl2
          rsc_sap_NW2_ASCS10 (ocf::heartbeat:SAPInstance):   Started slesmsscl2
      Resource Group: g-NW2_ERS
          fs_NW2_ERS (ocf::heartbeat:Filesystem):    Started slesmsscl1
-         nc_NW2_ERS (ocf::heartbeat:anything):      Started slesmsscl1
+         nc_NW2_ERS (ocf::heartbeat:azure-lb):      Started slesmsscl1
          vip_NW2_ERS        (ocf::heartbeat:IPaddr2):       Started slesmsscl1
          rsc_sap_NW2_ERS12  (ocf::heartbeat:SAPInstance):   Started slesmsscl1
      Resource Group: g-NW3_ASCS
          fs_NW3_ASCS        (ocf::heartbeat:Filesystem):    Started slesmsscl2
-         nc_NW3_ASCS        (ocf::heartbeat:anything):      Started slesmsscl2
+         nc_NW3_ASCS        (ocf::heartbeat:azure-lb):      Started slesmsscl2
          vip_NW3_ASCS       (ocf::heartbeat:IPaddr2):       Started slesmsscl2
          rsc_sap_NW3_ASCS20 (ocf::heartbeat:SAPInstance):   Started slesmsscl2
      Resource Group: g-NW3_ERS
          fs_NW3_ERS (ocf::heartbeat:Filesystem):    Started slesmsscl1
-         nc_NW3_ERS (ocf::heartbeat:anything):      Started slesmsscl1
+         nc_NW3_ERS (ocf::heartbeat:azure-lb):      Started slesmsscl1
          vip_NW3_ERS        (ocf::heartbeat:IPaddr2):       Started slesmsscl1
          rsc_sap_NW3_ERS22  (ocf::heartbeat:SAPInstance):   Started slesmsscl1
    ```
@@ -747,32 +737,32 @@ Les tests présentés se trouvent dans un cluster à deux nœuds, multi-SID, ave
     stonith-sbd     (stonith:external/sbd): Started slesmsscl1
      Resource Group: g-NW1_ASCS
          fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started slesmsscl1
-         nc_NW1_ASCS        (ocf::heartbeat:anything):      Started slesmsscl1
+         nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started slesmsscl1
          vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started slesmsscl1
          rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started slesmsscl1
      Resource Group: g-NW1_ERS
          fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started slesmsscl2
-         nc_NW1_ERS (ocf::heartbeat:anything):      Started slesmsscl2
+         nc_NW1_ERS (ocf::heartbeat:azure-lb):      Started slesmsscl2
          vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started slesmsscl2
          rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started slesmsscl2
      Resource Group: g-NW2_ASCS
          fs_NW2_ASCS        (ocf::heartbeat:Filesystem):    Started slesmsscl2
-         nc_NW2_ASCS        (ocf::heartbeat:anything):      Started slesmsscl2
+         nc_NW2_ASCS        (ocf::heartbeat:azure-lb):      Started slesmsscl2
          vip_NW2_ASCS       (ocf::heartbeat:IPaddr2):       Started slesmsscl2
          rsc_sap_NW2_ASCS10 (ocf::heartbeat:SAPInstance):   Started slesmsscl2
      Resource Group: g-NW2_ERS
          fs_NW2_ERS (ocf::heartbeat:Filesystem):    Started slesmsscl1
-         nc_NW2_ERS (ocf::heartbeat:anything):      Started slesmsscl1
+         nc_NW2_ERS (ocf::heartbeat:azure-lb):      Started slesmsscl1
          vip_NW2_ERS        (ocf::heartbeat:IPaddr2):       Started slesmsscl1
          rsc_sap_NW2_ERS12  (ocf::heartbeat:SAPInstance):   Started slesmsscl1
      Resource Group: g-NW3_ASCS
          fs_NW3_ASCS        (ocf::heartbeat:Filesystem):    Started slesmsscl2
-         nc_NW3_ASCS        (ocf::heartbeat:anything):      Started slesmsscl2
+         nc_NW3_ASCS        (ocf::heartbeat:azure-lb):      Started slesmsscl2
          vip_NW3_ASCS       (ocf::heartbeat:IPaddr2):       Started slesmsscl2
          rsc_sap_NW3_ASCS20 (ocf::heartbeat:SAPInstance):   Started slesmsscl2
      Resource Group: g-NW3_ERS
          fs_NW3_ERS (ocf::heartbeat:Filesystem):    Started slesmsscl1
-         nc_NW3_ERS (ocf::heartbeat:anything):      Started slesmsscl1
+         nc_NW3_ERS (ocf::heartbeat:azure-lb):      Started slesmsscl1
          vip_NW3_ERS        (ocf::heartbeat:IPaddr2):       Started slesmsscl1
          rsc_sap_NW3_ERS22  (ocf::heartbeat:SAPInstance):   Started slesmsscl1
    ```
@@ -797,32 +787,32 @@ Les tests présentés se trouvent dans un cluster à deux nœuds, multi-SID, ave
     stonith-sbd     (stonith:external/sbd): Started slesmsscl1
      Resource Group: g-NW1_ASCS
          fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started slesmsscl1
-         nc_NW1_ASCS        (ocf::heartbeat:anything):      Started slesmsscl1
+         nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started slesmsscl1
          vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started slesmsscl1
          rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started slesmsscl1
      Resource Group: g-NW1_ERS
          fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started slesmsscl2
-         nc_NW1_ERS (ocf::heartbeat:anything):      Started slesmsscl2
+         nc_NW1_ERS (ocf::heartbeat:azure-lb):      Started slesmsscl2
          vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started slesmsscl2
          rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started slesmsscl2
      Resource Group: g-NW2_ASCS
          fs_NW2_ASCS        (ocf::heartbeat:Filesystem):    Started slesmsscl1
-         nc_NW2_ASCS        (ocf::heartbeat:anything):      Started slesmsscl1
+         nc_NW2_ASCS        (ocf::heartbeat:azure-lb):      Started slesmsscl1
          vip_NW2_ASCS       (ocf::heartbeat:IPaddr2):       Started slesmsscl1
          rsc_sap_NW2_ASCS10 (ocf::heartbeat:SAPInstance):   Started slesmsscl1
      Resource Group: g-NW2_ERS
          fs_NW2_ERS (ocf::heartbeat:Filesystem):    Started slesmsscl2
-         nc_NW2_ERS (ocf::heartbeat:anything):      Started slesmsscl2
+         nc_NW2_ERS (ocf::heartbeat:azure-lb):      Started slesmsscl2
          vip_NW2_ERS        (ocf::heartbeat:IPaddr2):       Started slesmsscl2
          rsc_sap_NW2_ERS12  (ocf::heartbeat:SAPInstance):   Started slesmsscl2
      Resource Group: g-NW3_ASCS
          fs_NW3_ASCS        (ocf::heartbeat:Filesystem):    Started slesmsscl2
-         nc_NW3_ASCS        (ocf::heartbeat:anything):      Started slesmsscl2
+         nc_NW3_ASCS        (ocf::heartbeat:azure-lb):      Started slesmsscl2
          vip_NW3_ASCS       (ocf::heartbeat:IPaddr2):       Started slesmsscl2
          rsc_sap_NW3_ASCS20 (ocf::heartbeat:SAPInstance):   Started slesmsscl2
      Resource Group: g-NW3_ERS
          fs_NW3_ERS (ocf::heartbeat:Filesystem):    Started slesmsscl1
-         nc_NW3_ERS (ocf::heartbeat:anything):      Started slesmsscl1
+         nc_NW3_ERS (ocf::heartbeat:azure-lb):      Started slesmsscl1
          vip_NW3_ERS        (ocf::heartbeat:IPaddr2):       Started slesmsscl1
          rsc_sap_NW3_ERS22  (ocf::heartbeat:SAPInstance):   Started slesmsscl1
    ```
@@ -836,32 +826,32 @@ Les tests présentés se trouvent dans un cluster à deux nœuds, multi-SID, ave
     stonith-sbd     (stonith:external/sbd): Started slesmsscl1
      Resource Group: g-NW1_ASCS
          fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started slesmsscl2
-         nc_NW1_ASCS        (ocf::heartbeat:anything):      Started slesmsscl2
+         nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started slesmsscl2
          vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started slesmsscl2
          rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started slesmsscl2
      Resource Group: g-NW1_ERS
          fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started slesmsscl1
-         nc_NW1_ERS (ocf::heartbeat:anything):      Started slesmsscl1
+         nc_NW1_ERS (ocf::heartbeat:azure-lb):      Started slesmsscl1
          vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started slesmsscl1
          rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started slesmsscl1
      Resource Group: g-NW2_ASCS
          fs_NW2_ASCS        (ocf::heartbeat:Filesystem):    Started slesmsscl2
-         nc_NW2_ASCS        (ocf::heartbeat:anything):      Started slesmsscl2
+         nc_NW2_ASCS        (ocf::heartbeat:azure-lb):      Started slesmsscl2
          vip_NW2_ASCS       (ocf::heartbeat:IPaddr2):       Started slesmsscl2
          rsc_sap_NW2_ASCS10 (ocf::heartbeat:SAPInstance):   Started slesmsscl2
      Resource Group: g-NW2_ERS
          fs_NW2_ERS (ocf::heartbeat:Filesystem):    Started slesmsscl1
-         nc_NW2_ERS (ocf::heartbeat:anything):      Started slesmsscl1
+         nc_NW2_ERS (ocf::heartbeat:azure-lb):      Started slesmsscl1
          vip_NW2_ERS        (ocf::heartbeat:IPaddr2):       Started slesmsscl1
          rsc_sap_NW2_ERS12  (ocf::heartbeat:SAPInstance):   Started slesmsscl1
      Resource Group: g-NW3_ASCS
          fs_NW3_ASCS        (ocf::heartbeat:Filesystem):    Started slesmsscl2
-         nc_NW3_ASCS        (ocf::heartbeat:anything):      Started slesmsscl2
+         nc_NW3_ASCS        (ocf::heartbeat:azure-lb):      Started slesmsscl2
          vip_NW3_ASCS       (ocf::heartbeat:IPaddr2):       Started slesmsscl2
          rsc_sap_NW3_ASCS20 (ocf::heartbeat:SAPInstance):   Started slesmsscl2
      Resource Group: g-NW3_ERS
          fs_NW3_ERS (ocf::heartbeat:Filesystem):    Started slesmsscl1
-         nc_NW3_ERS (ocf::heartbeat:anything):      Started slesmsscl1
+         nc_NW3_ERS (ocf::heartbeat:azure-lb):      Started slesmsscl1
          vip_NW3_ERS        (ocf::heartbeat:IPaddr2):       Started slesmsscl1
          rsc_sap_NW3_ERS22  (ocf::heartbeat:SAPInstance):   Started slesmsscl1
    ```
@@ -882,32 +872,32 @@ Les tests présentés se trouvent dans un cluster à deux nœuds, multi-SID, ave
     stonith-sbd     (stonith:external/sbd): Started slesmsscl1
      Resource Group: g-NW1_ASCS
          fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started slesmsscl1
-         nc_NW1_ASCS        (ocf::heartbeat:anything):      Started slesmsscl1
+         nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started slesmsscl1
          vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started slesmsscl1
          rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started slesmsscl1
      Resource Group: g-NW1_ERS
          fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started slesmsscl1
-         nc_NW1_ERS (ocf::heartbeat:anything):      Started slesmsscl1
+         nc_NW1_ERS (ocf::heartbeat:azure-lb):      Started slesmsscl1
          vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started slesmsscl1
          rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started slesmsscl1
      Resource Group: g-NW2_ASCS
          fs_NW2_ASCS        (ocf::heartbeat:Filesystem):    Started slesmsscl1
-         nc_NW2_ASCS        (ocf::heartbeat:anything):      Started slesmsscl1
+         nc_NW2_ASCS        (ocf::heartbeat:azure-lb):      Started slesmsscl1
          vip_NW2_ASCS       (ocf::heartbeat:IPaddr2):       Started slesmsscl1
          rsc_sap_NW2_ASCS10 (ocf::heartbeat:SAPInstance):   Started slesmsscl1
      Resource Group: g-NW2_ERS
          fs_NW2_ERS (ocf::heartbeat:Filesystem):    Started slesmsscl1
-         nc_NW2_ERS (ocf::heartbeat:anything):      Started slesmsscl1
+         nc_NW2_ERS (ocf::heartbeat:azure-lb):      Started slesmsscl1
          vip_NW2_ERS        (ocf::heartbeat:IPaddr2):       Started slesmsscl1
          rsc_sap_NW2_ERS12  (ocf::heartbeat:SAPInstance):   Started slesmsscl1
      Resource Group: g-NW3_ASCS
          fs_NW3_ASCS        (ocf::heartbeat:Filesystem):    Started slesmsscl1
-         nc_NW3_ASCS        (ocf::heartbeat:anything):      Started slesmsscl1
+         nc_NW3_ASCS        (ocf::heartbeat:azure-lb):      Started slesmsscl1
          vip_NW3_ASCS       (ocf::heartbeat:IPaddr2):       Started slesmsscl1
          rsc_sap_NW3_ASCS20 (ocf::heartbeat:SAPInstance):   Started slesmsscl1
      Resource Group: g-NW3_ERS
          fs_NW3_ERS (ocf::heartbeat:Filesystem):    Started slesmsscl1
-         nc_NW3_ERS (ocf::heartbeat:anything):      Started slesmsscl1
+         nc_NW3_ERS (ocf::heartbeat:azure-lb):      Started slesmsscl1
          vip_NW3_ERS        (ocf::heartbeat:IPaddr2):       Started slesmsscl1
          rsc_sap_NW3_ERS22  (ocf::heartbeat:SAPInstance):   Started slesmsscl1
     
@@ -942,32 +932,32 @@ Les tests présentés se trouvent dans un cluster à deux nœuds, multi-SID, ave
     stonith-sbd     (stonith:external/sbd): Started slesmsscl1
      Resource Group: g-NW1_ASCS
          fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started slesmsscl1
-         nc_NW1_ASCS        (ocf::heartbeat:anything):      Started slesmsscl1
+         nc_NW1_ASCS        (ocf::heartbeat:azure-lb):      Started slesmsscl1
          vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started slesmsscl1
          rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started slesmsscl1
      Resource Group: g-NW1_ERS
          fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started slesmsscl2
-         nc_NW1_ERS (ocf::heartbeat:anything):      Started slesmsscl2
+         nc_NW1_ERS (ocf::heartbeat:azure-lb):      Started slesmsscl2
          vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started slesmsscl2
          rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started slesmsscl2
      Resource Group: g-NW2_ASCS
          fs_NW2_ASCS        (ocf::heartbeat:Filesystem):    Started slesmsscl1
-         nc_NW2_ASCS        (ocf::heartbeat:anything):      Started slesmsscl1
+         nc_NW2_ASCS        (ocf::heartbeat:azure-lb):      Started slesmsscl1
          vip_NW2_ASCS       (ocf::heartbeat:IPaddr2):       Started slesmsscl1
          rsc_sap_NW2_ASCS10 (ocf::heartbeat:SAPInstance):   Started slesmsscl1
      Resource Group: g-NW2_ERS
          fs_NW2_ERS (ocf::heartbeat:Filesystem):    Started slesmsscl2
-         nc_NW2_ERS (ocf::heartbeat:anything):      Started slesmsscl2
+         nc_NW2_ERS (ocf::heartbeat:azure-lb):      Started slesmsscl2
          vip_NW2_ERS        (ocf::heartbeat:IPaddr2):       Started slesmsscl2
          rsc_sap_NW2_ERS12  (ocf::heartbeat:SAPInstance):   Started slesmsscl2
      Resource Group: g-NW3_ASCS
          fs_NW3_ASCS        (ocf::heartbeat:Filesystem):    Started slesmsscl1
-         nc_NW3_ASCS        (ocf::heartbeat:anything):      Started slesmsscl1
+         nc_NW3_ASCS        (ocf::heartbeat:azure-lb):      Started slesmsscl1
          vip_NW3_ASCS       (ocf::heartbeat:IPaddr2):       Started slesmsscl1
          rsc_sap_NW3_ASCS20 (ocf::heartbeat:SAPInstance):   Started slesmsscl1
      Resource Group: g-NW3_ERS
          fs_NW3_ERS (ocf::heartbeat:Filesystem):    Started slesmsscl2
-         nc_NW3_ERS (ocf::heartbeat:anything):      Started slesmsscl2
+         nc_NW3_ERS (ocf::heartbeat:azure-lb):      Started slesmsscl2
          vip_NW3_ERS        (ocf::heartbeat:IPaddr2):       Started slesmsscl2
          rsc_sap_NW3_ERS22  (ocf::heartbeat:SAPInstance):   Started slesmsscl2
    ```
@@ -977,5 +967,4 @@ Les tests présentés se trouvent dans un cluster à deux nœuds, multi-SID, ave
 * [Planification et implémentation de machines virtuelles Azure pour SAP][planning-guide]
 * [Déploiement de machines virtuelles Azure pour SAP][deployment-guide]
 * [Déploiement SGBD de machines virtuelles Azure pour SAP][dbms-guide]
-* Pour savoir comment établir une haute disponibilité et planifier la récupération d’urgence de SAP HANA sur Azure (grandes instances), consultez [Haute disponibilité et récupération d’urgence de SAP HANA (grandes instances) sur Azure](hana-overview-high-availability-disaster-recovery.md).
 * Pour savoir comment établir une haute disponibilité et planifier la récupération d’urgence de SAP HANA sur des machines virtuelles Azure, consultez [Haute disponibilité de SAP HANA sur des machines virtuelles Azure][sap-hana-ha]

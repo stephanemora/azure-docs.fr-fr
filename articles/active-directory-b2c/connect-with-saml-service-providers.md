@@ -12,12 +12,12 @@ ms.date: 02/27/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 1c362cd2924de73b2e40e634fe554ff1526e09d8
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 4cf572b09f1e44faca002528fd00fe5be0b51bc5
+ms.sourcegitcommit: 3616b42a0d6bbc31b965995d861930e53d2cf0d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78189648"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78933019"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Inscrire une application SAML dans Azure AD B2C
 
@@ -113,7 +113,7 @@ Ensuite, chargez le certificat de signature d’assertion et de réponse SAML su
 
 ### <a name="21-create-the-saml-token-issuer"></a>2.1 Créer l’émetteur de jeton SAML
 
-À présent, ajoutez la capacité de votre locataire à émettre des jetons SAML.
+À présent, ajoutez la capacité de votre locataire à émettre des jetons SAML à l’aide des profils techniques [émetteur de jeton SAML](saml-issuer-technical-profile.md) et [fournisseur de session SAML](custom-policy-reference-sso.md#samlssosessionprovider).
 
 Ouvrez `SocialAndLocalAccounts\` **`TrustFrameworkExtensions.xml`** dans le pack de démarrage de stratégie personnalisée.
 
@@ -324,7 +324,7 @@ Pour ce didacticiel, dans lequel vous utilisez l’application SAML test, défin
 
 Cette propriété facultative représente l’URL `Logout` (URL`SingleLogoutService` dans les métadonnées de la partie de confiance), et le `BindingType` correspondant est supposé être `Http-Redirect`.
 
-Pour ce didacticiel qui utilise l’application SAML test, laissez `logoutUrl` défini sur `https://samltestapp2.azurewebsites.net/logout` :
+Pour ce didacticiel qui utilise l’application de test SAML, laissez `logoutUrl` défini sur `https://samltestapp2.azurewebsites.net/logout` :
 
 ```JSON
 "logoutUrl": "https://samltestapp2.azurewebsites.net/logout",

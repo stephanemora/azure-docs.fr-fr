@@ -16,12 +16,12 @@ ms.date: 11/11/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a493179e6e657a1d99d7cdb808629bae7332567
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: faecb0bc8cbb5ca84e9fc8bfc3cb99e2ccef1f11
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74918965"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78894565"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Synchronisation Azure Active Directory Connect : Configurer un emplacement de données par défaut pour les ressources Office 365
 L’objectif de cette rubrique est de vous expliquer comment configurer l’attribut d’emplacement des données préféré dans la synchronisation Azure Active Directory (Azure AD) Connect. Lorsqu’une personne utilise les fonctionnalités multigéographiques dans Office 365, vous utilisez cet attribut pour désigner l’emplacement géographique des données Office 365 de l’utilisateur. (Les termes *région* et *zone géographique* sont utilisés de manière interchangeable.)
@@ -86,7 +86,7 @@ Les étapes suivantes fournissent les étapes d’activation de la synchronisati
 > [!NOTE]
 > Les étapes sont décrites dans le cadre d’un déploiement d’Azure AD avec une topologie de forêt unique et sans règles de synchronisation personnalisées. Si vous avez une topologie à forêts multiples, des règles de synchronisation personnalisées configurées ou un serveur intermédiaire, vous devez ajuster les étapes en conséquence.
 
-## <a name="step-1-disable-sync-scheduler-and-verify-there-is-no-synchronization-in-progress"></a>Étape 1 : Désactiver le planificateur de synchronisation et vérifier qu'aucune synchronisation n’est en cours
+## <a name="step-1-disable-sync-scheduler-and-verify-there-is-no-synchronization-in-progress"></a>Étape 1 : Désactiver le planificateur de synchronisation et vérifier qu'aucune synchronisation n’est en cours
 Pour éviter l’exportation de modifications indésirables vers Azure AD, veillez à ce qu’aucune synchronisation ne se produise pendant la mise à jour des règles de synchronisation. Pour désactiver le planificateur de synchronisation intégré :
 
 1. Lancez une session PowerShell sur le serveur Azure AD Connect.
@@ -96,7 +96,7 @@ Pour éviter l’exportation de modifications indésirables vers Azure AD, veill
 
 ![Capture d’écran de Synchronization Service Manager](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-step1.png)
 
-## <a name="step-2-refresh-the-schema-for-active-directory"></a>Étape 2 : Actualiser le schéma pour Active Directory
+## <a name="step-2-refresh-the-schema-for-active-directory"></a>Étape 2 : Actualiser le schéma pour Active Directory
 Si vous avez mis à jour le schéma Active Directory vers 2019 et que Connect a été installé avant l’extension de schéma, le schéma de connexion Connect ne dispose pas du schéma mis à jour. Vous devez alors actualiser le schéma à partir de l’Assistant pour qu’il s’affiche dans l’interface utilisateur.
 
 1. Démarrez l’Assistant Azure AD Connect à partir du bureau.
@@ -108,7 +108,7 @@ Si vous avez mis à jour le schéma Active Directory vers 2019 et que Connect a
 ![Capture d’écran de l’option Actualiser le schéma de l’annuaire dans l’Assistant Connect](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-refreshschema.png)
 
 ## <a name="step-3-add-the-source-attribute-to-the-on-premises-active-directory-connector-schema"></a>Étape 3 : Ajouter l’attribut source au schéma du connecteur Active Directory local
-**Cette étape n’est nécessaire que si vous exécutez Connect version 1.3.21 ou une version ultérieure. Si vous utilisez la version 1.4.18 ou une version plus récente, passez à l’étape 5.**  
+**Cette étape est nécessaire seulement si vous exécutez Connect version 1.3.21 ou ultérieure. Si vous utilisez la version 1.4.18 ou une version plus récente, passez à l’étape 5.**  
 Tous les attributs Azure AD ne sont pas importés dans l’espace de connecteur Active Directory local. Si vous avez choisi d’utiliser un attribut qui n’est pas synchronisé par défaut, vous devez l’importer. Pour ajouter l’attribut source à la liste des attributs importés :
 
 1. Sélectionnez l’onglet **Connecteurs** dans Synchronization Service Manager.
@@ -145,16 +145,16 @@ La règle de synchronisation du trafic entrant permet de transmettre la valeur d
     | Description | *Fournissez une description personnalisée* |  |
     | Système connecté | *Sélectionnez le connecteur Active Directory local* |  |
     | Type d’objet système connecté | **Utilisateur** |  |
-    | Type d’objet Metaverse | **Person** |  |
+    | Type d’objet métaverse | **Person** |  |
     | Type de lien | **Join** |  |
-    | Precedence | *Choisissez une valeur comprise entre 1 et 99* | Les valeurs comprises entre 1 et 99 sont réservées aux règles de synchronisation personnalisées. Ne sélectionnez pas de valeur utilisée par une autre règle de synchronisation. |
+    | Priorité | *Choisissez une valeur comprise entre 1 et 99* | Les valeurs comprises entre 1 et 99 sont réservées aux règles de synchronisation personnalisées. Ne sélectionnez pas de valeur utilisée par une autre règle de synchronisation. |
 
 5. Conservez le **filtre d’étendue** vide pour inclure tous les objets. Vous devrez peut-être adapter le filtre d’étendue à votre déploiement Azure AD Connect.
 6. Accédez à l’onglet **Transformation**, puis implémentez la règle de transformation suivante :
 
     | Type de flux | Attribut cible | Source | Appliquer une seule fois | Type de fusion |
     | --- | --- | --- | --- | --- |
-    |Directement | preferredDataLocation | Sélectionnez l’attribut source | Désactivé | Mettre à jour |
+    |Direct | preferredDataLocation | Sélectionnez l’attribut source | Désactivé | Update |
 
 7. Pour créer la règle de trafic entrant, sélectionnez **Ajouter**.
 
@@ -174,24 +174,24 @@ La règle de synchronisation du trafic sortant permet de transmettre la valeur d
     | Description | *Fournissez une description* ||
     | Système connecté | *Sélectionnez le connecteur Azure AD* ||
     | Type d’objet système connecté | **Utilisateur** ||
-    | Type d’objet Metaverse | **Person** ||
+    | Type d’objet métaverse | **Person** ||
     | Type de lien | **Join** ||
-    | Precedence | *Choisissez une valeur comprise entre 1 et 99* | Les valeurs comprises entre 1 et 99 sont réservées aux règles de synchronisation personnalisées. Ne sélectionnez pas de valeur utilisée par une autre règle de synchronisation. |
+    | Priorité | *Choisissez une valeur comprise entre 1 et 99* | Les valeurs comprises entre 1 et 99 sont réservées aux règles de synchronisation personnalisées. Ne sélectionnez pas de valeur utilisée par une autre règle de synchronisation. |
 
 5. Accédez à l’onglet **Filtre d’étendue**, puis ajoutez un groupe de filtres à étendue unique avec deux clauses :
 
-    | Attribut | Operator | Valeur |
+    | Attribut | Opérateur | Valeur |
     | --- | --- | --- |
     | sourceObjectType | EQUAL | Utilisateur |
     | cloudMastered | NOTEQUAL | True |
 
-    Le filtre d’étendue détermine les objets Active Directory auxquels cette règle de synchronisation de trafic sortant s’applique. Dans cet exemple, nous utilisons le filtre d’étendue de la règle de synchronisation prête à l’emploi « Sortant vers Azure AD – Identité de l’utilisateur ». Il empêche que la règle ne s’applique aux objets **Utilisateur** non synchronisés à partir de l’Active Directory local. Vous devrez peut-être adapter le filtre d’étendue à votre déploiement Azure AD Connect.
+    Le filtre d’étendue détermine les objets Active Directory auxquels cette règle de synchronisation de trafic sortant s’applique. Dans cet exemple, nous utilisons le filtre d’étendue de la règle de synchronisation prête à l’emploi « Sortant vers Azure AD – Identité de l’utilisateur ». Il empêche l’application de la règle de synchronisation aux objets **Utilisateur** non synchronisés à partir de l’Active Directory local. Vous devrez peut-être adapter le filtre d’étendue à votre déploiement Azure AD Connect.
 
 6. Accédez à l’onglet **Transformation**, puis implémentez la règle de transformation suivante :
 
     | Type de flux | Attribut cible | Source | Appliquer une seule fois | Type de fusion |
     | --- | --- | --- | --- | --- |
-    | Directement | preferredDataLocation | preferredDataLocation | Désactivé | Mettre à jour |
+    | Direct | preferredDataLocation | preferredDataLocation | Désactivé | Update |
 
 7. Fermez **Ajouter** pour créer la règle de trafic sortant.
 
@@ -260,7 +260,6 @@ Il est maintenant temps de vérifier la configuration et de l’activer pour vos
 3. À l’aide d’Exchange Online PowerShell, vérifiez que la région de boîte aux lettres a été correctement définie.  
 ![Capture d’écran d’Exchange Online PowerShell](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-mailboxregion.png)  
 Si votre locataire a été marqué comme étant en mesure d’utiliser cette fonctionnalité, la boîte aux lettres est déplacée dans la bonne zone géographique. Vous pouvez le vérifier en examinant le nom du serveur où se trouve la boîte aux lettres.
-4. Pour vérifier l’efficacité de ce paramétrage sur de nombreuses boîtes aux lettres, utilisez le script disponible dans la [galerie TechNet](https://gallery.technet.microsoft.com/office/PowerShell-Script-to-a6bbfc2e). Ce script liste également les préfixes de serveur de tous les centres de données Office 365, ainsi que la zone géographique correspondante. Vous pouvez l’utiliser à titre de référence à l’étape précédente pour vérifier l’emplacement de la boîte aux lettres.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

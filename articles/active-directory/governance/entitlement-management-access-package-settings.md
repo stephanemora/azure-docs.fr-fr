@@ -16,12 +16,12 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94d32bf26def6832f51b4e09c697bca885162dc2
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: ea90032b1f0cfe598ffdb3d35448a996f3111036
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174415"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968760"
 ---
 # <a name="share-link-to-request-an-access-package-in-azure-ad-entitlement-management"></a>Partager un lien pour demander un package d’accès dans la gestion des droits d’utilisation Azure AD
 
@@ -41,7 +41,7 @@ Tant que le catalogue du package d'accès est [activé pour les utilisateurs ext
 
     ![Vue d’ensemble du package d’accès - Lien du portail Mon Accès](./media/entitlement-management-shared/my-access-portal-link.png)
 
-    Il est important de copier l'intégralité du lien du portail Mon Accès lors de son envoi à un partenaire interne. Cela garantit que le partenaire aura accès au portail de votre répertoire pour effectuer sa demande. Le lien commence par `myaccess`, comprend une indication de répertoire et se termine par un ID de package d’accès.
+    Il est important de copier l'intégralité du lien du portail Mon Accès lors de son envoi à un partenaire interne. Cela garantit que le partenaire aura accès au portail de votre répertoire pour effectuer sa demande. Le lien commence par `myaccess`, comprend une indication de répertoire et se termine par un ID de package d’accès.  (Pour le gouvernement des États-Unis, le domaine figurant dans le lien du portail Mon Accès sera `myaccess.microsoft.us`.)
 
     `https://myaccess.microsoft.com/@<directory_hint>#/access-packages/<access_package_id>`
 

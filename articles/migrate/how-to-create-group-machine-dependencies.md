@@ -1,25 +1,25 @@
 ---
 title: Configurer la visualisation des dépendances dans Azure Migrate
-description: 'Décrit la configuration de la visualisation des dépendances dans Azure Migrate : évaluation de serveur.'
+description: Cet article explique comment configurer la visualisation des dépendances dans Azure Migrate Server Assessment.
 ms.topic: article
 ms.date: 2/24/2020
-ms.openlocfilehash: 054e2301160a885909630c2968863e5f9e25af69
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 2b75a38a376558946841d08ab7a9dbf730232e51
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77916283"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78940983"
 ---
 # <a name="set-up-dependency-visualization"></a>Configurer la visualisation des dépendances
 
-Cet article explique comment configurer la visualisation des dépendances dans Azure Migrate : évaluation de serveur. La [visualisation des dépendances](concepts-dependency-visualization.md#what-is-dependency-visualization) vous aide à identifier et à comprendre les dépendances entre les machines que vous souhaitez évaluer et faire migrer vers Azure.
+Cet article explique comment configurer la visualisation des dépendances dans Azure Migrate : Server Assessment. La [visualisation des dépendances](concepts-dependency-visualization.md#what-is-dependency-visualization) vous aide à identifier et à comprendre les dépendances entre les machines que vous souhaitez évaluer et faire migrer vers Azure.
 
 ## <a name="before-you-start"></a>Avant de commencer
 
 - [Consultez](concepts-dependency-visualization.md) les conditions requises et les coûts associés à la visualisation des dépendances.
 - Assurez-vous que vous avez [créé](how-to-add-tool-first-time.md) un projet Azure Migrate.
-- Si vous avez déjà créé un projet, vérifiez que vous avez [ajouté](how-to-assess.md) l’outil Azure Migrate : évaluation de serveur.
-- Vérifiez que vous avez configuré une [appliance Azure Migrate](migrate-appliance.md) pour découvrir vos machines locales. Découvrez comment configurer une appliance pour [VMware](how-to-set-up-appliance-vmware.md) ou [Hyper-V](how-to-set-up-appliance-hyper-v.md). L’appliance découvre les machines locales, puis envoie les métadonnées et les données de performances à Azure Migrate : évaluation de serveur.
+- Si vous avez déjà créé un projet, assurez-vous que vous avez [ajouté](how-to-assess.md) Azure Migrate : Server Assessment.
+- Vérifiez que vous avez configuré une [appliance Azure Migrate](migrate-appliance.md) pour découvrir vos machines locales. Découvrez comment configurer une appliance pour [VMware](how-to-set-up-appliance-vmware.md) ou [Hyper-V](how-to-set-up-appliance-hyper-v.md). L’appliance découvre les machines locales et envoie les métadonnées et les données de performances à Azure Migrate : Server Assessment.
 - Pour utiliser la visualisation des dépendances, associez un [espace de travail Log Analytics](../azure-monitor/platform/manage-access.md) à un projet Azure Migrate :
     - Veillez à disposer d’un espace de travail dans l’abonnement qui contient le projet Azure Migrate.
     - L’espace de travail doit résider dans les régions USA Est, Asie Sud-Est ou Europe Ouest. Les espaces de travail des autres régions ne peuvent pas être associés à un projet.
@@ -32,8 +32,8 @@ Cet article explique comment configurer la visualisation des dépendances dans A
 
 ## <a name="associate-a-workspace"></a>Associer un espace de travail
 
-1. Après avoir découvert les machines à évaluer, dans **Serveurs** > **Azure Migrate : évaluation de serveur**, cliquez sur **Vue d’ensemble**.  
-2. Dans **Azure Migrate : évaluation de serveur**, cliquez sur **Essentials**.
+1. Après avoir découvert les machines à évaluer, dans **Serveurs** > **Azure Migrate : Server Assessment**, cliquez sur **Vue d’ensemble**.  
+2. Dans **Azure Migrate : Server Assessment**, cliquez sur **Essentiels**.
 3. Dans **Espace de travail OMS**, cliquez sur **Configuration obligatoire**.
 
      ![Configurer l’espace de travail Log Analytics](./media/how-to-create-group-machine-dependencies/oms-workspace-select.png)   

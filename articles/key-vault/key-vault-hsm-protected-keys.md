@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: ambapat
-ms.openlocfilehash: d7f9527aa5aa3353dc9087f4bcc5f3a5fb241637
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 048e5072c592cf2de32e533014c99034572a1c47
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78184551"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082895"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault"></a>Importer des clés protégées par HSM dans un coffre de clés
 
@@ -31,10 +31,19 @@ Cette fonctionnalité n’est pas disponible pour Azure Chine 21Vianet.
 
 Le transfert de clés protégées par HSM vers un coffre de clés est pris en charge par deux méthodes. La méthode à employer dépend des modules HSM que vous utilisez. Utilisez le tableau ci-dessous pour déterminer la méthode à utiliser pour vos modules HSM afin de générer, puis transférer vos propres clés protégées par HSM, que vous utiliserez avec Azure Key Vault. 
 
-|Nom du fournisseur de modules HSM|Modèles HSM pris en charge|Méthode de transfert de clé HSM prise en charge|
-|---|---|---|
-|Thales|<ul><li>Famille SafeNet Luna HSM 7 avec la version de microprogramme 7.3 ou une version ultérieure</li></ul>| [Utiliser la nouvelle méthode BYOK (préversion)](hsm-protected-keys-vendor-agnostic-byok.md)|
-|nCipher|<ul><li>Famille nShield de modules HSM</li></ul>|[Utiliser la méthode BYOK héritée](hsm-protected-keys-legacy.md)|
+|Nom du fournisseur|Type de fournisseur|Modèles HSM pris en charge|Méthode de transfert de clé HSM prise en charge|
+|---|---|---|---|
+|nCipher|Fabricant|<ul><li>Famille nShield de modules HSM</li></ul>|[Utiliser la méthode BYOK héritée](hsm-protected-keys-legacy.md)|
+|Thales|Fabricant|<ul><li>Famille SafeNet Luna HSM 7 avec la version de microprogramme 7.3 ou une version ultérieure</li></ul>| [Utiliser la nouvelle méthode BYOK (préversion)](hsm-protected-keys-vendor-agnostic-byok.md)|
+|Fortanix|HSM en tant que service|<ul><li>Service de gestion de clés à protection automatique (SDKMS)</li></ul>|[Utiliser la nouvelle méthode BYOK (préversion)](hsm-protected-keys-vendor-agnostic-byok.md)|
+
+
+
+
+
+
+
+
 
 
 ## <a name="next-steps"></a>Étapes suivantes

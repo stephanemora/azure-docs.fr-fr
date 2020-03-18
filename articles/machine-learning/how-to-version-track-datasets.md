@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: sihhu
 author: sihhu
 ms.reviewer: nibaccam
-ms.date: 11/04/2019
+ms.date: 03/09/2020
 ms.custom: ''
-ms.openlocfilehash: 4c8f3e7e47f9c8f924faf513d984d5474c105038
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 7b124c0f35b5cfda4380555385971e4968d4c45c
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834791"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78939251"
 ---
 # <a name="version-and-track-datasets-in-experiments"></a>Gérer les versions et suivre des jeux de données dans les expériences
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -28,7 +28,7 @@ Scénarios de contrôle de version classiques :
 * Quand de nouvelles données sont disponibles pour un nouvel entraînement
 * Quand vous appliquez différentes approches de préparation des données ou d’ingénierie des caractéristiques
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -60,6 +60,7 @@ titanic_ds = titanic_ds.register(workspace = workspace,
                                  description = 'titanic training data',
                                  create_new_version = True)
 ```
+Vous pouvez également inscrire une nouvelle version d’un jeu de données à l’adresse 
 
 ### <a name="retrieve-a-dataset-by-name"></a>Récupérer un jeu de données par nom
 
@@ -120,7 +121,7 @@ dataset2.register(workspace = workspace,
 
 Vous pouvez utiliser un jeu de données comme entrée et sortie de chaque étape de pipeline Machine Learning. Lorsque vous réexécutez des pipelines, la sortie de chaque étape de pipeline est inscrite en tant que nouvelle version du jeu de données.
 
-Comme les pipelines Machine Learning remplissent la sortie de chaque étape dans un nouveau dossier à chaque exécution du pipeline, les jeux de données de sortie sont reproductibles.
+Comme les pipelines Machine Learning remplissent la sortie de chaque étape dans un nouveau dossier à chaque exécution du pipeline, les jeux de données de sortie sont reproductibles. En savoir plus sur les [jeux de données dans les pipelines](how-to-create-your-first-pipeline.md#steps).
 
 ```Python
 from azureml.core import Dataset
@@ -169,7 +170,7 @@ input_dataset = inputs[0]['dataset']
 input_dataset.to_path()
 ```
 
-Vous pouvez également trouver `input_datasets` à partir d’expériences à l’aide d’[Azure Machine Learning Studio](https://ml.azure.com/). 
+Vous pouvez également trouver `input_datasets` à partir d’expériences à l’adresse https://ml.azure.com/. 
 
 L’illustration suivante montre où trouver le jeu de données d’entrée d’une expérience sur Azure Machine Learning Studio. Pour cet exemple, accédez à votre volet **Expériences** et ouvrez l’onglet **Propriétés** pour une exécution spécifique de votre expérience, `keras-mnist`.
 
@@ -183,7 +184,9 @@ model = run.register_model(model_name='keras-mlp-mnist',
                            datasets =[('training data',train_dataset)])
 ```
 
-Après l’inscription, vous pouvez voir la liste des modèles inscrits auprès du jeu de données à l’aide de Python ou d’[Azure Machine Learning Studio](https://ml.azure.com/). L’affichage suivant est issu du volet **Jeux de données** sous **Ressources**. Sélectionnez le jeu de données, puis l’onglet **Modèles** pour obtenir la liste des modèles qui sont inscrits avec le jeu de données. 
+Après l’inscription, vous pouvez voir la liste des modèles inscrits auprès du jeu de données à l’aide de Python ou en accédant à https://ml.azure.com/.
+
+L’affichage suivant est issu du volet **Jeux de données** sous **Ressources**. Sélectionnez le jeu de données, puis l’onglet **Modèles** pour obtenir la liste des modèles qui sont inscrits avec le jeu de données. 
 
 ![Jeux de données d'entrée](./media/how-to-version-track-datasets/dataset-models.png)
 

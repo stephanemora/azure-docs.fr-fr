@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 11/27/2019
-ms.openlocfilehash: 72006f907a1c1641308c8ee43e7a405765410789
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.date: 03/09/2020
+ms.openlocfilehash: 75ac5a7fc352f877573d79a004d8da761c6f1cef
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770881"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082878"
 ---
 # <a name="monitor-cluster-performance-in-azure-hdinsight"></a>Superviser les performances des clusters dans Azure HDInsight
 
@@ -33,7 +33,7 @@ Pour obtenir une vue d’ensemble des nœuds de votre cluster et de leur charge,
 | Orange | Au moins un composant secondaire de l’hôte est défaillant. Pointez sur l’indicateur pour visualiser une info-bulle répertoriant les composants concernés. |
 | Jaune | Le serveur Ambari n’a reçu aucune pulsation de l’hôte depuis plus de trois minutes. |
 | Vert | L’état de fonctionnement est normal. |
- 
+
 Le tableau de bord comporte également des colonnes indiquant le nombre de cœurs et la quantité de RAM de chaque hôte, ainsi que l’utilisation du disque et la charge moyenne.
 
 ![Apache Ambari - Vue d’ensemble de l’onglet hôtes](./media/hdinsight-key-scenarios-to-monitor/apache-ambari-hosts-tab.png)
@@ -52,7 +52,7 @@ YARN répartit les deux responsabilités du JobTracker, à savoir la gestion des
 
 Le démon Resource Manager est un *pur planificateur* dont la seule fonction consiste à arbitrer la répartition des ressources disponibles entre toutes les applications concurrentes. Le démon Resource Manager garantit l’utilisation systématique de la totalité des ressources, optimisant ainsi différentes constantes telles que les Contrats de niveau de service (SLA), les garanties de capacité, et ainsi de suite. Le démon ApplicationMaster négocie les ressources auprès du démon Resource Manager et fonctionne avec les NodeManagers pour exécuter et surveiller les conteneurs et leur consommation des ressources.
 
-Lorsque plusieurs locataires partagent un cluster volumineux, ils entrent en concurrence pour les ressources du cluster. Le CapacityScheduler est un planificateur enfichable qui facilite le partage des ressources en plaçant les requêtes en file d’attente. Le CapacityScheduler prend également en charge les *files d’attente hiérarchiques* pour garantir le partage des ressources entre les files d’attente secondaires d’une organisation, avant que les files d’attente des autres applications soient autorisées à utiliser les ressources disponibles.
+Lorsque plusieurs locataires partagent un cluster volumineux, ils entrent en concurrence pour les ressources du cluster. Le CapacityScheduler est un planificateur enfichable qui facilite le partage des ressources en plaçant les requêtes en file d’attente. Le CapacityScheduler prend également en charge les *files d’attente hiérarchiques* pour garantir le partage des ressources entre les sous-files d’attente d’une organisation, avant que les files d’attente des autres applications soient autorisées à utiliser les ressources disponibles.
 
 YARN nous permet également d’allouer des ressources à ces files d’attente et vous indique si toutes vos ressources disponibles sont ou non attribuées. Pour visualiser les informations concernant vos files d’attente, connectez-vous à l’interface utilisateur web Ambari, puis sélectionnez **YARN Queue Manager** (Gestionnaire de files d’attente YARN) dans le menu supérieur.
 
@@ -81,6 +81,46 @@ Si le magasin de stockage de votre cluster est Azure Data Lake Storage (ADLS), l
 * [Recommandations en matière d’optimisation des performances pour Apache Hive sur HDInsight et Azure Data Lake Storage](../data-lake-store/data-lake-store-performance-tuning-hive.md)
 * [Recommandations en matière d’optimisation des performances pour MapReduce sur HDInsight et Azure Data Lake Storage](../data-lake-store/data-lake-store-performance-tuning-mapreduce.md)
 * [Recommandations en matière d’optimisation des performances pour Apache Storm sur HDInsight et Azure Data Lake Storage](../data-lake-store/data-lake-store-performance-tuning-storm.md)
+
+## <a name="troubleshoot-sluggish-node-performance"></a>Détecter un problème de nœuds lents
+
+Dans certains cas, un ralentissement peut se produire en raison d’un espace disque faible sur le cluster. Utilisez les étapes suivantes pour recherchez la cause du problème :
+
+1. Utilisez [ssh command](./hdinsight-hadoop-linux-use-ssh-unix.md) pour vous connecter à chacun des nœuds.
+
+1. Vérifiez l’utilisation du disque en exécutant l’une des commandes suivantes :
+
+    ```bash
+    df -h
+    du -h --max-depth=1 / | sort -h
+    ```
+
+1. Examinez la sortie et recherchez la présence de fichiers volumineux dans le dossier `mnt` ou dans d’autres dossiers. En règle générale, les dossiers `usercache` et `appcache` (mnt/resource/hadoop/yarn/local/usercache/hive/appcache/) contiennent des fichiers volumineux.
+
+1. S’il y a des fichiers volumineux, soit un travail en cours est à l’origine de la croissance du fichier, soit un travail précédent ayant échoué peut avoir contribué à ce problème. Pour vérifier si ce comportement est dû à un travail en cours, exécutez la commande suivante :
+
+    ```bash
+    sudo du -h --max-depth=1 /mnt/resource/hadoop/yarn/local/usercache/hive/appcache/
+    ```
+
+1. Si cette commande indique un travail spécifique, vous pouvez choisir de mettre fin au travail avec une commande similaire à celle-ci :
+
+    ```bash
+    yarn application -kill -applicationId <application_id>
+    ```
+
+    Remplacez `application_id` par l’ID de l’application. Si aucun travail spécifique n’est indiqué, passez à l’étape suivante.
+
+1. Une fois la commande ci-dessus terminée ou si aucun travail spécifique n’est indiqué, supprimez les fichiers volumineux que vous avez identifiés en exécutant une commande similaire à celle-ci :
+
+    ```bash
+    rm -rf filecache usercache
+    ```
+
+Pour plus d’informations sur les problèmes d’espace disque, consultez [Espace disque insuffisant](./hadoop/hdinsight-troubleshoot-out-disk-space.md).
+
+> [!NOTE]  
+> Si vous avez des fichiers volumineux que vous souhaitez conserver, mais qui contribuent au problème d’espace disque faible, vous devez monter votre cluster HDInsight en puissance et redémarrer vos services. Une fois cette procédure terminée et après avoir attendu quelques minutes, vous noterez que le stockage est libéré et que les performances habituelles du nœud sont restaurées.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

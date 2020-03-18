@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/30/2020
+ms.date: 03/09/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e28403d905a25e9e792b3b1f31b79c39cd7728b
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 5b29f84931c169ffe1c2c81d5e32201cbc63fc88
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77522087"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942873"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory-preview"></a>Activer la connexion par clé de sécurité sans mot de passe à des ressources locales avec Azure Active Directory (préversion)
 
@@ -50,6 +50,7 @@ Les organisations doivent également présenter la configuration logicielle suiv
 
 - Les appareils doivent exécuter Windows 10 Insider Build 18945 ou une version ultérieure.
 - Vous devez disposer de la version 1.4.32.0 ou ultérieure d’[Azure AD Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect).
+  - Pour plus d’informations sur les options d’authentification hybride Azure AD disponibles, consultez [Choisir la méthode d’authentification adaptée à votre solution d’identité hybride Azure Active Directory](../../security/fundamentals/choose-ad-authn.md) et [Sélectionner le type d’installation à utiliser pour Azure AD Connect](../hybrid/how-to-connect-install-select-installation.md).
 - Les correctifs logiciels suivants doivent être installés sur vos contrôleurs de domaine Windows Server :
     - Pour Windows Server 2016 : https://support.microsoft.com/help/4534307/windows-10-update-kb4534307
     - Pour Windows Server 2019 : https://support.microsoft.com/help/4534321/windows-10-update-kb4534321

@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 11/06/2019
-ms.openlocfilehash: becb05616ecac51fa4646836a6b1a2f3b71d3543
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.date: 03/06/2020
+ms.openlocfilehash: ab7aaeb2b28592aab38d112b02340160a6c882ee
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75535417"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78927510"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Régénérer des clés d’accès de compte de stockage
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -24,13 +24,16 @@ Découvrez comment changer les clés d’accès des comptes Stockage Azure utili
 
 Pour des raisons de sécurité, vous devrez peut-être modifier les clés d’accès d’un compte Stockage Azure. Lorsque vous régénérez la clé d’accès, Azure Machine Learning doit être mis à jour pour utiliser la nouvelle clé. Azure Machine Learning peut utiliser le compte de stockage à la fois pour le stockage des modèles et comme banque de données.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Un espace de travail Azure Machine Learning. Pour plus d’informations, consultez l’article [Créer un espace de travail](how-to-manage-workspace.md).
 
 * Le [Kit de développement logiciel (SDK) Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
 * [L’extension CLI Azure Machine Learning](reference-azure-machine-learning-cli.md).
+
+> [!NOTE]
+> Les extraits de code de ce document ont été testés avec la version 1.0.83 du Kit de développement logiciel (SDK) Python.
 
 <a id="whattoupdate"></a> 
 

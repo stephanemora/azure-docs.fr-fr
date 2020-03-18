@@ -4,21 +4,26 @@ description: Découvrez comment effectuer une migration d’une appliance virtue
 author: fauhse
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/02/2020
+ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 184101db34edbf5391b37c43770e8393316fe2fc
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 6863e7f8ef8e2f263cda824fd13186dc7b035454
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78252663"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943615"
 ---
 # <a name="storsimple-1200-migration-to-azure-file-sync"></a>Migration à partir de StorSimple 1200 vers Azure File Sync
 
-StorSimple série 1200 est une appliance virtuelle exécutée dans un centre de données local. Il est possible d’effectuer une migration des données de cette appliance vers un environnement Azure File Sync. Cet article décrit les étapes à suivre pour effectuer correctement une migration vers Azure File Sync et fournit les connaissances générales nécessaires.
+StorSimple série 1200 est une appliance virtuelle exécutée dans un centre de données local. Il est possible d’effectuer une migration des données de cette appliance vers un environnement Azure File Sync. Azure File Sync est le service Azure à long terme stratégique et par défaut vers lequel les appliances StorSimple peuvent être migrées.
+
+StorSimple série 1200 atteindra sa [fin de vie](https://support.microsoft.com/en-us/lifecycle/search?alpha=StorSimple%201200%20Series) en décembre 2022.  Il est important de commencer à planifier votre migration dès que possible. Cet article décrit les étapes à suivre pour effectuer correctement une migration vers Azure File Sync et fournit les connaissances générales nécessaires. 
 
 ## <a name="azure-file-sync"></a>Azure File Sync
+
+> [!IMPORTANT]
+> Microsoft s’engage à aider les clients lors de la migration. Envoyez un e-mail à l’adresse AzureFilesMigration@microsoft.com pour obtenir un plan de migration personnalisé ainsi qu’une assistance pendant la migration.
 
 Azure File Sync est un service cloud Microsoft basé sur deux composants principaux :
 
@@ -36,7 +41,7 @@ L’objectif consiste à garantir l’intégrité des données de production et 
 
 ## <a name="storsimple-1200-migration-path-to-azure-file-sync"></a>Chemin de migration à partir de StorSimple 1200 vers Azure File Sync
 
-L’exécution d’un agent Azure File Sync nécessite un serveur Windows Server local. Il doit s’agir au minimum d’un serveur 2012R2, la version idéale étant Windows Server 2019.
+L’exécution d’un agent Azure File Sync nécessite un serveur Windows Server local. Il doit s’agir au minimum d’un serveur 2012R2, la version idéale étant Windows Server 2019.
 
 Il existe de nombreux chemins de migration possibles, et il serait trop long de tous les documenter dans un article et d’expliquer clairement les risques et inconvénients qu’ils présentent par rapport à celui que nous recommandons de privilégier dans cet article.
 
@@ -139,7 +144,7 @@ Arrière-plan :
 :::row-end:::
 :::row:::
    :::column span="1":::
-      /DCOPY:indicateur[s]
+      /DCOPY:copyflag[s]
    :::column-end:::
    :::column span="1":::
       Fidélité de la copie des répertoires (la valeur par défaut est /DCOPY:DA), indicateurs de copie : D=Données, A=Attributs, T=Horodatages

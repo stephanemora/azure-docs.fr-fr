@@ -6,14 +6,14 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, klam, logicappspm
 ms.topic: article
-ms.date: 02/28/2020
+ms.date: 03/7/2020
 tags: connectors
-ms.openlocfilehash: e7a0791cc2bca672e7fde142650ad25e7e8ab58b
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: d4ab7425c967d3a176c0a576d0be38ece1701b8b
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78161872"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128410"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Superviser, créer et gérer des fichiers SFTP à l’aide de SSH et d’Azure Logic Apps
 
@@ -36,29 +36,31 @@ Pour connaître les différences entre le connecteur SFTP-SSH et le connecteur S
   > [!NOTE]
   > Pour les applications logiques utilisées dans un [environnement de service d’intégration (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), la version de ce connecteur avec l’étiquette ISE applique les [limites de messages de l’ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) à la place.
 
+  Vous pouvez passer outre ce comportement adaptatif lorsque vous [spécifiez une taille de bloc constante](#change-chunk-size) à utiliser à la place. Cette taille peut être comprise entre 5 Mo et 50 Mo. Par exemple, supposons que vous disposez d’un fichier de 45 Mo et d’un réseau pouvant prendre en charge cette taille de fichier sans latence. La segmentation adaptative génère plusieurs appels plutôt qu’un seul. Pour réduire le nombre d’appels, vous pouvez essayer de définir une taille de bloc de 50 Mo. Dans un autre scénario, si votre application logique a un délai d’expiration, par exemple lorsque vous utilisez des blocs de 15 Mo, vous pouvez essayer de réduire la taille à 5 Mo.
+
   La taille de segment est associée à une connexion, ce qui signifie que vous pouvez utiliser la même connexion pour les actions prenant en charge la segmentation, puis pour les actions ne prenant pas en charge la segmentation. Dans ce cas, la taille de segment pour les actions ne prenant pas en charge les plages de segmentation est comprise entre 5 Mo et 50 Mo. Ce tableau indique les actions SFTP-SSH prenant en charge la segmentation :
 
-  | Action | Prise en charge de la segmentation |
-  |--------|------------------|
-  | **Copier un fichier** | Non |
-  | **Créer un fichier** | Oui |
-  | **Créer un dossier** | Non applicable |
-  | **Supprimer un fichier** | Non applicable |
-  | **Extraire une archive dans un dossier** | Non applicable |
-  | **Obtenir le contenu d’un fichier** | Oui |
-  | **Obtenir le contenu d’un fichier à l’aide du chemin** | Oui |
-  | **Obtenir les métadonnées d’un fichier** | Non applicable |
-  | **Obtenir les métadonnées d’un fichier à l’aide du chemin** | Non applicable |
-  | **Répertorier les fichiers dans un dossier** | Non applicable |
-  | **Renommer le fichier** | Non applicable |
-  | **Mettre à jour un fichier** | Non |
-  |||
+  | Action | Prise en charge de la segmentation | Remplacement de la prise en charge de la taille de bloc |
+  |--------|------------------|-----------------------------|
+  | **Copier un fichier** | Non | Non applicable |
+  | **Créer un fichier** | Oui | Oui |
+  | **Créer un dossier** | Non applicable | Non applicable |
+  | **Supprimer un fichier** | Non applicable | Non applicable |
+  | **Extraire une archive dans un dossier** | Non applicable | Non applicable |
+  | **Obtenir le contenu d’un fichier** | Oui | Oui |
+  | **Obtenir le contenu d’un fichier à l’aide du chemin** | Oui | Oui |
+  | **Obtenir les métadonnées d’un fichier** | Non applicable | Non applicable |
+  | **Obtenir les métadonnées d’un fichier à l’aide du chemin** | Non applicable | Non applicable |
+  | **Répertorier les fichiers dans un dossier** | Non applicable | Non applicable |
+  | **Renommer le fichier** | Non applicable | Non applicable |
+  | **Mettre à jour un fichier** | Non | Non applicable |
+  ||||
 
-* Les déclencheurs SFTP-SSH ne prennent pas en charge la segmentation. Quand ils demandent le contenu des fichiers, les déclencheurs sélectionnent uniquement les fichiers dont la taille est inférieure ou égale à 15 Mo. Pour obtenir des fichiers supérieurs à 15 Mo, suivez plutôt ce modèle :
+* Les déclencheurs SFTP-SSH ne prennent pas en charge la segmentation des messages. Quand ils demandent le contenu des fichiers, les déclencheurs sélectionnent uniquement les fichiers dont la taille est inférieure ou égale à 15 Mo. Pour obtenir des fichiers supérieurs à 15 Mo, suivez plutôt ce modèle :
 
-  * Utilisez un déclencheur SFTP-SSH qui retourne des propriétés de fichier comme **Quand un fichier est ajouté ou modifié (propriétés uniquement)** .
+  1. Utilisez un déclencheur SFTP-SSH qui retourne uniquement des propriétés de fichier comme **Quand un fichier est ajouté ou modifié (propriétés uniquement)** .
 
-  * Suivez le déclencheur avec l’action SFTP-SSH **Obtenir le contenu du fichier**, qui lit le fichier complet et utilise implicitement la segmentation des messages.
+  1. Suivez le déclencheur avec l’action SFTP-SSH **Obtenir le contenu du fichier**, qui lit le fichier complet et utilise implicitement la segmentation des messages.
 
 <a name="comparison"></a>
 
@@ -153,13 +155,13 @@ Si votre clé privée est au format PuTTY (qui utilise l’extension de nom de f
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) et ouvrez votre application logique dans le concepteur d’application logique, si elle n’est pas déjà ouverte.
 
-1. Pour les applications logiques vides, dans la zone de recherche, entrez « sftp ssh» comme filtre. Dans la liste des déclencheurs, sélectionnez le déclencheur souhaité.
+1. Pour les applications logiques vides, dans la zone de recherche, entrez `sftp ssh` comme filtre. Dans la liste des déclencheurs, sélectionnez le déclencheur souhaité.
 
    -ou-
 
-   Pour les applications logiques existantes, sous la dernière étape où vous souhaitez ajouter une action, choisissez **Nouvelle étape**. Dans la zone de recherche, entrez « sftp ssh » comme filtre. Dans la liste des actions, sélectionnez l’action souhaitée.
+   Pour les applications logiques existantes, sous la dernière étape où vous souhaitez ajouter une action, sélectionnez **Nouvelle étape**. Dans la zone de recherche, entrez `sftp ssh` en guise de filtre. Dans la liste des actions, sélectionnez l’action souhaitée.
 
-   Pour ajouter une action entre des étapes, placez votre pointeur au-dessus de la flèche qui les sépare. Cliquez sur le signe plus ( **+** ) qui s’affiche, puis sélectionnez **Ajouter une action**.
+   Pour ajouter une action entre des étapes, placez votre pointeur au-dessus de la flèche qui les sépare. Cliquez sur le signe ( **+** ) qui s’affiche, puis sélectionnez **Ajouter une action**.
 
 1. Fournissez les informations nécessaires pour votre connexion.
 
@@ -177,9 +179,25 @@ Si votre clé privée est au format PuTTY (qui utilise l’extension de nom de f
 
    1. Dans le déclencheur SFTP-SSH ou l’action que vous avez ajoutés, collez la clé *complète* que vous avez copiée dans la propriété **Clé privée SSH**, qui prend en charge plusieurs lignes.  ***Assurez-vous que vous collez*** la clé. ***N’entrez pas manuellement ou ne modifiez pas la clé***.
 
-1. Après avoir entré les informations de connexion, choisissez **Créer**.
+1. Après avoir entré les informations de connexion, sélectionnez **Créer**.
 
 1. Fournissez maintenant les informations nécessaires pour le déclencheur ou l’action sélectionnés et continuez à générer le flux de travail de votre application logique.
+
+<a name="change-chunk-size"></a>
+
+## <a name="override-chunk-size"></a>Remplacer la taille de bloc
+
+Pour remplacer le comportement adaptatif par défaut utilisé par la segmentation, vous pouvez spécifier une taille de bloc constante comprise entre 5 Mo et 50 Mo.
+
+1. En haut à droite de l’action, sélectionnez le bouton représentant des points de suspension ( **…** ), puis **Paramètres**.
+
+   ![Ouvrir les paramètres SFTP-SSH](./media/connectors-sftp-ssh/sftp-ssh-connector-setttings.png)
+
+1. Sous **Transfert de contenu**, dans la propriété **Taille de segment**, entrez une valeur entière comprise entre `5` et `50`, par exemple : 
+
+   ![Spécifier la taille de bloc à utiliser à la place](./media/connectors-sftp-ssh/specify-chunk-size-override-default.png)
+
+1. Quand vous avez terminé, cliquez sur **Terminé**.
 
 ## <a name="examples"></a>Exemples
 

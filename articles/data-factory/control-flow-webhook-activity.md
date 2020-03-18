@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 70c67a99274eaedc5592c7b90b1ef80a3a17acf8
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: 8c52bb21276071581a83fb3ee6a3a4a31ba0bb4a
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77110005"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78400002"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Activité Webhook dans Azure Data Factory
 Vous pouvez utiliser une activité de webhook pour contrôler l’exécution des pipelines dans votre code personnalisé. Grâce à l’activité de webhook, les clients peuvent appeler un point de terminaison et passer une URL de rappel. L’exécution du pipeline attend que le rappel soit appelé avant de passer à l’activité suivante.
@@ -116,6 +116,10 @@ Spécifiez l’uri de ressource pour lequel le jeton d’accès sera demandé à
 Azure Data Factory transmettra une propriété supplémentaire « callBackUri » dans le corps au point de terminaison d’URL, et s’attendra à ce que cet URI soit rappelé avant la valeur de délai d’attente spécifiée. Si l’URI n’est pas appelé, l’activité échoue avec l’état « TimedOut ».
 
 L’activité de webhook proprement dite échoue quand l’appel au point de terminaison personnalisé échoue. Tout message d’erreur peut être ajouté dans le corps du rappel et utilisé dans une activité ultérieure.
+
+En outre, pour chaque appel d’API REST, le client expirera si le point de terminaison ne répond pas dans un délai d’une minute. Il s’agit d’une meilleure pratique standard pour le protocole HTTP. Pour résoudre ce problème, vous devez implémenter le modèle 202 pour le cas où le point de terminaison retourne 202 (Accepté) et où le client effectue une requête d’interrogation.
+
+Le délai d’expiration de 1 min de la requête n’a rien à voir avec le délai d’expiration de l’activité. Il sera utilisé pour attendre le callbackUri.
 
 Le corps retransmis à l’URI de rappel doit être du code JSON valide. Vous devez définir l’en-tête Content-Type sur `application/json`.
 

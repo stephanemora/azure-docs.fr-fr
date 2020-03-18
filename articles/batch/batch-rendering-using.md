@@ -5,14 +5,14 @@ services: batch
 ms.service: batch
 author: mscurrell
 ms.author: markscu
-ms.date: 08/02/2018
+ms.date: 03/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: d181b9b2495ebd106bb068b78131fa90c2f6d62c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f3b2e641ab187514a7900b2ab7cc75068df00252
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75449661"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672004"
 ---
 # <a name="using-azure-batch-rendering"></a>Utilisation d’Azure Batch Rendering
 
@@ -48,17 +48,18 @@ Un ensemble complet de modèles est disponible pour une utilisation avec Batch E
 
 Les modèles fournis répondent aux besoins de toutes les applications présentes sur les images de machine virtuelle de rendu de la Place de marché.  Il existe plusieurs modèles pour chaque application, notamment des modèles de pool pour prendre en charge les besoins des pools UC et GPU, Windows et Linux. Les modèles de travaux incluent le rendu Blender (cadre complet ou mosaïque) et le rendu distribué V-Ray. L’ensemble des modèles fournis sera développé au fur et à mesure pour répondre aux besoins des autres fonctionnalités Batch, comme la mise à l’échelle automatique des pools.
 
-Il est également possible de produire des modèles personnalisés : soit à partir de zéro, soit en modifiant les modèles fournis. Vous pouvez utiliser des modèles personnalisés en sélectionnant l’élément Modèles locaux dans la section Galerie de Batch Explorer.
+Il est également possible de produire des modèles personnalisés : soit à partir de zéro, soit en modifiant les modèles fournis. Vous pouvez utiliser des modèles personnalisés en sélectionnant l’élément « Modèles locaux » dans la section « Galerie » de Batch Explorer.
 
 ### <a name="file-system-and-data-movement"></a>Système de fichiers et déplacement des données
 
-La section Données dans Batch Explorer permet de copier des fichiers entre un système de fichiers local et des comptes de stockage Azure.
+La section « Données » dans Batch Explorer permet de copier des fichiers entre un système de fichiers local et des comptes Stockage Azure.
 
 ## <a name="client-application-plug-ins"></a>Plug-ins d’applications clientes
 
 Des plug-ins sont disponibles pour certaines applications clientes.  Les plug-ins permettent de créer directement des pools et des travaux à partir de l’application ou d’appeler Batch Explorer.
 
-* [Blender](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/blender)
+* [Blender 2.79](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/blender)
+* [Blender 2.8+](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/blender28)
 * [Autodesk 3ds Max](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/3ds-max)
 * [Autodesk Maya](https://github.com/Azure/azure-batch-maya)
 

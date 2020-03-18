@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 03/06/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c882d286a73900f58ef06e7c51b05c7237e39a7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4cb5aca128679b21072a2a3daa503dc43a8e2885
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425343"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942888"
 ---
 # <a name="combined-security-information-registration-preview"></a>Inscription d’informations de sécurité combinée (préversion)
 
@@ -55,9 +55,10 @@ L’inscription combinée prend en charge les méthodes et les actions d’authe
 | Téléphone | Oui | Oui | Oui |
 | Autre téléphone | Oui | Oui | Oui |
 | Téléphone de bureau | Non | Non | Non |
-| Email | Oui | Oui | Oui |
+| E-mail | Oui | Oui | Oui |
 | Questions de sécurité | Oui | Non | Oui |
 | Mots de passe d'application | Oui | Non | Oui |
+| Clés de sécurité FIDO2<br />*Mode géré uniquement à partir de la page [Informations de sécurité](https://mysignins.microsoft.com/security-info)*| Oui | Oui | Oui |
 
 > [!NOTE]
 > Les mots de passe d’application sont disponibles uniquement pour les utilisateurs qui ont été paramétrés pour l’authentification multifacteur. Les mots de passe d’application ne sont pas disponibles pour les utilisateurs activés pour l’authentification multifacteur via une stratégie d’accès conditionnel.

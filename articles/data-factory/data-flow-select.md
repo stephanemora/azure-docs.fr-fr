@@ -6,13 +6,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/12/2019
-ms.openlocfilehash: a255d89aa4850d1249f1af9bdd0cb43b0826914f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 03/08/2020
+ms.openlocfilehash: 2d04de420f743e4fef4cff4bd2912559dae0886a
+ms.sourcegitcommit: e6bce4b30486cb19a6b415e8b8442dd688ad4f92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930242"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78934175"
 ---
 # <a name="mapping-data-flow-select-transformation"></a>Transformation de sélection de mappage de flux de données
 
@@ -52,9 +52,14 @@ Si vous souhaitez créer un alias, supprimer, renommer ou réorganiser des colon
 Toutefois, si vous souhaitez ajouter des filtres personnalisés, vous devez cliquer sur « Add mapping » (ajouter un mappage). Le mappage de champs vous fournit une liste de noms de colonnes entrantes et sortantes à mapper ainsi que des alias. Choisissez « Mappage basé sur des règles » pour créer des règles de critères spéciaux.
 
 ## <a name="rule-based-mapping"></a>Mappage basé sur des règles
-Lorsque vous choisissez le mappage basé sur des règles, vous demandez à ADF d’évaluer votre expression correspondante pour qu’elle corresponde aux filtres de modèle entrants et de définir les noms de champs sortants. Vous pouvez ajouter n’importe quelle combinaison de mappage de champs et de mappage basé sur des règles. Les noms de champs sont ensuite générés au moment de l’exécution par ADF en fonction des métadonnées entrantes de la source. Vous pouvez afficher les noms des champs générés pendant le débogage et à l’aide du volet aperçu des données.
+Lorsque vous choisissez le mappage basé sur des règles, vous demandez à ADF d’évaluer votre expression correspondante pour qu’elle corresponde aux filtres de modèle entrants et de définir les noms de champs sortants. Vous pouvez ajouter n’importe quelle combinaison de mappage de champs et de mappage basé sur des règles. Les noms de champs sont ensuite générés au moment de l’exécution par ADF en fonction des métadonnées entrantes de la source. Vous pouvez afficher les noms des champs générés pendant le débogage et à l’aide du volet d'aperçu des données.
 
 Vous trouverez plus d’informations sur les critères spéciaux [dans la documentation du modèle de colonne](concepts-data-flow-column-pattern.md).
+
+### <a name="use-rule-based-mapping-to-parameterize-the-select-transformation"></a>Utiliser le mappage basé sur des règles pour paramétrer la transformation de sélection
+Vous pouvez paramétrer le mappage de champs dans la transformation de sélection en utilisant un mappage basé sur des règles. Utilisez le mot clé ```name``` pour vérifier les noms de colonnes entrantes par rapport à un paramètre. Par exemple, si vous avez un paramètre de flux de données nommé ```mycolumn```, vous pouvez créer une règle de transformation de sélection unique qui mappe toujours le nom de colonne que vous avez défini ```mycolumn``` à un nom de champ de cette façon :
+
+```name == $mycolumn```
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Après l’utilisation de Select pour renommer, réorganiser et attribuer des alias aux colonnes, utilisez la [transformation de récepteur Sink](data-flow-sink.md) pour placer vos données dans un magasin de données.

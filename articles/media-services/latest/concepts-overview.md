@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 02/18/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 5bb480181c244ee03b6ec9c2a2f5f7783c72f394
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: bdc0af39e3f3a06da6c06ddc384efe44dd678ea3
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251402"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79087922"
 ---
 # <a name="media-services-concepts"></a>Concepts d’Azure Media Services
 
@@ -26,7 +26,9 @@ Cet article présente brièvement les concepts et la terminologie d’Azure Medi
 Il est recommandé d’examiner les concepts fondamentaux décrits dans ces rubriques avant de commencer le développement.
 
 > [!NOTE]
-> Actuellement, vous ne pouvez pas utiliser le portail Azure pour gérer des ressources v3. Utilisez l’[API REST](https://aka.ms/ams-v3-rest-ref), l’interface [CLI](https://aka.ms/ams-v3-cli-ref) ou l’un des kits [SDK](media-services-apis-overview.md#sdks) pris en charge.
+> Actuellement, vous pouvez utiliser le [Portail Azure](https://portal.azure.com/) pour gérer les [événements en direct](live-events-outputs-concept.md) Media Services v3, voir (mais pas gérer) les [actifs multimédias](assets-concept.md) v3 et [obtenir des informations sur l’accès aux API](access-api-portal.md). Pour toutes les autres tâches de gestion (par exemple, les [transformations et travaux](transforms-jobs-concept.md) et la [protection de contenu](content-protection-overview.md)), utilisez l’[API REST](https://aka.ms/ams-v3-rest-ref), l’interface [CLI](https://aka.ms/ams-v3-cli-ref) ou l’un des [kits de développement logiciel (SDK)](media-services-apis-overview.md#sdks) pris en charge.
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="media-services-v3-terminology"></a>Terminologie Media Services v3
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: dapine
-ms.openlocfilehash: 04546883e6742086fa05fc450920b1026702bd08
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.openlocfilehash: 984d2dfe07faa22756b4be167aa86a69806b1a84
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77212523"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78331091"
 ---
 # <a name="about-the-speech-sdk"></a>À propos du kit SDK Speech
 
@@ -45,9 +45,9 @@ Pour Windows, nous prenons en charge les langages suivants :
 # <a name="linux"></a>[Linux](#tab/linux)
 
 > [!NOTE]
-> À l’heure actuelle, nous prenons en charge uniquement Ubuntu 16.04, Ubuntu 18.04 et Debian 9 sur les architectures cibles suivantes :
-> - x86, x64 et ARM64 pour le développement en C++
-> - x64 et ARM64 pour Java
+> Actuellement, nous prenons uniquement en charge Ubuntu 16.04, Ubuntu 18.04, Debian 9, Red Hat Enterprise Linux (RHEL) 8 et CentOS 8 sur les architectures cibles suivantes :
+> - x86 (Debian/Ubuntu), x64, ARM32 (Debian/Ubuntu) et ARM64 (Debian/Ubuntu) pour le développement de C++
+> - x64, ARM32 (Debian/Ubuntu) et ARM64 (Debian/Ubuntu) pour Java
 > - x64 pour .NET Core et Python
 
 Vérifiez que les bibliothèques requises sont installées en exécutant les commandes shell suivantes :
@@ -65,6 +65,16 @@ Sur Debian 9 :
 sudo apt-get update
 sudo apt-get install libssl1.0.2 libasound2
 ```
+
+Sur RHEL/CentOS 8 :
+
+```sh
+sudo yum update
+sudo yum install alsa-lib openssl
+```
+
+> [!NOTE]
+> Sur RHEL/CentOS 8, suivez les instructions du [Guide pratique pour configurer OpenSSL pour Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
 * C# : vous pouvez référencer et utiliser la dernière version de notre package NuGet du kit SDK Speech. Pour référencer le SDK, ajoutez la référence de package suivante à votre projet :
 

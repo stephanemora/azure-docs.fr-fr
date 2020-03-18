@@ -5,20 +5,19 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/26/2019
+ms.date: 03/10/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 3369dc7cde7082659df556e008adb5e45b4c011c
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 2daaf9bbdf90029f0aad4333ab94e2d1d1d3d7ff
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78246200"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129236"
 ---
 ## <a name="limitations"></a>Limites
 
 - Actuellement, les hôtes dédiés ne prennent pas en charge les groupes de machines virtuelles identiques.
-- Les séries de machines virtuelles suivantes sont prises en charge : DSv3, ESv3 et Fsv2. 
 
 ## <a name="benefits"></a>Avantages 
 
@@ -101,17 +100,15 @@ Pour plus d’informations, consultez la page [Tarification pour hôte dédié A
 
 Vous pouvez également économiser sur les coûts grâce à une [instance réservée d’ordinateurs Azure Dedicated Host](../articles/virtual-machines/prepay-dedicated-hosts-reserved-instances.md).
  
-## <a name="vm-families-and-hardware-generations"></a>Séries de machines virtuelles et générations de matériel
+## <a name="sizes-and-hardware-generations"></a>Tailles et générations de matériel
 
-Une référence SKU est définie pour un hôte et représente la série et le type de la taille de machine virtuelle. Vous pouvez combiner plusieurs machines virtuelles de différentes tailles au sein d’un même hôte, à condition qu’elles soient de la même série de tailles. Le type est la génération matérielle actuellement disponible dans la région.
+Une référence SKU est définie pour un hôte et représente la série et le type de la taille de machine virtuelle. Vous pouvez combiner plusieurs machines virtuelles de différentes tailles au sein d’un même hôte, à condition qu’elles soient de la même série de tailles. 
 
-Des `types` différents entre les mêmes séries de machines virtuelles proviennent de différents fournisseurs de processeurs et ont des générations d’UC et un nombre de cœurs différents.
+Le *type* indique la génération du matériel. Les différents types de matériel pour les mêmes séries de machines virtuelles proviennent de différents fournisseurs de processeurs, et ont des générations d’UC et des nombres de cœurs différents. 
 
-Pour en savoir plus, consultez la [page de tarification de l’hôte](https://aka.ms/ADHPricing).
+Les tailles et les types de matériel varient en fonction de la région. Pour en savoir plus, consultez la [page de tarification de l’hôte](https://aka.ms/ADHPricing).
 
-Les hôtes dédiés prennent en charge les SKU\types d’hôtes suivants :  DSv3_Type1 et ESv3_Type1
 
- 
 ## <a name="host-life-cycle"></a>Cycle de vie de l’hôte
 
 

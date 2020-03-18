@@ -10,18 +10,20 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: trbye
 ms.date: 10/25/2019
-ms.openlocfilehash: 4ab3bc43cf8ef479cb91d187a4c177db03415b86
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: b2c7825b10feab45df9cb89dbe2b82da1c143866
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77525581"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129747"
 ---
 # <a name="model-interpretability-in-automated-machine-learning"></a>Interprétabilité des modèles en Machine Learning automatisé
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Cet article explique comment activer les fonctionnalités d’interprétabilité pour le Machine Learning (ML) automatisé dans Azure Machine Learning. Le ML automatisé vous aide à comprendre l’importance des caractéristiques aussi bien brutes que traitées. Pour utiliser l’interprétabilité des modèles, définissez `model_explainability=True` dans l’objet `AutoMLConfig`.  
+Cet article explique comment activer les fonctionnalités d’interprétabilité pour le Machine Learning (ML) automatisé dans Azure Machine Learning. Le ML automatisé vous aide à comprendre l’importance des caractéristiques traitées. 
+
+Toutes les versions du Kit de développement logiciel (SDK) après la version 1.0.85 définissent `model_explainability=True` par défaut. Dans le Kit de développement logiciel (SDK) version 1.0.85 et ses versions antérieures, les utilisateurs doivent définir `model_explainability=True` dans l’objet `AutoMLConfig` afin d’utiliser l’interprétabilité du modèle. 
 
 Dans cet article, vous apprendrez comment :
 
@@ -36,14 +38,14 @@ Dans cet article, vous apprendrez comment :
 
 ## <a name="interpretability-during-training-for-the-best-model"></a>Interprétabilité pendant l’entraînement pour le meilleur modèle
 
-Récupérez l’explication à partir de `best_run`, qui inclut des explications pour les caractéristiques traitées et les caractéristiques brutes.
+Récupérez l’explication à partir de `best_run`, qui inclut des explications pour les caractéristiques traitées.
 
 ### <a name="download-engineered-feature-importance-from-artifact-store"></a>Télécharger l’importance des caractéristiques d’ingénierie à partir de la boutique d’artefacts
 
-Vous pouvez utiliser `ExplanationClient` pour télécharger des explications de caractéristiques traitées à partir du magasin d’artefacts de `best_run`. Pour obtenir l’explication des caractéristiques brutes, définissez la valeur `raw=True`.
+Vous pouvez utiliser `ExplanationClient` pour télécharger des explications de caractéristiques traitées à partir du magasin d’artefacts de `best_run`. 
 
 ```python
-from azureml.contrib.interpret.explanation.explanation_client import ExplanationClient
+from azureml.explain.model._internal.explanation_client import ExplanationClient
 
 client = ExplanationClient.from_run(best_run)
 engineered_explanations = client.download_model_explanation(raw=False)
@@ -52,26 +54,26 @@ print(engineered_explanations.get_feature_importance_dict())
 
 ## <a name="interpretability-during-training-for-any-model"></a>Interprétabilité pendant l’entraînement de n’importe quel modèle 
 
-Lorsque vous calculez des explications de modèle et que vous les visualisez, vous n’êtes pas limité à une explication de modèle existante pour un modèle de ML automatisé. Vous pouvez également obtenir une explication de votre modèle avec des données de test différentes. Les étapes de cette section vous montrent comment calculer et visualiser l’importance des caractéristiques traitées et brutes en fonction de vos données de test.
+Lorsque vous calculez des explications de modèle et que vous les visualisez, vous n’êtes pas limité à une explication de modèle existante pour un modèle de ML automatisé. Vous pouvez également obtenir une explication de votre modèle avec des données de test différentes. Les étapes de cette section vous montrent comment calculer et visualiser l’importance des caractéristiques traitées en fonction de vos données de test.
 
 ### <a name="retrieve-any-other-automl-model-from-training"></a>Récupérer tout autre modèle AutoML à partir de l’entraînement
 
 ```python
-automl_run, fitted_model = local_run.get_output(metric='r2_score')
+automl_run, fitted_model = local_run.get_output(metric='accuracy')
 ```
 
 ### <a name="set-up-the-model-explanations"></a>Configurer les explications de modèle
 
-Utilisez `automl_setup_model_explanations` pour obtenir des explications relatives aux caractéristiques brutes et traitées. Le `fitted_model` peut générer les éléments suivants :
+Utilisez `automl_setup_model_explanations` pour obtenir des explications relatives aux caractéristiques traitées. Le `fitted_model` peut générer les éléments suivants :
 
 - Données proposées à partir d’exemples formés ou test
-- Listes de noms de caractéristiques traitées et brutes
+- Listes de noms de caractéristiques traitées
 - Classes accessibles dans votre colonne étiquetée dans des scénarios de classification
 
 Le `automl_explainer_setup_obj` contient toutes les structures de la liste ci-dessus.
 
 ```python
-from azureml.train.automl.runtime.automl_explain_utilities import AutoMLExplainerSetupClass, automl_setup_model_explanations
+from azureml.train.automl.runtime.automl_explain_utilities import automl_setup_model_explanations
 
 automl_explainer_setup_obj = automl_setup_model_explanations(fitted_model, X=X_train, 
                                                              X_test=X_test, y=y_train, 
@@ -86,16 +88,16 @@ Afin de générer une explication pour les modèles AutoML, utilisez la classe `
 - Votre espace de travail
 - Un modèle LightGBM, qui agit comme un substitut au modèle de ML automatisé `fitted_model`
 
-MimicWrapper prend également l’objet `automl_run` où les explications de caractéristiques brutes et traitées seront chargées.
+MimicWrapper prend également l’objet `automl_run` où les explications de caractéristiques traitées seront chargées.
 
 ```python
 from azureml.explain.model.mimic.models.lightgbm_model import LGBMExplainableModel
 from azureml.explain.model.mimic_wrapper import MimicWrapper
 
 # Initialize the Mimic Explainer
-explainer = MimicWrapper(ws, automl_explainer_setup_obj.automl_estimator, LGBMExplainableModel,
+explainer = MimicWrapper(ws, automl_explainer_setup_obj.automl_estimator, LGBMExplainableModel, 
                          init_dataset=automl_explainer_setup_obj.X_transform, run=automl_run,
-                         features=automl_explainer_setup_obj.engineered_feature_names,
+                         features=automl_explainer_setup_obj.engineered_feature_names, 
                          feature_maps=[automl_explainer_setup_obj.feature_map],
                          classes=automl_explainer_setup_obj.classes)
 ```
@@ -105,27 +107,8 @@ explainer = MimicWrapper(ws, automl_explainer_setup_obj.automl_estimator, LGBMEx
 Vous pouvez appeler a méthode `explain()` dans MimicWrapper avec les exemples de tests transformés pour obtenir l’importance des caractéristiques traitées générées. Vous pouvez également utiliser `ExplanationDashboard` pour consulter la visualisation du tableau de bord des valeurs de l’importance des caractéristiques traitées générées par des caractériseurs de ML automatisé.
 
 ```python
-from azureml.contrib.interpret.visualize import ExplanationDashboard
-engineered_explanations = explainer.explain(['local', 'global'],              
-                                            eval_dataset=automl_explainer_setup_obj.X_test_transform)
-
+engineered_explanations = explainer.explain(['local', 'global'], eval_dataset=automl_explainer_setup_obj.X_test_transform)
 print(engineered_explanations.get_feature_importance_dict())
-ExplanationDashboard(engineered_explanations, automl_explainer_setup_obj.automl_estimator, automl_explainer_setup_obj.X_test_transform)
-```
-
-### <a name="use-mimic-explainer-for-computing-and-visualizing-raw-feature-importance"></a>Utiliser l’explicatif d’imitation pour le calcul et la visualisation de l’importance des caractéristiques brutes
-
-Vous pouvez à nouveau appeler la méthode `explain()` dans MimicWrapper avec les exemples de tests transformés et le paramètre `get_raw=True` pour obtenir l’importance des caractéristiques brutes. Vous pouvez également utiliser `ExplanationDashboard` pour consulter la visualisation du tableau de bord des valeurs de l’importance des caractéristiques brutes.
-
-```python
-from azureml.contrib.interpret.visualize import ExplanationDashboard
-
-raw_explanations = explainer.explain(['local', 'global'], get_raw=True, 
-                                     raw_feature_names=automl_explainer_setup_obj.raw_feature_names,
-                                     eval_dataset=automl_explainer_setup_obj.X_test_transform)
-
-print(raw_explanations.get_feature_importance_dict())
-ExplanationDashboard(raw_explanations, automl_explainer_setup_obj.automl_pipeline, automl_explainer_setup_obj.X_test_raw)
 ```
 
 ### <a name="interpretability-during-inference"></a>Interprétabilité pendant l’inférence
@@ -134,7 +117,7 @@ Dans cette section, vous allez apprendre à rendre un modèle de ML automatisé 
 
 ### <a name="register-the-model-and-the-scoring-explainer"></a>Inscrire le modèle et l’explicatif de scoring
 
-Utilisez `TreeScoringExplainer` pour créer l’explicatif de scoring, qui calculera les valeurs d’importance des caractéristiques brutes et traitées au moment de l’inférence. Vous initialisez l’explicatif de scoring avec la valeur `feature_map` qui a été calculée précédemment. L’explicatif du scoring utilise la valeur `feature_map` pour retourner l’importance des caractéristiques brutes.
+Utilisez `TreeScoringExplainer` pour créer l’explicatif de scoring, qui calculera les valeurs d’importance des caractéristiques traitées au moment de l’inférence. Vous initialisez l’explicatif de scoring avec la valeur `feature_map` qui a été calculée précédemment. 
 
 Enregistrez l’explicatif de scoring, puis inscrivez le modèle et l’explicatif de scoring auprès du service Gestion des modèles ML. Exécutez le code ci-dessous :
 
@@ -208,21 +191,19 @@ service.wait_for_deployment(show_output=True)
 
 ### <a name="inference-with-test-data"></a>Inférer à l’aide de données de test
 
-Inférez à l’aide de données de test pour voir la valeur prédite du modèle de ML automatisé. Affichez l’importance des caractéristiques traitées et brutes pour les valeurs prédites respectivement.
+Inférez à l’aide de données de test pour voir la valeur prédite du modèle de ML automatisé. Affichez l’importance des caractéristiques traitées pour la valeur prédite.
 
 ```python
 if service.state == 'Healthy':
     # Serialize the first row of the test data into json
     X_test_json = X_test[:1].to_json(orient='records')
     print(X_test_json)
-    # Call the service to get the predictions and the engineered and raw explanations
+    # Call the service to get the predictions and the engineered explanations
     output = service.run(X_test_json)
     # Print the predicted value
     print(output['predictions'])
     # Print the engineered feature importances for the predicted value
     print(output['engineered_local_importance_values'])
-    # Print the raw feature importances for the predicted value
-    print(output['raw_local_importance_values'])
 ```
 
 ### <a name="visualize-to-discover-patterns-in-data-and-explanations-at-training-time"></a>Visualiser pour découvrir des modèles dans les données et les explications au moment de la formation
