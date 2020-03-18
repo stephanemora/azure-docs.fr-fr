@@ -1,20 +1,15 @@
 ---
-title: 'Démarrage rapide : Reconnaître la voix d’un fichier audio, C++ (Linux) – Service Speech'
-titleSuffix: Azure Cognitive Services
-services: cognitive-services
-author: erhopf
-manager: nitinme
+author: IEvangelist
 ms.service: cognitive-services
-ms.subservice: speech-service
 ms.topic: include
-ms.date: 01/14/2020
-ms.author: erhopf
-ms.openlocfilehash: dcd34170668230b1e1a3224844d8779b8f51d1db
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.date: 03/10/2020
+ms.author: dapine
+ms.openlocfilehash: 8890cb515d39d47a5f5cfa4e4309d0191477acdd
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77446199"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082303"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
@@ -22,8 +17,7 @@ Avant de commencer, assurez-vous de :
 
 > [!div class="checklist"]
 > * [Créer une ressource Azure Speech](../../../../get-started.md)
-> * [Configurer votre environnement de développement](../../../../quickstarts/setup-platform.md?tabs=linux)
-> * [Créer un exemple de projet vide](../../../../quickstarts/create-project.md?tabs=linux)
+> * [Configurer votre environnement de développement et créer un projet vide](../../../../quickstarts/setup-platform.md?tabs=linux)
 
 [!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
 

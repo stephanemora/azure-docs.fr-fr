@@ -4,20 +4,19 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/13/2020
 ms.author: dapine
-ms.openlocfilehash: 1225a1e528b32401f350374fb9393c52225c49e8
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 02e0e1494a897b31cb6ef28083677fa48f854c91
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75942644"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925108"
 ---
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer, assurez-vous de :
 
 > [!div class="checklist"]
-> * [Configurer votre environnement de développement](../../../../quickstarts/setup-platform.md?tabs=jre&pivots=programmming-language-java)
-> * [Créer un exemple de projet vide](../../../../quickstarts/create-project.md?pivots=programmming-language-java)
+> * [Configurer votre environnement de développement et créer un projet vide](../../../../quickstarts/setup-platform.md?tabs=jre&pivots=programmming-language-java)
 > * [Créer une ressource Azure Speech](../../../../get-started.md)
 > * [Charger un fichier source dans un objet blob Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
 
@@ -32,7 +31,9 @@ La première étape consiste à vérifier que votre projet est ouvert dans Eclip
 ## <a name="add-a-reference-to-gson"></a>Ajouter une référence à Gson
 Dans ce guide de démarrage rapide, nous allons utiliser un sérialiseur/désérialiseur JSON externe. Pour Java, nous avons choisi [Gson](https://github.com/google/gson).
 
-Ouvrez votre fichier pom.xml et ajoutez la référence suivante : [!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/pom.xml?range=19-25)]
+Ouvrez votre fichier pom.xml et ajoutez la référence suivante.
+
+[!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/pom.xml?range=19-25)]
 
 ## <a name="start-with-some-boilerplate-code"></a>Commencer avec du code réutilisable
 

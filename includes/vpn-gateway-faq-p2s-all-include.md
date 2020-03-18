@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/19/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: be858e9200191de7e0bda0ae227519666d80fb7a
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: ec684e5e6fa2ef8e9ed30be49f59e8aa7ef3a28b
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77500589"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79117103"
 ---
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>Combien de points de terminaison clients VPN puis-je avoir dans ma configuration point à site ?
 
@@ -58,9 +58,13 @@ La reconnexion automatique et DDNS ne sont actuellement pas pris en charge dans 
 
 Oui. Pour le modèle de déploiement Resource Manager, vous devez disposer d’un type de VPN basé sur le routage pour votre passerelle. Pour le modèle de déploiement Classic, vous avez besoin d’une passerelle dynamique. Nous ne prenons pas en charge la configuration point à site pour les passerelles VPN à routage statique ou les passerelles VPN basée sur une stratégie.
 
+### <a name="can-i-configure-a-point-to-site-client-to-connect-to-multiple-virtual-network-gateways-at-the-same-time"></a>Puis-je configurer un client point à site pour me connecter à plusieurs passerelles de réseaux virtuels en même temps ?
+
+En fonction du logiciel VPN Client utilisé, vous pouvez vous connecter à plusieurs passerelles de réseaux virtuels, à condition que les réseaux virtuels qui y sont connectés n’aient pas d’espaces d’adressage en conflit entre eux ou avec le réseau à partir duquel le client se connecte.  Azure VPN Client prend en charge de nombreuses connexions VPN, mais une seule connexion peut être connectée à un moment M.
+
 ### <a name="can-i-configure-a-point-to-site-client-to-connect-to-multiple-virtual-networks-at-the-same-time"></a>Puis-je configurer un client point à site pour me connecter à plusieurs réseaux virtuels en même temps ?
 
-Non. Un client point à site ne peut se connecter qu’aux ressources dans le réseau virtuel dans lequel réside la passerelle de réseau virtuel.
+Oui, les connexions de point à site à une passerelle de réseau virtuel déployée dans un réseau virtuel qui est appairé à d’autres réseaux virtuels peuvent avoir accès à d’autres réseaux virtuels appairés.  À condition que les réseaux virtuels appairés utilisent les fonctionnalités UseRemoteGateway / AllowGatewayTransit, le client point à site peut se connecter à ces réseaux virtuels appairés.  Pour plus d’informations, reportez-vous à [cet](../articles/vpn-gateway/vpn-gateway-about-point-to-site-routing.md) article.
 
 ### <a name="how-much-throughput-can-i-expect-through-site-to-site-or-point-to-site-connections"></a>Quel débit puis-je attendre des connexions site à site ou point à site ?
 

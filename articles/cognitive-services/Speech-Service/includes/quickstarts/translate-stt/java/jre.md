@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/09/2019
 ms.author: erhopf
-ms.openlocfilehash: ba63324cff793edb935b6e0982989baa8befdc9d
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: b181c810d15695f72e73ef8a3359396686e77a1b
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77446686"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925795"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
@@ -23,8 +23,7 @@ Avant de commencer, assurez-vous de :
 
 > [!div class="checklist"]
 > * [Créer une ressource Azure Speech](../../../../get-started.md)
-> * [Configurer votre environnement de développement](../../../../quickstarts/setup-platform.md?tabs=jre)
-> * [Créer un exemple de projet vide](../../../../quickstarts/create-project.md?tabs=jre)
+> * [Configurer votre environnement de développement et créer un projet vide](../../../../quickstarts/setup-platform.md?tabs=jre)
 
 ## <a name="add-sample-code"></a>Ajouter un exemple de code
 
