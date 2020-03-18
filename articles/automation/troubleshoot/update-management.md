@@ -8,12 +8,12 @@ ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 1b0047cda3664759f4f1b6499c8a54ee22f98ab3
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: 359f78cabbe0372e6892695c092ae49b62df7bfa
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78227451"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944181"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Résolution des problèmes rencontrés avec Update Management
 
@@ -219,14 +219,17 @@ Ce problème peut se produire pour l’une des raisons suivantes :
 
 Lorsque c’est possible, utilisez les [groupes dynamiques](../automation-update-management-groups.md) pour vos déploiements de mise à jour. De plus :
 
-* Vérifiez que l’ordinateur existe toujours et qu’il est accessible. S’il n’existe pas, modifiez votre déploiement et supprimez-le.
+* Vérifiez que l’ordinateur existe toujours et qu’il est accessible. 
+* Si la machine n’existe pas, modifiez votre déploiement et supprimez-la.
 * Pour obtenir une liste des ports et adresses requis pour Update Management et savoir comment vérifier si votre ordinateur répond à ces exigences, consultez la section [Planification réseau](../automation-update-management.md#ports).
-* Exécutez la requête suivante dans Log Analytics pour rechercher les ordinateurs de votre environnement dont le paramètre `SourceComputerId` a été modifié. Recherchez les ordinateurs présentant la même valeur `Computer`, mais une valeur `SourceComputerId` différente. 
+* Vérifiez la connectivité au Runbook Worker hybride à l’aide de l’utilitaire de résolution des problèmes de l’agent Runbook Worker hybride. Pour en savoir plus sur l’utilitaire de résolution des problèmes, consultez [Résoudre les problèmes de l’agent de mise à jour](update-agent-issues.md).
+* Exécutez la requête suivante dans Log Analytics pour rechercher les machines de votre environnement dont le paramètre `SourceComputerId` a été modifié. Recherchez les ordinateurs présentant la même valeur `Computer`, mais une valeur `SourceComputerId` différente.
 
    ```loganalytics
    Heartbeat | where TimeGenerated > ago(30d) | distinct SourceComputerId, Computer, ComputerIP
    ```
-   Une fois les ordinateurs affectés identifiés, vous devez modifier les déploiements de mise à jour ciblant ces ordinateurs, puis les supprimer et les rajouter afin que `SourceComputerId` reflète la valeur correcte.
+
+* Une fois les ordinateurs affectés identifiés, vous devez modifier les déploiements de mise à jour ciblant ces ordinateurs, puis les supprimer et les rajouter afin que `SourceComputerId` reflète la valeur correcte.
 
 ## <a name="updates-nodeployment"></a>Scénario : Les mises à jour sont installées sans déploiement
 

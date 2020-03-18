@@ -1,5 +1,5 @@
 ---
-title: Déployer Azure Data Explorer dans votre réseau virtuel (Préversion)
+title: Déployer Azure Data Explorer dans votre réseau virtuel
 description: Découvrir comment déployer Azure Data Explorer dans votre réseau virtuel
 author: basaba
 ms.author: basaba
@@ -7,14 +7,14 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: 28b9c55df8cd7883e05e964b8b67e08c7a3eb8c1
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 5a2731e26ba4f371177cf2ae649f0695f27e6304
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74812731"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096770"
 ---
-# <a name="deploy-azure-data-explorer-into-your-virtual-network-preview"></a>Déployer Azure Data Explorer dans votre réseau virtuel (Préversion)
+# <a name="deploy-azure-data-explorer-into-your-virtual-network"></a>Déployer Azure Data Explorer dans votre réseau virtuel
 
 Cet article décrit les ressources présentes lorsque vous déployez un cluster Azure Data Explorer dans un réseau virtuel Azure personnalisé. Ces informations vous aideront à déployer un cluster dans un sous-réseau de votre réseau virtuel (VNet). Pour plus d’informations sur les réseaux virtuels Azure, consultez [Qu’est-ce que le réseau virtuel Azure ?](/azure/virtual-network/virtual-networks-overview)
 
@@ -25,9 +25,6 @@ Azure Data Explorer prend en charge le déploiement d’un cluster dans un sous-
 * Appliquer des règles du [groupe de sécurité réseau](/azure/virtual-network/security-overview) (NSG) sur le trafic de votre cluster Azure Data Explorer.
 * Connectez votre réseau local au sous-réseau du cluster Azure Data Explorer.
 * Sécurisez vos sources de connexion de données ([Event Hub](/azure/event-hubs/event-hubs-about) et [Event Grid](/azure/event-grid/overview)) avec des [points de terminaison de service](/azure/virtual-network/virtual-network-service-endpoints-overview).
-
-> [!NOTE]
-> L’intégration et le déploiement du réseau virtuel sont en mode de préversion. Pour activer cette fonctionnalité, ouvrez un [ticket de support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 ## <a name="access-your-azure-data-explorer-cluster-in-your-vnet"></a>Accéder à votre cluster Azure Data Explorer sur votre réseau virtuel
 
@@ -53,7 +50,7 @@ Nombre total d’adresses IP :
 | Service du moteur | 1 par instance |
 | Service de gestion des données | 2 |
 | Équilibreurs de charge internes | 2 |
-| Adresses réservées Azure | 5\. |
+| Adresses réservées Azure | 5 |
 | **Total** | **#engine_instances + 9** |
 
 > [!IMPORTANT]
@@ -77,7 +74,7 @@ Les [groupes de sécurité réseau (NSG)](/azure/virtual-network/security-overvi
 
 | **Utilisation**   | **From**   | **To**   | **Protocole**   |
 | --- | --- | --- | --- |
-| gestion  |[Adresses de gestion ADX](#azure-data-explorer-management-ip-addresses)/AzureDataExplorerManagement(ServiceTag) | Sous-réseau ADX : 443  | TCP  |
+| Gestion  |[Adresses de gestion ADX](#azure-data-explorer-management-ip-addresses)/AzureDataExplorerManagement(ServiceTag) | Sous-réseau ADX : 443  | TCP  |
 | Surveillance de l’intégrité  | [Adresses de surveillance de l’intégrité ADX](#health-monitoring-addresses)  | Sous-réseau ADX : 443  | TCP  |
 | Communication interne ADX  | Sous-réseau ADX : Tous les ports  | Sous-réseau ADX : tous les ports  | Tous  |
 | Autoriser le trafic entrant provenant de l’équilibreur de charge (probe d’intégrité)  | AzureLoadBalancer  | Sous-réseau ADX : 80, 443  | TCP  |
@@ -174,7 +171,7 @@ Les [groupes de sécurité réseau (NSG)](/azure/virtual-network/security-overvi
 | Europe Ouest | 23.97.212.5 |
 | Inde Ouest | 23.99.5.162 |
 | USA Ouest | 23.99.5.162 |
-| USA Ouest 2 | 23.99.5.162 | 
+| USA Ouest 2 | 23.99.5.162 |    
 
 #### <a name="azure-monitor-configuration-endpoint-addresses"></a>Adresses du point de terminaison de configuration Azure Monitor
 
@@ -192,7 +189,7 @@ Les [groupes de sécurité réseau (NSG)](/azure/virtual-network/security-overvi
 | EUAP USA Centre | 13.90.43.231 |
 | Asie Est | 13.75.117.221 |
 | USA Est | 13.90.43.231 |
-| USA Est 2 | 13.68.89.19 | 
+| USA Est 2 | 13.68.89.19 |    
 | EUAP USA Est 2 | 13.68.89.19 |
 | France Centre | 52.174.4.112 |
 | France Sud | 52.174.4.112 |
@@ -217,7 +214,7 @@ Les [groupes de sécurité réseau (NSG)](/azure/virtual-network/security-overvi
 
 ## <a name="expressroute-setup"></a>Configuration ExpressRoute
 
-Utilisez ExpressRoute pour connecter votre réseau local au réseau virtuel Azure. Une configuration courante consiste à publier l’itinéraire par défaut (0.0.0.0/0) via la session Border Gateway Protocol (BGP). Cela force le trafic sortant du réseau virtuel à être transféré vers le réseau local du client qui peut déposer le trafic, provoquant ainsi l’interruption des flux sortants. Pour contourner ce paramètre par défaut, [Itinéraire défini par l’utilisateur (UDR)](/azure/virtual-network/virtual-networks-udr-overview#user-defined) (0.0.0.0/0) peut être configuré et le tronçon suivant sera *Internet*. Étant donné que l’UDR a la priorité sur le protocole BGP, le trafic est destiné à Internet.
+Utilisez ExpressRoute pour connecter votre réseau local au réseau virtuel Azure. Une configuration courante consiste à publier l’itinéraire par défaut (0.0.0.0/0) via la session Border Gateway Protocol (BGP). Cela force le trafic sortant du réseau virtuel à être transféré vers le réseau local du client qui peut supprimer le trafic, provoquant ainsi l’interruption des flux sortants. Pour contourner ce paramètre par défaut, [Itinéraire défini par l’utilisateur (UDR)](/azure/virtual-network/virtual-networks-udr-overview#user-defined) (0.0.0.0/0) peut être configuré et le tronçon suivant sera *Internet*. Étant donné que l’UDR a la priorité sur le protocole BGP, le trafic est destiné à Internet.
 
 ## <a name="securing-outbound-traffic-with-firewall"></a>Sécurisation du trafic sortant avec pare-feu
 
@@ -263,3 +260,149 @@ Par exemple, pour la région **USA Ouest**, les UDR suivants doivent être défi
 Pour déployer un cluster Azure Data Explorer dans votre réseau virtuel, utilisez le [cluster déployer Azure Data Explorer dans votre modèle Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-kusto-vnet/) de réseau virtuel.
 
 Ce modèle crée le cluster, le réseau virtuel, le sous-réseau, le groupe de sécurité réseau et les adresses IP publiques.
+
+## <a name="troubleshooting"></a>Dépannage
+
+Dans cette section, vous allez apprendre à résoudre les problèmes de connectivité, les problèmes de fonctionnement et les problèmes de création de cluster pour un cluster déployé dans votre [réseau virtuel](/azure/virtual-network/virtual-networks-overview).
+
+### <a name="access-issues"></a>Problèmes d’accès
+
+Si vous rencontrez un problème lors de l’accès au cluster à l’aide du point de terminaison public (cluster.region.kusto.windows.net) ou privé (private-cluster.region.kusto.windows.net) et que vous pensez qu’il est lié à la configuration du réseau virtuel, procédez comme suit pour résoudre le problème.
+
+#### <a name="check-tcp-connectivity"></a>Vérifier la connectivité TCP
+
+La première étape comprend la vérification de la connectivité TCP à l’aide du système d’exploitation Windows ou Linux.
+
+# <a name="windows"></a>[Windows](#tab/windows)
+
+   1. Téléchargez [TCping](https://www.elifulkerson.com/projects/tcping.php) sur l’ordinateur qui se connecte au cluster.
+   2. Envoyez une commande ping à la destination à partir de la machine source en utilisant la commande suivante :
+
+    ```cmd
+     C:\> tcping -t yourcluster.kusto.windows.net 443 
+    
+     ** Pinging continuously.  Press control-c to stop **
+    
+     Probing 1.2.3.4:443/tcp - Port is open - time=100.00ms
+     ```
+
+# <a name="linux"></a>[Linux](#tab/linux)
+
+   1. Installez *netcat* sur la machine qui se connecte au cluster.
+
+    ```bash
+    $ apt-get install netcat
+     ```
+
+   2. Envoyez une commande ping à la destination à partir de la machine source en utilisant la commande suivante :
+
+     ```bash
+     $ netcat -z -v yourcluster.kusto.windows.net 443
+    
+     Connection to yourcluster.kusto.windows.net 443 port [tcp/https] succeeded!
+     ```
+---
+
+Si le test échoue, effectuez les étapes suivantes. Si le test réussit, le problème n’est pas dû à un problème de connectivité TCP. Accédez aux [problèmes opérationnels](#cluster-creation-and-operations-issues) pour approfondir la résolution des problèmes.
+
+#### <a name="check-the-network-security-group-nsg"></a>Vérifier le groupe de sécurité réseau (NSG)
+
+   Vérifiez que le [groupe de sécurité réseau](/azure/virtual-network/security-overview) (NSG) attaché au sous-réseau du cluster possède une règle de trafic entrant qui autorise l’accès à partir de l’adresse IP de l’ordinateur client pour le port 443.
+
+#### <a name="check-route-table"></a>Vérifier la table de routage
+
+   Si le sous-réseau du cluster dispose d’une configuration de tunneling forcé vers le pare-feu (sous-réseau avec une [table de routage](/azure/virtual-network/virtual-networks-udr-overview) contenant la route par défaut « 0.0.0.0/0 »), assurez-vous que l’adresse IP de l’ordinateur a une route avec le [type de tronçon suivant](/azure/virtual-network/virtual-networks-udr-overview) vers VirtualNetwork/Internet. Cela est nécessaire pour éviter les problèmes de routage asymétrique.
+
+### <a name="ingestion-issues"></a>Problèmes d’ingestion
+
+Si vous rencontrez des problèmes d’ingestion et que vous soupçonnez qu’ils sont liés à une configuration de réseau virtuel, procédez comme suit.
+
+#### <a name="check-ingestion-health"></a>Vérifier l’intégrité d’ingestion
+
+    Check that the [cluster ingestion metrics](/azure/data-explorer/using-metrics#ingestion-health-and-performance-metrics) indicate a healthy state.
+
+#### <a name="check-security-rules-on-data-source-resources"></a>Vérifier les règles de sécurité sur les ressources de source de données
+
+Si les métriques indiquent qu’aucun événement n’a été traité à partir de la source de données (métrique *Événements traités* (pour les hubs d’événements/IoT)), assurez-vous que les ressources de source de données (hub d’événements ou stockage) autorisent l’accès à partir du sous-réseau du cluster dans les règles de pare-feu ou les points de terminaison de service.
+
+#### <a name="check-security-rules-configured-on-clusters-subnet"></a>Vérifier les règles de sécurité configurées sur le sous-réseau du cluster
+
+Vérifiez que les règles de groupe de sécurité réseau, de route définie par l’utilisateur et de pare-feu sont correctement configurées pour le sous-réseau du cluster. En outre, testez la connectivité réseau pour tous les points de terminaison dépendants. 
+
+### <a name="cluster-creation-and-operations-issues"></a>Problèmes de création de cluster et de fonctionnement
+
+Si vous rencontrez un problème de création de cluster ou de fonctionnement et que vous soupçonnez qu’il est lié à une configuration de réseau virtuel, procédez comme suit pour résoudre le problème.
+
+#### <a name="diagnose-the-virtual-network-with-the-rest-api"></a>Diagnostiquer le réseau virtuel avec l’API REST
+
+L’outil [ARMClient](https://chocolatey.org/packages/ARMClient) permet d’appeler l’API REST à l’aide de PowerShell. 
+
+1. Se connecter à ARMClient
+
+   ```powerShell
+   armclient login
+   ```
+
+1. Appeler l’opération de diagnostic
+
+    ```powershell
+    $subscriptionId = '<subscription id>'
+    $clusterName = '<name of cluster>'
+    $resourceGroupName = '<resource group name>'
+    $apiversion = '2019-11-09'
+    
+    armclient post "https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Kusto/clusters/$clusterName/diagnoseVirtualNetwork?api-version=$apiversion" -verbose
+    ```
+
+1. Vérifier la réponse
+
+    ```powershell
+    HTTP/1.1 202 Accepted
+    ...
+    Azure-AsyncOperation: https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.Kusto/locations/{location}/operationResults/{operation-id}?api-version=2019-11-09
+    ...
+    ```
+
+1. Attendre la fin de l’opération
+
+    ```powershell
+    armclient get https://management.azure.com/subscriptions/$subscriptionId/providers/Microsoft.Kusto/locations/{location}/operationResults/{operation-id}?api-version=2019-11-09
+    
+    {
+      "id": "/subscriptions/{subscription-id}/providers/Microsoft.Kusto/locations/{location}/operationresults/{operation-id}",
+      "name": "{operation-name}",
+      "status": "[Running/Failed/Completed]",
+      "startTime": "{start-time}",
+      "endTime": "{end-time}",
+      "properties": {...}
+    }
+    ```
+    
+   Attendez que la propriété *status* indique *Completed*, le champ *properties* doit alors indiquer :
+
+    ```powershell
+    {
+      "id": "/subscriptions/{subscription-id}/providers/Microsoft.Kusto/locations/{location}/operationresults/{operation-id}",
+      "name": "{operation-name}",
+      "status": "Completed",
+      "startTime": "{start-time}",
+      "endTime": "{end-time}",
+      "properties": {
+        "Findings": [...]
+      }
+    }
+    ```
+
+Si la propriété *Findings* affiche un résultat vide, cela signifie que tous les tests réseau ont réussi et qu’aucune connexion n’est interrompue. Si elle indique une erreur, comme suit : *La dépendance sortante '{dependencyName}:{port}' n’est peut-être pas satisfaite (sortante)* , le cluster ne peut pas atteindre les points de terminaison du service dépendant. Procédez comme suit pour résoudre le problème.
+
+#### <a name="check-network-security-group-nsg"></a>Vérifier le groupe de sécurité réseau (NSG)
+
+Vérifiez que le [groupe de sécurité réseau](/azure/virtual-network/security-overview) est correctement configuré, conformément aux instructions figurant dans [Dépendances pour le déploiement de réseau virtuel](/azure/data-explorer/vnet-deployment#dependencies-for-vnet-deployment)
+
+#### <a name="check-route-table"></a>Vérifier la table de routage
+
+Si le sous-réseau du cluster a le tunneling forcé configuré vers le pare-feu (sous-réseau avec une [table de routage](/azure/virtual-network/virtual-networks-udr-overview) qui contient la route par défaut « 0.0.0.0/0 »), assurez-vous que les [adresses IP de gestion](#azure-data-explorer-management-ip-addresses) et les [adresses IP de surveillance de l’intégrité](#health-monitoring-addresses) ont une route avec le [type de tronçon suivant](/azure/virtual-network/virtual-networks-udr-overview##next-hop-types-across-azure-tools) *Internet* et un [préfixe d’adresse source](/azure/virtual-network/virtual-networks-udr-overview#how-azure-selects-a-route) *'management-ip/32'* et *'health-monitoring-ip/32'* . Cela est nécessaire pour éviter les problèmes de routage asymétrique.
+
+#### <a name="check-firewall-rules"></a>Vérifier les règles de pare-feu
+
+Si vous forcez le trafic sortant du sous-réseau de tunnel vers un pare-feu, vérifiez que les noms de domaine complet de toutes les dépendances (par exemple, *.blob.core.windows.net*) sont autorisés dans la configuration du pare-feu, comme décrit dans [Sécurisation du trafic sortant avec pare-feu](/azure/data-explorer/vnet-deployment#securing-outbound-traffic-with-firewall).

@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 8f148bfe08d5f7933857eb46cf0d13d4582da108
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: ec716924d3cebf8e78b0505b95837b91c568813a
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950278"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898144"
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Sources de données prises en charge dans Azure Data Catalog
 
@@ -45,7 +45,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
       <td></td>
     </tr>
     <tr>
-      <td>Stockage d'objets blob Azure</td>
+      <td>Stockage Blob Azure</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -124,7 +124,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>Oracle 10 et versions ultérieures.</td>
     </tr>
     <tr>
       <td>Vue de base de données Oracle</td>
@@ -132,7 +132,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>Oracle 10 et versions ultérieures.</td>
     </tr>
     <tr>
       <td>Autre (ressource générique)</td>

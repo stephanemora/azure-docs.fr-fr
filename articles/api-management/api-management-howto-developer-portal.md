@@ -11,24 +11,20 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/22/2019
+ms.date: 03/05/2020
 ms.author: apimpm
-ms.openlocfilehash: a206ef6eb529fc396ec4ecb82d468c19f9e54b8a
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: 311ce34a4b5cfbb9a54a285094dac34c7dd5a225
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77108243"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79126529"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Vue d’ensemble du portail des développeurs Gestion des API Azure
 
 Le portail des développeurs est un site web généré automatiquement et entièrement personnalisable avec la documentation de vos API. C’est là que les consommateurs d’API peuvent découvrir vos API, apprendre à les utiliser, y demander l’accès et les essayer.
 
 Cet article décrit les différences entre la version auto-hébergée et la version managée du portail des développeurs dans la Gestion des API. Il explique également son architecture et répond aux questions fréquentes.
-
-> [!WARNING]
->
-> [Découvrez comment migrer de la préversion à la version en disponibilité générale](#preview-to-ga) du portail des développeurs.
 
 ![Portail des développeurs Gestion des API](media/api-management-howto-developer-portal/cover.png)
 
@@ -39,7 +35,7 @@ Cet article décrit les différences entre la version auto-hébergée et la vers
 Vous pouvez générer votre portail des développeurs de deux manières :
 
 - **Version managée**, via la modification et la personnalisation du portail : intégrée dans votre instance de Gestion des API et accessible via l’URL `<your-api-management-instance-name>.developer.azure-api.net` ; Pour savoir comment accéder au portail managé et le personnaliser, voir [cet article de documentation](api-management-howto-developer-portal-customize.md).
-- **version auto-hébergée**, via le déploiement et l’auto-hébergement de votre portail en dehors d’une instance de gestion des API. Cette approche vous permet de modifier la base de code du portail et d’étendre la fonctionnalité principale fournie. Vous devez également passer à la dernière version du portail par vous-même. Pour obtenir plus de détails et d’instructions, reportez-vous au [dépôt GitHub avec le code source du portail][1] et au [tutoriel sur l’implémentation d’un widget][3]. Le [tutoriel de la version managée](api-management-howto-developer-portal-customize.md) décrit le panneau d’administration du portail, qui est également proposé dans la version auto-hébergée.
+- **version auto-hébergée**, via le déploiement et l’auto-hébergement de votre portail en dehors d’une instance de gestion des API. Cette approche vous permet de modifier le code base du portail et d’étendre les principales fonctionnalités fournies, par exemple d’implémenter des widgets personnalisés pour les intégrations à des systèmes tiers. Dans ce scénario, vous êtes le chargé de maintenance du portail et vous êtes responsable de la mise à niveau du portail vers la toute dernière version. Pour obtenir plus de détails et d’instructions, reportez-vous au [dépôt GitHub avec le code source du portail][1] et au [tutoriel sur l’implémentation d’un widget][3]. Le [tutoriel de la version managée](api-management-howto-developer-portal-customize.md) décrit le panneau d’administration du portail, commun aux versions auto-hébergée et managée.
 
 ## <a name="portal-architectural-concepts"></a>Concepts architecturaux du portail
 
@@ -70,7 +66,7 @@ Le portail est basé sur une fourche adaptée du [framework Paperbits](https://p
 
 ## <a name="faq"></a> Forum aux questions
 
-Dans cette section, nous répondons aux questions courantes d’ordre général sur le nouveau portail des développeurs. Pour toute question spécifique à la version auto-hébergée, reportez-vous à la [section wiki du référentiel GitHub](https://github.com/Azure/api-management-developer-portal/wiki).
+Dans cette section, nous répondons aux questions courantes d’ordre général sur le portail des développeurs. Pour toute question spécifique à la version auto-hébergée, reportez-vous à la [section wiki du référentiel GitHub](https://github.com/Azure/api-management-developer-portal/wiki).
 
 ### <a name="a-idpreview-to-ga-how-can-i-migrate-from-the-preview-version-of-the-portal"></a><a id="preview-to-ga"/> Comment migrer à partir de la préversion du portail ?
 
@@ -86,13 +82,13 @@ Si vous ne souhaitez pas réinitialiser le contenu du portail, vous pouvez utili
 
 Si votre portail a été configuré après l’annonce de la mise à la disposition générale, il dispose normalement déjà du nouveau contenu par défaut. Aucune action de votre part n’est nécessaire.
 
-### <a name="how-can-i-migrate-from-the-old-developer-portal-to-the-new-developer-portal"></a>Comment migrer de l’ancien portail des développeurs au nouveau ?
+### <a name="how-can-i-migrate-from-the-old-developer-portal-to-the-developer-portal"></a>Comment migrer de l’ancien portail des développeurs vers le portail des développeurs actuel ?
 
 Les portails étant incompatibles, vous devez migrer le contenu manuellement.
 
-### <a name="does-the-new-portal-have-all-the-features-of-the-old-portal"></a>Le nouveau portail a-t-il toutes les fonctionnalités de l’ancien portail ?
+### <a name="does-the-portal-have-all-the-features-of-the-old-portal"></a>Le portail a-t-il toutes les fonctionnalités de l’ancien portail ?
 
-Le nouveau portail des développeurs ne prend pas en charge les *Applications* et les *Problèmes*. Si vous avez utilisé les *Problèmes* sur l’ancien portail et que vous en avez besoin sur le nouveau, publiez un commentaire sur un [problème GitHub dédié](https://github.com/Azure/api-management-developer-portal/issues/122).
+Le portail des développeurs ne prend plus en charge les *Applications* et les *Problèmes*.
 
 L’authentification avec OAuth dans la console du développeur interactive n’est prise en charge. Vous pouvez suivre la progression via le [problème GitHub](https://github.com/Azure/api-management-developer-portal/issues/208).
 
@@ -104,23 +100,25 @@ La dépréciation des portails hérités sera annoncée séparément. Si vous av
 
 ### <a name="functionality-i-need-isnt-supported-in-the-portal"></a>Les fonctionnalités dont j’ai besoin ne sont pas prises en charge dans le portail
 
-Utilisez la version auto-hébergée et [implémentez votre propre widget][3].
+Vous pouvez ouvrir une [demande de fonctionnalité](https://aka.ms/apimwish) ou [implémenter vous-même la fonctionnalité manquante][3]. Si vous implémentez la fonctionnalité vous-même, vous pouvez auto-héberger le portail des développeurs ou ouvrir une requête de tirage (pull request) sur GitHub pour inclure les modifications à la version managée.
 
 ### <a name="how-can-i-automate-portal-deployments"></a>Comment automatiser les déploiements de portails ?
 
 Vous pouvez accéder programmatiquement au contenu du portail des développeurs et le gérer avec l’API REST, que vous utilisiez une version managée ou auto-hébergée.
 
-L’API est documentée dans la [section wiki du référentiel GitHub][2]. Elle peut également servir à automatiser des migrations du contenu du portail entre différents environnements, par exemple d’un environnement de test vers l’environnement de production. Pour plus d’informations sur ce processus, lisez [cet article de documentation](https://aka.ms/apimdocs/migrateportal) sur GitHub.
+L’API est documentée dans la [section wiki du référentiel GitHub][2]. Elle peut servir à automatiser les migrations du contenu du portail entre différents environnements, par exemple d’un environnement de test à l’environnement de production. Pour plus d’informations sur ce processus, lisez [cet article de documentation](https://aka.ms/apimdocs/migrateportal) sur GitHub.
 
 ### <a name="does-the-portal-support-azure-resource-manager-templates-andor-is-it-compatible-with-api-management-devops-resource-kit"></a>Le portail prend-il en charge les modèles Azure Resource Manager ? Est-il compatible avec le kit de ressources DevOps Gestion des API ?
 
 Non.
 
-### <a name="do-i-need-to-enable-additional-vnet-connectivity-for-the-new-managed-portal-dependencies"></a>Faut-il activer une connectivité de réseau virtuel supplémentaire pour les nouvelles dépendances du portail managé ?
+### <a name="do-i-need-to-enable-additional-vnet-connectivity-for-the-managed-portal-dependencies"></a>Faut-il activer une connectivité de réseau virtuel supplémentaire pour les dépendances du portail managé ?
 
 Dans la plupart des cas, non.
 
 Si votre service de gestion des API se trouve dans un réseau virtuel interne, votre portail des développeurs est accessible uniquement à partir de ce réseau. Le nom d’hôte du point de terminaison de gestion doit être résolu en adresse IP virtuelle interne du service à partir de l’ordinateur utilisé pour accéder à l’interface d’administration du portail. Veillez à ce que le point de terminaison de gestion soit inscrit dans le DNS. En cas d’erreur de configuration, l’erreur suivante apparaît : `Unable to start the portal. See if settings are specified correctly in the configuration (...)`.
+
+Si votre service Gestion des API se trouve dans un réseau virtuel interne, et que vous y accédez par le biais d’Application Gateway à partir d’Internet, veillez à activer la connectivité au portail des développeurs et aux points de terminaison de gestion de Gestion des API.
 
 ### <a name="i-have-assigned-a-custom-api-management-domain-and-the-published-portal-doesnt-work"></a>J’ai attribué un domaine de gestion des API personnalisé et le portail publié ne fonctionne pas
 
@@ -138,24 +136,17 @@ Après avoir configuré la délégation, vous devez [republier le portail](api-m
 
 La plupart des modifications de configuration (par exemple, réseau virtuel, connexion et conditions de produit) nécessitent une [republication du portal](api-management-howto-developer-portal-customize.md#publish).
 
-### <a name="im-getting-a-cors-error-when-using-the-interactive-console"></a>J’obtiens une erreur CORS lorsque j’utilise la console interactive
+### <a name="cors"></a> J’obtiens une erreur CORS lorsque j’utilise la console interactive
 
 La console interactive effectue une requête d’API côté client à partir du navigateur. Vous pouvez résoudre le problème CORS en ajoutant une [stratégie CORS ](api-management-cross-domain-policies.md#CORS)sur vos API. Vous pouvez spécifier tous les paramètres manuellement ou utiliser la valeur de caractère générique `*`. Par exemple :
 
 ```XML
-<cors>
+<cors allow-credentials="true">
     <allowed-origins>
-        <origin>*</origin>
+        <origin>https://contoso.com</origin>
     </allowed-origins>
-    <allowed-methods>
-        <method>GET</method>
-        <method>POST</method>
-        <method>PUT</method>
-        <method>DELETE</method>
-        <method>HEAD</method>
-        <method>OPTIONS</method>
-        <method>PATCH</method>
-        <method>TRACE</method>
+    <allowed-methods preflight-result-max-age="300">
+        <method>*</method>
     </allowed-methods>
     <allowed-headers>
         <header>*</header>

@@ -1,25 +1,17 @@
 ---
-title: Créer une machine virtuelle Linux avec l’API REST Azure
+title: Créer une machine virtuelle Linux à l’aide de l’API REST
 description: Découvrez comment créer une machine virtuelle Linux dans Azure utilisant la fonctionnalité Disques managés et l’authentification SSH avec l’API REST Azure.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: c1010bf4bde01920449e9252de563d79bfc61997
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 1594c030839cccdd48c4b032c6ad92f746f78e26
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036448"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970274"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Créer une machine virtuelle Linux utilisant l’authentification SSH avec l’API REST
 
@@ -53,8 +45,8 @@ Les en-têtes suivants sont requis :
 
 | En-tête de requête   | Description |
 |------------------|-----------------|
-| *Content-Type :*  | Requis. Défini sur `application/json`. |
-| *Authorization :* | Requis. Défini sur un [jeton d’accès](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients) `Bearer` valide. |
+| *Content-Type :*  | Obligatoire. Défini sur `application/json`. |
+| *Authorization :* | Obligatoire. Défini sur un [jeton d’accès](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients) `Bearer` valide. |
 
 Pour obtenir des informations générales sur l’utilisation des requêtes d’API REST, consultez [Composants d’une requête/réponse d’API REST](/rest/api/azure/#components-of-a-rest-api-requestresponse).
 
@@ -65,7 +57,7 @@ Les définitions courantes suivantes permettent de générer un corps de demande
 | Nom                       | Obligatoire | Type                                                                                | Description  |
 |----------------------------|----------|-------------------------------------------------------------------------------------|--------------|
 | location                   | True     | string                                                                              | Emplacement de la ressource. |
-| Nom                       |          | string                                                                              | Nom de la machine virtuelle. |
+| name                       |          | string                                                                              | Nom de la machine virtuelle. |
 | properties.hardwareProfile |          | [HardwareProfile](/rest/api/compute/virtualmachines/createorupdate#hardwareprofile) | Spécifie les paramètres matériels de la machine virtuelle. |
 | properties.storageProfile  |          | [StorageProfile](/rest/api/compute/virtualmachines/createorupdate#storageprofile)   | Spécifie les paramètres de stockage des disques de machine virtuelle. |
 | properties.osProfile       |          | [OSProfile](/rest/api/compute/virtualmachines/createorupdate#osprofile)             | Spécifie les paramètres du système d’exploitation de la machine virtuelle. |
@@ -136,7 +128,7 @@ Vous pouvez utiliser le client de votre choix pour l’envoi de cette requête H
 
 Il existe deux réponses de réussite pour l’opération de création ou de mise à jour d’une machine virtuelle :
 
-| Nom        | type                                                                              | Description |
+| Nom        | Type                                                                              | Description |
 |-------------|-----------------------------------------------------------------------------------|-------------|
 | 200 OK      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | OK          |
 | 201 Créé | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | Date de création     |
@@ -158,5 +150,5 @@ Pour plus d’informations sur les API REST Azure ou d’autres outils de gestio
 
 - [Azure Compute provider REST API](/rest/api/compute/) (API REST du fournisseur Calcul Azure)
 - [Bien démarrer avec l’API REST Azure](/rest/api/azure/)
-- [Interface de ligne de commande Azure](/cli/azure/)
+- [Azure CLI](/cli/azure/)
 - [Module Azure PowerShell](/powershell/azure/overview)

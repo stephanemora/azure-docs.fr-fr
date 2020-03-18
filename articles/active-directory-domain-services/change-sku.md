@@ -10,16 +10,16 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: iainfou
-ms.openlocfilehash: 18395f2b839aef88491f71aeed660eb2ce011e2c
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: b65310569e95173b88dd0aa0dfe1dbacd86cc8fc
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77614236"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79126710"
 ---
 # <a name="change-the-sku-for-an-existing-azure-ad-domain-services-managed-domain"></a>Modifier la référence SKU d'un domaine managé Azure AD Domain Services existant
 
-Dans Azure Active Directory Domain Services (Azure AD DS), les performances et fonctionnalités disponibles sont basées sur le type de référence SKU. Ces différences de fonctionnalités incluent la fréquence de sauvegarde ou le nombre maximal d’approbations de forêts sortantes unidirectionnelles (actuellement en préversion). Vous sélectionnez une référence SKU lorsque vous créez le domaine managé, et vous pouvez changer de références SKU lorsque les besoins de votre entreprise évoluent, après déploiement du domaine managé. Les besoins de l'entreprise évoluent notamment lorsqu'il lui faut effectuer des sauvegardes plus fréquentes ou créer des approbations de forêts supplémentaires. Pour plus d’informations sur les limites et la tarification des différentes références SKU, consultez les pages [Concepts relatifs aux références SKU Azure AD][concepts-sku] et [Tarification Azure AD DS][pricing].
+Dans Azure Active Directory Domain Services (Azure AD DS), les performances et fonctionnalités disponibles sont basées sur le type de référence SKU. Ces différences de fonctionnalités incluent la fréquence de sauvegarde ou le nombre maximal d’approbations de forêts sortantes unidirectionnelles (actuellement en préversion). Vous sélectionnez une référence SKU lorsque vous créez le domaine managé, et vous pouvez augmenter ou diminuer la référence SKU lorsque les besoins de votre entreprise évoluent, après le déploiement du domaine managé. Les besoins de l'entreprise évoluent notamment lorsqu'il lui faut effectuer des sauvegardes plus fréquentes ou créer des approbations de forêts supplémentaires. Pour plus d’informations sur les limites et la tarification des différentes références SKU, consultez les pages [Concepts relatifs aux références SKU Azure AD][concepts-sku] et [Tarification Azure AD DS][pricing].
 
 Cet article vous explique comment modifier la référence SKU d'un domaine managé Azure AD DS à l’aide du portail Azure.
 
@@ -36,9 +36,12 @@ Pour faire ce qui est décrit dans cet article, vous avez besoin des ressources 
 
 ## <a name="sku-change-limitations"></a>Limitations relatives aux changements de références SKU
 
-Il existe des limitations en termes de changements de références SKU si vous utilisez une forêt de ressources (actuellement en préversion) et avez créé des approbations de forêts sortantes unidirectionnelles entre Azure AD DS et un environnement de AD DS local. Les références SKU *Premium* et *Entreprise* définissent une limite quant au nombre d’approbations que vous pouvez créer. Vous ne pouvez pas opter pour une référence SKU dont la limite maximale est inférieure à celle que vous avez configurée.
+Vous pouvez augmenter ou diminuer les références SKU une fois le domaine managé Azure AD DS déployé. Toutefois, si vous utilisez une forêt de ressources (actuellement en préversion) et que vous avez créé des approbations de forêts sortantes unidirectionnelles entre Azure AD DS et un environnement AD DS local, il existe des limitations en termes de changements de références SKU. Les références SKU *Premium* et *Entreprise* définissent une limite quant au nombre d’approbations que vous pouvez créer. Vous ne pouvez pas opter pour une référence SKU dont la limite maximale est inférieure à celle que vous avez configurée.
 
-Par exemple, si vous avez créé deux approbations de forêts sur la référence SKU *Premium*, vous ne pouvez pas opter pour la référence SKU *Standard*. La référence SKU *Standard*ne prend pas en charge les approbations de forêts. De même, si vous avez créé sept approbations sur la référence SKU *Premium*, vous ne pouvez pas opter pour la référence SKU *Entreprise*. La référence SKU *Entreprise* prend en charge un maximum de cinq approbations.
+Par exemple :
+
+* Si vous avez créé deux approbations de forêt sur la référence SKU *Premium*, vous ne pouvez pas opter pour la référence SKU inférieure *Standard*. La référence SKU *Standard*ne prend pas en charge les approbations de forêts.
+* De même, si vous avez créé sept approbations sur la référence SKU *Premium*, vous ne pouvez pas opter pour la référence SKU *Entreprise*. La référence SKU *Entreprise* prend en charge un maximum de cinq approbations.
 
 Pour plus d’informations sur ces limites, consultez [Fonctionnalités et limites des références SKU Azure AD DS][concepts-sku].
 

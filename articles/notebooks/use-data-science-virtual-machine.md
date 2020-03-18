@@ -6,12 +6,12 @@ manager: andneil
 ms.author: getroyer
 ms.topic: how-to
 ms.date: 06/13/2019
-ms.openlocfilehash: 7a47be46818c633c016c791d0c52eb9393029973
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: b4da63b7b2a6da4316215b85a09ca7420745251c
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646992"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898402"
 ---
 # <a name="use-azure-data-science-virtual-machines"></a>Utiliser des Azure Data Science Virtual Machines
 
@@ -38,6 +38,9 @@ Lorsque vous avez créé la DSVM, sélectionnez la liste déroulante **Exécuter
 
 Lorsque vous sélectionnez une instance DSVM, Azure Notebooks peut vous demander les informations d’identification de l’ordinateur utilisé lors de la création de la machine virtuelle.
 
+> [!Important]
+> Le nom d’utilisateur doit être en minuscules pour pouvoir être utilisé avec JupyterHub.
+
 Si les conditions ne sont pas remplies, vous pouvez toujours vous connecter à la DSVM. Dans la liste déroulante, sélectionnez l’option **Calcul direct**. Vous êtes alors invité à entrer un nom (à afficher dans la liste), l’adresse IP et le port (généralement le port 8000, qui est le port par défaut sur lequel JupyterHub écoute) de la machine virtuelle, ainsi que les informations d’identification de cette dernière :
 
 ![Invite à collecter des informations sur le serveur pour l’option Calcul direct](media/project-compute-tier-direct.png)
@@ -60,7 +63,7 @@ Si plusieurs utilisateurs partagent une DSVM, vous pouvez éviter qu’ils ne se
 
 1. Sur le [portail Azure](https://portal.azure.com), accédez à votre machine virtuelle.
 1. Sous **Support et dépannage** dans la marge de gauche, sélectionnez **Réinitialiser le mot de passe**.
-1. Entrez un nouveau nom d’utilisateur et un mot de passe, puis sélectionnez **Mettre à jour**. (Les noms d’utilisateur existants ne sont pas affectés.)
+1. Entrez un nouveau **nom d’utilisateur**. Le nom d’utilisateur doit être en minuscules pour pouvoir être utilisé avec JupyterHub. Entrez un mot de passe. Sélectionnez ensuite **Mettre à jour**. (Les noms d’utilisateur existants ne sont pas affectés.)
 1. Répétez l’étape précédente pour les autres utilisateurs.
 
 ## <a name="next-steps"></a>Étapes suivantes

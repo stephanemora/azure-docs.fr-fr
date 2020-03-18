@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/30/2018
+ms.date: 03/06/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: fa6da347289a12867a2416dea16631ba4758832f
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: c23648d70192607b2a5b977dcdd445931e995154
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78187472"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671805"
 ---
 # <a name="define-a-technical-profile-for-a-jwt-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique pour un émetteur de jeton JSON Web Token dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -56,6 +56,7 @@ Les éléments **InputClaims**, **OutputClaims** et **PersistClaims** sont vides
 | allow_infinite_rolling_refresh_token | Non | Si la valeur est `true`, la durée de vie de la fenêtre glissante jeton d’actualisation n’expire jamais. |
 | IssuanceClaimPattern | Non | Contrôle la revendication d’émetteur (iss). Une des valeurs suivantes :<ul><li>AuthorityAndTenantGuid : La revendication iss inclut votre nom de domaine, tel que `login.microsoftonline` ou `tenant-name.b2clogin.com`, et votre identificateur de locataire https:\//login.microsoftonline.com/00000000-0000-0000-0000-000000000000/v2.0/</li><li>AuthorityWithTfp : la revendication iss inclut votre nom de domaine, tel que `login.microsoftonline` ou `tenant-name.b2clogin.com`, votre identificateur de locataire et votre nom de stratégie de partie de confiance. https:\//login.microsoftonline.com/tfp/00000000-0000-0000-0000-000000000000/b2c_1a_tp_sign-up-or-sign-in/v2.0/</li></ul> Valeur par défaut : AuthorityAndTenantGuid |
 | AuthenticationContextReferenceClaimPattern | Non | Contrôle la valeur de revendication `acr`.<ul><li>None : Azure AD B2C ne génère pas la revendication acr</li><li>PolicyId : la revendication `acr` contient le nom de la stratégie</li></ul>Les options permettant de définir cette valeur sont TFP (Trust Framework Policy) et ACR (Authentication Context Reference). Il est recommandé de définir cette valeur sur TFP. Pour définir la valeur, assurez-vous que `<Item>` avec `Key="AuthenticationContextReferenceClaimPattern"` existe et que la valeur est `None`. Dans votre stratégie de partie de confiance, ajoutez `<OutputClaims>` item et ajoutez cet élément `<OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />`. Vérifiez également que votre stratégie contient le type de revendication `<ClaimType Id="trustFrameworkPolicy">   <DisplayName>trustFrameworkPolicy</DisplayName>     <DataType>string</DataType> </ClaimType>` |
+|RefreshTokenUserJourneyId| Non | Identificateur d’un parcours utilisateur qui doit être exécuté pendant la requête POST d’[actualisation d’un jeton d’accès](authorization-code-flow.md#4-refresh-the-token) sur le point de terminaison `/token`. |
 
 ## <a name="cryptographic-keys"></a>Clés de chiffrement
 

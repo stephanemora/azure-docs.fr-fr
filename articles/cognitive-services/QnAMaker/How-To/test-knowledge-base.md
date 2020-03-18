@@ -1,22 +1,14 @@
 ---
 title: Guide pratique pour tester une base de connaissances - QnA Maker
-titleSuffix: Azure Cognitive Services
 description: Le test de votre base de connaissances QnA Maker est une partie importante d’un processus itératif afin d’améliorer la précision des réponses retournées. Vous pouvez tester la base de connaissances via une interface de conversation améliorée qui vous permet également d’apporter des modifications.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 11/14/2019
-ms.author: diberry
-ms.custom: seodec18
-ms.openlocfilehash: c139d3a740067e3cecaff90d3171d7b0cb3d52c7
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.date: 03/05/2020
+ms.openlocfilehash: da4988ced0b077952ce64e6227d16e58d40ae329
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091749"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78927278"
 ---
 # <a name="test-your-knowledge-base-in-qna-maker"></a>Tester votre base de connaissances dans QnA Maker
 
@@ -61,11 +53,11 @@ Vous pouvez ajouter des formes alternatives d’une question à une réponse don
 
 ### <a name="add-a-new-answer"></a>Ajouter une nouvelle réponse
 
-Vous pouvez ajouter une nouvelle réponse si les réponses existantes qui ont été mises en correspondance sont incorrectes ou si la réponse n’existe pas dans la base de connaissances (aucune bonne correspondance trouvée dans la base de connaissances). 
+Vous pouvez ajouter une nouvelle réponse si les réponses existantes qui ont été mises en correspondance sont incorrectes ou si la réponse n’existe pas dans la base de connaissances (aucune bonne correspondance trouvée dans la base de connaissances).
 
-En bas de la liste de réponses, utilisez la zone de texte pour entrer une nouvelle réponse, et appuyez sur Entrée pour l’ajouter. 
+En bas de la liste de réponses, utilisez la zone de texte pour entrer une nouvelle réponse, et appuyez sur Entrée pour l’ajouter.
 
-Sélectionnez **Enregistrer et former** pour conserver cette réponse. Une nouvelle paire question/réponse a maintenant été ajoutée à votre base de connaissances. 
+Sélectionnez **Enregistrer et former** pour conserver cette réponse. Une nouvelle paire question/réponse a maintenant été ajoutée à votre base de connaissances.
 
 > [!NOTE]
 > Toutes les modifications apportées à votre base de connaissances ne sont enregistrées que lorsque vous appuyez sur le bouton **Enregistrer et former**.
@@ -83,12 +75,14 @@ Utilisez l’outil de test par lot lorsque vous souhaitez :
 * déterminer la meilleure réponse et le meilleur score pour un ensemble de questions
 * valider la réponse attendue pour l’ensemble de questions
 
-Les tests par lots sont fournis avec l’outil de test par lot. Cet outil est disponible sous forme de [fichier exécutable compressé](https://aka.ms/qnamakerbatchtestingtool) à télécharger ou de [code source C#](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/batchtesting). 
+Pour obtenir des instructions pas à pas, consultez le [tutoriel](../Quickstarts/batch-testing.md) relatif au test par lot.
+
+Les tests par lots sont fournis avec l’outil de test par lot. Cet outil est disponible sous forme de [fichier exécutable compressé](https://aka.ms/qnamakerbatchtestingtool) à télécharger ou de [code source C#](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/batchtesting).
 
 [La documentation de référence sur l’outil](../reference-tsv-format-batch-testing.md) comprend ce qui suit :
 
 * exemple de ligne de commande de l’outil
-* format des fichiers d’entrée et de sortie TSV 
+* format des fichiers d’entrée et de sortie TSV
 
 ## <a name="next-steps"></a>Étapes suivantes
 

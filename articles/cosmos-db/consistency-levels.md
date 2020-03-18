@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: 395b7bc31377fd771549a399032bad9d951ec804
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: b5d9df7a0afa9b4270f0eff643e083e5bccfceb8
+ms.sourcegitcommit: e6bce4b30486cb19a6b415e8b8442dd688ad4f92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68384927"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78933673"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Niveaux de cohérence dans Azure Cosmos DB
 
@@ -41,37 +41,37 @@ La sémantique des cinq niveaux de cohérence est décrite ici :
 
 - **Remarque**: une cohérence forte offre une garantie de linéarisabilité. La linéarisabilité fait référence aux demandes de traitement simultanées. Garantit que les lectures retournent la version validée la plus récente d’un élément. Un client ne voit jamais une écriture partielle ou non validée. Les utilisateurs sont toujours assurés de lire la toute dernière écriture validée.
 
-- **Obsolescence limitée**: les lectures honoreront la garantie de préfixe cohérent. Les lectures sont retardées derrière les écritures par, au plus, des versions *« K »* (c’est-à-dire des « mises à jour ») d’un élément ou un intervalle de temps *« T »* . En d’autres termes, lorsque vous choisissez l’obsolescence limitée, « l’obsolescence » peut être configurée de deux manières : 
+  Le graphique suivant illustre la cohérence forte avec des notes musicales. Une fois les données écrites dans la région « USA Est », lorsque vous lisez les données à partir d’autres régions, vous obtenez la valeur la plus récente :
+
+  ![video](media/consistency-levels/strong-consistency.gif)
+
+- **Obsolescence limitée**: les lectures honoreront la garantie de préfixe cohérent. Les lectures sont retardées derrière les écritures par, au plus, des versions *« K »* (c’est-à-dire des « mises à jour ») d’un élément ou un intervalle de temps *« T »* . En d’autres termes, lorsque vous choisissez l’obsolescence limitée, « l’obsolescence » peut être configurée de deux manières : 
 
   * Nombre de versions (*K*) de l’élément
   * Intervalle de temps (*T*) pendant lequel les lectures peuvent être en retard par rapport aux écritures 
 
   La cohérence de type obsolescence limitée fournit l’ordre global total, en dehors de la « fenêtre d’obsolescence ». Notez que des garanties de lecture unitone existent dans une région à l’intérieur et en dehors de la fenêtre d’obsolescence. La cohérence forte dispose de la même sémantique que l’obsolescence limitée. La fenêtre d’obsolescence est égale à zéro. L’obsolescence limitée est également appelée linéarisabilité retardée. Lorsqu’un client effectue des opérations de lecture dans une région acceptant les écritures, les garanties fournies par une cohérence à obsolescence limitée sont identiques à celles à forte cohérence.
 
+  L’obsolescence limitée est souvent choisie par des applications mondialement distribuées qui souhaitent de faibles latences en écriture, mais nécessitent des garanties d’ordre totales à l’échelle mondiale. L’obsolescence limitée est idéale pour les applications qui incluent la collaboration et le partage de groupes, les cotations boursières, la publication-abonnement/la mise en file d’attente, etc. Le graphique suivant illustre la cohérence à obsolescence limitée avec des notes musicales. Une fois les données écrites dans la région « USA Est », les régions « USA Ouest » et « Australie Est » lisent la valeur écrite en fonction de la durée de latence maximum configurée ou du nombre maximal d’opérations :
+
+  ![video](media/consistency-levels/bounded-staleness-consistency.gif)
+
 - **Session**:  Dans une session client unique, les lectures honoreront les garanties de préfixe cohérent (en partant du principe qu’il s’agit d’une session à « writer » unique), de lectures unitones, d’écritures unitones, de lecture de vos écritures et d’écriture suivant les lectures. Les clients en dehors de la session effectuant des écritures verront la cohérence éventuelle.
 
-- **Préfixe cohérent** : les mises à jour retournées contiennent un préfixe de toutes les mises à jour, sans interruption. Le niveau de cohérence Préfixe cohérent garantit que les lectures ne voient jamais les écritures non ordonnées.
+  La cohérence de session est le niveau de cohérence largement utilisé aussi bien pour les applications limitées à une seule région que celles distribuées dans le monde entier. Elle propose des latences en écriture, une disponibilité et un débit de lecture comparables à ceux de la cohérence éventuelle, mais fournit aussi des garanties de cohérence qui répondent aux besoins des applications écrites pour agir dans le contexte de l’utilisateur. Le graphique suivant illustre la cohérence de session avec des notes musicales. Les régions « USA Ouest » et « USA Est » utilisent la même session (session A) et lisent donc les données en même temps. En revanche, la région « Australie Est » utilise « Session B » et reçoit les données plus tard, mais dans le même ordre que les écritures.
 
-- **Eventual (Éventuel)** : Il n’existe aucune garantie de classement pour les lectures. En l’absence d’autres écritures, les réplicas finissent par converger.
+  ![video](media/consistency-levels/session-consistency.gif)
 
-## <a name="consistency-levels-explained-through-baseball"></a>Niveaux de cohérence – Exemple du baseball
+- **Préfixe cohérent** : les mises à jour retournées contiennent un préfixe de toutes les mises à jour, sans interruption. Le niveau de cohérence avec préfixe cohérent garantit que les lectures ne verront jamais d’écritures désordonnées.
 
-Prenons comme exemple un scénario de match de base-ball. Imaginez une séquence d’écritures représentant le score d’un match de base-ball. Le score par manche est décrit dans le document [Replicated data consistency through baseball](https://www.microsoft.com/en-us/research/wp-content/uploads/2011/10/ConsistencyAndBaseballReport.pdf) (Cohérence des données répliquées - Exemple du baseball). Ce match de baseball hypothétique est actuellement au milieu de sa septième manche. Il s’agit de la pause de la septième manche. Les visiteurs perdent avec un score de 2 à 5 comme indiqué ci-dessous :
+  Si les écritures ont été effectuées dans l’ordre `A, B, C`, un client voit `A`, `A,B` ou `A,B,C`, mais jamais dans le désordre comme `A,C` ou `B,A,C`. La cohérence avec préfixe cohérent fournit des latences d’écriture, une disponibilité et un débit de lecture comparables à ceux de la cohérence éventuelle, mais offre également des garanties d’ordre adaptées aux besoins des scénarios dans lesquels l’ordre est important. Le graphique suivant illustre la cohérence avec préfixe cohérent avec des notes musicales. Dans toutes les régions, les lectures ne voient jamais d’écritures dans le désordre :
 
-| | **1** | **2** | **3** | **4** | **5** | **6** | **7** | **8** | **9** | **Points** |
-| - | - | - | - | - | - | - | - | - | - | - |
-| **Visiteurs** | 0 | 0 | 1 | 0 | 1 | 0 | 0 |  |  | 2 |
-| **Locaux** | 1 | 0 | 1 | 1 | 0 | 2 |  |  |  | 5\. |
+  ![video](media/consistency-levels/consistent-prefix.gif)
 
-Un conteneur Azure Cosmos conserve les totaux des points des visiteurs et des équipes locales. Lorsque le match est en cours, il se peut que les clients lisent des scores différents à cause des différentes garanties de lecture. Le tableau suivant répertorie l’ensemble complet des scores qui pourraient être renvoyés par la lecture des scores des visiteurs et des locaux, en fonction des cinq garanties de cohérence. Le score des visiteurs est répertorié en premier. Les différentes valeurs de retour possibles sont séparées par des virgules.
+- **Eventual (Éventuel)** : Il n’existe aucune garantie de classement pour les lectures. En l’absence d’autres écritures, les réplicas finissent par converger.  
+La cohérence éventuelle est la forme de cohérence la plus faible, car un client peut lire des valeurs plus anciennes que celles qu’il a déjà lues. La cohérence éventuelle est idéale lorsque l’application ne nécessite pas de garantie d’ordre. Comme exemples, citons le nombre de retweets, de mentions J’aime ou de commentaires non liés à un thread. Le graphique suivant illustre la cohérence éventuelle avec des notes musicales.
 
-| **Niveau de cohérence** | **Score (Visiteurs, Locaux)** |
-| - | - |
-| **Fort** | 2-5 |
-| **Obsolescence limitée** | Scores obsolètes (d’une manche tout au plus) : 2-3, 2-4, 2-5 |
-| **Session** | <ul><li>Pour l’auteur : 2-5</li><li> Pour toute personne autre que l’auteur : 0-0, 0-1, 0-2, 0-3, 0-4, 0-5, 1-0, 1-1, 1-2, 1-3, 1-4, 1-5, 2-0, 2-1, 2-2, 2-3, 2-4, 2-5</li><li>Après lecture de 1-3 : 1-3, 1-4, 1-5, 2-3, 2-4, 2-5</li> |
-| **Préfixe cohérent** | 0-0, 0-1, 1-1, 1-2, 1-3, 2-3, 2-4, 2-5 |
-| **Éventuel** | 0-0, 0-1, 0-2, 0-3, 0-4, 0-5, 1-0, 1-1, 1-2, 1-3, 1-4, 1-5, 2-0, 2-1, 2-2, 2-3, 2-4, 2-5 |
+  ![video](media/consistency-levels/eventual-consistency.gif)
 
 ## <a name="additional-reading"></a>Documentation supplémentaire
 

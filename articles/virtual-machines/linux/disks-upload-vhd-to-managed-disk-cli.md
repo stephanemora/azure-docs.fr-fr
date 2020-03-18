@@ -1,20 +1,19 @@
 ---
-title: Charger un disque dur virtuel sur Azure à l’aide d’Azure CLI
+title: Charger un disque dur virtuel à l’aide d’Azure CLI
 description: Découvrez comment charger un disque dur virtuel sur un disque managé Azure et copier un disque managé d’une région vers une autre à l’aide d’Azure CLI, via un chargement direct.
-services: virtual-machines-linux,storage
+services: virtual-machines,storage
 author: roygara
 ms.author: rogarana
 ms.date: 09/20/2019
 ms.topic: article
-ms.service: virtual-machines-linux
-ms.tgt_pltfrm: linux
+ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 51c3933b5ee585c96ad81fe04d379b6771ae81e3
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 2a5bfec08546d6cf00b1e04017b3879db8f016ee
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457593"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970340"
 ---
 # <a name="upload-a-vhd-to-azure-using-azure-cli"></a>Charger un disque dur virtuel sur Azure à l’aide d’Azure CLI
 

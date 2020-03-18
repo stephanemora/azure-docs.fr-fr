@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: a07a5a5956d8ea295d269d81ed264177bc8805f2
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 47870410741cf96e289014fab5a9c2eab26759b1
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77424981"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096423"
 ---
 # <a name="ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Ingérer des objets blob dans Azure Data Explorer en s’abonnant à des notifications Event Grid
 
@@ -118,7 +118,7 @@ Créez une table dans Azure Data Explorer, à laquelle Event Hubs enverra les do
      **Paramètre** | **Valeur suggérée** | **Description du champ**
     |---|---|---|
     | Table de charge de travail | *TestTable* | Table que vous avez créée dans **TestDatabase**. |
-    | Format de données | *JSON* | Les formats pris en charge sont Avro, CSV, JSON, JSON MULTILIGNE, PSV, SOH, SCSV, TSV et TXT. Options de compression prises en charge : ZIP et GZIP |
+    | Format de données | *JSON* | Les formats pris en charge sont Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV, RAW et TXT. Options de compression prises en charge : ZIP et GZIP |
     | Mappage de colonnes | *TestMapping* | Le mappage que vous avez créé dans **TestDatabase**, qui mappe les données JSON entrantes dans les colonnes des noms de colonne et les types de données de **TestTable**.|
     | | |
     
@@ -150,13 +150,32 @@ Enregistrez les données dans un fichier et chargez celui-ci avec ce script :
     az storage container create --name $container_name
 
     echo "Uploading the file..."
-    az storage blob upload --container-name $container_name --file $file_to_upload --name $blob_name
+    az storage blob upload --container-name $container_name --file $file_to_upload --name $blob_name --metadata "rawSizeBytes=1024"
 
     echo "Listing the blobs..."
     az storage blob list --container-name $container_name --output table
 
     echo "Done"
 ```
+
+> [!NOTE]
+> Pour obtenir les meilleures performances d’ingestion, la taille *non compressée* des objets blob compressés soumis pour l’ingestion doit être communiquée. Étant donné que les notifications Event Grid contiennent uniquement des détails de base, les informations de taille doivent être communiquées explicitement. Les informations de taille non compressée peuvent être fournies en définissant la propriété `rawSizeBytes` sur les métadonnées d’objet blob avec la taille de données *non compressée* en octets.
+
+### <a name="ingestion-properties"></a>Propriétés d’ingestion
+
+Vous pouvez spécifier les [propriétés d’ingestion](https://docs.microsoft.com/azure/kusto/management/data-ingestion/#ingestion-properties) de l’ingestion d’objets blob via les métadonnées d’objet blob.
+
+Les propriétés suivantes peuvent être définies :
+
+|**Propriété** | **Description de la propriété**|
+|---|---|
+| `rawSizeBytes` | Taille des données brutes (non compressées). Pour Avro/ORC/Parquet, il s’agit de la taille avant l’application de la compression spécifique au format.|
+| `kustoTable` |  Nom de la table cible existante. Remplace le paramètre `Table` défini dans le panneau `Data Connection`. |
+| `kustoDataFormat` |  Format de données. Remplace le paramètre `Data format` défini dans le panneau `Data Connection`. |
+| `kustoIngestionMappingReference` |  Nom du mappage d’ingestion existant à utiliser. Remplace le paramètre `Column mapping` défini dans le panneau `Data Connection`.|
+| `kustoIgnoreFirstRecord` | Si la valeur définie est `true`, Kusto ignore la première ligne de l’objet blob. Utilisez dans les données au format tabulaire (CSV, TSV ou similaire) pour ignorer les en-têtes. |
+| `kustoExtentTags` | Chaîne représentant les [balises](/azure/kusto/management/extents-overview#extent-tagging) qui seront attachées à l’étendue résultante. |
+| `kustoCreationTime` |  Remplace [$IngestionTime](/azure/kusto/query/ingestiontimefunction?pivots=azuredataexplorer) pour l’objet blob, au format d’une chaîne ISO 8601. À utiliser pour le renvoi. |
 
 > [!NOTE]
 > Azure Data Explorer ne supprimera pas les objets blob après l’ingestion.

@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 106f83e4c8fdf33ac8752e5942dbb22a2df78693
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: f2703994d3fe8765662e6a0205d63cef9327e17a
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840500"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79080204"
 ---
 # <a name="image-analysis-cognitive-skill"></a>Compétence cognitive Analyse d’image
 
@@ -35,7 +35,7 @@ Les paramètres respectent la casse.
 | Nom du paramètre     | Description |
 |--------------------|-------------|
 | defaultLanguageCode   |  Chaîne indiquant la langue à retourner. Le service retourne les résultats de la reconnaissance dans une langue donnée. Si ce paramètre n’est pas spécifié, la valeur par défaut est « en ». <br/><br/>Les langues prises en charge sont les suivantes : <br/>*en* : anglais (par défaut) <br/> *es* : espagnol <br/> *ja* : japonais <br/> *pt* : portugais <br/> *zh* : chinois simplifié|
-| visualFeatures |  Tableau de chaînes qui indique les types de caractéristiques visuelles à retourner. Les types de caractéristiques visuelles valides sont les suivants :  <ul><li>*adult* : détecte si l’image est de nature pornographique (nudité ou acte sexuel) ou si elle est sordide (violence extrême ou sang). Le contenu sexuellement suggestif (ou contenu osé) est également détecté.</li><li>*brands* : détecte les différentes marques sur une image, y compris leur emplacement approximatif. La caractéristique visuelle *brands* n’est disponible qu’en anglais.</li><li> *categories* : catégorise le contenu de l’image en fonction d’une taxonomie définie dans la [documentation Vision par ordinateur](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy) de Cognitive Services. </li><li> *color* : détermine la couleur d’accentuation, la couleur dominante, et si une image est en noir et blanc.</li><li>*description* : décrit le contenu de l’image avec une phrase complète dans les langues prises en charge.</li><li>*faces* : détecte si des visages sont présents. Si tel est le cas, génère des coordonnées, ainsi que des paramètres d’âge et de sexe.</li><li>  *imageType* : détecte si l’image est de type clipart ou un dessin au trait.</li><li>  *objects* : détecte les différents objets sur une image, y compris leur emplacement approximatif. La caractéristique visuelle *objects* n’est disponible qu’en anglais.</li><li> *tags* : balise l’image avec une liste détaillée de mots liés au contenu de l’image.</li></ul> Les noms des caractéristiques visuelles respectent la casse.|
+| visualFeatures |  Tableau de chaînes qui indique les types de caractéristiques visuelles à retourner. Les types de caractéristiques visuelles valides sont les suivants :  <ul><li>*adult* : détecte si l’image est de nature pornographique (nudité ou acte sexuel) ou si elle est sordide (violence extrême ou sang). Le contenu sexuellement suggestif (ou contenu osé) est également détecté.</li><li>*brands* : détecte les différentes marques sur une image, y compris leur emplacement approximatif. La caractéristique visuelle *brands* n’est disponible qu’en anglais.</li><li> *categories* : catégorise le contenu de l’image en fonction d’une taxonomie définie dans la [documentation Vision par ordinateur](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy) de Cognitive Services. </li><li>*description* : décrit le contenu de l’image avec une phrase complète dans les langues prises en charge.</li><li>*faces* : détecte si des visages sont présents. Si tel est le cas, génère des coordonnées, ainsi que des paramètres d’âge et de sexe.</li><li> *objects* : détecte les différents objets sur une image, y compris leur emplacement approximatif. La caractéristique visuelle *objects* n’est disponible qu’en anglais.</li><li> *tags* : balise l’image avec une liste détaillée de mots liés au contenu de l’image.</li></ul> Les noms des caractéristiques visuelles respectent la casse. Notez que les caractéristiques visuelles *color* et *imageType* sont dépréciées, mais ces fonctionnalités sont toujours accessibles via une [compétence personnalisée](https://go.microsoft.com/fwlink/?linkid=2121117).|
 | details   | Tableau de chaînes indiquant les détails spécifiques à un domaine à retourner. Les types de caractéristiques visuelles valides sont les suivants : <ul><li>*celebrities* : identifie les célébrités éventuellement détectées dans l’image.</li><li>*landmarks* : identifie les paysages éventuellement détectés dans l’image. </li></ul> |
 
 ## <a name="skill-inputs"></a>Entrées de la compétence
@@ -470,20 +470,6 @@ Vous pouvez définir des mappages de champs de sortie sur des propriétés de ni
             ]
           }
         ],
-        "color": {
-          "dominantColorForeground": "Brown",
-          "dominantColorBackground": "Brown",
-          "dominantColors": [
-            "Brown",
-            "Black"
-          ],
-          "accentColor": "873B59",
-          "isBwImg": false
-        },
-        "imageType": {
-          "clipArtType": 0,
-          "lineDrawingType": 0
-        },
         "objects": [
           {
             "rectangle": {

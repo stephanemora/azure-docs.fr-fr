@@ -12,12 +12,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 02/11/2020
   ms.author: dapine
-  ms.openlocfilehash: 95cb9fdccac0955f29686ddfa27ca4431e2e3857
-  ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+  ms.openlocfilehash: 50027fde619d4e69fdbb181544d23dba4a9cf144
+  ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 02/29/2020
-  ms.locfileid: "78196907"
+  ms.lasthandoff: 03/09/2020
+  ms.locfileid: "78943343"
 landingContent:
 - title: Bien démarrer
   linkLists:
@@ -35,6 +35,16 @@ landingContent:
       url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services
     - text: Questions fréquentes (FAQ) sur les Assistants vocaux
       url: faq-voice-assistants.md
+- title: Mot clé personnalisé
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Mot clé personnalisé
+      url: speech-devices-sdk-create-kws.md
+  - linkListType: reference
+    links:
+    - text: Règles de nommage des mots clés personnalisés
+      url: speech-devices-sdk-kws-guidelines.md
 - title: Commandes personnalisées
   linkLists:
   - linkListType: quickstart

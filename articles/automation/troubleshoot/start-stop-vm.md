@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 44de5878dcc39e09adf24f69b883a29370f00b48
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.openlocfilehash: 97ea98fc38fc8d06dc1bc65ee057241da6f15488
+ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77505730"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78851381"
 ---
 # <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>Résoudre les problèmes liés à la solution Start/Stop VMs during off-hours
 
@@ -203,7 +203,7 @@ Ce problème peut être dû à un compte d’identification incorrectement confi
 
 Pour vérifier que votre compte d’identification est correctement configuré, accédez à votre compte Automation dans le portail Azure, puis sélectionnez **Comptes d’identification** sous **Paramètres du compte**. L’état de vos comptes d’identification s’affiche alors. Si un compte d’identification est incorrectement configuré ou a expiré, son état l’indique.
 
-Si votre compte d’identification est [mal configuré](../manage-runas-account.md#misconfiguration), vous devez le supprimer et le recréer.
+Si votre compte d’identification est mal configuré, vous devez le supprimer et le recréer. Consultez [Gérer les comptes d’identification Azure Automation](../manage-runas-account.md).
 
 Si le certificat a expiré pour votre compte d’identification, suivez les étapes listées dans [Renouvellement de certificat auto-signé](../manage-runas-account.md#cert-renewal) pour renouveler le certificat.
 

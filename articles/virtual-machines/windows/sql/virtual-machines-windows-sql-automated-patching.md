@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/07/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: b48ccede9ca3330d356fa75d4df34789e31eb916
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 292f3e8819f6f9f4b2989423814e02dfcfb4bfdb
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75350746"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127670"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-resource-manager"></a>Mise à jour corrective automatisée pour SQL Server dans Azure Virtual Machines (Resource Manager)
 > [!div class="op_single_selector"]
@@ -30,11 +30,11 @@ ms.locfileid: "75350746"
 La mise à jour corrective automatisée établit une fenêtre de maintenance pour une machine virtuelle Azure exécutant SQL Server. Les mises à jour automatisées ne peuvent être installées qu’au cours de cette fenêtre de maintenance. Pour SQL Server, cette restriction garantit que les mises à jour système et les redémarrages associés ont lieu au meilleur moment possible pour la base de données. 
 
 > [!IMPORTANT]
-> Seules les mises à jour Windows et SQL Server marquées **Important** sont installées. Les autres mises à jour de SQL Server, telles que les mises à jour cumulatives, doivent être installées manuellement. 
+> Seules les mises à jour Windows et SQL Server **Importantes** et **Critiques** sont installées. D’autres mises à jour SQL Server, telles que les Service Packs et les mises à jour cumulatives qui ne sont pas **Importantes** ni **Critiques**, doivent être installées manuellement. 
 
 La mise à jour corrective automatisée utilise l’ [extension de l’agent IaaS de SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 Pour utiliser la mise à jour corrective automatisée, prenez en compte les conditions préalables suivantes :
 
 **Système d’exploitation**:

@@ -7,12 +7,13 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 01/08/2020
 ms.author: helohr
-ms.openlocfilehash: 438c391febc28a716c681aa81b3f42c155b720eb
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+manager: lizross
+ms.openlocfilehash: 17505084095eb8fbe46c20c7aa226131e128b286
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367218"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127419"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Création d’un pool de locataires et d’hôtes
 
@@ -65,7 +66,7 @@ Vous pouvez créer des machines virtuelles hôtes de la session de plusieurs man
 
 Le modèle Windows Virtual Desktop - Provision a host pool est accessible à partir de la Place de marché Azure.
 
-### <a name="error-when-using-the-link-from-github-the-message-create-a-free-account-appears"></a>Erreur : Lors de l’utilisation du lien disponible sur GitHub, le message « Créer un compte gratuit » apparaît
+### <a name="error-when-using-the-link-from-github-the-message-create-a-free-account-appears"></a>Erreur : Quand vous cliquez sur le lien GitHub, le message « Créer un compte gratuit » s’affiche
 
 ![Capture d’écran de création d’un compte gratuit](media/be615904ace9832754f0669de28abd94.png)
 
@@ -214,9 +215,9 @@ Exemple d’erreur brute :
 
 **Correctif :** Vérifiez que le nom d’utilisateur et le mot de passe disposent d’un accès administrateur sur la machine virtuelle, puis réexécutez le modèle Azure Resource Manager.
 
-### <a name="error-deploymentfailed--powershell-dsc-configuration-firstsessionhost-completed-with-errors"></a>Erreur : DeploymentFailed - La configuration DSC PowerShell de « FirstSessionHost » s’est terminée avec des erreurs
+### <a name="error-deploymentfailed--powershell-dsc-configuration-firstsessionhost-completed-with-errors"></a>Erreur : DeploymentFailed - La configuration DSC PowerShell de « FirstSessionHost » s’est terminée avec des erreurs
 
-![Capture d’écran du message d’échec du déploiement indiquant que la configuration DSC PowerShell de « FirstSessionHost » s’est terminée avec des erreurs](media/64870370bcbe1286906f34cf0a8646ab.png)
+![Capture d’écran du message d’échec du déploiement indiquant que la configuration DSC PowerShell de « FirstSessionHost » s’est terminée avec des erreurs](media/64870370bcbe1286906f34cf0a8646ab.png)
 
 Exemple d’erreur brute :
 

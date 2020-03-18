@@ -7,12 +7,13 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
-ms.openlocfilehash: 23763123ce8e92b6bb15b2b33a196ed1a1d75c9f
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+manager: lizross
+ms.openlocfilehash: 867b327ac25d51cd3955e622da9d8067ae6d9ae9
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368802"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127729"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Préparer et personnaliser une image de disque dur virtuel principale
 
@@ -66,7 +67,7 @@ Cette section explique comment préparer et installer FSLogix et Windows Defende
 
 Si vous installez Office 365 ProPlus et OneDrive sur votre machine virtuelle, accédez à [Installer Office sur une image VHD principale](install-office-on-wvd-master-image.md) et suivez les instructions pour installer les applications. Une fois que vous avez terminé, revenez à cet article.
 
-Si vos utilisateurs ont besoin d’accéder à certaines applications métier, nous vous recommandons de les installer à la fin des instructions de cette section.
+Si vos utilisateurs ont besoin d’accéder à certaines applications métier, nous vous recommandons de les installer une fois que vous aurez suivi les instructions de cette section.
 
 ### <a name="set-up-user-profile-container-fslogix"></a>Configurer le conteneur du profil utilisateur (FSLogix)
 
@@ -135,7 +136,7 @@ reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\StorageSense\Parameters\
 
 ### <a name="include-additional-language-support"></a>Comprend une prise en charge de langages supplémentaires
 
-Cet article n’aborde pas la configuration de langue et du support régional. Pour plus d’informations, consultez les articles suivants :
+Cet article n’explique pas comment configurer la prise en charge de la langue et du support régional. Pour plus d’informations, consultez les articles suivants :
 
 - [Ajouter des langues aux images Windows](/windows-hardware/manufacture/desktop/add-language-packs-to-windows/)
 - [Fonctionnalités à la demande](/windows-hardware/manufacture/desktop/features-on-demand-v2--capabilities/)
@@ -184,17 +185,17 @@ Cette section s’applique uniquement lorsque l’image principale a été cré�
 
 Les instructions suivantes vous indiqueront comment charger votre image principale dans un compte de stockage Azure. Si vous ne disposez pas d’un compte de stockage Azure, suivez les instructions de [cet article](/azure/javascript/tutorial-vscode-static-website-node-03) pour en créer un.
 
-1. Convertissez l’image de machine virtuelle (VHD) sur Fixed si vous ne l’avez pas déjà fait. Si vous ne convertissez l’image sur Fixed, vous ne l’avez pas correctement créé.
+1. Convertissez l’image de machine virtuelle (VHD) sur Fixed si vous ne l’avez pas déjà fait. Si l’image n’est pas convertie sur Fixed, elle ne sera pas correctement créée.
 
 2. Chargez le disque dur virtuel vers un conteneur d’objets blob dans votre compte de stockage. Vous pouvez le télécharger rapidement avec l’[outil Explorateur de stockage](https://azure.microsoft.com/features/storage-explorer/). Pour en savoir plus sur l’outil Explorateur de stockage, consultez [cet article](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows).
 
     ![Capture d’écran de la fenêtre de recherche de l’outil Explorateur de stockage Microsoft Azure. La case à cocher « Télécharger les fichiers .vhd ou vhdx en tant qu’objets blob de pages (recommandé) » est sélectionnée.](media/897aa9a9b6acc0aa775c31e7fd82df02.png)
 
-3. Ensuite, accédez au portail Azure dans votre navigateur et recherchez des « images ». Votre recherche doit vous conduire à la page **Créer une image**, comme représenté dans la capture d’écran suivante :
+3. Ensuite, accédez au portail Azure dans votre navigateur et recherchez « images ». Votre recherche doit vous conduire à la page **Créer une image**, comme représenté dans la capture d’écran suivante :
 
     ![Une capture d’écran de la page Créer une image du portail Azure, remplie avec des exemples de valeurs pour l’image.](media/d3c840fe3e2430c8b9b1f44b27d2bf4f.png)
 
-4. Une fois l’image créée, vous devez voir une notification telle que celle celui illustrée dans la capture d’écran suivante :
+4. Une fois l’image créée, vous devez voir une notification telle que celle de la capture d’écran suivante :
 
     ![Une capture d’écran de la notification « image créée avec succès ».](media/1f41b7192824a2950718a2b7bb9e9d69.png)
 

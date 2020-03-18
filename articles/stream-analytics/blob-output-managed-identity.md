@@ -5,17 +5,17 @@ author: cedarbaum
 ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 07/12/2019
-ms.openlocfilehash: 1854a99cac3ead386f38c1c7fe27a56b672f365c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.date: 03/11/2020
+ms.openlocfilehash: 13f48a9e0bc3ed8f8c4d5f1b7da4b6c03f54cdf8
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73664332"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129971"
 ---
-# <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage-output-preview"></a>Utiliser des identités managées pour authentifier votre travail Azure Stream Analytics avec la sortie de stockage Blob Azure (préversion)
+# <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage-output"></a>Utiliser des identités managées pour authentifier votre travail Azure Stream Analytics dans la sortie du stockage Blob Azure
 
-L’[authentification d’identité managée](../active-directory/managed-identities-azure-resources/overview.md) pour la sortie de stockage Blob Azure est disponible en préversion pour Azure Stream Analytics. Les travaux Stream Analytics peuvent accéder directement à un compte de stockage au lieu d’utiliser une chaîne de connexion. Outre la sécurité améliorée, cette fonctionnalité vous permet également d’écrire des données dans un compte de stockage dans un réseau virtuel (VNET) au sein d’Azure.
+L’[authentification par identité managée](../active-directory/managed-identities-azure-resources/overview.md) pour la sortie du stockage Blob Azure donne aux travaux Stream Analytics un accès direct à un compte de stockage au lieu d’utiliser une chaîne de connexion. Outre la sécurité améliorée, cette fonctionnalité vous permet également d’écrire des données dans un compte de stockage dans un réseau virtuel (VNET) au sein d’Azure.
 
 Cet article vous montre comment activer une identité managée pour une ou des sorties Blob d’un travail Azure Stream Analytics via le portail Azure et un déploiement d’Azure Resource Manager.
 

@@ -1,26 +1,27 @@
 ---
-title: Créer des planifications et des périodicités avancées pour les travaux dans Azure Scheduler
+title: Créer des planifications et des périodicités avancées pour les travaux
 description: Découvrez comment créer des planifications et des périodicités avancées pour les travaux dans Azure Scheduler
 services: scheduler
 ms.service: scheduler
 author: derek1ee
 ms.author: deli
-ms.reviewer: klam
+ms.reviewer: klam, estfan
 ms.suite: infrastructure-services
-ms.assetid: 5c124986-9f29-4cbc-ad5a-c667b37fbe5a
 ms.topic: article
 ms.date: 11/14/2018
-ms.openlocfilehash: 386284543cd8fb00cc49fea9a29d9eaee4ca4963
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: b85932bf0d4fd080afadef2bc28d6a218b2d627a
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300962"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898600"
 ---
 # <a name="build-advanced-schedules-and-recurrences-for-jobs-in-azure-scheduler"></a>Créer des planifications et des périodicités avancées pour les travaux dans Azure Scheduler
 
 > [!IMPORTANT]
-> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) remplace Azure Scheduler, qui est [en cours de retrait](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Pour poursuivre les travaux que vous avez configurés dans Scheduler, [migrez vers Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) dès que possible.
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) remplace Azure Scheduler, qui est en phase de [mise hors service](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Pour poursuivre les travaux que vous avez configurés dans Scheduler, veuillez [migrer vers Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) dès que possible. 
+>
+> Scheduler n’est plus disponible dans le portail Azure, mais l’[API REST](/rest/api/scheduler) et les [applets de commande Azure Scheduler PowerShell](scheduler-powershell-reference.md) restent disponibles pour vous permettre de gérer vos travaux et collections de travaux.
 
 La planification constitue le cœur d’un travail [Azure Scheduler](../scheduler/scheduler-intro.md), car elle détermine quand et comment Azure Scheduler exécute le travail. Avec Scheduler, vous pouvez créer plusieurs planifications ponctuelles et récurrentes pour un travail. Les planifications ponctuelles se déclenchent une seule fois à un moment précis. Il s’agit en fait de planifications récurrentes qui ne s’exécutent qu’une seule fois. Les planifications récurrentes se déclenchent selon une fréquence définie. Cette flexibilité vous permet d’utiliser Scheduler dans divers scénarios d’entreprise, comme les exemples ci-après :
 
@@ -164,16 +165,16 @@ Le tableau suivant décrit les éléments schedule en détail :
 | **minutes** |Minutes de l’heure où le travail s’exécute. |Tableau d’entiers. |
 | **hours** |Heures de la journée où le travail s’exécute. |Tableau d’entiers. |
 | **weekDays** |Jours de la semaine où le travail s’exécute. Peut être spécifié uniquement avec une fréquence hebdomadaire. |Tableau de l’une des valeurs suivantes (la taille de tableau maximale est 7) :<br />- "Monday"<br />- "Tuesday"<br />- "Wednesday"<br />- "Thursday"<br />- "Friday"<br />- "Saturday"<br />- "Sunday"<br /><br />Ne respecte pas la casse. |
-| **monthlyOccurrences** |Détermine les jours du mois où le travail s’exécute. Peut être spécifié uniquement avec une fréquence mensuelle. |Tableau d’objets **monthlyOccurrence** :<br /> `{ "day": day, "occurrence": occurrence}`<br /><br /> **day** est le jour de la semaine où le travail s’exécute. Par exemple, *{Sunday}* correspond à tous les dimanche du mois. Requis.<br /><br />**occurrence** est l’occurrence du jour au cours du mois. Par exemple, *{Sunday, -1}* correspond au dernier dimanche du mois. facultatif. |
+| **monthlyOccurrences** |Détermine les jours du mois où le travail s’exécute. Peut être spécifié uniquement avec une fréquence mensuelle. |Tableau d’objets **monthlyOccurrence** :<br /> `{ "day": day, "occurrence": occurrence}`<br /><br /> **day** est le jour de la semaine où le travail s’exécute. Par exemple, *{Sunday}* correspond à tous les dimanche du mois. Obligatoire.<br /><br />**occurrence** est l’occurrence du jour au cours du mois. Par exemple, *{Sunday, -1}* correspond au dernier dimanche du mois. facultatif. |
 | **monthDays** |Jour du mois où le travail s’exécute. Peut être spécifié uniquement avec une fréquence mensuelle. |Tableau des valeurs suivantes :<br />- Toute valeur <= -1 et >= -31<br />- Toute valeur >= 1 et <= 31|
 
-## <a name="examples-recurrence-schedules"></a>Exemples : planifications de périodicité
+## <a name="examples-recurrence-schedules"></a>Exemples : planifications de périodicité
 
 Les exemples suivants montrent différentes planifications de périodicité. Ils se concentrent sur l’objet de planification et ses sous-éléments.
 
 Ces planifications partent du principe que **interval** a la valeur 1\., et que les valeurs de **frequency** pour les valeurs spécifiées dans **schedule** sont correctes. Par exemple, vous ne pouvez pas utiliser une valeur **frequency** "day" et avoir une modification **monthDays** dans **schedule**. Nous décrivons ces restrictions plus haut dans l’article.
 
-| Exemples | Description |
+| Exemple | Description |
 |:--- |:--- |
 | `{"hours":[5]}` |Exécution à 5h00 tous les jours.<br /><br />Scheduler fait correspondre chaque valeur dans "hours" avec chaque valeur dans "minutes", une par une, pour créer une liste de toutes les fois où le travail s’exécute. |
 | `{"minutes":[15], "hours":[5]}` |Exécution à 5h15 tous les jours. |
@@ -207,8 +208,9 @@ Ces planifications partent du principe que **interval** a la valeur 1\., et que 
 | `{"minutes":[0,15,30,45], "monthlyOccurrences":[{"day":"friday", "occurrence":-1}]}` |Exécution toutes les 15 minutes le dernier vendredi du mois. |
 | `{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}` |Exécution à 5h15, 5h45, 17h15 et 17h45 le troisième mercredi de chaque mois. |
 
-## <a name="see-also"></a>Voir aussi
+## <a name="next-steps"></a>Étapes suivantes
 
-* [Présentation d’Azure Scheduler](scheduler-intro.md)
 * [Concepts, terminologie et hiérarchie d’entités d’Azure Scheduler](scheduler-concepts-terms.md)
+* [Informations de référence sur l’API REST d’Azure Scheluler](/rest/api/scheduler)
+* [Informations de référence sur les applets de commande PowerShell d’Azure Scheluler](scheduler-powershell-reference.md)
 * [Limites, valeurs par défaut et codes d’erreur d’Azure Scheluler](scheduler-limits-defaults-errors.md)

@@ -1,32 +1,34 @@
 ---
 title: Réinitialiser les informations d’identification d’un cluster Azure Kubernetes Service (AKS)
-description: Découvrir comment mettre à jour ou réinitialiser les informations d’identification de principal du service pour un cluster dans Azure Kubernetes Service (AKS)
+description: Découvrir comment mettre à jour ou réinitialiser les informations d’identification d’un principal de service ou d’une application AAD pour un cluster Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 05/31/2019
-ms.openlocfilehash: 46665e78450538cdc473de32e6c2e9a418660af1
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.date: 03/11/2019
+ms.openlocfilehash: 5dab9a778653d2ec6e32ddb3833ddcf6a95cae13
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77593068"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096103"
 ---
-# <a name="update-or-rotate-the-credentials-for-a-service-principal-in-azure-kubernetes-service-aks"></a>Mettre à jour ou faire pivoter les informations d’identification d’un principal du service dans Azure Kubernetes Service (AKS)
+# <a name="update-or-rotate-the-credentials-for-azure-kubernetes-service-aks"></a>Mettre à jour ou faire tourner les informations d’identification pour Azure Kubernetes Service (AKS)
 
 Par défaut, les clusters AKS sont créés avec un principal de service dont le délai d’expiration est d’un an. À mesure que vous approchez de la date d’expiration, vous pouvez réinitialiser les informations d’identification afin de prolonger le délai d’expiration du principal de service. Vous souhaiterez peut-être également mettre à jour, ou faire pivoter, les informations d’identification dans le cadre d’une stratégie de sécurité définie. Cet article explique comment mettre à jour ces informations d’identification pour un cluster AKS.
+
+Vous avez peut-être également [intégré votre cluster AKS à Azure Active Directory][aad-integration] et l’utilisez comme fournisseur d’authentification pour votre cluster. Dans ce cas, vous aurez 2 autres identités créées pour votre cluster, l’application de serveur AAD et l’application de client AAD ; vous pouvez également réinitialiser ces informations d’identification. 
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
 Azure CLI version 2.0.65 ou ultérieure doit être installé et configuré. Exécutez  `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez  [Installation d’Azure CLI][install-azure-cli].
 
-## <a name="choose-to-update-or-create-a-service-principal"></a>Choisir de mettre à jour ou de créer un principal du service
+## <a name="update-or-create-a-new-service-principal-for-your-aks-cluster"></a>Mettre à jour ou créer un principal de service pour votre cluster AKS
 
 Lorsque vous souhaitez mettre à jour les informations d’identification d’un cluster AKS, vous pouvez choisir de :
 
 * mettre à jour les informations d’identification du principal du service existant utilisées par le cluster, ou
 * créer un principal du service et mettre à jour le cluster pour qu’il utilise ces nouvelles informations d’identification.
 
-### <a name="update-existing-service-principal-expiration"></a>Mettre à jour l’expiration du principal de service existant
+### <a name="reset-existing-service-principal-credential"></a>Réinitialiser les informations d’identification du principal de service existant
 
 Pour mettre à jour les informations d’identification du principal de service existant, obtenez l’ID du principal de service de votre cluster à l’aide de la commande [az aks show][az-aks-show]. L’exemple suivant permet d’obtenir l’ID du cluster *myAKSCluster* dans le groupe de ressources *myResourceGroup*. L’ID du principal du service est défini en tant que variable nommée *SP_ID* pour être utilisé dans d’autres commandes.
 
@@ -41,11 +43,11 @@ Avec un jeu de variables contenant l’ID du principal de service, réinitialise
 SP_SECRET=$(az ad sp credential reset --name $SP_ID --query password -o tsv)
 ```
 
-Passez maintenant à [mettre à jour le cluster AKS avec les nouvelles informations d’identification](#update-aks-cluster-with-new-credentials). Cette étape est nécessaire pour que les modifications apportées au principal de service soient reflétées sur le cluster AKS.
+Passez maintenant à [mettre à jour le cluster AKS avec les nouvelles informations d’identification du principal de service](#update-aks-cluster-with-new-service-principal-credentials). Cette étape est nécessaire pour que les modifications apportées au principal de service soient reflétées sur le cluster AKS.
 
 ### <a name="create-a-new-service-principal"></a>Créer un principal de service
 
-Si vous avez choisi de mettre à jour les informations d’identification du principal du service existantes dans la section précédente, ignorez cette étape. Passez à [mettre à jour le cluster AKS avec les nouvelles informations d’identification](#update-aks-cluster-with-new-credentials).
+Si vous avez choisi de mettre à jour les informations d’identification du principal du service existantes dans la section précédente, ignorez cette étape. Continuez pour [mettre à jour le cluster AKS avec les nouvelles informations d’identification du principal de service](#update-aks-cluster-with-new-service-principal-credentials).
 
 Pour créer un principal de service puis mettre à jour le cluster AKS pour qu’il utilise ces nouvelles informations d’identification, utilisez la commande [az ad sp create-for-rbac][az-ad-sp-create]. Dans l’exemple suivant, le paramètre `--skip-assignment` empêche toute affectation par défaut supplémentaire :
 
@@ -71,9 +73,9 @@ SP_ID=7d837646-b1f3-443d-874c-fd83c7c739c5
 SP_SECRET=a5ce83c9-9186-426d-9183-614597c7f2f7
 ```
 
-Passez maintenant à [mettre à jour le cluster AKS avec les nouvelles informations d’identification](#update-aks-cluster-with-new-credentials). Cette étape est nécessaire pour que les modifications apportées au principal de service soient reflétées sur le cluster AKS.
+Passez maintenant à [mettre à jour le cluster AKS avec les nouvelles informations d’identification du principal de service](#update-aks-cluster-with-new-service-principal-credentials). Cette étape est nécessaire pour que les modifications apportées au principal de service soient reflétées sur le cluster AKS.
 
-## <a name="update-aks-cluster-with-new-credentials"></a>Mettre à jour le cluster AKS avec les nouvelles informations d’identification
+## <a name="update-aks-cluster-with-new-service-principal-credentials"></a>Mettre à jour le cluster AKS avec les nouvelles informations d’identification du principal de service
 
 Que vous ayez choisi de mettre à jour les informations d’identification du principal de service existant ou de créer un principal de service, mettez maintenant à jour le cluster AKS avec vos nouvelles informations d’identification à l’aide de la commande [az aks update-credentials][az-aks-update-credentials]. Les variables pour *--service-principal* et *--client-secret* sont utilisées :
 
@@ -88,14 +90,31 @@ az aks update-credentials \
 
 La mise à jour des informations d’identification du principal du service dans AKS prend quelques instants.
 
+## <a name="update-aks-cluster-with-new-aad-application-credentials"></a>Mettre à jour le cluster AKS avec les nouvelles informations d’identification de l’application AAD
+
+Vous pouvez créer des applications de serveur et de client AAD en suivant les [Étapes de l’intégration AAD][create-aad-app]. Sinon, réinitialisez vos applications AAD existantes en suivant la [même méthode de réinitialisation que celle du principal de service](#reset-existing-service-principal-credential). Après cela, il vous suffit de mettre à jour les informations d’identification de votre application AAD sur le cluster à l’aide de la même commande [az aks update-credentials][az-aks-update-credentials], mais en utilisant les variables *--reset-aad*.
+
+```azurecli-interactive
+az aks update-credentials \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --reset-aad \
+    --aad-server-app-id <SERVER APPLICATION ID> \
+    --aad-server-app-secret <SERVER APPLICATION SECRET> \
+    --aad-client-app-id <CLIENT APPLICATION ID>
+```
+
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, le principal du service du cluster AKS lui-même a été mis à jour. Pour plus d’informations sur la gestion de l’identité des charges de travail dans un cluster, consultez la section [Meilleures pratiques d’authentification et d’autorisation dans AKS][best-practices-identity].
+Dans cet article, le principal de service du cluster AKS lui-même et les applications d’intégration AAD ont été mis à jour. Pour plus d’informations sur la gestion de l’identité des charges de travail dans un cluster, consultez la section [Meilleures pratiques d’authentification et d’autorisation dans AKS][best-practices-identity].
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli
 [az-aks-show]: /cli/azure/aks#az-aks-show
 [az-aks-update-credentials]: /cli/azure/aks#az-aks-update-credentials
 [best-practices-identity]: operator-best-practices-identity.md
+[aad-integration]: azure-ad-integration.md
+[create-aad-app]: azure-ad-integration.md#create-the-server-application
 [az-ad-sp-create]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
 [az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az-ad-sp-credential-reset

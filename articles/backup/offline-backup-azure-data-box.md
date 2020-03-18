@@ -3,12 +3,12 @@ title: Sauvegarde hors connexion avec Azure Data Box
 description: Découvrez comment vous pouvez utiliser Azure Data Box pour amorcer des données de sauvegarde initiales volumineuses hors connexion à partir de l’agent MARS dans un coffre Recovery Services.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: 9a8288939adba8ec1b0cbe38d2243b1bdd84fa2e
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: a031a8cac357e7d212f8f6a3a5dbec749fbccc21
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78196479"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672964"
 ---
 # <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Sauvegarde hors connexion Sauvegarde Microsoft Azure avec Azure Data Box
 
@@ -124,7 +124,7 @@ Le processus de sauvegarde hors connexion avec MARS et Azure Data Box nécessite
 
 1. Veillez à désinstaller toutes les installations précédentes de l’agent MARS.
 1. Téléchargez l’agent MARS le plus récent sur [ce site](https://aka.ms/azurebackup_agent).
-1. Exécutez *MARSAgentInstaller.exe* et effectuez *uniquement* les étapes nécessaires pour [installer et inscrire l’agent](https://docs.microsoft.com/azure/backup/backup-configure-vault#install-and-register-the-agent) dans le coffre Recovery Services dans lequel vous voulez stocker vos sauvegardes.
+1. Exécutez *MARSAgentInstaller.exe* et effectuez *uniquement* les étapes nécessaires pour [installer et inscrire l’agent](https://docs.microsoft.com/azure/backup/install-mars-agent#install-and-register-the-agent) dans le coffre Recovery Services dans lequel vous voulez stocker vos sauvegardes.
 
    > [!NOTE]
    > Le coffre Recovery Services doit se trouver dans le même abonnement que le travail Azure Data Box.
@@ -243,7 +243,7 @@ Cette section explique les étapes à suivre une fois que la sauvegarde des donn
 * [Supervisez le travail Data Box](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-upload-verify) dans le portail Azure. Une fois le travail Azure Data Box terminé, l’agent MARS déplace automatiquement les données du compte de stockage vers le coffre Recovery Services au moment de la sauvegarde planifiée suivante. Le travail de sauvegarde est alors marqué *Travail effectué* si un point de récupération a correctement été créé.
 
     >[!NOTE]
-    >L’agent MARS déclenche des sauvegardes aux heures planifiées pendant la création de la stratégie. Ces travaux indiquent « En attente de la fin du travail Azure Data Box » tant que le travail n’est pas terminé.
+    >L’agent MARS déclenche des sauvegardes aux heures planifiées pendant la création de la stratégie. Ces travaux indiquent « En attente de la fin du travail Azure Data Box » tant que le travail à l’heure prévue n’est pas terminé.
 
 * Une fois que l’agent MARS a réussi à créer un point de récupération correspondant à la sauvegarde initiale, vous pouvez supprimer le compte de stockage ou son contenu spécifique associé au travail Azure Data Box.
 
@@ -307,7 +307,7 @@ Si aucun autre serveur n’a d’amorçage hors connexion configuré et si aucun
     >[!NOTE]
     > Pour récupérer l’identifiant utilisateur Azure, effectuez l’une des actions suivantes :
     >
-    >* À partir du PowerShell connecté à Azure, exécutez la commande `Get-AzureRmADUser -UserPrincipalName “Account Holder’s email as defined in the portal”`.
+    >* À partir du PowerShell connecté à Azure, exécutez la commande `Get-AzureRmADUser -UserPrincipalName "Account Holder's email as defined in the portal"`.
     > * Accédez au chemin d’accès au registre *Ordinateur\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DbgSettings\OnlineBackup* avec le nom *CurrentUserId*.
 
 6. Cliquez avec le bouton droit sur la chaîne ajoutée à l’étape précédente, puis sélectionnez **Modifier**. Dans la valeur, fournissez l’empreinte du certificat que vous avez exporté à l’étape 2. Sélectionnez **OK**.

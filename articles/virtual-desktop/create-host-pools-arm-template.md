@@ -7,12 +7,13 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: 5b07416f785ad263b4dbb9a0d249cb6022c01b13
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+manager: lizross
+ms.openlocfilehash: f61319a1d2a5d5599a4745979f3c5abc0a713ac7
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367471"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128137"
 ---
 # <a name="create-a-host-pool-with-an-azure-resource-manager-template"></a>Créer un pool d’hôtes avec le modèle Azure Resource Manager
 
@@ -42,7 +43,7 @@ Si vous effectuez un déploiement dans un abonnement de fournisseur de solutions
 
 1. Faites défiler vers le bas et cliquez sur **Déployer sur Azure**, puis sélectionnez **Copier l’adresse du lien**.
 2. Ouvrez un éditeur de texte tel que le bloc-notes et collez le lien.
-3. Juste après « https://portal.azure.com/  » et avant le mot-dièse (#), entrez un arobase (@) suivi du nom de domaine du locataire. Voici un exemple du format que vous devez utiliser : https://portal.azure.com/@Contoso.onmicrosoft.com#create/.
+3. Juste après « https://portal.azure.com/  » et avant le dièse (#), entrez un arobase (@) suivi du nom de domaine du locataire. Voici un exemple du format que vous devez utiliser : https://portal.azure.com/@Contoso.onmicrosoft.com#create/.
 4. Connectez-vous au portail Azure en tant qu’utilisateur avec des autorisations d’administrateur/contributeur pour l’abonnement du fournisseur de solutions cloud.
 5. Collez le lien que vous avez copié dans l’éditeur de texte dans la barre d’adresse.
 

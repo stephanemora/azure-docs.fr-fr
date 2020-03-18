@@ -8,12 +8,12 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: afa3b0f3ed345ccc7f4c627ec485351838ab2bee
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 300294f37c809b01fe8fba7e627d6bc5bdc9903a
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77649276"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942948"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>FAQ sur la configuration et la gestion de Web Apps dans Azure
 
@@ -212,7 +212,7 @@ Pour plus d’informations, voir [Comment créer un environnement App Service](e
 Parfois, la création d’un App Service Environment échoue. Dans ce cas, l’erreur suivante apparaît dans les journaux d’activité :
 ```
 ResourceID: /subscriptions/{SubscriptionID}/resourceGroups/Default-Networking/providers/Microsoft.Web/hostingEnvironments/{ASEname}
-Error:{"error":{"code":"ResourceDeploymentFailure","message":"The resource provision operation did not complete within the allowed timeout period.”}}
+Error:{"error":{"code":"ResourceDeploymentFailure","message":"The resource provision operation did not complete within the allowed timeout period."}}
 ```
 
 Pour résoudre ce problème, assurez-vous qu’aucune des conditions n’est vraie :
@@ -248,7 +248,7 @@ Pour effectuer un test de pénétration, [soumettez une demande](https://portal.
 
 ## <a name="how-do-i-configure-a-custom-domain-name-for-an-app-service-web-app-that-uses-traffic-manager"></a>Comment configurer un nom de domaine personnalisé pour une application web App Service utilisant Traffic Manager?
 
-Pour savoir comment utiliser un nom de domaine personnalisé avec une application App Service utilisant Azure Traffic Manager pour l’équilibrage de charge, voir [Configuration d’un nom de domaine personnalisé pour une application web dans Azure App Service utilisant Traffic Manager](web-sites-traffic-manager-custom-domain-name.md).
+Pour savoir comment utiliser un nom de domaine personnalisé avec une application App Service utilisant Azure Traffic Manager pour l’équilibrage de charge, voir [Configuration d’un nom de domaine personnalisé pour une application web dans Azure App Service utilisant Traffic Manager](configure-domain-traffic-manager.md).
 
 ## <a name="my-app-service-certificate-is-flagged-for-fraud-how-do-i-resolve-this"></a>Mon certificat App Service est marqué pour une fraude. Comment résoudre ce problème ?
 
@@ -256,7 +256,7 @@ Pour savoir comment utiliser un nom de domaine personnalisé avec une applicatio
 
 Lors de la vérification du domaine d’un achat de certificat App Service, vous pouvez voir le message suivant :
 
-« Votre certificat a été marqué, car il est possible qu’il soit frauduleux. La demande est en cours de révision. Si le certificat n’est pas utilisable dans les 24 heures, consultez le support technique d’Azure. »
+« Votre certificat a été signalé comme étant une fraude potentielle. La demande est en cours de révision. Si le certificat devient inutilisable sous 24 heures, contactez le support Azure. »
 
 Comme indiqué dans le message, ce processus de vérification de fraude peut prendre jusqu’à 24 heures. Pendant ce temps, ce message continuera à s’afficher.
 

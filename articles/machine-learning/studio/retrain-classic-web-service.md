@@ -10,12 +10,12 @@ author: peterclu
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
-ms.openlocfilehash: eac7674ae4a88621a803c70bd55a88e65b2cb7e9
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: caf2437b4a4853bc29f094d082a4ea15d2f7a3c9
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838692"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388479"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-classic-web-service"></a>Réentraîner et déployer un service web Studio (classique) classique
 
@@ -44,7 +44,7 @@ Vous pouvez ajouter des points de terminaison de notation à l’aide de l’exe
 
 ### <a name="use-the-azure-web-services-portal-to-add-an-endpoint"></a>Utiliser le portail de services web Azure pour ajouter un point de terminaison
 
-1. Dans Machine Learning Studio (classique), dans la colonne de navigation de gauche, cliquez sur Services web.
+1. Dans la colonne de navigation de gauche de Machine Learning Studio (classique), cliquez sur Services web.
 1. En bas du tableau de bord de services web, cliquez sur **Gérer les points de terminaison (préversion)** .
 1. Cliquez sur **Add**.
 1. Tapez un nom et une description pour le point de terminaison. Sélectionnez le niveau de journalisation et activez les exemples de données si nécessaire. Pour plus d’informations sur la journalisation, consultez [Activation de la journalisation pour les services web de Machine Learning](web-services-logging.md).
@@ -52,19 +52,6 @@ Vous pouvez ajouter des points de terminaison de notation à l’aide de l’exe
 ## <a name="update-the-added-endpoints-trained-model"></a>Mettre à jour le modèle entraîné du point de terminaison ajouté
 
 ### <a name="retrieve-patch-url"></a>Récupérer l’URL PATCH
-
-### <a name="option-1-programmatically"></a>Option 1 : Par programmation
-
-Pour obtenir l’URL PATCH correcte programmatiquement, procédez comme suit :
-
-1. Exécutez l’exemple de code [AddEndpoint](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs) .
-1. À partir de la sortie d’AddEndpoint, recherchez la valeur *HelpLocation* et copiez l’URL.
-
-   ![HelpLocation dans la sortie de l’exemple addEndpoint.](./media/retrain-classic/addEndpoint-output.png)
-1. Collez l’URL dans un navigateur pour accéder à une page qui fournit des liens d’aide pour le service web.
-1. Cliquez sur le lien de **Mettre à jour la ressource** pour ouvrir la page d’aide sur le correctif.
-
-### <a name="option-2-use-the-azure-machine-learning-web-services-portal"></a>Option 2 : Utiliser le portail des services web Azure Machine Learning
 
 Suivez ces étapes pour obtenir l’URL PATCH correcte à l’aide du portail web :
 
@@ -101,8 +88,8 @@ L’exemple de code suivant montre comment utiliser les éléments *BaseLocation
                     Location = new AzureBlobDataReference()
                     {
                         BaseLocation = "https://esintussouthsus.blob.core.windows.net/",
-                        RelativeLocation = "your endpoint relative location", //from the output, for example: “experimentoutput/8946abfd-79d6-4438-89a9-3e5d109183/8946abfd-79d6-4438-89a9-3e5d109183.ilearner”
-                        SasBlobToken = "your endpoint SAS blob token" //from the output, for example: “?sv=2013-08-15&sr=c&sig=37lTTfngRwxCcf94%3D&st=2015-01-30T22%3A53%3A06Z&se=2015-01-31T22%3A58%3A06Z&sp=rl”
+                        RelativeLocation = "your endpoint relative location", //from the output, for example: "experimentoutput/8946abfd-79d6-4438-89a9-3e5d109183/8946abfd-79d6-4438-89a9-3e5d109183.ilearner"
+                        SasBlobToken = "your endpoint SAS blob token" //from the output, for example: "?sv=2013-08-15&sr=c&sig=37lTTfngRwxCcf94%3D&st=2015-01-30T22%3A53%3A06Z&se=2015-01-31T22%3A58%3A06Z&sp=rl"
                     }
                 }
             }
@@ -131,7 +118,7 @@ L’*apiKey* et l’*endpointUrl* pour l’appel sont figurent sur le tableau de
 
 La valeur du paramètre *Name* dans *Ressources* doit correspondre au nom de ressource du modèle formé enregistré dans l’expérience prédictive. Pour obtenir le nom de la ressource :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Dans le menu de gauche, cliquez sur **Machine Learning**.
 1. Sous Nom, cliquez sur votre espace de travail, puis sur **Services web**.
 1. Sous Nom, cliquez sur **Modèle de recensement [exp. prédictive]** .

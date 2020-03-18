@@ -7,12 +7,13 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 05/23/2019
 ms.author: helohr
-ms.openlocfilehash: eee8fdf515861b43b58d5af111930e2224c9a60a
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+manager: lizross
+ms.openlocfilehash: 84cee86dbddff77f6142925eec01889cf793a466
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367238"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127558"
 ---
 # <a name="diagnose-graphics-performance-issues-in-remote-desktop"></a>Diagnostic des problèmes de performances graphiques dans le Bureau à distance
 
@@ -24,7 +25,7 @@ Vous aurez besoin du nom de la session à distance pour identifier les compteurs
 
 1. Ouvrez l’invite de commandes Windows à partir de votre session à distance.
 2. Exécutez la commande **qwinsta** et localisez le nom de votre session.
-    - Si votre session est hébergée dans une machine virtuelle multisession : Votre instance de chaque compteur est suivie du même nombre que celui terminant le nom de votre session (par exemple : « rdp-tcp 37 »).
+    - Si votre session est hébergée dans une machine virtuelle multisession : L’instance de chaque compteur est suivie du même nombre que celui terminant le nom de votre session (par exemple : « rdp-tcp 37 »).
     - Si votre session est hébergée dans une machine virtuelle prenant en charge des processeurs virtuels (vGPU) : Votre instance de chaque compteur est stockée sur le serveur, et non sur votre machine virtuelle. Vos instances de compteur incluent le nom de la machine virtuelle, et non le nombre figurant dans le nom de la session (par exemple : « Win8 Enterprise VM »).
 
 >[!NOTE]
@@ -71,7 +72,7 @@ Si le compteur Images de sortie/seconde correspond au compteur Images d’entré
 
 Pour plus d’informations sur le diagnostic des problèmes liés aux applications, consultez [Compteurs de performances de retard d’entrée utilisateur](/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters/).
 
-Étant donné que le protocole RDP (Remote Desktop Protocol) prend en charge une durée moyenne d’encodage de 33 ms, il prend en charge une fréquence d’images d’entrée pouvant atteindre 30 images/seconde. Notez que 33 ms est la fréquence d’images maximale prise en charge. Dans de nombreux cas, la fréquence d’images dont bénéficie l’utilisateur est inférieure, selon la fréquence à laquelle l’image est fournie au protocole RDP par la source. Par exemple, les tâches telles que la lecture d’une vidéo nécessitent une fréquence d’images d’entrée complète de 30 images/seconde. En revanche, les tâches moins gourmandes en ressources, comme la modification ponctuelle d’un document, nécessitent une fréquence d’images d’entrée par seconde nettement inférieure, sans aucune dégradation de la qualité de l’expérience pour l’utilisateur.
+Étant donné que le protocole RDP (Remote Desktop Protocol) prend en charge une durée moyenne d’encodage de 33 ms, il prend en charge une fréquence d’images d’entrée pouvant atteindre 30 images/seconde. Notez que 33 ms est la fréquence d’images maximale prise en charge. Dans de nombreux cas, la fréquence d’images dont bénéficie l’utilisateur est inférieure, selon la fréquence à laquelle l’image est fournie au protocole RDP par la source. Par exemple, les tâches telles que la lecture d’une vidéo nécessitent une fréquence d’images d’entrée complète de 30 images/seconde. En revanche, les tâches moins gourmandes en ressources, comme la modification ponctuelle d’un document, nécessitent une fréquence d’images d’entrée par seconde nettement inférieure, qui ne dégrade aucunement l’expérience pour l’utilisateur.
 
 ### <a name="addressing-poor-frame-quality"></a>Résolution des problèmes de qualité d’image
 
@@ -97,7 +98,7 @@ Si les ressources client sont à l’origine du goulot d’étranglement, essaye
 - Augmentez la mémoire et les ressources de calcul sur la machine cliente.
 
 > [!NOTE]
-> Nous ne prenons pas en charge actuellement le compteur Images source/seconde. Pour l’instant, le compteur Images source/seconde affiche toujours 0.
+> Le compteur Images sources/seconde n’est pas pris en charge. Pour l’instant, le compteur Images source/seconde affiche toujours 0.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

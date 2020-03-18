@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 68b144a838f0c6e65f3e399f610644315d109fde
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: 05a155584f0cb69191883cb82b3db0af435ccc12
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75903468"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970097"
 ---
 # <a name="set-and-manage-immutability-policies-for-blob-storage"></a>Définir et gérer des stratégies d’immuabilité pour le stockage Blob
 
@@ -23,7 +23,7 @@ Cet article explique comment définir et gérer des stratégies d’immuabilité
 
 ## <a name="set-retention-policies-and-legal-holds"></a>Définir des stratégies de conservation et des archivages juridiques
 
-### <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
+### <a name="portal"></a>[Portail](#tab/azure-portal)
 
 1. Créez un nouveau conteneur ou sélectionnez un conteneur existant pour stocker des objets Blob qui doivent demeurer dans l’état immuable. Le conteneur doit se trouver dans un compte de stockage Blob ou v2 universel.
 
@@ -59,11 +59,11 @@ Cet article explique comment définir et gérer des stratégies d’immuabilité
 
 9. Pour effacer une conservation légale, supprimez la balise d’identificateur de conservation légale associée.
 
-### <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 La fonctionnalité est incluse dans les groupes de commandes suivants : `az storage container immutability-policy` et `az storage container legal-hold`. Exécutez `-h` sur ces groupes pour afficher les commandes.
 
-### <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -116,10 +116,10 @@ Remove-AzRmStorageContainerLegalHold -ResourceGroupName $resourceGroup `
     -StorageAccountName $storageAccount -Name $container -Tag <tag3>
 ```
 
-Créer ou mettre à jour des stratégies d’immuabilité :
+Créez ou mettez à jour des stratégies d’immuabilité limitées dans le temps :
 
 ```powershell
-# Create an immutablity policy
+# Create a time-based immutablity policy
 Set-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName $resourceGroup `
     -StorageAccountName $storageAccount -ContainerName $container -ImmutabilityPeriod 10
 ```
@@ -168,17 +168,23 @@ Remove-AzRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy
 
 ## <a name="enabling-allow-protected-append-blobs-writes"></a>Activation du paramètre Autoriser les écritures protégées de blobs d’ajout
 
-À ce stade, vous pouvez uniquement accéder au paramètre `allowProtectedAppendWrites` pour les stratégies de conservation limitée dans le temps à l’aide de ce [lien de portail](https://aka.ms/immutableappendblobs) spécifique. 
-
-> [!IMPORTANT] 
->  Le paramètre Autoriser les écritures protégées de blobs d’ajout dont la conservation est limitée dans le temps est actuellement disponible et visible uniquement dans les régions suivantes :
-> - USA Est
-> - États-Unis - partie centrale méridionale
-> - USA Ouest 2
->
-> Pour plus d’informations, consultez [Autoriser les écritures protégées de blobs d’ajout](storage-blob-immutable-storage.md#allow-protected-append-blobs-writes).
+### <a name="portal"></a>[Portail](#tab/azure-portal)
 
 ![Autoriser les écritures d’ajout supplémentaires](media/storage-blob-immutability-policies-manage/immutable-allow-additional-append-writes.png)
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+La fonctionnalité est incluse dans les groupes de commandes suivants : `az storage container immutability-policy` et `az storage container legal-hold`. Exécutez `-h` sur ces groupes pour afficher les commandes.
+
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```powershell
+# Create an immutablity policy with appends allowed
+Set-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName $resourceGroup `
+    -StorageAccountName $storageAccount -ContainerName $container -ImmutabilityPeriod 10 -AllowProtectedAppendWrite $true
+```
+
+---
 
 ## <a name="next-steps"></a>Étapes suivantes
 

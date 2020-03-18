@@ -3,12 +3,12 @@ title: Utiliser PowerShell pour sauvegarder Windows Server dans Azure
 description: Dans cet article, découvrez comment utiliser PowerShell pour configurer Sauvegarde Azure sur un serveur Windows Server ou sur un client Windows, ainsi que pour gérer les sauvegardes et la récupération.
 ms.topic: conceptual
 ms.date: 12/2/2019
-ms.openlocfilehash: 85006a318864aed537b70a97fb38f89746d2878c
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: efe0b93fe1e37990422ffbd2256e38c12401dca5
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77622812"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78673192"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Déployer et gérer une sauvegarde vers Azure pour un serveur/client Windows à l’aide de PowerShell
 
@@ -138,7 +138,7 @@ $CredsFilename = Get-AzRecoveryServicesVaultSettingsFile -Backup -Vault $Vault1 
 > [!NOTE]
 > Un bogue lié à la génération de certificat de coffre a été résolu dans la version Az 3.5.0. Utilisez la version Az 3.5.0 ou une version ultérieure pour télécharger un certificat de coffre.
 
-Dans le dernier module Az de Powershell, en raison des limitations sous-jacentes de la plateforme, le téléchargement des informations d’identification du coffre-fort nécessite un certificat auto-signé. L’exemple suivant montre comment fournir un certificat auto-signé et télécharger les informations d’identification du coffre-fort.
+Dans le dernier module Az de PowerShell, en raison des limitations sous-jacentes de la plateforme, le téléchargement des informations d’identification du coffre nécessite un certificat auto-signé. L’exemple suivant montre comment fournir un certificat auto-signé et télécharger les informations d’identification du coffre-fort.
 
 ```powershell
 $dt = $(Get-Date).ToString("M-d-yyyy")
@@ -740,4 +740,4 @@ Invoke-Command -Session $Session -Script { param($D, $A) Start-Process -FilePath
 Pour plus d’informations sur Sauvegarde Azure pour client/serveur Windows :
 
 * [Présentation d’Azure Backup](backup-introduction-to-azure-backup.md)
-* [Sauvegarder des serveurs Windows](backup-configure-vault.md)
+* [Sauvegarder des serveurs Windows](backup-windows-with-mars-agent.md)

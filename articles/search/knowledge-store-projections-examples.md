@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/15/2020
-ms.openlocfilehash: daaedf346bed78a93e0762a37687b623d25ef753
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 23c370289669c2dde4f8969a2921018cd0abc08c
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77441967"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943677"
 ---
 # <a name="knowledge-store-projections-how-to-shape-and-export-enrichments"></a>Projections dans une base de connaissances : guide pratique pour mettre en forme et exporter des enrichissements
 
@@ -671,7 +671,13 @@ Lors de la définition d’une projection, il existe quelques problèmes courant
 
 Les exemples de cet article montrent des modèles courants de création de projections. Maintenant que vous avez bien compris les concepts, vous êtes mieux armé pour créer des projections adaptées à votre scénario particulier.
 
-Après avoir parcouru les définitions de la base de connaissances, vous pourrez passer à l’étape suivante, l’enrichissement incrémentiel. L’enrichissement incrémentiel est basé sur la mise en cache, ce qui vous permet de réutiliser tous les enrichissements qui ne sont pas impactés par une modification de l’ensemble de compétences. Cela s’avère particulièrement utile pour les pipelines qui incluent l’OCR et l’analyse des images.
+À mesure que vous explorez de nouvelles fonctionnalités, envisagez l’enrichissement incrémentiel en guise d’étape suivante. L’enrichissement incrémentiel est basé sur la mise en cache, ce qui vous permet de réutiliser tous les enrichissements qui ne sont pas impactés par une modification de l’ensemble de compétences. Cela s’avère particulièrement utile pour les pipelines qui incluent l’OCR et l’analyse des images.
 
 > [!div class="nextstepaction"]
 > [Présentation de l’enrichissement incrémentiel et de la mise en cache](cognitive-search-incremental-indexing-conceptual.md)
+
+Pour obtenir une vue d’ensemble des projections, découvrez les fonctionnalités telles que les groupes et le découpage, et comment vous [les définissez dans un ensemble de compétences](knowledge-store-projection-overview.md).
+
+> [!div class="nextstepaction"]
+> [Projections dans une base de connaissances](knowledge-store-projection-overview.md)
+

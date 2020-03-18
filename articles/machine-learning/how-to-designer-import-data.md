@@ -9,12 +9,12 @@ ms.topic: how-to
 author: peterclu
 ms.author: peterlu
 ms.date: 01/16/2020
-ms.openlocfilehash: d41b0499df1a62440e8c1991e29f7963224a50d6
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: 8cd49f9714746578ec701e22f9e6b0ccce772c6b
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77138165"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942288"
 ---
 # <a name="import-your-data-into-azure-machine-learning-designer-preview"></a>Importer vos données dans le concepteur Azure Machine Learning (préversion)
 
@@ -56,6 +56,8 @@ Bien que nous recommandions l'utilisation de jeux de données pour importer des 
 
 Pour plus d’informations sur l’utilisation du module Importer des données, consultez la [page de référence Importer des données](algorithm-module-reference/import-data.md).
 
+[!NOTE]
+> Si les données comportent de nombreuses colonnes, il se peut que vous rencontriez une erreur « Échec de la validation en raison d’une limitation de taille » dans le module Importer des données. Cela est dû au fait que les colonnes excluent la longueur maximale des paramètres du module après l’encodage. Dans ce cas, nous vous recommandons d’[inscrire le jeu de données dans l’interface utilisateur des jeux de données](how-to-create-register-datasets.md#use-the-ui), ce qui peut éviter l’erreur.  
 
 ## <a name="supported-sources"></a>Sources prises en charge
 

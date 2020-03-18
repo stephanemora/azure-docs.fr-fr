@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: peterlu
 author: peterclu
 ms.date: 11/12/2019
-ms.openlocfilehash: 8208bbf4d196091a6fe4cd962ddc7373d303e125
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 78a6e7fa8d030185f537136a3a2124d8bc59d808
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76312428"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037623"
 ---
-# <a name="what-is-azure-machine-learning-designer"></a>Qu'est-ce que le concepteur Azure Machine Learning ? 
+# <a name="what-is-azure-machine-learning-designer-preview"></a>Qu’est-ce que le concepteur Azure Machine Learning (préversion) ? 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 Le concepteur Azure Machine Learning vous permet de connecter visuellement les [jeux de données](#datasets) et les [modules](#module) sur un canevas interactif afin de créer des modèles Machine Learning. Pour plus d'informations sur la prise en main du concepteur, consultez [Tutoriel : Prédire le prix de voitures avec le concepteur](tutorial-designer-automobile-price-train-score.md)
@@ -116,7 +116,7 @@ Le concepteur crée le même objet [PublishedPipeline](https://docs.microsoft.co
 
 ## <a name="moving-from-the-visual-interface-to-the-designer"></a>Passer de l’interface visuelle au concepteur
 
-L'interface visuelle (préversion) a été mise à jour. Il s'agit désormais du concepteur Azure Machine Learning. Le concepteur a été remanié pour utiliser un back-end basé sur un pipeline qui s’intègre entièrement aux autres fonctionnalités d’Azure Machine Learning. 
+L’interface visuelle (préversion) a été mise à jour et est désormais Concepteur Azure Machine Learning (préversion). Le concepteur a été remanié pour utiliser un back-end basé sur un pipeline qui s’intègre entièrement aux autres fonctionnalités d’Azure Machine Learning. 
 
 Suite à ces mises à jour, certains concepts et termes de l’interface visuelle ont été modifiés ou renommés. Consultez le tableau ci-dessous pour connaître les modifications conceptuelles les plus importantes. 
 
@@ -135,13 +135,5 @@ Vous pouvez convertir des expériences d’interface visuelle et des services We
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Découvrez les principes fondamentaux de l’analytique prédictive et du Machine Learning à l’aide du [Tutoriel : Prédire le prix de voitures avec le concepteur](tutorial-designer-automobile-price-train-score.md)
-* Utilisez un des exemples et modifiez-le selon vos besoins :
-
-- [Exemple 1 - Régression : Prédire le prix de véhicules automobiles](how-to-designer-sample-regression-automobile-price-basic.md)
-- [Exemple 2 - Régression : comparer des algorithmes pour prédire le prix de véhicules automobiles](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
-- [Exemple 3 - Classification avec sélection des caractéristiques : Prédiction des revenus](how-to-designer-sample-classification-predict-income.md)
-- [Exemple 4 - Classification : prédire le risque de crédit (sensible au coût)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
-- [Exemple 5 - Classification : Prédire l’évolution](how-to-designer-sample-classification-churn.md)
-- [Exemple 6 - Classification : Prédire les retards de vols](how-to-designer-sample-classification-flight-delay.md)
-- [Exemple 7 - Classification de texte : Jeu de données Wikipédia SP 500](how-to-designer-sample-text-classification.md)
+* Découvrez comment modifier les [exemples de concepteur](samples-designer.md) pour les adapter à vos besoins.
 

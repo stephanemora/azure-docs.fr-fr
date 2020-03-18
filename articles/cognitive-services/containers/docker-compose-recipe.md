@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 01/23/2020
+ms.date: 03/10/2020
 ms.author: dapine
-ms.openlocfilehash: 54a2aac3db47d60f02a45adae9aaa6077d675a43
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: bfbaa03469ee04ff900a215aadd8c814efcba761
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76716900"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037531"
 ---
 # <a name="use-docker-compose-to-deploy-multiple-containers"></a>Utiliser Docker Compose pour déployer plusieurs conteneurs
 
@@ -23,9 +23,9 @@ Cet article vous montre comment déployer plusieurs conteneurs Azure Cognitive S
 
 > [Docker Compose](https://docs.docker.com/compose/) est un outil destiné à définir et exécuter des applications Docker à plusieurs conteneurs. Dans Compose, vous utilisez un fichier YAML pour configurer les services de votre application. Ensuite, vous créez et vous démarrez tous les services à partir de votre configuration en utilisant une seule commande.
 
-Il peut être utile d’orchestrer plusieurs images conteneur sur un même ordinateur hôte. Dans cet article, nous allons regrouper les conteneurs Reconnaître le texte et Form Recognizer.
+Il peut être utile d’orchestrer plusieurs images conteneur sur un même ordinateur hôte. Dans cet article, nous allons regrouper les conteneurs Read et Form Recognizer.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Cette procédure nécessite plusieurs outils qui doivent être installés et exécutés localement :
 
@@ -70,11 +70,11 @@ services:
       - "5010:5000"
 
   ocr:
-    image: "containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text"
+    image: "containerpreview.azurecr.io/microsoft/cognitive-services-read"
     environment:
       eula: accept
-      apikey: # < Your recognize text API key >
-      billing: # < Your recognize text billing URL >
+      apikey: # < Your computer vision API key >
+      billing: # < Your computer vision billing URL >
     ports:
       - "5021:5000"
 ```
@@ -87,9 +87,9 @@ services:
 Un fichier Docker Compose permet de gérer tous les étapes du cycle de vie du service défini : démarrage, arrêt et reconstruction des services, affichage de l’état du service et streaming de journaux. Ouvrez une interface de ligne de commande à partir du répertoire du projet (où le fichier docker-compose.yaml se trouve).
 
 > [!NOTE]
-> Pour éviter les erreurs, vérifiez que la machine hôte partage correctement les lecteurs avec le moteur Docker. Par exemple, si E:\publicpreview est utilisé comme répertoire dans le fichier docker-compose.yaml, partagez le lecteur E avec Docker.
+> Pour éviter les erreurs, vérifiez que la machine hôte partage correctement les lecteurs avec le moteur Docker. Par exemple, si *E:\publicpreview* est utilisé comme répertoire dans le fichier *docker-compose.yaml*, partagez le lecteur **E** avec Docker.
 
-À partir de l’interface de ligne de commande, exécutez la commande suivante pour démarrer (ou redémarrer) tous les services définis dans le fichier docker-compose.yaml :
+À partir de l’interface de ligne de commande, exécutez la commande suivante pour démarrer (ou redémarrer) tous les services définis dans le fichier *docker-compose.yaml* :
 
 ```console
 docker-compose up
@@ -113,8 +113,8 @@ fd93b5f95865: Pull complete
 ef41dcbc5857: Pull complete
 4d05c86a4178: Pull complete
 34e811d37201: Pull complete
-Pulling ocr (containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:)...
-latest: Pulling from microsoft/cognitive-services-recognize-text
+Pulling ocr (containerpreview.azurecr.io/microsoft/cognitive-services-read:)...
+latest: Pulling from microsoft/cognitive-services-read
 f476d66f5408: Already exists
 8882c27f669e: Already exists
 d9af21273955: Already exists
@@ -167,18 +167,12 @@ Voici un exemple de sortie :
 ```
 IMAGE ID            REPOSITORY                                                                 TAG
 2ce533f88e80        containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer   latest
-4be104c126c5        containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text    latest
+4be104c126c5        containerpreview.azurecr.io/microsoft/cognitive-services-read              latest
 ```
 
-### <a name="test-the-recognize-text-container"></a>Tester le conteneur Reconnaître le texte
+### <a name="test-containers"></a>Conteneurs de test
 
-Ouvrez un navigateur sur la machine hôte et accédez à **localhost** en utilisant le port spécifié dans le fichier docker-compose.yaml, comme http://localhost:5021/swagger/index.html. Vous pouvez utiliser la fonctionnalité « Essayer » de l’API pour tester le point de terminaison Reconnaître le texte.
-
-![Conteneur Reconnaître le texte](media/recognize-text-swagger-page.png)
-
-### <a name="test-the-form-recognizer-container"></a>Tester le conteneur Form Recognizer
-
-Ouvrez un navigateur sur la machine hôte et accédez à **localhost** en utilisant le port spécifié dans le fichier docker-compose.yaml, comme http://localhost:5010/swagger/index.html. Vous pouvez utiliser la fonctionnalité « Essayer » de l’API pour tester le point de terminaison Form Recognizer.
+Ouvrez un navigateur sur la machine hôte, puis accédez à **localhost** en utilisant le port spécifié dans le fichier *docker-compose.yaml*, comme http://localhost:5021/swagger/index.html. Par exemple, vous pouvez utiliser la fonctionnalité **Essayer** de l’API pour tester le point de terminaison Form Recognizer. Les pages Swagger des deux conteneurs doivent être disponibles et testables.
 
 ![Conteneur Form Recognizer](media/form-recognizer-swagger-page.png)
 

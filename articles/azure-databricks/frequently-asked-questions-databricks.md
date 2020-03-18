@@ -9,12 +9,12 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/25/2018
-ms.openlocfilehash: c2cb7a90f0fe57efcd8f4d75aff3b5ee375abd07
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 8d7aab43641c6c594ff60368ccb3810e0c060dd7
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75971494"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671576"
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Forum aux Questions sur Azure Databricks
 
@@ -40,11 +40,11 @@ Pour plus d’informations, consultez [Utiliser Azure Data Lake Storage avec Azu
 
 Vous trouverez ci-après certains problèmes éventuellement rencontrés avec Databricks.
 
-### <a name="issue-this-subscription-is-not-registered-to-use-the-namespace-microsoftdatabricks"></a>Problème : Cet abonnement n’est pas enregistré pour utiliser l’espace de noms « Microsoft.Databricks »
+### <a name="issue-this-subscription-is-not-registered-to-use-the-namespace-microsoftdatabricks"></a>Problème : Cet abonnement n’est pas inscrit pour utiliser l’espace de noms « Microsoft.Databricks »
 
 #### <a name="error-message"></a>Message d’erreur
 
-« Cet abonnement n’est pas inscrit pour utiliser l’espace de noms « Microsoft.Databricks ». Consultez https://aka.ms/rps-not-found pour découvrir comment enregistrer les abonnements. (Code : MissingSubscriptionRegistration)
+« Cet abonnement n’est pas inscrit pour utiliser l’espace de noms "Microsoft.Databricks". Consultez https://aka.ms/rps-not-found pour découvrir comment enregistrer les abonnements. (Code : MissingSubscriptionRegistration) »
 
 #### <a name="solution"></a>Solution
 
@@ -88,11 +88,20 @@ Si vous n’avez pas créé l’espace de travail et que vous êtes ajouté en t
 
 #### <a name="error-message"></a>Message d’erreur
 
-« Échec du lancement du fournisseur de cloud : une erreur de fournisseur de cloud s’est produite lors de la configuration du cluster. Pour plus d’informations, consultez le guide relatif à Databricks. Code d’erreur Azure : PublicIPCountLimitReached. Message d’erreur Azure : impossible de créer plus de 60 adresses IP publiques pour cet abonnement dans cette région. »
+« Échec du lancement du fournisseur de cloud : une erreur de fournisseur de cloud s’est produite lors de la configuration du cluster. Pour plus d’informations, consultez le guide relatif à Databricks. Code d’erreur Azure : PublicIPCountLimitReached. Message d’erreur Azure : Impossible de créer plus de 10 adresses IP publiques pour cet abonnement dans cette région. »
+
+#### <a name="background"></a>Arrière-plan
+
+Les clusters Databricks utilisent une adresse IP publique par nœud (y compris le nœud de pilote). Les abonnements Azure comportent des [limites d’adresses IP publiques](/azure/azure-resource-manager/management/azure-subscription-service-limits#publicip-address) par région. Ainsi, les opérations de création et de scale-up du cluster peuvent échouer si elles entraînent le dépassement de la limite du nombre d’adresses IP publiques allouées à cet abonnement dans cette région. Cette limite comprend également les adresses IP publiques allouées pour une utilisation autre que Databricks, par exemple les machines virtuelles personnalisées définies par l’utilisateur.
+
+En général, les clusters consomment uniquement des adresses IP publiques lorsqu’ils sont actifs. Toutefois, des erreurs `PublicIPCountLimitReached` peuvent continuer de se produire pendant une brève période de temps, même après l’arrêt des autres clusters. En effet, Databricks met temporairement en cache les ressources Azure lorsqu’un cluster s’arrête. La mise en cache des ressources est normale, car elle réduit considérablement la latence du démarrage du cluster et celle de la mise à l’échelle automatique dans de nombreux scénarios courants.
 
 #### <a name="solution"></a>Solution
 
-Les clusters Databricks utilisent une adresse IP publique par nœud. Si votre abonnement a déjà utilisé toutes ses adresses IP publiques, vous devez [demander à augmenter le quota](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request). Sélectionnez **Quota** en tant que **Type de problème** et **Réseau : ARM** en tant que **Type de quota**. Dans **Détails**, demandez une augmentation du quota d’adresses IP publiques. Par exemple, si votre limite est actuellement de 60 et que vous souhaitez créer un cluster de 100 nœuds, demandez une augmentation de cette limite à 160.
+Si votre abonnement a déjà atteint sa limite d’adresses IP publiques pour une région donnée, vous devez effectuer l’une ou l’autre des opérations suivantes.
+
+- Créer des clusters dans un autre espace de travail Databricks. L’autre espace de travail doit se trouver dans une région où vous n’avez pas atteint la limite d’adresses IP publiques de votre abonnement.
+- [Demander à augmenter votre limite d’adresses IP publiques](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request). Sélectionnez **Quota** en tant que **Type de problème** et **Réseau : ARM** en tant que **Type de quota**. Dans **Détails**, demandez une augmentation du quota d’adresses IP publiques. Par exemple, si votre limite est actuellement de 60 et que vous souhaitez créer un cluster de 100 nœuds, demandez une augmentation de cette limite à 160.
 
 ### <a name="issue-a-second-type-of-cloud-provider-launch-failure-while-setting-up-the-cluster-missingsubscriptionregistration"></a>Problème : Un second type d’échec du lancement du fournisseur de cloud lors de la configuration du cluster (MissingSubscriptionRegistration)
 
@@ -123,4 +132,3 @@ Connectez-vous au portail Azure en tant qu’administrateur. Pour Azure Active D
 
 - [Démarrage rapide : Bien démarrer avec Azure Databricks](quickstart-create-databricks-workspace-portal.md)
 - [Présentation d’Azure Databricks](what-is-azure-databricks.md)
-

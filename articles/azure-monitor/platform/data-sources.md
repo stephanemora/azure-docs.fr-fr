@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/19/2019
-ms.openlocfilehash: b2ec9fd70d1eb64c5968de0312941bfbc98d3033
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 2a5d1178bd6dbd6f7cfdd2ec2af17b78836a38d7
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77670523"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096735"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Sources des données de surveillance pour Azure Monitor
 Azure Monitor repose sur une [plateforme commune de données de surveillance](data-platform.md) qui inclut des [journaux](data-platform-logs.md) et des [métriques](data-platform-metrics.md). La collecte des données dans cette plate-forme permet d'analyser ensemble des données provenant de plusieurs ressources à l'aide d'un ensemble commun d'outils dans Azure Monitor. Les données de surveillance peuvent également être envoyées à d'autres endroits pour étayer certains scénarios, et certaines ressources peuvent écrire des données sur d'autres sites afin de consigner ces informations dans des journaux ou des métriques.
@@ -72,8 +72,8 @@ Le [journal d’activité Azure](platform-logs-overview.md) comprend des enregis
 |:---|:---|
 | Journal d’activité | Le journal d'activité est collecté dans sa propre banque de données que vous pouvez consulter depuis le menu Azure Monitor ou utiliser pour créer des alertes de journal d'activité. | [Interroger le journal d’activité dans le portail Azure](activity-log-view.md#azure-portal) |
 | Journaux Azure Monitor | Configurez les journaux Azure Monitor pour collecter le journal d'activité et l'analyser avec d'autres données de surveillance. | [Collecter et analyser les journaux d’activité Azure dans l’espace de travail Log Analytics dans Azure Monitor](activity-log-collect.md) |
-| Stockage Azure | Exportez le journal d'activité vers Stockage Azure à des fins d’archivage. | [Archiver le journal d’activité](activity-log-export.md#archive-activity-log)  |
-| Event Hubs | Diffuser en continu le journal d’activité sur d’autres emplacements à l'aide d’Event Hubs | [Diffuser en continu le journal d’activité vers Event Hubs](activity-log-export.md#stream-activity-log-to-event-hub). |
+| Stockage Azure | Exportez le journal d'activité vers Stockage Azure à des fins d’archivage. | [Archiver le journal d’activité](resource-logs-collect-storage.md)  |
+| Event Hubs | Diffuser en continu le journal d’activité sur d’autres emplacements à l'aide d’Event Hubs | [Diffuser en continu le journal d’activité vers Event Hubs](resource-logs-stream-event-hubs.md). |
 
 ### <a name="azure-service-health"></a>Azure Service Health
 [Azure Service Health](../../service-health/service-health-overview.md) fournit des informations sur l’intégrité des services Azure compris dans votre abonnement, dont dépendent votre application et vos ressources.
@@ -101,7 +101,7 @@ La plupart des services Azure envoient des [métriques de plateforme](data-platf
 ### <a name="resource-logs"></a>Journaux d’activité de ressources
 Les [journaux de ressources](platform-logs-overview.md) fournissent des insights sur le fonctionnement _interne_ d’une ressource Azure.  Les journaux de ressources sont créés automatiquement, mais vous devez créer un paramètre de diagnostic pour spécifier une destination pour eux.
 
-La configuration requise et le contenu des journaux de ressources varient selon le type de ressource, et tous les services ne créent pas encore de tels journaux. Consultez [Services, schémas et catégories pris en charge pour les journaux de ressources Azure](diagnostic-logs-schema.md) pour plus d’informations sur chaque service et des liens vers les procédures de configuration détaillées. Si le service n’est pas répertorié dans cet article, alors il ne crée actuellement pas de journaux d’activité de ressources.
+La configuration requise et le contenu des journaux de ressources varient selon le type de ressource, et tous les services ne créent pas encore de tels journaux. Consultez [Services, schémas et catégories pris en charge pour les journaux de ressources Azure](diagnostic-logs-schema.md) pour plus d’informations sur chaque service et des liens vers les procédures de configuration détaillées. Si le service n’est pas répertorié dans cet article, alors il ne crée actuellement pas de journaux de ressources.
 
 | Destination | Description | Informations de référence |
 |:---|:---|:---|

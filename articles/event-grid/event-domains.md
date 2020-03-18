@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: df560df21740d5396bc177e20de5d0eb4bf47713
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: f6698f91d7659f9fc2c314a9291380301146f8ed
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76511380"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898865"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Comprendre les domaines d’événements pour gérer les rubriques Event Grid
 
@@ -31,7 +31,7 @@ Les domaines d’événements mettent à votre disposition la même architecture
 
 ### <a name="example-use-case"></a>Exemple de cas d’usage
 
-Il est plus simple de partir d’un exemple pour expliquer les domaines d’événements. Disons que votre société, Contoso Construction Machinery, produit des tracteurs, du matériel d’excavation et autres machineries lourdes. Dans le cadre de la gestion de votre entreprise, vous envoyez des informations en temps réel à vos clients sur la maintenance des machines, l’état des systèmes et les mises à jour de vos contrats. Tout ceci est envoyé vers différents points de terminaison, dont votre application, des points de terminaison côté client ou toute autre infrastructure que des clients ont mise en place.
+Il est plus simple de partir d’un exemple pour expliquer les domaines d’événements. Supposez que votre société, Contoso Construction Machinery, produit des tracteurs, du matériel d’excavation et autres machineries lourdes. Dans le cadre de la gestion de votre entreprise, vous envoyez des informations en temps réel à vos clients sur la maintenance des machines, l’état des systèmes et les mises à jour de vos contrats. Tout ceci est envoyé vers différents points de terminaison, dont votre application, des points de terminaison côté client ou toute autre infrastructure que des clients ont mise en place.
 
 Les domaines d’événements vous permettent de modéliser Contoso Construction Machinery en une unique entité source d’événements. Chacun de vos clients est représenté en tant que rubrique au sein du domaine. L’authentification et l’autorisation sont gérées à l’aide d’Azure Active Directory. Chacun de vos clients peut s’abonner à sa rubrique et recevoir ses événements. L’accès géré via le domaine d’événements garantit qu’ils n’ont accès qu’à leur rubrique.
 
@@ -43,13 +43,13 @@ Il vous donne également un point de terminaison unique, dans lequel vous pouvez
 
 Avec un domaine, vous bénéficiez d’autorisations détaillées et du contrôle de l’authentification sur chaque rubrique via le contrôle d’accès en fonction du rôle (RBAC) d’Azure. Vous pouvez vous servir de ces rôles pour limiter l’accès de chaque abonné dans votre application aux rubriques que souhaitez uniquement.
 
-Le contrôle d’accès en fonction du rôle (RBAC) dans les domaines d’événements fonctionne de la même façon que le [contrôle d’accès géré](security-authentication.md#management-access-control) dans le reste d’Event Grid et d’Azure. Utilisez le contrôle d’accès en fonction du rôle (RBAC) pour créer et appliquer des définitions de rôles personnalisés dans des domaines d’événements.
+Le contrôle d’accès en fonction du rôle (RBAC) dans les domaines d’événements fonctionne de la même façon que le [contrôle d’accès géré](security-authorization.md) dans le reste d’Event Grid et d’Azure. Utilisez le contrôle d’accès en fonction du rôle (RBAC) pour créer et appliquer des définitions de rôles personnalisés dans des domaines d’événements.
 
 ### <a name="built-in-roles"></a>Vérification d’accès par rôle : rôles intégrés
 
 Event Grid possède deux définitions de rôles intégrées pour faciliter l’utilisation du contrôle d’accès en fonction du rôle (RBAC) avec des domaines d’événements. Ces rôles sont **EventGrid EventSubscription Contributor (préversion)** et **EventGrid EventSubscription Reader (préversion)** . Vous affectez ces rôles aux utilisateurs qui doivent s’abonner à des rubriques dans votre domaine d’événements. Vous étendez l’attribution de rôle uniquement à la rubrique à laquelle les utilisateurs doivent s’abonner.
 
-Pour plus d’informations sur ces rôles, voir [Rôles intégrés pour Event Grid](security-authentication.md#built-in-roles).
+Pour plus d’informations sur ces rôles, voir [Rôles intégrés pour Event Grid](security-authorization.md#built-in-roles).
 
 ## <a name="subscribing-to-topics"></a>S’abonner aux rubriques
 

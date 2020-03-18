@@ -7,12 +7,13 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 12/03/2019
 ms.author: helohr
-ms.openlocfilehash: c15662409f9f5badf50765b78bce7dd71e9fb1bc
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+manager: lizross
+ms.openlocfilehash: c7d9a5d576ceec301eba7436c1e0af34412ae854
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367169"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127587"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Configuration d’une machine virtuelle hôte de session
 
@@ -226,7 +227,7 @@ Plusieurs cas de figure peuvent entraîner un dysfonctionnement de la pile côte
 - Exécutions multiples de enablesxsstackrc.ps1
 - Exécution de enablesxsstackrc.ps1 dans un compte ne disposant pas de privilèges d’administrateur local
 
-Les instructions contenues dans cette section peuvent vous aider à désinstaller la pile de côte à côte Windows Virtual Desktop. Après avoir désinstallé la pile côte à côte, accédez à « Inscrire la machine virtuelle auprès du pool d'hôtes Windows Virtual Desktop » dans [Créer un pool d’hôtes avec PowerShell](create-host-pools-powershell.md) pour réinstaller la pile côte à côte.
+Les instructions contenues dans cette section peuvent vous aider à désinstaller la pile de côte à côte Windows Virtual Desktop. Après avoir désinstallé la pile côte à côte, accédez à « Inscrire la machine virtuelle auprès du pool d’hôtes Windows Virtual Desktop » dans [Créer un pool d’hôtes avec PowerShell](create-host-pools-powershell.md) pour réinstaller la pile côte à côte.
 
 La machine virtuelle utilisée pour exécuter la correction doit se trouver sur les mêmes sous-réseau et domaine que la machine virtuelle présentant un dysfonctionnement de pile côte à côte.
 
@@ -298,7 +299,7 @@ Si vous utilisez Microsoft Windows 10, suivez les instructions ci-dessous :
 
 ## <a name="remote-desktop-licensing-mode-isnt-configured"></a>Le mode de licence des services Bureau à distance n’est pas configuré
 
-Si vous vous connectez à Windows 10 Entreprise multisession à l’aide d’un compte d’administrateur, vous pouvez recevoir une notification indiquant que, « Le mode de licence des services Bureau à distance n’est pas configuré, les services Bureau à distance cesseront de fonctionner dans X jours. Sur le serveur Broker pour les connexions, utilisez le gestionnaire de serveur pour spécifier le mode de licence des services Bureau à distance. »
+Si vous vous connectez à Windows 10 Entreprise multisession à l’aide d’un compte d’administrateur, vous pouvez recevoir une notification indiquant ceci : « Le mode de licence des services Bureau à distance n’est pas configuré, les services Bureau à distance cesseront de fonctionner dans X jours. Sur le serveur Broker pour les connexions, utilisez le gestionnaire de serveur pour spécifier le mode de licence des services Bureau à distance. »
 
 Si le délai limite expire, le message d’erreur « La session distante a été déconnectée, car aucune licence d’accès client Bureau à distance n’est disponible pour cet ordinateur » s’affiche.
 

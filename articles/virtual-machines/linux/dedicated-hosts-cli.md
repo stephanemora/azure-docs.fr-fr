@@ -1,20 +1,17 @@
 ---
-title: Déployer des hôtes dédiés Azure à l’aide de CLI
+title: Déployer des machines virtuelles Linux sur des hôtes dédiés à l’aide d’Azure CLI
 description: Déployez des machines virtuelles sur des hôtes dédiés à l’aide d’Azure CLI.
-services: virtual-machines-linux
 author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure
 ms.date: 01/09/2020
 ms.author: cynthn
-ms.openlocfilehash: ab9d7128748e99b75b7e1a7187a7958e18300759
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: ba40e610e31a1215ac90baf63a04b435b636d68a
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77483480"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127699"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-azure-cli"></a>Déployez des machines virtuelles sur des hôtes dédiés à l’aide d’Azure CLI
  
@@ -27,7 +24,7 @@ Vérifiez que vous avez installé Azure CLI version 2.0.70 ou version ultérieur
 ## <a name="limitations"></a>Limites
 
 - Actuellement, les hôtes dédiés ne prennent pas en charge les groupes de machines virtuelles identiques.
-- La version initiale prend en charge les séries de machines virtuelles suivantes : DSv3, ESv3, FSv2, LSv2 et MSv2. 
+- Les tailles et les types de matériel disponibles pour les hôtes dédiés varient selon la région. Pour en savoir plus, consultez la [page de tarification de l’hôte](https://aka.ms/ADHPricing).
  
 
 ## <a name="create-resource-group"></a>Créer un groupe de ressources 
@@ -80,7 +77,7 @@ az vm host group create \
  
 ## <a name="create-a-host"></a>Créer un hôte 
 
-À présent, créons un hôte dédié dans le groupe hôte. En plus d’un nom pour l’hôte, vous devez fournir la référence SKU pour l’hôte. La référence SKU de l’hôte capture la série de machines virtuelles prises en charge, ainsi que la génération du matériel pour l’hôte dédié.  Les valeurs SKU sont prises en charge : DSv3_Type1 et ESv3_Type1.
+À présent, créons un hôte dédié dans le groupe hôte. En plus d’un nom pour l’hôte, vous devez fournir la référence SKU pour l’hôte. La référence SKU de l’hôte capture la série de machines virtuelles prises en charge, ainsi que la génération du matériel pour l’hôte dédié.  
 
 Pour en savoir plus sur les références SKU et la tarification des hôtes, consultez la section relative à la [tarification des hôtes dédiés Azure](https://aka.ms/ADHPricing).
 

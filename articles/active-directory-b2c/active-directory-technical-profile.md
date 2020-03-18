@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/13/2020
+ms.date: 03/09/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 06c9e79a68540cb10557b0951b743bf841963057
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: a621165210702e075f15fb61bd615e157f997fe1
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78190260"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79078868"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique Azure Active Directory dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -28,8 +28,8 @@ Azure Active Directory B2C (Azure AD B2C) prend en charge la gestion des utilisa
 
 L’attribut **Name** de l’élément **Protocol** doit être défini sur `Proprietary`. L’attribut **handler** doit contenir le nom complet de l’assembly du gestionnaire de protocole`Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
 
-Tous les profils techniques Azure AD incluent le profil technique **AAD-Common**. Les profils techniques suivants ne spécifient pas le protocole parce que celui-ci est configuré dans le profil technique **AAD-Common** :
-
+Faisant suite au [pack de démarrage de stratégie personnalisée](custom-policy-get-started.md#custom-policy-starter-pack), les profils techniques Azure AD incluent le profil technique **AAD-Common**. Les profils techniques Azure AD ne spécifient pas le protocole parce que celui-ci est configuré dans le profil technique **AAD-Common** :
+ 
 - **AAD-UserReadUsingAlternativeSecurityId** et **UserReadUsingAlternativeSecurityId-AAD-NoError** : rechercher un compte de réseau social dans le répertoire.
 - **AAD-UserWriteUsingAlternativeSecurityId** : créer un compte de réseau social.
 - **AAD-UserReadUsingEmailAddress** : rechercher un compte local dans le répertoire.
@@ -56,21 +56,21 @@ L’exemple suivant montre le profil technique **AAD-Common** :
 </TechnicalProfile>
 ```
 
-## <a name="input-claims"></a>Revendications d’entrée
+## <a name="inputclaims"></a>InputClaims
 
-Les profils techniques suivantes incluent **InputClaims** pour les comptes de réseaux sociaux et locaux :
+L’élément InputClaims contient une revendication qui est utilisée pour rechercher un compte dans l’annuaire, ou pour en créer un. Il doit y avoir exactement un élément InputClaim dans la collection de revendications d’entrée pour tous les profils techniques Azure AD. Il se peut que vous deviez mapper le nom de la revendication définie dans votre stratégie au nom défini dans Azure Active Directory.
 
-- Les profils techniques de compte de réseau social **AAD-UserReadUsingAlternativeSecurityId** et **AAD-UserWriteUsingAlternativeSecurityId** incluent la revendication **AlternativeSecurityId**. Cette revendication contient l’identificateur d’utilisateur du compte de réseau social.
-- Les profils techniques de compte local **AAD-UserReadUsingEmailAddress** et **AAD-UserWriteUsingLogonEmail** incluent la revendication **email**. Cette revendication contient le nom de connexion du compte local.
-- Les profils techniques (locaux et sociaux) unifiées **AAD-UserReadUsingObjectId**, **AAD-UserWritePasswordUsingObjectId**, **AAD-UserWriteProfileUsingObjectId** et **AAD-UserWritePhoneNumberUsingObjectId** incluent la revendication **objectId**. Identificateur unique d’un compte.
+Pour lire, mettre à jour ou supprimer un compte d’utilisateur existant, la revendication d’entrée est une clé qui identifie de façon unique le compte dans l’annuaire Azure AD. Par exemple, **objectId**, **userPrincipalName**, **signInNames.emailAddress**, **signInNames.userName** ou **alternativeSecurityId**. 
 
-L’élément **InputClaimsTransformations** peut contenir une collection d’éléments **InputClaimsTransformation** qui sont utilisés pour modifier les revendications de sortie ou en générer de nouvelles.
+Pour créer un compte d’utilisateur, la revendication d’entrée est une clé qui identifie de façon unique un compte local ou fédéré. Par exemple, un compte local : **signInNames.emailAddress** ou **signInNames.userName**. Pour un compte fédéré : **alternativeSecurityId**.
 
-## <a name="output-claims"></a>Revendications de sortie
+L’élément [InputClaimsTransformations](technicalprofiles.md#inputclaimstransformations) peut contenir une collection d’éléments de transformation de revendications d’entrée qui sont utilisés pour modifier la revendication d’entrée ou en générer une nouvelle.
+
+## <a name="outputclaims"></a>OutputClaims
 
 L’élément **OutputClaims** contient une liste de revendications retournée par le profil technique Azure AD. Il se peut que vous deviez mapper le nom de la revendication définie dans votre stratégie au nom défini dans Azure Active Directory. Vous pouvez également inclure des revendications qui ne sont pas retournées par Azure Active Directory, pour autant que vous définissiez l’attribut `DefaultValue`.
 
-L’élément **OutputClaimsTransformations** peut contenir une collection d’éléments **OutputClaimsTransformation** qui sont utilisés pour modifier les revendications de sortie ou en générer de nouvelles.
+L’élément [OutputClaimsTransformations](technicalprofiles.md#outputclaimstransformations) peut contenir une collection d’éléments **OutputClaimsTransformation** qui sont utilisés pour modifier les revendications de sortie ou en générer de nouvelles.
 
 Par exemple, le profil technique **AAD-UserWriteUsingLogonEmail** crée un compte local et retourne les revendications suivantes :
 
@@ -92,7 +92,7 @@ Par exemple, le profil technique **AAD-UserWriteUsingLogonEmail** crée un compt
 
 ## <a name="persistedclaims"></a>PersistedClaims
 
-L’élément **PersistedClaims** contient toutes les valeurs qui doivent être conservées par Azure AD, avec des informations de mappage possible entre un type de revendication déjà défini dans la section ClaimsSchema dans la stratégie et le nom d’attribut Azure AD.
+L’élément **PersistedClaims** contient toutes les valeurs qui doivent être conservées par Azure AD, avec des informations de mappage possible entre un type de revendication déjà défini à la section [ClaimsSchema](claimsschema.md) dans la stratégie et le nom d’attribut Azure AD.
 
 Le profil technique **AAD-UserWriteUsingLogonEmail**, qui crée un nouveau compte local, conserve les revendications suivantes :
 
@@ -123,9 +123,7 @@ Le nom de la revendication est le nom de l’attribut Azure AD, sauf si l’attr
 
 ### <a name="read"></a>Lire
 
-L’opération **Read** lit les données sur un seul compte d’utilisateur. Pour lire des données utilisateur, vous devez fournir une clé en tant que revendication d’entrée, telle que **objectId**, **userPrincipalName**, **signInNames** (de tout type, nom d’utilisateur, compte de courrier...) ou **alternativeSecurityId**.
-
-Le profil technique suivant lit les données d’un compte d’utilisateur à l’aide de l’objectId de l’utilisateur :
+L’opération **Read** lit les données sur un seul compte d’utilisateur. Le profil technique suivant lit les données d’un compte d’utilisateur à l’aide de l’objectId de l’utilisateur :
 
 ```XML
 <TechnicalProfile Id="AAD-UserReadUsingObjectId">
@@ -155,9 +153,7 @@ Le profil technique suivant lit les données d’un compte d’utilisateur à l�
 
 ### <a name="write"></a>Write
 
-L’opération **Write** crée ou met à jour un seul compte d’utilisateur. Pour écrire un compte d’utilisateur, vous devez fournir une clé en tant que revendication d’entrée, telle que **objectId**, **userPrincipalName**, **signInNames.emailAddress** ou  **alternativeSecurityId**.
-
-Le profil technique suivant crée un compte de réseau social :
+L’opération **Write** crée ou met à jour un seul compte d’utilisateur. Le profil technique suivant crée un compte de réseau social :
 
 ```XML
 <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
@@ -197,9 +193,7 @@ Le profil technique suivant crée un compte de réseau social :
 
 ### <a name="deleteclaims"></a>DeleteClaims
 
-L’opération **DeleteClaims** efface les informations d’une liste fournie de revendications. Pour supprimer des informations de revendications, vous devez fournir une clé en tant que revendication d’entrée, telles que **objectId**, **userPrincipalName**, **signInNames.emailAddress** ou **alternativeSecurityId**.
-
-Le profil technique suivant supprime les revendications :
+L’opération **DeleteClaims** efface les informations d’une liste fournie de revendications. Le profil technique suivant supprime les revendications :
 
 ```XML
 <TechnicalProfile Id="AAD-DeleteClaimsUsingObjectId">
@@ -220,9 +214,7 @@ Le profil technique suivant supprime les revendications :
 
 ### <a name="deleteclaimsprincipal"></a>DeleteClaimsPrincipal
 
-L’opération **DeleteClaimsPrincipal** supprime un seul compte d’utilisateur de l’annuaire. Pour supprimer un compte d’utilisateur, vous devez fournir une clé en tant que revendication d’entrée, telle que **objectId**, **userPrincipalName**, **signInNames.emailAddress** ou  **alternativeSecurityId**.
-
-Le profil technique suivant supprime un compte d’utilisateur du répertoire en utilisant le nom d’utilisateur principal :
+L’opération **DeleteClaimsPrincipal** supprime un seul compte d’utilisateur de l’annuaire. Le profil technique suivant supprime un compte d’utilisateur du répertoire en utilisant le nom d’utilisateur principal :
 
 ```XML
 <TechnicalProfile Id="AAD-DeleteUserUsingObjectId">
@@ -257,12 +249,26 @@ Le profil technique suivant supprime un compte d’utilisateur social en utilisa
 | --------- | -------- | ----------- |
 | Opération | Oui | Opération à effectuer. Valeurs possibles : `Read`, `Write`, `DeleteClaims` ou `DeleteClaimsPrincipal`. |
 | RaiseErrorIfClaimsPrincipalDoesNotExist | Non | Génère une erreur si l’objet utilisateur n’existe pas dans le répertoire. Valeurs possibles : `true` ou `false`. |
-| UserMessageIfClaimsPrincipalDoesNotExist | Non | Si une erreur doit être déclenchée (voir la description de l’attribut RaiseErrorIfClaimsPrincipalDoesNotExist), spécifiez le message à afficher à l’utilisateur si l’objet utilisateur n’existe pas. La valeur peut être [localisée](localization.md).|
 | RaiseErrorIfClaimsPrincipalAlreadyExists | Non | Génère une erreur si l’objet utilisateur existe déjà. Valeurs possibles : `true` ou `false`.|
-| UserMessageIfClaimsPrincipalAlreadyExists | Non | Si une erreur doit être déclenchée (voir la description de l’attribut RaiseErrorIfClaimsPrincipalAlreadyExists), spécifiez le message à afficher à l’utilisateur si l’objet utilisateur existe déjà. La valeur peut être [localisée](localization.md).|
 | ApplicationObjectId | Non | Identificateur d’objet d’application pour les attributs d’extension. Valeur : ObjectId d'une application. Pour plus d’informations, voir [Utiliser des attributs personnalisés dans une stratégie personnalisée de modification de profil](custom-policy-custom-attributes.md). |
 | ClientId | Non | Identificateur client pour accéder au locataire en tant que tiers. Pour plus d’informations, voir [Utiliser des attributs personnalisés dans une stratégie personnalisée de modification de profil](custom-policy-custom-attributes.md). |
-| IncludeClaimResolvingInClaimsHandling  | Non | Pour les revendications d’entrée et de sortie, spécifie si la [résolution des revendications](claim-resolver-overview.md) est incluse dans le profil technique. Valeurs possibles : `true` ou `false` (par défaut). Si vous voulez utiliser un résolveur de revendications dans le profil technique, définissez ceci sur `true`. |
+| IncludeClaimResolvingInClaimsHandling  | Non | Pour les revendications d’entrée et de sortie, spécifie si la [résolution des revendications](claim-resolver-overview.md) est incluse dans le profil technique. Valeurs possibles : `true` ou `false` (par défaut). Si vous souhaitez utiliser un programme de résolution des revendications dans le profil technique, définissez cette valeur sur `true`. |
+
+### <a name="error-messages"></a>Messages d’erreur
+ 
+Les paramètres suivants peuvent être utilisés pour configurer le message d’erreur affiché en cas d’échec. Les métadonnées doivent être configurées dans le profil technique [autodéclaré](self-asserted-technical-profile.md). Les messages d’erreur peuvent être [localisés](localization.md).
+
+| Attribut | Obligatoire | Description |
+| --------- | -------- | ----------- |
+| UserMessageIfClaimsPrincipalAlreadyExists | Non | Si une erreur doit être déclenchée (voir la description de l’attribut RaiseErrorIfClaimsPrincipalAlreadyExists), spécifiez le message à afficher à l’utilisateur si l’objet utilisateur existe déjà. |
+| UserMessageIfClaimsPrincipalDoesNotExist | Non | Si une erreur doit être déclenchée (voir la description de l’attribut RaiseErrorIfClaimsPrincipalDoesNotExist), spécifiez le message à afficher à l’utilisateur si l’objet utilisateur n’existe pas. |
+
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Consultez l’article suivant pour obtenir un exemple d’utilisation d’un profil technique Azure AD :
+
+- [Ajouter des revendications et personnaliser l’entrée utilisateur avec des stratégies personnalisées dans Azure Active Directory B2C](custom-policy-configure-user-input.md)
 
 
 

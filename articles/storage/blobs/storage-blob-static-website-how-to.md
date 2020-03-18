@@ -6,13 +6,13 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
-ms.date: 05/28/2019
-ms.openlocfilehash: 35b5a85ea6fba87e785b581a7a20d0c28f312820
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.date: 03/04/2020
+ms.openlocfilehash: e312cc0dc6c58bb33a737e1fc28dd6eb3578b764
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484143"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330258"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Héberger un site web statique dans Stockage Azure
 
@@ -20,25 +20,35 @@ Vous pouvez servir du contenu statique (fichiers HTML, CSS, JavaScript et images
 
 Cet article explique comment activer l’hébergement de site web statique avec le Portail Azure, Azure CLI ou PowerShell.
 
-<a id="portal" />
+## <a name="enable-static-website-hosting"></a>Activer l’hébergement des sites web statiques
 
-## <a name="portal"></a>[Portail](#tab/azure-portal)
+L’hébergement de site web statique est une fonctionnalité que vous devez activer sur le compte de stockage.
 
-Pour obtenir un tutoriel pas à pas, consultez [Tutoriel : Héberger un site web statique sur le Stockage Blob](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-host).
+### <a name="portal"></a>[Portail](#tab/azure-portal)
 
-Après avoir activé l’hébergement de site web statique, vous pouvez afficher les pages de votre dans un navigateur en utilisant l’URL publique du site web.
+1. Pour commencer, connectez-vous au [portail Azure](https://portal.azure.com/).
 
-<a id="portal-find-url" />
+2. Recherchez votre compte de stockage et affichez la vue d’ensemble du compte.
 
-### <a name="find-the-website-url-by-using-the-azure-portal"></a>Trouver l’URL du site web à l’aide du portail Azure
+3. Sélectionnez **Site web statique** pour afficher la page de configuration des sites web statiques.
 
-Dans le volet qui s’affiche en regard de la page de Vue d’ensemble du compte de votre compte de stockage, sélectionnez **Site web statique**. L’URL de votre site s’affiche dans le champ **Point de terminaison principal**.
+4. Sélectionnez **Activé** pour activer l’hébergement de site web statique pour le compte de stockage.
 
-![Métrique des métriques de sites web statiques dans Stockage Azure](./media/storage-blob-static-website/storage-blob-static-website-url.png)
+5. Dans le champ **Nom du document d’index**, spécifiez une page d’index par défaut (par exemple, *index.html*). 
+
+   La page d’index par défaut s’affiche quand un utilisateur accède à la racine de votre site web statique.  
+
+6. Dans le champ **Chemin du document d’erreur**, spécifiez une page d’erreur par défaut (par exemple, *404.html*). 
+
+   La page d’erreur par défaut s’affiche quand un utilisateur tente d’accéder à une page qui n’existe pas dans votre site web statique.
+
+7. Cliquez sur **Enregistrer**. Le portail Azure affiche maintenant le point de terminaison de votre site web statique. 
+
+    ![Activer l’hébergement de site web statique pour un compte de stockage](media/storage-blob-static-website-host/enable-static-website-hosting.png)
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 <a id="cli" />
-
-## <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Vous pouvez activer l’hébergement de site web statique à l’aide de l’[interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) (Azure CLI).
 
@@ -64,45 +74,9 @@ Vous pouvez activer l’hébergement de site web statique à l’aide de l’[in
 
    * Remplacez la valeur d’espace réservé `<index-document-name>` par le nom du document d’index. Ce document est généralement « index.html ».
 
-4. Chargez des objets dans le conteneur *$web* à partir d’un répertoire source.
-
-   > [!NOTE]
-   > Si vous utilisez Azure Cloud Shell, veillez à ajouter un `\`caractère d’échappement lorsque vous faites référence au`$web` conteneur (par exemple, `\$web`). Si vous utilisez une installation locale d’Azure CLI, vous ne devez pas utiliser le caractère d’échappement.
-
-   Cet exemple part du principe que vous exécutez des commandes à partir d’une session Azure Cloud Shell.
-
-   ```azurecli-interactive
-   az storage blob upload-batch -s <source-path> -d \$web --account-name <storage-account-name> --content-type 'text/html; charset=utf-8'
-   ```
-
-   * Remplacez la valeur d’espace réservé `<storage-account-name>` par le nom de votre compte de stockage.
-
-   * Remplacez la valeur d’espace réservé `<source-path>` par le chemin d’accès de l’emplacement où se trouvent les fichiers que vous voulez charger.
-
-   > [!NOTE]
-   > Si vous utilisez l’emplacement d’installation d’Azure CLI, vous pouvez utiliser le chemin d’accès de tout emplacement sur votre ordinateur local. Par exemple : `C:\myFolder`.
-   >
-   > Si vous utilisez Azure Cloud Shell, vous devez faire référence à un partage de fichiers visible pour Cloud Shell. Cet emplacement peut être le partage de fichiers du partage cloud ou un partage de fichiers existant que vous montez à partir du Cloud Shell. Pour savoir comment procéder, voir [Conserver des fichiers dans Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage).
-
-<a id="cli-find-url" />
-
-### <a name="find-the-website-url-by-using-the-azure-cli"></a>Trouver l’URL du site web à l’aide d’Azure CLI
-
-Vous pouvez afficher le contenu dans un navigateur en utilisant l’URL publique du site web.
-
-Recherchez l’URL à l’aide de la commande suivante :
-
-```azurecli-interactive
-az storage account show -n <storage-account-name> -g <resource-group-name> --query "primaryEndpoints.web" --output tsv
-```
-
-* Remplacez la valeur d’espace réservé `<storage-account-name>` par le nom de votre compte de stockage.
-
-* Remplacez la valeur d’espace réservé `<resource-group-name>` par le nom de votre groupe de ressources.
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 <a id="powershell" />
-
-## <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Vous pouvez activer l’hébergement de site web statique à l’aide du module Azure PowerShell.
 
@@ -152,28 +126,101 @@ Vous pouvez activer l’hébergement de site web statique à l’aide du module 
 
    * Remplacez la valeur d’espace réservé `<index-document-name>` par le nom du document d’index. Ce document est généralement « index.html ».
 
-7. Chargez des objets dans le conteneur *$web* à partir d’un répertoire source.
+---
 
-    ```powershell
-    # upload a file
-    set-AzStorageblobcontent -File "<path-to-file>" `
-    -Properties @{ ContentType = "text/html; charset=utf-8";} `
-    -Container `$web `
-    -Blob "<blob-name>" `
-    -Context $ctx
-     ```
+## <a name="upload-files"></a>Charger des fichiers 
 
-   * Remplacez la valeur d’espace réservé `<path-to-file>` par le chemin d’accès complet du fichier que vous souhaitez charger (par exemple, `C:\temp\index.html`).
+### <a name="portal"></a>[Portail](#tab/azure-portal)
 
-   * Remplacez la valeur d’espace réservé `<blob-name>` par le nom que vous souhaitez attribuer à l’objet blob obtenu (par exemple, `index.html`).
+Ces instructions vous indiquent comment charger des fichiers à l’aide de la version de l’Explorateur Stockage qui figure dans le portail Azure. Toutefois, vous pouvez également utiliser la version de l’[Explorateur Stockage](https://azure.microsoft.com/features/storage-explorer/) qui est exécutée en dehors du portail Azure. Vous pouvez utiliser [AzCopy](../common/storage-use-azcopy-v10.md), PowerShell, CLI ou n’importe quelle application personnalisée capable de charger des fichiers dans le conteneur **$web** de votre compte. Pour obtenir la procédure pas à pas qui permet de charger des fichiers à l’aide de Visual Studio Code, consultez [Tutoriel : Héberger un site web statique sur le Stockage Blob](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-host).
+
+1. Sélectionnez **Explorateur Stockage (préversion)** .
+
+2. Développez le nœud **Conteneurs d’objets blob**, puis sélectionnez le conteneur **$web**.
+
+3. Choisissez le bouton **Charger** pour charger des fichiers.
+
+   ![Charger des fichiers](media/storage-blob-static-website/storage-blob-static-website-upload.png)
+
+4. Si vous souhaitez que le navigateur affiche le contenu du fichier, vérifiez que le type de contenu de ce fichier est défini sur `text/html`. 
+
+   ![Vérifier le type du contenu](media/storage-blob-static-website/storage-blob-static-website-content-type.png)
+
+   >[!NOTE]
+   > L’Explorateur Stockage définit automatiquement cette propriété sur `text/html` pour les extensions courantes comme `.html`. Toutefois, dans certains cas, vous devrez la définir vous-même. Si vous ne définissez pas cette propriété sur `text/html`, le navigateur invitera les utilisateurs à télécharger le fichier au lieu d’afficher son contenu. Pour définir cette propriété, cliquez avec le bouton droit sur le fichier, puis cliquez sur **Propriétés**.
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Chargez des objets dans le conteneur *$web* à partir d’un répertoire source.
+
+> [!NOTE]
+> Si vous utilisez Azure Cloud Shell, veillez à ajouter un `\`caractère d’échappement lorsque vous faites référence au`$web` conteneur (par exemple, `\$web`). Si vous utilisez une installation locale d’Azure CLI, vous ne devez pas utiliser le caractère d’échappement.
+
+Cet exemple part du principe que vous exécutez des commandes à partir d’une session Azure Cloud Shell.
+
+```azurecli-interactive
+az storage blob upload-batch -s <source-path> -d \$web --account-name <storage-account-name> --content-type 'text/html; charset=utf-8'
+```
+
+* Remplacez la valeur d’espace réservé `<storage-account-name>` par le nom de votre compte de stockage.
+
+* Remplacez la valeur d’espace réservé `<source-path>` par le chemin d’accès de l’emplacement où se trouvent les fichiers que vous voulez charger.
+
+> [!NOTE]
+> Si vous utilisez l’emplacement d’installation d’Azure CLI, vous pouvez utiliser le chemin d’accès de tout emplacement sur votre ordinateur local. Par exemple : `C:\myFolder`.
+>
+> Si vous utilisez Azure Cloud Shell, vous devez faire référence à un partage de fichiers visible pour Cloud Shell. Cet emplacement peut être le partage de fichiers du partage cloud ou un partage de fichiers existant que vous montez à partir du Cloud Shell. Pour savoir comment procéder, voir [Conserver des fichiers dans Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage).
+
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Chargez des objets dans le conteneur *$web* à partir d’un répertoire source.
+
+```powershell
+# upload a file
+set-AzStorageblobcontent -File "<path-to-file>" `
+-Properties @{ ContentType = "text/html; charset=utf-8";} `
+-Container `$web `
+-Blob "<blob-name>" `
+-Context $ctx
+```
+
+* Remplacez la valeur d’espace réservé `<path-to-file>` par le chemin d’accès complet du fichier que vous souhaitez charger (par exemple, `C:\temp\index.html`).
+
+* Remplacez la valeur d’espace réservé `<blob-name>` par le nom que vous souhaitez attribuer à l’objet blob obtenu (par exemple, `index.html`).
+
+---
+
+## <a name="find-the-website-url-by-using-the-azure-portal"></a>Trouver l’URL du site web à l’aide du portail Azure
+
+Vous pouvez afficher les pages de votre site dans un navigateur en utilisant l’URL publique du site web.
+
+### <a name="portal"></a>[Portail](#tab/azure-portal)
+
+<a id="portal-find-url" />
+
+Dans le volet qui s’affiche en regard de la page de Vue d’ensemble du compte de votre compte de stockage, sélectionnez **Site web statique**. L’URL de votre site s’affiche dans le champ **Point de terminaison principal**.
+
+![Métrique des métriques de sites web statiques dans Stockage Azure](./media/storage-blob-static-website/storage-blob-static-website-url.png)
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+<a id="cli-find-url" />
+
+Recherchez l’URL publique de votre site web statique à l’aide de la commande suivante :
+
+```azurecli-interactive
+az storage account show -n <storage-account-name> -g <resource-group-name> --query "primaryEndpoints.web" --output tsv
+```
+
+* Remplacez la valeur d’espace réservé `<storage-account-name>` par le nom de votre compte de stockage.
+
+* Remplacez la valeur d’espace réservé `<resource-group-name>` par le nom de votre groupe de ressources.
+
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 <a id="powershell-find-url" />
 
-### <a name="find-the-website-url-by-using-powershell"></a>Trouver l’URL du site web à l’aide de PowerShell
-
-Vous pouvez afficher le contenu dans un navigateur en utilisant l’URL publique du site web.
-
-Recherchez l’URL à l’aide de la commande suivante :
+Recherchez l’URL publique de votre site web statique à l’aide de la commande suivante :
 
 ```powershell
  $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -Name "<storage-account-name>"
@@ -184,9 +231,9 @@ Write-Output $storageAccount.PrimaryEndpoints.Web
 
 * Remplacez la valeur d’espace réservé `<storage-account-name>` par le nom de votre compte de stockage.
 
-<a id="metrics" />
-
 ---
+
+<a id="metrics" />
 
 ## <a name="enable-metrics-on-static-website-pages"></a>Activer les métriques sur des pages de site web statiques
 

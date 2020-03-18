@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: 1d203fd0c6777eee96311f45f4d5dfb8728ff431
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 495bdcfb619ff17a4a4b074fa673c5d2fb185730
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210599"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970525"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Chiffrement côté serveur de Disques managés Azure
 
@@ -38,7 +38,7 @@ Vous pouvez choisir de gérer le chiffrement au niveau de chaque disque managé,
 
 Le diagramme suivant montre comment les disques managés utilisent Azure Active Directory et Azure Key Vault pour effectuer des demandes en utilisant la clé gérée par le client :
 
-![Disques managés et workflow de clés gérées par le client. Un administrateur crée un Azure Key Vault et crée et configure un ensemble de chiffrement de disque. L’ensemble est associé à une machine virtuelle qui permet au disque d’utiliser Azure AD pour s’authentifier.](media/disk-storage-encryption/customer-managed-keys-sse-managed-disks-workflow.png)
+![Workflow de disques managés et de clés gérées par le client. Un administrateur crée un Azure Key Vault, puis crée et configure un jeu de chiffrement de disque. Le jeu est associé à une machine virtuelle qui permet au disque d’utiliser Azure AD pour s’authentifier](media/disk-storage-encryption/customer-managed-keys-sse-managed-disks-workflow.png)
 
 
 La liste suivante décrit le diagramme plus en détail :
@@ -72,6 +72,7 @@ Pour le moment, les clés gérées par le client sont soumises aux restrictions 
 - Toutes les ressources liées à vos clés gérées par le client (coffres de clés Azure, jeux de chiffrement de disque, machines virtuelles, disques et instantanés) doivent se trouver dans le même abonnement et la même région.
 - Les disques, les instantanés et les images chiffrées avec des clés gérées par le client ne peuvent pas être déplacés vers un autre abonnement.
 - Si vous utilisez le portail Azure pour créer votre jeu de chiffrement de disque, vous ne pouvez pas utiliser d’instantanés pour l’instant.
+- Les disques managés chiffrés à l’aide de clés gérées par le client ne peuvent pas être chiffrés avec Azure Disk Encryption.
 
 ### <a name="cli"></a>Interface de ligne de commande
 #### <a name="setting-up-your-azure-key-vault-and-diskencryptionset"></a>Configuration de d’Azure Key Vault et de DiskEncryptionSet

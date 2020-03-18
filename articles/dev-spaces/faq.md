@@ -5,12 +5,12 @@ ms.date: 01/28/2020
 ms.topic: conceptual
 description: Obtenez des réponses aux questions les plus fréquemment posées sur Azure Dev Spaces.
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s '
-ms.openlocfilehash: 285fdb7892d2da40dd50e025cb1dd7644ec17ae0
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.openlocfilehash: 7439af9c5f936d309df655ca6fa301c39fa3f9ec
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78255725"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79117805"
 ---
 # <a name="frequently-asked-questions-about-azure-dev-spaces"></a>Forum aux questions sur Azure Dev Spaces
 
@@ -19,6 +19,10 @@ Cet article répond aux questions fréquemment posées sur Azure Dev Spaces.
 ## <a name="which-azure-regions-currently-provide-azure-dev-spaces"></a>Quelles régions Azure proposent actuellement Azure Dev Spaces ?
 
 Pour obtenir la liste complète des régions disponibles, consultez les [régions prises en charge][supported-regions].
+
+## <a name="can-i-migrate-my-aks-cluster-with-azure-dev-spaces-to-another-region"></a>Puis-je migrer mon cluster AKS avec Azure Dev Spaces vers une autre région ?
+
+Oui. Si vous souhaitez déplacer votre cluster AKS avec Azure Dev Spaces vers une autre [région prise en charge][supported-regions], nous vous recommandons de créer un cluster dans l’autre région, puis d’installer et de configurer Azure Dev Spaces et de déployer vos ressources et applications sur votre nouveau cluster. Pour plus d’informations sur la migration d’AKS, consultez [Migrer vers Azure Kubernetes Service (AKS)][aks-migration].
 
 ## <a name="can-i-use-azure-dev-spaces-with-existing-dockerfiles-or-helm-charts"></a>Puis-je utiliser Azure Dev Spaces avec des fichiers Dockerfile ou des graphiques Helm existants ?
 
@@ -73,10 +77,17 @@ Oui, vous pouvez utiliser Azure Dev Spaces sur des clusters AKS compatibles ou n
 
 Lorsque vous utilisez Visual Studio pour préparer votre projet, vous avez la possibilité d’activer l’entrée pour votre service. L’activation de l’entrée crée un point de terminaison public permettant d’accéder à votre service lors de son exécution sur votre cluster AKS, ce qui est facultatif. Si vous n’activez pas l’entrée, votre service est uniquement accessible à partir de votre cluster AKS.
 
+## <a name="can-i-use-pod-managed-identities-with-azure-dev-spaces"></a>Puis-je utiliser des identités de pod managées avec Azure Dev Spaces ?
+
+Actuellement, Azure Dev Spaces ne prend pas en charge l’utilisation d’[identités de pod managées][aks-pod-managed-id] sur les clusters AKS avec Azure Dev Spaces activé. Si vous avez installé des identités de pod managées et que vous souhaitez les désinstaller, vous trouverez plus de détails dans les notes de [désinstallation][aks-pod-managed-id-uninstall].
+
 [aks-auth-range]: ../aks/api-server-authorized-ip-ranges.md
 [aks-auth-range-create]: ../aks/api-server-authorized-ip-ranges.md#create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled
 [aks-auth-range-ranges]: https://github.com/Azure/dev-spaces/tree/master/public-ips
 [aks-auth-range-update]: ../aks/api-server-authorized-ip-ranges.md#update-a-clusters-api-server-authorized-ip-ranges
+[aks-migration]: ../aks/aks-migration.md
+[aks-pod-managed-id]: ../aks/developer-best-practices-pod-security.md#use-pod-managed-identities
+[aks-pod-managed-id-uninstall]: https://github.com/Azure/aad-pod-identity#uninstall-notes
 [aks-restrict-egress-traffic]: ../aks/limit-egress-traffic.md
 [dev-spaces-prep]: how-dev-spaces-works.md#prepare-your-code
 [dev-spaces-routing]: how-dev-spaces-works.md#how-routing-works

@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 08/22/2019
-ms.openlocfilehash: 05a466d52d89fa021235c10e7187900c350b5e50
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.date: 03/05/2020
+ms.openlocfilehash: 24ca37f5610589ae675a47a1dd966871b3004800
+ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77086934"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78851260"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Déployer un modèle à l’aide d’une image de base Docker personnalisée
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -41,14 +41,14 @@ Ce document est divisé en deux sections :
 * Créer une image de base personnalisée : présente des informations aux administrateurs et DevOps sur la création d’une image personnalisée et la configuration de l’authentification dans un registre Azure Container Registry à l’aide de l’interface CLI Azure et CLI Machine Learning.
 * Déployer un modèle à l’aide d’une image de base personnalisée : présente des informations aux scientifiques des données et DevOps/Ingénieurs ML sur l’utilisation des images personnalisées lors du déploiement d’un modèle entraîné à partir du kit de développement logiciel (SDK) Python ou de l’interface CLI ML.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Un groupe de travail Azure Machine Learning. Pour plus d’informations, consultez l’article [Créer un espace de travail](how-to-manage-workspace.md).
 * Le [Kit de développement logiciel (SDK) Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py). 
 * [Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 * [Extension CLI pour Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * Registre [Azure Container Registry](/azure/container-registry) ou autre registre Docker accessible sur Internet.
-* Les étapes de ce document supposent que vous êtes familiarisé avec la création et l’utilisation d’un objet de __configuration de l’inférence__ dans le cadre du déploiement de modèle. Pour plus d’informations, consultez la section « Préparer le déploiement » de [Comment et où déployer des modèles ?](how-to-deploy-and-where.md#prepare-deployment-artifacts).
+* Les étapes de ce document supposent que vous êtes familiarisé avec la création et l’utilisation d’un objet de __configuration de l’inférence__ dans le cadre du déploiement de modèle. Pour plus d’informations, consultez la section « Préparer le déploiement » de [Comment et où déployer des modèles ?](how-to-deploy-and-where.md#prepare-to-deploy).
 
 ## <a name="create-a-custom-base-image"></a>Créer une image de base personnalisée
 
@@ -155,6 +155,9 @@ Les étapes de cette section vous guident tout au long de la création d’une i
     az acr build --image myimage:v1 --registry <registry_name> --file Dockerfile .
     ```
 
+    > [!TIP]
+    > Dans cet exemple, une étiquette `:v1` est appliquée à l’image. Si aucune étiquette n’est fournie, une étiquette `:latest` est appliquée.
+
     Pendant le processus de génération, les informations sont renvoyées à la ligne de commande. Si la génération a réussi, vous recevez un message similaire au texte suivant :
 
     ```text
@@ -170,6 +173,10 @@ Pour plus d’informations sur le chargement d’images existantes sur un regist
 Pour utiliser une image personnalisée, vous avez besoin des informations suivantes :
 
 * __Nom de l’image__. Par exemple, `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` est le chemin d’accès à une image Docker de base fournie par Microsoft.
+
+    > [!IMPORTANT]
+    > Pour les images personnalisées que vous avez créées, veillez à inclure toutes les étiquettes qui ont été utilisées avec l’image. Par exemple, si votre image a été créée avec une étiquette spécifique, telle que `:v1`. Si vous n’avez pas utilisé d’étiquette spécifique lors de la création de l’image, une étiquette `:latest` a été appliquée.
+
 * Si l’image se trouve dans un __dépôt privé__, vous avez besoin des informations suivantes :
 
     * __Adresse du registre__. Par exemple : `myregistry.azureecr.io`.

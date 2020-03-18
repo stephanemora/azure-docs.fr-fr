@@ -8,13 +8,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 10/08/2019
-ms.openlocfilehash: f34439b7750ca1858e71d4a36121eb65001fff50
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 03/09/2020
+ms.openlocfilehash: 693065046f92e0e9eade14c43e9942772440937d
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73811266"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945399"
 ---
 # <a name="migrate-from-the-dtu-based-model-to-the-vcore-based-model"></a>Effectuer une migration à partir du modèle DTU vers le modèle vCore
 
@@ -37,15 +37,15 @@ Le tableau suivant fournit des conseils pour certains scénarios de migration :
 |---|---|---|---|
 |standard|Usage général|Latéral|Peut effectuer la migration dans n’importe quel ordre, mais doit garantir un redimensionnement vCore adapté*|
 |Premium|Critique pour l'entreprise|Latéral|Peut effectuer la migration dans n’importe quel ordre, mais doit garantir un redimensionnement vCore adapté*|
-|standard|Critique pour l'entreprise|Mise à niveau|Doit d’abord effectuer la migration de la base de données secondaire|
+|standard|Critique pour l'entreprise|Mettre à niveau|Doit d’abord effectuer la migration de la base de données secondaire|
 |Critique pour l'entreprise|standard|Rétrogradation|Doit d’abord effectuer la migration de la base de données primaire|
 |Premium|Usage général|Rétrogradation|Doit d’abord effectuer la migration de la base de données primaire|
-|Usage général|Premium|Mise à niveau|Doit d’abord effectuer la migration de la base de données secondaire|
+|Usage général|Premium|Mettre à niveau|Doit d’abord effectuer la migration de la base de données secondaire|
 |Critique pour l'entreprise|Usage général|Rétrogradation|Doit d’abord effectuer la migration de la base de données primaire|
-|Usage général|Critique pour l'entreprise|Mise à niveau|Doit d’abord effectuer la migration de la base de données secondaire|
+|Usage général|Critique pour l'entreprise|Mettre à niveau|Doit d’abord effectuer la migration de la base de données secondaire|
 ||||
 
-\* Chaque ensemble de 100 unités de transaction de base de données du niveau standard nécessite au moins 1 cœur virtuel, et chaque ensemble de 125 DTU du niveau premium nécessite au moins 1 cœur virtuel.
+\* En règle générale, chaque ensemble de 100 unités de transaction de base de données du niveau standard nécessite au moins 1 vCore, et chaque ensemble de 125 DTU du niveau premium nécessite au moins 1 vCore. Pour plus d’informations, voir [Modèle d’achat par vCore](https://docs.microsoft.com/azure/sql-database/sql-database-purchase-models#vcore-based-purchasing-model).
 
 ## <a name="migrate-failover-groups"></a>Migrer des groupes de basculement
 

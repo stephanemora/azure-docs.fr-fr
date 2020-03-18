@@ -4,12 +4,12 @@ description: Cet article fournit une vue d’ensemble de la protection du serveu
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.openlocfilehash: b766c0401dde10fdc257044e004de3dbf8a7b84c
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 6640690f725c84899babef6825f817bad447b40f
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77586476"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78673263"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-dpm"></a>Sauvegarder une batterie de serveurs SharePoint dans Azure avec DPM
 
@@ -69,12 +69,12 @@ Le fichier **ConfigureSharePoint.exe** se trouve dans le dossier [Chemin d’ins
 
 1. Sur le serveur WFE, à l'invite de commandes, accédez à [Emplacement d'installation DPM]\bin\
 2. Entrez ConfigureSharePoint -EnableSharePointProtection
-3. Entrez les informations d'identification de l’administrateur de la batterie de serveurs. Ce compte doit être membre du groupe administrateur local sur le serveur Web frontal (WFE). Si l'administrateur de la batterie de serveurs n'est pas un administrateur local, accordez les autorisations suivantes sur le serveur Web frontal (WFE) :
+3. Entrez les informations d'identification de l’administrateur de la batterie de serveurs. Ce compte doit être membre du groupe administrateur local sur le serveur Web frontal (WFE). Si l’administrateur de la batterie de serveurs n’est pas un administrateur local, accordez les autorisations suivantes sur le serveur web front-end (WFE) :
    * Accordez le contrôle total du groupe WSS_Admin_WPG au dossier DPM (%Program Files%\Microsoft Data Protection Manager\DPM).
    * Accordez au groupe WSS_Admin_WPG un droit d'accès en lecture à la clé de registre DPM (HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager).
 
 > [!NOTE]
-> Vous devrez réexécuter le fichier ConfigureSharePoint.exe à chaque modification des informations d'identification de l'administrateur de la batterie de serveurs SharePoint.
+> Vous devrez réexécuter le fichier ConfigureSharePoint.exe à chaque changement des informations d’identification de l’administrateur de la batterie de serveurs SharePoint.
 >
 >
 
@@ -133,7 +133,7 @@ Une fois que vous avez configuré DPM et la batterie de serveurs SharePoint comm
     ![Online_backup_schedule](./media/backup-azure-backup-sharepoint/specify-online-backup-schedule.png)
 
     > [!NOTE]
-    > DPM fournit un maximum de deux sauvegardes quotidiennes sur Azure à des heures différentes. Azure Backup peut également contrôler la quantité de bande passante WAN qui peut être utilisée pour les sauvegardes aux heures de pointe et aux heures creuses, à l’aide de la [limitation réseau Azure Backup](https://azure.microsoft.com/documentation/articles/backup-configure-vault/#enable-network-throttling).
+    > DPM fournit un maximum de deux sauvegardes quotidiennes sur Azure à des heures différentes. Sauvegarde Azure peut également contrôler la quantité de bande passante WAN utilisable pour les sauvegardes aux heures de pointe et aux heures creuses à l’aide de la [Limitation de bande passante réseau de la sauvegarde Azure](backup-windows-with-mars-agent.md#enable-network-throttling).
     >
     >
 11. Selon la planification de sauvegarde que vous avez sélectionnée, sur la page **Spécifier la stratégie de rétention en ligne** , sélectionnez la stratégie de rétention pour les points de sauvegarde quotidiens, hebdomadaires, mensuels et annuels.

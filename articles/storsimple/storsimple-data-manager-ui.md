@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: d485a2655b569b3def6162934857b02dbe4f75ea
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 85be49ad88ac62d90235c3da6b89b0da6a11487c
+ms.sourcegitcommit: e6bce4b30486cb19a6b415e8b8442dd688ad4f92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76273979"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78933750"
 ---
 # <a name="manage-the-storsimple-data-manager-service-in-azure-portal"></a>Gérer le service StorSimple Data Manager dans le portail Azure
 
@@ -102,7 +102,7 @@ Procédez comme suit pour créer une définition de travail.
 
    3. Dans la sous-section **Filtrer**, saisissez le répertoire racine comportant vos données intéressantes, au format _\MyRootDirectory\Data_. Les lettres de lecteurs de type _\C:\Data_ ne sont pas prises en charge. Les filtres de fichiers s’ajoutent également ici.
 
-   4. Le service de transformation de données traite les données qui sont envoyées à Azure via des instantanés. Durant l’exécution du travail, vous pouvez décider de procéder à une sauvegarde à chaque itération (pour traiter les données les plus récentes) ou d’utiliser la dernière sauvegarde existante dans le cloud (si vous traitez des données archivées).
+   4. Le service de transformation de données traite uniquement le dernier instantané de données qui est envoyé (push) à Azure.
 
    5. Cliquez sur **OK**.
 
@@ -150,6 +150,11 @@ Chaque fois qu’il vous est nécessaire de transférer des données de StorSimp
 4. Pour analyser ce travail, accédez à la section **Travaux** de votre instance StorSimple Data Manager. En plus du panneau **Travaux**, vous pouvez également examiner la file d’attente de stockage, dans laquelle un message est ajouté chaque fois qu’un fichier est déplacé de StorSimple vers le compte de stockage.
 
     ![Lancer l’exécution du travail 4](./media/storsimple-data-manager-ui/start-job-run4.png)
+
+### <a name="view-logs-after-job-completion"></a>Afficher les journaux une fois le travail terminé
+
+Une fois le travail terminé, vous pouvez afficher son état. L’état du travail peut être **Succès**, **Succès partiel** ou **Échec**. Vous pouvez afficher la liste des fichiers qui ont été copiés et de ceux qui n’ont pas pu être copiés. Ces listes sont disponibles dans un conteneur appelé **storsimple-data-manager-joblogs** de votre compte de stockage cible. Dans ce conteneur, vous pouvez rechercher un dossier portant le même nom que la définition de votre travail. Dans ce cas, un dossier est créé pour chaque exécution de travail qui contient vos listes. Le nom de ce dossier correspondra au GUID du travail, qui se trouve dans la page des détails du travail. Sinon, dans la plupart des cas, vous verrez un lien pour les journaux de copie dans la page des travaux.
+Dans ce dossier, vous verrez deux ensembles de fichiers CSV. Tous les fichiers qui commencent par **copiedfilelist...** contiennent la liste des fichiers copiés. Tous les fichiers qui commencent par **failedfilelist...** contiennent la liste des fichiers qui n’ont pas pu être copiés, ainsi qu’un message d’erreur.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: be1697038674a177eaced03732536c0df5b16983
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 74a4279d347be92b1047a9cf361e233ecc7fcff8
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76046151"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78674316"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Compréhension de vos factures Azure Cosmos DB
 
@@ -198,6 +198,37 @@ La facture totale mensuelle sera (en supposant une durée de 30 jours/720 heures
 |[701-720] |D1 : 20 000 <br/>D2 : 50 000 <br/>C1 : -- |Facture de débit pour le conteneur de la région USA Ouest (écriture dans toutes les régions)  |`D1: 20 K RU/sec/100 *$0.016 * 20 hours = $64` <br/>`D2: 50 K RU/sec/100 *$0.016 * 20 hours = $160` |224 $  |
 | | |Facture de débit pour 2 régions supplémentaires : USA Est, Europe Nord (toutes les régions sont accessibles en écriture)  |`(1 + 1) * (70 K RU/sec /100 * $0.016) * 20 hours = $448`  |224 $  |
 || |**Coût mensuel total**  | |**38 688 $**   |
+
+## <a name="billing-examples-with-free-tier-accounts"></a>Exemples de facturation avec des comptes de niveau gratuit
+Avec le niveau gratuit Azure Cosmos DB, vous recevez gratuitement les premiers 400 RU/s et 5 Go de stockage dans votre compte, appliqués au niveau du compte. Les RU/s et le stockage au-delà de 400 RU/s et de 5 Go sont facturés selon les tarifs standard indiqués dans la page des tarifs. Sur la facture, vous ne voyez pas de coût ni de ligne pour les 400 RU/s et les 5 Go gratuits, mais seulement les RU/s et le stockage au-delà de ce qui est couvert par le niveau gratuit. Les 400 RU/s s’appliquent à tous les types de RU/s – débit provisionné, Autopilot (préversion) et multimaître.  
+
+### <a name="billing-example---container-or-database-with-provisioned-throughput"></a>Exemple de facturation – conteneur ou base de données avec débit provisionné
+- Supposons que nous créons une base de données ou un conteneur dans un compte de niveau gratuit avec 400 RU/s et 5 Go de stockage.
+- Votre facture n’affiche aucuns frais pour cette ressource. Votre coût horaire et mensuel est de 0 USD.
+- À présent, supposons que nous ajoutons dans le même compte une autre base de données ou un autre conteneur avec 1 000 RU/s et 10 Go de stockage.
+- Votre facture affiche maintenant des frais pour les 1 000 RU/s et 10 Go de stockage. 
+
+### <a name="billing-example---container-or-database-with-autopilot-throughput-preview"></a>Exemple de facturation – conteneur ou base de données avec débit Autopilot (préversion)
+- Supposons que nous créons dans un compte de niveau gratuit une base de données ou un conteneur avec Autopilot activé, avec un maximum de 4 000 RU/s. Cette ressource effectue automatiquement une mise à l’échelle entre 400 RU/s et 4 000 RU/s. 
+- Supposons que pendant les heures 1 à 10 la ressource est au minimum de 400 RU/s. Pendant l’heure 11, la ressource effectue un scale-up jusqu’à 1 000 RU/s, puis revient à 400 RU/s dans l’heure.
+- Pour les heures 1 à 10, il vous est facturé 0 USD pour le débit, car les 400 RU/s sont couvertes par le niveau gratuit. 
+- Pour l’heure 11, il vous est facturé 1 000 RU/s – 400 RU/s = 600 RU/s, car il s’agit du débit le plus élevé dans l’heure. Cela représente 6 unités de 100 RU/s pour l’heure, de sorte que le coût total du débit pour l’heure est de 6 unités * 0,012 USD = 0,072 USD. 
+- Tout stockage au-delà des 5 premiers Go est facturé au tarif de stockage normal. 
+
+### <a name="billing-example---multi-region-single-write-region-account"></a>Exemple de facturation – compte multirégion, avec une seule région d’écriture
+- Supposons que nous créons une base de données ou un conteneur dans un compte de niveau gratuit avec 1 200 RU/s et 10 Go de stockage. Nous répliquons le compte dans 3 régions et nous disposons d’un compte à maître unique (une seule région d’écriture).
+- Au total, sans niveau gratuit, il nous serait facturé 3 * 1 200 RU/s = 3 600 RU/s et 3 * 10 Go = 30 Go de stockage.
+- Avec la remise du niveau gratuit, après avoir enlevé 400 RU/s et 5 Go de stockage, il nous est facturé un débit provisionné de 3 200 RU/s (32 unités) au tarif de la région d’écriture unique et 25 Go de stockage.
+- Le coût mensuel pour les RU/s est le suivant : 32 unités * 0,008 USD * 24 heures * 31 jours = 190,46 USD. Le coût mensuel du stockage est le suivant : 25 Go * 0,25 USD/Go = 6,25 USD. Le coût total est de 190,46 USD + 6,25 USD = 196,71 USD.
+- Remarque : Si le prix unitaire pour les RU/s ou le stockage diffère dans les régions, les 400 RU/s et 5 Go du niveau gratuit reflètent les tarifs de la région dans laquelle le compte a été créé.
+
+### <a name="billing-example---multi-region-multi-master-multiple-write-region-account"></a>Exemple de facturation – compte multirégion, multimaître (plusieurs régions d’écriture)
+
+Cet exemple reflète le [tarif multimaître](https://azure.microsoft.com/pricing/details/cosmos-db/) pour les comptes créés après le 1er décembre 2019. 
+- Supposons que nous créons une base de données ou un conteneur dans un compte de niveau gratuit avec 1 200 RU/s et 10 Go de stockage. Nous répliquons le compte dans 3 régions et nous disposons d’un compte multimaître (plusieurs régions d’écriture). 
+- Au total, sans niveau gratuit, il nous serait facturé 3 * 1 200 RU/s = 3 600 RU/s et 3 * 10 Go = 30 Go de stockage.
+- Avec la remise du niveau gratuit, après avoir enlevé 400 RU/s et 5 Go de stockage, il nous est facturé un débit provisionné de 3200 RU/s (32 unités) au tarif des multiples régions d’écriture et 25 Go de stockage.
+- Le coût mensuel pour les RU/s est le suivant : 32 unités * 0,016 USD * 24 heures * 31 jours = 380,93 USD. Le coût mensuel du stockage est le suivant : 25 Go * 0,25 USD/Go = 6,25 USD. Le coût total est de 380,93 USD + 6,25 USD = 387,18 USD.
 
 ## <a name="proactively-estimating-your-monthly-bill"></a>Estimation proactive de votre facture mensuelle  
 

@@ -10,12 +10,12 @@ ms.date: 01/23/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 40a7f49cbb2d74b55ccb85dce64eea936a20801e
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 8442d3f7ed3e73dc5d7358a9bc1d3ee31d7668cd
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905514"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78894523"
 ---
 # <a name="disaster-recovery-and-account-failover-preview"></a>Reprise d’activité après sinistre et basculement de compte (préversion)
 
@@ -114,22 +114,17 @@ Vous pouvez lancer un basculement de compte à partir du portail Azure, de Power
 
 ## <a name="about-the-preview"></a>À propos de la préversion
 
-Le basculement de compte est disponible en préversion pour tous les clients qui utilisent GRS ou RA-GRS avec des déploiements Azure Resource Manager. Les types de comptes v1 universel, v2 universel et Stockage Blob sont pris en charge. Le basculement de compte est actuellement disponible dans les régions suivantes :
-
-- Asie de l’Est
-- Asie du Sud-Est
-- Australie Est
-- Sud-Australie Est
-- USA Centre
-- USA Est 2
-- USA Centre-Ouest
-- USA Ouest 2
+Le basculement de compte est disponible en préversion pour tous les clients qui utilisent GRS ou RA-GRS avec des déploiements Azure Resource Manager. Les types de comptes v1 universel, v2 universel et Stockage Blob sont pris en charge. Le basculement de compte est possible dans toutes les régions publiques. Le basculement de compte n’est pas possible dans les clouds souverains ou nationaux.
 
 La préversion est destinée uniquement à une utilisation hors production. Les contrats SLA (contrats de niveau de service) de production ne sont actuellement pas disponibles.
 
 ### <a name="additional-considerations"></a>Considérations supplémentaires
 
 Passez en revue les considérations supplémentaires décrites dans cette section pour comprendre comment vos applications et services peuvent être affectés quand vous forcez un basculement pendant la période de préversion.
+
+#### <a name="storage-account-containing-archived-blobs"></a>Compte de stockage contenant des objets blob archivés
+
+Les comptes de stockage contenant des objets blob archivés peuvent faire l’objet d’un basculement. Une fois le basculement terminé, pour reconvertir le compte en GRS ou RA-GRS, tous les objets blob archivés doivent être d’abord réalimentés vers un niveau en ligne.
 
 #### <a name="storage-resource-provider"></a>Fournisseur de ressources de stockage
 
@@ -162,8 +157,8 @@ N’oubliez pas que toutes les données stockées dans un disque temporaire sont
 
 Les fonctionnalités et services suivants ne sont pas pris en charge pour le basculement de compte durant la préversion :
 
-- Azure File Sync ne prend pas en charge le basculement de compte de stockage. Les comptes de stockage contenant des partages de fichiers Azure utilisés en tant que points de terminaison cloud dans Azure File Sync ne doivent pas être basculés. Cela provoquera en effet un arrêt de la synchronisation et pourra entraîner une perte inattendue de données dans le cas de fichiers nouvellement hiérarchisés.  
-- Un compte de stockage contenant des objets blob archivés ne peut pas être basculé. Conservez les objets blob archivés dans un compte de stockage distinct que vous ne prévoyez pas de basculer.
+- Azure File Sync ne prend pas en charge le basculement de compte de stockage. Les comptes de stockage contenant des partages de fichiers Azure utilisés en tant que points de terminaison cloud dans Azure File Sync ne doivent pas être basculés. Cela provoquera en effet un arrêt de la synchronisation et pourra entraîner une perte inattendue de données dans le cas de fichiers nouvellement hiérarchisés.
+- Les comptes de stockage ADLS Gen2 (comptes dans lesquels est activé un espace de noms hiérarchique) ne sont pas pris en charge pour l’instant.
 - Un compte de stockage contenant des objets blob de blocs premium ne peut pas être basculé. Les comptes de stockage qui prennent en charge les objets blob de blocs premium ne prennent pas en charge la géoredondance.
 - Un compte de stockage incluant des conteneurs avec une [stratégie d’immuabilité WORM](../blobs/storage-blob-immutable-storage.md) ne peut pas être basculé. Les stratégies de rétention temporelles ou les stratégies de conservation légale déverrouillées/verrouillées empêchent le basculement afin de maintenir la conformité.
 - Une fois le basculement terminé, les fonctionnalités suivantes peuvent cesser de fonctionner si elles étaient activées : [abonnements aux événements](../blobs/storage-blob-event-overview.md), [flux des modifications](../blobs/storage-blob-change-feed.md), [stratégies de cycle de vie](../blobs/storage-lifecycle-management-concepts.md) et [journalisation Storage Analytics](storage-analytics-logging.md).
@@ -183,5 +178,5 @@ Dans des circonstances extrêmes où une région est perdue suite à un sinistre
 ## <a name="see-also"></a>Voir aussi
 
 - [Lancer un basculement de compte (préversion)](storage-initiate-account-failover.md)
-- [Conception d’applications hautement disponibles à l’aide du stockage RA-GRS](storage-designing-ha-apps-with-ragrs.md)
+- [Conception d'applications hautement disponibles à l'aide du stockage RA-GRS](storage-designing-ha-apps-with-ragrs.md)
 - [Tutoriel : Générer une application hautement disponible avec le stockage Blob](../blobs/storage-create-geo-redundant-storage.md) 

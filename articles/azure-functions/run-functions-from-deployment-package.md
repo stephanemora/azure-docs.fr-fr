@@ -3,12 +3,12 @@ title: Exécuter Azure Functions à partir d’un package
 description: Exécutez vos fonctions avec le runtime Azure Functions, en montant un fichier de package de déploiement qui contient les fichiers projet de votre application de fonction.
 ms.topic: conceptual
 ms.date: 07/15/2019
-ms.openlocfilehash: a3e11a7c4f3fd91df2fd9dd7a44f3922c4922585
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 3ae287939f22469b03f0e10f184f067274464905
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77921111"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79087020"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>Exécuter des fonctions Azure à partir d’un fichier de package
 
@@ -91,6 +91,7 @@ Pour plus d'informations, consultez les articles suivants.
 - Les formats TAR et GZIP ne sont pas pris en charge.
 - Cette fonctionnalité ne tient pas compte du cache local.
 - Pour améliorer les performances de démarrage à froid, utilisez l’option zip locale (`WEBSITE_RUN_FROM_PACKAGE`= 1).
+- L’option d’exécution à partir d’un package n’est pas compatible avec l’option de personnalisation du déploiement (`SCM_DO_BUILD_DURING_DEPLOYMENT=true`), l’étape de génération est donc ignorée pendant le déploiement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

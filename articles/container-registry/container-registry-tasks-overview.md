@@ -3,12 +3,12 @@ title: Vue d’ensemble d’ACR Tasks
 description: Introduction à ACR Tasks, une suite de fonctionnalités d’Azure Container Registry qui permet la création ; la gestion et la mise à jour corrective d’images de conteneur sécurisées et automatisées dans le cloud.
 ms.topic: article
 ms.date: 01/22/2020
-ms.openlocfilehash: cb5f0a71c31c26d679efd8a17b360dab2ad0862b
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 4fda57c1d7c866f2e6f72b04d75e53f91e995baf
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77615954"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79087283"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatiser la création et la maintenance des images de conteneur avec ACR Tasks
 
@@ -124,15 +124,11 @@ Par défaut, ACR Tasks génère des images pour le système d’exploitation Lin
 | Linux | amd64<br/>arm<br/>arm64<br/>386 |
 | Windows | amd64 |
 
-## <a name="view-task-logs"></a>Afficher les journaux d’activité de tâches
+## <a name="view-task-output"></a>Afficher la sortie des tâches
 
-Chaque exécution de tâche génère une sortie de journal que vous pouvez inspecter pour déterminer si les étapes de la tâche ont été exécutées avec succès. Si vous utilisez la commande [az acr build](/cli/azure/acr#az-acr-build), [acr az run](/cli/azure/acr#az-acr-run), ou [az acr task run](/cli/azure/acr/task#az-acr-task-run) pour déclencher la tâche, la sortie de journal pour l’exécution de la tâche est diffusée vers la console et également stockée pour une utilisation ultérieure. Lorsqu’une tâche est déclenchée automatiquement, par exemple par une validation de code source ou une mise à jour d’image de base, les journaux des tâches sont uniquement stockés. Affichez les journaux pour une tâche exécutée dans le portail Azure, ou utilisez la commande [az acr task logs](/cli/azure/acr/task#az-acr-task-logs).
+Chaque exécution de tâche génère une sortie de journal que vous pouvez inspecter pour déterminer si les étapes de la tâche ont été exécutées avec succès. Quand vous déclenchez manuellement une tâche, la sortie de journal pour l’exécution de la tâche est envoyée en streaming à la console et stockée pour une récupération ultérieure. Lorsqu’une tâche est déclenchée automatiquement, par exemple par une validation de code source ou une mise à jour d’image de base, les journaux des tâches sont uniquement stockés. Affichez les journaux d’exécution dans le portail Azure ou utilisez la commande [az acr task logs](/cli/azure/acr/task#az-acr-task-logs).
 
-Par défaut, les données et journaux pour les exécutions de tâches dans un registre sont conservées pendant 30 jours puis vidées automatiquement. Si vous souhaitez archiver les données pour une exécution de tâche, activez l’archivage à l’aide de la commande [az acr task update-run](/cli/azure/acr/task#az-acr-task-update-run). L’exemple suivant active l’archivage pour l’exécution de la tâche *cf11* dans le registre *myregistry*.
-
-```azurecli
-az acr task update-run --registry myregistry --run-id cf11 --no-archive false
-```
+Apprenez-en davantage sur [l’affichage et la gestion des journaux des tâches](container-registry-tasks-logs.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

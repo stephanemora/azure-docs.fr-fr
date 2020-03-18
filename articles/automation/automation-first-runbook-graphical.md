@@ -6,12 +6,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: b891c8a7bbb33e3a3f18adbbc723d4bc9aa99a3a
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 6a967f328a4fbe17f2c451d35f413bd7fdcbc24a
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78246459"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78331466"
 ---
 # <a name="my-first-graphical-runbook"></a>Mon premier Runbook graphique
 
@@ -22,7 +22,7 @@ ms.locfileid: "78246459"
 > * [Python](automation-first-runbook-textual-python2.md)
 > 
 
-Ce didacticiel vous familiarise avec la création d’un [Runbook graphique](automation-runbook-types.md#graphical-runbooks) dans Azure Automation. Commencez avec un simple runbook qui teste et publie tout en expliquant comment suivre l’état du travail du runbook. Modifiez ensuite le runbook pour gérer les ressources Azure, en démarrant dans ce cas une machine virtuelle Azure. Terminez le didacticiel en renforçant le runbook par l’ajout de paramètres de runbook et de liens conditionnels.
+Ce didacticiel vous familiarise avec la création d’un [Runbook graphique](automation-runbook-types.md#graphical-runbooks) dans Azure Automation. Commencez avec un simple runbook que vous pouvez tester et publier tout en apprenant comment suivre l’état du travail du runbook. Modifiez ensuite le runbook pour gérer les ressources Azure, en démarrant dans ce cas une machine virtuelle Azure. Terminez le didacticiel en renforçant le runbook par l’ajout de paramètres de runbook et de liens conditionnels.
 
 >[!NOTE]
 >Cet article a été mis à jour pour tenir compte de l’utilisation du nouveau module Az d’Azure PowerShell. Vous pouvez toujours utiliser le module AzureRM, qui continue à recevoir des correctifs de bogues jusqu’à au moins décembre 2020. Pour en savoir plus sur le nouveau module Az et la compatibilité avec AzureRM, consultez [Présentation du nouveau module Az d’Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Pour obtenir des instructions relatives à l’installation du module Az sur votre Runbook Worker hybride, voir [Installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Pour votre compte Automation, vous pouvez mettre à jour vos modules vers la dernière version en suivant les instructions du [Guide de mise à jour des modules Azure PowerShell dans Azure Automation](automation-update-azure-modules.md).
@@ -37,7 +37,7 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 ## <a name="step-1---create-runbook"></a>Étape 1 - Création d’un Runbook
 
-Commencez par créer un runbook simple qui renvoie le texte « Hello World ».
+Commencez par créer un runbook simple qui renvoie le texte **Hello World**.
 
 1. Dans le portail Azure, ouvrez votre compte Automation. 
 
@@ -76,9 +76,9 @@ Avant de publier le runbook pour le rendre disponible en production, vous devez 
 1. Cliquez sur **Démarrer** pour démarrer le test. Ce doit être la seule option activée.
 1. Un [travail de runbook](automation-runbook-execution.md) est créé, dont l’état apparaît dans le volet.
 
-   L’état initial du travail est **Mis en file d’attente** pour indiquer qu’il attend qu’un Runbook Worker devienne disponible dans le cloud. L’état passe ensuite à **Démarrage** quand un Worker revendique le travail. Enfin, l’état passe à **Exécution** lorsque le runbook commence à s’exécuter.
+   L’état initial du travail est **Mis en file d’attente** pour indiquer qu’il attend qu’un Runbook Worker devienne disponible dans le cloud. L’état passe ensuite à **Démarrage** quand un Worker revendique le travail. Enfin, l’état devient **Exécution** lorsque le runbook commence à s’exécuter.
 
-1. Une fois le travail du runbook terminé, la page Test affiche sa sortie. Dans ce cas, vous voyez **Hello World**.<br> ![Hello World](media/automation-first-runbook-graphical/runbook-test-results.png)
+1. Une fois le travail du runbook terminé, le volet Test affiche sa sortie. Dans ce cas, vous voyez **Hello World**.<br> ![Hello World](media/automation-first-runbook-graphical/runbook-test-results.png)
 1. Fermez le volet de test pour revenir au canevas.
 
 ## <a name="step-4---publish-and-start-the-runbook"></a>Étape 4 : Publication et démarrage du Runbook
@@ -97,8 +97,8 @@ Le runbook que vous avez créé est toujours en mode Brouillon. Il doit être pu
 1. Fermez la page Sortie.
 1. Cliquez sur **Tous les journaux d’activité** pour ouvrir le volet Flux de la tâche du Runbook. Vous ne devriez voir que **Hello World** dans le flux de sortie. 
 
-    Notez que le volet Flux peut afficher d’autres flux pour une tâche de runbook, tels que des flux de détails et d’erreurs, si le runbook écrit dans ceux-ci.
-1. Fermez les volets Flux et Travail pour revenir à la page **MyFirstRunbook-Graphical**.
+    Notez que le volet Flux peut afficher d’autres flux pour un travail de runbook, tels que les flux de détails et d’erreurs, si le runbook écrit dans ceux-ci.
+1. Fermez les deux volets Flux et Travail pour revenir à la page **MyFirstRunbook-Graphical**.
 1. Pour afficher toutes les tâches du runbook, sélectionnez **Travaux** sous **Ressources**. La page Travaux répertorie toutes les tâches créées par votre runbook. Vous ne devriez voir qu’une seule tâche, car vous n’avez exécuté le travail qu’une seule fois.
 1. Cliquez sur le nom du travail pour ouvrir le volet Travail que vous avez vu au démarrage du runbook. Utilisez ce volet pour voir les détails de tout travail créé pour le runbook.
 

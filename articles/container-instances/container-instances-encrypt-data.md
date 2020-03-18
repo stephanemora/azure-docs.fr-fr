@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 01/17/2020
 author: dkkapur
 ms.author: dekapur
-ms.openlocfilehash: 41c7fc7380ca2b58326c4a35a3b5fdab1c64c4a3
-ms.sourcegitcommit: 78f367310e243380b591ff10f2500feca93f5d0a
+ms.openlocfilehash: ad232c5d9df9f6bfae3a79dbd72e2c68143be949
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77544315"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79080358"
 ---
 # <a name="encrypt-deployment-data"></a>Chiffrer les données de déploiement
 
@@ -41,6 +41,10 @@ Le reste du document décrit les étapes nécessaires pour chiffrer vos données
 
 La première étape consiste à s’assurer que votre[client Azure](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) dispose d’un principal de service affecté pour accorder des autorisations au service Azure Container Instances. 
 
+> [!IMPORTANT]
+> Pour exécuter la commande suivante et créer un principal de service avec succès, vérifiez que vous disposez des autorisations nécessaires pour créer des principaux de service dans votre locataire.
+>
+
 La commande CLI suivante permet de configurer le principal de service ACI dans votre environnement Azure :
 
 ```azurecli-interactive
@@ -48,6 +52,10 @@ az ad sp create --id 6bb8e274-af5d-4df2-98a3-4fd78b4cafd9
 ```
 
 La sortie de l’exécution de cette commande doit vous indiquer un principal de service qui a été configuré avec « displayName » : « Azure Container Instance Service ».
+
+Si vous n’êtes pas en mesure de créer correctement le principal de service :
+* vérifiez que vous disposez des autorisations nécessaires pour le faire dans votre locataire
+* vérifiez si un principal de service existe déjà dans votre locataire pour le déploiement dans ACI. Pour ce faire, vous pouvez exécuter `az ad sp show --id 6bb8e274-af5d-4df2-98a3-4fd78b4cafd9` et utiliser ce principal de service à la place.
 
 ### <a name="create-a-key-vault-resource"></a>Créez une ressource Key Vault
 

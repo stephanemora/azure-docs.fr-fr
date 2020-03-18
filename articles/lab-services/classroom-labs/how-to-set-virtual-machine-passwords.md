@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2020
 ms.author: spelluru
-ms.openlocfilehash: 0af2b5f7d756060d463d2b4f3ef71bdd135710ee
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 0ff464936025a20cb6925adc7ef6eb44c2fe1f0e
+ms.sourcegitcommit: e6bce4b30486cb19a6b415e8b8442dd688ad4f92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77591521"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78933807"
 ---
 # <a name="set-up-and-manage-virtual-machine-pool"></a>Configurer et gérer un pool de machines virtuelles 
 Cet article explique comment effectuer les tâches suivantes :
@@ -60,7 +60,7 @@ La seconde consiste à sélectionner une ou plusieurs machines virtuelles dans l
 De même, vous pouvez arrêter une ou plusieurs machines virtuelles en activant le bouton dans la colonne **État** ou en sélectionnant **Arrêter** dans la barre d’outils. 
 
 > [!NOTE]
-> Lorsqu’un formateur active la machine virtuelle d’un étudiant, le quota de l’étudiant n’est pas affecté. Le quota d’un utilisateur spécifie le nombre d’heures de laboratoire disponibles pour l’utilisateur en dehors des heures de classe planifiées. Pour plus d’informations sur les quotas, consultez [Définir des quotas pour les utilisateurs](how-to-configure-student-usage.md?#set-quotas-for-users).
+> Lorsqu’un formateur active la machine virtuelle d’un étudiant, le quota de l’étudiant n’est pas affecté. Le quota d’un utilisateur spécifie le nombre d’heures de labo disponibles pour l’utilisateur en dehors des heures de classe planifiées. Pour plus d’informations sur les quotas, consultez [Définir des quotas pour les utilisateurs](how-to-configure-student-usage.md?#set-quotas-for-users).
 
 ## <a name="reset-vms"></a>Réinitialiser les machines virtuelles
 Pour réinitialiser une ou plusieurs machines virtuelles, sélectionnez-les dans la liste, puis sélectionnez **Réinitialiser** dans la barre d’outils. 
@@ -102,6 +102,13 @@ Le créateur de laboratoire (formateur/professeur) peut se connecter à une mach
 
 > [!NOTE]
 > Lorsque le professeur démarre la machine virtuelle et se connecte à celle-ci, le quota d’étudiants n’est pas modifié. 
+
+## <a name="export-list-of-virtual-machines-to-a-csv-file"></a>Exporter la liste des machines virtuelles vers un fichier CSV
+
+1. Basculez vers l’onglet **Pool de machines virtuelles**.
+2. Sélectionnez **...** (ellipse) dans la barre d’outils, puis **Exporter au format CSV**. 
+
+    ![Exporter la liste des machines virtuelles](../media/how-to-export-users-virtual-machines-csv/virtual-machines-export-csv.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur les autres options d’utilisation que vous pouvez configurer pour les étudiants (en tant que propriétaire du labo), consultez l’article suivant : [Configure student usage](how-to-configure-student-usage.md) (Configurer l’utilisation pour les étudiants).

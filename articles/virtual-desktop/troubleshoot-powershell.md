@@ -7,12 +7,13 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 04/08/2019
 ms.author: helohr
-ms.openlocfilehash: e20d5a6b21c11930f0e547134479113539a2bc76
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+manager: lizross
+ms.openlocfilehash: 3fb5436c2b5c30c5336385792d0597bdcea2b538
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367188"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127469"
 ---
 # <a name="windows-virtual-desktop-powershell"></a>Windows Virtual Desktop PowerShell
 
@@ -32,7 +33,7 @@ Cette section répertorie les commandes PowerShell qui sont généralement utili
 Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGroupName 'Desktop Application Group' -UserPrincipalName <UserName>
 ```
 
-**Cause :** Le nom d’utilisateur utilisé a déjà été attribué à un groupe d’applications d’un type différent. Des utilisateurs ne peuvent pas être affectés en même temps à un Bureau à distance et à un groupe d’applications à distance sous le même pool d’hôte de session.
+**Cause :** Le nom d’utilisateur utilisé a déjà été attribué à un groupe d’applications d’un type différent. Les utilisateurs ne peuvent pas être affectés à la fois à un Bureau à distance et à un groupe d’applications à distance dans un même pool d’hôte de session.
 
 **Correctif :** Si un utilisateur a besoin tant d’applications à distance que d’un Bureau à distance, créez des pools d’hôte différents ou accordez un accès utilisateur au Bureau à distance, ce qui permet d’utiliser tout e application sur la machine virtuelle de l’hôte de la session.
 
@@ -76,7 +77,7 @@ Get-RdsDiagnosticActivities -Deployment -username <username>
 
 **Correctif 1 :** Un utilisateur disposant d’autorisations de propriétaire de Services Bureau à distance doit exécuter l’attribution de rôle.
 
-**Cause 2 :** Le compte utilisé dispose d’autorisations de propriétaire de Services Bureau à distance, mais ne fait pas partie de l’Azure Active Directory du locataire ou n’est pas autorisé à interroger l’Azure Active Directory où se trouve l’utilisateur.
+**Cause 2 :** Le compte utilisé dispose d’autorisations de propriétaire Services Bureau à distance, mais ne fait pas partie de l’annuaire Azure Active Directory du locataire ou n’est pas autorisé à interroger l’annuaire Azure Active Directory où se trouve l’utilisateur.
 
 **Correctif 2 :** Un utilisateur disposant d’autorisations Active Directory doit exécuter l’attribution de rôle.
 

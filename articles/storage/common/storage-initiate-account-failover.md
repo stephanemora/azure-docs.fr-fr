@@ -9,12 +9,12 @@ ms.date: 02/11/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 7529cfbd0ab75d0113e5cea666bc04aa1b15d30b
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 76e34736238273f2af3fccae0ac2b5ed0ff491f0
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77157701"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128332"
 ---
 # <a name="initiate-a-storage-account-failover-preview"></a>Lancer un basculement de compte de stockage (préversion)
 
@@ -29,9 +29,8 @@ Cet article explique comment effectuer un basculement de compte pour votre compt
 
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de pouvoir effectuer un basculement de compte sur votre compte de stockage, assurez-vous d'avoir effectué les étapes suivantes :
+Avant de pouvoir effectuer un basculement vers votre compte de stockage, veillez à effectuer l’étape suivante :
 
-- Inscrivez-vous à la préversion de la fonctionnalité de basculement de compte. Pour plus d'informations sur la procédure d'inscription, consultez [À propos de la préversion](storage-disaster-recovery-guidance.md#about-the-preview).
 - Vérifiez que votre compte de stockage est configuré pour utiliser soit le stockage géoredondant (GRS), soit le stockage géographiquement redondant avec accès en lecture (RA-GRS). Pour plus d'informations sur le stockage géoredondant, consultez [Redondance du stockage Azure](storage-redundancy.md).
 
 ## <a name="important-implications-of-account-failover"></a>Conséquences importantes du basculement de compte

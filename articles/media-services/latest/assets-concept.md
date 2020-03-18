@@ -1,7 +1,7 @@
 ---
-title: Éléments multimédias
+title: Actifs multimédias
 titleSuffix: Azure Media Services
-description: Découvrez-en plus sur les éléments multimédias et leur utilisation par Azure Media Services.
+description: Découvrez-en plus sur les actifs multimédias et leur utilisation par Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -10,17 +10,17 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 08/29/2019
+ms.date: 03/09/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: ce32343faefbcf2484ec0b1b39f752654a2d8514
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 9b04941a5799955097fbd54ad9bdf50eccb87541
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78303611"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79087913"
 ---
-# <a name="assets-in-azure-media-services"></a>Éléments multimédias dans Azure Media Services
+# <a name="assets-in-azure-media-services-v3"></a>Actifs multimédias dans Azure Media Service v3
 
 Dans Azure Media Services, l’[actif multimédia](https://docs.microsoft.com/rest/api/media/assets) est un concept clé. C’est là que vous entrez du contenu multimédia (par exemple par le biais d’un chargement ou d’une ingestion en direct), où vous générez du contenu multimédia (à partir d’une sortie de travail) et à partir duquel vous publiez du contenu multimédia (pour le streaming). 
 
@@ -39,37 +39,6 @@ Les noms des éléments multimédias doivent être uniques. Les noms de ressourc
 ### <a name="blobs"></a>Objets blob
 
 Les noms des fichiers/objets blob au sein d’une ressource doivent respecter les [exigences en matière de nom d’objet blob](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) et de [nom NTFS](https://docs.microsoft.com/windows/win32/fileio/naming-a-file). Ces exigences se justifient par le fait que les fichiers peuvent être copiés du stockage d’objets blob vers un disque NTFS local à des fins de traitement.
-
-## <a name="map-v3-asset-properties-to-v2"></a>Mapper les propriétés de l’élément multimédia v3 à v2
-
-Le tableau suivant montre comment les propriétés de l’[élément multimédia](https://docs.microsoft.com/rest/api/media/assets/createorupdate#asset)de v3 sont mappées aux propriétés de l’élément multimédia de v2.
-
-|Propriétés de v3|Propriétés de v2|
-|---|---|
-|`id` : (unique) chemin d’accès complet à Azure Resource Manager, voir les exemples dans [Élément multimédia](https://docs.microsoft.com/rest/api/media/assets/createorupdate)||
-|`name` : (unique) consultez [Convention d’affectation de noms](media-services-apis-overview.md#naming-conventions) ||
-|`alternateId`|`AlternateId`|
-|`assetId`|`Id` : valeur (unique) commençant par le préfixe `nb:cid:UUID:`.|
-|`created`|`Created`|
-|`description`|`Name`|
-|`lastModified`|`LastModified`|
-|`storageAccountName`|`StorageAccountName`|
-|`storageEncryptionFormat`| `Options` (options de création)|
-|`type`||
-
-## <a name="storage-side-encryption"></a>Chiffrement côté stockage
-
-Pour protéger vos éléments au repos, les ressources doivent être chiffrées par le chiffrement côté stockage. Le tableau suivant montre comment le chiffrement côté stockage fonctionne dans Media Services :
-
-|Option de chiffrement|Description|Media Services v2|Media Services v3|
-|---|---|---|---|
-|Chiffrement du stockage de Media Services|Chiffrement AES-256, clé gérée par Media Services.|Pris en charge<sup>(1)</sup>|Non pris en charge<sup>(2)</sup>|
-|[Storage Service Encryption pour les données au repos](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Chiffrement côté serveur proposé par le stockage Azure, clé gérée par Azure ou par un client.|Prise en charge|Prise en charge|
-|[Chiffrement de stockage côté client](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Chiffrement côté client proposé par le stockage Azure, clé gérée par un client dans un coffre de clés.|Non pris en charge|Non pris en charge|
-
-<sup>1</sup> Bien que Media Services prenne en charge la gestion de contenu en clair/sans aucune forme de chiffrement, ce n’est pas conseillé.
-
-<sup>2</sup> Dans Media Services v3, le chiffrement de stockage (chiffrement AES-256) est uniquement pris en charge pour la compatibilité descendante lorsque vos ressources ont été créées avec Media Services v2. Cela signifie que la version v3 fonctionne avec les ressources chiffrées du stockage existant mais qu’elle n’autorisera pas de nouvelles créations.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

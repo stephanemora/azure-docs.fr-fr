@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 12/05/2019
-ms.openlocfilehash: 24ecf90c2ffc88415afbf84f54af3efa7d5f4a39
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/10/2020
+ms.openlocfilehash: a72753d5553e79a8ed28c3afcc7e54af6c2d230c
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435440"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79117236"
 ---
 # <a name="network-security-group-nsg-service-tags-for-azure-hdinsight"></a>Étiquettes de service de groupe de sécurité réseau (NSG) pour Azure HDInsight
 
@@ -40,7 +40,7 @@ Le moyen le plus simple de commencer à utiliser les balises de service avec vot
 
 1. Dans la liste déroulante **Étiquette du service source**, sélectionnez **HDInsight**.
 
-    ![Portail Azure – Ajouter une balise de service](./media/hdinisght-service-tags/azure-portal-add-service-tag.png)
+    ![Portail Azure – Ajouter une balise de service](./media/hdinsight-service-tags/azure-portal-add-service-tag.png)
 
 Cette balise contient les adresses IP des services d’intégrité et de gestion pour toutes les régions où HDInsight est disponible, et garantit que votre cluster peut communiquer avec les services d’intégrité et de gestion requis, où qu’il soit créé.
 
@@ -76,6 +76,7 @@ Si vous préférez l’option de balise de service deux et que votre cluster se 
 | Azure Government | US DoD - Centre   | HDInsight.USDoDCentral |
 | &nbsp; | Gouvernement des États-Unis - Texas | HDInsight.USGovTexas |
 | &nbsp; | US DoD - Est | HDInsight.USDoDEast |
+| &nbsp; | Gouvernement des États-Unis - Arizona | HDInsight.USGovArizona |
 
 ### <a name="use-multiple-regional-service-tags"></a>Utiliser plusieurs balises de service régional
 

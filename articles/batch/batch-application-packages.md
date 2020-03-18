@@ -14,12 +14,12 @@ ms.workload: big-compute
 ms.date: 04/26/2019
 ms.author: labrenne
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6cad3b3b01a98462e37a4b4b96ba02a1b61a5f62
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 30301832381bdc7b5f001eec2c449c571f9fd671
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77025926"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79086222"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Déployer des applications sur les nœuds avec des packages d’applications Batch
 
@@ -90,13 +90,11 @@ Le service Batch utilise le compte de stockage associé pour stocker vos package
 
 Nous vous recommandons de créer un compte de stockage *spécifiquement* destiné à être utilisé avec votre compte Batch et de le sélectionner ici. Après avoir créé un compte de stockage, vous pouvez le lier à votre compte Batch à l’aide de la fenêtre **Compte de stockage**.
 
-> [!NOTE] 
-> Actuellement, vous ne pouvez pas utiliser les packages d’application avec un compte de stockage Azure qui est configuré avec [des règles de pare-feu](../storage/common/storage-network-security.md).
-> 
+> [!IMPORTANT] 
+> - Actuellement, vous ne pouvez pas utiliser les packages d’application avec un compte de stockage Azure qui est configuré avec [des règles de pare-feu](../storage/common/storage-network-security.md).
+> - Un compte de stockage Azure dont l’**Espace de noms hiérarchique** est défini sur **Activé** ne peut pas être utilisé pour les packages d’application.
 
 Le service Batch utilise un stockage Azure pour stocker vos packages d’application en tant qu’objets blob de blocs. Vous êtes [facturé de façon normale][storage_pricing] pour les données des objets blob de blocs, et la taille de chaque package ne peut pas dépasser la taille maximale d’objet blob de blocs. Pour plus d’informations, consultez la page [Objectifs de performance et évolutivité de Stockage Azure](../storage/blobs/scalability-targets.md). Veillez à prendre en compte la taille et le nombre de vos packages d’application, ainsi qu’à supprimer régulièrement les packages obsolètes afin de minimiser les coûts.
-> 
-> 
 
 ### <a name="view-current-applications"></a>Affichage des applications en cours
 Pour visualiser les applications dans votre compte Batch, cliquez sur l’élément de menu **Applications** dans le menu gauche pendant que vous affichez votre **Compte Batch**.

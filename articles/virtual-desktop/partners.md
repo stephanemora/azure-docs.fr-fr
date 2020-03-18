@@ -5,14 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 03/10/2020
 ms.author: helohr
-ms.openlocfilehash: f75e404e37ff45eb7d9f540cf6acba71fa83349f
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+manager: lizross
+ms.openlocfilehash: e10908a3ce0ad372ab7d05fda9a15481d0efc5a8
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201779"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127576"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Intégrations de partenaires Windows Virtual Desktop
 
@@ -65,7 +66,7 @@ En exploitant la technologie éprouvée de mise en conteneur Cloudhouse, le serv
 
 CloudJumper est un fournisseur de services à valeur ajoutée pour Windows Virtual Desktop qui offre aux fournisseurs de solutions et services informatiques d’entreprises des logiciels permettant d’approvisionner et de gérer de manière holistique des environnements Windows Virtual Desktop. Avec le logiciel CloudJumper, le service informatique peut gérer chaque couche d'un déploiement Windows Virtual Desktop. La distribution des charges de travail et des applications est automatisée, ce qui permet aux utilisateurs d'accéder rapidement à leur bureau n'importe où et sur n'importe quel appareil.
 
-Cloud Workspace Management Suite, le logiciel CloudJumper, étend la valeur de Windows Virtual Desktop en simplifiant le déploiement et les tâches d'administration en cours dans Azure. Depuis un volet unique, le service informatique peut approvisionner, gérer et optimiser l’infrastructure des espaces de travail des utilisateurs. Le moteur de déclenchement de script simple (Simple Script Triggering Engine) de CloudJumper s'intègre aux plates-formes de services informatiques pour automatiser les tâches liées à l’approvisionnement Windows Virtual Desktop. De plus, les API CloudJumper offrent une extensibilité et une intégration supplémentaires à d'autres systèmes d'entreprise comme ServiceNow et BMC Ready.
+Cloud Workspace Management Suite, le logiciel CloudJumper, étend la valeur de Windows Virtual Desktop en simplifiant le déploiement et les tâches d’administration en cours dans Azure. Depuis un volet unique, le service informatique peut approvisionner, gérer et optimiser l’infrastructure des espaces de travail des utilisateurs. Le moteur de déclenchement de script simple (Simple Script Triggering Engine) de CloudJumper s’intègre aux plateformes de services informatiques pour automatiser les tâches liées au provisionnement Windows Virtual Desktop. De plus, les API CloudJumper offrent une extensibilité et une intégration supplémentaires à d'autres systèmes d'entreprise comme ServiceNow et BMC Ready.
 
 - [Consultez le résumé de la solution conjointe](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3p0Mg).
 - [Visitez le site web du partenaire](https://cloudjumper.com/wvd/).
@@ -74,7 +75,7 @@ Cloud Workspace Management Suite, le logiciel CloudJumper, étend la valeur de W
 
 ![Logo ControlUp](./media/partners/controlup.png)
 
-ControlUp est un fournisseur de services à valeur ajoutée Windows Virtual Desktop qui permet aux équipes informatiques de surveiller, dépanner, analyser et résoudre directement des problèmes survenant dans leur infrastructure locale, cloud hybride et cloud en temps réel à partir d’une console unique. La plateforme d’analyse et de gestion de ControlUp permet également au service informatique d’automatiser de manière proactive les correctifs pour un ensemble croissant de cas d’utilisation.
+ControlUp est un fournisseur de services à valeur ajoutée Windows Virtual Desktop qui permet aux équipes informatiques de surveiller, dépanner, analyser et résoudre directement des problèmes survenant dans leur infrastructure locale, cloud hybride et cloud en temps réel à partir d’une console unique. La plateforme d’analytique et de gestion de ControlUp permet également au service informatique d’automatiser de manière proactive les correctifs pour un ensemble croissant de cas d’usage.
 
 Utilisé avec Windows Virtual Desktop, ControlUp fournit des fonctionnalités supplémentaires pour optimiser les environnements Windows Virtual Desktop et l’expérience de l’utilisateur final. À partir de la console ControlUp, le service informatique bénéficie d’une visibilité sur l’environnement de l’utilisateur final pour analyser et résoudre efficacement les problèmes de performances. Un tableau de bord intuitif fournit des insights et des analyses pour les déploiements de bureaux virtuels, ainsi que des options pour la génération de rapports automatisés, enrichis de points de référence de la communauté. ControlUp peut gérer plusieurs types et sources de données, en les organisant dans des jeux de données haute performance agrégés dans le calcul, le stockage et l’infrastructure Windows Virtual Desktop, permettant une visibilité précise à partir d’un volet unique.
 
@@ -107,7 +108,7 @@ Quand HP a étudié les tendances du secteur, les défis des clients et les solu
 
 IGEL est un partenaire approuvé et vérifié de Microsoft Azure et des services Windows Virtual Desktop. IGEL offre un système d’exploitation IGEL, le système d’exploitation de pointe de la nouvelle génération pour les espaces de travail cloud conçus pour accéder aux applications virtuelles, aux ordinateurs de bureau et aux espaces de travail cloud à partir d’un ou de plusieurs appareils utilisateur avec un point de terminaison basé sur Linux léger, simple et sécurisé. Une solution logicielle indépendante de la plateforme, le système d’exploitation IGEL et son logiciel de gestion et de contrôle serveur, IGEL Universal Management Suite (UMS), comprennent une solution de gestion et de contrôle des points de terminaison qui permet aux entreprises de tirer pleinement parti des instances cloud Azure et des ordinateurs Windows Virtual Desktop, y compris Windows Virtual Desktop à sessions économiques multiples, tout en réduisant le matériel de point de terminaison et les coûts de gestion et d’exploitation des appareils de point de terminaison.
  
-Le système d’exploitation IGEL prend en charge tous les protocoles clients d’applications virtuelles, de bureaux et d’espaces de travail cloud populaires de Citrix, Microsoft et VMware. Il comprend des technologies intégrées des 85 partenaires de périphérique, d’interface et de protocole pour aider les organisations à adopter rapidement les services Windows Virtual Desktop dans leurs propres environnements utilisateur uniques. Le système d’exploitation IGEL est un système d’exploitation de point de terminaison modulaire en lecture seule, ce qui permet de le protéger contre la falsification. Il comprend également une « chaîne de confiance » complète qui vérifie l’intégrité de tous les principaux processus en cours d’exécution sur le point de terminaison, du matériel de point de terminaison (certains modèles sélectionnés) ou du processus UEFI jusqu’au cloud Azure et aux services Windows Virtual Desktop. Avec le système d’exploitation IGEL, les entreprises peuvent s’abonner à Windows Virtual Desktop à partir du cloud Azure en toute confiance dans l’intégrité, la sécurité et la facilité de gestion des appareils de point de terminaison de leurs utilisateurs.
+Le système d’exploitation IGEL prend en charge tous les protocoles clients d’applications virtuelles, de bureaux et d’espaces de travail cloud populaires de Citrix, Microsoft et VMware. Il comprend des technologies intégrées des 85 partenaires de périphérique, d’interface et de protocole pour aider les organisations à adopter rapidement les services Windows Virtual Desktop dans leurs propres environnements utilisateur uniques. Le système d’exploitation IGEL est un système d’exploitation de point de terminaison modulaire en lecture seule, ce qui permet de le protéger contre la falsification. Il comprend également une chaîne de confiance complète qui vérifie l’intégrité de tous les principaux processus en cours d’exécution sur le point de terminaison, du matériel de point de terminaison (certains modèles sélectionnés) ou du processus UEFI jusqu’au cloud Azure et aux services Windows Virtual Desktop. Avec le système d’exploitation IGEL, les entreprises peuvent s’abonner à Windows Virtual Desktop à partir du cloud Azure et avoir une confiance totale dans l’intégrité, la sécurité et la facilité de gestion des appareils de point de terminaison de leurs utilisateurs.
 
 - [Visitez le site web du partenaire](https://www.igel.com/igel-os-universal-desktop-operating-system/).
 
@@ -127,7 +128,7 @@ Lorsqu’il est utilisé avec Windows Virtual Desktop, le Gestionnaire d’espac
 
 Lakeside Software est un fournisseur de services à valeur ajoutée Windows Virtual Desktop qui offre aux équipes informatiques un logiciel permettant de surveiller les performances et d'évaluer l'état de préparation à la migration Azure des charges de travail des utilisateurs. Grâce à ce logiciel, le service informatique gagne en visibilité sur l’utilisation des applications et la consommation des ressources afin de rationaliser le processus de migration. Lakeside Software recueille les données à chaque espace de travail pour dresser un rapport complet sur les environnements utilisateurs, permettant un dépannage et une optimisation rapides des ressources.
 
-La solution de surveillance de l'expérience numérique de Lakeside Software, SysTrack, garantit une expérience utilisateur exceptionnelle en assurant le suivi des performances et en identifiant les charges de travail idéales pour la migration. SysTrack s’efforce d’étendre la valeur de Windows Virtual Desktop via des évaluations du dimensionnement et'une surveillance continue des environnements utilisateurs.
+SysTrack, la solution de supervision de l’expérience numérique de Lakeside Software, garantit une expérience utilisateur exceptionnelle en assurant le suivi des performances et en identifiant les charges de travail idéales pour la migration. SysTrack s’efforce d’étendre la valeur de Windows Virtual Desktop via des évaluations du dimensionnement et'une surveillance continue des environnements utilisateurs.
 
 - [Consultez le résumé de la solution conjointe](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oL8Q).
 - [Visitez le site web du partenaire](https://www.lakesidesoftware.com/assessments/wvd).
@@ -159,13 +160,13 @@ En tant que partenaire d’intégration certifié, Liquit contribue à accélér
 
 Login VSI est un fournisseur de services à valeur ajoutée Windows Virtual Desktop et un partenaire Microsoft qui fournit des logiciels pour le test des performances des applications dans les environnements Windows Virtual Desktop. Les clients qui migrent leurs services professionnels locaux vers Windows Virtual Desktop utilisent Login VSI Enterprise Edition pour évaluer et maintenir des performances, une extensibilité et une disponibilité optimales de Windows 10 Entreprise multi-session, Windows 10 Entreprise et Windows 7, avec leurs applications critiques pour l’entreprise.
 
-- [Visitez le site web du partenaire](https://www.loginvsi.com).
+- [Visitez le site web du partenaire](https://www.loginvsi.com/use-cases-initiatives/windows-virtual-desktop).
 
 ## <a name="nerdio"></a>Nerdio
 
 ![Logo de Nerdio](./media/partners/nerdio.png)
 
-Nerdio est une plate-forme d'automatisation informatique Azure qui facilite le déploiement et la gestion de Windows Virtual Desktop. Nerdio fournit les connaissances et la technologie nécessaires pour déployer, tarifier, packager, gérer et optimiser les déploiements Azure des clients, avec Windows Virtual Desktop au premier plan et au centre.
+Nerdio est une plate-forme d'automatisation informatique Azure qui facilite le déploiement et la gestion de Windows Virtual Desktop. Nerdio fournit les connaissances et les technologies nécessaires pour déployer, tarifier, packager, gérer et optimiser les déploiements Azure des clients, avec Windows Virtual Desktop au premier plan.
 
 Nerdio étend la valeur de Windows Virtual Desktop en facilitant l'allocation des ressources Azure et en rationalisant le déploiement. Avec Nerdio pour Azure, les services informatiques peuvent déployer et gérer automatiquement un environnement Azure complet, y compris Windows Virtual Desktop, en moins de deux heures.
 
@@ -188,7 +189,7 @@ Lorsqu’il est utilisé avec Windows Virtual Desktop, Cloudpaging réduit davan
 
 PolicyPak Software est un partenaire Windows Virtual Desktop qui effectue une gestion totale des paramètres pour les applications, le bureau, les navigateurs, les paramètres Java et les paramètres de sécurité. PolicyPak assure la conformité de vos paramètres de bureau, de système et de sécurité. PolicyPak améliore la valeur de Windows Virtual Desktop en ajoutant une suite de composants permettant d’améliorer l’administration intégrée de Windows. Utilisez votre stratégie de groupe Active Directory existante et/ou Windows Intune pour fournir les paramètres de PolicyPak et améliorer la capacité des administrateurs à gérer leurs machines Windows 10. 
 
-Les principaux cas d’utilisation de PolicyPak sont pour supprimer les droits d’administrateur local et ignorer les invites UAC, bloquer les ransomware, gérer plusieurs navigateurs, gérer les modes d’entreprise et de compatibilité d’Internet Explorer, réduire le nombre d’objets de stratégie de groupe, gérer les associations de fichiers Windows 10, gérer le menu Démarrer et la barre des tâches dans Windows 10, et gérer les caractéristiques de Windows 10 et les caractéristiques facultatives.  
+Les principaux cas d’usage de PolicyPak sont les suivants : supprimer les droits d’administrateur local et ignorer les invites UAC, bloquer les ransomware, gérer plusieurs navigateurs, gérer les modes d’entreprise et de compatibilité d’Internet Explorer, réduire le nombre d’objets de stratégie de groupe, gérer les associations de fichiers Windows 10, gérer le menu Démarrer et la barre des tâches dans Windows 10, et gérer les fonctionnalités de Windows 10 et les fonctionnalités facultatives.  
 
 - [Visitez le site web du partenaire](https://www.policypak.com/integration/policypak-windows-virtual-desktop.html).
 
@@ -239,7 +240,7 @@ Le laboratoire d’innovation et de développement de sepago élabore des soluti
 
 ThinPrint est un fournisseur de services à valeur ajoutée Windows Virtual Desktop qui offre une impression dans le cloud simple et sécurisée à partir de Windows Virtual Desktop. Grâce à ses services et logiciels, l'infrastructure d'impression existante peut être utilisée pour imprimer des documents depuis le cloud. ThinPrint établit une connexion aux imprimantes locales et en réseau, ce qui permet aux utilisateurs d'imprimer facilement au bureau ou à distance.
 
-La solution ezeep de ThinPrint étend la valeur de Windows Virtual Desktop en établissant une connexion à l'infrastructure d'impression existante de l'entreprise. ezeep permet aux utilisateurs de contrôler l'impression dans l'entreprise, où qu'ils se trouvent. Grâce à ezeep, les utilisateurs peuvent combler le fossé entre Windows Virtual Desktop et le matériel d'impression.
+La solution ezeep de ThinPrint étend la valeur de Windows Virtual Desktop en établissant une connexion à l’infrastructure d’impression existante de l’entreprise. ezeep permet aux utilisateurs de contrôler l'impression dans l'entreprise, où qu'ils se trouvent. Grâce à ezeep, les utilisateurs peuvent combler le fossé entre Windows Virtual Desktop et le matériel d'impression.
 
 - [Consultez le résumé de la solution conjointe](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oYas).
 - [Visitez le site web du partenaire](https://www.ezeep.com/wvd-printing).
@@ -253,6 +254,16 @@ Tricerat offre une solution de gestion de l’impression supérieure pour Window
 Avec Tricerat, l’impression est transparente dans Windows Virtual Desktop et au-delà. Le logiciel Tricerat permet aux administrateurs de connecter facilement des imprimantes locales au cloud, en étendant la gestion de l’impression d’entreprise des environnements traditionnels aux nouveaux espaces de travail modernes.
 
 - [Visitez le site web du partenaire](https://www.tricerat.com/microsoft-printing).
+
+## <a name="vast-limits"></a>vast limits
+
+![Logo vast limits](./media/partners/vast-limits.png)
+
+La société uberAgent, vast limits, permet de voir les déploiements Windows Virtual Desktop. Elle crée des logiciels d’informatique d’entreprise, car elle sait comment les professionnels de l’informatique pensent et de quels outils ils ont besoin. Ses produits aident les professionnels de l’informatique à être plus efficaces en leur donnant exactement ce dont ils ont besoin pour faire leur travail, ni plus, ni moins.
+
+uberAgent est un produit de supervision et d’analytique conçu pour les utilisateurs finaux. Il ne se contente pas de collecter des données : il fournit aux clients les informations qui les intéressent. uberAgent a ses propres métriques, qui couvrent les aspects clés de l’expérience utilisateur, les performances des applications et la sécurité des points de terminaison. Il vous informe donc de tout ce que vous devez savoir sur vos machines virtuelles Windows Virtual Desktop sans affecter la densité utilisateur de vos systèmes. uberAgent simplifie la résolution des problèmes, facilite le dimensionnement et fournit des informations détaillées essentielles à la sécurité des informations.
+
+- [Visitez le site web du partenaire](https://uberagent.com/docs/uberagent/latest/about-uberagent/system-requirements/#windows-virtual-desktop)
 
 ## <a name="workspot"></a>Workspot
 

@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.openlocfilehash: 13c51f0db468c1591ca29de17f1744752589a1c8
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.date: 03/09/2020
+ms.openlocfilehash: 77a451cb9f6598bbe7013f4215cfa7cab40186bd
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77663743"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037542"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Utiliser le client Apache Beeline avec Apache Hive
 
@@ -54,6 +54,12 @@ beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/default;principal=hive/_HOST@<AAD
 ```
 
 Remplacez `<username>` par le nom d’un compte de domaine autorisé à accéder au cluster. Remplacez `<AAD-DOMAIN>` par le nom d’Azure Active Directory (AAD) auquel le cluster est joint. Utilisez une chaîne en majuscules pour la valeur `<AAD-DOMAIN>`, sinon les informations d’identification ne seront pas trouvées. Vérifiez `/etc/krb5.conf` pour les noms de domaine si nécessaire.
+
+Pour rechercher l’URL JDBC à partir d’Ambari :
+
+1. Dans un navigateur web, accédez à `https://CLUSTERNAME.azurehdinsight.net/#/main/services/HIVE/summary`, où `CLUSTERNAME` est le nom de votre cluster. Vérifiez que HiveServer2 est en cours d’exécution.
+
+1. Utilisez le Presse-papiers pour copier l’URL JDBC HiveServer2.
 
 ---
 
@@ -199,7 +205,7 @@ Cet exemple est basé sur l’utilisation du client Beeline à partir d’une co
     |CREATE EXTERNAL TABLE|Crée une table **externe** dans Hive. Les tables externes stockent uniquement la définition de table dans Hive. Les données restent à l'emplacement d'origine.|
     |ROW FORMAT|Formatage des données. Dans ce cas, les champs de chaque journal sont séparés par un espace.|
     |STORED AS TEXTFILE LOCATION|Emplacement de stockage des données et format de fichier.|
-    |SELECT|sélectionne toutes les lignes où la colonne **t4** contient la valeur [ERROR]. Cette requête renvoie la valeur **3**, car trois lignes contiennent cette valeur.|
+    |SELECT|sélectionne toutes les lignes où la colonne **t4** contient la valeur **[ERROR]** . Cette requête renvoie la valeur **3**, car trois lignes contiennent cette valeur.|
     |INPUT__FILE__NAME LIKE '%.log'|Hive tente d’appliquer le schéma à tous les fichiers dans le répertoire. Dans ce cas, le répertoire contient des fichiers qui ne correspondent pas au schéma. Pour éviter que des données incorrectes n’apparaissent dans les résultats, cette instruction indique à Hive de retourner uniquement des données provenant de fichiers se terminant par .log.|
 
    > [!NOTE]  
@@ -260,7 +266,7 @@ Il s’agit de la suite de l’exemple précédent. Utilisez les étapes suivant
     |---|---|
     |CREATE TABLE IF NOT EXISTS|Si la table n’existe pas, elle est créée. Étant donné que le mot-clé **EXTERNAL** n’est pas utilisé, cette instruction crée une table interne. Les tables internes sont stockées dans l’entrepôt de données Hive et entièrement gérées par Hive.|
     |STORED AS ORC|Stocke les données dans un format ORC (Optimized Row Columnar). Le format ORC est particulièrement efficace et optimisé pour le stockage de données Hive.|
-    |INSERT OVERWRITE ... SELECT|sélectionne les lignes de la table **log4jLogs** qui contiennent **[ERROR]** , puis insère les données dans la table errorLogs.|
+    |INSERT OVERWRITE ... SELECT|sélectionne les lignes de la table **log4jLogs** qui contiennent **[ERROR]** , puis insère les données dans la table **errorLogs**.|
 
     > [!NOTE]  
     > Contrairement aux tables externes, la suppression d’une table interne entraîne également la suppression des données sous-jacentes.

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8d67d1d318bf823145a57d2e55774695d151996
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f4f086b7c2f24cfe5d3fe74c25f6f5690b090800
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425317"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79086403"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Résoudre les messages d’erreur liés à l’extension NPS pour Azure Multi-Factor Authentication
 
@@ -98,7 +98,7 @@ Si vos utilisateurs ont [des difficultés avec la vérification en deux étapes]
 
 ### <a name="health-check-script"></a>Script de vérification d’intégrité
 
-Le [script de vérification d’intégrité pour l’extension NPS Azure MFA](https://gallery.technet.microsoft.com/Azure-MFA-NPS-Extension-648de6bb), qui est disponible dans la galerie TechNet, permet d’effectuer une vérification d’intégrité de base lors de la résolution des problèmes concernant l’extension NPS. Exécutez le script et choisissez l’option 3.
+Le [script de contrôle de l’intégrité de l’extension Azure MFA NPS](https://docs.microsoft.com/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/) effectue une vérification d’intégrité de base lors de la résolution des problèmes liés à l’extension NPS. Exécutez le script et choisissez l’option 3.
 
 ### <a name="contact-microsoft-support"></a>Contact Microsoft support
 

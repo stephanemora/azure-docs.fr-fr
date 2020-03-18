@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 11/1/2019
+ms.date: 03/05/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6da9aed857524e9b71aad4dfc99f1d2e54306dc9
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 72c18e48c27942c7bea47931ec79a31af941064e
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74272875"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79126664"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Ajouter Google comme fournisseur d’identité pour les utilisateurs invités B2B
 
@@ -48,32 +48,31 @@ Les points de terminaison communs d’autres applications ne prennent pas forcé
 
 Vous pouvez également fournir aux utilisateurs invités Google un lien direct vers une application ou une ressource, à condition qu’il comprenne les informations de votre locataire, par exemple `https://myapps.microsoft.com/signin/Twitter/<application ID?tenantId=<your tenant ID>`. 
 
-## <a name="step-1-configure-a-google-developer-project"></a>Étape 1 : Configurer un projet de développeur Google
+## <a name="step-1-configure-a-google-developer-project"></a>Étape 1 : Configurer un projet de développeur Google
 Commencez par créer un projet dans la console des développeurs Google pour obtenir un ID client et une clé secrète client que vous pourrez ajouter plus tard à Azure AD. 
 1. Accédez aux API Google à l’adresse https://console.developers.google.com et connectez-vous avec votre compte Google. Nous vous recommandons d’utiliser un compte Google d’équipe partagé.
 2. Créer un projet : Sur le tableau de bord, sélectionnez **Créer un projet**, puis **Créer**. À la page Nouveau projet, entrez un **Nom de projet**, puis sélectionnez **Créer**.
    
    ![Capture d’écran montrant une page Nouveau projet pour Google](media/google-federation/google-new-project.png)
 
-3. Assurez-vous que votre nouveau projet est sélectionné dans le menu des projets. Ouvrez ensuite le menu en haut à gauche et sélectionnez **API et Services** > **Informations d’identification**.
+3. Assurez-vous que votre nouveau projet est sélectionné dans le menu des projets. Ensuite, sous **API et services**, sélectionnez **Écran de consentement OAuth**.
 
-   ![Capture d’écran montrant l’option Informations d’identification de l’API Google](media/google-federation/google-api.png)
- 
-4. Choisissez l’onglet **Écran de consentement Oauth** et entrez un **Nom d’application**. (Laissez les autres paramètres tels quels.)
+4. Sélectionnez **Externe**, puis sélectionnez **Créer**. 
+5. Dans l’**écran de consentement OAuth**, entrez un **nom d’application**. (Laissez les autres paramètres tels quels.)
 
    ![Capture d’écran montrant l’option Écran de consentement OAuth de Google](media/google-federation/google-oauth-consent-screen.png)
 
-5. Accédez à la section **Domaines autorisés** et entrez microsoftonline.com.
+6. Accédez à la section **Domaines autorisés** et entrez microsoftonline.com.
 
    ![Capture d’écran montrant la section Domaines autorisés](media/google-federation/google-oauth-authorized-domains.png)
 
-6. Sélectionnez **Enregistrer**.
+7. Sélectionnez **Enregistrer**.
 
-7. Choisissez l’onglet **Informations d’identification**. Dans le menu **Créer les informations d’identification**, choisissez **ID client OAuth**.
+8. Choisissez **Informations d’identification**. Dans le menu **Créer les informations d’identification**, choisissez **ID client OAuth**.
 
    ![Capture d’écran montrant l’option Créer les informations d’identification des API Google](media/google-federation/google-api-credentials.png)
 
-8. Sous **Type d’application**, choisissez **Application web**, puis sous **URI de redirection autorisée**, entrez les URI suivants :
+9. Sous **Type d’application**, choisissez **Application web**, puis sous **URI de redirection autorisée**, entrez les URI suivants :
    - `https://login.microsoftonline.com` 
    - `https://login.microsoftonline.com/te/<directory id>/oauth2/authresp` <br>(où `<directory id>` est votre ID de répertoire)
    
@@ -82,11 +81,11 @@ Commencez par créer un projet dans la console des développeurs Google pour obt
 
    ![Capture d’écran montrant la section URI de redirection autorisée](media/google-federation/google-create-oauth-client-id.png)
 
-9. Sélectionnez **Create** (Créer). Copiez l’ID client et la clé secrète client, que vous utiliserez lors de l’ajout du fournisseur d'identité dans le portail Azure AD.
+10. Sélectionnez **Create** (Créer). Copiez l’ID client et la clé secrète client, que vous utiliserez lors de l’ajout du fournisseur d'identité dans le portail Azure AD.
 
    ![Capture d’écran montrant l’ID client et la clé secrète client OAuth](media/google-federation/google-auth-client-id-secret.png)
 
-## <a name="step-2-configure-google-federation-in-azure-ad"></a>Étape 2 : Configurer la fédération de Google dans Azure AD 
+## <a name="step-2-configure-google-federation-in-azure-ad"></a>Étape 2 : Configurer la fédération de Google dans Azure AD 
 Maintenant vous définirez l’ID client Google et la clé secrète client, soit en les entrant dans le portail Azure AD, soit à l’aide de PowerShell. Pensez à tester votre configuration de fédération de Google en invitant vous-même à l’aide d’une adresse Gmail et en essayant d’utiliser l’invitation avec votre compte d’invité Google. 
 
 #### <a name="to-configure-google-federation-in-the-azure-ad-portal"></a>Pour configurer la fédération de Google dans le portail Azure AD 
@@ -125,7 +124,7 @@ Vous pouvez supprimer votre configuration de fédération de Google. Dans ce cas
 1. Installez la dernière version d’Azure AD PowerShell pour le module Graph ([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)).
 2. Exécutez `Connect-AzureAD`.  
 4. Dans l’invite de connexion, connectez-vous avec le compte d’administrateur général géré.  
-5. Entrez la commande suivante :
+5. Entrez la commande suivante :
 
     `Remove-AzureADMSIdentityProvider -Id Google-OAUTH`
 

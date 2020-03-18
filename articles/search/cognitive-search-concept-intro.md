@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 14c120af69a94331586f9264a12f5d2333a5d87d
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 0a4dd3247a9931de3ae2c699bdf7800407695c86
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77586748"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79080222"
 ---
 # <a name="introduction-to-ai-in-azure-cognitive-search"></a>Présentation de l’intelligence artificielle dans la Recherche cognitive Azure
 
@@ -21,7 +21,7 @@ L’enrichissement par IA est une fonctionnalité d’indexation de la Recherche
 
 + Les compétences de **traitement en langage naturel** incluent la [reconnaissance d’entité](cognitive-search-skill-entity-recognition.md), la [détection de la langue](cognitive-search-skill-language-detection.md), l’[extraction de phrases clés](cognitive-search-skill-keyphrases.md), la manipulation de texte, la [détection de sentiments](cognitive-search-skill-sentiment.md) et la [détection d’informations d’identification personnelle](cognitive-search-skill-pii-detection.md). Grâce à ces compétences, un texte non structuré peut adopter de nouvelles formes, mappées en tant que champs interrogeables et filtrés dans un index.
 
-+ Les compétences de **traitement d'image** incluent la [reconnaissance optique de caractères (OCR)](cognitive-search-skill-ocr.md) et l'identification des [caractéristiques visuelles](cognitive-search-skill-image-analysis.md), comme la détection des visages, l'interprétation des images, la reconnaissance des images (monuments et personnes célèbres) ou des attributs tels que les couleurs ou l'orientation des images. Vous pouvez créer des représentations textuelles du contenu des images, dans lesquelles vous pouvez effectuer des recherches à l’aide de toutes les fonctionnalités de requête de la Recherche cognitive Azure.
++ Les compétences de **traitement d’image** incluent la [reconnaissance optique de caractères (OCR)](cognitive-search-skill-ocr.md) et l’identification des [caractéristiques visuelles](cognitive-search-skill-image-analysis.md), comme la détection des visages, l’interprétation des images, la reconnaissance des images (monuments et personnes célèbres) ou des attributs tels que l’orientation des images. Vous pouvez créer des représentations textuelles du contenu des images, dans lesquelles vous pouvez effectuer des recherches à l’aide de toutes les fonctionnalités de requête de la Recherche cognitive Azure.
 
 ![Diagramme de pipeline d’enrichissement](./media/cognitive-search-intro/cogsearch-architecture.png "vue d’ensemble du pipeline d’enrichissement")
 

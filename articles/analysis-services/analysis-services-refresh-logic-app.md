@@ -6,12 +6,12 @@ ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: chlound
-ms.openlocfilehash: a44aa5b355bea675f5d99761d97b8876a9b2a7d7
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 78bc629598c0635b7760285d0507b7a85a4ab551
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572343"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79126890"
 ---
 # <a name="refresh-with-logic-apps"></a>Actualiser avec Logic Apps
 
@@ -26,11 +26,11 @@ Tous les appels doivent être authentifiés avec un jeton Azure Active Directory
 ## <a name="design-the-logic-app"></a>Concevoir l’application logique
 
 > [!IMPORTANT]
-> Les exemples suivants supposent que le pare-feu Azure Analysis Services est désactivé.  Si le pare-feu est activé, l’adresse IP publique de l’initiateur de la requête doit figurer sur la liste verte dans le pare-feu Azure Analysis Services. Pour en savoir plus sur les plages d’adresses IP d’application logique par région, consultez [Limites et informations de configuration pour Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses).
+> Les exemples suivants supposent que le pare-feu Azure Analysis Services est désactivé. Si le pare-feu est activé, l’adresse IP publique de l’initiateur de la requête doit figurer sur la liste verte dans le pare-feu Azure Analysis Services. Pour en savoir plus sur les plages d’adresses IP Azure Logic Apps par région, consultez [Limites et informations de configuration pour Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#configuration).
 
 ### <a name="prerequisites"></a>Prérequis
 
-#### <a name="create-a-service-principal-spn"></a>Créer un principal du service (SPN)
+#### <a name="create-a-service-principal-spn"></a>Créer un principal de service (SPN)
 
 Pour en savoir plus sur la création d’un principal de service, consultez [Créer un principal du service à l’aide du portail Azure](../active-directory/develop/howto-create-service-principal-portal.md).
 
@@ -75,7 +75,7 @@ Configurez l’activité HTTP comme suit :
 |**Type d’informations d’identification**     |Secret         |
 |**Secret**     |Entrez votre secret de nom de principal du service         |
 
-Exemple :
+Exemple :
 
 ![Activité HTTP terminée](./media/analysis-services-async-refresh-logic-app/7.png)
 
@@ -116,4 +116,4 @@ Enregistrez l’application logique.
 ## <a name="next-steps"></a>Étapes suivantes
 
 [Exemples](analysis-services-samples.md)  
-[API REST](https://docs.microsoft.com/rest/api/analysisservices/servers)
+[REST API](https://docs.microsoft.com/rest/api/analysisservices/servers)

@@ -3,19 +3,19 @@ title: Préparer des données de test pour Custom Speech - Service Speech
 titleSuffix: Azure Cognitive Services
 description: Lors du test de la précision de la reconnaissance vocale Microsoft ou de l’apprentissage de vos modèles personnalisés, vous aurez besoin de données audio et texte. Dans cette page, nous nous intéressons aux types de données, à la façon dont ils sont utilisés et à leur gestion.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/17/2019
-ms.author: erhopf
-ms.openlocfilehash: 6100ac6a6b01a7d0eac74b0e83539bf4e671cb89
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.date: 03/09/2020
+ms.author: dapine
+ms.openlocfilehash: 969c1450966d2754e6e8f00126da52a1e88181fc
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660407"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942709"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Préparer des données pour Custom Speech
 
@@ -55,15 +55,17 @@ Les données audio sont optimales pour tester la précision du modèle de reconn
 
 Servez-vous de ce tableau pour vérifier que le format de vos fichiers audio convient pour une utilisation avec Custom Speech :
 
-| Propriété | Valeur |
-|----------|-------|
-| Format de fichier | RIFF (WAV) |
-| Échantillonnage | 8 000 Hz ou 16 000 Hz |
-| Canaux | 1 (mono) |
-| Longueur maximale par fichier audio | 2 heures |
-| Format d’échantillonnage | PCM, 16 bits |
-| Format d’archive | .zip |
-| Taille d’archive maximale | 2 Go |
+| Propriété                 | Valeur                 |
+|--------------------------|-----------------------|
+| Format de fichier              | RIFF (WAV)            |
+| Échantillonnage              | 8 000 Hz ou 16 000 Hz |
+| Canaux                 | 1 (mono)              |
+| Longueur maximale par fichier audio | 2 heures               |
+| Format d’échantillonnage            | PCM, 16 bits           |
+| Format d’archive           | .zip                  |
+| Taille d’archive maximale     | 2 Go                  |
+
+[!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 
 > [!TIP]
 > Lors du chargement de données de formation et de test, la taille du fichier .zip ne peut pas dépasser 2 Go. Si vous avez besoin de plus de données pour l’entraînement, divisez-le en plusieurs fichiers .zip et chargez-les séparément. Plus tard, vous pouvez choisir d’effectuer l’entraînement à partir de *plusieurs* jeux de données. Cependant, vous ne pouvez tester qu’à partir d’un *seul* jeu de données.
@@ -79,18 +81,20 @@ Utilisez <a href="http://sox.sourceforge.net" target="_blank" rel="noopener">SoX
 
 Pour mesurer la précision de la reconnaissance vocale de Microsoft pendant le traitement de vos fichiers audio, vous devez fournir des transcriptions étiquetées à la main (mot par mot) pour effectuer la comparaison. Si la transcription étiquetée à la main prend souvent beaucoup de temps, elle est nécessaire pour évaluer la précision et entraîner le modèle pour vos cas d’usage. Gardez à l’esprit que les améliorations de la reconnaissance seront proportionnelles à la qualité des données fournies. C’est pourquoi il est important de charger uniquement des transcriptions de grande qualité.
 
-| Propriété | Valeur |
-|----------|-------|
-| Format de fichier | RIFF (WAV) |
-| Échantillonnage | 8 000 Hz ou 16 000 Hz |
-| Canaux | 1 (mono) |
+| Propriété                 | Valeur                               |
+|--------------------------|-------------------------------------|
+| Format de fichier              | RIFF (WAV)                          |
+| Échantillonnage              | 8 000 Hz ou 16 000 Hz               |
+| Canaux                 | 1 (mono)                            |
 | Longueur maximale par fichier audio | 2 heures (test) /60 s (entraînement) |
-| Format d’échantillonnage | PCM, 16 bits |
-| Format d’archive | .zip |
-| Taille maximale de zip | 2 Go |
+| Format d’échantillonnage            | PCM, 16 bits                         |
+| Format d’archive           | .zip                                |
+| Taille maximale de zip         | 2 Go                                |
+
+[!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 
 > [!NOTE]
-> Lors du chargement de données de formation et de test, la taille du fichier .zip ne peut pas dépasser 2 Go. Vous ne pouvez tester qu’à partir d’un *seul* jeu de données : veillez donc à ce que sa taille de fichier reste appropriée.
+> Lors du chargement de données de formation et de test, la taille du fichier .zip ne peut pas dépasser 2 Go. Vous ne pouvez effectuer des tests qu’à partir d’un *seul* jeu de données : veillez donc à ce que sa taille de fichier reste appropriée. De plus, chaque fichier d’entraînement ne peut pas dépasser 60 secondes. Dans le cas contraire, il génère une erreur.
 
 Pour résoudre les problèmes comme la suppression ou la substitution de mots, une quantité importante de données est nécessaire pour améliorer la reconnaissance. En règle générale, il est recommandé de fournir des transcriptions mot par mot pour environ 10 à 1 000 heures de contenu audio. Les transcriptions de tous les fichiers WAV doivent se trouver dans un seul fichier en texte brut. Chaque ligne du fichier de transcription doit contenir le nom d’un des fichiers audio, suivi de la transcription correspondante. Le nom de fichier et la transcription doivent être séparés par une tabulation (\t).
 

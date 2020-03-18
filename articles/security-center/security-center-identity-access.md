@@ -11,92 +11,55 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2019
+ms.date: 03/06/2020
 ms.author: memildin
-ms.openlocfilehash: 6b262baddd10c9d0dff4b196b733972b97d99872
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 183b81134b2fe72a539cc6460a05d828342aafbb
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552982"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79086483"
 ---
-# <a name="monitor-identity-and-access-preview"></a>Superviser l’identité et l’accès (préversion)
+# <a name="monitor-identity-and-access"></a>Surveiller l’identité et l’accès
+
+> [!TIP]
+> À partir de mars 2020, vous retrouverez les recommandations sur les identités et les accès d’Azure Security Center dans tous les abonnements au niveau tarifaire gratuit. Si vous avez des abonnements sur le niveau gratuit, leur degré de sécurisation est affecté, car la sécurité de leur identité et de leur accès n’a pas été évaluée. 
+
 Lorsque Security Center identifie des failles de sécurité potentielles, il crée des suggestions qui vous guident tout au long du processus de configuration des contrôles nécessaires afin de renforcer et protéger vos ressources.
 
-Cet article explique la page **Identité et accès** de la section de sécurité des ressources d’Azure Security Center.
+Le périmètre de sécurité a évolué d’un périmètre de réseau vers un périmètre d’identité. La sécurité se résume moins à la protection de votre réseau et plus à la défense de vos données, ainsi qu'à la gestion de la sécurité de vos applications et de vos utilisateurs. Désormais, comme de plus en plus d’applications et de données sont déplacées vers le cloud, l’identité devient le nouveau périmètre.
 
-Pour obtenir la liste complète des recommandations que vous pouvez voir sur cette page, consultez [Recommandations relatives à l’identité et à l’accès](recommendations-reference.md#recs-identity).
+Le fait de surveiller vos activités d’identité vous permet de prendre des mesures avant qu’un événement ne survienne, ou des mesures réactives, pour contrer une tentative d’attaque. Voici des exemples de recommandations que vous pouvez voir dans la section sur la sécurité des ressources **Identité et accès** d’Azure Security Center :
 
-> [!NOTE]
-> La surveillance de l’identité et de l’accès est uniquement disponible en préversion, au niveau Standard du Security Center. Consultez [Tarification](security-center-pricing.md) pour en savoir plus sur les niveaux tarifaires de Security Center.
->
+- L’authentification multifacteur doit être activée sur les comptes disposant d’autorisations de propriétaire sur votre abonnement
+- Trois propriétaires au plus doivent être désignés pour votre abonnement
+- Les comptes déconseillés doivent être supprimés de votre abonnement
+- Les comptes externes disposant d’autorisations de lecture doivent être supprimés de votre abonnement
 
-L’identité doit être le plan de contrôle de votre entreprise. La protection des identités doit être votre priorité absolue. Le périmètre de sécurité a évolué d’un périmètre de réseau vers un périmètre d’identité. La sécurité se résume moins à la protection de votre réseau et plus à la défense de vos données, ainsi qu'à la gestion de la sécurité de vos applications et de vos utilisateurs. Désormais, comme de plus en plus d’applications et de données sont déplacées vers le cloud, l’identité devient le nouveau périmètre.
-
-Le fait de surveiller vos activités d’identité vous permet de prendre des mesures avant qu’un événement ne survienne, ou des mesures réactives, pour contrer une tentative d’attaque. Le tableau de bord Identité et accès vous fournit des recommandations, telles que :
-
-- Activer l’authentification multi-facteur pour les comptes privilégiés sur votre abonnement
-- Supprimer les comptes externes disposant d’autorisations d’écriture de votre abonnement
-- Supprimer des comptes externes disposant de privilèges de votre abonnement
+Pour obtenir la liste complète des recommandations que vous pouvez y voir, consultez [Recommandations relatives à l’identité et à l’accès](recommendations-reference.md#recs-identity).
 
 > [!NOTE]
 > Si votre abonnement comporte plus de 600 comptes, Security Center n’est pas en mesure d’exécuter les recommandations d’identité dans votre abonnement. Les recommandations qui ne sont pas exécutées sont listées sous « Évaluations non disponibles » ci-dessous.
 Security Center ne peut pas exécuter les recommandations d’identité sur des agents d’administration d’un partenaire fournisseur de solutions Cloud.
 >
 
-## <a name="monitor-identity-and-access"></a>Surveiller l’identité et l’accès
 
-Ouvrez la liste des problèmes identifiés liés à l’identité et à l’accès en sélectionnant **Identité et accès** dans la barre latérale Security Center (sous **Ressources**) ou à partir de la page de vue d’ensemble. 
+Toutes les recommandations sur les identités et les accès sont disponibles dans les deux contrôles de sécurité dans la page **Recommandations** :
 
-Sous **Identité et accès**, se trouvent deux onglets :
+- Gérer l’accès et les autorisations 
+- Activer la MFA
 
-- **Vue d’ensemble** : recommandations identifiées par Security Center.
-- **Abonnements** : liste de vos abonnements et l’état de sécurité actuel de chacun d’eux.
+![Les deux contrôles de sécurité avec les recommandations sur les identités et les accès](media/security-center-identity-access/two-security-controls-for-identity-and-access.png)
 
-[![Identité et accès](./media/security-center-identity-access/identity-dashboard.png)](./media/security-center-identity-access/identity-dashboard.png#lightbox)
 
-### <a name="overview-section"></a>Section Vue d’ensemble
-Sous **Vue d’ensemble**, se trouve une liste de recommandations. La première colonne indique la recommandation. La deuxième colonne précise le nombre total d’abonnements qui sont concernés par cette recommandation. La troisième colonne renseigne sur la gravité du problème.
+## <a name="enable-multi-factor-authentication-mfa"></a>Activer l’authentification multifacteur (MFA)
 
-1. Sélectionnez une recommandation. La fenêtre des recommandations s’ouvre pour afficher les informations suivantes :
+L’activation de MFA nécessite des [autorisations de locataire Azure Active Directory (AD)](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles). 
 
-   - Description de la recommandation
-   - Liste des abonnements intègres et non intègres
-   - Liste des ressources non analysées en raison d’une évaluation ayant échoué, ou de la présence de la ressource sous un abonnement en cours d’exécution dans le niveau Gratuit et qui n’est pas évaluée
+- Si vous disposez d’une édition Premium d’AD, activez MFA avec l’[accès conditionnel](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
 
-    [![Fenêtre Recommandations](./media/security-center-identity-access/select-subscription.png)](./media/security-center-identity-access/select-subscription.png#lightbox)
+- Les utilisateurs de l’édition gratuite d’AD peuvent activer les **paramètres par défaut de sécurité** dans Azure Active Directory comme décrit dans la [documentation AD](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults), mais la recommandation de Security Center d’activer MFA s’affiche toujours.
 
-1. Sélectionnez un abonnement dans la liste pour afficher des précisions supplémentaires.
-
-### <a name="subscriptions-section"></a>Section Abonnements
-Sous **Abonnements**, se trouve une liste d’abonnements. La première colonne liste les abonnements. La deuxième colonne précise le nombre total de recommandations pour chaque abonnement. La troisième colonne renseigne sur le niveau de gravité des problèmes.
-
-[![Onglet Abonnements](./media/security-center-identity-access/subscriptions.png)](./media/security-center-identity-access/subscriptions.png#lightbox)
-
-1. Sélectionnez un abonnement. Une vue récapitulative s’ouvre avec trois onglets :
-
-   - **Recommandations** : basées sur les évaluations effectuées par Security Center et qui ont échoué.
-   - **Évaluations passées** : liste des évaluations effectuées par Security Center et qui ont réussi.
-   - **Évaluations non disponibles** : liste des évaluations qui n’ont pas pu s’exécuter en raison d’une erreur, ou de la présence de plus de 600 comptes dans l’abonnement.
-
-   Sous **Recommandations** se trouve une liste de recommandations pour l’abonnement sélectionné, avec le niveau de gravité pour chaque recommandation.
-
-   [![Recommandations pour un abonnement sélectionné](./media/security-center-identity-access/recommendations.png)](./media/security-center-identity-access/recommendations.png#lightbox)
-
-1. Sélectionnez une recommandation pour obtenir une description de la recommandation, une liste d’abonnements intègres et non intègres, et une liste de ressources non analysées.
-
-   [![Description d’une recommandation](./media/security-center-identity-access/designate.png)](./media/security-center-identity-access/designate.png#lightbox)
-
-   Sous **Évaluations passées** se trouve une liste d’évaluations réussies.  L’état de gravité de ces évaluations est toujours vert.
-
-   [![Évaluations réussies](./media/security-center-identity-access/passed-assessments.png)](./media/security-center-identity-access/passed-assessments.png#lightbox)
-
-1. Sélectionnez une évaluation réussie dans la liste pour obtenir une description de l’évaluation et une liste d’abonnements intègres. Il existe un onglet pour les abonnements non intègres, celui-ci liste tous les abonnements qui ont échoué.
-
-   [![Évaluations réussies](./media/security-center-identity-access/remove.png)](./media/security-center-identity-access/remove.png#lightbox)
-
-> [!NOTE]
-> Si vous avez créé une stratégie d’accès conditionnel impliquant l’authentification MFA mais comportant des exclusions, l’évaluation faite par la recommandation MFA de Security Center considère la stratégie comme non conforme, car elle permet à certains utilisateurs de se connecter à Azure sans authentification MFA.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur les recommandations qui s’appliquent à d’autres types de ressources Azure, consultez les articles suivants :

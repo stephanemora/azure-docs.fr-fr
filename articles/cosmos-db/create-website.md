@@ -4,17 +4,17 @@ description: Découvrez comment déployer un compte Azure Cosmos DB, Azure App S
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/28/2019
+ms.date: 03/11/2019
 ms.author: sngun
-ms.openlocfilehash: 11b84877171fae8e788d3298973fd74645b35480
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 2306dbe234e171ac613c33458df1990b767637df
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901915"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128373"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Déployer Azure Cosmos DB et Azure App Service Web Apps avec un modèle Azure Resource Manager
-Ce didacticiel vous montre comment utiliser un modèle Azure Resource Manager pour déployer et intégrer [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), une application web [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) et un exemple d’application web.
+Ce tutoriel vous montre comment utiliser un modèle Azure Resource Manager pour déployer et intégrer [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), une application web [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) et un exemple d’application web.
 
 À l’aide de modèles Azure Resource Manager, vous pouvez facilement automatiser le déploiement et la configuration de vos ressources Azure.  Ce didacticiel montre comment déployer une application web et configurer automatiquement les informations de connexion du compte Azure Cosmos DB.
 
@@ -25,7 +25,7 @@ Après avoir terminé ce didacticiel, vous serez en mesure de répondre aux ques
 
 <a id="Prerequisites"></a>
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 > [!TIP]
 > Ce didacticiel ne suppose pas d’être familiarisé avec les modèles Azure Resource Manager ou JSON, sauf si vous envisagez de modifier les modèles référencés ou les options de déploiement.
 > 

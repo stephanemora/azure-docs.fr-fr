@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: b330b6176ba9cadc85fad81876caf2583021d503
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 0ad780c04954c09ddfd432b3c7de3dc65f0841bf
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988632"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942997"
 ---
 # <a name="introduction-to-knowledge-stores-in-azure-cognitive-search"></a>Présentation des bases de connaissances dans la Recherche cognitive Azure
 
@@ -147,3 +147,13 @@ L’approche la plus simple pour créer des documents enrichis consiste à utili
 
 > [!div class="nextstepaction"]
 > [Créer une base de connaissances à l’aide de Postman et de REST](knowledge-store-create-rest.md)
+
+Découvrez les projections, les fonctionnalités et la façon dont vous [les définissez dans un ensemble de compétences](knowledge-store-projection-overview.md).
+
+> [!div class="nextstepaction"]
+> [Projections dans une base de connaissances](knowledge-store-projection-overview.md)
+
+Pour un tutoriel sur les concepts de projections avancées, tels que le découpage, la mise en forme inline et les relations, commencez par [définir des projections dans une base de connaissances](knowledge-store-projections-examples.md).
+
+> [!div class="nextstepaction"]
+> [Définir des projections dans une base de connaissances](knowledge-store-projections-examples.md)

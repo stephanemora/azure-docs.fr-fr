@@ -8,13 +8,13 @@ author: Blackmist
 ms.author: larryfr
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 09/18/2019
-ms.openlocfilehash: f46dd2b30ca84a7e6a1b0fc34ef0fa5bafffaef5
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.date: 03/05/2020
+ms.openlocfilehash: 68ad9cc47d68f7bc3ae952f7e458781cdc1c4ab2
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721113"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129767"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Former des modèles avec Azure Machine Learning
 
@@ -28,6 +28,8 @@ Azure Machine Learning vous permet d’entraîner vos modèles de plusieurs faç
     | [Machine learning automatisé](#automated-machine-learning) | Le machine learning automatisée permet d’**entraîner des modèles sans avoir nécessairement de connaissances approfondies en science des données ou en programmation**. Pour les personnes spécialisées dans la science des données et la programmation, il permet de gagner du temps et d’économiser des ressources grâce à l’automatisation de la sélection d’algorithme et de l’ajustement des hyperparamètres. Avec le machine learning automatisé, nul besoin de se soucier de la définition d’une configuration d’exécution. |
     | [Estimateurs](#estimators) | Les classes d’estimateur **facilitent l’entraînement de modèles à partir de frameworks de machine learning à succès**. Il existe des classes d’estimateur pour **Scikit-learn**, **PyTorch**, **TensorFlow** et **Chainer**. Il existe aussi un estimateur générique qui peut être utilisé avec les frameworks qui ne disposent pas déjà d’une classe d’estimateur dédiée. Les estimateurs vous dispensent de la définition d’une configuration d’exécution. |
     | [Pipeline de machine learning](#machine-learning-pipeline) | Les pipelines ne constituent pas une méthode d’entraînement différente. Il s’agit d’une **façon de définir un workflow en suivant des étapes modulaires réutilisables**, qui peuvent inclure l’entraînement. Les pipelines de machine learning prennent en charge l’utilisation du machine learning automatisé, d’estimateurs et de la configuration d’exécution pour l’entraînement des modèles. Les pipelines n’étant pas spécifiquement axés sur l’entraînement, les raisons d’utiliser un pipeline sont plus variées que les autres méthodes d’entraînement. En règle générale, vous pouvez utiliser un pipeline dans les cas suivants :<br>* Vous souhaitez **planifier des processus sans assistance** comme des tâches d’entraînement durables ou une préparation de données.<br>* Utilisation de **plusieurs étapes** coordonnées sur des ressources de calcul et des emplacements de stockage hétérogènes.<br>* Utilisation du pipeline comme **modèle réutilisable** pour des scénarios spécifiques, comme le réentraînement ou le scoring par lots.<br>* **Suivi et versioning des sources de données, entrées et sorties** pour votre workflow.<br>* Votre workflow est **implémenté par différentes équipes qui travaillent de façon indépendante sur des étapes spécifiques**. Les étapes peuvent ensuite être regroupées dans un pipeline pour implémenter le workflow. |
+
++ [SDK Azure Machine Learning pour Python](#r-sdk) : Le SDK utilise le package reticulate pour établir une liaison avec le SDK Python d’Azure Machine Learning. Cela vous permet d’accéder aux objets et méthodes principaux implémentés dans le SDK Python à partir de tout environnement R.
 
 + **Concepteur** : Le concepteur Azure Machine Learning (préversion) offre un point d’entrée facile dans le Machine Learning pour établir des preuves de concept ou pour les utilisateurs peu expérimenté en matière de codage. Elle permet d’entraîner des modèles par glisser-déposer via une interface utilisateur web. Vous pouvez utiliser du code Python en phase de conception ou entraîner des modèles sans écrire de code.
 
@@ -67,7 +69,7 @@ Définissez les itérations, la configuration des hyperparamètres, la caractér
 * [Exemples : exemples Jupyter Notebook pour le machine learning automatisé](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning)
 * [Procédure : configurer des expériences de ML automatisé dans Python](how-to-configure-auto-train.md)
 * [Procédure : entraîner automatiquement un modèle de prévision de série chronologique](how-to-auto-train-forecast.md)
-* [Procédure : créer, explorer et déployer des expériences de Machine Learning automatisé avec [Azure Machine Learning Studio](how-to-create-portal-experiments.md)
+* [Guide pratique pour créer, explorer et déployer des expériences de Machine Learning automatisé avec Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md)
 
 ### <a name="estimators"></a>Estimateurs
 
@@ -88,6 +90,15 @@ Les pipelines de machine learning peuvent utiliser les méthodes d’entraîneme
 * [Exemples : exemples Jupyter Notebook pour les pipelines de machine learning](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines)
 * [Exemples : pipeline avec machine learning automatisé](https://aka.ms/pl-automl)
 * [Exemples : pipeline avec estimateurs](https://aka.ms/pl-estimator)
+
+## <a name="r-sdk"></a>SDK R
+
+Le SDK R vous permet d’utiliser le langage R avec Azure Machine Learning. Le SDK utilise le package reticulate pour établir une liaison avec le SDK Python d’Azure Machine Learning. Cela vous permet d’accéder aux objets et méthodes principaux implémentés dans le SDK Python à partir de tout environnement R.
+
+Pour plus d’informations, consultez les articles suivants :
+
+* [Tutoriel : Créer un modèle de régression logistique](tutorial-1st-r-experiment.md)
+* [Référence relative au SDK Azure Machine Learning pour R](https://azure.github.io/azureml-sdk-for-r/index.html)
 
 ## <a name="azure-machine-learning-designer"></a>Concepteur Azure Machine Learning
 

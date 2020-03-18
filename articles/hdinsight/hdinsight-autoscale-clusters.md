@@ -7,21 +7,20 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 02/21/2020
-ms.openlocfilehash: 6eb8f86d7bfa1c140c6422753840ded8a37ce3c4
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.date: 03/05/2020
+ms.openlocfilehash: 68bc30d08d95fe8e3d20a8ecb7af6c9710951921
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77616087"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399712"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Mettre à l’échelle automatiquement les clusters Azure HDInsight
 
 > [!Important]
-> La fonctionnalité de mise à l’échelle automatique d’Azure HDInsight a été mise à la disposition générale le 7 novembre 2019 pour les clusters Spark et Hadoop. Elle incluait des améliorations non disponibles dans la préversion de la fonctionnalité. Si vous avez créé un cluster Spark avant le 7 novembre 2019 et que vous souhaitez utiliser la fonctionnalité de mise à l’échelle automatique dessus, l’approche recommandée consiste à créer un nouveau cluster et à activer la mise à l’échelle automatique sur le nouveau cluster. 
+> La fonctionnalité de mise à l’échelle automatique d’Azure HDInsight a été mise à la disposition générale le 7 novembre 2019 pour les clusters Spark et Hadoop. Elle incluait des améliorations non disponibles dans la préversion de la fonctionnalité. Si vous avez créé un cluster Spark avant le 7 novembre 2019 et que vous souhaitez utiliser la fonctionnalité de mise à l’échelle automatique dessus, l’approche recommandée consiste à créer un nouveau cluster et à activer la mise à l’échelle automatique sur le nouveau cluster.
 >
->La mise à l’échelle automatique pour les clusters Interactive Query (LLAP) et HBase est toujours en préversion. La mise à l’échelle automatique est disponible uniquement sur les clusters Spark, Hadoop, Interactive Query et HBase. 
-
+> La mise à l’échelle automatique pour les clusters Interactive Query (LLAP) et HBase est toujours en préversion. La mise à l’échelle automatique est disponible uniquement sur les clusters Spark, Hadoop, Interactive Query et HBase.
 
 La fonctionnalité de mise à l’échelle automatique de cluster d’Azure HDInsight met automatiquement à l’échelle le nombre de nœuds Worker dans un cluster. Les autres types de nœuds du cluster ne peuvent pas être mis à l’échelle actuellement.  Lors de la création d’un cluster HDInsight, il est possible de définir un nombre minimum et un nombre maximum de nœuds Worker. La mise à l’échelle automatique surveille ensuite les besoins en ressources de la charge analytique et augmente ou diminue le nombre de nœuds Worker. L’utilisation de cette fonctionnalité n’entraîne aucun coût supplémentaire.
 
@@ -59,23 +58,18 @@ La mise à l’échelle automatique supervise en permanence le cluster et collec
 
 Les métriques ci-dessus sont contrôlées toutes les 60 secondes. La fonction de mise à l’échelle automatique prend des décisions de montée en puissance ou de descente en puissance en fonction de ces métriques.
 
-### <a name="load-based-cluster-scale-up"></a>Montée en puissance d’un cluster basée sur la charge
+### <a name="load-based-scale-conditions"></a>Conditions de mise à l’échelle basée sur la charge
 
-Lorsque les conditions suivantes sont détectées, la fonction de mise à l’échelle automatique émet une requête de montée en puissance :
+Lorsque les conditions suivantes sont détectées, la mise à l’échelle automatique émet une requête de mise à l’échelle :
 
-* « Total pending CPU » est supérieur à la valeur de « Total free CPU » pendant plus de 3 minute.
-* « Total pending memory » est supérieur à la valeur de « Total free memory » pendant plus de 3 minute.
+|Scale-up|Scale-down|
+|---|---|
+|« Total pending CPU » est supérieur à la valeur de « Total free CPU » pendant plus de 3 minute.|« Total pending CPU » est inférieur à la valeur de « Total free CPU » pendant plus de 10 minutes.|
+|« Total pending memory » est supérieur à la valeur de « Total free memory » pendant plus de 3 minute.|« Total pending memory » est inférieur à la valeur de « Total free memory » pendant plus de 10 minutes.|
 
-Le service HDInsight calcule combien de nouveaux nœuds Worker sont nécessaires pour répondre aux besoins actuels en UC et en mémoire, puis émet une requête de montée en puissance pour ajouter le nombre de nœuds requis.
+Pour un scale-up, le service HDInsight calcule combien de nouveaux nœuds Worker sont utiles pour répondre aux besoins actuels en UC et en mémoire, puis il émet une requête de scale-up pour ajouter le nombre de nœuds nécessaires.
 
-### <a name="load-based-cluster-scale-down"></a>Descente en puissance d’un cluster basée sur la charge
-
-Lorsque les conditions suivantes sont détectées, la fonction de mise à l’échelle automatique émet une requête de descente en puissance :
-
-* « Total pending CPU » est inférieur à la valeur de « Total free CPU » pendant plus de 10 minutes.
-* « Total pending memory » est inférieur à la valeur de « Total free memory » pendant plus de 10 minutes.
-
-En fonction du nombre de conteneurs AM par nœud ainsi que des besoins actuels en UC et en mémoire, la fonction de mise à l’échelle automatique émet une requête de suppression d’un certain nombre de nœuds. Le service détecte également les nœuds à supprimer en fonction de l’exécution des travaux en cours. L’opération de descente en puissance désactive tout d’abord les nœuds, puis les supprime du cluster.
+Pour un scale-down, selon le nombre de conteneurs AM par nœud et les besoins actuels en UC et en mémoire, la fonction de mise à l’échelle automatique émet une requête de suppression d’un certain nombre de nœuds. Le service détecte également les nœuds à supprimer en fonction de l’exécution des travaux en cours. L’opération de descente en puissance désactive tout d’abord les nœuds, puis les supprime du cluster.
 
 ## <a name="get-started"></a>Bien démarrer
 
@@ -118,7 +112,7 @@ Pour les mises à l’échelle basées sur la charge et la planification, sélec
 
 ![Activation de l’option de mise à l’échelle d’un nœud worker basée sur la planification - Taille du nœud](./media/hdinsight-autoscale-clusters/azure-portal-cluster-configuration-pricing-vmsize.png)
 
-Votre abonnement a un quota de capacité pour chaque région. Le nombre total de cœurs de vos nœuds principaux combiné au nombre maximum de nœuds Worker ne peut dépasser le quota de capacité. Toutefois, ce quota est une limite logicielle ; vous pouvez toujours créer un ticket de support pour l’augmenter aisément.
+Votre abonnement a un quota de capacité pour chaque région. Le nombre total de cœurs de vos nœuds principaux, combiné au nombre maximum de nœuds Worker ne peut dépasser le quota de capacité. Toutefois, ce quota est une limite logicielle ; vous pouvez toujours créer un ticket de support pour l’augmenter aisément.
 
 > [!Note]  
 > Si vous dépassez la limite totale de quota de base, vous recevrez un message d’erreur disant indiquant que le nœud maximum a dépassé les noyaux disponibles dans cette région et que vous devez choisir une autre région ou contacter le support pour augmenter le quota (« the maximum node exceeded the available cores in this region, please choose another region or contact the support to increase the quota »).
