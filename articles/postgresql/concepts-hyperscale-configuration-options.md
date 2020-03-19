@@ -32,7 +32,7 @@ Vous pouvez sélectionner les paramètres de calcul et de stockage indépendamme
 ## <a name="regions"></a>Régions
 Les groupes de serveurs Hyperscale (Citus) sont disponibles dans les régions Azure suivantes :
 
-* Amérique :
+* États-Unis:
     * Centre du Canada
     * USA Centre
     * USA Est

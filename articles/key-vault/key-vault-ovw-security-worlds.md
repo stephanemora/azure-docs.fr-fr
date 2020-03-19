@@ -36,7 +36,7 @@ Par exemple, la sauvegarde d’une clé effectuée par un abonnement spécifique
 
 Les régions sont mappées aux mondes de sécurité, illustrés sous forme d’en-têtes principaux dans les tableaux :
 
-Dans l’article « Produits par région », par exemple, l’onglet **Amérique** contient les éléments USA EST, USA CENTRE, USA OUEST, tous mappés à la région Amérique. 
+Dans l’article « Produits par région », par exemple, l’onglet **États-Unis** contient les éléments USA EST, USA CENTRE, USA OUEST, tous mappés à la région États-Unis. 
 
 >[!NOTE]
 >US DOD EAST et US DOD CENTRAL sont des exceptions, dans la mesure où ils possèdent leurs propres mondes de sécurité. 

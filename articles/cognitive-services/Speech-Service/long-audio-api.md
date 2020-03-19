@@ -48,7 +48,7 @@ Lors de la préparation de votre fichier texte, vérifiez les points suivants :
   * Pour du texte brut, chaque paragraphe est séparé en appuyant sur la touche **Entrée/Retour** ([exemple d’entrée de texte brut](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/en-US.txt))
   * Pour du texte SSML, chaque élément SSML est considéré comme un paragraphe. Les éléments SSML sont séparés par différents paragraphes - Consultez [Exemple d’entrée de texte SSML](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/SSMLTextInputSample.txt)
 > [!NOTE]
-> Pour le chinois (Continent), le chinois (Hong Kong), le chinois (Taïwan), le japonais et le coréen, un mot sera compté comme deux caractères. 
+> Pour le chinois (Continent), le chinois (Hong Kong, R.A.S.), le chinois (Taïwan), le japonais et le coréen, un mot sera compté comme deux caractères. 
 
 ## <a name="submit-synthesis-requests"></a>Envoyer des demandes de synthèse vocale
 
