@@ -3,7 +3,7 @@ title: Documentation Azure Media Services v2 (hérité)
 summary: Aucune nouvelle fonctionnalité n’est ajoutée à Media Services v2. Découvrez la dernière version, Media Services v3.
 metadata:
   title: Documentation Azure Media Services v2 (hérité)
-  description: Apprenez à diffuser en streaming des vidéos à la demande ou en direct avec Media Services v2.
+  description: Apprenez à diffuser en continu des vidéos à la demande ou de qualité télévisuelle avec Media Services v2.
   services: media-services
   ms.service: media-services
   ms.subservice: 
@@ -13,10 +13,10 @@ metadata:
   ms.author: juliako
   ms.date: 02/18/2020
   ms.openlocfilehash: 6cd7d5d0ef9bd188b42ca893ffa2bacbda1bdbc8
-  ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 02/25/2020
+  ms.lasthandoff: 03/25/2020
   ms.locfileid: "77589383"
 landingContent:
 - title: À propos d’Azure Media Services v2
@@ -45,7 +45,7 @@ landingContent:
     links:
     - text: Créer un compte Media Services à l’aide du portail
       url: media-services-portal-create-account.md
-    - text: Se connecter programmatiquement
+    - text: Se connecter par programme
       url: media-services-use-aad-auth-to-access-ams-api.md
     - text: Streaming en direct avec le portail Azure
       url: media-services-portal-live-passthrough-get-started.md

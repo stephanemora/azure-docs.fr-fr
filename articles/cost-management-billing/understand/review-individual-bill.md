@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 02/13/2020
 ms.author: banders
 ms.openlocfilehash: 8ebda9716df2e9e45050760ee8d0434c12838370
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77199124"
 ---
 # <a name="tutorial-review-your-individual-azure-bill"></a>Tutoriel : Consulter votre facture Azure
@@ -120,7 +120,7 @@ Les coûts indiqués dans l’analyse des coûts doivent correspondre précisém
 
 ![Frais d’utilisation indiqués sur la facture](./media/review-individual-bill/invoice-usage-charges.png)
 
-## <a name="external"></a>Services externes facturés séparément
+## <a name="external-services-billed-separately"></a><a name="external"></a>Services externes facturés séparément
 
 Les services externes, ou frais de la Place de marché, concernent les ressources créées par des fournisseurs de logiciels tiers. Ces ressources sont disponibles sur la Place de marché Azure. Par exemple, un pare-feu Barracuda est une ressource de la Place de marché Azure offerte par un tiers. Tous les frais du pare-feu et les compteurs correspondants apparaissent en tant que frais de services externes.
 
@@ -149,7 +149,7 @@ Une fois la machine virtuelle créée, chaque compteur commence à émettre des 
 
 Vous pouvez voir les compteurs qui ont été utilisés pour calculer votre facture dans le fichier CSV d’utilisation.
 
-## <a name="payment"></a>Régler votre facture
+## <a name="pay-your-bill"></a><a name="payment"></a>Régler votre facture
 
 Si vous avez configuré une carte de crédit comme moyen de paiement, le paiement est débité automatiquement dans les 10 jours qui suivent la fin de la période de facturation. Sur votre relevé de carte de crédit, le poste doit indiquer **MSFT Azure**.
 

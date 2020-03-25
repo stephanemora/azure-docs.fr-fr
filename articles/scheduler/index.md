@@ -9,10 +9,10 @@ layout: LandingPage
 ms.topic: landing-page
 ms.date: 02/23/2020
 ms.openlocfilehash: 026d4590160d8292fed5e1a678715ac65fdbd859
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/25/2020
 ms.locfileid: "78898606"
 ---
 # <a name="scheduler-documentation"></a>Documentation Scheduler
@@ -22,7 +22,7 @@ ms.locfileid: "78898606"
 >
 > Scheduler n’est plus disponible dans le portail Azure, mais l’[API REST](/rest/api/scheduler) et les [applets de commande Azure Scheduler PowerShell](scheduler-powershell-reference.md) restent disponibles pour vous permettre de gérer vos travaux et collections de travaux.
 
-Découvrez comment créer, planifier, exécuter, gérer et mettre à jour des travaux récurrents automatisés dans le cloud. Des tutoriels, informations de référence sur les API et autre documentation vous montrent comment planifier et superviser des travaux, tels que des actions d’application récurrentes et de la maintenance courante.
+Découvrez comment créer, planifier, exécuter, gérer et mettre à jour des travaux récurrents automatisés dans le cloud. Des didacticiels, références d’API et autres documents vous montrent comment planifier et surveiller diverses tâches, telles que des actions d’application récurrentes et des travaux de maintenance courants.
 
 <ul class="panelContent cardsFTitle">
     <li>

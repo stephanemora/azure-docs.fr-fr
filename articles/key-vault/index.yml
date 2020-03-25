@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Documentation Azure Key Vault
-summary: Apprenez à utiliser Key Vault pour créer et gérer des clés d’accès et de chiffrement pour vos ressources, applications et solutions cloud. Tutoriels, informations de référence sur les API et plus.
+summary: Apprenez à utiliser Key Vault pour créer et gérer des clés d’accès et de chiffrement pour vos ressources, applications et solutions cloud. Didacticiels, références d’API et autres.
 metadata:
   title: Documentation Azure Key Vault
-  description: Apprenez à utiliser Key Vault pour créer et gérer des clés d’accès et de chiffrement pour vos ressources, applications et solutions cloud. Tutoriels, informations de référence sur les API et plus.
+  description: Apprenez à utiliser Key Vault pour créer et gérer des clés d’accès et de chiffrement pour vos ressources, applications et solutions cloud. Didacticiels, références d’API et autres.
   services: key-vault
   ms.service: key-vault
   ms.topic: landing-page
@@ -12,17 +12,17 @@ metadata:
   manager: rkarlin
   ms.date: 09/19/2019
   ms.openlocfilehash: cbd1ca9ead64bfda8401876ec54487f767363d3c
-  ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 09/26/2019
+  ms.lasthandoff: 03/24/2020
   ms.locfileid: "71299787"
 landingContent:
 - title: À propos d’Azure Key Vault
   linkLists:
   - linkListType: overview
     links:
-    - text: Qu’est-ce qu’Azure Key Vault ?
+    - text: Qu'est-ce qu'Azure Key Vault ?
       url: key-vault-overview.md
   - linkListType: concept
     links:
@@ -32,7 +32,7 @@ landingContent:
       url: key-vault-ovw-soft-delete.md
     - text: Limitation
       url: key-vault-ovw-throttling.md
-- title: Prise en main
+- title: Bien démarrer
   linkLists:
   - linkListType: quickstart
     links:

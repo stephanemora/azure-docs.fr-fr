@@ -2,7 +2,7 @@
   href: null
 - name: Basculer vers la documentation de version actuelle
   href: ../introduction.md
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: Présentation d’Azure Data Factory
       href: data-factory-introduction.md
@@ -14,7 +14,7 @@
           href: data-factory-create-datasets.md
         - name: Planification et exécution
           href: data-factory-scheduling-and-execution.md
-- name: Prise en main
+- name: Découvrir
   expanded: true
   items:
     - name: Créer un pipeline pour copier des données
@@ -45,7 +45,7 @@
           href: data-factory-build-your-first-pipeline-using-rest-api.md
     - name: Déplacer des données entre un emplacement local et le cloud
       href: data-factory-move-data-between-onprem-and-cloud.md
-    - name: Forum Aux Questions
+    - name: Questions fréquentes (FAQ)
       href: data-factory-faq.md
 - name: Procédure
   items:
@@ -70,7 +70,7 @@
               href: data-factory-amazon-redshift-connector.md
             - name: Amazon S3
               href: data-factory-amazon-simple-storage-service-connector.md
-            - name: un stockage Azure Blob
+            - name: Stockage Blob Azure
               href: data-factory-azure-blob-connector.md
             - name: Azure Cosmos DB
               href: data-factory-azure-documentdb-connector.md
@@ -80,7 +80,7 @@
               href: data-factory-azure-search-connector.md
             - name: Azure SQL Database
               href: data-factory-azure-sql-connector.md
-            - name: Azure SQL Data Warehouse
+            - name: Azure SQL Data Warehouse.
               href: data-factory-azure-sql-data-warehouse-connector.md
             - name: Stockage de table Azure
               href: data-factory-azure-table-connector.md
@@ -155,7 +155,7 @@
           href: 'https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/AzureAnalysisServicesProcessSample'
         - name: Services liés de calcul
           href: data-factory-compute-linked-services.md
-    - name: Développement
+    - name: Développer
       items:
         - name: "Modèle Azure\_Resource\_Manager"
           href: data-factory-how-to-use-resource-manager-templates.md

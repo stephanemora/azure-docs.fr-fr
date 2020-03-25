@@ -1,6 +1,6 @@
 - name: Documentation SQL Database Edge
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce que SQL Database Edge\_?"
       href: overview.md

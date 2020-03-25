@@ -305,11 +305,11 @@
 - name: Gérer les ressources partagées
   items:
     - name: Certificats
-      href: automation-certificates.md
+      href: shared-resources/certificates.md
     - name: Connexions
       href: automation-connections.md
     - name: Informations d'identification
-      href: automation-credentials.md
+      href: shared-resources/credentials.md
     - name: Modules PowerShell
       items:
         - name: Modules
@@ -319,9 +319,9 @@
         - name: Mettre à jour les modules Azure PowerShell
           href: automation-update-azure-modules.md
     - name: Planifications
-      href: automation-schedules.md
+      href: shared-resources/schedules.md
     - name: Variables
-      href: automation-variables.md
+      href: shared-resources/variables.md
     - name: Gérer les packages Python 2
       href: python-packages.md
     - name: Résoudre les problèmes liés aux ressources partagées

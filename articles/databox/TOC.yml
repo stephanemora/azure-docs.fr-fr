@@ -3,7 +3,7 @@
   items:
     - name: Data Box
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           items:
             - name: "Qu’est-ce que Data Box\_?"
               href: data-box-overview.md
@@ -48,7 +48,7 @@
               href: data-box-limits.md
             - name: Vérifier la sécurité
               href: data-box-security.md
-            - name: Forum Aux Questions
+            - name: Questions fréquentes (FAQ)
               href: data-box-faq.md
         - name: Procédures
           items:
@@ -70,7 +70,7 @@
                   href: ../storage/files/storage-sync-offline-data-transfer.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
                 - name: À partir du magasin HDFS
                   href: ../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
-            - name: Résolution des problèmes
+            - name: Dépanner
               items:
                 - name: Problèmes liés à Data Box
                   href: data-box-troubleshoot.md
@@ -78,7 +78,7 @@
                   href: data-box-troubleshoot-rest.md
     - name: Data Box Disk
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           items:
             - name: "Qu’est-ce qu’un disque Data Box\_?"
               href: data-box-disk-overview.md
@@ -107,13 +107,13 @@
               href: data-box-disk-limits.md
             - name: Vérifier la sécurité
               href: data-box-disk-security.md
-            - name: Forum Aux Questions
+            - name: Questions fréquentes (FAQ)
               href: data-box-disk-faq.md
         - name: Procédures
           items:
             - name: Gérer via le portail Azure
               href: data-box-portal-ui-admin.md
-            - name: Résolution des problèmes
+            - name: Dépanner
               items:
                 - name: Problèmes de déverrouillage
                   href: data-box-disk-troubleshoot-unlock.md
@@ -127,7 +127,7 @@
               href: data-box-disk-contact-microsoft-support.md
     - name: Data Box Heavy
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           items:
             - name: "Qu’est-ce que Data Box Heavy\_?"
               href: data-box-heavy-overview.md

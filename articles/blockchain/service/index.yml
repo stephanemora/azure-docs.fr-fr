@@ -11,10 +11,10 @@ metadata:
   ms.author: patricka
   ms.date: 11/04/2019
   ms.openlocfilehash: 5af8999a32682df18d1e4f1be192c2d4be628860
-  ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 11/21/2019
+  ms.lasthandoff: 03/25/2020
   ms.locfileid: "74285075"
 landingContent:
 - title: À propos d’Azure Blockchain Service
@@ -31,7 +31,7 @@ landingContent:
       url: data-security.md
     - text: Outils de développement
       url: develop.md
-- title: Prise en main
+- title: Bien démarrer
   linkLists:
   - linkListType: deploy
     links:
@@ -71,7 +71,7 @@ landingContent:
       url: data-manager.md
   - linkListType: how-to-guide
     links:
-    - text: Configurer Blockchain Data Manager avec le portail Azure
+    - text: Configurer Blockchain Data Manager avec le Portail Azure
       url: data-manager-portal.md
     - text: Configurer Blockchain Data Manager avec Azure CLI
       url: data-manager-cli.md
@@ -93,7 +93,7 @@ landingContent:
       url: https://channel9.msdn.com/Shows/Blocktalk/Generating-Web-Services-from-Smart-Contracts-Based-on-Logic-Apps-Flows-and-Azure-Functions?term=logic%20apps%20blockchain&lang-en=true
     - text: Publier des événements de contrat intelligent sur Azure Event Grid ou Azure Service Bus
       url: https://channel9.msdn.com/Shows/Blocktalk/Generate-Logic-Apps-and-Flows-to-Publish-Smart-Contract-Events-to-Event-Grid-and-Service-Bus?term=logic%20apps%20blockchain&lang-en=true
-- title: gérer
+- title: Gérer
   linkLists:
   - linkListType: how-to-guide
     links:

@@ -12,7 +12,7 @@
       href: app-sign-in-risk.md
 - name: Tutoriels
   items:
-    - name: Exiger l’utilisation d’Azure Multi-Factor Authentication
+    - name: Exiger l’utilisation de Microsoft Azure Multi-Factor Authentication
       href: ../authentication/tutorial-enable-azure-mfa.md?toc=/azure/active-directory/conditional-access/toc.json&bc=/azure/active-directory/conditional-access/breadcrumb/toc.json
 - name: Concepts
   expanded: false

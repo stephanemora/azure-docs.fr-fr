@@ -13,6 +13,7 @@
       displayName: 'architecture, concepts, definitions, glossary'
       href: concept-azure-machine-learning-architecture.md
 - name: Tutoriels
+  expanded: true
   items:
     - name: Studio et concepteur
       items:
@@ -87,10 +88,10 @@
       href: concept-workspace.md
     - name: Environnements
       href: concept-environments.md
-    - name: Accès aux données
-      href: concept-data.md
     - name: Ingestion de données
       href: concept-data-ingestion.md
+    - name: Accès aux données
+      href: concept-data.md
     - name: Apprentissage du modèle
       displayName: 'run config, estimator, machine learning pipeline, ml pipeline, train model'
       href: concept-train-machine-learning-model.md

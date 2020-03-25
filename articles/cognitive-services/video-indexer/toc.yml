@@ -8,7 +8,7 @@
 - name: Démarrages rapides
   expanded: true
   items:
-    - name: Prise en main
+    - name: Bien démarrer
       href: ../../media-services/video-indexer/video-indexer-get-started.md
 - name: Guides pratiques
   items:

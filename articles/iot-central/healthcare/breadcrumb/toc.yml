@@ -10,6 +10,6 @@
           tocHref: /azure/iot-central/
           topicHref: /azure/iot-central/
           items:
-            - name: IoT Central pour la santé (fonctionnalités en préversion)
+            - name: IoT Central pour la santé
               tocHref: /azure/iot-central/
               topicHref: /azure/iot-central/healthcare/index/
