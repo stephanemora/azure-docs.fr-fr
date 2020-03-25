@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à HappyFox | Microsoft Docs'
+title: 'Didacticiel : intégration d’Azure Active Directory dans HappyFox | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et HappyFox.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7e5e43bd32e7e0ddbe0a7b5f63d74a1fd46f68d9
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73159133"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-happyfox"></a>Didacticiel : Intégration d’Azure Active Directory à HappyFox
+# <a name="tutorial-azure-active-directory-integration-with-happyfox"></a>Didacticiel : intégration d’Azure Active Directory dans HappyFox
 
 Dans ce didacticiel, vous allez apprendre à intégrer HappyFox dans Azure Active Directory (Azure AD).
 L’intégration de HappyFox dans Azure AD vous offre les avantages suivants :
@@ -35,7 +35,7 @@ L’intégration de HappyFox dans Azure AD vous offre les avantages suivants :
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour configurer l’intégration d’Azure AD avec HappyFox, vous avez besoin des éléments suivants :
 
@@ -94,7 +94,7 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
 Pour configurer l’authentification unique Azure AD avec HappyFox, effectuez les étapes suivantes :
 
-1. Dans la page d’intégration de l’application **HappyFox** sur le [portail Azure](https://portal.azure.com/), sélectionnez **Authentification unique**.
+1. Dans la page d’intégration de l’application [HappyFox](https://portal.azure.com/) sur le **portail Azure**, sélectionnez **Authentification unique**.
 
     ![Lien Configurer l’authentification unique](common/select-sso.png)
 
@@ -137,23 +137,23 @@ Pour configurer l’authentification unique Azure AD avec HappyFox, effectuez l
 
 2. Accédez à **Manage** (Gérer), cliquez sur l’onglet **Integrations**.
 
-    ![Configurer l'authentification unique](./media/happyfox-tutorial/header.png) 
+    ![Configure Single Sign-On](./media/happyfox-tutorial/header.png) 
 
 3. Sous l’onglet Integrations, cliquez sur **Configure** sous **SAML Integration** (Intégration SAML) pour ouvrir les paramètres d’authentification unique.
 
-    ![Configurer l'authentification unique](./media/happyfox-tutorial/configure.png)
+    ![Configure Single Sign-On](./media/happyfox-tutorial/configure.png)
 
 4. Dans la section de configuration SAML, collez la valeur de l’**URL de connexion**, que vous avez copiée à partir du portail Azure, dans la zone de texte **SSO Target URL** (URL cible d’authentification unique).
 
-    ![Configurer l'authentification unique](./media/happyfox-tutorial/targeturl.png)
+    ![Configure Single Sign-On](./media/happyfox-tutorial/targeturl.png)
 
 5. Ouvrez le certificat téléchargé à partir du portail Azure dans le Bloc-notes et collez son contenu dans la section **IdP Signature** (Signature IdP).
 
-    ![Configurer l'authentification unique](./media/happyfox-tutorial/cert.png)
+    ![Configure Single Sign-On](./media/happyfox-tutorial/cert.png)
 
 6. Cliquez sur le bouton **Enregistrer les paramètres**.
 
-    ![Configurer l'authentification unique](./media/happyfox-tutorial/savesettings.png)
+    ![Configure Single Sign-On](./media/happyfox-tutorial/savesettings.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -174,7 +174,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
     b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
-    Par exemple, BrittaSimon@contoso.com
+    Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
@@ -228,4 +228,4 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

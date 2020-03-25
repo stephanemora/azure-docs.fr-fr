@@ -9,13 +9,13 @@ ms.date: 07/18/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: 078d9548b4fd7e2a73fc4b71cd4774986ccceaee
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67177494"
 ---
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous envisagez de passer au tutoriel suivant, laissez l’accélérateur de solution de supervision à distance déployé. Pour réduire les coûts d’exécution de l’accélérateur de solution pendant que vous ne l’utilisez pas, vous pouvez arrêter les appareils simulés dans le panneau des paramètres :
 
@@ -23,7 +23,7 @@ Si vous envisagez de passer au tutoriel suivant, laissez l’accélérateur de s
 
 Vous pouvez redémarrer les appareils simulés quand vous êtes prêt à commencer le tutoriel suivant.
 
-Si vous n’avez plus besoin de l’accélérateur de solution, supprimez-le dans la page [Solutions approvisionnées](https://www.azureiotsolutions.com/Accelerators#dashboard) :
+Si vous n’avez plus besoin de l’accélérateur de solution, supprimez-le dans la page [Solutions approvisionnées](https://www.azureiotsolutions.com/Accelerators#dashboard) :
 
 ![Supprimer la solution](media/iot-accelerators-tutorial-cleanup/deletesolution.png)
 

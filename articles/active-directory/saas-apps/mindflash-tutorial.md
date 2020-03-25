@@ -1,5 +1,5 @@
 ---
-title: "Didacticiel : Intégration d'Azure Active Directory à Mindflash | Microsoft Docs"
+title: 'Didacticiel : Intégration d’Azure Active Directory à Mindflash | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Mindflash.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 78d4f44e9fe2310fab485804e0aaf70aa0dfbdb0
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74233540"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-mindflash"></a>Didacticiel : Intégration d'Azure Active Directory à Mindflash
+# <a name="tutorial-azure-active-directory-integration-with-mindflash"></a>Didacticiel : Intégration d’Azure Active Directory avec Mindflash
 
 Dans ce didacticiel, vous allez apprendre à intégrer Mindflash à Azure Active Directory (Azure AD).
 L’intégration de Mindflash à Azure AD vous offre les avantages suivants :
@@ -34,7 +34,7 @@ L’intégration de Mindflash à Azure AD vous offre les avantages suivants :
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour configurer l’intégration d’Azure AD à Mindflash, vous avez besoin des éléments suivants :
 
@@ -112,7 +112,7 @@ Pour configurer l’authentification unique Azure AD avec Mindflash, procédez 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique Mindflash](https://www.mindflash.com/contact/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-5. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies en fonction de vos besoins, puis enregistrez-le sur votre ordinateur.
+5. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies selon vos besoins, puis enregistrez-le sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
 
@@ -149,7 +149,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
     b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
-    Par exemple, BrittaSimon@contoso.com
+    Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
@@ -205,7 +205,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Mindflash, vous deve
     
     c. Dans la zone de texte **E-mail**, tapez l’**adresse e-mail** de l’utilisateur sous la forme **BrittaSimon\@contoso.com**.
 
-    b. Cliquez sur **Add**.
+    b. Cliquez sur **Ajouter**.
 
 >[!NOTE]
 >Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Mindflash pour provisionner des comptes d’utilisateurs AAD. 

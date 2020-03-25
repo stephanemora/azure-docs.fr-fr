@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à SilkRoad Life Suite | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à SilkRoad Life Suite | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et SilkRoad Life Suite.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
 ms.openlocfilehash: 63165da69815c77afb8692e1e68c1710beb8df8c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67090819"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-silkroad-life-suite"></a>Didacticiel : Intégration d’Azure Active Directory à SilkRoad Life Suite
+# <a name="tutorial-azure-active-directory-integration-with-silkroad-life-suite"></a>Didacticiel : Intégration d’Azure Active Directory à SilkRoad Life Suite
 
 Dans ce didacticiel, vous allez apprendre à intégrer SilkRoad Life Suite à Azure Active Directory (Azure AD).
 L’intégration de SilkRoad Life Suite à Azure AD offre les avantages suivants :
@@ -34,7 +34,7 @@ L’intégration de SilkRoad Life Suite à Azure AD offre les avantages suivants
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour configurer l’intégration d’Azure AD avec SilkRoad Life Suite, vous avez besoin des éléments suivants :
 
@@ -146,7 +146,7 @@ Pour configurer l’authentification unique Azure AD avec SilkRoad Life Suite, 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion, l’identificateur et l’URL de réponse réels. Pour obtenir ces valeurs, contactez [l’équipe de support technique SilkRoad Life Suite](https://www.silkroad.com/locations/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-6. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies en fonction de vos besoins, puis enregistrez-le sur votre ordinateur.
+6. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies selon vos besoins, puis enregistrez-le sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
 
@@ -203,11 +203,11 @@ Pour configurer l’authentification unique Azure AD avec SilkRoad Life Suite, 
 
     b. Dans la zone de texte **EntityId**, collez la valeur de l’**identificateur Azure AD** que vous avez copiée dans le portail Azure.
 
-    c. Dans la zone de texte **IdP Description** (Description IdP), entrez une description de votre configuration (par exemple : *Azure AD SSO*).
+    c. Dans la zone de texte **IdP Description** (Description IdP), entrez une description de votre configuration (par exemple : *Authentification unique Azure AD*).
 
     d. Dans la zone de texte **Metadata File** (Fichier de métadonnées), chargez le fichier de **métadonnées** que vous avez téléchargé à partir du portail Azure.
   
-    e. Dans la zone de texte **IdP Name** (Nom IdP), entrez un nom spécifique de votre configuration (par exemple : *Azure SP*).
+    e. Dans la zone de texte **IdP Name** (Nom IdP), entrez un nom spécifique de votre configuration (par exemple : *Azure SP*).
   
     f. Dans la zone de texte **Logout Service URL** (URL de service de déconnexion), collez l’**URL de déconnexion** que vous avez copiée dans le portail Azure.
 
@@ -238,7 +238,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
     b. Dans le champ **Nom d’utilisateur**, tapez `brittasimon@yourcompanydomain.extension`  
-    Par exemple, BrittaSimon@contoso.com
+    Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
@@ -286,4 +286,4 @@ Quand vous cliquez sur la vignette SilkRoad Life Suite dans le volet d’accès,
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -5,13 +5,13 @@ keywords: jenkins, azure, devops, machine virtuelle, cicd
 ms.topic: tutorial
 ms.date: 07/31/2018
 ms.openlocfilehash: cae28b293a6217996b44c839dc8836ec940c3155
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78192606"
 ---
-# <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>Tutoriel : Déployer votre application vers des machines virtuelles Linux dans Azure à l’aide de Jenkins et Azure DevOps Services
+# <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>Tutoriel : déployer votre application vers des machines virtuelles Linux dans Azure à l’aide de Jenkins et Azure DevOps Service
 
 L’intégration continue (CI) et le déploiement continu (CD) constituent un pipeline via lequel vous pouvez générer, mettre en production et déployer votre code. Azure DevOps Services fournit un ensemble complet d’outils d’automatisation CI/CD pour le déploiement sur Azure. Jenkins est un outil serveur CI/CD tiers populaire qui propose également l’automatisation CI/CD. Vous pouvez utiliser Azure DevOps Services et Jenkins ensemble pour personnaliser la façon dont vous proposez votre service ou application cloud.
 
@@ -155,7 +155,7 @@ Pour créer le pipeline de mise en production dans Azure Pipelines :
 
 1. Sélectionnez **+ Mise en production** et sélectionnez **Créer une mise en production**.
 2. Sélectionnez la build que vous avez générée dans la liste déroulante en surbrillance, puis sélectionnez **File d’attente**.
-3. Dans le message qui s’affiche, sélectionnez le lien de la mise en production. Par exemple : « Mise en production **Mise en production-1** a été créé. »
+3. Dans le message qui s’affiche, sélectionnez le lien de la mise en production. Par exemple : « Mise en production **Mise en production-1** a été créé. ».
 4. Ouvrez l’onglet **Journaux d’activité** pour surveiller la sortie de console de mise en production.
 5. Dans votre navigateur, ouvrez l’URL de l’un des serveurs que vous avez ajoutés à votre groupe de déploiement. Par exemple, entrez **http://{adresse-ip-de-votre-serveur}** .
 6. Accédez au dépôt Git source et modifiez le contenu du titre **h1** dans le fichier app/views/index.jade en apportant quelques corrections au texte.

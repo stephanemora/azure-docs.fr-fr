@@ -10,13 +10,13 @@ ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: 853fa2b80e04dd8d9225d023db8030fed044ed7f
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73890917"
 ---
-# <a name="tutorial-troubleshoot-and-fix-device-issues"></a>Didacticiel : Résoudre et corriger les problèmes liés aux appareils
+# <a name="tutorial-troubleshoot-and-fix-device-issues"></a>Didacticiel : Résoudre et corriger les problèmes liés aux appareils
 
 Dans ce tutoriel, vous utilisez l’accélérateur de solution de supervision à distance pour identifier et résoudre les problèmes avec vos appareils IoT connectés. Vous utilisez des alertes dans le tableau de bord de l’accélérateur de solution pour identifier les problèmes, puis vous exécutez des tâches à distance pour résoudre ces problèmes.
 

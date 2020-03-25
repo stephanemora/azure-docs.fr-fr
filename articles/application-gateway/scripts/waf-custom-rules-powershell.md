@@ -7,17 +7,17 @@ ms.topic: sample
 ms.date: 6/7/2019
 ms.author: victorh
 ms.openlocfilehash: ffdde80598322222e2a8f000eee8be269becdd11
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "66743326"
 ---
 # <a name="create-waf-custom-rules-with-azure-powershell"></a>Créer des règles de pare-feu d’applications web personnalisées avec Azure PowerShell
 
 Ce script crée un pare-feu d’applications web Application Gateway qui utilise des règles personnalisées. Les règles personnalisées bloquent le trafic si l’en-tête de la requête contient User-Agent *evilbot*.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 ### <a name="azure-powershell-module"></a>Module Azure PowerShell
 

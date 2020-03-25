@@ -8,10 +8,10 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 9/25/2019
 ms.openlocfilehash: 46e93e864034c451e1da1848a318ab176a292b6e
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71275126"
 ---
 # <a name="connect-an-existing-azure-cosmos-account-with-virtual-network-service-endpoints-using-azure-cli"></a>Connecter un compte Azure Cosmos existant à des points de terminaison de service de réseau virtuel avec Azure CLI
@@ -25,7 +25,7 @@ Si vous choisissez d’installer et d’utiliser localement l’interface de lig
 Cet exemple vise à montrer comment connecter un compte Azure Cosmos existant à un nouveau réseau virtuel dont le sous-réseau n’est pas encore configuré pour les points de terminaison de service quand le paramètre `ignore-missing-vnet-service-endpoint` est utilisé. Cela permet de configurer le compte Cosmos sans erreur avant de configurer le sous-réseau du réseau virtuel. Une fois le sous-réseau configuré, le compte Cosmos est alors accessible via le sous-réseau configuré.
 
 > [!NOTE]
-> Cet exemple illustre l’utilisation d’un compte d’API SQL (Core). Pour utiliser cet exemple avec d’autres API, appliquez les paramètres `enable-virtual-network` et `virtual-network-rules` du script ci-dessous au script spécifique de votre API.
+> Cet exemple illustre l’utilisation d’un compte d’API SQL (Core). Pour utiliser cet exemple pour d’autres API, appliquez les paramètres `enable-virtual-network` et `virtual-network-rules` du script ci-dessous au script propre à votre API.
 
 [!code-azurecli-interactive[main](../../../../../cli_scripts/cosmosdb/common/service-endpoints-ignore-missing-vnet.sh "Create an Azure Cosmos account with service endpoints.")]
 

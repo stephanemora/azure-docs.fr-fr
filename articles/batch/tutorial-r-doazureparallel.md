@@ -12,13 +12,13 @@ ms.date: 01/23/2018
 ms.author: labrenne
 ms.custom: mvc
 ms.openlocfilehash: 64daede5de4f2d1bbc69c65f88fe5b5875a0a5b8
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77025841"
 ---
-# <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>Tutoriel : Exécuter une simulation de R parallèle avec Azure Batch 
+# <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>Didacticiel : exécuter une simulation de R parallèle avec Azure Batch 
 
 Exécutez vos charges de travail R parallèles à l’échelle à l’aide de [doAzureParallel](https://www.github.com/Azure/doAzureParallel), un package léger R qui vous permet d’utiliser Azure Batch directement à partir de votre session R. Le package doAzureParallel s’appuie sur le package R [foreach](https://cran.r-project.org/web/packages/foreach/index.html) bien connu. doAzureParallel prend chaque itération de la boucle foreach et la soumet sous forme de tâche Azure Batch.
 

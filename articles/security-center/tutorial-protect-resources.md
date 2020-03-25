@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/03/2018
 ms.author: memildin
 ms.openlocfilehash: 4b40b7c6f755eb2107a09b1b881ea33fa2187f29
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73686335"
 ---
 # <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Didacticiel : Protéger vos ressources avec Azure Security Center
@@ -30,7 +30,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > * Configurer une stratégie d’accès juste-à-temps aux machines virtuelles
 > * Configurer une stratégie de contrôle d’applications
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 Pour parcourir les fonctionnalités traitées dans ce didacticiel, vous devez avoir accès au niveau tarifaire Standard de Security Center. Vous pouvez essayer Security Center Standard gratuitement. Pour en savoir plus, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/security-center/). Le démarrage rapide [Intégrer votre abonnement Azure à Security Center Standard](security-center-get-started.md) vous guide dans la mise à niveau vers le plan Standard.
 
 ## <a name="manage-vm-access"></a>Gérer l’accès aux machines virtuelles
@@ -76,9 +76,9 @@ Les contrôles d’applications adaptatifs vous aident à définir un ensemble d
 
    La section **Groupes de ressources** contient trois onglets :
 
-   - **Configuré** : liste des groupes de ressources contenant les machines virtuelles qui ont été configurées avec le contrôle d’application.
-   - **Recommandée** : liste des groupes de ressources pour lesquels le contrôle d’application est recommandé.
-   - **Aucune recommandation** : liste des groupes de ressources contenant des machines virtuelles sans recommandations de contrôle d’application. Par exemple, les machines virtuelles dont les applications sont toujours en cours de modification et qui n’ont pas atteint un état stable.
+   - **Configuré** : Liste des groupes de ressources contenant les machines virtuelles qui ont été configurées avec le contrôle d’applications.
+   - **Recommandé** : Liste des groupes de ressources pour lesquels le contrôle d’applications est recommandé.
+   - **Aucune recommandation** : Liste des groupes de ressources contenant des machines virtuelles sans recommandation de contrôle d’applications. Par exemple, les machines virtuelles dont les applications sont toujours en cours de modification et qui n’ont pas atteint un état stable.
 
 2. Sélectionnez l’onglet **Recommandé** pour obtenir la liste des groupes de ressources avec des recommandations de contrôle d’applications.
 
@@ -86,14 +86,14 @@ Les contrôles d’applications adaptatifs vous aident à définir un ensemble d
 
 3. Sélectionnez un groupe de ressources pour ouvrir l’option **Créer des règles de contrôle d’applications**. Dans **Sélectionner les machines virtuelles**, examinez la liste des machines virtuelles recommandées et décochez celles pour lesquelles vous ne souhaitez pas appliquer le contrôle d’application. Dans **Sélectionner les processus des règles de mise en liste verte**, examinez la liste des applications recommandées et décochez celles que vous ne souhaitez pas appliquer. Cette liste comprend les éléments suivants :
 
-   - **NOM** : chemin complet de l’application
-   - **PROCESSUS** : nombre d’applications dans chaque chemin
-   - **COMMUN** : la valeur « Oui » indique que ces processus ont été exécutés sur la plupart des machines virtuelles de ce groupe de ressources
-   - **EXPLOITABLE** : une icône d’avertissement indique si les applications peuvent être utilisées par un attaquant pour ignorer la liste verte d’applications. Nous vous recommandons de vérifier ces applications avant de les valider.
+   - **NOM** : Chemin complet de l’application
+   - **PROCESSUS** : Nombre d’applications se trouvant dans chaque chemin
+   - **COMMUN** : La valeur « Oui » indique que ces processus ont été exécutés sur la plupart des machines virtuelles de ce groupe de ressources
+   - **EXPLOITABLE** : Une icône d’avertissement indique si les applications peuvent être utilisées par un attaquant pour ignorer la liste verte d’applications. Nous vous recommandons de vérifier ces applications avant de les valider.
 
 4. Une fois que vous avez terminé vos sélections, sélectionnez **Créer**.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 D’autres guides de démarrage rapide et didacticiels de cette collection reposent sur ce guide. Si vous envisagez de suivre les didacticiels et guides de démarrage rapide suivants, conservez le niveau Standard et maintenez l'approvisionnement automatique activé. Dans le cas contraire, ou si vous voulez revenir au niveau Gratuit :
 
 1. Revenez au menu principal de Security Center et sélectionnez **Stratégie de sécurité**.
@@ -123,7 +123,7 @@ Dans ce didacticiel, vous avez appris à limiter votre exposition aux menaces en
 Passez au didacticiel suivant pour en savoir plus sur la façon de répondre aux incidents de sécurité.
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Répondre aux incidents de sécurité](tutorial-security-incident.md)
+> [Didacticiel : Répondre aux incidents de sécurité](tutorial-security-incident.md)
 
 <!--Image references-->
 [1]: ./media/tutorial-protect-resources/just-in-time-vm-access.png

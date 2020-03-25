@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Predictix Ordering | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Predictix Ordering | Microsoft Docs'
 description: Dans ce tutoriel, vous allez découvrir comment configurer l’authentification unique entre Azure Active Directory et Predictix Ordering.
 services: active-directory
 documentationCenter: na
@@ -16,16 +16,16 @@ ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
 ms.openlocfilehash: 457ab3a0d5e816becbd2b32d858d5172951f27ad
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67094120"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-ordering"></a>Didacticiel : Intégration d’Azure Active Directory à Predictix Ordering
 
 Dans ce tutoriel, vous allez découvrir comment intégrer Predictix Ordering à Azure AD (Azure Active Directory).
-Cette intégration offre ces avantages :
+Cette intégration offre les avantages suivants :
 
 * Vous pouvez utiliser Azure AD pour contrôler qui a accès à Predictix Ordering.
 * Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Predictix Ordering (par le biais de l’authentification unique) avec leur compte Azure AD.
@@ -35,7 +35,7 @@ Pour en savoir plus sur l’intégration d’applications SaaS à Azure AD, cons
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour configurer l’intégration d’Azure AD à Predictix Ordering, vous devez avoir :
 
@@ -75,12 +75,12 @@ Pour activer l’authentification unique, vous devez établir une relation entre
 
 Pour configurer et tester l’authentification unique Azure AD avec Predictix Ordering, vous devez effectuer les étapes suivantes :
 
-1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser la fonctionnalité
+1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser la fonctionnalité.
 2. **[Configurer l’authentification unique Predictix Ordering](#configure-predictix-ordering-single-sign-on)** côté application
-3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD
-4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour lui permettre d’utiliser l’authentification unique Azure AD
+3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD.
+4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour lui permettre d’utiliser l’authentification unique Azure AD.
 5. **[Créer un utilisateur de test Predictix Ordering](#create-a-predictix-ordering-test-user)** qui est lié à la représentation Azure AD de l’utilisateur
-6. **[Tester l’authentification unique](#test-single-sign-on)** pour vérifier que la configuration fonctionne
+6. **[Tester l’authentification unique](#test-single-sign-on)** pour vérifier que la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
@@ -159,7 +159,7 @@ Dans cette section, vous allez créer un utilisateur de test appelé Britta Simo
 
     1. Sélectionnez **Afficher le mot de passe**, puis notez la valeur affichée dans la zone **Mot de passe**.
 
-    1. Sélectionnez **Créer**.
+    1. Sélectionnez **Create** (Créer).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
@@ -203,4 +203,4 @@ Quand vous sélectionnez la vignette Predictix Ordering dans le volet d’accès
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

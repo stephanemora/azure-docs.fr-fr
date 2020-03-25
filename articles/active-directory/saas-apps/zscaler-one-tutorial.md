@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 04/24/2019
 ms.author: jeedes
 ms.openlocfilehash: d23fc94fba9a9b750f2977fd9c5d8297e4da8d5c
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68825921"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-one"></a>Didacticiel : Intégration d’Azure Active Directory à Zscaler One
@@ -34,7 +34,7 @@ Intégrer Zscaler One à Azure AD vous offre les avantages suivants :
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour configurer l’intégration d’Azure AD à Zscaler One, vous avez besoin des éléments suivants :
 
@@ -110,7 +110,7 @@ Pour configurer l’authentification unique Azure AD avec Zscaler One, effectuez
     Dans la zone de texte **URL de connexion**, entrez l’URL utilisée par vos utilisateurs pour se connecter à l’application Zscaler One.
 
     > [!NOTE]
-    > Mettez à jour la valeur avec l’URL de connexion réelle. Pour obtenir la valeur, contactez [l’équipe du support Zscaler One](https://www.zscaler.com/company/contact). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Remplacez la valeur par l’URL de connexion. Pour obtenir la valeur, contactez [l’équipe du support Zscaler One](https://www.zscaler.com/company/contact). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 5. Votre application Zscaler One s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration d’attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut. Cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Attributs d’utilisateur**.
 
@@ -118,7 +118,7 @@ Pour configurer l’authentification unique Azure AD avec Zscaler One, effectuez
 
 6. En plus de ce qui précède, l’application Zscaler One s’attend à ce que quelques attributs supplémentaires soient repassés dans la réponse SAML. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, effectuez les étapes suivantes pour ajouter le jeton SAML comme indiqué dans le tableau ci-dessous :
     
-    | Nom | Attribut source |
+    | Name | Attribut source |
     | ---------| ------------ |
     | memberOf     | user.assignedroles |
 
@@ -161,7 +161,7 @@ Pour configurer l’authentification unique Azure AD avec Zscaler One, effectuez
 
     ![Extension My apps](common/install-myappssecure-extension.png)
 
-2. Après l’ajout de l’extension au navigateur, cliquez sur **Configurer Zscaler One** pour être dirigé vers l’application Zscaler One. À partir de là, indiquez les informations d’identification de l’administrateur pour vous connecter à Zscaler One. Cette extension de navigateur configure automatiquement l’application pour vous et automatise les étapes 3 à 6.
+2. Après l’ajout de l’extension au navigateur, cliquez sur **Configurer Zscaler One** pour être dirigé vers l’application Zscaler One. À partir de là, indiquez les informations d’identification de l’administrateur pour vous connecter à Zscaler One. Cette extension de navigateur configure automatiquement l’application et automatise les étapes 3 à 6.
 
     ![Configurer l’authentification unique](common/setup-sso.png)
 
@@ -214,7 +214,7 @@ Pour configurer l’authentification unique Azure AD avec Zscaler One, effectuez
 
 3. Cliquez sur l’onglet **Connexions** .   
   
-     ![Connexions](./media/zscaler-one-tutorial/ic769493.png "connexions")
+     ![Connexions](./media/zscaler-one-tutorial/ic769493.png "Connexions")
 
 4. Cliquez sur **Paramètres réseau** pour ouvrir la boîte de dialogue **Paramètres réseau**.
 
@@ -252,7 +252,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez brittasimon@yourcompanydomain.extension. Par exemple, BrittaSimon@contoso.com
+    b. Dans le champ **Nom d’utilisateur**, tapez brittasimon@yourcompanydomain.extension. Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 

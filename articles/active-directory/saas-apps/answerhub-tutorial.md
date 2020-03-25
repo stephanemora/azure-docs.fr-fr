@@ -17,13 +17,13 @@ ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a124832bd42a0a144ebc6000b818fb825aa422ef
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73152990"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-answerhub"></a>Didacticiel : Intégration d’Azure Active Directory à AnswerHub
+# <a name="tutorial-azure-active-directory-integration-with-answerhub"></a>Didacticiel : Intégration d’Azure Active Directory à AnswerHub
 
 Dans ce didacticiel, vous allez apprendre à intégrer AnswerHub à Azure Active Directory (Azure AD).
 L’intégration d’AnswerHub à Azure AD offre ces avantages :
@@ -35,7 +35,7 @@ L’intégration d’AnswerHub à Azure AD offre ces avantages :
 Pour en savoir plus sur l’intégration d’applications SaaS à Azure AD, consultez l’article [S’authentifier avec l’authentification unique auprès des applications dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour configurer l’intégration d’Azure AD à AnswerHub, vous avez besoin des éléments suivants :
 
@@ -236,7 +236,7 @@ Pour autoriser les utilisateurs Azure AD à se connecter à AnswerHub, vous deve
 
 4. Dans le volet de gauche, dans la section **Manage Users** (Gérer les utilisateurs), sélectionnez **Create or import users** (Créer ou importer des utilisateurs), puis sélectionnez **Users & Groups** (Utilisateurs et groupes).
 
-   ![Onglet Users & Groups](./media/answerhub-tutorial/ic785175.png "Users & Groups")
+   ![Onglet Users & Groups](./media/answerhub-tutorial/ic785175.png "Utilisateurs et groupes")
 
 5. Dans les zones appropriées, entrez les valeurs **Email address** (Adresse e-mail), **Username** (Nom d’utilisateur) et **Password** (Mot de passe) d’un compte Azure AD valide que vous souhaitez ajouter, puis sélectionnez **Save** (Enregistrer).
 

@@ -1,5 +1,5 @@
 ---
-title: "Tutoriel : Intégration d'Azure Active Directory à SmarterU | Microsoft Docs"
+title: 'Didacticiel : Intégration d’Azure Active Directory à SmarterU | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et SmarterU.
 services: active-directory
 documentationCenter: na
@@ -16,16 +16,16 @@ ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
 ms.openlocfilehash: 712e7bcf513592f97950902faff2f7754093b9fc
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76549289"
 ---
 > [!NOTE]
 > Le processus d’intégration de SmarterU à Azure Active Directory est également documenté et tenu à jour dans le [système d’aide de SmarterU](https://help.smarteru.com/ID2053086).
 
-# <a name="tutorial-azure-active-directory-integration-with-smarteru"></a>Tutoriel : Intégration d'Azure Active Directory à SmarterU
+# <a name="tutorial-azure-active-directory-integration-with-smarteru"></a>Didacticiel : Intégration d’Azure Active Directory à SmarterU
 
 Dans ce didacticiel, vous allez apprendre à intégrer SmarterU à Azure Active Directory (Azure AD).
 L’intégration de SmarterU dans Azure AD vous offre les avantages suivants :
@@ -217,7 +217,7 @@ Pour se connecter à SmarterU, les utilisateurs d’Azure AD doivent être prov
 
     a. Cliquez sur **+User**.
 
-    b. Entrez les valeurs d'attribut associées du compte d'utilisateur Azure AD dans les zones de texte suivantes : **Adresse e-mail principale**, **ID employé**, **Mot de passe**, **Vérifier le mot de passe**, **Prénom**, **Nom de famille**.
+    b. Saisissez les valeurs d’attribut associées au compte d’utilisateur Azure AD dans les zones de texte **Primary Email**, **Employee ID**, **Password**, **Verify Password**, **Given Name** et **Surname**.
 
     c. Cliquez sur **Active**.
 

@@ -7,13 +7,13 @@ ms.date: 05/11/2018
 ms.author: dekapur
 ms.custom: mvc
 ms.openlocfilehash: b6348d9fdcd4133a4fa69aac3ccf5494e904094e
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75613973"
 ---
-# <a name="tutorial-create-aws-infrastructure-to-host-a-service-fabric-cluster"></a>Tutoriel : Créer l’infrastructure AWS pour héberger un cluster Service Fabric
+# <a name="tutorial-create-aws-infrastructure-to-host-a-service-fabric-cluster"></a>Didacticiel : Créer l’infrastructure AWS pour héberger un cluster Service Fabric
 
 Les clusters autonomes Service Fabric vous permettent de choisir votre propre environnement et de créer un cluster dans le cadre de l’approche « n’importe quel SE, n’importe quel cloud » suivie par Service Fabric. Dans le cadre de cette série de tutoriels, vous créez un cluster autonome hébergé sur AWS et vous installez une application dans celui-ci.
 
@@ -41,7 +41,7 @@ Sélectionnez **Launch Instance** (Démarrer une instance), puis dans l’écran
 
 ![Sélection de l’instance EC2][aws-ec2instance]
 
-Sélectionnez **t2.medium**, puis **Next: Configure Instance Details** (Suivant : configurer les détails de l’instance). Sur l’écran suivant, changez le nombre d’instances sur `3`, puis sélectionnez **Advanced Details** (Détails avancés) pour développer cette section.
+Sélectionnez **t2.medium**, puis **Next: Configure Instance Details** (Suivant : configurer les détails de l’instance). Sur l’écran suivant, modifiez le nombre d’instances sur `3`, puis sélectionnez **Détails avancés** pour développer cette section.
 
 Pour connecter vos machines virtuelles ensemble dans Service Fabric, celles qui hébergent votre infrastructure doivent avoir les mêmes informations d’identification.  Deux méthodes courantes vous permettent d’obtenir des informations d’identification homogènes : joindre toutes les machines virtuelles au même domaine ou définir le même mot de passe administrateur sur chacune des machines virtuelles.  Pour ce didacticiel, vous utilisez un script de données utilisateur pour définir les instances EC2 afin qu’elles aient toutes le même mot de passe.  Dans un environnement de production, il est plus sûr de joindre les hôtes à un domaine Windows.
 
@@ -101,7 +101,7 @@ Une fois que vous avez toutes les adresses IP, sélectionnez l’une des instanc
 
 Une fois que vous êtes connecté à votre instance, vérifiez que vous pouvez les connecter entre elles et que vous pouvez partager des fichiers.  Vous avez collecté les adresses IP de toutes les instances, sélectionnez celle à laquelle vous n’êtes pas connecté actuellement. Accédez à **Démarrer**, entrez `cmd` et sélectionnez **Invite de commandes**.
 
-Dans ces exemples, la connexion RDP a été établie vers l’adresse IP suivante : 172.31.21.141. L’ensemble des tests de connectivité se produisent ensuite sur l’autre adresse IP : 172.31.20.163.
+Dans ces exemples, la connexion RDP a été établie vers l’adresse IP suivante : 172.31.21.141. L’ensemble des tests de connectivité se produisent ensuite sur l’autre adresse IP : 172.31.20.163.
 
 Pour valider que cette connectivité de base fonctionne, utilisez la commande ping.
 

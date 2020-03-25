@@ -15,14 +15,14 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 2a53086b959f5b93d17d307a59682a44fe1f33a8
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6c8b29052b4ca1d3ccd6f1f9b6afba5177dbd6c8
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034585"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80066491"
 ---
-# <a name="tutorial-back-up-and-restore-files-for-linux-virtual-machines-in-azure"></a>Didacticiel : Sauvegarder et restaurer des fichiers pour des machines virtuelles Linux dans Azure
+# <a name="tutorial-back-up-and-restore-files-for-linux-virtual-machines-in-azure"></a>Didacticiel : sauvegarder et restaurer des fichiers pour des machines virtuelles Linux dans Azure
 
 Vous pouvez protéger vos données en effectuant des sauvegardes à intervalles réguliers. Azure Backup crée des points de récupération stockés dans des coffres de récupération géoredondants. Quand vous effectuez une restauration à partir d’un point de récupération, vous pouvez restaurer la machine virtuelle entière ou des fichiers spécifiques. Cet article explique comment restaurer un fichier unique sur une machine virtuelle Linux exécutant nginx. Si vous ne disposez d’aucune machine virtuelle, vous pouvez en créer une à l’aide du [démarrage rapide Linux](quick-create-cli.md). Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
@@ -43,7 +43,7 @@ Une fois le transfert de données terminé, l’instantané est supprimé et un 
 ## <a name="create-a-backup"></a>Création d'une sauvegarde
 Créez une sauvegarde quotidienne planifiée dans un coffre Recovery Services :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Dans le menu de gauche, sélectionnez **Machines virtuelles**. 
 3. Dans la liste, sélectionnez la machine virtuelle que vous souhaitez sauvegarder.
 4. Dans le panneau de la machine virtuelle, au niveau de la section **Paramètres**, cliquez sur **Sauvegarde**. Le panneau **Activer la sauvegarde** s’ouvre.
@@ -64,7 +64,7 @@ Si vous supprimez un fichier ou y apportez des modifications accidentellement, v
 
 Dans cet exemple, nous allons vous montrer comment récupérer la page web nginx par défaut /var/www/html/index.nginx-debian.html. Ici, l’adresse IP publique de notre machine virtuelle est *13.69.75.209*. Vous pouvez trouver l’adresse IP de votre machine virtuelle en procédant comme suit :
 
- ```bash 
+ ```azurecli
  az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
  ```
 
@@ -78,6 +78,7 @@ Dans cet exemple, nous allons vous montrer comment récupérer la page web nginx
     ```bash
     ssh 13.69.75.209
     ```
+
 2. Supprimez /var/www/html/index.nginx-debian.html.
 
     ```bash
@@ -93,8 +94,8 @@ Dans cet exemple, nous allons vous montrer comment récupérer la page web nginx
 7. Sélectionnez la machine virtuelle dans la liste.
 8. Dans le panneau de la machine virtuelle, au niveau de la section **Paramètres**, cliquez sur **Sauvegarde**. Le panneau **Sauvegarde** s’ouvre. 
 9. Dans le menu en haut du panneau, sélectionnez **Récupération de fichier**. Le panneau **Récupération de fichier** s’affiche.
-10. À l’**Étape 1 : Sélectionner un point de récupération**, sélectionnez un point de récupération dans la liste déroulante.
-11. À l’**Étape 2 : Télécharger le script pour parcourir et restaurer des fichiers**, cliquez sur le bouton **Télécharger le fichier exécutable**. Enregistrez le fichier téléchargé sur votre ordinateur local.
+10. Dans **Étape 1 : Sélectionner un point de récupération**, sélectionnez un point de récupération dans la liste déroulante.
+11. Dans **Étape 2 : Télécharger le script pour parcourir et restaurer des fichiers**, cliquez sur le bouton **Télécharger le fichier exécutable**. Enregistrez le fichier téléchargé sur votre ordinateur local.
 7. Cliquez sur **Télécharger le script** pour télécharger le fichier de script localement.
 8. Ouvrez une invite bash et tapez la commande suivante, en remplaçant *Linux_myVM_05-05-2017.sh* par le chemin et le nom de fichier du script que vous avez téléchargé, *azureuser* par le nom d’utilisateur de la machine virtuelle, et *13.69.75.209* par l’adresse IP publique de votre machine virtuelle.
     
@@ -122,7 +123,7 @@ Dans cet exemple, nous allons vous montrer comment récupérer la page web nginx
     
 12. La sortie du script vous donne le chemin d’accès pour le point de montage. Le résultat ressemble à ce qui suit :
 
-    ```bash
+    ```output
     Microsoft Azure VM Backup - File Recovery
     ______________________________________________
                           
@@ -155,12 +156,12 @@ Dans cet exemple, nous allons vous montrer comment récupérer la page web nginx
 
     ![Page web nginx par défaut](./media/tutorial-backup-vms/nginx-working.png)
 
-18. Sur votre ordinateur local, revenez à l’onglet du navigateur du portail Azure et à l’**Étape 3 : Démonter les disques après la récupération** cliquez sur le bouton **Démonter les disques**. Si vous avez omis cette étape, la connexion au point de montage est automatiquement fermée après 12 heures. Une fois ces 12 heures écoulées, vous devez télécharger un nouveau script pour créer un nouveau point de montage.
+18. Sur votre ordinateur local, revenez à l’onglet du navigateur pour afficher le portail Azure, puis dans **Étape 3 : Démonter les disques après la récupération**, cliquez sur le bouton **Démonter les disques**. Si vous avez omis cette étape, la connexion au point de montage est automatiquement fermée après 12 heures. Une fois ces 12 heures écoulées, vous devez télécharger un nouveau script pour créer un nouveau point de montage.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Créer une sauvegarde de machine virtuelle

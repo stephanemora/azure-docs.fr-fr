@@ -7,13 +7,13 @@ ms.date: 01/11/2019
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 4780f81d23f0183837d2aafb9a8e5e2c41faa1cf
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75351793"
 ---
-# <a name="tutorial-remove-an-application-and-resources"></a>Tutoriel : supprimer une application et des ressources
+# <a name="tutorial-remove-an-application-and-resources"></a>Tutoriel : Supprimer une application et des ressources
 
 Ce tutoriel est la quatrième partie de la série. Vous allez apprendre à supprimer une application en cours d’exécution qui a été [déployée sur Service Fabric Mesh](service-fabric-mesh-tutorial-template-deploy-app.md). 
 

@@ -17,13 +17,13 @@ ms.date: 02/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4fd0637a632b277eae019ac4aebfbc7cdb87e8e2
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73158976"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-image-relay"></a>Didacticiel : Intégration d’Azure Active Directory à Image Relay
+# <a name="tutorial-azure-active-directory-integration-with-image-relay"></a>Didacticiel : Intégration d’Azure Active Directory à ImageRelay
 
 Dans ce didacticiel, vous allez apprendre à intégrer Image Relay avec Azure Active Directory (Azure AD).
 L’intégration d’Image Relay à Azure AD vous offre les avantages suivants :
@@ -35,7 +35,7 @@ L’intégration d’Image Relay à Azure AD vous offre les avantages suivants :
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour configurer l’intégration d’Azure AD avec Image Relay, vous avez besoin des éléments suivants :
 
@@ -133,27 +133,27 @@ Pour configurer l’authentification unique Azure AD auprès d’Image Relay, ef
 
 2. Dans la barre d’outils du haut, cliquez sur la charge de travail **Utilisateurs et autorisations**.
 
-    ![Configurer l'authentification unique](./media/imagerelay-tutorial/tutorial_imagerelay_06.png) 
+    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_06.png) 
 
 3. Cliquez sur **Créer une nouvelle autorisation**.
 
-    ![Configurer l'authentification unique](./media/imagerelay-tutorial/tutorial_imagerelay_08.png)
+    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_08.png)
 
 4. Dans la charge de travail **Paramètres d’authentification unique**, sélectionnez la case à cocher **Ce groupe peut se connecter uniquement via l’authentification unique**, puis cliquez sur **Enregistrer**.
 
-    ![Configurer l'authentification unique](./media/imagerelay-tutorial/tutorial_imagerelay_09.png) 
+    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_09.png) 
 
 5. Accédez à **Paramètres du compte**.
 
-    ![Configurer l'authentification unique](./media/imagerelay-tutorial/tutorial_imagerelay_10.png) 
+    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_10.png) 
 
 6. Accédez à la charge de travail **Paramètres d’authentification unique** .
 
-    ![Configurer l'authentification unique](./media/imagerelay-tutorial/tutorial_imagerelay_11.png)
+    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_11.png)
 
 7. Dans la boîte de dialogue **SAML Settings** (Paramètres SAML), procédez comme suit :
 
-    ![Configurer l'authentification unique](./media/imagerelay-tutorial/tutorial_imagerelay_12.png)
+    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_12.png)
 
     a. Dans la zone de texte **Login URL** (URL de connexion), collez la valeur **URL de connexion** que vous avez copiée dans le Portail Azure.
 
@@ -165,19 +165,19 @@ Pour configurer l’authentification unique Azure AD auprès d’Image Relay, ef
 
     e. Sous **Certificat x.509**, cliquez sur **Mettre à jour le certificat**.
 
-    ![Configurer l'authentification unique](./media/imagerelay-tutorial/tutorial_imagerelay_17.png)
+    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_17.png)
 
     f. Ouvrez le certificat que vous avez téléchargé dans le Bloc-notes, copiez son contenu, puis collez-le dans la zone de texte **Certificat x.509**.
 
-    ![Configurer l'authentification unique](./media/imagerelay-tutorial/tutorial_imagerelay_18.png)
+    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_18.png)
 
     g. Dans la section **Approvisionnement juste à temps des utilisateurs**, sélectionnez la case à cocher **Activer l’approvisionnement juste à temps des utilisateurs**.
 
-    ![Configurer l'authentification unique](./media/imagerelay-tutorial/tutorial_imagerelay_19.png)
+    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_19.png)
 
     h. Sélectionnez le groupe d’autorisations (par exemple, **SSO de base**) qui sera autorisé à se connecter uniquement via l’authentification unique.
 
-    ![Configurer l'authentification unique](./media/imagerelay-tutorial/tutorial_imagerelay_20.png)
+    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_20.png)
 
     i. Cliquez sur **Enregistrer**.
 
@@ -200,7 +200,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
     b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
-    Par exemple, BrittaSimon@contoso.com
+    Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
@@ -242,11 +242,11 @@ L’objectif de cette section est de créer un utilisateur appelé Britta Simon 
 
 2. Accédez à **Utilisateurs et autorisations** et sélectionnez **Créer un utilisateur SSO**.
 
-    ![Configurer l'authentification unique](./media/imagerelay-tutorial/tutorial_imagerelay_21.png) 
+    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_21.png) 
 
 3. Renseignez les champs **E-mail**, **Prénom**, **Nom** et **Société** de l’utilisateur que vous souhaitez configurer, puis sélectionnez le groupe d’autorisations (par exemple authentification unique de base), qui peut se connecter uniquement via l’authentification unique.
 
-    ![Configurer l'authentification unique](./media/imagerelay-tutorial/tutorial_imagerelay_22.png)
+    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_22.png)
 
 4. Cliquez sur **Créer**.
 
@@ -262,4 +262,4 @@ Le fait de cliquer sur la vignette Image Relay dans le volet d’accès doit vou
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -16,13 +16,13 @@ ms.date: 12/03/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 05a796d7bbe08f8e560c6545f3ed37c0f54b9cf9
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74067862"
 ---
-# <a name="tutorial-load-balance-windows-virtual-machines-in-azure-to-create-a-highly-available-application-with-azure-powershell"></a>Didacticiel : Équilibrer la charge des machines virtuelles Windows dans Azure pour créer une application hautement disponible avec Azure PowerShell
+# <a name="tutorial-load-balance-windows-virtual-machines-in-azure-to-create-a-highly-available-application-with-azure-powershell"></a>Didacticiel : équilibrer la charge des machines virtuelles Windows dans Azure pour créer une application hautement disponible avec Azure PowerShell
 L’équilibrage de charge offre un niveau plus élevé de disponibilité en répartissant les demandes entrantes sur plusieurs machines virtuelles. Dans ce didacticiel, vous allez découvrir les différents composants de l’équilibreur de charge Azure qui répartissent le trafic et fournissent une haute disponibilité. Vous allez apprendre à effectuer les actions suivantes :
 
 > [!div class="checklist"]
@@ -290,7 +290,7 @@ Set-AzNetworkInterface -NetworkInterface $nic
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Ce didacticiel vous a montré comment créer un équilibrage de charge et y attacher des machines virtuelles. Vous avez appris à effectuer les actions suivantes :
+Ce didacticiel vous a montré comment créer un équilibrage de charge et y attacher des machines virtuelles. Vous avez appris à :
 
 > [!div class="checklist"]
 > * Crée un équilibrage de charge Azure
@@ -299,7 +299,7 @@ Ce didacticiel vous a montré comment créer un équilibrage de charge et y atta
 > * Utilisez l’extension de script personnalisé pour créer un site de base IIS
 > * Créer des machines virtuelles et les attacher à un équilibrage de charge
 > * Afficher un équilibrage de charge en action
-> * Ajouter et supprimer des machines virtuelles d’un équilibrage de charge
+> * Ajouter et supprimer des machines virtuelles d’un équilibreur de charge
 
 Passez au didacticiel suivant pour découvrir comment gérer la mise en réseau des machines virtuelles.
 

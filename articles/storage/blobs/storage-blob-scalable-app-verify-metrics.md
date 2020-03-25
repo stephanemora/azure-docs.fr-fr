@@ -8,10 +8,10 @@ ms.date: 02/20/2018
 ms.author: rogarana
 ms.subservice: blobs
 ms.openlocfilehash: dc0f8171e18598e4f805a03a4bc6d17de220fbe1
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68698989"
 ---
 # <a name="verify-throughput-and-latency-metrics-for-a-storage-account"></a>Vérifier les métriques de débit et de latence d’un compte de stockage
@@ -42,7 +42,7 @@ Les métriques suivantes vous donnent une idée de la latence et du débit de l�
 |**Latence serveur (réussite)**|Durée moyenne utilisée pour traiter une requête réussie par Stockage Azure. Cette valeur n’inclut pas la latence réseau spécifiée dans SuccessE2ELatency. |
 |**Transactions**|Nombre de requêtes envoyées à un service de stockage ou à l’opération API spécifiée. Ce nombre inclut les requêtes réussies et celles ayant échoué, ainsi que les requêtes qui ont généré des erreurs. Dans l’exemple, la taille de bloc est définie à 100 Mo. Dans ce cas, chaque bloc de 100 Mo est considéré comme une transaction.|
 |**Entrée**|Quantité de données d’entrée. Ce nombre inclut les entrées d’un client externe dans Stockage Microsoft Azure ainsi que les entrées dans Azure. |
-|**Sortie**|Quantité de données de sortie. Ce nombre inclut les sorties d’un client externe dans Stockage Azure ainsi que les sorties dans Azure. Par conséquent, ce nombre ne reflète pas les sorties facturables. |
+|**Sortie**|Quantité de données de sortie. Ce nombre inclut les sorties d’un client externe dans Stockage Microsoft Azure ainsi que les sorties dans Azure. Par conséquent, ce nombre ne reflète pas les sorties facturables. |
 
 Sélectionnez **Dernières 24 heures (automatique)** à côté de **Durée**. Choisissez **Dernière heure** et **Minute** pour **Granularité temporelle**, puis cliquez sur **Appliquer**.
 
@@ -58,7 +58,7 @@ Les [dimensions](../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fst
 
 ![Métriques de compte de stockage - transactions](./media/storage-blob-scalable-app-verify-metrics/transactions.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, la machine virtuelle et toutes les ressources associées. Pour ce faire, sélectionnez le groupe de ressources de la machine virtuelle et cliquez sur Supprimer.
 

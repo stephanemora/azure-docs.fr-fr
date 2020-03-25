@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Riskware | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory avec Riskware | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Riskware.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 6eaa1be81d3ac0733c0829bc45e1b62f8aae5755
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72027121"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-riskware"></a>Didacticiel : Intégration d’Azure Active Directory à Riskware
+# <a name="tutorial-azure-active-directory-integration-with-riskware"></a>Tutoriel : Intégration d’Azure Active Directory à Riskware
 
 Dans ce tutoriel, vous allez apprendre à intégrer Riskware à Azure Active Directory (Azure AD).
 L’intégration de Riskware dans Azure AD offre les avantages suivants :
@@ -34,7 +34,7 @@ L’intégration de Riskware dans Azure AD offre les avantages suivants :
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour configurer l’intégration d’Azure AD à Riskware, vous avez besoin des éléments suivants :
 
@@ -126,7 +126,7 @@ Pour configurer l’authentification unique Azure AD avec Riskware, effectuez l
     > [!NOTE]
     > La valeur d’URL de connexion n’est pas réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Pour obtenir cette valeur, contactez l’[équipe du support technique de Riskware](mailto:support@pansoftware.com.au). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-5. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies en fonction de vos besoins, puis enregistrez-le sur votre ordinateur.
+5. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies selon vos besoins, puis enregistrez-le sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
 
@@ -170,14 +170,14 @@ Pour configurer l’authentification unique Azure AD avec Riskware, effectuez l
 
     g. Dans la zone de texte **XML Identity Tag Name**, tapez l’attribut qui contient l’identificateur unique dans la réponse SAML, comme NameID.
 
-    h. Dans le Bloc-notes, ouvrez le **XML de métadonnées** téléchargé du portail Azure, copiez le certificat à partir du fichier de métadonnées, puis collez-le dans la zone de texte **Certificate**.
+    h. Dans le Bloc-notes, ouvrez le **XML de métadonnées** téléchargé du portail Azure, copiez le certificat à partir du fichier de métadonnées, puis collez-le dans la zone de texte **Certificate**
 
     i. Dans la zone de texte **Consumer URL**, collez la valeur de **Reply URL**, que vous obtenez à partir de l’équipe de support.
 
     j. Dans la zone de texte **Issuer**, collez la valeur de **Identifier**, que vous obtenez à partir de l’équipe de support.
 
     > [!Note]
-    > Pour obtenir ces valeurs, contactez l’[équipe de support technique de Riskware](mailto:support@pansoftware.com.au).
+    > Pour obtenir ces valeurs, contactez l’[équipe de support technique de Riskware](mailto:support@pansoftware.com.au)
 
     k. Cochez la case **Use POST** (Utiliser POST).
 
@@ -204,7 +204,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
     b. Dans le champ **Nom d’utilisateur**, tapez `brittasimon@yourcompanydomain.extension`  
-    Par exemple, BrittaSimon@contoso.com
+    Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
@@ -296,4 +296,4 @@ Quand vous cliquez sur la vignette Riskware dans le volet d’accès, vous devez
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

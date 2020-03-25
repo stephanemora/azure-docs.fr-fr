@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Zscaler ZSCloud | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory avec Zscaler ZSCloud | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Zscaler ZSCloud.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 04/24/2019
 ms.author: jeedes
 ms.openlocfilehash: 43d7e58f0c267afe8a22c217d9800abb041df8cb
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68723058"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-zscaler-zscloud"></a>Didacticiel : Intégration d’Azure Active Directory à Zscaler ZSCloud
+# <a name="tutorial-azure-active-directory-integration-with-zscaler-zscloud"></a>Didacticiel : Intégration d’Azure Active Directory avec Zscaler ZSCloud
 
 L’objectif de ce didacticiel est de montrer comment intégrer Zscaler ZSCloud avec Azure Active Directory (Azure AD).
 Intégrer Zscaler ZSCloud avec Azure AD vous offre les avantages suivants :
@@ -34,7 +34,7 @@ Intégrer Zscaler ZSCloud avec Azure AD vous offre les avantages suivants :
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour configurer l’intégration d’Azure AD avec Zscaler ZSCloud, vous avez besoin des éléments suivants :
 
@@ -118,7 +118,7 @@ Pour configurer l’authentification unique Azure AD avec Zscaler ZSCloud, eff
 
 6. En plus de ce qui précède, l’application Zscaler ZSCloud s’attend à ce que quelques attributs supplémentaires soient repassés dans la réponse SAML. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, effectuez les étapes suivantes pour ajouter le jeton SAML comme indiqué dans le tableau ci-dessous :
     
-    | Nom | Attribut source |
+    | Name | Attribut source |
     | ---------| ------------ |
     | memberOf     | user.assignedroles |
 
@@ -214,7 +214,7 @@ Pour configurer l’authentification unique Azure AD avec Zscaler ZSCloud, eff
 
 3. Cliquez sur l’onglet **Connexions** .   
   
-     ![Connexions](./media/zscaler-zscloud-tutorial/ic769493.png "connexions")
+     ![Connexions](./media/zscaler-zscloud-tutorial/ic769493.png "Connexions")
 
 4. Cliquez sur **Paramètres réseau** pour ouvrir la boîte de dialogue **Paramètres réseau**.
 
@@ -252,7 +252,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez brittasimon@yourcompanydomain.extension. Par exemple, BrittaSimon@contoso.com
+    b. Dans le champ **Nom d’utilisateur**, tapez brittasimon@yourcompanydomain.extension. Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 

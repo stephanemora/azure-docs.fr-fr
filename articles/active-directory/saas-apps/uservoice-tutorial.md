@@ -1,5 +1,5 @@
 ---
-title: "Didacticiel : Intégration d'Azure Active Directory à UserVoice | Microsoft Docs"
+title: 'Didacticiel : Intégration d’Azure Active Directory à UserVoice | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et UserVoice.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
 ms.openlocfilehash: 7a3302f1ca615fe5005be9ed1f09995ebf432eb7
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74231999"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-uservoice"></a>Didacticiel : Intégration d'Azure Active Directory à UserVoice
+# <a name="tutorial-azure-active-directory-integration-with-uservoice"></a>Didacticiel : Intégration d’Azure Active Directory à UserVoice
 
 Dans ce didacticiel, vous allez apprendre à intégrer UserVoice à Azure Active Directory (Azure AD).
 L’intégration d’UserVoice à Azure AD vous offre les avantages suivants :
@@ -34,7 +34,7 @@ L’intégration d’UserVoice à Azure AD vous offre les avantages suivants :
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour configurer l’intégration d’Azure AD à UserVoice, vous avez besoin des éléments suivants :
 
@@ -140,7 +140,7 @@ Pour configurer l’authentification unique Azure AD avec UserVoice, effectuez l
 
 3. Dans la section **Authentification utilisateur** de l’onglet **Portail Web**, cliquez sur **Modifier** pour ouvrir la page de la boîte de dialogue **Edit User Authentication** (Modifier l’authentification utilisateur).
    
-    ![Onglet Web portal](./media/uservoice-tutorial/ic777520.png "Web portal") (Portail web)
+    ![Onglet Web portal](./media/uservoice-tutorial/ic777520.png "Portail web") (Portail web)
 
 4. Dans la page **Edit User Authentication** , procédez comme suit :
    
@@ -174,7 +174,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez brittasimon@yourcompanydomain.extension. Par exemple, BrittaSimon@contoso.com
+    b. Dans le champ **Nom d’utilisateur**, tapez brittasimon@yourcompanydomain.extension. Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
@@ -218,7 +218,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à UserVoice, ils doive
    
     ![Paramètres](./media/uservoice-tutorial/ic777811.png "Paramètres")
 
-3. Cliquez sur **General**.
+3. Cliquez sur **Général**.
 
 4. Cliquez sur **Agents and permissions**.
    

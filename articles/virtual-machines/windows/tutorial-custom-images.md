@@ -13,13 +13,13 @@ ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 7360798f2f95184145a856babf501e3080cbaaf4
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76274204"
 ---
-# <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>Tutoriel : Créer une image personnalisée d’une machine virtuelle Azure avec Azure PowerShell
+# <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>Didacticiel : créer une image personnalisée d’une machine virtuelle Azure avec Azure PowerShell
 
 Les images personnalisées sont comme des images de la Place de marché, sauf que vous les créez vous-même. Vous pouvez les utiliser pour démarrer des déploiements et en garantir la cohérence sur plusieurs machines virtuelles. Ce tutoriel explique comment créer votre propre image personnalisée d’une machine virtuelle Azure avec PowerShell. Vous allez apprendre à effectuer les actions suivantes :
 
@@ -50,7 +50,7 @@ Pour créer une image de machine virtuelle, vous devez préparer la machine virt
 
 ### <a name="generalize-the-windows-vm-using-sysprep"></a>Généraliser la machine virtuelle Windows à l’aide de Sysprep
 
-Sysprep supprime toutes les informations personnelles de votre compte, entre autres, et prépare la machine de façon à pouvoir l’utiliser comme image. Pour plus d’informations sur Sysprep, consultez [Utilisation de Sysprep : de Sysprep](https://technet.microsoft.com/library/bb457073.aspx).
+Sysprep supprime toutes les informations personnelles de votre compte, entre autres, et prépare la machine de façon à pouvoir l’utiliser comme image. Pour plus d’informations sur Sysprep, voir [Introduction à l’utilisation de Sysprep](https://technet.microsoft.com/library/bb457073.aspx).
 
 
 1. Connectez-vous à la machine virtuelle.

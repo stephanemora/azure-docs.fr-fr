@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à XaitPorter | Microsoft Docs'
+title: 'Didacticiel : Intégration de Azure Active Directory avec XaitPorter | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et XaitPorter.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 05/03/2019
 ms.author: jeedes
 ms.openlocfilehash: 8652073eb3d7d154958566b68fb6e27c35d8da30
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67086534"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-xaitporter"></a>Didacticiel : Intégration d’Azure Active Directory à XaitPorter
+# <a name="tutorial-azure-active-directory-integration-with-xaitporter"></a>Didacticiel : Intégration de Azure Active Directory à XaitPorter
 
 Dans ce didacticiel, vous allez apprendre à intégrer XaitPorter dans Azure Active Directory (Azure AD).
 L’intégration de XaitPorter dans Azure AD vous offre les avantages suivants :
@@ -34,7 +34,7 @@ L’intégration de XaitPorter dans Azure AD vous offre les avantages suivants :
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour configurer l’intégration de Azure AD à XaitPorter, vous avez besoin des éléments suivants :
 
@@ -124,7 +124,7 @@ Pour configurer l’authentification unique Azure AD avec XaitPorter, effectuez
 
     ![Extension My apps](common/install-myappssecure-extension.png)
 
-2. Après l’ajout de l’extension au navigateur, cliquez sur **Setup XaitPorter** pour être orienté vers l’application XaitPorter. À partir de là, indiquez les informations d’identification de l’administrateur pour vous connecter à XaitPorter. Cette extension de navigateur configure automatiquement l’application pour vous et automatise les étapes 3 à 6.
+2. Après l’ajout de l’extension au navigateur, cliquez sur **Setup XaitPorter** pour être orienté vers l’application XaitPorter. À partir de là, indiquez les informations d’identification de l’administrateur pour vous connecter à XaitPorter. Cette extension de navigateur configure automatiquement l’application et automatise les étapes 3 à 6.
 
     ![Configuration](common/setup-sso.png)
 
@@ -132,15 +132,15 @@ Pour configurer l’authentification unique Azure AD avec XaitPorter, effectuez
 
 4. Cliquez sur le titre **Admin**.
 
-    ![Configurer l'authentification unique](./media/xaitporter-tutorial/user1.png)
+    ![Configure Single Sign-On](./media/xaitporter-tutorial/user1.png)
 
 5. Sélectionnez **Gérer l’authentification unique** à partir de la liste déroulante **Configuration système**.
 
-    ![Configurer l'authentification unique](./media/xaitporter-tutorial/user2.png)
+    ![Configure Single Sign-On](./media/xaitporter-tutorial/user2.png)
 
 6. Dans la section **GÉRER L’AUTHENTIFICATION UNIQUE**, procédez comme suit :
 
-    ![Configurer l'authentification unique](./media/xaitporter-tutorial/user3.png)
+    ![Configure Single Sign-On](./media/xaitporter-tutorial/user3.png)
 
     a. Sélectionnez **Activer l'authentification unique**.
 
@@ -168,7 +168,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez brittasimon@yourcompanydomain.extension. Par exemple, BrittaSimon@contoso.com
+    b. Dans le champ **Nom d’utilisateur**, tapez brittasimon@yourcompanydomain.extension. Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
@@ -216,5 +216,5 @@ Quand vous cliquez sur la vignette XaitPorter dans le volet d’accès, vous dev
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

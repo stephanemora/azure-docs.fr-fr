@@ -13,17 +13,17 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bddf1642b2013567fbc23278b3d8d32692601d55
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74420596"
 ---
-# <a name="tutorial-enforce-multi-factor-authentication-for-b2b-guest-users"></a>Didacticiel : Appliquer l’authentification multifacteur pour les utilisateurs invités B2B
+# <a name="tutorial-enforce-multi-factor-authentication-for-b2b-guest-users"></a>Tutoriel : Appliquer l’authentification multifacteur pour les utilisateurs invités B2B
 
 Lors d’une collaboration avec des utilisateurs invités B2B externes, il est judicieux de protéger vos applications avec des stratégies d’authentification multifacteur. Les utilisateurs externes doivent donc avoir plus qu’un simple nom d’utilisateur et mot de passe pour accéder à vos ressources. Dans Azure Active Directory (Azure AD), vous pouvez atteindre cet objectif avec une stratégie d’accès conditionnel exigeant une authentification multifacteur pour l’accès. Ces stratégies peuvent être appliquées au niveau du locataire, d’une application ou d’un utilisateur individuel invité, de la même façon qu’elles peuvent être activées pour les membres de votre propre organisation.
 
-Exemple :
+Exemple :
 
 ![Diagramme montrant un utilisateur invité se connectant aux applications d’une entreprise](media/tutorial-mfa/aad-b2b-mfa-example.png)
 
@@ -43,7 +43,7 @@ Ce didacticiel présente les procédures suivantes :
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre le scénario décrit dans ce didacticiel, vous avez besoin de ce qui suit :
 
@@ -123,7 +123,7 @@ Pour suivre le scénario décrit dans ce didacticiel, vous avez besoin de ce qui
 
     ![Capture d’écran montrant où sélectionner l’option What If](media/tutorial-mfa/tutorial-mfa-whatif-4.png)
 
-## <a name="test-your-conditional-access-policy"></a>Testervotre stratégie d’accès conditionnel
+## <a name="test-your-conditional-access-policy"></a>Tester votre stratégie d’accès conditionnel
 1.  Utilisez votre nom d’utilisateur de test et votre mot de passe pour vous connecter à votre [portail Azure](https://portal.azure.com/).
 2.  Vous devez voir une demande pour des méthodes d’authentification supplémentaires. Notez qu’un certain temps peut être nécessaire pour que la stratégie entre en vigueur.
 
@@ -131,7 +131,7 @@ Pour suivre le scénario décrit dans ce didacticiel, vous avez besoin de ce qui
  
 3.  Déconnectez-vous.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 Quand vous n’en avez plus besoin, supprimez l’utilisateur de test et la stratégie d’accès conditionnel de test.
 1.  Connectez-vous au [Portail Azure](https://portal.azure.com/) en tant qu’administrateur Azure AD.
 2.  Sélectionnez **Azure Active Directory** dans le volet de gauche.

@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Infinite Campus | Microsoft Docs'
+title: 'Didacticiel : intégration d’Azure Active Directory avec Infinite Campus | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Infinite Campus.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: d54769c1f3265e2cee619520044313fca46855a5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67100372"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-infinite-campus"></a>Tutoriel : Intégration d’Azure Active Directory à Infinite Campus
+# <a name="tutorial-azure-active-directory-integration-with-infinite-campus"></a>Didacticiel : intégration d’Azure Active Directory avec Infinite Campus
 
 Ce didacticiel explique comment intégrer Infinite Campus avec Azure Active Directory (Azure AD).
 L’intégration d’Infinite Campus avec Azure AD offre les avantages suivants :
@@ -34,7 +34,7 @@ L’intégration d’Infinite Campus avec Azure AD offre les avantages suivants 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour configurer l’intégration d’Azure AD avec Infinite Campus, vous avez besoin des éléments suivants :
 
@@ -211,4 +211,4 @@ Le fait de cliquer sur la vignette Infinite Campus dans le panneau d’accès do
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

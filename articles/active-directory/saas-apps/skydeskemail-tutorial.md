@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à SkyDesk Email | Microsoft Docs'
+title: 'Didacticiel : intégration d’Azure Active Directory à SkyDesk Email | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et SkyDesk Email.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: faaa5dcc435452d6ed9e0f2c5b481df1e352dfd2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67090443"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-skydesk-email"></a>Didacticiel : Intégration d’Azure Active Directory à SkyDesk Email
+# <a name="tutorial-azure-active-directory-integration-with-skydesk-email"></a>Didacticiel : Intégration d’Azure Active Directory à SkyDesk Email
 
 Dans ce didacticiel, vous allez apprendre à intégrer SkyDesk Email à Azure Active Directory (Azure AD).
 L’intégration de SkyDesk Email à Azure AD vous offre les avantages suivants :
@@ -34,7 +34,7 @@ L’intégration de SkyDesk Email à Azure AD vous offre les avantages suivants 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour configurer l’intégration d’Azure AD avec SkyDesk Email, vous avez besoin des éléments suivants :
 
@@ -130,32 +130,32 @@ Pour configurer l’authentification unique Azure AD avec Skydesk Email, effect
 
 1. Dans le menu situé en haut, cliquez sur **Setup**, puis sélectionnez **Org**.
 
-    ![Configurer l'authentification unique](./media/skydeskemail-tutorial/tutorial_skydeskemail_51.png)
+    ![Configure Single Sign-On](./media/skydeskemail-tutorial/tutorial_skydeskemail_51.png)
   
 1. Cliquez sur **Domains** dans le volet de gauche.
 
-    ![Configurer l'authentification unique](./media/skydeskemail-tutorial/tutorial_skydeskemail_53.png)
+    ![Configure Single Sign-On](./media/skydeskemail-tutorial/tutorial_skydeskemail_53.png)
 
 1. Cliquez sur **Add Domain**.
 
-    ![Configurer l'authentification unique](./media/skydeskemail-tutorial/tutorial_skydeskemail_54.png)
+    ![Configure Single Sign-On](./media/skydeskemail-tutorial/tutorial_skydeskemail_54.png)
 
 1. Entrez votre nom de domaine et vérifiez le domaine.
 
-    ![Configurer l'authentification unique](./media/skydeskemail-tutorial/tutorial_skydeskemail_55.png)
+    ![Configure Single Sign-On](./media/skydeskemail-tutorial/tutorial_skydeskemail_55.png)
 
 1. Cliquez sur **Authentification SAML** dans le panneau de gauche.
 
-    ![Configurer l'authentification unique](./media/skydeskemail-tutorial/tutorial_skydeskemail_52.png)
+    ![Configure Single Sign-On](./media/skydeskemail-tutorial/tutorial_skydeskemail_52.png)
 
 1. Dans la page de boîte de dialogue **SAML Authentication** , procédez comme suit :
 
-    ![Configurer l'authentification unique](./media/skydeskemail-tutorial/tutorial_skydeskemail_56.png)
+    ![Configure Single Sign-On](./media/skydeskemail-tutorial/tutorial_skydeskemail_56.png)
 
     > [!NOTE]
     > Pour utiliser l’authentification SAML, un **domaine vérifié** ou **l’URL du portail** doit être configuré. Vous pouvez définir l’URL du portail avec un nom unique.
 
-    ![Configurer l'authentification unique](./media/skydeskemail-tutorial/tutorial_skydeskemail_57.png)
+    ![Configure Single Sign-On](./media/skydeskemail-tutorial/tutorial_skydeskemail_57.png)
 
     a. Dans la zone de texte **Login URL** (URL de connexion), collez la valeur **URL de connexion** que vous avez copiée dans le portail Azure.
 
@@ -188,7 +188,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
     b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
-    Par exemple, BrittaSimon@contoso.com
+    Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
@@ -226,7 +226,7 @@ Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans S
 
 Cliquez sur **User Access** (Accès utilisateur) dans le panneau de gauche de SkyDesk Email, puis entrez votre nom d’utilisateur.
 
-![Configurer l'authentification unique](./media/skydeskemail-tutorial/tutorial_skydeskemail_58.png)
+![Configure Single Sign-On](./media/skydeskemail-tutorial/tutorial_skydeskemail_58.png)
 
 > [!NOTE]
 > Si vous avez besoin de créer des utilisateurs en bloc, contactez l’[équipe de support client SkyDesk Email](https://www.skydesk.jp/apps/support/).
@@ -243,5 +243,5 @@ Le fait de cliquer sur la vignette SkyDesk Email dans le panneau d’accès doit
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

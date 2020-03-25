@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Lifesize Cloud | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory dans Lifesize Cloud | Documentation Microsoft'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Lifesize Cloud.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 1/4/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e886a1fa3f590ac94dbf088520e6770690ee21ac
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73159577"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-lifesize-cloud"></a>Didacticiel : Intégration d’Azure Active Directory à Lifesize Cloud
+# <a name="tutorial-azure-active-directory-integration-with-lifesize-cloud"></a>Didacticiel : Intégration d’Azure Active Directory à Lifesize Cloud
 
 Dans ce didacticiel, vous allez apprendre à intégrer Lifesize Cloud à Azure Active Directory (Azure AD).
 L’intégration de Lifesize Cloud dans Azure AD vous offre les avantages suivants :
@@ -35,7 +35,7 @@ L’intégration de Lifesize Cloud dans Azure AD vous offre les avantages suivan
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour configurer l’intégration d’Azure AD à Lifesize Cloud, vous avez besoin des éléments suivants :
 
@@ -139,21 +139,21 @@ Pour configurer l’authentification unique Azure AD avec Lifesize Cloud, effect
 
 2. Dans le coin supérieur droit, cliquez sur votre nom, puis cliquez sur **Paramètres avancés**.
 
-    ![Configurer l'authentification unique](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_06.png)
+    ![Configure Single Sign-On](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_06.png)
 
 3. Dans les Paramètres avancés, cliquez maintenant sur le lien **Configuration de l’authentification unique**. La page Configuration SSO de l’instance s’ouvre.
 
-    ![Configurer l'authentification unique](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_07.png)
+    ![Configure Single Sign-On](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_07.png)
 
 4. Maintenant, configurez les valeurs suivantes dans l’interface utilisateur de configuration de l’authentification unique.
 
-    ![Configurer l'authentification unique](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_08.png)
+    ![Configure Single Sign-On](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_08.png)
 
     a. Dans la zone de texte **Identity Provider Issuer** (Émetteur du fournisseur d’identité), collez la valeur de **l’identificateur Azure AD** que vous avez copié à partir du portail Azure.
 
     b.  Dans la zone de texte **Login URL** (URL de connexion), collez la valeur **URL de connexion** que vous avez copiée dans le Portail Azure.
 
-    c. Ouvrez dans le Bloc-notes votre certificat codé en base 64 téléchargé à partir du portail Azure. Copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **Certificat X.509**.
+    c. Ouvrez dans le Bloc-notes votre certificat codé en base 64 téléchargé à partir du portail Azure, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **Certificat X.509**.
   
     d. Dans la zone de texte First Name (Prénom) des mappages d’attribut SAML, entrez la valeur `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
 
@@ -189,7 +189,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
     b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
-    Par exemple, BrittaSimon@contoso.com
+    Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
@@ -239,4 +239,4 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

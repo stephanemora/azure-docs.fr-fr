@@ -1,5 +1,5 @@
 ---
-title: "Didacticiel : Intégration d'Azure Active Directory à Meta Networks Connector| Microsoft Docs"
+title: 'Tutoriel : Intégration d’Azure Active Directory à Meta Networks Connector| Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Meta Networks Connector.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
 ms.openlocfilehash: a09eda25e8c7cc087770210cdfbe7e2bc9832acf
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73160642"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-meta-networks-connector"></a>Didacticiel : Intégration d'Azure Active Directory à Meta Networks Connector
+# <a name="tutorial-azure-active-directory-integration-with-meta-networks-connector"></a>Tutoriel : Intégration d’Azure Active Directory à Meta Networks Connector
 
 Dans ce tutoriel, vous apprenez à intégrer Meta Networks Connector à Azure Active Directory (Azure AD).
 L’intégration de Meta Networks Connector à Azure AD vous offre les avantages suivants :
@@ -34,7 +34,7 @@ L’intégration de Meta Networks Connector à Azure AD vous offre les avantages
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour configurer l’intégration d’Azure AD à Meta Networks Connector, vous avez besoin des éléments suivants :
 
@@ -128,12 +128,12 @@ Pour configurer l’authentification unique Azure AD auprès de Meta Networks Co
     
 7. En plus de ce qui précède, l’application Meta Networks Connector s’attend à ce que quelques attributs supplémentaires soient repassés dans la réponse SAML. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, effectuez les étapes suivantes pour ajouter le jeton SAML comme indiqué dans le tableau ci-dessous :
     
-    | Nom | Attribut source | Espace de noms|
+    | Name | Attribut source | Espace de noms|
     | ---------------| --------------- | -------- |
     | firstname | user.givenname | |
     | lastname | user.surname | |
     | emailaddress| user.mail| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
-    | Nom | user.userprincipalname| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
+    | name | user.userprincipalname| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
     | phone | user.telephonenumber | |
 
     a. Cliquez sur le bouton **Ajouter une nouvelle revendication** pour ouvrir la boîte de dialogue **Gérer les revendications des utilisateurs**.
@@ -150,7 +150,7 @@ Pour configurer l’authentification unique Azure AD auprès de Meta Networks Co
 
     e. Dans la liste **Attribut de la source**, tapez la valeur d’attribut indiquée pour cette ligne.
 
-    f. Cliquez sur **OK**.
+    f. Cliquez sur **OK**
 
     g. Cliquez sur **Enregistrer**.
 
@@ -177,19 +177,19 @@ Pour configurer l’authentification unique Azure AD auprès de Meta Networks Co
     
 2. Accédez à **Administrator** (Administrateur) et sélectionnez **Settings** (Paramètres).
     
-    ![Configurer l'authentification unique](./media/metanetworksconnector-tutorial/configure3.png)
+    ![Configure Single Sign-On](./media/metanetworksconnector-tutorial/configure3.png)
     
 3. Assurez-vous que les options **Log Internet Traffic** (Journaliser le trafic Internet) et **Force VPN MFA** (Forcer l’authentification multifacteur VPN) sont désactivées.
     
-    ![Configurer l'authentification unique](./media/metanetworksconnector-tutorial/configure1.png)
+    ![Configure Single Sign-On](./media/metanetworksconnector-tutorial/configure1.png)
     
 4. Accédez à **Administrator** (Administrateur) et sélectionnez **SAML** (SAML).
     
-    ![Configurer l'authentification unique](./media/metanetworksconnector-tutorial/configure4.png)
+    ![Configure Single Sign-On](./media/metanetworksconnector-tutorial/configure4.png)
     
 5. Effectuez les étapes suivantes dans la page **DETAILS** (DÉTAILS) :
     
-    ![Configurer l'authentification unique](./media/metanetworksconnector-tutorial/configure2.png)
+    ![Configure Single Sign-On](./media/metanetworksconnector-tutorial/configure2.png)
     
     a. Copiez la valeur de **SSO URL** (URL SSO) et collez-la dans la zone de texte **URL de connexion** de la section **Domaine et URL Meta Networks Connector**.
     
@@ -201,7 +201,7 @@ Pour configurer l’authentification unique Azure AD auprès de Meta Networks Co
     
 6. Sous l’onglet **GENERAL**, effectuez les étapes suivantes :
 
-    ![Configurer l'authentification unique](./media/metanetworksconnector-tutorial/configure5.png)
+    ![Configure Single Sign-On](./media/metanetworksconnector-tutorial/configure5.png)
 
     a. Dans la zone **Identity Provider Single Sign-On URL** (URL d’authentification unique du fournisseur d’identité), collez l’**URL de connexion** que vous avez copiée à partir du portail Azure.
 
@@ -230,7 +230,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
     b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotresociété.extension**.  
-    Par exemple, BrittaSimon@contoso.com
+    Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
@@ -281,5 +281,5 @@ Le fait de cliquer sur la vignette Meta Networks Connector dans le volet d’acc
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

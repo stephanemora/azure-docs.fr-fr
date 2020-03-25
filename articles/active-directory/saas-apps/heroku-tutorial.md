@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Heroku | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Heroku | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Heroku.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2a9cb7738a8983ca2f76866fa40d49cd6cc06f99
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73159073"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-heroku"></a>Didacticiel : Intégration d’Azure Active Directory à Heroku
+# <a name="tutorial-azure-active-directory-integration-with-heroku"></a>Didacticiel : Intégration d’Azure Active Directory à Heroku
 
 Dans ce didacticiel, vous allez apprendre à intégrer Heroku à Azure Active Directory (Azure AD).
 L’intégration de Heroku à Azure AD vous offre les avantages suivants :
@@ -35,7 +35,7 @@ L’intégration de Heroku à Azure AD vous offre les avantages suivants :
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour configurer l’intégration d’Azure AD à Heroku, vous avez besoin des éléments suivants :
 
@@ -142,7 +142,7 @@ Pour configurer l’authentification unique Azure AD avec Heroku, effectuez les
 
 6. Copiez l’**URL de connexion Heroku** et l’**ID d’entité Heroku**, puis revenez à la section **Configuration SAML de base** du Portail Azure et collez ces valeurs dans les zones de texte **URL de connexion** et **Identificateur (ID d’entité)** respectivement.
 
-    ![Configurer l'authentification unique](./media/heroku-tutorial/tutorial_heroku_52.png)
+    ![Configure Single Sign-On](./media/heroku-tutorial/tutorial_heroku_52.png)
 
 7. Cliquez sur **Suivant**.
 
@@ -165,7 +165,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
     b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
-    Par exemple, BrittaSimon@contoso.com
+    Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
@@ -218,5 +218,5 @@ Quand vous cliquez sur la vignette Heroku dans le volet d’accès, vous devez �
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

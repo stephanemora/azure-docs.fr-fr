@@ -15,16 +15,16 @@ ms.date: 04/20/2018
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: 5330c99f4d42f591944ddc5c58ac98bea6387da5
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74278145"
 ---
-# <a name="tutorial-set-azure-cdn-caching-rules"></a>Didacticiel : Définir les règles de mise en cache d’Azure CDN
+# <a name="tutorial-set-azure-cdn-caching-rules"></a>Didacticiel : Définir des règles de mise en cache d’Azure CDN
 
 > [!NOTE] 
-> Les règles de mise en cache sont disponibles uniquement pour les profils **CDN Azure Standard fourni par Verizon** et **CDN Azure Standard fourni par Akamai**. Pour les profils **Azure CDN de Microsoft**, vous devez utiliser le [moteur de règles standard](cdn-standard-rules-engine-reference.md). Pour les profils **CDN Azure Premium de Verizon**, vous devez utiliser le [moteur de règles Verizon Premium](cdn-rules-engine.md) dans le portail **Gérer** afin d’accéder à des fonctionnalités similaires.
+> Les règles de mise en cache sont disponibles uniquement pour les profils **CDN Azure Standard fourni par Verizon** et **CDN Azure Standard fourni par Akamai**. Pour des profils **Azure CDN de Microsoft**, vous devez utiliser le [moteur de règles standard](cdn-standard-rules-engine-reference.md) Pour les profils **Azure CDN Premium de Verizon**, vous devez utiliser le [moteur de règles Premium Verizon](cdn-rules-engine.md) dans le portail **Gérer** pour une fonctionnalité similaire.
  
 
 Ce didacticiel explique comment vous servir des règles de mise en cache du réseau de distribution de contenu (CDN) Azure pour définir ou modifier le comportement d’expiration du cache par défaut, globalement et avec des conditions personnalisées, telles qu’un chemin URL et une extension de fichier. Azure CDN fournit deux types de règles de mise en cache :
@@ -32,7 +32,7 @@ Ce didacticiel explique comment vous servir des règles de mise en cache du rés
 
 - Règles de mise en cache personnalisées : vous pouvez définir une ou plusieurs règles de mise en cache personnalisées pour chaque point de terminaison dans votre profil. Les règles de mise en cache personnalisées correspondent à des chemins et extensions de fichier spécifiques, elles sont traitées dans l’ordre et remplacent la règle de mise en cache globale, si elle est définie. 
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 > [!div class="checklist"]
 > - ouvrir la page des règles de mise en cache ;
 > - créer une règle de mise en cache générale ;
@@ -40,9 +40,9 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-Avant d’effectuer les étapes de ce tutoriel, vous devez d’abord créer un profil CDN et au moins un point de terminaison CDN. Pour plus d’informations, consultez [Démarrage rapide : Créer un point de terminaison et un profil de réseau de distribution de contenu Azure](cdn-create-new-endpoint.md).
+Avant d’effectuer les étapes de ce tutoriel, vous devez d’abord créer un profil CDN et au moins un point de terminaison CDN. Pour plus d’informations, consultez la page[Prise en main d’Azure CDN](cdn-create-new-endpoint.md).
 
 ## <a name="open-the-azure-cdn-caching-rules-page"></a>Ouvrir la page des règles de mise en cache d’Azure CDN
 
@@ -84,7 +84,7 @@ Créez une règle de mise en cache personnalisée comme suit :
     ![Règles de mise en cache personnalisées](./media/cdn-caching-rules/cdn-custom-caching-rules.png)
 
     
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Dans les étapes précédentes, vous avez créé des règles de mise en cache. Si vous ne souhaitez plus les utiliser, vous pouvez les supprimer en procédant comme suit :
  
@@ -103,7 +103,7 @@ Dans les étapes précédentes, vous avez créé des règles de mise en cache. S
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > - ouvrir la page des règles de mise en cache ;

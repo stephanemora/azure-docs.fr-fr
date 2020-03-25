@@ -13,10 +13,10 @@ ms.topic: tutorial
 ms.date: 11/08/2017
 ms.author: apimpm
 ms.openlocfilehash: 6be36493fabce07838991c789e111e918a9a826d
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "70072153"
 ---
 # <a name="edit-an-api"></a>Modifier une API
@@ -26,7 +26,7 @@ Les étapes de ce didacticiel vous montrent comment utiliser le service Gestion 
 + Vous pouvez le faire en ajoutant, supprimant et renommant des opérations dans l’instance APIM. 
 + Vous pouvez modifier le Swagger de votre API.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 + [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md)
 + [Importer et publier votre première API](import-and-publish.md)

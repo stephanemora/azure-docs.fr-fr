@@ -10,19 +10,19 @@ ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
 ms.openlocfilehash: 3d1e1491ad045eba88ca7bbe54a1acb38199f7d7
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "65987912"
 ---
-# <a name="tutorial-update-inventory-using-powershell-and-topicssubscriptions"></a>Didacticiel : Mise à jour de l’inventaire à l’aide de PowerShell et des rubriques/abonnements
+# <a name="tutorial-update-inventory-using-powershell-and-topicssubscriptions"></a>Tutoriel : mise à jour de l’inventaire à l’aide de PowerShell et des rubriques/abonnements
 
 Microsoft Azure Service Bus est un service de messagerie cloud multi-locataire qui envoie des informations entre les applications et les services. Le fonctionnement asynchrone vous offre un service de messagerie répartie flexible, avec messagerie premier entré, premier sorti (FIFO) et fonctionnalités de publication/abonnement. 
 
 Ce tutoriel montre comment envoyer et recevoir des messages vers et depuis une file d’attente Service Bus, en utilisant PowerShell pour créer un espace de noms de messagerie et une file d’attente au sein de cet espace de noms, et pour obtenir les informations d’identification sur cet espace de noms. La procédure montre ensuite comment envoyer et recevoir des messages depuis cette file d’attente à l’aide de la [bibliothèque .NET Standard](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 > [!div class="checklist"]
 > * Créer une rubrique Service Bus et un ou plusieurs abonnements à cette rubrique à l’aide d’Azure PowerShell
 > * Ajouter des filtres de rubrique à l’aide de PowerShell
@@ -32,14 +32,14 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 Un exemple de ce scénario est une mise à jour d’assortiment d’inventaire pour plusieurs magasins de détail. Dans ce scénario, chaque magasin ou ensemble de magasins, reçoit les messages destinés à mettre à jour leurs assortiments. Ce tutoriel montre comment implémenter ce scénario à l’aide des filtres et des abonnements. Tout d’abord, vous créez une rubrique avec 3 abonnements, ajoutez des règles et des filtres, puis vous envoyez et recevez des messages à partir de la rubrique et des abonnements.
 
-![rubrique](./media/service-bus-tutorial-topics-subscriptions-powershell/about-service-bus-topic.png)
+![topic](./media/service-bus-tutorial-topics-subscriptions-powershell/about-service-bus-topic.png)
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit][] avant de commencer.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre ce didacticiel, vérifiez que les éléments suivants sont installés :
 
@@ -99,7 +99,7 @@ Une fois que l’espace de noms et la file d’attente sont créés et que vous 
 
 Pour exécuter le code, procédez comme suit :
 
-1. Clonez le [référentiel GitHub Service Bus](https://github.com/Azure/azure-service-bus/) en émettant la commande suivante :
+1. Clonez le [référentiel GitHub Service Bus](https://github.com/Azure/azure-service-bus/) en exécutant la commande suivante :
 
    ```shell
    git clone https://github.com/Azure/azure-service-bus.git
@@ -129,7 +129,7 @@ Pour exécuter le code, procédez comme suit :
 
    ![sortie du programme](./media/service-bus-quickstart-powershell/dotnet.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Exécutez la commande suivante pour supprimer le groupe de ressources, l’espace de noms et toutes les ressources associées :
 
@@ -275,7 +275,7 @@ static async Task ProcessMessagesAsync(Message message, CancellationToken token)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez provisionné des ressources à l’aide d’Azure PowerShell, puis envoyé et reçu des messages à partir d’une rubrique Service Bus et de ses abonnements. Vous avez appris à effectuer les actions suivantes :
+Dans ce tutoriel, vous avez provisionné des ressources à l’aide d’Azure PowerShell, puis envoyé et reçu des messages à partir d’une rubrique Service Bus et de ses abonnements. Vous avez appris à :
 
 > [!div class="checklist"]
 > * Créer une rubrique Service Bus et un ou plusieurs abonnements à cette rubrique à l’aide du portail Azure

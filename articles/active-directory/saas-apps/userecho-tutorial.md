@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
 ms.openlocfilehash: 59d61eda7002fe46cf99fac63822b2333b2d64b5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67087764"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-userecho"></a>Didacticiel : Intégration d’Azure Active Directory à UserEcho
+# <a name="tutorial-azure-active-directory-integration-with-userecho"></a>Didacticiel : Intégration d’Azure Active Directory à UserEcho
 
 Dans ce didacticiel, vous allez apprendre à intégrer UserEcho à Azure Active Directory (Azure AD).
 L’intégration d’UserEcho avec Azure AD vous offre les avantages suivants :
@@ -34,7 +34,7 @@ L’intégration d’UserEcho avec Azure AD vous offre les avantages suivants :
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour configurer l’intégration d’Azure AD à UserEcho, vous avez besoin des éléments suivants :
 
@@ -132,19 +132,19 @@ Pour configurer l’authentification unique Azure AD avec UserEcho, effectuez le
 
 2. Dans la barre d’outils située en haut, cliquez sur votre nom d’utilisateur pour développer le menu, puis cliquez sur **Setup**.
    
-    ![Configurer l'authentification unique](./media/userecho-tutorial/tutorial_userecho_06.png) 
+    ![Configure Single Sign-On](./media/userecho-tutorial/tutorial_userecho_06.png) 
 
 3. Cliquez sur **Integrations**.
    
-    ![Configurer l'authentification unique](./media/userecho-tutorial/tutorial_userecho_07.png) 
+    ![Configure Single Sign-On](./media/userecho-tutorial/tutorial_userecho_07.png) 
 
 4. Cliquez sur **Website**, puis sur **Single sign-on (SAML2)** .
    
-    ![Configurer l'authentification unique](./media/userecho-tutorial/tutorial_userecho_08.png) 
+    ![Configure Single Sign-On](./media/userecho-tutorial/tutorial_userecho_08.png) 
 
 5. Sur la page **Single sign-on (SAML)** , procédez comme suit :
    
-    ![Configurer l'authentification unique](./media/userecho-tutorial/tutorial_userecho_09.png)
+    ![Configure Single Sign-On](./media/userecho-tutorial/tutorial_userecho_09.png)
     
     a. Pour **SAML-enabled**, sélectionnez **Yes**.
     
@@ -174,7 +174,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez brittasimon@yourcompanydomain.extension. Par exemple, BrittaSimon@contoso.com
+    b. Dans le champ **Nom d’utilisateur**, tapez brittasimon@yourcompanydomain.extension. Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
@@ -216,23 +216,23 @@ L’objectif de cette section est de créer un utilisateur appelé Britta Simon 
 
 2. Dans la barre d’outils située en haut, cliquez sur votre nom d’utilisateur pour développer le menu, puis cliquez sur **Setup**.
    
-    ![Configurer l'authentification unique](./media/userecho-tutorial/tutorial_userecho_06.png)
+    ![Configure Single Sign-On](./media/userecho-tutorial/tutorial_userecho_06.png)
 
 3. Cliquez sur **Users**, pour développer la section **Users**.
    
-    ![Configurer l'authentification unique](./media/userecho-tutorial/tutorial_userecho_10.png)
+    ![Configure Single Sign-On](./media/userecho-tutorial/tutorial_userecho_10.png)
 
 4. Cliquez sur **Utilisateurs**.
    
-    ![Configurer l'authentification unique](./media/userecho-tutorial/tutorial_userecho_11.png)
+    ![Configure Single Sign-On](./media/userecho-tutorial/tutorial_userecho_11.png)
 
 5. Cliquez sur **Invite a new user**.
    
-    ![Configurer l'authentification unique](./media/userecho-tutorial/tutorial_userecho_12.png)
+    ![Configure Single Sign-On](./media/userecho-tutorial/tutorial_userecho_12.png)
 
 6. Dans la boîte de dialogue **Invite a new user** , procédez comme suit :
    
-    ![Configurer l'authentification unique](./media/userecho-tutorial/tutorial_userecho_13.png)
+    ![Configure Single Sign-On](./media/userecho-tutorial/tutorial_userecho_13.png)
 
     a. Dans la zone de texte **Name**, tapez le nom complet d’un utilisateur, par exemple Britta Simon.
     
@@ -252,5 +252,5 @@ Le fait de cliquer sur la vignette UserEcho dans le panneau d’accès doit vous
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

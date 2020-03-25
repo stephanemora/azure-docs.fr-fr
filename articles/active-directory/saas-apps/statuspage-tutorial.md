@@ -1,5 +1,5 @@
 ---
-title: "Didacticiel : Intégration d'Azure Active Directory à StatusPage | Microsoft Docs"
+title: 'Didacticiel : intégration d’Azure Active Directory à StatusPage | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et StatusPage.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/22/2019
 ms.author: jeedes
 ms.openlocfilehash: d947f610e6a753ce2ed349917640b07a55bbb735
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67089871"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-statuspage"></a>Didacticiel : Intégration d'Azure Active Directory à StatusPage
+# <a name="tutorial-azure-active-directory-integration-with-statuspage"></a>Didacticiel : Intégration d’Azure Active Directory à StatusPage
 
 Dans ce didacticiel, vous allez apprendre à intégrer StatusPage à Azure Active Directory (Azure AD).
 L’intégration de StatusPage dans Azure AD vous offre les avantages suivants :
@@ -34,7 +34,7 @@ L’intégration de StatusPage dans Azure AD vous offre les avantages suivants :
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour configurer l’intégration d’Azure AD avec StatusPage, vous avez besoin des éléments suivants :
 
@@ -146,17 +146,17 @@ Pour configurer l’authentification unique Azure AD avec StatusPage, effectuez 
 
 1. Dans la barre d’outils principale, cliquez sur **Manage Account**(Gérer le compte).
 
-    ![Configurer l'authentification unique](./media/statuspage-tutorial/tutorial_statuspage_06.png)
+    ![Configure Single Sign-On](./media/statuspage-tutorial/tutorial_statuspage_06.png)
 
 1. Cliquez sur l’onglet **Single Sign-on** (Authentification unique).
 
-    ![Configurer l'authentification unique](./media/statuspage-tutorial/tutorial_statuspage_07.png)
+    ![Configure Single Sign-On](./media/statuspage-tutorial/tutorial_statuspage_07.png)
 
 1. Sur la page de configuration de l’authentification unique, procédez comme suit :
 
-    ![Configurer l'authentification unique](./media/statuspage-tutorial/tutorial_statuspage_08.png)
+    ![Configure Single Sign-On](./media/statuspage-tutorial/tutorial_statuspage_08.png)
 
-    ![Configurer l'authentification unique](./media/statuspage-tutorial/tutorial_statuspage_09.png)
+    ![Configure Single Sign-On](./media/statuspage-tutorial/tutorial_statuspage_09.png)
 
     a. Dans la zone de texte **SSO Target URL** (URL cible d’authentification unique), collez la valeur **URL de connexion**, que vous avez copiée à partir du portail Azure.
 
@@ -183,7 +183,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
     b. Dans le champ **Nom d’utilisateur**, tapez `brittasimon@yourcompanydomain.extension`  
-    Par exemple, BrittaSimon@contoso.com
+    Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
@@ -227,7 +227,7 @@ StatusPage prend en charge l’approvisionnement juste-à-temps. Vous l’avez d
 
 1. Dans le menu situé en haut, cliquez sur **Manage Account**.
 
-    ![Configurer l'authentification unique](./media/statuspage-tutorial/tutorial_statuspage_06.png)
+    ![Configure Single Sign-On](./media/statuspage-tutorial/tutorial_statuspage_06.png)
 
 1. Cliquez sur l’onglet **Team Members** (Membres de l’équipe).
   
@@ -257,4 +257,4 @@ Le fait de cliquer sur la vignette StatusPage dans le panneau d’accès doit vo
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

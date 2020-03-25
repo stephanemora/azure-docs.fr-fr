@@ -2,16 +2,16 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/05/2020
+ms.date: 03/12/2020
 ms.author: dacoulte
-ms.openlocfilehash: 3f20533316049568d24a613322c63f1a888866df
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.openlocfilehash: 2876acd62e573b746b8c0abf671aa6472cec3104
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78668819"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79381964"
 ---
-|Nom |Description |Stratégies |Version |
+|Name |Description |Stratégies |Version |
 |---|---|---|---|
 |[Auditer les machines virtuelles Linux qui n’ont pas les applications spécifiées installées](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_InstalledApplicationLinux.json) |Cette initiative permet de déployer les exigences de stratégie et d’auditer les machines virtuelles Linux sur lesquelles les applications spécifiées ne sont pas installées. Pour plus d’informations sur les stratégies Guest Configuration, visitez https://aka.ms/gcpol |2 |1.1.0 |
 |[Auditer les machines virtuelles Linux qui ont les applications spécifiées installées](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_NotInstalledApplicationLinux.json) |Cette initiative permet de déployer les exigences de stratégie et d’auditer les machines virtuelles Linux sur lesquelles les applications spécifiées sont installées. Pour plus d’informations sur les stratégies Guest Configuration, visitez https://aka.ms/gcpol |2 |1.1.0 |

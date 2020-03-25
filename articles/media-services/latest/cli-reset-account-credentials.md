@@ -15,17 +15,17 @@ ms.workload: na
 ms.date: 08/20/2019
 ms.author: juliako
 ms.openlocfilehash: 09c93e2d851bea22e9d54dde35398f36335eb896
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "70967587"
 ---
-# <a name="cli-example-reset-the-account-credentials"></a>Exemple CLI : Réinitialiser les informations d’identification
+# <a name="cli-example-reset-the-account-credentials"></a>Exemple CLI : Réinitialiser les informations d’identification de compte
 
 Le script Azure CLI de cet article vous montre comment réinitialiser vos informations d’identification de compte et récupérer les paramètres du fichier app.config.
 
-## <a name="prerequisites"></a>Prérequis 
+## <a name="prerequisites"></a>Conditions préalables requises 
 
 [Créer un compte Media Services](create-account-cli-how-to.md).
 

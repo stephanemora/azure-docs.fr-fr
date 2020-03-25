@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Kontiki | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory avec Kontiki | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Kontiki.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bfb154bce34b2ceda99b82c7ca3534b8a8ee0a1f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67098502"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-kontiki"></a>Tutoriel : Intégration d’Azure Active Directory à Kontiki
+# <a name="tutorial-azure-active-directory-integration-with-kontiki"></a>Didacticiel : Intégration d’Azure Active Directory à Kontiki
 
 Dans ce didacticiel, vous allez apprendre à intégrer Kontiki à Azure AD (Azure Active Directory).
 
@@ -35,7 +35,7 @@ L’intégration de Kontiki à Azure AD vous offre les avantages suivants :
 
 Pour plus d’informations sur l’intégration d’applications software as a service (SaaS) à Azure AD, consultez l’article [S’authentifier avec l’authentification unique auprès des applications dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour configurer l’intégration d’Azure AD avec Kontiki, vous avez besoin des éléments suivants :
 
@@ -55,7 +55,7 @@ Kontiki prend en charge les fonctionnalités suivantes :
 
 Pour intégrer Kontiki à Azure AD, vous devez ajouter Kontiki à votre liste d’applications SaaS managées.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
 1. Dans le menu de gauche, sélectionnez **Azure Active Directory**.
 
@@ -147,7 +147,7 @@ Dans cette section, créez un utilisateur de test nommé Britta Simon dans le po
 
     1. Cochez la case **Afficher le mot de passe**. Notez la valeur affichée dans la zone **Mot de passe**.
 
-    1. Sélectionnez **Créer**.
+    1. Sélectionnez **Create** (Créer).
 
     ![Volet Utilisateur](common/user-properties.png)
 
@@ -193,4 +193,4 @@ Pour en savoir plus, consultez les articles suivants :
 
 - [Listes des tutoriels pour intégrer des applications SaaS à Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 - [S’authentifier avec l’authentification unique auprès des applications dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -9,10 +9,10 @@ ms.date: 04/06/2018
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: a7d0a899b4a2ef86153e82a4e3f04e7ec430a1bc
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67177655"
 ---
 1. Accédez à la [Console Google Cloud](https://console.developers.google.com/cloud-resource-manager)et connectez-vous avec les informations d’identification de votre compte Google. 
@@ -25,7 +25,7 @@ ms.locfileid: "67177655"
     ![Sélectionner votre projet dans Alertes](./media/mobile-services-enable-google-cloud-messaging/alert-new-project.png)
 5. Notez le **Numéro de projet** situé dans la vignette **Informations du projet** sur le tableau de bord. 
 
-    ![ID du projet](./media/mobile-services-enable-google-cloud-messaging/project-number.png)
+    ![ID de projet](./media/mobile-services-enable-google-cloud-messaging/project-number.png)
 6. Dans le tableau de bord, sur la vignette **API**, sélectionnez **Accéder à la présentation des API**. 
 
     ![Lien Présentation de l’API](./media/mobile-services-enable-google-cloud-messaging/go-to-api-overview.png)

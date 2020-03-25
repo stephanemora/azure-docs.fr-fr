@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: mebeatty
 ms.openlocfilehash: d474442086e2a114f26df279ab2682cd7628a5f5
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74184278"
 ---
 # <a name="create-an-internet-analyzer-test-using-cli-preview"></a>Créer un test Internet Analyzer avec l’interface de ligne de commande (préversion)
@@ -25,7 +25,7 @@ Il existe deux façons de créer une ressource Internet Analyzer : avec le port
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-La préversion publique est disponible dans toutes les régions. Toutefois, le stockage de données n’est disponible que dans la région *USA Ouest 2* dans la préversion.
+La préversion publique est disponible dans toutes les régions. Toutefois, le stockage de données est seulement disponible dans la région *USA Ouest 2* dans la préversion.
 
 ## <a name="object-model"></a>Modèle objet
 L’interface CLI d’Internet Analyzer expose les types de ressources suivants :

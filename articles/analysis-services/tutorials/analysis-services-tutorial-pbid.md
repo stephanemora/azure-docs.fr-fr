@@ -8,22 +8,22 @@ ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: owend
 ms.openlocfilehash: 4d8c753f06e58fd1cce1c55eca213637cb70e436
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73572316"
 ---
-# <a name="tutorial-connect-with-power-bi-desktop"></a>Didacticiel : Se connecter avec Power BI Desktop
+# <a name="tutorial-connect-with-power-bi-desktop"></a>Didacticiel : se connecter avec Power BI Desktop
 
 Dans ce didacticiel, vous utilisez Power BI Desktop pour vous connecter à l’exemple de base de données de modèle adventureworks sur votre serveur. Les tâches que vous effectuez simulent une connexion utilisateur classique au modèle et la création d’un rapport à partir des données du modèle.
 
 > [!div class="checklist"]
-> * Obtenir le nom de votre serveur à partir du portail
+> * Obtenir votre nom de serveur à partir du portail
 > * Se connecter à l’aide de Power BI Desktop
 > * Créer un rapport de base
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - [Ajoutez l’exemple de base de données de modèle adventureworks](../analysis-services-create-sample-model.md) à votre serveur.
 - Disposez d’autorisations [*lecture*](../analysis-services-server-admins.md) pour l’exemple de base de données de modèle adventureworks.
@@ -65,7 +65,7 @@ Dans **Portail Azure** > Serveur > **Présentation** > **Nom du serveur**, copie
 
     Prenez quelques minutes pour étudier l’exemple de modèle adventureworks en créant différentes visualisations et en découpant des données et métriques. Lorsque vous êtes satisfait de votre rapport, veillez à enregistrer.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous n’en avez plus besoin, n’enregistrez pas votre rapport ou supprimez le fichier si vous n’avez enregistré.
 

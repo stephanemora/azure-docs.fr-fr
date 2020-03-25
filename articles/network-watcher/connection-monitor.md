@@ -16,13 +16,13 @@ ms.date: 10/25/2018
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: acdaf2318c3082db876ed9c69b704d3d00cd4c90
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76834652"
 ---
-# <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Tutoriel : Superviser la communication réseau entre deux machines virtuelles à l’aide du portail Azure
+# <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Tutoriel : surveiller la communication réseau entre deux machines virtuelles à l’aide du portail Azure
 
 Il peut être essentiel pour votre organisation que la communication soit efficace entre une machine virtuelle et un point de terminaison comme une autre machine virtuelle. Parfois, des modifications de configuration sont introduites et mettent en péril cette communication. Dans ce tutoriel, vous allez apprendre à :
 
@@ -159,7 +159,7 @@ Par défaut, Azure permet la communication sur tous les ports entre les machines
 
     Vous pouvez voir que la colonne d’état contient un point d’exclamation rouge pour l’interface réseau **myvm2529**.
 
-6. Pour découvrir pourquoi l’état a changé, sélectionnez 10.0.0.5, dans l’image précédente. Le moniteur de connexion vous donne la cause de l’échec de la communication : *Trafic bloqué à cause de la règle de groupe de sécurité réseau suivante : UserRule_DenySshInbound*.
+6. Pour découvrir pourquoi l’état a changé, sélectionnez 10.0.0.5, dans l’image précédente. Le moniteur de connexion vous informe que la raison de l’échec de communication est : *Trafic bloqué en raison de la règle de groupe de sécurité réseau suivante : UserRule_DenySshInbound*.
 
     Si vous ne saviez pas que quelqu’un avait implémenté la règle de sécurité que vous avez créée à l’étape 4, vous apprendriez du moniteur de connexion que cette règle est la cause du problème de communication. Vous pourriez alors la modifier, la remplacer ou la supprimer pour rétablir la communication entre les machines virtuelles.
 

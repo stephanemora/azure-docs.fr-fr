@@ -12,10 +12,10 @@ ms.author: joke
 ms.reviwer: sstein
 ms.date: 03/13/2019
 ms.openlocfilehash: 74a72df9d8c0bc8a578fea57ab81fb496f8e6add
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74420357"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>Créer un agent de travail élastique à l’aide de PowerShell
@@ -29,12 +29,12 @@ Dans ce tutoriel, vous découvrez les étapes requises pour exécuter une requê
 > * Créer des informations d’identification de travail afin que les travaux puissent exécuter des scripts sur ses cibles
 > * Définir les cibles (serveurs, pools élastiques, bases de données, cartes de partitions) sur lesquelles vous voulez exécuter le travail
 > * Créer des informations d’identification limitées à une base de données dans les bases de données cibles afin que l’agent se connecte et exécute des travaux
-> * Création d’un travail
+> * Créer un travail
 > * Ajouter des étapes de travail à un travail
 > * Démarrer l’exécution d’un travail
 > * Surveiller un travail
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 La version mise à niveau des tâches de base de données élastique comprend un nouvel ensemble d’applets de commande PowerShell à utiliser lors de la migration. Ces nouvelles applets de commande transfèrent l’ensemble des informations d’identification de tâche, des cibles (dont les bases de données, serveurs, collections personnalisées), des déclencheurs de tâche, des planifications de tâches, du contenu de la tâche ainsi que des tâches vers un nouvel agent de travail élastique.
 
@@ -236,7 +236,7 @@ $job | Add-AzSqlElasticJobStep -Name "step1" -TargetGroupName $serverGroup.Targe
 $job | Add-AzSqlElasticJobStep -Name "step2" -TargetGroupName $serverGroupExcludingDb2.TargetGroupName -CredentialName $jobCred.CredentialName -CommandText $sqlText2
 ```
 
-### <a name="run-the-job"></a>Exécution de la tâche
+### <a name="run-the-job"></a>Exécuter le travail
 
 Pour démarrer le travail immédiatement, utilisez la commande suivante :
 
@@ -276,7 +276,7 @@ Le tableau suivant répertorie les états d’exécution de travail possibles :
 
 |State|Description|
 |:---|:---|
-|**Créé** | L’exécution du travail vient d’être créée et n’est pas encore en cours d’exécution.|
+|**Créé le** | L’exécution du travail vient d’être créée et n’est pas encore en cours d’exécution.|
 |**InProgress** | L’exécution du travail est en cours.|
 |**WaitingForRetry** | L’exécution du travail n’a pas été en mesure de terminer son action et est en attente de nouvelle tentative.|
 |**Réussi** | L’exécution du travail a réussi.|
@@ -287,7 +287,7 @@ Le tableau suivant répertorie les états d’exécution de travail possibles :
 |**Ignoré** | L’exécution du travail a été ignorée, car une autre exécution de la même étape du travail était déjà en cours d’exécution sur la même cible.|
 |**WaitingForChildJobExecutions** | L’exécution du travail attend que les exécutions de ses enfants se termine.|
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Supprimez les ressources Azure créées dans ce tutoriel en supprimant le groupe de ressources.
 
@@ -307,7 +307,7 @@ Dans ce tutoriel, vous avez exécuté un script Transact-SQL sur un ensemble de 
 > * Créer des informations d’identification de travail afin que les travaux puissent exécuter des scripts sur ses cibles
 > * Définir les cibles (serveurs, pools élastiques, bases de données, cartes de partitions) sur lesquelles vous voulez exécuter le travail
 > * Créer des informations d’identification limitées à une base de données dans les bases de données cibles afin que l’agent se connecte et exécute des travaux
-> * Création d’un travail
+> * Créer un travail
 > * Ajout d’une étape au travail
 > * Démarrage d’une exécution du travail
 > * Surveiller la tâche

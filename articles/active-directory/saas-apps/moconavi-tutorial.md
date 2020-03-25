@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à moconavi | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à moconavi | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et moconavi.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 038520e662a205bc173035fd19656cbaf4800239
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73160523"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-moconavi"></a>Didacticiel : Intégration d’Azure Active Directory à moconavi
+# <a name="tutorial-azure-active-directory-integration-with-moconavi"></a>Tutoriel : Intégration d’Azure Active Directory à moconavi
 
 Dans ce didacticiel, vous allez apprendre à intégrer moconavi à Azure Active Directory (Azure AD).
 L’intégration de moconavi à Azure AD offre les avantages suivants :
@@ -34,7 +34,7 @@ L’intégration de moconavi à Azure AD offre les avantages suivants :
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour configurer l’intégration d’Azure AD à moconavi, vous aurez besoin des éléments suivants :
 
@@ -114,7 +114,7 @@ Pour configurer l’authentification unique Azure AD avec moconavi, suivez les �
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion, l’identificateur et l’URL de réponse réels. Pour obtenir ces valeurs, contactez [l’équipe de support client de moconavi](mailto:support@recomot.co.jp). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-5. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies en fonction de vos besoins, puis enregistrez-le sur votre ordinateur.
+5. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies selon vos besoins, puis enregistrez-le sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
 
@@ -151,7 +151,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
     b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
-    Par exemple, BrittaSimon@contoso.com
+    Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
@@ -205,9 +205,9 @@ Dans cette section, vous allez créer un utilisateur nommé Britta Simon dans mo
 
     ![Test de l’authentification unique](./media/moconavi-tutorial/testing3.png)
 
-    a. Entrez la **clé d’authentification** `azureAD` dans la zone de texte **Entrer la clé d’authentification**.
+    a. Entrez la **clé d’authentification**`azureAD` dans la zone de texte **Entrer la clé d’authentification**.
 
-    b. Entrez **l’ID d’utilisateur** `your ad account` dans la zone de texte **Entrer l’ID d’utilisateur**.
+    b. Entrez **l’ID d’utilisateur**`your ad account` dans la zone de texte **Entrer l’ID d’utilisateur**.
 
     c. Cliquez sur **CONNEXION**.
 
@@ -225,5 +225,5 @@ Dans cette section, vous allez créer un utilisateur nommé Britta Simon dans mo
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

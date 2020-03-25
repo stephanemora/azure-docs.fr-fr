@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: fd347f4eb5f77dacc3c9fd61d0e885e9b3ee7959
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67095631"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-origami"></a>Didacticiel : Intégration d’Azure Active Directory à Origami
+# <a name="tutorial-azure-active-directory-integration-with-origami"></a>Didacticiel : Intégration d’Azure Active Directory à Origami
 
 Dans ce didacticiel, vous allez apprendre à intégrer Origami à Azure Active Directory (Azure AD).
 L’intégration d’Origami à Azure AD vous offre les avantages suivants :
@@ -34,7 +34,7 @@ L’intégration d’Origami à Azure AD vous offre les avantages suivants :
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour configurer l’intégration d’Azure AD à Origami, vous avez besoin des éléments suivants :
 
@@ -130,11 +130,11 @@ Pour configurer l’authentification unique Azure AD auprès d’Origami, effec
 
 2. Dans le menu situé en haut, cliquez sur **Admin**.
    
-    ![Configurer l'authentification unique](./media/origami-tutorial/tutorial_origami_51.png)
+    ![Configure Single Sign-On](./media/origami-tutorial/tutorial_origami_51.png)
 
 3. Dans la page de boîte de dialogue de configuration de l’authentification unique, procédez comme suit :
    
-    ![Configurer l'authentification unique](./media/origami-tutorial/tutorial_origami_531.png)
+    ![Configure Single Sign-On](./media/origami-tutorial/tutorial_origami_531.png)
 
     a. Sélectionnez **Activer l’authentification unique**.
 
@@ -165,7 +165,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
     b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
-    Par exemple, BrittaSimon@contoso.com
+    Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
@@ -205,19 +205,19 @@ Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans O
 
 2. Dans le menu situé en haut, cliquez sur **Admin**.
    
-    ![Configurer l'authentification unique](./media/origami-tutorial/tutorial_origami_51.png)
+    ![Configure Single Sign-On](./media/origami-tutorial/tutorial_origami_51.png)
 
 3. Dans la boîte de dialogue **Utilisateurs et sécurité**, cliquez sur **Utilisateurs**.
    
-    ![Configurer l'authentification unique](./media/origami-tutorial/tutorial_origami_54.png)
+    ![Configure Single Sign-On](./media/origami-tutorial/tutorial_origami_54.png)
 
 4. Cliquez sur **Add New User**.
    
-    ![Configurer l'authentification unique](./media/origami-tutorial/tutorial_origami_55.png)
+    ![Configure Single Sign-On](./media/origami-tutorial/tutorial_origami_55.png)
 
 5. Dans la boîte de dialogue Ajouter un nouvel utilisateur, procédez comme suit :
    
-    ![Configurer l'authentification unique](./media/origami-tutorial/tutorial_origami_56.png)
+    ![Configure Single Sign-On](./media/origami-tutorial/tutorial_origami_56.png)
 
     a. Dans la zone de texte **Nom d’utilisateur**, entrez l’e-mail de l’utilisateur, par exemple **brittasimon\@contoso.com**.
 
@@ -227,15 +227,15 @@ Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans O
 
     d. Dans la zone de texte **Prénom**, entrez le prénom de l’utilisateur, par exemple **Britta**.
 
-    e. Dans la zone de texte **Nom**, tapez le nom de l’utilisateur, par exemple **Simon**.
+    e. Dans la zone de texte **Nom**, entrez le nom de l’utilisateur, par exemple **Simon**.
 
     f. Cliquez sur **Enregistrer**.
    
-    ![Configurer l'authentification unique](./media/origami-tutorial/tutorial_origami_57.png)
+    ![Configure Single Sign-On](./media/origami-tutorial/tutorial_origami_57.png)
 
 6. Affectez des **Rôles d’utilisateur** et **l’Accès client** à l’utilisateur. 
    
-    ![Configurer l'authentification unique](./media/origami-tutorial/tutorial_origami_58.png)
+    ![Configure Single Sign-On](./media/origami-tutorial/tutorial_origami_58.png)
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique 
 
@@ -249,5 +249,5 @@ Lorsque vous cliquez sur la vignette Origami dans le volet d’accès, vous deve
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

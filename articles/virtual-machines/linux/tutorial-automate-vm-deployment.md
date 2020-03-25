@@ -15,16 +15,16 @@ ms.workload: infrastructure
 ms.date: 09/12/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 27c7e32f081003ac236c6d1405eb3512f6c4433c
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 62a8c68b11562cac7bb9e8a318cbe08084449423
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034634"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80066501"
 ---
 # <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>Didacticiel : comment utiliser cloud-init pour personnaliser une machine virtuelle Linux dans Azure au premier démarrage
 
-Dans un didacticiel précédent, vous avez appris comment établir une connexion SSH à une machine virtuelle et installer NGINX manuellement. Pour créer des machines virtuelles de façon rapide et cohérente, une certaine forme d’automatisation est généralement souhaitable. Pour personnaliser une machine virtuelle au premier démarrage, l’approche la plus courante consiste à utiliser [cloud-init](https://cloudinit.readthedocs.io). Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans un didacticiel précédent, vous avez appris comment établir une connexion SSH à une machine virtuelle et installer NGINX manuellement. Pour créer des machines virtuelles de façon rapide et cohérente, une certaine forme d’automatisation est généralement souhaitable. Pour personnaliser une machine virtuelle au premier démarrage, l’approche la plus courante consiste à utiliser [cloud-init](https://cloudinit.readthedocs.io). Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Créer un fichier de configuration cloud-init
@@ -42,7 +42,7 @@ Cloud-init fonctionne aussi sur les différentes distributions. Par exemple, vou
 
 Nous collaborons avec nos partenaires pour que cloud-init soit inclus et fonctionne dans les images qu’ils fournissent à Azure. Le tableau suivant présente la disponibilité actuelle de cloud-init sur les images de plateforme Azure :
 
-| Publisher | Offre | SKU | Version | Compatible avec cloud-init |
+| Serveur de publication | Offre | SKU | Version | Compatible avec cloud-init |
 |:--- |:--- |:--- |:--- |:--- |
 |Canonical |UbuntuServer |18.04-LTS |latest |Oui | 
 |Canonical |UbuntuServer |16.04-LTS |latest |Oui | 
@@ -58,7 +58,7 @@ Pour voir le cloud-init en action, créez une machine virtuelle qui installe NGI
 
 À l’invite bash ou dans Cloud Shell, créez un fichier nommé *cloud-init.txt*, puis collez la configuration suivante. Par exemple, tapez `sensible-editor cloud-init.txt` pour créer le fichier et voir la liste des éditeurs disponibles. Vérifiez que l’intégralité du fichier cloud-init est copiée, en particulier la première ligne :
 
-```azurecli-interactive
+```bash
 #cloud-config
 package_upgrade: true
 packages:
@@ -271,7 +271,7 @@ Votre site NGINX sécurisé et votre application Node.js apparaissent maintenant
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Ce didacticiel vous a montré comment configurer des machines virtuelles au premier démarrage avec cloud-init. Vous avez appris à effectuer les actions suivantes :
+Ce didacticiel vous a montré comment configurer des machines virtuelles au premier démarrage avec cloud-init. Vous avez appris à :
 
 > [!div class="checklist"]
 > * Créer un fichier de configuration cloud-init

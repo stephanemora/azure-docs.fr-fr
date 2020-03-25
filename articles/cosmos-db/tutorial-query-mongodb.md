@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 12/03/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 5b9bc78f6af833d89a3404de0295ddad78ebdf20
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74870137"
 ---
 # <a name="query-data-by-using-azure-cosmos-dbs-api-for-mongodb"></a>Interroger des données à l’aide de l’API Azure Cosmos DB pour MongoDB
@@ -58,7 +58,7 @@ L’exemple de document suivant est utilisé pour les requêtes de cet article.
   "isRegistered": false
 }
 ```
-## <a id="examplequery1"></a> Exemple de requête 1 
+## <a name="example-query-1"></a><a id="examplequery1"></a> Exemple de requête 1 
 
 Étant donné l’exemple de document de famille ci-dessus, la requête suivante renvoie les documents où le champ id correspond à `WakefieldFamily`.
 
@@ -108,7 +108,7 @@ L’exemple de document suivant est utilisé pour les requêtes de cet article.
     "isRegistered": false
     }
 
-## <a id="examplequery2"></a>Exemple de requête 2 
+## <a name="example-query-2"></a><a id="examplequery2"></a>Exemple de requête 2 
 
 La requête suivante renvoie tous les enfants de la famille. 
 
@@ -141,7 +141,7 @@ La requête suivante renvoie tous les enfants de la famille.
     }
 
 
-## <a id="examplequery3"></a>Exemple de requête 3 
+## <a name="example-query-3"></a><a id="examplequery3"></a>Exemple de requête 3 
 
 La requête suivante renvoie toutes les familles qui sont enregistrées. 
 
@@ -150,7 +150,7 @@ La requête suivante renvoie toutes les familles qui sont enregistrées.
     db.families.find( { "isRegistered" : true })
 **Résultats** Aucun document n’est renvoyé. 
 
-## <a id="examplequery4"></a>Exemple de requête 4
+## <a name="example-query-4"></a><a id="examplequery4"></a>Exemple de requête 4
 
 La requête suivante renvoie toutes les familles qui ne sont pas enregistrées. 
 
@@ -194,7 +194,7 @@ La requête suivante renvoie toutes les familles qui ne sont pas enregistrées.
     "isRegistered": false
 }
 
-## <a id="examplequery5"></a>Exemple de requête 5
+## <a name="example-query-5"></a><a id="examplequery5"></a>Exemple de requête 5
 
 La requête suivante renvoie toutes les familles qui ne sont pas enregistrées dans l’état de New-York (NY). 
 
@@ -240,7 +240,7 @@ La requête suivante renvoie toutes les familles qui ne sont pas enregistrées d
 }
 
 
-## <a id="examplequery6"></a>Exemple de requête 6
+## <a name="example-query-6"></a><a id="examplequery6"></a>Exemple de requête 6
 
 La requête suivante renvoie toutes les familles dans lesquelles les enfants sont en 8e année.
 
@@ -285,7 +285,7 @@ La requête suivante renvoie toutes les familles dans lesquelles les enfants son
     "isRegistered": false
 }
 
-## <a id="examplequery7"></a>Exemple de requête 7
+## <a name="example-query-7"></a><a id="examplequery7"></a>Exemple de requête 7
 
 La requête suivante renvoie toutes les familles dont le nombre d’enfants est 3.
 

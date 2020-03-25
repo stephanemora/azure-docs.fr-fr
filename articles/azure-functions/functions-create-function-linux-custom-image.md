@@ -4,13 +4,13 @@ description: Découvrez comment créer une exécution d’Azure Functions sur un
 ms.date: 01/15/2020
 ms.topic: tutorial
 ms.custom: mvc
-zone_pivot_groups: programming-languages-set-functions01
-ms.openlocfilehash: b714806c163a94bbae7069c357e603b82ba797ba
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+zone_pivot_groups: programming-languages-set-functions
+ms.openlocfilehash: 8c074c677c645dd03e3cf5288d82aa3e65720e8b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77482358"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79223726"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Créer une fonction sur Linux avec un conteneur personnalisé
 
@@ -33,9 +33,9 @@ Dans ce tutoriel, vous allez apprendre à :
 
 Vous pouvez suivre ce tutoriel sur n’importe quel ordinateur exécutant Windows, Mac OS ou Linux. Le suivi de ce tutoriel entraîne uun coût de quelques dollars USD dans votre compte Azure.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-- Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Compte Azure avec un abonnement actif. [Créez gratuitement un compte](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.7.1846 ou ultérieure
 - [Azure CLI](/cli/azure/install-azure-cli) version 2.0.77 ou ultérieure
 - Le [runtime Azure Functions 2.x](functions-versions.md)
@@ -61,7 +61,7 @@ Vous pouvez suivre ce tutoriel sur n’importe quel ordinateur exécutant Window
 
 ### <a name="prerequisite-check"></a>Vérification du prérequis
 
-1. Dans une fenêtre de terminal ou une fenêtre Commande, exécutez `func --version` pour vérifier que vous disposez d’Azure Functions Core Tools version 2.7.1846 ou ultérieure.
+1. Dans un terminal ou une fenêtre de commande, exécutez `func --version` pour vérifier que la version d’Azure Functions Core Tools est bien 2.7.1846 ou ultérieure.
 1. Exécutez `az --version` pour vérifier que vous disposez d’Azure CLI version 2.0.76 ou ultérieure.
 1. Exécutez `az login` pour vous connecter à Azure et vérifier qu’il y a un abonnement actif.
 1. Exécutez `docker login` pour vous connecter à Docker. Cette commande échoue si Docker n’est pas en cours d’exécution, auquel cas démarrez Docker et réessayez la commande.
@@ -70,7 +70,7 @@ Vous pouvez suivre ce tutoriel sur n’importe quel ordinateur exécutant Window
 
 1. Dans un terminal ou une invite de commandes, créez un dossier pour ce tutoriel à un emplacement approprié, puis accédez à ce dossier.
 
-1. Suivez les instructions de [Créer et activer un environnement virtuel](functions-create-first-function-python.md#create-and-activate-a-virtual-environment) pour créer un environnement virtuel que vous allez utiliser dans ce tutoriel.
+1. Suivez les instructions de [Créer et activer un environnement virtuel](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python#create-venv) pour créer un environnement virtuel que vous allez utiliser dans ce tutoriel.
 
 1. Exécutez la commande suivante pour le langage que vous avez choisi pour créer un projet d’application de fonction dans un dossier nommé `LocalFunctionsProject`. L’option `--docker` génère un `Dockerfile` pour le projet, qui définit un conteneur personnalisé approprié pour une utilisation avec Azure Functions et le runtime sélectionné.
 
@@ -110,7 +110,7 @@ Vous pouvez suivre ce tutoriel sur n’importe quel ordinateur exécutant Window
     cd LocalFunctionsProject
     ```
     
-1. Ajoutez une fonction à votre projet à l’aide de la commande suivante, où l’argument `--name` est le nom unique de votre fonction, et l’argument `--template` spécifie le déclencheur de la fonction. `func new` crée un sous-dossier correspondant au nom de la fonction qui contient un fichier de code approprié au langage choisi du projet et un fichier de configuration nommé *function.json*.
+1. Ajoutez une fonction à votre projet avec la commande suivante, où l’argument `--name` est le nom unique de votre fonction et où l’argument `--template` spécifie le déclencheur de la fonction. `func new` crée un sous-dossier correspondant au nom de la fonction qui contient un fichier de code approprié au langage choisi du projet et un fichier de configuration nommé *function.json*.
 
     ```
     func new --name HttpExample --template "HTTP trigger"
@@ -339,8 +339,9 @@ Une application de fonction sur Azure gère l’exécution de vos fonctions dans
 
     ```azurecli
     az storage account show-connection-string --resource-group AzureFunctionsContainers-rg --name <storage_name> --query connectionString --output tsv
+    ```
     
-1. Add this setting to the function app by using the [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) command. In the following command, replace `<app_name>` with the name of your function app, and replace `<connection_string>` with the connection string from the previous step (a long encoded string that begins with "DefaultEndpointProtocol="):
+1. Ajoutez ce paramètre à l’application de fonction à l’aide de la commande [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set). Dans la commande suivante, remplacez `<app_name>` par le nom de votre application de fonction et `<connection_string>` par la chaîne de connexion récupérée à l’étape précédente (une longue chaîne codée qui commence par « DefaultEndpointProtocol= ») :
  
     ```azurecli
     az functionapp config appsettings set --name <app_name> --resource-group AzureFunctionsContainers-rg --settings AzureWebJobsStorage=<connection_string>
@@ -525,7 +526,7 @@ Vous avez créé auparavant un compte de stockage Azure que l’application de f
 > [!IMPORTANT]
 > Dans la mesure où *local.settings.json* contient des secrets téléchargés à partir d’Azure, excluez toujours ce fichier du contrôle de code source. Le fichier *.gitignore* créé avec un projet Functions local exclut le fichier par défaut.
 
-### <a name="add-an-output-binding-to-functionjson"></a>Ajouter une liaison de sortie à function.json
+### <a name="add-an-output-binding-to-functionjson"></a>Ajoutez une liaison de sortie à function.json
 
 Dans Azure Functions, chaque type de liaison nécessite la définition d’une `direction`, d’un `type` et d’un `name` unique dans le fichier *function.json*. Votre *function.json* contient déjà une liaison d’entrée pour le type « httpTrigger » et une liaison de sortie pour la réponse HTTP. Pour ajouter une liaison à une file d’attente de stockage, modifiez le fichier comme suit, ce qui ajoute une liaison de sortie pour le type « queue » (file d’attente), où la file d’attente apparaît dans le code sous la forme d’un argument d’entrée nommé `msg`. La liaison de file d’attente nécessite également le nom de la file d’attente à utiliser, dans le cas présent `outqueue`, et le nom du paramètre qui contient la chaîne de connexion, dans le cas présent `AzureWebJobStorage`.
 
@@ -701,9 +702,9 @@ Mettez à jour *function.json* comme ceci en ajoutant la liaison de file d’att
 ```
 ::: zone-end
 
-## <a name="add-code-to-use-the-output-binding"></a>Ajouter le code qui utilise la liaison de sortie
+## <a name="add-code-to-use-the-output-binding"></a>Ajouter du code pour utiliser la liaison de sortie
 
-Une fois la liaison définie, le nom de la liaison, dans le cas présent `msg`, apparaît dans le code de la fonction en tant qu’argument (ou dans l’objet `context` en JavaScript et en TypeScript). Vous pouvez ensuite utiliser cette variable pour écrire des messages dans la file d’attente. Vous ne devez écrire aucun code pour l’authentification, pour obtenir une référence à une file d’attente ou pour écrire des données. Toutes ces tâches d’intégration sont gérées de façon pratique dans le runtime Azure Functions et la liaison de sortie de la file d’attente.
+Une fois la liaison définie, le nom de la liaison, dans le cas présent `msg`, apparaît dans le code de la fonction en tant qu’argument (ou dans l’objet `context` en JavaScript et en TypeScript). Vous pouvez ensuite utiliser cette variable pour écrire des messages dans la file d’attente. Vous ne devez écrire aucun code pour l’authentification, pour obtenir une référence à une file d’attente ou pour écrire des données. Toutes ces tâches d’intégration sont prises en charge de manière pratique dans le runtime d’Azure Functions et la liaison de sortie de file d’attente.
 
 ::: zone pivot="programming-language-csharp"
 ```csharp
@@ -869,11 +870,11 @@ export default httpTrigger;
 
 1. Comme vous avez configuré la livraison continue, la mise à jour de l’image dans le registre met à jour automatiquement votre application de fonction dans Azure.
 
-## <a name="view-the-message-in-the-azure-storage-queue"></a>Afficher le message dans la file d’attente Stockage Azure
+## <a name="view-the-message-in-the-azure-storage-queue"></a>Voir le message dans la file d’attente Stockage Azure
 
 Dans un navigateur, utilisez la même URL qu’auparavant pour appeler votre fonction. Le navigateur doit afficher la même réponse qu’auparavant, car vous n’avez pas modifié cette partie du code de la fonction. Le code ajouté a cependant écrit un message en utilisant le paramètre d’URL `name` dans la file d’attente de stockage `outqueue`.
 
-Vous pouvez visualiser la file d’attente dans le [portail Azure](../storage/queues/storage-quickstart-queues-portal.md) ou dans l’[Explorateur Stockage Microsoft Azure](https://storageexplorer.com/). Vous pouvez également voir la file d’attente dans Azure CLI, comme indiqué dans les étapes suivantes :
+Vous pouvez voir la file d’attente dans le [portail Azure](../storage/queues/storage-quickstart-queues-portal.md) ou dans l’[Explorateur Stockage Microsoft Azure](https://storageexplorer.com/). Vous pouvez également voir la file d’attente dans Azure CLI, comme indiqué dans les étapes suivantes :
 
 1. Ouvrez le fichier *local.setting.json* du projet de fonction, et copiez la valeur de la chaîne de connexion. Dans une fenêtre de terminal ou une fenêtre Commande, exécutez la commande suivante pour créer une variable d’environnement nommée `AZURE_STORAGE_CONNECTION_STRING`, en collant votre chaîne de connexion spécifique à la place de `<connection_string>`. (Cette variable d’environnement signifie que vous n’avez pas besoin de fournir la chaîne de connexion pour les prochaines commandes à l’aide de l’argument `--connection-string`.)
 
@@ -935,7 +936,7 @@ Vous pouvez visualiser la file d’attente dans le [portail Azure](../storage/qu
     
     # <a name="cmd"></a>[Cmd](#tab/cmd)
     
-    Comme vous devez déréférencer la collection de messages et décoder à partir de base64, exécutez PowerShell et utilisez la commande PowerShell.
+    Dans la mesure où vous devez déréférencer la collecte du message et son décodage à partir du format base64, exécutez PowerShell et utilisez la commande PowerShell.
 
     ---
 

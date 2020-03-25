@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Workrite | Microsoft Docs'
+title: 'Didacticiel : intégration d’Azure Active Directory à Workrite | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Workrite.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 026ad76fa82a28ca3e7f29de2e656994b9cad634
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67086771"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-workrite"></a>Didacticiel : Intégration d’Azure Active Directory à Workrite
+# <a name="tutorial-azure-active-directory-integration-with-workrite"></a>Didacticiel : intégration d’Azure Active Directory à Workrite
 
 Dans ce didacticiel, vous allez apprendre à intégrer Workrite à Azure Active Directory (Azure AD).
 L’intégration de Workrite à Azure AD vous offre les avantages suivants :
@@ -34,7 +34,7 @@ L’intégration de Workrite à Azure AD vous offre les avantages suivants :
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour configurer l’intégration d’Azure AD à Workrite, vous avez besoin des éléments suivants :
 
@@ -146,7 +146,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez brittasimon@yourcompanydomain.extension. Par exemple, BrittaSimon@contoso.com
+    b. Dans le champ **Nom d’utilisateur**, tapez brittasimon@yourcompanydomain.extension. Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
@@ -198,7 +198,7 @@ L’objectif de cette section est de créer un utilisateur appelé Britta Simon 
    
     ![Créer une boîte de dialogue Utilisateur][402]
     
-    a. Dans la zone de texte **Email**, tapez l’adresse e-mail d’un utilisateur, par exemple, Brittasimon@contoso.com.
+    a. Dans la zone de texte **Email** (E-mail), tapez l’adresse e-mail d’un utilisateur, par exemple, Brittasimon@contoso.com.
 
     b. Dans la zone de texte **First Name**, tapez le prénom de l’utilisateur, par exemple Britta.
 
@@ -220,7 +220,7 @@ Le fait de cliquer sur la vignette Workrite dans le panneau d’accès doit vous
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 <!--Image references-->
 

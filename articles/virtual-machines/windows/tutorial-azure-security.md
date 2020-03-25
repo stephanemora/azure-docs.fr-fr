@@ -16,13 +16,13 @@ ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 6b763d08dc898566bfe0d7a28bf6471d4edf4c59
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74064955"
 ---
-# <a name="tutorial-use-azure-security-center-to-monitor-windows-virtual-machines"></a>Didacticiel : Utiliser Azure Security Center pour superviser des machines virtuelles Windows
+# <a name="tutorial-use-azure-security-center-to-monitor-windows-virtual-machines"></a>Didacticiel : utiliser Azure Security Center pour surveiller les machines virtuelles Windows
 
 Azure Security Center peut vous aider à acquérir une meilleure visibilité des pratiques de sécurité de vos ressources Azure. Azure Security Center assure une surveillance intégrée de la sécurité. Il peut détecter des menaces qui sans cela pourraient passer inaperçues. Ce didacticiel décrit Azure Security Center et comment effectuer les opérations suivantes :
 
@@ -124,7 +124,7 @@ Sélectionnez une alerte pour afficher des informations la concernant. Par exemp
 ![Attaque RDP](./media/tutorial-azure-security/rdp-attack.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-Ce didacticiel vous a montré comment configurer Azure Security Center, puis examiner les machines virtuelles dans Azure Security Center. Vous avez appris à effectuer les actions suivantes :
+Ce didacticiel vous a montré comment configurer Azure Security Center, puis examiner les machines virtuelles dans Azure Security Center. Vous avez appris à :
 
 > [!div class="checklist"]
 > * Configurer la collecte de données

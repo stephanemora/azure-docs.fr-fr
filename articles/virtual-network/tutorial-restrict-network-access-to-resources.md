@@ -17,15 +17,15 @@ ms.workload: infrastructure
 ms.date: 08/23/2018
 ms.author: kumud
 ms.openlocfilehash: 85fc5687b82947ed16bde0c30ca2b947514ba958
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74186368"
 ---
-# <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>Didacticiel : Restreindre l’accès réseau aux ressources PaaS avec des points de terminaison de service de réseau virtuel en utilisant le portail Azure
+# <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>Tutoriel : Restreindre l’accès réseau aux ressources PaaS avec des points de terminaison de service de réseau virtuel en utilisant le portail Azure
 
-Les points de terminaison de service de réseau virtuel permettent de restreindre l’accès réseau à certaines ressources du service Azure en n’autorisant leur accès qu’à partir d’un sous-réseau du réseau virtuel. Vous pouvez également supprimer l’accès Internet aux ressources. Les points de terminaison de service fournissent une connexion directe entre votre réseau virtuel et les services Azure pris en charge, ce qui vous permet d’utiliser l’espace d’adressage privé de votre réseau virtuel pour accéder aux services Azure. Le trafic destiné aux ressources Azure via les points de terminaison de service reste toujours sur le serveur principal de Microsoft Azure. Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Les points de terminaison de service de réseau virtuel permettent de restreindre l’accès réseau à certaines ressources du service Azure en n’autorisant leur accès qu’à partir d’un sous-réseau du réseau virtuel. Vous pouvez également supprimer l’accès Internet aux ressources. Les points de terminaison de service fournissent une connexion directe entre votre réseau virtuel et les services Azure pris en charge, ce qui vous permet d’utiliser l’espace d’adressage privé de votre réseau virtuel pour accéder aux services Azure. Le trafic destiné aux ressources Azure via les points de terminaison de service reste toujours sur le serveur principal de Microsoft Azure. Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créer un réseau virtuel avec un sous-réseau
@@ -51,7 +51,7 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 
    |Paramètre|Valeur|
    |----|----|
-   |Nom| myVirtualNetwork |
+   |Name| myVirtualNetwork |
    |Espace d’adressage| 10.0.0.0/16|
    |Subscription| Sélectionnez votre abonnement|
    |Resource group | Sélectionnez **Créer** et entrez *myResourceGroup*.|
@@ -77,7 +77,7 @@ Les points de terminaison de service sont activés par service, par sous-réseau
 
     |Paramètre|Valeur|
     |----|----|
-    |Nom| Privé |
+    |Name| Privé |
     |Plage d’adresses| 10.0.1.0/24|
     |Points de terminaison de service| Sélectionnez **Microsoft.Storage** sous **Services**|
 
@@ -94,7 +94,7 @@ Par défaut, toutes les machines virtuelles d’un sous-réseau peuvent communiq
 
     |Paramètre|Valeur|
     |----|----|
-    |Nom| myNsgPrivate |
+    |Name| myNsgPrivate |
     |Subscription| Sélectionnez votre abonnement|
     |Resource group | Sélectionnez **Utiliser l’existant**, puis *myResourceGroup*.|
     |Location| Sélectionnez **USA Est**. |
@@ -112,9 +112,9 @@ Par défaut, toutes les machines virtuelles d’un sous-réseau peuvent communiq
     |Identification de destination | Sélectionnez **Stockage**|
     |Plages de ports de destination| * |
     |Protocol|Quelconque|
-    |Action|AUTORISER|
+    |Action|Allow|
     |Priority|100|
-    |Nom|Allow-Storage-All|
+    |Name|Allow-Storage-All|
 
 8. Créer une règle de sécurité de trafic sortant qui refuse les communications vers Internet. Cette règle qui permet la communication Internet sortante se substitue à une règle par défaut dans tous les groupes de sécurité réseau. Répétez les étapes 5 à 7 en utilisant les valeurs suivantes :
 
@@ -128,7 +128,7 @@ Par défaut, toutes les machines virtuelles d’un sous-réseau peuvent communiq
     |Protocol|Quelconque|
     |Action|Deny|
     |Priority|110|
-    |Nom|Deny-Internet-All|
+    |Name|Deny-Internet-All|
 
 9. Sous **PARAMÈTRES**, sélectionnez **Règles de sécurité de trafic entrant**.
 10. Sélectionnez **Ajouter**.
@@ -141,9 +141,9 @@ Par défaut, toutes les machines virtuelles d’un sous-réseau peuvent communiq
     |Destination | Sélectionnez **VirtualNetwork**|
     |Plages de ports de destination| 3389 |
     |Protocol|Quelconque|
-    |Action|AUTORISER|
+    |Action|Allow|
     |Priority|120|
-    |Nom|Allow-RDP-All|
+    |Name|Allow-RDP-All|
 
 12. Sous **PARAMÈTRES**, sélectionnez **Sous-réseaux**.
 13. Sélectionnez **+ Associer**
@@ -162,7 +162,7 @@ Les étapes nécessaires pour restreindre l’accès réseau aux ressources cré
 
     |Paramètre|Valeur|
     |----|----|
-    |Nom| Entrez un nom qui n’existe dans aucun autre emplacement Azure. Le nom doit comprendre entre 3 et 24 caractères, correspondant à des chiffres et à des lettres en minuscules.|
+    |Name| Entrez un nom qui n’existe dans aucun autre emplacement Azure. Le nom doit comprendre entre 3 et 24 caractères, correspondant à des chiffres et à des lettres en minuscules.|
     |Type de compte|StorageV2 (usage général v2)|
     |Location| Sélectionnez **USA Est**. |
     |Réplication| Stockage localement redondant (LRS)|
@@ -217,7 +217,7 @@ Pour tester l’accès réseau à un compte de stockage, déployez une machine v
 
    |Paramètre|Valeur|
    |----|----|
-   |Nom| myVmPublic|
+   |Name| myVmPublic|
    |Nom d'utilisateur|Entrez un nom d’utilisateur de votre choix.|
    |Mot de passe| Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
    |Subscription| Sélectionnez votre abonnement.|
@@ -296,7 +296,7 @@ Le déploiement de la machine virtuelle ne nécessite que quelques minutes. Ne p
 
    L’accès est refusé, car votre ordinateur ne se trouve pas dans le sous-réseau *Private* du réseau virtuel *MyVirtualNetwork*.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Quand vous n’avez plus besoin du groupe de ressources, supprimez-le ainsi que toutes les ressources qu’il contient :
 

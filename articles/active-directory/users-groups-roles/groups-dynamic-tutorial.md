@@ -15,17 +15,17 @@ ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 382f3b59142aee7ddfbec4aceb153a174874ac1a
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74027109"
 ---
 # <a name="tutorial-add-or-remove-group-members-automatically"></a>Didacticiel : Ajouter ou supprimer automatiquement des membres dans un groupe
 
 Dans Azure Active Directory (Azure AD), vous pouvez ajouter ou supprimer automatiquement des utilisateurs dans des groupes de sécurité ou des groupes Office 365, ce qui vous évite d’avoir à le faire manuellement. Chaque fois que l’une des propriétés d’un utilisateur ou d’un appareil change, Azure AD évalue toutes les règles de groupe dynamique dans votre locataire pour déterminer si cette modification doit ajouter ou supprimer des membres.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 > [!div class="checklist"]
 > * Créer un groupe automatiquement rempli d’utilisateurs invités d’une entreprise partenaire
 > * Attribuer des licences au groupe pour les fonctionnalités propres au partenaire afin de permettre aux utilisateurs invités d’y accéder
@@ -33,7 +33,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour utiliser cette fonctionnalité, vous devez disposer d’une licence Azure AD Premium en tant qu’administrateur général du locataire. Si vous ne possédez pas cette licence, accédez à Azure AD et sélectionnez **Licences** > **Produits** > **Essayer/Acheter**.
 
@@ -84,7 +84,7 @@ Votre plan administratif final consiste peut-être à répartir l’ensemble de 
 
    ![Modifier le groupe Tous les utilisateurs pour le réserver aux membres](./media/groups-dynamic-tutorial/all-users-edit.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 **Pour supprimer le groupe d’utilisateurs invités**
 
@@ -97,7 +97,7 @@ Votre plan administratif final consiste peut-être à répartir l’ensemble de 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 > [!div class="checklist"]
 > * Créer un groupe d’utilisateurs invités
 > * Attribuer des licences à votre nouveau groupe

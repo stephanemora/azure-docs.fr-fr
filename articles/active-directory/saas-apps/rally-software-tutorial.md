@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: de84d03c3e0e433dbe7bc24c47b1766b32ad7bc4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67093176"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rally-software"></a>Didacticiel : Intégration d’Azure Active Directory à Rally Software
@@ -34,7 +34,7 @@ L’intégration de Rally Software à Azure AD vous offre les avantages suivants
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour configurer l’intégration d’Azure AD à Rally Software, vous avez besoin des éléments suivants :
 
@@ -112,7 +112,7 @@ Pour configurer l’authentification unique Azure AD avec Rally Software, effec
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez [l’équipe du support Rally Software](https://help.rallydev.com/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-5. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies en fonction de vos besoins, puis enregistrez-le sur votre ordinateur.
+5. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies selon vos besoins, puis enregistrez-le sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
 
@@ -132,13 +132,13 @@ Pour configurer l’authentification unique Azure AD avec Rally Software, effec
 
 2. Dans la barre d’outils située en haut, cliquez sur **Setup**, puis sélectionnez **Subscription**.
    
-    ![Subscription](./media/rally-software-tutorial/ic769531.png "Subscription")
+    ![Abonnement](./media/rally-software-tutorial/ic769531.png "Subscription")
 
 3. Cliquez sur le bouton **Action**. Sélectionnez **Modifier l’abonnement** en haut à droite de la barre d’outils.
 
 4. Dans la page **Subscription**, procédez comme suit, puis cliquez sur **Save & Close** :
    
-    ![Authentication](./media/rally-software-tutorial/ic769542.png "Authentication")
+    ![Authentification](./media/rally-software-tutorial/ic769542.png "Authentication")
    
     a. Sélectionnez **Rally or SSO authentication** dans la liste déroulante Authentication.
 
@@ -164,7 +164,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez brittasimon@yourcompanydomain.extension. Par exemple, BrittaSimon@contoso.com
+    b. Dans le champ **Nom d’utilisateur**, tapez brittasimon@yourcompanydomain.extension. Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
@@ -212,7 +212,7 @@ Pour que les utilisateurs Azure AD puissent se connecter, ils doivent être attr
 
 4. Dans la section **Create User** , procédez comme suit :
    
-    ![Créer un utilisateur](./media/rally-software-tutorial/ic781040.png "Créer un utilisateur")
+    ![Create User](./media/rally-software-tutorial/ic781040.png "Create User") (Créer un utilisateur)
 
     a. Dans la zone de texte **User Name** (Nom d’utilisateur), tapez le nom complet d’un utilisateur, par exemple **Britta Simon**.
    
@@ -239,5 +239,5 @@ Quand vous cliquez sur la vignette Rally Software dans le volet d’accès, vous
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

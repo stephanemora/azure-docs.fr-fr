@@ -9,10 +9,10 @@ ms.date: 07/31/2019
 ms.author: rajanaki
 ms.custom: MVC
 ms.openlocfilehash: 32dff9a165125ab1949560ce36438ae266cd3036
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74090308"
 ---
 # <a name="move-a-recovery-services-vault-and-azure-site-recovery-configuration-to-another-azure-region"></a>Déplacer un coffre Recovery Services et une configuration Azure Site Recovery vers une autre région Azure
@@ -33,7 +33,7 @@ Dans ce document, vous allez :
 > [!IMPORTANT]
 > Actuellement, il n’existe pas de méthode idéale pour déplacer en l’état un coffre Recovery Services et la configuration de la reprise d’activité vers une autre région. Cet article vous guide tout au long du processus de désactivation de la réplication et de sa configuration dans la nouvelle région.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Veillez à bien retirer et supprimer la configuration de la reprise d’activité avant d’essayer de déplacer les machines virtuelles Azure vers une autre région. 
 

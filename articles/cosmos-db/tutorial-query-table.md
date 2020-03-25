@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 05/21/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 8f31ace0045dad2f038a1eded52a41ffb1932f99
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76770481"
 ---
-# <a name="tutorial-query-azure-cosmos-db-by-using-the-table-api"></a>Tutoriel : Interroger Azure Cosmos DB à l’aide de l’API Table
+# <a name="tutorial-query-azure-cosmos-db-by-using-the-table-api"></a>Didacticiel : Interroger Azure Cosmos DB à l’aide de l’API Table
 
 [L’API Table](table-introduction.md) d’Azure Cosmos DB prend en charge les requêtes OData et [LINQ](https://docs.microsoft.com/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) effectuées sur des données de clé/valeur (table).  
 
