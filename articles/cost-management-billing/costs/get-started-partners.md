@@ -1,7 +1,6 @@
 ---
 title: Prise en main d’Azure Cost Management pour les partenaires
 description: Cet article explique aux partenaires comment utiliser les fonctionnalités d’Azure Cost Management et comment autoriser l’accès à Cost Management à leurs clients.
-keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 03/02/2020
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: f81ec71ffe5cdf7f70e309282307a1c4bb293219
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: d1425407b9d451a8c35e736c38b8fac059a7c9d8
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78245480"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79204883"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Prise en main d’Azure Cost Management pour les partenaires
 

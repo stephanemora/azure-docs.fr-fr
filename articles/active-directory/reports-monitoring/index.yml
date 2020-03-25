@@ -12,17 +12,19 @@ metadata:
   ms.author: markvi
   ms.date: 08/29/2019
   ms.collection: M365-identity-device-management
-  ms.openlocfilehash: 2b29aaf88f0a7659fd3ceb58ddf3b762ee7646d3
-  ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+  ms.openlocfilehash: 3d7248a09c0e9acc792bb0be80217f11a78ba73f
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 08/29/2019
-  ms.locfileid: "70162502"
+  ms.lasthandoff: 03/25/2020
+  ms.locfileid: "80048792"
 landingContent:
 - title: À propos des rapports et de la supervision d’Azure Active Directory
   linkLists:
   - linkListType: overview
     links:
+    - text: Présentation des rapports Azure Active Directory
+      url: overview-reports.md
     - text: En quoi consiste la surveillance d’Azure Active Directory ?
       url: overview-monitoring.md
   - linkListType: concept
@@ -35,7 +37,7 @@ landingContent:
       url: concept-risky-sign-ins.md
     - text: Utilisateurs marqués pour les journaux des risques
       url: concept-user-at-risk.md
-    - text: Journaux de provisionnement
+    - text: Journaux d’approvisionnement
       url: concept-provisioning-logs.md
 - title: Utiliser les rapports dans Azure AD
   linkLists:

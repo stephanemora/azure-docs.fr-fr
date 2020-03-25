@@ -1,20 +1,18 @@
 ---
 title: Configurer l’intégration de AWS avec Azure Cost Management
 description: Cet article vous guide tout au long de la configuration de l'intégration des rapports de coûts et d'utilisation AWS avec Azure Cost Management.
-keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 02/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: matrive
-ms.custom: ''
-ms.openlocfilehash: 90d75383c1bd7c67b3feeb77fe2284d7b4e0cdf9
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: c0f6f18abf7c05cf5ae6dcaa31a57974ecfca806
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199991"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79203081"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>Configurer l'intégration des rapports sur les coûts et l'utilisation AWS
 
@@ -39,11 +37,11 @@ Utilisez la page **Cost & Usage Reports** (Rapports sur les coûts et l'utilisat
 9. Dans la boîte de dialogue Configure S3 Bucket (Configuration du compartiment S3), effectuez l’une des tâches suivantes :
     1. Sélectionnez un compartiment existant dans la liste déroulante puis choisissez **Next** (Suivant).
     2. Entrez un nom de compartiment et la région où vous voulez créer un compartiment, puis choisissez **Next** (Suivant).
-10. Sélectionnez **I have confirmed that this policy is correct** (Je confirme que cette stratégie est correcte), puis cliquez sur **Save** (Enregistrer).
-11. (Facultatif) Pour le préfixe Report path (Chemin du rapport), entrez le préfixe du chemin du rapport que vous voulez ajouter au nom de votre rapport.
+10.    Sélectionnez **I have confirmed that this policy is correct** (Je confirme que cette stratégie est correcte), puis cliquez sur **Save** (Enregistrer).
+11.    (Facultatif) Pour le préfixe Report path (Chemin du rapport), entrez le préfixe du chemin du rapport que vous voulez ajouter au nom de votre rapport.
 Si vous ne spécifiez pas de préfixe, le préfixe par défaut est le nom que vous avez spécifié pour le rapport. La plage de dates a le format `/report-name/date-range/`.
 12. Pour **Unité de temps**, choisissez **Toutes les heures**.
-13. Pour **Report versioning** (Gestion des versions du rapport), choisissez si vous voulez que chaque version du rapport écrase la version précédente ou si vous voulez de nouveaux rapports supplémentaires.
+13.    Pour **Report versioning** (Gestion des versions du rapport), choisissez si vous voulez que chaque version du rapport écrase la version précédente ou si vous voulez de nouveaux rapports supplémentaires.
 14. Pour **Enable data integration for** (Activer l'intégration des données pour), aucune sélection n'est nécessaire.
 15. Pour **Compression**, sélectionnez **GZIP**.
 16. Sélectionnez **Suivant**.
@@ -124,8 +122,8 @@ L’élément JSON de la stratégie doit ressembler à l’exemple suivant. Remp
             "Effect": "Allow",
             "Action": [
 "organizations:ListAccounts",
-            "ce:*",
-            "cur:DescribeReportDefinitions"
+             "ce:*",
+             "cur:DescribeReportDefinitions"
             ],
             "Resource": "*"
         },
