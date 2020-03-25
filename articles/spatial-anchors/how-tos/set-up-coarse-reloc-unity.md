@@ -1,5 +1,5 @@
 ---
-title: Relocalisation approximative en Unity
+title: Relocalisation grossière en Unity
 description: Explication détaillée de la création et de la localisation d’ancres avec la relocalisation approximative en C#.
 author: bucurb
 manager: dacoghl
@@ -9,10 +9,10 @@ ms.date: 09/19/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 5c976bd020d37672c44c89113bf7786e1ccf141b
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76548252"
 ---
 # <a name="how-to-create-and-locate-anchors-using-coarse-relocalization-in-c"></a>Guide pratique pour créer et localiser des ancres avec la relocalisation approximative en C#
@@ -25,16 +25,16 @@ ms.locfileid: "76548252"
 > * [C++/NDK](set-up-coarse-reloc-cpp-ndk.md)
 > * [C++/WinRT](set-up-coarse-reloc-cpp-winrt.md)
 
-Azure Spatial Anchors peut associer des données de capteur de positionnement intégré aux ancres que vous créez. Ces données permettent également de déterminer rapidement s’il existe des ancres à proximité de votre appareil. Pour plus d’informations, consultez [Relocalisation approximative](../concepts/coarse-reloc.md).
+Azure Spatial Anchors peut associer des données de capteur de positionnement intégré aux ancres que vous créez. Ces données permettent également de déterminer rapidement s’il existe des ancres à proximité de votre appareil. Pour plus d’informations, consultez [Relocalisation grossière](../concepts/coarse-reloc.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-Pour suivre ce guide, veillez à avoir :
+Pour suivre ce guide, veillez à disposer des éléments suivants :
 
-- Une connaissance élémentaire de C#.
-- Lu la page [Vue d’ensemble d’Azure Spatial Anchors](../overview.md).
-- Suivi l’un des [guides de démarrage rapide de 5 minutes](../index.yml).
-- Lu le [Guide pratique pour la création et la localisation des ancres](../create-locate-anchors-overview.md).
+- Ayez une connaissance de base de C#.
+- Lisez la page [Vue d’ensemble d’Azure Spatial Anchors](../overview.md).
+- Effectuez l’un des [guides de démarrage rapide de 5 minutes](../index.yml).
+- Lisez le [Guide pratique pour la création et la localisation des ancres](../create-locate-anchors-overview.md).
 
 [!INCLUDE [Configure Provider](../../../includes/spatial-anchors-set-up-coarse-reloc-configure-provider.md)]
 

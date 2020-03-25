@@ -10,10 +10,10 @@ author: sakash279
 ms.author: akshanka
 ms.reviewer: sngun
 ms.openlocfilehash: 7994b478321c925b3eab73291a109d50b9066fef
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76770873"
 ---
 # <a name="how-to-use-azure-table-storage-and-the-azure-cosmos-db-table-api-with-ruby"></a>Comment utiliser le Stockage Table et l’API Table d’Azure Cosmos DB avec Ruby
@@ -94,10 +94,10 @@ azure_table_service.insert_entity("testtable", entity)
 ## <a name="update-an-entity"></a>Mise à jour d'une entité
 Plusieurs méthodes permettent de mettre à jour une entité existante :
 
-* **update_entity() :** met à jour une entité existante en la remplaçant.
-* **merge_entity() :** met à jour une entité existante en fusionnant les nouvelles valeurs des propriétés avec l’entité existante.
-* **insert_or_merge_entity() :** met à jour une entité existante en la remplaçant. En l'absence d'entité, une nouvelle entité est insérée.
-* **insert_or_replace_entity() :** met à jour une entité existante en fusionnant les nouvelles valeurs des propriétés avec l’entité existante. En l'absence d'entité, une nouvelle entité est insérée.
+* **update_entity()** : met à jour une entité existante en la remplaçant.
+* **merge_entity()** : met à jour une entité existante en fusionnant les nouvelles valeurs des propriétés avec l’entité existante.
+* **insert_or_merge_entity()** : met à jour une entité existante en la remplaçant. En l'absence d'entité, une nouvelle entité est insérée.
+* **insert_or_replace_entity()** : met à jour une entité existante en fusionnant les nouvelles valeurs des propriétés avec l’entité existante. En l'absence d'entité, une nouvelle entité est insérée.
 
 L’exemple suivant illustre la mise à jour d’une entité avec **update_entity()**  :
 

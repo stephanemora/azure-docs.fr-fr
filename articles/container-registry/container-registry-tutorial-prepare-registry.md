@@ -5,11 +5,11 @@ ms.topic: tutorial
 ms.date: 04/30/2017
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 70dc664d27fde3b7cf9fe4e5e3a99c041236ac16
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74454439"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222146"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Didacticiel : Préparer un registre de conteneurs Azure géorépliqué
 
@@ -37,7 +37,7 @@ Azure Cloud Shell n’inclut pas les composants Docker requis pour effectuer cha
 
 ## <a name="create-a-container-registry"></a>Créer un registre de conteneur
 
-Connectez-vous au [Portail Azure](https://portal.azure.com).
+Connectez-vous au [portail Azure](https://portal.azure.com).
 
 Sélectionnez **Créer une ressource** > **Conteneurs** > **Azure Container Registry**.
 
@@ -45,8 +45,8 @@ Sélectionnez **Créer une ressource** > **Conteneurs** > **Azure Container Regi
 
 Configurez votre nouveau registre avec les paramètres suivants :
 
-* **Nom du registre** : créez un nom de registre qui est globalement unique dans Azure et contient entre 5 et 50 caractères alphanumériques
-* **Groupe de ressources** : **Créer un nouveau** > `myResourceGroup`
+* **Nom du registre** : créez un nom de registre qui est globalement unique dans Azure et contient entre 5 et 50 caractères alphanumériques.
+* **Groupe de ressources** : **Créer** > `myResourceGroup`
 * **Emplacement** : `West US`
 * **Utilisateur administrateur** : `Enable` (requis pour que Web App pour conteneurs puisse extraire des images)
 * **Référence** : `Premium` (requise pour la géoréplication)

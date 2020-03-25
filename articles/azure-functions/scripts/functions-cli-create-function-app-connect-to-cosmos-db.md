@@ -5,10 +5,10 @@ ms.topic: sample
 ms.date: 07/03/2018
 ms.custom: mvc
 ms.openlocfilehash: 5ee80283ed39789eabb702a48aa97f678a6409f9
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75922714"
 ---
 # <a name="create-an-azure-function-that-connects-to-an-azure-cosmos-db"></a>Créer une fonction Azure Functions qui se connecte à une base de données Azure Cosmos DB
@@ -31,7 +31,7 @@ Cet exemple crée une Function App Azure et ajoute un point de terminaison et un
 
 ## <a name="script-explanation"></a>Explication du script
 
-Ce script utilise les commandes suivantes : Chaque commande du tableau renvoie à une documentation spécifique.
+Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à une documentation spécifique.
 
 | Commande | Notes |
 |---|---|

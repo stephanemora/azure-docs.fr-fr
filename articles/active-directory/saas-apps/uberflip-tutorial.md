@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Uberflip | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Uberflip | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Uberflip.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 6710344e73e3c0ea6f9b3491209689871cc14a4f
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: d20c05e6ec5a413b81ede9cb4906de2595967115
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160939"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80048473"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-uberflip"></a>Didacticiel : Intégration d’Azure Active Directory à Uberflip
+# <a name="tutorial-azure-active-directory-integration-with-uberflip"></a>Tutoriel : Intégration d’Azure Active Directory à Uberflip
 
 Dans ce tutoriel, vous allez apprendre à intégrer Uberflip à Azure Active Directory (Azure AD).
 
@@ -34,7 +34,7 @@ L’intégration d’Uberflip à Azure AD vous offre les avantages suivants :
 
 Pour obtenir des détails sur l’intégration d’applications SaaS (software as a service) avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour configurer l’intégration d’Azure AD à Uberflip, vous avez besoin des éléments suivants :
 
@@ -54,7 +54,7 @@ Uberflip prend en charge les fonctionnalités suivantes :
 
 Pour configurer l’intégration d’Uberflip dans Azure AD, vous devez ajouter Uberflip à votre liste d’applications SaaS gérées à partir de la Place de marché Azure :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Sélectionnez **Azure Active Directory** dans le volet de gauche.
 
    ![Option Azure Active Directory](common/select-azuread.png)
@@ -204,4 +204,4 @@ Quand vous sélectionnez **Uberflip** sur le portail Mes applications, vous deve
 
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-* [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+* [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

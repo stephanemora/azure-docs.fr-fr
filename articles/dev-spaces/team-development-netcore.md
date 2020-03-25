@@ -6,10 +6,10 @@ ms.topic: tutorial
 description: Ce tutoriel vous montre comment utiliser Azure Dev Spaces et Visual Studio Code pour développer en équipe une application .NET Core dans Azure Kubernetes Service.
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s '
 ms.openlocfilehash: 69434c6168bfadbf3291c6efe85fb2f1934c8d11
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78251962"
 ---
 # <a name="team-development-using-net-core-and-visual-studio-code-with-azure-dev-spaces"></a>Développement en équipe à l’aide de .NET Core et Visual Studio Code avec Azure Dev Spaces

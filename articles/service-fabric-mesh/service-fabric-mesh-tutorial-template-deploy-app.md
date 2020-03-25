@@ -7,13 +7,13 @@ ms.date: 01/11/2019
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 1ff1407400843fdb0f0ff997e2e0a3c1b7e67c7d
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/26/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75494942"
 ---
-# <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Tutoriel : Déployer une application sur Service Fabric Mesh à l’aide d’un modèle
+# <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Tutoriel : Déployer une application sur Service Fabric Mesh à l’aide d’un modèle.
 
 Ce tutoriel est la première partie d’une série d’étapes. Vous allez apprendre à déployer une application Azure Service Fabric Mesh à l’aide d’un modèle.  L’application est composée d’un service frontal web ASP.NET et d’un service backend d’API web ASP.NET Core, qui se trouvent dans Docker Hub.  Vous tirez (pull) les deux images conteneur de Docker Hub et vous les envoyez (push) vers votre propre registre privé. Ensuite, vous créez un modèle Azure RM pour l’application, puis déployez celle-ci à partir de votre registre de conteneurs sur Service Fabric Mesh. Quand vous avez terminé, vous disposez d’une application simple de liste de tâches qui s’exécute dans Service Fabric Mesh.
 

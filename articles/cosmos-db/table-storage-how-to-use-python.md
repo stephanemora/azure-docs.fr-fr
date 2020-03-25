@@ -10,10 +10,10 @@ author: sakash279
 ms.author: akshanka
 ms.reviewer: sngun
 ms.openlocfilehash: b3a6f4397ca1b8c56f06f6d967804c94096ee308
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76770989"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-python"></a>Prise en main du stockage de tables Azure et de l’API Table d’Azure Cosmos DB avec Python
@@ -233,7 +233,7 @@ table_service.delete_table('tasktable')
 * [FAQ - Développer avec l’API Table](https://docs.microsoft.com/azure/cosmos-db/faq)
 * [Référence du kit de développement logiciel (SDK) Azure Cosmos DB pour l’API Python](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python)
 * [Centre de développement Python](https://azure.microsoft.com/develop/python/)
-* [Explorateur Stockage Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) : une application gratuite et multiplateforme qui vous permet d’exploiter visuellement les données de Stockage Azure sur Windows, macOS et Linux.
+* [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) : une application gratuite et multiplateforme de Microsoft qui vous permet d’exploiter visuellement les données de stockage Azure sur Windows, macOS et Linux.
 * [Utilisation de Python dans Visual Studio (Windows)](https://docs.microsoft.com/visualstudio/python/overview-of-python-tools-for-visual-studio)
 
 

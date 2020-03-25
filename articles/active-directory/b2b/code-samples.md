@@ -13,10 +13,10 @@ ms.reviewer: elisolMS
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 03a7a9c0c9ed308944b57e7659fefa81178af78b
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77368130"
 ---
 # <a name="azure-active-directory-b2b-collaboration-code-and-powershell-samples"></a>Code Azure Active Directory B2B Collaboration et exemples PowerShell
@@ -26,7 +26,7 @@ Vous pouvez inviter des utilisateurs externes en bloc dans une organisation à p
 
 1. Préparer le fichier .CSV Créez un fichier .CSV et nommez-le invitations.csv. Dans cet exemple, le fichier est enregistré dans C:\data et contient les informations suivantes :
   
-   Nom                  |  InvitedUserEmailAddress
+   Name                  |  InvitedUserEmailAddress
    --------------------- | --------------------------
    Invité B2B Gmail     | b2binvitee@gmail.com
    Invité B2B Outlook   | b2binvitee@outlook.com

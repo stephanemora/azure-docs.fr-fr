@@ -2,25 +2,19 @@
 title: Exemple de script Azure CLI - Rotation des clés d’accès au compte de stockage | Microsoft Docs
 description: Créez un compte de stockage Azure, puis récupérez ses clés d’accès et organisez leur rotation.
 services: storage
-documentationcenter: na
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: ''
-ms.custom: mvc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: azurecli
+ms.subservice: blobs
+ms.devlang: cli
 ms.topic: sample
 ms.date: 06/22/2017
 ms.author: tamram
-ms.openlocfilehash: ac58886225221677aa003833167ff58cd578255d
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: aa7cba00d865bb7b2c1e0fd1f0059fb35ffff690
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55693919"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80060831"
 ---
 # <a name="create-a-storage-account-and-rotate-its-account-access-keys"></a>Créer un compte de stockage et faire tourner ses clés d’accès
 
@@ -34,7 +28,7 @@ Ce script crée un compte de stockage Azure, affiche les clés d’accès au nou
 
 [!code-azurecli-interactive[main](../../../cli_scripts/storage/rotate-storage-account-keys/rotate-storage-account-keys.sh "Rotate storage account keys")]
 
-## <a name="clean-up-deployment"></a>Nettoyer le déploiement 
+## <a name="clean-up-deployment"></a>Nettoyer le déploiement
 
 Exécutez la commande suivante pour supprimer le groupe de ressources, le compte de stockage et toutes les ressources associées.
 

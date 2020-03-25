@@ -9,10 +9,10 @@ ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
 ms.openlocfilehash: 4882206692c334d6ab6af28feb5d2cba5277eea1
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78303934"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Déplacer des machines virtuelles Azure vers une autre région
@@ -34,7 +34,7 @@ Ce didacticiel présente les procédures suivantes :
 > [!NOTE]
 > Ce tutoriel montre comment déplacer des machines virtuelles Azure d’une région à une autre telles quelles. Si vous avez besoin d’améliorer la disponibilité en déplaçant des machines virtuelles d’un groupe à haute disponibilité vers des machines virtuelles épinglées de zone dans une autre région, consultez le [tutoriel Déplacer des machines virtuelles Azure vers des zones de disponibilité](move-azure-vms-avset-azone.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Vérifiez que les machines virtuelles Azure se trouvent dans la région Azure à partir de laquelle vous souhaitez effectuer le déplacement.
 - Vérifiez que votre choix de [combinaison région source/région cible est prise en charge](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support), et sélectionnez la région cible appropriée.

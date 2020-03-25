@@ -15,11 +15,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a51175d192a5afb1f84f8d0ed2de9796f198f82d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58102398"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "60296577"
 ---
 # <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>Didacticiel : Fédérer un environnement de forêt AD unique dans le cloud
 
@@ -27,7 +27,7 @@ ms.locfileid: "58102398"
 
 Ce didacticiel vous guidera dans la création d’un environnement d’identité hybride à l’aide de la fédération.  Cet environnement peut ensuite servir à des fins de test ou pour se familiariser avec le fonctionnement d’une identité hybride.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 Voici les conditions préalables requises pour suivre ce didacticiel.
 - Un ordinateur où [Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-technology-overview) est installé.  Il est recommandé d’utiliser [Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows/about/supported-guest-os) ou [Windows Server 2016](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
 - Un [abonnement Azure](https://azure.microsoft.com/free)
@@ -88,8 +88,8 @@ Pour terminer la création de la machine virtuelle, vous devez terminer l’inst
 5. Cliquez sur **Installer maintenant**.
 6. Saisissez votre clé de licence et cliquez sur **Suivant**.
 7. Acceptez les termes du contrat de licence et cliquez sur **Suivant**.
-8. Sélectionnez **Personnalisé :  installer Windows uniquement (avancé)**
-9. Cliquez sur **Suivant**
+8. Sélectionnez **Personnalisé : installer Windows uniquement (avancé)** .
+9. Cliquez sur **Suivant**.
 10. Une fois l’installation terminée, redémarrez la machine virtuelle, connectez-vous et exécutez les mises à jour Windows pour vous assurer que la machine virtuelle est à jour.  Installez les dernières mises à jour.
 
 ## <a name="install-active-directory-pre-requisites"></a>Installer les prérequis pour Active Directory
@@ -204,7 +204,7 @@ Nous devons maintenant créer un locataire Azure AD pour synchroniser nos utili
 1. Accédez au [portail Azure](https://portal.azure.com) et connectez-vous avec un compte qui dispose d’un abonnement Azure.
 2. Cliquez sur l’**icône plus (+)** et recherchez **Azure Active Directory**.
 3. Dans la liste des résultats, sélectionnez sur **Azure Active Directory**.
-4. Sélectionnez **Créer**.</br>
+4. Sélectionnez **Create** (Créer).</br>
 ![Créer](media/tutorial-password-hash-sync/create1.png)</br>
 5. Indiquez le **nom de l’organisation** avec le **nom de domaine initial**. Sélectionnez ensuite **Créer**. Votre annuaire est alors créé.
 6. Une fois cette opération terminée, cliquez sur **ce lien** pour gérer l’annuaire.

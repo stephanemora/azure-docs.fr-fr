@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: rohink
 ms.openlocfilehash: 8722a52a097f7f830287d125a4e56e9bbcb9f932
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76939093"
 ---
-# <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>Tutoriel : Créer des enregistrements DNS dans un domaine personnalisé pour une application web 
+# <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>Didacticiel : créer des enregistrements DNS pour une application web dans un domaine personnalisé 
 
 Vous pouvez configurer Azure DNS pour héberger un domaine personnalisé pour vos applications web. Par exemple, vous pouvez créer une application web Azure et y donner l’accès à vos utilisateurs par www\.contoso.com ou contoso.com comme nom de domaine complet (FQDN).
 

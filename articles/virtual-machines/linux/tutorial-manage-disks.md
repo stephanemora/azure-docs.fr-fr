@@ -16,12 +16,12 @@ ms.date: 11/14/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.subservice: disks
-ms.openlocfilehash: dc987fa1a3476b81b198726350d56333b53c795f
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: 78b47075ba0c717ffd8e813f6cf1ebb86031a7e3
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75780298"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80060222"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>Didacticiel - Gestion des disques Azure avec l’interface de ligne de commande Azure
 
@@ -117,7 +117,7 @@ Une fois qu’un disque a été attaché à la machine virtuelle, le système d�
 
 Créez une connexion SSH avec la machine virtuelle. Remplacez l’exemple d’adresse IP par l’adresse IP publique de la machine virtuelle.
 
-```azurecli-interactive
+```console
 ssh 10.101.10.10
 ```
 

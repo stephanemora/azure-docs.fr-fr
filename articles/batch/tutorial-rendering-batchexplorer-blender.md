@@ -8,24 +8,24 @@ ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: tutorial
 ms.openlocfilehash: 8a512676ab0e56f51c0fb9c59f2e530cfcf73333
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791424"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "60617623"
 ---
-# <a name="tutorial-render-a-blender-scene-using-batch-explorer"></a>Tutoriel : Effectuer le rendu d’une scène de Blender avec Batch Explorer
+# <a name="tutorial-render-a-blender-scene-using-batch-explorer"></a>Didacticiel : Effectuer le rendu d’une scène de Blender avec Batch Explorer
 
 Ce didacticiel montre comment effectuer le rendu de plusieurs images d’une scène de démonstration de Blender. Blender est utilisé pour le didacticiel car il est gratuit pour les machines virtuelles clients et de rendu, mais le processus est très similaire si d’autres applications, telles que Maya ou 3ds Max, sont utilisées.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 > [!div class="checklist"]
 > * Charger une scène de Blender sur le Stockage Azure
 > * Créer un pool Batch avec plusieurs nœuds pour effectuer le rendu
 > * Effectuer le rendu de plusieurs images
 > * Afficher et télécharger les fichiers de rendu des images
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Vous avez besoin d’un abonnement de paiement à l’utilisation ou autre option d’achat Azure pour utiliser les applications de rendu dans Batch sur une base de paiement à l’utilisation. Les licences de paiement à l’utilisation ne sont pas prises en charge si vous utilisez une offre Azure gratuite qui propose un crédit monétaire.
 
@@ -115,21 +115,21 @@ Lorsqu’une tâche commence à s’exécuter pour la première fois sur une mac
 L’état du rendu peut être déterminé en consultant le fichier journal stdout.txt produit par Blender.  Sélectionnez une tâche, les « sorties de tâche » sont affichées par défaut, le fichier « stdout.txt » peut être sélectionné et affiché.
 ![fichier stdout](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_stdout.png)
 
-Si le pool « blender windows » est sélectionné, les machines virtuelles du pool sont visibles dans un état d’exécution : ![Carte thermique du pool avec les nœuds en cours d’exécution](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_pool_heatmap_running.png)
+Si le pool « blender windows » est sélectionné, les machines virtuelles du pool seront visibles dans un état d’exécution : ![Carte thermique du pool avec les nœuds en cours d’exécution](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_pool_heatmap_running.png)
 
 La production des images ayant fait l’objet d’un rendu demandera plusieurs minutes en fonction de la taille de la machine virtuelle sélectionnée.  À l’aide de la machine virtuelle F16 spécifiée précédemment, le rendu des images prend environ 16 minutes.
 
 ## <a name="view-the-rendering-output"></a>Afficher la sortie du rendu
 
-Une fois le rendu des images terminé, ces tâches sont affichées comme étant terminées : ![Tâches terminées](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_tasks_complete.png)
+Une fois le rendu des images terminé, ces tâches seront affichées comme étant terminées : ![Tâches terminées](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_tasks_complete.png)
 
 L’image rendue est d’abord écrite sur la machine virtuelle et elle peut être affichée en sélectionnant le dossier « wd » : ![Image rendue sur le nœud du pool](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_output_image.png)
 
-Le modèle de travail spécifie également que les fichiers journaux et de l’image de sortie sont réécris dans le groupe de fichiers du compte Stockage Azure spécifié une fois le travail créé.  L’interface utilisateur « Data » peut être utilisée pour afficher les fichiers de sortie et les journaux. Elle peut également être utilisée pour télécharger les fichiers : ![Image rendue dans le groupe de fichiers de stockage](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_output_image_storage.png)
+Le modèle de travail spécifie également que les fichiers journaux et de l’image de sortie sont réécris dans le groupe de fichiers du compte Stockage Azure spécifié une fois le travail créé.  L’interface utilisateur « Data » peut être utilisée pour afficher les fichiers de sortie et les journaux d’activité. Elle peut également être utilisée pour télécharger les fichiers : ![Image rendue dans le groupe de fichiers de stockage](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_output_image_storage.png)
 
 Une fois toutes les tâches terminées, le travail est marqué comme étant terminé : ![Travail et toutes les tâches terminés](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_job_alltasks_complete.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 > [!WARNING]
 > Le pool doit être supprimé (il peut également être redimensionné jusqu’à zéro nœud) pour arrêter les frais venant des machines virtuelles facturées à l’abonnement Azure.

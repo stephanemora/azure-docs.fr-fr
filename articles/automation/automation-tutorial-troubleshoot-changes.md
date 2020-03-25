@@ -8,10 +8,10 @@ ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: 60ca1ef3d5c14a0f3dea5b662fc5c95184e6574d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75420631"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Dépanner les modifications apportées à votre environnement
@@ -100,7 +100,7 @@ Dans la fenêtre **Configuration de l’espace de travail**, ajoutez les clés d
 |activé     | Détermine si le paramètre est appliqué.        |
 |Item Name     | Nom convivial du fichier à suivre.        |
 |Groupe     | Nom de groupe pour le regroupement logique des fichiers.        |
-|Clé de Registre Windows   | Chemin d’accès pour rechercher le fichier. Exemple : « HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup »      |
+|Clé de Registre Windows   | Chemin d’accès pour rechercher le fichier. Exemple : « HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup »      |
 
 ### <a name="add-a-windows-file"></a>Ajouter un fichier Windows
 
@@ -115,7 +115,7 @@ Dans la fenêtre **Configuration de l’espace de travail**, ajoutez les clés d
 |Groupe     | Nom de groupe pour le regroupement logique des fichiers.        |
 |Entrer le chemin     | Chemin d’accès pour rechercher le fichier. Exemple : « c:\temp\\\*.txt »<br>Vous pouvez également utiliser des variables d’environnement telles que « %winDir%\System32\\\*.* »         |
 |Récursivité     | Détermine si la récursivité est utilisée lorsque vous recherchez l’élément à suivre.        |
-|Télécharger le contenu du fichier pour tous les paramètres| Active ou désactive le chargement du contenu du fichier pour le suivi des modifications. Options disponibles : **True** ou **False**.|
+|Télécharger le contenu du fichier pour tous les paramètres| Active ou désactive le chargement du contenu du fichier pour le suivi des modifications. Options disponibles : **True** ou **False**.|
 
 ### <a name="add-a-linux-file"></a>Ajouter un fichier Linux
 
@@ -133,7 +133,7 @@ Dans la fenêtre **Configuration de l’espace de travail**, ajoutez les clés d
 |Récursivité     | Détermine si la récursivité est utilisée lorsque vous recherchez l’élément à suivre.        |
 |Utiliser sudo     | Ce paramètre détermine si sudo est utilisé lorsque vous vérifiez l’élément.         |
 |Liens     | Ce paramètre détermine le traitement des liens symboliques lorsque vous parcourez les répertoires.<br> **Ignorer** : ignore les liens symboliques et n’inclut pas les fichiers/répertoires référencés.<br>**Suivre** : suit les liens symboliques pendant les opérations de récursivité et inclut aussi les fichiers/répertoires référencés.<br>**Gérer** : suit les liens symboliques et autorise la modification du traitement du contenu retourné.      |
-|Télécharger le contenu du fichier pour tous les paramètres| Active ou désactive le chargement du contenu du fichier pour le suivi des modifications. Options disponibles : **True** ou **False**.|
+|Télécharger le contenu du fichier pour tous les paramètres| Active ou désactive le chargement du contenu du fichier pour le suivi des modifications. Options disponibles : **True** ou **False**.|
 
    > [!NOTE]
    > L’option permettant de « Gérer » les liens n’est pas recommandée. L’extraction du contenu du fichier n’est pas prise en charge.

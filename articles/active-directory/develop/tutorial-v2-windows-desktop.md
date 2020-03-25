@@ -16,10 +16,10 @@ ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: 422251da25ae0ef911eb723bb0342a84fe99559c
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79129925"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Appeler l’API Microsoft Graph à partir d’une application de bureau Windows
@@ -89,14 +89,14 @@ Pour créer l’application, procédez comme suit :
 
 Vous pouvez inscrire votre application de deux manières.
 
-### <a name="option-1-express-mode"></a>Option 1 : Mode Express
+### <a name="option-1-express-mode"></a>Option 1 : mode Express
 
 Vous pouvez inscrire rapidement votre application en procédant comme suit :
 1. Accédez au [portail Azure - Inscription d’applications](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs).
 1. Entrez un nom pour votre application, puis sélectionnez **Inscrire**.
 1. Suivez les instructions pour télécharger et configurer automatiquement votre nouvelle application en un seul clic.
 
-### <a name="option-2-advanced-mode"></a>Option n°2 : Mode Avancé
+### <a name="option-2-advanced-mode"></a>Option 2 : mode Avancé
 
 Pour inscrire votre application et ajouter les informations d’inscription de l’application à votre solution, procédez comme suit :
 1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.

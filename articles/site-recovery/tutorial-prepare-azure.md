@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1ec668fac087773001ca401eefb5ca8bc10ea2b8
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: ba5ecc29edbcd69324500e87add846e4395ce0a3
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73620592"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80067566"
 ---
 # <a name="prepare-azure-for-on-premises-disaster-recovery-to-azure"></a>Préparer Azure pour la reprise d’activité locale sur Azure
 
@@ -22,7 +22,7 @@ Cet article explique comment préparer les ressources et les composants Azure po
 Cet article est le premier tutoriel d’une série qui vous montre comment configurer la récupération d’urgence pour des machines virtuelles locales. 
 
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Vérifiez que le compte Azure dispose d’autorisations de réplication.

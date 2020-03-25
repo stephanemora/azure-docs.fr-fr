@@ -15,17 +15,17 @@ ms.workload: na
 ms.date: 01/25/2019
 ms.author: juliako
 ms.openlocfilehash: 44cf234fd8419164f7dd7f8320952a5c6c0842e0
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74896122"
 ---
-# <a name="cli-example-publish-an-asset"></a>Exemple CLI : Publier un actif multimédia
+# <a name="cli-example-publish-an-asset"></a>Exemple CLI : Publier un élément multimédia
 
 Le script Azure CLI de cet article montre comment créer un localisateur de diffusion en continu et récupérer les URL de diffusion en continu. 
 
-## <a name="prerequisites"></a>Prérequis 
+## <a name="prerequisites"></a>Conditions préalables requises 
 
 [Créer un compte Media Services](create-account-cli-how-to.md).
 
