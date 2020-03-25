@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Didacticiel : Intégration d’Azure Active Directory à LiquidFiles | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory avec LiquidFiles | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et LiquidFiles.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6514594d3119ebf8fab774c3e84c85e34bdfeaf4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67097925"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-liquidfiles"></a>Didacticiel : Intégration d’Azure Active Directory à LiquidFiles
+# <a name="tutorial-azure-active-directory-integration-with-liquidfiles"></a>Didacticiel : Intégration d’Azure Active Directory avec LiquidFiles
 
 Dans ce didacticiel, vous allez apprendre à intégrer LiquidFiles avec Azure Active Directory (Azure AD).
 L’intégration de LiquidFiles avec Azure AD vous offre les avantages suivants :
@@ -35,7 +35,7 @@ L’intégration de LiquidFiles avec Azure AD vous offre les avantages suivants 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour configurer l’intégration d’Azure AD avec LiquidFiles, vous avez besoin des éléments suivants :
 
@@ -141,7 +141,7 @@ Pour configurer l’authentification unique Azure AD avec LiquidFiles, procédez
 
 1. Dans la page **Single Sign-On Configuration** (Configuration de l’authentification unique), procédez comme suit :
 
-    ![Configurer l'authentification unique](./media/liquidfiles-tutorial/tutorial_single_01.png)
+    ![Configure Single Sign-On](./media/liquidfiles-tutorial/tutorial_single_01.png)
 
     a. Pour **Single Sign On Method** (Méthode d’authentification unique), sélectionnez **SAML 2**.
 
@@ -175,7 +175,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez `brittasimon@yourcompanydomain.extension`. Par exemple, BrittaSimon@contoso.com
+    b. Dans le champ **Nom d’utilisateur**, tapez `brittasimon@yourcompanydomain.extension`. Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
@@ -223,5 +223,5 @@ Lorsque vous cliquez sur la vignette LiquidFiles dans le volet d’accès, vous 
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

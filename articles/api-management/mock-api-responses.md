@@ -14,10 +14,10 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
 ms.openlocfilehash: 6841695cca5d3864e6823085520d8e9162e54043
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "70067944"
 ---
 # <a name="mock-api-responses"></a>Simuler des réponses de l’API
@@ -27,7 +27,7 @@ Les API backend peuvent être importées dans une API APIM ou créées et géré
 + Quand la façade de l’API est conçue avant que le backend ne soit implémenté. Ou bien, quand le backend est développé en parallèle.
 + Quand le backend est temporairement non opérationnel ou qu’il ne peut pas être mis à l’échelle.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créer une API de test 
@@ -37,11 +37,11 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 ![Réponse simulée à l’opération](./media/mock-api-responses/mock-api-responses01.png)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 + Apprenez la [terminologie relative à Gestion des API Azure](api-management-terminology.md).
 + Comprendre le [concept des stratégies dans Gestion des API Azure](api-management-howto-policies.md).
-+ Suivez ce guide de démarrage rapide : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
++ Suivez le guide de démarrage rapide suivant : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
 
 ## <a name="create-a-test-api"></a>Créer une API de test 
 
@@ -121,7 +121,7 @@ Cette section montre comment créer une API vide sans backend. Elle montre égal
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Créer une API de test

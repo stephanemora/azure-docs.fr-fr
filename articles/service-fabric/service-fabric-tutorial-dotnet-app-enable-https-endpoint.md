@@ -5,13 +5,13 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
 ms.openlocfilehash: 077c2ab67efa51542baa3048eb678fa22b0bc2eb
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75614075"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222726"
 ---
-# <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Tutoriel : Ajouter un point de terminaison HTTPS à un service frontal API Web ASP.NET Core à l’aide de Kestrel
+# <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Didacticiel : Ajouter un point de terminaison HTTPS à un service frontal API Web ASP.NET Core à l’aide de Kestrel
 
 Ce tutoriel est le troisième de la série.  Vous allez apprendre à activer HTTPS dans un service ASP.NET Core s’exécutant sur Service Fabric. À l’issue de cette procédure, vous disposerez d’une application de vote avec un service web frontal ASP.NET Core HTTPS écoutant le port 443. Si vous ne souhaitez pas créer l’application de vote manuellement en suivant les instructions de l’article [Créer une application .NET Service Fabric](service-fabric-tutorial-deploy-app-to-party-cluster.md), vous pouvez [télécharger le code source](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) pour obtenir l’application terminée.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Peakon | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Peakon | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Peakon.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
 ms.openlocfilehash: b093a26848701254ad674081037c266f1fb012b2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67094721"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-peakon"></a>Didacticiel : Intégration d’Azure Active Directory à Peakon
+# <a name="tutorial-azure-active-directory-integration-with-peakon"></a>Tutoriel : Intégration d’Azure Active Directory à Peakon
 
 Dans ce tutoriel, vous allez apprendre à intégrer Peakon à Azure Active Directory (Azure AD).
 L’intégration de Peakon à Azure AD offre les avantages suivants :
@@ -34,7 +34,7 @@ L’intégration de Peakon à Azure AD offre les avantages suivants :
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour configurer l’intégration d’Azure AD à Peakon, vous avez besoin des éléments suivants :
 
@@ -183,7 +183,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
     b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
-    Par exemple, BrittaSimon@contoso.com
+    Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
@@ -254,5 +254,5 @@ Quand vous cliquez sur la vignette Peakon dans le volet d’accès, vous devez �
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
