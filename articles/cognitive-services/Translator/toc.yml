@@ -2,7 +2,7 @@
   href: index.yml
 - name: API de traduction de texte Translator Text
   items:
-    - name: Vue d'ensemble
+    - name: Vue d’ensemble
       items:
         - name: "Qu’est-ce que l’API de traduction de texte Translator Text\_?"
           href: translator-info-overview.md
@@ -46,12 +46,6 @@
           href: prevent-translation.md
         - name: Utiliser la fonctionnalité du dictionnaire dynamique
           href: dynamic-dictionary.md
-        - name: Utiliser des conteneurs
-          items:
-            - name: Installer et exécuter des conteneurs
-              href: how-to-install-containers.md
-            - name: Configurer des conteneurs
-              href: translator-text-container-config.md
         - name: Traduire derrière des pare-feu
           href: firewalls.md
     - name: Exemples
@@ -94,7 +88,7 @@
           items:
             - name: Transformer le texte
               href: transform-text.md
-            - name: Comment utiliser le compte-rendu CTF (Collaborative Translation Framework)
+            - name: Guide pratique pour utiliser le compte-rendu CTF (Collaborative Translation Framework)
               href: ctf-reporting.md
             - name: Renvoyer des traductions N-Best
               href: return-n-best-translations.md
@@ -102,7 +96,7 @@
       items:
         - name: Exemples de code sur GitHub
           href: 'https://aka.ms/TranslatorGitHub'
-        - name: Forum Aux Questions
+        - name: Questions fréquentes (FAQ)
           href: 'https://www.microsoft.com/translator/faq.aspx'
         - name: Prise en charge de la région et de la langue
           href: language-support.md
@@ -118,7 +112,7 @@
           href: 'https://stackoverflow.com/questions/tagged/microsoft-translator'
 - name: Custom Translator
   items:
-    - name: Vue d'ensemble
+    - name: Vue d’ensemble
       items:
         - name: Qu’est-ce que Custom Translator ?
           href: custom-translator/overview.md
@@ -168,15 +162,17 @@
           href: custom-translator/unsupported-language-deployments.md
     - name: Ressources
       items:
-        - name: Prise en charge des langages
+        - name: Prise en charge de la langue
           href: 'https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization'
         - name: Glossaire
           href: custom-translator/glossary.md
-        - name: Forum Aux Questions
+        - name: Questions fréquentes (FAQ)
           href: custom-translator/faq.md
         - name: Tarifs
           href: 'https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/'
         - name: Conformité
           href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+        - name: Chiffrement
+          href: translator-encryption-of-data-at-rest.md
         - name: Stack Overflow
           href: 'https://stackoverflow.com/questions/tagged/microsoft-translator'

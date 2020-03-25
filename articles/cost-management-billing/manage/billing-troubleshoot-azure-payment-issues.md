@@ -3,21 +3,17 @@ title: Résoudre les problèmes de paiement d’Azure
 description: Résolution d’un problème lors de la mise à jour du compte d’informations de paiement dans le centre des comptes du Portail Microsoft Azure.
 author: v-miegge
 ms.reviewerr: dcscontentpm
-editor: v-jesits
 tags: billing
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 03/06/2020
 ms.author: jaserano
-ms.openlocfilehash: cd9d17eb365937035919b7e712a4b5824f747bda
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 3374fc948c2ed3c75108e49eb6129f3976f8c956
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78942581"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79202962"
 ---
 # <a name="troubleshoot-azure-payment-issues"></a>Résoudre les problèmes de paiement d’Azure
 

@@ -1,20 +1,20 @@
 ---
 title: Gérer des budgets Cloudyn dans Azure
 description: Cet article vous aide à créer des budgets rapidement et à commencer à les gérer dans Cloudyn.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: vitavor
 ms.custom: seodec18
-ms.openlocfilehash: 1436c9b3b612a231760b6cdb04b5166fb45d7962
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ROBOTS: NOINDEX
+ms.openlocfilehash: f2f8fdbf2b470e9f1eb0d82c4c6de230c2a9e78f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201133"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79464153"
 ---
 # <a name="manage-azure-budgets-with-cloudyn"></a>Gérer les budgets Azure avec Cloudyn
 
@@ -27,6 +27,8 @@ Selon les budgets attribués, vous pouvez définir des alertes de seuil en fonct
 Les rapports de budget indiquent le budget attribué. Les utilisateurs peuvent voir quand leurs dépenses sont au-dessus, au-dessous ou au même niveau que leur consommation au fil du temps. Quand vous sélectionnez **Afficher/masquer les champs** en haut d’un rapport de budget, vous pouvez voir le coût, le budget, le coût cumulé ou le budget total.
 
 Azure Cost Management offre des fonctionnalités similaires à Cloudyn. Azure Cost Management est une solution native de gestion des coûts Azure. Il vous permet d’analyser les coûts, de créer et de gérer des budgets, d’exporter des données, et de consulter des recommandations d’optimisation et d’agir en conséquence pour dépenser moins. Pour plus d’informations sur les budgets dans Cost Management, consultez [Créer et gérer des budgets](../costs/tutorial-acm-create-budgets.md).
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 ## <a name="create-budgets"></a>Créer des budgets
 

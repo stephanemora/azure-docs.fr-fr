@@ -157,22 +157,6 @@
           href: /dotnet/api/overview/azure/privatedns/management
         - name: REST
           href: /rest/api/dns/privatedns/privatezones
-- name: Rubriques connexes
-  items:
-    - name: Private Link
-      href: ../private-link/private-link-overview.md
-    - name: Application Gateway
-      href: /azure/application-gateway/
-    - name: Réseau virtuel
-      href: /azure/virtual-network/
-    - name: Machine virtuelle
-      href: /azure/virtual-machines/
-    - name: Load Balancer
-      href: /azure/load-balancer/
-    - name: Traffic Manager
-      href: /azure/traffic-manager/
-    - name: les applications web
-      href: /azure/app-service/
 - name: Ressources
   items:
     - name: Feuille de route Azure

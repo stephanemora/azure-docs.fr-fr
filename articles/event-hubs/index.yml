@@ -12,12 +12,12 @@ metadata:
   author: spelluru
   ms.author: spelluru
   ms.date: 01/29/2020
-  ms.openlocfilehash: 28cfe37f6058dbedb11fb6fe01d932cbb10cbd18
-  ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+  ms.openlocfilehash: 9ddc73fb4b6511180a4dbae58c11bc57c6c0162b
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 02/12/2020
-  ms.locfileid: "77162954"
+  ms.lasthandoff: 03/25/2020
+  ms.locfileid: "79453681"
 landingContent:
 - title: À propos d’Event Hubs
   linkLists:
@@ -143,7 +143,7 @@ landingContent:
       url: event-hubs-ip-filtering.md
     - text: Utiliser des points de terminaison de service de réseau virtuel
       url: event-hubs-service-endpoints.md
+    - text: Utiliser des points de terminaison privés
+      url: private-link-service.md
     - text: Configurer les clés gérées par le client pour le chiffrement des données au repos
       url: configure-customer-managed-key.md
-    - text: Activer l’intégration des réseaux virtuels et les pare-feu
-      url: event-hubs-tutorial-virtual-networks-firewalls.md
