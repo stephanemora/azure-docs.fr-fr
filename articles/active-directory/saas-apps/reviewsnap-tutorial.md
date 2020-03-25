@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Reviewsnap | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Reviewsnap | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Reviewsnap.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
 ms.openlocfilehash: 6a925752a0e1de09c22350dff6a274a57b117a23
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67092993"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-reviewsnap"></a>Didacticiel : Intégration d’Azure Active Directory à Reviewsnap
+# <a name="tutorial-azure-active-directory-integration-with-reviewsnap"></a>Tutoriel : Intégration d’Azure Active Directory à Reviewsnap
 
 Dans ce tutoriel, vous allez apprendre à intégrer Reviewsnap à Azure Active Directory (Azure AD).
 L’intégration de Reviewsnap à Azure AD offre les avantages suivants :
@@ -34,7 +34,7 @@ L’intégration de Reviewsnap à Azure AD offre les avantages suivants :
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour configurer l’intégration d’Azure AD à Reviewsnap, vous aurez besoin des éléments suivants :
 
@@ -89,7 +89,7 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
 Pour configurer l’authentification unique Azure AD avec Reviewsnap, suivez les étapes ci-dessous :
 
-1. Sur la page d’intégration de l’application **Reviewsnap** du [Portail Azure](https://portal.azure.com/), cliquez sur **Authentification unique**.
+1. Sur la page d’intégration de l’application [Reviewsnap](https://portal.azure.com/) du **Portail Azure**, cliquez sur **Authentification unique**.
 
     ![Lien Configurer l’authentification unique](common/select-sso.png)
 
@@ -155,7 +155,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
     b. Dans le champ **Nom d’utilisateur**, tapez `brittasimon@yourcompanydomain.extension`  
-    Par exemple, BrittaSimon@contoso.com
+    Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
@@ -203,4 +203,4 @@ Lorsque vous cliquez sur la vignette Reviewsnap dans le volet d’accès, vous d
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

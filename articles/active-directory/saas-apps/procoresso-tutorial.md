@@ -17,13 +17,13 @@ ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ca6863a6b02e867afd732ce1662136051b8afec8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67093660"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-procore-sso"></a>Didacticiel : Intégration d’Azure Active Directory à Procore SSO
+# <a name="tutorial-azure-active-directory-integration-with-procore-sso"></a>Didacticiel : Intégration d’Azure Active Directory à Procore SSO
 
 Dans ce didacticiel, vous allez apprendre à intégrer Procore SSO à Azure Active Directory (Azure AD).
 L’intégration de Procore SSO dans Azure AD vous offre les avantages suivants :
@@ -35,7 +35,7 @@ L’intégration de Procore SSO dans Azure AD vous offre les avantages suivants 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour configurer l’intégration d’Azure AD à Procore SSO, vous avez besoin des éléments suivants :
 
@@ -126,11 +126,11 @@ Pour configurer l’authentification unique Azure AD avec Procore SSO, effectue
 
 2. Dans la liste déroulante de boîte à outils, cliquez sur **Admin** pour ouvrir la page de paramètres de l’authentification unique.
 
-    ![Configurer l'authentification unique](./media/procoresso-tutorial/procore_tool_admin.png)
+    ![Configure Single Sign-On](./media/procoresso-tutorial/procore_tool_admin.png)
 
-3. Collez les valeurs dans les zones comme décrit ci-dessous-
+3. Collez les valeurs dans les zones comme décrit ci-dessous :
 
-    ![Configurer l'authentification unique](./media/procoresso-tutorial/procore_setting_admin.png)  
+    ![Configure Single Sign-On](./media/procoresso-tutorial/procore_setting_admin.png)  
 
     a. Dans la zone de texte **URL de l'émetteur de l'authentification unique**, collez la valeur de l'**Identificateur Azure AD** copiée à partir du portail Azure.
 
@@ -160,7 +160,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez `brittasimon@yourcompanydomain.extension`. Par exemple, BrittaSimon@contoso.com
+    b. Dans le champ **Nom d’utilisateur**, tapez `brittasimon@yourcompanydomain.extension`. Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
@@ -200,11 +200,11 @@ Effectuez les étapes ci-dessous pour créer un utilisateur de test Procore côt
 
 2. Dans la liste déroulante de boîte à outils, cliquez sur **Annuaire** pour ouvrir la page d’annuaire de l’entreprise.
 
-    ![Configurer l'authentification unique](./media/procoresso-tutorial/Procore_sso_directory.png)
+    ![Configure Single Sign-On](./media/procoresso-tutorial/Procore_sso_directory.png)
 
 3. Cliquez sur l’option **Ajouter une personne** pour ouvrir le formulaire et réglez les options suivantes -
 
-    ![Configurer l'authentification unique](./media/procoresso-tutorial/Procore_user_add.png)
+    ![Configure Single Sign-On](./media/procoresso-tutorial/Procore_user_add.png)
 
     a. Dans la zone de texte **First Name**, tapez le prénom de l’utilisateur, par exemple **Britta**.
 
@@ -218,11 +218,11 @@ Effectuez les étapes ci-dessous pour créer un utilisateur de test Procore côt
 
 4. Vérifiez et mettez à jour les détails du contact nouvellement ajouté.
 
-    ![Configurer l'authentification unique](./media/procoresso-tutorial/Procore_user_check.png)
+    ![Configure Single Sign-On](./media/procoresso-tutorial/Procore_user_check.png)
 
 5. Cliquez sur **Enregistrer et envoyer l’invitation** (si une invitation par e-mail est exigée) ou sur **Enregistrer** (pour enregistrer directement) afin de terminer l’inscription de l’utilisateur.
     
-    ![Configurer l'authentification unique](./media/procoresso-tutorial/Procore_user_save.png)
+    ![Configure Single Sign-On](./media/procoresso-tutorial/Procore_user_save.png)
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique 
 
@@ -236,5 +236,5 @@ Quand vous cliquez sur la vignette Procore SSO dans le volet d’accès, vous d
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

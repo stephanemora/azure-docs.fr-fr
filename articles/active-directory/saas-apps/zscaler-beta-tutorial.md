@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Zscaler Beta | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Zscaler Beta | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Zscaler Beta.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 04/24/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 07b0f8112f724c857ffb46378f7aa7ef605b9bbb
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68943290"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-zscaler-beta"></a>Didacticiel : Intégration d’Azure Active Directory à Zscaler Beta
+# <a name="tutorial-azure-active-directory-integration-with-zscaler-beta"></a>Didacticiel : Intégration d’Active Directory à Zscaler Beta
 
 Dans ce didacticiel, vous allez découvrir comment intégrer Zscaler Beta à Azure Active Directory (Azure AD).
 Quand vous intégrez Zscaler Beta à Azure AD, vous pouvez :
@@ -35,7 +35,7 @@ Quand vous intégrez Zscaler Beta à Azure AD, vous pouvez :
 Pour plus d’informations sur l’intégration d’applications SaaS (software as a service) à Azure AD, consultez la page [Qu’est-ce que l’accès aux applications et l’authentification unique à Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour configurer l’intégration d’Azure AD à Zscaler Beta, vous avez besoin des éléments suivants :
 
@@ -118,7 +118,7 @@ Pour configurer l’authentification unique Azure AD avec Zscaler Beta, effectue
 
 6. L’application Zscaler Beta s’attend à ce que quelques attributs supplémentaires soient passés dans la réponse SAML. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, effectuez les étapes suivantes pour ajouter le jeton SAML comme indiqué dans le tableau ci-dessous.
     
-    | Nom | Attribut source | 
+    | Name | Attribut source | 
     | ---------------| --------------- |
     | memberOf  | user.assignedroles |
 
@@ -214,7 +214,7 @@ Pour configurer les paramètres de proxy dans Internet Explorer, effectuez les 
 
 3. Sélectionnez l’onglet **Connexions** . 
   
-     ![Onglet Connexions](./media/zscaler-beta-tutorial/ic769493.png "connexions")
+     ![Onglet Connexions](./media/zscaler-beta-tutorial/ic769493.png "Connexions")
 
 4. Sélectionnez **Paramètres réseau** pour ouvrir la boîte de dialogue **Paramètres du réseau local**.
 
@@ -252,7 +252,7 @@ Créez un utilisateur de test appelé Britta Simon dans le portail Azure.
 
     a. Dans la zone **Nom**, entrez **BrittaSimon**.
   
-    b. Dans la zone **Nom d’utilisateur**, entrez `brittasimon@yourcompanydomain.extension`. Par exemple BrittaSimon@contoso.com.
+    b. Dans la zone **Nom d’utilisateur**, entrez `brittasimon@yourcompanydomain.extension`. par exemple BrittaSimon@contoso.com.
 
     c. Cochez la case **Afficher le mot de passe**. Notez la valeur affichée dans la zone **Mot de passe**.
 

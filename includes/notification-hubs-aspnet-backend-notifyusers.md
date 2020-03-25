@@ -1,5 +1,5 @@
 ---
-title: Fichier include
+title: Fichier Include
 description: Fichier Include qui contient du code pour créer un projet de serveur principal WebAPI ASP.NET.
 services: notification-hubs
 author: spelluru
@@ -9,19 +9,19 @@ ms.date: 09/11/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 6911f769b95967aac933dd9762263e7506aef4b5
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77193151"
 ---
 ## <a name="create-the-webapi-project"></a>Création du projet WebAPI
 
 Les sections suivantes traitent de la création d’un serveur principal WebAPI ASP.NET. Ce processus a trois objectifs principaux :
 
-- **Authentifier les clients** : vous ajoutez un gestionnaire de messages pour authentifier les requêtes des clients et associer l’utilisateur à la demande.
-- **S’inscrire aux notifications à l’aide du back-end WebAPI** : vous ajoutez un contrôleur pour gérer les nouvelles inscriptions afin qu’un appareil client puisse recevoir des notifications. Le nom d’utilisateur authentifié est automatiquement ajouté à l’inscription en tant que [balise](../articles/notification-hubs/notification-hubs-tags-segment-push-message.md).
-- **Envoyer des notifications aux clients** : vous ajoutez un contrôleur permettant aux utilisateurs de déclencher une transmission de type push sécurisée pour les appareils et les clients associés à l’étiquette.
+- **Authentification des clients** : ajoutez un gestionnaire de messages pour authentifier les demandes des clients et associer l’utilisateur à la demande.
+- **Inscriptions aux notifications à l’aide du serveur principal WebAPI** : ajoutez un contrôleur pour gérer les nouvelles inscriptions afin qu’un appareil client puisse recevoir des notifications. Le nom d’utilisateur authentifié est automatiquement ajouté à l’inscription en tant que [balise](../articles/notification-hubs/notification-hubs-tags-segment-push-message.md).
+- **Envoi de notifications aux clients** : ajoutez un contrôleur permettant aux utilisateurs de déclencher une notification push sécurisée pour les appareils et les clients associés à la balise.
 
 Pour créer le serveur principal WebAPI ASP.NET, procédez comme suit :
 

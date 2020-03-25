@@ -9,10 +9,10 @@ ms.author: ancav
 ms.custom: mvc
 ms.subservice: autoscale
 ms.openlocfilehash: 85ae76d9dcb0b4a1f95992c2f5da48a81fb12677
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77661650"
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Créer un paramètre de mise à l’échelle automatique pour des ressources Azure basées sur les données de performances ou une planification
@@ -22,7 +22,7 @@ Les paramètres de mise à l’échelle automatique vous permettent d’ajouter 
 Ce didacticiel présente les procédures suivantes : 
 > [!div class="checklist"]
 > * Créer une application web et un plan App Service
-> * Configurer des règles de mise à l’échelle automatique pour la diminution et l’augmentation de la taille des instances en fonction du nombre de requêtes reçues par une application web
+> * Configurer des règles de mise à l’échelle automatique pour le scale-in et le scale-out en fonction du nombre de requêtes reçues par une application web
 > * Déclencher une action d’augmentation de la taille des instances et regarder le nombre d’instances augmenter
 > * Déclencher une action de diminution de la taille des instances et regarder le nombre d’instances diminuer
 > * Nettoyage des ressources
@@ -174,7 +174,7 @@ La condition de diminution de la taille du paramètre de mise à l’échelle au
 Dans ce didacticiel, vous avez appris à effectuer les opérations suivantes :  
 > [!div class="checklist"]
 > * Créer une application web et un plan App Service
-> * Configurer des règles de mise à l’échelle automatique pour la diminution et l’augmentation de la taille des instances en fonction du nombre de requêtes reçues par une application web
+> * Configurer des règles de mise à l’échelle automatique pour le scale-in et le scale-out en fonction du nombre de requêtes reçues par une application web
 > * Déclencher une action d’augmentation de la taille des instances et regarder le nombre d’instances augmenter
 > * Déclencher une action de diminution de la taille des instances et regarder le nombre d’instances diminuer
 > * Nettoyer des ressources

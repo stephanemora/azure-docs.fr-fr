@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 01/01/2020
 ms.custom: mvc
 ms.openlocfilehash: 1d327f558806e0205540c183c56b92ba31e33cb7
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77031218"
 ---
 # <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>Préparer l’évaluation et la migration de machines virtuelles Hyper-V vers Azure
@@ -39,7 +39,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Vous devez définir des autorisations pour le déploiement Azure Migrate.
 
-**Tâche** | **autorisations**
+**Tâche** | **Autorisations**
 --- | ---
 **Créer un projet Azure Migrate** | Votre compte Azure doit être autorisé à créer un projet.
 **Inscrire l’appliance Azure Migrate** | Azure Migrate utilise une appliance Azure Migrate légère pour découvrir et évaluer les machines virtuelles Hyper-V à l’aide d’Azure Migrate Server Assessment. Cette appliance effectue la découverte des machines virtuelles et envoie les métadonnées et les données de performances des machines virtuelles à Azure Migrate.<br/><br/>Lors de l’inscription de l’appliance, les fournisseurs de ressources suivants sont inscrits dans l’abonnement choisi dans l’appliance : Microsoft.OffAzure, Microsoft.Migrate et Microsoft.KeyVault. L’inscription d’un fournisseur de ressources configure votre abonnement pour travailler avec le fournisseur de ressources. Pour inscrire les fournisseurs de ressources, vous avez besoin d’un rôle Contributeur ou Propriétaire sur l’abonnement.<br/><br/> Dans le cadre de l’intégration, Azure Migrate crée une application Azure Active Directory (Azure AD) :<br/> \- L’application Azure AD est utilisée pour la communication (authentification et autorisation) entre les agents exécutés sur l’appliance et leurs services respectifs exécutés sur Azure. Cette application n’a pas les privilèges requis pour effectuer des appels ARM ou des accès RBAC sur une ressource.
@@ -79,13 +79,13 @@ L’administrateur général/locataire peut accorder des autorisations comme sui
     ![Autorisations Azure AD](./media/tutorial-prepare-hyper-v/aad.png)
 
 > [!NOTE]
-> Il s’agit d’un paramètre par défaut qui n’est pas sensible. [Plus d’informations](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance)
+> Il s’agit d’un paramètre par défaut qui n’est pas sensible. [En savoir plus](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance).
 
 
 
 #### <a name="assign-application-developer-role"></a>Attribuer le rôle Développeur d’applications
 
-L’administrateur général ou le locataire peuvent attribuer à un compte le rôle Développeur d’applications. [Plus d’informations](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)
+L’administrateur général ou le locataire peuvent attribuer à un compte le rôle Développeur d’applications. [En savoir plus](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
 
 
 ## <a name="prepare-hyper-v-for-assessment"></a>Préparer Hyper-V pour l’évaluation

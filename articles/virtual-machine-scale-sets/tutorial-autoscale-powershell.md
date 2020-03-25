@@ -9,13 +9,13 @@ ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 50fb0c1c13ceba88b1894fa0f3165dd40b8e23cf
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76278407"
 ---
-# <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Tutoriel : Mettre à l’échelle automatiquement un groupe de machines virtuelles identiques avec Azure PowerShell
+# <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Didacticiel : mettre à l’échelle automatiquement un groupe de machines virtuelles identiques avec Azure PowerShell
 
 [!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
@@ -57,7 +57,7 @@ New-AzureRmVmss `
 
 La création et la configuration des l’ensemble des ressources et des machines virtuelles du groupe identique prennent quelques minutes.
 
-## <a name="create-a-rule-to-autoscale-out"></a>Créer une règle pour l’augmentation automatique
+## <a name="create-a-rule-to-autoscale-out"></a>Créer une règle pour le scale-out automatique
 Si la demande de votre application augmente, la charge sur les instances de machine virtuelle dans votre groupe identique augmente. Si cette augmentation de la charge est cohérente, au lieu d’une brève demande, vous pouvez configurer des règles de mise à l’échelle automatique pour augmenter le nombre d’instances de machine virtuelle dans le groupe identique. Lorsque ces instances de machine virtuelle sont créées et que vos applications sont déployées, le groupe identique commence à distribuer le trafic vers les instances via l’équilibreur de charge. Vous contrôlez les métriques à surveiller, telles que l’usage du processeur ou du disque, la durée pendant laquelle la charge de l’application doit respecter un seuil donné, et le nombre d’instances de machine virtuelle à ajouter au groupe identique.
 
 Créons avec l’applet de commande [New-AzureRmAutoscaleRule](/powershell/module/AzureRM.Insights/New-AzureRmAutoscaleRule) une règle qui augmente le nombre d’instances de machine virtuelle dans un groupe identique lorsque la charge moyenne du processeur est supérieure à 70 % pendant 5 minutes. Lorsque la règle se déclenche, le nombre d’instances de machine virtuelle est majoré de trois unités.
@@ -95,7 +95,7 @@ $myRuleScaleOut = New-AzureRmAutoscaleRule `
 ```
 
 
-## <a name="create-a-rule-to-autoscale-in"></a>Créer une règle pour la diminution automatique
+## <a name="create-a-rule-to-autoscale-in"></a>Créer une règle pour le scale-in automatique
 Au cours d’une soirée ou d’un week-end, la demande de votre application peut diminuer. Si cette charge réduite est constante pendant un certain temps, vous pouvez configurer des règles de mise à l’échelle automatique pour réduire le nombre d’instances de machine virtuelle dans le groupe identique. Cette action de diminution du nombre d’instances a pour effet de réduire le coût d’exécution de votre groupe identique, car vous seul exécutez le nombre d’instances requis pour répondre à la demande en cours.
 
 Utilisez [New-AzureRmAutoscaleRule](/powershell/module/AzureRM.Insights/New-AzureRmAutoscaleRule) pour créer une autre règle qui diminue le nombre d’instances de machine virtuelle dans un groupe identique lorsque la charge d’UC moyenne est inférieure à 30 % pendant 5 minutes. Lorsque la règle se déclenche, le nombre d’instances de machine virtuelle est réduit d’une unité. L’exemple suivant montre la création d’un objet nommé *myRuleScaleDown* qui contient cette règle de montée en puissance. Le paramètre *-MetricResourceId* utilise les variables précédemment définies pour l’ID d’abonnement, le nom du groupe de ressources et le nom du groupe identique :
@@ -117,7 +117,7 @@ $myRuleScaleIn = New-AzureRmAutoscaleRule `
 
 
 ## <a name="define-an-autoscale-profile"></a>Définir un profil de mise à l’échelle automatique
-Pour associer vos règles de mise à l’échelle automatique avec un groupe identique, créez un profil. Le profil de mise à l’échelle automatique définit les capacités par défaut, minimale et maximale de groupe identique, et associe vos règles de mise à l’échelle automatique. Créez un profil de mise à l’échelle automatique avec l’applet de commande [New-AzureRmAutoscaleProfile](/powershell/module/AzureRM.Insights/New-AzureRmAutoscaleProfile). L’exemple suivant définit les capacités par défaut et minimale de *2* instances de machine virtuelle, et la capacité maximale de *10*. Les règles d’augmentation et de diminution du nombre d’instances créées dans les étapes précédentes sont ensuite associées :
+Pour associer vos règles de mise à l’échelle automatique avec un groupe identique, créez un profil. Le profil de mise à l’échelle automatique définit les capacités par défaut, minimale et maximale de groupe identique, et associe vos règles de mise à l’échelle automatique. Créez un profil de mise à l’échelle automatique avec l’applet de commande [New-AzureRmAutoscaleProfile](/powershell/module/AzureRM.Insights/New-AzureRmAutoscaleProfile). L’exemple suivant définit les capacités par défaut et minimale de *2* instances de machine virtuelle, et la capacité maximale de *10*. Les règles de scale-out et de scale-in créées dans les étapes précédentes sont ensuite associées :
 
 ```azurepowershell-interactive
 $myScaleProfile = New-AzureRmAutoscaleProfile `
@@ -130,7 +130,7 @@ $myScaleProfile = New-AzureRmAutoscaleProfile `
 
 
 ## <a name="apply-autoscale-profile-to-a-scale-set"></a>Appliquer un profil de mise à l’échelle automatique à un groupe identique
-L’étape finale consiste à appliquer le profil de mise à l’échelle automatique à votre groupe identique. Votre groupe identique peut ensuite augmenter ou diminuer automatiquement en fonction de la demande de l’application. Appliquez le profil de mise à l’échelle automatique avec l’applet de commande [Add-AzureRmAutoscaleSetting](/powershell/module/AzureRM.Insights/Add-AzureRmAutoscaleSetting) comme suit :
+L’étape finale consiste à appliquer le profil de mise à l’échelle automatique à votre groupe identique. Votre groupe identique peut ensuite effectuer automatiquement un scale-in ou un scale-out en fonction de la demande de l’application. Appliquez le profil de mise à l’échelle automatique avec l’applet de commande [Add-AzureRmAutoscaleSetting](/powershell/module/AzureRM.Insights/Add-AzureRmAutoscaleSetting) comme suit :
 
 ```azurepowershell-interactive
 Add-AzureRmAutoscaleSetting `
@@ -143,7 +143,7 @@ Add-AzureRmAutoscaleSetting `
 
 
 ## <a name="generate-cpu-load-on-scale-set"></a>Générer une charge d’UC sur un groupe identique
-Pour tester les règles de mise à l’échelle automatique, générez des charges d’UC sur les instances de machine virtuelle dans le groupe identique. Cette charge d’UC simulée provoque la mise à l’échelle automatique et donc l’augmentation du nombre d’instances de machine virtuelle. Comme la charge d’UC simulée diminue ensuite, les règles de mise à l’échelle automatique réduisent le nombre d’instances de machine virtuelle.
+Pour tester les règles de mise à l’échelle automatique, générez des charges d’UC sur les instances de machine virtuelle dans le groupe identique. Cette charge d’UC simulée provoque le scale-out de la mise à l’échelle automatique et donc l’augmentation du nombre d’instances de machine virtuelle. Comme la charge d’UC simulée diminue ensuite, les règles de mise à l’échelle automatique effectuent un scale-out du nombre d’instances de machine virtuelle.
 
 Pour répertorier les ports NAT permettant une connexion à des instances de machine virtuelle dans un groupe identique, obtenez tout d’abord l’objet d’équilibrage de charge avec [Get-AzureRmLoadBalancer](/powershell/module/AzureRM.Network/Get-AzureRmLoadBalancer). Affichez ensuite les règles NAT entrantes avec [Get-AzureRmLoadBalancerInboundNatRuleConfig](/powershell/module/AzureRM.Network/Get-AzureRmLoadBalancerInboundNatRuleConfig) :
 
@@ -209,7 +209,7 @@ Pour permettre à l’outil **CPU Stress** de continuer à s’exécuter, laisse
 
 
 ## <a name="monitor-the-active-autoscale-rules"></a>Surveiller les règles actives de mise à l’échelle automatique
-Pour surveiller le nombre d’instances de machine virtuelle dans votre groupe identique, utilisez **while**. Les règles de mise à l’échelle automatique prennent 5 minutes pour commencer le processus de montée en puissance en réponse à la charge d’UC générée par **CPUStress* sur chacune des instances de machine virtuelle :
+Pour surveiller le nombre d’instances de machine virtuelle dans votre groupe identique, utilisez **while**. Les règles de mise à l’échelle automatique prennent 5 minutes pour commencer le processus de scale-out en réponse à la charge d’UC générée par **CPUStress* sur chacune des instances de machine virtuelle :
 
 ```azurepowershell-interactive
 while (1) {Get-AzureRmVmssVM `
@@ -229,13 +229,13 @@ MYRESOURCEGROUP   myScaleSet_5   eastus Standard_DS2                   5        
 MYRESOURCEGROUP   myScaleSet_6   eastus Standard_DS2                   6          Creating
 ```
 
-Dans votre session de connexion au Bureau à distance pour chacune de vos instances de machine virtuelle, fermez l’outil **CPU Stress**. La charge d’UC moyenne du groupe identique revient à la normale. Lorsque 5 autres minutes ont passé, les règles de mise à l’échelle automatique diminuent le nombre d’instances de machine virtuelle. La diminution commence par la suppression des instances de machine virtuelle disposant des ID les plus élevés. Lorsqu’un groupe identique utilise des groupes à haute disponibilité ou des zones de disponibilité, les actions d’échelle sont réparties uniformément entre les instances de machine virtuelle. La sortie d’exemple suivante montre une instance de machine virtuelle supprimée lors de la diminution automatique :
+Dans votre session de connexion au Bureau à distance pour chacune de vos instances de machine virtuelle, fermez l’outil **CPU Stress**. La charge d’UC moyenne du groupe identique revient à la normale. Lorsque 5 autres minutes ont passé, les règles de mise à l’échelle automatique effectuent un scale-in du nombre d’instances de machine virtuelle. Les actions de scale-in suppriment des instances de machine virtuelle disposant des ID les plus élevés. Lorsqu’un groupe identique utilise des groupes à haute disponibilité ou des zones de disponibilité, les actions de scale-in sont réparties uniformément entre les instances de machine virtuelle. La sortie d’exemple suivante montre une instance de machine virtuelle supprimée lors de la diminution automatique :
 
 ```powershell
 MYRESOURCEGROUP   myScaleSet_6   eastus Standard_DS2                   6          Deleting
 ```
 
-Quittez *while* avec `Ctrl-c`. Le groupe identique continue à diminuer toutes les 5 minutes et supprime une instance de machine virtuelle jusqu’à ce que la quantité minimale d’instances (2) soit atteinte.
+Quittez *while* avec `Ctrl-c`. Le groupe identique continue d’effectuer un scale-in toutes les 5 minutes et supprime une instance de machine virtuelle jusqu’à ce que la quantité minimale d’instances (2) soit atteinte.
 
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
@@ -247,7 +247,7 @@ Remove-AzureRmResourceGroup -Name "myResourceGroup" -Force -AsJob
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce didacticiel, vous avez appris à mettre automatiquement à l’échelle un groupe identique avec Azure PowerShell :
+Dans ce didacticiel, vous avez appris à effectuer automatiquement un scale-in ou un scale-out d’un groupe identique avec Azure PowerShell :
 
 > [!div class="checklist"]
 > * Utiliser la mise à l’échelle automatique avec un groupe identique

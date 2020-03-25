@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 60a4646b77f083590a6eb8a8648d6dea932f0bdd
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 263b4e76d334aab82f6bbac9aa268a50f4dd3784
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849749"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79223836"
 ---
 # <a name="secure-a-custom-dns-name-with-an-ssl-binding-in-azure-app-service"></a>Sécuriser un nom DNS personnalisé avec une liaison SSL dans Azure App Service
 
@@ -24,7 +24,7 @@ La sécurisation d’un [domaine personnalisé](app-service-web-tutorial-custom-
 - [Ajoutez un certificat privé à App Service](configure-ssl-certificate.md) qui satisfait à toutes les [exigences pour les liaisons SSL](configure-ssl-certificate.md#private-certificate-requirements).
 -  Créez une liaison SSL au domaine personnalisé correspondant. Cette deuxième étape est traitée dans cet article.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Mettre à jour le niveau de tarification de votre application
@@ -33,7 +33,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Appliquer le protocole TLS 1.1/1.2
 > * Automatiser la gestion TLS avec des scripts
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour effectuer les étapes de ce guide pratique, vous devez au préalable :
 
@@ -50,9 +50,9 @@ Pour effectuer les étapes de ce guide pratique, vous devez au préalable :
 
 ## <a name="secure-a-custom-domain"></a>Sécuriser un domaine personnalisé
 
-Effectuez également les étapes suivantes :
+Procédez comme suit :
 
-Dans le <a href="https://portal.azure.com" target="_blank">Portail Azure</a>, dans le menu de gauche, sélectionnez **App Services** >  **\<app-name>** .
+Sur le <a href="https://portal.azure.com" target="_blank">portail Azure</a>, dans le menu de gauche, sélectionnez **App Services** >  **\<nom-application>** .
 
 À partir de la barre de navigation gauche de votre application, démarrez la boîte de dialogue **Liaison TLS/SSL** en procédant comme suit :
 
@@ -147,9 +147,15 @@ Dans le volet de navigation gauche de la page de votre application, sélectionne
 
 Une fois l’opération terminée, votre application rejette toutes les connexions effectuées avec des versions antérieures de TLS.
 
+## <a name="handle-ssl-termination"></a>Gérer l’arrêt SSL
+
+Dans App Service, une [terminaison SSL](https://wikipedia.org/wiki/TLS_termination_proxy) se produit au niveau des équilibreurs de charge réseau. Toutes les requêtes HTTPS accèdent donc à votre application en tant que requêtes HTTP non chiffrées. Si votre logique d’application doit vérifier si les requêtes utilisateur sont chiffrées ou non, inspectez l’en-tête `X-Forwarded-Proto`.
+
+Des guides de configuration spécifiques au langage tels que le [guide de configuration Linux Node.js](containers/configure-language-nodejs.md#detect-https-session) vous montrent comment détecter une session HTTPS dans le code de votre application.
+
 ## <a name="automate-with-scripts"></a>Automatiser des tâches à l’aide de scripts
 
-### <a name="azure-cli"></a>D’Azure CLI
+### <a name="azure-cli"></a>Azure CLI
 
 [!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom SSL certificate to a web app")] 
 
@@ -157,7 +163,7 @@ Une fois l’opération terminée, votre application rejette toutes les connexio
 
 [!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom SSL certificate to a web app")]
 
-## <a name="more-resources"></a>Autres ressources
+## <a name="more-resources"></a>Plus de ressources
 
 * [Utiliser un certificat SSL dans votre code d’application](configure-ssl-certificate-in-code.md)
-* [FORUM AUX QUESTIONS : App Service Certificates](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)
+* [Questions fréquentes : App Service Certificates](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)

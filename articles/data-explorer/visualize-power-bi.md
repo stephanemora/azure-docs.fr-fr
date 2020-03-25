@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Visualiser des données Azure Data Explorer dans Power BI'
+title: 'Tutoriel : Visualiser des données depuis l’Explorateur de données Azure dans Power BI'
 description: Dans ce tutoriel, vous découvrez comment vous connecter à l’Explorateur de données Azure avec Power BI et comment visualiser vos données.
 author: orspod
 ms.author: orspodek
@@ -8,19 +8,19 @@ ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.openlocfilehash: ec1579792a6e247bf49946bb8609a626154fbd46
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74037354"
 ---
-# <a name="tutorial-visualize-data-from-azure-data-explorer-in-power-bi"></a>Didacticiel : Visualiser des données Azure Data Explorer dans Power BI
+# <a name="tutorial-visualize-data-from-azure-data-explorer-in-power-bi"></a>Tutoriel : Visualiser des données depuis l’Explorateur de données Azure dans Power BI
 
 L’Explorateur de données Azure est un service d’exploration de données rapide et hautement évolutive pour les données des journaux et les données de télémétrie. Power BI est une solution d’analytique métier qui vous permet de visualiser vos données et de partager les résultats dans votre organisation. Dans ce tutoriel, vous découvrez d’abord comment afficher des visuels dans l’Explorateur de données Azure. Vous vous connectez ensuite à l’Explorateur de données Azure avec Power BI, vous générez un rapport basé sur des exemples de données et vous le publiez sur le service Power BI.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer. Si vous n’êtes pas inscrit pour Power BI Pro, [inscrivez-vous pour un essai gratuit](https://app.powerbi.com/signupredirect?pbi_source=web) avant de commencer.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Afficher des visuels dans l’Explorateur de données Azure
@@ -29,7 +29,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Créer un rapport avec des visuels
 > * Publier et partager le rapport
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 En plus des abonnements Azure et Power BI, les éléments suivants sont nécessaires pour effectuer ce tutoriel :
 
@@ -83,7 +83,7 @@ Vous vous connectez maintenant à l’Explorateur de données Azure dans Power B
 
 1. Dans Power BI Desktop, sous l’onglet **Accueil**, sélectionnez **Obtenir les données**, puis **Plus**.
 
-    ![Obtention des données](media/visualize-power-bi/get-data-more.png)
+    ![Obtenir des données](media/visualize-power-bi/get-data-more.png)
 
 1. Recherchez *Azure Data Explorer*, sélectionnez **Azure Data Explorer (bêta)** , puis **Se connecter**.
 
@@ -213,7 +213,7 @@ Maintenant que les données sont importées et que vous avez amélioré le modè
 
     Si votre collègue dispose des autorisations appropriées, il peut accéder au rapport que vous avez partagé.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous ne souhaitez pas conserver le rapport que vous avez créé, supprimez simplement le fichier *storm-events.pbix*. Si vous voulez supprimer le rapport que vous avez publié, effectuez les étapes suivantes.
 

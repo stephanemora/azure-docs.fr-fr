@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à &frankly | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory dans &frankly | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et &frankly.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 736cca668057f38431f91e36ff8fa97840274a38
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76120653"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-frankly"></a>Tutoriel : Intégration d’Azure Active Directory à &frankly
+# <a name="tutorial-azure-active-directory-integration-with-frankly"></a>Didacticiel : Intégration d’Azure Active Directory dans &frankly
 
 Dans ce didacticiel, vous allez apprendre à intégrer &frankly à Azure Active Directory (Azure AD).
 L’intégration d’Azure AD dans &frankly offre les avantages suivants :

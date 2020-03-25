@@ -12,10 +12,10 @@ ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 03/12/2019
 ms.openlocfilehash: d8fa054bc418fc3230c1a69fb2767faadc59a9a8
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74421881"
 ---
 # <a name="use-powershell-to-sync-between-a-sql-database-and-a-sql-server-on-premises-database"></a>Utiliser PowerShell pour la synchronisation entre une base de données SQL et une base de données locale SQL Server
@@ -26,21 +26,21 @@ Ce script PowerShell configure la synchronisation des données entre une base de
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser PowerShell en local, vous aurez besoin de la version 1.4.0 d’AZ PowerShell ou d’une version ultérieure pour suivre ce didacticiel. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzAccount` pour créer une connexion avec Azure.
+Si vous choisissez d’installer et d’utiliser PowerShell en local, vous avez besoin de la version 1.4.0 d’AZ PowerShell ou d’une version ultérieure pour suivre ce tutoriel. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzAccount` pour créer une connexion avec Azure.
 
 Pour obtenir une vue d’ensemble de SQL Data Sync, consultez [Synchroniser des données entre plusieurs bases de données locales et cloud avec Azure SQL Data Sync](../sql-database-sync-data.md).
 
 > [!IMPORTANT]
 > Azure SQL Data Sync ne prend pas en charge Azure SQL Database Managed Instance pour le moment.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Créer une base de données Azure SQL à partir de l’exemple de base de données AdventureWorksLT comme base de données Hub
 - Créer une base de données Azure SQL dans la même région comme base de données de synchronisation
 - Créer une base de données locale SQL Server comme base de données membre
 - Mettre à jour les espaces réservés de paramètre avant d’exécuter l’exemple
 
-## <a name="example"></a>Exemples
+## <a name="example"></a>Exemple
 
 ```powershell-interactive
 using namespace Microsoft.Azure.Commands.Sql.DataSync.Model
@@ -313,7 +313,7 @@ Pour plus d’informations sur SQL Data Sync, consultez :
 
 - Vue d’ensemble - [Synchroniser des données entre plusieurs bases de données cloud et locales avec Azure SQL Data Sync](../sql-database-sync-data.md)
 - Configurer Data Sync
-    - Sur le portail - [Tutoriel : Configurer SQL Data Sync pour synchroniser les données entre Azure SQL Database et SQL Server en local](../sql-database-get-started-sql-data-sync.md)
+    - Sur le portail - [Tutoriel : Configurer SQL Data Sync pour synchroniser les données entre Azure SQL Database et SQL Server en local](../sql-database-get-started-sql-data-sync.md)
     - Avec PowerShell
         - [Utilisez PowerShell pour la synchronisation entre plusieurs bases de données Azure SQL](sql-database-sync-data-between-sql-databases.md)
 - Agent de synchronisation des données - [Agent de synchronisation des données pour Azure SQL Data Sync](../sql-database-data-sync-agent.md)

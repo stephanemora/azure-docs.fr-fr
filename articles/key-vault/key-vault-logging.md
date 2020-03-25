@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 8915970cd4c70228fad3b49921f4c81d6d90aa72
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78195326"
 ---
 # <a name="azure-key-vault-logging"></a>Journalisation d’Azure Key Vault
@@ -38,7 +38,7 @@ Utilisez ce didacticiel pour vous aider à vous familiariser avec la journalisat
 
 Pour obtenir des informations générales sur Key Vault, consultez l’article [Qu’est-ce qu’Azure Key Vault ?](key-vault-overview.md). Pour plus d’informations sur les endroits où Key Vault est disponible, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/key-vault/).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre ce tutoriel, vous devez disposer des éléments suivants :
 
@@ -46,7 +46,7 @@ Pour suivre ce tutoriel, vous devez disposer des éléments suivants :
 * Azure PowerShell, version 1.0.0 ou ultérieure. Pour installer Azure PowerShell et l’associer à votre abonnement Azure, consultez l’article [Installation et configuration d’Azure PowerShell](/powershell/azure/overview). Si vous avez déjà installé Azure PowerShell et que vous ne connaissez pas la version que vous utilisez, à partir de la console Azure PowerShell, entrez `$PSVersionTable.PSVersion`.  
 * Espace de stockage suffisant sur Azure pour vos journaux d’activité de coffre de clés.
 
-## <a id="connect"></a>Se connecter à l’abonnement du coffre de clés
+## <a name="connect-to-your-key-vault-subscription"></a><a id="connect"></a>Se connecter à l’abonnement du coffre de clés
 
 La première étape de la procédure de configuration de la journalisation d’un coffre de clés consiste à faire pointer Azure PowerShell vers le coffre de clés à journaliser.
 
@@ -72,7 +72,7 @@ Set-AzContext -SubscriptionId <subscription ID>
 
 L’opération qui consiste à faire pointer PowerShell vers l’abonnement adéquat constitue une étape importante, en particulier si plusieurs abonnements sont associés à votre compte. Pour plus d’informations sur la configuration d’Azure PowerShell, consultez la page [Installation et configuration d’Azure PowerShell](/powershell/azure/overview).
 
-## <a id="storage"></a>Créer un compte de stockage pour vos journaux
+## <a name="create-a-storage-account-for-your-logs"></a><a id="storage"></a>Créer un compte de stockage pour vos journaux
 
 Bien que vous puissiez utiliser un compte de stockage existant pour vos journaux, nous allons en créer un qui sera dédié aux journaux Key Vault. Pour plus de commodité, en prévision du moment où vous devrez le spécifier par la suite, nous allons stocker les détails correspondants dans une variable nommée **sa**.
 
@@ -87,7 +87,7 @@ Pour simplifier davantage la gestion, nous allons utiliser le groupe de ressourc
 >
 >
 
-## <a id="identify"></a>Identification du coffre de clés pour vos journaux d’activité
+## <a name="identify-the-key-vault-for-your-logs"></a><a id="identify"></a>Identification du coffre de clés pour vos journaux d’activité
 
 Dans le [tutoriel de prise en main](key-vault-get-started.md), le coffre de clés porte le nom **ContosoKeyVault**. Nous allons continuer à utiliser ce nom et stocker les détails correspondants dans une variable nommée **kv** :
 
@@ -95,7 +95,7 @@ Dans le [tutoriel de prise en main](key-vault-get-started.md), le coffre de clé
 $kv = Get-AzKeyVault -VaultName 'ContosoKeyVault'
 ```
 
-## <a id="enable"></a>Activation de la journalisation
+## <a name="enable-logging"></a><a id="enable"></a>Activation de la journalisation
 
 Pour activer la journalisation de Key Vault, nous allons utiliser la cmdlet **Set-AzDiagnosticSetting**, ainsi que les variables que nous avons créées pour le nouveau compte de stockage et le coffre de clés. Nous allons également définir l’indicateur **-Enabled** sur **$true** et la catégorie sur **AuditEvent** (la seule catégorie pour la journalisation de Key Vault) :
 
@@ -132,7 +132,7 @@ Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Ena
   * Signature, vérification, chiffrement, déchiffrement, inclusion dans un wrapper et retrait d’un wrapper de clés, obtention des secrets, et liste de clés et secrets (et leurs versions).
 * les requêtes non authentifiées qui génèrent une réponse 401. Il s’agit notamment des requêtes dépourvues de jeton du porteur, dont le format est incorrect, qui ont expiré ou qui comportent un jeton non valide.  
 
-## <a id="access"></a>Accéder à vos journaux d’activité
+## <a name="access-your-logs"></a><a id="access"></a>Accéder à vos journaux d’activité
 
 Les journaux Key Vault sont stockés dans le conteneur **insights-logs-auditevent** du compte de stockage que vous avez fourni. Pour visualiser les journaux, vous devez télécharger des objets blob.
 
@@ -214,7 +214,7 @@ Vous êtes maintenant prêt à commencer les recherches dans le contenu des jour
 * Pour interroger l’état des paramètres de diagnostic de votre ressource de coffre de clés : `Get-AzDiagnosticSetting -ResourceId $kv.ResourceId`
 * Pour désactiver la journalisation de votre ressource de coffre de clés : `Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $false -Category AuditEvent`
 
-## <a id="interpret"></a>Interpréter vos journaux d’activité Key Vault
+## <a name="interpret-your-key-vault-logs"></a><a id="interpret"></a>Interpréter vos journaux d’activité Key Vault
 
 Les objets blob individuels sont stockés sous forme de texte en tant qu’objet blob JSON. Examinons un exemple d’entrée du journal. Exécutez cette commande :
 
@@ -303,13 +303,13 @@ Le tableau ci-après répertorie les valeurs **operationName** et les commandes 
 | **SecretList** |[Liste des clés secrètes d’un coffre](https://msdn.microsoft.com/library/azure/dn903614.aspx) |
 | **SecretListVersions** |[Liste des versions d’une clé secrète](https://msdn.microsoft.com/library/azure/dn986824.aspx) |
 
-## <a id="loganalytics"></a>Utiliser les journaux Azure Monitor
+## <a name="use-azure-monitor-logs"></a><a id="loganalytics"></a>Utiliser les journaux Azure Monitor
 
 Vous pouvez utiliser la solution Key Vault dans les journaux Azure Monitor pour consulter les journaux **AuditEvent** Key Vault. Dans les journaux Azure Monitor, vous utilisez des requêtes de journaux pour analyser les données et obtenir les informations dont vous avez besoin. 
 
 Pour plus d’informations, notamment sur la procédure de configuration correspondante, consultez l’article [Azure Key Vault solution in Azure Monitor logs](../azure-monitor/insights/azure-key-vault.md) (Solution Azure Key Vault dans les journaux Azure Monitor). Cet article contient également les instructions adéquates si vous devez effectuer une migration à partir de l’ancienne solution Key Vault qui était disponible dans la préversion des journaux Azure Monitor. Lorsque vous utilisiez cette dernière, vous commenciez par acheminer vos journaux vers un compte de stockage Azure avant de configurer les journaux Azure Monitor pour la lecture des données à cet emplacement.
 
-## <a id="next"></a>Étapes suivantes
+## <a name="next-steps"></a><a id="next"></a>Étapes suivantes
 
 Pour accéder à un tutoriel utilisant Azure Key Vault dans une application web .NET, consultez l’article [Utilisation d’Azure Key Vault à partir d’une application web](tutorial-net-create-vault-azure-web-app.md).
 

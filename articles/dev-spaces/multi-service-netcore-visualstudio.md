@@ -8,10 +8,10 @@ ms.topic: tutorial
 description: Ce tutoriel vous montre comment utiliser Azure Dev Spaces et Visual Studio pour déboguer une application .NET Core multiservice sur Azure Kubernetes Service.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s
 ms.openlocfilehash: 7f95c21c2cf5b7adcdb34d7bbe2b1f8314c20333
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75438401"
 ---
 # <a name="running-multiple-dependent-services-net-core-and-visual-studio-with-azure-dev-spaces"></a>Exécution de plusieurs services dépendants : .NET Core et Visual Studio avec Azure Dev Spaces
@@ -72,7 +72,7 @@ L’exemple de code précédent transfère l’en-tête `azds-route-as` de la re
 1. Cliquez sur le lien « **About** » (À propos de) en haut de la page pour déclencher le point d’arrêt dans le projet `webfrontend`. 
 1. Appuyez sur F10 pour continuer. Le point d’arrêt dans le projet `mywebapi` est maintenant déclenché.
 1. Appuyez sur F5 pour continuer et vous êtes redirigé dans le code du projet `webfrontend`.
-1. En appuyant encore une fois sur F5, vous terminez la requête et renvoyez une page dans le navigateur. Dans l’application web, la page About affichera un message concaténé par les deux services : « Hello from webfrontend and Hello from mywebapi. »
+1. En appuyant encore une fois sur F5, vous terminez la requête et renvoyez une page dans le navigateur. Dans l’application web, la page À propos de affiche un message concaténé provenant des deux services : « Hello from webfrontend and Hello from mywebap ».
 
 ### <a name="well-done"></a>C’est terminé !
 Vous disposez maintenant d’une application à plusieurs conteneurs où chaque conteneur peut être développé et déployé séparément.

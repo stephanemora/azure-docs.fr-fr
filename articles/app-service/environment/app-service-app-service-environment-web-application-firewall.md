@@ -6,16 +6,16 @@ ms.assetid: a2101291-83ba-4169-98a2-2c0ed9a65e8d
 ms.topic: tutorial
 ms.date: 03/03/2018
 ms.author: stefsch
-ms.custom: seodec18
-ms.openlocfilehash: ba53438eb5ae1870cb180b169348ab0f92e5f305
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 51375c13d842bda2450a83e1bbc48b741adba39b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688758"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80057443"
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>Configuration d'un pare-feu d'applications Web (WAF) pour un environnement App Service
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Les pare-feu d’applications web (WAF) permettent de sécuriser vos applications web en inspectant le trafic web entrant pour bloquer les injections SQL, les attaques XSS, les téléchargements de programmes malveillants, les attaques DDoS, ainsi que les autres attaques. Ils inspectent également les réponses des serveurs web principaux pour la prévention de perte de données (DLP). En association avec l'isolement et la mise à l'échelle supplémentaire fournis par les environnements App Service, ceci fournit un environnement idéal pour héberger des applications Web professionnelles critiques qui doivent résister aux requêtes malveillantes et à un volume de trafic élevé. Azure fournit une fonctionnalité WAF avec le service [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction).  Pour savoir comment intégrer votre environnement App Service à un service Application Gateway, consultez le document [Intégrer votre environnement App Service ILB à l’aide d’une passerelle d’application](https://docs.microsoft.com/azure/app-service/environment/integrate-with-application-gateway).
 
@@ -23,7 +23,7 @@ En plus du service Azure Application Gateway, de nombreuses options de marketpla
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../../includes/app-service-web-to-api-and-mobile.md)] 
 
-## <a name="setup"></a>Paramétrage
+## <a name="setup"></a>Programme d’installation
 Pour ce document, nous configurons l’environnement App Service derrière plusieurs instances à charge équilibrée de WAF Barracuda, afin que seul le trafic provenant du WAF puisse atteindre l’environnement App Service. Il n’est pas accessible depuis la zone DMZ. Nous avons également Azure Traffic Manager devant les instances WAF Barracuda pour équilibrer la charge entre les régions et les centres de données Azure. Un diagramme de haut niveau de la configuration ressemblerait à l’image suivante :
 
 ![Architecture][Architecture] 

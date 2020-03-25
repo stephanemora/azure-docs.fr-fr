@@ -7,13 +7,13 @@ ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
 ms.openlocfilehash: bef1c42712c881296c5ab7b8096deb50fe94ee55
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75614092"
 ---
-# <a name="tutorial-demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>Tutoriel : Présenter le basculement et la mise à l’échelle de services de conteneur avec Service Fabric
+# <a name="tutorial-demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>Didacticiel : Présenter le basculement et la mise à l’échelle de services de conteneur avec Service Fabric
 
 Ce tutoriel est le troisième de la série. Dans ce didacticiel, vous découvrez la gestion du basculement au sein d’applications de conteneur dans Service Fabric. Vous apprenez également à mettre à l’échelle des conteneurs. Dans ce tutoriel, vous allez :
 

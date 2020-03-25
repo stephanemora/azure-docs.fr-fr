@@ -15,17 +15,17 @@ ms.workload: na
 ms.date: 05/01/2019
 ms.author: juliako
 ms.openlocfilehash: d6720200da341ee466339edde6dded02dd4fddc6
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74970106"
 ---
-# <a name="cli-example-upload-a-local-file-to-a-container"></a>Exemple CLI : Charger un fichier local vers un conteneur 
+# <a name="cli-example-upload-a-local-file-to-a-container"></a>Exemple d’interface CLI : charger un fichier local vers un conteneur 
 
 Le script Azure CLI de cet article montre comment charger un fichier local vers un conteneur de stockage.
 
-## <a name="prerequisites"></a>Prérequis 
+## <a name="prerequisites"></a>Conditions préalables requises 
 
 [Créer un compte Media Services](create-account-cli-how-to.md).
 

@@ -15,14 +15,14 @@ ms.custom: mvc
 ms.date: 01/24/2020
 ms.author: spelluru
 ms.openlocfilehash: 44539c6779afaece6d955a907819ef82d8cd7d5a
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759531"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79224126"
 ---
-# <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>Tutoriel : Configurer un laboratoire avec Azure DevTest Labs
-Dans ce tutoriel, vous créez un laboratoire en utilisant le portail Azure. Un administrateur de laboratoire définit un laboratoire dans une organisation, il crée des machines virtuelles dans le laboratoire et configure des stratégies. Les utilisateurs du laboratoire (les développeurs et les testeurs par exemple) revendiquent des machines virtuelles dans le laboratoire, se connectent à eux et les utilisent. 
+# <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>Didacticiel : configurer un laboratoire à l’aide de Azure DevTest Labs
+Dans ce didacticiel, vous créez un laboratoire en utilisant le portail Azure. Un administrateur de laboratoire définit un laboratoire dans une organisation, il crée des machines virtuelles dans le laboratoire et configure des stratégies. Les utilisateurs du laboratoire (les développeurs et les testeurs par exemple) revendiquent des machines virtuelles dans le laboratoire, se connectent à eux et les utilisent. 
 
 Dans ce tutoriel, vous allez effectuer les actions suivantes :
 
@@ -61,7 +61,7 @@ Les étapes suivantes montrent comment utiliser le portail Azure pour créer un 
 1. Sur la page **DevTest Lab**, sélectionnez **+ Ajouter** sur la barre d’outils. 
 
     ![Bouton Ajouter](./media/tutorial-create-custom-lab/add-vm-to-lab-button.png)
-1. Dans la page **Choisir une base**, effectuez une recherche avec un mot clé (par exemple : Windows, Ubuntu) et sélectionnez une des images de base dans la liste. 
+1. Sur la page **Choisir une base**, recherchez avec un mot-clé (par exemple : Windows, Ubuntu) puis sélectionnez l’une des images de base dans la liste. 
 1. Sur la page **Machine virtuelle**, effectuez les actions suivantes : 
     1. Pour **Nom de la machine virtuelle**, saisissez le nom de la machine virtuelle. 
     2. Pour **Nom d’utilisateur**, entrez un nom pour l’utilisateur qui a accès à la machine virtuelle. 
@@ -98,7 +98,7 @@ Les étapes suivantes montrent comment utiliser le portail Azure pour créer un 
         ![Ajouter un utilisateur](./media/tutorial-create-custom-lab/add-user.png)
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
-Le didacticiel suivant montre comment un utilisateur de laboratoire peut revendiquer et se connecter à une machine virtuelle dans le laboratoire. Si vous ne souhaitez pas suivre ce tutoriel, et nettoyer les ressources créées dans le cadre de ce tutoriel, effectuez ces étapes : 
+Le didacticiel suivant montre comment un utilisateur de laboratoire peut revendiquer et se connecter à une machine virtuelle dans le laboratoire. Si vous ne souhaitez pas suivre ce didacticiel, et pour nettoyer les ressources créées dans le cadre de ce didacticiel, procédez comme suit : 
 
 1. Dans le portail Azure, sélectionnez **Groupes de ressources** dans le menu. 
 
@@ -110,8 +110,8 @@ Le didacticiel suivant montre comment un utilisateur de laboratoire peut revendi
 1. Répétez ces étapes pour supprimer le groupe de ressources supplémentaire créé pour vous, avec le nom `<your resource group name><random numbers>`. Par exemple : `splab3988722144001`. Les machines virtuelles sont créées dans ce groupe de ressources plutôt que dans le groupe de ressources au sein duquel se trouve le laboratoire. 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce tutoriel, vous avez créé un laboratoire avec une machine virtuelle et vous avez donné un accès utilisateur au laboratoire. Pour savoir comment accéder au laboratoire en tant qu’un utilisateur du laboratoire, passer au tutoriel suivant :
+Dans ce didacticiel, vous avez créé un laboratoire avec une machine virtuelle et vous avez donné un accès utilisateur au laboratoire. Pour savoir comment accéder au laboratoire en tant qu’un utilisateur du laboratoire, passer au didacticiel suivant :
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Accéder au laboratoire](tutorial-use-custom-lab.md)
+> [Didacticiel : Accéder au laboratoire](tutorial-use-custom-lab.md)
 

@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7288e5d8c01122bea7650274cdaf358c7fc24cd0
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 940de5e100da934e0bc4efdfc6686f8040e10954
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78197315"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79457319"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Guide pratique pour utiliser la suppression réversible Key Vault avec l’interface CLI
 
@@ -23,7 +23,7 @@ La fonctionnalité de suppression réversible d’Azure Key Vault permet de réc
 - Prise en charge de la suppression récupérable d’un coffre de clés
 - Prise en charge de la suppression récupérable d’objets de coffre de clés (clés, secrets et certificats)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Azure CLI - Si vous ne l’avez pas encore installé pour votre environnement, consultez [Gérer Key Vault à l’aide de l’interface de ligne de commande Azure](key-vault-manage-with-cli2.md).
 
@@ -53,7 +53,7 @@ L’activation de la « suppression réversible » permet de récupérer un co
 Pour un coffre de clés existant nommé ContosoVault, vous pouvez activer la suppression réversible comme suit. 
 
 ```azurecli
-az resource update --id $(az keyvault show --name ContosoVault -o tsv | awk '{print $1}') --set properties.enableSoftDelete=true
+az keyvault update -n ContosoVault --enable-soft-delete true
 ```
 
 ### <a name="new-key-vault"></a>Nouveau coffre de clés
@@ -233,13 +233,13 @@ Vous pouvez activer la protection contre le vidage seulement si la suppression r
 
 Pour activer à la fois la suppression réversible et la protection contre le vidage lors de la création d’un coffre, utilisez la commande [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) :
 
-```
+```azurecli
 az keyvault create --name ContosoVault --resource-group ContosoRG --location westus --enable-soft-delete true --enable-purge-protection true
 ```
 
 Pour ajouter la protection contre le vidage à un coffre existant (où la suppression réversible est déjà activée), utilisez la commande [az keyvault update](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-update) :
 
-```
+```azurecli
 az keyvault update --name ContosoVault --resource-group ContosoRG --enable-purge-protection true
 ```
 

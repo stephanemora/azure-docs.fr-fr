@@ -2,16 +2,16 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/05/2020
+ms.date: 03/12/2020
 ms.author: dacoulte
-ms.openlocfilehash: a2bbb646288700c5f0510a1501808100e158e5fe
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.openlocfilehash: d11107ca7c8d41c66f9336b5c1506f24777ceb4f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78668881"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79381666"
 ---
-|Nom |Description |Effet(s) |Version |GitHub |
+|Name |Description |Effet(s) |Version |GitHub |
 |---|---|---|---|---|
 |[Les paramètres Advanced Data Security pour l’instance managée SQL doivent inclure une adresse e-mail pour la réception des alertes de sécurité](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3965c43d-b5f4-482e-b74a-d89ee0e0b3a8) |Vérifiez qu’une adresse e-mail est indiquée dans le champ « Envoyer des alertes à » dans les paramètres du serveur Advanced Data Security. Cette adresse e-mail reçoit des notifications d’alerte quand des activités anormales sont détectées sur les instances managées SQL. |AuditIfNotExists, Désactivé |1.0.0 |[Lien](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlManagedInstance_AdvancedDataSecurityEmails_Audit.json)
 |[Les paramètres Advanced Data Security pour le serveur SQL doivent inclure une adresse e-mail pour la réception des alertes de sécurité](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9677b740-f641-4f3c-b9c5-466005c85278) |Vérifiez qu’une adresse e-mail est indiquée dans le champ « Envoyer des alertes à » dans les paramètres du serveur Advanced Data Security. Cette adresse e-mail reçoit des notifications d’alerte quand des activités anormales sont détectées sur les serveurs SQL. |AuditIfNotExists, Désactivé |1.0.0 |[Lien](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServer_AdvancedDataSecurityEmails_Audit.json)

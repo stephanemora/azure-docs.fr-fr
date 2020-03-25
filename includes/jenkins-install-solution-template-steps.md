@@ -4,14 +4,14 @@ ms.service: jenkins
 ms.topic: include
 ms.date: 03/03/2020
 ms.author: tarcher
-ms.openlocfilehash: 2468dc72881755a2990e8ddf8112d7fe27f64f4d
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: e9b8ad7a7fcc499f8760b56e6a737be8a6a9e06c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78274448"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79199818"
 ---
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Abonnement Azure
 * Accéder à SSH sur la ligne de commande de votre ordinateur (par exemple l’interpréteur de commandes Bash ou [PuTTY](https://www.putty.org/))
@@ -86,4 +86,4 @@ Si vous constatez des bogues dans le modèle de solution Jenkins, enregistrez un
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Ajouter des machines virtuelles Azure en tant qu’agents Jenkins](/azure/jenkins-azure-vm-agents)
+> [Ajouter des machines virtuelles Azure en tant qu’agents Jenkins](/azure/jenkins/jenkins-azure-vm-agents)

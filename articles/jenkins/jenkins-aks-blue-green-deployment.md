@@ -5,10 +5,10 @@ keywords: jenkins, azure, devops, kubernetes, k8s, aks, blue green deployment, c
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.openlocfilehash: 9d6551f910bd99322f844b44130ebb03732df83c
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78251478"
 ---
 # <a name="deploy-to-azure-kubernetes-service-aks-by-using-jenkins-and-the-bluegreen-deployment-pattern"></a>Déployer sur Azure Kubernetes Service (AKS) à l’aide de Jenkins et du modèle de déploiement bleu/vert
@@ -26,12 +26,12 @@ Dans ce tutoriel, vous allez apprendre à effectuer les tâches suivantes :
 > * Configurer manuellement un cluster Kubernetes
 > * Créer et exécuter un travail Jenkins
 
-## <a name="prerequisites"></a>Prérequis
-- [Compte GitHub](https://github.com) : Vous avez besoin d’un compte GitHub pour cloner l’exemple de dépôt.
-- [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) : Vous utilisez Azure CLI 2.0 pour créer le cluster Kubernetes.
-- [Chocolatey](https://chocolatey.org) : Gestionnaire de packages que vous utilisez pour installer kubectl.
-- [Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) : Interface de ligne de commande que vous utilisez pour exécuter des commandes sur des clusters Kubernetes.
-- [jq](https://stedolan.github.io/jq/download/) : Processeur JSON léger en ligne de commande.
+## <a name="prerequisites"></a>Conditions préalables requises
+- [Compte GitHub](https://github.com) : Vous avez besoin d’un compte GitHub pour cloner l’exemple de référentiel.
+- [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) : vous utilisez Azure CLI 2.0 pour créer le cluster Kubernetes.
+- [Chocolatey](https://chocolatey.org) : gestionnaire de packages que vous utilisez pour installer kubectl.
+- [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) : interface de ligne de commande que vous utilisez pour exécuter des commandes sur des clusters Kubernetes.
+- [jq](https://stedolan.github.io/jq/download/) : processeur JSON léger en ligne de commande.
 
 ## <a name="clone-the-sample-app-from-github"></a>Cloner l’exemple d’application de GitHub
 
@@ -255,7 +255,7 @@ Dans cette section, vous pourrez voir comment préparer le serveur Jenkins pour 
 
 ## <a name="run-the-job"></a>Exécuter le travail
 
-1. Vérifiez que vous pouvez exécuter votre projet dans votre environnement local. Voici comment faire : [Exécuter le projet sur l’ordinateur local](https://github.com/Microsoft/todo-app-java-on-azure/blob/master/README.md#run-it).
+1. Vérifiez que vous pouvez exécuter votre projet dans votre environnement local. Voici comment : [Exécuter le projet sur l’ordinateur local](https://github.com/Microsoft/todo-app-java-on-azure/blob/master/README.md#run-it).
 
 1. Exécuter le travail Jenkins. La première fois que vous exécutez le travail, Jenkins déploie l’application todo sur l’environnement bleu, qui constitue l’environnement inactif par défaut. 
 

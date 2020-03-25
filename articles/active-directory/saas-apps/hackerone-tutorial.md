@@ -1,5 +1,5 @@
 ---
-title: "Tutoriel : Intégration d'Azure Active Directory à HackerOne | Microsoft Docs"
+title: 'Didacticiel : Intégration d’Azure Active Directory avec HackerOne | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et HackerOne.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: effd0593384190eb1a1cf261305dd61818c3d0b0
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76120766"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-hackerone"></a>Tutoriel : Intégration d'Azure Active Directory à HackerOne
+# <a name="tutorial-azure-active-directory-integration-with-hackerone"></a>Didacticiel : Intégration d’Azure Active Directory à HackerOne
 
 Dans ce didacticiel, vous allez apprendre à intégrer HackerOne à Azure Active Directory (Azure AD).
 L’intégration de HackerOne à Azure AD vous offre les avantages suivants :

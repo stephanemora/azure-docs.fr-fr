@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Déployer votre application ASP.NET sur des machines virtuelles Azure avec Azure DevOps Projects'
+title: 'Tutoriel : Déployer votre application ASP.NET sur des machines virtuelles Azure avec Azure DevOps Projects'
 description: DevOps Projects facilite la prise en main d’Azure et le déploiement de votre application ASP.NET sur des machines virtuelles Azure en quelques étapes rapides.
 ms.author: mlearned
 manager: gwallace
@@ -10,13 +10,13 @@ ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
 ms.openlocfilehash: b03fb27c46d4fd925b91b8927fdd50ff4912aaec
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71969558"
 ---
-# <a name="tutorial-deploy-your-aspnet-app-to-azure-virtual-machines-by-using-azure-devops-projects"></a>Didacticiel : Déployer votre application ASP.NET sur des machines virtuelles Azure avec Azure DevOps Projects
+# <a name="tutorial-deploy-your-aspnet-app-to-azure-virtual-machines-by-using-azure-devops-projects"></a>Tutoriel : Déployer votre application ASP.NET sur des machines virtuelles Azure avec Azure DevOps Projects
 
 Azure DevOps Projects offre une expérience simplifiée dans laquelle vous pouvez apporter vos code et dépôt Git existants ou choisir un exemple d’application pour créer un pipeline d’intégration continue (CI) et de livraison continue (CD) dans Azure. 
 
@@ -35,9 +35,9 @@ Ce didacticiel présente les procédures suivantes :
 > * Examiner le pipeline CD
 > * Valider les modifications apportées à Azure Repos et les déployer automatiquement dans Azure
 > * Configurer la surveillance d’Azure Application Insights
-> * Supprimer des ressources
+> * Nettoyer les ressources
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Un abonnement Azure. Vous pouvez en obtenir un gratuit via [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
@@ -45,7 +45,7 @@ Ce didacticiel présente les procédures suivantes :
 
 DevOps Projects crée un pipeline CI/CD dans Azure Pipelines. Vous pouvez créer une organisation Azure DevOps ou utiliser une organisation existante. Azure DevOps Project crée également des ressources Azure, telles que des machines virtuelles dans l’abonnement Azure de votre choix.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
 1. Dans le volet gauche, sélectionnez **Nouveau...** .
 
@@ -100,10 +100,10 @@ DevOps Projects a configuré automatiquement un pipeline CI/CD dans Azure Pipeli
 1. Remplacez le nom de votre pipeline de build par un nom plus descriptif, sélectionnez **Enregistrer et mettre en file d’attente**, puis sélectionnez **Enregistrer**.
 
 1. Sous le nom de votre pipeline de build, sélectionnez **Historique**.  
-    Ce volet montre une piste d’audit des modifications que vous avez apportées récemment à la build. Azure DevOps fait le suivi des modifications apportées au pipeline de build et vous permet de comparer des versions.
+    Ce volet montre une piste d’audit des modifications que vous avez apportées récemment à la build. Azure DevOps suit les modifications apportées au pipeline de build et permet de comparer les versions.
 
 1. Sélectionnez **Déclencheurs**.  
-    DevOps Projects crée automatiquement un déclencheur CI, et chaque validation dans le dépôt lance une nouvelle build. Si vous le souhaitez, vous pouvez choisir d’inclure ou d’exclure des branches dans le processus CI.
+    DevOps Projects crée automatiquement un déclencheur CI tandis que chaque validation dans le dépôt lance une nouvelle build. Si vous le souhaitez, vous pouvez choisir d’inclure ou d’exclure des branches dans le processus CI.
 
 1. Sélectionnez **Rétention**.  
     En fonction de votre scénario, vous pouvez spécifier des stratégies pour conserver ou supprimer un certain nombre de builds.
@@ -153,7 +153,7 @@ Vous êtes maintenant prêt à collaborer avec une équipe sur votre application
 1. Modifiez le fichier, par exemple en ajoutant du texte dans une des balises div. 
 
 1. En haut à droite, sélectionnez **Valider**, puis **Valider** à nouveau pour transmettre votre modification.  
-    Au bout de quelques instants, une build est démarré dans Azure DevOps tandis qu’une mise en production est exécutée pour déployer les modifications. Surveillez l’état de la build dans le tableau de bord DevOps Projects, ou dans le navigateur avec votre organisation Azure DevOps.
+    Au bout de quelques instants, une build est démarrée dans Azure DevOps tandis qu’une mise en production est exécutée pour déployer les modifications. Surveillez l’état de la build dans le tableau de bord DevOps Projects, ou dans le navigateur avec votre organisation Azure DevOps.
 
 1. Une fois la mise en production terminée, actualisez votre application pour vérifier vos modifications.
 
@@ -193,7 +193,7 @@ Azure Application Insights vous permet d’analyser facilement les performances 
 1. Entrez un nom de test, puis sélectionnez **Créer**.  
     Un test Ping basique est créé pour vérifier la disponibilité de votre application. Au bout de quelques instants, les résultats de test sont disponibles, et le tableau de bord Application Insights affiche le statut de disponibilité.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous êtes en phase de test, vous pouvez éviter une hausse des frais de facturation en nettoyant vos ressources. Quand elles ne sont plus nécessaires, vous pouvez supprimer la machine virtuelle Azure et les ressources associées que vous avez créées dans ce tutoriel. Pour ce faire, utilisez la fonctionnalité **Supprimer** du tableau de bord DevOps Projects. 
 
@@ -208,7 +208,7 @@ Si vous le souhaitez, vous pouvez modifier ces pipelines de build et de mise en 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Utiliser DevOps Projects pour déployer votre application ASP.NET
@@ -217,7 +217,7 @@ Dans ce tutoriel, vous avez appris à :
 > * Examiner le pipeline CD
 > * Valider les modifications apportées à Azure Repos et les déployer automatiquement dans Azure
 > * Configurer la surveillance d’Azure Application Insights
-> * Supprimer des ressources
+> * Nettoyer les ressources
 
 Pour en savoir plus sur le pipeline CI/CD, consultez :
 

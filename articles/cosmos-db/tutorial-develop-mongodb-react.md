@@ -10,10 +10,10 @@ ms.date: 09/05/2018
 ms.author: jopapa
 ms.reviewer: sngun
 ms.openlocfilehash: 4efaa90281ddcebf1b800e1016578e38c24be651
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "69614104"
 ---
 # <a name="create-a-mongodb-app-with-react-and-azure-cosmos-db"></a>Créer une application MongoDB avec React et Azure Cosmos DB  
@@ -34,7 +34,7 @@ Ce didacticiel en plusieurs parties décrit les tâches suivantes :
 
 Vous souhaitez générer cette même application avec Angular ? Consultez la [série de didacticiels vidéo pour Angular](tutorial-develop-mongodb-nodejs.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 * [Node.JS](https://www.nodejs.org)
 
 ### <a name="finished-project"></a>Projet terminé
@@ -46,7 +46,7 @@ Dans cette vidéo, Burke Holland présente Azure Cosmos DB et vous fait découvr
 
 > [!VIDEO https://www.youtube.com/embed/58IflnJbYJc]
 
-## <a name="project-setup"></a>Installation du projet
+## <a name="project-setup"></a>Configuration du projet
 
 Cette vidéo montre comment configurer Express et React dans le même projet. Burke détaille ensuite le code dans le projet.
 
@@ -85,7 +85,7 @@ Cette vidéo montre comment compléter l’application et terminer le raccordeme
 
 > [!VIDEO https://www.youtube.com/embed/TcSm2ISfTu8]
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous ne prévoyez pas de continuer à utiliser cette application, utilisez les étapes suivantes pour supprimer toutes les ressources créées par ce didacticiel dans le portail Azure. 
 

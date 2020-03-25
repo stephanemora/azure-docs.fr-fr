@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
 ms.openlocfilehash: b06301ab424a29d8f0e31e8f4dee26265327896b
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028356"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79221926"
 ---
 # <a name="monitor-published-apis"></a>Surveiller les API publiées
 
@@ -39,8 +39,8 @@ La vidéo suivante montre comment surveiller la gestion des API à l’aide d’
 ## <a name="prerequisites"></a>Conditions préalables requises
 
 + Apprenez la [terminologie relative à Gestion des API Azure](api-management-terminology.md).
-+ Suivez ce guide de démarrage rapide : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
-+ Effectuez également toutes les étapes du tutoriel suivant : [Importer et publier votre première API](import-and-publish.md).
++ Suivez le guide de démarrage rapide suivant : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
++ Suivez également le didacticiel suivant : [Importer et publier votre première API](import-and-publish.md).
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -190,7 +190,7 @@ Le service Gestion des API fournit actuellement des journaux de diagnostic (par 
 | callerIpAddress | string | Adresse IP de l’appelant de passerelle immédiat (peut être un intermédiaire) |
 | correlationId | string | Identificateur de requête http unique assigné par le service Gestion des API |
 | location | string | Nom de la région Azure dans laquelle se trouvait la passerelle qui a traité la requête |
-| httpStatusCodeCategory | string | Catégorie du code d’état de réponse http : réussite (inférieur ou égal à 301 ou 304 ou 307), non autorisé (401, 403, 429), erroné (400, entre 500 et 600), autre |
+| httpStatusCodeCategory | string | Catégorie du code d’état de réponse http : réussite (inférieur ou égal à 301 ou 304 ou 307), non autorisé (401, 403, 429), erroné (400, entre 500 et 600), autre |
 | resourceId | string | ID de la ressource du service Gestion des API /SUBSCRIPTIONS/\<subscription>/RESOURCEGROUPS/\<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/\<name> |
 | properties | object | Propriétés de la requête actuelle |
 | method | string | Méthode HTTP de la requête entrante |

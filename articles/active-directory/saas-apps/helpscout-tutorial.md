@@ -17,10 +17,10 @@ ms.date: 10/24/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b71ccbc6cfdb9d3d37fc46b0e932fa98eee2fb43
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73159096"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-help-scout"></a>Didacticiel : Intégration d’Azure Active Directory à Help Scout
@@ -35,7 +35,7 @@ L’intégration de Help Scout à Azure AD vous offre les avantages suivants :
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour configurer l’intégration d’Azure AD à Help Scout, vous avez besoin des éléments suivants :
 
@@ -80,7 +80,7 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
 Pour configurer l’authentification unique Azure AD avec Help Scout, effectuez les étapes suivantes :
 
-1. Dans la page d’intégration de l’application **Help Scout** sur le [portail Azure](https://portal.azure.com/), sélectionnez **Authentification unique**.
+1. Dans la page d’intégration de l’application [Help Scout](https://portal.azure.com/) sur le **portail Azure**, sélectionnez **Authentification unique**.
 
     ![Lien Configurer l’authentification unique](common/select-sso.png)
 
@@ -142,7 +142,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé B.Sim
     a. Dans le champ **Nom**, entrez **B.Simon**.
   
     b. Dans le champ **Nom d’utilisateur**, tapez **B.Simon\@yourcompanydomain.extension**.  
-    Par exemple, B.Simon@contoso.com
+    Par exemple : B.Simon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
@@ -188,15 +188,15 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 1. Cliquez sur **Manage** (Gérer) dans le menu supérieur, puis sélectionnez **Company** dans le menu déroulant.
 
-    ![Configurer l'authentification unique](./media/helpscout-tutorial/settings1.png)
+    ![Configure Single Sign-On](./media/helpscout-tutorial/settings1.png)
 
 1. Sélectionnez **Authentication** à partir du volet de navigation gauche.
 
-    ![Configurer l'authentification unique](./media/helpscout-tutorial/settings2.png)
+    ![Configure Single Sign-On](./media/helpscout-tutorial/settings2.png)
 
 1. Vous accédez ainsi à la section des paramètres SAML où vous effectuez les étapes suivantes :
 
-    ![Configurer l'authentification unique](./media/helpscout-tutorial/settings3.png)
+    ![Configure Single Sign-On](./media/helpscout-tutorial/settings3.png)
 
     a. Copiez la valeur de **Post-back URL (Assertion Consumer Service URL)** (URL de publication (URL Assertion Consumer Service)) et collez-la dans la zone de texte **URL de réponse** de la section **Configuration SAML de base** sur le portail Azure.
 
@@ -204,7 +204,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 1. Activez **Activer SAML** et effectuez les étapes suivantes :
 
-    ![Configurer l'authentification unique](./media/helpscout-tutorial/settings4.png)
+    ![Configure Single Sign-On](./media/helpscout-tutorial/settings4.png)
 
     a. Dans la zone de texte **Single Sign-on URL** (URL d’authentification unique), collez la valeur de l’**URL de connexion** que vous avez copiée dans le portail Azure.
 

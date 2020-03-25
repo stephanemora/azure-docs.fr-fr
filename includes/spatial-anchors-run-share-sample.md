@@ -5,34 +5,34 @@ ms.topic: include
 ms.date: 1/30/2019
 ms.author: rgarcia
 ms.openlocfilehash: ec8fb6efab126dcf5556a9abfdf58d1fd69d4212
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72882310"
 ---
-## <a name="androidtabandroid"></a>[Android](#tab/Android)
+## <a name="android"></a>[Android](#tab/Android)
 
 L’exemple Android Java prend en charge le partage entre appareils.
 Ouvrez le fichier `SharedActivity.java` se trouvant dans le dossier d’exemples d’Android Studio. Entrez l’URL que vous avez obtenue à l’étape précédente (à partir du déploiement Azure de votre application web ASP.NET) comme valeur pour `SharingAnchorsServiceUrl` dans le fichier `SharedActivity.java`. Remplacez `index.html` dans l’URL par `api/anchors`. Ce que vous obtenez doit ressembler à ceci : `https://<app_name>.azurewebsites.net/api/anchors`.
 
 [!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
 
-## <a name="iostabios"></a>[iOS](#tab/iOS)
+## <a name="ios"></a>[iOS](#tab/iOS)
 
 L’exemple iOS Objective-C prend en charge le partage entre appareils.
 Ouvrez le fichier `SharedDemoViewController.m` se trouvant dans le dossier d’exemples. Entrez l’URL que vous avez obtenue à l’étape précédente (à partir du déploiement Azure de votre application web ASP.NET) comme valeur pour `SharingAnchorsServiceUrl` dans le fichier `SharedActivity.java`. Remplacez `index.html` dans l’URL par `api/anchors`. Ce que vous obtenez doit ressembler à ceci : `https://<app_name>.azurewebsites.net/api/anchors`.
 
 [!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
 
-## <a name="xamarintabxamarin"></a>[Xamarin](#tab/Xamarin)
+## <a name="xamarin"></a>[Xamarin](#tab/Xamarin)
 
 Les exemples Xamarin Android et iOS prennent en charge le partage entre appareils.
 Ouvrez le fichier `AccountDetails.cs` se trouvant dans le dossier d’exemples. Entrez l’URL que vous avez obtenue à l’étape précédente (à partir du déploiement Azure de votre application web ASP.NET) comme valeur pour `AnchorSharingServiceUrl` dans le fichier `SharedActivity.java`. Remplacez `index.html` dans l’URL par `api/anchors`. Ce que vous obtenez doit ressembler à ceci : `https://<app_name>.azurewebsites.net/api/anchors`.
 
 [!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
 
-## <a name="unitytabunity"></a>[Unity](#tab/Unity)
+## <a name="unity"></a>[Unity](#tab/Unity)
 
 [!INCLUDE [Open Unity Project](spatial-anchors-open-unity-project.md)]
 

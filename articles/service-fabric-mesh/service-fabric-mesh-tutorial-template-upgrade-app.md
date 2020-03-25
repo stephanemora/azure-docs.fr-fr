@@ -7,13 +7,13 @@ ms.date: 01/11/2019
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 42db17fa6474d3230bc523d0cf65b375cf01276e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75351727"
 ---
-# <a name="tutorial-upgrade-a-service-fabric-application-running-in-service-fabric-mesh"></a>Tutoriel : mettre à niveau une application Service Fabric s’exécutant dans Service Fabric Mesh
+# <a name="tutorial-upgrade-a-service-fabric-application-running-in-service-fabric-mesh"></a>Tutoriel : Mettre à niveau une application Service Fabric s’exécutant dans Service Fabric Mesh
 
 Ce tutoriel est le troisième de la série. Vous allez apprendre à mettre à niveau une application Service Fabric [déployée sur Service Fabric Mesh](service-fabric-mesh-tutorial-template-deploy-app.md) en augmentant les ressources d’UC allouées.  Une fois l’opération effectuée, vous disposez d’un service web front-end qui s’exécute avec des ressources d’UC plus importantes.
 

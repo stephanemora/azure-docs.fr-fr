@@ -10,13 +10,13 @@ ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: a812155474b244682613b38b9b9379fa6cdcdcd8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "66117528"
 ---
-# <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>Didacticiel : Détecter des anomalies en périphérie avec l’accélérateur de solution de supervision à distance
+# <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>Tutoriel : Détecter des anomalies à la périphérie avec l’accélérateur de solution de supervision à distance
 
 Dans ce tutoriel, vous allez configurer la solution de supervision à distance pour résoudre les anomalies détectées par un appareil IoT Edge. Les appareils IoT Edge vous permettent de traiter la télémétrie à la périphérie afin de réduire le volume des données de télémétrie envoyées à la solution et de répondre plus rapidement aux événements des appareils. Pour connaître les avantages du traitement de données en périphérie, consultez [Qu’est-ce qu’Azure IoT Edge](../iot-edge/about-iot-edge.md).
 
@@ -26,7 +26,7 @@ Contoso souhaite déployer un module de périphérie intelligent qui détecte le
 
 Le diagramme suivant montre les composants clés dans le scénario du tutoriel :
 
-![Vue d'ensemble](media/iot-accelerators-remote-monitoring-edge/overview.png)
+![Vue d’ensemble](media/iot-accelerators-remote-monitoring-edge/overview.png)
 
 Dans ce tutoriel, vous allez :
 
@@ -96,9 +96,9 @@ Pour faciliter la gestion des appareils IoT Edge dans la solution, créez un gro
 
     | Paramètre | Valeur |
     | ------- | ----- |
-    | Nom    | OilPumps |
+    | Name    | OilPumps |
     | Champ   | Tags.IsOilPump |
-    | Operator | = Equals |
+    | Opérateur | = Equals |
     | Valeur    | O |
     | Type     | Texte |
 
@@ -161,9 +161,9 @@ Définissez le travail Stream Analytics dans le portail avant de l’empaqueter 
     | Option | Valeur |
     | ------ | ----- |
     | Nom du travail | EdgeDeviceJob |
-    | Abonnement | Votre abonnement Azure |
-    | Groupe de ressources | IoTEdgeDevices |
-    | Lieu | USA Est |
+    | Subscription | Votre abonnement Azure |
+    | Resource group | IoTEdgeDevices |
+    | Location | USA Est |
     | Environnement d’hébergement | Edge |
     | Unités de diffusion en continu | 1 |
 
@@ -275,11 +275,11 @@ Vous êtes maintenant prêt à déployer le package sur votre appareil.
 
     | Option | Valeur |
     | ------ | ----- |
-    | Nom   | OilPumpDevices |
+    | Name   | OilPumpDevices |
     | Type de package | Manifeste Edge |
     | Package | oil-pump-device.json |
     | Groupe d’appareils | OilPumps |
-    | Priorité | 10 |
+    | Priority | 10 |
 
     [![Créer un déploiement](./media/iot-accelerators-remote-monitoring-edge/createdeployment-inline.png)](./media/iot-accelerators-remote-monitoring-edge/createdeployment-expanded.png#lightbox)
 
@@ -319,9 +319,9 @@ Si vous souhaitez avertir les opérateurs lorsque le seuil a été atteint, vous
     | Groupe d’appareils | OilPumps |
     | Calcul | Immédiat |
     | Champ | température |
-    | Operator | > |
+    | Opérateur | > |
     | Valeur | 300 |
-    | Niveau de gravité | info |
+    | Niveau de gravité | Info |
 
     [![Créer une règle](./media/iot-accelerators-remote-monitoring-edge/newrule-inline.png)](./media/iot-accelerators-remote-monitoring-edge/newrule-expanded.png#lightbox)
 

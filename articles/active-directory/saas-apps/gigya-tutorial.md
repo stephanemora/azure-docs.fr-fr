@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Gigya | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Gigya | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Gigya.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
 ms.openlocfilehash: 824e9c459df75ea0307fe314fbf4118cca6e69d3
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76841776"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-gigya"></a>Tutoriel : Intégration d’Azure Active Directory à Gigya
+# <a name="tutorial-azure-active-directory-integration-with-gigya"></a>Didacticiel : Intégration d’Azure Active Directory à Gigya
 
 Dans ce didacticiel, vous allez apprendre à intégrer Gigya à Azure Active Directory (Azure AD).
 L’intégration de Gigya à Azure AD vous offre les avantages suivants :

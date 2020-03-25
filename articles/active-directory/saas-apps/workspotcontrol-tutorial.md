@@ -1,5 +1,5 @@
 ---
-title: "Didacticiel : Intégration d'Azure Active Directory à Workspot Control | Microsoft Docs"
+title: 'Tutoriel : Intégration d’Azure Active Directory à Workspot Control | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique pour Azure Active Directory et Workspot Control.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: jeedes
 ms.openlocfilehash: 086ec95531b01477be56d4b1a19d189f167a020f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67086677"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>Didacticiel : Intégration d'Azure Active Directory à Workspot Control
+# <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>Tutoriel : Intégration d’Azure Active Directory à Workspot Control
 
 Dans ce tutoriel, vous allez apprendre à intégrer Workspot Control à Azure Active Directory (Azure AD). Quand vous intégrez Workspot Control à Azure AD, vous pouvez :
 
@@ -32,7 +32,7 @@ Dans ce tutoriel, vous allez apprendre à intégrer Workspot Control à Azure Ac
 
 Pour plus d’informations sur l’intégration d’applications SaaS à Azure AD, consultez l’article [S’authentifier avec l’authentification unique auprès des applications dans Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour configurer l’intégration d’Azure AD à Workspot Control, vous avez besoin des éléments suivants :
 
@@ -142,7 +142,7 @@ Pour configurer l’authentification unique Azure AD avec Workspot Control, effe
 
 2. Dans la barre d’outils en haut de la page, sélectionnez **Setup** (Configuration), puis **SAML**.
 
-    ![Options d'installation](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_setup.png)
+    ![Options d’installation](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_setup.png)
 
 3. Dans la fenêtre **Security Assertion Markup Language Configuration** (Configuration SAML), effectuez ces étapes :
  
@@ -180,7 +180,7 @@ Dans cette section, vous créez un utilisateur de test dans le portail Azure.
 
     1. Cochez la case **Afficher le mot de passe**. Notez ensuite la valeur affichée dans la zone **Mot de passe**.
 
-    1. Sélectionnez **Créer**.
+    1. Sélectionnez **Create** (Créer).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
@@ -248,4 +248,4 @@ Quand vous cliquez sur la vignette **Workspot Control** dans le volet d’accès
 
 - [S’authentifier avec l’authentification unique auprès des applications dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

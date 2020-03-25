@@ -7,13 +7,13 @@ ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
 ms.openlocfilehash: b283982e11449d234da966f15b86cc5b638a026c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75376654"
 ---
-# <a name="tutorial-monitor-your-service-fabric-applications-using-elk"></a>Tutoriel : Superviser vos applications dans Azure Service Fabric avec ELK
+# <a name="tutorial-monitor-your-service-fabric-applications-using-elk"></a>Tutoriel : Surveiller vos applications dans Azure Service Fabric avec ELK
 
 Ce tutoriel est la quatrième partie de la série. Il montre comment utiliser ELK (Elasticsearch, Logstash et Kibana) pour surveiller les applications Service Fabric s’exécutant dans Azure.
 
@@ -100,7 +100,7 @@ Vous pouvez utiliser un environnement ELK préconfiguré pour ce didacticiel. Si
     logstash-plugin install logstash-input-azureeventhub
     ```
 
-4. Créez ou modifiez votre fichier de configuration Logstash existant avec le contenu suivant : Si vous créez le fichier, il doit être créé à l’emplacement ```/opt/bitnami/logstash/conf/access-log.conf``` si vous utilisez l’image ELK Bitnami dans Azure.
+4. Créez ou modifiez votre fichier config Logstash existant avec le contenu suivant : si vous créez le fichier, il doit être créé à l’emplacement ```/opt/bitnami/logstash/conf/access-log.conf``` si vous utilisez l’image ELK Bitnami dans Azure.
 
     ```json
     input

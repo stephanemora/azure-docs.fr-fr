@@ -9,13 +9,13 @@ ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: daef03b411a451fc3e5b73e46091672810b0f9bd
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76278292"
 ---
-# <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-azure-powershell"></a>Tutoriel : Créer et utiliser une image personnalisée pour des groupes de machines virtuelles identiques avec Azure PowerShell
+# <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-azure-powershell"></a>Didacticiel : créer et utiliser une image personnalisée pour des groupes de machines virtuelles identiques avec Azure PowerShell
 
 Lorsque vous créez un groupe identique, vous spécifiez une image à utiliser lors du déploiement des instances de machine virtuelle. Pour réduire le nombre de tâches une fois que les instances de machine virtuelle sont déployées, vous pouvez utiliser une image de machine virtuelle personnalisée. Cette image de machine virtuelle personnalisée inclut les configurations ou installations des applications requises. Toutes les instances de machine virtuelle créées dans le groupe identique utilisent l’image de machine virtuelle personnalisée et sont prêtes à répondre au trafic des applications. Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
@@ -69,7 +69,7 @@ Pour personnaliser votre machine virtuelle, nous allons installer un serveur web
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-La dernière étape de préparation de votre machine virtuelle pour une utilisation en tant qu’image personnalisée consiste à généraliser la machine virtuelle. Sysprep supprime toutes les informations et les configurations de votre compte personnel, et réinitialise l’état de la machine virtuelle pour les déploiements futurs. Pour plus d’informations, consultez [Utilisation de Sysprep : de Sysprep](https://technet.microsoft.com/library/bb457073.aspx).
+La dernière étape de préparation de votre machine virtuelle pour une utilisation en tant qu’image personnalisée consiste à généraliser la machine virtuelle. Sysprep supprime toutes les informations et les configurations de votre compte personnel, et réinitialise l’état de la machine virtuelle pour les déploiements futurs. Pour plus d’informations, consultez [Introduction à l’utilisation de Sysprep](https://technet.microsoft.com/library/bb457073.aspx).
 
 Pour généraliser la machine virtuelle, exécutez Sysprep et définissez la machine virtuelle dans l’optique d’une expérience prête à l’emploi. Lorsque vous avez terminé, demandez à Sysprep d’arrêter la machine virtuelle :
 

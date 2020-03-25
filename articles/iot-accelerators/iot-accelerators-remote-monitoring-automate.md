@@ -10,13 +10,13 @@ ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: 676f1133a516174478a456a97bc467e7770fe6e7
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888887"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79223566"
 ---
-# <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Didacticiel : Détecter les problèmes liés aux appareils connectés à votre solution de supervision
+# <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Tutoriel : Détecter des problèmes liés aux appareils connectés à votre solution de supervision
 
 Dans ce tutoriel, vous configurez l’accélérateur de solution de supervision à distance pour détecter les problèmes liés à vos appareils IoT connectés. Pour détecter les problèmes liés à vos appareils, vous ajoutez des règles qui génèrent des alertes sur le tableau de bord de la solution.
 
@@ -24,7 +24,7 @@ Pour présenter les règles et alertes, le tutoriel utilise un condenseur simul�
 
 Vous devez également créer une alerte critique pour un refroidisseur lorsque, au cours des cinq dernières minutes, l’humidité moyenne dans l’appareil était supérieure à 80 % et la température de l’appareil était supérieure à 75 degrés Fahrenheit (24 degrés Celsius).
 
-Dans ce tutoriel, vous avez appris à effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez :
 
 >[!div class="checklist"]
 > * Afficher les règles dans votre solution
@@ -79,7 +79,7 @@ Pour créer une règle avec plusieurs conditions qui génère une alerte critiqu
 | Nom de la règle        | Humidité et température critiques de l’appareil de refroidissement    |
 | Description      | L’humidité et la température sont critiques |
 | Groupe d’appareils     | Groupe d’appareils de **refroidissement**             |
-| Calcul      | Moyenne                               |
+| Calcul      | Average                               |
 | Période      | 5                                     |
 | Champ de condition 1| humidité                              |
 | Opérateur de condition 1 | Supérieur à                      |

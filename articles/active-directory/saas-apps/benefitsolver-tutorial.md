@@ -17,13 +17,13 @@ ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 30e29a0de1b80393b3c38baa589253e90e3e65cc
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73158932"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-benefitsolver"></a>Didacticiel : Intégration d’Azure Active Directory à Benefitsolver
+# <a name="tutorial-azure-active-directory-integration-with-benefitsolver"></a>Didacticiel : Intégration d’Azure Active Directory à Benefitsolver
 
 Dans ce didacticiel, vous allez apprendre à intégrer Benefitsolver à Azure Active Directory (Azure AD).
 L’intégration de Benefitsolver à Azure AD vous offre les avantages suivants :
@@ -35,7 +35,7 @@ L’intégration de Benefitsolver à Azure AD vous offre les avantages suivants�
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour configurer l’intégration d’Azure AD avec Benefitsolver, vous avez besoin des éléments suivants :
 
@@ -121,7 +121,7 @@ Pour configurer l’authentification unique Azure AD avec Benefitsolver, effect
 
 6. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, modifiez les revendications en utilisant l’icône **Modifier** ou ajoutez des revendications en utilisant l’option **Ajouter une nouvelle revendication** pour configurer l’attribut de jeton SAML comme sur l’image ci-dessus et procédez comme suit : 
 
-    | Nom |  Attribut source|
+    | Name |  Attribut source|
     |---------------|----------------|
     | ClientID | L’[équipe de support technique Benefitsolver](https://www.businessolver.com/contact) doit vous fournir cette valeur.|
     | ClientKey | L’[équipe de support technique Benefitsolver](https://www.businessolver.com/contact) doit vous fournir cette valeur.|
@@ -143,7 +143,7 @@ Pour configurer l’authentification unique Azure AD avec Benefitsolver, effect
 
     e. Dans la liste **Attribut de la source**, tapez la valeur d’attribut indiquée pour cette ligne.
 
-    f. Cliquez sur **OK**.
+    f. Cliquez sur **OK**
 
     g. Cliquez sur **Enregistrer**.
 
@@ -187,7 +187,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
     b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
-    Par exemple, BrittaSimon@contoso.com
+    Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
@@ -235,4 +235,4 @@ Le fait de cliquer sur la vignette Benefitsolver dans le panneau d’accès doit
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

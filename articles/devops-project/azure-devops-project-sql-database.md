@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Déployer votre application ASP.NET et votre code Azure SQL Database à l’aide d’Azure DevOps Projects'
+title: 'Tutoriel : Déployer votre application ASP.NET et votre code Azure SQL Database à l’aide d’Azure DevOps Projects'
 description: DevOps Projects facilite la prise en main d’Azure. Avec DevOps Projects, vous pouvez déployer votre application ASP.NET et votre code Azure SQL Database en quelques étapes rapides.
 ms.author: mlearned
 ms.manager: gwallace
@@ -10,13 +10,13 @@ ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
 ms.openlocfilehash: 560b16a40d73d07df6c9f446c7196cd930e2274e
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71971502"
 ---
-# <a name="tutorial-deploy-your-aspnet-app-and-azure-sql-database-code-by-using-azure-devops-projects"></a>Didacticiel : Déployer votre application ASP.NET et votre code Azure SQL Database à l’aide d’Azure DevOps Projects
+# <a name="tutorial-deploy-your-aspnet-app-and-azure-sql-database-code-by-using-azure-devops-projects"></a>Tutoriel : Déployer votre application ASP.NET et votre code Azure SQL Database à l’aide d’Azure DevOps Projects
 
 Azure DevOps Projects offre une expérience simplifiée dans laquelle vous pouvez apporter vos code et dépôt Git existants ou choisir un exemple d’application pour créer un pipeline d’intégration continue (CI) et de livraison continue (CD) dans Azure. 
 
@@ -35,9 +35,9 @@ Ce didacticiel présente les procédures suivantes :
 > * Examiner le pipeline CD
 > * Valider les modifications apportées à Azure Repos et les déployer automatiquement dans Azure
 > * Se connecter à la base de données Azure SQL 
-> * Supprimer des ressources
+> * Nettoyer les ressources
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Un abonnement Azure. Vous pouvez en obtenir un gratuit via [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
@@ -45,7 +45,7 @@ Ce didacticiel présente les procédures suivantes :
 
 DevOps Projects crée un pipeline CI/CD dans Azure Pipelines. Vous pouvez créer une organisation Azure DevOps ou utiliser une organisation existante. DevOps Projects crée également des ressources Azure, telles qu’une base de données Azure SQL, dans l’abonnement Azure de votre choix.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
 1. Dans le volet de gauche, sélectionnez **Créer une ressource**.
 
@@ -158,7 +158,7 @@ Vous êtes maintenant prêt à collaborer avec une équipe sur votre application
 1. Modifiez le fichier, par exemple en ajoutant du texte dans une des balises div. 
 
 1. En haut à droite, sélectionnez **Valider**, puis **Valider** à nouveau pour transmettre votre modification.  
-    Au bout de quelques instants, une build est démarré dans Azure DevOps tandis qu’une mise en production est exécutée pour déployer les modifications. Surveillez l’état de la build dans le tableau de bord DevOps Projects, ou dans le navigateur avec votre organisation Azure DevOps.
+    Au bout de quelques instants, une build est démarrée dans Azure DevOps tandis qu’une mise en production est exécutée pour déployer les modifications. Surveillez l’état de la build dans le tableau de bord DevOps Projects, ou dans le navigateur avec votre organisation Azure DevOps.
 
 1. Une fois la mise en production terminée, actualisez votre application pour vérifier vos modifications.
 
@@ -187,7 +187,7 @@ Vous devez disposer des autorisations appropriées pour vous connecter à la bas
    > [!NOTE]
    > Si vous modifiez votre mot de passe pour la connexion SQL, vous devez modifier le mot de passe dans la variable du pipeline de mise en production, comme décrit à la section « Examiner le pipeline CD ».
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous êtes en phase de test, vous pouvez éviter une hausse des frais de facturation en nettoyant vos ressources. Quand elles ne sont plus nécessaires, vous pouvez supprimer la base de données Azure SQL et les ressources associées que vous avez créées dans ce tutoriel. Pour ce faire, utilisez la fonctionnalité **Supprimer** du tableau de bord DevOps Projects.
 
@@ -200,7 +200,7 @@ Si vous êtes en phase de test, vous pouvez éviter une hausse des frais de fact
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous le souhaitez, vous pouvez modifier ces pipelines de build et de mise en production afin qu’ils répondent aux besoins de votre équipe. Vous pouvez également utiliser ce modèle CI/CD comme modèle pour vos autres pipelines. Dans ce tutoriel, vous avez appris à :
+Si vous le souhaitez, vous pouvez modifier ces pipelines de build et de mise en production afin qu’ils répondent aux besoins de votre équipe. Vous pouvez également utiliser ce modèle CI/CD comme modèle pour vos autres pipelines. Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Utiliser Azure DevOps Projects pour déployer votre application ASP.NET et votre code Azure SQL Database
@@ -209,7 +209,7 @@ Si vous le souhaitez, vous pouvez modifier ces pipelines de build et de mise en 
 > * Examiner le pipeline CD
 > * Valider les modifications apportées à Azure Repos et les déployer automatiquement dans Azure
 > * Se connecter à la base de données Azure SQL 
-> * Supprimer des ressources
+> * Nettoyer les ressources
 
 Pour en savoir plus sur le pipeline CI/CD, consultez :
 

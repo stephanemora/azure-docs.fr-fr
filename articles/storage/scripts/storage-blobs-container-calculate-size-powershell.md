@@ -4,17 +4,18 @@ titleSuffix: Azure Storage
 description: Calculez la taille d’un conteneur dans le stockage d’objets blob Azure en effectuant le total des tailles de chacun de ses objets blob.
 services: storage
 author: tamram
-ms.custom: mvc
 ms.service: storage
+ms.subservice: blobs
+ms.devlang: powershell
 ms.topic: sample
 ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: 890da96ac1d97a2eb84f5296c74a02824d657273
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: de51ed7d91ba1102f5a9cd376ab95f49dd54d9f3
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895057"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80067068"
 ---
 # <a name="calculate-the-size-of-a-blob-container-with-powershell"></a>Calculer la taille d’un conteneur d’objets blob avec PowerShell
 
@@ -25,13 +26,13 @@ Ce script calcule la taille d’un conteneur dans le stockage d’objets blob Az
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 > [!IMPORTANT]
-> Ce script PowerShell fournit une estimation de taille pour le conteneur et ne doit pas être utilisé pour les calculs de facturation. Pour un script qui calcule la taille du conteneur pour la facturation, consultez [Calculer la taille totale d’un conteneur de stockage d’objets blob](../scripts/storage-blobs-container-calculate-billing-size-powershell.md). 
+> Ce script PowerShell fournit une estimation de taille pour le conteneur et ne doit pas être utilisé pour les calculs de facturation. Pour un script qui calcule la taille du conteneur pour la facturation, consultez [Calculer la taille totale d’un conteneur de stockage d’objets blob](../scripts/storage-blobs-container-calculate-billing-size-powershell.md).
 
 ## <a name="sample-script"></a>Exemple de script
 
 [!code-powershell[main](../../../powershell_scripts/storage/calculate-container-size/calculate-container-size.ps1 "Calculate container size")]
 
-## <a name="clean-up-deployment"></a>Nettoyer le déploiement 
+## <a name="clean-up-deployment"></a>Nettoyer le déploiement
 
 Exécutez la commande suivante pour supprimer le groupe de ressources, le conteneur et toutes les ressources associées.
 

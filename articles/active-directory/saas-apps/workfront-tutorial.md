@@ -1,5 +1,5 @@
 ---
-title: "Didacticiel : Intégration d'Azure Active Directory à Workfront | Microsoft Docs"
+title: 'Didacticiel : Intégration d’Azure Active Directory avec Workfront | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Workfront.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 51fd45729a4e34fa1669f758c5a9c8f5cbec498f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67087026"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-workfront"></a>Didacticiel : Intégration d'Azure Active Directory à Workfront
+# <a name="tutorial-azure-active-directory-integration-with-workfront"></a>Didacticiel : Intégration d’Azure Active Directory avec Workfront
 
 Dans ce didacticiel, vous allez apprendre à intégrer Workfront à Azure Active Directory (Azure AD).
 L’intégration de Workfront dans Azure AD vous offre les avantages suivants :
@@ -35,7 +35,7 @@ L’intégration de Workfront dans Azure AD vous offre les avantages suivants :
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour configurer l’intégration d’Azure AD à Workfront, vous avez besoin des éléments suivants :
 
@@ -135,7 +135,7 @@ Pour configurer l’authentification unique Azure AD auprès de Workfront, effe
 
 3. Dans la boîte de dialogue **Authentification unique** , procédez comme suit :
     
-    ![Configurer l'authentification unique][23]
+    ![Configure Single Sign-On][23]
    
     a. Comme **Type**, sélectionnez **SAML 2.0**.
    
@@ -167,7 +167,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez `brittasimon@yourcompanydomain.extension`. Par exemple, BrittaSimon@contoso.com
+    b. Dans le champ **Nom d’utilisateur**, tapez `brittasimon@yourcompanydomain.extension`. Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
@@ -235,7 +235,7 @@ Le fait de cliquer sur la vignette Workfront dans le volet d’accès doit vous 
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 <!--Image references-->
 

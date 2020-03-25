@@ -13,10 +13,10 @@ ms.date: 11/16/2017
 ms.author: apimpm
 ms.custom: mvc
 ms.openlocfilehash: e9da57ffe89dd6e187b7681024924d4853463ee2
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "70067363"
 ---
 # <a name="set-up-rate-limit-policy"></a>Configurer une stratégie de limite de débit
@@ -33,7 +33,7 @@ Si vous choisissez d’installer et d’utiliser PowerShell en local, vous devez
 
 [!code-powershell[main](../../../powershell_scripts/api-management/setup-rate-limit-policy/setup_rate_limit_policy.ps1 "Set up rate limit policy")]
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Quand vous n’en avez plus besoin, vous pouvez utiliser la commande [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) pour supprimer le groupe de ressources et toutes les ressources associées.
 

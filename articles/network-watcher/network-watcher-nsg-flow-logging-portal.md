@@ -16,13 +16,13 @@ ms.date: 04/30/2018
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: f3448765eecf4a586e13155903f1c093607781dc
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76896435"
 ---
-# <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Tutoriel : journaliser le trafic réseau à destination et en provenance d’une machine virtuelle à l’aide du portail Azure
+# <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Didacticiel : enregistrer le trafic réseau vers et depuis une machine virtuelle à l’aide du portail Azure
 
 > [!div class="op_single_selector"]
 > - [Azure portal](network-watcher-nsg-flow-logging-portal.md)
@@ -215,7 +215,7 @@ La valeur de la zone **mac** dans la sortie précédente est l’adresse MAC de 
 | T            | Protocol               | Indique si le protocole du flux était TCP (T) ou UDP (U).                                  |
 | O            | Sens              | Indique si le trafic était entrant (I) ou sortant (O).                                     |
 | Un            | Action                 | Indique si le trafic était autorisé (A) ou refusé (D).  
-| C            | État du flux **Version 2 uniquement** | Capture l’état du flux. Les états possibles sont **B** : début, lors de la création d’un flux. Aucune statistique n’est fournie. **C** : continuation d’un flux en cours. Des statistiques sont fournies toutes les 5 minutes. **E** : fin, quand un flux est arrêté. Des statistiques sont fournies. |
+| C            | État du flux **Version 2 uniquement** | Capture l’état du flux. Les états possibles sont **B** (début), lors de la création d’un flux. Aucune statistique n’est fournie. **C** : continuation d’un flux en cours. Des statistiques sont fournies toutes les 5 minutes. **E** : fin, lorsqu’un flux est arrêté. Des statistiques sont fournies. |
 | 30 | Paquets envoyés - Source vers destination **Version 2 uniquement** | Nombre total de paquets TCP ou UDP envoyés de la source à la destination depuis la dernière mise à jour. |
 | 16978 | Octets envoyés - Source vers destination **Version 2 uniquement** | Nombre total d’octets de paquets TCP ou UDP envoyés de la source vers la destination depuis la dernière mise à jour. Les octets de paquets incluent l’en-tête et la charge utile du paquet. |
 | 24 | Paquets envoyés - Destination vers source **Version 2 uniquement** | Nombre total de paquets TCP ou UDP envoyés de la destination vers la source depuis la dernière mise à jour. |

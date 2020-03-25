@@ -5,21 +5,21 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
 ms.openlocfilehash: f1b813576a94541cdc2ab0a67fea71b6f49696c5
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78251791"
 ---
-# <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Tutoriel : Mettre à l’échelle un cluster Service Fabric dans Azure
+# <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Tutoriel : mettre à l’échelle un cluster Service Fabric dans Azure
 
 Ce didacticiel constitue la troisième partie d’une série et montre comment diminuer ou augmenter la taille de votre cluster existant. À la fin de ce tutoriel, vous saurez comment mettre à l’échelle votre cluster et comment nettoyer les ressources restantes.  Pour plus d’informations sur la mise à l’échelle d’un cluster exécuté dans Azure, consultez [Mise à l’échelle de clusters Service Fabric](service-fabric-cluster-scaling.md).
 
 Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
-> * Ajouter et supprimer des nœuds (scale out et scale in)
-> * Ajouter et supprimer des types de nœuds (scale out et scale in)
+> * Ajouter et supprimer des nœuds (scale-out et scale-in)
+> * Ajouter et supprimer des types de nœuds (scale-out et scale-in)
 > * Augmenter les ressources de nœud (scale up)
 
 Cette série de tutoriels vous montre comment effectuer les opérations suivantes :
@@ -33,7 +33,7 @@ Cette série de tutoriels vous montre comment effectuer les opérations suivante
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer ce tutoriel :
 
@@ -76,7 +76,7 @@ Après avoir créé un [cluster Windows](service-fabric-tutorial-create-vnet-and
 
 ## <a name="add-nodes-to-or-remove-nodes-from-a-node-type"></a>Ajouter ou supprimer des nœuds d’un type de nœud
 
-Le scale in ou scale out, ou mise à l’échelle horizontale, modifie le nombre de nœuds du cluster. Quand vous effectuez un scale in ou scale out, vous ajoutez des instances de machines virtuelles au groupe identique. Ces instances deviennent les nœuds que Service Fabric utilise. Service Fabric sait quand des instances sont ajoutées au groupe identique et réagit automatiquement. Une mise à l’échelle peut s’effectuer à tout moment, même lorsque des charges de travail sont en cours d’exécution sur le cluster.
+Le scale in ou scale out, ou mise à l’échelle horizontale, modifie le nombre de nœuds du cluster. Quand vous effectuez un scale-in ou un scale-out, vous ajoutez des instances de machines virtuelles au groupe identique. Ces instances deviennent les nœuds que Service Fabric utilise. Service Fabric sait quand des instances sont ajoutées au groupe identique et réagit automatiquement. Une mise à l’échelle peut s’effectuer à tout moment, même lorsque des charges de travail sont en cours d’exécution sur le cluster.
 
 ### <a name="update-the-template"></a>Mettre à jour le modèle
 
@@ -865,8 +865,8 @@ az group deployment create --resource-group sfclustertutorialgroup --template-fi
 Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
-> * Ajouter et supprimer des nœuds (scale out et scale in)
-> * Ajouter et supprimer des types de nœuds (scale out et scale in)
+> * Ajouter et supprimer des nœuds (scale-out et scale-in)
+> * Ajouter et supprimer des types de nœuds (scale-out et scale-in)
 > * Augmenter les ressources de nœud (scale up)
 
 Maintenant, passez au didacticiel suivant pour savoir comment mettre à niveau le runtime d’un cluster.
@@ -878,7 +878,7 @@ Maintenant, passez au didacticiel suivant pour savoir comment mettre à niveau l
 [template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.json
 [parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.Parameters.json
 
-> * Ajouter et supprimer des types de nœuds (scale out et scale in)
+> * Ajouter et supprimer des types de nœuds (scale-out et scale-in)
 > * Augmenter les ressources de nœud (scale up)
 
 Maintenant, passez au didacticiel suivant pour savoir comment mettre à niveau le runtime d’un cluster.

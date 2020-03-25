@@ -9,11 +9,11 @@ ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 72d25582d15e745b0bdefcde5f68af94eab49293
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277283"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222606"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-unity"></a>Guide pratique pour créer et localiser des ancres à l’aide d’Azure Spatial Anchors dans Unity
 
@@ -32,7 +32,7 @@ Azure Spatial Anchors vous permet de partager des ancres dans le monde entre dif
 - Les charger dans le cloud.
 - Rechercher et supprimer les ancres spatiales de cloud.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre ce guide, veillez à disposer des éléments suivants :
 

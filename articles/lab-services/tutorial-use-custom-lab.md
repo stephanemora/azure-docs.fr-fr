@@ -15,14 +15,14 @@ ms.custom: mvc
 ms.date: 01/18/2019
 ms.author: spelluru
 ms.openlocfilehash: ee9a68df685095244fc9471b7d4ab0f6cee0642d
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68360267"
 ---
-# <a name="tutorial-access-a-lab-in-azure-devtest-labs"></a>Didacticiel : Accéder à un laboratoire dans Azure DevTest Labs
-Dans ce tutoriel, vous utilisez le laboratoire créé dans le [tutoriel : Créer un laboratoire dans Azure DevTest Labs](tutorial-create-custom-lab.md).
+# <a name="tutorial-access-a-lab-in-azure-devtest-labs"></a>Didacticiel : accéder à un laboratoire dans Azure DevTest Labs
+Dans ce didacticiel, vous utilisez le laboratoire créé dans le [didacticiel : créer un laboratoire dans Azure DevTest Labs](tutorial-create-custom-lab.md).
 
 Dans ce tutoriel, vous allez effectuer les actions suivantes :
 
@@ -35,7 +35,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="access-the-lab"></a>Accéder à l’atelier
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Sélectionnez **Toutes les ressources** dans le menu de gauche. 
 3. Sélectionnez **DevTest Labs** comme type de ressource. 
 4. Sélectionnez le laboratoire. 
@@ -86,5 +86,5 @@ Une fois que vous avez fini d’utiliser la machine virtuelle, cessez de la reve
 Ce didacticiel vous a montré comment accéder à et utiliser un laboratoire créé à l’aide d’Azure DevTest Labs. Pour plus d’informations sur l’accès et l’utilisation de machines virtuelles dans un laboratoire personnalisé, consultez 
 
 > [!div class="nextstepaction"]
-> [Guide pratique pour utiliser des machines virtuelles dans un laboratoire](devtest-lab-add-vm.md)
+> [Procédure : utiliser des machines virtuelles dans un laboratoire](devtest-lab-add-vm.md)
 

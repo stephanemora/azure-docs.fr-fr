@@ -10,13 +10,13 @@ ms.custom: mvc
 ms.date: 03/08/2019
 ms.author: troyhop
 ms.openlocfilehash: 09a6920e0d3a50da1bdacbf2bc7a80396c885897
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58180702"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "61448556"
 ---
-# <a name="tutorial-create-and-run-an-iot-device-simulation"></a>Tutoriel : Créer et exécuter une simulation d’appareil IoT
+# <a name="tutorial-create-and-run-an-iot-device-simulation"></a>Didacticiel : Créer et exécuter une simulation d’appareil IoT
 
 Dans ce didacticiel, vous allez utiliser la simulation d’appareil pour créer et exécuter une nouvelle simulation IoT à avec un ou plusieurs appareils simulés.
 
@@ -30,7 +30,7 @@ Dans ce tutoriel, vous allez :
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre ce tutoriel, vous avez besoin d’une instance déployée de la simulation d’appareil dans votre abonnement Azure.
 

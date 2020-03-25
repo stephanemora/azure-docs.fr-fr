@@ -1,5 +1,5 @@
 ---
-title: "Didacticiel : Intégration d'Azure Active Directory à LearnUpon | Microsoft Docs"
+title: 'Didacticiel : Intégration d’Azure Active Directory à LearnUpon | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et LearnUpon.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ecdcd8c6024b3cacb422b556718bbbdbb5d601c2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67098239"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-learnupon"></a>Didacticiel : Intégration d'Azure Active Directory à LearnUpon
+# <a name="tutorial-azure-active-directory-integration-with-learnupon"></a>Didacticiel : intégration d’Azure Active Directory à LearnUpon
 
 Dans ce didacticiel, vous allez apprendre à intégrer LearnUpon à Azure Active Directory (Azure AD).
 L’intégration de LearnUpon à Azure AD vous offre les avantages suivants :
@@ -35,7 +35,7 @@ L’intégration de LearnUpon à Azure AD vous offre les avantages suivants :
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour configurer l’intégration d’Azure AD à LearnUpon, vous avez besoin des éléments suivants :
 
@@ -135,15 +135,15 @@ Pour configurer l’authentification unique Azure AD avec LearnUpon, procédez 
 
 1. Cliquez sur l’onglet **Paramètres** .
 
-    ![Configurer l'authentification unique](./media/learnupon-tutorial/tutorial_learnupon_06.png)
+    ![Configure Single Sign-On](./media/learnupon-tutorial/tutorial_learnupon_06.png)
 
 1. Cliquez sur **Authentification unique - SAML**, puis cliquez sur **Paramètres généraux** pour configurer les paramètres SAML.
    
-    ![Configurer l'authentification unique](./media/learnupon-tutorial/tutorial_learnupon_07.png) 
+    ![Configure Single Sign-On](./media/learnupon-tutorial/tutorial_learnupon_07.png) 
 
 1. Dans la section **Paramètres généraux** procédez comme suit :
    
-    ![Configurer l'authentification unique](./media/learnupon-tutorial/tutorial_learnupon_08.png)  
+    ![Configure Single Sign-On](./media/learnupon-tutorial/tutorial_learnupon_08.png)  
   
     a. Sélectionnez **Enabled**.
 
@@ -163,7 +163,7 @@ Pour configurer l’authentification unique Azure AD avec LearnUpon, procédez 
 
 1. Cliquez sur **Paramètres utilisateur**, puis procédez comme suit :
 
-     ![Configurer l'authentification unique](./media/learnupon-tutorial/tutorial_learnupon_11.png)  
+     ![Configure Single Sign-On](./media/learnupon-tutorial/tutorial_learnupon_11.png)  
 
     a. Dans la zone de texte **First Name Identifier Format** (Format de l’identificateur du prénom), entrez la valeur indiquant à quel emplacement dans votre assertion SAML réside le prénom des utilisateurs, par exemple : `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
   
@@ -187,7 +187,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez `brittasimon@yourcompanydomain.extension`. Par exemple, BrittaSimon@contoso.com
+    b. Dans le champ **Nom d’utilisateur**, tapez `brittasimon@yourcompanydomain.extension`. Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
@@ -235,4 +235,4 @@ Lorsque vous cliquez sur la vignette LearnUpon dans le volet d’accès, vous de
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

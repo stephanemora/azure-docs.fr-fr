@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 Customer intent: As a developer, I want to build a Java application to query data stored in a Cassandra API account of Azure Cosmos DB so that customers can manage the key/value data and utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
 ms.openlocfilehash: 69a9bc912f2cd52e52ca6403187f993413539ecd
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038175"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "60899897"
 ---
 # <a name="tutorial-query-data-from-a-cassandra-api-account-in-azure-cosmos-db"></a>Tutoriel : Interroger les données à partir d’un compte d’API Cassandra dans Azure Cosmos DB
 
@@ -24,15 +24,15 @@ Ce tutoriel décrit les tâches suivantes :
 
 > [!div class="checklist"]
 > * Interroger les données d’une table Cassandra
-> * Exécution de l'application
+> * Exécuter l’application
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Cet article appartient à un tutoriel en plusieurs parties. Avant de commencer, veillez à effectuer les étapes précédentes pour créer un compte, un espace de clés et une table d’API Cassandra, puis pour [charger des exemples de données dans la table](cassandra-api-load-data.md). 
 
-## <a name="query-data"></a>Données de requête
+## <a name="query-data"></a>Interroger des données
 
 Utilisez les étapes suivantes pour interroger des données de votre table d’API Cassandra :
 
@@ -105,7 +105,7 @@ Utilisez les étapes suivantes pour interroger des données de votre table d’A
 
 2. Maintenant, dans le Portail Azure, ouvrez l’**Explorateur de données** et confirmez la suppression de la table utilisateur.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Dès que vous n’en avez plus besoin, vous pouvez supprimer le groupe de ressources, le compte Azure Cosmos et toutes les ressources associées. Pour cela, sélectionnez le groupe de ressources de la machine virtuelle, sélectionnez **Supprimer**, puis confirmez le nom du groupe de ressources à supprimer.
 

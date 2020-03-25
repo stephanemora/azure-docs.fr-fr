@@ -8,10 +8,10 @@ ms.date: 01/28/2020
 ms.author: dech
 ms.reviewer: sngun
 ms.openlocfilehash: 0a705ad81925491fe054d846143472c6e4432b69
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77561900"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Configurer un pipeline CI/CD avec la tâche de génération d’émulateur Azure Cosmos DB
@@ -59,7 +59,7 @@ Import-Module "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules\Microsoft.Az
 Start-CosmosDbEmulator
 ```
 
-## <a name="addEmulatorBuildTaskToBuildDefinition"></a>Ajouter la tâche à un pipeline de build
+## <a name="add-the-task-to-a-build-pipeline"></a><a name="addEmulatorBuildTaskToBuildDefinition"></a>Ajouter la tâche à un pipeline de build
 
 1. Avant d’ajouter une tâche au pipeline de build, vous devez ajouter un travail d’agent. Accédez à votre pipeline de build, sélectionnez **...** et choisissez **Ajouter un travail d’agent**.
 

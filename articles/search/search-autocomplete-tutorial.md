@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.openlocfilehash: 64c4e65ca7b69c7d61c706b48591ac19be3bfcf5
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72792522"
 ---
 # <a name="add-suggestions-or-autocomplete-to-your-azure-cognitive-search-application"></a>Ajouter les suggestions ou l’autocomplétion à votre application Recherche cognitive Azure
@@ -36,7 +36,7 @@ Cet exercice vous permet de vous familiariser avec les tâches suivantes :
 > * En C#, définir des suggestions et des actions d’autocomplétion dans HomeController.cs
 > * En JavaScript, appeler l’API REST directement pour fournir les mêmes fonctionnalités
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Un service Recherche cognitive Azure est facultatif pour cet exercice, car la solution utilise un service de bac à sable (sandbox) en ligne qui héberge un index de démonstration NYCJobs préparé. Si vous voulez exécuter cet exemple sur votre propre service de recherche, consultez [Configurer un index NYCJobs](#configure-app) pour obtenir des instructions.
 

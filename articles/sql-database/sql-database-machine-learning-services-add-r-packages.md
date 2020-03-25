@@ -14,10 +14,10 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/29/2019
 ms.openlocfilehash: ce85f45d823df42e70af53824e175968439621d3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73819862"
 ---
 # <a name="add-an-r-package-to-azure-sql-database-machine-learning-services-preview"></a>Ajouter un package R à Azure SQL Database Machine Learning Services (préversion)
@@ -26,7 +26,7 @@ Cet article explique comment ajouter un package R à Azure SQL Database Machine 
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Installez [R](https://www.r-project.org) et [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/) sur votre ordinateur local. R est disponible pour Windows, MacOS et Linux. Cet article suppose que vous utilisez Windows.
 
@@ -35,7 +35,7 @@ Cet article explique comment ajouter un package R à Azure SQL Database Machine 
 > [!NOTE]
 > Vous ne pouvez pas installer de package en exécutant un script R à l’aide de **sp_execute_external_script** dans Azure Data Studio ou SSMS. Vous pouvez uniquement installer et supprimer des packages à l’aide de la ligne de commande R et de RStudio comme décrit dans cet article. Une fois le package installé, vous pouvez accéder à ses fonctions dans un script R à l’aide de **sp_execute_external_script**.
 
-## <a name="list-r-packages"></a>Répertorier les packages R
+## <a name="list-r-packages"></a>Lister les packages R
 
 Microsoft fournit un nombre de packages R préinstallés avec Machine Learning Services dans votre base de données Azure SQL.
 Vous pouvez voir la liste des packages R installés en exécutant la commande suivante dans Azure Data Studio ou SSMS.
@@ -92,7 +92,7 @@ Dans l’exemple suivant, vous allez installer le package **[glue](https://cran.
 
 ### <a name="add-the-package"></a>Ajouter le package
 
-1. Ouvrez RStudio et créez un fichier **R Script**. 
+1. Ouvrez RStudio et créez un fichier de **script R**. 
 
 1. Utilisez le code R suivant pour installer le package **glue** à l’aide de **sqlmlutils**. Substituez vos propres informations de connexion à la base de données Azure SQL.
 
@@ -108,7 +108,7 @@ Dans l’exemple suivant, vous allez installer le package **[glue](https://cran.
     ```
 
     > [!TIP]
-    > La valeur **scope** (étendue) peut être définie sur **PUBLIC** ou **PRIVATE**. Une étendue publique est utile si l’administrateur de base de données doit installer des packages que tous les utilisateurs peuvent utiliser. Avec une étendue privée, le package est disponible uniquement pour l’utilisateur qui l’installe. Si vous ne spécifiez pas l’étendue, elle est définie sur **PRIVATE** par défaut.
+    > La valeur **scope** (étendue) peut être définie sur **PUBLIC** ou **PRIVATE**. L’étendue publique est utile pour que l’administrateur de base de données puisse installer des packages que tous les utilisateurs peuvent utiliser. L’étendue privée rend le package disponible uniquement pour l’utilisateur qui l’installe. Si vous ne spécifiez pas l’étendue, l’étendue par défaut est définie sur **PRIVÉE**.
 
 ### <a name="verify-the-package"></a>Vérifier le package
 
