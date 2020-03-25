@@ -9,17 +9,17 @@ ms.date: 02/20/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: ace42278269ff6af31902dbecead81329815af12
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67177299"
 ---
 ## <a name="create-a-topic-using-the-azure-portal"></a>Créer une rubrique à l’aide du Portail Azure
 1. Dans la page **Espace de noms Service Bus**, sélectionnez **Rubriques** dans le menu de gauche.
 2. Sélectionnez **+ Rubrique** dans la barre d’outils. 
 4. Entrez un **nom** pour la rubrique. Conservez les valeurs par défaut des autres options.
-5. Sélectionnez **Créer**.
+5. Sélectionnez **Create** (Créer).
 
     ![Créer une rubrique](./media/service-bus-create-topics-subscriptions-portal/create-topic.png)
 

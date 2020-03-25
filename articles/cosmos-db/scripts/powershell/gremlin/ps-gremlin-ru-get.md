@@ -8,10 +8,10 @@ ms.topic: sample
 ms.date: 07/03/2019
 ms.author: mjbrown
 ms.openlocfilehash: de02a524e163c1843e5117e8a4471e686a2f5764
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75441460"
 ---
 # <a name="get-throughput-rus-for-a-database-or-graph-for-azure-cosmos-db---gremlin-api"></a>Obtenir le débit (RU/s) d’une base de données ou d’un graphique pour Azure Cosmos DB - API Gremlin

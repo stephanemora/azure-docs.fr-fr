@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à TigerText Secure Messenger | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à TigerText Secure Messenger | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et TigerText Secure Messenger.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
 ms.openlocfilehash: ea3bda1dd51a7c3a2e5e3f8b669d7138898f1595
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67088674"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-tigertext-secure-messenger"></a>Didacticiel : Intégration d’Azure Active Directory à TigerText Secure Messenger
+# <a name="tutorial-azure-active-directory-integration-with-tigertext-secure-messenger"></a>Didacticiel : Intégration d’Azure Active Directory à TigerText Secure Messenger
 
 Dans ce didacticiel, vous allez apprendre à intégrer TigerText Secure Messenger à Azure Active Directory (Azure AD).
 
@@ -34,7 +34,7 @@ L’intégration de TigerText Secure Messenger dans Azure AD vous offre les avan
 
 Pour obtenir des détails sur l’intégration d’applications SaaS (software as a service) avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour configurer l’intégration d’Azure AD à TigerText Secure Messenger, vous avez besoin des éléments suivants :
 
@@ -51,7 +51,7 @@ TigerText Secure Messenger prend en charge l’authentification unique lancée p
 
 Pour configurer l’intégration de TigerText Secure Messenger à Azure AD, vous devez ajouter TigerText Secure Messenger, disponible dans la Place de marché Azure, à votre liste d’applications SaaS managées :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com?azure-portal=true).
+1. Connectez-vous au [portail Azure](https://portal.azure.com?azure-portal=true).
 1. Sélectionnez **Azure Active Directory** dans le volet de gauche.
 
     ![Option Azure Active Directory](common/select-azuread.png)
@@ -152,7 +152,7 @@ Dans cette section, créez un utilisateur de test nommé Britta Simon dans le po
 
     1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
 
-    1. Sélectionnez **Créer**.
+    1. Sélectionnez **Create** (Créer).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
@@ -196,4 +196,4 @@ Quand vous sélectionnez **TigerText Secure Messenger** sur le portail Mes appli
 
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-* [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+* [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

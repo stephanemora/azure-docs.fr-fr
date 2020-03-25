@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Picturepark | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory avec Picturepark | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Picturepark.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 04/18/2019
 ms.author: jeedes
 ms.openlocfilehash: 08c5bd8da0dda74156b2d44c8106ed345ef749dd
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73177019"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-picturepark"></a>Didacticiel : Intégration d’Azure Active Directory à Picturepark
+# <a name="tutorial-azure-active-directory-integration-with-picturepark"></a>Didacticiel : Intégration d’Azure Active Directory avec Picturepark
 
 Ce didacticiel explique comment intégrer Picturepark avec Azure Active Directory (Azure AD).
 L’intégration de Picturepark avec Azure AD vous offre les avantages suivants :
@@ -34,7 +34,7 @@ L’intégration de Picturepark avec Azure AD vous offre les avantages suivants�
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour configurer l’intégration d’Azure AD avec Picturepark, vous avez besoin des éléments suivants :
 
@@ -154,7 +154,7 @@ Pour configurer l’authentification unique Azure AD avec Picturepark, procéde
    
     ![Configuration du fournisseur d’identité](./media/picturepark-tutorial/ic795064.png "Identity provider configuration")
    
-    a. Cliquez sur **Add**.
+    a. Cliquez sur **Ajouter**.
   
     b. Entrez un nom pour votre configuration.
    
@@ -188,7 +188,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez `brittasimon@yourcompanydomain.extension`. Par exemple, BrittaSimon@contoso.com
+    b. Dans le champ **Nom d’utilisateur**, tapez `brittasimon@yourcompanydomain.extension`. Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 

@@ -9,10 +9,10 @@ ms.topic: sample
 ms.date: 07/23/2019
 ms.author: sngun
 ms.openlocfilehash: 1e7c3e06c8aa49f9a23d3cc600ee6f60218c2fbd
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72170141"
 ---
 # <a name="azure-cosmos-db-python-examples"></a>Exemples Python pour Azure Cosmos DB
@@ -33,11 +33,11 @@ Le référentiel GitHub [azure-documentdb-python](https://github.com/Azure/azure
 * Liens vers les tâches dans chacun des exemples de fichiers de projet Python. 
 * Des liens vers le contenu de référence d’API connexe.
 
-**Composants requis**
+**Prérequis**
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- Vous pouvez [activer les avantages d’abonnement Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) : Votre abonnement Visual Studio vous donne droit chaque mois à des crédits dont vous pouvez vous servir pour les services Azure payants.
+- Vous pouvez [activer les avantages de votre abonnement Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio): ce dernier vous donne droit chaque mois à des crédits dont vous pouvez vous servir pour les services Azure payants.
 
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
@@ -92,7 +92,7 @@ Le fichier [Program.py](https://github.com/Azure/azure-documentdb-python/blob/ma
 | [Utiliser les index de plage sur les chaînes](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement/Program.py#L440-L456) | Stratégie d’indexation avec chemins inclus|
 | [Effectuer une transformation d’index](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement/Program.py#L514-L559) |[CosmosClient.ReplaceContainer](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient?view=azure-python#replacecontainer-collection-link--collection--options-none-) |
 
-## <a name="query-examples"></a>Exemples de requête
+## <a name="query-examples"></a>Exemples de requêtes
 Les exemples de projets montrent également comment effectuer les tâches de requête suivantes. Pour en savoir plus sur la référence des requêtes SQL dans Azure Cosmos DB avant d’exécuter les exemples suivants, consultez l’article conceptuel [Exemples de requêtes SQL](how-to-sql-query.md). Pour en savoir plus sur la référence des requêtes SQL dans Azure Cosmos DB avant d’exécuter les exemples suivants, consultez l’article conceptuel [Exemples de requêtes SQL](how-to-sql-query.md). 
 
 

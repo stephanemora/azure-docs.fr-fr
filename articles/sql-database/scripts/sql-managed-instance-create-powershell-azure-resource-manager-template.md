@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 03/12/2019
 ms.openlocfilehash: be6aa73fe72568e9762e5b7249bedc2e8c7d3bf7
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73691442"
 ---
 # <a name="use-powershell-with-azure-resource-manager-template-to-create-a-managed-instance-in-azure-sql-database"></a>Utiliser PowerShell avec un modèle Azure Resource Manager pour créer une instance managée dans Azure SQL Database
@@ -26,7 +26,7 @@ Vous pouvez créer une instance managée Azure SQL Database à l’aide de la bi
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser PowerShell en local, vous aurez besoin de la version 1.4.0 d’AZ PowerShell ou d’une version ultérieure pour suivre ce didacticiel. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzAccount` pour créer une connexion avec Azure.
+Si vous choisissez d’installer et d’utiliser PowerShell en local, vous avez besoin de la version 1.4.0 d’AZ PowerShell ou d’une version ultérieure pour suivre ce tutoriel. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzAccount` pour créer une connexion avec Azure.
 
 Les commandes Azure PowerShell peuvent démarrer le déploiement à l’aide du modèle Azure Resource Manager prédéfini. Vous pouvez spécifier les propriétés suivantes dans le modèle :
 
@@ -38,7 +38,7 @@ Les commandes Azure PowerShell peuvent démarrer le déploiement à l’aide du 
 
 Les éléments que vous ne pouvez pas modifier ultérieurement sont le nom de l’instance, le nom d’utilisateur de l’administrateur SQL, le réseau virtuel et le sous-réseau. Les autres propriétés d’instance peuvent être modifiées.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Cet exemple suppose que vous avez [créé un environnement réseau valide](../sql-database-managed-instance-create-vnet-subnet.md) ou [modifié un réseau virtuel existant](../sql-database-managed-instance-configure-vnet-subnet.md) pour votre instance gérée. L’exemple utilise les applets de commande [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment) et [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork). Vous devez donc vérifier que vous avez installé les modules PowerShell suivants :
 

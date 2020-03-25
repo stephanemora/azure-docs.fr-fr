@@ -9,10 +9,10 @@ ms.date: 12/16/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 03826abf6da94859c510f4c127dfce035aa79370
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/26/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75498162"
 ---
 # <a name="fail-over-hyper-v-vms-to-azure"></a>Effectuer le basculement de machines virtuelles Hyper-V vers Azure
@@ -38,9 +38,9 @@ Assurez-vous qu’il n’existe aucun instantané sur la machine virtuelle et qu
 
 Le basculement et la restauration automatique comportent trois étapes :
 
-1. **Basculement vers Azure** : Basculement de machines virtuelles Hyper-V du site local vers Azure.
-2. **Restauration automatique sur un site local** : Basculement de machines virtuelles Azure vers votre site local, lorsqu’il est disponible. La synchronisation des données à partir d’Azure vers le site local débute et une fois l’opération terminée, les machines virtuelles se trouvent en local.  
-3. **Réplication inverse de machines virtuelles locales** : Une fois le basculement en local effectué, inversez la réplication des machines virtuelles locales pour démarrer leur réplication vers Azure.
+1. **Basculement vers Azure** : basculement de machines virtuelles Hyper-V du site local vers Azure.
+2. **Restauration automatique sur un site local** : basculement de machines virtuelles Azure vers votre site local, lorsqu’il est disponible. La synchronisation des données à partir d’Azure vers le site local débute et une fois l’opération terminée, les machines virtuelles se trouvent en local.  
+3. **Inverser la réplication de machines virtuelles locales** : une fois le basculement en local effectué, inversez la réplication des machines virtuelles locales pour démarrer leur réplication vers Azure.
 
 ## <a name="verify-vm-properties"></a>Vérifier les propriétés de la machine virtuelle
 
@@ -64,7 +64,7 @@ Dans **Éléments protégés**, cliquez sur **Éléments répliqués** > Machine
 4. Après avoir vérifié le basculement, cliquez sur **Valider**. Ceci supprime tous les points de récupération disponibles.
 
 > [!WARNING]
-> **N’annulez pas un basculement en cours** : Si vous annulez un basculement en cours, il s’arrête mais la machine virtuelle ne sera pas à nouveau répliquée.
+> **N’annulez pas un basculement en cours** : si vous annulez un basculement en cours, le basculement s’arrête mais la machine virtuelle ne sera pas à nouveau répliquée.
 
 ## <a name="connect-to-failed-over-vm"></a>Se connecter à une machine virtuelle basculée
 

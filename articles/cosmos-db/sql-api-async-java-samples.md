@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB : Exemples Java Async pour l’API SQL'
+title: 'Azure Cosmos DB : exemples Java Async pour l’API SQL'
 description: Recherchez des exemples Java Async sur GitHub pour les tâches courantes utilisant l’API SQL Azure Cosmos DB, y compris les opérations CRUD.
 author: SnehaGunda
 ms.service: cosmos-db
@@ -8,13 +8,13 @@ ms.topic: sample
 ms.date: 12/03/2018
 ms.author: sngun
 ms.openlocfilehash: 0a9b58a78ee9de48b721511646728bd8140ef980
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72170179"
 ---
-# <a name="azure-cosmos-db-async-java-examples-for-the-sql-api"></a>Azure Cosmos DB : Exemples Java Async pour l’API SQL
+# <a name="azure-cosmos-db-async-java-examples-for-the-sql-api"></a>Azure Cosmos DB : exemples Java Async pour l’API SQL
 
 > [!div class="op_single_selector"]
 > * [Exemples du kit SDK .NET V2](sql-api-dotnet-samples.md)
@@ -32,11 +32,11 @@ Le référentiel GitHub [azure-cosmosdb-java](https://github.com/Azure/azure-cos
 * Des liens vers les tâches dans chacun des exemples de fichiers de projet Java Async. 
 * Des liens vers le contenu de référence d’API connexe.
 
-**Composants requis**
+**Prérequis**
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
   
-- Vous pouvez [activer les avantages d’abonnement Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) : Votre abonnement Visual Studio vous donne droit chaque mois à des crédits dont vous pouvez vous servir pour les services Azure payants.
+- Vous pouvez [activer les avantages de votre abonnement Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio): ce dernier vous donne droit chaque mois à des crédits dont vous pouvez vous servir pour les services Azure payants.
 
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
@@ -133,7 +133,7 @@ Le fichier [CollectionCrudAsyncAPITest](https://github.com/Azure/azure-cosmosdb-
 
 Pour plus d’informations sur l’indexation, consultez [Stratégies d’indexation d’Azure Cosmos DB](index-policy.md).
 
-## <a name="query-examples"></a>Exemples de requête
+## <a name="query-examples"></a>Exemples de requêtes
 Le fichier [DocumentQuerySamples](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/DocumentQueryAsyncAPITest.java) montre comment effectuer les tâches suivantes. Pour en savoir plus sur la référence des requêtes SQL dans Azure Cosmos DB avant d’exécuter les exemples suivants, consultez l’article conceptuel [Exemples de requêtes SQL](how-to-sql-query.md). 
 
 | Tâche | Informations de référence sur l'API |

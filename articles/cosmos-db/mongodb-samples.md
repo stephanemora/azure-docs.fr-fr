@@ -9,11 +9,11 @@ ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
 ms.openlocfilehash: 28ee64f70cd281a2563a855fb1fca91f229ec7bd
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507516"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "61330596"
 ---
 # <a name="build-an-app-using-nodejs-and-azure-cosmos-dbs-api-for-mongodb"></a>Générer une application à l’aide de Node.js et de l’API Azure Cosmos DB pour MongoDB 
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ Pour utiliser cet exemple, vous devez :
 * [Créer](create-mongodb-dotnet.md#create-account) un compte Cosmos configuré pour utiliser l’API Azure Cosmos DB pour MongoDB.
 * Récupérer vos informations de [chaîne de connexion](connect-mongodb-account.md).
 
-## <a name="create-the-app"></a>Création de l'application
+## <a name="create-the-app"></a>Créer l’application
 
 1. Créez un fichier *app.js* et copiez puis collez le code ci-dessous.
 
@@ -115,7 +115,7 @@ Pour utiliser cet exemple, vous devez :
     });
     ```
     
-    **Facultatif** : si vous utilisez le **pilote MongoDB.Node.js 2.2**, remplacez l’extrait de code suivant :
+    **Facultatif** : si vous utilisez le **pilote MongoDB.Node.js 2.2**, remplacez l’extrait de code suivant :
 
     Ressource d’origine :
 

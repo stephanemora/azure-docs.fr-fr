@@ -13,12 +13,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 10/11/2017
 ms.author: routlaw
-ms.openlocfilehash: 4d6dce952eca3d528a310685106a017dd7e3b80f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1b7b4d3c25794a62bc19925ade278159ebb37615
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66166041"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80066542"
 ---
 # <a name="install-the-elastic-stack-on-an-azure-vm"></a>Installer Elastic Stack sur une machine virtuelle Azure
 
@@ -45,7 +45,7 @@ Créez un groupe de ressources avec la commande [az group create](/cli/azure/gro
 
 L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *eastus*.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
@@ -55,7 +55,7 @@ Créez une machine virtuelle avec la commande [az vm create](/cli/azure/vm).
 
 L’exemple suivant crée une machine virtuelle nommée *myVM* et des clés SSH si elles n’existent pas déjà dans un emplacement de clé par défaut. Pour utiliser un ensemble spécifique de clés, utilisez l’option `--ssh-key-value`.  
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm create \
     --resource-group myResourceGroup \
     --name myVM \
@@ -66,7 +66,7 @@ az vm create \
 
 Lorsque la machine virtuelle a été créée, l’interface de ligne de commande Azure affiche des informations similaires à l’exemple suivant. Notez la valeur de `publicIpAddress`. Cette adresse est utilisée pour accéder à la machine virtuelle.
 
-```azurecli-interactive 
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -236,7 +236,7 @@ Sur la console Kibana, sélectionnez **Découvrir** pour rechercher, parcourir e
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez déployé Elastic Stack sur une machine virtuelle de développement dans Azure. Vous avez appris à effectuer les actions suivantes :
+Dans ce didacticiel, vous avez déployé Elastic Stack sur une machine virtuelle de développement dans Azure. Vous avez appris à :
 
 > [!div class="checklist"]
 > * Créer une machine virtuelle Ubuntu dans un groupe de ressources Azure

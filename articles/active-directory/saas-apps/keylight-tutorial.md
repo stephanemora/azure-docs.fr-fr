@@ -17,10 +17,10 @@ ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 148c2c46a911088d01ab83fe2d16e8ca81d272ff
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67098790"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lockpath-keylight"></a>Didacticiel : Intégration d’Azure Active Directory avec LockPath Keylight
@@ -35,7 +35,7 @@ L’intégration de LockPath Keylight avec Azure AD vous offre les avantages sui
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour configurer l’intégration d’Azure AD avec LockPath Keylight, vous avez besoin des éléments suivants :
 
@@ -138,19 +138,19 @@ Pour configurer l’authentification unique Azure AD avec LockPath Keylight, eff
 
     b. Dans le menu situé en haut, cliquez sur **Person** (Personne), puis sélectionnez **Keylight Setup** (Installation de Keylight).
 
-    ![Configurer l'authentification unique](./media/keylight-tutorial/401.png)
+    ![Configure Single Sign-On](./media/keylight-tutorial/401.png)
 
     c. Dans l’arborescence sur la gauche, cliquez sur **SAML**.
 
-    ![Configurer l'authentification unique](./media/keylight-tutorial/402.png)
+    ![Configure Single Sign-On](./media/keylight-tutorial/402.png)
 
     d. Dans la boîte de dialogue **SAML Settings** (Paramètres SAML), cliquez sur **Edit** (Modifier).
 
-    ![Configurer l'authentification unique](./media/keylight-tutorial/404.png)
+    ![Configure Single Sign-On](./media/keylight-tutorial/404.png)
 
 1. Dans la page de boîte de dialogue **Edit SAML Settings** (Modifier les paramètres SAML), procédez comme suit :
 
-    ![Configurer l'authentification unique](./media/keylight-tutorial/405.png)
+    ![Configure Single Sign-On](./media/keylight-tutorial/405.png)
 
     a. Affectez à **SAML authentication** (Authentication SAML) la valeur **Active**.
 
@@ -198,7 +198,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez `brittasimon@yourcompanydomain.extension`. Par exemple, BrittaSimon@contoso.com
+    b. Dans le champ **Nom d’utilisateur**, tapez `brittasimon@yourcompanydomain.extension`. Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
@@ -246,4 +246,4 @@ Quand vous cliquez sur la vignette LockPath Keylight dans le volet d’accès, v
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

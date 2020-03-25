@@ -5,11 +5,11 @@ ms.topic: tutorial
 ms.date: 08/22/2018
 ms.custom: mvc
 ms.openlocfilehash: 906901ce4792e8b363a3a9b77c9bf6bb4b59aec5
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226475"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222466"
 ---
 # <a name="back-up-windows-server-to-azure"></a>Sauvegarder Windows Server dans Azure
 
@@ -51,7 +51,7 @@ Une fois votre archivage créé, il apparaît dans la liste des archivages de Re
 
 L’agent Microsoft Azure Recovery Services (MARS) crée une association entre Windows Server et votre coffre Recovery Services. La procédure suivante explique comment télécharger l’agent sur votre serveur.
 
-1. Dans la liste des coffres Recovery Services, sélectionnez **myRecoveryServicesVault** pour ouvrir son tableau de bord.
+1. Dans la liste des coffres Recovery Services, sélectionnez le coffre **myRecoveryServicesVault** pour ouvrir son tableau de bord.
 
    ![fournir des informations pour le coffre](./media/tutorial-backup-windows-server-to-azure/open-vault-from-list.png)
 

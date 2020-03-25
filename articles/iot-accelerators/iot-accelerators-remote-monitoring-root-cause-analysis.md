@@ -9,13 +9,13 @@ ms.date: 11/20/2018
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: c3cb940583677d813873c07fbfa679fdcc1dff59
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77565466"
 ---
-# <a name="tutorial-conduct-a-root-cause-analysis-on-an-alert"></a>Tutoriel : Effectuer une analyse de cause racine sur une alerte
+# <a name="tutorial-conduct-a-root-cause-analysis-on-an-alert"></a>Tutoriel : Effectuer une analyse de cause racine sur une alerte
 
 Dans ce tutoriel, vous découvrez comment utiliser l’accélérateur de solution de supervision à distance pour diagnostiquer la cause racine d’une alerte. Vous voyez qu’une alerte a été déclenchée dans le tableau de bord de la solution de supervision à distance, puis vous utilisez l’Explorateur Azure Time Series Insights pour en rechercher la cause racine.
 

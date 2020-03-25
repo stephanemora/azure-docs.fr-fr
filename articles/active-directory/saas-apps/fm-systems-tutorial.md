@@ -1,5 +1,5 @@
 ---
-title: "Didacticiel : Intégration d'Azure Active Directory à FM:Systems | Microsoft Docs"
+title: 'Didacticiel : Intégration d’Azure Active Directory à FM:Systems | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et FM:Systems.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: jeedes
-ms.openlocfilehash: e7f5e003a058cd94e6e4a4440c512217c387fda3
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 9f869d595aeb3ff2ab7c3fd0bab7b52c72ab904b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73158153"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80048612"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-fmsystems"></a>Didacticiel : Intégration d'Azure Active Directory à FM:Systems
+# <a name="tutorial-azure-active-directory-integration-with-fmsystems"></a>Didacticiel : Intégration d’Azure Active Directory à FM:Systems
 
 Dans ce didacticiel, vous allez apprendre à intégrer FM:Systems à Azure Active Directory (Azure AD).
 L’intégration de FM:Systems à Azure AD vous offre les avantages suivants :
@@ -34,7 +34,7 @@ L’intégration de FM:Systems à Azure AD vous offre les avantages suivants :
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour configurer l’intégration d’Azure AD à FM:Systems, vous avez besoin des éléments suivants :
 
@@ -110,7 +110,7 @@ Pour configurer l’authentification unique Azure AD avec FM:Systems, effectuez
     > [!NOTE]
     > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de réponse réelle. Contactez l’[équipe du support FM:Systems](https://fmsystems.com/support-services/) pour obtenir la valeur. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-5. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies en fonction de vos besoins, puis enregistrez-le sur votre ordinateur.
+5. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies selon vos besoins, puis enregistrez-le sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
 
@@ -146,7 +146,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez `brittasimon@yourcompanydomain.extension`. Par exemple, BrittaSimon@contoso.com
+    b. Dans le champ **Nom d’utilisateur**, tapez `brittasimon@yourcompanydomain.extension`. Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
@@ -184,7 +184,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Accédez à **System Administration \> Manage Security \> Users \> User list**.
    
-    ![Administration système](./media/fm-systems-tutorial/ic795905.png "Administration système")
+    ![Administration système](./media/fm-systems-tutorial/ic795905.png "Administration de système")
 
 3. Cliquez sur **Create new user**.
    

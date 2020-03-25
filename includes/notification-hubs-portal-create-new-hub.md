@@ -9,13 +9,13 @@ ms.date: 01/17/2019
 ms.author: jowargo
 ms.custom: include file
 ms.openlocfilehash: 5afcc8e4524a0e8353766ba239d5ab9161b29d86
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67509112"
 ---
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
 1. Sélectionnez **Tous les services** dans le menu de gauche, puis sélectionnez **Notification Hubs** dans la section **Mobile**. Sélectionnez l’icône d’étoile en regard du nom du service pour l’ajouter à la section **FAVORIS** dans le menu de gauche. Après avoir ajouté **Notification Hubs** aux **FAVORIS**, sélectionnez-le dans le menu de gauche.
 
@@ -35,7 +35,7 @@ ms.locfileid: "67509112"
 
     1. Sélectionnez un groupe de ressources existant dans **Groupe de ressources**, ou créez un nom pour un nouveau groupe.
 
-    1. Sélectionnez **Créer**.
+    1. Sélectionnez **Create** (Créer).
 
         ![Portail Azure - Définition des propriétés du hub de notification](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-settings.png)
 

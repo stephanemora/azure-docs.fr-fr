@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à RightScale | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory avec RightScale | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et RightScale.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
 ms.openlocfilehash: 53799b62da043b7680f010e1eaaf0d9243f07dd5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67093073"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-rightscale"></a>Didacticiel : Intégration d’Azure Active Directory à RightScale
+# <a name="tutorial-azure-active-directory-integration-with-rightscale"></a>Didacticiel : Intégration d’Azure Active Directory avec RightScale
 
 Dans ce didacticiel, vous allez apprendre à intégrer RightScale avec Azure Active Directory (Azure AD).
 L’intégration de RightScale avec Azure AD vous offre les avantages suivants :
@@ -34,7 +34,7 @@ L’intégration de RightScale avec Azure AD vous offre les avantages suivants :
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour configurer l’intégration d’Azure AD avec RightScale, vous avez besoin des éléments suivants :
 
@@ -131,32 +131,32 @@ Pour configurer l’authentification unique Azure AD avec RightScale, effectuez
 
 2. Dans le menu situé en haut, cliquez sur l’onglet **Paramètres** et sélectionnez **Authentification unique**.
 
-    ![Configurer l'authentification unique](./media/rightscale-tutorial/tutorial_rightscale_001.png)
+    ![Configure Single Sign-On](./media/rightscale-tutorial/tutorial_rightscale_001.png)
 
 3. Cliquez sur le bouton **nouveau** pour ajouter **vos fournisseurs d’identité SAML**.
 
-    ![Configurer l'authentification unique](./media/rightscale-tutorial/tutorial_rightscale_002.png)
+    ![Configure Single Sign-On](./media/rightscale-tutorial/tutorial_rightscale_002.png)
 
 4. Dans la zone de texte **Nom d'affichage**, entrez le nom de votre société.
 
-    ![Configurer l'authentification unique](./media/rightscale-tutorial/tutorial_rightscale_003.png)
+    ![Configure Single Sign-On](./media/rightscale-tutorial/tutorial_rightscale_003.png)
 
 5. Sélectionnez **Allow RightScale-initiated SSO using a discovery hint** et entrez votre **nom de domaine** dans la zone de texte située dessous.
 
-    ![Configurer l'authentification unique](./media/rightscale-tutorial/tutorial_rightscale_004.png)
+    ![Configure Single Sign-On](./media/rightscale-tutorial/tutorial_rightscale_004.png)
 
 6. Collez la valeur de l’**URL de connexion** que vous avez copiée à partir du portail Azure dans **SAML SSO Endpoint** (Point de terminaison SSO SAML) dans RightScale.
 
-    ![Configurer l'authentification unique](./media/rightscale-tutorial/tutorial_rightscale_006.png)
+    ![Configure Single Sign-On](./media/rightscale-tutorial/tutorial_rightscale_006.png)
 
 7. Collez la valeur de l’**Identificateur Azure AD** que vous avez copiée à partir du portail Azure dans **SAML EntityID** (ID d’entité SAML) dans RightScale.
 
-    ![Configurer l'authentification unique](./media/rightscale-tutorial/tutorial_rightscale_008.png)
+    ![Configure Single Sign-On](./media/rightscale-tutorial/tutorial_rightscale_008.png)
 
 8. Cliquez sur le bouton **Explorateur** pour charger le certificat que vous avez téléchargé à partir du portail Azure.
 
 
-    ![Configurer l'authentification unique](./media/rightscale-tutorial/tutorial_rightscale_009.png)
+    ![Configure Single Sign-On](./media/rightscale-tutorial/tutorial_rightscale_009.png)
 
 9. Cliquez sur **Enregistrer**.
 
@@ -179,7 +179,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
     b. Dans le champ **Nom d’utilisateur**, tapez `brittasimon@yourcompanydomain.extension`  
-    Par exemple, BrittaSimon@contoso.com
+    Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
@@ -227,4 +227,4 @@ Quand vous cliquez sur la vignette Rightscale dans le volet d’accès, vous dev
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

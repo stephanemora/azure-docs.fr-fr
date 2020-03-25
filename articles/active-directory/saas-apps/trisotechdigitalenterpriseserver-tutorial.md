@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Trisotech Digital Enterprise Server | Microsoft Docs'
+title: 'Tutoriel : intégration d’Azure Active Directory à Trisotech Digital Enterprise Server | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Trisotech Digital Enterprise Server.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 56399f99ede611c4a120603cce3a3eede2728c6d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67088258"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-trisotech-digital-enterprise-server"></a>Didacticiel : Intégration d’Azure Active Directory à Trisotech Digital Enterprise Server
+# <a name="tutorial-azure-active-directory-integration-with-trisotech-digital-enterprise-server"></a>Tutoriel : intégration d’Azure Active Directory à Trisotech Digital Enterprise Server
 
 Dans ce tutoriel, vous allez apprendre à intégrer Trisotech Digital Enterprise Server avec Azure Active Directory (Azure AD).
 L’intégration de Trisotech Digital Enterprise Server à Azure AD vous offre les avantages suivants :
@@ -34,7 +34,7 @@ L’intégration de Trisotech Digital Enterprise Server à Azure AD vous offre l
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour configurer l’intégration d’Azure AD à Trisotech Digital Enterprise Server, vous avez besoin des éléments suivants :
 
@@ -124,15 +124,15 @@ Pour configurer l’authentification unique Azure AD avec Trisotech Digital Ente
 
 2. Cliquez sur l’**icône de menu**, puis sélectionnez **Administration**.
 
-    ![Configurer l'authentification unique](./media/trisotechdigitalenterpriseserver-tutorial/user1.png)
+    ![Configure Single Sign-On](./media/trisotechdigitalenterpriseserver-tutorial/user1.png)
 
 3. Sélectionnez **User Provider (Fournisseur d’utilisateur)** .
 
-    ![Configurer l'authentification unique](./media/trisotechdigitalenterpriseserver-tutorial/user2.png)
+    ![Configure Single Sign-On](./media/trisotechdigitalenterpriseserver-tutorial/user2.png)
 
 4. Dans la section **User Provider Configuration**, effectuez les étapes suivantes :
 
-    ![Configurer l'authentification unique](./media/trisotechdigitalenterpriseserver-tutorial/user3.png)
+    ![Configure Single Sign-On](./media/trisotechdigitalenterpriseserver-tutorial/user3.png)
 
     a. Sélectionnez **Secured Assertion Markup Language 2 (SAML 2)** dans la liste déroulante dans **Authentication Method**.
 
@@ -164,7 +164,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez brittasimon@yourcompanydomain.extension. Par exemple, BrittaSimon@contoso.com
+    b. Dans le champ **Nom d’utilisateur**, tapez brittasimon@yourcompanydomain.extension. Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
@@ -215,5 +215,5 @@ Quand vous cliquez sur la vignette Trisotech Digital Enterprise Server dans le v
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

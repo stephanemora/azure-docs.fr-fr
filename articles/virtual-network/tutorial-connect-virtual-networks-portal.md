@@ -14,13 +14,13 @@ ms.date: 01/22/2020
 ms.author: kumud
 ms.custom: ''
 ms.openlocfilehash: e95441aab6c8ce7de37ba5f6b08d5f7d54e13347
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77201296"
 ---
-# <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Tutoriel : Connecter des réseaux virtuels à l’aide du peering de réseaux virtuels en utilisant le portail Azure
+# <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Tutoriel : Connecter des réseaux virtuels à l’aide du peering de réseaux virtuels en utilisant le portail Azure
 
 Vous pouvez connecter des réseaux virtuels entre eux à l’aide du peering de réseaux virtuels. Ces réseaux virtuels peuvent appartenir à la même région ou à des régions différentes (connexion également appelée Global VNet Peering). Une fois que les deux réseaux virtuels sont appairés, leurs ressources peuvent communiquer entre elles avec les mêmes bande passante et latence, comme si elles se trouvaient sur le même réseau virtuel. Dans ce tutoriel, vous allez apprendre à :
 
@@ -46,10 +46,10 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 
     |Paramètre|Valeur|
     |---|---|
-    |Abonnement| Sélectionnez votre abonnement.|
+    |Subscription| Sélectionnez votre abonnement.|
     |Resource group| Sélectionnez **Créer** et entrez *myResourceGroup*.|
     |Région| Sélectionnez **USA Est**.|
-    |Nom|myVirtualNetwork1|
+    |Name|myVirtualNetwork1|
 
 4. Sous l’onglet **Adresses IP**, entrez 10.0.0.0/16 dans le champ **Espace d’adressage**. Cliquez sur le bouton **Ajouter un sous-réseau** situé dessous, puis entrez *Subnet1* sous **Nom du sous-réseau** et 10.0.0.0/24 sous **Plage d’adresses de sous-réseau**.
 5. Sélectionnez **Vérifier + créer**, puis sélectionnez **Créer**.
@@ -58,7 +58,7 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 
     |Paramètre|Valeur|
     |---|---|
-    |Nom|myVirtualNetwork2|
+    |Name|myVirtualNetwork2|
     |Espace d’adressage|10.1.0.0/16|
     |Resource group| Sélectionnez **Utiliser l’existant**, puis **myResourceGroup**.|
     |Nom du sous-réseau | Sous-réseau2|
@@ -76,7 +76,7 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
     |Paramètre|Valeur|
     |---|---|
     |Nom du peering de myVirtualNetwork1 avec un réseau virtuel distant|myVirtualNetwork1-myVirtualNetwork2 : Quand la page se charge pour la première fois, l’expression « réseau virtuel distant » s’affiche ici. Une fois que vous avez choisi le réseau virtuel distant, l’expression « réseau virtuel distant » est remplacée par le nom du réseau virtuel distant.|
-    |Abonnement| Sélectionnez votre abonnement.|
+    |Subscription| Sélectionnez votre abonnement.|
     |Réseau virtuel|myVirtualNetwork2 : Pour sélectionner le réseau virtuel *myVirtualNetwork2*, sélectionnez **Réseau virtuel**, puis **myVirtualNetwork2 (myResourceGroup)** . Vous pouvez sélectionner un réseau virtuel figurant dans la même région ou dans une région différente.|
     |Nom du peering entre myVirtualNetwork2 et myVirtualNetwork1|myVirtualNetwork2-myVirtualNetwork1|
 
@@ -101,8 +101,8 @@ Créez une machine virtuelle sur chaque réseau virtuel afin de pouvoir établir
     |Paramètre|Valeur|
     |---|---|
     |Resource group| Sélectionnez **Utiliser l’existant**, puis **myResourceGroup**.|
-    |Nom|myVm1|
-    |Emplacement| Sélectionnez **USA Est**.|
+    |Name|myVm1|
+    |Location| Sélectionnez **USA Est**.|
     |Nom d'utilisateur| Entrez un nom d’utilisateur de votre choix.|
     |Mot de passe| Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
    
@@ -124,7 +124,7 @@ Effectuez à nouveau les étapes 1 à 6, avec les modifications suivantes :
 
 |Paramètre|Valeur|
 |---|---|
-|Nom | myVm2|
+|Name | myVm2|
 |Réseau virtuel | myVirtualNetwork2|
 
 La création des machines virtuelles peut prendre plusieurs minutes. Attendez que les deux machines virtuelles aient été créées avant de passer aux étapes restantes.

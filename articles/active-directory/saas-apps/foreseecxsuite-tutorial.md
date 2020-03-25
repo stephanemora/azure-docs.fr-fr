@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à ForeSee CX Suite | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à ForeSee CX Suite | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et ForeSee CX Suite.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
 ms.openlocfilehash: c78fa8ec470f04bcd88ab403249f77a65120c707
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67550404"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-foresee-cx-suite"></a>Tutoriel : Intégration d’Azure Active Directory à ForeSee CX Suite
+# <a name="tutorial-azure-active-directory-integration-with-foresee-cx-suite"></a>Tutoriel : Intégration d’Azure Active Directory à ForeSee CX Suite
 
 Dans ce tutoriel, vous allez apprendre à intégrer ForeSee CX Suite à Azure Active Directory (Azure AD).
 L’intégration de ForeSee CX Suite à Azure AD offre les avantages suivants :
@@ -34,7 +34,7 @@ L’intégration de ForeSee CX Suite à Azure AD offre les avantages suivants :
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour configurer l’intégration d’Azure AD à ForeSee CX Suite, vous aurez besoin des éléments suivants :
 
@@ -124,7 +124,7 @@ Pour configurer l’authentification unique Azure AD avec ForeSee CX Suite, ef
     > [!Note]
     > Si la valeur **Identificateur** n’est pas automatiquement renseignée, renseignez-la manuellement conformément au modèle ci-dessus. La valeur de l'identificateur n'est pas réelle. Mettez à jour cette valeur avec l’identificateur réel. Pour obtenir cette valeur, contactez [l’équipe de support client de ForeSee CX Suite](mailto:support@foresee.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-5. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies en fonction de vos besoins, puis enregistrez-le sur votre ordinateur.
+5. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies selon vos besoins, puis enregistrez-le sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
 
@@ -160,7 +160,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez brittasimon@yourcompanydomain.extension. Par exemple, BrittaSimon@contoso.com
+    b. Dans le champ **Nom d’utilisateur**, tapez brittasimon@yourcompanydomain.extension. Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
@@ -208,5 +208,5 @@ Quand vous cliquez sur la vignette ForeSee CX Suite dans le volet d’accès, v
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

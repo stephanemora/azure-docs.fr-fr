@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 11/13/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: daad74ae5f046edb1b4bf6eef547c963e52593f5
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 918703a93e350c1ba82a9b503dde14976358f614
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034434"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80066468"
 ---
-# <a name="tutorial-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application-with-the-azure-cli"></a>Didacticiel : Équilibrer la charge des machines virtuelles Linux dans Azure pour créer une application hautement disponible avec Azure CLI
+# <a name="tutorial-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application-with-the-azure-cli"></a>Tutoriel : Équilibrer la charge des machines virtuelles Linux dans Azure pour créer une application hautement disponible avec Azure CLI
 
 L’équilibrage de charge offre un niveau plus élevé de disponibilité en répartissant les demandes entrantes sur plusieurs machines virtuelles. Dans ce didacticiel, vous allez découvrir les différents composants de l’équilibreur de charge Azure qui répartissent le trafic et fournissent une haute disponibilité. Vous allez apprendre à effectuer les actions suivantes :
 
@@ -32,7 +32,7 @@ L’équilibrage de charge offre un niveau plus élevé de disponibilité en ré
 > * Créer une sonde d’intégrité d’équilibreur de charge
 > * Créer des règles de trafic pour l’équilibrage de charge
 > * Utiliser cloud-init pour créer une application Node.js de base
-> * Créer des machines virtuelles et les attacher à un équilibreur de charge
+> * Créer des machines virtuelles et les attacher à un équilibrage de charge
 > * Afficher un équilibrage de charge en action
 > * Ajouter et supprimer des machines virtuelles d’un équilibreur de charge
 
@@ -55,14 +55,14 @@ Si vous avez suivi le didacticiel précédent pour [créer un groupe de machines
 ## <a name="create-azure-load-balancer"></a>Créer un équilibreur de charge Azure
 Cette section explique en détail comment vous pouvez créer et configurer chaque composant de l’équilibreur de charge. Pour pouvoir créer votre équilibreur de charge, vous devez créer un groupe de ressources avec la commande [az group create](/cli/azure/group). L’exemple suivant crée un groupe de ressources nommé *myResourceGroupLoadBalancer* dans l’emplacement *westus*:
 
-```azurecli-interactive 
+```azurecli-interactive
 az group create --name myResourceGroupLoadBalancer --location eastus
 ```
 
 ### <a name="create-a-public-ip-address"></a>Créer une adresse IP publique
 Pour accéder à votre application sur Internet, vous avez besoin d’une adresse IP publique pour l’équilibreur de charge. Créez une adresse IP publique avec la commande [az network public-ip create](/cli/azure/network/public-ip). L’exemple suivant crée une adresse IP publique nommée *myPublicIP* dans le groupe de ressources *myResourceGroupLoadBalancer* :
 
-```azurecli-interactive 
+```azurecli-interactive
 az network public-ip create \
     --resource-group myResourceGroupLoadBalancer \
     --name myPublicIP
@@ -71,7 +71,7 @@ az network public-ip create \
 ### <a name="create-a-load-balancer"></a>Créer un équilibrage de charge
 Créez un équilibrage de charge avec la commande [az network lb create](/cli/azure/network/lb). L’exemple suivant crée un équilibreur de charge nommé *myLoadBalancer* et affecte l’adresse *myPublicIP* à la configuration IP frontale :
 
-```azurecli-interactive 
+```azurecli-interactive
 az network lb create \
     --resource-group myResourceGroupLoadBalancer \
     --name myLoadBalancer \
@@ -87,7 +87,7 @@ L’exemple suivant permet de créer une sonde TCP. Vous pouvez également crée
 
 Pour créer une sonde d’intégrité TCP, utilisez la commande [az network lb probe create](/cli/azure/network/lb/probe). L’exemple suivant permet de créer une sonde d’intégrité nommée *myHealthProbe* :
 
-```azurecli-interactive 
+```azurecli-interactive
 az network lb probe create \
     --resource-group myResourceGroupLoadBalancer \
     --lb-name myLoadBalancer \
@@ -101,7 +101,7 @@ Une règle d’équilibrage de charge est utilisée pour définir la distributio
 
 Utilisez [az network lb rule create](/cli/azure/network/lb/rule) pour créer une règle d’équilibrage de charge. L’exemple suivant crée une règle nommée *myLoadBalancerRule*, utilise la sonde d’intégrité *myHealthProbe* et équilibre le trafic sur le port *80* :
 
-```azurecli-interactive 
+```azurecli-interactive
 az network lb rule create \
     --resource-group myResourceGroupLoadBalancer \
     --lb-name myLoadBalancer \
@@ -121,7 +121,7 @@ Avant de déployer des machines virtuelles et de pouvoir tester votre équilibre
 ### <a name="create-network-resources"></a>Créer des ressources réseau
 Créez un réseau virtuel avec la commande [az network vnet create](/cli/azure/network/vnet). L’exemple suivant crée un réseau virtuel nommé *myVnet* avec un sous-réseau nommé *mySubnet* :
 
-```azurecli-interactive 
+```azurecli-interactive
 az network vnet create \
     --resource-group myResourceGroupLoadBalancer \
     --name myVnet \
@@ -130,7 +130,7 @@ az network vnet create \
 
 Pour ajouter un groupe de sécurité réseau, utilisez la commande [az network nsg create](/cli/azure/network/nsg). L’exemple suivant crée un groupe de sécurité réseau nommé *myNetworkSecurityGroup* :
 
-```azurecli-interactive 
+```azurecli-interactive
 az network nsg create \
     --resource-group myResourceGroupLoadBalancer \
     --name myNetworkSecurityGroup
@@ -138,7 +138,7 @@ az network nsg create \
 
 Créez une règle de groupe de sécurité réseau avec la commande [az network nsg rule create](/cli/azure/network/nsg/rule). L’exemple suivant crée une règle de groupe de sécurité réseau nommée *myNetworkSecurityGroupRule* :
 
-```azurecli-interactive 
+```azurecli-interactive
 az network nsg rule create \
     --resource-group myResourceGroupLoadBalancer \
     --nsg-name myNetworkSecurityGroup \
@@ -150,7 +150,7 @@ az network nsg rule create \
 
 Les cartes d’interface réseau virtuelles sont créées avec la commande [az network nic create](/cli/azure/network/nic). L’exemple suivant crée trois cartes réseau virtuelles. (Une carte d’interface réseau virtuelle pour chaque machine virtuelle que vous créez pour votre application dans les étapes suivantes). Vous pouvez créer des machines virtuelles et des cartes d’interface réseau virtuelles supplémentaires à tout moment et les ajouter à l’équilibreur de charge :
 
-```bash
+```azurecli
 for i in `seq 1 3`; do
     az network nic create \
         --resource-group myResourceGroupLoadBalancer \
@@ -228,7 +228,7 @@ az vm availability-set create \
 
 À présent, créez les machines virtuelles avec la commande [az vm create](/cli/azure/vm). L’exemple suivant crée trois machines virtuelles et génère des clés SSH si elles n’existent pas déjà :
 
-```bash
+```azurecli
 for i in `seq 1 3`; do
     az vm create \
         --resource-group myResourceGroupLoadBalancer \
@@ -249,7 +249,7 @@ Certaines tâches en arrière-plan continuent à s’exécuter une fois que l’
 ## <a name="test-load-balancer"></a>Tester l’équilibreur de charge
 Obtenez l’adresse IP publique de votre équilibrage de charge avec [az network public-ip show](/cli/azure/network/public-ip). L’exemple suivant obtient l’adresse IP pour *myPublicIP* créée précédemment :
 
-```azurecli-interactive 
+```azurecli-interactive
 az network public-ip show \
     --resource-group myResourceGroupLoadBalancer \
     --name myPublicIP \
@@ -270,7 +270,7 @@ Vous devrez peut-être effectuer la maintenance sur la machine virtuelle exécut
 ### <a name="remove-a-vm-from-the-load-balancer"></a>Supprimer une machine virtuelle de l’équilibrage de charge
 Vous pouvez supprimer une machine virtuelle à partir du pool d’adresses principal avec la commande [az network nic ip-config address-pool remove](/cli/azure/network/nic/ip-config/address-pool). L’exemple suivant supprime la carte réseau virtuelle pour **myVM2** de *myLoadBalancer* :
 
-```azurecli-interactive 
+```azurecli-interactive
 az network nic ip-config address-pool remove \
     --resource-group myResourceGroupLoadBalancer \
     --nic-name myNic2 \
@@ -294,7 +294,7 @@ az network lb address-pool show \
 
 La sortie est similaire à l’exemple suivant, qui indique que la carte réseau virtuelle pour la machine virtuelle 2 ne fait plus partie du pool d’adresses principales :
 
-```bash
+```output
 /subscriptions/<guid>/resourceGroups/myResourceGroupLoadBalancer/providers/Microsoft.Network/networkInterfaces/myNic1/ipConfigurations/ipconfig1
 /subscriptions/<guid>/resourceGroups/myResourceGroupLoadBalancer/providers/Microsoft.Network/networkInterfaces/myNic3/ipConfigurations/ipconfig1
 ```
@@ -302,7 +302,7 @@ La sortie est similaire à l’exemple suivant, qui indique que la carte réseau
 ### <a name="add-a-vm-to-the-load-balancer"></a>Ajouter une machine virtuelle à l’équilibrage de charge
 Après avoir effectué les opérations de maintenance de la machine virtuelle, ou si vous devez développer la capacité, vous pouvez ajouter une machine virtuelle au pool d’adresses principal avec la commande [az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool). L’exemple suivant ajoute la carte réseau virtuelle pour **myVM2** à *myLoadBalancer* :
 
-```azurecli-interactive 
+```azurecli-interactive
 az network nic ip-config address-pool add \
     --resource-group myResourceGroupLoadBalancer \
     --nic-name myNic2 \
@@ -315,14 +315,14 @@ Pour vérifier que la carte réseau virtuelle est connectée au pool d’adresse
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Ce didacticiel vous a montré comment créer un équilibrage de charge et y attacher des machines virtuelles. Vous avez appris à effectuer les actions suivantes :
+Ce didacticiel vous a montré comment créer un équilibrage de charge et y attacher des machines virtuelles. Vous avez appris à :
 
 > [!div class="checklist"]
 > * Crée un équilibrage de charge Azure
 > * Créer une sonde d’intégrité d’équilibreur de charge
 > * Créer des règles de trafic pour l’équilibrage de charge
 > * Utiliser cloud-init pour créer une application Node.js de base
-> * Créer des machines virtuelles et les attacher à un équilibreur de charge
+> * Créer des machines virtuelles et les attacher à un équilibrage de charge
 > * Afficher un équilibrage de charge en action
 > * Ajouter et supprimer des machines virtuelles d’un équilibreur de charge
 

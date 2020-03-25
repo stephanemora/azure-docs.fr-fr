@@ -1,5 +1,5 @@
 ---
-title: "Didacticiel : Intégration d'Azure Active Directory à Pingboard | Microsoft Docs"
+title: 'Didacticiel : Intégration d’Azure Active Directory avec Pingboard | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Pingboard.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 341d8dd712b858572ec5df76b176258ca87c8857
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67094429"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-pingboard"></a>Didacticiel : Intégration d'Azure Active Directory à Pingboard
+# <a name="tutorial-azure-active-directory-integration-with-pingboard"></a>Didacticiel : Intégration d’Azure Active Directory avec Pingboard
 
 Ce didacticiel explique comment intégrer Pingboard avec Azure Active Directory (Azure AD).
 L’intégration de Pingboard avec Azure AD offre les avantages suivants :
@@ -34,7 +34,7 @@ L’intégration de Pingboard avec Azure AD offre les avantages suivants :
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour configurer l’intégration d’Azure AD avec Pingboard, vous avez besoin des éléments suivants :
 
@@ -120,7 +120,7 @@ Pour configurer l’authentification unique Azure AD avec Pingboard, procédez 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de réponse et l’URL de connexion réelles. Pour obtenir ces valeurs, contactez l’[équipe de support technique Pingboard](https://support.pingboard.com/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-6. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies en fonction de vos besoins, puis enregistrez-le sur votre ordinateur.
+6. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies selon vos besoins, puis enregistrez-le sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
 
@@ -140,7 +140,7 @@ Pour configurer l’authentification unique Azure AD avec Pingboard, procédez 
 
 2. Dans le menu supérieur, sélectionnez **Applications > Intégrations**
 
-    ![Configurer l'authentification unique](./media/pingboard-tutorial/Pingboard_integration.png)
+    ![Configure Single Sign-On](./media/pingboard-tutorial/Pingboard_integration.png)
 
 3. Sur la page **Intégrations**, recherchez la mosaïque **« Azure Active Directory »** , puis cliquez dessus.
 
@@ -174,7 +174,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez brittasimon@yourcompanydomain.extension. Par exemple, BrittaSimon@contoso.com
+    b. Dans le champ **Nom d’utilisateur**, tapez brittasimon@yourcompanydomain.extension. Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
@@ -208,7 +208,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 ### <a name="create-pingboard-test-user"></a>Créer un utilisateur de test Pingboard
 
-L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans Pingboard. Pingboard prend en charge l’attribution automatique d’utilisateurs, qui est activée par défaut. Des informations supplémentaires sur la configuration de l’attribution automatique d’utilisateurs sont disponibles [ici](pingboard-provisioning-tutorial.md).
+L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans Pingboard. Pingboard prend en charge l’attribution automatique d’utilisateurs, qui est activée par défaut. Vous trouverez plus d’informations [ici](pingboard-provisioning-tutorial.md) sur la façon de configurer l’attribution automatique d’utilisateurs.
 
 **Si vous avez besoin de créer un utilisateur manuellement, procédez comme suit :**
 
@@ -230,7 +230,7 @@ L’objectif de cette section est de créer un utilisateur appelé Britta Simon 
 
     d. Dans la liste déroulante **Emplacement**, sélectionnez l’emplacement de Britta Simon.
 
-    e. Cliquez sur **Add**.
+    e. Cliquez sur **Ajouter**.
 
 4. Un écran de confirmation s’affiche pour confirmer l’ajout de l’utilisateur.
 
@@ -251,6 +251,6 @@ Le fait de cliquer sur la vignette Pingboard dans le panneau d’accès doit vou
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Configurer l’approvisionnement de l’utilisateur](https://docs.microsoft.com/azure/active-directory/saas-apps/pingboard-provisioning-tutorial)
