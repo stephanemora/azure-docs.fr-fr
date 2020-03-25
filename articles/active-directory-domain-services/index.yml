@@ -14,10 +14,10 @@ metadata:
   manager: daveba
   ms.date: 08/01/2019
   ms.openlocfilehash: f5fa27e19da6bb64b7e214ec32cbfbf0a417118e
-  ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 08/23/2019
+  ms.lasthandoff: 03/25/2020
   ms.locfileid: "70010565"
 landingContent:
 - title: À propos d’Azure AD Domain Services
@@ -34,7 +34,7 @@ landingContent:
       url: synchronization.md
     - text: FAQ
       url: faqs.md
-- title: Prise en main
+- title: Bien démarrer
   linkLists:
   - linkListType: deploy
     links:
@@ -46,7 +46,7 @@ landingContent:
       url: join-windows-vm.md
     - text: Installer des outils de gestion
       url: tutorial-create-management-vm.md
-- title: Configuration
+- title: Configurer
   linkLists:
   - linkListType: tutorial
     links:
@@ -62,7 +62,7 @@ landingContent:
       url: deploy-kcd.md
     - text: Sécuriser un domaine managé
       url: secure-your-domain.md
-- title: gérer
+- title: Gérer
   linkLists:
   - linkListType: how-to-guide
     links:
@@ -88,7 +88,7 @@ landingContent:
       url: join-ubuntu-linux-vm.md
     - text: Red Hat Enterprise Linux
       url: join-rhel-linux-vm.md
-- title: Résolution des problèmes
+- title: Dépanner
   linkLists:
   - linkListType: how-to-guide
     links:

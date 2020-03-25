@@ -1,6 +1,6 @@
 - name: Documentation sur les rapports et l’analyse
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: Que sont les rapports Azure AD ?
       href: overview-reports.md
@@ -39,7 +39,7 @@
       href: concept-risk-events.md
     - name: Les utilisateurs à risque
       href: concept-user-at-risk.md
-    - name: Journaux de provisionnement
+    - name: Journaux d’approvisionnement
       href: concept-provisioning-logs.md
     - name: API de création de rapports
       href: concept-reporting-api.md
@@ -74,7 +74,7 @@
           href: howto-integrate-activity-logs-with-splunk.md
         - name: Intégrer les journaux d’activité à SumoLogic
           href: howto-integrate-activity-logs-with-sumologic.md
-    - name: Résolution des problèmes
+    - name: Dépanner
       items:
         - name: Données d’audit manquantes
           href: troubleshoot-missing-audit-data.md
@@ -99,7 +99,7 @@
       href: reference-reports-latencies.md
     - name: Code d’erreur de connexion
       href: reference-sign-ins-error-codes.md
-    - name: Questions fréquentes (FAQ)
+    - name: Forum aux questions
       href: reports-faq.md
     - name: Schéma du journal d’audit
       href: reference-azure-monitor-audit-log-schema.md

@@ -1,6 +1,6 @@
 - name: Documentation Internet Analyzer
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos d’Internet Analyzer
       href: internet-analyzer-overview.md

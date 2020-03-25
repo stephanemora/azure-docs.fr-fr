@@ -1,6 +1,6 @@
 - name: Documentation sur les identités d’appareil
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce qu’une identité d’appareil\_?"
       href: overview.md
@@ -65,7 +65,7 @@
           href: troubleshoot-hybrid-join-windows-legacy.md
         - name: Résoudre les problèmes relatifs à Enterprise State Roaming
           href: enterprise-state-roaming-troubleshooting.md
-    - name: Questions fréquentes (FAQ)
+    - name: Forum aux questions
       items:
         - name: FAQ
           href: faq.md

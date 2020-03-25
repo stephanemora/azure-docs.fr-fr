@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
 ms.openlocfilehash: c9cb1d7d1dcc6e7872b22d8c58fe44b9bce25f13
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77200742"
 ---
 # <a name="organize-costs-by-customizing-your-billing-account"></a>Organiser les coûts en personnalisant votre compte de facturation
@@ -118,7 +118,7 @@ Pour créer un profil de facturation, vous devez être **propriétaire du compte
 
     |Champ  |Définition  |
     |---------|---------|
-    |Nom     | Nom d’affichage qui vous aide à identifier facilement le profil de facturation dans le Portail Azure.  |
+    |Name     | Nom d’affichage qui vous aide à identifier facilement le profil de facturation dans le Portail Azure.  |
     |Numéro de BDC    | Numéro de bon de commande facultatif. Le numéro de bon de commande s’affiche sur les factures générées pour le profil de facturation. |
     |Adresse de facturation   | L’adresse de facturation s’affiche sur les factures générées pour le profil de facturation. |
     |Facture par e-mail   | Cochez la case de facture par e-mail pour recevoir les factures pour ce profil de facturation par e-mail. Si vous ne choisissez pas cette option, vous pouvez afficher et télécharger les factures dans le Portail Azure.|

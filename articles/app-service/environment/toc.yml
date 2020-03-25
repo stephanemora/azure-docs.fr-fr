@@ -62,7 +62,7 @@
           href: app-service-app-service-environment-create-ilb-ase-resourcemanager.md
         - name: "Configurer la mise à l’échelle automatique d’un environnement\_ASEv1"
           href: app-service-environment-auto-scale.md
-        - name: Augmenter la taille des instances d’une application dans ASEv1
+        - name: Effectuer un scale-out d’une application dans ASEv1
           href: app-service-web-scale-a-web-app-in-an-app-service-environment.md
         - name: Architecture réseau
           href: app-service-app-service-environment-network-architecture-overview.md

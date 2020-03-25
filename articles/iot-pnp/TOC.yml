@@ -83,35 +83,31 @@
           href: 'https://docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/createorupdatemodel'
         - name: Générer un jeton de sécurité REST
           href: howto-generate-sas-token.md
-- name: Rubriques connexes
-  items:
-    - name: Solutions
-      items:
-        - name: IoT Central
-          href: /azure/iot-central
-        - name: Accélérateurs de solution IoT
-          href: /azure/iot-accelerators
-    - name: Services de plateforme
-      items:
-        - name: IoT Hub
-          href: /azure/iot-hub
-        - name: IoT Plug-and-Play
-          href: /azure/iot-pnp
-        - name: Service IoT Hub Device Provisioning
-          href: /azure/iot-dps
-        - name: Kits de développement logiciel (SDK) IoT Service
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
-        - name: Cartes
-          href: /azure/azure-maps
-        - name: Time Series Insights
-          href: /azure/time-series-insights
-    - name: Solutions Edge
-      items:
-        - name: "Azure IoT\_Edge"
-          href: /azure/iot-edge
-        - name: Kits de développement logiciel (SDK) IoT Device
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: Ressources
   items:
     - name: Options d’aide et de support
       href: /azure/iot-fundamentals/iot-support-help
+    - name: Services Azure IoT
+      items:
+        - name: IoT Hub
+          href: /azure/iot-hub
+        - name: Service IoT Hub Device Provisioning
+          href: /azure/iot-dps
+        - name: IoT Central
+          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+        - name: IoT Edge
+          href: /azure/iot-edge
+        - name: Accélérateurs de solution IoT
+          href: /azure/iot-accelerators
+        - name: IoT Plug-and-Play
+          href: /azure/iot-pnp
+        - name: Azure Maps
+          href: /azure/azure-maps
+        - name: Time Series Insights
+          href: /azure/time-series-insights
+    - name: Kits de développement logiciel (SDK) Azure IoT
+      items:
+        - name: Kits de développement logiciel (SDK) IoT Service
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: Kits de développement logiciel (SDK) IoT Device
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'

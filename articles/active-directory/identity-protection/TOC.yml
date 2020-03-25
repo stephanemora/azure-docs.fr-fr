@@ -1,6 +1,6 @@
 - name: "Documentation relative à\_Identity\_Protection"
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce qu’Azure AD Identity Protection\_?"
       href: overview-identity-protection.md

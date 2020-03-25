@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.openlocfilehash: 397e0a21b1ba11b3bdd74c2030ff358c1ce159d8
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77201031"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Migrer depuis des API Enterprise Agreement vers des API Microsoft Customer Agreement
@@ -127,7 +127,7 @@ L’API Usage Details, comme avec toutes les API Cost Management, est disponible
 | --- | --- |
 | Compte de facturation | `/Microsoft.Billing/billingAccounts/{billingAccountId}` |
 | Profil de facturation | `/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}` |
-| Abonnement | `/subscriptions/{subscriptionId}` |
+| Subscription | `/subscriptions/{subscriptionId}` |
 | Resource group | `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}` |
 
 Utilisez les paramètres de chaîne de requête suivant pour mettre à jour le code de programmation.
@@ -184,7 +184,7 @@ Le nom de propriété contenant le tableau d’enregistrements d’utilisation e
 | ExtendedCost et Cost | costInBillingCurrency | &nbsp;  |
 | InstanceId | resourceId | &nbsp;  |
 | Is Recurring Charge | None | &nbsp;  |
-| Emplacement | location | &nbsp;  |
+| Location | location | &nbsp;  |
 | MeterCategory | meterCategory | Les valeurs précises des chaînes peuvent différer. |
 | ID du compteur | meterId | Les valeurs précises des chaînes diffèrent. |
 | MeterName | meterName | Les valeurs précises des chaînes peuvent différer. |

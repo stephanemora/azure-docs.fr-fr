@@ -3,7 +3,7 @@
   expanded: true
 - name: Data Box Gateway
   items:
-    - name: Vue d'ensemble
+    - name: Vue d’ensemble
       items:
         - name: Qu’est-ce que Data Box Gateway ?
           href: data-box-gateway-overview.md
@@ -31,7 +31,7 @@
           href: data-box-gateway-use-cases.md
     - name: Procédures
       items:
-        - name: gérer
+        - name: Gérer
           items:
             - name: Partages
               href: data-box-gateway-manage-shares.md
@@ -43,9 +43,9 @@
               href: data-box-gateway-manage-access-power-connectivity-mode.md
             - name: Via PowerShell
               href: data-box-gateway-connect-powershell-interface.md
-        - name: Surveiller
+        - name: Moniteur
           href: data-box-gateway-monitor.md
-        - name: Résolution des problèmes
+        - name: Dépanner
           href: data-box-gateway-troubleshoot.md
         - name: Contacter le support Microsoft
           href: data-box-edge-contact-microsoft-support.md
@@ -59,7 +59,7 @@
           href: data-box-gateway-release-notes.md
 - name: Azure Stack Edge
   items:
-    - name: Vue d'ensemble
+    - name: Vue d’ensemble
       items:
         - name: "Qu’est-ce qu’Azure Stack Edge\_?"
           href: data-box-edge-overview.md
@@ -91,7 +91,7 @@
       items:
         - name: "Développer un module\_C#"
           href: data-box-edge-create-iot-edge-module.md
-        - name: gérer
+        - name: Gérer
           items:
             - name: Computing en périphérie
               href: data-box-edge-manage-compute.md
@@ -107,11 +107,11 @@
               href: data-box-edge-manage-access-power-connectivity-mode.md
             - name: Via PowerShell
               href: data-box-edge-connect-powershell-interface.md
-        - name: Résolution des problèmes
+        - name: Dépanner
           href: data-box-edge-troubleshoot.md
         - name: Contacter le support Microsoft
           href: data-box-edge-contact-microsoft-support.md
-        - name: Surveiller
+        - name: Moniteur
           href: data-box-edge-monitor.md
         - name: Retourner ou remplacer un appareil
           href: data-box-edge-return-device.md

@@ -1,6 +1,6 @@
 - name: Documentation de l’API Recherche de vidéos Bing
   href: ../Bing-Web-Search/index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   expanded: true
   items:
     - name: "Qu’est-ce que l’API Recherche de vidéos Bing\_?"

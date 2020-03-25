@@ -2,7 +2,7 @@
   items:
     - name: À propos du portail Cloud Partner
       href: ./cloud-partner-portal-what-is-the-cloud-partner-portal.md
-- name: Prise en main
+- name: Bien démarrer
   items:
     - name: Prise en main du portail Cloud Partner
       href: ./cloud-partner-portal-getting-started-with-the-cloud-partner-portal.md
@@ -15,7 +15,7 @@
         - name: Créer une offre de machine virtuelle
           href: ./cloud-partner-portal-publish-virtual-machine.md
           items:
-            - name: Prérequis
+            - name: Conditions préalables requises
               href: './cloud-partner-portal-publish-virtual-machine.md#what-are-pre-requisites-for-publishing-a-vm'
             - name: Inscription d’un compte de développeur Microsoft
               href: ./cloud-partner-portal-dev-center-accounts-registration.md

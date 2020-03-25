@@ -77,7 +77,7 @@
   items:
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: Forum Aux Questions
+    - name: Questions fréquentes (FAQ)
       href: container-service-faq.md
     - name: Modèles – Moteur ACS
       href: 'https://github.com/Azure/acs-engine'

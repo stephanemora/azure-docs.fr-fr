@@ -1,6 +1,6 @@
 - name: Documentation sur le détecteur d’anomalies
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   expanded: true
   items:
     - name: Présentation de l’API Détecteur d’anomalies

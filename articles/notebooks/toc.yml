@@ -1,6 +1,6 @@
 - name: Documentation Azure Notebooks
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: Présentation d’Azure Notebooks
       href: azure-notebooks-overview.md
@@ -22,7 +22,7 @@
       href: tutorial-create-run-jupyter-notebook.md
 - name: Exemples
   items:
-    - name: Exemples de bloc-notes
+    - name: Exemples de notebooks
       href: azure-notebooks-samples.md
 - name: Concepts
   items:

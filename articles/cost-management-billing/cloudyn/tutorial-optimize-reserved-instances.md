@@ -1,25 +1,25 @@
 ---
 title: Tutoriel - Optimiser le coût des instances réservées avec Cloudyn - Azure
 description: Dans ce didacticiel, vous allez apprendre à optimiser les coûts associés aux instances réservées pour Azure et Amazon Web Services (AWS).
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/13/2020
+ms.date: 03/12/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.custom: seodec18
 ms.reviewer: benshy
-ms.openlocfilehash: b37ef5b6fe92538986a267b53c821bf616ba77fb
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ROBOTS: NOINDEX
+ms.openlocfilehash: 22a435a63c4ff649fe428e031bca7beecdbc46d1
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201116"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79463711"
 ---
 <!-- Intent: As a cloud-consuming administrator, I need to ensure that my reserved instances are optimized for cost and usage
 -->
 
-# <a name="tutorial-optimize-reserved-instances"></a>Tutoriel : Optimiser les instances réservées
+# <a name="tutorial-optimize-reserved-instances"></a>Didacticiel : Optimiser les instances réservées
 
 Dans ce tutoriel, vous allez découvrir comment Cloudyn peut vous aider à optimiser l’utilisation des instances réservées et les coûts associés pour Azure et AWS (Amazon Web Services). Une instance réservée auprès d’un fournisseur de services cloud est un engagement d’utilisation de la machine virtuelle se présentant sous la forme d’un contrat à long terme. Elle peut vous permettre de réaliser des économies considérables par rapport à un modèle de tarification à l’utilisation standard. Vous bénéficiez de ces économies potentielles uniquement lorsque vous utilisez toute la capacité de vos instances réservées.
 
@@ -37,7 +37,9 @@ Ce tutoriel explique comment Cloudyn prend en charge les instances réservées A
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
+
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Vous devez disposer d’un compte Azure.
 - Vous devez disposer d’une inscription à un essai gratuit ou d’un abonnement payant pour Cloudyn.

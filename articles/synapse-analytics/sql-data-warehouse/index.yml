@@ -1,0 +1,99 @@
+### YamlMime:Landing
+title: Azure Synapse Analytics (anciennement Azure SQL Data Warehouse)
+summary: Azure Synapse est un service d’analytique illimité qui regroupe l’entreposage des données d’entreprise et l’analytique de Big Data. Il vous donne la possibilité d’interroger les données avec votre propre vocabulaire, en utilisant des ressources serverless à la demande ou des ressources provisionnées, le tout à grande échelle.
+metadata:
+  title: Azure Synapse Analytics
+  description: Azure Synapse est un service d’analytique illimité qui regroupe l’entreposage des données d’entreprise et l’analytique de Big Data. Il vous donne la possibilité d’interroger les données avec votre propre vocabulaire, en utilisant des ressources serverless à la demande ou des ressources provisionnées, le tout à grande échelle.
+  services: sql-data-warehouse
+  ms.service: sql-data-warehouse
+  ms.subservice: design
+  ms.topic: landing-page
+  ms.collection: collection
+  author: julieMSFT
+  ms.author: jrasnick
+  ms.date: 10/03/2019
+  ms.openlocfilehash: 36943d330d0bd97fe6139f5cfa19da571fc70835
+  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 03/24/2020
+  ms.locfileid: "80135672"
+landingContent:
+- title: À propos d’Azure Synapse Analytics
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce qu’Azure Synapse ?
+      url: sql-data-warehouse-overview-what-is.md
+  - linkListType: architecture
+    links:
+    - text: Architecture d’Azure Synapse
+      url: massively-parallel-processing-mpp-architecture.md
+    - text: Conseils et meilleures pratiques
+      url: cheat-sheet.md
+    - text: Architecture de référence
+      url: https://docs.microsoft.com/azure/architecture/reference-architectures/data/enterprise-bi-synapse
+- title: Prise en main
+  linkLists:
+  - linkListType: deploy
+    links:
+    - text: Créer un pool SQL (entrepôt de données)
+      url: create-data-warehouse-portal.md
+- title: Charger les données
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Concevoir une stratégie de chargement des données
+      url: design-elt-data-loading.md
+    - text: Meilleures pratiques
+      url: guidance-for-loading-data.md
+  - linkListType: how-to-guide
+    links:
+    - text: Charger des données à partir d’Azure Data Lake Storage
+      url: sql-data-warehouse-load-from-azure-data-lake-store.md
+  - linkListType: tutorial
+    links:
+    - text: Charger des données à partir de Stockage Blob Azure
+      url: load-data-from-azure-blob-storage-using-polybase.md
+- title: Réglage des performances
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Meilleures pratiques
+      url: sql-data-warehouse-best-practices.md
+    - text: Paramétrage des index columnstore en cluster ordonné
+      url: performance-tuning-ordered-cci.md
+    - text: Utiliser des vues matérialisées pour le paramétrage des charges de travail
+      url: performance-tuning-materialized-views.md
+  - linkListType: how-to-guide
+    links:
+    - text: Analyser votre charge de travail
+      url: analyze-your-workload.md
+- title: Gestion et surveillance
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Découvrir comment gérer et superviser votre entrepôt de données
+      url: sql-data-warehouse-overview-manageability-monitoring.md
+  - linkListType: how-to-guide
+    links:
+    - text: Surveiller votre charge de travail à l'aide de vues de gestion dynamique
+      url: sql-data-warehouse-manage-monitor.md
+    - text: Gérer et superviser l’importance de la charge de travail
+      url: sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md
+- title: Sécuriser votre entrepôt de données
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Comprendre les bases de la sécurisation de votre entrepôt de données
+      url: sql-data-warehouse-overview-manage-security.md
+  - linkListType: how-to-guide
+    links:
+    - text: Configurer l’authentification Azure Active Directory
+      url: /azure/sql-database/sql-database-aad-authentication-configure?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
+- title: Ressources
+  linkLists:
+  - linkListType: video
+    links:
+    - text: Regarder les dernières vidéos sur les entrepôts de données
+      url: sql-data-warehouse-videos.md

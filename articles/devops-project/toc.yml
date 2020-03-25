@@ -1,6 +1,6 @@
 - name: Documentation Azure DevOps Projects
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: Présentation d’Azure DevOps Project
       href: overview.md

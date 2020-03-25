@@ -9,10 +9,10 @@ ms.date: 12/19/2019
 ms.author: jenhayes
 ms.custom: include file
 ms.openlocfilehash: e32b55ed655b1e47f85640eb7f494a89f3274667
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/25/2020
 ms.locfileid: "75456758"
 ---
 Nous fournissons différents modèles pour répondre à des scénarios d’intégration spécifiques. Choisissez l’option qui vous convient le mieux et veillez à modifier le fichier de paramètres pour refléter votre environnement. Pour plus d’informations sur l’utilisation de ces fichiers dans votre déploiement, consultez [Intégrer un client dans la gestion des ressources déléguées Azure](../articles/lighthouse/how-to/onboard-customer.md).

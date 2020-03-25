@@ -115,5 +115,7 @@
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
     - name: Conformité
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+    - name: Chiffrement
+      href: face-encryption-of-data-at-rest.md
     - name: Notes de publication
       href: ReleaseNotes.md

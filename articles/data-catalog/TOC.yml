@@ -20,7 +20,7 @@
       href: data-catalog-dsr.md
     - name: Adoption d’Azure Data Catalog
       href: data-catalog-adopting-data-catalog.md
-    - name: Prérequis
+    - name: Conditions préalables requises
       href: data-catalog-prerequisites.md
     - name: Questions fréquentes (FAQ)
       href: data-catalog-frequently-asked-questions.md

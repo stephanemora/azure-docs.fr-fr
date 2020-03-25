@@ -1,6 +1,6 @@
 - name: Documentation Azure Analysis Services
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce qu’Azure Analysis Services\_?"
       href: analysis-services-overview.md
@@ -38,7 +38,7 @@
       href: analysis-services-bcdr.md
     - name: Sources de données prises en charge
       href: analysis-services-datasource.md
-- name: Procédure
+- name: Procédures
   items:
     - name: Serveur
       items:
@@ -82,7 +82,7 @@
           href: analysis-services-database-users.md
         - name: Gérer des administrateurs de serveur
           href: analysis-services-server-admins.md
-    - name: Connecter
+    - name: Se connecter
       items:
         - name: Connexion avec Excel
           href: analysis-services-connect-excel.md

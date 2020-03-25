@@ -4,13 +4,13 @@
   items:
     - name: "Qu’est-ce que Stretch Database\_?"
       href: /sql/sql-server/stretch-database/stretch-database
-    - name: Limitations et erreurs majeures
+    - name: Limitations et problèmes de blocage
       href: /sql/sql-server/stretch-database/limitations-for-stretch-database
-- name: Prise en main
+- name: Découvrir
   items:
     - name: Identifier les bases de données et les tables
       href: /sql/sql-server/stretch-database/stretch-database-databases-and-tables-stretch-database-advisor
-    - name: Exécuter l’Assistant
+    - name: Exécuter l'assistant
       href: /sql/sql-server/stretch-database/get-started-by-running-the-enable-database-for-stretch-wizard
 - name: Procédure
   items:
@@ -22,17 +22,17 @@
           href: /sql/sql-server/stretch-database/enable-stretch-database-for-a-table
         - name: Sélectionner les lignes à migrer
           href: /sql/sql-server/stretch-database/select-rows-to-migrate-by-using-a-filter-function-stretch-database
-    - name: gérer
+    - name: Gérer
       items:
         - name: Surveiller la migration de données
           href: /sql/sql-server/stretch-database/monitor-and-troubleshoot-data-migration-stretch-database
         - name: Suspendre et reprendre la migration
           href: /sql/sql-server/stretch-database/pause-and-resume-data-migration-stretch-database
-        - name: Gérer et résoudre les problèmes
+        - name: Gérer et dépanner
           href: /sql/sql-server/stretch-database/manage-and-troubleshoot-stretch-database
         - name: Sauvegarder
           href: /sql/sql-server/stretch-database/backup-stretch-enabled-databases-stretch-database
-        - name: Restore
+        - name: Restaurer
           href: /sql/sql-server/stretch-database/restore-stretch-enabled-databases-stretch-database
         - name: Désactiver Stretch Database
           href: /sql/sql-server/stretch-database/disable-stretch-database-and-bring-back-remote-data

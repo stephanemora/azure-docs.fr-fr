@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
 ms.openlocfilehash: f0b093950b7f8fbbfbb0ca8ceb48cb0aa6341e10
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77200280"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-sql-databases"></a>Comme une remise de réservation est-elle appliquée aux bases de données Azure SQL Database ?
@@ -32,13 +32,13 @@ Lorsque vous arrêtez une ressource, la remise de réservation s'applique automa
 
 Les exemples suivants montrent comment la remise de capacité réservée SQL Database s’applique en fonction du nombre de cœurs achetés et du moment où ils s’exécutent.
 
-- Scénario 1 : Vous achetez une capacité réservée de la base de données SQL pour une base de données SQL à 8 cœurs. Vous exécutez une base de données SQL à 16 cœurs qui correspond au reste des attributs de la réservation. Vous êtes facturé selon la méthode du paiement à l’utilisation pour les calculs utilisés par la base de données SQL à 8 cœurs. Vous obtenez la remise de réservation pour les calculs utilisés par la base de données SQL à 8 cœurs pendant une heure.
+- Scénario 1 : Vous achetez une capacité réservée de la base de données SQL pour une base de données SQL à 8 cœurs. Vous exécutez une base de données SQL à 16 cœurs qui correspond au reste des attributs de la réservation. Vous êtes facturé selon la méthode du paiement à l’utilisation pour les calculs utilisés par la base de données SQL à 8 cœurs. Vous obtenez la remise de réservation pour les calculs utilisés par la base de données SQL à 8 cœurs pendant une heure.
 
 Dans le reste de ces exemples, nous supposons que la capacité réservée SQL Database que vous achetez est pour une base de données SQL à 16 cœurs et que le reste des attributs de réservation correspond aux bases de données SQL en cours d’exécution.
 
-- Scénario 2 : Vous exécutez deux bases de données SQL à 8 cœurs pendant une heure. La remise de réservation pour 16 cœurs est appliquée aux calculs utilisés par les deux bases de données SQL à 8 cœurs.
-- Scénario 3 : Vous exécutez une base de données SQL à 16 cœurs de 13 h 00 à 13 h 30. Vous exécutez une autre base de données SQL à 16 cœurs de 13 h 30 à 14 h 00. Les deux sont couvertes par la remise de réservation.
-- Scénario 4 : Vous exécutez une base de données SQL à 16 cœurs de 13 h 00 à 13 h 45. Vous exécutez une autre base de données SQL à 16 cœurs de 13 h 30 à 14 h 00. Le prix du chevauchement de 15 minutes vous est facturé selon la méthode du paiement à l’utilisation. La remise de réservation s’applique aux calculs utilisés pendant la période restante.
+- Scénario 2 : Vous exécutez deux bases de données SQL à 8 cœurs pendant une heure. La remise de réservation pour 16 cœurs est appliquée aux calculs utilisés par les deux bases de données SQL à 8 cœurs.
+- Scénario 3 : Vous exécutez une base de données SQL à 16 cœurs de 13 h 00 à 13 h 30. Vous exécutez une autre base de données SQL à 16 cœurs de 13 h 30 à 14 h 00. Les deux sont couvertes par la remise de réservation.
+- Scénario 4 : Vous exécutez une base de données SQL à 16 cœurs de 13 h 00 à 13 h 45. Vous exécutez une autre base de données SQL à 16 cœurs de 13 h 30 à 14 h 00. Le prix du chevauchement de 15 minutes vous est facturé selon la méthode du paiement à l’utilisation. La remise de réservation s’applique aux calculs utilisés pendant la période restante.
 
 Pour comprendre et voir l’application de vos réservations Azure dans les rapports de facturation d’utilisation, consultez [Comprendre l’utilisation des réservations Azure](understand-reserved-instance-usage-ea.md).
 

@@ -8,10 +8,10 @@ metadata:
   ms.author: edoyle
   ms.date: 12/02/2019
   ms.openlocfilehash: eb24b0b0b4a143e82c2b93f158db0a3d0647ed7c
-  ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 12/03/2019
+  ms.lasthandoff: 03/25/2020
   ms.locfileid: "74790156"
 landingContent:
 - title: À propos de Service Fabric Mesh
@@ -48,7 +48,7 @@ landingContent:
       url: service-fabric-mesh-tutorial-create-dotnetcore.md
   - linkListType: how-to-guide
     links:
-    - text: Configuration de l'environnement de développement
+    - text: Configurer l''environnement de développement
       url: service-fabric-mesh-howto-setup-developer-environment-sdk.md
     - text: Optimiser Visual Studio pour Service Fabric Mesh
       url: service-fabric-mesh-howto-optimize-vs.md

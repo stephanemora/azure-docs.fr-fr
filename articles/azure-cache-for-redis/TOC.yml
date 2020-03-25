@@ -33,6 +33,10 @@
       href: cli-samples.md
 - name: Concepts
   items:
+    - name: Sécurité
+      items:
+        - name: Base de référence de la sécurité
+          href: security-baseline.md
     - name: Basculement et correctif
       href: cache-failover.md
     - name: Meilleures pratiques
@@ -44,7 +48,7 @@
     - name: Plan
       items:
         - name: Sélectionner un niveau de cache
-          href: 'cache-faq.md#what-redis-cache-offering-and-size-should-i-use'
+          href: 'cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use'
         - name: Distribuer votre cache avec le clustering
           href: cache-how-to-premium-clustering.md
         - name: Rendre votre cache persistant avec la persistance des données Redis
@@ -113,7 +117,7 @@
       items:
         - name: Mettre à jour vers une taille et un niveau différents
           href: cache-how-to-scale.md
-        - name: Utiliser un cluster Redis pour augmenter/diminuer la taille des instances
+        - name: Utiliser un cluster Redis pour effectuer un scale-in/scale-out
           href: cache-how-to-premium-clustering.md
 - name: Informations de référence
   items:

@@ -9,6 +9,8 @@
           href: review-customer-agreement-bill.md
         - name: Payer votre facture Contrat Partenaire Microsoft
           href: review-partner-agreement-bill.md
+        - name: Consulter votre facture Contrat Entreprise
+          href: review-enterprise-agreement-bill.md
     - name: Concepts
       items:
         - name: Termes de l’utilisation d’un abonnement individuel

@@ -1,6 +1,6 @@
 - name: Documentation relative aux notions de base
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: Présentation de la sécurité Azure
       href: overview.md
@@ -28,7 +28,7 @@
           href: infrastructure-network.md
         - name: Réseau de production
           href: production-network.md
-        - name: Base de données SQL
+        - name: SQL Database
           href: infrastructure-sql.md
         - name: Opérations
           href: infrastructure-operations.md
@@ -36,7 +36,7 @@
           href: infrastructure-monitoring.md
         - name: Intégrité
           href: infrastructure-integrity.md
-        - name: Protection des données
+        - name: Protection de données
           href: protection-customer-data.md
     - name: Isolation dans le cloud Azure
       href: isolation-choices.md
@@ -44,19 +44,17 @@
   items:
     - name: Présentation de la sécurité
       href: identity-management-overview.md
-    - name: Bonnes pratiques
+    - name: Meilleures pratiques
       href: identity-management-best-practices.md
     - name: Liste de contrôle de sécurité
       href: steps-secure-identity.md
-    - name: Choisir sans mot de passe
-      href: ad-passwordless.md
     - name: Choisir l’authentification Azure AD
       href: choose-ad-authn.md
 - name: Sécurité du réseau
   items:
     - name: Présentation de la sécurité
       href: network-overview.md
-    - name: Bonnes pratiques
+    - name: Meilleures pratiques
       href: network-best-practices.md
     - name: Protection DDOS
       href: ddos-best-practices.md
@@ -78,7 +76,7 @@
       href: encryption-overview.md
     - name: Chiffrement de disque
       items:
-        - name: Bonnes pratiques
+        - name: Meilleures pratiques
           href: data-encryption-best-practices.md
         - name: Chiffrement des données au repos
           href: encryption-atrest.md
@@ -86,9 +84,9 @@
           href: azure-disk-encryption-vms-vmss.md
     - name: Sécurité de la base de données
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           href: database-security-overview.md
-        - name: Bonnes pratiques
+        - name: Meilleures pratiques
           href: database-best-practices.md
         - name: Liste de contrôle de sécurité
           href: database-security-checklist.md
@@ -119,9 +117,9 @@
       href: management-monitoring-overview.md
     - name: Sécurité opérationnelle
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           href: operational-overview.md
-        - name: Bonnes pratiques
+        - name: Meilleures pratiques
           href: operational-best-practices.md
         - name: Liste de contrôle de sécurité
           href: operational-checklist.md
@@ -131,7 +129,7 @@
       href: services-technologies.md
     - name: Livres blancs sur la sécurité
       href: 'https://azure.microsoft.com/resources/whitepapers/search/?term=security&type=WhitePaperResource'
-    - name: Bonnes pratiques
+    - name: Meilleures pratiques
       href: best-practices-and-patterns.md
     - name: Conseils sur la cybersécurité
       href: cyber-services.md

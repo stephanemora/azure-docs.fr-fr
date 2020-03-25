@@ -280,7 +280,7 @@
               href: how-to-connect-sync-service-manager-ui-mvdesigner.md
             - name: Recherche de métaverse
               href: how-to-connect-sync-service-manager-ui-mvsearch.md
-    - name: Résolution des problèmes
+    - name: Dépanner
       items:
         - name: "Présentation de l’agent d’administration Azure AD\_Connect"
           href: whatis-aadc-admin-agent.md
@@ -312,6 +312,8 @@
           href: tshoot-connect-attribute-not-syncing.md
         - name: Problèmes d’installation
           href: tshoot-connect-install-issues.md
+        - name: Modifications de l’UPN
+          href: howto-troubleshoot-upn-changes.md
 - name: Informations de référence
   items:
     - name: Ports et protocoles nécessaires à l’identité hybride

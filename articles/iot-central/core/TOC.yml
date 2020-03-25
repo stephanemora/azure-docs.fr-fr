@@ -127,8 +127,10 @@
               href: howto-manage-preferences.md
             - name: Activer ou désactiver les conversations en direct
               href: howto-show-hide-chat.md
-- name: Rubriques connexes
+- name: Ressources
   items:
+    - name: Options d’aide et de support
+      href: /azure/iot-fundamentals/iot-support-help
     - name: Modèles d’applications par secteur
       items:
         - name: Vente au détail
@@ -139,30 +141,30 @@
           href: ../government/overview-iot-central-government.md
         - name: Santé
           href: ../healthcare/overview-iot-central-healthcare.md
-    - name: Services de plateforme
+    - name: Services Azure IoT
       items:
         - name: IoT Hub
           href: /azure/iot-hub
-        - name: IoT Plug-and-Play
-          href: /azure/iot-pnp
         - name: Service IoT Hub Device Provisioning
           href: /azure/iot-dps
-        - name: Kits de développement logiciel (SDK) IoT Service
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
-        - name: Cartes
+        - name: IoT Central
+          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+        - name: IoT Edge
+          href: /azure/iot-edge
+        - name: Accélérateurs de solution IoT
+          href: /azure/iot-accelerators
+        - name: IoT Plug-and-Play
+          href: /azure/iot-pnp
+        - name: Azure Maps
           href: /azure/azure-maps
         - name: Time Series Insights
           href: /azure/time-series-insights
-    - name: Solutions Edge
+    - name: Kits de développement logiciel (SDK) Azure IoT
       items:
-        - name: "Azure IoT\_Edge"
-          href: /azure/iot-edge
+        - name: Kits de développement logiciel (SDK) IoT Service
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
         - name: Kits de développement logiciel (SDK) IoT Device
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
-- name: Ressources
-  items:
-    - name: Options d’aide et de support
-      href: /azure/iot-fundamentals/iot-support-help
     - name: Informations de référence sur l’API IoT Central
       href: 'https://docs.microsoft.com/rest/api/iotcentral/'
     - name: Demandes de données client

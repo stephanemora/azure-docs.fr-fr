@@ -11,11 +11,11 @@ ms.date: 02/12/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 84b36c1357bedfc120cec72af84fdd79f52a2f57
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78245382"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79238157"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Transfert de la propriété de facturation d’un abonnement Azure à un autre compte
 
@@ -106,8 +106,8 @@ Le transfert d’abonnement dans le portail Azure est disponible pour les types 
 - [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p/)  
 - [Abonnés Visual Studio Enterprise (MPN)](https://azure.microsoft.com/offers/ms-azr-0029p/)
 - [Plateformes MSDN](https://azure.microsoft.com/offers/ms-azr-0062p/)  
-- [Paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0003p/)
-- [Dev/Test – Paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0023p/)
+- [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/)
+- [Pay-As-You-Go Dev/Test](https://azure.microsoft.com/offers/ms-azr-0023p/)
 - [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/)
 - [Visual Studio Enterprise : BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p/)
 - [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/)
@@ -124,7 +124,7 @@ Le transfert d’abonnement dans le portail Azure est disponible pour les types 
 
 Ces Questions fréquentes (FAQ) concernent les utilisateurs qui transfèrent la propriété de facturation d’un abonnement Azure à un autre compte.
 
-### <a name="whoisaa"></a> Qui est administrateur de facturation d’un compte ?
+### <a name="who-is-a-billing-administrator-of-an-account"></a><a name="whoisaa"></a> Qui est administrateur de facturation d’un compte ?
 
 Un administrateur de facturation est une personne qui a l’autorisation de gérer la facturation d’un compte. Il est autorisé à accéder à la facturation sur le [portail Azure](https://portal.azure.com) et à effectuer différentes tâches liées à la facturation, comme la création d’abonnements, la consultation et le paiement des factures, ou la mise à jour des modes de paiement.
 
@@ -206,15 +206,15 @@ L’administrateur d’entreprise peut mettre à jour la propriété d’un comp
 
 ## <a name="troubleshooting"></a>Dépannage
 
-### <a id="no-button"></a> Pourquoi le bouton Transférer un abonnement ne s’affiche-t-il pas ?
+### <a name="why-dont-i-see-the-transfer-subscription-button"></a><a id="no-button"></a> Pourquoi le bouton Transférer un abonnement ne s’affiche-t-il pas ?
 
 Le transfert d’abonnement en libre-service n’est pas disponible pour votre compte de facturation. Nous ne prenons pas en charge le transfert de la propriété de facturation pour les abonnements des comptes Contrat Entreprise (EA) dans le portail Azure. En outre, les comptes Contrat client Microsoft qui sont créés dans le cadre d’une collaboration avec un représentant Microsoft ne prennent pas en charge le transfert de la propriété de la facturation.
 
-### <a id="no-button"></a> Pourquoi mon type d’abonnement ne prend-il pas en charge le transfert ?
+### <a name="why-doesnt-my-subscription-type-support-transfer"></a><a id="no-button"></a> Pourquoi mon type d’abonnement ne prend-il pas en charge le transfert ?
 
 Tous les types d’abonnements ne prennent pas en charge le transfert de la propriété de facturation. Pour voir la liste des types d’abonnements qui prennent en charge les transferts, consultez [Types d’abonnements pris en charge](#supported-subscription-types)
 
-### <a id="no-button"></a> Quand j’essaie de transférer la propriété de facturation d’un abonnement, je reçois une erreur de refus d’accès. Pourquoi ?
+### <a name="why-am-i-receiving-an-access-denied-error-when-i-try-to-transfer-billing-ownership-of-a-subscription"></a><a id="no-button"></a> Quand j’essaie de transférer la propriété de facturation d’un abonnement, je reçois une erreur de refus d’accès. Pourquoi ?
 
 Vous voyez cette erreur si vous essayez de transférer un abonnement Plan Microsoft Azure et que vous n’avez pas l’autorisation nécessaire. Pour transférer un abonnement Plan Microsoft Azure, vous devez être propriétaire ou contributeur de la section de facture à laquelle l’abonnement est facturé. Pour plus d’informations, consultez [Gérer les abonnements associés à la section de facture](understand-mca-roles.md#manage-subscriptions-for-invoice-section).
 

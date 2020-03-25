@@ -1,6 +1,6 @@
 - name: Documentation sur les groupes d’administration Azure
   href: ./index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   expanded: true
   items:
     - name: Gestion d’Azure

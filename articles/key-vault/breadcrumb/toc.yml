@@ -42,7 +42,7 @@
             - name: Certificats
               tocHref: /cli/azure/keyvault/certificate
               topicHref: /azure/key-vault/
-            - name: Clés
+            - name: Keys
               tocHref: /cli/azure/keyvault/key
               topicHref: /azure/key-vault/
             - name: Secrets

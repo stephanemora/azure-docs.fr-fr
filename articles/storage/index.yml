@@ -31,7 +31,7 @@ sections:
               text: PowerShell
           - image:
               src: media/index/cli.svg
-              text: D’Azure CLI
+              text: Azure CLI
           - image:
               src: media/index/logo_net.svg
           - image:
@@ -89,7 +89,7 @@ sections:
           - html: '.NET &#58; <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=blob&sort=0&platform=dotnet">Blobs</a> | <a     href="https://azure.microsoft.com/resources/samples/?service=storage&term=file&sort=0&platform=dotnet">Fichiers</a> | <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=queue&sort=0&platform=dotnet">Files d’attente</a>'
           - html: 'Java &#58; <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=blob&sort=0&platform=java">Blobs</a> | <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=file&sort=0&platform=java">Fichiers</a> | <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=queue&sort=0&platform=java">Files d’attente</a>'
           - html: <a href="/azure/storage/blobs/storage-samples-blobs-powershell">Azure PowerShell</a>
-          - html: <a href="/azure/storage/blobs/storage-samples-blobs-cli">Interface de ligne de commande Azure</a>
+          - html: <a href="/azure/storage/blobs/storage-samples-blobs-cli">Azure CLI</a>
   - title: Développer vos compétences avec Microsoft Learn
     items:
       - type: list
@@ -136,6 +136,6 @@ sections:
         className: cardsD
         items:
           - title: Ligne de commande
-            html: <p><a href="/powershell/storage">PowerShell</a></p><p><a href="/cli/azure/storage">Interface de ligne de commande Azure</a></p>
+            html: <p><a href="/powershell/storage">PowerShell</a></p><p><a href="/cli/azure/storage">Azure CLI</a></p>
           - title: REST
             html: '<p><a href="/rest/api/storageservices">API d’objets Blob, files d’attente, tables et fichiers</a></p><p><a href="/rest/api/storagerp">API de fournisseur de ressources de stockage</a></p><p><a href="/rest/api/storageimportexport">API de Service Import/Export</a></p>'

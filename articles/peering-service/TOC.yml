@@ -1,6 +1,6 @@
 - name: Documentation Peering Service
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos de Peering Service
       href: about.md
@@ -22,15 +22,15 @@
           href: azure-portal.md
         - name: Azure PowerShell
           href: powershell.md
-        - name: D’Azure CLI
+        - name: Azure CLI
           href: cli.md
     - name: Mesurer la télémétrie de la connexion
       href: measure-connection-telemetry.md
-- name: Références
+- name: References
   items:
     - name: Azure PowerShell
       href: /powershell/module/az.peering
-    - name: D’Azure CLI
+    - name: Azure CLI
       href: /cli/azure/ext/peering/peering
 - name: Ressources
   items:

@@ -1,20 +1,20 @@
 ---
-title: Ajouter des métriques étendues pour les machines virtuelles Azure | Microsoft Docs
+title: Ajouter des métriques étendues pour les machines virtuelles Azure
 description: Cet article vous aide à activer et à configurer les métriques de diagnostics étendues pour vos machines virtuelles Azure.
-keywords: ''
 author: bandersmsft
 ms.reviewer: vitavor
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.custom: seodec18
-ms.openlocfilehash: 84a9d6aa6203b8a518b0e33bed0ec2707c4389a1
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ROBOTS: NOINDEX
+ms.openlocfilehash: b4c646f3d42edc39f457cd735f16409f4ef05d2c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79082912"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79481617"
 ---
 # <a name="add-extended-metrics-for-azure-virtual-machines"></a>Ajouter des métriques étendues pour les machines virtuelles Azure
 
@@ -30,7 +30,9 @@ Une fois que vous avez activé la collecte de métriques, vous pouvez :
 Par exemple, vous pouvez souhaiter surveiller les pourcentages d’utilisation de l’UC et de la mémoire de vos machines virtuelles Azure. Les métriques des machines virtuelles Azure correspondent à _Pourcentage d’UC_ et _\Mémoire\% octets validés en cours d’utilisation_.
 
 > [!NOTE]
-> La collecte de données de métriques étendue est prise en charge uniquement avec la supervision d’invités Azure. Cloudyn n’est pas compatible avec [Log Analytics Agent](../../azure-monitor/platform/agents-overview.md). 
+> La collecte de données de métriques étendue est prise en charge uniquement avec la supervision d’invités Azure. Cloudyn n’est pas compatible avec [Log Analytics Agent](../../azure-monitor/platform/agents-overview.md).
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 ## <a name="determine-whether-extended-metrics-are-enabled"></a>Déterminer si les métriques étendues sont activées
 

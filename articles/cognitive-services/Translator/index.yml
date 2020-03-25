@@ -8,20 +8,19 @@ metadata:
   services: cognitive-services
   author: erhopf
   manager: nitinme
-  layout: LandingPage
   ms.service: cognitive-services
   ms.subservice: translator-text
   ms.topic: landing-page
   ms.date: 10/14/2019
   ms.author: erhopf
-  ms.openlocfilehash: 7103e8e6e64c60507b8f72d843fe05afa2e3561f
-  ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+  ms.openlocfilehash: 2d6b5f07cdefe874a8c25338e5c31664fccb8055
+  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 11/12/2019
-  ms.locfileid: "73960614"
+  ms.lasthandoff: 03/24/2020
+  ms.locfileid: "79415750"
 landingContent:
-- title: Traducteur
+- title: Convertisseur
   linkLists:
   - linkListType: overview
     links:
@@ -35,7 +34,7 @@ landingContent:
       url: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
     - text: Création d’un abonnement
       url: translator-text-how-to-signup.md
-    - text: Forum Aux Questions
+    - text: Questions fréquentes (FAQ)
       url: https://www.microsoft.com/translator/faq.aspx
 - title: API de traduction de texte Translator Text
   linkLists:

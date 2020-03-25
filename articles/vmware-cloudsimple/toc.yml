@@ -1,9 +1,9 @@
-- name: Solutions VMware (AVS)
+- name: VMware Solution by CloudSimple
   href: /azure/vmware-cloudsimple
   items:
     - name: Vue d’ensemble
       items:
-        - name: Présentation des solutions VMware (AVS)
+        - name: Présentation de VMware Solution by CloudSimple
           href: cloudsimple-vmware-solutions-overview.md
         - name: Concepts clés pour l’administration
           href: key-concepts.md
@@ -14,9 +14,9 @@
           href: cloudsimple-network-checklist.md
         - name: Initialiser et approvisionner une capacité
           href: quickstart-create-cloudsimple-service.md
-        - name: Configurer un environnement de cloud privé AVS
+        - name: Configurer un environnement de cloud privé
           href: quickstart-create-private-cloud.md
-        - name: Créer une machine virtuelle VMware dans un cloud privé AVS
+        - name: Créer des machines virtuelles VMware dans un cloud privé
           href: quickstart-create-private-cloud-vmware-virtual-machine.md
         - name: Utiliser des machines virtuelles VMware sur Azure
           href: quickstart-create-vmware-virtual-machine.md
@@ -26,7 +26,7 @@
           href: cloudsimple-service.md
         - name: Nœuds
           href: cloudsimple-node.md
-        - name: Cloud privé AVS
+        - name: Cloud privé
           href: cloudsimple-private-cloud.md
         - name: Machines virtuelles
           href: cloudsimple-virtual-machines.md
@@ -44,7 +44,7 @@
           href: cloudsimple-account.md
         - name: Gestion des activités
           href: cloudsimple-activity.md
-        - name: VMware dans un cloud privé AVS
+        - name: VMware sur un cloud privé
           href: vmware-components.md
         - name: Présentation de la sécurité
           href: cloudsimple-security.md
@@ -56,9 +56,9 @@
           href: cloudsimple-faq.md
     - name: Tutoriels
       items:
-        - name: Créer un service AVS
+        - name: Créer le service CloudSimple
           href: create-cloudsimple-service.md
-        - name: Accéder au portail AVS
+        - name: Accéder au portail CloudSimple
           href: access-cloudsimple-portal.md
         - name: Configuration du pare-feu local
           href: on-premises-firewall-configuration.md
@@ -70,25 +70,25 @@
               href: create-nodes.md
             - name: Supprimer des nœuds
               href: delete-nodes.md
-        - name: Gérer des ressources de cloud privé AVS
+        - name: Gérer des ressources de cloud privé
           items:
-            - name: Créer un cloud privé AVS
+            - name: Créer un cloud privé
               href: create-private-cloud.md
-            - name: Gérer vos clouds privés AVS
+            - name: Gérer vos clouds privés
               href: manage-private-cloud.md
-            - name: Étendre un cloud privé AVS
+            - name: Développer un cloud privé
               href: expand-private-cloud.md
-            - name: Réduire un cloud privé AVS
+            - name: Réduire un cloud privé
               href: shrink-private-cloud.md
             - name: Mapper votre abonnement Azure
               href: azure-subscription-mapping.md
             - name: Élever les privilèges
               href: escalate-private-cloud-privileges.md
-            - name: Supprimer un cloud privé AVS
+            - name: Supprimer un cloud privé
               href: delete-private-cloud.md
-        - name: Superviser l’activité AVS
+        - name: Superviser l’activité CloudSimple
           href: monitor-activity.md
-        - name: Configurer un réseau de cloud privé AVS
+        - name: Configurer un réseau de cloud privé
           items:
             - name: Créer et gérer des réseaux locaux virtuels et des sous-réseaux
               href: create-vlan-subnet.md
@@ -98,35 +98,35 @@
               href: public-ips.md
             - name: Configurer des connexions VPN
               href: vpn-gateway.md
-            - name: Page de connexion de réseau virtuel à AVS
+            - name: Connexion de réseau virtuel à CloudSimple
               href: virtual-network-connection.md
-        - name: Gérer des comptes de portail AVS
+        - name: Gérer les comptes du portail CloudSimple
           items:
             - name: Afficher le récapitulatif du compte
               href: account.md
             - name: Afficher la liste des utilisateurs
               href: users.md
-        - name: Configurer des machines virtuelles AVS
+        - name: Configurer des machines virtuelles CloudSimple
           items:
-            - name: Créer une machine virtuelle AVS dans Azure
+            - name: Créer une machine virtuelle CloudSimple dans Azure
               href: azure-create-vm.md
-            - name: Gérer des machines virtuelles AVS dans Azure
+            - name: Gérer les machines virtuelles CloudSimple dans Azure
               href: azure-manage-vm.md
     - name: Guides pratiques
       items:
         - name: Sécuriser votre environnement
           href: private-cloud-secure.md
-        - name: Gestion de cloud privé AVS
+        - name: Gestion de cloud privé
           items:
-            - name: Élever les privilèges d’un cloud privé AVS
+            - name: Escalader les privilèges du cloud privé
               href: escalate-privileges.md
             - name: Configurer le DNS et le DHCP des charges de travail
               href: dns-dhcp-setup.md
             - name: Migrer des charges de travail à l’aide de réseaux étendus de couche 2
               href: migration-layer-2-vpn.md
-        - name: Réseau de cloud privé AVS
+        - name: Réseau de cloud privé
           items:
-            - name: Connexion VPN à un cloud privé AVS
+            - name: Connexion VPN à un cloud privé
               href: set-up-vpn.md
             - name: Connexion au réseau local avec ExpressRoute
               href: on-premises-connection.md
@@ -140,15 +140,15 @@
               href: private-cloud-dns-forwarding.md
         - name: Plateforme VMware
           items:
-            - name: Découvrir le modèle d’autorisation de cloud privé AVS
+            - name: Découvrir le modèle d’autorisation de cloud privé
               href: learn-private-cloud-permissions.md
             - name: Sources d’identité vCenter
               href: set-vcenter-identity.md
             - name: Azure Application Gateway avec des machines virtuelles VMware
               href: azure-application-gateway.md
-            - name: Configurer un serveur vCenter de cloud privé AVS comme un point de terminaison d’automatisation vRealize
+            - name: Configurer un serveur vCenter de cloud privé comme point de terminaison d’automatisation vRealize
               href: configure-server-vrealize-automation-endpoint.md
-            - name: Effectuer la migration de machines virtuelles de charge de travail vers un cloud privé AVS
+            - name: Migrer des machines virtuelles de charge de travail vers un cloud privé
               href: migrate-workloads.md
             - name: Migration à l’aide d’Azure Data Box
               href: migration-using-azure-data-box.md
@@ -160,19 +160,19 @@
           items:
             - name: Sauvegarder des machines virtuelles de charge de travail
               href: backup-workloads-veeam.md
-            - name: Configurer un cloud privé AVS comme un site de reprise d’activité à l’aide de Zerto
+            - name: Configurer un cloud privé en tant que site de récupération d’urgence à l’aide de Zerto
               href: disaster-recovery-zerto.md
-            - name: Configurer un cloud privé AVS comme un site de reprise d’activité avec VMware SRM
+            - name: Configurer un cloud privé en tant que site de reprise d’activité avec VMware SRM
               href: disaster-recovery-site-recovery-manager.md
             - name: Guide de la solution VMware Horizon
               href: horizon-guide.md
-            - name: Configurer le chiffrement vSAN pour votre cloud privé AVS
+            - name: Configurer le chiffrement vSAN pour votre cloud privé
               href: vsan-encryption.md
-            - name: Optimiser votre cloud privé AVS pour un RAC Oracle
+            - name: Optimiser votre cloud privé pour un RAC Oracle
               href: oracle-real-application-clusters.md
         - name: Intégration d’Azure Core
           items:
-            - name: "Source d’identité Azure\_AD sur le serveur vCenter de cloud privé AVS"
+            - name: Source d’identité Azure AD sur le serveur vCenter de cloud privé
               href: azure-ad.md
             - name: Connexion au réseau local avec ExpressRoute
               href: on-premises-connection.md

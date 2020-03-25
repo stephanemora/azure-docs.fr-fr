@@ -83,8 +83,6 @@
       items:
         - name: Bien démarrer dans le portail Azure EA
           href: ea-portal-get-started.md
-        - name: Comprendre votre facture EA
-          href: ../understand/review-enterprise-agreement-bill.md
         - name: Rôles EA dans Azure
           href: understand-ea-roles.md
         - name: "Administration du portail Azure\_EA"

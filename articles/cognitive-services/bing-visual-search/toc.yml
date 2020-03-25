@@ -1,6 +1,6 @@
 - name: Documentation Recherche visuelle Bing
   href: ../Bing-Web-Search/index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce que l’API Recherche visuelle Bing\_?"
       href: overview.md

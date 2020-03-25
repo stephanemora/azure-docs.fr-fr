@@ -1,6 +1,6 @@
 - name: Documentation sur le calcul haute performance
   items:
-    - name: Vue d'ensemble
+    - name: Vue d’ensemble
       items:
         - name: "HPC pour machines virtuelles de série\_H"
           href: overview.md
@@ -18,13 +18,13 @@
       items:
         - name: Série HB
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: hb-series-overview.md
             - name: Performances
               href: hb-series-performance.md
         - name: Série HC
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: hc-series-overview.md
             - name: Performances
               href: hc-series-performance.md

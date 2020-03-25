@@ -1,4 +1,4 @@
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   href: overview.md
 - name: Démarrage rapide
   items:
@@ -38,7 +38,7 @@
   href: troubleshooting.md
 - name: Informations de référence
   items:
-    - name: D’Azure CLI
+    - name: Azure CLI
       href: /cli/azure
     - name: Azure PowerShell
       href: /powershell/azure
