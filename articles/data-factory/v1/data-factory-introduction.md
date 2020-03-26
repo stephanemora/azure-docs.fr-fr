@@ -1,6 +1,6 @@
 ---
 title: Introduction à Data Factory, un service d’intégration de données
-description: Découvrez Azure Data Factory, un service cloud d’intégration de données qui gère et automatise le déplacement et la transformation des données.
+description: 'Découvrez Azure Data Factory : un service d’intégration de données cloud qui gère et automatise le déplacement et la transformation des données.'
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -13,10 +13,10 @@ ms.workload: data-services
 ms.topic: overview
 ms.date: 01/22/2018
 ms.openlocfilehash: 30578f204ff05443de82015627d67d3d4d357dce
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73666797"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Présentation d’Azure Data Factory 
@@ -25,7 +25,7 @@ ms.locfileid: "73666797"
 > * [Version 2 (version actuelle)](../introduction.md)
 
 > [!NOTE]
-> Cet article s’applique à la version 1 d’Azure Data Factory. Si vous utilisez la version actuelle du service Data Factory, consultez l’article [Présentation de Data Factory V2](../introduction.md).
+> Cet article s’applique à la version 1 d’Azure Data Factory. Si vous utilisez la version actuelle du service Data Factory, consultez l’article [Présentation de Data Factory V2](../introduction.md).
 
 
 ## <a name="what-is-azure-data-factory"></a>qu'est-ce qu'Azure Data Factory ?
@@ -118,7 +118,7 @@ Data Factory fait appel aux services liés pour deux raisons :
 
 ### <a name="relationship-between-data-factory-entities"></a>Relation entre des entités Data Factory
 
-![Diagramme : Data Factory, un service cloud d’intégration de données - Concepts clés](./media/data-factory-introduction/data-integration-service-key-concepts.png)
+![Diagramme : Data Factory, un service d’intégration de données cloud - Concepts clés](./media/data-factory-introduction/data-integration-service-key-concepts.png)
 
 ## <a name="supported-regions"></a>Régions prises en charge
 Actuellement, vous pouvez créer des fabriques de données dans les régions USA Ouest, USA Est et Europe Nord. Une fabrique de données peut toutefois accéder à des magasins de données et à des services de calcul situés dans d’autres régions Azure pour déplacer des données entre des magasins de données ou pour traiter des données à l’aide des services de calcul.

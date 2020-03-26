@@ -10,13 +10,13 @@ ms.custom: mvc
 ms.date: 03/25/2019
 ms.author: dobett
 ms.openlocfilehash: 32e2d3f9e8bbd63944188355774558ca5ea7bd9d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58792499"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "60890037"
 ---
-# <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>Démarrage rapide : Essayer une solution cloud de supervision à distance
+# <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>Démarrage rapide : Essayer une solution de supervision informatique à distance
 
 Ce guide de démarrage rapide vous montre comment déployer l’accélérateur de solution de supervision à distance Azure IoT. Dans cette solution informatique, vous utilisez la page **Tableau de bord** pour visualiser les appareils simulés sur une carte, et la page **Maintenance** pour répondre à une alerte concernant la pression d’un appareil de refroidissement simulé. Vous pouvez utiliser cet accélérateur de solution comme point de départ de votre propre implémentation ou comme outil d’apprentissage.
 
@@ -127,7 +127,7 @@ Pour fermer l’incident, accédez à la page **Maintenance**, sélectionnez l�
 
 La valeur dans la colonne d’état devient **Fermé**.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous envisagez de passer aux tutoriels, laissez l’accélérateur de solution de supervision à distance déployé.
 
@@ -145,4 +145,4 @@ Dans ce guide de démarrage rapide, vous avez déployé l’accélérateur de so
 Pour en savoir plus sur l’accélérateur de solution à l’aide d’appareils simulés, passez au didacticiel suivant.
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Superviser vos appareils IoT](iot-accelerators-remote-monitoring-monitor.md)
+> [Tutoriel : Surveiller vos appareils IoT](iot-accelerators-remote-monitoring-monitor.md)

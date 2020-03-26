@@ -8,13 +8,13 @@ ms.date: 07/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 071c44136d917874843bdf080de775ec6739937a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75442868"
 ---
-# <a name="quickstart-create-a-server---powershell"></a>Démarrage rapide : Créer un serveur - PowerShell
+# <a name="quickstart-create-a-server---powershell"></a>Démarrage rapide : créer un serveur - PowerShell
 
 Ce démarrage rapide décrit comment utiliser PowerShell à partir d’une ligne de commande pour créer un serveur Azure Analysis Services de votre abonnement Azure.
 
@@ -22,8 +22,8 @@ Ce démarrage rapide décrit comment utiliser PowerShell à partir d’une ligne
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-- **Abonnement Azure** : Visitez [Version d’évaluation gratuite d’Azure](https://azure.microsoft.com/offers/ms-azr-0044p/) pour créer un compte.
-- **Azure Active Directory** : votre abonnement doit être associé à un client Azure Active Directory et vous devez disposer d’un compte dans ce répertoire. Pour en savoir plus, consultez [Authentification et autorisations utilisateur](analysis-services-manage-users.md).
+- **Abonnement Azure** : visitez [version d’évaluation gratuite d’Azure](https://azure.microsoft.com/offers/ms-azr-0044p/) pour créer un compte.
+- **Azure Active Directory** : votre abonnement doit être associé à un client Azure Active Directory et vous devez disposer d’un compte dans ce répertoire. Pour en savoir plus, consultez [Authentification et autorisations utilisateur](analysis-services-manage-users.md).
 - **Azure PowerShell**. Pour trouver la version installée, exécutez `Get-Module -ListAvailable Az`. Pour installer ou mettre à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-Az-ps).
 
 ## <a name="import-azanalysisservices-module"></a>Importer le module Az.AnalysisServices
@@ -72,6 +72,6 @@ Remove-AzAnalysisServicesServer -Name "myserver" -ResourceGroupName "myResourceG
 Dans ce démarrage rapide, vous avez appris à créer un serveur dans votre abonnement Azure à l’aide de PowerShell. Maintenant que vous avez serveur, vous pouvez le sécuriser en configurant un pare-feu de serveur (facultatif). Vous pouvez également ajouter un modèle de données d’exemple de base à votre serveur directement à partir du portail. Un exemple de modèle permet d’en savoir plus sur la configuration des rôles de base de données de modèle et le test des connexions client. Pour en savoir plus, passez au tutoriel sur l’ajout d’un exemple de modèle.
 
 > [!div class="nextstepaction"]
-> [Démarrage rapide : Configurer un pare-feu de serveur - Portail](analysis-services-qs-firewall.md)      
+> [Démarrage rapide : configurer un pare-feu de serveur - Portail](analysis-services-qs-firewall.md)      
 > [!div class="nextstepaction"]
-> [Tutoriel : Ajouter un exemple de modèle à votre serveur](analysis-services-create-sample-model.md)
+> [Tutoriel : ajouter un exemple de modèle à votre serveur](analysis-services-create-sample-model.md)

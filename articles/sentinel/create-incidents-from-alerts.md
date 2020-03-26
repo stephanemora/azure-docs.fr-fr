@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
 ms.openlocfilehash: b29b337d7487087bec268528ff26617f7a995235
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77587972"
 ---
 # <a name="automatically-create-incidents-from-microsoft-security-alerts"></a>Créer automatiquement des incidents à partir d’alertes de sécurité Microsoft
@@ -28,7 +28,7 @@ Les alertes déclenchées dans des solutions de sécurité Microsoft qui sont co
 
 Vous pouvez facilement configurer Azure Sentinel pour créer automatiquement des incidents chaque fois qu’une alerte est déclenchée dans une solution de sécurité Microsoft connectée, en suivant les instructions mentionnées dans cet article.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 Vous devez [connecter des solutions de sécurité Microsoft](connect-data-sources.md#data-connection-methods) pour activer la création d’incident à partir d’alertes de service de sécurité.
 
 ## <a name="using-microsoft-security-incident-creation-analytic-rules"></a>Utilisation de règles d’analytique de création d’incidents de sécurité Microsoft

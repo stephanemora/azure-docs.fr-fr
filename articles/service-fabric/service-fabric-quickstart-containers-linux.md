@@ -6,13 +6,13 @@ ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
 ms.openlocfilehash: eb0a83d0110002cc32998af4083d06cf6e86e16a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75372684"
 ---
-# <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>Démarrage rapide : Déployer des conteneurs Linux sur Service Fabric
+# <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>Démarrage rapide : Déployer des conteneurs Linux sur Service Fabric
 
 Azure Service Fabric est une plateforme de systèmes distribués pour le déploiement et la gestion de microservices et conteneurs extensibles et fiables.
 
@@ -180,8 +180,8 @@ az group delete --name $ResourceGroupName
 
 Si vous avez fini d’utiliser votre cluster, vous pouvez supprimer le certificat du magasin de certificats. Par exemple :
 - Sur Windows : utilisez le [composant logiciel enfichable MMC Certificats](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in). Veillez à sélectionner **My user account** (Mon compte d’utilisateur) lors de l’ajout du composant logiciel enfichable. Accédez à `Certificates - Current User\Personal\Certificates` et supprimez le certificat.
-- Sur Mac : utilisez l’application Keychain.
-- Sur Ubuntu : suivez les étapes que vous avez utilisées pour afficher les certificats, puis supprimez le certificat.
+- Sur Mac : utilisez l’application Keychain.
+- Sur Ubuntu : suivez les étapes que vous avez utilisées pour afficher les certificats, puis supprimez le certificat.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

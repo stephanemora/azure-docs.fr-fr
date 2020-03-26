@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: bfda5fe7592d4c3f3f9550f406cf7635c43168ed
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 69a9722436aea1cf794e6e3f3ce02ec79180cff3
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75896196"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80159470"
 ---
 # <a name="linux-virtual-machines-in-azure"></a>Machines virtuelles Linux dans Azure
 
@@ -93,10 +93,6 @@ Microsoft travaille en étroite collaboration avec des partenaires afin de garan
 * Docker - [Place de marché Azure - Azure Container Service avec Docker Swarm](https://azure.microsoft.com/marketplace/partners/microsoft/acsswarms/)
 * Jenkins - [Place de marché Azure - CloudBees Jenkins Platform](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cloudbees.cloudbees-core-contact)
 
-## <a name="vm-sizes"></a>Tailles de machine virtuelle
-La [taille](sizes.md) de la machine virtuelle que vous utilisez est déterminée par la charge de travail que vous souhaitez exécuter. La taille que vous choisissez détermine ensuite des facteurs comme la puissance de traitement, la mémoire et la capacité de stockage. Azure propose différentes tailles vous permettant de prendre en charge de nombreux types d'utilisation.
-
-Azure facture un [prix horaire](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) en fonction de la taille et du système d’exploitation de la machine virtuelle. Pour les heures partielles, Azure facture uniquement les minutes utilisées. Le stockage est facturé séparément.
 
 ## <a name="cloud-init"></a>Cloud-Init 
 
@@ -108,12 +104,6 @@ Pour obtenir une culture DevOps appropriée, toute l’infrastructure doit être
 Azure prend en charge [cloud-init](https://cloud-init.io/) sur la plupart des distributions Linux qui le prennent en charge.  Nous travaillons activement avec nos partenaires de distribution Linux afin de mettre des images compatibles cloud-init à disposition sur la Place de marché Azure. Ces images permettent à vos déploiements et configurations cloud-init de fonctionner de manière fluide avec des machines virtuelles et des groupes de machines virtuelles identiques.
 
 * [À l’aide de cloud-init sur les machines virtuelles Linux Azure](using-cloud-init.md)
-
-## <a name="quotas"></a>Quotas
-Chaque abonnement Azure comporte des limites de quota qui peuvent avoir un impact négatif sur le déploiement d’un grand nombre de machines virtuelles pour votre projet. La limite est de 20 machines virtuelles par région et par abonnement.  Les limites de quota peuvent être augmentées rapidement et facilement en soumettant un ticket de support demandant leur hausse.  Pour plus d’informations sur les limites de quota :
-
-* [Limites du service d’abonnement Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md)
-
 
 ## <a name="storage"></a>Stockage
 * [Introduction à Microsoft Azure Storage](../../storage/common/storage-introduction.md)

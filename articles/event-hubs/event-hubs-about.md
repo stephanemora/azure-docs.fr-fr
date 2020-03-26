@@ -11,10 +11,10 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: e8a91647d7532a9904901c247bb0b4096ffa0a1c
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77161696"
 ---
 # <a name="azure-event-hubs--a-big-data-streaming-platform-and-event-ingestion-service"></a>Azure Event Hubs - plateforme de streaming de Big Data et service d’ingestion d’événements
@@ -66,11 +66,11 @@ Avec un vaste écosystème disponible dans différents [langages (.NET, Java, Py
 ## <a name="key-architecture-components"></a>Composants clés de l’architecture
 Les concentrateurs d’événements incluent les [éléments clés suivants](event-hubs-features.md) :
 
-- **Producteurs d’événements** : entité qui envoie des données à un hub d'événements. Les éditeurs d’événements peuvent publier des événements à l’aide du protocole HTTPS ou AMQP 1.0 ou Apache Kafka (1.0 et plus récent).
-- **Partitions** : chaque consommateur lit uniquement un sous-ensemble spécifique (partition) du flux de messages.
-- **Groupes de consommateurs** : vue (état, position ou décalage) d'un hub d'événements dans sa totalité. Les groupes de consommateurs permettent que les applications de consommation aient chacune une vue distincte du flux d’événements. Ils lisent le flux de manière indépendante à leur propre rythme et avec leurs propres décalages.
-- **Unités de débit** : unités de capacité qui contrôlent la capacité de débit d'Event Hubs, achetées préalablement.
-- **Récepteurs d’événements** : entité qui lit des données d'événement à partir d'un hub d’événements. Tous les consommateurs Event Hubs se connectent à l’aide de la session AMQP 1.0. Le service Event Hubs remet les événements au cours d’une session dès qu’ils sont disponibles. Tous les consommateurs de Kafka se connectent via le protocole Kafka 1.0 et versions ultérieures.
+- **Producteurs d’événements** : entité qui envoie des données à un concentrateur d’événements. Les éditeurs d’événements peuvent publier des événements à l’aide du protocole HTTPS ou AMQP 1.0 ou Apache Kafka (1.0 et plus récent).
+- **Partition** : chaque consommateur lit uniquement un sous-ensemble spécifique (partition) du flux de messages.
+- **Groupes de consommateurs** : une vue (état, position ou décalage) d’un concentrateur d’événements dans sa totalité. Les groupes de consommateurs permettent que les applications de consommation aient chacune une vue distincte du flux d’événements. Ils lisent le flux de manière indépendante à leur propre rythme et avec leurs propres décalages.
+- **Unités de débit** : unités de capacité qui contrôlent la capacité de débit d’Event Hubs, achetées préalablement.
+- **Récepteurs d’événements** : entité qui lit des données d’événement à partir d’un concentrateur d’événements. Tous les consommateurs Event Hubs se connectent à l’aide de la session AMQP 1.0. Le service Event Hubs remet les événements au cours d’une session dès qu’ils sont disponibles. Tous les consommateurs de Kafka se connectent via le protocole Kafka 1.0 et versions ultérieures.
 
 La figure suivante montre l’architecture de traitement de flux Event Hubs :
 

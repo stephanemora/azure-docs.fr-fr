@@ -4,10 +4,10 @@ description: Exécutez des notebooks Jupyter dans le cloud à l’aide du servic
 ms.topic: overview
 ms.date: 04/05/2019
 ms.openlocfilehash: bd2355bdefcedca5026a25915dc1da55fdc33a36
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75646328"
 ---
 # <a name="overview-of-azure-notebooks-preview"></a>Vue d’ensemble d’Azure Notebooks (préversion)
@@ -65,7 +65,7 @@ Pour chaque notebook, vous sélectionnez le noyau (autrement dit, l’environnem
 
 Azure Notebooks contient également des packages supplémentaires en plus des distributions de base. Les noyaux Python, par exemple, comprennent les bibliothèques numpy, pandas, scikit-learn, matplotlib et bokeh.
 
-Vous pouvez également personnaliser un projet afin de créer un environnement pour tous les notebooks de ce projet. Pour plus d’informations, consultez [Démarrage rapide : Créer un projet avec un environnement personnalisé](quickstart-create-jupyter-notebook-project-environment.md).
+Vous pouvez également personnaliser un projet afin de créer un environnement pour tous les notebooks de ce projet. Pour plus d’informations, consultez [Démarrage rapide : Créer un projet avec un environnement personnalisé](quickstart-create-jupyter-notebook-project-environment.md).
 
 En plus des distributions de base, Azure Notebooks est préinstallé avec de nombreux packages supplémentaires utiles aux scientifiques des données. Vous pouvez aussi installer vos propres packages à l’aide de la procédure standard pour chaque langage.
 
@@ -73,11 +73,11 @@ En plus des distributions de base, Azure Notebooks est préinstallé avec de nom
 
 Azure Notebooks est préconfiguré avec les extensions Jupyter suivantes :
 
-- [RISE](https://github.com/damianavila/RISE) : extension de diaporama Jupyter (également appelée live_reveal). Pour plus d’informations, consultez [Exécuter un diaporama de notebook](present-jupyter-notebooks-slideshow.md).
+- [RISE](https://github.com/damianavila/RISE) : Extension de diaporama Jupyter (également appelée live_reveal). Pour plus d’informations, consultez [Exécuter un diaporama de notebook](present-jupyter-notebooks-slideshow.md).
 - [JupyterLab](https://github.com/jupyterlab/jupyterlab) : environnement de calcul complet pour travailler avec des notebooks Jupyter.
 - [Altair](https://github.com/ellisonbg/altair) : bibliothèque de visualisation de statistiques déclarative pour Python.
-- [BQPlot](https://github.com/bloomberg/bqplot) : framework de traçage interactif pour notebooks Jupyter.
-- [IpyWidgets](https://github.com/jupyter-widgets/ipywidgets) : widgets HTML interactifs pour notebooks Jupyter.
+- [BQPlot](https://github.com/bloomberg/bqplot) : framework de traçage interactif pour Jupyter Notebooks.
+- [IpyWidgets](https://github.com/jupyter-widgets/ipywidgets) : widgets HTML interactifs pour Jupyter Notebooks.
 
 ## <a name="issues-and-getting-help"></a>Problèmes et assistance
 

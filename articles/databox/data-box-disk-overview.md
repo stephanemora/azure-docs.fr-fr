@@ -10,11 +10,11 @@ ms.date: 06/18/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
 ms.openlocfilehash: 067d818b7d23fc0b83cb1d4255bfbb8659149412
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204761"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215727"
 ---
 # <a name="what-is-azure-data-box-disk"></a>Qu’est-ce qu’Azure Data Box Disk ?
 
@@ -84,7 +84,7 @@ Pour plus d’informations, accédez à [Azure Data Box Disk security and data p
 | Interface de données                                          | USB   |
 | Sécurité                                                | Préalablement chiffré à l’aide de BitLocker et mise à jour sécurisée <br> Disques protégés par clé d’accès <br> Données chiffrées en permanence  |
 | Vitesse de transfert de données                                      | jusqu’à 430 Mo/s en fonction de la taille du fichier      |
-|gestion                                               | Portail Azure |
+|Gestion                                               | Portail Azure |
 
 
 ## <a name="region-availability"></a>Disponibilité des régions

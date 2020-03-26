@@ -8,15 +8,15 @@ ms.topic: quickstart
 ms.date: 10/16/2019
 ms.author: mebeatty
 ms.openlocfilehash: f9ecb8d731945847160b49c68c554fafdd7285d9
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74896380"
 ---
 # <a name="embed-the-internet-analyzer-client"></a>Incorporer le client Internet Analyzer
 
-Cet article explique comment incorporer le client JavaScript dans votre application. L’installation de ce client est nécessaire pour exécuter des tests et recevoir des analyses de tableaux de bord. **Le client JavaScript spécifique au profil est fourni après la configuration du premier test.** À partir de là, vous pouvez continuer à ajouter ou supprimer des tests dans ce profil sans avoir à incorporer de nouveaux scripts. Pour plus d’informations sur Internet Analyzer, consultez la [vue d’ensemble ](internet-analyzer-overview.md). 
+Cet article explique comment incorporer le client JavaScript dans votre application. L’installation de ce client est nécessaire pour exécuter des tests et recevoir des analyses de tableaux de bord. **Le client JavaScript spécifique au profil est fourni après la configuration du premier test.** À partir de là, vous pouvez continuer à ajouter ou supprimer des tests dans ce profil sans avoir à incorporer de nouveaux scripts. Pour plus d’informations sur Internet Analyzer, consultez la [vue d’ensemble](internet-analyzer-overview.md). 
 
 > [!IMPORTANT]
 > Cette préversion publique est fournie sans contrat de niveau de service et ne doit pas être utilisée pour les charges de travail de production. Certaines fonctionnalités peuvent ne pas être prises en charge, disposer de capacités limitées ou ne pas être disponibles dans tous les emplacements Azure. Consultez les [Conditions d’utilisation supplémentaires des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).

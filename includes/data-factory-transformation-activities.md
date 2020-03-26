@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: e6a1e65f253f33257a0e218f4d347740c07581cc
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74795612"
 ---
 Azure Data Factory prend en charge les activités de transformation suivantes, qui peuvent être ajoutées à des pipelines, soit individuellement soit de façon chaînée avec une autre activité.
@@ -20,13 +20,13 @@ Azure Data Factory prend en charge les activités de transformation suivantes, q
 | [MapReduce](../articles/data-factory/v1/data-factory-map-reduce.md) |HDInsight [Hadoop] |
 | [Diffusion en continu Hadoop](../articles/data-factory/v1/data-factory-hadoop-streaming-activity.md) |HDInsight [Hadoop] |
 | [Spark](../articles/data-factory/v1/data-factory-spark.md) | HDInsight [Hadoop] |
-| [Activités Machine Learning : exécution par lot et ressource de mise à jour](../articles/data-factory/v1/data-factory-azure-ml-batch-execution-activity.md) |Azure VM |
+| [Activités Machine Learning : exécution de lot et mise à jour de ressource](../articles/data-factory/v1/data-factory-azure-ml-batch-execution-activity.md) |Azure VM |
 | [Procédure stockée](../articles/data-factory/v1/data-factory-stored-proc-activity.md) |SQL Azure, Azure SQL Data Warehouse ou SQL Server |
 | [Langage U-SQL du service Analytique Data Lake](../articles/data-factory/v1/data-factory-usql-activity.md) |Service Analytique Azure Data Lake |
 | [DotNet](../articles/data-factory/v1/data-factory-use-custom-activities.md) |HDInsight [Hadoop] ou Azure Batch |
 
 > [!NOTE]
-> Vous pouvez utiliser l'activité MapReduce pour exécuter des programmes Spark sur votre cluster HDInsight Spark. Consultez la page [Appeler des programmes Spark à partir d’Azure Data Factory](../articles/data-factory/v1/data-factory-spark.md) pour plus d’informations.
+> Vous pouvez utiliser l'activité MapReduce pour exécuter des programmes Spark sur votre cluster HDInsight Spark. Consultez la page [Appeler des programmes Spark à partir d'Azure Data Factory](../articles/data-factory/v1/data-factory-spark.md) pour plus d'informations.
 > Vous pouvez créer une activité personnalisée pour exécuter des scripts R sur votre cluster HDInsight si R est installé. Consultez la page [Exécuter des scripts R avec Azure Data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample).
 > 
 > 

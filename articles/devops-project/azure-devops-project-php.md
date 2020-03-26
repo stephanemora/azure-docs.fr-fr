@@ -17,10 +17,10 @@ ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
 ms.openlocfilehash: 7c097c2a7247c9cad6cdce8a89059ee8d90d159e
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "70899596"
 ---
 # <a name="create-a-cicd-pipeline-for-php-with-azure-devops-projects"></a>Créer un pipeline CI/CD pour PHP avec Azure DevOps Projects
@@ -123,7 +123,7 @@ Vous devez maintenant voir une build en cours. Les modifications que vous venez 
     Le pipeline de build que vous avez examiné aux étapes précédentes produit la sortie qui est utilisée pour l’artefact. 
 
 1. En regard de l’icône **Déposer**, sélectionnez le **déclencheur de déploiement continu**.   
-    Le pipeline de mise en production a un déclencheur CD activé, qui effectue un déploiement chaque fois qu’un nouvel artefact de build est disponible.  Si vous le souhaitez, vous pouvez désactiver le déclencheur, vos déploiements nécessitant alors une exécution manuelle. 
+    Le pipeline de mise en production a un déclencheur CD activé, qui effectue un déploiement chaque fois qu’un nouvel artefact de build est disponible.  Si vous le souhaitez, vous pouvez désactiver le déclencheur afin que vos déploiements nécessitent une exécution manuelle. 
 
 1. Sur la gauche, sélectionnez **Tâches**.  
         Les tâches sont les activités effectuées par votre processus de déploiement.  Dans cet exemple, une tâche a été créée pour déployer sur Azure App Service.
@@ -139,7 +139,7 @@ Vous devez maintenant voir une build en cours. Les modifications que vous venez 
 1. Sélectionnez **Journaux d’activité**.  
         Les journaux d’activité contiennent des informations utiles sur le processus de déploiement. Ils peuvent être affichés pendant et après les déploiements.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Quand vous n’en avez plus besoin, vous pouvez supprimer Azure App Service et les autres ressources associées. Utilisez la fonctionnalité **Supprimer** du tableau de bord DevOps Projects.
 

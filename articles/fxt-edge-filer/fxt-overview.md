@@ -7,10 +7,10 @@ ms.topic: overview
 ms.date: 07/01/2019
 ms.author: rohogue
 ms.openlocfilehash: acf35015ff7851f7ea2a2527852be2573512e35d
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "72254845"
 ---
 # <a name="what-is-azure-fxt-edge-filer-hybrid-storage-cache"></a>Qu’est-ce que cache de stockage hybride Azure FXT Edge Filer ?
@@ -43,7 +43,7 @@ Azure FXT Edge Filer permet de prendre l’accès rapide aux fichiers des utilis
 
 Développez votre centre de données dans le stockage cloud avec Azure FXT Edge Filer en tant que point d’accès. 
 
-## <a name="features"></a>Caractéristiques 
+## <a name="features"></a>Fonctionnalités 
 
 Deux modèles de matériel sont disponibles. 
 

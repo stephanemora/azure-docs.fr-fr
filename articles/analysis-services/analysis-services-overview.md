@@ -8,11 +8,11 @@ ms.date: 02/20/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 3a18218635b5fc576bd9255eb73c136756ac3caa
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78272951"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215547"
 ---
 # <a name="what-is-azure-analysis-services"></a>Qu’est-ce qu’Azure Analysis Services ?
 
@@ -22,13 +22,13 @@ Azure Analysis Services est une plateforme entièrement gérée en tant que serv
 
 ![Sources de données](./media/analysis-services-overview/aas-overview-overall.png)
 
-**Vidéo :** consultez [Vue d'ensemble d'Azure Analysis Services](https://sec.ch9.ms/ch9/d6dd/a1cda46b-ef03-4cea-8f11-68da23c5d6dd/AzureASoverview_high.mp4) pour savoir comment Azure Analysis Services s'intègre aux fonctionnalités BI globales de Microsoft.
+**Vidéo** : consultez [Vue d’ensemble d’Azure Analysis Services](https://sec.ch9.ms/ch9/d6dd/a1cda46b-ef03-4cea-8f11-68da23c5d6dd/AzureASoverview_high.mp4) pour savoir comment Azure Analysis Services s’intègre aux fonctionnalités BI globales de Microsoft.
 
 ## <a name="get-up-and-running-quickly"></a>Opérationnel rapidement
 
 Dans le portail Azure, vous pouvez [créer un serveur](analysis-services-create-server.md) en quelques minutes. Et, avec les [modèles](../azure-resource-manager/resource-manager-create-first-template.md) Azure Resource Manager et PowerShell, vous pouvez créer des serveurs à l’aide d’un modèle déclaratif. Un même modèle vous permet de déployer plusieurs ressources de serveur, ainsi que d’autres composants Azure tels que des comptes de stockage et Azure Functions. 
 
-**Vidéo :** consultez [Automatisation du déploiement](https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesAutomation) afin d'en savoir plus sur la façon dont vous pouvez utiliser Azure Automation pour accélérer la création du serveur.
+**Vidéo :** consultez [Automatisation du déploiement](https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesAutomation) pour en savoir plus sur la façon dont vous pouvez utiliser Azure Automation pour accélérer la création du serveur.
 
 Azure Analysis Services s’intègre à de nombreux services Azure qui vous permettent de créer des solutions d’analyse élaborées. Son intégration à [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) assure un accès sécurisé en fonction du rôle à vos données critiques. L’intégration aux pipelines [Azure Data Factory](../data-factory/introduction.md) est possible grâce à l’inclusion d’une activité qui charge des données dans le modèle. [Azure Automation](../automation/automation-intro.md) et [Azure Functions](../azure-functions/functions-overview.md) sont utilisables pour une orchestration légère de modèles à l’aide d’un code personnalisé. 
 
@@ -38,7 +38,7 @@ Azure Analysis Services est disponible pour les niveaux **Développeur**, **De b
 
 ### <a name="developer-tier"></a>Niveau Développeur
 
-Ce niveau est recommandé pour les scénarios d’évaluation, de développement et de test. Un plan inclut les mêmes fonctionnalités que le niveau Standard, mais est limité en termes de puissance de traitement, de nombre d’unités de traitement des requêtes (QPU) et de taille de mémoire. L’évolutivité du réplica de requête *n’est pas disponible* pour ce niveau. Ce niveau ne propose pas de contrat SLA.
+Ce niveau est recommandé pour les scénarios d’évaluation, de développement et de test. Un plan inclut les mêmes fonctionnalités que le niveau Standard, mais est limité en termes de puissance de traitement, de nombre d’unités de traitement des requêtes (QPU) et de taille de mémoire. Le scale-out du réplica de requête *n’est pas disponible* pour ce niveau. Ce niveau ne propose pas de contrat SLA.
 
 |Plan  |QPU (unités de traitement des requêtes)  |Mémoire (Go)  |
 |---------|---------|---------|
@@ -120,13 +120,13 @@ Azure Analysis Services est pris en charge dans les régions du monde entier. Le
 
 Augmentez la puissance, réduisez la puissance ou suspendez votre serveur. Utilisez le portail Azure ou obtenez le contrôle total à la volée à l’aide de PowerShell. Vous paierez uniquement pour ce que vous utiliserez.  
 
-### <a name="scale-out-resources-for-fast-query-responses"></a>Ressources évolutives pour des réponses aux requêtes rapides
+### <a name="scale-out-resources-for-fast-query-responses"></a>Ressources de scale-out pour des réponses aux requêtes rapides
 
-Grâce à l’évolutivité, les requêtes des clients sont distribuées entre plusieurs *réplicas de requête* dans un pool de requêtes. Les réplicas de requête contiennent des copies synchronisées de vos modèles tabulaires. Grâce à la répartition de la charge de travail de requête, les temps de réponse lors de charges de travail de requête élevées peuvent être réduits. Les opérations de traitement du modèle peuvent être séparées du pool de requêtes, garantissant ainsi que les requêtes des clients ne soient pas affectées par les opérations de traitement. 
+Grâce au scale-out, les requêtes des clients sont distribuées entre plusieurs *réplicas de requête* dans un pool de requêtes. Les réplicas de requête contiennent des copies synchronisées de vos modèles tabulaires. Grâce à la répartition de la charge de travail de requête, les temps de réponse lors de charges de travail de requête élevées peuvent être réduits. Les opérations de traitement du modèle peuvent être séparées du pool de requêtes, garantissant ainsi que les requêtes des clients ne soient pas affectées par les opérations de traitement. 
 
 Vous pouvez créer un pool de requêtes comportant jusqu’à sept réplicas de requête supplémentaires (pour un total de huit, votre serveur compris). Le nombre de réplicas de requête que vous pouvez avoir dans votre pool dépend du plan et de la région que vous avez choisis. Les réplicas de requête ne peuvent pas être propagés en dehors de la région de votre serveur. Les réplicas de requête sont facturés au même prix que votre serveur.
 
-Comme pour la modification des niveaux, vous pouvez faire évoluer les réplicas de requête selon vos besoins. Configurez l’évolution dans le portail ou à l’aide des API REST. Pour en savoir plus, consultez [Évolution d’Azure Analysis Services](analysis-services-scale-out.md).
+Comme pour la modification des niveaux, vous pouvez effectuer un scale-out des réplicas de requête selon vos besoins. Configurez le scale-out dans le portail ou à l’aide des API REST. Pour en savoir plus, consultez [Scale-out d’Azure Analysis Services](analysis-services-scale-out.md).
 
 ## <a name="pricing"></a>Tarifs
 
@@ -260,7 +260,7 @@ Analysis Services a une communauté active d’utilisateurs. Rejoignez la conver
 > [S’inscrire pour un essai gratuit d’Azure](https://azure.microsoft.com/offers/ms-azr-0044p/)   
 
 > [!div class="nextstepaction"]
-> [Démarrage rapide : Créer un serveur - Portail](analysis-services-create-server.md)   
+> [Démarrage rapide : créer un serveur - Portail](analysis-services-create-server.md)   
 
 > [!div class="nextstepaction"]
-> [Démarrage rapide : Créer un serveur - PowerShell](analysis-services-create-powershell.md)  
+> [Démarrage rapide : créer un serveur - PowerShell](analysis-services-create-powershell.md)  

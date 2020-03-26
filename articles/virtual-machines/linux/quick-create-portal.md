@@ -15,13 +15,13 @@ ms.date: 11/05/2019
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 894fa2f3cda798a409db3ee8e9761c1702baf955
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035212"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79216127"
 ---
-# <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Démarrage rapide : Créer une machine virtuelle Linux dans le portail Azure
+# <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Démarrage rapide : Créer une machine virtuelle Linux sur le Portail Azure
 
 Le Portail Azure peut être utilisé pour créer des machines virtuelles Azure. Le portail Azure est une interface utilisateur basée sur un navigateur permettant de créer des ressources Azure. Ce démarrage rapide explique comment utiliser le portail Azure pour déployer une machine virtuelle Linux exécutant Ubuntu 18.04 LTS. Pour voir votre machine virtuelle en action, vous établissez également une connexion SSH à la machine virtuelle et installez le serveur web NGINX.
 
@@ -34,7 +34,7 @@ Vous aurez besoin d’une paire de clés SSH pour suivre ce guide de démarrage 
 Ouvrez un interpréteur de commandes bash et utilisez [ssh-keygen](https://www.ssh.com/ssh/keygen/) pour créer une paire de clés SSH. Si vous n’avez pas d’interpréteur de commandes bash sur votre ordinateur local, vous pouvez utiliser [Azure Cloud Shell](https://shell.azure.com/bash).
 
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Dans le menu situé en haut de la page, sélectionnez l’icône `>_` pour ouvrir Cloud Shell.
 1. Assurez-vous que Cloud Shell indique **Bash** dans l’angle supérieur gauche. S’il s’agit de PowerShell, utilisez la liste déroulante pour sélectionner **Bash** et sélectionnez **Confirmer** pour passer à l’interpréteur de commandes Bash.
 1. Tapez `ssh-keygen -t rsa -b 2048` pour créer la clé SSH. 
@@ -109,7 +109,7 @@ Utilisez le navigateur web de votre choix pour visualiser la page d’accueil NG
 
 ![Site par défaut NGINX](./media/quick-create-portal/nginx.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Dès que vous n’en avez plus besoin, vous pouvez supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées. Pour cela, sélectionnez le groupe de ressources de la machine virtuelle, sélectionnez **Supprimer**, puis confirmez le nom du groupe de ressources à supprimer.
 

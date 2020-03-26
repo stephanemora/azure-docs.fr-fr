@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.date: 07/03/2018
 ms.author: labrenne
 ms.custom: mvc
-ms.openlocfilehash: 8d725834cb2dd86163909b2ae598e61026ae4bb9
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 6ce0066765de3d99f8309bf568b467518f38923e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024107"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215307"
 ---
-# <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Démarrage rapide : Exécuter votre premier travail Batch dans le portail Azure
+# <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Démarrage rapide : exécution de votre premier travail Batch dans le portail Azure
 
 Ce démarrage rapide montre comment utiliser le portail Azure pour créer un compte Batch, un *pool* de nœuds de calcul (machines virtuelles) et un *travail* qui exécute des *tâches* de base sur le pool. À l’issue de ce démarrage rapide, vous maîtriserez les concepts clés du service Batch et serez prêt à essayer Azure Batch avec des charges de travail plus réalistes à plus grande échelle.
 
@@ -24,7 +24,7 @@ Ce démarrage rapide montre comment utiliser le portail Azure pour créer un com
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure 
 
-Connectez-vous au portail Azure sur https://portal.azure.com.
+Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-batch-account"></a>Création d’un compte Batch
 

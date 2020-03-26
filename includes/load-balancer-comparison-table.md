@@ -1,6 +1,6 @@
 ---
-title: Fichier include
-description: Fichier include
+title: Fichier Include
+description: Fichier Include
 services: load balancer
 author: KumudD
 ms.service: load-balancer
@@ -9,10 +9,10 @@ ms.date: 02/21/2020
 ms.author: kumud
 ms.custom: include file
 ms.openlocfilehash: 33e6fecafa2b9748a27794800365974ebc975d0e
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78202522"
 ---
 | | Standard Load Balancer | Basic Load Balancer |

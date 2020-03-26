@@ -13,10 +13,10 @@ ms.topic: quickstart
 ms.date: 01/30/2020
 ms.author: spelluru
 ms.openlocfilehash: 34583ef49b2f919391af3fe5700a558b2dc40700
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77187239"
 ---
 # <a name="capture-event-hubs-data-in-azure-storage-and-read-it-by-using-python-azure-eventhub-version-5"></a>Capturer des données Event Hubs dans le Stockage Azure et les lire à l’aide de Python (azure-eventhub version 5)
@@ -92,9 +92,9 @@ Dans cette section, vous allez créer un script Python qui envoie 200 événeme
     * Remplacez `EVENT HUBS NAMESPACE CONNECTION STRING` par la chaîne de connexion de votre espace de noms Event Hubs.  
     * Remplacez `EVENT HUB NAME` par le nom de votre hub d’événements.  
 5. Exécutez le script pour envoyer des événements au hub d’événements.  
-6. Dans le portail Azure, vous pouvez vérifier que le hub d’événements a reçu les messages. Basculez vers l’affichage **Messages** dans la section **Métriques**. Actualisez la page pour mettre à jour le graphique. La page peut mettre quelques secondes à indiquer que les messages ont été reçus. 
+6. Dans le Portail Azure, vous pouvez vérifier que l’Event Hub a reçu les messages. Basculez vers l’affichage **Messages** dans la section **Métriques**. Actualisez la page pour mettre à jour le graphique. La page peut mettre quelques secondes à indiquer que les messages ont été reçus. 
 
-    [![Vérifier que le hub d’événements a reçu les messages](./media/get-started-capture-python-v2/messages-portal.png)](./media/get-started-capture-python-v2/messages-portal.png#lightbox)
+    [![Vérifier que l’Event Hub a reçu les messages](./media/get-started-capture-python-v2/messages-portal.png)](./media/get-started-capture-python-v2/messages-portal.png#lightbox)
 
 ## <a name="create-a-python-script-to-read-your-capture-files"></a>Créer un script Python pour lire vos fichiers Capture
 Dans cet exemple, les données capturées sont stockées dans le stockage Blob Azure. Le script de cette section lit les fichiers de données capturées à partir du compte de stockage Azure et génère des fichiers CSV que vous pouvez facilement ouvrir et consulter. Vous verrez que le répertoire de travail actuel de l’application contient 10 fichiers. Ces fichiers contiennent les données environnementales qui ont été relevées par les 10 appareils. 

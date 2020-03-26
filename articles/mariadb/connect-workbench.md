@@ -6,19 +6,19 @@ ms.author: andrela
 ms.service: mariadb
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 12/02/2018
-ms.openlocfilehash: 85a38fe3e2d17eb53d1ed5f8f231898849bd01db
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 4bb1a71c5d8a58e6d94007554c72019001d395db
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74772059"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79528998"
 ---
 # <a name="azure-database-for-mariadb-use-mysql-workbench-to-connect-and-query-data"></a>Azure Database for MariaDB : Utiliser MySQL Workbench pour se connecter et interroger des données
 
 Ce démarrage rapide explique comment se connecter à une instance d’Azure Database for MariaDB en utilisant MySQL Workbench. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Ce démarrage rapide s’appuie sur les ressources créées dans l’un des guides suivants :
 
@@ -33,7 +33,7 @@ Ce démarrage rapide s’appuie sur les ressources créées dans l’un des guid
 
 Récupérez les informations de connexion nécessaires pour vous connecter à l’instance Azure Database for MariaDB. Vous devez disposer du nom du serveur complet et des informations d’identification.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 2. Dans le menu de gauche du Portail Azure, sélectionnez **Toutes les ressources**. Recherchez le serveur que vous avez créé (par exemple **mydemoserver**).
 
@@ -55,7 +55,7 @@ Pour vous connecter à un serveur Azure Database for MariaDB avec MySQL Workbenc
    |---|---|---|
    |   Nom de connexion | **Connexion démo** | Spécifiez une étiquette pour cette connexion. |
    | Méthode de connexion | **Standard (TCP/IP)** | Standard (TCP/IP) est suffisant. |
-   | Nom d’hôte | *nom du serveur* | Spécifiez la valeur correspondant au nom du serveur utilisé pour créer l’instance Azure Database for MariaDB. Le serveur que nous utilisons dans notre exemple est **mydemoserver.mariadb.database.azure.com**. Utilisez le nom de domaine complet (\*.mariadb.database.azure.com), comme indiqué dans l’exemple. Si vous ne vous souvenez pas du nom de votre serveur, effectuez la procédure de la section précédente pour obtenir les informations de connexion.  |
+   | HostName | *nom du serveur* | Spécifiez la valeur correspondant au nom du serveur utilisé pour créer l’instance Azure Database for MariaDB. Le serveur que nous utilisons dans notre exemple est **mydemoserver.mariadb.database.azure.com**. Utilisez le nom de domaine complet (\*.mariadb.database.azure.com), comme indiqué dans l’exemple. Si vous ne vous souvenez pas du nom de votre serveur, effectuez la procédure de la section précédente pour obtenir les informations de connexion.  |
    | Port | **3306** | Utilisez toujours le port 3306 lorsque vous vous connectez à Azure Database for MariaDB. |
    | Nom d’utilisateur |  *nom de connexion d’administrateur du serveur* | Entrez le nom d’utilisateur du compte d’administrateur du serveur que vous avez utilisé pour créer l’instance Azure Database for MariaDB. Le nom d’utilisateur dans notre exemple est **myadmin\@mydemoserver**. Si vous ne vous souvenez pas de l’ID de connexion d’administrateur du serveur, effectuez la procédure de la section précédente pour obtenir les informations de connexion. Le format est *nom_utilisateur\@nom_serveur*.
    | Mot de passe | *votre mot de passe* | Pour enregistrer le mot de passe, sélectionnez **Stocker dans le coffre-fort**. |

@@ -12,10 +12,10 @@ ms.topic: overview
 ms.date: 08/05/2019
 ms.author: curtand
 ms.openlocfilehash: c216dbfef99422fc49fde774dc57d5cbcc9f879a
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77063983"
 ---
 # <a name="set-up-your-security-info-preview-from-a-sign-in-prompt"></a>Configurer vos informations de sécurité (préversion) à partir d’une invite de connexion
@@ -26,7 +26,7 @@ Cette invite apparaît uniquement si vous n’avez pas configuré les informatio
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
-## <a name="security-verification-versus-password-reset-authentication"></a>Authentification avec vérification de la sécurité ou réinitialisation de mot de passe
+## <a name="security-verification-versus-password-reset-authentication"></a>Vérification de la sécurité ou authentification avec réinitialisation du mot de passe
 
 Les méthodes relatives aux informations de sécurité sont utilisées pour la vérification de la sécurité à deux facteurs et la réinitialisation du mot de passe. Toutefois, ces techniques d’authentification ne prennent pas en charge toutes les méthodes.
 

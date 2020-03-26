@@ -8,13 +8,13 @@ ms.date: 10/18/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 0bf66baba1b665c92a11d7bda91dcaa3e355dd96
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75431819"
 ---
-# <a name="quickstart-create-and-manage-azure-file-shares-with-azure-storage-explorer"></a>Démarrage rapide : Créer et gérer des partages de fichiers Azure avec l’Explorateur Stockage Azure
+# <a name="quickstart-create-and-manage-azure-file-shares-with-azure-storage-explorer"></a>Démarrage rapide : créer et gérer les partages de fichiers Azure avec l’Explorateur Stockage Azure
 Ce guide vous explique les bases de l’utilisation du [partage de fichiers Azure](storage-files-introduction.md) avec l’Explorateur Stockage Azure. Le partage de fichiers Azure est similaire à d’autres partages de fichiers, mais est stocké dans le cloud et s’appuie sur la plateforme Azure. Il prend en charge le protocole SMB de norme industrielle et permet le partage de fichiers entre plusieurs machines, applications et instances. 
 
 L’Explorateur Stockage Azure est un outil client populaire qui est disponible pour Windows, macOS et Linux. Vous pouvez utiliser l’Explorateur Stockage pour gérer les partages de fichiers Azure et d’autres ressources de stockage.
@@ -32,9 +32,9 @@ Vous ne pouvez pas utiliser l’Explorateur Stockage pour créer de nouvelles re
 ## <a name="connect-storage-explorer-to-azure-resources"></a>Connecter l’Explorateur Stockage à des ressources Azure
 Lors du premier démarrage de l’Explorateur Stockage, la fenêtre **Microsoft Azure Storage Explorer - Connect** (Explorateur Stockage Microsoft Azure - Connexion) s’affiche. L’Explorateur Stockage offre de nombreuses façons de se connecter à des comptes de stockage : 
 
-- **Connectez-vous en utilisant votre compte Azure** : Vous pouvez vous connecter en utilisant les informations d’identification utilisateur de votre organisation ou de votre compte Microsoft. 
-- **Se connecter à un compte de stockage spécifique avec une chaîne de connexion ou un jeton SAS** : Une chaîne de connexion est une chaîne spéciale qui contient un nom de compte de stockage et une clé/un jeton SAS de compte de stockage. Avec le jeton, l’Explorateur Stockage accède directement au compte de stockage (plutôt que d’afficher simplement tous les comptes de stockage dans un compte Azure). Pour plus d’informations sur les chaînes de connexion, consultez [Configuration des chaînes de connexion du Stockage Azure](../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
-- **Se connecter à un compte de stockage spécifique avec un nom et une clé de compte de stockage** : Utilisez le nom et la clé et de votre compte de stockage pour vous connecter à Stockage Azure.
+- **Se connecter à l’aide de votre compte Azure** : vous pouvez vous connecter en utilisant les informations d’identification utilisateur de votre organisation ou votre compte Microsoft. 
+- **Se connecter à un compte de stockage spécifique à l’aide d’une chaîne de connexion ou d’un jeton SAS** : une chaîne de connexion est une chaîne spéciale qui contient un nom de compte de stockage et un jeton de clé/SAS de compte de stockage. Avec le jeton, l’Explorateur Stockage accède directement au compte de stockage (plutôt que d’afficher simplement tous les comptes de stockage dans un compte Azure). Pour plus d’informations sur les chaînes de connexion, consultez [Configuration des chaînes de connexion du Stockage Azure](../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+- **Se connecter à un compte de stockage spécifique à l’aide d’un nom et d’une clé de compte de stockage** : utilisez le nom et la clé de votre compte de stockage pour vous connecter au stockage Azure.
 
 Dans le cadre de ce guide de démarrage rapide, connectez-vous à l’aide de votre compte Azure. Sélectionnez **Ajouter un compte Azure**, puis **Connexion**. Suivez les instructions de l’invite pour vous connecter à votre compte Azure.
 

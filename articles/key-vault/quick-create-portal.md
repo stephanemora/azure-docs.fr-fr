@@ -12,13 +12,13 @@ ms.custom: mvc
 ms.date: 09/03/2019
 ms.author: mbaldwin
 ms.openlocfilehash: a57370b7bf63ad73318ba13eff1b554aead7e186
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78197757"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79216287"
 ---
-# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Démarrage rapide : Définir et récupérer un secret depuis Azure Key Vault à l’aide du portail Azure
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Démarrage rapide : définir et récupérer un secret depuis Azure Key Vault à l’aide du portail Azure
 
 Azure Key Vault est un service cloud qui fonctionne comme un magasin sécurisé contenant des secrets. Vous pouvez stocker des clés, des mots de passe, des certificats et d’autres secrets en toute sécurité. Vous pouvez créer et gérer des coffres de clés Azure grâce au portail Azure. Dans ce démarrage rapide, vous créez un coffre de clés, puis l’utilisez pour stocker un secret. Pour plus d’informations sur Key Vault, consultez la [présentation](key-vault-overview.md).
 
@@ -35,8 +35,8 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 3. Dans la liste des résultats, choisissez **Key Vault**.
 4. Dans la section Key Vault, choisissez **Créer**.
 5. Dans la section **Créer un coffre de clés**, renseignez les informations suivantes :
-    - **Name** : un nom unique est obligatoire. Pour ce démarrage rapide, nous utilisons **Contoso-vault2**. 
-    - **Abonnement**: Choisissez un abonnement.
+    - **Nom** : requiert un nom unique. Pour ce démarrage rapide, nous utilisons **Contoso-vault2**. 
+    - **Abonnement** : choisissez un abonnement.
     - Sous **Groupe de ressources**, choisissez **Créer** et entrez le nom du groupe de ressources.
     - Dans le menu déroulant **Emplacement**, choisissez un emplacement.
     - Conservez les valeurs par défaut des autres options.
@@ -44,8 +44,8 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 
 Notez les deux propriétés ci-dessous :
 
-* **Nom du coffre** : dans l’exemple, il s’agit de **Contoso-Vault2**. Vous allez utiliser ce nom pour les autres étapes.
-* **URI du coffre** : dans l’exemple, il s’agit de https://contoso-vault2.vault.azure.net/. Les applications qui utilisent votre coffre via son API REST doivent utiliser cet URI.
+* **Nom du coffre** : dans l’exemple, il s’agit de **Contoso-Vault2**. Vous allez utiliser ce nom pour les autres étapes.
+* **URI du coffre** : dans l’exemple, il s’agit de https://contoso-vault2.vault.azure.net/. Les applications qui utilisent votre coffre via son API REST doivent utiliser cet URI.
 
 À ce stade, votre compte Azure est le seul autorisé à effectuer des opérations sur ce nouveau coffre.
 
@@ -58,8 +58,8 @@ Pour ajouter un secret au coffre, vous devez effectuer deux autres opérations. 
 1. Dans les pages des propriétés Key Vault, sélectionnez **Secrets**.
 2. Cliquez sur **Generate/Import (Générer/Importer)** .
 3. Dans l’écran **Create a secret (Créer un secret)** , choisissez les valeurs suivantes :
-    - **Options de chargement** : Manuel.
-    - **Name** : ExamplePassword.
+    - **Options de chargement** : Manuel.
+    - **Nom** : ExamplePassword.
     - **Valeur** : hVFkk965BuUv
     - Conservez les valeurs par défaut des autres options. Cliquez sur **Créer**.
 

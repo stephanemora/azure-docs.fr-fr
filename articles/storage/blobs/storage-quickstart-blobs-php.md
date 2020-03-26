@@ -8,16 +8,16 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.openlocfilehash: 0453d7465479fb1410d1436cc3fa53914633ece5
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "68726387"
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-php"></a>Transférer des objets vers/à partir de Stockage Blob Azure avec PHP
 Dans ce guide de démarrage rapide, vous apprenez à utiliser PHP pour charger, télécharger et lister des objets blob de blocs dans un conteneur de stockage blob Azure. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
@@ -42,14 +42,14 @@ Cette commande clone le dépôt dans votre dossier git local. Pour ouvrir l’ex
 ## <a name="configure-your-storage-connection-string"></a>Configurer votre chaîne de connexion de stockage
 Dans l’application, vous devez fournir le nom de votre compte de stockage et votre clé de compte pour créer l’instance **BlobRestProxy** associée à votre application. Il est recommandé de stocker ces identificateurs dans une variable d’environnement sur l’ordinateur local exécutant l’application. Utilisez l’un des exemples suivants, en fonction de votre système d’exploitation, pour créer la variable d’environnement. Remplacez les valeurs **youraccountname** et **youraccountkey** par votre nom de compte et votre clé de compte.
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# <a name="linux"></a>[Linux](#tab/linux)
 
 ```bash
 export ACCOUNT_NAME=<youraccountname>
 export ACCOUNT_KEY=<youraccountkey>
 ```
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# <a name="windows"></a>[Windows](#tab/windows)
 
 ```cmd
 setx ACCOUNT_NAME=<youraccountname>
@@ -173,7 +173,7 @@ Obtenez le contenu de vos objets blob à l’aide de la méthode **getBlob()** .
     fpassthru($blob->getContentStream());
 ```
 
-### <a name="clean-up-resources"></a>Supprimer des ressources
+### <a name="clean-up-resources"></a>Nettoyer les ressources
 Si vous n’avez plus besoin des objets blob chargés dans ce guide de démarrage rapide, vous pouvez supprimer l’intégralité du conteneur à l’aide de la méthode **deleteContainer()** . Si les fichiers créés ne sont plus nécessaires, utilisez la méthode **deleteBlob()** pour supprimer ces fichiers.
 
 ```PHP

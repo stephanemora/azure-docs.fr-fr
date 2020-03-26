@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 09/19/2019
 ms.author: alkohli
 ms.openlocfilehash: a23b0b2c71207bf84a4938d54a78a62efb6cbcbd
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "71172647"
 ---
 Lorsque Microsoft reçoit et analyse l’appareil, l’état de la commande est mis à jour sur **Reçue**. L’appareil subit une vérification physique afin de détecter des dommages ou des signes d’altération potentiels.
@@ -50,7 +50,7 @@ Une fois que le chargement des données vers Azure est terminé, la Data Box eff
 Ce tutoriel vous a apporté des connaissances concernant Azure Data Box, notamment concernant les points suivants :
 
 > [!div class="checklist"]
-> * Prérequis
+> * Conditions préalables requises
 > * Préparer l’expédition
 > * Expédier la Data Box à Microsoft
 > * Vérifier le chargement des données dans Azure

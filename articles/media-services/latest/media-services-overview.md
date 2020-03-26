@@ -17,12 +17,12 @@ ms.workload: media
 ms.date: 03/09/2020
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 7e4a242c1f81a504872dae6399683483c836daf2
-ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+ms.openlocfilehash: bd3890757377525cf9c178866a2a2fbc0791b9de
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79086901"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79461008"
 ---
 # <a name="azure-media-services-v3-overview"></a>Vue d’ensemble d’Azure Media Services v3
 
@@ -31,7 +31,7 @@ Azure Media Services est une plateforme sur le cloud vous permettant de créer d
 Les kits SDK Media Services v3 sont basés sur la [spécification OpenAPI (Swagger) pour Media Services v3](https://aka.ms/ams-v3-rest-sdk).
 
 > [!NOTE]
-> Actuellement, vous pouvez utiliser le [portail Azure](https://portal.azure.com/) pour gérer les [événements en direct](live-events-outputs-concept.md) Media Services v3, voir (mais pas gérer) les [actifs multimédias](assets-concept.md) v3 et [obtenir des informations sur l’accès aux API](access-api-portal.md). Pour toutes les autres tâches de gestion (par exemple, les [transformations et travaux](transforms-jobs-concept.md) et la [protection de contenu](content-protection-overview.md)), utilisez l’[API REST](https://aka.ms/ams-v3-rest-ref), l’interface [CLI](https://aka.ms/ams-v3-cli-ref) ou l’un des [SDK](media-services-apis-overview.md#sdks) pris en charge.
+> Actuellement, vous pouvez utiliser le [portail Azure](https://portal.azure.com/) pour gérer les [événements en direct](live-events-outputs-concept.md) Media Services v3, voir (mais pas gérer) les [actifs multimédias](assets-concept.md) v3 et [obtenir des informations sur l’accès aux API](access-api-portal.md). Pour toutes les autres tâches de gestion (par exemple, les [transformations et travaux](transforms-jobs-concept.md) et la [protection de contenu](content-protection-overview.md)), utilisez l'[API REST](https://docs.microsoft.com/rest/api/media/), l'interface [CLI](https://aka.ms/ams-v3-cli-ref) ou l'un des [kits de développement logiciel (SDK)](media-services-apis-overview.md#sdks) pris en charge.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -39,7 +39,7 @@ Les kits SDK Media Services v3 sont basés sur la [spécification OpenAPI (Swag
 
 Pour rappel, vous devez respecter toutes les lois applicables dans le cadre de votre utilisation d’Azure Media Services et vous n’êtes pas autorisé à utiliser Media Services ou d’autres services Azure d’une manière qui porterait atteinte aux droits des tiers ou qui leur serait préjudiciable.
 
-Avant de charger une vidéo ou une image vers Media Services, Vous devez disposer de tous les droits appropriés pour utiliser la vidéo ou l’image, y compris, lorsque cela est requis par la Loi, avoir obtenu tous les consentements nécessaires de chaque personne (le cas échéant) apparaissant dans la vidéo ou l’image, pour autoriser l’utilisation, le traitement et le stockage de leurs données dans Media Services et Azure. Certaines juridictions peuvent imposer des obligations légales spéciales pour la collecte, le traitement en ligne et le stockage de catégories de données particulières, comme les données biométriques. Avant d’utiliser Media Services et Azure pour le traitement et le stockage de données soumises à des conditions légales spéciales, vous devez veiller à vous conformer à toutes les conditions légales qui s’appliquent.
+Avant de charger une vidéo ou une image vers Media Services, Vous devez disposer de tous les droits appropriés pour utiliser la vidéo ou l’image, y compris, lorsque cela est requis par la Loi, avoir obtenu tous les consentements nécessaires de chaque personne (le cas échéant) apparaissant dans la vidéo ou l’image, pour autoriser l’utilisation, le traitement et le stockage de leurs données dans Media Services et Azure. Certaines juridictions peuvent imposer des obligations légales spéciales pour la collecte, le traitement en ligne et le stockage de catégories de données particulières, comme des données biométriques. Avant d’utiliser Media Services et Azure pour le traitement et le stockage de données soumises à des conditions légales spéciales, vous devez veiller à vous conformer à toutes les conditions légales qui s’appliquent.
 
 Pour en savoir plus sur la conformité, la confidentialité et la sécurité dans Media Services, consultez le [Centre de confidentialité](https://www.microsoft.com/trust-center/?rtc=1) Microsoft. Pour connaître les obligations de Microsoft relatives à la confidentialité et les bonnes pratiques de gestion et de conservation de vos données, consultez la [Déclaration de confidentialité](https://privacy.microsoft.com/PrivacyStatement), les [Conditions d’utilisation des services en ligne](https://www.microsoft.com/licensing/product-licensing/products?rtc=1) (« OST ») et l’[Avenant au traitement des données](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) (« DPA ») de Microsoft. En utilisant Media Services, vous consentez à être lié par les dispositions de l’OST, du DPA et de la Déclaration de confidentialité.
  
@@ -47,7 +47,7 @@ Pour en savoir plus sur la conformité, la confidentialité et la sécurité dan
 
 Media Services vous permet de créer un grand nombre de flux de travail multimédias dans le cloud. Voici quelques exemples de ce que vous pouvez faire avec Media Services :
 
-* Fournir des vidéos dans différents formats afin qu’elles puissent être lues sur un large éventail de navigateurs et d’appareils. Pour le streaming en direct et à la demande sur différents clients (appareils mobiles, télévisions, PC, etc.), le contenu vidéo et audio doit être codé et empaqueté de façon appropriée. Pour savoir comment livrer et diffuser ce type de contenu, consultez [Démarrage rapide : encoder des fichiers et les diffuser en continu](stream-files-dotnet-quickstart.md).
+* Fournir des vidéos dans différents formats afin qu’elles puissent être lues sur un large éventail de navigateurs et d’appareils. Pour le streaming en direct et à la demande sur différents clients (appareils mobiles, télévisions, PC, etc.), le contenu vidéo et audio doit être codé et empaqueté de façon appropriée. Pour savoir comment livrer et diffuser ce type de contenu, consultez [Démarrage rapide : encoder et diffuser des fichiers](stream-files-dotnet-quickstart.md).
 * Diffuser des événements sportifs en direct à un grand public en ligne, comme le football, le base-ball, le sport universitaire et bien plus encore.
 * Diffuser des réunions et des événements publics, comme des réunions de conseil municipal et de corps législatifs.
 * Analyser les vidéos ou le contenu audio enregistrés. Par exemple, pour atteindre une satisfaction client optimale, les organisations peuvent extraire une reconnaissance vocale, et générer des index de recherche et des tableaux de bord. Elles peuvent ensuite extraire des informations sur les réclamations, les causes des réclamations et autres données pertinentes.
