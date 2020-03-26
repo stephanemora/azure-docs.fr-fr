@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
 ms.openlocfilehash: d8c3bde0f32c1df6c98f6a71f6ab830c21256903
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76906289"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>Tutoriel : Déployer Azure Stream Analytics en tant que module IoT Edge
@@ -38,7 +38,7 @@ Dans ce tutoriel, vous allez apprendre à :
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Un appareil Azure IoT Edge :
 
@@ -66,10 +66,10 @@ Lorsque vous créez un travail Azure Stream Analytics pour s’exécuter sur un 
 
    | Champ | Valeur |
    | ----- | ----- |
-   | Subscription | Choisissez le même abonnement que votre IoT Hub. |
+   | Abonnement | Choisissez le même abonnement que votre IoT Hub. |
    | Resource group | Nous vous recommandons d’utiliser le même groupe de ressources pour toutes vos ressources de test dans le cadre des démarrages rapides et tutoriels IoT Edge. Par exemple, utilisez **IoTEdgeResources**. |
-   | Name | Fournissez un nom unique pour votre compte de stockage. |
-   | Location | Choisissez un emplacement proche de vous. |
+   | Nom | Fournissez un nom unique pour votre compte de stockage. |
+   | Emplacement | Choisissez un emplacement proche de vous. |
 
 1. Conservez les valeurs par défaut des autres champs, puis sélectionnez **Vérifier + créer**.
 
@@ -84,9 +84,9 @@ Lorsque vous créez un travail Azure Stream Analytics pour s’exécuter sur un 
    | Champ | Valeur |
    | ----- | ----- |
    | Nom du travail | Fournissez un nom pour votre travail. Par exemple, **IoTEdgeJob** |
-   | Subscription | Choisissez le même abonnement que votre IoT Hub. |
+   | Abonnement | Choisissez le même abonnement que votre IoT Hub. |
    | Resource group | Nous vous recommandons d’utiliser le même groupe de ressources pour toutes les ressources de test que vous créez dans le cadre des démarrages rapides et didacticiels IoT Edge. Par exemple, utilisez **IoTEdgeResources**. |
-   | Location | Choisissez un emplacement proche de vous. |
+   | Emplacement | Choisissez un emplacement proche de vous. |
    | Environnement d’hébergement | Sélectionnez **Edge**. |
 
 1. Sélectionnez **Create** (Créer).
@@ -193,7 +193,7 @@ Pour ce didacticiel, vous déployez deux modules. Le premier est **SimulatedTemp
 
 1. Sous l’onglet **Routes**, vous définissez la manière dont les messages sont transmis entre les modules et le hub IoT. Les messages sont construits à l’aide de paires nom/valeur. Remplacez le nom et les valeurs `route` et `upstream` par défaut par les paires indiquées dans le tableau suivant, les paires nom/valeur suivantes, en remplaçant les instances de _{moduleName}_ par le nom de votre module Azure Stream Analytics.
 
-    | Name | Valeur |
+    | Nom | Valeur |
     | --- | --- |
     | `telemetryToCloud` | `FROM /messages/modules/SimulatedTemperatureSensor/* INTO $upstream` |
     | `alertsToCloud` | `FROM /messages/modules/{moduleName}/* INTO $upstream` |

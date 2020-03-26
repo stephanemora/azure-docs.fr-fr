@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 ms.custom: ''
 ms.openlocfilehash: bdbf2a975cbdc3d06745b9375c1e6f8e751ddfd6
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77914078"
 ---
 # <a name="migrate-a-web-app-from-google-maps"></a>Migrer une application Web à partir de Google Maps
@@ -246,7 +246,7 @@ Voici un exemple de Azure Maps avec la langue définie sur « fr » et la rég
 
 ### <a name="setting-the-map-view"></a>Définition de la vue cartographique
 
-Les cartes dynamiques dans Azure et Google Maps peuvent être déplacées par programmation vers de nouveaux lieux géographiques. Pour ce faire, appelez les fonctions appropriées en JavaScript. Les exemples montrent comment faire en sorte que la carte affiche une image aérienne satellite, centrer la carte sur un endroit et définir le niveau de zoom sur 15 dans Google Maps. Les coordonnées de localisation suivantes sont utilisées : longitude : -111,0225 et latitude : 35.0272.
+Les cartes dynamiques dans Azure et Google Maps peuvent être déplacées par programmation vers de nouveaux emplacements géographiques. Pour ce faire, appelez les fonctions appropriées en JavaScript. Les exemples montrent comment faire en sorte que la carte affiche une image aérienne satellite, centrer la carte sur un endroit et définir le niveau de zoom sur 15 dans Google Maps. Les coordonnées d’emplacement suivantes sont utilisées : longitude : -111,0225 et latitude : 35.0272.
 
 > [!NOTE]
 > Google Maps utilise des mosaïques de 256 pixels, tandis qu’Azure Maps utilise une mosaïque de 512 pixels. Ainsi, Azure Maps nécessite moins de requêtes réseau pour charger la même zone réactive que Google Maps. En raison du mode de fonctionnement des pyramides de mosaïques dans les contrôles de carte, vous devez diminuer le niveau de zoom utilisé dans Google Maps d’une unité lors de l’utilisation d’Azure Maps. Cette opération arithmétique permet de s’assurer que les mosaïques plus grandes dans Azure Maps affichent la même zone réactive que dans Google Maps.

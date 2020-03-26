@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: sewatson
 ms.openlocfilehash: 2ff389f52da0db4e394e8f6a6c37955a5f0c3861
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "64691374"
 ---
 # <a name="azure-database-for-mysql-documentation"></a>Documentation Azure Database pour MySQL
@@ -24,20 +24,20 @@ Azure Database pour MySQL est un service de base de données relationnelle basé
 Découvrez comment créer une base de données MySQL sur Azure grâce à :
 
 - [Portail Azure](/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal)
-- [Interface de ligne de commande Azure](/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli)
+- [Azure CLI](/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli)
 
 ## <a name="step-by-step-tutorials"></a>Didacticiels pas à pas
 
 Découvrez comment concevoir votre base de données et développer des applications :
 
-- Concevoir une base de données : [Portail Azure](/azure/mysql/tutorial-design-database-using-portal) |  [Azure CLI](/azure/mysql/tutorial-design-database-using-cli)
-- Créer une application web : [Wordpress - Portail](https://portal.azure.com/#create/WordPress.WordPress) |  [PHP - Azure CLI](/azure/app-service/app-service-web-tutorial-php-mysql?toc=%2fazure%2fmysql%2ftoc.json)
+- Concevoir une base de données : [Portail Azure](/azure/mysql/tutorial-design-database-using-portal) |  [Azure CLI](/azure/mysql/tutorial-design-database-using-cli)
+- Créer une application web : [Wordpress – Portail](https://portal.azure.com/#create/WordPress.WordPress) |  [PHP – Azure CLI](/azure/app-service/app-service-web-tutorial-php-mysql?toc=%2fazure%2fmysql%2ftoc.json)
 
 ## <a name="samples"></a>Exemples 
 
 Trouvez des scripts pour gérer les tâches courantes.
 
-- [Interface de ligne de commande Azure](/azure/mysql/reference-azure-cli)
+- [Azure CLI](/azure/mysql/reference-azure-cli)
 
 ## <a name="more"></a>En savoir plus
 
