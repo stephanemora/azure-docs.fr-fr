@@ -4,13 +4,13 @@ description: Découvrez comment exécuter des applications web dans Azure App Se
 ms.assetid: 04a1becf-7756-4d4e-92d8-d9471c263d23
 ms.topic: quickstart
 ms.date: 10/21/2019
-ms.custom: seodec18
-ms.openlocfilehash: f2e31723dc2761007994f652d9d6c28ab3f7d47d
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.custom: mvc, devcenter, seodec18
+ms.openlocfilehash: 4688cc358ec6ff792be58254b0607f5416422a21
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671402"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80047654"
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>Créer une application web ASP.NET Framework dans Azure
 
@@ -29,7 +29,7 @@ Si vous avez déjà installé Visual Studio 2019 :
 - Installez les dernières mises à jour dans Visual Studio en sélectionnant **Aide** > **Rechercher les mises à jour**.
 - Ajoutez la charge de travail en sélectionnant **Outils** > **Obtenir des outils et des fonctionnalités**.
 
-## Créer une application web ASP.NET <a name="create-and-publish-the-web-app"></a>
+## <a name="create-an-aspnet-web-app"></a>Créer une application web ASP.NET <a name="create-and-publish-the-web-app"></a>
 
 Créez une application web ASP.NET en effectuant les étapes suivantes :
 
@@ -37,7 +37,7 @@ Créez une application web ASP.NET en effectuant les étapes suivantes :
 
 2. Dans **Créer un projet**, recherchez et choisissez **Application web ASP.NET (.NET Framework)** , puis sélectionnez **Suivant**.
 
-3. Dans **Configurer votre nouveau projet**, nommez l’application _myFirstAzureWebApp_, puis sélectionnez **Créer**.
+3. Dans **Configurer votre nouveau projet**, nommez l’application _myFirstAzureWebApp_, puis sélectionnez **Create (Créer)** .
 
    ![Configurer votre projet d’application web](./media/app-service-web-get-started-dotnet-framework/configure-web-app-project-framework.png)
 
@@ -51,7 +51,7 @@ Créez une application web ASP.NET en effectuant les étapes suivantes :
 
    ![Exécuter l’application localement](./media/app-service-web-get-started-dotnet-framework/local-web-app.png)
 
-## Publier votre application web <a name="launch-the-publish-wizard"></a>
+## <a name="publish-your-web-app"></a>Publier votre application web <a name="launch-the-publish-wizard"></a>
 
 1. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le projet **myFirstAzureWebApp**, puis sélectionnez **Publier**.
 
@@ -83,8 +83,8 @@ Créez une application web ASP.NET en effectuant les étapes suivantes :
    | Paramètre | Valeur suggérée | Description |
    |-|-|-|
    |Plan App Service| myAppServicePlan | Nom du plan App Service. |
-   | Location | Europe Ouest | Centre de données dans lequel l’application web est hébergée. |
-   | Size | Gratuit | Le [niveau tarifaire](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) détermine les fonctionnalités d’hébergement. |
+   | Emplacement | Europe Ouest | Centre de données dans lequel l’application web est hébergée. |
+   | Taille | Gratuit | Le [niveau tarifaire](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) détermine les fonctionnalités d’hébergement. |
 
    ![Créer un plan App Service](./media/app-service-web-get-started-dotnet-framework/app-service-plan-framework-vs2019.png)
 
@@ -111,7 +111,7 @@ Le nom d’application spécifié dans la page **Créer un App Service** est uti
    ```HTML
    <div class="jumbotron">
        <h1>ASP.NET in Azure!</h1>
-       <p class="lead">This is a simple app that we’ve built that demonstrates how to deploy a .NET app to Azure App Service.</p>
+       <p class="lead">This is a simple app that we've built that demonstrates how to deploy a .NET app to Azure App Service.</p>
    </div>
    ```
 

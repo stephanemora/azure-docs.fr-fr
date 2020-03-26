@@ -4,10 +4,10 @@ description: Dans ce guide de démarrage rapide, vous allez utiliser Azure CLI p
 ms.date: 01/11/2020
 ms.topic: quickstart
 ms.openlocfilehash: 7f76191d97a936c745fc2b13b54011e787e0b5e6
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75978321"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>Démarrage rapide : Créer une affectation de stratégie pour identifier les ressources non conformes avec Azure CLI
@@ -19,7 +19,7 @@ Ce démarrage rapide vous guide pas à pas dans le processus de création d’un
 
 Azure CLI permet de créer et de gérer des ressources Azure à partir de la ligne de commande ou dans des scripts. Ce guide utilise l’interface de ligne de commande Azure pour créer une attribution de stratégie et identifier les ressources non conformes dans votre environnement Azure.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 

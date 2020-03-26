@@ -4,10 +4,10 @@ description: Apprenez à créer et exécuter un notebook Jupyter dans Azure Note
 ms.topic: tutorial
 ms.date: 01/11/2019
 ms.openlocfilehash: 8a1c13f41ef1588b040b3540b852d83764c6ce79
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75660815"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Tutoriel : Créer et exécuter un notebook Jupyter avec Python

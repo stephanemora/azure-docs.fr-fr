@@ -10,10 +10,10 @@ ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
 ms.openlocfilehash: 720b3e56e1dd45bd2940b337adefa6ebdaa2e5a1
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76719719"
 ---
 # <a name="tutorial-create-and-test-a-device-capability-model-using-visual-studio-code"></a>Tutoriel : Créer et tester un modèle de capacité d’appareil avec Visual Studio Code
@@ -30,7 +30,7 @@ Dans ce tutoriel, vous allez apprendre à :
 > * Implémenter les stubs dans le code généré
 > * Exécuter le code pour tester les interactions avec un hub IoT
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour utiliser le modèle de capacité d’appareil dans le cadre de ce tutoriel, vous avez besoin des éléments suivants :
 

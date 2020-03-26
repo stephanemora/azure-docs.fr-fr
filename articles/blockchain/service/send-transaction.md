@@ -5,13 +5,13 @@ ms.date: 12/06/2019
 ms.topic: tutorial
 ms.reviewer: chrisseg
 ms.openlocfilehash: 5b901ab904425a22d2fe9643ffa75a4e978efa88
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74972834"
 ---
-# <a name="tutorial-create-buildanddeploysmartcontracts-on-azure-blockchain-service"></a>Didacticiel : Créer, générer et déployer des contrats intelligents sur Azure Blockchain Service
+# <a name="tutorial-create-buildanddeploysmartcontracts-on-azure-blockchain-service"></a>Tutoriel : Créer, générer et déployer des contrats intelligents sur Azure Blockchain Service
 
 Dans ce tutoriel, vous allez utiliser le kit de développement Azure Blockchain pour l’extension Ethereum dans Visual Studio Code pour créer, générer et déployer un contrat intelligent dans Azure Blockchain Service. Vous allez aussi utiliser le kit de développement pour exécuter une fonction de contrat intelligent via une transaction.
 
@@ -38,7 +38,7 @@ Vous utilisez Azure Blockchain Development Kit pour Ethereum afin de :
 Sur Windows, un compilateur C++ doit être installé pour le module node-gyp. Vous pouvez utiliser les outils MSBuild :
 
 * Si Visual Studio 2017 est installé, configurez npm pour utiliser les outils MSBuild avec la commande `npm config set msvs_version 2017 -g`
-* Si Visual Studio 2019 est installé, définissez le chemin des outils de build MS pour npm. Par exemple, `npm config set msbuild_path "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MSBuild.exe"`
+* Si Visual Studio 2019 est installé, définissez le chemin des outils de build MS pour npm. Par exemple : `npm config set msbuild_path "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MSBuild.exe"`
 * Dans le cas contraire, installez les outils de build Visual Studio autonomes à l’aide de `npm install --global windows-build-tools` dans une interface de commande *Exécuter en tant qu’administrateur* avec élévation de privilèges.
 
 Pour plus d’informations sur node-gyp, consultez le [dépôt node-gyp sur GitHub](https://github.com/node-gyp).
@@ -104,7 +104,7 @@ Une fois la transaction traitée, la section d’interaction reflète les change
 
 La fonction SendRequest définit les champs **RequestMessage** et **State**. L’état actuel de **RequestMessage** correspond à l’argument que vous avez passé (**Hello, Blockchain**). La valeur du champ **State** reste **Request**.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous n’en avez plus besoin, vous pouvez supprimer les ressources en supprimant le groupe de ressources `myResourceGroup` que vous avez créé à l’étape du démarrage rapide *Créer un membre blockchain* effectuée en tant que prérequis.
 

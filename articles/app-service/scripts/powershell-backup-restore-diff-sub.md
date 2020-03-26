@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell : Restaurer une sauvegarde pour un autre abonnement'
+title: 'PowerShell : Restaurer une sauvegarde pour un autre abonnement'
 description: Découvrez comment utiliser Azure PowerShell pour automatiser le déploiement et la gestion d’App Service. Cet exemple montre comment restaurer une sauvegarde dans un autre abonnement.
 author: msangapu-msft
 tags: azure-service-management
@@ -7,13 +7,13 @@ ms.assetid: a2a27d94-d378-4c17-a6a9-ae1e69dc4a72
 ms.topic: sample
 ms.date: 11/21/2018
 ms.author: msangapu
-ms.custom: seodec18
-ms.openlocfilehash: 8168fbedd1a639dce0ab8bd076e14ab24e2f6d1e
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 4a22148d4151fd3c80c7be439b5dd281200e5456
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74685815"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80044571"
 ---
 # <a name="restore-a-web-app-from-a-backup-in-another-subscription-using-powershell"></a>Restaurer une application web à partir d’une sauvegarde dans un autre abonnement à l'aide de PowerShell
 
@@ -48,6 +48,6 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur le module Azure PowerShell, consultez la [Documentation Azure PowerShell](/powershell/azure/overview).
+Pour plus d’informations sur le module Azure PowerShell, consultez [Documentation Azure PowerShell](/powershell/azure/overview).
 
 Vous trouverez des exemples supplémentaires de scripts Azure PowerShell pour Azure App Service Web Apps sur la page [Azure PowerShell Samples](../samples-powershell.md) (Exemples Azure PowerShell).

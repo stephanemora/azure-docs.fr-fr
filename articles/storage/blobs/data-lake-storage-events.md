@@ -9,10 +9,10 @@ ms.date: 08/20/2019
 ms.author: normesta
 ms.reviewer: sumameh
 ms.openlocfilehash: 85fad873b6c176d2278ea48709d2892ab515a025
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78303305"
 ---
 # <a name="tutorial-implement-the-data-lake-capture-pattern-to-update-a-databricks-delta-table"></a>Tutoriel : Implémenter le modèle de capture de lac de données pour mettre à jour une table Delta Databricks

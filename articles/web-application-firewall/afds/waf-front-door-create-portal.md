@@ -1,24 +1,24 @@
 ---
-title: 'Didacticiel : Créer une stratégie WAF pour Azure Front - Portail Azure'
+title: 'Tutoriel : Créer une stratégie WAF pour Azure Front - Portail Azure'
 description: Dans ce tutoriel, vous allez apprendre à créer une stratégie de pare-feu d’applications web (WAF) à l’aide du portail Azure.
 author: vhorne
 ms.service: web-application-firewall
 services: web-application-firewall
 ms.topic: tutorial
-ms.date: 09/07/2019
+ms.date: 03/10/2020
 ms.author: victorh
-ms.openlocfilehash: 991111e01713afe48355aac44a151b98fa828c5f
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: be66a93ea4a518b26d973d222caf58e73b6986a3
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186719"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79475839"
 ---
-# <a name="tutorial-create-a-web-application-firewall-policy-on-azure-front-door-using-the-azure-portal"></a>Didacticiel : Créer une stratégie de pare-feu d’applications web dans Azure Front Door à l’aide du portail Azure
+# <a name="tutorial-create-a-web-application-firewall-policy-on-azure-front-door-using-the-azure-portal"></a>Tutoriel : Créer une stratégie de pare-feu d’applications web dans Azure Front Door à l’aide du portail Azure
 
 Ce tutoriel explique comment créer une stratégie de pare-feu d’applications web (WAF) Azure de base et comment l’appliquer sur un hôte front-end dans Azure Front Door.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créer une stratégie de pare-feu d’applications web (WAF)
@@ -38,9 +38,9 @@ Commencez par créer une stratégie WAF de base avec un ensemble de règles mana
 
     | Paramètre                 | Valeur                                              |
     | ---                     | ---                                                |
-    | Subscription            |Sélectionnez le nom de votre abonnement Front Door.|
+    | Abonnement            |Sélectionnez le nom de votre abonnement Front Door.|
     | Resource group          |Sélectionnez le nom de votre groupe de ressources Front Door.|
-    | Nom de la stratégie             |Entrez un nom unique pour votre stratégie WAF.|
+    | Nom de stratégie             |Entrez un nom unique pour votre stratégie WAF.|
 
    ![Créer une stratégie de pare-feu d’applications web (WAF)](../media/waf-front-door-create-portal/basic.png)
 

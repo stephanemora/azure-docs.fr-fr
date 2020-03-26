@@ -1,15 +1,15 @@
 ---
-title: Qu’est-ce que Sauvegarde Azure ?
+title: Qu’est-ce qu’Azure Backup ?
 description: Fournit une vue d’ensemble du service Sauvegarde Azure et de la façon de le déployer dans le cadre de votre stratégie de continuité d’activité et de reprise d’activité (BCDR).
 ms.topic: overview
 ms.date: 04/24/2019
 ms.custom: mvc
 ms.openlocfilehash: cf48090b2c32f0c3a1c8170873cb8d6a771fe21f
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76294301"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215107"
 ---
 # <a name="what-is-the-azure-backup-service"></a>Qu’est-ce que le service Sauvegarde Azure ?
 

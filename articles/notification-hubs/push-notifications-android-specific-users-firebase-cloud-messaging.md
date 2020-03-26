@@ -18,10 +18,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 09/11/2019
 ms.openlocfilehash: c2d3789082130cbbc42021a0706249dd3966b9ef
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75531120"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-android-apps-using-azure-notification-hubs"></a>Tutoriel : Envoyer des notifications Push vers des applications Android spécifiques à l’aide d’Azure Notification Hubs
@@ -37,7 +37,7 @@ Dans ce tutoriel, vous effectuez les étapes suivantes :
 > * Mettre à jour une application Android.
 > * Test de l'application
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Suivre le [Tutoriel : Notifications Push vers des appareils Android avec Azure Notification Hubs et Firebase Cloud Messaging](notification-hubs-android-push-notification-google-fcm-get-started.md) avant de passer à ce tutoriel.
 

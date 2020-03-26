@@ -6,10 +6,10 @@ ms.date: 12/04/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.openlocfilehash: ad79721b88f886426d658ed6ee89c4969e1f1baa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75470284"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>Tutoriel : Utiliser Azure Deployment Manager avec des modèles Resource Manager (préversion publique)
@@ -47,7 +47,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléments suivants :
 

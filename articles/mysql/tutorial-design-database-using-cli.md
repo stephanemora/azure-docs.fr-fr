@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Concevoir un serveur - Azure CLI - Azure Database pour MySQL'
+title: 'Tutoriel : Concevoir un serveur - Azure CLI - Azure Database pour MySQL'
 description: Ce tutoriel explique comment créer et gérer un serveur et une base de données Azure Database pour MySQL avec Azure CLI depuis la ligne de commande.
 author: ajlam
 ms.author: andrela
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 12/02/2019
 ms.custom: mvc
 ms.openlocfilehash: 00beae5a65e61f814d3498dbb41af02aaf0287fb
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74771210"
 ---
-# <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>Didacticiel : Créer une base de données Azure Database pour MySQL à l’aide d’Azure CLI
+# <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>Tutoriel : Créer une base de données Azure Database pour MySQL à l’aide d’Azure CLI
 
 Azure Database pour MySQL est un service de base de données relationnelle dans le cloud de Microsoft basé sur le moteur de base de données MySQL Community Edition. Dans ce didacticiel, vous allez utiliser l’interface Azure CLI (interface de ligne de commande) et d’autres utilitaires pour apprendre à :
 
@@ -23,8 +23,8 @@ Azure Database pour MySQL est un service de base de données relationnelle dans 
 > * Créer une base de données Azure pour MySQL
 > * Configurer le pare-feu du serveur
 > * Utiliser [l’outil de ligne de commande mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) pour créer une base de données
-> * Charger les exemples de données
-> * Données de requête
+> * Charger un exemple de données
+> * Interroger des données
 > * Mettre à jour des données
 > * Restaurer des données
 
@@ -189,7 +189,7 @@ La commande `az mysql server restore` a besoin des paramètres suivants :
 | --- | --- | --- |
 | resource-group |  myResourceGroup |  Groupe de ressources dans lequel se trouve le serveur source.  |
 | name | mydemoserver-restored | Nom du serveur créé par la commande de restauration. |
-| restore-point-in-time | 2017-04-13T13:59:00Z | Choisissez la date et l’heure à utiliser pour la restauration. Elles doivent être comprises dans la période de rétention de la sauvegarde du serveur source. Utilisez le format de date et d’heure ISO8601. Par exemple, vous pouvez utiliser votre propre fuseau horaire local, comme `2017-04-13T05:59:00-08:00`, ou le format UTC `2017-04-13T13:59:00Z`. |
+| restore-point-in-time | 2017-04-13T13:59:00Z | Choisissez la date et l’heure à utiliser pour la restauration. Elles doivent être comprises dans la période de rétention de la sauvegarde du serveur source. Utilisez le format de date et d’heure ISO8601. Par exemple, vous pouvez utiliser votre fuseau horaire local, comme `2017-04-13T05:59:00-08:00`, ou le format UTC Zulu `2017-04-13T13:59:00Z`. |
 | source-server | mydemoserver | Nom ou identifiant du serveur source à partir duquel la restauration s’effectuera. |
 
 La restauration d’un serveur à un point antérieur dans le temps entraîne la création d’un nouveau serveur, qui est la copie du serveur d’origine tel qu’il était à l’instant spécifié. Les valeurs d’emplacement et de niveau tarifaire du serveur restauré sont les mêmes que celles du serveur source.
@@ -202,8 +202,8 @@ Dans ce didacticiel, vous avez appris à effectuer les opérations suivantes :
 > * Création d’un serveur Azure Database pour MySQL
 > * Configurer le pare-feu du serveur
 > * Utiliser [l’outil de ligne de commande mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) pour créer une base de données
-> * Charger les exemples de données
-> * Données de requête
+> * Charger un exemple de données
+> * Interroger des données
 > * Mettre à jour des données
 > * Restaurer des données
 

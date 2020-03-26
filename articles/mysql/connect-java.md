@@ -7,13 +7,13 @@ ms.service: mysql
 ms.custom: mvc, devcenter, seo-java-july2019, seo-java-august2019
 ms.topic: quickstart
 ms.devlang: java
-ms.date: 12/02/2019
-ms.openlocfilehash: 18a61c215f6c10bb399beaa83ec53ad2ebc62970
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.date: 3/18/2020
+ms.openlocfilehash: 0a41dfbdbfb1a0f588c1a334aefeb4fb5043e813
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76938986"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80067962"
 ---
 # <a name="quickstart-use-java-to-connect-to-and-query-data-in-azure-database-for-mysql"></a>Démarrage rapide : Utiliser Java pour se connecter à Azure Database pour MySQL et interroger les données
 
@@ -21,7 +21,7 @@ Dans ce guide de démarrage rapide, vous vous connectez à une base de données 
 
 Cette rubrique part du principe que vous connaissez les bases du développement Java, mais que vous débutez dans l’utilisation d’Azure Database pour MySQL.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Un serveur Azure Database pour MySQL. [Créer un serveur Azure Database pour MySQL avec le portail Azure](quickstart-create-mysql-server-database-using-azure-portal.md) ou [Créer un serveur Azure Database pour MySQL avec Azure CLI](quickstart-create-mysql-server-database-using-azure-cli.md).

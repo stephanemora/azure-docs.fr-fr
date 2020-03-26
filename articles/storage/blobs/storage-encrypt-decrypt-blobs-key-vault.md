@@ -11,17 +11,17 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
 ms.openlocfilehash: c83e56a47f4b212a5612cb9e6965ce8e73228dcb
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74892887"
 ---
 # <a name="tutorial---encrypt-and-decrypt-blobs-using-azure-key-vault"></a>Tutoriel - Chiffrer et déchiffrer des objets blob avec Azure Key Vault
 
 Ce didacticiel décrit comment utiliser le chiffrement de stockage côté client avec Azure Key Vault. Il vous explique comment chiffrer et déchiffrer un objet blob dans une application console à l'aide de ces technologies.
 
-**Durée estimée :** 20 minutes
+**Durée estimée :** 20 minutes
 
 Pour plus d’informations générales sur Azure Key Vault, consultez la page [Présentation d’Azure Key Vault](../../key-vault/key-vault-overview.md).
 
@@ -29,7 +29,7 @@ Pour plus d’informations générales sur le chiffrement côté client du Stock
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
+Pour suivre ce tutoriel, vous devez disposer des éléments suivants :
 
 * Un compte Azure Storage
 * Visual Studio 2013 ou une version ultérieure
@@ -52,7 +52,7 @@ Pour continuer avec ce didacticiel, vous devez effectuer les étapes suivantes q
 
 * Création d’un coffre de clés
 * Ajout d’une clé ou d’un secret au coffre de clés
-* Inscription d’une application auprès d’Azure Active Directory
+* Inscrivez une application auprès d’Azure Active Directory.
 * Autorisation de l’application à utiliser la clé ou le secret
 
 Notez les valeurs ClientID et ClientSecret qui ont été générées lors de l'inscription d'une application avec Azure Active Directory.

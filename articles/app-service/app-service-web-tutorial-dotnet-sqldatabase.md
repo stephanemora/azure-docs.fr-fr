@@ -1,17 +1,17 @@
 ---
-title: 'Didacticiel : Application ASP.NET avec SQL Database'
+title: 'Tutoriel : Application ASP.NET avec SQL Database'
 description: Découvrez comment déployer une application ASP.NET C# avec une base de données SQL Server sur Azure.
 ms.assetid: 03c584f1-a93c-4e3d-ac1b-c82b50c75d3e
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 06/25/2018
-ms.custom: seodec18
-ms.openlocfilehash: 2a0b3994af48372b8ed0a3c6eaecf4289d0980c1
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.custom: mvc, devcenter, vs-azure, seodec18
+ms.openlocfilehash: a9acb55f0a03a6ec1ba0bb6bb38c665b059b672b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671382"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80047021"
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>Tutoriel : Création d’une application ASP.NET dans Azure avec SQL Database
 
@@ -19,13 +19,13 @@ ms.locfileid: "74671382"
 
 ![Application ASP.NET publiée dans Azure App Service](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créer une base de données SQL dans Azure
 > * Connecter une application ASP.NET à SQL Database
 > * Déploiement de l’application dans Azure
-> * Mettre à jour le modèle de données et redéployer l’application
+> * Mise à jour du modèle de données et redéploiement de l’application
 > * Diffuser des journaux d’activité à partir d’Azure vers votre terminal
 > * Gérer l’application dans le portail Azure
 
@@ -46,7 +46,7 @@ Si vous avez déjà installé Visual Studio, ajoutez les charges de travail dans
 
 Cet exemple de projet contient une simple application CRUD (Create-Read-Update-Delete) [ASP.NET MVC](https://www.asp.net/mvc) basée sur [Entity Framework Code First](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application).
 
-### <a name="run-the-app"></a>Exécution de l'application
+### <a name="run-the-app"></a>Exécuter l’application
 
 Ouvrez le fichier *dotnet-sqldb-tutorial-master/DotNetAppSqlDb.sln* dans Visual Studio. 
 
@@ -107,7 +107,7 @@ Dans la boîte de dialogue **Configurer plan App Service** configurez le nouveau
 
 ![Créer un plan App Service](./media/app-service-web-tutorial-dotnet-sqldatabase/configure-app-service-plan.png)
 
-| Paramètre  | Valeur suggérée | Pour plus d’informations |
+| Paramètre  | Valeur suggérée | Informations supplémentaires |
 | ----------------- | ------------ | ----|
 |**Plan App Service**| myAppServicePlan | [Plans App Service](../app-service/overview-hosting-plans.md) |
 |**Lieu**| Europe Ouest | [Régions Azure](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) |
@@ -401,13 +401,13 @@ Par défaut, le portail affiche la page **Vue d’ensemble**. Cette page propose
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Créer une base de données SQL dans Azure
 > * Connecter une application ASP.NET à SQL Database
 > * Déploiement de l’application dans Azure
-> * Mettre à jour le modèle de données et redéployer l’application
+> * Mise à jour du modèle de données et redéploiement de l’application
 > * Diffuser des journaux d’activité à partir d’Azure vers votre terminal
 > * Gérer l’application dans le portail Azure
 

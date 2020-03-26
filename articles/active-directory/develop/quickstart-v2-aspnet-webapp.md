@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: eae26df61af203f9c3d09606ef96b5506f2e8701
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 505c5f0786367feefa8ed11d4fbdd7d0ca85b8ef
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78249124"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79529728"
 ---
 # <a name="quickstart-add-microsoft-identity-platform-sign-in-to-an-aspnet-web-app"></a>Démarrage rapide : Ajouter la connexion à la Plateforme d'identités Microsoft dans une application web ASP.NET
 Dans ce guide de démarrage rapide, vous utilisez un exemple de code pour découvrir comment une application web ASP.NET peut connecter des comptes personnels (hotmail.com, outlook.com, etc.) et des comptes professionnels et scolaires à partir de n’importe quelle instance Azure Active Directory (Azure AD).  (Consultez [Fonctionnement de l’exemple](#how-the-sample-works) pour une illustration.)
@@ -66,7 +66,7 @@ Dans ce guide de démarrage rapide, vous utilisez un exemple de code pour décou
 > [!div renderon="portal"]
 > Exécutez le projet à l’aide de Visual Studio 2019.
 > [!div renderon="portal" id="autoupdate" class="nextstepaction"]
-> [Téléchargez l’exemple de code]().
+> [Téléchargez l’exemple de code](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip).
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Étape 3 : Votre application est configurée et prête à être exécutée

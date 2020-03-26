@@ -8,10 +8,10 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/06/2019
 ms.openlocfilehash: fe15c02286223ec0829b31664811b7f589cf16aa
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74774830"
 ---
 # <a name="quickstart-use-an-azure-cli-command-az-postgres-up-preview-to-create-an-azure-database-for-postgresql---single-server"></a>Démarrage rapide : Utiliser une commande Azure CLI, az postgres up (préversion), pour créer une base de données Azure pour PostgreSQL (serveur unique)
@@ -88,9 +88,9 @@ Une fois que la commande `az postgres up` a abouti, une liste de chaînes de con
 
 Vous pouvez utiliser la commande [az postgres show-connection-string](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-show-connection-string) pour lister à nouveau ces chaînes de connexion.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Supprimez toutes les ressources que vous avez créées au cours de ce démarrage à l’aide de la commande ci-dessous. Cette commande supprime le serveur Azure Database pour PostgreSQL et le groupe de ressources.
+Supprimez toutes les ressources que vous avez créées au cours de ce démarrage rapide à l’aide de la commande ci-dessous. Cette commande supprime le serveur Azure Database pour PostgreSQL et le groupe de ressources.
 
 ```azurecli
 az postgres down --delete-group

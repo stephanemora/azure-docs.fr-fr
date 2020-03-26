@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Créer un pipeline avec l’activité de copie à l’aide de Visual Studio '
+title: 'Tutoriel : Créer un pipeline avec l’activité de copie à l’aide de Visual Studio '
 description: Dans ce didacticiel, vous allez créer un pipeline Azure Data Factory avec une activité de copie à l’aide de Visual Studio.
 services: data-factory
 documentationcenter: ''
@@ -14,20 +14,20 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: d9059c9386af6fab6bb1068d6a9e64b763206f94
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74929202"
 ---
-# <a name="tutorial-create-a-pipeline-with-copy-activity-using-visual-studio"></a>Didacticiel : Créer un pipeline avec l’activité de copie à l’aide de Visual Studio
+# <a name="tutorial-create-a-pipeline-with-copy-activity-using-visual-studio"></a>Tutoriel : Créer un pipeline avec l’activité de copie à l’aide de Visual Studio
 > [!div class="op_single_selector"]
 > * [Vue d’ensemble et composants requis](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Assistant de copie](data-factory-copy-data-wizard-tutorial.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Modèle Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
-> * [API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
+> * [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 > 
 > 
@@ -37,7 +37,7 @@ ms.locfileid: "74929202"
 
 Dans cet article, vous allez apprendre à utiliser Microsoft Visual Studio pour créer une fabrique de données avec un pipeline qui copie les données d’un stockage Blob Azure dans une base de données Azure SQL. Si vous débutez avec Azure Data Factory, lisez l’article [Présentation d’Azure Data Factory](data-factory-introduction.md) avant de suivre ce didacticiel.   
 
-Dans ce tutoriel, vous créez un pipeline contenant une seule activité : activité de copie. L’activité de copie copie les données d’un magasin de données pris en charge vers un magasin de données de récepteur pris en charge. Pour obtenir la liste des magasins de données pris en charge en tant que sources et récepteurs, consultez [Magasins de données pris en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Elle est mise en œuvre par un service disponible dans le monde entier, capable de copier des données entre différents magasins de données de façon sécurisée, fiable et évolutive. Pour plus d’informations sur l’activité de copie, consultez [Activités de déplacement des données](data-factory-data-movement-activities.md).
+Dans ce tutoriel, vous créez un pipeline contenant une seule activité : une activité de copie. L’activité de copie copie les données d’un magasin de données pris en charge vers un magasin de données de récepteur pris en charge. Pour obtenir la liste des magasins de données pris en charge en tant que sources et récepteurs, consultez [Magasins de données pris en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Elle est mise en œuvre par un service disponible dans le monde entier, capable de copier des données entre différents magasins de données de façon sécurisée, fiable et évolutive. Pour plus d’informations sur l’activité de copie, consultez [Activités de déplacement des données](data-factory-data-movement-activities.md).
 
 Un pipeline peut contenir plusieurs activités. En outre, vous pouvez chaîner deux activités (une après l’autre) en configurant le jeu de données de sortie d’une activité en tant que jeu de données d’entrée de l’autre activité. Pour plus d’informations, consultez [Plusieurs activités dans un pipeline](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
@@ -60,7 +60,7 @@ Voici les étapes à effectuer dans le cadre de ce didacticiel :
 
 1. Créez des **services liés** dans la fabrique de données. Dans cette étape, vous créez deux services liés des types suivants : Stockage Azure et Azure SQL Database. 
     
-    AzureStorageLinkedService relie votre compte de stockage Azure à la fabrique de données. Vous avez créé un conteneur et chargé des données dans ce compte de stockage dans le cadre des [conditions préalables](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).   
+    AzureStorageLinkedService relie votre compte de stockage Azure à la fabrique de données. Vous avez créé un conteneur et chargé des données dans ce compte de stockage en remplissant les [conditions préalables](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).   
 
     AzureSqlLinkedService lie votre base de données Azure SQL à la fabrique de données. Les données copiées à partir du stockage Blob sont stockées dans cette base de données. Vous avez créé une table SQL dans cette base de données en remplissant les [conditions préalables](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).     
 2. Créez des **jeux de données** d’entrée et de sortie dans la fabrique de données.  
@@ -89,7 +89,7 @@ Par conséquent, vous créez deux services liés des types suivants : AzureStor
 
 Le service lié Stockage Azure relie votre compte de stockage Azure à la fabrique de données. Ce compte de stockage est celui dans lequel vous avez créé un conteneur et chargé les données en remplissant les [conditions préalables](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).   
 
-Le service lié Azure SQL lie votre base de données Azure SQL à la fabrique de données. Les données copiées à partir du stockage Blob sont stockées dans cette base de données. Vous avez créé une table emp dans cette base de données en remplissant les [conditions préalables](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+Le service lié Azure SQL lie votre base de données Azure SQL à la fabrique de données. Les données copiées à partir du stockage Blob sont stockées dans cette base de données. Vous avez créé une table emp dans cette base de données dans le cadre des [conditions préalables](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Les services liés se chargent de lier des magasins de données ou des services de calcul à une fabrique de données Azure. Pour connaître l’ensemble des sources et des récepteurs pris en charge par l’activité de copie, consultez [Banques de données et formats pris en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats) . Pour obtenir la liste des services de calcul pris en charge par Data Factory, consultez [Services liés de calcul](data-factory-compute-linked-services.md) . Dans ce didacticiel, aucun service de calcul n’est utilisé. 
 
@@ -100,10 +100,10 @@ Les services liés se chargent de lier des magasins de données ou des services 
     ![Nouveau service lié](./media/data-factory-copy-activity-tutorial-using-visual-studio/new-linked-service-dialog.png)
 3. Remplacez `<accountname>` et `<accountkey>`* par le nom de votre compte de stockage Azure et par sa clé. 
    
-    ![Service lié Azure Storage](./media/data-factory-copy-activity-tutorial-using-visual-studio/azure-storage-linked-service.png)
+    ![Service lié Stockage Azure](./media/data-factory-copy-activity-tutorial-using-visual-studio/azure-storage-linked-service.png)
 4. Enregistrez le fichier **AzureStorageLinkedService1.json** .
 
-    Pour plus d’informations sur les propriétés JSON dans la définition de service lié, consultez l’article [Azure Blob Storage connector)](data-factory-azure-blob-connector.md#linked-service-properties) (Connecteur de stockage Blob Azure).
+    Pour plus d’informations sur les propriétés JSON dans la définition de service lié, consultez l’article [Connecteur de stockage Blob Azure](data-factory-azure-blob-connector.md#linked-service-properties).
 
 ### <a name="create-the-azure-sql-linked-service"></a>Créer le service lié SQL Azure
 1. Cliquez de nouveau avec le bouton droit sur le nœud **Services liés** dans l’**Explorateur de solutions**, pointez sur **Ajouter**, puis cliquez sur **Nouvel élément**. 
@@ -117,12 +117,12 @@ Les services liés se chargent de lier des magasins de données ou des services 
 ## <a name="create-datasets"></a>Créez les jeux de données
 Dans l’étape précédente, vous avez créé des services pour lier votre compte de stockage Azure et une base de données Azure SQL à votre fabrique de données. Dans cette étape, vous définissez deux jeux de données nommés InputDataset et OutputDataset, qui représentent les données d’entrée/sortie stockées dans les banques de données référencées par AzureStorageLinkedService1 et AzureSqlLinkedService1, respectivement.
 
-Le service lié Azure Storage spécifie la chaîne de connexion que le service Data Factory utilise au moment de l’exécution pour se connecter à votre compte de stockage Azure. Le jeu de données blob d’entrée (InputDataset) spécifie quant à lui le conteneur et le dossier qui contient les données d’entrée.  
+Le service lié Stockage Azure spécifie la chaîne de connexion que le service Data Factory utilise au moment de l’exécution pour se connecter à votre compte de stockage Azure. Le jeu de données blob d’entrée (InputDataset) spécifie quant à lui le conteneur et le dossier qui contient les données d’entrée.  
 
 De même, le service lié Azure SQL Database spécifie la chaîne de connexion que le service Data Factory utilise au moment de l’exécution pour se connecter à votre base de données Azure SQL. Et le jeu de données de la table SQL de sortie (OututDataset) spécifie la table de la base de données dans laquelle les données du stockage Blob sont copiées. 
 
 ### <a name="create-input-dataset"></a>Créer le jeu de données d’entrée
-Dans cette étape, vous créez un jeu de données nommé InputDataset qui pointe vers un fichier blob (emp.txt) dans le dossier racine d’un conteneur d’objets blob (adftutorial) du stockage Azure représenté par le service lié AzureStorageLinkedService1. Si vous ne spécifiez de valeur pour fileName (ou si vous ignorez ce paramètre), les données de tous les objets blob du dossier d’entrée sont copiées dans la destination. Dans ce didacticiel, vous spécifiez une valeur pour fileName. 
+Dans cette étape, vous créez un jeu de données nommé InputDataset qui pointe vers un fichier blob (emp.txt) dans le dossier racine d’un conteneur d’objets blob (adftutorial) du stockage Azure représenté par le service lié AzureStorageLinkedService1. Si vous ne spécifiez pas de valeur pour fileName (ou si vous ignorez ce paramètre), les données de tous les objets blob du dossier d’entrée sont copiées dans la destination. Dans ce didacticiel, vous spécifiez une valeur pour fileName. 
 
 Ici, vous utilisez le terme « tables » plutôt que « jeux de données ». Une table est un jeu de données rectangulaire. C’est le seul type de jeu de données pris en charge pour l’instant. 
 
@@ -167,14 +167,14 @@ Ici, vous utilisez le terme « tables » plutôt que « jeux de données ».
     |:--- |:--- |
     | type | La propriété du type est définie sur **AzureBlob**, car les données se trouvent dans le stockage blob Azure. |
     | linkedServiceName | Fait référence au service **AzureStorageLinkedService** que vous avez créé précédemment. |
-    | folderPath | Spécifie le **conteneur** d’objets blob et le **dossier** qui contient les objets blob d’entrée. Dans ce didacticiel, adftutorial est le conteneur d’objets blob et folder est le dossier racine. | 
+    | folderPath | Spécifie le **conteneur** d’objets blob et le **dossier** contenant les objets blob d’entrée. Dans ce didacticiel, adftutorial est le conteneur d’objets blob et folder est le dossier racine. | 
     | fileName | Cette propriété est facultative. Si vous omettez cette propriété, tous les fichiers spécifiés dans le paramètre folderPath sont récupérés. Dans ce didacticiel, **emp.txt** est spécifié pour le paramètre fileName, si bien que seul ce fichier est récupéré pour le traitement. |
     | format -> type |Le fichier d’entrée étant au format texte, nous utilisons **TextFormat**. |
     | columnDelimiter | Les colonnes du fichier d’entrée sont délimitées par une **virgule (`,`)** . |
     | frequency/interval | La fréquence est définie sur **Heure** et l’intervalle est **1**, ce qui signifie que les segments d’entrée sont disponibles **toutes les heures**. En d’autres termes, le service Data Factory recherche les données d’entrée toutes les heures dans le dossier racine du conteneur d’objets blob (**adftutorial**) que vous avez spécifié. Il recherche des données entre les heures de début et de fin du pipeline, pas avant ni après.  |
     | external | Cette propriété a la valeur **true** si les données ne sont pas générées par ce pipeline. Dans ce didacticiel, les données d’entrée sont dans le fichier emp.txt, qui n’est pas généré par ce pipeline. Nous définissons donc cette propriété sur true. |
 
-    Pour plus d’informations sur ces propriétés JSON, consultez l’article [Azure Blob connector](data-factory-azure-blob-connector.md#dataset-properties) (Connecteur de stockage Blob Azure).   
+    Pour plus d’informations sur ces propriétés JSON, voir [Connecteur de stockage Blob Azure](data-factory-azure-blob-connector.md#dataset-properties).   
 
 ### <a name="create-output-dataset"></a>Créer un jeu de données de sortie
 Dans cette étape, vous créez un jeu de données de sortie nommé **OutputDataset**. Ce jeu de données pointe vers une table SQL de la base de données Azure SQL représentée par **AzureSqlLinkedService1**. 
@@ -220,7 +220,7 @@ Dans cette étape, vous créez un jeu de données de sortie nommé **OutputDatas
 
     La table emp de la base de données contient trois colonnes : **ID**, **FirstName** et **LastName**. ID étant une colonne d’identité, il vous suffit de spécifier **FirstName** et **LastName**.
 
-    Pour plus d’informations sur ces propriétés JSON, consultez l’article [Azure SQL connector](data-factory-azure-sql-connector.md#dataset-properties) (Connecteur SQL Azure).
+    Pour plus d’informations sur ces propriétés JSON, consultez l’article [Connecteur SQL Azure](data-factory-azure-sql-connector.md#dataset-properties).
 
 ## <a name="create-pipeline"></a>Création d’un pipeline
 Dans cette étape, vous créez un pipeline avec une **activité de copie** qui utilise **InputDataset** en entrée et **OutputDataset** en sortie.
@@ -281,7 +281,7 @@ Le jeu de données de sortie pilote actuellement la planification. Dans ce didac
      
      Remplacez la valeur de la propriété **start** par le jour actuel et la valeur **end**, par le jour suivant. Si vous le souhaitez, spécifiez uniquement la date et ignorez l'heure. Par exemple, « 2016-02-03 », qui équivaut à « 2016-02-03T00:00:00Z ».
      
-     Les dates/heures de début et de fin doivent toutes deux être au [format ISO](https://en.wikipedia.org/wiki/ISO_8601). Par exemple :  2016-10-14T16:32:41Z. L’heure de fin ( **end** ) est facultative, mais nous allons l’utiliser dans ce didacticiel. 
+     Les dates/heures de début et de fin doivent toutes deux être au [format ISO](https://en.wikipedia.org/wiki/ISO_8601). Par exemple : 2016-10-14T16:32:41Z. L’heure de fin ( **end** ) est facultative, mais nous allons l’utiliser dans ce didacticiel. 
      
      Si vous ne spécifiez aucune valeur pour la propriété **end**, cette dernière est calculée comme suit : « **start + 48 heures** ». Pour exécuter le pipeline indéfiniment, spécifiez **9999-09-09** comme valeur pour la propriété **end**.
      
@@ -363,7 +363,7 @@ Accédez à la page d’accueil de votre fabrique de données :
 5. Suivez les instructions dans [Surveiller les jeux de données et le pipeline](data-factory-monitor-manage-pipelines.md) pour surveiller le pipeline et les jeux de données que vous avez créés dans ce didacticiel. Pour le moment, Visual Studio ne prend pas en charge la surveillance des pipelines Data Factory. 
 
 ## <a name="summary"></a>Résumé
-Dans ce tutoriel, vous avez créé une fabrique de données Azure pour copier des données d'objet blob Azure dans une base de données Azure SQL. Vous avez utilisé Visual Studio pour créer la fabrique de données, les services liés, les jeux de données et un pipeline. Voici les opérations globales que vous avez effectuées dans ce didacticiel :  
+Dans ce tutoriel, vous avez créé une fabrique de données Azure pour copier des données d'objet blob Azure dans une base de données Azure SQL. Vous avez utilisé Visual Studio pour créer la fabrique de données, les services liés, les jeux de données et un pipeline. Voici les étapes de premier niveau que vous avez effectuées dans ce didacticiel :  
 
 1. Création d’une **fabrique de données**Azure.
 2. Création de **services liés**:
@@ -374,7 +374,7 @@ Dans ce tutoriel, vous avez créé une fabrique de données Azure pour copier de
 
 Pour voir comment utiliser une activité Hive HDInsight visant à transformer des données à l’aide d’un cluster Azure HDInsight, consultez [Tutoriel : Générer votre premier pipeline pour transformer les données à l’aide du cluster Hadoop](data-factory-build-your-first-pipeline.md).
 
-Vous pouvez chaîner deux activités (une après l’autre) en configurant le jeu de données de sortie d’une activité en tant que jeu de données d’entrée de l’autre activité. Pour des informations détaillées, consultez [Planification et exécution avec Data Factory](data-factory-scheduling-and-execution.md). 
+Vous pouvez chaîner deux activités (une après l’autre) en configurant le jeu de données de sortie d’une activité en tant que jeu de données d’entrée de l’autre activité. Pour plus d’informations, voir [Planification et exécution dans Data Factory](data-factory-scheduling-and-execution.md). 
 
 ## <a name="view-all-data-factories-in-server-explorer"></a>Afficher toutes les fabriques de données dans l’Explorateur de serveurs
 Cette section explique comment utiliser l’Explorateur de serveurs dans Visual Studio pour afficher toutes les fabriques de données dans votre abonnement Azure et créer un projet Visual Studio basé sur une fabrique de données existante. 

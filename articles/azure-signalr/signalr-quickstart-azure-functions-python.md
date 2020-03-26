@@ -8,17 +8,17 @@ ms.topic: quickstart
 ms.date: 12/14/2019
 ms.author: antchu
 ms.openlocfilehash: 0cf8705cf2567a60129681c2db41b0868f8fe182
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75392149"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-python"></a>Démarrage rapide : Créer une salle de conversation avec Azure Functions et SignalR Service en utilisant Python
 
 Le service Azure SignalR vous permet d’ajouter facilement des fonctionnalités en temps réel à votre application. Azure Functions est une plateforme serverless qui vous permet d’exécuter votre code sans gérer d’infrastructures. Dans ce démarrage rapide, découvrez comment utiliser le service SignalR et Functions pour générer une application serverless de conversation en temps réel.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Ce démarrage rapide peut être exécuté sur macOS, Windows ou Linux.
 

@@ -14,13 +14,13 @@ ms.custom: mvc
 ms.date: 03/22/2019
 ms.author: juliako
 ms.openlocfilehash: f8ff3dc71727abf9e276cccc951c4d1143f4200d
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73583099"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79223326"
 ---
-# <a name="tutorial-upload-encode-and-stream-videos-with-media-services-v3"></a>Didacticiel : Télécharger, encoder et diffuser des vidéos avec Media Services v3
+# <a name="tutorial-upload-encode-and-stream-videos-with-media-services-v3"></a>Tutoriel : Télécharger, encoder et diffuser des vidéos avec Media Services v3
 
 > [!NOTE]
 > Bien que ce didacticiel utilise des exemples [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet), les étapes générales sont les mêmes pour [l’API REST](https://docs.microsoft.com/rest/api/media/liveevents), [l’interface de ligne de commande](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest) et d’autres [kits de développement logiciel (SDK)](media-services-apis-overview.md#sdks) pris en charge.
@@ -72,7 +72,7 @@ L’exemple effectue les actions suivantes :
 6. Crée un **localisateur de streaming**.
 7. Crée des URL de diffusion en continu.
 
-### <a name="a-idstart_using_dotnet-start-using-media-services-apis-with-net-sdk"></a><a id="start_using_dotnet" />Commencer à utiliser les API Media Services avec le SDK .NET
+### <a name="start-using-media-services-apis-with-net-sdk"></a><a id="start_using_dotnet" />Commencer à utiliser les API Media Services avec le SDK .NET
 
 Pour commencer à utiliser les API Media Services avec .NET, vous devez créer un objet **AzureMediaServicesClient**. Pour créer l’objet, vous devez fournir les informations d’identification permettant au client de se connecter à Azure à l’aide d’Azure AD. Dans le code que vous avez cloné au début de l’article, la fonction **GetCredentialsAsync** crée l’objet ServiceClientCredentials basé sur les informations d’identification fournies dans le fichier de configuration local.
 
@@ -188,7 +188,7 @@ Pour tester la diffusion en continu, cet article utilise le lecteur multimédia 
 
 Le lecteur multimédia Azure peut être utilisé pour effectuer des tests, mais ne doit pas être utilisé dans un environnement de production.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous n’avez plus besoin des ressources de votre groupe de ressources, notamment les comptes de stockage et Media Services que vous avez créés pour ce didacticiel, supprimez le groupe de ressources créé précédemment.
 
