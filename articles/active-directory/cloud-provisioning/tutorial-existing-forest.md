@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: aa14b45235f2a62f05e84efafc41b899dc531d49
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74868675"
 ---
 # <a name="integrate-an-existing-forest-and-a-new-forest-with-a-single-azure-ad-tenant"></a>Intégrer une forêt existante et une nouvelle forêt à un seul locataire Azure AD
@@ -54,9 +54,9 @@ Dans ce scénario, une forêt existante est synchronisée sur un locataire Azure
 
 ## <a name="install-the-azure-ad-connect-provisioning-agent"></a>Installer l’agent de provisionnement Azure AD Connect
 1. Connectez-vous au serveur joint au domaine.  Si vous utilisez le tutoriel [Environnement de base Active Directory et Azure](tutorial-basic-ad-azure.md), il s’agit de DC1.
-2. Connectez-vous au portail Azure à l’aide des informations d’identification d’administrateur général cloud uniquement.
+2. Connectez-vous au portail Azure avec des informations d’identification d’administrateur général cloud uniquement.
 3. Sur la gauche, sélectionnez **Azure Active Directory**, cliquez sur **Azure AD Connect** et, au centre, sélectionnez **Gérer le provisionnement (préversion)** .</br>
-![Portail Azure](media/how-to-install/install6.png)</br>
+![Azure portal](media/how-to-install/install6.png)</br>
 4. Cliquez sur « Télécharger l’agent ».
 5. Exécutez l’agent de provisionnement Azure AD Connect.
 6. Dans l’écran de démarrage, **acceptez** les termes du contrat de licence et cliquez sur **Installer**.</br>
@@ -82,7 +82,7 @@ Pour vérifier que l’agent est visible par Azure, procédez comme suit :
 
 1. Connectez-vous au portail Azure.
 2. Sur la gauche, sélectionnez **Azure Active Directory**, cliquez sur **Azure AD Connect** et, au centre, sélectionnez **Gérer le provisionnement (préversion)** .</br>
-![Portail Azure](media/how-to-install/install6.png)</br>
+![Azure portal](media/how-to-install/install6.png)</br>
 
 3.  Dans l’écran **Provisionnement Azure AD (préversion)** , cliquez sur **Passer en revue tous les agents**.
 ![Provisionnement Azure AD](media/how-to-install/install7.png)</br>

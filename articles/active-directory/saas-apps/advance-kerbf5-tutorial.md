@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à F5 | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à F5 | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et F5.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 11/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 984fd0c7946a50922315269c87e08b1c35b74348
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74074761"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à F5
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à F5
 
 Dans ce tutoriel, vous allez découvrir comment intégrer F5 à Azure Active Directory (Azure AD). Quand vous intégrez F5 à Azure AD, vous pouvez :
 
@@ -100,7 +100,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique de F5](https://support.f5.com/csp/knowledge-center/software/BIG-IP?module=BIG-IP%20APM45). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération**, puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
+1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération** et sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
 
@@ -148,7 +148,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 1. Ouvrez une nouvelle fenêtre de navigateur web et connectez-vous à votre site d’entreprise F5 (Kerberos avancé) en tant qu’administrateur, puis effectuez les étapes suivantes :
 
-1. Vous devez importer le certificat de métadonnées dans F5 (Kerberos avancé) qui sera utilisé plus tard lors du processus d’installation. Accédez à **System > Certificate Management > Traffic Certificate Management >> SSL Certificate Lists** (Système > Gestion des certificats > Gestion des certificats de trafic > Liste des certificats SSL). Cliquez sur **Import** (Importer) en haut à droite.
+1. Vous devez importer le certificat de métadonnées dans F5 (Kerberos avancé) qui sera utilisé plus tard lors du processus d’installation. Accédez à **System > Certificate Management > Traffic Certificate Management >> SSL Certificate Lists** (Système > Gestion des certificats > Gestion des certificats de trafic > Liste des certificats SSL). Cliquez sur **Import** en haut à droite.
 
     ![Configuration de F5 (Kerberos avancé)](./media/advance-kerbf5-tutorial/configure01.png)
  
@@ -188,7 +188,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
     >[!Note]
     >Vous devrez créer et spécifier le compte de délégation Kerberos. Consultez la section KCD (voir l’annexe pour connaître les références de variables).
 
-    • Source de nom d’utilisateur  `session.saml.last.attr.name. http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
+    • Source de nom d’utilisateur  `session.saml.last.attr.name.http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
 
     • Source de domaine de l’utilisateur  `session.logon.last.domain`
 
@@ -248,7 +248,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 * **Étape 1 : Créer un compte de délégation**
 
-    * Exemples
+    * Exemple
     ```
     Domain Name : superdemo.live
     Sam Account Name : big-ipuser
@@ -256,14 +256,14 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
     New-ADUser -Name "APM Delegation Account" -UserPrincipalName host/big-ipuser.superdemo.live@superdemo.live -SamAccountName "big-ipuser" -PasswordNeverExpires $true -Enabled $true -AccountPassword (Read-Host -AsSecureString "Password!1234")
     ```
 
-* **Étape 2 : Définir le SPN (sur le compte de délégation APM)**
+* **Étape 2 : Définir le SPN (sur le compte de délégation APM)**
 
-    *  Exemples
+    *  Exemple
     ```
     setspn –A host/big-ipuser.superdemo.live big-ipuser
     ```
 
-* **Étape 3 : Délégation SPN (pour le compte de service d’application)**
+* **Étape 3 : Délégation SPN (pour le compte de service d’application)**
 
     * Configurez la délégation appropriée pour le compte de délégation F5.
     * Dans l’exemple ci-dessous, le compte de délégation APM est configuré pour KCD pour l’application FRP-App1.superdemo.live.
@@ -307,7 +307,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 | eb46b6b6.session.saml.last.responseIssueInstant | `<ID>` |
 | eb46b6b6.session.saml.last.responseIssuer | `https://sts.windows.net/<TENANT ID>/` |
 | eb46b6b6.session.saml.last.result | 1 |
-| eb46b6b6.session.saml.last.samlVersion | 2.0 |
+| eb46b6b6.session.saml.last.samlVersion | 2 |
 | eb46b6b6.session.saml.last.sessionIndex | `<TENANT ID>` |
 | eb46b6b6.session.saml.last.statusValue | urn:oasis:names:tc:SAML:2.0:status:Success |
 | eb46b6b6.session.saml.last.subjectConfirmDataNotOnOrAfter | `<ID>` |

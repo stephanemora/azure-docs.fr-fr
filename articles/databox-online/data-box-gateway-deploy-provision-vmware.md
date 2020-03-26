@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 85992224edd10c0a0f233de9f6274cc77e109b22
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517775"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "60757554"
 ---
-# <a name="tutorial-provision-azure-data-box-gateway-in-vmware"></a>Didacticiel : Provisionner Azure Data Box Gateway dans VMware
+# <a name="tutorial-provision-azure-data-box-gateway-in-vmware"></a>Tutoriel : Provisionner Azure Data Box Gateway dans VMware
 
 ## <a name="overview"></a>Vue d’ensemble
 
@@ -23,7 +23,7 @@ Ce tutoriel explique comment provisionner une instance Data Box Gateway sur un s
 
 Vous aurez besoin de privilèges d’administrateur pour configurer un appareil virtuel et vous y connecter. La configuration initiale peut prendre environ 10 minutes.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Vérifier que l’hôte répond à la configuration minimale requise de l’appareil
