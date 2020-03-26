@@ -5,18 +5,18 @@ author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 0680309b13bf4499f0d153f44e575c1762b54d79
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 95d54a0661f0a0cebdbfc225074be0ce0d83a5cc
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773171"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79368891"
 ---
 # <a name="tutorial-use-exported-template-from-the-azure-portal"></a>Tutoriel : Utiliser un modèle exporté depuis le portail Azure
 
 Dans cette série de tutoriels, vous avez créé un modèle pour déployer un compte de stockage Azure. Dans les deux tutoriels suivants, vous allez ajouter un *plan App Service* et un *site web*. Au lieu de créer des modèles à partir de zéro, vous apprenez à exporter des modèles depuis le portail Azure, et à utiliser les exemples de modèles à partir des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/). Vous personnalisez ces modèles par rapport à votre utilisation. Ce tutoriel met l’accent sur l’exportation de modèles et sur la personnalisation du résultat pour votre modèle. Il faut compter environ **14 minutes** pour effectuer ce tutoriel.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Nous vous recommandons de suivre le [tutoriel sur les sorties](template-tutorial-add-outputs.md), mais il n’est pas obligatoire.
 
@@ -84,7 +84,7 @@ Utilisez Azure CLI ou Azure PowerShell pour déployer un modèle.
 
 Si vous n’avez pas créé le groupe de ressources, consultez [Créer un groupe de ressources](template-tutorial-create-first-template.md#create-resource-group). L’exemple suppose que vous avez défini la variable **templateFile** sur le chemin du fichier de modèle, comme indiqué dans le [premier tutoriel](template-tutorial-create-first-template.md#deploy-template).
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -95,10 +95,10 @@ New-AzResourceGroupDeployment `
   -storageSKU Standard_LRS
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az group deployment create \
+az deployment group create \
   --name addappserviceplan \
   --resource-group myResourceGroup \
   --template-file $templateFile \

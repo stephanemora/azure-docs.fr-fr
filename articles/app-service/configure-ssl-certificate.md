@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 310bf168b701ba6c37f71bc968da8e9114458e6f
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 120caf459a7a8ca4e60d5e447a1e4130c0bce389
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425305"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79223916"
 ---
 # <a name="add-an-ssl-certificate-in-azure-app-service"></a>Ajouter un certificat SSL dans Azure App Service
 
@@ -349,7 +349,7 @@ Le fichier *appservicecertificate.pfx* téléchargé est un fichier PKCS12 brut
 
 ### <a name="delete-certificate"></a>Suppression d'un certificat 
 
-La suppression d’un certificat App Service est définitive et irréversible. Dans App Service, les liaisons vers ce certificat deviennent alors non valides. Pour éviter toute suppression accidentelle, Azure place un verrou sur le certificat. Pour supprimer un certificat App Service, vous devez d’abord supprimer son verrou de suppression.
+La suppression d’un certificat App Service est définitive et irréversible. La suppression d’une ressource App Service Certificate entraîne la révocation du certificat. Dans App Service, les liaisons vers ce certificat deviennent alors non valides. Pour éviter toute suppression accidentelle, Azure place un verrou sur le certificat. Pour supprimer un certificat App Service, vous devez d’abord supprimer son verrou de suppression.
 
 Sélectionnez le certificat dans la page [App Service Certificates](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders), puis sélectionnez **Verrous** dans le volet de navigation de gauche.
 

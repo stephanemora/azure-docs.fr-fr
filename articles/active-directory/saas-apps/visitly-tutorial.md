@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à Visitly | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Visitly | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Visitly.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 10/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: db295d7865d057c9c635070a606672f9586f951a
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74081625"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-visitly"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Visitly
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-visitly"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Visitly
 
 Dans ce tutoriel, vous allez apprendre à intégrer Visitly à Azure Active Directory (Azure AD). En intégrant Visitly à Azure AD, vous pouvez :
 

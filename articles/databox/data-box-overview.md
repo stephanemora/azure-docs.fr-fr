@@ -10,15 +10,15 @@ ms.topic: overview
 ms.date: 09/17/2019
 ms.author: alkohli
 ms.openlocfilehash: a3e27cf427de3a33f71d6f4a0af9b1590abeb573
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066998"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215707"
 ---
 # <a name="what-is-azure-data-box"></a>Qu’est-ce qu’Azure Data Box ?
 
-La solution cloud Microsoft Azure Data Box permet d’envoyer plusieurs téraoctets de données vers Azure de façon rapide, économique et fiable. Le transfert de données sécurisé est accéléré par l’envoi à votre adresse d’un appareil de stockage Data Box propriétaire. Chaque appareil de stockage dispose d’une capacité de stockage maximum utile de 80 To, et est acheminé vers votre centre de données via un transporteur régional. L’appareil est placé dans une caisse robuste afin de protéger et de sécuriser les données au cours du transport.
+La solution cloud Microsoft Azure Data Box permet d’envoyer plusieurs téraoctets de données vers Azure de façon rapide, économique et fiable. Le transfert de données sécurisé est accéléré par l’envoi à votre adresse d’un appareil de stockage Data Box propriétaire. Chaque appareil de stockage dispose d’une capacité de stockage maximum utile de 80 To, et est acheminé vers votre centre de données via un transporteur régional. L’appareil dispose d’un caisson robuste afin de protéger et de sécuriser les données au cours du transport.
 
 Vous pouvez commander l’appareil Data Box via le portail Azure. Une fois l’appareil reçu, vous pouvez rapidement le configurer à l’aide de l’interface utilisateur web locale. Copiez les données à partir de vos serveurs vers l’appareil et réexpédiez l’appareil à Azure. Dans le centre de données Azure, vos données sont automatiquement chargées de l’appareil vers Azure. L’ensemble du processus est suivi de bout en bout par le service Data Box dans le portail Azure.
 
@@ -30,7 +30,7 @@ Data Box est parfaitement adapté au transfert de tailles de données supérieur
  - **Migration unique** - lorsque de grandes quantités de données locales sont transférées vers Azure. 
      - Déplacement d’une bibliothèque multimédia à partir de bandes hors connexion dans Azure pour créer une bibliothèque multimédia en ligne.
      - Migration de votre batterie de machines virtuelles, de SQL Server et d’applications vers Azure
-     - Déplacement des données historiques vers Azure pour une analyse et un compte-rendu approfondis à l’aide de HDInsight
+     - Déplacement des données historiques vers Azure pour une analyse et un compte rendu approfondis à l’aide de HDInsight
 
  - **Transfert en bloc initial** : lorsqu’un transfert en bloc initial est effectué à l’aide de Data Box (seed) suivi de transferts incrémentiels sur le réseau. 
      - Par exemple, les partenaires de solutions de sauvegarde tels que Commvault et Data Box sont utilisés pour déplacer d’importantes sauvegardes initiales de données historiques vers Azure. Une fois l’opération terminée, les données incrémentielles sont transférées via le réseau vers le stockage Azure.
@@ -59,7 +59,7 @@ Dans cette version, l’appareil Data Box affiche les caractéristiques suivante
 | Spécifications                                          | Description              |
 |---------------------------------------------------------|--------------------------|
 | Poids                                                  | < 50 lbs.                |
-| Dimensions                                              | Largeur de l’appareil : 309 mm Hauteur : 430,4 mm Profondeur : 502 mm |            
+| Dimensions                                              | Appareil : Largeur : 309 mm Hauteur : 430,4 mm Profondeur : 502 mm |            
 | Espace en rack                                              | 7 U lorsque l’appareil est placé sur le côté dans le rack (ne peut pas être monté en rack)|
 | Câbles requis                                         | 1 câble d’alimentation (inclus) <br> 2 câbles RJ45 <br> 2 câbles en cuivre Twinax SFP+|
 | Capacité de stockage                                        | L’appareil de 100 To dispose d’une capacité utile de 80 To après protection RAID 5|
@@ -68,7 +68,7 @@ Dans cette version, l’appareil Data Box affiche les caractéristiques suivante
 | Support de transfert des données                                     | RJ45, SFP+ en cuivre 10 GbE Ethernet  |
 | Sécurité                                                | Boîtier robuste avec vis personnalisées indévissables <br> Autocollants inviolables placés au bas de l’appareil|
 | Vitesse de transfert de données                                      | Jusqu’à 80 To par jour via une interface réseau 10 GbE        |
-| gestion                                              | Interface utilisateur web locale : installation et configuration initiales en une seule étape <br> Portail Azure : gestion quotidienne des appareils        |
+| Gestion                                              | Interface utilisateur web locale : installation et configuration initiales en une seule étape <br> Portail Azure : gestion quotidienne des appareils        |
 
 ## <a name="data-box-components"></a>Composants Data Box
 

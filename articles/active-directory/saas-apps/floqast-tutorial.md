@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à FloQast | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à FloQast | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et FloQast.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 10/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 92572d2f829f1f3a1727c7f349aa25f7113ec104
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72792407"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-floqast"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à FloQast
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-floqast"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à FloQast
 
 Dans ce tutoriel, vous allez découvrir comment intégrer FloQast à Azure AD (Azure Active Directory). Quand vous intégrez FloQast à Azure AD, vous pouvez :
 
@@ -99,7 +99,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     | ------------- | -------------- |
     | FirstName           | user.givenname |
     | LastName            | user.surname |
-    | Email               | user.mail    |
+    | E-mail               | user.mail    |
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération** et sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 

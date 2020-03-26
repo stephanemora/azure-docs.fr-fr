@@ -6,17 +6,17 @@ ms.topic: tutorial
 ms.date: 05/01/2019
 ms.author: evanhi
 ms.openlocfilehash: 393993a44c860525b9bd9a540ed7afff78e5b93c
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75648506"
 ---
 # <a name="quickstart-create-custom-provider-and-deploy-custom-resources"></a>Démarrage rapide : Créer un fournisseur personnalisé et déployer des ressources personnalisées
 
 Dans ce guide de démarrage rapide, vous allez créer votre propre fournisseur de ressources et déployer des types de ressources personnalisés pour celui-ci. Pour plus d’informations sur les fournisseurs personnalisés, consultez [Présentation de la préversion d’Azure Custom Providers](overview.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer les étapes de ce guide, vous devez appeler des opérations REST. Il existe [différentes façons d’envoyer des demandes REST](/rest/api/azure/). Si vous ne disposez pas d’un outil pour les opérations REST, installez [ARMClient](https://github.com/projectkudu/ARMClient). Il s’agit d’un outil de ligne de commande open source qui simplifie l’appel de l’API Azure Resource Manager, est nécessaire.
 

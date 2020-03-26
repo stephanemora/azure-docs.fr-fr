@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Frontline Education | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Frontline Education | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Frontline Education.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 08/09/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 230c2007ba92000dc2791747213ad38bb437d7b0
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68975899"
 ---
-# <a name="tutorial-integrate-frontline-education-with-azure-active-directory"></a>Didacticiel : Intégrer Frontline Education à Azure Active Directory
+# <a name="tutorial-integrate-frontline-education-with-azure-active-directory"></a>Tutoriel : Intégrer Frontline Education à Azure Active Directory
 
 Dans ce tutoriel, vous découvrez comment intégrer Frontline Education à Azure Active Directory (Azure AD). Quand vous intégrez Frontline Education à Azure AD, vous pouvez :
 

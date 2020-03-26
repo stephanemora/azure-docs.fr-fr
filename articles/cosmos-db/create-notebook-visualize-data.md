@@ -1,6 +1,6 @@
 ---
-title: 'Didacticiel : Créer un notebook dans Azure Cosmos DB pour analyser et visualiser les données'
-description: 'Didacticiel : Découvrez comment utiliser les notebooks Jupyter intégrés pour importer des données dans Azure Cosmos DB, analyser les données et visualiser la sortie.'
+title: 'Tutoriel : Créer un notebook dans Azure Cosmos DB pour analyser et visualiser les données'
+description: 'Tutoriel : Découvrez comment utiliser les notebooks Jupyter intégrés pour importer des données dans Azure Cosmos DB, analyser les données et visualiser la sortie.'
 author: deborahc
 ms.topic: tutorial
 ms.service: cosmos-db
@@ -8,13 +8,13 @@ ms.date: 11/05/2019
 ms.author: dech
 ms.reviewer: sngun
 ms.openlocfilehash: 45dd4e8dcfd74cdb5d96b935e239b9f4b5094a7c
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73720932"
 ---
-# <a name="tutorial-create-a-notebook-in-azure-cosmos-db-to-analyze-and-visualize-the-data"></a>Didacticiel : Créer un notebook dans Azure Cosmos DB pour analyser et visualiser les données
+# <a name="tutorial-create-a-notebook-in-azure-cosmos-db-to-analyze-and-visualize-the-data"></a>Tutoriel : Créer un notebook dans Azure Cosmos DB pour analyser et visualiser les données
 
 Cet article explique comment utiliser les notebooks Jupyter intégrés pour importer des exemples de données de vente dans Azure Cosmos DB. Vous verrez comment utiliser les commandes magic SQL et Azure Cosmos DB pour exécuter des requêtes, analyser les données et visualiser les résultats.
 

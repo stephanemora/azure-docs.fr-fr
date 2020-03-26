@@ -17,10 +17,10 @@ ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cd4feeb83acc3842874e7a2e4bbd32dacabcc00d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75422653"
 ---
 # <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>Tutoriel : Créer votre premier package d’accès dans la gestion des droits d’utilisation Azure AD
@@ -42,7 +42,7 @@ Pour obtenir une démonstration pas à pas du processus de déploiement de la ge
 
 >[!VIDEO https://www.youtube.com/embed/zaaKvaaYwI4]
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour utiliser la gestion des droits d’utilisation Azure AD, vous devez disposer d’une des licences suivantes :
 
@@ -65,7 +65,7 @@ Un répertoire de ressources comprend une ou plusieurs ressources à partager. D
 
 1. Créez ou configurez les deux utilisateurs suivants. Vous pouvez utiliser ces noms ou des noms différents. **Admin1** peut être l’utilisateur avec lequel vous êtes actuellement connecté.
 
-    | Name | Rôle d’annuaire |
+    | Nom | Rôle d’annuaire |
     | --- | --- |
     | **Admin1** | Administrateur général<br/>-ou-<br/>Administrateur d’utilisateurs |
     | **Requestor1** | Utilisateur |

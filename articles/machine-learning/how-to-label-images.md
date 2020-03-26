@@ -7,12 +7,12 @@ ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 6d0a9bf172039adcaa756660d38acc1547e91b49
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.openlocfilehash: 2e14b669aadeec4c6a7245be8940051ec604059b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78898694"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79409556"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Étiqueter des images dans un projet d’étiquetage
 
@@ -126,4 +126,4 @@ Une fois l’étiquetage terminé, sélectionnez votre nom dans le coin supérie
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Apprenez à [effectuer l’apprentissage de modèles de classification d’image dans Azure](https://docs.microsoft.com/azure/machine-learning/tutorial-train-models-with-aml)
-* Découvrez [la détection d’objet à l’aide d’Azure et la technique « Faster R-CNN »](https://www.microsoft.com/developerblog/2017/10/24/bird-detection-with-azure-ml-workbench/)
+

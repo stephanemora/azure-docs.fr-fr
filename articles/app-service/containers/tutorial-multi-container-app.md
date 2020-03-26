@@ -8,10 +8,10 @@ ms.date: 04/29/2019
 ms.author: msangapu
 ms.custom: cli-validate
 ms.openlocfilehash: 92a9368bf6aa4f2cf043b3aabd443b37cdcde390
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77523946"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Tutoriel : Créer une application multiconteneur (préversion) dans Web App pour conteneurs
@@ -486,7 +486,7 @@ WordPress se connecte au serveur Redis. **L’état** de la connexion apparaît 
 
 ![WordPress se connecte au serveur Redis. **L’état** de la connexion apparaît sur la même page.][6]
 
-**Félicitations**, vous avez connecté WordPress à Redis. L’application prête pour la production utilise maintenant **Azure Database pour MySQL, le stockage persistant et Redis**. Vous pouvez maintenant augmenter la taille des instances de votre plan App Service à plusieurs instances.
+**Félicitations**, vous avez connecté WordPress à Redis. L’application prête pour la production utilise maintenant **Azure Database pour MySQL, le stockage persistant et Redis**. Vous pouvez maintenant effectuer un scale-out de votre plan App Service à plusieurs instances.
 
 ## <a name="find-docker-container-logs"></a>Recherche des journaux d’activité de conteneur Docker
 

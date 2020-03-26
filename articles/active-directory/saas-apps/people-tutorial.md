@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à People | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à People | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et People.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 08/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3a9b8f08a54c978d81a8d33c61ab3d5f5fc7271f
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "70164215"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-people"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à People
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-people"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à People
 
 Dans ce tutoriel, vous allez apprendre à intégrer People à Azure Active Directory (Azure AD). Quand vous intégrez People à Azure AD, vous pouvez :
 
@@ -95,7 +95,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de réponse et l’URL de connexion réelles. Pour obtenir ces valeurs, contactez l’[équipe du support technique People](mailto:customerservices@peoplehr.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-4. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération**, puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
+4. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération** et sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/certificatebase64.png)
 
@@ -147,15 +147,15 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
    
 4. Dans le menu sur le côté gauche, cliquez sur **Paramètres**.
 
-    ![Configurer l'authentification unique](./media/people-tutorial/tutorial_people_001.png)
+    ![Configure Single Sign-On](./media/people-tutorial/tutorial_people_001.png)
 
 5. Cliquez sur **Company**.
 
-    ![Configurer l'authentification unique](./media/people-tutorial/tutorial_people_002.png)
+    ![Configure Single Sign-On](./media/people-tutorial/tutorial_people_002.png)
 
 6. Dans **Importer le fichier de métadonnées SAML « Authentification unique »** , cliquez sur **Parcourir** pour importer le fichier de métadonnées téléchargé.
 
-    ![Configurer l'authentification unique](./media/people-tutorial/tutorial_people_003.png)
+    ![Configure Single Sign-On](./media/people-tutorial/tutorial_people_003.png)
 
 ### <a name="create-people-test-user"></a>Créer un utilisateur de test People
 

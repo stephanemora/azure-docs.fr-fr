@@ -15,18 +15,18 @@ ms.date: 06/11/2018
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: 22283833ebb414372de16cbe4ce7d3986cd400a9
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837413"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222406"
 ---
-# <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>Didacticiel : Ajouter un domaine personnalisé à votre point de terminaison Azure CDN
+# <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>Tutoriel : Ajouter un domaine personnalisé à votre point de terminaison Azure CDN
 Ce didacticiel montre comment ajouter un domaine personnalisé à un point de terminaison de réseau de distribution de contenu (CDN) Azure. Lorsque vous utilisez un point de terminaison CDN pour diffuser du contenu, un domaine personnalisé est nécessaire si vous souhaitez que votre nom de domaine soit visible dans l’URL du CDN. Un nom de domaine visible peut être pratique pour vos clients et utile à des fins de personnalisation. 
 
 Après avoir créé un point de terminaison CDN dans votre profil, le nom de point de terminaison, qui est un sous-domaine de azureedge.net, est inclus dans l’URL de diffusion de contenu CDN par défaut (par exemple, https :\//contoso.azureedge.net/photo.png). Par commodité, Azure CDN offre la possibilité d’associer un domaine personnalisé à un point de terminaison. Avec cette option, vous distribuez votre contenu avec un domaine personnalisé dans votre URL au lieu d’un nom de point de terminaison (par exemple, https :\//www.contoso.com/photo.png). 
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 > [!div class="checklist"]
 > - Créez un enregistrement CNAME DNS.
 > - Associez le domaine personnalisé à votre point de terminaison CDN.
@@ -68,9 +68,9 @@ Pour créer un enregistrement CNAME avec le sous-domaine cdnverify :
 
     | Source                    | Type  | Destination                     |
     |---------------------------|-------|---------------------------------|
-    | cdnverify.www.contoso.com | CNAME | cdnverify.contoso.azureedge.NET |
+    | cdnverify. www.contoso.com | CNAME | cdnverify.contoso.azureedge.NET |
 
-    - Source : Entrez votre nom de domaine personnalisé, dont le sous-domaine cdnverify, au format suivant : cdnverify.&lt;nom_de_domaine_personnalisé&gt;. Par exemple, cdnverify.www.contoso.com.
+    - Source : Entrez votre nom de domaine personnalisé, dont le sous-domaine cdnverify, au format suivant : cdnverify.&lt;nom_de_domaine_personnalisé&gt;. Par exemple, cdnverify. www.contoso.com.
 
     - Tapez : entrez *CNAME*.
 
@@ -94,11 +94,11 @@ Par exemple, la procédure pour le bureau d’enregistrement de domaines GoDaddy
 
     - Tapez : laissez *CNAME* sélectionné.
 
-    - Hôte : entrez le sous-domaine de votre domaine personnalisé à utiliser, y compris le nom de sous-domaine cdnverify. Par exemple, cdnverify.www.
+    - Hôte : entrez le sous-domaine de votre domaine personnalisé à utiliser, y compris le nom de sous-domaine cdnverify. Par exemple, cdnverify. www.
 
     - Pointe vers : entrez le nom d’hôte de votre point de terminaison CDN, y compris le nom de sous-domaine cdnverify. Par exemple, cdnverify.contoso.azureedge.NET. 
 
-    - Durée de vie (TTL) : laissez *1 heure* sélectionné.
+    - TTL : laissez *1 heure* sélectionné.
 
 6. Sélectionnez **Enregistrer**.
  
@@ -196,7 +196,7 @@ Par exemple, la procédure pour le bureau d’enregistrement de domaines GoDaddy
 
     - Pointe vers : entrez le nom d’hôte de votre point de terminaison CDN. Par exemple, contoso.azureedge.net. 
 
-    - Durée de vie (TTL) : laissez *1 heure* sélectionné.
+    - TTL : laissez *1 heure* sélectionné.
 
 6. Sélectionnez **Enregistrer**.
  
@@ -209,7 +209,7 @@ Par exemple, la procédure pour le bureau d’enregistrement de domaines GoDaddy
 8. Sélectionnez **Supprimer** pour supprimer l’enregistrement CNAME.
 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Dans les étapes précédentes, vous avez ajouté un domaine personnalisé à un point de terminaison CDN. Si vous ne voulez plus associer votre point de terminaison avec un domaine personnalisé, vous pouvez supprimer le domaine personnalisé en procédant comme suit :
  
@@ -222,7 +222,7 @@ Dans les étapes précédentes, vous avez ajouté un domaine personnalisé à un
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > - Créez un enregistrement CNAME DNS.
@@ -232,6 +232,6 @@ Dans ce tutoriel, vous avez appris à :
 Passer au tutoriel suivant pour apprendre à configurer HTTPS sur un domaine personnalisé Azure CDN.
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Configurer HTTPS sur un domaine personnalisé Azure CDN](cdn-custom-ssl.md)
+> [Tutoriel : Configurer HTTPS sur un domaine personnalisé Azure CDN](cdn-custom-ssl.md)
 
 

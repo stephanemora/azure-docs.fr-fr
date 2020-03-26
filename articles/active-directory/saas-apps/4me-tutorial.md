@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory avec 4me | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory avec 4me | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et 4me.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 08/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a3e8b753a9afb6b6d27466adb086717b52838e3a
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72596288"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-4me"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à 4me
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-4me"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à 4me
 
 Dans ce tutoriel, vous allez découvrir comment intégrer 4me à Azure Active Directory (Azure AD). Quand vous intégrez 4me à Azure AD, vous pouvez :
 
@@ -38,7 +38,7 @@ Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, cons
 Pour commencer, vous devez disposer de ce qui suit :
 
 * Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
-* Un abonnement 4me pour lequel l’authentification unique est activée
+* Un abonnement 4mepour lequel l’authentification unique est activée
 
 ## <a name="scenario-description"></a>Description du scénario
 

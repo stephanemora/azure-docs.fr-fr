@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
 ms.openlocfilehash: 93a7e2507ab3a467ef83924479872694cae2dd5b
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75614007"
 ---
 # <a name="tutorial-create-azure-vm-infrastructure-to-host-a-service-fabric-cluster"></a>Tutoriel : Créer l’infrastructure de machines virtuelles Azure pour héberger un cluster Service Fabric
@@ -25,7 +25,7 @@ Dans ce premier volet, vous apprenez à :
 > * Vous connecter à une des instances
 > * Préparer l’instance pour Service Fabric
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce tutoriel, vous devez disposer d’un abonnement Azure.  Si vous n’avez pas encore de compte, accédez au [portail Azure](https://portal.azure.com) pour en créer un.
 

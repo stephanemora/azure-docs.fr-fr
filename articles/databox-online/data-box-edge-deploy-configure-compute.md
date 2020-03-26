@@ -10,19 +10,19 @@ ms.date: 09/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Data Box Edge so I can use it to transform the data before sending it to Azure.
 ms.openlocfilehash: b641ae62ba6e0cdacaeb46b1ffee2f02c7544763
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70277335"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222856"
 ---
-# <a name="tutorial-transform-data-with-azure-data-box-edge"></a>Didacticiel : Transformer des données avec Azure Data Box Edge
+# <a name="tutorial-transform-data-with-azure-data-box-edge"></a>Tutoriel : Transformer des données avec Azure Data Box Edge
 
 Ce tutoriel explique comment configurer un rôle de calcul sur votre appareil Azure Data Box Edge. Une fois que vous avez configuré le rôle de calcul, Data Box Edge peut transformer des données avant de les envoyer à Azure.
 
 Cette procédure peut prendre environ 10 à 15 minutes.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Configurer le calcul
@@ -118,7 +118,7 @@ Dans cette section, vous allez ajouter un module personnalisé à l’appareil I
     |Partage de sortie     | Sélectionnez un partage de sortie. Dans ce cas, le partage Edge est le partage de sortie.        |
     |Type de déclencheur     | Sélectionnez **Fichier** ou **Planifier**. Un déclencheur de fichier est activé chaque fois qu’un événement de fichier se produit, tel que l’écriture d’un fichier sur le partage d’entrée. Un déclencheur planifié se déclenche en fonction d’une planification définie par vos soins.         |
     |Nom du déclencheur     | Nom unique de votre déclencheur.         |
-    |Variables d’environnement| Informations facultatives qui aident à définir l’environnement dans lequel votre module sera exécuté.   |
+    |Variables d'environnement| Informations facultatives qui aident à définir l’environnement dans lequel votre module sera exécuté.   |
 
     ![Ajouter et configurer un module](./media/data-box-edge-deploy-configure-compute/add-module-1.png)
 
@@ -157,7 +157,7 @@ Vous avez terminé le processus de validation.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Configurer le calcul

@@ -6,10 +6,10 @@ ms.topic: quickstart
 ms.date: 09/19/2017
 ms.custom: mvc
 ms.openlocfilehash: 73f8d23dcd53b4cbbb3fbd902c789e868c2b021b
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75769181"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Ajouter des messages au stockage de files d’attente Azure, à l’aide de Functions
@@ -26,7 +26,7 @@ Pour suivre ce guide de démarrage rapide :
 
 * Installez [l’Explorateur Stockage Microsoft Azure](https://storageexplorer.com/). Il s’agit d’un outil que vous allez utiliser pour examiner les messages en file d’attente créés par votre liaison de sortie.
 
-## <a name="add-binding"></a>Ajoutez une liaison de sortie
+## <a name="add-an-output-binding"></a><a name="add-binding"></a>Ajoutez une liaison de sortie
 
 Dans cette section, l’interface utilisateur du portail vous permet d’ajouter une liaison de sortie de stockage de file d’attente à la fonction que vous avez créée précédemment. Cette liaison permettra d’écrire un minimum de code pour créer un message dans une file d’attente. Vous n’êtes pas obligé d’écrire du code pour des tâches telles que l’ouverture d’une connexion de stockage, la création d’une file d’attente ou l’obtention d’une référence à une file d’attente. La liaison de sortie de file d’attente et le runtime Azure Functions se chargent de ces tâches.
 
@@ -60,13 +60,13 @@ Maintenant que vous avez défini une liaison de sortie, vous devez mettre à jou
 
 ## <a name="add-code-that-uses-the-output-binding"></a>Ajouter le code qui utilise la liaison de sortie
 
-Dans cette section, vous ajoutez le code qui écrit un message dans la file d’attente de sortie. Le message contient la valeur qui est transmise au déclencheur HTTP dans la chaîne de requête. Par exemple, si la chaîne de requête inclut `name=Azure`, le message de la file d'attente sera *Nom transmis à la fonction : Azure*.
+Dans cette section, vous ajoutez le code qui écrit un message dans la file d’attente de sortie. Le message contient la valeur qui est transmise au déclencheur HTTP dans la chaîne de requête. Par exemple, si la chaîne de requête inclut `name=Azure`, le message de la file d’attente sera *Nom transmis à la fonction : Azure*.
 
 1. Sélectionnez la fonction pour afficher le code de fonction dans l’éditeur.
 
 1. Mettez à jour le code de fonction en fonction du langage de la fonction :
 
-    # <a name="ctabcsharp"></a>[C\#](#tab/csharp)
+    # <a name="c"></a>[C\#](#tab/csharp)
 
     Ajoutez un paramètre **outputQueueItem** à la signature de méthode, comme indiqué dans l’exemple suivant.
 
@@ -84,7 +84,7 @@ Dans cette section, vous ajoutez le code qui écrit un message dans la file d’
     outputQueueItem.Add("Name passed to the function: " + name);
     ```
 
-    # <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
+    # <a name="javascript"></a>[JavaScript](#tab/nodejs)
 
     Ajoutez le code qui utilise la liaison de sortie sur l’objet `context.bindings` pour créer un message de file d’attente. Ajoutez ce code avant l’instruction `context.done`.
 
@@ -143,7 +143,7 @@ Ignorez cette section si vous avez déjà installé et connecté l’Explorateur
 
 1. Développez le nœud **Files d’attente**, puis sélectionnez la file d’attente nommée **outqueue**. 
 
-   La file d’attente contient le message que la liaison de sortie de file d’attente a créé lors de l’exécution de la fonction déclenchée via HTTP. Si vous avez appelé la fonction avec la valeur `name` par défaut d'*Azure*, le message de la file d'attente est *Nom transmis à la fonction : Azure*.
+   La file d’attente contient le message que la liaison de sortie de file d’attente a créé lors de l’exécution de la fonction déclenchée via HTTP. Si vous avez appelé la fonction avec la valeur `name` par défaut de *Azure*, le message de la file d’attente est *Nom transmis à la fonction : Azure*.
 
     ![Message de file d’attente affiché dans l’Explorateur Stockage](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
 

@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à Claromentis | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Claromentis | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Claromentis.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 12/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4c6eaf23950f83592a33709574be464f4499f0ab
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74823031"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-claromentis"></a>Didacticiel : Intégration de l’authentification unique (SSO) Azure Active Directory à Claromentis
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-claromentis"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Claromentis
 
 Dans ce tutoriel, vous allez apprendre à intégrer Claromentis à Azure Active Directory (Azure AD). Quand vous intégrez Claromentis à Azure AD, vous pouvez :
 

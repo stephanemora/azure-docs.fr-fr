@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à RedBrick Health | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à RedBrick Health | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et RedBrick Health.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 09/09/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9a4326287eb8c7ae89e3167f72aaf25e0ed89124
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71123882"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-redbrick-health"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à RedBrick Health
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-redbrick-health"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à RedBrick Health
 
 Dans ce tutoriel, vous allez apprendre à intégrer RedBrick Health à Azure Active Directory (Azure AD). Quand vous intégrez RedBrick Health à Azure AD, vous pouvez :
 
@@ -127,11 +127,11 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     e. Dans la liste **Attribut de la source**, tapez la valeur d’attribut indiquée pour cette ligne.
 
-    f. Cliquez sur **OK**.
+    f. Cliquez sur **OK**
 
     g. Cliquez sur **Enregistrer**.
 
-1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (Base64)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
+1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (en base64)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/certificatebase64.png)
 

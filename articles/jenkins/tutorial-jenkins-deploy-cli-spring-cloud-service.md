@@ -4,10 +4,10 @@ description: Découvrez comment utiliser Azure CLI dans un pipeline d’intégra
 ms.topic: tutorial
 ms.date: 01/07/2020
 ms.openlocfilehash: 67ad97bb762ed302ef52c404d47c5755ea4b245b
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75732852"
 ---
 # <a name="tutorial-deploy-apps-to-azure-spring-cloud-using-jenkins-and-the-azure-cli"></a>Tutoriel : Déployer des applications sur Azure Spring Cloud avec Jenkins et Azure CLI
@@ -23,7 +23,7 @@ Dans ce tutoriel, vous allez effectuer les tâches suivantes :
 
 Ce tutoriel suppose des connaissances de niveau intermédiaire dans les domaines suivants : services Azure de base, Azure Spring Cloud, [pipelines](https://jenkins.io/doc/book/pipeline/) et plug-ins Jenkins, et GitHub.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 >[!Note]
 > Azure Spring Cloud est actuellement disponible en préversion publique. Les offres en préversion publique permettent aux clients de tester les nouvelles fonctionnalités avant leur publication officielle.  Les fonctionnalités et services en préversion publique ne sont pas destinés à une utilisation en contexte de production.  Pour en savoir plus sur le support offert avec les préversions, consultez notre [FAQ](https://azure.microsoft.com/support/faq/) ou soumettez une [demande de support](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
@@ -230,7 +230,7 @@ L’exemple de pipeline utilise Maven pour générer et Azure CLI pour effectuer
 
 3. Ensuite, cliquez sur l’onglet **Pipeline**.
 
-4. Pour **Définition**, sélectionnez **Pipeline script from SCM** (Script de pipeline à partir de SCM).
+4. Pour **Définition**, sélectionnez **Script de pipeline à partir de SCM**.
 
 5. Pour **SCM**, sélectionnez **Git**.
 
@@ -240,7 +240,7 @@ L’exemple de pipeline utilise Maven pour générer et Azure CLI pour effectuer
 
 8. Conservez **Jenkinsfile** pour **Script path** (Chemin du script).
 
-7. Cliquez sur **Save** (Enregistrer).
+7. Cliquez sur **Enregistrer**.
 
 ## <a name="validate-and-run-the-job"></a>Valider et exécuter le travail
 

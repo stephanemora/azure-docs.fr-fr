@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à RingCentral | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à RingCentral | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et RingCentral.
 services: active-directory
 documentationCenter: na
@@ -16,19 +16,19 @@ ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
 ms.openlocfilehash: de7cf57d177902efdbb44524703481e8c65c75c5
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72991473"
 ---
-# <a name="tutorial-integrate-ringcentral-with-azure-active-directory"></a>Didacticiel : Intégrer RingCentral à Azure Active Directory
+# <a name="tutorial-integrate-ringcentral-with-azure-active-directory"></a>Tutoriel : Intégrer RingCentral à Azure Active Directory
 
 Dans ce tutoriel, vous allez découvrir comment intégrer RingCentral à Azure AD (Azure Active Directory). Quand vous intégrez RingCentral à Azure AD, vous pouvez :
 
 * Contrôler qui a accès à RingCentral dans Azure AD.
 * Permettre aux utilisateurs de se connecter automatiquement à RingCentral avec leur compte Azure AD.
-* Gérer vos comptes à partir d’un emplacement central : le portail Azure.
+* Gérer vos comptes à un emplacement central : le Portail Azure.
 
 Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
@@ -71,7 +71,7 @@ Pour configurer et tester l’authentification unique Azure AD avec RingCentral,
 
 ### <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
-Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le portail Azure.
+Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
 1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **RingCentral**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.

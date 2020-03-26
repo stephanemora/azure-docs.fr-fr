@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Déployer un modèle prédictif en R'
+title: 'Tutoriel : Déployer un modèle prédictif en R'
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
 description: Dans le troisième volet de ce tutoriel en trois parties, vous allez déployer un modèle prédictif en R avec Azure SQL Database Machine Learning Services (préversion).
 services: sql-database
@@ -14,13 +14,13 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/26/2019
 ms.openlocfilehash: 9fa816b2a8e736f03c99b66b898f48bd2a483b31
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68596778"
 ---
-# <a name="tutorial-deploy-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Didacticiel : Déployer un modèle prédictif en R avec Azure SQL Database Machine Learning Services (préversion)
+# <a name="tutorial-deploy-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Tutoriel : Déployer un modèle prédictif en R avec Azure SQL Database Machine Learning Services (préversion)
 
 Dans le troisième volet de ce tutoriel en trois parties, vous allez déployer un modèle prédictif développé en R dans une base de données SQL avec Azure SQL Database Machine Learning Services (préversion).
 
@@ -29,10 +29,10 @@ Vous allez créer une procédure stockée avec un script R incorporé qui effect
 Dans cet article, avec les scripts en R que vous avez développés dans les parties un et deux, vous allez apprendre à :
 
 > [!div class="checklist"]
-> * créer une procédure stockée qui génère le modèle Machine Learning ;
+> * Créer une procédure stockée qui génère le modèle Machine Learning
 > * Stocker le modèle dans une table de base de données
-> * Création d’une procédure stockée qui effectue des prédictions avec le modèle
-> * Exécution du modèle avec de nouvelles données
+> * Créer une procédure stockée qui effectue des prédictions à l’aide du modèle
+> * Exécuter le modèle avec de nouvelles données
 
 Dans la [première partie](sql-database-tutorial-predictive-model-prepare-data.md), vous avez appris à importer un exemple de base de données, puis à préparer les données destinées à utiliser pour entraîner un modèle prédictif en R.
 
@@ -44,7 +44,7 @@ Dans la [deuxième partie](sql-database-tutorial-predictive-model-build-compare.
 
 * La troisième partie de cette série de tutoriels suppose que vous avez préalablement effectué dans leur intégralité la [**première partie**](sql-database-tutorial-predictive-model-prepare-data.md) et la [**deuxième partie**](sql-database-tutorial-predictive-model-build-compare.md).
 
-## <a name="create-a-stored-procedure-that-generates-the-model"></a>Création d’une procédure stockée qui génère le modèle
+## <a name="create-a-stored-procedure-that-generates-the-model"></a>Créer une procédure stockée qui génère le modèle
 
 Dans la deuxième partie de cette série de tutoriels, vous avez décidé qu’un modèle d’arbre de décision (dtree) était le plus précis. Maintenant, à l’aide des scripts en R que vous avez développés, créez une procédure stockée (`generate_rental_rx_model`) qui entraîne et génère le modèle dtree avec rxDTree à partir du package RevoScaleR.
 
@@ -173,7 +173,7 @@ END;
 GO
 ```
 
-## <a name="execute-the-model-with-new-data"></a>Exécution du modèle avec de nouvelles données
+## <a name="execute-the-model-with-new-data"></a>Exécuter le modèle avec de nouvelles données
 
 Vous pouvez désormais utiliser la procédure stockée `predict_rentalcount_new` pour prédire le nombre de locations à partir de nouvelles données.
 
@@ -197,13 +197,13 @@ RentalCount_Predicted
 332.571428571429
 ```
 
-Vous avez correctement créé, entraîné et déployé un modèle dans une base de données Azure SQL. Vous avez ensuite utilisé ce modèle dans une procédure stockée pour prédire des valeurs basées sur de nouvelles données.
+Vous avez correctement créé, entraîné et déployé un modèle dans une base de données Azure SQL. Vous avez ensuite utilisé ce modèle dans une procédure stockée pour prédire des valeurs en fonction de nouvelles données.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous n’avez plus besoin de la base de données TutorialDB, supprimez-la de votre serveur Azure SQL Database.
 
-Dans le portail Azure, suivez ces étapes :
+Sur le portail Azure, procédez comme suit :
 
 1. Dans le menu de gauche du portail Azure, sélectionnez **Toutes les ressources** ou **Bases de données SQL**.
 1. Dans le champ **filtrer par nom...** , entrez **TutorialDB**, puis sélectionnez votre abonnement.
@@ -212,15 +212,15 @@ Dans le portail Azure, suivez ces étapes :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans la troisième partie de cette série de tutoriels, vous avez effectué les étapes suivantes :
+Dans la troisième partie de cette série de tutoriels, vous avez effectué les étapes suivantes :
 
-* créer une procédure stockée qui génère le modèle Machine Learning ;
+* Créer une procédure stockée qui génère le modèle Machine Learning
 * Stocker le modèle dans une table de base de données
-* Création d’une procédure stockée qui effectue des prédictions avec le modèle
-* Exécution du modèle avec de nouvelles données
+* Créer une procédure stockée qui effectue des prédictions à l’aide du modèle
+* Exécuter le modèle avec de nouvelles données
 
 Pour en savoir plus sur l’utilisation de R dans Azure SQL Database Machine Learning Services (préversion), voir :
 
 * [Écrire des fonctions R avancées dans Azure SQL Database avec Machine Learning Services (préversion)](sql-database-machine-learning-services-functions.md)
-* [Exploiter des données R et SQL dans Azure SQL Database Machine Learning Services (préversion)](sql-database-machine-learning-services-data-issues.md)
+* [Exploiter des données R et SQL dans Machine Learning Services d’Azure SQL Database (préversion)](sql-database-machine-learning-services-data-issues.md)
 * [Ajouter un package R à Azure SQL Database Machine Learning Services (préversion)](sql-database-machine-learning-services-add-r-packages.md)

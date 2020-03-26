@@ -4,10 +4,10 @@ description: Dans ce tutoriel, vous utilisez l’effet modify d’Azure Policy p
 ms.date: 11/25/2019
 ms.topic: tutorial
 ms.openlocfilehash: 5e9cb9a4acb930c117374281a3debaeecce47110
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75965997"
 ---
 # <a name="tutorial-manage-tag-governance-with-azure-policy"></a>Tutoriel : Gérer la gouvernance des balises avec Azure Policy
@@ -28,7 +28,7 @@ Dans ce didacticiel, vous allez apprendre à effectuer les tâches suivantes :
 > - Associer chaque spécification à une définition de stratégie
 > - Regrouper les stratégies de balises dans une initiative
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce tutoriel, vous devez disposer d’un abonnement Azure. Si vous n’en avez pas, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 

@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: rohink
 ms.openlocfilehash: a4738b2e36786cd627f53af3e36bd8f1e3fbc375
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76939480"
 ---
 # <a name="tutorial-control-traffic-routing-with-weighted-endpoints-by-using-traffic-manager"></a>Tutoriel : Contrôler le routage du trafic avec des points de terminaison pondérés à l’aide de Traffic Manager
@@ -31,7 +31,7 @@ Dans ce tutoriel, vous allez apprendre à :
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour voir comment Traffic Manager fonctionne, déployez les éléments suivants pour ce didacticiel :
 
@@ -139,9 +139,9 @@ Créez un profil Traffic Manager basé sur la méthode de routage **Pondéré**.
 
     | Paramètre                 | Valeur                                              |
     | ---                     | ---                                                |
-    | Name                   | Entrez un nom unique dans la zone trafficmanager.net. Cela attribuera le nom DNS trafficmanager.net qui vous permettra d’accéder à votre profil Traffic Manager.                                   |
+    | Nom                   | Entrez un nom unique dans la zone trafficmanager.net. Cela attribuera le nom DNS trafficmanager.net qui vous permettra d’accéder à votre profil Traffic Manager.                                   |
     | Méthode de routage          | Sélectionnez la méthode de routage **Pondéré**.                                       |
-    | Subscription            | Sélectionnez votre abonnement.                          |
+    | Abonnement            | Sélectionnez votre abonnement.                          |
     | Resource group          | Sélectionnez **Utiliser l’existant**, puis **myResourceGroupTM1**. |
     |        |   |
 
@@ -158,7 +158,7 @@ Ajoutez les deux machines virtuelles qui exécutent les serveurs IIS myIISVMEas
     | Paramètre                 | Valeur                                              |
     | ---                     | ---                                                |
     | Type                    | Entrez le point de terminaison Azure.                                   |
-    | Name           | Entrez **myEastUSEndpoint**.                                        |
+    | Nom           | Entrez **myEastUSEndpoint**.                                        |
     | Type de ressource cible           | Sélectionnez **Adresse IP publique**.                          |
     | Ressource cible          | Choisissez une adresse IP publique pour afficher la liste des ressources pourvues d’adresses IP publiques dans le même abonnement. Dans **Ressource**, sélectionnez l’adresse IP publique nommée **myIISVMEastUS-ip**. Il s’agit de l’adresse IP publique de la machine virtuelle serveur IIS qui se trouve dans la région USA Est.|
     |  Poids      | Entrez **100**.        |

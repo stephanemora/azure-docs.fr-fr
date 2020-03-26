@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à FiscalNote | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à FiscalNote | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et FiscalNote.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 10/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 23c7c21d598294cc112991f795870c961ae31913
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72532911"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fiscalnote"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à FiscalNote
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fiscalnote"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à FiscalNote
 
 Dans ce tutoriel, vous allez découvrir comment intégrer FiscalNote à Azure Active Directory (Azure AD). Quand vous intégrez FiscalNote à Azure AD, vous pouvez :
 

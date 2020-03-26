@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique (SSO) Azure Active Directory à EAB Navigate Strategic Care | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à EAB Navigate Strategic Care | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et EAB Navigate Strategic Care.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 08/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1185217d6b12d3efd5dedc9faf903f1b365481db
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "70013834"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-eab-navigate-strategic-care"></a>Didacticiel : Intégration de l’authentification unique (SSO) Azure Active Directory à EAB Navigate Strategic Care
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-eab-navigate-strategic-care"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à EAB Navigate Strategic Care
 
 Dans ce tutoriel, vous allez apprendre à intégrer EAB Navigate Strategic Care à Azure Active Directory (Azure AD). Quand vous intégrez EAB Navigate Strategic Care à Azure AD, vous pouvez :
 

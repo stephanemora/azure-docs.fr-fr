@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique (SSO) Azure Active Directory à Watch by Colors | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Watch by Colors | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Watch by Colors.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 09/09/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6d8fdc8ba2337a3be49a4645e48a45120fb0ccec
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72026093"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-watch-by-colors"></a>Didacticiel : Intégration de l’authentification unique (SSO) Azure Active Directory à Watch by Colors
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-watch-by-colors"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Watch by Colors
 
 Dans ce tutoriel, vous allez découvrir comment intégrer Watch by Colors à Azure Active Directory (Azure AD). Quand vous intégrez Watch by Colors à Azure AD, vous pouvez :
 

@@ -7,11 +7,11 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 07/01/2019
 ms.openlocfilehash: 1e3c60fd955bd899955c46b7670acd3f088d0f86
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75550942"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79223946"
 ---
 # <a name="tutorial-make-network-connections-and-supply-power-to-the-azure-fxt-edge-filer-node"></a>Tutoriel : Établir des connexions réseau et fournir une alimentation au nœud de l’Azure FXT Edge Filer
 
@@ -25,7 +25,7 @@ Ce tutoriel vous apprendra à effectuer les opérations suivantes :
 > * Router les câbles par le passe-câbles (CMA)
 > * Connecter une alimentation à l’appareil en rack et mettre l’appareil sous tension
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant de démarrer ce tutoriel, l’Azure FXT Edge Filer doit être déjà installé dans un rack d’équipement standard. Le passe-câbles doit être déjà installé sur le nœud du filer. 
 

@@ -6,12 +6,12 @@ ms.author: jzim
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 05/06/2019
-ms.openlocfilehash: bf9172f0c84834c951446520ff0bfcc3ef756c9c
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: c6334aa20b543dfbf87fedcfe45d54bbcf7a219a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278304"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79477015"
 ---
 # <a name="tutorial-scale-an-azure-red-hat-openshift-cluster"></a>Tutoriel : Mettre à l’échelle un cluster Azure Red Hat OpenShift
 
@@ -28,7 +28,7 @@ Cette série de tutoriels vous montre comment effectuer les opérations suivante
 > * Mettre à l’échelle un cluster Azure Red Hat OpenShift
 > * [Supprimer un cluster Azure Red Hat OpenShift](tutorial-delete-cluster.md)
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer ce tutoriel :
 
@@ -38,7 +38,7 @@ Avant de commencer ce tutoriel :
 
 Si vous utilisez Azure CLI localement, exécutez `az login` pour vous connecter à Azure.
 
-```bash
+```azurecli
 az login
 ```
 
@@ -54,7 +54,7 @@ CLUSTER_NAME=yourclustername
 
 Maintenant nous allons mettre à l’échelle le cluster à cinq nœuds à l’aide d’Azure CLI :
 
-```bash
+```azurecli
 az openshift scale --resource-group $CLUSTER_NAME --name $CLUSTER_NAME --compute-count 5
 ```
 

@@ -9,10 +9,10 @@ ms.date: 02/13/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
 ms.openlocfilehash: 35ca071cd8495611f0f350511ef9406f82c5be23
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77209424"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan"></a>Tutoriel : Créer une association ExpressRoute avec Azure Virtual WAN
@@ -44,7 +44,7 @@ Vérifiez que vous disposez des éléments ci-dessous avant de commencer votre c
 
 * Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="openvwan"></a>Créer un WAN virtuel
+## <a name="create-a-virtual-wan"></a><a name="openvwan"></a>Créer un WAN virtuel
 
 Dans un navigateur, accédez au [portail Azure](https://portal.azure.com) et connectez-vous avec votre compte Azure.
 
@@ -62,19 +62,19 @@ Dans un navigateur, accédez au [portail Azure](https://portal.azure.com) et con
 4. Quand vous avez fini de renseigner les champs, cliquez sur **Vérifier + Créer**.
 5. Après la validation, sélectionnez **Créer** pour créer le WAN virtuel.
 
-## <a name="hub"></a>Créer un hub virtuel et une passerelle
+## <a name="create-a-virtual-hub-and-gateway"></a><a name="hub"></a>Créer un hub virtuel et une passerelle
 
 Un hub virtuel est un réseau virtuel qui est créé et utilisé par Virtual WAN. Il peut contenir différentes passerelles, telles que VPN et ExpressRoute. Dans cette section, vous allez créer une passerelle ExpressRoute pour votre hub virtuel. Vous pouvez créer la passerelle lorsque vous [créez un hub virtuel](#newhub), ou vous pouvez créer la passerelle dans un [hub existant](#existinghub) en la modifiant. 
 
 Les passerelles ExpressRoute sont approvisionnées en unités de 2 Gbits/s. 1 unité d’échelle = 2 Gbits/s avec prise en charge jusqu’à 10 unités d’échelle = 20 Gbits/s. La création complète d’un hub virtuel et d’une passerelle prend environ 30 minutes.
 
-### <a name="newhub"></a>Pour créer un hub virtuel et une passerelle
+### <a name="to-create-a-new-virtual-hub-and-a-gateway"></a><a name="newhub"></a>Pour créer un hub virtuel et une passerelle
 
 Créez un hub virtuel. Une fois le hub créé, vous serez facturé, même si vous n’y joignez aucun site.
 
 [!INCLUDE [Create a hub](../../includes/virtual-wan-tutorial-er-hub-include.md)]
 
-### <a name="existinghub"></a>Pour créer une passerelle dans un hub existant
+### <a name="to-create-a-gateway-in-an-existing-hub"></a><a name="existinghub"></a>Pour créer une passerelle dans un hub existant
 
 Vous pouvez également créer une passerelle dans un hub existant en la modifiant.
 
@@ -90,7 +90,7 @@ Une fois que vous avez créé une passerelle ExpressRoute, vous pouvez afficher 
 
 ![Afficher la passerelle](./media/virtual-wan-expressroute-portal/viewgw.png "afficher la passerelle")
 
-## <a name="connectvnet"></a>Connecter votre réseau virtuel au hub
+## <a name="connect-your-vnet-to-the-hub"></a><a name="connectvnet"></a>Connecter votre réseau virtuel au hub
 
 Dans cette section, vous créez la connexion de peering entre votre hub et un réseau virtuel. Répétez ces étapes pour chaque réseau virtuel que vous souhaitez connecter.
 
@@ -103,7 +103,7 @@ Dans cette section, vous créez la connexion de peering entre votre hub et un r�
     * **Abonnement** : vérifiez l’abonnement.
     * **Réseau virtuel** : sélectionnez le réseau virtuel que vous souhaitez connecter à ce hub. Le réseau virtuel ne peut pas avoir une passerelle de réseau virtuel déjà existante (ni VPN, ni ExpressRoute).
 
-## <a name="connectcircuit"></a>Connecter votre circuit à la passerelle de hub
+## <a name="connect-your-circuit-to-the-hub-gateway"></a><a name="connectcircuit"></a>Connecter votre circuit à la passerelle de hub
 
 Une fois la passerelle créée, vous pouvez y connecter un circuit [ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md). Les circuits ExpressRoute Premium qui se trouvent dans les emplacements pris en charge par ExpressRoute Global Reach peuvent se connecter à une passerelle ExpressRoute Virtual WAN.
 
@@ -116,7 +116,7 @@ Dans le portail, accédez à la page **Hub virtuel -> Connectivité -> Express
 
    ![connecter des circuits](./media/virtual-wan-expressroute-portal/cktconnect.png "connecter des circuits")
 
-### <a name="authkey"></a>Se connecter en utilisant une clé d'autorisation
+### <a name="to-connect-by-redeeming-an-authorization-key"></a><a name="authkey"></a>Se connecter en utilisant une clé d'autorisation
 
 Utilisez la clé d’autorisation et l’URI de circuit fournis pour vous connecter.
 

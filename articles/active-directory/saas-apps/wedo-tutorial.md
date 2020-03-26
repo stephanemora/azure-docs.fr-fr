@@ -16,10 +16,10 @@ ms.date: 01/22/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7ce7ffb389a585511883c3b35de3773ae37342b8
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76991931"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-wedo"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à WEDO
@@ -32,7 +32,7 @@ Dans ce tutoriel, vous allez apprendre à intégrer WEDO à Azure Active Directo
 
 Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour commencer, vous devez disposer de ce qui suit :
 
@@ -97,7 +97,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Votre application WEDO s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration des attributs de jetons SAML. La capture d’écran suivante montre la liste des attributs par défaut.
 
-    | Name | Attribut source|
+    | Nom | Attribut source|
     | ------------ | --------- |
     | email | user.email |
     | firstName | user.firstName |
@@ -165,7 +165,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 Dans cette section, vous allez créer un utilisateur de test dans WEDO appelé Bob Simon. Les informations doivent être identiques à celles de *Créer un utilisateur de test Azure AD*.
 
 1. Dans les paramètres de profil dans WEDO, sélectionnez **Users** (Utilisateurs) dans la section *Network settings*.
-1. Cliquez sur **Add User** (Ajouter un utilisateur).
+1. Cliquez sur **Add User**.
 1. Dans la fenêtre contextuelle Add user, renseignez les informations de l’utilisateur
 
     a. Prénom `B`.

@@ -10,19 +10,19 @@ ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: iainfou
 ms.openlocfilehash: 26122278ad74fb1d383ca7a900810b6060ee78f5
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73172668"
 ---
-# <a name="tutorial-configure-virtual-networking-for-an-azure-active-directory-domain-services-instance"></a>Didacticiel : Configurer un réseau virtuel pour une instance Azure Active Directory Domain Services
+# <a name="tutorial-configure-virtual-networking-for-an-azure-active-directory-domain-services-instance"></a>Tutoriel : Configurer un réseau virtuel pour une instance Azure Active Directory Domain Services
 
 Pour fournir la connectivité nécessaire aux utilisateurs et aux applications, un domaine managé Azure Active Directory Domain Services (Azure AD DS) est déployé dans un sous-réseau de réseau virtuel Azure. Ce sous-réseau de réseau virtuel doit être utilisé uniquement pour les ressources du domaine managé qui sont fournies par la plateforme Azure. Vous ne devez pas y déployer les applications et les machines virtuelles que vous créez. Créez et déployez vos applications dans un sous-réseau de réseau virtuel séparé, ou dans un autre réseau virtuel qui est appairé avec le réseau virtuel Azure AD DS.
 
 Ce tutoriel vous montre comment créer et configurer un sous-réseau de réseau virtuel dédié ou comment appairer un réseau différent avec le réseau virtuel du domaine managé Azure AD DS.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Utiliser correctement les options de connectivité de réseau virtuel pour les ressources jointes au domaine Azure AD DS
@@ -104,7 +104,7 @@ Pour appairer un réseau virtuel avec le réseau virtuel du domaine managé Azur
 1. Pour créer un appairage, sélectionnez **+ Ajouter**. Dans l’exemple suivant, le réseau virtuel par défaut *aadds-vnet* est appairé avec un autre réseau virtuel nommé *myVnet*. Configurez les paramètres suivants avec vos propres valeurs :
 
     * **Nom du peering de aadds-vnet avec un réseau virtuel distant** : identificateur descriptif des deux réseaux, par exemple *aadds-vnet-to-myvnet*
-    * **Type de déploiement de réseau virtuel** : *Gestionnaire de ressources*
+    * **Type de déploiement de réseau virtuel** : *Resource Manager*
     * **Abonnement**: abonnement du réseau virtuel avec lequel vous souhaitez effectuer l’appairage, par exemple *Azure*
     * **Réseau virtuel** : réseau virtuel à appairer, par exemple *myVnet*
     * **Nom du peering de myVnet à aadds-vnet** : identificateur descriptif des deux réseaux, par exemple *myvnet-to-aadds-vnet*
@@ -141,7 +141,7 @@ Quand vous créez une machine virtuelle qui doit utiliser le domaine managé Azu
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Utiliser correctement les options de connectivité de réseau virtuel pour les ressources jointes au domaine Azure AD DS

@@ -5,13 +5,13 @@ keywords: ansible, azure, devops, bash, playbook, machine virtuelle, groupe de m
 ms.topic: tutorial
 ms.date: 04/30/2019
 ms.openlocfilehash: e1cc40459988fb9bc38e3dbbcde563cebb531e3d
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74156540"
 ---
-# <a name="tutorial-configure-virtual-machine-scale-sets-in-azure-using-ansible"></a>Didacticiel : Configurer des groupes de machines virtuelles identiques dans Azure avec Ansible
+# <a name="tutorial-configure-virtual-machine-scale-sets-in-azure-using-ansible"></a>Tutoriel : Configurer des groupes de machines virtuelles identiques dans Azure avec Ansible
 
 [!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
 
@@ -32,7 +32,7 @@ ms.locfileid: "74156540"
 
 ## <a name="configure-a-scale-set"></a>Configurer un groupe identique
 
-Le code du playbook de cette section définit les ressources suivantes :
+Le code de playbook dans cette section définit les ressources suivantes :
 
 * **Groupe de ressources** dans lequel toutes les ressources seront déployées
 * **Réseau virtuel** dans l’espace d’adressage 10.0.0.0/16
@@ -42,7 +42,7 @@ Le code du playbook de cette section définit les ressources suivantes :
 * **Équilibreur de charge** qui répartit le trafic sur un ensemble de machines virtuelles définies en utilisant des règles d’équilibreur de charge.
 * **Groupe de machines virtuelles identiques** qui utilise toutes les ressources créées
 
-Il existe deux moyens d’obtenir l’exemple de playbook :
+Il existe deux façons d’obtenir le playbook de l’exemple :
 
 * [Téléchargez le manifeste](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-create.yml) et enregistrez-le sous `vmss-create.yml`.
 * Créez un nouveau fichier nommé `vmss-create.yml` et copiez-y le contenu suivant :
@@ -143,15 +143,15 @@ Il existe deux moyens d’obtenir l’exemple de playbook :
 
 Avant d’exécuter le playbook, consultez les notes suivantes :
 
-* Dans la section `vars`, remplacez l’espace réservé `{{ admin_password }}` par votre mot de passe.
+* Dans la section `vars`, remplacez l’espace réservé `{{ admin_password }}` par votre propre mot de passe.
 
-Exécutez le playbook avec la commande `ansible-playbook` :
+Exécutez le playbook à l’aide de la commande `ansible-playbook` :
 
 ```bash
 ansible-playbook vmss-create.yml
 ```
 
-Le playbook devrait alors donner une sortie de ce type :
+Après avoir exécuté le playbook, vous voyez une sortie similaire aux résultats suivants :
 
 ```Output
 PLAY [localhost] 
@@ -189,7 +189,7 @@ localhost                  : ok=8    changed=7    unreachable=0    failed=0
 
 Le [groupe identique configuré](#configure-a-scale-set) comporte actuellement deux instances. Suivez les étapes ci-dessous pour vérifier cette valeur :
 
-1. Connectez-vous au [Portail Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Connectez-vous au [portail Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Accédez au groupe identique que vous avez configuré.
 
@@ -209,14 +209,14 @@ Le [groupe identique configuré](#configure-a-scale-set) comporte actuellement d
     }
     ```
 
-## <a name="scale-out-a-scale-set"></a>Monter en charge un groupe identique
+## <a name="scale-out-a-scale-set"></a>Effectuer un scale-out d’un groupe identique
 
 Le code du playbook de cette section récupère des informations sur le groupe identique et fait passer sa capacité de deux à trois.
 
-Il existe deux moyens d’obtenir l’exemple de playbook :
+Il existe deux façons d’obtenir le playbook de l’exemple :
 
 * [Téléchargez le manifeste](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-scale-out.yml) et enregistrez-le sous `vmss-scale-out.yml`.
-* Créez un fichier nommé `vmss-scale-out.yml` et copiez-y le contenu suivant :
+* Créez un nouveau fichier nommé `vmss-scale-out.yml` et copiez-y le contenu suivant :
 
 ```yml
 - hosts: localhost
@@ -243,13 +243,13 @@ Il existe deux moyens d’obtenir l’exemple de playbook :
       azure_rm_virtualmachinescaleset: "{{ body }}"
 ```
 
-Exécutez le playbook avec la commande `ansible-playbook` :
+Exécutez le playbook à l’aide de la commande `ansible-playbook` :
 
 ```bash
 ansible-playbook vmss-scale-out.yml
 ```
 
-Le playbook devrait alors donner une sortie de ce type :
+Après avoir exécuté le playbook, vous voyez une sortie similaire aux résultats suivants :
 
 ```Output
 PLAY [localhost] 
@@ -289,7 +289,7 @@ localhost                  : ok=5    changed=1    unreachable=0    failed=0
 
 Vérifiez le résultat de votre travail sur le Portail Azure :
 
-1. Connectez-vous au [Portail Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Connectez-vous au [portail Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Accédez au groupe identique que vous avez configuré.
 
@@ -312,4 +312,4 @@ Vérifiez le résultat de votre travail sur le Portail Azure :
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"] 
-> [Tutoriel : Déployer des applications sur des groupes de machines virtuelles identiques dans Azure avec Ansible](./ansible-deploy-app-vmss.md)
+> [Tutoriel : Déployer des applications sur des groupes de machines virtuelles identiques dans Azure avec Ansible](./ansible-deploy-app-vmss.md)

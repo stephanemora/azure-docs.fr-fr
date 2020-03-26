@@ -18,17 +18,17 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/22/2019
 ms.openlocfilehash: 9151870836b1a616a79e54275ed185a425c11f0c
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72385602"
 ---
-# <a name="tutorial-send-notifications-to-specific-devices-running-universal-windows-platform-applications"></a>Didacticiel : Envoyer des notifications vers des appareils spécifiques exécutant des applications de plateforme Windows universelle
+# <a name="tutorial-send-notifications-to-specific-devices-running-universal-windows-platform-applications"></a>Tutoriel : Envoyer des notifications vers des appareils spécifiques exécutant des applications de plateforme Windows universelle
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Ce tutoriel vous montre comment utiliser Azure Notification Hubs pour diffuser des notifications relatives aux dernières nouvelles. Ce tutoriel traite des applications Windows Store ou Windows Phone 8.1 (non-Silverlight). Si vous ciblez Windows Phone 8.1 Silverlight, consultez [Notifications Push vers des appareils Windows Phone spécifiques à l’aide d’Azure Notification Hubs](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md).
 

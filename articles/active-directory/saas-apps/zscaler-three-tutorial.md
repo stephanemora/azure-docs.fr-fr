@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à Zscaler Three | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Zscaler Three | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Zscaler Three.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 10/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b23abcf9a39ce7f6d77bc40e7143505bc68e8b72
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72554987"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zscaler-three"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Zscaler Three
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zscaler-three"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Zscaler Three
 
 Dans ce tutoriel, vous allez découvrir comment intégrer Zscaler Three à Azure Active Directory (Azure AD). Quand vous intégrez Zscaler Three à Azure AD, vous pouvez :
 
@@ -144,11 +144,11 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 1. Pour automatiser la configuration dans Zscaler Three, vous devez installer l’**extension de connexion sécurisée à Mes applications** en cliquant sur **Installer l’extension**.
 
-    ![Extension Mes applications](common/install-myappssecure-extension.png)
+    ![Extension My apps](common/install-myappssecure-extension.png)
 
 2. Après l’ajout de l’extension au navigateur, cliquez sur **Configurer Zscaler Three** pour être orienté vers l’application Zscaler Three. À partir de là, indiquez les informations d’identification de l’administrateur pour vous connecter à Zscaler Three. Cette extension de navigateur configure automatiquement l’application et automatise les étapes 3 à 6.
 
-    ![Paramétrage](common/setup-sso.png)
+    ![Programme d’installation](common/setup-sso.png)
 
 3. Si vous souhaitez configurer manuellement Zscaler Three, ouvrez une nouvelle fenêtre de navigateur web, connectez-vous à votre site d’entreprise Zscaler Three en tant qu’administrateur et procédez comme suit :
 
@@ -199,7 +199,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 3. Cliquez sur l’onglet **Connexions** .   
   
-     ![Connexions](./media/zscaler-three-tutorial/ic769493.png "connexions")
+     ![Connexions](./media/zscaler-three-tutorial/ic769493.png "Connexions")
 
 4. Cliquez sur **Paramètres réseau** pour ouvrir la boîte de dialogue **Paramètres réseau**.
 

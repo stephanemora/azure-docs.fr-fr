@@ -8,21 +8,18 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: e22a9ae2888187dc877876ee5d4d4ec4ecb7c6e5
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.openlocfilehash: 42098d54725cc12691839b63c508efbecf042aa0
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78329440"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80064419"
 ---
 # <a name="tutorial-use-a-device-capability-model-to-create-an-iot-plug-and-play-preview-device-and-connect-it-to-your-iot-central-application"></a>Tutoriel : Utiliser un modèle de capacité d’appareil mobile pour créer un appareil IoT Plug-and-Play (préversion) et le connecter à votre application IoT Central
 
 Un _modèle de capacité d’appareil_ décrit les capacités d’un appareil [IoT Plug-and-Play (préversion)](../../iot-pnp/overview-iot-plug-and-play.md). IoT Central peut utiliser un modèle de fonctionnalité d’appareil pour créer un modèle d’appareil et des visualisations pour un appareil quand l’appareil se connecte pour la première fois.
 
 La prise en charge d’[IoT Plug-and-Play](../../iot-pnp/overview-iot-plug-and-play.md) est en préversion et réservée à certaines régions.
-
-> [!NOTE]
-> Contactez le support technique pour avoir accès à la création d’une application en préversion avec prise en charge des appareils IoT Plug-and-Play.
 
 Dans ce tutoriel, vous allez apprendre à :
 

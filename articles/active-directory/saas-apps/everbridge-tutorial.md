@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à EverBridge | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à EverBridge | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Everbridge.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 04/18/2019
 ms.author: jeedes
 ms.openlocfilehash: 60463a00c6864bed7b3a18e816ef0143d3573782
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67103253"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-everbridge"></a>Didacticiel : Intégration d’Azure Active Directory à EverBridge
+# <a name="tutorial-azure-active-directory-integration-with-everbridge"></a>Tutoriel : Intégration d’Azure Active Directory à EverBridge
 
 Dans ce didacticiel, vous allez apprendre à intégrer EverBridge à Azure Active Directory (Azure AD).
 Lorsque vous intégrez EverBridge à Azure AD, vous pouvez :
@@ -192,11 +192,11 @@ Pour créer l’utilisateur test Britta Simon dans le portail Azure, procédez c
 
     a. Dans la zone **Nom**, entrez **BrittaSimon**.
   
-    b. Dans la zone **Nom d’utilisateur**, entrez `brittasimon@yourcompanydomain.extension`. Par exemple BrittaSimon@contoso.com.
+    b. Dans la zone **Nom d’utilisateur**, entrez `brittasimon@yourcompanydomain.extension`. par exemple BrittaSimon@contoso.com.
 
     c. Cochez la case **Afficher le mot de passe**. Notez la valeur affichée dans la zone **Mot de passe**.
 
-    d. Sélectionnez **Créer**.
+    d. Sélectionnez **Create** (Créer).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
@@ -238,5 +238,5 @@ Quand vous cliquez sur la vignette EverBridge dans le volet d’accès, vous dev
 
 - [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -9,15 +9,15 @@ ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
 ms.openlocfilehash: e1a66da52eea6d5da711fa6def58eba65d0960ed
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74976738"
 ---
-# <a name="tutorial-provision-devices-across-load-balanced-iot-hubs"></a>Didacticiel : Approvisionner des appareils sur des hubs IoT à charge équilibrée
+# <a name="tutorial-provision-devices-across-load-balanced-iot-hubs"></a>Tutoriel : Approvisionner des appareils sur des hubs IoT à charge équilibrée
 
-Ce didacticiel montre comment approvisionner des appareils sur plusieurs hubs IoT à charge équilibrée en utilisant le service Device Provisioning. Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Ce didacticiel montre comment approvisionner des appareils sur plusieurs hubs IoT à charge équilibrée en utilisant le service Device Provisioning. Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Utiliser le portail Azure pour approvisionner un deuxième appareil sur un deuxième hub IoT 
@@ -48,7 +48,7 @@ La liste d’inscriptions indique au service Device Provisioning la méthode d�
 La stratégie d’allocation est un paramètre du service Device Provisioning qui détermine la façon dont les appareils sont assignés à un hub IoT. Trois stratégies d’allocation sont prises en charge : 
 
 1. **Latence la plus faible** : les appareils sont provisionnés dans le hub IoT dont la latence est la plus faible.
-2. **Distribution uniformément pondérée** (par défaut) : les hubs IoT liés ont tous la même probabilité d’être provisionnés. Il s’agit du paramètre par défaut. Si vous approvisionnez des appareils sur un seul hub IoT, vous pouvez conserver ce paramètre. 
+2. **Distribution uniformément pondérée** (par défaut) : les hubs IoT liés ont tous la même probabilité d’être provisionnés. Il s'agit du paramètre par défaut. Si vous approvisionnez des appareils sur un seul hub IoT, vous pouvez conserver ce paramètre. 
 3. **Configuration statique par le biais de la liste d’inscriptions** : le hub IoT spécifié dans la liste d’inscriptions a priorité sur la stratégie d’allocation au niveau du service Device Provisioning.
 
 Effectuez les étapes suivantes pour définir la stratégie d’allocation :
@@ -69,7 +69,7 @@ Liez le service Device Provisioning et le hub IoT pour que le service Device Pro
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Utiliser le portail Azure pour approvisionner un deuxième appareil sur un deuxième hub IoT 

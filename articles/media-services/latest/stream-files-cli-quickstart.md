@@ -1,12 +1,12 @@
 ---
 title: Diffuser en streaming des fichiers vidéo avec Azure Media Services et Azure CLI
-description: Suivez les étapes de ce tutoriel pour créer un compte Azure Media Services, encoder un fichier et le diffuser en streaming sur le Lecteur multimédia Azure.
+description: Suivez les étapes de tutoriel pour créer un compte Azure Media Services, encoder un fichier et le diffuser en continu sur Lecteur multimédia Azure.
 services: media-services
 documentationcenter: ''
 author: Juliako
 manager: femila
 editor: ''
-keywords: azure media services, diffuser en streaming
+keywords: azure media services, diffuser en continu
 ms.service: media-services
 ms.workload: media
 ms.topic: tutorial
@@ -14,19 +14,19 @@ ms.custom: ''
 ms.date: 08/19/2019
 ms.author: juliako
 ms.openlocfilehash: a51b30ad2af29871ed6998e60bb64adf91dfdbbd
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76514372"
 ---
-# <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---cli"></a>Tutoriel : Encoder un fichier distant basé sur une URL et diffuser la vidéo en streaming - CLI
+# <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---cli"></a>Tutoriel : Encoder un fichier distant basé sur une URL et diffuser la vidéo en continu - CLI
 
-Ce tutoriel vous montre combien il est facile d’encoder et de diffuser en streaming des vidéos sur divers navigateurs et appareils avec Azure Media Services et Azure CLI. Vous pouvez spécifier un contenu d’entrée à l’aide d’URL HTTPS ou SAP ou de chemins d’accès aux fichiers situés dans le Stockage Blob Azure.
+Ce tutoriel vous montre combien il est facile d’encoder et de diffuser en continu des vidéos sur divers navigateurs et appareils à l’aide d’Azure Media Services et d’Azure CLI. Vous pouvez spécifier un contenu d’entrée à l’aide d’URL HTTPS ou SAP ou de chemins d’accès aux fichiers situés dans le Stockage Blob Azure.
 
 Dans cet article, l’exemple encode du contenu que vous mettez à disposition via une URL HTTPS. Media Services v3 ne prend pas en charge actuellement l’encodage de transfert mémorisé en bloc sur les URL HTTPS.
 
-À la fin de ce tutoriel, vous serez en mesure de diffuser en streaming une vidéo.  
+À la fin de ce tutoriel, vous serez en mesure de diffuser en continu une vidéo.  
 
 ![Lire la vidéo](./media/stream-files-dotnet-quickstart/final-video.png)
 
@@ -159,7 +159,7 @@ La réponse ressemble à ceci :
 
 ## <a name="create-an-output-asset"></a>Créer une ressource de sortie
 
-Créez un **actif multimédia** de sortie qui est utilisé comme sortie du travail d’encodage.
+Créez un **élément multimédia** de sortie qui est utilisé comme sortie du travail d’encodage.
 
 ```azurecli
 az ams asset create -n testOutputAssetName -a amsaccount -g amsResourceGroup
@@ -188,7 +188,7 @@ La réponse ressemble à ceci :
 
 Lorsque vous soumettez des travaux pour traiter des vidéos, vous devez indiquer à Media Services où trouver la vidéo d’entrée. Une option consiste à spécifier une URL HTTPS comme entrée de travail (comme illustré dans cet exemple).
 
-Quand vous exécutez `az ams job start`, vous pouvez définir une étiquette sur la sortie du travail. Vous pouvez ensuite utiliser l’étiquette pour identifier l’objectif de cet actif multimédia de sortie.
+Quand vous exécutez `az ams job start`, vous pouvez définir une étiquette sur la sortie du travail. Vous pouvez ensuite utiliser l’étiquette pour identifier l’objectif de cet élément multimédia de sortie.
 
 - Si vous affectez une valeur à l’étiquette, définissez « --output-assets » sur « assetname=label ».
 - Si vous n’affectez pas de valeur à l’étiquette, définissez « --output-assets » sur « assetname= ».
@@ -246,7 +246,7 @@ az ams job show -a amsaccount -g amsResourceGroup -t testEncodingTransform -n te
 
 Une fois l’encodage terminé, l’étape suivante consiste rendre la vidéo dans la sortie disponible pour lecture par des clients. Pour ce faire, commencez par créer un localisateur de streaming. Ensuite, générez des URL de streaming que les clients peuvent utiliser.
 
-### <a name="create-a-streaming-locator"></a>Créer un localisateur de streaming
+### <a name="create-a-streaming-locator"></a>Créer un localisateur de diffusion en continu
 
 ```azurecli
 az ams streaming-locator create -n testStreamingLocator --asset-name testOutputAssetName --streaming-policy-name Predefined_ClearStreamingOnly  -g amsResourceGroup -a amsaccount 

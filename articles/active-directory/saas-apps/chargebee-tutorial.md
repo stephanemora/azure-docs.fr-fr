@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Chargebee | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Chargebee | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Chargebee.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 08/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f2bbaf3d527ad1e58914c6b3f9c8b5b4ea57ae08
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68931830"
 ---
-# <a name="tutorial-integrate-chargebee-with-azure-active-directory"></a>Didacticiel : Intégrer Chargebee à Azure Active Directory
+# <a name="tutorial-integrate-chargebee-with-azure-active-directory"></a>Tutoriel : Intégrer Chargebee à Azure Active Directory
 
 Dans ce didacticiel, vous allez apprendre à intégrer Chargebee à Azure Active Directory (Azure AD). Quand vous intégrez Chargebee à Azure AD, vous pouvez :
 

@@ -6,10 +6,10 @@ ms.author: lazinnat
 author: lazinnat
 ms.date: 06/20/2019
 ms.openlocfilehash: c3750da6bd76c8cb3908fbdc71ba676f09d77def
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75648806"
 ---
 # <a name="tutorial-create-managed-application-with-custom-actions-and-resources"></a>Tutoriel : Créer une application managée avec des actions et des ressources personnalisées
@@ -26,7 +26,7 @@ Ce tutoriel comprend les étapes suivantes :
 > * Déployer une instance d’application managée
 > * Exécuter des actions personnalisées et créer des ressources personnalisées
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce tutoriel, vous devez savoir :
 
@@ -219,7 +219,7 @@ Exécutez le script Azure CLI ci-dessous ou effectuez les étapes dans le portai
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-# <a name="azure-clitabazurecli-interactive"></a>[Azure CLI](#tab/azurecli-interactive)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azurecli-interactive)
 
 ```azurecli-interactive
 resourceGroup="appResourcesGroup"
@@ -244,7 +244,7 @@ az managedapp definition create \
   --package-file-uri "path to your app.zip package"
 ```
 
-# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
+# <a name="portal"></a>[Portail](#tab/azure-portal)
 
 1. Dans le portail Azure, sélectionnez **Tous les services**. Dans la liste des ressources, tapez et sélectionnez **Centre d’applications managées**.
 2. Dans le **Centre d’applications managées**, choisissez **Définition d’application du catalogue de services**, puis cliquez sur **Ajouter**. 
@@ -277,7 +277,7 @@ az managedapp definition create \
 
 Quand la définition d’application managée est déployée, exécutez le script ci-dessous ou effectuez les étapes dans le portail Azure pour déployer votre instance d’application managée avec un fournisseur personnalisé :
 
-# <a name="azure-clitabazurecli-interactive"></a>[Azure CLI](#tab/azurecli-interactive)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azurecli-interactive)
 
 ```azurecli-interactive
 appResourcesGroup="appResourcesGroup"
@@ -300,7 +300,7 @@ az managedapp create \
   --parameters "{\"funcname\": {\"value\": \"managedusersappfunction\"}, \"storageName\": {\"value\": \"managedusersappstorage\"}}"
 ```
 
-# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
+# <a name="portal"></a>[Portail](#tab/azure-portal)
 
 1. Dans le portail Azure, sélectionnez **Tous les services**. Dans la liste des ressources, tapez et sélectionnez **Centre d’applications managées**.
 2. Dans le **Centre d’applications managées**, choisissez **Applications du catalogue de services**, puis cliquez sur **Ajouter**. 

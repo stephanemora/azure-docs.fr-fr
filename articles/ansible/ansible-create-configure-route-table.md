@@ -5,10 +5,10 @@ keywords: ansible, azure, devops, bash, playbook, réseaux, routes, table de rou
 ms.topic: tutorial
 ms.date: 04/30/2019
 ms.openlocfilehash: 1f08aebe7e9dcc1c5687f50ac91c7cb8cc8a62eb
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75659795"
 ---
 # <a name="tutorial-configure-azure-route-tables-using-ansible"></a>Tutoriel : Configurer des tables de routage Azure avec Ansible
@@ -29,7 +29,7 @@ Azure achemine automatiquement le trafic entre les sous-réseaux, les réseaux v
 > Interroger une table de routage
 > Supprimer une table de routage
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]

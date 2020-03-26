@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: ce7d3ee8a0d05d837bc0049cba688cffe14d8a8c
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: e97aa07d2a43a03805fd881c674157ee676c37b4
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721640"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80239904"
 ---
 # <a name="build-an-iot-plug-and-play-preview-device-thats-ready-for-certification"></a>Créer un appareil IoT Plug-and-Play (préversion) prêt pour la certification
 
@@ -28,7 +28,7 @@ Les tests de certification vérifient les points suivants :
 - Votre code d’appareil implémente l’interface Informations sur l’appareil.
 - Le modèle de capacité et le code d’appareil fonctionnent avec IoT Central.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -91,7 +91,7 @@ Pour afficher l’interface **Informations sur l’appareil** à l’aide d’Az
 
 1. Utilisez la commande Azure CLI suivante pour afficher une interface avec l’ID d’interface Informations sur l’appareil :
 
-    ```cmd/sh
+    ```azurecli
     az iot pnp interface show --interface urn:azureiot:DeviceManagement:DeviceInformation:1
     ```
 

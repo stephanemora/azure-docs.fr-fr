@@ -10,13 +10,13 @@ ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc
 ms.openlocfilehash: bfee4e64070e5f37eaa3d63280409f00c0ed8672
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73890390"
 ---
-# <a name="tutorial-part-2---view-the-routed-messages"></a>Didacticiel : Partie 2 : Visualiser les messages routés
+# <a name="tutorial-part-2---view-the-routed-messages"></a>Tutoriel : Partie 2 : Visualiser les messages routés
 
 [!INCLUDE [iot-hub-include-routing-intro](../../includes/iot-hub-include-routing-intro.md)]
 
@@ -26,7 +26,7 @@ ms.locfileid: "73890390"
 
 Voici les règles de routage des messages. Elles ont été définies dans la 1re partie de ce tutoriel. Vous les voyez à l’œuvre dans cette deuxième partie.
 
-|Valeur |Résultat|
+|Valeur |Résultats|
 |------|------|
 |level="storage" |Écrire dans Stockage Azure.|
 |level="critical" |Écrire dans une file d’attente Service Bus. Une application logique extrait le message de la file d’attente et utilise Office 365 pour envoyer le message par e-mail.|
@@ -40,13 +40,13 @@ La file d’attente Service Bus doit être utilisée pour recevoir des messages 
 
 1. Dans le [portail Azure](https://portal.azure.com), sélectionnez **+ Créer une ressource**. Tapez **application logique** dans la zone de recherche, puis cliquez sur Entrée. Dans les résultats de la recherche affichés, sélectionnez Application logique, puis sélectionnez **Créer** pour passer au volet **Créer une application logique**. Renseignez les champs.
 
-   **Nom** : ce champ indique le nom de l'application logique. Ce didacticiel utilise **ContosoLogicApp**.
+   **Name** : ce champ indique le nom de l'application logique. Ce didacticiel utilise **ContosoLogicApp**.
 
    **Abonnement**: Sélectionnez votre abonnement Azure.
 
    **Groupe de ressources** : Sélectionnez **Utiliser existant**, puis sélectionnez votre groupe de ressources. Ce didacticiel utilise **ContosoResources**.
 
-   **Emplacement** : utilisez votre emplacement. Ce didacticiel utilise **USA Ouest**.
+   **Emplacement** : utilisez votre emplacement. Ce didacticiel utilise **USA Ouest**.
 
    **Log Analytics** : cette option doit être désactivée.
 
@@ -106,7 +106,7 @@ Pour afficher les données dans une visualisation Power BI, commencez par config
 
    **Groupe de ressources** : utilisez le même groupe de ressources que celui de votre hub IoT. Ce didacticiel utilise **ContosoResources**.
 
-   **Emplacement** : utilisez le même emplacement que celui utilisé dans le script de configuration. Ce didacticiel utilise **USA Ouest**.
+   **Emplacement** : utilisez le même emplacement que celui utilisé dans le script de configuration. Ce didacticiel utilise **USA Ouest**.
 
    ![Créer la tâche Stream Analytics](./media/tutorial-routing-view-message-routing-results/stream-analytics-create-job.png)
 
@@ -120,7 +120,7 @@ Pour afficher les données dans une visualisation Power BI, commencez par config
 
 2. Dans le volet **Entrées**, sélectionnez **Ajouter une entrée de flux** et sélectionnez IoT Hub. Dans l’écran qui s’affiche, renseignez les champs suivants :
 
-   **Alias d'entrée** : Ce didacticiel utilise **contosoinputs**.
+   **Alias d’entrée** : Ce didacticiel utilise **contosoinputs**.
 
    **Sélectionner un hub IoT dans vos abonnements** : Sélectionnez cette case d’option.
 
@@ -128,7 +128,7 @@ Pour afficher les données dans une visualisation Power BI, commencez par config
 
    **Hub IoT** : Sélectionnez le hub IoT. Ce didacticiel utilise **ContosoTestHub**.
 
-   **Point de terminaison** : sélectionnez **Messagerie**. (Si vous sélectionnez Surveillance des opérations, vous obtenez les données de télémétrie sur l’IoT Hub, plutôt que les données que vous envoyez.) 
+   **Point de terminaison** : sélectionnez **Messagerie**. (Si vous sélectionnez Surveillance des opérations, vous obtenez les données de télémétrie sur l’IoT Hub, plutôt que les données que vous envoyez.) 
 
    **Nom de la stratégie d'accès partagé** : Sélectionnez **service**. Le portail renseigne la clé de la stratégie d’accès partagé pour vous.
 
@@ -270,7 +270,7 @@ Vous devez être en mesure de voir les données sur les deux graphiques. Ce rés
 
 Vous pouvez actualiser les graphiques pour afficher les données les plus récentes en sélectionnant le bouton Actualiser en haut de la fenêtre Power BI. 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources 
+## <a name="clean-up-resources"></a>Nettoyer les ressources 
 
 Si vous souhaitez supprimer toutes les ressources Azure que vous avez créées au cours des deux parties de ce tutoriel, supprimez le groupe de ressources. Cette opération supprime toutes les ressources contenues dans le groupe. Dans ce cas, l’IoT Hub, l’espace de noms et la file d’attente Service Bus, l’application logique, le compte de stockage et le groupe de ressources lui-même sont supprimés. Vous pouvez également supprimer les ressources Power BI et effacer les e-mails envoyés durant le tutoriel.
 
@@ -304,8 +304,8 @@ Dans ce tutoriel en deux parties, vous avez appris à utiliser le routage des me
 
 **Partie I : Créer des ressources, configurer le routage des messages**
 > [!div class="checklist"]
-> * Créer les ressources : un hub IoT, un compte de stockage, une file d’attente Service Bus et un appareil simulé.
-> * Configurer les points de terminaison et les routes des messages dans IoT Hub pour le compte de stockage et la file d’attente Service Bus.
+> * Créez les ressources : un hub IoT, un compte de stockage, une file d’attente Service Bus et un appareil simulé.
+> * Configurez les points de terminaison et les routes des messages dans IoT Hub pour le compte de stockage et la file d’attente Service Bus.
 
 **Partie II : Envoyer les messages au hub, visualiser les résultats routés**
 > [!div class="checklist"]

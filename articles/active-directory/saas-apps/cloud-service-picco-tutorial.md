@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : intégration d’Azure Active Directory à Cloud Service PICCO| Microsoft Docs'
+title: 'Tutoriel : intégration d’Azure Active Directory à Cloud Service PICCO| Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Cloud Service PICCO.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 12/21/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0937fa513616a3774198d27aeb160de04aa8b83d
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73157383"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-cloud-service-picco"></a>Didacticiel : intégration d’Azure Active Directory à Cloud Service PICCO
+# <a name="tutorial-azure-active-directory-integration-with-cloud-service-picco"></a>Tutoriel : intégration d’Azure Active Directory à Cloud Service PICCO
 
 Ce tutoriel explique comment intégrer Cloud Service PICCO à Azure Active Directory (Azure AD).
 L’intégration de Cloud Service PICCO à Azure AD offre les avantages suivants :
@@ -143,7 +143,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
     b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
-    Par exemple, BrittaSimon@contoso.com
+    Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
@@ -191,4 +191,4 @@ Le fait de cliquer sur la vignette Cloud Service PICCO dans le panneau d’accè
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à Evernote | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Evernote | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Evernote.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 09/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 55216e9eb4bd5cda2635564480751459f05e8309
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71121622"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-evernote"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Evernote
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-evernote"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Evernote
 
 Dans ce tutoriel, vous allez apprendre à intégrer Evernote à Azure Active Directory (Azure AD). Quand vous intégrez Evernote à Azure AD, vous pouvez :
 

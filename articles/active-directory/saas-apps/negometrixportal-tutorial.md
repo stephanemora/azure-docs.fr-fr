@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à NegometrixPortal Single Sign On (SSO) | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à NegometrixPortal Single Sign On (SSO) | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et NegometrixPortal Single Sign On (SSO).
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 11/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 97cc8e4a69155dcce402d34d3d1afba18f74d60e
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74085132"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-negometrixportal-single-sign-on-sso"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à NegometrixPortal Single Sign On (SSO)
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-negometrixportal-single-sign-on-sso"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à NegometrixPortal Single Sign On (SSO)
 
 Dans ce tutoriel, vous allez apprendre à intégrer NegometrixPortal Single Sign On (SSO) à Azure Active Directory (Azure AD). En intégrant NegometrixPortal Single Sign On (SSO) à Azure AD, vous pouvez :
 

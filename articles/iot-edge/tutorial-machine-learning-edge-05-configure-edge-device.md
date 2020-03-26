@@ -8,12 +8,12 @@ ms.date: 2/5/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ab3ed567d34c6284959f7875bb121ced4770d65e
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 3a71aa1a713891c773297a3789a9a9f4b36ab258
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77133348"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80236054"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>Tutoriel : Configurer un appareil IoT Edge
 
@@ -196,7 +196,7 @@ Nous décrivons l’appareil de nœud terminal plus loin dans le tutoriel. Dans 
 
 1. À partir de la session SSH sur la machine virtuelle Linux, connectez-vous à Azure avec Azure CLI.
 
-    ```bash
+    ```azurecli
     az login
     ```
 
@@ -206,7 +206,7 @@ Nous décrivons l’appareil de nœud terminal plus loin dans le tutoriel. Dans 
 
 1. Sélectionnez l’abonnement Azure à utiliser pour les commandes Azure CLI.
 
-    ```bash
+    ```azurecli
     az account set --subscription <subscriptionId>
     ```
 
@@ -218,7 +218,7 @@ Nous décrivons l’appareil de nœud terminal plus loin dans le tutoriel. Dans 
 
 1. Téléchargez les certificats que vous avez stockés dans le coffre de clés : new-edge-device-full-chain.cert.pem, new-edge-device.key.pem et azure-iot-test-only.root.ca.cert.pem
 
-    ```bash
+    ```azurecli
     key_vault_name="<key vault name>"
     sudo az keyvault secret download --vault-name $key_vault_name --name new-edge-device-full-chain-cert-pem -f /edgeMlCertificates/new-edge-device-full-chain.cert.pem
     sudo az keyvault secret download --vault-name $key_vault_name --name new-edge-device-key-pem -f /edgeMlCertificates/new-edge-device.key.pem

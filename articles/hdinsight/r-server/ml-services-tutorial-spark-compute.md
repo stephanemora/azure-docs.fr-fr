@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Utiliser R dans un contexte de calcul Spark dans Azure HDInsight'
+title: 'Tutoriel : Utiliser R dans un contexte de calcul Spark dans Azure HDInsight'
 description: 'Tutoriel : Bien démarrer avec R et Spark sur un cluster Azure HDInsight Machine Learning Services.'
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,17 +9,17 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/21/2019
 ms.openlocfilehash: 73ca0d089ab758fb13e69d341337139d79194cc5
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71121936"
 ---
-# <a name="tutorial-use-r-in-a-spark-compute-context-in-azure-hdinsight"></a>Didacticiel : Utiliser R dans un contexte de calcul Spark dans Azure HDInsight
+# <a name="tutorial-use-r-in-a-spark-compute-context-in-azure-hdinsight"></a>Tutoriel : Utiliser R dans un contexte de calcul Spark dans Azure HDInsight
 
 Ce tutoriel fournit une présentation étape par étape de l’utilisation des fonctions R dans Apache Spark qui s’exécutent sur un cluster Azure HDInsight Machine Learning Services.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Télécharger les exemples de données vers le stockage local
@@ -355,7 +355,7 @@ Quand vous utilisez un contexte de calcul `RxSpark`, `createFileSet` prend la va
     quit()
     ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Après avoir terminé ce didacticiel, vous souhaiterez peut-être supprimer le cluster. Avec HDInsight, vos données sont stockées dans Stockage Azure. Vous pouvez donc supprimer un cluster en toute sécurité s’il n’est pas en cours d’utilisation. Vous devez également payer pour un cluster HDInsight, même quand vous ne l’utilisez pas. Étant donné que les frais pour le cluster sont bien plus élevés que les frais de stockage, mieux vaut supprimer les clusters quand ils ne sont pas utilisés.
 

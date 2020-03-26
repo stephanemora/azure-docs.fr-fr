@@ -1,6 +1,6 @@
 ---
-title: 'Didacticiel : Tutoriel de développement d’applications Java avec Azure Cosmos DB'
-description: 'Didacticiel : Ce didacticiel d’application web Java vous montre comment utiliser le service Azure Cosmos DB et l’API SQL pour stocker les données et y accéder à partir d’une application Java hébergée sur les sites web Azure.'
+title: 'Tutoriel : Tutoriel de développement d’applications Java avec Azure Cosmos DB'
+description: 'Tutoriel : Ce didacticiel d’application web Java vous montre comment utiliser le service Azure Cosmos DB et l’API SQL pour stocker les données et y accéder à partir d’une application Java hébergée sur les sites web Azure.'
 author: tknandu
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: ramkris
 ms.openlocfilehash: 4a7c307e8a4d4088fe4d2f7800398fda4704219c
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73720840"
 ---
-# <a name="tutorial-build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Didacticiel : Créer une application web Java à l’aide d’Azure Cosmos DB et de l’API SQL
+# <a name="tutorial-build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Tutoriel : Créer une application web Java à l’aide d’Azure Cosmos DB et de l’API SQL
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
@@ -39,7 +39,7 @@ Ce didacticiel d’application Java vous montre comment créer une application d
 > 
 > 
 
-## <a id="Prerequisites"></a>Conditions préalables à l’exécution de ce didacticiel d’application web Java
+## <a name="prerequisites-for-this-java-web-application-tutorial"></a><a id="Prerequisites"></a>Conditions préalables à l’exécution de ce didacticiel d’application web Java
 Avant de commencer ce didacticiel de développement d’applications, vous devez disposer des éléments suivants :
 
 * Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer. 
@@ -52,14 +52,14 @@ Avant de commencer ce didacticiel de développement d’applications, vous devez
 
 Si vous installez ces outils pour la première fois, coreservlets.com fournit un guide pas à pas du processus d’installation dans la section Démarrage rapide de son article [Didacticiel : Installation de TomCat7 et son utilisation avec Eclipse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html).
 
-## <a id="CreateDB"></a>Étape 1 : Création d’un compte Azure Cosmos DB
+## <a name="step-1-create-an-azure-cosmos-db-account"></a><a id="CreateDB"></a>Étape 1 : Création d’un compte Azure Cosmos DB
 Commençons par créer un compte Azure Cosmos DB. Si vous possédez déjà un compte ou si vous utilisez l’émulateur Azure Cosmos DB pour ce didacticiel, vous pouvez passer à l’[étape 2 : Créer l’application JSP Java](#CreateJSP).
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 [!INCLUDE [keys](../../includes/cosmos-db-keys.md)]
 
-## <a id="CreateJSP"></a>Étape 2 : Créer l’application JSP Java
+## <a name="step-2-create-the-java-jsp-application"></a><a id="CreateJSP"></a>Étape 2 : Créer l’application JSP Java
 Pour créer l'application JSP :
 
 1. Tout d'abord, nous allons commencer par la création d'un projet Java. Démarrez Eclipse, puis cliquez sur **File** (Fichier), sur **New** (Nouveau), puis sur **Dynamic Web Project** (Projet web dynamique). Si **Dynamic Web Project** (Projet web dynamique) ne s’affiche pas dans les projets disponibles, procédez comme suit : cliquez sur **File** (Fichier), sur **New** (Nouveau), puis sur **Project** (Projet), développez **Web**, cliquez sur **Dynamic Web Project** (Projet web dynamique), puis sur **Next** (Suivant).
@@ -81,7 +81,7 @@ Pour créer l'application JSP :
    
     ![Hello World – Didacticiel d’application Java](./media/sql-api-java-application/image12.png)
 
-## <a id="InstallSDK"></a>Étape 3 : Installer le Kit de développement logiciel (SDK) Java SQL
+## <a name="step-3-install-the-sql-java-sdk"></a><a id="InstallSDK"></a>Étape 3 : Installer le Kit de développement logiciel (SDK) Java SQL
 Le moyen le plus simple d'extraire le Kit SDK Java SQL et ses dépendances est d'utiliser [Apache Maven](https://maven.apache.org/).
 
 Pour ce faire, vous devez convertir votre projet en projet Maven en procédant comme suit :
@@ -109,7 +109,7 @@ Pour ce faire, vous devez convertir votre projet en projet Maven en procédant c
 6. Cliquez sur **OK**. Maven installe le Kit SDK Java SQL.
 7. Enregistrez le fichier pom.xml.
 
-## <a id="UseService"></a>Étape 4 : Utiliser le service Azure Cosmos DB dans une application Java
+## <a name="step-4-using-the-azure-cosmos-db-service-in-a-java-application"></a><a id="UseService"></a>Étape 4 : Utiliser le service Azure Cosmos DB dans une application Java
 1. Tout d’abord, nous allons définir l’objet TodoItem dans TodoItem.java :
    
         @Data
@@ -343,7 +343,7 @@ Pour ce faire, vous devez convertir votre projet en projet Maven en procédant c
             return true;
         }
 
-## <a id="Wire"></a>Étape 5 : Câbler les éléments restants du projet de développement d’applications Java
+## <a name="step-5-wiring-the-rest-of-the-of-java-application-development-project-together"></a><a id="Wire"></a>Étape 5 : Câbler les éléments restants du projet de développement d’applications Java
 Maintenant que nous avons terminé la partie amusante, il nous reste à créer une interface utilisateur rapide et à l’associer à notre DAO.
 
 1. Tout d'abord, nous allons créer un contrôleur pour appeler notre objet d'accès aux données :
@@ -715,7 +715,7 @@ Maintenant que nous avons terminé la partie amusante, il nous reste à créer u
 5. Génial ! Maintenant, il ne nous reste qu'à tester l'application. Exécutez l'application localement et ajoutez des éléments Todo en renseignant le nom et la catégorie de l'élément, puis en cliquant sur **Add Task**(Ajouter une tâche).
 6. Une fois que l’élément s’affiche, vous pouvez le mettre à jour s’il est terminé en cochant la case et en cliquant sur **Mettre à jour les tâches**.
 
-## <a id="Deploy"></a>Étape 6 : Déployer votre application Java sur des sites web Azure
+## <a name="step-6-deploy-your-java-application-to-azure-web-sites"></a><a id="Deploy"></a>Étape 6 : Déployer votre application Java sur des sites web Azure
 Les Sites Web Azure permettent de déployer facilement des applications Java en les exportant sous forme de fichiers WAR et en les chargeant par le biais du contrôle de code source (GIT, par exemple) ou par FTP.
 
 1. Pour exporter votre application en tant que fichier WAR, cliquez avec le bouton droit sur votre projet dans **l’Explorateur de projets**, cliquez sur **Export** (Exporter), puis sur **WAR File** (Fichier WAR).
@@ -729,7 +729,7 @@ Les Sites Web Azure permettent de déployer facilement des applications Java en 
     Une fois le fichier WAR téléchargé sur le répertoire webapps, l'environnement d'exécution détecte que vous l'avez ajouté et le télécharge automatiquement.
 4. Pour consulter le produit terminé, accédez à `http://YOUR\_SITE\_NAME.azurewebsites.net/azure-java-sample/` et ajoutez vos tâches !
 
-## <a id="GetProject"></a>Obtenir le projet à partir de GitHub
+## <a name="get-the-project-from-github"></a><a id="GetProject"></a>Obtenir le projet à partir de GitHub
 Tous les exemples de ce didacticiel sont inclus dans le projet [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) sur GitHub. Pour importer le projet todo dans Eclipse, vérifiez d'abord que vous disposez des logiciels et ressources indiqués dans la section [Configuration requise](#Prerequisites) , puis procédez comme suit :
 
 1. Installez [Project Lombok](https://projectlombok.org/). Lombok est utilisé pour générer des constructeurs, des méthodes getter et des méthodes setter dans le projet. Une fois que vous avez téléchargé le fichier lombok.jar, double-cliquez dessus pour l'installer ou installez-le à partir de la ligne de commande.

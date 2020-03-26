@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Amazon Business | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Amazon Business | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Amazon Business.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 07/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d7ac085beaa85a7ddf3a6c3bfc61820e8e5a63ea
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68496564"
 ---
-# <a name="tutorial-integrate-amazon-business-with-azure-active-directory"></a>Didacticiel : Intégrer Amazon Business à Azure Active Directory
+# <a name="tutorial-integrate-amazon-business-with-azure-active-directory"></a>Tutoriel : Intégrer Amazon Business à Azure Active Directory
 
 Dans ce tutoriel, vous allez découvrir comment intégrer Amazon Business à Azure Active Directory (Azure AD). Quand vous intégrez [Amazon Business](https://www.amazon.com/b2b/info/amazon-business?layout=landing) à Azure AD, vous pouvez :
 

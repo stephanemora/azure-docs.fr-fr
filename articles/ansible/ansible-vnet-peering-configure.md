@@ -5,13 +5,13 @@ keywords: Ansible, Azure, DevOps, Bash, playbook, réseaux, peering
 ms.topic: tutorial
 ms.date: 04/30/2019
 ms.openlocfilehash: 78699a005d721b46a88a26452f5db68438793d34
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74155731"
 ---
-# <a name="tutorial-configure-azure-virtual-network-peering-using-ansible"></a>Didacticiel : Configurer le peering de réseaux virtuels Azure avec Ansible
+# <a name="tutorial-configure-azure-virtual-network-peering-using-ansible"></a>Tutoriel : Configurer le peering de réseaux virtuels Azure avec Ansible
 
 [!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
@@ -36,7 +36,7 @@ Le trafic est acheminé entre les machines virtuelles d’un même réseau virtu
 
 Un groupe de ressources est un conteneur logique dans lequel les ressources Azure sont déployées et gérées.
 
-Le code de l’exemple de playbook de cette section permet de :
+L’exemple de code de playbook dans cette section est utilisé pour :
 
 - Créer deux groupes de ressources 
 
@@ -53,10 +53,10 @@ Le code de l’exemple de playbook de cette section permet de :
 
 ## <a name="create-the-first-virtual-network"></a>Créer le premier réseau virtuel
 
-Le code de l’exemple de playbook de cette section permet de :
+L’exemple de code de playbook dans cette section est utilisé pour :
 
 - Créez un réseau virtuel
-- Créer un sous-réseau au sein du réseau virtuel
+- créer un sous-réseau au sein du réseau virtuel
 
 ```yml
   - name: Create first virtual network
@@ -74,10 +74,10 @@ Le code de l’exemple de playbook de cette section permet de :
 
 ## <a name="create-the-second-virtual-network"></a>Créer le deuxième réseau virtuel
 
-Le code de l’exemple de playbook de cette section permet de :
+L’exemple de code de playbook dans cette section est utilisé pour :
 
 - Créez un réseau virtuel
-- Créer un sous-réseau au sein du réseau virtuel
+- créer un sous-réseau au sein du réseau virtuel
 
 ```yml
   - name: Ceate second virtual network
@@ -95,7 +95,7 @@ Le code de l’exemple de playbook de cette section permet de :
 
 ## <a name="peer-the-two-virtual-networks"></a>Interconnecter les deux réseaux virtuels
 
-Le code de l’exemple de playbook de cette section permet de :
+L’exemple de code de playbook dans cette section est utilisé pour :
 
 - Initialiser le peering de réseaux virtuels
 - Interconnecter les deux réseaux virtuels créés
@@ -126,7 +126,7 @@ Le code de l’exemple de playbook de cette section permet de :
 
 ## <a name="delete-the-virtual-network-peering"></a>Supprimer le peering de réseaux virtuels
 
-Le code de l’exemple de playbook de cette section permet de :
+L’exemple de code de playbook dans cette section est utilisé pour :
 
 - Supprimer le peering entre les deux réseaux virtuels créés
 
@@ -143,8 +143,8 @@ Le code de l’exemple de playbook de cette section permet de :
 
 Il existe deux façons d’obtenir l’exemple de playbook complet :
 
-- [Télécharger le playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vnet_peering.yml) et l’enregistrer dans `vnet_peering.yml`.
-- Créer un fichier nommé `vnet_peering.yml` et y copier le contenu suivant :
+- [Téléchargez le manifeste](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vnet_peering.yml) et enregistrez-le sous `vnet_peering.yml`.
+- Créez un nouveau fichier nommé `vnet_peering.yml` et copiez-y le contenu suivant :
 
 ```yml
 - hosts: localhost
@@ -225,15 +225,15 @@ Il existe deux façons d’obtenir l’exemple de playbook complet :
       state: absent
 ```
 
-## <a name="run-the-sample-playbook"></a>Exécuter l’exemple de playbook
+## <a name="run-the-sample-playbook"></a>Exécutez l’exemple de playbook
 
-Le code de l’exemple de playbook de cette section permet de tester les différentes fonctionnalités présentées dans ce tutoriel.
+L’exemple de code de playbook dans cette section est utilisé pour tester les différentes fonctionnalités présentées dans ce tutoriel.
 
-Voici quelques points à prendre en compte concernant l’exemple de playbook :
+Voici quelques remarques importantes à prendre en compte lorsque vous travaillez avec l’exemple de playbook :
 
 - Dans la section `vars`, remplacez l’espace réservé `{{ resource_group_name }}` par le nom de votre groupe de ressources.
 
-Exécutez le playbook avec la commande ansible-playbook :
+Exécutez le playbook à l’aide de la commande ansible-playbook :
 
 ```bash
 ansible-playbook vnet_peering.yml
@@ -286,11 +286,11 @@ PLAY RECAP
 localhost                  : ok=12   changed=9    unreachable=0    failed=0    skipped=0   rescued=0    ignored=0
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous n’en avez plus besoin, supprimez les ressources créées dans cet article. 
 
-Le code de l’exemple de playbook de cette section permet de :
+L’exemple de code de playbook dans cette section est utilisé pour :
 
 - Supprimer les deux groupes de ressources créés
 
@@ -315,13 +315,13 @@ Enregistrez le playbook suivant en tant que `cleanup.yml` :
         state: absent
 ```
 
-Voici quelques points à prendre en compte concernant l’exemple de playbook :
+Voici quelques remarques importantes à prendre en compte lorsque vous travaillez avec l’exemple de playbook :
 
 - Remplacez l’espace réservé `{{ resource_group_name-1 }}` par le nom du premier groupe de ressources créé.
 - Remplacez l’espace réservé `{{ resource_group_name-2 }}` par le nom du deuxième groupe de ressources créé.
 - Toutes les ressources des deux groupes de ressources spécifiés sont supprimées.
 
-Exécutez le playbook avec la commande ansible-playbook :
+Exécutez le playbook à l’aide de la commande ansible-playbook :
 
 ```bash
 ansible-playbook cleanup.yml

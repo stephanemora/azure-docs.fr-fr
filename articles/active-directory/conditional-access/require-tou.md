@@ -12,13 +12,13 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3dd1b4cf554e773f49a15ac5cedcbcc5b3e710b9
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74380099"
 ---
-# <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Démarrage rapide : Exiger l’acceptation des conditions d’utilisation avant d’accorder l’accès à des applications cloud
+# <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Démarrage rapide : exiger l’acceptation des conditions d’utilisation avant d’accorder l’accès à des applications cloud
 
 Si vous souhaitez obtenir le consentement des utilisateurs avant qu’ils ne puissent accéder à certaines applications cloud de votre environnement, vous pouvez demander à ce qu’ils acceptent vos conditions d’utilisation. L’accès conditionnel Azure Active Directory (Azure AD) vous offre les avantages suivants :
 
@@ -31,7 +31,7 @@ Ce démarrage rapide vous montre comment configurer une [stratégie d’accès c
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre le scénario décrit dans ce démarrage rapide, vous avez besoin de ce qui suit :
 
@@ -101,11 +101,11 @@ Dans votre stratégie, définissez :
 
 ![Créer une stratégie](./media/require-tou/1234.png)
 
-**Pour configurer votre stratégie d’accès conditionnel, procédez comme suit :**
+**Pour configurer votre stratégie d’accès conditionnel, effectuez les étapes suivantes :**
 
 1. Sur la page **Nouveau**, dans la zone de texte **Nom**, saisissez **Require TOU for Isabella**.
 
-   ![Nom](./media/require-tou/71.png)
+   ![Name](./media/require-tou/71.png)
 
 1. Dans la section **Affectation**, cliquez sur **Utilisateurs et groupes**.
 
@@ -137,7 +137,7 @@ Dans votre stratégie, définissez :
 
 1. Sur la page des **octrois** :
 
-   ![Grant (Autoriser)](./media/require-tou/111.png)
+   ![Accorder](./media/require-tou/111.png)
 
    1. Sélectionner **Accorder l’accès**.
    1. Sélectionnez **My TOU**.
@@ -193,7 +193,7 @@ Pour tester votre stratégie, essayez de vous connecter à votre [portail Azure]
 
 ![Conditions d’utilisation](./media/require-tou/57.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous n’en avez plus besoin, supprimez l’utilisateur de test et la stratégie d’accès conditionnel :
 

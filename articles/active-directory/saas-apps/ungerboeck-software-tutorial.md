@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory avec Ungerboeck Software | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory avec Ungerboeck Software | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Ungerboeck Software.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 06/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 69c7a7a8fe0ef346cb26e3b0b4f14d3dae7211b9
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67372632"
 ---
-# <a name="tutorial-integrate-ungerboeck-software-with-azure-active-directory"></a>Didacticiel : Intégrer Ungerboeck Software avec Azure Active Directory
+# <a name="tutorial-integrate-ungerboeck-software-with-azure-active-directory"></a>Tutoriel : Intégrer Ungerboeck Software avec Azure Active Directory
 
 Dans ce didacticiel, vous allez apprendre à intégrer Ungerboeck Software avec Azure Active Directory (Azure AD). Lorsque vous intégrez Ungerboeck Software avec Azure AD, vous pouvez :
 

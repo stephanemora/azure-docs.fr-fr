@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à Paylocity | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Paylocity | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Paylocity.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 10/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6f6684df42971b91975f6a7f5aeded9326cef3f5
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72969711"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-paylocity"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Paylocity
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-paylocity"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Paylocity
 
 Dans ce tutoriel, vous allez apprendre à intégrer Paylocity à Azure Active Directory (Azure AD). Quand vous intégrez Paylocity à Azure AD, vous pouvez :
 

@@ -5,10 +5,10 @@ keywords: jenkins, azure, devops, app service
 ms.topic: tutorial
 ms.date: 07/31/2018
 ms.openlocfilehash: fcaf45003e865cc5aac3f6bd4580479a27d38b50
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78251457"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Déployer sur Azure App Service à l’aide du plug-in Jenkins 
@@ -46,7 +46,7 @@ sudo apt-get install -y maven
 
 Pour déployer sur Web App pour conteneurs, installez Docker sur le serveur maître Jenkins ou l’agent de machine virtuelle qui est utilisé pour la génération. Pour obtenir des instructions, consultez [Installer Docker sur Ubuntu](https://docs.docker.com/engine/installation/linux/ubuntu/).
 
-## <a name="service-principal"></a> Ajouter un principal de service Azure aux informations d’identification Jenkins
+## <a name="add-an-azure-service-principal-to-the-jenkins-credentials"></a><a name="service-principal"></a> Ajouter un principal de service Azure aux informations d’identification Jenkins
 
 Un principal de service Azure est nécessaire pour les déploiements sur Azure. 
 

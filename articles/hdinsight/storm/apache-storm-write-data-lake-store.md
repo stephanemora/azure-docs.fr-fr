@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : HDInsight Apache Storm vers Stockage – Azure/Data Lake'
+title: 'Tutoriel : HDInsight Apache Storm vers Stockage – Azure/Data Lake'
 description: Didacticiel - Découvrez comment utiliser Apache Storm pour écrire dans le stockage compatible HDFS pour Azure HDInsight.
 ms.service: hdinsight
 author: hrasheed-msft
@@ -9,19 +9,19 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/24/2019
 ms.openlocfilehash: 579163180f6c7ba19927ca66d20bd92d1b2de52e
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73241211"
 ---
-# <a name="tutorial-write-to-apache-hadoop-hdfs-from-apache-storm-on-azure-hdinsight"></a>Didacticiel : Écrire dans Apache Hadoop HDFS à partir d'Apache Storm sur Azure HDInsight
+# <a name="tutorial-write-to-apache-hadoop-hdfs-from-apache-storm-on-azure-hdinsight"></a>Tutoriel : Écrire dans Apache Hadoop HDFS à partir d'Apache Storm sur Azure HDInsight
 
 Ce didacticiel montre comment utiliser Apache Storm pour écrire des données dans le stockage compatible HDFS utilisé par Apache Storm sur HDInsight. HDInsight peut utiliser à la fois Stockage Azure et Azure Data Storage comme stockage compatible HDFS. Storm fournit un composant [HdfsBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) qui écrit des données dans le stockage HDFS. Ce document fournit des informations sur l’écriture dans ces deux types de stockages à partir du composant HdfsBolt.
 
 L’exemple de topologie utilisé dans ce document s’appuie sur les composants inclus avec Storm sur HDInsight. Il faudra peut-être le modifier pour qu’il fonctionne avec Azure Data Lake Storage en cas d’utilisation avec d’autres clusters Apache Storm.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Configurer le cluster avec l’action de script
@@ -117,7 +117,7 @@ Par défaut, Storm sur HDInsight n’inclut pas les composants utilisés par `Hd
 |Type de script |- Personnalisé|
 |URI de script bash |`https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh`|
 |Type(s) de nœud |Nimbus, Superviseur|
-|parameters |Aucun|
+|Paramètres |None|
 
 Pour plus d’informations sur l’utilisation de ce script avec votre cluster, consultez le document [Personnalisation de clusters HDInsight basés sur Linux à l’aide d'une action de script](./../hdinsight-hadoop-customize-cluster-linux.md).
 
@@ -199,7 +199,7 @@ Les topologies Storm s’exécutent jusqu’à ce qu’elles soient arrêtées o
 storm kill hdfswriter
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Pour supprimer les ressources créées par ce didacticiel, vous pouvez supprimer le groupe de ressources. La suppression du groupe de ressources efface également le cluster HDInsight associé et d’autres ressources liées au groupe de ressources.
 

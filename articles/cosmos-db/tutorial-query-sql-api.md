@@ -1,6 +1,6 @@
 ---
-title: 'Didacticiel : Comment effectuer des interrogation avec le langage SQL dans Azure Cosmos DB ?'
-description: 'Didacticiel : Découvrez comment effectuer des interrogations avec des requêtes SQL dans Azure Cosmos DB à l’aide du playground de test de requêtes'
+title: 'Tutoriel : Comment effectuer des interrogation avec le langage SQL dans Azure Cosmos DB ?'
+description: 'Tutoriel : Découvrez comment effectuer des interrogations avec des requêtes SQL dans Azure Cosmos DB à l’aide du playground de test de requêtes'
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 7e83ed0f9e635ed24b7e6115eeaaa9057d422c69
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74870069"
 ---
-# <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>Didacticiel : Interroger Azure Cosmos DB à l’aide de l’API SQL
+# <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>Tutoriel : Interroger Azure Cosmos DB à l’aide de l’API SQL
 
 L’[API SQL](documentdb-introduction.md) Azure Cosmos DB prend en charge l’interrogation de documents à l’aide de SQL. Cet article fournit un exemple de document et deux exemples de requêtes SQL et de résultats.
 

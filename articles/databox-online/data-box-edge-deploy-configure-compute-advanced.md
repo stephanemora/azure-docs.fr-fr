@@ -10,13 +10,13 @@ ms.date: 05/20/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Data Box Edge for advanced deployment flow so I can use it to transform the data before sending it to Azure.
 ms.openlocfilehash: b446a3ebf92f6240d3bc02a148fbb8296efec926
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65950720"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222886"
 ---
-# <a name="tutorial-transform-data-with-azure-data-box-edge-for-advanced-deployment-flow"></a>Didacticiel : Transformer des données avec Azure Data Box Edge pour le flux d’un déploiement avancé
+# <a name="tutorial-transform-data-with-azure-data-box-edge-for-advanced-deployment-flow"></a>Tutoriel : Transformer des données avec Azure Data Box Edge pour le flux d’un déploiement avancé
 
 Ce tutoriel explique comment configurer un rôle de calcul pour le flux d’un déploiement avancé sur votre appareil Azure Data Box Edge. Une fois que vous avez configuré le rôle de calcul, Data Box Edge peut transformer des données avant de les envoyer à Azure.
 
@@ -26,12 +26,12 @@ Le calcul peut être configuré pour le flux d’un déploiement simple ou avanc
 |------------------|--------------------------------------------------|---------------------------------------|
 | Usage prévu     | Administrateurs informatiques                                | Développeurs                            |
 | Type             | Utiliser le service Data Box Edge pour déployer des modules      | Utiliser le service IoT Hub pour déployer des modules |
-| Modules déployés | Simple                                           | Modules chaînés ou multiples           |
+| Modules déployés | Unique                                           | Modules chaînés ou multiples           |
 
 
 Cette procédure peut prendre environ 20 à 30 minutes.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Configurer le calcul
@@ -70,7 +70,7 @@ Pour configurer le calcul sur votre appareil Data Box Edge, vous allez créer un
 
     ![Bien démarrer avec le calcul](./media/data-box-edge-deploy-configure-compute-advanced/configure-compute-3.png)
 
-4. Sélectionnez **Créer**. La création de ressources IoT Hub prend quelques minutes. Une fois la ressource IoT Hub créée, la vignette **Configurer le computing en périphérie** est mise à jour pour afficher la configuration du calcul. Pour vérifier que le rôle de computing en périphérie a été configuré, sélectionnez **Configuration de la vue** sur la vignette **Configurer le calcul**.
+4. Sélectionnez **Create** (Créer). La création de ressources IoT Hub prend quelques minutes. Une fois la ressource IoT Hub créée, la vignette **Configurer le computing en périphérie** est mise à jour pour afficher la configuration du calcul. Pour vérifier que le rôle de computing en périphérie a été configuré, sélectionnez **Configuration de la vue** sur la vignette **Configurer le calcul**.
     
     ![Bien démarrer avec le calcul](./media/data-box-edge-deploy-configure-compute-advanced/configure-compute-4.png)
 
@@ -261,7 +261,7 @@ Vous avez terminé le processus de validation.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Configurer le calcul

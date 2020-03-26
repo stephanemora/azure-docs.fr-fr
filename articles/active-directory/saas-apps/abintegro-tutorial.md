@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à Abintegro | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Abintegro | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Abintegro.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 09/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bab376fa56a4edf445b7efa80079f39b21b6b5fb
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "70764626"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-abintegro"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Abintegro
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-abintegro"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Abintegro
 
 Dans ce tutoriel, vous allez apprendre à intégrer Abintegro à Azure Active Directory (Azure AD). Quand vous intégrez Abintegro à Azure AD, vous pouvez :
 
@@ -90,7 +90,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     > [!NOTE]
     > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Contactez l’[équipe de support technique Abintegro](mailto:support@abintegro.com) pour obtenir la valeur. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération**, puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
+1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération** et sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
 

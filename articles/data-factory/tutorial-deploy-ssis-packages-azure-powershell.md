@@ -15,10 +15,10 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
 ms.openlocfilehash: e8dd9f310c303cc5a1c6db6150cf4d350b0da672
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77187500"
 ---
 # <a name="set-up-an-azure-ssis-ir-in-azure-data-factory-by-using-powershell"></a>Configurer un runtime d’intégration Azure-SSIS dans Azure Data Factory à l’aide de PowerShell
@@ -32,7 +32,7 @@ Une fois le runtime d’intégration Azure-SSIS configuré, vous pouvez utiliser
 > [!NOTE]
 > Cet article montre comment utiliser Azure PowerShell pour configurer un runtime d’intégration Azure-SSIS. Pour utiliser le portail Azure ou une application Azure Data Factory pour configurer le runtime d’intégration Azure-SSIS, consultez [Tutoriel : Configurer un runtime d’intégration Azure-SSIS IR](tutorial-create-azure-ssis-runtime-portal.md). 
 
-Dans ce tutoriel, vous allez :
+Ce didacticiel présente les procédures suivantes :
 > [!div class="checklist"]
 > * Créer une fabrique de données.
 > * Créer un runtime d’intégration Azure-SSIS.
@@ -40,7 +40,7 @@ Dans ce tutoriel, vous allez :
 > * Passer en revue le script complet.
 > * Déployer des packages SSIS.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -514,7 +514,7 @@ Pour obtenir davantage de documentation sur SSIS, consultez :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à : 
+Dans ce didacticiel, vous avez appris à : 
 
 > [!div class="checklist"]
 > * Créer une fabrique de données.

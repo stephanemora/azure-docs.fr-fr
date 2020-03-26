@@ -8,10 +8,10 @@ ms.service: storage
 ms.subservice: common
 ms.topic: sample
 ms.openlocfilehash: fc3079d316a252bc5a658017cb6b04fe6ef20c2f
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77485826"
 ---
 # <a name="azure-storage-samples-using-v12-python-client-libraries"></a>Exemples de stockage Azure utilisant les bibliothèques clientes Python v12
@@ -23,7 +23,7 @@ Les tableaux suivants donnent une vue d’ensemble de notre dépôt d’exemples
 
 ## <a name="blob-samples"></a>Exemples d’objets blob
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Authentification
 
 :::row:::
    :::column span="":::
@@ -282,7 +282,7 @@ Les tableaux suivants donnent une vue d’ensemble de notre dépôt d’exemples
 
 ## <a name="azure-files-samples"></a>Exemples Azure Files
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Authentification
 
 :::row:::
    :::column span="":::
@@ -426,7 +426,7 @@ Les tableaux suivants donnent une vue d’ensemble de notre dépôt d’exemples
 
 ## <a name="queue-samples"></a>Exemples de files d’attente
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Authentification
 
 :::row:::
    :::column span="":::
@@ -581,10 +581,10 @@ Vous pouvez parcourir et cloner le dépôt GitHub pour chaque bibliothèque.
 
 Consultez les guides suivants si vous recherchez des instructions sur l’installation et le démarrage des bibliothèques clientes Stockage Azure.
 
-* [Bien démarrer avec le Service Blob Azure en Python](../blobs/storage-quickstart-blobs-python.md)
-* [Bien démarrer avec le Service File d’attente Azure en Python](../queues/storage-quickstart-queues-python.md)
-* [Bien démarrer avec le Service Table Azure en Python](../../cosmos-db/table-storage-how-to-use-python.md)
-* [Bien démarrer avec le Service Fichier Azure en Python](../files/storage-python-how-to-use-file-storage.md)
+* [Getting Started with Azure Blob Service in Python](../blobs/storage-quickstart-blobs-python.md)
+* [Getting Started with Azure Queue Service in Python](../queues/storage-quickstart-queues-python.md)
+* [Getting Started with Azure Table Service in Python](../../cosmos-db/table-storage-how-to-use-python.md)
+* [Getting Started with Azure Files Service in Python](../files/storage-python-how-to-use-file-storage.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

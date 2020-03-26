@@ -7,10 +7,10 @@ ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/10/2019
 ms.openlocfilehash: a8265680f74b2d5679d1ebfbb2873dd096f498a3
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77083049"
 ---
 # <a name="tutorial-share-data-using-azure-data-share"></a>Tutoriel : Partagez des données avec Azure Data Share  
@@ -25,7 +25,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > * Activer une planification d’instantanés pour votre partage Data Share. 
 > * Ajouter des destinataires à votre partage Data Share 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Abonnement Azure : Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 * L’adresse e-mail de connexion Azure de vos destinataires (l’utilisation de leur alias de courrier ne fonctionnera pas).
@@ -83,10 +83,10 @@ Créez une ressource Azure Data Share dans un groupe de ressources Azure.
 
      **Paramètre** | **Valeur suggérée** | **Description du champ**
     |---|---|---|
-    | Name | *datashareacount* | Spécifiez un nom pour votre compte de partage de données. |
-    | Subscription | Votre abonnement | Sélectionnez l’abonnement Azure à utiliser pour votre compte de partage de données.|
+    | Nom | *datashareacount* | Spécifiez un nom pour votre compte de partage de données. |
+    | Abonnement | Votre abonnement | Sélectionnez l’abonnement Azure à utiliser pour votre compte de partage de données.|
     | Resource group | *test-resource-group* | Utilisez un groupe de ressources existant ou créez-en un. |
-    | Location | *USA Est 2* | Sélectionnez une région pour votre compte de partage de données.
+    | Emplacement | *USA Est 2* | Sélectionnez une région pour votre compte de partage de données.
     | | |
 
 1. Sélectionnez **Créer** pour provisionner votre compte de partage de données. En règle générale, le provisionnement d’un nouveau compte de partage de données prend environ 2 minutes au maximum. 

@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
 ms.openlocfilehash: 2f001e781640704cfcee161b3de75b3f4cae1423
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77138237"
 ---
 # <a name="tutorial-grant-a-group-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Tutoriel : Accorder un accès de groupe aux ressources Azure à l’aide du contrôle RBAC et d’Azure PowerShell
@@ -35,7 +35,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour exécuter ce didacticiel, les éléments suivants sont nécessaires :
 
@@ -48,7 +48,7 @@ Dans le contrôle d’accès en fonction du rôle, vous créez une attribution d
 
 | Principal de sécurité | Définition de rôle | Étendue |
 | --- | --- | --- |
-| Groupe<br>(Groupe du tutoriel RBAC) | [Lecteur](built-in-roles.md#reader) | Subscription |
+| Groupe<br>(Groupe du tutoriel RBAC) | [Lecteur](built-in-roles.md#reader) | Abonnement |
 | Groupe<br>(Groupe du tutoriel RBAC)| [Contributeur](built-in-roles.md#contributor) | Resource group<br>(rbac-tutorial-resource-group) |
 
    ![Attributions de rôles pour un groupe](./media/tutorial-role-assignments-group-powershell/rbac-role-assignments.png)

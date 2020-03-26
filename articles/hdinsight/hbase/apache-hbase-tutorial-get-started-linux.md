@@ -10,17 +10,17 @@ ms.topic: tutorial
 ms.date: 06/25/2019
 ms.author: hrasheed
 ms.openlocfilehash: e43d2d64535085a9b22d2febc761fc7026498ba8
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71077154"
 ---
-# <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>Didacticiel : Utiliser Apache HBase dans Azure HDInsight
+# <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>Tutoriel : Utiliser Apache HBase dans Azure HDInsight
 
 Ce didacticiel montre comment créer un cluster Apache HBase dans Azure HDInsight, créer des tables HBase et les interroger à l’aide d’Apache Hive.  Pour obtenir des informations générales sur HBase, voir [Vue d’ensemble de HDInsight HBase](./apache-hbase-overview.md).
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créer un cluster Apache HBase
@@ -47,9 +47,9 @@ La procédure suivante utilise un modèle Azure Resource Manager pour créer un 
 
     |Propriété |Description |
     |---|---|
-    |Subscription|Sélectionnez l’abonnement Azure utilisé pour créer le cluster.|
+    |Abonnement|Sélectionnez l’abonnement Azure utilisé pour créer le cluster.|
     |Resource group|Créez un groupe d’administration Azure Resource ou utilisez un groupe existant.|
-    |Location|Spécifiez l’emplacement du groupe de ressources. |
+    |Emplacement|Spécifiez l’emplacement du groupe de ressources. |
     |ClusterName|Entrez un nom pour le cluster HBase.|
     |ID de connexion et mot de passe du cluster|Le nom de connexion par défaut est **admin**.|
     |Nom d’utilisateur et mot de passe SSH|Le nom d’utilisateur par défaut est **sshuser**.|
@@ -88,13 +88,13 @@ Dans HBase (une implémentation de [Cloud BigTable](https://cloud.google.com/big
     hbase shell
     ```
 
-1. Utilisez la commande `create` pour créer une table HBase avec deux familles de colonnes. Les noms de table et de colonne respectent la casse. Entrez la commande suivante :
+1. Utilisez la commande `create` pour créer une table HBase avec deux familles de colonnes. Les noms de table et de colonne respectent la casse. Entrez la commande suivante :
 
     ```hbaseshell
     create 'Contacts', 'Personal', 'Office'
     ```
 
-1. Utilisez la commande `list` pour répertorier toutes les tables contenues dans HBase. Entrez la commande suivante :
+1. Utilisez la commande `list` pour répertorier toutes les tables contenues dans HBase. Entrez la commande suivante :
 
     ```hbase
     list
@@ -109,7 +109,7 @@ Dans HBase (une implémentation de [Cloud BigTable](https://cloud.google.com/big
     put 'Contacts', '1000', 'Office:Address', '1111 San Gabriel Dr.'
     ```
 
-1. Utilisez la commande `scan` pour analyser et renvoyer les données de la table `Contacts`. Entrez la commande suivante :
+1. Utilisez la commande `scan` pour analyser et renvoyer les données de la table `Contacts`. Entrez la commande suivante :
 
     ```hbase
     scan 'Contacts'
@@ -117,7 +117,7 @@ Dans HBase (une implémentation de [Cloud BigTable](https://cloud.google.com/big
 
     ![Interpréteur de commandes Apache Hadoop HBase HDInsight](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-shell.png)
 
-1. Utilisez la commande `get` pour extraire le contenu d'une ligne. Entrez la commande suivante :
+1. Utilisez la commande `get` pour extraire le contenu d'une ligne. Entrez la commande suivante :
 
     ```hbaseshell
     get 'Contacts', '1000'
@@ -127,7 +127,7 @@ Dans HBase (une implémentation de [Cloud BigTable](https://cloud.google.com/big
 
     Pour plus d'informations sur le schéma de la table HBase, consultez [Introduction à la conception de schémas Apache HBase](http://0b4af6cdc2f0c5998459-c0245c5c937c5dedcca3f1764ecc9b2f.r43.cf2.rackcdn.com/9353-login1210_khurana.pdf). Pour plus de commandes HBase, consultez le [Guide de référence Apache HBase](https://hbase.apache.org/book.html#quickstart).
 
-1. Utilisez la commande `exit` pour arrêter l'interpréteur de commandes interactif HBase. Entrez la commande suivante :
+1. Utilisez la commande `exit` pour arrêter l'interpréteur de commandes interactif HBase. Entrez la commande suivante :
 
     ```hbaseshell
     exit
@@ -294,11 +294,11 @@ HBase dans HDInsight est livré avec une interface utilisateur web pour la surve
    - tâches
    - attributs logiciels
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Pour éviter toute incohérence, nous vous recommandons de désactiver les tables HBase avant de supprimer le cluster. Vous pouvez utiliser la commande HBase `disable 'Contacts'`. Si vous ne comptez pas continuer à utiliser cette application, effectuez les étapes suivantes pour supprimer le cluster HBase que vous avez créé :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 1. Dans la zone **Recherche** située en haut, tapez **HDInsight**.
 1. Sous **Services**, sélectionnez **Clusters HDInsight**.
 1. Dans la liste des clusters HDInsight qui s’affiche, cliquez sur les points de suspension **...** à côté du cluster que vous avez créé pour ce tutoriel.

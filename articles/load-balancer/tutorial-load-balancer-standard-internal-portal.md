@@ -16,10 +16,10 @@ ms.date: 01/08/2020
 ms.author: allensu
 ms.custom: seodec18
 ms.openlocfilehash: 918a7700df6b5be3ebca7949875127e42f8d3a91
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75780694"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-standard-load-balancer-in-the-azure-portal"></a>Tutoriel : Équilibrer la charge du trafic interne avec un équilibreur de charge Standard dans le portail Azure
@@ -65,11 +65,11 @@ Créez d’abord un réseau virtuel. Sur le réseau virtuel, créez deux machine
    Vérifiez que les éléments suivants sont sélectionnés :
    - **Réseau virtuel** : **MyVNet**
    - **Sous-réseau** : **MyBackendSubnet**
-   - **Groupe de sécurité réseau de la carte réseau** : sélectionnez **De base**.
+   - **Groupe de sécurité réseau de la carte réseau** : Sélectionnez **De base**.
    - **Adresse IP publique** > Sélectionnez **Créer**, entrez les valeurs suivantes, puis sélectionnez **OK** :
-       - **Nom** : **MyVM1-IP**
+       - **Name** : **MyVM1-IP**
        - **SKU** : sélectionnez **Standard**.
-   - **Ports d’entrée publics** : sélectionnez **Autoriser les ports sélectionnés**.
+   - **Ports d’entrée publics** : Sélectionnez **Autoriser les ports sélectionnés**.
    - **Sélectionner des ports d’entrée** : faites défiler et sélectionnez **RDP (3389)** .
 
    
@@ -94,9 +94,9 @@ Créez un équilibreur de charge interne standard à l’aide du portail. Le nom
 
     | Paramètre                 | Valeur                                              |
     | ---                     | ---                                                |
-    | Subscription               | Sélectionnez votre abonnement.    |    
+    | Abonnement               | Sélectionnez votre abonnement.    |    
     | Resource group         | Sélectionnez **Créer** et tapez *MyResourceGroupLB* dans la zone de texte.|
-    | Name                   | *myLoadBalancer*                                   |
+    | Nom                   | *myLoadBalancer*                                   |
     | Région         | Sélectionnez **USA Est**.                                        |
     | Type          | sélectionnez **Interne**.                                        |
     | SKU           | Sélectionnez **Standard**.                          |

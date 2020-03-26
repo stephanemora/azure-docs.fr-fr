@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à SSO SAML pour Confluence de resolution GmbH | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à SSO SAML pour Confluence de resolution GmbH | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et SSO SAML pour Confluence de resolution GmbH.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9676a71940569b26d6b0b6bfef767108ae57d953
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73161218"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-confluence-by-resolution-gmbh"></a>Didacticiel : Intégration d’Azure Active Directory avec SSO SAML pour Confluence de resolution GmbH
+# <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-confluence-by-resolution-gmbh"></a>Tutoriel : Intégration d’Azure Active Directory avec SSO SAML pour Confluence de resolution GmbH
 
 Dans ce didacticiel, vous allez apprendre à intégrer SSO SAML pour Confluence de resolution GmbH avec Azure Active Directory (Azure AD).
 L’intégration de SSO SAML pour Confluence de resolution GmbH avec Azure AD offre les avantages suivants :
@@ -119,7 +119,7 @@ Pour configurer l’authentification unique Azure AD avec SSO SAML pour Confluen
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Pour obtenir ces valeurs, contactez l’[équipe de support de SSO SAML pour Confluence de resolution GmbH](https://www.resolution.de/go/support). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-4. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies en fonction de vos besoins, puis enregistrez-le sur votre ordinateur.
+4. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies selon vos besoins, puis enregistrez-le sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
 
@@ -129,45 +129,45 @@ Pour configurer l’authentification unique Azure AD avec SSO SAML pour Confluen
 
 2. Pointez sur le roue dentée, puis cliquez sur **Modules complémentaires**.
     
-    ![Configurer l'authentification unique](./media/samlssoconfluence-tutorial/addon1.png)
+    ![Configure Single Sign-On](./media/samlssoconfluence-tutorial/addon1.png)
 
 3. Vous êtes redirigé vers la page d’accès administrateur. Entrez le mot de passe, puis cliquez sur le bouton **Confirmer**.
 
-    ![Configurer l'authentification unique](./media/samlssoconfluence-tutorial/addon2.png)
+    ![Configure Single Sign-On](./media/samlssoconfluence-tutorial/addon2.png)
 
 4. Sous **ATLASSIAN MARKETPLACE**, cliquez sur **Find new add-ons** (Trouver de nouveaux modules complémentaires). 
 
-    ![Configurer l'authentification unique](./media/samlssoconfluence-tutorial/addon.png)
+    ![Configure Single Sign-On](./media/samlssoconfluence-tutorial/addon.png)
 
 5. Recherchez **SAML Single Sign On (SSO) for Confluence**, puis cliquez sur le bouton **Install** pour installer le nouveau plug-in SAML.
 
-    ![Configurer l'authentification unique](./media/samlssoconfluence-tutorial/addon7.png)
+    ![Configure Single Sign-On](./media/samlssoconfluence-tutorial/addon7.png)
 
 6. L’installation du plug-in démarre. Cliquez sur **Fermer**.
 
-    ![Configurer l'authentification unique](./media/samlssoconfluence-tutorial/addon8.png)
+    ![Configure Single Sign-On](./media/samlssoconfluence-tutorial/addon8.png)
 
-    ![Configurer l'authentification unique](./media/samlssoconfluence-tutorial/addon9.png)
+    ![Configure Single Sign-On](./media/samlssoconfluence-tutorial/addon9.png)
 
 7.  Cliquez sur **Gérer**.
 
-    ![Configurer l'authentification unique](./media/samlssoconfluence-tutorial/addon10.png)
+    ![Configure Single Sign-On](./media/samlssoconfluence-tutorial/addon10.png)
     
 8. Cliquez sur **Configurer** pour configurer le nouveau plug-in.
 
-    ![Configurer l'authentification unique](./media/samlssoconfluence-tutorial/addon11.png)
+    ![Configure Single Sign-On](./media/samlssoconfluence-tutorial/addon11.png)
 
 9. Ce nouveau plug-in figure également sous l’onglet **UTILISATEURS ET SÉCURITÉ**.
 
-    ![Configurer l'authentification unique](./media/samlssoconfluence-tutorial/addon3.png)
+    ![Configure Single Sign-On](./media/samlssoconfluence-tutorial/addon3.png)
     
 10. Dans la page **SAML SingleSignOn Plugin Configuration** (Configuration du plug-in d’authentification unique SAML), cliquez sur le bouton **Add new IdP** (Ajouter un nouveau fournisseur d’identité) pour configurer les paramètres du fournisseur d’identité.
 
-    ![Configurer l'authentification unique](./media/samlssoconfluence-tutorial/addon4.png)
+    ![Configure Single Sign-On](./media/samlssoconfluence-tutorial/addon4.png)
 
 11. Dans la page **Choose your SAML Identity Provider** (Choisissez votre fournisseur d’identité SAML), effectuez les actions suivantes :
 
-    ![Configurer l'authentification unique](./media/samlssoconfluence-tutorial/addon5a.png)
+    ![Configure Single Sign-On](./media/samlssoconfluence-tutorial/addon5a.png)
  
     a. Définissez **Azure AD** comme type de fournisseurs d’identité.
     
@@ -179,11 +179,11 @@ Pour configurer l’authentification unique Azure AD avec SSO SAML pour Confluen
     
 12. Dans la page **Identity provider configuration** (Configuration du fournisseur d’identité), cliquez sur le bouton **Next** (Suivant).
 
-    ![Configurer l'authentification unique](./media/samlssoconfluence-tutorial/addon5b.png)
+    ![Configure Single Sign-On](./media/samlssoconfluence-tutorial/addon5b.png)
 
 13. Dans la page **Import SAML IdP Metadata** (Importer les métadonnées du fournisseur d’identité SAML), effectuez les actions suivantes :
 
-    ![Configurer l'authentification unique](./media/samlssoconfluence-tutorial/addon5c.png)
+    ![Configure Single Sign-On](./media/samlssoconfluence-tutorial/addon5c.png)
 
     a. Cliquez sur le bouton **Load File** (Charger le fichier) et choisissez le fichier XML de métadonnées que vous avez téléchargé à l’étape 5.
 
@@ -195,19 +195,19 @@ Pour configurer l’authentification unique Azure AD avec SSO SAML pour Confluen
     
 14. Dans la page **User ID attribute and transformation** (Attribut d’ID d’utilisateur et transformation), cliquez sur le bouton **Next** (Suivant).
 
-    ![Configurer l'authentification unique](./media/samlssoconfluence-tutorial/addon5d.png)
+    ![Configure Single Sign-On](./media/samlssoconfluence-tutorial/addon5d.png)
     
 15. Dans la page **User creation and update** (Création et mise à jour de l’utilisateur), cliquez sur **Save & Next** (Enregistrer et suivant) pour enregistrer les paramètres.   
     
-    ![Configurer l'authentification unique](./media/samlssoconfluence-tutorial/addon6a.png)
+    ![Configure Single Sign-On](./media/samlssoconfluence-tutorial/addon6a.png)
     
 16. Dans la page **Test your settings** (Tester vos paramètres), cliquez sur **Skip test & configure manually** (ignorer le test et configurer manuellement) afin d’ignorer le test de l’utilisateur pour l’instant. Cette opération, qui requiert certains paramètres dans le portail Azure, sera effectuée à la section suivante. 
     
-    ![Configurer l'authentification unique](./media/samlssoconfluence-tutorial/addon6b.png)
+    ![Configure Single Sign-On](./media/samlssoconfluence-tutorial/addon6b.png)
     
 17. Dans la boîte de dialogue **Skipping the test means...** (Ignorer le test signifie...), cliquez sur **OK**.
     
-    ![Configurer l'authentification unique](./media/samlssoconfluence-tutorial/addon6c.png)
+    ![Configure Single Sign-On](./media/samlssoconfluence-tutorial/addon6c.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD 
 
@@ -228,7 +228,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
     b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
-    Par exemple, BrittaSimon@contoso.com
+    Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
@@ -301,5 +301,5 @@ Quand vous cliquez sur la vignette SSO SAML pour Confluence de resolution GmbH d
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

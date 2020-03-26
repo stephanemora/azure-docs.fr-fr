@@ -9,10 +9,10 @@ ms.date: 06/19/2018
 ms.author: wesmc
 ms.custom: include file
 ms.openlocfilehash: 49fbfe116a2fe554abb3a3ca4d1dcd6cab2b746d
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "69626326"
 ---
 Si vous envisagez de passer à l’article recommandé suivant, vous pouvez conserver les ressources déjà créées afin de les réutiliser.
@@ -31,6 +31,6 @@ Pour supprimer un groupe de ressources par nom :
 
 3. À droite de votre groupe de ressources dans la liste des résultats, sélectionnez **...** , puis **Supprimer le groupe de ressources**.
 
-    ![Supprimer](./media/iot-hub-quickstarts-clean-up-resources/iot-hub-delete-resource-group.png)
+    ![DELETE](./media/iot-hub-quickstarts-clean-up-resources/iot-hub-delete-resource-group.png)
 
 4. Il vous sera demandé de confirmer la suppression du groupe de ressources. Saisissez à nouveau le nom de votre groupe de ressources pour confirmer, puis sélectionnez **Supprimer**. Après quelques instants, le groupe de ressources et toutes les ressources qu’il contient sont supprimés.

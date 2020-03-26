@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Clever Nelly | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Clever Nelly | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Clever Nelly.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 06/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ac9647bf6a9e2e763bcfb6e3d840cdccd2b6c305
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67595005"
 ---
-# <a name="tutorial-integrate-clever-nelly-with-azure-active-directory"></a>Didacticiel : Intégrer Clever Nelly à Azure Active Directory
+# <a name="tutorial-integrate-clever-nelly-with-azure-active-directory"></a>Tutoriel : Intégrer Clever Nelly à Azure Active Directory
 
 Dans ce didacticiel, vous allez apprendre à intégrer Clever Nelly dans Azure Active Directory (Azure AD). Quand vous intégrez Clever Nelly à Azure AD, vous pouvez :
 
@@ -120,7 +120,7 @@ Pour configurer l’authentification unique côté **Clever Nelly**, vous devez 
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
-Dans cette section, vous allez créer un utilisateur de test appelé B.Simon dans le Portail Azure.
+Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
 
 1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
 1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.

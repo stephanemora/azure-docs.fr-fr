@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/11/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 5b39186a39fbd2398fb4045ba62797e321fc3284
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 8961a50490bdbf8b456e87e1c00577c2c8afd050
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78249869"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80240364"
 ---
 # <a name="tutorial-load-balance-internet-traffic-to-vms-using-the-azure-portal"></a>Tutoriel : Équilibrer la charge du trafic Internet sur les machines virtuelles avec le portail Azure
 
@@ -125,9 +125,9 @@ Dans les étapes de cette section, vous devrez remplacer les paramètres du tabl
 | **\<nom_groupe_ressources>**  | myResourceGroupSLB (sélectionnez un groupe de ressources existant) |
 | **\<nom_réseau_virtuel>** | myVNet          |
 | **\<nom_région>**          | Europe Ouest      |
-| **\<espace_d’adressage_IPv4>**   | 10.1.0.0\16          |
+| **\<espace_d’adressage_IPv4>**   | 10.1.0.0/16          |
 | **\<nom_sous-réseau>**          | mySubnet        |
-| **\<plage_adresses_sous-réseau>** | 10.1.0.0\24          |
+| **\<plage_adresses_sous-réseau>** | 10.1.0.0/24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 

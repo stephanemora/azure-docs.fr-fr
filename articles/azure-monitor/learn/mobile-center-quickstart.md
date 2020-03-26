@@ -9,17 +9,17 @@ ms.date: 06/26/2019
 ms.reviewer: daviste
 ms.custom: mvc
 ms.openlocfilehash: a59a6841a1db3cecfe52c54135b42f5b6a095ce3
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77660289"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Commencer à analyser votre application mobile avec App Center et Application Insights
 
 Ce démarrage rapide vous guide tout au long de la connexion de l’instance App Center de votre application à Application Insights. Avec Application Insights, vous pouvez interroger, segmenter, filtrer et analyser vos données de télémétrie avec davantage d’outils puissants que ceux disponibles à partir du service [Analytics](https://docs.microsoft.com/mobile-center/analytics/) d’App Center.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour effectuer ce démarrage rapide, les éléments suivants sont requis :
 

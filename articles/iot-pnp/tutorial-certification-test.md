@@ -9,10 +9,10 @@ ms.author: koichih
 author: konichi3
 ms.date: 12/27/2019
 ms.openlocfilehash: dc2c33659f3f3a3df0f11fcc6ab36a9fc993da43
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75550160"
 ---
 # <a name="tutorial-certify-your-iot-plug-and-play-preview-device"></a>Tutoriel : Certifier votre appareil IoT Plug-and-Play (préversion)
@@ -28,7 +28,7 @@ Dans ce tutoriel, vous allez voir comment :
 > * Comment passer en revue les interfaces IoT Plug-and-Play et exécuter les tests de certification
 > * Comment publier l’appareil IoT Plug-and-Play certifié sur le catalogue
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 

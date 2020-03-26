@@ -4,10 +4,10 @@ description: Mappage des contrôles des exemples de blueprint UK OFFICIAL et UK 
 ms.date: 12/04/2019
 ms.topic: sample
 ms.openlocfilehash: 5bef590013a9ef06b791e58dc6c82e74dffe1a17
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74851364"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Mappage des contrôles des exemples de blueprint UK OFFICIAL et UK NHS
@@ -39,10 +39,10 @@ Le fait de savoir où vos ressources Azure peuvent avoir des configurations de c
 - Le chiffrement de disque doit être appliqué sur les machines virtuelles
 - Les variables de compte Automation doivent être chiffrées
 - La propriété ClusterProtectionLevel doit être définie sur EncryptAndSign pour les clusters Service Fabric
-- La technologie Transparent Data Encryption sur les bases de données SQL doit être activée
+- La technologie Transparent Data Encryption doit être activée sur les bases de données SQL
 - Déployer le chiffrement transparent des données sur les bases de données SQL
 - Exiger un chiffrement sur les comptes Data Lake Store
-- Emplacements autorisés (« UK SOUTH » et « UK WEST » sont codés en dur)
+- Emplacements autorisés (« UK SOUTH » et « UK WEST »sont codés en dur)
 - Emplacements autorisés pour les groupes de ressources (« UK SOUTH » et « UK WEST » sont codés en dur)
 
 ## <a name="52-vulnerability-management"></a>5.2 Gestion des vulnérabilités
@@ -80,7 +80,7 @@ Azure implémente un contrôle d’accès en fonction du rôle (RBAC) pour vous 
 
 - L’authentification multifacteur doit être activée sur les comptes disposant d’autorisations de propriétaire sur votre abonnement
 - L’authentification multifacteur doit être activée sur les comptes disposant d’autorisations d’écriture sur votre abonnement
-- L’authentification multifacteur doit être activée sur les comptes disposant d’autorisations de lecture sur votre abonnement
+- L'authentification multifacteur doit être activée sur les comptes disposant d’autorisations de lecture de votre abonnement
 - Les comptes externes disposant d’autorisations de propriétaire doivent être supprimés de votre abonnement
 - Les comptes externes disposant d’autorisations d’écriture doivent être supprimés de votre abonnement
 - Les comptes externes disposant d’autorisations de lecture doivent être supprimés de votre abonnement
@@ -91,7 +91,7 @@ Ce blueprint vous permet de limiter et de contrôler les droits d’accès en af
 
 - L’authentification multifacteur doit être activée sur les comptes disposant d’autorisations de propriétaire sur votre abonnement
 - L’authentification multifacteur doit être activée sur les comptes disposant d’autorisations d’écriture sur votre abonnement
-- L’authentification multifacteur doit être activée sur les comptes disposant d’autorisations de lecture sur votre abonnement
+- L'authentification multifacteur doit être activée sur les comptes disposant d’autorisations de lecture de votre abonnement
 - Les comptes externes disposant d’autorisations de propriétaire doivent être supprimés de votre abonnement
 - Les comptes externes disposant d’autorisations d’écriture doivent être supprimés de votre abonnement
 - Les comptes externes disposant d’autorisations de lecture doivent être supprimés de votre abonnement
@@ -104,7 +104,7 @@ Ce blueprint affecte des définitions Azure Policy afin de vérifier l’utilisa
 Ce blueprint affecte également des définitions Azure Policy qui permettent de déterminer les comptes devant en priorité faire l’objet d’une révision, notamment les comptes déconseillés et les comptes externes. Si nécessaire, vous pouvez empêcher des comptes de se connecter (ou les supprimer). Dans ce cas, les droits d’accès aux ressources Azure sont immédiatement supprimés. Ce blueprint affecte deux définitions Azure Policy pour auditer un compte déconseillé dont la suppression doit être envisagée.
 
 - Les comptes déconseillés doivent être supprimés de votre abonnement
-- Les comptes déconseillés disposant d’autorisations de propriétaire doivent être supprimés de votre abonnement
+- Les comptes dépréciés disposant d’autorisations de propriétaire doivent être supprimés de votre abonnement
 - Les comptes externes disposant d’autorisations de propriétaire doivent être supprimés de votre abonnement
 - Les comptes externes disposant d’autorisations d’écriture doivent être supprimés de votre abonnement
 
@@ -173,7 +173,7 @@ Ce blueprint affecte des définitions Azure Policy afin de vérifier l’utilisa
 Ce blueprint affecte également des définitions Azure Policy qui permettent de déterminer les comptes devant en priorité faire l’objet d’une révision, notamment des comptes déconseillés et des comptes externes avec des autorisations élevées. Si nécessaire, vous pouvez empêcher des comptes de se connecter (ou les supprimer). Dans ce cas, les droits d’accès aux ressources Azure sont immédiatement supprimés. Ce blueprint affecte deux définitions Azure Policy pour auditer un compte déconseillé dont la suppression doit être envisagée.
 
 - Les comptes déconseillés doivent être supprimés de votre abonnement
-- Les comptes déconseillés disposant d’autorisations de propriétaire doivent être supprimés de votre abonnement
+- Les comptes dépréciés disposant d’autorisations de propriétaire doivent être supprimés de votre abonnement
 - Les comptes externes disposant d’autorisations de propriétaire doivent être supprimés de votre abonnement
 - Les comptes externes disposant d’autorisations d’écriture doivent être supprimés de votre abonnement
 

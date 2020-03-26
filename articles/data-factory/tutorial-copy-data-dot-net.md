@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 11/08/2019
 ms.author: jingwang
 ms.openlocfilehash: 93c4f71c762cff3e3f5a01f0e2595f3498f9d38d
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75977310"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Copier des données à partir d’un objet blob Azure vers Azure SQL Database à l’aide d’Azure Data Factory
@@ -36,7 +36,7 @@ Ce didacticiel utilise le kit .NET SDK. Vous pouvez utiliser d’autres mécanis
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * *Compte Stockage Azure*. Vous utilisez le stockage blob comme magasins de données *source*. Si vous n’avez pas de compte de stockage Azure, consultez [Créer un compte de stockage universel](../storage/common/storage-account-create.md).
 * *Azure SQL Database*. Vous utilisez la base de données en tant que magasin de données *récepteur*. Si vous n’avez pas de base de données SQL, consultez [Créer une base de données Azure SQL](../sql-database/sql-database-single-database-get-started.md).

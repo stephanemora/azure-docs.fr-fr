@@ -10,10 +10,10 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 01/10/2020
 ms.openlocfilehash: 6cf6a8f7de181a81d60028e33ba2631815c8ca04
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75895366"
 ---
 # <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins-preview"></a>Tutoriel : Provisionner votre bâtiment et superviser les conditions de travail avec la préversion d’Azure Digital Twins
@@ -28,7 +28,7 @@ Dans ce tutoriel, vous allez apprendre à :
 > * Simuler des données de capteur.
 > * Obtenir les résultats d’une fonction définie par l’utilisateur.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Ce tutoriel suppose que vous avez [terminé votre configuration Azure Digital Twins](tutorial-facilities-setup.md). Avant de poursuivre, assurez-vous que vous avez les éléments suivants :
 

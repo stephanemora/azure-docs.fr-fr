@@ -9,13 +9,13 @@ ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
 ms.openlocfilehash: 3fe2fa8b094830e2d15c1cebce782381b4ca7bc7
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74975038"
 ---
-# <a name="tutorial-provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Didacticiel : Approvisionner l’appareil sur un hub IoT avec le service IoT Hub Device Provisioning
+# <a name="tutorial-provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Tutoriel : Approvisionner l’appareil sur un hub IoT avec le service IoT Hub Device Provisioning
 
 Dans le didacticiel précédent, vous avez appris à configurer un appareil pour vous connecter à votre service Device Provisioning. Dans ce didacticiel, vous apprenez à utiliser ce service pour approvisionner votre appareil sur un seul IoT Hub à l’aide de l’approvisionnement automatique et de **_listes d’inscriptions_** . Ce didacticiel vous explique les procédures suivantes :
 
@@ -58,7 +58,7 @@ Vous inscrivez l’appareil auprès de votre instance Device Provisioning Servic
 
 1. Connectez-vous au portail Azure, cliquez sur le bouton **Toutes les ressources** dans le menu de gauche et ouvrez votre instance Device Provisioning Service.
 
-2. Dans le panneau de résumé du service Device Provisioning, sélectionnez **Gérer les inscriptions**. Suivant la configuration de votre appareil, sélectionnez l’onglet **Inscriptions individuelles** ou **Groupes d’inscriptions**. Cliquez sur le bouton **Ajouter** dans la partie supérieure. Sélectionnez **TPM** ou **X.509** comme *mécanisme* d’attestation de l’identité, puis entrez les artefacts de sécurité appropriés, comme indiqué précédemment. Vous pouvez entrer un nouvel **ID d’appareil IoT Hub**. Cela fait, cliquez sur le bouton **Enregistrer**. 
+2. Dans le panneau de résumé du service Device Provisioning, sélectionnez **Gérer les inscriptions**. Suivant la configuration de votre appareil, sélectionnez l’onglet **Inscriptions individuelles** ou **Groupes d’inscriptions**. Cliquez sur le bouton **Ajouter** en haut. Sélectionnez **TPM** ou **X.509** comme *mécanisme* d’attestation de l’identité, puis entrez les artefacts de sécurité appropriés, comme indiqué précédemment. Vous pouvez entrer un nouvel **ID d’appareil IoT Hub**. Cela fait, cliquez sur le bouton **Enregistrer**. 
 
 3. Une fois l’appareil correctement inscrit, il doit apparaître comme suit dans le portail :
 
@@ -88,10 +88,10 @@ Une fois que votre appareil démarre, voici les actions qui doivent se produire�
 
     ![Connexion réussie au hub dans le portail](./media/tutorial-provision-device-to-hub/hub-connect-success.png)
 
-Pour plus d’informations, consultez l’exemple de provisionnement de client d’appareil, [prov_dev_client_sample.c](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c). L’exemple illustre le provisionnement d’un appareil simulé à l’aide du module de plateforme sécurisée (TPM), de certificats X.509 et de clés symétriques. Pour obtenir des instructions pas à pas sur l’utilisation de cet exemple, consultez les guides de démarrage rapide d’attestation [TPM](https://docs.microsoft.com/azure/iot-dps/quick-create-simulated-device), [X.509](https://docs.microsoft.com/azure/iot-dps/quick-create-simulated-device-x509) et [Clé symétrique](https://docs.microsoft.com/azure/iot-dps/quick-create-simulated-device-symm-key).
+Pour plus d’informations, consultez l’exemple de provisionnement de client d’appareil, [prov_dev_client_sample.c](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c). L’exemple illustre le provisionnementd’un appareil simulé à l’aide du module de plateforme sécurisée (TPM), de certificats X.509 et de clés symétriques. Pour obtenir des instructions pas à pas sur l’utilisation de cet exemple, consultez les guides de démarrage rapide d’attestation [TPM](https://docs.microsoft.com/azure/iot-dps/quick-create-simulated-device), [X.509](https://docs.microsoft.com/azure/iot-dps/quick-create-simulated-device-x509) et [Clé symétrique](https://docs.microsoft.com/azure/iot-dps/quick-create-simulated-device-symm-key).
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce tutoriel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Inscrire l’appareil

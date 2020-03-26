@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Extraire, transformer et charger des données avec Azure HDInsight'
+title: 'Tutoriel : Extraire, transformer et charger des données avec Azure HDInsight'
 description: Dans ce tutoriel, vous allez découvrir comment extraire des données d’un jeu de données CSV brut, comment les transformer à l’aide d’Apache Hive sur Azure HDInsight, puis comment charger les données transformées dans Azure SQL Database à l’aide de Sqoop.
 author: normesta
 ms.subservice: data-lake-storage-gen2
@@ -9,17 +9,17 @@ ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.openlocfilehash: c9ed675dc970b093f6407d15b3db2ac2668c626b
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74327573"
 ---
-# <a name="tutorial-extract-transform-and-load-data-by-using-azure-hdinsight"></a>Didacticiel : Extraire, transformer et charger des données avec Azure HDInsight
+# <a name="tutorial-extract-transform-and-load-data-by-using-azure-hdinsight"></a>Tutoriel : Extraire, transformer et charger des données avec Azure HDInsight
 
 Dans ce tutoriel, vous effectuez une opération ETL : extraction, transformation et chargement de données. Vous prenez un fichier de données CSV brut, vous l’importez dans un cluster Azure HDInsight, le transformez avec Apache Hive, puis vous le chargez dans une base de données Azure SQL avec Apache Sqoop.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Extrayez et chargez les données dans un cluster HDInsight.
@@ -76,7 +76,7 @@ Dans cette section, vous allez charger des données dans votre cluster HDInsight
 
    Si vous utilisez un mot de passe pour authentifier votre connexion SSH, vous êtes invité à l’indiquer.
 
-   Si vous utilisez une clé publique, vous pouvez avoir besoin d’utiliser le paramètre `-i` et de spécifier le chemin de la clé privée correspondante. Par exemple : `scp -i ~/.ssh/id_rsa <file_name>.zip <user-name>@<cluster-name>-ssh.azurehdinsight.net:`.
+   Si vous utilisez une clé publique, vous pouvez avoir besoin d’utiliser le paramètre `-i` et de spécifier le chemin de la clé privée correspondante. Par exemple : `scp -i ~/.ssh/id_rsa <file_name>.zip <user-name>@<cluster-name>-ssh.azurehdinsight.net:`.
 
 2. À la fin du chargement, connectez-vous au cluster par l’intermédiaire de SSH. À l’invite de commandes, entrez la commande suivante :
 
@@ -335,7 +335,7 @@ Dans les sections précédentes, vous avez copié les données transformées à 
 
 5. Entrez `exit` pour quitter l’utilitaire tsql.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Toutes les ressources utilisées dans ce tutoriel existent déjà. Aucun nettoyage n’est nécessaire.
 

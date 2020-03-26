@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: eliotgra
 ms.openlocfilehash: 99b27ec53d955079b5f73986408e698955c0969b
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77021642"
 ---
 # <a name="tutorial-build-a-power-bi-provider-dashboard"></a>Tutoriel : Créer un tableau de bord des fournisseurs Power BI
@@ -38,7 +38,7 @@ Dans ce tutoriel, vous allez apprendre à :
 > * Diffuser des données vers Power BI à partir de votre application logique
 > * Créer un tableau de bord en temps réel pour les données vitales des patients
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
 
@@ -143,7 +143,7 @@ L'étape suivante consistera à analyser les données provenant de votre hub d'�
 
     |Paramètre|Valeur|
     |---|---|
-    |Name|Nom de l'interface|
+    |Nom|Nom de l'interface|
     |Type|String|
 
     Cliquez sur **Enregistrer**. 

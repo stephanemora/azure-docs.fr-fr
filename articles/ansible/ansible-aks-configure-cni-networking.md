@@ -5,13 +5,13 @@ keywords: ansible, azure, devops, bash, cloudshell, manuel, aks, conteneur, aks,
 ms.topic: tutorial
 ms.date: 04/30/2019
 ms.openlocfilehash: e3667ad7a561f56d5fddaacad705c53d1de9ac36
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74156900"
 ---
-# <a name="tutorial-configure-azure-cni-networking-in-azure-kubernetes-service-aks-using-ansible"></a>Didacticiel : Configurer la mise en réseau Azure CNI dans Azure Kubernetes Service (AKS) à l’aide d’Ansible
+# <a name="tutorial-configure-azure-cni-networking-in-azure-kubernetes-service-aks-using-ansible"></a>Tutoriel : Configurer la mise en réseau Azure CNI dans Azure Kubernetes Service (AKS) à l’aide d’Ansible
 
 [!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
@@ -28,7 +28,7 @@ Pour plus d’informations sur la mise en réseau avec vos applications dans AKS
 
 > [!div class="checklist"]
 >
-> * Créer un cluster AKS
+> * Créer un cluster AKS
 > * Configurer le réseau Azure CNI
 
 ## <a name="prerequisites"></a>Prérequis
@@ -242,7 +242,7 @@ PLAY RECAP
 localhost                  : ok=9    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous n’en avez plus besoin, supprimez les ressources créées dans cet article. 
 
@@ -279,4 +279,4 @@ ansible-playbook cleanup.yml
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Configurer Azure Active Directory dans AKS à l’aide d’Ansible](./ansible-aks-configure-rbac.md)
+> [Tutoriel : Configurer Azure Active Directory dans AKS à l’aide d’Ansible](./ansible-aks-configure-rbac.md)

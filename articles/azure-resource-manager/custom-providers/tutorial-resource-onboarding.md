@@ -6,17 +6,17 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 09/17/2019
 ms.openlocfilehash: 22d1dcd997a4ddb94aba184c5dace4c00509054d
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75648606"
 ---
 # <a name="tutorial-resource-onboarding-with-azure-custom-providers"></a>Tutoriel : Intégration de ressources avec des fournisseurs personnalisés Azure
 
 Ce didacticiel explique comment déployer dans Azure un fournisseur de ressources personnalisé qui étend l’API Azure Resource Manager avec le type de ressource Microsoft. CustomProviders/associations. Ce didacticiel montre comment étendre des ressources existantes qui se trouvent en dehors du groupe de ressources où se trouve l’instance du fournisseur personnalisé. Dans ce didacticiel, le fournisseur de ressources personnalisé est alimenté par une application logique Azure, mais vous pouvez utiliser n’importe quel point de terminaison d’API public.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce tutoriel, vous devez savoir :
 
@@ -237,7 +237,7 @@ Déployons l’infrastructure du fournisseur personnalisé. Copiez, enregistrez 
 
    | Nom du paramètre | Requis ? | Description |
    | ------------ | -------- | ----------- |
-   | Location | Oui | Emplacement des ressources dans le modèle. |
+   | Emplacement | Oui | Emplacement des ressources dans le modèle. |
    | Nom de l’application logique | Non | Nom de l’application logique. |
    | Nom du fournisseur de ressources personnalisé | Non | Nom du fournisseur de ressources personnalisé. |
    | ID du fournisseur de ressources personnalisé | Non | Fournisseur de ressources personnalisé prenant en charge la ressource d’association. Si vous spécifiez une valeur ici, le déploiement de l’application logique et du fournisseur personnalisé sont ignorés. |
