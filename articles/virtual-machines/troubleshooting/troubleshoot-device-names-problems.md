@@ -29,12 +29,12 @@ Cet article explique pourquoi les noms de périphérique changent une fois que v
 Vous pourriez rencontrer les problèmes suivants lors de l’exécution de machines virtuelles Linux dans Microsoft Azure :
 
 - La machine virtuelle ne parvient pas à démarrer après un redémarrage.
-- Quand vous détachez et rattachez des disques de données, les noms de périphérique de disque ont changé.
+- Quand vous détachez et rattachez des disques de données, les noms de périphérique de disque changent.
 - Une application ou un script qui fait référence à un disque en utilisant le nom de périphérique échoue, car le nom du périphérique a changé.
 
-## <a name="cause"></a>Cause :
+## <a name="cause"></a>Cause
 
-Les chemins des périphériques dans Linux ne sont pas toujours cohérents entre les redémarrages. Les noms de périphérique se composent de numéros principaux (lettre) et secondaires. Quand le pilote du périphérique de stockage Linux détecte un nouveau périphérique, il lui attribue un numéro principal et un numéro secondaire à partir de la plage disponible pour lui. Quand vous retirez un périphérique, ses numéros peuvent être réutilisés.
+Les chemins d’accès des périphériques dans Linux ne sont pas toujours cohérents entre les redémarrages. Les noms de périphérique se composent de numéros principaux (lettre) et secondaires. Quand le pilote du périphérique de stockage Linux détecte un nouveau périphérique, il lui attribue un numéro principal et un numéro secondaire à partir de la plage disponible pour lui. Quand vous retirez un périphérique, ses numéros peuvent être réutilisés.
 
 Le problème se produit parce que l’analyse des périphériques dans Linux, telle qu’elle est planifiée par le sous-système SCSI, est asynchrone. Par conséquent, le nom du chemin d’un périphérique peut varier d’un redémarrage à l’autre.
 
