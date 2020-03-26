@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à Mail Luck! | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Mail Luck! | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Mail Luck!.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 10/24/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: daf86270224d2a76eb124e879594ac2588b46776
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72969731"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mail-luck"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Mail Luck!
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mail-luck"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Mail Luck!
 
 Dans ce tutoriel, vous allez découvrir comment intégrer Mail Luck! à Azure Active Directory (Azure AD). Quand vous intégrez Mail Luck! à Azure AD, vous pouvez :
 
@@ -87,7 +87,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://manage<UNITID>.ml-sgw.jp/<TENANT_NAME>/saml/`
 
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Contactez l’[ équipe du support technique de Mail Luck!](https://customer.nttpc.co.jp/cgi-bin/form/inquiry_index.cgi). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Contactez l’[ l’équipe du support technique d’Aha!](https://customer.nttpc.co.jp/cgi-bin/form/inquiry_index.cgi). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier l’**URL des métadonnées de fédération d’application**, puis enregistrez-la sur votre ordinateur.
 
@@ -127,7 +127,7 @@ Dans cette section, vous allez autoriser B. Simon à utiliser l’authentificat
 
 Pour configurer l’authentification unique côté **Mail Luck!** , vous devez envoyer l’**URL des métadonnées de fédération d’application** à l’[équipe du support technique de Mail Luck!](https://customer.nttpc.co.jp/cgi-bin/form/inquiry_index.cgi). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
-### <a name="create-mail-luck-test-user"></a>Créer un utilisateur de test Mail Luck!
+### <a name="create-mail-luck-test-user"></a>Créer un utilisateur de test d’un utilisateur de test Aha!
 
 Dans cette section, vous allez créer un utilisateur appelé B.Simon dans Mail Luck!. Collaborez avec l’ [équipe du support technique de Mail Luck!](https://customer.nttpc.co.jp/cgi-bin/form/inquiry_index.cgi) pour ajouter les utilisateurs à la plateforme Mail Luck!. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 

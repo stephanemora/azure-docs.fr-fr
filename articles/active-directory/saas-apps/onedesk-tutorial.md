@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à OneDesk | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à OneDesk | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et OneDesk.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 11/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8e2e442c043a004a48dfd358d123c7c705dfa3f8
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74483888"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-onedesk"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à OneDesk
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-onedesk"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à OneDesk
 
 Dans ce tutoriel, vous allez apprendre à intégrer OneDesk à Azure Active Directory (Azure AD). Quand vous intégrez OneDesk à Azure AD, vous pouvez :
 

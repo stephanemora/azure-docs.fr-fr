@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Hype | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Hype | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Hype.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 07/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 090e0a8488bb4f79de544774b08c847ea1524ad9
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67798596"
 ---
-# <a name="tutorial-integrate-hype-with-azure-active-directory"></a>Didacticiel : Intégrer Hype à Azure Active Directory
+# <a name="tutorial-integrate-hype-with-azure-active-directory"></a>Tutoriel : Intégrer Hype à Azure Active Directory
 
 Dans ce tutoriel, vous allez apprendre à intégrer Hype à Azure Active Directory (Azure AD). Quand vous intégrez Hype à Azure AD, vous pouvez :
 

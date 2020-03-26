@@ -7,10 +7,10 @@ ms.topic: quickstart
 ms.date: 02/22/2019
 ms.author: alkarche
 ms.openlocfilehash: 189a0bc80ab2894b2888b496b3beb45249d859f6
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75921132"
 ---
 # <a name="create-a-function-using-azure-for-students-starter"></a>Créer une fonction à l’aide d’Azure for Students Starter
@@ -72,7 +72,7 @@ Vous devez disposer d’une Function App pour héberger l’exécution de vos fo
 
 Créez ensuite une fonction dans la nouvelle Function App.
 
-## <a name="create-function"></a>Créer une fonction déclenchée via HTTP
+## <a name="create-an-http-triggered-function"></a><a name="create-function"></a>Créer une fonction déclenchée via HTTP
 
 1. Développez votre nouvelle application de fonction, puis sélectionnez le bouton **+** en regard de **Fonctions**, choisissez **Dans le portail** et sélectionnez **Continuer**.
 

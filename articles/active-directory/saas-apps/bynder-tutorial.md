@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Bynder | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Bynder | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Bynder.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 08/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 456fc2a736b3213a14e5704f89a808c120c45b33
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73158666"
 ---
-# <a name="tutorial-integrate-bynder-with-azure-active-directory"></a>Didacticiel : Intégrer Bynder à Azure Active Directory
+# <a name="tutorial-integrate-bynder-with-azure-active-directory"></a>Tutoriel : Intégrer Bynder à Azure Active Directory
 
 Dans ce tutoriel, vous allez découvrir comment intégrer Bynder à Azure Active Directory (Azure AD). Quand vous intégrez Bynder à Azure AD, vous pouvez :
 

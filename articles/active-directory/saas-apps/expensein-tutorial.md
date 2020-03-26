@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’ExpenseIn à Azure Active Directory | Microsoft Docs'
+title: 'Tutoriel : Intégration d’ExpenseIn à Azure Active Directory | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et ExpenseIn.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 06/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7c09542013dff3a18965d1070216a938c26a144e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67102843"
 ---
-# <a name="tutorial-integrate-expensein-with-azure-active-directory"></a>Didacticiel : Intégrer ExpenseIn à Azure Active Directory
+# <a name="tutorial-integrate-expensein-with-azure-active-directory"></a>Tutoriel : Intégrer ExpenseIn à Azure Active Directory
 
 Dans ce tutoriel, vous allez apprendre à intégrer ExpenseIn à Azure Active Directory (Azure AD). Quand vous intégrez ExpenseIn à Azure AD, vous pouvez :
 
@@ -195,4 +195,4 @@ Quand vous sélectionnez la vignette ExpenseIn dans le volet d’accès, vous de
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

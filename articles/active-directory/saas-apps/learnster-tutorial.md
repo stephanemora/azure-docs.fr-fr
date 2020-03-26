@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à Learnster | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Learnster | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Learnster.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 10/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 467dc656a19552586c5c386f0437c4544671dccc
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72271839"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-learnster"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Learnster
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-learnster"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Learnster
 
 Dans ce tutoriel, vous allez apprendre à intégrer Learnster à Azure Active Directory (Azure AD). Quand vous intégrez Learnster à Azure AD, vous pouvez :
 
@@ -88,7 +88,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique Learnster](mailto:support@learnster.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération**, puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
+1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération** et sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
 

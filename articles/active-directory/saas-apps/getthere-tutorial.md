@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à GetThere | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à GetThere | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et GetThere.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 08/26/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a6dfe4a81a86ff6eb36f3b5eb164b3183193c86d
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "70163418"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-getthere"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à GetThere
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-getthere"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à GetThere
 
 Dans ce tutoriel, vous allez découvrir comment intégrer GetThere à Azure Active Directory (Azure AD). Quand vous intégrez GetThere à Azure AD, vous pouvez :
 

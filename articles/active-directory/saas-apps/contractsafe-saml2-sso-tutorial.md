@@ -16,10 +16,10 @@ ms.date: 12/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7ab2dc71f39164988e0d229fc994548a00447986
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77185631"
 ---
 # <a name="tutorial-integrate-azure-active-directory-single-sign-on-sso-with-contractsafe-saml2-sso"></a>Tutoriel : Intégrer l’authentification unique Azure Active Directory à ContractSafe Saml2 SSO
@@ -32,7 +32,7 @@ Dans ce tutoriel, vous allez apprendre à intégrer ContractSafe Saml2 SSO à Az
 
 Pour en savoir plus sur l’intégration d’applications software as a service (SaaS) à Azure AD, consultez l’article [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour commencer, vous avez besoin des éléments suivants :
 
@@ -93,7 +93,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure 
 
 1. Outre les attributs par défaut, l’application ContractSafe Saml2 SSO s’attend à ce que quelques attributs supplémentaires soient passés dans la réponse SAML. Ces attributs sont préremplis, mais vous pouvez les examiner pour voir s’ils répondent à vos besoins. La liste suivante présente les attributs supplémentaires.
 
-    | Name | Attribut source|
+    | Nom | Attribut source|
     | ---------------| --------------- |
     | emailname | user.userprincipalname |
     | email | user.onpremisesuserprincipalname |

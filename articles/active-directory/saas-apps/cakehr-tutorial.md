@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à CakeHR | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à CakeHR | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et CakeHR.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 10/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c0860411c95e48a16d75df4aeeedf3405a5b1835
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72595034"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cakehr"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à CakeHR
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cakehr"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à CakeHR
 
 Dans ce tutoriel, vous allez apprendre à intégrer CakeHR à Azure Active Directory (Azure AD). Quand vous intégrez CakeHR à Azure AD, vous pouvez :
 

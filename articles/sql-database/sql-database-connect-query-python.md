@@ -12,29 +12,29 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
 ms.openlocfilehash: e82f8feae0096202e48a58296dd2e9d21bb61885
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76768573"
 ---
-# <a name="quickstart-use-python-to-query-an-azure-sql-database"></a>Démarrage rapide : Utilisation de Python pour interroger une base de données Azure SQL
+# <a name="quickstart-use-python-to-query-an-azure-sql-database"></a>Guide de démarrage rapide : Utilisation de Python pour interroger une base de données Azure SQL
 
 Dans ce guide de démarrage rapide, vous utilisez Python pour vous connecter à une base de données Azure SQL et vous utilisez des instructions T-SQL pour interroger les données.
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
-- Un compte Azure avec un abonnement actif. [Créez gratuitement un compte](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Compte Azure avec un abonnement actif. [Créez gratuitement un compte](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Une [base de données Azure SQL](sql-database-single-database-get-started.md)
 - [Python](https://python.org/downloads) 3 et les logiciels associés
 
-  # <a name="macostabmacos"></a>[macOS](#tab/macos)
+  # <a name="macos"></a>[macOS](#tab/macos)
 
   Pour installer Homebrew et Python, le pilote ODBC et SQLCMD, ainsi que le pilote Python pour SQL Server, utilisez les étapes **1.2**, **1.3** et **2.1** dans [Créer des applications Python à l’aide de SQL Server sur macOS](https://www.microsoft.com/sql-server/developer-get-started/python/mac/).
 
   Pour plus d’informations, consultez [Pilote Microsoft ODBC sur macOS](/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server).
 
-  # <a name="ubuntutabubuntu"></a>[Ubuntu](#tab/ubuntu)
+  # <a name="ubuntu"></a>[Ubuntu](#tab/ubuntu)
 
   Pour installer Python et d’autres packages nécessaires, utilisez `sudo apt-get install python python-pip gcc g++ build-essential`.
 
@@ -42,7 +42,7 @@ Dans ce guide de démarrage rapide, vous utilisez Python pour vous connecter à 
 
   Pour plus d’informations, consultez [Pilote Microsoft ODBC sur Linux](/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server).
 
-  # <a name="windowstabwindows"></a>[Windows](#tab/windows)
+  # <a name="windows"></a>[Windows](#tab/windows)
 
   Pour installer Python, le pilote ODBC et SQLCMD, ainsi que le pilote Python pour SQL Server, consultez [Configurer un environnement pour le développement Python pyodbc](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development#windows).
 

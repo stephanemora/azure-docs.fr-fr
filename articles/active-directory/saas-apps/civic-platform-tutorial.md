@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Civic Platform | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Civic Platform | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Civic Platform.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 07/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4ccf124c5a4160715df4e685e405dcd591c49ae7
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68496444"
 ---
-# <a name="tutorial-integrate-civic-platform-with-azure-active-directory"></a>Didacticiel : Intégrer Civic Platform à Azure Active Directory
+# <a name="tutorial-integrate-civic-platform-with-azure-active-directory"></a>Tutoriel : Intégrer Civic Platform à Azure Active Directory
 
 Dans ce tutoriel, vous allez découvrir comment intégrer Civic Platform à Azure Active Directory (Azure AD). Quand vous intégrez Civic Platform à Azure AD, vous pouvez :
 

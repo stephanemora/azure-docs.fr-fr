@@ -1,5 +1,5 @@
 ---
-title: "Didacticiel : Intégration d'Azure Active Directory à Vtiger CRM (SAML) | Microsoft Docs"
+title: "Tutoriel : Intégration d'Azure Active Directory à Vtiger CRM (SAML) | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Vtiger CRM (SAML).
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 06/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 45782d7827a289cc0942eca61d6b30d071a6721c
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67452400"
 ---
-# <a name="tutorial-integrate-vtiger-crm-saml-with-azure-active-directory"></a>Didacticiel : Intégrer Vtiger CRM (SAML) à Azure Active Directory
+# <a name="tutorial-integrate-vtiger-crm-saml-with-azure-active-directory"></a>Tutoriel : Intégrer Vtiger CRM (SAML) à Azure Active Directory
 
 Dans ce tutoriel, vous allez apprendre à intégrer Vtiger CRM (SAML) à Azure Active Directory (Azure AD). Quand vous intégrez Vtiger CRM (SAML) à Azure AD, vous pouvez :
 

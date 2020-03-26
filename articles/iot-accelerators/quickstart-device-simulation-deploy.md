@@ -10,13 +10,13 @@ ms.custom: mvc
 ms.date: 03/08/2019
 ms.author: troyhop
 ms.openlocfilehash: 68e0c3c89698bafbab65ca786231e0364900213a
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "65467878"
 ---
-# <a name="quickstart-deploy-and-run-an-iot-device-simulation-in-azure"></a>Démarrage rapide : Déployer et exécuter une simulation d’appareil IoT dans Azure
+# <a name="quickstart-deploy-and-run-an-iot-device-simulation-in-azure"></a>Démarrage rapide : Déployer et exécuter une solution Simulation d’appareil IoT dans Azure
 
 Ce guide de démarrage rapide vous montre comment déployer la Simulation d’appareil Azure IoT afin de tester votre solution IoT. Une fois l’accélérateur de solution déployé, vous devez exécuter un exemple de simulation pour commencer.
 
@@ -82,7 +82,7 @@ Cliquez sur **Démarrer la simulation**. La simulation s’exécute indéfinimen
 
 Vous ne pouvez exécuter qu’une seule simulation à la fois à partir d’une instance de Simulation d’appareil.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous prévoyez d’explorer davantage, laissez la Simulation d’appareil déployée.
 

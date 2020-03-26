@@ -17,10 +17,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: df45ab0a7b1729ae6c1602c9769cd5b6da26f6ac
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74014354"
 ---
 # <a name="quickstart-configure-named-locations-in-azure-active-directory"></a>Démarrage rapide : Configurer des emplacements nommés dans Azure Active Directory
@@ -31,7 +31,7 @@ Les emplacements nommés vous permettent d’étiqueter des plages d’adresses 
 
 Dans ce guide de démarrage rapide, vous apprenez à configurer des emplacements nommés dans votre environnement.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour effectuer ce démarrage rapide, les éléments suivants sont requis :
 
@@ -41,7 +41,7 @@ Pour effectuer ce démarrage rapide, les éléments suivants sont requis :
 
 ## <a name="configure-named-locations"></a>Configurer des emplacements nommés
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
 2. Dans le volet gauche, à partir de la section **Sécurité**, sélectionnez **Azure Active Directory**, puis **Accès conditionnel**.
 

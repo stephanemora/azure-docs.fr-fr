@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à Nuclino | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Nuclino | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Nuclino.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 10/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0a75869c257e6b875a00036218b05db5521e8d0b
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72532952"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-nuclino"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Nuclino
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-nuclino"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Nuclino
 
 Dans ce tutoriel, vous allez apprendre à intégrer Nuclino à Azure Active Directory (Azure AD). Quand vous intégrez Nuclino à Azure AD, vous pouvez :
 

@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory avec CPQSync by Cincom | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory avec CPQSync by Cincom | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et CPQSync by Cincom.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 08/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1fc9cf236beab78d666f634489a205828050fae4
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68886386"
 ---
-# <a name="tutorial-integrate-cpqsync-by-cincom-with-azure-active-directory"></a>Didacticiel : Intégrer CPQSync by Cincom avec Azure Active Directory
+# <a name="tutorial-integrate-cpqsync-by-cincom-with-azure-active-directory"></a>Tutoriel : Intégrer CPQSync by Cincom avec Azure Active Directory
 
 Dans ce tutoriel, vous allez apprendre à intégrer CPQSync by Cincom avec Azure Active Directory (Azure AD). Lorsque vous intégrez CPQSync by Cincom avec Azure AD, vous pouvez :
 

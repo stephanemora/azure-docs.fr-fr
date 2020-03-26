@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à Freshworks | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Freshworks | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Freshworks.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 10/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b73b8769b5f7360ba4ad778600b1000b8b3f7bc7
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72377231"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-freshworks"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Freshworks
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-freshworks"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Freshworks
 
 Dans ce tutoriel, vous allez apprendre à intégrer Freshworks à Azure Active Directory (Azure AD). Quand vous intégrez Freshworks à Azure AD, vous pouvez :
 

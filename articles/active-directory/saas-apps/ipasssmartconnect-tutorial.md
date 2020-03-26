@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory avec iPass SmartConnect | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory avec iPass SmartConnect | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et iPass SmartConnect.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 10/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 15a84504efc39b901120c6584634950809f0c306
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72790980"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ipass-smartconnect"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory avec iPass SmartConnect
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ipass-smartconnect"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory avec iPass SmartConnect
 
 Dans ce tutoriel, vous allez découvrir comment intégrer iPass SmartConnect à Azure Active Directory (Azure AD). Quand vous intégrez iPass SmartConnect à Azure AD, vous pouvez :
 

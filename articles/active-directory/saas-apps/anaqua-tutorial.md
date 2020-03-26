@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégrer ANAQUA à Azure Active Directory | Microsoft Docs'
+title: 'Tutoriel : Intégrer ANAQUA à Azure Active Directory | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et ANAQUA.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 05/31/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 147ce4c898d29f08593019073d69bba78edb75b7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67106867"
 ---
-# <a name="tutorial-integrate-anaqua-with-azure-active-directory"></a>Didacticiel : Intégrer ANAQUA à Azure Active Directory
+# <a name="tutorial-integrate-anaqua-with-azure-active-directory"></a>Tutoriel : Intégrer ANAQUA à Azure Active Directory
 
 Dans ce tutoriel, vous allez apprendre à intégrer ANAQUA à Azure Active Directory (Azure AD). Quand vous intégrez ANAQUA à Azure AD, vous pouvez :
 
@@ -147,4 +147,4 @@ Quand vous sélectionnez la vignette ANAQUA dans le volet d’accès, vous devez
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

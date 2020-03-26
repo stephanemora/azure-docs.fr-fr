@@ -8,11 +8,11 @@ ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 12/26/2018
 ms.openlocfilehash: cd6cb68014eea00077328f39c2c9bf0a1f7fb679
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57436287"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "61330683"
 ---
 # <a name="expire-data-with-azure-cosmos-dbs-api-for-mongodb"></a>Faire expirer des données avec l’API Azure Cosmos DB pour MongoDB
 
@@ -21,7 +21,7 @@ La fonctionnalité de durée de vie (TTL) permet à la base de données de faire
 ## <a name="ttl-indexes"></a>Index TTL
 Pour activer universellement la durée de vie dans une collection, un [« index TTL » (index de durée de vie)](../cosmos-db/mongodb-indexing.md) doit être créé. L’index TTL est un index sur le champ _ts avec une valeur « expireAfterSeconds ».
 
-Exemple :
+Exemple :
 ```JavaScript
 globaldb:PRIMARY> db.coll.createIndex({"_ts":1}, {expireAfterSeconds: 10})
 {

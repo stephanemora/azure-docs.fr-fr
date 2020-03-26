@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique (SSO) Azure Active Directory à Blink | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Blink | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Blink.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 08/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8c87fe6dce4fa35eaed4ab43d6dcbffeae32e27f
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "69626061"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-blink"></a>Didacticiel : Intégration de l’authentification unique (SSO) Azure Active Directory à Blink
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-blink"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Blink
 
 Dans ce tutoriel, vous allez apprendre à intégrer Blink dans Azure Active Directory (Azure AD). Quand vous intégrez Blink à Azure AD, vous pouvez :
 
@@ -121,7 +121,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     f. Cliquez sur **Enregistrer**.
 
-1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération**, puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
+1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération** et sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
 

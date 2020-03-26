@@ -5,13 +5,13 @@ keywords: ansible, azure, devops, bash, cloudshell, manuel, aks, conteneur, aks,
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.openlocfilehash: bfb19371ad651439c087cebd03023d48852ee2df
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74156882"
 ---
-# <a name="tutorial-configure-kubenet-networking-in-azure-kubernetes-service-aks-using-ansible"></a>Didacticiel : Configurer la mise en réseau kubenet dans Azure Kubernetes Service (AKS) à l’aide d’Ansible
+# <a name="tutorial-configure-kubenet-networking-in-azure-kubernetes-service-aks-using-ansible"></a>Tutoriel : Configurer la mise en réseau kubenet dans Azure Kubernetes Service (AKS) à l’aide d’Ansible
 
 [!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
@@ -28,7 +28,7 @@ Pour plus d’informations sur la mise en réseau avec vos applications dans AKS
 
 > [!div class="checklist"]
 >
-> * Créer un cluster AKS
+> * Créer un cluster AKS
 > * Configurer la mise en réseau Azure kubenet
 
 ## <a name="prerequisites"></a>Prérequis
@@ -323,7 +323,7 @@ PLAY RECAP
 localhost                  : ok=15   changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous n’en avez plus besoin, supprimez les ressources créées dans cet article. 
 

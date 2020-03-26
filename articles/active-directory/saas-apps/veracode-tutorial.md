@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à Veracode | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Veracode | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Veracode.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 10/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bcec326ddab1e74f43e1bb7ef446998a40799fd0
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73043557"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-veracode"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Veracode
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-veracode"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Veracode
 
 Dans ce tutoriel, vous allez apprendre à intégrer Veracode à Azure Active Directory (Azure AD). Quand vous intégrez Veracode à Azure AD, vous pouvez :
 

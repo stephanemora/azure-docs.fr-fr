@@ -6,11 +6,11 @@ ms.topic: overview
 ms.date: 09/08/2019
 ms.author: azfuncdf
 ms.openlocfilehash: caa62483373a240991cfec96437cea7849d9b19c
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76261549"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79290107"
 ---
 # <a name="durable-orchestrations"></a>Orchestrations durables
 
@@ -57,7 +57,7 @@ Lorsqu’une fonction d’orchestration reçoit plus de tâches à effectuer (pa
 
 Le comportement de l’approvisionnement en événements du framework Durable Task est étroitement lié au code de fonction orchestrator que vous écrivez. Supposons que vous disposez d’une fonction orchestrateur de chaînage d’activités, comme la fonction d’orchestrateur suivante :
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("E1_HelloSequence")]
@@ -75,7 +75,7 @@ public static async Task<List<string>> Run(
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -131,22 +131,22 @@ Une fois que vous avez terminé, l’historique de la fonction présentée préc
 
 Quelques remarques sur les valeurs de colonne :
 
-* **PartitionKey** : contient l’ID d’instance de l’orchestration.
-* **EventType** : représente le type de l’événement. qui peut être l’un des suivants :
-  * **OrchestrationStarted** : la fonction orchestrator a repris après une expression await ou s’exécute pour la première fois. La colonne `Timestamp` indique la valeur déterministe pour les API `CurrentUtcDateTime` (.NET) `currentUtcDateTime` (JavaScript).
-  * **ExecutionStarted** : la fonction orchestrator a commencé à s’exécuter pour la première fois. Cet événement contient également l’entrée de la fonction dans la colonne `Input`.
-  * **TaskScheduled** : une fonction d’activité a été planifiée. Le nom de la fonction d’activité est indiqué dans la colonne `Name`.
-  * **TaskCompleted** : une fonction d’activité s’est terminée. Le résultat de la fonction se trouve dans la colonne `Result`.
-  * **TimerCreated** : un minuteur durable a été créé. La colonne `FireAt` contient l’heure UTC planifiée à laquelle le minuteur expire.
-  * **TimerFired** : un minuteur durable s’est déclenché.
-  * **EventRaised** : un événement externe a été envoyé à l’instance d’orchestration. La colonne `Name` indique le nom de l’événement et la colonne `Input` indique la charge utile de l’événement.
-  * **OrchestratorCompleted** : la fonction orchestrator a attendu.
-  * **ContinueAsNew** : la fonction orchestrator s’est terminée et a redémarré avec un nouvel état. La colonne `Result` contient la valeur, qui est utilisée comme entrée dans l’instance redémarrée.
-  * **ExecutionCompleted** : la fonction orchestrator s’est exécutée entièrement (ou a échoué). Les sorties de la fonction ou les détails de l’erreur sont stockés dans la colonne `Result`.
+* **PartitionKey** : contient l’ID d’instance de l’orchestration.
+* **EventType** : représente le type de l’événement, qui peut être l’un des suivants :
+  * **OrchestrationStarted** : la fonction d’orchestrateur a repris après une expression await ou s’exécute pour la première fois. La colonne `Timestamp` indique la valeur déterministe pour les API `CurrentUtcDateTime` (.NET) `currentUtcDateTime` (JavaScript).
+  * **ExecutionStarted** : la fonction d’orchestrateur a commencé à s’exécuter pour la première fois. Cet événement contient également l’entrée de la fonction dans la colonne `Input`.
+  * **TaskScheduled** : une fonction d’activité a été planifiée. Le nom de la fonction d’activité est indiqué dans la colonne `Name`.
+  * **TaskCompleted** : une fonction d’activité s’est terminée. Le résultat de la fonction se trouve dans la colonne `Result`.
+  * **TimerCreated** : un minuteur durable a été créé. La colonne `FireAt` contient l’heure UTC planifiée à laquelle le minuteur expire.
+  * **TimerFired** : un minuteur durable s’est déclenché.
+  * **EventRaised** : un événement externe a été envoyé à l’instance d’orchestration. La colonne `Name` indique le nom de l’événement et la colonne `Input` indique la charge utile de l’événement.
+  * **OrchestratorCompleted** : la fonction d’orchestrateur a attendu.
+  * **ContinueAsNew** : la fonction d’orchestrateur s’est terminée et a redémarré avec un nouvel état. La colonne `Result` contient la valeur, qui est utilisée comme entrée dans l’instance redémarrée.
+  * **ExecutionCompleted** : la fonction d’orchestrateur s’est exécutée entièrement (ou a échoué). Les sorties de la fonction ou les détails de l’erreur sont stockés dans la colonne `Result`.
 * **Timestamp** : horodatage UTC de l’événement d’historique.
-* **Name** : nom de la fonction qui a été appelée.
-* **Entrée**: entrée au format JSON de la fonction.
-* **Result** : sortie de la fonction ; autrement dit, sa valeur renvoyée.
+* **Name** : nom de la fonction qui a été appelée.
+* **Input** : entrée au format JSON de la fonction.
+* **Result** : sortie de la fonction ; autrement dit, sa valeur renvoyée.
 
 > [!WARNING]
 > Même si cette table est utile en tant qu’outil de débogage, vous ne devez pas en dépendre. Elle peut changer à mesure que l’extension Fonctions durables évolue.
@@ -216,7 +216,7 @@ La fonctionnalité de section critique est également utile pour coordonner les 
 
 Les fonctions orchestrator ne sont pas autorisées à effectuer des E/S, comme décrit dans [Contraintes du code des fonctions orchestrator](durable-functions-code-constraints.md). La solution de contournement classique de cette limitation consiste à wrapper dans une fonction d’activité tout code qui doit effectuer des E/S. Les orchestrations qui interagissent avec des systèmes externes utilisent fréquemment des fonctions d’activité pour effectuer des appels HTTP et retourner le résultat à l’orchestration.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Pour simplifier ce modèle courant, les fonctions d’orchestrateur peuvent utiliser la méthode `CallHttpAsync` pour appeler directement des API HTTP.
 
@@ -238,7 +238,7 @@ public static async Task CheckSiteAvailable(
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -265,7 +265,7 @@ Pour obtenir plus d’informations et des exemples détaillés, consultez l’ar
 
 Il n’est pas possible de passer directement plusieurs paramètres à une fonction d’activité. La recommandation est de passer un tableau d’objets ou d’objets composites.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Dans .NET, vous pouvez également utiliser des objets [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples). Dans l’exemple suivant, de nouvelles fonctionnalités des objets [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) sont ajoutées avec [C# 7](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#tuples) :
 
@@ -304,7 +304,7 @@ public static async Task<object> Mapper([ActivityTrigger] IDurableActivityContex
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 #### <a name="orchestrator"></a>Un orchestrateur
 

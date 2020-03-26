@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à Juno Journey | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Juno Journey | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Juno Journey.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 10/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e14d5adec7c58c69b07d1f6894a427d86e87a915
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72271829"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-juno-journey"></a>Didacticiel : Intégration de l’authentification unique (SSO) Azure Active Directory à Juno Journey
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-juno-journey"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Juno Journey
 
 Dans ce tutoriel, vous allez apprendre à intégrer Juno Journey à Azure Active Directory (Azure AD). Quand vous intégrez Juno Journey à Azure AD, vous pouvez :
 

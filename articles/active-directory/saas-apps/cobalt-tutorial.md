@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à Cobalt | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Cobalt | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Cobalt.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 10/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3bfd4bf821edcb5bec32be713cfe10b9b21e7de3
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72532989"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cobalt"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Cobalt
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cobalt"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Cobalt
 
 Dans ce tutoriel, vous allez découvrir comment intégrer Cobalt à Azure Active Directory (Azure AD). Quand vous intégrez Cobalt à Azure AD, vous pouvez :
 
@@ -98,7 +98,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     | Nom | Attribut source|
     | ---------------| --------- |
-    | Mail | user.mail |
+    | Messagerie | user.mail |
     | Othermail | user.othermail |
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (en base64)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.

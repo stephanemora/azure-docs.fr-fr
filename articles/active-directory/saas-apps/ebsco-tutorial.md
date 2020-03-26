@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à EBSCO | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à EBSCO | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et EBSCO.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 10/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f37085744b9a0e7785ef3a411d53e4df5d15e494
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72595004"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ebsco"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à EBSCO
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ebsco"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à EBSCO
 
 Dans ce tutoriel, vous allez découvrir comment intégrer EBSCO à Azure Active Directory (Azure AD). Quand vous intégrez EBSCO à Azure AD, vous pouvez :
 
@@ -114,7 +114,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     | ---------------| --------------- |
     | FirstName   | user.givenname |
     | LastName   | user.surname |
-    | Email   | user.mail |
+    | E-mail   | user.mail |
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération** et sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 

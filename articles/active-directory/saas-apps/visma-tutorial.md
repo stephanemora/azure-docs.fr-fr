@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à Visma | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Visma | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Visma.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 11/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ff4c4e71da2a0e736c989e52d2fcb6f9f8636551
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74485378"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-visma"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Visma
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-visma"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Visma
 
 Dans ce tutoriel, vous allez apprendre à intégrer Visma à Azure Active Directory (Azure AD). Quand vous intégrez Visma à Azure AD, vous pouvez :
 

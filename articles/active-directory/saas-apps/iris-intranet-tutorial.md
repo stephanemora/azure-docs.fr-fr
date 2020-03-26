@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Iris Intranet | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Iris Intranet | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Iris Intranet.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: b57222d2857110817ff62d3a455690a662073cc6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67099700"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-iris-intranet"></a>Didacticiel : Intégration d’Azure Active Directory à Iris Intranet
+# <a name="tutorial-azure-active-directory-integration-with-iris-intranet"></a>Tutoriel : Intégration d’Azure Active Directory à Iris Intranet
 
 Dans ce tutoriel, vous allez apprendre à intégrer Iris Intranet à Azure Active Directory (Azure AD).
 L’intégration d’Iris Intranet à Azure AD vous offre les avantages suivants :
@@ -140,7 +140,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez brittasimon@yourcompanydomain.extension. Par exemple, BrittaSimon@contoso.com
+    b. Dans le champ **Nom d’utilisateur**, tapez brittasimon@yourcompanydomain.extension. Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
@@ -188,5 +188,5 @@ Le fait de cliquer sur la vignette Iris Intranet dans le volet d’accès doit v
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

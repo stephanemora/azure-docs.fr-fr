@@ -10,13 +10,13 @@ ms.custom: mvc
 ms.date: 03/08/2019
 ms.author: dobett
 ms.openlocfilehash: cecf23d61d6a12c20aa3e64e4ee0ddacddbe7823
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58183354"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "62106811"
 ---
-# <a name="quickstart-try-a-cloud-based-solution-to-run-a-predictive-maintenance-analysis-on-my-connected-devices"></a>Démarrage rapide : Essayer une solution cloud pour exécuter une analyse de maintenance prédictive sur mes appareils connectés
+# <a name="quickstart-try-a-cloud-based-solution-to-run-a-predictive-maintenance-analysis-on-my-connected-devices"></a>Démarrage rapide : Essayer une solution informatique pour exécuter une analyse de maintenance prédictive sur mes appareils connectés
 
 Ce démarrage rapide vous montre comment déployer l’accélérateur de solution Maintenance prédictive Azure IoT pour exécuter une simulation de maintenance prédictive informatique. Une fois l’accélérateur de solution déployé, vous utilisez la page **Tableau de bord** de la solution pour exécuter une analyse de maintenance prédictive sur les données d’un moteur d’avion simulé. Vous pouvez utiliser cet accélérateur de solution comme point de départ de votre propre implémentation ou comme outil d’apprentissage.
 
@@ -76,7 +76,7 @@ La simulation s’exécute sur le jeu de données complet pour les 148 cycles e
 
 Vous pouvez arrêter la simulation à tout moment. L’option **Démarrer la simulation** réexécute la simulation à partir du début du jeu de données.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous prévoyez d’explorer davantage, laissez l’accélérateur de solution Maintenance prédictive déployé.
 

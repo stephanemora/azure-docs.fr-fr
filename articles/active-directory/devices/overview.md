@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d593e5f27dbcd676e2b42975251778a6c48a7d79
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 594f0ed55b5ce5c31e87fd2011f3bc1522a12380
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76511873"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215827"
 ---
 # <a name="what-is-a-device-identity"></a>Qu’est-ce qu’une identité d’appareil ?
 
@@ -46,7 +46,7 @@ Pour obtenir un appareil à Azure AD, vous avez plusieurs options :
    - Les appareils joints à Azure AD appartiennent à une organisation et sont connectés avec un compte Azure AD appartenant à cette organisation. Ils existent uniquement dans le cloud.
       - Windows 10 
 - **joints à Azure AD hybrides**
-   - Les appareils joints à Azure AD hybrides appartiennent à une organisation et sont connectés avec un compte Azure AD appartenant à cette organisation. Ils existent dans le cloud et en local.
+   - Les appareils joints à une version hybride d’Azure AD appartiennent à une organisation et sont connectés avec un compte Azure AD appartenant à cette organisation. Ils existent dans le cloud et en local.
       - Windows 7, 8.1 ou 10
       - Windows Server 2008 ou version ultérieure
 

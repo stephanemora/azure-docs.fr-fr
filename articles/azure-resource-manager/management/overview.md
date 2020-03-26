@@ -2,15 +2,15 @@
 title: Vue d’ensemble
 description: Explique comment utiliser Azure Resource Manager pour les tâches de déploiement, de gestion et de contrôle d’accès des ressources sur Azure.
 ms.topic: overview
-ms.date: 08/29/2019
-ms.openlocfilehash: f7e11ada8bf10baa99faf08d2b4b401e3bea2d9e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.date: 03/25/2020
+ms.openlocfilehash: 1e2a6959117749b4e7d08a9768b4189b97ef08bd
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78344598"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80258139"
 ---
-# <a name="azure-resource-manager-overview"></a>Présentation d’Azure Resource Manager
+# <a name="what-is-azure-resource-manager"></a>Qu’est-ce qu’Azure Resource Manager ?
 
 Azure Resource Manager est le service de déploiement et de gestion d’Azure. Il fournit une couche de gestion qui vous permet de créer, mettre à jour et supprimer des ressources dans votre abonnement Azure. Vous utilisez des fonctionnalités de gestion, telles que le contrôle d’accès, les verrous et les étiquettes, pour sécuriser et organiser vos ressources après le déploiement.
 
@@ -20,7 +20,7 @@ Pour en savoir plus sur les modèles Azure Resource Manager, consultez [Vue d’
 
 Quand un utilisateur envoie une requête à partir d’un outil, d’une API ou d’un kit SDK Azure, Resource Manager reçoit la requête. Il authentifie et autorise la requête. Resource Manager envoie la requête au service Azure, qui effectue l’action demandée. Comme toutes les demandes sont gérées via la même API, vous voyez des résultats cohérents et des capacités cohérentes dans tous les différents outils.
 
-L’image suivante montre le rôle qu’Azure Resource Manager joue dans la gestion des requêtes Azure. 
+L’image suivante montre le rôle qu’Azure Resource Manager joue dans la gestion des requêtes Azure.
 
 ![Modèle de requête Resource Manager](./media/overview/consistent-management-layer.png)
 
@@ -102,12 +102,8 @@ Cette résilience s’applique aux services qui reçoivent des demandes par le b
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour connaître toutes les opérations proposées par les fournisseurs de ressources, consultez les [API REST Azure](/rest/api/azure/).
-
 * Pour en savoir plus sur le déplacement des ressources, consultez [Déplacer des ressources vers un nouveau groupe de ressources ou un nouvel abonnement](move-resource-group-and-subscription.md).
 
 * Pour en savoir plus sur la catégorisation des ressources, consultez [Organisation des ressources Azure à l’aide d’étiquettes](tag-resources.md).
 
 * Pour en savoir plus sur le verrouillage des ressources, consultez [Verrouiller les ressources pour empêcher les modifications inattendues](lock-resources.md).
-
-* Pour plus d’informations sur la création de modèles pour les déploiements, consultez [Vue d’ensemble du déploiement de modèles](../templates/overview.md).

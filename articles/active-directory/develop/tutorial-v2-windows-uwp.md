@@ -16,10 +16,10 @@ ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: 68473ff5a3faddd36bd4299dfdc882f679acd068
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79129885"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Appeler l’API Microsoft Graph à partir d’une application de plateforme Windows universelle (XAML)
@@ -206,7 +206,7 @@ Cette section montre comment utiliser MSAL afin d’obtenir un jeton pour l’AP
     }
     ```
 
-#### Obtenir un jeton utilisateur de manière interactive<a name="more-information"></a>
+#### <a name="get-a-user-token-interactively"></a>Obtenir un jeton utilisateur de manière interactive<a name="more-information"></a>
 
 La méthode `AcquireTokenInteractive` affiche une fenêtre qui invite les utilisateurs à se connecter. Les applications imposent généralement aux utilisateurs de se connecter de manière interactive la première fois qu’ils accèdent à une ressource protégée. Ils peuvent également avoir besoin de se connecter en cas d’échec d’une opération en mode silencieux pour obtenir un jeton, par exemple quand le mot de passe d’un utilisateur est arrivé à expiration.
 
@@ -295,7 +295,7 @@ Pour déconnecter l’utilisateur, ajoutez la méthode suivante au fichier *Main
 > [!NOTE]
 > MSAL.NET utilise des méthodes asynchrones pour acquérir des jetons ou manipuler des comptes. Vous devez prendre en charge les actions d’interface utilisateur dans le thread d’interface utilisateur. C’est ce qui explique la raison de l’appel `Dispatcher.RunAsync` et des précautions à observer pour appeler `ConfigureAwait(false)`.
 
-#### Informations supplémentaires sur la déconnexion<a name="more-information-on-sign-out"></a>
+#### <a name="more-information-about-signing-out"></a>Informations supplémentaires sur la déconnexion<a name="more-information-on-sign-out"></a>
 
 La méthode `SignOutButton_Click` supprime l’utilisateur du cache d’utilisateur MSAL. Cette méthode permet d’indiquer efficacement à MSAL d’oublier l’utilisateur actuel. Une demande ultérieure d’acquisition d’un jeton n’aboutit que si elle est interactive.
 
@@ -320,7 +320,7 @@ Pour afficher les informations de base du jeton, ajoutez la méthode suivante au
    }
    ```
 
-#### Informations complémentaires<a name="more-information-1"></a>
+#### <a name="more-information"></a>Informations complémentaires<a name="more-information-1"></a>
 
 Les jetons d’ID acquis en utilisant **OpenID Connect** contiennent aussi une petite partie des informations pertinentes pour l’utilisateur. `DisplayBasicTokenInfo` affiche les informations de base contenues dans le jeton, Ces informations se composent du nom d’affichage et de l’ID de l’utilisateur. Elles comprennent aussi la date d’expiration du jeton et la chaîne qui représente le jeton d’accès proprement dit. Si vous cliquez plusieurs fois sur le bouton **Call Microsoft Graph API** (Appeler l’API Microsoft Graph), vous pouvez constater que le même jeton a été réutilisé pour les demandes suivantes. Vous observez également la date d’expiration différée lorsque MSAL détermine qu’il est temps de renouveler le jeton.
 

@@ -14,10 +14,10 @@ ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9c551a81788df8d68664abaa03f467a4521222d0
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73473463"
 ---
 # <a name="create-a-basic-group-and-add-members-using-azure-active-directory"></a>Créer un groupe de base et ajouter des membres avec Azure Active Directory
@@ -86,7 +86,7 @@ Maintenant que vous avez ajouté un groupe et au moins un utilisateur, vous pouv
 
 - [Modifier vos paramètres de groupe](active-directory-groups-settings-azure-portal.md)
 
-- [Gérer l’accès aux ressources en utilisant des groupes](active-directory-manage-groups.md)
+- [Gérer l’accès aux ressources à l’aide des groupes](active-directory-manage-groups.md)
 
 - [Gérer l’accès aux applications SaaS en utilisant des groupes](../users-groups-roles/groups-saasapps.md)
 

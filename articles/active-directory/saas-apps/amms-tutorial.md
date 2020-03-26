@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à AMMS | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à AMMS | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et AMMS.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 04/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b6b0d3248e63f4fc053748cda1633497d4eb4285
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67107029"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-amms"></a>Didacticiel : Intégration d’Azure Active Directory à AMMS
+# <a name="tutorial-azure-active-directory-integration-with-amms"></a>Tutoriel : Intégration d’Azure Active Directory à AMMS
 
 Dans ce tutoriel, vous allez apprendre à intégrer AMMS à Azure Active Directory (Azure AD).
 L’intégration d’AMMS à Azure AD vous offre les avantages suivants :
@@ -139,7 +139,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez `brittasimon@yourcompanydomain.extension`. Par exemple, BrittaSimon@contoso.com
+    b. Dans le champ **Nom d’utilisateur**, tapez `brittasimon@yourcompanydomain.extension`. Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
@@ -187,5 +187,5 @@ Le fait de cliquer sur la vignette AMMS dans le panneau d’accès doit vous con
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

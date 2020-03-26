@@ -1,5 +1,5 @@
 ---
-title: "Didacticiel : Intégration d'Azure Active Directory à Whatfix | Microsoft Docs"
+title: "Tutoriel : Intégration d'Azure Active Directory à Whatfix | Microsoft Docs"
 description: Apprenez à configurer l'authentification unique entre Azure Active Directory et Whatfix.
 services: active-directory
 documentationCenter: na
@@ -17,19 +17,19 @@ ms.date: 05/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3bc061cca3a2c57d2ebccb0fc09f8168c2fad253
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67163959"
 ---
-# <a name="tutorial-integrate-whatfix-with-azure-active-directory"></a>Didacticiel : Intégrer Whatfix à Azure Active Directory
+# <a name="tutorial-integrate-whatfix-with-azure-active-directory"></a>Tutoriel : Intégrer Whatfix à Azure Active Directory
 
 Dans ce didacticiel, vous allez apprendre à intégrer Whatfix à Azure Active Directory (Azure AD). Lorsque vous intégrez Whatfix à Azure AD, vous pouvez :
 
 * contrôler qui a accès à Whatfix ;
 * permettre à vos utilisateurs de se connecter automatiquement à Whatfix avec leur compte Azure AD ;
-* gérer vos comptes à un emplacement central : le portail Azure.
+* Gérer vos comptes à un emplacement central : le Portail Azure.
 
 Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
@@ -37,12 +37,12 @@ Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, cons
 
 Pour commencer, vous devez disposer de ce qui suit :
 
-* Un abonnement Azure AD Si vous n'en avez pas, vous pouvez bénéficier d'un essai gratuit d'un mois en cliquant [ici](https://azure.microsoft.com/pricing/free-trial/).
+* Un abonnement Azure AD Si vous n’en avez pas, vous pouvez obtenir un essai gratuit d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
 * Un abonnement Whatfix pour lequel l'authentification unique (SSO) est activée
 
 ## <a name="scenario-description"></a>Description du scénario
 
-Dans ce didacticiel, vous allez configurer et tester l'authentification unique Azure AD dans un environnement de test. Whatfix prend en charge l'authentification unique initiée par le **fournisseur de services et le fournisseur d'identité**
+Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test. Whatfix prend en charge l'authentification unique initiée par le **fournisseur de services et le fournisseur d'identité**
 
 ## <a name="adding-whatfix-from-the-gallery"></a>Ajout de Whatfix à partir de la galerie
 
@@ -53,7 +53,7 @@ Pour configurer l'intégration de Whatfix à Azure AD, vous devez ajouter Whatf
 1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
 1. Dans la section **Ajouter à partir de la galerie**, entrez **Whatfix**  dans la zone de recherche.
-1. Sélectionnez **Whatfix**  dans le volet de résultats, puis ajoutez l'application. Patientez quelques secondes, jusqu'à ce que l'application soit ajoutée à votre locataire.
+1. Sélectionnez **Whatfix**  dans le volet de résultats, puis ajoutez l'application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
@@ -61,20 +61,20 @@ Configurez et testez l'authentification unique (SSO) Azure AD auprès de Whatfi
 
 Pour configurer et tester l'authentification unique (SSO) Azure AD auprès de Whatfix, suivez les indications des sections ci-après :
 
-1. **[Configurer l'authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d'utiliser cette fonctionnalité.
+1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Configurer l'authentification unique Whatfix](#configure-whatfix-sso)** pour configurer les paramètres de l'authentification unique côté application.
 3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Créer un utilisateur de test Whatfix](#create-whatfix-test-user)** pour avoir dans Whatfix un équivalent de Britta Simon lié à la représentation Azure AD associée.
-6. **[Tester l'authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
+6. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
 
 ### <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
-Procédez comme suit pour activer l'authentification unique Azure AD sur le portail Azure.
+Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
 1. Sur le [portail Azure](https://portal.azure.com/), accédez à la page d'intégration de l'application **Whatfix**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
-1. Sur la page **Sélectionner une méthode d'authentification unique**, sélectionnez **SAML**.
+1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
 1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet pour **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
@@ -117,7 +117,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l'authentifica
 
 1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 1. Dans la liste des applications, sélectionnez **Whatfix**.
-1. Sur la page de vue d'ensemble de l'application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
+1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
 
    ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
 
@@ -143,4 +143,4 @@ Le fait de cliquer sur la vignette Whatfix dans le volet d'accès doit vous conn
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

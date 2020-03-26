@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à Hightail | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Hightail | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Hightail.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 09/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6d06dea6f1d2fa762a2e885ae98e1c0c4b3293ba
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72596243"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hightail"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Hightail
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hightail"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Hightail
 
 Dans ce tutoriel, vous allez apprendre à intégrer Hightail à Azure Active Directory (Azure AD). Quand vous intégrez Hightail à Azure AD, vous pouvez :
 
@@ -102,7 +102,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     | -------- |-------- |
     | FirstName | user.givenname |
     | LastName | user.surname |
-    | Email | user.mail |
+    | E-mail | user.mail |
     | UserIdentity | user.mail |
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (en base64)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
@@ -160,15 +160,15 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 1. Cliquez sur l’**icône Utilisateur** en haut à droite de la page. 
 
-    ![Configurer l'authentification unique](./media/hightail-tutorial/configure1.png)
+    ![Configure Single Sign-On](./media/hightail-tutorial/configure1.png)
 
 1. Cliquez sur l’onglet **Afficher la Console d’administration**.
 
-    ![Configurer l'authentification unique](./media/hightail-tutorial/configure2.png)
+    ![Configure Single Sign-On](./media/hightail-tutorial/configure2.png)
 
 1. Dans le menu du haut, cliquez sur l’onglet **SAML** et procédez comme suit :
 
-    ![Configurer l'authentification unique](./media/hightail-tutorial/configure3.png)
+    ![Configure Single Sign-On](./media/hightail-tutorial/configure3.png)
 
     a. Dans la zone de texte **Login URL** (URL de connexion), collez la valeur **URL de connexion** que vous avez copiée dans le portail Azure.
 

@@ -8,10 +8,10 @@ ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
 ms.openlocfilehash: 3359d99d7e20bbced8950171fa34592fd2612500
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76930393"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Présentation d’Azure Automation
@@ -37,7 +37,7 @@ Vous pouvez obtenir l’inventaire relatif aux ressources intégrées pour voir 
 
 Mettez à jour les systèmes Windows et Linux dans des environnements hybrides avec Azure Automation. Vous pouvez voir la conformité des mises à jour sur les clouds Azure, locaux ou sur d’autres clouds. Vous pouvez créer des déploiements de calendrier pour coordonner l’installation de mises à jour dans une fenêtre de maintenance définie. Si une mise à jour ne doit pas être installée sur une machine, vous pouvez exclure ces mises à jour d’un déploiement.
 
-### <a name="shared-resources"></a>Ressources partagées
+### <a name="shared-resources"></a><a name="shared-resources"></a>Ressources partagées
 
 Azure Automation se compose d’un ensemble de ressources partagées qui facilitent l’automatisation et la configuration de vos environnements à grande échelle.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Confirmit Horizons | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Confirmit Horizons | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Confirmit Horizons.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
 ms.openlocfilehash: 6127f149141db275c4b13c25fd6fbd0241b3e404
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67105034"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-confirmit-horizons"></a>Didacticiel : Intégration d’Azure Active Directory à Confirmit Horizons
+# <a name="tutorial-azure-active-directory-integration-with-confirmit-horizons"></a>Tutoriel : Intégration d’Azure Active Directory à Confirmit Horizons
 
 Dans ce tutoriel, vous allez apprendre à intégrer Confirmit Horizons à Azure Active Directory (Azure AD).
 L’intégration de Confirmit Horizons à Azure AD vous offre les avantages suivants :
@@ -174,7 +174,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
     b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
-    Par exemple, BrittaSimon@contoso.com
+    Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
@@ -222,5 +222,5 @@ Quand vous cliquez sur la vignette Confirmit Horizons dans le volet d’accès, 
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

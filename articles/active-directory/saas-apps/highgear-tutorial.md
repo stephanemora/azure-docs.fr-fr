@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à HighGear | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à HighGear | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et HighGear.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 01/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ed06586435315935566ca0b1519b182d4fc47d39
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73159041"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-highgear"></a>Didacticiel : Intégration d’Azure Active Directory à HighGear
+# <a name="tutorial-azure-active-directory-integration-with-highgear"></a>Tutoriel : Intégration d’Azure Active Directory à HighGear
 
 Dans ce tutoriel, vous pouvez apprendre à intégrer HighGear à Azure Active Directory (Azure AD).
 L’intégration de HighGear à Azure AD vous offre les avantages suivants :
@@ -150,7 +150,7 @@ Pour configurer HighGear pour l’authentification unique, veuillez vous connect
 
 ![Élément de menu Single Sign-On Settings (Paramètres d’authentification unique)](media/highgear-tutorial/single-sign-on-settings-menu-item.png)
 
-1. Dans la zone **Identity Provider Name** (Nom du fournisseur d’identité), tapez une brève description qui apparaîtra sur le bouton Single Sign-On (Authentification unique) de HighGear dans la page Login (Connexion). Par exemple :  Azure AD
+1. Dans la zone **Identity Provider Name** (Nom du fournisseur d’identité), tapez une brève description qui apparaîtra sur le bouton Single Sign-On (Authentification unique) de HighGear dans la page Login (Connexion). Par exemple : Azure AD
 
 2. Dans le champ **Single Sign-On (SSO) URL** (URL d’authentification unique) dans HighGear, collez la valeur du champ **URL de connexion** de la section **Configurer HighGear** dans Azure.
 
@@ -183,7 +183,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
     b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
-    Par exemple, BrittaSimon@contoso.com
+    Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
@@ -230,7 +230,7 @@ Pour créer un utilisateur de test HighGear afin de tester la configuration de l
     Dans le volet qui apparaît sur la droite, tapez les informations du nouvel utilisateur.  
     ![Formulaire de nouveau contact](media/highgear-tutorial/new-contact-form.png)
 
-3. Dans le champ **Name**, tapez un nom pour le contact. Par exemple :  Britta Simon
+3. Dans le champ **Name**, tapez un nom pour le contact. Par exemple : Britta Simon
 
 4. Cliquez sur le menu **More Options** et sélectionnez l’élément de menu **Account Info**.
 
@@ -240,7 +240,7 @@ Pour créer un utilisateur de test HighGear afin de tester la configuration de l
 
     Le champ **Enable Single Sign-On** (Activer l’authentification unique) est aussi automatiquement défini sur Yes.
 
-6. Dans le champ **Single Sign-On User Id** (ID d’utilisateur pour l’authentification unique), tapez l’identifiant de l’utilisateur. Par exemple : BrittaSimon@contoso.com
+6. Dans le champ **Single Sign-On User Id** (ID d’utilisateur pour l’authentification unique), tapez l’identifiant de l’utilisateur. Par exemple : BrittaSimon@contoso.com
 
     La section Account Info doit maintenant ressembler à ceci :  
     ![Section Account Info terminée](media/highgear-tutorial/finished-account-info-section.png)
@@ -259,5 +259,5 @@ Le fait de cliquer sur la vignette HighGear dans le panneau d’accès doit vous
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

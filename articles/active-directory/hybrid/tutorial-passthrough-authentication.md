@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel :  Intégrer une forêt AD unique à Azure à l’aide de l’authentification directe'
+title: 'Tutoriel :  Intégrer une forêt AD unique à Azure à l’aide de l’authentification directe'
 description: Montre comment configurer un environnement d’identité hybride à l’aide de l’authentification directe.
 services: active-directory
 author: billmath
@@ -12,13 +12,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 96846d75111fe11b225704a248baeb006a3df3fb
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "66473014"
 ---
-# <a name="tutorial--integrate-a-single-ad-forest-using-pass-through-authentication-pta"></a>Didacticiel :  Intégrer une forêt AD unique avec l’authentification directe (PTA)
+# <a name="tutorial--integrate-a-single-ad-forest-using-pass-through-authentication-pta"></a>Tutoriel :  Intégrer une forêt AD unique avec l’authentification directe (PTA)
 
 ![Créer](media/tutorial-passthrough-authentication/diagram.png)
 
@@ -86,11 +86,11 @@ Pour terminer la création de la machine virtuelle, vous devez terminer l’inst
 6. Saisissez votre clé de licence et cliquez sur **Suivant**.
 7. Acceptez les termes du contrat de licence et cliquez sur **Suivant**.
 8. Sélectionnez **Personnalisé :  installer Windows uniquement (avancé)**
-9. Cliquez sur **Suivant**
+9. Cliquez sur **Suivant**.
 10. Une fois l’installation terminée, redémarrez la machine virtuelle, connectez-vous et exécutez les mises à jour Windows pour vous assurer que la machine virtuelle est à jour.  Installez les dernières mises à jour.
 
 ## <a name="install-active-directory-prerequisites"></a>Installer les prérequis pour Active Directory
-Maintenant que la machine virtuelle est en cours d’exécution, il faut effectuer quelques opérations avant d’installer Active Directory.  Autrement dit, il faut renommer la machine virtuelle, définir une adresse IP statique et des informations DNS, et installer les outils d’administration de serveur distant.   Effectuez les actions suivantes :
+Maintenant que la machine virtuelle est en cours d’exécution, il faut effectuer quelques opérations avant d’installer Active Directory.  Autrement dit, il faut renommer la machine virtuelle, définir une adresse IP statique et des informations DNS, et installer les outils d’administration de serveur distant.   Effectuez les actions suivantes :
 
 1. Ouvrez PowerShell ISE en tant qu’administrateur.
 2. Exécutez `Set-ExecutionPolicy remotesigned` et répondez Oui à tous les [A].  Appuyez sur Entrée.
@@ -187,7 +187,7 @@ Nous devons maintenant créer un locataire Azure AD pour synchroniser nos utili
 1. Accédez au [portail Azure](https://portal.azure.com) et connectez-vous avec un compte qui dispose d’un abonnement Azure.
 2. Cliquez sur l’**icône plus (+)** et recherchez **Azure Active Directory**.
 3. Dans la liste des résultats, sélectionnez sur **Azure Active Directory**.
-4. Sélectionnez **Créer**.</br>
+4. Sélectionnez **Create** (Créer).</br>
 ![Créer](media/tutorial-password-hash-sync/create1.png)</br>
 5. Indiquez le **nom de l’organisation** avec le **nom de domaine initial**. Sélectionnez ensuite **Créer**. Votre annuaire est alors créé.
 6. Une fois cette opération terminée, cliquez sur **ce lien** pour gérer l’annuaire.
@@ -226,7 +226,7 @@ Il est maintenant temps de télécharger et d’installer Azure AD Connect.  U
 5. Sur l’écran Installer les composants nécessaires. Cliquez sur **Installer**.  
 6. Sur l’écran Connexion utilisateur, sélectionnez **Authentification directe** et **Activer l’authentification unique**, puis cliquez sur **Suivant**.</br>
 ![PTA](media/tutorial-passthrough-authentication/pta1.png)</b>
-7. Sur l’écran Connexion à Azure AD, entrez le nom d’utilisateur et un mot de passe de l’administrateur général que nous avons créé ci-dessus, et cliquez sur **Suivant**.
+7. Sur l’écran Connexion à Azure AD, entrez le nom d’utilisateur et le mot de passe de l’administrateur général que nous avons créé ci-dessus, et cliquez sur **Suivant**.
 2. Sur l’écran Connecter vos répertoires, cliquez sur **Ajouter un répertoire**.  Sélectionnez ensuite **Créer un compte AD** et saisissez le nom d’utilisateur et le mot de passe contoso\Administrator et cliquez sur **OK**.
 3. Cliquez sur **Suivant**.
 4. Sur l’écran Configuration de la connexion à Azure AD, sélectionnez **Continuer sans faire correspondre tous les suffixes UPN à des domaines vérifiés** et cliquez sur **Suivant**.

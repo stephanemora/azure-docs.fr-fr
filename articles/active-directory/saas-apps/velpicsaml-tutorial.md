@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à Velpic SAML | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Velpic SAML | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Velpic SAML.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 10/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f699e2244cde53200a9885602bd20c899c0ce4cd
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72241558"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-velpic-saml"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Velpic SAML
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-velpic-saml"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Velpic SAML
 
 Dans ce tutoriel, vous allez apprendre à intégrer Velpic SAML à Azure Active Directory (Azure AD). Quand vous intégrez Velpic SAML à Azure AD, vous pouvez :
 
@@ -183,7 +183,7 @@ Connectez-vous au site de votre entreprise Velpic SAML en tant qu’administrate
 
 2. Dans la boîte de dialogue **Create New User**, procédez comme suit.
 
-    ![user](./media/velpicsaml-tutorial/velpic_8.png)
+    ![utilisateur](./media/velpicsaml-tutorial/velpic_8.png)
     
     a. Dans la zone de texte **Prénom**, tapez le prénom de B.
 

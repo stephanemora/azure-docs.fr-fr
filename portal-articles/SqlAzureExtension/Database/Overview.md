@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/09/2019
 ms.author: ninarn
 ms.openlocfilehash: 99f19971eafaa1ddad1f96b187e18b79810560a2
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "61244457"
 ---
 # <a name="sql-database-documentation"></a>Documentation SQL Database
@@ -23,9 +23,9 @@ Azure SQL Database est une base de données en tant que service (DBaaS) relation
 
 Azure SQL Database vous permet d’effectuer facilement des tâches de gestion basiques à l’aide du portail Azure, d’Azure CLI et d’Azure PowerShell. Découvrez comment effectuer des tâches de gestion basiques à l’aide des exemples de guides de démarrage rapide suivants :
 
-- [Portail Azure](/azure/sql-database/sql-database-single-database-get-started)
+- [Azure portal](/azure/sql-database/sql-database-single-database-get-started)
 - [Azure PowerShell](/azure/sql-database/sql-database-get-started-powershell)
-- [Interface de ligne de commande Azure](/azure/sql-database/sql-database-get-started-cli)
+- [Azure CLI](/azure/sql-database/sql-database-get-started-cli)
 
 ## <a name="step-by-step-tutorials"></a>Didacticiels pas à pas
 
@@ -46,7 +46,7 @@ Découvrez comment créer, gérer et migrer des bases de données à l’aide de
 
 Trouvez des scripts pour gérer les tâches courantes.
 
-- [Interface de ligne de commande Azure](/azure/sql-database/sql-database-cli-samples)
+- [Azure CLI](/azure/sql-database/sql-database-cli-samples)
 - [Azure PowerShell](/azure/sql-database/sql-database-powershell-samples)
 
 ## <a name="more"></a>En savoir plus

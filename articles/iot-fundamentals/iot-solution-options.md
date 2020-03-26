@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 02/05/2020
 ms.author: dobett
 ms.openlocfilehash: 046116addf643d6c0eb0faf2f821b6ef78d440c6
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77050626"
 ---
 # <a name="choose-the-right-iot-solution"></a>Choisir la bonne solution IoT
@@ -39,7 +39,7 @@ Pour choisir entre ces deux approches, vous devez tenir compte des éléments su
 
 - Choisissez l’approche basée sur une plateforme d’applications managées pour tirer parti d’une plateforme qui gère la mise à l’échelle, la sécurité et la gestion de vos applications et appareils IoT.
 
-## <a name="control"></a>Contrôle
+## <a name="control"></a>Control
 
 Quels éléments de votre solution souhaitez-vous personnaliser ?
 

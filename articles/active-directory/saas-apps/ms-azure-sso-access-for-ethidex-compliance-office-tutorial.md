@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory avec MS Azure SSO Access for Ethidex Compliance Office™ | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory avec MS Azure SSO Access for Ethidex Compliance Office™ | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et MS Azure SSO Access for Ethidex Compliance Office™.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 09/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 00cbb5ff4b9354d0d1702161460b2646669f34c2
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "70844370"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ms-azure-sso-access-for-ethidex-compliance-office"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory avec MS Azure SSO Access for Ethidex Compliance Office™
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ms-azure-sso-access-for-ethidex-compliance-office"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory avec MS Azure SSO Access for Ethidex Compliance Office™
 
 Dans ce tutoriel, vous allez découvrir comment intégrer MS Azure SSO Access for Ethidex Compliance Office™ avec Azure Active Directory (Azure AD). Quand vous intégrez MS Azure SSO Access for Ethidex Compliance Office™ avec Azure AD, vous pouvez :
 

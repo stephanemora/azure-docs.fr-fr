@@ -14,10 +14,10 @@ ms.topic: tutorial
 ms.date: 02/27/2020
 ms.author: apimpm
 ms.openlocfilehash: 886063dcf886d79ac960814f20b3789e8e3b6839
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78163484"
 ---
 # <a name="import-and-publish-your-first-api"></a>Importer et publier votre première API 
@@ -41,7 +41,7 @@ Dans ce tutoriel, vous allez apprendre à :
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-## <a name="create-api"> </a>Importer et publier une API back-end
+## <a name="import-and-publish-a-backend-api"></a><a name="create-api"> </a>Importer et publier une API back-end
 
 Cette section montre comment importer et publier une API back-end de la spécification OpenAPI.
  
@@ -84,7 +84,7 @@ Vous pouvez appeler les opérations d’API directement à partir du portail Azu
    
    Le serveur principal répond avec **200 OK** et certaines données.
 
-## <a name="next-steps"> </a>Étapes suivantes
+## <a name="next-steps"></a><a name="next-steps"> </a>Étapes suivantes
 
 Dans ce didacticiel, vous avez appris à :
 

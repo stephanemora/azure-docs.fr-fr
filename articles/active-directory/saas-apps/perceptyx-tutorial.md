@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de Azure Active Directory à Perceptyx | Microsoft Docs'
+title: 'Tutoriel : Intégration de Azure Active Directory à Perceptyx | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Perceptyx.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 06/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4fba95add63a0784712b4c5b0d3989ae7b987ffb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67112871"
 ---
-# <a name="tutorial-integrate-perceptyx-with-azure-active-directory"></a>Didacticiel : Intégrer Perceptyx à Azure Active Directory
+# <a name="tutorial-integrate-perceptyx-with-azure-active-directory"></a>Tutoriel : Intégrer Perceptyx à Azure Active Directory
 
 Dans ce didacticiel, vous allez apprendre à intégrer Perceptyx à Azure Active Directory (Azure AD). Lorsque vous intégrez Perceptyx à Azure AD, vous pouvez :
 

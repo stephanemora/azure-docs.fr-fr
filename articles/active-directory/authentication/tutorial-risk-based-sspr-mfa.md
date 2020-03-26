@@ -12,13 +12,13 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e1a6858d5eda8227b3f7c1b90dee86f44273a258
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74846349"
 ---
-# <a name="tutorial-use-risk-detections-to-trigger-multi-factor-authentication-and-password-changes"></a>Didacticiel : Utiliser des détections de risque pour déclencher l’authentification multifacteur et le changement du mot de passe
+# <a name="tutorial-use-risk-detections-to-trigger-multi-factor-authentication-and-password-changes"></a>Tutoriel : Utiliser les détections de risques pour déclencher l’authentification multifacteur et le changement du mot de passe
 
 Dans ce didacticiel, vous allez activer des fonctionnalités d’Azure Active Directory (Azure AD) Identity Protection, une fonctionnalité d’Azure AD Premium P2 qui va au-delà d’un simple outil de surveillance et de création de rapports. Pour protéger les identités de votre organisation, vous pouvez configurer des stratégies reposant sur des risques qui répondent automatiquement aux comportements à risque. Ces stratégies peuvent automatiquement déclencher un blocage ou une correction, notamment exiger des modifications de mot de passe et appliquer l’authentification multifacteur.
 
@@ -54,7 +54,7 @@ L’activation de stratégies en fonction des risques est un processus simple. L
 
 Azure AD Identity Protection inclut une stratégie par défaut qui peut vous aider à inscrire les utilisateurs à l’authentification multifacteur et à identifier facilement l’état actuel de l’inscription. L’activation de cette stratégie ne requiert pas des utilisateurs qu’ils effectuent une authentification multifacteur, mais ils devront se pré-inscrire.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Cliquez sur **Tous les services**, puis accédez à **Azure AD Identity Protection**.
 1. Cliquez sur **Inscription à MFA**.
 1. Définissez l’option Appliquer la stratégie sur **Activé**.
@@ -87,6 +87,6 @@ La plupart des utilisateurs ont un comportement normal qui peut être suivi. Lor
 1. Définissez l’option Appliquer la stratégie sur **Activé**.
 1. Cliquez sur **Enregistrer**.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous avez terminé le test et souhaitez désactiver les stratégies reposant sur des risques, retournez dans chaque stratégie à désactiver et définissez l’option **Appliquer la stratégie** sur **Désactivé**.

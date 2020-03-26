@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Appraisd | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Appraisd | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Appraisd.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 05/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 08453928ab000cf906c451fa6c1cd619a00ee4ca
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/04/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67561196"
 ---
-# <a name="tutorial-integrate-appraisd-with-azure-active-directory"></a>Didacticiel : Intégrer Appraisd à Azure Active Directory
+# <a name="tutorial-integrate-appraisd-with-azure-active-directory"></a>Tutoriel : Intégrer Appraisd à Azure Active Directory
 
 Dans ce tutoriel, vous allez apprendre à intégrer Appraisd à Azure Active Directory (Azure AD). Quand vous intégrez Appraisd à Azure AD, vous pouvez :
 
@@ -207,4 +207,4 @@ Quand vous sélectionnez la vignette Appraisd dans le volet d’accès, vous dev
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

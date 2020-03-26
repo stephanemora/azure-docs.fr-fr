@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à Hootsuite | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Hootsuite | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Hootsuite.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 11/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0cfcba442a0f9e93b5a5f2adbfa4368353b981f4
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74187243"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hootsuite"></a>Didacticiel : Intégration de l’authentification unique (SSO) Azure Active Directory à Hootsuite
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hootsuite"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Hootsuite
 
 Dans ce tutoriel, vous allez apprendre à intégrer Hootsuite à Azure Active Directory (Azure AD). Quand vous intégrez Hootsuite à Azure AD, vous pouvez :
 

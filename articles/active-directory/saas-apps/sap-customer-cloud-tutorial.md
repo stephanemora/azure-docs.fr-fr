@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à SAP Cloud for Customer | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à SAP Cloud for Customer | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et SAP Cloud pour le client.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 09/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 837787d375a7570b7daf0a149960ca0020bcdced
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72263990"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-cloud-for-customer"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à SAP Cloud for Customer
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-cloud-for-customer"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à SAP Cloud for Customer
 
 Dans ce tutoriel, vous allez apprendre à intégrer SAP Cloud for Customer à Azure Active Directory (Azure AD). Quand vous intégrez SAP Cloud for Customer à Azure AD, vous pouvez :
 

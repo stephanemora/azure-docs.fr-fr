@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à BenSelect | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à BenSelect | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et BenSelect.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 10/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4a027a4038d806b7c19dc45ea5b6da74acb802b2
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74893123"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-benselect"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à BenSelect
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-benselect"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à BenSelect
 
 Dans ce tutoriel, vous allez apprendre à intégrer BenSelect à Azure Active Directory (Azure AD). Quand vous intégrez BenSelect à Azure AD, vous pouvez :
 

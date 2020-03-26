@@ -12,31 +12,31 @@ ms.reviewer: v-masebo
 ms.date: 03/25/2019
 ms.custom: seo-java-july2019. seo-java-august2019
 ms.openlocfilehash: 034f92ca3b7552373ae69148d09d58d3a5dd166a
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76768642"
 ---
-# <a name="quickstart-use-java-to-query-an-azure-sql-database"></a>Démarrage rapide : Utilisation de Java pour interroger une base de données Azure SQL
+# <a name="quickstart-use-java-to-query-an-azure-sql-database"></a>Démarrage rapide : Utiliser Java pour interroger une base de données Azure SQL
 
 Dans ce guide de démarrage rapide, vous utilisez Java pour vous connecter à une base de données Azure SQL et vous utilisez des instructions T-SQL pour interroger les données.
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
-- Un compte Azure avec un abonnement actif. [Créez gratuitement un compte](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Compte Azure avec un abonnement actif. [Créez gratuitement un compte](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Une [base de données Azure SQL](sql-database-single-database-get-started.md)
 - Logiciels associés à [Java](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server)
 
-  # <a name="macostabmacos"></a>[macOS](#tab/macos)
+  # <a name="macos"></a>[macOS](#tab/macos)
 
   Installez Homebrew et Java, puis Maven en suivant les étapes **1.2** et **1.3** dans [Créer des applications Java à l’aide de SQL Server sur macOS](https://www.microsoft.com/sql-server/developer-get-started/java/mac/).
 
-  # <a name="ubuntutabubuntu"></a>[Ubuntu](#tab/ubuntu)
+  # <a name="ubuntu"></a>[Ubuntu](#tab/ubuntu)
 
   Installez Java, le kit de développement Java, puis Maven en suivant les étapes **1.2**, **1.3** et **1.4** dans [Créer des applications Java à l’aide de SQL Server sur Ubuntu](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu/).
 
-  # <a name="windowstabwindows"></a>[Windows](#tab/windows)
+  # <a name="windows"></a>[Windows](#tab/windows)
 
   Installez Java, puis Maven en suivant les étapes **1.2** et **1.3** dans [Créer des applications Java à l’aide de SQL Server sur Windows](https://www.microsoft.com/sql-server/developer-get-started/java/windows/).
 

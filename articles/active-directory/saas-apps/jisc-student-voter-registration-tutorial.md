@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à Jisc Student Voter Registration | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Jisc Student Voter Registration | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Jisc Student Voter Registration.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 11/26/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7de54b507630174107994f1434f17120f3abffbb
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74806126"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-jisc-student-voter-registration"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Jisc Student Voter Registration
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-jisc-student-voter-registration"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Jisc Student Voter Registration
 
 Dans ce tutoriel, vous allez apprendre à intégrer Jisc Student Voter Registration à Azure Active Directory (Azure AD). Quand vous intégrez Jisc Student Voter Registration à Azure AD, vous pouvez :
 

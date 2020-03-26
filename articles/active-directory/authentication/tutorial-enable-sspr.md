@@ -11,10 +11,10 @@ author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 71b9052f364dfbae205dd324ba69de9578ccc225
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77026312"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>Tutoriel : Permettre aux utilisateurs de déverrouiller leur compte ou de réinitialiser des mots de passe à l’aide de la réinitialisation de mot de passe en libre-service Azure Active Directory
@@ -33,7 +33,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > * Configurer les méthodes d’authentification et les options d’inscription
 > * Tester le processus SSPR en tant qu’utilisateur
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer ce tutoriel, vous avez besoin des ressources et des privilèges suivants :
 
@@ -145,4 +145,4 @@ Dans ce tutoriel, vous avez activé la réinitialisation de mot de passe Azure 
 > * Tester le processus SSPR en tant qu’utilisateur
 
 > [!div class="nextstepaction"]
-> [Activer Azure Multi-Factor Authentication](tutorial-mfa-applications.md)
+> [Activation d’Azure Multi-Factor Authentication](tutorial-mfa-applications.md)

@@ -6,13 +6,13 @@ ms.date: 07/10/2019
 ms.author: atsenthi
 ms.custom: mvc
 ms.openlocfilehash: 477d47fabc59c5718c449418f225d6a38838b270
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75466270"
 ---
-# <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Démarrage rapide : déployer des conteneurs Windows sur Service Fabric
+# <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Démarrage rapide : Déployer des conteneurs Windows sur Service Fabric
 
 Azure Service Fabric est une plateforme de systèmes distribués pour le déploiement et la gestion de microservices et conteneurs extensibles et fiables.
 
@@ -144,7 +144,7 @@ Chaque application du cluster doit avoir un nom unique. S’il existe un conflit
 
 Ouvrez un navigateur et accédez à l’adresse que vous avez indiquée dans le champ **Point de terminaison de connexion** à l’étape précédente. Vous pouvez éventuellement ajouter l’identificateur de schéma, `http://`, et le port, `:80`, à l’URL. Par exemple, http:\//mysfcluster.SouthCentralUS.cloudapp.azure.com:80.
 
- La page web d’IIS par défaut doit s’afficher : ![Page web d’IIS par défaut][iis-default]
+ La page web IIS par défaut s’affiche : ![Page web IIS par défaut][iis-default]
 
 ## <a name="clean-up"></a>Nettoyer
 

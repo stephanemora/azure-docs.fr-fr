@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: jeedes
 ms.openlocfilehash: 52b113d92fa83795e94d5179ea47ed5d9d9e9a26
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68248915"
 ---
 # <a name="tutorial-integrate-kiteworks-with-azure-active-directory"></a>Tutoriel : Intégrer Kiteworks à Azure Active Directory
@@ -104,15 +104,15 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans la barre d’outils située en haut, cliquez sur **Settings**.
 
-    ![Configurer l'authentification unique](./media/kiteworks-tutorial/tutorial_kiteworks_06.png)
+    ![Configure Single Sign-On](./media/kiteworks-tutorial/tutorial_kiteworks_06.png)
 
 1. Dans la section **Authentification et autorisation**, cliquez sur **SSO Setup** (Configuration de l’authentification unique).
 
-    ![Configurer l'authentification unique](./media/kiteworks-tutorial/tutorial_kiteworks_07.png)
+    ![Configure Single Sign-On](./media/kiteworks-tutorial/tutorial_kiteworks_07.png)
 
 1. Sur la page de configuration de l’authentification unique, procédez comme suit :
 
-    ![Configurer l'authentification unique](./media/kiteworks-tutorial/tutorial_kiteworks_09.png)
+    ![Configure Single Sign-On](./media/kiteworks-tutorial/tutorial_kiteworks_09.png)
 
     a. Sélectionnez **Authenticate via SSO**.
 

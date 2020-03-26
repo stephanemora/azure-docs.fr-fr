@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à Teamphoria | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Teamphoria | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Teamphoria.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 10/09/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2631b34f5658c9d4f76ca26d378bc63fe59ad156
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72373270"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-teamphoria"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Teamphoria
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-teamphoria"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Teamphoria
 
 Dans ce tutoriel, vous allez apprendre à intégrer Teamphoria à Azure Active Directory (Azure AD). Quand vous intégrez Teamphoria à Azure AD, vous pouvez :
 
@@ -139,15 +139,15 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 4. Accédez à l’option **ADMIN SETTINGS** (Paramètres d’administration) dans la barre d’outils gauche puis, sous l’onglet Configure (Configurer), cliquez sur **SINGLE SIGN-ON** (Authentification unique) pour ouvrir la fenêtre de configuration de l’authentification unique (SSO).
 
-    ![Configurer l'authentification unique](./media/teamphoria-tutorial/admin_sso_configure.png)
+    ![Configure Single Sign-On](./media/teamphoria-tutorial/admin_sso_configure.png)
 
 5. Cliquez sur l’option **ADD NEW IDENTITY PROVIDER** (Ajouter un nouveau fournisseur d’identité) dans le coin supérieur droit pour ouvrir le formulaire permettant d’ajouter les paramètres pour l’authentification unique.
 
-    ![Configurer l'authentification unique](./media/teamphoria-tutorial/add_new_identity_provider.png)
+    ![Configure Single Sign-On](./media/teamphoria-tutorial/add_new_identity_provider.png)
 
 6. Entrez les informations dans les champs comme indiqué ci-dessous :
 
-    ![Configurer l'authentification unique](./media/teamphoria-tutorial/Teamphoria_sso_save.png)
+    ![Configure Single Sign-On](./media/teamphoria-tutorial/Teamphoria_sso_save.png)
 
     a. **NOM D'AFFICHAGE** : entrez le nom d'affichage du plug-in sur la page d'administration.
 

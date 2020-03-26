@@ -17,13 +17,13 @@ ms.date: 08/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e9ed129bccbd763bf4459fa7818e0dba4e7e65b5
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73156527"
 ---
-# <a name="tutorial-integrate-expensify-with-azure-active-directory"></a>Didacticiel : Intégrer Expensify avec Azure Active Directory
+# <a name="tutorial-integrate-expensify-with-azure-active-directory"></a>Tutoriel : Intégrer Expensify avec Azure Active Directory
 
 Dans ce didacticiel, vous allez apprendre à intégrer Expensify avec Azure Active Directory (Azure AD). Quand vous intégrez Expensify avec Azure AD, vous pouvez :
 
@@ -133,7 +133,7 @@ Dans cette section, vous allez autoriser B. Simon à utiliser l’authentificat
 
 Pour activer l’authentification unique dans Expensify, vous devez d’abord activer le **contrôle de domaine** dans l’application. Vous pouvez activer le contrôle de domaine dans l’application via la procédure répertoriée [ici](https://help.expensify.com/domain-control). Pour une assistance supplémentaire, travaillez avec [l’équipe de support technique Expensify](mailto:help@expensify.com). Une fois que le contrôle de domaine est activé, suivez les étapes ci-dessous :
 
-![Configurer l'authentification unique](./media/expensify-tutorial/tutorial_expensify_51.png)
+![Configure Single Sign-On](./media/expensify-tutorial/tutorial_expensify_51.png)
 
 1. Connectez-vous à votre application Expensify.
 

@@ -9,10 +9,10 @@ ms.date: 10/16/2018
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: bf107da82fb3f772a341e70ce472f08ea674a450
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75692570"
 ---
 ### <a name="create-a-storage-account-for-event-processor-host"></a>Créer un compte de stockage pour Event Processor Host
@@ -32,7 +32,7 @@ Event Processor Host est un agent intelligent qui simplifie la réception d’é
    2. Choisissez un **abonnement** Azure qui contient le hub d’événements.
    3. Choisissez ou créez le **groupe de ressources** qui contient le hub d’événements.
    4. Choisissez l’**emplacement** dans lequel stocker la ressource. 
-   5. Sélectionnez **Vérifier + créer**.
+   5. Sélectionnez **Revoir + créer**.
    
         ![Vérifier + créer, Créer un compte de stockage, portail Microsoft Azure](./media/event-hubs-create-storage/review-create.png)
 

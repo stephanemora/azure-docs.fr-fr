@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Knowledge Anywhere LMS | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Knowledge Anywhere LMS | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Knowledge Anywhere LMS.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 05/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f44324bbdd5af6675dfb4f5664cbbde2627edfec
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67098561"
 ---
-# <a name="tutorial-integrate-knowledge-anywhere-lms-with-azure-active-directory"></a>Didacticiel : Intégrer Knowledge Anywhere LMS à Azure Active Directory
+# <a name="tutorial-integrate-knowledge-anywhere-lms-with-azure-active-directory"></a>Tutoriel : Intégrer Knowledge Anywhere LMS à Azure Active Directory
 
 Dans ce tutoriel, vous allez apprendre à intégrer Knowledge Anywhere LMS à Azure Active Directory (Azure AD). Quand vous intégrez Knowledge Anywhere LMS à Azure AD, vous pouvez :
 
@@ -192,4 +192,4 @@ Le fait de sélectionner la vignette Knowledge Anywhere LMS dans le volet d’ac
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

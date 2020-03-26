@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à Vocoli | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Vocoli | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Vocoli.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 08/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1dbc802ce60202fc23d3d98ad5521f8f09c0f72b
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "69641816"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-vocoli"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Vocoli
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-vocoli"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Vocoli
 
 Dans ce tutoriel, vous allez découvrir comment intégrer Vocoli à Azure Active Directory (Azure AD). Quand vous intégrez Vocoli à Azure AD, vous pouvez :
 
@@ -82,7 +82,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans la section **Configuration SAML de base**, l’application est préconfigurée et les URL nécessaires sont déjà préremplies avec Azure. L’utilisateur doit enregistrer la configuration en cliquant sur le bouton **Enregistrer**.
 
-1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (Base64)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
+1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (en base64)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/certificatebase64.png)
 

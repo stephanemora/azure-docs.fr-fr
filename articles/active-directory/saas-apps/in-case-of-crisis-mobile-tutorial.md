@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à In Case of Crisis - Mobile | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à In Case of Crisis - Mobile | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et In Case of Crisis - Mobile.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 10/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 83bff484e4ca3a1579067501be134d71da72abfa
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72271859"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-in-case-of-crisis---mobile"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à In Case of Crisis - Mobile
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-in-case-of-crisis---mobile"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à In Case of Crisis - Mobile
 
 Dans ce tutoriel, vous allez apprendre à intégrer In Case of Crisis - Mobile à Azure Active Directory (Azure AD). Quand vous intégrez In Case of Crisis - Mobile à Azure AD, vous pouvez :
 

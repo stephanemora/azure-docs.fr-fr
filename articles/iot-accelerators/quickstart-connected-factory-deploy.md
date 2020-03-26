@@ -10,13 +10,13 @@ ms.custom: mvc
 ms.date: 03/08/2019
 ms.author: dobett
 ms.openlocfilehash: 6338403818259c7263fe66af7d8c8840d98efbcd
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "62127461"
 ---
-# <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>Démarrage rapide : Essayer une solution cloud pour gérer mes appareils IoT industriels
+# <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>Démarrage rapide : Essayer une solution informatique pour gérer mes appareils IoT industriels
 
 Ce démarrage rapide vous montre comment déployer l’accélérateur de solution Usine connectée Azure IoT pour exécuter une simulation de supervision et de gestion informatique pour les appareils IoT industriels. Lorsque vous déployez l’accélérateur de solution Usine connectée, il est prérempli avec des ressources simulées qui vous permettent de parcourir un scénario IoT industriel courant. Plusieurs usines simulées sont connectées à la solution et rapportent les valeurs de données nécessaires pour calculer le taux de rendement global (TRG) et les indicateurs de performance clés (KPI). Ce démarrage rapide vous montre comment utiliser le tableau de bord des solutions pour :
 
@@ -139,7 +139,7 @@ Pour approfondir l’analyse des données d’alarme, cliquez sur le graphique d
 
 Ces alarmes sont générées par des règles qui sont spécifiées dans un fichier de configuration de l’accélérateur de solution. Ces règles peuvent générer des alarmes lorsque les données de TRG ou KPI ou les valeurs de nœud OPC UA dépassent un seuil. Vous pouvez définir la valeur de ce seuil.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous envisagez d’explorer davantage, laissez l’accélérateur de solution Usine connectée déployé.
 

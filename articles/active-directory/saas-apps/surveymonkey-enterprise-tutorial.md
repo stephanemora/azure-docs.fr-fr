@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à SurveyMonkey Enterprise | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à SurveyMonkey Enterprise | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et SurveyMonkey Enterprise.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 10/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4238033f94fe8bfdc677c9eb623a2eab3cdf371c
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72532925"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-surveymonkey-enterprise"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à SurveyMonkey Enterprise
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-surveymonkey-enterprise"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à SurveyMonkey Enterprise
 
 Dans ce tutoriel, vous allez apprendre à intégrer SurveyMonkey Enterprise à Azure Active Directory (Azure AD). Quand vous intégrez SurveyMonkey Enterprise à Azure AD, vous pouvez :
 
@@ -93,7 +93,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     | Nom | Attribut source|
     | ---------------| --------------- |
-    | Email | user.mail |
+    | E-mail | user.mail |
     | FirstName | user.givenname |
     | LastName | user.surname |
 

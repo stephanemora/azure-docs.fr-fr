@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à Amplitude | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Amplitude | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Amplitude.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 10/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5d077da34a6e82ced957c4da1e6abf7a5e294e78
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72596256"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amplitude"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Amplitude
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amplitude"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Amplitude
 
 Dans ce tutoriel, vous allez apprendre à intégrer Amplitude à Azure Active Directory (Azure AD). Quand vous intégrez Amplitude à Azure AD, vous pouvez :
 
@@ -146,15 +146,15 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 1. Cliquez sur **Plan Admin** (Admin de plan) dans la barre de navigation gauche.
 
-    ![Configurer l'authentification unique](./media/amplitude-tutorial/configure1.png)
+    ![Configure Single Sign-On](./media/amplitude-tutorial/configure1.png)
 
 1. Sélectionnez **Microsoft Azure Active Directory Metadata** (Métadonnées Microsoft Azure Active Directory) dans **SSO Integration** (Intégration SSO).
 
-    ![Configurer l'authentification unique](./media/amplitude-tutorial/configure2.png)
+    ![Configure Single Sign-On](./media/amplitude-tutorial/configure2.png)
 
 1. Dans la section **Setup Single Sign-On** , procédez comme suit :
 
-    ![Configurer l'authentification unique](./media/amplitude-tutorial/configure3.png)
+    ![Configure Single Sign-On](./media/amplitude-tutorial/configure3.png)
 
     a. Ouvrez le fichier **Metadata.Xml** téléchargé à partir du portail Azure dans le Bloc-notes, puis collez son contenu dans la zone de texte **Microsoft Azure Active Directory Metadata** (Métadonnées Microsoft Azure Active Directory).
 

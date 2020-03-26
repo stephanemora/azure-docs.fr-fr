@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à Akamai | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Akamai | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Akamai.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 11/28/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 042dd242285081001ca48c9f17e4d42c2294c0ff
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74979135"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-akamai"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Akamai
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-akamai"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Akamai
 
 Dans ce tutoriel, vous allez apprendre à intégrer Akamai à Azure Active Directory (Azure AD). Quand vous intégrez Akamai à Azure AD, vous pouvez :
 
@@ -89,7 +89,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur et l’URL de réponse réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique d’Akamai](https://www.akamai.com/us/en/contact-us/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération**, puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
+1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération** et sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
 
@@ -179,7 +179,7 @@ Authentification Akamai basée sur l’en-tête
 
     ![Configuration d’Akamai](./media/header-akamai-tutorial/configure08.png)
 
-#### <a name="authentication"></a>Authentication
+#### <a name="authentication"></a>Authentification
 
 ![Configuration d’Akamai](./media/header-akamai-tutorial/configure09.png)
 
@@ -227,7 +227,7 @@ Authentification Akamai basée sur l’en-tête
 
     ![Configuration d’Akamai](./media/header-akamai-tutorial/configure19.png)
 
-#### <a name="authentication"></a>Authentication
+#### <a name="authentication"></a>Authentification
 
 Cliquez sur **Save and go to Services** (Enregistrer et accéder aux services).
 
@@ -273,7 +273,7 @@ Cliquez sur **Save and go to Deployment**.
 
     e. Spécifiez l’emplacement du connecteur et choisissez le connecteur.
 
-#### <a name="authentication"></a>Authentication
+#### <a name="authentication"></a>Authentification
 
 Cliquez sur **Save and go to Services**.
 

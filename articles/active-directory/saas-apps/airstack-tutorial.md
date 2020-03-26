@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Airstack | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Airstack | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Airstack.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 07/29/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 310a6a14cf8d1dbe66c28e6529e4ae6993896177
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73153692"
 ---
-# <a name="tutorial-integrate-airstack-with-azure-active-directory"></a>Didacticiel : Intégrer Airstack à Azure Active Directory
+# <a name="tutorial-integrate-airstack-with-azure-active-directory"></a>Tutoriel : Intégrer Airstack à Azure Active Directory
 
 Dans ce tutoriel, vous allez apprendre à intégrer Airstack à Azure Active Directory (Azure AD). Quand vous intégrez Airstack à Azure AD, vous pouvez :
 

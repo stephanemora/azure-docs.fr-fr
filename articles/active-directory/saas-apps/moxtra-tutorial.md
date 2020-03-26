@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à Moxtra | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Moxtra | Microsoft Docs'
 description: Découvrez comment configurer l'authentification unique entre Azure Active Directory et Moxtra.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 12/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d3e53ba11744b0e78287ffc46c4aac7b99b16b23
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74889547"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-moxtra"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Moxtra
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-moxtra"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Moxtra
 
 Dans ce tutoriel, vous allez apprendre à intégrer Moxtra à Azure Active Directory (Azure AD). Quand vous intégrez Moxtra à Azure AD, vous pouvez :
 
@@ -113,11 +113,11 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     1. Dans la liste **Attribut de la source**, tapez la valeur d’attribut indiquée pour cette ligne.
 
-    1. Cliquez sur **OK**.
+    1. Cliquez sur **OK**
 
     1. Cliquez sur **Enregistrer**.
 
-1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (Base64)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
+1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (en base64)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/certificatebase64.png)
 
@@ -161,11 +161,11 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 2. Dans la barre d’outils située à gauche, cliquez sur **Console Administrateur > Authentification unique SAML**, puis sur **Nouveau**.
    
-    ![Configurer l'authentification unique](./media/moxtra-tutorial/tutorial_moxtra_06.png) 
+    ![Configure Single Sign-On](./media/moxtra-tutorial/tutorial_moxtra_06.png) 
 
 3. Sur la page **SAML** , procédez comme suit :
    
-    ![Configurer l'authentification unique](./media/moxtra-tutorial/tutorial_moxtra_08.png)   
+    ![Configure Single Sign-On](./media/moxtra-tutorial/tutorial_moxtra_08.png)   
  
     a. Dans la zone de texte **Nom**, entrez le nom de votre configuration (par exemple, *SAML*). 
   
@@ -196,9 +196,9 @@ L’objectif de cette section est de créer un utilisateur appelé B.Simon dans 
 
 1. Dans la barre d’outils située à gauche, cliquez sur **Console Administrateur > Gestion des utilisateurs**, puis sur **Ajouter un utilisateur**.
    
-    ![Configurer l'authentification unique](./media/moxtra-tutorial/tutorial_moxtra_10.png) 
+    ![Configure Single Sign-On](./media/moxtra-tutorial/tutorial_moxtra_10.png) 
 
-1. Dans la boîte de dialogue **Ajouter un utilisateur** , procédez comme suit :
+1. Dans la boîte de dialogue **Ajouter un utilisateur**, procédez comme suit :
   
     a. Dans la zone de texte **First Name**, tapez **B**.
   

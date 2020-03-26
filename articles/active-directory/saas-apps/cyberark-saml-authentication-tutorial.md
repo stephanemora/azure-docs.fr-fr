@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à CyberArk SAML Authentication | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à CyberArk SAML Authentication | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et CyberArk SAML Authentication.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 10/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 206ab8931e80628c2d92404198240b074fa4c849
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72240844"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cyberark-saml-authentication"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à CyberArk SAML Authentication
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cyberark-saml-authentication"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à CyberArk SAML Authentication
 
 Ce didacticiel explique comment intégrer CyberArk SAML Authentication avec Azure Active Directory (Azure AD). Lorsque vous intégrez CyberArk SAML Authentication avec Azure AD, vous pouvez :
 

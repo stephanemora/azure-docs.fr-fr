@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Cognidox | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Cognidox | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Cognidox.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 07/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ad06d2f695109866bab60502a67f0d2c2f425477
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68480262"
 ---
-# <a name="tutorial-integrate-cognidox-with-azure-active-directory"></a>Didacticiel : Intégrer Cognidox à Azure Active Directory
+# <a name="tutorial-integrate-cognidox-with-azure-active-directory"></a>Tutoriel : Intégrer Cognidox à Azure Active Directory
 
 Dans ce tutoriel, vous allez découvrir comment intégrer Cognidox à Azure Active Directory (Azure AD). Quand vous intégrez Cognidox à Azure AD, vous pouvez :
 
@@ -120,7 +120,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     g. Cliquez sur **Enregistrer**.
 
-4. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération**, puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
+4. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération** et sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
 

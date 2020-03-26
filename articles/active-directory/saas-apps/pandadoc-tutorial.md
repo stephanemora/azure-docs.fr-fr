@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory avec PandaDoc | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory avec PandaDoc | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et PandaDoc.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 10/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0c1dcc1103b3c5f77bd5df52d70d35442235e8ea
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72532978"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-pandadoc"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à PandaDoc
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-pandadoc"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à PandaDoc
 
 Dans ce didacticiel, vous allez apprendre à intégrer PandaDoc avec Azure Active Directory (Azure AD). Quand vous intégrez PandaDoc à Azure AD, vous pouvez :
 

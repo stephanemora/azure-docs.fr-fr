@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à PageDNA | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à PageDNA | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et PageDNA.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3c7f8c8efcad0a07a3d3a56925866b10d94f82ed
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68227481"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-pagedna"></a>Didacticiel : Intégration d’Azure Active Directory à PageDNA
+# <a name="tutorial-azure-active-directory-integration-with-pagedna"></a>Tutoriel : Intégration d’Azure Active Directory à PageDNA
 
 Dans ce tutoriel, vous allez apprendre à intégrer PageDNA à Azure Active Directory (Azure AD).
 
@@ -56,7 +56,7 @@ PageDNA prend en charge les fonctionnalités suivantes :
 
 Pour configurer l'intégration de PageDNA à Azure AD, vous devez ajouter PageDNA, disponible sur la Place de marché Azure, à votre liste d'applications SaaS managées :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com?azure-portal=true).
+1. Connectez-vous au [portail Azure](https://portal.azure.com?azure-portal=true).
 1. Sélectionnez **Azure Active Directory** dans le volet de gauche.
 
     ![Option Azure Active Directory](common/select-azuread.png)
@@ -167,7 +167,7 @@ Dans cette section, vous allez créer un utilisateur de test nommé Britta Simon
 
     1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
 
-    1. Sélectionnez **Créer**.
+    1. Sélectionnez **Create** (Créer).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
@@ -179,7 +179,7 @@ Dans cette section, vous allez autoriser l’utilisateur Britta Simon à utilise
 
 1. Dans la liste des applications, sélectionnez **PageDNA**.
 
-    ![PageDNA dans la liste des applications](common/all-applications.png)
+    ![PageDNAdans la liste des applications](common/all-applications.png)
 
 1. Dans le volet gauche, sous **GÉRER**, sélectionnez **Utilisateurs et groupes**.
 
@@ -211,5 +211,5 @@ Lorsque vous sélectionnez **PageDNA** sur le portail Mes applications, vous dev
 
 * [S’authentifier avec l’authentification unique auprès des applications dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-* [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+* [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

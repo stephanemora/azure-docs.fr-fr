@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à Bitly | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Bitly | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Bitly.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 11/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cdbda372b3fd9c24b2147c17ffdbef228a18abdb
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74085162"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-bitly"></a>Didacticiel : Intégration de l’authentification unique (SSO) Azure Active Directory à Bitly
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-bitly"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Bitly
 
 Dans ce tutoriel, vous allez apprendre à intégrer Bitly à Azure Active Directory (Azure AD). En intégrant Bitly à Azure AD, vous pouvez :
 

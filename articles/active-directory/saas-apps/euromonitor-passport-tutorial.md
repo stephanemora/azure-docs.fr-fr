@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à Euromonitor Passport | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Euromonitor Passport | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Euromonitor Passport.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 10/31/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1748c6945dc50554c84fa8c178cece02baf9d840
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74075260"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-euromonitor-passport"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Euromonitor Passport
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-euromonitor-passport"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Euromonitor Passport
 
 Dans ce tutoriel, vous allez apprendre à intégrer Euromonitor Passport à Azure Active Directory (Azure AD). En intégrant Euromonitor Passport à Azure AD, vous pouvez :
 

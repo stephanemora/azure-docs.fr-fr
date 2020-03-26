@@ -17,13 +17,13 @@ ms.date: 07/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 81886fa9165269d89bde8306c5829be41952c190
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68302585"
 ---
-# <a name="tutorial-integrate-abstract-with-azure-active-directory"></a>Didacticiel : Intégrer Abstract à Azure Active Directory
+# <a name="tutorial-integrate-abstract-with-azure-active-directory"></a>Tutoriel : Intégrer Abstract à Azure Active Directory
 
 Dans ce tutoriel, vous allez apprendre à intégrer Abstract à Azure Active Directory (Azure AD). Quand vous intégrez Abstract à Azure AD, vous pouvez :
 
@@ -110,7 +110,7 @@ Vous êtes maintenant prêt à configurer l’authentification unique sur Abstra
 2. Accédez à la page **Permissions** (Autorisations) dans la barre latérale gauche.
 3. Dans la section **Configure SSO** (Configurer l’authentification unique), entrez votre URL de métadonnées (**Metadata URL**) et votre ID d’entité (**Entity ID**).
 4. Entrez les éventuelles exceptions manuelles. Les e-mails figurant dans la section d’exceptions manuelles ignoreront l’authentification unique et pourront se connecter avec un e-mail et un mot de passe. 
-5. Cliquez sur **Save Changes** (Enregistrer les modifications).
+5. Cliquez sur **Enregistrer les modifications**.
 
 >[!Note] 
 >Vous devez utiliser les adresses e-mail principales dans la liste des exceptions manuelles. L’activation de l’authentification unique échoue si l’e-mail que vous spécifiez est l’e-mail secondaire d’un utilisateur. Si cela se produit, un message d’erreur s’affiche avec l’adresse e-mail principale du compte défaillant. Ajoutez cette adresse e-mail principale à la liste des exceptions manuelles une fois que vous avez vérifié que vous connaissez l’utilisateur.

@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’OutSystems Azure AD à Azure Active Directory | Microsoft Docs'
+title: 'Tutoriel : Intégration d’OutSystems Azure AD à Azure Active Directory | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et OutSystems Azure AD.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 07/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7f631a641ab63d33d27d1e4520a000b4b01132be
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68478562"
 ---
-# <a name="tutorial-integrate-outsystems-azure-ad-with-azure-active-directory"></a>Didacticiel : Intégrer OutSystems Azure AD à Azure Active Directory
+# <a name="tutorial-integrate-outsystems-azure-ad-with-azure-active-directory"></a>Tutoriel : Intégrer OutSystems Azure AD à Azure Active Directory
 
 Dans ce tutoriel, vous allez apprendre à intégrer OutSystems Azure AD à Azure Active Directory (Azure AD). Quand vous intégrez OutSystems Azure AD à Azure AD, vous pouvez :
 
@@ -147,4 +147,4 @@ Quand vous sélectionnez la vignette OutSystems Azure AD dans le volet d’acc�
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

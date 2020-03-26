@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Canvas | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Canvas | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Canvas.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 01/02/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c3ce5cff0de2939c25400d1d63138b23bc6c9822
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74232046"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-canvas"></a>Didacticiel : Intégration d’Azure Active Directory à Canvas
+# <a name="tutorial-azure-active-directory-integration-with-canvas"></a>Tutoriel : Intégration d’Azure Active Directory à Canvas
 
 Dans ce didacticiel, vous allez apprendre à intégrer Canvas à Azure Active Directory (Azure AD).
 L’intégration de Canvas dans Azure AD vous offre les avantages suivants :
@@ -141,7 +141,7 @@ Pour configurer l’authentification unique Azure AD avec Canvas, effectuez les
 
 3. Dans le volet de navigation sur la gauche, sélectionnez **Authentication**, puis cliquez sur **Add New SAML Config**.
 
-    ![Authentification](./media/canvas-lms-tutorial/ic775991.png "Authentication")
+    ![Authentification](./media/canvas-lms-tutorial/ic775991.png "Authentification")
 
 4. Dans la page Intégration actuelle, procédez comme suit :
 
@@ -182,7 +182,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
     b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
-    Par exemple, BrittaSimon@contoso.com
+    Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 

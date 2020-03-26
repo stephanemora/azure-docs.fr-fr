@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique (SSO) Azure Active Directory avec Sugar CRM | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory avec Sugar CRM | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Sugar CRM.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 09/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fae7b80fd4d2fcec32bbef5e4cdf18e576412a86
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74231972"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sugar-crm"></a>Didacticiel : Intégration de l’authentification unique (SSO) Azure Active Directory avec Sugar CRM
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sugar-crm"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory avec Sugar CRM
 
 Dans ce tutoriel, vous allez découvrir comment intégrer Sugar CRM avec Azure Active Directory (Azure AD). Quand vous intégrez Sugar CRM avec Azure AD, vous pouvez :
 
@@ -195,7 +195,7 @@ Pour se connecter à Sugar CRM, les utilisateurs Azure AD doivent être provisio
 
     * Indiquez le **prénom**, le **nom** et l’**adresse de messagerie** du compte Azure AD valide que vous souhaitez approvisionner, dans les zones de texte correspondantes.
   
-1. Dans **Status**, sélectionnez **Active**.
+1. Pour **Status (Statut)** , sélectionnez **Active (Actif)** .
 
 1. Dans l’onglet Password, procédez comme suit :
 

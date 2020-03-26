@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique (SSO) Azure Active Directory à ScaleX Enterprise | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à ScaleX Enterprise | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et ScaleX Enterprise.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 10/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5e54994d02dd1abbca1602952fbad058b3ad993d
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72594259"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-scalex-enterprise"></a>Didacticiel : Intégration de l’authentification unique (SSO) Azure Active Directory à ScaleX Enterprise
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-scalex-enterprise"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à ScaleX Enterprise
 
 Dans ce tutoriel, vous allez apprendre à intégrer ScaleX Enterprise à Azure Active Directory (Azure AD). Quand vous intégrez ScaleX Enterprise à Azure AD, vous pouvez :
 

@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de Azure Active Directory à GlobalOne | Microsoft Docs'
+title: 'Tutoriel : Intégration de Azure Active Directory à GlobalOne | Microsoft Docs'
 description: Découvrez comment configurer l'authentification unique entre Azure Active Directory et GlobalOne.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 06/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 14eac7240c183911fba763bf21c37077107cc275
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68944918"
 ---
-# <a name="tutorial-integrate-globalone-with-azure-active-directory"></a>Didacticiel : Intégrer GlobalOne à Azure Active Directory
+# <a name="tutorial-integrate-globalone-with-azure-active-directory"></a>Tutoriel : Intégrer GlobalOne à Azure Active Directory
 
 Dans ce tutoriel, vous allez apprendre à intégrer GlobalOne à Azure Active Directory (Azure AD). Quand vous intégrez GlobalOne à Azure AD, vous pouvez :
 
@@ -90,7 +90,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     | ---------------| --------------- |
     | FirstName | user.givenname |
     | LastName | user.surname |
-    | Email | user.mail |
+    | E-mail | user.mail |
     | Company | `<YOUR COMPANY NAME>` |
 
     a. Cliquez sur le bouton **Ajouter une nouvelle revendication** pour ouvrir la boîte de dialogue **Gérer les revendications des utilisateurs**.
@@ -107,7 +107,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     e. Dans la liste **Attribut de la source**, tapez la valeur d’attribut indiquée pour cette ligne.
 
-    f. Cliquez sur **OK**.
+    f. Cliquez sur **OK**
 
     g. Cliquez sur **Enregistrer**.
 

@@ -9,10 +9,10 @@ ms.topic: overview
 ms.date: 08/21/2019
 ms.author: alkohli
 ms.openlocfilehash: b8c6b4085f56bc12b67bf87177ba33b82c6a6db9
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "69900585"
 ---
 # <a name="what-is-azure-data-box-gateway"></a>Présentation d’Azure Data Box Gateway
@@ -69,13 +69,13 @@ L’appareil virtuel Data Box Gateway présente les spécifications suivantes :
 | Processeurs virtuels (cœurs)   | 4 minimum |
 | Mémoire  |8 Go minimum|
 | Disponibilité|Nœud unique|
-| Disques|Disque de système d’exploitation : 250 Go <br> Disque de données : 2 To minimum, allocation dynamique et sauvegarde sur SSD|
+| Disques|Disque du système d'exploitation : 250 Go <br> Disque de données : 2 To minimum, allocation dynamique et sauvegarde sur SSD|
 | Interfaces réseau |1 ou plusieurs interfaces réseau virtuelles|
 | Protocoles de partage de fichiers natifs|SMB et NFS  |
 | Sécurité|Authentification pour déverrouiller l’accès à l’appareil et aux données <br> Chiffrement des données en transit à l’aide du chiffrement AES 256 bits|
-| gestion|Interface utilisateur web locale : configuration initiale, diagnostics et gestion de l’alimentation de l’appareil <br> Portail Azure : gestion quotidienne des appareils Data Box Gateway       |
+| Gestion|Interface utilisateur web locale : configuration initiale, diagnostics et gestion de l’alimentation de l’appareil <br> Portail Azure : gestion quotidienne des appareils Data Box Gateway       |
 
-## <a name="components"></a>Composants
+## <a name="components"></a>Components
 
 La solution Data Box Gateway se compose d’une ressource Data Box Gateway, d’un appareil virtuel Data Box Gateway et d’une interface utilisateur web locale.
 

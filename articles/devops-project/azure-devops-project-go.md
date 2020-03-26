@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Créer un pipeline CI/CD pour le langage de programmation Go avec Azure DevOps Projects'
+title: 'Démarrage rapide : Créer un pipeline CI/CD pour le langage de programmation Go avec Azure DevOps Projects'
 description: DevOps Projects facilite la prise en main d’Azure. Il vous aide à lancer une application web créée avec le langage de programmation Go sur un service Azure en quelques étapes rapides.
 ms.prod: devops
 ms.technology: devops-cicd
@@ -17,10 +17,10 @@ ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
 ms.openlocfilehash: f7429a6de05a301b579354d722ad354b78ce6cbf
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "70899668"
 ---
 # <a name="create-a-cicd-pipeline-for-go-by-using-azure-devops-projects"></a>Créer un pipeline CI/CD pour Go avec Azure DevOps Projects
@@ -33,7 +33,7 @@ Si vous ne disposez pas d’un abonnement Azure, vous pouvez en obtenir un gratu
 
 DevOps Projects crée un pipeline CI/CD dans Azure Pipelines. Vous pouvez créer une organisation Azure DevOps ou utiliser une organisation existante. DevOps Projects crée également des ressources Azure dans l’abonnement Azure de votre choix.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
 1. Dans le volet de gauche, sélectionnez **Créer une ressource**.
 
@@ -104,10 +104,10 @@ DevOps Projects configure automatiquement un pipeline CI/CD complet dans Azure R
 1. Remplacez le nom de votre pipeline de build par un nom plus descriptif, sélectionnez **Enregistrer et mettre en file d’attente**, puis sélectionnez **Enregistrer**.
 
 1. Sous le nom de votre pipeline de build, sélectionnez **Historique**.  
-    Ce volet montre une piste d’audit des modifications que vous avez apportées récemment à la build. Azure DevOps fait le suivi des modifications apportées au pipeline de build et vous permet de comparer des versions.
+    Ce volet montre une piste d’audit des modifications que vous avez apportées récemment à la build. Azure DevOps suit les modifications apportées au pipeline de build et permet de comparer les versions.
 
 1. Sélectionnez **Déclencheurs**.  
-    DevOps Projects crée automatiquement un déclencheur CI, et chaque validation dans le dépôt lance une nouvelle build. Si vous le souhaitez, vous pouvez choisir d’inclure ou d’exclure des branches dans le processus CI.
+    DevOps Projects crée automatiquement un déclencheur CI tandis que chaque validation dans le dépôt lance une nouvelle build. Si vous le souhaitez, vous pouvez choisir d’inclure ou d’exclure des branches dans le processus CI.
 
 1. Sélectionnez **Rétention**.  
     En fonction de votre scénario, vous pouvez spécifier des stratégies pour conserver ou supprimer un certain nombre de builds.
@@ -122,9 +122,9 @@ DevOps Projects configure automatiquement un pipeline CI/CD complet dans Azure R
     Le pipeline de build que vous avez examiné précédemment génère la sortie qui est utilisée pour l’artefact. 
 
 1. À droite de l’icône **Déposer**, sélectionnez **Déclencheur de déploiement continu**.  
-    Ce pipeline de mise en production est doté d’un déclencheur de déploiement continu activé qui exécute un déploiement chaque fois qu’un nouvel artefact de build est disponible. Si vous le souhaitez, vous pouvez désactiver le déclencheur, vos déploiements nécessitant alors une exécution manuelle. 
+    Ce pipeline de mise en production est doté d’un déclencheur de déploiement continu activé qui exécute un déploiement chaque fois qu’un nouvel artefact de build est disponible. Si vous le souhaitez, vous pouvez désactiver le déclencheur afin que vos déploiements nécessitent une exécution manuelle. 
 
-1. Sur la gauche, sélectionnez **Tâches**.  
+1. À gauche, sélectionnez **Tâches**.  
     Les tâches sont les activités effectuées par votre processus de déploiement. Dans cet exemple, une tâche a été créée pour déployer sur Azure App Service.
 
 1. À droite, sélectionnez **Afficher les mises en production** pour voir l’historique des mises en production.
@@ -138,13 +138,13 @@ DevOps Projects configure automatiquement un pipeline CI/CD complet dans Azure R
 1. Sélectionnez **Journaux d’activité**.  
     Les journaux d’activité contiennent des informations utiles sur le processus de déploiement. Vous pouvez les voir à la fois pendant et après les déploiements.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Quand ils ne sont plus nécessaires, vous pouvez supprimer l’instance Azure App Service et les ressources associées que vous avez créés dans ce guide de démarrage rapide. Pour cela, utilisez la fonctionnalité **Supprimer** du tableau de bord DevOps Projects.
+Quand ils ne sont plus nécessaires, vous pouvez supprimer l’instance Azure App Service et les ressources associées que vous avez créés dans ce guide de démarrage rapide. Pour ce faire, utilisez la fonctionnalité **Supprimer** du tableau de bord DevOps Projects.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur la modification des pipelines de build et de mise en production afin de répondre aux besoins de votre équipe, consultez :
 
 > [!div class="nextstepaction"]
-> [Définir votre pipeline de déploiement continu (CD) multi-étapes](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Définir votre pipeline de déploiement continu (CD) multiétape](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)

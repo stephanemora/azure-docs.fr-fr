@@ -14,13 +14,13 @@ ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 8994079cf18a9af5f5e1368761015bbd8b836bd9
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74790914"
 ---
-# <a name="quickstart-create-a-sql-server-windows-virtual-machine-with-azure-powershell"></a>Démarrage rapide : Créer une machine virtuelle Windows SQL Server avec Azure PowerShell
+# <a name="quickstart-create-a-sql-server-windows-virtual-machine-with-azure-powershell"></a>Démarrage rapide : créer une machine virtuelle Windows SQL Server avec Azure PowerShell
 
 Ce démarrage rapide décrit les étapes de base de création d’une machine virtuelle SQL Server avec Azure PowerShell.
 
@@ -28,12 +28,12 @@ Ce démarrage rapide décrit les étapes de base de création d’une machine vi
 > - Ce démarrage rapide vous présente les étapes de mise en service et de connexion rapide d’une machine virtuelle SQL. Pour plus d’informations sur les autres options Azure PowerShell pour la création de machines virtuelles SQL, consultez le [guide de mise en service des machines virtuelles SQL Server avec Azure PowerShell](virtual-machines-windows-ps-sql-create.md).
 > - Si vous avez des questions sur les machines virtuelles SQL Server, consultez le [Forum aux Questions](virtual-machines-windows-sql-server-iaas-faq.md).
 
-## <a id="subscription"></a> Obtenir un abonnement Azure
+## <a name="get-an-azure-subscription"></a><a id="subscription"></a> Obtenir un abonnement Azure
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 
-## <a id="powershell"></a> Obtenir Azure PowerShell
+## <a name="get-azure-powershell"></a><a id="powershell"></a> Obtenir Azure PowerShell
 
 [!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 
@@ -178,7 +178,7 @@ Pour obtenir les fonctionnalités d’intégration au portail et de machine virt
 
 Vous êtes désormais connecté localement à SQL Server. Pour vous connecter à distance, vous devez [configurer la connectivité](virtual-machines-windows-sql-connect.md) à partir du portail ou manuellement.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous n’avez pas besoin que la machine virtuelle fonctionne en permanence, vous pouvez éviter les frais inutiles en l’arrêtant quand vous ne vous en servez pas. La commande suivante arrête la machine virtuelle, tout en la laissant disponible pour une utilisation future.
 

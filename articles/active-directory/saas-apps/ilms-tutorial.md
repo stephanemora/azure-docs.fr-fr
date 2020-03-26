@@ -1,5 +1,5 @@
 ---
-title: "Didacticiel : Intégration d'Azure Active Directory à iLMS | Microsoft Docs"
+title: "Tutoriel : Intégration d'Azure Active Directory à iLMS | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et iLMS.
 services: active-directory
 documentationCenter: na
@@ -17,19 +17,19 @@ ms.date: 05/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 50097aec1c4a003d3494029e8f25bb13b564f207
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68944018"
 ---
-# <a name="tutorial-integrate-ilms-with-azure-active-directory"></a>Didacticiel : Intégrer iLMS à Azure Active Directory
+# <a name="tutorial-integrate-ilms-with-azure-active-directory"></a>Tutoriel : Intégrer iLMS à Azure Active Directory
 
 Dans ce tutoriel, vous allez apprendre à intégrer iLMS à Azure Active Directory (Azure AD). Quand vous intégrez iLMS à Azure AD, vous pouvez :
 
 * Contrôler dans Azure AD qui a accès à iLMS.
 * Permettre à vos utilisateurs de se connecter automatiquement à iLMS avec leur compte Azure AD.
-* Gérer vos comptes à partir d’un emplacement central : le portail Azure.
+* Gérer vos comptes à un emplacement central : le Portail Azure.
 
 Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
@@ -70,7 +70,7 @@ Pour configurer et tester l’authentification unique Azure AD avec iLMS, suivez
 
 ### <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
-Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le portail Azure.
+Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
 1. Dans le [portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **iLMS**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
@@ -111,7 +111,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     e. Dans la liste **Attribut de la source**, tapez la valeur d’attribut indiquée pour cette ligne.
 
-    f. Cliquez sur **OK**.
+    f. Cliquez sur **OK**
 
     g. Cliquez sur **Enregistrer**.
 
@@ -135,29 +135,29 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 2. Cliquez sur **SSO:SAML** sous l’onglet **Paramètres** pour ouvrir les paramètres SAML et effectuer les opérations suivantes :
 
-    ![Configurer l'authentification unique](./media/ilms-tutorial/1.png)
+    ![Configure Single Sign-On](./media/ilms-tutorial/1.png)
 
 3. Développez la section **Fournisseur de services** et copiez les valeurs **Identificateur** et **URL du point de terminaison**.
 
-    ![Configurer l'authentification unique](./media/ilms-tutorial/2.png) 
+    ![Configure Single Sign-On](./media/ilms-tutorial/2.png) 
 
 4. Sous la section **Fournisseur d’identité**, cliquez sur **importer les métadonnées**.
 
 5. Sélectionnez le fichier **Métadonnées de fédération** téléchargé à partir du portail Azure, à partir de la section **Certificat de signature SAML**.
 
-    ![Configurer l'authentification unique](./media/ilms-tutorial/tutorial_ilms_ssoconfig1.png)
+    ![Configure Single Sign-On](./media/ilms-tutorial/tutorial_ilms_ssoconfig1.png)
 
 6. Si vous souhaitez activer JIT pour approvisionner des comptes iLMS pour l’annulation de reconnaissance d’utilisateurs, procédez comme suit :
 
     a. Cochez **Créer un compte utilisateur non reconnu**.
 
-    ![Configurer l'authentification unique](./media/ilms-tutorial/tutorial_ilms_ssoconfig2.png)
+    ![Configure Single Sign-On](./media/ilms-tutorial/tutorial_ilms_ssoconfig2.png)
 
     b. Mappez les attributs dans Azure AD avec les attributs dans iLMS. Dans la colonne d’attribut, spécifiez le nom des attributs ou la valeur par défaut.
 
     c. Accédez à l’onglet **Règles d’entreprise** et effectuez les opérations suivantes :
 
-    ![Configurer l'authentification unique](./media/ilms-tutorial/5.png)
+    ![Configure Single Sign-On](./media/ilms-tutorial/5.png)
 
     d. Cochez **Créer des régions, divisions et départements non reconnus** pour créer des régions, divisions et départements qui n’existent pas encore au moment de l’authentification unique.
 
@@ -169,7 +169,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 7. Cliquez sur **Enregistrer** pour enregistrer les paramètres.
 
-    ![Configurer l'authentification unique](./media/ilms-tutorial/save.png)
+    ![Configure Single Sign-On](./media/ilms-tutorial/save.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -244,4 +244,4 @@ Quand vous sélectionnez la vignette iLMS dans le panneau d’accès, vous devez
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

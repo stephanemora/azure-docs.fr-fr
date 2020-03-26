@@ -4,10 +4,10 @@ description: Apprenez à créer votre première fonction Azure pour une exécuti
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.openlocfilehash: 1492188f72eb4a691ddceb78aa269601f192e467
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76963833"
 ---
 # <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan"></a>Créer une application de fonction dans un plan App Service sur Linux
@@ -57,7 +57,7 @@ Vous devez disposer d’une application de fonction pour héberger l’exécutio
 
 Créez ensuite une fonction dans la nouvelle Function App. Même une fois votre application de fonction disponible, il peut s’écouler quelques minutes avant qu’elle ne soit entièrement initialisée.
 
-## <a name="create-function"></a>Créer une fonction déclenchée via HTTP
+## <a name="create-an-http-triggered-function"></a><a name="create-function"></a>Créer une fonction déclenchée via HTTP
 
 Cette section vous montre comment créer une fonction dans votre nouvelle application de fonction dans le portail.
 

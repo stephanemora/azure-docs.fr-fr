@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à Zscaler | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Zscaler | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Zscaler.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 08/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dcf0341e03a5d95abbe8b1a8ce69379fef8251b7
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68989060"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zscaler"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Zscaler
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zscaler"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Zscaler
 
 Dans ce tutoriel, vous allez découvrir comment intégrer Zscaler à Azure Active Directory (Azure AD). Quand vous intégrez Zscaler à Azure AD, vous pouvez :
 
@@ -225,7 +225,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 1. Cliquez sur l’onglet **Connexions** .
   
-    ![Connexions](./media/zscaler-tutorial/ic769493.png "connexions")
+    ![Connexions](./media/zscaler-tutorial/ic769493.png "Connexions")
 
 1. Cliquez sur **Paramètres réseau** pour ouvrir la boîte de dialogue **Paramètres réseau**.
 
