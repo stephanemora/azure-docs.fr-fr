@@ -15,11 +15,11 @@ ms.date: 11/05/2019
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 002d374f5be606688121ef4a3952383567c43e85
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685140"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79214747"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>Démarrage rapide : Créer une machine virtuelle Windows dans le portail Azure
 
@@ -33,7 +33,7 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 
 ## <a name="create-virtual-machine"></a>Créer une machine virtuelle
 
-1. Entrez **machines virtuelles** dans la zone de recherche.
+1. Tapez **machines virtuelles** dans la zone de recherche.
 1. Sous **Services**, sélectionnez **Machines virtuelles**.
 1. Sur la page **Machines virtuelles**, sélectionnez **Ajouter**. 
 1. Sous l’onglet **De base**, sous **Détails du projet**, vérifiez que l’abonnement approprié est sélectionné, puis choisissez **Créer** pour créer un groupe de ressources. Tapez *myResourceGroup* comme nom. 
@@ -90,7 +90,7 @@ Dans le portail, sélectionnez la machine virtuelle et dans la vue d’ensemble 
 
 ![Site IIS par défaut](./media/quick-create-powershell/default-iis-website.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Dès que vous n’en avez plus besoin, vous pouvez supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées. 
 

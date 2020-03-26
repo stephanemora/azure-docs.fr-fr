@@ -4,10 +4,10 @@ description: Tutoriel illustrant la création d’une architecture de référenc
 ms.topic: tutorial
 ms.date: 10/26/2019
 ms.openlocfilehash: 6f156dd90b83ceaf5749c8c2acebae35bcb54a92
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77472177"
 ---
 # <a name="tutorial-create-a-hub-and-spoke-hybrid-network-topology-in-azure-using-terraform"></a>Tutoriel : Créer une topologie de réseau hybride hub-and-spoke dans Azure avec Terraform

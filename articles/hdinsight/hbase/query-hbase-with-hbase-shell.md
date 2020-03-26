@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: quickstart
 ms.date: 06/12/2019
 ms.author: hrasheed
-ms.openlocfilehash: 033227f085cd23c5fa26313cb4a2816070676560
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 572262cbece26171f9a67bf073906fa2dfd4d8e1
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076425"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79371067"
 ---
 # <a name="quickstart-query-apache-hbase-in-azure-hdinsight-with-hbase-shell"></a>Démarrage rapide : Exécuter des requêtes Apache HBase dans Azure HDInsight à l'aide de HBase Shell
 
@@ -24,7 +24,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un cluster Apache HBase. Consultez [Créer un cluster](../hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster) pour créer un cluster HDInsight.  Veillez à choisir le type de cluster **HBase**.
+* Un cluster Apache HBase. Consultez [Créer un cluster](../hadoop/apache-hadoop-linux-tutorial-get-started.md) pour créer un cluster HDInsight.  Veillez à choisir le type de cluster **HBase**.
 
 * Un client SSH. Pour plus d’informations, consultez [Se connecter à HDInsight (Apache Hadoop) à l’aide de SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -52,19 +52,19 @@ Vous pouvez utiliser SSH pour vous connecter à des clusters HBase, puis utilise
     hbase shell
     ```
 
-3. Utilisez la commande `create` pour créer une table HBase avec deux familles de colonnes. Entrez la commande suivante :
+3. Utilisez la commande `create` pour créer une table HBase avec deux familles de colonnes. Entrez la commande suivante :
 
     ```hbase
     create 'Contacts', 'Personal', 'Office'
     ```
 
-4. Utilisez la commande `list` pour répertorier toutes les tables contenues dans HBase. Entrez la commande suivante :
+4. Utilisez la commande `list` pour répertorier toutes les tables contenues dans HBase. Entrez la commande suivante :
 
     ```hbase
     list
     ```
 
-5. Utilisez la commande `put` pour insérer des valeurs dans une colonne et sur une ligne spécifiées d'une table particulière. Entrez la commande suivante :
+5. Utilisez la commande `put` pour insérer des valeurs dans une colonne et sur une ligne spécifiées d'une table particulière. Entrez la commande suivante :
 
     ```hbase
     put 'Contacts', '1000', 'Personal:Name', 'John Dole'
@@ -73,13 +73,13 @@ Vous pouvez utiliser SSH pour vous connecter à des clusters HBase, puis utilise
     put 'Contacts', '1000', 'Office:Address', '1111 San Gabriel Dr.'
     ```
 
-6. Utilisez la commande `scan` pour analyser et renvoyer les données de la table `Contacts`. Entrez la commande suivante :
+6. Utilisez la commande `scan` pour analyser et renvoyer les données de la table `Contacts`. Entrez la commande suivante :
 
     ```hbase
     scan 'Contacts'
     ```
 
-7. Utilisez la commande `get` pour extraire le contenu d'une ligne. Entrez la commande suivante :
+7. Utilisez la commande `get` pour extraire le contenu d'une ligne. Entrez la commande suivante :
 
     ```hbase
     get 'Contacts', '1000'
@@ -87,25 +87,25 @@ Vous pouvez utiliser SSH pour vous connecter à des clusters HBase, puis utilise
 
     Comme il n'y a qu'une seule ligne, vous obtenez des résultats semblables à ceux obtenus avec la commande `scan`.
 
-8. Utilisez la commande `delete` pour supprimer la valeur d'une cellule dans une table. Entrez la commande suivante :
+8. Utilisez la commande `delete` pour supprimer la valeur d'une cellule dans une table. Entrez la commande suivante :
 
     ```hbase
     delete 'Contacts', '1000', 'Office:Address'
     ```
 
-9. Utilisez la commande `disable` pour désactiver la table. Entrez la commande suivante :
+9. Utilisez la commande `disable` pour désactiver la table. Entrez la commande suivante :
 
     ```hbase
     disable 'Contacts'
     ```
 
-10. Utilisez la commande `drop` pour déposer une table de HBase. Entrez la commande suivante :
+10. Utilisez la commande `drop` pour déposer une table de HBase. Entrez la commande suivante :
 
     ```hbase
     drop 'Contacts'
     ```
 
-11. Utilisez la commande `exit` pour arrêter l'interpréteur de commandes interactif HBase. Entrez la commande suivante :
+11. Utilisez la commande `exit` pour arrêter l'interpréteur de commandes interactif HBase. Entrez la commande suivante :
 
     ```hbase
     exit
@@ -113,7 +113,7 @@ Vous pouvez utiliser SSH pour vous connecter à des clusters HBase, puis utilise
 
 Pour plus d'informations sur le schéma de la table HBase, consultez [Introduction à la conception de schémas Apache HBase](http://0b4af6cdc2f0c5998459-c0245c5c937c5dedcca3f1764ecc9b2f.r43.cf2.rackcdn.com/9353-login1210_khurana.pdf). Pour plus de commandes HBase, consultez le [Guide de référence Apache HBase](https://hbase.apache.org/book.html#quickstart).
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Après avoir suivi ce guide de démarrage rapide, vous souhaiterez peut-être supprimer le cluster. Avec HDInsight, vos données sont stockées Azure Storage, pour que vous puissiez supprimer un cluster en toute sécurité s’il n’est pas en cours d’utilisation. Vous devez également payer pour un cluster HDInsight, même lorsque vous ne l’utilisez pas. Étant donné que les frais pour le cluster sont bien plus élevés que les frais de stockage, économique, mieux vaut supprimer les clusters lorsqu’ils ne sont pas utilisés.
 

@@ -5,13 +5,13 @@ keywords: ansible, azur, devops, bash, playbook, Azure App Service, Web App, sca
 ms.topic: tutorial
 ms.date: 04/30/2019
 ms.openlocfilehash: 9eb50922361c817de8047dece4849a9b221677f0
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74155917"
 ---
-# <a name="tutorial-scale-apps-in-azure-app-service-using-ansible"></a>Didacticiel : Mettre des applications à l’échelle dans Azure App Service avec Ansible
+# <a name="tutorial-scale-apps-in-azure-app-service-using-ansible"></a>Tutoriel : Mettre des applications à l’échelle dans Azure App Service avec Ansible
 
 [!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
 
@@ -32,10 +32,10 @@ ms.locfileid: "74155917"
 
 ## <a name="scale-up-an-app"></a>Monter en puissance une application
 
-Il existe deux workflows de mise à l'échelle : la montée en puissance (*scale up*) et la montée en charge (*scale out*).
+Il existe deux workflows de mise à l'échelle : *scale-up* et *scale-out*.
 
 **Scale up :** acquérir davantage de ressources (processeur, mémoire, espace disque, machines virtuelles, etc.). Il s’agit de modifier le niveau tarifaire du plan App Service de l’application. 
-**Scale out :** augmenter le nombre d’instances de machines virtuelles qui exécutent l’application (jusqu’à 20 instances selon le niveau tarifaire du plan App Service). La [mise à l'échelle automatique](/azure/azure-monitor/platform/autoscale-get-started) permet de mettre automatiquement à l’échelle le nombre d’instances en fonction des planifications et des règles prédéfinies.
+**Effectuer un scale-out :** effectuer un scale-out signifie augmenter le nombre d’instances de machines virtuelles qui exécutent l’application (jusqu’à 20 instances selon le niveau tarifaire du plan App Service). La [mise à l'échelle automatique](/azure/azure-monitor/platform/autoscale-get-started) permet de mettre automatiquement à l’échelle le nombre d’instances en fonction des planifications et des règles prédéfinies.
 
 Le code du playbook de cette section définit l’opération suivante :
 

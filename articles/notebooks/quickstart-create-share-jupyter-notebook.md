@@ -4,17 +4,17 @@ description: Créez et exécutez rapidement un notebook Jupyter sur Azure Noteb
 ms.topic: quickstart
 ms.date: 12/04/2018
 ms.openlocfilehash: d3310444fa28240b8fb1344199514a9601a2c615
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77064442"
 ---
 # <a name="quickstart-create-and-share-a-notebook-in-azure-notebooks-preview"></a>Démarrage rapide : Créer et partager un notebook dans Azure Notebooks (préversion)
 
 Dans ce guide de démarrage rapide, vous créez et exécutez un notebook Jupyter sur Azure Notebooks, puis vous le partagez avec d’autres utilisateurs. Jupyter vous permet de combiner facilement du texte Markdown, du code exécutable, des données persistantes, des graphiques et des visualisations sur un canevas partageable, le notebook. Azure Notebooks est un service hébergé gratuit à l’aide duquel vous pouvez développer et exécuter des notebooks Jupyter dans le cloud sans aucune installation.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 Aucun.
 
 ## <a name="create-a-new-project-and-notebook"></a>Créer un projet et un notebook

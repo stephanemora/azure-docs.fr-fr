@@ -10,11 +10,11 @@ ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
 ms.openlocfilehash: cfb9f54f5ba219a4db87144ab1e7ebff2b72b69e
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514440"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79214188"
 ---
 ::: zone target = "docs"
 
@@ -35,13 +35,13 @@ Ce tutoriel vous explique comment retourner l’appareil Azure Data Box Heavy et
 Ce didacticiel fournit des informations sur les sujets suivants :
 
 > [!div class="checklist"]
-> * Conditions préalables requises
+> * Prérequis
 > * Préparer l’expédition
 > * Expédier le Data Box Heavy à Microsoft
 > * Vérifier le chargement des données dans Azure
 > * Effacer les données du Data Box Heavy
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer, vérifiez les points suivants :
 
@@ -134,7 +134,7 @@ Une fois que le chargement des données vers Azure est terminé, la Data Box eff
 Ce tutoriel vous a apporté des connaissances concernant Azure Data Box, notamment concernant les points suivants :
 
 > [!div class="checklist"]
-> * Conditions préalables requises
+> * Prérequis
 > * Préparer l’expédition
 > * Expédier le Data Box Heavy à Microsoft
 > * Vérifier le chargement des données dans Azure

@@ -4,13 +4,13 @@ description: Le tutoriel implémente la création du réseau virtuel hub qui agi
 ms.topic: tutorial
 ms.date: 10/26/2019
 ms.openlocfilehash: 28ccb89d237cbe21dd0433da5f7fbb32883f6550
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74159247"
 ---
-# <a name="tutorial-create-a-hub-virtual-network-appliance-in-azure-using-terraform"></a>Didacticiel : Créer une appliance de réseau virtuel hub dans Azure avec Terraform
+# <a name="tutorial-create-a-hub-virtual-network-appliance-in-azure-using-terraform"></a>Tutoriel : Créer une appliance de réseau virtuel hub dans Azure avec Terraform
 
 Un **appareil VPN** est un appareil qui fournit la connectivité externe à un réseau local. L’appareil VPN peut être un équipement matériel ou une solution logicielle. Le service de routage et d’accès à distance (RRAS) dans Windows Server 2012 est un exemple de solution logicielle. Pour plus d’informations sur les appliances VPN, voir [À propos des appareils VPN pour les connexions de la passerelle VPN de site à site](/azure/vpn-gateway/vpn-gateway-about-vpn-devices).
 
@@ -19,7 +19,7 @@ Azure prend en charge un large éventail d’appliances virtuelles réseau à pa
 Ce tutoriel décrit les tâches suivantes :
 
 > [!div class="checklist"]
-> * Utilisation de HCL (HashiCorp Language) pour implémenter le réseau virtuel hub dans la topologie hub-spoke
+> * Utiliser HCL (HashiCorp Language) pour implémenter le réseau virtuel hub dans la topologie hub-and-spoke
 > * Utilisation de Terraform pour créer la machine virtuelle de réseau hub qui agit en tant qu’appliance
 > * Utilisation de Terraform pour activer des itinéraires au moyen d’extensions CustomScript
 > * Utilisation de Terraform pour créer des tables de routage de passerelle hub-and-spoke

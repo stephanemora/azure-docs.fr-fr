@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Land Gorilla | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Land Gorilla | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Land Gorilla Client.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 08/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e7c2f9b076d831f4d851a964ababb64930a7c7f8
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68880006"
 ---
-# <a name="tutorial-integrate-land-gorilla-with-azure-active-directory"></a>Didacticiel : Intégrer Land Gorilla à Azure Active Directory
+# <a name="tutorial-integrate-land-gorilla-with-azure-active-directory"></a>Tutoriel : Intégrer Land Gorilla à Azure Active Directory
 
 Dans ce tutoriel, vous allez apprendre à intégrer Land Gorilla à Azure Active Directory (Azure AD). Quand vous intégrez Land Gorilla à Azure AD, vous pouvez :
 
@@ -80,7 +80,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la page **Configurer l’authentification unique avec SAML**, entrez les valeurs des champs suivants :
+1. Dans la page **Configurer l’authentification unique avec SAML**, entrez les valeurs pour les champs suivants :
 
     a. Dans la zone de texte **Identificateur**, tapez une URL en utilisant un des formats suivants :
 
@@ -102,7 +102,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur et l’URL de réponse réels. Nous vous suggérons d’utiliser ici la valeur de chaîne unique dans l’identificateur. Pour obtenir ces valeurs, contactez [l’équipe de support technique Land Gorilla Client](https://www.landgorilla.com/support/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération**, puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
+1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération** et sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
 

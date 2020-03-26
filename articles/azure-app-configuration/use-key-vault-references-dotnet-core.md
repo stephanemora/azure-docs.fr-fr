@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/21/2020
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: 4e896c5fa6f8656be29eed7eb8d4e8854a94ecfa
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: eceb4a9d4e0cc84166280f30b094b82088f53a4a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77116621"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79475304"
 ---
 # <a name="tutorial-use-key-vault-references-in-an-aspnet-core-app"></a>Tutoriel : Utiliser des références Key Vault dans une application ASP.NET Core
 
@@ -41,7 +41,7 @@ Dans ce tutoriel, vous allez apprendre à :
 > * Créer une clé App Configuration qui référence une valeur stockée dans Key Vault.
 > * Accéder à la valeur de cette clé à partir d’une application web ASP.NET Core.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant d’effectuer ce tutoriel, installez le [kit SDK .NET Core](https://dotnet.microsoft.com/download).
 
@@ -110,7 +110,6 @@ Pour ajouter un secret au coffre, vous n’avez qu’à effectuer deux autres é
     "tenantId": "35ad10f1-7799-4766-9acf-f2d946161b77",
     "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
     "resourceManagerEndpointUrl": "https://management.azure.com/",
-    "activeDirectoryGraphResourceId": "https://graph.windows.net/",
     "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
     "galleryEndpointUrl": "https://gallery.azure.com/",
     "managementEndpointUrl": "https://management.core.windows.net/"
@@ -125,7 +124,7 @@ Pour ajouter un secret au coffre, vous n’avez qu’à effectuer deux autres é
 
 1. Ajoutez des variables d’environnement pour stocker les valeurs de *clientId*, *clientSecret* et *tenantId*.
 
-    #### <a name="windows-command-prompttabcmd"></a>[Invite de commandes Windows](#tab/cmd)
+    #### <a name="windows-command-prompt"></a>[Invite de commandes Windows](#tab/cmd)
 
     ```cmd
     setx AZURE_CLIENT_ID <clientId-of-your-service-principal>
@@ -133,7 +132,7 @@ Pour ajouter un secret au coffre, vous n’avez qu’à effectuer deux autres é
     setx AZURE_TENANT_ID <tenantId-of-your-service-principal>
     ```
 
-    #### <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+    #### <a name="powershell"></a>[PowerShell](#tab/powershell)
 
     ```PowerShell
     $Env:AZURE_CLIENT_ID = <clientId-of-your-service-principal>
@@ -141,7 +140,7 @@ Pour ajouter un secret au coffre, vous n’avez qu’à effectuer deux autres é
     $Env:AZURE_TENANT_ID = <tenantId-of-your-service-principal>
     ```
 
-    #### <a name="bashtabbash"></a>[Bash](#tab/bash)
+    #### <a name="bash"></a>[Bash](#tab/bash)
 
     ```bash
     export AZURE_CLIENT_ID = <clientId-of-your-service-principal>
@@ -174,7 +173,7 @@ Pour ajouter un secret au coffre, vous n’avez qu’à effectuer deux autres é
 
 1. Mettez à jour la méthode `CreateWebHostBuilder` pour utiliser App Configuration en appelant la méthode `config.AddAzureAppConfiguration`. Incluez l’option `ConfigureKeyVault` et transmettez les informations d’identification correctes à votre coffre de clés.
 
-    #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
+    #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -195,7 +194,7 @@ Pour ajouter un secret au coffre, vous n’avez qu’à effectuer deux autres é
             .UseStartup<Startup>();
     ```
 
-    #### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
+    #### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
 
     ```csharp
         public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -245,13 +244,13 @@ Pour ajouter un secret au coffre, vous n’avez qu’à effectuer deux autres é
 
 1. Pour générer l’application à l’aide de l’interface CLI .NET Core, exécutez la commande suivante dans l’interpréteur de commandes :
 
-    ```
+    ```dotnetcli
     dotnet build
     ```
 
 1. Une fois la génération terminée, utilisez la commande suivante pour exécuter l’application web localement :
 
-    ```
+    ```dotnetcli
     dotnet run
     ```
 

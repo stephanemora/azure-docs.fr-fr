@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: rohink
 ms.openlocfilehash: 559ed0a134bb6db78d1e89634138b4025e04152b
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76934763"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>Démarrage rapide : Créer un profil Traffic Manager à l’aide du portail Azure
@@ -31,7 +31,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Connectez-vous au [portail Azure](https://portal.azure.com).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour ce guide de démarrage rapide, vous aurez besoin de deux instances d’une application web déployée dans deux régions Azure différentes (*USA Est* et *Europe Ouest*). Chacune servira de point de terminaison principal et de point de terminaison de basculement à Traffic Manager.
 
@@ -65,11 +65,11 @@ Créez un profil Traffic Manager qui dirige le trafic utilisateur en fonction de
 
     | Paramètre | Valeur |
     | --------| ----- |
-    | Name | Attribuez un nom unique à votre profil Traffic Manager.|
+    | Nom | Attribuez un nom unique à votre profil Traffic Manager.|
     | Méthode de routage | Sélectionnez **Priorité**.|
-    | Subscription | Sélectionnez l’abonnement auquel vous souhaitez appliquer le profil Traffic Manager. |
+    | Abonnement | Sélectionnez l’abonnement auquel vous souhaitez appliquer le profil Traffic Manager. |
     | Resource group | Sélectionnez *myResourceGroupTM1*.|
-    | Location |Ce paramètre fait référence à l’emplacement du groupe de ressources. Il n’a aucun effet sur le profil Traffic Manager qui sera déployé globalement.|
+    | Emplacement |Ce paramètre fait référence à l’emplacement du groupe de ressources. Il n’a aucun effet sur le profil Traffic Manager qui sera déployé globalement.|
 
 3. Sélectionnez **Create** (Créer).
 
@@ -85,7 +85,7 @@ Ajoutez le site web dans la région *USA Est* en tant que point de terminaison p
     | Paramètre | Valeur |
     | ------- | ------|
     | Type | Sélectionnez **Point de terminaison Azure**. |
-    | Name | Entrez *myPrimaryEndpoint*. |
+    | Nom | Entrez *myPrimaryEndpoint*. |
     | Type de ressource cible | Sélectionner **App Service**. |
     | Ressource cible | Sélectionnez **Choisir un service d’application** > **USA Est**. |
     | Priority | Sélectionnez **1**. Tout le trafic se dirige vers ce point de terminaison quand il est sain. |
@@ -98,7 +98,7 @@ Ajoutez le site web dans la région *USA Est* en tant que point de terminaison p
     | Paramètre | Valeur |
     | ------- | ------|
     | Type | Sélectionnez **Point de terminaison Azure**. |
-    | Name | Entrez *myFailoverEndpoint*. |
+    | Nom | Entrez *myFailoverEndpoint*. |
     | Type de ressource cible | Sélectionner **App Service**. |
     | Ressource cible | Sélectionnez **Choisir un service d’application** > **Europe Ouest**. |
     | Priority | Sélectionnez **2**. Tout le trafic se dirige vers ce point de terminaison de basculement si le point de terminaison principal n’est pas sain. |

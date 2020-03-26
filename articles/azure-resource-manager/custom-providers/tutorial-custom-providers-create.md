@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: jobreen
 ms.openlocfilehash: 09df78955de6423244c2d8ec94e1e1c06ecab257
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75648736"
 ---
 # <a name="create-and-use-a-custom-provider"></a>Créer et utiliser un fournisseur personnalisé
@@ -109,7 +109,7 @@ Après avoir créé un fournisseur personnalisé, vous pouvez utiliser les nouve
 
 ### <a name="custom-actions"></a>Actions personnalisées
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 > [!NOTE]
 > Vous devez remplacer les espaces réservés `{subscriptionId}` et `{resourceGroupName}` par l’abonnement et le groupe de ressources où vous avez déployé le fournisseur personnalisé.
@@ -129,7 +129,7 @@ Paramètre | Obligatoire | Description
 *ids* | Oui | ID de ressource du fournisseur personnalisé
 *request-body* | Non | Corps de la requête qui sera envoyé au point de terminaison
 
-# <a name="templatetabtemplate"></a>[Modèle](#tab/template)
+# <a name="template"></a>[Modèle](#tab/template)
 
 Aucun.
 
@@ -137,7 +137,7 @@ Aucun.
 
 ### <a name="custom-resources"></a>Ressources personnalisées
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 > [!NOTE]
 > Vous devez remplacer les espaces réservés `{subscriptionId}` et `{resourceGroupName}` par l’abonnement et le groupe de ressources où vous avez déployé le fournisseur personnalisé.
@@ -182,7 +182,7 @@ Paramètre | Obligatoire | Description
 ---|---|---
 *id* | Oui | ID de ressource de la ressource personnalisée. Cet ID est une extension de l’ID de ressource du fournisseur personnalisé.
 
-# <a name="templatetabtemplate"></a>[Modèle](#tab/template)
+# <a name="template"></a>[Modèle](#tab/template)
 
 Exemple de modèle Resource Manager :
 

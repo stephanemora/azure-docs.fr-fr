@@ -6,12 +6,12 @@ ms.topic: quickstart
 description: Ce guide de démarrage rapide vous montre comment utiliser Azure Dev Spaces et la ligne de commande pour développer une application sur Azure Kubernetes Service
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 974f0039bb16dc685bb056e279df63933e358edd
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 8ee5cba06d9a526640d9057ee88a681d46392f4f
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78245249"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80239710"
 ---
 # <a name="quickstart-develop-an-application-on-kubernetes---azure-dev-spaces"></a>Démarrage rapide : Développer une application dans Kubernetes - Azure Dev Spaces
 Dans ce guide, vous allez apprendre à :
@@ -84,7 +84,7 @@ azds prep --enable-ingress
 Vous devez exécuter la commande `prep` à partir du répertoire *dev-spaces/samples/nodejs/getting-started/webfrontend* pour générer correctement les ressources Docker et chart Helm.
 
 > [!TIP]
-> La commande `prep` tente de générer un [Dockerfile et un chart Helm](how-dev-spaces-works.md#prepare-your-code) pour votre projet. Azure Dev Spaces utilise ces fichiers pour générer et exécuter votre code. Toutefois, vous pouvez modifier ces fichiers si vous souhaitez changer la façon dont le projet est généré et exécuté.
+> La commande `prep` tente de générer un [Dockerfile et un chart Helm](how-dev-spaces-works-prep.md#prepare-your-code) pour votre projet. Azure Dev Spaces utilise ces fichiers pour générer et exécuter votre code. Toutefois, vous pouvez modifier ces fichiers si vous souhaitez changer la façon dont le projet est généré et exécuté.
 
 ## <a name="build-and-run-code-in-kubernetes"></a>Générer et exécuter du code dans Kubernetes
 

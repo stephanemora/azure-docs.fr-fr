@@ -16,17 +16,17 @@ ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: d97323f1916ee46e6b1f8d4ca8723b950baca39c
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74064798"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222226"
 ---
-# <a name="tutorial-monitor-changes-and-update-a-windows-virtual-machine-in-azure"></a>Didacticiel : Superviser les changements et mettre à jour une machine virtuelle Windows dans Azure
+# <a name="tutorial-monitor-changes-and-update-a-windows-virtual-machine-in-azure"></a>Tutoriel : Superviser les changements et mettre à jour une machine virtuelle Windows dans Azure
 
 Avec Azure [Change Tracking](../../automation/change-tracking.md) et [Update Management](../../automation/automation-update-management.md), vous pouvez facilement identifier les modifications apportées à vos machines virtuelles Windows dans Azure, et gérer les mises à jour du système d’exploitation pour ces machines virtuelles.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Gérer les mises à jour Windows
@@ -145,7 +145,7 @@ Sélectionnez le déploiement de mises à jour terminé pour voir le tableau de 
 La vignette **Résultats des mises à jour** affiche un récapitulatif du nombre total de mises à jour et les résultats du déploiement sur la machine virtuelle. Le tableau de droite montre une répartition détaillée de chaque mise à jour, ainsi que les résultats de l’installation. Chaque résultat doit avoir l’une des valeurs suivantes :
 
 * **Aucune tentative effectuée** : La mise à jour n’a pas été installée. Le temps disponible n’était pas suffisant pour la durée définie de la fenêtre de maintenance.
-* **Réussi** : la mise à jour a réussi.
+* **Opération réussie** : la mise à jour a réussi.
 * **Échec** : la mise à jour a échoué.
 
 Pour afficher toutes les entrées de journal d’activité créées par le déploiement, sélectionnez **Tous les journaux d’activité**.
@@ -175,7 +175,7 @@ Même si les solutions sont séparées dans le menu, elles forment une même sol
 
 Une fois la solution activée, un délai peut être nécessaire avant que l’inventaire ne soit effectué sur la machine virtuelle et que les données ne s’affichent.
 
-### <a name="track-changes"></a>Suivi des modifications
+### <a name="track-changes"></a>Suivre les modifications
 
 Sur votre machine virtuelle, sous **Opérations**, sélectionnez **Suivi des modifications**, puis sélectionnez **Modifier les paramètres**. Le volet **Suivi des modifications** s’ouvre. Sélectionnez le type de paramètre que vous souhaitez suivre, puis cliquez sur **+ Ajouter** pour configurer les paramètres.
 
@@ -208,7 +208,7 @@ Chacune des lignes des graphiques à barres représente un type de modification 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez configuré et passé en revue les solutions Change Tracking et Update Management pour votre machine virtuelle. Vous avez appris à effectuer les actions suivantes :
+Dans ce tutoriel, vous avez configuré et passé en revue les solutions Change Tracking et Update Management pour votre machine virtuelle. Vous avez appris à :
 
 > [!div class="checklist"]
 > * Créez un groupe de ressources et une machine virtuelle.

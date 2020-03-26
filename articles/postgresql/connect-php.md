@@ -9,10 +9,10 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 2/28/2018
 ms.openlocfilehash: 6e453201eb499f65ee7f3b8c17cbf0e5127182b0
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74766376"
 ---
 # <a name="azure-database-for-postgresql---single-server-use-php-to-connect-and-query-data"></a>Azure Database pour PostgreSQL (serveur unique) : Utiliser PHP pour se connecter et interroger des données
@@ -23,7 +23,7 @@ Ce guide de démarrage rapide s’appuie sur les ressources créées dans l’u
 - [Créer une base de données - Portail](quickstart-create-server-database-portal.md)
 - [Créer une base de données - Interface de ligne de commande Azure](quickstart-create-server-database-azure-cli.md)
 
-## <a name="install-php"></a>Installer PHP
+## <a name="install-php"></a>Installer PHP
 Installez PHP sur votre serveur, ou créez une [application web](../app-service/overview.md) Azure incluant PHP.
 
 ### <a name="windows"></a>Windows

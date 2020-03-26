@@ -10,13 +10,13 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 11/04/2019
 ms.openlocfilehash: 7c38ba6dbabef4affd8672295a93d46fd4b0e494
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74384180"
 ---
-# <a name="tutorial-sync-data-from-sql-database-edge-to-azure-sql-database-by-using-sql-data-sync"></a>Didacticiel : Synchroniser des données entre SQL Database Edge et Azure SQL Database à l’aide de SQL Data Sync
+# <a name="tutorial-sync-data-from-sql-database-edge-to-azure-sql-database-by-using-sql-data-sync"></a>Tutoriel : Synchroniser des données entre SQL Database Edge et Azure SQL Database à l’aide de SQL Data Sync
 
 Dans ce tutoriel, vous apprenez à utiliser un *groupe de synchronisation* Azure SQL Data Sync pour synchroniser de façon incrémentielle des données entre Azure SQL Database Edge et Azure SQL Database. SQL Data Sync est un service conçu sur Azure SQL Database qui vous permet de synchroniser les données choisies de manière bidirectionnelle sur plusieurs bases de données SQL et instances SQL Server. Pour plus d’informations sur SQL Data Sync, consultez [Azure SQL Data Sync](../sql-database/sql-database-sync-data.md).
 

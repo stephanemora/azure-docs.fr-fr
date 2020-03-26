@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de Azure Active Directory à Costpoint | Microsoft Docs'
+title: 'Tutoriel : Intégration de Azure Active Directory à Costpoint | Microsoft Docs'
 description: Découvrez comment configurer l'authentification unique entre Azure Active Directory et Costpoint.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 08/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 01168540e27605db0d240c0774159a710b5d5254
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71840103"
 ---
-# <a name="tutorial-integrate-costpoint-with-azure-active-directory"></a>Didacticiel : Intégrer Costpoint à Azure Active Directory
+# <a name="tutorial-integrate-costpoint-with-azure-active-directory"></a>Tutoriel : Intégrer Costpoint à Azure Active Directory
 
 Dans ce tutoriel, vous allez apprendre à intégrer Costpoint avec Azure Active Directory (Azure AD). Quand vous intégrez Costpoint à Azure AD, vous pouvez :
 

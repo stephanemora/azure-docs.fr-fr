@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory avec ExcelityGlobal | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory avec ExcelityGlobal | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et ExcelityGlobal.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
 ms.openlocfilehash: a8ea503343f05f8b7ae5f121f3365f82794be2f3
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73156775"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-excelityglobal"></a>Didacticiel : Intégration d’Azure Active Directory avec ExcelityGlobal
+# <a name="tutorial-azure-active-directory-integration-with-excelityglobal"></a>Tutoriel : Intégration d’Azure Active Directory avec ExcelityGlobal
 
 Dans ce didacticiel, vous allez apprendre à intégrer ExcelityGlobal avec Azure Active Directory (Azure AD).
 L’intégration d’ExcelityGlobal avec Azure AD vous offre les avantages suivants :
@@ -162,7 +162,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
     b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
-    Par exemple, BrittaSimon@contoso.com
+    Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
@@ -210,4 +210,4 @@ Quand vous cliquez sur la vignette ExcelityGlobal dans le volet d’accès, vous
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

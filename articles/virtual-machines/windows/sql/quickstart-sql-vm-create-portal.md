@@ -14,10 +14,10 @@ ms.date: 07/11/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 801a6fc0602882d1af49c06bafcfd51942e6da2e
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75965651"
 ---
 # <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>Démarrage rapide : Créer une machine virtuelle Windows SQL Server 2017 dans le portail Azure
@@ -33,11 +33,11 @@ Ce démarrage rapide décrit les étapes de base de création d’une machine vi
   > - Ce démarrage rapide vous présente les étapes de mise en service et de connexion rapide d’une machine virtuelle SQL. Pour plus d’informations sur les autres options de mise en service des machines virtuelles SQL, consultez le [guide de mise en service des machines virtuelles Windows SQL Server dans le portail Azure](virtual-machines-windows-portal-sql-server-provision.md).
   > - Si vous avez des questions sur les machines virtuelles SQL Server, consultez le [Forum aux Questions](virtual-machines-windows-sql-server-iaas-faq.md).
 
-## <a id="subscription"></a> Obtenir un abonnement Azure
+## <a name="get-an-azure-subscription"></a><a id="subscription"></a> Obtenir un abonnement Azure
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a id="select"></a> Sélectionner une image de machine virtuelle SQL Server
+## <a name="select-a-sql-server-vm-image"></a><a id="select"></a> Sélectionner une image de machine virtuelle SQL Server
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) à l’aide de votre compte.
 
@@ -51,13 +51,13 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
    ![Fenêtre de nouvelle recherche](./media/quickstart-sql-vm-create-portal/create-sql-2017-vm-image.png)
 
-## <a id="configure"></a> Fournir des informations de base
+## <a name="provide-basic-details"></a><a id="configure"></a> Fournir des informations de base
 
 Sous l’onglet **De base**, fournissez les informations suivantes :
 
 1. Dans la section **Détails du projet**, sélectionnez votre abonnement Azure, puis sélectionnez **Créer** pour créer un groupe de ressources. Tapez _SQLVM-RG_ pour le nom.
 
-   ![Subscription](media/quickstart-sql-vm-create-portal/basics-project-details.png)
+   ![Abonnement](media/quickstart-sql-vm-create-portal/basics-project-details.png)
 
 1. Sous **Détails de l’instance** :
     1. Tapez _SQLVM_ pour le **Nom de la machine virtuelle**. 
@@ -116,7 +116,7 @@ Vous pouvez surveiller le déploiement à partir du portail Azure. Le bouton **N
 
     ![connecter ssms](./media/quickstart-sql-vm-create-portal/ssms-connect.png)
 
-## <a id="remotedesktop"></a> Se connecter à la machine virtuelle à distance
+## <a name="log-in-to-the-vm-remotely"></a><a id="remotedesktop"></a> Se connecter à la machine virtuelle à distance
 
 Pour vous connecter à la machine virtuelle SQL Server à l’aide du Bureau à distance, procédez comme suit.
 

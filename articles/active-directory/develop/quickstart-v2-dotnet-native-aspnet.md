@@ -12,10 +12,10 @@ ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
 ms.openlocfilehash: 582afef8929da2ba75aab70c1ed0fa9e57fd3f19
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76703471"
 ---
 # <a name="quickstart-call-an-aspnet-web-api-protected-by-microsoft-identity-platform"></a>Démarrage rapide : Appeler une API web ASP.NET protégée par la plateforme d’identités Microsoft
@@ -24,7 +24,7 @@ Dans démarrage rapide, vous exposez une API web et la protégez afin que seuls 
 
 L’exemple inclut également un client d’application de bureau Windows (WPF) qui montre comment demander un jeton d’accès pour accéder à une API web.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour exécuter cet exemple, vous avez besoin des éléments suivants :
 

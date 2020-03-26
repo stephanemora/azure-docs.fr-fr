@@ -8,10 +8,10 @@ author: cjgronlund
 ms.author: cgronlun
 ms.date: 11/04/2019
 ms.openlocfilehash: fd5697f9c325dc4ad866c333ce1b20e008ebfa24
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73606152"
 ---
 # <a name="what-are-azure-open-datasets-and-how-can-you-use-them"></a>Qu’est-ce qu’Azure Open Datasets et comment l’utiliser ?
@@ -33,14 +33,14 @@ Voici quelques exemples de jeux de données disponibles.
 
 ### <a name="weather-data"></a>Données météorologiques
  
-|Jeu de données         | Notebooks     | Description                                    |
+|Dataset         | Notebooks     | Description                                    |
 |----------------|---------------|------------------------------------------------|
 |[Données de surface intégrées (DSI) de la NOAA](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/) | [Azure Notebooks](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/?tab=data-access#AzureNotebooks) <br> [Azure Databricks](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/?tab=data-access#AzureDatabricks) | Données météorologiques horaires mondiales de la NOAA offrant la meilleure couverture spatiale pour l'Amérique du Nord, l'Europe, l'Australie et certaines parties de l'Asie. Mises à jour quotidiennement. |
 |[Global Forecast System (GFS) de la NOAA](https://azure.microsoft.com/services/open-datasets/catalog/noaa-global-forecast-system/) | [Azure Notebooks](https://azure.microsoft.com/services/open-datasets/catalog/noaa-global-forecast-system/?tab=data-access#AzureNotebooks) <br> [Azure Databricks](https://azure.microsoft.com/services/open-datasets/catalog/noaa-global-forecast-system/?tab=data-access#AzureDatabricks) | Données de prévisions météorologiques horaires concernant les États-Unis, sur 15 jours, fournies par la NOAA. Mises à jour quotidiennement. |
 
 ### <a name="calendar-data"></a>Données de calendrier
 
-|Jeu de données         | Notebooks     | Description                                    |
+|Dataset         | Notebooks     | Description                                    |
 |----------------|---------------|------------------------------------------------|
 |[Jours fériés](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/) | [Azure Notebooks](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/?tab=data-access#AzureNotebooks) <br> [Azure Databricks](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/?tab=data-access#AzureDatabricks) | Données internationales portant sur les jours fériés et couvrant 41 pays ou régions, de 1970 à 2099. Désigne le pays et indique si la majorité des habitants bénéficient de congés payés. |
 
@@ -57,5 +57,5 @@ Si vous ne trouvez pas les données que vous recherchez, envoyez-nous un e-mail 
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Exemple de notebook](samples.md)
-* [Tutoriel : Modélisation de régression avec données sur les taxis de New York](/azure/machine-learning/service/tutorial-auto-train-models?context=azure/open-datasets/context/open-datasets-context)
-* [Kit de développement logiciel (SDK) Python pour jeux de données ouverts](/python/api/azureml-opendatasets/?view=azure-ml-py)
+* [Tutoriel : Modélisation de régression avec données sur les taxis de New York](/azure/machine-learning/service/tutorial-auto-train-models?context=azure/open-datasets/context/open-datasets-context)
+* [Kit de développement logiciel (SDK) Python pour Open Datasets](/python/api/azureml-opendatasets/?view=azure-ml-py)

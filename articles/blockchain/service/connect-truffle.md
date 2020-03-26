@@ -5,10 +5,10 @@ ms.date: 11/20/2019
 ms.topic: quickstart
 ms.reviewer: janders
 ms.openlocfilehash: 9ea96aa32072775fe6fb9563442f5e3564d37ea5
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74455802"
 ---
 # <a name="quickstart-use-truffle-to-connect-to-azure-blockchain-service"></a>Démarrage rapide : Utiliser Truffle pour vous connecter à Azure Blockchain Service
@@ -52,7 +52,7 @@ Dans ce guide de démarrage rapide, vous allez utiliser Truffle pour vous connec
 
 Pour configurer le projet Truffle, vous avez besoin d’obtenir certaines informations sur le nœud de transaction à partir du portail Azure.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Accédez au membre Azure Blockchain Service. Sélectionnez **Nœuds de transaction**, puis le lien du nœud de transaction par défaut.
 
     ![Sélectionner le nœud de transaction par défaut](./media/connect-truffle/transaction-nodes.png)

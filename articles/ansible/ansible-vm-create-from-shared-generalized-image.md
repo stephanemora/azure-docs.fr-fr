@@ -5,13 +5,13 @@ keywords: ansible, azure, devops, bash, playbook, machine virtuelle, groupe de m
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.openlocfilehash: f784419736854095cc1bc5da14f3867ac3f7eb12
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74155827"
 ---
-# <a name="tutorial-create-a-vm-or-virtual-machine-scale-set-from-the-azure-shared-image-gallery-using-ansible"></a>Didacticiel : Créer une machine virtuelle ou un groupe de machines virtuelles identiques à partir d’Azure Shared Image Gallery en utilisant Ansible
+# <a name="tutorial-create-a-vm-or-virtual-machine-scale-set-from-the-azure-shared-image-gallery-using-ansible"></a>Tutoriel : Créer une machine virtuelle ou un groupe de machines virtuelles identiques à partir d’Azure Shared Image Gallery en utilisant Ansible
 
 [!INCLUDE [ansible-29-note.md](../../includes/ansible-29-note.md)]
 
@@ -364,11 +364,11 @@ Exécutez le playbook à l’aide de la commande `ansible-playbook` :
 ansible-playbook 07-delete-gallery.yml
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous n’en avez plus besoin, supprimez les ressources créées dans cet article. 
 
-Le code de l’exemple de playbook de cette section permet de :
+L’exemple de code de playbook dans cette section est utilisé pour :
 
 - Supprimer les deux groupes de ressources créés
 

@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Règles de routage basées sur un chemin d’URL à l’aide du portail – Azure Application Gateway'
+title: 'Tutoriel : Règles de routage basées sur un chemin d’URL à l’aide du portail – Azure Application Gateway'
 description: Dans ce tutoriel, découvrez comment créer des règles d’acheminement par chemin d’accès URL pour une passerelle d’application et un groupe de machines virtuelles identiques avec le portail Azure.
 services: application-gateway
 author: vhorne
@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.date: 11/14/2019
 ms.author: victorh
 ms.openlocfilehash: bc810ac7901d83f03d3f3ac2199561225326d261
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74048134"
 ---
-# <a name="tutorial-create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Didacticiel : Créer une passerelle d’application avec des règles d’acheminement par chemin d’accès à l’aide du portail Azure
+# <a name="tutorial-create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Tutoriel : Créer une passerelle d’application avec des règles d’acheminement par chemin d’accès à l’aide du portail Azure
 
 Vous pouvez utiliser le portail Azure pour configurer des [règles d’acheminement par chemin d’accès URL](application-gateway-url-route-overview.md) lors de la création d’une [passerelle d’application](application-gateway-introduction.md). Ce didacticiel montre comment créer des pools principaux à l’aide de machines virtuelles. Il permet ensuite de définir des règles d’acheminement qui font en sorte que le trafic web arrive sur les serveurs voulus dans les pools.
 
@@ -131,7 +131,7 @@ Le pool de back-ends est utilisé pour router les demandes vers les serveurs bac
 
 2. Dans la fenêtre **Ajouter un pool de back-ends** qui s’ouvre, entrez les valeurs suivantes pour créer un pool de back-ends vide :
 
-    - **Nom** : Entrez *myBackendPool* comme nom du pool de back-ends.
+    - **Name** : Entrez *myBackendPool* comme nom du pool de back-ends.
 3. Sous **Cibles de back-end**, **Type de cible**, sélectionnez **Machine virtuelle** dans la liste déroulante.
 
 5. Sous **Cible**, sélectionnez l’interface réseau pour **myVM1**.

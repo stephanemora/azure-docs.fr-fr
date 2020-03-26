@@ -1,6 +1,6 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -9,10 +9,10 @@ ms.date: 11/04/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 4bcee1097010bb8746b11185a470ca2584485c3f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73488949"
 ---
 1. Sur la page du portail de votre réseau étendu virtuel, dans la section **Connectivité**, sélectionnez **Sites VPN** pour ouvrir la page correspondante.
@@ -32,8 +32,8 @@ ms.locfileid: "73488949"
    ![links](./media/virtual-wan-tutorial-site-include/links.png "Liens")
 
     * **Nom du lien** : nom que vous souhaitez fournir pour le lien physique sur le site VPN. Exemple : mylink1.
-    * **Nom du fournisseur** : nom du lien physique sur le site VPN. Exemple : ATT, Verizon.
-    * **Vitesse** : vitesse du périphérique VPN à l’emplacement de la branche. Exemple : 50, ce qui signifie que 50 Mbits/s est la vitesse du périphérique VPN à l’emplacement de la branche.
+    * **Nom du fournisseur** : nom du lien physique sur le site VPN. Exemple : ATT, Verizon.
+    * **Vitesse** : vitesse du périphérique VPN à l’emplacement de la branche. Exemple : 50, ce qui signifie que 50 Mbits/s est la vitesse du périphérique VPN à l’emplacement de la branche.
     * **Adresse IP** : adresse IP publique du périphérique local utilisant ce lien. Si vous le souhaitez, vous pouvez fournir l’adresse IP privée de votre périphérique VPN local qui se trouve derrière ExpressRoute.
 5. Vous pouvez utiliser la case à cocher pour supprimer ou ajouter des liens. Quatre liens par site VPN sont pris en charge. Par exemple, si quatre fournisseurs de services Internet (ISP) se trouvent à l’emplacement de la branche, vous pouvez créer quatre liens. Ce qui signifie un lien par ISP pour lequel vous devez fournir des informations.
 6. Une fois que vous avez terminé de renseigner les champs, sélectionnez **Vérifier et créer** pour vérifier et créer le site.

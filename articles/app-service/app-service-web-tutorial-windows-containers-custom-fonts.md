@@ -1,15 +1,15 @@
 ---
-title: 'Didacticiel : Application héritée avec conteneur (préversion)'
+title: 'Tutoriel : Application héritée avec conteneur (préversion)'
 description: Découvrez comment migrer un conteneur Windows personnalisé vers Azure App Service, et comment déployer des logiciels personnalisés dans le conteneur.
 ms.topic: tutorial
 ms.date: 10/22/2019
-ms.custom: seodec18
-ms.openlocfilehash: 5fc65a4d3f9989ac462d7716b7652a1011281413
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 74cb88bc1ace87155a35163ca8f9d3d6c4242ae0
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671974"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80046614"
 ---
 # <a name="migrate-an-aspnet-app-to-azure-app-service-using-a-windows-container-preview"></a>Migrer une application ASP.NET vers Azure App Service à l’aide d’un conteneur Windows (préversion)
 
@@ -45,7 +45,7 @@ Dans l’Explorateur Windows, accédez à _custom-font-win-container-master/Cust
 
 Cette police est publiquement disponible à partir de [Google Fonts](https://fonts.google.com/specimen/Fredericka+the+Great).
 
-### <a name="run-the-app"></a>Exécution de l'application
+### <a name="run-the-app"></a>Exécuter l’application
 
 Ouvrez le fichier *custom-font-win-container/CustomFontSample.sln* dans Visual Studio. 
 
@@ -111,7 +111,7 @@ Dans la boîte de dialogue **Créer un registre de conteneurs Azure**, sélectio
 
 Configurez le nouveau registre de conteneurs en fonction des valeurs suggérées dans le tableau suivant. Lorsque vous avez terminé, cliquez sur **Créer**.
 
-| Paramètre  | Valeur suggérée | Pour plus d’informations |
+| Paramètre  | Valeur suggérée | Informations supplémentaires |
 | ----------------- | ------------ | ----|
 |**Préfixe DNS**| Conservez le nom généré du registre ou remplacez-le par un autre nom unique. |  |
 |**Groupe de ressources**| Cliquez sur **Nouveau**, tapez **myResourceGroup**, puis cliquez sur **OK**. |  |
@@ -134,7 +134,7 @@ Dans le menu de gauche, sélectionnez **Créer une ressource** > **Web** > **Web
 
 Dans l’onglet **Informations de base**, configurez les paramètres selon le tableau suivant, puis cliquez sur **Suivant : Docker**.
 
-| Paramètre  | Valeur suggérée | Pour plus d’informations |
+| Paramètre  | Valeur suggérée | Informations supplémentaires |
 | ----------------- | ------------ | ----|
 |**Abonnement**| Vérifiez que l’abonnement approprié est sélectionné. |  |
 |**Groupe de ressources**| Sélectionnez **Créer**, tapez **myResourceGroup** et cliquez sur **OK**. |  |

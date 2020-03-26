@@ -4,11 +4,11 @@ description: Dans ce guide de démarrage rapide, vous suivez les étapes pour ac
 ms.date: 11/21/2019
 ms.topic: quickstart
 ms.openlocfilehash: e75152c720d94f084b43f855452e5e8ce4dc6bc8
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74304127"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215637"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-cli"></a>Démarrage rapide : Exécuter votre première requête Resource Graph à l’aide d’Azure CLI
 
@@ -80,7 +80,7 @@ Une fois l’extension Azure CLI ajoutée à l’environnement de votre choix, v
 
 Si votre environnement ne change pas et que vous exécutez plusieurs fois la requête finale, les résultats retournés sont cohérents et conformes aux attentes. En effet, ils sont classés en fonction de la propriété **name** et limités aux cinq premiers.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous souhaitez supprimer l’extension Resource Graph de votre environnement Azure CLI, vous pouvez le faire à l’aide de la commande suivante :
 
@@ -91,7 +91,7 @@ az extension remove -n resource-graph
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez ajouté l’extension Resource Graph à votre environnement Azure CLI et vous avez exécuté votre première requête. Pour plus d’informations sur le langage Resource graph, consultez la page des détails du langage de requête.
+Dans ce guide de démarrage rapide, vous avez ajouté l’extension Resource Graph à votre environnement Azure CLI et vous avez exécuté votre première requête. Pour plus d’informations sur le langage Resource Graph, passez à la page des détails du langage de requête.
 
 > [!div class="nextstepaction"]
 > [Obtenir plus d’informations sur le langage de requête](./concepts/query-language.md)

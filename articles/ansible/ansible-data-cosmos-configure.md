@@ -5,13 +5,13 @@ keywords: Ansible, Azure, DevOps, Bash, playbook, Cosmos DB, base de données
 ms.topic: tutorial
 ms.date: 04/30/2019
 ms.openlocfilehash: 8c898e3cb0747a442d50b7241ebfcf401148817e
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74156471"
 ---
-# <a name="tutorial-configure-azure-cosmos-db-accounts-using-ansible"></a>Didacticiel : Configurer des comptes Azure Cosmos DB avec Ansible
+# <a name="tutorial-configure-azure-cosmos-db-accounts-using-ansible"></a>Tutoriel : Configurer des comptes Azure Cosmos DB avec Ansible
 
 [!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
@@ -140,8 +140,8 @@ Enfin, le dernier extrait de code montre comment supprimer un compte Azure Cosmo
 ## <a name="get-the-sample-playbook"></a>Obtenir l’exemple de playbook
 
 Il existe deux façons d’obtenir l’exemple de playbook complet :
-- [Télécharger le playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/cosmosdb_create.yml) et l’enregistrer dans `cosmosdb.yml`.
-- Créer un fichier nommé `cosmosdb.yml` et y copier le contenu suivant :
+- [Téléchargez le manifeste](https://github.com/Azure-Samples/ansible-playbooks/blob/master/cosmosdb_create.yml) et enregistrez-le sous `cosmosdb.yml`.
+- Créez un nouveau fichier nommé `cosmosdb.yml` et copiez-y le contenu suivant :
 
 ```yml
 ---
@@ -225,7 +225,7 @@ Il existe deux façons d’obtenir l’exemple de playbook complet :
         state: absent
 ```
 
-## <a name="run-the-sample-playbook"></a>Exécuter l’exemple de playbook
+## <a name="run-the-sample-playbook"></a>Exécutez l’exemple de playbook
 
 Dans cette section, exécutez le playbook pour tester les différentes fonctionnalités présentées dans cet article.
 
@@ -233,13 +233,13 @@ Avant d’exécuter le playbook, effectuez les modifications suivantes :
 - Dans la section `vars`, remplacez l’espace réservé `{{ resource_group_name }}` par le nom de votre groupe de ressources.
 - Vérifiez que cosmosdbaccount_name ne contient que des caractères minuscules et est globalement unique.
 
-Exécutez le playbook avec la commande `ansible-playbook` :
+Exécutez le playbook à l’aide de la commande `ansible-playbook` :
 
 ```bash
 ansible-playbook cosmosdb.yml
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous n’en avez plus besoin, supprimez les ressources créées dans cet article. 
 

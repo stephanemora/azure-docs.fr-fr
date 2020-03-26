@@ -10,10 +10,10 @@ ms.topic: overview
 ms.date: 08/28/2019
 ms.author: alkohli
 ms.openlocfilehash: 362b7457538a16d389c3cc40fc44da19b073c0b0
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "70142913"
 ---
 # <a name="what-is-azure-data-box-heavy"></a>Qu’est-ce qu’Azure Data Box Heavy ?
@@ -65,13 +65,13 @@ Dans cette version, l'appareil Data Box Heavy présente les caractéristiques su
 | Dimensions                                              | Largeur : 26 pouces Hauteur : 28 pouces Longueur : 48 pouces |
 | Espace en rack                                              | Ne peut pas être monté en rack|
 | Câbles requis                                         | 4 cordons d'alimentation 120 V/10 A mis à la terre (NEMA 5-15) inclus <br> L'appareil prend en charge une alimentation max. de 240 V et est doté de connecteurs C-13 <br> Utilisez des câbles réseau compatibles avec [Mellanox MCX314A-BCCT](https://store.mellanox.com/products/mellanox-mcx314a-bcct-connectx-3-pro-en-network-interface-card-40-56gbe-dual-port-qsfp-pcie3-0-x8-8gt-s-rohs-r6.html)  |
-| Puissance                                                    | 4 blocs d'alimentation intégrés partagés entre les deux nœuds de l'appareil <br> Consommation énergétique standard de 1 200 watts|
+| Power                                                    | 4 blocs d'alimentation intégrés partagés entre les deux nœuds de l'appareil <br> Consommation énergétique standard de 1 200 watts|
 | Capacité de stockage                                        | ~ 1 Po brut, 70 disques de 14 To chacun <br> 770 To de capacité utile|
 | Nombre de nœuds                                          | 2 nœuds indépendants par appareil (500 To chacun) |
 | Interfaces réseau par nœud                             | 4 interfaces réseau par nœud <br><br> MGMT, DATA3 <ul><li> 2 interfaces de 1 GbE </li><li> MGMT est dédiée à la gestion et l'installation initiale, et n’est pas configurable par l'utilisateur </li><li> DATA3 est configurable par l'utilisateur et l’interface DHCP (Dynamic Host Configuration Protocol) par défaut</li></ul>Interfaces de données DATA1, DATA2 <ul><li>2 interfaces de 40 GbE </li><li> Configurable par l’utilisateur pour statique ou DHCP (par défaut)</li></ul>|
 
 
-## <a name="components"></a>Composants
+## <a name="components"></a>Components
 
 Data Box Heavy inclut les composants suivants :
 

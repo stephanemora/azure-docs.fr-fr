@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à Whitesource | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Whitesource | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Whitesource.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 09/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b37bfbfbe17a8fa6fdb9118c32bce7ea87a2636c
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71241180"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-whitesource"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Whitesource
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-whitesource"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Whitesource
 
 Dans ce tutoriel, vous allez apprendre à intégrer Whitesource à Azure Active Directory (Azure AD). Quand vous intégrez Whitesource à Azure AD, vous pouvez :
 

@@ -14,25 +14,32 @@ ms.devlang: multiple
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: spelluru
-ms.openlocfilehash: 3fb2f4a4969e8df94a60ac20c761f073b6a9d030
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fef325b67c38eda09a05dac9d74bd5b97df164cc
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462090"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80067765"
 ---
 # <a name="tutorial-respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>Tutoriel : Répondre aux événements Azure Service Bus reçus via Azure Event Grid à l’aide d’Azure Functions et d’Azure Logic Apps
-Dans ce tutoriel, vous allez apprendre à répondre aux événements Azure Service Bus qui sont reçus via Azure Event Grid à l’aide d’Azure Functions et d’Azure Logic Apps. Vous allez effectuer les étapes suivantes :
- 
-- Créer une fonction Azure de test pour déboguer et voir le flux initial d’événements à partir d’Event Grid.
-- Créer une fonction Azure pour recevoir et traiter les messages Azure Service Bus en fonction des événements Event Grid.
-- Créer une application logique pour répondre aux événements Event Grid.
+Dans ce tutoriel, vous allez apprendre à répondre aux événements Azure Service Bus qui sont reçus via Azure Event Grid à l’aide d’Azure Functions et d’Azure Logic Apps. 
 
-Après avoir créé la rubrique Service Bus, Event Grid, Azure Functions et les artefacts Logic Apps, vous effectuez les actions suivantes : 
+Dans ce tutoriel, vous allez apprendre à :
+> [!div class="checklist"]
+> * Création d’un espace de noms Service Bus
+> * Préparer un exemple d’application pour envoyer des messages
+> * Configurer une fonction de test sur Azure
+> * Connecter la fonction et l’espace de noms via Event Grid
+> * Envoyer des messages à la rubrique Service Bus
+> * Recevoir des messages à l’aide d’Azure Functions
+> * Recevoir des messages à l’aide de Logic Apps
 
-1. Envoyer des messages à une rubrique Service Bus. 
-2. Vérifier que les abonnements à la rubrique ont reçu ces messages.
-3. Vérifier que la fonction ou l’application logique abonnée à l’événement l’a reçu. 
+## <a name="prerequisites"></a>Prérequis
+
+Pour suivre ce didacticiel, vérifiez que les éléments suivants sont installés :
+
+- [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](https://www.visualstudio.com/vs) ou ultérieur.
+- [Kit de développement logiciel (SDK) NET Core](https://www.microsoft.com/net/download/windows), version 2.0 ou ultérieure.
 
 ## <a name="create-a-service-bus-namespace"></a>Création d’un espace de noms Service Bus
 Suivez les instructions de ce tutoriel : [Démarrage rapide : utiliser le portail Azure pour créer une rubrique Service Bus et des abonnements à cette rubrique](service-bus-quickstart-topics-subscriptions-portal.md) pour effectuer les tâches suivantes :
@@ -65,7 +72,7 @@ Avant d’étudier le scénario dans son intégralité, configurez au moins une 
 Effectuez ensuite les étapes suivantes : 
 
 
-# <a name="azure-functions-v2tabv2"></a>[Azure Functions v2](#tab/v2)
+# <a name="azure-functions-v2"></a>[Azure Functions v2](#tab/v2)
 
 1. Développez **Fonctions** dans l’arborescence, puis sélectionnez votre fonction. Remplacez le code de la fonction par le code suivant : 
 
@@ -122,7 +129,7 @@ Effectuez ensuite les étapes suivantes :
 
     ![Obtenir l’URL de la fonction](./media/service-bus-to-event-grid-integration-example/get-function-url.png)
 
-# <a name="azure-functions-v1tabv1"></a>[Azure Functions v1](#tab/v1)
+# <a name="azure-functions-v1"></a>[Azure Functions v1](#tab/v1)
 
 1. Configurez la fonction pour utiliser la version **V1** : 
     1. Sélectionnez votre application de fonction dans l’arborescence, puis **Paramètres Function App**. 
@@ -288,7 +295,7 @@ Connectez une application logique avec Azure Service Bus et Azure Event Grid en 
     4. Sélectionnez **Obtenir des messages à partir d’un abonnement à une rubrique (Peek-lock)** . 
 
         ![Concepteur Logic Apps - action Obtenir les messages](./media/service-bus-to-event-grid-integration-example/service-bus-get-messages-step.png)
-    5. Attribuez un **nom à cette connexion**. Par exemple :  **Obtenir des messages à partir de l’abonnement à la rubrique**, puis sélectionnez l’espace de noms Service Bus. 
+    5. Attribuez un **nom à cette connexion**. Par exemple : **Obtenir des messages à partir de l’abonnement à la rubrique**, puis sélectionnez l’espace de noms Service Bus. 
 
         ![Concepteur Logic Apps - sélectionner l’espace de noms Service Bus](./media/service-bus-to-event-grid-integration-example/logic-apps-select-namespace.png) 
     6. Sélectionnez **RootManageSharedAccessKey**.

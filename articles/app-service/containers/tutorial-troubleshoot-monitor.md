@@ -6,10 +6,10 @@ ms.author: msangapu
 ms.topic: tutorial
 ms.date: 2/28/2020
 ms.openlocfilehash: d543a9364311b2cf5f0258fbf9185d27bb1bfb2f
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78399533"
 ---
 # <a name="tutorial-troubleshoot-an-app-service-app-with-azure-monitor"></a>Tutoriel : Résoudre les problèmes d’une application App Service avec Azure Monitor
@@ -272,7 +272,7 @@ Vous avez appris à effectuer les opérations suivantes :
 > * Envoyer des journaux à Log Analytics.
 > * Utiliser des requêtes de journal pour identifier et corriger les erreurs d’application web.
 
-## <a name="nextsteps"></a>Étapes suivantes
+## <a name="next-steps"></a><a name="nextsteps"></a>Étapes suivantes
 * [Interrogation de journaux d’activité grâce à Azure Monitor](../../azure-monitor/log-query/log-query-overview.md)
 * [Dépannage d’une application web dans le Service d’application Microsoft Azure à l’aide de Visual Studio](../troubleshoot-dotnet-visual-studio.md)
 * [Analyse des journaux d’activité d’application dans HDInsight (en anglais)](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)

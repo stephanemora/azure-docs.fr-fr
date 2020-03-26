@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à eCornell | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à eCornell | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et eCornell.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 10/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2dd24d57ca78d2c9a41dc9ad29324726bc431e2f
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72599782"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ecornell"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à eCornell
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ecornell"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à eCornell
 
 Dans ce tutoriel, vous allez découvrir comment intégrer eCornell à Azure Active Directory (Azure AD). Quand vous intégrez eCornell à Azure AD, vous pouvez :
 

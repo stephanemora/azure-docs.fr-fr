@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: quickstart
 ms.date: 06/12/2019
 ms.author: hrasheed
-ms.openlocfilehash: a6896eaad86c5e361c50cd81257131ee75a8d6a8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1c400e41c4c10023d2595bde8c0d62e26184cf05
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467044"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79370319"
 ---
 # <a name="quickstart-query-apache-hbase-in-azure-hdinsight-with-apache-phoenix"></a>Démarrage rapide : Exécuter des requêtes Apache HBase dans Azure HDInsight avec Apache Phoenix
 
@@ -23,7 +23,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un cluster Apache HBase. Consultez [Créer un cluster](../hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster) pour créer un cluster HDInsight.  Veillez à choisir le type de cluster **HBase**.
+* Un cluster Apache HBase. Consultez [Créer un cluster](../hadoop/apache-hadoop-linux-tutorial-get-started.md) pour créer un cluster HDInsight.  Veillez à choisir le type de cluster **HBase**.
 
 * Un client SSH. Pour plus d’informations, consultez [Se connecter à HDInsight (Apache Hadoop) à l’aide de SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -59,7 +59,7 @@ Vous pouvez utiliser SSH pour vous connecter à des clusters HBase, puis utilise
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-2. Remplacez le répertoire par le client Phoenix. Entrez la commande suivante :
+2. Remplacez le répertoire par le client Phoenix. Entrez la commande suivante :
 
     ```bash
     cd /usr/hdp/current/phoenix-client/bin
@@ -71,50 +71,50 @@ Vous pouvez utiliser SSH pour vous connecter à des clusters HBase, puis utilise
     ./sqlline.py ZOOKEEPER:2181:/hbase-unsecure
     ```
 
-4. Créez une table HBase. Entrez la commande suivante :
+4. Créez une table HBase. Entrez la commande suivante :
 
     ```sql
     CREATE TABLE Company (company_id INTEGER PRIMARY KEY, name VARCHAR(225));
     ```
 
-5. Utiliser la commande SQLLine `!tables` pour répertorier toutes les tables contenues dans HBase. Entrez la commande suivante :
+5. Utiliser la commande SQLLine `!tables` pour répertorier toutes les tables contenues dans HBase. Entrez la commande suivante :
 
     ```sqlline
     !tables
     ```
 
-6. Insérer les valeurs dans le tableau. Entrez la commande suivante :
+6. Insérer les valeurs dans le tableau. Entrez la commande suivante :
 
     ```sql
     UPSERT INTO Company VALUES(1, 'Microsoft');
     UPSERT INTO Company VALUES(2, 'Apache');
     ```
 
-7. Interroger la table. Entrez la commande suivante :
+7. Interroger la table. Entrez la commande suivante :
 
     ```sql
     SELECT * FROM Company;
     ```
 
-8. Supprimer un enregistrement. Entrez la commande suivante :
+8. Supprimer un enregistrement. Entrez la commande suivante :
 
     ```sql
     DELETE FROM Company WHERE COMPANY_ID=1;
     ```
 
-9. Déposer la table. Entrez la commande suivante :
+9. Déposer la table. Entrez la commande suivante :
 
     ```hbase
     DROP TABLE Company;
     ```
 
-10. Utiliser la commande SQLLine `!quit` pour quitter SQLLine. Entrez la commande suivante :
+10. Utiliser la commande SQLLine `!quit` pour quitter SQLLine. Entrez la commande suivante :
 
     ```sqlline
     !quit
     ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Après avoir suivi ce guide de démarrage rapide, vous souhaiterez peut-être supprimer le cluster. Avec HDInsight, vos données sont stockées Azure Storage, pour que vous puissiez supprimer un cluster en toute sécurité s’il n’est pas en cours d’utilisation. Vous devez également payer pour un cluster HDInsight, même lorsque vous ne l’utilisez pas. Étant donné que les frais pour le cluster sont bien plus élevés que les frais de stockage, économique, mieux vaut supprimer les clusters lorsqu’ils ne sont pas utilisés.
 

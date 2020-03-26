@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à Onit | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Onit | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Onit.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 08/28/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e908cb76a57f027494230edc648b69da0730ac27
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "70164238"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-onit"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Onit
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-onit"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Onit
 
 Dans ce tutoriel, vous allez découvrir comment intégrer Onit à Azure Active Directory (Azure AD). Quand vous intégrez Onit à Azure AD, vous pouvez :
 

@@ -14,19 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/24/2020
 ms.author: allensu
-ms.openlocfilehash: 4baf12533bed523c81ff41a81975f5bf5b918ac2
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 7c26487018b9632b5780dcd7c56ab36f286f8cac
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250817"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80059994"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-the-azure-portal-and-test-the-nat-service"></a>Tutoriel : Créer une passerelle NAT avec le portail Azure et tester le service NAT
 
 Dans ce tutoriel, vous allez créer une passerelle NAT pour fournir une connectivité sortante à des machines virtuelles dans Azure. Pour tester la passerelle NAT, vous déployez une machine virtuelle source et une machine virtuelle de destination. Vous allez tester la passerelle NAT en établissant des connexions sortantes à une adresse IP publique, de la machine virtuelle source vers la machine virtuelle de destination.  Ce tutoriel déploie la source et la destination sur deux réseaux virtuels différents dans le même groupe de ressources dans l’unique but de rester simple.
 
->[!NOTE] 
->Le service NAT de Réseau virtuel Azure est disponible en préversion publique à ce stade, et disponible dans un ensemble limité de [régions](./nat-overview.md#region-availability). Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Consultez les [Conditions d’utilisation supplémentaires des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms).
+Si vous préférez, vous pouvez effectuer ces étapes dans [Azure CLI](tutorial-create-validate-nat-gateway-cli.md) ou [Azure PowerShell](tutorial-create-validate-nat-gateway-powershell.md) au lieu du portail.
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
@@ -315,7 +314,6 @@ Consultez les métriques dans Azure Monitor pour découvrir le fonctionnement de
 - Guide de démarrage rapide du déploiement d’une [ressource de passerelle NAT avec Azure CLI](./quickstart-create-nat-gateway-cli.md).
 - Guide de démarrage rapide du déploiement d’une [ressource de passerelle NAT avec Azure PowerShell](./quickstart-create-nat-gateway-powershell.md).
 - Guide de démarrage rapide du déploiement d’une [ressource de passerelle NAT avec le portail Azure](./quickstart-create-nat-gateway-portal.md).
-- [Faites-nous part de vos commentaires sur la préversion publique](https://aka.ms/natfeedback).
 
 > [!div class="nextstepaction"]
 

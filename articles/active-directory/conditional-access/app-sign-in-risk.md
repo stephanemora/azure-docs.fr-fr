@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: be447b001b0b2e14999aac98ba2125f8cbfe9853
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77186613"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>Démarrage rapide : Bloquer l’accès lorsqu’un risque de session est détecté avec l’accès conditionnel Azure Active Directory  
@@ -28,7 +28,7 @@ Ce démarrage rapide décrit comment configurer une [stratégie d’accès condi
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre le scénario décrit dans ce didacticiel, vous avez besoin de ce qui suit :
 
@@ -74,11 +74,11 @@ Cette section montre comment créer la stratégie d’accès conditionnel requis
 
 1. Dans la page **Accès conditionnel**, dans la barre d’outils en haut, cliquez sur **Ajouter**.
 
-   ![Name](./media/app-sign-in-risk/108.png)
+   ![Nom](./media/app-sign-in-risk/108.png)
 
 1. Sur la page **Nouveau**, dans la zone de texte **Nom**, saisissez **Block access for medium risk level**.
 
-   ![Name](./media/app-sign-in-risk/104.png)
+   ![Nom](./media/app-sign-in-risk/104.png)
 
 1. Dans la section **Affectation**, cliquez sur **Utilisateurs et groupes**.
 

@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: mebeatty
 ms.openlocfilehash: 64bbed9b558d4c20889b28a5247e2113d20daa77
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73509833"
 ---
 # <a name="create-an-internet-analyzer-test-using-portal-preview"></a>Créer un test Internet Analyzer avec le portail (préversion)
@@ -65,7 +65,7 @@ Il est nécessaire de réaliser les étapes de base avant de configurer un test 
 4. Cliquez sur **Ajouter** pour ajouter le point de terminaison à votre test.
 5. Répétez les étapes 1 à 4 pour configurer votre deuxième point de terminaison. Le point de terminaison B est toujours mesuré par rapport au point de terminaison A. Lorsque vous configurez des points de terminaison, vous devez choisir quel point de terminaison doit être votre contrôle de test.
 6. Cliquez sur le bouton **Enregistrer** pour enregistrer votre test. Une fois que vous avez enregistré un test, vous ne pouvez plus modifier ses points de terminaison.
-7. Sélectionnez le ou les tests que vous souhaitez démarrer, puis cliquez sur **Démarrer le test**. Cela va faire passer vos tests à l’***état*** ***En cours d’exécution***. Vous pouvez démarrer des tests à tout moment. Toutefois, le client JavaScript doit être incorporé pour que le test commence à collecter des mesures.
+7. Sélectionnez le ou les tests que vous souhaitez démarrer, puis cliquez sur **Démarrer le test**. Cela va faire passer vos tests à l’***état******En cours d’exécution***. Vous pouvez démarrer des tests à tout moment. Toutefois, le client JavaScript doit être incorporé pour que le test commence à collecter des mesures.
 8. Vous pouvez ajouter d’autres tests à tout moment. Notez que le client JavaScript ne sera pas généré tant qu’un test n’aura pas été créé.
 
 ## <a name="embed-client"></a>Incorporer un client
@@ -74,5 +74,5 @@ Pour commencer un test, le client JavaScript doit être incorporé dans votre ap
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Consultez les [Questions fréquentes (FAQ) sur Internet Analyzer](internet-analyzer-faq.md).
+* Consultez la [FAQ sur Internet Analyzer](internet-analyzer-faq.md)
 * En savoir plus sur l’incorporation du [client Internet Analyzer](internet-analyzer-embed-client.md) et sur la création d’un [point de terminaison personnalisé](internet-analyzer-custom-endpoint.md).

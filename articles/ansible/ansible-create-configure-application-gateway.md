@@ -5,13 +5,13 @@ keywords: ansible, azure, devops, bash, playbook, application gateway, load bala
 ms.topic: tutorial
 ms.date: 04/30/2019
 ms.openlocfilehash: 07f75e39b8c6f592ecd4c48697527493b1109bb9
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74156615"
 ---
-# <a name="tutorial-manage-web-traffic-with-azure-application-gateway-using-ansible"></a>Didacticiel : Gérer le trafic web avec Azure Application Gateway à l’aide d’Ansible
+# <a name="tutorial-manage-web-traffic-with-azure-application-gateway-using-ansible"></a>Tutoriel : Gérer le trafic web avec Azure Application Gateway à l’aide d’Ansible
 
 [!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
 
@@ -256,9 +256,9 @@ Enregistrez le playbook suivant en tant que `appgw_create.yml` :
 Avant d’exécuter le playbook, consultez les notes suivantes :
 
 * `appGatewayIP` est définie dans le bloc `gateway_ip_configurations`. Une référence de sous-réseau est requise pour la configuration IP de la passerelle.
-* `appGatewayBackendPool` est défini dans le bloc `backend_address_pools`. Une passerelle d’application doit avoir au moins un pool d’adresses principal.
-* `appGatewayBackendHttpSettings` sont définis dans le bloc `backend_http_settings_collection`. Ils spécifient que le port 80 et le protocole HTTP sont utilisés pour la communication.
-* `appGatewayHttpListener` est défini dans le bloc `backend_http_settings_collection`. Il s’agit de l’écouteur par défaut associé à appGatewayBackendPool.
+* `appGatewayBackendPool` est définie dans le bloc `backend_address_pools`. Une passerelle d’application doit avoir au moins un pool d’adresses principal.
+* `appGatewayBackendHttpSettings` est définie dans le bloc `backend_http_settings_collection`. Ils spécifient que le port 80 et le protocole HTTP sont utilisés pour la communication.
+* `appGatewayHttpListener` est définie dans le bloc `backend_http_settings_collection`. Il s’agit de l’écouteur par défaut associé à appGatewayBackendPool.
 * `appGatewayFrontendIP` est définie dans le bloc `frontend_ip_configurations`. Il assigne myAGPublicIPAddress à appGatewayHttpListener.
 * `rule1` est définie dans le bloc `request_routing_rules`. Il s’agit de la règle de routage par défaut associée à appGatewayHttpListener.
 
@@ -284,7 +284,7 @@ La création de la passerelle d’application peut prendre plusieurs minutes.
 
     ![Test réussi d’une passerelle d’application opérationnelle](media/ansible-application-gateway-configure/application-gateway.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous n’en avez plus besoin, supprimez les ressources créées dans cet article. 
 

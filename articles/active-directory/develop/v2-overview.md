@@ -16,12 +16,12 @@ ms.date: 05/08/2019
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 6280f3784247b671521a4994be1f233d4913d90c
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: f6953fb5d016c802db260c55bc4970c3f029ab1a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77194498"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215867"
 ---
 # <a name="microsoft-identity-platform-v20-overview"></a>Présentation de la plateforme d’identités Microsoft (v2.0)
 
@@ -33,7 +33,7 @@ La plateforme d’identités Microsoft est une évolution de la plateforme de d�
   - Comptes sociaux ou locaux (par le biais d’Azure AD B2C)
 - **Bibliothèques open source** : bibliothèques MSAL (Microsoft Authentication Libraries) et prise en charge des autres bibliothèques conformes aux normes
 - **Portail de gestion des applications** : expérience d’inscription et de configuration intégrée au portail Azure ainsi que toutes vos autres fonctions de gestion Azure.
-- **API de configuration des applications et PowerShell** : vous pouvez configurer par programmation vos applications par le biais de l’API REST (Microsoft Graph et Azure Active Directory Graph 1.6) et de PowerShell, automatisant ainsi vos tâches DevOps.
+- **API de configuration des applications et PowerShell** : permet une configuration programmatique de vos applications avec l’API Microsoft Graph et PowerShell, automatisant ainsi vos tâches DevOps.
 - **Contenu destiné aux développeurs** : documentation conceptuelle et de référence, exemples de guide de démarrage rapide, exemples de code, tutoriels et guides pratiques.
 
 Pour les développeurs, la plateforme d’identités Microsoft offre une intégration fluide aux innovations de l’espace d’identité et de sécurité, telles que l’authentification sans mot de passe, l’authentification renforcée et l’accès conditionnel.  Vous n’avez pas besoin d’implémenter ces fonctionnalités vous-même : les applications intégrées à la plateforme d’identités Microsoft tirent parti de ces innovations de manière native.

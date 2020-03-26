@@ -10,11 +10,11 @@ ms.date: 09/20/2019
 ms.author: alkohli
 ms.localizationpriority: high
 ms.openlocfilehash: d116ba81b0c8940687663c17a4ed403e86dd6c22
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77187552"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79214392"
 ---
 ::: zone target="docs"
 
@@ -35,13 +35,13 @@ Ce didacticiel vous explique comment retourner l’appareil Azure Data Box et v�
 Ce didacticiel fournit des informations sur les sujets suivants :
 
 > [!div class="checklist"]
-> * Conditions préalables requises
+> * Prérequis
 > * Préparer l’expédition
 > * Expédier la Data Box à Microsoft
 > * Vérifier le chargement des données dans Azure
 > * Effacer les données de la Data Box
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer, vérifiez les points suivants :
 
@@ -77,7 +77,7 @@ Vérifiez que la copie des données sur l’appareil a été effectuée et que l
 
 ::: zone-end
 
-## <a name="in-us-canada-europetabin-us-canada-europe"></a>[États-Unis, Canada, Europe](#tab/in-us-canada-europe)
+## <a name="in-us-canada-europe"></a>[États-Unis, Canada, Europe](#tab/in-us-canada-europe)
 
 Effectuez les étapes suivantes si vous retournez l’appareil aux États-Unis, au Canada ou en Europe.
 
@@ -114,7 +114,7 @@ Une fois que le chargement des données vers Azure est terminé, la Data Box eff
 ::: zone-end
 
 
-## <a name="in-australiatabin-australia"></a>[En Australie](#tab/in-australia)
+## <a name="in-australia"></a>[En Australie](#tab/in-australia)
 
 Les centres de données Azure de l’Australie ont une notification de sécurité supplémentaire. Toutes les expéditions entrantes doivent avoir une notification préalable. Effectuez les étapes suivantes pour expédier en Australie.
 
@@ -143,7 +143,7 @@ Une fois que le chargement des données vers Azure est terminé, la Data Box eff
 
 ::: zone-end
 
-## <a name="in-japantabin-japan"></a>[Au Japon](#tab/in-japan) 
+## <a name="in-japan"></a>[Au Japon](#tab/in-japan) 
 
 1. Conservez la boîte d’origine utilisée pour expédier l’appareil dans le cadre d’un retour.
 2. Mettez l’appareil hors tension et débranchez les câbles.
@@ -191,7 +191,7 @@ Une fois que le chargement des données vers Azure est terminé, la Data Box eff
 
 ::: zone-end
 
-## <a name="in-singaporetabin-singapore"></a>[À Singapour](#tab/in-singapore) 
+## <a name="in-singapore"></a>[À Singapour](#tab/in-singapore) 
 
 1. Conservez la boîte d’origine utilisée pour expédier l’appareil dans le cadre d’un retour.
 2. Notez le numéro de suivi (indiqué comme numéro de référence dans la page Préparation de l’expédition de l’interface utilisateur web locale de la Data Box). Il est disponible une fois l’étape de préparation de l’expédition terminée. Téléchargez l’étiquette d’expédition à partir de cette page, puis collez-la sur le carton d’emballage. 
@@ -273,7 +273,7 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 ::: zone-end
 -->
 
-## <a name="self-managedtabin-selfmanaged"></a>[Autogérée](#tab/in-selfmanaged) 
+## <a name="self-managed"></a>[Autogérée](#tab/in-selfmanaged) 
 
 Si vous utilisez la Data Box au Japon, à Singapour, en Corée et en Europe de l’Ouest et que vous avez sélectionné l’option d’expédition autogérée pendant la création de la commande, suivez ces instructions. 
 

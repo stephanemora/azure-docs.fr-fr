@@ -9,11 +9,11 @@ ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 741d4718b5e6140f4ddd2bb22e1a2ec830763176
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74029943"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79224036"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Configurer la récupération d’urgence de machines virtuelles Hyper-V locales vers Azure
 
@@ -21,7 +21,7 @@ Le service [Azure Site Recovery](site-recovery-overview.md) contribue à votre s
 
 Il s’agit du troisième didacticiel d’une série. Il vous montre comment configurer la reprise d’activité de machines virtuelles Hyper-V locales sur Azure. Ce tutoriel s’applique aux machines virtuelles Hyper-V qui ne sont pas gérées par Microsoft System Center Virtual Machine Manager (VMM).
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Sélectionner la source et la cible de réplication.

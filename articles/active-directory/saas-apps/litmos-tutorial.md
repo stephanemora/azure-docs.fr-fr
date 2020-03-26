@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à Litmos | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Litmos | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Litmos.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 08/26/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a935ef6d14b4de67964c555e0ffa610bbe992459
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "70171555"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-litmos"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Litmos
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-litmos"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Litmos
 
 Dans ce tutoriel, vous allez découvrir comment intégrer Litmos à Azure Active Directory (Azure AD). Quand vous intégrez Litmos à Azure AD, vous pouvez :
 

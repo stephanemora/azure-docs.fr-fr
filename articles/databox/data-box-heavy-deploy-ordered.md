@@ -10,13 +10,13 @@ ms.date: 07/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
 ms.openlocfilehash: dce3549bde4c62245e1d2b1f8ac0c88c0b70260c
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "70241403"
 ---
-# <a name="tutorial-order-azure-data-box-heavy"></a>Didacticiel : Commander Azure Data Box Heavy
+# <a name="tutorial-order-azure-data-box-heavy"></a>Tutoriel : Commander Azure Data Box Heavy
 
 
 Azure Data Box Heavy est une solution hybride qui vous permet d’importer vos données locales dans Azure de manière rapide, simple et fiable. Vous transférez vos données vers un dispositif de stockage de 770 To (capacité utilisable approximative) fourni par Microsoft, puis vous réexpédiez l’appareil. Ces données sont ensuite chargées dans Azure.
@@ -81,7 +81,7 @@ Procédez comme suit dans le portail Azure pour commander un appareil.
 
     |Paramètre  |Valeur  |
     |---------|---------|
-    |Subscription     | Sélectionnez un abonnement EA, CSP ou Azure pour le service Data Box. <br> L’abonnement est lié à votre compte de facturation.       |
+    |Abonnement     | Sélectionnez un abonnement EA, CSP ou Azure pour le service Data Box. <br> L’abonnement est lié à votre compte de facturation.       |
     |Type de transfert     | Sélectionnez **Importer vers Azure**.        |
     |Pays source     | Sélectionnez le pays ou la région où vos données se trouvent actuellement.         |
     |Région Azure de destination     | Sélectionnez la région Azure où vous souhaitez transférer des données.        |

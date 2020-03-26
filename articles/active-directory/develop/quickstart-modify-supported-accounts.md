@@ -12,12 +12,12 @@ ms.date: 05/08/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 56771658380e0a5b946c3acc70df98a262561b5c
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 94fed6f4aa62c7e649cf7d644e571b30561e0da4
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77160687"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80050240"
 ---
 # <a name="quickstart-modify-the-accounts-supported-by-an-application"></a>Démarrage rapide : Modifier les comptes pris en charge par une application
 
@@ -25,7 +25,7 @@ Lorsque vous inscrivez une application dans la plateforme d’identité Microsof
 
 Dans ce démarrage rapide, vous allez apprendre à modifier la configuration de votre application afin de modifier les utilisateurs ou les comptes pouvant accéder à l’application.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour commencer, assurez-vous de remplir ces conditions préalables :
 
@@ -49,7 +49,7 @@ Avant de pouvoir configurer l’application, procédez comme suit :
 Si vous écrivez une application que vous souhaitez proposer à vos clients ou à des partenaires externes à votre organisation, vous devez mettre à jour la définition de l’application dans le portail Azure.
 
 > [!IMPORTANT]
-> Azure AD nécessite que l’URI ID d’application des applications multilocataires soit globalement unique. L’URI ID d’application est l’une des méthodes d’identification d'une application dans les messages de protocole. Pour une application à client unique, il suffit que l’URI ID d’application soit unique au sein de ce locataire. Pour une application mutualisée, l’URI doit être globalement unique afin qu’Azure AD puisse trouver l’application sur tous les clients. L’unicité globale est appliquée en obligeant l’URI ID d’application à avoir un nom d’hôte correspondant à un domaine vérifié du client Azure AD. Par exemple, si le nom de votre locataire est contoso.onmicrosoft.com, un URI ID d’application valide serait https://contoso.onmicrosoft.com/myapp. Si votre locataire a un domaine vérifié de contoso.com, un URI ID d’application valide serait également https://contoso.com/myapp. Si l’URI ID d’application ne suit pas ce modèle, une application ne peut pas être définie comme multi-locataire.
+> Azure AD nécessite que l’URI ID d’application des applications multilocataires soit globalement unique. L’URI ID d’application est l’une des méthodes d’identification d'une application dans les messages de protocole. Pour une application à client unique, il suffit que l’URI ID d’application soit unique au sein de ce locataire. Pour une application mutualisée, l’URI doit être globalement unique afin qu’Azure AD puisse trouver l’application sur tous les clients. L’unicité globale est appliquée en obligeant l’URI ID d’application à avoir un nom d’hôte correspondant à un domaine vérifié du client Azure AD. Par exemple, si le nom de votre locataire est contoso.onmicrosoft.com, un URI ID d’application valide serait `https://contoso.onmicrosoft.com/myapp`. Si votre locataire a un domaine vérifié de contoso.com, un URI ID d’application valide serait également `https://contoso.com/myapp`. Si l’URI ID d’application ne suit pas ce modèle, une application ne peut pas être définie comme multi-locataire.
 
 ### <a name="to-change-who-can-access-your-application"></a>Pour modifier qui peut accéder à votre application
 

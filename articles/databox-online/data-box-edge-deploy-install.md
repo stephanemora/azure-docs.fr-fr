@@ -10,10 +10,10 @@ ms.date: 01/17/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.
 ms.openlocfilehash: fe74db34e62a80935954c6cfc2e591d49a84b0b7
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76263946"
 ---
 # <a name="tutorial-install-azure-data-box-edge"></a>Tutoriel : Installer Azure Data Box Edge
@@ -29,7 +29,7 @@ Dans ce tutoriel, vous allez apprendre à :
 > * Monter l’appareil en rack
 > * Câblage de l’appareil
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Voici les prérequis pour l’installation d’un appareil physique :
 
@@ -86,7 +86,7 @@ L’appareil doit être installé sur un rack standard de 19 pouces. Effectuez l
 > Les appareils Data Box Edge doivent être montés en rack pour fonctionner correctement.
 
 
-### <a name="prerequisites"></a>Conditions préalables requises
+### <a name="prerequisites"></a>Prérequis
 
 - Avant de commencer, lisez les instructions du livret relatif à la sécurité, l’environnement et les réglementations. Ce livret a été fourni avec l’appareil.
 - Commencez par installer les rails dans l’espace alloué le plus proche de la partie inférieure du châssis.

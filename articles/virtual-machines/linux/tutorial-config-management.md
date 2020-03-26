@@ -16,17 +16,17 @@ ms.date: 09/27/2019
 ms.author: magoedte
 ms.custom: mvc
 ms.openlocfilehash: 5dd35ed2f4533d19cc3a59788d6422416dce13f5
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034556"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79223246"
 ---
-# <a name="tutorial-monitor-changes-and-update-a-linux-virtual-machine-in-azure"></a>Didacticiel : Superviser les changements et mettre à jour une machine virtuelle Linux dans Azure
+# <a name="tutorial-monitor-changes-and-update-a-linux-virtual-machine-in-azure"></a>Tutoriel : Superviser les changements et mettre à jour une machine virtuelle Linux dans Azure
 
 Azure [Change Tracking](../../automation/change-tracking.md) vous permet d’identifier facilement les changements, tandis que [Update Management](../../automation/automation-update-management.md) vous permet de gérer les mises à jour du système d’exploitation de vos machines virtuelles Linux Azure.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Gérer les mises à jour Windows
@@ -139,7 +139,7 @@ Sélectionnez le déploiement des mises à jour terminé pour voir le tableau de
 ![Tableau de bord des états de déploiement des mises à jour pour un déploiement spécifique](./media/tutorial-monitoring/manage-updates-view-results.png)
 
 Dans la vignette **Résultats des mises à jour**, vous pouvez voir un récapitulatif du nombre total de mises à jour et les résultats du déploiement sur la machine virtuelle.
-Dans le tableau de droite se trouve une répartition détaillée de chaque mise à jour et les résultats de l’installation, qui peut être une des valeurs suivantes :
+Dans le tableau de droite se trouve une répartition détaillée de chaque mise à jour et les résultats de l’installation, soit l’une des valeurs suivantes :
 
 * **Aucune tentative effectuée** : la mise à jour n’a pas été installée, car le temps disponible était insuffisant d’après la durée définie pour la fenêtre de maintenance.
 * **Réussi** : la mise à jour a réussi
@@ -169,7 +169,7 @@ Configurez l’emplacement, l’espace de travail Log Analytics et le compte Aut
 
 Une fois la solution activée, un délai peut être nécessaire pour la collecte de l’inventaire sur la machine virtuelle avant l’affichage de données.
 
-### <a name="track-changes"></a>Suivi des modifications
+### <a name="track-changes"></a>Suivre les modifications
 
 Sur votre machine virtuelle, sélectionnez **Suivi des modifications** sous **OPÉRATIONS**. Cliquez sur **Modifier les paramètres**, la page **Suivi des modifications** s’affiche. Sélectionnez le type de paramètre que vous souhaitez suivre, puis cliquez sur **+ Ajouter** pour configurer les paramètres. L’option disponible pour Linux est **Fichiers Linux**
 
@@ -195,7 +195,7 @@ Le graphique affiche les modifications qui se sont produites au fil du temps. Ap
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez configuré et passé en revue les solutions Change Tracking et Update Management pour votre machine virtuelle. Vous avez appris à effectuer les actions suivantes :
+Dans ce tutoriel, vous avez configuré et passé en revue les solutions Change Tracking et Update Management pour votre machine virtuelle. Vous avez appris à :
 
 > [!div class="checklist"]
 > * Créer un groupe de ressources et une machine virtuelle

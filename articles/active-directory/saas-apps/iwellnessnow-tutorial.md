@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory dans iWellnessNow | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory dans iWellnessNow | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et iWellnessNow.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 08/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8ff8fd2eb14f1af5133669ad20f303d36ff5af80
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68931818"
 ---
-# <a name="tutorial-integrate-iwellnessnow-with-azure-active-directory"></a>Didacticiel : Intégrer iWellnessNow à Azure Active Directory
+# <a name="tutorial-integrate-iwellnessnow-with-azure-active-directory"></a>Tutoriel : Intégrer iWellnessNow à Azure Active Directory
 
 Dans ce tutoriel, vous allez apprendre à intégrer iWellnessNow à Azure Active Directory (Azure AD). Quand vous intégrez iWellnessNow à Azure AD, vous pouvez :
 

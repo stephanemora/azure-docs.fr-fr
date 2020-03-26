@@ -6,17 +6,17 @@ ms.topic: tutorial
 ms.date: 01/16/2020
 ms.custom: mvc
 ms.openlocfilehash: b2ce157f0f192135ab0507e4aae4c0a282bda1ea
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76166194"
 ---
 # <a name="run-a-disaster-recovery-drill-to-a-secondary-region-for-azure-vms"></a>Exécuter une procédure de reprise d’activité après sinistre pour des machines virtuelles Azure vers une région secondaire
 
 Le service [Azure Site Recovery](site-recovery-overview.md) contribue à votre stratégie de reprise et de continuité d’activité en garantissant le bon fonctionnement et la disponibilité de vos applications métier pendant les interruptions planifiées et non planifiées. Site Recovery gère et orchestre la récupération d’urgence des machines locales et des machines virtuelles Azure, notamment la réplication, le basculement et la récupération.
 
-Ce tutoriel vous montre comment exécuter une simulation de reprise d’activité pour une machine virtuelle Azure, d’une région Azure à une autre, avec un test de basculement. Une simulation valide votre stratégie de réplication sans perte de données ou temps d’arrêt et n’affecte pas votre environnement de production. Dans ce tutoriel, vous allez apprendre à :
+Ce didacticiel vous montre comment exécuter une simulation de récupération d’urgence pour une machine virtuelle Azure, d’une région Azure à une autre, avec un test de basculement. Une simulation valide votre stratégie de réplication sans perte de données ou temps d’arrêt et n’affecte pas votre environnement de production. Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Vérifier les prérequis

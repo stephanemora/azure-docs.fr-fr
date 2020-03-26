@@ -9,13 +9,13 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 06/27/2019
 ms.openlocfilehash: f6139bb98fa0272e43c8e180d4ec029f7a7538bb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73494330"
 ---
-# <a name="tutorial-query-apache-hive-with-odbc-and-powershell"></a>Didacticiel : Requête Apache Hive avec ODBC et PowerShell
+# <a name="tutorial-query-apache-hive-with-odbc-and-powershell"></a>Tutoriel : Requête Apache Hive avec ODBC et PowerShell
 
 Les pilotes Microsoft ODBC constituent une méthode flexible pour pour interagir avec différents types de sources de données, notamment Apache Hive. Vous pouvez écrire du code dans des langages de script, tels que PowerShell, qui utilisent des pilotes ODBC pour ouvrir une connexion vers votre cluster Hive, transmettre une requête de votre choix et afficher les résultats.
 
@@ -54,8 +54,8 @@ La procédure suivante explique comment créer une source de données ODBC Apach
 
    | Propriété | Description |
    | --- | --- |
-   |  Data Source Name |Donnez un nom à votre source de données |
-   |  Host(s) (Hôte(s)) |Entrez `CLUSTERNAME.azurehdinsight.net`. Par exemple, `myHDICluster.azurehdinsight.net` |
+   |  Nom de la source de données |Donnez un nom à votre source de données |
+   |  Host(s) (Hôte(s)) |Entrez `CLUSTERNAME.azurehdinsight.net`. Par exemple : `myHDICluster.azurehdinsight.net` |
    |  Port |Utilisez **443**.|
    |  Base de données |Utilisez **Default**. |
    |  Mechanism |Sélectionnez **Windows Azure HDInsight Service**. |
@@ -120,7 +120,7 @@ $query = "select count(distinct clientid) AS total_clients from hivesampletable"
 Get-ODBC-Data -query $query -dsn $dsn
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, le cluster HDInsight et le compte de stockage. Pour ce faire, sélectionnez le groupe de ressources dans lequel le cluster a été créé, puis cliquez sur **Supprimer**.
 

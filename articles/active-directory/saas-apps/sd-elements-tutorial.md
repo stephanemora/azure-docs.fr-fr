@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique (SSO) Azure Active Directory à SD Elements | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à SD Elements | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et SD Elements.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 10/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1a387659e2375444fd32cf731ab4bccc210b669a
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74081678"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sd-elements"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à SD Elements
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sd-elements"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à SD Elements
 
 Dans ce tutoriel, vous allez apprendre à intégrer SD Elements à Azure Active Directory (Azure AD). En intégrant SD Elements à Azure AD, vous pouvez :
 
@@ -148,11 +148,11 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 1. Dans le menu du haut, cliquez sur **Système**, puis sur **Authentification unique**.
 
-    ![Configurer l'authentification unique](./media/sd-elements-tutorial/tutorial_sd-elements_09.png)
+    ![Configure Single Sign-On](./media/sd-elements-tutorial/tutorial_sd-elements_09.png)
 
 1. Dans la boîte de dialogue **Paramètres d’authentification unique** , procédez comme suit :
 
-    ![Configurer l'authentification unique](./media/sd-elements-tutorial/tutorial_sd-elements_10.png)
+    ![Configure Single Sign-On](./media/sd-elements-tutorial/tutorial_sd-elements_10.png)
 
     a. Pour **SSO Type**, sélectionnez **SAML**.
 

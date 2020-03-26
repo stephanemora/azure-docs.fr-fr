@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/02/2019
 ms.author: fiseraci
 ms.openlocfilehash: c186dcb2d7d7d423f5c001bdb4d3f3503beebd9c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73686528"
 ---
 # <a name="quickstart-onboard-your-azure-stack-virtual-machines-to-security-center"></a>Démarrage rapide : Intégrer vos machines virtuelles Azure Stack à Security Center
@@ -41,7 +41,7 @@ Vous devez avoir un abonnement Azure sur le niveau Standard de Security Center p
 3. Dans le menu principal de Security Center, sélectionnez **Prise en main**.
 4. Sélectionnez l’onglet **Prise en main**.
 
-   ![Prise en main][3]
+   ![Bien démarrer][3]
 
 5. Cliquez sur **Configurer** sous **Ajouter de nouveaux ordinateurs non Azure**. Une liste de vos espaces de travail Log Analytics apparaît. Elle comprend, le cas échéant, l’espace de travail par défaut créé pour vous par Security Center à l’activation de l’approvisionnement automatique. Sélectionnez cet espace de travail ou un autre espace de travail sur lequel vous souhaitez que la machine virtuelle Azure Stack signale les données de sécurité.
 
@@ -86,7 +86,7 @@ Deux types d’icônes sont représentés sur le panneau **Calcul** :
 
 ![icon2](./media/quick-onboard-windows-computer/security-center-monitoring-icon2.png) Machine virtuelle Azure (les machines virtuelles Azure Stack s’affichent dans ce groupe)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 Quand vous n’en avez plus besoin, vous pouvez supprimer l’extension de la machine virtuelle par le biais du portail Azure Stack.
 
 Pour supprimer l’extension :
@@ -100,7 +100,7 @@ Pour supprimer l’extension :
 Dans ce guide de démarrage rapide, vous avez provisionné l’extension Azure Monitor, Update and Configuration Management sur une machine virtuelle en cours d’exécution sur Azure Stack. Pour en savoir plus sur Security Center, enchaînez avec le didacticiel sur la configuration d’une stratégie de sécurité et l’évaluation de la sécurité des ressources.
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Définir et évaluer les stratégies de sécurité](tutorial-security-policy.md)
+> [Tutoriel : Définir et évaluer les stratégies de sécurité](tutorial-security-policy.md)
 
 <!--Image references-->
 [2]: ./media/quick-onboard-windows-computer/overview.png

@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 12/13/2018
 ms.author: kumud
 ms.openlocfilehash: b5a136ae05b3cd410ca252b6d5a1df443aff6f7a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75350138"
 ---
 # <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>Tutoriel : Filtrer le trafic réseau avec un groupe de sécurité réseau à l’aide du portail Azure
@@ -47,11 +47,11 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 
     | Paramètre                 | Valeur                                              |
     | ---                     | ---                                                |
-    | Name                    | myVirtualNetwork                                   |
+    | Nom                    | myVirtualNetwork                                   |
     | Espace d’adressage           | 10.0.0.0/16                                        |
-    | Subscription            | Sélectionnez votre abonnement.                          |
+    | Abonnement            | Sélectionnez votre abonnement.                          |
     | Resource group          | Sélectionnez **Créer** et entrez *myResourceGroup*. |
-    | Location                | Sélectionnez **USA Est**.                                |
+    | Emplacement                | Sélectionnez **USA Est**.                                |
     | Nom du sous-réseau            | mySubnet                                           |
     | Plage d’adresses du sous-réseau  | 10.0.0.0/24                                        |
 
@@ -65,19 +65,19 @@ Un groupe de sécurité d’application vous permet de regrouper des serveurs av
 
     | Paramètre        | Valeur                                                         |
     | ---            | ---                                                           |
-    | Name           | myAsgWebServers                                               |
-    | Subscription   | Sélectionnez votre abonnement.                                     |
+    | Nom           | myAsgWebServers                                               |
+    | Abonnement   | Sélectionnez votre abonnement.                                     |
     | Resource group | Sélectionnez **Utiliser l’existant**, puis **myResourceGroup**. |
-    | Location       | USA Est                                                       |
+    | Emplacement       | USA Est                                                       |
 
 4. Répétez l’étape 3 en spécifiant les valeurs suivantes :
 
     | Paramètre        | Valeur                                                         |
     | ---            | ---                                                           |
-    | Name           | myAsgMgmtServers                                              |
-    | Subscription   | Sélectionnez votre abonnement.                                     |
+    | Nom           | myAsgMgmtServers                                              |
+    | Abonnement   | Sélectionnez votre abonnement.                                     |
     | Resource group | Sélectionnez **Utiliser l’existant**, puis **myResourceGroup**. |
-    | Location       | USA Est                                                       |
+    | Emplacement       | USA Est                                                       |
 
 ## <a name="create-a-network-security-group"></a>Créer un groupe de sécurité réseau
 
@@ -87,10 +87,10 @@ Un groupe de sécurité d’application vous permet de regrouper des serveurs av
 
     |Paramètre|Valeur|
     |---|---|
-    |Name|myNsg|
-    |Subscription| Sélectionnez votre abonnement.|
+    |Nom|myNsg|
+    |Abonnement| Sélectionnez votre abonnement.|
     |Resource group | Sélectionnez **Utiliser l’existant**, puis *myResourceGroup*.|
-    |Location|USA Est|
+    |Emplacement|USA Est|
 
 ## <a name="associate-network-security-group-to-subnet"></a>Associer le groupe de sécurité réseau au sous-réseau
 
@@ -114,7 +114,7 @@ Un groupe de sécurité d’application vous permet de regrouper des serveurs av
     | Destination             | Sélectionnez **Groupe de sécurité d’application**, puis **myAsgWebServers** pour **Groupe de sécurité d’application**.  |
     | Plages de ports de destination | Entrer 80 et 443                                                                                                    |
     | Protocol                | Sélectionner TCP                                                                                                      |
-    | Name                    | Allow-Web-All                                                                                                   |
+    | Nom                    | Allow-Web-All                                                                                                   |
 
 3. Répétez l’étape 2 en utilisant les valeurs suivantes :
 
@@ -124,7 +124,7 @@ Un groupe de sécurité d’application vous permet de regrouper des serveurs av
     | Plages de ports de destination | Entrer 3389                                                                                                      |
     | Protocol                | Sélectionner TCP                                                                                                      |
     | Priority                | Entrer 110                                                                                                       |
-    | Name                    | Allow-RDP-All                                                                                                   |
+    | Nom                    | Allow-RDP-All                                                                                                   |
 
     Dans ce tutoriel, le protocole RDP (port 3389) est exposé à Internet pour la machine virtuelle qui est affectée au groupe de sécurité d’application *myAsgMgmtServers*. Pour les environnements de production, au lieu d’exposer le port 3389 sur Internet, il est recommandé de vous connecter aux ressources Azure que vous souhaitez gérer à l’aide d’une connexion réseau VPN ou privée.
 
@@ -144,10 +144,10 @@ Créez deux machines virtuelles dans le réseau virtuel.
 
     |Paramètre|Valeur|
     |---|---|
-    |Subscription| Sélectionnez votre abonnement.|
+    |Abonnement| Sélectionnez votre abonnement.|
     |Resource group| Sélectionnez **Utiliser l’existant**, puis **myResourceGroup**.|
-    |Name|myVmWeb|
-    |Location| Sélectionnez **USA Est**.|
+    |Nom|myVmWeb|
+    |Emplacement| Sélectionnez **USA Est**.|
     |Nom d'utilisateur| Entrez un nom d’utilisateur de votre choix.|
     |Mot de passe| Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
 

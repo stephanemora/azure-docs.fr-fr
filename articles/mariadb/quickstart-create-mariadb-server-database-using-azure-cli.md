@@ -6,24 +6,24 @@ ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 12/02/2019
+ms.date: 3/18/2020
 ms.custom: mvc
-ms.openlocfilehash: 5cfdcf2664871849d4488be4320f6aa03e296ce7
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: f83af794a179634b9b6b7adedd329ea6f4a7b8d0
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770031"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79536460"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Créer un serveur Azure Database for MariaDB à l’aide d’Azure CLI
 
-Vous pouvez utiliser Azure CLI pour créer et gérer des ressources Azure à partir de la ligne de commande ou dans des scripts. Ce guide de démarrage rapide explique comment utiliser l’interface Azure CLI pour créer en quelque cinq minutes un serveur Azure Database for MariaDB dans un groupe de ressources Azure. 
+Vous pouvez utiliser Azure CLI pour créer et gérer des ressources Azure à partir de la ligne de commande ou dans des scripts. Ce guide de démarrage rapide explique comment utiliser l’interface Azure CLI pour créer en quelque cinq minutes un serveur Azure Database for MariaDB dans un groupe de ressources Azure.
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-Si vous installez et utilisez CLI en local, pour ce démarrage rapide, vous devez exécuter Azure CLI version 2.0 ou supérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau l’interface CLI, consultez l’article [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Si vous installez et utilisez CLI en local, pour ce démarrage rapide, vous devez exécuter Azure CLI version 2.0 ou supérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau l’interface CLI, consultez l’article [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 Si vous avez plusieurs abonnements, choisissez celui dans lequel se trouve la ressource ou celui pour lequel vous êtes facturé. Pour sélectionner un ID d’abonnement dans votre compte, utilisez la commande [az account set](/cli/azure/account#az-account-set) :
 
@@ -47,7 +47,7 @@ Créez un serveur Azure Database for MariaDB avec la commande [az mariadb server
 
 Paramètre | Exemple de valeur | Description
 ---|---|---
-Nom | **mydemoserver** | Entrez un nom unique qui identifie votre serveur Azure Database for MariaDB. Le nom de serveur ne peut contenir que des lettres minuscules, des chiffres et le caractère de trait d’union (-). Il doit contenir entre 3 et 63 caractères.
+name | **mydemoserver** | Entrez un nom unique qui identifie votre serveur Azure Database for MariaDB. Le nom de serveur ne peut contenir que des lettres minuscules, des chiffres et le caractère de trait d’union (-). Il doit contenir entre 3 et 63 caractères.
 resource-group | **myresourcegroup** | Entez le nom du groupe de ressources Azure.
 sku-name | **GP_Gen5_2** | Nom de la référence SKU. Suit la convention *niveau tarifaire*\_*génération de calcul*\_*vCores* dans le raccourci. Pour plus d’informations sur le paramètre **sku-name**, consultez la section après ce tableau.
 backup-retention | **7** | Durée pendant laquelle la sauvegarde doit être conservée. Exprimée en jours. Plage : 7 à 35. 
@@ -74,13 +74,12 @@ az mariadb server create --resource-group myresourcegroup --name mydemoserver  -
 
 > [!NOTE]
 > Choisissez le niveau tarifaire De base si votre charge de travail n’a pas besoin d’une grande capacité de calcul et d’E/S. Notez que les serveurs créés avec le niveau tarifaire De base ne peuvent plus ensuite être mis à l’échelle vers le niveau Usage général ou Mémoire optimisée. Pour plus d’informations, consultez la [page des tarifs](https://azure.microsoft.com/pricing/details/mariadb/).
-> 
 
 ## <a name="configure-a-firewall-rule"></a>Configurer une règle de pare-feu
 
-Créez une règle de pare-feu au niveau du serveur Azure Database for MariaDB avec la commande [az mariadb server firewall-rule create](/cli/azure/mariadb/server/firewall-rule#az-mariadb-server-firewall-rule-create). Une règle de pare-feu au niveau du serveur permet à une application externe, comme l’outil en ligne de commande mysql ou MySQL Workbench de se connecter à votre serveur via le pare-feu du service Azure Database for MariaDB. 
+Créez une règle de pare-feu au niveau du serveur Azure Database for MariaDB avec la commande [az mariadb server firewall-rule create](/cli/azure/mariadb/server/firewall-rule#az-mariadb-server-firewall-rule-create). Une règle de pare-feu au niveau du serveur permet à une application externe, comme l’outil en ligne de commande mysql ou MySQL Workbench de se connecter à votre serveur via le pare-feu du service Azure Database for MariaDB.
 
-L’exemple suivant crée une règle de pare-feu appelée `AllowMyIP` qui autorise les connexions d’une adresse IP spécifique, 192.168.0.1. Remplacez une adresse IP ou une plage d’adresses IP qui correspond à l’emplacement à partir duquel vous vous connectez. 
+L’exemple suivant crée une règle de pare-feu appelée `AllowMyIP` qui autorise les connexions d’une adresse IP spécifique, 192.168.0.1. Remplacez une adresse IP ou une plage d’adresses IP qui correspond à l’emplacement à partir duquel vous vous connectez.
 
 ```azurecli-interactive
 az mariadb server firewall-rule create --resource-group myresourcegroup --server mydemoserver --name AllowMyIP --start-ip-address 192.168.0.1 --end-ip-address 192.168.0.1
@@ -88,14 +87,13 @@ az mariadb server firewall-rule create --resource-group myresourcegroup --server
 
 > [!NOTE]
 > Les connexions à Azure Database for MariaDB communiquent sur le port 3306. Si vous essayez de vous connecter depuis un réseau d’entreprise, le trafic sortant sur le port 3306 peut être bloqué. Dans ce cas, vous pouvez vous connecter à votre serveur uniquement si votre service informatique ouvre le port 3306.
-> 
 
 ## <a name="configure-ssl-settings"></a>Configurer les paramètres SSL
 
 Par défaut, des connexions SSL entre votre serveur et les applications clientes sont appliquées. Ce paramètre par défaut garantit la sécurité des données « en mouvement » en chiffrant le flux de données sur Internet. Pour ce démarrage rapide, désactivez les connexions SSL de votre serveur. La désactivation des connexions SSL n’est pas recommandée pour les serveurs de production. Pour plus d’informations, voir [Configuration de la connectivité SSL dans votre application pour se connecter de manière sécurisée à Azure Database for MariaDB](./howto-configure-ssl.md).
 
 L’exemple suivant désactive l’application du protocole SSL sur votre serveur Azure Database for MariaDB :
- 
+
 ```azurecli-interactive
 az mariadb server update --resource-group myresourcegroup --name mydemoserver --ssl-enforcement Disabled
 ```
@@ -156,9 +154,10 @@ Connectez-vous au serveur avec l’outil en ligne de commande mysql :
    ```sql
    status
    ```
+
    Vous devez voir un texte similaire à ce qui suit :
 
-   ```bash
+   ```cmd
    C:\Users\>mysql -h mydemoserver.mariadb.database.azure.com -u myadmin@mydemoserver -p
    Enter password: ***********
    Welcome to the MySQL monitor.  Commands end with ; or \g.
@@ -215,7 +214,7 @@ Connectez-vous au serveur avec l’outil en ligne de commande mysql :
    |---|---|---|
    | Nom de connexion | **Connexion démo** | Entrez une étiquette pour cette connexion (il peut s’agir de n’importe quoi) |
    | Méthode de connexion | **Standard (TCP/IP)** | Utilisez le protocole TCP/IP pour vous connecter à Azure Database for MariaDB |
-   | Nom d’hôte | **mydemoserver.mariadb.database.azure.com** | Le nom du serveur que vous avez noté précédemment. |
+   | HostName | **mydemoserver.mariadb.database.azure.com** | Le nom du serveur que vous avez noté précédemment. |
    | Port | **3306** | Le port par défaut pour Azure Database for MariaDB. |
    | Nom d’utilisateur | **myadmin\@mydemoserver** | La connexion d’administrateur du serveur que vous avez notée précédemment. |
    | Mot de passe | *votre mot de passe* | Utilisez le mot de passe du compte administrateur que vous avez configuré précédemment. |
@@ -224,7 +223,7 @@ Connectez-vous au serveur avec l’outil en ligne de commande mysql :
 
 4. Sélectionnez la connexion pour vous connecter au serveur.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous n’avez pas besoin des ressources que vous avez utilisées dans ce démarrage rapide pour un autre démarrage rapide ou didacticiel, vous pouvez les supprimer en exécutant la commande suivante : 
 

@@ -10,13 +10,13 @@ ms.date: 03/12/2019
 ms.author: robinsh
 ms.custom: mvc
 ms.openlocfilehash: 38a40d628b883c0e7ada824d47d3fdf3d29caf93
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74084389"
 ---
-# <a name="tutorial-use-the-azure-cli-and-azure-portal-to-configure-iot-hub-message-routing"></a>Didacticiel : Utiliser Azure CLI et le portail Azure pour configurer le routage des messages IoT Hub
+# <a name="tutorial-use-the-azure-cli-and-azure-portal-to-configure-iot-hub-message-routing"></a>Tutoriel : Utiliser Azure CLI et le portail Azure pour configurer le routage des messages IoT Hub
 
 [!INCLUDE [iot-hub-include-routing-intro](../../includes/iot-hub-include-routing-intro.md)]
 
@@ -162,7 +162,7 @@ Configurez maintenant le routage pour le compte de stockage. Vous accédez au vo
 
 9. Complétez maintenant le reste des informations de la requête de routage. Cette requête spécifie les critères pour l’envoi des messages au conteneur de stockage que vous venez d’ajouter comme point de terminaison. Renseignez les champs affichés à l’écran.
 
-   **Nom** : entrez un nom pour votre requête de routage. Ce tutoriel utilise **ContosoStorageRoute**.
+   **Name** : entrez un nom pour votre requête de routage. Ce tutoriel utilise **ContosoStorageRoute**.
 
    **Point de terminaison** : ce champ présente le point de terminaison que vous venez de configurer.
 
@@ -200,7 +200,7 @@ Configurez maintenant le routage pour la file d’attente Service Bus. Vous acc�
 
 6. Vous complétez maintenant le reste des informations de la requête de routage. Cette requête spécifie les critères pour l’envoi des messages à la file d’attente Service Bus que vous venez d’ajouter comme point de terminaison. Renseignez les champs affichés à l’écran. 
 
-   **Nom** : entrez un nom pour votre requête de routage. Ce tutoriel utilise **ContosoSBQueueRoute**. 
+   **Name** : entrez un nom pour votre requête de routage. Ce tutoriel utilise **ContosoSBQueueRoute**. 
 
    **Point de terminaison** : ce champ présente le point de terminaison que vous venez de configurer.
 

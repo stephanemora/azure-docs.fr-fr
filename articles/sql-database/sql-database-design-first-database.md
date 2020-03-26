@@ -10,10 +10,10 @@ ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 07/29/2019
 ms.openlocfilehash: 9764c4bc794eb8d133270b762fa2bca30a056fea
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75459627"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-using-ssms"></a>Tutoriel : Concevoir une base de données relationnelle dans une base de données unique au sein d’Azure SQL Database avec SSMS
@@ -35,7 +35,7 @@ Azure SQL Database est une solution DBaaS relationnelle dans Microsoft Cloud (A
 > [!NOTE]
 > Pour les besoins de ce tutoriel, nous utilisons une base de données unique. Vous pouvez également utiliser une base de données mise en pool élastique ou une base de données d’instance située dans une instance managée. Pour la connexion à une instance gérée, consultez ces guides de démarrage rapide des instances gérées : [Démarrage rapide : Configurer la machine virtuelle Azure pour qu’elle se connecte à Azure SQL Database Managed Instance](sql-database-managed-instance-configure-vm.md) et [Démarrage rapide : Configurer une connexion point à site sur Azure SQL Database Managed Instance à partir d’un emplacement local](sql-database-managed-instance-configure-p2s.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce tutoriel, vérifiez que les éléments suivants sont installés :
 
@@ -151,7 +151,7 @@ Utilisez [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-s
 
 Créez un schéma de base de données avec quatre tables qui modélisent un système de gestion des étudiants pour les universités à l’aide de [Transact-SQL](/sql/t-sql/language-reference) :
 
-- Person
+- Personne
 - Cours
 - Étudiant
 - Crédit

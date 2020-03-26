@@ -12,10 +12,10 @@ ms.date: 1/3/2020
 ms.author: ushan
 ms.custom: devops
 ms.openlocfilehash: bb7c773d02c5da5c115af79cd9e90c78e71eb6bf
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76988326"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>Tutoriel : Déployer votre application sur des machines virtuelles Linux dans Azure à l’aide d’Azure DevOps Services et d’Azure Pipelines
@@ -53,7 +53,7 @@ Si vous disposez déjà d’une application dans GitHub que vous souhaitez dépl
 
 Toutefois, si vous êtes un nouvel utilisateur, nous vous conseillons de commencer avec notre exemple de code. Dans ce cas, dupliquez (fork) le dépôt suivant dans GitHub :
 
-#### <a name="javatabjava"></a>[Java](#tab/java)
+#### <a name="java"></a>[Java](#tab/java)
 
 ```
 https://github.com/spring-projects/spring-petclinic
@@ -62,7 +62,7 @@ https://github.com/spring-projects/spring-petclinic
 > [!NOTE]
 > Petclinic est une application [Java Spring Boot](https://spring.io/guides/gs/spring-boot) créée à l’aide de [Maven](https://spring.io/guides/gs/maven/).
 
-#### <a name="javascripttabjava-script"></a>[JavaScript](#tab/java-script)
+#### <a name="javascript"></a>[JavaScript](#tab/java-script)
 
 ```
 https://github.com/azure-devops/fabrikam-node
@@ -82,13 +82,13 @@ https://github.com/azure-devops/fabrikam-node
 Les exemples d’applications mentionnés ci-dessus ont été testés sur Ubuntu 16.04 et nous vous recommandons d’utiliser cette même version pour ce guide de démarrage rapide.
 Suivez les étapes supplémentaires décrites ci-dessous, selon la pile d’exécution que vous avez utilisée pour l’application.
 
-#### <a name="javatabjava"></a>[Java](#tab/java)
+#### <a name="java"></a>[Java](#tab/java)
 
 - Pour déployer des applications Java Spring Boot et Spring Cloud, créez une machine virtuelle Linux dans Azure à l’aide de [ce modèle](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804), qui fournit un runtime OpenJDK entièrement pris en charge.
 - Pour déployer des servlets Java sur un serveur Tomcat, créez une machine virtuelle Linux avec Java 8 à l’aide de [ce modèle](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) Azure, puis [configurez Tomcat 9.x comme un service](https://tomcat.apache.org/tomcat-9.0-doc/setup.html).
 - Pour déployer une application Java EE, utilisez un modèle Azure afin de créer une [machine virtuelle Linux + Java + WebSphere 9.x](https://azuremarketplace.microsoft.com/marketplace/apps/midvision.websphere-application-server-nde-90), une [machine virtuelle Linux + Java + WebLogic 12.x](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.20191009-arm-oraclelinux-wls-admin) ou une [machine virtuelle Linux +Java + WildFly/JBoss 14](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804). 
 
-#### <a name="javascripttabjava-script"></a>[JavaScript](#tab/java-script)
+#### <a name="javascript"></a>[JavaScript](#tab/java-script)
 
 Pour installer une application JavaScript ou Node.js, vous avez besoin d’une machine virtuelle Linux et d’un serveur web Nginx pour déployer l’application.
 Si vous n’avez pas encore de machine virtuelle Linux dotée de Nginx, créez-en une maintenant dans Azure en suivant les étapes décrites dans [cet exemple](/azure/virtual-machines/linux/quick-create-cli).
@@ -141,7 +141,7 @@ Vous aurez besoin d’un pipeline de build d’intégration continue (CI) pour p
 
 1. Azure Pipelines va analyser votre dépôt et recommander un modèle de pipeline adapté.
 
-#### <a name="javatabjava"></a>[Java](#tab/java)
+#### <a name="java"></a>[Java](#tab/java)
 
 Sélectionnez le modèle de **démarrage**, puis copiez l’extrait de code YAML ci-dessous qui permet de générer votre projet Java et d’exécuter les tests avec Apache Maven :
 
@@ -165,7 +165,7 @@ Sélectionnez le modèle de **démarrage**, puis copiez l’extrait de code YAM
 
 Pour plus d’informations, suivez les étapes mentionnées dans [Générer votre application Java avec Maven](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/java).
 
-#### <a name="javascripttabjava-script"></a>[JavaScript](#tab/java-script)
+#### <a name="javascript"></a>[JavaScript](#tab/java-script)
 
 Sélectionnez le modèle de **démarrage**, puis copiez l’extrait de code YAML ci-dessous qui permet de générer un projet Node.js général avec npm.
 

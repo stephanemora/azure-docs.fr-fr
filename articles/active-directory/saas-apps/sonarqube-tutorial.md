@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à Sonarqube | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Sonarqube | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Sonarqube.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 09/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 571d8849fd7cae5c872a56182858848dbb43ef42
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72026690"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sonarqube"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Sonarqube
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sonarqube"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Sonarqube
 
 Dans ce tutoriel, vous allez apprendre à intégrer Sonarqube à Azure Active Directory (Azure AD). Quand vous intégrez Sonarqube à Azure AD, vous pouvez :
 

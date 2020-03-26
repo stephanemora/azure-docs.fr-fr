@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 08/12/2019
 ms.openlocfilehash: 3ece5a9d225e48654a0a3a96c3b7b78327565841
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74975174"
 ---
 # <a name="quickstart-ingest-sample-data-into-azure-data-explorer"></a>Démarrage rapide : Ingérer des exemples de données dans l’Explorateur de données Azure
@@ -60,5 +60,5 @@ L’exemple de jeu de données **StormEvents** contient des données météorolo
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Ingestion de données Azure Data Explorer](ingest-data-overview.md) pour en savoir plus sur les méthodes d’ingestion.
-* [Démarrage rapide : Interroger des données dans l’interface utilisateur web Azure Data Explorer](web-query-data.md).
+* [Démarrage rapide : Interroger des données dans l’interface utilisateur web Azure Data Explorer](web-query-data.md).
 * [Écrire des requêtes](write-queries.md) avec le langage de requête Kusto.

@@ -1,6 +1,6 @@
 ---
-title: 'Didacticiel : Didacticiel REST utilisant Azure Relay'
-description: 'Didacticiel : Créez une application hôte Azure Service Bus Relay qui expose une interface de type REST.'
+title: 'Tutoriel : Didacticiel REST utilisant Azure Relay'
+description: 'Tutoriel : Créez une application hôte Azure Service Bus Relay qui expose une interface de type REST.'
 services: service-bus-relay
 documentationcenter: na
 author: spelluru
@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 11/05/2019
 ms.author: spelluru
 ms.openlocfilehash: 229ed2b00582f2c73ce68c47406d68325abda736
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73718837"
 ---
-# <a name="tutorial-azure-wcf-relay-rest-tutorial"></a>Didacticiel : Didacticiel Azure WCF Relay REST
+# <a name="tutorial-azure-wcf-relay-rest-tutorial"></a>Tutoriel : Didacticiel Azure WCF Relay REST
 
 Ce didacticiel explique comment créer une application hôte Azure Relay qui expose une interface de type REST. REST permet à un client web, par exemple un navigateur web, d’accéder aux API Service Bus via des requêtes HTTP.
 
@@ -31,7 +31,7 @@ Dans ce didacticiel, vous allez effectuer les tâches suivantes :
 
 > [!div class="checklist"]
 >
-> * Configuration requise pour l’exécution de ce didacticiel
+> * Installer la configuration requise pour ce didacticiel.
 > * Créer un espace de noms Relay
 > * Définir un contrat de service WCF basé sur REST
 > * Implémenter le contrat WCF basé sur REST

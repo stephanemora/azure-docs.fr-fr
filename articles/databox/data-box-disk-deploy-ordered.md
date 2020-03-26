@@ -10,13 +10,13 @@ ms.date: 07/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ms.openlocfilehash: c1626542aba71f971ad96fe9f187ce9f1c1a99f3
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "70012943"
 ---
-# <a name="tutorial-order-an-azure-data-box-disk"></a>Didacticiel : Commander une solution Azure Data Box Disk
+# <a name="tutorial-order-an-azure-data-box-disk"></a>Tutoriel : Commander une solution Azure Data Box Disk
 
 Azure Data Box Disk est une solution cloud hybride qui vous permet d’importer vos données locales dans Azure de manière rapide, simple et fiable. Vous transférez vos données vers des disques SSD fournis par Microsoft et renvoyez les disques. Ces données sont ensuite chargées dans Azure.
 
@@ -68,7 +68,7 @@ Effectuez les étapes suivantes pour commander Data Box Disk.
 
     |Paramètre|Valeur|
     |---|---|
-    |Subscription|Sélectionnez l’abonnement pour lequel le service Data Box est activé.<br> L’abonnement est lié à votre compte de facturation. |
+    |Abonnement|Sélectionnez l’abonnement pour lequel le service Data Box est activé.<br> L’abonnement est lié à votre compte de facturation. |
     |Type de transfert| Importer vers Azure|
     |Pays source | Sélectionnez le pays ou la région où vos données se trouvent actuellement.|
     |Région Azure de destination|Sélectionnez la région Azure où vous souhaitez transférer des données.|

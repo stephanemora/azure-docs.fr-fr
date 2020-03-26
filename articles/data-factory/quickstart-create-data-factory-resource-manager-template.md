@@ -11,11 +11,11 @@ author: djpmsft
 ms.author: daperlov
 manager: anandsub
 ms.openlocfilehash: 7ad0367a89730c3aba37c5f75158cb42ae4ae668
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75440068"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215747"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Tutoriel : Créer une fabrique de données Azure à l’aide du modèle Azure Resource Manager
 
@@ -287,7 +287,7 @@ Créez un fichier JSON nommé **ADFTutorialARM-Parameters** contient les paramè
 
 > [!IMPORTANT]
 > - Spécifiez le nom et la clé de votre compte Stockage Azure pour les paramètres **storageAccountName** et **storageAccountKey** dans ce fichier de paramètres. Vous avez créé le conteneur adftutorial et téléchargé l’exemple de fichier (emp.txt) dans le dossier d’entrée de ce stockage d’objets blob Azure.
-> - Spécifiez un nom global unique pour la fabrique de données pour le paramètre **dataFactoryName**. Par exemple :  ARMTutorialFactoryJohnDoe11282017.
+> - Spécifiez un nom global unique pour la fabrique de données pour le paramètre **dataFactoryName**. Par exemple : ARMTutorialFactoryJohnDoe11282017.
 > - Pour la valeur **triggerStartTime**, spécifiez la date du jour au format : `2019-09-08T00:00:00`.
 > - Pour la valeur **triggerEndTime**, spécifiez la date du jour suivant au format : `2019-09-09T00:00:00`. Vous pouvez également vérifier l’heure UTC actuelle et spécifier l’heure suivante ou les deux heures suivantes comme heure de fin. Par exemple, si l’heure UTC actuelle est 1:32, spécifiez `2019-09-09:03:00:00` comme heure de fin. Dans ce cas, le déclencheur exécute le pipeline deux fois (à 2:00 et 3:00).
 
@@ -456,7 +456,7 @@ Le déclencheur déployé est à l’arrêt. Une des méthodes pour démarrer le
 
 [!INCLUDE [data-factory-quickstart-verify-output-cleanup.md](../../includes/data-factory-quickstart-verify-output-cleanup.md)]
 
-## <a name="data-factory-entities-in-the-template"></a> Définitions JSON pour les entités
+## <a name="json-definitions-for-entities"></a><a name="data-factory-entities-in-the-template"></a> Définitions JSON pour les entités
 
 Les entités Data Factory suivantes sont définies dans le modèle JSON :
 

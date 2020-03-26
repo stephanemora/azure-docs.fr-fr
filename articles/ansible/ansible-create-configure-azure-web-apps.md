@@ -5,13 +5,13 @@ keywords: ansible, azur, devops, bash, playbook, Azure App Service, Web App, Jav
 ms.topic: tutorial
 ms.date: 04/30/2019
 ms.openlocfilehash: 2891ff47b17900c4c1c8e1c21f22495b65108fd5
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74156557"
 ---
-# <a name="tutorial-configure-apps-in-azure-app-service-using-ansible"></a>Didacticiel : Configurer des applications dans Azure App Service à l’aide d’Ansible
+# <a name="tutorial-configure-apps-in-azure-app-service-using-ansible"></a>Tutoriel : Configurer des applications dans Azure App Service à l’aide d’Ansible
 
 [!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
 
@@ -244,4 +244,4 @@ localhost                  : ok=9    changed=6    unreachable=0    failed=0
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"] 
-> [Tutoriel : Mettre à l’échelle des applications dans Azure App Service à l’aide d’Ansible](/azure/ansible/ansible-scale-azure-web-apps)
+> [Tutoriel : Mettre à l’échelle des applications dans Azure App Service à l’aide d’Ansible](/azure/ansible/ansible-scale-azure-web-apps)

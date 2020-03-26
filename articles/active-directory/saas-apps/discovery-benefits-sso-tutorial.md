@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à Discovery Benefits SSO | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Discovery Benefits SSO | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Discovery Benefits SSO.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 10/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 64c4a6811ef5d7ed4f29c7dae89561616895a42a
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72271939"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-discovery-benefits-sso"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Discovery Benefits SSO
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-discovery-benefits-sso"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Discovery Benefits SSO
 
 Dans ce tutoriel, vous allez apprendre à intégrer Discovery Benefits SSO à Azure Active Directory (Azure AD). Quand vous intégrez Discovery Benefits SSO à Azure AD, vous pouvez :
 

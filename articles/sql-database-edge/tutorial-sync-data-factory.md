@@ -10,13 +10,13 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 11/04/2019
 ms.openlocfilehash: e6fd9e6431137708ba93328a8ed1359b93b4ee1f
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74851687"
 ---
-# <a name="tutorial-sync-data-from-sql-database-edge-to-azure-blob-storage-by-using-azure-data-factory"></a>Didacticiel : Synchroniser des données entre SQL Database Edge et le stockage Blob Azure à l’aide d’Azure Data Factory
+# <a name="tutorial-sync-data-from-sql-database-edge-to-azure-blob-storage-by-using-azure-data-factory"></a>Tutoriel : Synchroniser des données entre SQL Database Edge et le stockage Blob Azure à l’aide d’Azure Data Factory
 
 Dans ce tutoriel, vous utilisez Azure Data Factory pour synchroniser des données de façon incrémentielle entre une table appartenant à une instance d’Azure SQL Database Edge et le stockage Blob Azure.
 
@@ -195,10 +195,10 @@ Créez une fabrique de données en suivant les instructions de ce [tutoriel](../
 
     2. Pour spécifier les valeurs des paramètres de procédure stockée, sélectionnez **Paramètre d’importation** et entrez ces valeurs pour les paramètres :
 
-    |Nom|type|Valeur|
+    |Nom|Type|Valeur|
     |-----|----|-----|
     |LastModifiedtime|DateTime|@{activity('NewWaterMark').output.firstRow.NewWatermarkvalue}|
-    |TableName|Chaîne|@{activity('OldWaterMark').output.firstRow.TableName}|
+    |TableName|String|@{activity('OldWaterMark').output.firstRow.TableName}|
 
 33. Pour valider les paramètres du pipeline, sélectionnez **Valider** dans la barre d’outils. Vérifiez qu’il n’y a aucune erreur de validation. Pour fermer la fenêtre **Rapport de validation de pipeline**, sélectionnez **>>** .
 

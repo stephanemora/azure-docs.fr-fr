@@ -10,10 +10,10 @@ ms.workload: data-services
 ms.topic: overview
 ms.date: 09/30/2019
 ms.openlocfilehash: e23268d21b01435aa71d4f471afc6d37ee9e9c1d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73672701"
 ---
 # <a name="what-is-azure-data-factory"></a>qu'est-ce qu'Azure Data Factory ?
@@ -56,7 +56,7 @@ Si vous préférez programmer des transformations manuellement, Azure Data Facto
 ### <a name="cicd-and-publish"></a>CI/CD et publication
 Data Factory offre une prise en charge complète de l’intégration continue/livraison continue (CI/CD) de vos pipelines de données avec Azure DevOps et GitHub. Ceci vous permet de développer et de distribuer de façon incrémentielle vos processus ETL avant de publier le produit fini. Une fois que les données brutes ont été affinées sous une forme utilisable par l’entreprise, chargez-les dans Azure Data Warehouse, Azure SQL Database, Azure CosmosDB ou n’importe quel moteur d’analyse auquel vos utilisateurs peuvent accéder à partir de leurs outils d’analyse décisionnelle.
 
-### <a name="monitor"></a>Surveiller
+### <a name="monitor"></a>Moniteur
 Une fois que vous avez créé et déployé votre pipeline d’intégration de données afin de bénéficier de la valeur commerciale fournie par les données affinées, surveillez les activités planifiées et les pipelines pour connaître les taux de réussite et d’échec. Azure Data Factory intègre une prise en charge de la supervision des pipelines par le biais d’Azure Monitor, une API, PowerShell, des journaux Azure Monitor et les panneaux de contrôle d’intégrité du portail Azure.
 
 ## <a name="top-level-concepts"></a>Concepts de niveau supérieur
@@ -91,7 +91,7 @@ Les déclencheurs correspondent à l’unité de traitement qui détermine le mo
 ### <a name="pipeline-runs"></a>Exécutions de pipeline
 Une exécution du pipeline est une instance de l’exécution du pipeline. Les exécutions de pipeline sont généralement instanciées par la transmission des arguments aux paramètres définis dans les pipelines. Les arguments peuvent être transmis manuellement ou être inclus dans la définition du déclencheur.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Paramètres
 Les paramètres sont des paires clé-valeur de configuration en lecture seule.  Les paramètres sont définis dans le pipeline. Les arguments des paramètres définis sont transmis au cours de l’exécution à partir du contexte d’exécution qui a été créé par un déclencheur ou un pipeline qui a été exécuté manuellement. Les activités contenues dans le pipeline utilisent les valeurs des paramètres.
 
 Un jeu de données est un paramètre fortement typé et une entité réutilisable/pouvant être référencée. Une activité peut faire référence à des jeux de données et utiliser les propriétés définies dans la définition du jeu de données.
@@ -101,7 +101,7 @@ Un service lié est également un paramètre fortement typé qui contient les in
 ### <a name="control-flow"></a>Flux de contrôle
 Control flow est une orchestration des activités du pipeline, qui inclut le chaînage des activités en une séquence, la création de branches, la définition de paramètres au niveau du pipeline et la transmission des arguments lors de l’appel du pipeline à la demande ou à partir d’un déclencheur. Il inclut également la transmission d’états personnalisés et le bouclage des conteneurs, autrement dit, des itérateurs ForEach.
 
-### <a name="variables"></a>variables
+### <a name="variables"></a>Variables
 Des variables peuvent être utilisées dans des pipelines pour stocker des valeurs temporaires et elles peuvent également être utilisées conjointement avec des paramètres pour permettre le passage de valeurs entre des pipelines, des flux de données et d’autres activités.
 
 ## <a name="next-steps"></a>Étapes suivantes

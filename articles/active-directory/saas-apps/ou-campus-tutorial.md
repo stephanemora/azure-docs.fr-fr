@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à OU Campus | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à OU Campus | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et OU Campus.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.openlocfilehash: 2ef934c691fab5b0b3c2462bca150c3df3f01fd4
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73160246"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-ou-campus"></a>Didacticiel : Intégration d’Azure Active Directory à OU Campus
+# <a name="tutorial-azure-active-directory-integration-with-ou-campus"></a>Tutoriel : Intégration d’Azure Active Directory à OU Campus
 
 Ce tutoriel explique comment intégrer OU Campus avec Azure Active Directory (Azure AD).
 L’intégration d’OU Campus avec Azure AD vous offre les avantages suivants :
@@ -110,7 +110,7 @@ Pour configurer l’authentification unique Azure AD avec OU Campus, procédez c
     > [!Note]
     > Cette valeur n’est pas la valeur réelle. Remplacez cette valeur par l’URL de connexion réelle. Pour obtenir cette valeur, contactez l’[équipe du support client OU Campus](mailto:support@omniupdate.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-5. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies en fonction de vos besoins, puis enregistrez-le sur votre ordinateur.
+5. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies selon vos besoins, puis enregistrez-le sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
 
@@ -147,7 +147,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
     b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
-    Par exemple, BrittaSimon@contoso.com
+    Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
@@ -195,5 +195,5 @@ Le fait de cliquer sur la vignette OU Campus dans le panneau d’accès doit vou
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

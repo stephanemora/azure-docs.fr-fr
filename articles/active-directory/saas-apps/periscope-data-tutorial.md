@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Periscope Data | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Periscope Data | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Periscope Data.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
 ms.openlocfilehash: ffa0176c4dde6334e70b9a56b066a677d1610b48
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73160199"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-periscope-data"></a>Didacticiel : Intégration d’Azure Active Directory à Periscope Data
+# <a name="tutorial-azure-active-directory-integration-with-periscope-data"></a>Tutoriel : Intégration d’Azure Active Directory à Periscope Data
 
 Dans ce tutoriel, vous allez apprendre à intégrer Periscope Data à Azure Active Directory (Azure AD).
 L’intégration de Periscope Data à Azure AD vous offre les avantages suivants :
@@ -168,7 +168,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
     b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
-    Par exemple, BrittaSimon@contoso.com
+    Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
@@ -236,5 +236,5 @@ Le fait de cliquer sur la vignette Periscope Data dans le volet d’accès doit 
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

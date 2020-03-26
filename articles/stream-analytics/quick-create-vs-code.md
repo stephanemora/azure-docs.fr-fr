@@ -8,10 +8,10 @@ ms.date: 01/18/2020
 ms.topic: quickstart
 ms.custom: mvc
 ms.openlocfilehash: e3e878b4f548da64ab04eb079d51b0846cf35c57
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76313873"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-in-visual-studio-code-preview"></a>Démarrage rapide : Créer une tâche Azure Stream Analytics dans Visual Studio Code (préversion)
@@ -60,7 +60,7 @@ Avant de définir la tâche Stream Analytics, vous devez préparer les données 
 
    |**Paramètre**  |**Valeur suggérée**  |**Description**  |
    |---------|---------|---------|
-   |Subscription  | \<Votre abonnement\> |  Sélectionnez l’abonnement Azure que vous souhaitez utiliser. |
+   |Abonnement  | \<Votre abonnement\> |  Sélectionnez l’abonnement Azure que vous souhaitez utiliser. |
    |Groupe de ressources   |   asaquickstart-resourcegroup  |   Sélectionnez **Créer** et saisissez le nom du nouveau groupe de ressources pour votre compte. |
    |Région  |  \<Sélectionnez la région la plus proche de vos utilisateurs\> | Sélectionnez un emplacement géographique où vous pouvez héberger votre hub IoT. Utilisez l’emplacement le plus proche de vos utilisateurs. |
    |Nom du hub IoT  | MyASAIoTHub  |   Sélectionnez un nom pour votre hub IoT.   |
@@ -175,7 +175,7 @@ Pour plus d’informations, suivez les instructions fournies dans [Tester des re
 
    |Paramètre|Valeur suggérée|Description|
    |-------|---------------|-----------|
-   |Name|Entrée|Saisissez un nom pour identifier l’entrée de la tâche.|
+   |Nom|Entrée|Saisissez un nom pour identifier l’entrée de la tâche.|
    |IotHubNamespace|MyASAIoTHub|Choisissez ou entrez le nom de votre hub IoT. Si les hubs IoT sont créés dans le même abonnement, leurs noms sont automatiquement détectés.|
    |SharedAccessPolicyName|iothubowner| |
 
@@ -207,7 +207,7 @@ Sélectionnez **Aperçu des données** dans **IoTHub1.json** à partir de la lig
 
    |Paramètre|Valeur suggérée|Description|
    |-------|---------------|-----------|
-   |Name|Output| Saisissez un nom pour identifier la sortie de la tâche.|
+   |Nom|Output| Saisissez un nom pour identifier la sortie de la tâche.|
    |Compte de stockage|asaquickstartstorage|Sélectionnez ou saisissez le nom de votre compte de stockage. Les noms de compte de stockage sont automatiquement détectés s’ils sont créés dans le même abonnement.|
    |Conteneur|conteneur1|Sélectionnez un conteneur existant que vous avez créé dans votre compte de stockage.|
    |Modèle de chemin d'accès|sortie|Entrez le nom d’un chemin de fichier qui doit être créé dans le conteneur.|

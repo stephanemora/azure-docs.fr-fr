@@ -5,13 +5,13 @@ keywords: Ansible, Azure, DevOps, Bash, playbook, Service Bus, rubriques, abonne
 ms.topic: tutorial
 ms.date: 04/30/2019
 ms.openlocfilehash: d07c7622043353a79d5a82994c2fab4f0835b453
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74155795"
 ---
-# <a name="tutorial-configure-topics-in-azure-service-bus-using-ansible"></a>Didacticiel : Configurer des rubriques dans Azure Service Bus avec Ansible
+# <a name="tutorial-configure-topics-in-azure-service-bus-using-ansible"></a>Tutoriel : Configurer des rubriques dans Azure Service Bus avec Ansible
 
 [!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
@@ -69,7 +69,7 @@ Enregistrez le playbook suivant en tant que `servicebus_topic.yml` :
           var: topic
 ```
 
-Exécutez le playbook avec la commande `ansible-playbook` :
+Exécutez le playbook à l’aide de la commande `ansible-playbook` :
 
 ```bash
 ansible-playbook servicebus_topic.yml
@@ -102,7 +102,7 @@ Le code de l’exemple de playbook crée l’abonnement sous une rubrique Servic
 
 Enregistrez le playbook suivant en tant que `servicebus_subscription.yml` :
 
-Exécutez le playbook avec la commande `ansible-playbook` :
+Exécutez le playbook à l’aide de la commande `ansible-playbook` :
 
 ```bash
 ansible-playbook servicebus_subscription.yml
@@ -139,7 +139,7 @@ Enregistrez le playbook suivant en tant que `servicebus_topic_policy.yml` :
           var: policy
 ```
 
-Exécutez le playbook avec la commande `ansible-playbook` :
+Exécutez le playbook à l’aide de la commande `ansible-playbook` :
 
 ```bash
 ansible-playbook servicebus_topic_policy.yml
@@ -172,7 +172,7 @@ Enregistrez le playbook suivant en tant que `servicebus_namespace_info.yml` :
 Avant d’exécuter le playbook, consultez les notes suivantes :
 - La valeur `show_sas_policies` indique s’il faut afficher les stratégies SAP sous l’espace de noms spécifié. Par défaut, la valeur est `False` afin d’éviter toute surcharge réseau supplémentaire.
 
-Exécutez le playbook avec la commande `ansible-playbook` :
+Exécutez le playbook à l’aide de la commande `ansible-playbook` :
 
 ```bash
 ansible-playbook servicebus_namespace_info.yml
@@ -219,7 +219,7 @@ Enregistrez le playbook suivant en tant que `servicebus_list.yml` :
 Avant d’exécuter le playbook, consultez les notes suivantes :
 - La valeur `show_sas_policies` indique s’il faut afficher les stratégies SAP sous la file d’attente spécifiée. Par défaut, cette valeur est `False` afin d’éviter toute surcharge réseau supplémentaire.
 
-Exécutez le playbook avec la commande `ansible-playbook` :
+Exécutez le playbook à l’aide de la commande `ansible-playbook` :
 
 ```bash
 ansible-playbook servicebus_list.yml
@@ -248,13 +248,13 @@ Enregistrez le playbook suivant en tant que `servicebus_queue_policy_delete.yml`
           state: absent
 ```
 
-Exécutez le playbook avec la commande `ansible-playbook` :
+Exécutez le playbook à l’aide de la commande `ansible-playbook` :
 
 ```bash
 ansible-playbook servicebus_topic_policy_delete.yml
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous n’en avez plus besoin, supprimez les ressources créées dans cet article. 
 

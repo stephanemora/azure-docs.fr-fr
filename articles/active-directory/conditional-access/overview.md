@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4c85fbc2c1f926f89dbfe9f2a5ae47cc48edf73
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 7b044a4fd4e29bfe35abff7a4b36e5bae783328b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74966275"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215987"
 ---
 # <a name="what-is-conditional-access"></a>Qu’est-ce que l’accès conditionnel ?
 
@@ -26,7 +26,7 @@ L’accès conditionnel est l’outil utilisé par Azure Active Directory pour r
 
 ![Signal conditionnel conceptuel + Décision = Application](./media/overview/conditional-access-signal-decision-enforcement.png)
 
-Les stratégies d’accès conditionnel, dans leur forme la plus simple, sont des instructions if-then : si un utilisateur souhaite accéder à une ressource, il doit effectuer une action. Exemple : Un responsable paie souhaite accéder à l’application de paie et il doit effectuer une authentification multifacteur pour y accéder.
+Les stratégies d’accès conditionnel, dans leur forme la plus simple, sont des instructions if-then : si un utilisateur souhaite accéder à une ressource, il doit effectuer une action. Exemple : Un responsable paie souhaite accéder à l’application de paie et il doit effectuer une authentification multifacteur pour y accéder.
 
 Les administrateurs sont confrontés à deux objectifs principaux :
 
@@ -65,7 +65,7 @@ Les signaux courants que l’accès conditionnel peut prendre en compte lors d�
    - Décision la moins restrictive ; peut toujours nécessiter une ou plusieurs des options suivantes :
       - Exiger une authentification multifacteur
       - Exiger que l’appareil soit marqué comme conforme
-      - Exiger un appareil joint à une version hybride d’Azure AD
+      - Exiger un appareil joint Azure AD Hybride
       - Demander une application cliente approuvée
       - Exiger une stratégie de protection des applications (préversion)
 
@@ -92,7 +92,7 @@ Découvrez comment d’autres organisations utilisent l’accès conditionnel Az
 
 [!INCLUDE [Active Directory P1 license](../../../includes/active-directory-p1-license.md)]
 
-Les clients avec [des licences Microsoft 365 Business](https://docs.microsoft.com/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) ont également accès aux fonctionnalités d’accès conditionnel. 
+Les clients avec [des licences Microsoft 365 Business](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) ont également accès aux fonctionnalités d’accès conditionnel. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -102,6 +102,6 @@ Pour apprendre à implémenter l’accès conditionnel dans votre environnement,
 
 [En savoir plus sur Identity Protection](../identity-protection/overview-v2.md)
 
-[En savoir plus sur Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security)
+[En savoir plus sur Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security)
 
-[En savoir plus sur Microsoft Intune](https://docs.microsoft.com/intune/index)
+[En savoir plus sur Microsoft Intune](/intune/index)

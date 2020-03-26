@@ -4,10 +4,10 @@ description: Décrit comment évaluer des serveurs physiques locaux pour la migr
 ms.topic: tutorial
 ms.date: 11/18/2019
 ms.openlocfilehash: c89c731712a625e5f3b7a1a7e9306f6a7480b96b
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76990298"
 ---
 # <a name="assess-physical-servers-with-azure-migrate-server-assessment"></a>Évaluer des serveurs physiques avec Azure Migrate : Server Assessment
@@ -30,7 +30,7 @@ Ce didacticiel est le deuxième d’une série expliquant comment évaluer et mi
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) avant de commencer.
 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - [Effectuez](tutorial-prepare-physical.md) le premier tutoriel de cette série. Si vous ne le faites pas, les instructions de ce tutoriel ne fonctionneront pas.
 - Voici ce que vous avez dû faire dans le premier tutoriel :

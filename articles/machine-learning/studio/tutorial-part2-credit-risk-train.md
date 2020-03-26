@@ -10,14 +10,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 9aeaed6565e69409bc55a71985296b2393226ba4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8feca17f10bb891f0ca5577b2363f95901da4a46
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427484"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79217872"
 ---
 # <a name="tutorial-2-train-credit-risk-models---azure-machine-learning-studio-classic"></a>Tutoriel 2 : Former des modèles de risque de crédit - Azure Machine Learning Studio (classique)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Dans ce tutoriel, vous étudiez de manière approfondie le processus de développement d’une solution d’analyse prédictive. Vous développez un modèle simple dans Machine Learning Studio (classique).  Vous déployez ensuite le modèle en tant que service web Azure Machine Learning.  Ce modèle déployé peut effectuer des prédictions à l’aide de nouvelles données. Ce tutoriel est la **deuxième partie d’une série de tutoriels qui en compte trois**.
 
@@ -38,11 +40,11 @@ Dans cette partie du tutoriel, vous allez effectuer les opérations suivantes :
 
 Dans la [troisième partie du tutoriel](tutorial-part3-credit-risk-deploy.md), vous allez déployer le modèle en tant que service web.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Effectuez la [première partie du tutoriel](tutorial-part1-credit-risk.md).
 
-## <a name="train"></a>Entraîner plusieurs modèles
+## <a name="train-multiple-models"></a><a name="train"></a>Entraîner plusieurs modèles
 
 Un des avantages de l’utilisation d’Azure Machine Learning Studio (classique) pour créer des modèles Machine Learning est la possibilité d’essayer simultanément plusieurs types de modèle dans une expérience et de comparer les résultats. Ce type d’expérimentation vous aide à trouver la meilleure solution à votre problème.
 

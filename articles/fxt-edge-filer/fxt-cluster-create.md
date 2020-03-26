@@ -7,11 +7,11 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 07/01/2019
 ms.openlocfilehash: bfe1d1aeeac55039acf0c7eb295001277be9cd2e
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75551265"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79223126"
 ---
 # <a name="tutorial-create-the-azure-fxt-edge-filer-cluster"></a>Tutoriel : Créer le cluster Azure FXT Edge Filer
 
@@ -30,7 +30,7 @@ Ce tutoriel vous apprendra à effectuer les opérations suivantes :
 
 Cette procédure prend entre 15 et 45 minutes, en fonction des recherches que vous avez besoin de faire pour identifier les IP adresses et les ressources réseau.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer ce tutoriel, effectuez ces prérequis :
 

@@ -7,10 +7,10 @@ ms.service: security
 ms.topic: quickstart
 ms.date: 10/02/2019
 ms.openlocfilehash: 2518de3ad5d0f583cd4962796e4adda5751351df
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74151061"
 ---
 # <a name="quickstart-create-and-encrypt-a-windows-virtual-machine-with-the-azure-portal"></a>Démarrage rapide : Créer et chiffrer une machine virtuelle Windows à l’aide du portail Azure
@@ -21,7 +21,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
-Connectez-vous au [Portail Azure](https://portal.azure.com).
+Connectez-vous au [portail Azure](https://portal.azure.com).
 
 
 ## <a name="create-a-virtual-machine"></a>Création d'une machine virtuelle
@@ -30,7 +30,7 @@ Connectez-vous au [Portail Azure](https://portal.azure.com).
 1. Dans la page Nouveau, sous Populaire, sélectionnez **Windows Server 2016 Datacenter**.
 1. Dans l’onglet De base, sous Détails du projet, vérifiez que l’abonnement approprié est sélectionné, puis choisissez de **Créer un groupe de ressources**. Entrez le nom *myResourceGroup*.
 1. Dans **Nom de la machine virtuelle**, entrez *MyVM*.
-1. Dans **Région**, sélectionnez la même région que celle utilisée pour créer votre coffre de clés (par exemple, *East US*).
+1. Dans **Région**, sélectionnez la même région que celle utilisée pour créer votre coffre de clés (par exemple, *USA Est*).
 1. Assurez-vous que la **Taille** est *Standard D2s v3*.
 1. Sous **Compte Administrateur**, sélectionnez **Mot de passe**. Entrez un nom d'utilisateur et un mot de passe.
     ![Écran de la création du groupe de ressources](../media/disk-encryption/portal-qs-windows-vm-creation.png)
@@ -66,7 +66,7 @@ Quelques minutes sont nécessaires pour le déploiement de votre machine virtuel
 1. En haut de l’écran de chiffrement, cliquez sur **Enregistrer**. Un message s’affiche pour vous avertir que la machine virtuelle va redémarrer. Cliquez sur **Oui**.
 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Dès que vous n’en avez plus besoin, vous pouvez supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées. Pour cela, sélectionnez le groupe de ressources de la machine virtuelle, sélectionnez Supprimer, puis confirmez le nom du groupe de ressources à supprimer.
 

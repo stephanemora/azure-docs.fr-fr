@@ -10,10 +10,10 @@ ms.date: 07/24/2019
 ms.author: robinsh
 ms.custom: mvc
 ms.openlocfilehash: bf37f7b27e3f8923a229cc0617365d912d47aec2
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77110659"
 ---
 # <a name="tutorial-perform-manual-failover-for-an-iot-hub"></a>Tutoriel : Effectuer un basculement manuel pour un hub IoT
@@ -29,11 +29,11 @@ Dans ce didacticiel, vous allez effectuer les tâches suivantes :
 > * Effectuer une restauration automatique pour ramener les opérations d’IoT hub à l’emplacement principal. 
 > * Confirmer que le hub s’exécute correctement dans l’emplacement approprié.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-* Assurez-vous que le port 8883 est ouvert dans votre pare-feu. L’exemple d’appareil de ce tutoriel utilise le protocole MQTT qui communique sur le port 8883. Ce port peut être bloqué dans certains environnements réseau professionnels et scolaires. Pour plus d’informations sur les différentes façons de contourner ce problème, consultez [Connexion à IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+* Assurez-vous que le port 8883 est ouvert dans votre pare-feu. L'exemple d’appareil de ce tutoriel utilise le protocole MQTT qui communique sur le port 8883. Dans certains environnements réseau professionnels et scolaires, ce port peut être bloqué. Pour plus d’informations sur les différentes façons de contourner ce problème, consultez [Connexion à IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="create-an-iot-hub"></a>Créer un hub IoT
 
@@ -55,7 +55,7 @@ Dans ce didacticiel, vous allez effectuer les tâches suivantes :
 
    ![Capture d’écran montrant le volet d’informations de base pour la création d’un IoT Hub](./media/tutorial-manual-failover/create-hub-02-basics.png)
 
-   Cliquez sur **Revoir + créer**. (Il utilise les valeurs par défaut pour la taille et échelle.) 
+   Cliquez sur **Vérifier + créer**. (Il utilise les valeurs par défaut pour la taille et échelle.) 
 
 4. Passez en revue les informations, puis cliquez sur **Créer** pour créer l’IoT hub. 
 

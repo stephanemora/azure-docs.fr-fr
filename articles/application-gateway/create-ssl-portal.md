@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Configurer la terminaison SSL dans le portail – Azure Application Gateway'
+title: 'Tutoriel : Configurer la terminaison SSL dans le portail – Azure Application Gateway'
 description: Dans ce tutoriel, vous allez découvrir comment configurer une passerelle d’application et ajouter un certificat pour un arrêt SSL à partir du portail Azure.
 services: application-gateway
 author: vhorne
@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.date: 11/13/2019
 ms.author: victorh
 ms.openlocfilehash: b4278fc6d44f32921713681cb094b659901cc87c
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74012309"
 ---
-# <a name="tutorial-configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Didacticiel : Configurer une passerelle d’application avec un arrêt SSL à l’aide du portail Azure
+# <a name="tutorial-configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Tutoriel : Configurer une passerelle d’application avec un arrêt SSL à l’aide du portail Azure
 
 Vous pouvez utiliser le portail Azure afin de configurer une [passerelle d’application](overview.md) avec un certificat pour un arrêt SSL qui utilise des machines virtuelles avec des serveurs backend.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créer un certificat auto-signé
@@ -88,7 +88,7 @@ Export-PfxCertificate `
 
     Sous **Configurer le réseau virtuel**, créez un réseau virtuel en sélectionnant **Créer nouveau**. Dans la fenêtre **Créer un réseau virtuel** qui s’ouvre, entrez les valeurs suivantes pour créer le réseau virtuel et deux sous-réseaux :
 
-    - **Nom** : entrez *myVNet* comme nom de réseau virtuel.
+    - **Name** : entrez *myVNet* comme nom de réseau virtuel.
 
     - **Nom de sous-réseau** (sous-réseau Application Gateway) : La grille **Sous-réseaux** affiche un sous-réseau nommé *Par défaut*. Remplacez le nom de ce sous-réseau par *myAGSubnet*.<br>Le sous-réseau de passerelle d’application peut contenir uniquement des passerelles d’application. Aucune autre ressource n’est autorisée.
 
@@ -122,7 +122,7 @@ Le pool de back-ends est utilisé pour router les demandes vers les serveurs bac
 
 2. Dans la fenêtre **Ajouter un pool de back-ends** qui s’ouvre, entrez les valeurs suivantes pour créer un pool de back-ends vide :
 
-    - **Nom** : Entrez *myBackendPool* comme nom du pool de back-ends.
+    - **Name** : Entrez *myBackendPool* comme nom du pool de back-ends.
     - **Ajouter un pool backend sans cible** : Sélectionnez **Oui** pour créer un pool de back-ends sans cible. Vous ajouterez des cibles de back-end après avoir créé la passerelle d’application.
 
 3. Dans la fenêtre **Ajouter un pool de back-ends**, sélectionnez  **Ajouter** pour enregistrer la configuration du pool de back-ends et revenir à l’onglet **Back-ends**.

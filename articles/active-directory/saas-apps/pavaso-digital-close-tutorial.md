@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Pavaso Digital Close | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Pavaso Digital Close | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Pavaso Digital Close.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 01/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1f5390c578a80f8391ba879f9e7cbe7acc1cfd8f
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73160238"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-pavaso-digital-close"></a>Didacticiel : Intégration d’Azure Active Directory à Pavaso Digital Close
+# <a name="tutorial-azure-active-directory-integration-with-pavaso-digital-close"></a>Tutoriel : Intégration d’Azure Active Directory à Pavaso Digital Close
 
 Dans ce tutoriel, vous allez apprendre à intégrer Pavaso Digital Close à Azure Active Directory (Azure AD).
 L’intégration de Pavaso Digital Close à Azure AD vous offre les avantages suivants :
@@ -119,7 +119,7 @@ Pour configurer l’authentification unique Azure AD avec [Nom de l’applicati
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Pour obtenir ces valeurs, contactez [l’équipe de support technique Pavaso Digital Close](mailto:support@pavaso.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-6. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies en fonction de vos besoins, puis enregistrez-le sur votre ordinateur.
+6. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies selon vos besoins, puis enregistrez-le sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
 
@@ -156,7 +156,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
     b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
-    Par exemple, BrittaSimon@contoso.com
+    Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
@@ -204,4 +204,4 @@ Le fait de cliquer sur la vignette Pavaso Digital Close dans le panneau d’acc�
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

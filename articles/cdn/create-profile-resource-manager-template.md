@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.date: 03/05/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: b711a12161bc134bdcbb8c1f3e74f2e5ae06e701
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 3cda4db558210ecbfcfc8ce2aaed8c6f69f5e026
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083140"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79458781"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint-using-resource-manager-template"></a>Démarrage rapide : Créer un point de terminaison et un profil Azure Content Delivery Network à l’aide d’un modèle Resource Manager
 
@@ -42,7 +42,7 @@ Toutes les ressources doivent être déployées dans le même groupe de ressourc
 
 Créez le groupe de ressources à l’emplacement sélectionné. Cet exemple illustre la création d’un groupe de ressources nommé cdn dans la région USA Est.
 
-```bash
+```azurecli-interactive
 az group create --name cdn --location eastus
 ```
 
@@ -189,7 +189,7 @@ Déployez le modèle à l’aide d’Azure CLI. Vous êtes invité à entrer deu
 
 **endpointOriginHostName** : point de terminaison qui est servi via le CDN, par exemple cdndemo.azurewebsites.net.
 
-```bash
+```azurecli-interactive
 az group deployment create --resource-group cdn --template-file arm-cdn.json
 ```
 
@@ -197,7 +197,7 @@ az group deployment create --resource-group cdn --template-file arm-cdn.json
 
 ## <a name="view-the-cdn-profile"></a>Afficher le profil CDN
 
-```bash
+```azurecli-interactive
 az cdn profile list --resource-group cdn -o table
 ```
 
@@ -205,7 +205,7 @@ az cdn profile list --resource-group cdn -o table
 
 ## <a name="view-the-cdn-endpoint-for-the-profile-standard-microsoft"></a>Afficher le point de terminaison CDN pour le profil standard-microsoft
 
-```bash
+```azurecli-interactive
 az cdn endpoint list --profile-name standard-microsoft --resource-group cdn -o table
 ```
 
@@ -217,13 +217,13 @@ Utilisez le nom d’hôte pour afficher le contenu. Par exemple, accédez à htt
 
 La suppression du groupe de ressources supprime automatiquement toutes les ressources qui ont été déployées dans celui-ci.
 
-```bash
+```azurecli-interactive
 az group delete --name cdn
 ```
 
 ![Supprimer le groupe de ressources](./media/create-profile-resource-manager-template/cdn-delete-resource-group.png)
 
-## <a name="references"></a>Références
+## <a name="references"></a>References
 
 * Profil CDN - [Documentation de référence sur le modèle Azure Resource Manager](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles)
 * Point de terminaison CDN - [Documentation de référence sur le modèle Azure Resource Manager](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles/endpoints)
@@ -233,4 +233,4 @@ az group delete --name cdn
 Pour en savoir plus sur l’ajout d’un domaine personnalisé à votre point de terminaison CDN, consultez le didacticiel suivant :
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Ajouter un domaine personnalisé à votre point de terminaison Azure CDN](cdn-map-content-to-custom-domain.md)
+> [Tutoriel : Ajouter un domaine personnalisé à votre point de terminaison Azure CDN](cdn-map-content-to-custom-domain.md)

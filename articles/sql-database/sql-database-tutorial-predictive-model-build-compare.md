@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Former et comparer des modèles prédictifs en R'
+title: 'Tutoriel : Former et comparer des modèles prédictifs en R'
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
 description: Dans la deuxième partie de cette série de didacticiels qui en compte trois parties, vous allez créer deux modèles prédictifs en R avec le moteur Machine Learning Services (préversion) d’Azure SQL Database, puis sélectionner le modèle le plus précis.
 services: sql-database
@@ -14,17 +14,17 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/26/2019
 ms.openlocfilehash: 2c85a378dc219e8af1b6458344ee4dba0fa73e68
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68596795"
 ---
-# <a name="tutorial-create-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Didacticiel : Créer un modèle prédictif en R avec le moteur Machine Learning Services (préversion) d’Azure SQL Database
+# <a name="tutorial-create-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Tutoriel : Créer un modèle prédictif en R avec le moteur Machine Learning Services (préversion) d’Azure SQL Database
 
 Dans la deuxième partie de cette série de didacticiels qui en compte trois parties, vous allez créer deux modèles prédictifs en R et sélectionner le modèle le plus précis. Dans la partie suivante de cette série, vous allez déployer ce modèle dans une base de données SQL avec Azure SQL Database Machine Learning Services (préversion).
 
-Cet article porte sur les points suivants :
+Dans cet article, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Effectuer l’apprentissage de deux modèles Machine Learning
@@ -108,7 +108,7 @@ plot(predict_dtree$RentalCount_Pred  - predict_dtree$RentalCount,  main = "Diffe
 
 Il semble que le modèle de type arbre de décision est le plus précis des deux.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous n’avez pas l’intention de poursuivre ce didacticiel, supprimez la base de données TutorialDB de votre serveur Azure SQL Database.
 
@@ -121,7 +121,7 @@ Sur le portail Azure, procédez comme suit :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-La deuxième partie de ce didacticiel vous a présenté les étapes suivantes :
+Dans la deuxième partie de cette série de tutoriels, vous avez effectué les étapes suivantes :
 
 * Effectuer l’apprentissage de deux modèles Machine Learning
 * Effectuer des prédictions à partir des deux modèles
@@ -130,4 +130,4 @@ La deuxième partie de ce didacticiel vous a présenté les étapes suivantes :
 Pour déployer le modèle Machine Learning que vous avez créé, suivez la troisième partie de cette série de didacticiels :
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Déployer un modèle prédictif en R avec le moteur Machine Learning Services (préversion) d’Azure SQL Database](sql-database-tutorial-predictive-model-deploy.md)
+> [Tutoriel : Déployer un modèle prédictif en R avec le moteur Machine Learning Services (préversion) d’Azure SQL Database](sql-database-tutorial-predictive-model-deploy.md)

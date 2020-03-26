@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 83e172e61411c7c1c098706b5ff4566f565d6bf1
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "66253857"
 ---
 # <a name="what-is-password-hash-synchronization-with-azure-ad"></a>Qu’est-ce que la synchronisation de hachage de mot de passe avec Azure AD ?
@@ -49,7 +49,7 @@ Pour plus d’informations, consultez [Qu’est-ce que l’identité hybride ?]
 
 - [Qu’est-ce que l’identité hybride ?](whatis-hybrid-identity.md)
 - [Présentation d’Azure AD Connect et Connect Health](whatis-azure-ad-connect.md)
-- [Qu’est-ce que l’authentification directe ?](how-to-connect-pta.md)
+- [Qu’est-ce que l’authentification directe (PTA) ?](how-to-connect-pta.md)
 - [Qu’est-ce que la fédération ?](whatis-fed.md)
 - [Qu’est-ce que l’authentification unique ?](how-to-connect-sso.md)
 - [Fonctionnement de la synchronisation de hachage de mot de passe](how-to-connect-password-hash-synchronization.md)

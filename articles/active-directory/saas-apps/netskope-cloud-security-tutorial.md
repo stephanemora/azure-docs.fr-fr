@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à Netskope Administrator Console | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Netskope Administrator Console | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Netskope Administrator Console.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 10/31/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dec8f8065114b89dfa7bcaceee3f26855953dde2
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74081740"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netskope-administrator-console"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Netskope Administrator Console
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netskope-administrator-console"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Netskope Administrator Console
 
 Dans ce tutoriel, vous allez découvrir comment intégrer Netskope Administrator Console à Azure Active Directory (Azure AD). En intégrant Netskope Administrator Console à Azure AD, vous pouvez :
 

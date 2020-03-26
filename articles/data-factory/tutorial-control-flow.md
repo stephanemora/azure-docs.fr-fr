@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
 ms.openlocfilehash: 7ba921656d0dad059b1d15f443bcefeff03ade50
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75977383"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Activités de création de branches et chaînage dans un pipeline Azure Data Factory
@@ -42,7 +42,7 @@ Ce didacticiel utilise le kit .NET SDK. Vous pouvez utiliser d’autres mécanis
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Compte Stockage Azure. Vous utilisez le stockage d’objets blob comme magasin de données source. Si vous ne possédez pas de compte de stockage Azure, voir [Création d’un compte de stockage](../storage/common/storage-account-create.md).
 * Azure Storage Explorer. Pour installer cet outil, consultez [Explorateur Stockage Azure](https://storageexplorer.com/).
@@ -66,7 +66,7 @@ Créez une application comme décrit dans [Créer une application Azure Active D
 1. Ouvrez l’Explorateur de stockage Azure. Développez votre compte de stockage. Cliquez avec le bouton droit sur **Conteneurs d’objets blob** et sélectionnez **Créer un conteneur d’objets blob**.
 1. Nommez le nouveau conteneur *adfv2branch* et sélectionnez **Charger** pour ajouter votre fichier *input.txt* au conteneur.
 
-## Créer un projet Visual Studio<a name="create-visual-studio-project"></a>
+## <a name="create-visual-studio-project"></a>Créer un projet Visual Studio<a name="create-visual-studio-project"></a>
 
 Créez une application console .NET C# :
 

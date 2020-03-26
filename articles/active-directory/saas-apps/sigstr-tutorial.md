@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique (SSO) Azure Active Directory à Sigstr | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Sigstr | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Sigstr.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 08/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e87f6aa3d85694afc8fa9fabacdae5e8b0719213
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "69641836"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sigstr"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Sigstr
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sigstr"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Sigstr
 
 Dans ce tutoriel, vous allez découvrir comment intégrer Sigstr à Azure Active Directory (Azure AD). Quand vous intégrez Sigstr à Azure AD, vous pouvez :
 
@@ -103,7 +103,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     1. Dans la liste **Attribut de la source**, tapez la valeur d’attribut indiquée pour cette ligne.
 
-    1. Cliquez sur **OK**.
+    1. Cliquez sur **OK**
 
     1. Cliquez sur **Enregistrer**.
 
@@ -167,4 +167,4 @@ Quand vous cliquez sur la vignette Sigstr dans le volet d’accès, vous devez �
 
 - [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Essayer Slack avec Azure AD](https://aad.portal.azure.com/)
+- [Essayer Slack avec Azure AD](https://aad.portal.azure.com/)

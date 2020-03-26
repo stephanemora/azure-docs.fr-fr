@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique (SSO) Azure Active Directory à Check Point CloudGuard Dome9 Arc | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Check Point CloudGuard Dome9 Arc | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Check Point CloudGuard Dome9 Arc.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 10/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b46ac34db21576c7e2de2271a468e3e782ff6aa9
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73885347"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-check-point-cloudguard-dome9-arc"></a>Didacticiel : Intégration de l’authentification unique (SSO) Azure Active Directory à Check Point CloudGuard Dome9 Arc
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-check-point-cloudguard-dome9-arc"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Check Point CloudGuard Dome9 Arc
 
 Dans ce tutoriel, vous allez apprendre à intégrer Check Point CloudGuard Dome9 Arc à Azure Active Directory (Azure AD). Quand vous intégrez Check Point CloudGuard Dome9 Arc à Azure AD, vous pouvez :
 

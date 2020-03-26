@@ -1,6 +1,6 @@
 ---
 title: Une présentation d’Apache Kafka sur HDInsight - Azure
-description: 'Découvrez Apache Kafka sur HDInsight : Présentation, fonctionnalités et exemples et informations de prise en main.'
+description: 'Découvrez Apache Kafka sur HDInsight : Présentation, fonctionnalités et exemples et informations de prise en main.'
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,10 +9,10 @@ ms.topic: overview
 ms.custom: hdinsightactive
 ms.date: 02/25/2020
 ms.openlocfilehash: 92f56f3b405470bc8ae0e9ebab2450ddc31b3c6a
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77672172"
 ---
 # <a name="what-is-apache-kafka-in-azure-hdinsight"></a>Présentation d’Apache Kafka dans Azure HDInsight
@@ -75,10 +75,10 @@ Voici les tâches et les modèles courants réalisables avec Kafka sur HDInsight
 
 Cliquez sur les liens suivants pour apprendre à utiliser Apache Kafka sur HDInsight :
 
-* [Démarrage rapide : Créer Apache Kafka sur HDInsight](apache-kafka-get-started.md)
+* [Démarrage rapide : Créer un cluster Apache Kafka dans HDInsight](apache-kafka-get-started.md)
 
 * [Utiliser Kafka avec le proxy REST](rest-proxy.md)
 
-* [Tutoriel : Utiliser Apache Spark avec Apache Kafka sur HDInsight](../hdinsight-apache-spark-with-kafka.md)
+* [Tutoriel : Utiliser Apache Spark avec Apache Kafka dans HDInsight](../hdinsight-apache-spark-with-kafka.md)
 
-* [Tutoriel : Utiliser Apache Storm avec Apache Kafka sur HDInsight](../hdinsight-apache-storm-with-kafka.md)
+* [Tutoriel : Utiliser Apache Storm avec Apache Kafka dans HDInsight](../hdinsight-apache-storm-with-kafka.md)

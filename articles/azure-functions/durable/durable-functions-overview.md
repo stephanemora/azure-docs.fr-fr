@@ -7,17 +7,17 @@ ms.date: 08/07/2019
 ms.author: cgillum
 ms.reviewer: azfuncdf
 ms.openlocfilehash: 5d454aefaba89bef9dc9009ff442fa5543dae2ef
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78357830"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79290087"
 ---
 # <a name="what-are-durable-functions"></a>Présentation de Durable Functions
 
 *Durable Functions* est une extension d’[Azure Functions](../functions-overview.md) qui vous permet d’écrire des fonctions avec état dans un environnement de calcul serverless. L’extension vous permet de définir des workflows avec état en écrivant des [*fonctions orchestrator*](durable-functions-orchestrations.md) et des entités avec état en écrivant des [*fonctions d’entité*](durable-functions-entities.md) à l’aide du modèle de programmation Azure Functions. En arrière-plan, l’extension gère l’état, les points de contrôle et les redémarrages à votre place, ce qui vous permet de vous concentrer sur votre logique métier.
 
-## <a name="language-support"></a>Langages pris en charge
+## <a name="supported-languages"></a><a name="language-support"></a>Langages pris en charge
 
 Durable Functions prend actuellement en charge les langages suivants :
 
@@ -40,7 +40,7 @@ Le principal cas d’usage de Durable Functions est la simplification d’exigen
 * [Interaction humaine](#human)
 * [Agrégateur (entités avec état)](#aggregator)
 
-### <a name="chaining"></a>Modèle 1 : Chaînage de fonctions
+### <a name="pattern-1-function-chaining"></a><a name="chaining"></a>Modèle 1 : Chaînage de fonctions
 
 Dans le modèle de chaînage de fonctions, une séquence de fonctions s’exécute dans un ordre spécifique. Dans ce modèle, la sortie d’une fonction est appliquée à l’entrée d’une autre fonction.
 
@@ -97,7 +97,7 @@ Vous pouvez utiliser l’objet `context.df` pour appeler d’autres fonctions pa
 
 ---
 
-### <a name="fan-in-out"></a>Modèle 2 : Fan out/fan in
+### <a name="pattern-2-fan-outfan-in"></a><a name="fan-in-out"></a>Modèle 2 : Fan out/fan in
 
 Dans le modèle fan out/fan in, vous exécutez plusieurs fonctions en parallèle, puis attendez que toutes ces fonctions se terminent. Un travail d’agrégation est souvent effectué sur les résultats retournés par les fonctions.
 
@@ -167,7 +167,7 @@ La création automatique de points de contrôle qui a lieu lors de l’appel `yi
 > [!NOTE]
 > Dans de rares circonstances, un plantage peut se produire dans la fenêtre après l’exécution d’une fonction d’activité, mais avant que son achèvement ne soit enregistré dans l’historique d’orchestration. Si cela se produit, la fonction d’activité s’exécute à nouveau depuis le début après la reprise du processus.
 
-### <a name="async-http"></a>Modèle 3 : API HTTP Async
+### <a name="pattern-3-async-http-apis"></a><a name="async-http"></a>Modèle 3 : API HTTP Async
 
 Le modèle d’API HTTP asynchrone traite le problème de coordination de l’état des opérations à exécution longue avec des clients externes. Pour implémenter ce modèle, une méthode courante consiste à faire déclencher l’action à exécution longue par un point de terminaison HTTP. Le client est ensuite redirigé vers un point de terminaison d’état que le client interroge pour savoir quand l’opération est terminée.
 
@@ -206,7 +206,7 @@ L’extension Durable Functions expose des API HTTP intégrées qui gèrent les 
 
 Pour plus d’informations, consultez l’article [Fonctionnalités HTTP](durable-functions-http-features.md), qui explique comment vous pouvez exposer des processus asynchrones à exécution longue sur HTTP à l’aide de l’extension Durable Functions.
 
-### <a name="monitoring"></a>Modèle 4 : Moniteur
+### <a name="pattern-4-monitor"></a><a name="monitoring"></a>Modèle 4 : Moniteur
 
 Le modèle de surveillance fait référence à un processus souple et récurrent dans un flux de travail. Il peut s’agir, par exemple, d’une interrogation se poursuivant jusqu’à ce que certaines conditions soient remplies. Vous pouvez utiliser un [déclencheur de minuteur](../functions-bindings-timer.md) standard pour un scénario simple, comme une tâche de nettoyage périodique, mais son intervalle est statique et la gestion de la durée de vie des instances devient complexe. Vous pouvez utiliser Durable Functions pour créer des intervalles de récurrence flexibles, gérer la durée de vie des tâches et créer plusieurs processus de surveillance à partir d’une seule orchestration.
 
@@ -280,7 +280,7 @@ module.exports = df.orchestrator(function*(context) {
 
 Quand une requête est reçue, une nouvelle instance d’orchestration est créée pour cet ID de tâche. L’instance interroge un état jusqu’à ce qu’une condition soit respectée et que vous quittiez la boucle. Un minuteur durable contrôle la fréquence d’interrogation. Des opérations supplémentaires peuvent ensuite être exécutées, ou l’orchestration peut prendre fin. Quand `nextCheck` dépasse `expiryTime`, le moniteur s’arrête.
 
-### <a name="human"></a>Modèle 5 : Interaction humaine
+### <a name="pattern-5-human-interaction"></a><a name="human"></a>Modèle 5 : Interaction humaine
 
 De nombreux processus automatisés impliquent un certain type d’interaction humaine. L’implication de personnes humaines dans un processus automatisé est complexe, car elles ne sont pas toujours aussi disponibles et réactives que les services cloud. Un processus automatisé peut rendre cette interaction possible en utilisant des délais d’expiration et une logique de compensation.
 
@@ -382,7 +382,7 @@ module.exports = async function (context) {
 
 ---
 
-### <a name="aggregator"></a>Modèle 6 : Agrégateur (entités avec état)
+### <a name="pattern-6-aggregator-stateful-entities"></a><a name="aggregator"></a>Modèle 6 : Agrégateur (entités avec état)
 
 Le sixième modèle repose sur l’agrégation de données d’événement sur une période au sein d’une seule *entité* adressable. Dans ce modèle, les données agrégées peuvent provenir de plusieurs sources, être transmises par lots ou être dispersées sur de longues périodes. L’agrégateur devra peut-être effectuer une action sur les données d’événement à leur arrivée, et des clients externes devront peut-être interroger les données agrégées.
 

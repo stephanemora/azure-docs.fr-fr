@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 01/30/2020
 ms.author: spelluru
 ms.openlocfilehash: e296ae36eeeb816d8704ab03824f8cbb80082ea6
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77163005"
 ---
 # <a name="send-events-to-or-receive-events-from-event-hubs-by-using-javascript--azureevent-hubs-version-5"></a>Recevoir des événements des hubs d’événements ou leur en envoyer à l’aide de JavaScript (azure/event-hubs version 5)
@@ -21,7 +21,7 @@ Ce guide de démarrage rapide montre comment recevoir des événements d’un hu
 > [!IMPORTANT]
 > Ce guide de démarrage rapide utilise la dernière version du package azure/event-hubs (version 5). Pour un guide de démarrage rapide qui utilise l’ancienne version du package azure/event-hubs (version 2), consultez [Recevoir des événements d’Azure Event Hubs ou lui en envoyer en utilisant Node.js (version 2)](event-hubs-node-get-started-send.md). 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 Si vous débutez avec Azure Event Hubs, consultez la [vue d’ensemble d’Event Hubs](event-hubs-about.md) avant de suivre ce guide de démarrage rapide. 
 
 Pour effectuer ce démarrage rapide, vous avez besoin de ce qui suit :

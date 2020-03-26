@@ -9,17 +9,17 @@ ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: mvc
 ms.openlocfilehash: c27b7bf29e5f124fdcfb886b658fd8e9d4cc48fe
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74091344"
 ---
 # <a name="fail-back-an-azure-vm-between-azure-regions"></a>Restaurer automatiquement des machines virtuelles Azure entre des régions Azure
 
 Le service [Azure Site Recovery](site-recovery-overview.md) contribue à votre stratégie de reprise d’activité après sinistre en gérant et en coordonnant la réplication, le basculement et la restauration automatique des machines locales et des machines virtuelles Azure.
 
-Ce didacticiel explique comment restaurer une machine virtuelle Azure. Une fois que vous avez effectué le basculement, vous devez effectuer la restauration automatique vers la région primaire quand celle-ci est disponible. Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Ce didacticiel explique comment restaurer une machine virtuelle Azure. Une fois que vous avez effectué le basculement, vous devez effectuer la restauration automatique vers la région primaire quand celle-ci est disponible. Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > 
@@ -48,7 +48,7 @@ Une fois les machines virtuelles reprotégées, vous pouvez effectuer une restau
 3. Dans **Basculer**, sélectionnez un point de récupération vers lequel effectuer le basculement :
     - **Dernier (par défaut)**  : traite toutes les données dans le service Site Recovery et fournit l’objectif de point de récupération (RPO) le plus bas.
     - **Dernier point traité** : rétablit la machine virtuelle sur le dernier point de récupération ayant été traité par Site Recovery.
-    - **Personnalisé** : effectue un basculement vers un point de récupération spécifique. Cette option est utile pour effectuer un test de basculement.
+    - **Personnalisé** : effectue un basculement vers un point de récupération spécifique. Cette option est utile pour effectuer un test de basculement.
 4. Sélectionnez **Arrêter la machine avant de commencer le basculement** si vous souhaitez que Site Recovery tente d’arrêter les machines virtuelles dans la région DR avant de déclencher le basculement. Le basculement se poursuit même en cas d’échec de l’arrêt. 
 5. Suivre la progression du basculement sur la page **Tâches**.
 6. Après le basculement, validez la machine virtuelle en vous y connectant. Vous pouvez changer le point de récupération en fonction des besoins.

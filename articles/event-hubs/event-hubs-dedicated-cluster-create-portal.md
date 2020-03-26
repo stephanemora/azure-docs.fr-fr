@@ -11,10 +11,10 @@ ms.custom: mvc
 ms.date: 12/20/2019
 ms.author: femila
 ms.openlocfilehash: 5b1574eaac8771043e09500225b65e4835c8e627
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77157480"
 ---
 # <a name="quickstart-create-a-dedicated-event-hubs-cluster-using-azure-portal"></a>Démarrage rapide : Créer un cluster dédié Event Hubs à l’aide du portail Azure 
@@ -26,7 +26,7 @@ Les clusters dédiés sont mis en service et facturés par **unités de capacit�
 > Cette expérience libre-service est actuellement disponible en préversion dans le [portail Azure](https://aka.ms/eventhubsclusterquickstart). Si vous avez des questions sur l’offre dédiée, veuillez contacter [l’équipe Event Hubs](mailto:askeventhubs@microsoft.com).
 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 Pour suivre ce guide de démarrage rapide, veillez à avoir :
 
 - Un compte Azure. Si vous n’en avez pas, [achetez un compte](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/) avant de commencer. Cette fonctionnalité n’est pas pris en charge avec un compte Azure gratuit. 
@@ -67,7 +67,7 @@ Pour créer un cluster dans votre groupe de ressources à l’aide du portail, p
     2. L’espace de noms hérite des propriétés suivantes :
         1. Identifiant d’abonnement
         2. Groupe de ressources
-        3. Location
+        3. Emplacement
         4. Nom du cluster
     3. Sélectionnez **Créer** pour créer l’espace de noms. Vous pouvez maintenant gérer votre cluster.  
 

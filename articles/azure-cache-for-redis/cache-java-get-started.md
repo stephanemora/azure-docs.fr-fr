@@ -9,10 +9,10 @@ ms.date: 05/23/2018
 ms.author: yegu
 ms.custom: mvc, seo-java-august2019, seo-java-september2019
 ms.openlocfilehash: 6163392c80d40b6ea65e681aa175c21c244099b9
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74122706"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-java"></a>Démarrage rapide : Utiliser le cache Azure pour Redis avec Java
@@ -24,7 +24,7 @@ Dans ce guide de démarrage rapide, vous allez incorporer le cache Azure pour Re
 - Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/)
 - [Apache Maven](https://maven.apache.org/download.cgi)
 
-## <a name="create-an-azure-cache-for-redis"></a>Créer un cache Azure pour Redis
+## <a name="create-an-azure-cache-for-redis"></a>Créer un Cache Azure pour Redis
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
@@ -130,7 +130,7 @@ Dans l’exemple ci-dessous, vous pouvez voir que la clé `Message` présentait 
 
 ![Application Cache Azure pour Redis terminée](./media/cache-java-get-started/azure-cache-redis-complete.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous envisagez d’exécuter le didacticiel suivant, vous pouvez conserver les ressources créées dans le cadre de ce guide de démarrage rapide afin de les réutiliser.
 

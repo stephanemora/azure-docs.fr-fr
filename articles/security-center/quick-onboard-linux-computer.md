@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/02/2018
 ms.author: memildin
 ms.openlocfilehash: 9f49b858a23d0a1f58505d9f9971a31e8c9167e9
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73664492"
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Démarrage rapide : Intégrer des ordinateurs Linux à Azure Security Center
@@ -62,7 +62,7 @@ Les journaux d’activité de l’agent sont disponibles à l’emplacement : *
 
 Au bout d’un certain temps, jusqu'à 30 minutes, le nouvel ordinateur Linux s’affiche dans Security Center.
 
-Vous pouvez maintenant surveiller vos machines virtuelles Azure et des ordinateurs non-Azure au même endroit. La fenêtre **Calcul** affiche une vue d’ensemble de toutes les machines virtuelles et de tous les ordinateurs, ainsi que des recommandations. Chaque colonne représente un ensemble de recommandations. La couleur correspond à l’état de sécurité actuel de l’ordinateur ou de la machine virtuelle pour une recommandation donnée. Security Center met également en évidence les éventuelles détections d’alertes de sécurité pour ces ordinateurs.
+Vous pouvez maintenant effectuer le monitoring de vos machines virtuelles Azure et de vos ordinateurs extérieurs à Azure en un seul et même endroit. La fenêtre **Calcul** affiche une vue d’ensemble de toutes les machines virtuelles et de tous les ordinateurs, ainsi que des recommandations. Chaque colonne représente un ensemble de recommandations. La couleur correspond à l’état de sécurité actuel de l’ordinateur ou de la machine virtuelle pour une recommandation donnée. Security Center met également en évidence les éventuelles détections d’alertes de sécurité pour ces ordinateurs.
 
   ![Panneau Calculer][7] Deux types d’icônes sont représentés sur le panneau **Calculer** :
 
@@ -70,7 +70,7 @@ Vous pouvez maintenant surveiller vos machines virtuelles Azure et des ordinateu
 
   ![icon2](./media/quick-onboard-linux-computer/security-center-monitoring-icon2.png) Azure VM
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 Vous pouvez supprimer l’agent de l’ordinateur Linux une fois que vous n’en avez plus besoin.
 
 Pour supprimer l’agent :
@@ -84,7 +84,7 @@ Pour supprimer l’agent :
 Dans ce guide de démarrage rapide, vous avez provisionné l’agent sur un ordinateur Linux. Pour en savoir plus sur Security Center, enchaînez avec le didacticiel sur la configuration d’une stratégie de sécurité et l’évaluation de la sécurité des ressources.
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Définir et évaluer les stratégies de sécurité](tutorial-security-policy.md)
+> [Tutoriel : Définir et évaluer les stratégies de sécurité](tutorial-security-policy.md)
 
 <!--Image references-->
 [1]: ./media/quick-onboard-linux-computer/portal.png

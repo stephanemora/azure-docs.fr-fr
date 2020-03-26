@@ -18,13 +18,13 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: eba44252672248b983d7f6e0c843f638e5f73447
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74007654"
 ---
-# <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub"></a>Didacticiel : Diffuser en continu des journaux Azure Active Directory sur un hub d’événements Azure
+# <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub"></a>Tutoriel : Diffuser en continu des journaux Azure Active Directory sur un hub d’événements Azure
 
 Dans ce didacticiel, vous découvrez comment configurer les paramètres de diagnostic Azure Monitor pour diffuser en continu des journaux d’activité Azure Active Directory (Azure AD) sur un hub d’événements Azure. Ce mécanisme permet d’intégrer vos journaux d’activité Security Information and Event Management (SIEM) tiers, tels que Splunk et QRadar.
 
@@ -39,7 +39,7 @@ Pour utiliser cette fonctionnalité, vous avez besoin des éléments suivants :
 
 ## <a name="stream-logs-to-an-event-hub"></a>Transmettre en continu des journaux d’activité vers un hub d’événements
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com). 
+1. Connectez-vous au [portail Azure](https://portal.azure.com). 
 
 2. Sélectionnez **Azure Active Directory** > **Supervision** > **Journaux d’audit**. 
 
@@ -92,6 +92,6 @@ Une fois que les données apparaissent dans le hub d’événements, vous pouvez
 
 * [Intégrer des journaux d’activité Azure Active Directory à ArcSight à l’aide d’Azure Monitor](howto-integrate-activity-logs-with-arcsight.md)
 * [Intégrer les journaux d’activité Azure AD à Splunk à l’aide d’Azure Monitor](tutorial-integrate-activity-logs-with-splunk.md)
-* [Intégrer des journaux Azure AD avec SumoLogic à l’aide d’Azure Monitor](howto-integrate-activity-logs-with-sumologic.md)
+* [Intégrer des journaux d’activité Azure AD avec SumoLogic à l’aide d’Azure Monitor](howto-integrate-activity-logs-with-sumologic.md)
 * [Interpréter le schéma des journaux d’audit dans Azure Monitor](reference-azure-monitor-audit-log-schema.md)
 * [Interpréter le schéma des journaux d’activité de connexion dans Azure Monitor](reference-azure-monitor-sign-ins-log-schema.md)

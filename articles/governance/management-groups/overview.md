@@ -5,11 +5,11 @@ ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.date: 12/18/2019
 ms.topic: overview
 ms.openlocfilehash: 319f48d4d0f8ce8501fecb74282760340b597188
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77186986"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79216027"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organiser vos ressources avec des groupes d’administration Azure
 
@@ -143,7 +143,7 @@ Utilisez l’ID du groupe d’administration et non le nom d’affichage du grou
 ### <a name="issues-with-breaking-the-role-definition-and-assignment-hierarchy-path"></a>Problèmes de chemin rompu entre la définition de rôle et l’attribution de rôle
 L’étendue attribuable aux définitions de rôles peut être n’importe où dans la hiérarchie d’un groupe d’administration. Une définition de rôle peut être définie sur un groupe d’administration parent alors que l’attribution de rôle réelle existe sur l’abonnement enfant. Comme ces deux éléments sont liés, une erreur se produit quand vous tentez de séparer l’attribution de sa définition. 
 
-Par exemple :  Examinons une petite section d’une hiérarchie pour un visuel. 
+Par exemple : Examinons une petite section d’une hiérarchie pour un visuel. 
 
 ![sous-arborescence](./media/subtree.png)
 

@@ -15,10 +15,10 @@ ms.custom: seodec18
 ms.date: 01/15/2020
 ms.author: shvija
 ms.openlocfilehash: 6c830cf871c2ae650bb61e8b3712a664e9e405d4
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77187289"
 ---
 # <a name="quickstart-event-hubs-capture-walkthrough-python-azure-eventhub-version-1"></a>Démarrage rapide : Procédure pas à pas d’Event Hubs Capture : Python (azure-eventhub version 1)
@@ -38,7 +38,7 @@ Lors de cette procédure pas à pas, vous allez effectuer les opérations suivan
 > * Envoyer des données à votre Event Hub à l’aide d’un script Python.
 > * Lire et traiter les fichiers d’Event Hubs Capture à l’aide d’un autre script Python.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Python 3.4 ou version ultérieure, avec `pip` installé et à jour.
   

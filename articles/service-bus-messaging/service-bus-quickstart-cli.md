@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 04/10/2019
 ms.author: spelluru
 ms.openlocfilehash: e34599b12b8b0c487c6813038951b051d1eaf425
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "66400258"
 ---
 # <a name="quickstart-use-the-azure-cli-to-create-a-service-bus-queue"></a>Démarrage rapide : Utiliser Azure CLI pour créer une file d’attente Service Bus
@@ -22,7 +22,7 @@ Ce guide de démarrage rapide explique comment envoyer et recevoir des messages 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
 ## <a name="prerequisites"></a>Prérequis
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit][free account] avant de commencer.
+Si vous n'avez pas d'abonnement Azure, vous pouvez créer un [compte gratuit][free account] avant de commencer.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -185,7 +185,7 @@ Après avoir créé l’espace de noms et la file d’attente, et après avoir o
                                                     Content: [ firstName = Isaac, name = Newton ]
     ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Dans Azure Cloud Shell, exécutez la commande suivante pour supprimer le groupe de ressources, l’espace de noms et toutes les ressources associées :
 

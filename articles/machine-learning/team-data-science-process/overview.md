@@ -12,10 +12,10 @@ ms.date: 1/10/2020
 ms.author: tdsp
 ms.custom: previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 10d6e562301e089700940ac5dfb212bcc4e09653
-ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79088083"
 ---
 # <a name="what-is-the-team-data-science-process"></a>Qu’est-ce que le processus Team Data Science Process ?
@@ -104,4 +104,4 @@ Dans la plupart des organisations, il est difficile d’introduire des processus
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-La rubrique [Processus Team Data Science Process : rôles et tâches](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/roles-tasks.md) présente les rôles clés du personnel et les tâches associées pour une équipe de science des données qui se standardise sur ce processus. 
+La rubrique [Processus TDSP (Team Data Science Process) : rôles et tâches](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/roles-tasks.md) présente les rôles clés du personnel et les tâches associées pour une équipe de science des données qui se standardise sur ce processus. 

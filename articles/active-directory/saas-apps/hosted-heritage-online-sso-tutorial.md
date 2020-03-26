@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à Hosted Heritage Online SSO | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Hosted Heritage Online SSO | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Hosted Heritage Online SSO.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 09/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d1b133d28986f31ed396d1f499940d99e64f6fbc
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71174365"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hosted-heritage-online-sso"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Hosted Heritage Online SSO
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hosted-heritage-online-sso"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Hosted Heritage Online SSO
 
 Dans ce tutoriel, vous allez apprendre à intégrer Hosted Heritage Online SSO à Azure Active Directory (Azure AD). Quand vous intégrez Hosted Heritage Online SSO à Azure AD, vous pouvez :
 

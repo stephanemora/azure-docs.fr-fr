@@ -4,12 +4,12 @@ description: Découvrez comment connecter Azure Functions à une file d’attent
 ms.date: 02/07/2020
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: e3c37b368b723cc95302949baa8e85e2a8b621be
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 9181caf516d5c2003cfe99b125d2921732cbbb9d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78201000"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79473385"
 ---
 # <a name="connect-azure-functions-to-azure-storage-using-command-line-tools"></a>Connecter Azure Functions à Stockage Azure à l’aide des outils en ligne de commande
 
@@ -142,9 +142,9 @@ Vous pouvez voir la file d’attente dans le [portail Azure](../storage/queues/s
     $env:AZURE_STORAGE_CONNECTION_STRING = "<MY_CONNECTION_STRING>"
     ```
     
-    # <a name="cmd"></a>[Cmd](#tab/cmd)
+    # <a name="azure-cli"></a>[Azure CLI](#tab/cmd)
     
-    ```cmd
+    ```azurecli
     set AZURE_STORAGE_CONNECTION_STRING="<MY_CONNECTION_STRING>"
     ```
     
@@ -152,7 +152,7 @@ Vous pouvez voir la file d’attente dans le [portail Azure](../storage/queues/s
     
 1. (Facultatif) Utilisez la commande [`az storage queue list`](/cli/azure/storage/queue#az-storage-queue-list) pour voir les files d’attente de stockage dans votre compte. La sortie de cette commande doit inclure une file d’attente nommée `outqueue`, qui a été créée au moment où la fonction a écrit son premier message dans cette file d’attente.
     
-    ```azure-cli
+    ```azurecli
     az storage queue list --output tsv
     ```
 
@@ -170,9 +170,9 @@ Vous pouvez voir la file d’attente dans le [portail Azure](../storage/queues/s
     [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($(az storage message get --queue-name outqueue -o tsv --query '[].{Message:content}')))
     ```
     
-    # <a name="cmd"></a>[Cmd](#tab/cmd)
+    # <a name="azure-cli"></a>[Azure CLI](#tab/cmd)
     
-    ```cmd
+    ```azurecli
     az storage message get --queue-name outqueue -o tsv --query [].{Message:content} > %TEMP%out.b64 && certutil -decode -f %TEMP%out.b64 %TEMP%out.txt > NUL && type %TEMP%out.txt && del %TEMP%out.b64 %TEMP%out.txt /q
     ```
 

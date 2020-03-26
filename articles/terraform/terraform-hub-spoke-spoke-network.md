@@ -4,13 +4,13 @@ description: Découvrez comment implémenter deux réseaux virtuels spoke connec
 ms.topic: tutorial
 ms.date: 10/26/2019
 ms.openlocfilehash: 2a36b8ac22fb52f6b8f1246fd254d9c3ff22fc82
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74159009"
 ---
-# <a name="tutorial-create-a-spoke-network-in-azure-using-terraform"></a>Didacticiel : Créer un réseau spoke dans Azure à l’aide de Terraform
+# <a name="tutorial-create-a-spoke-network-in-azure-using-terraform"></a>Tutoriel : Créer un réseau spoke dans Azure à l’aide de Terraform
 
 Dans ce tutoriel, vous implémentez deux réseaux spoke distincts pour illustrer la séparation des charges de travail. Les réseaux partagent des ressources communes via le réseau virtuel hub. Les membres spokes peuvent servir à isoler les charges de travail dans leurs propres réseaux virtuels, qui sont alors gérées séparément des autres membres spokes. Chaque charge de travail peut inclure plusieurs niveaux, avec plusieurs sous-réseaux connectés à l’aide d’équilibreurs de charge Azure.
 

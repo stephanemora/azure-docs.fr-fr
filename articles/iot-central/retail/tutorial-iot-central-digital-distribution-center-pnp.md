@@ -8,10 +8,10 @@ ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 10/20/2019
 ms.openlocfilehash: 93a77d73b5cc249c39609f98f055a7b1927dd6ed
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77025484"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-digital-distribution-center-application-template"></a>Tutoriel : Déployer et parcourir un modèle d’application du centre de distribution numérique
@@ -24,7 +24,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 * créer une application pour un centre de distribution numérique 
 * examiner l’application 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 * Aucune configuration requise spécifique n’est requise pour déployer cette application
 * Il est recommandé d’avoir un abonnement Azure, mais vous pouvez essayer sans
 

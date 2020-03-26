@@ -10,13 +10,13 @@ ms.author: mireks
 ms.reviewer: vanto
 ms.date: 11/06/2019
 ms.openlocfilehash: bd65a21c2aa21643c76966410931949db7d17ad6
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73822792"
 ---
-# <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-server-principals-logins"></a>Didacticiel : Sécurité des instances managées dans Azure SQL Database à l’aide de principaux de serveur (connexions) Azure AD
+# <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-server-principals-logins"></a>Tutoriel : Sécurité des instances managées dans Azure SQL Database à l’aide de principaux de serveur (connexions) Azure AD
 
 Une instance managée offre quasiment toutes les fonctionnalités de sécurité du dernier moteur de base de données SQL Server (Édition Entreprise) local :
 
@@ -25,7 +25,7 @@ Une instance managée offre quasiment toutes les fonctionnalités de sécurité 
 - Utiliser des autorisations et appartenances en fonction du rôle
 - Activer les fonctionnalités de sécurité
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > - Créer un principal de serveur (connexion) Azure AD (Active Directory) pour une instance managée
@@ -44,7 +44,7 @@ Pour suivre le tutoriel, vérifiez que les prérequis ci-dessous sont remplis :
 
 - [SSMS](/sql/ssms/download-sql-server-management-studio-ssms) (SQL Server Management Studio)
 - Une instance managée Azure SQL Database
-  - Suivez cet article : [Démarrage rapide : Créer une instance managée Azure SQL Database](sql-database-managed-instance-get-started.md)
+  - Suivez cet article : [Démarrage rapide : Créer une instance managée Azure SQL Database](sql-database-managed-instance-get-started.md)
 - Accès à votre instance managée et [provisionnement d’un administrateur Azure AD pour l’instance managée](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance) Pour plus d'informations, consultez les rubriques suivantes :
     - [Connecter votre application à une instance managée](sql-database-managed-instance-connect-app.md) 
     - [Architecture de connectivité d’une instance managée](sql-database-managed-instance-connectivity-architecture.md)
@@ -65,8 +65,8 @@ Le premier principal de serveur Azure AD (connexion) peut être créé par le co
 
 Consultez les articles suivants pour obtenir des exemples de connexion à votre instance managée :
 
-- [Démarrage rapide : Configurer une machine virtuelle Azure pour se connecter à une instance managée](sql-database-managed-instance-configure-vm.md)
-- [Démarrage rapide : Configurer une connexion point à site à une instance managée en local](sql-database-managed-instance-configure-p2s.md)
+- [Démarrage rapide : Configurer une machine virtuelle Azure pour se connecter à une instance managée](sql-database-managed-instance-configure-vm.md)
+- [Démarrage rapide : Configurer une connexion point à site à une instance managée en local](sql-database-managed-instance-configure-p2s.md)
 
 1. Connectez-vous à votre instance managée à l’aide d’un compte SQL Server standard (non Azure AD) de type `sysadmin` ou d’un administrateur Azure AD pour MI, à l’aide de [SQL Server Management Studio ](sql-database-managed-instance-configure-p2s.md#use-ssms-to-connect-to-the-managed-instance).
 

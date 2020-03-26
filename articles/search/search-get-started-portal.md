@@ -9,11 +9,11 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 02/10/2020
 ms.openlocfilehash: 6a3bbdae0d3fa898621c1c805388252beb891ecf
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121673"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79290427"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Démarrage rapide : Créer un index Recherche cognitive Azure dans le portail Azure
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ Si les outils sont trop limités, vous pouvez suivre une [Présentation basée s
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer. 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 [Créez un service Recherche cognitive Azure](search-create-service-portal.md) ou [recherchez un service existant](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) dans votre abonnement actuel. Vous pouvez utiliser un service gratuit pour ce guide de démarrage rapide. 
 
@@ -43,7 +43,7 @@ Les sections figurant sur le tableau de bord des services indiquent le nombre d�
 
 ![Listes des index, indexeurs et sources de données](media/search-get-started-portal/tiles-indexers-datasources.png)
 
-## <a name="create-index"></a> Créer un index et charger des données
+## <a name="create-an-index-and-load-data"></a><a name="create-index"></a> Créer un index et charger des données
 
 Les requêtes de recherche se répètent sur un [*index*](search-what-is-an-index.md) contenant les données de recherche, les métadonnées et les constructions supplémentaires utilisées pour l’optimisation de certains comportements de recherche.
 
@@ -132,7 +132,7 @@ D’autres constructions, telles que des profils de score et des options CORS, p
 
 Pour comprendre clairement ce que vous pouvez et ne pouvez pas modifier lors de la conception d’index, prenez une minute pour consulter les options de définition d’index. Les options grisées indiquent qu’une valeur ne peut pas être modifiée ou supprimée. 
 
-## <a name="query-index"></a> Lancer des requêtes à l’aide de l’Explorateur de recherche
+## <a name="query-using-search-explorer"></a><a name="query-index"></a> Lancer des requêtes à l’aide de l’Explorateur de recherche
 
 Vous devriez maintenant avoir un index de recherche prêt à lancer des requêtes à l’aide de la page de requête [**Explorateur de recherche**](search-explorer.md) intégrée. Il fournit une zone de recherche afin que vous puissiez tester les chaînes de requête arbitraires.
 
@@ -176,7 +176,7 @@ Vous pouvez entrer soit des termes et expressions, de la même manière que dans
 
 * La chaîne **$top=10** retourne les 10 documents les mieux classés parmi tous les documents. Par défaut, la Recherche cognitive Azure retourne les 50 meilleures correspondances. Vous pouvez augmenter ou diminuer ce nombre par le biais du paramètre **$top**.
 
-### <a name="filter-query"></a>Filtrer la requête
+### <a name="filter-the-query"></a><a name="filter-query"></a>Filtrer la requête
 
 Les filtres sont inclus dans les demandes de recherche lorsque vous ajoutez le paramètre **$filter**. 
 
@@ -186,7 +186,7 @@ Les filtres sont inclus dans les demandes de recherche lorsque vous ajoutez le p
 
 * La syntaxe de filtre est une construction OData. Pour plus d’informations, consultez l’article [Filter OData syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) (Syntaxe d’expression de filtre OData).
 
-### <a name="facet-query"></a> « Facetter » la requête
+### <a name="facet-the-query"></a><a name="facet-query"></a> « Facetter » la requête
 
 Les filtres de facettes sont inclus dans les demandes de recherche. Vous pouvez utiliser le paramètre de facette pour retourner un nombre agrégé des documents qui correspondent à la valeur de facette que vous fournissez.
 
@@ -206,7 +206,7 @@ Les filtres de facettes sont inclus dans les demandes de recherche. Vous pouvez 
 * Le champ *Évaluation* est un champ à virgule flottante et double précision, et le regroupement se fera par valeur précise. Pour plus d’informations sur le regroupement par intervalle (par exemple « 3 étoiles », « 4 étoiles », etc.), consultez [Guide pratique pour implémenter une navigation par facettes dans la Recherche cognitive Azure](https://docs.microsoft.com/azure/search/search-faceted-navigation#filter-based-on-a-range).
 
 
-### <a name="highlight-query"></a>Mettre en surbrillance les termes de recherche
+### <a name="highlight-search-results"></a><a name="highlight-query"></a>Mettre en surbrillance les termes de recherche
 
 La mise en surbrillance des correspondances fait référence au formatage du texte qui correspond au mot clé, lorsque des correspondances sont trouvées dans un champ spécifique. Si votre terme de recherche est profondément enfoui dans une description, vous pouvez définir une mise en surbrillance des correspondances pour le localiser plus facilement.
 
@@ -220,7 +220,7 @@ La mise en surbrillance des correspondances fait référence au formatage du tex
 
 * La Recherche cognitive Azure prend en charge 56 analyseurs Lucene et Microsoft. Par défaut, la Recherche cognitive Azure utilise l’analyseur Lucene standard.
 
-### <a name="fuzzy-search"></a> Essayer la recherche partielle
+### <a name="try-fuzzy-search"></a><a name="fuzzy-search"></a> Essayer la recherche partielle
 
 Par défaut, dans une recherche classique, aucune correspondance n’est retournée pour les termes de requête mal orthographiés, par exemple *seatle* pour « Seattle ». L’exemple suivant ne retourne aucun résultat.
 
@@ -238,7 +238,7 @@ La recherche partielle et la recherche par caractères génériques ont des cons
 
 Pour plus d’informations sur les scénarios de requête permis par l’analyseur de requêtes complètes, consultez [Syntaxe de requête Lucene dans la Recherche cognitive Azure](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
 
-### <a name="geo-search"></a> Essayez la recherche géospatiale
+### <a name="try-geospatial-search"></a><a name="geo-search"></a> Essayez la recherche géospatiale
 
 La recherche géographique est prise en charge par le biais du [type de données edm.GeographyPoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) sur un champ contenant des coordonnées. La recherche géographique est un type de filtre, spécifié dans l’article [Filter OData syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) (Syntaxe d’expression de filtre OData).
 

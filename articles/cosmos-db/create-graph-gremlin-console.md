@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.date: 07/23/2019
 ms.author: lbosq
 ms.openlocfilehash: 78dfbabdcddaafefe77711e8f7b0ea1028f15c58
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77117913"
 ---
 # <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Démarrage rapide : Créer, interroger et parcourir une base de données de graphe Azure Cosmos DB à l’aide de la console Gremlin
@@ -33,7 +33,7 @@ Ce guide de démarrage rapide explique comment créer un compte, une base de don
 
 La console Gremlin est basée sur Groovy/Java et s’exécute sous Linux, Mac et Windows. Vous pouvez la télécharger à partir du [site Apache TinkerPop](https://tinkerpop.apache.org/downloads.html).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Vous devez posséder un abonnement Azure pour créer un compte Azure Cosmos DB pour ce démarrage rapide.
 
@@ -49,7 +49,7 @@ Vous devez également installer la [console Gremlin](https://tinkerpop.apache.or
 
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
-## <a id="ConnectAppService"></a>Connexion à votre service d’application/graphe
+## <a name="connect-to-your-app-servicegraph"></a><a id="ConnectAppService"></a>Connexion à votre service d’application/graphe
 1. Avant de démarrer la console Gremlin, créez ou modifiez le fichier config remote-secure.yaml dans le répertoire `apache-tinkerpop-gremlin-console-3.2.5/conf`.
 2. Renseignez vos configurations *host*, *port*, *username*, *password*, *connectionPool* et *serializer* telles que définies dans le tableau suivant :
 
@@ -58,7 +58,7 @@ Vous devez également installer la [console Gremlin](https://tinkerpop.apache.or
     hôtes|[*account-name*.**gremlin**.cosmos.azure.com]|Voir la capture d’écran suivante. Il s’agit de la valeur **URI Gremlin** sur la page Vue d’ensemble du portail Azure, entre crochets, avec la fin : 443/ supprimée. Remarque : Veillez à utiliser la valeur Gremlin, et **non** l’URI qui se termine par [*account-name*.documents.azure.com], afin d’éviter que l’exécution ultérieure de requêtes Gremlin se solde par une exception indiquant que l’hôte n’a pas répondu à temps. 
     port|443|Définissez la valeur sur 443.
     username|*Votre nom d’utilisateur*|Ressource sous la forme `/dbs/<db>/colls/<coll>`, où `<db>` est le nom de votre base de données et `<coll>` le nom de votre collection.
-    password|*Votre clé primaire*| Reportez-vous à la deuxième capture d’écran ci-dessous. Il s’agit de votre clé primaire, que vous pouvez récupérer à partir de la page Clés du portail Azure, dans la zone Clé primaire. Utilisez le bouton Copier sur le côté gauche de la zone pour copier la valeur.
+    mot de passe|*Votre clé primaire*| Reportez-vous à la deuxième capture d’écran ci-dessous. Il s’agit de votre clé primaire, que vous pouvez récupérer à partir de la page Clés du portail Azure, dans la zone Clé primaire. Utilisez le bouton Copier sur le côté gauche de la zone pour copier la valeur.
     connectionPool|{enableSsl: true}|Votre paramètre de pool de connexions pour SSL.
     serializer|{ className: org.apache.tinkerpop.gremlin.<br>driver.ser.GraphSONMessageSerializerV2d0,<br> config: {serializeResultToString: true }}|Définissez le paramètre sur cette valeur et supprimez tous les sauts de ligne `\n` quand vous collez la valeur.
 

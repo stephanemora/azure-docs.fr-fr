@@ -18,13 +18,13 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fa2cac7c89a2cb1bd99675727bcd51e82c4a18ef
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74007860"
 ---
-# <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account"></a>Didacticiel : Archiver des journaux d’activité Azure AD dans un compte de stockage Azure
+# <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account"></a>Tutoriel : Archiver des journaux d’activité Azure AD dans un compte de stockage Azure
 
 Dans ce didacticiel, vous découvrez comment configurer les paramètres de diagnostic Azure Monitor pour acheminer des journaux d’activité Azure Active Directory (Azure AD) vers un compte de stockage Azure.
 
@@ -34,11 +34,11 @@ Pour utiliser cette fonctionnalité, vous avez besoin des éléments suivants :
 
 * Un abonnement et un compte de stockage Azure. Si vous n’en avez pas, vous pouvez demander un [essai gratuit](https://azure.microsoft.com/free/).
 * Un locataire Azure AD.
-* Un utilisateur, qui est un *administrateur général* ou un *administrateur de la sécurité* pour un locataire Azure AD.
+* Utilisateur considéré comme *administrateur général* ou *administrateur de la sécurité* pour un locataire Azure AD.
 
 ## <a name="archive-logs-to-an-azure-storage-account"></a>Archiver les journaux d’activité dans un compte de stockage Azure
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com). 
+1. Connectez-vous au [portail Azure](https://portal.azure.com). 
 
 2. Sélectionnez **Azure Active Directory** > **Activité** > **Journaux d’audit**. 
 
@@ -76,5 +76,5 @@ Pour utiliser cette fonctionnalité, vous avez besoin des éléments suivants :
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Interpréter le schéma des journaux d’audit dans Azure Monitor](reference-azure-monitor-audit-log-schema.md)
-* [Interpréter le schéma des journaux de connexion dans Azure Monitor](reference-azure-monitor-sign-ins-log-schema.md)
+* [Interpréter le schéma des journaux d’activité de connexion dans Azure Monitor](reference-azure-monitor-sign-ins-log-schema.md)
 * [Questions fréquentes et problèmes connus](concept-activity-logs-azure-monitor.md#frequently-asked-questions)

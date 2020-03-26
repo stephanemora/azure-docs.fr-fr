@@ -5,13 +5,13 @@ ms.date: 10/14/2019
 ms.topic: tutorial
 ms.reviewer: brendal
 ms.openlocfilehash: 33a9e9c10c07d0808626353a7edfd505e0f60bc9
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74324808"
 ---
-# <a name="tutorial-create-a-blockchain-application-for-azure-blockchain-workbench"></a>Didacticiel : Créer une application blockchain pour Azure Blockchain Workbench
+# <a name="tutorial-create-a-blockchain-application-for-azure-blockchain-workbench"></a>Tutoriel : Créer une application blockchain pour Azure Blockchain Workbench
 
 Vous pouvez utiliser Azure Blockchain Workbench pour créer des applications blockchain qui représentent des flux de travail à plusieurs parties définis par une configuration et du code de contrat intelligent.
 
@@ -339,7 +339,7 @@ Ajoutez des membres d’application à votre application pour initier et effectu
 2. Le nombre de membres associés à l’application s’affiche dans le coin supérieur droit de la page. Pour une nouvelle application, le nombre de membres sera de zéro.
 3. Sélectionnez le lien **membres** dans le coin supérieur droit de la page. La liste actuelle des membres de l’application s’affiche.
 4. Dans la liste des membres, sélectionnez **Ajouter des membres**.
-5. Sélectionnez ou entrez le nom du membre à ajouter. Seuls les utilisateurs Azure AD existants dans le locataire Blockchain Workbench sont répertoriés. Si l’utilisateur est introuvable, vous devez [ajouter des utilisateurs Azure AD](manage-users.md#add-azure-ad-users).
+5. Sélectionnez ou entrez le nom du membre à ajouter. Seuls les utilisateurs Azure AD existants dans le client Blockchain Workbench sont répertoriés. Si l’utilisateur est introuvable, vous devez [ajouter des utilisateurs Azure AD](manage-users.md#add-azure-ad-users).
 6. Sélectionnez le **Rôle** du membre. Pour le premier membre, sélectionnez le rôle **Demandeur**.
 7. Sélectionnez **Ajouter** pour ajouter le membre avec le rôle associé à l’application.
 8. Ajoutez un autre membre à l’application avec le rôle **Répondeur**.

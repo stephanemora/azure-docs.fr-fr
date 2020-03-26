@@ -9,11 +9,11 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 07/12/2019
 ms.openlocfilehash: 0981ed30c6bcd9d4246ce1eb047aa66168e3884a
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707917"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215277"
 ---
 # <a name="quickstart-build-a-net-console-app-to-manage-azure-cosmos-db-sql-api-resources"></a>Démarrage rapide : Générer une application console .NET pour gérer les ressources de l’API SQL Azure Cosmos DB
 
@@ -45,7 +45,7 @@ Azure Cosmos DB est le service de base de données multi-modèle de Microsoft di
 
 Cette section vous guide dans la création d’un compte Azure Cosmos et la configuration d’un projet qui utilise la bibliothèque de client de l’API SQL Azure Cosmos DB pour .NET afin de gérer les ressources. L’exemple de code décrit dans cet article crée une base de données `FamilyDatabase` et des membres de la famille (chacun d’eux est un élément) au sein de cette base de données. Chaque membre de la famille possède des propriétés telles que `Id, FamilyName, FirstName, LastName, Parents, Children, Address,`. La propriété `LastName` est utilisée en tant que clé de partition pour le conteneur. 
 
-### <a id="create-account"></a>Créer un compte Azure Cosmos
+### <a name="create-an-azure-cosmos-account"></a><a id="create-account"></a>Créer un compte Azure Cosmos
 
 Si vous utilisez l’option [Essayer gratuitement Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) pour créer un compte Azure Cosmos, vous devez créer un compte Azure Cosmos DB de type **API SQL**. Un compte de test Azure Cosmos DB est déjà créé pour vous. Vous n’avez pas besoin de créer le compte explicitement. Vous pouvez donc ignorer cette section et passer à la section suivante.
 
@@ -82,7 +82,7 @@ az cosmosdb create \
 
 La création du compte Azure Cosmos prend un certain temps. Une fois l’opération réussie, la sortie de confirmation s’affiche. Une fois la commande correctement exécutée, connectez-vous au [portail Azure](https://portal.azure.com/) et vérifiez que le compte Azure Cosmos portant le nom spécifié existe. Vous pouvez fermer la fenêtre Azure Cloud Shell une fois la ressource créée. 
 
-### <a id="create-dotnet-core-app"></a>Créer une application .NET
+### <a name="create-a-new-net-app"></a><a id="create-dotnet-core-app"></a>Créer une application .NET
 
 Créez une application .NET dans votre éditeur ou IDE favori. Ouvrez l’invite de commandes Windows ou une fenêtre de terminal à partir de votre ordinateur local. Vous allez exécuter toutes les commandes des sections suivantes à partir de l’invite de commandes ou du terminal.  Exécutez la commande dotnet new suivante pour créer une application nommée `todo`. Le paramètre --langVersion définit la propriété LangVersion dans le fichier projet créé.
 
@@ -111,7 +111,7 @@ Build succeeded.
 Time Elapsed 00:00:34.17
 ```
 
-### <a id="install-package"></a>Installer le package Azure Cosmos DB
+### <a name="install-the-azure-cosmos-db-package"></a><a id="install-package"></a>Installer le package Azure Cosmos DB
 
 Tout en restant dans le répertoire de l’application, installez la bibliothèque de client Azure Cosmos DB pour .NET Core à l’aide de la commande dotnet add Package.
 
@@ -123,7 +123,7 @@ dotnet add package Microsoft.Azure.Cosmos
 
 L’exemple d’application doit s’authentifier auprès de votre compte Azure Cosmos. Pour vous authentifier, vous devez transmettre les informations d’identification du compte Azure Cosmos à l’application. Pour obtenir les informations d’identification de votre compte Azure Cosmos, procédez comme suit :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 1. Accédez à votre compte Azure Cosmos.
 
@@ -154,7 +154,7 @@ export EndpointUrl = "<Your_Azure_Cosmos_account_URI>"
 export PrimaryKey = "<Your_Azure_Cosmos_account_PRIMARY_KEY>"
 ```
 
- ## <a id="object-model"></a>Modèle objet
+ ## <a name="object-model"></a><a id="object-model"></a>Modèle objet
 
 Avant de commencer à générer l’application, examinons la hiérarchie des ressources dans Azure Cosmos DB et le modèle objet utilisé pour créer ces ressources et y accéder. Azure Cosmos DB crée des ressources dans l’ordre suivant :
 
@@ -179,7 +179,7 @@ Pour en savoir plus sur la hiérarchie des différentes entités, voir [Utilisat
 
 * [DeleteAsync](/dotnet/api/microsoft.azure.cosmos.database.deleteasync?view=azure-dotnet) : supprime la base de données spécifiée de votre compte Azure Cosmos. Le méthode `DeleteAsync` supprime uniquement les base de données. La suppression de l’instance `Cosmosclient` doit se produire séparément (ce qu’elle fait dans la méthode DeleteDatabaseAndCleanupAsync. 
 
- ## <a id="code-examples"></a>Exemples de codes
+ ## <a name="code-examples"></a><a id="code-examples"></a>Exemples de codes
 
 L’exemple de code décrit dans cet article crée une base de données de famille dans Azure Cosmos DB. La base de données de famille contient des détails sur la famille, tels que le nom, l’adresse, l’emplacement, ainsi que les parents, enfants et animaux associés. Avant de renseigner les données dans votre compte Azure Cosmos, définissez les propriétés d’un élément de famille. Créez une classe nommée `Family.cs` au niveau racine de votre exemple d’application, puis ajoutez-y le code suivant :
 
@@ -302,9 +302,9 @@ public class Program
 }
 ```
 
-### <a name="create-a-database"></a>Créer une base de données 
+### <a name="create-a-database"></a>Création d'une base de données 
 
-Définissez la méthode `CreateDatabaseAsync` dans la classe `program.cs`. Cette méthode crée la `FamilyDatabase` si elle n’existe pas.
+Définissez la méthode `CreateDatabaseAsync` dans la classe `program.cs`. Cette méthode crée le `FamilyDatabase` s’il n’existe pas.
 
 ```csharp
 private async Task CreateDatabaseAsync()
@@ -474,7 +474,7 @@ End of demo, press any key to exit.
 
 Vous pouvez vérifier que les données ont été créées en vous connectant au portail Azure et en affichant les éléments requis dans votre compte Azure Cosmos. 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Quand vous n’avez plus besoin du compte Azure Cosmos, vous pouvez utiliser Azure CLI ou Azure PowerShell pour le supprimer ainsi que le groupe de ressources correspondant. La commande suivante montre comment supprimer le groupe de ressources à l’aide d’Azure CLI :
 
