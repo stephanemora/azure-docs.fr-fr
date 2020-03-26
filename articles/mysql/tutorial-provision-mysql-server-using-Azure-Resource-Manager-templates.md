@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Créer une base de données Azure Database pour MySQL - Modèle Azure Resource Manager'
+title: 'Tutoriel : Créer une base de données Azure Database pour MySQL - Modèle Azure Resource Manager'
 description: Ce tutoriel explique comment provisionner et automatiser des déploiements de serveur Azure Database pour MySQL à l’aide d’un modèle Azure Resource Manager.
 author: savjani
 ms.author: pariks
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 12/02/2019
 ms.custom: mvc
 ms.openlocfilehash: f4960482c88bf9768be1c1c9dbb3652409a8f1b8
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74771086"
 ---
-# <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>Didacticiel : Provisionner un serveur Azure Database pour MySQL à l’aide d’un modèle Azure Resource Manager
+# <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>Tutoriel : Provisionner un serveur Azure Database pour MySQL à l’aide d’un modèle Azure Resource Manager
 
 [L’API REST Azure Database pour MySQL](https://docs.microsoft.com/rest/api/mysql/) permet aux ingénieurs DevOps d’automatiser et d’intégrer l’approvisionnement, la configuration et les opérations des bases de données et des serveurs MySQL gérés dans Azure.  L’API permet la création, l’énumération, la gestion et la suppression des bases de données et serveurs MySQL sur le service Azure Database pour MySQL.
 
@@ -26,8 +26,8 @@ Dans ce tutoriel, vous allez utiliser un modèle Azure Resource Manager et d’a
 > [!div class="checklist"]
 > * Créer un serveur Azure Database pour MySQL avec le point de terminaison de service de réseau virtuel à l’aide du modèle Azure Resource Manager
 > * Utiliser [l’outil de ligne de commande mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) pour créer une base de données
-> * Charger les exemples de données
-> * Données de requête
+> * Charger un exemple de données
+> * Interroger des données
 > * Mettre à jour des données
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
@@ -204,8 +204,8 @@ Dans ce didacticiel, vous avez appris à effectuer les opérations suivantes :
 > [!div class="checklist"]
 > * Créer un serveur Azure Database pour MySQL avec le point de terminaison de service de réseau virtuel à l’aide du modèle Azure Resource Manager
 > * Utiliser [l’outil de ligne de commande mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) pour créer une base de données
-> * Charger les exemples de données
-> * Données de requête
+> * Charger un exemple de données
+> * Interroger des données
 > * Mettre à jour des données
 > 
 > [Connexion d’applications à la base de données Azure pour MySQL](./howto-connection-string.md)

@@ -17,10 +17,10 @@ ms.date: 10/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1c308243e3dfebb3622ebbe346771fe781b97cc5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75443303"
 ---
 # <a name="tutorial-integrate-productboard-with-azure-active-directory"></a>Tutoriel : Intégrer productboard à Azure Active Directory
@@ -33,7 +33,7 @@ Dans ce tutoriel, vous allez découvrir comment intégrer productboard à Azure 
 
 Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour commencer, vous devez disposer de ce qui suit :
 

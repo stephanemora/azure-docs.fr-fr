@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à Motus | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Motus | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Motus.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 11/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7b8d8f9bae7fc575d9fce426765e06158cf1c8bf
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74534646"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-motus"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Motus
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-motus"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Motus
 
 Dans ce tutoriel, vous allez apprendre à intégrer Motus à Azure Active Directory (Azure AD). Quand vous intégrez Motus à Azure AD, vous pouvez :
 

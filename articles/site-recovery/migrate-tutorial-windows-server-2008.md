@@ -9,15 +9,15 @@ ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 20fe29a6588891c35520db01ac0403fb5b3a85d7
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73936142"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Migrer des serveurs exécutant Windows Server2008 vers Azure
 
-Ce didacticiel montre comment migrer des serveurs locaux exécutant Windows Server 2008 ou 2008 R2 vers Azure à l’aide d’Azure Site Recovery. Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Ce didacticiel montre comment migrer des serveurs locaux exécutant Windows Server 2008 ou 2008 R2 vers Azure à l’aide d’Azure Site Recovery. Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Préparer votre environnement local pour la migration
@@ -30,7 +30,7 @@ Ce didacticiel montre comment migrer des serveurs locaux exécutant Windows Serv
 La section relative aux limitations et aux problèmes connus répertorie certaines limitations et solutions de contournement de problèmes connus que vous pouvez rencontrer lors de la migration de machines Windows Server 2008 vers Azure. 
 
 > [!NOTE]
-> Vous pouvez désormais migrer de l’environnement local vers Azure à l’aide du service Azure Migrate. [Plus d’informations](../migrate/migrate-services-overview.md)
+> Vous pouvez désormais migrer d’un environnement local vers Azure à l’aide du service Azure Migrate. [Plus d’informations](../migrate/migrate-services-overview.md)
 
 
 ## <a name="supported-operating-systems-and-environments"></a>Systèmes d’exploitation et environnements pris en charge
@@ -155,7 +155,7 @@ Exécutez un [test de basculement](tutorial-dr-drill-azure.md) vers Azure afin d
 Exécutez un basculement pour les machines que vous souhaitez migrer.
 
 1. Dans **Paramètres** > **Éléments répliqués**, cliquez sur la machine > **Basculement**.
-2. Dans **Basculement**, sélectionnez un **point de récupération** vers lequel basculer. Sélectionnez le dernier point de récupération.
+2. Dans **Basculer**, sélectionnez un **point de récupération** vers lequel basculer. Sélectionnez le dernier point de récupération.
 3. Sélectionnez **Arrêter la machine avant de commencer le basculement**. Site Recovery tente d’arrêter le serveur avant de déclencher le basculement. Le basculement est effectué même en cas d’échec de l’arrêt. Vous pouvez suivre la progression du basculement sur la page **Tâches**.
 4. Vérifiez que la machine virtuelle Azure s’affiche dans Azure comme prévu.
 5. Dans **Éléments répliqués**, cliquez avec le bouton droit sur le serveur > **Terminer la migration**. Cette opération effectue les actions suivantes :

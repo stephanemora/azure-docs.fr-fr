@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 08/12/2019
 ms.author: curtand
 ms.openlocfilehash: 6ab1f7c97173021cc112a5f117469abd74ac954d
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77062572"
 ---
 # <a name="set-up-an-authenticator-app-as-your-two-factor-verification-method"></a>Configurer une application Authenticator comme méthode de vérification à deux facteurs
@@ -115,7 +115,7 @@ Une fois que vous avez configuré votre méthode de vérification à deux facteu
 
 - [Gérer les paramètres de la vérification à deux facteurs](multi-factor-authentication-end-user-manage-settings.md)
 
-- [Manage app passwords](multi-factor-authentication-end-user-app-passwords.md) (Gérer les mots de passe d’application)
+- [Gérer les mots de passe d’application](multi-factor-authentication-end-user-app-passwords.md)
 
 - [Se connecter à l’aide de la vérification en deux étapes](multi-factor-authentication-end-user-signin.md)
 

@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Améliorer l’accès aux applications web – Azure Application Gateway'
+title: 'Tutoriel : Améliorer l’accès aux applications web – Azure Application Gateway'
 description: Dans ce tutoriel, apprenez à créer une passerelle d'application redondante dans une zone, avec une mise à l'échelle automatique et avec une adresse IP réservée à l’aide d'Azure PowerShell.
 services: application-gateway
 author: vhorne
@@ -9,17 +9,17 @@ ms.date: 11/13/2019
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: e07fc34c7177e3a1dace34ab298b64dc3aa6a06a
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74011363"
 ---
 # <a name="tutorial-create-an-application-gateway-that-improves-web-application-access"></a>Tutoriel : Créer une passerelle d'application qui améliore l'accès aux applications web
 
 Si vous êtes un administrateur informatique soucieux d'améliorer l'accès aux applications web, vous pouvez optimiser votre passerelle d'application pour qu'elle s'adapte à la demande des clients et s'étende sur plusieurs zones de disponibilité. Ce tutoriel vous aide à configurer les fonctionnalités Azure Application Gateway qui gèrent la mise à l'échelle automatique, la redondance de zone et les adresses IP virtuelles réservées (adresses IP statiques). Vous allez utiliser des cmdlets Azure PowerShell et le modèle de déploiement Azure Resource Manager pour résoudre le problème.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créer un certificat auto-signé
@@ -184,7 +184,7 @@ Utilisez Get-AzPublicIPAddress pour obtenir l’adresse IP publique de la passe
 
 `Get-AzPublicIPAddress -ResourceGroupName $rg -Name AppGwVIP`
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Commencez par explorer les ressources créées avec la passerelle d'application. Puis, lorsque vous n'en aurez plus besoin, vous pourrez utiliser la commande `Remove-AzResourceGroup` pour supprimer le groupe de ressources, la passerelle d'application et toutes les ressources associées.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à Innoverse | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Innoverse | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Innoverse.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 10/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 207b277d22d6c16d51813ed66782b8a40684b14e
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74889670"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-innoverse"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Innoverse
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-innoverse"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Innoverse
 
 Dans ce tutoriel, vous allez apprendre à intégrer lnnoverse avec Azure Active Directory (Azure AD). Quand vous intégrez Innoverse à Azure AD, vous pouvez :
 

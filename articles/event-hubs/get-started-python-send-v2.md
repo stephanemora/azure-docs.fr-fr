@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 02/11/2020
 ms.author: spelluru
 ms.openlocfilehash: 7c971dcac702318d15a27736828092e987468ca3
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77162971"
 ---
 # <a name="send-events-to-or-receive-events-from-event-hubs-by-using-python-azure-eventhub-version-5"></a>Recevoir des événements des hubs d’événements ou leur en envoyer en utilisant Python (azure-eventhub version 5)
@@ -21,7 +21,7 @@ Ce guide de démarrage rapide montre comment recevoir des événements d’un hu
 > [!IMPORTANT]
 > Ce guide de démarrage rapide utilise la dernière version du package azure-eventhub (version 5). Pour un guide de démarrage rapide qui utilise l’ancienne version du package azure-eventhub (version 1), consultez [Envoyer et recevoir des événements avec Event Hubs en utilisant Python (azure-eventhub version 1)](event-hubs-python-get-started-send.md). 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 Si vous débutez avec Azure Event Hubs, consultez la [vue d’ensemble d’Event Hubs](event-hubs-about.md) avant de suivre ce guide de démarrage rapide. 
 
 Pour effectuer ce démarrage rapide, vous avez besoin de ce qui suit :
@@ -41,7 +41,7 @@ Pour effectuer ce démarrage rapide, vous avez besoin de ce qui suit :
     ```cmd
     pip install azure-eventhub-checkpointstoreblob-aio
     ```
-- **Créez un espace de noms Event Hubs et un Event Hub**. La première étape consiste à utiliser le [portail Azure](https://portal.azure.com) pour créer un espace de noms de type Event Hubs et obtenir les informations de gestion nécessaires à votre application pour communiquer avec le concentrateur d’événements. Pour créer un espace de noms et un hub d’événements, suivez la procédure décrite dans [cet article](event-hubs-create.md). Ensuite, obtenez la **chaîne de connexion de l’espace de noms Event Hubs** en suivant les instructions à partir de l’article : [Obtenir la chaîne de connexion](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Vous utiliserez la chaîne de connexion plus tard dans ce guide de démarrage rapide.
+- **Créez un espace de noms Event Hubs et un Event Hub**. La première étape consiste à utiliser le [portail Azure](https://portal.azure.com) pour créer un espace de noms de type Event Hubs et obtenir les informations de gestion nécessaires à votre application pour communiquer avec le concentrateur d’événements. Pour créer un espace de noms et un hub d’événements, suivez la procédure décrite dans [cet article](event-hubs-create.md). Ensuite, obtenez la **chaîne de connexion de l’espace de noms Event Hubs** en suivant les instructions à partir de l’article : [Obtenir la chaîne de connexion](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Vous utiliserez la chaîne de connexion plus loin dans ce guide de démarrage rapide.
 
 ## <a name="send-events"></a>Envoyer des événements
 Dans cette section, vous allez créer un script Python pour envoyer des événements au hub d’événements que vous avez créé.

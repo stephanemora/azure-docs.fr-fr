@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2019
 ms.author: anavin
-ms.openlocfilehash: 768d01346b7697953d44742458c7e507ae7c115a
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 3b908406c8717d2fa8834bc4dff1bcd27ec4761f
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894610"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79290197"
 ---
 # <a name="what-is-azure-virtual-network"></a>Présentation du réseau virtuel Azure
 
@@ -38,7 +38,7 @@ Lorsque vous créez votre réseau dans Azure, il est important de garder à l’
 - Vérifiez que les espaces d’adressage ne se chevauchent pas. Assurez-vous que votre espace d’adressage de réseau virtuel (bloc CIDR) ne chevauche pas d’autres plages réseau de votre organisation.
 - Vos sous-réseaux ne doivent pas couvrir l’espace d’adressage entier du réseau virtuel. Planifiez et réserver de l’espace d’adressage pour l’avenir.
 - Il est recommandé d’avoir un petit nombre de grands réseaux virtuels plutôt qu’un grand nombre de petits réseaux virtuels. Cela empêche la surcharge de gestion.
-- Sécurisez votre réseau virtuel à l’aide de groupes de sécurité réseau.
+- Sécurisez vos réseaux virtuels en affectant des groupes de sécurité réseau (NSG) aux sous-réseaux situés en dessous.
 
 ## <a name="communicate-with-the-internet"></a>Communiquer avec Internet
 

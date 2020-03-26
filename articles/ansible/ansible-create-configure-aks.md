@@ -5,13 +5,13 @@ keywords: ansible, azure, devops, bash, cloudshell, manuel, aks, conteneur, aks,
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.openlocfilehash: 6672c3fac1c5d546a61622e3fd6df6c5397f87a2
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74156680"
 ---
-# <a name="tutorial-configure-azure-kubernetes-service-aks-clusters-in-azure-using-ansible"></a>Didacticiel : Configurer des clusters Azure Kubernetes Service (AKS) dans Azure à l’aide d’Ansible
+# <a name="tutorial-configure-azure-kubernetes-service-aks-clusters-in-azure-using-ansible"></a>Tutoriel : Configurer des clusters Azure Kubernetes Service (AKS) dans Azure à l’aide d’Ansible
 
 [!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
@@ -23,7 +23,7 @@ AKS peut être configuré pour utiliser [Azure Active Directory (AD)](/azure/act
 
 > [!div class="checklist"]
 >
-> * Créer un cluster AKS
+> * Créer un cluster AKS
 > * Configurer un cluster AKS
 
 ## <a name="prerequisites"></a>Prérequis

@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Apache Storm avec Apache Kafka – Azure HDInsight'
+title: 'Tutoriel : Apache Storm avec Apache Kafka – Azure HDInsight'
 description: Découvrez comment créer un pipeline de diffusion en continu à l’aide d’Apache Storm et Apache Kafka sur HDInsight. Dans ce didacticiel, vous utilisez les composants KafkaBolt et KafkaSpout pour transmettre des données à partir de Kafka.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,17 +9,17 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/25/2019
 ms.openlocfilehash: eac9bee6992520492b846e3b579d8a05c327e749
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73494360"
 ---
-# <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Didacticiel : Utiliser Apache Storm avec Apache Kafka sur HDInsight
+# <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Tutoriel : Utiliser Apache Storm avec Apache Kafka sur HDInsight
 
 Ce tutoriel montre comment utiliser une topologie [Apache Storm](https://storm.apache.org/) pour lire et écrire des données avec [Apache Kafka](https://kafka.apache.org/) sur HDInsight. Ce tutoriel montre également comment conserver des données dans le stockage [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) sur le cluster Storm.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Storm et Kafka
@@ -30,7 +30,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Créer la rubrique Kafka
 > * Lancer les topologies
 > * Arrêt des topologies
-> * Supprimer des ressources
+> * Nettoyer les ressources
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -68,7 +68,7 @@ Apache Storm fournit plusieurs composants pour l’utilisation d’Apache Kafka.
 
     * `org.apache.storm.kafka.SpoutConfig`: fournit une configuration pour le composant Spout.
 
-    * `org.apache.storm.spout.SchemeAsMultiScheme` et `org.apache.storm.kafka.StringScheme` : comment les données issues de Kafka sont transformées en tuple Storm.
+    * `org.apache.storm.spout.SchemeAsMultiScheme` et `org.apache.storm.kafka.StringScheme` : comment les données issues de Kafka sont transformées en tuple Storm.
 
 * `org.apache.storm.kafka.bolt.KafkaBolt`: ce composant écrit des données dans Kafka. Ce composant s’appuie sur les composants suivants :
 
@@ -408,9 +408,9 @@ Pour créer un réseau virtuel Azure puis les clusters Kafka et Storm qu’il co
 
       | Paramètre | Valeur |
       | --- | --- |
-      | Subscription | Votre abonnement Azure |
+      | Abonnement | Votre abonnement Azure |
       | Resource group | Le groupe de ressources qui contient les ressources. |
-      | Location | La région Azure dans laquelle sont créées les ressources. |
+      | Emplacement | La région Azure dans laquelle sont créées les ressources. |
       | Nom du cluster Kafka | Le nom du cluster Kafka. |
       | Nom du cluster Storm | Nom du cluster Storm. |
       | Nom d’utilisateur de connexion au cluster | Le nom d’utilisateur administrateur pour l’accès aux clusters. |
@@ -621,7 +621,7 @@ Dans une session SSH sur le cluster Storm, utilisez la commande suivante pour ar
   storm kill kafka-reader
   ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Pour supprimer les ressources créées par ce didacticiel, vous pouvez supprimer le groupe de ressources. La suppression du groupe de ressources efface également le cluster HDInsight associé et d’autres ressources liées au groupe de ressources.
 

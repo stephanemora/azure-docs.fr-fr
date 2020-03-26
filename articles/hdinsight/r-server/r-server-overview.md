@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: overview
 ms.date: 02/10/2020
 ms.openlocfilehash: a77771880da962298f6e80782e5f3e251f5f4641
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77122376"
 ---
 # <a name="what-is-ml-services-in-azure-hdinsight"></a>Qu’est-ce que ML Services dans Azure HDInsight
@@ -23,7 +23,7 @@ ML Services sur HDInsight fournit les dernières fonctionnalités analytiques R
 
 Le nœud de périmètre d’un cluster fournit un lieu d’accueil pratique pour la connexion au cluster et l’exécution de vos scripts R. Un nœud périphérique permet d’exécuter des fonctions distribuées parallélisées de ScaleR sur les différents cœurs du serveur associé. Vous pouvez également les exécuter sur les différents nœuds du cluster à l’aide des contextes de calcul Hadoop Map Reduce ou Apache Spark de ScaleR.
 
-Les modèles ou prévisions résultant des analyses peuvent être téléchargés pour une utilisation locale. Ils peuvent aussi être opérationnalisés ailleurs dans Azure, en particulier par le biais du [service web](../../machine-learning/studio/deploy-a-machine-learning-web-service.md) [Azure Machine Learning Studio (classique)](https://studio.azureml.net).
+Les modèles ou prévisions résultant des analyses peuvent être téléchargés pour une utilisation locale. Ils peuvent aussi être opérationnalisés ailleurs dans Azure, en particulier par le biais du [service web](https://studio.azureml.net) [Azure Machine Learning Studio (classique)](../../machine-learning/studio/deploy-a-machine-learning-web-service.md).
 
 ## <a name="get-started-with-ml-services-on-hdinsight"></a>Démarrer avec ML Services sur HDInsight
 

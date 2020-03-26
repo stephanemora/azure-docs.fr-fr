@@ -16,11 +16,11 @@ ms.date: 10/1/2019
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: f1af388d1f8b9542d196a53cc6c143f9b48e6d5a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75361657"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222426"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Tutoriel : Configurer HTTPS sur un domaine personnalisé Azure CDN
 
@@ -44,7 +44,7 @@ Dans ce tutoriel, vous allez apprendre à :
 > - Valider le domaine
 > - Désactiver le protocole HTTPS sur votre domaine personnalisé.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)] 
 
@@ -62,7 +62,7 @@ En outre, vous devez associer un domaine personnalisé Azure CDN sur votre point
 Pour activer le protocole HTTPS afin de fournir du contenu de façon sécurisée sur un domaine personnalisé Azure CDN, vous devez utiliser un certificat SSL. Vous pouvez choisir d’utiliser un certificat qui est géré par Azure CDN ou votre propre certificat.
 
 
-# <a name="option-1-default-enable-https-with-a-cdn-managed-certificatetaboption-1-default-enable-https-with-a-cdn-managed-certificate"></a>[Option 1 (par défaut) : activer HTTPS avec un certificat géré par CDN](#tab/option-1-default-enable-https-with-a-cdn-managed-certificate)
+# <a name="option-1-default-enable-https-with-a-cdn-managed-certificate"></a>[Option 1 (par défaut) : activer HTTPS avec un certificat géré par CDN](#tab/option-1-default-enable-https-with-a-cdn-managed-certificate)
 
 Lorsque vous utilisez un certificat géré par CDN, la fonctionnalité HTTPS peut être activée en quelques clics. Azure CDN gère complètement les tâches de gestion des certificats telles que l’approvisionnement et le renouvellement. Le processus démarre dès que vous activez la fonctionnalité. Si le domaine personnalisé est déjà mappé au point de terminaison CDN, aucune action supplémentaire n’est requise. Azure CDN traite les étapes et termine votre requête automatiquement. Toutefois, si votre domaine personnalisé est mappé à un autre emplacement, vous devez utiliser la messagerie pour valider votre propriété de domaine.
 
@@ -93,7 +93,7 @@ Pour activer HTTPS sur un domaine personnalisé, suivez ces étapes :
 7. Faites [Valider le domaine](#validate-the-domain).
 
 
-# <a name="option-2-enable-https-with-your-own-certificatetaboption-2-enable-https-with-your-own-certificate"></a>[Option n°2 : activer HTTPS avec votre propre certificat](#tab/option-2-enable-https-with-your-own-certificate)
+# <a name="option-2-enable-https-with-your-own-certificate"></a>[Option n°2 : activer HTTPS avec votre propre certificat](#tab/option-2-enable-https-with-your-own-certificate)
 
 > [!IMPORTANT]
 > Cette option n’est disponible qu’avec les profils **Azure CDN de Microsoft** et **Azure CDN de Verizon**. 
@@ -178,7 +178,7 @@ Si vous utilisez votre propre certificat, la validation du domaine n’est pas n
 
 Votre enregistrement CNAME doit être au format suivant, où *Nom* est le nom de votre domaine personnalisé et *Valeur* est le nom d’hôte de votre point de terminaison CDN :
 
-| Name            | Type  | Valeur                 |
+| Nom            | Type  | Valeur                 |
 |-----------------|-------|-----------------------|
 | <www.contoso.com> | CNAME | contoso.azureedge.net |
 

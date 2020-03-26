@@ -4,10 +4,10 @@ description: Mappage des contrôles de l’exemple de blueprint NIST SP 800-53 R
 ms.date: 11/18/2019
 ms.topic: sample
 ms.openlocfilehash: 104224ec96a5989a103f4d00310cf08b684b4d67
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74546628"
 ---
 # <a name="control-mapping-of-the-nist-sp-800-53-r4-blueprint-sample"></a>Mappage des contrôles de l’exemple de blueprint NIST SP 800-53 R4
@@ -24,7 +24,7 @@ Les mappages suivants concernent les contrôles **NIST SP 800-53 (Rév. 4)** . U
 Ce blueprint vous aide à examiner les comptes qui peuvent ne pas être conformes aux exigences de votre organisation en matière de gestion de comptes. Ce blueprint affecte des définitions [Azure Policy](../../../policy/overview.md) qui auditent les comptes externes avec des autorisations de lecture, d’écriture et de propriétaire sur un abonnement, ainsi que les comptes dépréciés. En passant en revue les comptes audités par ces stratégies, vous pouvez prendre les mesures appropriées pour veiller au respect des exigences en matière de gestion des comptes.
 
 - Les comptes déconseillés doivent être supprimés de votre abonnement
-- Les comptes déconseillés disposant d’autorisations de propriétaire doivent être supprimés de votre abonnement
+- Les comptes dépréciés disposant d’autorisations de propriétaire doivent être supprimés de votre abonnement
 - Les comptes externes disposant d’autorisations de propriétaire doivent être supprimés de votre abonnement
 - Les comptes externes disposant d’autorisations de lecture doivent être supprimés de votre abonnement
 - Les comptes externes disposant d’autorisations d’écriture doivent être supprimés de votre abonnement

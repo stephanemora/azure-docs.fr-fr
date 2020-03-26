@@ -1,16 +1,16 @@
 ---
-title: 'Didacticiel : Gérer les requêtes dans le portail Azure'
+title: 'Tutoriel : Gérer les requêtes dans le portail Azure'
 description: Dans ce tutoriel, vous créez une requête Resource Graph et vous la partagez avec d’autres personnes dans le portail Azure.
 ms.date: 11/21/2019
 ms.topic: tutorial
 ms.openlocfilehash: 00cb3f95112804c81beb6bce6fc35891e6197e60
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74303958"
 ---
-# <a name="tutorial-create-and-share-an-azure-resource-graph-query-in-the-azure-portal"></a>Didacticiel : Créer et partager une requête Azure Resource Graph sur le portail Azure
+# <a name="tutorial-create-and-share-an-azure-resource-graph-query-in-the-azure-portal"></a>Tutoriel : Créer et partager une requête Azure Resource Graph sur le portail Azure
 
 L'Explorateur Azure Resource Graph vous permet d'enregistrer vos requêtes Resource Graph directement sur le portail Azure. Il existe deux types de requêtes : les requêtes _privées_ et les requêtes _partagées_. Une requête privée est enregistrée dans les paramètres de votre portail Azure. Une requête partagée, quant à elle, est une ressource Resource Manager qui peut être gérée avec des contrôles d'accès en fonction du rôle (RBAC) et protégée à l'aide de verrous de ressources. Les deux types de requêtes sont chiffrées au repos.
 
@@ -147,7 +147,7 @@ Vous pouvez supprimer une requête partagée via les interfaces suivantes :
 - Page **Ouvrir une requête** de l'Explorateur Resource Graph
 - Page Groupes de ressources
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Au terme de ce didacticiel, supprimez les requêtes privées et partagées que vous avez créées si vous ne souhaitez pas les conserver.
 

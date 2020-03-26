@@ -8,17 +8,17 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 02/03/2020
 ms.openlocfilehash: e4679d5a04be7b8c0145fd93818e4187170b4194
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77049683"
 ---
 # <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-azure-cli"></a>Démarrage rapide : créer un cluster Apache Spark dans Azure HDInsight à l’aide d’Azure CLI
 
 Dans ce guide de démarrage rapide, vous allez apprendre à créer un cluster Apache Spark dans Azure HDInsight à l’aide de l’interface de ligne de commande (CLI) Azure. Azure HDInsight est un service d’analytique open source managé et complet pour les entreprises. Le framework Apache Spark pour HDInsight permet une analytique données et des calculs sur cluster rapides à l’aide du traitement en mémoire. Azure CLI est l’interface de ligne de commande multiplateforme de Microsoft pour la gestion de ressources Azure.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) si vous ne souhaitez pas utiliser Azure Cloud Shell.

@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/10/2020
 ms.openlocfilehash: d88a9d7efdabd493fd31b961748bb6ad3bd8d738
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77121572"
 ---
 # <a name="c-tutorial-use-facets-to-aid-navigation---azure-cognitive-search"></a>Tutoriel C# : Utiliser des facettes pour faciliter la navigation - Recherche cognitive Azure
@@ -26,7 +26,7 @@ Dans ce tutoriel, vous allez apprendre à :
 > * Définir des propriétés de modèle en tant que _IsFacetable_
 > * Ajouter la navigation à facettes à votre application
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
 

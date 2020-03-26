@@ -8,12 +8,12 @@ ms.workload: core
 ms.topic: quickstart
 ms.date: 02/11/2020
 ms.author: spelluru
-ms.openlocfilehash: 4ebb52aa3e8d4ccfee6b36fb60c7f041df08a69a
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 44f57f52be512924e228d6488a786d117c6444e7
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77163022"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79370591"
 ---
 # <a name="use-java-to-send-events-to-or-receive-events-from-azure-event-hubs-azure-messaging-eventhubs"></a>Utiliser Java pour recevoir des événements d’Azure Event Hubs ou lui en envoyer (azure-messaging-eventhubs)
 Ce guide de démarrage rapide montre comment recevoir des événements d’un hub d’événements et lui en envoyer en utilisant le package Java **azure-messaging-eventhubs**.
@@ -22,14 +22,14 @@ Ce guide de démarrage rapide montre comment recevoir des événements d’un hu
 > Ce guide de démarrage rapide utilise le nouveau package **azure-messaging-eventhubs**. Pour un guide de démarrage rapide qui utilise les anciens packages **azure-eventhubs** et **azure-eventhubs-eph**, consultez [Envoyer et recevoir des événements à l’aide d’azure-eventhubs et azure-eventhubs-eph](event-hubs-java-get-started-send.md). 
 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 Si vous débutez avec Azure Event Hubs, consultez la [vue d’ensemble d’Event Hubs](event-hubs-about.md) avant de suivre ce guide de démarrage rapide. 
 
 Pour effectuer ce démarrage rapide, vous avez besoin de ce qui suit :
 
 - **Abonnement Microsoft Azure**. Pour utiliser les services Azure, y compris Azure Event Hubs, vous avez besoin d’un abonnement.  Si vous n’avez pas de compte Azure, vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/free/) ou utiliser les avantages de votre abonnement MSDN quand vous [créez un compte](https://azure.microsoft.com).
 - Un environnement de développement Java. Ce guide de démarrage rapide utilise [Eclipse](https://www.eclipse.org/). Le Kit de développement Java (JDK) avec version 8 ou ultérieure est nécessaire. 
-- **Créez un espace de noms Event Hubs et un Event Hub**. La première étape consiste à utiliser le [portail Azure](https://portal.azure.com) pour créer un espace de noms de type Event Hubs et obtenir les informations de gestion nécessaires à votre application pour communiquer avec le concentrateur d’événements. Pour créer un espace de noms et un hub d’événements, suivez la procédure décrite dans [cet article](event-hubs-create.md). Ensuite, obtenez la **chaîne de connexion de l’espace de noms Event Hubs** en suivant les instructions à partir de l’article : [Obtenir la chaîne de connexion](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Vous utiliserez la chaîne de connexion plus tard dans ce guide de démarrage rapide.
+- **Créez un espace de noms Event Hubs et un Event Hub**. La première étape consiste à utiliser le [portail Azure](https://portal.azure.com) pour créer un espace de noms de type Event Hubs et obtenir les informations de gestion nécessaires à votre application pour communiquer avec le concentrateur d’événements. Pour créer un espace de noms et un hub d’événements, suivez la procédure décrite dans [cet article](event-hubs-create.md). Ensuite, obtenez la **chaîne de connexion de l’espace de noms Event Hubs** en suivant les instructions à partir de l’article : [Obtenir la chaîne de connexion](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Vous utiliserez la chaîne de connexion plus loin dans ce guide de démarrage rapide.
 
 ## <a name="send-events"></a>Envoyer des événements 
 Cette section montre comment créer une application Java pour envoyer des événements à un hub d’événements. 
@@ -55,7 +55,7 @@ import com.azure.messaging.eventhubs.*;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
 public class Sender {
-    public static void main(String[] args) {
+       public static void main(String[] args) {
     }
 }
 ```
@@ -208,7 +208,7 @@ La bibliothèque cliente Java pour Event Hubs est utilisable dans les projets Ma
      }
     ```
     
-2. Téléchargez le fichier **InMemoryCheckpointStore.java** à partir de [GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs), puis ajoutez-le à votre projet. 
+2. Téléchargez le fichier **InMemoryCheckpointStore.java** à partir de [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs/InMemoryCheckpointStore.java), puis ajoutez-le à votre projet. 
 3. Générez le programme et assurez-vous qu’il n’y a aucune erreur. 
 
 ## <a name="run-the-applications"></a>Exécution des applications

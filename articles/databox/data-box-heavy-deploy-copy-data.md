@@ -10,15 +10,15 @@ ms.date: 08/29/2019
 ms.author: alkohli
 ms.localizationpriority: high
 ms.openlocfilehash: 475e628901a96334976dbdbbaa8b362197ec3bc3
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914050"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79214205"
 ---
 ::: zone target = "docs"
 
-# <a name="tutorial-copy-data-to-azure-data-box-heavy-via-smb"></a>Didacticiel : Copier des données sur Azure Data Box Heavy par le biais de SMB
+# <a name="tutorial-copy-data-to-azure-data-box-heavy-via-smb"></a>Tutoriel : Copier des données sur Azure Data Box Heavy par le biais de SMB
 
 ::: zone-end
 
@@ -32,7 +32,7 @@ ms.locfileid: "70914050"
 
 Ce tutoriel explique comment vous connecter à votre ordinateur hôte et copier des données à partir de cet ordinateur à l’aide de l’interface utilisateur web locale.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Se connecter à Data Box Heavy

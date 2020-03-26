@@ -18,19 +18,19 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/22/2019
 ms.openlocfilehash: 4ccf62dd8a249c9ba23bbb4510164b35a58db917
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72387396"
 ---
-# <a name="tutorial-send-localized-push-notifications-to-windows-apps-using-azure-notification-hubs"></a>Didacticiel : Envoyer des notifications Push localisées vers des applications Windows à l’aide d’Azure Notification Hubs
+# <a name="tutorial-send-localized-push-notifications-to-windows-apps-using-azure-notification-hubs"></a>Tutoriel : Envoyer des notifications Push localisées vers des applications Windows à l’aide d’Azure Notification Hubs
 
 > [!div class="op_single_selector"]
 > * [Windows Store C#](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
 > * [iOS](notification-hubs-ios-xplat-localized-apns-push-notification.md)
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Ce didacticiel vous montre comment envoyer des notifications localisées vers des appareils mobiles inscrits auprès du service Notification Hubs. Dans le didacticiel, vous mettez à jour les applications créées dans le [Tutoriel : Envoyer des notifications à des appareils spécifiques (plateforme Windows universelle)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md) pour prendre en charge les scénarios suivants :
 
@@ -39,7 +39,7 @@ Ce didacticiel vous montre comment envoyer des notifications localisées vers de
 
 Lorsque vous effectuez le didacticiel, l’application mobile vous permet d’inscrire les catégories qui vous intéressent et également de spécifier une langue qui recevra les notifications. L’application de serveur principal envoie des notifications localisées par la langue et l’appareil.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Mettre à jour l’application Windows pour prendre en charge les informations des paramètres régionaux
@@ -269,7 +269,7 @@ Exécutez l’**application console** pour envoyer des notifications pour chaque
 Dans ce didacticiel, vous avez appris à envoyer des notifications localisées à des appareils spécifiques ayant des balises associées à leurs enregistrements. Pour savoir comment envoyer des notifications à des utilisateurs spécifiques qui peuvent utiliser plus d’un appareil, passez au didacticiel suivant :
 
 > [!div class="nextstepaction"]
->[Notifications push vers des utilisateurs spécifiques](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md)
+>[Notifications Push vers des utilisateurs spécifiques](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md)
 
 <!-- Anchors. -->
 [Template concepts]: #concepts

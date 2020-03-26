@@ -9,10 +9,10 @@ ms.date: 07/08/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 8f8d366961049deb3eda193718ccb553aac930e3
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "67666382"
 ---
 Vous payez deux choses : les coûts horaires de calcul de la passerelle de réseau virtuel, et les coûts de transfert des données sortantes à partir de la passerelle de réseau virtuel. Pour des informations sur les prix, consultez la page [Tarification](https://azure.microsoft.com/pricing/details/vpn-gateway) . Pour connaître les tarifs des références SKU existantes de la passerelle, consultez la [page des tarifs ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute) et accédez à la section **Passerelles de réseau virtuel**.

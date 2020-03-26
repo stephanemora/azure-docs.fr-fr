@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de Azure Active Directory à Miro | Microsoft Docs'
+title: 'Tutoriel : Intégration de Azure Active Directory à Miro | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Miro.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 06/24/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 83859a96705884ee6e0faf7a41a7370395b0c876
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67372642"
 ---
-# <a name="tutorial-integrate-miro-with-azure-active-directory"></a>Didacticiel : Intégrer Miro à Azure Active Directory
+# <a name="tutorial-integrate-miro-with-azure-active-directory"></a>Tutoriel : Intégrer Miro à Azure Active Directory
 
 Dans ce tutoriel, vous allez apprendre à intégrer Miro à Azure Active Directory (Azure AD). Quand vous intégrez Miro à Azure AD, vous pouvez :
 

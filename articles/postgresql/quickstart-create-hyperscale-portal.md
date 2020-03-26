@@ -9,11 +9,11 @@ ms.custom: mvc
 ms.topic: quickstart
 ms.date: 05/14/2019
 ms.openlocfilehash: 02e009e6fff2e717693d1579d409199ab179d941
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74973411"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79290327"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---hyperscale-citus-in-the-azure-portal"></a>Démarrage rapide : Créer une base de données Azure Database pour PostgreSQL - Hyperscale (Citus) dans le portail Azure
 
@@ -128,13 +128,13 @@ SELECT gu.login, count(*)
  ORDER BY count(*) DESC;
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Au cours des étapes précédentes, vous avez créé des ressources Azure dans un groupe de serveurs. Si vous pensez ne pas avoir besoin de ces ressources à l’avenir, supprimez le groupe de serveurs. Appuyez sur le bouton **Supprimer** dans la page **Vue d’ensemble** de votre groupe de serveurs. Quand vous y êtes invité dans une page contextuelle, confirmez le nom du groupe de serveurs, puis cliquez sur le bouton **Supprimer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez découvert comment configurer un groupe de serveurs Hyperscale (Citus). Vous vous êtes connecté avec psql, vous avez créé un schéma et vous avez distribué des données.
+Dans ce guide de démarrage rapide, vous avez découvert comment configurer un groupe de serveurs Hyperscale (Citus). Vous vous y êtes connecté avec psql, vous avez créé un schéma et vous avez distribué les données.
 
 Suivez maintenant un tutoriel pour créer des applications multilocataires scalables.
 > [!div class="nextstepaction"]

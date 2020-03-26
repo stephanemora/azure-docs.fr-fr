@@ -11,13 +11,13 @@ ms.date: 07/03/2018
 ms.author: labrenne
 ms.custom: mvc
 ms.openlocfilehash: 9106741e18354d39909fa84ce6e9f3a66ccf2014
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77024498"
 ---
-# <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Démarrage rapide : Exécuter votre premier travail Batch avec Azure CLI
+# <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Démarrage rapide : exécution de votre premier travail Batch avec l’interface de ligne de commande Azure
 
 L’interface de ligne de commande (CLI) Azure permet de créer et gérer des ressources Azure à partir de la ligne de commande ou dans les scripts. Ce démarrage rapide montre comment utiliser l’interface de ligne de commande Azure pour créer un compte Batch, un *pool* de nœuds de calcul (machines virtuelles) et un *travail* qui exécute des *tâches* sur le pool. Chaque exemple de tâche exécute une commande de base sur un des nœuds du pool. À l’issue de ce démarrage rapide, vous maîtriserez les concepts clés du service Batch et serez prêt à essayer Azure Batch avec des charges de travail plus réalistes à plus grande échelle.
 

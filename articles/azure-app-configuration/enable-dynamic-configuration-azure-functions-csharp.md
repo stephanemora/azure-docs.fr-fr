@@ -16,17 +16,17 @@ ms.author: zhenlwa
 ms.custom: azure-functions
 ms.tgt_pltfrm: Azure Functions
 ms.openlocfilehash: ba70d5f186c1424b2019716ab7a87aeae85f8913
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74187293"
 ---
-# <a name="tutorial-use-dynamic-configuration-in-an-azure-functions-app"></a>Didacticiel : Utiliser la configuration dynamique dans une application Azure Functions
+# <a name="tutorial-use-dynamic-configuration-in-an-azure-functions-app"></a>Tutoriel : Utiliser la configuration dynamique dans une application Azure Functions
 
 Le fournisseur de configuration .NET Standard App Configuration prend en charge la mise en cache et l’actualisation de la configuration pilotée dynamiquement par l’activité des applications. Ce tutoriel montre comment vous pouvez implémenter des mises à jour de la configuration dynamique dans votre code. Il s’appuie sur l’application Azure Functions mentionnée dans les guides de démarrage rapide. Avant de continuer, terminez d’abord [Créer une application Azure Functions avec Azure App Configuration](./quickstart-azure-functions-csharp.md).
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Configurer votre application Azure Functions pour mettre à jour sa configuration en réponse aux changements survenant dans un magasin App Configuration.
@@ -41,7 +41,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="reload-data-from-app-configuration"></a>Recharger des données à partir d’Azure App Configuration
 
-1. Ouvrez *Function1.cs*. En plus de la propriété `static` `Configuration`, ajoutez une nouvelle propriété `static` `ConfigurationRefresher` pour conserver une instance singleton de `IConfigurationRefresher` qui sera utilisée pour signaler les mises à jour de configuration pendant les appels Functions ultérieurement.
+1. Ouvrez *Function1.cs*. En plus de la propriété `static``Configuration`, ajoutez une nouvelle propriété `static``ConfigurationRefresher` pour conserver une instance singleton de `IConfigurationRefresher` qui sera utilisée pour signaler les mises à jour de configuration pendant les appels Functions ultérieurement.
 
     ```csharp
     private static IConfiguration Configuration { set; get; }
@@ -110,7 +110,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
     ![Démarrage rapide du lancement de fonctions local](./media/quickstarts/dotnet-core-function-launch-local.png)
 
-5. Connectez-vous au [Portail Azure](https://portal.azure.com). Sélectionnez **Toutes les ressources**, puis sélectionnez l’instance du magasin App Configuration que vous avez créée dans le guide de démarrage rapide.
+5. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Toutes les ressources**, puis sélectionnez l’instance du magasin App Configuration que vous avez créée dans le guide de démarrage rapide.
 
 6. Sélectionnez **Explorateur de configuration**, puis mettez à jour les valeurs de la clé suivante :
 
@@ -124,7 +124,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 L’exemple de code utilisé dans ce tutoriel peut être téléchargé à partir du [dépôt GitHub App Configuration](https://github.com/Azure/AppConfiguration/tree/master/examples/DotNetCore/AzureFunction)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

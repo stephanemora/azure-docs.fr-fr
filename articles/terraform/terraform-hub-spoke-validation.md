@@ -4,13 +4,13 @@ description: Didacticiel pour valider une topologie de réseau hub-and-spoke ave
 ms.topic: tutorial
 ms.date: 10/26/2019
 ms.openlocfilehash: 9ba4780c59e5e9da4999573abbc08ecd2738a2cd
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74159191"
 ---
-# <a name="tutorial-validate-a-hub-and-spoke-network-in-azure-using-terraform"></a>Didacticiel : Valider un réseau hub-and-spoke dans Azure avec Terraform
+# <a name="tutorial-validate-a-hub-and-spoke-network-in-azure-using-terraform"></a>Tutoriel : Valider un réseau hub-and-spoke dans Azure avec Terraform
 
 Dans cet article, vous alles exécuter les fichiers Terraform créés dans l’article précédent de cette série. Le résultat est une validation de la connectivité entre les réseaux virtuels de démonstration.
 
@@ -118,7 +118,7 @@ Cette section explique comment tester la connectivité entre l’environnement l
 
 Pour plus d’informations sur la résolution de problèmes de VPN, voir l’article [Résoudre les problèmes d’une connexion VPN hybride](/azure/architecture/reference-architectures/hybrid-networking/troubleshoot-vpn).
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous n’avez plus besoin des ressources créées dans la série de didacticiels, supprimez-les.
 

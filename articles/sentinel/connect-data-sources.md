@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: yelevin
-ms.openlocfilehash: 311bb367748be98af704ab11919abea6e38d0ff3
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 9d2d1985b23e1c7f5e0f7d9fd2795bd85e28ace0
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77588329"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79214807"
 ---
 # <a name="connect-data-sources"></a>Connecter des sources de données
 
@@ -56,7 +56,6 @@ Les méthodes de connexion de données suivantes sont prises en charge par Azure
     - [Office 365](connect-office-365.md)
     - [Microsoft Defender ATP](connect-microsoft-defender-advanced-threat-protection.md)
     - [Pare-feu d’application web Microsoft](connect-microsoft-waf.md)
-    - [Événements de sécurité Windows](connect-windows-security-events.md) 
     - [Pare-feu Windows](connect-windows-firewall.md)
     - [Événements de sécurité Windows](connect-windows-security-events.md)
 
@@ -91,7 +90,7 @@ Les méthodes de connexion de données suivantes sont prises en charge par Azure
     - Serveurs Linux
     - Autres clouds
     
-## Options de connexion de l’agent<a name="agent-options"></a>
+## <a name="agent-connection-options"></a>Options de connexion de l’agent<a name="agent-options"></a>
 
 Pour connecter votre appliance externe à Azure Sentinel, l’agent doit être déployé sur une machine dédiée (machine virtuelle ou ordinateur local) pour prendre en charge la communication entre l’appliance et Azure Sentinel. Vous pouvez déployer l’agent manuellement ou automatiquement. Le déploiement automatique n’est disponible que si votre machine dédiée est une nouvelle machine virtuelle que vous créez dans Azure. 
 

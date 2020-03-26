@@ -4,16 +4,18 @@ description: Ce guide de démarrage rapide fournit plusieurs exemples de code Py
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.custom: seo-python-october2019
+ms.custom:
+- mvc
+- seo-python-october2019
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/09/2020
-ms.openlocfilehash: 96296a4ecea8dd1d546adf2292291746bd37507d
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: c9ea155f3cc71dd961a3780e3b188a6d062606bc
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76938931"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80067895"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-with-azure-database-for-mysql"></a>Démarrage rapide : Utiliser Python pour se connecter et interroger des données avec Azure Database pour MySQL
 
@@ -21,7 +23,7 @@ Dans ce guide de démarrage rapide, vous vous connectez à Azure Database pour M
 
 Cette rubrique part du principe que vous connaissez les bases du développement avec Python, mais que vous commencez juste à utiliser Azure Database pour MySQL.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Un serveur Azure Database pour MySQL. [Créer un serveur Azure Database pour MySQL avec le portail Azure](quickstart-create-mysql-server-database-using-azure-portal.md) ou [Créer un serveur Azure Database pour MySQL avec Azure CLI](quickstart-create-mysql-server-database-using-azure-cli.md).

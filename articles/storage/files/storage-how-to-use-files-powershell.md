@@ -8,13 +8,13 @@ ms.date: 10/26/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: c419c2127b1c5fe3aaa60c6e828ff0c5a6676c07
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77598542"
 ---
-# <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>Démarrage rapide : Créer et gérer un partage de fichiers Azure avec Azure PowerShell 
+# <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>Démarrage rapide : créer et gérer un partage de fichiers Azure avec Azure PowerShell 
 Ce guide vous explique les bases de l’utilisation du [partage de fichiers](storage-files-introduction.md) Azure avec PowerShell. Le partage de fichiers Azure est similaire à d’autres partages de fichiers, mais est stocké dans le cloud et s’appuie sur la plateforme Azure. Il prend en charge le protocole SMB de norme industrielle et permet le partage de fichiers entre plusieurs machines, applications et instances. 
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
@@ -186,7 +186,7 @@ Get-AzStorageFile `
     -Path "myDirectory2" 
 ```
 
-Bien que l’applet de commande `Start-AzStorageFileCopy` soit pratique pour les déplacements de fichiers ad hoc entre les partages de fichiers Azure, pour les migrations et les déplacements de données plus importants, nous préconisons `robocopy` sur Windows et `rsync` sur macOS et Linux. `robocopy` et `rsync` utilisent SMB pour effectuer les déplacement de données et non l’API FileREST.
+Bien que l’applet de commande `Start-AzStorageFileCopy` soit pratique pour les déplacements de fichiers ad hoc entre les partages de fichiers Azure, pour les migrations et les déplacements de données plus importants, nous préconisons `robocopy` sur Windows et `rsync` sur macOS et Linux. Pour effectuer les déplacements de données, `robocopy` et `rsync` utilisent SMB plutôt que l’API FileREST.
 
 ## <a name="create-and-manage-share-snapshots"></a>Créer et gérer des instantanés de partage
 Avec un partage de fichiers Azure, vous pouvez aussi créer des instantanés de partage. Un instantané conserve un point dans le temps pour un partage de fichiers Azure. Les instantanés de partage sont similaires aux technologies de systèmes d’exploitation que vous connaissez peut-être déjà comme :

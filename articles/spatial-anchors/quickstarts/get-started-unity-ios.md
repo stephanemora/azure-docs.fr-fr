@@ -9,11 +9,11 @@ ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 37a82c4001dd42a4cfbbb9dabec29f28359afd75
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77615398"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215527"
 ---
 # <a name="quickstart-create-a-unity-ios-app-with-azure-spatial-anchors"></a>Démarrage rapide : Créer une application iOS Unity avec Azure Spatial Anchors
 

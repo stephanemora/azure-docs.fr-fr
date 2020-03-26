@@ -1,5 +1,5 @@
 ---
-title: Configurer la jonction hybride Azure Active Directory pour des domaines fédérés | Microsoft Docs
+title: Configurer la jointure hybride Azure Active Directory pour des domaines fédérés | Microsoft Docs
 description: Découvrez comment configurer une jonction Azure Active Directory hybride pour les domaines fédérés.
 services: active-directory
 ms.service: active-directory
@@ -11,20 +11,20 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28d6e5362df9f41822525af0d256cfd99568d6de
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 1a61c89199c89f09b5cc0e553dbbf48655ad1b6a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76512128"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222966"
 ---
-# <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Tutoriel : Configurer la jonction hybride Azure Active Directory pour des domaines fédérés
+# <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Tutoriel : Configurer la jointure hybride Azure Active Directory pour des domaines fédérés
 
 Comme n’importe quel utilisateur de votre organisation, un appareil est une identité fondamentale que vous souhaitez protéger. Vous pouvez utiliser l’identité d’un appareil pour protéger vos ressources à tout moment et à partir de n’importe quel emplacement. Pour atteindre cet objectif, vous devez intégrer et gérer les identités des appareils dans Azure AD (Azure Active Directory) à l’aide de l’une des méthodes suivantes :
 
-- Jonction Azure AD
-- Jonction Azure AD hybride
-- Inscription Azure AD
+- jointure Azure AD ;
+- jointure Azure AD hybride ;
+- inscription Azure AD.
 
 En intégrant vos appareils à Azure AD, vous optimisez la productivité des utilisateurs via SSO (authentification unique) parmi vos ressources cloud et locales. En parallèle, vous pouvez sécuriser l’accès à vos ressources cloud et locales à l’aide de l’[accès conditionnel](../active-directory-conditional-access-azure-portal.md).
 
@@ -40,7 +40,7 @@ Un environnement fédéré doit disposer d’un fournisseur d’identité qui pr
    `/adfs/services/trust/13/certificatemixed` 
 
 > [!WARNING] 
-> **adfs/services/trust/2005/windowstransport** et **adfs/services/trust/13/windowstransport** doivent tous les deux être activés en tant que points de terminaison uniquement accessibles sur intranet et ils NE doivent PAS être exposés comme points de terminaison accessibles sur extranet via le proxy d’application web. Pour en savoir plus sur la désactivation des points de terminaison Windows WS-Trust, consultez [Désactiver les points de terminaison Windows WS-Trust sur le proxy](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Vous pouvez visualiser les points de terminaison qui sont activés par le biais de la console de gestion AD FS sous **Service** > **Points de terminaison**.
+> **adfs/services/trust/2005/windowstransport** et **adfs/services/trust/13/windowstransport** doivent tous les deux être activés en tant que points de terminaison uniquement accessibles sur intranet et ils NE doivent PAS être exposés comme points de terminaison accessibles sur extranet via le proxy d’application web. Pour en savoir plus sur la désactivation des points de terminaison Windows WS-Trust, consultez [Désactiver les points de terminaison Windows WS-Trust sur le proxy](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Vous pouvez visualiser les points de terminaison qui sont activés par le biais de la console de gestion AD FS sous **Service** > **Points de terminaison**.
 
 Dans ce tutoriel, vous apprenez à configurer une jonction Azure AD Hybride pour des appareils joints à un domaine Active Directory dans un environnement fédéré avec AD FS.
 
@@ -52,7 +52,7 @@ Vous allez apprendre à effectuer les actions suivantes :
 > * Vérifier l’inscription
 > * Dépanner
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Ce tutoriel part du principe que les articles suivants vous sont familiers :
 
@@ -83,7 +83,7 @@ Pour permettre le bon fonctionnement de la jonction Azure AD Hybride, les appar
 
 À partir de Windows 10 1803, en cas d’échec de la jonction Azure AD Hybride instantanée pour un environnement fédéré utilisant AD FS, nous utilisons Azure AD Connect afin de synchroniser l’objet ordinateur dans Azure AD, qui est ensuite utilisé pour effectuer l’inscription de l’appareil à une jonction Azure AD Hybride. Vérifiez qu’Azure AD Connect a synchronisé les objets ordinateur des appareils qui doivent devenir membres d’Azure AD Hybride. Si les objets ordinateur appartiennent à des unités d’organisation spécifiques, vous devez également configurer ces unités d’organisation pour qu’elles se synchronisent dans Azure AD Connect. Pour en savoir plus sur la synchronisation des objets ordinateur à l’aide d’Azure AD Connect, consultez [Configurer le filtrage à l’aide d’Azure AD Connect](../hybrid/how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering).
 
-Si votre organisation nécessite un accès à Internet via un proxy sortant, Microsoft recommande d’[implémenter le protocole WPAD (Web Proxy AutoDiscovery)](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) pour permettre aux ordinateurs Windows 10 de s’inscrire en tant qu’appareils auprès d’Azure AD. Si vous rencontrez des problèmes pour configurer et gérer le protocole WPAD, consultez la [résolution des problèmes de détection automatique](https://docs.microsoft.com/previous-versions/tn-archive/cc302643(v=technet.10)). 
+Si votre organisation nécessite un accès à Internet via un proxy sortant, Microsoft recommande d’[implémenter le protocole WPAD (Web Proxy AutoDiscovery)](/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) pour permettre aux ordinateurs Windows 10 de s’inscrire en tant qu’appareils auprès d’Azure AD. Si vous rencontrez des problèmes pour configurer et gérer le protocole WPAD, consultez la [résolution des problèmes de détection automatique](/previous-versions/tn-archive/cc302643(v=technet.10)). 
 
 Si vous n’utilisez pas WPAD et si vous souhaitez configurer des paramètres de proxy sur votre ordinateur, vous pouvez le faire à partir de Windows 10 1709. Pour plus d’informations, consultez [Configurer les paramètres WinHTTP à l’aide d’un GPO (objet de stratégie de groupe)](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/).
 
@@ -172,7 +172,7 @@ Vous devez également activer **Autoriser les mises à jour de la barre d’éta
 
 Pour inscrire les appareils Windows de niveau inférieur, les organisations doivent installer [Microsoft Workplace Join pour les ordinateurs non Windows 10](https://www.microsoft.com/download/details.aspx?id=53554). Microsoft Workplace Join pour les ordinateurs non Windows 10 est disponible dans le Centre de téléchargement Microsoft.
 
-Vous pouvez déployer le package à l’aide d’un système de distribution de logiciels, comme  [Microsoft Endpoint Configuration Manager](https://docs.microsoft.com/configmgr/). Le package prend en charge les options d’installation sans assistance standard avec le paramètre `quiet`. La branche actuelle de Configuration Manager offre des avantages supplémentaires par rapport aux versions précédentes, comme la possibilité d’effectuer le suivi des inscriptions effectuées.
+Vous pouvez déployer le package à l’aide d’un système de distribution de logiciels, comme  [Microsoft Endpoint Configuration Manager](/configmgr/). Le package prend en charge les options d’installation sans assistance standard avec le paramètre `quiet`. La branche actuelle de Configuration Manager offre des avantages supplémentaires par rapport aux versions précédentes, comme la possibilité d’effectuer le suivi des inscriptions effectuées.
 
 Le programme d’installation crée une tâche planifiée sur le système, qui s’exécute dans le contexte de l’utilisateur. La tâche est déclenchée lorsque l’utilisateur se connecte à Windows. La tâche joint l’appareil en mode sans assistance à Azure AD avec les informations d’identification de l’utilisateur, après son authentification auprès d’Azure AD.
 

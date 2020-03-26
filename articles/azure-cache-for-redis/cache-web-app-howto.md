@@ -7,11 +7,11 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 3da1902906c4fb12bf5eef473ee39e721e4efe3a
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 155993bb3da781e698398ed8ddffa626e8f6cb2d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74927064"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-an-aspnet-web-app"></a>Démarrage rapide : Utiliser le cache Azure pour Redis avec une application web ASP.NET 
@@ -47,7 +47,7 @@ Dans ce guide de démarrage rapide, vous allez utiliser Visual Studio 2019 pour
 
 4. Vérifiez que la valeur **Aucune authentification** est spécifiée dans les paramètres **Authentification**. Selon votre version de Visual Studio, le paramètre **Authentification** par défaut peut être différent. Pour le modifier, sélectionnez **Modifier l’authentification**, puis **Aucune authentification**.
 
-5. Cliquez sur **OK** pour créer le projet.
+5. Sélectionnez **OK** pour créer le projet.
 
 ## <a name="create-a-cache"></a>Création d'un cache
 
@@ -143,7 +143,7 @@ Le runtime ASP.NET fusionne le contenu du fichier externe avec le balisage dans 
 
             // Connection refers to a property that returns a ConnectionMultiplexer
             // as shown in the previous example.
-            IDatabase cache = lazyConnection.GetDatabase();
+            IDatabase cache = lazyConnection.Value.GetDatabase();
 
             // Perform cache operations using the cache object...
 
@@ -166,7 +166,7 @@ Le runtime ASP.NET fusionne le contenu du fichier externe avec le balisage dans 
             ViewBag.command5 = "CLIENT LIST";
             ViewBag.command5Result = cache.Execute("CLIENT", "LIST").ToString().Replace(" id=", "\rid=");
 
-            lazyConnection.Dispose();
+            lazyConnection.Value.Dispose();
 
             return View();
         }
@@ -296,7 +296,7 @@ Dans la barre de navigation, sélectionnez **Azure Cache for Redis Test** (Test 
 
 ![Test simple terminé dans Azure](./media/cache-web-app-howto/cache-simple-test-complete-azure.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous envisagez d’exécuter le didacticiel suivant, vous pouvez conserver les ressources créées dans le cadre de ce démarrage rapide afin de les réutiliser.
 
@@ -311,7 +311,7 @@ Sinon, dans le cas où l’exemple d’application de démarrage rapide était v
 
 2. Dans la zone **Filtrer par nom...** , saisissez le nom de votre groupe de ressources. Les instructions de cet article ont utilisé un groupe de ressources nommé *TestResources*. Sur votre groupe de ressources, dans la liste des résultats, sélectionnez **...** , puis **Supprimer le groupe de ressources**.
 
-    ![Supprimer](./media/cache-web-app-howto/cache-delete-resource-group.png)
+    ![DELETE](./media/cache-web-app-howto/cache-delete-resource-group.png)
 
 Vous êtes invité à confirmer la suppression du groupe de ressources. Saisissez le nom de votre groupe de ressources pour confirmer, puis sélectionnez **Supprimer**.
 

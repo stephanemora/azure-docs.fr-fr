@@ -5,13 +5,13 @@ keywords: ansible, azure, devops, bash, playbook, mise à l’échelle, mise à 
 ms.topic: tutorial
 ms.date: 04/30/2019
 ms.openlocfilehash: fb8d2a4bfca32be4575ca8f11018e5cab17cd9a2
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74156818"
 ---
-# <a name="tutorial-autoscale-virtual-machine-scale-sets-in-azure-using-ansible"></a>Didacticiel : Mise à l’échelle automatique de groupes de machines virtuelles identiques dans Azure à l’aide d’Ansible
+# <a name="tutorial-autoscale-virtual-machine-scale-sets-in-azure-using-ansible"></a>Tutoriel : Mise à l’échelle automatique de groupes de machines virtuelles identiques dans Azure à l’aide d’Ansible
 
 [!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
 
@@ -85,7 +85,7 @@ ansible-playbook vmss-auto-scale.yml
 
 ## <a name="autoscale-based-on-performance-data"></a>Mise à l’échelle automatique selon les données de performances
 
-Si la demande de votre application augmente, la charge sur les instances de machine virtuelle dans vos groupes identiques augmente. Si cette augmentation de la charge est cohérente, au lieu d’une brève demande, vous pouvez configurer des règles de mise à l’échelle automatique pour augmenter le nombre d’instances de machine virtuelle dans le groupe identique. Lorsque ces instances de machine virtuelle sont créées et que vos applications sont déployées, le groupe identique commence à distribuer le trafic vers les instances via l’équilibreur de charge. Ansible vous permet de contrôler les métriques à surveiller, telles que l’utilisation de l’UC, l’utilisation du disque et temps de chargement de l’application. Vous pouvez diminuer la taille des instances et monter en charge selon des seuils de métriques des performances, sur la base d’une planification périodique ou à une date particulière. 
+Si la demande de votre application augmente, la charge sur les instances de machine virtuelle dans vos groupes identiques augmente. Si cette augmentation de la charge est cohérente, au lieu d’une brève demande, vous pouvez configurer des règles de mise à l’échelle automatique pour augmenter le nombre d’instances de machine virtuelle dans le groupe identique. Lorsque ces instances de machine virtuelle sont créées et que vos applications sont déployées, le groupe identique commence à distribuer le trafic vers les instances via l’équilibreur de charge. Ansible vous permet de contrôler les métriques à surveiller, telles que l’utilisation de l’UC, l’utilisation du disque et temps de chargement de l’application. Vous pouvez effectuer un scale-in et un scale-out dans des groupes identiques selon des seuils de métriques des performances, sur la base d’une planification périodique ou à une date particulière. 
 
 Le code de playbook dans cette section vérifie la charge de travail de l’UC pendant les 10 minutes précédentes à 18 h 00 tous les lundis. 
 
@@ -235,4 +235,4 @@ vmss-auto-scale-delete-setting.yml
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"] 
-> [Tutoriel : Mettre à jour une image personnalisée de groupes de machines virtuelles identiques Azure à l’aide d’Ansible](./ansible-vmss-update-image.md)
+> [Tutoriel : Mettre à jour une image personnalisée de groupes de machines virtuelles identiques Azure à l’aide d’Ansible](./ansible-vmss-update-image.md)

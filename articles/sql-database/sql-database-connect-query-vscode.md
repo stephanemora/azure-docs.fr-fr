@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
 ms.openlocfilehash: 28b35f273783b2e4d0b8f59c5bc5be384b933ba2
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73826889"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-and-query-an-azure-sql-database"></a>Démarrage rapide : Utiliser Visual Studio Code pour vous connecter et interroger une base de données Azure SQL
@@ -29,12 +29,12 @@ ms.locfileid: "73826889"
 
   || Base de données unique | Instance gérée |
   |:--- |:--- |:---|
-  | Créer| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
+  | Créer| [Portail](sql-database-single-database-get-started.md) | [Portail](sql-database-managed-instance-get-started.md) |
   || [INTERFACE DE LIGNE DE COMMANDE](scripts/sql-database-create-and-configure-database-cli.md) | [INTERFACE DE LIGNE DE COMMANDE](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
   || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
-  | Configuration | [Règle de pare-feu IP au niveau du serveur](sql-database-server-level-firewall-rule.md)| [Connectivité à partir d’une machine virtuelle](sql-database-managed-instance-configure-vm.md)|
+  | Configurer | [Règle de pare-feu IP au niveau du serveur](sql-database-server-level-firewall-rule.md)| [Connectivité à partir d’une machine virtuelle](sql-database-managed-instance-configure-vm.md)|
   |||[Connectivité à partir d’une machine locale](sql-database-managed-instance-configure-p2s.md)
-  |Charger des données|Adventure Works chargé dans le cadre du guide de démarrage rapide|[Restaurer Wide World Importers](sql-database-managed-instance-get-started-restore.md)
+  |Charger les données|Adventure Works chargé dans le cadre du guide de démarrage rapide|[Restaurer Wide World Importers](sql-database-managed-instance-get-started-restore.md)
   |||Restaurer ou importer Adventure Works à partir du fichier [BACPAC](sql-database-import.md) disponible sur [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
   |||
 
@@ -72,7 +72,7 @@ Aucune configuration spéciale nécessaire.
 
 Procurez-vous les informations de connexion dont vous avez besoin pour vous connecter à la base de données Azure SQL. Vous aurez besoin du nom complet du serveur ou de l’hôte, du nom de la base de données et des informations de connexion pour les procédures suivantes.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 2. Accédez à la page **Bases de données SQL** ou **Instances managées SQL**.
 
@@ -105,11 +105,11 @@ Utilisez Visual Studio Code pour établir une connexion à votre serveur Azure
 
 4. Suivez les invites pour spécifier les propriétés du nouveau profil de connexion. Après avoir spécifié chaque valeur, choisissez **Entrée** pour continuer.
 
-   | Propriété       | Valeur suggérée | DESCRIPTION |
+   | Propriété       | Valeur suggérée | Description |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Nom du serveur** | Nom complet du serveur | Similaire à ce qui suit : **mynewserver20170313.database.windows.net**. |
    | **Nom de la base de données** | mySampleDatabase | Base de données à laquelle se connecter. |
-   | **Authentification** | Connexion SQL| Ce tutoriel utilise l’authentification SQL. |
+   | **Authentification** | Connexion SQL| Ce didacticiel utilise l’authentification SQL. |
    | **Nom d'utilisateur** | Nom d'utilisateur | Nom d'utilisateur du compte d'administrateur de serveur utilisé pour créer le serveur. |
    | **Mot de passe (connexion SQL)** | Mot de passe | Mot de passe du compte d'administrateur de serveur utilisé pour créer le serveur. |
    | **Enregistrer le mot de passe ?** | Oui ou Non | Sélectionnez **Oui** si vous ne souhaitez pas entrer le mot de passe à chaque fois. |
@@ -117,7 +117,7 @@ Utilisez Visual Studio Code pour établir une connexion à votre serveur Azure
 
    Si cela aboutit, une notification s’affiche et indique que votre profil est créé et connecté.
 
-## <a name="query-data"></a>Données de requête
+## <a name="query-data"></a>Interroger des données
 
 Exécutez l’instruction Transact-SQL [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) suivante pour interroger les 20 premiers produits par catégorie.
 

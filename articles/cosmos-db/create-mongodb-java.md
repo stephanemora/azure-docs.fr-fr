@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 12/26/2018
 ms.custom: seo-java-august2019, seo-java-september2019
 ms.openlocfilehash: 35c6944ddcfac1553ffb2c1cc28472f2a56d4515
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77061702"
 ---
 # <a name="quickstart-create-a-console-app-with-java-and-the-mongodb-api-in-azure-cosmos-db"></a>Démarrage rapide : Créer une application console avec Java et l’API MongoDB dans Azure Cosmos DB
@@ -29,7 +29,7 @@ ms.locfileid: "77061702"
 
 Dans ce guide de démarrage rapide, vous allez créer et gérer un compte d’API Azure Cosmos DB pour MongoDB à partir du portail Azure et ajouter des données à l’aide d’une application de SDK Java clonée à partir de GitHub. Azure Cosmos DB est un service de base de données multimodèle qui vous permet de créer et interroger rapidement des bases de données de documents, de tables, de paires clé/valeur et de graphes avec des capacités de distribution mondiale et de mise à l’échelle horizontale.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 - Compte Azure avec un abonnement actif. [Créez-en un gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Vous pouvez également [essayez Azure Cosmos DB gratuitement](https://azure.microsoft.com/try/cosmosdb/) sans abonnement Azure. Vous pouvez aussi utiliser l’[émulateur Azure Cosmos DB](https://aka.ms/cosmosdb-emulator) avec la chaîne de connexion `.mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true`.
 - [Kit de développement Java (JDK), version 8](https://www.azul.com/downloads/azure-only/zulu/?&version=java-8-lts&architecture=x86-64-bit&package=jdk). 
 - [Maven](https://maven.apache.org/download.cgi). Ou exécutez `apt-get install maven` pour installer Maven.

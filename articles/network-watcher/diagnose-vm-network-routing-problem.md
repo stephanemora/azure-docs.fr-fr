@@ -18,10 +18,10 @@ ms.date: 04/20/2018
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: 52d398fa9c258528ef8f87842ba94f139bbf737b
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76845205"
 ---
 # <a name="tutorial-diagnose-a-virtual-machine-network-routing-problem-using-the-azure-portal"></a>Tutoriel : Diagnostiquer un problème de routage réseau d’une machine virtuelle à l’aide du portail Azure
@@ -50,12 +50,12 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 
     |Paramètre|Valeur|
     |---|---|
-    |Name|myVm|
+    |Nom|myVm|
     |Nom d'utilisateur| Entrez un nom d’utilisateur de votre choix.|
     |Mot de passe| Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |Subscription| Sélectionnez votre abonnement.|
+    |Abonnement| Sélectionnez votre abonnement.|
     |Resource group| Sélectionnez **Créer** et entrez **myResourceGroup**.|
-    |Location| Sélectionnez **USA Est**.|
+    |Emplacement| Sélectionnez **USA Est**.|
 
 4. Choisissez une taille de machine virtuelle, puis cliquez sur **Sélectionner**.
 5. Sous **Paramètres**, acceptez toutes les valeurs par défaut, puis cliquez sur **OK**.

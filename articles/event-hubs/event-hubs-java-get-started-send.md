@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 02/11/2020
 ms.author: spelluru
 ms.openlocfilehash: 2c9baa4c0e048419ece09b954cee1af21b1f0cc1
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77158007"
 ---
 # <a name="use-java-to-send-events-to-or-receive-events-from-azure-event-hubs-azure-eventhubs"></a>Utiliser Java pour recevoir des événements d’Azure Event Hubs ou lui en envoyer (azure-eventhubs)
@@ -23,7 +23,7 @@ Ce guide de démarrage rapide montre comment recevoir des événements d’un hu
 > Ce guide de démarrage rapide utilise les anciens packages **azure-eventhubs** et **azure-eventhubs-eph**. Pour un guide de démarrage rapide qui utilise la dernière version du package **azure-messaging-eventhubs**, consultez [Envoyer et recevoir des événements à l’aide d’azure-messaging-eventhubs](get-started-java-send-v2.md). Pour migrer votre application de l’ancien package vers le nouveau, consultez [Guide to migrate from azure-eventhubs to azure-messaging-eventhubs](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/migration-guide.md) (Guide de migration d’azure-eventhubs vers azure-messaging-eventhubs). 
 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Si vous débutez avec Azure Event Hubs, consultez la [vue d’ensemble d’Event Hubs](event-hubs-about.md) avant de suivre ce guide de démarrage rapide. 
 

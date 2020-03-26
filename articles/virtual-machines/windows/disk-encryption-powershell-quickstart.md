@@ -7,10 +7,10 @@ ms.service: security
 ms.topic: quickstart
 ms.date: 05/17/2019
 ms.openlocfilehash: b5e5b44742c85591b913b94e622c76a2aba111ce
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "72245709"
 ---
 # <a name="quickstart-create-and-encrypt-a-windows-virtual-machine-in-azure-with-powershell"></a>Démarrage rapide : Créer et chiffrer une machine virtuelle Windows dans Azure avec PowerShell
@@ -86,7 +86,7 @@ OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncry
 ProgressMessage            : Provisioning succeeded
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous n’en avez plus besoin, vous pouvez utiliser la cmdlet [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) pour supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées :
 

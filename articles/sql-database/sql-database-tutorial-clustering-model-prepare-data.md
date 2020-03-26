@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Préparer des données pour effectuer un clustering en R'
+title: 'Tutoriel : Préparer des données pour effectuer un clustering en R'
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
 description: Dans la première partie de ce tutoriel, vous allez préparer les données d’une base de données Azure SQL pour effectuer un clustering en R avec Azure SQL Database Machine Learning Services (préversion).
 services: sql-database
@@ -14,23 +14,23 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/29/2019
 ms.openlocfilehash: 800dbfc05c47a949bf024e9a5c671979b49ad201
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68639974"
 ---
-# <a name="tutorial-prepare-data-to-perform-clustering-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Didacticiel : Préparer des données pour effectuer un clustering en R avec Azure SQL Database Machine Learning Services (préversion)
+# <a name="tutorial-prepare-data-to-perform-clustering-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Tutoriel : Préparer des données pour effectuer un clustering en R avec Azure SQL Database Machine Learning Services (préversion)
 
 Dans la première partie de cette série de tutoriels qui en compte trois, vous allez importer et préparer les données à partir d’une base de données Azure SQL à l’aide de R. Plus tard dans cette série, vous allez utiliser ces données pour entraîner et déployer un modèle de clustering en R avec Azure SQL Database Machine Learning Services (préversion).
 
-Le *clustering* peut être compris comme le regroupement de données au sein de groupes, en fonction de leurs similitudes.
-Vous allez utiliser l’algorithme **k-moyennes** pour effectuer le clustering des clients au sein d’un jeu de données comprenant des achats et des retours d’articles. Le regroupement des clients au sein de clusters vous permet de concentrer vos efforts marketing plus efficacement en ciblant des groupes précis.
-Le clustering k-moyennes est un algorithme d’*apprentissage non supervisé* qui recherche des modèles de données en fonction de leurs similitudes.
+Le *clustering* permet d’organiser les données dans des groupes dont les membres sont similaires.
+Vous allez utiliser l’algorithme **K-moyennes** pour effectuer le clustering des clients dans un jeu de données d’achats et de retours de produits. Lorsque vous effectuez le clustering de clients, vous pouvez concentrer plus efficacement vos efforts marketing en ciblant des groupes spécifiques.
+Le clustering K-myennes est un algorithme *d’apprentissage non supervisé* qui recherche des modèles dans les données en fonction de similarités.
 
 Dans les parties 1 et 2 de cette série, vous allez développer des scripts en R dans RStudio pour préparer vos données et entraîner un modèle de Machine Learning. Ensuite, dans la troisième partie, vous allez exécuter ces scripts en R à l’intérieur d’une base de données SQL à l’aide de procédures stockées.
 
-Cet article porte sur les points suivants :
+Dans cet article, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Importation d’un exemple de base de données dans une base de données Azure SQL
@@ -57,11 +57,11 @@ Dans la [troisième partie](sql-database-tutorial-clustering-model-deploy.md), v
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
-Connectez-vous au [Portail Azure](https://portal.azure.com/).
+Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 ## <a name="import-the-sample-database"></a>Importer l’exemple de base de données
 
-L’exemple de jeu de données utilisé dans ce tutoriel a été enregistré dans un fichier de sauvegarde de base de données **.bacpac** pour que vous puissiez le télécharger et l’utiliser. Ce jeu de données est dérivé du jeu de données [tpcx-bb](http://www.tpc.org/tpcx-bb/default.asp) fourni par le [Transaction Processing Performance Council (TPC)](http://www.tpc.org/default.asp).
+L’exemple de jeu de données utilisé dans ce tutoriel a été enregistré dans un fichier de sauvegarde de base de données **.bacpac** pour que vous puissiez le télécharger et l’utiliser. Ce jeu de données est dérivé du jeu de données [TPCX-BB](http://www.tpc.org/tpcx-bb/default.asp) fourni par le [TPC (Transaction Processing Performance Council)](http://www.tpc.org/default.asp).
 
 1. Téléchargez le fichier [tpcxbb_1gb.bacpac](https://sqlchoice.blob.core.windows.net/sqlchoice/static/tpcxbb_1gb.bacpac).
 
@@ -71,15 +71,15 @@ L’exemple de jeu de données utilisé dans ce tutoriel a été enregistré dan
    * Dans la préversion publique, choisissez la configuration **Gen5/vCore** pour la nouvelle base de données
    * Nommez la nouvelle base de données « tpcxbb_1gb ».
 
-## <a name="separate-customers"></a>Séparer les clients
+## <a name="separate-customers"></a>Séparer des clients
 
 Créez un fichier RScript dans RStudio et exécutez le script suivant.
 Dans la requête SQL, vous séparez les clients selon les dimensions suivantes :
 
-* **orderRatio** = taux de commandes retournées (nombre total de commandes partiellement ou intégralement retournées par rapport au nombre total de commandes)
-* **itemsRatio** = taux d’articles retournés (nombre total d’articles retournés par rapport au nombre d’articles achetés)
-* **monetaryRatio** = taux du montant des articles retournés (montant total des articles retournés par rapport au montant des articles achetés)
-* **frequency** = fréquence des retours
+* **orderRatio** = retourne le taux de commandes (nombre total de commandes partiellement ou entièrement retournées par rapport au nombre total de commandes)
+* **itemsRatio** = retourne le taux d’éléments (nombre total d’éléments retournés par rapport au nombre d’éléments achetés)
+* **monetaryRatio** = retourne le taux des montants (montant monétaire total des éléments retournés par rapport au montant acheté)
+* **frequency** = fréquence de retour
 
 Dans la fonction **paste**, remplacez **Server**, **UID** et **PWD** par vos propres informations de connexion.
 
@@ -156,7 +156,7 @@ LEFT OUTER JOIN (
 "
 ```
 
-## <a name="load-the-data-into-a-data-frame"></a>Charger les données dans un cadre de données
+## <a name="load-the-data-into-a-data-frame"></a>Charger les données dans une trame de données
 
 Maintenant, utilisez le script suivant pour retourner les résultats de la requête vers une trame de données R à l’aide de la fonction **rxSqlServerData**.
 Dans le cadre de ce processus, vous allez définir le type des colonnes sélectionnées (avec colClasses) pour garantir que les types soient correctement transférés vers R.
@@ -182,7 +182,7 @@ customer_data <- rxDataStep(customer_returns);
 head(customer_data, n = 5);
 ```
 
-Vous devez normalement voir des résultats similaires à ce qui suit.
+Vous devez obtenir des résultats similaires à ce qui suit :
 
 ```results
   customer orderRatio itemsRatio monetaryRatio frequency
@@ -193,7 +193,7 @@ Vous devez normalement voir des résultats similaires à ce qui suit.
 5    32549          0          0      0.031281         4
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 ***Si vous n’avez pas l’intention de poursuivre ce tutoriel***, supprimez la base de données tpcxbb_1gb de votre serveur Azure SQL Database.
 
@@ -206,7 +206,7 @@ Sur le portail Azure, procédez comme suit :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans le premier tutoriel de cette série de trois, vous avez effectué les étapes suivantes :
+Dans la première partie de cette série de tutoriels, vous avez effectué les étapes suivantes :
 
 * Importation d’un exemple de base de données dans une base de données Azure SQL
 * Séparer les clients selon différentes dimensions à l’aide de R
@@ -215,4 +215,4 @@ Dans le premier tutoriel de cette série de trois, vous avez effectué les étap
 Pour créer un modèle Machine Learning qui utilise ces données clients, suivez la deuxième partie de ce tutoriel :
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Créer un modèle prédictif en R avec Azure SQL Database Machine Learning Services (préversion)](sql-database-tutorial-clustering-model-build.md)
+> [Tutoriel : Créer un modèle prédictif en R avec Azure SQL Database Machine Learning Services (préversion)](sql-database-tutorial-clustering-model-build.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à MyWorkDrive | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à MyWorkDrive | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et MyWorkDrive.
 services: active-directory
 documentationCenter: na
@@ -16,19 +16,19 @@ ms.topic: tutorial
 ms.date: 06/27/2019
 ms.author: jeedes
 ms.openlocfilehash: c733873a5545bb01f03abd8178ed2f371e2dd3aa
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74074081"
 ---
-# <a name="tutorial-integrate-myworkdrive-with-azure-active-directory"></a>Didacticiel : Intégrer MyWorkDrive à Azure Active Directory
+# <a name="tutorial-integrate-myworkdrive-with-azure-active-directory"></a>Tutoriel : Intégrer MyWorkDrive à Azure Active Directory
 
 Dans ce tutoriel, vous allez apprendre à intégrer MyWorkDrive à Azure Active Directory (Azure AD). Quand vous intégrez MyWorkDrive à Azure AD, vous pouvez :
 
 * Contrôler dans Azure AD qui a accès à MyWorkDrive.
 * Permettre à vos utilisateurs de se connecter automatiquement à MyWorkDrive avec leur compte Azure AD.
-* Gérer vos comptes à partir d’un emplacement central : le portail Azure.
+* Gérer vos comptes à un emplacement central : le Portail Azure.
 
 Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
@@ -69,7 +69,7 @@ Pour configurer et tester l’authentification unique Azure AD avec MyWorkDrive,
 
 ### <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
-Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le portail Azure.
+Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
 1. Dans le [portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **MyWorkDrive**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
@@ -169,4 +169,4 @@ Quand vous sélectionnez la vignette MyWorkDrive dans le volet d’accès, vous 
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

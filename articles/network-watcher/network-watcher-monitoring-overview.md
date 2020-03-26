@@ -15,10 +15,10 @@ ms.date: 04/24/2018
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: 81621a2b63eec804aaa7c74e1d77b06ef1adb79a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76844987"
 ---
 # <a name="what-is-azure-network-watcher"></a>Présentation d’Azure Network Watcher
@@ -27,7 +27,7 @@ Azure Network Watcher offre des outils permettant d’effectuer un monitoring et
 
 ## <a name="monitoring"></a>Surveillance
 
-### <a name = "connection-monitor"></a>Effectuer le monitoring de la communication entre une machine virtuelle et un point de terminaison
+### <a name="monitor-communication-between-a-virtual-machine-and-an-endpoint"></a><a name = "connection-monitor"></a>Effectuer le monitoring de la communication entre une machine virtuelle et un point de terminaison
 
 Les points de terminaison peuvent être une autre machine virtuelle, un nom de domaine complet (FQDN), un identificateur Uniform Resource Identifier (URI) ou une adresse IPv4. La fonctionnalité de *contrôle de la connexion* surveille les communications à intervalles réguliers et vous informe des évolutions de l’accessibilité, de la latence et de la topologie de réseau entre la machine virtuelle et le point de terminaison. Prenons l’exemple d’une machine virtuelle de type serveur web qui communique avec une machine virtuelle de type serveur de base de données. Une personne de votre organisation pourrait, à votre insu, appliquer une règle de sécurité réseau ou un itinéraire personnalisé au sous-réseau ou à la machine virtuelle de type serveur web ou serveur de base de données.
 
@@ -55,7 +55,7 @@ Lors du déploiement d’une machine virtuelle, Azure y applique plusieurs règl
 
 Lors de la création d’un réseau virtuel, Azure crée plusieurs itinéraires sortants par défaut pour le trafic réseau. Le trafic sortant de toutes les ressources, notamment les machines virtuelles, déployées sur un réseau virtuel, est routé en fonction des itinéraires par défaut d’Azure. Vous pouvez éventuellement remplacer les itinéraires par défaut d’Azure, ou en créer d’autres. Il peut arriver qu’une machine virtuelle ne parvienne plus à communiquer avec d’autres ressources à cause d’un itinéraire en particulier. La fonctionnalité de *tronçon suivant* permet de spécifier une adresse IPv4 source et de destination. Elle teste alors la communication et indique quel type de tronçon suivant est utilisé pour router le trafic. Vous pouvez ensuite supprimer, modifier ou ajouter un itinéraire, afin de résoudre un problème de routage. Pour plus d’informations sur cette fonctionnalité, voir [Tronçon suivant](diagnose-vm-network-routing-problem.md).
 
-### <a name="connection-troubleshoot"></a>Diagnostiquer les problèmes de connexions sortantes d’une machine virtuelle
+### <a name="diagnose-outbound-connections-from-a-vm"></a><a name="connection-troubleshoot"></a>Diagnostiquer les problèmes de connexions sortantes d’une machine virtuelle
 
 La fonctionnalité de *résolution des problèmes de connexion* permet de tester une connexion entre une machine virtuelle et une autre machine virtuelle, un nom de domaine complet, un URI ou une adresse IPv4. Le test retourne des informations similaires à celles de la fonctionnalité de [contrôle de la connexion](#connection-monitor), à ceci près qu’il teste la connexion à un moment donné au lieu d’effectuer un monitoring au fil du temps. Pour savoir plus en détail comment résoudre les problèmes de connexion, voir [Résolution des problèmes de connexion](network-watcher-connectivity-overview.md).
 

@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: rohink
 ms.openlocfilehash: 8f29a2bbe0eb392927dd111b13e2260111ddd18e
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76937314"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222786"
 ---
 # <a name="tutorial-host-your-domain-in-azure-dns"></a>Tutoriel : Hébergez votre domaine dans Azure DNS
 
@@ -32,7 +32,7 @@ Dans ce tutoriel, vous allez apprendre à :
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour le test, vous devez disposer d’un nom de domaine disponible que vous pouvez héberger dans Azure DNS. Vous devez disposer d’un contrôle total de ce domaine. Le contrôle total comprend notamment la possibilité de définir les enregistrements de serveur de noms pour le domaine.
 

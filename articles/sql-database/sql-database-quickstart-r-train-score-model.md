@@ -14,10 +14,10 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
 ms.openlocfilehash: a54d418f668d8c7292c8332c1b14c4df45e59308
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76768459"
 ---
 # <a name="quickstart-create-and-train-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Démarrage rapide : Créer et former un modèle prédictif dans R avec Azure SQL Database Machine Learning Services (préversion)
@@ -26,9 +26,9 @@ Dans ce démarrage rapide, vous allez créer et entraîner un modèle prédictif
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
-- Un compte Azure avec un abonnement actif. [Créez gratuitement un compte](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Compte Azure avec un abonnement actif. [Créez gratuitement un compte](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Une [base de données Azure SQL](sql-database-single-database-get-started.md) avec une [règle de pare-feu au niveau du serveur](sql-database-server-level-firewall-rule.md)
 - [Machine Learning Services](sql-database-machine-learning-services-overview.md) avec R activé. [Inscrivez-vous à la préversion](sql-database-machine-learning-services-overview.md#signup).
 - [SSMS](/sql/ssms/sql-server-management-studio-ssms) (SQL Server Management Studio)

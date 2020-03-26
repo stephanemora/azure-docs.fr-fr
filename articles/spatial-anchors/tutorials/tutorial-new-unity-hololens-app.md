@@ -9,17 +9,17 @@ ms.date: 07/05/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: e1abb759c80e770f1e650c232b6b2e21232b7e6f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75457725"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-hololens-unity-app-using-azure-spatial-anchors"></a>Tutoriel : Instructions pas à pas pour créer une application HoloLens Unity avec Azure Spatial Anchors
 
 Ce tutoriel vous montre comment créer une application HoloLens Unity avec Azure Spatial Anchors.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce tutoriel, veillez à disposer des éléments suivants :
 
@@ -141,7 +141,7 @@ Utilisons maintenant la boucle Update() pour vérifier l’existence d’une Act
 
 ## <a name="get-the-azure-spatial-anchors-sdk"></a>Obtenir le kit SDK Azure Spatial Anchors
 
-## <a name="via-unity-packagetabunitypackage"></a>[Via le package Unity](#tab/UnityPackage)
+## <a name="via-unity-package"></a>[Via le package Unity](#tab/UnityPackage)
 
 Nous allons maintenant télécharger le kit SDK Azure Spatial Anchors. Accédez à la [page des versions Azure Spatial Anchors de GitHub](https://github.com/Azure/azure-spatial-anchors-samples/releases). Sous Assets (Ressources), téléchargez le fichier **AzureSpatialAnchors.unitypackage**. Dans Unity, accédez à **Assets**, cliquez sur **Import Package** > **Custom Package...** . Accédez au package et sélectionnez **Open**.
 
@@ -149,7 +149,7 @@ Dans la nouvelle fenêtre **Import Unity Package** qui s’affiche (Importer le 
 
 Nous devons à présent restaurer les packages Nuget pour obtenir le kit SDK Azure Spatial Anchors. Générez à partir de **Unity**, puis ouvrez et générez de nouveau la solution **Visual Studio** obtenue, tel que décrit en détail à la section [Essai](#trying-it-out).
 
-## <a name="via-nugetforunitytabnugetforunity"></a>[Via NuGetForUnity](#tab/NuGetForUnity)
+## <a name="via-nugetforunity"></a>[Via NuGetForUnity](#tab/NuGetForUnity)
 
 Tout d’abord, nous devons installer NuGetForUnity. Accédez à la [page concernant les versions NuGetForUnity sur GitHub](https://github.com/GlitchEnzo/NuGetForUnity/releases). Sous Assets, téléchargez la dernière version de **NuGetForUnity.unitypackage**. Dans Unity, accédez à **Assets**, cliquez sur **Import Package** > **Custom Package...** . Accédez au package et sélectionnez **Open**. Unity va maintenant installer NugetForUnity. Si vous ne voyez pas un nouveau menu déroulant **NuGet** s’afficher dans Unity, vous devrez peut-être cliquer avec le bouton droit sous **Projects** > **Assets**. Sélectionnez ensuite **Reimport All** (Tout réimporter).
 

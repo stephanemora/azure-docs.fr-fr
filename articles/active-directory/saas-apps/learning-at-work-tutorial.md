@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory avec Learning at Work | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory avec Learning at Work | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Learning at Work.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 08/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3249957fa20c208d0fd06c676200753163d4bfc8
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "70376072"
 ---
-# <a name="tutorial-integrate-learning-at-work-with-azure-active-directory"></a>Didacticiel : Intégrer Learning at Work à Azure Active Directory
+# <a name="tutorial-integrate-learning-at-work-with-azure-active-directory"></a>Tutoriel : Intégrer Learning at Work à Azure Active Directory
 
 Dans ce tutoriel, vous allez apprendre à intégrer Learning at Work à Azure Active Directory (Azure AD). Lorsque vous intégrez Learning at Work à Azure AD, vous pouvez :
 

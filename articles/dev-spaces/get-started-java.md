@@ -8,12 +8,12 @@ ms.topic: tutorial
 description: Ce tutoriel vous montre comment utiliser Azure Dev Spaces et Visual Studio Code pour déboguer et itérer rapidement une application Java sur Azure Kubernetes Service.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: d4e335826090d4ca4819c7466c7231cceb0d5bce
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: c71471d1a89188a065bafef2c5b6372aeff35851
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78252443"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80240541"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-code-and-java-with-azure-dev-spaces"></a>Créer un espace de développement Kubernetes : Visual Studio Code et Java avec Azure Dev Spaces
 
@@ -111,7 +111,7 @@ La commande `azds prep` d’Azure CLI génère des ressources Docker et Kubernet
 * Un [graphique Helm](https://docs.helm.sh) sous `./charts/webfrontend` décrit la façon dont le conteneur est déployé dans Kubernetes.
 
 > [!TIP]
-> Le [Dockerfile et le chart Helm](how-dev-spaces-works.md#prepare-your-code) de votre projet sont utilisés par Azure Dev Spaces pour générer et exécuter votre code. Toutefois, vous pouvez modifier ces fichiers si vous souhaitez changer la façon dont le projet est généré et exécuté.
+> Le [Dockerfile et le chart Helm](how-dev-spaces-works-prep.md#prepare-your-code) de votre projet sont utilisés par Azure Dev Spaces pour générer et exécuter votre code. Toutefois, vous pouvez modifier ces fichiers si vous souhaitez changer la façon dont le projet est généré et exécuté.
 
 Pour l’instant, il n’est pas nécessaire de comprendre l’ensemble du contenu de ces fichiers. Il est cependant important de noter que **les mêmes ressources de configuration en tant que code Kubernetes et Docker peuvent être utilisées du développement jusqu’à la production, ce qui assure une meilleure cohérence dans les différents environnements.**
  

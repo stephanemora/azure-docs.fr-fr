@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: iainfou
-ms.openlocfilehash: e3f09d4e2500b98a7ce68139cd97a04c0d60d73e
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: f6817c1ec308e75a4af88825d46848b504775e19
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77612557"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79223036"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance-with-advanced-configuration-options"></a>Tutoriel : Créer et configurer une instance Azure Active Directory Domain Services avec des options de configuration avancées
 
@@ -139,7 +139,7 @@ Renseignez les champs de la fenêtre *Réseau* comme suit :
 
 Un groupe d’administration spécial nommé *Administrateurs AAD DC* est utilisé pour la gestion du domaine Azure AD DS. Les membres de ce groupe bénéficient d’autorisations d’administration sur les machines virtuelles jointes au domaine managé. Sur les machines virtuelles jointes au domaine, ce groupe est ajouté au groupe des administrateurs locaux. Les membres de ce groupe peuvent aussi utiliser Bureau à distance pour se connecter à distance aux machines virtuelles jointes au domaine.
 
-Vous ne disposez pas des autorisations *Administrateur de domaine* ou *Administrateur d’entreprise* sur un domaine managé avec Azure AD DS. Ces autorisations sont réservées par le service et ne sont pas disponibles pour les utilisateurs au sein du locataire. Au lieu de cela, le groupe *Administrateurs AAD DC* vous permet d’effectuer des opérations privilégiées. Ces opérations comprennent la jonction d’ordinateurs au domaine, l’appartenance au groupe d’administration sur les machines virtuelles jointes au domaine, et la configuration de la stratégie de groupe.
+Vous ne disposez pas des autorisations *Administrateur de domaine* ou *Administrateur d’entreprise* sur un domaine managé avec Azure AD DS. Ces autorisations sont réservées par le service et ne sont pas disponibles pour les utilisateurs au sein du locataire. Au lieu de cela, le groupe *Administrateurs AAD DC* vous permet d’effectuer des opérations privilégiées. Ces opérations incluent l’appartenance au groupe d’administration sur les machines virtuelles jointes au domaine ainsi que la configuration de la stratégie de groupe.
 
 L’Assistant crée automatiquement le groupe *Administrateurs AAD DC* dans votre annuaire Azure AD. Si vous disposez d’un groupe du même nom dans votre répertoire Azure AD, l’Assistant sélectionne ce groupe. Vous pouvez aussi choisir d’ajouter des utilisateurs supplémentaires à ce groupe *Administrateurs AAD DC* lors du processus de déploiement. Ces étapes peuvent être effectuées ultérieurement.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à TextMagic | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à TextMagic | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et TextMagic.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 10/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ca7b900a0e2203fffb5240acd4ab5201fc9d52d7
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72533020"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-textmagic"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à TextMagic
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-textmagic"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à TextMagic
 
 Ce tutoriel explique comment intégrer TextMagic avec Azure Active Directory (Azure AD). Quand vous intégrez TextMagic à Azure AD, vous pouvez :
 

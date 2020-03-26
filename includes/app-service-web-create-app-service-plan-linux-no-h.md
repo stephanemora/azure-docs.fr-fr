@@ -9,10 +9,10 @@ ms.date: 12/20/2019
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: c2711d102c9dfeb00394fa5b5b69065115ce235e
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75681023"
 ---
 Dans Cloud Shell, créez un plan App Service dans le groupe de ressources avec la commande [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create).

@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.openlocfilehash: 9ed62ea6fdfc0732128ed340cc0bc48481eb73ec
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76841078"
 ---
 # <a name="quickstart-create-a-search-app-in-the-portal-azure-cognitive-search"></a>Démarrage rapide : Créer une application de recherche dans le portail (Recherche cognitive Azure)
@@ -21,7 +21,7 @@ Utilisez l’Assistant **Créer une application de recherche** du portail pour g
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer. 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Vous devez effectuer la mise à niveau vers la [dernière version de Microsoft Edge](https://www.microsoft.com/edge) ou utiliser le navigateur Chrome de Google pour ce guide de démarrage rapide à ce stade.
 

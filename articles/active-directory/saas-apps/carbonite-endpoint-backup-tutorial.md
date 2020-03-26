@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Carbonite Endpoint Backup | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Carbonite Endpoint Backup | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Carbonite Endpoint Backup.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 08/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e078cb7daa787b9fe5e8bc996b36f0fef198f41c
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68879668"
 ---
-# <a name="tutorial-integrate-carbonite-endpoint-backup-with-azure-active-directory"></a>Didacticiel : Intégrer Carbonite Endpoint Backup à Azure Active Directory
+# <a name="tutorial-integrate-carbonite-endpoint-backup-with-azure-active-directory"></a>Tutoriel : Intégrer Carbonite Endpoint Backup à Azure Active Directory
 
 Dans ce tutoriel, vous allez apprendre à intégrer Carbonite Endpoint Backup à Azure Active Directory (Azure AD). Lorsque vous intégrez Carbonite Endpoint Backup à Azure AD, vous pouvez :
 

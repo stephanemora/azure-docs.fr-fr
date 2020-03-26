@@ -4,10 +4,10 @@ description: Clonez rapidement un notebook Jupyter à partir d’un référentie
 ms.topic: quickstart
 ms.date: 12/04/2018
 ms.openlocfilehash: d0f3a12ff04e115074c3821c5e29652484710bca
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77064595"
 ---
 # <a name="quickstart-clone-a-notebook-in-azure-notebooks-preview"></a>Démarrage rapide : Cloner un notebook dans Azure Notebooks (préversion)
@@ -18,7 +18,7 @@ Les dépôts GitHub fournissent stockage et gestion de versions pour les noteboo
 
 Comme votre clone Azure Notebooks est dans le cloud, vous pouvez le partager avec vos collaborateurs qui n’ont pas besoin de faire de copies locales ni d’avoir installé Jupyter sur leurs ordinateurs. Vous pouvez également cloner un notebook simplement comme point de départ pour un projet personnel ou pour obtenir des fichiers de données. 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 Aucun.
 
 ## <a name="clone-azure-cognitive-services-notebooks"></a>Cloner des notebooks Azure Cognitive Services

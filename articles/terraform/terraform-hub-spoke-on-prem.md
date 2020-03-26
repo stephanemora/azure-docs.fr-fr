@@ -4,13 +4,13 @@ description: Didacticiel montrant comment implémenter un réseau virtuel local 
 ms.topic: tutorial
 ms.date: 10/26/2019
 ms.openlocfilehash: 361f9919fdd406a1fef6bbf2b7512dbc20266a54
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74159222"
 ---
-# <a name="tutorial-create-on-premises-virtual-network-in-azure-using-terraform"></a>Didacticiel : Créer un réseau virtuel local dans Azure avec Terraform
+# <a name="tutorial-create-on-premises-virtual-network-in-azure-using-terraform"></a>Tutoriel : Créer un réseau virtuel local dans Azure avec Terraform
 
 Ce tutoriel montre comment implémenter un réseau local à l’aide d’un réseau virtuel (VNet) Azure. Vous pouvez remplacer un réseau virtuel Azure par votre propre réseau privé virtuel. Pour ce faire, mappez les adresses IP appropriées dans les sous-réseaux.
 

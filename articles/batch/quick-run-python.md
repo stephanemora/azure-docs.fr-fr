@@ -13,10 +13,10 @@ ms.custom:
 - seo-python-october2019
 - mvc
 ms.openlocfilehash: 140ae0fc9f9a8daba193aa05e0800d83b7b6b963
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77086042"
 ---
 # <a name="quickstart-use-python-api-to-run-an-azure-batch-job"></a>Démarrage rapide : Utiliser l’API Python pour exécuter un travail Azure Batch
@@ -27,7 +27,7 @@ Vous allez découvrir ici les concepts clés du service Batch et vous préparer 
 
 ![Vue d’ensemble du workflow Azure Batch](./media/quick-run-python/overview-of-the-azure-batch-workflow.png)
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Compte **Azure Batch** et compte **Stockage Azure** lié. Pour créer ces comptes, utilisez le [portail Azure](quick-create-portal.md) ou l’[interface CLI](quick-create-cli.md).

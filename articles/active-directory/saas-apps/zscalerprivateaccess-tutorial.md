@@ -1,5 +1,5 @@
 ---
-title: "Didacticiel : Intégration d'Azure Active Directory à Zscaler Private Access (ZPA) | Microsoft Docs"
+title: "Tutoriel : Intégration d'Azure Active Directory à Zscaler Private Access (ZPA) | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Zscaler Private Access (ZPA).
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 05/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e0a1538f640bb4722eca1d4f3a80125837593bab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67085726"
 ---
-# <a name="tutorial-integrate-zscaler-private-access-zpa-with-azure-active-directory"></a>Didacticiel : Intégrer Zscaler Private Access (ZPA) à Azure Active Directory
+# <a name="tutorial-integrate-zscaler-private-access-zpa-with-azure-active-directory"></a>Tutoriel : Intégrer Zscaler Private Access (ZPA) à Azure Active Directory
 
 Dans ce tutoriel, vous allez apprendre à intégrer Zscaler Private Access (ZPA) à Azure Active Directory (Azure AD). Quand vous intégrez Zscaler Private Access (ZPA) à Azure AD, vous pouvez :
 
@@ -173,4 +173,4 @@ Quand vous sélectionnez la vignette Zscaler Private Access (ZPA) dans le volet 
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

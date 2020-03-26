@@ -11,11 +11,11 @@ ms.author: trbye
 ms.reviewer: trbye
 ms.date: 02/10/2020
 ms.openlocfilehash: aa90655ecb14abe38ec8fdfc6c18e7d292abbef3
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77116535"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222366"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Tutoriel : Entraîner votre premier modèle ML
 
@@ -31,7 +31,7 @@ Dans ce tutoriel, vous allez apprendre à effectuer les tâches suivantes :
 > * Afficher les résultats de l’apprentissage sur le portail
 > * Récupérer le meilleur modèle
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Le seul prérequis est d’avoir suivi la première partie de ce tutoriel, [Configurer l’environnement et l’espace de travail](tutorial-1st-experiment-sdk-setup.md).
 
@@ -133,7 +133,7 @@ Une fois l’apprentissage terminé, appelez la variable `experiment` pour extra
 experiment
 ```
 
-<table style="width:100%"><tr><th>Name</th><th>Espace de travail</th><th>Page du rapport</th><th>Page des documents</th></tr><tr><td>diabetes-experiment</td><td>your-workspace-name</td><td>Lien vers le portail Azure</td><td>Lien vers la documentation</td></tr></table>
+<table style="width:100%"><tr><th>Nom</th><th>Espace de travail</th><th>Page du rapport</th><th>Page des documents</th></tr><tr><td>diabetes-experiment</td><td>your-workspace-name</td><td>Lien vers le portail Azure</td><td>Lien vers la documentation</td></tr></table>
 
 ## <a name="view-training-results-in-portal"></a>Afficher les résultats de l’apprentissage sur le portail
 

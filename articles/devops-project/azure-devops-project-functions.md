@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Déployer des applications ASP.NET sur Azure Functions avec Azure DevOps Projects'
+title: 'Tutoriel : Déployer des applications ASP.NET sur Azure Functions avec Azure DevOps Projects'
 description: Azure DevOps Projects facilite la prise en main d’Azure. Avec DevOps Projects, vous pouvez déployer votre application ASP.NET sur Azure Functions en quelques étapes rapides.
 ms.author: mlearned
 ms.manager: gwallace
@@ -10,10 +10,10 @@ ms.date: 06/20/2019
 author: mlearned
 monikerRange: vsts
 ms.openlocfilehash: 4e7e9428af86f131632650f18d45e7dd48f4b5cb
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71971571"
 ---
 # <a name="continuously-deploy-to-azure-functions-with-devops-projects"></a>Déployer en continu sur Azure Functions avec DevOps Projects
@@ -35,7 +35,7 @@ Ce didacticiel présente les procédures suivantes :
 >* Examiner le pipeline CI
 >* Examiner le pipeline CD
 >* Valider les modifications dans Git et les déployer automatiquement dans Azure
->* Supprimer des ressources
+>* Nettoyer les ressources
 
 Actuellement, les runtimes pris en charge pour les fonctions sont **.NET** et **Node. js**. Nous utilisons le runtime .NET dans le cadre de ce tutoriel pour le déploiement sur Azure Functions. 
 
@@ -97,11 +97,11 @@ DevOps Projects configure automatiquement un pipeline CI/CD dans votre organisat
 
 1. Cliquez sur le lien hypertexte sous **Build**. Un onglet du navigateur affiche le pipeline de build de votre nouveau projet.
 
-    ![Créer](_img/azure-devops-project-functions/build.png)
+    ![Build](_img/azure-devops-project-functions/build.png)
 
 1. Sélectionnez **Modifier**. Dans ce volet, vous pouvez examiner les différentes tâches de votre pipeline de build. La build effectue différentes tâches, telles que l’extraction du code source à partir du dépôt git, la génération de l’application, l’exécution de tests unitaires et la publication des sorties utilisées pour les déploiements.
 
-1. Sélectionnez **Déclencheurs**. DevOps Projects crée automatiquement un déclencheur CI, et chaque validation dans le dépôt lance une nouvelle build. Si vous le souhaitez, vous pouvez choisir d’inclure ou d’exclure des branches dans le processus CI.
+1. Sélectionnez **Déclencheurs**. DevOps Projects crée automatiquement un déclencheur CI tandis que chaque validation dans le dépôt lance une nouvelle build. Si vous le souhaitez, vous pouvez choisir d’inclure ou d’exclure des branches dans le processus CI.
 
 1. Sélectionnez **Rétention**. En fonction de votre scénario, vous pouvez spécifier des stratégies pour conserver ou supprimer un certain nombre de builds.
 
@@ -142,7 +142,7 @@ Vous êtes maintenant prêt à collaborer avec une équipe sur votre application
 
 1. Le dépôt contient déjà du code appelé **SampleFunctionApp** basé sur le langage de l’application que vous avez sélectionné lors du processus de création. Ouvrez le fichier **application/SampleFunctionApp/fonction1.cs**.
 
-1. Sélectionnez **Modifier**, puis apportez une modification à la **ligne numéro 31**. Par exemple, vous pouvez la mettre pour qu’elle indique **Bonjour. Bienvenue dans Azure Functions à l’aide de DevOps Projects**.
+1. Sélectionnez **Modifier**, puis apportez une modification à la **ligne numéro 31**. Par exemple, vous pouvez la mettre à jour pour qu’elle indique **Bonjour. Bienvenue dans Azure Functions à l’aide de DevOps Projects**.
 
 1. En haut à droite, sélectionnez **Valider**, puis **Valider** à nouveau pour transmettre votre modification.
 
@@ -152,13 +152,13 @@ Vous êtes maintenant prêt à collaborer avec une équipe sur votre application
 
      Au bout de quelques instants, une build est démarrée dans Azure DevOps tandis qu’une mise en production est exécutée pour déployer les modifications. Supervisez l’état de la build dans le tableau de bord DevOps Projects, ou dans le navigateur avec votre organisation Azure DevOps.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Quand vous n’en avez plus besoin, vous pouvez supprimer les ressources associées que vous avez créées. Utilisez la fonctionnalité **Supprimer** du tableau de bord DevOps Projects.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous le souhaitez, vous pouvez modifier ces pipelines de build et de mise en production afin qu’ils répondent aux besoins de votre équipe. Vous pouvez également utiliser ce modèle CI/CD comme modèle pour vos autres pipelines. Dans ce tutoriel, vous avez appris à :
+Si vous le souhaitez, vous pouvez modifier ces pipelines de build et de mise en production afin qu’ils répondent aux besoins de votre équipe. Vous pouvez également utiliser ce modèle CI/CD comme modèle pour vos autres pipelines. Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Utiliser DevOps Projects pour déployer une application ASP.NET Core sur Azure Functions
@@ -167,5 +167,5 @@ Si vous le souhaitez, vous pouvez modifier ces pipelines de build et de mise en 
 > * Examiner le pipeline CI
 > * Examiner le pipeline CD
 > * Valider les modifications dans Git et les déployer automatiquement dans Azure
-> * Supprimer des ressources
+> * Nettoyer les ressources
 

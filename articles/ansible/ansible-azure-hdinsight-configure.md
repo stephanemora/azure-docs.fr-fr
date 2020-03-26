@@ -5,13 +5,13 @@ keywords: ansible, azure, devops, bash, playbook, apache hadoop, hdinsight
 ms.topic: tutorial
 ms.date: 04/30/2019
 ms.openlocfilehash: 2281c9683583e1def034b79809829a068ef9f3e6
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74156659"
 ---
-# <a name="tutorial-configure-a-cluster-in-azure-hdinsight-using-ansible"></a>Didacticiel : Configurer un cluster dans Azure HDInsight à l’aide d’Ansible
+# <a name="tutorial-configure-a-cluster-in-azure-hdinsight-using-ansible"></a>Tutoriel : Configurer un cluster dans Azure HDInsight à l’aide d’Ansible
 
 [!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
@@ -201,8 +201,8 @@ Le code de playbook dans cette section supprime le cluster.
 ## <a name="get-the-sample-playbook"></a>Obtenir l’exemple de playbook
 
 Il existe deux façons d’obtenir l’exemple de playbook complet :
-- [Télécharger le playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/hdinsight_create.yml) et l’enregistrer dans `hdinsight_create.yml`.
-- Créer un fichier nommé `hdinsight_create.yml` et y copier le contenu suivant :
+- [Téléchargez le manifeste](https://github.com/Azure-Samples/ansible-playbooks/blob/master/hdinsight_create.yml) et enregistrez-le sous `hdinsight_create.yml`.
+- Créez un nouveau fichier nommé `hdinsight_create.yml` et copiez-y le contenu suivant :
 
 ```yml
 ---
@@ -344,7 +344,7 @@ Il existe deux façons d’obtenir l’exemple de playbook complet :
         state: absent
 ```
 
-## <a name="run-the-sample-playbook"></a>Exécuter l’exemple de playbook
+## <a name="run-the-sample-playbook"></a>Exécutez l’exemple de playbook
 
 Dans cette section, exécutez le playbook pour tester les différentes fonctionnalités présentées dans cet article.
 
@@ -357,7 +357,7 @@ Exécutez le playbook à l’aide de la commande `ansible-playbook` :
 ansible-playbook hdinsight.yml
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous n’en avez plus besoin, supprimez les ressources créées dans cet article. 
 

@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Envoyer des données d’appareil via une passerelle transparente - Machine Learning sur Azure IoT Edge'
+title: 'Tutoriel : Envoyer des données d’appareil via une passerelle transparente - Machine Learning sur Azure IoT Edge'
 description: Ce tutoriel montre comment utiliser votre machine de développement en tant qu’appareil IoT Edge simulé pour envoyer des données au hub IoT en passant par un appareil configuré en tant que passerelle transparente.
 author: kgremban
 manager: philmea
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 50f339b257110f0a5dc0ac08b9f40043ee384afb
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74706907"
 ---
-# <a name="tutorial-send-data-via-transparent-gateway"></a>Didacticiel : Envoyer des données via une passerelle transparente
+# <a name="tutorial-send-data-via-transparent-gateway"></a>Tutoriel : Envoyer des données via une passerelle transparente
 
 > [!NOTE]
 > Cet article fait partie d’une série décrivant l’utilisation d’Azure Machine Learning sur IoT Edge. Si vous êtes arrivé directement à cet article, nous vous encourageons à commencer par le [premier article](tutorial-machine-learning-edge-01-intro.md) de la série afin d’obtenir de meilleurs résultats.
@@ -217,7 +217,7 @@ Nous avons inclus un utilitaire en ligne de commande simple pour lire un fichier
    }
    ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous envisagez d’explorer les ressources utilisées par ce tutoriel de bout en bout, patientez jusqu’à ce que vous ayez terminé de nettoyer les ressources que vous avez créées. Sinon, effectuez les étapes suivantes pour supprimer les ressources :
 

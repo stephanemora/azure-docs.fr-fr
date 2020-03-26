@@ -1,5 +1,5 @@
 ---
-title: "Didacticiel : Intégration d'Azure Active Directory à Sectigo Certificate Manager | Microsoft Docs"
+title: "Tutoriel : Intégration d'Azure Active Directory à Sectigo Certificate Manager | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Sectigo Certificate Manager.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0447a8dd464363ae7e076dde2520565005d7c0a5
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67588233"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sectigo-certificate-manager"></a>Didacticiel : Intégration d'Azure Active Directory à Sectigo Certificate Manager
+# <a name="tutorial-azure-active-directory-integration-with-sectigo-certificate-manager"></a>Tutoriel : Intégration d'Azure Active Directory à Sectigo Certificate Manager
 
 L’objectif de ce tutoriel est de vous apprendre à intégrer Sectigo Certificate Manager à Azure Active Directory (Azure AD).
 
@@ -55,7 +55,7 @@ Sectigo Certificate Manager prend en charge les fonctionnalités suivantes :
 
 Pour intégrer Sectigo Certificate Manager à Azure AD, vous devez ajouter Sectigo Certificate Manager à votre liste d’applications SaaS managées.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
 1. Dans le menu de gauche, sélectionnez **Azure Active Directory**.
 
@@ -104,7 +104,7 @@ Dans cette section, vous configurez l’authentification unique Azure AD avec Se
 
     ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans le volet **Configuration SAML de base**, pour configurer to configure le *mode lancé par le fournisseur d'identité*, procédez comme suit :
+1. Dans le volet **Configuration SAML de base**, pour configurer le *mode initié par le fournisseur d’identité*, effectuez les étapes suivantes :
 
     1. Dans la zone **Identificateur**, entrez une de ces URL :
        * https:\//cert-manager.com/shibboleth
@@ -130,7 +130,7 @@ Dans cette section, vous configurez l’authentification unique Azure AD avec Se
 
       ![Informations d’authentification unique pour le domaine et les URL de Sectigo Certificate Manager](common/both-signonurl.png)
 
-1. Dans le volet **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, sélectionnez **Télécharger** en regard de **Certificat (Base64)** . Sélectionnez une option de téléchargement en fonction de vos exigences. Enregistrez le certificat sur votre ordinateur.
+1. Dans le volet **Configurer l’authentification unique avec SAML**, sous la section **Certificat de signature SAML**, sélectionnez **Télécharger** en regard de **Certificat (Base64)** . Sélectionnez une option de téléchargement en fonction de vos exigences. Enregistrez le certificat sur votre ordinateur.
 
     ![Option de téléchargement du certificat (Base64)](common/certificatebase64.png)
 
@@ -166,7 +166,7 @@ Dans cette section, créez un utilisateur de test nommé Britta Simon dans le po
 
     1. Cochez la case **Afficher le mot de passe**. Notez la valeur affichée dans la zone **Mot de passe**.
 
-    1. Sélectionnez **Créer**.
+    1. Sélectionnez **Create** (Créer).
 
     ![Volet Utilisateur](common/user-properties.png)
 
@@ -212,6 +212,6 @@ Pour en savoir plus, consultez les articles suivants :
 
 - [Listes des tutoriels pour intégrer des applications SaaS à Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 - [S’authentifier avec l’authentification unique auprès des applications dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 

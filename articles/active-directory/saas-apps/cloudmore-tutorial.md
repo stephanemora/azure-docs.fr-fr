@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à Cloudmore | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Cloudmore | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Cloudmore.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 10/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 609e2af4862cdb3f9f95fa180881313707660ecb
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72969751"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cloudmore"></a>Didacticiel : Intégration de l’authentification unique (SSO) Azure Active Directory à Cloudmore
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cloudmore"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Cloudmore
 
 Dans ce tutoriel, vous allez apprendre à intégrer Cloudmore à Azure Active Directory (Azure AD). Quand vous intégrez Cloudmore à Azure AD, vous pouvez :
 
@@ -99,7 +99,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     | Nom | Attribut source|
     | ---------------| --------------- |
     | Test_name | user.companyname |
-    | Mail | user.userprincipalname |
+    | Messagerie | user.userprincipalname |
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier l’**URL des métadonnées de fédération d’application**, puis enregistrez-la sur votre ordinateur.
 

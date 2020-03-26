@@ -10,11 +10,11 @@ ms.date: 09/04/2019
 ms.author: alkohli
 ms.localizationpriority: high
 ms.openlocfilehash: fb2fd89664517e44cf5128a5c82e583f03087061
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70307694"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79214256"
 ---
 ::: zone target="docs"
 
@@ -52,7 +52,7 @@ Voici une liste des systèmes d’exploitation pris en charge pour le déverroui
 
 Pour un client Windows, les éléments suivants doivent également être installés.
 
-| **Logiciel**| **Version** |
+| **Logiciels**| **Version** |
 | --- | --- |
 | Windows PowerShell |5.0 |
 | .NET Framework |4.5.1 |

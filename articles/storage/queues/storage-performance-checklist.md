@@ -9,10 +9,10 @@ ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: queues
 ms.openlocfilehash: eb1821537e6e25b05dfdca3107729eecf4c6e1bf
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75750499"
 ---
 # <a name="performance-and-scalability-checklist-for-queue-storage"></a>Check-list des performances et de la scalabilité pour le stockage File d’attente
@@ -84,7 +84,7 @@ Dans le cas de la bande passante, le problème est souvent dû aux capacités du
 
 Comme c’est le cas pour toute utilisation du réseau, n’oubliez pas que les conditions réseau qui génèrent des erreurs et une perte de paquets ralentissent le débit effectif.  L’utilisation de WireShark ou de NetMon peut vous aider à diagnostiquer ce problème.  
 
-### <a name="location"></a>Location
+### <a name="location"></a>Emplacement
 
 Dans un environnement distribué, le fait de placer le client à proximité du serveur se traduit par des performances optimales. Pour accéder à Azure Storage avec un minimum de latence, votre client doit idéalement se trouver dans la même région Azure. Par exemple, si vous disposez d’un site web Azure qui utilise le stockage Azure, tous deux doivent se trouver dans la même région (USA Ouest ou Asie Sud-Est, par exemple). Cela réduit à la fois la latence et les coûts, puisque l’utilisation de la bande passante dans une seule région était gratuite.  
 
@@ -195,5 +195,5 @@ Utilisez des files d’attente pour rendre scalable l’architecture de votre ap
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Cibles de scalabilité et de performances pour le Stockage File d’attente](scalability-targets.md)
-- [Objectifs de scalabilité et de performances pour les comptes de stockage standard](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
+- [Objectifs d’extensibilité et de performances pour les comptes de stockage standard](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
 - [Codes d’état et d’erreur](/rest/api/storageservices/Status-and-Error-Codes2)

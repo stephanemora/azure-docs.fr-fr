@@ -5,10 +5,10 @@ ms.topic: overview
 ms.date: 01/07/2020
 ms.custom: sfrev
 ms.openlocfilehash: 3c8eb7ead7851c311c79c2f9e9bdc7e703c3af71
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75747487"
 ---
 # <a name="overview-of-azure-service-fabric"></a>Vue d’ensemble d’Azure Service Fabric
@@ -78,7 +78,7 @@ Service Fabric vous permet d'effectuer les opérations suivantes :
 * Déployer des applications en quelques secondes, à haute densité et avec des centaines, voire des milliers d’applications ou de conteneurs par machine.
 * Déployer des versions différentes de la même application côte à côte et mettre à niveau chaque application indépendamment.
 * Gérer le cycle de vie de vos applications sans interruption de service, y compris les mises à niveau avec rupture et sans rupture.
-* Augmenter ou diminuez le nombre de nœuds dans un cluster. Lorsque vous mettez vos nœuds à l’échelle, vos applications sont automatiquement mises à l’échelle.
+* Effectuez un scale-out ou un scale-in du nombre de nœuds dans un cluster. Lorsque vous mettez vos nœuds à l’échelle, vos applications sont automatiquement mises à l’échelle.
 * Surveiller et diagnostiquer l’intégrité de vos applications et définir des stratégies pour effectuer des réparations automatiques.
 * Observer l’équilibreur de ressources orchestrer la redistribution des applications au sein du cluster. Service Fabric récupère après des défaillances et optimise la distribution de la charge en fonction des ressources disponibles.
 

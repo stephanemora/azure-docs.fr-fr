@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 91b9c71e7c735fca08f71ca37ed28734c8d634a1
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.openlocfilehash: 23fa1a2a0b035d04334c51c02411de6de70f2cad
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79079873"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79453644"
 ---
 # <a name="assess-servers-by-using-imported-data"></a>Évaluer des serveurs à l’aide de données importées
 
@@ -142,7 +142,6 @@ Le tableau suivant récapitule les champs du fichier à remplir :
 **Propriétaire commercial** | Non | Propriétaire de l’unité commerciale.
 **Nom de l’application métier** | Non | Nom de l’application à laquelle l’application appartient.
 **Lieu** | Non | Centre de données dans lequel se trouve le serveur.
-**Date de retrait du serveur** | Non | Date de retrait du serveur physique ou du serveur physique sous-jacent du serveur virtuel.
 
 ### <a name="add-operating-systems"></a>Ajouter des systèmes d’exploitation
 

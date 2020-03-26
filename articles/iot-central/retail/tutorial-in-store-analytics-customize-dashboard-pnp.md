@@ -12,10 +12,10 @@ ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
 ms.openlocfilehash: fea3440dd7c017b85d6fffa2ec0fe5d26cd98b97
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77022169"
 ---
 # <a name="tutorial--customize-the-operator-dashboard-and-manage-devices-in-azure-iot-central"></a>Tutoriel :  Personnaliser le tableau de bord de l’opérateur et gérer les appareils dans Azure IoT Central
@@ -32,7 +32,7 @@ Dans ce tutoriel, vous allez apprendre à :
 > * Ajouter des vignettes de propriété pour afficher les détails de l’appareil
 > * Ajouter des vignettes de commande pour exécuter des commandes
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Le réalisateur de logiciel doit terminer le tutoriel pour créer l’application d’analytique en magasin Azure IoT Central et ajouter des appareils :
 

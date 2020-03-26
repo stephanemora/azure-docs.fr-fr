@@ -15,10 +15,10 @@ ms.topic: quickstart
 ms.date: 11/05/2019
 ms.author: aschhab
 ms.openlocfilehash: b5401eae844ed2113a9fbc07c8b3ad8601709d43
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73718936"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-ruby"></a>Démarrage rapide : Utilisation des rubriques et abonnements Service Bus avec Ruby
@@ -36,7 +36,7 @@ Cet article décrit l’utilisation des rubriques et des abonnements Service Bus
 
 ## <a name="prerequisites"></a>Prérequis
 1. Un abonnement Azure. Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Vous pouvez activer les [avantages de votre abonnement Visual Studio ou MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou vous inscrire pour créer un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Suivez les étapes du document [Démarrage rapide : utiliser le portail Microsoft Azure pour créer une rubrique Service Bus et des abonnements à cette rubrique](service-bus-quickstart-topics-subscriptions-portal.md) pour créer un **espace de noms** Service Bus et obtenir la **chaîne de connexion**. 
+2. Suivez les étapes dans [Démarrage rapide : utiliser le portail Azure pour créer une rubrique Service Bus et des abonnements à cette rubrique](service-bus-quickstart-topics-subscriptions-portal.md) pour créer un **espace de noms** Service Bus et obtenir la **chaîne de connexion**. 
 
     > [!NOTE]
     > Vous allez créer une **rubrique** et un **abonnement** à la rubrique à l’aide de **Ruby** dans ce démarrage rapide. 

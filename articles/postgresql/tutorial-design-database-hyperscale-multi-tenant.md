@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Concevoir une base de données multilocataire - Hyperscale (Citus) - Azure Database pour PostgreSQL'
+title: 'Tutoriel : Concevoir une base de données multilocataire - Hyperscale (Citus) - Azure Database pour PostgreSQL'
 description: Ce tutoriel illustre comment créer, remplir et interroger des tables distribuées dans Azure Database pour PostgreSQL Hyperscale (Citus).
 author: jonels-msft
 ms.author: jonels
@@ -10,10 +10,10 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 05/14/2019
 ms.openlocfilehash: 17ac29de243f4abfff1cfc83fc6424799978bf0e
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74978149"
 ---
 # <a name="tutorial-design-a-multi-tenant-database-by-using-azure-database-for-postgresql--hyperscale-citus"></a>Tutoriel : Concevoir une base de données multilocataire avec Azure Database pour PostgreSQL – Hyperscale (Citus)
@@ -23,7 +23,7 @@ Dans ce tutoriel, vous utilisez Azure Database pour PostgreSQL - Hyperscale (Cit
 > [!div class="checklist"]
 > * Créer un groupe de serveurs Hyperscale (Citus)
 > * Utiliser l’utilitaire psql pour créer un schéma
-> * Partitionner les tables entre les nœuds
+> * Partitionner des tables entre des nœuds
 > * Ingérer des exemples de données
 > * Interroger les données de locataire
 > * Partager des données entre les locataires
@@ -126,7 +126,7 @@ Vous pouvez localiser les tables nouvellement créées dans la liste des tables 
 
 Les applications multilocataires peuvent imposer l’unicité seulement par client. C’est pourquoi toutes les clés primaires et étrangères incluent l’ID de l’entreprise.
 
-## <a name="shard-tables-across-nodes"></a>Partitionner les tables entre les nœuds
+## <a name="shard-tables-across-nodes"></a>Partitionner des tables entre des nœuds
 
 Un déploiement hyperscale stocke les lignes des tables sur des nœuds différents selon la valeur d’une colonne désignée par l’utilisateur. Cette « colonne de distribution » désigne quel locataire possède quelles lignes.
 
@@ -265,7 +265,7 @@ SELECT id
    AND company_id = 5;
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Au cours des étapes précédentes, vous avez créé des ressources Azure dans un groupe de serveurs. Si vous pensez ne pas avoir besoin de ces ressources à l’avenir, supprimez le groupe de serveurs. Appuyez sur le bouton *Supprimer* dans la page *Vue d’ensemble* de votre groupe de serveurs. Quand vous y êtes invité dans une page contextuelle, confirmez le nom du groupe de serveurs, puis cliquez sur le bouton *Supprimer*.
 

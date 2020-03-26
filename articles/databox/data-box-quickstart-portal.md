@@ -10,10 +10,10 @@ ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
 ms.openlocfilehash: 04343f684539307957cd635822ba1ba5a1ce24c9
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76313771"
 ---
 # <a name="get-started-with-azure-data-box"></a>Bien démarrer avec Azure Data Box 
@@ -34,7 +34,7 @@ Ce guide explique comment déployer Azure Data Box à partir du portail Azure. L
 
 ::: zone target="docs"
  
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer :
 
@@ -58,7 +58,7 @@ Avant de commencer :
 
 ::: zone target="chromeless"
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer, vous devez avoir :
 

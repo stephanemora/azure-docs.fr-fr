@@ -17,10 +17,10 @@ ms.date: 9/18/2018
 ms.author: aanandr
 ms.custom: ''
 ms.openlocfilehash: 5146675b6eefd11fc1e6875ed9009ece92753ffb
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "72028096"
 ---
 # <a name="deploy-the-azure-virtual-network-container-network-interface-plug-in"></a>Déployer le plug-in CLI Réseau virtuel Azure

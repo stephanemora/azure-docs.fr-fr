@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 4a076f9e6ae67b9a4dc27fcd058945716dfebe75
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 52258a8bc287df36158ec143e4aad74c34455ea4
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264608"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80236085"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-linux-device"></a>Démarrage rapide : Déployer votre premier module IoT Edge sur un appareil virtuel Linux
 
@@ -40,10 +40,12 @@ L’interface Azure CLI vous permet d’effectuer plusieurs étapes de ce démar
 Ajoutez l’extension Azure IoT à l’instance de Cloud Shell.
 
    ```azurecli-interactive
-   az extension add --name azure-cli-iot-ext
+   az extension add --name azure-iot
    ```
+   
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Ressources cloud :
 
@@ -136,7 +138,7 @@ Si vous exécutez IoT Edge sur votre ordinateur local ou sur un appareil ARM32 o
 
 Les autres commandes de ce guide sont exécutées sur votre appareil IoT Edge lui-même, afin que vous puissiez voir ce qui s’y passe concrètement. Si vous utilisez une machine virtuelle, connectez-vous à cet ordinateur dès maintenant en utilisant l’adresse IP publique générée par la commande de création. Vous pouvez également trouver l’adresse IP publique dans la page Vue d’ensemble de la machine virtuelle dans le portail Azure. Utilisez la commande suivante pour vous connecter à votre machine virtuelle. Remplacez `{azureuser}` si vous avez utilisé un nom d’utilisateur autre que celui suggéré dans les prérequis. Remplacez `{publicIpAddress}` par l’adresse de votre machine.
 
-   ```azurecli-interactive
+   ```console
    ssh azureuser@{publicIpAddress}
    ```
 

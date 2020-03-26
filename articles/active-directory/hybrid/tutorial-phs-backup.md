@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel :  Configurer PHS comme sauvegarde pour AD FS dans Azure AD Connect | Microsoft Docs'
+title: 'Tutoriel :  Configurer PHS comme sauvegarde pour AD FS dans Azure AD Connect | Microsoft Docs'
 description: Explique comment activer la synchronisation de hachage de mot de passe en tant que sauvegarde et pour AD FS.
 services: active-directory
 documentationcenter: ''
@@ -13,13 +13,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3e5ad7badfa44a006fd7e71d3b0e42ee95ac698d
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "64919010"
 ---
-# <a name="tutorial--setting-up-phs-as-backup-for-ad-fs-in-azure-ad-connect"></a>Didacticiel :  Configurer PHS en tant que sauvegarde pour AD FS dans Azure AD Connect
+# <a name="tutorial--setting-up-phs-as-backup-for-ad-fs-in-azure-ad-connect"></a>Tutoriel :  Configurer PHS en tant que sauvegarde pour AD FS dans Azure AD Connect
 
 Ce tutoriel explique comment configurer la synchronisation de hachage de mot de passe en tant que sauvegarde et basculement pour AD FS.  Ce document explique également comment activer la synchronisation de hachage de mot de passe en tant que méthode d’authentification principale, si AD FS a échoué ou n'est plus disponible.
 

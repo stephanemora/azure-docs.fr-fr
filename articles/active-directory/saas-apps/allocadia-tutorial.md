@@ -17,10 +17,10 @@ ms.date: 12/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: aea10f75c0072722f938922b9ebd06a0c54c7f44
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75429822"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-allocadia"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory avec Allocadia
@@ -33,7 +33,7 @@ Ce tutoriel explique comment intégrer Allocadia avec Azure Active Directory (Az
 
 Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour commencer, vous devez disposer de ce qui suit :
 
@@ -104,7 +104,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. En plus de ce qui précède, l’application Allocadia s’attend à ce que quelques attributs supplémentaires, indiqués ci-dessous, soient repassés dans la réponse SAML. Ces attributs sont également préremplis, mais vous pouvez les examiner pour voir s’ils répondent à vos besoins.
 
-    | Name | Attribut source|
+    | Nom | Attribut source|
     | -------------- | ----------- |
     | firstname | user.givenname |
     | lastname | user.surname |

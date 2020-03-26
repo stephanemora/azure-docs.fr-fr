@@ -11,12 +11,12 @@ ms.author: vaidyas
 author: vaidya-s
 ms.date: 01/15/2020
 ms.custom: Ignite2019
-ms.openlocfilehash: 313ba2c02fd65a967ab1969b6f99893de9a3bdb4
-ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
+ms.openlocfilehash: 3d283d1094336b928869aa281b4a640d7a62dd94
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79037343"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79477185"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Exécuter l’inférence par lots sur de grandes quantités de données à l’aide d’Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -329,7 +329,7 @@ parallelrun_step = ParallelRunStep(
 >[!Note]
 > L’étape ci-dessus dépend de `azureml-contrib-pipeline-steps`, comme décrit dans les [prérequis](#prerequisites). 
 
-### <a name="run-the-pipeline"></a>Exécuter le pipeline
+### <a name="submit-the-pipeline"></a>Envoyer le pipeline
 
 À présent, exécutez le pipeline. Commencez par créer un objet [`Pipeline`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py) en utilisant votre référence d’espace de travail et l’étape de pipeline que vous avez créée. Le paramètre `steps` est un tableau d’étapes. Dans le cas présent, le scoring par lots ne comporte qu’une seule étape. Pour créer des pipelines qui comportent plusieurs étapes, placez ces dernières dans l’ordre dans ce tableau.
 

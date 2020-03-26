@@ -9,19 +9,19 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/07/2019
 ms.openlocfilehash: 3694c0b74393068538a0c8f496444a1541d88fee
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76769056"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Démarrage rapide : Utiliser Python afin de se connecter à Azure Database pour PostgreSQL et d’interroger les données – Serveur unique
 
 Dans ce guide de démarrage rapide, vous utilisez Azure Database pour PostgreSQL à l’aide de Python sur macOS, Ubuntu Linux ou Windows. Le démarrage rapide détaille la connexion à la base de données et l’utilisation d’instructions SQL pour interroger, mettre à jour, insérer ou supprimer des données. Cet article suppose que vous connaissez Python, mais que vous ne connaissez pas Azure Database pour PostgreSQL.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
-- Un compte Azure avec un abonnement actif. [Créez gratuitement un compte](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Compte Azure avec un abonnement actif. [Créez gratuitement un compte](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 - Exécution du [Démarrage rapide : Créer un serveur Azure Database pour PostgreSQL dans le portail Azure](quickstart-create-server-database-portal.md) ou [Démarrage rapide : Créer une instance de Azure Database pour PostgreSQL à l’aide de Azure CLI](quickstart-create-server-database-azure-cli.md).
   

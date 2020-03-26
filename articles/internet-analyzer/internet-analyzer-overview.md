@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 10/16/2019
 ms.author: mebeatty
 ms.openlocfilehash: 3d9d1240e31d40a3d9c75d56314acc1721d90b99
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73488135"
 ---
 # <a name="what-is-internet-analyzer-preview"></a>Qu’est-ce qu’Internet Analyzer ? (Préversion)
@@ -70,7 +70,7 @@ Pendant la version préliminaire, les points de terminaison préconfigurés suiv
 
 Pour vous aider à prendre les meilleures décisions en matière de performances pour vos clients, Internet Analyzer vous permet d’évaluer deux points de terminaison pour votre population spécifique d’utilisateurs finaux. 
 
-Bien qu’Internet Analyzer puisse répondre à une multitude de questions, les plus courantes sont les suivantes : 
+Bien qu’Internet Analyzer puisse répondre à une multitude de questions, voici les plus courantes : 
 * Quel est l’impact d’une migration vers le cloud sur les performances ? 
     * *Test suggéré : Personnalisé (votre infrastructure locale actuelle) par rapport à Azure (n’importe quel point de terminaison préconfiguré)*
 * Quelle est la différence en termes de valeur d’un placement de mes données en périphérie, par rapport à un placement dans un centre de données ? 
@@ -99,7 +99,7 @@ Une fois qu’un test démarre, les données de télémétrie sont visibles dans
 
 * **Test :** Sélectionnez le test pour lequel vous souhaitez afficher les résultats. Les données de test s’affichent dès que les données sont suffisantes pour effectuer l’analyse, généralement dans les 24 heures. 
 * **Période et date de fin :** Internet Analyzer génère quotidiennement trois cartes de performance : chaque carte reflète une période de temps d’agrégation spécifique : les 24 heures précédentes (jour), les sept jours précédents (semaine) et les 30 jours précédents (mois). Utilisez le filtre « Date de fin » pour sélectionner la période que vous souhaitez voir. 
-* **Pays :** Utilisez ce filtre pour afficher des données spécifiques aux utilisateurs finaux résidant dans un pays. Le filtre global affiche des données dans toutes les zones géographiques.  
+* **Pays :** Utilisez ce filtre pour afficher des données spécifiques aux utilisateurs finaux résidant dans un pays. Le filtre global affiche des données dans toutes les zones géographiques.  
 
 Pour plus d’informations sur les cartes de performance, consultez la page [Interprétation de votre carte de performance](internet-analyzer-scorecard.md). 
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/04/2020
 ms.author: allensu
-ms.openlocfilehash: 51713db8532eb33f102de9320dea9eaeb98c4019
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 4f1760c32117b34d4d453964473cba3c7d07f725
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78359077"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79202176"
 ---
 # <a name="azure-virtual-network-nat-metrics"></a>Métriques du service NAT du réseau virtuel Azure
 
@@ -30,9 +30,6 @@ Les ressources de la passerelle NAT du réseau virtuel Azure fournissent des mé
 </p>
 
 *Figure : Service NAT de Réseau virtuel pour le trafic sortant vers Internet*
-
->[!NOTE] 
->Le service NAT de Réseau virtuel est disponible en préversion publique pour l’instant. Actuellement, il n’est disponible que dans un ensemble limité de [régions](nat-overview.md#region-availability). Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Consultez les [Conditions d’utilisation supplémentaires des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms).
 
 ## <a name="metrics"></a>Mesures
 

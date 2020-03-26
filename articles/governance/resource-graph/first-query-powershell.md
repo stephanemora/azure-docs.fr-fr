@@ -4,11 +4,11 @@ description: Dans ce guide de démarrage rapide, vous suivez les étapes pour ac
 ms.date: 11/21/2019
 ms.topic: quickstart
 ms.openlocfilehash: dd96324671f46f98d5b6c8bae1839a5b02d38b23
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74304145"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215627"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>Démarrage rapide : Exécuter votre première requête Resource Graph à l’aide d’Azure PowerShell
 
@@ -90,7 +90,7 @@ Si votre environnement ne change pas et que vous exécutez plusieurs fois la req
 > [!NOTE]
 > Si la requête ne retourne aucun résultat à partir d’un abonnement auquel vous avez déjà accès, notez que l’applet de commande `Search-AzGraph` porte par défaut sur les abonnements du contexte par défaut. Pour voir la liste des ID d’abonnement qui font partie du contexte par défaut, exécutez `(Get-AzContext).Account.ExtendedProperties.Subscriptions`. Si vous souhaitez effectuer une recherche sur tous les abonnements auxquels vous avez accès, vous pouvez définir PSDefaultParameterValues pour l’applet de commande `Search-AzGraph` en exécutant `$PSDefaultParameterValues=@{"Search-AzGraph:Subscription"= $(Get-AzSubscription).ID}`.
    
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous souhaitez supprimer le module Resource Graph de votre environnement Azure PowerShell, vous pouvez le faire à l’aide de la commande suivante :
 
@@ -107,7 +107,7 @@ Uninstall-Module -Name 'Az.ResourceGraph'
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez ajouté le module Resource Graph à votre environnement Azure PowerShell et vous avez exécuté votre première requête. Pour plus d’informations sur le langage Resource graph, consultez la page des détails du langage de requête.
+Dans ce guide de démarrage rapide, vous avez ajouté le module Resource Graph à votre environnement Azure PowerShell et vous avez exécuté votre première requête. Pour plus d’informations sur le langage Resource Graph, passez à la page des détails du langage de requête.
 
 > [!div class="nextstepaction"]
 > [Obtenir plus d’informations sur le langage de requête](./concepts/query-language.md)

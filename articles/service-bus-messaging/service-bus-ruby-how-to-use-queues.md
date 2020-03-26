@@ -15,10 +15,10 @@ ms.topic: quickstart
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: a699543bb442e7c57d57e72acb2cdf6ac40159c1
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76760587"
 ---
 # <a name="quickstart-how-to-use-service-bus-queues-with-ruby"></a>Démarrage rapide : Utilisation des files d’attente Service Bus avec Ruby
@@ -27,7 +27,7 @@ ms.locfileid: "76760587"
 
 Dans ce tutoriel, vous allez apprendre à créer des applications Ruby afin d’envoyer des messages à une file d’attente Service Bus. Les exemples sont écrits en Ruby et utilisent le module Azure gem.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 1. Un abonnement Azure. Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Vous pouvez [activer les avantages de votre abonnement MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou [vous inscrire pour un compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 2. Suivez les étapes de l’article [Utiliser le portail Azure pour créer une file d’attente Service Bus](service-bus-quickstart-portal.md).
     1. Consultez la **vue d’ensemble** rapide des **files d’attente** Service Bus. 

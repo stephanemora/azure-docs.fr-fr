@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Signagelive | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Signagelive | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Signagelive.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 1/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6dab2fd0ee2f25e835b4bd07a3534475d3d93b5e
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73160931"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-signagelive"></a>Didacticiel : Intégration d’Azure Active Directory à Signagelive
+# <a name="tutorial-azure-active-directory-integration-with-signagelive"></a>Tutoriel : Intégration d’Azure Active Directory à Signagelive
 
 Au cours de ce tutoriel, vous allez apprendre à intégrer Signagelive à Azure Active Directory (Azure AD).
 L’intégration de Signagelive dans Azure AD vous offre les avantages suivants :
@@ -196,5 +196,5 @@ Le fait de sélectionner la vignette **Signagelive** dans le portail MyApps doit
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

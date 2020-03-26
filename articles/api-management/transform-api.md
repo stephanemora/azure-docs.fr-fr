@@ -14,10 +14,10 @@ ms.topic: tutorial
 ms.date: 02/26/2019
 ms.author: apimpm
 ms.openlocfilehash: 5dec08bd4bc0a63a419d2bdc63383348a69b02db
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "70067470"
 ---
 # <a name="transform-and-protect-your-api"></a>Transformer et protéger votre API
@@ -26,7 +26,7 @@ Le didacticiel vous montre comment transformer votre API de manière à ce qu’
 
 Ce didacticiel vous montre par ailleurs combien il est facile d’ajouter une protection à votre API principale en configurant les limite de débit avec la Gestion des API Azure. Par exemple, vous pouvez limiter le nombre d’appels dirigés vers l’API, ceci pour éviter toute surutilisation de celle-ci par les développeurs. Pour plus d’informations, consultez la section [Stratégies dans Gestion des API Azure](api-management-policies.md)
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 >
@@ -201,7 +201,7 @@ Le reste de cette section est dédié au test des transformations de stratégies
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 >

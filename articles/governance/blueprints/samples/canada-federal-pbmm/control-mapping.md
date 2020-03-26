@@ -4,10 +4,10 @@ description: Correspondance des contrôles des exemples de blueprint Canada Fede
 ms.date: 09/04/2019
 ms.topic: sample
 ms.openlocfilehash: 943ca6849f9a55ce45b609a06cfcbb9b96b691c2
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74545254"
 ---
 # <a name="control-mapping-of-the-canada-federal-pbmm-blueprint-sample"></a>Correspondance des contrôles de l’exemple de blueprint Canada Federal PBMM
@@ -31,7 +31,7 @@ Ce blueprint vous permet de limiter l’emplacement du déploiement de toutes le
 Ce blueprint vous aide à examiner les comptes qui peuvent ne pas être conformes aux exigences de votre organisation en matière de gestion de comptes. Ce blueprint affecte des définitions [Azure Policy](../../../policy/overview.md) qui auditent les comptes externes avec des autorisations de lecture, d’écriture et de propriétaire sur un abonnement, ainsi que les comptes dépréciés. En passant en revue les comptes audités par ces stratégies, vous pouvez prendre les mesures appropriées pour veiller au respect des exigences en matière de gestion des comptes.
 
 - Les comptes déconseillés doivent être supprimés de votre abonnement
-- Les comptes déconseillés disposant d’autorisations de propriétaire doivent être supprimés de votre abonnement
+- Les comptes dépréciés disposant d’autorisations de propriétaire doivent être supprimés de votre abonnement
 - Les comptes externes disposant d’autorisations de propriétaire doivent être supprimés de votre abonnement
 - Les comptes externes disposant d’autorisations de lecture doivent être supprimés de votre abonnement
 - Les comptes externes disposant d’autorisations d’écriture doivent être supprimés de votre abonnement

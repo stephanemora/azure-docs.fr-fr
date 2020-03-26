@@ -11,10 +11,10 @@ ms.custom: seodec18
 ms.date: 11/05/2019
 ms.author: shvija
 ms.openlocfilehash: e5f52d0ddbf9a66d974732d6d98ca8a5b09cc2d0
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73720586"
 ---
 # <a name="quickstart-send-events-to-or-receive-events-from-event-hubs-using-go"></a>Démarrage rapide : Envoyer ou recevoir des événements d’Event Hubs à l’aide de Go
@@ -31,7 +31,7 @@ Pour effectuer ce didacticiel, vous avez besoin de ce qui suit :
 
 - Go Installé localement. Suivez [ces instructions](https://golang.org/doc/install) si nécessaire.
 - Un compte Azure actif. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit][] avant de commencer.
-- **Créer un espace de noms Event Hubs et un hub d’événements**. Utilisez le [portail Azure](https://portal.azure.com) pour créer un espace de noms de type Event Hubs et obtenez les informations de gestion nécessaires à votre application pour communiquer avec le hub d’événements. Pour créer un espace de noms et un hub d’événements, suivez la procédure décrite dans [cet article](event-hubs-create.md).
+- **Créez un espace de noms Event Hubs et un Event Hub**. Utilisez le [portail Azure](https://portal.azure.com) pour créer un espace de noms de type Event Hubs et obtenez les informations de gestion nécessaires à votre application pour communiquer avec le hub d’événements. Pour créer un espace de noms et un hub d’événements, suivez la procédure décrite dans [cet article](event-hubs-create.md).
 
 ## <a name="send-events"></a>Envoyer des événements
 Cette section montre comment créer une application Go pour envoyer des événements à un hub d’événements. 

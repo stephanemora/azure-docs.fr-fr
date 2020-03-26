@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à Braze | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Braze | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Braze.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 10/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 52a53735ebf8e0e4affa7daf6c345de6bf467228
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72373455"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-braze"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Braze
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-braze"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Braze
 
 Dans ce tutoriel, vous allez apprendre à intégrer Braze à Azure Active Directory (Azure AD). Quand vous intégrez Braze à Azure AD, vous pouvez :
 

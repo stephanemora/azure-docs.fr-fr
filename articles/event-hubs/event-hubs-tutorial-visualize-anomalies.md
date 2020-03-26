@@ -10,10 +10,10 @@ ms.service: event-hubs
 ms.custom: seodec18
 ms.date: 01/15/2020
 ms.openlocfilehash: f71d8e9f88dad32818ed25d4a0719a1528656f96
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77163175"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Tutoriel : Visualiser les anomalies des données dans les événements en temps réel envoyés à Azure Event Hubs
@@ -32,7 +32,7 @@ Dans ce tutoriel, vous allez apprendre à :
 
 Pour suivre ce tutoriel, vous devez disposer d’un abonnement Azure. Si vous n’en avez pas, [créez un compte gratuit][] avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

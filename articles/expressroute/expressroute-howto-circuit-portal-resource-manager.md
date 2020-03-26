@@ -8,24 +8,24 @@ ms.topic: tutorial
 ms.date: 10/20/2018
 ms.author: cherylmc
 ms.openlocfilehash: 686ac8013879eff8adc4476d56119bbb4a169900
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74813158"
 ---
-# <a name="tutorial-create-and-modify-an-expressroute-circuit"></a>Didacticiel : Création et modification d’un circuit ExpressRoute
+# <a name="tutorial-create-and-modify-an-expressroute-circuit"></a>Tutoriel : Création et modification d’un circuit ExpressRoute
 
 > [!div class="op_single_selector"]
-> * [Portail Azure](expressroute-howto-circuit-portal-resource-manager.md)
+> * [Azure portal](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
-> * [Interface de ligne de commande Azure](howto-circuit-cli.md)
+> * [Azure CLI](howto-circuit-cli.md)
 > * [Modèle Azure Resource Manager](expressroute-howto-circuit-resource-manager-template.md)
 > * [Vidéo - portail Azure](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (classique)](expressroute-howto-circuit-classic.md)
 >
 
-Cet article vous explique comment créer un circuit ExpressRoute à l’aide du Portail Azure et du modèle de déploiement Azure Resource Manager. Vous pouvez également vérifier l’état, mettre à jour, supprimer ou déprovisionner un circuit.
+Cet article vous explique comment créer un circuit ExpressRoute à l’aide du Portail Azure et du modèle de déploiement Azure Resource Manager. Vous pouvez également vérifier l’état d’un circuit, le mettre à jour, le supprimer ou le déprovisionner.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -34,7 +34,7 @@ Cet article vous explique comment créer un circuit ExpressRoute à l’aide du 
 * Assurez-vous que vous disposez des autorisations nécessaires pour créer des ressources réseau. Contactez votre administrateur de compte si vous n'avez pas les autorisations appropriées.
 * Vous pouvez [visualiser une vidéo](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit) avant de commencer afin de mieux comprendre les étapes.
 
-## <a name="create"></a>Créer et approvisionner un circuit ExpressRoute
+## <a name="create-and-provision-an-expressroute-circuit"></a><a name="create"></a>Créer et approvisionner un circuit ExpressRoute
 
 ### <a name="1-sign-in-to-the-azure-portal"></a>1. Connectez-vous au portail Azure.
 
@@ -118,11 +118,11 @@ Pour obtenir des instructions pas à pas, consultez l’article [Configuration d
 
 Maintenant, vous devez lier un réseau virtuel à votre circuit ExpressRoute. Utilisez l’article [Liaison de réseaux virtuels à des circuits ExpressRoute](expressroute-howto-linkvnet-arm.md) quand vous travaillez avec le modèle de déploiement Resource Manager.
 
-## <a name="status"></a>Récupération de l’état d’un circuit ExpressRoute
+## <a name="getting-the-status-of-an-expressroute-circuit"></a><a name="status"></a>Récupération de l’état d’un circuit ExpressRoute
 
 Vous pouvez afficher l’état d’un circuit en sélectionnant celui-ci et en affichant la page Vue d’ensemble.
 
-## <a name="modify"></a>Modification d’un circuit ExpressRoute
+## <a name="modifying-an-expressroute-circuit"></a><a name="modify"></a>Modification d’un circuit ExpressRoute
 
 Vous pouvez modifier certaines propriétés d'un circuit ExpressRoute sans affecter la connectivité. Vous pouvez modifier la bande passante, la référence (SKU), le modèle de facturation et autoriser les opérations classiques sur la page **Configuration**. Pour plus d’informations sur les limites et limitations, voir le [FAQ ExpressRoute](expressroute-faqs.md).
 
@@ -151,7 +151,7 @@ Pour modifier un circuit ExpressRoute, cliquez sur **Configuration**.
 
 ![Modifier le circuit](./media/expressroute-howto-circuit-portal-resource-manager/modify-circuit-configuration.png)
 
-## <a name="delete"></a>Annulation de l’approvisionnement et suppression d’un circuit ExpressRoute
+## <a name="deprovisioning-and-deleting-an-expressroute-circuit"></a><a name="delete"></a>Annulation de l’approvisionnement et suppression d’un circuit ExpressRoute
 
 Vous pouvez supprimer votre circuit ExpressRoute en sélectionnant l’icône **Supprimer** . Notez les informations suivantes :
 

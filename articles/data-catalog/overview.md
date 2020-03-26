@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: overview
 ms.date: 08/01/2019
 ms.openlocfilehash: 9b7a5d5ca6cbad897839c8e28c9e3efd1eeabaf0
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "68736992"
 ---
 # <a name="what-is-azure-data-catalog"></a>Qu’est-ce qu’Azure Data Catalog ?
@@ -66,11 +66,11 @@ Pour en savoir plus sur les fonctions de Data Catalog, voir :
 * [Travail avec du Big Data](data-catalog-how-to-big-data.md)
 * [Gestion des ressources de données](data-catalog-how-to-manage.md)
 * [Configuration du glossaire métier](data-catalog-how-to-business-glossary.md)
-* [Forum Aux Questions](data-catalog-frequently-asked-questions.md)
+* [Forum Aux Questions (FAQ)](data-catalog-frequently-asked-questions.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour bien démarrer avec Data Catalog :
 
-* [Démarrage rapide : Créer un catalogue Azure Data Catalog](data-catalog-get-started.md)
+* [Démarrage rapide : Créer un catalogue Azure Data Catalog](data-catalog-get-started.md)
 * [Ouvrir votre catalogue Azure Data Catalog](https://www.azuredatacatalog.com)

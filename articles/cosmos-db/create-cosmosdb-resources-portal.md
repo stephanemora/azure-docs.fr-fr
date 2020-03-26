@@ -9,11 +9,11 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/05/2020
 ms.openlocfilehash: bc7e77cc498958b2f8f0c5b2d5ab2d59db97a235
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77560828"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215267"
 ---
 # <a name="quickstart-create-an-azure-cosmos-account-database-container-and-items-from-the-azure-portal"></a>Démarrage rapide : Créer un compte, une base de données, un conteneur et des éléments Azure Cosmos à partir du portail Azure
 

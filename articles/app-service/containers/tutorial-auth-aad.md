@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Authentifier les utilisateurs de bout en bout (Linux)'
+title: 'Tutoriel : Authentifier les utilisateurs de bout en bout (Linux)'
 description: Apprenez à utiliser les fonctionnalités d’authentification et d’autorisation d’App Service pour sécuriser vos applications Linux App Service de bout en bout, notamment l’accès aux API distantes.
 keywords: app service, azure app service, authentification, autorisation, sécurisé, sécurité, plusieurs niveaux, azure active directory, azure ad
 ms.devlang: dotnet
@@ -7,10 +7,10 @@ ms.topic: tutorial
 ms.date: 08/14/2019
 ms.custom: seodec18
 ms.openlocfilehash: 71aec33d5afe1a909f460ddae2d5cb0552857fee
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74688943"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service-on-linux"></a>Tutoriel : Authentifier et autoriser les utilisateurs de bout en bout dans Azure App Service sous Linux
@@ -316,7 +316,7 @@ Connectez-vous à `https://<front-end-app-name>.azurewebsites.net` une nouvelle 
 
 Vous devez maintenant être en mesure de créer, lire, mettre à jour et supprimer des données à partir de l’application principale comme avant. Désormais, la seule différence est que les deux applications sont protégées par l’authentification et l’autorisation App Service, y compris les appels entre les services.
 
-Félicitations ! Votre code du serveur accède maintenant aux données de serveur principal pour le compte de l’utilisateur authentifié.
+Félicitations ! Votre code du serveur accède maintenant aux données de serveur principal pour le compte de l’utilisateur authentifié.
 
 ## <a name="call-api-securely-from-browser-code"></a>Appeler une API de façon sécurisée à partir du code du navigateur
 
@@ -398,13 +398,13 @@ git push frontend master
 
 Accédez à nouveau à `https://<front-end-app-name>.azurewebsites.net`. Vous devez maintenant être en mesure de créer, lire, mettre à jour et supprimer des données à partir de l’application principale, et ce, directement dans l’application Angular.js.
 
-Félicitations ! Votre code du client accède maintenant aux données de serveur principal pour le compte de l’utilisateur authentifié.
+Félicitations ! Votre code du client accède maintenant aux données de serveur principal pour le compte de l’utilisateur authentifié.
 
 ## <a name="when-access-tokens-expire"></a>Date d’expiration des jetons d’accès
 
 Votre jeton d’accès expire après un certain laps de temps. Pour plus d’informations sur la façon d’actualiser vos jetons d’accès sans obliger les utilisateurs à se réauthentifier auprès de votre application, consultez [Actualiser les jetons de fournisseur d’identité](../app-service-authentication-how-to.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#refresh-identity-provider-tokens).
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Au cours des étapes précédentes, vous avez créé des ressources Azure au sein d’un groupe de ressources. Si vous ne pensez pas avoir besoin de ces ressources à l’avenir, supprimez le groupe de ressources en exécutant la commande suivante dans Cloud Shell :
 
@@ -428,7 +428,7 @@ Vous avez appris à effectuer les opérations suivantes :
 > * Utiliser des jetons d’accès à partir du code du serveur
 > * Utiliser des jetons d’accès à partir du code du client (navigateur)
 
-Passez au tutoriel suivant pour découvrir comment mapper un nom DNS personnalisé à votre application.
+Passez au didacticiel suivant pour découvrir comment mapper un nom DNS personnalisé à votre application.
 
 > [!div class="nextstepaction"]
 > [Mapper un nom DNS personnalisé existant à Azure App Service](../app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)

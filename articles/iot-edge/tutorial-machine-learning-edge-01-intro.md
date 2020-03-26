@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Procédure pas à pas détaillée relative au Machine Learning sur Azure IoT Edge'
+title: 'Tutoriel : Procédure pas à pas détaillée relative au Machine Learning sur Azure IoT Edge'
 description: Ce didacticiel général présente les différentes tâches nécessaires à la création d’un scénario Machine Learning de bout en bout en périphérie.
 author: kgremban
 manager: philmea
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 965c420fa29c4cf82517148c01e17d6d7dd6ea97
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74106513"
 ---
-# <a name="tutorial-an-end-to-end-solution-using-azure-machine-learning-and-iot-edge"></a>Didacticiel : Une solution de bout en bout à l’aide d’Azure Machine Learning et IoT Edge
+# <a name="tutorial-an-end-to-end-solution-using-azure-machine-learning-and-iot-edge"></a>Tutoriel : Une solution de bout en bout à l’aide d’Azure Machine Learning et IoT Edge
 
 Souvent, les applications IoT souhaitent tirer parti du cloud intelligent et de la périphérie intelligente. Dans ce didacticiel, nous vous guidons durant l’apprentissage d’un modèle Machine Learning avec les données collectées à partir d’appareils IoT dans le cloud, suivi du déploiement de ce modèle sur IoT Edge. Pour finir, nous verrons comment assurer périodiquement la maintenance et l’affinement de ce modèle.
 

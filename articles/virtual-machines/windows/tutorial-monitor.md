@@ -16,17 +16,17 @@ ms.date: 09/27/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.openlocfilehash: 9e807927a10399b02c2c89359c2ffffaf87ba57b
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74112493"
 ---
-# <a name="tutorial-monitor-a-windows-virtual-machine-in-azure"></a>Didacticiel : Superviser une machine virtuelle Windows dans Azure
+# <a name="tutorial-monitor-a-windows-virtual-machine-in-azure"></a>Tutoriel : Superviser une machine virtuelle Windows dans Azure
 
-La supervision Azure utilise des agents pour collecter les données de démarrage et de performances des machines virtuelles Azure, stocker ces données dans le stockage Azure et les rendre accessibles via le portail, le module Azure PowerShell et Azure CLI. La supervision avancée est fournie avec Azure Monitor pour machines virtuelles à travers la collecte des métriques de performance, la découverte des composants d’applications installés sur la machine virtuelle ainsi que des graphiques de performance et une carte de dépendances.
+La supervision Azure utilise des agents pour collecter les données de démarrage et de performance des machines virtuelles Azure, stocker ces données dans le stockage Azure et les rendre accessibles via le portail, le module Azure PowerShell et Azure CLI. La supervision avancée est fournie avec Azure Monitor pour machines virtuelles à travers la collecte des métriques de performance, la découverte des composants d’applications installés sur la machine virtuelle ainsi que des graphiques de performance et une carte de dépendances.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Activer les diagnostics de démarrage sur une machine virtuelle
@@ -132,11 +132,11 @@ L’exemple suivant crée une alerte pour l’utilisation moyenne de l’UC.
 
 5. Si vous le souhaitez, cochez la case *Envoyer un e-mail aux propriétaires, aux contributeurs et aux lecteurs* pour envoyer la notification par e-mail. L’action par défaut est de présenter une notification dans le portail.
 
-6. Cliquez sur le bouton **OK**.
+6. Cliquez sur le bouton **OK** .
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez configuré et visualisé le niveau de performance de votre machine virtuelle. Vous avez appris à effectuer les actions suivantes :
+Dans ce tutoriel, vous avez configuré et visualisé le niveau de performance de votre machine virtuelle. Vous avez appris à :
 
 > [!div class="checklist"]
 > * Créer un groupe de ressources et une machine virtuelle

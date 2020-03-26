@@ -11,10 +11,10 @@ author: iainfoulds
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 253eb23be03c1cc0f2abf4ad1fed734426dc287d
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77154677"
 ---
 # <a name="tutorial-secure-user-sign-in-events-with-azure-multi-factor-authentication"></a>Tutoriel : Événements de connexion utilisateur sécurisée avec Azure Multi-Factor Authentication
@@ -23,14 +23,14 @@ L’authentification MFA (Azure Multi-Factor Authentication) est un processus da
 
 Azure Multi-Factor Authentication et les stratégies d’accès conditionnel offrent la flexibilité nécessaire qui permet l’authentification MFA des utilisateurs pendant des événements de connexion spécifiques.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Créer une stratégie d’accès conditionnel afin d’activer Azure Multi-Factor Authentication pour un groupe d’utilisateurs
 > * Configurer les conditions de stratégie qui demandent l’authentification MFA
 > * Tester le processus MFA en tant qu’utilisateur
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer ce tutoriel, vous avez besoin des ressources et des privilèges suivants :
 

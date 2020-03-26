@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 411ffb9c05b0f6b4d8b7d37a11d0838c8734ec5e
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.openlocfilehash: 5b1af5c728a14b29ca6e6c18b79b23db9ef010f2
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79079808"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80132483"
 ---
 # <a name="what-is-azure-maps"></a>Qu’est-ce qu’Azure Maps ?
 
@@ -25,8 +25,8 @@ Azure Maps est une collection de services géospatiaux qui utilisent des donnée
 * Diverses options de routage : point à point, multipoint, optimisation multipoint, isochrone, véhicule commercial, trafic influencé et itinéraire par matrice.
 * Vue des flux de trafic et vue des incidents, pour les applications qui ont besoin d’informations de trafic.
 * Service Mobility pour demander la logistique des transports publics, planifier des itinéraires en temps réel et demander des informations pour des modes de transport alternatifs.
-* Services de fuseau horaire et de géolocalisation et conversion d’un endroit en fuseaux horaires.
-* Services de geofencing et stockage des données cartographiques, avec les informations de localisation hébergées dans Azure. 
+* Services de fuseau horaire et de géolocalisation et conversion d’un emplacement en fuseaux horaires.
+* Services de geofencing et stockage des données cartographiques, avec les informations d’emplacement hébergées dans Azure. 
 * Intelligence géographique via l’analytique géospatiale. 
 
 Par ailleurs, les services Azure Maps sont disponibles via le kit SDK Web ou Android SDK. Ces outils aident les développeurs à développer et à mettre à l’échelle rapidement des solutions intégrant des informations de localisation dans des solutions Azure. 
@@ -61,7 +61,7 @@ Azure Maps se compose des neuf services suivants, qui peuvent fournir un context
 
 Les données sont indispensables pour les cartes. Utilisez Data Service pour charger et stocker des données géospatiales pour une utilisation avec des opérations spatiales ou la composition d’images.  Le fait de pouvoir rapprocher les données client du service Azure Maps permettra de réduire la latence, d’améliorer la productivité et de créer de nouveaux scénarios dans vos applications. Pour plus d’informations sur ce service, consultez la [Documentation de l’API Data Service](https://docs.microsoft.com/rest/api/maps/data).
 
-### <a name="mobility-service"></a>Service Mobility
+### <a name="mobility-service"></a>Service Mobilité
 
 Azure Maps Mobility Service permet la planification de déplacements en temps réel. Il retourne les options des meilleurs itinéraires possibles et fournit différents modes de déplacement. Pour les zones urbaines (villes), ces modes peuvent inclure la marche, le vélo et les transports publics. Vous pouvez demander des itinéraires de transports, le plan des lignes, les listes des arrêts, les arrivées planifiées et en temps réel, et des alertes sur les services.
 
@@ -69,7 +69,7 @@ Le service autorise également des recherches de types d’objets spécifiques a
 
 Pour plus d’informations sur le service, consultez la [Documentation de l’API Mobility](https://docs.microsoft.com/rest/api/maps/mobility).
 
-### <a name="render-service"></a>Service Render
+### <a name="render-service"></a>Render Service
 
 Le service Render permet aux développeurs de créer des applications web et mobiles dotées de fonctionnalités de cartographie. Le service utilise des images graphiques raster de haute qualité disponibles en 19 niveaux de zoom ou des images de cartes au format vectoriel entièrement personnalisables.
 
@@ -77,9 +77,9 @@ Le service Render permet aux développeurs de créer des applications web et mob
 
 Render Service inclut désormais des API pour permettre aux développeurs de travailler avec des images satellite. Pour plus d’informations, consultez la [Documentation de l’API Render](https://docs.microsoft.com/rest/api/maps/render).
 
-### <a name="route-service"></a>Service Route
+### <a name="route-service"></a>Service d’itinéraire
 
-Le service Route comporte des fonctionnalités robustes de calcul géométrique pour les infrastructures réelles et des directions pour différents modes de transport. Le service permet aux développeurs de calculer des directions pour plusieurs modes de déplacement, notamment en voiture, en camion, à vélo ou à pied. Le service prend aussi en compte des entrées comme les conditions de circulation, les restrictions de poids et le transport de matières dangereuses.
+Route Service comporte des fonctionnalités robustes de calcul géométrique pour les infrastructures réelles et des directions pour différents modes de transport. Le service permet aux développeurs de calculer des directions pour plusieurs modes de déplacement, notamment en voiture, en camion, à vélo ou à pied. Le service prend aussi en compte des entrées comme les conditions de circulation, les restrictions de poids et le transport de matières dangereuses.
 
 ![Exemple de carte provenant de Route Service](media/about-azure-maps/intro_route.png)
 
@@ -91,13 +91,13 @@ Route Service offre un aperçu de fonctionnalités avancées comme les suivantes
 
 Pour plus d’informations sur les fonctionnalités liées aux itinéraires, consultez la [Documentation de l’API Route](https://docs.microsoft.com/rest/api/maps/route).
 
-### <a name="search-service"></a>Service Search
+### <a name="search-service"></a>Service de recherche
 
-Le service Search aide les développeurs à rechercher des adresses, des lieux, des listes d’entreprises par nom ou par catégorie, et d’autres informations d’ordre géographique. Le service Search peut aussi [géocoder à rebours](https://en.wikipedia.org/wiki/Reverse_geocoding) les adresses et rues de croisement en fonction des latitudes et longitudes.
+Search Service aide les développeurs à rechercher des adresses, des lieux, des listes d’entreprises par nom ou par catégorie, et d’autres informations d’ordre géographique. Search Service peut aussi [géocoder en inversé](https://en.wikipedia.org/wiki/Reverse_geocoding) les adresses et rues de croisement en fonction des latitudes et longitudes.
 
 ![Exemple d’une recherche sur une carte](media/about-azure-maps/intro_search.png)
 
-Le service Search fournit également des fonctionnalités avancées comme les suivantes :
+Search Service fournit également des fonctionnalités avancées comme les suivantes :
 
 * Rechercher le long d’une route.
 * Rechercher à l’intérieur d’une zone plus large.

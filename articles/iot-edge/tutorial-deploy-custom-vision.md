@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
 ms.openlocfilehash: 07350ffe4a57bfe4a79bfce5d821b51535867935
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76167012"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Tutoriel : Effectuer la classification d'images en périphérie avec le service Vision personnalisée
@@ -37,7 +37,7 @@ Dans ce tutoriel, vous allez apprendre à :
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 >[!TIP]
 >Ce tutoriel est une version simplifiée de l’exemple de projet [Custom Vision and Azure IoT Edge on a Raspberry Pi 3](https://github.com/Azure-Samples/Custom-vision-service-iot-edge-raspberry-pi). Ce tutoriel a été conçu pour s’exécuter sur une machine virtuelle du cloud. Il utilise des images statiques pour entraîner et tester le classifieur d’images, ce qui est utile pour une personne qui commence tout juste à évaluer Custom Vision sur IoT Edge. L’exemple de projet utilise du matériel physique et configure un flux de caméra en direct pour entraîner et tester le classifieur d’images, ce qui est utile pour une personne qui souhaite essayer un scénario plus détaillé et plus concret.
@@ -74,7 +74,7 @@ Une fois votre classifieur d’images créé et entraîné, vous pouvez l’expo
 
    | Champ | Valeur |
    | ----- | ----- |
-   | Name | Donnez un nom à votre projet, par exemple **EdgeTreeClassifier**. |
+   | Nom | Donnez un nom à votre projet, par exemple **EdgeTreeClassifier**. |
    | Description | Description facultative du projet. |
    | Ressource | Sélectionnez l’un de vos groupes de ressources Azure contenant une ressource de service Custom Vision ou **créez-en un** si vous n’en avez pas encore ajouté un. |
    | Types de projet | **Classification** |

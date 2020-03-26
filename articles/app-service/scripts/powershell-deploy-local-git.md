@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell : Déployer à partir d’un dépôt Git local'
+title: 'PowerShell : Déployer à partir d’un dépôt Git local'
 description: Découvrez comment utiliser Azure PowerShell pour automatiser le déploiement et la gestion d’App Service. Cet exemple montre comment déployer du code à partir d’un dépôt Git.
 tags: azure-service-management
 ms.assetid: 5a927f23-8e70-45fd-9aae-980d4e7a007d
@@ -7,10 +7,10 @@ ms.topic: sample
 ms.date: 03/20/2017
 ms.custom: mvc
 ms.openlocfilehash: 7355f2730cc54ca027e20c48e989e9f28dac7487
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74684836"
 ---
 # <a name="create-a-web-app-and-deploy-code-from-a-local-git-repository"></a>Créer une application web et déployer du code à partir d’un référentiel Git local
@@ -43,6 +43,6 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur le module Azure PowerShell, consultez la [Documentation Azure PowerShell](/powershell/azure/overview).
+Pour plus d’informations sur le module Azure PowerShell, consultez [Documentation Azure PowerShell](/powershell/azure/overview).
 
 Vous trouverez des exemples supplémentaires de scripts Azure PowerShell pour Azure App Service Web Apps sur la page [Azure PowerShell Samples](../samples-powershell.md) (Exemples Azure PowerShell).

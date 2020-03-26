@@ -13,10 +13,10 @@ ms.author: mimart
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: af0a826c499790c86a20ea7061075a6c3e66b3a4
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73062554"
 ---
 # <a name="add-a-gallery-app-to-your-azure-ad-organization"></a>Ajouter une application de la galerie à votre organisation Azure AD
@@ -71,27 +71,27 @@ Azure Active Directory (Azure AD) a une galerie contenant des milliers d’appli
        |---|---|---|---|---|
        | Connexion permise pour les utilisateurs ? | Assignation requise de utilisateur ? | Visible par les utilisateurs ? | Est-ce que les utilisateurs assignés peuvent se connecter ? | Est-ce que les utilisateurs assignés peuvent voir l’application ?* |
        | Oui | Oui | Oui | Oui | Oui  |
-       | Oui | Oui | no  | Oui | no   |
-       | Oui | no  | Oui | Oui | Oui  |
-       | Oui | no  | no  | Oui | no   |
-       | no  | Oui | Oui | no  | no   |
-       | no  | Oui | no  | no  | no   |
-       | no  | no  | Oui | no  | no   |
-       | no  | no  | no  | no  | no   |
+       | Oui | Oui | non  | Oui | non   |
+       | Oui | non  | Oui | Oui | Oui  |
+       | Oui | non  | non  | Oui | non   |
+       | non  | Oui | Oui | non  | non   |
+       | non  | Oui | non  | non  | non   |
+       | non  | non  | Oui | non  | non   |
+       | non  | non  | non  | non  | non   |
 
       Comportement pour les utilisateurs **non assignés** :
 
        | Paramètres de propriété d'application | | | Expérience de l’utilisateur non assigné | |
        |---|---|---|---|---|
        | Connexion permise pour les utilisateurs ? | Assignation requise de utilisateur ? | Visible par les utilisateurs ? | Est-ce que les utilisateurs non assignés peuvent se connecter ? | Est-ce que les utilisateurs non assignés peuvent voir l’application ?* |
-       | Oui | Oui | Oui | no  | no   |
-       | Oui | Oui | no  | no  | no   |
-       | Oui | no  | Oui | Oui | no   |
-       | Oui | no  | no  | Oui | no   |
-       | no  | Oui | Oui | no  | no   |
-       | no  | Oui | no  | no  | no   |
-       | no  | no  | Oui | no  | no   |
-       | no  | no  | no  | no  | no   |
+       | Oui | Oui | Oui | non  | non   |
+       | Oui | Oui | non  | non  | non   |
+       | Oui | non  | Oui | Oui | non   |
+       | Oui | non  | non  | Oui | non   |
+       | non  | Oui | Oui | non  | non   |
+       | non  | Oui | non  | non  | non   |
+       | non  | non  | Oui | non  | non   |
+       | non  | non  | non  | non  | non   |
 
      \* Est-ce que l’utilisateur peut voir l’application dans le volet d’accès et le lanceur d’applications Office 365 ?
 

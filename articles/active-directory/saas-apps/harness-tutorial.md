@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique (SSO) Azure Active Directory à Harness | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Harness | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Harness.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 09/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 21409eb056743d92db42e0787af24f8cec07db1b
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72026961"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-harness"></a>Didacticiel : Intégration de l’authentification unique (SSO) Azure Active Directory à Harness
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-harness"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Harness
 
 Dans ce tutoriel, vous allez apprendre à intégrer Harness à Azure Active Directory (Azure AD). Quand vous intégrez Harness à Azure AD, vous pouvez :
 
@@ -91,7 +91,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     > [!NOTE]
     > La valeur de l’URL de réponse n’est pas réelle. Vous obtiendrez l’URL de réponse réelle en suivant la procédure décrite dans la section **Configurer l’authentification unique (SSO) Harness**, plus loin dans ce tutoriel. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération**, puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
+1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération** et sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
 

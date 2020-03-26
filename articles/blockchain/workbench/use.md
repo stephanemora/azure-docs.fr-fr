@@ -5,13 +5,13 @@ ms.date: 10/14/2019
 ms.topic: tutorial
 ms.reviewer: brendal
 ms.openlocfilehash: 5761bf1294691c2d50e0e389fe69ec286df4a06c
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74324038"
 ---
-# <a name="tutorial-using-applications-in-azure-blockchain-workbench"></a>Didacticiel : Utilisation d’applications dans Azure Blockchain Workbench
+# <a name="tutorial-using-applications-in-azure-blockchain-workbench"></a>Tutoriel : Utilisation d’applications dans Azure Blockchain Workbench
 
 Vous pouvez utiliser Blockchain Workbench pour créer et exécuter des opérations sur des contrats. Vous pouvez également afficher les détails du contrat, tels que l’état et l’historique des transactions.
 

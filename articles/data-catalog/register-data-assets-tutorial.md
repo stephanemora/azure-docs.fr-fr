@@ -7,17 +7,17 @@ ms.service: data-catalog
 ms.topic: tutorial
 ms.date: 08/01/2019
 ms.openlocfilehash: 4bd2b7093100ff24b21b67ea84613ac9b2ec8299
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68950249"
 ---
 # <a name="tutorial-register-data-assets-in-azure-data-catalog"></a>Tutoriel : Enregistrer des éléments de données dans Azure Data Catalog
 
 Dans ce tutoriel, vous utilisez l’outil de référencement pour inscrire des ressources de données de l’exemple de base de données Azure SQL avec le catalogue. L’inscription est le processus par lequel les métadonnées structurelles clés (telles que les noms, les types et les emplacements) sont extraites de la source de données et des ressources qu’elle contient, puis copiées dans le catalogue. La source de données et les ressources de données restent au même endroit, mais les métadonnées sont utilisées par le catalogue pour faciliter leur découverte et leur compréhension.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 > [!div class="checklist"]
 > * Inscrire des ressources de données 
 > * Rechercher des ressources de données
@@ -176,7 +176,7 @@ Les opérateurs de comparaison vous permettent d’utiliser des comparaisons aut
 
 2. Désactivez le filtre **Table** sous **Type d’objet**.
 
-3. Appuyez sur **ENTRÉE**.
+3. Appuyez sur **Entrée**.
 
 4. Vérifiez que les tables **Product**, **ProductCategory** et **ProductDescription** ainsi que la base de données Azure SQL que vous avez inscrites s’affichent dans les résultats de la recherche.
 

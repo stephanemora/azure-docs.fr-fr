@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory dans AirWatch | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory dans AirWatch | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et AirWatch.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 07/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 772b37816b83c275bae927d825434dc3ca76a35c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74231990"
 ---
-# <a name="tutorial-integrate-airwatch-with-azure-active-directory"></a>Didacticiel : Intégrer AirWatch à Azure Active Directory
+# <a name="tutorial-integrate-airwatch-with-azure-active-directory"></a>Tutoriel : Intégrer AirWatch à Azure Active Directory
 
 Dans ce tutoriel, vous allez apprendre à intégrer AirWatch à Azure Active Directory (Azure AD). Quand vous intégrez AirWatch à Azure AD, vous pouvez :
 
@@ -108,7 +108,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     e. Dans la liste **Attribut de la source**, tapez la valeur d’attribut indiquée pour cette ligne.
 
-    f. Cliquez sur **OK**.
+    f. Cliquez sur **OK**
 
     g. Cliquez sur **Enregistrer**.
 

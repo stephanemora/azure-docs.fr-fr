@@ -8,13 +8,13 @@ ms.service: azure-databricks
 ms.topic: tutorial
 ms.date: 04/17/2019
 ms.openlocfilehash: 4ac8c01e986cf1f3158c615a0791ba476e5bf1bb
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74706159"
 ---
-# <a name="tutorial-implement-azure-databricks-with-a-cosmos-db-endpoint"></a>Didacticiel : Implémenter Azure Databricks avec un point de terminaison Cosmos DB
+# <a name="tutorial-implement-azure-databricks-with-a-cosmos-db-endpoint"></a>Tutoriel : Implémenter Azure Databricks avec un point de terminaison Cosmos DB
 
 Ce tutoriel explique comment implémenter un environnement Databricks injecté par réseau virtuel avec un point de terminaison de service activé pour Cosmos DB.
 
@@ -57,12 +57,12 @@ Avant de commencer, procédez comme suit :
 
    |Paramètre|Valeur|
    |-------|-----|
-   |Subscription|*votre abonnement*|
+   |Abonnement|*votre abonnement*|
    |Groupe de ressources|*votre groupe de ressources*|
    |Nom du compte|db-vnet-service-endpoint|
    |API|Core (SQL)|
-   |Location|USA Ouest|
-   |Géoredondance|Désactiver|
+   |Emplacement|USA Ouest|
+   |Géoredondance|Disable|
    |Écritures multirégions|Activer|
 
    ![Ajouter un point de terminaison de service Cosmos DB](./media/service-endpoint-cosmosdb/create-cosmosdb-account-basics.png)
@@ -159,7 +159,7 @@ Avant de commencer, procédez comme suit :
 
     Vous avez correctement connecté votre espace de travail Databricks injecté par réseau virtuel à une ressource Cosmos DB activée pour le point de terminaison. Pour en savoir plus sur la façon de se connecter à Cosmos DB, consultez [Connecteur Azure Cosmos DB pour Apache Spark](https://github.com/Azure/azure-cosmosdb-spark).
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, l’espace de travail Azure Databricks et toutes les ressources associées. La suppression du travail évite une facturation inutile. Si vous avez l’intention d’utiliser l’espace de travail Azure Databricks à l’avenir, vous pouvez arrêter le cluster et le redémarrer ultérieurement. Si vous ne pensez pas continuer à utiliser cet espace de travail Azure Databricks, supprimez toutes les ressources créées au cours de ce tutoriel en procédant comme suit :
 
@@ -172,4 +172,4 @@ Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, l’esp
 Dans ce tutoriel, vous avez déployé un espace de travail Azure Databricks dans un réseau virtuel et utilisé le connecteur Spark Cosmos DB pour demander des données de Cosmos DB à partir de Databricks. Pour en savoir plus sur l’utilisation d’Azure Databricks dans un réseau virtuel, passez au tutoriel d’utilisation de SQL Server avec Azure Databricks.
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Interroger un conteneur Docker SQL Server Linux dans un réseau virtuel à partir d’un bloc-notes Azure Databricks](vnet-injection-sql-server.md)
+> [Tutoriel : Interroger un conteneur Docker SQL Server Linux dans un réseau virtuel à partir d’un bloc-notes Azure Databricks](vnet-injection-sql-server.md)

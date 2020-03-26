@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à ContractWorks | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à ContractWorks | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et ContractWorks.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 09/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1d18676e0a8a4f366237a71784436580a8069e53
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "70743613"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-contractworks"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à ContractWorks
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-contractworks"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à ContractWorks
 
 Dans ce tutoriel, vous allez apprendre à intégrer ContractWorks à Azure Active Directory (Azure AD). Quand vous intégrez ContractWorks à Azure AD, vous pouvez :
 

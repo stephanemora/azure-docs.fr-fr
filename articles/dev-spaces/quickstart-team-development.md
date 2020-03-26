@@ -7,10 +7,10 @@ description: Ce guide de démarrage rapide vous montre comment développer en é
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s
 manager: gwallace
 ms.openlocfilehash: 0fe177db420913e5d68807dd803df791653c0914
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78244944"
 ---
 # <a name="quickstart-team-development-on-kubernetes---azure-dev-spaces"></a>Démarrage rapide : Développement en équipe dans Kubernetes avec Azure Dev Spaces

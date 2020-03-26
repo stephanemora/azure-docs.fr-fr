@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 01/22/2019
 ms.author: lbosq
 ms.openlocfilehash: b1286daaa76c71f88d44ea387a92876a8676783c
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77062225"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-python-and-the-azure-portal"></a>Démarrage rapide : Créer une base de données de graphe dans Azure Cosmos DB à l’aide de Python et du portail Azure
@@ -28,22 +28,22 @@ ms.locfileid: "77062225"
 
 Dans ce guide de démarrage rapide, vous allez créer et gérer un compte d’API Azure Cosmos DB Gremlin (graphe) à partir du portail Azure et ajouter des données en utilisant une application Python clonée à partir de GitHub. Azure Cosmos DB est un service de base de données multimodèle qui vous permet de créer et d’interroger rapidement des bases de données de documents, de tables, de paires clé/valeur et de graphes avec des capacités de distribution mondiale et de mise à l’échelle horizontale.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 - Compte Azure avec un abonnement actif. [Créez-en un gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Vous pouvez également [essayez Azure Cosmos DB gratuitement](https://azure.microsoft.com/try/cosmosdb/) sans abonnement Azure.
 - [Python 3.5 ou supérieur](https://www.python.org/downloads/) avec le programme d’installation de package [pip](https://pip.pypa.io/en/stable/installing/).
 - [Pilote Python pour Gremlin](https://github.com/apache/tinkerpop/tree/master/gremlin-python).
 - [Git](https://git-scm.com/downloads).
 
 > [!NOTE]
-> Ce guide de démarrage rapide demande un compte de base de données de graphes créé après le 20 décembre 2017. Les comptes existants prendront en charge Python une fois la migration vers la disponibilité générale effectuée.
+> Ce démarrage rapide nécessite un compte de base de données de graphiques créé après le 20 décembre 2017. Les comptes existants prendront en charge Python une fois la migration vers la disponibilité générale effectuée.
 
 ## <a name="create-a-database-account"></a>Création d’un compte de base de données
 
-Pour être en mesure de créer une base de données de graphes, vous devez avoir préalablement créé un compte de base de données Gremlin (Graphe) avec Azure Cosmos DB.
+Pour être en mesure de créer une base de données de graphiques, vous devez avoir préalablement créé un compte de base de données (Graphique) Gremlin avec Azure Cosmos DB.
 
 [!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
 
-## <a name="add-a-graph"></a>Ajout d’un graphe
+## <a name="add-a-graph"></a>Ajout d’un graphique
 
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
@@ -158,7 +158,7 @@ Maintenant, retournez dans le portail Azure afin d’obtenir vos informations de
     python connect.py
     ```
 
-    La fenêtre de terminal affiche les sommets et les bords ajoutés au graphe. 
+    La fenêtre de terminal affiche les vertex et les bords ajoutés au graphique. 
     
     Si vous rencontrez des erreurs de délai d’expiration, vérifiez que vous avez correctement mis à jour les informations de connexion dans [Mise à jour de vos informations de connexion](#update-your-connection-information) et essayez également de réexécuter la dernière commande. 
     
@@ -173,9 +173,9 @@ Après insertion des sommets et arêtes, vous pouvez revenir à l’Explorateur 
 
    ![Créer des documents dans l’Explorateur de données, dans le Portail Azure](./media/create-graph-python/azure-cosmosdb-data-explorer-expanded.png)
 
-2. Dans la liste **Résultats**, vous voyez que trois nouveaux utilisateurs ont été ajoutés au graphe. Vous pouvez glisser-déplacez les sommets, effectuer un zoom avant et arrière à l’aide de la roulette de la souris et augmenter la taille du graphe avec la double flèche. 
+2. Dans la liste **Résultats**, vous voyez que trois nouveaux utilisateurs ont été ajoutés au graphe. Vous pouvez glisser-déplacez les vertex, effectuer un zoom avant et arrière à l’aide de la roulette de la souris et augmenter la taille du graphique avec la double flèche. 
 
-   ![Nouveaux sommet dans le graphe de l’Explorateur de données du portail Azure](./media/create-graph-python/azure-cosmosdb-graph-explorer-new.png)
+   ![Nouveaux vertex dans le graphique de l’Explorateur de données du portail Azure](./media/create-graph-python/azure-cosmosdb-graph-explorer-new.png)
 
 3. Nous allons à présent ajouter quelques nouveaux utilisateurs. Sélectionnez le bouton **Nouveau sommet** pour ajouter des données à votre graphe.
 
@@ -183,21 +183,21 @@ Après insertion des sommets et arêtes, vous pouvez revenir à l’Explorateur 
 
 4. Entrez l’étiquette *person*.
 
-5. Sélectionnez **Ajouter une propriété** pour ajouter chacune des propriétés suivantes. Notez que vous pouvez créer des propriétés uniques pour chaque personne dans votre graphe. Seule la clé id est obligatoire.
+5. Sélectionnez **Ajouter une propriété** pour ajouter chacune des propriétés suivantes. Notez que vous pouvez créer des propriétés uniques pour chaque personne dans votre graphique. Seule la clé id est obligatoire.
 
     key|value|Notes
     ----|----|----
     pk|/pk| 
-    id|ashley|Identificateur unique du sommet. Si vous ne spécifiez aucun id, le système en génère un pour vous.
+    id|ashley|Identificateur unique du vertex. Si vous ne spécifiez aucun id, le système en génère un pour vous.
     gender|female| 
     tech | java | 
 
     > [!NOTE]
-    > Dans ce guide de démarrage rapide, nous créons une collection non partitionnée. Toutefois, si vous créez une collection partitionnée en spécifiant une clé de partition lors de la création de la collection, vous devez inclure la clé de partition en tant que clé dans chaque nouveau sommet. 
+    > Dans ce guide de démarrage rapide, nous créons une collection non partitionnée. Toutefois, si vous créez une collection partitionnée en spécifiant une clé de partition lors de la création de la collection, vous devez inclure la clé de partition en tant que clé dans chaque nouveau vertex. 
 
 6. Sélectionnez **OK**. Vous pouvez avoir besoin d’agrandir votre écran pour voir apparaître le bouton **OK** au bas de l’écran.
 
-7. Sélectionnez de nouveau **Nouveau sommet** et ajoutez un nouvel utilisateur. 
+7. Sélectionnez de nouveau **New Vertex (Nouveau vertex)** et ajoutez un nouvel utilisateur supplémentaire. 
 
 8. Entrez l’étiquette *person*.
 
@@ -206,7 +206,7 @@ Après insertion des sommets et arêtes, vous pouvez revenir à l’Explorateur 
     key|value|Notes
     ----|----|----
     pk|/pk| 
-    id|rakesh|Identificateur unique du sommet. Si vous ne spécifiez aucun id, le système en génère un pour vous.
+    id|rakesh|Identificateur unique du vertex. Si vous ne spécifiez aucun id, le système en génère un pour vous.
     gender|male| 
     school|MIT| 
 
@@ -214,11 +214,11 @@ Après insertion des sommets et arêtes, vous pouvez revenir à l’Explorateur 
 
 11. Sélectionnez le bouton **Appliquer un filtre** avec le filtre par défaut `g.V()` pour afficher toutes les valeurs dans le graphe. Tous les utilisateurs apparaissent désormais dans la liste **Résultats**. 
 
-    À mesure que vous ajoutez d’autres données, vous pouvez utiliser des filtres pour limiter les résultats renvoyés. Par défaut, l’Explorateur de données utilise `g.V()` pour récupérer tous les sommets d’un graphe. Vous pouvez choisir une autre [requête de graphe](tutorial-query-graph.md) comme `g.V().count()` pour retourner le nombre total de sommets du graphe au format JSON. Si vous avez modifié le filtre, choisissez de nouveau le filtre `g.V()` et sélectionnez **Appliquer un filtre** pour afficher de nouveau l’ensemble des résultats.
+    À mesure que vous ajoutez d’autres données, vous pouvez utiliser des filtres pour limiter les résultats renvoyés. Par défaut, l’Explorateur de données utilise `g.V()` pour récupérer tous les vertex dans un graphique. Vous pouvez choisir une autre [requête de graphique](tutorial-query-graph.md) comme `g.V().count()` pour retourner le nombre total de vertex dans le graphique au format JSON. Si vous avez modifié le filtre, choisissez de nouveau le filtre `g.V()` et sélectionnez **Appliquer un filtre** pour afficher de nouveau l’ensemble des résultats.
 
 12. À présent, nous pouvons connecter rakesh et ashley. Vérifiez que **ashley** est bien sélectionné dans la liste **Résultats**, puis sélectionnez le bouton de modification en regard de **Cibles** dans la partie inférieure droite de l’écran. Vous devrez peut-être élargir la fenêtre pour visualiser la zone **Propriétés**.
 
-    ![Modifier la cible d’un sommet dans un graphe](./media/create-graph-python/azure-cosmosdb-data-explorer-edit-target.png)
+    ![Modifier la cible d’un vertex dans un graphique](./media/create-graph-python/azure-cosmosdb-data-explorer-edit-target.png)
 
 13. Dans la zone **Cible**, tapez *rakesh*. Dans la zone **Étiquette de l’arête**, tapez *knows*, puis cochez la case.
 
@@ -226,9 +226,9 @@ Après insertion des sommets et arêtes, vous pouvez revenir à l’Explorateur 
 
 14. À présent, sélectionnez **rakesh** dans la liste des résultats et vérifiez qu’ashley et rakesh sont connectés. 
 
-    ![Deux sommets connectés dans l’Explorateur de données](./media/create-graph-python/azure-cosmosdb-graph-explorer.png)
+    ![Deux vertex connectés dans l’Explorateur de données](./media/create-graph-python/azure-cosmosdb-graph-explorer.png)
 
-Ainsi s’achève la portion de ce didacticiel consacrée à la création de ressources. Vous pouvez continuer à ajouter des sommets à votre graphe, modifier les sommets existants ou changer les requêtes. Nous allons à présent examiner les métriques fournies par Azure Cosmos DB et nettoyer les ressources. 
+Ainsi s’achève la portion de ce didacticiel consacrée à la création de ressources. Vous pouvez continuer à ajouter des vertex à votre graphique, modifier les vertex existants ou modifier les requêtes. Nous allons à présent examiner les métriques fournies par Azure Cosmos DB et nettoyer les ressources. 
 
 ## <a name="review-slas-in-the-azure-portal"></a>Vérification des contrats SLA dans le portail Azure
 
@@ -240,7 +240,7 @@ Ainsi s’achève la portion de ce didacticiel consacrée à la création de res
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez appris à créer un compte Azure Cosmos DB, à créer un graphe à l’aide de l’Explorateur de données et à exécuter une application Python pour ajouter des données au graphe. Vous pouvez maintenant générer des requêtes plus complexes et implémenter une logique de traversée de graphe puissante en utilisant Gremlin. 
+Dans ce guide de démarrage rapide, vous avez appris à créer un compte Azure Cosmos DB, à créer un graphe à l’aide de l’Explorateur de données et à exécuter une application Python pour ajouter des données au graphe. Vous pouvez maintenant générer des requêtes plus complexes et implémenter une logique de traversée de graphique puissante, à l’aide de Gremlin. 
 
 > [!div class="nextstepaction"]
 > [Interroger à l’aide de Gremlin](tutorial-query-graph.md)

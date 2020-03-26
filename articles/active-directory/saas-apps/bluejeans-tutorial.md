@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à BlueJeans for Azure AD | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à BlueJeans for Azure AD | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et BlueJeans for Azure AD.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 10/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dfc38f63c5b6361122c236543320b91d22faa70a
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72595045"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-bluejeans-for-azure-ad"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à BlueJeans for Azure AD
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-bluejeans-for-azure-ad"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à BlueJeans for Azure AD
 
 Dans ce tutoriel, vous allez apprendre à intégrer BlueJeans for Azure AD à Azure Active Directory (Azure AD). Quand vous intégrez BlueJeans for Azure avec Azure AD, vous pouvez :
 
@@ -165,7 +165,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
     a. Dans la zone de texte **User ID** (ID utilisateur), tapez `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
-    b. Dans la zone de texte **Email**, tapez `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    b. Dans la zone de texte **Email** (E-mail), tapez `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
     c. Cliquez sur **ENREGISTRER LES MODIFICATIONS**.
 
@@ -186,7 +186,7 @@ L’objectif de cette section est de créer un utilisateur appelé B.Simon dans 
 
 3. Dans la section **ADD USER** (Ajouter un utilisateur), procédez comme suit :
 
-    ![Add User](./media/bluejeans-tutorial/ic785886.png "Ajouter un utilisateur")
+    ![Ajouter un utilisateur](./media/bluejeans-tutorial/ic785886.png "Ajouter un utilisateur")
 
     a. Dans la zone de texte **First Name** (Prénom), tapez le prénom de l’utilisateur, par exemple **B**.
 
@@ -206,7 +206,7 @@ L’objectif de cette section est de créer un utilisateur appelé B.Simon dans 
 
     i. Cliquez sur **CONTINUE** (Continuer).
 
-    ![Add User](./media/bluejeans-tutorial/ic785887.png "Ajouter un utilisateur")
+    ![Ajouter un utilisateur](./media/bluejeans-tutorial/ic785887.png "Ajouter un utilisateur")
 
     J. Cliquez sur**ADD USER** (Ajouter un utilisateur).
 

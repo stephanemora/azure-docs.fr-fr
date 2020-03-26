@@ -9,10 +9,10 @@ ms.date: 09/05/2019
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: 78440b8150a0992bed2e2a3e597fdac8e7a1c7b0
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75749715"
 ---
 # <a name="latency-in-blob-storage"></a>Latence dans le stockage d’objets blob
@@ -68,4 +68,4 @@ Pour évaluer la latence, commencez par établir les métriques de base pour vot
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Objectifs de performance et d’extensibilité du Stockage Blob](scalability-targets.md)
-- [Check-list des performances et de la scalabilité pour Stockage Blob](storage-performance-checklist.md)
+- [Liste de contrôle des performances et de l’extensibilité pour Stockage Blob](storage-performance-checklist.md)

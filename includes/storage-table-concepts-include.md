@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: 91a52e7eac40c0ac2ab682f251a2ae0013259b25
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77013944"
 ---
 ## <a name="what-is-table-storage"></a>Qu’est-ce qu’un stockage de table ?
@@ -26,17 +26,17 @@ Le stockage de table est composé des éléments suivants :
 
 ![Diagramme des composants du stockage de table][Table1]
 
-* **Format d’URL** : les comptes de stockage Table Azure utilisent ce format : `http://<storage account>.table.core.windows.net/<table>`
+* **Format URL :** les comptes de stockage de table Azure utilisent ce format : `http://<storage account>.table.core.windows.net/<table>`
 
   Les comptes de l’API Table d’Azure Cosmos DB utilisent ce format : `http://<storage account>.table.cosmosdb.azure.com/<table>`  
 
   Vous pouvez traiter les tables Azure directement à l’aide de cette adresse avec le protocole OData. Pour plus d’informations, consultez [OData.org][OData.org].
-* **Comptes :** Tous les accès à Azure Storage passent par un compte de stockage. Pour plus d’informations sur les comptes de stockage, consultez [Vue d’ensemble des comptes de stockage](../articles/storage/common/storage-account-overview.md).
+* **Comptes :** tous les accès au stockage Azure passent par un compte de stockage. Pour plus d’informations sur les comptes de stockage, consultez [Vue d’ensemble des comptes de stockage](../articles/storage/common/storage-account-overview.md).
 
     Tous les accès à Azure Cosmos DB passent par un compte d’API de table. Consultez [Créer un compte d’API de Table](../articles/cosmos-db/create-table-dotnet.md#create-a-database-account) pour plus d’informations sur la création d’un compte d’API de table.
 * **Table**: une table est une collection d’entités. Les tables n’appliquent pas de schéma sur les entités, ce qui signifie qu’une seule table peut contenir des entités ayant différents ensembles de propriétés.  
-* **Entité** : une entité est un ensemble de propriétés similaire à une ligne de base de données. Une entité dans le stockage Azure peut avoir une taille maximale d’1 Mo. Une entité dans le stockage Azure Cosmos DB peut avoir une taille maximale de 2 Mo.
-* **Propriétés** : une propriété est une paire nom-valeur. Chaque entité peut inclure jusqu’à 252 propriétés pour stocker des données. Chaque entité dispose également de trois propriétés système qui spécifient une clé de partition, une clé de ligne et un horodatage. Les entités ayant la même clé de partition peuvent être interrogées plus rapidement et insérées ou mises à jour dans des opérations atomiques. La clé de ligne d'une entité est son identificateur unique à l'intérieur d'une partition.
+* **Entité**: une entité est un ensemble de propriétés similaire à une ligne de base de données. Une entité dans le stockage Azure peut avoir une taille maximale d’1 Mo. Une entité dans le stockage Azure Cosmos DB peut avoir une taille maximale de 2 Mo.
+* **Propriété**: une propriété est une paire nom-valeur. Chaque entité peut inclure jusqu’à 252 propriétés pour stocker des données. Chaque entité dispose également de trois propriétés système qui spécifient une clé de partition, une clé de ligne et un horodatage. Les entités ayant la même clé de partition peuvent être interrogées plus rapidement et insérées ou mises à jour dans des opérations atomiques. La clé de ligne d'une entité est son identificateur unique à l'intérieur d'une partition.
 
 Pour plus de détails sur l’affectation de noms à des tables et les propriétés, consultez la rubrique [Présentation du modèle de données du service de Table (en anglais)](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model).
 

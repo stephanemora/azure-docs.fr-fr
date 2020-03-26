@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Didacticiel : Intégration de l’authentification unique (SSO) Azure Active Directory à ProNovos Analytics | Microsoft Docs'
+title: 'Tutoriel : Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à ProNovos Analytics | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et ProNovos Analytics.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 08/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 03dcc0c62781b6bec0369b7e642976e6d6f9c2f5
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72026635"
 ---
-# <a name="tutorial-tutorial-azure-active-directory-single-sign-on-sso-integration-with-pronovos-analytics"></a>Didacticiel : Didacticiel : Intégration de l’authentification unique (SSO) Azure Active Directory à ProNovos Analytics
+# <a name="tutorial-tutorial-azure-active-directory-single-sign-on-sso-integration-with-pronovos-analytics"></a>Tutoriel : Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à ProNovos Analytics
 
 Dans ce tutoriel, vous allez découvrir comment intégrer ProNovos Analytics à Azure Active Directory (Azure AD). Quand vous intégrez ProNovos Analytics à Azure AD, vous pouvez :
 

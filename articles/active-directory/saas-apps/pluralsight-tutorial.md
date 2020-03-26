@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à Pluralsight | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Pluralsight | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Pluralsight.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 08/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d3659c73886f8c44dec75ab62bc9902ed6f01fd1
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "70164206"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-pluralsight"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Pluralsight
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-pluralsight"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Pluralsight
 
 Dans ce tutoriel, vous allez découvrir comment intégrer Pluralsight à Azure AD (Azure Active Directory). Quand vous intégrez Pluralsight à Azure AD, vous pouvez :
 
@@ -96,7 +96,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de réponse et l’URL de connexion réelles. Contactez [l’équipe de support client Pluralsight](mailto:support@pluralsight.com) pour obtenir ces valeurs. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération**, puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
+1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération** et sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
 

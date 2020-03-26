@@ -9,10 +9,10 @@ ms.devlang: go
 ms.topic: quickstart
 ms.date: 5/6/2019
 ms.openlocfilehash: b44759ce4e65e55a3d143fd178764e8ae6e16e89
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74767923"
 ---
 # <a name="azure-database-for-postgresql---single-server-use-go-language-to-connect-and-query-data"></a>Azure Database pour PostgreSQL (serveur unique) : Utiliser la langage Go pour se connecter et interroger des données

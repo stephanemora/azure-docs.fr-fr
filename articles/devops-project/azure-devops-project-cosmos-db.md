@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Déployer des applications node.js alimentées par Azure Cosmos DB avec Azure DevOps Projects'
+title: 'Tutoriel : Déployer des applications node.js alimentées par Azure Cosmos DB avec Azure DevOps Projects'
 description: Azure DevOps Projects facilite la prise en main d’Azure. Avec DevOps Projects, vous pouvez déployer votre application Node.js alimentée par Azure Cosmos DB sur Windows Web App en quelques étapes rapides.
 ms.author: mlearned
 ms.manager: gwallace
@@ -10,10 +10,10 @@ ms.date: 07/11/2019
 author: mlearned
 monikerRange: vsts
 ms.openlocfilehash: 229b4b9f53ea3866dce1169645f6d6da20827271
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73888901"
 ---
 # <a name="deploy-nodejs-apps-powered-by-azure-cosmos-db-with-devops-projects"></a>Déployer des applications node.js alimentées par Azure Cosmos DB avec DevOps Projects
@@ -45,7 +45,7 @@ Vous avez besoin d’un abonnement Azure. Vous pouvez en obtenir un gratuitement
 
 DevOps Projects crée un pipeline CI/CD dans Azure Pipelines. Vous pouvez créer une organisation Azure DevOps ou utiliser une organisation existante. DevOps Projects crée également des ressources Azure, telles qu’Azure Cosmos DB, Application Insights, App Service et des plans App Service, dans l’abonnement Azure de votre choix.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
 1. Dans le volet de gauche, sélectionnez **Créer une ressource**.
 
@@ -152,13 +152,13 @@ Vous êtes maintenant prêt à collaborer avec une équipe sur votre application
 
      Au bout de quelques secondes, une build est démarrée dans Azure DevOps tandis qu’une mise en production est exécutée pour déployer les modifications. Supervisez l’état de la build dans le tableau de bord DevOps Projects, ou dans le navigateur avec votre organisation Azure DevOps.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Vous pouvez supprimer les ressources associées que vous avez créées lorsque vous n’en avez plus besoin. Utilisez la fonctionnalité **Supprimer** du tableau de bord DevOps Projects.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous pouvez le modifier afin qu’il réponde aux besoins de votre équipe. Vous pouvez également utiliser ce modèle CI/CD comme modèle pour vos autres pipelines. Dans ce tutoriel, vous avez appris à :
+Vous pouvez le modifier afin qu’il réponde aux besoins de votre équipe. Vous pouvez également utiliser ce modèle CI/CD comme modèle pour vos autres pipelines. Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Utiliser DevOps Projects pour déployer une application Node.js alimentée par Azure Cosmos DB
@@ -167,7 +167,7 @@ Vous pouvez le modifier afin qu’il réponde aux besoins de votre équipe. Vous
 > * Examiner le pipeline CI
 > * Examiner le pipeline CD
 > * Valider les modifications dans Git et les déployer automatiquement dans Azure
-> * Supprimer des ressources
+> * Nettoyer les ressources
 
 Consultez [Définir votre pipeline de déploiement continu (CD) multiétape](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=azure-devops&viewFallbackFrom=vsts) pour plus d’informations et pour connaître les étapes suivantes.
 

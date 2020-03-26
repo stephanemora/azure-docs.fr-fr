@@ -10,13 +10,13 @@ ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
 ms.openlocfilehash: 8f245653a8b84944e1e8a3f48a49992f0065be58
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74084405"
 ---
-# <a name="tutorial-use-an-azure-resource-manager-template-to-configure-iot-hub-message-routing"></a>Didacticiel : Utiliser un modèle Azure Resource Manager pour configurer le routage des messages IoT Hub
+# <a name="tutorial-use-an-azure-resource-manager-template-to-configure-iot-hub-message-routing"></a>Tutoriel : Utiliser un modèle Azure Resource Manager pour configurer le routage des messages IoT Hub
 
 [!INCLUDE [iot-hub-include-routing-intro](../../includes/iot-hub-include-routing-intro.md)]
 
@@ -28,7 +28,7 @@ ms.locfileid: "74084405"
 
 ## <a name="download-the-template-and-parameters-file"></a>Télécharger le modèle et le fichier de paramètres
 
-Dans la deuxième partie de ce tutoriel, vous téléchargez et exécutez une application Visual Studio qui envoie des messages au hub IoT. Ce téléchargement contient un dossier où se trouvent le modèle et le fichier de paramètres Azure Resource Manager ainsi que les scripts Azure CLI et PowerShell.
+Dans la deuxième partie de ce tutoriel, vous téléchargez et vous exécutez une application Visual Studio qui envoie des messages au hub IoT. Ce téléchargement contient un dossier où se trouvent le modèle et le fichier de paramètres Azure Resource Manager ainsi que les scripts Azure CLI et PowerShell.
 
 Téléchargez maintenant les [exemples Azure IoT pour C#](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Décompressez le fichier master.zip. Le modèle Resource Manager et le fichier de paramètres sont dans les fichiers **template_iothub.json** et **template_iothub_parameters.json**, sous /iot-hub/Tutorials/Routing/SimulatedDevice/resources/.
 
@@ -36,13 +36,13 @@ Téléchargez maintenant les [exemples Azure IoT pour C#](https://github.com/Azu
 
 Vous allez utiliser un modèle Azure Resource Manager (RM) pour créer toutes vos ressources. Les scripts Azure CLI et PowerShell peuvent exécuter quelques lignes de code à la fois. Un modèle Resource Manager peut être déployé en une seule étape. Cet article décrit chacune des sections séparément pour faciliter la compréhension. Il vous montre ensuite comment déployer le modèle et créer l’appareil virtuel de test. Une fois que le modèle est déployé, vous pouvez voir la configuration du routage des messages dans le portail.
 
-Certains noms de ressources doivent être globalement uniques, tels que le nom du hub IoT et le nom du compte de stockage. Pour faciliter le nommage des ressources, une valeur alphanumérique aléatoire, générée à partir de la date/heure actuelle, est ajoutée à ces noms de ressources. 
+Plusieurs noms de ressources doivent être globalement uniques, comme le nom du hub IoT et le nom du compte de stockage. Pour faciliter le nommage des ressources, une valeur alphanumérique aléatoire, générée à partir de la date/heure actuelle, est ajoutée à ces noms de ressources. 
 
 Si vous examinez le modèle, vous verrez où les variables sont définies pour ces ressources qui prennent le paramètre passé et concatènent la valeur *randomValue* au paramètre. 
 
 La section suivante présente les différents paramètres utilisés.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Paramètres
 
 La plupart de ces paramètres ont des valeurs par défaut. Les paramètres qui finissent par **_in** sont concaténés avec la valeur *randomValue* pour les rendre globalement uniques. 
 
@@ -74,7 +74,7 @@ La plupart de ces paramètres ont des valeurs par défaut. Les paramètres qui f
 
 **AuthRules_sb_queue** : ce champ spécifie les règles d’autorisation de la file d’attente Service Bus qui sont utilisées pour récupérer la chaîne de connexion de la file d’attente.
 
-### <a name="variables"></a>variables
+### <a name="variables"></a>Variables
 
 Utilisées dans le modèle, ces valeurs sont essentiellement dérivées des paramètres.
 
@@ -88,7 +88,7 @@ Utilisées dans le modèle, ces valeurs sont essentiellement dérivées des para
 
 **service_bus_queue** : ce champ indique le nom de la file d’attente Service Bus après sa concaténation avec la valeur randomValue.
 
-**sbVersion** : version de l’API Service Bus à utiliser. Dans ce cas, la version est "2017-04-01".
+**sbVersion** : version de l’API Service Bus à utiliser. Dans ce cas, la version est « 2017-04-01 ».
 
 ### <a name="resources-storage-account-and-container"></a>Ressources : compte de stockage et conteneur
 
@@ -421,4 +421,4 @@ Si vous voyez des erreurs de script, modifiez le script localement, rechargez-le
 Maintenant que vous avez configuré toutes les ressources et les routes des messages, passez au tutoriel suivant pour découvrir comment traiter et afficher les informations relatives aux messages routés.
 
 > [!div class="nextstepaction"]
-> [Partie 2 - Voir les résultats de routage des messages](tutorial-routing-view-message-routing-results.md)
+> [Partie 2 - Voir les résultats du routage des messages](tutorial-routing-view-message-routing-results.md)

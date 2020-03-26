@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 05/15/2019
 ms.author: rolyon
 ms.openlocfilehash: 96ca4f65d2def5f5004388c533410f09cc2a71fa
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77138216"
 ---
 # <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-resource-manager-template"></a>Tutoriel : Accorder un accès utilisateur aux ressources Azure à l’aide du contrôle d’accès en fonction du rôle (RBAC) et d’un modèle Resource Manager
@@ -34,7 +34,7 @@ Dans ce tutoriel, vous allez apprendre à :
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour ajouter et supprimer des attributions de rôles, vous devez disposer :
 

@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/10/2020
 ms.openlocfilehash: 2b4f67fc448d98239947fd764d4926f1d590c5e2
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77121593"
 ---
 # <a name="c-tutorial-create-your-first-app---azure-cognitive-search"></a>Tutoriel C# : Créer votre première application - Recherche cognitive Azure
@@ -44,7 +44,7 @@ Cet appel lance une recherche de données Azure et retourne les résultats.
 ![Recherche portant sur le terme « pool »](./media/tutorial-csharp-create-first-app/azure-search-pool.png)
 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
 

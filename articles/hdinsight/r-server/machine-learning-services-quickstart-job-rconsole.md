@@ -9,10 +9,10 @@ ms.date: 06/19/2019
 ms.author: hrasheed
 ms.custom: mvc
 ms.openlocfilehash: af41a7569dedc9a56f67be8ae791d7185e0c7489
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73241603"
 ---
 # <a name="quickstart-execute-an-r-script-on-an-ml-services-cluster-in-azure-hdinsight-using-r-console"></a>Démarrage rapide : Exécuter un script R sur un cluster ML Services dans HDInsight Azure à l’aide de la console R
@@ -23,7 +23,7 @@ Dans ce guide de démarrage rapide, vous allez apprendre à exécuter un script 
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un cluster ML Services sur HDInsight. Consultez [Création clusters Apache Hadoop à l’aide du portail Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) et sélectionnez **ML Services** pour le **Type de cluster**.
+* Un cluster ML Services sur HDInsight. Consultez [Création clusters Apache Hadoop à l’aide du Portail Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) et sélectionnez **ML Services** pour le **Type de cluster**.
 
 * Un client SSH. Pour plus d’informations, consultez [Se connecter à HDInsight (Apache Hadoop) à l’aide de SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -182,7 +182,7 @@ Dans ce guide de démarrage rapide, vous allez apprendre à exécuter un script 
     quit()
     ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Après avoir suivi ce guide de démarrage rapide, vous souhaiterez peut-être supprimer le cluster. Avec HDInsight, vos données sont stockées Azure Storage, pour que vous puissiez supprimer un cluster en toute sécurité s’il n’est pas en cours d’utilisation. Vous devez également payer pour un cluster HDInsight, même lorsque vous ne l’utilisez pas. Étant donné que les frais pour le cluster sont bien plus élevés que les frais de stockage, économique, mieux vaut supprimer les clusters lorsqu’ils ne sont pas utilisés.
 

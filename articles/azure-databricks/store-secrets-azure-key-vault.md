@@ -8,10 +8,10 @@ ms.service: azure-databricks
 ms.topic: tutorial
 ms.date: 07/19/2019
 ms.openlocfilehash: 15399d5a00c13141877dcf44640df2c1f9b9ba5c
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75889056"
 ---
 # <a name="tutorial-access-azure-blob-storage-from-azure-databricks-using-azure-key-vault"></a>Tutoriel : Accéder à Stockage Blob Azure à partir d’Azure Databricks en utilisant Azure Key Vault
@@ -26,7 +26,7 @@ Dans ce tutoriel, vous allez apprendre à :
 > * Créer un espace de travail Azure Databricks et une étendue de secrets
 > * Accéder à votre conteneur d’objets blob à partir d’Azure Databricks
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/)
 
@@ -76,10 +76,10 @@ Connectez-vous au [portail Azure](https://portal.azure.com/).
 
    |Propriété|Description|
    |--------|-----------|
-   |Name|Nom unique pour votre coffre de clés.|
-   |Subscription|Choisissez un abonnement.|
+   |Nom|Nom unique pour votre coffre de clés.|
+   |Abonnement|Choisissez un abonnement.|
    |Resource group|Choisissez un groupe de ressources ou créez-en un.|
-   |Location|Choisissez un emplacement.|
+   |Emplacement|Choisissez un emplacement.|
 
    ![Propriétés du coffre de clés Azure](./media/store-secrets-azure-key-vault/create-key-vault-properties.png)
 
@@ -94,7 +94,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com/).
    |Propriété|Valeur|
    |--------|-----------|
    |Options de chargement|Manuel|
-   |Name|Nom convivial de votre clé de compte de stockage.|
+   |Nom|Nom convivial de votre clé de compte de stockage.|
    |Valeur|Clé 1 de votre compte de stockage.|
 
    ![Propriétés du nouveau secret de coffre de clés](./media/store-secrets-azure-key-vault/create-storage-secret.png)
@@ -114,9 +114,9 @@ Connectez-vous au [portail Azure](https://portal.azure.com/).
    |Propriété  |Description  |
    |---------|---------|
    |Nom de l’espace de travail     | Renseignez un nom pour votre espace de travail Databricks.        |
-   |Subscription     | Sélectionnez votre abonnement Azure dans la liste déroulante.        |
+   |Abonnement     | Sélectionnez votre abonnement Azure dans la liste déroulante.        |
    |Resource group     | Sélectionnez le même groupe de ressources que celui qui contient votre coffre de clés. |
-   |Location     | Sélectionnez le même emplacement que votre coffre de clés Azure. Pour connaître toutes les régions disponibles, consultez [Disponibilité des services Azure par région](https://azure.microsoft.com/regions/services/).        |
+   |Emplacement     | Sélectionnez le même emplacement que votre coffre de clés Azure. Pour connaître toutes les régions disponibles, consultez [Disponibilité des services Azure par région](https://azure.microsoft.com/regions/services/).        |
    |Niveau de tarification     |  Choisissez entre **Standard** ou **Premium**. Pour plus d’informations sur ces niveaux, consultez la [page de tarification Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
 
    ![Propriétés de l’espace de travail Databricks](./media/store-secrets-azure-key-vault/create-databricks-service.png)

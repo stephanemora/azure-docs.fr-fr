@@ -17,10 +17,10 @@ ms.date: 08/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 602c885deca429b56417181971ced495831ba5d3
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68823695"
 ---
 # <a name="tutorial-integrate-dmarcian-with-azure-active-directory"></a>Tutoriel : Intégrer dmarcian à Azure Active Directory
@@ -29,7 +29,7 @@ Dans ce tutoriel, vous allez apprendre à intégrer dmarcian à Azure Active Dir
 
 * Dans Azure AD, contrôler qui a accès à dmarcian
 * Permettre à vos utilisateurs de se connecter automatiquement à dmarcian avec leur compte Azure AD
-* Gérer vos comptes à un emplacement central : le Portail Azure
+* Gérer vos comptes à un emplacement central : le Portail Azure.
 
 Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
@@ -37,7 +37,7 @@ Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, cons
 
 Pour commencer, vous devez disposer de ce qui suit :
 
-* Un abonnement Azure AD. Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
+* Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
 * Un abonnement dmarcian pour lequel l’authentification unique (SSO) est activée.
 
 ## <a name="scenario-description"></a>Description du scénario
@@ -48,7 +48,7 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 
 ## <a name="adding-dmarcian-from-the-gallery"></a>Ajout de dmarcian à partir de la galerie
 
-Pour configurer l’intégration de dmarcian à Azure AD, vous devez ajouter dmarcian à partir de la galerie à votre liste d’applications SaaS managées.
+Pour configurer l’intégration de dmarcian à Azure AD, vous devez ajouter dmarcian à partir de la galerie à votre liste d’applications SaaS gérées.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
 1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.

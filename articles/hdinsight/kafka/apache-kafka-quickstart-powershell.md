@@ -9,17 +9,17 @@ ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/12/2019
 ms.openlocfilehash: d14d8f38ff8a2bed01584d5c5fec56d254cede05
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73494756"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-powershell"></a>Démarrage rapide : Créer un cluster Apache Kafka dans Azure HDInsight à l’aide de PowerShell
 
 [Apache Kafka](https://kafka.apache.org/) est une plateforme de streaming open source distribuée. Elle est souvent utilisée comme broker de messages, car elle propose des fonctionnalités similaires à une file d’attente de messages de publication/abonnement. 
 
-Dans ce guide de démarrage rapide, vous allez apprendre à créer un cluster [Apache Kafka](https://kafka.apache.org) à l’aide d’Azure PowerShell. Vous apprendrez également à utiliser les utilitaires inclus pour envoyer et recevoir des messages à l’aide de Kafka.
+Dans ce guide de démarrage rapide, vous allez apprendre à créer un cluster [Apache Kafka](https://kafka.apache.org) à l’aide d’Azure PowerShell. Il vous expliquera également comment utiliser les utilitaires inclus pour envoyer et recevoir des messages avec Kafka.
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -133,13 +133,13 @@ New-AzHDInsightCluster `
 
 La création du cluster HDInsight peut prendre jusqu’à 20 minutes.
 
-Le paramètre `-DisksPerWorkerNode` configure l’évolutivité de Kafka sur HDInsight. Kafka sur HDInsight utilise le disque local des machines virtuelles dans le cluster pour stocker les données. En raison de son utilisation intensive des E/S, Kafka utilise [Azure Disques managés](../../virtual-machines/windows/managed-disks-overview.md) pour obtenir un débit élevé et davantage de stockage à chaque nœud.
+Le paramètre `-DisksPerWorkerNode` configure l’évolutivité de Kafka sur HDInsight. Kafka sur HDInsight utilise le disque local des machines virtuelles du cluster pour stocker les données. En raison de son utilisation intensive des E/S, Kafka utilise [Azure Disques managés](../../virtual-machines/windows/managed-disks-overview.md) pour obtenir un débit élevé et davantage de stockage à chaque nœud.
 
 Le type de disque managé peut être soit __Standard__ (HDD), soit __Premium__ (SSD). Le type de disque dépend de la taille de la machine virtuelle utilisée par les nœuds de travail (brokers Kafka). Les disques Premium sont utilisés automatiquement avec les machines virtuelles des séries DS et GS. Tous les autres types de machines virtuelles utilisent des disques Standard. Vous pouvez définir le type de machine virtuelle à l’aide du paramètre `-WorkerNodeSize`. Pour plus d’informations sur les paramètres, consultez la documentation de [New-AzHDInsightCluster](/powershell/module/az.HDInsight/New-azHDInsightCluster).
 
 Si vous envisagez d’utiliser plus de 32 nœuds de travail lors de la création du cluster ou en faisant évoluer le cluster après sa création, vous devez utiliser le paramètre `-HeadNodeSize` pour spécifier une taille de machine virtuelle avec au moins 8 cœurs et 14 Go de RAM. Pour plus d’informations sur les tailles de nœud et les coûts associés, consultez [Tarification HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-## <a name="connect-to-the-cluster"></a>Connexion au cluster
+## <a name="connect-to-the-cluster"></a>Se connecter au cluster
 
 1. Pour vous connecter au nœud principal primaire du cluster Kafka, utilisez la commande suivante. Remplacez `sshuser` par le nom d’utilisateur SSH. Remplacez `mykafka` par le nom de votre cluster Kafka.
 
@@ -174,7 +174,7 @@ Welcome to Kafka on HDInsight.
 Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
 ```
 
-## <a id="getkafkainfo"></a>Obtenir des informations sur les hôtes Apache Zookeeper et Broker
+## <a name="get-the-apache-zookeeper-and-broker-host-information"></a><a id="getkafkainfo"></a>Obtenir des informations sur les hôtes Apache Zookeeper et Broker
 
 Si vous utilisez Kafka, vous devez connaître les hôtes *Apache ZooKeeper* et *Broker*. Ces hôtes sont utilisés avec l’API Kafka et la plupart des utilitaires fournis avec Kafka.
 
@@ -317,7 +317,7 @@ Pour stocker les enregistrements dans la rubrique test créée précédemment, p
 
 Vous pouvez également créer les producteurs et consommateurs par programme. Pour voir un exemple d’utilisation de cette API, consultez le document [API de producteur et de consommateur Apache Kafka avec HDInsight](apache-kafka-producer-consumer-api.md).
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Quand vous n’en avez plus besoin, vous pouvez utiliser la commande [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) pour supprimer le groupe de ressources, HDInsight et toutes les ressources associées.
 

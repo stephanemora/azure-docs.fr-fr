@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Créer à l’aide du portail - Pare-feu d’applications web'
+title: 'Tutoriel : Créer à l’aide du portail - Pare-feu d’applications web'
 description: Dans ce tutoriel, vous allez découvrir comment créer une passerelle d’application avec un pare-feu d’applications web à partir du portail Azure.
 services: web-application-firewall
 author: vhorne
@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.date: 11/14/2019
 ms.author: victorh
 ms.openlocfilehash: 68a9f051bf3d59cbf32377cb503e9ded0a54d5e9
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74049224"
 ---
-# <a name="tutorial-create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>Didacticiel : Créer une passerelle d’application avec un pare-feu d’applications web à l’aide du portail Azure
+# <a name="tutorial-create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>Tutoriel : Créer une passerelle d’application avec un pare-feu d’applications web à l’aide du portail Azure
 
 Ce tutoriel explique comment utiliser le portail Azure pour créer une passerelle d’application avec un pare-feu d’applications web (WAF). Le WAF utilise des règles [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) pour protéger votre application. Ces règles incluent la protection contre les attaques telles que l’injection de code SQL, les attaques de script entre sites et les détournements de session. Après avoir créé la passerelle d’application, vous la testez pour vous assurer qu’elle fonctionne correctement. Avec Azure Application Gateway, vous dirigez le trafic web de votre application vers des ressources spécifiques en affectant des écouteurs à des ports, en créant des règles et en ajoutant des ressources à un pool de back-ends. Par souci de simplicité, ce tutoriel utilise une configuration simple avec une adresse IP front-end publique, un écouteur de base pour héberger un site unique sur cette passerelle d’application, deux machines virtuelles utilisées pour le pool back-end et une règle de routage de demande simple.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créer une passerelle d’application avec WAF activé
@@ -60,7 +60,7 @@ Sélectionnez **Mise en réseau**, puis sélectionnez **Application Gateway** da
 
     Sous **Configurer le réseau virtuel**, créez un réseau virtuel en sélectionnant **Créer nouveau**. Dans la fenêtre **Créer un réseau virtuel** qui s’ouvre, entrez les valeurs suivantes pour créer le réseau virtuel et deux sous-réseaux :
 
-    - **Nom** : entrez *myVNet* comme nom de réseau virtuel.
+    - **Name** : entrez *myVNet* comme nom de réseau virtuel.
 
     - **Nom de sous-réseau** (sous-réseau Application Gateway) : La grille **Sous-réseaux** affiche un sous-réseau nommé *Par défaut*. Remplacez le nom de ce sous-réseau par *myAGSubnet*.<br>Le sous-réseau de passerelle d’application peut contenir uniquement des passerelles d’application. Aucune autre ressource n’est autorisée.
 
@@ -94,7 +94,7 @@ Le pool de back-ends est utilisé pour router les demandes vers les serveurs bac
 
 2. Dans la fenêtre **Ajouter un pool de back-ends** qui s’ouvre, entrez les valeurs suivantes pour créer un pool de back-ends vide :
 
-    - **Nom** : Entrez *myBackendPool* comme nom du pool de back-ends.
+    - **Name** : Entrez *myBackendPool* comme nom du pool de back-ends.
     - **Ajouter un pool backend sans cible** : Sélectionnez **Oui** pour créer un pool de back-ends sans cible. Vous ajouterez des cibles de back-end après avoir créé la passerelle d’application.
 
 3. Dans la fenêtre **Ajouter un pool de back-ends**, sélectionnez  **Ajouter** pour enregistrer la configuration du pool de back-ends et revenir à l’onglet **Back-ends**.
@@ -252,7 +252,7 @@ Même si IIS n’est pas nécessaire pour créer la passerelle d’application, 
 
    ![Tester la passerelle d’application](../media/application-gateway-web-application-firewall-portal/application-gateway-iistest.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Quand vous n’avez plus besoin des ressources que vous avez créées avec la passerelle d’application, supprimez le groupe de ressources. En supprimant le groupe de ressources, vous supprimez aussi la passerelle d’application et toutes ses ressources associées. 
 

@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à Qmarkets Idea & Innovation Management | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Qmarkets Idea & Innovation Management | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Qmarkets Idea & Innovation Management.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 11/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1d3e3f86d761a686993e6ecf32718aa2e15dac92
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74534616"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-qmarkets-idea--innovation-management"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Qmarkets Idea & Innovation Management
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-qmarkets-idea--innovation-management"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Qmarkets Idea & Innovation Management
 
 Dans ce tutoriel, vous allez apprendre à intégrer Qmarkets Idea & Innovation Management à Azure Active Directory (Azure AD). Quand vous intégrez Qmarkets Idea & Innovation Management à Azure AD, vous pouvez :
 

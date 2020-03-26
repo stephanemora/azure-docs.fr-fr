@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Déployer un modèle de clustering en R'
+title: 'Tutoriel : Déployer un modèle de clustering en R'
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
 description: Dans le troisième volet de ce tutoriel en trois parties, vous allez déployer un modèle de clustering en R avec Azure SQL Database Machine Learning Services (préversion).
 services: sql-database
@@ -14,23 +14,23 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/29/2019
 ms.openlocfilehash: 6f4d237d5e923aab61ae34a235d2e1f759399e6d
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68640908"
 ---
-# <a name="tutorial-deploy-a-clustering-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Didacticiel : Déployer un modèle de clustering en R avec Azure SQL Database Machine Learning Services (préversion)
+# <a name="tutorial-deploy-a-clustering-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Tutoriel : Déployer un modèle de clustering en R avec Azure SQL Database Machine Learning Services (préversion)
 
 Dans la dernière partie de ce didacticiel qui en compte trois, vous allez déployer un modèle de clustering développé en R dans une base de données SQL en utilisant le service Machine Learning Services (préversion) d’Azure SQL Database.
 
 Vous allez créer une procédure stockée avec un script R incorporé qui effectue un clustering. Du fait que votre modèle s’exécute dans la base de données Azure SQL, il peut facilement être entraîné sur des données stockées dans la base de données.
 
-Cet article porte sur les points suivants :
+Dans cet article, vous allez apprendre à :
 
 > [!div class="checklist"]
-> * Création d’une procédure stockée qui génère le modèle
-> * Effectuer un clustering dans SQL Database
+> * Créer une procédure stockée qui génère le modèle
+> * Effectuer le clustering dans SQL Database
 > * Utiliser les informations de clustering
 
 Dans la [première partie](sql-database-tutorial-clustering-model-prepare-data.md), vous avez appris à préparer les données d’une base de données Azure SQL afin d’effectuer un clustering.
@@ -43,12 +43,12 @@ Dans la [deuxième partie](sql-database-tutorial-clustering-model-build.md), vou
 
 * La troisième partie de cette série de tutoriels suppose que vous avez préalablement effectué dans leur intégralité la [**première partie**](sql-database-tutorial-clustering-model-prepare-data.md) et la [**deuxième partie**](sql-database-tutorial-clustering-model-build.md).
 
-## <a name="create-a-stored-procedure-that-generates-the-model"></a>Création d’une procédure stockée qui génère le modèle
+## <a name="create-a-stored-procedure-that-generates-the-model"></a>Créer une procédure stockée qui génère le modèle
 
-Exécutez le script T-SQL suivant pour créer la procédure stockée. La procédure recrée les étapes que vous avez développées dans les première et deuxième parties de ce didacticiel :
+Exécutez le script T-SQL suivant pour créer la procédure stockée. La procédure recrée les étapes que vous avez développées dans les parties 1 et 2 de cette série de tutoriels :
 
-* Classer les clients en fonction de leur historique d’achats et de retours
-* Générer quatre clusters de clients à l’aide d’un algorithme k-moyennes
+* classer les clients en fonction de leur historique d’achat et de retour
+* générer quatre clusters de clients à l’aide d’un algorithme K-Means
 
 La procédure stocke les mappages de clusters clients qui en résultent dans la table de base de données **customer_return_clusters**.
 
@@ -175,7 +175,7 @@ END;
 GO
 ```
 
-## <a name="perform-clustering-in-sql-database"></a>Effectuer un clustering dans SQL Database
+## <a name="perform-clustering-in-sql-database"></a>Effectuer le clustering dans SQL Database
 
 Maintenant que vous avez créé la procédure stockée, exécutez le script suivant pour effectuer le clustering.
 
@@ -208,7 +208,7 @@ cluster  customer  orderRatio  itemsRatio  monetaryRatio  frequency
 
 ## <a name="use-the-clustering-information"></a>Utiliser les informations de clustering
 
-Étant donné que vous avez stocké la procédure de clustering dans la base de données, celle-ci peut effectuer un clustering efficacement à partir des données clients qui sont stockées dans la base de données. Vous pouvez exécuter la procédure chaque fois que les données clients sont mises à jour, et utiliser les informations de clustering mises à jour.
+Étant donné que vous avez stocké la procédure de clustering dans la base de données, elle peut effectuer efficacement le clustering sur les données client stockées dans la même base de données. Vous pouvez exécuter la procédure chaque fois que vos données client sont mises à jour et utiliser les informations de clustering mises à jour.
 
 Supposons que vous souhaitiez envoyer un e-mail promotionnel aux clients du cluster 3, qui sont ceux pour qui les retours sont les plus fréquents (pour lire la description des quatre clusters, lisez la [deuxième partie](sql-database-tutorial-clustering-model-build.md#analyze-the-results)). Le code suivant sélectionne les adresses e-mail des clients du cluster 3.
 
@@ -224,7 +224,7 @@ WHERE r.cluster = 3
 
 Vous pouvez changer la valeur **r.cluster** pour retourner les adresses e-mail des clients des autres clusters.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous avez terminé ce tutoriel, vous pouvez supprimer la base de données tpcxbb_1gb de votre serveur Azure SQL Database.
 
@@ -237,15 +237,15 @@ Sur le portail Azure, procédez comme suit :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans la troisième partie de cette série de tutoriels, vous avez effectué les étapes suivantes :
+Dans la troisième partie de cette série de tutoriels, vous avez effectué les étapes suivantes :
 
-* Création d’une procédure stockée qui génère le modèle
-* Effectuer un clustering dans SQL Database
+* Créer une procédure stockée qui génère le modèle
+* Effectuer le clustering dans SQL Database
 * Utiliser les informations de clustering
 
 Pour en savoir plus sur l’utilisation de R dans Azure SQL Database Machine Learning Services (préversion), voir :
 
-* [Tutoriel : Préparer des données pour entraîner un modèle prédictif en R avec Azure SQL Database Machine Learning Services (préversion)](sql-database-tutorial-predictive-model-prepare-data.md)
+* [Tutoriel : Préparer des données pour entraîner un modèle prédictif en R avec Azure SQL Database Machine Learning Services (préversion)](sql-database-tutorial-predictive-model-prepare-data.md)
 * [Écrire des fonctions R avancées dans Azure SQL Database avec Machine Learning Services (préversion)](sql-database-machine-learning-services-functions.md)
-* [Exploiter des données R et SQL dans Azure SQL Database Machine Learning Services (préversion)](sql-database-machine-learning-services-data-issues.md)
+* [Exploiter des données R et SQL dans Machine Learning Services d’Azure SQL Database (préversion)](sql-database-machine-learning-services-data-issues.md)
 * [Ajouter un package R à Azure SQL Database Machine Learning Services (préversion)](sql-database-machine-learning-services-add-r-packages.md)

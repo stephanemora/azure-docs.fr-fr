@@ -6,10 +6,10 @@ ms.topic: quickstart
 ms.date: 04/16/2019
 ms.custom: mvc
 ms.openlocfilehash: 8021ca553a1434c891bee911e85d351c61938594
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74171960"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>Sauvegarder une machine virtuelle dans Azure avec PowerShell
@@ -46,7 +46,7 @@ Lorsque vous créez le coffre :
 
 - Pour l’emplacement et le groupe de ressources, spécifiez l’emplacement et le groupe de ressources de la machine virtuelle que vous souhaitez sauvegarder.
 - Si vous avez utilisé cet [exemple de script](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json) pour créer la machine virtuelle, le groupe de ressources est **myResourceGroup**, la machine virtuelle est **myVM** et les ressources se trouvent dans la région **WestEurope**.
-- La sauvegarde Azure gère automatiquement le stockage des données sauvegardées. Par défaut, le coffre utilise [le stockage géoredondant (GRS)](../storage/common/storage-redundancy-grs.md). La géoredondance garantit que les données sauvegardées sont répliquées dans une région Azure secondaire, à des centaines de kilomètres de la région primaire.
+- La Sauvegarde Azure gère automatiquement le stockage des données sauvegardées. Par défaut, le coffre utilise [le stockage géoredondant (GRS)](../storage/common/storage-redundancy-grs.md). La géoredondance garantit que les données sauvegardées sont répliquées dans une région Azure secondaire, à des centaines de kilomètres de la région primaire.
 
 À présent, créez un coffre :
 

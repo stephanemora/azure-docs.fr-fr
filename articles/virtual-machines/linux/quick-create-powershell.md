@@ -16,13 +16,13 @@ ms.date: 10/17/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 1e336ad05d70341365b63d806b249740113724d3
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74035207"
 ---
-# <a name="quickstart-create-a-linux-virtual-machine-in-azure-with-powershell"></a>Démarrage rapide : Créer une machine virtuelle Linux dans Azure avec PowerShell
+# <a name="quickstart-create-a-linux-virtual-machine-in-azure-with-powershell"></a>Démarrage rapide : créer une machine virtuelle Linux dans Azure avec PowerShell
 
 Le module Azure PowerShell est utilisé pour créer et gérer des ressources Azure à partir de la ligne de commande PowerShell ou dans des scripts. Ce guide de démarrage rapide explique comment utiliser le module Azure PowerShell pour déployer une machine virtuelle Linux dans Azure. Ce démarrage rapide utilise l’image du marketplace Ubuntu 16.04 LTS fournie par Canonical. Pour voir votre machine virtuelle en action, vous établirez également une connexion SSH à la machine virtuelle et installez le serveur web NGINX.
 
@@ -212,7 +212,7 @@ Utilisez le navigateur web de votre choix pour visualiser la page d’accueil NG
 
 ![Page d’accueil par défaut de NGINX](./media/quick-create-cli/nginix-welcome-page.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous n’en avez plus besoin, vous pouvez utiliser la cmdlet [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) pour supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées :
 

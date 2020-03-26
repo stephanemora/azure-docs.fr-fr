@@ -9,11 +9,11 @@ ms.date: 02/05/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
 ms.openlocfilehash: 9ac70252ce7c818ccbdecfd996b9970f011aa967
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77056340"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79290187"
 ---
 # <a name="about-azure-virtual-wan"></a>À propos d'Azure Virtual WAN
 
@@ -29,7 +29,7 @@ Cet article fournit un aperçu rapide de la connectivité réseau dans Azure Vir
 * **Installation et configuration de spokes automatisés :** Connectez vos charges de travail et vos réseaux virtuels au hub Azure sans interruption.
 * **Résolution de problèmes intuitive :** Vous pouvez voir le flux de bout en bout au sein d’Azure et utiliser ces informations pour prendre les mesures nécessaires.
 
-## <a name="basicstandard"></a>WAN virtuels De base et Standard
+## <a name="basic-and-standard-virtual-wans"></a><a name="basicstandard"></a>WAN virtuels De base et Standard
 
 Il existe deux types de réseaux étendus (WAN) : De base et Standard. Le tableau suivant présente les configurations disponibles pour chaque type.
 
@@ -37,14 +37,14 @@ Il existe deux types de réseaux étendus (WAN) : De base et Standard. Le table
 
 Pour connaître la procédure de mise à niveau d'un WAN virtuel, consultez [Procéder à la mise à niveau d'un WAN virtuel De base vers le niveau Standard](upgrade-virtual-wan.md).
 
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a><a name="architecture"></a>Architecture
 
 Pour plus d’informations sur l’architecture du WAN virtuel et sur la migration vers un WAN virtuel, consultez les articles suivants :
 
 * [Architecture du WAN virtuel](migrate-from-hub-spoke-topology.md)
 * [Architecture du réseau de transit global](virtual-wan-global-transit-network-architecture.md)
 
-## <a name="resources"></a>Ressources du WAN virtuel
+## <a name="virtual-wan-resources"></a><a name="resources"></a>Ressources du WAN virtuel
 
 Pour configurer un WAN virtuel de bout en bout, vous devez créer les ressources suivantes :
 
@@ -64,17 +64,17 @@ Pour configurer un WAN virtuel de bout en bout, vous devez créer les ressources
 
   * **Site :** Cette ressource est utilisée pour les connexions site à site uniquement. La ressource de site est **vpnsite**. Elle représente votre périphérique VPN local et ses paramètres. En faisant appel à un partenaire de WAN virtuel, vous disposez d’une solution intégrée pour exporter automatiquement ces informations vers Azure.
 
-## <a name="connectivity"></a>Types de connectivité
+## <a name="types-of-connectivity"></a><a name="connectivity"></a>Types de connectivité
 
 Virtual WAN permet les types de connectivité suivants : VPN site à site, VPN utilisateur (point à site) et ExpressRoute.
 
-### <a name="s2s"></a>Connexion VPN site à site
+### <a name="site-to-site-vpn-connections"></a><a name="s2s"></a>Connexion VPN site à site
 
 ![Diagramme WAN virtuel](./media/virtual-wan-about/virtualwan.png)
 
 Lorsque vous créez une connexion Virtual WAN site à site, vous pouvez travailler avec un partenaire disponible. Si vous ne voulez pas utiliser de partenaire, vous pouvez configurer manuellement la connexion. Pour plus d’informations, consultez [Créer une connexion site à site à l’aide de Virtual WAN](virtual-wan-site-to-site-portal.md).
 
-#### <a name="s2spartner"></a>Workflow des partenaires Virtual WAN
+#### <a name="virtual-wan-partner-workflow"></a><a name="s2spartner"></a>Workflow des partenaires Virtual WAN
 
 Quand vous travaillez avec un partenaire Virtual WAN, le workflow est le suivant :
 
@@ -82,22 +82,22 @@ Quand vous travaillez avec un partenaire Virtual WAN, le workflow est le suivant
 2. Le contrôleur de l’appareil de branche (VPN/SDWAN) obtient la configuration de la connectivité Azure et met à jour l’appareil local. Cela permet d’automatiser le téléchargement, la modification et la mise à jour de la configuration sur le périphérique VPN local.
 3. Une fois que l’appareil possède la bonne configuration Azure, une connexion de site à site (deux tunnels actifs) est établie avec le WAN Azure. Azure prend en charge IKEv1 et IKEv2. La prise en charge du protocole BGP est facultative.
 
-#### <a name="partners"></a>Partenaires pour les connexions Virtual WAN site à site
+#### <a name="partners-for-site-to-site-virtual-wan-connections"></a><a name="partners"></a>Partenaires pour les connexions Virtual WAN site à site
 
 Pour obtenir la liste des partenaires et des emplacements disponibles, consultez l’article [Partenaires et emplacements Virtual WAN](virtual-wan-locations-partners.md).
 
-### <a name="uservpn"></a>Connexions VPN utilisateur (point à site)
+### <a name="user-vpn-point-to-site-connections"></a><a name="uservpn"></a>Connexions VPN utilisateur (point à site)
 
 Vous pouvez vous connecter à vos ressources Azure via une connexion IPsec/IKE (IKEv2) ou OpenVPN. Pour utiliser ce type de connexion, un client VPN doit être configuré sur l'ordinateur client. Pour plus d'informations, consultez [Créer une connexion point à site](virtual-wan-point-to-site-portal.md).
 
-### <a name="er"></a>Connexions ExpressRoute
+### <a name="expressroute-connections"></a><a name="er"></a>Connexions ExpressRoute
 ExpressRoute vous permet de connecter votre réseau local à Azure via une connexion privée. Pour établir la connexion, consultez [Créer une connexion ExpressRoute à l’aide de Virtual WAN](virtual-wan-expressroute-portal.md).
 
-## <a name="locations"></a>Emplacements
+## <a name="locations"></a><a name="locations"></a>Emplacements
 
 Pour plus d’informations sur les emplacements, consultez l’article [Partenaires et emplacements Virtual WAN](virtual-wan-locations-partners.md).
 
-## <a name="faq"></a>Forum Aux Questions
+## <a name="faq"></a><a name="faq"></a>Forum Aux Questions
 
 [!INCLUDE [Virtual WAN FAQ](../../includes/virtual-wan-faq-include.md)]
 

@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à WorkBoard | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à WorkBoard | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et WorkBoard.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 09/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b29405ebc620736a4318c2c3a875e8864c1eafb6
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "70846904"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workboard"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à WorkBoard
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workboard"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à WorkBoard
 
 Dans ce tutoriel, vous allez apprendre à intégrer WorkBoard à Azure Active Directory (Azure AD). Quand vous intégrez WorkBoard à Azure AD, vous pouvez :
 
@@ -94,7 +94,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Pour obtenir ces valeurs, contactez l’[équipe du support technique de WorkBoard](mailto:support@workboard.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération**, puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
+1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération** et sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
 

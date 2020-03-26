@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 10/08/2019
-ms.openlocfilehash: 102523316aaa59803fb9a6957457fc7bd4f6ce4f
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 5a7d4d1917f65cd3d836db83600937a3e3d89de6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77186810"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79223596"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>Tutoriel : Utiliser les API de producteur et de consommateur Apache Kafka
 
@@ -24,14 +24,14 @@ L’API de producteur Kafka permet aux applications d’envoyer des flux de donn
 Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
-> * Conditions préalables requises
+> * Prérequis
 > * Comprendre le code
 > * Générer et déployer l’application
 > * Exécuter l’application sur le cluster
 
 Pour plus d’informations sur les API, consultez la documentation Apache sur l’[API de producteur](https://kafka.apache.org/documentation/#producerapi) et l’[API de consommateur](https://kafka.apache.org/documentation/#consumerapi).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Apache Kafka sur un cluster HDInsight. Pour découvrir comment créer un cluster, consultez [Démarrer avec Apache Kafka sur HDInsight](apache-kafka-get-started.md).
 * [Kit de développeur Java (JDK) version 8](https://aka.ms/azure-jdks) ou un équivalent, tel qu’OpenJDK.
@@ -133,7 +133,7 @@ Si vous souhaitez ignorer cette étape, vous pouvez télécharger les fichiers 
     scp ./target/kafka-producer-consumer-1.0-SNAPSHOT.jar sshuser@CLUSTERNAME-ssh.azurehdinsight.net:kafka-producer-consumer.jar
     ```
 
-## <a id="run"></a> Exécuter l’exemple
+## <a name="run-the-example"></a><a id="run"></a> Exécuter l’exemple
 
 1. Remplacez `sshuser` par l’utilisateur SSH de votre cluster, puis remplacez `CLUSTERNAME` par le nom de votre cluster. Ouvrez une connexion SSH au cluster en entrant la commande suivante. Si vous y êtes invité, entrez le mot de passe du compte d’utilisateur SSH.
 
@@ -218,5 +218,5 @@ Pour supprimer le groupe de ressources à l’aide du portail Azure :
 
 Dans ce document, vous avez découvert comment utiliser les API de consommateur et de producteur Apache Kafka avec Kafka sur HDInsight. Consultez les articles suivants pour en savoir plus sur l’utilisation de Kafka :
 
-> [!div class="nextstepaction"]
-> [Analyser les journaux d’activité Apache Kafka](apache-kafka-log-analytics-operations-management.md)
+* [Utiliser le proxy REST Kafka](rest-proxy.md)
+* [Analyser les journaux d’activité Apache Kafka](apache-kafka-log-analytics-operations-management.md)

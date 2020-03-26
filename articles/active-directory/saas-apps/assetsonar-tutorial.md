@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à AssetSonar | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à AssetSonar | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et AssetSonar.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 12/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e7b2f10a7d784fa7e089484afd5558c4c1db2275
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74896730"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-assetsonar"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à AssetSonar
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-assetsonar"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à AssetSonar
 
 Dans ce tutoriel, vous allez apprendre à intégrer AssetSonar à Azure Active Directory (Azure AD). Quand vous intégrez AssetSonar à Azure AD, vous pouvez :
 

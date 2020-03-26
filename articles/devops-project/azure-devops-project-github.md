@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Créer un pipeline CI/CD pour votre code existant avec Azure DevOps Projects'
+title: 'Tutoriel : Créer un pipeline CI/CD pour votre code existant avec Azure DevOps Projects'
 description: Azure DevOps Projects facilite la prise en main d’Azure. En quelques étapes rapides, DevOps Projects vous permet d’utiliser votre propre code et votre dépôt GitHub pour lancer une application sur un service Azure.
 services: vsts
 documentationcenter: vs-devops-build
@@ -17,13 +17,13 @@ author: mlearned
 ms.custom: mvc
 monikerRange: vsts
 ms.openlocfilehash: a0496999a9a5dc3e9bfd57df0ec035e6db77d620
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73615127"
 ---
-# <a name="tutorial-create-a-cicd-pipeline-for-your-existing-code-by-using-azure-devops-projects"></a>Didacticiel : Créer un pipeline CI/CD pour votre code existant avec Azure DevOps Projects
+# <a name="tutorial-create-a-cicd-pipeline-for-your-existing-code-by-using-azure-devops-projects"></a>Tutoriel : Créer un pipeline CI/CD pour votre code existant avec Azure DevOps Projects
 
 Azure DevOps Projects présente un processus simplifié pour la création d’un pipeline d’intégration continue (CI) et de livraison continue (CD) vers Azure. Vous pouvez apporter votre code et dépôt Git existants, ou sélectionner un exemple d’application.
 
@@ -35,7 +35,7 @@ Vous allez effectuer les étapes suivantes :
 > * Configurer Azure DevOps et un abonnement Azure 
 > * Valider les modifications apportées à GitHub et les déployer automatiquement dans Azure
 > * Examiner le pipeline CI/CD d’Azure Pipelines
-> * Supprimer des ressources
+> * Nettoyer les ressources
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -46,9 +46,9 @@ Vous allez effectuer les étapes suivantes :
 
 Azure DevOps Projects crée un pipeline CI/CD dans Azure Pipelines. Vous pouvez créer une organisation Azure DevOps ou utiliser une organisation existante. Azure DevOps Projects crée également des ressources Azure dans l’abonnement Azure de votre choix.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
-2. Dans le menu du portail Azure, sélectionnez **Créer une ressource**.
+2. Dans le menu du Portail Azure, sélectionnez **Créer une ressource**.
 
    ![Menu Portail Azure - Créer une ressource](_img/azure-devops-project-github/createaresource.png)
 
@@ -114,7 +114,7 @@ Azure DevOps Projects configure automatiquement un pipeline CI/CD dans Azure Pip
 
 1. Sélectionnez l’onglet **Déclencheurs**. Azure DevOps Projects crée automatiquement un déclencheur CI avec quelques paramètres par défaut. Vous pouvez définir des déclencheurs, comme **Activer l’intégration continue**, pour exécuter une build chaque fois que vous validez une modification de code. Vous pouvez également définir des déclencheurs pour planifier l’exécution des builds à des moments spécifiques.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Quand vous n’avez plus besoin d’Azure App Service et des ressources associées que vous avez créées dans ce tutoriel, vous pouvez les supprimer. Utilisez la fonctionnalité **Supprimer** du tableau de bord DevOps Projects.
 

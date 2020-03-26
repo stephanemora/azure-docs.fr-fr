@@ -9,10 +9,10 @@ ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
 ms.openlocfilehash: 8134c0a97f6350cfa2cf616695c5990618455393
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75531247"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-running-on-linux-to-iot-hub-c-linux"></a>Démarrage rapide : Connecter un exemple d’application d’appareil IoT Plug-and-Play en préversion sur Linux à IoT Hub (C Linux)
@@ -23,7 +23,7 @@ Ce démarrage rapide vous montre comment créer un exemple d’application d’a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Ce guide de démarrage rapide suppose que vous utilisez Ubuntu Linux. Les étapes de ce didacticiel ont été testées à l’aide d’Ubuntu 18.04.
 

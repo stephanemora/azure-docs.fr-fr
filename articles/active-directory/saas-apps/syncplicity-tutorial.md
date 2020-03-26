@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Syncplicity | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Syncplicity | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Syncplicity.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 06/10/2019
 ms.author: jeedes
 ms.openlocfilehash: 663958ae367162eaeb336c819d1d219dc74a2cbe
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74233283"
 ---
-# <a name="tutorial-integrate-syncplicity-with-azure-active-directory"></a>Didacticiel : Intégrer Syncplicity à Azure Active Directory
+# <a name="tutorial-integrate-syncplicity-with-azure-active-directory"></a>Tutoriel : Intégrer Syncplicity à Azure Active Directory
 
 Dans ce didacticiel, vous allez apprendre à intégrer Syncplicity à Azure Active Directory (Azure AD). Quand vous intégrez Syncplicity à Azure AD, vous pouvez :
 

@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à NEOGOV | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à NEOGOV | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et NEOGOV.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 10/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 20b0954cac84a791367c5f9af18d3e760a27db11
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74081692"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-neogov"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à NEOGOV
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-neogov"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à NEOGOV
 
 Dans ce tutoriel, vous allez apprendre à intégrer NEOGOV à Azure Active Directory (Azure AD). Lorsque vous intégrez NEOGOV à Azure AD, vous pouvez :
 

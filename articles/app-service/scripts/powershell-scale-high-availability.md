@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell : Mettre à l’échelle avec Traffic Manager'
+title: 'PowerShell : Mettre à l’échelle avec Traffic Manager'
 description: Découvrez comment utiliser Azure PowerShell pour automatiser le déploiement et la gestion d’App Service. Cet exemple montre comment mettre à l’échelle mondiale une application avec Traffic Manager.
 tags: azure-service-management
 ms.assetid: 470f0129-1efe-462c-a029-5c66e04158a8
@@ -7,10 +7,10 @@ ms.topic: sample
 ms.date: 03/20/2017
 ms.custom: mvc
 ms.openlocfilehash: 6ffcf22b640d6393ed48d803f6f52bac5334d4b7
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74684335"
 ---
 # <a name="scale-a-web-app-worldwide-with-a-high-availability-architecture"></a>Mettre à l’échelle une application web dans le monde entier avec une architecture haute disponibilité
@@ -47,6 +47,6 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur le module Azure PowerShell, consultez la [Documentation Azure PowerShell](/powershell/azure/overview).
+Pour plus d’informations sur le module Azure PowerShell, consultez [Documentation Azure PowerShell](/powershell/azure/overview).
 
 Vous trouverez des exemples supplémentaires de scripts Azure PowerShell pour Azure App Service Web Apps sur la page [Azure PowerShell Samples](../samples-powershell.md) (Exemples Azure PowerShell).

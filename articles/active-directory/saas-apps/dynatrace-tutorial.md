@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à Dynatrace | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Dynatrace | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Dynatrace.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 10/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0ba96dd2fcfb995afa6e3b1302a2c8b075abfd90
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72968692"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-dynatrace"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Dynatrace
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-dynatrace"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Dynatrace
 
 Dans ce tutoriel, vous allez découvrir comment intégrer Dynatrace à Azure Active Directory (Azure AD). Quand vous intégrez Dynatrace à Azure AD, vous pouvez :
 
@@ -94,7 +94,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
 
-1. Dans la section **Certificat de signature SAML**, sélectionnez le bouton **Modifier** pour ouvrir la boîte de dialogue **Certificat de signature SAML**. Effectuez ensuite les tâches suivantes :
+1. Dans la section **Certificat de signature SAML**, sélectionnez le bouton **Modifier** pour ouvrir la boîte de dialogue **Certificat de signature SAML**. Suivez les étapes ci-dessous :
 
     ![Modifier le certificat de signature SAML](common/edit-certificate.png)
 

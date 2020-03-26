@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.date: 02/24/2020
-ms.openlocfilehash: 7d2dd65224aad231db9574aa5a1fa4a00b328da8
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 8939d9b342094342d576c00cf02e622286c8fc0f
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623565"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80130559"
 ---
 # <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-azure-portal"></a>Démarrage rapide : créer un cluster Apache Hadoop dans Azure HDInsight à l’aide du portail Azure
 
@@ -52,7 +52,7 @@ Cette section vous permet de créer un cluster Hadoop dans HDInsight à l’ai
     |Nom d’utilisateur SSH (Secure Shell) | Le nom d’utilisateur par défaut est **sshuser**.  Vous pouvez fournir un autre nom pour le nom d’utilisateur SSH. |
     |Utiliser le mot de passe de connexion au cluster pour SSH| Cochez cette case pour utiliser le même mot de passe utilisateur SSH que celui fourni pour l’utilisateur de connexion au cluster.|
 
-    ![Prise en main de HDInsight Linux en fournissant les valeurs de base du cluster](./media/apache-hadoop-linux-create-cluster-get-started-portal/azure-portal-cluster-basics-blank.png "Fournir des valeurs de base pour la création d’un cluster HDInsight")
+    ![Prise en main de HDInsight Linux en fournissant les valeurs de base du cluster](./media/apache-hadoop-linux-create-cluster-get-started-portal/azure-portal-cluster-basics.png "Fournir des valeurs de base pour la création d’un cluster HDInsight")
 
     Sélectionnez le bouton **Suivant : Stockage >>** pour passer aux paramètres de stockage.
 

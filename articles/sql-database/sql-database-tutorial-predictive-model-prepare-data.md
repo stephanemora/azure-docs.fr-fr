@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Préparer les données pour entraîner un modèle prédictif en R'
+title: 'Tutoriel : Préparer les données pour entraîner un modèle prédictif en R'
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
 description: Dans la première partie de cette série de tutoriels qui en compte trois, vous allez préparer des données à partir d’une base de données Azure SQL pour entraîner un modèle prédictif en R avec Azure SQL Database Machine Learning Services (préversion).
 services: sql-database
@@ -14,21 +14,21 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/26/2019
 ms.openlocfilehash: c1271d5b63fa796fe44b7a40c364953464a87539
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68596672"
 ---
-# <a name="tutorial-prepare-data-to-train-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Didacticiel : Préparer des données pour entraîner un modèle prédictif en R avec Azure SQL Database Machine Learning Services (préversion)
+# <a name="tutorial-prepare-data-to-train-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Tutoriel : Préparer des données pour entraîner un modèle prédictif en R avec Azure SQL Database Machine Learning Services (préversion)
 
 Dans la première partie de cette série de tutoriels qui en compte trois, vous allez importer et préparer des données à partir d’une base de données Azure SQL à l’aide de R. Plus tard dans cette série, vous allez utiliser ces données pour entraîner et déployer un modèle Machine Learning prédictif en R avec Azure SQL Database Machine Learning Services (préversion).
 
-Pour cette série de tutoriels, imaginez que vous avez une entreprise de location de skis et que vous souhaitez prévoir le nombre de locations à venir à une date ultérieure. Ces informations vous aideront à préparer votre stock, votre personnel et vos équipements.
+Pour cette série de tutoriels, imaginez que vous avez une entreprise de location de skis et que vous souhaitez prévoir le nombre de locations à venir à une date ultérieure. Ces informations vous aideront à préparer votre inventaire, votre personnel et vos installations.
 
 Dans les parties 1 et 2 de cette série, vous allez développer des scripts en R dans RStudio pour préparer vos données et entraîner un modèle de Machine Learning. Ensuite, dans la troisième partie, vous allez exécuter ces scripts en R à l’intérieur d’une base de données SQL à l’aide de procédures stockées.
 
-Cet article porte sur les points suivants :
+Dans cet article, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Importation d’un exemple de base de données dans une base de données Azure SQL à l’aide de R
@@ -55,7 +55,7 @@ Dans la [troisième partie](sql-database-tutorial-predictive-model-deploy.md), v
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
-Connectez-vous au [Portail Azure](https://portal.azure.com/).
+Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 ## <a name="import-the-sample-database"></a>Importer l’exemple de base de données
 
@@ -69,7 +69,7 @@ L’exemple de jeu de données utilisé dans ce tutoriel a été enregistré dan
    * Dans la préversion publique, choisissez la configuration **Gen5/vCore** pour la nouvelle base de données
    * Nommez la nouvelle base de données « TutorialDB »
 
-## <a name="load-the-data-into-a-data-frame"></a>Charger les données dans un cadre de données
+## <a name="load-the-data-into-a-data-frame"></a>Charger les données dans une trame de données
 
 Pour utiliser les données en R, vous devez charger les données à partir de la base de données Azure SQL dans un cadre de données (`rentaldata`).
 
@@ -95,7 +95,7 @@ head(rentaldata);
 str(rentaldata);
 ```
 
-Vous devez normalement voir des résultats similaires à ce qui suit.
+Vous devez obtenir des résultats similaires à ce qui suit :
 
 ```results
    Year  Month  Day  RentalCount  WeekDay  Holiday  Snow
@@ -130,7 +130,7 @@ rentaldata$WeekDay <- factor(rentaldata$WeekDay);
 str(rentaldata);
 ```
 
-Vous devez normalement voir des résultats similaires à ce qui suit.
+Vous devez obtenir des résultats similaires à ce qui suit :
 
 ```results
 data.frame':      453 obs. of  7 variables:
@@ -145,7 +145,7 @@ $ Snow       : Factor w/ 2 levels "0","1": 1 1 1 1 1 1 1 1 1 1 ...
 
 Les données sont désormais prêtes pour l’entraînement.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous n’avez pas l’intention de poursuivre ce didacticiel, supprimez la base de données TutorialDB de votre serveur Azure SQL Database.
 
@@ -158,7 +158,7 @@ Sur le portail Azure, procédez comme suit :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans le premier tutoriel de cette série de trois, vous avez effectué les étapes suivantes :
+Dans la première partie de cette série de tutoriels, vous avez effectué les étapes suivantes :
 
 * Importation d’un exemple de base de données dans une base de données Azure SQL à l’aide de R
 * Chargement des données à partir de la base de données Azure SQL dans un cadre de données à l’aide de R
@@ -167,4 +167,4 @@ Dans le premier tutoriel de cette série de trois, vous avez effectué les étap
 Pour créer un modèle Machine Learning qui utilise des données à partir de la base de données TutorialDB, suivez la deuxième partie de cette série de tutoriels :
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Créer un modèle prédictif en R avec Azure SQL Database Machine Learning Services (préversion)](sql-database-tutorial-predictive-model-build-compare.md)
+> [Tutoriel : Créer un modèle prédictif en R avec Azure SQL Database Machine Learning Services (préversion)](sql-database-tutorial-predictive-model-build-compare.md)

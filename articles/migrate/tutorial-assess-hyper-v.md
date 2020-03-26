@@ -5,11 +5,11 @@ ms.topic: tutorial
 ms.date: 01/23/2020
 ms.custom: mvc
 ms.openlocfilehash: e4c505d74ff3bebc21f696b1c4b894afcdaa9974
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845520"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222006"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Évaluer des machines virtuelles Hyper-V Azure Migrate Server Assessment
 
@@ -34,7 +34,7 @@ Ce tutoriel est le deuxième d’une série qui montre comment évaluer et migre
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) avant de commencer.
 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - [Effectuez](tutorial-prepare-hyper-v.md) le premier tutoriel de cette série. Si vous ne le faites pas, les instructions de ce tutoriel ne fonctionneront pas.
 - Voici ce que vous avez dû faire dans le premier tutoriel :
@@ -63,7 +63,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
     --- | ---
     Asia  | Asie Sud-Est
     Europe | Europe Nord ou Europe Ouest
-    United Kingdom |  Royaume-Uni Sud ou Royaume-Uni Ouest
+    Royaume-Uni |  Royaume-Uni Sud ou Royaume-Uni Ouest
     États-Unis | USA Est, USA Ouest 2 ou USA Centre-Ouest
 
     - La région du projet est utilisée seulement pour stocker les métadonnées collectées à partir des machines virtuelles locales.

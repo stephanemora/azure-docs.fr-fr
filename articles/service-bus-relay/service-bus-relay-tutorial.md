@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/21/2020
 ms.author: spelluru
 ms.openlocfilehash: 551c8e662669737d9d074a69cb03d6060ab87ad5
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76513080"
 ---
 # <a name="tutorial-expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>Tutoriel : Exposer un service WCF REST local sur un client externe en utilisant Azure WCF Relay
@@ -43,7 +43,7 @@ Dans ce didacticiel, vous allez effectuer les tâches suivantes :
 > * Implémenter le client WCF
 > * Exécutez les applications.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer ce didacticiel, vous avez besoin de ce qui suit :
 
@@ -192,7 +192,7 @@ Le fichier de configuration est similaire à un fichier de configuration WCF. Il
 
 1. Dans l'**Explorateur de solutions**, double-cliquez sur le fichier **App.config** pour l’ouvrir dans l’éditeur Visual Studio.
 1. Dans l’élément `<appSettings>`, remplacez les espaces réservés par le nom de votre espace de noms de service et par la clé SAP que vous avez copiée à l’étape précédente.
-1. Dans les étiquettes `<system.serviceModel>`, ajouter un élément `<services>`. Vous pouvez définir plusieurs applications de relais dans un même fichier de configuration. Toutefois, ce didacticiel n’en définit qu’un seul.
+1. Dans les balises `<system.serviceModel>`, ajouter un élément `<services>`. Vous pouvez définir plusieurs applications de relais dans un même fichier de configuration. Toutefois, ce didacticiel n’en définit qu’un seul.
 
     ```xml
     <?xmlversion="1.0"encoding="utf-8"?>

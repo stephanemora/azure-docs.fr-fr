@@ -7,11 +7,11 @@ ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 40dd7066d959b56f4554ea9d0390e8b1eb41e77f
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 79771e082a4a6ffae15f33f636b0300e93bcdaba
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77587564"
 ---
 # <a name="bulk-import-data-to-azure-cosmos-db-sql-api-account-by-using-the-net-sdk"></a>Importer des données en bloc dans un compte d’API SQL Azure Cosmos DB à l’aide du kit SDK .NET
@@ -120,13 +120,13 @@ Commencez par remplacer la méthode `Main` par défaut et définir les variables
 
 Dans la méthode `Main`, ajoutez le code suivant pour initialiser l’objet CosmosClient :
 
-:::code language="csharp" source="~/cosmos-dotnet-bulk-import/src/Program.cs" id="CreateClient":::
+[!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=CreateClient)]
 
 Une fois l’exécution en bloc activée, CosmosClient regroupe en interne les opérations simultanées en appels de service unique. Ainsi, il optimise l’utilisation du débit en distribuant les appels de service entre les partitions, puis en attribuant les résultats individuels aux appelants d’origine.
 
 Vous pouvez ensuite créer un conteneur pour stocker tous les éléments.  Définissez `/pk` en tant que clé de partition, 50 000 RU/s en tant que débit approvisionné, et une stratégie d’indexation personnalisée qui exclut tous les champs afin d'optimiser le débit d’écriture. Ajoutez le code suivant après l’instruction d’initialisation CosmosClient :
 
-:::code language="csharp" source="~/cosmos-dotnet-bulk-import/src/Program.cs" id="Initialize":::
+[!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=Initialize)]
 
 ## <a name="step-6-populate-a-list-of-concurrent-tasks"></a>Étape 6 : Remplir une liste de tâches simultanées
 
@@ -141,22 +141,22 @@ Tout d’abord, ajoutez le package fictif à la solution à l’aide de la comma
 
 Définissez les éléments que vous souhaitez enregistrer. Vous devez définir la classe `Item` dans le fichier `Program.cs` :
 
-:::code language="csharp" source="~/cosmos-dotnet-bulk-import/src/Program.cs" id="Model":::
+[!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=Model)]
 
 Ensuite, créez une fonction d’assistance au sein la classe `Program`. Cette fonction d’assistance obtient le nombre d’éléments que vous avez définis à des fins d'insertion et génère des données aléatoires :
 
-:::code language="csharp" source="~/cosmos-dotnet-bulk-import/src/Program.cs" id="Bogus":::
+[!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=Bogus)]
 
 Lisez les éléments et sérialisez-les dans des instances de flux à l’aide de la classe `System.Text.Json`. Compte tenu de la nature des données générées automatiquement, vous sérialisez les données sous forme de flux. Vous pouvez aussi utiliser directement l’instance d’élément, mais en les convertissant en flux, tirez pleinement parti des performances des API de flux CosmosClient. En règle générale, vous pouvez utiliser les données directement, sous réserve de connaître la clé de partition. 
 
 
 Pour convertir les données en instances de flux, dans la méthode `Main`, ajoutez le code suivant juste après avoir créé le conteneur :
 
-:::code language="csharp" source="~/cosmos-dotnet-bulk-import/src/Program.cs" id="Operations":::
+[!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=Operations)]
 
 Utilisez ensuite les flux de données pour créer des tâches simultanées et remplissez la liste des tâches afin d'insérer les éléments dans le conteneur. Pour effectuer cette opération, ajoutez le code suivant à la classe `Program` :
 
-:::code language="csharp" source="~/cosmos-dotnet-bulk-import/src/Program.cs" id="ConcurrentTasks":::
+[!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=ConcurrentTasks)]
 
 Toutes ces opérations de point simultanées sont exécutées ensemble (en bloc), comme décrit dans la section Introduction.
 

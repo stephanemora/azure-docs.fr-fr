@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Créer un pipeline pour déplacer les données à l’aide d’Azure PowerShell '
+title: 'Tutoriel : Créer un pipeline pour déplacer les données à l’aide d’Azure PowerShell '
 description: Dans ce didacticiel, vous créez un pipeline Azure Data Factory avec une activité de copie à l’aide d’Azure PowerShell.
 services: data-factory
 documentationcenter: ''
@@ -14,20 +14,20 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 215ed088b17125e7e41877e3c188a6bf3d77e8bb
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73682856"
 ---
-# <a name="tutorial-create-a-data-factory-pipeline-that-moves-data-by-using-azure-powershell"></a>Didacticiel : créer un pipeline Data Factory qui déplace les données à l’aide d’Azure PowerShell
+# <a name="tutorial-create-a-data-factory-pipeline-that-moves-data-by-using-azure-powershell"></a>Tutoriel : créer un pipeline Data Factory qui déplace les données à l’aide d’Azure PowerShell
 > [!div class="op_single_selector"]
 > * [Vue d’ensemble et composants requis](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Assistant de copie](data-factory-copy-data-wizard-tutorial.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Modèle Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
-> * [API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
+> * [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
 > [!NOTE]
@@ -35,7 +35,7 @@ ms.locfileid: "73682856"
 
 Dans cet article, vous allez apprendre à utiliser PowerShell pour créer une fabrique de données avec un pipeline qui copie les données d’un stockage Blob Azure dans une base de données Azure SQL. Si vous débutez avec Azure Data Factory, lisez l’article [Présentation d’Azure Data Factory](data-factory-introduction.md) avant de suivre ce didacticiel.   
 
-Dans ce tutoriel, vous créez un pipeline contenant une seule activité : activité de copie. L’activité de copie copie les données d’un magasin de données pris en charge vers un magasin de données de récepteur pris en charge. Pour obtenir la liste des magasins de données pris en charge en tant que sources et récepteurs, consultez [Magasins de données pris en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Elle est mise en œuvre par un service disponible dans le monde entier, capable de copier des données entre différents magasins de données de façon sécurisée, fiable et évolutive. Pour plus d’informations sur l’activité de copie, consultez [Activités de déplacement des données](data-factory-data-movement-activities.md).
+Dans ce tutoriel, vous créez un pipeline contenant une seule activité : une activité de copie. L’activité de copie copie les données d’un magasin de données pris en charge vers un magasin de données de récepteur pris en charge. Pour obtenir la liste des magasins de données pris en charge en tant que sources et récepteurs, consultez [Magasins de données pris en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Elle est mise en œuvre par un service disponible dans le monde entier, capable de copier des données entre différents magasins de données de façon sécurisée, fiable et évolutive. Pour plus d’informations sur l’activité de copie, consultez [Activités de déplacement des données](data-factory-data-movement-activities.md).
 
 Un pipeline peut contenir plusieurs activités. En outre, vous pouvez chaîner deux activités (une après l’autre) en configurant le jeu de données de sortie d’une activité en tant que jeu de données d’entrée de l’autre activité. Pour plus d’informations, consultez [Plusieurs activités dans un pipeline](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
@@ -54,10 +54,10 @@ Un pipeline peut contenir plusieurs activités. En outre, vous pouvez chaîner d
 ## <a name="steps"></a>Étapes
 Voici les étapes à effectuer dans le cadre de ce didacticiel :
 
-1. Créer une **fabrique de données** Azure. Dans cette étape, vous créez une fabrique de données nommée ADFTutorialDataFactoryPSH. 
+1. Créez une **fabrique de données** Azure. Dans cette étape, vous créez une fabrique de données nommée ADFTutorialDataFactoryPSH. 
 1. Créez des **services liés** dans la fabrique de données. Dans cette étape, vous créez deux services liés des types suivants : Stockage Azure et Azure SQL Database. 
     
-    AzureStorageLinkedService relie votre compte de stockage Azure à la fabrique de données. Vous avez créé un conteneur et chargé des données dans ce compte de stockage dans le cadre des [conditions préalables](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).   
+    AzureStorageLinkedService relie votre compte de stockage Azure à la fabrique de données. Vous avez créé un conteneur et chargé des données dans ce compte de stockage en remplissant les [conditions préalables](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).   
 
     AzureSqlLinkedService lie votre base de données Azure SQL à la fabrique de données. Les données copiées à partir du stockage Blob sont stockées dans cette base de données. Vous avez créé une table SQL dans cette base de données en remplissant les [conditions préalables](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).   
 1. Créez des **jeux de données** d’entrée et de sortie dans la fabrique de données.  
@@ -68,7 +68,7 @@ Voici les étapes à effectuer dans le cadre de ce didacticiel :
 1. Créez un **pipeline** dans la fabrique de données. Dans cette étape, vous allez créer un pipeline avec une activité de copie.   
     
     Cette activité copie les données d’un objet blob du stockage Blob Azure dans une table de la base de données Azure SQL. Vous pouvez utiliser une activité de copie dans un pipeline pour copier les données d’une source prise en charge dans une destination prise en charge. Pour obtenir la liste des magasins de données pris en charge, consultez [Activités de déplacement des données](data-factory-data-movement-activities.md#supported-data-stores-and-formats). 
-1. Surveiller le pipeline. Dans cette étape, vous allez **surveiller** les tranches de jeux de données d’entrée et de sortie à l’aide de PowerShell.
+1. Surveillez le pipeline. Dans cette étape, vous allez **surveiller** les tranches de jeux de données d’entrée et de sortie à l’aide de PowerShell.
 
 ## <a name="create-a-data-factory"></a>Créer une fabrique de données
 > [!IMPORTANT]
@@ -278,7 +278,7 @@ Dans cette étape, vous créez un jeu de données nommé InputDataset qui pointe
     |:--- |:--- |
     | type | La propriété du type est définie sur **AzureBlob**, car les données se trouvent dans le stockage blob Azure. |
     | linkedServiceName | Fait référence au service **AzureStorageLinkedService** que vous avez créé précédemment. |
-    | folderPath | Spécifie le **conteneur** d’objets blob et le **dossier** qui contient les objets blob d’entrée. Dans ce didacticiel, adftutorial est le conteneur d’objets blob et folder est le dossier racine. | 
+    | folderPath | Spécifie le **conteneur** d’objets blob et le **dossier** contenant les objets blob d’entrée. Dans ce didacticiel, adftutorial est le conteneur d’objets blob et folder est le dossier racine. | 
     | fileName | Cette propriété est facultative. Si vous omettez cette propriété, tous les fichiers spécifiés dans le paramètre folderPath sont récupérés. Dans ce didacticiel, **emp.txt** est spécifié pour le paramètre fileName, si bien que seul ce fichier est récupéré pour le traitement. |
     | format -> type |Le fichier d’entrée étant au format texte, nous utilisons **TextFormat**. |
     | columnDelimiter | Les colonnes du fichier d’entrée sont délimitées par une **virgule (`,`)** . |
@@ -427,7 +427,7 @@ Le jeu de données de sortie pilote actuellement la planification. Dans ce didac
      
      Remplacez la valeur de la propriété **start** par le jour actuel et la valeur **end**, par le jour suivant. Si vous le souhaitez, spécifiez uniquement la date et ignorez l'heure. Par exemple, « 2016-02-03 », qui équivaut à « 2016-02-03T00:00:00Z ».
      
-     Les dates/heures de début et de fin doivent toutes deux être au [format ISO](https://en.wikipedia.org/wiki/ISO_8601). Par exemple :  2016-10-14T16:32:41Z. L’heure de fin ( **end** ) est facultative, mais nous allons l’utiliser dans ce didacticiel. 
+     Les dates/heures de début et de fin doivent toutes deux être au [format ISO](https://en.wikipedia.org/wiki/ISO_8601). Par exemple : 2016-10-14T16:32:41Z. L’heure de fin ( **end** ) est facultative, mais nous allons l’utiliser dans ce didacticiel. 
      
      Si vous ne spécifiez aucune valeur pour la propriété **end**, cette dernière est calculée comme suit : « **start + 48 heures** ». Pour exécuter le pipeline indéfiniment, spécifiez **9999-09-09** comme valeur pour la propriété **end**.
      

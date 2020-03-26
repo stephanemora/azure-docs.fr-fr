@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique (SSO) Azure Active Directory à iServer Portal | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à iServer Portal | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et iServer Portal.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 08/28/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c2af8f81636f7653049029b3c0d3a81cbfb8e6fd
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "70143080"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-iserver-portal"></a>Didacticiel : Intégration de l’authentification unique (SSO) Azure Active Directory à iServer Portal
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-iserver-portal"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à iServer Portal
 
 Dans ce tutoriel, vous allez découvrir comment intégrer iServer Portal à Azure AD (Azure Active Directory). Quand vous intégrez iServer Portal à Azure AD, vous pouvez :
 

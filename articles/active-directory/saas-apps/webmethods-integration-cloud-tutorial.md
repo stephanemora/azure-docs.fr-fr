@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à webMethods Integra tion Suite | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à webMethods Integra tion Suite | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et webMethods Integration Suite.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.openlocfilehash: 30fc55cb608189e1be82c2b28393c5e242e262fd
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73160863"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-webmethods-integration-suite"></a>Didacticiel : Intégration d’Azure Active Directory à webMethods Integration Suite
+# <a name="tutorial-azure-active-directory-integration-with-webmethods-integration-suite"></a>Tutoriel : Intégration d’Azure Active Directory à webMethods Integration Suite
 
 Dans ce tutoriel, vous allez apprendre à intégrer webMethods Integration Suite à Azure Active Directory (Azure AD).
 L’intégration de webMethods Integration Suite à Azure AD vous offre les avantages suivants :
@@ -173,7 +173,7 @@ Pour configurer l’authentification unique Azure AD avec webMethods Integratio
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Contactez l’[équipe du support client de webMethods Integration Suite](https://empower.softwareag.com/) pour obtenir ces valeurs. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-6. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies en fonction de vos besoins, puis enregistrez-le sur votre ordinateur.
+6. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies selon vos besoins, puis enregistrez-le sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
 
@@ -210,7 +210,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
     b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotresociété.extension**.  
-    Par exemple, BrittaSimon@contoso.com
+    Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
@@ -258,5 +258,5 @@ Quand vous cliquez sur la vignette webMethods Integration Suite dans le volet d�
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -9,10 +9,10 @@ ms.date: 06/19/2019
 ms.author: hrasheed
 ms.custom: mvc
 ms.openlocfilehash: 8a6a204ee5080e3acf99c13ecba1e1c7664d68b4
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73241890"
 ---
 # <a name="quickstart-execute-an-r-script-on-an-ml-services-cluster-in-azure-hdinsight-using-rstudio-server"></a>Démarrage rapide : Exécuter un script R sur un cluster ML Services dans HDInsight Azure à l’aide de RStudio Server
@@ -170,7 +170,7 @@ Une fois que vous êtes connecté, votre écran doit ressembler à la capture d�
 
     Les calculs devraient se terminer en environ 5 minutes.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Après avoir suivi ce guide de démarrage rapide, vous souhaiterez peut-être supprimer le cluster. Avec HDInsight, vos données sont stockées Azure Storage, pour que vous puissiez supprimer un cluster en toute sécurité s’il n’est pas en cours d’utilisation. Vous devez également payer pour un cluster HDInsight, même lorsque vous ne l’utilisez pas. Étant donné que les frais pour le cluster sont bien plus élevés que les frais de stockage, économique, mieux vaut supprimer les clusters lorsqu’ils ne sont pas utilisés.
 

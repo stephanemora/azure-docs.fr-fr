@@ -10,11 +10,11 @@ services: iot-dps
 ms.devlang: java
 ms.custom: mvc
 ms.openlocfilehash: c199d5be4c103c80a6fcc126af70f48367909f64
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77605372"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79290587"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>Démarrage rapide : Inscrire un appareil TPM auprès du service IoT Hub Device Provisioning à l’aide du kit Java Service SDK
 
@@ -27,7 +27,7 @@ Dans ce guide de démarrage rapide, vous allez créer programmatiquement une ins
 - Exécution des étapes décrites dans [Configurer le service IoT Hub Device Provisioning avec le portail Azure](./quick-setup-auto-provision.md).
 - Exécution des étapes décrites dans [Lire les clés de chiffrement à partir de l’appareil TPM](quick-create-simulated-device.md#simulatetpm).
 - Compte Azure avec un abonnement actif. [Créez-en un gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- [Java SE Development Kit 8](https://aka.ms/azure-jdks). Ce démarrage rapide installe le kit [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/service/) ci-dessous. Il fonctionne à la fois sur Windows et Linux. Ce démarrage rapide utilise Windows.
+- [Java SE Development Kit 8](https://aka.ms/azure-jdks). Ce guide de démarrage rapide installe le kit [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/service/) ci-dessous. Il fonctionne à la fois sur Windows et Linux. Ce guide de démarrage rapide utilise Windows.
 - [Maven 3](https://maven.apache.org/download.cgi).
 - [Git](https://git-scm.com/download/).
 

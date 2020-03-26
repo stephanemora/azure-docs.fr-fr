@@ -5,13 +5,13 @@ keywords: ansible, azure, devops, bash, playbook, cache, redis
 ms.topic: tutorial
 ms.date: 04/30/2019
 ms.openlocfilehash: 2ef36ee9e3601d77bfa114b903f6a75b5874b158
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74156515"
 ---
-# <a name="tutorial-configure-caches-in-azure-cache-for-redis-using-ansible"></a>Didacticiel : Configurer des mises en cache dans Azure Cache pour Redis à l’aide d’Ansible
+# <a name="tutorial-configure-caches-in-azure-cache-for-redis-using-ansible"></a>Tutoriel : Configurer des mises en cache dans Azure Cache pour Redis à l’aide d’Ansible
 
 [!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
@@ -157,8 +157,8 @@ Le code ci-dessous supprime le cache :
 ## <a name="get-the-sample-playbook"></a>Obtenir l’exemple de playbook
 
 Il existe deux façons d’obtenir l’exemple de playbook complet :
-- [Télécharger le playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/rediscache.yml) et l’enregistrer dans `rediscache.yml`.
-- Créer un fichier nommé `rediscache.yml` et y copier le contenu suivant :
+- [Téléchargez le manifeste](https://github.com/Azure-Samples/ansible-playbooks/blob/master/rediscache.yml) et enregistrez-le sous `rediscache.yml`.
+- Créez un nouveau fichier nommé `rediscache.yml` et copiez-y le contenu suivant :
 
 ```yml
 - name: Manage Azure Cache for Redis
@@ -234,13 +234,13 @@ Il existe deux façons d’obtenir l’exemple de playbook complet :
       state: absent
 ```
 
-## <a name="run-the-sample-playbook"></a>Exécuter l’exemple de playbook
+## <a name="run-the-sample-playbook"></a>Exécutez l’exemple de playbook
 
 Dans cette section, exécutez le playbook pour tester les différentes fonctionnalités présentées dans cet article.
 
 Dans la section `vars`, remplacez l’espace réservé `{{ resource_group_name }}` par le nom de votre groupe de ressources.
 
-Exécutez le playbook à l’aide de la commande `ansible-playbook` :
+Exécutez le playbook à l’aide de la commande `ansible-playbook` :
 
 ```bash
 ansible-playbook rediscache.yml
@@ -320,7 +320,7 @@ Tuesday 12 March 2019  16:44:14 +0800 (0:00:06.217)       0:23:08.626
 
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous n’en avez plus besoin, supprimez les ressources créées dans cet article. 
 

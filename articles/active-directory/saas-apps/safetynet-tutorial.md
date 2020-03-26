@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à SafetyNet | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à SafetyNet | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et SafetyNet.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 08/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8b94592f78a3aba46406d25d95de3a8847831eeb
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68880181"
 ---
-# <a name="tutorial-integrate-safetynet-with-azure-active-directory"></a>Didacticiel : Intégrer SafetyNet à Azure Active Directory
+# <a name="tutorial-integrate-safetynet-with-azure-active-directory"></a>Tutoriel : Intégrer SafetyNet à Azure Active Directory
 
 L’objectif de ce didacticiel est de vous apprendre à intégrer SafetyNet à Azure Active Directory (Azure AD). Quand vous intégrez SafetyNet à Azure AD, vous pouvez :
 

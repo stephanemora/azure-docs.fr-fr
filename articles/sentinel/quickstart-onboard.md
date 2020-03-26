@@ -10,10 +10,10 @@ ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.openlocfilehash: 11fecd875385d8ba044cbe44e2270eed11d61ce1
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77581547"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>Démarrage rapide : Intégrer Azure Sentinel
@@ -39,7 +39,7 @@ Après avoir connecté vos sources de données, opérez votre choix dans une gal
 - Des autorisations supplémentaires peuvent être nécessaires pour la connexion à des sources de données spécifiques.
 - Azure Sentinel est un service payant. Pour obtenir des informations de tarification, voir [À propos d’Azure Sentinel](https://go.microsoft.com/fwlink/?linkid=2104058).
  
-## Activer Azure Sentinel <a name="enable"></a>
+## <a name="enable-azure-sentinel"></a>Activer Azure Sentinel <a name="enable"></a>
 
 1. Connectez-vous au portail Azure. Assurez-vous que l’abonnement dans lequel est créé Azure Sentinel est bien sélectionné.
 

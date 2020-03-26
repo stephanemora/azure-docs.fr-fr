@@ -1,20 +1,19 @@
 ---
-title: Qu’est-ce que la pile de technologies Apache Hadoop et Apache Spark ? - Azure HDInsight
-description: Présentation de HDInsight et de la pile de technologies et des composants Apache Hadoop et Apache Spark, notamment Kafka, Hive, Storm, et HBase pour l’analyse de données volumineuses (Big Data).
-keywords: azure hadoop, hadoop azure, intro hadoop, introduction hadoop, pile de technologies hadoop, intro à hadoop, introduction à hadoop, qu’est-ce qu’un cluster hadoop, qu’est-ce un cluster hadoop, pourquoi hadoop est utilisé
+title: Présentation d’Azure HDInsight
+description: Présentation de HDInsight ainsi que de la pile de technologies et des composants Apache Hadoop et Apache Spark, notamment Kafka, Hive, Storm, et HBase pour l’analyse de données volumineuses (Big Data).
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: overview
-ms.date: 06/11/2019
-ms.openlocfilehash: 1cea76bec3a1b8b698a604c0bac491ac0319a10e
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
+ms.date: 02/27/2020
+ms.openlocfilehash: 31e8506067133304144614ff58974ee21e9680be
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791176"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79216427"
 ---
 # <a name="what-is-azure-hdinsight"></a>Qu’est-ce qu’Azure HDInsight ?
 
@@ -46,7 +45,7 @@ Cette section répertorie les fonctionnalités d’Azure HDInsight.
 
 ## <a name="scenarios-for-using-hdinsight"></a>Scénarios d’utilisation de HDInsight
 
-Azure HDInsight peut être utilisé pour divers scénarios lors d’un traitement de données Big data. Il peut s’agir de données historiques (déjà collectées et stockées) ou de données en temps réel (transmises en continu directement à partir de la source). Les scénarios pour le traitement de ces données peuvent être classés dans les catégories suivantes : 
+Azure HDInsight peut être utilisé pour divers scénarios lors d’un traitement de données Big data. Il peut s’agir de données historiques (déjà collectées et stockées) ou de données en temps réel (transmises en continu directement à partir de la source). Les scénarios pour le traitement de ces données peuvent être classés dans les catégories suivantes :
 
 ### <a name="batch-processing-etl"></a>Traitement par lots (ETL)
 
@@ -54,15 +53,15 @@ Extraction, transformation et chargement (ETL) est un processus au cours duquel 
 
 ### <a name="data-warehousing"></a>Entrepôt de données
 
-HDInsight permet d’exécuter des requêtes interactives sur des pétaoctets de données structurées ou non dans n’importe quel format. Vous pouvez également créer des modèles en les connectant à des outils BI. Pour plus d’informations, [consultez ce témoignage client](https://customers.microsoft.com/story/milliman). 
+HDInsight permet d’exécuter des requêtes interactives sur des pétaoctets de données structurées ou non dans n’importe quel format. Vous pouvez également créer des modèles en les connectant à des outils BI. Pour plus d’informations, [consultez ce témoignage client](https://customers.microsoft.com/story/milliman).
 
 ![Architecture HDInsight : entreposage de données](./hadoop/media/apache-hadoop-introduction/hdinsight-architecture-data-warehouse.png "Architecture d’entreposage de données HDInsight")
 
 ### <a name="internet-of-things-iot"></a>Internet des objets (IoT)
 
-Vous pouvez utiliser HDInsight pour traiter des données de diffusion en continu reçues en temps réel depuis divers appareils. Pour plus d’informations, [lire ce billet de blog Azure annonçant la version préliminaire publique de Apache Kafka sur HDInsight avec Azure Disques Managés](https://azure.microsoft.com/blog/announcing-public-preview-of-apache-kafka-on-hdinsight-with-azure-managed-disks/).
+Vous pouvez utiliser HDInsight pour traiter les données de streaming reçues en temps réel depuis différentes sortes d’appareils. Pour plus d’informations, [lire ce billet de blog Azure annonçant la version préliminaire publique de Apache Kafka sur HDInsight avec Azure Disques Managés](https://azure.microsoft.com/blog/announcing-public-preview-of-apache-kafka-on-hdinsight-with-azure-managed-disks/).
 
-![Architecture HDInsight : Internet des objets](./hadoop/media/apache-hadoop-introduction/hdinsight-architecture-iot.png "Architecture IoT HDInsight") 
+![Architecture HDInsight : Internet des objets](./hadoop/media/apache-hadoop-introduction/hdinsight-architecture-iot.png "Architecture IoT HDInsight")
 
 ### <a name="data-science"></a>Science des données
 
@@ -82,13 +81,13 @@ HDInsight comprend des types de cluster spécifiques et des fonctionnalités de 
 
 |Type du cluster | Description |
 |---|---|
-|[Apache Hadoop](https://hadoop.apache.org/)|infrastructure qui utilise HDFS, la gestion de ressources YARN et un modèle de programmation MapReduce simple pour traiter et analyser les lots de données en parallèle.|
-|[Apache Spark](https://spark.apache.org/)|infrastructure de traitement parallèle open source qui prend en charge le traitement en mémoire pour améliorer les performances des applications d’analyse du Big Data. Consultez [Présentation d’Apache Spark dans HDInsight](./spark/apache-spark-overview.md).|
-|[Apache HBase](https://hbase.apache.org/)|base de données NoSQL basée sur Hadoop qui fournit un accès aléatoire et une forte cohérence pour de vastes quantités de données non structurées et semi-structurées (potentiellement, des milliards de lignes multipliées par des millions de colonnes). Consultez [Qu’est-ce que HBase sur HDInsight ?](./hbase/apache-hbase-overview.md)|
-|[ML Services](https://docs.microsoft.com/machine-learning-server/rebranding-microsoft-r-server)|serveur d’hébergement et de gestion de processus R distribués en parallèle. Ce serveur offre aux experts en science des données, aux statisticiens et aux programmeurs R un accès à la demande à des méthodes d’analyse évolutives et distribuées sur HDInsight. Consultez [Vue d’ensemble de ML Services sur HDInsight](./r-server/r-server-overview.md).|
-|[Apache Storm](https://storm.incubator.apache.org/)|système de calcul distribué et en temps réel permettant le traitement rapide de vastes flux de données. Storm est fourni en tant que cluster géré dans HDInsight. Consultez la rubrique [Analyse de données de capteur en temps réel au moyen de Storm et de Hadoop](/azure/hdinsight/storm/apache-storm-overview).|
-|[Requête interactive Apache](https://cwiki.apache.org/confluence/display/Hive/LLAP)|mise en cache pour des requêtes Hive interactives et plus rapides. Consultez l’article [Utilisation d’Interactive Query dans HDInsight](./interactive-query/apache-interactive-query-get-started.md).|
-|[Apache Kafka](https://kafka.apache.org/)|plateforme open source utilisée pour créer des applications et des pipelines de données de diffusion en continu. Kafka fournit également une fonctionnalité de file d’attente de messages qui vous permet de publier des flux de données et de vous abonner à ces derniers. Consultez l’article [Présentation d’Apache Kafka sur HDInsight](./kafka/apache-kafka-introduction.md).|
+|[Apache Hadoop](./hadoop/apache-hadoop-introduction.md)|infrastructure qui utilise HDFS, la gestion de ressources YARN et un modèle de programmation MapReduce simple pour traiter et analyser les lots de données en parallèle.|
+|[Apache Spark](./spark/apache-spark-overview.md)|infrastructure de traitement parallèle open source qui prend en charge le traitement en mémoire pour améliorer les performances des applications d’analyse du Big Data. Consultez [Présentation d’Apache Spark dans HDInsight](./spark/apache-spark-overview.md).|
+|[Apache HBase](./hbase/apache-hbase-overview.md)|base de données NoSQL basée sur Hadoop qui fournit un accès aléatoire et une forte cohérence pour de vastes quantités de données non structurées et semi-structurées (potentiellement, des milliards de lignes multipliées par des millions de colonnes). Consultez [Qu’est-ce que HBase sur HDInsight ?](./hbase/apache-hbase-overview.md)|
+|[ML Services](./r-server/r-server-overview.md)|serveur d’hébergement et de gestion de processus R distribués en parallèle. Ce serveur offre aux experts en science des données, aux statisticiens et aux programmeurs R un accès à la demande à des méthodes d’analyse évolutives et distribuées sur HDInsight. Consultez [Vue d’ensemble de ML Services sur HDInsight](./r-server/r-server-overview.md).|
+|[Apache Storm](./storm/apache-storm-overview.md)|système de calcul distribué et en temps réel permettant le traitement rapide de vastes flux de données. Storm est fourni en tant que cluster géré dans HDInsight. Consultez la rubrique [Analyse de données de capteur en temps réel au moyen de Storm et de Hadoop](./storm/apache-storm-overview.md).|
+|[Requête interactive Apache](./interactive-query/apache-interactive-query-get-started.md)|mise en cache pour des requêtes Hive interactives et plus rapides. Consultez l’article [Utilisation d’Interactive Query dans HDInsight](./interactive-query/apache-interactive-query-get-started.md).|
+|[Apache Kafka](./kafka/apache-kafka-introduction.md)|plateforme open source utilisée pour créer des applications et des pipelines de données de diffusion en continu. Kafka fournit également une fonctionnalité de file d’attente de messages qui vous permet de publier des flux de données et de vous abonner à ces derniers. Consultez l’article [Présentation d’Apache Kafka sur HDInsight](./kafka/apache-kafka-introduction.md).|
 
 ## <a name="open-source-components-in-hdinsight"></a>Composants open source dans HDInsight
 
@@ -108,13 +107,13 @@ Les clusters HDInsight (dont Spark, HBase, Kafka, Hadoop et d’autres) prennent
 
 Vous pouvez utiliser les outils de développement HDInsight, y compris IntelliJ, Eclipse, Visual Studio Code et Visual Studio, pour créer et soumettre une tâche et une requête de données HDInsight avec une intégration transparente avec Azure.
 
-* [Kit de ressources Azure pour IntelliJ](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-intellij-tool-plugin)
+* [Kit de ressources Azure pour IntelliJ](./spark/apache-spark-intellij-tool-plugin.md)
 
-* [Kit de ressources Azure pour Eclipse](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-eclipse-tool-plugin)
+* [Kit de ressources Azure pour Eclipse](./spark/apache-spark-eclipse-tool-plugin.md)
 
-* [Outils Azure HDInsight pour VS Code](https://docs.microsoft.com/azure/hdinsight/hdinsight-for-vscode)
+* [Outils Azure HDInsight pour VS Code](./hdinsight-for-vscode.md)
 
-* [Azure Data Lake Tools pour Visual Studio](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-visual-studio-tools-get-started)
+* [Azure Data Lake Tools pour Visual Studio](./hadoop/apache-hadoop-visual-studio-tools-get-started.md)
 
 ## <a name="business-intelligence-on-hdinsight"></a>Le décisionnel sur HDInsight
 
@@ -129,10 +128,6 @@ Les outils décisionnels courants permettent de récupérer des données intégr
 * [Connecter Excel à Apache Hadoop avec Power Query](./hadoop/apache-hadoop-connect-excel-power-query.md) (requiert Windows)
 
 * [Connecter Excel à Apache Hadoop avec le Pilote ODBC Microsoft Hive](./hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md) (requiert Windows)
-
-* [Utiliser SQL Server Analysis Services avec HDInsight](https://docs.microsoft.com/previous-versions/msp-n-p/dn749857(v=pandp.10))
-
-* [Utiliser SQL Server Reporting Services avec HDInsight](https://docs.microsoft.com/previous-versions/msp-n-p/dn749856(v=pandp.10))
 
 ## <a name="next-steps"></a>Étapes suivantes
 

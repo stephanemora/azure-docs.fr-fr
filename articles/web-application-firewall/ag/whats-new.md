@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 10/24/2019
 ms.author: victorh
 ms.openlocfilehash: 0e0e67bfb893e1bf141182e45ce4a49f5f6880ca
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73495493"
 ---
 # <a name="whats-new-in-azure-web-application-firewall"></a>Nouveautés du pare-feu d’applications web Azure

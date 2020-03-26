@@ -8,10 +8,10 @@ ms.date: 11/06/2018
 ms.topic: quickstart
 ms.custom: mvc
 ms.openlocfilehash: 6c3ff10f37233294b75eceddd62c0a33f8864484
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75421645"
 ---
 # <a name="configure-a-virtual-machine-with-desired-state-configuration"></a>Configurer une machine virtuelle avec le service Desired State Configuration
@@ -104,7 +104,7 @@ Pour importer la configuration :
 
 ## <a name="compile-a-configuration"></a>Compiler une configuration
 
-Les configurations DSC doivent être compilées dans une configuration de nœud (document MOF) avant de pouvoir être affectées à un nœud. La compilation valide la configuration et permet la saisie des valeurs de paramètre. Pour plus d’informations sur la compilation d’une configuration, consultez : [Compilation de configurations dans Azure Automation DSC](https://docs.microsoft.com/azure/automation/automation-dsc-compile)
+Les configurations DSC doivent être compilées dans une configuration de nœud (document MOF) avant de pouvoir être affectées à un nœud. La compilation valide la configuration et permet la saisie des valeurs de paramètre. Pour plus d’informations sur la compilation d’une configuration, consultez [Compiler des configurations dans Azure Automation DSC](https://docs.microsoft.com/azure/automation/automation-dsc-compile).
 
 Pour compiler la configuration :
 

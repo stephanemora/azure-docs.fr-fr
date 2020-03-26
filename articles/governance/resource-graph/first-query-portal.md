@@ -4,10 +4,10 @@ description: Dans ce guide de démarrage rapide, vous suivez les étapes pour ex
 ms.date: 11/21/2019
 ms.topic: quickstart
 ms.openlocfilehash: 5cf355e78ad51e06d7ba27d48dd352f35b4c0740
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74406791"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Démarrage rapide : Exécuter votre première requête Resource Graph à l’aide de l’Explorateur Azure Resource Graph
@@ -107,7 +107,7 @@ Pour disposer d’exemples de requêtes Resource Graph et savoir comment utilise
 
 Le tableau de bord importé s’affiche automatiquement. Dans la mesure où il existe désormais dans votre portail Azure, vous pouvez l’explorer et lui apporter des changements selon les besoins, ou vous pouvez créer d’autres tableaux de bord à partir de l’exemple pour les partager avec vos équipes. Pour plus d’informations sur l’utilisation des tableaux de bord, consultez [Créer et partager des tableaux de bord dans le portail Azure](../../azure-portal/azure-portal-dashboards.md).
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous souhaitez supprimer les exemples de tableaux de bord Resource Graph de l’environnement de votre portail Azure, vous pouvez le faire en effectuant les étapes suivantes :
 
@@ -119,7 +119,7 @@ Si vous souhaitez supprimer les exemples de tableaux de bord Resource Graph de l
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez utilisé l’Explorateur Azure Resource Graph pour exécuter votre première requête et vous avez examiné les exemples de tableau de bord produits par Resource Graph. Pour plus d’informations sur le langage Resource graph, consultez la page des détails du langage de requête.
+Dans ce guide de démarrage rapide, vous avez utilisé l’Explorateur Azure Resource Graph pour exécuter votre première requête et vous avez examiné les exemples de tableau de bord produits par Resource Graph. Pour plus d’informations sur le langage Resource Graph, passez à la page des détails du langage de requête.
 
 > [!div class="nextstepaction"]
 > [Obtenir plus d’informations sur le langage de requête](./concepts/query-language.md)

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 72c363c34a3e7e01cb32917dd87237e4bbfc9490
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: c4d34a6db774712e13ea86d38ae48a543a07a8bc
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78249143"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79529762"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Démarrage rapide : Ajouter la connexion avec Microsoft à une application web ASP.NET Core
 Dans ce guide de démarrage rapide, vous utilisez un exemple de code pour découvrir comment une application web ASP.NET Core peut connecter des comptes personnels (hotmail.com, outlook.com, etc.) et des comptes professionnels et scolaires à partir de n’importe quelle instance Azure Active Directory (Azure AD). (Consultez [Fonctionnement de l’exemple](#how-the-sample-works) pour une illustration.)
@@ -68,7 +68,7 @@ Dans ce guide de démarrage rapide, vous utilisez un exemple de code pour décou
 > [!div class="sxs-lookup" renderon="portal"]
 > Exécutez le projet à l’aide de Visual Studio 2019.
 > [!div renderon="portal" id="autoupdate" class="nextstepaction"]
-> [Téléchargez l’exemple de code]().
+> [Téléchargez l’exemple de code](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore2-2.zip).
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Étape 3 : Votre application est configurée et prête à être exécutée

@@ -12,17 +12,17 @@ ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
 ms.openlocfilehash: 4aa0cce83f9adc8c648656899ec6dc12d498e26b
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77160446"
 ---
 # <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>Démarrage rapide : Ajouter la connexion à l’aide d’OpenID Connect à une application web node.js
 
 Dans ce guide de démarrage rapide, vous allez apprendre à configurer l'authentification OpenID Connect dans une application web créée à l'aide de Node.js avec Express. L'exemple est conçu pour fonctionner sur n'importe quelle plateforme.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour exécuter cet exemple, vous avez besoin des éléments suivants :
 
@@ -41,7 +41,7 @@ Pour exécuter cet exemple, vous avez besoin des éléments suivants :
 1. Sélectionnez **Nouvelle inscription.**
 
 1. Lorsque la page **Inscrire une application** s'affiche, entrez les informations d'inscription de votre application :
-    - Dans la section **Nom**, entrez un nom explicite pour les utilisateurs de l'application. Par exemple :  MonAppliWeb
+    - Dans la section **Nom**, entrez un nom explicite pour les utilisateurs de l'application. Par exemple : MonAppliWeb
     - Dans la section **Types de comptes pris en charge**, sélectionnez **Comptes dans un annuaire organisationnel et comptes personnels Microsoft (par exemple, Skype, Xbox, Outlook.com)** .
 
     S'il existe plusieurs URI de redirection, vous devrez les ajouter à partir de l'onglet **Authentification** une fois l'application créée.

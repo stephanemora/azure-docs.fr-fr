@@ -7,12 +7,12 @@ ms.author: sgilley
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 03/01/2020
-ms.openlocfilehash: 9974b42f582a3b5f26df0b6e77b42a03f23c47dd
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.openlocfilehash: d39cf8745c6f53cb11bb12561fd452325fe52ac6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78898720"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79296946"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Créer un projet d’étiquetage des données et exporter des étiquettes 
 

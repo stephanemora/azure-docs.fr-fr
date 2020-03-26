@@ -1,16 +1,16 @@
 ---
-title: 'Didacticiel : Protéger des nouvelles ressources avec des verrous'
+title: 'Tutoriel : Protéger des nouvelles ressources avec des verrous'
 description: Dans ce tutoriel, vous utilisez les options de verrous de ressources Azure Blueprints « Lecture seule » et « Ne pas supprimer » pour protéger les ressources nouvellement déployées.
 ms.date: 11/21/2019
 ms.topic: tutorial
 ms.openlocfilehash: ee57ff0c08f4fb8aa710dd2fa4dcef664484973d
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74327441"
 ---
-# <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Didacticiel : Protéger les nouvelles ressources avec des verrous de ressource Azure Blueprints
+# <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Tutoriel : Protéger les nouvelles ressources avec des verrous de ressource Azure Blueprints
 
 Les [verrous de ressources](../concepts/resource-locking.md) Azure Blueprints permettent de protéger les ressources nouvellement déployées contre toute manipulation, même par un compte disposant du rôle _Propriétaire_. Vous pouvez ajouter cette protection dans les définitions de blueprint des ressources qui ont été créées par un artefact de modèle Resource Manager.
 
@@ -21,7 +21,7 @@ Dans ce tutoriel, vous allez effectuer les étapes suivantes :
 > - Affecter l’état **Publié** à votre définition de blueprint
 > - Affecter votre définition de blueprint à un abonnement existant
 > - Inspecter le nouveau groupe de ressources
-> - Annuler l’assignation du blueprint afin de retirer les verrous
+> - Annuler l’affectation du blueprint afin de retirer les verrous
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -155,7 +155,7 @@ Une fois que la définition de blueprint est publiée, vous pouvez l’affecter 
      |Nom de l’artefact|Type d’artefact|Nom du paramètre|Valeur|Description|
      |-|-|-|-|-|
      |Groupe de ressources RGtoLock|Resource group|Nom|TestingBPLocks|Définit le nom du premier groupe de ressources auquel appliquer les verrous de blueprint.|
-     |Groupe de ressources RGtoLock|Resource group|Location|USA Ouest 2|Définit l’emplacement du nouveau groupe de ressources auquel appliquer les verrous de blueprint.|
+     |Groupe de ressources RGtoLock|Resource group|Emplacement|USA Ouest 2|Définit l’emplacement du nouveau groupe de ressources auquel appliquer les verrous de blueprint.|
      |StorageAccount|Modèle Resource Manager|storageAccountType (StorageAccount)|Standard_GRS|Référence SKU du stockage. La valeur par défaut est _Standard_LRS_.|
 
 1. Une fois tous les paramètres entrés, sélectionnez **Affecter** au bas de la page.
@@ -216,7 +216,7 @@ Du point de vue de la sécurité du groupe de ressources, l’affectation du blu
 
 Dès que la notification **Affectation de blueprint supprimée** s’affiche dans le portail, passez à l’étape suivante.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Une fois que vous avez terminé le tutoriel, supprimez les ressources suivantes :
 

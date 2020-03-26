@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 02/10/2020
 ms.openlocfilehash: 612751c2405cd55ad0b3760aa8e093e434a22f57
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77121609"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-powershell-using-rest-apis"></a>Démarrage rapide : Créer un index Recherche cognitive Azure dans PowerShell à l’aide des API REST
@@ -29,7 +29,7 @@ Cet article décrit le processus de création, de chargement et d’interrogatio
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Les services et outils suivants sont indispensables dans ce guide de démarrage rapide. 
 

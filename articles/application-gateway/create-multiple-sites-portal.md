@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Héberger plusieurs sites web à l’aide du Portail Azure'
+title: 'Tutoriel : Héberger plusieurs sites web à l’aide du Portail Azure'
 titleSuffix: Azure Application Gateway
 description: Dans ce tutoriel, vous découvrez comment créer une passerelle d’application qui héberge plusieurs sites web à l’aide du portail Azure.
 services: application-gateway
@@ -9,17 +9,17 @@ ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: victorh
 ms.openlocfilehash: ca6be666a9b77532b4f1c61f6e3391c239e82c91
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74075147"
 ---
-# <a name="tutorial-create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Didacticiel : Créer et configurer une passerelle d’application pour héberger plusieurs sites web avec le Portail Azure
+# <a name="tutorial-create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Tutoriel : Créer et configurer une passerelle d’application pour héberger plusieurs sites web avec le Portail Azure
 
 Vous pouvez utiliser le Portail Azure pour [configurer l’hébergement de plusieurs sites web](multiple-site-overview.md) quand vous créez une [passerelle d’application](overview.md). Dans ce tutoriel, vous allez définir des pools d’adresses principaux à l’aide de machines virtuelles. Vous configurez ensuite des écouteurs et des règles en fonction des domaines qui vous appartiennent pour vérifier que le trafic web arrive sur les serveurs appropriés dans les pools. Ce didacticiel, qui part du principe que vous avez plusieurs domaines, utilise *www.contoso.com* et *www.fabrikam.com* en guise d’exemples.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créer une passerelle Application Gateway
@@ -56,7 +56,7 @@ Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.az
 
     Sous **Configurer le réseau virtuel**, sélectionnez **Créer nouveau** pour créer un réseau virtuel. Dans la fenêtre **Créer un réseau virtuel** qui s’ouvre, entrez les valeurs suivantes pour créer le réseau virtuel et deux sous-réseaux :
 
-    - **Nom** : entrez *myVNet* comme nom de réseau virtuel.
+    - **Name** : entrez *myVNet* comme nom de réseau virtuel.
 
     - **Nom de sous-réseau** (sous-réseau Application Gateway) : La grille **Sous-réseaux** affiche un sous-réseau nommé *Par défaut*. Remplacez le nom de ce sous-réseau par *myAGSubnet*.<br>Le sous-réseau de passerelle d’application peut contenir uniquement des passerelles d’application. Aucune autre ressource n’est autorisée.
 
@@ -90,7 +90,7 @@ Le pool de back-ends est utilisé pour router les demandes vers les serveurs bac
 
 2. Dans la fenêtre **Ajouter un pool de back-ends** qui s’ouvre, entrez les valeurs suivantes pour créer un pool de back-ends vide :
 
-    - **Nom** : Entrez *contosoPool* pour le nom du pool de back-ends.
+    - **Name** : Entrez *contosoPool* pour le nom du pool de back-ends.
     - **Ajouter un pool backend sans cible** : Sélectionnez **Oui** pour créer un pool de back-ends sans cible. Vous ajouterez des cibles de back-end après avoir créé la passerelle d’application.
 
 3. Dans la fenêtre **Ajouter un pool de back-ends**, sélectionnez  **Ajouter** pour enregistrer la configuration du pool de back-ends et revenir à l’onglet **Back-ends**.
@@ -228,7 +228,7 @@ Une fois la passerelle d’application créée avec son adresse IP publique, vou
 
     ![Tester le site fabrikam dans la passerelle d’application](./media/create-multiple-sites-portal/application-gateway-iistest2.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Quand vous n’avez plus besoin des ressources que vous avez créées avec la passerelle d’application, supprimez le groupe de ressources. Quand vous supprimez le groupe de ressources, vous supprimez aussi la passerelle d’application et toutes ses ressources associées.
 

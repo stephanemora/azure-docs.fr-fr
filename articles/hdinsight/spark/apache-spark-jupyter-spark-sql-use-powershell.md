@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 06/12/2019
 ms.custom: mvc
 ms.openlocfilehash: 7416c25128da8dcaf803a9f03144110941200ab2
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77049150"
 ---
 # <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-powershell"></a>Démarrage rapide : créer un cluster Apache Spark dans Azure HDInsight à l’aide de PowerShell
@@ -46,7 +46,7 @@ Quand vous exécutez le script PowerShell, vous êtes invité à entrer les vale
 |Paramètre|Valeur|
 |------|------|
 |Nom du groupe de ressources Azure | Choisissez un nom unique pour le groupe de ressources.|
-|Location| Spécifiez la région Azure, par exemple « USA Centre ». |
+|Emplacement| Spécifiez la région Azure, par exemple « USA Centre ». |
 |Nom du compte de stockage par défaut | Attribuez un nom unique au compte de stockage. |
 |Nom du cluster | Attribuez un nom unique au cluster HDInsight.|
 |Informations d'identification de connexion au cluster | Vous utilisez ce compte pour vous connecter au tableau de bord du cluster lors du démarrage rapide.|

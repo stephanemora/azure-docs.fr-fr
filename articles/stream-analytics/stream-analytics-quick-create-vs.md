@@ -7,10 +7,10 @@ ms.date: 06/11/2019
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.openlocfilehash: 21dbd4128cad7df11aeb713286d868879a58519b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75431539"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-by-using-visual-studio"></a>Démarrage rapide : Créer une tâche Azure Stream Analytics à l’aide de Visual Studio
@@ -39,7 +39,7 @@ Avant de définir le travail Stream Analytics, vous devez préparer les données
    
    |**Paramètre**  |**Valeur suggérée**  |**Description**  |
    |---------|---------|---------|
-   |Subscription  | \<Votre abonnement\> |  Sélectionnez l’abonnement Azure que vous souhaitez utiliser. |
+   |Abonnement  | \<Votre abonnement\> |  Sélectionnez l’abonnement Azure que vous souhaitez utiliser. |
    |Resource group   |   asaquickstart-resourcegroup  |   Sélectionnez **Créer** et saisissez le nom du nouveau groupe de ressources pour votre compte. |
    |Région  |  \<Sélectionnez la région la plus proche de vos utilisateurs\> | Sélectionnez l’emplacement géographique où vous pouvez héberger votre hub IoT. Utilisez l’emplacement le plus proche de vos utilisateurs. |
    |Nom du hub IoT  | MyASAIoTHub  |   Sélectionnez un nom pour votre hub IoT.   |
@@ -113,7 +113,7 @@ Notez les éléments inclus dans un projet Azure Stream Analytics.
    |Type de source   |  Flux de données |  Choisissez la source d’entrée appropriée : Flux de données ou Données de référence.   |
    |Source  |  IoT Hub |  Sélectionnez la bonne source d’entrée.   |
    |Ressource  | Choisir une source de données du compte actuel | Vous pouvez entrer les données manuellement ou sélectionner un compte existant.   |
-   |Subscription  |  \<Votre abonnement\>   | Sélectionnez l’abonnement Azure qui contient le hub IoT que vous avez créé.   |
+   |Abonnement  |  \<Votre abonnement\>   | Sélectionnez l’abonnement Azure qui contient le hub IoT que vous avez créé.   |
    |IoT Hub  |  MyASAIoTHub   |  Choisissez ou entrez le nom de votre hub IoT. Si les hubs IoT sont créés dans le même abonnement, leurs noms sont automatiquement détectés.   |
    
 3. Conservez les valeurs par défaut pour les autres options et sélectionnez **Enregistrer** pour enregistrer les paramètres.  
@@ -131,7 +131,7 @@ Notez les éléments inclus dans un projet Azure Stream Analytics.
    |Alias de sortie  |  Output   |  Saisissez un nom pour identifier la sortie du travail.   |
    |Récepteur   |  Stockage Blob |  Sélectionnez le bon récepteur.    |
    |Ressource  |  Spécifier manuellement les paramètres de la source de données |  Vous pouvez entrer les données manuellement ou sélectionner un compte existant.   |
-   |Subscription  |  \<Votre abonnement\>   | Sélectionnez l’abonnement Azure contenant le compte de stockage que vous avez créé. Le compte de stockage peut être dans le même abonnement ou dans un abonnement distinct. Cet exemple suppose que vous avez créé le compte de stockage dans le même abonnement.   |
+   |Abonnement  |  \<Votre abonnement\>   | Sélectionnez l’abonnement Azure contenant le compte de stockage que vous avez créé. Le compte de stockage peut être dans le même abonnement ou dans un abonnement distinct. Cet exemple suppose que vous avez créé le compte de stockage dans le même abonnement.   |
    |Compte de stockage  |  asaquickstartstorage   |  Sélectionnez ou saisissez le nom du compte de stockage. Les noms de compte de stockage sont automatiquement détectés s’ils sont créés dans le même abonnement.   |
    |Conteneur  |  conteneur1   |  Sélectionnez un conteneur existant que vous avez créé dans votre compte de stockage.   |
    |Modèle de chemin d'accès  |  sortie   |  Entrez le nom d’un chemin de fichier qui doit être créé dans le conteneur.   |

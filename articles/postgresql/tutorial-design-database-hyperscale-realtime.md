@@ -9,10 +9,10 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 05/14/2019
 ms.openlocfilehash: f4eeb646de8b68c2c8d30586d0c75cece5317e40
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76716318"
 ---
 # <a name="tutorial-design-a-real-time-analytics-dashboard-by-using-azure-database-for-postgresql--hyperscale-citus"></a>Tutoriel : Concevoir un tableau de bord analytique en temps réel avec Azure Database pour PostgreSQL – Hyperscale (Citus)
@@ -28,7 +28,7 @@ Dans ce tutoriel, vous utilisez Azure Database pour PostgreSQL - Hyperscale (Cit
 > * Interroger des données brutes et agrégées
 > * Faire expirer des données
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [azure-postgresql-hyperscale-create-db](../../includes/azure-postgresql-hyperscale-create-db.md)]
 

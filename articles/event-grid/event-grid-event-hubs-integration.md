@@ -1,6 +1,6 @@
 ---
-title: 'Didacticiel : Envoyer des données Event Hubs vers un entrepôt de données - Event Grid'
-description: 'Didacticiel : Décrit comment utiliser Azure Event Grid et Event Hubs pour migrer des données vers un entrepôt SQL Data Warehouse. Une fonction Azure est utilisée pour récupérer un fichier de capture.'
+title: 'Tutoriel : Envoyer des données Event Hubs vers un entrepôt de données - Event Grid'
+description: 'Tutoriel : Décrit comment utiliser Azure Event Grid et Event Hubs pour migrer des données vers un entrepôt SQL Data Warehouse. Une fonction Azure est utilisée pour récupérer un fichier de capture.'
 services: event-grid
 author: spelluru
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: spelluru
 ms.openlocfilehash: 6f5bd129b175210cd5b9415a65b8db06d904e24d
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73718184"
 ---
-# <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Didacticiel : Diffuser en continu des Big Data dans un entrepôt de données
+# <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Tutoriel : Diffuser en continu des Big Data dans un entrepôt de données
 Azure [Event Grid](overview.md) est un service de routage des événements intelligent qui vous permet de réagir aux notifications (événements) à partir d’applications et de services. Par exemple, ce service peut déclencher le traitement par une fonction Azure des données Event Hubs capturées dans un Stockage Blob Azure ou dans un référentiel Azure Data Lake Storage, ainsi que la migration des données vers d’autres référentiels de données. Cet [exemple d’intégration Event Hubs et Event Grid](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) vous indique comment utiliser Event Hubs avec Event Grid pour migrer en toute transparence les données Event Hubs capturées du stockage blob vers un service SQL Data Warehouse.
 
 ![Vue d’ensemble de l’application](media/event-grid-event-hubs-integration/overview.png)
@@ -60,7 +60,7 @@ Dans cette étape, vous déployez l’infrastructure requise avec un [modèle Re
 
 ### <a name="launch-azure-cloud-shell-in-azure-portal"></a>Lancer Azure Cloud Shell dans le portail Azure
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com). 
+1. Connectez-vous au [portail Azure](https://portal.azure.com). 
 2. Sélectionnez le bouton **Cloud Shell** en haut.
 
     ![Portail Azure](media/event-grid-event-hubs-integration/azure-portal.png)
@@ -85,7 +85,7 @@ Dans cette étape, vous déployez l’infrastructure requise avec un [modèle Re
         az group create -l eastus -n <Name for the resource group>
         ```
     1. Spécifiez un nom pour le **groupe de ressources**
-    2. Appuyez sur **ENTRÉE**. 
+    2. Appuyez sur **Entrée**. 
 
         Voici un exemple :
     
@@ -135,7 +135,7 @@ Dans cette étape, vous déployez l’infrastructure requise avec un [modèle Re
         New-AzResourceGroup -Name rgDataMigration -Location westcentralus
         ```
     2. Spécifiez un nom pour le **groupe de ressources**.
-    3. Appuyez sur ENTRÉE. 
+    3. Appuyez sur Entrée. 
 3. Déployez toutes les ressources mentionnées dans la section précédente (hub d’événements, compte de stockage, application de fonction, entrepôt de données SQL) en exécutant la commande suivante :
     1. Copiez et collez la commande dans la fenêtre Cloud Shell. Vous pouvez également copier/coller la commande dans l’éditeur de votre choix, définir des valeurs, puis la copiez dans Cloud Shell. 
 

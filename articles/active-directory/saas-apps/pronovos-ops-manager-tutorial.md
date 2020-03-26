@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à ProNovos Ops Manager | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à ProNovos Ops Manager | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et ProNovos Ops Manager.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 07/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 95c898dd36387d4474f5129943c6bd76f754ffe2
-ms.sourcegitcommit: ac29357a47cc05afdf0f84834de5277598f4d87c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "70213535"
 ---
-# <a name="tutorial-integrate-pronovos-ops-manager-with-azure-active-directory"></a>Didacticiel : Intégrer ProNovos Ops Manager à Azure Active Directory
+# <a name="tutorial-integrate-pronovos-ops-manager-with-azure-active-directory"></a>Tutoriel : Intégrer ProNovos Ops Manager à Azure Active Directory
 
 Dans ce tutoriel, vous allez découvrir comment intégrer ProNovos Ops Manager à Azure Active Directory (Azure AD). Quand vous intégrez ProNovos Ops Manager à Azure AD, vous pouvez :
 

@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Migrer des données locales vers Stockage Azure avec AzCopy | Microsoft Docs'
+title: 'Tutoriel : Migrer des données locales vers Stockage Azure avec AzCopy | Microsoft Docs'
 description: Dans ce tutoriel, vous utilisez AzCopy pour migrer ou copier des données vers ou depuis un blob, une table ou un fichier. Migrez facilement des données de votre stockage local vers le Stockage Azure.
 author: normesta
 ms.service: storage
@@ -9,17 +9,17 @@ ms.author: normesta
 ms.reviewer: seguler
 ms.subservice: common
 ms.openlocfilehash: f7155053072b3533503765dc6f4fbf185d21f0d4
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74327520"
 ---
-#  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-with-azcopy"></a>Didacticiel : Migrer des données locales vers le stockage cloud avec AzCopy
+#  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-with-azcopy"></a>Tutoriel : Migrer des données locales vers le stockage cloud avec AzCopy
 
 AzCopy est un outil en ligne de commande qui vous permet de copier des données vers ou depuis le Stockage Blob Azure, Azure Files ou le Stockage Table Azure, à l’aide de commandes simples. Les commandes sont conçues pour offrir des performances optimales. Grâce à AzCopy, vous pouvez copier des données entre un système de fichiers et un compte de stockage, ou entre comptes de stockage. AzCopy peut être utilisé pour copier des données à partir de données locales vers un compte de stockage.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créez un compte de stockage. 
@@ -121,11 +121,11 @@ Ces exemples supposent que le dossier est nommé `myFolder`, que le nom de votre
 > [!NOTE]
 > L’exemple Linux ajoute un jeton SAS. Vous devez en fournir un dans votre commande. La version actuelle de AzCopy V10 ne prend pas en charge les autorisations Azure AD dans les travaux Cron.
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# <a name="linux"></a>[Linux](#tab/linux)
 
     azcopy sync "/mnt/myfiles" "https://mystorageaccount.blob.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-05-30T06:57:40Z&st=2019-05-29T22:57:40Z&spr=https&sig=BXHippZxxx54hQn%2F4tBY%2BE2JHGCTRv52445rtoyqgFBUo%3D" --recursive=true
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# <a name="windows"></a>[Windows](#tab/windows)
 
     azcopy sync "C:\myFolder" "https://mystorageaccount.blob.core.windows.net/mycontainer" --recursive=true
 
@@ -135,7 +135,7 @@ Dans ce didacticiel, [Schtasks](https://msdn.microsoft.com/library/windows/deskt
 
  Avec **Schtasks**, un administrateur peut créer, supprimer, interroger, modifier, exécuter et terminer des tâches planifiées sur un ordinateur local ou distant. Avec **Cron**, les utilisateurs sur Linux et Unix peuvent exécuter des commandes ou des scripts à la date et à l’heure qu’ils ont spécifiées à l’aide [d’expressions Cron](https://en.wikipedia.org/wiki/Cron#CRON_expression).
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# <a name="linux"></a>[Linux](#tab/linux)
 
 Pour créer un travail Cron sur Linux, entrez la commande suivante sur un terminal :
 
@@ -146,7 +146,7 @@ crontab -e
 
 La spécification de l’expression Cron `*/5 * * * *` dans la commande indique que le script d’interpréteur de commandes `script.sh` doit s’exécuter toutes les cinq minutes. Vous pouvez planifier le script pour qu’il s’exécute à une heure précise tous les jours, tous les mois ou tous les ans. Pour en savoir plus sur la définition de la date et l’heure d’exécution d’un travail, consultez la page sur les [expressions Cron](https://en.wikipedia.org/wiki/Cron#CRON_expression).
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# <a name="windows"></a>[Windows](#tab/windows)
 
 Pour créer une tâche planifiée sur Windows, entrez la commande suivante à une invite de commandes ou dans PowerShell :
 

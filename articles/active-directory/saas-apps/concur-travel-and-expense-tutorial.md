@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à Concur Travel and Expense | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Concur Travel and Expense | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Concur Travel and Expense.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 03/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9dddd9f6904aa5ef7840850792aeabf04666dddc
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72373410"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-concur-travel-and-expense"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Concur Travel and Expense
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-concur-travel-and-expense"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Concur Travel and Expense
 
 Dans ce tutoriel, vous allez apprendre à intégrer Concur Travel and Expense à Azure Active Directory (Azure AD). Quand vous intégrez Concur Travel and Expense à Azure AD, vous pouvez :
 

@@ -7,10 +7,10 @@ ms.date: 08/12/2019
 ms.topic: quickstart
 ms.devlang: javascript
 ms.openlocfilehash: fb79f4b87d8ddc5303fea834c81329315401464a
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74688966"
 ---
 # <a name="create-a-nodejs-app-in-azure"></a>Créer une application Node.js dans Azure
@@ -31,7 +31,7 @@ Une fois l’extension installée, connectez-vous à votre compte Azure. Dans la
 
 ![se connecter à Azure](./media/quickstart-nodejs/sign-in.png)
 
-### <a name="troubleshooting"></a>Résolution de problèmes
+### <a name="troubleshooting"></a>Dépannage
 
 Si vous rencontrez l’erreur **« Cannot find subscription with name [subscription ID] »** (L’abonnement avec le nom [ID d’abonnement] est introuvable), cela peut être dû au fait que vous vous trouvez derrière un proxy qui vous empêche d’atteindre l’API Azure. Configurez les variables d’environnement `HTTP_PROXY` et `HTTPS_PROXY` avec vos informations de proxy dans votre terminal à l’aide de `export`.
 
@@ -134,7 +134,7 @@ Dans l’explorateur **AZURE APP SERVICE**, sélectionnez l’icône représenta
 
 Une fois le déploiement terminé, sélectionnez **Parcourir le site web** dans l’invite pour afficher l’application web que vous venez de déployer.
 
-### <a name="troubleshooting"></a>Résolution de problèmes
+### <a name="troubleshooting"></a>Dépannage
 
 Si vous voyez s’afficher le message d’erreur **« Vous n’êtes pas autorisé à afficher ce répertoire ou cette page. »** , c’est que l’application n’a probablement pas réussi à démarrer correctement. Accédez à la section suivante et affichez la sortie du journal pour rechercher et corriger l’erreur. Si vous n’êtes pas en mesure de la corriger, contactez-nous en sélectionnant le bouton **J’ai rencontré un problème** ci-dessous. Nous sommes là pour vous aider !
 

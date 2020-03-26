@@ -9,10 +9,10 @@ ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 0501c8bb1d71c6cff6033fc937cda019c8890056
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75376458"
 ---
 # <a name="quickstart-create-an-android-app-with-azure-spatial-anchors"></a>Démarrage rapide : Créer une application Android avec Azure Spatial Anchors
@@ -28,7 +28,7 @@ Vous découvrirez comment effectuer les actions suivantes :
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce guide de démarrage rapide, veillez à avoir :
 
@@ -44,11 +44,11 @@ Pour suivre ce guide de démarrage rapide, veillez à avoir :
 
 ## <a name="open-the-sample-project"></a>Ouvrir l’exemple de projet
 
-# <a name="javatabopenproject-java"></a>[Java](#tab/openproject-java)
+# <a name="java"></a>[Java](#tab/openproject-java)
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
-# <a name="ndktabopenproject-ndk"></a>[NDK](#tab/openproject-ndk)
+# <a name="ndk"></a>[NDK](#tab/openproject-ndk)
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
@@ -64,11 +64,11 @@ git submodule update --init --recursive
 
 Ouvrez Android Studio.
 
-# <a name="javatabopenproject-java"></a>[Java](#tab/openproject-java)
+# <a name="java"></a>[Java](#tab/openproject-java)
 
 Sélectionnez **Open an existing Android Studio project**, puis le projet situé à l’emplacement `Android/Java/`.
 
-# <a name="ndktabopenproject-ndk"></a>[NDK](#tab/openproject-ndk)
+# <a name="ndk"></a>[NDK](#tab/openproject-ndk)
 
 Sélectionnez **Open an existing Android Studio project**, puis le projet situé à l’emplacement `Android/NDK/`.
 
@@ -78,7 +78,7 @@ Sélectionnez **Open an existing Android Studio project**, puis le projet situé
 
 L’étape suivante configure l’application pour qu’elle utilise votre identificateur et votre clé de compte. Vous les avez copiés dans un éditeur de texte pendant la [configuration de la ressource Spatial Anchors](#create-a-spatial-anchors-resource).
 
-# <a name="javatabopenproject-java"></a>[Java](#tab/openproject-java)
+# <a name="java"></a>[Java](#tab/openproject-java)
 
 Ouvrez `Android/Java/app/src/main/java/com/microsoft/sampleandroid/AzureSpatialAnchorsManager.java`.
 
@@ -86,7 +86,7 @@ Localisez le champ `SpatialAnchorsAccountKey` et remplacez `Set me` par la clé 
 
 Localisez le champ `SpatialAnchorsAccountId` et remplacez `Set me` par l’identificateur du compte.
 
-# <a name="ndktabopenproject-ndk"></a>[NDK](#tab/openproject-ndk)
+# <a name="ndk"></a>[NDK](#tab/openproject-ndk)
 
 Ouvrez `Android/NDK/app/src/main/cpp/AzureSpatialAnchorsApplication.cpp`.
 

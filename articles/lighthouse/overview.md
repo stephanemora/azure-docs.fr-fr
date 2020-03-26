@@ -4,10 +4,10 @@ description: Azure Lighthouse permet aux fournisseurs de services de fournir des
 ms.date: 11/11/2019
 ms.topic: overview
 ms.openlocfilehash: 0bec1f5b727ca3ecd604d2654358ca9a5507abe4
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75646192"
 ---
 # <a name="what-is-azure-lighthouse"></a>Qu’est-ce qu’Azure Lighthouse ?

@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel :  Intégrer une forêt AD unique à Azure à l’aide de la synchronisation de hachage de mot de passe'
+title: 'Tutoriel :  Intégrer une forêt AD unique à Azure à l’aide de la synchronisation de hachage de mot de passe'
 description: Montre comment configurer un environnement d’identité hybride à l’aide de la synchronisation de hachage de mot de passe.
 services: active-directory
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b17300fa69b61c7713c860e2a35e63fcb6584bc4
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "66474006"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-password-hash-sync-phs"></a>Tutoriel :  Intégrer une forêt AD unique avec la synchronisation du hachage de mot de passe (PHS)
@@ -83,11 +83,11 @@ Pour terminer la création de la machine virtuelle, vous devez terminer l’inst
 6. Saisissez votre clé de licence et cliquez sur **Suivant**.
 7. Acceptez les termes du contrat de licence et cliquez sur **Suivant**.
 8. Sélectionnez **Personnalisé :  installer Windows uniquement (avancé)**
-9. Cliquez sur **Suivant**
+9. Cliquez sur **Suivant**.
 10. Une fois l’installation terminée, redémarrez la machine virtuelle, connectez-vous et exécutez les mises à jour Windows pour vous assurer que la machine virtuelle est à jour.  Installez les dernières mises à jour.
 
 ## <a name="install-active-directory-prerequisites"></a>Installer les prérequis pour Active Directory
-Maintenant que la machine virtuelle est en cours d’exécution, il faut effectuer quelques opérations avant d’installer Active Directory.  Autrement dit, il faut renommer la machine virtuelle, définir une adresse IP statique et des informations DNS, et installer les outils d’administration de serveur distant.   Effectuez les actions suivantes :
+Maintenant que la machine virtuelle est en cours d’exécution, il faut effectuer quelques opérations avant d’installer Active Directory.  Autrement dit, il faut renommer la machine virtuelle, définir une adresse IP statique et des informations DNS, et installer les outils d’administration de serveur distant.   Effectuez les actions suivantes :
 
 1. Ouvrez PowerShell ISE en tant qu’administrateur.
 2. Exécutez le script suivant.
@@ -183,7 +183,7 @@ Nous devons maintenant créer un locataire Azure AD pour synchroniser nos utili
 1. Accédez au [portail Azure](https://portal.azure.com) et connectez-vous avec un compte qui dispose d’un abonnement Azure.
 2. Cliquez sur l’**icône plus (+)** et recherchez **Azure Active Directory**.
 3. Dans la liste des résultats, sélectionnez sur **Azure Active Directory**.
-4. Sélectionnez **Créer**.</br>
+4. Sélectionnez **Create** (Créer).</br>
 ![Créer](media/tutorial-password-hash-sync/create1.png)</br>
 5. Indiquez le **nom de l’organisation** avec le **nom de domaine initial**. Sélectionnez ensuite **Créer**. Votre annuaire est alors créé.
 6. Une fois cette opération terminée, cliquez sur **ce lien** pour gérer l’annuaire.
@@ -199,7 +199,7 @@ Maintenant que nous avons un locataire Azure AD, nous allons créer un compte d
 4. Une fois cette opération terminée, ouvrez une nouvelle fenêtre de navigateur web et connectez-vous à myapps.microsoft.com en utilisant le nouveau compte d’administrateur général et le mot de passe temporaire.
 5. Remplacez le mot de passe de l’administrateur général par quelque chose de facile à retenir.
 
-## <a name="download-and-install-azure-ad-connect"></a>Télécharger et installer Azure AD Connect
+## <a name="download-and-install-azure-ad-connect"></a>Télécharger et installer Azure AD Connect
 Il est maintenant temps de télécharger et d’installer Azure AD Connect.  Une fois l’installation terminée, nous aborderons l’installation rapide.  Effectuez les actions suivantes :
 
 1. Télécharger [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)

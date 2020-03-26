@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
 ms.openlocfilehash: 482401b75cadf44e2cef03cced8dd216d0980524
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74969579"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Démarrage rapide : Configurer le service IoT Hub Device Provisioning avec le modèle Azure Resource Manager
@@ -318,7 +318,7 @@ Utilisez les commandes Azure CLI suivantes pour déployer vos modèles et vérif
     ```
 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Les autres démarrages rapides de cette collection reposent sur ce démarrage rapide. Si vous souhaitez continuer à utiliser d’autres démarrages rapides ou les didacticiels, ne nettoyez pas les ressources créées dans ce démarrage rapide. Si vous ne pensez pas continuer, vous pouvez utiliser Azure CLI pour [supprimer une ressource][lnk-az-resource-command], comme un hub IoT ou un service de provisionnement, ou bien un groupe de ressources et l’ensemble de ses ressources.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Opérations ETL avec Interactive Query - Azure HDInsight'
+title: 'Tutoriel : Opérations ETL avec Interactive Query - Azure HDInsight'
 description: Didacticiel - Découvrez comment extraire des données d’un jeu de données CSV brutes, les transformer dans Interactive Quary sur HDInsight, puis charger les données transformées dans la base de données Azure SQL à l’aide d’Apache Sqoop.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,13 +9,13 @@ ms.date: 07/02/2019
 ms.author: hrasheed
 ms.custom: hdinsightactive,mvc
 ms.openlocfilehash: d1136c153a529f58db1de277ec84ac332b9f78ae
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73494155"
 ---
-# <a name="tutorial-extract-transform-and-load-data-using-interactive-query-in-azure-hdinsight"></a>Didacticiel : Extraire, transformer et charger des données à l’aide d’Interactive Query sur Azure HDInsight
+# <a name="tutorial-extract-transform-and-load-data-using-interactive-query-in-azure-hdinsight"></a>Tutoriel : Extraire, transformer et charger des données à l’aide d’Interactive Query sur Azure HDInsight
 
 Dans ce tutoriel, vous allez utiliser un fichier de données brutes CSV comportant des données de vol disponibles publiquement, l’importer dans un espace de stockage en cluster HDInsight, puis transformer les données à l’aide d’Interactive Query dans Azure HDInsight. Une fois les données transformées, chargez-les dans une base de données Azure SQL à l’aide d’[Apache Sqoop](https://sqoop.apache.org/).
 
@@ -287,7 +287,7 @@ Dans les sections précédentes, vous avez copié les données transformées dan
 
     Tapez `exit` pour quitter l’utilitaire tsql.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Après avoir terminé ce didacticiel, vous souhaiterez peut-être supprimer le cluster. Avec HDInsight, vos données sont stockées Azure Storage, pour que vous puissiez supprimer un cluster en toute sécurité s’il n’est pas en cours d’utilisation. Vous devez également payer pour un cluster HDInsight, même lorsque vous ne l’utilisez pas. Étant donné que les frais pour le cluster sont bien plus élevés que les frais de stockage, économique, mieux vaut supprimer les clusters lorsqu’ils ne sont pas utilisés.
 

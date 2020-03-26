@@ -4,10 +4,10 @@ description: Exécutez rapidement des tâches avec Azure Container Registry pour
 ms.topic: quickstart
 ms.date: 01/31/2020
 ms.openlocfilehash: f08f10dd170acaa8594ad5a47f5ef58e27288b10
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76986272"
 ---
 # <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>Démarrage rapide : générer et exécuter une image conteneur avec Azure Container Registry Tasks

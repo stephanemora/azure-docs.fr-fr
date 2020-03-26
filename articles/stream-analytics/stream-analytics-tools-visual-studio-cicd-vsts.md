@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: d9360ff64206cdce208f9643cf8ca86515aaeb7e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75354431"
 ---
 # <a name="tutorial-deploy-an-azure-stream-analytics-job-with-cicd-using-azure-pipelines"></a>Tutoriel : Déployer un travail Azure Stream Analytics avec CI/CD à l’aide d’Azure Pipelines
@@ -26,7 +26,7 @@ Dans ce tutoriel, vous allez apprendre à :
 > * Créer un pipeline de mise en production dans Azure Pipelines
 > * Déployer et mettre à niveau une application automatiquement
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 Avant de commencer, veillez à disposer des éléments qui suivent :
 
 * Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -116,7 +116,7 @@ Ouvrez un navigateur web et accédez au projet que vous venez de créer dans [Az
     
     |**Paramètre**  |**Valeur suggérée**  |
     |---------|---------|
-    |Subscription  |  Choisissez votre abonnement.   |
+    |Abonnement  |  Choisissez votre abonnement.   |
     |Action  |  Créer ou mettre à jour un groupe de ressources   |
     |Groupe de ressources  |  Entrez un nom de groupe de ressources.   |
     |Modèle  | [Chemin d’accès de votre solution]\bin\Debug\Deploy\\[Nom de votre projet].JobTemplate.json   |

@@ -5,13 +5,13 @@ keywords: ansible, azure, devops, bash, playbook, devtest labs
 ms.topic: tutorial
 ms.date: 04/30/2019
 ms.openlocfilehash: b6981ee94c4d82997c574db037befb9782465d08
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74156279"
 ---
-# <a name="tutorial-configure-labs-in-azure-devtest-labs-using-ansible"></a>Didacticiel : Configurer des laboratoires dans Azure DevTest Labs à l’aide d’Ansible
+# <a name="tutorial-configure-labs-in-azure-devtest-labs-using-ansible"></a>Tutoriel : Configurer des laboratoires dans Azure DevTest Labs à l’aide d’Ansible
 
 [!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
@@ -274,8 +274,8 @@ Pour supprimer le laboratoire, utilisez la tâche suivante :
 ## <a name="get-the-sample-playbook"></a>Obtenir l’exemple de playbook
 
 Il existe deux façons d’obtenir l’exemple de playbook complet :
-- [Télécharger le playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/devtestlab-create.yml) et l’enregistrer dans `devtestlab-create.yml`.
-- Créer un fichier nommé `devtestlab-create.yml` et y copier le contenu suivant :
+- [Téléchargez le manifeste](https://github.com/Azure-Samples/ansible-playbooks/blob/master/devtestlab-create.yml) et enregistrez-le sous `devtestlab-create.yml`.
+- Créez un nouveau fichier nommé `devtestlab-create.yml` et copiez-y le contenu suivant :
 
 ```yml
 ---
@@ -448,13 +448,13 @@ Avant d’exécuter le playbook, effectuez les modifications suivantes :
 - Dans la section `vars`, remplacez l’espace réservé `{{ resource_group_name }}` par le nom de votre groupe de ressources.
 - Stockez le jeton GitHub comme une variable d’environnement nommée `GITHUB_ACCESS_TOKEN`.
 
-Exécutez le playbook à l’aide de la commande `ansible-playbook` :
+Exécutez le playbook à l’aide de la commande `ansible-playbook` :
 
 ```bash
 ansible-playbook devtestlab-create.yml
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous n’en avez plus besoin, supprimez les ressources créées dans cet article. 
 

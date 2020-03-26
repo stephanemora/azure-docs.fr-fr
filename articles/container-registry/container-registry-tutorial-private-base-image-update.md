@@ -4,10 +4,10 @@ description: Dans ce tutoriel, vous allez configurer une tâche Azure Container 
 ms.topic: tutorial
 ms.date: 01/22/2020
 ms.openlocfilehash: e8aae8a91288d470c801dc4d82cfa6b44369d832
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77617682"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-another-private-container-registry"></a>Tutoriel : Automatiser la génération des images conteneur quand une image de base est mise à jour dans un autre registre de conteneurs privé 

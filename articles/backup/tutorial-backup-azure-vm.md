@@ -1,14 +1,14 @@
 ---
-title: 'Didacticiel : Sauvegarder plusieurs machines virtuelles Azure avec PowerShell'
+title: 'Tutoriel : Sauvegarder plusieurs machines virtuelles Azure avec PowerShell'
 description: Ce tutoriel décrit en détail la sauvegarde de plusieurs machines virtuelles Azure dans un coffre Recovery Services à l’aide d’Azure PowerShell.
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.custom: mvc
 ms.openlocfilehash: 154238eae78ce44b9fc91058e58d9a11e254c0f9
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74171780"
 ---
 # <a name="back-up-azure-vms-with-powershell"></a>Sauvegarder des machines virtuelles Azure avec PowerShell
@@ -97,7 +97,7 @@ $item = Get-AzRecoveryServicesBackupItem -Container $namedContainer -WorkloadTyp
 $job = Backup-AzRecoveryServicesBackupItem -Item $item
 ```
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 Si vous rencontrez des problèmes pendant la sauvegarde de votre machine virtuelle, consultez cet [article sur la résolution des problèmes](backup-azure-vms-troubleshoot.md).
 

@@ -10,15 +10,15 @@ ms.date: 08/05/2019
 ms.author: raynew
 ms.custom: mvc
 ms.openlocfilehash: 9bc0d25e19ad3412e62eb3386b0faf3ae5d2a444
-ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68782591"
 ---
 # <a name="fail-over-and-reprotect-azure-vms-between-regions"></a>Basculer et reprotéger des machines virtuelles Azure entre des régions
 
-Ce tutoriel explique comment basculer une machine virtuelle (VM) vers une région Azure secondaire avec le service [Azure Site Recovery](site-recovery-overview.md). Une fois le basculement effectué, vous reprotégez la machine virtuelle. Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Ce tutoriel explique comment basculer une machine virtuelle (VM) vers une région Azure secondaire avec le service [Azure Site Recovery](site-recovery-overview.md). Une fois le basculement effectué, vous reprotégez la machine virtuelle. Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Basculer la machine virtuelle Azure
@@ -42,9 +42,9 @@ Ce tutoriel explique comment basculer une machine virtuelle (VM) vers une régio
 
 2. Dans **Basculement**, sélectionnez un **point de récupération** vers lequel basculer. Vous pouvez utiliser l’une des options suivantes :
 
-   * **Dernier** (par défaut) : Traite toutes les données dans le service Site Recovery et fournit l’objectif de point de récupération (RPO) le plus bas.
+   * **Dernier** (par défaut) : traite toutes les données dans le service Site Recovery et fournit l’objectif de point de récupération (RPO) le plus bas.
    * **Dernier point traité** : Rétablit la machine virtuelle sur le dernier point de récupération ayant été traité par le service Site Recovery.
-   * **Personnalisé** : effectue un basculement vers un point de récupération spécifique. Cette option est utile pour effectuer un test de basculement.
+   * **Personnalisé** : effectue un basculement vers un point de récupération spécifique. Cette option est utile pour effectuer un test de basculement.
 
 3. Sélectionnez **Arrêter la machine avant de commencer le basculement** si vous souhaitez que Site Recovery tente d’arrêter les machines virtuelles sources avant de déclencher le basculement. L’arrêt permet d’éviter toute perte de données. Le basculement est effectué même en cas d’échec de l’arrêt. Site Recovery ne nettoie pas la source après le basculement.
 

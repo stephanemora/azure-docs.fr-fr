@@ -13,19 +13,16 @@ ms.topic: tutorial
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: 1317ea6526a28c5d71dce1a3c25b2fd05f5e446b
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: 9402960927f56092e226ab81bd3e6ede0cf6a52d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78271302"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79202193"
 ---
 # <a name="quickstart-create-a-nat-gateway-using-azure-cli"></a>Démarrage rapide : Créer une passerelle NAT avec Azure CLI
 
 Ce guide de démarrage rapide vous montre comment utiliser le service NAT de Réseau virtuel Azure. Vous allez créer une passerelle NAT pour fournir une connectivité sortante à une machine virtuelle dans Azure. 
-
->[!NOTE] 
->Le service NAT de Réseau virtuel Azure est disponible en préversion publique à ce stade, et disponible dans un ensemble limité de [régions](https://azure.microsoft.com/global-infrastructure/regions/). Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Consultez les [Conditions d’utilisation supplémentaires des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms).
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -236,6 +233,5 @@ Consultez les métriques dans Azure Monitor pour découvrir le fonctionnement de
 - Guide de démarrage rapide du déploiement d’une [ressource de passerelle NAT avec Azure CLI](./quickstart-create-nat-gateway-cli.md).
 - Guide de démarrage rapide du déploiement d’une [ressource de passerelle NAT avec Azure PowerShell](./quickstart-create-nat-gateway-powershell.md).
 - Guide de démarrage rapide du déploiement d’une [ressource de passerelle NAT avec le portail Azure](./quickstart-create-nat-gateway-portal.md).
-- [Faites-nous part de vos commentaires sur la préversion publique](https://aka.ms/natfeedback).
 > [!div class="nextstepaction"]
 

@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Authentification auprès d’Azure Functions - Azure SignalR'
+title: 'Tutoriel : Authentification auprès d’Azure Functions - Azure SignalR'
 description: Dans ce tutoriel, vous allez découvrir comment authentifier les clients Azure SignalR Service pour la liaison d’Azure Functions
 author: sffamily
 ms.service: signalr
@@ -7,13 +7,13 @@ ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: zhshang
 ms.openlocfilehash: dfa17720b34962611d240aa7c35ba8092bf99082
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74158151"
 ---
-# <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>Didacticiel : Authentification d'Azure SignalR Service auprès d'Azure Functions
+# <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>Tutoriel : Authentification d'Azure SignalR Service auprès d'Azure Functions
 
 Didacticiel étape par étape permettant de créer une salle de conversation avec l’authentification et la messagerie privée à l’aide d’Azure Functions, de l’authentification App Service et du service SignalR.
 
@@ -57,7 +57,7 @@ Vous générez et testez l’application Azure Functions localement. L’applica
     |---|---|
     | Nom de la ressource | Nom unique pour l’instance de service SignalR |
     | Resource group | Créer un groupe de ressources avec un nom unique |
-    | Location | Choisissez un emplacement proche de vous |
+    | Emplacement | Choisissez un emplacement proche de vous |
     | Niveau de tarification | Gratuit |
 
 1. Cliquez sur **Créer**.
@@ -317,10 +317,10 @@ Un compte de Stockage Azure est exigé par une application de fonction s’exéc
 
     | Nom | Valeur |
     |---|---|
-    | Subscription | Sélectionner l’abonnement contenant l’instance de SignalR Service |
+    | Abonnement | Sélectionner l’abonnement contenant l’instance de SignalR Service |
     | Resource group | Sélectionner le même groupe de ressources |
     | Nom de la ressource | Nom unique pour le compte de Stockage |
-    | Location | Sélectionner le même emplacement que celui de vos autres ressources |
+    | Emplacement | Sélectionner le même emplacement que celui de vos autres ressources |
     | Performances | standard |
     | Type de compte | StorageV2 (usage général v2) |
     | Réplication | Stockage localement redondant (LRS) |
@@ -374,9 +374,9 @@ Lors de l’envoi d’un message, l’application peut décider de l’envoyer �
     | Nom | Valeur |
     |---|---|
     | Dossier à déployer | Sélectionnez le dossier de projet principal |
-    | Subscription | Sélectionnez votre abonnement |
+    | Abonnement | Sélectionnez votre abonnement |
     | Conteneur de fonctions | Sélectionnez **Créer une Function App** |
-    | Nom de l’application de fonction | Entrez un nom unique |
+    | Nom de l’application de fonction | Entrer un nom unique |
     | Resource group | Sélectionnez le même groupe de ressources que l’instance de service SignalR |
     | Compte de stockage | Sélectionner le compte de stockage que vous avez préalablement créé |
 
@@ -393,7 +393,7 @@ Lors de l’envoi d’un message, l’application peut décider de l’envoyer �
     | Nom | Valeur |
     |---|---|
     | Fichier de paramètres locaux | local.settings.json |
-    | Subscription | Sélectionnez votre abonnement |
+    | Abonnement | Sélectionnez votre abonnement |
     | Conteneur de fonctions | Sélectionnez l’application de fonction précédemment déployée |
 
 Les paramètres locaux sont chargés vers l’application de fonction dans Azure. Si vous êtes invité à remplacer les paramètres existants, sélectionnez **Oui pour tout**.
@@ -451,7 +451,7 @@ L’application web est hébergée à l’aide de la fonctionnalité de sites we
 
     | Nom | Valeur |
     |---|---|
-    | Subscription | Sélectionnez votre abonnement |
+    | Abonnement | Sélectionnez votre abonnement |
     | Compte de stockage | Sélectionner le compte de stockage que vous avez préalablement créé |
     | Dossier à déployer | Sélectionner **Parcourir**, puis sélectionner le dossier *Contenu* |
 
@@ -489,7 +489,7 @@ Félicitations ! Vous avez déployé une application de conversation en temps r�
 
 ![Démonstration](media/signalr-tutorial-authenticate-azure-functions/signalr-serverless-chat.gif)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Pour supprimer les ressources créées à l’occasion de ce tutoriel, supprimez le groupe de ressources par le biais du portail Azure.
 

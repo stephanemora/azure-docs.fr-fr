@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/25/2019
 ms.openlocfilehash: 819a60887743f39d3c2ffab3c955b2980cee2725
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74784831"
 ---
 # <a name="quickstart-create-and-manage-logic-app-workflow-definitions-by-using-visual-studio-code"></a>Démarrage rapide : Créer et gérer des définitions de workflow d’applications logiques avec Visual Studio Code
@@ -54,7 +54,7 @@ Avant de commencer, vérifiez que vous disposez des éléments ci-après :
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
-1. Ouvrez Visual Studio Code. Dans la barre d’outils de Visual Studio Code, sélectionnez l’icône Azure.
+1. Ouvrez Visual Studio Code. Dans la barre d’outils de Visual Studio Code, sélectionnez l’icône Azure.
 
    ![Sélectionner l’icône Azure dans la barre d’outils de Visual Studio Code](./media/quickstart-create-logic-apps-visual-studio-code/open-extensions-visual-studio-code.png)
 

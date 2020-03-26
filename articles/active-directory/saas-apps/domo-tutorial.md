@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à Domo | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Domo | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Domo.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 08/26/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0141b8e3e0953a1b436b9e3b1da72249dae19eb1
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "70163384"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-domo"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Domo
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-domo"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Domo
 
 Dans ce tutoriel, vous allez découvrir comment intégrer Domo à Azure Active Directory (Azure AD). Quand vous intégrez Domo à Azure AD, vous pouvez :
 

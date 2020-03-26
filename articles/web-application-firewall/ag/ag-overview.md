@@ -9,10 +9,10 @@ ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: overview
 ms.openlocfilehash: 1a210ff7da57147762dcf13e1dda7fee26dbe5f0
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74384108"
 ---
 # <a name="azure-web-application-firewall-on-azure-application-gateway"></a>Pare-feu d’applications web Azure sur Azure Application Gateway
@@ -60,7 +60,7 @@ Cette section décrit les principaux avantages qu’offre WAF sur App Gateway.
 
 * Créez des règles personnalisées pour répondre aux besoins de votre application
 
-## <a name="features"></a>Caractéristiques
+## <a name="features"></a>Fonctionnalités
 
 - Protection contre l’injection de code SQL.
 - Protection contre l’exécution de scripts de site à site.
@@ -98,7 +98,7 @@ Pour plus d’informations sur les règles personnalisées, consultez [Règles p
 
 ### <a name="bot-mitigation-preview"></a>Atténuation de robot (préversion)
 
-Un ensemble de règles de protection de bot managées peut être activé pour votre WAF afin de bloquer ou de journaliser des demandes provenant d’adresses IP malveillantes, à côté de l’ensemble de règles managé. Ces adresses IP proviennent du flux Microsoft Threat Intelligence. Intelligent Security Graph alimente Microsoft Threat Intelligence et est utilisé par de nombreux services, dont Azure Security Center.
+Un ensemble de règles de protection de bot managées peut être activé pour votre WAF afin de bloquer ou de journaliser des demandes provenant d’adresses IP malveillantes, à côté de l’ensemble de règles managé. Ces adresses IP proviennent du flux Microsoft Threat Intelligence. Intelligent Security Graph alimente l’intelligence des menaces Microsoft et est utilisé par de nombreux services, dont Azure Security Center.
 
 > [!NOTE]
 > Un ensemble de règles de protection bot, actuellement disponible en préversion publique, est fourni avec un contrat de niveau de service en préversion. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Consultez les [Conditions d’utilisation supplémentaires des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -125,7 +125,7 @@ En mode de scoring d’anomalie, le trafic correspondant à une règle n’est p
 
 |severity  |Valeur  |
 |---------|---------|
-|Critique     |5\.|
+|Critique     |5|
 |Error        |4|
 |Avertissement      |3|
 |Avis       |2|

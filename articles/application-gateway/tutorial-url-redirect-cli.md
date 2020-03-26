@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Redirection basée sur un chemin utilisant l’interface de ligne de commande'
+title: 'Tutoriel : Redirection basée sur un chemin utilisant l’interface de ligne de commande'
 titleSuffix: Azure Application Gateway
 description: Dans ce tutoriel, vous découvrez comment créer une passerelle d’application avec un trafic redirigé en fonction d’un chemin d’URL, à l’aide d’Azure CLI.
 services: application-gateway
@@ -9,18 +9,18 @@ ms.topic: tutorial
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 23ddbdc62b2592a8fbfb7cdccaca52cbfe9aee62
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 87f6febaf89f82c2c81b397c94d744229b3f4b34
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074443"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80239502"
 ---
-# <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>Didacticiel : Créer une passerelle d’application avec une redirection basée sur un chemin d’accès d’URL à l’aide d’Azure CLI
+# <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>Tutoriel : Créer une passerelle d’application avec une redirection basée sur un chemin d’accès d’URL à l’aide d’Azure CLI
 
 Vous pouvez utiliser Azure CLI pour configurer des [règles d’acheminement par chemin d’accès URL](tutorial-url-route-cli.md) lors de la création d’une [passerelle d’application](application-gateway-introduction.md). Ce didacticiel montre comment créer des pools principaux à l’aide de [groupes de machines virtuelles identiques](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Vous créez ensuite des règles de routage d’URL garantissant que le trafic web est redirigé vers le pool principal approprié.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Configurer le réseau
@@ -286,7 +286,7 @@ done
 
 Pour obtenir l’adresse IP publique de la passerelle d’application, utilisez la commande [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). Copiez l’adresse IP publique, puis collez-la dans la barre d’adresses de votre navigateur. Par exemple, `http://40.121.222.19`, `http://40.121.222.19:8080/images/test.htm`, `http://40.121.222.19:8080/video/test.htm` ou `http://40.121.222.19:8081/images/test.htm`.
 
-```azurepowershell-interactive
+```azurecli-interactive
 az network public-ip show \
   --resource-group myResourceGroupAG \
   --name myAGPublicIPAddress \
@@ -306,7 +306,7 @@ Modifiez l’URL http://&lt;ip-address&gt;:8080/video/test.htm, en remplaçant v
 
 À présent, changez l’URL en http://&lt;ip-address&gt;:8081/images/test.htm, en remplaçant &lt;ip-address&gt; par votre adresse IP, de façon à voir le trafic redirigé vers le pool backend d’images à l’adresse http://&lt;ip-address&gt;:8080/images.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, la passerelle d’application et toutes les ressources associées.
 

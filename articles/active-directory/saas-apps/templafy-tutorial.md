@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à Templafy | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Templafy | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Templafy.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 10/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 52130ac90f9faec19eedf77da425645e35259269
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74081618"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-templafy"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Templafy
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-templafy"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Templafy
 
 Dans ce tutoriel, vous allez apprendre à intégrer Templafy à Azure Active Directory (Azure AD). En intégrant Templafy à Azure AD, vous pouvez :
 

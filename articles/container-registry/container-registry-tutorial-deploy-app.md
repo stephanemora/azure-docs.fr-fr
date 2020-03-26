@@ -5,13 +5,13 @@ ms.topic: tutorial
 ms.date: 08/20/2018
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 5b075e1065ef8c30837000f490cc93525b4b61cc
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74456108"
 ---
-# <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>Didacticiel : Déployer une application web à partir d’un registre de conteneurs Azure géorépliqué
+# <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>Tutoriel : Déployer une application web à partir d’un registre de conteneurs Azure géorépliqué
 
 Ceci est la deuxième partie d’une série de didacticiels qui en compte trois. Dans la [première partie](container-registry-tutorial-prepare-registry.md), un registre de conteneurs privé et géorépliqué a été créé, et une image de conteneur a été générée à partir de la source et envoyée au registre. Cet article explique comment tirer parti de la proximité réseau du registre géorépliqué en déployant le conteneur dans deux instances d’application web situées dans deux régions Azure distinctes. Chaque instance extrait ensuite l’image conteneur du registre le plus proche.
 

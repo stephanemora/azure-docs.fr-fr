@@ -9,10 +9,10 @@ ms.date: 06/14/2019
 ms.author: hrasheed
 ms.custom: mvc
 ms.openlocfilehash: 24173b553f30f652caf20b1ec7500fd9c4d2f7a0
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73241229"
 ---
 # <a name="quickstart-create-and-monitor-an-apache-storm-topology-in-azure-hdinsight"></a>Démarrage rapide : Créer et surveiller une topologie Apache Storm dans Azure HDInsight
@@ -23,7 +23,7 @@ Dans ce guide de démarrage rapide, vous utilisez un exemple du projet Apache [s
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un cluster Apache Storm sur HDInsight. Consultez [Création clusters Apache Hadoop à l’aide du portail Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) et sélectionnez **Storm** pour le **Type de cluster**.
+* Un cluster Apache Storm sur HDInsight. Consultez la section [Création de clusters Apache Hadoop à l’aide du portail Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) et sélectionnez **Storm** dans le champ **Type de cluster**.
 
 * Un client SSH. Pour plus d’informations, consultez [Se connecter à HDInsight (Apache Hadoop) à l’aide de SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -78,7 +78,7 @@ Suivez la procédure ci-après pour surveiller la topologie à l’aide de l’i
     |Statistiques d’entrée (bolt uniquement)|Informations sur les composants qui produisent des données consommées par le bolt.|
     |Statistiques de sortie|Informations sur les données émises par ce bolt.|
     |Exécuteurs|Informations sur les instances de ce composant.|
-    |Errors|Erreurs générées par ce composant.|
+    |Erreurs|Erreurs générées par ce composant.|
 
 4. Lorsque vous affichez les détails d’un spout ou d’un bolt, sélectionnez une entrée depuis la colonne **Port** située dans la section **Exécuteurs** pour afficher les détails d’une instance spécifique du composant.
 
@@ -97,7 +97,7 @@ Suivez la procédure ci-après pour surveiller la topologie à l’aide de l’i
 
 Retournez à la page **Résumé de la topologie**, puis sélectionnez le bouton **Supprimer** de la section **Actions de topologie**. Lorsque vous êtes invité à entrer le nombre de secondes à attendre avant l’arrêt de la topologie, entrez le nombre 10. Après le délai d’expiration, la topologie n’apparaît plus quand vous vous rendez dans la section **Interface utilisateur Storm** du tableau de bord.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Après avoir suivi ce guide de démarrage rapide, vous souhaiterez peut-être supprimer le cluster. Avec HDInsight, vos données sont stockées Azure Storage, pour que vous puissiez supprimer un cluster en toute sécurité s’il n’est pas en cours d’utilisation. Vous devez également payer pour un cluster HDInsight, même lorsque vous ne l’utilisez pas. Étant donné que les frais pour le cluster sont bien plus élevés que les frais de stockage, économique, mieux vaut supprimer les clusters lorsqu’ils ne sont pas utilisés.
 

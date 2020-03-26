@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.reviewer: cbrooks
-ms.openlocfilehash: 5d5e8250a75cc26d4b9843875f71325e163ef23b
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: c327629f0c5e88520a8bb0b9c4ff68e6edc00c35
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78943553"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79137337"
 ---
 # <a name="quickstart-use-the-azure-storage-sdk-v11-for-net-to-manage-a-queue"></a>Démarrage rapide : Utiliser le SDK Stockage Azure v11 pour .NET afin de gérer une file d’attente
 
@@ -262,7 +262,7 @@ Consultez ces ressources supplémentaires sur le développement .NET avec les fi
 
 ### <a name="binaries-and-source-code"></a>Fichiers binaires et code source
 
-- Téléchargez les packages NuGet pour obtenir la dernière version de la [bibliothèque de client Stockage Azure pour .NET](/dotnet/api/overview/azure/storage/client)
+- Téléchargez les packages NuGet pour obtenir la dernière version de la [bibliothèque de client Stockage Azure pour .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet)
     - [Commun](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
     - [Files d’attente](https://www.nuget.org/packages/Azure.Storage.Queues/)
 - Consultez le [code source de la bibliothèque de client .NET](https://github.com/Azure/azure-storage-net) sur GitHub.

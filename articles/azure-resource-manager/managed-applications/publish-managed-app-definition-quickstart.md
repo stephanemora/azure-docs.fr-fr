@@ -5,14 +5,14 @@ author: tfitzmac
 ms.topic: quickstart
 ms.date: 09/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: 11d4eb396d332327addcd85ed7badd36ef8f1d10
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 5168dab7501cdb2907b3eede5877dce39e9e5c97
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647940"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79473045"
 ---
-# <a name="publish-an-azure-managed-application-definition"></a>Publier une définition d’application managée Azure
+# <a name="quickstart-publish-an-azure-managed-application-definition"></a>Démarrage rapide : Publier une définition d’application managée Azure
 
 Ce démarrage rapide fournit une introduction sur l’utilisation des applications managées. Vous ajoutez une définition d’application managée à un catalogue interne pour les utilisateurs dans votre organisation. Pour simplifier l’introduction, nous avons déjà créé les fichiers de votre application managée. Ces fichiers sont disponibles dans GitHub. Vous apprenez à générer ces fichiers dans le didacticiel [Créer l’application de catalogue de service](publish-service-catalog-app.md).
 

@@ -4,17 +4,17 @@ description: Dans ce guide de démarrage rapide, vous allez utiliser Azure Bluep
 ms.date: 11/21/2019
 ms.topic: quickstart
 ms.openlocfilehash: 8b418fa2b5244c42b8597bbbe7ed4773133d03a8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75436637"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-powershell"></a>Démarrage rapide : Définir et affecter un blueprint Azure avec PowerShell
 
 Un utilisateur qui sait comment créer et affecter des blueprints peut définir des modèles courants et développer des configurations réutilisables et rapides à déployer en fonction de modèles Resource Manager, de stratégies, d’exigences en matière de sécurité, etc. Dans ce tutoriel, vous allez découvrir comment utiliser Azure Blueprint pour effectuer des tâches courantes liées à la création, à la publication et à l’affectation d’un blueprint dans votre organisation, notamment :
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free) avant de commencer.
 

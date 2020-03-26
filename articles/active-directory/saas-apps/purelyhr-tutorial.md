@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à PurelyHR | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à PurelyHR | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et PurelyHR.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 10/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 56049e1b1253cd749a8e16061957c6b5b8786e3c
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72594531"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-purelyhr"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à PurelyHR
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-purelyhr"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à PurelyHR
 
 Dans ce tutoriel, vous allez apprendre à intégrer PurelyHR avec Azure Active Directory (Azure AD). Quand vous intégrez PurelyHR à Azure AD, vous pouvez :
 
@@ -146,7 +146,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 1. Collez les valeurs dans les zones comme décrit ci-dessous :
 
-    ![Configurer l'authentification unique](./media/purelyhr-tutorial/purelyhr-dashboard-sso-settings.png)  
+    ![Configure Single Sign-On](./media/purelyhr-tutorial/purelyhr-dashboard-sso-settings.png)  
 
     a. Ouvrez le **Certificat (Base64)** téléchargé à partir du portail Azure dans le bloc-notes et copiez la valeur du certificat. Collez la valeur copiée dans la zone **Certificat x509**.
 
@@ -170,7 +170,7 @@ Connectez-vous au site de votre entreprise Velpic SAML en tant qu’administrate
 
 2. Dans la boîte de dialogue **Create New User**, procédez comme suit.
 
-    ![user](./media/velpicsaml-tutorial/velpic_8.png)
+    ![utilisateur](./media/velpicsaml-tutorial/velpic_8.png)
 
     a. Dans la zone de texte **Prénom**, tapez le prénom de B.
 

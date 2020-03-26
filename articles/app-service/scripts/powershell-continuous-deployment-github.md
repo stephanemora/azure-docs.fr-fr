@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell : Déployer en continu depuis GitHub'
+title: 'PowerShell : Déployer en continu depuis GitHub'
 description: Découvrez comment utiliser Azure PowerShell pour automatiser le déploiement et la gestion d’App Service. Cet exemple montre comment créer une application avec intégration/déploiement continus à partir de GitHub.
 tags: azure-service-management
 ms.assetid: 42f901f8-02f7-4869-b22d-d99ef59f874c
@@ -7,10 +7,10 @@ ms.topic: sample
 ms.date: 03/20/2017
 ms.custom: mvc
 ms.openlocfilehash: eee6ac9f9c469f9e1a9344ab4a30626c219d7836
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74685164"
 ---
 # <a name="create-a-web-app-with-continuous-deployment-from-github"></a>Créer une application web avec un déploiement continu à partir de GitHub
@@ -49,6 +49,6 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur le module Azure PowerShell, consultez la [Documentation Azure PowerShell](/powershell/azure/overview).
+Pour plus d’informations sur le module Azure PowerShell, consultez [Documentation Azure PowerShell](/powershell/azure/overview).
 
 Vous trouverez des exemples supplémentaires de scripts Azure PowerShell pour Azure App Service Web Apps sur la page [Azure PowerShell Samples](../samples-powershell.md) (Exemples Azure PowerShell).

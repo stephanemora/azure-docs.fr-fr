@@ -4,10 +4,10 @@ description: Dans ce tutoriel, découvrez comment sauvegarder, dans un coffre Re
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.openlocfilehash: 3216404b04647e2fb5f15beb09b9a4ccd6648bba
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74171881"
 ---
 # <a name="back-up-a-sql-server-database-in-an-azure-vm"></a>Sauvegarder une base de données SQL Server dans une machine virtuelle Azure
@@ -19,7 +19,7 @@ Ce tutoriel vous explique comment sauvegarder, dans un coffre Recovery Services 
 > * Créer et configurer un coffre
 > * Détecter des bases de données et configurer des sauvegardes
 > * Configurer la protection automatique de bases de données
-> * Exécuter une sauvegarde à la demande
+> * Exécutez une sauvegarde à la demande.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -229,7 +229,7 @@ Dans ce didacticiel, vous avez utilisé le portail Azure pour effectuer les opé
 > * Créer et configurer un coffre
 > * Détecter des bases de données et configurer des sauvegardes
 > * Configurer la protection automatique de bases de données
-> * Exécuter une sauvegarde à la demande
+> * Exécutez une sauvegarde à la demande.
 
 Passez au didacticiel suivant pour restaurer une machine virtuelle Azure à partir d’un disque.
 

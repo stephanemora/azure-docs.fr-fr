@@ -8,12 +8,12 @@ ms.topic: overview
 author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
-ms.openlocfilehash: 4c6a9a2b5991c9f99bf728ecfed144cc77e4c49a
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: b8dbbb2810277bef20cb3b9b47a63deeea3e0ff9
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314332"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79290467"
 ---
 # <a name="what-is-azure-machine-learning"></a>Qu'est-ce que Azure Machine Learning ?
 
@@ -56,7 +56,7 @@ Vous pouvez même utiliser [MLflow pour suivre des métriques et déployer des m
 
 ## <a name="build-ml-models-in-python-or-r"></a>Générer des modèles ML en Python ou R
 
-Commencez l’entraînement sur votre ordinateur local en utilisant le <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Kit de développement logiciel (SDK) Python</a> ou le <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">Kit de développement logiciel (SDK) R</a> Azure Machine Learning. Vous pouvez ensuite monter en charge sur le cloud. 
+Commencez l’entraînement sur votre ordinateur local en utilisant le <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Kit de développement logiciel (SDK) Python</a> ou le <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">Kit de développement logiciel (SDK) R</a> Azure Machine Learning. Vous pouvez ensuite effectuer un scale-out sur le cloud. 
 
 Les nombreuses [cibles de calcul](how-to-set-up-training-targets.md) disponibles, comme la Capacité de calcul Azure Machine Learning et [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks), ainsi que les [services de réglage d’hyperparamètres avancés](how-to-tune-hyperparameters.md), vous permettent de générer de meilleurs modèles plus rapidement en tirant parti de la puissance du cloud.
 
@@ -66,7 +66,7 @@ Vous pouvez aussi [automatiser l’entraînement et l’optimisation de modèle]
 
 Pour un entraînement et un déploiement sans code ou avec peu de code, essayez :
 
-+ **Concepteur Azure Machine Learning**
++ **Concepteur Azure Machine Learning (préversion)**
 
   Utilisez le concepteur pour préparer des données, entraîner, tester, déployer, gérer et suivre des modèles de Machine Learning sans écrire de code. Aucune programmation n’est nécessaire : il suffit de visualiser la connexion des jeux de données et des modules pour construire votre modèle. Essayez le [didacticiel du concepteur](tutorial-designer-automobile-price-train-score.md).
 
@@ -116,7 +116,7 @@ Azure Machine Learning fonctionne avec d’autres services sur la plateforme Azu
 
 Votre compte de stockage Azure, vos cibles de calcul et d’autres ressources peuvent être utilisées de façon sécurisée au sein d’un réseau virtuel pour entraîner des modèles et effectuer l’inférence. Pour plus d’informations, consultez [Sécuriser l’expérimentation et l’inférence dans un réseau virtuel](how-to-enable-virtual-network.md).
 
-## <a name="sku"></a>Éditions De Base et Entreprise
+## <a name="basic--enterprise-editions"></a><a name="sku"></a>Éditions De Base et Entreprise
 
 Azure Machine Learning propose deux éditions adaptées à vos besoins de Machine Learning :
 + De base (mise à la disposition générale)

@@ -9,10 +9,10 @@ ms.author: gopalv
 ms.topic: quickstart
 ms.date: 09/13/2019
 ms.openlocfilehash: 73541b31125ee6e99dc2351e26f6a564a1603487
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77526023"
 ---
 # <a name="quickstart-set-up-a-centos-linux-data-science-virtual-machine-in-azure"></a>Démarrage rapide : Configurer une machine virtuelle Data Science Virtual Machine CentOS (Linux) dans Azure

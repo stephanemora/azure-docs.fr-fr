@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 ms.openlocfilehash: 489bf81388c1bb889756d54957e791282054f0f7
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77169590"
 ---
 # <a name="quickstart-add-a-simulated-device-to-your-iot-central-application"></a>Démarrage rapide : Ajouter un appareil simulé à votre application IoT Central
@@ -28,7 +28,7 @@ Dans ce guide de démarrage rapide, vous allez ajouter un modèle d’appareil p
 * Répond aux commandes telles que Activer et Désactiver.
 * Signale des propriétés d’appareil génériques, telles que la version du microprogramme et le numéro de série.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Suivez le guide de démarrage rapide [Créer une application Azure IoT Central](./quick-deploy-iot-central.md) pour créer une application IoT Central avec le modèle **Application personnalisée > Application personnalisée**.
 

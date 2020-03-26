@@ -12,11 +12,11 @@ ms.date: 10/29/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 650a4f643f170fc64dd0e0643d645a7dcbffdfbc
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420468"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215387"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-tenant"></a>Démarrage rapide : Ajouter une application à votre locataire Azure Active Directory
 
@@ -34,7 +34,7 @@ Pour ajouter une application à votre locataire, vous devez :
 - Un abonnement Azure AD
 - Un abonnement pour lequel l’authentification unique est activée pour votre application
 
-Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur général pour votre client Azure AD, administrateur d’application cloud ou administrateur d’application.
+Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur général pour votre tenant Azure AD, administrateur d’application cloud ou administrateur d’application.
 
 Pour tester les étapes de ce didacticiel, nous recommandons l’utilisation d’un environnement de non-production. Si vous n’avez pas d’environnement de non-production Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -101,27 +101,27 @@ Pour modifier les propriétés de l’application :
        |---|---|---|---|---|
        | Connexion permise pour les utilisateurs ? | Assignation requise de utilisateur ? | Visible par les utilisateurs ? | Est-ce que les utilisateurs assignés peuvent se connecter ? | Est-ce que les utilisateurs assignés peuvent voir l’application ?* |
        | Oui | Oui | Oui | Oui | Oui  |
-       | Oui | Oui | no  | Oui | no   |
-       | Oui | no  | Oui | Oui | Oui  |
-       | Oui | no  | no  | Oui | no   |
-       | no  | Oui | Oui | no  | no   |
-       | no  | Oui | no  | no  | no   |
-       | no  | no  | Oui | no  | no   |
-       | no  | no  | no  | no  | no   |
+       | Oui | Oui | non  | Oui | non   |
+       | Oui | non  | Oui | Oui | Oui  |
+       | Oui | non  | non  | Oui | non   |
+       | non  | Oui | Oui | non  | non   |
+       | non  | Oui | non  | non  | non   |
+       | non  | non  | Oui | non  | non   |
+       | non  | non  | non  | non  | non   |
 
    - Comportement pour les utilisateurs **non assignés** :
 
        | Paramètres de propriété d'application | | | Expérience de l’utilisateur non assigné | |
        |---|---|---|---|---|
        | Connexion permise pour les utilisateurs ? | Assignation requise de utilisateur ? | Visible par les utilisateurs ? | Est-ce que les utilisateurs non assignés peuvent se connecter ? | Est-ce que les utilisateurs non assignés peuvent voir l’application ?* |
-       | Oui | Oui | Oui | no  | no   |
-       | Oui | Oui | no  | no  | no   |
-       | Oui | no  | Oui | Oui | no   |
-       | Oui | no  | no  | Oui | no   |
-       | no  | Oui | Oui | no  | no   |
-       | no  | Oui | no  | no  | no   |
-       | no  | no  | Oui | no  | no   |
-       | no  | no  | no  | no  | no   |
+       | Oui | Oui | Oui | non  | non   |
+       | Oui | Oui | non  | non  | non   |
+       | Oui | non  | Oui | Oui | non   |
+       | Oui | non  | non  | Oui | non   |
+       | non  | Oui | Oui | non  | non   |
+       | non  | Oui | non  | non  | non   |
+       | non  | non  | Oui | non  | non   |
+       | non  | non  | non  | non  | non   |
 
      \* Est-ce que l’utilisateur peut voir l’application dans le volet d’accès et le lanceur d’applications Office 365 ?
 

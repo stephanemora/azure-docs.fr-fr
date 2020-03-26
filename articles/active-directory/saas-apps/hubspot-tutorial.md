@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à HubSpot | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à HubSpot | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et HubSpot.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c4b235426a7029abb9bb79ba56e582cccc3b14a6
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68944444"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-hubspot"></a>Didacticiel : Intégration d’Azure AD à HubSpot
+# <a name="tutorial-azure-active-directory-integration-with-hubspot"></a>Tutoriel : Intégration d’Azure AD à HubSpot
 
 Dans ce didacticiel, vous allez apprendre à intégrer HubSpot dans Azure Active Directory (Azure AD).
 
@@ -39,7 +39,7 @@ Pour plus d’informations sur l’intégration d’applications software as a s
 
 Pour configurer l’intégration d’Azure AD avec HubSpot, vous avez besoin des éléments suivants :
 
-* Un abonnement Azure AD Si vous n’avez pas d’abonnement Azure AD, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
+* Un abonnement Azure AD Si vous n’avez pas d’abonnement Azure AD, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 * Un abonnement HubSpot pour lequel l’authentification unique est activée.
 
 ## <a name="scenario-description"></a>Description du scénario
@@ -48,14 +48,14 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 
 HubSpot prend en charge les fonctionnalités suivantes :
 
-* **Authentification unique initiée par le fournisseur de services**
+* **Authentification unique lancée par le fournisseur de services**
 * **Authentification unique démarrée par le fournisseur d’identité**
 
 ## <a name="add-hubspot-in-the-azure-portal"></a>Ajouter HubSpot dans le portail Azure
 
 Pour intégrer HubSpot à Azure AD, vous devez ajouter HubSpot à votre liste d’applications SaaS managées.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
 1. Dans le menu de gauche, sélectionnez **Azure Active Directory**.
 
@@ -84,7 +84,7 @@ Pour configurer et tester l’authentification unique Azure AD avec HubSpot, vo
 | **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** | Autorise les utilisateurs à utiliser cette fonctionnalité. |
 | **[Configurer l’authentification unique HubSpot](#configure-hubspot-single-sign-on)** | Configure les paramètres d’authentification unique dans l’application. |
 | **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** | Teste l’authentification unique Azure AD pour un utilisateur appelé Britta Simon. |
-| **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** | Permet à Britta Simon d’utiliser l’authentification unique Azure AD. |
+| **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** | Active Britta Simon pour lui permettre d'utiliser l’authentification unique Azure AD. |
 | **[Créer un utilisateur de test HubSpot](#create-a-hubspot-test-user)** | Crée un équivalent de Britta Simon dans HubSpot lié à la représentation Azure AD associée. |
 | **[Tester l’authentification unique](#test-single-sign-on)** | Vérifie que la configuration fonctionne. |
 
@@ -187,7 +187,7 @@ Dans cette section, créez un utilisateur de test nommé Britta Simon dans le po
 
     1. Cochez la case **Afficher le mot de passe**. Notez la valeur affichée dans la zone **Mot de passe**.
 
-    1. Sélectionnez **Créer**.
+    1. Sélectionnez **Create** (Créer).
 
     ![Volet Utilisateur](common/user-properties.png)
 
@@ -264,4 +264,4 @@ Pour en savoir plus, consultez les articles suivants :
 
 - [Listes des tutoriels pour intégrer des applications SaaS à Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 - [S’authentifier avec l’authentification unique auprès des applications dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

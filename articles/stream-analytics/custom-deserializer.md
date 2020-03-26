@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 05/06/2019
 ms.openlocfilehash: 1fffeec1434cb066487bf383589554edec2e6a86
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75443690"
 ---
 # <a name="tutorial-custom-net-deserializers-for-azure-stream-analytics"></a>Tutoriel : Désérialiseurs .NET personnalisés pour Azure Stream Analytics
@@ -28,7 +28,7 @@ Dans ce tutoriel, vous allez apprendre à :
 > * Configurer votre travail Stream Analytics pour utiliser le désérialiseur personnalisé.
 > * Exécuter votre travail Stream Analytics localement pour tester le désérialiseur personnalisé.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -80,7 +80,7 @@ Le conteneur que vous créez sera utilisé pour stocker les ressources associée
    |-------|---------------|
    |Source|Stockage Blob|
    |Ressource|Choisir une source de données du compte actuel|
-   |Subscription|< votre abonnement >|
+   |Abonnement|< votre abonnement >|
    |Compte de stockage|< votre compte de stockage >|
    |Conteneur|< votre conteneur de stockage >|
    |Format de sérialisation de l’événement|Autre (Protobuf, XML, propriétaire...)|

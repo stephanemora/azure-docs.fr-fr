@@ -8,17 +8,17 @@ ms.reviewer: jasonh
 ms.topic: tutorial
 ms.date: 09/04/2019
 ms.openlocfilehash: 89e9faeb3c67d0fd0c57adea3a3f69ec5438e3a0
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73044642"
 ---
-# <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>Didacticiel : Configurer des stratégies Apache HBase dans HDInsight avec le Pack Sécurité Entreprise
+# <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>Tutoriel : Configurer des stratégies Apache HBase dans HDInsight avec le Pack Sécurité Entreprise
 
 Découvrez comment configurer des stratégies Apache Ranger pour des clusters Apache HBase avec le Pack Sécurité Entreprise (ESP). Les clusters ESP sont connectés à un domaine permettant aux utilisateurs de s’authentifier avec les informations d’identification du domaine. Dans ce tutoriel, vous créez deux stratégies Ranger pour restreindre l’accès à différentes familles de colonnes dans une table HBase.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créer des utilisateurs du domaine
@@ -30,7 +30,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 * Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/).
 
-* Connectez-vous au [Portail Azure](https://portal.azure.com/).
+* Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 * Créez un [cluster HBase HDInsight avec le Pack Sécurité Entreprise](apache-domain-joined-configure-using-azure-adds.md).
 
@@ -231,11 +231,11 @@ En fonction des stratégies Ranger configurées, **sales_user1** peut voir toute
 
    ![Audit de stratégie de l’interface utilisateur Ranger HDInsight](./media/apache-domain-joined-run-hbase/apache-ranger-admin-audit.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous ne comptez pas continuer à utiliser cette application, effectuez les étapes suivantes pour supprimer le cluster HBase que vous avez créé :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Dans la zone **Recherche** située en haut, tapez **HDInsight**. 
 1. Sous **Services**, sélectionnez **Clusters HDInsight**.
 1. Dans la liste des clusters HDInsight qui s’affiche, cliquez sur les points de suspension **...** à côté du cluster que vous avez créé pour ce tutoriel. 

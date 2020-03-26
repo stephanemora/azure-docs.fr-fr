@@ -10,13 +10,13 @@ ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
 ms.openlocfilehash: 68338c56419316e561bb072c1a0555e89d3de85b
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74084433"
 ---
-# <a name="tutorial-use-azure-powershell-to-configure-iot-hub-message-routing"></a>Didacticiel : Utiliser Azure PowerShell pour configurer le routage des messages IoT Hub
+# <a name="tutorial-use-azure-powershell-to-configure-iot-hub-message-routing"></a>Tutoriel : Utiliser Azure PowerShell pour configurer le routage des messages IoT Hub
 
 [!INCLUDE [iot-hub-include-routing-intro](../../includes/iot-hub-include-routing-intro.md)]
 
@@ -134,7 +134,7 @@ Maintenant que vous avez configuré les ressources de base, vous pouvez configur
 
 Pour créer un point de terminaison de routage, utilisez [Add-AzIotHubRoutingEndpoint](/powershell/module/az.iothub/Add-AzIotHubRoutingEndpoint). Pour créer la route des messages vers le point de terminaison, utilisez [Add-AzIotHubRoute](/powershell/module/az.iothub/Add-AzIoTHubRoute).
 
-### <a name="route-to-a-storage-account"></a>Routage vers un compte de stockage 
+### <a name="route-to-a-storage-account"></a>Router vers un compte de stockage 
 
 Configurez d’abord le point de terminaison pour le compte de stockage, puis créez la route des messages.
 
@@ -148,11 +148,11 @@ Voici les variables utilisées par le script, que vous devez définir dans votre
 
 **endpointName** : ce champ indique le nom qui identifie le point de terminaison. 
 
-**endpointType** : ce champ indique le type de point de terminaison. Il peut avoir la valeur `azurestoragecontainer`, `eventhub`, `servicebusqueue` ou `servicebustopic`. Ici, définissez-le sur la valeur `azurestoragecontainer`.
+**endpointType** : ce champ indique le type de point de terminaison. Il peut avoir la valeur `azurestoragecontainer`, `eventhub`, `servicebusqueue` ou `servicebustopic`. Ici, définissez-le sur `azurestoragecontainer`.
 
 **subscriptionID** : ce champ a pour valeur l’ID d’abonnement associé à votre compte Azure.
 
-**storageConnectionString** : cette valeur est récupérée du compte de stockage ayant été configuré dans le script précédent. Elle est utilisée par le routage pour accéder au compte de stockage.
+**storageConnectionString** : cette valeur est récupérée auprès du compte de stockage configuré dans le script précédent. Elle est utilisée par le routage pour accéder au compte de stockage.
 
 **containerName** : ce champ indique le nom du conteneur du compte de stockage dans lequel les données seront écrites.
 
@@ -175,7 +175,7 @@ $routeName = "ContosoStorageRoute"
 $condition = 'level="storage"'
 ```
 
-À l’étape suivante, vous créez le point de terminaison de routage pour le compte de stockage. Vous spécifiez également le conteneur où les résultats seront stockés. Le conteneur a été créé en même temps que le compte de stockage.
+L’étape suivante consiste à créer le point de terminaison de routage pour le compte de stockage. Vous spécifiez également le conteneur où les résultats seront stockés. Le conteneur a été créé en même temps que le compte de stockage.
 
 ```powershell
 # Create the routing endpoint for storage.
@@ -192,7 +192,7 @@ Add-AzIotHubRoutingEndpoint `
   -Encoding AVRO
 ```
 
-Ensuite, vous créez la route des messages vers le point de terminaison de stockage. La route des messages spécifie à quel emplacement seront envoyés les messages qui remplissent la spécification de requête.
+Ensuite, vous créez la route des messages vers le point de terminaison de stockage. La route des messages spécifie où envoyer les messages qui remplissent la spécification de la requête.
 
 ```powershell
 # Create the route for the storage endpoint.

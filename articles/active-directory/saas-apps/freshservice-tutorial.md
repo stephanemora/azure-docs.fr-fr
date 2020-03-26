@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à Freshservice | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Freshservice | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Freshservice.
 services: active-directory
 documentationCenter: na
@@ -17,19 +17,19 @@ ms.date: 09/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0e08ef72dca09f873ad1cfcc91e132063b88406b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74227536"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-freshservice"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Freshservice
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-freshservice"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Freshservice
 
 Dans ce tutoriel, vous allez apprendre à intégrer Freshservice à Azure Active Directory (Azure AD). Lorsque vous intégrez Freshservice à Azure AD, vous pouvez :
 
 * Contrôler qui a accès à Freshservice dans Azure AD.
 * Permettre à vos utilisateurs de se connecter automatiquement à Freshservice avec leur compte Azure AD.
-* Gérez tous vos comptes dans un même emplacement : le portail Azure.
+* Gérer vos comptes à un emplacement central : le Portail Azure.
 
 Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
