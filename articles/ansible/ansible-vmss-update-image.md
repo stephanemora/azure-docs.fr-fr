@@ -5,13 +5,13 @@ keywords: ansible, azure, devops, bash, playbook, machine virtuelle, groupe de m
 ms.topic: tutorial
 ms.date: 04/30/2019
 ms.openlocfilehash: b7d3053c09d2dcb667a4fc407035f4814f786932
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74155851"
 ---
-# <a name="tutorial-update-the-custom-image-of-azure-virtual-machine-scale-sets-using-ansible"></a>Didacticiel : Mettre à jour l’image personnalisée de groupes de machines virtuelles identiques Azure avec Ansible
+# <a name="tutorial-update-the-custom-image-of-azure-virtual-machine-scale-sets-using-ansible"></a>Tutoriel : Mettre à jour l’image personnalisée de groupes de machines virtuelles identiques Azure avec Ansible
 
 [!INCLUDE [ansible-27-note.md](../../includes/ansible-28-note.md)]
 
@@ -44,10 +44,10 @@ La page `index.html` de chaque machine virtuelle affiche une chaîne de test :
 
 Cette chaîne est destinée à simuler la configuration de chaque machine virtuelle avec différents logiciels.
 
-Il existe deux moyens d’obtenir l’exemple de playbook :
+Il existe deux façons d’obtenir le playbook de l’exemple :
 
 * [Téléchargez le manifeste](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss_images/01-create-vms.yml) et enregistrez-le sous `create_vms.yml`.
-* Créez un fichier nommé `create_vms.yml` et copiez-y le contenu suivant :
+* Créez un nouveau fichier nommé `create_vms.yml` et copiez-y le contenu suivant :
 
 ```yml
 - name: Create two VMs (A and B) with HTTPS
@@ -192,10 +192,10 @@ Le code du playbook de cette section crée une image personnalisée pour chaque 
 * `image_vmforimageA` : l’image personnalisée créée pour la machine virtuelle qui affiche `Image A` sur sa page d’accueil.
 * `image_vmforimageB` : l’image personnalisée créée pour la machine virtuelle qui affiche `Image B` sur sa page d’accueil.
 
-Il existe deux moyens d’obtenir l’exemple de playbook :
+Il existe deux façons d’obtenir le playbook de l’exemple :
 
 * [Téléchargez le manifeste](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss_images/02-capture-images.yml) et enregistrez-le sous `capture-images.yml`.
-* Créez un fichier nommé `capture-images.yml` et copiez-y le contenu suivant :
+* Créez un nouveau fichier nommé `capture-images.yml` et copiez-y le contenu suivant :
 
 ```yml
 - name: Capture VM Images
@@ -238,9 +238,9 @@ Le playbook de cette section permet de configurer les ressources Azure suivantes
 * Équilibrage de charge
 * Groupe identique faisant référence à `image_vmforimageA`
 
-Il existe deux moyens d’obtenir l’exemple de playbook :
+Il existe deux façons d’obtenir le playbook de l’exemple :
 
-* [Téléchargez le playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss_images/03-create-vmss.yml) et enregistrez-le dans `create-vmss.yml`.
+* [Téléchargez le manifeste](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss_images/03-create-vmss.yml) et enregistrez-le sous `create-vmss.yml`.
 * Créez un fichier nommé `create-vmss.yml` et copiez-y le contenu suivant :
 
 ```yml
@@ -337,10 +337,10 @@ Laissez la fenêtre du navigateur ouverte tandis que vous passez à la section s
 
 Le code du playbook de cette section remplace l’image du groupe identique `image_vmforimageA` par `image_vmforimageB`. En outre, toutes les machines virtuelles actuellement déployées par le groupe identique sont mises à jour.
 
-Il existe deux moyens d’obtenir l’exemple de playbook :
+Il existe deux façons d’obtenir le playbook de l’exemple :
 
 * [Téléchargez le manifeste](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss_images/04-update-vmss-image.yml) et enregistrez-le sous `update-vmss-image.yml`.
-* Créez un fichier nommé `update-vmss-image.yml` et copiez-y le contenu suivant :
+* Créez un nouveau fichier nommé `update-vmss-image.yml` et copiez-y le contenu suivant :
 
 ```yml
 - name: Update scale set image reference
@@ -403,7 +403,7 @@ L’image personnalisée sous-jacente de la machine virtuelle est mise à jour.
 
 ![Le groupe identique est associé à la deuxième machine virtuelle.](media/ansible-vmss-update-image/vmss-update-browser-updated-vmss.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous n’en avez plus besoin, supprimez les ressources créées dans cet article. 
 
