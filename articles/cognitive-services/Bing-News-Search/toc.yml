@@ -28,14 +28,8 @@
           href: go.md
     - name: Kit SDK
       items:
-        - name: 'Utilisation de C#'
-          href: news-search-sdk-quickstart.md
-        - name: Utilisation de Node.js
-          href: news-search-sdk-node-quickstart.md
-        - name: Utilisation de Python
-          href: news-sdk-python-quickstart.md
-        - name: Utilisation de Java
-          href: news-sdk-java-quickstart.md
+        - name: Bibliothèques de client Recherche d’actualités Bing
+          href: ./quickstarts/client-libraries.md
 - name: Tutoriels
   items:
     - name: Créer une application web monopage

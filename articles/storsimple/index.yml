@@ -1,0 +1,65 @@
+### YamlMime:Landing
+title: Documentation StorSimple
+summary: Découvrez comment utiliser Azure StorSimple, une solution de stockage intégrée qui gère les tâches de stockage entre les appareils locaux et le stockage cloud Azure.
+metadata:
+  title: Documentation StorSimple
+  description: Découvrez comment utiliser Azure StorSimple, une solution de stockage intégrée qui gère les tâches de stockage entre les appareils locaux et le stockage cloud Azure.
+  ms.service: storsimple
+  services: storsimple
+  ms.topic: landing-page
+  author: twooley
+  ms.author: twooley
+  ms.date: 03/11/2020
+  ms.openlocfilehash: 7744e0fecadbdbcc7af82645b58bb86a9e0bbe18
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 03/25/2020
+  ms.locfileid: "79540304"
+landingContent:
+- title: À propos de StorSimple
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Comparer StorSimple avec Azure File Sync et Data Box Edge
+      url: storsimple-8000-choose-storage-solution.md
+- title: Baie virtuelle StorSimple
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce que StorSimple Virtual Array ?
+      url: storsimple-ova-overview.md
+  - linkListType: get-started
+    links:
+    - text: Examiner les conditions requises
+      url: storsimple-ova-system-requirements.md
+- title: Gamme StorSimple 8000
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce que StorSimple 8000 Series ?
+      url: storsimple-overview.md
+  - linkListType: get-started
+    links:
+    - text: Examiner les conditions requises
+      url: storsimple-8000-system-requirements.md
+- title: StorSimple Data Manager
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce que StorSimple Data Manager ?
+      url: storsimple-data-manager-overview.md
+  - linkListType: get-started
+    links:
+    - text: Gérer dans le portail Azure
+      url: storsimple-data-manager-ui.md
+- title: StorSimple pour le programme des fournisseurs de solutions cloud (CSP)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce que StorSimple pour le programme des fournisseurs de solutions cloud (CSP) ?
+      url: storsimple-partner-csp-overview.md
+  - linkListType: get-started
+    links:
+    - text: Déployer
+      url: storsimple-partner-csp-deploy.md

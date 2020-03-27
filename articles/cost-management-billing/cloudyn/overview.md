@@ -1,61 +1,34 @@
 ---
-title: Vue d’ensemble de Cloudyn dans Azure | Microsoft Docs
+title: Vue d’ensemble de Cloudyn dans Azure
 description: Cloudyn est une solution de gestion des coûts multicloud qui vous aide à utiliser Azure et autres ressources cloud.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: overview
 ms.service: cost-management-billing
 ms.reviewer: benshy
 ms.custom: seodec18
-ms.openlocfilehash: bfd00613a3949b29e2defcb6f97398a39091d0e6
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ROBOTS: NOINDEX
+ms.openlocfilehash: 9e1acee631316ec961af364769daa1f2a3001e72
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76774052"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80065878"
 ---
 # <a name="what-is-the-cloudyn-service"></a>Qu’est-ce que le service de Cloudyn ?
 
 Cloudyn, affilié à Microsoft, vous permet de suivre l’utilisation du cloud et les dépenses liées à vos ressources Azure et celles d’autres fournisseurs de services cloud, notamment AWS et Google. Les rapports du tableau de bord vous aident à comprendre la répartition des coûts, de même que la rétrofacturation et la facturation interne. Cloudyn vous permet d’optimiser vos dépenses cloud en identifiant les ressources sous-utilisées que vous pouvez ainsi gérer et ajuster.
 
-Pour regarder une vidéo d’introduction, consultez [Introduction to Azure Cloudyn](https://azure.microsoft.com/resources/videos/azure-cost-management-overview-and-demo).
-
+Pour regarder une vidéo d’introduction, consultez [Introduction to Azure Cloudyn](https://azure.microsoft.com/resources/videos/azure-cost-management-overview-and-demo/).
+ 
 Azure Cost Management offre des fonctionnalités similaires à Cloudyn. Azure Cost Management est une solution native de gestion des coûts Azure. Il vous permet d’analyser les coûts, de créer et de gérer des budgets, d’exporter des données, et de consulter des recommandations d’optimisation et d’agir en conséquence pour dépenser moins. Pour plus d’informations, consultez [Azure Cost Management](../cost-management-billing-overview.md).
+ 
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
-Regardez la [vidéo Azure Cost Management et Cloudyn](https://www.youtube.com/watch?v=PmwFWwSluh8) pour savoir quand utiliser Azure Cost Management ou Cloudyn, en fonction des besoins de votre entreprise.
-
->[!VIDEO https://www.youtube.com/embed/PmwFWwSluh8]
-
-## <a name="cloudyn-features-moving-to-azure-cost-management"></a>Fonctionnalités de Cloudyn migrant vers Azure Cost Management
-
-Microsoft a acquis Cloudyn et migre ses fonctionnalités de gestion des coûts à partir du portail Cloudyn en mode natif dans Azure. Pour utiliser les nouvelles fonctionnalités, connectez-vous au portail Azure et accédez à [Gestion des coûts et facturation](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/overview) dans la liste des services Azure. Par rapport à Cloudyn, l’expérience native offre des performances améliorées et une latence pus faible des données d’environ huit heures.
-
-La migration de fonctionnalités clés pour les catégories d’offres Accord Entreprise, Paiement à l’utilisation et MSDN vers Azure Cost Management est terminée. Les abonnements CSP sont en cours de migration vers Azure Cost Management.
-
-Si vous avez une catégorie d’offres non encore migrée, vous devez continuer à utiliser le portail Cloudyn. Toute autre personne peut utiliser Azure Cost Management.
-
-| Offres et fonctionnalités Microsoft Azure | Service de gestion des coûts recommandé |
-| --- | --- |
-| Contrat Entreprise Azure | [Azure Cost Management](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/overview) |
-| Azure Web Direct (PAYG/MSDN) | [Azure Cost Management](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/overview) |
-| Azure Government | [Azure Cost Management](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/overview) |
-| Azure CSP | [Cloudyn](https://azure.cloudyn.com) |
-| Prise en charge de l’analyse des coûts inter-cloud pour AWS (en préversion) | [Azure Cost Management](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/overview) |
-| Recommandations AWS | [Cloudyn](https://azure.cloudyn.com) |
-
-Certaines des fonctionnalités suivantes sont disponibles dans Cloudyn, mais toutes sont désormais disponibles dans Azure Cost Management.
-
-- API
-- Recommandations pour Calcul Azure
-- Recommandations pour Réservation Azure
-- Budgets
-- Analyse des coûts
-- Exporter des données vers un compte de stockage Azure
-- Latence plus faible
-- Pack de contenu et connecteur Power BI
-- Prise en charge des étiquettes de ressources
+Regardez la [vidéo Azure Cost Management et Cloudyn](https://www.youtube.com/watch?v=15DzKPMBRxM) pour savoir quand utiliser Azure Cost Management ou Cloudyn, en fonction des besoins de votre entreprise.
+ 
+>[!VIDEO https://www.youtube.com/embed/15DzKPMBRxM]
 
 ## <a name="monitor-usage-and-spending"></a>Surveiller l’utilisation et les dépenses
 
@@ -82,6 +55,6 @@ Si vous avez approvisionné des instances réservées AWS, vous pouvez optimiser
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous en savez un peu plus sur Cloudyn, passez à l’étape suivante en inscrivant votre environnement cloud et commencez à explorer vos données.
+Maintenant que vous en savez un peu plus sur Cloudyn, passez à l’étape suivante, qui consiste à inscrire votre environnement cloud et à commencer à explorer vos données.
 
-- [Inscrire un abonnement Azure individuel](quick-register-azure-sub.md)
+- [S’inscrire au programme pour les partenaires CSP et afficher les données de coût](quick-register-csp.md)

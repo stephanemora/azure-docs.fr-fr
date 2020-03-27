@@ -30,12 +30,16 @@
   items:
     - name: Guide de l’administrateur
       href: administrator-guide.md
+    - name: Guide de configuration accélérée d’un compte lab
+      href: account-setup-guide.md
+    - name: Guide de configuration accélérée d’un laboratoire
+      href: setup-guide.md
     - name: Laboratoires de classe - Types de classe
       items:
         - name: Vue d’ensemble des types de classe
           href: class-types.md
-        - name: Deep learning en traitement naturel
-          href: class-type-deep-learning-natural-processing.md
+        - name: Deep Learning pour le traitement en langage naturel
+          href: class-type-deep-learning-natural-language-processing.md
         - name: Scripts shell sur Linux
           href: class-type-shell-scripting-linux.md
         - name: Piratage éthique
@@ -66,6 +70,8 @@
           href: how-to-configure-firewall-settings.md
         - name: Spécifier les images de la Place de marché pour des laboratoires
           href: specify-marketplace-images.md
+        - name: Spécifier des informations de support (propriétaire de compte lab)
+          href: lab-account-owner-support-information.md
     - name: Créer et configurer des laboratoires de classe (formateur)
       items:
         - name: Créer et gérer des laboratoires de classe
@@ -87,17 +93,29 @@
         - name: Activer l’arrêt automatique lors de la déconnexion
           href: how-to-enable-shutdown-disconnect.md
         - name: Activer la virtualisation imbriquée sur une machine virtuelle modèle
-          href: how-to-enable-nested-virtualization-template-vm.md
+          items:
+            - name: Vue d’ensemble de l’activation de la virtualisation imbriquée sur une machine virtuelle modèle
+              href: how-to-enable-nested-virtualization-template-vm.md
+            - name: Activer la virtualisation imbriquée sur une machine virtuelle modèle à l’aide de l’interface utilisateur
+              href: how-to-enable-nested-virtualization-template-vm-ui.md
+            - name: Activer la virtualisation imbriquée sur une machine virtuelle modèle à l’aide d’un script
+              href: how-to-enable-nested-virtualization-template-vm-using-script.md
         - name: Préparer une machine virtuelle de modèle Windows
           href: how-to-prepare-windows-template.md
+        - name: Consulter des informations de support (formateur)
+          href: lab-creator-support-information.md
     - name: Se connecter à des machines virtuelles dans des laboratoires de classe (étudiant)
       items:
         - name: Accéder aux laboratoires de salle de classe
           href: how-to-use-classroom-lab.md
         - name: Utiliser une connexion Bureau à distance pour des machines virtuelles Linux
           href: how-to-use-remote-desktop-linux-student.md
+        - name: Se connecter à une machine virtuelle à partir d’un Mac à l’aide de RDP
+          href: connect-virtual-machine-mac-rdp.md
         - name: Définir ou réinitialiser les mots de passe des machines virtuelles
           href: how-to-set-virtual-machine-passwords-student.md
+        - name: Consulter des informations de support (étudiant)
+          href: lab-user-support-information.md
 - name: Informations de référence
   items:
     - name: API REST

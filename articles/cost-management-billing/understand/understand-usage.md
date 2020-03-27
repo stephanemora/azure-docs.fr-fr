@@ -6,14 +6,14 @@ ms.reviewer: micflan
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 03/20/2020
 ms.author: banders
-ms.openlocfilehash: e45ef26f3d0a4b968b601e70658c5f3680492682
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 3b4a5601f18a07ba1ecd6fdd93628d671a0acad2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199022"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80065639"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Comprendre les termes du fichier sur l’utilisation et les frais Azure
 
@@ -74,10 +74,12 @@ MeterName | Tous | Nom du compteur.
 MeterRegion | Tous | Nom de l’emplacement du centre de données pour des services tarifés en fonction de l’emplacement. Voir Location.
 MeterSubCategory | Tous | Nom de la catégorie de sous-classification du compteur.
 OfferId<sup>1</sup> | Tous | Nom de l’offre achetée.
+PayGPrice | Tous | Prix de vente au détail de la ressource.
 PartNumber<sup>1</sup> | EA, PAYG | Identificateur utilisé pour obtenir la tarification du compteur spécifique.
 PlanName | EA, PAYG | Nom du plan sur la Place de marché.
 PreviousInvoiceId | MCA | Référence à une facture d’origine si cette ligne correspond à un remboursement.
 PricingCurrency | MCA | Devise utilisée lors de l’évaluation basée sur les prix négociés.
+PricingModel | Tous | Identificateur indiquant le mode de facturation utilisé par le compteur. (Valeurs : à la demande, réservation, Spot)
 Produit | Tous | Nom du produit.
 ProductId<sup>1</sup> | MCA | Identificateur unique pour le produit.
 ProductOrderId | Tous | Identificateur unique de la commande du produit.

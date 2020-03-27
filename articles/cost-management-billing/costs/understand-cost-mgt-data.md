@@ -1,20 +1,18 @@
 ---
-title: Comprendre les données Azure Cost Management | Microsoft Docs
+title: Présentation des données d’Azure Cost Management
 description: Cet article vous aide à mieux comprendre les données incluses dans Azure Cost Management et la fréquence à laquelle elles sont traitées, collectées, affichées et fermées.
-keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
-ms.custom: ''
-ms.openlocfilehash: ff3ed7ee65fd34ef9cd3541832f9cffc306e1aa8
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 2af84ccf679d28251e34f4c76ced38b0cb653a58
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78245373"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79203013"
 ---
 # <a name="understand-cost-management-data"></a>Comprendre les données Cost Management
 
@@ -165,9 +163,9 @@ Que vous utilisiez les [API Cost Management](../index.yml), Power BI ou le porta
 Les coûts indiqués dans Cost Management sont arrondis. Les coûts retournés par l’API de requête ne le sont pas. Par exemple :
 
 - Analyse des coûts sur le portail Azure – Les frais sont arrondis selon les règles d’arrondi standard : les valeurs avec une partie décimale de 0,5 et plus sont arrondies par excès. Sinon, les coûts sont arrondis par défaut. L’arrondi se produit uniquement au moment où les valeurs sont affichées. Il ne se produit pas pendant le traitement et l’agrégation de données. Par exemple, l’analyse des coûts agrège les coûts comme suit :
-  - Frais 1 : 0,004 USD
+  -    Frais 1 : 0,004 USD
   - Frais 2 : 0,004 USD
-  - Rendu des frais agrégés : 0,004 + 0.004 = 0,008. Les frais affichés sont de 0,01 USD.
+  -    Rendu des frais agrégés : 0,004 + 0.004 = 0,008. Les frais affichés sont de 0,01 USD.
 - API de requête – Les frais affichés présentent huit décimales et ne sont pas arrondis.
 
 

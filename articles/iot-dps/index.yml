@@ -1,51 +1,75 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Documentation relative au service Azure IoT Hub Device Provisioning
+### YamlMime:Landing
+title: Documentation du service Azure IoT Hub Device Provisioning (DPS)
+summary: Le service IoT Hub Device Provisioning (DPS) est un service d’assistance pour IoT Hub qui permet le provisionnement sans contact juste-à-temps sur le hub IoT approprié, sans intervention humaine. Les clients peuvent ainsi provisionner des millions d’appareils de façon sécurisée et scalable. Découvrez comment configurer des appareils sur vos hubs IoT avec nos guides de démarrage rapide, didacticiels et exemples.
 metadata:
-  title: Documentation relative au service Azure IoT Hub Device Provisioning
-  description: 'Azure IoT Hub Device Provisioning Service - Tutoriels, guides de démarrage rapides, guides pratiques et informations de référence sur les API'
-  author: nberdy
+  title: Documentation du service Azure IoT Hub Device Provisioning (DPS)
+  description: Service Azure IoT Hub Device Provisioning (DPS) - Tutoriels, guides de démarrage rapides, guides pratiques et informations de référence sur les API
+  author: wesmc7777
   ms.service: iot-dps
   services: iot-dps
   ms.topic: landing-page
-  ms.date: 01/23/2017
-  ms.author: nberdy
-abstract:
-  description: 'Le service IoT Hub Device Provisioning (DPS) est un service d’assistance pour IoT Hub qui permet le provisionnement sans contact juste-à-temps sur le hub IoT approprié, sans intervention humaine. Les clients peuvent ainsi provisionner des millions d’appareils de façon sécurisée et scalable. Découvrez comment configurer des appareils sur vos hubs IoT avec nos guides de démarrage rapide, didacticiels et exemples.'
-sections:
-  - title: "Démarrages en 5\_minutes"
-    items:
-      - type: paragraph
-        text: Découvrez comment configurer la première instance de votre service d’approvisionnement d’appareils et approvisionner un appareil simulé sur votre hub IoT.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /azure/sql-database/media/index/portal.svg
-            text: Configurer l’approvisionnement automatique
-            href: /azure/iot-dps/quick-setup-auto-provision
-          - image:
-              src: /azure/sql-database/media/index/portal.svg
-            text: Créer un appareil simulé
-            href: /azure/iot-dps/quick-create-simulated-device
-  - title: Didacticiels pas à pas
-    items:
-      - type: paragraph
-        text: Découvrez comment utiliser le service IoT Hub Device Provisioning pour approvisionner automatiquement des appareils sécurisés sur un ou plusieurs hubs IoT.
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/iot-dps/tutorial-set-up-cloud">Configurer les ressources cloud</a>
-          - html: <a href="/azure/iot-dps/tutorial-set-up-device">Configurer son appareil pour se connecter à Azure</a>
-          - html: <a href="/azure/iot-dps/tutorial-provision-device-to-hub">Approvisionner des appareils sur un seul hub IoT</a>
-          - html: <a href="/azure/iot-dps/tutorial-provision-multiple-hubs">Approvisionner des appareils sur plusieurs hubs IoT équilibrés en charge</a>
-  - title: Informations de référence
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: API REST
-            html: <p><a href="/rest/api/iot-dps">REST</a></p>
-          - title: Kits de développement logiciel (SDK) Azure IoT
-            html: '<p><a href="https://github.com/Azure/azure-iot-sdk-c">C</a></p><p><a href="https://github.com/Azure/azure-iot-sdk-python">Python</a></p><p><a href="https://github.com/Azure/azure-iot-sdk-node">Node</a></p><p><a href="https://github.com/Azure/azure-iot-sdk-java">Java</a></p><p><a href="https://github.com/Azure/azure-iot-sdk-csharp">C#</a></p>'
+  ms.date: 03/03/2020
+  ms.author: wesmc
+  ms.openlocfilehash: 2d89b99005a4e430aca85c109f3d000c3b21674c
+  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 03/24/2020
+  ms.locfileid: "80133274"
+landingContent:
+- title: À propos du service Azure IoT Hub Device Provisioning (DPS)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est que le service DPS ?
+      url: about-iot-dps.md
+  - linkListType: concept
+    links:
+    - text: Concepts de provisionnement automatique pour Azure IoT
+      url: concepts-auto-provisioning.md
+  - linkListType: video
+    links:
+    - text: Démonstration du service IoT Hub DPS
+      url: https://azure.microsoft.com/resources/videos/iot-hub-dps-demo/
+- title: Bien démarrer
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Configurer un service DPS à l’aide du portail Azure
+      url: quick-setup-auto-provision.md
+  - linkListType: sample
+    links:
+    - text: Provisionner un appareil à clé symétrique simulé à l’aide de C
+      url: quick-create-simulated-device-symm-key.md
+    - text: Provisionner un l’appareil à clé symétrique simulé à l’aide de Java
+      url: quick-create-simulated-device-symmetric-key-java.md
+  - linkListType: how-to-guide
+    links:
+    - text: Comment provisionner des appareils multilocataires
+      url: how-to-provision-multitenant.md
+    - text: Comment utiliser des stratégies d’allocation personnalisées
+      url: how-to-use-custom-allocation-policies.md
+- title: Gérer l’accès
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Guide pratique pour gérer les inscriptions d’appareils
+      url: how-to-manage-enrollments.md
+    - text: Contrôler l’accès au service de provisionnement d’appareils Azure IoT Hub
+      url: how-to-control-access.md
+- title: Développer une solution IoT avec DPS
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: SDK Azure IoT pour C
+      url: https://github.com/Azure/azure-iot-sdk-c
+    - text: SDK Azure IoT pour Python
+      url: https://github.com/Azure/azure-iot-sdk-python
+    - text: SDK Azure IoT pour Node.js
+      url: https://github.com/Azure/azure-iot-sdk-node
+    - text: SDK Azure IoT pour Java
+      url: https://github.com/Azure/azure-iot-sdk-java
+    - text: SDK Azure IoT pour .NET
+      url: https://github.com/Azure/azure-iot-sdk-csharp
+    - text: API REST
+      url: /rest/api/iot-dps

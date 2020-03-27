@@ -1,5 +1,5 @@
 ---
-title: Lier un compte Azure à un ID partenaire | Microsoft Docs
+title: Lier un compte Azure à un ID partenaire
 description: Suivez les engagements avec les clients Azure en liant les ID partenaires au compte utilisateur que vous utilisez pour gérer les ressources du client.
 author: dhirajgandhi
 ms.reviewer: dhgandhi
@@ -7,18 +7,18 @@ ms.author: banders
 ms.date: 02/13/2020
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.openlocfilehash: 761f4345c591864b8158d7216d737ac287692252
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: c3f5dd4d1b67f5b1079a56d5c3428d286fd9d77f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77651353"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79204798"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Lier un ID partenaire à vos comptes Azure
 
 Les partenaires de Microsoft fournissent des services qui aident les clients à atteindre leurs objectifs commerciaux et stratégiques, à l’aide de produits Microsoft. Lorsqu’il agit au nom du client pour la gestion, la configuration et le support des services Azure, le partenaire doit accéder à l’environnement du client. À l’aide du lien d’administrateur partenaire, les partenaires peuvent associer leur ID Microsoft Partner Network aux informations d’identification utilisées pour la remise du service.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+Le lien d’administrateur partenaire permet à Microsoft d’identifier et de gratifier les partenaires qui favorisent la réussite des clients Azure. Microsoft peut attribuer une influence et un revenu consommé Azure à votre organisation en fonction des autorisations du compte (rôle RBAC) et de l’étendue (abonnement, groupe de ressources, ressource).
 
 ## <a name="get-access-from-your-customer"></a>Accéder à votre client
 

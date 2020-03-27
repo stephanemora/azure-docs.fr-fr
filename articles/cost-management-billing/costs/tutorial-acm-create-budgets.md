@@ -1,20 +1,19 @@
 ---
-title: Tutoriel - Créer et gérer des budgets Azure | Microsoft Docs
+title: 'Tutoriel : Créer et gérer des budgets Azure'
 description: Ce tutoriel vous aide à planifier et à prendre en compte les coûts de services Azure que vous consommez.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/11/2020
+ms.date: 03/24/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: b81236fd63d9289f797056cf7aaceb7d826511af
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: f7c1ac65026fd366be1003842ff70a78b9082339
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79128354"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80155934"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutoriel : Créer et gérer des budgets Azure
 
@@ -28,6 +27,7 @@ Les exemples de ce tutoriel expliquent comment créer et modifier un budget pour
 
 Regardez la vidéo [Appliquer des budgets aux abonnements à l’aide du Portail Azure](https://www.youtube.com/watch?v=UrkHiUx19Po) pour voir comment vous pouvez créer des budgets dans Azure afin de surveiller les dépenses.
 
+>[!VIDEO https://www.youtube.com/embed/UrkHiUx19Po]
 
 Dans ce tutoriel, vous allez apprendre à :
 

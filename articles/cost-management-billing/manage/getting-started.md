@@ -6,14 +6,14 @@ ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 3/11/2020
 ms.author: banders
-ms.openlocfilehash: e22663cf8cabd5d2abf487c96f2d69aeaaa90ab7
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 0e0003b3adfdb6ebba49bd8d014fc0ba287ca3aa
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199702"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79238140"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Éviter les charges inattendues avec la gestion de la facturation et des coûts dans Azure
 
@@ -25,6 +25,8 @@ Lorsque vous vous inscrivez à Azure, il y a plusieurs choses que vous pouvez fa
 - Intégrez les données relatives à la facturation et aux coûts à votre propre système de rapports à l’aide des API de [facturation](https://docs.microsoft.com/rest/api/billing/) et de [consommation](https://docs.microsoft.com/rest/api/consumption/).
 - Utilisez des ressources et des outils supplémentaires pour les clients Contrat Entreprise (EA), Fournisseur de solutions cloud (CSP) et Azure Sponsorship.
 - Avec un [compte gratuit Azure](https://azure.microsoft.com/free/), vous pouvez utiliser [gratuitement certains services Azure populaires pendant 12 mois](create-free-services.md). Outre les recommandations répertoriées ci-dessous, consultez [Éviter les frais pour votre compte gratuit](avoid-charges-free-account.md).
+
+Si vous avez besoin d’annuler votre abonnement Azure, consultez [Annulation de votre abonnement Azure](cancel-azure-subscription.md).
 
 ## <a name="get-estimated-costs-before-adding-azure-services"></a>Obtenir les coûts estimés avant d’ajouter des services Azure
 
@@ -67,7 +69,7 @@ Vous pouvez surveiller les coûts à l’aide des outils suivants :
 
 Créez des [budgets](../costs/tutorial-acm-create-budgets.md) pour gérer les coûts et des [alertes](../costs/cost-mgt-alerts-monitor-usage-spending.md) permettant d’avertir automatiquement les parties prenantes ou vous-même en cas d’anomalies de dépenses et de risques de dépenses excessives.
 
-### <a name="costs"></a> Explorer et analyser les coûts avec l’analyse de coûts
+### <a name="explore-and-analyze-costs-with-cost-analysis"></a><a name="costs"></a> Explorer et analyser les coûts avec l’analyse de coûts
 
 Une fois vos services Azure en cours d’exécution, vérifiez régulièrement les coûts afin de suivre vos dépenses Azure. Vous pouvez utiliser l’analyse des coûts pour comprendre les coûts liés à votre utilisation d’Azure.
 
@@ -120,7 +122,7 @@ Si vous utilisez Azure via un Contrat client Microsoft (MCA), vous pouvez égale
 
 Utilisez les API Azure de [facturation](https://docs.microsoft.com/rest/api/billing/) et de [consommation](https://docs.microsoft.com/rest/api/consumption/) pour accéder par programmation aux données de facturation et de coût. En associant les API RateCard et Resource Usage, vous pouvez connaître l’utilisation qui vous est facturée. Pour plus d’informations, consultez [Obtenir une vue d’ensemble de votre consommation des ressources Microsoft Azure](usage-rate-card-overview.md).
 
-## <a name="other-offers"></a> Ressources supplémentaires et cas spéciaux
+## <a name="additional-resources-and-special-cases"></a><a name="other-offers"></a> Ressources supplémentaires et cas spéciaux
 
 ### <a name="ea-csp-and-sponsorship-customers"></a>Clients EA, CSP et Sponsoring
 Contactez votre responsable de compte ou votre partenaire Azure pour commencer.
@@ -133,7 +135,7 @@ Contactez votre responsable de compte ou votre partenaire Azure pour commencer.
 
 Si vous êtes responsable informatique d’une grande organisation, nous vous recommandons de lire l’article [Structure d’entreprise Azure](/azure/architecture/cloud-adoption-guide/subscription-governance) et le document [entreprise livre blanc IT](https://download.microsoft.com/download/F/F/F/FFF60E6C-DBA1-4214-BEFD-3130C340B138/Azure_Onboarding_Guide_for_IT_Organizations_EN_US.pdf) (téléchargement au format .pdf, disponible en anglais uniquement).
 
-### <a name="EA"></a> Vues des coûts de l’Accord Entreprise dans le portail Azure
+### <a name="enterprise-agreement-cost-views-in-the-azure-portal"></a><a name="EA"></a> Vues des coûts de l’Accord Entreprise dans le portail Azure
 
 Les vues des coûts d’entreprise sont actuellement en préversion publique. Éléments à noter :
 
@@ -159,7 +161,7 @@ Si vous avez accès à Azure par le biais d’un compte de facturation Contrat c
 
 ### <a name="request-a-service-level-agreement-credit-for-a-service-incident"></a>Demander un crédit Contrat de niveau de service pour un incident de service
 
-Les contrats SLA décrivent les engagements de Microsoft en matière de temps d’activité et de connectivité. Un incident de service est signalé lorsque les services Azure rencontrent un problème qui a un impact sur la connectivité, ce qui est souvent appelé une *panne*. Si nous n’atteignons pas et ne maintenons pas les niveaux de service pour chaque service, comme décrit dans le contrat SLA, vous pouvez bénéficier d’un crédit pour une partie de vos frais de service mensuels.
+Les contrats SLA décrivent les engagements de Microsoft en termes de temps d’activité et de connectivité. Un incident de service est signalé lorsque les services Azure rencontrent un problème qui a un impact sur la connectivité, ce qui est souvent appelé une *panne*. Si nous n’atteignons pas et ne maintenons pas les niveaux de service pour chaque service, comme décrit dans le contrat SLA, vous pouvez bénéficier d’un crédit pour une partie de vos frais de service mensuels.
 
 Pour demander un crédit :
 
@@ -167,7 +169,7 @@ Pour demander un crédit :
 2. Créez une nouvelle demande de support.
 3. Sous **Type de problème**, sélectionnez **Facturation**.
 4. Sous **Type de problème**, sélectionnez **Demande de remboursement**.
-5. Ajoutez des détails pour spécifier que vous demandez un crédit SLA, mentionnez la date/l’heure/le fuseau horaire, ainsi que les services concernés (machines virtuelles, sites web, etc.)
+5. Ajoutez des détails pour spécifier que vous demandez un crédit SLA, mentionnez la date/l’heure/le fuseau horaire ainsi que les services impactés (machines virtuelles, sites web, etc.)
 6. Vérifiez vos coordonnées et sélectionnez **Créer** pour envoyer votre demande.
 
 Les seuils de contrat SLA varient en fonction du service. Par exemple, le niveau SQL web a un contrat SLA de 99,9 %, les machines virtuelles ont un contrat SLA de 99,95 % et le niveau SQL standard a un contrat SLA de 99,99 %.

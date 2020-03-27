@@ -9,18 +9,8 @@
       href: whats-new.md
 - name: Démarrages rapides
   items:
-    - name: Utilisation du kit de développement logiciel (SDK) client
-      items:
-        - name: Kit de développement logiciel (SDK) .NET
-          href: quickstarts-sdk/csharp-sdk.md
-        - name: Kit de développement logiciel (SDK) Python
-          href: quickstarts-sdk/python-sdk.md
-        - name: Kit de développement logiciel (SDK) Java
-          href: quickstarts-sdk/java-sdk.md
-        - name: Kit de développement logiciel (SDK) Node.js
-          href: quickstarts-sdk/node-sdk.md
-        - name: Kit de développement logiciel (SDK) Go
-          href: quickstarts-sdk/go-sdk.md
+    - name: Utilisation de la bibliothèque de client
+      href: quickstarts-sdk/client-library.md
     - name: Utilisation de l’API REST
       items:
         - name: Analyser une image distante

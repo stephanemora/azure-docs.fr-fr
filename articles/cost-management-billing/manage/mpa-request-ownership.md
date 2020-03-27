@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: f8f2db3e81c498757bfc39bf70999ce1e70c09da
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: c4366b272aab160828afca927f6432c98a8fecd7
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79117185"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79370727"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-to-your-mpa-account"></a>Obtenir la propriété de facturation des abonnements Azure associés à votre compte MPA
 
@@ -139,7 +139,7 @@ Les produits de la Place de marché Azure qui sont disponibles pour les abonneme
 
 ### <a name="azure-reservations-transfer"></a>Transfert de réservations Azure
 
-Les réservations Azure ne suivent pas automatiquement les abonnements. Vous pouvez conserver la réservation ou [annuler et racheter la réservation](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations) dans le fournisseur de solutions cloud. 
+Les réservations Azure ne suivent pas automatiquement les abonnements. Vous pouvez conserver la réservation dans le cadre d’un Accord Entreprise pour d’autres abonnements ou [annuler la réservation](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations) et la racheter dans le cadre du programme Fournisseur de solutions cloud pour les partenaires. 
 
 ### <a name="access-to-azure-services"></a>Accès aux services Azure
 

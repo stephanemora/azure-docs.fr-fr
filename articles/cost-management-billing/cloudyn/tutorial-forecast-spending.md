@@ -1,20 +1,20 @@
 ---
-title: Tutoriel - Prévoir les dépenses avec Cloudyn dans Azure | Microsoft Docs
+title: Tutoriel - Prévoir les dépenses avec Cloudyn dans Azure
 description: Dans ce didacticiel, vous allez apprendre à prévoir les dépenses à l’aide de l’historique d’utilisation et des données de dépenses.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.custom: seodec18
 ms.reviewer: benshy
-ms.openlocfilehash: 43b48cf96baaa01408d068de509e5be9fdf950ca
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ROBOTS: NOINDEX
+ms.openlocfilehash: 455f611b57cf11e29d35e617df4fd9c09aff2906
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76769926"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79463779"
 ---
 # <a name="tutorial-forecast-future-spending"></a>Tutoriel : Prévoir les dépenses futures
 
@@ -25,7 +25,9 @@ Cloudyn vous aide à prévoir les dépenses à venir via l’historique d’util
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
+
+## <a name="prerequisites"></a>Prérequis
 
 - Vous devez disposer d’un compte Azure.
 - Vous devez disposer d’une inscription à un essai gratuit ou d’un abonnement payant pour Cloudyn.

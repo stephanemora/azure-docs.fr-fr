@@ -1,14 +1,14 @@
 - name: Documentation StorSimple
-  href: index.md
+  href: index.yml
 - name: Baie virtuelle StorSimple
   items:
-    - name: Vue d'ensemble
+    - name: Vue d’ensemble
       items:
         - name: Quelle est la solution ?
           href: storsimple-ova-overview.md
-    - name: Prise en main
+    - name: Bien démarrer
       items:
-        - name: Planification
+        - name: Plan
           items:
             - name: Examiner les conditions requises
               href: storsimple-ova-system-requirements.md
@@ -91,7 +91,7 @@
           href: storsimple-virtual-array-update-12-release-notes.md
         - name: "Update\_1.1"
           href: storsimple-virtual-array-update-11-release-notes.md
-        - name: "Update\_1"
+        - name: Update 1
           href: storsimple-virtual-array-update-1-release-notes.md
         - name: Archivage
           items:
@@ -107,7 +107,7 @@
               href: storsimple-ova-update-01-release-notes.md
 - name: "Gamme StorSimple\_8000"
   items:
-    - name: Vue d'ensemble
+    - name: Vue d’ensemble
       items:
         - name: Quelle est la solution ?
           href: storsimple-overview.md
@@ -119,9 +119,9 @@
           href: storsimple-8000-security.md
         - name: Disponibilité des régions
           href: storsimple-regions.md
-    - name: Prise en main
+    - name: Bien démarrer
       items:
-        - name: Planification
+        - name: Plan
           items:
             - name: Examiner les conditions requises
               href: storsimple-8000-system-requirements.md
@@ -129,7 +129,7 @@
               href: storsimple-8000-technical-specifications-and-compliance.md
             - name: Comprendre les limites
               href: storsimple-8000-limits.md
-            - name: Bonnes pratiques
+            - name: Meilleures pratiques
               href: 'https://gallery.technet.microsoft.com/Azure-StorSimple-8000-72b01b68'
         - name: Installer
           items:
@@ -155,11 +155,11 @@
               href: storsimple-8000-cloud-appliance-u2.md
             - name: Gestionnaire d’instantanés StorSimple
               href: storsimple-snapshot-manager-deployment.md
-            - name: StorSimple Adapter for SharePoint
+            - name: Adaptateur StorSimple pour SharePoint
               href: storsimple-adapter-for-sharepoint.md
     - name: Procédures
       items:
-        - name: gérer
+        - name: Gérer
           items:
             - name: Utilisation du service StorSimple Manager
               href: storsimple-8000-manager-service-administration.md
@@ -270,7 +270,7 @@
               href: 'https://gallery.technet.microsoft.com/Deploy-Hyper-V-with-Azure-0d1c6df6'
             - name: Espace de noms global distribué
               href: 'https://www.microsoft.com/download/details.aspx?id=45507'
-        - name: Surveiller
+        - name: Moniteur
           items:
             - name: Utilisation du récapitulatif du service
               href: storsimple-8000-service-dashboard.md
@@ -284,7 +284,7 @@
               href: storsimple-8000-monitor-hardware-status.md
             - name: Utilisation des LED de surveillance
               href: storsimple-monitoring-indicators.md
-        - name: Résolution des problèmes
+        - name: Dépanner
           items:
             - name: Problèmes de déploiement
               href: storsimple-8000-troubleshoot-deployment.md
@@ -325,7 +325,7 @@
                   href: storsimple-5000-7000-afs-migration.md
             - name: À partir d’autres appareils de stockage
               href: 'https://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf'
-        - name: Mettre à jour
+        - name: Update
           items:
             - name: "Installer Update\_5\_- en cours"
               href: storsimple-8000-install-update-5.md
@@ -345,7 +345,7 @@
               href: storsimple-update21-release-notes.md
             - name: Update 2
               href: storsimple-update2-release-notes.md
-            - name: "Update\_1"
+            - name: Update 1
               href: storsimple-update1-release-notes.md
             - name: "Update\_0.3"
               href: storsimple-february-2015-release-notes.md
@@ -365,11 +365,11 @@
           href: /azure/templates/microsoft.storsimple/allversions
 - name: StorSimple Data Manager
   items:
-    - name: Vue d'ensemble
+    - name: Vue d’ensemble
       items:
         - name: Quelle est la solution ?
           href: storsimple-data-manager-overview.md
-    - name: Prise en main
+    - name: Bien démarrer
       items:
         - name: Utilisation de StorSimple Data Manager
           href: storsimple-data-manager-ui.md
@@ -383,11 +383,11 @@
           href: storsimple-data-manager-change-default-blob-path.md
 - name: StorSimple pour les partenaires
   items:
-    - name: Vue d'ensemble
+    - name: Vue d’ensemble
       items:
         - name: Quelle est la solution ?
           href: storsimple-partner-csp-overview.md
-    - name: Prise en main
+    - name: Bien démarrer
       items:
         - name: Déployer un groupe virtuel pour les fournisseurs de solutions Cloud
           href: storsimple-partner-csp-deploy.md
@@ -397,7 +397,7 @@
           href: 'https://aka.ms/storsimple-virtual-array-latest-relnote'
         - name: Notes de publication pour les fournisseurs de solutions Cloud
           href: 'https://partner.microsoft.com/Support/whats-new'
-        - name: "StorSimple pour les fournisseurs de solutions cloud\_: Forum Aux Questions"
+        - name: "StorSimple pour les fournisseurs de solutions cloud\_: Questions fréquentes (FAQ)"
           href: storsimple-partner-csp-faq.md
 - name: Rubriques connexes
   items:

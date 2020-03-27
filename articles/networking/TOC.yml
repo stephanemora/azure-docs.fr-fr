@@ -1,4 +1,4 @@
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos des réseaux Azure
       href: networking-overview.md
@@ -22,6 +22,8 @@
           href: disaster-recovery-dns-traffic-manager.md
     - name: Planifier et concevoir
       items:
+        - name: Support pour le travail à distance
+          href: working-remotely-support.md
         - name: Réseaux virtuels
           href: ../virtual-network/virtual-network-vnet-plan-design-arm.md?toc=%2fazure%2fnetworking%2ftoc.json
         - name: "Connectivité entre différents locaux\_- VPN"
@@ -97,7 +99,7 @@
       items:
         - name: Connecter Azure aux clouds publics
           href: ../expressroute/expressroute-connect-azure-to-public-cloud.md?toc=%2fazure%2fnetworking%2ftoc.json
-    - name: gestion
+    - name: Gestion
       items:
         - name: Vue d’ensemble de la supervision réseau
           href: network-monitoring-overview.md
@@ -107,7 +109,7 @@
           href: ../network-watcher/network-watcher-topology-powershell.md?toc=%2fazure%2fnetworking%2ftoc.json
     - name: Exemples de scripts
       items:
-        - name: D’Azure CLI
+        - name: Azure CLI
           href: cli-samples.md
         - name: Azure PowerShell
           href: powershell-samples.md
@@ -119,7 +121,7 @@
           href: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
 - name: Informations de référence
   items:
-    - name: D’Azure CLI
+    - name: Azure CLI
       href: 'https://docs.microsoft.com/cli/azure/network'
     - name: Azure PowerShell
       href: 'https://docs.microsoft.com/powershell/module/az.network/'

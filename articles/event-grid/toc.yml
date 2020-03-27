@@ -98,9 +98,11 @@
   items:
     - name: Concepts d’Event Grid
       href: concepts.md
+    - name: Rubriques sur le système
+      href: system-topics.md
     - name: Sécurité
       items:
-        - name: Authentication
+        - name: Authentification
           href: security-authentication.md
         - name: Autorisation
           href: security-authorization.md

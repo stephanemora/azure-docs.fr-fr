@@ -1,6 +1,6 @@
 - name: Documentation Azure FXT Edge Filer
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce qu’Azure FXT Edge Filer\_?"
       href: fxt-overview.md
@@ -20,10 +20,10 @@
       href: fxt-add-storage.md
     - name: 7 - Configurer les paramètres réseau du cluster
       href: fxt-configure-network.md
+    - name: "8\_- Monter des clients"
+      href: fxt-mount-clients.md
 - name: Guides pratiques
   items:
-    - name: Monter des clients
-      href: fxt-mount-clients.md
     - name: Superviser le matériel Azure FXT Edge Filer
       href: fxt-monitor.md
     - name: Mettre hors tension un nœud matériel de façon sécurisée

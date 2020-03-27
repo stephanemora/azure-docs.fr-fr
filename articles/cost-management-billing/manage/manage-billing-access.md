@@ -1,5 +1,5 @@
 ---
-title: Gérer l’accès à la facturation Azure | Microsoft Docs
+title: Gérer l’accès à la facturation Azure
 description: Découvrez comment donner accès à vos informations de facturation Azure aux membres de votre équipe.
 author: vikramdesai01
 ms.reviewer: amberb
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: 5a4d725d88ee38bb68ea3da4f3e2a6a9bfc7e201
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: e7a6f105c6c8292e8e95b388d60dd95c3548dbb5
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200691"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79237664"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>Gérer l’accès aux informations de facturation pour Azure
 
@@ -44,7 +44,7 @@ Pour attribuer des rôles, consultez [Gérer les accès à l’aide du contrôle
 ** Si vous êtes client EA, un propriétaire de compte peut affecter le rôle ci-dessus à d’autres utilisateurs de son équipe. Mais pour que ces utilisateurs puissent afficher des informations de facturation, l’administrateur d’entreprise doit permettre au propriétaire du compte d’afficher les frais dans le portail d’entreprise.
 
 
-### <a name="opt-in"></a> Autoriser les utilisateurs à télécharger des factures
+### <a name="allow-users-to-download-invoices"></a><a name="opt-in"></a> Autoriser les utilisateurs à télécharger des factures
 
 Une fois que l’administrateur du compte a affecté les rôles appropriés aux autres utilisateurs, ces derniers doivent activer l’accès pour pouvoir télécharger des factures dans le portail Microsoft Azure. Les factures antérieures à décembre 2016 ne sont accessibles qu’à l’administrateur de compte.
 

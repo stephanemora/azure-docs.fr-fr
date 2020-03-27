@@ -1,26 +1,28 @@
 ---
-title: Utiliser des rapports Cloudyn dans Azure | Microsoft Docs
+title: Utiliser des rapports Cloudyn dans Azure
 description: Cet article décrit la finalité des rapports Cloudyn inclus dans le portail Cloudyn, afin de vous aider à les utiliser efficacement.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
 ms.custom: seodec18
-ms.openlocfilehash: b3563e08963b0b32542dcbece2529c350981f557
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ROBOTS: NOINDEX
+ms.openlocfilehash: 633bf8126c1745cfd8db117966975bbf4ea2c9c8
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200008"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79463541"
 ---
 # <a name="reports-available-in-the-cloudyn-portal"></a>Rapports disponibles dans le portail Cloudyn
 
 Cet article décrit l’objectif des rapports Cloudyn inclus dans le portail Cloudyn. Il explique également comment utiliser efficacement les rapports. La plupart des rapports sont intuitifs et ont une apparence similaire. L’essentiel des actions possibles dans un rapport est également réalisable dans d’autres rapports. Pour une vue d’ensemble de l’utilisation des rapports Cloudyn, y compris la personnalisation et l’enregistrement ou la planification, consultez [Comprendre les rapports de coûts](understanding-cost-reports.md).
 
 Azure Cost Management offre des fonctionnalités similaires à Cloudyn. Azure Cost Management est une solution native de gestion des coûts Azure. Il vous permet d’analyser les coûts, de créer et de gérer des budgets, d’exporter des données, et de consulter des recommandations d’optimisation et d’agir en conséquence pour dépenser moins. Pour plus d’informations, consultez [Azure Cost Management](../cost-management-billing-overview.md).
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 ## <a name="report-types"></a>Types de rapports
 

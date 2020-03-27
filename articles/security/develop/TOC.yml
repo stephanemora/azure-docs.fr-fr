@@ -11,12 +11,12 @@
           href: secure-aad-app.md
     - name: Solutions conformes du secteur
       items:
-        - name: Secteur des cartes de paiement
+        - name: Payment card industry
           href: secure-pci-web-app.md
 - name: Concepts
   expanded: true
   items:
-    - name: Bonnes pratiques
+    - name: Meilleures pratiques
       items:
         - name: Vue d’ensemble
           href: secure-dev-overview.md
@@ -45,7 +45,7 @@
       displayName: stride
       href: threat-modeling-tool.md
       items:
-        - name: Démarrage
+        - name: Prise en main
           href: threat-modeling-tool-getting-started.md
         - name: Présentation des fonctionnalités
           href: threat-modeling-tool-feature-overview.md
@@ -68,12 +68,14 @@
               href: threat-modeling-tool-releases-71610151.md
             - name: "Version mise à jour de Threat Modeling Tool\_7.3.00206.1 - 11\_février\_2020"
               href: threat-modeling-tool-releases-73002061.md
+            - name: "Version de mise à jour de Threat Modeling Tool\_7.3.00316.1\_- 22\_mars\_2020"
+              href: threat-modeling-tool-releases-73003161.md
         - name: Corrections
           href: threat-modeling-tool-mitigations.md
           items:
             - name: Audit et journalisation
               href: threat-modeling-tool-auditing-and-logging.md
-            - name: Authentication
+            - name: Authentification
               href: threat-modeling-tool-authentication.md
             - name: Autorisation
               href: threat-modeling-tool-authorization.md

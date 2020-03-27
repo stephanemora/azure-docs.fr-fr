@@ -315,6 +315,10 @@
               href: disk-encryption-sample-scripts.md
             - name: Chiffrement de disque sur un réseau isolé
               href: disk-encryption-isolated-network.md
+            - name: Comment vérifier l’état du chiffrement
+              href: how-to-verify-encryption-status.md
+            - name: Comment configurer un gestionnaire de volume logique RAID sur crypt
+              href: how-to-configure-lvm-raid-on-crypt.md
             - name: Résolution des problèmes de chiffrement de disque
               href: disk-encryption-troubleshooting.md
             - name: FAQ relative au chiffrement de disque
@@ -498,8 +502,6 @@
           href: capture-image.md
         - name: Générer une image avec Packer
           href: build-image-with-packer.md
-        - name: Images RHEL dans Azure
-          href: rhel-images.md
         - name: Télécharger un disque existant
           href: download-vhd.md
     - name: Disponibilité et mise à l’échelle
@@ -520,6 +522,8 @@
           href: create-cli-availability-zone.md
     - name: Utiliser des outils d’automatisation
       items:
+        - name: Données personnalisées
+          href: ../custom-data.md
         - name: Ansible
           items:
             - name: Installation et configuration

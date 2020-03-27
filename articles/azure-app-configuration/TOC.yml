@@ -92,6 +92,8 @@
   items:
     - name: Activer une fonctionnalité pour une partie des utilisateurs
       href: howto-feature-filters-aspnet-core.md
+    - name: Utiliser des étiquettes pour la configuration par environnement
+      href: howto-labels-aspnet-core.md
     - name: Importer ou exporter des données de configuration
       href: howto-import-export-data.md
     - name: Acheminer des événements vers un point de terminaison personnalisé

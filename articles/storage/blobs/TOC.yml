@@ -113,8 +113,13 @@
           items:
             - name: Recommandations de sécurité
               href: security-recommendations.md
-            - name: Chiffrement du stockage Azure
+            - name: Chiffrement du Stockage Azure au repos
               href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+              items:
+                - name: Clés gérées par le client avec Azure Key Vault
+                  href: ../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Clés fournies par le client sur la requête
+                  href: ../common/encryption-customer-provided-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Autorisation des opérations de données
               href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
               items:
@@ -198,6 +203,8 @@
                   href: ../common/storage-import-export-data-from-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Procédures
                   items:
+                    - name: Utiliser une clé gérée par le client
+                      href: ../common/storage-import-export-encryption-key-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                     - name: Afficher l’état des disques
                       href: ../common/storage-import-export-view-drive-status.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                     - name: Revoir le statut du travail
@@ -658,8 +665,13 @@
               href: ../common/authorization-resource-provider.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Contrôle d’accès (répertoires et fichiers)
               href: data-lake-storage-access-control.md
-            - name: Chiffrement du stockage Azure
+            - name: Chiffrement du Stockage Azure au repos
               href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+              items:
+                - name: Clés gérées par le client avec Azure Key Vault
+                  href: ../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Clés fournies par le client sur la requête
+                  href: ../common/encryption-customer-provided-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Détection avancée des menaces
               href: ../common/storage-advanced-threat-protection.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Utiliser des points de terminaison privés Azure
@@ -668,7 +680,7 @@
           items:
             - name: Accès multiprotocole
               href: data-lake-storage-multi-protocol-access.md
-            - name: Fonctionnalités Stockage Blob prises en charge
+            - name: Fonctionnalités du stockage Blob prises en charge
               href: data-lake-storage-supported-blob-storage-features.md
             - name: Services Azure pris en charge
               href: data-lake-storage-supported-azure-services.md
@@ -822,7 +834,7 @@
           href: 'https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.0.0-preview.6/index.html'
         - name: Python
           href: 'https://azuresdkdocs.blob.core.windows.net/$web/python/azure-storage-file-datalake/12.0.0b5/index.html'
-        - name: Javascript
+        - name: JavaScript
           href: 'https://www.npmjs.com/package/@azure/storage-file-datalake/v/12.0.0-preview.6'
         - name: REST
           href: /rest/api/storageservices/data-lake-storage-gen2

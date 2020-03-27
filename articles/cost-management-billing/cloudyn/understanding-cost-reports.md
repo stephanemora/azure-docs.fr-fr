@@ -1,24 +1,26 @@
 ---
-title: Compréhension des rapports de gestion des coûts Cloudyn dans Azure | Microsoft Docs
+title: Compréhension des rapports de gestion des coûts Cloudyn dans Azure
 description: Cet article vous permet de comprendre la structure et les fonctions de base des rapports de gestion des coûts Cloudyn.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 89bcbf75396a1eda9de4a715739adb3a3696e137
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ROBOTS: NOINDEX
+ms.openlocfilehash: 5d4f8e26aef5fbfb20c1721d1851a4940863121b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76773983"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79474541"
 ---
 # <a name="understanding-cloudyn-cost-management-reports"></a>Compréhension des rapports de gestion des coûts Cloudyn
 
 Cet article vous permet de comprendre la structure et les fonctions de base des rapports de gestion des coûts Cloudyn. La plupart des rapports Cloudyn sont intuitifs et ont une apparence uniforme. Après lecture de cet article, vous êtes prêt à utiliser tous les rapports de gestion des coûts. La plupart des fonctionnalités standard sont disponibles dans les différents rapports, vous permettant de naviguer facilement dans les rapports. Les rapports sont personnalisables et vous pouvez sélectionner plusieurs options pour calculer et afficher des résultats.
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 ## <a name="report-fields-and-options"></a>Champs et options des rapports
 
@@ -89,7 +91,7 @@ Chaque zone numérotée dans l’image précédente est décrite en détail dans
      - **Nom du compte**
        - Le nom du compte ou abonnement. Dans Azure, il s’agit du nom de l’abonnement Azure.
      - **No. de compte**
-       - Sélectionnez un compte, plusieurs comptes ou tous les comptes. Dans Azure, il s’agit du GUID de l’un abonnement Azure.
+       - Sélectionnez un compte, plusieurs comptes ou tous les comptes. Dans Azure, il s’agit du GUID de l’abonnement Azure.
      - **Compte parent**
        - Sélectionnez le compte parent, plusieurs comptes ou sélectionnez tout.
      - **Service**

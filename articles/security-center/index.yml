@@ -11,12 +11,12 @@ metadata:
   author: memildin
   ms.author: memildin
   ms.date: 11/04/2019
-  ms.openlocfilehash: 2896bee8f5a07a7432ca3fa2ca49caa529fdeb1e
-  ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+  ms.openlocfilehash: a1d764ce1ce332290c1bd68c5beb5f2731ae5e41
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 02/25/2020
-  ms.locfileid: "77604784"
+  ms.lasthandoff: 03/25/2020
+  ms.locfileid: "80159300"
 landingContent:
 - title: À propos de Security Center
   linkLists:
@@ -32,15 +32,15 @@ landingContent:
     links:
     - text: Protéger vos conteneurs
       url: container-security.md
-    - text: Ajouter des packages de conformité dynamiques
-      url: update-regulatory-compliance-packages.md
-    - text: S’intégrer à Windows Admin Center
-      url: windows-admin-center-integration.md
+    - text: Évaluation des vulnérabilités intégrée pour les machines virtuelles
+      url: built-in-vulnerability-assessment.md
+    - text: Examiner les schémas à la recherche d’alertes de sécurité
+      url: alerts-schemas.md
     - text: Automatiser les réponses aux alertes et aux recommandations
       url: workflow-automation.md
     - text: Exporter les alertes et recommandations de sécurité
       url: continuous-export.md
-    - text: Configurer Advanced Threat Protection pour Azure Key Vault
+    - text: Configurer la protection contre les menaces pour Azure Key Vault
       url: advanced-threat-protection-key-vault.md
 - title: Bien démarrer
   linkLists:
@@ -56,8 +56,8 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Qu’est-ce qu’un score de sécurité ?
-      url: security-center-secure-score.md
+    - text: Présentation du degré de sécurisation
+      url: secure-score-security-controls.md
     - text: Appliquer les recommandations en matière de sécurité
       url: security-center-remediate-recommendations.md
     - text: Personnaliser les recommandations en matière de sécurité

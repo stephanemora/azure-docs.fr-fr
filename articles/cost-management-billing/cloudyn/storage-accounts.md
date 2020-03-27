@@ -1,20 +1,20 @@
 ---
-title: Configurer des comptes de stockage pour Cloudyn dans Azure | Microsoft Docs
+title: Configurer des comptes de stockage pour Cloudyn dans Azure
 description: Cet article décrit la configuration de comptes de stockage Azure et de compartiments de stockage AWS pour Cloudyn.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
 ms.custom: secdec18
-ms.openlocfilehash: ec6c68d209f867ab3547e855f3cf754bc27d53c5
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ROBOTS: NOINDEX
+ms.openlocfilehash: c741f303958630415d54cabc62c04430f0b8b89d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77117628"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79474592"
 ---
 # <a name="configure-storage-accounts-for-cloudyn"></a>Configurer des comptes de stockage pour Cloudyn
 
@@ -22,7 +22,9 @@ ms.locfileid: "77117628"
 
 Vous pouvez enregistrer des rapports Cloudyn dans le portail Cloudyn, dans le Stockage Azure ou dans les compartiments de stockage AWS. L’enregistrement de vos rapports sur le portail Cloudyn est gratuit. Toutefois, l’enregistrement de vos rapports sur le stockage de votre fournisseur de services cloud est facultatif et entraîne des coûts supplémentaires. Cet article vous aide à configurer des comptes de stockage Azure et des compartiments de stockage Amazon Web Services (AWS) pour stocker vos rapports.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
+
+## <a name="prerequisites"></a>Prérequis
 
 Vous devez disposer d’un compte de stockage Azure ou d’un compartiment de stockage Amazon.
 

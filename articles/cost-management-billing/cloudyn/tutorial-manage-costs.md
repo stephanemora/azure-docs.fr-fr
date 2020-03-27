@@ -1,20 +1,20 @@
 ---
-title: Tutoriel - Gérer les coûts avec Cloudyn dans Azure | Microsoft Docs
+title: Tutoriel - Gérer les coûts avec Cloudyn dans Azure
 description: Dans ce didacticiel, vous allez apprendre à gérer les coûts en utilisant des rapports de récupération des données de facturation, de facturation interne et d’allocation des coûts.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.custom: seodec18
 ms.reviewer: benshy
-ms.openlocfilehash: c628a30e5a49e6bf9c0938ca8cccc0f349777668
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ROBOTS: NOINDEX
+ms.openlocfilehash: a492f611ed5a785ae148894baf3f24c2df773df2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76769904"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79474575"
 ---
 # <a name="tutorial-manage-costs-by-using-cloudyn"></a>Tutoriel : Gérer les coûts à l’aide de Cloudyn
 
@@ -32,7 +32,9 @@ Dans ce tutoriel, vous allez apprendre à :
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
+
+## <a name="prerequisites"></a>Prérequis
 
 - Vous devez disposer d’un compte Azure.
 - Vous devez disposer d’une inscription à un essai gratuit ou d’un abonnement payant pour Cloudyn.

@@ -108,9 +108,11 @@
                   href: sql-database-always-encrypted-azure-key-vault.md
         - name: Audit
           items:
-            - name: Bien démarrer avec l’audit de SQL Database
+            - name: Audit Azure SQL
               href: sql-database-auditing.md
-            - name: Format de journal d’audit
+            - name: Stockage derrière un réseau virtuel ou un pare-feu
+              href: create-auditing-storage-account-vnet-firewall.md
+            - name: Format du journal d’audit
               href: sql-database-audit-log-format.md
         - name: Gestion de la sécurité
           items:
@@ -144,6 +146,8 @@
               href: sql-database-managed-instance-public-endpoint-securely.md
             - name: Audit d’une instance managée
               href: sql-database-managed-instance-auditing.md
+        - name: Base de référence de la sécurité
+          href: security-baseline.md
     - name: Se connecter et interroger
       href: sql-database-connect-query.md
       items:
@@ -477,8 +481,8 @@
           items:
             - name: En passant par le portail Azure
               href: sql-database-single-database-get-started.md
-            - name: Utilisation d’un modèle
-              displayName: 'Azure Resource Manager template, ARM'
+            - name: Utilisation d’un modèle ARM
+              displayName: Resource Manager
               href: sql-database-single-database-get-started-template.md
         - name: Configurer
           items:
@@ -530,6 +534,8 @@
               href: sql-database-resource-limits-database-server.md
             - name: Architecture de connectivité
               href: sql-database-connectivity-architecture.md
+            - name: Paramètres de connectivité
+              href: sql-database-connectivity-settings.md
         - name: Synchronisation des données
           items:
             - name: Agent Data Sync
@@ -701,6 +707,8 @@
               href: sql-database-instance-pools-how-to.md
         - name: Configurer
           items:
+            - name: Configuration de sous-réseau assistée par le service
+              href: sql-database-managed-instance-enabling-service-aided-subnet-configuration.md
             - name: Point de terminaison public
               href: sql-database-managed-instance-public-endpoint-configure.md
             - name: Connexion de machine virtuelle cliente

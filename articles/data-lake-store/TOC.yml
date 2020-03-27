@@ -1,5 +1,5 @@
 - name: Documentation Data Lake Storage Gen1
-  href: index.md
+  href: index.yml
 - name: Basculer vers la documentation Data Lake Storage Gen2
   href: 'https://docs.microsoft.com/azure/storage/data-lake-storage/introduction'
 - name: Vue d’ensemble
@@ -8,13 +8,13 @@
       href: data-lake-store-overview.md
     - name: Comparer avec le Stockage Azure
       href: data-lake-store-comparison-with-blob-storage.md
-    - name: Traitement du Big Data
+    - name: traitement du Big Data
       href: data-lake-store-data-scenarios.md
     - name: Utilisation d’applications open source
       href: data-lake-store-compatible-oss-other-applications.md
-    - name: Bonnes pratiques
+    - name: Meilleures pratiques
       href: data-lake-store-best-practices.md
-- name: Prise en main
+- name: Bien démarrer
   items:
     - name: En passant par le portail Azure
       href: data-lake-store-get-started-portal.md
@@ -56,7 +56,7 @@
       items:
         - name: Options d’authentification
           href: data-lakes-store-authentication-using-azure-active-directory.md
-        - name: Authentification de l’utilisateur final
+        - name: Authentification des utilisateurs finaux
           href: data-lake-store-end-user-authenticate-using-active-directory.md
           items:
             - name: Utilisation de Java
@@ -144,7 +144,7 @@
           href: 'https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-store-connection-manager'
         - name: Autres options d’intégration Azure
           href: data-lake-store-integrate-with-other-services.md
-    - name: gérer
+    - name: Gérer
       items:
         - name: Accéder aux journaux de diagnostic
           href: data-lake-store-diagnostic-logs.md

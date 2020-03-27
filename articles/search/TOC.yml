@@ -263,6 +263,8 @@
           href: search-pagination-page-layout.md
         - name: Réglage de la pertinence (profils de scoring)
           href: index-add-scoring-profiles.md
+        - name: Réglage de la pertinence (algorithme de similarité)
+          href: index-ranking-similarity.md
     - name: Plan
       items:
         - name: Choisir un niveau

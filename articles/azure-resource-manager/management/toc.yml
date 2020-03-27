@@ -66,9 +66,13 @@
               href: ../../virtual-network/move-across-regions-publicip-portal.md?toc=/azure/azure-resource-manager/toc.json
     - name: Balises
       items:
-        - name: Baliser des ressources
+        - name: Guide de décision
+          href: /azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json
+        - name: Utiliser des balises
           href: tag-resources.md
-        - name: Aide relative aux balises
+        - name: "Stratégies\_- Conformité"
+          href: tag-policies.md
+        - name: Types de ressources pris en charge
           href: tag-support.md
     - name: Gérer des groupes de ressources
       items:

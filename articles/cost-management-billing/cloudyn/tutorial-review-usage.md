@@ -1,20 +1,20 @@
 ---
-title: 'Tutoriel : Examiner l’utilisation et les coûts avec Cloudyn dans Azure | Microsoft Docs'
+title: 'Tutoriel : Examiner l’utilisation et les coûts avec Cloudyn dans Azure'
 description: Dans ce didacticiel, vous vérifiez l’utilisation et les coûts pour effectuer le suivi des tendances, détecter le manque d’efficacité et créer des alertes.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.custom: seodec18
 ms.reviewer: benshy
-ms.openlocfilehash: a2d4525b0b29feb230f5496196a84e651e651e52
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ROBOTS: NOINDEX
+ms.openlocfilehash: 8a15de717ea960b411d95061b560b64abb94d98f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76774039"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79474558"
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
@@ -35,7 +35,9 @@ Dans ce tutoriel, vous allez apprendre à :
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
+
+## <a name="prerequisites"></a>Prérequis
 
 - Vous devez disposer d’un compte Azure.
 - Vous devez disposer d’une inscription à un essai gratuit ou d’un abonnement payant pour Cloudyn.
@@ -74,7 +76,7 @@ Le problème est que leur infrastructure existante a été déjà payée. Les ut
 
 Le rapport de recommandations de dimensionnement économique identifie les économies annuelles potentielles en comparant la capacité des types d’instance de machine virtuelle à leurs données d’historique d’utilisation de la mémoire et de l’UC.  
 
-Dans le menu en haut du portail, cliquez sur **Optimizer**(Optimiseur) > **Sizing Optimization**(Optimisation du dimensionnement) > **Cost Effective Sizing Recommendations**(Recommandations de dimensionnement économique). Si cela est utile, appliquez un filtre pour réduire les résultats. Voici un exemple :
+Dans le menu en haut du portail, cliquez sur **Optimizer**(Optimiseur) > **Sizing Optimization**(Optimisation du dimensionnement) > **Cost Effective Sizing Recommendations**(Recommandations de dimensionnement économique). Si cela est utile, appliquez un filtre pour réduire les résultats. Cette image en fournit un exemple.
 
 ![Rapport de recommandations de dimensionnement rentable pour machines virtuelles Azure](./media/tutorial-review-usage/sizing01.png)
 

@@ -14,6 +14,10 @@
       items:
         - name: Pare-feu d’applications web sur Azure Front Door
           href: ./afds/afds-overview.md
+    - name: Réseau de distribution de contenu
+      items:
+        - name: Pare-feu d’applications web sur Azure CDN
+          href: ./cdn/cdn-overview.md
 - name: Tutoriels
   items:
     - name: Application Gateway
@@ -24,6 +28,10 @@
       items:
         - name: Configurer une stratégie WAF - portail
           href: ./afds/waf-front-door-create-portal.md
+    - name: Réseau de distribution de contenu
+      items:
+        - name: Configurer une stratégie WAF - portail
+          href: ./cdn/waf-cdn-create-portal.md
 - name: Exemples
   items:
     - name: Azure PowerShell
@@ -110,14 +118,14 @@
           href: ./afds/waf-front-door-tutorial-geo-filtering.md
         - name: Supervision et journalisation
           href: ./afds/waf-front-door-monitor.md
-- name: Dépanner
-  items:
-    - name: Application Gateway
+    - name: Dépanner
       items:
-        - name: Résolution des problèmes du pare-feu d’applications web
-          href: ./ag/web-application-firewall-troubleshoot.md
-        - name: Log Analytics
-          href: ./ag/log-analytics.md
+        - name: Application Gateway
+          items:
+            - name: Résolution des problèmes du pare-feu d’applications web
+              href: ./ag/web-application-firewall-troubleshoot.md
+            - name: Log Analytics
+              href: ./ag/log-analytics.md
 - name: Informations de référence
   items:
     - name: Règles CRS

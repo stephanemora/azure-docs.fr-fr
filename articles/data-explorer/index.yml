@@ -1,77 +1,154 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Documentation de l’Explorateur de données Azure
+### YamlMime:Landing
+title: Documentation Azure Data Explorer
+summary: Azure Data Explorer est un service d’analytique données rapide et complètement managé pour l’analyse en temps réel de gros volumes de données diffusées en continu par des applications, des sites web, des appareils IoT, etc. Vous pouvez utiliser Azure Data Explorer pour collecter, stocker et analyser diverses données en vue d’améliorer les produits et l’expérience des clients, ainsi que de superviser les appareils et de booster les opérations.
 metadata:
-  title: "Azure Data Explorer\_: guides de démarrage rapide, tutoriels et documentation sur le langage de requête et les API"
+  title: Documentation Azure Data Explorer
   description: L’Explorateur de données Azure est une plateforme cloud d’analytique des journaux d’activité optimisée pour les requêtes Big Data ad hoc.
-  author: orspod
-  ms.author: orspodek
   ms.service: data-explorer
   ms.topic: landing-page
-  ms.date: 03/24/2019
-abstract:
-  description: "<p>Azure Data Explorer est un service d’analytique données rapide et complètement managé pour l’analyse en temps réel de gros volumes de données diffusées en continu par des applications, des sites web, des appareils\_IoT, etc. Vous pouvez utiliser Azure Data Explorer pour collecter, stocker et analyser diverses données en vue d’améliorer les produits et l’expérience des clients, ainsi que de superviser les appareils et de booster les opérations.</p><p>Découvrez comment utiliser l’Explorateur de données Azure avec nos guides de démarrage rapide, nos tutoriels et nos informations de référence.</p>"
-  aside:
-    image:
-      alt: null
-      height: 110
-      src: media/index/video.png
-      width: 250
-    title: "Qu’est-ce que l’Explorateur de données Azure\_? (19:47)"
-    href: 'https://youtu.be/D_AJk2lAepw'
-    width: 250
-sections:
-  - title: "Démarrages en 5\_minutes"
-    items:
-      - type: paragraph
-        text: 'Découvrez comment provisionner et utiliser l’Explorateur de données Azure :'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /azure/data-explorer/media/index/portal.svg
-            text: Créer un cluster et une base de données
-            href: /azure/data-explorer/create-cluster-database-portal
-          - image:
-              src: /azure/data-explorer/media/index/portal.svg
-            text: Ingérer des données de streaming provenant d’Event Hubs
-            href: /azure/data-explorer/ingest-data-event-hub
-          - image:
-              src: /azure/data-explorer/media/index/portal.svg
-            text: Interroger des données avec l’interface utilisateur web
-            href: /azure/data-explorer/web-query-data
-          - image:
-              src: /azure/data-explorer/media/index/logo-python.svg
-            text: Ingérer des données en file d’attente avec Python
-            href: /azure/data-explorer/python-ingest-data
-          - image:
-              src: /azure/data-explorer/media/index/logo-python.svg
-            text: Interroger des données avec Python
-            href: /azure/data-explorer/python-query-data
-  - title: Didacticiels pas à pas
-    items:
-      - type: paragraph
-        text: 'Découvrez comment créer des solutions de bout en bout :'
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/data-explorer/visualize-power-bi">Visualiser des données provenant de l’Explorateur de données Azure dans Power BI</a>
-  - title: Formation vidéo gratuite Pluralsight
-    items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Langage de requête pour l’Explorateur de données Azure
-            href: 'https://app.pluralsight.com/library/courses/kusto-query-language-kql-from-scratch'
-            image:
-              src: /azure/data-explorer/media/index/logo-pluralsight.svg
-              href: 'https://app.pluralsight.com/library/courses/kusto-query-language-kql-from-scratch'
-  - title: Informations de référence
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Langages et API
-            html: '<p><a href="https://aka.ms/kustolangref">Langage de requête, commandes de gestion et API</a>'
+  author: orspod
+  ms.author: orspodek
+  ms.date: 03/19/2020
+  ms.openlocfilehash: f00722d273ed95d82d433b66750e0a2211f04ee3
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 03/25/2020
+  ms.locfileid: "80065623"
+landingContent:
+- title: À propos d’Azure Data Explorer
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce que l’Explorateur de données Azure ?
+      url: data-explorer-overview.md
+  - linkListType: video
+    links:
+    - text: Qu’est-ce que l’Explorateur de données Azure ? (19:47)
+      url: https://youtu.be/D_AJk2lAepw
+    - text: 'Pluralsight : Les bases du langage de requête Kusto (KQL)'
+      url: https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch
+- title: Créer un cluster et une base de données
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Créer un cluster et une base de données
+      url: create-cluster-database-portal.md
+  - linkListType: how-to-guide
+    links:
+    - text: Python
+      url: create-cluster-database-python.md
+    - text: Modèle Azure Resource Manager
+      url: create-cluster-database-resource-manager.md
+    - text: C#
+      url: create-cluster-database-csharp.md
+    - text: PowerShell
+      url: create-cluster-database-powershell.md
+    - text: Azure CLI
+      url: create-cluster-database-cli.md
+- title: Ingérer des données dans Azure Data Explorer
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Vue d’ensemble de l’ingestion de données
+      url: ingest-data-overview.md
+  - linkListType: quickstart
+    links:
+    - text: Ingérer des exemples de données
+      url: ingest-sample-data.md
+  - linkListType: how-to-guide
+    links:
+    - text: Ingestion en un clic
+      url: ingest-data-one-click.md
+    - text: Ingestion de streaming
+      url: ingest-data-streaming.md
+    - text: Python
+      url: python-ingest-data.md
+    - text: Event Hub avec le portail Azure
+      url: ingest-data-event-hub.md
+    - text: Event Grid avec le portail Azure
+      url: ingest-data-event-grid.md
+    - text: Installer et utiliser LightIngest
+      url: lightingest.md
+- title: Interroger des données
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Interroger des données avec l’interface utilisateur web
+      url: web-query-data.md
+  - linkListType: tutorial
+    links:
+    - text: Écrire des requêtes KQL
+      url: write-queries.md
+  - linkListType: how-to-guide
+    links:
+    - text: Interroger des données dans Azure Data Lake
+      url: data-lake-query-data.md
+    - text: Interroger des données à l’aide de Python
+      url: python-query-data.md
+    - text: Analyse de série chronologique
+      url: time-series-analysis.md
+  - linkListType: reference
+    links:
+    - text: Aide-mémoire sur KQL
+      url: kql-quick-reference.md
+    - text: Langage de requête Kusto
+      url: https://docs.microsoft.com/azure/kusto/query/
+- title: Visualiser les données
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Vue d’ensemble de la visualisation de données
+      url: viz-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Connecteur Power BI
+      url: power-bi-connector.md
+    - text: Grafana
+      url: grafana.md
+    - text: Connecteur ODBC
+      url: connect-odbc.md
+    - text: Tableau
+      url: tableau.md
+    - text: Kibana (connecteur K2Bridge)
+      url: k2bridge.md
+    - text: Redash
+      url: redash.md
+    - text: Sisense
+      url: sisense.md
+- title: Intégrer aux autres outils
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Intégration à Data Factory
+      url: data-factory-integration.md
+    - text: Connecteur Apache Spark
+      url: spark-connector.md
+    - text: Connecteur Microsoft Flow
+      url: flow.md
+    - text: Azure DevOps
+      url: devops.md
+- title: Gérer et superviser des ressources et des données
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Gérer la mise à l’échelle horizontale des clusters
+      url: manage-cluster-horizontal-scaling.md
+    - text: Gérer la mise à l’échelle verticale des clusters
+      url: manage-cluster-vertical-scaling.md
+    - text: Bases de données d’abonné
+      url: follower.md
+    - text: Gérer des autorisations de base de données
+      url: manage-database-permissions.md
+    - text: Utiliser des métriques pour superviser l’intégrité du cluster
+      url: using-metrics.md
+    - text: Utiliser des journaux de diagnostic pour superviser l’ingestion
+      url: using-diagnostic-logs.md
+- title: Informations de référence
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Commandes de gestion
+      url: https://docs.microsoft.com/azure/kusto/management/
+    - text: API Azure Data Explorer
+      url: https://docs.microsoft.com/azure/kusto/api/

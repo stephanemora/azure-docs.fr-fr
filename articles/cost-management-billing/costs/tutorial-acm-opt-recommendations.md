@@ -3,21 +3,25 @@ title: Tutoriel – Réduire les coûts Azure avec des recommandations
 description: Ce tutoriel vous permet de réduire les coûts Azure quand vous agissez sur les recommandations d’optimisation.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/02/2020
+ms.date: 03/24/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 6f84b3fb75a3774dc14fd1ea045ab9cf1eeb5451
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: de558ddad37e1621c633d26fff51d1506c237577
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78245412"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80155917"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>Tutoriel : Optimiser les coûts à partir de recommandations
 
 Azure Cost Management fonctionne avec Azure Advisor pour fournir des recommandations d’optimisation des coûts. Azure Advisor vous permet d’optimiser et d’améliorer l’efficacité en identifiant les ressources inactives et sous-utilisées. Ce tutoriel vous présente un exemple dans lequel vous identifiez des ressources Azure sous-utilisées, puis vous prenez des mesures pour réduire les coûts.
+
+Regardez la vidéo [Optimisation des investissements cloud dans Azure Cost Management](https://www.youtube.com/watch?v=cSNPoAb-TNc) pour en savoir plus sur l’utilisation d’Advisor pour optimiser vos coûts.
+
+>[!VIDEO https://www.youtube.com/embed/cSNPoAb-TNc]
 
 Dans ce tutoriel, vous allez apprendre à :
 

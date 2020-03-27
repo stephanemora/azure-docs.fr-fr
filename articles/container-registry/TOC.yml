@@ -35,6 +35,10 @@
     - name: Concepts
       expanded: false
       items:
+        - name: Sécurité
+          items:
+            - name: Base de référence de la sécurité
+              href: security-baseline.md
         - name: Références SKU de registres de conteneurs et limites
           href: container-registry-skus.md
         - name: 'Registres, dépôts et images'
@@ -84,7 +88,7 @@
               href: container-registry-private-link.md
             - name: Accéder derrière un pare-feu
               href: container-registry-firewall-access-rules.md
-            - name: Authentication
+            - name: Authentification
               items:
                 - name: Vue d’ensemble de l’authentification
                   href: container-registry-authentication.md
@@ -120,7 +124,7 @@
         - name: Moniteur
           expanded: false
           items:
-            - name: Journaux de diagnostic et d’audit (préversion)
+            - name: Journaux de diagnostic et d’audit
               href: container-registry-diagnostics-audit-logs.md
             - name: Auditer la conformité avec Azure Policy (préversion)
               href: container-registry-azure-policy.md

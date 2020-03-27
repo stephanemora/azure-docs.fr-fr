@@ -91,6 +91,8 @@
           href: password-policy.md
         - name: Activer les événements d’audit de sécurité
           href: security-audit-events.md
+        - name: Analyser des événements d’audit avec Azure Monitor Workbooks
+          href: use-azure-monitor-workbooks.md
     - name: Joindre des machines virtuelles à un domaine
       items:
         - name: Machine virtuelle Windows Server issue du modèle

@@ -8,12 +8,12 @@ ms.date: 01/24/2020
 ms.topic: overview
 ms.service: cost-management-billing
 ms.custom: ''
-ms.openlocfilehash: c2d039dbf2ac7cfaeaad7ad038eb669337243cce
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: 3314d00651fc5e0473d84710803671f2ad45f005
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78970119"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79474524"
 ---
 # <a name="what-is-azure-cost-management-and-billing"></a>Présentation d’Azure Cost Management + Facturation
 
@@ -89,13 +89,13 @@ Les recommandations vous montrent comment optimiser et améliorer votre efficaci
 
 Si vous utilisez des systèmes externes pour accéder ou consulter les données de gestion des coûts, vous pouvez facilement exporter les données à partir d’Azure. Vous pouvez également définir une exportation planifiée quotidienne au format CSV et stocker les fichiers de données dans le stockage Azure. Ensuite, vous pouvez accéder aux données à partir de votre système externe.
 
-### <a name="consider-cloudyn"></a>Envisager Cloudyn
+### <a name="cloudyn-deprecation"></a>Dépréciation de Cloudyn
 
-[Cloudyn](./cloudyn/overview.md) est un service Azure lié à Cost Management. Avec Cloudyn, vous pouvez suivre l’utilisation du cloud et les dépenses pour vos ressources Azure. Il prend également en charge d’autres fournisseurs cloud, notamment AWS et Google. Les rapports du tableau de bord vous aident à comprendre la répartition des coûts, de même que la rétrofacturation et la facturation interne. Actuellement, Cost Management ne prend pas en charge la rétrofacturation/facturation interne ni d’autres fournisseurs de services cloud. Par contre, Cloudyn est une option qui les _prend_ en charge. Actuellement, Cost Management ne prend pas en charge les comptes de fournisseurs de services cloud Microsoft, contrairement à Cloudyn. Si vous avez des comptes de fournisseurs de services cloud ou si vous souhaitez utiliser la récupération des données de facturation/facturation interne, vous pouvez utiliser Cloudyn pour aider à gérer les coûts.
-
-Regardez la [vidéo Azure Cost Management et Cloudyn](https://www.youtube.com/watch?v=PmwFWwSluh8) pour savoir quand utiliser Azure Cost Management ou Cloudyn, en fonction des besoins de votre entreprise.
-
->[!VIDEO https://www.youtube.com/embed/PmwFWwSluh8]
+[Cloudyn](./cloudyn/overview.md) est un service Azure lié à Cost Management, qui sera déprécié d’ici la fin de l’année 2020. Les fonctionnalités existantes de Cloudyn sont intégrées directement au portail Azure dans la mesure du possible. Aucun nouveau client n’est actuellement intégré pour le moment. Cependant, le produit restera pris en charge jusqu’à ce qu’il soit complètement déprécié.
+ 
+Regardez la [vidéo Azure Cost Management et Cloudyn](https://www.youtube.com/watch?v=15DzKPMBRxM) pour en savoir plus sur l’opportunité d’utiliser Azure Cost Management ou Cloudyn, en fonction de vos besoins métier.
+ 
+>[!VIDEO https://www.youtube.com/embed/15DzKPMBRxM]
 
 ### <a name="additional-azure-tools"></a>Autres outils Azure
 

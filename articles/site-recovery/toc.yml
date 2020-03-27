@@ -165,6 +165,8 @@
               href: azure-to-azure-about-networking.md
             - name: Personnaliser les configurations réseau de la machine virtuelle Azure cible
               href: azure-to-azure-customize-networking.md
+            - name: Configurer les paramètres proxy du service de mobilité
+              href: configure-mobility-service-proxy-settings.md
             - name: Configurer le mappage du réseau et conserver les adresses IP après le basculement
               href: azure-to-azure-network-mapping.md
             - name: Exemples de conservation des adresses IP après le basculement
@@ -225,7 +227,7 @@
                   href: site-recovery-vmware-deployment-planner-analyze-report.md
                 - name: Analyser le rapport d’estimation des coûts
                   href: site-recovery-vmware-deployment-planner-cost-estimation.md
-            - name: Augmenter la taille des instances des serveurs de processus pour la réplication de VMware
+            - name: Effectuer un scale-out des serveurs de processus pour la réplication de VMware
               href: vmware-azure-set-up-process-server-scale.md
         - name: Configurer une récupération d'urgence
           items:
@@ -396,7 +398,7 @@
         - name: "Dynamics\_AX"
           href: site-recovery-dynamicsax.md
         - name: RDS
-          href: 'site-recovery-workload.md#protect-rds'
+          href: 'site-recovery-workload.md#protect-remote-desktop-services'
         - name: Exchange
           href: 'site-recovery-workload.md#protect-exchange'
         - name: SAP

@@ -3,19 +3,19 @@ title: Documentation Azure Red Hat OpenShift
 summary: Azure Red Hat OpenShift fournit des clusters Kubernetes monolocataires à haute disponibilité sur Azure, pris en charge par Red Hat et Microsoft.
 metadata:
   title: Documentation Azure Red Hat OpenShift
-  description: Microsoft Azure Red Hat OpenShift vous permet de déployer rapidement un cluster Red Hat OpenShift prêt pour la production dans Azure. Découvrez comment utiliser Azure Red Hat OpenShift avec ces tutoriels et guides pratiques.
+  description: Microsoft Azure Red Hat OpenShift vous permet de déployer un cluster Red Hat OpenShift prêt pour la production dans Azure. Découvrez comment utiliser ces tutoriels et guides pratiques.
   ms.service: container-service
   services: container-service
   ms.topic: landing-page
   author: jimzim
   ms.author: jzim
   ms.date: 03/06/2020
-  ms.openlocfilehash: ec40ff9af0b2c09db32e40536009cd0db684f030
-  ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
+  ms.openlocfilehash: f35419d63375ae8fca5f9458505b96b6ddfd3890
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 03/10/2020
-  ms.locfileid: "79037044"
+  ms.lasthandoff: 03/25/2020
+  ms.locfileid: "80062291"
 landingContent:
 - title: À propos d’Azure Red Hat OpenShift
   linkLists:

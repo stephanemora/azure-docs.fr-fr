@@ -7,13 +7,13 @@ ms.author: banders
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/13/2020
-ms.openlocfilehash: 156f47e7a5571d37d836e68c7817352626fbd734
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.date: 03/19/2020
+ms.openlocfilehash: 3a7e1e8670911d361b3c59aacc0973eac035fb70
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200246"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80065726"
 ---
 # <a name="view-and-download-your-azure-usage-and-charges"></a>Afficher et télécharger vos informations d’utilisation et vos frais Azure
 
@@ -21,30 +21,31 @@ Vous pouvez télécharger une répartition quotidienne de votre utilisation d’
 
 Si vous avez un Contrat Client Microsoft (MCA), vous devez être Gestionnaire de factures, ou Propriétaire, Contributeur ou Lecteur de profil de facturation pour voir votre utilisation d’Azure et les frais encourus.  Si vous avez un Contrat Partenaire Microsoft (MPA), seul le rôle Administrateur général ou Agent d’administration dans l’organisation partenaire peut voir et télécharger les informations sur l’utilisation et les frais Azure. [Vérifiez votre type de compte de facturation dans le portail Azure](#check-your-billing-account-type).
 
+Selon le type d’abonnement que vous utilisez, les options de téléchargement des informations sur votre utilisation et vos frais varient. 
+
 ## <a name="download-usage-from-the-azure-portal-csv"></a>Télécharger l’utilisation à partir du portail Azure (.csv)
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Recherchez *Gestion des coûts + facturation*.
-
-    ![Capture d’écran montrant la recherche dans le portail Azure](./media/download-azure-daily-usage/portal-cm-billing-search.png)
-
+1. Recherchez *Gestion des coûts + facturation*.  
+    ![Capture d’écran montrant une recherche dans le portail Azure](./media/download-azure-daily-usage/portal-cm-billing-search.png)
 1. Selon votre type d’accès, vous devrez peut-être sélectionner un compte de facturation ou un profil de facturation.
 1. Dans le menu de gauche, sélectionnez **Factures** sous **Facturation**.
 1. Dans la grille des factures, recherchez la ligne de la période de facturation correspondant aux informations d’utilisation que vous souhaitez télécharger.
-1. Sélectionnez l’**icône de téléchargement** ou les points de suspension (`...`) à droite.
-1. Le volet de téléchargement s’ouvre à droite. Sélectionnez **Télécharger** dans la section **Détails d’utilisation**.
+1. Sélectionnez l’**icône de téléchargement** ou les points de suspension (`...`) à droite.  
+  ![Capture d’écran montrant l’emplacement de téléchargement des informations sur l’utilisation et les frais](./media/download-azure-daily-usage/download-usage-others.png)  
+1. Le volet de téléchargement s’ouvre à droite. Sélectionnez **Télécharger** dans la section **Détails d’utilisation**.  
+
 
 ## <a name="download-usage-for-ea-customers"></a>Télécharger l’utilisation pour les clients EA
 
 Pour voir et télécharger les données d’utilisation en tant que client Contrat Entreprise, vous devez être administrateur d’entreprise, propriétaire de compte ou administrateur de service, et la stratégie d’affichage des coûts doit être activée.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Recherchez *Gestion des coûts + facturation*.
-
-    ![Capture d’écran montrant la recherche dans le portail Azure](./media/download-azure-daily-usage/portal-cm-billing-search.png)
-
+1. Recherchez *Gestion des coûts + facturation*.  
+    ![Capture d’écran montrant une recherche dans le portail Azure](./media/download-azure-daily-usage/portal-cm-billing-search.png)
 1. Sélectionnez **Utilisation + frais**.
-1. Pour le mois que vous souhaitez télécharger, sélectionnez **Télécharger**.
+1. Pour le mois que vous souhaitez télécharger, sélectionnez **Télécharger**.  
+    ![Capture d’écran montrant l’emplacement de téléchargement des informations sur l’utilisation et les frais](./media/download-azure-daily-usage/download-usage-ea.png)
 
 ## <a name="download-usage-for-pending-charges"></a>Télécharger les informations d’utilisation et les frais en attente
 

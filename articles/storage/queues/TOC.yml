@@ -45,8 +45,11 @@
       items:
         - name: Recommandations de sécurité
           href: security-recommendations.md
-        - name: Chiffrement du stockage Azure
+        - name: Chiffrement du Stockage Azure au repos
           href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+          items:
+            - name: Clés gérées par le client avec Azure Key Vault
+              href: ../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Autorisation des opérations de données
           href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
           items:

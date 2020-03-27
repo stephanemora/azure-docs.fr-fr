@@ -1,20 +1,20 @@
 ---
-title: 'Tutoriel : Autoriser l’accès avec Cloudyn dans Azure | Microsoft Docs'
+title: 'Tutoriel : Autoriser l’accès avec Cloudyn dans Azure'
 description: Dans ce tutoriel, vous découvrez comment autoriser l’accès aux données Cloudyn avec des comptes d’utilisateur qui définissent les niveaux d’accès aux entités.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.custom: seodec18
 ms.reviewer: benshy
-ms.openlocfilehash: b93dfd7699ab2f1e2851b4d1f7e6d4c721186a2e
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ROBOTS: NOINDEX
+ms.openlocfilehash: e8fff8b75ff419cffc7f496f921dcba734109e5a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76774005"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79463609"
 ---
 # <a name="tutorial-assign-access-to-cloudyn-data"></a>Tutoriel : Autoriser l'accès aux données Cloudyn
 
@@ -34,7 +34,9 @@ Quand vous avez inscrit votre contrat ou compte Azure, un compte avec l’autori
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
+
+## <a name="prerequisites"></a>Prérequis
 
 - Vous devez disposer d’un compte Azure.
 - Vous devez disposer d’une inscription à un essai gratuit ou d’un abonnement payant pour Cloudyn.
@@ -66,11 +68,11 @@ Lorsque vous supprimez un utilisateur, toutes les entités auxquelles l’utilis
 Vous ne pouvez pas vous supprimer en tant qu’utilisateur.
 
 > [!WARNING]
-> Lorsque vous supprimez un utilisateur, il ne peut pas être restauré.
+> Quand vous supprimez un utilisateur, il ne peut pas être restauré.
 
-1.  Dans le portail Cloudyn, cliquez sur le symbole d’engrenage dans le coin supérieur droit et sélectionnez **Gestion des utilisateurs**.
-2.  Dans la liste des utilisateurs, sélectionnez l’utilisateur à supprimer, puis cliquez sur **Supprimer l’utilisateur** (symbole de poubelle).
-3.  Dans la zone Supprimer l’utilisateur, cliquez sur **Oui**, puis sur **OK**.
+1.    Dans le portail Cloudyn, cliquez sur le symbole d’engrenage dans le coin supérieur droit et sélectionnez **Gestion des utilisateurs**.
+2.    Dans la liste des utilisateurs, sélectionnez l’utilisateur à supprimer, puis cliquez sur **Supprimer l’utilisateur** (symbole de poubelle).
+3.    Dans la zone Supprimer l’utilisateur, cliquez sur **Oui**, puis sur **OK**.
 
 
 ## <a name="delete-or-export-personal-data"></a>Supprimer ou exporter des données personnelles

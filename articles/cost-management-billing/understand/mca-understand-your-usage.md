@@ -6,14 +6,14 @@ ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 03/20/2020
 ms.author: banders
-ms.openlocfilehash: ef6ef96bf248c449b318cebaba9c53f63e448855
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: c6883dfd0f4c3bc11afdd68ead8c8c84729b1880
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199158"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80065699"
 ---
 # <a name="terms-in-the-azure-usage-and-charges-file-for-a-microsoft-customer-agreement"></a>Termes du fichier détaillant l’utilisation et les frais Azure dans le cadre d’un Contrat client Microsoft
 
@@ -88,6 +88,8 @@ meterCategory | Nom de la catégorie de classification du compteur. Par exemple,
 meterSubCategory | Nom de la catégorie de sous-classification du compteur
 meterRegion | Nom de la région où le compteur du service est disponible. Identifie l'emplacement du centre de données pour certains services dont le prix est basé sur cet emplacement.
 offer | Nom de l'offre achetée
+PayGPrice | Prix de vente au détail de la ressource.
+PricingModel | Identificateur indiquant le mode de facturation utilisé par le compteur (valeurs : à la demande, réservation, Spot)
 productId | Identificateur unique du produit auquel les frais s'appliquent
 product | Nom du produit auquel les frais s'appliquent
 ID d’abonnement | Identificateur unique de l'abonnement auquel les frais s'appliquent

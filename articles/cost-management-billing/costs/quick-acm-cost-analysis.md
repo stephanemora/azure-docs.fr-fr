@@ -1,19 +1,19 @@
 ---
-title: Guide de démarrage rapide - Explorer les coûts Azure avec l’analyse du coût | Microsoft Docs
+title: Guide de démarrage rapide - Explorer les coûts Azure avec l’analyse du coût
 description: Ce guide de démarrage rapide vous aide à utiliser l’analyse du coût pour explorer et analyser les coûts Azure de votre organisation.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/11/2020
+ms.date: 03/24/2020
 ms.topic: quickstart
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: seodec18
-ms.openlocfilehash: 82cd596f08136f6d9b327fc83122c0f32d8f9914
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 53e1ef2f5e4faecd3ab2dee1350f3e9087df8e9d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77649294"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80155951"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Démarrage rapide : Explorer et analyser les coûts avec l’analyse du coût
 
@@ -27,12 +27,13 @@ Dans ce guide de démarrage rapide, vous apprenez à :
 - Personnaliser les vues des coûts
 - Télécharger les données de l’analyse du coût
 
-
 ## <a name="prerequisites"></a>Prérequis
 
 L’analyse des coûts prend en charge différents types de comptes Azure. Pour accéder à la liste complète des types de comptes pris en charge, voir [Comprendre les données de Cost Management](understand-cost-mgt-data.md). Pour afficher les données de coût, vous avez au minimum besoin d’un accès en lecture pour votre compte Azure.
 
 Pour plus d’informations sur l’attribution de l’accès aux données Azure Cost Management, consultez [Assigner l’accès aux données](../../cost-management/assign-access-acm-data.md).
+
+Si vous disposez d’un nouvel abonnement, vous ne pouvez pas utiliser les fonctionnalités de Cost Management tout de suite. Vous risquez de devoir attendre jusqu’à 48 heures avant de pouvoir utiliser toutes les fonctionnalités de Cost Management.
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
@@ -43,6 +44,10 @@ Pour plus d’informations sur l’attribution de l’accès aux données Azure 
 Pour examiner vos coûts via la fonctionnalité d’analyse des coûts, ouvrez l’étendue dans le portail Azure et sélectionnez **Analyse du coût** dans le menu. Par exemple, accédez à **Abonnements**, sélectionnez un abonnement dans la liste, puis sélectionnez **Analyse du coût** dans le menu. Utilisez le paramètre **Étendue** pour passer à une autre étendue dans l’analyse des coûts. Pour plus d’informations sur les étendues, consultez [Comprendre et utiliser les étendues](understand-work-scopes.md).
 
 L’étendue que vous sélectionnez est utilisée à travers Cost Management pour consolider les données et contrôler l’accès aux informations sur les coûts. Quand vous utilisez des étendues, vous n’opérez pas une sélection multiple. Au lieu de cela, vous sélectionnez une étendue plus grande qui en regroupe d’autres, puis vous filtrez jusqu’aux portées imbriquées dont vous avez besoin. Il est important de comprendre cette approche, car il est possible que certaines personnes n’aient pas accès à une étendue parente unique qui couvre plusieurs étendues imbriquées.
+
+Regardez la vidéo [Guide pratique pour utiliser Cost Management dans le portail Azure](https://www.youtube.com/watch?v=mfxysF-kTFA) pour en savoir plus sur l’utilisation de l’analyse du coût.
+
+>[!VIDEO https://www.youtube.com/embed/mfxysF-kTFA]
 
 L’affichage initial de l’analyse du coût inclut les zones suivantes.
 
@@ -65,7 +70,6 @@ L’affichage initial de l’analyse du coût inclut les zones suivantes.
 La prévision des coûts montre une projection de vos coûts estimés pour la période de temps sélectionnée. Le modèle est basé sur un modèle de régression de séries chronologiques. Il nécessite au moins 10 jours de données récentes de coûts et d’utilisation pour prévoir les coûts avec précision. Pour une période de temps donnée, le modèle de prévision nécessite des parties égales de données d’entraînement pour la période de prévision. Par exemple, une projection à trois mois nécessite au moins trois mois de données récentes sur les coûts et l’utilisation.
 
 Le modèle utilise un maximum de six mois de données d’entraînement afin de prévoir les coûts pour une année. Au minimum, il a besoin de sept jours de données d’entraînement pour changer sa prédiction. La prédiction est basée sur les changements importants dans les modèles de coût et d’utilisation, comme les pics et les creux. La prévision ne génère pas de projections individuelles pour chaque élément des propriétés **Regrouper par**. Il fournit uniquement une prévision du total des coûts cumulés. Si vous utilisez plusieurs devises, le modèle fournit des prévisions seulement pour les coûts exprimés en USD.
-
 
 ## <a name="customize-cost-views"></a>Personnaliser les vues des coûts
 
@@ -174,11 +178,17 @@ Pour plus d’informations sur ces termes, consultez [Comprendre les termes util
 
 Enregistrez des vues personnalisées et partagez-les avec d’autres utilisateurs en épinglant l’analyse des coûts au tableau de bord du portail Azure, ou en copiant un lien dans l’analyse des coûts.
 
+Regardez la vidéo [Partager et enregistrer des vues dans Azure Cost Management](https://www.youtube.com/watch?v=kQkXXj-SmvQ) pour en savoir plus sur l’utilisation du portail pour partager les connaissances sur les coûts dans votre organisation.
+
+>[!VIDEO https://www.youtube.com/embed/kQkXXj-SmvQ]
+
 Pour épingler l’analyse des coûts, cliquez sur l’icône en forme d’épingle située dans l’angle supérieur droit. L’épinglage de l’analyse des coûts enregistre uniquement la vue du graphique ou du tableau principal. Partagez le tableau de bord pour permettre à d’autres utilisateurs d’accéder à la vignette. Notez que seule la configuration du tableau de bord est partagée et que les autres utilisateurs n’auront pas accès aux données sous-jacentes. Si bous n’avez pas accès aux coûts mais bien à un tableau de bord partagé, vous voyez s’afficher le message « Accès refusé ».
 
 Pour partager un lien vers l’analyse des coûts, sélectionnez **Partager** en haut du panneau. Une URL personnalisée s’affiche, qui permet d’ouvrir cette vue de l’étendue. Si vous n’avez pas accès aux coûts et obtenez cette URL, vous voyez s’afficher un message « accès refusé ».
 
 Pour plus d’informations sur l’octroi de l’accès aux coûts pour chaque étendue prise en charge, consultez [Comprendre et utiliser des étendues](understand-work-scopes.md).
+
+
 
 ## <a name="automation-and-offline-analysis"></a>Automatisation et analyse hors connexion
 
