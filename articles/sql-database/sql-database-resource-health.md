@@ -3,7 +3,7 @@ title: Utiliser Azure Resource Health pour effectuer le monitorage de l’intég
 description: Utiliser Azure Resource Health pour surveiller l’intégrité de SQL Database vous aide à diagnostiquer les problèmes et à accéder au support quand un problème Azure a une incidence sur vos ressources SQL.
 services: sql-database
 ms.service: sql-database
-ms.subservice: monitor
+ms.subservice: performance
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,20 +11,20 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 ms.date: 02/26/2019
-ms.openlocfilehash: 1cf14c9e133b7e6e3e0b5219eb9e16bd3a0178dc
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 9e19e904b47d69444b491dd88ffe49ff812aafc3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821157"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79208872"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database"></a>Utiliser Resource Health pour résoudre des problèmes de connectivité avec Azure SQL Database
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 [Resource Health](../service-health/resource-health-overview.md#get-started) vous aide à diagnostiquer les problèmes et à accéder au support quand un problème Azure a une incidence sur vos ressources SQL. Il vous informe de l’intégrité (actuelle et passée) de vos ressources et vous aide à atténuer les problèmes. Resource Health propose un support technique dès lors que vous êtes confronté à des problèmes de service Azure et que vous avez besoin d’aide.
 
-![Vue d'ensemble](./media/sql-database-resource-health/sql-resource-health-overview.jpg)
+![Vue d’ensemble](./media/sql-database-resource-health/sql-resource-health-overview.jpg)
 
 ## <a name="health-checks"></a>Contrôles d'intégrité
 

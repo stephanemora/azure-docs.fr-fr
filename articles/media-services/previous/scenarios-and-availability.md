@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 4766f22cd84b2aab00f6dcc4064dbeea8018f694
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.openlocfilehash: 7b5569738721038beadc78d94c81393803b6d36a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77564965"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227009"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Scénarios et disponibilité des fonctionnalités Media Services dans les centres de données
 
@@ -33,7 +33,7 @@ Cette rubrique décrit les scénarios courants pour distribuer votre contenu [en
 
 ## <a name="overview"></a>Vue d’ensemble
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables requises
 
 Pour commencer à utiliser Azure Media Services, vous devez disposer des éléments suivants :
 
@@ -104,7 +104,7 @@ Pour plus d’informations sur la disponibilité dans les centres de données, c
     Si vous utilisez un localisateur SAS, le contenu est téléchargé depuis le stockage d’objets blob Azure. Dans ce cas, il n’est pas nécessaire de disposer de points de terminaison de streaming à l’état Démarré.
 4. Téléchargez le contenu de manière progressive.
 
-## <a id="live_scenarios"></a>Diffusion d’événements en streaming en direct 
+## <a name="delivering-live-streaming-events"></a><a id="live_scenarios"></a>Diffusion d’événements en streaming en direct 
 
 1. Ingérer du contenu en direct à l’aide de différents protocoles de streaming en direct (par exemple RTMP ou Smooth Streaming)
 2. Encoder votre flux en flux à débit adaptatif (facultatif)
@@ -143,7 +143,7 @@ Azure Media Services fournit les outils dont vous avez besoin pour créer des ap
 
 Media Services prend en charge l’intégration avec le CDN d’Azure. Pour plus d’informations sur l’activation du CDN Azure, voir [Gestion des points de terminaison de diffusion en continu dans un compte Media Services](media-services-portal-manage-streaming-endpoints.md).
 
-## <a id="scaling"></a>Scalabilité d’un compte Media Services
+## <a name="scaling-a-media-services-account"></a><a id="scaling"></a>Scalabilité d’un compte Media Services
 
 Les clients AMS peuvent mettre à l’échelle les points de terminaison de streaming, le traitement multimédia et le stockage dans leurs comptes AMS.
 
@@ -161,7 +161,7 @@ Les clients AMS peuvent mettre à l’échelle les points de terminaison de stre
     Pour plus d’informations, consultez [Mise à l’échelle du traitement multimédia](media-services-portal-scale-media-processing.md).
 * Vous pouvez aussi mettre à l’échelle votre compte Media Services en lui ajoutant des comptes de stockage. Chaque compte de stockage est limité à 500 To. Pour développer votre capacité stockage au-delà des limites par défaut, vous pouvez choisir de rattacher plusieurs comptes de stockage à un même compte Media Services. Pour plus d’informations, consultez [Gérer les comptes de stockage](meda-services-managing-multiple-storage-accounts.md).
 
-## <a id="availability"></a> Disponibilité des fonctionnalités Media Services dans les centres de données
+## <a name="availability-of-media-services-features-across-datacenters"></a><a id="availability"></a> Disponibilité des fonctionnalités Media Services dans les centres de données
 
 Cette section présente des informations sur la disponibilité des fonctionnalités Media Services dans les centres de données.
 
@@ -177,7 +177,7 @@ En fonction de leurs besoins, les clients Media Services peuvent choisir un poin
 
 #### <a name="availability"></a>Disponibilité
 
-|Nom|Statut|Centres de données
+|Name|Statut|Centres de données
 |---|---|---|
 |standard|GA|Tous|
 |Premium|GA|Tous|
@@ -202,6 +202,9 @@ AMS offre deux encodeurs à la demande : **Media Encoder Standard** et **Media 
 ### <a name="analytics-media-processors"></a>Processeurs multimédias Analytics
 
 Media Analytics est une collection de composants visuels et vocaux qui aident les organisations et les entreprises à extraire des connaissances exploitables de leurs fichiers vidéo. Pour plus d’informations, consultez [Vue d’ensemble d’Azure Media Analytics](media-services-analytics-overview.md).
+
+> [!NOTE]
+> Certains Processeurs multimédias Analytics seront mis hors service. Pour connaître les dates de mise hors service, voir la rubrique [Composants hérités](legacy-components.md).
 
 #### <a name="availability"></a>Disponibilité
 
@@ -240,7 +243,7 @@ Disponible dans tous les centres de données.
 
 ### <a name="reserved-unit-ru-type"></a>Type d’unité réservée
 
-Un compte Media Services est associé à un type d’unité réservée qui détermine la vitesse à laquelle vos tâches de traitement multimédia sont traitées. Vous pouvez choisir entre les types d’unités réservées suivantes : S1, S2 ou S3.
+Un compte Media Services est associé à un type d’unité réservée qui détermine la vitesse à laquelle vos tâches de traitement multimédia sont traitées. Vous pouvez choisir entre les types d’unités réservées suivants : S1, S2 ou S3.
 
 Pour plus d’informations, consultez la section sur la [mise à l’échelle](#scaling).
 

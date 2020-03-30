@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 432b8855ffb9542a1e052c8c97b52bcddeb5c824
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 36a77d49b507d3d0158d1b4b492d0141350de50f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934738"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240637"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>Gérer les clusters Apache Hadoop dans HDInsight avec le SDK .NET
 
@@ -21,7 +21,7 @@ ms.locfileid: "75934738"
 
 Apprenez à gérer des clusters HDInsight à l’aide du [Kit de développement logiciel (SDK) HDInsight.NET](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
 
-**Composants requis**
+**Prérequis**
 
 Avant de commencer cet article, vous devez disposer des éléments suivants :
 
@@ -175,7 +175,7 @@ Impact de la modification du nombre de nœuds de données pour chaque type de cl
     Voici un exemple relatif à l'utilisation de la commande de l'interface en ligne de commande pour rééquilibrer la topologie Storm :
     
 
-    ```cli
+    ```console
     ## Reconfigure the topology "mytopology" to use 5 worker processes,
     ## the spout "blue-spout" to use 3 executors, and
     ## the bolt "yellow-bolt" to use 10 executors

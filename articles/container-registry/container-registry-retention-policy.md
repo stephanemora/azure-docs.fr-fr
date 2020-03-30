@@ -4,10 +4,10 @@ description: Découvrez comment activer une stratégie de rétention dans votre 
 ms.topic: article
 ms.date: 10/02/2019
 ms.openlocfilehash: 912616b6ab95cdff91e70477c7d6de476ccfdfa7
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74454815"
 ---
 # <a name="set-a-retention-policy-for-untagged-manifests"></a>Stratégie de rétention pour les manifestes non étiquetés

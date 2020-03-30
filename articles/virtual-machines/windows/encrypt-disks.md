@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 10/30/2018
 ms.author: cynthn
 ms.openlocfilehash: 096fe779c077424b01df3ead5965cb799866a03b
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74033526"
 ---
 # <a name="encrypt-virtual-disks-on-a-windows-vm"></a>Chiffrer des disques virtuels sur une machine virtuelle Windows
@@ -38,7 +38,7 @@ Le processus de chiffrement d’une machine virtuelle est le suivant :
 1. Les disques virtuels sont chiffrés à l’aide de la clé de chiffrement fournie.
 
 
-## <a name="requirements-and-limitations"></a>Spécifications et limitations
+## <a name="requirements-and-limitations"></a>Exigences et limitations
 
 Configuration requise et scénarios pris en charge pour le chiffrement de disque :
 

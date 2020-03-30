@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/08/2018
 ms.openlocfilehash: 5c40feec2dca65e4bc9617a71a6d0a8e4c872a3a
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74793237"
 ---
 # <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>Créer des instructions switch qui exécutent des actions de workflow basées sur des valeurs spécifiques dans Azure Logic Apps
@@ -23,13 +23,13 @@ Par exemple, supposez que vous souhaitiez une application logique qui prenne des
 > Comme dans tous les langages de programmation, les instructions switch ne prennent en charge que les opérateurs d’égalité. Si vous avez besoin d’autres opérateurs de relation, par exemple « supérieur à », utilisez une [instruction de condition](../logic-apps/logic-apps-control-flow-conditional-statement.md).
 > Pour garantir un comportement d’exécution déterministe, les cas doivent contenir une valeur statique unique et non des jetons ou des expressions dynamiques.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [vous inscrire pour obtenir un compte Azure gratuitement](https://azure.microsoft.com/free/).
 
 * Pour suivre l’exemple présenté dans cet article, [créez cet exemple d’application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md) avec un compte Outlook.com ou Office 365 Outlook.
 
-  1. Si vous ajoutez l’action permettant d’envoyer un e-mail, recherchez et sélectionnez plutôt cette action : **Envoyer un e-mail d’approbation**
+  1. Si vous ajoutez l’action permettant d’envoyer un e-mail, recherchez et sélectionnez plutôt cette action : **Envoyer un e-mail d’approbation**.
 
      ![Sélectionner « Envoyer un e-mail d’approbation »](./media/logic-apps-control-flow-switch-statement/send-approval-email-action.png)
 
@@ -44,7 +44,7 @@ Par exemple, supposez que vous souhaitiez une application logique qui prenne des
 
    Si vous souhaitez ajouter une instruction switch entre les étapes, placez le pointeur sur la flèche là où vous souhaitez l’ajouter. Cliquez sur le **signe plus** ( **+** ) qui s’affiche, puis choisissez **Ajouter une action**.
 
-1. Dans la zone de recherche, entrez le filtre « switch ». Sélectionnez cette action : **Switch - Contrôle**
+1. Dans la zone de recherche, entrez le filtre « switch ». Sélectionnez cette action : **Switch - Control** (Switch - Contrôle).
 
    ![Ajout d’une instruction switch](./media/logic-apps-control-flow-switch-statement/add-switch-statement.png)
 
@@ -67,7 +67,7 @@ Par exemple, supposez que vous souhaitiez une application logique qui prenne des
    |--------|--------------------|--------|
    | Cas 1 | **Approuver** | Ajoutez l’action **Envoyer un e-mail** Outlook pour envoyer des détails sur l’élément RSS uniquement si l’approbateur a sélectionné **Approuver**. |
    | Cas 2 | **Rejeter** | Ajoutez l’action **Envoyer un e-mail** Outlook pour informer les autres approbateurs que l’élément RSS a été rejeté. |
-   | Default | Aucun | Aucune action requise. Dans cet exemple, le cas **Par défaut** n’est pas renseigné, car **SelectedOption** possède uniquement deux options. |
+   | Default | None | Aucune action requise. Dans cet exemple, le cas **Par défaut** n’est pas renseigné, car **SelectedOption** possède uniquement deux options. |
    |||
 
    ![Instruction switch terminée](./media/logic-apps-control-flow-switch-statement/finished-switch.png)
@@ -128,5 +128,5 @@ Maintenant que vous avez créé une application logique avec une instruction swi
 
 * [Instructions conditionnelles : Exécuter des étapes en fonction d’une condition dans des applications logiques](../logic-apps/logic-apps-control-flow-conditional-statement.md)
 * [Loops: Process arrays or repeat actions until a condition is met](../logic-apps/logic-apps-control-flow-loops.md) (Boucles : Traiter des tableaux ou répéter des actions jusqu’à ce qu’une condition soit remplie)
-* [Create or join parallel branches in your logic app](../logic-apps/logic-apps-control-flow-branches.md) (Créer ou joindre des branches parallèles dans votre application logique)
+* [Exécuter ou joindre des étapes (branches) parallèles](../logic-apps/logic-apps-control-flow-branches.md)
 * [Étendues : Exécuter des étapes en fonction de l’état d’un groupe](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)

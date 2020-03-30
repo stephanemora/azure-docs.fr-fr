@@ -4,10 +4,10 @@ description: Le serveur de sauvegarde Azure vous permet de sauvegarder et de res
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.openlocfilehash: d080605022cadf121fa6be99c9758fe9c0d878ef
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78673028"
 ---
 # <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Sauvegarder une batterie de serveurs SharePoint dans Azure Stack
@@ -20,13 +20,13 @@ Sauvegarde Azure pour MABS prend en charge les scénarios suivants :
 
 | Charge de travail | Version | Déploiement de SharePoint | Protection et récupération |
 | --- | --- | --- | --- |
-| SharePoint |SharePoint 2016, SharePoint 2013, SharePoint 2010 |SharePoint déployé en tant que machine virtuelle Azure Stack <br> -------------- <br> SQL AlwaysOn | Options de protection de la récupération de la batterie de serveurs SharePoint : batterie de serveurs de récupération, base de données, fichier ou élément de liste à partir de points de récupération de disque.  Récupération d’une batterie de serveurs et d’une base de données à partir de points de récupération Azure. |
+| SharePoint |SharePoint 2016, SharePoint 2013, SharePoint 2010 |SharePoint déployé en tant que machine virtuelle Azure Stack <br> -------------- <br> SQL AlwaysOn | Options de protection de la récupération de la batterie de serveurs SharePoint : batterie de serveurs de récupération, base de données, fichier ou élément de liste à partir de points de récupération de disque.  Récupération d’une batterie de serveurs et d’une base de données à partir de points de récupération Azure. |
 
 ## <a name="before-you-start"></a>Avant de commencer
 
 Quelques points doivent être confirmés avant de sauvegarder une batterie de serveurs SharePoint sur Azure.
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer, assurez-vous d’avoir [installé et préparé le serveur de sauvegarde Azure](backup-mabs-install-azure-stack.md) pour la protection des charges de travail.
 
@@ -64,7 +64,7 @@ L’exécutable **ConfigureSharePoint.exe** se trouve dans le dossier [Chemin d�
    * Accordez au groupe WSS_Admin_WPG un droit d'accès en lecture à la clé de registre DPM (HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager).
 
 > [!NOTE]
-> Vous devrez réexécuter le fichier ConfigureSharePoint.exe à chaque modification des informations d'identification de l'administrateur de la batterie de serveurs SharePoint.
+> Vous devrez réexécuter le fichier ConfigureSharePoint.exe à chaque changement des informations d’identification de l’administrateur de la batterie de serveurs SharePoint.
 >
 >
 
@@ -232,11 +232,11 @@ Dans l’exemple ci-dessous, *l’élément de récupération SharePoint* a ét�
 
 ## <a name="faqs"></a>FAQ
 
-Q : Puis-je restaurer un élément SharePoint à l'emplacement d'origine si SharePoint est configuré à l'aide de SQL AlwaysOn (avec protection sur disque) ?<br>
-A : Oui, l'élément peut être restauré sur le site SharePoint d'origine.
+Q : Puis-je restaurer un élément SharePoint sur l’emplacement d’origine si SharePoint est configuré avec SQL AlwaysOn (avec protection sur disque) ?<br>
+R : Oui, l’élément peut être récupéré sur le site SharePoint d’origine.
 
-Q : Puis-je restaurer une base de données SharePoint à l'emplacement d'origine si SharePoint est configuré à l'aide de SQL AlwaysOn ?<br>
-A : Comme les bases de données SharePoint sont configurées dans SQL AlwaysOn, elles ne peuvent être modifiées que si le groupe de disponibilité est supprimé. Par conséquent, le serveur de sauvegarde Azure ne peut pas restaurer la base de données à l’emplacement d’origine. Vous pouvez récupérer une base de données SQL Server sur une autre instance SQL Server.
+Q : Puis-je restaurer une base de données SharePoint sur l’emplacement d’origine si SharePoint est configuré avec SQL AlwaysOn ?<br>
+R : Comme les bases de données SharePoint sont configurées dans SQL AlwaysOn, elles ne peuvent pas être modifiées, à moins que le groupe de disponibilité n’ait été supprimé. Par conséquent, le serveur de sauvegarde Azure ne peut pas restaurer la base de données à l’emplacement d’origine. Vous pouvez récupérer une base de données SQL Server sur une autre instance SQL Server.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.reviewer: trbye
 ms.date: 03/05/2020
 ms.openlocfilehash: 73b9ae6bc3c15526bfdafd74330c7b86286631b1
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78396146"
 ---
 # <a name="enable-logging-in-azure-machine-learning"></a>Activer la journalisation dans Azure Machine Learning

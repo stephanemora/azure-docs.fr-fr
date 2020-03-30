@@ -10,11 +10,11 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 2edd62825de08becf22f2f953a63a7f89f55e0a6
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190992"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79236877"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-cognitive-search"></a>Modélisation de types de données complexes dans Recherche cognitive Azure
 
@@ -145,7 +145,7 @@ Vous pouvez faire référence à des sous-champs d’un champ complexe dans une 
 
     $filter=Address/Country eq 'Canada'
 
-Pour filtrer sur un champ de collection complexe, vous pouvez utiliser une **expression lambda**[avec les opérateurs](search-query-odata-collection-operators.md)`any` et `all`. Dans ce cas, la **variable de portée** de l’expression lambda est un objet avec des sous-champs. Vous pouvez consulter ces sous-champs avec la syntaxe de chemin OData standard. Par exemple, le filtre suivant retourne tous les hôtels avec au moins une chambre de luxe et toutes les chambres non-fumeurs :
+Pour filtrer sur un champ de collection complexe, vous pouvez utiliser une **expression lambda**[avec les opérateurs`any``all` et ](search-query-odata-collection-operators.md). Dans ce cas, la **variable de portée** de l’expression lambda est un objet avec des sous-champs. Vous pouvez consulter ces sous-champs avec la syntaxe de chemin OData standard. Par exemple, le filtre suivant retourne tous les hôtels avec au moins une chambre de luxe et toutes les chambres non-fumeurs :
 
     $filter=Rooms/any(room: room/Type eq 'Deluxe Room') and Rooms/all(room: not room/SmokingAllowed)
 

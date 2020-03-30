@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 01/23/2020
 ms.author: victorh
 ms.openlocfilehash: bc34afe82c1b73afb5f3d5d1a07f2a5059590146
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76705971"
 ---
 # <a name="azure-firewall-log-analytics-samples"></a>Exemples d’analytique des journaux pour le Pare-feu Azure
@@ -177,4 +177,4 @@ Les exemples de journaux suivants montrent les données incluses dans une entré
 ![entrée du journal](media/log-analytics-samples/log3.png)
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour découvrir les diagnostics et la supervision du Pare-feu Azure, consultez le [Tutoriel : superviser les journaux du Pare-feu Azure et les métriques](tutorial-diagnostics.md).
+Pour découvrir les diagnostics et la supervision du Pare-feu Azure, consultez le [Tutoriel : surveiller les journaux d’activité du Pare-feu Azure et les métriques](tutorial-diagnostics.md).

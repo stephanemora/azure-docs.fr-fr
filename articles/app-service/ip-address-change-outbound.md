@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 06/28/2018
 ms.custom: seodec18
 ms.openlocfilehash: 2be4bc92dde278b054bd04f412f937440027ece7
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74671662"
 ---
 # <a name="how-to-prepare-for-an-outbound-ip-address-change"></a>Comment se préparer à un changement d’adresse IP sortante
@@ -17,9 +17,9 @@ Si vous avez reçu une notification indiquant que les adresses IP sortantes de v
 
 ## <a name="determine-if-you-have-to-do-anything"></a>Déterminer si vous avez quelque chose à faire
 
-* Option 1 : si votre application App Service n’utilise pas le filtrage IP, une liste d’inclusion explicite ou un traitement spécial du trafic sortant comme le routage ou un pare-feu, aucune action n’est requise.
+* Option 1 : si votre application App Service n’utilise pas le filtrage IP, une liste d’inclusion explicite, ou un traitement spécial du trafic sortant tel que le routage ou le pare-feu, aucune action n’est requise.
 
-* Option 2 : si votre application procède à un traitement spécial des adresses IP sortantes (cf. exemples ci-dessous), ajoutez les nouvelles adresses IP sortantes partout où apparaissent les adresses existantes. Ne remplacez pas les adresses IP existantes. Vous trouverez les nouvelles adresses IP sortantes en suivant les instructions fournies dans la section suivante.
+* Option 2 : si votre application procède à un traitement spécial des adresses IP sortantes (voir les exemples ci-dessous), ajoutez les nouvelles adresses IP sortantes partout où apparaissent les adresses existantes. Ne remplacez pas les adresses IP existantes. Vous trouverez les nouvelles adresses IP sortantes en suivant les instructions fournies dans la section suivante.
 
   Par exemple, une adresse IP sortante peut être explicitement incluse dans un pare-feu en dehors de votre application, ou un service de paiement externe peut avoir une liste autorisée qui contient l’adresse IP sortante pour votre application. Si votre adresse sortante est configurée dans une liste en dehors de votre application, elle doit être modifiée.
 

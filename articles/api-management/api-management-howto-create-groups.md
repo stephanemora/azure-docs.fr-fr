@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
 ms.openlocfilehash: 182f0ea93ddfb2ab64de1c15b36958537fa5431f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75430723"
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>Création et utilisation de groupes pour gérer les comptes de développeurs dans Gestion des API Azure
@@ -44,7 +44,7 @@ Effectuez les tâches indiquées dans cet article : [Créer une instance du serv
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-## <a name="create-group"> </a>Créer un groupe
+## <a name="create-a-group"></a><a name="create-group"> </a>Créer un groupe
 
 Cette section montre comment ajouter un nouveau groupe à votre compte Gestion des API.
 
@@ -59,7 +59,7 @@ Une fois le groupe créé, il est ajouté à la liste **Groupes**. <br/>Pour mod
 
 Maintenant que le groupe est créé, il peut être associé à des produits et des développeurs.
 
-## <a name="associate-group-product"> </a>Associer un groupe à un produit
+## <a name="associate-a-group-with-a-product"></a><a name="associate-group-product"> </a>Associer un groupe à un produit
 
 1. Sélectionnez l’onglet **Produits** vers la gauche.
 2. Cliquez sur le nom du produit souhaité.
@@ -80,7 +80,7 @@ Une fois le produit associé à un groupe, les développeurs de ce groupe peuven
 > [!NOTE]
 > Pour ajouter des groupes Azure Active Directory, consultez la rubrique [Comment autoriser des comptes de développeur utilisant Azure Active Directory dans Gestion des API Azure](api-management-howto-aad.md).
 
-## <a name="associate-group-developer"> </a>Associer des groupes aux développeurs
+## <a name="associate-groups-with-developers"></a><a name="associate-group-developer"> </a>Associer des groupes aux développeurs
 
 Cette section montre comment associer des groupes à des membres.
 
@@ -95,7 +95,7 @@ Cette section montre comment associer des groupes à des membres.
 
 Une fois l’association entre le développeur et le groupe ajoutée, vous pouvez la consulter dans l’onglet **Utilisateurs** .
 
-## <a name="next-steps"> </a>Étapes suivantes
+## <a name="next-steps"></a><a name="next-steps"> </a>Étapes suivantes
 
 * Une fois le développeur ajouté à un groupe, il peut voir tous les produits associés à ce groupe et s'y abonner. Pour plus d'informations, consultez la page [Création et publication d'un produit dans Gestion des API Azure][How create and publish a product in Azure API Management].
 * En plus de créer et gérer des groupes dans le portail de publication, vous pouvez créer et gérer vos groupes à l'aide de l’entité [Groupe](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity) de l’API REST de gestion des API.

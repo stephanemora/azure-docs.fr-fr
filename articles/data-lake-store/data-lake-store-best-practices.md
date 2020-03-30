@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
 ms.openlocfilehash: a8ca67d1ff3100aee02ed473c9cc2180de3973b8
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75638933"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Bonnes pratiques d’utilisation d’Azure Data Lake Storage Gen1
@@ -108,7 +108,7 @@ Vous trouverez ci-dessous les trois options les plus recommandées pour orchestr
 
 ### <a name="use-distcp-for-data-movement-between-two-locations"></a>Utiliser Distcp pour déplacer des données entre deux emplacements
 
-Diminutif de Distributed Copy, Distcp est un outil en ligne de commande Linux qui vient avec Hadoop et qui permet le déplacement de données distribuées entre deux emplacements. Les deux emplacements peuvent être Data Lake Storage Gen1, HDFS, WASB ou S3. Cet outil utilise des tâches MapReduce sur un cluster Hadoop (par exemple, HDInsight) pour adapter la taille sur tous les nœuds. Distcp est considéré comme étant la façon la plus rapide de déplacer des données volumineuses sans appliances de compression de réseau spéciales. Cet outil fournit aussi une option pour ne mettre à jour que les valeurs delta entre deux emplacements, gère les essais automatiques et la mise à l’échelle dynamique de calcul. Cette approche est incroyablement efficace quand il est question de répliquer des choses telles que des tableaux Hive/Spark qui peuvent disposer de plusieurs fichiers volumineux dans un seul répertoire, et que vous ne voulez copier que les données modifiées. Pour ces raisons, Distcp est l’outil le plus recommandé pour la copie de données entre des magasins Big Data.
+Diminutif de Distributed Copy, Distcp est un outil en ligne de commande Linux qui vient avec Hadoop et qui permet le déplacement de données distribuées entre deux emplacements. Les deux emplacements peuvent être Data Lake Storage Gen1, HDFS, WASB ou S3. Cet outil utilise des tâches MapReduce sur un cluster Hadoop (par exemple, HDInsight) pour effectuer un scale-out sur tous les nœuds. Distcp est considéré comme étant la façon la plus rapide de déplacer des données volumineuses sans appliances de compression de réseau spéciales. Cet outil fournit aussi une option pour ne mettre à jour que les valeurs delta entre deux emplacements, gère les essais automatiques et la mise à l’échelle dynamique de calcul. Cette approche est incroyablement efficace quand il est question de répliquer des choses telles que des tableaux Hive/Spark qui peuvent disposer de plusieurs fichiers volumineux dans un seul répertoire, et que vous ne voulez copier que les données modifiées. Pour ces raisons, Distcp est l’outil le plus recommandé pour la copie de données entre des magasins Big Data.
 
 Les tâches de copie peuvent être déclenchées par des workflows Apache Oozie à l’ide de déclencheurs de fréquence ou de données, ainsi que des tâches Cron Linux. Pour les tâches de réplication intensives, il est recommandé d’ajouter un cluster Hadoop HDInsight qui peut être réglé et mis à l’échelle spécialement pour les tâches de copie. Ainsi, les tâches de copie n’interfèrent pas avec les tâches critiques. Si vous exécutez des réplications à une fréquence assez importante, le cluster peut même être arrêté entre chaque tâche. Si vous basculez vers une région secondaire, veillez à ce qu’un autre cluster soit aussi ajouté à cette région pour répliquer de nouvelles données vers le compte principal Data Lake Storage Gen1 lorsqu’il sera de nouveau en marche. Pour des exemples d’utilisation de Distcp, consultez [Utiliser Distcp pour copier des données entre des objets blob de Stockage Azure et Data Lake Storage Gen1](data-lake-store-copy-data-wasb-distcp.md).
 

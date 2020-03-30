@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 08/20/2019
 ms.author: delhan
 ms.openlocfilehash: 83751538efe4f3d3af5928caa04b265b6c867442
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71153574"
 ---
 # <a name="how-to-reset-local-linux-password-on-azure-vms"></a>Réinitialiser votre mot de passe Linux local sur les machines virtuelles Azure
@@ -33,7 +33,7 @@ Vous ne pouvez pas vous connecter à la machine virtuelle, et vous recevez un me
 > [!NOTE]
 > Les étapes suivantes ne s’appliquent pas aux machines virtuelles équipées d’un disque non managé.
 
-1. Prenez un instantané du disque du système d’exploitation de la machine virtuelle affectée, créez un disque à partir de l’instantané, puis attachez le disque à une machine virtuelle de dépannage. Pour en savoir plus, voir [Résoudre les problèmes d’une machine virtuelle Windows en connectant le disque du système d’exploitation à une machine virtuelle de récupération via le portail Azure](troubleshoot-recovery-disks-portal-linux.md).
+1. Prenez un instantané du disque du système d’exploitation de la machine virtuelle affectée, créez un disque à partir de l’instantané, puis attachez le disque à une machine virtuelle de dépannage. Pour en savoir plus, consultez [Résoudre les problèmes d’une machine virtuelle Windows en connectant le disque du système d’exploitation à une machine virtuelle de récupération à l’aide du portail Azure](troubleshoot-recovery-disks-portal-linux.md).
 
 2. Connectez-vous à la machine virtuelle de dépannage à l’aide du Bureau à distance.
 
@@ -103,10 +103,10 @@ Vous ne pouvez pas vous connecter à la machine virtuelle, et vous recevez un me
 
 11. Dans le portail Azure, détachez le disque de la machine virtuelle de dépannage.
 
-12. [Modifiez le disque de système d’exploitation pour la machine virtuelle affectée](troubleshoot-recovery-disks-portal-linux.md#swap-the-os-disk-for-the-vm).
+12. [Changez le disque de système d’exploitation pour la machine virtuelle affectée](troubleshoot-recovery-disks-portal-linux.md#swap-the-os-disk-for-the-vm).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Résoudre les problèmes de machine virtuelle Azure en attachant le disque du système d’exploitation à une autre machine virtuelle Azure](https://social.technet.microsoft.com/wiki/contents/articles/18710.troubleshoot-azure-vm-by-attaching-os-disk-to-another-azure-vm.aspx)
 
-* [Azure CLI : guide pratique pour supprimer et redéployer une machine virtuelle à partir d’un disque dur virtuel](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/azure-cli-how-to-delete-and-re-deploy-a-vm-from-vhd/)
+* [Azure CLI : guide pratique pour supprimer et redéployer une machine virtuelle à partir d’un disque dur virtuel](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/azure-cli-how-to-delete-and-re-deploy-a-vm-from-vhd/)

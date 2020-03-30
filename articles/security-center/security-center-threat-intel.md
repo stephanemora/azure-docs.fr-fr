@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
 ms.openlocfilehash: 39835d9d73adcbe474d3b70dfced313e18d1a3b3
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77603417"
 ---
 # <a name="security-alerts-map-and-threat-intelligence"></a>Carte des alertes de sécurité et informations sur les menaces

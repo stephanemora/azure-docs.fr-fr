@@ -8,10 +8,10 @@ ms.date: 01/21/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 648646b6f973762245c344cd2629a874a219b170
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76310150"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Connexion aux sources de données locales avec la passerelle de données locale
@@ -32,7 +32,7 @@ Pour Azure Analysis Services, la première configuration de la passerelle se dé
 
 
 
-## <a name="how-it-works"> </a>Fonctionnement
+## <a name="how-it-works"></a><a name="how-it-works"> </a>Fonctionnement
 La passerelle que vous installez sur un ordinateur de votre organisation s’exécute comme un service Windows, **Passerelle de données locale**. Ce service local est inscrit auprès du service cloud de passerelle via Azure Service Bus. Vous créez ensuite une ressource de passerelle de données locale pour votre abonnement Azure. Vos serveurs Azure Analysis Services sont alors connectés à vos ressources de passerelle Azure. Lorsque des modèles sur votre serveur doivent se connecter à vos sources de données locales pour des requêtes ou un traitement, un flux de données et de requête parcourt la ressource de passerelle, Azure Service Bus, le service de passerelle de données locale et vos sources de données. 
 
 ![Fonctionnement](./media/analysis-services-gateway/aas-gateway-how-it-works.png)
@@ -52,7 +52,7 @@ Lors de l’installation d’un environnement Azure Analysis Services, il est im
 
 ## <a name="ports-and-communication-settings"></a>Paramètres de ports et de communication
 
-La passerelle crée une connexion sortante vers Azure Service Bus. Elle communique sur les ports sortants : TCP 443 (par défaut), 5671, 5672 et 9350 à 9354.  La passerelle ne nécessite pas de ports entrants.
+La passerelle crée une connexion sortante vers Azure Service Bus. Elle communique sur les ports sortants : TCP 443 (par défaut), 5671, 5672 et 9350 à 9354.  La passerelle ne nécessite pas de ports entrants.
 
 Il vous faudra peut-être inclure les adresses IP pour votre région de données dans votre pare-feu. Vous pouvez télécharger la [liste d’adresses IP de centre de données Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=56519). Cette liste est actualisée chaque semaine. Les adresses IP répertoriées dans la liste d’adresses IP de centre de données Azure sont en notation CIDR. Pour plus d’informations, voir [Routage interdomaine sans classe](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 
@@ -73,7 +73,7 @@ Voici les noms de domaine complets utilisés par la passerelle.
 | *.microsoftonline-p.com |443 |Utilisé pour l’authentification en fonction de la configuration. |
 | dc.services.visualstudio.com  |443 |Utilisé par AppInsights pour collecter les données de télémétrie. |
 
-### <a name="force-https"></a>Forcer les communications HTTPS avec Azure Service Bus
+### <a name="forcing-https-communication-with-azure-service-bus"></a><a name="force-https"></a>Forcer les communications HTTPS avec Azure Service Bus
 
 Vous pouvez forcer la passerelle à communiquer avec Azure Service Bus à l’aide de HTTPS au lieu de TCP direct ; toutefois, cela peut affecter considérablement les performances. Vous pouvez modifier le fichier *Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config* en remplaçant la valeur `AutoDetect` par `Https`. Ce fichier se trouve généralement dans *C:\Program Files\On-premises data gateway*.
 

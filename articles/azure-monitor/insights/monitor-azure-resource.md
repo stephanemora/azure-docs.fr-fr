@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
 ms.openlocfilehash: 01d188e0e39888297ff8d6a57129a3a17e1654fe
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77654917"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79226481"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Supervision de ressources Azure avec Azure Monitor
 Lorsque vous avez des applications critiques et des processus métier basés sur des ressources Azure, vous voulez superviser ces ressources pour connaître leur disponibilité, leurs performances et leur fonctionnement. Cet article décrit les données de supervision générées par les ressources Azure et comment vous pouvez utiliser les fonctionnalités d’Azure Monitor pour analyser ces données et créer des alertes.
@@ -103,7 +103,7 @@ Si un service dispose d’un insight Azure Monitor, vous pouvez y accéder à pa
 ![Insights](media/monitor-azure-resource/insights.png)
 
 ### <a name="metrics"></a>Mesures
-Analysez les métriques dans le Portail Azure à l’aide de **Metrics Explorer**, disponible à partir de l’élément de menu [Métriques](../platform/metrics-getting-started.md) pour la plupart des services. Cet outil vous permet d’utiliser des métriques individuelles ou d’en combiner plusieurs pour identifier les corrélations et les tendances. 
+Analysez les métriques dans le Portail Azure à l’aide de [Metrics Explorer](../platform/metrics-getting-started.md), disponible à partir de l’élément de menu **Métriques** pour la plupart des services. Cet outil vous permet d’utiliser des métriques individuelles ou d’en combiner plusieurs pour identifier les corrélations et les tendances. 
 
 - Consultez [Bien démarrer avec Azure Metrics Explorer](../platform/metrics-getting-started.md) pour découvrir les principes de base de l’utilisation de Metrics Explorer.
 - Consultez [Fonctionnalités avancées d’Azure Metrics Explorer](../platform/metrics-charts.md) pour découvrir les fonctionnalités avancées de Metrics Explorer, telles que l’utilisation de plusieurs métriques et l’application de filtres et d’un fractionnement.

@@ -1,19 +1,18 @@
 ---
 title: Onglet Informations techniques de Dynamics 365 for Customer Engagement | Place de marché Azure
 description: 'Dépréciation de l’article Portail Cloud Partner, ajout d’un lien à l’article Espace partenaires ; auparavant : « Guide pratique pour spécifier les informations techniques relatives à une application Dynamics 365 for Customer Engagement sur la Place de marché AppSource. »'
-services: Dynamics 365 for Customer Engagement Offer, Azure, Marketplace, Cloud Partner Portal, AppSource
-author: ChJenk
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.author: v-chjen
-ms.openlocfilehash: 61a82d2bde5406fabb68badfc45c750364b46f77
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 4b390dcac424ea5f56ca0e1817095ac301b64f1e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824663"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80279910"
 ---
 # <a name="dynamics-365-for-customer-engagement-technical-info-tab"></a>Onglet Informations techniques de Dynamics 365 for Customer Engagement
 

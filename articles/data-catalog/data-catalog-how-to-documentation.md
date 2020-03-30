@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: e9e9013d354585d04f205feb93a84d94c0f05905
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68950182"
 ---
 # <a name="how-to-document-data-sources-in-azure-data-catalog"></a>Comment documenter les sources de données dans Azure Data Catalog
@@ -18,7 +18,7 @@ ms.locfileid: "68950182"
 ## <a name="introduction"></a>Introduction
 **Microsoft Azure Data Catalog** est un service cloud entièrement géré qui sert de système d'inscription et de détection des sources de données d'entreprise. En d’autres termes, **Microsoft Azure Data Catalog** vise essentiellement à aider les utilisateurs à détecter, *comprendre*et utiliser des sources de données, et permet aux organisations de mieux exploiter leurs données.
 
-Quand une source de données est inscrite dans **Azure Data Catalog**, ses métadonnées sont copiées et indexées par le service. Mais ce n’est pas tout. **Azure Data Catalog** permet également aux utilisateurs de fournir leur propre documentation complète pour décrire l’utilisation et les scénarios courants de la source de données.
+Lorsqu’une source de données est inscrite dans **Azure Data Catalog**, ses métadonnées sont copiées et indexées par le service. Mais ce n’est pas tout. **Azure Data Catalog** permet également aux utilisateurs de fournir leur propre documentation complète pour décrire l’utilisation et les scénarios courants de la source de données.
 
 L’article [Annotation de sources de données](data-catalog-how-to-annotate.md)explique comment des experts qui connaissent la source de données peuvent l’annoter avec des balises et une description. Le portail **Azure Data Catalog** inclut un éditeur de texte qui permet aux utilisateurs de documenter entièrement les ressources de données et les conteneurs. L’éditeur inclut une mise en forme des paragraphes, avec notamment des en-têtes, la mise en forme du texte, des listes à puces, des listes numérotées et des tableaux.
 
@@ -37,9 +37,9 @@ La documentation **Azure Data Catalog** vous permet d’utiliser votre catalogue
 
 Le niveau de documentation peut aller d’une simple description des caractéristiques et de la valeur d’un conteneur de ressources de données à une description détaillée du schéma de table dans un conteneur. Le niveau de documentation fourni doit être dicté par vos besoins métiers. De façon générale, voici cependant quelques avantages et inconvénients associés à la documentation de ressources de données :
 
-* Documenter uniquement un conteneur : tout le contenu se trouve dans un même emplacement, mais ne comporte sans doute pas les informations nécessaires pour permettre aux utilisateurs de prendre une décision informée.
-* Documenter uniquement les tables : le contenu est propre à cet objet, mais les documents sont disséminés à plusieurs emplacements.
-* Documenter les conteneurs et les tables : l’approche la plus complète, qui peut toutefois impliquer un effort supplémentaire pour la gestion des documents.
+* Documenter uniquement un conteneur : tout le contenu se trouve dans un même emplacement, mais ne comporte sans doute pas les informations nécessaires pour permettre aux utilisateurs de prendre une décision informée.
+* Documenter uniquement les tables : le contenu se rapporte à l’objet en question, mais les documents sont disséminés à plusieurs emplacements.
+* Documenter les conteneurs et les tables : l’approche la plus complète, qui peut toutefois impliquer un effort supplémentaire pour la gestion des documents.
 
 ## <a name="summary"></a>Résumé
 La documentation des sources de données avec **Azure Data Catalog** peut créer une narration sur vos ressources de données avec le degré de détail dont vous avez besoin.  À l’aide de liens, vous pouvez référencer du contenu stocké dans un référentiel de contenu existant qui rassemble vos documents et vos ressources de données existants. Une fois que vos utilisateurs accèdent aux ressources de données appropriées, ils peuvent bénéficier d’un ensemble de documentation complet.
