@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: eee95a2b6acde3ad3b7d94cf5cdd0f74f9f09fd9
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176876"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231617"
 ---
 # <a name="api-templates-in-azure-api-management"></a>Modèles d’API dans Gestion des API Azure
 
@@ -45,7 +45,7 @@ Les modèles de cette section vous permettent de personnaliser le contenu des pa
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-## <a name="APIList"></a> Liste d’API  
+## <a name="api-list"></a><a name="APIList"></a> Liste d’API  
  Le modèle **Liste d’API** vous permet de personnaliser le corps de la page Liste d’API dans le portail des développeurs.  
   
  ![Liste d’API du portail des développeurs](./media/api-management-api-templates/APIM-Developer-Portal-Templates-API-List.png "Liste d’API des modèles du portail des développeurs APIM")  
@@ -113,7 +113,7 @@ Les modèles de cette section vous permettent de personnaliser le contenu des pa
 }  
 ```  
   
-## <a name="Product"></a> Opération  
+## <a name="operation"></a><a name="Product"></a> Opération  
  Le modèle **Opération** vous permet de personnaliser le corps de la page Opération dans le portail des développeurs.  
   
  ![Page Opération du portail des développeurs](./media/api-management-api-templates/APIM-Developer-Portal-templates-Operation-page.png "Page Opération des modèles du portail des développeurs APIM")  
@@ -643,7 +643,7 @@ Les modèles de cette section vous permettent de personnaliser le contenu des pa
 }  
 ```  
   
-## <a name="CodeSamples"></a> Exemples de code  
+## <a name="code-samples"></a><a name="CodeSamples"></a> Exemples de code  
  Les modèles suivants vous permettent de personnaliser le corps des exemples de code sur la page Opération.  
   
  ![Exemples de code des modèles du portail des développeurs](./media/api-management-api-templates/APIM-Developer-Portal-Templates-Code-samples.png "Exemples de code des modèles du portail des développeurs APIM")  
@@ -664,7 +664,7 @@ Les modèles de cette section vous permettent de personnaliser le contenu des pa
   
 -   [Ruby](#Ruby)  
   
-### <a name="Curl"></a> Curl  
+### <a name="curl"></a><a name="Curl"></a> Curl  
  Le modèle **DocumentationSamplesCurl** vous permet de personnaliser cet exemple de code dans la section Exemples de code de la page Opération.  
   
 #### <a name="default-template"></a>Modèle par défaut  
@@ -717,7 +717,7 @@ curl -v -X {{method}} "{{scheme}}://{{host}}{{path}}{{query | escape }}"
 }  
 ```  
   
-### <a name="CSharp"></a> C#  
+### <a name="c"></a><a name="CSharp"></a> C#  
  Le modèle **DocumentationSamplesCsharp** vous permet de personnaliser cet exemple de code dans la section Exemples de code de la page Opération.  
   
 #### <a name="default-template"></a>Modèle par défaut  
@@ -896,7 +896,7 @@ namespace CSHttpClientSample
 }  
 ```  
   
-### <a name="Stub"></a> Java  
+### <a name="java"></a><a name="Stub"></a> Java  
  Le modèle **DocumentationSamplesJava** vous permet de personnaliser cet exemple de code dans la section Exemples de code de la page Opération.  
   
 #### <a name="default-template"></a>Modèle par défaut  
@@ -992,7 +992,7 @@ public class JavaSample
 }  
 ```  
   
-### <a name="JavaScript"></a> JavaScript  
+### <a name="javascript"></a><a name="JavaScript"></a> JavaScript  
  Le modèle **DocumentationSamplesJs** vous permet de personnaliser cet exemple de code dans la section Exemples de code de la page Opération.  
   
 #### <a name="default-template"></a>Modèle par défaut  
@@ -1081,7 +1081,7 @@ public class JavaSample
 }  
 ```  
   
-### <a name="ObjectiveC"></a> Objective C  
+### <a name="objective-c"></a><a name="ObjectiveC"></a> Objective C  
  Le modèle **DocumentationSamplesObjc** vous permet de personnaliser cet exemple de code dans la section Exemples de code de la page Opération.  
   
 #### <a name="default-template"></a>Modèle par défaut  
@@ -1193,7 +1193,7 @@ int main(int argc, const char * argv[])
 }  
 ```  
   
-### <a name="PHP"></a> PHP  
+### <a name="php"></a><a name="PHP"></a> PHP  
  Le modèle **DocumentationSamplesPhp** vous permet de personnaliser cet exemple de code dans la section Exemples de code de la page Opération.  
   
 #### <a name="default-template"></a>Modèle par défaut  
@@ -1283,7 +1283,7 @@ catch (HttpException $ex)
 }  
 ```  
   
-### <a name="Python"></a> Python  
+### <a name="python"></a><a name="Python"></a> Python  
  Le modèle **DocumentationSamplesPython** vous permet de personnaliser cet exemple de code dans la section Exemples de code de la page Opération.  
   
 #### <a name="default-template"></a>Modèle par défaut  
@@ -1401,7 +1401,7 @@ except Exception as e:
 }  
 ```  
   
-### <a name="Ruby"></a> Ruby  
+### <a name="ruby"></a><a name="Ruby"></a> Ruby  
  Le modèle **DocumentationSamplesRuby** vous permet de personnaliser cet exemple de code dans la section Exemples de code de la page Opération.  
   
 #### <a name="default-template"></a>Modèle par défaut  

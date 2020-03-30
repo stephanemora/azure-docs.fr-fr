@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
-ms.openlocfilehash: d48fd9aa9ba52c850a514d392f25b980d0219470
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 1edf723aa885ff18d2ce2dda4d71b67700a98a5b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76960326"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79497483"
 ---
 # <a name="403004-devicemaximumqueuedepthexceeded"></a>403004 DeviceMaximumQueueDepthExceeded
 
@@ -35,4 +35,4 @@ Le modèle de prise en charge des messages cloud-à-appareil avec HTTPS est repr
 
 Vous pouvez également améliorer la logique côté appareil afin de traiter (compléter, rejeter ou abandonner) rapidement les messages en file d’attente, raccourcir leur durée de vie ou envisager d’envoyer moins de messages. Voir [Durée de vie du message C2D](./iot-hub-devguide-messages-c2d.md#message-expiration-time-to-live).
 
-Enfin, songez à utiliser l’[API de purge de la file d’attente](https://docs.microsoft.com/rest/api/iothub/service/purgecommandqueue) pour nettoyer périodiquement les messages en attente avant que la limite soit atteinte.
+Enfin, songez à utiliser l’[API de purge de la file d’attente](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/purgecommandqueue) pour nettoyer périodiquement les messages en attente avant que la limite soit atteinte.

@@ -9,15 +9,15 @@ ms.topic: include
 ms.date: 02/06/2020
 ms.author: aahi
 ms.openlocfilehash: d678a29de9dea8a5a2f6d0259a452ca4c69feb03
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77086919"
 ---
 ## <a name="personal-information-entity-types"></a>Types d’entités d’informations personnelles :
 
-### <a name="person"></a>Personne
+### <a name="person"></a>Person
 Reconnaître les noms de personnes dans le texte.
 
 Langages :
@@ -27,7 +27,7 @@ Langages :
 |--------------|-----------------------------------------------------------|----------------------------------------|
 | N/A          | Noms reconnus, par exemple `Bill Gates`, `Marie Curie` | `2020-02-01`                           |
 
-### <a name="organization"></a>Organisation  
+### <a name="organization"></a>Organization  
 
 Reconnaître les organisations, sociétés, agences, entreprises, clubs et autres groupes de personnes.
 
@@ -51,9 +51,9 @@ Langages :
 |--------------|------------------------------------------------|----------------------------------------|
 | N/A          | Numéros de téléphone américains, par exemple `(312) 555-0176` | `2020-02-01`                           |
 
-### <a name="email"></a>E-mail
+### <a name="email"></a>Email
 
-Adresse e-mail. 
+Adresse de messagerie. 
 
 Langages :
 
@@ -65,7 +65,7 @@ Langages :
 
 ### <a name="url"></a>URL
 
-URL Internet.
+URL Internet
 
 Langages :
 
@@ -268,7 +268,7 @@ Japon
 Malaisie
 * Numéro de carte d’identité
 
-Pays-Bas
+Pays-bas
 * Numéro de service citoyen (BSN)
 
 Nouvelle-Zélande
@@ -316,7 +316,7 @@ Taïwan
 Thaïlande
 * Code d’identification de population
 
-Royaume-Uni
+United Kingdom
 * Numéro de passeport
 * Numéro de permis de conduire
 * Numéro d’assurance nationale (NINO)

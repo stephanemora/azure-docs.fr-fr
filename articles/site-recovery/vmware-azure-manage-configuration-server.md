@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
 ms.openlocfilehash: 93b10d56ae34ebdfe78dd20705634dea58721274
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954359"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228945"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>Gérer le serveur de configuration pour la récupération d'urgence d’un serveur physique ou d’une machine virtuelle VMware
 
@@ -33,7 +33,7 @@ Vous pouvez accéder au serveur de configuration comme suit :
 
 ## <a name="modify-vmware-server-settings"></a>Modifier les paramètres du serveur VMware
 
-1. Pour associer un autre serveur VMware au serveur de configuration, sélectionnez **Ajouter un serveur vCenter Server/vSphere ESXi** après la [connexion](#access-configuration-server).
+1. Pour associer un autre serveur VMware au serveur de configuration, sélectionnez [Ajouter un serveur vCenter Server/vSphere ESXi](#access-configuration-server) après la **connexion**.
 2. Entrez les détails et sélectionnez **OK**.
 
 ## <a name="modify-credentials-for-automatic-discovery"></a>Modifier les informations d’identification pour la découverte automatique
@@ -157,13 +157,13 @@ Mettez à niveau le serveur comme suit :
     ![Mettre à jour](./media/vmware-azure-manage-configuration-server/update2.png)
 3. Téléchargez le fichier du programme d’installation des mises à jour sur le serveur de configuration.
 
-    ![Mettre à jour](./media/vmware-azure-manage-configuration-server/update1.png)
+    ![Update](./media/vmware-azure-manage-configuration-server/update1.png)
 
 4. Double-cliquez pour exécuter le programme d’installation.
 5. Le programme d’installation détecte la version actuelle en cours d’exécution sur la machine. Cliquez sur **Oui** pour démarrer la mise à niveau.
 6. À l’issue de la mise à niveau, la configuration du serveur valide.
 
-    ![Mettre à jour](./media/vmware-azure-manage-configuration-server/update3.png)
+    ![Update](./media/vmware-azure-manage-configuration-server/update3.png)
 
 7. Cliquez sur **Terminer** pour fermer le programme d’installation.
 8. Pour mettre à niveau le reste des composants Site Recovery, reportez-vous à nos [conseils de mise à niveau](https://aka.ms/asr_vmware_upgrades).
@@ -184,7 +184,7 @@ Exécutez le fichier d’installation de la manière suivante :
   ```
 
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Paramètres
 
 |Nom du paramètre| Type | Description| Valeurs|
 |-|-|-|-|
@@ -192,7 +192,7 @@ Exécutez le fichier d’installation de la manière suivante :
 |/InstallLocation|Obligatoire|Dossier d’installation des composants| N’importe quel dossier sur l’ordinateur|
 |/MySQLCredsFilePath|Obligatoire|Chemin d’accès du fichier où sont stockées les informations d’identification du serveur MySQL|Le fichier doit être au format spécifié ci-dessous|
 |/VaultCredsFilePath|Obligatoire|Chemin d’accès du fichier d’informations d’identification du coffre|Chemin d’accès valide du fichier|
-|/EnvType|Obligatoire|Type d’environnement que vous souhaitez protéger |VMware<br>NonVMware|
+|/EnvType|Obligatoire|Type d’environnement à protéger |VMware<br>NonVMware|
 |/PSIP|Obligatoire|Adresse IP de la carte réseau à utiliser pour le transfert de données de réplication| Une adresse IP valide|
 |/CSIP|Obligatoire|Adresse IP de la carte réseau sur laquelle le serveur de configuration écoute| Une adresse IP valide|
 |/PassphraseFilePath|Obligatoire|Chemin d’accès complet vers l’emplacement du fichier de phrase secrète|Chemin d’accès valide du fichier|

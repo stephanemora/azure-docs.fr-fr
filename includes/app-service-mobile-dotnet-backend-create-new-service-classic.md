@@ -5,20 +5,20 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: e087a1db008422aeec8fd4e073a7476eebe4d54b
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67177745"
 ---
-1. Connectez-vous au [portail Azure].
+1. Connectez-vous au [Azure portal].
 2. Sélectionnez **+NOUVEAU** > **Web + Mobile** > **Application mobile**, puis indiquez le nom de votre serveur principal Mobile Apps.
 3. Pour **Groupe de ressources**, sélectionnez un groupe de ressources existant ou créez-en un (en utilisant le même nom que votre application). 
 4. Pour **Plan App Service**, le plan par défaut (dans [Niveau Standard](https://azure.microsoft.com/pricing/details/app-service/)) est sélectionné. Vous pouvez sélectionner un autre plan ou en [créer un](../articles/app-service/app-service-plan-manage.md#create-an-app-service-plan). 
 
    Les paramètres du plan App Service déterminent [l’emplacement, les fonctionnalités, les coûts et les ressources de calcul](https://azure.microsoft.com/pricing/details/app-service/) associés à votre application. Pour plus d’informations sur les plans App Service et sur la création d’un plan à un autre niveau tarifaire et à l’emplacement souhaité, consultez l’article [Présentation détaillée des plans Azure App Service](../articles/app-service/overview-hosting-plans.md).
    
-5. Sélectionnez **Créer**. Cette opération crée le serveur principal Mobile Apps. 
+5. Sélectionnez **Create** (Créer). Cette opération crée le serveur principal Mobile Apps. 
 6. Dans le volet **Paramètres** du nouveau serveur principal Mobile Apps, sélectionnez **Démarrage rapide** > votre plateforme d’application cliente > **Connecter une base de données**. 
    
    ![Sélections pour la connexion d’une base de données](./media/app-service-mobile-dotnet-backend-create-new-service/dotnet-backend-create-data-connection.png)
@@ -31,4 +31,4 @@ ms.locfileid: "67177745"
    Patientez quelques minutes jusqu’au déploiement de la base de données, puis continuez.
 
 <!-- URLs. -->
-[Portail Azure]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/

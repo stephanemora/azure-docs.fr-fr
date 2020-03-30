@@ -5,11 +5,11 @@ author: diberry
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.openlocfilehash: 1c1a744c06e5347625fb96518bd809481ee797e5
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76716294"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79219199"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Extraire des données d’un texte d’énoncé avec des intentions et des entités
 LUIS donne la possibilité d’obtenir des informations à partir des énoncés d’un utilisateur en langage naturel. Les informations sont extraites de façon à pouvoir être utilisées par un programme, une application ou un chatbot de manière exploitable. Dans les sections suivantes, découvrez quelles sont les données retournées à partir des intentions et des entités avec des exemples de JSON.
@@ -19,11 +19,11 @@ Les données les plus difficiles à extraire sont les données issues du Machine
 ## <a name="data-location-and-key-usage"></a>Emplacement des données et utilisation de la clé
 LUIS fournit les données à partir du [point de terminaison](luis-glossary.md#endpoint) publié. La **requête HTTPS** (POST ou GET) contient l’énoncé ainsi que certaines configurations facultatives, comme l’environnement de production ou l’environnement intermédiaire.
 
-#### <a name="v2-prediction-endpoint-requesttabv2"></a>[Demande de point de terminaison de prédiction V2](#tab/V2)
+#### <a name="v2-prediction-endpoint-request"></a>[Demande de point de terminaison de prédiction V2](#tab/V2)
 
 `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&q=book 2 tickets to paris`
 
-#### <a name="v3-prediction-endpoint-requesttabv3"></a>[Demande de point de terminaison de prédiction V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-request"></a>[Demande de point de terminaison de prédiction V3](#tab/V3)
 
 `https://westus.api.cognitive.microsoft.com/luis/v3.0-preview/apps/<appID>/slots/<slot-type>/predict?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&query=book 2 tickets to paris`
 
@@ -38,7 +38,7 @@ La **réponse HTTPS** contient toutes les informations que LUIS peut déterminer
 ## <a name="data-from-intents"></a>Données issues des intentions
 La principale donnée est le **nom de l’intention** qui a obtenu le meilleur score. La réponse du point de terminaison est la suivante :
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Réponse de point de terminaison de prédiction V2](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Réponse de point de terminaison de prédiction V2](#tab/V2)
 
 ```JSON
 {
@@ -51,7 +51,7 @@ La principale donnée est le **nom de l’intention** qui a obtenu le meilleur s
 }
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Réponse de point de terminaison de prédiction V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[Réponse de point de terminaison de prédiction V3](#tab/V3)
 
 ```JSON
 {
@@ -80,7 +80,7 @@ Découvrez-en plus sur le [point de terminaison de prédiction V3](luis-migratio
 Si votre chatbot ou votre application d’appel à LUIS prend une décision sur la base du score de plusieurs intentions, retournez le score de toutes les intentions.
 
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Réponse de point de terminaison de prédiction V2](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Réponse de point de terminaison de prédiction V2](#tab/V2)
 
 Définissez le paramètre de chaîne de requête, `verbose=true`. La réponse du point de terminaison est la suivante :
 
@@ -105,7 +105,7 @@ Définissez le paramètre de chaîne de requête, `verbose=true`. La réponse du
 }
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Réponse de point de terminaison de prédiction V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[Réponse de point de terminaison de prédiction V3](#tab/V3)
 
 Définissez le paramètre de chaîne de requête, `show-all-intents=true`. La réponse du point de terminaison est la suivante :
 
@@ -142,7 +142,7 @@ Les intentions sont triées du score le plus élevé au score le plus faible.
 
 Si vous ajoutez des domaines prédéfinis, le nom de l’intention indique le domaine, par exemple `Utilties` ou `Communication`, ainsi que l’intention :
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Réponse de point de terminaison de prédiction V2](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Réponse de point de terminaison de prédiction V2](#tab/V2)
 
 ```JSON
 {
@@ -168,7 +168,7 @@ Si vous ajoutez des domaines prédéfinis, le nom de l’intention indique le do
 }
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Réponse de point de terminaison de prédiction V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[Réponse de point de terminaison de prédiction V3](#tab/V3)
 
 ```JSON
 {
@@ -210,7 +210,7 @@ Un seul mot ou une seule expression dans l’énoncé peut correspondre à plusi
 
 Toutes les entités sont retournées dans le tableau **entities** de la réponse provenant du point de terminaison :
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Réponse de point de terminaison de prédiction V2](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Réponse de point de terminaison de prédiction V2](#tab/V2)
 
 ```JSON
 "entities": [
@@ -233,7 +233,7 @@ Toutes les entités sont retournées dans le tableau **entities** de la réponse
 ]
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Réponse de point de terminaison de prédiction V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[Réponse de point de terminaison de prédiction V3](#tab/V3)
 
 ```JSON
 "entities": {
@@ -266,7 +266,7 @@ Les entités [prédéfinies](luis-concept-entity-types.md) sont découvertes par
 
 `Dec 5th send to +1 360-555-1212`
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Réponse de point de terminaison de prédiction V2](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Réponse de point de terminaison de prédiction V2](#tab/V2)
 
 ```JSON
 "entities": [
@@ -347,7 +347,7 @@ Les entités [prédéfinies](luis-concept-entity-types.md) sont découvertes par
   ]
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Réponse de point de terminaison de prédiction V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[Réponse de point de terminaison de prédiction V3](#tab/V3)
 
 Sans le paramètre de chaîne de requête, `verbose=true` :
 
@@ -556,7 +556,7 @@ Certaines applications doivent être capables de rechercher les nouveaux noms, c
 Les rôles sont des différences d’entités contextuelles.
 
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Réponse de point de terminaison de prédiction V2](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Réponse de point de terminaison de prédiction V2](#tab/V2)
 
 Le nom de l’entité est `Location`, avec deux rôles, `Origin` et `Destination`.
 
@@ -589,7 +589,7 @@ Le nom de l’entité est `Location`, avec deux rôles, `Origin` et `Destination
 ]
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Réponse de point de terminaison de prédiction V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[Réponse de point de terminaison de prédiction V3](#tab/V3)
 
 Dans V3, le **nom du rôle** correspond au nom de l’objet.
 
@@ -709,7 +709,7 @@ Pour toutes les autres cultures, la réponse est :
 L’entité d’extraction de phrases clés retourne les phrases clés de l’énoncé, fournies par [l’Analyse de texte](https://docs.microsoft.com/azure/cognitive-services/text-analytics/).
 
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Réponse de point de terminaison de prédiction V2](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Réponse de point de terminaison de prédiction V2](#tab/V2)
 
 ```JSON
 {
@@ -744,7 +744,7 @@ L’entité d’extraction de phrases clés retourne les phrases clés de l’é
 }
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Réponse de point de terminaison de prédiction V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[Réponse de point de terminaison de prédiction V3](#tab/V3)
 
 Découvrez-en plus sur le [point de terminaison de prédiction V3](luis-migration-api-v3.md).
 
@@ -822,7 +822,7 @@ LUIS retourne toutes les entités découvertes dans l’énoncé. Le chatbot dev
 
 Le point de terminaison LUIS peut découvrir les mêmes données dans différentes entités.
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Réponse de point de terminaison de prédiction V2](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Réponse de point de terminaison de prédiction V2](#tab/V2)
 
 ```JSON
 {
@@ -948,7 +948,7 @@ Le point de terminaison LUIS peut découvrir les mêmes données dans différent
 }
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Réponse de point de terminaison de prédiction V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[Réponse de point de terminaison de prédiction V3](#tab/V3)
 
 Sans `verbose=true` en tant que paramètre de chaîne de requête.
 
@@ -1135,7 +1135,7 @@ Si un mot ou une phrase correspond à plusieurs entités Liste, la requête du p
 
 Pour la requête `when is the best time to go to red rock?`, et si l’application contient le mot `red` dans plusieurs listes, LUIS reconnaît toutes les entités et retourne un tableau d’entités dans le cadre de la réponse du point de terminaison JSON :
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Réponse de point de terminaison de prédiction V2](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Réponse de point de terminaison de prédiction V2](#tab/V2)
 
 ```JSON
 {
@@ -1173,7 +1173,7 @@ Pour la requête `when is the best time to go to red rock?`, et si l’applicati
 
 
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Réponse de point de terminaison de prédiction V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[Réponse de point de terminaison de prédiction V3](#tab/V3)
 
 Sans `verbose=true` dans la chaîne de requête :
 

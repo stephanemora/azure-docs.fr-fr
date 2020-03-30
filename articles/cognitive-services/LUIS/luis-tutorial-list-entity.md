@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: diberry
 ms.openlocfilehash: f3c99856eaffc454754618a1eac34630b985a77e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73499474"
 ---
 # <a name="use-a-list-entity-to-increase-entity-detection"></a>Utiliser une entité de liste pour améliorer la détection d’entité 
@@ -29,7 +29,7 @@ Dans cet article, vous apprendrez comment :
 > * Ajouter des valeurs et synonymes normalisés
 > * Valider l’identification améliorée d’entité
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 > [!div class="checklist"]
 > * Dernière version de [Node.js](https://nodejs.org)
@@ -48,7 +48,7 @@ Le thermostat est un système disposant de nombreux noms dans différentes régi
 
 Idéalement, les énoncés suivants doivent résoudre l’entité prédéfinie **HomeAutomation.Device** :
 
-|#|énoncé|entité identifiée|de votre application|
+|#|Énoncé|entité identifiée|score|
 |--|--|--|--|
 |1|activer la climatisation|HomeAutomation.Device - "ac"|0.8748562|
 |2|monter le chauffage|HomeAutomation.Device - "heat"|0.784990132|
@@ -93,7 +93,7 @@ La sortie de l’exécution représente l’ID de l’entité de liste :
 026e92b3-4834-484f-8608-6114a83b03a6
 ```
 
-## <a name="train-the-model"></a>Formation du modèle
+## <a name="train-the-model"></a>Effectuer l’apprentissage du modèle
 Formez LUIS afin que la nouvelle liste y affecte les résultats de requête. La formation se fait en deux parties : la formation, puis la vérification. Une application disposant de nombreux modèles peut prendre un certain moment à être formée. Le code suivant forme l’application puis patiente jusqu’à la réalisation de la formation. Le code utilise une stratégie de nouvelle tentative afin d’éviter l’erreur 429 « Trop de requêtes ». 
 
 Créez un fichier Node.js et copiez-y le code suivant. Modifiez les valeurs AuthoringKey, appid, versionId et region.
@@ -214,7 +214,7 @@ Le périphérique spécifique **Thermostat** est identifié avec une requête de
 
 Essayez les deux autres énoncés pour voir qu’ils sont aussi retournés comme résultat pour thermostat. 
 
-|#|énoncé|entité|Type|value|
+|#|Énoncé|entité|type|value|
 |--|--|--|--|--|
 |1|activer la climatisation| clim | DevicesList | Thermostat|
 |2|monter le chauffage|chauffage| DevicesList |Thermostat|

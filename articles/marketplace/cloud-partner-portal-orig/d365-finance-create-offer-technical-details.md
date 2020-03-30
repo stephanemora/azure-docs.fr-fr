@@ -1,19 +1,18 @@
 ---
 title: Comment remplir le formulaire d’informations techniques
 description: Article déprécié avec des liens vers des articles de PC ; auparavant « Explique comment entrer les valeurs dans le formulaire des informations techniques pour une nouvelle application Dynamics 365 Business Central ».
-services: Azure, Marketplace, Cloud Partner Portal,
-author: ChJenk
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.author: pabutler
-ms.openlocfilehash: ffd8b22b19b8b73c99901e854b18465586fc9e7b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 1297eb16dab082df4b224a0b9fcb482c4bc398ae
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820038"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80276051"
 ---
 # <a name="how-to-fill-out-the-technical-info-form"></a>Comment remplir le formulaire d’informations techniques
 

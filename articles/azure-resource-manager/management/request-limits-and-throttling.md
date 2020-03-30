@@ -2,14 +2,14 @@
 title: Limites des demandes et limitation
 description: Décrit comment utiliser la limitation avec des requêtes Azure Resource Manager lorsque les limites d’abonnement ont été atteintes.
 ms.topic: conceptual
-ms.date: 10/26/2019
+ms.date: 03/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: eabc621ce02d4f30c5efb5bcef2635ea0e8dbcb2
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 4d387749261747eb9ea1ea26629ade4fe8729856
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78944049"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80239359"
 ---
 # <a name="throttling-resource-manager-requests"></a>Limitation des requêtes de Resource Manager
 
@@ -27,9 +27,9 @@ Les limites de limitation par heure par défaut sont indiquées dans le tableau 
 
 | Étendue | Opérations | Limite |
 | ----- | ---------- | ------- |
-| Abonnement | lectures | 12 000 |
-| Abonnement | suppressions | 15000 |
-| Abonnement | écritures | 1200 |
+| Subscription | lectures | 12 000 |
+| Subscription | suppressions | 15000 |
+| Subscription | écritures | 1200 |
 | Locataire | lectures | 12 000 |
 | Locataire | écritures | 1200 |
 
@@ -65,10 +65,6 @@ Pour vérifier les instances de machine virtuelle dans un groupe de machines vir
 ### <a name="azure-resource-graph-throttling"></a>Limitation Azure Resource Graph
 
 [Azure Resource Graph](../../governance/resource-graph/overview.md) limite le nombre de demandes à ses opérations. Les étapes décrites dans cet article pour déterminer les requêtes restantes et comment réagir si la limite est atteinte s’appliquent également à Resource Graph. Toutefois, Resource Graph définit ses propres limites et son propre taux de réinitialisation. Pour plus d’informations, voir [En-têtes de limitation de Resource Graph](../../governance/resource-graph/concepts/guidance-for-throttled-requests.md#understand-throttling-headers).
-
-## <a name="request-increase"></a>Demander une augmentation
-
-Parfois, les limites de limitation peuvent être augmentées. Pour déterminer si les limites de limitation de votre scénario peuvent être augmentées, créez une demande de support. Les détails de votre modèle d’appel seront évalués.
 
 ## <a name="error-code"></a>Code d'erreur
 

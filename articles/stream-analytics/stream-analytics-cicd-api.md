@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/04/2018
-ms.openlocfilehash: 78f2e06947c2b81ffe5e6cd8a88438db4dabf158
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 328ca7cd2c6f76095c8334ae6fdb4aa75fbb867d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75426414"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80292002"
 ---
 # <a name="implement-cicd-for-stream-analytics-on-iot-edge-using-apis"></a>Implémenter CI/CD pour Stream Analytics sur IoT Edge à l’aide d’API
 
@@ -57,7 +57,7 @@ Pour créer une tâche Stream Analytics, appelez la méthode PUT à l’aide de 
 
 |Méthode|URL de la demande|
 |------|-----------|
-|PUT|https://management.azure.com/subscriptions/{**ID_abonnement**}/resourcegroups/{**nom_groupe_de_ressources**}/providers/Microsoft.StreamAnalytics/streamingjobs/{**nom_tâche**}?api-version=2017-04-01-preview|
+|PUT|`https://management.azure.com/subscriptions/{\**subscription-id**}/resourcegroups/{**resource-group-name**}/providers/Microsoft.StreamAnalytics/streamingjobs/{**job-name**}?api-version=2017-04-01-preview`|
  
 Exemple d’utilisation de la commande **curl** :
 
@@ -144,7 +144,7 @@ Pour publier une tâche Stream Analytics sur IoT Edge, appelez la méthode POST 
 
 |Méthode|URL de la demande|
 |------|-----------|
-|POST|https://management.azure.com/subscriptions/{**ID_abonnement**}/resourceGroups/{**nom_groupe_de_ressources**}/providers/Microsoft.StreamAnalytics/streamingjobs/{**nom_tâche**}/publishedgepackage?api-version=2017-04-01-preview|
+|POST|`https://management.azure.com/subscriptions/{\**subscriptionid**}/resourceGroups/{**resourcegroupname**}/providers/Microsoft.StreamAnalytics/streamingjobs/{**jobname**}/publishedgepackage?api-version=2017-04-01-preview`|
 
 Cette opération asynchrone retourne l’état 202 tant que la tâche n’est pas publiée. L’en-tête de réponse d’emplacement contient l’URI utilisé pour obtenir l’état du processus. Pendant que le processus est en cours d’exécution, un appel à l’URI dans l’en-tête d’emplacement retourne l’état 202. Une fois le processus terminé, l’URI dans l’en-tête d’emplacement retourne l’état 200. 
 

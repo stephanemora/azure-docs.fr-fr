@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: kumud
-ms.openlocfilehash: f84e8a24e8f28cdccc987afbd1449cb17422ce0c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6939ea2497a9f12321e1a6dfb9bf9fbb353bc7db
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64712673"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240774"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Diagnostiquer un problème de filtre de trafic réseau sur une machine virtuelle
 
@@ -32,12 +32,12 @@ Les groupes de sécurité réseau vous permettent de contrôler les types de tra
 
 Vous essayez de vous connecter à une machine virtuelle via le port 80 à partir d’internet, mais la connexion échoue. Pour déterminer la raison pour laquelle le port 80 n’est pas accessible à partir d’internet, vous pouvez afficher les règles de sécurité effectives pour une interface réseau à l’aide du [portail](#diagnose-using-azure-portal) Azure, de [PowerShell](#diagnose-using-powershell), ou de [Azure CLI](#diagnose-using-azure-cli).
 
-Les étapes qui suivent supposent que vous avez une machine virtuelle existante dont les règles de sécurité efficace peuvent être affichées. Si vous n’avez pas une machine virtuelle existante, vous devez tout d’abord déployer une machine virtuelle [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) pour effectuer les tâches de cet article. Les exemples contenus dans cet article sont prévus pour une machine virtuelle nommée *myVM*, et une interface réseau appelée *myVMVMNic*. La machine virtuelle et l’interface réseau se trouvent dans un groupe de ressources nommé *myResourceGroup*, et se situent dans la région *USA Est*. Modifiez les valeurs dans les étapes, selon le cas, pour la machine virtuelle dont vous analysez le problème.
+Les étapes qui suivent supposent que vous avez une machine virtuelle existante dont les règles de sécurité efficace peuvent être affichées. Si vous ne possédez pas une telle machine, commencez par déployer une machine virtuelle [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) pour pouvoir accomplir les tâches de cet article. Les exemples contenus dans cet article sont prévus pour une machine virtuelle nommée *myVM*, et une interface réseau appelée *myVMVMNic*. La machine virtuelle et l’interface réseau se trouvent dans un groupe de ressources nommé *myResourceGroup*, et se situent dans la région *USA Est*. Modifiez les valeurs dans les étapes, selon le cas, pour la machine virtuelle dont vous analysez le problème.
 
 ## <a name="diagnose-using-azure-portal"></a>Diagnostiquer à l’aide du portail Azure
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte Azure disposant des [autorisations](virtual-network-network-interface.md#permissions) nécessaires.
-2. En haut du portail Azure, entrez le nom de la machine virtuelle dans la zone de recherche. Quand le nom de la machine virtuelle apparaît dans les résultats de la recherche, sélectionnez-la.
+1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte Azure disposant des [autorisations nécessaires](virtual-network-network-interface.md#permissions).
+2. En haut du portail Azure, entrez le nom de la machine virtuelle dans la zone de recherche. Quand le nom de cette machine virtuelle apparaît dans les résultats de la recherche, sélectionnez-le.
 3. Sous **PARAMÈTRES**, sélectionnez **Mise en réseau**, comme indiqué dans l’image suivante :
 
    ![Voir les règles de sécurité](./media/diagnose-network-traffic-filter-problem/view-security-rules.png)
@@ -72,8 +72,8 @@ Les étapes qui suivent supposent que vous avez une machine virtuelle existante 
    Contrairement à l’interface réseau **myVMVMNic**, l’interface réseau **myVMVMNic2** ne dispose pas d’un groupe de sécurité réseau associé. Chaque interface réseau et sous-réseau peuvent avoir aucun ou un groupe de sécurité réseau associé. Le groupe de sécurité réseau associé à chaque interface réseau ou sous-réseau peut être le même ou ils peuvent être différents. Vous pouvez associer le même groupe de sécurité réseau à toutes les interfaces réseau individuelles et à tous les sous-réseaux que vous souhaitez.
 
 Bien que les règles de sécurité effectives aient été affichées au moyen de la machine virtuelle, vous pouvez aussi les consulter avec les éléments individuels suivants :
-- **Interface réseau** : découvrez comment [voir une interface réseau](virtual-network-network-interface.md#view-network-interface-settings).
-- **NSG** : découvrez comment [voir un NSG](manage-network-security-group.md#view-details-of-a-network-security-group).
+- **Interface réseau** : découvrez comment [afficher une interface réseau](virtual-network-network-interface.md#view-network-interface-settings).
+- **Groupe de sécurité réseau** : découvrez comment [afficher un groupe de sécurité réseau](manage-network-security-group.md#view-details-of-a-network-security-group).
 
 ## <a name="diagnose-using-powershell"></a>Diagnostiquer à l’aide de PowerShell
 
@@ -103,7 +103,7 @@ $VM.NetworkProfile
 
 Le résultat ressemble à ce qui suit :
 
-```powershell
+```output
 NetworkInterfaces
 -----------------
 {/subscriptions/<ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myVMVMNic
@@ -138,7 +138,7 @@ az vm show \
 
 Dans les résultats retournés, vous obtenez des informations similaires à l’exemple suivant :
 
-```azurecli
+```output
 "networkProfile": {
     "additionalProperties": {},
     "networkInterfaces": [
@@ -156,9 +156,9 @@ Dans la sortie précédente, le nom de l’interface réseau est *interface myVM
 
 Indépendamment du fait d’avoir utilisé [PowerShell](#diagnose-using-powershell) ou [Azure CLI](#diagnose-using-azure-cli) pour diagnostiquer le problème, vous recevez une sortie contenant les informations suivantes :
 
-- **NetworkSecurityGroup** : ID du groupe de sécurité réseau.
-- **Association** : indique si le groupe de sécurité réseau est associé à *NetworkInterface* ou *Subnet*. Si un groupe de sécurité réseau est associé aux deux, la sortie est retournée avec le **NetworkSecurityGroup**, **Association**, et les **EffectiveSecurityRules**, pour chaque groupe de sécurité réseau. Si le groupe de sécurité réseau est associé ou dissocié immédiatement avant l’exécution de cette commande pour afficher les règles de sécurité effectives, il se peut que vous deviez attendre quelques secondes pour que la modification apparaisse dans la sortie de la commande.
-- **EffectiveSecurityRules** : une explication de chaque propriété est détaillée dans [Créer une règle de sécurité](manage-network-security-group.md#create-a-security-rule). Les noms de règles commençant par *defaultSecurityRules/* sont des règles de sécurité par défaut qui existent dans chaque groupe de sécurité réseau. Les noms commençant par la règle *securityRules/* sont des règles que vous avez créées. Les règles qui spécifient une [balise de service](security-overview.md#service-tags), comme **Internet**, **VirtualNetwork**, et **AzureLoadBalancer** pour les propriétés  **destinationAddressPrefix** ou **sourceAddressPrefix**, ont également des valeurs pour la propriété **expandedDestinationAddressPrefix**. La propriété **expandedDestinationAddressPrefix** répertorie tous les préfixes d’adresse représentés par la balise de service.
+- **NetworkSecurityGroup** : l’ID du groupe de sécurité réseau.
+- **Association**: si le groupe de sécurité réseau est associé à une *interface réseau* ou à un *sous-réseau*. Si un groupe de sécurité réseau est associé aux deux, la sortie est retournée avec le **NetworkSecurityGroup**, **Association**, et les **EffectiveSecurityRules**, pour chaque groupe de sécurité réseau. Si le groupe de sécurité réseau est associé ou dissocié immédiatement avant l’exécution de cette commande pour afficher les règles de sécurité effectives, il se peut que vous deviez attendre quelques secondes pour que la modification apparaisse dans la sortie de la commande.
+- **EffectiveSecurityRules** : une explication de chaque propriété est détaillée dans [Créer une règle de sécurité](manage-network-security-group.md#create-a-security-rule). Les noms de règles commençant par *defaultSecurityRules/* sont des règles de sécurité par défaut qui existent dans chaque groupe de sécurité réseau. Les noms commençant par la règle *securityRules/* sont des règles que vous avez créées. Les règles qui spécifient une [balise de service](security-overview.md#service-tags), comme **Internet**, **VirtualNetwork**, et **AzureLoadBalancer** pour les propriétés  **destinationAddressPrefix** ou **sourceAddressPrefix**, ont également des valeurs pour la propriété **expandedDestinationAddressPrefix**. La propriété **expandedDestinationAddressPrefix** répertorie tous les préfixes d’adresse représentés par la balise de service.
 
 Si vous voyez des règles en double répertoriées dans la sortie, cela est dû au fait qu’un groupe de sécurité réseau est associé à la fois à l’interface réseau et au sous-réseau. Les deux groupes de sécurité réseau ont les mêmes règles par défaut et peuvent avoir des règles supplémentaires en double, si vous avez créé vos propres règles identiques pour les deux groupes de sécurité réseau.
 
@@ -171,13 +171,13 @@ Si vous utilisez le [portail](#diagnose-using-azure-portal) Azure, [PowerShell](
 | Propriété                | Valeur                                                                              |
 |---------                |---------                                                                           |
 | Source                  | Quelconque                                                                                |
-| Plages de ports source      | Quelconque                                                                                |
+| Source port ranges      | Quelconque                                                                                |
 | Destination             | L’adresse IP de la machine virtuelle, une plage d’adresses IP ou toutes les adresses dans le sous-réseau. |
 | Plages de ports de destination | 80                                                                                 |
-| Protocole                | TCP                                                                                |
-| Action                  | AUTORISER                                                                              |
-| Priorité                | 100                                                                                |
-| Nom                    | Allow-HTTP-All                                                                     |
+| Protocol                | TCP                                                                                |
+| Action                  | Allow                                                                              |
+| Priority                | 100                                                                                |
+| Name                    | Allow-HTTP-All                                                                     |
 
 Après avoir créé la règle, le port 80 autorise le trafic entrant à partir d’internet, étant donné que la priorité de la règle est supérieure à la règle de sécurité par défaut nommée *DenyAllInBound*, qui interdit le trafic. Apprenez à [créer une règle de sécurité](manage-network-security-group.md#create-a-security-rule). Si différents groupes de sécurité réseau sont associés à l’interface réseau et au sous-réseau, vous devez créer la même règle dans chaque groupe de sécurité réseau.
 

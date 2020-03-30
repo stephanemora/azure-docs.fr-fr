@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 12/15/2017
 ms.reviewer: sunayv
 ms.openlocfilehash: 632818bf82e41e6be0a96d30cc1c4fa631718a3b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74233074"
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Exportation d’une API hébergée sur Azure vers PowerApps et Microsoft Flow
@@ -140,7 +140,7 @@ PowerApps et Microsoft Flow prennent en charge une collection de fournisseurs d�
 ``` 
 Pendant l’exportation, vous fournissez des valeurs de configuration permettant à PowerApps et Microsoft Flow d’authentifier les utilisateurs.
 
-Cette section décrit les types d’authentification qui sont pris en charge par le mode **Express** : clé API, Azure Active Directory et Generic OAuth 2.0. PowerApps et Microsoft Flow prennent également en charge l’authentification de base et OAuth 2.0 pour des services spécifiques tels que Dropbox, Facebook et SalesForce.
+Cette section décrit les types d’authentification qui sont pris en charge en mode **Express** : clé API, Azure Active Directory et Generic OAuth 2.0. PowerApps et Microsoft Flow prennent également en charge l’authentification de base et OAuth 2.0 pour des services spécifiques tels que Dropbox, Facebook et SalesForce.
 
 ### <a name="api-key"></a>Clé API
 Si vous utilisez une clé API, les utilisateurs de votre connecteur sont invités à fournir la clé quand ils créent une connexion. Vous spécifiez un nom de clé API pour les aider à comprendre quelle clé est requise. Dans l’exemple précédent, nous utilisons le nom `API Key (contact meganb@contoso.com)` afin que les utilisateurs sachent où obtenir plus d’informations sur la clé API. Pour Azure Functions, la clé est généralement l’une des clés d’hôte, couvrant plusieurs fonctions au sein de l’application de fonction.

@@ -1,19 +1,18 @@
 ---
 title: Services Go-To-Market - Bonnes pratiques marketing | Azure
 description: 'Go-To-Market Services : cette section décrit les bonnes pratiques marketing pour les éditeurs de la Place de marché Microsoft Azure'
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 6/24/2018
-ms.author: ellacroi
-ms.openlocfilehash: 5d2c6ce8682e24d981457ea8fc804ff04e226750
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 2926752884576bcf3a7a15d68eecb6f1248f7e4c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823950"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80286266"
 ---
 # <a name="marketing-best-practices"></a>Meilleures pratiques marketing
 

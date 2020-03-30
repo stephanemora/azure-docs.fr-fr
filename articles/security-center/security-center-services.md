@@ -11,37 +11,30 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2020
+ms.date: 03/01/2020
 ms.author: memildin
-ms.openlocfilehash: 8d905da733ea0573b91b289da43684ed8083c804
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 9d3fa1e0b62ea6f4762c3df6ac7da310d5703807
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77616382"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79225241"
 ---
-# <a name="supported-features-available-in-azure-security-center"></a>Fonctionnalités prises en charge disponibles dans Azure Security Center
+# <a name="feature-coverage-for-machines"></a>Couverture des fonctionnalités pour les machines
 
-> [!NOTE]
->Certaines fonctionnalités ne sont disponibles qu'avec le niveau Standard. Si vous ne vous êtes pas encore inscrit au niveau Standard de Security Center, une période d'essai gratuite est disponible. Pour plus d’informations, consultez la [page de tarification de Security Center](https://azure.microsoft.com/pricing/details/security-center/).
+Les tableaux ci-dessous présentent les fonctionnalités Azure Security Center disponibles pour les machines virtuelles et les serveurs.
 
-Les sections suivantes présentent les fonctionnalités de Security Center disponibles pour les [plateformes prises en charge](security-center-os-coverage.md).
+## <a name="supported-features-for-virtual-machines-and-servers"></a>Fonctionnalités prises en charge pour les machines virtuelles et les serveurs <a name="vm-server-features"></a>
 
-* [Machines virtuelles / serveurs](#vm-server-features)
-* [Services PaaS](#paas-services)
-
-
-## Fonctionnalités prises en charge par les machines virtuelles / serveurs <a name="vm-server-features"></a>
-
-### <a name="windows"></a>[Windows](#tab/features-windows)
+### <a name="windows-machines"></a>[Ordinateurs Windows](#tab/features-windows)
 
 |||||||||
 |----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
-||**Machines virtuelles Azure**|**Groupes de machines virtuelles identiques Azure**|**Machines non-Azure**|**Tarification**
-|[Intégration de Microsoft Defender ATP](security-center-wdatp.md)|✔ (sur les versions prises en charge)|✔ (sur les versions prises en charge)|✔|standard|
-|[Alertes de détection des menaces – Analytique comportementale des machines virtuelles](threat-protection.md)|✔|✔|✔|Recommandations (Gratuit) Détection des menaces (Standard)|
-|[Alertes de détection des menaces sans fichier](alerts-reference.md#alerts-windows)|✔|✔|✔|standard|
-|[Alertes de détection des menaces réseau](threat-protection.md#network-layer)|✔|✔|-|standard|
+|**Fonctionnalité**|**Machines virtuelles Azure**|**Groupes de machines virtuelles identiques Azure**|**Machines non-Azure**|**Tarification**
+|[Intégration de Microsoft Defender ATP](security-center-wdatp.md)|✔</br>(sur les versions prises en charge)|✔</br>(sur les versions prises en charge)|✔|standard|
+|[Analytique comportementale des machines virtuelles (et alertes de sécurité)](threat-protection.md)|✔|✔|✔|Recommandations (Gratuit) </br></br> Alertes de sécurité (Standard)|
+|[Alertes de sécurité sans fichier](alerts-reference.md#alerts-windows)|✔|✔|✔|standard|
+|[Alertes de sécurité réseau](threat-protection.md#network-layer)|✔|✔|-|standard|
 |[Accès juste-à-temps aux machines virtuelles](security-center-just-in-time.md)|✔|-|-|standard|
 |[Évaluation native des vulnérabilités](built-in-vulnerability-assessment.md)|✔|-|-|standard|
 |[Supervision de l’intégrité des fichiers](security-center-file-integrity-monitoring.md)|✔|✔|✔|standard|
@@ -50,7 +43,7 @@ Les sections suivantes présentent les fonctionnalités de Security Center dispo
 |[Durcissement réseau adaptatif](security-center-adaptive-network-hardening.md)|✔|-|-|standard|
 |Contrôles réseau adaptatifs|✔|✔|-|standard|
 |[Tableau de bord et rapports de conformité à la réglementation](security-center-compliance-dashboard.md)|✔|✔|✔|standard|
-|Recommandations et détection des menaces sur les conteneurs IaaS hébergés dans Docker|-|-|-|standard|
+|Recommandations et protection contre les menaces sur les conteneurs IaaS hébergés dans Docker|-|-|-|standard|
 |Évaluation des correctifs de système d’exploitation manquants|✔|✔|✔|Gratuit|
 |Évaluation des erreurs de configuration de la sécurité|✔|✔|✔|Gratuit|
 |[Évaluation de la protection des points de terminaison](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Gratuit|
@@ -59,15 +52,15 @@ Les sections suivantes présentent les fonctionnalités de Security Center dispo
 |[Évaluation de la sécurité réseau](security-center-network-recommendations.md)|✔|✔|-|Gratuit|
 
 
-### <a name="linux"></a>[Linux](#tab/features-linux)
+### <a name="linux-machines"></a>[Ordinateurs Linux](#tab/features-linux)
 
 |||||||||
 |----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
-||**Machines virtuelles Azure**|**Groupes de machines virtuelles identiques Azure**|**Machines non-Azure**|**Tarification**
+|**Fonctionnalité**|**Machines virtuelles Azure**|**Groupes de machines virtuelles identiques Azure**|**Machines non-Azure**|**Tarification**
 |[Intégration de Microsoft Defender ATP](security-center-wdatp.md)|-|-|-|standard|
-|[Alertes de détection des menaces – Analytique comportementale des machines virtuelles](security-center-alerts-iaas.md)|✔ (sur les versions prises en charge)|✔ (sur les versions prises en charge)|✔|Recommandations (Gratuit) Détection des menaces (Standard)|
-|[Alertes de détection des menaces sans fichier](alerts-reference.md#alerts-windows)|-|-|-|standard|
-|[Alertes de détection des menaces réseau](threat-protection.md#network-layer)|✔|✔|-|standard|
+|[Analytique comportementale des machines virtuelles (et alertes de sécurité)](security-center-alerts-iaas.md)|✔</br>(sur les versions prises en charge)|✔</br>(sur les versions prises en charge)|✔|Recommandations (Gratuit) </br></br> Alertes de sécurité (Standard)|
+|[Alertes de sécurité sans fichier](alerts-reference.md#alerts-windows)|-|-|-|standard|
+|[Alertes de sécurité réseau](threat-protection.md#network-layer)|✔|✔|-|standard|
 |[Accès juste-à-temps aux machines virtuelles](security-center-just-in-time.md)|✔|-|-|standard|
 |[Évaluation native des vulnérabilités](built-in-vulnerability-assessment.md)|✔|-|-|standard|
 |[Supervision de l’intégrité des fichiers](security-center-file-integrity-monitoring.md)|✔|✔|✔|standard|
@@ -76,7 +69,7 @@ Les sections suivantes présentent les fonctionnalités de Security Center dispo
 |[Durcissement réseau adaptatif](security-center-adaptive-network-hardening.md)|✔|-|-|standard|
 |Contrôles réseau adaptatifs|✔|✔|-|standard|
 |[Tableau de bord et rapports de conformité à la réglementation](security-center-compliance-dashboard.md)|✔|✔|✔|standard|
-|Recommandations et détection des menaces sur les conteneurs IaaS hébergés dans Docker|✔|✔|✔|standard|
+|Recommandations et protection contre les menaces sur les conteneurs IaaS hébergés dans Docker|✔|✔|✔|standard|
 |Évaluation des correctifs de système d’exploitation manquants|✔|✔|✔|Gratuit|
 |Évaluation des erreurs de configuration de la sécurité|✔|✔|✔|Gratuit|
 |[Évaluation de la protection des points de terminaison](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Gratuit|
@@ -86,7 +79,12 @@ Les sections suivantes présentent les fonctionnalités de Security Center dispo
 
 --- 
 
-## Solutions de protection du point de terminaison prises en charge <a name="endpoint-supported"></a>
+
+> [!TIP]
+>Pour expérimenter les fonctionnalités uniquement disponibles dans le niveau tarifaire standard, les utilisateurs du niveau gratuit peuvent s’inscrire à un essai de 30 jours. Pour plus d’informations, consultez la [page relative aux prix appliqués](https://azure.microsoft.com/pricing/details/security-center/).
+
+
+## <a name="supported-endpoint-protection-solutions"></a>Solutions de protection du point de terminaison prises en charge <a name="endpoint-supported"></a>
 
 Le tableau suivant fournit une matrice de ce qui suit :
 
@@ -112,52 +110,11 @@ Pour plus d’informations sur le moment où les recommandations sont générée
 > - La détection de la protection Trend Micro est prise en charge pour les agents Deep Security.  Les agents OfficeScan ne sont pas pris en charge.
 
 
-## Fonctionnalités prises en charge par les services PaaS <a name="paas-services"> </a>
-
-Azure Security Center prend en charge les ressources PaaS suivantes :
-
-|Service|Recommandations (Gratuit)|Alertes de détection des menaces (Standard)|l'Évaluation des vulnérabilités (Standard)|
-|----|:----:|:----:|:----:|
-|BASES DE DONNÉES SQL|✔|✔|✔|
-|Azure Container Registry|-|-|✔|
-|Azure Kubernetes Service|✔|✔|-|
-|Azure Database pour PostgreSQL*|✔|✔|-|
-|Azure Database pour MySQL*|✔|✔|-|
-|Azure CosmosDB*|-|✔|-|
-|Comptes de stockage|✔|-|-|
-|Stockage Blob|✔|✔|-|
-|App Service|✔|✔|-|
-|Conteneur de fonctions|✔|-|-|
-|Cloud Services|✔|-|-|
-|Réseau virtuel|✔|-|-|
-|Subnet|✔|-|-|
-|Carte d’interface réseau|✔|-|-|
-|Network Security Group|✔|-|-|
-|Abonnement|✔ **|✔|-|
-|Compte Batch|✔|-|-|
-|Compte Service Fabric|✔|-|-|
-|Compte Automation|✔|-|-|
-|Load Balancer|✔|-|-|
-|Recherche cognitive|✔|-|-|
-|Espace de noms Service Bus|✔|-|-|
-|Stream Analytics|✔|-|-|
-|Espace de noms du hub d’événements|✔|-|-|
-|Logic Apps|✔|-|-|
-|Cache pour Redis|✔|-|-|
-|Data Lake Analytics|✔|-|-|
-|Azure Data Lake Storage|✔|-|-|
-|Key Vault|✔|✔ *|-|
-
-\* Ces fonctionnalités sont actuellement prises en charge en préversion.
-
-\*\* Les recommandations Azure Active Directory (Azure AD) sont uniquement disponibles pour les abonnements Standard.
-
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Découvrez comment [Security Center collecte les données et l'agent Log Analytics Agent](security-center-enable-data-collection.md).
 - Découvrez comment [Security Center gère et protège les données](security-center-data-security.md).
 - [Découvrez comment planifier l’adoption d’Azure Security Center et prenez connaissance des considérations relatives à la conception](security-center-planning-and-operations-guide.md).
 - Passez en revue les [plateformes qui prennent en charge Security Center](security-center-os-coverage.md).
-- Apprenez-en davantage sur la [détection des menaces pour les machines virtuelles et les serveurs dans Azure Security Center](security-center-alerts-iaas.md).
+- Découvrez la [protection contre les menaces pour les ordinateurs Windows et Linux dans Azure Security Center](threat-protection.md#windows-machines).
 - Accédez aux [Questions fréquentes (FAQ) sur Azure Security Center](faq-general.md).
-- Accédez à des [billets de blog sur la sécurité et la conformité Azure](https://blogs.msdn.com/b/azuresecurity/).

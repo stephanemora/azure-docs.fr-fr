@@ -3,12 +3,12 @@ title: Informations de référence sur YAML - ACR Tasks
 description: Référence pour la définition de tâches dans YAML pour ACR Tasks, y compris les propriétés de tâche, les types d’étapes, les propriétés d’étape et les variables intégrées.
 ms.topic: article
 ms.date: 10/23/2019
-ms.openlocfilehash: d86eb0e24233afb536d27f5d0938d4748941e88a
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: 9558f698b4a9dbca46431fc02ced6ae30de29121
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945737"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79225777"
 ---
 # <a name="acr-tasks-reference-yaml"></a>Référence ACR Tasks : YAML
 
@@ -381,7 +381,7 @@ Chaque type d’étape prend en charge plusieurs propriétés appropriées pour 
 | `user` | string | Oui | Nom d’utilisateur ou UID d’un conteneur | None |
 | `workingDirectory` | string | Oui | Définit le répertoire de travail pour une étape. Par défaut, ACR Tasks crée un répertoire racine comme répertoire de travail. Toutefois, si votre build dispose de plusieurs étapes, les étapes précédentes peuvent partager des artefacts avec étapes suivantes en spécifiant le même répertoire de travail. | `/workspace` |
 
-### <a name="examples-task-step-properties"></a>Exemples : Propriétés d’étape de tâche
+### <a name="examples-task-step-properties"></a>Exemples : propriétés d’étape de tâche
 
 #### <a name="example-id"></a>Exemple : id
 
@@ -528,7 +528,7 @@ Vous pouvez utiliser les alias de tâches suivants à la place des [variables d�
 
 Dans les étapes de la tâche, faites précéder un alias de la directive `$`, comme dans cet exemple :
 
-```yaml
+```yml
 version: v1.1.0
 steps:
   - build: -t $Registry/hello-world:$ID -f hello-world.dockerfile .
@@ -547,7 +547,7 @@ Chacun des points d’alias suivants pointe vers une image stable dans le Regist
 
 L’exemple de tâche suivant utilise plusieurs alias pour [purger](container-registry-auto-purge.md) les balises d’image de plus de 7 jours dans le référentiel `samples/hello-world` dans le registre d’exécution :
 
-```yaml
+```yml
 version: v1.1.0
 steps:
   - cmd: acr tag list --registry $RegistryName --repository samples/hello-world

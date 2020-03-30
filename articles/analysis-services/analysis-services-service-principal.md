@@ -8,11 +8,11 @@ ms.date: 02/18/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: dc163de9a7fb46d62f4bc2983e040e68bbf9231c
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77461672"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231673"
 ---
 # <a name="automation-with-service-principals"></a>Automatisation à l’aide de principaux de service
 
@@ -48,7 +48,7 @@ Vous pouvez utiliser l’ID d’application et le mot de passe ou le certificat 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-#### <a name="a-nameazmodule-using-azanalysisservices-module"></a><a name="azmodule" />Via le module Az.AnalysisServices
+#### <a name="using-azanalysisservices-module"></a><a name="azmodule" />Via le module Az.AnalysisServices
 
 Si vous utilisez un principal de service pour les opérations de gestion des ressources avec le module [Az.AnalysisServices](/powershell/module/az.analysisservices), utilisez la cmdlet `Connect-AzAccount`. 
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/23/2019
 ms.author: yelevin
 ms.openlocfilehash: 348576fbbdd1037f9e2e792218b96bbbecf36668
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77588363"
 ---
 # <a name="connect-data-from-microsoft-cloud-app-security"></a>Connecter des données à partir de Microsoft Cloud App Security 
@@ -27,7 +27,7 @@ ms.locfileid: "77588363"
 
 Vous pouvez diffuser des journaux dans Azure Sentinel en un seul clic à partir de [Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security). Cette connexion vous permet de diffuser les alertes en continu à partir de Cloud App Security dans Azure Sentinel. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Utilisateur, doté d’autorisations d’administrateur général ou d’administrateur de la sécurité
 - Pour diffuser des journaux Cloud Discovery dans Azure Sentinel, [activez Azure Sentinel comme SIEM dans Microsoft Cloud App Security](https://aka.ms/AzureSentinelMCAS).

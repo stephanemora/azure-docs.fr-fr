@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/18/2018
 ms.author: kaanan
-ms.openlocfilehash: 05ce45a52db2b8a47223023ce31b5591b2b97c37
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 56288a65dc9e5b12a12393965b9670e394146181
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185396"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80234975"
 ---
 # <a name="work-with-a-virtual-network-tap-using-the-azure-cli"></a>Utiliser un TAP de réseau virtuel à l’aide d’Azure CLI
 
@@ -86,6 +86,7 @@ Lisez les [prérequis](virtual-network-tap-overview.md#prerequisites) avant de c
       --query id \
       --out tsv)
       ```
+
    - Créez le TAP de réseau virtuel à l’aide de l’ID de la configuration IP de destination et d’une propriété de port facultative. Le port spécifie le port de destination du trafic TAP sur la configuration IP frontend :  
 
       ```azurecli-interactive
@@ -140,7 +141,7 @@ Lisez les [prérequis](virtual-network-tap-overview.md#prerequisites) avant de c
 
 ## <a name="delete-the-tap-configuration-on-a-network-interface"></a>Supprimer la configuration TAP sur une interface réseau
 
-   ```azure-cli-interactive
+   ```azurecli-interactive
    az network nic vtap-config delete \
    --resource-group myResourceGroup \
    --nic myNetworkInterface \

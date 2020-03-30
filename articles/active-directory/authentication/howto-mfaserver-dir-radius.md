@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b38341613c98bf85df8cb47ccafc3df5709a1fd4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75425214"
 ---
 # <a name="integrate-radius-authentication-with-azure-multi-factor-authentication-server"></a>Intégration de l'authentification RADIUS avec le serveur Azure Multi-Factor Authentication
@@ -25,7 +25,7 @@ RADIUS est un protocole standard pour accepter les demandes d'authentification e
 > [!IMPORTANT]
 > Cet article s’adresse uniquement aux utilisateurs du serveur Azure MFA. Si vous utilisez une instance d’Azure MFA basée sur le cloud, consultez plutôt [Intégration à l’authentification RADIUS pour Azure MFA](howto-mfa-nps-extension.md).
 >
-> À compter du 1er juillet 2019, Microsoft ne propose plus MFA Server pour les nouveaux déploiements. Les nouveaux clients qui veulent demander à leurs utilisateurs de procéder à une authentification multifacteur doivent utiliser la fonction Azure Multi-Factor Authentication basée sur le cloud. Les clients existants qui ont activé MFA Server avant le 1er juillet peuvent télécharger la dernière version et les futures mises à jour, et générer des informations d’identification d’activation comme d’habitude.
+> À compter du 1{1}er{2} juillet 2019, Microsoft ne propose plus MFA Server pour les nouveaux déploiements. Les nouveaux clients qui veulent demander à leurs utilisateurs de procéder à une authentification multifacteur doivent utiliser la fonction Azure Multi-Factor Authentication basée sur le cloud. Les clients existants qui ont activé MFA Server avant le 1{1}er{2} juillet peuvent télécharger la dernière version et les futures mises à jour, et générer des informations d’identification d’activation comme d’habitude.
 
 > [!NOTE]
 > Le serveur MFA prend uniquement en charge les protocoles RADIUS PAP (Password Authentication Protocol) et MSCHAPv2 (Microsoft Challenge Handshake Authentication Protocol) lorsqu'il agit comme un serveur RADIUS.  Les autres protocoles comme EAP (Extensible Authentication Protocol) peuvent être utilisés lorsque le serveur MFA agit comme un proxy RADIUS vers un autre serveur RADIUS prenant en charge ce protocole.
@@ -41,7 +41,7 @@ Pour configurer l'authentification RADIUS, installez le serveur Azure Multi-Fact
 1. Sur le serveur Azure Multi-Factor Authentication, cliquez sur l'icône de l'authentification RADIUS dans le menu de gauche.
 2. Cochez la case **Activer l'authentification RADIUS**.
 3. Dans l’onglet Clients, modifiez le port d'authentification et le port de gestion si le service Azure MFA RADIUS doit écouter les demandes RADIUS sur des ports non standard.
-4. Cliquez sur **Add**.
+4. Cliquez sur **Ajouter**.
 5. Entrez l'adresse IP de l'appliance ou du serveur qui s'authentifieront auprès du serveur Azure Multi-Factor Authentication, un nom d’application (facultatif) et un secret partagé.
 
    Le nom de l’application apparaît dans les rapports et peut être affiché dans les messages d’authentification SMS ou d’application mobile.

@@ -9,14 +9,16 @@ ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.date: 04/25/2019
-ms.openlocfilehash: fd2e3a5ec7e69280b38d653009f551580618a541
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 6afd222730a9864e0b8edd681b1ce919b03c3be8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168947"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79204288"
 ---
 # <a name="powershell-modules-for-azure-machine-learning-studio-classic"></a>Modules PowerShell pour Azure Machine Learning Studio (classique)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Grâce aux modules PowerShell, vous pouvez gérer par programmation vos ressources Studio (classique) et des ressources telles que les espaces de travail, les jeux de données et les services web.
 
@@ -30,7 +32,7 @@ Même si ces modules PowerShell ont des similitudes, chacun d’eux est conçu p
 
 Consultez le [tableau de prise en charge](#support-table) ci-dessous pour connaître les ressources prises en charge par chaque module. 
 
-## <a name="az-rm"></a> Azure PowerShell Az et AzureRM
+## <a name="azure-powershell-az-and-azurerm"></a><a name="az-rm"></a> Azure PowerShell Az et AzureRM
 
 Az est maintenant le module PowerShell prévu pour interagir avec Azure et inclut toutes les fonctionnalités précédentes d’AzureRM. AzureRM continue de bénéficier de correctifs de bogues, mais ne recevra aucune nouvelle cmdlet ni fonctionnalité.  Az et AzureRM gèrent les solutions déployées à l’aide du modèle de déploiement **Azure Resource Manager**. Ces ressources incluent des espaces de travail Studio (classique) et de « nouveaux » services web Studio (classique). 
 
@@ -38,7 +40,7 @@ PowerShell Classic peut être installé en même temps que Az ou AzureRM pour co
 
 Pour vous familiariser avec Az, suivez les [instructions d’installation pour Azure Az](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
-## <a name="classic"></a> PowerShell classique
+## <a name="powershell-classic"></a><a name="classic"></a> PowerShell classique
 
 Le [module PowerShell](https://aka.ms/amlps) Studio (classique) vous permet de gérer les ressources déployées à l’aide du **modèle de déploiement classique**. Ces ressources incluent des ressources utilisateur Studio (classique), des services web « classiques » et des points de terminaison de service web « classique ».
 
@@ -48,7 +50,7 @@ Pour bien démarrer avec PowerShell classique, téléchargez le [package de la v
 
 PowerShell Classic peut être installé en même temps que Az ou AzureRM pour couvrir les deux types de ressources « nouveau » et « classique ».
 
-## <a name="support-table"></a> Tableau de prise en charge PowerShell
+## <a name="powershell-support-table"></a><a name="support-table"></a> Tableau de prise en charge PowerShell
 
 
 | | **Az** |  **PowerShell Classic** |

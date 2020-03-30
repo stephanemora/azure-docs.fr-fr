@@ -2,17 +2,16 @@
 Description: Afin de recevoir l’argent provenant de la vente d’offres sur le marché commercial, vous devez ouvrir un compte de paiement et remplir.
 title: Configurer votre compte de paiement et vos déclarations de taxe | Place de marché Azure
 ms.date: 12/10/2019
-ms.topic: article
-author: MaggiePucciEvans
-manager: evansma
-ms.author: evansma
+ms.topic: conceptual
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
-ms.openlocfilehash: a6ef9711d6047a75ca5058f12e95d72a79628e30
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: fb0caa64feb7cb024b684a2e94937aec8893bb5e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934154"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80281304"
 ---
 # <a name="set-up-your-payout-account-and-tax-forms"></a>Configurer votre compte de paiement et vos déclarations de taxe
 
