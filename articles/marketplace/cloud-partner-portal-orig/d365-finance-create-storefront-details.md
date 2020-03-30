@@ -1,19 +1,18 @@
 ---
 title: Guide pratique pour remplir le formulaire Détails de la vitrine
 description: Article déprécié avec des liens vers des articles de PC correspondants ; auparavant « Décrit les valeurs du formulaire Détails de la vitrine pour une nouvelle application Dynamics 365 Business Central ».
-services: Azure, Marketplace, Cloud Partner Portal,
-author: ChJenk
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.author: pabutler
-ms.openlocfilehash: 819f952eae42235ea4fcd5508d5aee341e446b11
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 51aea17247ed36c465086b5f5b1132ab1cd56922
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820010"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80276034"
 ---
 # <a name="how-to-fill-out-the-storefront-details-form"></a>Guide pratique pour remplir le formulaire Détails de la vitrine
 

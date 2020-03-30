@@ -5,11 +5,11 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.openlocfilehash: b3d683153a1e70f4c65dcc5e401f4ee702af8b49
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78356219"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79235045"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Développer Azure Functions à l’aide de Visual Studio  
 
@@ -27,7 +27,7 @@ Cet article fournit des informations sur l'utilisation de Visual Studio pour dé
 
 Sauf indication contraire, les procédures et exemples présentés correspondent à Visual Studio 2019. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Azure Functions Tools est inclus dans la charge de travail de développement Azure de Visual Studio, à partir de Visual Studio 2017. Veillez à inclure la charge de travail de **développement Azure** lorsque vous installez Visual Studio.
 
@@ -40,7 +40,7 @@ Les autres ressources dont vous avez besoin, tel qu’un compte de stockage Azur
 >
 > Veuillez passer cette section si vous utilisez Visual Studio 2019.
 
-### <a name="check-your-tools-version"></a>Vérifier la version de vos outils dans Visual Studio 2017
+### <a name="check-your-tools-version-in-visual-studio-2017"></a><a name="check-your-tools-version"></a>Vérifier la version de vos outils dans Visual Studio 2017
 
 1. Dans le menu **Outils**, choisissez **Extensions et mises à jour**. Développez **Installé** > **Outils** et choisissez **Outils Azure Functions et Web Jobs**.
 
@@ -73,7 +73,7 @@ Le modèle de projet crée un projet C#, installe le package NuGet `Microsoft.NE
 
 * **host.json** : vous permet de configurer l’hôte Functions. Ces paramètres s’appliquent lors de l’exécution en local et dans Azure. Pour plus d’informations, consultez l’article de référence sur [host.json](functions-host-json.md).
 
-* **local.settings.json** : tient à jour les paramètres utilisés lors de l’exécution locale des fonctions. Ces paramètres ne sont pas utilisés lors de l’exécution dans Azure. Pour en savoir plus, voir [Fichier de paramètres locaux](#local-settings-file).
+* **local.settings.json** : maintient les paramètres utilisés lors de l’exécution des fonction en local. Ces paramètres ne sont pas utilisés lors de l’exécution dans Azure. Pour en savoir plus, voir [Fichier de paramètres locaux](#local-settings-file).
 
     >[!IMPORTANT]
     >Étant donné que le fichier local.settings.json peut contenir des secrets, vous devez l’exclure du contrôle de code source du projet. Le paramètre **Copier dans le répertoire de sortie** de ce fichier doit toujours être **Copier si plus récent**. 

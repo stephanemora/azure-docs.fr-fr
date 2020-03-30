@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 06/25/2019
 ms.author: juliako
 ms.openlocfilehash: d5d5b8a7328ee82e94d494795617832cb0258667
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74901513"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227045"
 ---
 # <a name="overview-of-azure-on-demand-media-encoders"></a>Vue d’ensemble d’encodeurs multimédia à la demande Azure 
 
 > [!NOTE]
-> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consultez aussi [Conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md)
+> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consultez aussi [Conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md).
 
 Azure Media Services fournit plusieurs options pour l’encodage de fichiers multimédias dans le cloud.
 
@@ -52,7 +52,7 @@ Par défaut, chaque compte Media Services peut avoir une tâche d’encodage act
 [Formats et codecs](media-services-media-encoder-standard-formats.md)
 
 ### <a name="presets"></a>Présélections
-Media Encoder Standard est configuré à l’aide d’une des présélections d’encodeur décrites [ici](https://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+Media Encoder Standard se configure à l’aide d’une des présélections d’encodeur décrites [ici](https://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
 ### <a name="input-and-output-metadata"></a>Métadonnées d’entrée et de sortie
 Les métadonnées d’entrée des encodeurs sont décrites [ici](media-services-input-metadata-schema.md).
@@ -72,7 +72,7 @@ Pour plus d’informations, consultez [Création de superpositions à l’aide d
 [Blog sur Media Services](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)
 
 ## <a name="media-encoder-premium-workflow"></a>Media Encoder Premium Workflow
-### <a name="overview"></a>Vue d'ensemble
+### <a name="overview"></a>Vue d’ensemble
 [Présentation de l’encodage Premium dans Azure Media Services](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services/)
 
 ### <a name="how-to-use"></a>Utilisation

@@ -9,11 +9,11 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 986f4b0da7254ebac3725a704f32af785c72fbcc
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77565024"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79225065"
 ---
 # <a name="set-up-firewall-tables-and-rules-for-private-clouds"></a>Configurer des tables et des règles de pare-feu pour des clouds privés
 
@@ -68,7 +68,7 @@ Les règles de pare-feu déterminent la manière dont le pare-feu traite certain
 > [!IMPORTANT]
 > Chaque table de pare-feu peut comporter jusqu’à 10 règles de trafic entrant et 20 règles de trafic sortant. Il est possible d’augmenter ces limites en [contactant le support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-## <a name="attach-vlans-subnet"></a>Attacher des VLAN/sous-réseaux
+## <a name="attach-vlanssubnets"></a><a name="attach-vlans-subnet"></a>Attacher des VLAN/sous-réseaux
 
 Une fois que vous avez défini une table de pare-feu, vous pouvez spécifier les sous-réseaux soumis aux règles de la table.
 

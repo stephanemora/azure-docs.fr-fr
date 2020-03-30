@@ -8,11 +8,11 @@ ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 684b30a24e049722cb531cbc84e3a2cd90912ec8
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70932631"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228277"
 ---
 # <a name="addremove-an-azure-file-sync-server-endpoint"></a>Ajouter/supprimer un point de terminaison de serveur Azure File Sync
 Azure File Sync vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files sans perdre la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Pour ce faire, Azure File Sync transforme vos serveurs Windows en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible sur Windows Server pour accéder à vos données localement (y compris SMB, NFS et FTPS) et vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -21,7 +21,7 @@ Un *point de terminaison de serveur* représente un emplacement spécifique sur 
 
 Consultez [Comment déployer Azure File Sync](storage-sync-files-deployment-guide.md) pour plus d’informations sur comment déployer Azure File Sync de bout en bout.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 Pour créer un point de terminaison de serveur, vous devez d’abord vérifier que les critères suivants sont remplis : 
 - L’agent de synchronisation de fichiers Azure est installé le serveur et ce dernier a été inscrit. Vous trouverez des instructions pour l’installation de l’agent Azure File Sync dans l’article [Inscrire/désinscrire un serveur auprès d’Azure File Sync](storage-sync-files-server-registration.md). 
 - Vérifiez qu’un service de synchronisation de stockage a été déployé. Consultez le [Guide pratique pour déployer Azure File Sync](storage-sync-files-deployment-guide.md) pour en savoir plus sur le déploiement d’un service de synchronisation de stockage. 
@@ -35,8 +35,8 @@ Pour ajouter un point de terminaison de serveur, accédez au groupe de synchroni
 
 Les informations suivantes sont requises sous l’option **Ajouter un point de terminaison de serveur** :
 
-- **Serveur inscrit** : nom du serveur ou du cluster sur lequel créer le point de terminaison de serveur.
-- **Chemin d’accès** : chemin sur le serveur Windows Server à synchroniser en tant qu’élément du groupe de synchronisation.
+- **Serveur inscrit** : nom du serveur ou du cluster sur lequel créer le point de terminaison de serveur.
+- **Chemin d’accès** : chemin sur le serveur Windows Server à synchroniser en tant qu’élément du groupe de synchronisation.
 - **Hiérarchisation cloud** : commutateur pour activer ou désactiver la hiérarchisation cloud. Quand elle est activée, la hiérarchisation cloud *hiérarchise* les fichiers dans vos partages de fichiers Azure. Les partages de fichiers locaux sont alors convertis en cache, plutôt qu’en copie complète du jeu de données, pour vous aider à optimiser l’espace sur votre serveur.
 - **Espace libre du volume** : quantité d’espace libre à réserver sur le volume sur lequel se trouve le point de terminaison de serveur. Par exemple, si l’espace libre du volume est définie sur 50 % sur un volume avec un point de terminaison de serveur unique, environ la moitié de la quantité de données sera hiérarchisée dans Azure Files. Que la hiérarchisation cloud soit activée ou non, le partage de fichiers Azure dispose toujours d’une copie complète des données dans le groupe de synchronisation.
 

@@ -13,16 +13,18 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/26/2019
-ms.openlocfilehash: 2c85a378dc219e8af1b6458344ee4dba0fa73e68
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 52f4347fa545df88f11878709b4061662d5faffe
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "68596795"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80345752"
 ---
 # <a name="tutorial-create-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Tutoriel : Créer un modèle prédictif en R avec le moteur Machine Learning Services (préversion) d’Azure SQL Database
 
 Dans la deuxième partie de cette série de didacticiels qui en compte trois parties, vous allez créer deux modèles prédictifs en R et sélectionner le modèle le plus précis. Dans la partie suivante de cette série, vous allez déployer ce modèle dans une base de données SQL avec Azure SQL Database Machine Learning Services (préversion).
+
+[!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
 Dans cet article, vous allez apprendre à :
 

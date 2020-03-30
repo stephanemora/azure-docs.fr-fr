@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
 ms.openlocfilehash: df237cdbb8944928641f2dbea2117bbef7ba9165
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74224363"
 ---
 | Ressource | Limite par défaut | Limite maximale |
@@ -20,5 +20,5 @@ ms.locfileid: "74224363"
 | Délai d’attente en secondes du SMS bidirectionnel |60 |600 |
 | Secondes de contournement à usage unique par défaut |300 |1 800 |
 | Verrouiller le compte d'utilisateur après **X** refus MFA consécutifs |Non défini |99 |
-| Réinitialiser le compteur de verrouillage du compte après **X** minutes |Non défini |9 999 |
-| Déverrouiller le compte après **X** minutes |Non défini |9 999 |
+| Réinitialiser le compteur de verrouillage du compte après **X** minutes |Non défini |9 999 |
+| Déverrouiller le compte après **X** minutes |Non défini |9 999 |

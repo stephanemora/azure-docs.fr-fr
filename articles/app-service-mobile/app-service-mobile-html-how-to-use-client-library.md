@@ -7,10 +7,10 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 06/25/2019
 ms.openlocfilehash: 029b01f3aacc928ebdae0e8fe90871437afccea5
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77461519"
 ---
 # <a name="how-to-use-the-javascript-client-library-for-azure-mobile-apps"></a>Utilisation de la bibliothèque cliente JavaScript pour Azure Mobile Apps
@@ -20,11 +20,11 @@ ms.locfileid: "77461519"
 Ce guide indique le déroulement de scénarios courants dans le cadre de l’utilisation du dernier [Kit de développement logiciel (SDK) JavaScript pour Azure Mobile Apps]. Si vous ne connaissez pas Azure Mobile Apps, consultez d’abord la section [Démarrage rapide d’Azure Mobile Apps] pour créer un backend et créer une table. Dans ce guide, nous nous concentrons sur l’utilisation du backend mobile dans les applications web HTML/JavaScript.
 
 ## <a name="supported-platforms"></a>Plateformes prises en charge
-Nous limitons la prise en charge des navigateurs à la version actuelle et à la dernière version des principaux navigateurs :  Google Chrome, Microsoft Edge, Microsoft Internet Explorer et Mozilla Firefox.  Le Kit de développement logiciel (SDK) devrait fonctionner avec n’importe quel navigateur relativement récent.
+Nous limitons la prise en charge aux versions actuelles, ainsi qu’aux dernières versions des principaux navigateurs : Google Chrome, Microsoft Edge, Microsoft Internet Explorer et Mozilla Firefox.  Le Kit de développement logiciel (SDK) devrait fonctionner avec n’importe quel navigateur relativement récent.
 
 Le package est distribué comme un module JavaScript universel et prend donc en charge les format Globals, AMD et CommonJS.
 
-## <a name="Setup"></a>Configuration et conditions préalables
+## <a name="setup-and-prerequisites"></a><a name="Setup"></a>Configuration et conditions préalables
 Ce guide part du principe que vous avez créé un serveur principal avec une table. Ce guide suppose que la table a le même schéma que les tables dans ces didacticiels.
 
 Installez le Kit de développement logiciel (SDK) JavaScript Azure Mobile Apps à partir de la commande `npm` :
@@ -50,14 +50,14 @@ Vous pouvez également utiliser une version du Kit de développement logiciel (S
 
 [!INCLUDE [app-service-mobile-html-js-library](../../includes/app-service-mobile-html-js-library.md)]
 
-## <a name="auth"></a>Procédure : Authentification des utilisateurs
-Azure App Service prend en charge l’authentification et l’autorisation des utilisateurs de l'application par l'intermédiaire de différents fournisseurs d'identité externes : Facebook, Google, compte Microsoft et Twitter. Vous pouvez définir des autorisations sur les tables pour limiter l'accès à certaines opérations aux seuls utilisateurs authentifiés. Vous pouvez également utiliser l’identité des utilisateurs authentifiés pour implémenter des règles d’autorisation dans les scripts serveur. Pour plus d'informations, consultez la page [Prise en main de l’authentification] .
+## <a name="how-to-authenticate-users"></a><a name="auth"></a>Procédure : authentification des utilisateurs
+Azure App Service prend en charge l’authentification et l’autorisation des utilisateurs d’applications par le biais de divers fournisseurs d’identité externes : Facebook, Google, compte Microsoft et Twitter. Vous pouvez définir des autorisations sur les tables pour limiter l'accès à certaines opérations aux seuls utilisateurs authentifiés. Vous pouvez également utiliser l’identité des utilisateurs authentifiés pour implémenter des règles d’autorisation dans les scripts serveur. Pour plus d'informations, consultez la page [Prise en main de l’authentification] .
 
 Deux flux d’authentification sont pris en charge : un flux serveur et un flux client.  Le flux serveur fournit l'authentification la plus simple, car il repose sur l'interface d'authentification Web du fournisseur. Le flux client permet une intégration approfondie avec les fonctionnalités propres aux appareils, telles que l'authentification unique, car il repose sur des Kits de développement logiciel (SDK) propres aux fournisseurs.
 
 [!INCLUDE [app-service-mobile-html-js-auth-library](../../includes/app-service-mobile-html-js-auth-library.md)]
 
-### <a name="configure-external-redirect-urls"></a>Procédure : Configurer votre Mobile App Service pour les URL de redirection externes.
+### <a name="how-to-configure-your-mobile-app-service-for-external-redirect-urls"></a><a name="configure-external-redirect-urls"></a>Configurer votre Mobile App Service pour les URL de redirection externes.
 Plusieurs types d’applications JavaScript utilisent une fonctionnalité de bouclage pour gérer les flux d’interface utilisateur OAuth.  Ces fonctionnalités sont les suivantes :
 
 * Exécuter votre service en local
