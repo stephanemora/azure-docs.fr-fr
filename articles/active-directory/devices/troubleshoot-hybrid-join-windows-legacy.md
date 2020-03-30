@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e168deea1ba442d48f483264c1e97ce618040f18
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74379118"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Dépanner des appareils hybrides de bas niveau joints à Azure Active Directory 
@@ -46,7 +46,7 @@ Cet article vous fournit des conseils sur la façon de résoudre les problèmes 
 - L’inscription / jointure d’appareils initiale est configurée pour effectuer une tentative à la connexion ou au verrouillage / déverrouillage. Un délai de cinq minutes peut être déclenché par une tâche du Planificateur de tâches. 
 - Si le système d’exploitation est Windows 7 SP1 ou Windows Server 2008 R2 SP1, vérifiez que [KB4284842](https://support.microsoft.com/help/4284842) est installé. Cette mise à jour empêche les échecs d’authentification qui se produisent lorsque le client perd l’accès aux clés protégées après avoir modifié le mot de passe.
 
-## <a name="step-1-retrieve-the-registration-status"></a>Étape 1 : Récupérer l’état de l’inscription 
+## <a name="step-1-retrieve-the-registration-status"></a>Étape 1 : Récupérer l’état de l’inscription 
 
 **Pour vérifier l’état de l’inscription :**  
 
@@ -58,7 +58,7 @@ Cette commande affiche une boîte de dialogue qui vous donne des détails sur l�
 
 ![Workplace Join pour Windows](./media/troubleshoot-hybrid-join-windows-legacy/01.png)
 
-## <a name="step-2-evaluate-the-hybrid-azure-ad-join-status"></a>Étape 2 : Évaluer l’état de la jointure Azure AD hybride 
+## <a name="step-2-evaluate-the-hybrid-azure-ad-join-status"></a>Étape 2 : Évaluer l’état de la jointure Azure AD hybride 
 
 Si l’appareil n’a pas été joint par Azure AD Hybride, vous pouvez tenter d’effectuer une jonction Azure AD Hybride en cliquant sur le bouton Joindre. Si cette tentative échoue, les détails de cet échec s’affichent.
 
@@ -91,7 +91,7 @@ Si l’appareil n’a pas été joint par Azure AD Hybride, vous pouvez tenter d
 
     ![Workplace Join pour Windows](./media/troubleshoot-hybrid-join-windows-legacy/05.png)
 
-Vous pouvez aussi trouver ces informations dans le journal des événements, sous : **Applications and Services Log\Microsoft-Workplace Join**
+Vous pouvez également trouver les informations d’état dans le journal des événements sous **Applications and Services Log\Microsoft-Workplace Join**.
   
 **Voici les causes les plus courantes d’échec d’une jointure Azure AD hybride :** 
 

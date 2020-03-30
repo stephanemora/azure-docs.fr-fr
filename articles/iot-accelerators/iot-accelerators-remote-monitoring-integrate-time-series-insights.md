@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 752529454a5b6293d9cbfdf8378b46947aed5a0e
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77564642"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Intégrer Azure Time Series Insights à la Supervision à distance
@@ -24,7 +24,7 @@ L’accélérateur de solution de supervision à distance assure désormais le d
 > [!NOTE]
 > Time Series Insights n’est pas encore disponible dans le cloud Azure Chine. Les nouveaux déploiements d’accélérateur de solution de supervision à distance dans le cloud Azure Chine utilisent Cosmos DB pour l’intégralité du stockage.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour effectuer cette procédure, vous devez avoir déjà déployé une solution de supervision à distance :
 
@@ -60,9 +60,9 @@ az iot hub consumer-group create --hub-name contosorm30526 --name timeseriesinsi
     | Paramètre | Valeur |
     | ------- | ----- |
     | Nom de l’environnement | La capture d’écran suivante utilise le nom **contorosrmtsi**. Choisissez votre propre nom unique quand vous effectuez cette étape. |
-    | Abonnement | Sélectionnez votre abonnement Azure dans la liste déroulante. |
+    | Subscription | Sélectionnez votre abonnement Azure dans la liste déroulante. |
     | Resource group | **Utilisez la valeur existante**. Sélectionnez le nom de votre groupe de ressources existant pour la surveillance à distance. |
-    | Emplacement | Nous utilisons **USA Est**. Si possible, créez votre environnement dans la même région que votre solution de supervision à distance. |
+    | Location | Nous utilisons **USA Est**. Si possible, créez votre environnement dans la même région que votre solution de supervision à distance. |
     | Sku |**S1** |
     | Capacité | **1** |
 
@@ -80,7 +80,7 @@ Créez une source d’événement à connecter à votre hub IoT. Vérifiez que v
 
     ![Afficher les sources d’événements](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/time-series-insights-event-sources.png)
 
-1. Cliquez sur **Add**.
+1. Cliquez sur **Ajouter**.
 
     ![Ajouter une source d’événement](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/time-series-insights-event-sources-add.png)
 
@@ -169,7 +169,7 @@ L’étape suivante consiste à configurer le microservice Azure Stream Analytic
 docker pull azureiotpcs/asa-manager-dotnet:1.0.2
 ```
 
-Java :
+Java :
 
 ```cmd/sh
 docker pull azureiotpcs/asa-manager-java:1.0.2
@@ -185,7 +185,7 @@ Extrayez les dernières modifications apportées au microservice Telemetry en ta
 docker pull azureiotpcs/telemetry-dotnet:1.0.2
 ```
 
-Java :
+Java :
 
 ```cmd/sh
 docker pull azureiotpcs/telemetry-java:1.0.2

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: diberry
 ms.openlocfilehash: ce85c2d264b2b4849a4a36ed757150292fdf39f0
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77622774"
 ---
 # <a name="analyze-your-learning-loop-with-an-offline-evaluation"></a>Analysez votre boucle d’apprentissage avec une évaluation hors connexion
@@ -25,7 +25,7 @@ Les évaluations hors connexion vous permettent de mesurer l’efficacité de Pe
 
 Pour plus d’informations, consultez [Évaluations hors connexion](concepts-offline-evaluation.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Boucle Personalizer configurée
 * La boucle Personalizer doit avoir une quantité de données représentative : pour fournir un ordre de grandeur, nous recommandons au moins 50 000 événements dans ses journaux pour obtenir des résultats d’évaluation significatifs. Si vous le souhaitez, vous pouvez aussi avoir des fichiers de _stratégie d’apprentissage_ préalablement exportés que vous pouvez comparer et tester dans la même évaluation.

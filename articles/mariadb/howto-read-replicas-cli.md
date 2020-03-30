@@ -5,22 +5,22 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: e9353bb5d472cc8dc798e7e09aed2183e48124ed
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: abf80e98881b73bed53c5a939a79bc8b3a9de2db
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74765832"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79530578"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-cli-and-rest-api"></a>Guide pratique pour créer et gérer des réplicas en lecture dans Azure Database for MariaDB à l’aide d’Azure CLI et de l’API REST
 
 Dans cet article, vous allez apprendre à créer et à gérer des réplicas en lecture dans le service Azure Database for MariaDB à l’aide d’Azure CLI et de l’API REST.
 
-## <a name="azure-cli"></a>D’Azure CLI
+## <a name="azure-cli"></a>Azure CLI
 Vous pouvez créer et gérer des réplicas en lecture à l’aide d’Azure CLI.
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables requises
 
 - [Installation d’Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 - Un [serveur Azure Database for MariaDB](quickstart-create-mariadb-server-database-using-azure-portal.md) qui sera utilisé comme serveur maître. 
@@ -38,10 +38,10 @@ az mariadb server replica create --name mydemoreplicaserver --source-server myde
 
 La commande `az mariadb server replica create` requiert les paramètres suivants :
 
-| Paramètre | Exemple de valeur | Description  |
+| Paramètre | Valeur d'exemple | Description  |
 | --- | --- | --- |
 | resource-group |  myResourceGroup |  Groupe de ressources dans lequel le serveur réplica sera créé.  |
-| Nom | mydemoreplicaserver | Nom du nouveau serveur réplica créé. |
+| name | mydemoreplicaserver | Nom du nouveau serveur réplica créé. |
 | source-server | mydemoserver | Nom ou ID du serveur maître à partir duquel le serveur réplica sera créé. |
 
 Pour créer un réplica en lecture entre régions, utilisez le paramètre `--location`. 
@@ -71,7 +71,7 @@ az mariadb server replica list --server-name mydemoserver --resource-group myres
 
 La commande `az mariadb server replica list` requiert les paramètres suivants :
 
-| Paramètre | Exemple de valeur | Description  |
+| Paramètre | Valeur d'exemple | Description  |
 | --- | --- | --- |
 | resource-group |  myResourceGroup |  Groupe de ressources dans lequel le serveur réplica sera créé.  |
 | server-name | mydemoserver | Nom ou ID du serveur maître. |
@@ -89,10 +89,10 @@ az mariadb server replica stop --name mydemoreplicaserver --resource-group myres
 
 La commande `az mariadb server replica stop` requiert les paramètres suivants :
 
-| Paramètre | Exemple de valeur | Description  |
+| Paramètre | Valeur d'exemple | Description  |
 | --- | --- | --- |
 | resource-group |  myResourceGroup |  Groupe de ressources où se trouve le serveur réplica.  |
-| Nom | mydemoreplicaserver | Nom du serveur réplica pour lequel arrêter la réplication. |
+| name | mydemoreplicaserver | Nom du serveur réplica pour lequel arrêter la réplication. |
 
 ### <a name="delete-a-replica-server"></a>Supprimer un serveur réplica
 

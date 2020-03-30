@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: rohink
-ms.openlocfilehash: 709e89b94ba10db954aa5cf3f70aeffb0d239edb
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 4863ffd383cfcd46bad462156e26293d145fd418
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76938616"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294866"
 ---
 # <a name="how-traffic-manager-works"></a>Fonctionnement de Traffic Manager
 
@@ -34,7 +34,7 @@ Quand un client tente de se connecter à un service, il doit d’abord résoudre
 
 ## <a name="traffic-manager-example"></a>Exemple Traffic Manager
 
-Contoso Corp a développé un nouveau portail pour ses partenaires. L’URL de ce portail est https://partners.contoso.com/login.aspx. L’application est hébergée dans trois régions Azure. Pour améliorer la disponibilité et optimiser la performance globale, les clients utilisent Traffic Manager pour router le trafic client vers le point de terminaison disponible le plus proche.
+Contoso Corp a développé un nouveau portail pour ses partenaires. L’URL de ce portail est `https://partners.contoso.com/login.aspx`. L’application est hébergée dans trois régions Azure. Pour améliorer la disponibilité et optimiser la performance globale, les clients utilisent Traffic Manager pour router le trafic client vers le point de terminaison disponible le plus proche.
 
 Pour obtenir cette configuration, ils procèdent comme suit :
 
@@ -49,7 +49,7 @@ Pour obtenir cette configuration, ils procèdent comme suit :
 
 ### <a name="how-clients-connect-using-traffic-manager"></a>Connexion des clients à l’aide de Traffic Manager
 
-Dans la continuation de l’exemple précédent, quand un client demande la page https://partners.contoso.com/login.aspx, il exécute la procédure ci-après pour résoudre le nom DNS et établir une connexion :
+Dans la continuation de l’exemple précédent, quand un client demande la page `https://partners.contoso.com/login.aspx`, il exécute la procédure ci-après pour résoudre le nom DNS et établir une connexion :
 
 ![Établissement de la connexion à l’aide de Traffic Manager][2]
 

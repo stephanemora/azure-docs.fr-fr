@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.openlocfilehash: fb8a1e1a8c29086553500bdad2e4604d1e1ef471
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77198290"
 ---
 # <a name="interaction-types-and-keyboard-shortcuts-in-the-drawing-tools-module"></a>Types d'interaction et raccourcis clavier dans le module Outils de dessin
@@ -23,7 +23,7 @@ Pour tracer des formes, le gestionnaire de dessins prend en charge trois modes d
 
 * `click` - Les coordonnées sont ajoutées au moyen d’un clic (souris ou interaction tactile).
 * `freehand ` - Les coordonnées sont ajoutées au moyen d’un glisser-déplacer sur la carte (souris ou interaction tactile).
-* `hybrid` - Les coordonnées sont ajoutées au moyen d'un clic ou d'un glisser-déplacer (souris ou interaction tactile).
+* `hybrid` - Les coordonnées sont ajoutées au moyen d’un clic ou d’un glisser-déplacer (souris ou interaction tactile).
 
 ## <a name="how-to-draw-shapes"></a>Tracer des formes
 

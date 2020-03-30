@@ -1,19 +1,18 @@
 ---
 title: Publier une offre d’application Azure | Place de marché Azure
 description: Décrit le processus et les étapes de publication d’une offre d’application Azure sur la Place de marché Microsoft Azure.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/25/2019
-ms.author: pabutler
-ms.openlocfilehash: 0005760a16f5109ca3555df5c5c5137facc84c40
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 9f89e31c2d17ef74971d2057ba58e9572e92184c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826161"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280097"
 ---
 # <a name="publish-azure-application-offer"></a>Publier une offre d’application Azure
 
@@ -21,7 +20,7 @@ Une fois que vous avez créé une offre en fournissant les informations correspo
 
 Le schéma ci-après illustre les principales étapes du processus de publication d’une offre.
 
-![Étapes de publication d’offre](./media/offer-publishing-steps.png)
+![Étapes de publication d’une offre](./media/offer-publishing-steps.png)
 
 
 ## <a name="detailed-description-of-publishing-steps"></a>Description détaillée des étapes de publication
@@ -47,7 +46,7 @@ Vous pouvez superviser le processus de publication sous l’onglet **Status** de
 Une fois que vous avez terminé le processus de publication, votre offre est listée dans la [catégorie d’applications Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com/marketplace/apps/).
 
 >[!Note]
->L’abonnement à un réseau de partenaires fournisseurs de solution cloud est maintenant disponible.  Veuillez consulter [Fournisseurs de solutions cloud](../../cloud-solution-providers.md) pour plus d’informations sur le marketing de votre offre via les réseaux de partenaires fournisseurs de solutions cloud Microsoft.
+>L’abonnement à un réseau de partenaires fournisseurs de solution cloud est maintenant disponible.  Consultez [Fournisseurs de solutions cloud](../../cloud-solution-providers.md) pour plus d’informations sur le marketing de votre offre via les réseaux de partenaires fournisseurs de solutions cloud Microsoft.
 
 ## <a name="errors-and-review-feedback"></a>Erreurs et commentaires de révision
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 613c5e9f153f2e3f02ab35d3be16ef3b29d15634
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: dc1812d955590ec0c7372e1311c9d69f93b9957c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78672725"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80128880"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Guide pratique pour gérer le groupe Administrateurs local sur des appareils joints à Azure AD
 
@@ -47,7 +47,7 @@ Pour afficher et mettre à jour l’appartenance du rôle Administrateur génér
 
 Dans le portail Azure, vous pouvez gérer le rôle d’administrateur d’appareil dans la page **Appareils**. Pour ouvrir la page **Appareils** :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur général ou administrateur d’appareil.
+1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur général.
 1. Recherchez et sélectionnez *Azure Active Directory*.
 1. Dans la section **Gérer**, cliquez sur **Appareils**.
 1. Dans la page **Appareils**, cliquez sur **Paramètres de l’appareil**.

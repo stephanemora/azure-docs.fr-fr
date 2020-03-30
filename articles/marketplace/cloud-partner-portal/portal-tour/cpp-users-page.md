@@ -1,19 +1,18 @@
 ---
 title: Page Utilisateurs pour la Place de marché Azure
 description: Article CPP déprécié, pointait vers l’article sur PC ; auparavant « Vue d’ensemble de la page Utilisateurs sur le Portail Cloud Partner pour la Place de marché Azure ».
-services: Azure, Marketplace, Cloud Partner Portal, Partner Center
-author: ChJenk
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/27/2019
-ms.author: v-chjen
-ms.openlocfilehash: 8a83b5a9781c59cd4eb7b566b6f37ba044d1e6a4
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.author: dsindona
+ms.openlocfilehash: 2c55c3bd718370a35f46f172d29d60afe632d7cf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74665710"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278278"
 ---
 # <a name="users-page"></a>Page Utilisateurs
 

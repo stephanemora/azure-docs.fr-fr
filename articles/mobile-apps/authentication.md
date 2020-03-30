@@ -1,18 +1,18 @@
 ---
 title: Ajouter une authentification à vos applications mobiles avec Visual Studio App Center et les services Azure
 description: Découvrez les services comme Visual Studio App Center qui aident à configurer l’authentification des utilisateurs et permettent aux applications mobiles de s’authentifier avec des comptes de réseaux sociaux, Azure Active Directory et une authentification personnalisée.
-author: elamalani
+author: codemillmatt
 ms.assetid: 34a8a070-2222-4faf-9090-ccff02097224
 ms.service: vs-appcenter
 ms.topic: article
-ms.date: 10/22/2019
-ms.author: emalani
-ms.openlocfilehash: 261c12e63f8f348e1673dbc46c89c614caf3283b
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.date: 03/24/2020
+ms.author: masoucou
+ms.openlocfilehash: 820005bca008ea3bdb59659c815da3ec36beb0d4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78296352"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80241054"
 ---
 # <a name="add-authentication-and-manage-user-identities-in-your-mobile-apps"></a>Ajouter une authentification et gérer les identités des utilisateurs dans vos applications mobiles
 

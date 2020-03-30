@@ -1,19 +1,18 @@
 ---
 title: Modèle de déploiement Azure Key Vault | Place de marché Azure
 description: Répertorie le modèle Azure Resource Manager nécessaire pour déployer une nouvelle instance d’Azure Key Vault.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/29/2018
-ms.author: pabutler
-ms.openlocfilehash: befed70b6858ebc8aaab7ebe200bb8082a430bab
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 63f49946b14b003348758a5ae7ebadd7a4acf383
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824045"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80277666"
 ---
 # <a name="key-vault-deployment-template"></a>Modèle de déploiement Key Vault
 

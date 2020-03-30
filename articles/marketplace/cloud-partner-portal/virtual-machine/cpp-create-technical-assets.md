@@ -1,19 +1,18 @@
 ---
 title: Créer des ressources techniques pour une offre de machine virtuelle de la Place de marché Microsoft Azure
 description: Explique comment créer les ressources techniques d’une offre de machine virtuelle dans la Place de marché Microsoft Azure.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: pbutlerm
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/20/2018
-ms.author: pabutler
-ms.openlocfilehash: 45d0ff5b7b3fea1566b13b61bd01cc17da61e4b3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 57f56a341cfc3db6a5f0664503809e6ab6cf3d3d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824506"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278022"
 ---
 # <a name="create-technical-assets-for-a-virtual-machine-offer"></a>Créer des ressources techniques pour une offre de machine virtuelle
 
@@ -47,7 +46,7 @@ Concevoir, créer et tester ces ressources demande du temps et des connaissances
 
 Choisissez un ou plusieurs des environnements de scripts suivants pour faciliter la gestion des disques durs virtuels et des machines virtuelles :
 -   [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
--   [Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure)
+-   [Azure CLI](https://docs.microsoft.com/cli/azure)
 
 En outre, nous vous recommandons d’ajouter les outils suivants à votre environnement de développement : 
 

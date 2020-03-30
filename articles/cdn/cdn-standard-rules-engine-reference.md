@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 11/01/2019
 ms.author: magattus
 ms.openlocfilehash: aa401150ee7a0f02e809ad702b8247e18081c8a3
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74171559"
 ---
 # <a name="standard-rules-engine-reference-for-azure-cdn"></a>Informations de référence sur le moteur de règles standard pour Azure CDN
 
-Dans le [moteur de règles standard](cdn-standard-rules-engine.md) pour Azure Content Delivery Network (Azure CDN), une règle se compose d’une ou de plusieurs conditions de correspondance et d’une action. Cet article fournit les descriptions détaillées des conditions de correspondance et fonctionnalités disponibles dans le moteur de règles standard pour Azure CDN.
+Dans le [moteur de règles Standard](cdn-standard-rules-engine.md) pour Azure Content Delivery Network (Azure CDN), une règle se compose d’une ou de plusieurs conditions de correspondance et d’une action. Cet article fournit les descriptions détaillées des conditions de correspondance et fonctionnalités disponibles dans le moteur de règles standard pour Azure CDN.
 
 Le moteur de règles est conçu pour être l’autorité finale sur la façon dont certains types de demandes sont traités par Standard Azure CDN.
 
@@ -64,7 +64,7 @@ guillemets simples | Un guillemet simple n’a pas de signification particulièr
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Conditions de correspondance du moteur de règles standard](cdn-standard-rules-engine-match-conditions.md)
-- [Actions du moteur de règles standard](cdn-standard-rules-engine-actions.md)
-- [Appliquer HTTPS en utilisant le moteur de règles standard](cdn-standard-rules-engine.md)
+- [Conditions de correspondance du moteur de règles Standard](cdn-standard-rules-engine-match-conditions.md)
+- [Actions du moteur de règles Standard](cdn-standard-rules-engine-actions.md)
+- [Appliquer HTTPS en utilisant le moteur de règles Standard](cdn-standard-rules-engine.md)
 - [Vue d’ensemble d’Azure CDN](cdn-overview.md)

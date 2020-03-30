@@ -10,17 +10,17 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 12/19/2018
-ms.openlocfilehash: 8272867f5b6144b92dbffcf96cc539eb82f75801
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.date: 03/10/2020
+ms.openlocfilehash: bb62b087451140261aee7aaa2fab0de14ea36283
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587349"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79209460"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Utiliser le journal de diagnostic Intelligent Insights des performances d’Azure SQL Database
 
-Cette page fournit des informations sur l’utilisation du journal de diagnostic des performances d’Azure SQL Database généré par [Intelligent Insights](sql-database-intelligent-insights.md), son format et les données qu’il contient pour vos besoins de développement. Vous pouvez envoyer ce journal de diagnostic aux [journaux Azure Monitor](../azure-monitor/insights/azure-sql.md), à [Azure Event Hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md), au [Stockage Azure](sql-database-metrics-diag-logging.md#stream-diagnostic-telemetry-into-azure-storage) ou à une solution tierce pour des fonctionnalités d’alertes et de rapports DevOps personnalisées.
+Cette page fournit des informations sur l’utilisation du journal de diagnostic des performances d’Azure SQL Database généré par [Intelligent Insights](sql-database-intelligent-insights.md), son format et les données qu’il contient pour vos besoins de développement. Vous pouvez envoyer ce journal de diagnostic aux [journaux Azure Monitor](../azure-monitor/insights/azure-sql.md), à [Azure Event Hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md), au [Stockage Azure](sql-database-metrics-diag-logging.md#stream-into-azure-storage) ou à une solution tierce pour des fonctionnalités d’alertes et de rapports DevOps personnalisées.
 
 ## <a name="log-header"></a>En-tête du journal
 
@@ -47,8 +47,8 @@ La propriété de pool élastique (elasticPoolName_s) indique à quel pool élas
 ```json
 "intervalStartTime_t": "2017-9-25 11:00", // start of the issue reported time stamp
 "intervalEndTme_t":"2017-9-25 12:00", // end of the issue reported time stamp
-"elasticPoolName_s" : "", // resource elastic pool (if applicable) 
-"databaseName_s" : "db_name",  // database name
+"elasticPoolName_s" : "", // resource elastic pool (if applicable)
+"databaseName_s" : "db_name", // database name
 "issueId_d" : 1525, // unique ID of the issue detected
 "status_s" : "Active" // status of the issue – possible values: "Active", "Verifying", and "Complete"
 ```
@@ -64,7 +64,7 @@ Les problèmes de performance détectés sont signalés avec la structure de pro
 "impact" : 1 to 3, // impact of the issue detected, possible values 1-3 (1 low, 2 moderate, 3 high impact)
 "category" : "Detectable performance pattern", // performance issue detected, see the table
 "details": <Details outputted> // details of an issue (see the table)
-}] 
+}]
 ```
 
 Les modèles de performances détectables et les détails générés dans le journal de diagnostic figurent dans le tableau suivant.
@@ -105,7 +105,7 @@ Dans l’exemple de journal suivant, la requête dont le code de hachage est 0x9
 
 ```json
 "impact" : [{
-"entity" : { 
+"entity" : {
 "Type" : "Query", // type of entity - query
 "Value" : "query hash value", // for example "0x9102EXZ4" query hash value },
 "Metric" : "DurationIncreaseSeconds", // measured metric and the measurement unit (in this case seconds)
@@ -137,10 +137,8 @@ La dernière partie du journal de diagnostic des performances Intelligent Insigh
 Vous pouvez utiliser le journal de diagnostic des performances Intelligent Insights avec des [journaux Azure Monitor]( https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql) ou une solution tierce pour des fonctionnalités d’alertes et de rapports DevOps personnalisées.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 - Découvrez les concepts [Intelligent Insights](sql-database-intelligent-insights.md).
 - Découvrez comment [résoudre les problèmes de performances liés à Azure SQL Database avec Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
 - Découvrez comment [surveiller Azure SQL Database avec Azure SQL Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql).
 - Découvrez comment [collecter et consommer les données des journaux de vos ressources Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
-
-
-

@@ -7,15 +7,15 @@ ms.author: harelbr
 ms.date: 03/13/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: f73e5bbdd8585b3367e529a8fa00630042e56cac
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671781"
 ---
 # <a name="smart-detection-e-mail-notification-change"></a>Modification des notifications par e-mail de la détection intelligente
 
-Sur la base des commentaires des clients, nous modifions, le 1er avril 2019, les rôles par défaut qui reçoivent les notifications par e-mail de la détection intelligente.
+Sur la base des commentaires des clients, nous modifions, le 1{1}er{2} avril 2019, les rôles par défaut qui reçoivent les notifications par e-mail de la détection intelligente.
 
 ## <a name="what-is-changing"></a>Qu’est-ce qui change ?
 

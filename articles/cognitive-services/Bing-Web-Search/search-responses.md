@@ -12,10 +12,10 @@ ms.date: 06/25/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: 95ebfaef863a1fa05e8a5d3b46fca9659c61f6b7
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74110620"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Types et structure de la réponse de l’API Recherche Web Bing  
@@ -296,7 +296,7 @@ Une expression mathématique peut contenir les symboles suivants :
 |-|Soustraction|
 |/|Division|
 |*|Multiplication|
-|^|Puissance|
+|^|Power|
 |!|Factorielle|
 |.|Decimal|
 |()|Calcul prioritaire|
@@ -447,7 +447,7 @@ Toutefois, lorsque vous appelez l’API Recherche Web Bing depuis JavaScript, le
 
 Pour accéder aux en-têtes, vous pouvez effectuer la requête d’API Recherche Web Bing via un proxy CORS. La réponse émanant d’un proxy de ce type a un en-tête `Access-Control-Expose-Headers` qui met les en-têtes de réponse sur liste verte et les rend disponibles pour JavaScript.
 
-Il est facile d’installer un proxy CORS pour autoriser [l’application du didacticiel](tutorial-bing-web-search-single-page-app.md) à accéder aux en-têtes clients facultatifs. Tout d’abord, [installez Node.js](https://nodejs.org/en/download/) si ce n’est pas déjà fait. Entrez ensuite la commande suivante à l’invite de commandes.
+Il est facile d’installer un proxy CORS pour autoriser [l’application du didacticiel](tutorial-bing-web-search-single-page-app.md) à accéder aux en-têtes clients facultatifs. Tout d’abord, [installez Node.js](https://nodejs.org/en/download/) si ce n’est pas déjà fait. Entrez alors la commande suivante dans l’invite de commandes.
 
     npm install -g cors-proxy-server
 
@@ -455,11 +455,11 @@ Ensuite, remplacez le point de terminaison de l’API Recherche Web Bing dans le
 
     http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
 
-Enfin, démarrez le proxy CORS avec la commande suivante :
+Enfin, lancez le proxy CORS avec la commande suivante :
 
     cors-proxy-server
 
-Laissez la fenêtre de commande ouverte pendant que vous utilisez l’application du tutoriel ; si vous fermez la fenêtre, le proxy s’arrête. Dans la section des en-têtes HTTP (qui peut être développée) sous les résultats de recherche, vous pouvez maintenant voir l’en-tête `X-MSEdge-ClientID` (entre autres) et vérifier qu’il est identique pour toutes les requêtes.
+Laissez la fenêtre de commande ouverte pendant que vous utilisez l’application du tutoriel ; si vous fermez la fenêtre, le proxy s’arrête. Dans la section des en-têtes HTTP (qui peut être développée) sous les résultats de la recherche, vous pouvez maintenant voir l’en-tête `X-MSEdge-ClientID` (entre autres) et vérifier qu’il est identique pour toutes les requêtes.
 
 ## <a name="response-headers-in-production"></a>En-têtes de réponse en production
 

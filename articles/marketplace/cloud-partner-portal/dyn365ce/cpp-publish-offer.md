@@ -1,19 +1,18 @@
 ---
 title: Publier une offre d’application Dynamics 365 for Customer Engagement | Place de marché Azure
 description: 'Dépréciation de l’article Portail Cloud Partner, ajout d’un lien à l’article Espace partenaires ; auparavant : « Décrit le processus et les étapes de publication d’une offre d’application Dynamics 365 for Customer Engagement sur la Place de marché AppSource. »'
-services: Azure, AppSource, Marketplace, Cloud Partner Portal, Dynamics 365 for Customer Engagement
-author: ChJenk
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/28/2018
-ms.author: v-chjen
-ms.openlocfilehash: cf2961f5def6933b46cdca099a176d952fb940b2
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: aa66d8c4d7d70cda5a2c4e8eebfe54e360844150
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824714"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278329"
 ---
 # <a name="publish-a-dynamics-365-for-customer-engagement-offer"></a>Publier une offre Dynamics 365 for Customer Engagement
 

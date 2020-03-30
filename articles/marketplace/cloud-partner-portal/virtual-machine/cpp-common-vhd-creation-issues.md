@@ -1,20 +1,19 @@
 ---
 title: Problèmes courants lors de la création d’un disque dur virtuel (FAQ) pour la Place de marché Azure
 description: Forum aux questions sur la création d’un disque dur virtuel (VHD) et les problèmes associés.
-services: Azure Marketplace
-author: MaggiePucciEvans
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/02/2018
-ms.author: evansma
+ms.author: dsindona
 ms.reviewer: v-divte; v-miclar
-ms.openlocfilehash: 152a2f6fda081b2612197cc4848207b336adf8dc
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 192fea4101fb972ec66bb5f21a2a83f9903f0855
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934256"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278107"
 ---
 # <a name="common-issues-during-vhd-creation-faq"></a>Problèmes courants lors de la création d’un disque dur virtuel (FAQ)
 
@@ -45,7 +44,7 @@ Les articles suivants expliquent comment réinitialiser le service Bureau à dis
 
 ## <a name="how-do-you-generate-new-ssh-certificates"></a>Comment générer de nouveaux certificats SSH ?
 
-La génération de certificats est expliquée dans la section [Create technical assets for a VM offer](./cpp-create-technical-assets.md) (Créer des ressources techniques pour une offre de machine virtuelle) de l’article [Get shared access signature URI for your VM image](./cpp-get-sas-uri.md) (Obtention d’un URI de signature d’accès partagé pour votre image de machine virtuelle).
+La génération de certificats est expliquée dans la section [Create technical assets for a VM offer](./cpp-get-sas-uri.md) (Créer des ressources techniques pour une offre de machine virtuelle) de l’article [Get shared access signature URI for your VM image](./cpp-create-technical-assets.md) (Obtention d’un URI de signature d’accès partagé pour votre image de machine virtuelle).
 
 
 ## <a name="how-do-you-configure-a-virtual-private-network-vpn-to-work-with-my-vms"></a>Comment configurer un réseau privé virtuel (VPN) pour travailler avec mes machines virtuelles ?
@@ -68,7 +67,7 @@ Oui, si elles sont hébergées sur Azure.  Azure attribue un identificateur uniq
 
 ## <a name="in-a-vm-how-do-you-manage-the-custom-script-extension-in-the-startup-task"></a>Dans une machine virtuelle, comment gérer l’extension de script personnalisé lors de la tâche de démarrage ?
 
-L’article suivant explique en détail l’utilisation de l’extension de script personnalisé à l’aide du module Azure PowerShell, des modèles Azure Resource Manager, et détaille également les étapes de résolution de problèmes sur les systèmes Windows : [Extension de script personnalisé pour Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/)
+L’article suivant explique en détail l’utilisation de l’extension de script personnalisé à l’aide du module Azure PowerShell, des modèles Azure Resource Manager, et détaille également les étapes de résolution de problèmes sur les systèmes Windows : [Extension de script personnalisé pour Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/)
 
 
 ## <a name="are-32-bit-applications-or-services-supported-in-the-azure-marketplace"></a>Les services ou les applications 32 bits sont-ils pris en charge dans Place de marché Microsoft Azure ?

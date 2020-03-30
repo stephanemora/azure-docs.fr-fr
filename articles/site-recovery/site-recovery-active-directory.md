@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: 8c1f85217db12b60cdcd8ea0bdb65792b8d02648
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084584"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79229109"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Configurer la reprise d’activité pour Active Directory et DNS
 
@@ -22,7 +22,7 @@ Vous pouvez utiliser [Site Recovery](site-recovery-overview.md) pour créer une 
 
 Cet article explique comment créer une solution de récupération d’urgence pour Active Directory. Il inclut les conditions préalables et les instructions de basculement. Avant de commencer, vous devez vous familiariser avec Active Directory et Site Recovery.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Si vous procédez à une récupération vers Azure, [préparez les ressources Azure](tutorial-prepare-azure.md), y compris un abonnement, un réseau virtuel Azure, un compte de stockage et un coffre Recovery Services.
 * Vérifiez les [exigences de prise en charge](site-recovery-support-matrix-to-azure.md) pour tous les composants.
@@ -163,7 +163,7 @@ Si les conditions ci-dessus sont remplies, il est probable que le contrôleur de
 1. Effectuez une restauration faisant autorité du contrôleur de domaine. Gardez à l’esprit les informations suivantes :
     * Bien que nous ne recommandions pas une [réplication FRS](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs/), si vous utilisez une telle réplication, procédez comme pour une restauration faisant autorité. Le processus est décrit dans [Utilisation de la clé de Registre BurFlags pour réinitialiser le service de réplication de fichiers](https://support.microsoft.com/kb/290762).
 
-        Pour plus d’informations sur BurFlags, consultez le billet de blog concernant [D2 et D4](https://blogs.technet.microsoft.com/janelewis/2006/09/18/d2-and-d4-what-is-it-for/).
+        Pour plus d’informations sur BurFlags, voir le billet de blog concernant [D2 et D4](https://blogs.technet.microsoft.com/janelewis/2006/09/18/d2-and-d4-what-is-it-for/).
     * Si vous utilisez une réplication DFSR, procédez comme pour une restauration faisant autorité. Le processus est décrit dans [Comment faire pour forcer une synchronisation faisant autorité et ne faisant pas autorité pour le dossier sysvol de réplication DFSR (comme « D4/D2 » pour FRS)](https://support.microsoft.com/kb/2218556).
 
         Vous pouvez également utiliser les fonctions PowerShell. Pour plus d’informations, voir [Fonctions PowerShell de restauration faisant autorité/ne faisant pas autorisé pour DFSR-SYSVOL](https://blogs.technet.microsoft.com/thbouche/2013/08/28/dfsr-sysvol-authoritative-non-authoritative-restore-powershell-functions/).
@@ -172,7 +172,7 @@ Si les conditions ci-dessus sont remplies, il est probable que le contrôleur de
 
     `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NTDS\Parameters\Repl Perform Initial Synchronizations`
 
-    Pour plus d’informations, consultez [Résoudre les problèmes liés à l’ID d’événement DNS 4013 : le serveur DNS n’a pas pu charger les zones DNS intégrées d’Active Directory](https://support.microsoft.com/kb/2001093).
+    Pour plus d’informations, voir [Résoudre les problèmes liés à l’ID d’événement DNS 4013 : le serveur DNS n’a pas pu charger les zones DNS intégrées d’Active Directory](https://support.microsoft.com/kb/2001093).
 
 3. Désactivez l’exigence qu’un serveur de catalogue global soit disponible pour valider la connexion de l’utilisateur. Pour ce faire, dans le contrôleur de domaine local, définissez la clé de Registre suivante sur **1**. Si la valeur DWORD n’existe pas, vous pouvez la créer sous le nœud **Lsa**.
 

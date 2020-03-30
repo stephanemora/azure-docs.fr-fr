@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/23/2018
 tags: connectors
 ms.openlocfilehash: 32b482607827ee4420e39b1936586d64f9ea3139
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77651379"
 ---
 # <a name="access-and-manage-ibm-db2-resources-by-using-azure-logic-apps"></a>Accéder à des ressources IBM DB2 et les gérer à l’aide d’Azure Logic Apps
@@ -47,7 +47,7 @@ Le connecteur IBM DB2 prend en charge les opérations de base de données ci-apr
 | suppression d’une ligne à l’aide de l’instruction DELETE. | Supprimer la ligne |
 |||
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
 
@@ -84,7 +84,7 @@ Pour configurer votre connexion, indiquez les détails de connexion ci-après qu
 |----------|----------|-------------|
 | **Se connecter via une passerelle locale** | Non | Ne concerne que les connexions locales. |
 | **Nom de connexion** | Oui | Le nom de votre connexion, par exemple, « MyLogicApp-DB2-connection » |
-| **Serveur** | Oui | L’adresse ou alias (suivi d’un caractère deux-points et du numéro de port) de votre serveur DB2, par exemple, « myDB2server.cloudapp.net:50000 » <p><p>**Remarque** : Cette valeur est une chaîne qui représente une adresse TCP/IP ou un alias, au format IPv4 ou IPv6, suivi de deux-points et d'un numéro de port TCP/IP. |
+| **Serveur** | Oui | L’adresse ou alias (suivi d’un caractère deux-points et du numéro de port) de votre serveur DB2, par exemple, « myDB2server.cloudapp.net:50000 » <p><p>**Remarque** : Cette valeur est une chaîne qui représente une adresse ou un alias TCP/IP, au format IPv4 ou IPv6, suivis d’un caractère deux-points et d’un numéro de port TCP/IP. |
 | **Sauvegarde de la base de données** | Oui | Nom de votre base de données <p><p>**Remarque** : Cette valeur est une chaîne qui représente un nom de base de données relationnelle DRDA (RDBNAM) : <p>- DB2 pour z/OS accepte une chaîne de 16 octets où la propriété de base de données correspond à un emplacement « IBM DB2 pour z/OS ». <br>- DB2 pour i accepte une chaîne de 18 octets où la propriété de base de données correspond à une base de données relationnelle « IBM DB2 pour i ». <br>- DB2 pour LUW accepte une chaîne de 8 octets. |
 | **Nom d’utilisateur** | Oui | Votre nom d’utilisateur pour la base de données <p><p>**Remarque** : Cette valeur est une chaîne dont la longueur est basée sur la base de données spécifique : <p><p>- DB2 pour z/OS accepte une chaîne de 8 octets. <br>- DB2 pour i accepte une chaîne de 10 octets. <br>- DB2 pour Linux ou UNIX accepte une chaîne de 8 octets. <br>- DB2 pour Windows accepte une chaîne de 30 octets. |
 | **Mot de passe** | Oui | Votre mot de passe pour la base de données |
@@ -104,12 +104,12 @@ Avant de créer votre connexion, vous devez disposer de votre passerelle de donn
 |----------|----------|-------------|
 | **Se connecter via une passerelle locale** | Oui | S’applique quand vous souhaitez une connexion locale et affiche les propriétés de cette dernière. |
 | **Nom de connexion** | Oui | Le nom de votre connexion, par exemple, « MyLogicApp-DB2-connection » | 
-| **Serveur** | Oui | L’adresse ou alias (suivi d’un caractère deux-points et du numéro de port) de votre serveur DB2, par exemple, « myDB2server:50000 » <p><p>**Remarque** : Cette valeur est une chaîne qui représente une adresse TCP/IP ou un alias, au format IPv4 ou IPv6, suivi de deux-points et d'un numéro de port TCP/IP. |
+| **Serveur** | Oui | L’adresse ou alias (suivi d’un caractère deux-points et du numéro de port) de votre serveur DB2, par exemple, « myDB2server:50000 » <p><p>**Remarque** : Cette valeur est une chaîne qui représente une adresse ou un alias TCP/IP, au format IPv4 ou IPv6, suivis d’un caractère deux-points et d’un numéro de port TCP/IP. |
 | **Sauvegarde de la base de données** | Oui | Nom de votre base de données <p><p>**Remarque** : Cette valeur est une chaîne qui représente un nom de base de données relationnelle DRDA (RDBNAM) : <p>- DB2 pour z/OS accepte une chaîne de 16 octets où la propriété de base de données correspond à un emplacement « IBM DB2 pour z/OS ». <br>- DB2 pour i accepte une chaîne de 18 octets où la propriété de base de données correspond à une base de données relationnelle « IBM DB2 pour i ». <br>- DB2 pour LUW accepte une chaîne de 8 octets. |
 | **Authentification** | Oui | Type d’authentification pour votre connexion, par exemple, « De base » <p><p>**Remarque** : Sélectionnez cette valeur dans la liste, qui comprend De base ou Windows (Kerberos). |
 | **Nom d’utilisateur** | Oui | Votre nom d’utilisateur pour la base de données <p><p>**Remarque** : Cette valeur est une chaîne dont la longueur est basée sur la base de données spécifique : <p><p>- DB2 pour z/OS accepte une chaîne de 8 octets. <br>- DB2 pour i accepte une chaîne de 10 octets. <br>- DB2 pour Linux ou UNIX accepte une chaîne de 8 octets. <br>- DB2 pour Windows accepte une chaîne de 30 octets. |
 | **Mot de passe** | Oui | Votre mot de passe pour la base de données |
-| **Passerelle** | Oui | Nom de votre passerelle de données locale installée <p><p>**Remarque** : Sélectionnez cette valeur dans la liste, qui comprend toutes les passerelles de données installées dans votre abonnement Azure et votre groupe de ressources. |
+| **Passerelle** | Oui | Nom de votre passerelle de données locale installée <p><p>**Remarque** : Sélectionnez cette valeur dans la liste, qui inclut toutes les passerelles de données installées dans vos groupe de ressources et abonnement Azure. |
 ||||
 
 Par exemple :

@@ -7,11 +7,11 @@ ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
 ms.openlocfilehash: 74ca984232bef979062221a451d0ee10a6965bc6
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77492318"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79235129"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Déclencheur Stockage File d’attente Azure pour Azure Functions
 
@@ -260,7 +260,7 @@ Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), util
 
 Le compte de stockage à utiliser est déterminé dans l’ordre suivant :
 
-* La propriété `Connection` de l’attribut `QueueTrigger`.
+* La propriété `QueueTrigger` de l’attribut `Connection`.
 * L’attribut `StorageAccount` appliqué au même paramètre que l’attribut `QueueTrigger`.
 * L’attribut `StorageAccount` appliqué à la fonction.
 * L’attribut `StorageAccount` appliqué à la classe.

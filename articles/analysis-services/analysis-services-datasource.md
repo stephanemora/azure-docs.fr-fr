@@ -8,10 +8,10 @@ ms.date: 02/20/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: f65d8fa2c2e522c718c637e32defc4c56fca8364
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77461655"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Sources de données prises en charge dans Azure Analysis Services

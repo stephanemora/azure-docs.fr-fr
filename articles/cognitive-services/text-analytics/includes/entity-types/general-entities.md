@@ -9,15 +9,15 @@ ms.topic: include
 ms.date: 02/06/2020
 ms.author: aahi
 ms.openlocfilehash: ba516a548fc8385ca86526a7f2dd082b27e53208
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77211384"
 ---
 ## <a name="general-entity-types"></a>Types d’entités générales
 
-### <a name="person"></a>Personne
+### <a name="person"></a>Person
 
 Reconnaître les noms de personnes dans le texte.
 
@@ -38,7 +38,7 @@ Langages :
 |--------------|--------------------------------------------------------------------------------------------|----------------------------------------|
 | N/A          | Types de travaux, par exemple `civil engineer`, `salesperson`, `chef`, `librarian`, `nursing aide` | `2020-02-01`                           |
 
-### <a name="location"></a>Emplacement
+### <a name="location"></a>Location
 
 Points de repère, structures et caractéristiques géographiques et entités géopolitiques naturels et créés par l’homme.
 
@@ -51,7 +51,7 @@ Langages :
 | N/A                       | emplacements, par exemple `Atlantic Ocean`, `library`, `Eiffel Tower`, `Statue of Liberty`  | `2019-10-01`                           |
 | Entité géopolitique (GPE) – En anglais uniquement| Villes, pays, États, par exemple, `Seattle`, `Pennsylvania`, `South Africa`, `Tokyo` | `2020-02-01`                           |
 
-### <a name="organization"></a>Organisation  
+### <a name="organization"></a>Organization  
 
 Organisations, entreprises, agences et autres groupes de personnes reconnus. Par exemple : sociétés, groupes politiques, bandes musicales, clubs de sport, organismes gouvernementaux et organisations publiques. Les nationalités et les religions ne sont pas incluses dans ce type d’entité. 
 
@@ -112,9 +112,9 @@ Langages :
 |--------------|------------------------------------------------|----------------------------------------|
 | N/A          | Numéros de téléphone américains, par exemple `(312) 555-0176` | `2019-10-01`                           |
 
-### <a name="email"></a>E-mail
+### <a name="email"></a>Email
 
-Adresse e-mail. 
+Adresse de messagerie. 
 
 Langages :
 
@@ -126,7 +126,7 @@ Langages :
 
 ### <a name="url"></a>URL
 
-URL Internet.
+URL Internet
 
 Langages :
 

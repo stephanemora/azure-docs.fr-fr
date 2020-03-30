@@ -1,19 +1,18 @@
 ---
 title: Conditions préalables à une offre Azure Containers | Place de marché Azure
 description: Conditions préalables à la publication d’un conteneur Azure.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.author: pabutler
-ms.openlocfilehash: 2c4e5520a2055fafee586fc369c21acfa36037c6
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: db2300ae827677f8902e420b136acec3da694c8d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823133"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280012"
 ---
 # <a name="container-publishing-prerequisites"></a>Conditions préalables à la publication des conteneurs
 
@@ -29,7 +28,7 @@ Pour publier une nouvelle image de conteneur, vous devez respecter les condition
 - Avoir vos métadonnées de conteneur prêtes à être utilisées. Par exemple, la liste non exhaustive suivante :
   - Un titre
   - Une description (au format HTML)
-  - Une image de logo (au format PNG), dans les tailles d’image fixes suivantes : 40x40 px, 90x90 px, 115x 115 px et 255x115 px.
+  - Une image de logo (au format PNG) avec les tailles d’images fixes suivantes : 40 x 40 px, 90 x 90 px, 115 x 115 px et 255 x 115 px.
 - Des *conditions d’utilisation* et une *politique de confidentialité*
 - Documentation de la solution Conteneur
 - Contacts du support

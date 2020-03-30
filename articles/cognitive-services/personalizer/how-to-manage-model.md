@@ -4,10 +4,10 @@ description: Les paramètres d’apprentissage et de modèle d’apprentissage a
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.openlocfilehash: c544d058019c8d507f65dc6bfd854376b364abd1
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77624207"
 ---
 # <a name="how-to-manage-model-and-learning-settings"></a>Comment gérer les paramètres de modèle et d’apprentissage

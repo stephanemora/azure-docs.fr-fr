@@ -1,6 +1,6 @@
 ---
-title: Provisionner des nœuds pour Azure VMware Solutions (AVS) - Azure
-description: Découvrez comment ajouter des nœuds à votre déploiement VMWare avec AVS
+title: Provisionner des nœuds pour VMware Solution by CloudSimple - Azure
+description: Découvrez comment ajouter des nœuds à votre déploiement VMWare avec CloudSimple
 author: dikamath
 ms.author: dikamath
 ms.date: 08/14/2019
@@ -8,34 +8,34 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 94ca681153f1e3ccd9ff628b41a9d0e547be5802
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: eb033425d18b472c9da1a2d6a1bb6f166702905e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77024804"
 ---
-# <a name="provision-nodes-for-azure-vmware-solutions-avs"></a>Provisionner des nœuds pour Azure VMware Solutions (AVS)
+# <a name="provision-nodes-for-azure-vmware-solution-by-cloudsimple"></a>Provisionner des nœuds pour Azure VMware Solution by CloudSimple
 
-Approvisionnez des nœuds sur le portail Azure. Vous pouvez ensuite configurer la capacité avec un paiement à l’utilisation pour votre environnement de cloud privé AVS.
+Approvisionnez des nœuds sur le portail Azure. Vous pouvez ensuite configurer la capacité avec un paiement à l’utilisation pour votre environnement de cloud privé CloudSimple.
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
 Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="add-a-node-to-your-avs-private-cloud"></a>Ajouter un nœud à votre cloud privé AVS
+## <a name="add-a-node-to-your-cloudsimple-private-cloud"></a>Ajouter un nœud à votre cloud privé CloudSimple
 
 1. Sélectionnez **Tous les services**.
-2. Recherchez **Nœuds AVS**.
+2. Recherchez **Nœuds CloudSimple**.
 
-   ![Rechercher dans les nœuds AVS](media/create-cloudsimple-node-search.png)
+   ![Rechercher des nœuds CloudSimple](media/create-cloudsimple-node-search.png)
 
-3. Sélectionnez **Nœuds AVS**.
+3. Sélectionnez **Nœuds CloudSimple**.
 4. Cliquez sur **Ajouter** pour créer les nœuds.
 
-    ![Ajouter des nœuds AVS](media/create-cloudsimple-node-add.png)
+    ![Ajouter des nœuds CloudSimple](media/create-cloudsimple-node-add.png)
 
-5. Sélectionnez l’abonnement dans lequel vous souhaitez provisionner des nœuds AVS.
+5. Sélectionnez l’abonnement dans lequel vous souhaitez approvisionner des nœuds CloudSimple.
 6. Sélectionnez le groupe de ressources pour vos nœuds. Pour ajouter un nouveau groupe de ressources, cliquez sur **Créer**.
 7. Entrez le préfixe pour identifier les nœuds.
 8. Sélectionnez l’emplacement des ressources de nœud.
@@ -48,4 +48,4 @@ Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.az
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Créer un cloud privé AVS](create-private-cloud.md)
+* [Créer un cloud privé](create-private-cloud.md)

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: curtand
 ms.openlocfilehash: ee868ded0dc3a46f2ec20d0141aa2576cbf71f45
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77062334"
 ---
 # <a name="set-up-a-security-key-as-your-verification-method"></a>Configurer la clé de sécurité comme méthode de vérification
@@ -25,7 +25,7 @@ Vous pouvez utiliser des clés de sécurité comme méthode de connexion avec mo
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-key.md)]
 
 >[!Note]
-> Si vous ne voyez pas l’option de clé de sécurité, il est possible que votre organisation ne vous autorise pas à l’utiliser à des fins de vérification. Dans ce cas, vous devez choisir une autre méthode ou contacter le support technique de votre organisation pour obtenir de l’aide.
+> Si vous ne voyez pas l’option de clé de sécurité, il est possible que votre organisation ne vous autorise pas à l’utiliser à des fins de vérification. Dans ce cas, vous devez choisir une autre méthode ou contacter le support technique de votre organisation pour obtenir de l'aide.
 
 ## <a name="security-verification-versus-password-reset-authentication"></a>Vérification de la sécurité ou authentification avec réinitialisation du mot de passe
 

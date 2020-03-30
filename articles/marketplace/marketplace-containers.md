@@ -2,19 +2,18 @@
 title: Guide de publication d’offres de conteneurs pour la Place de marché Azure
 description: Cet article décrit les conditions requises pour publier des conteneurs sur la place de marché
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: ellacroi
-manager: nunoc
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/09/2018
-ms.author: ellacroi
-ms.openlocfilehash: ffdc6b22209c1d334ac7b75c7079e755a7405154
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 882d428d7a8a9b56408aaa68964fa1e36c7cc7c2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822989"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80277304"
 ---
 # <a name="containers-offer-publishing-guide"></a>Guide de publication d’offres de conteneurs
 
@@ -31,12 +30,12 @@ Microsoft prend actuellement en charge les modèles de licence BYOL (apportez vo
 
 ## <a name="containers-offer"></a>Offre de conteneurs
 
-| Prérequis | Détails |  
+| Condition requise | Détails |  
 |:--- |:--- |  
 | Facturation et mesure | Prise en charge du modèle de facturation gratuit ou BYOL. |  
 | Image créée à partir du fichier Dockerfile | Les images de conteneur doivent être basées sur la spécification d’image Docker et doivent être générées à partir d’un fichier Dockerfile.<ul> <li>Pour plus d'informations sur la création d’images Docker, visitez la section Utilisation à l’adresse [docs.docker.com/engine/reference/builder/#usage](https://docs.docker.com/engine/reference/builder/#usage).</li> </ul> |  
-| Hébergement dans ACR | Les images de conteneur doivent être hébergées dans un Azure Container Registry (ACR).<ul> <li>Pour plus d’informations sur l’utilisation d’ACR, consultez le guide de démarrage rapide : Créer un registre de conteneurs à l’aide du portail Azure à l’adresse [docs.microsoft.com/azure/container-registry/container-registry-get-started-portal](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal).</li> </ul> |  
-| Balisage d’images | Les images conteneur doivent contenir au moins 1 étiquette (nombre maximal d’étiquettes : 16).<ul> <li>Pour plus d'informations sur le balisage d’une image, visitez la page de balise Docker à l’adresse [docs.docker.com/engine/reference/commandline/tag](https://docs.docker.com/engine/reference/commandline/tag).</li> </ul> |  
+| Hébergement dans ACR | Les images de conteneur doivent être hébergées dans un Azure Container Registry (ACR).<ul> <li>Pour plus d’informations sur l’utilisation d’ACR, visitez la page Démarrage rapide : Créer un registre de conteneurs à l’aide du portail Azure à l’adresse [docs.microsoft.com/azure/container-registry/container-registry-get-started-portal](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal).</li> </ul> |  
+| Balisage d’images | Les images de conteneur doivent contenir au moins 1 balise (nombre maximal de balises : 16).<ul> <li>Pour plus d'informations sur le balisage d’une image, visitez la page de balise Docker à l’adresse [docs.docker.com/engine/reference/commandline/tag](https://docs.docker.com/engine/reference/commandline/tag).</li> </ul> |  
 
 ## <a name="next-steps"></a>Étapes suivantes
 

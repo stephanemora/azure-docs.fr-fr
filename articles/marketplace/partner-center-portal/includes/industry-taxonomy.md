@@ -1,26 +1,20 @@
 ---
 title: Fichier Include
 description: inclure un fichier pour la taxonomie du secteur
-services: commercial marketplace
 documentationcenter: partner-center-commercial-marketplace
 author: qianw211
-manager: evansma
-editor: ''
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.devlang: na
 ms.topic: include
-ms.tgt_pltfrm: na
-ms.workload: identity
 ms.date: 09/20/2019
-ms.author: v-qiwe
 ms.custom: include file
-ms.openlocfilehash: 144540b3d50c217f74608cedb546b80ab7ba222b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 19fac46fae2ae938c4ed00967171067ec9f67435
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825540"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80277252"
 ---
 Vous pouvez éventuellement sélectionner jusqu’à deux secteurs et deux marchés verticaux sous chaque secteur d’activité. Ces catégories sont utilisées pour afficher votre offre, lorsque le secteur et les marchés verticaux sont utilisés dans les filtres de recherche et appliqués dans la vitrine.  Si votre offre cible un secteur d’activité et/ou un marché vertical spécifiques, veillez à décrire la manière dont votre offre prend en charge les secteurs ou les marchés verticaux sélectionnés dans la description de l’offre.  Dans le cas contraire, si votre offre n’est pas spécifique à un secteur, n’effectuez aucune sélection et laissez cette section vide.
 

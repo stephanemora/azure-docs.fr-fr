@@ -2,7 +2,7 @@
 title: Créer une révision d’accès des groupes et applications - Azure AD
 description: Découvrez comment créer une révision d’accès pour les membres de groupes ou pour l’accès aux applications dans les révisions d’accès Azure Active Directory.
 services: active-directory
-author: msaburnley
+author: barclayn
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 02/06/2020
-ms.author: ajburnle
+ms.date: 03/22/2020
+ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e769df186597a88247601f4fc70c48263edc88b
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: d3b8f2cf7db474f2a67ebaed818a0a440a195326
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77483905"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80128838"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Créer une révision d’accès des groupes et applications dans les révisions d’accès Azure AD
 
@@ -28,7 +28,7 @@ L’accès aux groupes et aux applications pour les employés et les invités ch
 
 Cet article explique comment créer une ou plusieurs révisions d’accès pour les membres de groupes ou pour l’accès aux applications.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Azure AD Premium P2
 - Administrateur général ou Administrateur d’utilisateurs

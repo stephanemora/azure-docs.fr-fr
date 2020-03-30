@@ -1,23 +1,22 @@
 ---
 title: Paramètres de prise en charge pour une image de conteneur Azure | Place de marché Azure
 description: Configurez les paramètres de prise en charge d’un conteneur Azure.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.author: pabutler
-ms.openlocfilehash: 144512683e6afa643639ba12b071e2a3ed7e01bd
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 8124828c565f344387ae946a1fa6e61a84675b81
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823104"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80279961"
 ---
 # <a name="container-support-tab"></a>Onglet Prise en charge du conteneur
 
-Dans l’onglet **Support** de la page **Nouvelle offre**, indiquez les ressources de support utilisateur et technique associées à votre offre.  Les domaines d’entrée suivants sont fournis sur le formulaire de support : **Contact ingénierie**, **Service clientèle** et **URL du support**. Si un astérisque (*) se trouve en regard du nom du champ, cela signifie que ce champ est obligatoire.
+Dans l’onglet **Support** de la page **Nouvelle offre**, indiquez les ressources de support utilisateur et technique associées à votre offre.  Les zones d’entrée suivantes figurent sur le formulaire de support : **Engineering Contact** (Contact ingénierie), **Service clientèle** et **Support Urls** (URL de support). Si un astérisque (*) se trouve en regard du nom du champ, cela signifie que ce champ est obligatoire.
 
 
 ## <a name="support-form-fields"></a>Champs du formulaire de support

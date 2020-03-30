@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 06/10/2018
 ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: 7baa2dbd1583ebbccbf9b21df3531404bd839e10
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1aaec104e9130eeef723c6505e04e3317271566b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74260728"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80234242"
 ---
 **Exigences des serveur de configuration et de traitement**
 
@@ -24,7 +24,7 @@ ms.locfileid: "74260728"
 **Composant** | **Prérequis** 
 --- | ---
 Cœurs d’unité centrale | 8 
-RAM | 16 Go
+RAM | 16 Go
 Nombre de disques | 3, y compris le disque du système d’exploitation, le disque de cache du serveur de processus et le lecteur de conservation pour la restauration automatique 
 Espace disque disponible (cache du serveur de traitement) | 600 Go
 Espace disque disponible (disque de rétention) | 600 Go
@@ -35,7 +35,7 @@ Espace disque disponible (disque de rétention) | 600 Go
 **Composant** | **Prérequis** 
 --- | ---
 Système d’exploitation | Windows Server 2012 R2 <br> Windows Server 2016
-Paramètres régionaux du système d’exploitation | Anglais (en-us)
+Paramètres régionaux du système d’exploitation | Anglais (en-*)
 Rôles Windows Server | N’activez pas ces rôles : <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V 
 Stratégies de groupe | N’activez pas ces stratégies de groupe : <br> - Empêcher l’accès à l’invite de commandes <br> - Empêcher l’accès aux outils de modification du Registre <br> - Logique de confiance pour les pièces jointes <br> - Activer l’exécution des scripts <br> [En savoir plus](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
 IIS | - Aucun site web par défaut préexistant <br> - Aucune application/aucun site web préexistants ne doivent écouter le port 443 <br>- Activer [l’authentification anonyme](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Activer le paramètre [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) 
@@ -78,8 +78,8 @@ Le tableau suivant récapitule les besoins en capacité du serveur de configurat
 
 **UC** | **Mémoire** | **Disque cache** | **Taux de modification des données** | **Machines répliquées**
 --- | --- | --- | --- | ---
-8 processeurs virtuels<br/><br/> 2 sockets * 4 cœurs \@ 2,5 GHz | 16 Go | 300 Go | 500 Go ou moins | < 100 machines
+8 processeurs virtuels<br/><br/> 2 sockets * 4 cœurs \@ 2,5 GHz | 16 Go | 300 Go | 500 Go ou moins | < 100 machines
 12 processeurs virtuels<br/><br/> 2 sockets * 6 cœurs \@ 2,5 GHz | 18 Go | 600 Go | 500 Go à 1 To | 100 à 150 machines
-16 processeurs virtuels<br/><br/> 2 sockets * 8 cœurs \@ 2,5 GHz | 32 Go | 1 To | 1 à 2 To | 150 à 200 machines
+16 processeurs virtuels<br/><br/> 2 sockets * 8 cœurs \@ 2,5 GHz | 32 Go | 1 To | 1 à 2 To | 150 à 200 machines
 |
 

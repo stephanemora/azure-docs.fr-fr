@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
 ms.openlocfilehash: 5a07f0749b59efc96b67df3ad5ed2fbf353be614
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74538840"
 ---
 # <a name="learn-text-moderation-concepts"></a>Familiarisez-vous avec les concepts de modération de texte
@@ -45,7 +45,7 @@ Si l’API détecte des termes injurieux dans l’une des [langues prises en cha
     }
 
 > [!NOTE]
-> Pour le paramètre **langage**, attribuez `eng` ou laissez-le vide pour voir la réponse de la **classification** assistée par ordinateur (fonctionnalité d’évaluation). **Cette fonctionnalité prend en charge uniquement l’anglais**.
+> Pour le paramètre **langue**, attribuez `eng` ou laissez-le vide pour voir la réponse de la **classification** assistée par ordinateur (fonctionnalité en préversion). **Cette fonctionnalité prend en charge uniquement l’anglais**.
 >
 > Pour la détection des **termes injurieux**, utilisez le [code ISO 639-3](http://www-01.sil.org/iso639-3/codes.asp) des langues prises en charge répertoriées dans cet article, ou laissez le paramètre vide.
 

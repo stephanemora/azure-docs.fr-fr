@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 8e12d58c0077084c181d111b0b017665b74b9157
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74231257"
 ---
 # <a name="zero-downtime-deployment-for-durable-functions"></a>Déploiement sans temps d’arrêt pour Durable Functions
@@ -25,11 +25,11 @@ Pour éviter ces échecs, vous avez deux options :
 
 Le tableau suivant compare les trois stratégies principales qui permettent d’effectuer un déploiement sans temps d’arrêt pour Durable Functions : 
 
-| Stratégie |  Quand utiliser | Avantages | Inconvénients |
+| Stratégie |  Quand l’utiliser | Avantages | Inconvénients |
 | -------- | ------------ | ---- | ---- |
 | [Contrôle de version](#versioning) |  Applications qui ne font pas l’objet de [changements cassants](durable-functions-versioning.md). | Simple à implémenter. |  Augmentation de la taille de l’application de fonction en mémoire et du nombre de fonctions.<br/>Duplication de code. |
 | [Vérification de l’état sur un emplacement](#status-check-with-slot) | Système qui n’a pas d’orchestrations de longue durée de plus de 24 heures ou qui se chevauchent fréquemment. | Code base simple.<br/>Ne nécessite pas de gestion d’application de fonction supplémentaire. | Nécessite un compte de stockage supplémentaire ou une gestion du hub de tâches.<br/>Nécessite des périodes pendant lesquelles aucune orchestration n’est en cours d’exécution. |
-| [Routage d’applications](#application-routing) | Système qui n’a pas de périodes pendant lesquelles les orchestrations ne sont pas exécutées, par exemple les périodes ayant des orchestrations de plus de 24 heures ou dont les orchestrations se chevauchent fréquemment. | Prend en charge les nouvelles versions des systèmes dont les orchestrations s’exécutent en permanence et comportent des changements cassants. | Nécessite un routeur d’applications intelligent.<br/>Peut atteindre la limite du nombre d’applications de fonction autorisées par votre abonnement. La valeur par défaut est 100. |
+| [Routage d’applications](#application-routing) | Système qui n’a pas de périodes pendant lesquelles les orchestrations ne sont pas exécutées, par exemple les périodes ayant des orchestrations de plus de 24 heures ou dont les orchestrations se chevauchent fréquemment. | Prend en charge les nouvelles versions des systèmes dont les orchestrations s’exécutent en permanence et comportent des changements cassants. | Nécessite un routeur d’applications intelligent.<br/>Peut atteindre la limite du nombre d’applications de fonction autorisées par votre abonnement. La valeur par défaut est 100. |
 
 ## <a name="versioning"></a>Contrôle de version
 

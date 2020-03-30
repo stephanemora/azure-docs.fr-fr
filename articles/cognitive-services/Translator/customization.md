@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
 ms.openlocfilehash: be9c06d45da4d83c26f82343c9cb7b19ba19b4ae
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "71257620"
 ---
 # <a name="customize-your-text-translations"></a>Personnaliser vos traductions de texte
@@ -43,7 +43,7 @@ Vous trouverez plus de détails sur les différents niveaux de personnalisation 
 ## <a name="microsoft-translator-hub"></a>Hub Microsoft Translator
 
 > [!NOTE]
-> L’ancien hub Microsoft Translator sera supprimé le 17 mai 2019. [Affichez des dates et des informations importantes sur la migration](https://www.microsoft.com/translator/business/hub/).  
+> L’ancien hub Microsoft Translator sera supprimé le 17 mai 2019. [Consultez les dates et les informations importantes à propos de la migration](https://www.microsoft.com/translator/business/hub/).  
 
 ## <a name="custom-translator-versus-hub"></a>Custom Translator ou hub
 
@@ -51,10 +51,10 @@ Vous trouverez plus de détails sur les différents niveaux de personnalisation 
 |:-----|:----:|:----:|
 |État de la fonctionnalité de personnalisation   | Disponibilité générale  | Disponibilité générale |
 | Version de l'API de texte  | V2 uniquement   | V3 uniquement |
-| Personnalisation TA statistique | OUI   | Non |
-| Personnalisation TA neuronale | Non    | OUI |
-| Nouvelle personnalisation unifiée des services vocaux | Non    | OUI |
-| [Sans trace](https://www.aka.ms/notrace) | OUI  | OUI |
+| Personnalisation TA statistique | Oui   | Non |
+| Personnalisation TA neuronale | Non    | Oui |
+| Nouvelle personnalisation unifiée des services vocaux | Non    | Oui |
+| [Sans trace](https://www.aka.ms/notrace) | Oui  | Oui |
 
 ## <a name="collaborative-translations-framework"></a>Infrastructure de traductions collaboratives
 

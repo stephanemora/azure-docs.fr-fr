@@ -12,10 +12,10 @@ ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/20/2020
 ms.openlocfilehash: 31b49cdd9e0e5569981b2a0b0c6efcab7239e019
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77648510"
 ---
 # <a name="monitor-migration-activity-using-the-azure-database-migration-service"></a>Surveiller l’activité de migration avec Azure Database Migration Service
@@ -136,7 +136,7 @@ Le tableau suivant décrit les champs affichés dans la progression de la migrat
 | **Mettre à jour** | Nombre de mises à jour CDC dans les lignes appliquées à la cible.      |
 | **Supprimer**      | Nombre de suppressions CDC dans les lignes appliquées à la cible. |
 | **Total appliqué**      | Total des mises à jour CDC, des insertions et des suppressions dans les lignes appliquées à la cible. |
-| **Erreurs de données** | Nombre d’erreurs de données survenues dans cette table. Voici quelques exemples d’erreur : *511 : impossible de créer une ligne de dimension %d supérieure à la taille de ligne maximale autorisée de %d, et 8114 : erreur de conversion de type de données %ls en %ls).*  Le client doit interroger à partir de la table dms_apply_exceptions dans la cible Azure pour afficher les détails de l’erreur.    |
+| **Erreurs de données** | Nombre d’erreurs de données survenues dans cette table. *511 (impossible de créer une ligne de dimension %d supérieure à la taille de ligne maximale autorisée de %d) et 8114 (erreur de conversion de type de données %ls en %ls) sont des exemples d’erreurs.*  Le client doit interroger à partir de la table dms_apply_exceptions dans la cible Azure pour afficher les détails de l’erreur.    |
 
 > [!NOTE]
 > Les valeurs CDC de l’insertion, de la mise à jour et de la suppression ainsi que le total appliqué peuvent diminuer lorsque la base de données a basculé ou que la migration a redémarré.

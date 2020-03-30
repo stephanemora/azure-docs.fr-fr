@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: cherylmc
 ms.openlocfilehash: f56a724174b81966642b2870360014597436eade
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76981087"
 ---
 # <a name="session-monitoring-and-management-for-azure-bastion"></a>Surveillance et gestion de session Azure Bastion
 
 Une fois que le service Bastion approvisionné et déployé dans votre réseau virtuel, vous pouvez l’utiliser pour vous connecter sans problème à toute machine virtuelle dans ce réseau virtuel. Quand des utilisateurs se connectent à des charges de travail, Azure bastion permet de surveiller les sessions à distance et de prendre des mesures de gestion rapides. La surveillance de session Azure Bastion vous permet de vois quels utilisateurs sont connectés à quelles machines virtuelles. Elle indique l’adresse IP à partir de laquelle l’utilisateur est connecté, la durée pendant laquelle il a été connecté et le moment auquel il s’est connecté. L’expérience de gestion de session vous permet de sélectionner une session en cours ainsi que forcer sa déconnexion ou la supprimer afin d’en déconnecter l’utilisateur.
 
-## <a name="monitor"></a>Surveiller des sessions à distance
+## <a name="monitor-remote-sessions"></a><a name="monitor"></a>Surveiller des sessions à distance
 
 1. Dans le [portail Azure](https://portal.azure.com), accédez à votre ressource Azure Bastion, puis sélectionnez **Sessions** dans la page Azure Bastion.
 
@@ -34,7 +34,7 @@ Une fois que le service Bastion approvisionné et déployé dans votre réseau v
 > Activez le port 4443 pour le trafic entrant à partir du Gestionnaire de passerelle pour que la surveillance de session fonctionne.
 >
 
-## <a name="view"></a>Forcer la déconnexion d’une session à distance en cours ou la supprimer
+## <a name="delete-or-force-disconnect-an-ongoing-remote-session"></a><a name="view"></a>Forcer la déconnexion d’une session à distance en cours ou la supprimer
 
 Vous pouvez sélectionner un ensemble de sessions et forcer leur déconnexion. Les étapes suivantes montrent comment supprimer des sessions à distance :
 

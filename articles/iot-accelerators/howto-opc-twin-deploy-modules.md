@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 96a4afff3e58bfa1ebf661909f380aa525fea76e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 6c8ceeaf49d8ebfa15a83118e8b518190f6ff85e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820137"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80241077"
 ---
 # <a name="deploy-opc-twin-module-and-dependencies-from-scratch"></a>Déployer le module de représentations de OPC et les dépendances à partir de zéro
 
@@ -25,7 +25,7 @@ Il existe plusieurs options pour déployer des modules dans votre passerelle [Az
 - [Déploiement à l’aide de l’interface CLI AZ](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-monitor-cli)
 
 > [!NOTE]
-> Pour plus d’informations sur les détails et instructions de déploiement, consultez le [référentiel](https://github.com/Azure/azure-iiot-components) GitHub.
+> Pour obtenir des informations détaillées et des instructions sur le déploiement, consultez le [dépôt](https://github.com/Azure/azure-iiot-components) GitHub.
 
 ## <a name="deployment-manifest"></a>Manifeste de déploiement
 
@@ -109,7 +109,7 @@ Tous les modules sont déployés à l’aide d’un manifeste de déploiement.  
 
 Le moyen le plus facile de déployer les modules dans un appareil de passerelle IoT Edge est via le portail Azure.  
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables requises
 
 1. Déployez les [dépendances](howto-opc-twin-deploy-dependencies.md) d’OPC Twin et obtenez le fichier `.env`. Notez le `hub name` déployé de la variable `PCS_IOTHUBREACT_HUB_NAME` dans le fichier `.env` obtenu.
 
@@ -176,7 +176,7 @@ Le moyen le plus facile de déployer les modules dans un appareil de passerelle 
 
 ## <a name="deploying-using-azure-cli"></a>Déploiement à l’aide d’Azure CLI
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables requises
 
 1. Installez la dernière version de l’[interface de ligne de commande AZ](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) en suivant [ce lien](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
@@ -186,7 +186,7 @@ Le moyen le plus facile de déployer les modules dans un appareil de passerelle 
 
 2. Pour appliquer la configuration à un appareil IoT Edge, utilisez la commande suivante :
 
-   ```bash
+   ```azurecli
    az iot edge set-modules --device-id [device id] --hub-name [hub name] --content ./deployment.json
    ```
 
@@ -195,7 +195,7 @@ Le moyen le plus facile de déployer les modules dans un appareil de passerelle 
 
 3. Une fois les modules déployés sur votre appareil, vous pouvez les voir tous à l’aide de la commande suivante :
 
-   ```bash
+   ```azurecli
    az iot hub module-identity list --device-id [device id] --hub-name [hub name]
    ```
 

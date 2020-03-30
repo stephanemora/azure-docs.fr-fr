@@ -14,10 +14,10 @@ ms.date: 02/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a12c454906d6c6ff702b7f635a91361bbe3994c1
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77616884"
 ---
 # <a name="sap-hana-large-instances-storage-architecture"></a>Architecture de stockage de SAP HANA (grandes instances)
@@ -74,9 +74,9 @@ Consultez [Scénarios HLI pris en charge](hana-supported-scenario.md) pour conna
 
 Il est possible d’héberger plusieurs instances SAP HANA actives sur les unités de grande instance HANA. Afin de fournir les fonctionnalités de captures instantanées du stockage et de récupération d’urgence, une telle configuration requiert un volume défini par instance. Actuellement, les unités de grande instance HANA peuvent être classées comme suit :
 
-- **S72, S72m, S96, S144, S192** : par incréments de 256 Go, l’unité de départ la plus petite étant de 256 Go. Des incréments différents, comme 256 Go, 512 Go, etc., peuvent être combinés jusqu’à la valeur maximale de la mémoire de l’unité.
-- **S144m et S192m** : par incréments de 256 Go, l’unité la plus petite étant de 512 Go. Des incréments différents, comme 512 Go et 768 Go peuvent être combinés jusqu’à la valeur maximale de la mémoire de l’unité.
-- **Classe Type II** : par incréments de 512 Go, l’unité de départ la plus petite étant de 2 To. Des incréments différents, comme 512 Go, 1 Go et 1,5 To peuvent être combinés jusqu’à la valeur maximale de la mémoire de l’unité.
+- **S72, S72m, S96, S144, S192** : par incrément de 256 Go avec l’unité de départ la plus petite qui fait 256 Go. Des incréments différents, comme 256 Go, 512 Go, etc., peuvent être combinés jusqu’à la valeur maximale de la mémoire de l’unité.
+- **S144m et S192m** : par incréments de 256 Go avec la plus petite unité qui fait 512 Go. Des incréments différents, comme 512 Go et 768 Go peuvent être combinés jusqu’à la valeur maximale de la mémoire de l’unité.
+- **Classe Type II** : par incréments de 512 Go avec l’unité de départ la plus petite qui fait 2 To. Des incréments différents, comme 512 Go, 1 Go et 1,5 To peuvent être combinés jusqu’à la valeur maximale de la mémoire de l’unité.
 
 Voici quelques exemples de ce à quoi peut ressembler l’exécution de plusieurs instances SAP HANA.
 

@@ -9,15 +9,15 @@ ms.date: 10/06/2019
 ms.author: mbaldwin
 ms.custom: include file
 ms.openlocfilehash: 05794a046fdcb15a91145a75717a6a454d15a8da
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "72511470"
 ---
 Vous pouvez activer et gérer Azure Disk Encryption par le biais d’[Azure CLI](/cli/azure) et d’[Azure PowerShell](/powershell/azure/new-azureps-module-az). Pour ce faire, vous devez installer les outils localement et vous connecter à votre abonnement Azure.
 
-### <a name="azure-cli"></a>D’Azure CLI
+### <a name="azure-cli"></a>Azure CLI
 
 [Azure CLI 2.0](/cli/azure) est un outil en ligne de commande pour la gestion des ressources Azure. L’interface CLI est conçue pour interroger les données de manière flexible, pour prendre en charge les opérations de longue durée en tant que processus non bloquants et pour simplifier l’écriture de scripts. Vous pouvez l’installer localement en effectuant les étapes décrites dans [Installer Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 

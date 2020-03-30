@@ -7,12 +7,13 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: helohr
-ms.openlocfilehash: a6bc8546a4047e921d62953e39eaddf546f38229
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+manager: lizross
+ms.openlocfilehash: 96b593f544aa4bbf126c06747a01902581f5ffb4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367442"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79226989"
 ---
 # <a name="create-a-profile-container-for-a-host-pool-using-a-file-share"></a>Créer un conteneur de profils pour un pool hôte à l’aide d’un partage de fichiers
 
@@ -65,7 +66,7 @@ Pour configurer les machines virtuelles avec le logiciel FSLogix, procédez comm
 6. Créez une clé nommée **Profils**.
 7. Créez les valeurs suivantes pour la clé Profils :
 
-| Nom                | Type               | Données/Valeur                        |
+| Name                | Type               | Données/Valeur                        |
 |---------------------|--------------------|-----------------------------------|
 | activé             | DWORD              | 1                                 |
 | VHDLocations        | Valeur à chaînes multiples | « Chemin d’accès réseau pour le partage de fichiers »     |

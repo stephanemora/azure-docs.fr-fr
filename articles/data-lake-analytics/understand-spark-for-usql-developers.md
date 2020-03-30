@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: understand-apache-spark-for-usql-developers
 ms.date: 10/15/2019
 ms.openlocfilehash: 594e1055c4c063e4e151fefa3e183e6e799c90b5
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73648162"
 ---
 # <a name="understand-apache-spark-for-u-sql-developers"></a>Comprendre Apache Spark pour les développeurs U-SQL
@@ -47,4 +47,4 @@ Il comprend un certain nombre d’étapes que vous pouvez effectuer, ainsi que p
 - [.NET pour Apache Spark](https://docs.microsoft.com/dotnet/spark/what-is-apache-spark-dotnet)
 - [Transformer des données à l’aide d’une activité Hadoop Hive dans Azure Data Factory](../data-factory/transform-data-using-hadoop-hive.md)
 - [Transformer des données à l’aide d’une activité Spark dans Azure Data Factory](../data-factory/transform-data-using-spark.md)
-- [Présentation d’Apache Spark dans Azure HDInsight](../hdinsight/spark/apache-spark-overview.md)
+- [Présentation d’Apache Spark dans Azure HDInsight](../hdinsight/spark/apache-spark-overview.md)

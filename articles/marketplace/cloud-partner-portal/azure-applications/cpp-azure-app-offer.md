@@ -1,19 +1,18 @@
 ---
 title: Offre Azure Application | Place de marché Azure
 description: Vue d’ensemble du processus de publication d’une offre Azure Application sur la Place de marché Microsoft Azure.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 02/06/2019
-ms.author: pabutler
-ms.openlocfilehash: 9125b5c71b63b27c58ea72b7bfd49f730854b33d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: ed086ffdc49e21b819c0ee05b38ad882b4e269d7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818803"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80285314"
 ---
 # <a name="azure-application-offer"></a>Offre d’application Azure
 
@@ -39,7 +38,7 @@ Il existe deux types d’applications Azure : les applications managées et les 
 Outre la Place de marché Microsoft Azure, vous pouvez proposer des applications managées dans un catalogue de services. Le catalogue de services est un catalogue interne des solutions approuvées pour les utilisateurs d’une organisation. Vous l’utilisez pour garantir la conformité avec les normes organisationnelles tout en fournissant des solutions aux groupes d’une organisation. Les employés utilisent le catalogue pour découvrir facilement les applications recommandées et approuvées par leur service informatique.
 
 >[!Note]
->L’abonnement à un réseau de partenaires fournisseurs de solution cloud est maintenant disponible.  Veuillez consulter [Fournisseurs de solutions cloud](../../cloud-solution-providers.md) pour plus d’informations sur le marketing de votre offre via les réseaux de partenaires fournisseurs de solutions cloud Microsoft.
+>L’abonnement à un réseau de partenaires fournisseurs de solution cloud est maintenant disponible.  Consultez [Fournisseurs de solutions cloud](../../cloud-solution-providers.md) pour plus d’informations sur le marketing de votre offre via les réseaux de partenaires fournisseurs de solutions cloud Microsoft.
 
 Pour plus d’informations sur les avantages et les différents types d’applications managées, consultez [Vue d’ensemble des applications managées Azure](https://docs.microsoft.com/azure/managed-applications/overview).
 

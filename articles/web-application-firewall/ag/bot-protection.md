@@ -8,10 +8,10 @@ ms.service: web-application-firewall
 ms.date: 10/31/2019
 ms.author: victorh
 ms.openlocfilehash: 89c863e85d9eab27a47bc1bf7b98cd1c8d89e900
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73511522"
 ---
 # <a name="configure-bot-protection-for-web-application-firewall-on-azure-application-gateway-preview"></a>Configurer la protection bot pour le pare-feu d’applications web (WAF) sur Azure Application Gateway (préversion)
@@ -23,7 +23,7 @@ Vous pouvez activer un ensemble de règles de protection bot managées pour votr
 > [!NOTE]
 > Un ensemble de règles de protection bot, actuellement disponible en préversion publique, est fourni avec un contrat de niveau de service en préversion. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d'informations, consultez les  [Conditions d’utilisation supplémentaires des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) .
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Créez une stratégie de WAF de base pour Application Gateway en suivant les instructions décrites dans  [Créer des stratégies de pare-feu d’applications web pour Application Gateway](create-waf-policy-ag.md).
 

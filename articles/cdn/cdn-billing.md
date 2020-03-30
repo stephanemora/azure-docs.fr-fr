@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/13/2019
 ms.author: magattus
 ms.openlocfilehash: e2827a11f4ec2a5c0467c3699cd9990aaf7ae97a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73495489"
 ---
 # <a name="understanding-azure-cdn-billing"></a>Présentation de la facturation du CDN Azure
@@ -34,7 +34,7 @@ Une région de facturation est une zone géographique utilisée pour déterminer
 
 - Zone 3 : Amérique du Sud
 
-- Zone 4 : Australie et Nouvelle Zélande
+- Zone 4 : Australie et Nouvelle-Zélande
 
 - Zone 5 : Inde
 
@@ -94,7 +94,7 @@ Si vous utilisez l’un des services Azure suivants en tant qu’origine de CDN,
 - Azure Media Services
 - Machines virtuelles Azure
 - Réseau virtuel
-- Équilibreur de charge
+- Load Balancer
 - Application Gateway
 - Azure DNS
 - ExpressRoute
@@ -106,7 +106,7 @@ Si vous utilisez l’un des services Azure suivants en tant qu’origine de CDN,
 - Azure Bastion
 - Azure App Service
 - Azure Functions
-- Azure Data Factory
+- Azure Data Factory
 - Gestion des API Azure
 - Azure Batch 
 - Explorateur de données Azure

@@ -1,6 +1,6 @@
 ---
-title: Azure VMware Solutions (AVS) - Adresse IP publiques
-description: En savoir plus sur les adresses IP publiques et leurs avantages sur Azure VMware Solutions (AVS)
+title: Azure VMware Solution by CloudSimple – Adresse IP publique
+description: En savoir plus sur les adresses IP publiques et leurs avantages sur Azure VMware Solution by CloudSimple
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/20/2019
@@ -8,16 +8,16 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 2cb9d0e33da4447760ae0be216c1dd9868c498bd
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 147ab6b5ace4493e1a0b303c320cb2e81d829b29
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77024974"
 ---
-# <a name="avs-public-ip-address-overview"></a>Présentation de l'adresse IP publique AVS
+# <a name="cloudsimple-public-ip-address-overview"></a>Présentation de l’adresse IP publique CloudSimple
 
-Une adresse IP publique permet à des ressources Internet de communiquer (communications entrantes) avec des ressources de cloud privé AVS via une adresse IP privée. L'adresse IP privée est une machine virtuelle ou un équilibreur de charge logiciel du vCenter de votre cloud privé AVS. L'adresse IP publique vous permet d'exposer sur Internet des services exécutés sur votre cloud privé AVS.
+Une adresse IP publique permet à des ressources Internet d’envoyer des communications entrantes à des ressources de cloud privé vie une adresse IP privée. L’adresse IP privée est une machine virtuelle ou un équilibreur de charge logiciel sur votre vCenter de cloud privé. L’adresse IP publique vous permet d’exposer à Internet des services s’exécutant sur votre cloud privé.
 
 L’adresse IP publique est dédiée à l’adresse IP privée jusqu’à ce que vous supprimiez l’attribution. Une adresse IP publique ne peut être attribuée qu’à une adresse IP privée.
 

@@ -10,18 +10,18 @@ ms.date: 12/20/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 0d911d67eeaeae4b48198e95dc3df01e4740dc00
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 10045a760d7e0fcb02a754bc9bb52a5ebca970f4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75372072"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79137209"
 ---
 # <a name="create-a-service-sas-for-a-container-or-blob-with-net"></a>Créer une SAP de service pour un conteneur ou un objet blob avec .NET
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-Cet article explique comment utiliser la clé du compte de stockage pour créer une SAP de service pour un conteneur ou un objet blob avec la [bibliothèque cliente Stockage Azure pour .NET](/dotnet/api/overview/azure/storage/client).
+Cet article explique comment utiliser la clé du compte de stockage pour créer une SAP de service pour un conteneur ou un objet blob avec la [bibliothèque cliente Stockage Azure pour .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
 
 ## <a name="create-a-service-sas-for-a-blob-container"></a>Créer une SAP de service pour un conteneur d’objets blob
 

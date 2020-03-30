@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b39238575c05d35a2d87999e08c49c0c77e99bfb
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74380008"
 ---
 # <a name="what-are-service-dependencies-in-azure-active-directory-conditional-access"></a>Que sont les dépendances de service dans l’accès conditionnel Azure Active Directory ? 
@@ -42,24 +42,24 @@ Le tableau ci-dessous répertorie les dépendances de service supplémentaires e
 | Applications clientes         | Service en aval                          | Application |
 | :--                 | :--                                         | ---         | 
 | Azure Data Lake     | Gestion Microsoft Azure (portail et API) | Liaison anticipée |
-| Microsoft Classroom | Microsoft Exchange                                    | Liaison anticipée |
+| Microsoft Classroom | Exchange                                    | Liaison anticipée |
 |                     | SharePoint                                  | Liaison anticipée |
-| Microsoft Teams     | Microsoft Exchange                                    | Liaison anticipée |
+| Microsoft Teams     | Exchange                                    | Liaison anticipée |
 |                     | MS Planner                                  | Liaison tardive  |
 |                     | SharePoint                                  | Liaison anticipée |
 |                     | Skype Entreprise Online                   | Liaison anticipée |
-| Portail Office       | Microsoft Exchange                                    | Liaison tardive  |
+| Portail Office       | Exchange                                    | Liaison tardive  |
 |                     | SharePoint                                  | Liaison tardive  |
-| Outlook Groups      | Microsoft Exchange                                    | Liaison anticipée |
+| Outlook Groups      | Exchange                                    | Liaison anticipée |
 |                     | SharePoint                                  | Liaison anticipée |
 | PowerApps           | Gestion Microsoft Azure (portail et API) | Liaison anticipée |
 |                     | Microsoft Azure Active Directory              | Liaison anticipée |
 | Projet             | Dynamics CRM                                | Liaison anticipée |
-| Skype Entreprise  | Microsoft Exchange                                    | Liaison anticipée |
+| Skype Entreprise  | Exchange                                    | Liaison anticipée |
 | Visual Studio       | Gestion Microsoft Azure (portail et API) | Liaison anticipée |
-| Microsoft Forms     | Microsoft Exchange                                    | Liaison anticipée |
+| Microsoft Forms     | Exchange                                    | Liaison anticipée |
 |                     | SharePoint                                  | Liaison anticipée |
-| Microsoft To-Do     | Microsoft Exchange                                    | Liaison anticipée |
+| Microsoft To-Do     | Exchange                                    | Liaison anticipée |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

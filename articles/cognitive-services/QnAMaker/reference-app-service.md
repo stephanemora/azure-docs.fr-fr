@@ -4,10 +4,10 @@ description: Comprendre comment et où configurer les ressources.
 ms.topic: reference
 ms.date: 02/21/2020
 ms.openlocfilehash: 8ef6fecbfeb119d0c68ec5bc3bbc90ec449dbb7d
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77651803"
 ---
 # <a name="service-configuration"></a>Configuration de service

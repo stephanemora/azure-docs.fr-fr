@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
 ms.openlocfilehash: d8dd0c86fbc520d0bd3ef6034891bd9871774b4a
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74232738"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>Comment exécuter Durable Functions en tant que WebJobs
@@ -21,7 +21,7 @@ Dans la version 3.x du kit de développement logiciel (SDK) WebJobs, l’hôte 
 
 L’exemple de chaînage Fonctions durables est disponible dans la version du kit de développement logiciel WebJobs 2.x : téléchargez ou clonez le [référentiel Durable Functions](https://github.com/azure/azure-functions-durable-extension/), puis accédez au dossier *samples\\webjobssdk\\chaining*.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Cet article suppose que vous connaissez les principes de base du SDK WebJobs, du développement de bibliothèque de classes C# pour Azure Functions et de l’extension Fonctions durables. Si vous souhaitez consulter une présentation de ces thématiques, accédez aux ressources suivantes :
 

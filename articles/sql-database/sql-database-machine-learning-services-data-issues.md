@@ -13,16 +13,18 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
-ms.openlocfilehash: 7dfd12729c5697d1935d098cbd4ed863a4551acd
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 0bb3abc7b7102da55c9ededcadd7a301f74065ab
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76719872"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80349337"
 ---
 # <a name="work-with-r-and-sql-data-in-azure-sql-database-machine-learning-services-preview"></a>Exploiter des données R et SQL dans Machine Learning Services d’Azure SQL Database (préversion)
 
 Cet article aborde certains des problèmes courants que vous pouvez rencontrer lors du déplacement des données entre R et SQL Database dans [Machine Learning Services (avec R) dans Azure SQL Database](sql-database-machine-learning-services-overview.md). L’expérience que vous obtenez dans le cadre de cet exercice fournit une base essentielle lorsque vous travaillez avec des données dans votre propre script.
+
+[!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
 Voici quelques-uns des problèmes courants que vous pouvez rencontrer :
 
@@ -30,8 +32,6 @@ Voici quelques-uns des problèmes courants que vous pouvez rencontrer :
 - Des conversions implicites peuvent avoir lieu
 - Des opérations de transtypage et de conversion sont parfois nécessaires
 - R et SQL utilisent différents objets de données
-
-[!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
@@ -102,7 +102,7 @@ Maintenant, passez en revue le texte dans **Messages** afin de voir pourquoi la 
 
 ```text
 STDOUT message(s) from external script:
-'data.frame':   3 obs. of  1 variable:
+'data.frame':    3 obs. of  1 variable:
 $ mytextvariable: Factor w/ 3 levels " ","hello","world": 2 1 3
 ```
 
@@ -110,7 +110,7 @@ $ mytextvariable: Factor w/ 3 levels " ","hello","world": 2 1 3
 
 ```text
 STDOUT message(s) from external script:
-'data.frame':   1 obs. of  3 variables:
+'data.frame':    1 obs. of  3 variables:
 $ c..hello..: Factor w/ 1 level "hello": 1
 $ X...      : Factor w/ 1 level " ": 1
 $ c..world..: Factor w/ 1 level "world": 1

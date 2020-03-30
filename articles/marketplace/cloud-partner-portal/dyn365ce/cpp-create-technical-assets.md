@@ -1,19 +1,18 @@
 ---
 title: Créer des ressources techniques Dynamics 365 for Customer Engagement | Place de marché Azure
 description: 'Dépréciation de l’article Portail Cloud Partner, ajout d’un lien à l’article Espace partenaires ; auparavant : « Créez les ressources techniques pour une offre d’application Dynamics 365 for Customer Engagement. »'
-services: Dynamics 365 for Customer Engagement, Azure, Marketplace, Cloud Partner Portal, AppSource
-author: ChJenk
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/30/2019
-ms.author: v-chjen
-ms.openlocfilehash: 1b3552a8c6d97b526edb354e849e1b72dc0eb104
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 79812b4dc4a8942882be326a4d00d619f4017162
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825625"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278431"
 ---
 # <a name="create-technical-assets-for-azure-application-offer"></a>Créer les ressources techniques pour une offre d’application Azure
 

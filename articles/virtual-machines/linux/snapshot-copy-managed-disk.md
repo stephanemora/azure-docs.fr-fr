@@ -15,10 +15,10 @@ ms.date: 07/11/2018
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: 15696469ca3861586617e9f418f8a55a7ea90467
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74034794"
 ---
 # <a name="create-a-snapshot"></a>Créer un instantané 
@@ -63,7 +63,7 @@ az snapshot list \
 
 ## <a name="use-azure-portal"></a>Utiliser le portail Azure 
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Dans l’angle supérieur gauche, cliquez sur **Créer une ressource** et recherchez **Capture instantanée**. Sélectionnez **Capture instantanée** dans les résultats de recherche.
 3. Dans le panneau **Capture instantanée**, cliquez sur **Créer**.
 4. Entrez un **nom** pour la capture instantanée.

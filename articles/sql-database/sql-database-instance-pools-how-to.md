@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: 5a45b9e3ba59a91f580ce0f2dc180adf5d20c87d
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 4a27165d929cc9bc5f18e372f7f108887e466e43
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75754058"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79299360"
 ---
 # <a name="azure-sql-database-instance-pools-preview-how-to-guide"></a>Guide de procédures des pools d’instances Azure SQL Database (préversion)
 
@@ -50,7 +50,7 @@ Le tableau suivant présente les opérations disponibles liées aux pools d’in
 |[Get-AzSqlInstancePoolUsage](/powershell/module/az.sql/get-azsqlinstancepoolusage/) | Retourne des informations sur l’utilisation du pool d’instances Azure SQL. |
 
 
-Pour utiliser PowerShell, [installez la dernière version de PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell#powershell-core) et suivez les instructions pour [installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+Pour utiliser PowerShell, [installez la dernière version de PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell#powershell) et suivez les instructions pour [installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 Pour les opérations liées aux instances à la fois dans les pools et les instances uniques, utilisez les [commandes de l’instance gérée](sql-database-managed-instance-create-manage.md#powershell-create-and-manage-managed-instances) standard, mais la propriété de *nom du pool d’instances* doit être remplie lors de l’utilisation de ces commandes pour une instance d’un pool.
 

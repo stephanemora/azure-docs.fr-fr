@@ -6,20 +6,20 @@ ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 6690c0862b83af70f3beda4190547d6fbb80a601
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 898b65f07140bca04bd97ff7314b01920b783914
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74764250"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79530629"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-cli"></a>Créer et gérer des règles de pare-feu Azure Database for MariaDB à l’aide de l'interface de ligne de commande Azure
 Les règles de pare-feu au niveau du serveur sont utiles pour gérer l’accès à un serveur Azure Database for MariaDB à partir d’une adresse IP spécifique ou d’une plage d’adresses IP. À l’aide de commandes d’interface de ligne de commande Azure pratiques, vous pouvez créer, mettre à jour, supprimer, répertorier et afficher les règles de pare-feu pour gérer votre serveur. Pour avoir une vue d’ensemble des pare-feu Azure Database for MariaDB, consultez [Règles de pare-feu Azure Database for MariaDB](./concepts-firewall-rules.md).
 
-Des règles de réseau virtuel (VNet) peuvent également être utilisées pour sécuriser l’accès à votre serveur. Découvrez-en plus sur [la création et la gestion des règles et des points de terminaison de service de réseau virtuel à l'aide d'Azure CLI](howto-manage-vnet-cli.md).
+Des règles de réseau virtuel (VNet) peuvent également être utilisées pour sécuriser l'accès à votre serveur. Découvrez-en plus sur [la création et la gestion des règles et des points de terminaison de service de réseau virtuel à l'aide d'Azure CLI](howto-manage-vnet-cli.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 * [Installez l’interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 * Un [serveur Azure Database for MariaDB et une base de données](quickstart-create-mariadb-server-database-using-azure-cli.md).
 
@@ -27,11 +27,11 @@ Des règles de réseau virtuel (VNet) peuvent également être utilisées pour s
 La commande **az mariadb server firewall-rule** est utilisée à partir de l’interface de ligne de commande Azure pour créer, supprimer, répertorier, afficher et mettre à jour des règles de pare-feu.
 
 Commandes :
-- **create** : Créez une règle de pare-feu du serveur Azure MariaDB.
-- **delete** : Supprimez une règle de pare-feu du serveur Azure MariaDB.
-- **list** : Répertoriez les règles de pare-feu du serveur Azure MariaDB.
-- **show** : Affichez les détails d’une règle de pare-feu du serveur Azure MariaDB.
-- **update** : Mettez à jour une règle de pare-feu du serveur Azure MariaDB.
+- **create** : créez une règle de pare-feu du serveur Azure MariaDB.
+- **delete** : créez une règle de pare-feu du serveur Azure MariaDB.
+- **list** : répertoriez les règles de pare-feu du serveur Azure MariaDB.
+- **show** : affichez les détails d’une règle de pare-feu du serveur Azure MariaDB.
+- **update** : mettez à jour une règle de pare-feu du serveur Azure MariaDB.
 
 ## <a name="sign-in-to-azure-and-list-your-azure-database-for-mariadb-servers"></a>Se connecter à Azure et lister les serveurs Azure Database for MariaDB
 Connectez-vous en toute sécurité à Azure CLI à l’aide de votre compte Azure en exécutant la commande **az login**.

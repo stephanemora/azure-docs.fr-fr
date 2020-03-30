@@ -1,20 +1,20 @@
 ---
 title: 'Tutoriel : Router les véhicules électriques avec Azure Notebooks (Python) | Microsoft Azure Maps'
 description: Routez les véhicules électriques avec les API de routage Microsoft Azure Maps et Azure Notebooks.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 22a8561d69dd0eeb22f9fe025f5b792422db2c17
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3118ca39ec0efd42c9f7b622c91f857034ef4b03
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77208163"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80333834"
 ---
 # <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>Tutoriel : Router les véhicules électriques avec Azure Notebooks (Python)
 

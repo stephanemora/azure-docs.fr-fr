@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
 ms.openlocfilehash: 7130ed43183d64b00f8f5ef1697b9a3b456ad396
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "72931675"
 ---
 # <a name="create-video-reviews-using-net"></a>Créer des révisions de vidéos à l’aide de .NET
@@ -27,7 +27,7 @@ Cet article fournit des informations et des exemples de code destinés à vous a
 - Obtenir l’état et les détails de la révision
 - Publier la révision
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Connectez-vous ou créez un compte sur le site de l’[outil de révision](https://contentmoderator.cognitive.microsoft.com/) de Content Moderator.
 - Cet article suppose que vous avez [modéré la vidéo (consultez le guide de démarrage rapide )](video-moderation-api.md) et que vous disposez des données de la réponse. Vous en avez besoin pour la création de révisions par trames pour les modérateurs humains.
@@ -51,7 +51,7 @@ Pour la vidéo, vous avez besoin d’un point de terminaison de streaming afin q
 
 ![Miniature de la démonstration de vidéo](images/ams-video-demo-view.PNG)
 
-- Copiez l’**URL** de cette page de [démonstration d’Azure Media Services](https://aka.ms/azuremediaplayer?url=https%3A%2F%2Famssamples.streaming.mediaservices.windows.net%2F91492735-c523-432b-ba01-faba6c2206a2%2FAzureMediaServicesPromo.ism%2Fmanifest) pour l’URL du manifeste.
+- Copiez **l’URL** sur cette page de [démonstration Azure Media Services](https://aka.ms/azuremediaplayer?url=https%3A%2F%2Famssamples.streaming.mediaservices.windows.net%2F91492735-c523-432b-ba01-faba6c2206a2%2FAzureMediaServicesPromo.ism%2Fmanifest) pour l’URL du manifeste.
 
 Pour les trames vidéo (images), utilisez les images suivantes :
 
@@ -61,7 +61,7 @@ Pour les trames vidéo (images), utilisez les images suivantes :
 
 ## <a name="create-your-visual-studio-project"></a>Créer votre projet Visual Studio
 
-1. Ajoutez un nouveau projet **Application console (.NET Framework)** à votre solution.
+1. Ajoutez un nouveau projet **Console app (.NET Framework)** à votre solution.
 
 1. Nommez le projet **VideoReviews**.
 
@@ -165,7 +165,7 @@ Créez une révision de vidéo avec **ContentModeratorClient.Reviews.CreateVideo
 - **Status**. Définissez la valeur sur « Unpublished ». Si vous ne définissez pas cette propriété, sa valeur par défaut est « Pending », ce qui signifie que la révision de la vidéo est publiée et en attente d’une révision par un opérateur humain. Une fois qu’une révision de vidéo est publiée, vous ne pouvez plus y ajouter de trames vidéo, de transcription ou de résultat de la modération des transcriptions.
 
 > [!NOTE]
-> **CreateVideoReviews** retourne une chaîne IList\<>. Chacune de ces chaînes contient un ID de révision de vidéo. Ces ID sont des GUID et sont différents de la valeur de la propriété **ContentId**. 
+> **CreateVideoReviews** retourne une chaîne IList\<string>. Chacune de ces chaînes contient un ID de révision de vidéo. Ces ID sont des GUID et sont différents de la valeur de la propriété **ContentId**. 
 
 Ajoutez la définition de méthode suivante à la classe Program de l’espace de noms VideoReviews.
 
@@ -203,7 +203,7 @@ private static string CreateReview(ContentModeratorClient client, string id, str
 ```
 
 > [!NOTE]
-> Votre clé de service Content Moderator a une limite de fréquence des demandes par seconde (RPS). Si vous dépassez cette limite, le SDK lève une exception avec le code d’erreur 429.
+> Votre clé de service Content Moderator a une limite de fréquence des requêtes par seconde. Si vous dépassez cette limite, le Kit de développement logiciel (SDK) lève une exception avec le code d’erreur 429.
 >
 > Une clé de niveau gratuit a une limite de fréquence d’une demande par seconde (RSP).
 

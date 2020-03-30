@@ -5,12 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: vturecek
-ms.openlocfilehash: 9f5f9e00c374b16026f22d4efdee51ec94d2902a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 55ee4c7498dcda3060d4e4221711793b80132bdf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75426715"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79502289"
 ---
 # <a name="implement-service-level-features-in-your-actor-service"></a>Implémenter des fonctionnalités de niveau de service dans votre service d’intervenant
 
@@ -143,7 +143,7 @@ public class Program
 
 ## <a name="implement-actor-backup-and-restore"></a>Implémenter une sauvegarde et un restauration d’intervenant
 
-Un service d’acteur personnalisé peut exposer une méthode pour sauvegarder des données d’acteur en tirant parti de l’écouteur de communication à distance déjà présent dans `ActorService`. Pour obtenir un exemple, consultez [Sauvegarder et restaurer des acteurs](service-fabric-reliable-actors-backup-and-restore.md).
+Un service d’acteur personnalisé peut exposer une méthode pour sauvegarder des données d’acteur en tirant parti de l’écouteur de communication à distance déjà présent dans `ActorService`. Pour obtenir un exemple, consultez [Sauvegarder et restaurer des acteurs](../synapse-analytics/sql-data-warehouse/backup-and-restore.md).
 
 ## <a name="actor-that-uses-a-remoting-v2-interface-compatible-stack"></a>Intervenant qui utilise une pile V2 de communication à distance (compatible avec l’interface)
 

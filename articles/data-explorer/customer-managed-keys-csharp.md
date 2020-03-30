@@ -7,20 +7,23 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 16c108790dd696e98a1264691254c9e99dac6cd3
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: a00b0876c4a188b932032129ed5a394e94198930
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76280598"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80297944"
 ---
 # <a name="configure-customer-managed-keys-using-c"></a>Configurer des clés gérées par le client à l’aide de C#
 
 > [!div class="op_single_selector"]
+> * [Portail](customer-managed-keys-portal.md)
 > * [C#](customer-managed-keys-csharp.md)
 > * [Modèle Azure Resource Manager](customer-managed-keys-resource-manager.md)
 
 [!INCLUDE [data-explorer-configure-customer-managed-keys](../../includes/data-explorer-configure-customer-managed-keys.md)]
+
+[!INCLUDE [data-explorer-configure-customer-managed-keys part 2](../../includes/data-explorer-configure-customer-managed-keys-b.md)]
 
 ## <a name="configure-encryption-with-customer-managed-keys"></a>Configurer le chiffrement avec les clés gérées par le client
 
@@ -28,7 +31,7 @@ Cette section vous montre comment configurer le chiffrement avec des clés gér�
 
 ### <a name="prerequisites"></a>Conditions préalables requises
 
-* Si vous n’avez pas encore installé Visual Studio 2019, vous pouvez télécharger et utiliser la version **gratuite** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Veillez à activer **le développement Azure** lors de l’installation de Visual Studio.
+* Si vous n’avez pas encore installé Visual Studio 2019, vous pouvez télécharger et utiliser la version **gratuite** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Veillez à activer **le développement Azure** lors de l’installation de Visual Studio.
 
 * Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
 

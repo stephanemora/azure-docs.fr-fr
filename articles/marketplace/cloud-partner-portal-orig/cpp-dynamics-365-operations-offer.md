@@ -1,19 +1,18 @@
 ---
 title: Offre Dynamics 365 for Finance and Operations sur la Place de marché Azure
 description: 'Dépréciation de l’article Portail Cloud Partner, ajout d’un lien à l’article Espace partenaires ; auparavant : « Explique comment créer une offre Dynamics 365 for Finance and Operations sur le Portail Cloud Partner. »'
-services: Azure Marketplace, Cloud Partner Portal,
-author: ChJenk
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.author: v-chjen
-ms.openlocfilehash: 2b6308a29a2feb112dbd67060c6fc7d31ce162e3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 64216c5f224ed3f9926523d316a725fa9cac1c61
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819233"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80276119"
 ---
 # <a name="dynamics-365-for-finance-and-operations-offer"></a>Offre Dynamics 365 for Finance and Operations
 

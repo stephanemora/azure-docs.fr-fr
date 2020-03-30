@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: billgib
 ms.date: 09/24/2018
 ms.openlocfilehash: 02682a18f14e7ecbf5b42783ab84a1b55a4bb77b
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74133127"
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Approvisionner et cataloguer de nouveaux clients à l’aide du modèle SaaS d’application par client
@@ -67,7 +67,7 @@ Un modèle Azure Resource Manager est utilisé pour déployer et configurer l’
 
 À la fin de ce didacticiel, vous avez un ensemble d’applications clientes autonomes, avec chaque base de données inscrite dans le catalogue.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre ce didacticiel, vérifiez que les prérequis suivants sont remplis :
 

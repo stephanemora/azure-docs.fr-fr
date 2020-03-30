@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: diberry
 ms.openlocfilehash: 0a733aff14b71c6378971c0b72a9ca1f3cd4cfc3
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74013565"
 ---
 # <a name="add-prebuilt-models-for-common-usage-scenarios"></a>Modèles prédéfinis pour les scénarios d’usage courants 

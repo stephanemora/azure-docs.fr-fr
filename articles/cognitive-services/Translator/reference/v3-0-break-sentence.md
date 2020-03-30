@@ -11,13 +11,13 @@ ms.topic: reference
 ms.date: 01/21/2020
 ms.author: swmachan
 ms.openlocfilehash: 4c314148b8e1495a8b5a12c42d4989d13cdd6a08
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76548116"
 ---
-# <a name="translator-text-api-30-breaksentence"></a>API de traduction de texte Translator Text 3.0 : BreakSentence
+# <a name="translator-text-api-30-breaksentence"></a>API de traduction de texte Translator Text 3.0 : BreakSentence
 
 Identifie le positionnement des limites de phrases dans du texte.
 
@@ -69,13 +69,13 @@ Les limites suivantes s'appliquent :
 
 Une réponse correcte est un tableau JSON avec un résultat pour chaque chaîne dans le tableau d’entrée. Un objet de résultat inclut les propriétés suivantes :
 
-  * `sentLen`: tableau d’entiers représentant les longueurs des phrases dans l'élément de texte. La longueur du tableau correspond au nombre de phrases, et les valeurs sont les longueurs des phrases. 
+  * `sentLen` : tableau d’entiers représentant les longueurs des phrases dans l’élément de texte. La longueur du tableau correspond au nombre de phrases, et les valeurs sont les longueurs des phrases. 
 
-  * `detectedLanguage`: objet décrivant la langue détectée au moyen des propriétés suivantes :
+  * `detectedLanguage` : objet décrivant la langue détectée via les propriétés suivantes :
 
-     * `language`: code de la langue détectée.
+     * `language` : code de la langue détectée.
 
-     * `score`: valeur flottante indiquant le niveau de confiance dans le résultat. Le score est compris entre zéro et un, un score faible indiquant un niveau de confiance bas.
+     * `score` : valeur flottante indiquant le niveau de confiance dans le résultat. Le score est compris entre zéro et un, un score faible indiquant un niveau de confiance bas.
      
     Notez que la propriété `detectedLanguage` n’est présente dans l’objet de résultat que quand la détection automatique de la langue est demandée.
 

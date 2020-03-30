@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 10/02/2018
 ms.author: memildin
 ms.openlocfilehash: 5aaaf539c07a7ba2c2463d5bfd1f452853f52379
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77603693"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>Automatiser l’intégration d’Azure Security Center à l’aide de PowerShell
@@ -41,7 +41,7 @@ Dans cet exemple, nous allons activer Azure Security Center sur un abonnement do
 
 6. Assignez les [stratégies de sécurité par défaut](tutorial-security-policy.md) d’Azure Security Center.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant d’exécuter les cmdlets Azure Security Center, vous devez effectuer les étapes suivantes :
 
@@ -58,7 +58,7 @@ Avant d’exécuter les cmdlets Azure Security Center, vous devez effectuer les 
         Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
         Register-AzResourceProvider -ProviderNamespace 'Microsoft.Security' 
 
-2.  Facultatif : définissez le niveau de couverture (niveau tarifaire) des abonnements (par défaut, le niveau tarifaire est défini sur Gratuit) :
+2.  Facultatif : définissez le niveau de couverture (niveau tarifaire) des abonnements (par défaut, le niveau tarifaire est défini sur Gratuit) :
 
         Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
         Set-AzSecurityPricing -Name "default" -PricingTier "Standard"
@@ -78,7 +78,7 @@ Avant d’exécuter les cmdlets Azure Security Center, vous devez effectuer les 
     > Nous vous recommandons d’activer l’approvisionnement automatique pour vous assurer que vos machines virtuelles Azure sont automatiquement protégées par Azure Security Center.
     >
 
-5.  Facultatif : il est fortement recommandé de définir les contacts de sécurité pour les abonnements que vous intégrez, qui seront utilisés comme destinataires des alertes et notifications générées par Security Center :
+5.  Facultatif : il est fortement recommandé de définir les contacts de sécurité pour les abonnements que vous intégrez, qui seront utilisés comme destinataires des alertes et notifications générées par Azure Security Center :
 
         Set-AzSecurityContact -Name "default1" -Email "CISO@my-org.com" -Phone "2142754038" -AlertAdmin -NotifyOnAlert 
 

@@ -6,11 +6,11 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.openlocfilehash: a25658677e436edf4d001599bb4981f527016596
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210682"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79235205"
 ---
 # <a name="azure-functions-http-output-bindings"></a>Liaisons de sortie HTTP Azure Functions
 
@@ -18,7 +18,7 @@ Utilisez la liaison de sortie HTTP pour répondre à l’expéditeur de la deman
 
 La valeur de retour par défaut pour une fonction déclenchée par HTTP est :
 
-- `HTTP 204 No Content` avec un corps vide dans Functions 2.x et ultérieur
+- `HTTP 204 No Content` avec un corps vide dans Functions 2.x et versions ultérieures
 - `HTTP 200 OK` avec un corps vide dans Functions 1.x
 
 ## <a name="configuration"></a>Configuration

@@ -11,10 +11,10 @@ ms.date: 03/11/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: e73eae4d66f4ff94a48dfa27e258f8ba8ef87633
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79126760"
 ---
 # <a name="localization"></a>Localisation
@@ -148,7 +148,7 @@ L’élément **LocalizedString** contient les attributs suivants :
 | --------- | -------- | ----------- |
 | ElementType | Oui | Référence à un élément type de revendication ou à un élément interface utilisateur dans la stratégie. Valeurs possibles : `ClaimType`, `UxElement`, `ErrorMessage`, `Predicate` ou `GetLocalizedStringsTransformationClaimType`. La valeur `ClaimType` est utilisée pour localiser l’un des attributs de revendication, comme spécifié dans StringId. La valeur `UxElement` est utilisée pour localiser l’un des éléments d’interface utilisateur, comme spécifié dans StringId. La valeur `ErrorMessage` est utilisée pour localiser l’un des messages d’erreur système, comme spécifié dans StringId. La valeur `Predicate` est utilisée pour localiser l’un des messages d’erreur [Predicate](predicates.md), comme spécifié dans StringId. La valeur `InputValidation` est utilisée pour localiser l’un des messages d’erreur du groupe [PredicateValidation](predicates.md), comme spécifié dans StringId. La valeur `GetLocalizedStringsTransformationClaimType` est utilisée pour copier les chaînes localisées dans des revendications. Pour plus d’informations, consultez [Transformation de revendications GetLocalizedStringsTransformation](string-transformations.md#getlocalizedstringstransformation)  | 
 | ElementId | Oui | Si **ElementType** a la valeur `ClaimType`, `Predicate`, ou `InputValidation`, cet élément contient une référence à un type de revendication déjà défini dans la section ClaimsSchema. |
-| StringId | Oui | Si **ElementType** a la valeur `ClaimType`, cet élément contient une référence à un attribut d’un type de revendication. Valeurs possibles : `DisplayName`, `AdminHelpText` ou `PatternHelpText`. La valeur `DisplayName` est utilisée pour définir le nom d’affichage de la revendication. La valeur `AdminHelpText` est utilisée pour définir le nom du texte d’aide de l’utilisateur de la revendication. La valeur `PatternHelpText` est utilisée pour définir le texte d’aide du modèle de revendication. Si **ElementType** a la valeur `UxElement`, cet élément contient une référence à un attribut d’un élément d’interface utilisateur. Si **ElementType** a la valeur `ErrorMessage`, cet élément spécifie l’identificateur d’un message d’erreur. Pour obtenir la liste complète des `UxElement` identificateurs, voir [ID de chaîne de localisation](localization-string-ids.md).|
+| StringId | Oui | Si **ElementType** a la valeur `ClaimType`, cet élément contient une référence à un attribut d’un type de revendication. Valeurs possibles : `DisplayName`, `AdminHelpText` ou `PatternHelpText`. La valeur `DisplayName` est utilisée pour définir le nom d’affichage de la revendication. La valeur `AdminHelpText` est utilisée pour définir le nom du texte d’aide de l’utilisateur de la revendication. La valeur `PatternHelpText` est utilisée pour définir le texte d’aide du modèle de revendication. Si **ElementType** a la valeur `UxElement`, cet élément contient une référence à un attribut d’un élément d’interface utilisateur. Si **ElementType** a la valeur `ErrorMessage`, cet élément spécifie l’identificateur d’un message d’erreur. Pour obtenir la liste complète des [ identificateurs, voir ](localization-string-ids.md)ID de chaîne de localisation`UxElement`.|
 
 
 L’exemple suivant montre une page d’inscription localisée. Les trois premières valeurs **LocalizedString** définissent l’attribut de revendication. La troisième modifie la valeur du bouton Continuer. La dernière modifie le message d’erreur.

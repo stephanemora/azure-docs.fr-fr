@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 87cbb94dbab241630dc7585bdf4314d858d5b4da
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74232758"
 ---
 # <a name="versioning-in-durable-functions-azure-functions"></a>Contrôle de version dans l’extension Fonctions durables (Azure Functions)
@@ -35,7 +35,7 @@ public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext conte
 }
 ```
 
-Cette fonction simpliste récupère les résultats de **Foo** et les passe à **Bar**. Partons du principe que nous devons modifier la valeur renvoyée par **Foo**, en remplaçant `bool` par `int`, afin de prendre en charge un plus grand éventail de valeurs de résultats. Le résultat ressemble à :
+Cette fonction simpliste récupère les résultats de **Foo** et les passe à **Bar**. Partons du principe que nous devons modifier la valeur renvoyée par **Foo**, en remplaçant `bool` par `int`, afin de prendre en charge un plus grand éventail de valeurs de résultats. Le résultat ressemble à ceci :
 
 ```csharp
 [FunctionName("FooBar")]
@@ -47,7 +47,7 @@ public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext conte
 ```
 
 > [!NOTE]
-> Les exemples C# précédents ciblent Durable Functions 2.x. Pour Durable Functions 1.x, vous devez utiliser `DurableOrchestrationContext` au lieu de `IDurableOrchestrationContext`. Pour en savoir plus sur les différences entre les versions, consultez l’article sur les [versions de Durable Functions](durable-functions-versions.md).
+> Les exemples C# précédents ciblent Durable Functions 2.x. Pour Durable Functions 1.x, vous devez utiliser `DurableOrchestrationContext` au lieu de `IDurableOrchestrationContext`. Pour en savoir plus sur les différences entre les versions, consultez l’article [Versions de Durable Functions](durable-functions-versions.md).
 
 Cette modification fonctionne pour toutes les nouvelles instances de la fonction d’orchestrateur, mais décompose toutes les instances en cours. Envisageons le cas où une instance d’orchestration appelle une fonction nommée `Foo`, récupère une valeur booléenne, puis des points de contrôle. Si la modification de signature est déployée à ce stade, l’instance faisant l’objet de points de contrôle échoue immédiatement, puis reprend et exécute à nouveau l’appel à `context.CallActivityAsync<int>("Foo")`. Cette erreur se produit car le résultat de la table d’historique est `bool`, mais le nouveau code tente de le désérialiser en `int`.
 
@@ -85,7 +85,7 @@ public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext conte
 ```
 
 > [!NOTE]
-> Les exemples C# précédents ciblent Durable Functions 2.x. Pour Durable Functions 1.x, vous devez utiliser `DurableOrchestrationContext` au lieu de `IDurableOrchestrationContext`. Pour en savoir plus sur les différences entre les versions, consultez l’article sur les [versions de Durable Functions](durable-functions-versions.md).
+> Les exemples C# précédents ciblent Durable Functions 2.x. Pour Durable Functions 1.x, vous devez utiliser `DurableOrchestrationContext` au lieu de `IDurableOrchestrationContext`. Pour en savoir plus sur les différences entre les versions, consultez l’article [Versions de Durable Functions](durable-functions-versions.md).
 
 Cette modification ajoute un nouvel appel de fonction au paramètre **SendNotification**, entre **Foo** et **Bar**. Aucune modification de signature n’est effectuée. Le problème survient lorsqu’une instance existante reprend à partir de l’appel à **bar**. Lors de la réexécution, si l’appel d’origine à **Foo** renvoie `true`, la réexécution de l’orchestrateur effectue l’appel dans **SendNotification**, qui n’est pas dans son historique d’exécution. De ce fait, l’infrastructure de tâche durable échoue en générant une exception `NonDeterministicOrchestrationException`, car elle a rencontré un appel à **SendNotification** alors qu’elle attendait un appel envoyé à **Bar**. Le même type de problème peut survenir lors de l’ajout d’appels à des API « durables », y compris `CreateTimer`, `WaitForExternalEvent`, etc.
 
@@ -132,7 +132,7 @@ Le hub de tâches peut être configuré dans le fichier *host.json*, comme suit�
 }
 ```
 
-#### <a name="functions-20"></a>Functions 2.0
+#### <a name="functions-20"></a>Functions 2.0
 
 ```json
 {

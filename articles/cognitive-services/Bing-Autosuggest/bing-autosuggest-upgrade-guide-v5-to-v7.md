@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: scottwhi
 ms.openlocfilehash: 5249a3a1f51eea2ecd0999d71c6b08fdacf37a34
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68405417"
 ---
 # <a name="autosuggest-api-upgrade-guide"></a>Guide de mise à niveau de l’API Suggestion automatique Bing
 
 Ce guide de mise à niveau identifie les changements apportés entre la version 5 et la version 7 de l’API Suggestion automatique Bing. Utilisez ce guide pour mettre à jour votre application vers la version 7.
 
-## <a name="breaking-changes"></a>Dernières modifications
+## <a name="breaking-changes"></a>Changements cassants
 
 ### <a name="endpoints"></a>Points de terminaison
 

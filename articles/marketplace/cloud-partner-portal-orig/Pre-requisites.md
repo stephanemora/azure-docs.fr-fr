@@ -1,20 +1,18 @@
 ---
 title: Conditions préalables pour la collecte de l’application
 description: 'Dépréciation de l’article Portail Cloud Partner, ajout d’un lien à l’article Espace partenaires ; auparavant : « Liste des conditions préalables pour la collecte de l’application. »'
-services: Azure, Marketplace, Cloud Partner Portal,
-author: ChJenk
-manager: Ricardo.Villalobos
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.author: v-chjen
-ms.openlocfilehash: 98a50481612d93a9a2d9d7d5bfb04bfa22db6e00
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: e907c51e69b5b57da9986fa017d59fed2e58320d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819799"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280573"
 ---
 # <a name="prerequisites-for-application-curation"></a>Conditions préalables pour la collecte de l’application
 

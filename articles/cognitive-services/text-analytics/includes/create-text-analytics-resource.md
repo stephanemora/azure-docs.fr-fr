@@ -10,22 +10,22 @@ ms.topic: include
 ms.date: 11/21/2019
 ms.author: dapine
 ms.openlocfilehash: d3b65174f3d161e0b8780a890f297d9d1c812b44
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74383447"
 ---
 ## <a name="create-a-cognitive-services-text-analytics-resource"></a>Créer une ressource Analyse de texte Cognitive Services
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Sélectionnez **Créer une ressource**, puis accédez à **IA + Machine Learning** > **Analyse de texte**.
    Ou accédez à [Créer des analyses de texte](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics).
 1. Entrez tous les paramètres obligatoires :
 
     |Paramètre|Valeur|
     |--|--|
-    |Nom|Entrez un nom (entre 2 et 64 caractères).|
+    |Name|Entrez un nom (entre 2 et 64 caractères).|
     |Subscription|Sélectionnez l’abonnement approprié.|
     |Location|Sélectionnez un emplacement proche.|
     |Niveau tarifaire| Entrez **S**, le niveau tarifaire standard.|

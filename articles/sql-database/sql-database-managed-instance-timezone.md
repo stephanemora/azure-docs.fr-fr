@@ -11,11 +11,11 @@ ms.author: mlandzic
 ms.reviewer: ''
 ms.date: 09/03/2019
 ms.openlocfilehash: 0dbed3db8e106b9bfe1b48ff2b9bc52840fc4c3a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818863"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228581"
 ---
 # <a name="time-zones-in-azure-sql-database-managed-instance"></a>Fuseaux horaires dans Azure SQL Database Managed Instance
 
@@ -81,7 +81,7 @@ La fonction [CURRENT_TIMEZONE](https://docs.microsoft.com/sql/t-sql/functions/cu
 
 Vous pouvez restaurer un fichier de sauvegarde ou importer des données vers une instance gérée à partir d'une instance ou d'un serveur avec différents paramètres de fuseau horaire. Procédez avec précaution ! Analysez le comportement de l'application et les résultats des requêtes et des rapports, comme lorsque vous transférez des données entre deux instances SQL Server avec différents paramètres de fuseau horaire.
 
-### <a name="point-in-time-restore"></a>Limite de restauration dans le temps
+### <a name="point-in-time-restore"></a>Restauration dans le temps
 
 Lorsque vous effectuez une restauration dans le temps, l'heure de la restauration est interprétée comme une heure UTC. Toute ambiguïté liée à l'heure d'été et à ses éventuelles modifications est ainsi évitée.
 
@@ -193,7 +193,7 @@ L'utilisation du même fuseau horaire dans des instances principale et secondair
 | Heure standard de l’Inde | (UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi |
 | Heure standard du Sri Lanka | (UTC+05:30) Sri Jayawardenepura |
 | Heure standard du Népal | (UTC+05:45) Katmandou |
-| Heure standard d’Asie centrale | (UTC+06:00) Astana |
+| Heure standard d’Asie centrale (Nord) | (UTC+06:00) Astana |
 | Heure standard du Bangladesh | (UTC+06:00) Dacca |
 | Heure standard d’Omsk | (UTC+06:00) Omsk |
 | Heure standard du Myanmar | (UTC+06:30) Yangon (Rangoon) |
@@ -206,7 +206,7 @@ L'utilisation du même fuseau horaire dans des instances principale et secondair
 | Heure standard de Chine | (UTC+08:00) Beijing, Chongqing, Hong Kong, Urumqi |
 | Heure standard d’Asie de l’Est (Nord) | (UTC+08:00) Irkoutsk |
 | Heure standard de Singapour | (UTC+08:00) Kuala Lumpur, Singapour |
-| Heure standard d’Australie occidentale | (UTC+08:00) Perth |
+| Heure standard Heure standard d’Australie de l’Est | (UTC+08:00) Perth |
 | Heure standard de Taipei | (UTC+08:00) Taipei |
 | Heure standard d’Oulan-Bator | (UTC+08:00) Oulan-Bator |
 | Heure standard d’Australie occidentale (Centre) | (UTC+08:45) Eucla |
@@ -215,7 +215,7 @@ L'utilisation du même fuseau horaire dans des instances principale et secondair
 | Heure standard de Corée du Nord | (UTC+09:00) Pyongyang |
 | Heure standard de Corée du Sud | (UTC+09:00) Séoul |
 | Heure standard d’Iakoutsk | (UTC+09:00) Iakoutsk |
-| Heure standard d’Australie (Centre) | (UTC+09:30) Adelaide |
+| Heure standard Heure standard d’Australie de l’Est | (UTC+09:30) Adelaide |
 | Heure standard d’Australie Centre) | (UTC+09:30) Darwin |
 | E. Heure standard d’Australie de l’Est | (UTC+10:00) Brisbane |
 | Heure standard d’Australie de l’Est | (UTC+10:00) Canberra, Melbourne, Sydney |

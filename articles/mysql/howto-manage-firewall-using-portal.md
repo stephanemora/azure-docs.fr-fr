@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: b02bae528146a3f0c214b7fbb1d234c1a24b174f
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: edd6403ed3d7607eb96bc7c6a603c3fef8a4f99e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74774238"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80063547"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-portal"></a>Créer et gérer des règles de pare-feu Azure Database pour MySQL à l’aide du Portail Azure
 Les règles de pare-feu au niveau du serveur peuvent être utilisées pour gérer l'accès à un serveur Azure Database pour MySQL à partir d'une adresse IP ou d'une plage d'adresses IP spécifiée. 
@@ -56,6 +56,6 @@ Répétez les étapes pour gérer les règles de pare-feu.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-- De même, vous pouvez utiliser un script pour [créer et gérer des règles de pare-feu Azure Database pour MySQL à l’aide d’Azure CLI](howto-manage-firewall-using-cli.md).
-- Pour sécuriser davantage l'accès à votre serveur, [créez et gérez des règles et des points de terminaison de service de réseau virtuel à l'aide du portail Azure](howto-manage-vnet-using-portal.md).
-- Pour vous aider à vous connecter à un serveur Azure Database pour MySQL, consultez la rubrique [Bibliothèques de connexions pour Azure Database pour MySQL](./concepts-connection-libraries.md).
+     Similarly, you can script to [Create and manage Azure Database for MySQL firewall rules using Azure CLI](howto-manage-firewall-using-cli.md).
+     Further secure access to your server by [creating and managing Virtual Network service endpoints and rules using the Azure portal](howto-manage-vnet-using-portal.md).
+        For help in connecting to an Azure     atabase for MySQL server, see [Connection libraries for Azure Database for MySQL](./concepts-connection-libraries.md).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        

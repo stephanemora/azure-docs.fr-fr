@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/17/2019
 ms.author: kumud
-ms.openlocfilehash: b2dfdbafe0e72e550e44ef12fd53903d947ab3c2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b9021784216f02fb117f6e63e150b37b07755912
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75368265"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80239852"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-using-basic-load-balancer---cli-preview"></a>Déployer une application double pile IPv6 avec Basic Load Balancer - CLI (préversion)
 
@@ -44,15 +44,17 @@ az feature register --name AllowIPv6CAOnStandardLB --namespace Microsoft.Network
 ```
 Il faut compter 30 minutes pour l’inscription de la fonctionnalité. Vous pouvez vérifier l’état de votre enregistrement en exécutant la commande Azure CLI suivante :
 
-```azurelci
+```azurecli
 az feature show --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
 az feature show --name AllowIPv6CAOnStandardLB --namespace Microsoft.Network
 ```
+
 À l’issue de l’installation, exécutez la commande suivante :
 
-```azurelci
+```azurecli
 az provider register --namespace Microsoft.Network
 ```
+
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
 Avant de pouvoir créer un réseau virtuel double pile, vous devez créer un groupe de ressources avec [az group create](/cli/azure/group). L’exemple suivant crée un groupe de ressources nommé *DsResourceGroup01* à l’emplacement *eastus* :
@@ -151,12 +153,14 @@ az network lb address-pool create \
 --name dsLbBackEndPool_v6  \
 --resource-group DsResourceGroup01
 ```
+
 ### <a name="create-a-health-probe"></a>Créer une sonde d’intégrité
 Créez une sonde d’intégrité à l’aide de la commande [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest) pour surveiller l’intégrité des machines virtuelles. 
 
 ```azurecli
 az network lb probe create -g DsResourceGroup01  --lb-name dsLB -n dsProbe --protocol tcp --port 3389
 ```
+
 ### <a name="create-a-load-balancer-rule"></a>Créer une règle d’équilibreur de charge
 
 Une règle d’équilibrage de charge est utilisée pour définir la distribution du trafic vers les machines virtuelles. Vous définissez la configuration IP frontale pour le trafic entrant et le pool d’adresses IP principal pour recevoir le trafic, ainsi que le port source et le port de destination requis. 
@@ -300,7 +304,7 @@ az network vnet subnet create \
 ### <a name="create-nics"></a>Créer des cartes réseau
 
 Créez des cartes réseau virtuelles pour chaque machine virtuelle avec [az network nic create](https://docs.microsoft.com/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-create). L’exemple suivant crée une carte réseau virtuelle pour chaque machine virtuelle. Chaque carte réseau a deux configurations IP (1 configuration IPv4 et 1 configuration IPv6). Vous allez créer la configuration IPV6 avec [az network nic ip-config create](https://docs.microsoft.com/cli/azure/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-create).
- 
+
 ```azurecli
 # Create NICs
 az network nic create \
@@ -363,6 +367,7 @@ Créez la machine virtuelle *dsVM0* comme suit :
 --availability-set dsAVset \
 --image MicrosoftWindowsServer:WindowsServer:2019-Datacenter:latest  
 ```
+
 Créez la machine virtuelle *dsVM1* comme suit :
 
 ```azurecli

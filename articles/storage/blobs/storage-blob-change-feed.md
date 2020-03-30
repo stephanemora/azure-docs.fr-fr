@@ -8,16 +8,18 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: b26e54c7130469eee87a9237f4847f46cb3b7698
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: ac111b06d578a0e9af8581ef2e8caeccfc4a291e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75691040"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79536885"
 ---
 # <a name="change-feed-support-in-azure-blob-storage-preview"></a>Prise en charge du flux de modification dans Stockage Blob Azure (préversion)
 
 L’objectif du flux de modification est de fournir des journaux des transactions de toutes les modifications apportées aux objets blob et aux métadonnées d’objets blob dans votre compte de stockage. Le flux de modification fournit un journal **ordonné**, **garanti**, **durable**, **immuable** et **en lecture seule** de ces changements. Les applications clientes peuvent lire ces journaux à tout moment, soit en diffusion en continu, soit en mode de traitement par lot. Le flux de modification vous permet de créer des solutions efficaces et évolutives qui traitent les événements de modification qui se produisent dans votre compte Stockage Blob à moindre coût.
+
+[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
 
 Le flux de modification est stocké en tant que [blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) dans un conteneur spécial dans votre compte de stockage au [tarif standard des objets blob](https://azure.microsoft.com/pricing/details/storage/blobs/). Vous pouvez contrôler la période de rétention de ces fichiers en fonction de vos exigences (voir les [conditions](#conditions) de la version actuelle). Les événements de modification sont ajoutés au flux de modification sous forme d’enregistrements dans la spécification de format [Apache Avro](https://avro.apache.org/docs/1.8.2/spec.html) : un format binaire, compact et rapide qui fournit des structures de données enrichies avec un schéma inlined. Ce format est largement utilisé dans l’écosystème Hadoop, Stream Analytics et Azure Data Factory.
 
@@ -55,7 +57,7 @@ Voici quelques éléments à prendre en compte lorsque vous activez le flux de m
 > [!IMPORTANT]
 > Le flux de modification est en préversion publique et est disponible dans les régions **westcentralus** et **westus2**. Consultez la section [Conditions](#conditions) de cet article. Pour vous inscrire à la préversion, consultez la section [Inscrire votre abonnement](#register) de cet article. Vous devez inscrire votre abonnement avant de pouvoir activer le flux de modification sur vos comptes de stockage.
 
-### <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
+### <a name="portal"></a>[Portail](#tab/azure-portal)
 
 Activez le flux de modification sur votre compte de stockage à l’aide du portail Azure :
 
@@ -69,7 +71,7 @@ Activez le flux de modification sur votre compte de stockage à l’aide du port
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-configuration.png)
 
-### <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Activez le flux de modification à l’aide de PowerShell :
 
@@ -99,7 +101,7 @@ Activez le flux de modification à l’aide de PowerShell :
    Update-AzStorageBlobServiceProperty -EnableChangeFeed $true
    ```
 
-### <a name="templatetabtemplate"></a>[Modèle](#tab/template)
+### <a name="template"></a>[Modèle](#tab/template)
 Utilisez un modèle Azure Resource Manager pour activer le flux de modification sur votre compte de stockage existant par le biais du portail Azure :
 
 1. Dans le Portail Azure, choisissez **Créer une ressource**.
@@ -150,7 +152,7 @@ Consultez [Traiter les journaux de flux de modification dans Stockage Blob Azure
 
 ### <a name="segments"></a>Segments
 
-Le flux de changements est un journal de changements qui sont organisés en *segments* **horaires**, mais ajoutés et mis à jour à intervalles réguliers de quelques minutes. Ces segments sont créés uniquement quand des événements de modification d’objet blob se produisent dans l’heure. Cela permet à votre application cliente de consommer des modifications qui se produisent dans des plages de temps spécifiques sans avoir à effectuer une recherche dans le journal entier. Pour en savoir plus, consultez [Spécifications](#specifications).
+Le flux de changements est un journal de changements qui sont organisés en **segments** *horaires*, mais ajoutés et mis à jour à intervalles réguliers de quelques minutes. Ces segments sont créés uniquement quand des événements de modification d’objet blob se produisent dans l’heure. Cela permet à votre application cliente de consommer des modifications qui se produisent dans des plages de temps spécifiques sans avoir à effectuer une recherche dans le journal entier. Pour en savoir plus, consultez [Spécifications](#specifications).
 
 Un segment horaire disponible du flux de modification est décrit dans un fichier manifeste qui spécifie les chemins d’accès aux fichiers de flux de modification pour ce segment. La liste du répertoire virtuel `$blobchangefeed/idx/segments/` montre ces segments dans l’ordre chronologique. Le chemin d’accès du segment décrit le début de l’intervalle horaire représenté par le segment. Vous pouvez utiliser cette liste pour filtrer les segments de journaux qui vous intéressent.
 
@@ -298,7 +300,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 
 Dans Azure Cloud Shell, exécutez ces commandes :
 
-```cli
+```azurecli
 az feature register --namespace Microsoft.Storage --name Changefeed
 az provider register --namespace 'Microsoft.Storage'
 ```

@@ -1,20 +1,18 @@
 ---
 title: Déterminer votre option de publication sur la Place de marché Azure | Place de marché Azure
 description: Cet article décrit les critères d’éligibilité et les exigences de publication pour les partenaires qui essaient de comprendre comment publier des applications dans la Place de marché Azure.
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
-manager: pabutler
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: pabutler
-ms.openlocfilehash: 43ca74faadf7890f1274afc4905af79237918f4a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: a471e756cd4c3f174538f51eb657df2e3216bd54
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827805"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80285059"
 ---
 # <a name="publishing-guide-by-offer-type"></a>Guide de publication par Type d’offre
 
@@ -47,6 +45,6 @@ Enfin, consultez les [**exigences Azure AD**](https://docs.microsoft.com/azure/
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-*   Passez en revue les conditions d’éligibilité dans la section relative aux options de publication par type d’offre pour finaliser la sélection et la configuration de votre offre.
-*   Passez en revue les modèles de publication par vitrine pour obtenir des exemples sur la manière dont votre solution correspond à un type d’offre et à une configuration.
+*    Passez en revue les conditions d’éligibilité dans la section relative aux options de publication par type d’offre pour finaliser la sélection et la configuration de votre offre.
+*    Passez en revue les modèles de publication par vitrine pour obtenir des exemples sur la manière dont votre solution correspond à un type d’offre et à une configuration.
 

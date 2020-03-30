@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 49dc69eb73bd19509b5e14c5a4976cfa7208545a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 97f265d76ac70891e9cefc0ef6651e439706ed23
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75392325"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80334848"
 ---
 **Volume et rétention de collecte de données** 
 
@@ -35,21 +35,21 @@ ms.locfileid: "75392325"
 
 **Azure portal**
 
-| Category | limites | Commentaires |
+| Category | Limite | Commentaires |
 |:---|:---|:---|
 | Nombre maximum d’enregistrements retournés par une requête de journal | 10 000 | Réduisez les résultats à l’aide d’une étendue de requête, d’un intervalle de temps et de filtres dans la requête. |
 
 
 **API de collecte de données**
 
-| Category | limites | Commentaires |
+| Category | Limite | Commentaires |
 |:---|:---|:---|
 | Taille maximale d’une publication | 30 Mo | Fractionner les volumes plus importants en plusieurs publications. |
 | Taille maximale des valeurs de champ  | 32 Ko | Les champs de plus de 32 Ko de champs sont tronqués. |
 
 **API Recherche**
 
-| Category | limites | Commentaires |
+| Category | Limite | Commentaires |
 |:---|:---|:---|
 | Nombre maximal d’enregistrements retournés dans une requête | 500 000 | |
 | Taille maximale des données retournées | 64 000 000 octets (~ 61 Mio)| |
@@ -58,7 +58,7 @@ ms.locfileid: "75392325"
 
 **Limites d’espace de travail général**
 
-| Category | limites | Commentaires |
+| Category | Limite | Commentaires |
 |:---|:---|:---|
 | Nombre maximum de colonnes dans une table         | 500 | |
 | Nombre maximum de caractères pour le nom de colonne | 500 | |

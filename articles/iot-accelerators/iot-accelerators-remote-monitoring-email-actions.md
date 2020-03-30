@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 11/12/2018
 ms.topic: conceptual
 ms.openlocfilehash: c192ba73da0cfaf1832b6a1e572bd71b250a976b
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74168369"
 ---
 # <a name="add-an-email-action"></a>Ajouter une action de messagerie
@@ -81,7 +81,7 @@ Effectuez les étapes suivantes pour ajouter une action de messagerie quand vous
 
 Votre règle avec une action de messagerie est maintenant activée. Chaque fois que l’action est déclenchée, un nouvel e-mail est envoyé aux destinataires.
 
-## Se connecter à Outlook <a name="outlook"></a>
+## <a name="sign-in-to-outlook"></a>Se connecter à Outlook <a name="outlook"></a>
 
 La première fois que vous activez une action de messagerie dans votre accélérateur de solution, vous devez vous connecter à Outlook. Cette action configure le compte e-mail qui envoie les notifications par e-mail.
 
@@ -138,7 +138,7 @@ Les étapes suivantes vous aident à vous connecter et configurer les actions de
 
    ![Connexion à Outlook réussie](./media/iot-accelerators-remote-monitoring-email-actions/success-email.png)
 
-## Personnaliser le modèle HTML d’e-mail <a name="htmledit"></a>
+## <a name="customize-the-email-html"></a>Personnaliser le modèle HTML d’e-mail <a name="htmledit"></a>
 
 L’accélérateur de solution de supervision à distance fournit un modèle HTML de base prêt à l’emploi pour les e-mails des actions. Le modèle d’e-mail utilise les valeurs des paramètres des actions de messagerie. Voici un exemple d’e-mail :
 

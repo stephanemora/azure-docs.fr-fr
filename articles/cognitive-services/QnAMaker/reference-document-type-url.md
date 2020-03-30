@@ -1,18 +1,18 @@
 ---
 title: Types d’URL pris en charge pour l’importation – QnA Maker
-description: Découvrez comment les types d’URL sont utilisés pour importer et créer des séries de questions et réponses.
+description: Comprenez comment les types d’URL sont utilisés pour importer et créer des séries de questions-réponses.
 ms.topic: reference
 ms.date: 01/02/2020
 ms.openlocfilehash: cf2a02f55d7c95ff9b3f0231ea07a783d18b73cf
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77651791"
 ---
 # <a name="urls-supported-for-importing-documents"></a>URL prises en charge pour l’importation de documents
 
-Découvrez comment les types d’URL sont utilisés pour importer et créer des séries de questions et réponses.
+Comprenez comment les types d’URL sont utilisés pour importer et créer des séries de questions-réponses.
 
 ## <a name="faq-urls"></a>URL de FAQ
 

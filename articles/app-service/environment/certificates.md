@@ -8,10 +8,10 @@ ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 65fc4ed25b0fd360de8e3b1439d1766485eb2e58
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74688644"
 ---
 # <a name="certificates-and-the-app-service-environment"></a>Certificats et l’environnement App Service 
@@ -26,8 +26,8 @@ Si vous utilisez un environnement ASE externe, vous pouvez accéder à vos appli
 
 Deux options vous permettent de configurer des certificats avec votre environnement ASE ILB.  Vous pouvez définir un certificat par défaut avec caractères génériques pour l’environnement ASE ILB ou définir des certificats sur chaque application web de l’environnement ASE.  Quel que soit votre choix, les attributs de certificat suivants doivent être configurés correctement :
 
-- **Objet :** cet attribut doit être défini avec *.[votre-domaine-racine-ici] pour un certificat ASE ILB avec caractères génériques. Si vous créez le certificat pour votre application, celui-ci doit se présenter ainsi : [nomapp].[votre-domaine-racine-ici]
-- **Autre nom de l’objet :** cet attribut doit inclure à la fois *.[votre-domaine-racine-ici] et *.scm.[votre-domaine-racine-ici] pour le certificat ASE ILB avec caractères génériques. Si vous créez le certificat pour votre application, celui-ci doit se présenter ainsi : [nomapp].[votre-domaine-racine-ici] et [nomapp].scm.[votre-domaine-racine-ici].
+- **Objet** : Cet attribut doit être défini avec *.[votre-domaine-racine-ici] pour un certificat ASE ILB avec caractères génériques. Si vous créez le certificat pour votre application, celui-ci doit se présenter ainsi : [nomapp].[votre-domaine-racine-ici]
+- **Autre nom de l’objet :** Cet attribut doit inclure à la fois *.[votre-domaine-racine-ici] et *.scm.[votre-domaine-racine-ici] pour le certificat ASE ILB avec caractères génériques. Si vous créez le certificat pour votre application, celui-ci doit se présenter ainsi : [nomapp].[votre-domaine-racine-ici] et [nomapp].scm.[votre-domaine-racine-ici].
 
 Troisième variante, vous pouvez créer un certificat ASE ILB qui inclut les noms de toutes vos applications dans l’autre nom de l’objet du certificat au lieu d’utiliser une référence avec caractères génériques. Le problème avec cette méthode est que vous devez connaître à l’avance les noms des applications que vous placez dans l’environnement ASE ou que vous devez mettre à jour le certificat ASE ILB au fur et à mesure.
 

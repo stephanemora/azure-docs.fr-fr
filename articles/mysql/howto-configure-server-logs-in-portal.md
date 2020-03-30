@@ -5,29 +5,29 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 52d219a94676e0f1ce4ceac31b0b50c9d36665ba
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 0261ff7ca8a60dc5fd986a64b9944f9cb9f101e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770575"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80062495"
 ---
 # <a name="configure-and-access-slow-query-logs-from-the-azure-portal"></a>Configurer et consulter les journaux des requêtes lentes à partir du portail Azure
 
 Vous pouvez configurer, lister et télécharger les [journaux des requêtes lentes Azure Database pour MySQL](concepts-server-logs.md) à partir du portail Azure.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 Les étapes décrites dans cet article supposent que vous disposez d’un [serveur Azure Database pour MySQL](quickstart-create-mysql-server-database-using-azure-portal.md).
 
 ## <a name="configure-logging"></a>Configuration de la journalisation
 Configurer l’accès au journal des requêtes lentes de MySQL. 
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 2. Sélectionnez votre serveur Azure Database pour MySQL.
 
-3. En dessous de la section **Supervision** dans la barre latérale, sélectionnez **Journaux du serveur**. 
+3. Dans la section **Supervision** de la barre latérale, sélectionnez **Journaux du serveur**. 
    ![Capture d’écran des options Journaux du serveur](./media/howto-configure-server-logs-in-portal/1-select-server-logs-configure.png)
 
 4. Pour afficher les paramètres du serveur, sélectionnez **Cliquez ici pour activer les journaux et configurer les paramètres associés**.
@@ -47,7 +47,7 @@ Une fois que la journalisation a commencé, vous pouvez afficher la liste des jo
 
 2. Sélectionnez votre serveur Azure Database pour MySQL.
 
-3. En dessous de la section **Supervision** dans la barre latérale, sélectionnez **Journaux du serveur**. La page présente la liste de vos fichiers journaux.
+3. Dans la section **Supervision** de la barre latérale, sélectionnez **Journaux du serveur**. La page présente la liste de vos fichiers journaux.
 
    ![Capture d’écran de la page Journaux du serveur, avec la liste des journaux mise en évidence](./media/howto-configure-server-logs-in-portal/4-server-logs-list.png)
 
@@ -56,7 +56,7 @@ Une fois que la journalisation a commencé, vous pouvez afficher la liste des jo
 
 4. Si nécessaire, utilisez la zone de recherche pour trouver rapidement un journal spécifique en fonction d’une date et d’une heure. La recherche est effectuée sur le nom du journal.
 
-5. Pour télécharger un fichier journal en particulier, sélectionnez l’icône de flèche bas en regard du fichier journal dans la ligne du tableau.
+5. Pour téléchargez un fichier journal en particulier, sélectionnez l’icône de flèche bas à côté du fichier journal dans la ligne du tableau.
 
    ![Capture d’écran de la page Journaux du serveur, avec l’icône de flèche bas mise en évidence](./media/howto-configure-server-logs-in-portal/5-download.png)
 

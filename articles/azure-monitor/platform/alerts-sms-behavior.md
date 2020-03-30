@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/16/2018
 ms.subservice: alerts
 ms.openlocfilehash: b75bda626f887f1224c1b0f18a80887983a2367d
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77665304"
 ---
 # <a name="sms-alert-behavior-in-action-groups"></a>Comportement des alertes SMS dans les groupes d’actions
@@ -19,9 +19,9 @@ ms.locfileid: "77665304"
 ## <a name="overview"></a>Vue d’ensemble 
 Les groupes d’actions vous permettent de configurer une liste d’actions. Ces groupes sont utilisés lors de la définition d’alertes, ce qui permet de s’assurer qu’un groupe d’actions particulier est notifié au déclenchement de l’alerte. Une des actions prises en charge est le SMS ; les notifications par SMS prennent en charge la communication bidirectionnelle. Un utilisateur peut répondre à un SMS pour :
 
-- **Se désabonner des alertes :** un utilisateur peut annuler son abonnement à toutes les alertes par SMS pour tous les groupes d’actions ou un groupe d’actions particulier.
-- **Se réabonner aux alertes :** un utilisateur peut se réabonner à toutes les alertes par SMS pour tous les groupes d’actions ou un groupe d’actions particulier.  
-- **Demander de l’aide :** un utilisateur peut demander plus d’informations sur le SMS. Il est alors redirigé vers cet article.
+- **Se désabonner des alertes :** Un utilisateur peut annuler son abonnement à toutes les alertes par SMS pour tous les groupes d’actions ou un groupe d’actions particulier.
+- **Se réabonner aux alertes :** Un utilisateur peut se réabonner à toutes les alertes par SMS pour tous les groupes d’actions ou un groupe d’actions particulier.  
+- **Demander de l’aide :** Un utilisateur peut demander plus d’informations sur le SMS. Il est alors redirigé vers cet article.
 
 Cet article traite du comportement des alertes SMS et des actions de réponse que l’utilisateur peut entreprendre en fonction des paramètres régionaux de l’utilisateur :
 

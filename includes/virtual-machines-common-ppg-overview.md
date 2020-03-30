@@ -9,10 +9,10 @@ ms.date: 10/30/2019
 ms.author: zivr
 ms.custom: include file
 ms.openlocfilehash: 3215f5952daef053c94432bc8fdef15e1775047a
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73171103"
 ---
 Le fait de placer les machines virtuelles dans une seule région réduit la distance physique entre les instances. Le fait de les placer dans une zone de disponibilité unique les rapproche également physiquement. Cependant, à mesure que l’empreinte Azure augmente, une seule zone de disponibilité peut s’étendre sur plusieurs centres de données physiques, ce qui peut entraîner une latence réseau qui peut affecter votre application. 
@@ -41,7 +41,7 @@ Dans le cas des groupes à haute disponibilité et de groupes de machines virtue
 Un groupe de placement de proximité est une contrainte de colocalisation plutôt qu’un mécanisme d’épinglage. Il est épinglé à un centre de données spécifique avec le déploiement de la première ressource à l’utiliser. Une fois que toutes les ressources utilisant le groupe de placement de proximité ont été arrêtées (désallouées) ou supprimées, elles ne sont plus épinglées. Par conséquent, lors de l’utilisation d’un groupe de placement de proximité avec plusieurs séries de machines virtuelles, il est important de spécifier tous les types requis au préalable dans un modèle quand c’est possible, ou de suivre une séquence de déploiement qui améliore vos chances de réussir le déploiement. Si votre déploiement échoue, redémarrez-le déploiement avec la taille de machine virtuelle qui a échoué en tant que première taille à déployer.
 
 
-## <a name="best-practices"></a>Bonnes pratiques 
+## <a name="best-practices"></a>Meilleures pratiques 
 - Pour une latence plus faible, utilisez des groupes de placements de proximité avec une mise en réseau accélérée. Pour plus d’informations, consultez les articles [Créer une machine virtuelle Windows avec mise en réseau accélérée](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou [Créer une machine virtuelle Linux avec mise en réseau accélérée](/azure/virtual-network/create-vm-accelerated-networking-powershell?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 - Déployez toutes les tailles de machine virtuelle dans un modèle unique. Afin d’éviter tout matériel ne prenant pas en charge toutes les références SKU et toutes les tailles de machines virtuelles dont vous avez besoin, incluez toutes les couches application dans un seul modèle, afin qu’elles soient toutes déployées en même temps.
 - Si vous créez un script pour votre déploiement à l’aide de PowerShell, de l’interface CLI ou du kit de développement logiciel (SDK), vous pouvez recevoir une erreur d’allocation `OverconstrainedAllocationRequest`. Dans ce cas, vous devez arrêter/désallouer toutes les machines virtuelles existantes et modifier la séquence dans le script de déploiement pour qu’il commence par la référence SKU/la taille de la machine virtuelle qui a échoué. 

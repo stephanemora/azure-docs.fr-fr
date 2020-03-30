@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: snehaa
 ms.openlocfilehash: 317b6e8aa799b7982e9897c6a504d6092491c7ec
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74196364"
 ---
 # <a name="scale-migration-of-vms"></a>Mettre à l'échelle une migration de machines virtuelles 
@@ -19,13 +19,13 @@ Cet article vous aide à comprendre le processus d’utilisation de scripts pour
 
 Les scripts Site Recovery sont disponibles pour votre téléchargement dans le dépôt [Exemples Azure PowerShell](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-with-site-recovery) sur GitHub. Il est possible d’utiliser les scripts pour migrer des machines virtuelles VMware, AWS, GCP et des serveurs physiques vers des disques managés dans Azure. Vous pouvez également utiliser ces scripts pour migrer des machines virtuelles Hyper-V si vous migrez les machines virtuelles en tant que serveurs physiques. Les scripts qui tirent parti d’Azure Site Recovery PowerShell sont documentés [ici](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell).
 
-## <a name="current-limitations"></a>Limitations actuelles
+## <a name="current-limitations"></a>Limites actuelles
 - Prendre en charge la spécification de l’adresse IP statique uniquement pour la carte réseau principale de la machine virtuelle cible
 - Les scripts ne prennent pas les entrées associées à Azure Hybrid Benefit. Vous devez mettre à jour manuellement les propriétés de la machine virtuelle répliquée dans le portail
 
 ## <a name="how-does-it-work"></a>Comment cela fonctionne-t-il ?
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables requises
 Avant de commencer, vous devez effectuer les étapes suivantes :
 - Vérifiez que le coffre Site Recovery est créé dans votre abonnement Azure
 - Vérifier que le serveur de configuration et le serveur de processus sont installés dans l’environnement source et que le coffre est en mesure de détecter l’environnement
@@ -58,7 +58,7 @@ Une fois que le fichier CSV prêt, vous pouvez exécuter les étapes suivantes p
 2 | asr_replicationstatus.ps1 | Vérifier l’état de la réplication. Le script crée un fichier csv avec l’état pour chaque machine virtuelle
 3 | asr_updateproperties.ps1 | Une fois les machines virtuelles répliquées/protégées, utilisez ce script pour mettre à jour les propriétés cibles de la machine virtuelle (propriétés réseau et de calcul)
 4 | asr_propertiescheck.ps1 | Vérifier si les propriétés sont correctement mises à jour
-5\. | asr_testmigration.ps1 |  Démarrer le test de basculement des machines virtuelles listées dans le fichier csv. Le script crée une sortie CSV avec les détails du travail pour chaque machine virtuelle
+5 | asr_testmigration.ps1 |  Démarrer le test de basculement des machines virtuelles listées dans le fichier csv. Le script crée une sortie CSV avec les détails du travail pour chaque machine virtuelle
 6 | asr_cleanuptestmigration.ps1 | Après avoir validé manuellement les machines virtuelles dont le test de basculement a échoué, vous pouvez utiliser ce script pour nettoyer les machines virtuelles du test de basculement
 7 | asr_migration.ps1 | Effectuer un basculement non planifié pour les machines virtuelles listées dans le fichier csv. Le script crée une sortie CSV avec les détails du travail pour chaque machine virtuelle. Le script n’arrête pas les machines virtuelles locales avant de déclencher le basculement. Pour la cohérence des applications, il est recommandé d’arrêter manuellement les machines virtuelles avant l’exécution du script.
 8 | asr_completemigration.ps1 | Effectuer l’opération de validation sur les machines virtuelles et supprimer les entités Azure Site Recovery

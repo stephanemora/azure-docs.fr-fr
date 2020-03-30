@@ -1,19 +1,18 @@
 ---
 title: Créer une image de machine virtuelle d’utilisateur pour la Place de marché Azure
 description: Répertorie les étapes et les références nécessaires pour créer une image de machine virtuelle d’utilisateur.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/29/2018
-ms.author: pabutler
-ms.openlocfilehash: e63f09dc538c5e66b244826cf3b5f92ac388b6a9
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 49db8c6717cd26886c3b49f8c99fdd2b08e8713d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818696"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278005"
 ---
 # <a name="create-a-user-vm-image"></a>Créer une image de machine virtuelle d’utilisateur
 
@@ -24,18 +23,18 @@ Cet article explique les deux étapes générales requises pour créer une image
 
 Suivez les instructions de l’article suivant sur la capture de la machine virtuelle qui correspond à votre méthode d’accès :
 
--  PowerShell : [Comment créer une image de machine virtuelle non managée à partir d’une machine virtuelle Azure](../../../virtual-machines/windows/capture-image-resource.md)
--  Interface de ligne de commande Azure : [Créer une image d’une machine virtuelle ou d’un disque dur virtuel](../../../virtual-machines/linux/capture-image.md)
--  API : [Machines virtuelles : capturer](https://docs.microsoft.com/rest/api/compute/virtualmachines/capture)
+-  PowerShell : [Comment créer une image de machine virtuelle non managée à partir d’une machine virtuelle Azure](../../../virtual-machines/windows/capture-image-resource.md)
+-  Azure CLI : [Créer une image d’une machine virtuelle ou d’un disque dur virtuel](../../../virtual-machines/linux/capture-image.md)
+-  API : [Virtual Machines - Capture](https://docs.microsoft.com/rest/api/compute/virtualmachines/capture) (Machines virtuelles : capturer)
 
 
 ## <a name="generalize-the-vm-image"></a>Généraliser l’image de machine virtuelle
 
 Étant donné que vous avez généré l’image utilisateur à partir d’un disque dur virtuel généralisé précédemment, elle doit également être généralisée.  Là encore, sélectionnez l’article suivant qui correspond à votre méthode d’accès.  (Il se peut que vous ayez déjà généralisé votre disque lorsque vous l’avez capturé.)
 
--  PowerShell : [Généraliser la machine virtuelle](https://docs.microsoft.com/azure/virtual-machines/windows/sa-copy-generalized#generalize-the-vm)
--  Interface de ligne de commande Azure : [Étape 2 : Créer une image de machine virtuelle](https://docs.microsoft.com/azure/virtual-machines/linux/capture-image#step-2-create-vm-image)
--  API : [Machines virtuelles : généraliser](https://docs.microsoft.com/rest/api/compute/virtualmachines/generalize)
+-  PowerShell : [Généraliser la machine virtuelle](https://docs.microsoft.com/azure/virtual-machines/windows/sa-copy-generalized#generalize-the-vm)
+-  Azure CLI : [Étape 2 : Créer une image de machine virtuelle](https://docs.microsoft.com/azure/virtual-machines/linux/capture-image#step-2-create-vm-image)
+-  API : [Virtual Machines - Generalize](https://docs.microsoft.com/rest/api/compute/virtualmachines/generalize) (Machines virtuelles : généraliser)
 
 
 ## <a name="next-steps"></a>Étapes suivantes

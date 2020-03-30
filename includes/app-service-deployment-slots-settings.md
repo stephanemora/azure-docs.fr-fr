@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 09/18/2019
 ms.author: cephalin
 ms.openlocfilehash: e00db06346b19ef85eb77626eb2ed169d2224b6c
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "71129690"
 ---
 Lorsque vous clonez la configuration depuis un autre emplacement de déploiement, celle-ci est modifiable. Au cours d’un échange, certains éléments de configuration suivent le contenu (éléments non propres à un emplacement) tandis que d’autres restent dans le même emplacement après l’échange (éléments propres à un emplacement). Les listes suivantes représentent les paramètres qui évoluent lorsque vous échangez les emplacements.
@@ -33,7 +33,7 @@ Il est prévu que les fonctionnalités marquées d’un astérisque (*) ne soien
 * Points de terminaison de publication
 * Noms de domaine personnalisés
 * Certificats non publics et paramètres TLS/SSL
-* Paramètres de mise à l'échelle
+* Paramètres de mise à l’échelle
 * Planificateurs WebJobs
 * Restrictions d’adresse IP
 * Always On

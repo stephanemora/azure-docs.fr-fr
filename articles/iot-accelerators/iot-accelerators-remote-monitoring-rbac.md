@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.openlocfilehash: b0c9699bccbb539c9617fac2f3296483139e7188
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67203160"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Configurer les contrôles d’accès en fonction du rôle dans l’accélérateur de solution de supervision à distance
@@ -21,26 +21,26 @@ Cet article fournit des informations sur la façon de configurer les contrôles 
 
 ## <a name="default-settings"></a>Paramètres par défaut
 
-Quand vous déployez la solution de supervision à distance pour la première fois, il existe deux rôles : **Administrateur** et **Lecture seule**.
+Lorsque vous déployez la solution de supervision à distance pour la première fois, il existe deux rôles : **administrateur** et **lecture seule**.
 
 Tout utilisateur ayant le rôle **administrateur** bénéficie d’un accès total à la solution, avec les autorisations suivantes ci-dessous. Un utilisateur ayant le rôle **lecture seule** a uniquement accès pour afficher la solution.
 
 | Autorisation            | Admin | Lecture seule |
 |----------------       |-------|-----------|
-| Afficher la solution         | OUI   | OUI       |
-| Mettre à jour des alarmes         | OUI   | Non        |
-| Supprimer des alarmes         | OUI   | Non        |
-| Créer des appareils        | OUI   | Non        |
-| Mettre à jour des appareils        | OUI   | Non        |
-| Supprimer des appareils        | OUI   | Non        |
-| Créer des groupes d’appareils  | OUI   | Non        |
-| Mettre à jour des groupes d’appareils  | OUI   | Non        |
-| Supprimer des groupes d’appareils  | OUI   | Non        |
-| Création de règles          | OUI   | Non        |
-| Mettre à jour des règles          | OUI   | Non        |
-| Supprimer des règles          | OUI   | Non        |
-| Créer des travaux           | OUI   | Non        |
-| Mettre à jour la gestion SIM | OUI   | Non        |
+| Afficher la solution         | Oui   | Oui       |
+| Mettre à jour des alarmes         | Oui   | Non        |
+| Supprimer des alarmes         | Oui   | Non        |
+| Créer des appareils        | Oui   | Non        |
+| Mettre à jour des appareils        | Oui   | Non        |
+| Supprimer des appareils        | Oui   | Non        |
+| Créer des groupes d’appareils  | Oui   | Non        |
+| Mettre à jour des groupes d’appareils  | Oui   | Non        |
+| Supprimer des groupes d’appareils  | Oui   | Non        |
+| Création de règles          | Oui   | Non        |
+| Mettre à jour des règles          | Oui   | Non        |
+| Supprimer des règles          | Oui   | Non        |
+| Créer des tâches           | Oui   | Non        |
+| Mettre à jour la gestion SIM | Oui   | Non        |
 
 Par défaut, l’utilisateur qui a déployé la solution se voit automatiquement assigner le rôle **administrateur** et est propriétaire de l’application Azure Active Directory. En tant que propriétaire de l’application, vous pouvez assigner des rôles à d’autres utilisateurs par le biais du portail Azure. Si vous souhaitez qu’un autre utilisateur assigne des rôles dans la solution, il doit également être défini en tant que propriétaire de l’application dans le Portail Azure.
 
@@ -51,7 +51,7 @@ Par défaut, l’utilisateur qui a déployé la solution se voit automatiquement
 
 En tant que propriétaire d’une application Azure Active Directory, vous pouvez utiliser le portail Azure pour ajouter ou supprimer un utilisateur dans un rôle à partir de la solution de supervision à distance. Dans les étapes suivantes, nous utilisons [l’application d’entreprise Azure Active Directory](../active-directory/manage-apps/add-application-portal.md#find-your-azure-ad-tenant-application) créée quand vous avez déployé la solution de supervision à distance.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
 1. Vérifiez que [l’utilisateur se trouve dans le répertoire](../active-directory/fundamentals/add-users-azure-active-directory.md) que vous utilisez. Vous avez choisi le répertoire à utiliser lors de votre connexion au site [Accélérateurs de solution Microsoft Azure IoT](https://www.azureiotsolutions.com/Accelerators). Le nom du répertoire est indiqué dans l’angle supérieur droit de la [page](https://www.azureiotsolutions.com/Accelerators).
 

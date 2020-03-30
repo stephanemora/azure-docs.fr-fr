@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 3/12/2018
 ms.subservice: alerts
 ms.openlocfilehash: 066fcac24571c8e982784a3845a010525ff9088a
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77665525"
 ---
 # <a name="rate-limiting-for-voice-sms-emails-azure-app-push-notifications-and-webhook-posts"></a>Limitation de la fréquence des appels vocaux, SMS, e-mails, notifications push Azure App et publications Webhook
@@ -18,9 +18,9 @@ La limitation de la fréquence est une suspension des notifications qui se produ
 
 Voici les seuils de limitation de la fréquence :
 
-- **SMS** : pas plus de 1 SMS toutes les 5 minutes.
-- **Voix** : pas plus de 1 appel vocal toutes les 5 minutes.
-- **E-mail** : pas plus de 100 e-mails par heure.
+- **SMS** : pas plus de 1 SMS toutes les 5  minutes.
+- **Voix** : pas plus de 1 appel vocal toutes les 5 minutes.
+- **E-mail** : pas plus de 100 e-mails par heure.
  
   Les autres actions n’ont pas de fréquence limitée.
 

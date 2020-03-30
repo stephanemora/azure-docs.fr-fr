@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 11/21/2018
 ms.author: mazha
 ms.openlocfilehash: 41f2d4540f665137d34d262546cdc1a2edfbae3a
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77608734"
 ---
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 Avant d’écrire le code de gestion CDN, vous devez effectuer certaines tâches de préparation pour permettre à ce code d’interagir avec Azure Resource Manager. Ce travail de préparation implique les opérations suivantes :
 
 * Créez un groupe de ressources destiné à héberger le profil CDN créé dans ce didacticiel.
@@ -62,6 +62,6 @@ Si, au lieu d’un principal de service, vous préférez disposer d’une authen
     ![Application native](./media/cdn-app-dev-prep/cdn-native-application-include.png)
 2. Sur la page suivante, vous êtes invité à spécifier un **URI de redirection**.  Cette URI ne sera pas validée mais notez-la. Vous en aurez besoin ultérieurement.
 3. Il est inutile de créer une **clé d’authentification de client**.
-4. Au lieu d’affecter le rôle **Contributeur du profil CDN** à un principal de service, nous allons l’attribuer à des utilisateurs ou des groupes.  Dans cet exemple, vous pouvez voir que j’ai attribué le rôle **Contributeur du profil CDN** à l’utilisateur *CDN Demo User*.  
+4. Au lieu d’affecter le rôle **Contributeur du profil CDN** à un principal de service, nous allons l’attribuer à des utilisateurs ou des groupes.  Dans cet exemple, vous pouvez voir que j’ai attribué le rôle *Contributeur du profil CDN* à l’utilisateur **CDN Demo User**.  
 
     ![Accès d’utilisateurs individuels](./media/cdn-app-dev-prep/cdn-aad-user-include.png)
