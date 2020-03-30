@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Recherche d’entités Bing dans une application web monopage'
+title: 'Didacticiel : Recherche d’entités Bing dans une application web à page unique'
 titleSuffix: Azure Cognitive Services
 description: Ce tutoriel montre comment utiliser l’API Recherche d’entités Bing dans une application web monopage.
 services: cognitive-services
@@ -11,13 +11,13 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.openlocfilehash: d45b9a153b770dd10da9dd61e8a7b3d138345b8a
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78943131"
 ---
-# <a name="tutorial-single-page-web-app"></a>Tutoriel : Application web à page unique
+# <a name="tutorial-single-page-web-app"></a>Didacticiel : Application web à page unique
 
 L’API Recherche d’entités Bing vous permet de rechercher sur le web des informations sur les *entités* et les *lieux.* Vous pouvez demander l’un ou l’autre type de résultat, ou les deux, dans une requête donnée. Les définitions des lieux et des entités sont fournies ci-dessous.
 
@@ -56,7 +56,7 @@ Dans ce didacticiel, nous abordons seulement certaines parties du code source. L
 > [!NOTE]
 > Ce didacticiel est très similaire au [didacticiel sur l’application de recherche Web Bing à page unique](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md), mais traite uniquement des résultats de recherche d’entités.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre ce tutoriel, vous avez besoin de clés d’abonnement pour les API Recherche Bing et Bing Cartes. Si vous n’en avez pas, vous pouvez utiliser une [clé d’essai](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) et une [clé Bing Cartes de base](https://www.microsoft.com/maps/create-a-bing-maps-key).
 
@@ -71,7 +71,7 @@ Comme n’importe quelle application web à page unique, l’application du dida
 
 Ce didacticiel n’aborde pas la plupart du code HTML ou CSS en détail, car il est simple.
 
-Le code HTML contient le formulaire de recherche dans lequel l’utilisateur saisit une requête et choisit les options de recherche. Le formulaire est connecté à JavaScript, qui effectue la recherche selon la balise `onsubmit` de l’attribut `<form>` :
+Le code HTML contient le formulaire de recherche dans lequel l’utilisateur saisit une requête et choisit les options de recherche. Le formulaire est connecté à JavaScript, qui effectue la recherche selon la balise `<form>` de l’attribut `onsubmit` :
 
 ```html
 <form name="bing" onsubmit="return newBingEntitySearch(this)">

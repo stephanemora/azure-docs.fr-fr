@@ -9,10 +9,10 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.openlocfilehash: d950d41186d578702343645875dd7c565002d5a5
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76512996"
 ---
 # <a name="connect-to-and-authenticate-with-apis"></a>Se connecter et s'authentifier à l'aide d'API
@@ -28,11 +28,11 @@ Pour intégrer une application ou un service à Azure AD, le développeur doit d
 
 Voici les [cinq principaux scénarios d’application](../active-directory/develop/v2-app-types.md) pris en charge par Azure AD :
 
-* Application monopage (SPA) : un utilisateur doit se connecter à une application monopage sécurisée par Azure AD.
-* Navigateur web vers application web : un utilisateur doit se connecter à une application web sécurisée par Azure AD.
-* Application native vers API web : une application native qui s'exécute sur un téléphone, une tablette ou un PC doit authentifier un utilisateur pour obtenir des ressources d'une API web sécurisée par Azure AD.
-* Application web vers API web : une application web doit obtenir des ressources d’une API web sécurisée par Azure AD.
-* Application démon ou serveur vers API web : une application démon ou une application serveur sans interface utilisateur web doit obtenir des ressources d'une API web sécurisée par Azure AD.
+* Application monopage (SPA) : un utilisateur doit se connecter à une application monopage sécurisée par Azure AD.
+* Navigateur web vers application web : un utilisateur doit se connecter à une application web sécurisée par Azure AD.
+* Application native vers API web : une application native qui s’exécute sur un téléphone, une tablette ou un PC doit authentifier un utilisateur pour obtenir des ressources d’une API web sécurisée par Azure AD.
+* Application web vers API web : une application web doit obtenir des ressources d’une API web sécurisée par Azure AD.
+* Application démon ou serveur vers API web : une application démon ou une application serveur sans IU web doit obtenir des ressources d’une API web sécurisée par Azure AD.
 
 > [!IMPORTANT]
 > Azure Digital Twins prend en charge les deux bibliothèques d'authentification suivantes :

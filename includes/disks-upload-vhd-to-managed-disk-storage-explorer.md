@@ -9,15 +9,15 @@ ms.date: 09/25/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 5104c3b4446a8d3747ce7cc1648ef05dd117eb3d
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74013799"
 ---
 Explorateur Stockage 1.10.0 permet aux utilisateurs de charger, télécharger et copier des disques managés, et créer des instantanés. En raison de ces fonctionnalités supplémentaires, vous pouvez utiliser Explorateur Stockage pour migrer des données locales vers Azure et migrer des données entre des régions Azure.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléments suivants :
 - Abonnement Azure

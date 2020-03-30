@@ -11,15 +11,15 @@ ms.custom: include file
 ms.date: 02/08/2020
 ms.author: diberry
 ms.openlocfilehash: 46947579ea72e2199af116442472eec330b38009
-ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/10/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77112268"
 ---
-Ce guide de démarrage rapide basé sur Postman vous aide à obtenir une réponse de votre base de connaissances.
+Ce démarrage rapide basé sur Postman vous aide à obtenir une réponse à partir de votre base de connaissances.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Dernière version de [**Postman**](https://www.getpostman.com/).
 * Vous devez avoir :
@@ -37,7 +37,7 @@ Utilisez cette procédure pour configurer Postman, puis lisez chaque section sui
 
 1. À partir de la page **Paramètres** de la base de connaissances, sélectionnez l’onglet **Postman** pour voir la configuration utilisée pour générer une réponse de la base de connaissances. Copiez les informations suivantes à utiliser dans Postman.
 
-    |Nom|Paramètre|Objectif et valeur|
+    |Name|Paramètre|Objectif et valeur|
     |--|--|--|
     |`POST`| `/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer`|Il s’agit de la méthode HTTP et de la route de l’URL.|
     |`Host`|`https://diberry-qna-s0-s.azurewebsites.net/qnamaker`|Il s’agit de l’hôte de l’URL. Concaténez les valeurs Host et Post pour obtenir l’URL generateAnswer complète.|

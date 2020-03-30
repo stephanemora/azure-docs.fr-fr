@@ -9,13 +9,13 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: b381c5ad8fd81cd9b7411e1f4679b3f5214e6de9
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67176904"
 ---
-### <a name="noconnection"></a>Pour modifier des préfixes d’adresses IP de passerelle de réseau local - sans connexion de passerelle
+### <a name="to-modify-local-network-gateway-ip-address-prefixes---no-gateway-connection"></a><a name="noconnection"></a>Pour modifier des préfixes d’adresses IP de passerelle de réseau local - sans connexion de passerelle
 
 Si vous n’avez pas de connexion de passerelle et mais souhaitez ajouter ou supprimer des préfixes d’adresses IP, utilisez la commande qui vous a permis de créer la passerelle de réseau local, [az network local-gateway create](https://docs.microsoft.com/cli/azure/network/local-gateway). Vous pouvez également utiliser cette commande pour mettre à jour l’adresse IP de passerelle du périphérique VPN. Pour remplacer les paramètres actuels, utilisez le nom existant de votre passerelle de réseau local. Si vous utilisez un nom différent, vous créerez une nouvelle passerelle de réseau local au lieu de remplacer la passerelle existante.
 
@@ -25,7 +25,7 @@ Chaque fois que vous apportez une modification, vous devez renseigner l’intég
 az network local-gateway create --gateway-ip-address 23.99.221.164 --name Site2 -g TestRG1 --local-address-prefixes 10.0.0.0/24 20.0.0.0/24
 ```
 
-### <a name="withconnection"></a>Pour modifier des préfixes d’adresses IP de passerelle de réseau local - avec une connexion de passerelle existante
+### <a name="to-modify-local-network-gateway-ip-address-prefixes---existing-gateway-connection"></a><a name="withconnection"></a>Pour modifier des préfixes d’adresses IP de passerelle de réseau local - avec une connexion de passerelle existante
 
 Si vous disposez d’une connexion de passerelle et souhaitez ajouter ou supprimer des préfixes d’adresses IP, vous pouvez mettre à jour les préfixes à l’aide de la commande [az network local-gateway update](https://docs.microsoft.com/cli/azure/network/local-gateway). Cela entraînera une interruption de votre connexion VPN. Lorsque vous modifiez les préfixes d’adresse IP, vous n’avez pas besoin de supprimer la passerelle VPN.
 

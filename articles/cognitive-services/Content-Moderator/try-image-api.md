@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
 ms.openlocfilehash: 714621fdcc307ee8b29567fc0d95ca41d31aa9e5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75448255"
 ---
 # <a name="moderate-images-from-the-api-console"></a>Modérer des images à partir de la console d’API
@@ -22,7 +22,7 @@ ms.locfileid: "75448255"
 Utilisez [l’API de modération d’images](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c) dans Azure Content Moderator pour lancer des workflows de modération d’analyse et de révision pour le contenu de l’image. Le travail de modération analyse votre contenu pour détecter les termes vulgaires et le compare à des listes rouges personnalisées et partagées.
 
 ## <a name="use-the-api-console"></a>Utiliser la console d’API
-Avant de pouvoir tester l’API dans la console en ligne, vous avez besoin de votre clé d’abonnement. Elle se trouve sous l’onglet **Paramètres**, dans la zone **Ocp-Apim-Subscription-Key**. Pour plus d’informations, consultez [What is Content Moderator?](overview.md) (Présentation de Content Moderator).
+Avant de pouvoir tester l’API dans la console en ligne, vous avez besoin de votre clé d’abonnement. Elle se trouve sous l’onglet **Paramètres**, dans la zone **Ocp-Apim-Subscription-Key**. Pour plus d’informations, consultez la [vue d’ensemble ](overview.md) de Content Moderator.
 
 1. Accédez aux [informations de référence sur l’API de modération d’images](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c).
 

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: alkohli
 ms.openlocfilehash: 880b630ae48eda086f6454f0d7108d27d3403b77
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67177731"
 ---
 Si vous effectuez un démarrage dans un environnement non DHCP, procédez comme suit pour déployer la machine virtuelle de votre Data Box Gateway.
@@ -16,7 +16,7 @@ Si vous effectuez un démarrage dans un environnement non DHCP, procédez comme 
 1. [Connectez-vous à l’interface Windows PowerShell de l’appareil](#connect-to-the-powershell-interface).
 2. Utilisez la cmdlet `Get-HcsIpAddress` pour répertorier les interfaces réseau activées sur votre appareil virtuel. Si votre appareil possède une seule interface réseau activée, le nom par défaut affecté à cette interface est `Ethernet`.
 
-    L’exemple suivant montre comment utiliser cette cmdlet :
+    L’exemple suivant montre comment utiliser cette cmdlet :
 
     ```
     [10.100.10.10]: PS>Get-HcsIpAddress

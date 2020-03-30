@@ -11,23 +11,23 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: jhakulin
 ms.openlocfilehash: 421b9adf4ae5d2c641484e646bea096716d46cca
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74815415"
 ---
 # <a name="troubleshoot-the-speech-sdk"></a>Résoudre les problèmes avec le Kit de développement logiciel (SDK) Speech
 
 Cet article fournit des informations pour vous aider à résoudre des problèmes que vous pourriez rencontrer lors de l’utilisation du Kit de développement logiciel (SDK) Speech.
 
-## <a name="error-websocket-upgrade-failed-with-an-authentication-error-403"></a>Error: Échec de la mise à niveau de WebSocket avec une erreur d’authentification (403)
+## <a name="error-websocket-upgrade-failed-with-an-authentication-error-403"></a>Erreur : La mise à niveau de WebSocket a échoué avec une erreur d’authentification (403)
 
 Le point de terminaison pour votre service ou région est peut-être incorrect. Vérifiez l’URI pour vous assurer qu’il est correct.
 
-Il y a peut-être également un problème avec votre clé d’abonnement ou jeton d’autorisation. Pour en savoir plus, consultez la section suivante.
+Il y a peut-être également un problème avec votre clé d’abonnement ou jeton d’autorisation. Pour plus d'informations, consultez la section suivante.
 
-## <a name="error-http-403-forbidden-or-http-401-unauthorized"></a>Error: HTTP 403 Refusé ou HTTP 401 Non autorisé
+## <a name="error-http-403-forbidden-or-http-401-unauthorized"></a>Erreur : HTTP 403 Refusé ou HTTP 401 Non autorisé
 
 Cette erreur est souvent due à des problèmes d’authentification. Les demandes de connexion sans en-tête `Ocp-Apim-Subscription-Key` ou `Authorization` valide sont rejetées. Elles renvoient un code d’état 403 ou 401.
 
@@ -107,11 +107,11 @@ Si vous avez entré une jeton d'autorisation valide, la commande renvoie la tran
 
 ---
 
-## <a name="error-http-400-bad-request"></a>Error: HTTP 400 Requête incorrecte
+## <a name="error-http-400-bad-request"></a>Erreur : HTTP 400 Requête incorrecte
 
 Cette erreur est généralement due au fait que le corps de la requête contient des données audio non valides. Seul le format WAV est pris en charge. De même, vérifiez les en-têtes de la requête pour vous assurer que vous spécifiez des valeurs appropriées pour `Content-Type` et `Content-Length`.
 
-## <a name="error-http-408-request-timeout"></a>Error: HTTP 408 Délai d’expiration de la demande
+## <a name="error-http-408-request-timeout"></a>Erreur : HTTP 408 Dépassement de délai de demande
 
 L’erreur est très probablement due au fait qu’aucune donnée audio n’est envoyée au service. Cette erreur peut également résulter de problèmes de réseau.
 

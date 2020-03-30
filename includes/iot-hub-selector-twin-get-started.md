@@ -5,10 +5,10 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 08/20/2019
 ms.openlocfilehash: c412f7f3e20e4d04083e457bfb245b850b65e126
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "70050419"
 ---
 > [!div class="op_single_selector"]
@@ -35,11 +35,11 @@ Les représentations d’appareil sont conçues pour les synchronisations et pou
 
 Les jumeaux d’appareil sont stockés dans un hub IoT et contiennent les éléments suivants :
 
-* **Étiquettes**. Métadonnées d’appareil uniquement accessibles par le back-end de solution.
+* **Tags** (balises). Métadonnées d’appareil uniquement accessibles par le back-end de solution.
 
-* **Propriétés souhaitées**. Objets JSON modifiables par le back-end de solution et observables par l’application d’appareil.
+* **Propriétés souhaitées (Desired)** . Objets JSON modifiables par le back-end de solution et observables par l’application d’appareil.
 
-* **Propriétés signalées**. Objets JSON modifiables par l’application d’appareil et consultables par le back-end de solution.
+* **Propriétés signalées (Reported)** . Objets JSON modifiables par l’application d’appareil et consultables par le back-end de solution.
 
 Les étiquettes et les propriétés ne peuvent pas contenir de tableaux, mais les objets peuvent être imbriqués.
 

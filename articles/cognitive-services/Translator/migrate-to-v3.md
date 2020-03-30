@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: swmachan
 ms.openlocfilehash: eb43d549d3e0cd449c865d533fc8701c4c3912fd
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73837306"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Migration de l’API de traduction de texte Translator Text de la v2 à la v3
@@ -61,7 +61,7 @@ La liste suivante des méthodes V2 et V3 identifie les méthodes V3 et les API q
 
 L’API de traduction de texte Microsoft Translator Text V2 acceptait et renvoyait les données au format XML. Dans la V3, toutes les données envoyées et reçues à l’aide de l’API sont au format JSON. XML n’est plus accepté ou renvoyé dans la V3.
 
-Cette modification affecte plusieurs aspects d’une application écrite pour l’API de traduction de texte V2. Par exemple : l’API Langues retourne des informations linguistiques pour la traduction de texte, la translittération et les deux méthodes de dictionnaire. Vous pouvez demander toutes les informations linguistiques pour toutes les méthodes dans un seul appel ou les demander individuellement.
+Cette modification affecte plusieurs aspects d’une application écrite pour l’API de traduction de texte V2. Par exemple : l’API Langues renvoie des informations linguistiques pour la traduction de texte, la translittération et les deux méthodes de dictionnaire. Vous pouvez demander toutes les informations linguistiques pour toutes les méthodes dans un seul appel ou les demander individuellement.
 
 La méthode Languages ne nécessite pas d’authentification ; en cliquant sur le lien suivant, vous pouvez voir toutes les informations linguistiques pour la V3 dans JSON :
 
@@ -86,7 +86,7 @@ La tarification de Microsoft Translator V3 est la même que celle de la V2 ; par
 
 ## <a name="v3-end-points"></a>Points de terminaison V3
 
-Globale
+Global
 
 * api.cognitive.microsofttranslator.com
 
@@ -118,8 +118,8 @@ La traduction neuronale avec l'API de texte v3 ne prend pas en charge l'utilisat
 
 | |Point de terminaison|    Conformité du processeur au RGPD|  Utiliser Translator Hub| Utiliser Custom Translator (préversion)|
 |:-----|:-----|:-----|:-----|:-----|
-|API de traduction de texte Translator Text version 2| api.microsofttranslator.com|    Non  |OUI    |Non|
-|API de traduction de texte Translator Text version 3| api.cognitive.microsofttranslator.com|  OUI|    Non| OUI|
+|API de traduction de texte Translator Text version 2| api.microsofttranslator.com|    Non  |Oui    |Non|
+|API de traduction de texte Translator Text version 3| api.cognitive.microsofttranslator.com|  Oui|    Non| Oui|
 
 **API de traduction de texte Translator Text version 3**
 * Est généralement disponible et entièrement prise en charge.

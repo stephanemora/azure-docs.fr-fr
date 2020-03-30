@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: yexu
 ms.openlocfilehash: 42c637839172dab09a8721a93a67785a748afd2f
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75708900"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Tolérance de panne de l’activité de copie dans Azure Data Factory
@@ -33,15 +33,15 @@ L’activité de copie offre la possibilité de détecter, d’ignorer et de jou
 
 - **Incompatibilité entre le type de données sources et le type natif récepteur** 
 
-    Par exemple :  Copier des données d’un fichier CSV dans Stockage Blob vers une base de données SQL avec une définition de schéma contenant trois colonnes de type INT. Les lignes du fichier CSV qui contiennent des données numériques, telles que 123 456 789, sont correctement copiées dans le magasin récepteur. En revanche, les lignes qui contiennent des valeurs non numériques, telles que 123 456, abc, sont considérées comme incompatibles et ignorées.
+    Exemple : copie de données d’un fichier CSV du stockage Blob dans une base de données SQL avec une définition de schéma contenant trois colonnes de type INT. Les lignes du fichier CSV qui contiennent des données numériques, telles que 123 456 789, sont correctement copiées dans le magasin récepteur. En revanche, les lignes qui contiennent des valeurs non numériques, telles que 123 456, abc, sont considérées comme incompatibles et ignorées.
 
 - **Incompatibilité du nombre de colonnes entre la source et le récepteur**
 
-    Par exemple :  Copier des données d’un fichier CSV dans Stockage Blob vers une base de données SQL avec une définition de schéma contenant six colonnes. Les lignes du fichier CSV qui contiennent six colonnes sont correctement copiées dans le magasin récepteur. Les lignes du fichier CSV qui contiennent plus de six colonnes sont considérées comme incompatibles et ignorées.
+    Exemple : copie de données d’un fichier CSV du stockage Blob Azure dans une base de données SQL avec une définition de schéma contenant six colonnes. Les lignes du fichier CSV qui contiennent six colonnes sont correctement copiées dans le magasin récepteur. Les lignes du fichier CSV qui contiennent plus de six colonnes sont considérées comme incompatibles et ignorées.
 
 - **Violation de clé primaire lors de l’écriture dans SQL Server/Azure SQL Database/Azure Cosmos DB**.
 
-    Par exemple :  Copier des données d’un serveur SQL vers une base de données SQL. Il existe une clé primaire définie dans la base de données SQL réceptrice, mais aucune clé primaire correspondante n’est définie dans le serveur SQL source. Les lignes en double qui peuvent exister dans la source ne sont pas copiées dans le récepteur. L’activité de copie ne copie que la première ligne des données sources dans le récepteur. Toutes les lignes sources suivantes contenant une valeur de clé primaire en double sont considérées comme incompatibles et ignorées.
+    Exemple : copie de données depuis un serveur SQL dans une base de données SQL. Il existe une clé primaire définie dans la base de données SQL réceptrice, mais aucune clé primaire correspondante n’est définie dans le serveur SQL source. Les lignes en double qui peuvent exister dans la source ne sont pas copiées dans le récepteur. L’activité de copie ne copie que la première ligne des données sources dans le récepteur. Toutes les lignes sources suivantes contenant une valeur de clé primaire en double sont considérées comme incompatibles et ignorées.
 
 >[!NOTE]
 >- Pour charger des données dans SQL Data Warehouse avec PolyBase, configurez les paramètres natifs de la tolérance de panne de PolyBase en spécifiant les règles de rejet « [polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink) » dans l’activité de copie. Vous pouvez toujours activer la redirection des lignes PolyBase incompatibles vers Blob ou ADLS normalement, comme indiqué ci-dessous.

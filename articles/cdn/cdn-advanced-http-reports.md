@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 0b0eec2425f8a1663eb7a09c83a6bad037d1d79c
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67594107"
 ---
 # <a name="analyze-usage-statistics-with-azure-cdn-advanced-http-reports"></a>Analyser les statistiques d’utilisation avec les rapports HTTP avancés dans Microsoft Azure CDN
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Ce document présente les rapports HTTP avancés disponibles dans Microsoft Azure CDN. Ces rapports fournissent des informations détaillées sur l’activité CDN.
 
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
@@ -81,7 +81,7 @@ Le rapport Daily Summary vous permet d’afficher le nombre total d’accès et 
 
 Lors de la génération de ce type de rapport, un graphique à barres fournit une indication visuelle quant à la quantité de demande recensée chaque jour sur une plateforme donnée pendant la période couverte par le rapport. Le graphique affiche une barre correspondant à chaque jour du rapport. Par exemple, si vous sélectionnez la période appelée « Last Week », vous obtiendrez un graphique contenant sept barres. Chaque barre indique le nombre total d’accès recensés ce jour-là.
 
-La partie gauche du graphique (axe y) indique le nombre d’accès recensés à la date spécifiée. Chaque jour couvert par le rapport est annoté sous forme de date (au format AAAA-MM-JJ) directement sous le graphique (axe X).
+La partie gauche du graphique (axe y) indique le nombre d’accès recensés à la date spécifiée. Chaque jour couvert par le rapport est annoté sous forme de date (au format AAAA-MM-JJ) directement sous le graphique (axe x).
 
 > [!TIP]
 > Si vous pointez sur une barre, le nombre total d’accès recensés à cette date s’affichera sous la forme d’une info-bulle.
@@ -95,7 +95,7 @@ Le rapport By Hour vous permet d’afficher le nombre total d’accès et de don
 
 Lors de la génération de ce type de rapport, un graphique à barres fournit une indication visuelle quant à la quantité de demande recensée chaque heure sur une plateforme donnée pendant la période couverte par le rapport. Le graphique affiche une barre correspondant à chaque heure couverte par le rapport. Par exemple, si vous sélectionnez une période de 24 heures, vous obtiendrez un graphique contenant vingt-quatre barres. Chaque barre indique le nombre total d’accès recensés cette heure-là.
 
-La partie gauche du graphique (axe y) indique le nombre d’accès recensés pendant l’heure spécifiée. Chaque heure couverte par le rapport est annotée sous forme de date/heure (au format AAAA-MM-JJ hh:mm) directement sous le graphique (axe X). L’heure est affichée au format 24 heures et repose sur le fuseau horaire UTC/GMT.
+La partie gauche du graphique (axe y) indique le nombre d’accès recensés pendant l’heure spécifiée. Chaque heure couverte par le rapport est annotée sous forme de date/heure (au format AAAA-MM-JJ hh:mm) directement sous le graphique (axe x). L’heure est affichée au format 24 heures et repose sur le fuseau horaire UTC/GMT.
 
 > [!TIP]
 > Si vous pointez sur une barre, le nombre total d’accès recensés pendant l’heure en question s’affichera sous la forme d’une info-bulle.
@@ -119,7 +119,7 @@ Vous pouvez afficher sous le graphique à barres les données qui ont été util
 ## <a name="by-file-detail"></a>By File Detail
 Le rapport By File Detail vous permet d’afficher la quantité de demande et de trafic générés sur une plateforme spécifique pour une ressource donnée. Tout en haut de ce rapport figure l’option File Details For. Cette option dresse la liste des ressources les plus demandées sur la plateforme sélectionnée. Pour générer un rapport By File Detail, vous devez sélectionner la ressource souhaitée dans l’option File Details For. Un graphique à barres indique ensuite la quantité de demande journalière générée au cours de la période spécifiée.
 
-La partie gauche du graphique (axe y) indique le nombre total de demandes recensées pour une ressource un jour donné. Vous trouverez directement au-dessous du graphique (axe X) une étiquette qui indique la date (au format AAAA-MM-JJ) à laquelle la demande CDN de la ressource a été signalée.
+La partie gauche du graphique (axe y) indique le nombre total de demandes recensées pour une ressource un jour donné. La date (au format AAAA-MM-JJ) à laquelle a été recensée la demande CDN pour la ressource en question est annotée directement sous le graphique (axe x).
 
 Vous pouvez afficher sous le graphique à barres les données qui ont été utilisées pour générer ce graphique. Vous y trouverez le nombre total d’accès et la quantité de données transférées (en Go) pour chaque jour couvert par le rapport.
 

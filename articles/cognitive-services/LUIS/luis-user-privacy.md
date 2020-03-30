@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 04/02/2019
 ms.author: diberry
 ms.openlocfilehash: 4e3e0d04b0086905b80e26fb4f838c36b5b5545e
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78273358"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>Exporter et supprimer vos données client dans Language Understanding (LUIS) dans Cognitive Services
@@ -66,7 +66,7 @@ Le portail [eu.luis.ai](https://eu.luis.ai) et Europe Authoring (également appe
 
 * Europe
 * France
-* Royaume-Uni
+* United Kingdom
 
 Lors du déploiement dans ces zones géographiques Azure, les énoncés provenant des utilisateurs finaux de votre application et reçus par le point de terminaison sont stockés dans la zone géographique Europe d’Azure pour l’apprentissage actif. Vous pouvez désactiver l’apprentissage actif, consultez [Désactiver l’apprentissage actif](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Pour gérer les énoncés stockés, consultez [Supprimer un énoncé](luis-how-to-review-endpoint-utterances.md#delete-utterance).
 

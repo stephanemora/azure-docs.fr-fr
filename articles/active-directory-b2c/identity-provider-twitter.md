@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bd538529756270053351e4c2d85f5761b198eeff
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 62a283efb93987d3c4a6564c9b25d2031c269559
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78187880"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80051462"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-twitter-account-using-azure-active-directory-b2c"></a>Configurer l’inscription et la connexion avec un compte Twitter à l’aide d’Azure Active Directory B2C
 
@@ -27,7 +27,7 @@ Pour utiliser Twitter comme fournisseur d’identité dans Azure AD B2C, vous de
 1. Connectez-vous au site web [Développeurs Twitter](https://developer.twitter.com/en/apps) avec les informations d’identification de votre compte Twitter.
 1. Sélectionnez **Créer une application**.
 1. Entrez un **Nom de l’application** et une **Description de l’application**.
-1. Dans **URL du site web**, entrez `https://your-tenant.b2clogin.com`. Remplacez `your-tenant` par le nom de votre locataire. Par exemple : https://contosob2c.b2clogin.com.
+1. Dans **URL du site web**, entrez `https://your-tenant.b2clogin.com`. Remplacez `your-tenant` par le nom de votre locataire. Par exemple : `https://contosob2c.b2clogin.com`.
 1. Dans le champ **Callback URL** (URL de rappel), entrez `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/your-user-flow-Id/oauth1/authresp`. Remplacez `your-tenant` par le nom de votre locataire et `your-user-flow-Id` par l’identificateur de votre flux d’utilisateur. Par exemple : `b2c_1A_signup_signin_twitter`. Quand vous entrez le nom de votre locataire et l’ID de flux utilisateur, vous ne devez utiliser que des minuscules, même s’ils sont définis avec des majuscules dans Azure AD B2C.
 1. Au bas de la page, lisez et acceptez les termes du contrat, puis sélectionnez **Créer**.
 1. Dans la page **Détails de l’application**, sélectionnez **Modifier > Modifier les détails**, cochez la case **Activer la connexion avec Twitter**, puis sélectionnez **Enregistrer**.

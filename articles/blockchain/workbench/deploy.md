@@ -5,10 +5,10 @@ ms.date: 01/08/2020
 ms.topic: article
 ms.reviewer: brendal
 ms.openlocfilehash: 141bb8825e47eb2309f9f551990a2976e8f4e209
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78943200"
 ---
 # <a name="deploy-azure-blockchain-workbench-preview"></a>Déployer Azure Blockchain Workbench Preview
@@ -40,7 +40,7 @@ Voici un exemple de déploiement créé dans le groupe de ressources **myblockch
 
 Le coût associé à Blockchain Workbench est un agrégat du coût des services Azure sous-jacents. Les informations de tarification pour les services Azure peuvent être calculées à l’aide de la [calculatrice de prix](https://azure.microsoft.com/pricing/calculator/).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Azure Blockchain Workbench requiert des inscriptions d’applications et la configuration Azure AD. Vous pouvez choisir d’effectuer les [configurations manuellement](#azure-ad-configuration) pour Azure AD avant le déploiement ou l’exécution d’un script post-déploiement. Si vous redéployez Blockchain Workbench, consultez la [configuration Azure AD](#azure-ad-configuration) pour vérifier votre configuration Azure AD.
 
@@ -67,9 +67,9 @@ Une fois que les étapes préalables requises ont été exécutées, vous êtes 
     | SSH | Utilisez une clé publique RSA au format ligne unique et commençant par **ssh-rsa** ou utilisez le format PEM multiligne. Vous pouvez générer des clés SSH à l’aide de `ssh-keygen` sur Linux et OS X, ou à l’aide de PuTTYGen sur Windows. Pour plus d’informations sur les clés SSH, consultez [Comment utiliser des clés SSH avec Windows sur Azure](../../virtual-machines/linux/ssh-from-windows.md). |
     | Mot de passe de base de données et de Blockchain | Spécifiez le mot de passe à utiliser pour accéder à la base de données créée dans le cadre du déploiement. Le mot de passe doit remplir trois des quatre conditions suivantes : il doit comprendre entre 12 et 72 caractères, 1 caractère minuscule, 1 caractère majuscule, 1 chiffre et 1 caractère spécial qui ne soit pas le signe dièze (#), le symbole de pourcentage (%), une virgule (,), une étoile (*), un guillemet inverse (\`), un guillemet double ("), un guillemet unique ('), un tiret (-) ou un point-virgule (;) |
     | Région du déploiement | Spécifiez où déployer les ressources Blockchain Workbench. Pour une disponibilité optimale, cette région doit correspondre au paramètre **Emplacement**. |
-    | Abonnement | Spécifiez l’abonnement Azure que vous souhaitez utiliser pour votre déploiement. |
+    | Subscription | Spécifiez l’abonnement Azure que vous souhaitez utiliser pour votre déploiement. |
     | Groupes de ressources | Créez un groupe de ressources en sélectionnant **Créer** et donnez un nom unique au groupe de ressources. |
-    | Emplacement | Spécifiez la région où vous souhaitez déployer l’infrastructure. |
+    | Location | Spécifiez la région où vous souhaitez déployer l’infrastructure. |
 
 1. Sélectionnez **OK** à la fin de la section de configuration du paramètre de base.
 
@@ -84,7 +84,7 @@ Une fois que les étapes préalables requises ont été exécutées, vous êtes 
     | Paramètre | Description  |
     |---------|--------------|
     | Niveau tarifaire d’Azure Blockchain Service | Choisissez le niveau **De base** ou **Standard** d’Azure Blockchain Service qui est utilisé pour Blockchain Workbench |
-    | Paramètres Azure Active Directory | Choisissez **Ajouter ultérieurement**.</br>Remarque : Si vous avez choisi de [préconfigurer Azure AD](#azure-ad-configuration) ou si vous redéployez, optez pour *Ajouter maintenant*. |
+    | Paramètres Azure Active Directory | Choisissez **Ajouter ultérieurement**.</br>Remarque : si vous avez choisi de [préconfigurer Azure AD](#azure-ad-configuration) ou si vous redéployez, choisissez *Ajouter maintenant*. |
     | Sélection de machine virtuelle | Sélectionnez le niveau de performance de stockage préféré et la taille de machine virtuelle pour votre réseau blockchain. Choisissez une plus petite taille de machine virtuelle, comme *Standard DS1 v2*, si vous êtes sur un abonnement doté de limites de service faibles, tel que l’abonnement gratuit d’Azure. |
 
     Pour **Utiliser l’existant** :
@@ -103,7 +103,7 @@ Une fois que les étapes préalables requises ont été exécutées, vous êtes 
      | Paramètre | Description  |
      |---------|--------------|
      | Point de terminaison Ethereum RPC | Indiquez le point de terminaison RPC d’un réseau blockchain PoA existant. Le point de terminaison commence par https:// ou http:// et se termine par un numéro de port. Par exemple : `http<s>://<network-url>:<port>` |
-     | Paramètres Azure Active Directory | Choisissez **Ajouter ultérieurement**.</br>Remarque : Si vous avez choisi de [préconfigurer Azure AD](#azure-ad-configuration) ou si vous redéployez, optez pour *Ajouter maintenant*. |
+     | Paramètres Azure Active Directory | Choisissez **Ajouter ultérieurement**.</br>Remarque : si vous avez choisi de [préconfigurer Azure AD](#azure-ad-configuration) ou si vous redéployez, choisissez *Ajouter maintenant*. |
      | Sélection de machine virtuelle | Sélectionnez le niveau de performance de stockage préféré et la taille de machine virtuelle pour votre réseau blockchain. Choisissez une plus petite taille de machine virtuelle, comme *Standard DS1 v2*, si vous êtes sur un abonnement doté de limites de service faibles, tel que l’abonnement gratuit d’Azure. |
 
 1. Sélectionnez **OK** pour terminer les Paramètres avancés.

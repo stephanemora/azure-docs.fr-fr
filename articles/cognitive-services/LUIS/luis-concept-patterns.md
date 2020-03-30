@@ -12,17 +12,17 @@ ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: diberry
 ms.openlocfilehash: 6c1b548de25369c162b4a08dfa20fce62c17f99f
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75890284"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Les modèles améliorent la précision de la prédiction
 Les modèles sont conçus pour améliorer la précision lorsque plusieurs énoncés sont très similaires.  Un modèle vous permet d’obtenir plus de précision pour une intention sans fournir de nombreux énoncés en plus. 
 
 ## <a name="patterns-solve-low-intent-confidence"></a>Les modèles résolvent les problèmes de faible confiance envers les intentions
-Imaginez une application Ressources humaines qui génère des rapports sur l’organigramme en lien avec un employé. Selon le nom et les relations d’un employé, LUIS peut retourner les employés impliqués. Imaginez un employé, Tom, avec une manager nommée Alice et une équipe de subordonnés qui s’appellent Michael, Rebecca et Carl.
+Imaginez une application Ressources humaines qui génère des rapports sur l’organigramme en lien avec un employé. Selon le nom et les relations d’un employé, LUIS peut retourner les employés impliqués. Imaginez un employé, Tom, avec une manager nommée Alice, et une équipe de subordonnés appelés Michael, Rebecca et Carl.
 
 ![Image de l’organigramme](./media/luis-concept-patterns/org-chart.png)
 

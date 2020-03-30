@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Utilisation de Ruby pour appeler l’API Analyse de texte'
+title: 'Démarrage rapide : Utilisation de Ruby pour appeler l’API Analyse de texte'
 titleSuffix: Azure Cognitive Services
 description: Ce guide de démarrage rapide montre comment obtenir des informations et des exemples de code pour vous aider à commencer rapidement à utiliser l’API Analyse de texte dans Azure Cognitive Services.
 services: cognitive-services
@@ -11,13 +11,13 @@ ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: aahi
 ms.openlocfilehash: 0e43d6c3565ea8ae019ab624cbc85965678ea3b4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75378464"
 ---
-# <a name="quickstart-using-ruby-to-call-the-text-analytics-cognitive-service"></a>Démarrage rapide : Utilisation de Ruby pour appeler le service cognitif Analyse de texte
+# <a name="quickstart-using-ruby-to-call-the-text-analytics-cognitive-service"></a>Démarrage rapide : Utilisation de Ruby pour appeler le service cognitif Analyse de texte
 <a name="HOLTop"></a>
 
 Cet article montre comment [détecter la langue](#Detect), [analyser les sentiments](#SentimentAnalysis), [extraire les expressions clés](#KeyPhraseExtraction) et [identifier les entités liées](#Entities) à l’aide des [API Analyse de texte](//go.microsoft.com/fwlink/?LinkID=759711) avec Ruby.

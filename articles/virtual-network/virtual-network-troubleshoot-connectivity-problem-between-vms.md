@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
 ms.openlocfilehash: ab3ae45081ecc481cb90af8961174e23c86e84b5
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71056816"
 ---
 # <a name="troubleshooting-connectivity-problems-between-azure-vms"></a>Résolution des problèmes de connectivité entre machines virtuelles Azure
@@ -47,7 +47,7 @@ Une machine virtuelle Azure ne peut pas se connecter à une autre machine virtue
 
 Suivez ces étapes pour résoudre le problème. Après chaque étape, vérifiez si le problème est résolu. 
 
-### <a name="step-1-check-whether-nic-is-misconfigured"></a>Étape 1 : Vérifiez si la carte réseau est mal configurée
+### <a name="step-1-check-whether-nic-is-misconfigured"></a>Étape 1 : Vérifier si la carte réseau est mal configurée
 
 Suivez les étapes de [Comment réinitialiser l’interface réseau pour une machine virtuelle Windows Azure](../virtual-machines/windows/reset-network-interface.md). 
 
@@ -65,15 +65,15 @@ Pour plus d’informations, consultez [Ajouter ou supprimer des cartes réseau d
 - [Redéployez la machine virtuelle Windows.](../virtual-machines/windows/redeploy-to-new-node.md)
 - [Redéployer la machine virtuelle Linux.](../virtual-machines/linux/redeploy-to-new-node.md)
 
-### <a name="step-2-check-whether-network-traffic-is-blocked-by-nsg-or-udr"></a>Étape 2 : Vérifiez si le trafic réseau est bloqué par un groupe de sécurité réseau ou un itinéraire défini par l’utilisateur
+### <a name="step-2-check-whether-network-traffic-is-blocked-by-nsg-or-udr"></a>Étape 2 : Vérifiez si le trafic réseau est bloqué par un groupe de sécurité réseau ou un itinéraire défini par l’utilisateur
 
 Utilisez la [Vérification des flux d’IP de Network Watcher](../network-watcher/network-watcher-ip-flow-verify-overview.md) et [l’Enregistrement de flux de groupe de sécurité réseau](../network-watcher/network-watcher-nsg-flow-logging-overview.md) pour déterminer s’il existe un groupe de sécurité réseau (NSG) ou un itinéraire défini par l’utilisateur (UDR) qui dérange le flux de trafic.
 
-### <a name="step-3-check-whether-network-traffic-is-blocked-by-vm-firewall"></a>Étape 3 : Vérifiez si le trafic réseau est bloqué par un pare-feu de machine virtuelle
+### <a name="step-3-check-whether-network-traffic-is-blocked-by-vm-firewall"></a>Étape 3 : Vérifiez si le trafic réseau est bloqué par un pare-feu de machine virtuelle
 
 Désactivez le pare-feu, puis testez le résultat. Si le problème est résolu, vérifiez les paramètres du pare-feu, puis réactivez le pare-feu.
 
-### <a name="step-4-check-whether-vm-app-or-service-is-listening-on-the-port"></a>Étape 4 : Vérifiez si une application ou un service de la machine virtuelle écoute sur le port
+### <a name="step-4-check-whether-vm-app-or-service-is-listening-on-the-port"></a>Étape 4 : Vérifiez si une application ou un service de la machine virtuelle écoute sur le port
 
 Vous pouvez utiliser une des méthodes suivantes pour vérifier si une application ou un service de la machine virtuelle écoute sur le port.
 
@@ -93,19 +93,19 @@ Vous pouvez utiliser une des méthodes suivantes pour vérifier si une applicati
 
 Dans certains scénarios, la machine virtuelle est placée derrière une solution d’équilibrage de charge qui a une dépendance sur des ressources en dehors d’Azure. Dans ces scénarios, si vous rencontrez des problèmes de connexion intermittents, le problème peut être dû à [l’épuisement du port SNAT](../load-balancer/load-balancer-outbound-connections.md). Pour résoudre ce problème, créez une adresse IP virtuelle (ou ILPIP pour la version classique) pour chaque machine virtuelle qui se trouve derrière l’équilibrage de charge et est sécurisée avec un groupe de sécurité réseau ou des ACL. 
 
-### <a name="step-6-check-whether-traffic-is-blocked-by-acls-for-the-classic-vm"></a>Étape 6 : Vérifiez si le trafic est bloqué par des ACL pour la machine virtuelle classique
+### <a name="step-6-check-whether-traffic-is-blocked-by-acls-for-the-classic-vm"></a>Étape 6 : Vérifiez si le trafic est bloqué par des ACL pour la machine virtuelle classique
 
 Une liste ACL permet d’autoriser ou refuser le trafic de manière sélective pour un point de terminaison de machine virtuelle. Pour plus d’informations, consultez la page [Gestion de l’ACL sur un point de terminaison](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint).
 
-### <a name="step-7-check-whether-the-endpoint-is-created-for-the-classic-vm"></a>Étape 7 : Vérifiez si le point de terminaison est créé pour la machine virtuelle classique
+### <a name="step-7-check-whether-the-endpoint-is-created-for-the-classic-vm"></a>Étape 7 : Vérifiez si le point de terminaison est créé pour la machine virtuelle classique
 
 Toutes les machines virtuelles créées dans Azure à l’aide du modèle de déploiement classique peuvent automatiquement communiquer sur un canal réseau privé avec d’autres machines virtuelles dans le même service cloud ou réseau virtuel. Toutefois, les ordinateurs sur d'autres réseaux virtuels requièrent des points de terminaison pour diriger le trafic réseau entrant vers une machine virtuelle. Pour plus d’informations, consultez [Configuration de points de terminaison](../virtual-machines/windows/classic/setup-endpoints.md).
 
-### <a name="step-8-try-to-connect-to-a-vm-network-share"></a>Étape 8 : Essayez de vous connecter à un partage réseau de machine virtuelle
+### <a name="step-8-try-to-connect-to-a-vm-network-share"></a>Étape 8 : Essayez de vous connecter à un partage réseau de machine virtuelle
 
 Si vous ne parvenez pas à vous connecter à un partage réseau de machine virtuelle, le problème peut être causé par des cartes réseau non disponibles sur la machine virtuelle. Pour supprimer les cartes réseau non disponibles, consultez [Supprimer les cartes réseau non disponibles](../virtual-machines/troubleshooting/reset-network-interface.md#delete-the-unavailable-nics)
 
-### <a name="step-9-check-inter-vnet-connectivity"></a>Étape 9 : Vérifiez la connectivité entre réseaux virtuels
+### <a name="step-9-check-inter-vnet-connectivity"></a>Étape 9 : Vérifiez la connectivité entre réseaux virtuels
 
 Utilisez la [Vérification des flux d’IP de Network Watcher](../network-watcher/network-watcher-ip-flow-verify-overview.md) et [l’Enregistrement de flux de groupe de sécurité réseau](../network-watcher/network-watcher-nsg-flow-logging-overview.md) pour déterminer s’il existe un groupe de sécurité réseau ou un itinéraire défini par l’utilisateur qui dérange le flux de trafic. Vous pouvez également vérifier votre configuration entre réseaux virtuels [ici](https://support.microsoft.com/en-us/help/4032151/configuring-and-validating-vnet-or-vpn-connections).
 

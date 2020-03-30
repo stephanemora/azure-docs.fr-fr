@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: scottwhi
 ms.openlocfilehash: f84c6329c2a4dd0a9ad9e81f3700c9e31de95a2a
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68883426"
 ---
 # <a name="get-image-insights-with-the-bing-image-search-api"></a>Obtenir des informations sur les images avec l’API Recherche d’images Bing
@@ -216,10 +216,10 @@ Le champ `region` identifie la zone de l’image où Bing a reconnu l’entité.
 
 Les valeurs du rectangle sont relatives à la largeur et la hauteur de l’image d’origine et sont comprises dans la plage de 0,0 à 1,0. Par exemple, si l’image est de 300 x 200, que le coin supérieur gauche de la région est au point (10, 20) et que le coin inférieur droit est au point (290, 150), le rectangle normalisé est :  
 
--   Gauche : 10 / 300 = 0,03333...  
--   Haut :  20 / 200 = 0,1  
--   Droite : 290 / 300 = 0,9667...  
--   Bas : 150 / 200 = 0,75  
+-   Gauche : 10 / 300 = 0,03333...  
+-   Haut :  20 / 200 = 0,1  
+-   Droite : 290 / 300 = 0,9667...  
+-   Bas : 150 / 200 = 0,75  
 
 Vous pouvez utiliser la région retournée par Bing dans les appels d’informations suivantes. Par exemple, pour obtenir des images visuellement similaires de l’entité reconnue. Pour plus d’informations, consultez Rognage d’images à utiliser avec les modules de reconnaissance Visuellement similaires et Entités. Voici le mappage entre les champs de la région et les paramètres de requête que vous utiliseriez pour rogner des images.  
 

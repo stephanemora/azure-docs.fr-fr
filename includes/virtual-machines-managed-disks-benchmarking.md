@@ -9,10 +9,10 @@ ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: e5148ff9e92a2e550a3117356a4e77cbac8fc6f4
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67673324"
 ---
 *Préchauffage du cache*  
@@ -62,24 +62,24 @@ Procédez comme suit pour préparer le cache
 
 1. Créez deux spécifications d’accès avec les valeurs indiquées ci-dessous
 
-   | Nom | Taille de la demande | % aléatoire | % écriture |
+   | Name | Taille de la demande | % aléatoire | % écriture |
    | --- | --- | --- | --- |
    | RandomWrites\_1MB |1 Mo |100 |0 |
    | RandomReads\_1MB |1 Mo |100 |100 |
 1. Exécutez le test Iometer pour initialiser le disque de cache avec les paramètres suivants. Utilisez trois threads de travail pour le volume cible et une profondeur de file d’attente de 128. Définissez la durée « Temps d’exécution » du test sur 2 heures sous l’onglet « Tester la configuration ».
 
-   | Scénario | Volume cible | Nom | Duration |
+   | Scénario | Volume cible | Name | Duration |
    | --- | --- | --- | --- |
    | Initialisation du disque de cache |CacheReads |RandomWrites\_1MB |2 heures |
 1. Exécutez le test Iometer pour préchauffer le disque de cache avec les paramètres suivants. Utilisez trois threads de travail pour le volume cible et une profondeur de file d’attente de 128. Définissez la durée « Temps d’exécution » du test sur 2 heures sous l’onglet « Tester la configuration ».
 
-   | Scénario | Volume cible | Nom | Durée |
+   | Scénario | Volume cible | Name | Duration |
    | --- | --- | --- | --- |
    | Préchauffage du disque de cache |CacheReads |RandomReads\_1MB |2 heures |
 
 Une fois le disque de cache préchauffé, poursuivez avec les scénarios de test décrits ci-dessous. Pour exécuter le test Iometer, utilisez au moins trois threads de travail pour **chaque** volume cible. Pour chaque thread de travail, sélectionnez le volume cible, définissez une profondeur de file d’attente et sélectionnez l’une des spécifications de test enregistrées, comme illustré dans le tableau ci-dessous, pour exécuter le scénario de test correspondant. Le tableau indique également les résultats attendus pour les E/S par seconde et le débit lors de l’exécution de ces tests. Dans tous les scénarios, une petite taille d’E/S (8 Ko) et une profondeur de file d’attente élevée (128) sont utilisées.
 
-| Scénario de test | Volume cible | Nom | Résultat |
+| Scénario de test | Volume cible | Name | Résultats |
 | --- | --- | --- | --- |
 | Bande passante E/S par seconde en lecture |CacheReads |RandomWrites\_8K |50 000 E/S par seconde |
 | Bande passante E/S par seconde en écriture |NoCacheWrites |RandomReads\_8K |64 000 E/S par seconde |

@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 10/15/2019
 ms.author: haroldw
 ms.openlocfilehash: 6ecae09b0efbc0e35e591b31dbb54fb49ce101b3
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74035402"
 ---
 # <a name="deploy-okd-in-azure"></a>Déployer OKD dans Azure
@@ -30,7 +30,7 @@ Vous pouvez utiliser l’une des deux manières de déployer OKD (anciennement O
 
 ## <a name="deploy-using-the-okd-template"></a>Déployer avec le modèle OKD
 
-Pour déployer à l’aide du modèle Resource Manager, vous utilisez un fichier de paramètres pour fournir les paramètres d’entrée. Pour personnaliser davantage le déploiement, dupliquez (fork) le dépôt GitHub et changez les éléments appropriés.
+Pour effectuer le déploiement à l’aide du modèle Resource Manager, vous utilisez un fichier de paramètres qui fournit les paramètres d’entrée. Pour personnaliser davantage le déploiement, dupliquez (fork) le dépôt GitHub et changez les éléments appropriés.
 
 Voici une liste non exhaustive d’options de personnalisation courantes :
 
@@ -153,7 +153,7 @@ Une fois le déploiement terminé, connectez-vous à la console OpenShift dans u
 $ ssh -p 2200 clusteradmin@myopenshiftmaster.cloudapp.azure.com
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Utilisez la commande [az group delete](/cli/azure/group) pour supprimer le groupe de ressources, le cluster OpenShift et toutes les ressources associées quand vous n’en avez plus besoin.
 

@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 02/05/2019
 ms.topic: conceptual
 ms.openlocfilehash: beb69edc57b5a13db0f6d2e5e1536804f3472aff
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75421913"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>Transférer l’état d’un travail et des flux de travail d’Automation vers des journaux Azure Monitor
@@ -92,7 +92,7 @@ Les diagnostics d’Azure Automation créent deux types d’enregistrements dans
 | Caller_s |Ce qui a initié l’opération. Les valeurs possibles sont une adresse de messagerie ou un système pour les travaux planifiés. |
 | Tenant_g | GUID identifiant le locataire pour l’appelant. |
 | JobId_g |GUID représentant l’ID du travail du runbook. |
-| ResultType |L’état du travail du runbook. Les valeurs possibles sont les suivantes :<br>- Nouveau<br>Créé<br>Démarré<br>Arrêté<br>Interrompu<br>Échec<br>- Terminé |
+| ResultType |L’état du travail du runbook. Les valeurs possibles sont les suivantes :<br>- Nouveau<br>Créé<br>Démarré<br>{1}Arrêté{2}<br>Interrompu<br>Échec<br>- Terminé |
 | Category | Classification du type de données. Pour Automation, la valeur est JobLogs. |
 | NomOpération | Spécifie le type d’opération exécutée dans Azure. Pour Automation, la valeur est Job. |
 | Ressource | Nom du compte Automation |
@@ -140,7 +140,7 @@ Nos clients demandent souvent à pouvoir envoyer un e-mail ou un SMS lorsqu’un
 Pour créer une règle d’alerte, vous devez commencer par créer une recherche de journal pour les enregistrements de travaux de runbook qui doivent appeler l’alerte. Cliquez sur le bouton **Alerte** pour créer et configurer la règle d’alerte.
 
 1. Dans la page de présentation de l’espace de travail Log Analytics, cliquez sur **Afficher les journaux**.
-2. Créez une requête de recherche dans les journaux pour votre alerte en tapant la recherche suivante dans le champ de requête : `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")`. Vous pouvez également effectuer un regroupement par nom de runbook à l’aide de `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`.
+2. Créez une requête Recherche dans les journaux pour votre alerte en tapant la recherche suivante dans le champ de requête : `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")`. Vous pouvez également les regrouper par RunbookName ainsi : `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`.
 
    Si vous avez configuré des journaux d’activité dans votre espace de travail sur plusieurs abonnements ou comptes Automation, vous pouvez également regrouper vos alertes par abonnement ou par compte Automation. Le nom du compte Automation se trouve dans le champ Ressource de la recherche de JobLogs.
 3. Pour ouvrir l’écran **Créer une règle**, cliquez sur **+ Nouvelle règle d’alerte** en haut de la page. Pour plus d’informations sur les options de configuration de l’alerte, voir [Alertes de journaux dans Azure](../azure-monitor/platform/alerts-unified-log.md).

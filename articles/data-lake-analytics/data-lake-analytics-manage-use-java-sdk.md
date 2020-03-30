@@ -10,10 +10,10 @@ ms.assetid: 07830b36-2fe3-4809-a846-129cf67b6a9e
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.openlocfilehash: b8c7d2ba1c782c3b6ae3034d6a9aab5eb19be954
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70813642"
 ---
 # <a name="manage-azure-data-lake-analytics-using-a-java-app"></a>Gérer Azure Data Lake Analytics à l’aide d’une application Java
@@ -21,7 +21,7 @@ ms.locfileid: "70813642"
 
 Cet article explique comment gérer des comptes, des sources de données, des utilisateurs et des travaux Azure Data Lake Analytics à l’aide d’une application écrite avec le SDK Azure pour Java. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 * **Kit de développement Java (JDK) 8** (à l’aide de Java version 1.8).
 * **IntelliJ** ou un autre environnement de développement Java approprié. Les instructions de ce document utilisent Intellij.
 * Création d’une application Azure Active Directory (AAD) et récupération de ses **ID client**, **ID de locataire** et **Clé**. Pour plus d’informations sur les applications AAD et pour savoir comment obtenir un ID client, consultez [Création de l’application Active Directory et du principal du service à l’aide du portail](../active-directory/develop/howto-create-service-principal-portal.md). L’URI de réponse et la Clé seront disponibles sur le portail une fois l’application créée et la clé générée.

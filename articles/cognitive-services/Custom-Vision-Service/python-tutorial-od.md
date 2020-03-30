@@ -1,7 +1,7 @@
 ---
-title: 'Démarrage rapide : Créer un projet de détection d’objets à l’aide du kit SDK Custom Vision pour Python'
+title: 'Guide de démarrage rapide : créer un projet de détection d’objet avec le kit de développement logiciel (SDK) de Vision personnalisée pour Python'
 titleSuffix: Azure Cognitive Services
-description: Créez un projet, ajoutez des étiquettes, chargez des images, entraînez votre projet et détectez des objets avec le kit SDK Python.
+description: Créez un projet, ajoutez des balises, chargez des images, effectuez l’apprentissage de votre projet et détectez des objets avec le kit de développement logiciel (SDK) Python.
 services: cognitive-services
 author: areddish
 manager: nitinme
@@ -11,13 +11,13 @@ ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: areddish
 ms.openlocfilehash: 68d63fbc71ea2dcd07522c6ba42808f88966cd7b
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76166618"
 ---
-# <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-python-sdk"></a>Démarrage rapide : Créer un projet de détection d’objets à l’aide du kit SDK Custom Vision Python
+# <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-python-sdk"></a>Guide de démarrage rapide : créer un projet de détection d’objet avec le kit de développement logiciel (SDK) de Vision personnalisée pour Python
 
 Cet article vous montre comment bien démarrer avec le SDK Vision par ordinateur et Python pour générer un modèle de détection d’objet. Une fois le projet créé, vous pouvez ajouter des régions étiquetées, charger des images, entraîner le projet, obtenir l’URL du point de terminaison de prédiction publié du projet et utiliser le point de terminaison pour tester une image par programmation. Utilisez cet exemple comme modèle pour générer votre propre application Python.
 
@@ -74,9 +74,9 @@ print ("Creating project...")
 project = trainer.create_project("My Detection Project", domain_id=obj_detection_domain.id)
 ```
 
-### <a name="create-tags-in-the-project"></a>Créer des étiquettes dans un projet
+### <a name="create-tags-in-the-project"></a>Créer des balises dans un projet
 
-Pour créer des étiquettes d’objet dans votre projet, ajoutez le code suivant à la fin du fichier *sample.py* :
+Pour créer des balises d’objet dans votre projet, ajoutez le code suivant à la fin du fichier *sample.py* :
 
 ```Python
 # Make two tags in the new project
@@ -86,13 +86,13 @@ scissors_tag = trainer.create_tag(project.id, "scissors")
 
 ### <a name="upload-and-tag-images"></a>Charger et étiqueter des images
 
-Lorsque vous appliquez des étiquettes à des images dans des projets de détection d’objet, vous devez préciser la région de chaque objet étiqueté avec des coordonnées normalisées.
+Lorsque vous appliquez des balises à des images dans des projets de détection d’objet, vous devez préciser la région de chaque objet balisé avec des coordonnées normalisées.
 
 > [!NOTE]
-> Si vous n’avez pas d’utilitaire permettant d’effectuer des opérations de glisser-déposer pour marquer les coordonnées des régions, vous pouvez utiliser l’IU web sur [Customvision.ai](https://www.customvision.ai/). Dans cet exemple, les coordonnées sont déjà fournies.
+> Si vous ne disposez pas d’un utilitaire permettant d’effectuer des opérations de glisser-déposer pour marquer les coordonnées des régions, vous pouvez utiliser l’IU web sur [Customvision.ai](https://www.customvision.ai/). Dans cet exemple, les coordonnées sont déjà fournies.
 
 
-Pour ajouter les images, les régions et les étiquettes au projet, insérez le code suivant après la création de l’étiquette. Pour ce tutoriel, les régions sont codées en dur inline avec le code. Les régions spécifient le niveau du bit dans des coordonnées normalisées, et ces dernières sont données dans l’ordre : gauche, haut, largeur et hauteur.
+Pour ajouter les images, les régions et les balises au projet, insérez le code suivant après la création de la balise. Pour ce tutoriel, les régions sont codées en dur inline avec le code. Les régions spécifient le niveau du bit dans des coordonnées normalisées, et ces dernières sont données dans l’ordre : gauche, haut, largeur et hauteur.
 
 ```Python
 fork_image_regions = {

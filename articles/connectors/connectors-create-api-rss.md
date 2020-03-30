@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/24/2018
 tags: connectors
 ms.openlocfilehash: 3f1e092c2ff325cdcbc32c617af316d6fbe6dd74
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74789339"
 ---
 # <a name="manage-rss-feeds-by-using-azure-logic-apps"></a>Gérer des flux RSS à l’aide d’Azure Logic Apps
@@ -25,7 +25,7 @@ RSS (Rich Site Summary), également appelé Really Simple Syndication, est un fo
 
 Vous pouvez utiliser un déclencheur RSS qui obtient des réponses d’un flux RSS et met la sortie à la disposition d’autres actions. Vous pouvez utiliser une action RSS dans vos applications logiques pour effectuer une tâche avec le flux RSS. Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/). 
 

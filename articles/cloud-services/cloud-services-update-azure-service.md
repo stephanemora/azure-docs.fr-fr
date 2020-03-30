@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/19/2017
 ms.author: tagore
 ms.openlocfilehash: 731f4e8cc8a93f33d6887f44fc8d09585e92a75a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75360342"
 ---
 # <a name="how-to-update-a-cloud-service"></a>Mettre à jour un service cloud
@@ -134,7 +134,7 @@ Cette fonction est assurée par les fonctionnalités suivantes :
   1. L’élément Verrouillé permet de détecter si une opération de mutation peut être appelée sur un déploiement donné.
   2. L’élément RollbackAllowed vous permet de détecter lorsque l’opération de [restauration de mise à jour ou de mise à niveau](/previous-versions/azure/reference/hh403977(v=azure.100)) peut être appelée sur un déploiement donné.
 
-  Pour effectuer une restauration, il est inutile de vérifier les éléments Verrouillés et RollbackAllowed. Il suffit de vérifier que RollbackAllowed est défini sur true. Ces éléments sont retournés uniquement si ces méthodes sont appelées avec l’en-tête de requête défini sur « x-ms-version : 2011-10-01 » ou version ultérieure. Pour plus d’informations sur les en-têtes de contrôle de version, consultez [Contrôle de version de gestion de service](/previous-versions/azure/gg592580(v=azure.100)).
+  Pour effectuer une restauration, il est inutile de vérifier les éléments Verrouillés et RollbackAllowed. Il suffit de vérifier que RollbackAllowed est défini sur true. Ces éléments sont retournés uniquement si ces méthodes sont appelées avec l’en-tête de demande défini sur « x-ms-version : 2011-10-01 » ou une version ultérieure. Pour plus d’informations sur les en-têtes de contrôle de version, consultez [Contrôle de version de gestion de service](/previous-versions/azure/gg592580(v=azure.100)).
 
 Dans certaines situations, la restauration d’une mise à jour ou d’une mise à niveau n’est pas prise en charge, notamment les suivantes :
 
@@ -155,11 +155,11 @@ Une fois que le contrôleur de structure Azure a reçu la demande initiale de mi
 
 Le lancement d’une deuxième opération de mise à jour pendant que la première mise à jour est en cours permet d’effectuer une opération similaire à l’opération de restauration. Si la deuxième mise à jour est en mode automatique, le premier domaine de mise à niveau sera immédiatement, mis à niveau, ce qui pourra éventuellement provoquer la mise hors ligne de plusieurs domaines de mise à niveau hors ligne au même moment dans le temps.
 
-Les opérations de mutation sont les suivantes : [Modification de la configuration du déploiement](/previous-versions/azure/reference/ee460809(v=azure.100)), [Mise à niveau du déploiement](/previous-versions/azure/reference/ee460793(v=azure.100)), [Mise à jour de l’état du déploiement](/previous-versions/azure/reference/ee460808(v=azure.100)), [Suppression du déploiement](/previous-versions/azure/reference/ee460815(v=azure.100)) et [Restauration de mise à jour ou de mise à niveau](/previous-versions/azure/reference/hh403977(v=azure.100)).
+Les opérations de mutation sont les suivantes : [Modification de la configuration du déploiement](/previous-versions/azure/reference/ee460809(v=azure.100)), [Mise à niveau du déploiement](/previous-versions/azure/reference/ee460793(v=azure.100)), [Mise à jour de l’état du déploiement](/previous-versions/azure/reference/ee460808(v=azure.100)), [Suppression du déploiement](/previous-versions/azure/reference/ee460815(v=azure.100)) et [Restauration de mise à jour ou de mise à niveau](/previous-versions/azure/reference/hh403977(v=azure.100)).
 
 Deux opérations, [Obtention du déploiement](/previous-versions/azure/reference/ee460804(v=azure.100)) et [Obtention des propriétés de service cloud](/previous-versions/azure/reference/ee460806(v=azure.100)), retournent l’indicateur Verrouillé qui peut être examiné pour déterminer si une opération de mutation peut être appelée sur un déploiement donné.
 
-Pour appeler la version de ces méthodes qui retourne un indicateur Verrouillé, vous devez définir un en-tête de requête « x-ms-version: 2011-10-01 » ou version ultérieure. Pour plus d’informations sur les en-têtes de contrôle de version, consultez [Contrôle de version de gestion de service](/previous-versions/azure/gg592580(v=azure.100)).
+Pour appeler la version de ces méthodes qui renvoie un indicateur Verrouillé, vous devez définir un en-tête de requête « x-ms-version: 2011-10-01 » ou ultérieure. Pour plus d’informations sur les en-têtes de contrôle de version, consultez [Contrôle de version de gestion de service](/previous-versions/azure/gg592580(v=azure.100)).
 
 <a name="distributiondfroles"></a>
 

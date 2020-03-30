@@ -12,19 +12,19 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a6bbecf0e365ba7a8424da775245181fa64c21f6
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78672692"
 ---
-# <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procédure : Planifier votre implémentation de la jointure d’Azure AD
+# <a name="how-to-plan-your-azure-ad-join-implementation"></a>Guide pratique pour planifier votre implémentation de la jonction Azure AD
 
 La jonction Azure AD vous permet de joindre des appareils directement à Azure AD sans qu’il soit nécessaire de se joindre à Active Directory local, tout en conservant vos utilisateurs productifs et sécurisés. La jonction Azure AD est prête à l’emploi par les entreprises pour les déploiements à grande échelle et les déploiements limités.   
 
 Cet article vous fournit les informations nécessaires pour planifier votre implémentation de la jonction Azure AD.
  
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Cet article suppose que vous avez lu la [Présentation de la gestion des appareils dans Azure Active Directory](../device-management-introduction.md).
 
@@ -85,7 +85,7 @@ Si votre fournisseur d’identité ne prend pas en charge ces protocoles, la jon
 
 Vous ne pouvez pas utiliser l’authentification basée sur des cartes à puce ou sur des certificats pour joindre des appareils à Azure AD. Cependant, vous pouvez utiliser des cartes à puce pour vous connecter à des appareils joints à Azure AD si vous avez configuré AD FS.
 
-**Recommandation :** Implémentez Windows Hello Entreprise pour l'authentification forte sans mot de passe à des appareils Windows 10.
+**Recommandation :** Implémentez Windows Hello Entreprise pour l’authentification forte sans mot de passe à des appareils Windows 10.
 
 ### <a name="user-configuration"></a>Configuration des utilisateurs
 
@@ -106,7 +106,7 @@ La jonction Azure AD :
 - N’est pas applicable aux versions antérieures de Windows ou à d’autres systèmes d’exploitation. Si vous avez des appareils Windows 7/8.1, vous devez les mettre à niveau vers Windows 10 pour déployer la jonction Azure AD.
 - N’est pas pris en charge sur les appareils avec module de plateforme sécurisée (TPM) en mode FIPS.
  
-**Recommandation :** Utilisez toujours la version la plus récente de Windows 10 pour bénéficier de fonctionnalités à jour.
+**Recommandation :** Utilisez toujours la version de Windows 10 la plus récente pour bénéficier des fonctionnalités mises à jour.
 
 ### <a name="management-platform"></a>Plateforme de gestion
 
@@ -157,13 +157,13 @@ Si vos applications sont créées de façon personnalisée et/ou hébergées loc
 
 Si vous utilisez AD FS, consultez [Vérifier et gérer l’authentification unique avec AD FS](/previous-versions/azure/azure-services/jj151809(v%3dazure.100)). 
 
-**Recommandation :** Envisagez l'hébergement dans le cloud (Azure, par exemple) et l'intégration à Azure AD pour une meilleure expérience.
+**Recommandation :** Envisagez l’hébergement dans le cloud (par exemple Azure) et l’intégration à Azure AD pour une meilleure expérience.
 
 ### <a name="on-premises-applications-relying-on-legacy-protocols"></a>Applications locales s’appuyant sur des protocoles hérités
 
 Les utilisateurs bénéficient de l’authentification unique sur les appareils joints à Azure AD si l’appareil a accès à un contrôleur de domaine. 
 
-**Recommandation :** Déployez le [proxy Azure AD App](/azure/active-directory/manage-apps/application-proxy) pour permettre un accès sécurisé à ces applications.
+**Recommandation :** Déployez le [proxy d’application Azure AD](/azure/active-directory/manage-apps/application-proxy) pour permettre l’accès sécurisé à ces applications.
 
 ### <a name="on-premises-network-shares"></a>Partages de réseau local
 
@@ -259,8 +259,8 @@ Sélectionnez **Certain(e)s** ou **Tous**, en fonction de l’étendue de votre 
 
 En fonction de votre étendue, une des actions suivantes se produit : 
 
-- **L'utilisateur est dans l'étendue MDM** : Si vous disposez d'un abonnement Azure AD Premium, l'inscription MDM est automatisée, ainsi que la jonction Azure AD. Tous les utilisateurs de l’étendue doivent avoir une licence appropriée pour votre MDM. Si l’inscription MDM échoue dans ce scénario, la jonction Azure AD est également annulée.
-- **L'utilisateur n'est pas dans l'étendue MDM** : Si les utilisateurs ne sont pas dans l'étendue MDM, la jonction Azure AD se termine sans aucune inscription MDM. Ceci aboutit à un appareil non géré.
+- **L’utilisateur est dans l’étendue MDM** : Si vous avez un abonnement Azure AD Premium, l’inscription MDM est automatisée, ainsi que la jonction Azure AD. Tous les utilisateurs de l’étendue doivent avoir une licence appropriée pour votre MDM. Si l’inscription MDM échoue dans ce scénario, la jonction Azure AD est également annulée.
+- **L’utilisateur n’est pas dans l’étendue MDM** : si les utilisateurs ne sont pas dans l’étendue MDM, la jonction Azure AD se termine sans aucune inscription MDM. Ceci aboutit à un appareil non géré.
 
 ### <a name="mdm-urls"></a>URL MDM
 
@@ -282,7 +282,7 @@ GAM ne s’applique pas à la jonction Azure AD.
 
 Si vous voulez activer l’itinérance des états dans Azure AD, afin que les utilisateurs puissent synchroniser leurs paramètres entre différents appareils, consultez [Activer Enterprise State Roaming dans Azure Active Directory](enterprise-state-roaming-enable.md). 
 
-**Recommandation** : Activez ce paramètre même pour des appareils joints à Azure AD hybrides.
+**Recommandation** : Activez ce paramètre même pour des appareils joints à Azure AD Hybride.
 
 ## <a name="configure-conditional-access"></a>Configurer un accès conditionnel
 

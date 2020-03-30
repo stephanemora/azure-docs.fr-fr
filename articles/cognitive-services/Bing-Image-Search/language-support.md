@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
 ms.openlocfilehash: ca3821b6088e45730334d1b0971e270b1d86dfce
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68881920"
 ---
 # <a name="language-and-region-support-for-the-bing-image-search-api"></a>Langues et régions prises en charge par l’API Recherche d’images Bing
@@ -57,7 +57,7 @@ De même, vous pouvez spécifier le pays/la région à l’aide du paramètre de
 |Mexique|MX|
 |Pays-bas|NL|
 |Nouvelle-Zélande|NZ|
-|Norvège|NON|
+|Norvège|Non|
 |Chine|CN|
 |Pologne|PL|
 |Portugal|PT|
@@ -70,8 +70,8 @@ De même, vous pouvez spécifier le pays/la région à l’aide du paramètre de
 |Suisse|CH|
 |Taïwan|TW|
 |Turquie|TR|
-|Royaume-Uni|GB|
-|États-Unis|FR|
+|United Kingdom|Go|
+|États-Unis|US|
 
 
 ## <a name="markets"></a>Marchés
@@ -114,8 +114,8 @@ De même, vous pouvez spécifier le pays/la région à l’aide du paramètre de
 |Suisse|Allemand|de-CH|
 |Taïwan|Chinois traditionnel|zh-TW|
 |Turquie|Turc|tr-TR|
-|Royaume-Uni|Anglais|en-GB|
-|États-Unis|Anglais|en-US|
+|United Kingdom|Anglais|en-GB|
+|États-Unis|Anglais|fr-FR|
 |États-Unis|Espagnol|es-US|
 
 ## <a name="next-steps"></a>Étapes suivantes

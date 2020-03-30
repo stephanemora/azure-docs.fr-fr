@@ -12,10 +12,10 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 12/18/2018
 ms.openlocfilehash: 3ca00a03976ae38b7956616b8287220a7bc5998c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73825855"
 ---
 # <a name="performing-disaster-recovery-drill"></a>Exécution d'un exercice de récupération d'urgence
@@ -30,7 +30,7 @@ L'exécution d'un exercice de récupération d'urgence comprend :
 
 Le flux de travail à exécuter peut varier en fonction de la [conception de votre application pour la continuité des activités](sql-database-business-continuity.md). Cet article décrit les bonnes pratiques pour effectuer une reprise d’activité après sinistre dans le contexte d’une base de données Azure SQL.
 
-## <a name="geo-restore"></a>Géo-restauration
+## <a name="geo-restore"></a>La géorestauration
 
 Afin d’éviter la perte potentielle de données lors d’un exercice de récupération d’urgence, effectuez l’exercice dans un environnement de test en créant une copie de l’environnement de production et en l’utilisant pour vérifier le flux de travail de basculement de l’application.
 

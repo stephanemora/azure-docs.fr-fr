@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: rohink
 ms.openlocfilehash: daf7d09916d276130e337f7acea738228ee23707
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76938777"
 ---
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>Configurer la méthode de routage à valeurs multiples dans Traffic Manager

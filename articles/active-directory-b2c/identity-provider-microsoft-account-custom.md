@@ -12,10 +12,10 @@ ms.date: 02/19/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: b7d8fbddc86c0d05d7b0d4ce46cb06c5fc92a2cf
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78188115"
 ---
 # <a name="set-up-sign-in-with-a-microsoft-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurer la connexion avec un compte Microsoft à l’aide de stratégies personnalisées dans Azure Active Directory B2C
@@ -24,7 +24,7 @@ ms.locfileid: "78188115"
 
 Cet article explique comment activer la connexion d’utilisateurs à partir d’un compte Microsoft à l’aide de [stratégies personnalisées](custom-policy-overview.md) dans Azure Active Directory B2C (Azure AD B2C).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Suivez les étapes de l’article [Prise en main des stratégies personnalisées dans Azure Active Directory B2C](custom-policy-get-started.md).
 - Si vous n’avez pas de compte Microsoft, créez-en un sur [https://www.live.com/](https://www.live.com/).
@@ -58,7 +58,7 @@ Si vous souhaitez obtenir les revendications `family_name` et `given_name` à pa
 1. Sélectionnez **Ajouter une revendication facultative**.
 1. Sélectionnez le type de jeton que vous souhaitez configurer.
 1. Sélectionnez les revendications facultatives à ajouter.
-1. Cliquez sur **Add**.
+1. Cliquez sur **Ajouter**.
 
 ## <a name="create-a-policy-key"></a>Création d’une clé de stratégie
 

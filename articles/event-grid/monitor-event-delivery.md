@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: spelluru
 ms.openlocfilehash: 16587feaca65aa21836d9be1c44e00faa0f4f8d8
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76722133"
 ---
 # <a name="monitor-event-grid-message-delivery"></a>Surveiller la remise des messages Event Grid 
@@ -29,16 +29,16 @@ Le portail affiche les métriques pour l’état de la remise des messages d’�
 
 Pour les rubriques, les métriques sont les suivantes :
 
-* **Publication réussie** : événement correctement envoyé à la rubrique et traité avec une réponse 2xx.
-* **Échec de la publication** : événement envoyé à la rubrique mais rejeté avec un code d’erreur.
-* **Sans correspondance** : événement correctement publié dans la rubrique, mais sans correspondance avec un abonnement aux événements. L’événement a été supprimé.
+* **Publication réussie** : événement correctement envoyé à la rubrique et traité avec une réponse 2xx.
+* **Échec de la publication** : événement envoyé à la rubrique mais rejeté avec un code d’erreur.
+* **Sans correspondance** : événement correctement publié dans la rubrique, mais sans correspondance avec un abonnement aux événements. L’événement a été supprimé.
 
 Pour les abonnements, les métriques sont les suivantes :
 
-* **Remise réussie** : l’événement a été correctement remis au point de terminaison de l’abonnement et a reçu une réponse 2xx.
-* **Échec de la remise** : l’événement a été envoyé au point de terminaison de l’abonnement, mais a reçu une réponse 4xx ou 5xx.
-* **Événements expirés** : l’événement n’a pas été remis et toutes les nouvelles tentatives ont été envoyées. L’événement a été supprimé.
-* **Événements correspondants** : l’événement dans la rubrique a été mis en correspondance par l’abonnement aux événements.
+* **Remise réussie** : l’événement a été correctement remis au point de terminaison de l’abonnement et a reçu une réponse 2xx.
+* **Échec de la remise** : l’événement a été envoyé au point de terminaison de l’abonnement, mais a reçu une réponse 4xx ou 5xx.
+* **Événements expirés** : l’événement n’a pas été remis et toutes les nouvelles tentatives ont été envoyées. L’événement a été supprimé.
+* **Événements correspondants** : l’événement dans la rubrique a été mis en correspondance par l’abonnement aux événements.
 
 ## <a name="event-subscription-status"></a>État de l’abonnement aux événements
 

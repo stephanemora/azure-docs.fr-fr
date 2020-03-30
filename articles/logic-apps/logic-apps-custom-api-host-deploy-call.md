@@ -7,15 +7,15 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 05/26/2017
 ms.openlocfilehash: d1305be54a22b1460000a357074cbb1f67123bd6
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74790758"
 ---
 # <a name="deploy-and-call-custom-apis-from-workflows-in-azure-logic-apps"></a>Déployer et appeler des API personnalisées à partir de workflows dans Azure Logic Apps
 
-Après avoir [créé des API personnalisées](./logic-apps-create-api-app.md) à utiliser dans des workflows d’application logique, vous devez déployer vos API avant de pouvoir les appeler. Vous pouvez déployer vos API en tant [qu’applications web](../app-service/overview.md). Toutefois, envisagez de les déployer sous la forme [d’applications API](../app-service/app-service-web-tutorial-rest-api.md) pour simplifier votre travail lorsque vous générez, hébergez et consommez des API dans le cloud et en local. Vous n’avez pas besoin de modifier le code dans vos API. Il vous suffit de déployer votre code dans une application API. Vous pouvez héberger vos API sur [Azure App Service](../app-service/overview.md), une offre PaaS (Platform-as-a-Service) qui fournit un hébergement d’API simple et hautement évolutif.
+Après avoir [créé des API personnalisées](./logic-apps-create-api-app.md) à utiliser dans des workflows d’application logique, vous devez déployer vos API avant de pouvoir les appeler. Vous pouvez déployer vos API en tant [qu’applications web](../app-service/overview.md). Toutefois, envisagez de les déployer sous la forme [d’applications API](../app-service/app-service-web-tutorial-rest-api.md) pour simplifier votre travail lorsque vous générez, hébergez et consommez des API dans le cloud et en local. Vous n’avez pas besoin de modifier le code dans vos API. Il vous suffit de déployer votre code dans une application API. Vous pouvez héberger vos API sur [Azure App Service](../app-service/overview.md), une offre PaaS (platform as a service) qui propose un hébergement d’API simple et hautement évolutif.
 
 Même si vous pouvez appeler n’importe quelle API à partir d’une application logique, vous bénéficierez d’une expérience optimale si vous ajoutez des [métadonnées OpenAPI (auparavant Swagger](https://swagger.io/specification/) décrivant les opérations et paramètres de votre API. Ce fichier OpenAPI simplifie l’intégration de votre API aux applications logiques et améliore son fonctionnement avec ces dernières.
 

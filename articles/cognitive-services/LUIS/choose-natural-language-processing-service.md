@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: cognitive-services
 ms.date: 08/01/2019
 ms.openlocfilehash: 32159b37d3d1a8609181d81dc1a73f27177adb85
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73818209"
 ---
 # <a name="use-cognitive-services-with-natural-language-processing-nlp-to-enrich-bot-conversations"></a>Utilisez Cognitive Services avec le traitement en langage naturel (NLP) pour enrichir les conversations des robots
@@ -75,7 +75,7 @@ Utilisez l'outil **[CLI Dispatch](https://github.com/Microsoft/botbuilder-tools/
 
 Utilisez l’exemple de générateur de bot, **NLP avec Dispatch**, dans [C#](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/14.nlp-with-dispatch) ou [Node.js](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/14.nlp-with-dispatch), pour implémenter ce type de robot de conversation. 
 
-## <a name="best-practices"></a>Bonnes pratiques
+## <a name="best-practices"></a>Meilleures pratiques
 
 Implémentez les meilleures pratiques pour chaque service :
 
@@ -86,7 +86,7 @@ Implémentez les meilleures pratiques pour chaque service :
 
 * [Language Understanding (LUIS)](what-is-luis.md)
 * [QnA Maker](../qnamaker/overview/overview.md)
-* [Dispatch CLI](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch)
+* [CLI Dispatch](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch)
 * [Exemples d’infrastructure robot](https://github.com/Microsoft/BotBuilder-Samples)
 * [Service Azure Bot](https://docs.microsoft.com/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0)
 * [Émulateur de bot Azure](https://github.com/Microsoft/BotFramework-Emulator)

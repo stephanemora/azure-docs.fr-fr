@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 06/21/2019
 ms.custom: seodec18
 ms.openlocfilehash: d2d21e081b274bd985c48dac91fff5203a6b5b8a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75425985"
 ---
 # <a name="guarantee-stream-analytics-job-reliability-during-service-updates"></a>Garantir la fiabilité des travaux Stream Analytics lors des mises à jour de service

@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 08/01/2017
 ms.author: gwallace
 ms.openlocfilehash: 4b49a9b391eeca2d2e249b171d99f231bda6fdff
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78329117"
 ---
 # <a name="upload-an-azure-service-management-certificate"></a>Charger un certificat de gestion de service Azure
@@ -29,7 +29,7 @@ Si vous souhaitez plus d’informations sur les certificats Azure (y compris sur
 
 Vous pouvez également utiliser [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) pour authentifier le code client à des fins d’automatisation.
 
-**Remarque :** vous devez être coadministrateur de l’abonnement pour effectuer des opérations sous Certificats de gestion. [Découvrez](https://go.microsoft.com/fwlink/?linkid=849300) comment ajouter ou supprimer des coadministrateurs du nouveau portail Azure 
+**Remarque :** vous devez être un coadministrateur de l’abonnement pour effectuer des opérations dans le volet Certificats de gestion. [Découvrez](https://go.microsoft.com/fwlink/?linkid=849300) comment ajouter ou supprimer des coadministrateurs du nouveau portail Azure 
 
 ## <a name="upload-a-management-certificate"></a>Charger un certificat de gestion
 Une fois le certificat de gestion créé (fichier .cer contenant uniquement la clé publique), vous pouvez charger ce dernier sur le portail. Quand le certificat est disponible sur le portail, toute personne disposant d’un certificat adéquat (clé privée) peut se connecter par le biais de l’API de gestion et accéder aux ressources de l’abonnement associé.

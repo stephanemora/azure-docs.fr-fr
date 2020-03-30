@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: 7386932f19eee064926184eb17f5e92e30add98e
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76760383"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>Interrompre et réactiver des entités de messagerie (désactiver)
@@ -40,10 +40,10 @@ Le portail vous permet uniquement de désactiver complètement les files d’att
 
 Les états pouvant être définis pour une file d’attente sont :
 
--   **Actif** : la file d’attente est active.
--   **Disabled** : la file d’attente est suspendue.
--   **SendDisabled** : la file d’attente est partiellement suspendue, mais les réceptions sont autorisées.
--   **ReceiveDisabled** : la file d’attente est partiellement suspendue, mais les envois sont autorisés.
+-   **Active** : la file d’attente est active.
+-   **Désactivée** : la file d’attente est interrompue.
+-   **SendDisabled** : la file d’attente est partiellement interrompue, mais les réceptions autorisées.
+-   **ReceiveDisabled** : la file d’attente est partiellement interrompue, mais les envois autorisés.
 
 Pour les abonnements et les rubriques, seuls les états **Active** et **Désactivée** peuvent être définis.
 

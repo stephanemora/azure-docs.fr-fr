@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: babanisa
 ms.openlocfilehash: 03bc2f9de6f50f08c9f62f86a3d1791a067cecd0
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78899003"
 ---
 # <a name="authorizing-access-to-event-grid-resources"></a>Autorisation de l’accès aux ressources Event Grid
@@ -111,7 +111,7 @@ Si vous avez besoin de spécifier des autorisations autres que les rôles intég
 
 Voici des exemples de définitions de rôle dans Event Grid permettant aux utilisateurs d’effectuer différentes actions. Ces rôles personnalisés sont différents des rôles intégrés car ils confèrent un accès qui va au-delà des abonnements aux événements.
 
-**EventGridReadOnlyRole.json** : autorise uniquement les opérations en lecture seule.
+**EventGridReadOnlyRole.json** : pour autoriser uniquement les opérations en lecture seule.
 
 ```json
 {
@@ -130,7 +130,7 @@ Voici des exemples de définitions de rôle dans Event Grid permettant aux utili
 }
 ```
 
-**EventGridNoDeleteListKeysRole.json** : autorise des actions de publication limitées, et interdit les actions de suppression.
+**EventGridNoDeleteListKeysRole.json** : pour autoriser des actions de publication limitées, et interdire les actions de suppression.
 
 ```json
 {
@@ -153,7 +153,7 @@ Voici des exemples de définitions de rôle dans Event Grid permettant aux utili
 }
 ```
 
-**EventGridContributorRole.json** : autorise toutes les actions Event Grid.
+**EventGridContributorRole.json**: pour autoriser toutes les actions dans Event Grid.
 
 ```json
 {

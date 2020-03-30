@@ -12,10 +12,10 @@ ms.date: 03/11/2018
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 4874910f37b49990a659b48af0cf27921c3fcd5e
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68945236"
 ---
 # <a name="generating-smart-cropped-thumbnails-with-computer-vision"></a>Génération de miniatures rognées intelligemment avec Vision par ordinateur
@@ -50,4 +50,4 @@ Le tableau suivant montre les miniatures standard générées par l’API Vision
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Apprenez-en davantage sur l’[étiquetage d’images](concept-tagging-images.md) et la [catégorisation des images](concept-categorizing-images.md).
+Apprenez-en davantage sur le [balisage d’images](concept-tagging-images.md) et la [catégorisation des images](concept-categorizing-images.md).

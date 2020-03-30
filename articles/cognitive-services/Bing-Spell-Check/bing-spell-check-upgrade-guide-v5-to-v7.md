@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: scottwhi
 ms.openlocfilehash: 545772a28a67310b12eb55cd1fb14e8d12a95a58
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68500820"
 ---
 # <a name="spell-check-api-upgrade-guide"></a>Guide de mise à niveau de l’API Vérification orthographique
 
 Ce guide de mise à niveau identifie les changements entre la version 5 et la version 7 de l’API Vérification orthographique Bing. Utilisez-le pour identifier les parties de votre application que vous avez besoin de mettre à jour pour utiliser la version 7.
 
-## <a name="breaking-changes"></a>Dernières modifications
+## <a name="breaking-changes"></a>Changements cassants
 
 ### <a name="endpoints"></a>Points de terminaison
 

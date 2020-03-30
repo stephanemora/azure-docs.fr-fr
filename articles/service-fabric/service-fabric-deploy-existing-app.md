@@ -4,10 +4,10 @@ description: Découvrez comment empaqueter une application existante en tant que
 ms.topic: conceptual
 ms.date: 07/02/2017
 ms.openlocfilehash: cdbc965d0e8ec4a8f42fbe438b8ac6ddfe05a1b3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75377104"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Empaqueter et déployer un fichier exécutable existant sur Service Fabric
@@ -132,7 +132,7 @@ L’élément CodePackage spécifie l’emplacement (et la version) du code du s
 
 L’élément `Name` est utilisé pour spécifier le nom du répertoire dans le package d’application qui contient le code du service. `CodePackage` a également l’attribut `version`. Cela peut être utilisé pour spécifier la version du code et peut également permettre de mettre à niveau le code de service en utilisant l’infrastructure de gestion du cycle de vie d’application dans Service Fabric.
 
-#### <a name="optional-update-setupentrypoint"></a>Facultatif : Mettre à jour SetupEntrypoint
+#### <a name="optional-update-setupentrypoint"></a>Facultatif : mettre à jour SetupEntrypoint
 ```xml
 <SetupEntryPoint>
    <ExeHost>

@@ -9,10 +9,10 @@ ms.date: 10/10/2016
 ms.author: ricarlse
 ms.custom: seodec18
 ms.openlocfilehash: a3bd48f32dfcee1a666ff842cfcab2384a5459ec
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67849261"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>ExpressRoute pour les fournisseurs de solutions Cloud (CSP)
@@ -31,7 +31,7 @@ Microsoft Azure fournit un nombre croissant de services que vous pouvez proposer
 Microsoft fournit des API aux fournisseurs de solutions Cloud afin de gérer les abonnements client Azure en permettant l’intégration de la programmation dans vos propres systèmes de gestion des services. Les fonctionnalités de gestion prises en charge sont indiquées [ici](https://msdn.microsoft.com/library/partnercenter/dn974944.aspx).
 
 ## <a name="microsoft-azure-resource-management"></a>Gestion des ressources Microsoft Azure
-Le contrat signé avec votre client détermine le mode de gestion de l’abonnement. Le fournisseur de solutions Cloud peut gérer directement la création et la maintenance des ressources ou bien le client peut garder le contrôle de l’abonnement Microsoft Azure et créer les ressources Azure requises. Si vos clients gèrent la création des ressources dans leur abonnement Microsoft Azure, ils doivent utiliser l’un des deux modèles disponibles : le modèle « *Connect-Through* » ou le modèle « *Direct-To* ». Ces modèles sont décrits en détail dans les sections suivantes.  
+Le contrat signé avec votre client détermine le mode de gestion de l’abonnement. Le fournisseur de solutions Cloud peut gérer directement la création et la maintenance des ressources ou bien le client peut garder le contrôle de l’abonnement Microsoft Azure et créer les ressources Azure requises. Si vos clients gèrent la création des ressources dans leur abonnement Microsoft Azure, ils doivent utiliser l’un des deux modèles disponibles : « *Connect-Through* » ou « *Direct-To* ». Ces modèles sont décrits en détail dans les sections suivantes.  
 
 ### <a name="connect-through-model"></a>Modèle « Connect-through »
 ![texte de remplacement](./media/expressroute-for-cloud-solution-providers/connect-through.png)  
@@ -88,7 +88,7 @@ Vous pouvez l’aider en configurant la connexion et les itinéraires afin que l
 ## <a name="expressroute-routing-domains"></a>Domaines de routage ExpressRoute
 ExpressRoute propose trois domaines de routage : publics, privés et peering Microsoft. Chaque domaine de routage est configuré avec des routeurs identiques dans une configuration actif-actif pour la haute disponibilité. Pour plus d’informations sur les domaines de routage ExpressRoute, cliquez [ici](expressroute-circuit-peerings.md).
 
-Vous pouvez définir des filtres d’itinéraires personnalisés pour autoriser uniquement le ou les itinéraires souhaités. Pour plus d’informations ou pour voir comment effectuer ces changements, consultez l’article : [Créer et modifier le routage d’un circuit ExpressRoute à l’aide de PowerShell](expressroute-howto-routing-classic.md) pour plus d’informations sur les filtres de routage.
+Vous pouvez définir des filtres d’itinéraires personnalisés pour autoriser uniquement le ou les itinéraires souhaités. Pour en savoir plus ou pour savoir comment effectuer ces modifications, consultez l’article : [Créer et modifier le routage pour un circuit ExpressRoute à l’aide de PowerShell](expressroute-howto-routing-classic.md) pour plus d’informations sur les filtres de routage.
 
 > [!NOTE]
 > Pour Microsoft et le peering public, la connectivité doit utiliser une adresse IP publique appartenant au client ou au fournisseur de services Cloud et doit respecter toutes les règles définies. Pour plus d’informations, consultez la page [Conditions préalables d’ExpressRoute](expressroute-prerequisites.md) .  
@@ -120,7 +120,7 @@ Selon le modèle en cours d’utilisation (Connect-To ou Connect-Through), votre
 1. **Isolation du client** : la plateforme Azure assure l’isolation du client en stockant les informations d’ID client et de réseau virtuel dans une base de données sécurisée, utilisée pour encapsuler le trafic de chaque client dans un tunnel GRE.
 2. **groupe de sécurité réseau (NSG)** permettent de définir le trafic autorisé vers et depuis les sous-réseaux au sein des réseaux virtuels dans Azure. Par défaut, le groupe de sécurité réseau contient des règles de blocage servant à bloquer le trafic d’Internet vers le réseau virtuel et des règles d’autorisation pour le trafic au sein d’un réseau virtuel. Pour plus d’informations concernant les groupes de sécurité réseau, cliquez [ici](https://azure.microsoft.com/blog/network-security-groups/).
 3. **Tunneling forcé** : il s’agit d’une option permettant de rediriger le trafic Internet sortant provenant d’Azure vers la connexion ExpressRoute sur le centre de données local. Pour plus d’informations sur le tunneling forcé, cliquez [ici](expressroute-routing.md#advertising-default-routes).  
-4. **Cryptage** : même si les circuits ExpressRoute sont dédiés à un client spécifique, il est possible que le fournisseur réseau subisse une attaque, permettant ainsi à un intrus d’examiner le trafic de paquets. Pour éviter ce problème, un client ou un fournisseur de services cloud peut chiffrer le trafic sur la connexion en définissant des stratégies IPSec en mode tunnel pour tout le trafic circulant entre les ressources locales et les ressources Azure (consultez le mode tunnel IPSec facultatif pour le client 1 dans la Figure 5 : Sécurité ExpressRoute, ci-dessus). La deuxième option consiste à utiliser un dispositif pare-feu sur chaque point de terminaison du circuit ExpressRoute. Cela nécessite l’installation de machines virtuelles/dispositifs de pare-feu tiers supplémentaires à chaque extrémité afin de chiffrer le trafic sur le circuit ExpressRoute.
+4. **Cryptage** : même si les circuits ExpressRoute sont dédiés à un client spécifique, il est possible que le fournisseur réseau subisse une attaque, permettant ainsi à un intrus d’examiner le trafic de paquets. Pour éviter ce problème, un client ou un fournisseur de services Cloud peut chiffrer le trafic sur la connexion en définissant des stratégies IPSec en mode tunnel pour tout le trafic circulant entre les ressources locales et les ressources Azure (reportez-vous à l’IPSec en mode tunnel facultatif pour le client 1 dans la Figure 5 : Sécurité ExpressRoute, ci-dessus). La deuxième option consiste à utiliser un dispositif pare-feu sur chaque point de terminaison du circuit ExpressRoute. Cela nécessite l’installation de machines virtuelles/dispositifs de pare-feu tiers supplémentaires à chaque extrémité afin de chiffrer le trafic sur le circuit ExpressRoute.
 
 ![texte de remplacement](./media/expressroute-for-cloud-solution-providers/expressroute-security.png)  
 
@@ -131,4 +131,4 @@ Vous trouverez des informations supplémentaires en cliquant sur les liens suiva
 
 [Azure et le programme des fournisseurs de solutions cloud](https://docs.microsoft.com/azure/cloud-solution-provider).  
 [Préparez-vous à opérer en tant que fournisseur de solutions Cloud](https://partner.microsoft.com/en-us/solutions/cloud-reseller-pre-launch).  
-[Ressources des fournisseurs de solutions cloud Microsoft](https://partner.microsoft.com/en-us/solutions/cloud-reseller-resources).
+[Ressources des fournisseurs de solutions Cloud Microsoft](https://partner.microsoft.com/en-us/solutions/cloud-reseller-resources).

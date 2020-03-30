@@ -4,16 +4,16 @@ description: En tant qu’opérateur, apprenez à gérer des appareils dans votr
 author: sarahhubbard
 ms.author: sahubbar
 ms.date: 12/06/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: dfbfd65223ddad5e8a20958d62ef86b5aa16af43
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 8725a822c575ce80b9810d56bfd072241ded4c86
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023478"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80157940"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Gérer les appareils dans votre application Azure IoT Central
 

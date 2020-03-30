@@ -10,10 +10,10 @@ ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
 ms.openlocfilehash: 2fa90a8099778bf37ce8534e968a2b1b4345c2d8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75446778"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Migrer un espace de travail et des projets Microsoft Hub vers Custom Translator
@@ -80,9 +80,9 @@ Pour migrer un espace de travail :
 
 4. Dans la page suivante, sélectionnez une de ces deux options :
 
-    a. Deployed Trainings only (Entraînements déployés uniquement) : cette option migre uniquement vos systèmes déployés et les documents associés.
+    a. Deployed Trainings only (Formations déployées uniquement) : cette option migre uniquement vos systèmes déployés et les documents associés.
 
-    b. All Successful Trainings (Tous les entraînements réussis) : cette option migre tous vos entraînements réussis et les documents associés.
+    b. All Successful Trainings (Toutes les formations réussies) : cette option migrera toutes vos formations réussies et les documents associés.
 
     c. Entrez votre ID d’espace de travail de destination dans Custom Translator.
 
@@ -104,13 +104,13 @@ Pour afficher l’historique des migrations, procédez comme suit :
 
 La page de l’historique des migrations s’affiche après les informations suivantes pour récapituler chaque migration que vous avez demandée.
 
-1. Migrated By (Migré par) : nom et adresse e-mail de l’utilisateur ayant soumis cette requête de migration
+1. Migrated By (Migré par) : nom et adresse e-mail de l’utilisateur qui a soumis cette demande de migration
 
 2. Migrated On (Migré le) : date et heure de la migration
 
-3. Projets : nombre de projets demandés pour la migration par rapport au nombre de projets effectivement migrés.
+3. Projects (Projets) : nombre de projets demandés pour la migration par rapport au nombre de projets effectivement migrés.
 
-4. Trainings (Entraînements) : nombre d’entraînements demandés pour la migration par rapport au nombre d’entraînements effectivement migrés.
+4. Trainings (Formations) : nombre de formations demandées pour la migration par rapport au nombre de formations effectivement migrées.
 
 5. Documents : nombre de documents demandés pour la migration par rapport au nombre de documents effectivement migrés.
 

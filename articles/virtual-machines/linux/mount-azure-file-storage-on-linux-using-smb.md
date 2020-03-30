@@ -7,12 +7,12 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
-ms.openlocfilehash: 7b9b536def2aa7da25fef9f3baa5efdd8b0ed6f7
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 0314095a053087a7d490926c41c6ae386c304919
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78944609"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80066643"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Monter le stockage de fichiers Azure sur les machines virtuelles Linux à l’aide de SMB
 
@@ -29,7 +29,7 @@ Ce guide nécessite que vous exécutiez Azure CLI version 2.0.4 ou ultérieure. 
 
 Créez un groupe de ressources nommé *MyResourceGroup* dans l’emplacement *USA Est*.
 
-```bash
+```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
@@ -37,7 +37,7 @@ az group create --name myResourceGroup --location eastus
 
 Créez un compte de stockage, au sein du groupe de ressources que vous avez créé, à l’aide de la commande [az storage account create](/cli/azure/storage/account). Cet exemple crée un compte de stockage nommé *mySTORAGEACCT\<numéro aléatoire>* et place le nom de ce compte de stockage dans la variable **STORAGEACCT**. Les noms de compte de stockage doivent être uniques ; l’utilisation de `$RANDOM` ajoute un numéro à la fin pour les rendre uniques.
 
-```bash
+```azurecli
 STORAGEACCT=$(az storage account create \
     --resource-group "myResourceGroup" \
     --name "mystorageacct$RANDOM" \
@@ -52,7 +52,7 @@ Quand vous créez un compte de stockage, les clés du compte sont créées par p
 
 Affichez les clés du compte de stockage à l’aide de la commande [az storage account keys list](/cli/azure/storage/account/keys). Cet exemple stocke la valeur de clé 1 dans la variable **STORAGEKEY**.
 
-```bash
+```azurecli
 STORAGEKEY=$(az storage account keys list \
     --resource-group "myResourceGroup" \
     --account-name $STORAGEACCT \
@@ -67,7 +67,7 @@ Le nom des partages ne doit contenir que des minuscules, des nombres et des trai
 
 Cet exemple crée un partage nommé *myshare* avec un quota de 10 Gio. 
 
-```bash
+```azurecli
 az storage share create --name myshare \
     --quota 10 \
     --account-name $STORAGEACCT \
@@ -103,6 +103,7 @@ Lorsque vous redémarrez la machine virtuelle Linux, le partage SMB monté est d
 ```bash
 //myaccountname.file.core.windows.net/mystorageshare /mnt/mymountpoint cifs vers=3.0,username=mystorageaccount,password=myStorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
 ```
+
 Pour renforcer la sécurité dans les environnements de production, vous devez stocker vos informations d’identification en dehors de fstab.
 
 ## <a name="next-steps"></a>Étapes suivantes

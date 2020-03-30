@@ -4,15 +4,15 @@ description: Découvrez comment vous connecter à Azure Cosmos DB à l’aide de
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
-ms.date: 12/26/2018
-author: sivethe
-ms.author: sivethe
-ms.openlocfilehash: ab066fef4bffe35408fdc5f3ad6d66796b4d0818
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 03/23/2020
+author: timsander1
+ms.author: tisande
+ms.openlocfilehash: 120c8c45999e6d4071fc397d6e585d7d2f83aebc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61372510"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80131435"
 ---
 # <a name="use-robo-3t-with-azure-cosmos-dbs-api-for-mongodb"></a>Utiliser Robo 3T avec l’API Azure Cosmos DB pour MongoDB
 
@@ -22,6 +22,7 @@ Pour vous connecter à un compte Cosmos avec Robo 3T, vous devez effectuer les 
 * Obtenir vos informations de [chaîne de connexion](connect-mongodb-account.md) Cosmos DB
 
 ## <a name="connect-using-robo-3t"></a>Vous connecter à l’aide de Robo 3T
+
 Pour ajouter votre compte Cosmos au gestionnaire de connexions Robo 3T, procédez comme suit :
 
 1. Récupérez les informations de connexion pour votre compte Cosmos configuré avec l’API Azure Cosmos DB pour MongoDB en suivant les instructions [ici](connect-mongodb-account.md).

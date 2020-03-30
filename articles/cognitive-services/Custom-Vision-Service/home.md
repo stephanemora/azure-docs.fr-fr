@@ -10,14 +10,16 @@ ms.subservice: custom-vision
 ms.topic: overview
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 829921ae5600873fdc8f2946ae3ff355bffb06a8
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: a48c553f1c96b8777e0a591f428dca3f15d7d30e
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978592"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80053635"
 ---
 # <a name="what-is-custom-vision"></a>Qu’est-ce que Custom Vision ?
+
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 Custom Vision est un service cognitif qui vous permet de créer, de déployer et d’améliorer vos propres classifieurs d’images. Un classifieur d’images est un service d’intelligence artificielle qui applique des étiquettes (représentant des _classes_) à des images en fonction de leurs caractéristiques visuelles. Contrairement au service [Vision par ordinateur](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), le service Custom Vision vous permet de déterminer les étiquettes à appliquer.
 
@@ -29,7 +31,7 @@ Le service Custom Vision utilise un algorithme de Machine Learning pour applique
 
 Les fonctionnalités du service Vision personnalisée peuvent être divisées en deux fonctionnalités. La **classification d’images** applique une ou plusieurs étiquettes à une image. La **détection d’objet** est similaire, mais elle retourne également les coordonnées dans l’image où se trouvent la ou les étiquettes appliquées.
 
-### <a name="optimization"></a>Optimisation
+### <a name="optimization"></a>Optimization
 
 Le service Custom Vision est optimisé pour reconnaître rapidement les principales différences entre les images. Vous pouvez ainsi commencer à prototyper votre modèle avec une petite quantité de données. Il est généralement conseillé de commencer avec 50 images par étiquette. Toutefois, le service n’est pas optimal pour la détection de différences subtiles au sein des images (par exemple, la détection de petites fissures ou de petits trous dans des scénarios d’assurance qualité).
 

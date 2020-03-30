@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
 ms.openlocfilehash: 648842e86410985e3a6fb21f474b9df9d14e109d
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69906704"
 ---
 [!INCLUDE [Prerequisites](prerequisites-python.md)]
@@ -52,7 +52,7 @@ Le point de terminaison global de l’API de traduction de texte Translator Text
 Les `params` servent à définir les langues de sortie. Dans cet exemple nous traduisons de l’anglais vers l’italien et allemand : `it` et `de`.
 
 >[!NOTE]
-> Pour plus d’informations sur les points de terminaison, les itinéraires et les paramètres de requête, consultez [API de traduction de texte Translator Text 3.0 : Translate](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate).
+> Pour plus d’informations concernant les points de terminaison, les itinéraires et les paramètres de la requête, consultez [API Translator Text 3.0 : Traduire](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate).
 
 ```python
 path = '/translate?api-version=3.0'
@@ -135,7 +135,7 @@ Si vous souhaitez comparer votre code avec le nôtre, l’exemple de code comple
 ]
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous avez codé en dur votre clé d’abonnement dans votre programme, veillez à supprimer la clé d’abonnement une fois ce démarrage rapide terminé.
 

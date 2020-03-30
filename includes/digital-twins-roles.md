@@ -10,10 +10,10 @@ ms.topic: include
 ms.date: 01/15/2020
 ms.custom: include file
 ms.openlocfilehash: 864d693f2919922b5035f963103b2ce98600a51c
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76044946"
 ---
 Le tableau suivant décrit les rôles qui sont disponibles dans Azure Digital Twins :

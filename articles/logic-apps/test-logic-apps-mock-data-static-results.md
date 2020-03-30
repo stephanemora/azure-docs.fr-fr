@@ -9,10 +9,10 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/13/2019
 ms.openlocfilehash: b71aae91f4a065b70537a300aa0bd7016edfd4b4
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74790282"
 ---
 # <a name="test-logic-apps-with-mock-data-by-setting-up-static-results"></a>Tester des applications logiques avec des données fictives en configurant des résultats statiques
@@ -21,7 +21,7 @@ Lorsque vous testez vos applications logiques, vous n’êtes peut-être pas pr�
 
 Par exemple, si vous avez configuré des résultats statiques pour l’action d’envoi d’e-mails d’Outlook 365, le moteur Logic Apps renvoie juste les données fictives que vous avez spécifiées en tant que résultats statiques, au lieu d’appeler Outlook et d’envoyer un e-mail.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>.
 

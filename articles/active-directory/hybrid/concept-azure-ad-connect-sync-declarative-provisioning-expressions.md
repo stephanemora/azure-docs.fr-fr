@@ -17,13 +17,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cdc7c9dba49bf37db1f039d43b0450c65884c74b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60245503"
 ---
-# <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Synchronisation d’Azure AD Connect : Comprendre les expressions d’approvisionnement déclaratif
+# <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Azure AD Connect Sync : présentation des expressions d’approvisionnement déclaratif
 Azure AD Connect sync s’appuie sur l’approvisionnement déclaratif introduit pour la première fois dans Forefront Identity Manager 2010. Il vous permet d’implémenter toute votre logique métier d’intégration des identités sans avoir à écrire de code compilé.
 
 Le langage d’expression utilisé dans les flux d’attributs constitue une partie essentielle de l’approvisionnement déclaratif. Le langage utilisé est un sous-ensemble de Microsoft® Visual Basic® pour Applications (VBA). Ce langage est utilisé dans Microsoft Office et les utilisateurs qui ont une certaine expérience de VBScript le reconnaîtront également. Le langage d’expression de l’approvisionnement déclaratif utilise uniquement des fonctions. Il ne s’agit pas d’un langage structuré. Il ne contient ni méthodes ni instructions. Les fonctions sont imbriquées pour exprimer le déroulement du programme.
@@ -33,13 +33,13 @@ Pour plus d’informations, consultez [Bienvenue dans la référence linguistiqu
 Les attributs sont fortement typés. Une fonction accepte uniquement les attributs de type correct. Elle respecte également la casse. Les noms des fonctions et les noms des attributs doivent avoir une casse appropriée, sinon une erreur est levée.
 
 ## <a name="language-definitions-and-identifiers"></a>Définitions linguistiques et identificateurs
-* Les fonctions ont un nom suivi d’arguments entre parenthèses : NomFonction(argument 1, argument N).
+* Les fonctions ont un nom suivi d’arguments entre parenthèses : NomFonction (argument 1, argument N).
 * Les attributs sont identifiés par des crochets : [NomAttribut]
 * Les paramètres sont identifiés par des signes de pourcentage : %NomParamètre%
-* Les constantes de chaîne sont placées entre guillemets : Par exemple, "Contoso" (Remarque : vous devez utiliser des guillemets droits "" et non pas des guillemets courbes “”)
+* Les constantes de chaîne sont placées entre guillemets : par exemple, "Contoso" (Remarque : vous devez utiliser des guillemets droits "" et non pas des guillemets courbes “”)
 * Les valeurs numériques sont exprimées sans guillemets et les valeurs attendues sont décimales. Les valeurs hexadécimales sont précédées de &H. Par exemple, 98052, &HFF
 * Les valeurs booléennes sont exprimées avec des constantes : True, False.
-* Les constantes intégrées et les littéraux sont exprimés uniquement par leur nom : NULL, CRLF, IgnoreThisFlow
+* Les constantes intégrées et les littéraux sont exprimés uniquement par leur nom : NULL, CRLF, IgnoreThisFlow
 
 ### <a name="functions"></a>Fonctions
 L’approvisionnement déclaratif utilise de nombreuses fonctions pour permettre de transformer les valeurs d’attribut. Elles peuvent être imbriquées. Le résultat d’une fonction est alors transmis à une autre fonction.
@@ -48,7 +48,7 @@ L’approvisionnement déclaratif utilise de nombreuses fonctions pour permettre
 
 Vous trouverez la liste complète des fonctions dans la [référence de fonction](reference-connect-sync-functions-reference.md).
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Paramètres
 Un paramètre est défini par un connecteur ou par un administrateur à l’aide de PowerShell. Les paramètres contiennent généralement des valeurs qui diffèrent d’un système à un autre, par exemple le nom du domaine où se trouve l’utilisateur. Vous pouvez les utiliser dans des flux d’attributs.
 
 Le connecteur Active Directory fournissait les paramètres suivants pour les règles de synchronisation entrantes :
@@ -68,13 +68,13 @@ Le système fournit le paramètre suivant, qui est utilisé pour obtenir l'ident
 Voici un exemple qui remplira le domaine d’attribut du métaverse avec le nom netbios du domaine où se trouve l’utilisateur :  
 `domain` <- `%Domain.Netbios%`
 
-### <a name="operators"></a>Operators
+### <a name="operators"></a>Opérateurs
 Vous pouvez utiliser les opérateurs suivants :
 
 * **Opérateurs de comparaison** : &lt;, &lt;=, &lt;&gt;, =, &gt;, &gt;=
 * **Mathématiques** : +, -, \*, -
 * **Chaîne** : &amp; (concaténation)
-* **Logiques** : &&amp;amp;amp;amp; (et), || (ou)
+* **Logiques** : &amp;&amp; (et), || (ou)
 * **Ordre d’évaluation**: ( )
 
 Les opérateurs sont évalués de la gauche vers la droite et ont la même priorité d'évaluation. Par exemple, le \* (signe multiplicateur) n’est pas évalué avant - (soustraction). 2\*(5+3) n’est pas la même chose que 2\*5+3. Les parenthèses ( ) sont utilisées pour modifier l’ordre d’évaluation lorsqu’un ordre d’évaluation de la gauche vers la droite n’est pas approprié.
@@ -82,7 +82,7 @@ Les opérateurs sont évalués de la gauche vers la droite et ont la même prior
 ## <a name="multi-valued-attributes"></a>Attributs à valeurs multiples
 Les fonctions peuvent fonctionner sur des attributs à valeur unique et à valeurs multiples. Pour les attributs à valeurs multiples, la fonction fonctionne sur toutes les valeurs et applique la même fonction à chaque valeur.
 
-Par exemple,  
+Par exemple :  
 `Trim([proxyAddresses])` supprime les espaces de gauche à droite dans chaque valeur de l’attribut proxyAddress.  
 `Word([proxyAddresses],1,"@") & "@contoso.com"` Pour chaque valeur comportant un signe @-sign, remplacez le domaine par @contoso.com.  
 `IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])` Recherchez l’adresse SIP et supprimez-la des valeurs.
@@ -94,10 +94,10 @@ Par exemple,
 
 **Rubriques de présentation**
 
-* [Synchronisation Azure AD Connect : Comprendre et personnaliser la synchronisation](how-to-connect-sync-whatis.md)
+* [Azure AD Connect Sync - Présentation et personnalisation des options de synchronisation](how-to-connect-sync-whatis.md)
 * [Intégration des identités locales dans Azure Active Directory](whatis-hybrid-identity.md)
 
 **Rubriques de référence**
 
-* [Synchronisation Azure AD Connect : Référence des fonctions](reference-connect-sync-functions-reference.md)
+* [Azure AD Connect Sync : Référence aux fonctions](reference-connect-sync-functions-reference.md)
 

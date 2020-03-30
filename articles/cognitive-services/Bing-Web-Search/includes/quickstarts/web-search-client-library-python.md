@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 03/05/2020
 ms.author: aahi
 ms.openlocfilehash: 019abc79091527b105238ef83bfca1913fae600b
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78925959"
 ---
 La bibliothèque de client de l’API Recherche Web Bing simplifie l’intégration de l’API dans votre application Python. Dans ce démarrage rapide, vous allez apprendre à envoyer une requête, recevoir une réponse JSON et filtrer et analyser les résultats.
@@ -20,7 +20,7 @@ La bibliothèque de client de l’API Recherche Web Bing simplifie l’intégrat
 Vous voulez voir le code tout de suite ? Des exemples pour les [bibliothèques clientes Recherche Bing pour Python](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/search) sont disponibles sur GitHub.
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 Le Kit de développement logiciel de l’API Recherche Web Bing est compatible avec Python 2.7, 3.3, 3.4, 3.5 et 3.6. Nous vous recommandons d’utiliser un environnement virtuel pour ce démarrage rapide.
 
 * Python 2.7, 3.3, 3.4, 3.5 ou 3.6

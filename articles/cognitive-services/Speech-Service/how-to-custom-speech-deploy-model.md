@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
 ms.openlocfilehash: e41653e4644b09cc357510223e5ee86c3806ae2c
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74806111"
 ---
 # <a name="deploy-a-custom-model"></a>Déployer un modèle personnalisé
@@ -34,7 +34,7 @@ Ensuite, sélectionnez **Ajouter un point de terminaison** et entrez un **nom** 
 
 Ensuite, sélectionnez **Créer**. Cette action vous renvoie à la page **Déploiement**. La table inclut désormais une entrée qui correspond à votre point de terminaison personnalisé. L’état du point de terminaison indique son état actuel. L’instanciation d’un nouveau point de terminaison avec vos modèles personnalisés peut prendre jusqu’à 30 minutes. Lorsque l’état du déploiement est **Complete**, le point de terminaison est prêt à être utilisé.
 
-Une fois votre point de terminaison déployé, le nom du point de terminaison s’affiche sous forme de lien. Cliquez sur le lien pour afficher les informations spécifiques à votre point de terminaison, comme la clé de point de terminaison, l’URL de point de terminaison et l’exemple de code.
+Une fois le point de terminaison déployé, son nom s’affiche sous forme de lien. Cliquez sur ce lien pour afficher les informations qui concernent spécifiquement votre point de terminaison, comme sa clé, son URL et l’exemple de code.
 
 ## <a name="view-logging-data"></a>Afficher les données de journalisation
 

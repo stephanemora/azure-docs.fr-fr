@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: aahi
 ms.openlocfilehash: 9425de6e75a9a46d71ff85ce49b0650c8e7a9a16
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68882688"
 ---
 # <a name="language-and-region-support-for-the-bing-web-search-api"></a>Langages et régions pris en charge par l’API Recherche Web Bing
@@ -50,7 +50,7 @@ Vous pouvez également indiquer le marché à l’aide du paramètre de requête
 |Mexique|MX|
 |Pays-bas|NL|
 |Nouvelle-Zélande|NZ|
-|Norvège|NON|
+|Norvège|Non|
 |Chine|CN|
 |Pologne|PL|
 |Portugal|PT|
@@ -63,8 +63,8 @@ Vous pouvez également indiquer le marché à l’aide du paramètre de requête
 |Suisse|CH|
 |Taïwan|TW|
 |Turquie|TR|
-|Royaume-Uni|GB|
-|États-Unis|FR|
+|United Kingdom|Go|
+|États-Unis|US|
 
 ## <a name="markets"></a>Marchés
 
@@ -107,8 +107,8 @@ Vous pouvez également indiquer le marché à l’aide du paramètre de requête
 |Suisse|Allemand|de-CH|
 |Taïwan|Chinois traditionnel|zh-TW|
 |Turquie|Turc|tr-TR|
-|Royaume-Uni|Anglais|en-GB|
-|États-Unis|Anglais|en-US|
+|United Kingdom|Anglais|en-GB|
+|États-Unis|Anglais|fr-FR|
 |États-Unis|Espagnol|es-US|
 
 ## <a name="next-steps"></a>Étapes suivantes

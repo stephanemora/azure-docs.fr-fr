@@ -8,18 +8,18 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 4af0fb288961689fb051bab8091c838f793cfcc3
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74765645"
 ---
 # <a name="create-and-manage-firewall-rules-in-azure-database-for-postgresql---single-server-using-azure-cli"></a>Créer et gérer des règles de pare-feu dans Azure Database pour PostgreSQL – Serveur unique en utilisant Azure CLI
 Les règles de pare-feu au niveau du serveur peuvent être utilisées pour gérer l’accès à un serveur Azure Database pour PostgreSQL à partir d’une adresse IP ou d’une plage d’adresses IP spécifiques. À l’aide de commandes d’interface de ligne de commande Azure pratiques, vous pouvez créer, mettre à jour, supprimer, répertorier et afficher les règles de pare-feu pour gérer votre serveur. Pour une vue d’ensemble des règles de pare-feu Azure Database pour PostgreSQL, voir [Règles de pare-feu d’un serveur Azure Database pour PostgreSQL](concepts-firewall-rules.md).
 
-Des règles de réseau virtuel (VNet) peuvent également être utilisées pour sécuriser l’accès à votre serveur. Découvrez-en plus sur [la création et la gestion des règles et des points de terminaison de service de réseau virtuel à l'aide d'Azure CLI](howto-manage-vnet-using-cli.md).
+Des règles de réseau virtuel (VNet) peuvent également être utilisées pour sécuriser l'accès à votre serveur. Découvrez-en plus sur [la création et la gestion des règles et des points de terminaison de service de réseau virtuel à l'aide d'Azure CLI](howto-manage-vnet-using-cli.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 Pour parcourir ce guide pratique, vous avez besoin des éléments suivants :
 - Installer l’utilitaire de ligne de commande [Azure CLI](/cli/azure/install-azure-cli) ou utiliser Azure Cloud Shell dans le navigateur.
 - Un [serveur Azure Database pour PostgreSQL et une base de données](quickstart-create-server-database-azure-cli.md).

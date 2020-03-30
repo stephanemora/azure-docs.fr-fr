@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 09/30/2019
 ms.author: cynthn
 ms.openlocfilehash: fbc6889507e58c4721597a1108337fcb1f8756a2
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75752266"
 ---
 Compte tenu de la croissance significative des machines virtuelles hébergées dans Azure, il est important d’identifier les problèmes de performances et d’intégrité qui impactent les applications et les services d’infrastructure qu’elles prennent en charge. La supervision de base est assurée par défaut par Azure au moyen de métriques collectées par l’hyperviseur hôte : utilisation du processeur, utilisation du disque, utilisation de la mémoire et trafic réseau. Vous pouvez collecter d’autres métriques et données de journal à l’aide d’[extensions](../articles/virtual-machines/windows/extensions-features.md), ce qui vous permet de configurer des diagnostics sur vos machines virtuelles à partir du système d’exploitation invité.

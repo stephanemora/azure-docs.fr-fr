@@ -9,10 +9,10 @@ ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: d2a85f3947e9993e5d1853e45c6d03586a074cf6
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67177026"
 ---
 ## <a name="update-resources"></a>Mettre à jour les ressources
@@ -66,7 +66,7 @@ Update-AzGalleryImageVersion `
 ```
 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous supprimez des ressources, vous devez commencer par le dernier élément figurant dans les ressources imbriquées, à savoir la version de l’image. Une fois que les versions sont supprimées, vous pouvez supprimer la définition d’image. Vous ne pouvez pas supprimer la galerie tant que toutes les ressources qu’elle contient n’ont pas été supprimées.
 

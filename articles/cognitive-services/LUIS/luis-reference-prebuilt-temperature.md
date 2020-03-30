@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 10/14/2019
 ms.author: diberry
 ms.openlocfilehash: 7e2b48c6353f56ab2269a8718146cb765797adba
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78270370"
 ---
 # <a name="temperature-prebuilt-entity-for-a-luis-app"></a>Entité prédéfinie temperature pour une application LUIS

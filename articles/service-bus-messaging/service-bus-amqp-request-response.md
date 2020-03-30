@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 01/23/2020
 ms.author: aschhab
 ms.openlocfilehash: 338b411eade35fa357f64131c64b8ef2034c92b0
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76761081"
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>AMQP 1.0 dans Microsoft Azure Service Bus : opérations basées sur les requêtes-réponses
@@ -152,7 +152,7 @@ Le message de réponse doit inclure les propriétés d’application suivantes 
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Oui|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK – réussite, sinon échec.|  
+|statusCode|int|Oui|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK-réussite, sinon échec.|  
 |statusDescription|string|Non|Description de l’état.|  
   
 Le corps du message de réponse doit contenir une section amqp-value comprenant un mappage avec les entrées suivantes :  
@@ -187,7 +187,7 @@ Le message de réponse doit inclure les propriétés d’application suivantes 
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Oui|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK – messages restants.<br /><br /> 204 : Pas de contenu – plus de messages.|  
+|statusCode|int|Oui|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK : a plus de messages<br /><br /> 204 : aucun contenu – plus de messages|  
 |statusDescription|string|Non|Description de l’état.|  
   
 Le corps du message de réponse doit contenir une section **amqp-value** comprenant un **mappage** avec les entrées suivantes :  
@@ -237,7 +237,7 @@ Le message de réponse doit inclure les propriétés d’application suivantes 
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Oui|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK – réussite, sinon échec.|  
+|statusCode|int|Oui|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK-réussite, sinon échec.|  
 |statusDescription|string|Non|Description de l’état.|  
   
 Le corps du message de réponse doit contenir une section **amqp-value** comprenant un mappage avec les entrées suivantes :  
@@ -271,7 +271,7 @@ Le message de réponse doit inclure les propriétés d’application suivantes 
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Oui|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK – réussite, sinon échec.|  
+|statusCode|int|Oui|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK-réussite, sinon échec.|  
 |statusDescription|string|Non|Description de l’état.|   
   
 ## <a name="session-operations"></a>Opérations de session  
@@ -301,7 +301,7 @@ Le message de réponse doit inclure les propriétés d’application suivantes 
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Oui|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK – messages restants.<br /><br /> 204 : Pas de contenu – plus de messages.|  
+|statusCode|int|Oui|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK : a plus de messages<br /><br /> 204 : aucun contenu – plus de messages|  
 |statusDescription|string|Non|Description de l’état.|  
   
 Le corps du message de réponse doit contenir une section **amqp-value** comprenant un mappage avec les entrées suivantes :  
@@ -337,7 +337,7 @@ Le message de réponse doit inclure les propriétés d’application suivantes 
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Oui|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK – messages restants.<br /><br /> 204 : Pas de contenu – plus de messages.|  
+|statusCode|int|Oui|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK : a plus de messages<br /><br /> 204 : aucun contenu – plus de messages|  
 |statusDescription|string|Non|Description de l’état.|  
   
 Le corps du message de réponse doit contenir une section **amqp-value** comprenant un mappage avec les entrées suivantes :  
@@ -378,7 +378,7 @@ Le message de réponse doit inclure les propriétés d’application suivantes 
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Oui|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK – réussite, sinon échec.|  
+|statusCode|int|Oui|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK-réussite, sinon échec|  
 |statusDescription|string|Non|Description de l’état.|  
   
 ### <a name="get-session-state"></a>Obtenir l’état d’une session  
@@ -406,7 +406,7 @@ Le message de réponse doit inclure les propriétés d’application suivantes 
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Oui|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK – réussite, sinon échec.|  
+|statusCode|int|Oui|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK-réussite, sinon échec|  
 |statusDescription|string|Non|Description de l’état.|  
   
 Le corps du message de réponse doit contenir une section **amqp-value** comprenant un **mappage** avec les entrées suivantes :  
@@ -442,7 +442,7 @@ Le message de réponse doit inclure les propriétés d’application suivantes 
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Oui|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK – messages restants.<br /><br /> 204 : Pas de contenu – plus de messages.|  
+|statusCode|int|Oui|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK : a plus de messages<br /><br /> 204 : aucun contenu – plus de messages|  
 |statusDescription|string|Non|Description de l’état.|  
   
 Le corps du message de réponse doit contenir une section **amqp-value** comprenant un **mappage** avec les entrées suivantes :  
@@ -512,7 +512,7 @@ Le message de réponse doit inclure les propriétés d’application suivantes 
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Oui|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK – réussite, sinon échec.|  
+|statusCode|int|Oui|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK-réussite, sinon échec|  
 |statusDescription|string|Non|Description de l’état.|  
   
 ### <a name="remove-rule"></a>Supprimer la règle  
@@ -538,7 +538,7 @@ Le message de réponse doit inclure les propriétés d’application suivantes 
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Oui|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK – réussite, sinon échec.|  
+|statusCode|int|Oui|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK-réussite, sinon échec|  
 |statusDescription|string|Non|Description de l’état.|  
   
 ### <a name="get-rules"></a>Obtenir les règles
@@ -565,7 +565,7 @@ Le message de réponse inclut les propriétés suivantes :
 
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Oui|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK – réussite, sinon échec.|  
+|statusCode|int|Oui|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK-réussite, sinon échec|  
 |rules| tableau de mappage|Oui|Tableau de règles. Chaque règle est représentée par un mappage.|
 
 Chaque entrée de mappage dans le tableau inclut les propriétés suivantes :
@@ -648,7 +648,7 @@ Le message de réponse doit inclure les propriétés d’application suivantes 
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Oui|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK – réussite, sinon échec.|  
+|statusCode|int|Oui|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK-réussite, sinon échec|  
 |statusDescription|string|Non|Description de l’état.|  
   
 Le corps du message de réponse doit contenir une section **amqp-value** comprenant un **mappage** avec les entrées suivantes :  
@@ -693,7 +693,7 @@ Le message de réponse doit inclure les propriétés d’application suivantes 
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Oui|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK – réussite, sinon échec.|  
+|statusCode|int|Oui|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK-réussite, sinon échec|  
 |statusDescription|string|Non|Description de l’état.|
 
 ## <a name="next-steps"></a>Étapes suivantes

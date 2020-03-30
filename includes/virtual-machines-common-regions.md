@@ -9,10 +9,10 @@ ms.date: 05/28/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 5e3f25727204343de107bacb9fc99d6cfb77d76f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76021280"
 ---
 Il est important de comprendre le fonctionnement des machines virtuelles et de connaître leur emplacement dans Azure, ainsi que les différentes options disponibles pour optimiser les performances, la disponibilité et la redondance. Cet article fournit une vue d’ensemble des fonctionnalités d’optimisation de la disponibilité et de redondance d’Azure.

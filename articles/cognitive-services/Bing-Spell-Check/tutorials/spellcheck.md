@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Obtention de résultats de vérification orthographique à l’aide de l’API Vérification orthographique Bing'
+title: 'Didacticiel : obtention de résultats de vérification orthographique à l’aide de l’API Vérification orthographique Bing'
 titleSuffix: Azure Cognitive Services
 description: Utilisez ce tutoriel pour générer une page web qui envoie des requêtes à l’API Vérification orthographique Bing et affiche les résultats.
 services: cognitive-services
@@ -11,13 +11,13 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.openlocfilehash: fa10ab5a4b1c69b359936edf91da767da08d2f98
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78943104"
 ---
-# <a name="tutorial-build-a-web-page-spell-check-client"></a>Tutoriel : Générer une page web pour le client de vérification orthographique
+# <a name="tutorial-build-a-web-page-spell-check-client"></a>Didacticiel : générer un client Vérification orthographique de page web
 
 Dans ce tutoriel, nous allons générer une page web qui permet aux utilisateurs d’interroger l’API Vérification orthographique Bing. Le code source de cette application est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingSpellCheckApp.html).
 
@@ -27,7 +27,7 @@ Ce didacticiel vous explique les procédures suivantes :
 > - Effectuer une requête simple auprès de l’API Vérification orthographique Bing
 > - Afficher les résultats de la requête
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre le tutoriel, vous avez besoin d’une clé d’abonnement pour l’API Vérification orthographique Bing. Si vous n’en avez pas, [créez une ressource Vérification orthographique Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSpellCheck-v7) dans le portail Azure. Vous pouvez également utiliser une [clé d’essai](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api).
 

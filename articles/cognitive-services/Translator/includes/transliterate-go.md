@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
 ms.openlocfilehash: 5510088925b7a628417c7f3c11bb89c5ce915381
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69906549"
 ---
 [!INCLUDE [Prerequisites](prerequisites-go.md)]
@@ -67,7 +67,7 @@ func main() {
 
 ## <a name="create-a-function-to-transliterate-text"></a>Créer une fonction pour translittérer du texte
 
-Créons une fonction pour translittérer du texte. Cette fonction n’utilisera qu’un seul argument, votre clé d’abonnement Translator Text.
+Créons une fonction pour translittérer du texte. Cette fonction n’utilisera qu’un seul argument, votre clé d’abonnement d’API de traduction de texte Translator Text.
 
 ```go
 func transliterate(subscriptionKey string, uri string) {
@@ -78,7 +78,7 @@ func transliterate(subscriptionKey string, uri string) {
 }
 ```
 
-Passons ensuite à la génération de l’URL. L’URL est générée à l’aide des méthodes `Parse()` et `Query()`. Vous remarquerez que des paramètres sont ajoutés avec la méthode `Add()`. Dans cet exemple, nous allons translittérer le japonais pour utiliser l’alphabet latin.
+Passons ensuite à la génération de l’URL. L’URL est générée à l’aide des méthodes `Parse()` et `Query()`. Vous remarquerez qu’avec la méthode `Add()`, des paramètres sont ajoutés. Dans cet exemple, nous allons translittérer le japonais pour utiliser l’alphabet latin.
 
 Copiez ce code dans la fonction `transliterate`.
 
@@ -93,9 +93,9 @@ u.RawQuery = q.Encode()
 ```
 
 >[!NOTE]
-> Pour plus d’informations sur les points de terminaison, les routes et les paramètres de requête, consultez [API de traduction de texte Translator Text 3.0 : Translittérer](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-transliterate).
+> Pour plus d’informations concernant les points de terminaison, les itinéraires et les paramètres de la requête, consultez [API Translator Text 3.0 : Translittérer](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-transliterate).
 
-## <a name="create-a-struct-for-your-request-body"></a>Créer une structure pour le corps de votre demande
+## <a name="create-a-struct-for-your-request-body"></a>Créer une structure pour le corps de la demande
 
 Créez ensuite une structure anonyme pour le corps de la demande et codez-la au format JSON avec `json.Marshal()`. Ajoutez ce code à la fonction `transliterate`.
 

@@ -9,13 +9,13 @@ ms.date: 11/20/2018
 author: sakash279
 ms.author: akshanka
 ms.openlocfilehash: 420c9e5a1e86f54e52905e7d7d2459fa2f68e405
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76771284"
 ---
-# <a name="azure-cosmos-db-table-api-sdk-for-python-release-notes-and-resources"></a>Kit SDK d’API Table Azure Cosmos DB pour Python : Notes de publication et ressources
+# <a name="azure-cosmos-db-table-api-sdk-for-python-release-notes-and-resources"></a>Kit de développement logiciel (SDK) d’API de table Azure Cosmos DB pour Python : notes de publication et ressources
 > [!div class="op_single_selector"]
 > * [.NET](table-sdk-dotnet.md)
 > * [.NET Standard](table-sdk-dotnet-standard.md)
@@ -38,10 +38,10 @@ ms.locfileid: "76771284"
 
 ## <a name="release-notes"></a>Notes de publication
 
-### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
+### <a name="100"></a><a name="1.0.0"/>1.0.0
 * Version en disponibilité générale
 
-### <a name="a-name03710371"></a><a name="0.37.1"/>0.37.1
+### <a name="0371"></a><a name="0.37.1"/>0.37.1
 * Kit SDK (préversion)
 
 ## <a name="release-and-retirement-dates"></a>Dates de lancement et de suppression

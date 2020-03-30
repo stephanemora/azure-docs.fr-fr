@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/13/2019
 ms.author: spelluru
 ms.openlocfilehash: 1d7175d000eebd3f68665e7f097bbe3f68025bc8
-ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72302802"
 ---
 # <a name="add-tags-to-a-lab-in-azure-devtest-labs"></a>Ajouter des balises à un laboratoire dans Azure DevTest Labs
@@ -40,7 +40,7 @@ Chaque balise est composée d’une paire **nom**/**valeur**. Par exemple, vous 
 
 ## <a name="steps-to-manage-tags-in-an-existing-lab"></a>Étapes de gestion des balises dans un laboratoire existant
 
-1. Connectez-vous au [Portail Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Connectez-vous au [portail Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Si nécessaire, sélectionnez **Autres services**, puis **DevTest Labs** dans la liste. Votre laboratoire peut déjà être affiché sur le Tableau de bord dans **Toutes les ressources**.
 1. Dans la liste des laboratoires, sélectionnez le laboratoire dans lequel vous souhaitez ajouter ou gérer vos balises.
 1. Dans la zone **Vue d’ensemble** du laboratoire, sélectionnez **Configuration et stratégies**.

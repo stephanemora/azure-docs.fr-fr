@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Exécuter le modèle TensorFlow en Python - Service Vision personnalisée'
+title: 'Didacticiel : exécuter le modèle TensorFlow dans Python - Service Vision personnalisée'
 titleSuffix: Azure Cognitive Services
 description: Exécutez un modèle TensorFlow dans Python. Cet article s’applique uniquement aux modèles exportés à partir de projets de classification d’image dans le service Custom Vision.
 services: cognitive-services
@@ -11,20 +11,20 @@ ms.topic: tutorial
 ms.date: 12/05/2019
 ms.author: areddish
 ms.openlocfilehash: d7e3eeeea6bb25b4cddaea1d04e86f23ab7e4f5f
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74969837"
 ---
-# <a name="tutorial-run-tensorflow-model-in-python"></a>Didacticiel : Exécuter le modèle TensorFlow dans Python
+# <a name="tutorial-run-tensorflow-model-in-python"></a>Didacticiel : exécuter le modèle TensorFlow dans Python
 
 Une fois que vous avez [exporté votre modèle TensorFlow](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) à partir du Service Vision personnalisée, ce démarrage rapide vous montrera comment utiliser ce modèle localement pour classer des images.
 
 > [!NOTE]
 > Ce tutoriel s’applique seulement aux modèles exportés depuis des projets de classification d’images.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre ce didacticiel, vous devez procéder comme suit :
 

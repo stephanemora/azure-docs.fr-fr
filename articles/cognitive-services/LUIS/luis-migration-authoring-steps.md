@@ -12,17 +12,17 @@ ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: diberry
 ms.openlocfilehash: f5197ae79670e4543c58224a33838706edae6218
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78194634"
 ---
 # <a name="steps-to-migrate-to-the-azure-authoring-resource"></a>Étapes d’une migration vers une ressource de création Azure
 
 À partir du portail LUIS, effectuez la migration de toutes les applications que vous avez en vue d’utiliser la ressource de création Azure.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * **Facultatif** : Sauvegardez les applications qui figurent dans la liste des applications du portail LUIS en exportant chaque application ou en utilisant l’[API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) d’exportation.
 * **Facultatif** : Enregistrez la liste de chaque contributeur de l’application. Tous les collaborateurs peuvent recevoir un e-mail dans le cadre du processus de migration.
