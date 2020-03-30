@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 12/19/2018
 ms.author: memildin
 ms.openlocfilehash: 734876380d22f5d4d6dae0dd375b238fd5f6ffed
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74559349"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Gagner en visibilité au niveau locataire dans Azure Security Center
@@ -39,7 +39,7 @@ Pour une présentation détaillée des groupes d’administration, consultez l�
 Vous pouvez organiser les abonnements en groupes d’administration et y appliquer vos stratégies de gouvernance. Tous les abonnements d’un groupe d’administration héritent automatiquement des stratégies appliquées à ce groupe d’administration. Même si les groupes d’administration ne sont pas obligatoires pour intégrer Security Center, il est vivement recommandé d’en créer au moins un pour que le groupe d’administration racine soit créé. Une fois que le groupe est créé, tous les abonnements sous votre locataire Azure AD y sont liés. Pour des instructions sur PowerShell et d’autres informations, consultez [Créer des groupes d’administration pour gérer les ressources et l’organisation](../azure-resource-manager/management-groups-create.md).
 
  
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Sélectionnez **Tous les services** > **Groupes d’administration**.
 3. Dans la page principale, sélectionnez **Nouveau groupe d’administration**. 
 
@@ -52,7 +52,7 @@ Vous pouvez organiser les abonnements en groupes d’administration et y appliqu
 5.  Sélectionnez **Enregistrer**.
 
 ### <a name="view-management-groups-in-the-azure-portal"></a>Afficher les groupes d’administration dans le portail Azure
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Pour voir les groupes d’administration, sélectionnez **Tous les services** sous le menu principal d’Azure.
 3. Sous **Général**, sélectionnez **Groupes d’administration**.
 
@@ -93,7 +93,7 @@ Pour faire gagner en visibilité à tous les abonnements, les administrateurs de
 
 #### <a name="assign-rbac-roles-to-users-through-the-azure-portal"></a>Attribuer des rôles RBAC aux utilisateurs via le portail Azure : 
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com). 
+1. Connectez-vous au [portail Azure](https://portal.azure.com). 
 1. Pour voir les groupes d’administration, sélectionnez **Tous les services** sous le menu principal d’Azure puis sélectionnez **Groupes d'administration**.
 1.  Sélectionnez un groupe d’administration et cliquez sur **Détails**.
 
@@ -140,7 +140,7 @@ Pour faire gagner en visibilité à tous les abonnements, les administrateurs de
 ### <a name="open-or-refresh-security-center"></a>Ouvrir ou actualiser Security Center
 Une fois que vous disposez d’un accès élevé, ouvrez ou actualisez Azure Security Center pour vérifier que vous voyez tous les abonnements sous votre locataire Azure AD. 
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com). 
+1. Connectez-vous au [portail Azure](https://portal.azure.com). 
 2. Veillez à sélectionner tous les abonnements dans le sélecteur d’abonnements que vous souhaitez afficher dans Security Center.
 
     ![Capture d’écran du sélecteur d’abonnements](./media/security-center-management-groups/subscription-selector.png)

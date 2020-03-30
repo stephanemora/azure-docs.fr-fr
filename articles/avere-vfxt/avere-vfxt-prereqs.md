@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: rohogue
 ms.openlocfilehash: a183989cc666f00da4be077c719c40d2524fd6e0
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547504"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227489"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Se préparer à la création du système Avere vFXT
 
@@ -54,7 +54,7 @@ Veillez à disposer d’un quota suffisant pour les composants Azure suivants. S
 |Machines virtuelles|3 E32s_v3 ou plus (une par nœud de cluster) |
 |Stockage SSD Premium|200 Go d’espace de système d’exploitation, et de 1 To à 4 To d’espace de cache par nœud |
 |Compte de stockage (facultatif) |v2|
-|Stockage back-end des données (facultatif) |Un nouveau conteneur d’objets blob LRS |
+|Stockage back-end de données (facultatif) |Un nouveau conteneur d’objets blob LRS |
 <!-- this table also appears in the overview - update it there if updating here -->
 
 ## <a name="accept-software-terms"></a>Accepter les conditions d'utilisation du logiciel

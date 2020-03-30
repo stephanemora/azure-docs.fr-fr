@@ -11,13 +11,13 @@ ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
 ms.openlocfilehash: e6bb1541b2b668796b352bebc68d59b4ade143e3
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73837281"
 ---
-# <a name="translator-text-api-30-transliterate"></a>API de traduction de texte Translator Text 3.0 : Transliterate
+# <a name="translator-text-api-30-transliterate"></a>API de traduction de texte Translator Text 3.0 : Transliterate
 
 Convertit du texte dans une langue d’un script vers un autre script.
 
@@ -73,7 +73,7 @@ Les en-têtes de demande sont les suivants :
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td>*Facultative*.<br/>GUID généré par le client pour identifier de façon unique la demande. Vous pouvez omettre cet en-tête si vous incluez l’ID de trace dans la chaîne de requête à l’aide d’un paramètre de requête nommé `ClientTraceId`.</td>
+    <td>*Facultatif*.<br/>GUID généré par le client pour identifier de façon unique la demande. Vous pouvez omettre cet en-tête si vous incluez l’ID de trace dans la chaîne de requête à l’aide d’un paramètre de requête nommé `ClientTraceId`.</td>
   </tr>
 </table> 
 
@@ -98,9 +98,9 @@ Les limites suivantes s'appliquent :
 
 Une réponse correcte est un tableau JSON avec un résultat pour chaque élément dans le tableau d’entrée. Un objet de résultat inclut les propriétés suivantes :
 
-  * `text`: chaîne qui est le résultat de la conversion de la chaîne d’entrée en script de sortie.
+  * `text` : chaîne qui est le résultat de la conversion de la chaîne d’entrée en script de sortie.
   
-  * `script`: chaîne spécifiant le script utilisé dans la sortie.
+  * `script` : chaîne spécifiant le script utilisé dans la sortie.
 
 Exemple de réponse JSON :
 
@@ -131,7 +131,7 @@ Voici les codes d’état HTTP qu’une demande peut retourner.
   <th>Description</th>
   <tr>
     <td>200</td>
-    <td>Vous avez réussi !</td>
+    <td>Réussite.</td>
   </tr>
   <tr>
     <td>400</td>

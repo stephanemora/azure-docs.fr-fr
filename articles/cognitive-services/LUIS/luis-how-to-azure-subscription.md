@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: diberry
-ms.openlocfilehash: 876026b5399631728331c4a9e67482a34f9d0b2d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: a5140da32eb6fce03131a42bfa90e71e64552431
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225556"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79218795"
 ---
 # <a name="using-authoring-and-runtime-resource-keys"></a>Utilisation de clés de ressources de création et de runtime
 
@@ -58,7 +58,7 @@ Lorsque vous êtes prêt à publier votre point de terminaison de prédiction, c
 
     ![Créer la ressource Language Understanding](./media/luis-how-to-azure-subscription/create-resource-in-azure.png)
 
-    |Nom|Objectif|
+    |Name|Objectif|
     |--|--|
     |Nom de la ressource| Nom personnalisé que vous choisissez, utilisé comme élément de l’URL pour vos requêtes de création et de point de terminaison de prédiction.|
     |Nom d’abonnement| Abonnement auquel la ressource sera facturée.|
@@ -81,7 +81,7 @@ Ressource `kind` :
 
 1. Connectez-vous à Azure CLI :
 
-    ```console
+    ```azurecli
     az login
     ```
 
@@ -89,13 +89,13 @@ Ressource `kind` :
 
 1. Créez une **ressource de création LUIS**, de type `LUIS.Authoring`, nommée `my-luis-authoring-resource` dans le groupe de ressources _existant_ nommé `my-resource-group` pour la région `westus`. 
 
-    ```console
+    ```azurecli
     az cognitiveservices account create -n my-luis-authoring-resource -g my-resource-group --kind LUIS.Authoring --sku F0 -l westus --yes
     ```
 
 1. Créez une **ressource de point de terminaison de prédiction LUIS**, de type `LUIS`, nommée `my-luis-prediction-resource` dans le groupe de ressources _existant_ nommé `my-resource-group` pour la région `westus`. Si vous recherchez un débit plus élevé que le niveau gratuit, passez de `F0` à `S0`. En savoir plus sur les [niveaux tarifaires et le débit](luis-boundaries.md#key-limits).
 
-    ```console
+    ```azurecli
     az cognitiveservices account create -n my-luis-prediction-resource -g my-resource-group --kind LUIS --sku F0 -l westus --yes
     ```
 

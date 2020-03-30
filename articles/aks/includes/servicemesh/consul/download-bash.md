@@ -4,10 +4,10 @@ ms.topic: include
 ms.date: 10/09/2019
 ms.author: pabouwer
 ms.openlocfilehash: a6b915e2735b45ac876ca98d279a15e4a371fbfd
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77594246"
 ---
 Dans un interpréteur de commandes bash sur Linux, [Sous-système Windows pour Linux][install-wsl] ou MacOS, utilisez `curl` pour télécharger la version du chart Consul Helm comme suit :

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/11/2019
 ms.author: benoah
 ms.openlocfilehash: a529ac8b7ce16d3ee4463f1b4bc2e8007e5b79b5
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73836763"
 ---
 # <a name="guidelines-for-responsible-deployment-of-synthetic-voice-technology"></a>Instructions pour le déploiement responsable de la technologie des voix de synthèse
@@ -59,7 +59,7 @@ Les personnes ayant des troubles de la parole souhaitent modifier leur voix de s
 
 * [Divulgation d’un talent vocal](https://aka.ms/disclosure-voice-talent)
 * [Vue d’ensemble du contingentement](concepts-gating-overview.md)
-* [Comment révéler](concepts-disclosure-guidelines.md)
+* [Comment divulguer](concepts-disclosure-guidelines.md)
 * [Modèles de conception de révélation](concepts-disclosure-patterns.md)
 
 ## <a name="next-steps"></a>Étapes suivantes

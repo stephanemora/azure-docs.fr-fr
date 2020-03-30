@@ -1,19 +1,18 @@
 ---
 title: Prérequis pour l’offre Dynamics 365 for Customer Engagement | Place de marché Azure
 description: 'Dépréciation de l’article Portail Cloud Partner, ajout d’un lien à l’article Espace partenaires. Auparavant : « Conditions préalables à la publication d’une offre Azure Application sur la Place de marché Microsoft Azure »'
-services: Dynamics 365 for Customer Engagement offer, Azure, Marketplace, Cloud Partner Portal,
-author: ChJenk
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.author: v-chjen
-ms.openlocfilehash: 4ad28b11967f1bc791d02dba5d5e6a613fed2130
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 781506c7560e8c88cdaafe487bfb8a09e316206c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73808924"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278346"
 ---
 # <a name="dynamics-365-for-customer-engagement-prerequisites"></a>Prérequis pour Dynamics 365 for Customer Engagement
 

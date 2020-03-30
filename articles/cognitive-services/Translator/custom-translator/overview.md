@@ -10,17 +10,17 @@ ms.date: 12/09/2019
 ms.author: swmachan
 ms.topic: overview
 ms.openlocfilehash: d84a0190e13d7bb7664e8792e0047338fe4bf5e2
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75982689"
 ---
 # <a name="what-is-custom-translator"></a>Qu’est-ce que Custom Translator ?
 
 [Custom Translator](https://portal.customtranslator.azure.ai) est une fonctionnalité du service Microsoft Translator qui permet aux entreprises de traduction, aux développeurs d’applications et aux fournisseurs de services linguistiques de créer des systèmes de traduction automatique neuronaux (NMT) personnalisés. Les systèmes de traduction personnalisés s’intègrent de manière fluide aux applications, aux workflows et aux sites web existants. [Custom Translator](https://portal.customtranslator.azure.ai/) offre des fonctions similaires à celles de [Microsoft Translator Hub](https://hub.microsofttranslator.com/) pour la traduction automatique statistique (SMT), mais exclusivement pour les systèmes de traduction automatique neuronaux (NMT).
 
-Les systèmes de traduction créés avec [Custom Translator](https://portal.customtranslator.azure.ai) sont disponibles via la même [API de traduction de texte Translator Text V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl) cloud [sécurisée](https://cognitive.uservoice.com/knowledgebase/articles/1147537-api-and-customization-confidentiality) extrêmement performante et scalable de Microsoft qui génère des milliards de traductions tous les jours.
+Les systèmes de traduction créés avec [Custom Translator](https://portal.customtranslator.azure.ai) sont disponibles via la même [API de traduction de texte Translator Text V3](https://cognitive.uservoice.com/knowledgebase/articles/1147537-api-and-customization-confidentiality) cloud [sécurisée](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl) extrêmement performante et scalable de Microsoft qui génère des milliards de traductions tous les jours.
 
 Custom Translator prend en charge plus de trente-six langues et mappe directement vers les langues disponibles pour les systèmes NMT. Pour une liste complète, consultez [Langues Microsoft Translator](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization).
 

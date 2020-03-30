@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 05/31/2017
 ms.author: cynthn
 ms.openlocfilehash: f2dc43e1f07d449bf2f8ed39ce4523c99b551dae
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77115614"
 ---
 # <a name="what-if-an-azure-service-disruption-impacts-azure-vms"></a>Que faire si une interruption du service Azure affecte des machines virtuelles Azure ?
@@ -24,11 +24,11 @@ Cet article aborde un scénario réel de récupération d’urgence, dans lequel
 
 Pour vous aider à gérer ces rares occurrences, nous vous fournissons les conseils suivants pour les machines virtuelles Azure dans le cas d’une interruption de service sur l’ensemble de la région où votre application Azure Virtual Machine est déployée.
 
-## <a name="option-1-initiate-a-failover-by-using-azure-site-recovery"></a>Option 1 : Lancer un basculement à l’aide d’Azure Site Recovery
+## <a name="option-1-initiate-a-failover-by-using-azure-site-recovery"></a>Option 1 : Lancer un basculement à l’aide d’Azure Site Recovery
 Vous pouvez configurer Azure Site Recovery pour vos machines virtuelles afin de pouvoir récupérer votre application en un seul clic en quelques minutes. Vous pouvez répliquer vers la région Azure de votre choix sans être limité à des régions appairées. Vous pouvez commencer par [répliquer vos machines virtuelles](https://aka.ms/a2a-getting-started). Vous pouvez [créer un plan de récupération](../site-recovery/site-recovery-create-recovery-plans.md) pour pouvoir automatiser la totalité du processus de basculement de votre application. Vous pouvez [tester vos basculements](../site-recovery/site-recovery-test-failover-to-azure.md) à l’avance sans affecter l’application de production ou la réplication en cours. En cas d’indisponibilité de la région principale, vous devez simplement [lancer un basculement](../site-recovery/site-recovery-failover.md) et mettre votre application dans la région cible.
 
 
-## <a name="option-2-wait-for-recovery"></a>Option n°2 : Attendre la récupération
+## <a name="option-2-wait-for-recovery"></a>Option 2 : Attendre la récupération
 Dans ce cas, aucune action n’est requise de votre part. Soyez assuré que nous travaillons assidûment à la restauration de la disponibilité du service. Vous pouvez consulter l’état actuel du service dans notre [tableau de bord d’état du service Azure](https://azure.microsoft.com/status/).
 
 Cette option est la meilleure si vous n’avez pas activé Azure Site Recovery, le stockage géoredondant avec accès en lecture ou le stockage géoredondant avant l’interruption. Si vous avez configuré le stockage géoredondant ou le stockage géoredondant avec accès en lecture pour le compte de stockage où sont stockés les disques durs virtuels de vos machines virtuelles, vous pouvez essayer de récupérer le disque dur virtuel de l’image de base et l’utiliser pour tenter d’approvisionner une nouvelle machine virtuelle. Cette option n’est pas recommandée, car elle ne garantit pas la synchronisation des données. Par conséquent, le fonctionnement de cette option n’est pas garanti.

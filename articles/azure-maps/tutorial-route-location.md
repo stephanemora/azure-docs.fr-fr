@@ -1,20 +1,20 @@
 ---
 title: 'Tutoriel : Trouver une route vers une position | Microsoft Azure Maps'
 description: Ce tutoriel vous montre comment afficher la route vers une position (point d’intérêt) sur une carte à l’aide du service de routage Microsoft Azure Maps.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 01/14/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ba9ef8ad98dd33bdd61875e5c1cf02e15a739c03
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 98c36176ecd2996e5f735c52017162a076ef4bde
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77208078"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80333757"
 ---
 # <a name="tutorial-route-to-a-point-of-interest-using-azure-maps"></a>Tutoriel : Établir un itinéraire vers un point d’intérêt avec Azure Maps
 

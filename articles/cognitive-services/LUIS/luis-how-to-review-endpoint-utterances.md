@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 01/27/2020
 ms.author: diberry
 ms.openlocfilehash: 95b7c7446a47fafd26d00b0da4d880786340fcd0
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76775103"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79218751"
 ---
 # <a name="how-to-improve-the-luis-app-by-reviewing-endpoint-utterances"></a>Comment améliorer l’application LUIS en examinant les énoncés de point de terminaison
 
@@ -42,7 +42,7 @@ Utilisez le portail LUIS pour créer la requête de point de terminaison correct
     > [!div class="mx-imgBorder"]
     > ![Utilisez le portail LUIS pour enregistrer les journaux, ce qui est nécessaire pour l’apprentissage actif.](./media/luis-tutorial-review-endpoint-utterances/luis-portal-manage-azure-resource-save-logs.png)
 
-     Cette action modifie l’URL de l’exemple en ajoutant le paramètre querystring `log=true`. Copiez et utilisez l’exemple d’URL de requête modifié lors de l’exécution de requêtes de prédiction sur le point de terminaison du runtime.
+     Cette action change l’exemple d’URL en ajoutant le paramètre de chaîne de requête `log=true`. Copiez et utilisez l’exemple d’URL de requête modifié quand vous effectuez des requêtes de prédiction au point de terminaison de runtime.
 
 ## <a name="correct-intent-predictions-to-align-utterances"></a>Corriger les prédictions d’intention pour aligner les énoncés
 

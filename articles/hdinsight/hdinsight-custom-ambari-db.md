@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: 8064fd5369e55ea223a697d30d7643ff5407cf76
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: e7351e2f39c7e4eed84f4a47e3eeb2214a062a94
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73065755"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240157"
 ---
 # <a name="set-up-hdinsight-clusters-with-a-custom-ambari-db"></a>Configurer des clusters HDInsight avec une base de données Ambari personnalisée
 
@@ -57,7 +57,7 @@ Modifiez les paramètres dans le fichier `azuredeploy.parameters.json` pour spé
 
 Vous pouvez commencer le déploiement à l’aide de l’interface de ligne de commande Azure. Remplacez `<RESOURCEGROUPNAME>` par le groupe de ressources dans lequel vous souhaitez déployer votre cluster.
 
-```azure-cli
+```azurecli
 az group deployment create --name HDInsightAmbariDBDeployment \
     --resource-group <RESOURCEGROUPNAME> \
     --template-file azuredeploy.json \

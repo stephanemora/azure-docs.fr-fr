@@ -10,18 +10,18 @@ ms.date: 08/06/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 46374c35e6810bf056272ab2be355676f7b028b8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9da27cef7bafa94715a42db86fc5a5675a049eb1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460592"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79137867"
 ---
 # <a name="create-an-account-sas-with-net"></a>Créer une SAP de compte avec .NET
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-Cet article explique comment utiliser la clé du compte de stockage pour créer une SAP de compte avec la [bibliothèque cliente Stockage Azure pour .NET](/dotnet/api/overview/azure/storage/client).
+Cet article explique comment utiliser la clé du compte de stockage pour créer une SAP de compte avec la [bibliothèque cliente Stockage Azure pour .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
 
 ## <a name="create-an-account-sas"></a>Créer une SAP de compte
 

@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: daec0aaf04cae26b6467cc4472305e75517cee5d
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: a0cee198f028fd90e04dac15e98d7cd33aee9201
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74772985"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79532346"
 ---
 # <a name="mariadb-drivers-and-management-tools-compatible-with-azure-database-for-mariadb"></a>Pilotes MariaDB et outils de gestion compatibles avec Azure Database for MariaDB
 
@@ -23,7 +23,7 @@ Azure Database for MariaDB utilise la version Community du serveur MariaDB. Par 
 
 L’objectif est de prendre en charge les trois versions les plus récentes des pilotes MariaDB, et de travailler avec les auteurs de la communauté open source pour améliorer en permanence les fonctionnalités et la compatibilité des pilotes MariaDB. Le tableau ci-dessous liste les pilotes qui ont été testés et jugés compatibles avec Azure Database for MariaDB 10.2 :
 
-**Pilote** | **Liens** | **Versions compatibles** | **Versions incompatibles** | **Remarques**
+**Driver** | **Liens** | **Versions compatibles** | **Versions incompatibles** | **Remarques**
 ---|---|---|---|---
 PHP | https://secure.php.net/downloads.php | 5.5, 5.6, 7.x | 5.3 | Pour la connexion PHP 7.0 à SSL MySQLi, ajoutez MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT dans la chaîne de connexion. <br> ```mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306, NULL, MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT);```<br> Ensemble PDO : option ```PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT``` définie sur false.
 .NET | [MySqlConnector sur GitHub](https://github.com/mysql-net/MySqlConnector) <br> [Package d’installation à partir de Nuget](https://www.nuget.org/packages/MySqlConnector/) | 0.27 et versions ultérieures | 0.26.5 et versions antérieures |

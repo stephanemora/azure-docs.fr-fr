@@ -1,26 +1,20 @@
 ---
 title: Fichier Include
 description: Fichier Include
-services: commercial marketplace
 documentationcenter: partner-center-commercial-marketplace
 author: qianw211
-manager: evansma
-editor: ''
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.devlang: na
 ms.topic: include
-ms.tgt_pltfrm: na
-ms.workload: identity
 ms.date: 08/16/2019
-ms.author: v-qiwe
+ms.author: dsindona
 ms.custom: include file
-ms.openlocfilehash: 059a2691c8e7905295a65daf262338ece65247d1
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: ee6ee600160349548a0e886131f1a29b90de8746
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73812668"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80275881"
 ---
 Lorsque vous publiez votre offre sur la Place de marché via l'Espace partenaires, vous devez la connecter à votre système de gestion de la relation client (CRM) afin de recevoir les informations de contact client immédiatement après qu'un client ait manifesté son intérêt ou déployé votre produit.
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/26/2019
-ms.openlocfilehash: 884d10ce1bc5e6b710c849d0be1cb9165caac4c5
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 48a72b5ba3819712b9e1d2536ae2dd3a06eaf3f2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706088"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80238813"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Utiliser Apache Kafka sur HDInsight avec Azure IoT Hub
 
@@ -29,7 +29,7 @@ Le diagramme suivant illustre le flux de données entre Azure IoT Hub et Kafka s
 
 Pour plus d’informations sur l’API Connect, consultez [https://kafka.apache.org/documentation/#connect](https://kafka.apache.org/documentation/#connect).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Cluster Apache Kafka sur HDInsight. Pour plus d’informations, consultez le document [Démarrer avec Apache Kafka sur HDInsight](apache-kafka-get-started.md).
 
@@ -85,7 +85,7 @@ Votre connexion SSH doit rester active pendant toute la durée des étapes resta
     export password='PASSWORD'
     ```
 
-1. Installez l’utilitaire [jq](https://stedolan.github.io/jq/). L’utilitaire jq simplifie le traitement des documents JSON qui sont retournés par les requêtes Ambari. Entrez la commande suivante :
+1. Installez l’utilitaire [jq](https://stedolan.github.io/jq/). L’utilitaire jq simplifie le traitement des documents JSON qui sont retournés par les requêtes Ambari. Entrez la commande suivante :
 
     ```bash
     sudo apt -y install jq
@@ -164,7 +164,7 @@ Pour récupérer les informations d’IoT Hub utilisées par le connecteur, proc
 
    * __À partir d’[Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__ , utilisez la commande suivante :
 
-       ```azure-cli
+       ```azurecli
        az iot hub show --name myhubname --query "{EventHubCompatibleName:properties.eventHubEndpoints.events.path,EventHubCompatibleEndpoint:properties.eventHubEndpoints.events.endpoint,Partitions:properties.eventHubEndpoints.events.partitionCount}"
        ```
 
@@ -188,7 +188,7 @@ Pour récupérer les informations d’IoT Hub utilisées par le connecteur, proc
 
         1. Pour obtenir la valeur de la clé primaire, utilisez la commande suivante :
 
-            ```azure-cli
+            ```azurecli
             az iot hub policy show --hub-name myhubname --name service --query "primaryKey"
             ```
 
@@ -196,7 +196,7 @@ Pour récupérer les informations d’IoT Hub utilisées par le connecteur, proc
 
         2. Pour obtenir la chaîne de connexion de la stratégie `service`, utilisez la commande suivante :
 
-            ```azure-cli
+            ```azurecli
             az iot hub show-connection-string --name myhubname --policy-name service --query "connectionString"
             ```
 
@@ -276,7 +276,7 @@ Pour plus d’informations sur la configuration du récepteur du conteneur, cons
 
     Une fois le connecteur démarré, envoyez des messages à l’IoT Hub à partir de votre/vos appareil(s). À mesure que le connecteur lit les messages de l’IoT Hub et les stocke dans la rubrique Kafka, il consigne des informations dans la console :
 
-    ```text
+    ```output
     [2017-08-29 20:15:46,112] INFO Polling for data - Obtained 5 SourceRecords from IotHub (com.microsoft.azure.iot.kafka.connect.IotHubSourceTask:39)
     [2017-08-29 20:15:54,106] INFO Finished WorkerSourceTask{id=AzureIotHubConnector-0} commitOffsets successfully in 4 ms (org.apache.kafka.connect.runtime.WorkerSourceTask:356)
     ```
@@ -296,7 +296,7 @@ Pour plus d’informations sur la configuration du récepteur du conteneur, cons
 
 Pendant l’exécution du connecteur, des informations semblables au texte suivant s’affichent à l’écran :
 
-```text
+```output
 [2017-08-30 17:49:16,150] INFO Started tasks to send 1 messages to devices. (com.microsoft.azure.iot.kafka.connect.sink.
 IotHubSinkTask:47)
 [2017-08-30 17:49:16,150] INFO WorkerSinkTask{id=AzureIotHubSinkConnector-0} Committing offsets (org.apache.kafka.connect.runtime.WorkerSinkTask:262)
@@ -346,7 +346,7 @@ Pour envoyer des messages via le connecteur, procédez comme suit :
 
     Si vous utilisez l’appareil Raspberry Pi simulé et qu’il est en cours d’exécution, le message suivant est consigné par l’appareil :
 
-    ```text
+    ```output
     Receive message: Turn On
     ```
 

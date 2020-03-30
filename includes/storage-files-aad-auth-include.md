@@ -1,6 +1,6 @@
 ---
-title: Fichier include
-description: Fichier include
+title: Fichier Include
+description: Fichier Include
 services: storage
 author: tamram
 ms.service: storage
@@ -9,10 +9,10 @@ ms.date: 07/30/2019
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: b248bbb526baf355faf2564358884fd83422b037
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77565081"
 ---
 [Azure Files](../articles/storage/files/storage-files-introduction.md) prend en charge l’authentification basée sur l’identité sur SMB (Server Message Block) via [Active Directory (AD)](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) [préversion] et [Azure Active Directory Domain Services (Azure AD DS)](../articles/active-directory-domain-services/overview.md) en disponibilité générale. Cet article traite de la façon dont Azure Files peut tirer parti des services de domaine, localement ou dans Azure, pour prendre en charge l’accès basé sur l’identité à Azure Files sur SMB. Cela vous permet de remplacer facilement vos serveurs de fichiers existants par Azure Files et de continuer à utiliser votre service d’annuaire existant en conservant l’accès transparent des utilisateurs aux partages de fichiers. 

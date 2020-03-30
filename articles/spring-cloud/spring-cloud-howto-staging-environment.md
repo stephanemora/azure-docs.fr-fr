@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: brendm
-ms.openlocfilehash: 5612a514ed89f73453f3751b34263b0beeea1c59
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: 2e29f6a75b303518ac34ecf9b570bd7638cf0c3a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77138142"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79471028"
 ---
 # <a name="set-up-a-staging-environment-in-azure-spring-cloud"></a>Configurer un environnement intermédiaire dans Azure Spring Cloud
 
@@ -44,7 +44,7 @@ Accédez à votre instance de service dans le portail Azure et sélectionnez **G
 
 1. Dans votre environnement de développement local, apportez une petite modification à l’application passerelle PiggyMetrics. Par exemple, modifiez la couleur dans le fichier *gateway/src/main/resources/static/css/launch.css*. Vous pourrez ainsi différencier facilement les deux déploiements. Exécutez la commande suivante pour générer le package jar : 
 
-    ```azurecli
+    ```console
     mvn clean package
     ```
 
@@ -70,7 +70,7 @@ Accédez à votre instance de service dans le portail Azure et sélectionnez **G
 > * Si votre navigateur vous demande d’entrer des informations d’identification de connexion pour afficher la page, utilisez [URL Decode](https://www.urldecoder.org/) pour décoder votre point de terminaison de test. URL Decode retourne une URL au format « https://\<nom_utilisateur>:\<mot_de_passe>@\<nom_cluster>.test.azureapps.io/gateway/green ».  Utilisez-le pour accéder à votre point de terminaison.
 
 >[!NOTE]    
-> Les paramètres du serveur de configuration s’appliquent à votre environnement intermédiaire et à la production. Par exemple, si vous définissez *somepath* comme chemin du contexte (`server.servlet.context-path`) de votre passerelle d’application dans le serveur de configuration, le chemin à votre déploiement vert devient alors : « https://\<nom_utilisateur>:\<mot_de_passe>@\<nom_cluster>.test.azureapps.io/gateway/green/somepath/... ».
+> Les paramètres du serveur de configuration s’appliquent à votre environnement intermédiaire et à la production. Par exemple, si vous définissez `server.servlet.context-path`somepath *comme chemin du contexte (* ) de votre passerelle d’application dans le serveur de configuration, le chemin à votre déploiement vert devient alors : « https://\<nom_utilisateur>:\<mot_de_passe>@\<nom_cluster>.test.azureapps.io/gateway/green/somepath/... ».
  
  Si vous visitez votre passerelle d’application publique à ce stade, vous devriez voir l’ancienne page sans votre nouveau changement.
     

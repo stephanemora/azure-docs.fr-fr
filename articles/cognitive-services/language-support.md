@@ -11,10 +11,10 @@ ms.date: 03/03/2020
 ms.author: erhopf
 ms.custom: seodec18
 ms.openlocfilehash: 48cb1ca1427ece0ee30a124b20d3918f1ace47eb
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78274147"
 ---
 # <a name="natural-language-support-for-azure-cognitive-services"></a>Prise en charge du langage naturel pour Azure Cognitive Services
@@ -34,9 +34,9 @@ Les Cognitive Services suivants sont indépendants de la langue et ne présenten
 ## <a name="speech"></a>Speech
 
 * [Discours personnalisé](https://docs.microsoft.com/azure/cognitive-services/custom-speech-service/customspeech-how-to-topics/cognitive-services-custom-speech-change-locale)
-* [Speech Service : Reconnaissance vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/supported-languages#speech-to-text)
+* [Service de reconnaissance vocale : reconnaissance vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/supported-languages#speech-to-text)
 * [Speech Service : reconnaissance vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/supported-languages#text-to-speech)
-* [Speech Service : Traduction vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/supported-languages#speech-translation)
+* [Speech Service : traduction vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/supported-languages#speech-translation)
 
 ## <a name="language"></a>Langage
 

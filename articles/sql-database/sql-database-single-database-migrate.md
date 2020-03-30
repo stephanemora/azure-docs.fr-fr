@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 02/11/2019
-ms.openlocfilehash: 6812393b01172cda5d2fa4dcbe9de2bf4264a99f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 9cec91ccc80b9072b1a3da756f26f47eb88b951c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980767"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79232433"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Migration de base de données SQL Server vers Azure SQL Database
 
@@ -32,7 +32,7 @@ Dans les deux cas, vous devez vérifier que la base de données source est compa
 > [!NOTE]
 > Pour migrer une base de données non-SQL Server, notamment Microsoft Access, Sybase, MySQL Oracle et DB2, vers Azure SQL Database, consultez l’ [Assistant Migration SQL Server](https://blogs.msdn.microsoft.com/datamigration/2017/09/29/release-sql-server-migration-assistant-ssma-v7-6/).
 
-## <a name="method-1-migration-with-downtime-during-the-migration"></a>Méthode 1 : Migration avec un temps d’arrêt pendant l’opération
+## <a name="method-1-migration-with-downtime-during-the-migration"></a>Méthode 1 : Migration avec un temps d’arrêt pendant l’opération
 
  Utilisez cette méthode pour migrer une base de données unique ou en mise pool si vous pouvez vous permettre un temps d’arrêt ou si vous effectuez un test de migration d’une base de données de production que vous envisagez de migrer. Pour un didacticiel, consultez [Migrer une base de données SQL Server](../dms/tutorial-sql-server-to-azure-sql.md).
 
@@ -62,9 +62,9 @@ La liste suivante contient des recommandations pour optimiser les performances p
 
 ### <a name="optimize-performance-after-the-migration-completes"></a>Optimiser les performances une fois la migration terminée
 
-[Mettez à jour les statistiques](https://msdn.microsoft.com/library/ms187348.aspx) avec une analyse complète une fois la migration terminée.
+[Mettez à jour les statistiques](https://docs.microsoft.com/sql/t-sql/statements/update-statistics-transact-sql) avec une analyse complète une fois la migration terminée.
 
-## <a name="method-2-use-transactional-replication"></a>Méthode 2 : Utiliser la réplication transactionnelle
+## <a name="method-2-use-transactional-replication"></a>Méthode 2: Utiliser la réplication transactionnelle
 
 Quand vous ne pouvez pas vous permettre de sortir votre base de données SQL Server de la production pendant la migration, vous pouvez utiliser la réplication transactionnelle SQL Server comme solution de migration. Pour que vous puissiez utiliser cette méthode, la base de données source doit remplir les [conditions requises pour la réplication transactionnelle](https://msdn.microsoft.com/library/mt589530.aspx) et être compatible avec Azure SQL Database. Pour plus d’informations sur la réplication SQL avec Always On, consultez [Configurer la réplication pour les groupes de disponibilité Always On (SQL Server)](/sql/database-engine/availability-groups/windows/configure-replication-for-always-on-availability-groups-sql-server).
 

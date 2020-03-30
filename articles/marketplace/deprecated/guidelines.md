@@ -3,20 +3,19 @@ title: Instructions pour les éditeurs de la Place de marché Azure et AppSource
 description: Instructions pour la Place de marché Azure et AppSource destinées aux éditeurs d’applications et de services
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: jm-aditi-ms
-manager: pabutler
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/13/2018
-ms.author: ellacroi
-ms.openlocfilehash: 371f36e13c244439a583cbeb7ff06c6a1283d272
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: f41aeb75253c803eac03b856d1e1ed0edb74a7e6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825931"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80281525"
 ---
-# <a name="guidelines"></a>Instructions  
+# <a name="guidelines"></a>Consignes  
 
 <!--
 ## Guidelines for AppSource  
@@ -29,7 +28,7 @@ ms.locfileid: "73825931"
 Si plusieurs personnes nécessite l’accès au même ID Microsoft que celui utilisé pour créer votre compte Place de marché, vous devez suivre ces instructions qui vous aideront à créer un compte d’entreprise. 
 
 >[!IMPORTANT]
->Pour autoriser plusieurs utilisateurs à accéder à votre compte Centre de développement Microsoft, Microsoft vous recommande d’utiliser Azure Active Directory (Azure AD) pour affecter des rôles aux utilisateurs individuels. Chaque utilisateur peut accéder au compte en se connectant avec des informations d’identification Azure AD individuelles. Créez votre ID Microsoft à l’aide d’une adresse e-mail dans un domaine enregistré auprès de votre société. Microsoft recommande que l’adresse e-mail ne soit pas assignée à une personne. Par exemple `windowsapps@fabrikam.com`.  
+>Pour autoriser plusieurs utilisateurs à accéder à votre compte Centre de développement Microsoft, Microsoft vous recommande d’utiliser Azure Active Directory (Azure AD) pour affecter des rôles aux utilisateurs individuels. Chaque utilisateur peut accéder au compte en se connectant avec des informations d’identification Azure AD individuelles. Créez votre ID Microsoft à l’aide d’une adresse e-mail dans un domaine enregistré auprès de votre société. Microsoft recommande que l’adresse e-mail ne soit pas assignée à une personne. par exemple `windowsapps@fabrikam.com`.  
 >*   Pour plus d’informations, consultez la section [Problème : ID Microsoft dans un domaine fédéré Azure AD](#issue-microsoft-id-in-an-azure-ad-federated-domain).  
 
 *   Limitez l’accès à l’ID Microsoft au plus petit nombre possible de développeurs. 
@@ -46,7 +45,7 @@ Votre compte Centre de développement doit être principalement accessible à pa
 
 ---
 
-#### <a name="issue-microsoft-id-in-an-azure-ad-federated-domain"></a>Problème : ID Microsoft dans un domaine fédéré Azure AD  
+#### <a name="issue-microsoft-id-in-an-azure-ad-federated-domain"></a>Problème : ID Microsoft dans un domaine fédéré Azure AD  
 Votre compte d’entreprise peut être fédéré via Azure Active Directory (Azure AD). Si vous essayez de créer un ID Microsoft à l’aide d’une adresse e-mail d’entreprise qui est fédérée avec Azure AD, vous recevrez une erreur. Si vous recevez une erreur, vous devez vérifier auprès de votre équipe informatique pour confirmer que votre compte est fédéré via Azure AD. Un e-mail fédéré Azure AD est un problème connu et Microsoft travaille à sa résolution.  
 *   Pour plus d’informations sur Azure AD, consultez la page Documentation Azure Active Directory à l’adresse [docs.microsoft.com/azure/active-directory](https://docs.microsoft.com/azure/active-directory).
 

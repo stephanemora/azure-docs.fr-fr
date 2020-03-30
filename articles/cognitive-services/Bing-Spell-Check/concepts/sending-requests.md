@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: aahi
 ms.openlocfilehash: 893317b8f46415b1df540d67ebf28b65c5ba6d32
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68883453"
 ---
 # <a name="sending-requests-to-the-bing-spell-check-api"></a>Envoi de demandes à l’API Vérification orthographique Bing
@@ -29,7 +29,7 @@ La requête doit utiliser le protocole HTTPS.
 
 Nous vous recommandons de générer toutes les requêtes à partir d’un serveur. Si vous diffusez la clé dans le cadre d’une application client, vous prenez le risque qu’un tiers malveillant puisse y accéder. Un serveur fournit également un unique point de mise à niveau pour les prochaines versions de l’API.
 
-La requête doit indiquer le paramètre de requête [texte](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v5-reference#text) qui contient la chaîne à vérifier. La requête peut également indiquer le paramètre de requête [mkt](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v5-reference#mkt) facultatif, qui vous permet de choisir le marché d’où proviennent les résultats. Pour obtenir la liste des paramètres de requête facultatifs tels que `mode` et [, consultez la page ](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v5-reference#query-parameters)Query Parameters (Paramètres de requête). Toutes les valeurs de paramètres de requête doivent être codées au format URL.  
+La requête doit indiquer le paramètre de requête [texte](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v5-reference#text) qui contient la chaîne à vérifier. La requête peut également indiquer le paramètre de requête [mkt](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v5-reference#mkt) facultatif, qui vous permet de choisir le marché d’où proviennent les résultats. Pour obtenir la liste des paramètres de requête facultatifs tels que `mode`, consultez la page [Paramètres de la requête](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v5-reference#query-parameters). Toutes les valeurs de paramètres de requête doivent être codées au format URL.  
   
 La requête doit indiquer l’en-tête [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v5-reference#subscriptionkey). Nous vous conseillons également d’indiquer les en-têtes suivants (qui sont facultatifs). Ils aident l’API Vérification orthographique Bing à renvoyer des résultats plus précis :  
   
@@ -44,7 +44,7 @@ Quand vous appelez l’API Vérification orthographique Bing en JavaScript, les 
 
 Pour résoudre ce problème, vous pouvez envoyer la requête à l’API Vérification orthographique Bing par le biais d’un proxy CORS. La réponse émanant d’un proxy de ce type a un en-tête `Access-Control-Expose-Headers` qui met les en-têtes de réponse sur liste verte et les rend accessibles à du code JavaScript.
 
-Il est facile d’installer un proxy CORS pour autoriser [l’application du tutoriel](../tutorials/spellcheck.md) à accéder aux en-têtes clients facultatifs. Tout d’abord, si ce n’est déjà fait, [installez Node.js](https://nodejs.org/en/download/). Entrez alors la commande suivante dans l’invite de commandes.
+Il est facile d’installer un proxy CORS pour autoriser [l’application du tutoriel](../tutorials/spellcheck.md) à accéder aux en-têtes clients facultatifs. Tout d’abord, [installez Node.js](https://nodejs.org/en/download/) si ce n’est pas déjà fait. Entrez alors la commande suivante dans l’invite de commandes.
 
     npm install -g cors-proxy-server
 
@@ -52,11 +52,11 @@ Ensuite, remplacez le point de terminaison de l’API Vérification orthographiq
 
     http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/spellcheck/
 
-Enfin, démarrez le proxy CORS avec la commande suivante :
+Enfin, lancez le proxy CORS avec la commande suivante :
 
     cors-proxy-server
 
-Laissez la fenêtre de commande ouverte pendant que vous utilisez l’application du didacticiel ; la fermeture de la fenêtre entraîne l’arrêt du proxy. Dans la section des en-têtes HTTP (qui peut être développée) sous les résultats de la recherche, vous pouvez maintenant voir l’en-tête `X-MSEdge-ClientID` (entre autres) et vérifier qu’il est identique pour toutes les requêtes.
+Laissez la fenêtre de commande ouverte pendant que vous utilisez l’application du tutoriel ; si vous fermez la fenêtre, le proxy s’arrête. Dans la section des en-têtes HTTP (qui peut être développée) sous les résultats de la recherche, vous pouvez maintenant voir l’en-tête `X-MSEdge-ClientID` (entre autres) et vérifier qu’il est identique pour toutes les requêtes.
 
 ## <a name="example-api-request"></a>Exemple de demande API
 

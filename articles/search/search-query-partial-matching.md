@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/14/2020
-ms.openlocfilehash: ec1422d03cce78bdd8206f6687a78b63ddf989dc
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: f78ba5b351a3da46d7b8b3780cf00772c4f3b2ea
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75984925"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80289309"
 ---
 # <a name="match-on-patterns-and-special-characters-dashes"></a>Critères et caractères spéciaux (tirets)
 
@@ -151,7 +151,7 @@ L’exemple suivant illustre un analyseur personnalisé qui fournit le générat
   "sortable": false,
   "facetable": false
   }
-]
+],
 
 "analyzers": [
   {
@@ -191,7 +191,7 @@ L’exemple suivant ajoute un [EdgeNGramTokenFilter](https://lucene.apache.org/c
   "sortable": false,
   "facetable": false
   }
-]
+],
 
 "analyzers": [
   {

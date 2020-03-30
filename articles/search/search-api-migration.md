@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: edb45eebc2c4eacc2f30d13988943f097a7190fa
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74112174"
 ---
 # <a name="upgrade-to-the-latest-azure-cognitive-search-service-rest-api-version"></a>Effectuer une mise à niveau vers la version la plus récente de l’API REST du service Recherche cognitive Azure
@@ -39,7 +39,7 @@ La version 2019-05-06 est la version la plus récente de l’API REST en dispon
 
 Plusieurs nouvelles versions de fonctionnalités d’évaluation coïncident avec cette mise à la disposition générale. Pour consulter la liste des nouvelles fonctionnalités d’évaluation, reportez-vous à [Search REST api-version 2019-05-06-Preview](search-api-preview.md) (Version de l’API REST Recherche 2019-05-06-Preview).
 
-## <a name="breaking-changes"></a>Dernières modifications
+## <a name="breaking-changes"></a>Changements cassants
 
 Le code existant qui contient les fonctionnalités suivantes sera modifié avec la version d’API 2019-05-06.
 

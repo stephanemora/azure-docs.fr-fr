@@ -14,10 +14,10 @@ ms.workload: big-data
 ms.date: 10/09/2018
 ms.author: elsung
 ms.openlocfilehash: 7d6c826df2a509ffb378809e3682073bd5ab1301
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60612703"
 ---
 # <a name="virtual-network-integration-for-azure-data-lake-storage-gen1"></a>Intégration de réseau virtuel dans Azure Data Lake Storage Gen1
@@ -65,8 +65,8 @@ En plus de sécuriser les comptes Data Lake Storage concernant l’accès à par
 Utilisez une solution de pare-feu dans votre réseau virtuel pour filtrer le trafic sortant en fonction de l’URL de compte de destination. Autorisez uniquement l’accès aux comptes Data Lake Storage Gen1 approuvés.
 
 Voici quelques options disponibles :
-- [Pare-feu Azure](https://docs.microsoft.com/azure/firewall/overview) : [déployez et configurez un pare-feu Azure](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal) pour votre réseau virtuel. Sécurisez le trafic Data Lake Storage sortant et verrouillez-le sur l’URL d’un compte connu et approuvé.
-- Pare-feu [Appliance virtuelle réseau (NVA)](https://azure.microsoft.com/solutions/network-appliances/) : votre administrateur peut limiter le recours à certains éditeurs de pare-feu commerciaux uniquement. Utilisez une solution de pare-feu d’appliance virtuelle réseau disponible dans la Place de marché Azure aux mêmes fins.
+- [Pare-feu Azure](https://docs.microsoft.com/azure/firewall/overview) : [déployez et configurez un pare-feu Azure](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal) pour votre réseau virtuel. Sécurisez le trafic Data Lake Storage sortant et verrouillez-le sur l’URL d’un compte connu et approuvé.
+- [Appliance virtuelle réseau](https://azure.microsoft.com/solutions/network-appliances/) - pare-feu : votre administrateur peut limiter le recours à certains fournisseurs de pare-feu commerciaux uniquement. Utilisez une solution de pare-feu d’appliance virtuelle réseau disponible dans la Place de marché Azure aux mêmes fins.
 
 > [!NOTE]
 > L’utilisation de pare-feu dans le chemin d’accès de données introduit un tronçon supplémentaire dans ce chemin. Cela peut affecter les performances du réseau pour l’échange de données de bout en bout. La disponibilité du débit et la latence de la connexion peuvent être affectées. 
@@ -83,7 +83,7 @@ Voici quelques options disponibles :
 
 ## <a name="configuration"></a>Configuration
 
-### <a name="step-1-configure-your-virtual-network-to-use-an-azure-ad-service-endpoint"></a>Étape 1 : Configurer votre réseau virtuel pour qu’il utilise un point de terminaison de service Azure AD
+### <a name="step-1-configure-your-virtual-network-to-use-an-azure-ad-service-endpoint"></a>Étape 1 : Configurer votre réseau virtuel pour qu’il utilise un point de terminaison de service Azure AD
 
 1.  Accédez au portail Azure et connectez-vous à votre compte.
  

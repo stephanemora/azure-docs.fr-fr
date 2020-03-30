@@ -4,7 +4,7 @@ description: Vue d’ensemble du concept d’unités Compute Azure. L’unité d
 services: virtual-machines
 documentationcenter: ''
 author: mimckitt
-manager: gwallace
+manager: vashan
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.service: virtual-machines
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
-ms.author: jonbeck
-ms.openlocfilehash: 65d83e76d464da997c6933610ae97dc176df7964
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.author: mimckitt
+ms.openlocfilehash: e344d09497a30dec546dfaedd3d78f30c7d214d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77919785"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79535695"
 ---
 # <a name="azure-compute-unit-acu"></a>Unité de calcul Azure (ACU)
 
@@ -28,7 +28,7 @@ Le concept d’unité Compute Azure (ACU) permet de comparer les performances de
 > Cette unité ACU est fournie uniquement à titre indicatif. Les résultats de votre charge de travail peuvent varier.
 <br>
 
-| Famille de références | ACU \ Processeur virtuel | Processeur virtuel : Core |
+| Famille de références | ACU \ Processeur virtuel | vCPU : Cœur |
 | --- | --- |---|
 | [A0](sizes-previous-gen.md) |50 | 1:1 |
 | [A1 - A4](sizes-previous-gen.md) |100 | 1:1 |

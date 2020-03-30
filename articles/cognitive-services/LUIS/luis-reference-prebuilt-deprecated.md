@@ -12,16 +12,16 @@ ms.topic: reference
 ms.date: 07/29/2019
 ms.author: diberry
 ms.openlocfilehash: 46da828b7553fdf9cdded817febd3bb95cd4cbb9
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78270672"
 ---
 # <a name="deprecated-prebuilt-entities-in-a-luis-app"></a>Entités prédéfinies dépréciées dans une application LUIS
 Les entités prédéfinies suivantes sont désapprouvées et ne peuvent pas être ajoutées à de nouvelles applications LUIS.
 
-* **Datetime** : les applications LUIS existantes qui utilisent **datetime** doivent être migrées vers **datetimev2**, même si l’entité datetime continue à fonctionner dans des applications préexistantes qui l’utilisent.
+* **DateTime** : les applications LUIS existantes qui utilisent **datetime** doivent être migrées vers **datetimev2**, même si l’entité datetime continue à fonctionner dans des applications préexistantes qui l’utilisent.
 * **Geography** : les applications LUIS existantes qui utilisent **geography** seront prises en charge jusqu’au mois de décembre 2018.
 * **Encyclopedia** : les applications LUIS existantes qui utilisent **encyclopedia** seront prises en charge jusqu’au mois de décembre 2018.
 
@@ -43,7 +43,7 @@ Entité prédéfinie   |   Exemple d’énoncé   |   JSON
 **Encyclopedia** est disponible uniquement dans les paramètres régionaux `en-US`.
 
 #### <a name="encyclopedia-subtypes"></a>Sous-types de Encyclopedia
-L’entité intégrée Encyclopedia comprend plus de 100 sous-types dans le tableau suivant : De plus, les entités Encyclopedia sont souvent mappées à plusieurs types. Par exemple, la requête Ronald Reagan génère ce qui suit :
+L’entité intégrée Encyclopedia inclut plus de 100 sous-types dans le tableau suivant : de plus, les entités Encyclopedia mappent souvent à plusieurs types. Par exemple, la requête Ronald Reagan génère ce qui suit :
 
 ```json
 {

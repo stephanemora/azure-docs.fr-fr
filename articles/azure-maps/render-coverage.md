@@ -1,19 +1,19 @@
 ---
 title: Couverture du rendu | Microsoft Azure Maps
 description: Dans cet article, découvrez les régions avec une couverture de rendu Microsoft Azure Maps, ainsi que leur niveau de détails de rendu.
-author: jingjing-z
+author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 03/22/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 7821b0b76fb9be1b62aaf334b3c07aaff1d0021a
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: ddc53111cd69072322f37fdfb25c37665c852c23
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209543"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79536749"
 ---
 # <a name="azure-maps-render-coverage"></a>Couverture du rendu Azure Maps
 
@@ -278,7 +278,7 @@ Toutefois, Maps n’a pas le même niveau d’information et de précision pour 
 | Moldova                   | ✓ | ✓ |
 | Monaco                    | ✓ | ✓ |
 | Monténégro                | ✓ | ✓ |
-| Pays-Bas               | ✓ | ✓ |
+| Pays-bas               | ✓ | ✓ |
 | Norvège                    | ✓ | ✓ |
 | Pologne                    | ✓ | ✓ |
 | Portugal                  | ✓ | ✓ |
@@ -295,7 +295,7 @@ Toutefois, Maps n’a pas le même niveau d’information et de précision pour 
 | Suisse               | ✓ | ✓ |
 | Turquie                    | ✓ | ✓ |
 | Ukraine                   | ✓ | ✓ |
-| Royaume-Uni            | ✓ | ✓ |
+| United Kingdom            | ✓ | ✓ |
 | État de la Cité du Vatican              | ✓ | ✓ |
 
 ## <a name="next-steps"></a>Étapes suivantes

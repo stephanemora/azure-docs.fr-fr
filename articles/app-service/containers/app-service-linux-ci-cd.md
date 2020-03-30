@@ -9,10 +9,10 @@ ms.date: 11/08/2018
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: d43491de7500204ed470757a1b744017a8180b57
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74687629"
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Déploiement continu avec Web App pour conteneurs
@@ -23,7 +23,7 @@ Dans ce didacticiel, vous allez configurer le déploiement continu d’une image
 
 ![Capture d’écran du webhook ACR](./media/app-service-webapp-service-linux-ci-cd/ci-cd-acr-02.png)
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Sélectionnez l’option **App Service** sur le côté gauche de la page.
 3. Sélectionnez le nom de l’application pour laquelle vous souhaitez configurer le déploiement continu.
 4. Dans la page **Paramètres de conteneur**, sélectionnez **Conteneur unique**.
@@ -41,7 +41,7 @@ Dans votre registre Container Registry, cliquez sur Webhooks pour afficher les w
 
 ## <a name="enable-continuous-deployment-with-docker-hub-optional"></a>Activer le déploiement continu avec Docker Hub (facultatif)
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Sélectionnez l’option **App Service** sur le côté gauche de la page.
 3. Sélectionnez le nom de l’application pour laquelle vous souhaitez configurer le déploiement continu.
 4. Dans la page **Paramètres de conteneur**, sélectionnez **Conteneur unique**.

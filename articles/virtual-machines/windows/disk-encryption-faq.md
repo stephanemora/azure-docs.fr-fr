@@ -8,10 +8,10 @@ ms.author: mbaldwin
 ms.date: 11/01/2019
 ms.custom: seodec18
 ms.openlocfilehash: ea2a66a6b012664a9596a02ea32c1a0b677ee3ea
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74384263"
 ---
 # <a name="azure-disk-encryption-for-windows-vms-faq"></a>FAQ sur Azure Disk Encryption pour les machines virtuelles Windows

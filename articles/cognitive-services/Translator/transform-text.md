@@ -11,31 +11,31 @@ ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: swmachan
 ms.openlocfilehash: 533f09b09b7f5899833669b5f0ad4ffa5efa3a43
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68594895"
 ---
 # <a name="how-to-use-the-transformtext-method"></a>Guide pratique pour utiliser la méthode TransformText
 
 > [!NOTE]
-> Cette méthode est dépréciée. Elle n’est pas disponible dans la version 3.0 de l’API de traduction de texte Translator Text.
+> Cette méthode est déconseillée. Elle n’est pas disponible dans la version 3.0 de l’API de traduction de texte Translator Text.
 
 La méthode TransformText est une fonction de normalisation de texte pour les réseaux sociaux, qui retourne une forme normalisée de l’entrée. La méthode peut être utilisée comme une étape de prétraitement en traduction machine ou pour d’autres applications qui attendent un texte d’entrée propre qui ne se trouve généralement pas sur les réseaux sociaux ou dans du contenu généré par l’utilisateur. Actuellement, la fonction prend en charge uniquement une entrée en anglais.
 
 La méthode est un service RESTful qui utilise GET via HTTP. Elle prend en charge la sérialisation XML et JSON simple.
 
-## <a name="parameters"></a>parameters
+## <a name="parameters"></a>Paramètres
 
 | Paramètre | Description |
 |:---|:---|
-| En-tête d’autorisation. | **Requis** En-tête HTTP utilisé pour identifier l’application. Utiliser la clé : « Autorisation » et la valeur : « Porteur » + «» + jeton d’accès. Pour plus d’informations, allez ici.|
-| Langage | **Requis** Chaîne représentant le code de la langue. Ce paramètre prend en charge uniquement l’anglais avec **en** comme nom de langue.|
-| category | **Facultatif** Chaîne contenant la catégorie ou le domaine de la traduction. Ce paramètre prend en charge uniquement l’option par défaut **general**.|
+| En-tête d’autorisation. | **Requis** En-tête HTTP utilisé pour identifier l’application. Utilisez la clé : « Authorization » et la valeur : « Bearer » + « » + jeton d’accès. Pour plus d’informations, allez ici.|
+| langage | **Requis** Chaîne représentant le code de la langue. Ce paramètre prend en charge uniquement l’anglais avec **en** comme nom de langue.|
+| catégorie | **Facultatif** Chaîne contenant la catégorie ou le domaine de la traduction. Ce paramètre prend en charge uniquement l’option par défaut **general**.|
 | sentence | **Requis** Phrase que vous souhaitez corriger. |
 
-## <a name="return-value"></a>Valeur de retour
+## <a name="return-value"></a>Valeur retournée
 
 La valeur de retour fournit la phrase transformée.
 
@@ -49,7 +49,7 @@ La valeur de retour fournit la phrase transformée.
 > }
 > ```
 
-## <a name="example"></a>Exemples
+## <a name="example"></a>Exemple
 
 ```csharp
 using System;

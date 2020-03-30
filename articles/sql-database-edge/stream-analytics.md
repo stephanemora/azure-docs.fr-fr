@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 11/04/2019
 ms.openlocfilehash: 21a8bb6953fd879b17816361f536596571678697
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74384160"
 ---
 # <a name="using-sql-database-dac-packages-and-stream-analytics-jobs-with-sql-database-edge"></a>Utilisation de packages DAC SQL Database et de tâches Stream Analytics avec Azure SQL Database Edge
@@ -61,7 +61,7 @@ Pour utiliser un package DAC SQL Database (*.dacpac) avec SQL Database Edge, eff
 
     5. Dans la page **Définir des modules**, sélectionnez **Configurer** pour le module SQL Database Edge.
 
-    6. Dans le volet **Modules personnalisés IoT Edge**, sélectionnez **Set module twin's desired properties** (Définir les propriétés souhaitées du jumeau de module). Mettez à jour les propriétés souhaitées pour inclure l’URI de l’option `SQLPackage`, comme dans l’exemple suivant.
+    6. Dans le volet **Modules personnalisés IoT Edge**, sélectionnez **Set module twin's desired properties** (Définir les propriétés souhaitées du jumeau de module). Mettez à jour les propriétés souhaitées de façon à inclure l’URI pour l’option `SQLPackage`, comme dans l’exemple suivant.
 
         > [!NOTE]
         > L’URI SAS figurant dans le code JSON ci-dessous n’est qu’un exemple. Remplacez l’URI par l’URI réel de votre déploiement.
@@ -104,7 +104,7 @@ Azure SQL Database Edge possède une implémentation native du runtime Stream An
     |Nom du serveur | Nom (ou adresse IP) et détails du numéro de port de l’instance SQL. Pour un déploiement SQL Database Edge, vous pouvez utiliser **tcp:.,1433** comme nom de serveur.|
     |Nom d’utilisateur | Compte de connexion SQL disposant d’un accès en lecture et en écriture aux données de la base de données que vous avez spécifiée précédemment.|
     |Mot de passe | Mot de passe du compte de connexion SQL que vous avez spécifié précédemment.|
-    |Table | Nom de la table qui sera générée pour la tâche de streaming.|
+    |Table de charge de travail | Nom de la table qui sera générée pour la tâche de streaming.|
     |Héritage du partitionnement| Permet d’hériter du schéma de partitionnement de l’entrée ou l’étape de requête précédente. Quand cette option est activée, vous pouvez tabler sur un meilleur débit d’écriture dans une table sur disque et bénéficier d’une topologie entièrement parallèle pour votre tâche.|
     |Taille du lot| Nombre maximal d’enregistrements envoyés à chaque opération d’insertion en bloc.|
 

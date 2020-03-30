@@ -9,10 +9,10 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/03/2020
 ms.openlocfilehash: 65b760eaf28d907fab3654ed92f960be7556b0d6
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75862354"
 ---
 # <a name="routing-iot-events-and-messages"></a>Routage des événements et des messages IoT
@@ -23,9 +23,9 @@ Les solutions d’Internet des objets unifient souvent plusieurs services puissa
 
 Azure Digital Twins propose deux façons de relier des événements IoT à d’autres services ou applications métier Azure :
 
-* **Routage des événements Azure Digital Twins** : Un changement d’objet du graphe spatial, la réception de données de télémétrie ou une notification basée sur des conditions prédéfinies créée par une fonction définie par l’utilisateur peut déclencher des événements Azure Digital Twins. Les utilisateurs peuvent envoyer ces événements à [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), à des [rubriques Azure Service Bus](https://azure.microsoft.com/services/service-bus/) ou à [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) pour les traiter ultérieurement.
+* **Routage des événements Digital Twins** : un changement d’objet du graphe spatial, la réception de données de télémétrie ou une notification basée sur des conditions prédéfinies créée par une fonction définie par l’utilisateur peut déclencher des événements Azure Digital Twins. Les utilisateurs peuvent envoyer ces événements à [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), à des [rubriques Azure Service Bus](https://azure.microsoft.com/services/service-bus/) ou à [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) pour les traiter ultérieurement.
 
-* **Routage des données de télémétrie d’appareil** : En plus de router les événements, Azure Digital Twins peut router les messages de télémétrie d’appareil bruts vers Event Hubs pour obtenir des insights et une analytique supplémentaires. Ces types de messages ne sont pas traités par Azure Digital Twins. Et ils ne sont transmis qu’au hub d’événements.
+* **Routage des données de télémétrie d’appareil** : en plus de router les événements, Azure Digital Twins peut router les messages de télémétrie d’appareil bruts vers Event Hubs pour obtenir des insights et une analytique supplémentaires. Ces types de messages ne sont pas traités par Azure Digital Twins. Et ils ne sont transmis qu’au hub d’événements.
 
 Les utilisateurs peuvent spécifier un ou plusieurs points de sortie pour envoyer des événements ou transférer des messages. Les événements et les messages sont envoyés aux points de terminaison en fonction de ces préférences de routage prédéfinies. En d’autres termes, les utilisateurs peuvent spécifier un point de terminaison pour la réception des événements d’opération de graphe, un autre pour la réception des événements de télémétrie d’appareil, et ainsi de suite.
 

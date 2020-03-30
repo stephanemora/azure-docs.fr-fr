@@ -5,12 +5,12 @@ services: automation
 ms.date: 4/11/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: f61fdedcd3c910ef5d09685fea00473a83b321f1
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: cf82dddf281e8e6f1348884702e32330dee4781b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834277"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79235529"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Intégrer les solutions Update Management, Change Tracking et Inventory
 
@@ -22,7 +22,7 @@ Se connecter à Azure à https://portal.azure.com
 
 ## <a name="enable-solutions"></a>Activer des solutions
 
-Accédez à votre compte Automation et sélectionnez **Inventory** ou **Change Tracking** sous **GESTION DE LA CONFIGURATION**.
+Accédez à votre compte Automation et sélectionnez **Inventorier** ou **Suivi des modifications** sous **Gestion de la configuration**.
 
 Choisissez l’espace de travail Log Analytics et un compte Automation, puis cliquez sur **Activer** pour activer la solution. L’activation de la solution prend jusqu’à 15 minutes.
 
@@ -35,17 +35,17 @@ Choisissez l’espace de travail Log Analytics et un compte Automation, puis cli
 
 La solution Change Tracking et Inventory fournit la possibilité de [suivre les changements](automation-vm-change-tracking.md) et de [faire l’inventaire](automation-vm-inventory.md) de vos machines virtuelles. Dans cette étape, vous activez la solution sur une machine virtuelle.
 
-Quand vous recevez la notification d’intégration de la solution Change Tracking et Inventory, cliquez sur **Update Management** sous **GESTION DE LA CONFIGURATION**.
+Une fois la notification d’intégration de la solution de suivi des modifications et d’inventaire terminée, sélectionnez **Gestion des mises à jour** sous **Gestion des mises à jour**.
 
-La solution Update Management vous permet de gérer les mises à jour et les correctifs pour vos machines virtuelles Microsoft Azure. Vous pouvez évaluer l’état des mises à jour disponibles, planifier l’installation des mises à jour obligatoires et examiner les résultats des déploiements pour vérifier que les mises à jour ont été appliquées à la machine virtuelle. Cette action a permis d’activer la solution pour votre machine virtuelle.
+La solution Update Management vous permet de gérer les mises à jour et les correctifs pour vos machines virtuelles hybrides et Azure. Vous pouvez évaluer l’état des mises à jour disponibles, planifier l’installation des mises à jour obligatoires et examiner les résultats des déploiements pour vérifier que les mises à jour ont bien été appliquées aux machines virtuelles.
 
-Sélectionnez **Update Management** sous **UPDATE MANAGEMENT**. L’espace de travail Log Analytics sélectionné est le même que celui utilisé à l’étape précédente. Cliquez sur **Activer** pour intégrer la solution Update Management. L’activation de la solution prend jusqu’à 15 minutes.
+Dans la page d’activation de la solution, l’espace de travail Log Analytics sélectionné est le même que celui utilisé à l’étape précédente. Cliquez sur **Activer** pour intégrer la solution Update Management. L’activation de la solution prend jusqu’à 15 minutes.
 
 ![Intégrer la solution Update](media/automation-onboard-solutions-from-automation-account/onboardsolutions2.png)
 
 ## <a name="scope-configuration"></a>Configuration d’étendue
 
-Chaque solution utilise une configuration d’étendue au sein de l’espace de travail pour cibler les ordinateurs qui obtiennent la solution. La configuration d’étendue est un groupe de recherches enregistrées utilisé pour limiter l’étendue de la solution à des ordinateurs spécifiques. Pour accéder aux configurations d’étendue, dans votre compte Automation sous **RESSOURCES CONNEXES**, sélectionnez **Espace de travail**. Ensuite, dans l’espace de travail sous **SOURCES DE DONNÉES DE L’ESPACE DE TRAVAIL**, sélectionnez **Configurations des étendues**.
+Chaque solution utilise une configuration d’étendue au sein de l’espace de travail pour cibler les ordinateurs qui obtiennent la solution. La configuration d’étendue est un groupe de recherches enregistrées utilisé pour limiter l’étendue de la solution à des ordinateurs spécifiques. Pour accéder aux configurations des étendues, dans votre compte Automation, sous **Ressources associées**, sélectionnez **Espace de travail**. Ensuite, dans l’espace de travail situé en dessous de **Sources de données de l’espace de travail**, sélectionnez **Configurations des étendues**.
 
 Si l’espace de travail sélectionné ne contient pas encore les solutions Update Management ou Change Tracking, les configurations d’étendue suivantes sont créées :
 
@@ -72,7 +72,7 @@ Sélectionnez l’une des deux recherches enregistrées pour afficher la requêt
 
 ## <a name="onboard-azure-vms"></a>Intégrer des machines virtuelles Azure
 
-À partir de votre compte Automation, sélectionnez **Inventory** ou **Change Tracking** sous **GESTION DE LA CONFIGURATION**, ou **Update Management** sous **UPDATE MANAGEMENT**.
+À partir de votre compte Automation, sélectionnez **Inventorier** ou **Suivi des modifications** sous **Gestion de la configuration**, ou **Gestion des mises à jour** sous **Gestion des mises à jour**.
 
 Cliquez sur **+ Ajouter des machines virtuelles Azure**, sélectionnez une ou plusieurs machines virtuelles dans la liste. Les machines virtuelles qui ne peuvent pas être activées sont grisées et ne peuvent pas être sélectionnées. Les machines virtuelles Azure peuvent exister dans n’importe quelle région, quel que soit l’emplacement de votre compte Automation. Dans la page **Activer Update Management**, cliquez sur **Activer**. Cette action ajoute les machines virtuelles sélectionnées à la recherche enregistrée de groupe d’ordinateurs pour la solution.
 
@@ -80,13 +80,13 @@ Cliquez sur **+ Ajouter des machines virtuelles Azure**, sélectionnez une ou pl
 
 ## <a name="onboard-a-non-azure-machine"></a>Intégrer une machine non-Azure
 
-Les machines qui ne sont pas dans Azure doivent être ajoutées manuellement. À partir de votre compte Automation, sélectionnez **Inventory** ou **Change Tracking** sous **GESTION DE LA CONFIGURATION**, ou **Update Management** sous **UPDATE MANAGEMENT**.
+Les machines qui ne sont pas dans Azure doivent être ajoutées manuellement. À partir de votre compte Automation, sélectionnez **Inventorier** ou **Suivi des modifications** sous **Gestion de la configuration**, ou **Gestion des mises à jour** sous **Gestion des mises à jour**.
 
 Cliquez sur **Ajouter une machine virtuelle non-Azure**. Une nouvelle fenêtre de navigateur s’ouvre contenant des [instructions pour installer et configurer Microsoft Monitoring Agent sur la machine](../azure-monitor/platform/log-analytics-agent.md) pour que celle-ci puisse commencer à envoyer des informations à la solution. Si vous intégrez une machine actuellement gérée par System Center Operations Manager, l’installation d’un nouvel agent n’est pas nécessaire, car les informations de l’espace de travail sont entrées dans l’agent existant.
 
 ## <a name="onboard-machines-in-the-workspace"></a>Intégrer des machines dans l’espace de travail
 
-Les machines installées manuellement ou les machines déjà connectées à votre espace de travail doivent être ajoutées à Azure Automation pour que la solution soit activée. À partir de votre compte Automation, sélectionnez **Inventory** ou **Change Tracking** sous **GESTION DE LA CONFIGURATION**, ou **Update Management** sous **UPDATE MANAGEMENT**.
+Les machines installées manuellement ou les machines déjà connectées à votre espace de travail doivent être ajoutées à Azure Automation pour que la solution soit activée. À partir de votre compte Automation, sélectionnez **Inventorier** ou **Suivi des modifications** sous **Gestion de la configuration**, ou **Gestion des mises à jour** sous **Gestion des mises à jour**.
 
 Sélectionnez **Gérer des machines**. La page **Gérer des machines** s’ouvre. Cette page vous permet soit d’activer la solution sur un ensemble sélectionné de machines ou sur toutes les machines disponibles, soit d’activer la solution pour toutes les machines actuelles et de l’activer sur toutes les futures machines. Le bouton **Gérer des machines** peut être grisé si vous avez précédemment choisi l’option **Activer sur tous les ordinateurs disponibles et à venir**.
 
@@ -104,7 +104,7 @@ Vous pouvez rajouter les configurations d’étendue en rajoutant les recherches
 
 ### <a name="selected-machines"></a>Machines sélectionnées
 
-Pour activer la solution sur une ou plusieurs machines, sélectionnez **Activer sur les machines sélectionnées** et cliquez sur **Ajouter** en regard de chaque machine à ajouter à la solution. Cette tâche ajoute les noms de machine sélectionnés à la requête de recherche enregistrée de groupe d’ordinateurs pour la solution.
+Pour activer la solution sur une ou plusieurs machines, sélectionnez **Activer sur les machines sélectionnées**, puis cliquez sur **Ajouter** à côté de chaque machine à ajouter à la solution. Cette tâche ajoute les noms de machine sélectionnés à la requête de recherche enregistrée de groupe d’ordinateurs pour la solution.
 
 ## <a name="unlink-workspace"></a>Supprimer le lien de votre espace de travail
 
@@ -133,9 +133,9 @@ Après avoir supprimé ces solutions, vous pouvez effectuer les étapes suivante
 
 Si vous avez utilisé la solution de gestion de la mise à jour, vous pouvez (si vous le souhaitez) supprimer les éléments suivants qui ne sont plus nécessaires après la suppression de la solution.
 
-* Planifications de mise à jour : chacune aura un nom correspondant aux déploiements de mise à jour que vous avez créés.
+* Planifications de mises à jour – Chacune a un nom qui correspond aux déploiements de mises à jour que vous avez créés.
 
-* Groupes de travail hybrides créés pour la solution : chacun a un nom similaire à machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8.
+* Groupes de travail hybrides créés pour la solution : Chacun porte un nom similaire à machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8.
 
 Si vous avez utilisé la solution Démarrer et Arrêter des machines virtuelles pendant les heures creuses, vous pouvez, si vous le souhaitez, supprimer les éléments suivants qui ne sont plus nécessaires après la suppression de la solution.
 

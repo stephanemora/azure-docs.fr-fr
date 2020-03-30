@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 06/20/2017
 ms.author: yushwang
 ms.openlocfilehash: b914afaa6725920078da309981bcda5bb765e155
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77148330"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79235753"
 ---
 # <a name="overview-of-partner-vpn-device-configurations"></a>Vue d’ensemble des configurations d’appareils VPN partenaires
 Cet article fournit une vue d’ensemble de la configuration des appareils VPN locaux pour une connexion à des passerelles VPN Azure. Un exemple de configuration de réseau virtuel Azure et de passerelle VPN est utilisé pour vous montrer comment établir une connexion à différentes configurations d’appareils VPN locaux en utilisant les mêmes paramètres.
@@ -22,7 +22,7 @@ Cet article fournit une vue d’ensemble de la configuration des appareils VPN l
 ## <a name="device-requirements"></a>Configuration requise du périphérique
 Les passerelles VPN Azure utilisent des suites de protocoles IPsec/IKE standard pour les tunnels VPN de site à site (S2S). Pour obtenir la liste des paramètres et algorithmes de chiffrement IPsec/IKE pour les passerelles VPN Azure, consultez [À propos des appareils VPN](vpn-gateway-about-vpn-devices.md). Vous pouvez aussi spécifier les algorithmes et les forces de clé exacts d’une connexion spécifique, comme décrit dans [À propos des exigences de chiffrement](vpn-gateway-about-compliance-crypto.md).
 
-## <a name ="singletunnel"></a>Tunnel VPN unique
+## <a name="single-vpn-tunnel"></a><a name ="singletunnel"></a>Tunnel VPN unique
 La première configuration de l’exemple présente un tunnel VPN S2S unique entre une passerelle VPN Azure et un appareil VPN local. Vous pouvez éventuellement configurer le [protocole de passerelle frontière (BGP) dans le tunnel VPN](#bgp).
 
 ![Diagramme d’un tunnel VPN S2S unique](./media/vpn-gateway-3rdparty-device-config-overview/singletunnel.png)
@@ -111,7 +111,7 @@ $lng5gw  = Get-AzLocalNetworkGateway -Name $LNGName5 -ResourceGroupName $RG1
 New-AzVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP $False
 ```
 
-### <a name ="policybased"></a>(Facultatif) Utiliser une stratégie IPsec/IKE personnalisée avec l’option UsePolicyBasedTrafficSelectors
+### <a name="optional-use-custom-ipsecike-policy-with-usepolicybasedtrafficselectors"></a><a name ="policybased"></a>(Facultatif) Utiliser une stratégie IPsec/IKE personnalisée avec l’option UsePolicyBasedTrafficSelectors
 Si vos appareils VPN ne prennent pas en charge les sélecteurs de trafic universels, comme les configurations basées sur le routage ou sur une interface virtuelle de tunnel (VTI), créez une stratégie IPsec/IKE personnalisée avec l’option [UsePolicyBasedTrafficSelectors](vpn-gateway-connect-multiple-policybased-rm-ps.md).
 
 > [!IMPORTANT]
@@ -119,8 +119,8 @@ Si vos appareils VPN ne prennent pas en charge les sélecteurs de trafic univers
 
 
 L’exemple de script crée une stratégie IPsec/IKE avec les paramètres et algorithmes suivants :
-* IKEv2 : AES256, SHA384, DHGroup24
-* IPsec : AES256, SHA1, PFS24, SA Lifetime 7 200 secondes et 20 480 000 Ko (20 Go)
+* IKEv2: AES256, SHA384, DHGroup24
+* IPsec : AES256, SHA1, PFS24, SA Lifetime 7 200 secondes et 20 480 000 Ko(20 Go)
 
 Le script applique la stratégie IPsec/IKE et active l’option **UsePolicyBasedTrafficSelectors** sur la connexion.
 
@@ -133,7 +133,7 @@ $lng5gw  = Get-AzLocalNetworkGateway -Name $LNGName5 -ResourceGroupName $RG1
 New-AzVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP $False -IpsecPolicies $ipsecpolicy5 -UsePolicyBasedTrafficSelectors $True
 ```
 
-### <a name ="bgp"></a>(Facultatif) Utiliser le protocole de passerelle frontière (BGP) sur la connexion VPN S2S
+### <a name="optional-use-bgp-on-s2s-vpn-connection"></a><a name ="bgp"></a>(Facultatif) Utiliser le protocole de passerelle frontière (BGP) sur la connexion VPN S2S
 Quand vous créez la connexion VPN S2S, vous pouvez éventuellement utiliser le protocole [BGP pour la passerelle VPN](vpn-gateway-bgp-resource-manager-ps.md). Cette approche présente deux différences :
 
 * Les préfixes d’adresse locale peuvent correspondre à une adresse d’hôte unique. L’adresse IP de l’homologue BGP local est spécifiée comme suit :

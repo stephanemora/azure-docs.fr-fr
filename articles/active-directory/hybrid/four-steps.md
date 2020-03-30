@@ -14,10 +14,10 @@ ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d3eb98f543e17981be0d5b9ab08fa4e146659b47
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74206780"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Une base d’identité solide en quatre étapes avec Azure Active Directory
@@ -229,7 +229,7 @@ Nous vous recommandons d’imprimer la liste de contrôle suivante pour référe
 
 ### <a name="today"></a>Aujourd’hui
 
-|Vous avez terminé ?|Item|
+|Vous avez terminé ?|Élément|
 |:-|:-|
 ||Piloter la réinitialisation de mot de passe en libre-service (SSPR) pour un groupe|
 ||Surveiller des composants hybrides avec Azure AD Connect Health|
@@ -239,7 +239,7 @@ Nous vous recommandons d’imprimer la liste de contrôle suivante pour référe
 
 ### <a name="next-two-weeks"></a>Deux prochaines semaines
 
-|Vous avez terminé ?|Item|
+|Vous avez terminé ?|Élément|
 |:-|:-|
 ||Mettre une application à disposition de vos utilisateurs|
 ||Piloter l’approvisionnement Azure AD pour l’application SaaS de votre choix|
@@ -249,7 +249,7 @@ Nous vous recommandons d’imprimer la liste de contrôle suivante pour référe
 
 ### <a name="next-month"></a>Mois prochain
 
-|Vous avez terminé ?|Item|
+|Vous avez terminé ?|Élément|
 |:-|:-|
 ||Surveiller votre utilisation des applications pour obtenir des informations|
 ||Piloter l’accès à distance sécurisé aux applications|
@@ -258,7 +258,7 @@ Nous vous recommandons d’imprimer la liste de contrôle suivante pour référe
 
 ### <a name="next-three-months"></a>Trois prochains mois
 
-|Vous avez terminé ?|Item|
+|Vous avez terminé ?|Élément|
 |:-|:-|
 ||Activer la gestion des applications en libre-service|
 ||Activer la gestion des groupes en libre-service|

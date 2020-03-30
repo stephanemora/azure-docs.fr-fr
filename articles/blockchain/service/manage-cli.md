@@ -5,10 +5,10 @@ ms.date: 11/22/2019
 ms.topic: article
 ms.reviewer: janders
 ms.openlocfilehash: ac75be644877905c1517395c1c789b1ea16fd49c
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74455579"
 ---
 # <a name="manage-azure-blockchain-service-using-azure-cli"></a>Gérer une instance Azure Blockchain Service à l’aide d’Azure CLI
@@ -226,7 +226,7 @@ az role assignment create \
 | Paramètre | Description |
 |---------|-------------|
 | **role** | Nom du rôle Azure AD. |
-| **assignee** | ID d'utilisateur Azure AD. Par exemple, `user@contoso.com` |
+| **assignee** | ID d'utilisateur Azure AD. Par exemple : `user@contoso.com` |
 | **scope** | Étendue de l’attribution de rôle. Peut être un membre blockchain du nœud de la transaction. |
 
 **Exemple :**
@@ -288,7 +288,7 @@ az role assignment delete \
 | Paramètre | Description |
 |---------|-------------|
 | **role** | Nom du rôle Azure AD. |
-| **assignee** | ID d'utilisateur Azure AD. Par exemple, `user@contoso.com` |
+| **assignee** | ID d'utilisateur Azure AD. Par exemple : `user@contoso.com` |
 | **scope** | Étendue de l’attribution de rôle. Peut être un membre blockchain du nœud de la transaction. |
 
 ## <a name="next-steps"></a>Étapes suivantes

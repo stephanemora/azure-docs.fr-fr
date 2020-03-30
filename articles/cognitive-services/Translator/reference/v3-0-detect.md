@@ -11,13 +11,13 @@ ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
 ms.openlocfilehash: 370f3b14c12fc05f181d6497b7069bbf1cf3c9cc
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73837293"
 ---
-# <a name="translator-text-api-30-detect"></a>API de traduction de texte Translator Text 3.0 : Detect
+# <a name="translator-text-api-30-detect"></a>API de traduction de texte Translator Text 3.0 : Detect
 
 Identifie la langue d’un texte.
 
@@ -61,13 +61,13 @@ Les en-têtes de demande sont les suivants :
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td>*Facultative*.<br/>GUID généré par le client pour identifier de façon unique la demande. Vous pouvez omettre cet en-tête si vous incluez l’ID de trace dans la chaîne de requête à l’aide d’un paramètre de requête nommé `ClientTraceId`.</td>
+    <td>*Facultatif*.<br/>GUID généré par le client pour identifier de façon unique la demande. Vous pouvez omettre cet en-tête si vous incluez l’ID de trace dans la chaîne de requête à l’aide d’un paramètre de requête nommé `ClientTraceId`.</td>
   </tr>
 </table> 
 
 ## <a name="request-body"></a>Corps de la demande
 
-Le corps de la demande est un tableau JSON. Chaque élément du tableau est un objet JSON avec une propriété de chaîne nommée `Text`. La détection de la langue est appliquée à la valeur de la propriété `Text`. Voici un exemple de corps de la demande :
+Le corps de la demande est un tableau JSON. Chaque élément du tableau est un objet JSON avec une propriété de chaîne nommée `Text`. La détection de la langue est appliquée à la valeur de la propriété `Text`. Voici un exemple de corps de la demande :
 
 ```json
 [
@@ -85,15 +85,15 @@ Les limites suivantes s'appliquent :
 
 Une réponse correcte est un tableau JSON avec un résultat pour chaque chaîne dans le tableau d’entrée. Un objet de résultat inclut les propriétés suivantes :
 
-  * `language`: code de la langue détectée.
+  * `language` : code de la langue détectée.
 
-  * `score`: valeur flottante indiquant le niveau de confiance dans le résultat. Le score est compris entre zéro et un, un score faible indiquant un niveau de confiance bas.
+  * `score` : valeur flottante indiquant le niveau de confiance dans le résultat. Le score est compris entre zéro et un, un score faible indiquant un niveau de confiance bas.
 
-  * `isTranslationSupported`: valeur booléenne true si la langue détectée est l’une des langues prises en charge pour la traduction de texte.
+  * `isTranslationSupported` : valeur booléenne true si la langue détectée est l’une des langues prises en charge pour la traduction de texte.
 
-  * `isTransliterationSupported`: valeur booléenne true si la langue détectée est l’une des langues prises en charge pour la translittération.
+  * `isTransliterationSupported` : valeur booléenne true si la langue détectée est l’une des langues prises en charge pour la translittération.
   
-  * `alternatives`: tableau des autres langues possibles. Chaque élément du tableau est un autre objet avec les mêmes propriétés que celles répertoriées ci-dessus : `language`, `score`, `isTranslationSupported` et `isTransliterationSupported`.
+  * `alternatives` : tableau des autres langues possibles. Chaque élément du tableau est un autre objet avec les mêmes propriétés que celles répertoriées ci-dessus : `language`, `score`, `isTranslationSupported` et `isTransliterationSupported`.
 
 Exemple de réponse JSON :
 
@@ -142,7 +142,7 @@ Voici les codes d’état HTTP qu’une demande peut retourner.
   <th>Description</th>
   <tr>
     <td>200</td>
-    <td>Vous avez réussi !</td>
+    <td>Réussite.</td>
   </tr>
   <tr>
     <td>400</td>

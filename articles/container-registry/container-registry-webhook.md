@@ -4,10 +4,10 @@ description: Découvrez comment utiliser des webhooks pour déclencher des évé
 ms.topic: article
 ms.date: 05/24/2019
 ms.openlocfilehash: 5e6fd2d9f4c7727365a8e2fe3893aafebfeb7bd4
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74454374"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Utilisation de webhooks Azure Container Registry
@@ -16,14 +16,14 @@ Un registre Azure Container Registry stocke et gère des images conteneurs Docke
 
 Pour plus d’informations sur les requêtes de webhook, consultez la [référence de schéma du webhook Azure Container Registry](container-registry-webhook-reference.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Azure Container Registry : créez un Registre de conteneur dans votre abonnement Azure. Par exemple, utilisez le [portail Azure](container-registry-get-started-portal.md) ou [Azure CLI](container-registry-get-started-azure-cli.md). Les [références (SKU) Azure Container Registry](container-registry-skus.md) ont des quotas de webhooks différents.
 * Interface CLI Docker : pour configurer votre ordinateur local comme hôte Docker et accéder aux commandes de l’interface CLI Docker, installez le [moteur Docker](https://docs.docker.com/engine/installation/).
 
 ## <a name="create-webhook---azure-portal"></a>Créer un webhook - Portail Azure
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Accédez au registre de conteneurs dans lequel vous souhaitez créer un webhook.
 1. Sous **Services**, sélectionnez **Webhooks**.
 1. Dans la barre d’outils de webhook, sélectionnez **Ajouter**.
@@ -37,7 +37,7 @@ Pour plus d’informations sur les requêtes de webhook, consultez la [référen
 | En-têtes personnalisés | En-têtes que vous souhaitez passer avec la demande POST. Ils doivent être au format « clé : valeur ». |
 | Actions de déclencheur | Actions qui déclenchent le webhook. Les actions incluent l’envoi push d’image, la suppression d’image, l’envoi push de graphique Helm, la suppression du graphique Helm et la mise en quarantaine de d’image. Vous pouvez choisir une ou plusieurs actions pour déclencher le webhook. |
 | Statut | État du webhook après sa création. Il est activé par défaut. |
-| Scope | Étendue à laquelle le webhook fonctionne. Si elle n’est pas spécifiée, l’étendue couvre tous les événements dans le registre. Vous pouvez la spécifier pour un référentiel ou une balise en utilisant le format « référentiel:balise » ou « référentiel:*» pour toutes les balises sous un référentiel. |
+| Étendue | Étendue à laquelle le webhook fonctionne. Si elle n’est pas spécifiée, l’étendue couvre tous les événements dans le registre. Vous pouvez la spécifier pour un référentiel ou une balise en utilisant le format « référentiel:balise » ou « référentiel:*» pour toutes les balises sous un référentiel. |
 
 Exemple de formulaire webhook :
 
@@ -63,7 +63,7 @@ Avant d’utiliser le webhook, vous pouvez le tester à l’aide du bouton **Pin
 
 ![Interface utilisateur de création de webhook ACR dans le portail Azure](./media/container-registry-webhook/webhook-02.png)
 
-### <a name="azure-cli"></a>D’Azure CLI
+### <a name="azure-cli"></a>Azure CLI
 
 Pour tester un webhook d’ACR avec Azure CLI, utilisez la commande [az acr webhook ping](/cli/azure/acr/webhook#az-acr-webhook-ping).
 
@@ -83,7 +83,7 @@ az acr webhook list-events --registry mycontainerregistry08 --name myacrwebhook0
 
 Vous pouvez supprimer chaque webhook en le sélectionnant, puis en appuyant sur le bouton **Supprimer** dans le portail Azure.
 
-### <a name="azure-cli"></a>D’Azure CLI
+### <a name="azure-cli"></a>Azure CLI
 
 ```azurecli-interactive
 az acr webhook delete --registry mycontainerregistry --name myacrwebhook01

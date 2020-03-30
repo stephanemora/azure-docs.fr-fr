@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 1/29/2019
 ms.author: barclayn
 ms.openlocfilehash: 741e6b9cad20645fdfc085623fd9492a12ac1dfc
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68726559"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Services et technologies de sécurité disponibles sur Azure
@@ -31,7 +31,7 @@ Quand vous évaluez les options d’un fournisseur de services cloud, il est uti
 Au fil du temps, cette liste sera modifiée et développée, tout comme Azure. Veillez à consulter cette page régulièrement pour vous tenir au courant de l’évolution de nos technologies et services liés à la sécurité.
 
 ## <a name="general-azure-security"></a>Sécurité générale d’Azure
-|de diffusion en continu|Description|
+|Service|Description|
 |--------|--------|
 |[Azure&nbsp;Security&nbsp;Center](/azure/security-center/security-center-intro)| Solution de protection des charges de travail cloud qui fournit une gestion de la sécurité et une protection avancée contre les menaces sur l’ensemble des charges de travail cloud hybrides.|
 |[Azure Key Vault](/azure/key-vault/key-vault-overview)| Magasin de secrets sécurisé pour les mots de passe, les chaînes de connexion et d’autres informations dont vous avez besoin pour que vos applications continuent de fonctionner. |
@@ -41,7 +41,7 @@ Au fil du temps, cette liste sera modifiée et développée, tout comme Azure. V
 <!---|[Azure&nbsp;Disk&nbsp;Encryption](/azure/azure-security-disk-encryption-overview)| THIS WILL GO TO THE NEW OVERVIEW TOPIC MEGHAN STEWART IS WRITING|--->
 
 ## <a name="storage-security"></a>Sécurité du stockage
-|de diffusion en continu|Description|
+|Service|Description|
 |------|--------|
 | [Azure&nbsp;Storage&nbsp;Service&nbsp;Encryption](/azure/storage/common/storage-service-encryption)|Fonctionnalité de sécurité qui chiffre automatiquement vos données dans le stockage Azure.   |
 |[Stockage hybride chiffré StorSimple](/azure/storsimple/storsimple-ova-overview)| Solution de stockage intégrée qui gère les tâches de stockage entre les appareils locaux et le stockage cloud Azure.|
@@ -54,7 +54,7 @@ Au fil du temps, cette liste sera modifiée et développée, tout comme Azure. V
 <!------>
 
 ## <a name="database-security"></a>Sécurité de la base de données
-|de diffusion en continu|Description|
+|Service|Description|
 |------|--------|
 | [Pare-feu&nbsp;SQL&nbsp;Azure](/azure/sql-database/sql-database-firewall-configure)|Fonctionnalité de contrôle d’accès réseau qui protège la base de données contre les attaques réseau. |
 |[Chiffrement&nbsp;au niveau des cellules&nbsp;SQL&nbsp;Azure](https://blogs.msdn.microsoft.com/sqlsecurity/2015/05/12/recommendations-for-using-cell-level-encryption-in-azure-sql-database/)| Technologie de sécurité des bases de données qui fournit un chiffrement à un niveau granulaire.  |
@@ -65,7 +65,7 @@ Au fil du temps, cette liste sera modifiée et développée, tout comme Azure. V
 
 
 ## <a name="identity-and-access-management"></a>Gestion de l’identité et de l’accès
-|de diffusion en continu|Description|
+|Service|Description|
 |------|--------|
 | [Contrôle d’accès&nbsp;en fonction&nbsp;du rôle&nbsp;Azure](/azure/active-directory/role-based-access-control-configure)|Fonctionnalité de contrôle d’accès conçue pour autoriser les utilisateurs à accéder seulement aux ressources auxquelles ils doivent accéder en fonction de leur rôle au sein de l’organisation.  |
 | [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis)|Référentiel d’authentification cloud qui prend en charge un annuaire multilocataire dans le cloud et plusieurs services de gestion des identités dans Azure.  |
@@ -74,13 +74,13 @@ Au fil du temps, cette liste sera modifiée et développée, tout comme Azure. V
 | [Azure Multi-Factor Authentication](/azure/active-directory/authentication/multi-factor-authentication)| Provision de sécurité qui utilise plusieurs formulaires d’authentification et de vérification avant d’autoriser l’accès à des informations sécurisées. |
 
 ## <a name="backup-and-disaster-recovery"></a>Sauvegarde et récupération d'urgence
-|de diffusion en continu|Description|
+|Service|Description|
 |------|--------|
 | [Sauvegarde&nbsp;Azure](/azure/backup/backup-introduction-to-azure-backup)| Service basé sur Azure utilisé pour sauvegarder et restaurer des données dans le cloud Azure. |
 | [Azure&nbsp;Site&nbsp;Recovery](/azure/site-recovery/site-recovery-overview)|Service en ligne qui réplique les charges de travail s’exécutant sur des machines virtuelles et physiques depuis un site principal vers un emplacement secondaire pour permettre la récupération des services après une défaillance. |
 
 ## <a name="networking"></a>Mise en réseau
-|de diffusion en continu|Description|
+|Service|Description|
 |------|--------|
 | [Groupes&nbsp;de sécurité&nbsp;réseau](/azure/virtual-network/virtual-networks-nsg)| Fonctionnalité de contrôle d’accès basée sur le réseau utilisant un tuple de 5 éléments pour prendre les décisions d’autoriser ou de refuser.  |
 | [Passerelle VPN Azure](/azure/vpn-gateway/vpn-gateway-about-vpngateways)| Appareil réseau utilisé comme un point de terminaison de réseau privé virtuel pour autoriser les accès locaux à des réseaux virtuels Azure.  |

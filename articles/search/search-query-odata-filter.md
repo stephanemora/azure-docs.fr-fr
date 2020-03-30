@@ -20,11 +20,11 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: b966e9cfa3ef40666dbbd62135f8f964e5eb2023
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113204"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79236825"
 ---
 # <a name="odata-filter-syntax-in-azure-cognitive-search"></a>Syntaxe OData $filter dans Recherche cognitive Azure
 
@@ -106,7 +106,7 @@ Cette erreur se produit car l’opérateur est associé au champ `Rating` unique
 Il existe des limites de taille et de complexité des expressions de filtre que vous pouvez envoyer à Recherche cognitive Azure. Les limites sont en gros basées sur le nombre de clauses de votre expression de filtre. Une directive appropriée est que, si vous avez des centaines de clauses, vous risquez de dépasser la limite. Nous vous recommandons de concevoir votre application de telle sorte qu’elle ne génère pas de filtres de taille illimitée.
 
 > [!TIP]
-> L’utilisation de [la fonction `search.in` ](search-query-odata-search-in-function.md) au lieu de disjonctions longues de comparaisons d’égalité peut permettre d’éviter la limite de clause de filtre, dans la mesure où un appel de fonction est comptabilisé comme une seule clause.
+> L’utilisation de [la fonction `search.in`](search-query-odata-search-in-function.md) au lieu de disjonctions longues de comparaisons d’égalité peut permettre d’éviter la limite de clause de filtre, dans la mesure où un appel de fonction est comptabilisé comme une seule clause.
 
 ## <a name="examples"></a>Exemples
 
@@ -197,6 +197,6 @@ Recherchez les hôtels où les termes « hôtel » et « aéroport » sont sépa
 ## <a name="next-steps"></a>Étapes suivantes  
 
 - [Filtres dans la Recherche cognitive Azure](search-filters.md)
-- [Vue d’ensemble du langage d’expression OData pour la Recherche cognitive Azure](query-odata-filter-orderby-syntax.md)
-- [Informations de référence sur la syntaxe d’expression OData pour la Recherche cognitive Azure](search-query-odata-syntax-reference.md)
-- [Rechercher des documents &#40;API REST de Recherche cognitive Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Vue d’ensemble du langage d’expression OData pour Recherche cognitive Azure](query-odata-filter-orderby-syntax.md)
+- [Informations de référence sur la syntaxe d’expression OData pour Recherche cognitive Azure](search-query-odata-syntax-reference.md)
+- [Rechercher des documents &#40;API REST de la recherche cognitive Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

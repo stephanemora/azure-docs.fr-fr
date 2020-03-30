@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.custom: seodec18
 ms.openlocfilehash: 79bd0a19a9bd8ebd100ed80ca0206656d73ef76c
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74672371"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migrer un nom DNS actif vers Azure App Service
@@ -21,7 +21,7 @@ Lorsque vous migrez un site actif et son nom de domaine DNS vers App Service, ce
 
 Si vous ne vous inquiétez pas des temps d’arrêt durant la résolution DNS, voir [Mapper un nom DNS personnalisé existant vers Azure App Service](app-service-web-tutorial-custom-domain.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre cette procédure :
 
@@ -113,7 +113,7 @@ Pour l’exemple de domaine racine `contoso.com`, remappez l’enregistrement A 
 
 | Exemple de nom de domaine complet | Type d’enregistrement | Host | Valeur |
 | - | - | - | - |
-| contoso.com (racine) | A | `@` | Adresse IP de [Copier l’adresse IP de l’application](#info) |
+| contoso.com (racine) | Un | `@` | Adresse IP de [Copier l’adresse IP de l’application](#info) |
 | www\.contoso.com (sub) | CNAME | `www` | _&lt;nomapplication&gt;.azurewebsites.net_ |
 | \*.contoso.com (caractère générique) | CNAME | _\*_ | _&lt;nomapplication&gt;.azurewebsites.net_ |
 

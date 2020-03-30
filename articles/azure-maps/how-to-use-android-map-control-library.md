@@ -1,32 +1,32 @@
 ---
 title: Bien démarrer avec le contrôle de carte Android | Microsoft Azure Maps
 description: Dans cet article, vous allez découvrir comment prendre en main le contrôle de carte Android à l’aide de Android SDK Microsoft Azure Maps.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ca4051e56f7d51ac7ac5fbe534cb8fc536d64a68
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 55bfb5030d0a168e7556240212fcd5f3be30a289
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78368683"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335362"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Bien démarrer avec Android SDK Azure Maps
 
 Android SDK Azure Maps est une bibliothèque de cartes de vecteur pour Android. Cet article vous guide tout au long des processus d’installation d’Android SDK Azure Maps et de chargement d’une carte.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 ### <a name="create-an-azure-maps-account"></a>Créer un compte Azure Maps
 
 Pour accomplir les procédures de cet article, vous devez d’abord [créer un compte Azure Maps](quick-demo-map-app.md#create-an-account-with-azure-maps) de niveau tarifaire S1 et [obtenir la clé primaire](quick-demo-map-app.md#get-the-primary-key-for-your-account) de votre compte.
 
-Pour plus d’informations sur l’authentification dans Azure Maps, voir [Gérer l’authentification dans Azure Maps](./how-to-manage-authentication.md).
+Pour plus d’informations sur l’authentification dans Azure Maps, consultez [Gérer l’authentification dans Azure Maps](./how-to-manage-authentication.md).
 
 ### <a name="download-android-studio"></a>Télécharger Android Studio
 
@@ -273,7 +273,7 @@ La liste complète des langues et des affichages régionaux pris en charge est d
 Découvrez comment ajouter des données superposées sur la carte :
 
 > [!div class="nextstepaction"]
-> [Add a symbol layer to an Android map](https://review.docs.microsoft.com/azure/azure-maps/how-to-add-symbol-to-android-map) (Ajouter une couche de symboles à une carte Android)
+> [Add a symbol layer to an Android map](how-to-add-symbol-to-android-map.md) (Ajouter une couche de symboles à une carte Android)
 
 > [!div class="nextstepaction"]
 > [Ajouter des formes à une carte Android](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)

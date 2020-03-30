@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: b0972be2b8a6e05d3d90cde7354b4890ea95cbe4
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68976759"
 ---
 # <a name="how-to-secure-access-to-data-catalog-and-data-assets"></a>Guide pratique pour sécuriser l’accès à un catalogue de données et des ressources de données
@@ -32,7 +32,7 @@ Pour accorder à un utilisateur ou à un groupe l’accès à un catalogue de do
 
    ![Bouton Ajouter des utilisateurs d’Azure Data Catalog](media/data-catalog-how-to-secure-catalog/data-catalog-add-button.png)
 
-3. Cliquez sur **Add**.
+3. Cliquez sur **Ajouter**.
 
 4. Entrez le **nom d’utilisateur** qualifié complet ou le nom du **groupe de sécurité** dans l’annuaire Azure Active Directory (AAD) associé au catalogue. Utilisez une virgule (« , ») comme séparateur si vous ajoutez plusieurs utilisateurs ou groupes.
 

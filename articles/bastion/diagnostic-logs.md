@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: cherylmc
 ms.openlocfilehash: 2167a17d5d388c97ad357398c4ac2676e43be5a4
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76989448"
 ---
 # <a name="enable-and-work-with-bastion-diagnostic-logs"></a>Activer et utiliser les journaux de diagnostic Bastion
 
 Quand les utilisateurs se connectent à des charges de travail à l’aide d’Azure Bastion, Bastion peut enregistrer les diagnostics des sessions à distance. Vous pouvez ensuite utiliser les diagnostics pour voir quels utilisateurs se connectent à quelles charges de travail, à quel moment, depuis où et d’autres informations de journalisation pertinentes. Pour pouvoir utiliser les diagnostics, vous devez activer les journaux de diagnostic sur Azure Bastion. Cet article vous aide à activer les journaux de diagnostic, puis à les afficher.
 
-## <a name="enable"></a>Activer le journal de diagnostic
+## <a name="enable-the-diagnostics-log"></a><a name="enable"></a>Activer le journal de diagnostic
 
 1. Dans le [portail Azure](https://portal.azure.com), accédez à votre ressource Azure Bastion et sélectionnez **Paramètres de diagnostic** sur la page Azure Bastion.
 
@@ -33,7 +33,7 @@ Quand les utilisateurs se connectent à des charges de travail à l’aide d’A
 
    ![exemples de paramètres](./media/diagnostic-logs/4example-settings.png)
 
-## <a name="view"></a>Afficher le journal de diagnostic
+## <a name="view-diagnostics-log"></a><a name="view"></a>Afficher le journal de diagnostic
 
 Pour accéder à vos journaux de diagnostic, vous pouvez utiliser directement le compte de stockage que vous avez spécifié lors de l’activation des paramètres de diagnostic.
 

@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 08/22/2019
 ms.author: aschhab
 ms.openlocfilehash: 7234e33c04e742c77630f8d87481c7831fb00bf2
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70013243"
 ---
 # <a name="service-bus-authentication-and-authorization"></a>Authentification et de autorisation Service Bus
@@ -38,7 +38,7 @@ Pour plus d’informations sur l’authentification avec Azure AD, consultez les
 - [Authentifier à partir d’une application](authenticate-application.md)
 
 > [!IMPORTANT]
-> Le fait d’autoriser des utilisateurs ou des applications avec un jeton OAuth 2.0 retourné par Azure AD confère une sécurité et une facilité d’utilisation supérieures à ce qu’offrent les signatures d’accès partagé. Avec Azure AD, il n’est pas nécessaire de stocker les jetons d’accès dans votre code, ce qui élimine les risques de failles de sécurité potentielles. Nous vous recommandons d’utiliser Azure AD avec vos applications Azure Service Bus dans la mesure du possible. 
+> L’autorisation des utilisateurs ou des applications avec un jeton OAuth 2.0 retourné par Azure AD assure une meilleure sécurité que les signatures d’accès partagé. De plus, elle offre une plus grande simplicité d’utilisation. Azure AD vous évite d’avoir à stocker les jetons dans votre code. Vous êtes ainsi moins exposé au risque de failles de sécurité. Nous vous recommandons d’utiliser Azure AD avec vos applications Azure Service Bus dans la mesure du possible. 
 
 
 ## <a name="shared-access-signature"></a>Signature d’accès partagé

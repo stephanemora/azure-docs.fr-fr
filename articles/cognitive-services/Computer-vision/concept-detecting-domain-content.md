@@ -12,10 +12,10 @@ ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 8d6dc91ae7bb0f6d7a24064749d9295558a7d39c
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68946337"
 ---
 # <a name="detect-domain-specific-content"></a>Détecter le contenu spécifique à un domaine
@@ -100,7 +100,7 @@ La réponse JSON suivante montre comment une analyse spécifique à un domaine p
 
 Le service Vision par ordinateur prend actuellement en charge les modèles spécifiques à un domaine suivants :
 
-| Nom | Description |
+| Name | Description |
 |------|-------------|
 | celebrities | Reconnaissance des célébrités, prise en charge pour les images classées dans la catégorie `people_` |
 | landmarks | Reconnaissance des points de repère, prise en charge pour les images classées dans les catégories `outdoor_` ou `building_` |

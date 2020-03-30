@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: aahi
 ms.openlocfilehash: fd70fe14d3765fb7c21b92f62b4d73564176baa2
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78201065"
 ---
 # <a name="extract-information-in-excel-using-text-analytics-and-power-automate"></a>Extraire des informations dans Excel avec Analyse de texte et Power Automate 
@@ -23,7 +23,7 @@ Dans ce tutoriel, vous allez créer un flux Power Automate pour extraire du text
 
 Ce flux prend une feuille de calcul des problèmes signalés à propos d’un immeuble d’habitation et les classifie en deux catégories : plomberie et autres. Il extrait également les noms et numéros de téléphone des locataires qui les ont envoyés. Enfin, le flux ajoute ces informations à la feuille Excel. 
 
-Ce tutoriel vous montre comment :
+Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Utiliser Power Automate pour créer un flux
@@ -31,7 +31,7 @@ Ce tutoriel vous montre comment :
 > * Extraire le texte d’Excel et l’envoyer à l’API Analyse de texte 
 > * Utiliser les informations de l’API pour mettre à jour une feuille Excel.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Un compte Microsoft Azure [Démarrez un essai gratuit](https://azure.microsoft.com/free/) ou [connectez-vous](https://portal.azure.com/).
 - Ressource Analyse de texte. Si vous n’en avez pas, vous pouvez [en créer une dans le portail Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) et utiliser le niveau gratuit pour suivre ce tutoriel.
@@ -76,9 +76,9 @@ Créez des variables représentant les informations qui seront ajoutées au fich
 
 Ajoutez les informations suivantes aux variables que vous avez créées. Elles représentent les colonnes du fichier Excel. Si des variables sont réduites, vous pouvez cliquer dessus pour les développer.
 
-| Action |Nom   | Type | Valeur |
+| Action |Name   | Type | Valeur |
 |---------|---------|---|---|
-| Initialiser la variable | var_person | String | Personne |
+| Initialiser la variable | var_person | String | Person |
 | Initialiser la variable 2 | var_phone | String | Numéro_téléphone |
 | Initialiser la variable 3 | var_plumbing | String | plomberie |
 | Initialiser la variable 4 | var_other | String | Autres | 

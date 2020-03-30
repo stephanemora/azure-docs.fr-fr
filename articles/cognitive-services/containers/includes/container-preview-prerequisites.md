@@ -9,13 +9,13 @@ ms.topic: include
 ms.date: 7/5/2019
 ms.author: dapine
 ms.openlocfilehash: e5d40c9ffd32320ba685e2bdbd3095b4eeec3484
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73522802"
 ---
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Utilisez un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit][free-account] avant de commencer.
 * Installez [Azure CLI][azure-cli] (az).

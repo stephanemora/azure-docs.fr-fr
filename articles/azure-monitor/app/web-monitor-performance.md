@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 05/10/2018
 ms.reviewer: sdash
 ms.openlocfilehash: e398f23559729580ae4ad8b6507c2f09328052b5
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77670897"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79234589"
 ---
 # <a name="monitor-performance-in-web-applications"></a>Analyse des performances dans les applications web
 
@@ -20,7 +20,7 @@ Application Insights peut surveiller les services WCF, ainsi que les application
 
 Côté client, Application Insights peut récupérer les données télémétriques des pages web et d’un large éventail d’appareils, notamment des applications iOS, Android et Windows Store.
 
-## <a name="setup"></a>Configurer la surveillance des performances
+## <a name="set-up-performance-monitoring"></a><a name="setup"></a>Configurer la surveillance des performances
 Si vous n'avez pas encore ajouté Application Insights à votre projet (il n'inclut pas ApplicationInsights.config), sélectionnez l'une des options suivantes pour commencer :
 
 * [Applications web ASP.NET](../../azure-monitor/app/asp-net.md)
@@ -29,7 +29,7 @@ Si vous n'avez pas encore ajouté Application Insights à votre projet (il n'inc
 * [Applications web Java EE](../../azure-monitor/app/java-get-started.md)
   * [Ajout de la surveillance des dépendances](../../azure-monitor/app/java-agent.md)
 
-## <a name="view"></a>Exploration des mesures de performances
+## <a name="exploring-performance-metrics"></a><a name="view"></a>Exploration des mesures de performances
 Sur le [portail Azure](https://portal.azure.com), accédez à la ressource Application Insights que vous avez configurée pour votre application. Le panneau de vue d’ensemble présente les données de performances de base :
 
 Cliquez sur n’importe quel graphique pour afficher plus de détails et davantage de résultats et ce, pendant plus longtemps. Par exemple, cliquez sur la vignette Demandes et sélectionnez une plage de temps :
@@ -43,7 +43,7 @@ Cliquez sur un graphique pour choisir les métriques à afficher, ou ajoutez un 
 > [!NOTE]
 > **Décochez toutes les mesures** pour afficher toutes les options disponibles. Les métriques se répartissent en trois groupes ; lorsqu'un membre d'un groupe est sélectionné, seuls les autres membres de ce groupe s'affichent.
 
-## <a name="metrics"></a>Signification Vignettes de performances et rapports
+## <a name="what-does-it-all-mean-performance-tiles-and-reports"></a><a name="metrics"></a>Signification Vignettes de performances et rapports
 Vous pouvez obtenir plusieurs indicateurs de performance. Commençons par celles qui s'affichent par défaut dans le volet de l'application.
 
 ### <a name="requests"></a>Demandes
@@ -96,7 +96,7 @@ Veillez à noter les unités dans lesquelles vous êtes invité à entrer la val
 
 *Je ne vois pas apparaître le bouton Ajouter une alerte.* - S’agit-il d’un compte de groupe auquel vous avez accès en lecture uniquement ? Consultez l’administrateur de ce compte.
 
-## <a name="diagnosis"></a>Problèmes de diagnostic
+## <a name="diagnosing-issues"></a><a name="diagnosis"></a>Problèmes de diagnostic
 Voici quelques conseils pour identifier et diagnostiquer les problèmes de performances :
 
 * Configurez des [tests web][availability] pour recevoir une alerte en cas de défaillance ou de réponse incorrecte/lente de votre site web. 
@@ -130,7 +130,7 @@ L’expérience d’analyse des performances montre des informations pertinentes
 ![Trois pics de durée pour GET Customers/Details sur une plage de 7 jours avec une fenêtre de temps](./media/web-monitor-performance/Performance30DayOveralllnsights.png)
 
 
-## <a name="next"></a>Étapes suivantes
+## <a name="next-steps"></a><a name="next"></a>Étapes suivantes
 [Tests web][availability] : faites envoyer des requêtes web à votre application à intervalles réguliers et partout dans le monde.
 
 [Capturer et rechercher des traces de diagnostic][diagnostic] : insérez des appels de trace et passez au crible les résultats afin d’identifier les problèmes.

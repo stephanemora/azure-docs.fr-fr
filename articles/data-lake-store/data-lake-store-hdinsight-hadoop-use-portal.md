@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 1d1368ef8ffb474c6bec1240f567f043961597fb
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838173"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231497"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-by-using-the-azure-portal"></a>Créer des clusters HDInsight avec Azure Data Lake Storage Gen1 à l’aide du portail Azure
 
@@ -25,7 +25,7 @@ ms.locfileid: "73838173"
 
 Découvrez comment utiliser le portail Azure pour créer un cluster HDInsight avec un compte Azure Data Lake Storage Gen1 en tant que stockage par défaut ou stockage supplémentaire. Bien que le stockage supplémentaire soit facultatif pour les clusters HDInsight, il est recommandé de stocker vos données d’entreprise dans les comptes de stockage supplémentaires.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer, vérifiez que vous respectez les exigences suivantes :
 
@@ -45,16 +45,16 @@ Dans cette section, vous allez créer un cluster HDInsight avec des comptes Data
 
 Pour créer un cluster HDInsight avec un compte Data Lake Storage Gen1 comme compte de stockage par défaut :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Suivez les indications présentées dans [Créer des clusters](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md#create-clusters) pour obtenir des informations générales sur la création de clusters HDInsight.
 3. Sur le panneau **Stockage**, sous **Type de stockage principal**, sélectionnez **Azure Data Lake Storage Gen1**, puis entrez les informations suivantes :
 
-    ![Ajouter un principal de service à un cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png "Ajouter un principal du service à un cluster HDInsight")
+    ![Ajouter un principal du service à un cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png "Ajouter un principal du service à un cluster HDInsight")
 
-    * **Sélectionner le compte Data Lake Store** : Sélectionnez un compte Data Lake Storage Gen1 existant. Un compte Data Lake Storage Gen1 existant est requis.  Consultez les [Conditions préalables](#prerequisites).
-    * **Chemin racine** : Entrez un chemin d’accès où les fichiers spécifiques d’un cluster doivent être stockés. Sur la capture d’écran, il s’agit de __/clusters/myhdiadlcluster/__ , qui doit comporter le dossier __/clusters__. Le portail crée alors un dossier *myhdicluster*.  *myhdicluster* désigne le nom du cluster.
-    * **Accès à Data Lake Store** : Configurez l’accès entre le compte Data Lake Storage Gen1 et le cluster HDInsight. Pour obtenir des instructions, consultez [Configurer l’accès aux données Data Lake Storage Gen1](#configure-data-lake-storage-gen1-access).
-    * **Comptes de stockage supplémentaire** : Ajoutez des comptes de stockage Azure en tant que comptes de stockage supplémentaire pour le cluster. Pour ajouter d’autres comptes Data Lake Storage Gen1, attribuez des autorisations de cluster sur les données de plusieurs comptes Data Lake Storage Gen1 lors de la configuration d’un compte Data Lake Storage Gen1 comme type de stockage principal. Consultez [Configurer l’accès aux données Data Lake Storage Gen1](#configure-data-lake-storage-gen1-access).
+    * **Sélectionner un compte Data Lake Storage** : sélectionnez un compte Data Lake Storage Gen1 existant. Un compte Data Lake Storage Gen1 existant est requis.  Consultez les [Conditions préalables](#prerequisites).
+    * **Chemin racine** : entrez un chemin d’accès où les fichiers spécifiques d’un cluster doivent être stockés. Sur la capture d’écran, il s’agit de __/clusters/myhdiadlcluster/__ , qui doit comporter le dossier __/clusters__. Le portail crée alors un dossier *myhdicluster*.  *myhdicluster* désigne le nom du cluster.
+    * **Accès à Data Lake Storage** : configurez l’accès entre le compte Data Lake Storage Gen1 et le cluster HDInsight. Pour obtenir des instructions, consultez [Configurer l’accès aux données Data Lake Storage Gen1](#configure-data-lake-storage-gen1-access).
+    * **Comptes de stockage supplémentaire** : ajoutez des comptes de stockage Azure en tant que comptes de stockage supplémentaire pour le cluster. Pour ajouter d’autres comptes Data Lake Storage Gen1, attribuez des autorisations de cluster sur les données de plusieurs comptes Data Lake Storage Gen1 lors de la configuration d’un compte Data Lake Storage Gen1 comme type de stockage principal. Consultez [Configurer l’accès aux données Data Lake Storage Gen1](#configure-data-lake-storage-gen1-access).
 
 4. Cliquez sur **Sélectionner** dans les panneaux **Accès à Data Lake Store** et poursuivez la création du cluster comme décrit dans [Création de clusters Hadoop dans HDInsight](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md).
 
@@ -64,11 +64,11 @@ Procédez comme suit pour créer un cluster HDInsight avec un compte de stockage
 
 Pour créer un cluster HDInsight avec un compte Data Lake Storage Gen1 comme compte de stockage supplémentaire :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Suivez les indications présentées dans [Créer des clusters](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md#create-clusters) pour obtenir des informations générales sur la création de clusters HDInsight.
 3. Sur le panneau **Stockage**, sous **Type de stockage principal**, sélectionnez **Stockage Azure**, puis entrez les informations suivantes :
 
-    ![Ajouter un principal de service à un cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.png "Ajouter un principal du service à un cluster HDInsight")
+    ![Ajouter un principal du service à un cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.png "Ajouter un principal du service à un cluster HDInsight")
 
     * **Méthode de sélection** - Pour spécifier un compte de stockage qui fait partie de votre abonnement Azure, sélectionnez **Mes abonnements**, puis le compte de stockage. Pour spécifier un compte de stockage qui est en dehors de votre abonnement Azure, sélectionnez **Clé d’accès**, puis fournissez les informations du compte de stockage externe.
 
@@ -106,7 +106,7 @@ Utiliser un principal du service existant dans le portail Azure :
 
 1. Sélectionnez **Accès** pour configurer l’accès au dossier.  Reportez-vous à [Configurer les autorisations des fichiers](#configure-file-permissions).
 
-### <a name="configure-file-permissions"></a>Configurer les autorisations des fichiers
+### <a name="configure-file-permissions"></a><a name="configure-file-permissions"></a>Configurer les autorisations des fichiers
 
 La configuration diffère selon que le compte est utilisé en tant que compte de stockage par défaut ou compte de stockage supplémentaire :
 
@@ -146,7 +146,7 @@ Si vous utilisez Data Lake Storage Gen1 en tant que stockage supplémentaire, vo
 
 ![Affecter des autorisations de principal de service au cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.3-1.png "Affecter des autorisations de principal de service au cluster HDInsight")
 
-## <a name="verify-cluster-set-up"></a>Vérifier la configuration du cluster
+## <a name="verify-cluster-setup"></a><a name="verify-cluster-set-up"></a>Vérifier la configuration du cluster
 
 Une fois que l’installation du cluster est terminée, accédez au panneau du cluster pour vérifier vos résultats en effectuant l’une des opérations suivantes, ou les deux :
 

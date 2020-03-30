@@ -1,18 +1,18 @@
 ---
 title: Tester des applications mobiles sur des milliers d’appareils réels à l’aide de Visual Studio App Center
 description: Découvrez Visual Studio App Center en tant que service permettant de tester constamment des applications mobiles sur des milliers d’appareils réels.
-author: elamalani
+author: codemillmatt
 ms.assetid: 12a8a079-9b3c-4faf-0000-ccff02097224
 ms.service: vs-appcenter
 ms.topic: article
-ms.date: 10/22/2019
-ms.author: emalani
-ms.openlocfilehash: 18331de5d362aa7dfedcf5bb6cff893a2893f604
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/24/2020
+ms.author: masoucou
+ms.openlocfilehash: 05fa29e4b79cdbec7d925b2a35bd3fdf0bb03213
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453079"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240097"
 ---
 # <a name="perform-automated-testing-on-thousands-of-mobile-devices-simultaneously"></a>Effectuer des tests automatisés sur des milliers d’appareils mobiles simultanément
 Les tests peuvent s’avérer difficiles et de plus en plus complexes pour diverses raisons, telles que la fragmentation des appareils, la complexité des applications, les cycles de mise en production rapides, les sessions courtes et les attentes élevées des utilisateurs. Vous devez régulièrement veiller à fournir des applications testées minutieusement qui offrent une expérience client exceptionnelle. Le test n’est pas une tâche facile et il est déconseillé de demander au développeur de passer du temps à tester manuellement chaque version.
