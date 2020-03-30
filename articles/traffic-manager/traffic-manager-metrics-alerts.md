@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 06/11/2018
 ms.author: rohink
 ms.openlocfilehash: 521e6ac605d187c0f95545611a17a86cfda6e1dd
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76938587"
 ---
 # <a name="traffic-manager-metrics-and-alerts"></a>Métriques et alertes Traffic Manager
@@ -33,13 +33,13 @@ Dans l’exemple suivant, la figure 1 affiche toutes les réponses à une requ�
   
 ![Vue agrégée de toutes les requêtes](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-queries-aggregate-view.png)
 
-*Figure 1 : Vue agrégée de toutes les requêtes*
+*Figure 1 : Vue agrégée de toutes les requêtes*
   
 La figure 2 affiche les mêmes informations, mais réparties cette fois par point de terminaison. Par conséquent, vous pouvez voir le volume des réponses aux requêtes dans lequel un point de terminaison spécifique a été retourné.
 
 ![Métriques Traffic Manager - mode fractionné du volume de requêtes par point de terminaison](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-query-volume-per-endpoint.png)
 
-*Figure 2 : Mode fractionné avec volume de requêtes indiqué par point de terminaison retourné*
+*Figure 2 : me mode fractionné avec volume de requêtes indiqué par point de terminaison retourné*
 
 ## <a name="endpoint-status-by-endpoint"></a>État du point de terminaison par point de terminaison
 Utilisez [cette métrique](../azure-monitor/platform/metrics-supported.md#microsoftnetworktrafficmanagerprofiles) pour évaluer l’état d’intégrité des points de terminaison dans le profil. Elle accepte deux valeurs :
@@ -51,12 +51,12 @@ Cette métrique peut être affichée comme une valeur d’agrégation représent
 
 ![Métriques Traffic Manager - mode composite de l’état du point de terminaison](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-endpoint-status-composite-view.png)
 
-*Figure 3 : Mode composite de la métrique d’état du point de terminaison – agrégation « Avg » sélectionnée*
+*Figure 3 : mode composite de la métrique d’état du point de terminaison – agrégation « Avg » sélectionnée*
 
 
 ![Métriques Traffic Manager - mode fractionné de l’état du point de terminaison](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-endpoint-status-split-view.png)
 
-*Figure 4 : Mode fractionné des métriques d’état du point de terminaison*
+*Figure 4 : mode fractionné des métriques d’état du point de terminaison*
 
 Vous pouvez utiliser ces métriques via [le service Azure Monitor](../azure-monitor/platform/metrics-supported.md) du portail, l’[API REST](https://docs.microsoft.com/rest/api/monitor/), l’[interface de ligne de commande Azure CLI](https://docs.microsoft.com/cli/azure/monitor) et [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights), ou dans la section des métriques du portail Traffic Manager.
 

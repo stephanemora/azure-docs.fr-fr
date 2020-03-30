@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect : Authentification unique transparente - Démarrage rapide | Microsoft Docs'
+title: 'Azure AD Connect : Authentification unique transparente - Démarrage rapide | Microsoft Docs'
 description: Cet article explique comment bien démarrer avec l’authentification unique transparente d’Azure Active Directory
 services: active-directory
 keywords: Qu’est-ce qu’Azure AD Connect, Installation d’Active Directory, Composants requis pour Azure AD, SSO, Authentification unique
@@ -17,13 +17,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3ec56d37ca2c0a199968707b3d93f4797be2beca
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75888666"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79230153"
 ---
-# <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Authentification unique transparente Azure Active Directory : Démarrage rapide
+# <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Authentification unique transparente Azure Active Directory - Démarrage rapide
 
 ## <a name="deploy-seamless-single-sign-on"></a>Déploiement de l'authentification unique transparente
 
@@ -35,27 +35,27 @@ Pour déployer l’authentification unique transparente, procédez comme suit.
 
 Vérifiez que les prérequis suivants sont remplis :
 
-* **Configurez votre serveur Azure AD Connect** : Si vous utilisez [l’authentification directe](how-to-connect-pta.md) comme méthode de connexion utilisateur, aucune vérification de prérequis n’est nécessaire. Si vous utilisez la [synchronisation de hachage de mot de passe](how-to-connect-password-hash-synchronization.md) comme méthode de connexion, et s’il existe un pare-feu entre Azure AD Connect et Azure AD, vérifiez les points suivants :
+* **Configurez votre serveur Azure AD Connect** : si vous utilisez [l’authentification directe](how-to-connect-pta.md) comme méthode de connexion utilisateur, aucune vérification de prérequis n’est nécessaire. Si vous utilisez la [synchronisation de hachage de mot de passe](how-to-connect-password-hash-synchronization.md) comme méthode de connexion, et s’il existe un pare-feu entre Azure AD Connect et Azure AD, vérifiez les points suivants :
    - Vous utilisez Azure AD Connect 1.1.644.0 ou version ultérieure. 
    - Si votre pare-feu ou votre proxy permettent la mise en liste verte DNS, mettez dans la liste verte les connexions aux URL **\*.msappproxy.net** via le port 443. Dans le cas contraire, autorisez l’accès aux [plages d’adresses IP du centre de données Azure](https://www.microsoft.com/download/details.aspx?id=41653), qui sont mises à jour chaque semaine. Cette condition préalable est applicable uniquement lorsque vous activez la fonctionnalité. Elle n'est pas requise pour les connexions d'utilisateur réelles.
 
     >[!NOTE]
     >Les versions 1.1.557.0, 1.1.558.0, 1.1.561.0 et 1.1.614.0 d’Azure AD Connect comportent un problème lié à la synchronisation de hachage de mot de passe. Si vous _ne prévoyez pas_ d’utiliser la synchronisation de hachage de mot de passe en même temps que l’authentification directe, lisez les [Notes de publication Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470) pour en savoir plus.
 
-* **Utiliser une topologie Azure AD Connect prise en charge**  : veillez à utiliser une des topologies d’Azure Connect AD prises en charge et décrites [ici](plan-connect-topologies.md).
+* **Utiliser une topologie Azure AD Connect prise en charge** . Veillez à utiliser une des topologies d’Azure Connect AD prises en charge et décrites [ici](plan-connect-topologies.md).
 
     >[!NOTE]
     >L’authentification unique fluide prend en charge plusieurs forêts AD, qu’il existe ou non des approbations AD entre elles.
 
-* **Définir les informations d’identification de l’administrateur de domaine** : Vous devez disposer des informations d’identification de l’administrateur de domaine pour chaque forêt Active Directory, dans les scénarios suivants :
+* **Définir les informations d'identification de l'administrateur de domaine** : Vous devez disposer des informations d'identification de l'administrateur de domaine pour chaque forêt Active Directory, dans les scénarios suivants :
     * Synchronisation avec Azure AD via Azure AD Connect.
     * La forêt contient des utilisateurs pour lesquels vous souhaitez activer Seamless SSO.
     
-* **Activer l’authentification moderne** : Vous devez activer [l’authentification moderne](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) sur votre locataire pour que cette fonctionnalité fonctionne.
+* **Activer l’authentification moderne**. Vous devez activer [l’authentification moderne](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) sur votre locataire pour que cette fonctionnalité fonctionne.
 
-* **Utiliser les dernières versions de clients Office 365** : Pour obtenir une utilisation de l’authentification unique sans assistance avec les clients Office 365 (Outlook, Word, Excel, etc.), vos utilisateurs doivent utiliser la version 16.0.8730.xxxx ou une version ultérieure.
+* **Utiliser les dernières versions de clients Office 365**. Pour obtenir une utilisation de l’authentification unique sans assistance avec les clients Office 365 (Outlook, Word, Excel, etc.), vos utilisateurs doivent utiliser la version 16.0.8730.xxxx ou une version ultérieure.
 
-## <a name="step-2-enable-the-feature"></a>Étape 2 : Activer la fonctionnalité
+## <a name="step-2-enable-the-feature"></a>Étape 2 : Activer la fonctionnalité
 
 Activez Seamless SSO via [Azure AD Connect](whatis-hybrid-identity.md).
 
@@ -67,11 +67,11 @@ Si vous procédez à une nouvelle installation d’Azure AD Connect, choisissez 
 >[!NOTE]
 > L’option est uniquement disponible pour la sélection si la méthode d’authentification est **Synchronisation de hachage du mot de passe** ou **Authentification directe**.
 
-![Azure AD Connect : Connexion de l’utilisateur](./media/how-to-connect-sso-quick-start/sso8.png)
+![Azure AD Connect : connexion utilisateur](./media/how-to-connect-sso-quick-start/sso8.png)
 
 Si vous disposez déjà d’une installation Azure AD Connect, sélectionnez la page **Modifier la connexion utilisateur** dans Azure AD Connect, puis cliquez sur **Suivant**. Si vous utilisez Azure AD Connect version 1.1.880.0 ou ultérieure, l’option **Activer l’authentification unique** est sélectionnée par défaut. Si vous utilisez des versions antérieures d’Azure AD Connect, sélectionnez l’option **Activer l’authentification unique**.
 
-![Azure AD Connect : Modifier la connexion de l’utilisateur](./media/how-to-connect-sso-quick-start/changeusersignin.png)
+![Azure AD Connect : Modifier la connexion utilisateur](./media/how-to-connect-sso-quick-start/changeusersignin.png)
 
 Suivez les instructions de l’Assistant jusqu’à ce que vous accédiez à la page **Activer l’authentification unique**. Fournissez les informations d'identification de l'administrateur de domaine pour chaque forêt Active Directory, dans les scénarios suivants :
 
@@ -90,7 +90,7 @@ Suivez ces instructions pour vérifier que vous avez activé l’authentificatio
 3. Sélectionnez ensuite **Azure AD Connect**.
 4. Vérifiez que la fonctionnalité **Authentification unique transparente** est **activée**.
 
-![Portail Azure : Volet Azure AD Connect](./media/how-to-connect-sso-quick-start/sso10.png)
+![Portail Azure : volet Azure AD Connect](./media/how-to-connect-sso-quick-start/sso10.png)
 
 >[!IMPORTANT]
 > L’authentification unique fluide crée un compte d’ordinateur nommé `AZUREADSSOACC` sur votre instance Active Directory (AD) locale, dans chaque forêt AD. Pour des raisons de sécurité, le compte d’ordinateur `AZUREADSSOACC` doit être fortement protégé. Seuls des administrateurs de domaine doivent être en mesure de gérer le compte d’ordinateur. Vérifiez que la délégation Kerberos sur le compte d’ordinateur est désactivée et qu’aucun autre compte dans Active Directory ne dispose d’autorisations de délégation sur le compte d’ordinateur `AZUREADSSOACC`. Stockez le compte d’ordinateur dans une unité d’organisation (UO) où il sera protégé contre les suppressions accidentelles et à laquelle seuls des administrateurs de domaine ont accès.
@@ -98,7 +98,7 @@ Suivez ces instructions pour vérifier que vous avez activé l’authentificatio
 >[!NOTE]
 > Si vous utilisez des architectures de type « Pass-The-Hash » et Atténuation des vols d'informations d'identification dans votre environnement local, apportez les changements qui conviennent pour veiller à ce que le compte d'ordinateur `AZUREADSSOACC` ne se retrouve pas dans le conteneur Quarantaine. 
 
-## <a name="step-3-roll-out-the-feature"></a>Étape 3 : Déployer la fonctionnalité
+## <a name="step-3-roll-out-the-feature"></a>Étape 3 : Déployer la fonctionnalité
 
 Vous pouvez déployer progressivement l’authentification unique fluide pour vos utilisateurs en suivant les instructions fournies ci-dessous. Vous commencez par ajouter l’URL Azure AD ci-après aux paramètres de la zone Intranet de tous les utilisateurs ou des utilisateurs sélectionnés en utilisant la stratégie de groupe dans Active Directory :
 
@@ -127,14 +127,14 @@ Il y a deux façons de modifier les paramètres de la zone Intranet des utilisat
 3. Accédez à **Configuration utilisateur** > **Stratégie** > **Modèles d'administration** > **Composants Windows** > **Internet Explorer** > **Panneau de configuration Internet** > **Page Sécurité**. Puis sélectionnez **Liste des attributions de sites aux zones**.
     ![Authentification unique](./media/how-to-connect-sso-quick-start/sso6.png)
 4. Activez la stratégie, puis entrez les valeurs suivantes dans la boîte de dialogue :
-   - **Nom de la valeur** : URL Azure AD vers laquelle les tickets Kerberos sont transférés.
-   - **Valeur** (données) : **1** indique la zone Intranet.
+   - **Nom de la valeur** : URL Azure AD vers laquelle les tickets Kerberos sont transférés.
+   - **Valeur** (données) : **1** indique la zone Intranet.
 
      Le résultat ressemble à ceci :
 
      Nom de la valeur : `https://autologon.microsoftazuread-sso.com`
   
-     Valeur (données) : 1
+     Valeur (données) : 1
 
    >[!NOTE]
    > Si vous souhaitez interdire à certains utilisateurs l’utilisation de l’authentification unique transparente (par exemple, si ces utilisateurs se connectent sur des bornes partagées), définissez les valeurs précédentes sur **4**. Cette opération ajoute l’URL Azure AD à la zone Sites sensibles et rend l’authentification unique transparente inutilisable en permanence.
@@ -161,10 +161,10 @@ Il y a deux façons de modifier les paramètres de la zone Intranet des utilisat
     ![Authentification unique](./media/how-to-connect-sso-quick-start/sso15.png)
 
 4. Entrez les valeurs suivantes dans les champs appropriés et cliquez sur **OK**.
-   - **Chemin de la clé** : ***Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-sso.com\autologon***
+   - **Chemin de la clé** : ***Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-sso.com\autologon***
    - **Nom de la valeur** : ***https***.
-   - **Type de valeur** : ***REG_DWORD***.
-   - **Données de la valeur** : ***00000001***.
+   - **Type de valeur** : ***REG_DWORD***.
+   - **Données de la valeur** : ***00000001***.
  
      ![Authentification unique](./media/how-to-connect-sso-quick-start/sso16.png)
  
@@ -207,7 +207,7 @@ L’utilisation des extensions de stratégie de groupe Active Directory tierces 
 
 L’authentification unique transparente ne fonctionne pas en mode de navigation privée sur Firefox et Microsoft Edge. Par ailleurs, il ne fonctionne pas sur Internet Explorer si le navigateur en cours d’utilisation est en mode Protection améliorée. Pour la prochaine version de Microsoft Edge basé sur Chromium, elle ne fonctionnera pas en mode InPrivate et Guest de par sa conception.
 
-## <a name="step-4-test-the-feature"></a>Étape 4 : Tester la fonctionnalité
+## <a name="step-4-test-the-feature"></a>Étape 4 : Tester la fonctionnalité
 
 Pour tester la fonctionnalité d’un utilisateur spécifique, assurez-vous que toutes les conditions suivantes sont en place :
   - L’utilisateur se connecte à un appareil d’entreprise.
@@ -222,7 +222,7 @@ Pour tester le scénario dans lequel l’utilisateur n’a pas à entrer le nom 
    - Connectez-vous à `https://myapps.microsoft.com/contoso.onmicrosoft.com` dans une nouvelle session de navigateur privée. Remplacez *contoso* par le nom de votre locataire.
    - Connectez-vous à `https://myapps.microsoft.com/contoso.com` dans une nouvelle session de navigateur privée. Remplacez *contoso.com* par un domaine vérifié (pas un domaine fédéré) dans votre locataire.
 
-## <a name="step-5-roll-over-keys"></a>Étape 5 : Substituer les clés
+## <a name="step-5-roll-over-keys"></a>Étape 5 : substituer les clés
 
 À l’étape 2, Azure AD Connect crée des comptes d’ordinateurs (représentant Azure AD) dans toutes les forêts Azure Directory sur lesquelles vous avez activé l’authentification unique transparente. Pour en savoir plus, consultez [Authentification unique transparente Azure Active Directory : immersion technique](how-to-connect-sso-how-it-works.md).
 
@@ -236,7 +236,7 @@ Pour obtenir des instructions sur la substitution des clés, voir [Authentificat
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Présentation technique approfondie](how-to-connect-sso-how-it-works.md) : Découvrez comment fonctionne la fonctionnalité Authentification unique transparente.
-- [Forum Aux Questions](how-to-connect-sso-faq.md) : Obtenez des réponses aux questions fréquentes sur l’authentification unique transparente.
-- [Résoudre les problèmes](tshoot-connect-sso.md) : Découvrez comment résoudre les problèmes courants liés à la fonctionnalité Authentification unique transparente.
+- [Présentation technique approfondie](how-to-connect-sso-how-it-works.md) : découvrez comment fonctionne la fonctionnalité Authentification unique transparente.
+- [Forum aux questions](how-to-connect-sso-faq.md) : obtenez des réponses aux questions fréquentes sur l’authentification unique transparente.
+- [Résoudre les problèmes](tshoot-connect-sso.md) : découvrez comment résoudre les problèmes courants liés à la fonctionnalité Authentification unique transparente.
 - [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) : utilisez le Forum Azure Active Directory pour consigner de nouvelles demandes de fonctionnalités.

@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
 ms.openlocfilehash: 0a54416a70a8561edfad5915944100e0ce686bbf
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75771255"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Serveurs frontaux multiples pour Azure Load Balancer
@@ -47,7 +47,7 @@ Azure Load Balancer vous permet d’associer les deux types de règle sur la mê
 
 Nous examinons ces scénarios plus en détail en commençant par le comportement par défaut.
 
-## <a name="rule-type-1-no-backend-port-reuse"></a>Type de règle n°1 : pas de réutilisation des ports principaux
+## <a name="rule-type-1-no-backend-port-reuse"></a>Type de règle nº 1 : pas de réutilisation des ports principaux
 
 ![Illustration de serveurs frontaux multiples avec serveur frontal vert et violet](./media/load-balancer-multivip-overview/load-balancer-multivip.png)
 

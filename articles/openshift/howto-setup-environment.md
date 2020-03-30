@@ -7,12 +7,12 @@ ms.author: jzim
 ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: container-service
-ms.openlocfilehash: 559c932c4826e82f36c09b85ee8da4186d90d34d
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: e7396ce9fbed46688d59b582f246e5454d063fb3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76276085"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477032"
 ---
 # <a name="set-up-your-azure-red-hat-openshift-dev-environment"></a>Configurer votre environnement de développement Azure Red Hat OpenShift
 
@@ -30,7 +30,7 @@ Les instructions suivantes vous guideront tout au long de ces prérequis.
 
 Azure Red Hat OpenShift requiert la version 2.0.65 ou une version ultérieure d’Azure CLI. Si vous avez déjà installé Azure CLI, vous pouvez vérifier la version que vous avez en exécutant :
 
-```bash
+```azurecli
 az --version
 ```
 
@@ -48,49 +48,49 @@ Pour enregistrer manuellement ces fonctionnalités et fournisseurs, utilisez les
 
 1. Si vous possédez plusieurs abonnements Azure, indiquez l’ID d’abonnement pertinent :
 
-    ```bash
+    ```azurecli
     az account set --subscription <SUBSCRIPTION ID>
     ```
 
 1. Inscrire la fonctionnalité AROGA Microsoft.ContainerService :
 
-    ```bash
+    ```azurecli
     az feature register --namespace Microsoft.ContainerService -n AROGA
     ```
 
 1. Inscrire le fournisseur Microsoft.Storage :
 
-    ```bash
+    ```azurecli
     az provider register -n Microsoft.Storage --wait
     ```
     
 1. Inscrire le fournisseur Microsoft.Compute :
 
-    ```bash
+    ```azurecli
     az provider register -n Microsoft.Compute --wait
     ```
 
 1. Inscrire le fournisseur Microsoft.Solutions :
 
-    ```bash
+    ```azurecli
     az provider register -n Microsoft.Solutions --wait
     ```
 
 1. Inscrire le fournisseur Microsoft.Network :
 
-    ```bash
+    ```azurecli
     az provider register -n Microsoft.Network --wait
     ```
 
 1. Inscrire le fournisseur Microsoft.KeyVault :
 
-    ```bash
+    ```azurecli
     az provider register -n Microsoft.KeyVault --wait
     ```
 
 1. Actualisez l’inscription du fournisseur de ressources Microsoft.ContainerService :
 
-    ```bash
+    ```azurecli
     az provider register -n Microsoft.ContainerService --wait
     ```
 

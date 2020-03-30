@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
 ms.openlocfilehash: 686946b65b4b7540f404a291c87c5ad9c7b7a0ca
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76960294"
 ---
 # <a name="404104-deviceconnectionclosedremotely"></a>404104 DeviceConnectionClosedRemotely
@@ -53,7 +53,7 @@ Voici quelques possibilités :
 
 ### <a name="cause-3"></a>Cause 3
 
-IoT Hub peut rencontrer un problème temporaire. Consultez [Cause d’erreur de serveur interne à IoT Hub](iot-hub-troubleshoot-error-500xxx-internal-errors.md#cause).
+IoT Hub peut rencontrer un problème temporaire. Voir [Cause d’erreur de serveur interne à IoT Hub](iot-hub-troubleshoot-error-500xxx-internal-errors.md#cause).
 
 ## <a name="solutions"></a>Solutions
 

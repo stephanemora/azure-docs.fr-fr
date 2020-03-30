@@ -12,11 +12,11 @@ ms.date: 11/04/2019
 ms.author: diberry
 ms.custom: seodec18
 ms.openlocfilehash: a9a14056e6be62fc1c1b5e542c1a3acceb738eac
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74901210"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79219063"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>Ajouter des échanges de conversation à une base de connaissances
 
@@ -29,7 +29,7 @@ Voici quelques exemples des différentes personnalités. Vous pouvez voir tous l
 Pour la requête utilisateur de `When is your birthday?`, chaque personnalité a une réponse qui lui est propre :
 
 <!-- added quotes so acrolinx doesn't score these sentences -->
-|Personnalité|Exemples|
+|Personnalité|Exemple|
 |--|--|
 |Professionnel|L’âge ne me concerne pas réellement.|
 |Convivial|Je n’ai pas vraiment d’âge.|

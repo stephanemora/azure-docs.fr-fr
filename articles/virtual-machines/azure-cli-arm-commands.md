@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 04/18/2017
 ms.author: cynthn
 ms.openlocfilehash: ad213cc02f707609a837ea66b79e51c6f2a617f8
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77919768"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79226977"
 ---
 # <a name="azure-classic-cli-commands"></a>Commandes Azure CLI Classic 
 
@@ -190,7 +190,7 @@ L'outil se sert des informations sur votre abonnement Azure pour se connecter à
     hdinsight config add-script-action [options] <configFilePath>
 
 
-Exemple : Créez un fichier de configuration qui contient une action de script à exécuter lors de la création d’un cluster.
+Exemple : créer un fichier de configuration qui contient une action de script à exécuter lors de la création d’un cluster.
 
     hdinsight config create "C:\myFiles\configFile.config"
     hdinsight config add-script-action --configFilePath "C:\myFiles\configFile.config" --nodeType HeadNode --uri <scriptActionURI> --name myScriptAction --parameters "-param value"
@@ -199,7 +199,7 @@ Exemple : Créez un fichier de configuration qui contient une action de script �
 
     hdinsight cluster create [options] <clusterName>
 
-Exemple : Créer une instance de Storm sur un cluster Linux
+Exemple : créer un Storm sur Linux cluster
 
     azure hdinsight cluster create -g myarmgroup -l westus -y Linux --clusterType Storm --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 myNewCluster01
 
@@ -207,7 +207,7 @@ Exemple : Créer une instance de Storm sur un cluster Linux
     + Submitting the request to create cluster...
     info:    hdinsight cluster create command OK
 
-Exemple : Créer un cluster avec une action de script
+Exemple : créer un cluster avec une action de script
 
     azure hdinsight cluster create -g myarmgroup -l westus -y Linux --clusterType Hadoop --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 –configurationPath "C:\myFiles\configFile.config" myNewCluster01
 

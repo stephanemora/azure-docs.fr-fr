@@ -1,6 +1,6 @@
 ---
-title: Fichier include
-description: Fichier include
+title: Fichier Include
+description: Fichier Include
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,17 +9,17 @@ ms.date: 02/19/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: ec684e5e6fa2ef8e9ed30be49f59e8aa7ef3a28b
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79117103"
 ---
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>Combien de points de terminaison clients VPN puis-je avoir dans ma configuration point à site ?
 
 Cela dépend de la référence SKU de passerelle. Pour plus d’informations sur le nombre de connexions prises en charge, consultez [Références SKU de passerelle](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku).
 
-### <a name="supportedclientos"></a>Quels systèmes d’exploitation client puis-je utiliser avec une connexion point à site ?
+### <a name="what-client-operating-systems-can-i-use-with-point-to-site"></a><a name="supportedclientos"></a>Quels systèmes d’exploitation client puis-je utiliser avec une connexion point à site ?
 
 Les systèmes d’exploitation clients pris en charge sont les suivants :
 
@@ -103,7 +103,7 @@ Azure prend en charge Windows, Mac et Linux pour les VPN de point à site (P2S).
 
 Oui, vous pouvez activer ces nouvelles fonctionnalités sur les passerelles déjà déployées à l’aide de Powershell ou du portail Azure, pourvu que la référence SKU de passerelle utilisée prenne en charge RADIUS et/ou IKEv2. Par exemple, la référence SKU de base de passerelle VPN ne prend pas en charge RADIUS ou IKEv2.
 
-### <a name="removeconfig"></a>Comment supprimer la configuration d’une connexion P2S ?
+### <a name="how-do-i-remove-the-configuration-of-a-p2s-connection"></a><a name="removeconfig"></a>Comment supprimer la configuration d’une connexion P2S ?
 
 Vous pouvez supprimer une configuration P2S avec Azure CLI et PowerShell en utilisant les commandes suivantes :
 

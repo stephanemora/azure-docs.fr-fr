@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: diberry
 ms.openlocfilehash: 1f2b293acdc77e25e6b932c47d466cc28a04a2b6
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383683"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79219135"
 ---
 # <a name="add-entities-to-extract-data"></a>Ajouter des entités pour extraire des données 
 
@@ -43,7 +43,7 @@ Lors de l’étiquetage, vous pouvez étiqueter des entités individuelles, puis
 
 Utilisez le tableau suivant pour comprendre quelles entités créer, puis les créer ou les ajouter à l’application. 
 
-|Type d’entité|Où créer l’entité dans le portail LUIS|
+|Type d'entité|Où créer l’entité dans le portail LUIS|
 |--|--|
 |Entité apprise par la machine|Détail de l’entité ou de l’intention|
 |Entité de liste|Détail de l’entité ou de l’intention|

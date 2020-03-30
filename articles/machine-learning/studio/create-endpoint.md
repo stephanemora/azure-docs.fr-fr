@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/15/2019
-ms.openlocfilehash: 96f5eb84f356089124708738f8a9e56b031c76bf
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 980ed1e54de30ec8a2dc0c1fdac6546d31f48a00
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168829"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79218200"
 ---
 # <a name="create-endpoints-for-deployed-azure-machine-learning-studio-classic-web-services"></a>Créer des points de terminaison pour les services web Azure Machine Learning Studio (classique) déployés
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 > [!NOTE]
 > Cette rubrique décrit les techniques applicables à un service web Machine Learning **classique**.
@@ -37,7 +39,7 @@ Vous pouvez ajouter un point de terminaison à un service web à l’aide du por
 3. Cliquez sur **Nouveau**.
 4. Tapez un nom et une description pour le point de terminaison. Les noms de point de terminaison doivent compter au maximum 24 caractères, et doivent être composés de lettres minuscules ou de chiffres. Sélectionnez le niveau de journalisation et activez les exemples de données si nécessaire. Pour plus d’informations sur la journalisation, consultez [Activation de la journalisation pour les services web de Machine Learning](web-services-logging.md).
 
-## <a id="scaling"></a> Mettre à l’échelle un service web en ajoutant des points de terminaison supplémentaires
+## <a name="scale-a-web-service-by-adding-additional-endpoints"></a><a id="scaling"></a> Mettre à l’échelle un service web en ajoutant des points de terminaison supplémentaires
 
 Par défaut, chaque service web publié est configuré pour prendre en charge 20 requêtes simultanées, avec un maximum de 200 requêtes. Azure Machine Learning Studio (classique) optimise automatiquement ce paramètre pour améliorer les performances de votre service web et la valeur de portail est ignorée.
 

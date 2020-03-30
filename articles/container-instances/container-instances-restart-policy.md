@@ -3,12 +3,12 @@ title: Redémarrer la stratégie pour des tâches à exécution unique
 description: Découvrez comment utiliser Azure Container Instances pour exécuter des tâches jusqu’à complétion, telles que des tâches de génération, de test ou de rendu d’image.
 ms.topic: article
 ms.date: 04/15/2019
-ms.openlocfilehash: f814b1c99827c07f8dadfb0cfd80c87a93377cdc
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 8ef4ef228038242f53abc8041470f7f596ab1157
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533457"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80131492"
 ---
 # <a name="run-containerized-tasks-with-restart-policies"></a>Exécuter des tâches conteneurisées avec des stratégies de redémarrage
 
@@ -57,7 +57,10 @@ az container create \
 Azure Container Instances démarre le conteneur, puis l’arrête lorsque l’exécution de son application (ou de son script, dans ce cas) est terminée. Quand Azure Container Instances arrête un conteneur dont la stratégie de redémarrage est `Never` ou `OnFailure`, l’état du conteneur est défini sur **Terminé**. Vous pouvez vérifier l’état du conteneur à l’aide de la commande [az container show][az-container-show] :
 
 ```azurecli-interactive
-az container show --resource-group myResourceGroup --name mycontainer --query containers[0].instanceView.currentState.state
+az container show \
+    --resource-group myResourceGroup \
+    --name mycontainer \
+    --query containers[0].instanceView.currentState.state
 ```
 
 Exemple de sortie :
@@ -91,7 +94,7 @@ Cet exemple montre la sortie du script envoyé à STDOUT. Toutefois, il est poss
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Les scénarios basés sur des tâches, telles que le traitement par lots d’un jeu de données volumineux avec plusieurs conteneurs, peuvent tirer parti de l’utilisation de [lignes de commande](container-instances-start-command.md) ou de [variables d’environnement](container-instances-environment-variables.md) personnalisées au moment de l’exécution.
+Les scénarios basés sur des tâches, telles que le traitement par lots d’un jeu de données volumineux avec plusieurs conteneurs, peuvent tirer parti de l’utilisation de [lignes de commande](container-instances-environment-variables.md) ou de [variables d’environnement](container-instances-start-command.md) personnalisées au moment de l’exécution.
 
 Pour plus d’informations sur la conservation de la sortie de vos conteneurs qui s’exécutent jusqu’à achèvement, consultez [Montage d’un partage de fichiers Azure avec Azure Container Instances](container-instances-mounting-azure-files-volume.md).
 

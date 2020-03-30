@@ -4,10 +4,10 @@ description: Soyez informé par SMS, e-mail ou webhook en cas de service Azure.
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.openlocfilehash: d318adc76959ac24f4be9946167965a83053f632
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75749307"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>Créer des alertes de journal d’activité sur les notifications de service
@@ -60,7 +60,7 @@ Pour plus d’informations sur le mode de configuration des alertes de notificat
     > [!NOTE]
     > Cet abonnement est utilisé pour enregistrer l’alerte de journal d’activité. La ressource d’alerte est déployée pour cet abonnement et surveille les événements du journal d’activité.
 
-1. Choisissez les **types d’événements** pour lesquels vous voulez recevoir des alertes : *Problème de service*, *maintenance planifiée* et *avis d’intégrité* 
+1. Choisissez les **types d’événements** pour lesquels vous voulez être alerté : *problème de service*, *maintenance planifiée* et *avis d’intégrité* 
 
 1. Définissez les détails de l’alerte en entrant le **nom de la règle d’alerte** et une **description**.
 
@@ -72,7 +72,7 @@ Pour plus d’informations sur le mode de configuration des alertes de notificat
 
 1. Définissez ensuite une liste de destinataires en indiquant les éléments suivants :
 
-    a. **Name** : entrez le nom, l’alias ou l’identificateur du destinataire.
+    a. **Nom** : entrez le nom, l’alias ou l’identificateur du destinataire.
 
     b. **Type d’action** : sélectionnez SMS, message électronique, Webhook, application Azure et plus encore.
 

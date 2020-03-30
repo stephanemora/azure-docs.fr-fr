@@ -2,18 +2,18 @@
 title: Utilisation du stockage de files d’attente à partir de Java - Stockage Azure
 description: Découvrez comment utiliser le stockage de files d’attente pour créer et supprimer des files d’attente, ainsi que pour insérer, récupérer et supprimer des messages avec la bibliothèque de client de stockage Azure pour Java.
 author: mhopkins-msft
-ms.service: storage
 ms.author: mhopkins
 ms.date: 12/08/2016
+ms.service: storage
 ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
-ms.openlocfilehash: 17d02d8df96927aa506683fef94899e5c5114684
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 7658b8541e7a79a5e547a6649b35681446e34b0b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839038"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80067146"
 ---
 # <a name="how-to-use-queue-storage-from-java"></a>Utilisation du stockage de files d'attente à partir de Java
 
@@ -48,7 +48,7 @@ import com.microsoft.azure.storage.queue.*;
 
 ## <a name="set-up-an-azure-storage-connection-string"></a>Configuration d’une chaîne de connexion au stockage Azure
 
-Un client de stockage Azure utilise une chaîne de connexion de stockage pour stocker des points de terminaison et des informations d’identification permettant d’accéder aux services de gestion des données. Lors de l’exécution dans une application cliente, vous devez spécifier la chaîne de connexion au stockage au format suivant, en indiquant le nom de votre compte de stockage et sa clé d’accès primaire, correspondant aux valeurs *AccountName* et *AccountKey*, sur le [portail Azure](https://portal.azure.com). Cet exemple vous montre comment déclarer un champ statique pour qu’il contienne une chaîne de connexion :
+Un client de stockage Azure utilise une chaîne de connexion de stockage pour stocker des points de terminaison et des informations d’identification permettant d’accéder aux services de gestion des données. Lors de l’exécution dans une application cliente, vous devez spécifier la chaîne de connexion au stockage au format suivant, en indiquant le nom de votre compte de stockage et sa clé d’accès primaire, correspondant aux valeurs [AccountName](https://portal.azure.com) et *AccountKey*, sur le *portail Azure*. Cet exemple vous montre comment déclarer un champ statique pour qu’il contienne une chaîne de connexion :
 
 ```java
 // Define the connection-string with your values.
@@ -68,8 +68,8 @@ String storageConnectionString =
 
 Les exemples ci-dessous partent du principe que vous avez utilisé l’une de ces deux méthodes pour obtenir la chaîne de connexion de stockage.
 
-## <a name="how-to-create-a-queue"></a>Activation Créer une file d’attente
-Un objet **CloudQueueClient** vous permet d'obtenir les objets de référence pour les files d'attente. Le code suivant crée un objet **CloudQueueClient** . (Remarque : D’autres méthodes permettent de créer des objets **CloudStorageAccount**. Pour plus d’informations, consultez la section **CloudStorageAccount** dans la page [Référence du Kit de développement logiciel (SDK) du client Azure Storage].
+## <a name="how-to-create-a-queue"></a>Création d'une file d'attente
+Un objet **CloudQueueClient** vous permet d'obtenir les objets de référence pour les files d'attente. Le code suivant crée un objet **CloudQueueClient** . (Remarque : d’autres méthodes permettent de créer des objets **CloudStorageAccount**. Pour plus d’informations, reportez-vous à la classe **CloudStorageAccount** dans la page [Référence du Kit de développement logiciel (SDK) du client Azure Storage].)
 
 Utilisez l'objet **CloudQueueClient** pour obtenir une référence pointant vers la file d'attente à utiliser. Si la file d'attente n'existe pas, vous pouvez la créer :
 
@@ -96,7 +96,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-add-a-message-to-a-queue"></a>Activation Ajout d'un message à une file d'attente
+## <a name="how-to-add-a-message-to-a-queue"></a>Ajout d'un message à une file d'attente
 Pour insérer un message dans une file d'attente existante, commencez par créer un **CloudQueueMessage**. Appelez ensuite la méthode **addMessage** . Un **CloudQueueMessage** peut être créé à partir d'une chaîne (au format UTF-8) ou d'un tableau d'octets. Voici le code qui crée une file d'attente (si elle n'existe pas) et insère le message « Hello, World ».
 
 ```java
@@ -126,7 +126,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-peek-at-the-next-message"></a>Activation Lecture furtive du message suivant
+## <a name="how-to-peek-at-the-next-message"></a>Lecture furtive du message suivant
 Vous pouvez lire furtivement le message au début de la file d'attente sans l'enlever de la file d'attente en appelant **peekMessage**.
 
 ```java
@@ -158,7 +158,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-change-the-contents-of-a-queued-message"></a>Activation Modification du contenu d'un message en file d'attente
+## <a name="how-to-change-the-contents-of-a-queued-message"></a>Modification du contenu d'un message en file d'attente
 Vous pouvez modifier le contenu d'un message placé dans la file d'attente. Si le message représente une tâche, vous pouvez utiliser cette fonctionnalité pour mettre à jour l'état de la tâche. Le code suivant met à jour le message de la file d'attente avec un nouveau contenu et ajoute 60 secondes au délai d'expiration de la visibilité. L’extension du délai de visibilité enregistre l'état de la tâche associée au message et accorde une minute supplémentaire au client pour traiter le message. Vous pouvez utiliser cette technique pour suivre des flux de travail à plusieurs étapes sur les messages de file d'attente, sans devoir reprendre du début si une étape du traitement échoue à cause d'une défaillance matérielle ou logicielle. Normalement, vous conservez aussi un nombre de nouvelles tentatives et si le message est retenté plus de *n* fois, vous le supprimez. Cela protège du déclenchement d'une erreur d'application par un message chaque fois qu'il est traité.
 
 L'exemple de code suivant effectue une recherche dans la file d'attente de messages, recherche le premier message dont le contenu correspond à « Hello, World », modifie le contenu du message, puis se ferme.
@@ -241,7 +241,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-get-the-queue-length"></a>Activation Obtention de la longueur de la file d'attente
+## <a name="how-to-get-the-queue-length"></a>Obtention de la longueur de la file d'attente
 Vous pouvez obtenir une estimation du nombre de messages dans une file d'attente. La méthode **downloadAttributes** demande au service de File d'attente plusieurs valeurs actives, y compris le nombre de messages dans une file d'attente. Ce nombre est approximatif étant donné que des messages peuvent être ajoutés ou supprimés une fois que le service de File d'attente a répondu à votre demande. La méthode **getApproximateMessageCount** renvoie la dernière valeur extraite par l’appel à **downloadAttributes**, sans appeler le service de File d’attente.
 
 ```java
@@ -273,7 +273,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-dequeue-the-next-message"></a>Activation Suppression du message suivant de la file d’attente
+## <a name="how-to-dequeue-the-next-message"></a>Procédure : Suppression du message suivant dans la file d’attente
 Votre code enlève un message d'une file d'attente en deux étapes. Lorsque vous appelez **retrieveMessage**, vous obtenez le message suivant dans une file d'attente. Un message renvoyé par **retrieveMessage** devient invisible de tout autre code lisant les messages de cette file d'attente. Par défaut, ce message reste invisible pendant 30 secondes. Pour finaliser la suppression du message de la file d'attente, vous devez aussi appeler **deleteMessage**. Ce processus de suppression d'un message en deux étapes garantit que, si votre code ne parvient pas à traiter un message à cause d'une défaillance matérielle ou logicielle, une autre instance de votre code peut obtenir le même message et réessayer. Votre code appelle **deleteMessage** juste après le traitement du message.
 
 ```java
@@ -337,7 +337,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-list-the-queues"></a>Activation Répertorier les files d’attente
+## <a name="how-to-list-the-queues"></a>Procédure : Obtention de la liste des files d’attente
 Pour obtenir la liste des files d’attente en cours, appelez la méthode **CloudQueueClient.listQueues()** , qui renvoie une collection d’objets **CloudQueue**.
 
 ```java
@@ -365,7 +365,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-delete-a-queue"></a>Activation Suppression d'une file d'attente
+## <a name="how-to-delete-a-queue"></a>Suppression d'une file d'attente
 Pour supprimer une file d’attente et tous les messages qu’elle contient, appelez la méthode **deleteIfExists** sur l’objet **CloudQueue**.
 
 ```java

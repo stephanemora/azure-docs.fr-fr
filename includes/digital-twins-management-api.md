@@ -10,10 +10,10 @@ ms.topic: include
 ms.date: 01/06/2020
 ms.custom: include file
 ms.openlocfilehash: bacb665eeffc6bb5351d11ec74139a272c95a9fb
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75692535"
 ---
 Dans les exemples ci-dessous, `YOUR_MANAGEMENT_API_URL` fait référence à l’URI des API Digital Twins :

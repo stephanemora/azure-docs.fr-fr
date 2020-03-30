@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
 ms.openlocfilehash: 8a4012d204b6dafa1233e4ce3d878590120be47d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60640223"
 ---
 # <a name="scale-aspnet-core-signalr-applications-with-azure-signalr-service"></a>Mettre à l’échelle des applications ASP.NET Core SignalR avec le service Azure SignalR
 
 ## <a name="developing-signalr-apps"></a>Développer des applications SignalR
 
-Actuellement, vous pouvez utiliser [deux versions](https://docs.microsoft.com/aspnet/core/signalr/version-differences) de SignalR avec vos applications web : SignalR pour ASP.NET et ASP.NET Core SignalR, qui est la version la plus récente. Le service Azure SignalR est un service géré par Azure qui repose sur ASP.NET Core SignalR.
+Il existe actuellement [deux versions](https://docs.microsoft.com/aspnet/core/signalr/version-differences) de SignalR que vous pouvez utiliser avec vos applications web : SignalR pour ASP.NET et ASP.NET Core SignalR (la plus récente). Le service Azure SignalR est un service géré par Azure qui repose sur ASP.NET Core SignalR.
 
 ASP.NET Core SignalR est une nouvelle version entièrement réécrite, qui par conséquent n’offre pas de compatibilité descendante avec la version antérieure de SignalR. Les API et les comportements sont différents. Le Kit de développement logiciel (SDK) ASP.NET Core SignalR cible .NET Standard ; il est donc utilisable avec .NET Framework. Il oblige toutefois à utiliser les nouvelles API, plutôt que les anciennes. Si vous utilisez SignalR et que vous souhaitez passer à ASP.NET Core SignalR ou au service Azure SignalR, vous devrez modifier votre code de façon à gérer les différences d’API.
 
@@ -31,7 +31,7 @@ Vous avez toujours la possibilité de déployer votre application web Azure, com
 
 L’une des principales raisons d’utiliser le service Azure SignalR est la simplicité. Avec le service Azure SignalR, vous n’avez pas besoin de gérer les problèmes de performances, d’évolutivité ou de disponibilité. Le contrat de niveau de service de 99,9 % s’en occupe pour vous.
 
-Par ailleurs, WebSocket est généralement la technique privilégiée pour prendre en charge des mises à jour de contenu en temps réel. Toutefois, plus le nombre de connexions WebSocket persistantes augmente, plus l’équilibrage de charge devient problématique. Il existe différentes solutions : l’équilibrage de charge DNS, les équilibreurs de charge matérielle et l’équilibrage de charge logicielle. Le service Azure SignalR gère ce problème à votre place.
+Par ailleurs, WebSocket est généralement la technique privilégiée pour prendre en charge des mises à jour de contenu en temps réel. Toutefois, plus le nombre de connexions WebSocket persistantes augmente, plus l’équilibrage de charge devient problématique. Il existe différentes solutions : l’équilibrage de charge DNS, les équilibreurs de charge matériels et l’équilibrage de charge logiciel. Le service Azure SignalR gère ce problème à votre place.
 
 Il se peut également que vous n’ayez pas du tout besoin d’héberger réellement une application web. La logique de votre application web peut tirer parti de [l’informatique sans serveur](https://azure.microsoft.com/overview/serverless-computing/). Par exemple, votre code n’est hébergé et ne s’exécute qu’à la demande avec des déclencheurs [Azure Functions](https://docs.microsoft.com/azure/azure-functions/). Ce scénario peut être complexe, car votre code ne conserve pas longtemps les connexions avec les clients. Le service Azure SignalR est en mesure de gérer cette situation, car il gère déjà les connexions à votre place. Pour plus d’informations, consultez la [vue d’ensemble de l’utilisation du service SignalR avec Azure Functions](signalr-concept-azure-functions.md).
 
@@ -41,4 +41,4 @@ Il est courant de mettre à l’échelle SignalR avec SQL Server, Azure Service 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Démarrage rapide : Créer une salle de conversation avec Azure SignalR](signalr-quickstart-dotnet-core.md)
+* [Guide de démarrage rapide : Créer une salle de conversation avec Azure SignalR](signalr-quickstart-dotnet-core.md)

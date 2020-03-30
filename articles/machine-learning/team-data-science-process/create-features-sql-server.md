@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 58fa98005d7d89e84404d99cf4f55e456fd91f21
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76721742"
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>Créer des fonctionnalités pour les données dans SQL Server à l’aide de SQL et Python
@@ -34,7 +34,7 @@ Cet article suppose que vous avez :
 * Créé un compte de stockage Azure. Pour des instructions, voir [Créer un compte Stockage Azure](../../storage/common/storage-account-create.md).
 * Stocké vos données dans SQL Server. Si ce n’est pas le cas, consultez [Déplacement de données vers une base de données Azure SQL pour Azure Machine Learning](move-sql-azure.md) pour obtenir des instructions sur la façon d’y déplacer des données.
 
-## <a name="sql-featuregen"></a>Génération de fonctionnalités avec SQL
+## <a name="feature-generation-with-sql"></a><a name="sql-featuregen"></a>Génération de fonctionnalités avec SQL
 Dans cette section, nous décrivons plusieurs manières de générer des fonctionnalités via SQL :  
 
 * [Génération de fonctionnalités utilisant des décomptes](#sql-countfeature)
@@ -46,7 +46,7 @@ Dans cette section, nous décrivons plusieurs manières de générer des fonctio
 > 
 > 
 
-### <a name="sql-countfeature"></a>Génération de fonctionnalités utilisant des décomptes
+### <a name="count-based-feature-generation"></a><a name="sql-countfeature"></a>Génération de fonctionnalités utilisant des décomptes
 Ce document décrit deux manières de générer des fonctionnalités utilisant des décomptes. La première méthode a recours à une somme conditionnelle, tandis que la seconde méthode utilise la clause « where ». Vous pouvez ensuite associer ces nouvelles fonctionnalités à la table d’origine (à l’aide des colonnes de clé primaire) pour disposer de fonctionnalités de décompte parallèlement aux données d’origine.
 
     select <column_name1>,<column_name2>,<column_name3>, COUNT(*) as Count_Features from <tablename> group by <column_name1>,<column_name2>,<column_name3>
@@ -54,13 +54,13 @@ Ce document décrit deux manières de générer des fonctionnalités utilisant d
     select <column_name1>,<column_name2> , sum(1) as Count_Features from <tablename>
     where <column_name3> = '<some_value>' group by <column_name1>,<column_name2>
 
-### <a name="sql-binningfeature"></a>Génération de caractéristiques de compartimentage
+### <a name="binning-feature-generation"></a><a name="sql-binningfeature"></a>Génération de caractéristiques de compartimentage
 L’exemple ci-dessous illustre comment générer des fonctionnalités compartimentées en divisant (à l’aide de cinq emplacements) une colonne numérique qui peut être plutôt utilisée sous la forme d’une fonctionnalité :
 
     `SELECT <column_name>, NTILE(5) OVER (ORDER BY <column_name>) AS BinNumber from <tablename>`
 
 
-### <a name="sql-featurerollout"></a>Déploiement des caractéristiques à partir d’une seule colonne
+### <a name="rolling-out-the-features-from-a-single-column"></a><a name="sql-featurerollout"></a>Déploiement des caractéristiques à partir d’une seule colonne
 Dans cette section, nous décrivons comment déployer une seule colonne dans une table afin de générer des fonctionnalités supplémentaires. Cet exemple présuppose l’existence d’une colonne de latitude ou de longitude dans la table à partir de laquelle vous essayez de générer des fonctionnalités.
 
 Voici une brève introduction relative aux données de latitude/longitude (reposant sur les informations du site stackoverflow `https://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude`). Voici quelques informations utiles à connaître sur les données de localisation avant de créer des fonctionnalités sur le terrain :
@@ -97,12 +97,12 @@ Vous pouvez en outre exploiter ces fonctionnalités de localisation pour génér
 > 
 > 
 
-### <a name="sql-aml"></a>Connexion à Azure Machine Learning
+### <a name="connecting-to-azure-machine-learning"></a><a name="sql-aml"></a>Connexion à Azure Machine Learning
 La fonctionnalité que vous venez de générer peut être ajoutée sous la forme d’une colonne à une table existante ou stockée dans une nouvelle table et associée à la table d’origine pour l’apprentissage automatique. Vous pouvez générer des fonctionnalités ou y accéder si elles sont déjà créées à l’aide du module [Importer des données](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) dans Azure Machine Learning comme expliqué ci-dessous :
 
 ![Lecteurs Azure ML](./media/sql-server-virtual-machine/reader_db_featurizedinput.png)
 
-## <a name="python"></a>Utilisation d’un langage de programmation tel que Python
+## <a name="using-a-programming-language-like-python"></a><a name="python"></a>Utilisation d’un langage de programmation tel que Python
 L’utilisation de Python pour générer des fonctionnalités quand les données sont stockées dans SQL Server est comparable au traitement des données dans l’objet blob Azure à l’aide de Python. Pour obtenir une comparaison, voir [Traiter les données Azure Blob dans votre environnement de science des données](data-blob.md). Chargez les informations de la base de données dans une trame de données pandas pour poursuivre le traitement. Le processus de connexion à la base de données et le chargement des données dans la trame de données sont décrits dans cette section.
 
 Le format de chaîne de connexion ci-après vous permet de vous connecter à une base de données SQL Server à partir de Python à l’aide de pyodbc (en remplaçant les variables servername, dbname, username et password par les valeurs qui vous correspondent) :

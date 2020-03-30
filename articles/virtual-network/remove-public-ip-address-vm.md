@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 12/04/2019
 ms.author: kumud
 ms.openlocfilehash: 1c27af30f97ea967d170b2cccaefb2e95f8fedaf
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74900742"
 ---
 # <a name="dissociate-a-public-ip-address-from-an-azure-vm"></a>Dissocier une IP publique d’une machine virtuelle Azure 
@@ -27,7 +27,7 @@ Vous pouvez utiliser le [Portail Azure](#azure-portal), l’[interface de ligne 
 
 ## <a name="azure-portal"></a>Portail Azure
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Accédez à la machine virtuelle que vous souhaitez dissocier d’une IP publique ou recherchez-la, puis sélectionnez-la.
 3. Dans la page Machine virtuelle, sélectionnez **Vue d’ensemble**, sélectionnez l’IP publique, comme indiqué dans l’image suivante :
 
@@ -39,7 +39,7 @@ Vous pouvez utiliser le [Portail Azure](#azure-portal), l’[interface de ligne 
 
 5. Dans **Dissocier l’IP publique**, sélectionnez **Oui**.
 
-## <a name="azure-cli"></a>D’Azure CLI
+## <a name="azure-cli"></a>Azure CLI
 
 Installez l’[interface de ligne de commande Azure](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json) ou utilisez Azure Cloud Shell. Azure Cloud Shell est un interpréteur de commandes Bash gratuit, que vous pouvez exécuter directement dans le portail Azure. L’interface Azure CLI est préinstallée et configurée pour être utilisée avec votre compte. Sélectionnez le bouton **Essayer** dans les commandes de l’interface de ligne de commande qui suit. En sélectionnant **Essayer**, vous appelez un Cloud Shell avec lequel vous pouvez vous connecter à votre compte Azure.
 

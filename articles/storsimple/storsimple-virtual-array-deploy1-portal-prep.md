@@ -9,11 +9,11 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 7f2c7a6f9c1146627f81dc20386c59a91724b245
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76273832"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228101"
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>Déploiement de StorSimple Virtual Array - Préparation du portail Azure
 
@@ -87,9 +87,9 @@ Avant de commencer, assurez-vous que :
 
 Utilisez la procédure pas à pas suivante afin de préparer votre portail pour le service StorSimple Device Manager.
 
-## <a name="step-1-create-a-new-service"></a>Étape 1 : Créer un service
+## <a name="step-1-create-a-new-service"></a>Étape 1 : Création d’un nouveau service
 
-Une seule instance du service StorSimple Device Manager peut gérer plusieurs instances StorSimple Virtual Array. Procédez comme suit pour créer une instance du service StorSimple Device Manager. Si vous disposez déjà d'un service StorSimple Device Manager pour gérer vos tableaux virtuels, ignorez cette étape et passez à l'[Étape 2 : Obtenir la clé d’inscription du service](#step-2-get-the-service-registration-key).
+Une seule instance du service StorSimple Device Manager peut gérer plusieurs instances StorSimple Virtual Array. Procédez comme suit pour créer une instance du service StorSimple Device Manager. Si vous disposez d'un service StorSimple Device Manager existant pour gérer vos tableaux virtuels, ignorez cette étape et passez à l’[Étape 2 : Obtention de la clé d’inscription](#step-2-get-the-service-registration-key).
 
 [!INCLUDE [storsimple-virtual-array-create-new-service](../../includes/storsimple-virtual-array-create-new-service.md)]
 
@@ -97,11 +97,11 @@ Une seule instance du service StorSimple Device Manager peut gérer plusieurs in
 > Si vous n’avez pas activé la création automatique d’un compte de stockage avec votre service, vous devez créer au moins un compte de stockage après avoir créé un service.
 > 
 > * Si vous n’avez pas créé de compte de stockage automatiquement, accédez à la page [Configuration d’un compte de stockage pour le service](#optional-step-configure-a-new-storage-account-for-the-service) pour obtenir des instructions détaillées.
-> * Si vous avez activé la création automatique d'un compte de stockage, passez à l'[Étape 2 : Obtenir la clé d’inscription du service](#step-2-get-the-service-registration-key).
+> * Si vous avez activé la création automatique d’un compte de stockage, passez à l’ [étape 2 : Obtention de la clé d’inscription](#step-2-get-the-service-registration-key).
 > 
 > 
 
-## <a name="step-2-get-the-service-registration-key"></a>Étape 2 : Obtenir la clé d’inscription du service
+## <a name="step-2-get-the-service-registration-key"></a>étape 2 : Obtention de la clé d’inscription
 
 Une fois le service StorSimple Device Manager opérationnel, vous devez obtenir la clé d’inscription. Cette clé est utilisée pour inscrire et connecter votre appareil StorSimple auprès du service.
 
@@ -114,7 +114,7 @@ Procédez comme suit dans le [portail Azure](https://portal.azure.com/).
 > 
 > 
 
-## <a name="step-3-download-the-virtual-array-image"></a>Étape 3 : Télécharger l'image du tableau virtuel
+## <a name="step-3-download-the-virtual-array-image"></a>Étape 3 : Téléchargement de l'image du tableau virtuel
 
 Après avoir obtenu la clé d'inscription du service, vous devrez télécharger l'image du tableau virtuel approprié pour configurer un tableau virtuel sur votre système hôte. Les images du tableau virtuel sont spécifiques au système d'exploitation et peuvent être téléchargées depuis la page Démarrage rapide du portail Azure.
 
@@ -137,7 +137,7 @@ Procédez comme suit dans le [portail Azure](https://portal.azure.com/).
    * VMDK pour VMWare ESXi 5.0, 5.5, 6.0 ou 6.5
 5. Téléchargez et décompressez le fichier sur un lecteur local et notez l’emplacement du fichier décompressé.
 
-## <a name="optional-step-configure-a-new-storage-account-for-the-service"></a>Étape facultative : Configuration d’un compte de stockage pour le service
+## <a name="optional-step-configure-a-new-storage-account-for-the-service"></a>Étape facultative : configuration d’un nouveau compte de stockage pour le service
 
 Il s’agit d’une étape facultative que vous devez exécuter uniquement si vous n’avez pas activé la création automatique d’un compte de stockage avec votre service.
 
@@ -149,7 +149,7 @@ Procédez comme suit dans le [portail Azure](https://ms.portal.azure.com/) sur l
 
 1. Accédez au service Device Manager, sélectionnez-le et double-cliquez. Cette opération provoque l’ouverture du panneau **Vue d’ensemble**.
 2. Sélectionnez **Informations d’identification du compte de stockage** dans la section **Configuration**.
-3. Cliquez sur **Add**.
+3. Cliquez sur **Ajouter**.
 4. Dans le panneau **Ajouter un compte de stockage**, procédez comme suit :
    
    1. Pour **Abonnement**, sélectionnez **Actuel**.
@@ -158,7 +158,7 @@ Procédez comme suit dans le [portail Azure](https://ms.portal.azure.com/) sur l
    
    3. Sélectionnez **Activer** afin de créer un canal sécurisé pour la communication réseau entre votre appareil StorSimple et le cloud. Sélectionnez **Désactiver** uniquement si vous évoluez au sein d’un cloud privé.
    
-   4. Cliquez sur **Add**. Un message s’affiche pour vous informer une fois le compte de stockage correctement créé.<br></br>
+   4. Cliquez sur **Ajouter**. Un message s’affiche pour vous informer une fois le compte de stockage correctement créé.<br></br>
    
       ![Ajouter une information d’identification de compte de stockage existant](./media/storsimple-virtual-array-manage-storage-accounts/ova-add-storageacct.png)
 

@@ -5,11 +5,11 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: f56717c086f005b1155988e2041ff2e717e047f2
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.openlocfilehash: 8e170c27923d2bb091c4121e350809b85e4c48a5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79081690"
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>Équilibrage de votre cluster Service Fabric
@@ -76,7 +76,7 @@ via ClusterConfig.json pour les déploiements autonomes ou Template.json pour le
 
 Par exemple, lorsque des nœuds échouent, ils se produisent simultanément dans des domaines d’erreur entiers. Tous ces échecs sont capturés à la prochaine mise à jour de l’état après *PLBRefreshGap*. Les corrections sont déterminées lorsque les prochaines opérations de placement, de contrôle des contraintes et d’équilibrage sont exécutées. Par défaut, Cluster Resource Manager n’analyse pas les modifications qui ont eu lieu sur plusieurs heures dans le cluster et n’essaie pas de les traiter toutes en même temps. En effet, cela entraînerait des pics d’activité momentanés.
 
-Cluster Resource Manager a également besoin d’informations supplémentaires pour déterminer si le cluster est déséquilibré. Nous disposons pour cela de deux autres éléments de configuration : les *seuils d’équilibrage* et les *seuils d’activité*.
+Cluster Resource Manager a également besoin d’informations supplémentaires pour déterminer si le cluster est déséquilibré. Nous disposons pour cela de deux autres éléments de configuration : *BalancingThresholds* et *ActivityThresholds*.
 
 ## <a name="balancing-thresholds"></a>Seuils d’équilibrage
 Un seuil d’équilibrage est le principal contrôle utilisé pour déclencher le rééquilibrage. Le seuil d’équilibrage pour une métrique est un _ratio_. Si la charge d’une mesure sur le nœud le plus chargé, divisée par la quantité de charge sur le nœud le moins chargé, dépasse la valeur *BalancingThreshold* de cette mesure, le cluster est considéré comme déséquilibré. L’équilibrage est alors déclenché lorsque Cluster Resource Manager effectue sa vérification suivante. Le minuteur *MinLoadBalancingInterval* détermine la fréquence à laquelle Cluster Resource Manager doit vérifier si un rééquilibrage est nécessaire. Cette vérification ne signifie pas que quelque chose se produit. 
@@ -185,7 +185,7 @@ Occasionnellement pourtant, un service qui n’était pas déséquilibré lui-m�
 - Service3 signale les mesures Metric3 et Metric4.
 - Service4 signale la mesure Metric99. 
 
-Vous voyez certainement où je veux en venir : il s’agit d’une chaîne ! Nous n’avons pas vraiment quatre services indépendants, mais plutôt trois services qui sont liés et un qui est indépendant.
+Vous voyez certainement où je veux en venir : il s’agit d’une chaîne ! Nous n’avons pas vraiment quatre services indépendants, mais plutôt trois services qui sont liés et un qui est indépendant.
 
 <center>
 
@@ -205,7 +205,6 @@ Cluster Resource Manager identifie automatiquement les services associés. Ajout
 * Les métriques représentent la façon dont Service Fabric Cluster Resource Manager gère la consommation et la capacité du cluster. Pour en savoir plus sur ces mesures et la façon de les configurer, consultez [cet article](service-fabric-cluster-resource-manager-metrics.md)
 * Le coût du mouvement est une façon de signaler à Cluster Resource Manager que certains services sont plus coûteux à déplacer que d’autres. Pour plus d’informations sur le coût lié aux déplacements, reportez-vous à [cet article](service-fabric-cluster-resource-manager-movement-cost.md).
 * Cluster Resource Manager a plusieurs limitations que vous pouvez configurer pour ralentir l’évolution dans le cluster. Elles ne sont normalement pas nécessaires mais, si vous en avez besoin, vous pouvez en savoir plus sur ces limitations [ici](service-fabric-cluster-resource-manager-advanced-throttling.md)
-* Le Gestionnaire des ressources clusters peut reconnaître et gérer le sous-clustering (situation qui se présente parfois lorsque vous avez recours à des contraintes de placement et à un équilibrage). Pour savoir comment le sous-clustering peut affecter l'équilibrage et apprendre à le gérer, cliquez [ici](service-fabric-cluster-resource-manager-subclustering.md).
 
 [Image1]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resrouce-manager-balancing-thresholds.png
 [Image2]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-threshold-triggered-results.png

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: ravokkar
 ms.openlocfilehash: ea6ece7e34ddb9c25f9f8349239ab3a1c3405abf
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74973371"
 ---
 # <a name="communicate-with-your-dps-using-the-mqtt-protocol"></a>Communiquer avec votre DPS à l’aide du protocole MQTT

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
 ms.openlocfilehash: 70eb81b6d13c57a7ebc131244c7aa318cb2b2fd4
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74871259"
 ---
 # <a name="azure-cosmos-db-sql-query-execution"></a>Exécution de requêtes SQL Azure Cosmos DB
@@ -19,7 +19,7 @@ N’importe quel langage capable d’émettre des requêtes HTTP/HTTPS peut appe
 
 Les exemples suivants montrent comment créer une requête et la soumettre à un compte de base de données Cosmos.
 
-## <a id="REST-API"></a>API REST
+## <a name="rest-api"></a><a id="REST-API"></a>API REST
 
 Cosmos DB fournit un modèle de programmation RESTful ouvert sur HTTP. Le modèle de ressource se compose d’un ensemble de ressources sous un compte de base de données, que provisionne un abonnement Azure. Le compte de base de données se compose d’un ensemble de *bases de données*, chacune pouvant contenir plusieurs *conteneurs* qui, pour leur part, contiennent des *éléments*, des fonctions définies par l’utilisateur et d’autres types de ressource. Chaque ressource Cosmos DB est adressable à l’aide d’un URI stable et logique. Un ensemble de ressources est appelé *flux*. 
 
@@ -247,9 +247,9 @@ Vous pouvez également contrôler explicitement la pagination en créant `IDocum
 
 Pour découvrir plus d’exemples .NET avec des requêtes, consultez [Exemples .NET Azure Cosmos DB](https://github.com/Azure/azure-cosmos-dotnet-v3) dans GitHub.
 
-## <a id="JavaScript-server-side-API"></a>API JavaScript côté serveur
+## <a name="javascript-server-side-api"></a><a id="JavaScript-server-side-API"></a>API JavaScript côté serveur
 
-Azure Cosmos DB fournit un modèle de programmation pour l’[exécution de la logique d’application JavaScript](stored-procedures-triggers-udfs.md) directement sur des conteneurs par le biais de procédures stockées et de déclencheurs. La logique JavaScript inscrite au niveau du conteneur peut alors émettre des opérations de base de données sur les éléments du conteneur donné, wrappées dans des transactions ACID ambiantes.
+Azure Cosmos DB fournit un modèle de programmation pour l’[exécution de la logique d’application JavaScript](stored-procedures-triggers-udfs.md) directement sur des conteneurs par le biais de procédures stockées et de déclencheurs. La logique JavaScript inscrite au niveau du conteneur peut alors émettre des opérations de base de données sur les éléments du conteneur donné, encapsulées dans des transactions ACID ambiantes.
 
 L’exemple suivant illustre l’utilisation de `queryDocuments` dans l’API JavaScript côté serveur pour créer des requêtes depuis l’intérieur des procédures stockées et des déclencheurs :
 

@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/07/2019
 ms.openlocfilehash: 3873b25394f91ce1c1601c348de2098198ba7fdd
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74765481"
 ---
 # <a name="time-series-analysis-in-azure-data-explorer"></a>Analyse des séries chronologiques dans Azure Data Explorer
@@ -37,16 +37,16 @@ La table ainsi obtenue contient une colonne de type timestamp, trois colonnes de
 |   |   |   |   |   |
 | --- | --- | --- | --- | --- |
 |   | TimeStamp | BrowserVer | OsVer | Pays/région |
-|   | 2016-08-25 09:12:35.4020000 | Chrome 51.0 | Windows 7 | Royaume-Uni |
-|   | 2016-08-25 09:12:41.1120000 | Chrome 52.0 | Windows 10 |   |
-|   | 2016-08-25 09:12:46.2300000 | Chrome 52.0 | Windows 7 | Royaume-Uni |
-|   | 2016-08-25 09:12:46.5100000 | Chrome 52.0 | Windows 10 | Royaume-Uni |
-|   | 2016-08-25 09:12:46.5570000 | Chrome 52.0 | Windows 10 | République de Lituanie |
+|   | 2016-08-25 09:12:35.4020000 | Chrome 51.0 | Windows 7 | United Kingdom |
+|   | 2016-08-25 09:12:41.1120000 | Chrome 52.0 | Windows 10 |   |
+|   | 2016-08-25 09:12:46.2300000 | Chrome 52.0 | Windows 7 | United Kingdom |
+|   | 2016-08-25 09:12:46.5100000 | Chrome 52.0 | Windows 10 | United Kingdom |
+|   | 2016-08-25 09:12:46.5570000 | Chrome 52.0 | Windows 10 | République de Lituanie |
 |   | 2016-08-25 09:12:47.0470000 | Chrome 52.0 | Windows 8.1 | Inde |
-|   | 2016-08-25 09:12:51.3600000 | Chrome 52.0 | Windows 10 | Royaume-Uni |
+|   | 2016-08-25 09:12:51.3600000 | Chrome 52.0 | Windows 10 | United Kingdom |
 |   | 2016-08-25 09:12:51.6930000 | Chrome 52.0 | Windows 7 | Pays-bas |
-|   | 2016-08-25 09:12:56.4240000 | Chrome 52.0 | Windows 10 | Royaume-Uni |
-|   | 2016-08-25 09:13:08.7230000 | Chrome 52.0 | Windows 10 | Inde |
+|   | 2016-08-25 09:12:56.4240000 | Chrome 52.0 | Windows 10 | United Kingdom |
+|   | 2016-08-25 09:13:08.7230000 | Chrome 52.0 | Windows 10 | Inde |
 
 À défaut de métriques, nous pouvons uniquement créer un ensemble de séries temporelles représentant le comptage du trafic proprement dit, partitionné par système d’exploitation à l’aide de la requête suivante :
 
@@ -67,7 +67,7 @@ demo_make_series1
     - `byOsVer` : partitionne par système d’exploitation
 - La structure de données d’une série chronologique réelle est un tableau numérique de la valeur agrégée par compartiment de temps. Nous utilisons `render timechart` pour la visualisation.
 
-Dans le tableau ci-dessus, nous avons trois partitions. Nous pouvons créer une série chronologique distincte : Windows 10 (en rouge), Windows 7 (en bleu) et Windows 8.1 (en vert) pour chaque version du système d’exploitation, comme dans le graphique ci-dessous :
+Dans le tableau ci-dessus, nous avons trois partitions. Nous pouvons créer une série chronologique distincte (Windows 10 en rouge, Windows 7 en bleu et Windows 8.1 en vert) pour chaque version du système d’exploitation, comme dans le graphique ci-dessous :
 
 ![Partition de série chronologique](media/time-series-analysis/time-series-partition.png)
 
@@ -80,8 +80,8 @@ Une fois qu’un ensemble de séries chronologiques est créé, Azure Data Explo
 
 Le filtrage est une pratique courante dans le traitement de signal, utile pour les tâches de traitement de séries chronologiques (par exemple, lissage d’un signal bruyant, détection de modifications).
 - Il existe deux fonctions de filtrage génériques :
-    - [`series_fir()`](/azure/kusto/query/series-firfunction) : appliquant un filtre FIR. Utilisée pour effectuer un calcul simple de moyenne mobile et de différenciation des séries chronologiques pour la détection des modifications.
-    - [`series_iir()`](/azure/kusto/query/series-iirfunction) : appliquant un filtre IIR. Utilisée pour effectuer un lissage exponentiel et calculer une somme cumulée.
+    - [`series_fir()`](/azure/kusto/query/series-firfunction) : appliquant un filtre FIR. Utilisée pour effectuer un calcul simple de moyenne mobile et de différenciation des séries chronologiques pour la détection des modifications.
+    - [`series_iir()`](/azure/kusto/query/series-iirfunction) : appliquant un filtre IIR. Utilisée pour effectuer un lissage exponentiel et calculer une somme cumulée.
 - Étendre (`Extend`) l’ensemble de séries chronologiques en ajoutant une nouvelle série de moyennes mobiles de 5 compartiments (nommée *ma_num*) à la requête :
 
 **\[** [**Cliquer pour exécuter la requête**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA5WPQavCMBCE7/6KOSYQ4fXgSfobPDx517C2q4bXpLLZQBV/vKkFQTx5WRh25tvZgRUxJK9ooWPuaCAxPcfRR/pnn1kC5wZ35BIjSbjxbDf7EPlXKV6s3a6GmUHTVwya3hkf9tUds1wvEqnEthtLUmPR85HKoO0PxoQXBSFBKJ3YPP9xSyWH5mxxuGKX/1gqlCfl1Neln5EL3R+DmCodhC9MahqHjXVQKbxMW5NScyzQerA7k+gDa1tswzsBAAA=) **\]**
@@ -154,7 +154,7 @@ demo_series3
 
 |   |   |   |   |
 | --- | --- | --- | --- |
-|   | periods | scores | days |
+|   | periods | scores | jours |
 |   | 84 | 0,820622786055595 | 7 |
 |   | 12 | 0,764601405803502 | 1 |
 
@@ -196,7 +196,7 @@ demo_many_series1
 
 |   |   |   |   |   |   |
 | --- | --- | --- | --- | --- | --- |
-|   | TIMESTAMP | Loc | anonOp | DB | DataRead |
+|   | timestamp | Loc | anonOp | DB | DataRead |
 |   | 2016-09-11 21:00:00.0000000 | Loc 9 | 5117853934049630089 | 262 | 0 |
 |   | 2016-09-11 21:00:00.0000000 | Loc 9 | 5117853934049630089 | 241 | 0 |
 |   | 2016-09-11 21:00:00.0000000 | Loc 9 | -865998331941149874 | 262 | 279862 |

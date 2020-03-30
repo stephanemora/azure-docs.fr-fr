@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f9d8c0cd803424e117bd4dc7a3382b7b32df2d05
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78672717"
 ---
 # <a name="how-sso-to-on-premises-resources-works-on-azure-ad-joined-devices"></a>Fonctionnement de l’authentification unique auprès de ressources locales sur des appareils joints à Azure AD
@@ -24,7 +24,7 @@ Ce n’est probablement pas une surprise qu’un appareil joint à Azure Active 
 
 Cet article explique comment cela fonctionne.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
  Si les machines jointes à Azure AD ne sont pas connectées au réseau de votre organisation, un VPN ou une autre infrastructure réseau est nécessaire. L’authentification unique locale exige une communication à visibilité directe avec vos contrôleurs de domaine AD DS locaux.
 

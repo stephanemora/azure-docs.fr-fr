@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 6bc29c098bcf7ef1d1a2e2532a00c95f0ec7e927
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61244227"
 ---
 # <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Génération de miniatures à l’aide de Media Encoder Standard avec .NET 
@@ -281,7 +281,7 @@ Notez l’utilisation de la macro {Resolution} dans le nom de fichier. Elle donn
 
 Bien que tous les exemples précédents illustrent la façon de soumettre une tâche d’encodage qui génère uniquement des images, vous pouvez également combiner l’encodage audio/vidéo avec la génération de miniatures. La présélection JSON et XML suivante donne à **Media Encoder Standard** l’instruction de générer une miniature durant l’encodage.
 
-### <a id="json"></a>Présélection JSON
+### <a name="json-preset"></a><a id="json"></a>Présélection JSON
 Pour plus d’informations sur le schéma, consultez [cet](https://msdn.microsoft.com/library/mt269962.aspx) article.
 
 ```json
@@ -346,7 +346,7 @@ Pour plus d’informations sur le schéma, consultez [cet](https://msdn.microsof
     }
 ```
 
-### <a id="xml"></a>Présélection XML
+### <a name="xml-preset"></a><a id="xml"></a>Présélection XML
 Pour plus d’informations sur le schéma, consultez [cet](https://msdn.microsoft.com/library/mt269962.aspx) article.
 
 ```csharp
@@ -401,7 +401,7 @@ Pour plus d’informations sur le schéma, consultez [cet](https://msdn.microsof
     </Preset>   
 ```
 
-## <a id="code_sample"></a>Encoder la vidéo et générer la miniature avec .NET
+## <a name="encode-video-and-generate-thumbnail-with-net"></a><a id="code_sample"></a>Encoder la vidéo et générer la miniature avec .NET
 
 Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Services pour effectuer les tâches suivantes :
 
@@ -551,15 +551,15 @@ Les considérations suivantes s'appliquent :
 * L’utilisation d’horodatages explicites pour Début/Étape/Plage suppose que la source d’entrée a une longueur minimale de 1 minute.
 * Les éléments Jpg/Png/BmpImage possèdent les attributs de chaîne Start, Step et Range, qui peuvent être interprétés comme suit :
   
-  * Entiers non négatifs : nombre d'images, par exemple "Start": "120",
+  * Entiers non négatifs : nombre d’images, par exemple "Start": "120",
   * Présence du suffixe % : durée par rapport à la source, par exemple "Start": "15%", OU
-  * Horodatage, s’il est exprimé au format HH:MM:SS. Par exemple, "Start" : "00:01:00"
+  * Horodatage, s’il est exprimé au format HH:MM:SS. Par exemple "Start" : "00:01:00"
     
     Vous pouvez combiner et apparier les notations à votre guise.
     
-    En outre, Start prend également en charge une macro spéciale, {Best}, qui tente de déterminer la première image de contenu « intéressante ». REMARQUE : (Step et Range sont ignorés quand Start est défini sur {Best})
-  * Configuration par défaut : Start:{Best}
-* Le format de sortie doit être explicitement fourni pour chaque format d'image : Jpg/Png/BmpFormat. Quand il est présent, MES fait correspondre JpgVideo à JpgFormat et ainsi de suite. OutputFormat introduit une nouvelle macro spécifique au codec d’image, {Index}, qui doit être présente (une fois seulement) pour les formats de sortie d’image.
+    En outre, Start prend également en charge une macro spéciale, {Best}, qui tente de déterminer la première image de contenu « intéressante ». REMARQUE : Step et Range sont ignorés quand Start est défini sur {Best}.
+  * La configuration par défaut est « Start:{Best} ».
+* Le format de sortie doit être fourni explicitement pour chaque format d’image : Png/Jpg/BmpFormat. Quand il est présent, MES fait correspondre JpgVideo à JpgFormat et ainsi de suite. OutputFormat introduit une nouvelle macro spécifique au codec d’image, {Index}, qui doit être présente (une fois seulement) pour les formats de sortie d’image.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

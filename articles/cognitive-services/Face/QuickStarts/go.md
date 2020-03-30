@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Détecter des visages sur une image avec l’API REST et Go'
+title: 'Guide de démarrage rapide : Détecter des visages dans image à l’aide de l’API REST et Go'
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous allez détecter les visages d’une image à l’aide du service Visage avec Go.
 services: cognitive-services
@@ -11,13 +11,13 @@ ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
 ms.openlocfilehash: 246b9c81e3cb726236143b9749486ba362128756
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76165836"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-go"></a>Démarrage rapide : Détecter des visages sur une image avec l’API REST et Go
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-go"></a>Guide de démarrage rapide : Détecter des visages dans image à l’aide de l’API REST et Go
 
 Dans ce guide de démarrage rapide, vous allez utiliser l’API REST Visage Azure avec Go pour détecter des visages humains dans une image.
 

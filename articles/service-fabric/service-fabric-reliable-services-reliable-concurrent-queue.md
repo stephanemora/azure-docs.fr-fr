@@ -4,10 +4,10 @@ description: ReliableConcurrentQueue est une file d’attente à débit élevé 
 ms.topic: conceptual
 ms.date: 5/1/2017
 ms.openlocfilehash: a7115db8259fde0e87e53557ecef730f8e82d2fd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75462725"
 ---
 # <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Présentation de ReliableConcurrentQueue dans Azure Service Fabric
@@ -21,7 +21,7 @@ Une file d’attente simultanée fiable est une file d’attente asynchrone, tra
 | bool TryDequeue(out T result)  | Task< ConditionalValue < T > > TryDequeueAsync(ITransaction tx)  |
 | int Count()                    | long Count()                                                     |
 
-## <a name="comparison-with-reliable-queuehttpsmsdnmicrosoftcomlibraryazuredn971527aspx"></a>Comparaison avec un [File d’attente fiable](https://msdn.microsoft.com/library/azure/dn971527.aspx)
+## <a name="comparison-with-reliable-queue"></a>Comparaison avec un [File d’attente fiable](https://msdn.microsoft.com/library/azure/dn971527.aspx)
 
 Une file d’attente simultanée fiable est proposée en guise d’alternative à une [file d’attente fiable](https://msdn.microsoft.com/library/azure/dn971527.aspx). Elle doit être utilisée dans les cas où la séquence stricte de premier entré, premier sorti n’est pas requise, celle-ci nécessitant un compromis sur le plan de la simultanéité.  Une [File d’attente fiable](https://msdn.microsoft.com/library/azure/dn971527.aspx) utilise des verrous pour appliquer la séquence de premier entré, premier sorti, avec au plus une transaction autorisée pour la mise en file d’attente et une transaction autorisée pour le retrait de file d’attente à la fois. En comparaison, une file d’attente simultanée fiable assouplit la contrainte de séquence et permet qu’un nombre quelconque de transactions simultanées entrelacent leurs opérations de mise en file d’attente et de retrait de file d’attente. Un classement selon le principe de l’effort optimal est fourni, mais l’ordre relatif de deux valeurs dans une file d’attente simultanée fiable ne peut jamais être garanti.
 
@@ -51,7 +51,7 @@ IReliableConcurrentQueue<int> queue = await this.StateManager.GetOrAddAsync<IRel
 ### <a name="enqueueasync"></a>EnqueueAsync
 Voici quelques extraits de code pour l’utilisation d’EnqueueAsync, suivis de leurs sorties attendues.
 
-- *Cas 1 : tâche de mise en file d’attente unique*
+- *Cas 1 : tâche de mise en file d’attente unique*
 
 ```
 using (var txn = this.StateManager.CreateTransaction())
@@ -70,7 +70,7 @@ Supposons que la tâche s’est achevée correctement et qu’aucune transaction
 > 20, 10
 
 
-- *Cas 2 : tâche de mise en file d’attente parallèle*
+- *Cas 2 : tâche de mise en file d’attente parallèle*
 
 ```
 // Parallel Task 1
@@ -99,7 +99,7 @@ Supposons que les tâches aient été accomplies avec succès, qu’elles aient 
 Voici quelques extraits de code pour l’utilisation de TryDequeueAsync, suivis des résultats attendus. Supposons que la file d’attente contient déjà les éléments suivants :
 > 10, 20, 30, 40, 50, 60
 
-- *Cas 1 : tâche de retrait de la file d’attente unique*
+- *Cas 1 : simple tâche de retrait de file d’attente*
 
 ```
 using (var txn = this.StateManager.CreateTransaction())
@@ -114,7 +114,7 @@ using (var txn = this.StateManager.CreateTransaction())
 
 Supposons que la tâche s’est achevée correctement et qu’aucune transaction simultanée ne modifiait la file d’attente. Dans la mesure où aucune inférence ne peut être effectuée concernant l’ordre des éléments dans la file d’attente, trois éléments quelconques peuvent être retirés de celle-ci, dans n’importe quel ordre. La file d’attente essaie de conserver les éléments dans l’ordre (de mise en file d’attente) d’origine, mais peut être obligée à les réorganiser en raison d’opérations simultanées ou d’erreurs.  
 
-- *Cas 2 : tâche de retrait de la file d’attente parallèle*
+- *Cas 2 : tâche de retrait de file d’attente parallèle*
 
 ```
 // Parallel Task 1
@@ -142,7 +142,7 @@ Supposons que les tâches aient été accomplies avec succès, qu’elles aient 
 
 Un même élément n’apparaît *pas* dans les deux listes. Par conséquent, si la liste dequeue1 comprend *10* et *30*, la liste dequeue2 contient *20* et *40*.
 
-- *Cas 3 : ordre de retrait de file d’attente avec abandon de transaction*
+- *Cas 3 : ordre de retrait de file d’attente avec abandon de transaction*
 
 L’abandon d’une transaction avec des retraits de file d’attente a pour effet de remettre les éléments en tête de la file d’attente. L’ordre dans lequel les éléments sont remis en tête de la file d’attente n’est pas garanti. Examinons le code suivant :
 

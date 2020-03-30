@@ -8,23 +8,23 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: 0ded494debab19daa15a953715b1ab7b0b10ad18
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74974902"
 ---
 # <a name="how-to-reprovision-devices"></a>Comment reprovisionner des appareils
 
 Durant le cycle de vie d’une solution IoT, il est fréquent d’avoir à déplacer des appareils d’un hub IoT à un autre. Voici quelques scénarios nécessitant le déplacement d’un appareil :
 
-* **Géolocalisation** : quand un appareil change d’emplacement, il doit être migré vers un hub IoT plus proche de son emplacement pour améliorer la latence du réseau.
+* **Géolocalisation** : quand un appareil change d’emplacement, il doit être migré vers un hub IoT plus proche de son emplacement pour améliorer la latence du réseau.
 
-* **Multilocation** : un appareil peut être utilisé dans la même solution IoT, mais réaffecté ou donné en location à un nouveau client ou au site d’un client. Le service fourni à ce nouveau client peut utiliser un autre hub IoT.
+* **Multilocation** : un appareil peut être utilisé dans la même solution IoT, mais réaffecté ou donné en location à un nouveau client ou au site d’un client. Le service fourni à ce nouveau client peut utiliser un autre hub IoT.
 
-* **Changement de solution** : Un appareil peut être déplacé dans une nouvelle solution IoT ou une solution IoT mise à jour. Cette réaffectation peut nécessiter que l’appareil communique avec un nouveau hub IoT qui est connecté à d’autres composants backend. 
+* **Changement de solution** : un appareil est déplacé dans une nouvelle solution IoT ou une solution IoT mise à jour. Cette réaffectation peut nécessiter que l’appareil communique avec un nouveau hub IoT qui est connecté à d’autres composants backend. 
 
-* **Mise en quarantaine** : ce scénario est similaire à un changement de solution. Un appareil défectueux, compromis ou obsolète est réassigné à un hub IoT où il doit obligatoirement être mis à jour afin de redevenir conforme. Une fois que l’appareil fonctionne correctement, il est migré vers son hub principal d’origine.
+* **Mise en quarantaine** : ce scénario est similaire à un changement de solution. Un appareil défectueux, compromis ou obsolète est réassigné à un hub IoT où il doit obligatoirement être mis à jour afin de redevenir conforme. Une fois que l’appareil fonctionne correctement, il est migré vers son hub principal d’origine.
 
 Pour plus d’informations sur le reprovisionnement, consultez [Concepts du reprovisionnement d’appareils IoT Hub](concepts-device-reprovision.md).
 
@@ -41,11 +41,11 @@ Les étapes suivantes configurent la stratégie d’allocation pour l’inscript
 
 3. Sous **Sélectionner le mode d’affectation des appareils aux hubs**, sélectionnez une des stratégies d’allocation suivantes :
 
-    * **Latence la plus faible** : cette stratégie affecte les appareils au hub IoT lié qui permet les communications avec la latence la plus faible entre l’appareil et IoT Hub. Cette option permet à l’appareil communiquer avec le hub IoT le plus proche de l’emplacement. 
+    * **Latence la plus faible** : cette stratégie affecte les appareils au hub IoT lié qui permet les communications avec la latence la plus faible entre l’appareil et IoT Hub. Cette option permet à l’appareil communiquer avec le hub IoT le plus proche de l’emplacement. 
     
-    * **Distribution uniformément pondérée** : cette stratégie distribue les appareils entre les hubs IoT liés en fonction de la pondération d’allocation affectée à chaque hub IoT lié. Cette stratégie vous permet d’équilibrer la charge des appareils sur un groupe de hubs liés en fonction des pondérations d’allocation définies sur ces hubs. Si vous provisionnez des appareils sur un seul hub IoT, nous vous recommandons ce paramètre. Il s’agit du paramètre par défaut. 
+    * **Distribution uniformément pondérée** : cette stratégie distribue les appareils entre les hubs IoT liés en fonction de la pondération d’allocation affectée à chaque hub IoT lié. Cette stratégie vous permet d’équilibrer la charge des appareils sur un groupe de hubs liés en fonction des pondérations d’allocation définies sur ces hubs. Si vous provisionnez des appareils sur un seul hub IoT, nous vous recommandons ce paramètre. Il s’agit du paramètre par défaut. 
     
-    * **Configuration statique** : cette stratégie nécessite que le hub IoT Hub souhaité figure dans la liste des entrées d’inscription pour un appareil à provisionner. Cette stratégie vous permet de désigner un hub IoT spécifique auquel vous voulez affecter les appareils.
+    * **Configuration statique** : cette stratégie nécessite que le hub IoT souhaité figure dans la liste des entrées d’inscription pour un appareil à provisionner. Cette stratégie vous permet de désigner un hub IoT spécifique auquel vous voulez affecter les appareils.
 
 4. Sous **Sélectionner les hubs IoT auxquels ce groupe peut être affecté**, sélectionnez les hubs IoT liés que vous voulez inclure avec votre stratégie d’allocation. Si vous le souhaitez, ajoutez un nouveau hub IoT lié en utilisant le bouton **Lier un nouveau hub IoT**.
 
@@ -69,9 +69,9 @@ Les étapes suivantes configurent la stratégie d’allocation pour l’inscript
 
 3. Sous **Sélectionner comment vous voulez que les données des appareils soient gérées lors du reprovisionnement sur un autre hub IoT**, choisissez une des stratégies de reprovisionnement suivantes :
 
-    * **Reprovisionner et migrer les données** : Cette stratégie est appliquée quand des appareils associés à l’entrée d’inscription envoient une nouvelle demande de provisionnement. Selon la configuration de l’entrée d’inscription, l’appareil peut être réassigné à un autre hub IoT. Si l’appareil est déplacé vers un autre hub IoT, il est désinscrit du hub IoT initial. Toutes les données d’état de l’appareil provenant de ce hub IoT initial sont alors migrées vers le nouveau hub IoT. Durant la migration, l’état de l’appareil indique **Affectation**.
+    * **Reprovisionner et migrer les données** : cette stratégie est appliquée quand des appareils associés à l’entrée d’inscription envoient une demande de nouveau provisionnement. Selon la configuration de l’entrée d’inscription, l’appareil peut être réassigné à un autre hub IoT. Si l’appareil est déplacé vers un autre hub IoT, il est désinscrit du hub IoT initial. Toutes les données d’état de l’appareil provenant de ce hub IoT initial sont alors migrées vers le nouveau hub IoT. Durant la migration, l’état de l’appareil indique **Affectation**.
 
-    * **Reprovisionner et rétablir la configuration initiale** : Cette stratégie est appliquée quand des appareils associés à l’entrée d’inscription envoient une nouvelle demande de provisionnement. Selon la configuration de l’entrée d’inscription, l’appareil peut être réassigné à un autre hub IoT. Si l’appareil est déplacé vers un autre hub IoT, il est désinscrit du hub IoT initial. Les données de configuration initiale que l’instance du service Device Provisioning a reçues au moment du provisionnement de l’appareil sont transmises au nouveau hub IoT. Durant la migration, l’état de l’appareil indique **Affectation**.
+    * **Reprovisionner et rétablir la configuration initiale** : cette stratégie est appliquée quand des appareils associés à l’entrée d’inscription envoient une demande de nouveau provisionnement. Selon la configuration de l’entrée d’inscription, l’appareil peut être réassigné à un autre hub IoT. Si l’appareil est déplacé vers un autre hub IoT, il est désinscrit du hub IoT initial. Les données de configuration initiale que l’instance du service Device Provisioning a reçues au moment du provisionnement de l’appareil sont transmises au nouveau hub IoT. Durant la migration, l’état de l’appareil indique **Affectation**.
 
 4. Cliquez sur **Enregistrer** pour activer le reprovisionnement de l’appareil en fonction de vos modifications.
 

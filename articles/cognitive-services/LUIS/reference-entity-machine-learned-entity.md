@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 12/30/2019
 ms.author: diberry
 ms.openlocfilehash: aac4ba3ec63d425cac782f5db65bba923d24ed71
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75551996"
 ---
 # <a name="machine-learned-entity"></a>Entité apprise par la machine
@@ -36,7 +36,7 @@ Les exemples d’énoncés sont les suivants :
 
 
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Réponse de point de terminaison de prédiction V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[Réponse de point de terminaison de prédiction V3](#tab/V3)
 
 Il ne s’agit là que d’un exemple car une entité apprise par l’ordinateur peut disposer de nombreux sous-composants avec des contraintes et des descripteurs. Il doit être considéré comme un guide pour le résultat produit par votre entité.
 
@@ -341,7 +341,7 @@ Il s’agit du JSON si `verbose=true` est défini dans la chaîne de requête :
     }
 }
 ```
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Réponse de point de terminaison de prédiction V2](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Réponse de point de terminaison de prédiction V2](#tab/V2)
 
 Cette entité n’est pas disponible dans le runtime de prédiction v2.
 * * *

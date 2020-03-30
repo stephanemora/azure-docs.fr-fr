@@ -9,10 +9,10 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: dc018b5d09c9b33c10cd2d54ac6572537e05ed25
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67176950"
 ---
 Le tableau suivant répertorie la configuration requise pour les passerelles VPN basées sur des stratégies ou des itinéraires. Cette table s’applique aux modèles de déploiement classique et Resource Manager. Pour le modèle classique, les passerelles VPN basées sur des stratégies sont identiques aux passerelles statiques et les passerelles basées sur des itinéraires sont identiques aux passerelles dynamiques.
@@ -24,6 +24,6 @@ Le tableau suivant répertorie la configuration requise pour les passerelles VPN
 | **Méthode d’authentification** |Clé prépartagée |Clé prépartagée pour la connectivité de site à site, certificats pour la connectivité de point à site |Clé prépartagée pour la connectivité de site à site, certificats pour la connectivité de point à site |Clé prépartagée pour la connectivité de site à site, certificats pour la connectivité de point à site |
 | **Nombre maximal de connexions de site à site** |1 |10 |10 |30 |
 | **Nombre maximal de connexions de point à site** |Non pris en charge |128 |128 |128 |
-| **Routage actif (BGP)** (*) |Non pris en charge |Non pris en charge |Pris en charge |Pris en charge |
+| **Routage actif (BGP)** (*) |Non pris en charge |Non pris en charge |Prise en charge |Prise en charge |
 
   (*) Le protocole BGP n’est pas pris en charge avec le modèle de déploiement Classic.

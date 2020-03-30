@@ -15,17 +15,17 @@ ms.workload: tbd
 ms.date: 09/04/2019
 ms.author: aschhab
 ms.openlocfilehash: 8379b7f48e7e494370f3fdba81676d34821d7b6f
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75563375"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Files d’attente Azure et files d’attente Service Bus : comparaison et différences
-Cet article analyse les différences et les similitudes entre les deux types de files d'attente proposés par Microsoft Azure : Files d’attente de stockage et files d’attente Service Bus. À l'aide de ces informations, vous pouvez comparer les technologies respectives et être en mesure de prendre une décision éclairée concernant la solution adaptée à vos besoins.
+Cet article analyse les différences et les ressemblances entre les deux types de file d’attente proposés aujourd’hui par Microsoft Azure : les files d’attente Azure et les files d’attente Service Bus. À l'aide de ces informations, vous pouvez comparer les technologies respectives et être en mesure de prendre une décision éclairée concernant la solution adaptée à vos besoins.
 
 ## <a name="introduction"></a>Introduction
-Azure prend en charge deux types de mécanismes de file d’attente : **Files d'attente de stockage** et **files d'attente Service Bus**.
+Azure prend en charge deux types de mécanismes de file d’attente : les **files d’attente de stockage** et les **files d’attente Service Bus**.
 
 Les **files d’attente de stockage**, qui font partie de l’infrastructure de [stockage Azure](https://azure.microsoft.com/services/storage/), incluent une simple interface GET/PUT/PEEK basée sur REST, qui fournit une messagerie fiable et persistante au sein des services et entre ces derniers.
 

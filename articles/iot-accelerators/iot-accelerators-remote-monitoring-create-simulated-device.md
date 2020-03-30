@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.openlocfilehash: 8babacfede6e13fde629492e1cd9f80af7f0e53f
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78943068"
 ---
 # <a name="create-and-test-a-new-simulated-device"></a>Créer et tester un appareil simulé
@@ -30,7 +30,7 @@ Dans le deuxième scénario, Contoso souhaite tester un nouvel appareil d’écl
 
 *Propriétés*
 
-| Nom                     | Valeurs                      |
+| Name                     | Valeurs                      |
 | ------------------------ | --------------------------- |
 | Couleur                    | White, Red, Blue (Blanc, Rouge, Bleu)            |
 | Brightness (Luminosité)               | 0 à 100                    |
@@ -40,7 +40,7 @@ Dans le deuxième scénario, Contoso souhaite tester un nouvel appareil d’écl
 
 Le tableau suivant présente les données que l’appareil d’éclairage communique au cloud sous la forme d’un flux de données :
 
-| Nom   | Valeurs      |
+| Name   | Valeurs      |
 | ------ | ----------- |
 | Statut | « on » (allumé), « off » (éteint) |
 | Température | Degrés F |
@@ -53,7 +53,7 @@ Le tableau suivant présente les données que l’appareil d’éclairage commun
 
 Le tableau suivant indique les actions prises en charge par le nouvel appareil :
 
-| Nom        |
+| Name        |
 | ----------- |
 | Switch on (Allumer)   |
 | Switch off (Éteindre)  |
@@ -62,7 +62,7 @@ Le tableau suivant indique les actions prises en charge par le nouvel appareil :
 
 Le tableau suivant présente l’état initial de l’appareil :
 
-| Nom                     | Valeurs |
+| Name                     | Valeurs |
 | ------------------------ | -------|
 | Initial color (Couleur initiale)            | White  |
 | Initial brightness (Luminosité initiale)       | 75     |
@@ -76,7 +76,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour effectuer les procédures de ce guide, vous avez besoin des éléments suivants :
 
@@ -111,7 +111,7 @@ Ouvrez le fichier **storage-adapter/WebService/appsettings.ini** et attribuez vo
 
 Pour exécuter le microservice localement, cliquez sur **Déboguer > Démarrer le débogage**.
 
-La fenêtre **Terminal** dans Visual Studio Code affiche la sortie du microservice en cours d’exécution, y compris une URL pour la vérification d’intégrité du service web : [http://127.0.0.1:9022/v1/status](http://127.0.0.1:9022/v1/status). Lorsque vous accédez à cette adresse, vous devez voir l’état « OK: Alive and well ».
+La fenêtre **Terminal** dans Visual Studio Code affiche la sortie du microservice en cours d’exécution, y compris une URL pour la vérification d’intégrité du service web : [http://127.0.0.1:9022/v1/status](http://127.0.0.1:9022/v1/status). Quand vous accédez à cette adresse, vous devez voir l’état « OK: Alive and well ».
 
 Laissez le microservice d’adaptateur de stockage s’exécuter dans cette instance de Visual Studio Code pendant que vous effectuez les étapes suivantes.
 

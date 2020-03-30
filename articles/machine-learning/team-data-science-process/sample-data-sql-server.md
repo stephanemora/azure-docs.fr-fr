@@ -12,13 +12,13 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 71a2ec9dc4d644fb8739db3817e2cd1d09913da7
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76717647"
 ---
-# <a name="heading"></a>Échantillonner des données dans SQL Server sur Azure
+# <a name="sample-data-in-sql-server-on-azure"></a><a name="heading"></a>Échantillonner des données dans SQL Server sur Azure
 
 Cet article montre comment échantillonner des données stockées dans SQL Server sur Azure à l’aide de SQL ou du langage de programmation Python. Il montre également comment déplacer les données échantillonnées vers Azure Machine Learning en les enregistrant dans un fichier, en les chargeant vers un objet blob Azure, puis en les lisant dans Azure Machine Learning Studio.
 
@@ -30,11 +30,11 @@ L’échantillonnage Python utilise la bibliothèque ODBC [pyodbc](https://code.
 > 
 
 **Pourquoi échantillonner vos données ?**
-Si vous prévoyez d’analyser un jeu de données volumineux, il est généralement recommandé de sous-échantillonner les données afin de réduire leur taille sous une forme plus facilement exploitable, mais toujours représentative. L’échantillonnage facilite la compréhension et l’exploration des données, ainsi que l’ingénierie de fonctionnalités. Son rôle dans le [processus TDSP (Team Data Science Process)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) consiste à permettre le prototypage rapide des fonctions de traitement des données et des modèles d’apprentissage automatique.
+Si vous prévoyez d’analyser un jeu de données volumineux, il est généralement recommandé de sous-échantillonner les données afin de réduire leur taille sous une forme plus facilement exploitable, mais toujours représentative. L’échantillonnage facilite la compréhension des données, l’exploration ainsi que l’ingénierie de fonctionnalités. Son rôle dans le [processus TDSP (Team Data Science Process)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) consiste à permettre le prototypage rapide des fonctions de traitement des données et des modèles d’apprentissage automatique.
 
 Cette tâche d’échantillonnage est une étape du [processus TDSP (Team Data Science Process)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
-## <a name="SQL"></a>Utilisation de SQL
+## <a name="using-sql"></a><a name="SQL"></a>Utilisation de SQL
 Cette section décrit différentes méthodes permettant d’effectuer un échantillonnage aléatoire simple des données de la base de données via SQL. Choisissez une méthode en fonction de la taille de vos données et de leur distribution.
 
 Les deux options suivantes indiquent comment utiliser `newid` dans SQL Server pour procéder à l’échantillonnage. La méthode que vous choisissez dépend du degré aléatoire qui doit caractériser l’échantillon (dans l’exemple de code suivant, l’élément pk_id est supposé correspondre à une clé primaire générée automatiquement).
@@ -59,12 +59,12 @@ Vous pouvez aussi utiliser Tablesample pour l’échantillonnage des données. C
 > 
 > 
 
-### <a name="sql-aml"></a>Connexion à Azure Machine Learning
+### <a name="connecting-to-azure-machine-learning"></a><a name="sql-aml"></a>Connexion à Azure Machine Learning
 Vous pouvez utiliser directement les exemples de requêtes ci-dessus dans le module [Importer les données][import-data] d’Azure Machine Learning afin de sous-échantillonner les données à la volée et de les importer dans une expérience Azure Machine Learning. La capture d’écran ci-dessous illustre l’utilisation du module lecteur pour lire les données échantillonnées :
 
 ![lecteur sql][1]
 
-## <a name="python"></a>Utilisation du langage de programmation Python
+## <a name="using-the-python-programming-language"></a><a name="python"></a>Utilisation du langage de programmation Python
 Cette section décrit l’utilisation de la [bibliothèque pyodbc](https://code.google.com/p/pyodbc/) pour établir une connexion ODBC à une base de données SQL Server dans Python. La chaîne de connexion de base de données se présente comme suit (remplacez les variables servername, dbname, username et password par les valeurs de votre configuration) :
 
     #Set up the SQL Azure connection
@@ -80,7 +80,7 @@ La bibliothèque [Pandas](https://pandas.pydata.org/) de Python offre un ensembl
 
 Vous pouvez à présent travailler sur les données échantillonnées dans la trame de données pandas. 
 
-### <a name="python-aml"></a>Connexion à Azure Machine Learning
+### <a name="connecting-to-azure-machine-learning"></a><a name="python-aml"></a>Connexion à Azure Machine Learning
 Vous pouvez utiliser l’exemple de code ci-après pour enregistrer les données sous-échantillonnées dans un fichier et les charger dans un objet blob Azure. Les données figurant dans le blob peuvent être lues directement dans une expérimentation Azure Machine Learning à l’aide du module [Importer les données][import-data]. La procédure comporte trois étapes : 
 
 1. Écrire la trame de données pandas dans un fichier local

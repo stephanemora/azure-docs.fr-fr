@@ -12,11 +12,11 @@ ms.author: xiwu
 ms.reviewer: mathoma
 ms.date: 01/25/2019
 ms.openlocfilehash: f718bc17b987926f4324635f096d5983acdb63fc
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997273"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228697"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>Réplication des bases de données uniques et mises en pool SQL Database
 
@@ -28,7 +28,7 @@ La réplication SQL Server peut être configurée pour les bases de données uni
 - La base de données Azure SQL doit être abonnée à un abonnement par push sur un serveur de publication SQL Server.  
 - La base de données de distribution et les agents de réplication ne peuvent pas être placés dans une base de données Azure SQL.  
 - Les réplications par capture instantanée et par transaction monodirectionnelle sont prises en charge. Les réplications transactionnelles pair à pair et les réplications de fusion ne sont pas prises en charge.
-- La réplication est disponible en préversion publique dans Azure SQL Database Managed Instance. Managed Instance peut héberger des bases de données de serveur de publication, de serveur de distribution et d’abonné. Pour plus d’informations, consultez [Réplication avec SQL Database Managed Instance](replication-with-sql-database-managed-instance.md).
+- La réplication est disponible pour la préversion publique sur Azure SQL Database Managed Instance. Managed Instance peut héberger des bases de données de serveur de publication, de serveur de distribution et d’abonné. Pour plus d’informations, consultez [Réplication avec SQL Database Managed Instance](replication-with-sql-database-managed-instance.md).
 
 ## <a name="versions"></a>Versions  
 
@@ -44,7 +44,7 @@ Les serveurs de publication et de distribution SQL Server locaux doivent utilis
 Pour bénéficier de toutes les fonctionnalités Azure SQL Database, vous devez utiliser les dernières versions de [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) et de [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
 
   
-## <a name="remarks"></a>Remarques
+## <a name="remarks"></a>Notes
 
 - La réplication peut être configurée à l’aide de [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) ou en exécutant des instructions Transact-SQL sur le serveur de publication. Vous ne pouvez pas configurer la réplication dans le portail Azure.  
 - La réplication peut uniquement utiliser des connexions d’authentification SQL Server pour se connecter à une base de données Azure SQL.

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: nberdy
 ms.openlocfilehash: 84f28a1cb411e7df156fc08fa683efe7f83eda64
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60345718"
 ---
 # <a name="iot-hub-operations-monitoring-deprecated"></a>Surveillance des opérations IoT Hub (déconseillé)
@@ -26,8 +26,8 @@ IoT Hub surveille six catégories d’événements :
 
 * Opérations d’identité des appareils
 * Télémétrie d’appareil
-* Messages Cloud à appareil
-* connexions
+* Messages Cloud vers appareil
+* Connexions
 * Chargements de fichiers
 * Routage de messages
 
@@ -120,7 +120,7 @@ La catégorie de commandes cloud-à-appareil effectue le suivi des erreurs qui s
 }
 ```
 
-### <a name="connections"></a>connexions
+### <a name="connections"></a>Connexions
 
 La catégorie de connexions effectue le suivi des erreurs provoquées par la connexion des appareils à un hub IoT ou leur déconnexion de celui-ci. Le suivi de cette catégorie est utile pour identifier les tentatives de connexion non autorisées et pour repérer les moments auxquels une connexion est perdue pour les appareils qui se trouvent dans des zones bénéficiant d’une connectivité médiocre.
 

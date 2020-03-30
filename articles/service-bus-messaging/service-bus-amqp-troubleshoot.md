@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/03/2019
 ms.author: aschhab
 ms.openlocfilehash: 85d24a9e7c753ec5dba80c4f259dd3fb51d9c14b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60402783"
 ---
 # <a name="amqp-errors-in-azure-service-bus"></a>Erreurs AMQP dans Azure Service Bus
@@ -51,8 +51,8 @@ Pour en savoir plus sur AMQP et Service Bus, consultez les liens suivants :
 
 * [Vue d’ensemble du protocole AMQP de Service Bus]
 * [Guide du protocole AMQP 1.0]
-* [AMQP in Service Bus for Windows Server (AMQP dans Service Bus pour Windows Server]
+* [AMQP in Service Bus for Windows Server (AMQP dans Service Bus pour Windows Server)]
 
 [Vue d’ensemble du protocole AMQP de Service Bus]: service-bus-amqp-overview.md
 [Guide du protocole AMQP 1.0]: service-bus-amqp-protocol-guide.md
-[AMQP in Service Bus for Windows Server (AMQP dans Service Bus pour Windows Server]: https://docs.microsoft.com/previous-versions/service-bus-archive/dn282144(v=azure.100)
+[AMQP in Service Bus for Windows Server (AMQP dans Service Bus pour Windows Server)]: https://docs.microsoft.com/previous-versions/service-bus-archive/dn282144(v=azure.100)

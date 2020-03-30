@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 4e3e430874f9d5b64f717b6ebb1cacb0eae46b1f
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176760"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79224845"
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Modèles Profil utilisateur dans Gestion des API Azure
 Gestion des API Azure vous offre la possibilité de personnaliser le contenu des pages du portail des développeurs à l’aide d’un ensemble de modèles qui configurent leur contenu. En utilisant la syntaxe [DotLiquid](http://dotliquidmarkup.org/) et l’éditeur de votre choix, comme [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), ainsi qu’un ensemble de [ressources de chaîne](api-management-template-resources.md#strings), de [ressources de glyphe](api-management-template-resources.md#glyphs) et de [contrôles de page](api-management-page-controls.md) localisés, vous disposez d’un large choix pour configurer le contenu des pages selon vos besoins à l’aide de ces modèles.  
@@ -40,7 +40,7 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="Profile"></a> Profil  
+##  <a name="profile"></a><a name="Profile"></a> Profil  
  Le modèle **Profil** vous permet de personnaliser la section Profil utilisateur de la page Profil utilisateur dans le portail des développeurs.  
   
  ![Page Profil utilisateur](./media/api-management-user-profile-templates/APIM-User-Profile-Page.png "Page Profil utilisateur APIM")  
@@ -185,7 +185,7 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
 }  
 ```  
   
-##  <a name="Subscriptions"></a> Abonnements  
+##  <a name="subscriptions"></a><a name="Subscriptions"></a> Abonnements  
  Le modèle **Abonnements** vous permet de personnaliser la section Abonnements de la page Profil utilisateur dans le portail des développeurs.  
   
  ![Page Abonnement utilisateur](./media/api-management-user-profile-templates/APIM-User-Subscription-Page.png "Page Abonnement utilisateur APIM")  
@@ -406,7 +406,7 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
 }  
 ```  
   
-##  <a name="Applications"></a> Applications  
+##  <a name="applications"></a><a name="Applications"></a> Applications  
  Le modèle **Applications** vous permet de personnaliser la section Abonnements de la page Profil utilisateur dans le portail des développeurs.  
   
  ![Page Applications du compte d’utilisateur](./media/api-management-user-profile-templates/APIM-User-Account-Applications-Page.png "Page Applications du compte d’utilisateur APIM")  
@@ -569,7 +569,7 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
 }  
 ```  
   
-##  <a name="UpdateAccountInfo"></a> Mettre à jour les informations du compte  
+##  <a name="update-account-info"></a><a name="UpdateAccountInfo"></a> Mettre à jour les informations du compte  
  Le modèle **Mettre à jour les informations du compte** vous permet de personnaliser la page **Mettre à jour les informations du compte** dans le portail des développeurs.  
   
  ![Modèles du portail des développeurs - Page Informations du compte d’utilisateur](./media/api-management-user-profile-templates/APIM-User-Account-Info-Page-Developer-Portal-Templates.png "Modèles du portail des développeurs - Page Informations du compte d’utilisateur APIM")  

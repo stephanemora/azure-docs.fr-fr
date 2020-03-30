@@ -4,10 +4,10 @@ description: Découvrez comment créer et personnaliser des plans de reprise d�
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.openlocfilehash: 6540317324a9f0d9bccc046ecf95824d4128bd09
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76705834"
 ---
 # <a name="create-and-customize-recovery-plans"></a>Créer et personnaliser des plans de récupération
@@ -53,7 +53,7 @@ Vous créez d’autres groupes et ajoutez des ordinateurs à différents groupes
 
 Vous pouvez personnaliser un plan de récupération en ajoutant un script ou une action manuelle. Notez les points suivants :
 
-- Si vous exécutez une réplication vers Azure, vous pouvez intégrer les runbooks Azure Automation dans votre plan de récupération. [Plus d’informations](site-recovery-runbook-automation.md)
+- Si vous exécutez une réplication vers Azure, vous pouvez intégrer les runbooks Azure Automation dans votre plan de récupération. [En savoir plus](site-recovery-runbook-automation.md).
 - Si vous répliquez des machines virtuelles Hyper-V gérées par System Center VMM, vous pouvez créer un script sur le serveur VMM local et l’inclure dans le plan de récupération.
 - Lorsque vous ajoutez un script, vous ajoutez un nouvel ensemble d’actions au groupe. Par exemple, un ensemble d’étapes préliminaires au sein du groupe 1 est créé avec le nom : *Groupe 1 : Étapes préliminaires*. L’ensemble des étapes préliminaires sont répertoriées dans cet ensemble. Vous ne pouvez ajouter de script sur le site principal que si vous disposez d’un serveur VMM déployé.
 - Si vous ajoutez une action manuelle lorsque le plan de récupération s’exécute, il s’arrête au point où vous avez inséré l’action manuelle. Une boîte de dialogue vous invite à spécifier que l’action manuelle est terminée.

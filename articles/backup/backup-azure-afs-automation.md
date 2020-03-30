@@ -4,11 +4,11 @@ description: Dans cet article, découvrez comment sauvegarder Azure Files à l�
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.openlocfilehash: f85451e0da6458de34aea936836b46781f4c4a21
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77120521"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79233949"
 ---
 # <a name="back-up-azure-files-with-powershell"></a>Sauvegarder Azure Files avec PowerShell
 
@@ -35,7 +35,7 @@ La hiérarchie des objets est résumée dans le schéma suivant.
 
 ![Hiérarchie des objets dans Recovery Services](./media/backup-azure-vms-arm-automation/recovery-services-object-hierarchy.png)
 
-Passez en revue la [référence sur la cmdlet](/powershell/module/az.recoveryservices) **Az.RecoveryServices** dans la bibliothèque Azure.
+Passez en revue la **référence sur la cmdlet** [Az.RecoveryServices](/powershell/module/az.recoveryservices) dans la bibliothèque Azure.
 
 ## <a name="set-up-and-install"></a>Configurer et installer
 

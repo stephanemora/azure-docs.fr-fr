@@ -5,13 +5,13 @@ author: ecfan
 ms.author: estfan
 ms.date: 11/03/2016
 ms.openlocfilehash: 951ab2300aa4ffed2c5f1039ff993cd7f6af543f
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74789667"
 ---
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Un compte Azure (que vous pouvez [créer gratuitement)](https://azure.microsoft.com/free)
 * Un compte [OneDrive](https://www.microsoft.com/store/apps/onedrive/9wzdncrfj1p3) 
@@ -20,7 +20,7 @@ Pour pouvoir utiliser votre compte OneDrive dans une application logique, autori
 
 Pour autoriser votre application logique à se connecter à votre compte OneDrive, procédez comme suit :
 
-1. Créez une application logique. Dans le Concepteur d’applications logiques, sélectionnez **Afficher les API gérées par Microsoft** dans la liste déroulante, puis entrez « onedrive » dans la zone de recherche. Sélectionnez l’un des déclencheurs ou actions :  
+1. Créez une application logique. Dans le Concepteur d’applications logiques, sélectionnez **Afficher les API gérées par Microsoft** dans la liste déroulante, puis entrez « onedrive » dans la zone de recherche. Sélectionnez l’un des déclencheurs ou actions :  
    ![](./media/connectors-create-api-onedrive/onedrive-1.png)
 2. Si vous n’avez créé aucune connexion à OneDrive auparavant, vous êtes invité à vous connecter avec vos informations d’identification OneDrive :  
    ![](./media/connectors-create-api-onedrive/onedrive-2.png)

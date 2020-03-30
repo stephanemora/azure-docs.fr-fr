@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 03/18/2019
 ms.author: troyhop
 ms.openlocfilehash: 4401d4b93a27e76554368ce72d256b38de61df4c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61449023"
 ---
 # <a name="create-an-advanced-device-model"></a>Créer un modèle d’appareil avancé
@@ -22,7 +22,7 @@ Ce guide décrit les fichiers JSON et JavaScript qui définissent un modèle d�
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre les étapes de ce guide pratique, vous avez besoin d’une instance déployée de la simulation d’appareil dans votre abonnement Azure.
 
@@ -56,7 +56,7 @@ Un modèle d’appareil classique comprend :
 Chaque fichier de définition d’appareil contient les détails d’un modèle d’appareil simulé, notamment les informations suivantes :
 
 * Nom du modèle d’appareil : chaîne.
-* Protocole : AMQP | MQTT | HTTP.
+* Protocole : AMQP | MQTT | HTTP.
 * État initial de l'appareil.
 * Fréquence d’actualisation de l’état de l’appareil.
 * Fichiers JavaScript à utiliser pour actualiser l’état de l’appareil.
@@ -163,9 +163,9 @@ Les champs répertoriés dans le schéma peuvent avoir les types suivants :
 * Binaire - sérialisé à l’aide de base64
 * Texte
 * Boolean
-* Entier
+* Integer
 * Double
-* Datetime
+* DateTime
 
 ### <a name="supported-methods"></a>Méthodes prises en charge
 
@@ -504,7 +504,7 @@ Cliquez sur **+ Ajouter des modèles d’appareils** dans l’angle supérieur d
 
 Cliquez sur **Avancé** pour ouvrir l’onglet Modèle de périphérique avancé :
 
-![Onglet Avancé](media/iot-accelerators-device-simulation-advanced-device/advancedtab.png)
+![Options avancées, onglet](media/iot-accelerators-device-simulation-advanced-device/advancedtab.png)
 
 Cliquez sur **Parcourir** et sélectionnez les fichiers JSON et JavaScript que vous avez créés. Veillez à sélectionner les trois fichiers. S’il manque un fichier, la validation échoue :
 

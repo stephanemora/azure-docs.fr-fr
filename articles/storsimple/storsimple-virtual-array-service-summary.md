@@ -15,14 +15,14 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 ms.openlocfilehash: 9c05bddaeb3c34400db1ec75c624ef00a85d9444
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "64720710"
 ---
 # <a name="use-the-service-summary-blade-for-storsimple-device-manager-connected-to-storsimple-virtual-array"></a>Utiliser le panneau de synthèse des services pour StorSimple Device Manager connecté à StorSimple Virtual Array
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Le panneau de synthèse des services StorSimple Device Manager fournit un résumé des instances StorSimple Virtual Array (également appelés appareils virtuels ou appareils virtuels locaux StorSimple) qui sont connectés au service, mettant en surbrillance ceux qui requièrent l’attention particulière d’un administrateur système. Ce didacticiel présente le panneau de synthèse des services, explique le contenu et la fonctionnalité et décrit les tâches que vous pouvez effectuer à partir de ce panneau.
 
 ![Tableau de bord du service](./media/storsimple-virtual-array-service-summary/service-blade.png)

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/15/2020
 ms.openlocfilehash: e50510f2420d69be37af584a2648a794e1561ee3
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76157047"
 ---
 # <a name="run-mapreduce-jobs-using-hdinsight-net-sdk"></a>Exécuter des travaux MapReduce avec le Kit de développement logiciel (SDK) .NET HDInsight
@@ -34,7 +34,7 @@ Apprenez à envoyer des travaux MapReduce à l’aide du Kit de développement l
 
 Le kit SDK HDInsight .NET fournit des bibliothèques de client .NET, ce qui facilite l’utilisation des clusters HDInsight à partir de .NET.
 
-1. Démarrez Visual Studio et créez une application console C#.
+1. Démarrez Visual Studio et créez une application console C#.
 
 1. Accédez à **Outils** > **Gestionnaire de package NuGet** > **Console du gestionnaire de package**, puis entrez la commande suivante :
 

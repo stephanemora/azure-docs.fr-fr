@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/01/2020
 ms.openlocfilehash: 011ef4f192bbae12be7d2464d5b0526f584821a6
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75638848"
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>Compréhension et résolution des erreurs reçues à partir de WebHCat sur HDInsight
@@ -39,7 +39,7 @@ Le dépassement des valeurs par défaut suivantes peut entraîner une baisse des
 
 ## <a name="too-many-requests"></a>Trop de demandes
 
-**Code d’état HTTP** : 429
+**Code d’état HTTP**: 429
 
 | Cause : | Résolution |
 | --- | --- |
@@ -47,15 +47,15 @@ Le dépassement des valeurs par défaut suivantes peut entraîner une baisse des
 
 ## <a name="server-unavailable"></a>Serveur non disponible
 
-**Code d’état HTTP** : 503
+**Code d’état HTTP**: 503
 
 | Cause : | Résolution |
 | --- | --- |
 | Ce code d’état se produit généralement lors du basculement entre le HeadNode principal et secondaire du cluster. |Veuillez patienter deux minutes, puis recommencez l’opération. |
 
-## <a name="bad-request-content-could-not-find-job"></a>Contenu de requête erroné : travail introuvable
+## <a name="bad-request-content-could-not-find-job"></a>Contenu de demande erroné : impossible de trouver la tâche
 
-**Code d’état HTTP** : 400
+**Code d’état HTTP**: 400
 
 | Cause : | Résolution |
 | --- | --- |
@@ -65,7 +65,7 @@ Le dépassement des valeurs par défaut suivantes peut entraîner une baisse des
 
 ## <a name="bad-gateway"></a>Passerelle incorrecte
 
-**Code d’état HTTP** : 502
+**Code d’état HTTP**: 502
 
 | Cause : | Résolution |
 | --- | --- |

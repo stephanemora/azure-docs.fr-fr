@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: c1e022591ce1aee073330055744fbd78d97c0b1d
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68950256"
 ---
 # <a name="how-to-annotate-data-sources-in-azure-data-catalog"></a>Guide pratique pour annoter les sources de données dans Azure Data Catalog
@@ -21,7 +21,7 @@ ms.locfileid: "68950256"
 
 ## <a name="annotation-and-crowdsourcing"></a>Annotation et crowdsourcing
 Tout le monde possède un avis. Et c’est une bonne chose.
-Avec Data Catalog, les perspectives de chaque utilisateur à l’égard des sources de données d’entreprise sont prises en compte et valorisées. Examinez le scénario suivant :
+Avec Data Catalog, les perspectives de chaque utilisateur à l’égard des sources de données d’entreprise sont prises en compte et valorisées. Examinez le cas suivant :
 
 * L’administrateur système connaît le contrat de niveau de service associé aux serveurs ou services qui hébergent la source de données.
 * L’administrateur de base de données connaît la planification de sauvegarde pour chaque base de données et les fenêtres de traitement ETL autorisées.

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: erhopf
 ms.openlocfilehash: 60b415f69800885f37ee53cc4f090098f5ebf1f1
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74806077"
 ---
 # <a name="inspect-custom-speech-data"></a>Inspecter des données Custom Speech

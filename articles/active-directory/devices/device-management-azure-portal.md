@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c8e94a1b15ad8cd55019f9351c82f58130e472d
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: e09de5911ca0946bfcbcb77d1ad4131c8feac9f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420608"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79230473"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Gérer les identités de l’appareil à l’aide du portail Microsoft Azure
 
@@ -29,15 +29,10 @@ Cet article :
 
 ## <a name="manage-device-identities"></a>Gérer les identités des appareils
 
-Le portail Azure AD centralise les opérations de gestion des identités de vos appareils. Pour y accéder, utilisez un [lien direct](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices) ou suivez les étapes manuelles ci-dessous :
+Le portail Azure AD centralise les opérations de gestion des identités de vos appareils. Pour accéder à cet emplacement, utilisez un [lien direct](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices) ou :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur.
-
-2. Recherchez et sélectionnez **Azure Active Directory** ou sélectionnez-le dans la page **Accueil**.
-
-3. Dans la section **Gérer**, cliquez sur **Appareils**.
-
-   ![Configurer les paramètres de l’appareil](./media/device-management-azure-portal/74.png)
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Accédez à **Azure Active Directory** > **Appareils**.
 
 La page **Appareils** vous permet :
 
@@ -50,9 +45,7 @@ La page **Appareils** vous permet :
 
 Pour gérer les identités de vos appareils avec le portail Azure AD, vous devez [les inscrire ou les joindre](overview.md) à Azure AD. En tant qu’administrateur, vous pouvez affiner le processus d’inscription et de jonction des appareils en configurant les paramètres de l’appareil.
 
-![Configurer les paramètres de l’appareil](./media/device-management-azure-portal/22.png)
-
-La page Paramètres de l’appareil vous permet de configurer les options suivantes :
+La page des paramètres de l’appareil vous permet de configurer les paramètres relatifs aux identités des appareils :
 
 ![Gérer un appareil Intune](./media/device-management-azure-portal/21.png)
 
@@ -63,7 +56,7 @@ La page Paramètres de l’appareil vous permet de configurer les options suivan
 
 - **Administrateurs locaux supplémentaires sur les appareils joints à Azure AD** : vous pouvez sélectionner les utilisateurs qui peuvent disposer de droits d’administrateur local sur un appareil. Les utilisateurs ajoutés ici sont ajoutés au rôle *Administrateurs d’appareils* dans Azure AD. Les administrateurs généraux Azure AD et les propriétaires d’appareils bénéficient de droits d’administrateur local par défaut. Cette option est une fonctionnalité de l’édition Premium disponible dans les produits comme Azure AD Premium ou EMS (Enterprise Mobility Suite).
 - **Les utilisateurs peuvent inscrire leurs appareils sur Azure AD** : vous devez configurer ce paramètre pour permettre l’inscription des appareils Windows 10 Personnel, iOS, Android, et macOS dans Azure AD. Si vous sélectionnez **Aucun**, les appareils ne peuvent pas être inscrits dans Azure AD. L’inscription auprès de Microsoft Intune ou de la Gestion des appareils mobiles (MDM) pour Office 365 nécessite l’enregistrement de l’appareil. Si vous avez configuré l’un de ces services, l’option **TOUS** est sélectionnée et l’option **AUCUN** est désactivée.
-- **Exiger Multi-factor Auth pour joindre des appareils** : vous pouvez déterminer si les utilisateurs doivent fournir un facteur d’authentification supplémentaire lorsqu’ils veulent joindre leurs appareils à Azure AD. La valeur par défaut est **Non**. Il est recommandé d’exiger une authentification multifacteur au moment de l’inscription d’un appareil. Avant d’activer l’authentification multifacteur pour ce service, vous devez vérifier que l’authentification multifacteur est configurée pour les utilisateurs qui inscrivent leurs appareils. Pour plus d’informations sur les services d’authentification multifacteur Azure, consultez [Bien démarrer avec l’authentification multifacteur Azure](../authentication/concept-mfa-whichversion.md). 
+- **Exiger Multi-factor Auth pour joindre des appareils** : vous pouvez déterminer si les utilisateurs doivent fournir un facteur d’authentification supplémentaire lorsqu’ils veulent joindre leurs appareils à Azure AD. La valeur par défaut est **No**. Il est recommandé d’exiger une authentification multifacteur au moment de l’inscription d’un appareil. Avant d’activer l’authentification multifacteur pour ce service, vous devez vérifier que l’authentification multifacteur est configurée pour les utilisateurs qui inscrivent leurs appareils. Pour plus d’informations sur les services d’authentification multifacteur Azure, consultez [Bien démarrer avec l’authentification multifacteur Azure](../authentication/concept-mfa-whichversion.md). 
 
 > [!NOTE]
 > Le paramètre **Exiger Multi-factor Auth pour joindre des appareils** s'applique aux appareils joints à Azure AD ou inscrits à Azure AD. Ce paramètre ne s’applique pas aux appareils hybrides joints à Azure AD.
@@ -81,12 +74,7 @@ Cette option est une fonctionnalité de l’édition Premium disponible dans les
 Deux options vous permettent de localiser les appareils inscrits et joints :
 
 - **Tous les appareils** dans la section **Gérer** de la page **Appareils**  
-
-   ![Tous les appareils](./media/device-management-azure-portal/41.png)
-
 - **Appareils** dans la section **Gérer** de la page **Utilisateur**
-
-   ![Tous les appareils](./media/device-management-azure-portal/43.png)
 
 Ces deux options permettent d’accéder à une vue qui :
 
@@ -147,7 +135,7 @@ Pour supprimer un appareil, vous avez deux options :
 
 - La barre d’outils dans la page **Appareils**
 
-   ![Suppression d’un appareil](./media/device-management-azure-portal/34.png)
+   ![Supprimer une unité](./media/device-management-azure-portal/34.png)
 
 **Remarques :**
 
@@ -193,9 +181,7 @@ Des activités de l’appareil sont disponibles dans les journaux d’activité.
 
 Les **Journaux d’audit** dans la section **Activité** de la page **Appareils** constituent le point d’entrée des données d’audit.
 
-![Journaux d’audit](./media/device-management-azure-portal/61.png)
-
-Un journal d’audit inclut un mode Liste par défaut, qui indique :
+Un journal d’audit inclut une vue Liste par défaut, qui indique les informations suivantes :
 
 - La date et l’heure de l’occurrence
 - Les cibles

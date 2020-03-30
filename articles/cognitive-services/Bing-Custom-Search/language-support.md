@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: aahi
 ms.openlocfilehash: 85326ae9166f7ea15ec2f45c01755b8f9ef03aff
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "66388560"
 ---
 # <a name="language-and-region-support-for-the-bing-custom-search-api"></a>Langues et régions prises en charge par l’API Recherche personnalisée Bing
@@ -52,7 +52,7 @@ Vous pouvez spécifier un pays/une région à l’aide du paramètre de requête
 |Mexique|MX|
 |Pays-bas|NL|
 |Nouvelle-Zélande|NZ|
-|Norvège|NON|
+|Norvège|Non|
 |Chine|CN|
 |Pologne|PL|
 |Portugal|PT|
@@ -65,8 +65,8 @@ Vous pouvez spécifier un pays/une région à l’aide du paramètre de requête
 |Suisse|CH|
 |Taïwan|TW|
 |Turquie|TR|
-|Royaume-Uni|GB|
-|États-Unis|FR|
+|United Kingdom|Go|
+|États-Unis|US|
 
 
 ## <a name="markets"></a>Marchés
@@ -110,6 +110,6 @@ Vous pouvez spécifier un pays/une région à l’aide du paramètre de requête
 |Suisse|Allemand|de-CH|
 |Taïwan|Chinois traditionnel|zh-TW|
 |Turquie|Turc|tr-TR|
-|Royaume-Uni|Anglais|en-GB|
-|États-Unis|Anglais|en-US|
+|United Kingdom|Anglais|en-GB|
+|États-Unis|Anglais|fr-FR|
 |États-Unis|Espagnol|es-US|

@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: damendo
 ms.openlocfilehash: 6fc4a25e39fb8f27151b2e3bec1959d74a619233
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76840825"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Gérer les captures de paquets avec Azure Network Watcher à l’aide du portail
@@ -39,22 +39,22 @@ Si un groupe de sécurité réseau est associé à l’interface réseau ou à u
 1. Dans votre navigateur, accédez au [portail Azure](https://portal.azure.com), sélectionnez **Tous les services**, puis, dans la section **Mise en réseau**, choisissez **Network Watcher**.
 2. Sélectionnez **Capture de paquets** sous **Outils de diagnostic réseau**. Les captures de paquets existantes sont répertoriées, indépendamment de leur état.
 3. Sélectionnez **Ajouter** pour créer une capture de paquets. Vous pouvez sélectionner des valeurs pour les propriétés suivantes :
-   - **Abonnement**: abonnement dans lequel figure la machine virtuelle pour laquelle vous voulez créer la capture de paquets.
+   - **Abonnement** : abonnement dans lequel figure la machine virtuelle pour laquelle vous voulez créer la capture de paquets.
    - **Groupe de ressources** : groupe de ressources de la machine virtuelle.
-   - **Machine virtuelle cible** : machine virtuelle pour laquelle vous voulez créer la capture de paquets.
+   - **Machine virtuelle cible**: machine virtuelle pour laquelle vous voulez créer la capture de paquets.
    - **Nom de la capture de paquets** : nom pour la capture de paquets.
-   - **Compte ou fichier de stockage** : Sélectionnez **Compte de stockage**, **Fichier**, ou les deux. Si vous sélectionnez **Fichier**, la capture est écrite dans un chemin d’accès à l’intérieur de la machine virtuelle.
-   - **Chemin de fichier local** : chemin d’accès local, sur la machine virtuelle, de l’emplacement où la capture de paquets sera enregistrée (uniquement quand *Fichier* est sélectionné). Il doit s’agir d’un chemin d’accès valide. Si vous utilisez une machine virtuelle Linux, le chemin doit commencer par */var/captures*.
+   - **Compte de stockage ou fichier** : sélectionnez **Compte de stockage**, **Fichier**, ou les deux. Si vous sélectionnez **Fichier**, la capture est écrite dans un chemin d’accès à l’intérieur de la machine virtuelle.
+   - **Chemin de fichier local** : chemin d’accès local, sur la machine virtuelle, de l’emplacement où la capture de paquets sera enregistrée (uniquement quand *Fichier* est sélectionné). Il doit s’agir d’un chemin d’accès valide. Si vous utilisez une machine virtuelle Linux, le chemin doit commencer par */var/captures*.
    - **Comptes de stockage** : si vous avez choisi *Compte de stockage*, sélectionnez un compte de stockage. Cette option est disponible uniquement si vous avez sélectionné **Stockage**.
    
      > [!NOTE]
      > Les comptes de stockage Premium ne sont actuellement pas pris en charge pour le stockage des captures de paquets.
 
    - **Nombre maximal d’octets par paquet** : nombre d’octets capturés dans chaque paquet. Si ce champ est vide, tous les octets sont capturés.
-   - **Nombre maximal d’octets par session** : nombre total d’octets capturés. Une fois la valeur atteinte, la capture de paquets s’arrête.
-   - **Délai imparti (secondes)**  : délai précédant l’arrêt de la capture de paquets. La valeur par défaut est 18 000 secondes.
+   - **Nombre maximal d’octets par session**: nombre total d’octets capturés. Une fois la valeur atteinte, la capture de paquets s’arrête.
+   - **Délai imparti (secondes)** : délai précédant l’arrêt de la capture de paquets. La valeur par défaut est 18 000 secondes.
    - Filtrage (facultatif). Sélectionnez **+ Ajouter un filtre**
-     - **Protocole** : Protocole permettant de filtrer la capture de paquets. Valeurs possibles : TCP, UDP et Quelconque.
+     - **Protocole** : protocole de filtrage de la capture de paquets. Valeurs possibles : TCP, UDP et Quelconque.
      - **Adresse IP locale** : filtre la capture de paquets en la limitant à ceux dont l’adresse IP locale correspond à cette valeur.
      - **Port local** : filtre la capture de paquets en la limitant à ceux dont le port local correspond à cette valeur.
      - **Adresse IP distante** : filtre la capture de paquets en la limitant à ceux dont l’adresse IP distante correspond à cette valeur.

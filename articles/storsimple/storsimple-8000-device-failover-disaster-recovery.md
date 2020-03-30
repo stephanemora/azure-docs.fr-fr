@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 05/03/2017
 ms.author: alkohli
 ms.openlocfilehash: c1acc084d5abe3385fe311873dfd64c9009e83f2
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77468590"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228233"
 ---
 # <a name="failover-and-disaster-recovery-for-your-storsimple-8000-series-device"></a>Basculement et récupération d’urgence pour votre appareil de la gamme StorSimple 8000
 
@@ -50,8 +50,8 @@ Sur un appareil de la gamme StorSimple 8000, les stratégies de sauvegarde sont
 
 Supposons qu’il existe deux stratégies de sauvegarde, *defaultPol* et *customPol* :
 
-* *defaultPol* : un seul volume, *vol1*, s’exécute tous les jours à 22h30.
-* *customPol* : quatre volumes, *vol1*, *vol2*, *vol3* et *vol4*, s’exécutent tous les jours à 22h00.
+* *defaultPol* : un seul volume, *vol1*, s’exécute tous les jours à 22 h 30.
+* *customPol* : quatre volumes, *vol1*, *vol2*, *vol3* et *vol4*, s’exécutent tous les jours à 22 h 00.
 
 Dans ce cas, StorSimple donne la priorité pour des raisons de cohérence en cas d’incident et utilise *customPol*, car elle a plus de volumes. La sauvegarde la plus récente de cette stratégie est utilisée pour restaurer les données. Pour plus d’informations sur la façon de créer et gérer des stratégies de sauvegarde, accédez à [Use the StorSimple Device Manager service in Azure portal to manage backup policies](storsimple-8000-manage-backup-policies-u2.md) (Utiliser le service StorSimple Device Manager dans le portail Azure pour gérer les stratégies de sauvegarde).
 

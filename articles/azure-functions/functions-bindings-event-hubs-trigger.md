@@ -7,11 +7,11 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.openlocfilehash: b046017a4e6ae2eb08271792ed708e558dc23093
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77589624"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79235221"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Liaisons Azure Event Hubs pour Azure Functions
 
@@ -23,4 +23,4 @@ Pour plus d’informations sur les détails d’installation et de configuration
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Écrire des événements dans un flux d'événements (liaison de sortie)](./functions-bindings-storage-blob-output.md)
+- [Écrire des événements dans un flux d’événements (liaison de sortie)](./functions-bindings-storage-blob-output.md)

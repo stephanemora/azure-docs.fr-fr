@@ -8,27 +8,27 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: e0dec0a67ed33186797ccec8066aaad89ceb8dcb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75434752"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Comment provisionner des appareils multilocataires 
 
 Les stratégies d’allocation définies par le service Device Provisioning permettent de gérer divers scénarios d’allocation. Voici deux scénarios courants :
 
-* **Géolocalisation / Géolatence** : quand un appareil change d’emplacement, il doit être provisionné dans le hub IoT le plus proche de son emplacement pour améliorer la latence du réseau. Dans ce scénario, un groupe de hubs IoT couvrant plusieurs régions sont sélectionnés pour les inscriptions. La stratégie d’allocation **Latence la plus faible** est sélectionnée pour ces inscriptions. Avec cette stratégie, le service Device Provisioning évalue la latence des appareils et détermine quel hub IoT dans le groupe de hubs IoT est le plus proche. 
+* **Géolocalisation et géolatence** : quand un appareil change souvent d’emplacement, il doit être provisionné dans le hub IoT le plus proche de son emplacement pour améliorer la latence du réseau. Dans ce scénario, un groupe de hubs IoT couvrant plusieurs régions sont sélectionnés pour les inscriptions. La stratégie d’allocation **Latence la plus faible** est sélectionnée pour ces inscriptions. Avec cette stratégie, le service Device Provisioning évalue la latence des appareils et détermine quel hub IoT dans le groupe de hubs IoT est le plus proche. 
 
-* **Multilocation** : les appareils utilisés dans une solution IoT doivent parfois être affectés à un hub IoT ou à un groupe de hubs IoT spécifique. La solution peut nécessiter que tous les appareils d’un locataire particulier communiquent avec un groupe spécifique de hubs IoT. Dans certains cas, un locataire peut avoir ses propres hubs IoT et exiger que les appareils soient assignés à ses hubs IoT.
+* **Multilocation** : les appareils utilisés dans une solution IoT doivent parfois être assignés à un hub IoT ou un groupe de hubs IoT spécifique. La solution peut nécessiter que tous les appareils d’un locataire particulier communiquent avec un groupe spécifique de hubs IoT. Dans certains cas, un locataire peut avoir ses propres hubs IoT et exiger que les appareils soient assignés à ses hubs IoT.
 
 Il est courant de combiner ces deux scénarios. Par exemple, une solution IoT multilocataire assigne généralement ses appareils locataires dans un groupe de hubs IoT répartis entre plusieurs régions. Ces appareils locataires peuvent être assignés au hub IoT qui, dans ce groupe, a la latence la plus faible par rapport à l’emplacement géographique.
 
 Cet article utilise un exemple d’appareil simulé du [SDK Azure IoT pour C](https://github.com/Azure/azure-iot-sdk-c) afin de montrer comment provisionner des appareils dans un scénario de solution multilocataire entre plusieurs régions. Dans cet article, vous allez effectuer les étapes suivantes :
 
-* Utiliser Azure CLI pour créer deux hubs IoT régionaux (**West US** et **East US**)
+* Utiliser Azure CLI pour créer deux hubs IoT régionaux (**USA Ouest** et **USA Est**)
 * Créer une inscription multilocataire
-* Utiliser Azure CLI pour créer deux machines virtuelles Linux régionales jouant le rôle d’appareils dans les mêmes régions (**West US** et **East US**)
+* Utiliser Azure CLI pour créer deux machines virtuelles Linux régionales jouant le rôle d’appareils dans les mêmes régions (**USA Ouest** et **USA Est**)
 * Configurer l’environnement de développement nécessaire au SDK Azure IoT pour C sur les deux machines virtuelles Linux
 * Simuler les appareils afin de vérifier qu’ils sont provisionnés pour le même locataire dans la région la plus proche
 
@@ -46,7 +46,7 @@ Cet article utilise un exemple d’appareil simulé du [SDK Azure IoT pour C](ht
 
 ## <a name="create-two-regional-iot-hubs"></a>Créer deux hubs IoT régionaux
 
-Dans cette section, vous allez utiliser Azure Cloud Shell pour créer deux hubs IoT régionaux dans les régions **West US** et **East US** d’un locataire.
+Dans cette section, vous allez utiliser Azure Cloud Shell pour créer deux hubs IoT régionaux dans les régions **USA Ouest** et **USA Est** d’un locataire.
 
 
 1. Dans Azure Cloud Shell, créez un groupe de ressources avec la commande [az group create](/cli/azure/group#az-group-create). Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. 
@@ -91,24 +91,24 @@ Par souci de simplicité, cet article utilise [l’attestation de clé symétriq
 
 3. Dans **Ajouter un groupe d’inscriptions**, entrez les informations suivantes, puis cliquez sur le bouton **Enregistrer**.
 
-    **Nom du groupe** : entrez **contoso-us-devices**.
+    **Nom du groupe** : entrez **contoso-us-devices**.
 
-    **Type d’attestation** : sélectionnez **Clé symétrique**.
+    **Type d’attestation** : sélectionnez **Clé symétrique**.
 
-    **Générer automatiquement les clés** : cette case est normalement déjà cochée.
+    **Générer automatiquement les clés** : cette case est normalement déjà cochée.
 
-    **Sélectionner le mode d’affectation des appareils aux hubs** : sélectionnez **Latence la plus faible**.
+    **Sélectionner le mode d’affectation des appareils aux hubs** : sélectionnez **Latence la plus faible**.
 
     ![Ajouter un groupe d’inscription multilocataire pour l’attestation de clé symétrique](./media/how-to-provision-multitenant/create-multitenant-enrollment.png)
 
 
 4. Sous **Ajouter un groupe d’inscriptions**, cliquez sur **Lier un nouveau hub IoT** pour lier les deux hubs régionaux.
 
-    **Abonnement**: si vous avez plusieurs abonnements, sélectionnez celui où vous avez créé les hubs IoT régionaux.
+    **Abonnement** : si vous avez plusieurs abonnements, sélectionnez celui où vous avez créé les hubs IoT régionaux.
 
-    **Hub IoT** : sélectionnez un des hubs régionaux que vous avez créés.
+    **Hub IoT** : sélectionnez un des hubs régionaux que vous avez créés.
 
-    **Stratégie d’accès** : choisissez **iothubowner**.
+    **Stratégie d’accès** : sélectionnez **iothubowner**.
 
     ![Lier les hubs IoT régionaux au service de provisionnement](./media/how-to-provision-multitenant/link-regional-hubs.png)
 
@@ -125,15 +125,15 @@ Par souci de simplicité, cet article utilise [l’attestation de clé symétriq
 
 Dans cette section, vous créez deux machines virtuelles Linux régionales. Ces machines virtuelles exécutent un exemple de simulation d’appareils de deux régions afin d’illustrer le provisionnement d’appareils locataires dans chaque région.
 
-Pour faciliter la suppression des ressources à la fin de l’article, nous ajoutons ces machines virtuelles au même groupe de ressources où vous avez créé les hubs IoT, à savoir *contoso-us-resource-group*. En revanche, nous exécutons les machines virtuelles dans des régions distinctes (**West US** et **East US**).
+Pour faciliter la suppression des ressources à la fin de l’article, nous ajoutons ces machines virtuelles au même groupe de ressources où vous avez créé les hubs IoT, à savoir *contoso-us-resource-group*. En revanche, nous exécutons les machines virtuelles dans des régions distinctes (**USA Ouest** et **USA Est**).
 
-1. Dans Azure Cloud Shell, exécutez la commande ci-dessous pour créer une machine virtuelle dans la région **East US**, après avoir modifié les paramètres de la commande de la façon suivante :
+1. Dans Azure Cloud Shell, exécutez la commande ci-dessous pour créer une machine virtuelle dans la région **USA Est**, après avoir modifié les paramètres de la commande de la façon suivante :
 
-    **--name** : entrez un nom unique pour la machine virtuelle de la région **USA Est**. 
+    **--name** : entrez un nom unique pour la machine virtuelle de la région **USA Est**. 
 
-    **--admin-username** : utilisez votre propre nom d’utilisateur administrateur.
+    **--admin-username** : utilisez votre propre nom d’utilisateur administrateur.
 
-    **--admin-password** : utilisez votre propre mot de passe d’administrateur.
+    **--admin-password** : utilisez votre propre mot de passe d’administrateur.
 
     ```azurecli-interactive
     az vm create \
@@ -146,15 +146,15 @@ Pour faciliter la suppression des ressources à la fin de l’article, nous ajou
     --authentication-type password
     ```
 
-    Cette commande prend plusieurs minutes. Une fois la commande terminée, notez la valeur **publicIpAddress** de la machine virtuelle de la région East US.
+    Cette commande prend plusieurs minutes. Une fois la commande terminée, notez la valeur **publicIpAddress** de la machine virtuelle de la région USA Est.
 
 1. Dans Azure Cloud Shell, exécutez la commande ci-dessous pour créer une machine virtuelle dans la région **West US**, après avoir modifié les paramètres de la commande de la façon suivante :
 
-    **--name** : entrez un nom unique pour la machine virtuelle de la région **USA Ouest**. 
+    **--name** : entrez un nom unique pour la machine virtuelle de la région **West US**. 
 
-    **--admin-username** : utilisez votre propre nom d’utilisateur administrateur.
+    **--admin-username** : utilisez votre propre nom d’utilisateur administrateur.
 
-    **--admin-password** : utilisez votre propre mot de passe d’administrateur.
+    **--admin-password** : utilisez votre propre mot de passe d’administrateur.
 
     ```azurecli-interactive
     az vm create \

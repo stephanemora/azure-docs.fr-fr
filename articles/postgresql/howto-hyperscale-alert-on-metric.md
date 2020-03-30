@@ -5,13 +5,13 @@ author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 2/18/2020
-ms.openlocfilehash: 0e2eb4ab13319779ae209e58253c6a5f2ccb75da
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.date: 3/16/2020
+ms.openlocfilehash: 80c061f72ce827df8f8354a5881c032c6f874fe1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77462426"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80063141"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---hyperscale-citus"></a>Utiliser le portail Azure pour configurer des alertes de métriques pour Azure Database pour PostgreSQL – Hyperscale (Citus)
 
@@ -101,9 +101,9 @@ Nous vous recommandons de définir des alertes d’espace disque sur chaque nœu
 
 * Examinez la stratégie de conservation des données. Déplacez les données les plus anciennes vers le stockage froid si possible.
 * Envisagez d’[ajouter des nœuds](howto-hyperscale-scaling.md#add-worker-nodes) au groupe de serveurs et de rééquilibrer les partitions. Le rééquilibrage répartit les données sur d’autres ordinateurs.
-* Envisagez d’[augmenter la capacité](howto-hyperscale-scaling.md#increase-vcores) des nœuds worker. Chaque worker peut contenir jusqu’à 2 Tio de stockage. Toutefois, l’ajout de nœuds doit être tenté avant le redimensionnement des nœuds, car l’ajout de nœuds s’effectue plus rapidement.
+* Envisagez d’[augmenter la capacité](howto-hyperscale-scaling.md#increase-or-decrease-vcores-on-nodes) des nœuds worker. Chaque worker peut contenir jusqu’à 2 Tio de stockage. Toutefois, l’ajout de nœuds doit être tenté avant le redimensionnement des nœuds, car l’ajout de nœuds s’effectue plus rapidement.
 
-### <a name="cpu-usage"></a>Utilisation du processeur
+### <a name="cpu-usage"></a>Utilisation de l’UC
 
 La supervision de l’utilisation du processeur est utile pour établir une base de référence pour les performances. Par exemple, vous remarquerez peut-être que l’utilisation du processeur est généralement d’environ 40 à 60 %. Si l’utilisation du processeur commence soudainement à tourner autour de 95 %, vous pouvez identifier une anomalie. L’utilisation du processeur peut refléter une croissance naturelle, mais elle peut également révéler une requête isolée. Lors de la création d’une alerte de processeur, définissez une précision d’agrégation longue pour intercepter les augmentations prolongées et ignorer les pics momentanés.
 

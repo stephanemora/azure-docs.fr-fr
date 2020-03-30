@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2019
 ms.author: zivr
 ms.openlocfilehash: b61a84f2b284177b7443be00efeea65e7eb8aaef
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73171094"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231873"
 ---
 # <a name="co-locate-resource-for-improved-latency"></a>Colocalisation des ressources pour une latence améliorée
 
@@ -31,7 +31,7 @@ Lors du déploiement de votre application dans Azure, la répartition des instan
 
 Déployez une machine virtuelle [sur un groupe de placements de proximité](proximity-placement-groups.md) en utilisant Azure PowerShell.
 
-Découvrez comment [tester la latence du réseau](https://aka.ms/TestNetworkLatency?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Découvrez comment [tester le temps de réponse du réseau](https://aka.ms/TestNetworkLatency?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Découvrez comment [optimiser le débit du réseau](https://docs.microsoft.com/azure/virtual-network/virtual-network-optimize-network-bandwidth?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).  
 

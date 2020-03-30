@@ -4,10 +4,10 @@ description: La réponse par défaut est retournée quand il n’existe aucune c
 ms.topic: conceptual
 ms.date: 01/10/2020
 ms.openlocfilehash: fae5c38fd64435a3fae56862bad04e000916e88b
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76843274"
 ---
 # <a name="set-default-answer-for-a-knowledge-base"></a>Définir la réponse par défaut pour une base de connaissances

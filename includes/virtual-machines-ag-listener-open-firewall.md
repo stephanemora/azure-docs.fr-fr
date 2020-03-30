@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: e128f3c67a41322d9c25a8d6941e937729760bf4
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67177009"
 ---
 Au cours de cette étape, vous allez créer une règle de pare-feu pour ouvrir le port de la sonde du point de terminaison à charge équilibrée (59999, comme indiqué précédemment) et une autre règle pour ouvrir le port de l’écouteur de groupe de disponibilité. Comme vous avez créé le point de terminaison à charge équilibrée sur les machines virtuelles qui contiennent des réplicas du groupe de disponibilité, vous devez ouvrir le port de la sonde et le port de l’écouteur sur les machines virtuelles respectives.

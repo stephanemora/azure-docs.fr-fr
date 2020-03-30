@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: diberry
 ms.openlocfilehash: 2f67bf0951ef8928297c71e8fc9f924cf05c63f4
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68932686"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>Guide de migration d’API v1 vers v2 pour les applications LUIS
@@ -134,7 +134,7 @@ Plusieurs API qui retournent des métadonnées de LUIS ont été renommées.
 
 
 ## <a name="sample-renamed-to-suggest"></a>« Exemple » est renommé « Suggérer »
-LUIS suggère des énoncés à partir d’[énoncés de point de terminaison](luis-how-to-review-endpoint-utterances.md) qui peuvent améliorer le modèle. Dans la version précédente, cela s’appelait **exemple**. Dans la nouvelle version, le nom est modifié, passant d’exemple à **suggérer**. Cela s’appelle **[Réviser les énoncés de point de terminaison](luis-how-to-review-endpoint-utterances.md)**  sur le site web LUIS.
+LUIS suggère des énoncés à partir d’[énoncés de point de terminaison](luis-how-to-review-endpoint-utterances.md) qui peuvent améliorer le modèle. Dans la version précédente, cela s’appelait **exemple**. Dans la nouvelle version, le nom est modifié, passant d’exemple à **suggérer**. Cela s’appelle **[Réviser les énoncés de point de terminaison](luis-how-to-review-endpoint-utterances.md)** sur le site web LUIS.
 
 | version | itinéraire |
 |--|--|

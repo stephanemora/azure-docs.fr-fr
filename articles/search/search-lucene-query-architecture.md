@@ -9,11 +9,11 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: d46d0309b3d2ffb638016e88ba022e49009eedf2
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793550"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79236841"
 ---
 # <a name="how-full-text-search-works-in-azure-cognitive-search"></a>Fonctionnement de la recherche en texte intégral dans Recherche cognitive Azure
 
@@ -94,7 +94,7 @@ L’analyseur de requêtes restructure les sous-requêtes en une *arborescence d
 
  ![Mode de recherche de requête booléenne : quelconque][2]
 
-### <a name="supported-parsers-simple-and-full-lucene"></a>Analyseurs pris en charge : Lucene simple et complet 
+### <a name="supported-parsers-simple-and-full-lucene"></a>Analyseurs pris en charge : simple et complet (Lucene) 
 
  La Recherche cognitive Azure expose deux langages de requête différents, `simple` (valeur par défaut) et `full`. En définissant le paramètre `queryType` avec votre requête de recherche, vous indiquez à l’analyseur de requêtes le langage de requête choisi afin qu’il sache comment interpréter les opérateurs et la syntaxe. Le [langage de requête simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) est intuitif et robuste, généralement adapté à l’interprétation de l’entrée d’utilisateur telle quelle, sans traitement côté client. Il prend en charge les opérateurs de requête courants des moteurs de recherche web. Le [langage de requête complet Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), que vous pouvez obtenir en définissant `queryType=full`, étend le langage de requête simple par défaut en y ajoutant la prise en charge de plusieurs opérateurs et types de requête, tels que les caractères génériques, et les requêtes partielles, d’expression régulière et portant sur des champs. Par exemple, une expression régulière envoyée en syntaxe de requête simple serait interprétée en tant que chaîne de requête et pas en tant qu’expression. L’exemple de requête de cet article utilise le langage de requête complet Lucene.
 
@@ -261,7 +261,7 @@ Dans notre exemple, pour le champ **titre**, l’index inversé ressemble à cec
 | complexe | 3 |
 | retraite | 4 |
 
-Dans le champ Titre, seul *hôtel* apparaît dans deux documents : 1, 3.
+Dans le champ Titre, seul *hôtel* apparaît dans deux documents : 1, 3.
 
 Pour le champ **Description**, l’index est le suivant :
 
@@ -287,7 +287,7 @@ Pour le champ **Description**, l’index est le suivant :
 | spacieux | 1
 | le | 1, 2
 | to | 1
-| view | 1, 2, 3
+| vue | 1, 2, 3
 | marche | 1
 | par | 3
 

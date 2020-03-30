@@ -14,12 +14,12 @@ ms.date: 11/26/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: daf26f346ab10906eb5c37c6d7d2bb24736417cb
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: d47ed3a4cd4fbdcb69b956d3c8418f70a71cf44f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76698814"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79230749"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Comment et pourquoi les applications sont ajoutées à Azure AD
 
@@ -77,7 +77,7 @@ Le principal de service peut inclure :
 * Lorsqu’un administrateur ajoute une application à partir de la galerie d’applications (cette opération crée également un objet d’application sous-jacent)
 * Lors de l’ajout d’une application pour utiliser le [Proxy d’application d’Azure AD](/azure/active-directory/manage-apps/application-proxy)
 * Lors de la connexion d’une application pour l’authentification unique à l’aide de SAML ou de l’authentification unique (SSO) avec mot de passe
-* Par programmation via l’API Graph Azure AD ou PowerShell
+* Par programmation via l’API Microsoft Graph ou PowerShell
 
 ## <a name="how-are-application-objects-and-service-principals-related-to-each-other"></a>Quel est le lien entre les objets d’application et les principaux de service ?
 
@@ -100,13 +100,13 @@ Les applications que vous ajoutez vous-même (représentées en tant que **(Vos)
 
 ### <a name="notes-and-exceptions"></a>Remarques et exceptions
 
-* Tous les principaux de service ne pointent pas vers un objet d’application. Lorsqu’Azure AD a été créé, les services fournis aux applications étaient alors plus limités et le principal de service était suffisant pour établir une identité d’application. Le principal du service d'origine était plus proche en termes de forme du compte de service Windows Server Active Directory. Pour cette raison, il est toujours possible de créer des principaux de service via diverses méthodes, avec Azure AD PowerShell par exemple, sans d’abord créer un objet d’application. L’API Graph Azure AD requiert un objet d’application avant de pouvoir créer un principal de service.
+* Tous les principaux de service ne pointent pas vers un objet d’application. Lorsqu’Azure AD a été créé, les services fournis aux applications étaient alors plus limités et le principal de service était suffisant pour établir une identité d’application. Le principal du service d'origine était plus proche en termes de forme du compte de service Windows Server Active Directory. Pour cette raison, il est toujours possible de créer des principaux de service via diverses méthodes, avec Azure AD PowerShell par exemple, sans d’abord créer un objet d’application. L’API Microsoft Graph requiert un objet d’application avant de pouvoir créer un principal de service.
 * Actuellement, toutes les informations décrites ci-dessus sont exposées par programmation. Les éléments suivants sont uniquement disponibles dans l'interface utilisateur :
   * Revendication des règles de transformation
   * Mappages d'attributs (déploiement de l'utilisateur)
-* Pour plus d’informations détaillées sur le principal de service et les objets d’application, consultez la documentation de référence sur l’API REST Azure AD Graph :
-  * [Application](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity)
-  * [Principal du service](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity)
+* Pour plus d’informations détaillées sur le principal de service et les objets d’application, consultez la documentation de référence sur l’API Microsoft Graph :
+  * [Application](https://docs.microsoft.com/graph/api/resources/application?view=graph-rest-1.0)
+  * [Principal du service](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta)
 
 ## <a name="why-do-applications-integrate-with-azure-ad"></a>Pourquoi les applications s’intègrent à Azure AD ?
 

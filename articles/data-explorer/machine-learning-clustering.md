@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.openlocfilehash: fe72031ef9ade7473dc4d5de7e090e92ef2a6843
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74769929"
 ---
 # <a name="machine-learning-capability-in-azure-data-explorer"></a>Fonctionnalité d’apprentissage automatique dans Azure Data Explorer
@@ -106,7 +106,7 @@ demo_clustering1
 
 ### <a name="use-autocluster-for-single-record-set-clustering"></a>Utiliser autocluster() pour le clustering d’un jeu d’enregistrements unique
 
-Même s’il existe moins d’un millier d’exceptions, il est toujours difficile de repérer les segments communs, dans la mesure où chaque colonne comporte plusieurs valeurs. Vous pouvez utiliser le plug-in [ `autocluster()` ](/azure/kusto/query/autoclusterplugin) pour extraire instantanément une petite liste de segments communs et rechercher les clusters intéressants situés dans la période de deux minutes du pic comme indiqué dans la requête suivante :
+Même s’il existe moins d’un millier d’exceptions, il est toujours difficile de repérer les segments communs, dans la mesure où chaque colonne comporte plusieurs valeurs. Vous pouvez utiliser le plug-in [`autocluster()`](/azure/kusto/query/autoclusterplugin) pour extraire instantanément une petite liste de segments communs et rechercher les clusters intéressants situés dans la période de deux minutes du pic comme indiqué dans la requête suivante :
 
 **\[** [**Cliquer pour exécuter la requête**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA4WOsQrCMBRF937FG5OhJYkoovQfBN1DbC8aTNqSvlgHP94IQkf3c+65AUzRD3aCe1hue8dgHyGM0rta7WuzIb09KCWPVfii7vUPNQXtEUfbhTwzkh9uunrTckcCnRI6P+NSvDO7ONEVvACDWD80zRqRRcTThVxa5DKPv00hP81KL1+4AAAA) **\]**
 
@@ -151,7 +151,7 @@ demo_clustering1
 | 2 | 324 | 33.3333333333333 | eau | su7 | b5d1d4df547d4a04ac15885617edba57 | 0 | e7f60c5d-4944-42b3-922a-92e98a8e7dec |
 | 3 | 315 | 32.4074074074074 | eau | su7 | b5d1d4df547d4a04ac15885617edba57 | 16108 | e7f60c5d-4944-42b3-922a-92e98a8e7dec |
 | 4 | 328 | 33.7448559670782 |  |  |  | 0 |  |
-| 5\. | 94 | 9.67078189300411 | scus | su5 | 9dbd1b161d5b4779a73cf19a7836ebd6 |  |  |
+| 5 | 94 | 9.67078189300411 | scus | su5 | 9dbd1b161d5b4779a73cf19a7836ebd6 |  |  |
 | 6 | 82 | 8.43621399176955 | ncus | su1 | e24ef436e02b4823ac5d5b1465a9401e |  |  |
 | 7 | 68 | 6.99588477366255 | scus | su3 | 90d3d2fc7ecc430c9621ece335651a01 |  |  |
 | 8 | 167 | 17.1810699588477 | scus |  |  |  |  |
@@ -189,10 +189,10 @@ demo_clustering1
 |-----------|--------|--------|----------|----------|---------------|--------|-----------|----------------------------------|------------|
 | 0 | 639 | 21 | 65.74 | 1.7 | 64.04 | eau | su7 | b5d1d4df547d4a04ac15885617edba57 |  |
 | 1 | 167 | 544 | 17.18 | 44.16 | 26.97 | scus |  |  |  |
-| 2 | 92 | 356 | 9.47 | 28.9 | 19.43 |  |  |  | 10007007 |
+| 2 | 92 | 356 | 9.47 | 28,9 | 19.43 |  |  |  | 10007007 |
 | 3 | 90 | 336 | 9.26 | 27.27 | 18.01 |  |  |  | 10007006 |
 | 4 | 82 | 318 | 8.44 | 25.81 | 17.38 | ncus | su1 | e24ef436e02b4823ac5d5b1465a9401e |  |
-| 5\. | 55 | 252 | 5.66 | 20.45 | 14.8 | weu | su4 | be1d6d7ac9574cbc9a22cb8ee20f16fc |  |
+| 5 | 55 | 252 | 5.66 | 20.45 | 14.8 | weu | su4 | be1d6d7ac9574cbc9a22cb8ee20f16fc |  |
 | 6 | 57 | 204 | 5.86 | 16.56 | 10.69 |  |  |  |  |
 
 Le segment plus dominant est le même segment que celui extrait par `autocluster`, sa couverture sur la fenêtre anormale de deux minutes est également de 65,74 %. Toutefois, sa couverture sur la fenêtre de référence de huit minutes est seulement de 1,7 %. La différence est de 64,04 %. Cette différence semble être liée au pic d’activité anormale. Vous pouvez vérifier cette hypothèse en fractionnant le graphique d’origine avec, d’un côté, les enregistrements appartenant à ce segment qui pose problème et, de l’autre, les autres segments comme indiqué dans la requête ci-dessous :

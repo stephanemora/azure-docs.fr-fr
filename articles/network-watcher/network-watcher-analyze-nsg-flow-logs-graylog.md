@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: damendo
 ms.openlocfilehash: 1e597a81967a8fb6be2959d53e65ad01135e5e25
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76842901"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Gérer et analyser les journaux de flux des groupes de sécurité réseau à l’aide de Network Watcher et de Graylog
@@ -182,7 +182,7 @@ Une connexion aux journaux de flux étant établie à l’aide de Logstash, et l
 
    ![Prise en main](./media/network-watcher-analyze-nsg-flow-logs-graylog/getting-started.png)
 
-3. Pour lancer la nouvelle entrée, dans la zone de liste déroulante **Select input** (Sélectionner une entrée), sélectionnez *GELF UDP*, puis remplissez le formulaire. GELF est l’acronyme de « Graylog Extended Log Format » et signifie « format de journal étendu Graylog ». Le format GELF est développé par Graylog. Pour plus d’informations sur ses avantages, consultez la [documentation](https://docs.graylog.org/en/2.2/pages/gelf.html) Graylog.
+3. Pour lancer la nouvelle entrée, dans la zone de liste déroulante *Select input* (Sélectionner une entrée), sélectionnez **GELF UDP**, puis remplissez le formulaire. GELF est l’acronyme de « Graylog Extended Log Format » et signifie « format de journal étendu Graylog ». Le format GELF est développé par Graylog. Pour plus d’informations sur ses avantages, consultez la [documentation](https://docs.graylog.org/en/2.2/pages/gelf.html) Graylog.
 
    Veillez à lier l’entrée à l’adresse IP sur laquelle vous avez configurée votre serveur Graylog. L’adresse IP doit correspondre au champ **host** (hôte) de la sortie UDP du fichier de configuration Logstash. Le port par défaut doit être *12201*. Vérifiez que le port correspond au champ **port** dans la sortie UDP désignée dans le fichier de configuration Logstash.
 

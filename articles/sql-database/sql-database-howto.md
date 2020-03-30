@@ -11,18 +11,18 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 11/14/2019
-ms.openlocfilehash: e45baba74d7bf752718e5e36a148a91987cd3ffb
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: c3f7b33e4b42b08334cfb687024985c878dc3713
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082429"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79209416"
 ---
 # <a name="how-to-use-azure-sql-database"></a>Utilisation d’Azure SQL Database
 
 Dans cette section, vous trouverez des guides, des scripts et des explications pour vous aider à gérer et à configurer votre base de données Azure SQL Database. Vous trouverez également des guides pratiques spécifiques pour une [base de données unique](sql-database-howto-single-database.md) et une [instance gérée](sql-database-howto-managed-instance.md).
 
-## <a name="load-data"></a>Charger des données
+## <a name="load-data"></a>Charger les données
 
 - [Copier une base de données unique ou mise en pool dans Azure](sql-database-copy.md)
 - [Importer une base de données depuis un fichier BACPAC](sql-database-import.md)
@@ -43,7 +43,7 @@ Dans cette section, vous trouverez des guides, des scripts et des explications p
 
 - [Réglage manuel](sql-database-performance-guidance.md)
 - [Utiliser des DMV pour surveiller les performances](sql-database-monitoring-with-dmvs.md)
-- [Utiliser le Magasin des requêtes pour superviser les performances](sql-database-operate-query-store.md)
+- [Utiliser le Magasin des requêtes pour superviser les performances](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store#Insight)
 - [Résoudre les problèmes de performances avec Intelligence Insights](sql-database-intelligent-insights-troubleshoot-performance.md)
 - [Utiliser le journal de diagnostic Intelligent Insights](sql-database-intelligent-insights-use-diagnostics-log.md)
 - [Superviser l’espace OLTP en mémoire](sql-database-in-memory-oltp-monitoring.md)

@@ -9,10 +9,10 @@ ms.date: 12/05/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 80c961c1aa4da199fa87b97bc8e0a37e60c2235f
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74903136"
 ---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>La stratégie personnalisée IPsec/IKE est-elle prise en charge sur toutes les références de passerelle VPN Azure ?
@@ -35,7 +35,7 @@ Le tableau suivant répertorie les algorithmes de chiffrement et les puissances 
 | Chiffrement IPsec | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, Aucun      |
 | Intégrité IPsec  | GCMAES256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                            |
 | Groupe PFS        | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, Aucun                              |
-| Durée de vie de l’AS en mode rapide   | Secondes (entier ; **min 300** /par défaut 27 000 secondes)<br>Kilo-octets (entier ; **min 1 024**  /par défaut 102 400 000 Ko)           |
+| Durée de vie de l’AS en mode rapide   | Secondes (entier ; **min 300** /par défaut 27 000 secondes)<br>Kilo-octets (entier ; **min 1024** /par défaut 102 400 000 Ko)           |
 | Sélecteur de trafic | UsePolicyBasedTrafficSelectors ($True/$False; default $False)                 |
 |                  |                                                                               |
 
@@ -67,7 +67,7 @@ Si vous activez **UsePolicyBasedTrafficSelectors**, vous devez vous assurer que 
 
 Pour en savoir plus, consultez la section relative à la [connexion de plusieurs appareils VPN basés sur des stratégies locales](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
 
-### <a name ="DH"></a>Quels groupes Diffie-Hellman sont pris en charge ?
+### <a name="which-diffie-hellman-groups-are-supported"></a><a name ="DH"></a>Quels groupes Diffie-Hellman sont pris en charge ?
 Le tableau ci-dessous répertorie les groupes Diffie-Hellman pris en charge pour le protocole IKE (DHGroup) et IPsec (PFSGroup) :
 
 | **Groupe Diffie-Hellman**  | **DHGroup**              | **PFSGroup** | **Longueur de clé** |

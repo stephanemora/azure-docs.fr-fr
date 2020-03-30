@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: aebd6dee9314d6e5641988767c024790b6b721f4
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74887695"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227061"
 ---
 # <a name="create-contentkeys-with-net"></a>Création de ContentKeys avec .NET 
 > [!div class="op_single_selector"]
@@ -70,7 +70,7 @@ Une des valeurs que vous devez définir lors de la création d’une clé de con
     }
 ```
 
-## <a id="envelope_contentkey"></a>Créer une ContentKey de type enveloppe
+## <a name="create-envelope-type-contentkey"></a><a id="envelope_contentkey"></a>Créer une ContentKey de type enveloppe
 L’extrait de code suivant crée une clé de contenu du type de chiffrement d’enveloppe. Il associe ensuite la clé à l’élément multimédia spécifié.
 
 ```csharp
@@ -108,7 +108,7 @@ call
 ```
 
 
-## <a id="common_contentkey"></a>Créer une ContentKey de type commun
+## <a name="create-common-type-contentkey"></a><a id="common_contentkey"></a>Créer une ContentKey de type commun
 L’extrait de code suivant crée une clé de contenu du type de chiffrement commun. Il associe ensuite la clé à l’élément multimédia spécifié.
 
 ```csharp

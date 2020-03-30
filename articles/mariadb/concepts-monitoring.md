@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 4f94ef66610b56d8843d59e5ca72a48143b742e8
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.date: 3/18/2020
+ms.openlocfilehash: 20a2066dc0228fe9c2fee09387d96bf6aafeb32f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251392"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79531972"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>Supervision dans Azure Database for MariaDB
 La surveillance des données relatives à vos serveurs vous aide à résoudre les problèmes et à optimiser votre charge de travail. Azure Database pour MariaDB propose diverses métriques qui fournissent des insights sur le comportement de votre serveur.
@@ -58,16 +58,16 @@ La fonctionnalité [Recommandations sur les performances](concepts-performance-r
 
 ## <a name="planned-maintenance-notification"></a>Notification de maintenance planifiée
 
-Les **notifications de maintenance planifiée** vous permettent de recevoir des alertes concernant la maintenance planifiée à venir sur votre Azure Database for MariaDB. Ces notifications sont intégrées à la maintenance planifiée de [Service Health](../service-health/overview.md) et vous permettent d’afficher toutes les tâches de maintenance planifiée de vos abonnements dans un même emplacement. Cela permet également d’adapter la notification pour le public approprié pour divers groupes de ressources, car des contacts différents peuvent être responsables de différentes ressources. Vous recevrez la notification concernant la maintenance à venir 72 heures avant l’événement.
+Les **notifications de maintenance planifiée** vous permettent de recevoir des alertes concernant la maintenance planifiée à venir sur votre Azure Database for MariaDB. Ces notifications sont intégrées à la maintenance planifiée de [Service Health](../service-health/overview.md) et vous permettent d’afficher toutes les tâches de maintenance planifiée de vos abonnements dans un même emplacement. Cela permet également d’adapter la notification au public approprié pour divers groupes de ressources, car des contacts différents peuvent être responsables de différentes ressources. Vous recevez la notification concernant la maintenance à venir 72 heures avant l’événement.
 
 > [!Note]
-> Nous tenterons de fournir une **notification de maintenance planifiée** avec un préavis de 72 heures pour tous les événements. Toutefois, en cas de correctifs critiques ou de sécurité, des notifications peuvent être envoyées dans un délai plus proche de l’événement ou être omises.
+> Nous mettons tout en œuvre pour fournir une **notification de maintenance planifiée** avec un préavis de 72 heures pour tous les événements. Toutefois, en cas de correctifs critiques ou de sécurité, des notifications peuvent être envoyées dans un délai plus proche de l’événement ou être omises.
 
 ### <a name="to-receive-planned-maintenance-notification"></a>Pour recevoir une notification de maintenance planifiée
 
 1. Dans le [portail](https://portal.azure.com), sélectionnez **Intégrité du service**.
 2. Dans la section **Alertes**, sélectionnez **Alertes d’intégrité**.
-3. Sélectionnez **+ Ajouter une alerte d’intégrité du service** et renseignez les champs.
+3. Sélectionnez **+ Ajouter une alerte d’intégrité de service** et renseignez les champs.
 4. Renseignez les champs obligatoires. 
 5. Choisissez le **type d’événement**, puis sélectionnez **Maintenance planifiée** ou **Tout sélectionner**.
 6. Dans **Groupes d’actions**, définissez la manière dont vous souhaitez recevoir l’alerte (obtenir un e-mail, déclencher une application logique, etc.).  
@@ -77,7 +77,7 @@ Les **notifications de maintenance planifiée** vous permettent de recevoir des 
 Pour obtenir des instructions détaillées sur la création d’**alertes d’intégrité de service**, consultez [Créer des alertes de journal d’activité sur les notifications de service](../service-health/alerts-activity-log-service-notifications.md).
 
 > [!IMPORTANT]
-> Les notifications de maintenance planifiée sont actuellement en préversion.
+> Les notifications de maintenance planifiée sont en préversion.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

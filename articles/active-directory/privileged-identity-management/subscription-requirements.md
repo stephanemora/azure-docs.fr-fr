@@ -18,10 +18,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 70696cdb95fffc1e5faa46ca1b5f2180633ed63a
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75932316"
 ---
 # <a name="license-requirements-to-use-privileged-identity-management"></a>Licences requises pour utiliser Privileged Identity Management
@@ -46,11 +46,11 @@ Les licences Azure AD Premium P2 ne sont **pas** requises pour les tâches sui
 
 - Aucune licence n’est requise pour les utilisateurs disposant des rôles d’administrateur général ou d’administrateur de rôle privilégié qui configurent PIM, des stratégies et les révisions d’accès et reçoivent des alertes.
 
-Pour plus d’informations sur les licences, consultez [Assigner ou supprimer des licences à l’aide du portail Azure Active Directory](../fundamentals/license-users-groups.md).
+Pour plus d’informations sur les licences, consultez [Attribuer ou supprimer des licences à l’aide du portail Azure Active Directory](../fundamentals/license-users-groups.md).
 
 ## <a name="example-license-scenarios"></a>Exemples de scénarios de licence
 
-Voici quelques exemples de scénarios de licence pour vous aider à déterminer le nombre de licences dont vous devez disposer.
+Voici quelques exemples de scénarios de licence pour vous permettre de déterminer le nombre de licences dont vous devez disposer.
 
 | Scénario | Calcul | Nombre de licences |
 | --- | --- | --- |

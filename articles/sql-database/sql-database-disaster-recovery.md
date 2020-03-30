@@ -12,11 +12,11 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 06/21/2019
 ms.openlocfilehash: d28edd28dcbe31bfe63c2d0a9c3e975967efef04
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826584"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228669"
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Restaurer une base de données Azure SQL ou basculer vers une base de données secondaire
 
@@ -97,7 +97,7 @@ Pour plus d’informations sur la modification des chaînes de connexion, consul
 
 ### <a name="configure-firewall-rules"></a>Configurer les règles de pare-feu
 
-Vous devez vous assurer que les règles de pare-feu configurées sur le serveur et sur la base de données correspondent à celles du serveur principal et de la base de données primaire. Pour plus d’informations, consultez [Guide pratique pour Configurer des paramètres du pare-feu (Azure SQL Database)](sql-database-configure-firewall-settings.md)
+Vous devez vous assurer que les règles de pare-feu configurées sur le serveur et sur la base de données correspondent à celles du serveur principal et de la base de données primaire. Pour plus d’informations, consultez [Procédure : configuration des paramètres du pare-feu (Azure SQL Database)](sql-database-configure-firewall-settings.md).
 
 ### <a name="configure-logins-and-database-users"></a>Configurer les identifiants de connexion et les utilisateurs de la base de données
 

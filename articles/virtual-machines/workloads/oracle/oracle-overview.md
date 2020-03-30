@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
 ms.openlocfilehash: 6ab41182d59f8c96edfca4854aad5f9a13f53436
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74806607"
 ---
 # <a name="overview-of-oracle-applications-and-solutions-on-azure"></a>Vue d’ensemble des applications et des solutions Oracle sur Azure
@@ -82,7 +82,7 @@ Déployez également des applications personnalisées dans Azure qui se connecte
 Utilisez les services cloud Oracle Database (Autonomous Database, RAC, Exadata, DBaaS, Single Node) en association avec les applications Oracle s’exécutant dans Azure. En savoir plus sur les [options de base de données OCI](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/databaseoverview.htm). 
  
 
-## <a name="licensing"></a>Gestion des licences
+## <a name="licensing"></a>Licence
 
 Le déploiement d’applications Oracle dans Azure est basé sur un modèle « apportez votre propre licence ». Vous êtes supposé disposer des licences appropriées pour utiliser les logiciels Oracle, ainsi que d’un contrat de support avec Oracle. Oracle a garanti la mobilité des licence locale vers Azure. Consultez la [FAQ](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html) Oracle-Azure.
 

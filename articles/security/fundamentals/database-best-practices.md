@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 316c3ef3c5bd16b52291029924d04fc159375bc8
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 0f2e0257c5bf855b0d9be61c43b68b4e30b3d80d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78943657"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80125105"
 ---
 # <a name="azure-database-security-best-practices"></a>Meilleures pratiques en matière de sécurité pour les bases de données Azure
 Cet article décrit les meilleures pratiques pour la sécurité des bases de données.
@@ -72,10 +72,10 @@ Si vous utilisez l’authentification SQL Server, vous devez :
 
 - Gérer les informations d’identification fortes vous-même.
 - Protéger les informations d’identification dans la chaîne de connexion.
-- (Éventuellement) Protéger les informations d’identification transmises via le réseau à partir du serveur web à la base de données. Pour plus d’informations, consultez [Procédure : Se connecter à SQL Server à l’aide de l’authentification SQL dans ASP.NET 2.0](/previous-versions/msp-n-p/ff648340(v=pandp.10)).
+- (Éventuellement) Protéger les informations d’identification transmises via le réseau à partir du serveur web à la base de données. Pour plus d’informations, consultez [Guide pratique : Se connecter à SQL Server à l’aide de l’authentification SQL dans ASP.NET 2.0](/previous-versions/msp-n-p/ff648340(v=pandp.10)).
 
 ### <a name="azure-active-directory-ad-authentication"></a>*Authentification Azure Active Directory (AD)*
-L’authentification Azure AD est un mécanisme de connexion aux services Azure SQL Database et [SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) à l’aide d’identités dans Azure AD. Avec l’authentification Azure AD, vous pouvez gérer les identités des utilisateurs de base de données et d’autres services Microsoft dans un emplacement centralisé. La gestion centralisée des ID fournit un emplacement unique pour gérer les utilisateurs de la base de données et simplifie la gestion des autorisations.
+L’authentification Azure AD est un mécanisme de connexion aux services Azure SQL Database et [SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) à l’aide d’identités dans Azure AD. Avec l’authentification Azure AD, vous pouvez gérer les identités des utilisateurs de base de données et d’autres services Microsoft dans un emplacement centralisé. La gestion centralisée des ID fournit un emplacement unique pour gérer les utilisateurs de la base de données et simplifie la gestion des autorisations.
 
 > [!NOTE]
 > Nous recommandons d’utiliser l’authentification Azure AD plutôt que l’authentification SQL Server.
@@ -95,7 +95,7 @@ Les avantages suivants sont inclus :
 Les étapes de configuration incluent les procédures suivantes pour configurer et utiliser l’authentification Azure AD :
 
 - Créer et renseigner Azure AD.
-- Facultatif : Associer ou changer l’instance Active Directory actuellement associée à votre abonnement Azure.
+- Facultatif : associer ou changer l’instance Active Directory actuellement associée à votre abonnement Azure.
 - Créer un administrateur Azure Active Directory pour Azure SQL Database ou [Azure SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
 - Configurer vos ordinateurs clients.
 - Créer des utilisateurs de base de données autonome dans votre base de données mappés sur les identités Azure AD.
@@ -145,18 +145,18 @@ La protection contre les menaces va au-delà de la détection. La protection con
 - Implémentation de configurations sécurisées sur votre base de données afin de pouvoir la protéger.
 - Détection et traitement des menaces potentielles quand elles se produisent, afin que vous puissiez rapidement les traiter et les corriger.
 
-**Bonne pratique** : Découvrir, classer et étiqueter les données sensibles dans vos bases de données.   
-**Détail** : Classez les données dans votre base de données SQL en activant le service [Découverte et classification des données](/azure/sql-database/sql-database-data-discovery-and-classification) dans Azure SQL Database. Vous pouvez superviser l’accès à vos données sensibles dans le tableau de bord Azure ou télécharger des rapports.
+**Bonnes pratiques** : découvrir, classer et étiqueter les données sensibles dans vos bases de données.   
+**Détails** : classez les données dans votre base de données SQL en activant le service [Découverte et classification des données](/azure/sql-database/sql-database-data-discovery-and-classification) dans Azure SQL Database. Vous pouvez superviser l’accès à vos données sensibles dans le tableau de bord Azure ou télécharger des rapports.
 
-**Bonne pratique** : Suivre les vulnérabilités de base de données afin de pouvoir améliorer la sécurité de votre base de données de façon proactive.   
-**Détail** : Utilisez le service [Évaluation des vulnérabilités](/azure/sql-database/sql-vulnerability-assessment) d’Azure SQL Database, qui analyse les vulnérabilités de base de données potentielles. Le service s’appuie sur une base de connaissances de règles qui signale les vulnérabilités de sécurité et indique les écarts par rapport aux bonnes pratiques, notamment les erreurs de configuration, les autorisations excessives et les données sensibles non protégées.
+**Bonnes pratiques** : suivre les vulnérabilités de base de données afin de pouvoir améliorer la sécurité de votre base de données de façon proactive.   
+**Détails** : utilisez le service [Évaluation des vulnérabilités](/azure/sql-database/sql-vulnerability-assessment) d’Azure SQL Database, qui analyse les vulnérabilités de base de données potentielles. Le service s’appuie sur une base de connaissances de règles qui signale les vulnérabilités de sécurité et indique les écarts par rapport aux bonnes pratiques, notamment les erreurs de configuration, les autorisations excessives et les données sensibles non protégées.
 
 Les règles sont basées sur les bonnes pratiques Microsoft et se concentrent sur les problèmes de sécurité qui présentent des risques majeurs pour votre base de données et ses données importantes. Elles couvrent les problèmes au niveau de la base de données et les problèmes de sécurité au niveau du serveur, comme les paramètres de pare-feu de serveur et les autorisations au niveau du serveur. Ces règles représentent également les nombreuses exigences à respecter, provenant d’organismes de réglementation.
 
-**Bonne pratique** : Activer la détection des menaces.  
-**Détail** :  Activez le service [Détection des menaces](/azure/sql-database/sql-database-threat-detection) d’Azure SQL Database pour obtenir des alertes de sécurité, ainsi que des suggestions pour examiner et corriger les menaces. Vous obtenez des alertes sur les activités de base de données suspectes, les vulnérabilités potentielles et les attaques par injection de code SQL, ainsi que des modèles de requêtes et d’accès anormaux à la base de données.
+**Bonne pratique** : activer la détection des menaces.  
+**Détails** : activez le service [Détection des menaces](/azure/sql-database/sql-database-threat-detection) d’Azure SQL Database pour obtenir des alertes de sécurité, ainsi que des suggestions pour examiner et corriger les menaces. Vous obtenez des alertes sur les activités de base de données suspectes, les vulnérabilités potentielles et les attaques par injection de code SQL, ainsi que des modèles de requêtes et d’accès anormaux à la base de données.
 
-La [Protection avancée contre les menaces](/azure/sql-database/sql-advanced-threat-protection) est un package unifié de fonctionnalités de sécurité SQL avancées. Il inclut les services mentionnés précédemment : Détection des menaces, Découverte et classification des données et Évaluation des vulnérabilités. Il vous permet d’activer et de gérer ces fonctionnalités à partir d’un seul et même emplacement.
+La [Protection avancée contre les menaces](/azure/sql-database/sql-advanced-threat-protection) est un package unifié de fonctionnalités de sécurité SQL avancées. Il inclut les services mentionnés précédemment : Découverte et classification des données, Évaluation des vulnérabilités et Détection des menaces. Il vous permet d’activer et de gérer ces fonctionnalités à partir d’un seul et même emplacement.
 
 L’activation de ces fonctionnalités vous permet d’effectuer les opérations suivantes :
 

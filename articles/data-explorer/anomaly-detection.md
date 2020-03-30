@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.openlocfilehash: a482fef93d43f92257608b65c9c0e2ade535bcca
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78194155"
 ---
 # <a name="anomaly-detection-and-forecasting-in-azure-data-explorer"></a>Détection et prévision des anomalies dans Azure Data Explorer
@@ -20,7 +20,7 @@ Azure Data Explorer effectue une collecte continue de données de télémétrie 
 
 Cet article décrit en détail les fonctionnalités de détection et de prévision des anomalies de série chronologique Azure Data Explorer. Les fonctions de série chronologique applicables sont basées sur un modèle de décomposition connu robuste, dans lequel chaque série chronologique d’origine est décomposée en composants résiduels, de tendances et saisonnières. Les anomalies sont détectées par les valeurs hors norme sur le composant résiduel, tandis que la prévision est réalisée en extrapolant les composants de tendances et saisonnières. L’implémentation d’Azure Data Explorer améliore considérablement le modèle de décomposition de base grâce à la détection de saisonnalité automatique, l’analyse des valeurs hors norme robustes et l’implémentation vectorisée pour traiter des milliers de séries chronologiques en quelques secondes.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Lisez [Analyse des séries chronologiques dans Azure Data Explorer](/azure/data-explorer/time-series-analysis) pour obtenir une vue d’ensemble des fonctionnalités de séries chronologiques.
 

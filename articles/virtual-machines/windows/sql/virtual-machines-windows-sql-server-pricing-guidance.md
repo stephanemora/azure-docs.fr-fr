@@ -16,10 +16,10 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: b7a8f7136d0899ab3afe04bce2d25bc2e7f8d3e2
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75981726"
 ---
 # <a name="pricing-guidance-for-azure-sql-server-vms"></a>Aide sur les prix pour les machines virtuelles SQL Server Azure
@@ -93,7 +93,7 @@ Pour créer une machine virtuelle SQL Server 2017 Azure avec l’une de ces ima
 > [!NOTE]
 > Vous pouvez désormais changer de modèle de licence et passer du paiement à l’utilisation à une licence BYOL (apportez votre propre licence), et inversement. Pour plus d’informations, consultez [Guide pratique pour changer le modèle de licence d’une machine virtuelle SQL](virtual-machines-windows-sql-ahb.md). 
 
-## <a id="byol"></a> BYOL (apportez votre propre licence)
+## <a name="bring-your-own-license-byol"></a><a id="byol"></a> BYOL (apportez votre propre licence)
 
 L’**apport de votre propre licence SQL Server par le biais de License Mobility**, également appelé **BYOL**, implique l’utilisation d’une licence en volume SQL Server existante avec Software Assurance dans une machine virtuelle Azure. Une machine virtuelle SQL Server qui a recours à la méthode BYOL facture uniquement le coût d’exécution de la machine virtuelle, et non la licence SQL Server, étant donné que vous avez déjà acquis les licences et Software Assurance dans le cadre d’un programme de licence en volume.
 
@@ -133,7 +133,7 @@ Pour créer une machine virtuelle SQL Server 2017 Azure avec l’une de ces imag
 
 Pour éviter des coûts inutiles, choisissez une taille de machine virtuelle optimale et envisagez des arrêts intermittents pour les charges de travail non continues.
 
-### <a id="machinesize"></a> Dimensionner correctement votre machine virtuelle
+### <a name="correctly-size-your-vm"></a><a id="machinesize"></a> Dimensionner correctement votre machine virtuelle
 
 Le coût de la licence SQL Server est directement lié au nombre de processeurs virtuels. Choisissez une taille de machine virtuelle qui correspond à vos besoins en termes de processeur, mémoire, stockage et bande passante d’E/S. Pour obtenir la liste complète des options de taille de machine virtuelle, consultez [Tailles de machine virtuelle Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) et [Tailles de machine virtuelle Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

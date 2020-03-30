@@ -8,24 +8,24 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: 5cb0e25ec70956e66f7b867f0d0b9473160fc3ad
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74975072"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Guide pratique pour gérer les inscriptions d’appareil avec les SDK du service de provisionnement des appareils Azure
 Une *inscription d’appareil* crée un enregistrement d’un appareil ou d’un groupe d’appareils susceptibles d’être inscrits au service de provisionnement des appareils à un moment donné. L’enregistrement contient la configuration initiale souhaitée pour le ou les appareils dans le cadre de cette inscription, y compris le hub IoT souhaité. Cet article explique comment gérer les inscriptions d’appareils pour votre service de provisionnement par programmation en utilisant les SDK du service de provisionnement des appareils Azure IoT.  Les SDK sont disponibles sur GitHub dans le même dépôt que les SDK Azure IoT.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 * Récupérez la chaîne de connexion à partir de votre instance du service Device Provisioning.
 * Récupérez des artefacts de sécurité des appareils pour le [mécanisme d’attestation](concepts-security.md#attestation-mechanism) utilisé :
     * [**Module de plateforme sécurisée (TPM)** ](/azure/iot-dps/concepts-security#trusted-platform-module) :
-        * Inscription individuelle : ID d’inscription et paire de clés de type EK du module de plateforme sécurisée à partir d’un appareil physique ou du simulateur TPM.
+        * Inscription individuelle : ID d’inscription et paire de clés de type EK du module de plateforme sécurisée à partir d’un appareil physique ou du simulateur TPM.
         * Le groupe d’inscriptions ne s’applique pas à l’attestation TPM.
     * [**X.509**](/azure/iot-dps/concepts-security) :
-        * Inscription individuelle : [Certificat feuille](/azure/iot-dps/concepts-security) à partir de l’appareil physique ou de l’émulateur [DICE](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) du SDK.
-        * Groupe d’inscription : [certificat racine/de l’autorité de certification](/azure/iot-dps/concepts-security#root-certificate) ou [certificat intermédiaire](/azure/iot-dps/concepts-security#intermediate-certificate), utilisé pour générer le certificat d’appareil sur un appareil physique.  Il peut également être généré à partir de l’émulateur DICE du SDK.
+        * Inscription individuelle : [certificat feuille](/azure/iot-dps/concepts-security) à partir de l’appareil physique ou de l’émulateur [DICE](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) du SDK.
+        * Groupe d’inscriptions : [certificat racine/de l’autorité de certification](/azure/iot-dps/concepts-security#root-certificate) ou [certificat intermédiaire](/azure/iot-dps/concepts-security#intermediate-certificate), utilisé pour générer le certificat d’appareil sur un appareil physique.  Il peut également être généré à partir de l’émulateur DICE du SDK.
 * Les appels d’API peuvent différer d’un langage à l’autre. Pour plus d’informations, consultez les exemples fournis sur GitHub :
    * [Exemples de provisionnement de client de service en Java](https://github.com/Azure/azure-iot-sdk-java/tree/master/provisioning/provisioning-samples)
    * [Exemples de provisionnement de client de service en Node.js](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/service/samples)
@@ -47,8 +47,8 @@ Il existe deux façons de procéder à l’inscription de vos appareils auprès 
     Vous pouvez créer une inscription individuelle avec les SDK en suivant ce flux de travail :
     
     1. Choisissez votre mécanisme ```attestation```, qui peut être TPM ou X.509.
-        1. **TPM** : En utilisant comme entrée la paire de clés de type EK d’un appareil physique ou du simulateur TPM, vous pouvez appeler l’API de SDK de service ```TpmAttestation``` afin de créer l’attestation pour l’inscription. 
-        2. **X.509** : En utilisant le certificat client comme entrée, vous pouvez appeler l’API de SDK de service ```X509Attestation.createFromClientCertificate``` afin de créer l’attestation pour l’inscription.
+        1. **TPM** : en utilisant comme entrée la paire de clés de type EK d’un appareil physique ou du simulateur TPM, vous pouvez appeler l’API de SDK de service ```TpmAttestation``` afin de créer l’attestation pour l’inscription. 
+        2. **X.509** : en utilisant le certificat client comme entrée, vous pouvez appeler l’API de SDK de service ```X509Attestation.createFromClientCertificate``` afin de créer l’attestation pour l’inscription.
     2. Créez une variable ```IndividualEnrollment``` à l’aide de l’```attestation``` créée et d’un ```registrationId``` unique comme entrée, qui se trouve sur votre appareil ou qui est généré à partir du simulateur TPM.  Si vous le souhaitez, vous pouvez définir des paramètres tels que ```Device ID```, ```IoTHubHostName```et ```ProvisioningStatus```.
     3. Appelez l’API de SDK de service ```createOrUpdateIndividualEnrollment``` dans votre application backend avec ```IndividualEnrollment``` pour créer une inscription individuelle.
 
