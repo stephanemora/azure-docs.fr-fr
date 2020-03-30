@@ -3,16 +3,16 @@ title: Gérer les contraintes de contexte de sécurité dans Azure Red Hat OpenS
 description: Contraintes de contexte de sécurité pour les administrateurs de cluster Azure Red Hat OpenShift
 services: container-service
 author: troy0820
-ms.author: jzim
+ms.author: b-trconn
 ms.service: container-service
 ms.topic: article
 ms.date: 09/25/2019
-ms.openlocfilehash: f98f55dca8b3dbbfbe03cb8c79691cedb63335a0
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 24163adcec889e9eedc2362ff1f01f00257a98f3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72168994"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80063175"
 ---
 # <a name="manage-security-context-constraints-in-azure-red-hat-openshift"></a>Gérer les contraintes de contexte de sécurité dans Azure Red Hat OpenShift 
 
@@ -40,36 +40,36 @@ restricted         false     []        MustRunAs   MustRunAsRange     MustRunAs 
 Pour examiner une contrainte de contexte de sécurité particulière, utilisez `oc get`, `oc describe` ou `oc edit`.  Par exemple, pour examiner la contrainte de contexte de sécurité **restricted**, utilisez cette commande :
 ```bash
 $ oc describe scc restricted
-Name:                   restricted
-Priority:               <none>
+Name:                    restricted
+Priority:                <none>
 Access:
   Users:                <none>
-  Groups:               system:authenticated
+  Groups:                system:authenticated
 Settings:
-  Allow Privileged:         false
-  Default Add Capabilities:     <none>
-  Required Drop Capabilities:       KILL,MKNOD,SYS_CHROOT,SETUID,SETGID
-  Allowed Capabilities:         <none>
-  Allowed Seccomp Profiles:     <none>
-  Allowed Volume Types:         configMap,downwardAPI,emptyDir,persistentVolumeClaim,projected,secret
-  Allow Host Network:           false
-  Allow Host Ports:         false
-  Allow Host PID:           false
-  Allow Host IPC:           false
+  Allow Privileged:            false
+  Default Add Capabilities:        <none>
+  Required Drop Capabilities:        KILL,MKNOD,SYS_CHROOT,SETUID,SETGID
+  Allowed Capabilities:            <none>
+  Allowed Seccomp Profiles:        <none>
+  Allowed Volume Types:            configMap,downwardAPI,emptyDir,persistentVolumeClaim,projected,secret
+  Allow Host Network:            false
+  Allow Host Ports:            false
+  Allow Host PID:            false
+  Allow Host IPC:            false
   Read Only Root Filesystem:        false
   Run As User Strategy: MustRunAsRange
     UID:                <none>
-    UID Range Min:          <none>
-    UID Range Max:          <none>
+    UID Range Min:            <none>
+    UID Range Max:            <none>
   SELinux Context Strategy: MustRunAs
-    User:               <none>
-    Role:               <none>
-    Type:               <none>
-    Level:              <none>
+    User:                <none>
+    Role:                <none>
+    Type:                <none>
+    Level:                <none>
   FSGroup Strategy: MustRunAs
-    Ranges:             <none>
+    Ranges:                <none>
   Supplemental Groups Strategy: RunAsAny
-    Ranges:             <none>
+    Ranges:                <none>
 ```
 ## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"]

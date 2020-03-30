@@ -11,10 +11,10 @@ ms.topic: include
 ms.date: 06/26/2019
 ms.author: dapine
 ms.openlocfilehash: ed64412ccf9d192506fafe546b1ccee7941aa43a
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73522842"
 ---
 ### <a name="speech-umbrella-chart"></a>Speech (graphique en parapluie)

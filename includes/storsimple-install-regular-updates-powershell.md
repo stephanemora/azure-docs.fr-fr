@@ -5,14 +5,14 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: dc50f94ae9b207961a71480c2fc172e88db79cf4
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67177096"
 ---
 #### <a name="to-install-regular-updates-via-windows-powershell-for-storsimple"></a>Pour installer des mises à jour périodiques via Windows PowerShell pour StorSimple
-1. Dans le menu de la console série, sélectionnez l’option 1, **Ouvrir une session avec un accès total**. Saisissez le mot de passe. Le mot de passe par défaut est *Password1*. 
+1. Dans le menu de la console série, sélectionnez l’option 1, **Ouvrir une session avec un accès total**. Tapez le mot de passe. Le mot de passe par défaut est *Password1*. 
 2. À l’invite de commandes, tapez :
    
      `Get-HcsUpdateAvailability`

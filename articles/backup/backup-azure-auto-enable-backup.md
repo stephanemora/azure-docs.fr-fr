@@ -4,10 +4,10 @@ description: Article décrivant comment utiliser Azure Policy pour activer auto
 ms.topic: conceptual
 ms.date: 11/08/2019
 ms.openlocfilehash: 1d423371788f87155328e8f5c9334e47349a68e8
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77584266"
 ---
 # <a name="auto-enable-backup-on-vm-creation-using-azure-policy"></a>Activer automatiquement la sauvegarde lors de la création de machines virtuelles avec Azure Policy

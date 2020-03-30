@@ -4,10 +4,10 @@ description: Découvrez les concepts fondamentaux et les principales zones d’A
 ms.topic: conceptual
 ms.date: 12/08/2017
 ms.openlocfilehash: 4e6e21f5f9ebfeddb5292e00dc8a929341e77372
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75458152"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Vous voulez en savoir plus sur Service Fabric ?
@@ -105,7 +105,7 @@ Les [scénarios](service-fabric-testability-scenarios.md) sont des opérations c
 * [Scénario de basculement](service-fabric-testability-scenarios.md#failover-test) : une version du test chaos qui cible une partition de service spécifique sans affecter les autres services.
 
 ## <a name="clusters"></a>Clusters
-Un [cluster Service Fabric](service-fabric-deploy-anywhere.md) est un groupe de machines virtuelles ou physiques connectées au réseau, sur lequel vos microservices sont déployés et gérés. Les clusters peuvent être mis à l’échelle pour des milliers de machines. Une machine ou machine virtuelle faisant partie d’un cluster est appelée un nœud de cluster. Un nom (chaîne) est affecté à chaque nœud. Les nœuds présentent des caractéristiques, telles que des propriétés de placement. Chaque machine ou machine virtuelle a un service à démarrage automatique, `FabricHost.exe`, qui commence à s’exécuter dès le démarrage, puis démarre deux exécutables : Fabric.exe et FabricGateway.exe. Ces deux exécutables constituent le nœud. Pour les scénarios de test, vous pouvez héberger plusieurs nœuds sur une seule et même machine ou sur une seule et même machine virtuelle en exécutant plusieurs instances de `Fabric.exe` et `FabricGateway.exe`.
+Un [cluster Service Fabric](service-fabric-deploy-anywhere.md) est un groupe de machines virtuelles ou physiques connectées au réseau, sur lequel vos microservices sont déployés et gérés. Les clusters peuvent être mis à l’échelle pour des milliers de machines. Une machine ou machine virtuelle faisant partie d’un cluster est appelée un nœud de cluster. Un nom (chaîne) est affecté à chaque nœud. Les nœuds présentent des caractéristiques, telles que des propriétés de placement. Chaque machine ou machine virtuelle est dotée d’un service à démarrage automatique, `FabricHost.exe`, qui s’exécute au démarrage, puis lance deux exécutables : Fabric.exe et FabricGateway.exe. Ces deux exécutables constituent le nœud. Pour les scénarios de test, vous pouvez héberger plusieurs nœuds sur une seule et même machine ou sur une seule et même machine virtuelle en exécutant plusieurs instances de `Fabric.exe` et `FabricGateway.exe`.
 
 Les clusters Service Fabric peuvent être créés sur des machines virtuelles ou physiques exécutant Windows Server ou Linux. Vous pouvez ainsi déployer et exécuter des applications Service Fabric dans n’importe quel environnement dans lequel des ordinateurs Windows Server ou Linux sont interconnectés, que ce soit en local, sur Microsoft Azure ou via un fournisseur cloud.
 

@@ -9,13 +9,13 @@ ms.date: 06/20/2019
 ms.author: crdun
 ms.custom: include file
 ms.openlocfilehash: 72a69359d412a7560472fbb73ec525ab5d4a4fce
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67325793"
 ---
-1. Connectez-vous au [Portail Azure].
+1. Connectez-vous au [Azure portal].
 
 2. Cliquez sur **Créer une ressource**.
 
@@ -50,4 +50,4 @@ ms.locfileid: "67325793"
 Vous êtes prêt à utiliser cette application web App Service nouvellement créée comme Application mobile.
 
 <!-- URLs. -->
-[Portail Azure]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/

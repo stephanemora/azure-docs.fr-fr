@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: spelluru
 ms.openlocfilehash: caed3c077b4df5da5fd8541b2f7e85ef119604b0
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72794037"
 ---
 # <a name="dead-letter-and-retry-policies"></a>Stratégies de lettres mortes et de nouvelles tentatives
@@ -29,7 +29,7 @@ Pour définir un emplacement de lettres mortes, vous avez besoin d’un compte d
 > - Le service Event Grid crée des objets blob dans ce conteneur. Les noms des objets blob comportent le nom de l’abonnement Event Grid avec toutes les lettres en majuscules. Par exemple, si le nom de l’abonnement est My-Blob-Subscription, les noms des objets BLOB de lettres mortes comportent MY-BLOB-SUBSCRIPTION (myblobcontainer/MY-BLOB-SUBSCRIPTION/2019/8/8/5/111111111-1111-1111-1111-111111111111.json). Ce comportement assure une protection contre les différences de gestion de la casse entre les services Azure.
 
 
-### <a name="azure-cli"></a>D’Azure CLI
+### <a name="azure-cli"></a>Azure CLI
 
 ```azurecli-interactive
 containername=testcontainer
@@ -75,7 +75,7 @@ Au moment de créer un abonnement Event Grid, vous pouvez définir des valeurs f
 
 Vous ne pouvez pas configurer de [nouvelle tentative de planification](delivery-and-retry.md#retry-schedule-and-duration).
 
-### <a name="azure-cli"></a>D’Azure CLI
+### <a name="azure-cli"></a>Azure CLI
 
 Pour attribuer aux événements une durée de vie différente de 1 440 minutes, utilisez :
 

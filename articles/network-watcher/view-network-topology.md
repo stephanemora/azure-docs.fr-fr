@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: damendo
 ms.openlocfilehash: 675919db55932d3ccc04fd5397f6f673832b4900
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76840568"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>Afficher la topologie d’un réseau virtuel Azure
@@ -26,7 +26,7 @@ Vous pouvez utiliser le [portail Azure](#azure-portal), l’[interface de ligne 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name = "azure-portal"></a>Afficher la topologie - Portail Azure
+## <a name="view-topology---azure-portal"></a><a name = "azure-portal"></a>Afficher la topologie - Portail Azure
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte disposant des [autorisations](required-rbac-permissions.md) nécessaires.
 2. En haut à gauche du portail, sélectionnez **Tous les services**.
@@ -45,9 +45,9 @@ Vous pouvez utiliser le [portail Azure](#azure-portal), l’[interface de ligne 
 
 6. Sélectionnez **Télécharger la topologie** pour télécharger l’image sous forme de fichier modifiable, au format svg.
 
-Les ressources affichées dans le diagramme sont un sous-ensemble des composants de mise en réseau du réseau virtuel. Par exemple, lorsqu’un groupe de sécurité réseau apparaît, les règles de sécurité qu’il contient ne figurent pas dans le diagramme. Bien qu’elles ne soient pas différenciées dans le diagramme, les lignes représentent l’une des deux relations : *Autonome* ou *Associé*. Pour afficher la liste complète des ressources du réseau virtuel ainsi que le type de relation entre les ressources, générez la topologie avec [PowerShell](#powershell) ou l’[interface de ligne de commande Azure](#azure-cli).
+Les ressources affichées dans le diagramme sont un sous-ensemble des composants de mise en réseau du réseau virtuel. Par exemple, lorsqu’un groupe de sécurité réseau apparaît, les règles de sécurité qu’il contient ne figurent pas dans le diagramme. Bien qu’elles ne soient pas différenciées dans le diagramme, les lignes représentent l’une des deux relations : *Relation contenant-contenu* ou *associés*. Pour afficher la liste complète des ressources du réseau virtuel ainsi que le type de relation entre les ressources, générez la topologie avec [PowerShell](#powershell) ou l’[interface de ligne de commande Azure](#azure-cli).
 
-## <a name = "azure-cli"></a>Afficher la topologie - Interface de ligne de commande Azure
+## <a name="view-topology---azure-cli"></a><a name = "azure-cli"></a>Afficher la topologie - Interface de ligne de commande Azure
 
 Vous pouvez exécuter les commandes dans les étapes qui suivent :
 - Dans Azure Cloud Shell, en sélectionnant **Essayer** en haut à droite d’une commande. Azure Cloud Shell est un interpréteur de commandes interactif gratuit dans lequel les outils Azure communs ont été préinstallés et configurés pour pouvoir être utilisés avec votre compte.
@@ -80,7 +80,7 @@ Le compte que vous utilisez doit disposer des [autorisations](required-rbac-perm
 
    En savoir plus sur les relations et les [propriétés](#properties) dans les résultats renvoyés. Si vous n’avez pas de réseau virtuel dont vous pouvez afficher la topologie, vous pouvez en créer un à l’aide de l’exemple de script [Acheminer le trafic via une appliance virtuelle réseau](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). Pour afficher un diagramme de la topologie et le télécharger dans un fichier modifiable, utilisez le [portail](#azure-portal).
 
-## <a name = "powershell"></a>Afficher la topologie - PowerShell
+## <a name="view-topology---powershell"></a><a name = "powershell"></a>Afficher la topologie - PowerShell
 
 Vous pouvez exécuter les commandes dans les étapes qui suivent :
 - Dans Azure Cloud Shell, en sélectionnant **Essayer** en haut à droite d’une commande. Azure Cloud Shell est un interpréteur de commandes interactif gratuit dans lequel les outils Azure communs ont été préinstallés et configurés pour pouvoir être utilisés avec votre compte.
@@ -137,12 +137,12 @@ Toutes les ressources renvoyées dans une topologie présentent l’un des types
 
 Toutes les ressources renvoyées dans une topologie ont les propriétés suivantes :
 
-- **Name** : nom de la ressource.
-- **Id** : URI de la ressource.
-- **Emplacement** : région Azure dans laquelle se trouve la ressource.
-- **Associations** : liste des associations réalisées vis-à-vis de l’objet référencé. Chaque association présente les propriétés suivantes :
-    - **AssociationType** : référence la relation entre l’objet enfant et le parent. Les valeurs valides sont *Contains* et *Associated*.
-    - **Name** : nom de la ressource référencée.
+- **Name** : nom de la ressource.
+- **id** : URI de la ressource.
+- **Location** : région Azure dans laquelle se trouve la ressource.
+- **Associations** : liste des associations réalisées vis-à-vis de l’objet référencé. Chaque association présente les propriétés suivantes :
+    - **AssociationType** : fait référence à la relation entre l’objet enfant et le parent. Les valeurs valides sont *Contains* et *Associated*.
+    - **name** : nom de la ressource référencée.
     - **ResourceId** : URI de la ressource référencée dans l’association.
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -9,13 +9,13 @@ ms.date: 09/15/2018
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: f30518c3bfc9876cbddaf8295ff9e8b667a70200
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74014548"
 ---
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Azure Storage offre la possibilité de prendre des instantanés d’objets blob. Les instantanés capturent l’état de l’objet blob à un instant précis. Dans cet article, nous décrivons un scénario dans lequel vous pouvez gérer des sauvegardes de disques de machine virtuelle à l’aide de captures instantanées. Vous pouvez utiliser cette méthode comme une alternative à Azure Backup et Recovery Service et si vous voulez créer une stratégie de sauvegarde personnalisée pour vos disques de machine virtuelle.
 
 Les disques de machine virtuelle Azure sont stockés en tant qu’objets blob de pages dans Azure Storage. Dans cet article, nous décrivons une stratégie de sauvegarde pour les disques de machine virtuelle. Nous nous référons donc aux captures instantanées dans le contexte d’objets blob de pages. Pour plus d’informations sur les instantanés, reportez-vous à [Création d’un instantané d’objet blob](https://docs.microsoft.com/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).

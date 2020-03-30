@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: c8ed146a224ec4225a7a0e85c76227fb1dc71b0b
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 1f3f70c30ab397bd549a2f3305a738274ee4f64f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76271046"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79371169"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-cluster-with-datadog"></a>(DÉPRÉCIÉ) Superviser un cluster Azure Container Service avec DataDog
 
@@ -25,8 +25,8 @@ Elle suppose également que vous avez installé l’outil `az` de l’interface 
 
 Vous pouvez tester si l’outil `az` est installé en exécutant :
 
-```console
-$ az --version
+```azurecli
+az --version
 ```
 
 Si l’outil `az` n’est pas installé, suivez les instructions figurant [ici](https://github.com/azure/azure-cli#installation).
@@ -34,13 +34,13 @@ Si l’outil `az` n’est pas installé, suivez les instructions figurant [ici](
 Vous pouvez tester si l’outil `kubectl` est installé en exécutant :
 
 ```console
-$ kubectl version
+kubectl version
 ```
 
 Si `kubectl` n’est pas installé, vous pouvez exécuter :
 
-```console
-$ az acs kubernetes install-cli
+```azurecli
+az acs kubernetes install-cli
 ```
 
 ## <a name="datadog"></a>DataDog

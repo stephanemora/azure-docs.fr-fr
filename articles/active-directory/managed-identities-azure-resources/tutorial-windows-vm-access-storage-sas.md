@@ -16,13 +16,13 @@ ms.date: 01/24/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c344c25a696500182030ff849a001ad586c92032
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74232157"
 ---
-# <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-a-sas-credential"></a>Tutoriel : Utiliser une identité managée affectée par le système de machine virtuelle Windows pour accéder au Stockage Azure avec des informations d’identification SAP
+# <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-a-sas-credential"></a>Tutoriel : Utiliser une identité managée affectée par le système de machine virtuelle Windows pour accéder au Stockage Azure via des informations d’identification SAP
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -35,7 +35,7 @@ Une SAP de service offre la possibilité d’accorder un accès limité à des o
 > * Autoriser votre machine virtuelle à accéder à la SAP d’un compte stockage dans le Gestionnaire des ressources 
 > * Obtenir un jeton d’accès à l’aide de l’identité de votre machine virtuelle et l’utiliser pour récupérer la SAP à partir du Gestionnaire des ressources 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
@@ -159,7 +159,7 @@ Nous créons ensuite un fichier appelé « test.txt ». Ensuite, utilisez les 
 echo "This is a test text file." > test.txt
 ```
 
-Veillez à installer au préalable les applets de commande de Stockage Azure à l’aide de la commande `Install-Module Azure.Storage`. Vous pouvez charger l’objet blob que vous venez de créer à l’aide de l’applet de commande PowerShell `Set-AzStorageBlobContent`:
+Veillez à installer les applets de commande du stockage Azure en premier, à l’aide de `Install-Module Azure.Storage`. Vous pouvez charger l’objet blob que vous venez de créer à l’aide de l’applet de commande PowerShell `Set-AzStorageBlobContent`:
 
 ```powershell
 $ctx = New-AzStorageContext -StorageAccountName <STORAGE-ACCOUNT-NAME> -SasToken $sasCred

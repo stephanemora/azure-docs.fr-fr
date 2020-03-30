@@ -9,10 +9,10 @@ ms.date: 11/27/2019
 ms.author: raiye
 ms.custom: include file
 ms.openlocfilehash: 456d550659c04b2272c048fcd64fe73b1a11522a
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74566257"
 ---
 L’Accélérateur des écritures est une fonctionnalité de disque des machines virtuelles Série M sur stockage Premium avec Azure Disques managés exclusivement. Comme son nom l’indique, cette fonctionnalité vise à améliorer la latence d’E/S des écritures dans le stockage Azure Premium. L’Accélérateur des écritures est particulièrement adapté lorsque les mises à jour du fichier journal doivent être conservées sur disque dans un système à hautes performances pour répondre aux besoins des bases de données modernes.
@@ -60,7 +60,7 @@ Les limites d’IOPS s’entendent par machine virtuelle et *non* par disque. To
 
 Les sections ci-après décrivent comment activer l’Accélérateur des écritures sur des disques durs virtuels de stockage Azure Premium.
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables requises
 
 Assurez-vous de remplir les prérequis suivants pour pouvoir utiliser l’Accélérateur des écritures :
 

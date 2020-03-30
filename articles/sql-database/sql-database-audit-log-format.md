@@ -10,10 +10,10 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 01/03/2019
 ms.openlocfilehash: 13746b86eed75055ceb5203afafb2d27a78ce1d8
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76722082"
 ---
 # <a name="sql-database-audit-log-format"></a>Format des journaux d’audit SQL Database
@@ -41,7 +41,7 @@ Les événements d’audit sont écrits dans l’espace de noms et le hub d’é
 
 Les événements d’audit sont écrits dans l’espace de travail Log Analytics défini pendant la configuration de l’audit, dans la table `AzureDiagnostics` avec la catégorie `SQLSecurityAuditEvents`. Pour plus d’informations sur le langage et les commandes de recherche Log Analytics, consultez [Référence sur les recherches Log Analytics](../log-analytics/log-analytics-log-search.md).
 
-## <a id="subheading-1"></a>Champs de journal d’audit
+## <a name="audit-log-fields"></a><a id="subheading-1"></a>Champs de journal d’audit
 
 | Nom (objet blob) | Nom (Event Hubs/Log Analytics) | Description | Type d’objet blob | Type Event Hubs/Log Analytics |
 |-------------|---------------------------------|-------------|-----------|-------------------------------|

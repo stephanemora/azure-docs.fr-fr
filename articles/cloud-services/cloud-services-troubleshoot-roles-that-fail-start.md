@@ -15,10 +15,10 @@ ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
 ms.openlocfilehash: 869453d92f536a62aacc2be52598223158566ae0
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71122726"
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Résoudre les problèmes de démarrage des rôles de service cloud
@@ -66,15 +66,15 @@ Vous pouvez utiliser le Bureau à distance pour accéder au rôle et afficher de
 3. Dans le portail Microsoft Azure, une fois que l’instance affiche l’état **Prêt**, accédez à distance à l’instance. Pour plus d’informations sur l’utilisation du bureau à distance avec les Services cloud, consultez [Accéder à distance aux instances de rôles](cloud-services-role-enable-remote-desktop-new-portal.md#remote-into-role-instances).
 5. Connectez-vous à la machine virtuelle à l’aide des informations d’identification spécifiées lors de la configuration du Bureau à distance.
 6. Ouvrez une fenêtre de commandes.
-7. Saisissez `IPconfig`.
+7. Tapez `IPconfig`.
 8. Notez la valeur de l’adresse IPV4.
 9. Ouvrez Internet Explorer.
-10. Entrez l’adresse et le nom de l’application Web. Par exemple, `http://<IPV4 Address>/default.aspx`.
+10. Entrez l’adresse et le nom de l’application Web. Par exemple : `http://<IPV4 Address>/default.aspx`.
 
 L’accès au site web renvoie maintenant des messages d’erreur plus explicites :
 
 * Erreur de serveur dans l’application « / ».
-* Description : une exception non gérée s’est produite lors de l’exécution de la requête web en cours. Veuillez consulter l’arborescence des appels de procédure pour plus d’informations sur l’erreur et sa source dans le code.
+* Description : une exception non gérée s’est produite lors de l’exécution de la requête Web en cours. Veuillez consulter l’arborescence des appels de procédure pour plus d’informations sur l’erreur et sa source dans le code.
 * Détails de l’exception : System.IO.FIleNotFoundException : impossible de charger le fichier ou l’assembly « Microsoft.WindowsAzure.StorageClient, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf856ad364e35 » ou l’une de ses dépendances. Le système ne peut pas trouver le fichier spécifié.
 
 Par exemple :
@@ -91,7 +91,7 @@ Pour obtenir de meilleurs résultats à l’aide de cette méthode de diagnostic
 3. Dans l’Explorateur Windows, accédez au dossier bin\debug du projet de service cloud.
 4. Copiez le dossier .csx et le fichier .cscfg sur l’ordinateur que vous utilisez pour déboguer les problèmes.
 5. Sur le nouvel ordinateur, ouvrez une fenêtre d’invite de commandes du Kit de développement logiciel (SDK) Azure et tapez `csrun.exe /devstore:start`.
-6. Dans l’invite de commandes, tapez `run csrun <path to .csx folder> <path to .cscfg file> /launchBrowser`.
+6. À l’invite de commandes, tapez `run csrun <path to .csx folder> <path to .cscfg file> /launchBrowser`.
 7. Au démarrage du rôle, le détail de l’erreur s’affiche dans Internet Explorer. Vous pouvez également utiliser les outils de dépannage Windows standard pour diagnostiquer le problème.
 
 ## <a name="diagnose-issues-by-using-intellitrace"></a>Diagnostiquer les problèmes à l’aide d’IntelliTrace

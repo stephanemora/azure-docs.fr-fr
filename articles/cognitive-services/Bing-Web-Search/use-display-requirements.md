@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: aahi
 ms.openlocfilehash: 5575668f164b97142e7c4b2ddb2608c3173426a6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "60499883"
 ---
 # <a name="bing-search-api-use-and-display-requirements"></a>Conditions d’utilisation et d’affichage de l’API Recherche Bing
@@ -38,7 +38,7 @@ Ces conditions d’utilisation et d’affichage s’appliquent à toute impléme
 |---------|---------|
 |Réponse     | Catégorie des résultats retournés dans une réponse. Par exemple, une réponse de l’API Recherche web Bing peut inclure des réponses appartenant aux catégories de résultats page web, image, vidéo, visuel et actualités. |
 |response     | Toutes les réponses et données associées reçues en réponse à un seul appel à une API Recherche. |
-|Résultat    | Élément d’information dans une réponse. Par exemple, le jeu de données connecté à un article d’actualités est un résultat dans une réponse d’actualités. |
+|Résultats    | Élément d’information dans une réponse. Par exemple, le jeu de données connecté à un article d’actualités est un résultat dans une réponse d’actualités. |
 |API Recherche    | Regroupe les API Recherche personnalisée, Recherche d’entités, Recherche d’images, Recherche d’actualités, Recherche de vidéos, Recherche visuelle, Recherche d’entreprise locale et Recherche web Bing. |
 
 ## <a name="bing-spell-check-and-bing-autosuggest-api-restrictions"></a>Restrictions relatives aux API Vérification orthographique Bing et Suggestion automatique Bing
@@ -143,7 +143,7 @@ Vous pouvez toutefois conserver des résultats spécifiques à un seul utilisate
 
 Chaque fois qu’ils sont conservés, les résultats pour un utilisateur spécifique ne peuvent pas être confondus avec ceux d’un autre utilisateur. Autrement dit, les résultats de chaque utilisateur doivent être conservés et remis séparément.
 
-### <a name="general"></a>Généralités 
+### <a name="general"></a>Général 
 
 Pour la présentation de tous les résultats conservés, vous devez :
 

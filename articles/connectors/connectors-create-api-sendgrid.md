@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/24/2018
 tags: connectors
 ms.openlocfilehash: 998020c5e39c8d50e8a14c74c43b7b435752f43d
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74789305"
 ---
 # <a name="send-emails-and-manage-mailing-lists-in-sendgrid-by-using-azure-logic-apps"></a>Envoyer des e-mails et gérer des listes de diffusion dans SendGrid à l’aide d’Azure Logic Apps
@@ -27,7 +27,7 @@ Vous pouvez utiliser des actions SendGrid dans vos applications logiques pour ef
 Ce connecteur ne fournit que des actions ; ainsi, pour démarrer votre application logique, sélectionnez un déclencheur distinct, tel que le déclencheur **Périodicité**. Par exemple, si vous ajoutez régulièrement des destinataires à vos listes, vous pouvez envoyer des e-mails concernant les destinataires et les listes à l’aide du connecteur Outlook Office 365 ou du connecteur Outlook.com.
 Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/). 
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: pafarley
 ms.openlocfilehash: 81713bf8d424b9f272f6b1bccf3657810160d4cf
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73744794"
 ---
 # <a name="export-or-delete-user-data-in-content-moderator"></a>Exporter ou supprimer vos données dans Content Moderator

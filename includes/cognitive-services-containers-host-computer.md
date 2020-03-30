@@ -5,10 +5,10 @@ ms.date: 06/25/2019
 ms.service: cognitive-services
 ms.topic: include
 ms.openlocfilehash: 5b464ed4eaf576bc77c2c1eda17ae68b598dc2a4
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67704185"
 ---
 L’hôte est un ordinateur x64 qui exécute le conteneur Docker. Il peut s’agir d’un ordinateur local ou d’un service d’hébergement Docker dans Azure, comme :

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pafarley
 ms.openlocfilehash: 164e5a8c107f445b376d26f9be7db92a7983b0d3
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73743078"
 ---
 # <a name="face-recognition-concepts"></a>Concepts de reconnaissance faciale
@@ -25,7 +25,7 @@ Cet article explique les concepts des opérations de reconnaissance faciale Vér
 
 Les opérations de reconnaissance utilisent principalement les structures de données suivantes. Ces objets sont stockés dans le cloud et peuvent être référencés par leurs chaînes d’ID. Les chaînes d’ID sont toujours uniques dans un abonnement. Les champs de noms peuvent être dupliqués.
 
-|Nom|Description|
+|Name|Description|
 |:--|:--|
 |DetectedFace| Cette représentation de visage unique est récupérée par l’opération de [détection des visages](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md). Son ID expire 24 heures après sa création.|
 |PersistedFace| Lorsque des objets DetectedFace sont ajoutés à un groupe, tel que FaceList ou Person, ils deviennent des objets PersistedFace. Ils peuvent être [récupérés](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524c) à n’importe quel moment et n’expirent pas.|

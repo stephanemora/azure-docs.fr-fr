@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: e98f0dffe1ae004905c2b0969d825a1bca89014a
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 1fbcc1fb27d5e6df4641f79c0d634580f74000b8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74772636"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79532058"
 ---
 # <a name="replicate-data-into-azure-database-for-mariadb"></a>Répliquer des données dans Azure Database for MariaDB
 
@@ -20,15 +20,15 @@ La réplication des données entrantes permet de synchroniser les données à pa
 ## <a name="when-to-use-data-in-replication"></a>Quand utiliser la réplication des données entrantes
 Voici les principaux scénarios à prendre en compte avant d’utiliser la réplication des données entrantes :
 
-- **Synchronisation de données hybride :** avec la réplication des données entrantes, vous pouvez maintenir la synchronisation des données entre vos serveurs locaux et Azure Database for MariaDB. Cette synchronisation est utile pour créer des applications hybrides. Cette méthode est intéressante si vous disposez d’un serveur de base de données local mais souhaitez déplacer les données vers une région proche des utilisateurs finaux.
-- **Synchronisation de plusieurs clouds :** pour les solutions cloud complexes, utilisez la réplication des données entrantes pour synchroniser les données entre Azure Database for MariaDB et différents fournisseurs de cloud, notamment les machines virtuelles et les services de base de données hébergés dans ces clouds.
+- **Synchronisation de données hybride :** avec la réplication des données entrantes, vous pouvez maintenir des données synchronisées entre vos serveurs locaux et Azure Database for MariaDB. Cette synchronisation est utile pour créer des applications hybrides. Cette méthode est intéressante si vous disposez d’un serveur de base de données local mais souhaitez déplacer les données vers une région proche des utilisateurs finaux.
+- **Synchronisation de plusieurs cloud :** pour les solutions cloud complexes, utilisez la réplication des données entrantes pour synchroniser les données entre Azure Database for MariaDB et différents fournisseurs de cloud, notamment les machines virtuelles et les services de base de données hébergés dans ces clouds.
 
 ## <a name="limitations-and-considerations"></a>Limitations et considérations
 
 ### <a name="data-not-replicated"></a>Données non répliquées
 La [*base de données système mysql*](https://mariadb.com/kb/en/library/the-mysql-database-tables/) sur le serveur maître n’est pas répliquée. Les modifications apportées aux comptes et aux autorisations sur le serveur maître ne sont pas répliquées. Si vous créez un compte sur le serveur maître et que ce compte a besoin d’accéder au serveur réplica, créez manuellement le même compte sur le serveur réplica. Pour une présentation des tables figurant dans la base de données système, consultez la [documentation MariaDB](https://mariadb.com/kb/en/library/the-mysql-database-tables/).
 
-### <a name="requirements"></a>Configuration requise
+### <a name="requirements"></a>Spécifications
 - La version du serveur maître doit être au moins MariaDB version 10.2.
 - Les versions du serveur maître et du serveur réplica doivent être identiques. Par exemple, les deux doivent être MariaDB version 10.2.
 - Chaque table doit avoir une clé primaire.

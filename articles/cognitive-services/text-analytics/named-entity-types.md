@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 02/06/2020
 ms.author: aahi
 ms.openlocfilehash: 164e803a6af8a7d1ccdc9c70cc3e42b787857b3a
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77086876"
 ---
 # <a name="supported-types-for-named-entity-recognition-version-3-preview"></a>Types pris en charge pour la reconnaissance d’entité nommée version 3 (préversion)
@@ -25,11 +25,11 @@ L’API Analyse de texte permet d’identifier et de lever toute ambiguïté sur
 
 Les types et les sous-types d’entité pris en charge (le cas échéant) sont répertoriés ci-dessous :
 
-#### <a name="generaltabgeneral"></a>[Généralités](#tab/general)
+#### <a name="general"></a>[Généralités](#tab/general)
 
 [!INCLUDE [supported entity types - general](./includes/entity-types/general-entities.md)]
 
-#### <a name="personal-informationtabpersonal"></a>[Informations personnelles](#tab/personal)
+#### <a name="personal-information"></a>[Informations personnelles](#tab/personal)
 
 [!INCLUDE [supported entity types - personally identifying information](./includes/entity-types/personal-information-entities.md)]
 

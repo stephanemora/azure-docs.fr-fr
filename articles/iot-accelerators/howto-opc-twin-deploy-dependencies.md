@@ -9,10 +9,10 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 231d1efa02ec80e8ad56a8895d4262d774480111
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73824098"
 ---
 # <a name="deploying-dependencies-for-local-development"></a>Déploiement de dépendances pour un développement local
@@ -36,13 +36,13 @@ Cet article explique comment déployer seulement les services de plateforme Azur
 
 3. Une fois le script terminé, vous pouvez choisir d’enregistrer le fichier .env.  Le fichier d’environnement .env est le fichier de configuration de tous les services et outils que vous voulez exécuter sur votre machine de développement.  
 
-## <a name="troubleshooting-deployment-failures"></a>Dépannage des échecs de déploiement
+## <a name="troubleshooting-deployment-failures"></a>Résoudre les problèmes de déploiement
 
 ### <a name="resource-group-name"></a>Nom de groupe ressources
 
 Veillez à utiliser un nom de groupe de ressources court et simple.  Le nom est également utilisé pour nommer les ressources : il doit donc être conforme aux spécifications de nommage des ressources.  
 
-### <a name="azure-active-directory-aad-registration"></a>Inscription Azure Active Directory
+### <a name="azure-active-directory-aad-registration"></a>Inscription dans Azure Active Directory (AAD)
 
 Le script de déploiement essaie d’inscrire les applications AAD dans Azure Active Directory.  En fonction de vos droits sur le locataire AAD sélectionné, cette opération peut échouer.   Vous disposez de trois options :
 

@@ -9,10 +9,10 @@ ms.date: 10/19/2018
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: cdcbe993bd1100b2060a1f8d38eb82ac97121c0d
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74851624"
 ---
 Le service Stockage Azure vous est facturé en fonction de l’utilisation de votre compte de stockage. Tous les objets d’un compte de stockage sont facturés ensemble en tant que groupe. 

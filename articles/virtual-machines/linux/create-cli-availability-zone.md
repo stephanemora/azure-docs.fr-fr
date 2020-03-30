@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 3f15b59be1182a65da7acb54d0748caf69fc0af3
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: e229bb7af02255c0714c559b841afac9a66a7c7d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78970200"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79535610"
 ---
 # <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>Créer une machine virtuelle Linux dans une zone de disponibilité avec l’interface de ligne de commande Azure
 
@@ -33,7 +33,7 @@ az vm list-skus --location eastus2 --output table
 
 La sortie est similaire à l’exemple condensé suivant, qui présente les Zones de disponibilité dans lesquelles chaque taille de machine virtuelle est disponible :
 
-```azurecli
+```output
 ResourceType      Locations  Name               [...]    Tier       Size     Zones
 ----------------  ---------  -----------------           ---------  -------  -------
 virtualMachines   eastus2    Standard_DS1_v2             Standard   DS1_v2   1,2,3
@@ -68,13 +68,13 @@ Créez une machine virtuelle avec la commande [az vm create](/cli/azure/vm).
 
 Lorsque vous créez une machine virtuelle, plusieurs options sont disponibles, comme l’image de système d’exploitation, les informations d’identification d’administration ou le dimensionnement des disques. Dans cet exemple, une machine virtuelle nommée *myVM* est créée et exécute Ubuntu Server. La machine virtuelle est créée dans la zone de disponibilité *1*. Par défaut, la machine virtuelle est créée à la taille *Standard_DS1_v2*.
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm create --resource-group myResourceGroupVM --name myVM --location eastus2 --image UbuntuLTS --generate-ssh-keys --zone 1
 ```
 
 La création de la machine virtuelle peut prendre plusieurs minutes. Une fois la machine virtuelle créée, l’interface Azure CLI fournit des informations concernant cette machine virtuelle. Notez la valeur `zones` qui indique la zone de disponibilité dans laquelle la machine virtuelle s’exécute. 
 
-```azurecli 
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroupVM/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -105,7 +105,7 @@ az disk show --resource-group myResourceGroupVM --name $osdiskname
 
 Le résultat montre que le disque géré se trouve dans la même zone de disponibilité que la machine virtuelle :
 
-```azurecli
+```output
 {
   "creationData": {
     "createOption": "FromImage",
@@ -153,7 +153,7 @@ az network public-ip show --resource-group myResourceGroupVM --name $ipaddressna
 
 Le résultat montre que l’adresse IP se trouve dans la même zone de disponibilité que la machine virtuelle :
 
-```azurecli
+```output
 {
   "dnsSettings": null,
   "etag": "W/\"b7ad25eb-3191-4c8f-9cec-c5e4a3a37d35\"",

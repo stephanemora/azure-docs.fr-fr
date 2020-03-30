@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 12/18/2017
 ms.subservice: autoscale
 ms.openlocfilehash: 9a2b94208de7ce490a0e7acfbb71175b4a7c846e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75364303"
 ---
 # <a name="understand-autoscale-settings"></a>Comprendre les paramètres de mise à l’échelle automatique
@@ -17,7 +17,7 @@ Les paramètres de mise à l’échelle automatique permettent de s’assurer qu
 ## <a name="autoscale-setting-schema"></a>Schéma du paramètre de mise à l'échelle automatique
 Pour illustrer le schéma du paramètre de mise à l’échelle automatique, le paramètre de mise à l’échelle automatique suivant est utilisé. Il est important de noter que ce paramètre de mise à l’échelle automatique comporte les éléments suivants :
 - Un profil. 
-- Deux règles de mesure dans ce profil : une pour augmenter la taille des instances et l’autre pour la diminuer.
+- Deux règles de métrique dans ce profil : une pour le scale-out et l’autre pour le scale-in.
   - La règle d’augmentation de la taille des instances est déclenchée lorsque la mesure de pourcentage moyen d’utilisation du processeur du groupe de machines virtuelles identiques est supérieure à 85 % pendant les 10 dernières minutes.
   - La règle de diminution de la taille des instances est déclenchée lorsque la moyenne du groupe de machines virtuelles identiques est inférieure à 60 % pendant la dernière minute.
 
@@ -95,8 +95,8 @@ Pour illustrer le schéma du paramètre de mise à l’échelle automatique, le 
 | profile | name | Nom du profil. Vous pouvez choisir n’importe quel nom vous permettant d’identifier le profil. |
 | profile | capacity.maximum | Capacité maximale autorisée. Elle garantit que la mise à l’échelle automatique, lors de l’exécution de ce profil, ne met pas votre ressource à l’échelle au-dessus de ce nombre. |
 | profile | capacity.minimum | Capacité minimale autorisée. Elle garantit que la mise à l’échelle automatique, lors de l’exécution de ce profil, ne met pas votre ressource à l’échelle au-dessous de ce nombre. |
-| profile | capacity.default | S’il existe un problème de lecture des mesures de ressource (dans ce cas l’UC de « vmss1 ») et que la capacité actuelle est inférieure à la capacité par défaut, la mise à l’échelle automatique sera modifiée sur la valeur par défaut. Cela permet de garantir la disponibilité de la ressource. Si la capacité actuelle est déjà supérieure à la capacité par défaut, la mise à l’échelle automatique n’est pas réduite. |
-| profile | rules | La mise à l’échelle s’ajuste automatiquement entre les capacités maximales et minimales en utilisant les règles du profil. Un profil peut contenir plusieurs règles. Généralement, deux règles sont utilisées : une pour déterminer quand procéder à la montée en puissance, et une autre pour déterminer quand procéder à la descente en puissance. |
+| profile | capacity.default | S’il existe un problème de lecture des mesures de ressource (dans ce cas l’UC de « vmss1 ») et que la capacité actuelle est inférieure à la capacité par défaut, la mise à l’échelle automatique sera modifiée sur la valeur par défaut. Cela permet de garantir la disponibilité de la ressource. Si la capacité actuelle est déjà supérieure à la capacité par défaut, la mise à l’échelle automatique n’effectue pas de scale-in. |
+| profile | rules | La mise à l’échelle s’ajuste automatiquement entre les capacités maximales et minimales en utilisant les règles du profil. Un profil peut contenir plusieurs règles. Généralement, deux règles sont utilisées : une pour déterminer quand effectuer un scale-out, et une autre pour déterminer quand effectuer un scale-in. |
 | rule | metricTrigger | Définit la condition de mesure de la règle. |
 | metricTrigger | metricName | Nom de la mesure. |
 | metricTrigger |  metricResourceUri | ID de la ressource qui a généré la mesure. Dans la plupart des cas, il est identique à la ressource mise à l’échelle. Dans certains cas, il peut être différent. Par exemple, vous pouvez faire évoluer un groupe de machines virtuelles identiques en fonction du nombre de messages figurant dans la file d’attente de stockage. |
@@ -105,7 +105,7 @@ Pour illustrer le schéma du paramètre de mise à l’échelle automatique, le 
 | metricTrigger | timeWindow | Durée nécessaire à l’examen des mesures. Par exemple, **timeWindow = “PT10M”** signifie qu’à chaque exécution d’une mise à l’échelle automatique, les mesures sont interrogées sur les 10 dernières minutes. La fenêtre de temps permet la normalisation de vos mesures et évite de réagir aux pics temporaires. |
 | metricTrigger | timeAggregation | Méthode d’agrégation utilisée pour agréger les mesures échantillonnées. Par exemple, **TimeAggregation = “Average”** doit agréger les mesures échantillonnées en prenant la moyenne. Dans le cas précédent, choisissez les dix échantillons de 1 minute et calculez leur moyenne. |
 | rule | scaleAction | Action à entreprendre lors du déclenchement du paramètre metricTrigger de la règle. |
-| scaleAction | direction | « Increase » pour la montée en puissance, ou Decrease » pour la descente en puissance.|
+| scaleAction | direction | « Increase » pour scale-out, ou « Decrease » pour scale-in.|
 | scaleAction | value | Indique dans quelle mesure augmenter ou diminuer la capacité de la ressource. |
 | scaleAction | cooldown | Temps d’attente entre deux opérations de mise à l’échelle. Par exemple, si **cooldown = “PT10M”** , aucune tentative de mise à l’échelle automatique ne peut survenir dans les 10 minutes. Le cooldown permet la stabilisation des mesures après l’ajout ou la suppression d’instances. |
 
@@ -113,11 +113,11 @@ Pour illustrer le schéma du paramètre de mise à l’échelle automatique, le 
 
 Il existe trois types de profils de mise à l’échelle automatique :
 
-- **Profil régulier :** profil le plus courant. Si vous n’avez pas besoin de mettre à l’échelle votre ressource en fonction du jour de la semaine ou d’un jour donné, vous pouvez utiliser un profil régulier. Ce profil peut ensuite être configuré à l’aide de règles de mesures qui déterminent l’augmentation et la diminution de la taille des instances. Un seul profil régulier doit être défini.
+- **Profil régulier :** profil le plus courant. Si vous n’avez pas besoin de mettre à l’échelle votre ressource en fonction du jour de la semaine ou d’un jour donné, vous pouvez utiliser un profil régulier. Ce profil peut ensuite être configuré à l’aide de règles de mesures qui déterminent quand effectuer un scale-out et quand effectuer un scale-in. Un seul profil régulier doit être défini.
 
     L’exemple de profil utilisé précédemment dans cet article est un exemple de profil régulier. Notez qu’il est également possible de définir un profil à mettre à l’échelle sur un certain nombre d’instances statiques pour votre ressource.
 
-- **Profil de date fixe :** ce profil est réservé aux cas particuliers. Par exemple, supposons qu’un événement important est prévu le 26 décembre 2017 (PST). Vous souhaitez que les capacités minimales et maximales de votre ressource soient différentes ce jour-là, mais en conservant les mêmes métriques. Dans ce cas, vous devez ajouter un profil de date fixe à la liste des profils de votre paramètre. Le profil est configuré de manière à s’exécuter uniquement le jour de l’événement. Tous les autres jours, la mise à l’échelle automatique utilise le profil régulier.
+- **Profil de date fixe :** ce profil est réservé aux cas particuliers. Par exemple, supposons qu’un événement important est prévu le 26 décembre 2017 (PST). Vous souhaitez que les capacités minimales et maximales de votre ressource soient différentes ce jour-là, mais en conservant les mêmes métriques. Dans ce cas, vous devez ajouter un profil de date fixe à la liste des profils de votre paramètre. Le profil est configuré de manière à s’exécuter uniquement le jour de l’événement. Tous les autres jours, la mise à l’échelle automatique utilise le profil régulier.
 
     ``` JSON
     "profiles": [{
@@ -150,9 +150,9 @@ Il existe trois types de profils de mise à l’échelle automatique :
     ]
     ```
     
-- **Profil de périodicité :** ce type de profil permet de s’assurer que ce profil est toujours utilisé un jour spécifique de la semaine. Les profils de périodicité affichent uniquement une heure de début. Ils s’exécutent jusqu'à ce que le profil de périodicité suivant ou le profil de date fixe est configuré pour démarrer. Un paramètre de mise à l’échelle automatique doté d’un seul profil de périodicité exécute ce profil, même s’il existe un profil régulier défini dans le même paramètre. Les deux exemples suivants illustrent l’utilisation de ce profil :
+- **Profil de périodicité :** ce type de profil permet de s’assurer que ce profil est toujours utilisé un jour spécifique de la semaine. Les profils de périodicité affichent uniquement une heure de début. Ils s’exécutent jusqu'à ce que le profil de périodicité suivant ou le profil de date fixe est configuré pour démarrer. Un paramètre de mise à l’échelle automatique doté d’un seul profil de périodicité exécute ce profil, même s’il existe un profil régulier défini dans le même paramètre. Les deux exemples suivants illustrent l’utilisation de ce profil :
 
-    **Exemple 1 : jours de la semaine et week-ends**
+    **Exemple 1 : jours de la semaine et week-ends**
     
     Supposons que les week-ends, vous souhaitez disposer d’une capacité maximale de 4. Les jours de la semaine, étant donné que vous prévoyez plus de charge, cette capacité maximale doit être de 10. Dans ce cas, le paramètre contiendrait deux profils de périodicité, un à exécuter les week-ends et l’autre les jours de la semaine.
     Le paramètre ressemble à ceci :
@@ -213,7 +213,7 @@ Il existe trois types de profils de mise à l’échelle automatique :
 
     Par exemple, dans le paramètre précédent, « weekdayProfile » est défini pour démarrer le lundi à 12h00. Cela signifie que ce profil commence à s’exécuter le lundi à 12h00. Il s’exécute jusqu'au samedi 12h00, moment auquel « weekendProfile » doit démarrer.
 
-    **Exemple 2 : heures d’ouverture**
+    **Exemple 2 : heures d’ouverture**
     
     Supposons que vous souhaitez avoir un seuil de métrique pendant les heures d’ouverture (9h00 à 17h00), et un autre seuil le reste du temps. Le paramètre pourrait ressemble à ceci :
     

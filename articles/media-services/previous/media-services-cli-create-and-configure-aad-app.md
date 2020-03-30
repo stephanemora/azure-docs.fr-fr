@@ -14,27 +14,27 @@ ms.topic: article
 ms.date: 08/26/2019
 ms.author: juliako
 ms.openlocfilehash: f136fb666e93adc0fe92aee014e3da9a37bbd6aa
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70035812"
 ---
 # <a name="use-azure-cli-to-create-an-azure-ad-app-and-configure-it-to-access-media-services-api"></a>Utiliser l'interface de ligne de commande Azure pour créer une application Azure AD et configurer celle-ci pour accéder à l'API Media Services 
 
 > [!NOTE]
-> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consultez aussi [Conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md)
+> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consultez aussi [Conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md).
 
 Cette rubrique vous montre comment utiliser l’interface de ligne de commande Azure pour créer une application Azure Active Directory (Azure AD) et un principal de service pour accéder aux ressources Azure Media Services. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Un compte Azure. Pour plus d’informations, consultez la page [Version d’évaluation gratuite d’Azure](https://azure.microsoft.com/pricing/free-trial/). 
 - Un compte Media Services. Pour plus d’informations, voir [Création d’un compte Azure Media Services à l’aide du portail Azure](media-services-portal-create-account.md).
 
 ## <a name="use-the-azure-cloud-shell"></a>Utiliser Azure Cloud Shell
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Lancez Cloud Shell à partir du volet de navigation supérieur du portail.
 
     ![Cloud Shell](./media/media-services-cli-create-and-configure-aad-app/media-services-cli-create-and-configure-aad-app01.png) 

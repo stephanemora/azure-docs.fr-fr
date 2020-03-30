@@ -4,10 +4,10 @@ description: Découvrez comment configurer votre environnement Azure pour une ut
 ms.date: 08/26/2019
 ms.topic: how-to
 ms.openlocfilehash: fba0dd3f2eeb69f768800d1d04640510462d3c86
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74873214"
 ---
 # <a name="configure-your-environment-for-a-blueprint-operator"></a>Configurer votre environnement pour un opérateur Blueprint
@@ -30,7 +30,7 @@ Une définition de blueprint peut utiliser des identités managées affectées p
 
 1. [Créer une identité managée affectée par l'utilisateur](../../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity) à des fins d'utilisation par un plan affecté
 
-1. [Ajoutez une attribution de rôle](../../../role-based-access-control/role-assignments-portal.md#add-a-role-assignment) **Opérateur d'identité managée** au compte ou groupe de sécurité. Étendez l’attribution de rôle à la nouvelle identité managée affectée par l’utilisateur.
+1. [Ajoutez une attribution de rôle](../../../role-based-access-control/role-assignments-portal.md#add-a-role-assignment)**Opérateur d'identité managée** au compte ou groupe de sécurité. Étendez l’attribution de rôle à la nouvelle identité managée affectée par l’utilisateur.
 
 1. En tant qu’**opérateur Blueprint**, [attribuez un blueprint](../create-blueprint-portal.md#assign-a-blueprint) utilisant la nouvelle identité managée affectée par l’utilisateur.
 

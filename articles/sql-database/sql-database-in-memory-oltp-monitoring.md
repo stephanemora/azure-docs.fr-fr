@@ -3,7 +3,7 @@ title: Effectuer le monitorage du stockage en mémoire XTP
 description: Estimer et surveiller la capacité et l’utilisation du stockage en mémoire XTP ; résoudre l’erreur de capacité 41823
 services: sql-database
 ms.service: sql-database
-ms.subservice: monitor
+ms.subservice: performance
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: genemi
 ms.date: 01/25/2019
-ms.openlocfilehash: d67a6d151f65252faab40f8f7289fe9e884eff17
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 22ff83b1ccd009624082e45073123a45006df70f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73689795"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79209427"
 ---
 # <a name="monitor-in-memory-oltp-storage"></a>Surveiller le stockage OLTP In-Memory
 

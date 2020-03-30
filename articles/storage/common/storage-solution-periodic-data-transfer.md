@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 06/24/2019
 ms.author: alkohli
 ms.openlocfilehash: fb49802adf6242f445b700d06622d7e6aa336b4d
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67357037"
 ---
 # <a name="solutions-for-periodic-data-transfer"></a>Solutions de transfert périodique de données
  
-Cet article offre une vue d’ensemble des solutions de transfert périodique de données. Le transfert périodique de données sur le réseau peut constituer un déplacement des données à intervalles réguliers ou continu. L’article décrit également les options de transfert de données recommandées et la matrice de fonctionnalités clés correspondant à ce scénario.
+Cet article offre une vue d’ensemble des solutions de transfert périodique de données. Le transfert périodique de données sur le réseau peut constituer un déplacement des données à intervalles réguliers ou continu. Il décrit également les options de transfert de données recommandées et la matrice de fonctionnalités clés correspondant à ce scénario.
 
 Pour une vue d’ensemble de toutes les options de transfert de données disponibles, voir [Choisir une solution de transfert de données Azure](storage-choose-data-transfer-solution.md).
 
@@ -32,11 +32,11 @@ Les options recommandées pour le transfert périodique de données se divisent 
 
 - **Outils d’ingestion continue des données** – pour l’ingestion continue des données, vous pouvez sélectionner un des appareils de transfert en ligne Data Box ou Azure Data Factory. Ces outils, configurés par des professionnels de l’informatique, peuvent automatiser en toute transparence le transfert de données.
 
-    - **Azure Data Factory** – Data Factory doit être utilisé pour monter en charge une opération de transfert, et si des fonctions d’orchestration et de monitoring de qualité professionnelle sont nécessaires. Avec Azure Data Factory, vous pouvez configurer un pipeline de cloud qui transfère régulièrement des fichiers entre plusieurs services Azure, en local ou les deux. Azure Data Factory permet d’orchestrer des workflows pilotés par les données qui ingèrent des données provenant de différents magasins de données et d’automatiser le déplacement et la transformation des données.
+    - **Azure Data Factory** - Data Factory doit être utilisé pour effectuer un scale-out d’une opération de transfert, et lorsque des fonctionnalités d'orchestration et de supervision de qualité professionnelle sont requises. Avec Azure Data Factory, vous pouvez configurer un pipeline de cloud qui transfère régulièrement des fichiers entre plusieurs services Azure, en local ou les deux. Azure Data Factory permet d’orchestrer des workflows pilotés par les données qui ingèrent des données provenant de différents magasins de données et d’automatiser le déplacement et la transformation des données.
     - **Famille Azure Data Box pour les transferts en ligne** – Data Box Edge et Data Box Gateway sont des appareils réseau en ligne capables de déplacer des données vers et à partir d’Azure. Data Box Edge utilise un système de computing en périphérie compatible avec l’intelligence artificielle (IA) pour prétraiter les données avant le chargement. Data Box Gateway est une version virtuelle de l’appareil, offrant les mêmes fonctionnalités de transfert de données.
 
 
-## <a name="comparison-of-key-capabilities"></a>Comparaison des principales fonctionnalités
+## <a name="comparison-of-key-capabilities"></a>Comparaison des fonctionnalités clés
 
 Le tableau suivant résume les différences entre les principales fonctionnalités.
 
@@ -48,19 +48,19 @@ Le tableau suivant résume les différences entre les principales fonctionnalit�
 | Installation ponctuelle initiale     | Minimales                                | Effort de développement modéré et variable    |
 | Format de données                 | Blobs, Fichiers et Tables Azure | Blobs, Fichiers et Tables Azure   |
 | Performances                 | Déjà optimisé                      | Optimisé au fil du développement                  |
-| Tarifs                     | Gratuit, des frais de sortie de données s'appliquent      | Gratuit, des frais de sortie de données s’appliquent        |
+| Tarifs                     | Gratuit, des frais de sortie de données s'appliquent      | Gratuit, des frais de sortie de données s'appliquent        |
 
 ### <a name="continuous-data-ingestion-over-network"></a>Ingestion continue des données sur le réseau
 
-| Fonctionnalité                                       | Data Box Gateway | Data Box Edge   | Azure Data Factory        |
+| Fonctionnalité                                       | Data Box Gateway | Data Box Edge   | Azure Data Factory        |
 |----------------------------------|-----------------------------------------|--------------------------|---------------------------|
 | Facteur de forme                                   | Appareil virtuel             | Appareil physique          | Service dans le Portail Azure, agent local                                                            |
 | Matériel                                      | Votre hyperviseur            | Fourni par Microsoft    | N/D                                                            |
 | Effort de configuration initial                          | Faible (< 30 minutes)            | Modéré (quelques heures) | Grand (plusieurs jours)                                                 |
 | Format de données                                   | Blob et Fichiers Azure   | Blob et Fichiers Azure | [Prend en charge plus de 70 connecteurs de données pour les formats et les magasins de données](https://docs.microsoft.com/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)|
-| Prétraitement des données                           | Non                         | Oui, avec le computing en périphérie    | OUI                                                           |
-| Cache local<br>(pour stocker des données locales)    | OUI                        | OUI                      | Non                                                            |
-| Transfert à partir d’autres clouds                    | Non                         | Non                       | OUI                                                           |
+| Prétraitement des données                           | Non                         | Oui, avec le computing en périphérie    | Oui                                                           |
+| Cache local<br>(pour stocker des données locales)    | Oui                        | Oui                      | Non                                                            |
+| Transfert à partir d'autres clouds                    | Non                         | Non                       | Oui                                                           |
 | Tarifs                                       | [Tarification](https://azure.microsoft.com/pricing/details/storage/databox/gateway/)                    | [Tarification](https://azure.microsoft.com/pricing/details/storage/databox/edge/)                  | [Tarification](https://azure.microsoft.com/pricing/details/data-factory/)                                                       |
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -70,4 +70,4 @@ Le tableau suivant résume les différences entre les principales fonctionnalit�
 - Comprendre comment :
     - [Transférer des données avec Data Box Gateway](https://docs.microsoft.com/azure/databox-online/data-box-gateway-deploy-add-shares).
     - [Transformer des données avec Data Box Edge avant de les envoyer à Azure](https://docs.microsoft.com/azure/databox-online/data-box-edge-deploy-configure-compute).
-- [Découvrir comment transférer des données avec Azure Data Factory](https://docs.microsoft.com/azure/data-factory/tutorial-bulk-copy-portal).
+- [Apprendre à transférer des données avec Azure Data Factory](https://docs.microsoft.com/azure/data-factory/tutorial-bulk-copy-portal).

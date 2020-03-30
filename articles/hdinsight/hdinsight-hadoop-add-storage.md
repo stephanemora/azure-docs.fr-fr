@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.openlocfilehash: 87eb04b7323186175195babf6a602fa12d25176f
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/01/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78206705"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Ajouter des comptes de stockage supplémentaires à HDInsight
@@ -21,7 +21,7 @@ Découvrez comment utiliser des actions de script pour ajouter des *comptes* Sto
 > [!IMPORTANT]  
 > Les informations contenues dans ce document portent sur l’ajout d’un ou de plusieurs comptes de stockage supplémentaires à un cluster après sa création. Pour plus d’informations sur l’ajout de comptes de stockage lors de la création du cluster, consultez [Configurer des clusters dans HDInsight avec Apache Hadoop, Apache Spark, Apache Kafka, etc](hdinsight-hadoop-provision-linux-clusters.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Un cluster Hadoop sur HDInsight. Consultez [Bien démarrer avec HDInsight sur Linux](./hadoop/apache-hadoop-linux-tutorial-get-started.md).
 * Nom et clé du compte de stockage. Consultez [Gérer les clés d’accès au compte de stockage](../storage/common/storage-account-keys-manage.md).

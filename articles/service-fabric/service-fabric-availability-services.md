@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 5306439184561e8dec8303a7b149f51d6c2f6e08
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75551860"
 ---
 # <a name="availability-of-service-fabric-services"></a>Disponibilité des services Service Fabric
@@ -27,7 +27,7 @@ Un service avec état possède un état qui lui est associé. Dans Service Fabri
 
 Il ne peut y avoir qu’un seul réplica principal, mais il peut y avoir plusieurs réplicas secondaires actifs. Le nombre de réplicas secondaires actifs est configurable et un nombre plus élevé de réplicas peut tolérer un plus grand nombre de défaillances logicielles et matérielles simultanées.
 
-En cas d’erreur (quand le réplica principal tombe en panne), Service Fabric choisit l’un des réplicas secondaires actifs comme nouveau réplica principal. Ce réplica secondaire actif possède déjà la version à jour de l’état (via la *réplication*) et peut continuer le traitement des opérations de lecture et d’écriture. Ce processus est appelé une [reconfiguration](service-fabric-concepts-reconfiguration.md) et est décrit de façon détaillée dans l’article *Reconfiguration*.
+En cas d’erreur (quand le réplica principal tombe en panne), Service Fabric choisit l’un des réplicas secondaires actifs comme nouveau réplica principal. Ce réplica secondaire actif possède déjà la version à jour de l’état (via la *réplication*) et peut continuer le traitement des opérations de lecture et d’écriture. Ce processus est appelé une *reconfiguration* et est décrit de façon détaillée dans l’article [Reconfiguration](service-fabric-concepts-reconfiguration.md).
 
 Le concept de réplica, qu’il soit principal ou secondaire actif, correspond au *rôle de réplica*. Ces réplicas sont décrits de façon approfondie dans l’article [Réplicas et instances](service-fabric-concepts-replica-lifecycle.md). 
 

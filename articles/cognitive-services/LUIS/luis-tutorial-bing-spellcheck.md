@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: diberry
 ms.openlocfilehash: 51b0d02443df872a7fae13116ea77b13d05055fa
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74225461"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Corriger les mots mal orthographiés avec la vérification orthographique Bing

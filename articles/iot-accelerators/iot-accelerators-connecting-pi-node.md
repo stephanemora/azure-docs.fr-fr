@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: dobett
 ms.openlocfilehash: 98d947e8aabf20fbfdb192cb80c9bc881007d5da
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73889265"
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>Connecter votre appareil Raspberry Pi à l’accélérateur de solution de supervision à distance (Node.js)
@@ -74,7 +74,7 @@ Si ce n’est déjà fait, installez Node.js version 4.0.0 ou ultérieure sur vo
     node --version
     ```
 
-## <a name="create-a-nodejs-solution"></a>Créer une application Node.js
+## <a name="create-a-nodejs-solution"></a>Créer une solution Node.js
 
 Effectuez les étapes suivantes en utilisant la connexion `ssh` à votre appareil Raspberry Pi :
 
@@ -86,7 +86,7 @@ Effectuez les étapes suivantes en utilisant la connexion `ssh` à votre apparei
     cd remotemonitoring
     ```
 
-1. Pour télécharger et installer les packages dont vous avez besoin pour accomplir l’exemple d’application, exécutez les commandes suivantes :
+1. Pour télécharger et installer les packages dont vous avez besoin pour accomplir l’exemple d’application, exécutez les commandes suivantes :
 
     ```sh
     npm install async azure-iot-device azure-iot-device-mqtt
