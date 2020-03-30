@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 01/22/2020
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: 92c2e79910e40721a0ef62d44825bd1f3e19fc79
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 0df38533afe97f010d1050c3ee2a4a69a54d4cc7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548201"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335099"
 ---
-| Ressource | Limite par défaut |
+| Ressource | Limite |
 | --- | --- |
 | Débit de données |30 Gbits/s<sup>1</sup> |
 |Règles|10 000. Combinaison de tous les types de règles.|

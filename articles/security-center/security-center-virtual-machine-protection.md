@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 02/11/2020
 ms.author: memildin
 ms.openlocfilehash: bcf92838483fbb6b54802cc0d44cc44ea086d705
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77430623"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79236749"
 ---
 # <a name="protect-your-machines-and-applications"></a>Protéger vos machines et applications
 Quand Azure Security Center identifie des failles de sécurité potentielles, des suggestions sont émises pour vous guider tout au long du processus de configuration des contrôles nécessaires afin de renforcer et protéger vos ressources.
@@ -63,7 +63,7 @@ Chaque recommandation dispose d’un ensemble d’actions pouvant être effectu�
 
 
 
-### <a name="vms-and-computers"></a>Machines virtuelles et serveurs
+### <a name="vms-and-servers"></a><a name="vms-and-computers"></a>Machines virtuelles et serveurs
 La section Machines virtuelles et ordinateurs vous fournit une vue d’ensemble de toutes les recommandations de sécurité pour vos machines virtuelles et ordinateurs. Quatre types d’ordinateurs sont inclus :
 
 ![Ordinateur extérieur à Azure](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon1.png) Ordinateur ne relevant pas d’Azure.
@@ -84,7 +84,7 @@ Ce panneau comporte des informations détaillées sur la sécurité de la machin
 
 
 
-### <a name="vmscale-sets"></a>Groupes de machines virtuelles identiques
+### <a name="virtual-machine-scale-sets"></a><a name="vmscale-sets"></a>Groupes de machines virtuelles identiques
 Security Center détecte automatiquement si vous avez des groupes identiques et vous recommande d’y installer Microsoft Monitoring Agent.
 
 Pour installer Microsoft Monitoring Agent : 
@@ -110,7 +110,7 @@ Si vous souhaitez paramétrer tous les groupes identiques existants pour install
 
 
 
-### <a name="cloud-services"></a>Services cloud
+### <a name="cloud-services"></a><a name="cloud-services"></a>Services cloud
 Pour les services cloud, une suggestion est créée lorsque la version du système d’exploitation est obsolète.
 
 ![Services cloud](./media/security-center-virtual-machine-recommendations/security-center-monitoring-fig1-new006-2017.png)
@@ -122,7 +122,7 @@ Si vous avez une recommandation, suivez les étapes mentionnées de la recommand
 
 
 
-### <a name="app-services"></a>App Services
+### <a name="app-services"></a><a name="app-services"></a>App Services
 Pour voir les informations App Service, vous devez être au niveau tarifaire Standard de Security Center et activer App Service dans votre abonnement. Pour obtenir des instructions sur l’activation de cette fonctionnalité, consultez [Protéger App Service avec Azure Security Center](security-center-app-services.md).
 
 Sous **App Services**, vous trouverez la liste de vos environnements App Service et le résumé de l'intégrité basé sur l’évaluation effectuée par Security Center.
@@ -157,7 +157,7 @@ Sélectionnez une suggestion pour voir sa description et la liste des ressources
 
 
 
-### <a name="containers"></a>Conteneurs
+### <a name="containers"></a><a name="containers"></a>Conteneurs
 
 Lorsque vous ouvrez l’onglet **Conteneurs**, selon votre environnement, vous pouvez voir l’un des trois types de ressources suivants :
 

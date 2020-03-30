@@ -9,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.openlocfilehash: 144d51d08a61526ec0f183a63e1fdf5658136293
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77030956"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79233577"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Optimiser les requêtes Apache Hive dans Azure HDInsight
 
@@ -23,15 +23,15 @@ Par exemple, choisissez le type de cluster **Requête interactive** pour optimis
 
 Par défaut, les clusters HDInsight de type Hadoop ne sont pas optimisés au niveau des performances. Cet article décrit en détail quelques-unes des méthodes d’optimisation des performances Hive courantes que vous pouvez appliquer à nos requêtes.
 
-## <a name="scale-out-worker-nodes"></a>Montée en charge des nœuds de travail
+## <a name="scale-out-worker-nodes"></a>Effectuer un scale-out des nœuds de travail
 
-L’augmentation du nombre de nœuds de travail d’un cluster HDInsight permet d’exploiter l’exécution de mappeurs et de raccords de réduction en parallèle. Il existe deux manières d’accroître la montée en charge dans HDInsight :
+L’augmentation du nombre de nœuds de travail d’un cluster HDInsight permet d’exploiter l’exécution de mappeurs et de raccords de réduction en parallèle. Il existe deux manières d’accroître le scale-out dans HDInsight :
 
 * Au moment de la création d’un cluster, vous pouvez spécifier le nombre de nœuds Worker à l’aide du portail Azure, d’Azure PowerShell ou d’une interface de ligne de commande.  Pour plus d’informations, consultez la rubrique [Création de clusters HDInsight](hdinsight-hadoop-provision-linux-clusters.md). La capture d’écran suivante montre la configuration du nœud Worker sur le portail Azure :
   
     ![Portail Azure - Taille de cluster, nœuds](./media/hdinsight-hadoop-optimize-hive-query/azure-portal-cluster-configuration.png "scaleout_1")
 
-* Une fois le cluster créé, vous pouvez également modifier le nombre de nœuds Worker pour monter en charge le cluster sans en recréer un autre :
+* Une fois le cluster créé, vous pouvez également modifier le nombre de nœuds Worker pour effectuer un scale-out d’un cluster sans en recréer un autre :
 
     ![Taille de cluster de mise à l’échelle Portail Azure](./media/hdinsight-hadoop-optimize-hive-query/azure-portal-settings-nodes.png "scaleout_2")
 

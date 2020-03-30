@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/30/2019
 ms.author: pafarley
 ms.openlocfilehash: a4e7b079367a4b4dec1d2b3d6c0afde1d8276766
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "72754172"
 ---
 # <a name="video-moderation-with-human-review"></a>Modération de vidéo avec révision manuelle
@@ -94,7 +94,7 @@ Il est possible d’examiner une vidéo en détail, image par image, grâce à u
 
 ![vue des images de l’outil de révision vidéo](images/video-review-frames-view-apply-tags.PNG)
 
-## <a name="transcript-moderation"></a>Modération de transcription
+## <a name="transcript-moderation"></a>Modération de la transcription
 
 Bien souvent, les vidéos sont accompagnées d’une voix off qui doit être également modérée afin d’identifier les propos sensibles. Vous pouvez utiliser le service Azure Media Indexer pour convertir l’audio en texte, puis l’API de révision Content Moderator pour transmettre la transcription à l’outil de révision pour la modération de texte.
 
@@ -105,4 +105,4 @@ Bien souvent, les vidéos sont accompagnées d’une voix off qui doit être ég
 - Consultez le [démarrage rapide pour la modération des vidéos](video-moderation-api.md).
 - Découvrez comment générer des [revues de vidéos](video-reviews-quickstart-dotnet.md) pour vos réviseurs à partir de résultats modérés.
 - Ajoutez des [revues de la transcription de la vidéo](video-transcript-reviews-quickstart-dotnet.md) à vos révisions de vidéos.
-- Consultez le didacticiel détaillé concernant le développement d’une [solution de modération des vidéos complète](video-transcript-moderation-review-tutorial-dotnet.md).
+- Consultez le tutoriel détaillé sur le développement d’une [solution complète de modération de vidéos](video-transcript-moderation-review-tutorial-dotnet.md).

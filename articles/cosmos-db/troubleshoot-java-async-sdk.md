@@ -10,10 +10,10 @@ ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.openlocfilehash: 572139743c66546622450cef8f8a0fa264d24779
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65519976"
 ---
 # <a name="troubleshoot-issues-when-you-use-the-java-async-sdk-with-azure-cosmos-db-sql-api-accounts"></a>Résoudre les problèmes quand vous utilisez le SDK Java Async avec des comptes d’API SQL Azure Cosmos DB
@@ -27,7 +27,7 @@ Commencez par cette liste :
 * Consultez les [conseils relatifs aux performances](performance-tips-async-java.md) et suivez les pratiques suggérées.
 * Lisez le reste de cet article, si vous n’avez pas trouvé de solution. Ensuite, consignez un [problème GitHub](https://github.com/Azure/azure-cosmosdb-java/issues).
 
-## <a name="common-issues-workarounds"></a>Problèmes courants et solutions de contournement
+## <a name="common-issues-and-workarounds"></a><a name="common-issues-workarounds"></a>Problèmes courants et solutions de contournement
 
 ### <a name="network-issues-netty-read-timeout-failure-low-throughput-high-latency"></a>Problèmes réseau, échec du délai d’expiration de lecture Netty, débit faible, latence élevée
 
@@ -38,16 +38,16 @@ Commencez par cette liste :
 #### <a name="connection-throttling"></a>Limitation de la connexion
 La limitation de la connexion peut se produire en raison d’une [Limite de connexion sur un ordinateur hôte] ou d’une [insuffisance de ports Azure SNAT (PAT)].
 
-##### <a name="connection-limit-on-host"></a>Limite de connexion sur un ordinateur hôte
+##### <a name="connection-limit-on-a-host-machine"></a><a name="connection-limit-on-host"></a>Limite de connexion sur un ordinateur hôte
 Certains systèmes Linux, tels que Red Hat, ont une limite supérieure quant au nombre total de fichiers ouverts. Les sockets dans Linux étant implémentés en tant que fichiers, ce nombre limite aussi le nombre total de connexions.
-Exécutez la commande ci-dessous.
+Exécutez la commande suivante :
 
 ```bash
 ulimit -a
 ```
 La quantité maximale de fichiers ouverts autorisée, qui sont identifiés comme « nofile », doit être au moins le double votre taille de pool de connexions. Pour plus d’informations, consultez [Conseils relatifs aux performances](performance-tips-async-java.md).
 
-##### <a name="snat"></a>Insuffisance de ports Azure SNAT (PAT)
+##### <a name="azure-snat-pat-port-exhaustion"></a><a name="snat"></a>Insuffisance de ports Azure SNAT (PAT)
 
 Si votre application est déployée sur Machine virtuelle Azure sans adresse IP publique, par défaut les [ports Azure SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports) établissent des connexions avec n’importe quel point de terminaison en dehors de votre machine virtuelle. Le nombre de connexions autorisées de la machine virtuelle au point de terminaison Azure Cosmos DB est limité par la [configuration Azure SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
 
@@ -58,7 +58,7 @@ Si votre application est déployée sur Machine virtuelle Azure sans adresse IP 
     Quand le point de terminaison de service est activé, les requêtes ne sont plus envoyées d’une adresse IP publique à Azure Cosmos DB. Au lieu de cela, les identités du réseau virtuel et du sous-réseau sont envoyées. Cette modification peut entraîner des problèmes de pare-feu si seules les adresses IP publiques sont autorisées. Si vous utilisez un pare-feu, quand vous activez le point de terminaison de service, ajoutez un sous-réseau au pare-feu à l’aide de [Listes de contrôle d’accès de réseau virtuel](https://docs.microsoft.com/azure/virtual-network/virtual-networks-acl).
 * Assignez une adresse IP publique à votre machine virtuelle Azure.
 
-##### <a name="cant-connect"></a>Impossible d’atteindre le service - pare-feu
+##### <a name="cant-reach-the-service---firewall"></a><a name="cant-connect"></a>Impossible d’atteindre le service - pare-feu
 ``ConnectTimeoutException`` indique que le Kit de développement logiciel (SDK) ne peut pas atteindre le service.
 Vous pouvez recevoir une erreur semblable à ce qui suit lorsque vous utilisez le mode direct :
 ```
@@ -196,7 +196,7 @@ Une fois que vous identifiez les autres dépendances de votre projet pour lesque
 Pour en savoir plus, consultez le guide relatif à [l’exclusion de dépendances transitives](https://maven.apache.org/guides/introduction/introduction-to-optional-and-excludes-dependencies.html).
 
 
-## <a name="enable-client-sice-logging"></a>Activer la journalisation de SDK client
+## <a name="enable-client-sdk-logging"></a><a name="enable-client-sice-logging"></a>Activer la journalisation de SDK client
 
 Le SDK Java Async utilise SLF4j en tant que façade de journalisation qui prend en charge la journalisation dans les frameworks de journalisation populaires comme log4j et logback.
 
@@ -235,7 +235,7 @@ log4j.appender.A1.layout.ConversionPattern=%d %5X{pid} [%t] %-5p %c - %m%n
 
 Pour plus d’informations, consultez le [manuel de journalisation sfl4j](https://www.slf4j.org/manual.html).
 
-## <a name="netstats"></a>Statistiques réseau du système d’exploitation
+## <a name="os-network-statistics"></a><a name="netstats"></a>Statistiques réseau du système d’exploitation
 Exécutez la commande netstat pour avoir une idée du nombre de connexions à l’état `ESTABLISHED`, `CLOSE_WAIT`, et ainsi de suite.
 
 Sur Linux, vous pouvez exécuter la commande suivante.

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
 ms.openlocfilehash: 68da335875752d326ee718cade3d501623c70b49
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "72935956"
 ---
 # <a name="check-text-against-a-custom-term-list-in-c"></a>Vérifier du texte par rapport à une liste de termes personnalisée en C#
@@ -40,7 +40,7 @@ Avant de pouvoir utiliser les services Content Moderator sur l’API REST ou le 
 
 ## <a name="create-your-visual-studio-project"></a>Créer votre projet Visual Studio
 
-1. Ajoutez un nouveau projet **Application console (.NET Framework)** à votre solution.
+1. Ajoutez un nouveau projet **Console app (.NET Framework)** à votre solution.
 
 1. Nommez le projet **TermLists**. Sélectionnez ce projet comme unique projet de démarrage de la solution.
 

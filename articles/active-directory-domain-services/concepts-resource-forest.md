@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: iainfou
 ms.openlocfilehash: a583e32cbc3d58d5dfc5616335b2f38ad20fac14
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74234394"
 ---
 # <a name="resource-forest-concepts-and-features-for-azure-active-directory-domain-services"></a>Concepts et fonctionnalités de la forêt de ressources pour Azure Active Directory Domain Services
@@ -30,13 +30,13 @@ Pour répondre à ces besoins et restrictions, vous pouvez créer un domaine Azu
 
 ## <a name="what-are-forests"></a>Que sont les forêts ?
 
-Une *forêt* est une construction logique utilisée par Active Directory Domain Services (AD DS) pour regrouper un ou plusieurs *domaines*. Les domaines stockent ensuite les objets pour les utilisateurs ou groupes, et fournissent des services d’authentification.
+Une *forêt* est une construction logique utilisée par Active Directory Domain Services (AD DS) pour regrouper un ou plusieurs *domaines*. Les domaines stockent alors les objets pour un utilisateur ou des groupes et fournissent des services d’authentification.
 
 Dans Azure AD DS, la forêt ne contient qu’un seul domaine. Les forêts AD DS locales contiennent souvent de nombreux domaines. Dans les grandes organisations, en particulier après des fusions et acquisitions, vous pouvez vous retrouver avec plusieurs forêts locales qui contiennent chacune plusieurs domaines.
 
-Par défaut, un domaine Azure AD DS géré est créé en tant que forêt *utilisateur*. Ce type de forêt synchronise tous les objets d’Azure AD, y compris les comptes d’utilisateur créés dans un environnement AD DS local. Les comptes d’utilisateur peuvent directement s’authentifier auprès du domaine Azure AD DS géré, par exemple pour se connecter à une machine virtuelle jointe à un domaine. Une forêt utilisateur fonctionne lorsque les hachages de mot de passe peuvent être synchronisés et que les utilisateurs n’utilisent pas de méthode de connexion exclusive, comme l’authentification par carte à puce.
+Par défaut, un domaine managé Azure AD DS est créé en tant que forêt *d’utilisateurs*. Ce type de forêt synchronise tous les objets d’Azure AD, notamment les comptes d’utilisateur créés dans un environnement AD DS local. Les comptes d’utilisateur peuvent directement s’authentifier auprès du domaine managé Azure AD DS, par exemple pour se connecter à une machine virtuelle jointe à un domaine. Une forêt d’utilisateurs fonctionne lorsque les hachages de mot de passe peuvent être synchronisés et que les utilisateurs n’utilisent pas de méthode de connexion exclusive, comme l’authentification par carte à puce.
 
-Dans une forêt Azure AD DS de *ressource*, les utilisateurs s’authentifient sur une forêt à *approbation* unique à partir de leur AD DS local. Avec cette approche, les objets utilisateur et les hachages de mot de passe ne sont pas synchronisés avec Azure AD DS. Les objets utilisateur et les informations d’identification existent uniquement dans l’instance AD DS locale. Cette approche permet aux entreprises d’héberger des ressources et des plateformes d’application dans Azure qui dépendent de l’authentification classique, par exemple LDAPS, Kerberos ou NTLM, en éliminant les problèmes et craintes en matière d’authentification. Les forêts de ressources Azure AD DS sont actuellement en préversion.
+Dans une forêt Azure AD DS de *ressources*, les utilisateurs s’authentifient sur une forêt à *approbation* unique à partir de leur AD DS local. Avec cette approche, les objets utilisateur et les hachages de mot de passe ne sont pas synchronisés avec Azure AD DS. Les objets utilisateur et les informations d’identification existent uniquement dans l’instance AD DS locale. Cette approche permet aux entreprises d’héberger des ressources et des plateformes d’application dans Azure qui dépendent de l’authentification classique, par exemple LDAPS, Kerberos ou NTLM, en éliminant les problèmes et craintes en matière d’authentification. Les forêts de ressources Azure AD DS sont actuellement en préversion.
 
 Les forêts de ressources offrent également la possibilité de déplacer vos applications un composant à la fois. De nombreuses applications locales héritées sont multicouches, utilisent souvent un serveur web ou un serveur frontal et de nombreux composants liés aux bases de données. Ces couches compliquent le déplacement de l’ensemble de l’application dans le cloud en une seule étape. Avec les forêts de ressources, vous pouvez déplacer votre application dans le cloud par phases, ce qui simplifie le déplacement de votre application vers Azure.
 
@@ -67,7 +67,7 @@ Vous pouvez étendre les approbations de domaine dans une forêt unique à une a
 
 La transitivité des approbations de forêt est limitée aux deux partenaires de forêt. L’approbation de forêt ne s’étend pas aux forêts supplémentaires approuvées par un des partenaires.
 
-![Diagramme de l’approbation de forêt entre Azure AD DS et les instances AD DS locales](./media/concepts-resource-forest/resource-forest-trust-relationship.png)
+![Diagramme d'approbation de forêt entre Azure AD DS et les instances AD DS locales](./media/concepts-resource-forest/resource-forest-trust-relationship.png)
 
 Vous pouvez créer différentes configurations d’approbation de domaine et de forêt en fonction de la structure Active Directory de l’organisation. Azure AD DS prend en charge uniquement une approbation de forêt unidirectionnelle. Dans cette configuration, les ressources Azure AD DS peuvent approuver tous les domaines d’une forêt locale.
 
@@ -116,7 +116,7 @@ Les approbations fournissent ce mécanisme pour valider les demandes d’authent
 
 Pour en savoir plus sur les approbations, consultez [Comment fonctionnent les approbations de forêt dans Azure AD DS ?][concepts-trust]
 
-Pour découvrir comment créer un domaine géré Azure AD DS à l’aide d’une forêt de ressources, consultez [Créer et configurer un domaine géré Azure AD][tutorial-create-advanced]. Vous pouvez ensuite [Créer une approbation de forêt sortante vers un domaine local (préversion)][create-forest-trust].
+Pour commencer la création d’un domaine managé Azure AD DS avec une forêt de ressources, consultez [Créer et configurer un domaine managé Azure AD][tutorial-create-advanced]. Vous pouvez ensuite [Créer une approbation de forêt sortante vers un domaine local (préversion)][create-forest-trust].
 
 <!-- LINKS - INTERNAL -->
 [concepts-trust]: concepts-forest-trust.md

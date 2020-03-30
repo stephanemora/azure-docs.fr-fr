@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
 ms.openlocfilehash: 786a9e26003a7afb98307e0bd7fae94c42a2f00d
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75902481"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79224881"
 ---
 # <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>Configuration des notifications et des modèles de messages électroniques dans Gestion des API Azure
 
@@ -26,11 +26,11 @@ Gestion des API Azure permet de configurer les notifications pour des événemen
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
-Si vous ne disposez pas d’une instance de service Gestion des API, effectuez le démarrage rapide suivant : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
+Si vous ne disposez pas d’une instance de service Gestion des API, effectuez le démarrage rapide suivant : [Créer une instance Gestion des API Azure](get-started-create-service-instance.md).
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="publisher-notifications"> </a>Configurer les notifications
+## <a name="configure-notifications"></a><a name="publisher-notifications"> </a>Configurer les notifications
 
 1.  Sélectionnez votre instance **GESTION DES API**.
 2.  Cliquez sur **Notifications** pour afficher les notifications disponibles.
@@ -58,7 +58,7 @@ Si vous ne disposez pas d’une instance de service Gestion des API, effectuez l
 
 4.  Cliquez sur **Ajouter**.
 
-## <a name="email-templates"> </a>Configurer des modèles de notification
+## <a name="configure-notification-templates"></a><a name="email-templates"> </a>Configurer des modèles de notification
 
 Gestion des API fournit des modèles de notification pour les e-mails envoyés dans le cadre de l’administration et de l’utilisation du service. Les modèles suivants sont fournis.
 

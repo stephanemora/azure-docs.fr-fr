@@ -1,19 +1,18 @@
 ---
 title: Onglet Version d’évaluation de machine virtuelle dans le Portail Cloud Partner pour la Place de marché Microsoft Azure
 description: Décrit l’onglet Version d’évaluation utilisé pour créer une offre de machine virtuelle de la Place de marché Microsoft Azure.
-services: Azure, Marketplace, Cloud Partner Portal, virtual machine
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: pabutler
-ms.openlocfilehash: 94ebbcca50916f1675ab990a4b45f3b90e069104
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: d4fc8762e25825b21637b16b751d57a0dcbf369e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73808874"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288799"
 ---
 # <a name="virtual-machine-test-drive-tab"></a>Onglet Version d’évaluation de machine virtuelle
 

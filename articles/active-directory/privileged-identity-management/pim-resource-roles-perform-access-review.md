@@ -17,10 +17,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7ddb4d0ff1339f1427c5041528cdbe464a345b37
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73847017"
 ---
 # <a name="review-access-to-azure-resource-roles-in-privileged-identity-management"></a>Réviser l’accès aux rôles de ressources Azure dans Privileged Identity Management
@@ -37,7 +37,7 @@ Vous pouvez approuver ou refuser l’accès en fonction de si vous utilisez ou n
 
 Procédez comme suit pour rechercher et terminer la révision de l’accès :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 1. Sélectionnez **Azure Active Directory**, puis ouvrez **Privileged Identity Management**.
 1. Sélectionnez **Réviser l’accès**.
 

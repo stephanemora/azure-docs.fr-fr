@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect : Principes de conception | Microsoft Docs'
+title: 'Azure AD Connect : principes de conception | Microsoft Docs'
 description: Cette rubrique détaille certains aspects de la conception de l’implémentation
 services: active-directory
 documentationcenter: ''
@@ -18,13 +18,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bb41e14a7ecf41a2698a063c3067a98d8acf8f07
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70135734"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227901"
 ---
-# <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect : Principes de conception
+# <a name="azure-ad-connect-design-concepts"></a>Principes de conception Azure AD Connect
 L’objectif de ce document est de décrire les principes qui doivent présider à la conception de l’implémentation d’Azure AD Connect. Il s’agit d’une exploration approfondie de certains aspects. Ces concepts sont également décrits brièvement dans d’autres documents.
 
 ## <a name="sourceanchor"></a>sourceAnchor
@@ -121,7 +121,7 @@ Lorsque vous installez Azure AD Connect en mode personnalisé, l’Assistant Azu
 
 | Paramètre | Description |
 | --- | --- |
-| Let Azure manage the source anchor for me (Laisser Azure gérer l’ancre source pour moi) | Sélectionnez cette option si vous souhaitez qu’Azure AD choisissez l’attribut pour vous. Si vous sélectionnez cette option, l’Assistant Azure AD Connect applique la même [logique de sélection de l’attribut sourceAnchor que celle utilisée lors de l’installation rapide](#express-installation). Comme pour l’installation rapide, L’Assistant vous indique quel attribut a été sélectionné comme attribut sourcAnchor une fois l’installation personnalisée terminée. |
+| Let Azure manage the source anchor for me (Laisser Azure gérer l’ancre source pour moi) | Sélectionnez cette option si vous souhaitez qu’Azure AD sélectionne l’attribut pour vous. Si vous sélectionnez cette option, l’Assistant Azure AD Connect applique la même [logique de sélection de l’attribut sourceAnchor que celle utilisée lors de l’installation rapide](#express-installation). Comme pour l’installation rapide, L’Assistant vous indique quel attribut a été sélectionné comme attribut sourcAnchor une fois l’installation personnalisée terminée. |
 | Un attribut spécifique | Sélectionnez cette option si vous souhaitez spécifier un attribut AD existant comme attribut sourceAnchor. |
 
 ### <a name="how-to-enable-the-consistencyguid-feature---existing-deployment"></a>Comment activer la fonctionnalité ConsistencyGuid - déploiement existant

@@ -1,7 +1,7 @@
 ---
 title: Prise en charge linguistique - API Recherche d’actualités Bing
 titleSuffix: Azure Cognitive Services
-description: Liste des langages naturels, des pays et des régions pris en charge par l’API Recherche d’actualités Bing.
+description: Liste des langages naturels, des pays et des régions pris en charge par l’API Recherche Web Bing.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 1/10/2019
 ms.author: aahi
 ms.openlocfilehash: d15058126f43fff328acfc563ffd081164a69a90
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66384985"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79218875"
 ---
 # <a name="language-and-region-support-for-the-bing-news-search-api"></a>Langages et régions pris en charge par l’API Recherche d’actualités Bing
 
@@ -39,7 +39,7 @@ Pour obtenir la liste des codes pays/régions que vous pouvez spécifier dans le
 |Allemagne|Allemand|de-DE|
 |Australie|Anglais|en-AU|
 |Canada|Anglais|en-CA|
-|Royaume-Uni|Anglais|en-GB|
+|United Kingdom|Anglais|en-GB|
 |Indonésie|Anglais|en-ID|
 |Irlande|Anglais|en-IE|
 |Inde|Anglais|en-IN|
@@ -47,7 +47,7 @@ Pour obtenir la liste des codes pays/régions que vous pouvez spécifier dans le
 |Nouvelle-Zélande|Anglais|en-NZ|
 |République des Philippines|Anglais|en-PH|
 |Singapour|Anglais|en-SG|
-|États-Unis|Anglais|en-US|
+|États-Unis|Anglais|fr-FR|
 |Anglais|général|en-WW|
 |Anglais|général|en-XA|
 |Afrique du Sud|Anglais|en-ZA|
@@ -58,11 +58,11 @@ Pour obtenir la liste des codes pays/régions que vous pouvez spécifier dans le
 |États-Unis|Espagnol|es-US|
 |Espagnol|général|es-XL|
 |Finlande|Finnois|fi-FI|  
-|France|Anglais|fr-BE|
-|Canada|Anglais|fr-CA|
+|France|Français|fr-BE|
+|Canada|Français|fr-CA|
 |Belgique|Néerlandais|nl-BE|
-|Suisse|Anglais|fr-CH|
-|France|Anglais|fr-FR|  
+|Suisse|Français|fr-CH|
+|France|Français|fr-FR|  
 |Italie|Italien|it-IT|
 |Hong Kong (R.A.S.)|Chinois traditionnel|zh-HK|  
 |Taïwan|Chinois traditionnel|zh-TW|
@@ -85,15 +85,15 @@ Pour obtenir la liste des codes pays/régions que vous pouvez spécifier dans le
 |Danemark|Danois|da-DK|
 |Allemagne|Allemand|de-DE|
 |Australie|Anglais|en-AU|
-|Royaume-Uni|Anglais|en-GB|
-|États-Unis|Anglais|en-US|
+|United Kingdom|Anglais|en-GB|
+|États-Unis|Anglais|fr-FR|
 |Anglais|général|en-WW|
 |Chili|Espagnol|es-CL|
 |Mexique|Espagnol|es-MX|
 |États-Unis|Espagnol|es-US|
 |Finlande|Finnois|fi-FI|  
-|Canada|Anglais|fr-CA|
-|France|Anglais|fr-FR|  
+|Canada|Français|fr-CA|
+|France|Français|fr-FR|  
 |Italie|Italien|it-IT|
 |Brésil|Portugais|pt-br|
 |République populaire de Chine|Chinois|zh-CN|
@@ -107,12 +107,12 @@ Pour obtenir la liste des codes pays/régions que vous pouvez spécifier dans le
 |---------------------|--------------|-----------------|
 |Allemagne|Allemand|de-DE|
 |Australie|Anglais|en-AU|
-|Royaume-Uni|Anglais|en-GB|
-|États-Unis|Anglais|en-US|
+|United Kingdom|Anglais|en-GB|
+|États-Unis|Anglais|fr-FR|
 |Canada|Anglais|en-CA|
 |Inde|Anglais|en-IN|
-|France|Anglais|fr-FR|
-|Canada|Anglais|fr-CA|
+|France|Français|fr-FR|
+|Canada|Français|fr-CA|
 |Brésil|Portugais|pt-br|
 |République populaire de Chine|Chinois|zh-CN|
 
@@ -137,7 +137,7 @@ Vous trouverez ci-dessous les codes pays/régions que vous pouvez spécifier dan
 |Allemagne|DE|  
 |Hong Kong (R.A.S.)|HK|  
 |Inde|IN|  
-|Indonésie|ID|  
+|Indonésie|id|  
 |Italie|IT|  
 |Japon|JP|  
 |Corée du Sud|KR|  
@@ -145,7 +145,7 @@ Vous trouverez ci-dessous les codes pays/régions que vous pouvez spécifier dan
 |Mexique|MX|  
 |Pays-bas|NL|  
 |Nouvelle-Zélande|NZ|  
-|Norvège|NON|  
+|Norvège|Non|  
 |République populaire de Chine|CN|  
 |Pologne|PL|  
 |Portugal|PT|  
@@ -158,8 +158,8 @@ Vous trouverez ci-dessous les codes pays/régions que vous pouvez spécifier dan
 |Suisse|CH|  
 |Taïwan|TW|  
 |Turquie|TR|  
-|Royaume-Uni|GB|  
-|États-Unis|FR|
+|United Kingdom|Go|  
+|États-Unis|US|
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur les points de terminaison de recherche d’actualités Bing, consultez [Référence de l’API de recherche d’actualité v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference).

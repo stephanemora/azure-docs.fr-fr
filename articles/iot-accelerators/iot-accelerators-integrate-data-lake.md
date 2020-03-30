@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 0a684151e01b298c60ff17ef1470e0648a425850
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73889232"
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>Intégrer la solution de supervision à distance à Azure Data Lake Store
@@ -21,7 +21,7 @@ La solution de supervision à distance ne répond peut-être pas à tous vos bes
 
 Dans cette procédure, vous allez utiliser une tâche Azure Stream Analytics pour transmettre des données du hub IoT dans votre solution de supervision à distance à Azure Data Lake Store.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour réaliser cette procédure, vous avez besoin des éléments suivants :
 
@@ -126,7 +126,7 @@ Azure Stream Analytics utilise un langage de requête de type SQL pour spécifie
 
 1. Sous l’onglet Vue d’ensemble, cliquez sur **Modifier la requête**.
 
-    ![Edit Query](./media/iot-accelerators-integrate-data-lake/stream-analytics-edit-query.png)
+    ![Modifier la requête](./media/iot-accelerators-integrate-data-lake/stream-analytics-edit-query.png)
 
 1. Dans l’éditeur de requête, remplacez les espaces réservés [YourOutputAlias] et [YourInputAlias] par les valeurs précédemment définies.
 

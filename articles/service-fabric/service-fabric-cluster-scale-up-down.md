@@ -4,11 +4,11 @@ description: Augmentez ou diminuez la taille des instances d’un cluster Servic
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.openlocfilehash: 26ef13f38d525e4e493ad933bfb906dd36ed0070
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587479"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79229393"
 ---
 # <a name="scale-a-cluster-in-or-out"></a>Mettre à l’échelle un cluster
 
@@ -58,7 +58,7 @@ Suivez ces instructions afin de [configurer la mise à l’échelle automatique 
 
 ## <a name="manually-add-vms-to-a-node-typevirtual-machine-scale-set"></a>Ajouter manuellement des machines virtuelles à un type de nœud/groupe de machines virtuelles identiques
 
-Lorsque vous augmentez le nombre d’instances (scale out), vous ajoutez des instances de machines virtuelles au groupe identique. Ces instances deviennent les nœuds que Service Fabric utilise. Service Fabric sait quand des instances sont ajoutées au groupe identique et réagit automatiquement. 
+Lorsque vous effectuez un scale-out, vous ajoutez des instances de machines virtuelles au groupe identique. Ces instances deviennent les nœuds que Service Fabric utilise. Service Fabric sait quand des instances sont ajoutées au groupe identique et réagit automatiquement. 
 
 > [!NOTE]
 > L’ajout de machines virtuelles prend du temps, donc ne vous attendez pas à ce que les ajouts soient instantanés. Par conséquent, envisagez d’ajouter de la capacité bien à l’avance, car vous devez compter plus de 10 minutes avant que la capacité de la machine virtuelle ne soit disponible pour placer les réplicas/instances de service.
@@ -88,7 +88,7 @@ az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 6
 ```
 
 ## <a name="manually-remove-vms-from-a-node-typevirtual-machine-scale-set"></a>Supprimer manuellement des machines virtuelles d’un type de nœud/groupe de machines virtuelles identiques
-Lorsque vous diminuez la taille des instances d’un type de nœud, vous supprimez les instances de machine virtuelle du groupe identique. Si le type de nœud dispose d’un niveau de durabilité Bronze, Service Fabric n’est pas informé des événements et signale qu’un nœud a disparu. Service Fabric signale donc que l’état du cluster n’est pas sain. Pour éviter cet état incorrect, vous devez supprimer le nœud du cluster et l’état du nœud de manière explicite.
+Lorsque vous effectuez un scale-in d’un type de nœud, vous supprimez les instances de machine virtuelle du groupe identique. Si le type de nœud dispose d’un niveau de durabilité Bronze, Service Fabric n’est pas informé des événements et signale qu’un nœud a disparu. Service Fabric signale donc que l’état du cluster n’est pas sain. Pour éviter cet état incorrect, vous devez supprimer le nœud du cluster et l’état du nœud de manière explicite.
 
 Les services système Service Fabric s’exécutent sur le type de nœud principal de votre cluster. Lorsque vous faites descendre en puissance un type de nœud principal, ne réduisez pas le nombre d’instances à une valeur inférieure à celle garantie par le [niveau de fiabilité](service-fabric-cluster-capacity.md). 
  
@@ -207,7 +207,7 @@ sfctl node remove-state --node-name _nt1vm_5
 > `sfctl node list --query "sort_by(items[*], &name)[-1].isStopped"`
 >
 
-### <a name="scale-in-the-scale-set"></a>Diminuer le nombre d’instances du groupe identique
+### <a name="scale-in-the-scale-set"></a>Effectuer un scale-in du groupe identique
 
 Maintenant que le nœud Service Fabric a été supprimé du cluster, vous pouvez diminuer la taille des instances du groupe de machines virtuelles identiques. Dans l’exemple ci-dessous, la capacité du groupe identique est diminuée de 1.
 

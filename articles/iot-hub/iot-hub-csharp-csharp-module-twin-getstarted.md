@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: menchi
 ms.openlocfilehash: e728d0ef8f52927687d56bd1d4c64f03c53ef401
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73947677"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-net"></a>Bien démarrer avec l’identité de module et le jumeau de module IoT Hub (.NET)
@@ -31,7 +31,7 @@ ms.locfileid: "73947677"
 > [!NOTE]
 > Pour plus d’informations sur les SDK Azure IoT que vous pouvez utiliser pour générer les deux applications qui s’exécutent sur les appareils et sur le serveur de solution principal, consultez l’article [SDK Azure IoT](iot-hub-devguide-sdks.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Visual Studio.
 
@@ -53,7 +53,7 @@ ms.locfileid: "73947677"
 
 Dans cette section, vous allez créer sur votre appareil simulé une application de console .NET qui met à jour les propriétés déclarées du jumeau de module.
 
-Avant de commencer, obtenez la chaîne de connexion de votre module. Connectez-vous au [Portail Azure](https://portal.azure.com/). Accédez à votre hub et sélectionnez **Appareils IoT**. Recherchez **myFirstDevice**. Sélectionnez **myFirstDevice** pour l’ouvrir, puis **myFirstModule** pour l’ouvrir. Dans **Détails sur l’identité de module**, copiez la **chaîne de connexion (clé primaire)** si nécessaire dans la procédure suivante.
+Avant de commencer, obtenez la chaîne de connexion de votre module. Connectez-vous au [portail Azure](https://portal.azure.com/). Accédez à votre hub et sélectionnez **Appareils IoT**. Recherchez **myFirstDevice**. Sélectionnez **myFirstDevice** pour l’ouvrir, puis **myFirstModule** pour l’ouvrir. Dans **Détails sur l’identité de module**, copiez la **chaîne de connexion (clé primaire)** si nécessaire dans la procédure suivante.
 
    ![Détails du module du Portail Azure](./media/iot-hub-csharp-csharp-module-twin-getstarted/module-identity-detail.png)
 

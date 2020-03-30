@@ -2,17 +2,16 @@
 Description: Le délai estimé pour transférer les paiements, les seuils de paiement applicables et les places de marché Microsoft à partir desquelles vous pouvez recevoir des paiements peuvent varier en fonction de votre pays/région et du type de compte de paiement.
 title: Seuils, modes et délais de paiement sur la place de marché commerciale | Place de marché Azure
 ms.date: 12/10/2019
-ms.topic: article
-author: MaggiePucciEvans
-manager: evansma
-ms.author: evansma
+ms.topic: conceptual
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
-ms.openlocfilehash: 6bb05513d59870b7fa0d997eb31510494a9938e0
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: fe18fab4a2ea61f41e017704105e37f28c20e456
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75931875"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80279723"
 ---
 # <a name="payment-thresholds-methods-and-time-frames"></a>Seuils, modes et délais de paiement
 
@@ -125,7 +124,7 @@ Pour voir les pays/régions dans lesquels ces modes de paiement sont utilisés p
 | Liechtenstein                    | Oui               | Oui                                      | Oui    | Oui             |
 | Lituanie                        | Oui               | Oui                                      | Oui    | Non              |
 | Luxembourg                       | Oui               | Oui                                      | Oui    | Oui             |
-| Macédoine du Nord                        | Non                | Oui                                      | Oui    | Non              |
+| République de Macédoine                        | Non                | Oui                                      | Oui    | Non              |
 | Madagascar                       | Oui               | Oui                                      | Oui    | Non              |
 | Malawi                           | Oui               | Oui                                      | Oui    | Oui             |
 | Malaisie                         | Oui               | Oui                                      | Oui    | Oui             |

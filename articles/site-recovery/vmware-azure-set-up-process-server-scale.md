@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 4/23/2019
 ms.author: ramamill
 ms.openlocfilehash: 1b6084b4e93f3dc17f633f1b8496f9c26e7f576f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64925489"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228905"
 ---
 # <a name="scale-with-additional-process-servers"></a>Mettre à l’échelle avec d’autres serveurs de processus
 
-Par défaut, lorsque vous répliquez des machines virtuelles VMware ou des serveurs physiques sur Azure avec [Site Recovery](site-recovery-overview.md), un serveur de processus est installé sur le serveur de configuration et permet de coordonner le transfert des données entre Site Recovery et votre infrastructure locale. Pour augmenter la capacité et faire évoluer votre déploiement de réplication, vous pouvez ajouter des serveurs de processus autonomes supplémentaires. Cet article décrit comment configurer un serveur de processus avec montée en puissance.
+Par défaut, lorsque vous répliquez des machines virtuelles VMware ou des serveurs physiques sur Azure avec [Site Recovery](site-recovery-overview.md), un serveur de processus est installé sur le serveur de configuration et permet de coordonner le transfert des données entre Site Recovery et votre infrastructure locale. Pour augmenter la capacité et effectuer un scale-out de votre déploiement de réplication, vous pouvez ajouter des serveurs de processus autonomes supplémentaires. Cet article décrit comment configurer un serveur de processus avec montée en puissance.
 
 ## <a name="before-you-start"></a>Avant de commencer
 
@@ -41,7 +41,7 @@ Vérifiez la configuration requise pour le dimensionnement, résumée dans le ta
 
 Où chaque machine source protégée est configurée avec 3 disques de 100 Go chacune.
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables requises
 
 La configuration requise pour le serveur de traitement supplémentaire est résumée dans le tableau suivant.
 

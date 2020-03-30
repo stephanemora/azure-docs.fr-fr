@@ -15,22 +15,22 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 4b8cbc27757cf6c321ea4b3c27720a129aa27c1b
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593479"
 ---
 # <a name="real-time-alerts-in-microsoft-azure-cdn"></a>Alertes en temps réel dans Microsoft Azure CDN
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Ce document explique les alertes en temps réel dans Microsoft Azure CDN. Cette fonctionnalité fournit des notifications en temps réel sur les performances des points de terminaison dans votre profil CDN.  Vous pouvez configurer des alertes par courrier électronique ou HTTP en fonction des éléments suivants :
 
 * Bande passante
 * Codes d’état
 * États du cache
-* connexions
+* Connexions
 
 ## <a name="creating-a-real-time-alert"></a>Création d’une alerte en temps réel
 1. Dans le [portail Azure](https://portal.azure.com), accédez à votre profil CDN.
@@ -109,6 +109,6 @@ Ce document explique les alertes en temps réel dans Microsoft Azure CDN. Cette 
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Analyser des [statistiques en temps réel dans Azure CDN](cdn-real-time-stats.md)
-* Aller plus loin en vous familiarisant avec les [rapports HTTP avancés](cdn-advanced-http-reports.md)
+* Allez plus loin en vous familiarisant avec les [rapports HTTP avancés](cdn-advanced-http-reports.md)
 * Analysez les [modes d’utilisation](cdn-analyze-usage-patterns.md)
 

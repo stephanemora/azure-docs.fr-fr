@@ -12,10 +12,10 @@ ms.date: 01/30/2020
 ms.author: dapine
 ms.custom: seodec18
 ms.openlocfilehash: 9507428e63b337b3d8419a833d03d081d494c522
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78330802"
 ---
 # <a name="ship-an-application"></a>Délivrer une application
@@ -39,7 +39,7 @@ Pour l’entrée du microphone, les bibliothèques Media Foundation doivent êtr
 
 Les fichiers du kit de développement logiciel (SDK) Speech requis peuvent être déployés dans le même répertoire que votre application. De cette façon, votre application peut accéder directement aux bibliothèques. Veillez à sélectionner la version appropriée (Win32/x64) correspondant à votre application.
 
-| Nom | Fonction |
+| Name | Fonction |
 | :--- | :------- |
 | `Microsoft.CognitiveServices.Speech.core.dll`   | SDK principal, requis pour le déploiement natif et managé |
 | `Microsoft.CognitiveServices.Speech.csharp.dll` | Requis pour le déploiement managé                      |

@@ -9,10 +9,10 @@ ms.date: 10/07/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: f7167cbb26e69941cade01ab8c0b8d9dc633f0d2
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72168384"
 ---
 Quand vous utilisez des stratégies IPsec personnalisées, gardez à l’esprit les exigences suivantes :
@@ -26,7 +26,7 @@ Quand vous utilisez des stratégies IPsec personnalisées, gardez à l’esprit 
 
 **Paramètres et configurations disponibles**
 
-| Paramètre | parameters |
+| Paramètre | Paramètres |
 |--- |--- |
 | Chiffrement IKE | AES256, AES192, AES128 |
 | Intégrité IKE | SHA384, SHA256, SHA1 |

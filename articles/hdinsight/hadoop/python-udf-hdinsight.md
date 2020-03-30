@@ -9,23 +9,23 @@ ms.topic: conceptual
 ms.date: 11/15/2019
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.openlocfilehash: 201bb40e5024442587f5508886da7e844f35be40
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74148393"
 ---
 # <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>Utiliser des fonctions définies par l’utilisateur (UDF) Python avec Apache Hive et Apache Pig dans HDInsight
 
 Découvrez comment utiliser des fonctions définies par l’utilisateur Python avec Apache Hive et Apache Pig dans Apache Hadoop sur Azure HDInsight.
 
-## <a name="python"></a>Python sur HDInsight
+## <a name="python-on-hdinsight"></a><a name="python"></a>Python sur HDInsight
 
 Python 2.7 est installé par défaut sur HDInsight 3.0 et versions ultérieures. Apache Hive peut être utilisé avec cette version de Python pour traiter les flux de données. Le traitement de flux de données utilise STDOUT et STDIN pour transmettre des données entre Hive et les fonctions définies par l’utilisateur.
 
 HDInsight inclut également Jython, une implémentation de Python écrite en Java. Jython s’exécute directement sur la Machine virtuelle Java et n’utilise pas le streaming. Jython est l’interpréteur Python recommandé lorsque vous utilisez Python avec Pig.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * **Un cluster Hadoop sur HDInsight**. Consultez [Bien démarrer avec HDInsight sur Linux](apache-hadoop-linux-tutorial-get-started.md).
 * **Un client SSH**. Pour plus d’informations, consultez [Se connecter à HDInsight (Apache Hadoop) à l’aide de SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
@@ -52,7 +52,7 @@ Aucune action n’est nécessaire si le compte de stockage utilisé est de type 
 > * Utilisez `scp` pour charger les fichiers de l’interpréteur de commandes cloud vers HDInsight.
 > * Utilisez `ssh` à partir de l’interpréteur de commandes pour vous connecter à HDInsight et exécuter les exemples.
 
-## <a name="hivepython"></a>Fonction définie par l’utilisateur Apache Hive
+## <a name="apache-hive-udf"></a><a name="hivepython"></a>Fonction définie par l’utilisateur Apache Hive
 
 Python peut être utilisé en tant que fonction définie par l'utilisateur à partir de Hive via l'instruction `TRANSFORM` HiveQL. Par exemple, le HiveQL suivant appelle le fichier `hiveudf.py` stocké dans le compte de stockage Azure par défaut du cluster.
 
@@ -287,7 +287,7 @@ La sortie du travail **Hive** doit ressembler à l’exemple de sortie suivant :
     100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
     100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
 
-## <a name="pigpython"></a>Fonction définie par l’utilisateur Apache Pig
+## <a name="apache-pig-udf"></a><a name="pigpython"></a>Fonction définie par l’utilisateur Apache Pig
 
 Un script Python peut être utilisé comme une fonction définie par l'utilisateur à partir de Pig via l'instruction `GENERATE`. Vous pouvez exécuter le script à l’aide de Jython ou de C Python.
 
@@ -555,7 +555,7 @@ Le résultat du travail **Pig** doit être comparable aux données suivantes :
     ((2012-02-03,20:11:56,SampleClass3,[TRACE],verbose detail for id 1718828806))
     ((2012-02-03,20:11:56,SampleClass3,[INFO],everything normal for id 530537821))
 
-## <a name="troubleshooting"></a>Résolution des problèmes
+## <a name="troubleshooting"></a><a name="troubleshooting"></a>Résolution des problèmes
 
 ### <a name="errors-when-running-jobs"></a>Erreurs lors de l'exécution des travaux
 
@@ -582,7 +582,7 @@ Les informations sur l’erreur (STDERR) et le résultat du travail (STDOUT) son
 | Hive |/HivePython/stderr<p>/HivePython/stdout |
 | Pig |/PigPython/stderr<p>/PigPython/stdout |
 
-## <a name="next"></a>Étapes suivantes
+## <a name="next-steps"></a><a name="next"></a>Étapes suivantes
 
 Si vous devez charger des modules Python qui ne sont pas fournis par défaut, consultez l’article [How to deploy a Python module to Azure HDInsight](https://blogs.msdn.com/b/benjguin/archive/2014/03/03/how-to-deploy-a-python-module-to-windows-azure-hdinsight.aspx) (Déploiement d’un module Python vers Azure HDInsight).
 

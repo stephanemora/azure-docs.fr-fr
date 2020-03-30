@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/03/2019
-ms.openlocfilehash: bdd33d85ee0aac4808c343af088d4db1a0dc963e
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: eed839c277156046ff9b7d97c6e87636a0822889
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74767770"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79299326"
 ---
 # <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>Activer le réglage automatique pour surveiller les requêtes et améliorer les performances de la charge de travail
 
@@ -33,6 +33,13 @@ Le réglage automatique peut être activé au niveau du serveur ou de la base de
 ## <a name="enable-automatic-tuning-on-server"></a>Activer le réglage automatique sur le serveur
 
 Au niveau du serveur, vous pouvez choisir d’hériter de la configuration du réglage automatique à partir de « Valeurs Azure par défaut » ou de ne pas hériter de la configuration. Les valeurs Azure par défaut sont FORCE_LAST_GOOD_PLAN activé, CREATE_INDEX activé et DROP_INDEX désactivé.
+
+> [!IMPORTANT]
+> Depuis mars 2020, les modifications apportées aux paramètres par défaut Azure pour le réglage automatique prennent effet comme suit :
+>
+> - Les nouveaux paramètres par défaut Azure sont FORCE_LAST_GOOD_PLAN = enabled, CREATE_INDEX = disabled, and DROP_INDEX = disabled.
+> - Les serveurs existants sans préférences de réglage automatique configurées sont automatiquement configurés pour HÉRITER les nouveaux paramètres par défaut Azure. Cela s’applique à tous les clients qui ont actuellement des paramètres de serveur pour un réglage automatique dans un état non défini.
+> - Les nouveaux serveurs créés sont automatiquement configurés pour HÉRITER les nouveaux paramètres par défaut Azure (contrairement à auparavant, où la configuration de réglage automatique était dans un état non défini lors de la création d’un serveur).
 
 ### <a name="azure-portal"></a>Portail Azure
 

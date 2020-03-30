@@ -13,11 +13,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 7188cb5774699fc6e31fc3b8c78068bb33c6f552
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74929007"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79236289"
 ---
 # <a name="repeatable-copy-in-azure-data-factory"></a>Copie répétable dans Azure Data Factory
 
@@ -27,7 +27,7 @@ Lorsque vous copiez des données à partir de magasins de données relationnels,
 > [!NOTE]
 > Les exemples suivants concernent SQL Azure, mais sont applicables à tout autre magasin de données prenant en charge les jeux de données rectangulaires. Vous pouvez avoir besoin d’ajuster le **type** de source et la propriété de **requête** (par exemple : query au lieu de sqlReaderQuery) pour le magasin de données.   
 
-En général, vous souhaitez lire uniquement les données des magasins relationnels qui correspondent à cette tranche. Pour cela, vous pouvez utiliser les variables système WindowStart et WindowEnd disponibles dans Azure Data Factory. Pour en savoir plus sur les variables et les fonctions dans Azure Data Factory, lisez l’article intitulé [Azure Data Factory - Variables système et fonctions](data-factory-functions-variables.md). Exemple : 
+En général, vous souhaitez lire uniquement les données des magasins relationnels qui correspondent à cette tranche. Pour cela, vous pouvez utiliser les variables système WindowStart et WindowEnd disponibles dans Azure Data Factory. Pour en savoir plus sur les variables et les fonctions dans Azure Data Factory, lisez l’article intitulé [Azure Data Factory - Variables système et fonctions](data-factory-functions-variables.md). Exemple : 
 
 ```json
 "source": {

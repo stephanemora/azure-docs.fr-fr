@@ -16,15 +16,15 @@ ms.date: 03/18/2019
 ms.author: xpouyat
 ms.reviewer: anilmur;juliako
 ms.openlocfilehash: 27bdf82d4515678e28eadf07fe325860fe5df063
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69015452"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227013"
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>Utilisation de plusieurs fichiers d’entrée et propriétés du composant avec Premium Encoder
-## <a name="overview"></a>Vue d'ensemble
-Il existe des scénarios dans lesquels vous devrez peut-être personnaliser les propriétés du composant, spécifier le contenu du fichier XML de liste de séquences ou envoyer plusieurs fichiers d’entrée lorsque vous soumettez une tâche avec le processeur multimédia **Media Encoder Premium Workflow** . Voici quelques exemples :
+## <a name="overview"></a>Vue d’ensemble
+Il existe des scénarios dans lesquels vous devrez peut-être personnaliser les propriétés du composant, spécifier le contenu du fichier XML de liste de séquences ou envoyer plusieurs fichiers d’entrée lorsque vous soumettez une tâche avec le processeur multimédia **Media Encoder Premium Workflow** . Quelques exemples :
 
 * Superposition de texte sur la vidéo et définition de la valeur du texte (par exemple, la date actuelle) au moment de l’exécution pour chaque vidéo d’entrée.
 * Personnalisation du fichier XML de liste de séquences (pour spécifier un ou plusieurs fichiers source, avec ou sans découpage, etc.).
@@ -83,7 +83,7 @@ Supposons que vous ayez conçu un flux de travail qui superpose du texte sur vos
 
 **setRuntimeProperties** est utilisé pour remplacer une propriété dans les composants du flux de travail.
 
-Exemple :
+Exemple :
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -99,7 +99,7 @@ Exemple :
 ### <a name="property-with-an-xml-value"></a>Propriété avec une valeur XML
 Pour définir une propriété qui attend une valeur XML, encapsulez à l’aide de `<![CDATA[ and ]]>`.
 
-Exemple :
+Exemple :
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -269,13 +269,13 @@ Avec découpage précis de la trame supplémentaire :
   </transcodeRequest>
 ```
 
-## <a name="example-1--overlay-an-image-on-top-of-the-video"></a>Exemple 1 : Superposition d'une image sur la vidéo
+## <a name="example-1--overlay-an-image-on-top-of-the-video"></a>Exemple 1 : Superposition d’une image sur la vidéo
 
 ### <a name="presentation"></a>Présentation
 Prenons un exemple dans lequel vous voulez superposer une image de logo sur la vidéo d’entrée pendant l’encodage de la vidéo. Dans cet exemple, la vidéo d’entrée est nommée « Microsoft_HoloLens_Possibilities_816p24.mp4 » et le logo est nommé « logo.png ». Vous devez effectuer les étapes suivantes :
 
 * Créez une ressource de flux de travail avec le fichier de flux de travail (voir l’exemple suivant).
-* Créez un élément multimédia qui contient deux fichiers : MyInputVideo.mp4 en tant que fichier principal et MyLogo.png.
+* Créez un élément multimédia contenant deux fichiers : MyInputVideo.mp4 en tant que fichier principal et MyLogo.png.
 * Envoyez une tâche au processeur multimédia Media Encoder Premium Workflow avec les ressources d’entrée ci-dessus et spécifiez la chaîne de configuration suivante.
 
 Configuration :
@@ -352,7 +352,7 @@ Si vous souhaitez modifier la position du logo sur la vidéo (vous voulez par ex
 *Position de superposition*
 
 Pour encoder le flux vidéo en H.264, ajoutez les composants AVC Video Encoder et AAC encoder à l’aire du concepteur. Connectez les broches.
-Configurez le composant AAC encoder et sélectionnez Conversion du format audio/Présélection : 2.0 (G, D).
+Configurez le composant AAC encoder et sélectionnez Conversion du format audio/Présélection : 2.0 (G, D).
 
 ![Encodeurs audio et vidéo](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture15_encoders.png)
 
@@ -429,7 +429,7 @@ Une fois la tâche effectuée, le fichier MP4 dans l’élément de sortie affic
 
 Vous pouvez télécharger l’exemple de flux de travail sur [GitHub](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/).
 
-## <a name="example-2--multiple-audio-language-encoding"></a>Exemple 2 : Encodage de plusieurs langues audio
+## <a name="example-2--multiple-audio-language-encoding"></a>Exemple 2 : Encodage de plusieurs langues audio
 
 Vous trouverez un exemple de workflow d'encodage de plusieurs langues audio dans [GitHub](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/MultilanguageAudioEncoding).
 

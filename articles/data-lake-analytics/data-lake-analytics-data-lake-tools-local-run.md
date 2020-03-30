@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
 ms.openlocfilehash: 42e58125fcbc3ab411c0d7503c42c14c28178428
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "62113933"
 ---
 # <a name="run-u-sql-scripts-on-your-local-machine"></a>Exécuter des scripts U-SQL sur votre ordinateur local
@@ -109,4 +109,4 @@ En savoir plus sur le [SDK U-SQL Azure Data Lake](data-lake-analytics-u-sql-sdk.
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Comment configurer un pipeline CI/CD pour Azure Data Lake Analytics](data-lake-analytics-cicd-overview.md)
-- [Comment tester votre code Azure Data Lake Analytics](data-lake-analytics-cicd-test.md)
+- [Guide pratique pour tester votre code Azure Data Lake Analytics](data-lake-analytics-cicd-test.md)

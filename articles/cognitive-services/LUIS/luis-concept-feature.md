@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: diberry
 ms.openlocfilehash: b151043babd6c67a17f704bb671a415fcc3ba7b2
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280912"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79219167"
 ---
 # <a name="machine-learned-features"></a>Fonctionnalités issues de l’apprentissage automatique 
 
@@ -86,7 +86,7 @@ Une entité (A) doit être ajoutée en tant que caractéristique à une autre e
 
 Par exemple, si l’entité adresse postale (A) est détectée, trouver l’adresse postale (A) ajoute du poids à la prédiction pour l’entité adresse d’expédition (B). 
 
-## <a name="best-practices"></a>Bonnes pratiques
+## <a name="best-practices"></a>Meilleures pratiques
 Découvrir les [meilleures pratiques](luis-concept-best-practices.md).
 
 ## <a name="next-steps"></a>Étapes suivantes

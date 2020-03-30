@@ -4,16 +4,16 @@ description: En tant que gestionnaire de solutions, je souhaite exporter un mod√
 author: dominicbetts
 ms.author: dobett
 ms.date: 12/09/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: b5c8f7fd1c87ce279a8edd39aacb332b8aef28be
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: f50c7e8dcb33fd2ed95829286aaf815926d9fb3f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023444"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80157607"
 ---
 # <a name="export-your-application"></a>Exporter votre application
 

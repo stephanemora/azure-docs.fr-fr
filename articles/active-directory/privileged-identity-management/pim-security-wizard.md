@@ -15,11 +15,11 @@ ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 04bd0993873568ba7cce368ddd9277ed356b636c
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847051"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231805"
 ---
 # <a name="azure-ad-roles-security-wizard-in-privileged-identity-management"></a>Assistant de sécurité des rôles Azure AD dans Privileged Identity Management
 
@@ -35,9 +35,9 @@ La deuxième étape de l’Assistant vous donne la possibilité de modifier les 
 > Il est important de disposer d’au moins un Administrateur général et de plusieurs Administrateurs de rôle privilégié avec un compte d’organisation (et non un compte Microsoft). S’il n’existe qu’un seul Administrateur de rôle privilégié, l’organisation ne peut pas gérer Privileged Identity Management si ce compte est supprimé.
 > En outre, conservez les attributions de rôle permanentes si un utilisateur possède un compte Microsoft (en d’autres termes, un compte pour se connecter aux services Microsoft tels que Skype et Outlook.com). Si vous envisagez de demander une authentification multifacteur pour l’activation de ce rôle, cet utilisateur sera verrouillé.
 
-## <a name="run-the-wizard"></a>Exécuter l’Assistant
+## <a name="run-the-wizard"></a>Exécuter l'assistant
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 1. Ouvrez **Azure AD Privileged Identity Management**.
 

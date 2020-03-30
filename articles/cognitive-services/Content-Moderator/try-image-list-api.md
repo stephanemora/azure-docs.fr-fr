@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
 ms.openlocfilehash: 27d9b12d9e1a0237050243c2b5f07edaa8d8857a
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "72757191"
 ---
 # <a name="moderate-with-custom-image-lists-in-the-api-console"></a>Modérer avec des listes d’images personnalisées dans la console API
@@ -36,17 +36,17 @@ Vous utilisez l’API Gestion de liste pour effectuer les tâches suivantes :
 - Actualiser l’index afin que les changements apportés à la liste soient inclus dans une nouvelle analyse.
 
 ## <a name="use-the-api-console"></a>Utiliser la console d’API
-Avant de pouvoir tester l’API dans la console en ligne, vous avez besoin de votre clé d’abonnement. Elle se trouve sous l’onglet **Paramètres**, dans la zone **Ocp-Apim-Subscription-Key**. Pour plus d’informations, consultez [Présentation](overview.md).
+Avant de pouvoir tester l’API dans la console en ligne, vous avez besoin de votre clé d’abonnement. Elle se trouve sous l’onglet **Paramètres**, dans la zone **Ocp-Apim-Subscription-Key**. Pour plus d’informations, consultez la [vue d’ensemble ](overview.md) de Content Moderator.
 
 ## <a name="refresh-search-index"></a>Actualiser l’index de recherche
 
-Une fois les modifications effectuées à une liste d’images, vous devez actualiser son index pour inclure les modifications aux futures analyses. Cette étape est semblable à celui d’un moteur de recherche sur votre bureau (s’il est activé) ou d’un moteur de recherche web qui actualise en permanence son index pour inclure les nouveaux fichiers ou les nouvelles pages.
+Une fois les modifications effectuées à une liste d’images, vous devez actualiser son index pour inclure les modifications aux futures analyses. Cette étape est semblable au fonctionnement d’un moteur de recherche sur votre bureau (s’il est activé) ou d’un moteur de recherche web qui actualise en permanence son index pour inclure les nouveaux fichiers ou les nouvelles pages.
 
 1. Dans la [référence de l’API Gestion de liste d’images](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672), dans le menu gauche, sélectionnez **Listes d’images**, puis **Actualiser l’index de recherche**.
 
    La page **Listes d’images - Actualiser l’index de recherche** s’ouvre.
 
-2. Pour l’option **Ouvrir la console de test d’API**, sélectionnez la région qui décrit le mieux votre emplacement. 
+2. Pour l’option **Open API testing console** (Ouvrir la console de test d’API), sélectionnez la région qui décrit le mieux votre emplacement. 
  
     ![Sélection de la région sur la page Listes d’images - Actualiser l’index de recherche](images/test-drive-region.png)
 
@@ -63,7 +63,7 @@ Une fois les modifications effectuées à une liste d’images, vous devez actua
 
    La page **Listes d’images - Créer** s’ouvre. 
 
-3. Pour l’option **Ouvrir la console de test d’API**, sélectionnez la région qui décrit le mieux votre emplacement.
+3. Pour l’option **Open API testing console** (Ouvrir la console de test d’API), sélectionnez la région qui décrit le mieux votre emplacement.
 
    ![Sélection de la région sur la page Listes d’images - Créer](images/test-drive-region.png)
 
@@ -97,7 +97,7 @@ Une fois les modifications effectuées à une liste d’images, vous devez actua
 
    La page **Image - Ajouter image** s’ouvre. 
 
-9. Pour l’option **Ouvrir la console de test d’API**, sélectionnez la région qui décrit le mieux votre emplacement.
+9. Pour l’option **Open API testing console** (Ouvrir la console de test d’API), sélectionnez la région qui décrit le mieux votre emplacement.
 
    ![Sélection de la région sur la page Image - Ajouter image](images/test-drive-region.png)
 
@@ -129,7 +129,7 @@ Cet exemple supprime une seule image :
 
    La page **Image - Supprimer** s’ouvre.
 
-2. Pour l’option **Ouvrir la console de test d’API**, sélectionnez la région qui décrit le mieux votre emplacement. 
+2. Pour l’option **Open API testing console** (Ouvrir la console de test d’API), sélectionnez la région qui décrit le mieux votre emplacement. 
 
    ![Sélection d’une région sur la page Image - Supprimer](images/test-drive-region.png)
  
@@ -145,13 +145,13 @@ Dans notre exemple, l’ID de la liste est **58953**, la valeur de **ContentSour
  
 ## <a name="change-list-information"></a>Modifier les informations d’une liste
 
-Vous pouvez modifier le nom et la description d’une liste, et ajoutez des éléments de métadonnées.
+Vous pouvez modifier le nom et la description d’une liste, et ajouter des éléments de métadonnées.
 
 1. Dans la [référence de l’API Gestion de liste d’images](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672), dans le menu gauche, sélectionnez **Listes d’images**, puis **Mettre à jour les détails**. 
 
    La page **Listes d’images - Mettre à jour les détails** s’ouvre.
 
-2. Pour l’option **Ouvrir la console de test d’API**, sélectionnez la région qui décrit le mieux votre emplacement.  
+2. Pour l’option **Open API testing console** (Ouvrir la console de test d’API), sélectionnez la région qui décrit le mieux votre emplacement.  
 
     ![Sélection d’une région sur la page Listes d’images - Mettre à jour les détails](images/test-drive-region.png)
 

@@ -1,19 +1,15 @@
 ---
 title: Suivre les opérations personnalisées avec le SDK .NET d’Azure Application Insights
 description: Suivi des opérations personnalisées avec le kit SDK .NET d’Azure Application Insights
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 11/26/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: 7b92a386d691e15975f18de169d7924b82ec5c5f
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 31c1fb366e7b109ea1fa4977d8e2f908e766e0f2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951341"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79234737"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Suivi des opérations personnalisées avec le kit SDK .NET d’Application Insights
 
@@ -27,7 +23,7 @@ Ce document fournit des conseils sur la façon d’effectuer le suivi d’opéra
 - Application Insights pour applications web (exécute ASP.NET) version 2.4 et versions ultérieures.
 - Application Insights pour ASP.NET Core version 2.1 et versions ultérieures.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Une opération est un élément de travail logique exécuté par une application. Il a un nom, une heure de début, une durée, un résultat et un contexte d’exécution tel qu’un nom d’utilisateur, des propriétés et un résultat. Si l’opération A a été initiée par l’opération B, l’opération B est alors définie en tant que parent pour A. Une opération ne peut avoir qu’un seul parent, mais il peut avoir de nombreuses opérations enfants. Pour plus d’informations sur les opérations et la corrélation de télémétrie, consultez [Corrélation de télémétrie d’Application Azure Insights](correlation.md).
 
 Dans le kit SDK .NET d’Application Insights, l’opération est décrite par la classe abstraite [OperationTelemetry](https://github.com/microsoft/ApplicationInsights-dotnet/blob/7633ae849edc826a8547745b6bf9f3174715d4bd/BASE/src/Microsoft.ApplicationInsights/Extensibility/Implementation/OperationTelemetry.cs) et par ses descendants [RequestTelemetry](https://github.com/microsoft/ApplicationInsights-dotnet/blob/7633ae849edc826a8547745b6bf9f3174715d4bd/BASE/src/Microsoft.ApplicationInsights/DataContracts/RequestTelemetry.cs) et [DependencyTelemetry](https://github.com/microsoft/ApplicationInsights-dotnet/blob/7633ae849edc826a8547745b6bf9f3174715d4bd/BASE/src/Microsoft.ApplicationInsights/DataContracts/DependencyTelemetry.cs).
@@ -128,7 +124,7 @@ Bien qu’il existe une norme [W3C Trace Context](https://www.w3.org/TR/trace-co
 
 ### <a name="service-bus-queue"></a>File d’attente Service Bus
 Application Insights effectue le suivi des appels de la messagerie Service Bus avec le nouveau [client Microsoft Azure ServiceBus pour .NET](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus/) 3.0.0 et versions ultérieures.
-Si vous utilisez le [modèle de gestionnaire de messages](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler) pour traiter les messages, vous avez terminé : tous les appels Service Bus effectués par votre service sont automatiquement suivis et mis en corrélation avec d’autres éléments de télémétrie. Reportez-vous au [suivi du client Service Bus avec Microsoft Application Insights](../../service-bus-messaging/service-bus-end-to-end-tracing.md) si vous traitez des messages manuellement.
+Si vous utilisez le [modèle du gestionnaire de messages](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler) pour traiter les messages, votre travail est terminé : tous les appels Service Bus effectués par votre service sont automatiquement suivis et mis en corrélation avec d’autres éléments de télémétrie. Reportez-vous au [suivi du client Service Bus avec Microsoft Application Insights](../../service-bus-messaging/service-bus-end-to-end-tracing.md) si vous traitez des messages manuellement.
 
 Si vous utilisez le package [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/), examinez les exemples-suivants qui montrent comment effectuer le suivi (et la mise en corrélation) des appels à Service Bus, sachant que la file d’attente Service Bus utilise le protocole AMQP et qu’Application Insights n’effectue pas automatiquement le suivi des opérations de file d’attente.
 Les identificateurs de corrélation sont transmis aux propriétés du message.
@@ -429,7 +425,7 @@ public async Task RunMyTaskAsync()
 
 L’opération de suppression entraîne l’arrêt de l’opération. Vous pouvez donc l’utiliser au lieu d’appeler `StopOperation`.
 
-*Avertissement* : dans certains cas, une exception non prise en charge peut [empêcher](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-finally) l’appel de `finally`, et par conséquent le suivi des opérations.
+*Avertissement* : dans certains cas, une exception non prise en charge peut [empêcher](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-finally) l’appel de `finally` et, par conséquent, le suivi des opérations.
 
 ### <a name="parallel-operations-processing-and-tracking"></a>Suivi et traitement d’opérations parallèles
 

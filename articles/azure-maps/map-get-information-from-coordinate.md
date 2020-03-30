@@ -1,7 +1,7 @@
 ---
 title: Afficher des informations à partir d’une coordonnée sur une carte | Microsoft Azure Maps
 description: Découvrez comment afficher des informations sur une adresse sur la carte quand un utilisateur sélectionne une coordonnée.
-author: jingjing-z
+author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 07/29/2019
 ms.topic: conceptual
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 1a6b3b4665e6141fb4c95508a8d8405268de6d19
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 174bdc496e52a6ac8f2a2d631db92e0f21a819be
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77208520"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80371437"
 ---
 # <a name="get-information-from-a-coordinate"></a>Obtenir des informations à partir d’une coordonnée
 
@@ -55,6 +55,9 @@ Le troisième bloc de code ajoute un détecteur d’événements pour les clics 
 Les modifications du curseur, de l’objet popup et de l’événement de clic sont toutes créées dans le [détecteur d’événements de chargement](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) de la carte. Cette structure de code garantit le chargement complet de la carte avant de récupérer les informations de coordonnées.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
+> [!div class="nextstepaction"]
+> [Meilleures pratiques pour l'utilisation du service de recherche](how-to-use-best-practices-for-search.md)
 
 En savoir plus sur les classes et les méthodes utilisées dans cet article :
 

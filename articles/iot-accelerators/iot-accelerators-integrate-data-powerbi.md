@@ -9,17 +9,17 @@ services: iot-accelerators
 ms.date: 05/01/2018
 ms.topic: conceptual
 ms.openlocfilehash: 8b0f395936c8628ff7b8dab601168538f97ccdb7
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74184236"
 ---
 # <a name="visualize-remote-monitoring-data-using-power-bi"></a>Visualiser des données de surveillance à distance à l’aide de Power BI
 
 Ce tutoriel vous montre comment connecter vos données de solution de supervision à distance CosmosDB à Power BI. Une fois la connexion établie, vous pouvez créer vos propres tableaux de bord personnalisés et les ajouter à votre tableau de bord de solution de supervision à distance. Ce flux de travail permet la création de graphes plus spécialisés, en plus de ceux prêts à l’emploi. Vous pouvez ensuite utiliser ce tutoriel pour intégrer des données à d’autres flux de données ou pour créer des tableaux de bord personnalisés dont les données doivent être utilisées en dehors de votre solution de supervision à distance. La création de tableaux de bord dans Power BI vous permet également de faire interagir les panneaux lorsque vous sélectionnez des éléments. Par exemple, vous pourriez avoir un filtre qui affiche seulement les informations concernant vos camions simulés. Tous les éléments de votre tableau de bord interagiraient donc de manière à afficher uniquement les informations concernant les camions simulés. Si vous souhaitez utiliser un autre outil que Power BI, vous pouvez également étendre ces étapes pour utiliser l’outil de visualisation de votre choix et vous connecter à Cosmos DB ou à une base de données personnalisée si vous en avez une. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Vous devez disposer d’une solution de supervision à distance en cours d’exécution.
 - Vous devez avoir accès au [Portail Azure](https://portal.azure.com) et à l’abonnement dans lequel IoT Hub et la Solution sont exécutés
@@ -51,7 +51,7 @@ Ce tutoriel vous montre comment connecter vos données de solution de supervisio
   
 1. Ouvrez l’application de bureau Power BI, puis cliquez sur « Obtenir des données » dans l’angle supérieur gauche. 
 
-    ![Obtenir des données](./media/iot-accelerators-integrate-data-powerbi/get_data.png)
+    ![Get Data](./media/iot-accelerators-integrate-data-powerbi/get_data.png)
 
 2. Lorsque vous êtes invité à entrer des données, choisissez de rechercher dans « Azure Cosmos DB », puis sélectionnez ce connecteur. Ce connecteur extrait des données directement de la base de données Cosmos de votre solution Azure IoT.
   

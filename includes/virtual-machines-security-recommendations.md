@@ -9,10 +9,10 @@ ms.date: 11/13/2019
 ms.author: barclayn
 ms.custom: include file
 ms.openlocfilehash: d0ede337f2ae17f28cd02df7ed35919bd9955e7a
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74048561"
 ---
 Cet article contient des recommandations de sécurité pour les Machines virtuelles Azure. Suivez ces recommandations pour respecter plus facilement les obligations de sécurité décrites dans notre modèle de responsabilité partagée. Ces recommandations vous aideront également à améliorer la sécurité globale de vos solutions d’application web. Pour plus d’informations sur les mesures prises par Microsoft pour assumer ses responsabilités de fournisseur de services, consultez [Responsabilités partagées pour le cloud computing](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91).
@@ -21,7 +21,7 @@ Certaines recommandations de cet article peuvent être mises en œuvre automatiq
 
 Pour obtenir des informations générales sur Azure Security Center, consultez [Qu’est-ce qu’Azure Security Center ?](../articles/security-center/security-center-intro.md).
 
-## <a name="general"></a>Généralités
+## <a name="general"></a>Général
 
 | Recommandation | Commentaires | Security Center |
 |-|----|--|

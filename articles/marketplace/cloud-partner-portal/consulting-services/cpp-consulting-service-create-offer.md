@@ -1,19 +1,18 @@
 ---
 title: Créer une offre de conseil | Place de marché Azure
 description: Créez une offre de services de conseil Azure ou Dynamics 365 sur le Portail Cloud Partner pour la Place de marché Azure.
-services: Azure, Marketplace, Cloud Partner Portal,
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/30/2018
-ms.author: pabutler
-ms.openlocfilehash: 0cea0810300db1448540f58aa25b5f3197080d0e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: c2700339a7ac8342da0250227cff898c20e60118
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818154"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278550"
 ---
 # <a name="create-a-consulting-offer"></a>Créer une offre de conseil
 

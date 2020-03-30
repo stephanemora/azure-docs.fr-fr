@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/05/2020
 ms.openlocfilehash: 466c170985715be52a90d579c19ca23aefefe2e5
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77066000"
 ---
 # <a name="apache-ambari-usage-in-azure-hdinsight"></a>Utilisation d’Apache Ambari dans Azure HDInsight
@@ -32,7 +32,7 @@ Si les services du contrôleur de basculement ne sont pas en cours d’exécutio
 ps -ef | grep failover
 ```
 
-## <a name="logs"></a>Journaux
+## <a name="logs"></a>Journaux d’activité
 
 Sur le nœud principal actif, vous pouvez vérifier les journaux du serveur Ambari aux emplacements suivants :
 

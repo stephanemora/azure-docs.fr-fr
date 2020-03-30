@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: aahi
 ms.openlocfilehash: 5add9597924aa77ede875d0056e83eceb4f99598
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111443"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79218915"
 ---
 # <a name="search-for-videos-with-the-bing-video-search-api"></a>Rechercher des vidéos avec l’API Recherche de vidéos Bing
 
@@ -144,7 +144,7 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="expanding-the-query"></a>Développement de la requête
 
-Si Bing peut développer la requête pour affiner la recherche d’origine, l’objet [Videos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) contient le champ `queryExpansions`. Par exemple, si la requête est *Cleaning Gutters* (Nettoyage de gouttières), les requêtes développées peuvent être : Gutter Cleaning **Tools**, Cleaning Gutters **From the Ground**, Gutter Cleaning **Machine** et **Easy** Gutter Cleaning (outils pour le nettoyage de gouttières, nettoyage de gouttières à partir du sol, appareil pour le nettoyage de gouttières et nettoyage de gouttières facile).
+Si Bing peut développer la requête pour affiner la recherche d’origine, l’objet [Videos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) contient le champ `queryExpansions`. Par exemple, si la requête était le *nettoyage de gouttières*, les requêtes développées pourraient être : **outils** pour le nettoyage de gouttières, nettoyage de gouttières **à partir du sol**, **appareil** pour le nettoyage de gouttières et nettoyage de gouttières **facile**.
 
 L’exemple suivant montre les requêtes développées pour le *nettoyage de gouttières* (Cleaning Gutters).
 

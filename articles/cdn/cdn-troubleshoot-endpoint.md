@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: c332c6712cdf057491e3039854aa1a29bd54196f
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74083128"
 ---
 # <a name="troubleshooting-azure-cdn-endpoints-that-return-a-404-status-code"></a>Dépannage des points de terminaison de CDN Azure renvoyant un code d’état 404
@@ -51,7 +51,7 @@ Il existe plusieurs causes possibles, y compris :
 ### <a name="check-the-origin-file"></a>Vérifier le fichier d’origine
 Tout d’abord, vérifiez que le fichier à mettre en cache est disponible sur le serveur d’origine et qu’il est accessible publiquement sur Internet. Pour cela, le moyen le plus rapide consiste à ouvrir une session de navigateur en mode privé ou incognito, et d’accéder directement au fichier. Entrez ou collez l’URL dans la zone d’adresse, puis vérifiez que vous accédez bien au fichier attendu. Supposons que vous disposiez d’un fichier dans un compte de stockage Azure, accessible à l’adresse https:\//cdndocdemo.blob.core.windows.net/publicblob/lorem.txt. Si vous pouvez charger le contenu de ce fichier, le test est réussi.
 
-![Vous avez réussi !](./media/cdn-troubleshoot-endpoint/cdn-origin-file.png)
+![Opération réussie.](./media/cdn-troubleshoot-endpoint/cdn-origin-file.png)
 
 > [!WARNING]
 > Même s’il s’agit du moyen le plus rapide et le plus simple de vérifier que votre fichier est disponible publiquement, certaines configurations réseau de votre organisation peuvent donner l’impression qu’un fichier est accessible publiquement, alors qu’il n’est visible que pour les utilisateurs de votre réseau (même s’il est hébergé dans Azure). Pour vérifier que ce n’est pas le cas, testez le fichier avec un navigateur externe, par exemple avec un appareil mobile qui n’est pas connecté au réseau de votre organisation ou une machine virtuelle dans Azure.

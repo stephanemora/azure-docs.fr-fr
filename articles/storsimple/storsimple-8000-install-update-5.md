@@ -15,15 +15,15 @@ ms.workload: TBD
 ms.date: 11/13/2017
 ms.author: alkohli
 ms.openlocfilehash: d86e77ef0148c0fac3dfa31153364de153b094ef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62126747"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79232209"
 ---
 # <a name="install-update-5-on-your-storsimple-device"></a>Installer Update 5 sur votre appareil StorSimple
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Ce didacticiel explique comment installer Update 5 sur un appareil StorSimple exécutant une version logicielle antérieure par le biais du portail Azure et à l’aide de la méthode du correctif logiciel. La méthode du correctif logiciel est utilisée quand vous essayez d’installer Update 5 sur un appareil exécutant des versions antérieures à Update 3. La méthode du correctif logiciel est également utilisée quand une passerelle est configurée sur une interface réseau différente de DATA 0 de l’appareil StorSimple et que la mise à jour porte sur une version logicielle antérieure à Update 1.
 
@@ -76,19 +76,19 @@ La méthode du correctif logiciel implique les trois étapes suivantes :
 
 Vous devez télécharger et installer les correctifs logiciels suivants dans l’ordre indiqué et les dossiers suggérés :
 
-| Ordre | Ko | Description | Type de mise à jour | Durée d’installation |Installer dans le dossier|
+| JSON | Ko | Description | Type de mise à jour | Durée d’installation |Installer dans le dossier|
 | --- | --- | --- | --- | --- | --- |
 | 1. |KB4037264 |Mise à jour logicielle<br> Télécharger les deux fichiers _HcsSoftwareUpdate.exe_ et _CisMSDAgent.exe_ |Normal <br></br>sans interruption de service |~ 25 minutes |FirstOrderUpdate|
 
 Si la mise à jour s’effectue à partir d’un appareil exécutant Update 4, vous devez installer les mises à jour cumulatives du système d’exploitation uniquement en tant que mises à jour de deuxième priorité.
 
-| Ordre | Ko | Description | Type de mise à jour | Durée d’installation |Installer dans le dossier|
+| JSON | Ko | Description | Type de mise à jour | Durée d’installation |Installer dans le dossier|
 | --- | --- | --- | --- | --- | --- |
 | 2A. |KB4025336 |Package de mises à jour cumulatives de système d’exploitation <br> Télécharger la version Windows Server 2012 R2 |Normal <br></br>sans interruption de service |- |SecondOrderUpdate|
 
 Si l’installation s’effectue depuis un appareil exécutant Update 3 ou une version antérieure, installez les éléments suivants en plus des mises à jour cumulatives.
 
-| Ordre | Ko | Description | Type de mise à jour | Durée d’installation |Installer dans le dossier|
+| JSON | Ko | Description | Type de mise à jour | Durée d’installation |Installer dans le dossier|
 | --- | --- | --- | --- | --- | --- |
 | 2B. |KB4011841 <br> KB4011842 |Mises à jour du pilote et du microprogramme LSI <br> Mise à jour du microprogramme USM (version 3.38) |Normal <br></br>sans interruption de service |~ 3 heures <br> (inclut 2A. + 2B. + 2C.)|SecondOrderUpdate|
 | 2C. |KB3139398 <br> KB3142030 <br> KB3108381 <br> KB3153704 <br> KB3174644 <br> KB3139914   |Package de mises à jour de sécurité du système d’exploitation <br> Télécharger la version Windows Server 2012 R2 |Normal <br></br>sans interruption de service |- |SecondOrderUpdate|
@@ -97,7 +97,7 @@ Si l’installation s’effectue depuis un appareil exécutant Update 3 ou une 
 
 En outre, vous devez peut-être installer les mises à jour du microprogramme de disque en plus de toutes les mises à jour indiquées dans les tableaux précédents. Pour vérifier si vous avez besoin des mises à jour du microprogramme de disque, vous pouvez exécuter l’applet de commande `Get-HcsFirmwareVersion` . Si vous utilisez la version `XMGJ`, `XGEG`, `KZ50`, `F6C2`, `VR08`, `N003`, `0107` du microprogramme, vous n’avez pas besoin d’installer ces mises à jour.
 
-| Ordre | Ko | Description | Type de mise à jour | Durée d’installation | Installer dans le dossier|
+| JSON | Ko | Description | Type de mise à jour | Durée d’installation | Installer dans le dossier|
 | --- | --- | --- | --- | --- | --- |
 | 3. |KB4037263 |Microprogramme de disque |Maintenance <br></br>Interruption de service |~ 30 minutes | ThirdOrderUpdate |
 

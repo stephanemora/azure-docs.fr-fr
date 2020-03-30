@@ -10,10 +10,10 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 159aaa8424c3d7a711b587464b80696929f02186
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72792380"
 ---
 # <a name="upgrade-to-azure-search-net-sdk-version-11"></a>Effectuer une mise à niveau vers la version 1.1 du SDK .NET Recherche Azure
@@ -55,7 +55,7 @@ La liste qui suit est classée selon la probabilité que la modification affecte
 
 `IndexAction` ne contient plus de constructeurs publics et ses propriétés sont immuables. Vous devez utiliser les nouvelles méthodes statiques pour la création d’actions à des fins différentes : `Delete`, `Merge`, `MergeOrUpload` et `Upload`. `IndexAction.Create` a été supprimé. Si vous avez utilisé la surcharge qui accepte uniquement un document, veillez à utiliser `Upload` à la place.
 
-#### <a name="example"></a>Exemples
+#### <a name="example"></a>Exemple
 Si votre code ressemble à ce qui suit :
 
     var batch = IndexBatch.Create(documents.Select(doc => IndexAction.Create(doc)));
@@ -74,7 +74,7 @@ Si vous le souhaitez, vous pouvez encore le simplifier en le ramenant à ce qui 
 ### <a name="indexbatchexception-changes"></a>Modifications IndexBatchException
 La propriété `IndexBatchException.IndexResponse` a été renommée `IndexingResults`, et son type est désormais `IList<IndexingResult>`.
 
-#### <a name="example"></a>Exemples
+#### <a name="example"></a>Exemple
 Si votre code ressemble à ce qui suit :
 
     catch (IndexBatchException e)
@@ -100,14 +100,14 @@ Chaque opération du kit de développement logiciel .NET Azure Search est expos�
 
 Par exemple, l’opération « Obtenir des statistiques d’Index » dans les versions antérieures du kit de développement expose ces signatures :
 
-Dans `IIndexOperations`:
+Dans `IIndexOperations` :
 
     // Asynchronous operation with all parameters
     Task<IndexGetStatisticsResponse> GetStatisticsAsync(
         string indexName,
         CancellationToken cancellationToken);
 
-Dans `IndexOperationsExtensions`:
+Dans `IndexOperationsExtensions` :
 
     // Asynchronous operation with only required parameters
     public static Task<IndexGetStatisticsResponse> GetStatisticsAsync(
@@ -121,7 +121,7 @@ Dans `IndexOperationsExtensions`:
 
 Les signatures de méthode pour la même opération en version 1.1 ressemblent à ce qui suit :
 
-Dans `IIndexesOperations`:
+Dans `IIndexesOperations` :
 
     // Asynchronous operation with lower-level HTTP features exposed
     Task<AzureOperationResponse<IndexGetStatisticsResult>> GetStatisticsWithHttpMessagesAsync(
@@ -130,7 +130,7 @@ Dans `IIndexesOperations`:
         Dictionary<string, List<string>> customHeaders = null,
         CancellationToken cancellationToken = default(CancellationToken));
 
-Dans `IndexesOperationsExtensions`:
+Dans `IndexesOperationsExtensions` :
 
     // Simplified asynchronous operation
     public static Task<IndexGetStatisticsResult> GetStatisticsAsync(
@@ -154,7 +154,7 @@ Dans `IndexesOperationsExtensions`:
 ### <a name="scoringparameters-changes"></a>Modifications ScoringParameters
 Une nouvelle classe nommée `ScoringParameter` a été ajoutée à la dernière version du Kit de développement logiciel (SDK) pour faciliter la fourniture de paramètres de profils de score dans une requête de recherche. Précédemment, la propriété `ScoringProfiles` de la classe `SearchParameters` était de type `IList<string>`. À présent, elle est de type `IList<ScoringParameter>`.
 
-#### <a name="example"></a>Exemples
+#### <a name="example"></a>Exemple
 Si votre code ressemble à ce qui suit :
 
     var sp = new SearchParameters();
@@ -184,7 +184,7 @@ En raison des modifications de signature décrites dans [Modifications des méth
 
 Pour résumer, les classes dérivées de `OperationResponse`qui servaient uniquement à encapsuler un objet de modèle ont été supprimées. Les classes restantes ont vu leur suffixe passer de `Response` à `Result`.
 
-#### <a name="example"></a>Exemples
+#### <a name="example"></a>Exemple
 Si votre code ressemble à ce qui suit :
 
     IndexerGetStatusResponse statusResponse = null;
@@ -299,7 +299,7 @@ Dans les versions antérieures du Kit de développement logiciel (SDK), vous pou
 > 
 > 
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 Si vous avez un code qui ressemble à ce qui suit :
 
     client.SetClientRequestId(Guid.NewGuid());
@@ -344,7 +344,7 @@ Nous avons résolu ce problème dans la version 1.1 du Kit de développement lo
 
 et si vous définissez `IntValue` sur 0, cette valeur est correctement sérialisée en tant que 0 sur le câble et stockée en tant que 0 dans l’index. Le retour fonctionne également comme prévu.
 
-Cette approche risque d’engendrer un problème : si vous utilisez un type de modèle avec une propriété ne pouvant être définie sur null, vous devez **garantir** qu’aucun document de cet index ne contient de valeur null pour le champ correspondant. Ni le kit de développement logiciel ni l’API REST Azure Search ne vous aideront à appliquer cette recommandation.
+Cette approche présente un problème à ne pas ignorer : si vous utilisez un type de modèle avec une propriété ne pouvant être définie sur null, vous devez **garantir** qu’aucun document dans votre index ne contient de valeur null pour le champ correspondant. Ni le kit de développement logiciel ni l’API REST Azure Search ne vous aideront à appliquer cette recommandation.
 
 Il ne s’agit pas d’une préoccupation hypothétique : imaginez un scénario dans lequel vous ajoutez un nouveau champ à un index existant qui est de type `Edm.Int32`. Après la mise à jour de la définition d’index, ce nouveau champ prendra la valeur null pour tous les documents (car tous les types peuvent avoir la valeur null dans Azure Search). Si vous utilisez ensuite une classe de modèle avec une propriété `int` ne pouvant être définie sur null pour ce champ, vous obtiendrez l’exception `JsonSerializationException` ci-dessous lorsque vous tenterez de récupérer des documents :
 

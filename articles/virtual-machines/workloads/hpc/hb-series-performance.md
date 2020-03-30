@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
-ms.openlocfilehash: 820aa1d04437a80f72e95fab71f5c8503c59822c
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: e064db5f67e6f8a7e82093bdae9fac7eaa4b6a55
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707744"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79534199"
 ---
 # <a name="hb-series-virtual-machine-sizes"></a>Tailles des machines virtuelles de la série HB
 
@@ -34,10 +34,10 @@ Différents tests de performances ont été effectués sur les machines de séri
 
 
 
-## <a name="infiniband-send-latency"></a>Latence des envois InfiniBand
+## <a name="infiniband-send-latency"></a>Latence d’envoi InfiniBand
 Mellanox Perftest.
 
-```azure-cli
+```console
 numactl --physcpubind=[INSERT CORE #]  ib_send_lat -a
 ```
 
@@ -58,7 +58,7 @@ numactl --physcpubind=[INSERT CORE #]  ib_send_lat -a
 | 4096            | 1 000            | 3,91            | 7,7             | 3,96            | 3,98            | 0,21            |
 
 
-## <a name="osu-mpi-latency-test"></a>OSU MPI Latency Test
+## <a name="osu-mpi-latency-test"></a>Test de latence OSU MPI
 
 OSU MPI Latency Test v5.4.3.
 
@@ -69,15 +69,15 @@ OSU MPI Latency Test v5.4.3.
 
 | #bytes  | Latence [microseconde] (MPICH 3.3 + CH4) | Latence [microseconde] (OpenMPI 4.0.0) | Latence [microseconde] (MVAPICH2 2.3) | Latence [microseconde] (Intel MPI 2019) |
 |------|----------|----------|----------|----------|
-| 2    | 2.44     | 2.52     | 2,84     | 2.76     |
-| 4    | 2.44     | 2.53     | 2,84     | 2.76     |
-| 8    | 2.44     | 2.53     | 2,83     | 2.76     |
+| 2    | 2.44     | 2.52     | 2.84     | 2.76     |
+| 4    | 2.44     | 2.53     | 2.84     | 2.76     |
+| 8    | 2.44     | 2.53     | 2.83     | 2.76     |
 | 16   | 2.45     | 2.53     | 2.87     | 2.77     |
 | 32   | 2.62     | 2.69     | 2,89     | 2.78     |
-| 64   | 2.72     | 2.79     | 2,93     | 2,85     |
+| 64   | 2.72     | 2.79     | 2,93     | 2.85     |
 | 128  | 2.76     | 2,88     | 3,06     | 2,91     |
 | 256  | 3,53     | 3.65     | 3,73     | 3.57     |
-| 512  | 3.68     | 3,78     | 3,81     | 3,70     |
+| 512  | 3.68     | 3,78     | 3,81     | 3.70     |
 | 1 024 | 3,86     | 3,97     | 3,95     | 3,93     |
 | 2 048 | 4,12     | 4.5      | 4.24     | 4,22     |
 | 4096 | 4,79     | 5.28     | 6,33     | 4,91     |
@@ -106,7 +106,7 @@ OSU MPI Bandwidth Test v5.4.3.
 | 2 048             | 2743,98          | 21,95            |
 | 4096             | 4 194,69          | 33,56            |
 | 8 192             | 5657,67          | 45,26            |
-| 16 384            | 7 618,96          | 60,95            |
+| 16384            | 7 618,96          | 60,95            |
 | 32 768            | 10 333,76         | 82,67            |
 | 65536            | 11 171,06         | 89,37            |
 | 131 072           | 11 539,64         | 92,32            |

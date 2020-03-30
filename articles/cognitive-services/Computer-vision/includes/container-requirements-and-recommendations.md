@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 09/20/2019
 ms.author: dapine
 ms.openlocfilehash: 2fa97a3a18741f506e10e5e4d61da286db3f744c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73481776"
 ---
 > [!NOTE]
@@ -20,7 +20,7 @@ ms.locfileid: "73481776"
 
 Le tableau suivant indique l’allocation de ressources minimale et recommandée pour chaque conteneur Lire.
 
-| Conteneur | Minimale | Recommandé |TPS<br>(Minimum, maximum)|
+| Conteneur | Minimum | Recommandé |TPS<br>(Minimum, maximum)|
 |-----------|---------|-------------|--|
 | Lire | 1 cœur, 8 Go de mémoire, 0,24 TPS | 8 cœurs, 16 Go de mémoire, 1,17 TPS | 0,24 ; 1,17 |
 

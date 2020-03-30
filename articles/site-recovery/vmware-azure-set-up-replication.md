@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: sutalasi
 ms.openlocfilehash: 45921bdf802a649b7b802f44d2842a543e44f02b
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954320"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228897"
 ---
 # <a name="configure-and-manage-replication-policies-for-vmware-disaster-recovery"></a>Configurer et gérer des stratégies de réplication pour la reprise d’activité après sinistre de VMware
 
 Cet article explique comment configurer une stratégie de réplication pour la réplication d’une machine virtuelle VMware sur Azure avec [Azure Site Recovery](site-recovery-overview.md).
 
-## <a name="create-a-policy"></a>Création d’une stratégie
+## <a name="create-a-policy"></a>Créer une stratégie
 
 1. Sélectionnez **Gérer** > **Infrastructure Site Recovery**.
 2. Sélectionnez **Stratégies de réplication** dans **Pour les machines VMware et physiques**.

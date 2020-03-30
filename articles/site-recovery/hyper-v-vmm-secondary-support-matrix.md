@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: raynew
 ms.openlocfilehash: 1126a85ed22ee17879767a93ca75dc76dd04b747
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74132963"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Matrice de prise en charge pour la récupération d’urgence de machines virtuelles Hyper-V vers un site secondaire
@@ -53,15 +53,15 @@ Seules les machines Linux avec le stockage suivant peuvent être répliquées :
 
 **Configuration** | **Pris en charge**  
 --- | --- 
-Hôte - Association de cartes réseau | OUI 
-Hôte -VLAN | OUI 
-Hôte - IPv4 | OUI 
+Hôte - Association de cartes réseau | Oui 
+Hôte -VLAN | Oui 
+Hôte - IPv4 | Oui 
 Hôte - IPv6 | Non 
 Machine virtuelle invitée - Association de cartes réseau | Non
-Machine virtuelle invitée - IPv4 | OUI
+Machine virtuelle invitée - IPv4 | Oui
 Machine virtuelle invitée - IPv6 | Non
-Machine virtuelle invitée - Windows/Linux - Adresse IP statique | OUI
-Machine virtuelle invitée - Plusieurs cartes réseau | OUI
+Machine virtuelle invitée - Windows/Linux - Adresse IP statique | Oui
+Machine virtuelle invitée - Plusieurs cartes réseau | Oui
 
 
 ## <a name="storage"></a>Stockage
@@ -71,9 +71,9 @@ Machine virtuelle invitée - Plusieurs cartes réseau | OUI
 **Stockage (hôte)** | **Pris en charge**
 --- | --- 
 NFS | N/A
-SMB 3.0 |  OUI
-SAN (ISCSI) | OUI
-Chemins d’accès multiples (MPIO) | OUI
+SMB 3.0 |  Oui
+SAN (ISCSI) | Oui
+Chemins d’accès multiples (MPIO) | Oui
 
 ### <a name="guest-or-physical-server-storage"></a>Stockage sur serveur physique ou invité
 
@@ -81,19 +81,19 @@ Chemins d’accès multiples (MPIO) | OUI
 --- | --- | 
 VMDK |  N/A
 VHD/VHDX | Oui (jusqu’à 16 disques)
-Machine virtuelle de 2e génération | OUI
+Machine virtuelle de 2e génération | Oui
 Disque de cluster partagé | Non
 Disque chiffré | Non
 UEFI| N/A
 NFS | Non
 SMB 3.0 | Non
 RDM | N/A
-Disque > 1 To | OUI
-Volume avec disque à bandes > 1 To<br/><br/> LVM | OUI
-Espaces de stockage | OUI
+Disque > 1 To | Oui
+Volume avec disque à bandes > 1 To<br/><br/> LVM | Oui
+Espaces de stockage | Oui
 Ajout/suppression de disque à chaud | Non
-Exclure le disque | OUI
-Chemins d’accès multiples (MPIO) | OUI
+Exclure le disque | Oui
+Chemins d’accès multiples (MPIO) | Oui
 
 ## <a name="vaults"></a>Coffres
 

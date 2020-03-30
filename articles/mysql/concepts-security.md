@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: fb0a71a650a8c36d4da962adaf3f1f314c30d4c2
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 3/18/2020
+ms.openlocfilehash: aac2641913331095550c0e19cc587257a996fcce
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980001"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79537021"
 ---
 # <a name="security-in-azure-database-for-mysql"></a>Security dans Azure Database pour MySQL
 

@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 10/23/2019
 ms.author: dapine
 ms.openlocfilehash: a765ac27936da9da5a2f41464c17491e3561f44b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73465939"
 ---
 ## <a name="create-a-luis-resource"></a>Créer une ressource LUIS
@@ -23,7 +23,7 @@ ms.locfileid: "73465939"
 
     |Paramètre|Valeur|
     |--|--|
-    |Nom|Nom de votre choix (2-64 caractères)|
+    |Name|Nom de votre choix (2-64 caractères)|
     |Subscription|Sélectionner l’abonnement approprié|
     |Location|Sélectionnez n’importe quel emplacement disponible et proche|
     |Niveau de tarification|`F0` - le niveau tarifaire minimal|

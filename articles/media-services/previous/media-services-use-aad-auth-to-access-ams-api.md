@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 8b38b38789edfd5a0a30fdd589849bfa345eaac9
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77157854"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Accéder à l’API Azure Media Services avec l’authentification Azure AD  
@@ -141,9 +141,9 @@ Si vous n’utilisez pas le Kit de développement logiciel (SDK) client Media Se
 
 ## <a name="troubleshooting"></a>Dépannage
 
-Exception : « Le serveur distant a retourné une erreur : (401) Non autorisé. »
+Exception : « Le serveur distant a retourné une erreur : 401 - Non autorisé ».
 
-Solution : Pour que la requête Media Services REST réussisse, l’utilisateur appelant doit avoir un rôle Contributeur ou Propriétaire pour le compte Media Services auquel il tente d’accéder. Pour plus d’informations, consultez la section [Contrôle d’accès](media-services-use-aad-auth-to-access-ams-api.md#access-control).
+Solution : pour que la requête Azure Media REST réussisse, l’utilisateur appelant doit avoir un rôle Collaborateur ou Propriétaire pour le compte Media Services auquel il tente d’accéder. Pour plus d’informations, consultez la section [Contrôle d’accès](media-services-use-aad-auth-to-access-ams-api.md#access-control).
 
 ## <a name="resources"></a>Ressources
 

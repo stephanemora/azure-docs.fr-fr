@@ -7,17 +7,17 @@ ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 2027629e1e9e297c97cbf40485ebe7dc2e3e6c0d
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368930"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79235237"
 ---
 # <a name="azure-event-grid-trigger-for-azure-functions"></a>Déclencheur Azure Event Grid pour Azure Functions
 
 Utilisez le déclencheur de fonction pour répondre à un événement envoyé à une rubrique Event Grid.
 
-Pour plus d'informations sur les détails d'installation et de configuration, consultez la [vue d'ensemble](./functions-bindings-event-grid.md).
+Pour plus d’informations sur les détails d’installation et de configuration, consultez la [vue d’ensemble](./functions-bindings-event-grid.md).
 
 ## <a name="example"></a>Exemple
 
@@ -345,11 +345,11 @@ Dans Azure Functions 2.x et ultérieur, vous pouvez également utiliser le type 
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-L’instance Event Grid est disponible via le paramètre configuré dans la propriété `name` du fichier *function.json*.
+L’instance Event Grid est disponible via le paramètre configuré dans la propriété *du fichier*function.json`name`.
 
 # <a name="python"></a>[Python](#tab/python)
 
-L’instance Event Grid est disponible via le paramètre configuré dans la propriété `name` du fichier *function.json*, typée en `func.EventGridEvent`.
+L’instance Event Grid est disponible via le paramètre configuré dans la propriété *du fichier*function.json`name`, typée en `func.EventGridEvent`.
 
 # <a name="java"></a>[Java](#tab/java)
 

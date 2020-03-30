@@ -4,10 +4,10 @@ description: Découvrez les fonctionnalités et les limites des niveaux de servi
 ms.topic: article
 ms.date: 11/05/2019
 ms.openlocfilehash: 1ebe5339b7523a4463dee45b126244d7ec5b2e4b
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74456273"
 ---
 # <a name="azure-container-registry-skus"></a>Références (SKU) Azure Container Registry
@@ -32,7 +32,7 @@ Le tableau suivant décrit en détail les fonctionnalités et les limites des ni
 
 Vous pouvez changer la référence SKU d’un registre via l’interface de ligne de commande Azure ou dans le portail Azure. Vous pouvez changer librement de références SKU, tant que la nouvelle possède la capacité de stockage maximale requise. 
 
-### <a name="azure-cli"></a>D’Azure CLI
+### <a name="azure-cli"></a>Azure CLI
 
 Pour changer de références SKU dans Azure CLI, utilisez la commande [az acr update][az-acr-update]. Par exemple, pour basculer vers Premium :
 

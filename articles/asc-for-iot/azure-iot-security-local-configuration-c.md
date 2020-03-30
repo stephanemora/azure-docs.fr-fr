@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/26/2019
 ms.author: mlottner
 ms.openlocfilehash: 2725a824da26dafcbc215e4c302ec38ad4b5a699
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68600308"
 ---
 # <a name="understanding-the-localconfigurationjson-file---c-agent"></a>Fonctionnement du fichier LocalConfiguration.json - Agent C
@@ -46,7 +46,7 @@ Les modifications apportées au fichier de configuration ont lieu au redémarrag
 | HostName | string | Nom d'hôte u hub IoT Azure. en général, <mon-hub>.azure-devices.net |
 | deviceId | string | ID de l’appareil (comme inscrit dans Azure IoT Hub) |
 | DPS | JsonObject | Configurations relatives à DPS |
-| IDScope | string | Étendue de l’ID du DPS |
+| IDScope | string | Étendue de l’ID de DPS. |
 | ID d’inscription | string  | ID de l'inscription de l'appareil DPS |
 | Journalisation | JsonObject | Configurations liées à l’enregistreur de l’agent |
 | SystemLoggerMinimumSeverity | 0 <= nombre <= 4 | les messages de journal égaux ou supérieurs à cette gravité seront enregistrés dans/var/log/syslog (0 est la gravité la plus faible) |

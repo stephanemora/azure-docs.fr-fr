@@ -10,10 +10,10 @@ ms.date: 11/01/2018
 ms.author: genli
 ms.custom: seodec18
 ms.openlocfilehash: 25f43051f11d42c4f8565039d3168f2ae162eb37
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74671684"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Forum aux questions sur le déploiement de Web Apps dans Azure
@@ -33,7 +33,7 @@ Pour plus d’informations, voir [Déploiement de votre application dans Azure A
 
 ## <a name="i-see-an-error-message-when-i-try-to-deploy-from-visual-studio-how-do-i-resolve-this-error"></a>Un message d’erreur s’affiche quand je tente de déployer à partir de Visual Studio. Comment faire pour résoudre cette erreur ?
 
-Si vous voyez le message suivant, vous utilisez peut-être une version antérieure du SDK : « Erreur lors du déploiement pour la ressource ’Nomdevotreressource’ dans le groupe de ressources ’Nomdevotregroupederessources’ : MissingRegistrationForLocation: The subscription is not registered for the resource type ’components’ in the location ’Central US’ (Erreur lors du déploiement pour la ressource ’Nomdevotreressource’ dans le groupe de ressources ’Nomdevotregroupederessources’ : MissingRegistrationForLocation : l’abonnement n’est pas enregistré pour le type de ressource ’composants’ à l’emplacement ’USA Centre’). Renouvelez l’inscription pour ce fournisseur afin d’avoir accès à cet emplacement. » 
+Un message peut indiquer que vous utilisez une ancienne version du Kit de développement logiciel (SDK).  Ce message est le suivant : « Erreur lors du déploiement pour la ressource ’NomDeVotreRessource’ du groupe de ressources ’NomDeVotreGroupeDeRessources’ : InscriptionManquantePourEmplacement : L’abonnement n’est pas inscrit pour le type de ressource « composants » à l’emplacement « USA Centre ». Renouvelez l’inscription pour ce fournisseur afin d’avoir accès à cet emplacement. » 
 
 Pour résoudre cette erreur, mettez à niveau vers la [dernière version du Kit de développement logiciel (SDK)](https://azure.microsoft.com/downloads/). Si vous voyez ce message et disposez de la dernière version du Kit de développement logiciel (SDK), envoyez une demande de support.
 
@@ -68,8 +68,8 @@ Pour résoudre les problèmes de FTP :
 
 1. Vérifiez que vous avez entré le nom d’hôte et les informations d’identification corrects. Pour plus d’informations sur les différents types d’informations d’identification et leur utilisation, voir [Informations d’identification pour le déploiement](https://github.com/projectkudu/kudu/wiki/Deployment-credentials).
 2. Vérifiez que les ports ne sont pas bloqués par un pare-feu. Les ports doivent être paramétrés comme suit :
-    * Port de connexion de contrôle FTP : 21
-    * Port de connexion de données FTP : 989, 10001-10300
+    * Port de connexion de contrôle FTP : 21
+    * Port de connexion de contrôle FTP : 989, 10001-10300
 
 ## <a name="how-do-i-publish-my-code-to-app-service"></a>Comment publier mon code sur App Service ?
 

@@ -4,15 +4,15 @@ description: Apprenez à coder et à tester des fonctions Azure sur votre ordina
 ms.topic: conceptual
 ms.date: 09/04/2018
 ms.openlocfilehash: 835edcb94b294d93cab41ea51b88ac38db71d95e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74230645"
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Coder et tester Azure Functions localement
 
-Bien qu’il soit possible de développer et tester Azure Functions dans le [portail Azure], de nombreux développeurs préfèrent une expérience de développement local. Functions facilite l’utilisation de votre éditeur de code et de vos outils de développement préférés pour développer et tester des fonctions sur votre ordinateur local. Vos fonctions locales peuvent être connectées aux services Azure actifs, et vous pouvez les déboguer sur votre ordinateur local à l’aide du runtime Functions complet.
+Bien qu’il soit possible de développer et tester Azure Functions dans le [Azure portal], de nombreux développeurs préfèrent une expérience de développement local. Functions facilite l’utilisation de votre éditeur de code et de vos outils de développement préférés pour développer et tester des fonctions sur votre ordinateur local. Vos fonctions locales peuvent être connectées aux services Azure actifs, et vous pouvez les déboguer sur votre ordinateur local à l’aide du runtime Functions complet.
 
 ## <a name="local-development-environments"></a>Environnements de développement local
 
@@ -38,5 +38,5 @@ Chacun de ces environnements de développement local vous permet de créer des p
 <!-- LINKS -->
 
 [Azure Functions Core Tools]: https://www.npmjs.com/package/azure-functions-core-tools
-[Portail Azure]: https://portal.azure.com 
+[Azure portal]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows

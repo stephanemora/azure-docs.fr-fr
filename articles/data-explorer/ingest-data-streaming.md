@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 1857c1154af5e3de72803f297e8a3151b0dd7aeb
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.openlocfilehash: d7d2bcf487c37fbb523b648d5aa4c572add5dfa9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78330972"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79297082"
 ---
 # <a name="streaming-ingestion-preview"></a>Ingestion de streaming (préversion)
 
@@ -20,7 +20,7 @@ Utilisez l’ingestion de streaming lorsque vous avez besoin d’une faible late
 
 Utilisez l’ingestion en bloc à la place de l’ingestion de streaming lorsque la quantité de données dépasse 1 Mo par seconde et par table. Consultez [Vue d’ensemble de l’ingestion de données](/azure/data-explorer/ingest-data-overview) pour en apprendre plus sur les différentes méthodes d’ingestion.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
 * Connectez-vous à l’[interface utilisateur web](https://dataexplorer.azure.com/).
@@ -72,7 +72,7 @@ Il existe deux types d’ingestion de streaming pris en charge :
 
 ## <a name="limitations"></a>Limites
 
-* L’ingestion de streaming ne prend pas en charge les [curseurs de base de données](/azure/kusto/management/databasecursor) ni le [mappage des données](/azure/kusto/management/mappings). Seul un mappage de données [précréé](/azure/kusto/management/tables#create-ingestion-mapping) est pris en charge. 
+* L’ingestion de streaming ne prend pas en charge les [curseurs de base de données](/azure/kusto/management/databasecursor) ni le [mappage des données](/azure/kusto/management/mappings). Seul un mappage de données [précréé](/azure/kusto/management/create-ingestion-mapping-command) est pris en charge. 
 * La capacité et les performances d’ingestion de streaming évoluent avec l’augmentation des tailles de cluster et de machine virtuelle. Les ingestions simultanées sont limitées à 6 ingestions par cœur. Par exemple, pour les SKU 16 cœurs, telles que D14 et L16, la charge maximale prise en charge est de 96 ingestions simultanées. Pour les SKU 2 cœurs, telles que D11, la charge maximale prise en charge est de 12 ingestions simultanées.
 * La taille limite des données par demande d’ingestion est de 4 Mo.
 * Les mises à jour de schéma, telles que la création et la modification de tables et de mappages d’ingestion, peuvent prendre jusqu’à cinq minutes pour le service d’ingestion de streaming.

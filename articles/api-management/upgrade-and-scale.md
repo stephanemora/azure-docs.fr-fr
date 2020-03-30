@@ -12,24 +12,24 @@ ms.topic: article
 ms.date: 08/18/2018
 ms.author: apimpm
 ms.openlocfilehash: 64649c86dbd3c3469247308bfc4dd0ed12e06949
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70018236"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Mettre à niveau une instance du service Gestion des API Azure et la mettre à l’échelle  
 
 Les clients peuvent mettre à une instance du service Gestion des API Azure (APIM) en ajoutant et en supprimant des unités. Une **unité** est constituée de ressources Azure dédiées et inclut une capacité de gestion de charge définie, exprimée sous la forme d’un certain nombre d’appels d’API par mois. Ce nombre ne représente pas une limite d’appel, mais plutôt une valeur de débit maximal pour permettre une planification approximative de la capacité. Le débit et la latence réels dépendent de nombreux facteurs, tels que le nombre et le taux de connexions simultanées, le type et le nombre de stratégies configurées, les tailles des requêtes et des réponses et la latence du backend.
 
-La capacité et le prix de chaque unité dépendent du **niveau** auquel se trouve l’unité. Vous avez le choix entre quatre niveaux : **Développeur**, **De base**, **Standard**, **Premium**. Si vous avez besoin d’augmenter la capacité d’un service au sein d’un niveau, vous devez ajouter une unité. Si le niveau actuellement sélectionné dans votre instance APIM n’autorise pas l’ajout d’unités supplémentaires, vous devez effectuer la mise à niveau vers une couche de niveau supérieur.
+La capacité et le prix de chaque unité dépendent du **niveau** auquel se trouve l’unité. Vous pouvez choisir entre quatre niveaux : **Développeur**, **De base**, **Standard** et **Premium**. Si vous avez besoin d’augmenter la capacité d’un service au sein d’un niveau, vous devez ajouter une unité. Si le niveau actuellement sélectionné dans votre instance APIM n’autorise pas l’ajout d’unités supplémentaires, vous devez effectuer la mise à niveau vers une couche de niveau supérieur.
 
 Le prix de chaque unité et les fonctionnalités disponibles (par exemple, le déploiement de plusieurs régions) dépendent de la couche que vous avez choisie pour votre instance APIM. L’article relatif aux [informations de tarification](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) explique le prix unitaire et les fonctionnalités que vous obtenez dans chaque couche. 
 
 >[!NOTE]
 >L’article relatif aux [informations de tarification](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) indique la valeur de capacité unitaire approximative dans chaque couche. Pour obtenir des chiffres plus précis, vous devez consulter un scénario réaliste pour vos API. Consultez l’article [Capacité d’une instance du service Gestion des API Azure](api-management-capacity.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre les étapes décrites dans cet article, vous devez :
 
@@ -45,7 +45,7 @@ Pour suivre les étapes décrites dans cet article, vous devez :
 
 ## <a name="upgrade-and-scale"></a>Mise à niveau et mise à l’échelle  
 
-Vous avez le choix entre quatre niveaux : **Développeur**, **De base**, **Standard** et **Premium**. Le niveau **Développeur** doit être utilisé pour évaluer le service ; il ne doit pas être utilisé pour un environnement de production. Le niveau **Développeur** n’est associé à aucun SLA, et vous ne pouvez pas le mettre à l’échelle (ajouter/supprimer des unités). 
+Vous pouvez choisir entre quatre niveaux : **Développeur**, **De base**, **Standard** et **Premium**. Le niveau **Développeur** doit être utilisé pour évaluer le service ; il ne doit pas être utilisé pour un environnement de production. Le niveau **Développeur** n’est associé à aucun SLA, et vous ne pouvez pas le mettre à l’échelle (ajouter/supprimer des unités). 
 
 Les niveaux **De base**, **Standard** et **Premium** sont des niveaux de production, associés à des contrats SLA. Vous pouvez les mettre à l’échelle. Le niveau **De base** est, parmi les niveaux assortis d’un contrat SLA, le plus abordable : il peut monter en puissance jusqu’à 2 unités, tandis que le niveau **Standard** peut évoluer jusqu’à quatre unités. Vous pouvez ajouter n’importe quel nombre d’unités au niveau **Premium**.
 

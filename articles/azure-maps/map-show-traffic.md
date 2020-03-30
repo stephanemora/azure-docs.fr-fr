@@ -1,7 +1,7 @@
 ---
 title: Afficher le trafic sur une carte | Microsoft Azure Maps
 description: Dans cet article, vous allez apprendre à afficher des données de trafic sur une carte à l’aide du SDK web Microsoft Azure Maps.
-author: jingjing-z
+author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 07/29/2019
 ms.topic: conceptual
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 8107b16a3db76fb0e248f1681463b73cc4ee21cf
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 9bd5ae462013924a46a3da8400719e83abae3424
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77208418"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79534812"
 ---
 # <a name="show-traffic-on-the-map"></a>Afficher le trafic sur la carte
 

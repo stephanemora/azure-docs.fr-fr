@@ -1,19 +1,18 @@
 ---
 title: Onglet Détails de la vitrine d’une offre Dynamics 365 for Customer Engagement | Place de marché Azure
 description: 'Dépréciation de l’article Portail Cloud Partner, ajout d’un lien à l’article Espace partenaires. Auparavant : « Utilisez l’onglet Détails de la vitrine afin de spécifier les informations de ventes et de marketing pour une offre Dynamics 365 for Customer Engagement. »'
-services: Dynamics 365 for Customer Engagement, Azure, Marketplace, Cloud Partner Portal, AppSource
-author: ChJenk
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.author: v-chjen
-ms.openlocfilehash: 1121a021b580d23006e3aaff5da4c6a2a58dca73
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 4b5a927b227b2f4b39d9b964219eb3fd50b07406
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824696"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80279927"
 ---
 # <a name="dynamics-365-for-customer-engagement-storefront-details-tab"></a>Onglet Détails de la vitrine Dynamics 365 for Customer Engagement
 

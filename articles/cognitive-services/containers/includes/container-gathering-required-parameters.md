@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 10/15/2019
 ms.author: dapine
 ms.openlocfilehash: bf4e8f06642a4a764794a75e2b49f15958796c61
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73465954"
 ---
 ## <a name="gathering-required-parameters"></a>Collecte des paramètres requis

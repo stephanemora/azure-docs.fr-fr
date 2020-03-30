@@ -6,10 +6,10 @@ ms.date: 11/04/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
 ms.openlocfilehash: d783b61c372c7d0f8cca13106bf297ab9b55c424
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74671893"
 ---
 # <a name="use-an-ssl-certificate-in-your-code-in-azure-app-service"></a>Utiliser un certificat SSL dans votre code dans Azure App Service
@@ -20,7 +20,7 @@ Cette approche de l’utilisation de certificats dans votre code utilisant la fo
 
 Lorsque vous laissez App Service gérer vos certificats SSL, vous pouvez conserver les certificats et votre code d’application séparément et protéger vos données sensibles.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour effectuer les étapes de ce guide pratique, vous devez au préalable :
 
@@ -29,7 +29,7 @@ Pour effectuer les étapes de ce guide pratique, vous devez au préalable :
 
 ## <a name="find-the-thumbprint"></a>Trouver l’empreinte
 
-Dans le <a href="https://portal.azure.com" target="_blank">Portail Azure</a>, dans le menu de gauche, sélectionnez **App Services** >  **\<app-name>** .
+Sur le <a href="https://portal.azure.com" target="_blank">portail Azure</a>, dans le menu de gauche, sélectionnez **App Services** >  **\<nom-application>** .
 
 Dans la barre de navigation gauche de votre application, sélectionnez **Paramètres TLS/SSL**, puis **Certificats de clé privée (.pfx)** ou **Certificats de clé publique (.cer)** .
 
@@ -150,9 +150,9 @@ var cert = new X509Certificate2(bytes);
 
 Pour savoir comment charger un certificat SSL à partir d’un fichier dans Node.js, PHP, Python, Java ou Ruby, consultez la documentation respective sur le langage ou la plateforme web.
 
-## <a name="more-resources"></a>Autres ressources
+## <a name="more-resources"></a>Plus de ressources
 
 * [Sécuriser un nom DNS personnalisé avec une liaison SSL](configure-ssl-bindings.md)
 * [Appliquer le protocole HTTPS](configure-ssl-bindings.md#enforce-https)
 * [Appliquer le protocole TLS 1.1/1.2](configure-ssl-bindings.md#enforce-tls-versions)
-* [FORUM AUX QUESTIONS : App Service Certificates](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)
+* [Questions fréquentes : App Service Certificates](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)

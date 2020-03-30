@@ -9,15 +9,15 @@ ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 8d0f9866864ca4b02ca6238be2ac44537a586c2d
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67177075"
 ---
 ## <a name="update-resources"></a>Mettre à jour les ressources
 
-Il existe certaines limitations sur les éléments pouvant être mis à jour. Les éléments suivants peuvent être mis à jour : 
+Il existe certaines limitations concernant les éléments qui peuvent être mis à jour. Les éléments suivants peuvent être mis à jour : 
 
 Galerie d’images partagées :
 - Description
@@ -34,7 +34,7 @@ Version d’image :
 - Exclusion du dernier
 - Date de fin de vie
 
-Si vous prévoyez d’ajouter des régions de réplica, ne supprimez pas l’image managée source. Celle-ci est nécessaire pour la réplication de la version de l’image vers d’autres régions. 
+Si vous prévoyez d’ajouter des régions de réplica, ne supprimez pas l’image managée source. En effet, elle est nécessaire pour la réplication de la version de l’image vers d’autres régions. 
 
 Mettez à jour la description d’une galerie à l’aide de ([az sig update](https://docs.microsoft.com/cli/azure/sig?view=azure-cli-latest#az-sig-update). 
 

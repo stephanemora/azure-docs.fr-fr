@@ -16,12 +16,12 @@ ms.date: 12/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f7bc881cee362103fc611cbf8a094e07ad50699
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: f5d63577cbdbdf18cb17618bdb5c9e3b5de0e44a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77499038"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79225469"
 ---
 # <a name="management-capabilities-for-azure-ad-roles-in-privileged-identity-management"></a>Fonctionnalités de gestion des rôles Azure AD dans Privileged Identity Management
 
@@ -62,11 +62,11 @@ Nous avons fait tout notre possible pour contacter tous les clients qui utilisen
 
 ## <a name="powershell-change"></a>Modification de PowerShell
 
-Pour les clients qui l’utilisent pour les rôles Azure AD, le module PowerShell Privileged Identity Management cessera de fonctionner avec la mise à jour. À la place des cmdlets précédentes, vous devrez utiliser les cmdlets Privileged Identity Management dans le module PowerShell Azure AD Preview. Installez le module Azure AD PowerShell à partir de la [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.17). Les cmdlets sont basées sur l’API Graph.
+Pour les clients qui l’utilisent pour les rôles Azure AD, le module PowerShell Privileged Identity Management cessera de fonctionner avec la mise à jour. À la place des cmdlets précédentes, vous devrez utiliser les cmdlets Privileged Identity Management dans le module PowerShell Azure AD Preview. Installez le module Azure AD PowerShell à partir de la [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.17). Vous pouvez maintenant [consulter la documentation et les exemples d'opérations PIM dans ce module PowerShell](powershell-for-azure-ad-roles.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Attribuer un rôle personnalisé Azure AD](azure-ad-custom-roles-assign.md)
-- [Supprimer ou mettre à jour une attribution de rôle personnalisé Azure AD](azure-ad-custom-roles-update-remove.md)
+- [Supprimer ou mettre à jour une attribution de rôle personnalisée Azure AD](azure-ad-custom-roles-update-remove.md)
 - [Configurer une attribution de rôle Azure AD personnalisée](azure-ad-custom-roles-configure.md)
 - [Définitions de rôles dans Azure AD](../users-groups-roles/directory-assign-admin-roles.md)

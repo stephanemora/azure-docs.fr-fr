@@ -9,10 +9,10 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/16/2018
 ms.openlocfilehash: fb9f9cfdba07ebe0bc5800def6d93950869e9727
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75456646"
 ---
 # <a name="perform-advanced-json-transformations-with-liquid-templates-in-azure-logic-apps"></a>Effectuez des transformations JSON avancées avec des modèles Liquid dans Azure Logic Apps
@@ -83,7 +83,7 @@ Avant de pouvoir effectuer une transformation Liquid dans votre application logi
 2. Dans le Concepteur d’application logique, ajoutez le [déclencheur Requête](../connectors/connectors-native-reqres.md#add-request) à votre application logique.
 
 3. Sous le déclencheur, choisissez **Nouvelle étape**. 
-   Dans la zone de recherche, entrez « liquid » comme filtre, puis sélectionnez cette action : **Transformer de JSON en JSON - Liquid**
+   Dans la zone de recherche, entrez « liquid » comme filtre, puis sélectionnez l’action suivante : **Transformer de JSON en JSON - Liquid**
 
    ![Rechercher et sélectionner l’action Liquid](./media/logic-apps-enterprise-integration-liquid-transform/search-action-liquid.png)
 

@@ -1,19 +1,18 @@
 ---
 title: API de récupération des offres | Place de marché Azure
 description: API récupère une liste récapitulative des offres d’un espace de noms du serveur de publication.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: 5c94c03a63936be2b086085a1e52064dedf214b0
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: a1f15e269481b9706f81fd02f19effc9ad37df32
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819627"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280488"
 ---
 <a name="retrieve-offers"></a>Récupération des offres
 ===============
@@ -28,7 +27,7 @@ Récupère une liste récapitulative des offres sous un espace de noms du serveu
 
 | **Nom**         |  **Description**                         |  **Type de données** |
 | -------------    |  ------------------------------------    |  -----------   |
-|  publisherId     | Identificateur du serveur de publication, par exemple `contoso` |   Chaîne    |
+|  publisherId     | Identificateur du serveur de publication, par exemple `contoso` |   String    |
 |  api-version     | Dernière version de l’API                    |    Date        |
 |  |  |
 
@@ -39,7 +38,7 @@ Récupère une liste récapitulative des offres sous un espace de noms du serveu
 |  **Nom**        |         **Valeur**       |
 |  --------------- |       ----------------  |
 |  Content-Type    | `application/json`      |
-|  Authorization   | `Bearer YOUR_TOKEN`     |
+|  Autorisation   | `Bearer YOUR_TOKEN`     |
 |  |  |
 
 
@@ -97,8 +96,8 @@ Récupère une liste récapitulative des offres sous un espace de noms du serveu
 |  NeverPublished              | L’offre n’a jamais été publiée.                  |
 |  NotStarted                  | L’offre est nouvelle, mais n’a pas démarré.                 |
 |  WaitingForPublisherReview   | L’offre est en attente d’approbation du serveur de publication.         |
-|  Exécution                     | La soumission de l’offre est en cours de traitement.             |
-|  Succeeded                   | La soumission de l’offre a été traitée.       |
-|  Canceled                    | La soumission de l’offre a été annulée.                   |
+|  Exécution en cours                     | La soumission de l’offre est en cours de traitement.             |
+|  Opération réussie                   | La soumission de l’offre a été traitée.       |
+|  Opération annulée                    | La soumission de l’offre a été annulée.                   |
 |  Échec                      | La soumission de l’offre a échoué.                         |
 |  |  |

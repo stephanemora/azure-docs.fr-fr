@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
 ms.openlocfilehash: 9bbd62bc05e03641c2abe9308d9238bef23877c2
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71104964"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Comment enregistrer et configurer votre configuration du service Gestion des API à l’aide de Git
@@ -148,7 +148,7 @@ Pour plus d’informations sur l’exécution de cette opération en utilisant l
 
 Les fichiers et dossiers dans le dépôt git local contiennent les informations de configuration sur l’instance de service.
 
-| Item | Description |
+| Élément | Description |
 | --- | --- |
 | Dossier api-management racine |Contient la configuration de niveau supérieur pour l’instance de service |
 | Dossier apis |Contient la configuration des API dans l’instance de service |
@@ -236,14 +236,14 @@ Le dossier `groups` contient un dossier pour chaque groupe défini dans l’inst
 Le dossier `policies` contient les instructions de stratégie pour votre instance de service.
 
 * `policies\global.xml` : contient les stratégies définies dans l’étendue globale de votre instance de service.
-* `policies\apis\<api name>\` : si des stratégies sont définies à l’échelle de l’API, elles se trouvent dans ce dossier.
+* `policies\apis\<api name>\` : si des stratégies sont définies à l’échelle de l’API, elles se trouvent dans ce dossier.
 * `policies\apis\<api name>\<operation name>\` : si des stratégies sont définies à l’échelle des opérations, elles se trouvent dans ce dossier, qui contient des fichiers `<operation name>.xml` correspondant aux instructions de stratégie pour chaque opération.
 * `policies\products\` : si des stratégies sont définies à l’échelle des produits, elles se trouvent dans ce dossier, qui contient des fichiers `<product name>.xml` correspondant aux instructions de stratégie pour chaque produit.
 
 ### <a name="portalstyles-folder"></a>Dossier portalStyles
 Le dossier `portalStyles` contient la configuration et les feuilles de style pour les personnalisations du portail des développeurs pour l’instance de service.
 
-* `portalStyles\configuration.json` : contient les noms des feuilles de style utilisées par le portail des développeurs.
+* `portalStyles\configuration.json` : contient les noms des feuilles de style utilisées par le portail des développeurs.
 * `portalStyles\<style name>.css` : chaque fichier `<style name>.css` contient des styles pour le portail des développeurs (`Preview.css` et `Production.css` par défaut).
 
 ### <a name="products-folder"></a>Dossier products

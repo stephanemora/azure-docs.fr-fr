@@ -7,10 +7,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.openlocfilehash: 57776073ef7e2760b308df22280faf1d65b8d104
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77458849"
 ---
 # <a name="enable-offline-sync-for-your-xamarinforms-mobile-app"></a>Activer la synchronisation hors connexion pour votre application mobile Xamarin.Forms
@@ -32,8 +32,8 @@ Le code de synchronisation hors connexion est inclus dans le projet à l’aide 
         #define OFFLINE_SYNC_ENABLED
 3. (Facultatif) Pour prendre en charge des appareils Windows, installez l’un des packages runtime SQLite suivants :
 
-   * **Runtime Windows 8.1 :** Installez [SQLite pour Windows 8.1][3].
-   * **Windows Phone 8.1 :** Installez [SQLite pour Windows Phone 8.1][4].
+   * **Windows 8.1 Runtime :** installez [SQLite pour Windows 8.1][3].
+   * **Windows Phone 8.1 :** installez [SQLite for Windows Phone 8.1][4].
    * **Plateforme Windows universelle** : installez [SQLite pour plateforme Windows universelle][5].
 
      Bien que le démarrage rapide ne contienne pas un projet Windows universel, la plateforme Windows universelle est prise en charge par Xamarin.Forms.

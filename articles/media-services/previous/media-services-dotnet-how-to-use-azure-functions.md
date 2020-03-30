@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 618acae10b874eb5ebd5b6da7fe081368528dbd8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61217507"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227065"
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Développement de fonctions Azure Functions avec Media Services
 
@@ -27,7 +27,7 @@ Cet article vous montre comment vous familiariser avec la création de fonctions
 
 Si vous souhaitez explorer et déployer des fonctions Azure existantes qui utilisent Azure Media Services, consultez [Fonctions Azure Media Services](https://github.com/Azure-Samples/media-services-dotnet-functions-integration). Ce référentiel contient des exemples qui utilisent Media Services pour afficher les flux de travail liés à l’ingestion de contenu directement à partir du Stockage Blob, à l’encodage et à l’écriture de contenu dans le Stockage Blob. Il inclut également des exemples décrivant la manière de contrôler les notifications de travail via les WebHooks et les files d’attente Azure. Vous pouvez également développer vos fonctions en fonction des exemples dans le référentiel [Media Services Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration). Pour déployer les fonctions, appuyez sur le bouton **Déployer dans Azure**.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Pour créer votre première fonction, vous devez avoir un compte Azure actif. Si tel n’est pas le cas, des [comptes gratuits sont disponibles](https://azure.microsoft.com/free/).
 - Si vous souhaitez créer des fonctions Azure Functions qui effectuent des actions sur votre compte Azure Media Services (AMS) ou qui écoutent des événements envoyés par Media Services, vous devez créer un compte AMS, comme décrit [ici](media-services-portal-create-account.md).
@@ -46,13 +46,13 @@ Lorsque vous développez des fonctions Media Services, il est utile d’ajouter 
 
 La fonction, définie dans cet article, suppose que les variables d’environnement suivantes se trouvent dans vos paramètres d’application :
 
-**AMSAADTenantDomain** : Point de terminaison de locataire Azure AD. Pour plus d’informations sur la connexion à l’API AMS, consultez [cet](media-services-use-aad-auth-to-access-ams-api.md) article.
+**AMSAADTenantDomain** : point de terminaison de locataire Azure AD. Pour plus d’informations sur la connexion à l’API AMS, consultez [cet](media-services-use-aad-auth-to-access-ams-api.md) article.
 
-**AMSRESTAPIEndpoint** :  URI qui représente le point de terminaison d’API REST. 
+**AMSRESTAPIEndpoint** : URI qui représente le point de terminaison d’API REST. 
 
-**AMSClientId** : ID client d’application Azure AD.
+**AMSClientId** : ID client d’application Azure AD.
 
-**AMSClientSecret** : Clé secrète client d’application Azure AD.
+**AMSClientSecret** : clé secrète client d’application Azure AD.
 
 **StorageConnection** : connexion au stockage du compte associé au compte Media Services. Cette valeur est utilisée dans le fichier **function.json** et le fichier **run.csx** (décrits ci-après).
 
@@ -64,11 +64,11 @@ Une fois votre Function App déployée, vous pouvez la retrouver parmi les fonct
 2. Choisissez le langage **C#** et le scénario **Traitement des données**.
 3. Choisissez le modèle **BlobTrigger**. Cette fonction est déclenchée à chaque fois qu’un objet blob est chargé dans le conteneur **input**. Le nom **input** est spécifié dans le **chemin d’accès**, à l’étape suivante.
 
-    ![fichiers d'entrée](./media/media-services-azure-functions/media-services-azure-functions004.png)
+    ![files](./media/media-services-azure-functions/media-services-azure-functions004.png)
 
 4. Lorsque vous sélectionnez **BlobTrigger**, d’autres commandes s’affichent sur la page.
 
-    ![fichiers d'entrée](./media/media-services-azure-functions/media-services-azure-functions005.png)
+    ![files](./media/media-services-azure-functions/media-services-azure-functions005.png)
 
 4. Cliquez sur **Créer**. 
 
@@ -76,7 +76,7 @@ Une fois votre Function App déployée, vous pouvez la retrouver parmi les fonct
 
 Votre fonction Azure est associée à des fichiers de code et à d’autres fichiers décrits dans cette section. Lorsque vous utilisez le portail Azure pour créer une fonction, **function.json** et **run.csx** sont créés automatiquement. Vous devez ajouter ou charger un fichier **project.json**. Le reste de cette section donne une brève explication de chaque fichier et montre leur définition.
 
-![fichiers d'entrée](./media/media-services-azure-functions/media-services-azure-functions003.png)
+![files](./media/media-services-azure-functions/media-services-azure-functions003.png)
 
 ### <a name="functionjson"></a>function.json
 
@@ -135,7 +135,7 @@ L’exemple défini dans cette section montre
 
 Dans le scénario réel, vous voulez probablement effectuer le suivi de la progression du travail, puis publier votre ressource encodée. Pour plus d’informations, consultez [Utiliser Azure WebHooks pour surveiller les notifications de travaux Media Services](media-services-dotnet-check-job-progress-with-webhooks.md). Pour plus d’exemples, consultez [Media Services Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).  
 
-Remplacez le contenu du fichier run.csx existant par le code suivant : Une fois que vous avez fini de définir votre fonction, cliquez sur **Enregistrer et exécuter**.
+Remplacez le contenu du fichier run.csx existant par le code suivant : lorsque vous avez terminé la définition de votre fonction, cliquez sur **Enregistrer et exécuter**.
 
 ```csharp
 #r "Microsoft.WindowsAzure.Storage"

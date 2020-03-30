@@ -16,11 +16,11 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 851c5eb4ebfee4e4a4836a07b51578dd2b0c68cd
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71088182"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231897"
 ---
 # <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>Résolution des messages d’erreur RDP spécifiques des machines virtuelles Windows dans Azure
 Il peut arriver que vous receviez un message d’erreur spécifique lorsque vous utilisez la connexion Bureau à distance à une machine virtuelle Windows dans Azure. Cet article décrit en détail certains des messages d’erreur les plus couramment rencontrés, ainsi que les étapes de dépannage à suivre pour les résoudre. Si vous rencontrez des problèmes de connexion à votre machine virtuelle avec le protocole RDP mais que vous ne recevez pas de message d’erreur spécifique, consultez le [guide de résolution des problèmes de Bureau à distance](troubleshoot-rdp-connection.md).
@@ -36,7 +36,7 @@ Pour plus d’informations sur les messages d’erreur spécifiques, consultez l
 <a id="rdplicense"></a>
 
 ## <a name="the-remote-session-was-disconnected-because-there-are-no-remote-desktop-license-servers-available-to-provide-a-license"></a>La session distante a été déconnectée, car aucun serveur de licences Bureau à distance n’est disponible pour fournir une licence.
-Cause : La période de grâce de 120 jours du Gestionnaire de licences des services Bureau à distance a expiré et vous devez installer les licences.
+Cause : La période de grâce du Gestionnaire de licences de 120 jours pour le rôle de serveur Bureau à distance a expiré et vous devez installer les licences.
 
 Pour contourner ce problème, enregistrez une copie locale du fichier RDP à partir du portail, puis exécutez cette commande au niveau d’une invite de commande PowerShell pour vous connecter. Cette étape ne désactive la licence que pour cette connexion :
 
@@ -49,7 +49,7 @@ Pour plus d’information, consultez le billet de blog [Azure VM fails with « N
 <a id="rdpname"></a>
 
 ## <a name="remote-desktop-cant-find-the-computer-name"></a>Le bureau à distance ne trouve pas le « name » de l’ordinateur.
-Cause : Le client Bureau à distance de votre ordinateur ne peut pas résoudre le nom de l'ordinateur dans les paramètres du fichier RDP.
+Cause : Le client Bureau à distance de votre ordinateur ne peut pas résoudre le nom de l’ordinateur dans les paramètres du fichier RDP.
 
 Solutions possibles :
 
@@ -67,9 +67,9 @@ La partie adresse de ce fichier RDP comporte :
 <a id="rdpauth"></a>
 
 ## <a name="an-authentication-error-has-occurred-the-local-security-authority-cannot-be-contacted"></a>Une erreur d’authentification s’est produite. L’autorité de sécurité locale ne peut pas être contactée.
-Cause : La machine virtuelle cible n'a pas pu localiser l'autorité de sécurité dans la partie nom d'utilisateur de vos informations d'identification.
+Cause : La machine virtuelle cible n’a pas pu localiser l’autorité de sécurité dans la partie nom d’utilisateur de vos informations d’identification.
 
-Lorsque votre nom d'utilisateur est au format *AutoritéSécurité*\\*NomUtilisateur* (par exemple, CORP\User1), la partie *AutoritéSécurité* est soit le nom d'ordinateur de la machine virtuelle (pour l'autorité de sécurité locale), soit un nom de domaine Active Directory.
+Lorsque votre nom d’utilisateur est au format *AutoritéSécurité*\\*NomUtilisateur* (par exemple, CORP\User1), la partie *AutoritéSécurité* est soit le nom d’ordinateur de la machine virtuelle (pour l’autorité de sécurité locale), soit un nom de domaine Active Directory.
 
 Solutions possibles :
 
@@ -79,13 +79,13 @@ Solutions possibles :
 
 <a id="wincred"></a>
 
-## <a name="windows-security-error-your-credentials-did-not-work"></a>Message d'erreur de sécurité Windows : Vos informations d'identification n'ont pas fonctionné.
-Cause : La machine virtuelle cible ne peut pas valider le nom et le mot de passe de votre compte.
+## <a name="windows-security-error-your-credentials-did-not-work"></a>Message d’erreur de sécurité Windows : Vos informations d’identification n’ont pas fonctionné.
+Cause : La machine virtuelle cible ne peut pas valider le nom et le mot de passe de votre compte.
 
 Un ordinateur Windows peut valider les informations d’identification d’un compte local ou d’un compte de domaine.
 
 * Pour les comptes locaux, utilisez la syntaxe *NomOrdinateur*\\*NomUtilisateur* (par exemple : SQL1\Admin4798).
-* Pour les comptes de domaine, utilisez la syntaxe *NomDomaine*\\*NomUtilisateur* (par exemple : CONTOSO\peterodman).
+* Pour les comptes de domaine, utilisez la syntaxe *NomDomaine*\\*NomUtilisateur* (par exemple, CONTOSO\johndoe).
 
 Si vous avez promu votre machine virtuelle en tant que contrôleur de domaine d’une nouvelle forêt Active Directory, le compte d’administrateur local auquel vous êtes connecté est converti en un compte équivalent avec le même mot de passe dans la nouvelle forêt et le nouveau domaine. Le compte local est alors supprimé.
 

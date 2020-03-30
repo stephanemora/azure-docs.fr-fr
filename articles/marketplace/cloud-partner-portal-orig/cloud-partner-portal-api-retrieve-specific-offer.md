@@ -1,19 +1,18 @@
 ---
 title: Récupérer l'API d'une offre spécifique | Place de marché Azure
 description: L’API récupère l’offre spécifiée dans l’espace de noms du serveur de publication.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: 030fb221b9227acf9c5dcda8797b106e51f56d64
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: a83b664bb770a88f3c4c13a672655e736a46ca75
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827346"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280454"
 ---
 <a name="retrieve-a-specific-offer"></a>Récupérer une offre en particulier
 =========================
@@ -41,8 +40,8 @@ Vous pouvez également récupérer une version spécifique de l’offre ou récu
 
 | **Nom**    | **Description**                                                                          | **Type de données** |
 |-------------|------------------------------------------------------------------------------------------|---------------|
-| publisherId | publisherId. Par exemple, Contoso                                                        | Chaîne        |
-| offerId     | Guid qui identifie de façon unique l’offre.                                                 | Chaîne        |
+| publisherId | publisherId. Par exemple, Contoso                                                        | String        |
+| offerId     | Guid qui identifie de façon unique l’offre.                                                 | String        |
 | version     | Version de l’offre en cours de récupération. Par défaut, la dernière version de l’offre est récupérée. | Integer       |
 | slotId      | L’emplacement à partir duquel l’offre doit être récupérée. La valeur peut être une des valeurs suivantes :      <br/>  - `Draft` (par défaut) récupère l’offre actuellement en brouillon.  <br/>  -  `Preview` (par défaut) récupère l’offre actuellement en préversion.     <br/>  -  `Production` (par défaut) récupère l’offre actuellement en production.          |      enum |
 | api-version | Dernière version de l’API                                                                    | Date          |
@@ -55,7 +54,7 @@ Vous pouvez également récupérer une version spécifique de l’offre ou récu
 |  **Nom**          |   **Valeur**            |
 |  ---------------   |  --------------        |
 |  Content-Type      | `application/json`     |
-|  Authorization     | `Bearer YOUR_TOKEN`    |
+|  Autorisation     | `Bearer YOUR_TOKEN`    |
 |  |  |
 
 
@@ -199,8 +198,8 @@ Vous pouvez également récupérer une version spécifique de l’offre ou récu
 |  NeverPublished             | L’offre n’a jamais été publiée.               |
 |  NotStarted                 | L’offre est nouvelle, mais n’a pas démarré.              |
 |  WaitingForPublisherReview  | L’offre est en attente d’approbation du serveur de publication.      |
-|  Exécution                    | La soumission de l’offre est en cours de traitement.          |
-|  Succeeded                  | La soumission de l’offre a été traitée.    |
-|  Canceled                   | La soumission de l’offre a été annulée.                |
+|  Exécution en cours                    | La soumission de l’offre est en cours de traitement.          |
+|  Opération réussie                  | La soumission de l’offre a été traitée.    |
+|  Opération annulée                   | La soumission de l’offre a été annulée.                |
 |  Échec                     | La soumission de l’offre a échoué.                      |
 |  |  |

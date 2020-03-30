@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/03/2020
+ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e470ea65085bf71f0052567d5bf367661852d1cb
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: ea3b273070702144d5296d07cb8712da044819a8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78268023"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79471963"
 ---
 # <a name="boolean-claims-transformations"></a>Transformations de revendications booléennes
 
@@ -66,7 +66,7 @@ Vérifie que les valeurs booléennes de deux revendications sont égales et lèv
 | inputClaim | inputClaim | boolean | ClaimType à évaluer. |
 | InputParameter |valueToCompareTo | boolean | Valeur à comparer (true ou false). |
 
-La transformation de revendication **AssertBooleanClaimIsEqualToValue** est toujours exécutée à partir d’un [profil technique de validation](validation-technical-profile.md) qui est appelé par un [profil technique autodéclaré](self-asserted-technical-profile.md). Les métadonnées de profil technique autodéclaré **UserMessageIfClaimsTransformationBooleanValueIsNotEqual** contrôlent le message d’erreur présenté à l’utilisateur par le profil technique.
+La transformation de revendication **AssertBooleanClaimIsEqualToValue** est toujours exécutée à partir d’un [profil technique de validation](validation-technical-profile.md) qui est appelé par un [profil technique autodéclaré](self-asserted-technical-profile.md). Les métadonnées de profil technique autodéclaré **UserMessageIfClaimsTransformationBooleanValueIsNotEqual** contrôlent le message d’erreur présenté à l’utilisateur par le profil technique. Les messages d’erreur peuvent être [localisés](localization-string-ids.md#claims-transformations-error-messages).
 
 ![Exécution de AssertStringClaimsAreEqual](./media/boolean-transformations/assert-execution.png)
 
@@ -112,7 +112,7 @@ Le profil technique autodéclaré appelle le profil technique de validation **lo
 - Revendications d’entrée :
     - **inputClaim** : false
     - **valueToCompareTo** : true
-- Résultat : Erreur levée
+- Résultat : Erreur levée
 
 ## <a name="comparebooleanclaimtovalue"></a>CompareBooleanClaimToValue
 

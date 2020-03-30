@@ -15,11 +15,11 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: 40db6e9f429569bc19641aa5f0f371f287db7b18
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77158024"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79236389"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs - Géorécupération d’urgence 
 
@@ -50,7 +50,7 @@ Cet article emploie les termes suivants :
 
 -  *Métadonnées* : entités telles que des concentrateurs d’événements et des groupes de consommateurs ; incluent également leurs propriétés sur le service associé à l’espace de noms. Notez que seules les entités et leurs paramètres sont automatiquement répliqués. Les messages et les événements ne sont pas répliqués. 
 
--  *Basculement* : processus d’activation de l’espace de noms secondaire.
+-  *Basculement* : processus d’activation de l’espace de noms secondaire.
 
 ## <a name="supported-namespace-pairs"></a>Paires d’espaces de noms prises en charge
 Les combinaisons suivantes d’espaces de noms principaux et secondaires sont prises en charge :  

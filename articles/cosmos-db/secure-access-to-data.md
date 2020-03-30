@@ -7,11 +7,11 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.openlocfilehash: 448b14168e85e75b7ed19e189600186ce11c2902
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76756417"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227265"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Sécuriser l’accès aux données dans Azure Cosmos DB
 
@@ -62,7 +62,7 @@ private static readonly string authorizationKey = ConfigurationManager.AppSettin
 CosmosClient client = new CosmosClient(endpointUrl, authorizationKey);
 ```
 
-## Jetons de ressource <a id="resource-tokens"></a>
+## <a name="resource-tokens"></a>Jetons de ressource <a id="resource-tokens"></a>
 
 Les jetons de ressource fournissent un accès aux ressources d’application au sein d’une base de données. Jetons de ressource :
 
@@ -95,7 +95,7 @@ La gestion et la génération des jetons de ressource sont prises en charge par 
 
 Pour obtenir un exemple de service de niveau intermédiaire utilisé pour générer ou répartir les jetons de ressource, consultez [l’application ResourceTokenBroker](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers).
 
-## Utilisateurs<a id="users"></a>
+## <a name="users"></a>Utilisateurs<a id="users"></a>
 
 Les utilisateurs d’Azure Cosmos DB sont associés à une base de données Cosmos.  Chaque base de données peut contenir zéro, un ou plusieurs utilisateurs Azure Cosmos DB. L’exemple de code suivant indique comment créer un utilisateur Cosmos DB à l’aide du [Kit de développement logiciel (SDK) Azure Cosmos DB .NET v3](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/UserManagement).
 
@@ -109,12 +109,12 @@ User user = await database.CreateUserAsync("User 1");
 > [!NOTE]
 > Chaque utilisateur Cosmos DB dispose d’une méthode ReadAsync() qui permet de récupérer la liste des [autorisations](#permissions) qui lui sont associées.
 
-## Autorisations<a id="permissions"></a>
+## <a name="permissions"></a>Autorisations<a id="permissions"></a>
 
 Une ressource d’autorisation est associée à un utilisateur et attribuée au conteneur ainsi qu’au niveau de la clé de partition. Chaque utilisateur peut contenir zéro, une ou plusieurs autorisations. Une ressource d’autorisation donne accès à un jeton de sécurité dont l’utilisateur a besoin lorsqu’il tente d’accéder à un conteneur ou à des données spécifiques dans une clé de partition spécifique. Il existe deux niveaux d’accès disponibles qui peuvent être fournis par une ressource d’autorisation :
 
-- Tout : l’utilisateur dispose de toutes les autorisations sur la ressource.
-- Lecture : L’utilisateur peut uniquement lire le contenu de la ressource, il ne peut pas procéder à des opérations d’écriture, de mise à jour ou de suppression au niveau de la ressource.
+- Tout : L’utilisateur dispose de toutes les autorisations sur la ressource.
+- Lecture : L’utilisateur peut uniquement lire le contenu de la ressource, mais il ne peut pas procéder à des opérations d’écriture, de mise à jour ou de suppression au niveau de la ressource.
 
 > [!NOTE]
 > Pour exécuter des procédures stockées, l’utilisateur doit disposer de toutes les autorisations sur le conteneur dans lequel la procédure stockée est exécutée.

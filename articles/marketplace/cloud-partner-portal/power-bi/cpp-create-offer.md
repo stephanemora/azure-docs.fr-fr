@@ -1,19 +1,18 @@
 ---
 title: Créer une offre d'application Power BI - Place de marché Microsoft Azure
 description: Créez une offre d'application Power BI destinée à la Place de marché Microsoft AppSource.
-services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.author: pabutler
-ms.openlocfilehash: e0ee26672697517556a2f639b533a1217712d03d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: ee3501e7feec77c842f3784f6c2820af05637e6b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822698"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80286385"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Créer une offre d'application Power BI
 

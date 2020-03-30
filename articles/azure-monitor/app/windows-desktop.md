@@ -4,10 +4,10 @@ description: Analysez l’utilisation et les performances de votre application d
 ms.topic: conceptual
 ms.date: 10/29/2019
 ms.openlocfilehash: 8234b9ba2c92fc64cfa8f598db99954e00caab45
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77670829"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>Analyse des niveaux de performance et de l’utilisation dans les applications de bureau Windows Classic
@@ -30,7 +30,7 @@ Les applications hébergées en local, dans Azure, et dans d’autres clouds peu
 5. [Utilisez l’API](../../azure-monitor/app/api-custom-events-metrics.md) pour envoyer les données de télémétrie.
 6. Exécutez votre application et consultez la télémétrie dans la ressource que vous avez créée dans le Portail Azure.
 
-## <a name="telemetry"></a>Exemple de code
+## <a name="example-code"></a><a name="telemetry"></a>Exemple de code
 ```csharp
 using Microsoft.ApplicationInsights;
 

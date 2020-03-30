@@ -12,17 +12,17 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
 ms.openlocfilehash: 6ec8f8835e925663fc6ac21a6eb1df09d6927109
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74132105"
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Découvrez comment approvisionner de nouveaux locataires et les inscrire dans le catalogue
 
 Dans ce tutoriel, vous allez apprendre à provisionner et à cataloguer des modèles SaaS. Vous allez également voir comment ils sont implémentés dans l’application SaaS Wingtip Tickets, où chaque locataire a sa propre base de données. Vous allez créer et initialiser de nouvelles bases de données de locataire et les inscrire dans le catalogue de locataires de l’application. Le catalogue est une base de données qui gère le mappage entre les nombreux clients des applications SaaS et les données associées. Le catalogue joue un rôle important, car il dirige les demandes d’application et de gestion vers la base de données appropriée.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 >
@@ -154,9 +154,9 @@ Le script déploie un lot de locataires supplémentaires. Il utilise un [modèle
 
 Voici d’autres modèles de provisionnement non inclus dans ce tutoriel :
 
-**Pré-approvisionnement des bases de données** : Le modèle de pré-approvisionnement exploite le fait que les bases de données d’un pool élastique n’ajoutent pas de frais supplémentaires. La facturation est liée au pool élastique, et non aux bases de données. Les bases de données inactives ne consomment pas de ressources. En préprovisionnant les bases de données d’un pool et en les allouant en cas de besoin, vous pouvez réduire le délai nécessaire à l’ajout de nouveaux locataires. Le nombre de bases de données pré-approvisionnées peut être ajusté en fonction des besoins pour conserver une mémoire tampon adaptée au taux d’approvisionnement prévu.
+**Préprovisionnement des bases de données**: Le modèle de préprovisionnement exploite le fait que les bases de données d’un pool élastique n’entraînent pas de frais supplémentaires. La facturation est liée au pool élastique, et non aux bases de données. Les bases de données inactives ne consomment pas de ressources. En préprovisionnant les bases de données d’un pool et en les allouant en cas de besoin, vous pouvez réduire le délai nécessaire à l’ajout de nouveaux locataires. Le nombre de bases de données pré-approvisionnées peut être ajusté en fonction des besoins pour conserver une mémoire tampon adaptée au taux d’approvisionnement prévu.
 
-**Provisionnement automatique** : Dans le modèle de provisionnement automatique, un service de provisionnement dédié est utilisé pour provisionner automatiquement des serveurs, pools et bases de données en fonction des besoins. Si vous le souhaitez, vous pouvez ajouter le préprovisionnement des bases de données dans les pools élastiques. Si les bases de données sont désactivées et supprimées, les écarts des pools élastiques peuvent être comblés par le service de provisionnement. Un tel service peut être simple ou complexe, comme pour la gestion du provisionnement de plusieurs zones géographiques ou la configuration de la géoréplication pour la récupération d’urgence.
+**Provisionnement automatique** : Dans le modèle de provisionnement automatique, un service de provisionnement dédié est utilisé pour provisionner automatiquement des serveurs, pools et bases de données en fonction des besoins. Si vous le souhaitez, vous pouvez ajouter le préprovisionnement des bases de données dans les pools élastiques. Si les bases de données sont désactivées et supprimées, les écarts des pools élastiques peuvent être comblés par le service de provisionnement. Un tel service peut être simple ou complexe, comme pour la gestion du provisionnement de plusieurs zones géographiques ou la configuration de la géoréplication pour la récupération d’urgence.
 
 Avec le modèle de provisionnement automatique, une application cliente ou un script envoie une demande de provisionnement à une file d’attente pour qu’elle soit traitée par le service de provisionnement. Il interroge ensuite le service afin de déterminer la complétion. Si le préprovisionnement est utilisé, les demandes sont traitées rapidement. Le service provisionne une base de données de remplacement en arrière-plan.
 

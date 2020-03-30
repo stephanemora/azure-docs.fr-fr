@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 09c4420647043fccc408631fec75854667923721
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74085239"
 ---
 Les problèmes de diagnostic avec un service cloud Microsoft Azure nécessitent la collecte des fichiers journaux du service sur les machines virtuelles au fur et à mesure que les problèmes surviennent. Vous pouvez utiliser l’extension AzureLogCollector à la demande pour exécuter une collecte unique de journaux d’activité à partir d’une ou de plusieurs machines virtuelles de service cloud (à partir des rôles web et de travail) et transférer les fichiers collectés dans un compte de stockage Azure, le tout sans connexion à distance à l’une des machines virtuelles.
@@ -33,10 +33,10 @@ Dans les deux modes de collecte, les dossiers de collecte de données supplémen
 
 * **Nom** : nom de la collection, utilisé comme nom du sous-dossier dans le fichier zip contenant les fichiers collectés.
 * **Emplacement** : chemin d’accès au dossier sur la machine virtuelle où se trouvent les fichiers à collecter.
-* **Modèle de recherche** : modèle des noms de fichiers à collecter. La valeur par défaut est « \* ».
+* **Modèle de recherche**: modèle des noms de fichiers à collecter. La valeur par défaut est « \* ».
 * **Récursif** : si les fichiers à collecter se trouvent de manière récursive à l’emplacement spécifié.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 [!INCLUDE [updated-for-az](./updated-for-az.md)]
 
@@ -177,14 +177,14 @@ param (
 )
 ```
 
-* **ServiceName** . nom de votre service cloud.
-* **Rôles** : une liste de rôles, tels que « WebRole1 » ou « WorkerRole1 ».
-* **Instances** : liste de noms des instances de rôle séparés par des virgules ; utilisez la chaîne de caractères génériques (« * ») pour toutes les instances de rôle.
-* **Emplacement** : nom de l’emplacement. « Production » ou « Intermédiaire ».
-* **Mode** : mode de collecte. « Complet » ou « GA ».
-* **StorageAccountName** : nom du compte de stockage Azure pour le stockage des données recueillies.
-* **StorageAccountKey** : nom de la clé du compte de stockage Azure.
-* **AdditionalDataLocationList** : liste avec la structure suivante :
+* **ServiceName**: nom de votre service cloud.
+* **Rôles**: une liste de rôles, tels que « WebRole1 » ou « WorkerRole1 ».
+* **Instances**: liste de noms des instances de rôle séparés par des virgules, utilisez la chaîne de caractères génériques (« * ») pour toutes les instances de rôle.
+* **Emplacement**: nom de l’emplacement. « Production » ou « Intermédiaire ».
+* **Mode**: mode de collecte. « Complet » ou « GA ».
+* **StorageAccountName**: nom du compte de stockage Azure pour le stockage des données recueillies.
+* **StorageAccountKey**: nom de clé de compte de stockage Azure.
+* **AdditionalDataLocationList**: liste obéissant à la structure suivante :
 
   ```powershell
   {
@@ -259,12 +259,12 @@ param (
 )
 ```
 
-* **ServiceName** . nom de votre service cloud.
-* **VMName** : nom de la machine virtuelle.
-* **Mode** : mode de collecte. « Complet » ou « GA ».
-* **StorageAccountName** : nom du compte de stockage Azure pour le stockage des données recueillies.
-* **StorageAccountKey** : nom de la clé du compte de stockage Azure.
-* **AdditionalDataLocationList** : liste avec la structure suivante :
+* **ServiceName**: nom de votre service cloud.
+* **VMName** : nom de la machine virtuelle.
+* **Mode**: mode de collecte. « Complet » ou « GA ».
+* **StorageAccountName**: nom du compte de stockage Azure pour le stockage des données recueillies.
+* **StorageAccountKey**: nom de clé de compte de stockage Azure.
+* **AdditionalDataLocationList**: liste obéissant à la structure suivante :
 
   ```
   {

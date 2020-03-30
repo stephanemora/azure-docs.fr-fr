@@ -17,16 +17,16 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 543c1a6706f794b81c4f93fc6fff3a61ed3fb9e3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60246329"
 ---
-# <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Synchronisation d’Azure AD Connect : Présentation de l’approvisionnement déclaratif
+# <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Azure AD Connect Sync : présentation de l’approvisionnement déclaratif
 Cette rubrique présente le modèle de configuration dans Azure AD Connect. Ce modèle est appelé « approvisionnement déclaratif » et vous permet de modifier la configuration en toute simplicité. De nombreux éléments décrits dans cette rubrique sont des éléments avancés, non indispensables pour la plupart des scénarios clients.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 L’approvisionnement déclaratif correspond au traitement des objets provenant d’un répertoire source connecté. Il détermine comment l’objet et les attributs doivent être transformés à partir d’une source vers une cible. Les objets sont traités dans un pipeline de synchronisation identique pour les règles de trafic entrant et sortant. Les règles de trafic entrant vont d’un espace de connecteur au métaverse et les règles de trafic sortant vont du métaverse vers un espace de connecteur.
 
 ![Pipeline de synchronisation](./media/concept-azure-ad-connect-sync-declarative-provisioning/sync1.png)  
@@ -92,7 +92,7 @@ Un objet de métaverse demeure tant qu’une règle de synchronisation reste dan
 Lorsqu’un objet de métaverse est supprimé, tous les objets associés à une règle de synchronisation de trafic sortant marquée **Provision** sont marqués pour suppression.
 
 ## <a name="transformations"></a>Transformations
-Les transformations sont utilisées pour définir le flux d’attributs de la source vers la cible. Les flux peuvent être des **types**suivants : Direct, Constant ou Expression. Un flux direct envoie la valeur de l’attribut telle quelle, sans transformation supplémentaire. Un flux constant définit la valeur spécifiée. Une expression utilise le langage d’expression d’approvisionnement déclaratif pour exprimer la manière dont la transformation doit avoir lieu. Vous trouverez des informations sur le langage d’expression dans la rubrique [Comprendre le langage d’expression d’approvisionnement déclaratif](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md) .
+Les transformations sont utilisées pour définir le flux d’attributs de la source vers la cible. Les flux peuvent être des **types**suivants : Direct, Constant ou Expression. Un flux direct envoie la valeur de l’attribut telle quelle, sans transformation supplémentaire. Un flux constant définit la valeur spécifiée. Une expression utilise le langage d’expression d’approvisionnement déclaratif pour exprimer la manière dont la transformation doit avoir lieu. Vous trouverez des informations sur le langage d’expression dans la rubrique [Comprendre le langage d’expression d’approvisionnement déclaratif](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md) .
 
 ![Approvisionnement ou jointure](./media/concept-azure-ad-connect-sync-declarative-provisioning/transformations1.png)  
 
@@ -135,7 +135,7 @@ Généralement, lors de la synchronisation, un attribut utilise la valeur attend
 Vous trouverez un exemple de cette fonction dans la règle de synchronisation par défaut *In from AD – User Common from Exchange*. Dans Exchange hybride, la valeur ajoutée par Exchange Online doit uniquement être synchronisée après avoir confirmé que la valeur a bien été exportée :  
 `proxyAddresses` <- `RemoveDuplicates(Trim(ImportedValue("proxyAddresses")))`
 
-## <a name="precedence"></a>Precedence
+## <a name="precedence"></a>Priorité
 Lorsque plusieurs règles de synchronisation essaient de transmettre la même valeur d’attribut à la cible, la valeur de précédence est utilisée pour déterminer la valeur prioritaire. La règle ayant la priorité la plus élevée (la valeur numérique la plus basse) transmettra l’attribut.
 
 ![Types de fusion](./media/concept-azure-ad-connect-sync-declarative-provisioning/precedence1.png)  
@@ -159,9 +159,9 @@ Pour ce scénario, vous devez modifier la portée des règles de synchronisation
 
 **Rubriques de présentation**
 
-* [Synchronisation Azure AD Connect : Comprendre et personnaliser la synchronisation](how-to-connect-sync-whatis.md)
+* [Azure AD Connect Sync - Présentation et personnalisation des options de synchronisation](how-to-connect-sync-whatis.md)
 * [Intégration des identités locales dans Azure Active Directory](whatis-hybrid-identity.md)
 
 **Rubriques de référence**
 
-* [Synchronisation Azure AD Connect : Référence des fonctions](reference-connect-sync-functions-reference.md)
+* [Azure AD Connect Sync : Référence aux fonctions](reference-connect-sync-functions-reference.md)

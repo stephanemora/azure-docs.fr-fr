@@ -1,19 +1,18 @@
 ---
 title: Configurer des prospects | Place de marché Azure
 description: Configurez des prospects dans le portail Cloud Partner.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.author: pabutler
-ms.openlocfilehash: 312e172321c25248f1b0801bdbccf71762319989
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 56012fb2a907a6db6f87554660ee36b99a3dcbf9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818809"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280318"
 ---
 <a name="get-customer-leads"></a>Obtenir des prospects
 ==================
@@ -66,7 +65,7 @@ Chaque prospect que vous recevez pendant le processus d’acquisition de clients
 
 Le format d’une source de prospect est **Source**-**Action** |  **Offre**
 
-**Sources** « AzureMarketplace », « AzurePortal », « TestDrive » et « AppSource (SPZA) »
+**Sources** : « AzureMarketplace », « AzurePortal », « TestDrive » et « AppSource (SPZA) »
 
 **Actions** :
 - « INS » : installation. Cette action figure sur la Place de marché Azure ou dans AppSource lorsqu’un client achète votre produit.
@@ -83,13 +82,13 @@ Les exemples suivants présentent des identificateurs uniques qui sont affectés
 ### <a name="customer-info"></a>Informations client
 
 Les champs indiqués dans l’exemple suivant indiquent les informations client qui sont contenues dans un prospect.
-- FirstName : John
-- LastName : Smith
+- Prénom : John
+- Nom : Smith
 - Adresse e-mail : jsmith\@microsoft.com
-- Téléphone : 1234567890
-- Pays : US
-- Société : Microsoft
-- Titre : CTO
+- Téléphone : 1234567890
+- Pays : États-Unis
+- Entreprise : Microsoft
+- Fonction : directeur technique
 
 >[!Note]
 >Les données de l’exemple précédent ne sont pas toujours toutes disponibles pour chaque prospect.

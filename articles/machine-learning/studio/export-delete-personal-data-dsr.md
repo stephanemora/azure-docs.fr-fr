@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 05/25/2018
-ms.openlocfilehash: 5228e42a778714f0d656bc993007692bd32d84fb
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: c380d10d0c68794ec3810cea25341d68bb41400d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168611"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227225"
 ---
 # <a name="export-and-delete-in-product-user-data-from-azure-machine-learning-studio-classic"></a>Exporter et supprimer d’Azure Machine Learning Studio (classique) des données utilisateur intégrées dans le produit
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Vous pouvez supprimer ou exporter des données intégrées au produit stockées par Azure Machine Learning Studio (classique) en utilisant le portail Azure, l’interface de Studio (classique), PowerShell et des API REST authentifiées. Cet article vous explique comment procéder. 
 
@@ -32,8 +34,8 @@ Les données de télémétrie sont accessibles via le portail de confidentialit�
 Pour ce service, les données utilisateur sont constituées d’informations sur les utilisateurs autorisés à accéder aux espaces de travail et d’enregistrements de télémétrie des interactions utilisateur avec le service.
 
 Il existe deux types de données utilisateur dans Machine Learning Studio (classique) :
-- **Données de compte personnel :** ID de compte et adresses e-mail associées à un compte.
-- **Données client :** Données que vous avez chargées pour les analyser.
+- **Données de compte personnel :** ID de compte et adresses e-mail associées à un compte.
+- **Données client :** données que vous avez chargées pour les analyser.
 
 ## <a name="studio-classic-account-types-and-how-data-is-stored"></a>Types de compte Studio (classique) et stockage des données
 
@@ -53,7 +55,7 @@ Il existe trois types de comptes dans Machine Learning Studio (classique). Le ty
     - Vous pouvez exporter des données personnelles et client via l’interface utilisateur, des API REST ou le package PowerShell.
     - Vous pouvez supprimer vos données dans le portail Azure.
 
-## <a name="delete"></a>Supprimer les données d’un espace de travail dans Studio (classique) 
+## <a name="delete-workspace-data-in-studio-classic"></a><a name="delete"></a>Supprimer les données d’un espace de travail dans Studio (classique) 
 
 ### <a name="delete-individual-assets"></a>Supprimer des ressources individuelles
 
@@ -64,8 +66,8 @@ Les utilisateurs peuvent supprimer des ressources dans un espace de travail en l
 ### <a name="delete-an-entire-workspace"></a>Supprimer tout un espace de travail
 
 Les utilisateurs peuvent également supprimer tout leur espace de travail :
-- Espace de travail payant : Supprimez par le biais du portail Azure.
-- Espace de travail gratuit : Utilisez le bouton Supprimer dans le volet **Paramètres**.
+- Espace de travail payant : supprimez-le via le portail Azure.
+- Espace de travail gratuit : utilisez le bouton Supprimer dans le volet **Paramètres**.
 
 ![Supprimer un espace de travail gratuit dans Machine Learning Studio (classique)](./media/export-delete-personal-data-dsr/delete-studio-data-workspace.png)
  

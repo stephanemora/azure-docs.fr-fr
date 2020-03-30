@@ -7,15 +7,15 @@ ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: tisande
 ms.openlocfilehash: cca62c358037dbe99fd16746ee081b1540161df2
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74873418"
 ---
 # <a name="azure-cosmos-db-sql-query-constants"></a>Constantes de requête SQL Azure Cosmos DB  
 
- Une constante, également appelée un littéral ou une valeur scalaire, est un symbole représentant une valeur de données spécifique. Le format d’une constante dépend du type de données de la valeur qu’elle représente.  
+ Une constante, également appelée valeur littérale ou scalaire, est un symbole représentant une valeur de donnée spécifique. Le format d'une constante dépend du type de données dont elle représente la valeur.  
   
  **Prise en charge des types de données scalaires :**  
   
@@ -29,7 +29,7 @@ ms.locfileid: "74873418"
 |**Tableau**|Une séquence de zéro ou plusieurs éléments. Chaque élément peut être une valeur de tout type de données scalaires, à l’exception de **Undefined**.|  
 |**Object**|Un jeu non ordonné de zéro ou plusieurs paires nom/valeur. Le nom est une chaîne Unicode, la valeur peut être de n’importe quel type de données scalaire, sauf **Undefined**.|  
   
-## <a name="bk_syntax"></a>Syntaxe
+## <a name="syntax"></a><a name="bk_syntax"></a>Syntaxe
   
 ```sql  
 <constant> ::=  
@@ -59,7 +59,7 @@ ms.locfileid: "74873418"
   
 ```  
   
-##  <a name="bk_arguments"></a> Arguments
+##  <a name="arguments"></a><a name="bk_arguments"></a> Arguments
   
 * `<undefined_constant>; Undefined`  
   

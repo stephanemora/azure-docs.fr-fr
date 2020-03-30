@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.openlocfilehash: cc955adffbe7df5809f9c4c860877ad22df3e99b
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74158285"
 ---
 # <a name="azure-signalr-service-authentication"></a>Authentification par Azure SignalR Service
@@ -31,7 +31,7 @@ Le code de ce didacticiel est disponible au téléchargement dans le [référent
 
 ![Flux OAuth complet hébergé dans Azure](media/signalr-concept-authenticate-oauth/signalr-oauth-complete-azure.png)
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Enregistrer une nouvelle application OAuth avec votre compte GitHub
@@ -40,7 +40,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre ce didacticiel, vous devez disposer des éléments suivants :
 
@@ -48,7 +48,7 @@ Pour suivre ce didacticiel, vous devez disposer des éléments suivants :
 * [Git](https://git-scm.com/)
 * [Kit de développement logiciel (SDK) .NET Core](https://www.microsoft.com/net/download/windows)
 * [Azure Cloud Shell configuré](https://docs.microsoft.com/azure/cloud-shell/quickstart)
-* Téléchargez ou clonez le référentiel GitHub [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples).
+* Télécharger ou cloner le référentiel GitHub [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples).
 
 ## <a name="create-an-oauth-app"></a>Créer une application OAuth
 
@@ -60,7 +60,7 @@ Pour suivre ce didacticiel, vous devez disposer des éléments suivants :
 
     | Nom de paramètre | Valeur suggérée | Description |
     | ------------ | --------------- | ----------- |
-    | Nom de l’application | *Conversation Azure SignalR* | L’utilisateur GitHub devrait être en mesure de reconnaître l’application avec laquelle il s’authentifie et de lui faire confiance.   |
+    | Nom de l'application | *Conversation Azure SignalR* | L’utilisateur GitHub devrait être en mesure de reconnaître l’application avec laquelle il s’authentifie et de lui faire confiance.   |
     | URL de la page d’accueil | `http://localhost:5000/home` | |
     | Description de l’application | *Un exemple de salle de conversation utilisant le service Azure SignalR avec l’authentification GitHub* | Une description utile de l’application qui aidera les utilisateurs de votre application à comprendre le contexte de l’authentification utilisée. |
     | URL de rappel d’autorisation | `http://localhost:5000/signin-github` | Ce paramètre est le paramètre essentiel de votre application OAuth. Il s’agit de l’URL de rappel renvoyée par GitHub à l’utilisateur une fois l’authentification créée. Dans ce didacticiel, vous devez utiliser l’URL de rappel par défaut associée au package *AspNet.Security.OAuth.GitHub*, */signin-github*.  |
@@ -543,7 +543,7 @@ Pour finir, vous devez mettre à jour l’**URL de la page d’accueil** et l’
 
 2. Cliquez sur votre page d’authentification et mettez à jour l’**URL de la page d’accueil** et l’**URL de rappel d’autorisation** tel que représenté ci-dessous :
 
-    | Paramètre | Exemples |
+    | Paramètre | Exemple |
     | ------- | ------- |
     | URL de la page d’accueil | https://signalrtestwebapp22665120.azurewebsites.net/home |
     | URL de rappel d’autorisation | https://signalrtestwebapp22665120.azurewebsites.net/signin-github |
@@ -552,7 +552,7 @@ Pour finir, vous devez mettre à jour l’**URL de la page d’accueil** et l’
 
     ![Flux OAuth complet hébergé dans Azure](media/signalr-concept-authenticate-oauth/signalr-oauth-complete-azure.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous envisagez d’exécuter le tutoriel suivant, vous pouvez conserver les ressources créées dans ce démarrage rapide.
 
@@ -565,7 +565,7 @@ Connectez-vous au [Portail Azure](https://portal.azure.com) et cliquez sur **Gro
 
 Dans la zone de texte **Filtrer par nom.** , saisissez le nom de votre groupe de ressources. Les instructions relatives à cet article utilisaient un groupe de ressources nommé *SignalRTestResources*. Sur votre groupe de ressources dans la liste des résultats, cliquez sur **...** , puis sur **Supprimer le groupe de ressources**.
 
-![Supprimer](./media/signalr-concept-authenticate-oauth/signalr-delete-resource-group.png)
+![DELETE](./media/signalr-concept-authenticate-oauth/signalr-delete-resource-group.png)
 
 Il vous sera demandé de confirmer la suppression du groupe de ressources. Saisissez le nom de votre groupe de ressources pour confirmer, puis cliquez sur **Supprimer**.
 

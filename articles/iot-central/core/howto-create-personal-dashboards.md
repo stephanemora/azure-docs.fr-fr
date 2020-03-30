@@ -4,16 +4,16 @@ description: En tant qu’utilisateur, découvrez comment créer et gérer vos t
 author: mavoge
 ms.author: mavoge
 ms.date: 10/17/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 9da7efad816a466eb9d2902e36a95c5ae0fa626b
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: db886006ff5b9adf3de0932951f6cce4958e8ebd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72941630"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80158127"
 ---
 # <a name="create-and-manage-multiple-dashboards"></a>Créer et gérer plusieurs tableaux de bord
 

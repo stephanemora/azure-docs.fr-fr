@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: 2a449c55a0998f1a114f6aa9d2c067e48cc0cdce
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3b95863c1ae53bd0642aec356f55aba1faf8ef09
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75443681"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79535780"
 ---
 # <a name="azure-stream-analytics-solution-patterns"></a>Modèles de solution Azure Stream Analytics
 
@@ -92,7 +92,7 @@ L’entreposage de données en quasi temps réel, également appelé entrepôt d
 
 ![Entreposage de données ASA](media/stream-analytics-solution-patterns/datawarehousing.png)
 
-Un moyen d’améliorer le débit en faisant quelques compromis au niveau de la latence consiste à archiver les événements dans le stockage Blob Azure, puis à [les importer dans SQL Data Warehouse avec Polybase](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md). Vous devez manuellement combiner ensemble la sortie de Stream Analytics au stockage d’objets blob, et l’entrée du stockage d’objets blob à SQL Data Warehouse, en [archivant les données par horodatage](stream-analytics-custom-path-patterns-blob-storage-output.md) et en important régulièrement.
+Un moyen d’améliorer le débit en faisant quelques compromis au niveau de la latence consiste à archiver les événements dans le stockage Blob Azure, puis à [les importer dans SQL Data Warehouse avec Polybase](../synapse-analytics/sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md). Vous devez manuellement combiner ensemble la sortie de Stream Analytics au stockage d’objets blob, et l’entrée du stockage d’objets blob à SQL Data Warehouse, en [archivant les données par horodatage](stream-analytics-custom-path-patterns-blob-storage-output.md) et en important régulièrement.
 
 Dans ce modèle d’utilisation, Azure Stream Analytics est utilisé comme moteur ETL en quasi temps réel. Les événements nouvellement arrivés sont en permanence transformés et stockés pour la consommation du service d’analytique en aval.
 

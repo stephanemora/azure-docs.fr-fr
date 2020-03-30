@@ -10,10 +10,10 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.openlocfilehash: 289c269100eb6ab672bb8d60562c1fa77d8d091a
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73954614"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>Prise en main de l’identité de module et du jumeau de module IoT Hub à l’aide du portail et d’un appareil .NET
@@ -34,7 +34,7 @@ Ce tutoriel vous apprendra à effectuer les opérations suivantes :
 > Pour plus d’informations sur les SDK Azure IoT que vous pouvez utiliser pour générer les deux applications à exécuter sur des appareils et sur le back-end de la solution, consultez [Kits SDK Azure IoT](iot-hub-devguide-sdks.md).
 >
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Visual Studio.
 
@@ -94,7 +94,7 @@ L’identité de module et le jumeau de module sont disponibles en préversion p
 
 Vous avez besoin de la chaîne de connexion du module pour votre application console. Procédez comme suit :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 1. Accédez à votre hub IoT, puis sélectionnez **Appareils IoT**. Ouvrez **myFirstDevice**. Vous voyez alors que **myFirstModule** a bien été créé.
 
