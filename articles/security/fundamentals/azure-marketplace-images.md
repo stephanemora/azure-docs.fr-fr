@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: barclayn
 ms.openlocfilehash: b82cf957f4bd74cb2c63bfd5a7fe73899b395df6
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73795807"
 ---
 # <a name="security-recommendations-for-azure-marketplace-images"></a>Recommandations de sécurité pour les images Place de marché Microsoft Azure

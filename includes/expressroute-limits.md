@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 07/25/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 1fc63dc53d61a8b2e26f97cc09a359b3f2c7665c
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: d1402bcc0c46003429e1809e8d09e9662218cd82
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75901877"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80334752"
 ---
-| Ressource | Limite par défaut/maximale |
+| Ressource | Limite |
 | --- | --- |
 | Circuits ExpressRoute par abonnement |10 |
 | Circuits ExpressRoute par région par abonnement, avec Azure Resource Manager |10 |
@@ -28,7 +28,7 @@ ms.locfileid: "75901877"
 | Nombre maximal de circuits ExpressRoute liés au même réseau virtuel dans différents emplacements de peering |4 |
 | Nombre de liens de réseau virtuel autorisés par circuit ExpressRoute |Consultez le tableau [Nombre de réseaux virtuels par circuit ExpressRoute](#vnetpercircuit).  |
 
-#### <a name="vnetpercircuit"></a> Nombre de réseaux virtuels par circuit ExpressRoute
+#### <a name="number-of-virtual-networks-per-expressroute-circuit"></a><a name="vnetpercircuit"></a> Nombre de réseaux virtuels par circuit ExpressRoute
 | **Taille du circuit** | **Nombre de liens de réseau virtuel pour la version standard** | **Nombre de liens de réseau virtuel avec le module complémentaire Premium** |
 | --- | --- | --- |
 | 50 Mbits/s |10 |20 |

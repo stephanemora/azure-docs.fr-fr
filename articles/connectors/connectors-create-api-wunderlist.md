@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
 ms.openlocfilehash: 5ac13595bd77238aaede5fa3bdc3a35ef69e8504
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74789118"
 ---
 # <a name="monitor-and-manage-wunderlist-by-using-azure-logic-apps"></a>Superviser et gérer Wunderlist à l’aide d’Azure Logic Apps
@@ -60,7 +60,7 @@ Avec Azure Logic Apps et le connecteur Wunderlist, vous pouvez créer des tâche
      Cliquez sur le signe plus ( **+** ) qui s’affiche, puis sélectionnez **Ajouter une action**.
      
        Dans la zone de recherche, entrez « wunderlist » comme filtre. 
-       Sous la liste des actions, sélectionnez l’action souhaitée.
+       Dans la liste des actions, sélectionnez l’action souhaitée.
 
 1. Si vous êtes invité à vous connecter à Wunderlist, faites-le maintenant afin de pouvoir autoriser l’accès.
 

@@ -1,7 +1,7 @@
 ---
-title: 'Démarrage rapide : Créer un projet de classification d’images à l’aide du kit SDK Custom Vision pour Python'
+title: 'Guide de démarrage rapide : créer un projet de classification d’images à l’aide du kit de développement logiciel (SDK) Vision personnalisée pour Python'
 titleSuffix: Azure Cognitive Services
-description: Créez un projet, ajoutez des étiquettes, chargez des images, entraînez votre projet et faites une prédiction avec le kit SDK Python.
+description: Créez un projet, ajoutez des balises, chargez des images, effectuez l’apprentissage de votre projet ainsi qu’une prédiction avec le kit de développement logiciel (SDK) Python.
 services: cognitive-services
 author: areddish
 manager: nitinme
@@ -11,13 +11,13 @@ ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: areddish
 ms.openlocfilehash: ffb12af93e249b0b9bb510d3507a30e67d6cd19f
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76169125"
 ---
-# <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-python-sdk"></a>Démarrage rapide : Créer un projet de classification d’images à l’aide du kit SDK Custom Vision Python
+# <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-python-sdk"></a>Guide de démarrage rapide : créer un projet de classification d’images à l’aide du kit de développement logiciel (SDK) Vision personnalisée pour Python
 
 Cet article vous montre comment bien démarrer avec le SDK Vision par ordinateur et Python pour générer un modèle de classification d’images. Après la création du projet, vous pouvez ajouter des étiquettes, charger des images, entraîner le projet, obtenir l’URL du point de terminaison de prédiction publié du projet et utiliser ce point de terminaison pour tester programmatiquement une image. Utilisez cet exemple comme modèle pour générer votre propre application Python. Si vous voulez générer et utiliser un modèle de classification _sans_ code, consultez le [guide basé sur navigateur](getting-started-build-a-classifier.md).
 
@@ -69,9 +69,9 @@ print ("Creating project...")
 project = trainer.create_project("My New Project")
 ```
 
-### <a name="create-tags-in-the-project"></a>Créer des étiquettes dans un projet
+### <a name="create-tags-in-the-project"></a>Créer des balises dans un projet
 
-Pour créer des étiquettes de classification à votre projet, ajoutez le code suivant à la fin du fichier *sample.py* :
+Pour créer des balises de classification à votre projet, ajoutez le code suivant à la fin du fichier *sample.py* :
 
 ```Python
 # Make two tags in the new project
@@ -81,7 +81,7 @@ cherry_tag = trainer.create_tag(project.id, "Japanese Cherry")
 
 ### <a name="upload-and-tag-images"></a>Charger et étiqueter des images
 
-Pour ajouter les exemples d’images au projet, insérez le code suivant après la création de mots clés. Ce code charge chaque image avec l’étiquette correspondante. Vous pouvez charger jusqu’à 64 images dans un même lot.
+Pour ajouter les exemples d’images au projet, insérez le code suivant après la création de mots clés. Ce code charge chaque image avec la balise correspondante. Vous pouvez charger jusqu’à 64 images dans un même lot.
 
 > [!NOTE]
 > Vous devrez changer le chemin des images en fonction de l’emplacement à partir duquel vous avez téléchargé le dépôt d’exemples du kit SDK Python pour Cognitive Services.

@@ -4,10 +4,10 @@ description: Explique comment exécuter des applications de microservices de man
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.openlocfilehash: 6c40bf66d1068310790d1440174eeb5b2a571154
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75452255"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Sécurité des applications et des services Service Fabric
@@ -20,7 +20,7 @@ Cet article n’est pas un guide de sécurité des microservices (de tels guides
 ## <a name="authentication-and-authorization"></a>Authentification et autorisation
 Il est souvent nécessaire de limiter les ressources et les API exposées par un service à certains utilisateurs ou clients approuvés. L’authentification est le processus qui permet de vérifier de manière fiable l’identité d’un utilisateur.  L’autorisation est le processus qui permet aux seuls utilisateurs authentifiés d’accéder aux API et aux services disponibles.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Authentification
 L’authentification est la première chose à laquelle vous devez penser si vous devez décider d’une approbation au niveau des API. L’authentification est le processus qui permet de vérifier de manière fiable l’identité d’un utilisateur.  Dans les scénarios de microservices, l’authentification est généralement gérée de manière centralisée. Si vous utilisez une passerelle d’API, vous pouvez [déléguer l’authentification](/azure/architecture/patterns/gateway-offloading) à la passerelle. Si vous utilisez cette approche, vérifiez que les services ne sont pas accessibles directement (sans la passerelle API), sauf si une mesure de sécurité supplémentaire a été mise en place pour authentifier les messages, qu’ils proviennent ou non de la passerelle.
 
 Si les services sont accessibles directement, un service d’authentification, comme Azure Active Directory ou un microservice d’authentification dédié faisant office de service d’émission de jeton de sécurité (STS), peut être utilisé pour authentifier les utilisateurs. Les décisions d’approbation sont partagées entre les services à l’aide de jetons de sécurité ou de cookies. 

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e50e406e74c0b78f41830c4ea7c5b10830002ed3
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72886692"
 ---
 # <a name="simulating-risk-detections-in-identity-protection"></a>Simuler la détection des risques dans Identity Protection
@@ -95,11 +95,11 @@ Pour tester une stratégie de sécurité d’utilisateur à risque, suivez les �
 1. Accédez au [portail Azure](https://portal.azure.com).
 1. Accédez à **Azure Active Directory** > **Sécurité** > **Vue d’ensemble**.
 1. Sélectionnez **Configurer la stratégie d’utilisateur à risque**.
-   1. Sous **Affectations** :
-      1. **Utilisateurs** : choisissez **Tous les utilisateurs** ou **Sélectionner des individus et des groupes** si vous limitez votre lancement.
+   1. Sous **Affectations**
+      1. **Utilisateurs** : choisissez **Tous les utilisateurs** ou **Sélectionner des personnes et des groupes** si vous limitez votre lancement.
          1. Si vous le souhaitez, vous pouvez exclure des utilisateurs de la stratégie.
-      1. **Conditions** - **Risque utilisateur** : la recommandation de Microsoft consiste à définir cette option sur **Élevé**.
-   1. Sous **Contrôles** :
+      1. **Conditions** - **Risque utilisateur** : la recommandation de Microsoft consiste à définir cette option sur **Élevé**.
+   1. Sous **Contrôles**
       1. **Accès** : la recommandation de Microsoft consiste à **Autoriser l’accès** et à **Exiger la modification du mot de passe**.
    1. **Appliquer la stratégie** - **Désactivé**.
    1. **Enregistrer** : cette action a pour effet de renvoyer à la page **Vue d’ensemble**.
@@ -115,11 +115,11 @@ Pour tester une stratégie de connexion à risque, suivez les étapes ci-dessous
 1. Accédez au [portail Azure](https://portal.azure.com).
 1. Accédez à **Azure Active Directory** > **Sécurité** > **Vue d’ensemble**.
 1. Sélectionnez **Configurer la stratégie de connexion à risque**.
-   1. Sous **Affectations** :
-      1. **Utilisateurs** : choisissez **Tous les utilisateurs** ou **Sélectionner des individus et des groupes** si vous limitez votre lancement.
+   1. Sous **Affectations**
+      1. **Utilisateurs** : choisissez **Tous les utilisateurs** ou **Sélectionner des personnes et des groupes** si vous limitez votre lancement.
          1. Si vous le souhaitez, vous pouvez exclure des utilisateurs de la stratégie.
-      1. **Conditions** - **Risque connexion** : la recommandation de Microsoft consiste à définir cette option sur **Moyen ou plus**.
-   1. Sous **Contrôles** :
+      1. **Conditions** - **Risque connexion** : la recommandation de Microsoft consiste à définir cette option sur **Moyen ou plus**.
+   1. Sous **Contrôles**
       1. **Accès** : la recommandation de Microsoft consiste à **Autoriser l’accès** et à **Exiger l’authentification multifacteur**.
    1. **Appliquer la stratégie** - **Activé**
    1. **Enregistrer** : cette action a pour effet de renvoyer à la page **Vue d’ensemble**.

@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 02/09/2017
 ms.author: vlvinogr
 ms.openlocfilehash: ebf2cbd430339378a09d10d91ad61327d24842e4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75430629"
 ---
 # <a name="modify-the-content-and-layout-of-pages-on-the-developer-portal-in-azure-api-management"></a>Modifier le contenu et la disposition des pages dans le portail des développeurs dans Gestion des API Azure
@@ -30,7 +30,7 @@ Il existe trois manières principales pour personnaliser le portail des dévelop
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="page-structure"> </a>Structure des pages du portail des développeurs
+## <a name="structure-of-developer-portal-pages"></a><a name="page-structure"> </a>Structure des pages du portail des développeurs
 
 Le portail des développeurs s’appuie sur un système de gestion de contenu. La disposition de chaque page s’appuie sur un ensemble d’éléments de petite page appelés widgets :
 
@@ -42,7 +42,7 @@ Tous les widgets sont modifiables.
 
 Dans la modification de page standard, un utilisateur ne modifie en général que le widget Contenu qui contient un contenu différent pour chaque page.
 
-## <a name="modify-layout-widget"> </a>Modification du contenu d’un widget de mise en page
+## <a name="modifying-the-contents-of-a-layout-widget"></a><a name="modify-layout-widget"> </a>Modification du contenu d’un widget de mise en page
 
 La portail des développeurs est accessible depuis le portail Azure.
 
@@ -55,7 +55,7 @@ La portail des développeurs est accessible depuis le portail Azure.
 
 Vous devriez à présent pouvoir voir le nouvel en-tête sur chaque page du portail des développeurs.
 
-## <a name="next-steps"> </a>Étapes suivantes
+## <a name="next-steps"></a><a name="next-steps"> </a>Étapes suivantes
 * [Mettre à jour les styles utilisés pour les éléments de page dans le portail des développeurs][customize-styles]
 * [Modifier les modèles utilisés pour les pages générées par le portail][portal-templates] (par exemple, documents API, produits, authentification des utilisateurs, etc.)
 

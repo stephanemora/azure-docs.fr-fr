@@ -11,11 +11,11 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.openlocfilehash: fcaa7a0c44851d6b48b40b01af4c8ec992c330b8
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77602585"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79237025"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Configurer l’authentification pour des ressources et workflows Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -32,7 +32,7 @@ Ce guide pratique vous montre comment effectuer les tâches suivantes :
 
 Pour avoir une vue d’ensemble de la sécurité et de l’authentification dans Azure Machine Learning, consultez l’[article de présentation des concepts](concept-enterprise-security.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Créez un [espace de travail Azure Machine Learning](how-to-manage-workspace.md).
 * [Configurez votre environnement de développement](how-to-configure-environment.md) pour installer le SDK Azure Machine Learning ou utilisez une [machine virtuelle de notebooks Azure Machine Learning](concept-azure-machine-learning-architecture.md#compute-instance) avec le SDK déjà installé.
@@ -135,7 +135,7 @@ Cet appel ne génère pas de sortie, mais vous avez bien configuré l’authenti
 
 ## <a name="authenticate-to-your-workspace"></a>Authentification auprès de votre espace de travail
 
-Maintenant que l’authentification du principal de service est activée, vous pouvez vous authentifier auprès de votre espace de travail dans le SDK sans avoir à vous connecter physiquement en tant qu’utilisateur. Pour cela, utilisez le constructeur de classe `ServicePrincipalAuthentication` et définissez les paramètres aux valeurs que vous avez obtenues aux étapes précédentes. Les paramètres `tenant_id`, `service_principal_id` et `service_principal_password` sont respectivement mappés aux valeurs `tenantId`, `clientId`et `clientSecret` notées plus haut.
+Maintenant que l’authentification du principal de service est activée, vous pouvez vous authentifier auprès de votre espace de travail dans le SDK sans avoir à vous connecter physiquement en tant qu’utilisateur. Pour cela, utilisez le constructeur de classe `ServicePrincipalAuthentication` et définissez les paramètres aux valeurs que vous avez obtenues aux étapes précédentes. Les paramètres `tenant_id`, `tenantId` et `service_principal_id` sont respectivement mappés aux valeurs `clientId`, `service_principal_password`et `clientSecret` notées plus haut.
 
 ```python
 from azureml.core.authentication import ServicePrincipalAuthentication

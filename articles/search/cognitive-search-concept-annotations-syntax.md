@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: e27f61239c0631fb248217777a311b13ee48a3f9
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74113871"
 ---
 # <a name="how-to-reference-annotations-in-an-azure-cognitive-search-skillset"></a>Comment référencer des annotations dans un jeu de compétences Recherche cognitive Azure
@@ -31,7 +31,7 @@ Avant d’examiner la syntaxe, revenons sur quelques concepts importants pour mi
 | Contexte d’enrichissement | Contexte dans lequel l’enrichissement a lieu, déterminant l’élément qui est enrichi. Par défaut, le contexte d’enrichissement est au niveau `"/document"`, limité à des documents individuels. Quand une compétence est appliquée, ses résultats deviennent des [propriétés du contexte défini](#example-2).|
 
 <a name="example-1"></a>
-## <a name="example-1-simple-annotation-reference"></a>Exemple 1 : référencer une annotation simple
+## <a name="example-1-simple-annotation-reference"></a>Exemple 1 : référencer une annotation simple
 
 Dans un stockage d’objets blob Azure, supposons que vous ayez une variété de fichiers contenant des références à des noms de personnes que vous souhaitez extraire à l’aide d’une reconnaissance d’entité. Dans la définition de compétence ci-dessous, `"/document/content"` est la représentation textuelle du document entier, et « personnes » une extraction de noms complets d’entités identifiées en tant que personnes.
 
@@ -91,7 +91,7 @@ Lorsque les annotations sont des tableaux ou des collections de chaînes, vous p
 
 <a name="example-3"></a>
 
-## <a name="example-3-reference-members-within-an-array"></a>Exemple 3 : référencer des membres à l’intérieur d’un tableau
+## <a name="example-3-reference-members-within-an-array"></a>Exemple 3 : référencer des membres à l’intérieur d’un tableau
 
 Parfois, vous devez regrouper toutes les annotations d’un type particulier pour les transmettre à une compétence particulière. Imaginez une compétence personnalisée hypothétique qui identifie le nom de famille le plus courant parmi tous les noms de famille extraits dans l’Exemple 2. Pour fournir uniquement les noms de famille à la compétence personnalisée, spécifiez le contexte comme `"/document"` et l’entrée comme `"/document/people/*/lastname"`.
 
@@ -122,6 +122,6 @@ Notez que la cardinalité de `"/document/people/*/lastname"` est supérieure à 
 
 ## <a name="see-also"></a>Voir aussi
 + [Comment intégrer une compétence personnalisée dans un pipeline d’enrichissement](cognitive-search-custom-skill-interface.md)
-+ [Guide pratique pour définir un jeu de compétences](cognitive-search-defining-skillset.md)
++ [Guide pratique pour définir un ensemble de compétences](cognitive-search-defining-skillset.md)
 + [Créer un jeu de compétences (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 + [Guide pratique pour mapper des champs enrichis à un index](cognitive-search-output-field-mapping.md)

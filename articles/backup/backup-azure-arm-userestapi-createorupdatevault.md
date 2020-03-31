@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
 ms.openlocfilehash: 1901c35d2b4d8bcd02cc064fcfc844e19969e3b5
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74173416"
 ---
 # <a name="create-azure-recovery-services-vault-using-rest-api"></a>Créer des coffres Recovery Services à l’aide de l’API REST
@@ -29,8 +29,8 @@ Les en-têtes suivants sont requis :
 
 | En-tête de requête   | Description |
 |------------------|-----------------|
-| *Content-Type :*  | Requis. Défini sur `application/json`. |
-| *Authorization :* | Requis. Défini sur un [jeton d’accès](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients) `Bearer` valide. |
+| *Content-Type :*  | Obligatoire. Défini sur `application/json`. |
+| *Authorization :* | Obligatoire. Défini sur un [jeton d’accès](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients) `Bearer` valide. |
 
 Pour plus d’informations sur la création de la demande, consultez [Components of a REST API request/response](/rest/api/azure/#components-of-a-rest-api-requestresponse) (Composants d’une demande/réponse de l’API REST).
 
@@ -40,8 +40,8 @@ Les définitions courantes suivantes permettent de générer un corps de demande
 
 |Nom  |Obligatoire  |Type  |Description  |
 |---------|---------|---------|---------|
-|eTag     |         |   Chaîne      |  eTag facultatif       |
-|location     |  true       |Chaîne         |   Emplacement des ressources      |
+|eTag     |         |   String      |  eTag facultatif       |
+|location     |  true       |String         |   Emplacement de la ressource      |
 |properties     |         | [VaultProperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Propriétés du coffre       |
 |sku     |         |  [Sku](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#sku)       |    Identifie l’identificateur système unique de chaque ressource Azure.     |
 |tags     |         | Object        |     Balises de ressource    |
@@ -66,7 +66,7 @@ Le corps de l’exemple suivant est utilisé pour créer un coffre dans la régi
 
 Il existe deux réponses de réussite pour l’opération de création ou de mise à jour d’un coffre Recovery Services :
 
-|Nom  |type  |Description  |
+|Nom  |Type  |Description  |
 |---------|---------|---------|
 |200 OK     |   [Coffre](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vault)      | OK        |
 |201 Créé     | [Coffre](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vault)        |   Date de création      |

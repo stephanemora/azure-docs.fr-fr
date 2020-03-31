@@ -3,8 +3,8 @@ title: 'Tutoriel : Migrer MySQL en ligne vers Azure Database pour MySQL'
 titleSuffix: Azure Database Migration Service
 description: Découvrez comment effectuer la migration en ligne d’une instance locale de MySQL vers Azure Database pour MySQL, à l’aide d’Azure Database Migration Service.
 services: dms
-author: pochiraju
-ms.author: rajpo
+author: HJToland3
+ms.author: jtoland
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: 50787a5bbfdc9baddfa4307247e8b505be6e3003
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: 7c8087a01bb71657e816be89b6a562dd4783b271
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78273237"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240738"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>Tutoriel : Migration de MySQL vers Azure Database pour MySQL en ligne à l’aide de DMS
 

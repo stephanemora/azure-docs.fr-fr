@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/17/2019
 ms.author: kumud
-ms.openlocfilehash: f182ecc88f6b3362df4f3476a889fe15fb8e22e9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fa895a294e26b6c74ab72afa3136feac2b2ec986
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75368383"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240248"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-in-azure-virtual-network---cli-preview"></a>Déployer une application double pile IPv6 dans un réseau virtuel Azure - CLI (préversion)
 
@@ -40,17 +40,20 @@ Pour utiliser la fonctionnalité IPv6 pour un réseau virtuel Azure, vous devez 
 az feature register --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
 az feature register --name AllowIPv6CAOnStandardLB --namespace Microsoft.Network
 ```
+
 Il faut compter 30 minutes pour l’inscription de la fonctionnalité. Vous pouvez vérifier l’état de votre enregistrement en exécutant la commande Azure CLI suivante :
 
-```azurelci
+```azurecli
 az feature show --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
 az feature show --name AllowIPv6CAOnStandardLB --namespace Microsoft.Network
 ```
+
 À l’issue de l’installation, exécutez la commande suivante :
 
-```azurelci
+```azurecli
 az provider register --namespace Microsoft.Network
 ```
+
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
 Avant de pouvoir créer un réseau virtuel double pile, vous devez créer un groupe de ressources avec [az group create](/cli/azure/group). L’exemple suivant crée un groupe de ressources nommé *DsResourceGroup01* à l’emplacement *eastus* :
@@ -156,6 +159,7 @@ Créez une sonde d’intégrité à l’aide de la commande [az network lb probe
 ```azurecli
 az network lb probe create -g DsResourceGroup01  --lb-name dsLB -n dsProbe --protocol tcp --port 3389
 ```
+
 ### <a name="create-a-load-balancer-rule"></a>Créer une règle d’équilibreur de charge
 
 Une règle d’équilibrage de charge est utilisée pour définir la distribution du trafic vers les machines virtuelles. Vous définissez la configuration IP frontale pour le trafic entrant et le pool d’adresses IP principal pour recevoir le trafic, ainsi que le port source et le port de destination requis. 
@@ -362,6 +366,7 @@ Créez la machine virtuelle *dsVM0* comme suit :
 --availability-set dsAVset \
 --image MicrosoftWindowsServer:WindowsServer:2019-Datacenter:latest  
 ```
+
 Créez la machine virtuelle *dsVM1* comme suit :
 
 ```azurecli

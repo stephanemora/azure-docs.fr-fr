@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: scottwhi
 ms.openlocfilehash: a6d394fec6e7cf0a230f61ad05c236a1f84dad9d
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68854009"
 ---
 # <a name="using-decoration-markers-to-highlight-text"></a>Utilisation de marqueurs d’ornement pour mettre en surbrillance un texte
@@ -43,7 +43,7 @@ Bing vous offre la possibilité d’utiliser des caractères Unicode ou des bali
 
 ## <a name="additional-text-decorations"></a>Autres ornements de texte
 
-Bing peut retourner plusieurs ornements de texte différents. Par exemple, le champ `expression` d’une réponse `Computation` peut contenir des marqueurs d’indice pour le terme de requête `log(2)`.
+Bing peut retourner plusieurs ornements de texte différents. Par exemple, le champ `Computation` d’une réponse `log(2)` peut contenir des marqueurs d’indice pour le terme de requête `expression`.
 
 ![marqueurs de calcul](./media/cognitive-services-bing-web-api/bing-markers-computation.png) 
 

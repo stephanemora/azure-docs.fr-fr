@@ -4,10 +4,10 @@ description: Informations de référence pour le fichier YAML pris en charge par
 ms.topic: article
 ms.date: 08/12/2019
 ms.openlocfilehash: 8497330a327201c4c64e9f7ae57e6fc4225b52de
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74896567"
 ---
 # <a name="yaml-reference-azure-container-instances"></a>Informations de référence YAML : Azure Container Instances
@@ -19,7 +19,7 @@ Un fichier YAML est un moyen pratique de configurer un groupe de conteneurs pour
 > [!NOTE]
 > Ces informations de référence s’appliquent aux fichiers YAML pour l’API REST Azure Container Instances version `2018-10-01`.
 
-## <a name="schema"></a>Schéma 
+## <a name="schema"></a>schéma 
 
 Le schéma du fichier YAML vous est présenté ci-dessous. Il comporte des commentaires pour mettre en avant les principales propriétés. Pour obtenir une description des propriétés de ce schéma, consultez la section [Valeurs de propriétés](#property-values).
 
@@ -139,12 +139,12 @@ Les tableaux suivants décrivent les valeurs que vous devez définir dans le sch
 
 |  Nom | Type | Obligatoire | Valeur |
 |  ---- | ---- | ---- | ---- |
-|  Nom | string | OUI | Nom du groupe de conteneurs. |
-|  apiVersion | enum | OUI | 2018-10-01 |
+|  name | string | Oui | Nom du groupe de conteneurs. |
+|  apiVersion | enum | Oui | 2018-10-01 |
 |  location | string | Non | Emplacement de la ressource. |
 |  tags | object | Non | Étiquettes de la ressource. |
 |  identité | object | Non | Identité du groupe de conteneurs, si elle est configurée. - [Objet ContainerGroupIdentity](#ContainerGroupIdentity) |
-|  properties | object | OUI | [Objet ContainerGroupProperties](#ContainerGroupProperties) |
+|  properties | object | Oui | [Objet ContainerGroupProperties](#ContainerGroupProperties) |
 
 
 <a id="ContainerGroupIdentity" />
@@ -153,7 +153,7 @@ Les tableaux suivants décrivent les valeurs que vous devez définir dans le sch
 
 |  Nom | Type | Obligatoire | Valeur |
 |  ---- | ---- | ---- | ---- |
-|  Type | enum | Non | Type d’identité utilisé pour le groupe de conteneurs. Le type « SystemAssigned, UserAssigned » comprend à la fois une identité créée implicitement et un ensemble d’identités attribuées par l’utilisateur. Le type « None » supprime les identités du groupe de conteneurs. - SystemAssigned, UserAssigned, SystemAssigned, UserAssigned, None |
+|  type | enum | Non | Type d’identité utilisé pour le groupe de conteneurs. Le type « SystemAssigned, UserAssigned » comprend à la fois une identité créée implicitement et un ensemble d’identités attribuées par l’utilisateur. Le type « None » supprime les identités du groupe de conteneurs. - SystemAssigned, UserAssigned, SystemAssigned, UserAssigned, None |
 |  userAssignedIdentities | object | Non | Liste d’identités utilisateur associées au groupe de conteneurs. Les références clés du dictionnaire d’identités utilisateur seront les ID de ressource Azure Resource Manager sous la forme : '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'. |
 
 
@@ -163,12 +163,12 @@ Les tableaux suivants décrivent les valeurs que vous devez définir dans le sch
 
 |  Nom | Type | Obligatoire | Valeur |
 |  ---- | ---- | ---- | ---- |
-|  containers | array | OUI | Conteneurs présents dans le groupe de conteneurs. - [Objet Container](#Container) |
-|  imageRegistryCredentials | array | Non | Informations d’identification du registre d’images à partir desquelles le groupe de conteneurs est créé. - [Objet ImageRegistryCredential](#ImageRegistryCredential) |
+|  containers | tableau | Oui | Conteneurs présents dans le groupe de conteneurs. - [Objet Container](#Container) |
+|  imageRegistryCredentials | tableau | Non | Informations d’identification du registre d’images à partir desquelles le groupe de conteneurs est créé. - [Objet ImageRegistryCredential](#ImageRegistryCredential) |
 |  restartPolicy | enum | Non | Stratégie de redémarrage pour tous les conteneurs présents dans le groupe de conteneurs. - `Always` Toujours redémarrer – `OnFailure` Redémarrer en cas d’échec – `Never` Ne jamais redémarrer. - Always, OnFailure, Never |
 |  ipAddress | object | Non | Type d’adresse IP du groupe de conteneurs. - [Objet IpAddress](#IpAddress) |
-|  osType | enum | OUI | Type de système d’exploitation exigé par les conteneurs présents dans le groupe de conteneurs. - Windows ou Linux |
-|  volumes | array | Non | Liste des volumes qui peuvent être montés par les conteneurs présents dans ce groupe de conteneurs. - [Objet Volume](#Volume) |
+|  osType | enum | Oui | Type de système d’exploitation exigé par les conteneurs présents dans le groupe de conteneurs. - Windows ou Linux |
+|  volumes | tableau | Non | Liste des volumes qui peuvent être montés par les conteneurs présents dans ce groupe de conteneurs. - [Objet Volume](#Volume) |
 |  diagnostics | object | Non | Informations de diagnostic pour un groupe de conteneurs. - [Objet ContainerGroupDiagnostics](#ContainerGroupDiagnostics) |
 |  networkProfile | object | Non | Informations de profil réseau pour un groupe de conteneurs. - [Objet ContainerGroupNetworkProfile](#ContainerGroupNetworkProfile) |
 |  dnsConfig | object | Non | Informations de configuration DNS pour un groupe de conteneurs. - [Objet DnsConfiguration](#DnsConfiguration) |
@@ -180,8 +180,8 @@ Les tableaux suivants décrivent les valeurs que vous devez définir dans le sch
 
 |  Nom | Type | Obligatoire | Valeur |
 |  ---- | ---- | ---- | ---- |
-|  Nom | string | OUI | Nom fourni par l’utilisateur de l’instance de conteneur. |
-|  properties | object | OUI | Propriétés de l’instance de conteneur. - [Objet ContainerProperties](#ContainerProperties) |
+|  name | string | Oui | Nom fourni par l’utilisateur de l’instance de conteneur. |
+|  properties | object | Oui | Propriétés de l’instance de conteneur. - [Objet ContainerProperties](#ContainerProperties) |
 
 
 <a id="ImageRegistryCredential" />
@@ -190,9 +190,9 @@ Les tableaux suivants décrivent les valeurs que vous devez définir dans le sch
 
 |  Nom | Type | Obligatoire | Valeur |
 |  ---- | ---- | ---- | ---- |
-|  server | string | OUI | Serveur de registre d’images Docker sans protocole comme « http » ou « https ». |
-|  username | string | OUI | Nom d’utilisateur du registre privé. |
-|  password | string | Non | Mot de passe du registre privé. |
+|  server | string | Oui | Serveur de registre d’images Docker sans protocole comme « http » ou « https ». |
+|  username | string | Oui | Nom d’utilisateur du registre privé. |
+|  mot de passe | string | Non | Mot de passe du registre privé. |
 
 
 <a id="IpAddress" />
@@ -201,8 +201,8 @@ Les tableaux suivants décrivent les valeurs que vous devez définir dans le sch
 
 |  Nom | Type | Obligatoire | Valeur |
 |  ---- | ---- | ---- | ---- |
-|  ports | array | OUI | Liste des ports exposés dans le groupe de conteneurs. - [Objet Port](#Port) |
-|  Type | enum | OUI | Indique si l’adresse IP est exposée à l’Internet public ou à un réseau virtuel privé. - Public ou Private |
+|  ports | tableau | Oui | Liste des ports exposés dans le groupe de conteneurs. - [Objet Port](#Port) |
+|  type | enum | Oui | Indique si l’adresse IP est exposée à l’Internet public ou à un réseau virtuel privé. - Public ou Private |
 |  ip | string | Non | Adresse IP exposée à l’Internet public. |
 |  dnsNameLabel | string | Non | Étiquette du nom DNS de l’adresse IP. |
 
@@ -213,7 +213,7 @@ Les tableaux suivants décrivent les valeurs que vous devez définir dans le sch
 
 |  Nom | Type | Obligatoire | Valeur |
 |  ---- | ---- | ---- | ---- |
-|  Nom | string | OUI | Nom du volume. |
+|  name | string | Oui | Nom du volume. |
 |  azureFile | object | Non | Volume de fichier Azure. - [Objet AzureFileVolume](#AzureFileVolume) |
 |  emptyDir | object | Non | Volume de répertoire vide. |
 |  secret | object | Non | Volume de secret. |
@@ -235,7 +235,7 @@ Les tableaux suivants décrivent les valeurs que vous devez définir dans le sch
 
 |  Nom | Type | Obligatoire | Valeur |
 |  ---- | ---- | ---- | ---- |
-|  id | string | OUI | Identificateur d’un profil réseau. |
+|  id | string | Oui | Identificateur d’un profil réseau. |
 
 
 <a id="DnsConfiguration" />
@@ -244,7 +244,7 @@ Les tableaux suivants décrivent les valeurs que vous devez définir dans le sch
 
 |  Nom | Type | Obligatoire | Valeur |
 |  ---- | ---- | ---- | ---- |
-|  nameServers | array | OUI | Serveurs DNS du groupe de conteneurs. - string |
+|  nameServers | tableau | Oui | Serveurs DNS du groupe de conteneurs. - string |
 |  searchDomains | string | Non | Domaines de recherche DNS pour la recherche de nom d’hôte dans le groupe de conteneurs. |
 |  options | string | Non | Options DNS du groupe de conteneurs. |
 
@@ -255,12 +255,12 @@ Les tableaux suivants décrivent les valeurs que vous devez définir dans le sch
 
 |  Nom | Type | Obligatoire | Valeur |
 |  ---- | ---- | ---- | ---- |
-|  image | string | OUI | Nom de l’image utilisée pour créer l’instance de conteneur. |
-|  command | array | Non | Commandes à exécuter dans l’instance de conteneur dans l’exec form. - string |
-|  ports | array | Non | Port exposé dans l’instance de conteneur. - [Objet ContainerPort](#ContainerPort) |
-|  environmentVariables | array | Non | Variable d’environnement à définir dans l’instance de conteneur. - [Objet EnvironmentVariable](#EnvironmentVariable) |
-|  les ressources | object | OUI | Besoins en ressources de l’instance de conteneur. - [Objet ResourceRequirements](#ResourceRequirements) |
-|  volumeMounts | array | Non | Montages de volume accessibles à l’instance de conteneur. - [Objet VolumeMount](#VolumeMount) |
+|  image | string | Oui | Nom de l’image utilisée pour créer l’instance de conteneur. |
+|  command | tableau | Non | Commandes à exécuter dans l’instance de conteneur dans l’exec form. - string |
+|  ports | tableau | Non | Port exposé dans l’instance de conteneur. - [Objet ContainerPort](#ContainerPort) |
+|  environmentVariables | tableau | Non | Variable d’environnement à définir dans l’instance de conteneur. - [Objet EnvironmentVariable](#EnvironmentVariable) |
+|  les ressources | object | Oui | Besoins en ressources de l’instance de conteneur. - [Objet ResourceRequirements](#ResourceRequirements) |
+|  volumeMounts | tableau | Non | Montages de volume accessibles à l’instance de conteneur. - [Objet VolumeMount](#VolumeMount) |
 |  livenessProbe | object | Non | Probe liveness. - [Objet ContainerProbe](#ContainerProbe) |
 |  readinessProbe | object | Non | Probe readiness. - [Objet ContainerProbe](#ContainerProbe) |
 
@@ -272,7 +272,7 @@ Les tableaux suivants décrivent les valeurs que vous devez définir dans le sch
 |  Nom | Type | Obligatoire | Valeur |
 |  ---- | ---- | ---- | ---- |
 |  protocol | enum | Non | Protocole associé au port. - TCP ou UDP |
-|  port | integer | OUI | Numéro de port. |
+|  port | entier | Oui | Numéro de port. |
 
 
 <a id="AzureFileVolume" />
@@ -281,9 +281,9 @@ Les tableaux suivants décrivent les valeurs que vous devez définir dans le sch
 
 |  Nom | Type | Obligatoire | Valeur |
 |  ---- | ---- | ---- | ---- |
-|  shareName | string | OUI | Nom du partage de fichiers Azure à monter en tant que volume. |
+|  shareName | string | Oui | Nom du partage de fichiers Azure à monter en tant que volume. |
 |  readOnly | boolean | Non | Indicateur précisant si le partage de fichiers Azure monté en tant que volume est en lecture seule. |
-|  storageAccountName | string | OUI | Nom du compte de stockage qui contient le partage de fichiers Azure. |
+|  storageAccountName | string | Oui | Nom du compte de stockage qui contient le partage de fichiers Azure. |
 |  storageAccountKey | string | Non | Clé d’accès du compte de stockage utilisée pour accéder au partage de fichiers Azure. |
 
 
@@ -293,8 +293,8 @@ Les tableaux suivants décrivent les valeurs que vous devez définir dans le sch
 
 |  Nom | Type | Obligatoire | Valeur |
 |  ---- | ---- | ---- | ---- |
-|  Répertoire | string | Non | Nom du répertoire cible. Ne doit pas contenir ou commencer par « .. ».  Si « . » est spécifié, le répertoire du volume est le dépôt git.  Sinon, s’il est spécifié, le volume contient le dépôt git dans le sous-répertoire avec le nom donné. |
-|  repository | string | OUI | URL du dépôt |
+|  directory | string | Non | Nom du répertoire cible. Ne doit pas contenir ou commencer par « .. ».  Si « . » est spécifié, le répertoire du volume est le dépôt git.  Sinon, s’il est spécifié, le volume contient le dépôt git dans le sous-répertoire avec le nom donné. |
+|  repository | string | Oui | URL du dépôt |
 |  revision | string | Non | Hachage de validation pour la révision spécifiée. |
 
 
@@ -304,8 +304,8 @@ Les tableaux suivants décrivent les valeurs que vous devez définir dans le sch
 
 |  Nom | Type | Obligatoire | Valeur |
 |  ---- | ---- | ---- | ---- |
-|  workspaceId | string | OUI | ID d’espace de travail pour l’analytique des journaux. |
-|  workspaceKey | string | OUI | Clé d’espace de travail pour l’analytique des journaux. |
+|  workspaceId | string | Oui | ID d’espace de travail pour l’analytique des journaux. |
+|  workspaceKey | string | Oui | Clé d’espace de travail pour l’analytique des journaux. |
 |  logType | enum | Non | Type de journal à utiliser. - ContainerInsights ou ContainerInstanceLogs |
 |  metadata | object | Non | Métadonnées pour l’analytique des journaux. |
 
@@ -317,7 +317,7 @@ Les tableaux suivants décrivent les valeurs que vous devez définir dans le sch
 |  Nom | Type | Obligatoire | Valeur |
 |  ---- | ---- | ---- | ---- |
 |  protocol | enum | Non | Protocole associé au port. - TCP ou UDP |
-|  port | integer | OUI | Numéro de port exposé dans le groupe de conteneurs. |
+|  port | entier | Oui | Numéro de port exposé dans le groupe de conteneurs. |
 
 
 <a id="EnvironmentVariable" />
@@ -326,7 +326,7 @@ Les tableaux suivants décrivent les valeurs que vous devez définir dans le sch
 
 |  Nom | Type | Obligatoire | Valeur |
 |  ---- | ---- | ---- | ---- |
-|  Nom | string | OUI | Nom de la variable d’environnement. |
+|  name | string | Oui | Nom de la variable d’environnement. |
 |  value | string | Non | Valeur de la variable d’environnement. |
 |  secureValue | string | Non | Valeur de la variable d’environnement sécurisée. |
 
@@ -337,7 +337,7 @@ Les tableaux suivants décrivent les valeurs que vous devez définir dans le sch
 
 |  Nom | Type | Obligatoire | Valeur |
 |  ---- | ---- | ---- | ---- |
-|  requêtes | object | OUI | Demandes en ressources de cette instance de conteneur. - [Objet ResourceRequests](#ResourceRequests) |
+|  requêtes | object | Oui | Demandes en ressources de cette instance de conteneur. - [Objet ResourceRequests](#ResourceRequests) |
 |  limites | object | Non | Limites en ressources de cette instance de conteneur. - [Objet ResourceLimits](#ResourceLimits) |
 
 
@@ -347,8 +347,8 @@ Les tableaux suivants décrivent les valeurs que vous devez définir dans le sch
 
 |  Nom | Type | Obligatoire | Valeur |
 |  ---- | ---- | ---- | ---- |
-|  Nom | string | OUI | Nom du montage de volume. |
-|  mountPath | string | OUI | Chemin de l’emplacement dans le conteneur où le volume doit être monté. Ne doit pas contenir de signe deux-points (:). |
+|  name | string | Oui | Nom du montage de volume. |
+|  mountPath | string | Oui | Chemin de l’emplacement dans le conteneur où le volume doit être monté. Ne doit pas contenir de signe deux-points (:). |
 |  readOnly | boolean | Non | Indicateur précisant si le montage du volume est en lecture seule. |
 
 
@@ -360,11 +360,11 @@ Les tableaux suivants décrivent les valeurs que vous devez définir dans le sch
 |  ---- | ---- | ---- | ---- |
 |  exec | object | Non | Commande d’exécution à sonder – [Objet ContainerExec](#ContainerExec) |
 |  httpGet | object | Non | Paramètres Http Get à sonder – [Objet ContainerHttpGet](#ContainerHttpGet) |
-|  initialDelaySeconds | integer | Non | Retard initial en secondes. |
-|  periodSeconds | integer | Non | Période en secondes. |
-|  failureThreshold | integer | Non | Seuil de défaillance. |
-|  successThreshold | integer | Non | Seuil de réussite. |
-|  timeoutSeconds | integer | Non | Délai d’attente en secondes. |
+|  initialDelaySeconds | entier | Non | Retard initial en secondes. |
+|  periodSeconds | entier | Non | Période en secondes. |
+|  failureThreshold | entier | Non | Seuil de défaillance. |
+|  successThreshold | entier | Non | Seuil de réussite. |
+|  timeoutSeconds | entier | Non | Délai d’attente en secondes. |
 
 
 <a id="ResourceRequests" />
@@ -373,8 +373,8 @@ Les tableaux suivants décrivent les valeurs que vous devez définir dans le sch
 
 |  Nom | Type | Obligatoire | Valeur |
 |  ---- | ---- | ---- | ---- |
-|  memoryInGB | number | OUI | Demande de mémoire en Go de cette instance de conteneur. |
-|  cpu | number | OUI | Demande de processeur de cette instance de conteneur. |
+|  memoryInGB | nombre | Oui | Demande de mémoire en Go de cette instance de conteneur. |
+|  cpu | nombre | Oui | Demande de processeur de cette instance de conteneur. |
 |  gpu | object | Non | Demande GPU de cette instance de conteneur. - [Objet GpuResource](#GpuResource) |
 
 
@@ -384,8 +384,8 @@ Les tableaux suivants décrivent les valeurs que vous devez définir dans le sch
 
 |  Nom | Type | Obligatoire | Valeur |
 |  ---- | ---- | ---- | ---- |
-|  memoryInGB | number | Non | Limite de mémoire en Go de cette instance de conteneur. |
-|  cpu | number | Non | Limite processeur de cette instance de conteneur. |
+|  memoryInGB | nombre | Non | Limite de mémoire en Go de cette instance de conteneur. |
+|  cpu | nombre | Non | Limite processeur de cette instance de conteneur. |
 |  gpu | object | Non | Limite GPU de cette instance de conteneur. - [Objet GpuResource](#GpuResource) |
 
 
@@ -395,7 +395,7 @@ Les tableaux suivants décrivent les valeurs que vous devez définir dans le sch
 
 |  Nom | Type | Obligatoire | Valeur |
 |  ---- | ---- | ---- | ---- |
-|  command | array | Non | Commandes à exécuter dans le conteneur. - string |
+|  command | tableau | Non | Commandes à exécuter dans le conteneur. - string |
 
 
 <a id="ContainerHttpGet" />
@@ -405,7 +405,7 @@ Les tableaux suivants décrivent les valeurs que vous devez définir dans le sch
 |  Nom | Type | Obligatoire | Valeur |
 |  ---- | ---- | ---- | ---- |
 |  path | string | Non | Chemin de la sonde. |
-|  port | integer | OUI | Numéro de port vers la sonde. |
+|  port | entier | Oui | Numéro de port vers la sonde. |
 |  scheme | enum | Non | Schéma. - http ou https |
 
 
@@ -415,8 +415,8 @@ Les tableaux suivants décrivent les valeurs que vous devez définir dans le sch
 
 |  Nom | Type | Obligatoire | Valeur |
 |  ---- | ---- | ---- | ---- |
-|  count | integer | OUI | Nombre de la ressource GPU. |
-|  sku | enum | OUI | Référence SKU de la ressource GPU. - K80, P100, V100 |
+|  count | entier | Oui | Nombre de la ressource GPU. |
+|  sku | enum | Oui | Référence SKU de la ressource GPU. - K80, P100, V100 |
 
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -1,7 +1,7 @@
 ---
 title: Afficher les résultats de la recherche sur une carte | Microsoft Azure Maps
 description: Dans cet article, vous apprendrez à effectuer une demande de recherche à l’aide du Kit de développement logiciel (SDK) web Microsoft Azure Maps et à afficher les résultats sur la carte.
-author: jingjing-z
+author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 07/29/2019
 ms.topic: conceptual
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 13daf20e364b1e629b3ae13be2c9406da3702211
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: e82a1daee381c7bad19c83fa735d0028bef2010e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209645"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80371394"
 ---
 # <a name="show-search-results-on-the-map"></a>Afficher les résultats de recherche sur la carte
 
@@ -59,6 +59,9 @@ La demande de recherche, la source de données, la couche de symboles et les lim
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+> [!div class="nextstepaction"]
+> [Meilleures pratiques pour l'utilisation du service de recherche](how-to-use-best-practices-for-search.md)
+
 En savoir plus sur **Recherche approximative** :
 
 > [!div class="nextstepaction"]
@@ -72,7 +75,7 @@ En savoir plus sur les classes et les méthodes utilisées dans cet article :
 Pour voir des exemples de codes complets, consultez les articles suivants :
 
 > [!div class="nextstepaction"]
-> [Obtenir des informations à partir d’une coordonnée](./map-get-information-from-coordinate.md)
+> [Obtenir des informations à partir d’une coordonnée](map-get-information-from-coordinate.md)
 <!-- Comment added to suppress false positive warning -->
 > [!div class="nextstepaction"]
-> [Afficher des directions de A à B](./map-route.md)
+> [Afficher des directions de A à B](map-route.md)

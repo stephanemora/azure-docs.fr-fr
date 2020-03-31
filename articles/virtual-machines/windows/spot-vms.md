@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 11/20/2019
 ms.author: cynthn
 ms.openlocfilehash: 4acbab324c63cf0184f5384e6af5e9418ca06677
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74781881"
 ---
 # <a name="preview-use-spot-vms-in-azure"></a>Aperçu : Utiliser des machines virtuelles Spot dans Azure

@@ -3,18 +3,18 @@ title: Mode rafale des disques managés
 description: Découvrez ce qu’est le mode rafale des disques et comment l’utiliser avec des disques SSD Azure Premium.
 author: roygara
 ms.author: rogarana
-ms.date: 10/22/2019
+ms.date: 03/28/2019
 ms.topic: conceptual
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: a5b8fe6f37e4320dd2a8de15b928dbdec51d4b1d
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: add6f43ff97b60b32be76fa72ddb30d0dd026991
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74705506"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80385229"
 ---
-# <a name="premium-ssd-bursting-preview"></a>Mode rafale SSD Premium (préversion)
+# <a name="premium-ssd-bursting"></a>Mode rafale SSD Premium
 
 [!INCLUDE [managed-disks-bursting](../../../includes/managed-disks-bursting.md)]
 

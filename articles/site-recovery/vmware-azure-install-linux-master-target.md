@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
 ms.openlocfilehash: 5b4d625d28584bb601905e9439c112c845219e54
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73954376"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Installer un serveur cible maître Linux pour la restauration automatique
@@ -24,7 +24,7 @@ Si votre machine virtuelle protégée est de type Windows, vous avez besoin d’
 > À partir de la version 9.10.0, le serveur cible maître le plus récent ne peut être installé que sur un serveur Ubuntu 16.04. Les nouvelles installations ne sont pas autorisées sur les serveurs de CentOS6.6. Toutefois, vous pouvez continuer la mise à niveau de vos anciens serveurs cible maître à l’aide de la version 9.10.0.
 > Un serveur cible maître sur une machine virtuelle Linux n’est pas pris en charge.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Cet article fournit la marche à suivre pour installer un serveur cible maître Linux.
 
 Publiez vos commentaires ou vos questions en bas de cet article ou sur le [Forum Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
@@ -278,7 +278,7 @@ Pour créer un disque de rétention, procédez comme suit :
 
     `echo <passphrase> >passphrase.txt`
 
-    Exemple : 
+    Exemple : 
 
        `echo itUx70I47uxDuUVY >passphrase.txt`
     
@@ -289,7 +289,7 @@ Pour créer un disque de rétention, procédez comme suit :
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
     ```
 
-    Exemple : 
+    Exemple : 
     
     ```
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 104.40.75.37 -P passphrase.txt
@@ -320,7 +320,7 @@ Une fois l’installation terminée, inscrivez le serveur de configuration à l�
     ./install -q -d /usr/local/ASR -r MT -v VmWare
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
     ```
-    Exemple : 
+    Exemple : 
 
     ```
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 104.40.75.37 -P passphrase.txt

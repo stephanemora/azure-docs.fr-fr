@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 09/09/2019
 ms.author: raynew
 ms.openlocfilehash: 0b0942b517c8dc83c048bd1203a58d9861515dfb
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73663044"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228985"
 ---
 # <a name="configuration-server-requirements-for-vmware-disaster-recovery-to-azure"></a>Exigences du serveur de configuration pour la récupération d’urgence de VMware sur Azure
 

@@ -4,11 +4,11 @@ description: Cet article explique comment configurer la supervision d’un clust
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.openlocfilehash: c2fd3568be2c51296bb1377e91031ebfb7ca6ee3
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250694"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79234557"
 ---
 # <a name="configure-azure-red-hat-openshift-clusters-with-azure-monitor-for-containers"></a>Configurer des clusters Azure Red Hat OpenShift avec Azure Monitor pour les conteneurs
 
@@ -30,7 +30,7 @@ Azure Monitor pour conteneurs prend en charge la surveillance d’Azure Red Hat 
 - Données actives (préversion)
 - [Collecter les métriques](container-insights-update-metrics.md) à partir des nœuds de cluster et des Pod, et les stocker dans la base de données de métriques Azure Monitor
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Pour activer et accéder aux fonctionnalités d’Azure Monitor pour les conteneurs, vous devez au minimum être membre du rôle Azure *Contributeur* dans l’abonnement Azure et membre du rôle [*Contributeur Log Analytics*](../platform/manage-access.md#manage-access-using-azure-permissions) de l’espace de travail Log Analytics configuré avec Azure Monitor pour les conteneurs.
 

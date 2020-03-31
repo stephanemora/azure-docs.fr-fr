@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2019
 ms.openlocfilehash: 599b54f8a5d97ee5ed29ce4df16980f456ffb919
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74914582"
 ---
 # <a name="install-paid-or-licensed-custom-components-for-the-azure-ssis-integration-runtime"></a>Installer des composants personnalisés payants, ou sous licence, pour le runtime d’intégration Azure-SSIS
@@ -32,7 +32,7 @@ La nature du runtime d’intégration Azure-SSIS présente plusieurs difficulté
 
 ## <a name="the-solution"></a>La solution
 
-En raison des limitations des méthodes traditionnelles de gestion des licences décrites dans la section précédente, l’IR Azure-SSIS fournit une nouvelle solution. Cette solution utilise les variables d’environnement Windows et du système SSIS dédiés à la liaison et la validation des licences pour les composants tiers. Les éditeurs de logiciels indépendants peuvent utiliser ces variables pour obtenir des données uniques et persistantes associées à un runtime d’intégration Azure-SSIS, comme l’ID de cluster et le nombre de nœuds de cluster. Avec ces informations, les éditeurs de logiciels indépendants peuvent lier la licence de leur composant à un IR Azure-SSIS *en tant que cluster*. Cette liaison utilise un ID qui ne change pas lorsque les clients démarrent ou arrêtent, mettent à l’échelle vers le haut ou vers le bas, diminuent ou augmentent la taille des instances, ou reconfigurent l’IR Azure-SSIS.
+En raison des limitations des méthodes traditionnelles de gestion des licences décrites dans la section précédente, l’IR Azure-SSIS fournit une nouvelle solution. Cette solution utilise les variables d’environnement Windows et du système SSIS dédiés à la liaison et la validation des licences pour les composants tiers. Les éditeurs de logiciels indépendants peuvent utiliser ces variables pour obtenir des données uniques et persistantes associées à un runtime d’intégration Azure-SSIS, comme l’ID de cluster et le nombre de nœuds de cluster. Avec ces informations, les éditeurs de logiciels indépendants peuvent lier la licence de leur composant à un IR Azure-SSIS *en tant que cluster*. Cette liaison utilise un ID qui ne change pas lorsque les clients démarrent ou arrêtent, effectuent un scale-up, un scale-down, un scale-in ou un scale-out, ou reconfigurent l’IR Azure-SSIS.
 
 Le schéma suivant représente l’installation typique, l’activation et la liaison des licences, ainsi que les flux de validation pour les composants tiers qui utilisent ces nouvelles variables :
 

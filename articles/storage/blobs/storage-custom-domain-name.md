@@ -9,16 +9,18 @@ ms.date: 01/23/2020
 ms.author: normesta
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 892f8bb24da00f1bd5827725f40fdc4359be0937
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 9d05677ec47851557594ef47499da653accad141
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906539"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79370472"
 ---
 # <a name="map-a-custom-domain-to-an-azure-blob-storage-endpoint"></a>Mapper un domaine personnalisé à un point de terminaison de Stockage Blob Azure
 
 Vous pouvez mapper un domaine personnalisé à un point de terminaison de service blob ou de [site web statique](storage-blob-static-website.md). 
+
+[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
 
 > [!NOTE] 
 > Ce mappage fonctionne uniquement pour des sous-domaines (par exemple, `www.contoso.com`). Si vous souhaitez que votre point de terminaison web soit disponible sur le domaine racine (par exemple, `contoso.com`), vous devez utiliser Azure CDN. Pour obtenir de l’aide, voir la section [Mapper un domaine personnalisé avec le protocole HTTPS activé](#enable-https) de cet article. Étant donné que vous accédez à cette section de cet article pour activer le domaine racine de votre domaine personnalisé, l’étape de cette section pour activer le protocole HTTPS est facultative. 
@@ -231,7 +233,7 @@ Pour accéder à un formulaire web dans le conteneur *myforms* dans le sous-doma
 
 Pour supprimer un mappage de domaine personnalisé, annulez l’inscription du domaine personnalisé. Suivez l’une des procédures suivantes.
 
-#### <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
+#### <a name="portal"></a>[Portail](#tab/azure-portal)
 
 Pour supprimer le paramètre de domaine personnalisé, procédez comme suit :
 
@@ -246,7 +248,7 @@ Pour supprimer le paramètre de domaine personnalisé, procédez comme suit :
 
 Une fois le domaine personnalisé supprimé, une notification du portail s’affiche, indiquant que votre compte de stockage a été correctement mis à jour.
 
-#### <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+#### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Pour supprimer une inscription de domaine personnalisé, utilisez la commande d’interface de ligne de commande [az storage account update](https://docs.microsoft.com/cli/azure/storage/account) et spécifiez une chaîne vide (`""`) pour la valeur d’argument `--custom-domain`.
 
@@ -268,7 +270,7 @@ Pour supprimer une inscription de domaine personnalisé, utilisez la commande d�
       --custom-domain ""
   ```
 
-#### <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+#### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

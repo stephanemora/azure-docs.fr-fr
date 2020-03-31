@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: 63d1213a2dded41df3f462722b354b03fe9f6e33
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72801880"
 ---
 # <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Approche et processus d’adoption d’Azure Data Catalog
@@ -129,7 +129,7 @@ Dans le cadre du projet pilote, l’équipe de Nancy utilise également des sour
 
 Une fois le projet pilote en place, il est temps d’exécuter votre plan d’adoption Data Catalog.
 
-### <a name="execute"></a>Exécuter
+### <a name="execute"></a>Execute
 
 À ce stade vous avez identifié les cas d’utilisation de Data Catalog ainsi que votre premier projet. Par ailleurs, vous avez inscrit les principales sources de données Adventure Works et ajouté des informations du classeur Excel existant à l’aide de l’outil créé par le service informatique. Il est maintenant temps de collaborer avec l’équipe pilote pour démarrer le processus d’adoption de Data Catalog.
 

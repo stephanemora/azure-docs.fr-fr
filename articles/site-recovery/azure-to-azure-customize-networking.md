@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.author: rajanaki
 ms.openlocfilehash: 96ffa34166797945afc04c66b03fe151d26c65bc
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76292856"
 ---
 # <a name="customize-networking-configurations-of-the-target-azure-vm"></a>Personnaliser les configurations réseau de la machine virtuelle Azure cible
@@ -31,7 +31,7 @@ Vous pouvez fournir la configuration des ressources clés suivantes pour la mach
 - [Adresse IP publique](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses)
 - [Groupe de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group) pour le sous-réseau et pour la carte réseau
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Veillez à planifier à l’avance vos configurations côté récupération.
 - Créez à l’avance les ressources de mise en réseau. Fournissez-les en entrée afin que le service Azure Site Recovery puisse respecter ces paramètres et s’assurer que la machine virtuelle de basculement adhérera à ces paramètres.

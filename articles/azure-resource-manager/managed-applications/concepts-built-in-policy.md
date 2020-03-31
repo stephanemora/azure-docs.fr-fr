@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: hich
 ms.openlocfilehash: ec0fe8f66ef2ad2458b4ffad0e848591793e5b05
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75649345"
 ---
 # <a name="deploy-associations-for-a-managed-application-using-azure-policy"></a>Déployer des associations pour une application managée Azure avec Azure Policy
@@ -29,7 +29,7 @@ Pour plus d’informations sur les associations, consultez [Intégration des res
 
 ## <a name="how-to-use-the-deploy-associations-built-in-policy"></a>Utiliser la stratégie intégrée de déploiement des associations 
 
-### <a name="prerequisites"></a>Conditions préalables requises
+### <a name="prerequisites"></a>Prérequis
 Si l’application managée a besoin d’autorisations d’accès à l’abonnement pour effectuer une action, le déploiement de stratégie de la ressource d’association ne fonctionnera pas si vous n’accordez pas les autorisations nécessaires.
 
 ### <a name="policy-assignment"></a>Affectation de rôle

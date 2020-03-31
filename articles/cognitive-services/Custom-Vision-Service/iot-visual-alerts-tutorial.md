@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Exemple Alertes visuelles IoT'
+title: 'Tutoriel : Exemple Alertes visuelles IoT'
 titleSuffix: Azure Cognitive Services
 description: Dans ce tutoriel, vous utilisez Custom Vision avec un appareil IoT pour reconnaître et signaler des états visuels à partir du flux vidéo d’une caméra.
 services: cognitive-services
@@ -11,13 +11,13 @@ ms.topic: tutorial
 ms.date: 12/05/2019
 ms.author: pafarley
 ms.openlocfilehash: 9f3802ada79ee87d1a04634f7caac3b1b4286dce
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74978030"
 ---
-# <a name="tutorial-use-custom-vision-with-an-iot-device-to-report-visual-states"></a>Didacticiel : Utiliser Custom Vision avec un appareil IoT pour signaler des états visuels
+# <a name="tutorial-use-custom-vision-with-an-iot-device-to-report-visual-states"></a>Tutoriel : Utiliser Custom Vision avec un appareil IoT pour signaler des états visuels
 
 Cet exemple d’application montre comment utiliser Custom Vision pour effectuer l’apprentissage d’un appareil avec une caméra pour détecter les états visuels. Vous pouvez exécuter ce scénario de détection sur un appareil IoT à l’aide d’un modèle ONNX exporté à partir du service Custom Vision.
 
@@ -128,7 +128,7 @@ Si vous souhaitez rétablir l’état d’origine de l’application, cliquez su
 
 Si vous exécutez l’application sur un appareil et que vous devez récupérer l’adresse IP à nouveau (pour établir une connexion à distance via le [client distant Windows IoT](https://www.microsoft.com/p/windows-iot-remote-client/9nblggh5mnxz#activetab=pivot:overviewtab), par exemple), vous pouvez appeler la méthode `GetIpAddress` via IoT Hub.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Supprimez votre projet Custom Vision si vous ne voulez plus le conserver. Sur le [site web Custom Vision](https://customvision.ai), accédez à **Projects** (Projets) et sélectionnez la corbeille sous votre nouveau projet.
 

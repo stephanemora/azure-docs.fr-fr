@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/02/2019
 ms.author: juliako
 ms.openlocfilehash: 9f16ab34dc9b37806f9c58b22a3f02afe839632e
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73839165"
 ---
 # <a name="use-the-video-indexer-editor-to-create-projects"></a>Utiliser l’éditeur Video Indexer pour créer des projets

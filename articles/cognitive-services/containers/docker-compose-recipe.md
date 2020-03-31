@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: dapine
 ms.openlocfilehash: bfbaa03469ee04ff900a215aadd8c814efcba761
-ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79037531"
 ---
 # <a name="use-docker-compose-to-deploy-multiple-containers"></a>Utiliser Docker Compose pour déployer plusieurs conteneurs
@@ -25,7 +25,7 @@ Cet article vous montre comment déployer plusieurs conteneurs Azure Cognitive S
 
 Il peut être utile d’orchestrer plusieurs images conteneur sur un même ordinateur hôte. Dans cet article, nous allons regrouper les conteneurs Read et Form Recognizer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Cette procédure nécessite plusieurs outils qui doivent être installés et exécutés localement :
 

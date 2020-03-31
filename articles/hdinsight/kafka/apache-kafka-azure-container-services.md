@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/04/2019
-ms.openlocfilehash: e035c1ff4c8e16fbf40883b54e3153eab9729040
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 6abb4f632535f1bda7e9f337f111ba372a624f2b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894280"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80239613"
 ---
 # <a name="use-azure-kubernetes-service-with-apache-kafka-on-hdinsight"></a>Utiliser Azure Kubernetes Service avec Apache Kafka sur HDInsight
 
@@ -24,9 +24,9 @@ Découvrez comment utiliser Azure Kubernetes Service (AKS) avec [Apache Kafka](h
 > [!NOTE]  
 > Ce document se concentre sur les étapes à suivre pour permettre à Azure Kubernetes Service de communiquer avec Kafka sur HDInsight. Nous prenons pour exemple un simple client Kafka pour montrer que la configuration fonctionne.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-* [Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * Abonnement Azure
 
 Ce document suppose que vous êtes familiarisé avec la création et l’utilisation des services Azure suivants :
@@ -124,7 +124,7 @@ Suivez les étapes ci-dessous pour configurer Kafka afin qu’il publie des adre
 
 5. Pour configurer Kafka afin qu’il publie des adresses IP, ajoutez le texte suivant au bas du champ __kafka-env-template__ :
 
-    ```
+    ```bash
     # Configure Kafka to advertise IP addresses instead of FQDN
     IP_ADDRESS=$(hostname -i)
     echo advertised.listeners=$IP_ADDRESS
@@ -160,8 +160,8 @@ Suivez les étapes ci-dessous pour configurer Kafka afin qu’il publie des adre
 
 3. Modifiez le fichier `index.js` et modifiez les lignes suivantes :
 
-    * `var topic = 'mytopic'`: remplacez `mytopic` par le nom de la rubrique Kafka utilisé par cette application.
-    * `var brokerHost = '176.16.0.13:9092`: remplacez `176.16.0.13` par l’adresse IP interne de l’un des hôtes du répartiteur pour votre cluster.
+    * `var topic = 'mytopic'`: Remplacez `mytopic` par le nom de la rubrique Kafka utilisé par cette application.
+    * `var brokerHost = '176.16.0.13:9092`: Remplacez `176.16.0.13` par l’adresse IP interne de l’un des hôtes du répartiteur pour votre cluster.
 
         Pour trouver l’adresse IP interne des hôtes du répartiteur (workernodes) dans le cluster, consultez le document [API REST Apache Ambari](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-internal-ip-address-of-cluster-nodes). Choisissez l’adresse IP de l’une des entrées dont le nom de domaine commence par `wn`.
 
@@ -176,7 +176,7 @@ Suivez les étapes ci-dessous pour configurer Kafka afin qu’il publie des adre
 
 5. Connectez-vous à votre service Azure Container Registry (ACR) et recherchez le nom de loginServer :
 
-    ```bash
+    ```azurecli
     az acr login --name <acrName>
     az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
     ```

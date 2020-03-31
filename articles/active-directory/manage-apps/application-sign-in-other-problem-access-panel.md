@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3b93ee38666b93253c7cda6c756d4f58daaea236
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74082156"
 ---
 # <a name="problems-signing-in-to-an-application-from-the-access-panel"></a>Problèmes de connexion à une application à partir du volet d’accès
@@ -69,7 +69,7 @@ Pour l’authentification unique par mot de passe, les navigateurs de l’utilis
 
 -   Internet Explorer 8, 9, 10, 11 -- sur Windows 7 ou version ultérieure
 
--   Microsoft Edge sur Windows 10 Édition anniversaire ou version ultérieure
+-   Microsoft Edge sur Windows 10 Édition anniversaire ou version ultérieure
 
 -   Chrome -- sur Windows 7 ou ultérieur, et sur Mac OS X ou ultérieur
 
@@ -143,7 +143,7 @@ Après un court délai, vous pouvez voir apparaître le volet de configuration d
 
 ### <a name="configure-single-sign-on-for-an-application-from-the-azure-ad-gallery"></a>Configurer l’authentification unique pour une application à partir de la galerie Azure AD
 
-Pour configurer l’authentification unique pour une application, effectuez les étapes suivantes :
+Pour configurer l’authentification unique pour une application, effectuez les étapes suivantes :
 
 1. <span id="_Hlk477187909" class="anchor"><span id="_Hlk477001983" class="anchor"></span></span>Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’Administrateur général** ou que **Coadministrateur**.
 
@@ -282,7 +282,7 @@ Pour configurer l’authentification unique pour une application qui n’est pas
 
 10. Sélectionnez **Authentification basée sur SAML** dans la liste déroulante **Mode**.
 
-11. Entrez les valeurs obligatoires dans **Domaine et URL**. Ces valeurs doivent vous être communiquées par le fournisseur de l’application.
+11. Entrez les valeurs obligatoires dans **Domaine et URL.** Ces valeurs doivent vous être communiquées par le fournisseur de l’application.
 
     1. Pour configurer l’application en tant qu’application à authentification unique lancée par le fournisseur d’identité, entrez l’URL de réponse et l’identificateur.
 
@@ -393,7 +393,7 @@ Après un court délai, vous pouvez voir apparaître le volet de configuration d
 
 ### <a name="configure-the-application-for-password-single-sign-on"></a>Configurer l’application pour l’authentification unique par mot de passe
 
-Pour configurer l’authentification unique pour une application, effectuez les étapes suivantes :
+Pour configurer l’authentification unique pour une application, effectuez les étapes suivantes :
 
 1. Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’Administrateur général** ou que **Coadministrateur**.
 
@@ -447,7 +447,7 @@ Après un court délai, vous pouvez voir apparaître le volet de configuration d
 
 ### <a name="configure-the-application-for-password-single-sign-on"></a>Configurer l’application pour l’authentification unique par mot de passe
 
-Pour configurer l’authentification unique pour une application, effectuez les étapes suivantes :
+Pour configurer l’authentification unique pour une application, effectuez les étapes suivantes :
 
 1. Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’Administrateur général** ou que **Coadministrateur**.
 
@@ -501,7 +501,7 @@ Pour affecter un ou plusieurs utilisateurs directement à une application, effec
 
 11. Pointez sur **l’utilisateur** dans la liste pour afficher une **case à cocher**. Cliquez sur la case à cocher en regard de la photo de profil ou du logo de l’utilisateur pour ajouter ce dernier à la liste **Sélectionné**.
 
-12. **Facultatif** : Si vous souhaitez **ajouter plusieurs utilisateurs**, entrez un autre **nom complet** ou une autre **adresse de messagerie** dans la zone de recherche **Rechercher par nom ou adresse de messagerie**, puis cochez la case pour ajouter cet utilisateur à la liste **Sélectionné**.
+12. **Facultatif :** Si vous souhaitez **ajouter plusieurs utilisateurs**, entrez un autre **nom complet** ou une autre **adresse de messagerie** dans la zone de recherche **Rechercher par nom ou adresse de messagerie**, puis cochez la case pour ajouter cet utilisateur à la liste **Sélectionné**.
 
 13. Après avoir sélectionné les utilisateurs, cliquez sur le bouton **Sélectionner** pour les ajouter à la liste des utilisateurs et des groupes à affecter à l’application.
 
@@ -513,11 +513,11 @@ Après une courte période, les utilisateurs que vous avez sélectionnés sont e
 
 ## <a name="if-these-troubleshooting-steps-do-not-the-resolve-the-issue"></a>Si ces étapes de dépannage ne résolvent pas le problème
 
-Créez un ticket de support en fournissant les informations suivantes, si disponibles :
+Ouvrez un ticket de support en fournissant les informations suivantes, dans la mesure du possible :
 
 -   ID d’erreur de corrélation
 
--   UPN (adresse e-mail de l’utilisateur)
+-   Nom d’utilisateur principal (adresse de messagerie de l’utilisateur)
 
 -   ID de locataire
 

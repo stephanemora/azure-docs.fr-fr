@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 02f109f250fa9bcd4c77cecd0b1b3e4514ecd8bc
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76721130"
 ---
 # <a name="feature-engineering-in-data-science"></a>Ingénierie des caractéristiques dans la science des données
@@ -69,7 +69,7 @@ Une comparaison des résultats de performance des quatre modèles est résumée 
 
 Les caractéristiques A + B + C affichent les meilleurs résultats. Le taux d'erreur diminue lorsqu'un ensemble de caractéristiques supplémentaires est inclus dans les données d'apprentissage. Cela confirme l’idée présupposée que les ensembles de caractéristiques B et C fournissent des informations supplémentaires pertinentes pour la tâche de régression. Mais l'ajout de la caractéristique D semble ne pas fournir une réduction du taux d'erreur supplémentaire.
 
-## <a name="example2"></a> Exemple 2 : création de caractéristiques dans l’exploration de texte
+## <a name="example-2-creating-features-in-text-mining"></a><a name="example2"></a> Exemple 2 : création de caractéristiques dans l’exploration de texte
 L'ingénierie de caractéristiques s'applique largement aux tâches liées à l'exploration de texte, telles que la classification de document et l'analyse de sentiments. Par exemple, quand vous souhaitez classer des documents en plusieurs catégories, l’hypothèse typique est que les mots ou expressions inclus dans une catégorie de document sont moins susceptibles de se produire dans une autre catégorie de document. Autrement dit, la fréquence de la distribution de mots ou d’expressions est capable d’identifier les différentes catégories de document. Dans les applications d'exploration de texte, étant donné que chaque élément des contenus de textes est généralement utilisé en tant que données d'entrée, le processus de conception de caractéristiques est nécessaire pour créer les caractéristiques impliquant des fréquences de mot ou d'expression.
 
 Pour effectuer cette tâche, une technique appelée **hachage de caractéristiques** est appliquée pour transformer efficacement les caractéristiques de texte arbitraires en index. Au lieu d'associer chaque caractéristique de texte (mots ou d'expressions) à un index particulier, cette méthode fonctionne en appliquant une caractéristique de hachage aux caractéristiques et en utilisant directement leurs valeurs de hachage en tant qu'index.

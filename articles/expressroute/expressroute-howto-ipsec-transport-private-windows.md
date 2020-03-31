@@ -9,10 +9,10 @@ ms.date: 10/17/2018
 ms.author: fabferri
 ms.custom: seodec18
 ms.openlocfilehash: 1bc33047d31262af443cddc418853fbacd88aec1
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74022011"
 ---
 # <a name="configure-ipsec-transport-mode-for-expressroute-private-peering"></a>Configurer le mode de transport IPsec pour le peering privé ExpressRoute
@@ -89,7 +89,7 @@ Assurez-vous de satisfaire les prérequis suivants :
 4. Créez une stratégie IPsec avec des **règles de sécurité**.
 5. Attribuez l’objet de stratégie de groupe IPsec à l’unité d’organisation.
 
-### <a name="example-values"></a>Valeurs utilisées dans l’exemple
+### <a name="example-values"></a>Exemples de valeurs
 
 * **Nom de domaine** : ipsectest.com
 
@@ -99,7 +99,7 @@ Assurez-vous de satisfaire les prérequis suivants :
 
 * **Machines virtuelles Azure exécutant Windows** : vm1, vm2
 
-## <a name="creategpo"></a>1. Créer un objet de stratégie de groupe
+## <a name="1-create-a-gpo"></a><a name="creategpo"></a>1. Créer un objet de stratégie de groupe
 
 1. Pour créer un objet de stratégie de groupe lié à une unité d’organisation, ouvrez le composant logiciel enfichable Gestion des stratégies de groupe, puis recherchez l’unité d’organisation à laquelle l’objet de stratégie de groupe est lié. Dans l’exemple, l’unité d’organisation se nomme **IPSecOU**. 
 
@@ -111,7 +111,7 @@ Assurez-vous de satisfaire les prérequis suivants :
 
    [![11]][11]
 
-## <a name="enablelink"></a>2. Activer la liaison avec l’objet de stratégie de groupe
+## <a name="2-enable-the-gpo-link"></a><a name="enablelink"></a>2. Activer la liaison avec l’objet de stratégie de groupe
 
 Pour appliquer l’objet de stratégie de groupe à l’unité d’organisation, vous devez non seulement le lier à l’unité d’organisation, mais également activer cette liaison.
 
@@ -120,7 +120,7 @@ Pour appliquer l’objet de stratégie de groupe à l’unité d’organisation,
 
    [![12]][12]
 
-## <a name="filteraction"></a>3. Définir l’action de filtrage IP
+## <a name="3-define-the-ip-filter-action"></a><a name="filteraction"></a>3. Définir l’action de filtrage IP
 
 1. Dans la liste déroulante, cliquez avec le bouton droit sur **Stratégies de sécurité IP sur Active Directory**, puis cliquez sur **Gérer les listes de filtres IP et les actions de filtrage**.
 
@@ -151,7 +151,7 @@ Pour appliquer l’objet de stratégie de groupe à l’unité d’organisation,
 
    [![23]][23]
 
-## <a name="filterlist1"></a>4. Définir une liste de filtres IP
+## <a name="4-define-an-ip-filter-list"></a><a name="filterlist1"></a>4. Définir une liste de filtres IP
 
 Créez une liste de filtres qui spécifie le trafic HTTP chiffré avec le port de destination 8080.
 
@@ -188,7 +188,7 @@ Créez une liste de filtres qui spécifie le trafic HTTP chiffré avec le port d
 
    [![32]][32]
 
-## <a name="filterlist2"></a>5. Modifier la liste de filtres IP
+## <a name="5-edit-the-ip-filter-list"></a><a name="filterlist2"></a>5. Modifier la liste de filtres IP
 
 Pour chiffrer le même type de trafic dans la direction opposée (de l’hôte local vers la machine virtuelle Azure), vous avez besoin d’un deuxième filtre IP. Le processus de la configuration du nouveau filtre est le même que celui que vous avez utilisé pour définir le premier filtre IP. Les seules différences se situent au niveau des sous-réseaux source et de destination.
 
@@ -207,7 +207,7 @@ Pour chiffrer le même type de trafic dans la direction opposée (de l’hôte l
 
 Si le chiffrement est exigé entre un emplacement local et un sous-réseau Azure pour protéger une application, au lieu de modifier la liste de filtres IP existante, vous pouvez ajouter une nouvelle liste de filtres IP. Le fait d’associer deux listes de filtres IP à la même stratégie IPsec fournit une plus grande flexibilité, car cela permet de modifier ou de supprimer une liste de filtres IP à tout moment sans impacter les autres listes de filtres IP.
 
-## <a name="ipsecpolicy"></a>6. Créer une stratégie de sécurité IPsec 
+## <a name="6-create-an-ipsec-security-policy"></a><a name="ipsecpolicy"></a>6. Créer une stratégie de sécurité IPsec 
 
 Créez une stratégie IPsec avec des règles de sécurité.
 
@@ -224,7 +224,7 @@ Créez une stratégie IPsec avec des règles de sécurité.
 
    [![40]][40]
 
-## <a name="editipsec"></a>7. Modifier la stratégie de sécurité IPsec
+## <a name="7-edit-the-ipsec-security-policy"></a><a name="editipsec"></a>7. Modifier la stratégie de sécurité IPsec
 
 Ajoutez à la stratégie IPsec la **liste de filtres IP** et **l’action de filtrage** que vous avez configurées précédemment.
 
@@ -261,7 +261,7 @@ Ajoutez à la stratégie IPsec la **liste de filtres IP** et **l’action de fil
 
 La stratégie IPsec nécessite que toutes les connexions HTTP passant par le port de destination 8080 utilisent le mode de transport IPsec. Étant donné que le protocole HTTP est non chiffré, le fait d’activer la stratégie de sécurité garantit le chiffrement des données lors de leur transfert via le peering privé ExpressRoute. La stratégie de sécurité IP pour Active Directory est plus complexe à configurer que le Pare-feu Windows avec fonctions avancées de sécurité. Toutefois, elle permet de personnaliser davantage la connexion IPsec.
 
-## <a name="assigngpo"></a>8. Attribuer l’objet de stratégie de groupe IPsec à l’unité d’organisation
+## <a name="8-assign-the-ipsec-gpo-to-the-ou"></a><a name="assigngpo"></a>8. Attribuer l’objet de stratégie de groupe IPsec à l’unité d’organisation
 
 1. Affichez la stratégie. La stratégie de groupe de sécurité est définie, mais pas encore attribuée.
 
@@ -271,7 +271,7 @@ La stratégie IPsec nécessite que toutes les connexions HTTP passant par le por
 
    [![50]][50]
 
-## <a name="checktraffic"></a>Vérifier le chiffrement du trafic
+## <a name="check-traffic-encryption"></a><a name="checktraffic"></a>Vérifier le chiffrement du trafic
 
 Pour tester l’objet de stratégie de groupe qui est appliqué à l’unité d’organisation de chiffrement, installez IIS sur toutes les machines virtuelles Azure et sur l’hôte host1. Chaque IIS est personnalisé pour répondre aux requêtes HTTP sur le port 8080.
 Pour vérifier le chiffrement, vous pouvez installer un renifleur de réseau (comme Wireshark) sur tous les ordinateurs de l’unité d’organisation.

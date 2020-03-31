@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: c71136ecb57fac460514b5f4815ba19cc22d86cb
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76290612"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-python"></a>Opérations de gestion des comptes sur Azure Data Lake Storage Gen1 à l’aide de Python
@@ -29,7 +29,7 @@ ms.locfileid: "76290612"
 
 Découvrez comment utiliser le Kit de développement logiciel (SDK) Python pour Azure Data Lake Storage Gen1 afin d’effectuer des opérations simples de gestion des comptes (création de compte ou d’une liste des comptes existants, etc.). Pour obtenir des instructions sur l’exécution des opérations du système de fichiers sur Data Lake Storage Gen1 à l’aide de Python, consultez la section relative aux [opérations du système de fichiers sur Data Lake Storage Gen1 à l’aide de Python](data-lake-store-data-operations-python.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * **Python** Pour télécharger Python, accédez [ici](https://www.python.org/downloads/). Cet article utilise Python 3.6.2.
 
@@ -86,7 +86,7 @@ pip install azure-datalake-store
 
 3. Enregistrez les modifications apportées à mysample.py.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Authentification
 
 Dans cette section, nous aborderons les différentes méthodes permettant de s’authentifier auprès d’Azure AD. Voici les options disponibles :
 

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: sngun
 ms.openlocfilehash: 2306dbe234e171ac613c33458df1990b767637df
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79128373"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Déployer Azure Cosmos DB et Azure App Service Web Apps avec un modèle Azure Resource Manager
@@ -33,7 +33,7 @@ Après avoir terminé ce didacticiel, vous serez en mesure de répondre aux ques
 
 Avant de suivre les instructions de ce didacticiel, assurez-vous de disposer d’un abonnement Azure. Azure est une plateforme disponible par abonnement.  Pour plus d'informations sur l'obtention d'un abonnement, consultez les pages [Modes d’achat d’Azure](https://azure.microsoft.com/pricing/purchase-options/), [Offres spéciales membres](https://azure.microsoft.com/pricing/member-offers/) ou [Version d'évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a id="CreateDB"></a>Étape 1 : Télécharger les fichiers de modèle
+## <a name="step-1-download-the-template-files"></a><a id="CreateDB"></a>Étape 1 : Télécharger les fichiers de modèle
 Commençons par télécharger les fichiers de modèle nécessaires pour ce didacticiel.
 
 1. Téléchargez le modèle [d’exemple de création d’un compte Azure Cosmos DB, de Web Apps et de déploiement d’une application de démonstration](https://portalcontent.blob.core.windows.net/samples/DocDBWebsiteTodo.json) dans un dossier local (par exemple, C:\Azure Cosmos DBTemplates). Ce modèle déploie un compte Azure Cosmos DB, une application web App Service et une application web.  Il configure également automatiquement l’application web pour se connecter au compte Azure Cosmos DB.

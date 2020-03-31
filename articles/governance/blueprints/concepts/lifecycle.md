@@ -4,10 +4,10 @@ description: Découvrez le cycle de vie que traverse une définition de blueprin
 ms.date: 07/30/2019
 ms.topic: conceptual
 ms.openlocfilehash: 4dd5cb7d085744377cf12998f14c994fb1dcd2d7
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74404591"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Présentation du cycle de vie d’un blueprint Azure
@@ -78,7 +78,7 @@ Le blueprint de base peut également être supprimé. La suppression du blueprin
 
 Vous supprimez un blueprint avec le [portail Azure](../create-blueprint-portal.md#delete-a-blueprint) ou l’[API REST](../create-blueprint-rest-api.md#delete-a-blueprint).
 
-## <a name="assignments"></a>Affectations
+## <a name="assignments"></a>Attributions
 
 Le blueprint peut être attribué à un abonnement à plusieurs endroits du cycle de vie. Quand le mode d’une version du blueprint est **Publié**, cette version peut être affectée à un abonnement. Ce cycle de vie permet d’utiliser et d’attribuer activement des versions d’un blueprint pendant le développement d’une nouvelle version.
 

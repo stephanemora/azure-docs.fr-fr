@@ -9,10 +9,10 @@ ms.topic: article
 ms.service: storage
 ms.subservice: blobs
 ms.openlocfilehash: f0dae5ae79234ea29e6b17627fc07abcb3b5dfcb
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68847158"
 ---
 # <a name="quickstart-route-storage-events-to-web-endpoint-with-powershell"></a>Démarrage rapide : Router des événements de stockage vers un point de terminaison web avec PowerShell
@@ -25,7 +25,7 @@ Une fois que vous avez fini, vous voyez que les données d’événement ont ét
 
 ![Afficher les résultats](./media/storage-blob-event-quickstart-powershell/view-results.png)
 
-## <a name="setup"></a>Paramétrage
+## <a name="setup"></a>Programme d’installation
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -161,7 +161,7 @@ Vous avez déclenché l’événement, et Event Grid a envoyé le message au poi
 
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 Si vous envisagez de continuer à utiliser ce compte de stockage et l’abonnement à un événement, ne supprimez pas les ressources créées dans cet article. Sinon, utilisez la commande suivante pour supprimer les ressources créées avec cet article.
 
 ```powershell

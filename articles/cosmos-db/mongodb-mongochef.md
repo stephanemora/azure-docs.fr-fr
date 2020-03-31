@@ -4,16 +4,16 @@ description: Découvrez comment vous connecter à une API Azure Cosmos DB pour M
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
-ms.date: 11/01/2019
-author: sivethe
-ms.author: sivethe
+ms.date: 03/20/2020
+author: timsander1
+ms.author: tisande
 ms.custom: seodec18
-ms.openlocfilehash: 533917e4cc39a1f4885a1604c11480fe09870c61
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9b8c3a36dbdd3a14d0bd325c22421033a1765df3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75441608"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80063697"
 ---
 # <a name="connect-to-an-azure-cosmos-account-using-studio-3t"></a>Se connecter à un compte Azure Cosmos DB à l’aide de Studio 3T
 

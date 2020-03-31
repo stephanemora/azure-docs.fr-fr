@@ -11,13 +11,13 @@ ms.topic: quickstart
 ms.date: 11/29/2019
 ms.author: aahi
 ms.openlocfilehash: c7e7ef7f052fccfea18b246f41109d5fa7528b4b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75379741"
 ---
-# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-python"></a>Démarrage rapide : Envoyer une requête à l’API Recherche d’entreprises locales Bing en Python
+# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-python"></a>Démarrage rapide : Envoyer une requête à l’API Recherche d’entreprises locales Bing en Python
 
 Utilisez ce démarrage rapide pour commencer à envoyer des demandes à l’API Recherche d’entreprises locales Bing, un service Azure Cognitive Services. Alors que cette application simple est écrite en Python, l’API est un service web RESTful compatible avec tous les langages de programmation capables de formuler des requêtes HTTP et d’analyser du JSON.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/21/2017
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: 6ce78ca19458b497980cf2cfc374f787d3a5d9f5
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 01abcc961d1c2ad9d3e2cf35f82e62929bc2fb89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76276982"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79371135"
 ---
 # <a name="deprecated-using-the-kubernetes-web-ui-with-azure-container-service"></a>(DÉCONSEILLÉ) Utilisation de l’interface utilisateur web Kubernetes avec Azure Container Service
 
@@ -29,8 +29,8 @@ Elle suppose également que vous avez installé l’interface de ligne de comman
 
 Vous pouvez tester si l’outil `az` est installé en exécutant :
 
-```console
-$ az --version
+```azurecli
+az --version
 ```
 
 Si l’outil `az` n’est pas installé, suivez les instructions figurant [ici](https://github.com/azure/azure-cli#installation).
@@ -38,13 +38,13 @@ Si l’outil `az` n’est pas installé, suivez les instructions figurant [ici](
 Vous pouvez tester si l’outil `kubectl` est installé en exécutant :
 
 ```console
-$ kubectl version
+kubectl version
 ```
 
 Si `kubectl` n’est pas installé, vous pouvez exécuter :
 
-```console
-$ az acs kubernetes install-cli
+```azurecli
+az acs kubernetes install-cli
 ```
 
 ## <a name="overview"></a>Vue d’ensemble
@@ -52,8 +52,8 @@ $ az acs kubernetes install-cli
 ### <a name="connect-to-the-web-ui"></a>Connexion à l’interface web
 Vous pouvez lancer l’interface web Kubernetes en exécutant :
 
-```console
-$ az acs kubernetes browse -g [Resource Group] -n [Container service instance name]
+```azurecli
+az acs kubernetes browse -g [Resource Group] -n [Container service instance name]
 ```
 
 Cette commande ouvre un navigateur web configuré pour communiquer avec un proxy sécurisé, en connectant votre machine locale à l’interface utilisateur web Kubernetes.

@@ -4,11 +4,11 @@ description: Installez le runtime et le Kit de développement logiciel (SDK), pu
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: 572b1509f45a7f5bf2c63619809f01d17c3493d1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457899"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79229301"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Préparer votre environnement de développement sur Linux
 > [!div class="op_single_selector"]
@@ -25,7 +25,7 @@ La procédure décrite dans cet article suppose que vous effectuez une installat
 L’installation du runtime Service Fabric et du Kit de développement logiciel (SDK) sur le sous-système Windows pour Linux n’est pas prise en charge. L’interface de ligne de commande (CLI) Azure Service Fabric est prise en charge. Elle vous permet de gérer les entités Service Fabric hébergées ailleurs dans le cloud ou en local. Pour plus d’informations sur l’installation de l’interface de ligne de commande, consultez [Installation de l’interface de ligne de commande Service Fabric](./service-fabric-cli.md).
 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Ces versions de système d’exploitation sont prises en charge pour le développement.
 

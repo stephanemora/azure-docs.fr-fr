@@ -11,10 +11,10 @@ manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 01/16/2018
 ms.openlocfilehash: 5d38e3126442bcf34c96cead2b2ea59507b50b8c
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74912861"
 ---
 # <a name="transform-data-using-hadoop-mapreduce-activity-in-azure-data-factory"></a>Transformer des données à l’aide d’une activité Hadoop MapReduce dans Azure Data Factory
@@ -62,21 +62,21 @@ Consultez [Pig](transform-data-using-hadoop-pig.md) et [Hive](transform-data-usi
 
 | Propriété          | Description                              | Obligatoire |
 | ----------------- | ---------------------------------------- | -------- |
-| name              | Nom de l’activité                     | OUI      |
+| name              | Nom de l’activité                     | Oui      |
 | description       | Texte décrivant la raison motivant l’activité. | Non       |
-| Type              | Pour l’activité MapReduce, le type d’activité est HDinsightMapReduce. | OUI      |
-| linkedServiceName | Référence au cluster HDInsight enregistré en tant que service lié dans Data Factory. Pour en savoir plus sur ce service lié, consultez l’article [Services liés de calcul](compute-linked-services.md). | OUI      |
-| className         | Nom de la classe à exécuter         | OUI      |
+| type              | Pour l’activité MapReduce, le type d’activité est HDinsightMapReduce. | Oui      |
+| linkedServiceName | Référence au cluster HDInsight enregistré en tant que service lié dans Data Factory. Pour en savoir plus sur ce service lié, consultez l’article [Services liés de calcul](compute-linked-services.md). | Oui      |
+| ClassName         | Nom de la classe à exécuter         | Oui      |
 | jarLinkedService  | Référence à un service lié Stockage Azure utilisé pour stocker les fichiers Jar. Si vous ne spécifiez pas ce service lié, le service lié Stockage Azure défini dans le service lié HDInsight est utilisé. | Non       |
-| jarFilePath       | Indiquez le chemin des fichiers Jar stockés dans le stockage Azure référencé par jarLinkedService. Le nom de fichier respecte la casse. | OUI      |
+| jarFilePath       | Indiquez le chemin des fichiers Jar stockés dans le stockage Azure référencé par jarLinkedService. Le nom de fichier respecte la casse. | Oui      |
 | jarlibs           | Le tableau de chaînes du chemin des fichiers de bibliothèque Jar référencés par le travail stocké dans le stockage Azure défini dans jarLinkedService. Le nom de fichier respecte la casse. | Non       |
-| getDebugInfo      | Spécifie quand les fichiers journaux sont copiés vers le stockage Azure utilisé par le cluster HDInsight (ou) spécifié par jarLinkedService. Valeurs autorisées : None, Always ou Failure. Valeur par défaut : Aucune. | Non       |
+| getDebugInfo      | Spécifie quand les fichiers journaux sont copiés vers le stockage Azure utilisé par le cluster HDInsight (ou) spécifié par jarLinkedService. Valeurs autorisées : None, Always ou Failure. Valeur par défaut : Aucun. | Non       |
 | arguments         | Spécifie un tableau d’arguments pour un travail Hadoop. Les arguments sont passés sous la forme d’arguments de ligne de commande à chaque tâche. | Non       |
 | defines           | Spécifier les paramètres sous forme de paires clé/valeur pour le référencement au sein du script Hive. | Non       |
 
 
 
-## <a name="example"></a>Exemples
+## <a name="example"></a>Exemple
 Vous pouvez utiliser l’activité MapReduce de HDInsight pour exécuter un fichier jar MapReduce dans un cluster HDInsight. Dans l'exemple suivant de définition JSON d'un pipeline, l'activité HDInsight est configurée pour exécuter un fichier JAR Mahout.
 
 ```json
@@ -117,8 +117,8 @@ Consultez les articles suivants qui expliquent comment transformer des données 
 
 * [Activité U-SQL](transform-data-using-data-lake-analytics.md)
 * [Activité Hive](transform-data-using-hadoop-hive.md)
-* [Activité Pig](transform-data-using-hadoop-pig.md)
-* [Activité de streaming Hadoop](transform-data-using-hadoop-streaming.md)
+* [Activité pig](transform-data-using-hadoop-pig.md)
+* [Activité de diffusion en continu Hadoop](transform-data-using-hadoop-streaming.md)
 * [Activité Spark](transform-data-using-spark.md)
 * [Activité personnalisée .NET](transform-data-using-dotnet-custom-activity.md)
 * [Activité d’exécution du lot Machine Learning](transform-data-using-machine-learning.md)

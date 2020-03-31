@@ -4,10 +4,10 @@ description: Découvrez comment fournir un accès aux images de votre registre d
 ms.topic: article
 ms.date: 04/23/2018
 ms.openlocfilehash: b1bc8119c495dea99c6bdc4923db198d041a1e9e
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74456504"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-container-instances"></a>S’authentifier avec Azure Container Registry à partir d’Azure Container Instances
@@ -44,7 +44,7 @@ az container create \
 
 Vous trouverez les exemples de scripts précédents pour Azure CLI sur GitHub, ainsi que les versions pour Azure PowerShell :
 
-* [Interface de ligne de commande Azure][acr-scripts-cli]
+* [Azure CLI][acr-scripts-cli]
 * [Azure PowerShell][acr-scripts-psh]
 
 ## <a name="next-steps"></a>Étapes suivantes

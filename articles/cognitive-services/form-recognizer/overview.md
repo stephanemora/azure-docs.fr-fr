@@ -9,14 +9,16 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 0d78f3cc4f2b12b2d9f45878a0c1b91263112689
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 6b19dc11438274ecf6218d5c0bd8c9ef3dafbf01
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77118545"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80052435"
 ---
 # <a name="what-is-form-recognizer"></a>Qu’est-ce que Form Recognizer ?
+
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 Azure Form Recognizer est un service cognitif qui utilise la technologie de machine learning pour identifier et extraire du texte, des données de paires clé-valeur et des tableaux à partir de documents de formulaire. Il ingère du texte à partir de formulaires et restitue des données structurées qui incluent les relations du fichier d’origine. Vous pouvez obtenir des résultats rapidement, avec précision et en adéquation avec votre contenu particulier, sans la nécessité d’une intervention manuelle lourde ou de compétences approfondies en science des données. Form Recognizer est constitué de modèles personnalisés, du modèle de reçu prédéfini et de l’API de disposition. Vous pouvez appeler les modèles Form Recognizer au moyen d’une API REST, afin de réduire la complexité et l’intégrer à votre workflow ou application.
 
@@ -49,7 +51,7 @@ Form Recognizer comprend également un modèle de lecture des reçus de vente en
 
 ## <a name="layout-api"></a>API de disposition
 
-Form Recognizer peut également extraire la structure du texte et des tableaux (les numéros de ligne et de colonne associés au texte) à l’aide de la reconnaissance optique de caractères (OCR) haute définition. 
+Form Recognizer peut également extraire la structure du texte et des tableaux (les numéros de ligne et de colonne associés au texte) à l’aide de la reconnaissance optique de caractères (OCR) haute définition.
 
 ## <a name="get-started"></a>Bien démarrer
 
@@ -59,9 +61,9 @@ Suivez un guide de démarrage rapide pour commencer à extraire des données de 
   * Effectuer l’entraînement sans étiquettes
     * [Démarrage rapide : Entraîner un modèle Form Recognizer et extraire des données à partir de formulaires au moyen d’une API REST avec cURL](quickstarts/curl-train-extract.md)
     * [Démarrage rapide : Entraîner un modèle Form Recognizer et extraire des données à partir de formulaires au moyen d’une API REST avec Python](quickstarts/python-train-extract.md)
-  * Effectuer l’entraînement avec des étiquettes 
+  * Effectuer l’entraînement avec des étiquettes
     * [Entraîner un modèle Form Recognizer avec des étiquettes à l’aide de l’outil d’étiquetage des exemples](quickstarts/label-tool.md)
-    * [Entraîner un modèle Form Recognizer avec des étiquettes à l’aide de l’API REST et de Python](quickstarts/python-labeled-data.md) 
+    * [Entraîner un modèle Form Recognizer avec des étiquettes à l’aide de l’API REST et de Python](quickstarts/python-labeled-data.md)
 * Reçus prédéfinis : extraire les données des reçus de ventes aux États-Unis
   * [Démarrage rapide : Extraire des données de reçu à l’aide de cURL](quickstarts/curl-receipts.md)
   * [Démarrage rapide : Extraire des données de reçu à l’aide de Python](quickstarts/python-receipts.md)
@@ -72,7 +74,7 @@ Suivez un guide de démarrage rapide pour commencer à extraire des données de 
 
 Vous allez utiliser les API suivantes pour entraîner des modèles et extraire des données structurées à partir de formulaires.
 
-|Name |Description |
+|Nom |Description |
 |---|---|
 | **Entraîner un modèle personnalisé**| Entraîner un nouveau modèle pour analyser vos formulaires avec 5 formulaires du même type. Définissez le paramètre _useLabelFile_ sur `true` pour effectuer l’entraînement avec des données étiquetées manuellement. |
 | **Analyser le formulaire** |Analysez un seul document transmis en tant que flux de données pour extraire du formulaire le texte, les paires clé/valeur et les tableaux avec votre modèle personnalisé.  |
@@ -92,7 +94,7 @@ Les exigences d’entrée pour le modèle de reçu sont légèrement différente
 
 * Le format doit être JPEG, PNG, BMP, PDF (texte ou numérisé) ou TIFF.
 * La taille du fichier doit être inférieure à 20 Mo.
-* Les dimensions des images doivent être comprises entre 50 x 50 et 10 000 x 10 000 pixels. 
+* Les dimensions des images doivent être comprises entre 50 x 50 et 10 000 x 10 000 pixels.
 * Les dimensions des PDF ne doivent pas dépasser 17 x 17 pouces, ce qui correspond aux formats de papier Legal ou A3, et plus petits.
 * Pour PDF et TIFF, seules les 200 premières pages sont traitées (avec un abonnement gratuit, seules les deux premières pages sont traitées).
 

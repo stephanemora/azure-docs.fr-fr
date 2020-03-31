@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 04/21/2019
 ms.author: juliako
 ms.openlocfilehash: 126700e6290650221a9cb9711b22472301409fca
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74974170"
 ---
-# <a name="tutorial-encrypt-video-with-aes-128-and-use-the-key-delivery-service"></a>Didacticiel : Chiffrer la vidéo avec AES-128 et utiliser le service de distribution de clés
+# <a name="tutorial-encrypt-video-with-aes-128-and-use-the-key-delivery-service"></a>Tutoriel : Chiffrer la vidéo avec AES-128 et utiliser le service de distribution de clés
 
 > [!NOTE]
 > Bien que ce didacticiel utilise des exemples [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet), les étapes générales sont les mêmes pour [l’API REST](https://docs.microsoft.com/rest/api/media/liveevents), [l’interface de ligne de commande](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest) et d’autres [kits de développement logiciel (SDK)](media-services-apis-overview.md#sdks) pris en charge.
@@ -103,7 +103,7 @@ Dans ce tutoriel, nous créons l’entrée du travail à partir d’un fichier q
 
 ## <a name="wait-for-the-job-to-complete"></a>Attendre la fin du travail
 
-Ce travail prend un certain temps. Vous voulez être averti de la fin du travail. L’exemple de code ci-dessous montre comment interroger le service pour connaître l’état du [travail](https://docs.microsoft.com/rest/api/media/jobs). L’interrogation ne relève pas d'une pratique recommandée pour les applications de production en raison de la latence potentielle. L’interrogation peut être limitée si elle est utilisée de façon excessive sur un compte. À la place, les développeurs doivent utiliser Event Grid. Pour plus d’informations, consultez [Router des événements vers un point de terminaison web personnalisé](job-state-events-cli-how-to.md)
+Ce travail prend un certain temps. Vous voulez être averti de la fin du travail. L’exemple de code ci-dessous montre comment interroger le service pour connaître l’état du [travail](https://docs.microsoft.com/rest/api/media/jobs). L’interrogation ne relève pas d'une pratique recommandée pour les applications de production en raison de la latence potentielle. L’interrogation peut être limitée si elle est utilisée de façon excessive sur un compte. À la place, les développeurs doivent utiliser Event Grid. Pour plus d’informations, consultez [Router des événements vers un point de terminaison web personnalisé](job-state-events-cli-how-to.md).
 
 Le **travail** passe généralement par les états suivants : **Planifié**, **En attente**,  **Traitement en cours**, **Terminé** (l’état final). Si le travail a rencontré une erreur, vous obtenez l’état **Erreur**. Si le travail est en cours d’annulation, vous obtenez **Annulation en cours** et **Annulé** une fois l’opération terminée.
 
@@ -149,11 +149,11 @@ Maintenant que le [localisateur de streaming](https://docs.microsoft.com/rest/ap
 
 ## <a name="clean-up-resources-in-your-media-services-account"></a>Supprimer les ressources de votre compte Media Services
 
-En règle générale, vous devez supprimer tous les éléments à l’exception des objets que vous envisagez de réutiliser (habituellement, vous réutilisez les transformations, les localisateurs de streaming, etc.). Si vous voulez que votre compte soit propre après les expériences, supprimez les ressources que vous n’envisagez pas de réutiliser. Par exemple, le code suivant supprime les travaux :
+En règle générale, vous devez supprimer tous les éléments à l’exception des objets que vous envisagez de réutiliser (habituellement, vous réutilisez les transformations, les localisateurs de streaming, etc.). Si vous voulez que votre compte soit propre après les expériences, supprimez les ressources dont vous n’avez plus besoin. Par exemple, le code suivant supprime les travaux :
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#CleanUp)]
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous n’avez plus besoin des ressources de votre groupe de ressources, notamment les comptes de stockage et Media Services que vous avez créés pour ce didacticiel, supprimez le groupe de ressources créé précédemment.
 
@@ -169,7 +169,7 @@ Découvrez l’article [Communauté Azure Media Services](media-services-communi
 
 ## <a name="additional-notes"></a>Remarques supplémentaires
 
-* Widevine est un service fourni par Google Inc. soumis aux conditions d’utilisation du service et à la politique de confidentialité de Google Inc.
+* Widevine est un service fourni par Google Inc. soumis aux conditions de service et à la politique de confidentialité de Google, Inc.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

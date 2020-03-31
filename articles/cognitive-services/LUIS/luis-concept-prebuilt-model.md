@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: diberry
 ms.openlocfilehash: e0b5b95a7524b60a7c3367035a15a7158fa7908a
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74280839"
 ---
 # <a name="prebuilt-models"></a>Modèles prédéfinis
@@ -26,7 +26,7 @@ Les modèles prédéfinis fournissent des domaines, des intentions, des énoncé
 
 LUIS fournit trois types de modèles prédéfinis. Chaque modèle peut être ajouté à votre application à tout moment. 
 
-|Type de modèle|Inclus|
+|Type de modèle|Includes|
 |--|--|
 |[Domaine](luis-reference-prebuilt-domains.md)|Intentions, énoncés, entités|
 |Intentions|Intentions, énoncés|

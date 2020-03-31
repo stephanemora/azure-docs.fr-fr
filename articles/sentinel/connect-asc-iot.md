@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/18/2020
 ms.author: yelevin
 ms.openlocfilehash: 3af51110a4c4604444573f62be65077c786db606
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77588635"
 ---
 # <a name="connect-your-data-from-azure-security-center-for-iot-to-azure-sentinel"></a>Connecter vos données d’Azure Security Center pour IoT à Azure Sentinel 
@@ -29,7 +29,7 @@ ms.locfileid: "77588635"
 
 Utilisez le connecteur Azure Security Center pour IoT pour diffuser tous vos événements Azure Security Center pour IoT dans Azure Sentinel. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Autorisations de **lecture** et d’**écriture** sur l’espace de travail sur lequel Azure Sentinel est déployé
 - **Azure Security Center pour IoT** doit être **activé** sur vos IoT Hubs appropriés

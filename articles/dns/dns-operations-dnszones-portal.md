@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 05/18/2017
 ms.author: rohink
 ms.openlocfilehash: 002f210048c18c6dd99dfb5981bacce8666ee563
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76936780"
 ---
 # <a name="how-to-manage-dns-zones-in-the-azure-portal"></a>Gérer des zones DNS à l’aide du portail Azure

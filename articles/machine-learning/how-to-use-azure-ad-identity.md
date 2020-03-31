@@ -11,17 +11,17 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.openlocfilehash: f997aef59e91bed325b84af855a84f43cd639d83
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77122637"
 ---
 # <a name="use-azure-ad-identity-with-your-machine-learning-web-service-in-azure-kubernetes-service"></a>Utiliser Azure AD Identity avec votre service web de machine learning dans Azure Kubernetes Service
 
 Dans cette rubrique de guide pratique, vous allez apprendre à attribuer une identité Azure Active Directory (AAD) à votre modèle Machine Learning déployé dans Azure Kubernetes Service. Le projet [AAD Pod Identity](https://github.com/Azure/aad-pod-identity) permet aux applications d’accéder de manière sécurisée à des ressources cloud avec AAD à l’aide d’une [identité managée](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) et de primitives Kubernetes. Votre service web peut ainsi accéder de manière sécurisée à vos ressources Azure sans avoir à incorporer des informations d’identification ou à gérer des jetons directement à l’intérieur de votre script `score.py`. Cet article décrit les étapes nécessaires à la création et à l’installation d’une identité Azure dans votre cluster Azure Kubernetes Service, ainsi qu’à l’attribution de l’identité à votre service web déployé.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - L’[extension Azure CLI pour Machine Learning service](reference-azure-machine-learning-cli.md), le [kit SDK Azure Machine Learning pour Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) ou l’[extension Azure Machine Learning pour Visual Studio Code](tutorial-setup-vscode-extension.md).
 

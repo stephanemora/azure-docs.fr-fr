@@ -14,22 +14,22 @@ ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 90aa824b7df575eb2783ece5bd88322f0b55f0a2
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72299977"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-webjob-projects"></a>Prise en main du stockage d’objets blob Azure et des services connectés Visual Studio (projets WebJob)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Cet article fournit des exemples de code C# qui montrent comment déclencher un processus quand un objet blob Azure est créé ou mis à jour. Les exemples de code utilisent le [Kit de développement logiciel (SDK) WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki) version 1.x. Quand vous ajoutez un compte de stockage à un projet de tâche web à l'aide de la boîte de dialogue **Ajouter des services connectés** de Visual Studio, le package NuGet d'Azure Storage approprié est installé, les références .NET appropriées sont ajoutées au projet et les chaînes de connexion pour le compte de stockage sont mises à jour dans le fichier App.config.
 
 ## <a name="how-to-trigger-a-function-when-a-blob-is-created-or-updated"></a>Comment utiliser le stockage d’objets blob Azure avec le Kit de développement logiciel (SDK) WebJobs
 Cette section vous indique comment utiliser l'attribut **BlobTrigger** .
 
- **Remarque :** Le kit de développement logiciel (SDK) WebJobs analyse les fichiers journaux pour surveiller les objets blob qui ont été créés ou modifiés. Ce processus est lent par nature ; il se peut qu’une fonction ne se déclenche que quelques minutes ou plus après la création de l’objet blob.  Si votre application doit traiter immédiatement les objets blob, la méthode recommandée consiste à créer un message de file d'attente lorsque vous créez l'objet blob et à utiliser l'attribut **QueueTrigger** à la place de l'attribut **BlobTrigger** sur la fonction qui traite l'objet blob.
+ **Remarque :** le Kit de développement logiciel (SDK) WebJobs analyse les fichiers journaux pour surveiller les objets blobs qui ont été créés ou modifiés. Ce processus est lent par nature ; il se peut qu’une fonction ne se déclenche que quelques minutes ou plus après la création de l’objet blob.  Si votre application doit traiter immédiatement les objets blob, la méthode recommandée consiste à créer un message de file d'attente lorsque vous créez l'objet blob et à utiliser l'attribut **QueueTrigger** à la place de l'attribut **BlobTrigger** sur la fonction qui traite l'objet blob.
 
 ### <a name="single-placeholder-for-blob-name-with-extension"></a>Espace réservé unique pour le nom d’objet blob avec extension
 L’exemple de code suivant copie les objets blob de texte qui apparaissent dans le conteneur *input* vers le conteneur *output* :
@@ -149,7 +149,7 @@ Le message en file d’attente associé aux objets blob incohérents correspond
 * BlobType (« BlockBlob » ou « PageBlob »)
 * ContainerName
 * BlobName
-* Étiquette d’entité (identificateur de version de l’objet blob, par exemple : « 0x8D1DC6E70A277EF »)
+* ETag (identificateur de version de l’objet blob, par exemple : « 0x8D1DC6E70A277EF »)
 
 Dans l’exemple de code suivant, la fonction **CopyBlob** comporte du code qui provoque l’échec de cette fonction chaque fois qu’elle est appelée. Une fois que le Kit de développement logiciel (SDK) a atteint le nombre de tentatives d’appel défini, un message est créé dans la file d’attente des objets blob incohérents. Ce message est traité par la fonction **LogPoisonBlob**.
 
@@ -194,11 +194,11 @@ Le Kit de développement logiciel (SDK) WebJobs s'assure qu'aucune fonction **Bl
 
 Les reçus d’objets blob sont stockés dans un conteneur appelé *azure-webjobs-hosts* associé au compte de stockage Microsoft Azure indiqué par la chaîne de connexion AzureWebJobsStorage. Un reçu d’objet blob contient les informations suivantes :
 
-* Fonction appelée pour l’objet blob (" *{nom_tâche_web}* .Functions. *{nom_fonction}* ", par exemple : "WebJob1.Functions.CopyBlob")
+* Fonction appelée pour l’objet blob (" *{nom_tâche_web}* .Functions. *{nom_fonction}* ", par exemple : « WebJob1.Functions.CopyBlob »)
 * Nom du conteneur
 * Type d’objet blob (« BlockBlob » ou « PageBlob »)
 * Nom de l’objet blob
-* Étiquette d’entité (identificateur de version de l’objet blob, par exemple : « 0x8D1DC6E70A277EF »)
+* ETag (identificateur de version de l’objet blob, par exemple : « 0x8D1DC6E70A277EF »)
 
 Si vous souhaitez forcer le retraitement d’un objet blob, vous pouvez supprimer manuellement le reçu de l’objet blob à partir du conteneur *azure-webjobs-hosts* .
 

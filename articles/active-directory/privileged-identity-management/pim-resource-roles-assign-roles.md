@@ -16,11 +16,11 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 34051a31c6ccf69356f330d7c5ecb009f760857a
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72895941"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231801"
 ---
 # <a name="assign-azure-resource-roles-in-privileged-identity-management"></a>Attribuer des rôles de ressources Azure dans Privileged Identity Management
 
@@ -126,5 +126,5 @@ Suivez ces étapes pour mettre à jour ou supprimer une attribution de rôle exi
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Étendre ou renouveler des rôles de ressources Azure dans Privileged Identity Management](pim-resource-roles-renew-extend.md)
-- [Configurer les paramètres des rôles de ressource Azure dans Privileged Identity Management](pim-resource-roles-configure-role-settings.md)
+- [Configurer les paramètres des rôles de ressources Azure dans Privileged Identity Management](pim-resource-roles-configure-role-settings.md)
 - [Attribuer des rôles dans Azure AD dans Privileged Identity Management](pim-how-to-add-role-to-user.md)

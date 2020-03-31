@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
 ms.openlocfilehash: a61f7ff69e648262eb721eb61a98b09dbbee924c
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73961422"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-a-secondary-on-premises-site-after-failover"></a>Configurer l’adressage IP pour se connecter à un site local secondaire après un basculement
@@ -50,7 +50,7 @@ Vous pouvez basculer tout le sous-réseau pour bénéficier des avantages d’un
 - Lorsqu’un basculement se produit, les sous-réseaux se déplacent avec leurs machines virtuelles associées.
 - En cas de défaillance, et c’est là le principal inconvénient de cette stratégie, vous devez déplacer le sous-réseau dans son intégralité.
 
-#### <a name="example"></a>Exemples
+#### <a name="example"></a>Exemple
 
 Voici un exemple de basculement de sous-réseau complet. 
 
@@ -105,7 +105,7 @@ Dans ce scénario, les adresses IP des machines virtuelles basculées sont modif
     Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord
     ```
     
-### <a name="example"></a>Exemples 
+### <a name="example"></a>Exemple 
 
 Dans cet exemple, nous avons des adresses IP différentes entre le site principal et le site secondaire, sachant par ailleurs qu’il existe un troisième site depuis lequel il est possible d’accéder aux applications hébergées sur le site principal ou le site de récupération.
 

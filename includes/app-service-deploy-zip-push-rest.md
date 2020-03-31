@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 08/12/2019
 ms.author: cephalin
 ms.openlocfilehash: 92e39f128e90ba83a919388e217f0edc86f81770
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75769662"
 ---
-## <a name="rest"></a>Déployer un fichier ZIP avec l’API REST 
+## <a name="deploy-zip-file-with-rest-apis"></a><a name="rest"></a>Déployer un fichier ZIP avec l’API REST 
 
 Vous pouvez utiliser les [API REST du service de déploiement](https://github.com/projectkudu/kudu/wiki/REST-API) pour déployer le fichier .zip sur votre application dans Azure. Pour déployer, envoyez une demande POST à https://<nom_application>.scm.azurewebsites.net/api/zipdeploy. La demande POST doit contenir le fichier .zip dans le corps du message. Les informations d’identification de déploiement pour votre application sont fournies dans la demande avec l’authentification de base HTTP. Pour plus d’informations, consultez les [informations de référence des envois (push) de fichiers .zip](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file). 
 
