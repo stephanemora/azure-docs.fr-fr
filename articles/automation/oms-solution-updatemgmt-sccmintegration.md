@@ -8,10 +8,10 @@ ms.author: magoedte
 ms.date: 12/11/2019
 ms.topic: conceptual
 ms.openlocfilehash: f0ca836e3b53c3cce755d45b50fe168073f0bbaa
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76513131"
 ---
 # <a name="deploy-updates-to-microsoft-endpoint-configuration-manager-clients-with-update-management"></a>Déployer des mises à jour sur des clients Microsoft Endpoint Configuration Manager avec Update Management

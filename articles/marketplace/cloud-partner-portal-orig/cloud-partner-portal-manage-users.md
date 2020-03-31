@@ -1,20 +1,18 @@
 ---
 title: Gestion des utilisateurs sur le portail Microsoft Cloud Partner | Place de marché Azure
 description: Gestion des utilisateurs sur le portail Microsoft Cloud Partner
-services: Azure, Marketplace, Cloud Partner Portal,
 author: qianw211
-manager: pbutlerm
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: b14d40e9b3a2aa1ca71335b60e97f15b3782698f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 441f466fcbeb05d06d565dbe1af237d01554d844
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823263"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280216"
 ---
 <a name="managing-users-on-cloud-partner-portal"></a>Gestion des utilisateurs sur le portail Microsoft Cloud Partner
 ======================================
@@ -38,7 +36,7 @@ Pour **ajouter des utilisateurs et affecter des rôles** pour la publication de 
 
 Vous pouvez ajouter le nouvel utilisateur en tant que « propriétaire » ou « collaborateur ».
 
-**E-mail** : ajoutez les adresses e-mail des collègues qui contribueront à la publication de l'offre. Les comptes Microsoft (Outlook, Hotmail et Live) et les ID d’organisation sont pris en charge.
+**E-mail** : ajoutez les adresses e-mail des collègues travaillant sur la publication de l’offre. Les comptes Microsoft (Outlook, Hotmail et Live) et les ID d’organisation sont pris en charge.
 
 o Ajoutez un « groupe d’équipe/de courrier électronique/de sécurité » si l’individu qui utilise l’offre quitte l’organisation.
 
@@ -51,7 +49,7 @@ o Veillez à ce que les ID d’e-mail fournis sur le portail Microsoft Cloud Par
 
 Actuellement, seuls les propriétaires peuvent accéder aux onglets Azure Payouts et Azure Customer dans Insights.
 
-<a name="step-4-select-the-publisher-name-you-want-to-add-to-the-new-user-then-click-add-to-complete-user-addition"></a>Étape 4. Sélectionnez le nom de l’éditeur pour lequel vous souhaitez ajouter le nouvel utilisateur, puis cliquez sur Ajouter pour terminer l’ajout de l’utilisateur.
+<a name="step-4-select-the-publisher-name-you-want-to-add-to-the-new-user-then-click-add-to-complete-user-addition"></a>Étape 4. Sélectionnez le nom de l’éditeur pour lequel vous souhaitez ajouter le nouvel utilisateur, puis cliquez sur Ajouter pour terminer l’ajout de l’utilisateur.
 ----------------------------------------------------------------------------------------------------------------------------
 
 > [!NOTE]

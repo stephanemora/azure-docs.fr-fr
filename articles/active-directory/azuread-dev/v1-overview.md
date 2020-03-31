@@ -4,24 +4,21 @@ description: Cet article fournit une vue d’ensemble de la connexion des compte
 services: active-directory
 author: rwike77
 manager: CelesteDG
-editor: ''
-ms.assetid: 5c872c89-ef04-4f4c-98de-bc0c7460c7c2
 ms.service: active-directory
 ms.subservice: azuread-dev
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/24/2018
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 638c265fda3c8b331415d54047180b3c0ee2174a
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ROBOTS: NOINDEX
+ms.openlocfilehash: ade350c91ebd2f3a68b52011e598f739a14c220f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77197542"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154489"
 ---
 # <a name="azure-active-directory-for-developers-v10-overview"></a>Présentation d’Azure Active Directory pour les développeurs (v1.0)
 

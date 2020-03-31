@@ -12,17 +12,17 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shg
 ms.openlocfilehash: c112fb0b2d0eb3b8a66731948f48c8038a2296f8
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77023648"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Bien démarrer avec le Kit de développement logiciel (SDK) Batch pour Node.js
 
 Découvrez les concepts de base de création d’un client Batch dans Node.js à l’aide du [Kit de développement logiciel (SDK) Node.js pour Azure Batch](/javascript/api/overview/azure/batch). Nous allons présenter pas à pas un scénario pour une application Batch, puis la configurer à l’aide d’un client Node.js.  
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 Cet article suppose que vous avez acquis une connaissance pratique de Node.js et que vous êtes familiarisé avec Linux. Il suppose également que vous disposez d’un compte Azure configuré avec des droits d’accès pour créer des services Batch et Stockage.
 
 Nous vous recommandons de lire [Présentation technique d’Azure Batch](batch-technical-overview.md) avant d’effectuer les étapes présentées dans cet article.

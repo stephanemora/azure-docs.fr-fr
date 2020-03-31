@@ -4,10 +4,10 @@ description: Découvrez comment attribuer des stratégies d’accès de sécurit
 ms.topic: conceptual
 ms.date: 03/21/2018
 ms.openlocfilehash: c7d30e85848f045b5724bb8bdc6e5c810102c044
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75614653"
 ---
 # <a name="assign-a-security-access-policy-for-http-and-https-endpoints"></a>Affectation d’une stratégie d’accès de sécurité pour des points de terminaison HTTP et HTTPS

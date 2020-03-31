@@ -16,10 +16,10 @@ ms.date: 07/15/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 18409f93ab50f7d031ec78a55b9eaf8ad1b85a49
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70101408"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>SAP Business One sur les machines virtuelles Azure
@@ -31,7 +31,7 @@ Business One prend en charge deux bases de données différentes :
 
 Concernant SQL Server, les points à prendre en considérations pour le déploiement de base documentés dans [SQL Server Azure Virtual Machines DBMS deployment for SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms-guide) (Déploiement SGBD des machines virtuelles Azure SQL Server pour SAP NetWeaver) s’appliquent. Pour SAP HANA, les points à prendre en considération sont mentionnés dans ce document.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 Pour utiliser ce guide, vous devez disposer des connaissances de base quant aux différents composants Azure suivants :
 
 - [Machines virtuelles Azure sur Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
@@ -131,8 +131,8 @@ Tailles estimées du côté du système de gestion de base de données pour SQL 
 
 | Nombre d’utilisateurs | Processeurs virtuels | Mémoire | Exemples de types de machines virtuelles |
 | --- | --- | --- | --- |
-| Jusqu’à 20 | 4 | 16 Go | D4s_v3, E4s_v3 |
-| Jusqu’à 40 | 8 | 32 Go | D8s_v3, E8s_v3 |
+| Jusqu’à 20 | 4 | 16 Go | D4s_v3, E4s_v3 |
+| Jusqu’à 40 | 8 | 32 Go | D8s_v3, E8s_v3 |
 | Jusqu’à 80 | 16 | 64 Go | D16s_v3, E16s_v3 |
 | Jusqu’à 150 | 32 | 128 Go | D32s_v3, E32s_v3 |
 

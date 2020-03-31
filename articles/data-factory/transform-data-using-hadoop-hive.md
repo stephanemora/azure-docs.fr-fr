@@ -12,15 +12,15 @@ manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 01/15/2019
 ms.openlocfilehash: b4af3f897a12c71d73962735d3fe68d95f138cef
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74912924"
 ---
 # <a name="transform-data-using-hadoop-hive-activity-in-azure-data-factory"></a>Transformer des données à l’aide d’une activité Hadoop Hive dans Azure Data Factory
 
-> [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
+> [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](v1/data-factory-hive-activity.md)
 > * [Version actuelle](transform-data-using-hadoop-hive.md)
 
@@ -58,13 +58,13 @@ Si vous découvrez Azure Data Factory, lisez la [présentation d’Azure Data Fa
 ## <a name="syntax-details"></a>Détails de la syntaxe
 | Propriété            | Description                                                  | Obligatoire |
 | ------------------- | ------------------------------------------------------------ | -------- |
-| name                | Nom de l’activité                                         | OUI      |
+| name                | Nom de l’activité                                         | Oui      |
 | description         | Texte décrivant la raison motivant l’activité.                | Non       |
-| Type                | Pour l’activité Hive, le type d’activité est HDinsightHive.        | OUI      |
-| linkedServiceName   | Référence au cluster HDInsight enregistré en tant que service lié dans Data Factory. Pour en savoir plus sur ce service lié, consultez l’article [Services liés de calcul](compute-linked-services.md). | OUI      |
+| type                | Pour l’activité Hive, le type d’activité est HDinsightHive.        | Oui      |
+| linkedServiceName   | Référence au cluster HDInsight enregistré en tant que service lié dans Data Factory. Pour en savoir plus sur ce service lié, consultez l’article [Services liés de calcul](compute-linked-services.md). | Oui      |
 | scriptLinkedService | Référence à un service lié de stockage Azure utilisé pour stocker le script Hive à exécuter. Si vous ne spécifiez pas ce service lié, le service lié Stockage Azure défini dans le service lié HDInsight est utilisé. | Non       |
-| scriptPath          | Indiquez le chemin du fichier de script stocké dans le stockage Azure référencé par scriptLinkedService. Le nom de fichier respecte la casse. | OUI      |
-| getDebugInfo        | Spécifie quand les fichiers journaux sont copiés vers le stockage Azure utilisé par le cluster HDInsight (ou) spécifié par scriptLinkedService. Valeurs autorisées : None, Always ou Failure. Valeur par défaut : Aucune. | Non       |
+| scriptPath          | Indiquez le chemin du fichier de script stocké dans le stockage Azure référencé par scriptLinkedService. Le nom de fichier respecte la casse. | Oui      |
+| getDebugInfo        | Spécifie quand les fichiers journaux sont copiés vers le stockage Azure utilisé par le cluster HDInsight (ou) spécifié par scriptLinkedService. Valeurs autorisées : None, Always ou Failure. Valeur par défaut : Aucun. | Non       |
 | arguments           | Spécifie un tableau d’arguments pour un travail Hadoop. Les arguments sont passés sous la forme d’arguments de ligne de commande à chaque tâche. | Non       |
 | defines             | Spécifier les paramètres sous forme de paires clé/valeur pour le référencement au sein du script Hive. | Non       |
 | queryTimeout        | Valeur du délai d'expiration de la requête (en minutes). Applicable lorsque le cluster HDInsight est activé avec le Pack Sécurité Entreprise. | Non       |

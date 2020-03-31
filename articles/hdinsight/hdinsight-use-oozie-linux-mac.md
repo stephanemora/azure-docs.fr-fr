@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.openlocfilehash: ece6fdb743035069bc6c666d6e90c76860f63e82
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75744910"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Utiliser Apache Oozie avec Apache Hadoop pour définir et exécuter un workflow sur Azure HDInsight Linux
@@ -28,7 +28,7 @@ Vous pouvez également utiliser Oozie pour planifier des travaux propres à un s
 > [!NOTE]  
 > Une autre option pour définir des workflows avec HDInsight consiste à utiliser Azure Data Factory. Pour plus d’informations sur Data Factory, consultez [Utiliser Apache Pig et Apache Hive avec Data Factory][azure-data-factory-pig-hive]. Pour utiliser Oozie sur les clusters avec le Pack Sécurité Entreprise, consultez la section [Exécuter Apache Oozie dans des clusters HDInsight Hadoop avec le Pack Sécurité Entreprise](domain-joined/hdinsight-use-oozie-domain-joined-clusters.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * **Un cluster Hadoop sur HDInsight**. Consultez [Bien démarrer avec HDInsight sur Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 

@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 01/14/2020
 ms.author: metan
 ms.openlocfilehash: 9003eb85938cc3afaad7fef341b1ed2826e8fbc9
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76841607"
 ---
 # <a name="quickstart-create-an-ios-app-that-launches-the-immersive-reader-swift"></a>Démarrage rapide : Créer une application iOS qui lance le lecteur immersif (Swift)
@@ -23,7 +23,7 @@ Dans ce guide de démarrage rapide, vous créez une application iOS à partir de
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * [Xcode](https://apps.apple.com/us/app/xcode/id497799835?mt=12)
 * Une ressource Lecteur immersif configurée pour l’authentification Azure Active Directory. Suivez [ces instructions](./how-to-create-immersive-reader.md) pour la configurer. Vous aurez besoin de certaines des valeurs créées ici lors de la configuration des propriétés de l’exemple de projet. Enregistrez la sortie de votre session dans un fichier texte pour référence ultérieure.

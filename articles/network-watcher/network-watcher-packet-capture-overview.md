@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 1f17463125cead64bd58a2d07e53eee4d3cfcd70
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76840806"
 ---
 # <a name="introduction-to-variable-packet-capture-in-azure-network-watcher"></a>Présentation de la capture de paquets variable dans Azure Network Watcher

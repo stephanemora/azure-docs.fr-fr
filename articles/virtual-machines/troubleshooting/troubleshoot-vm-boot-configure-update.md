@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: delhan
 ms.openlocfilehash: da45e24898bc3b5aead250077af69a61bdb33bab
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73749638"
 ---
 # <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>Le démarrage de la machine virtuelle est bloqué sur « Préparation de Windows. N’éteignez pas l’ordinateur. » dans Azure
@@ -44,7 +44,7 @@ Si le problème n’est pas résolu après que vous avez attendu que les modific
 
 ### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Attachez le disque du système d’exploitation à une machine virtuelle de récupération
 
-1. Prenez un instantané du disque du système d’exploitation de la machine virtuelle affectée en guise de sauvegarde. Pour plus d’informations, voir [Prendre un instantané d’un disque](../windows/snapshot-copy-managed-disk.md).
+1. Prenez un instantané du disque du système d’exploitation de la machine virtuelle affectée en guise de sauvegarde. Pour plus d’informations, consultez [Créer un instantané](../windows/snapshot-copy-managed-disk.md).
 2. [Attachez le disque du système d’exploitation à une machine virtuelle de récupération](../windows/troubleshoot-recovery-disks-portal.md).
 3. Connectez-vous à la machine virtuelle de récupération à l’aide du Bureau à distance. 
 4. Si le disque du système d’exploitation est chiffré, vous devez désactiver le chiffrement avant de passer à l’étape suivante. Pour plus d’informations, consultez [Déchiffrer le disque de système d’exploitation chiffré sur la machine virtuelle qui ne peut pas démarrer](troubleshoot-bitlocker-boot-error.md#solution).
@@ -61,7 +61,7 @@ Si le fichier d’image est introuvable, passez à l’étape suivante pour acti
 Pour activer le journal de vidage et la console série, exécutez le script suivant.
 
 1. Ouvrez une session Invite de commande avec élévation de privilèges (Exécuter en tant qu’administrateur).
-2. Exécutez le script qui suit :
+2. Exécutez le script suivant :
 
     Dans ce script, nous partons du principe que la lettre de lecteur qui est affectée au disque du système d’exploitation attaché est F. Remplacez-la par la valeur appropriée dans votre machine virtuelle.
 

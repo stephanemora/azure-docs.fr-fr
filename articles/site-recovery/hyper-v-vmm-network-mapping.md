@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: 6b68b4c943ec96620427978c2309f27e1fb1f217
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74082554"
 ---
 # <a name="prepare-network-mapping-for-hyper-v-vm-disaster-recovery-to-azure"></a>Préparer le mappage réseau pour la récupération d’urgence de machines virtuelles Hyper-V sur Azure
@@ -49,11 +49,11 @@ Le mappage réseau fonctionne de la façon détaillée ici.
 - Lorsque vous sélectionnez un réseau de machines virtuelles cible dans le cadre du mappage réseau dans Site Recovery, les clouds VMM sources qui utilisent le réseau de machines virtuelles source sont affichés, ainsi que les réseaux de machines virtuelles cibles disponibles sur les clouds cibles qui sont utilisés pour la protection.
 - Si le réseau cible est associé à plusieurs sous-réseaux et que l’un d’eux présente le même nom que le sous-réseau dans lequel se trouve la machine virtuelle source, la machine virtuelle de réplication est connectée à ce sous-réseau cible après le basculement. S’il n’existe aucun sous-réseau cible avec un nom correspondant, la machine virtuelle sera connectée au premier sous-réseau du réseau.
 
-## <a name="example"></a>Exemples
+## <a name="example"></a>Exemple
 
 Voici un exemple permettant d’illustrer ce processus. Prenons l’exemple d’une entreprise ayant ouvert deux bureaux, l’un à New York et l’autre à Chicago.
 
-**Lieu** | **Serveur VMM** | **Réseaux de machines virtuelles** | **Mappés à**
+**Lieu** | **Serveur VMM** | **Réseaux de machines virtuelles** | **Mappé à**
 ---|---|---|---
 New York | VMM-NewYork| VMNetwork1-NewYork | Mappé au réseau VMNetwork1-Chicago
  |  | VMNetwork2-NewYork | Non mappé
@@ -88,7 +88,7 @@ Chicago | LogicalNetwork1-Chicago | VMNetwork1-Chicago
 
 Selon ces paramètres, lorsque vous sélectionnez le réseau de machines virtuelles cible, le tableau suivant répertorie les choix disponibles.
 
-**Sélection** | **Cloud protégé** | **Cloud de protection** | **Réseau cible disponible**
+**Select** | **Cloud protégé** | **Cloud de protection** | **Réseau cible disponible**
 ---|---|---|---
 VMNetwork1-Chicago | SilverCloud1 | SilverCloud2 | Disponible
  | GoldCloud1 | GoldCloud2 | Disponible

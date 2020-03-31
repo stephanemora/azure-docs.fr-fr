@@ -14,16 +14,16 @@ ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: d151e55f627166d8ad7d8affa53740e86cd1e501
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72298792"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Prendre en main le stockage d’objets blob Azure et les services connectés de Visual Studio (projets services cloud)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Cet article décrit comment prendre en main Azure Blob Storage après avoir créé ou référencé un compte de stockage Azure via la boîte de dialogue **Ajouter des services connectés** de Visual Studio, dans un projet Visual Studio Cloud Services. Nous allons vous montrer comment créer des conteneurs d’objets blob, y accéder et effectuer des tâches courantes comme télécharger, répertorier et charger des objets blob. Les exemples sont écrits en code C\# et utilisent la bibliothèque cliente [Stockage Microsoft Azure pour .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
 Le stockage d’objets blob Azure est un service permettant de stocker de grandes quantités de données non structurées accessibles depuis n’importe où dans le monde via HTTP ou HTTPS. Les objets blob peuvent être de toutes tailles. Il peut s'agir d'images, de fichiers audio ou vidéo, de données brutes ou de fichiers de documents.
@@ -65,7 +65,7 @@ Pour accéder par programmation aux objets blob dans des projets de service clou
 
 ## <a name="create-a-container-in-code"></a>Création d'un conteneur dans le code
 > [!NOTE]
-> Certaines API qui effectuent des appels à Azure Storage sont asynchrones. Pour plus d’informations, voir l’article [Programmation asynchrone avec Async et Await](https://msdn.microsoft.com/library/hh191443.aspx) . Le code de l’exemple suivant suppose que vous utilisez des méthodes de programmation asynchrones.
+> Certaines API qui effectuent des appels à Azure Storage sont asynchrones. Pour plus d’informations, consultez l’article [Programmation asynchrone avec Async et Await](https://msdn.microsoft.com/library/hh191443.aspx) . Le code de l’exemple suivant suppose que vous utilisez des méthodes de programmation asynchrones.
 > 
 > 
 

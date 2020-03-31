@@ -9,10 +9,10 @@ ms.date: 01/30/2017
 ms.author: ganesr
 ms.custom: seodec18
 ms.openlocfilehash: 4f1bd064dbc0909be3deba9180be1d8b3c066fd4
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74076578"
 ---
 # <a name="getting-arp-tables-in-the-resource-manager-deployment-model"></a>Obtention de tables ARP dans le modèle de déploiement Resource Manager

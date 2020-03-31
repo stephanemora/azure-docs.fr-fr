@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 1917bd6744e100db54fe959292e29486f8a1784b
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74770184"
 ---
 # <a name="optimize-autovacuum-on-an-azure-database-for-postgresql---single-server"></a>Optimiser le nettoyage automatique sur un serveur Azure Database pour PostgreSQL – Serveur unique
@@ -46,9 +46,9 @@ Voici des paramètres de configuration du nettoyage automatique que vous pouvez 
 
 Paramètre|Description|Valeur par défaut
 ---|---|---
-autovacuum_vacuum_threshold|Spécifie le nombre minimal de tuples mis à jour ou supprimés pour déclencher une opération de nettoyage dans une table. La valeur par défaut est de 50 tuples. Définissez ce paramètre uniquement dans le fichier postgresql.conf ou sur la ligne de commande du serveur. Pour substituer ce paramètre au niveau de chaque table, modifiez les paramètres de stockage de la table.|50
-autovacuum_vacuum_scale_factor|Spécifie une fraction de la taille de la table à ajouter à autovacuum_vacuum_threshold lorsque vous décidez qu’il faut déclencher une opération de nettoyage. La valeur par défaut est de 0,2 (c’est-à-dire, 20 % de la taille de la table). Définissez ce paramètre uniquement dans le fichier postgresql.conf ou sur la ligne de commande du serveur. Pour substituer ce paramètre au niveau de chaque table, modifiez les paramètres de stockage de la table.|5 pour cent
-autovacuum_vacuum_cost_limit|Spécifie la valeur limite du coût qui doit être utilisée dans les opérations de nettoyage automatique. Si vous spécifiez -1 (la valeur par défaut), la valeur régulière de vacuum_cost_limit est utilisée. S’il existe plusieurs workers, la valeur est répartie proportionnellement entre les workers de nettoyage automatique actuellement exécutés. La somme des limites pour chaque worker ne dépasse pas la valeur de cette variable. Définissez ce paramètre uniquement dans le fichier postgresql.conf ou sur la ligne de commande du serveur. Pour substituer ce paramètre au niveau de chaque table, modifiez les paramètres de stockage de la table.|-1
+autovacuum_vacuum_threshold|Spécifie le nombre minimal de tuples mis à jour ou supprimés pour déclencher une opération de nettoyage dans une table. La valeur par défaut est de 50 tuples. Définissez ce paramètre uniquement dans le fichier postgresql.conf ou sur la ligne de commande du serveur. Pour substituer ce paramètre au niveau de chaque table, changez les paramètres de stockage de la table.|50
+autovacuum_vacuum_scale_factor|Spécifie une fraction de la taille de la table à ajouter à autovacuum_vacuum_threshold lorsque vous décidez qu’il faut déclencher une opération de nettoyage. La valeur par défaut est de 0,2 (c’est-à-dire, 20 % de la taille de la table). Définissez ce paramètre uniquement dans le fichier postgresql.conf ou sur la ligne de commande du serveur. Pour substituer ce paramètre au niveau de chaque table, changez les paramètres de stockage de la table.|5 pour cent
+autovacuum_vacuum_cost_limit|Spécifie la valeur limite du coût qui doit être utilisée dans les opérations de nettoyage automatique. Si vous spécifiez -1 (la valeur par défaut), la valeur régulière de vacuum_cost_limit est utilisée. S’il existe plusieurs workers, la valeur est répartie proportionnellement entre les workers de nettoyage automatique actuellement exécutés. La somme des limites pour chaque worker ne dépasse pas la valeur de cette variable. Définissez ce paramètre uniquement dans le fichier postgresql.conf ou sur la ligne de commande du serveur. Pour substituer ce paramètre au niveau de chaque table, changez les paramètres de stockage de la table.|-1
 autovacuum_vacuum_cost_delay|Spécifie la valeur de délai du coût qui doit être utilisée dans les opérations de nettoyage automatique. Si vous spécifiez -1, la valeur régulière de vacuum_cost_delay est utilisée. La valeur par défaut est de 20 millisecondes. Définissez ce paramètre uniquement dans le fichier postgresql.conf ou sur la ligne de commande du serveur. Pour substituer ce paramètre au niveau de chaque table, changez les paramètres de stockage de la table.|20 ms
 autovacuum_nap_time|Spécifie le délai minimal entre les exécutions de nettoyage automatique sur une base de données spécifique. À chaque cycle, le démon examine la base de données et émet des commandes de nettoyage et d’analyse en fonction des besoins pour les tables de cette base de données. Le délai est exprimé en secondes, et la valeur par défaut est d’une minute (1 min). Définissez ce paramètre uniquement dans le fichier postgresql.conf ou sur la ligne de commande du serveur.|15 s
 autovacuum_max_workers|Spécifie le nombre maximal de processus de nettoyage automatique (autres que le lanceur de nettoyage automatique) qui peuvent s’exécuter à tout moment. La valeur par défaut est trois. Définissez ce paramètre uniquement au démarrage du serveur.|3

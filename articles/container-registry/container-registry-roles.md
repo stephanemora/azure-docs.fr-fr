@@ -4,10 +4,10 @@ description: Utilisez le contrôle d’accès en fonction du rôle (RBAC) et la 
 ms.topic: article
 ms.date: 12/02/2019
 ms.openlocfilehash: 3fb103ac4c4dac736b3c0fc99b2cf49f01e9e005
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74893482"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Autorisations et rôles Azure Container Registry

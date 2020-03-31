@@ -9,10 +9,10 @@ ms.date: 06/27/2018
 ms.author: fryu
 ms.subservice: common
 ms.openlocfilehash: 1ad41b0b7391236a15b7c1be7d42ed81aaf5b51a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61483432"
 ---
 # <a name="azure-storage-compliance-offerings"></a>Offres de conformité sur Stockage Azure
@@ -21,7 +21,7 @@ Pour aider les entreprises à répondre aux exigences nationales, régionales et
 
 Vous trouverez ci-dessous les offres de conformité qui permettent à votre service d’utiliser le service Stockage Azure de façon régulée. Elles s’appliquent aux offres de stockage Azure suivantes : Objets BLOB, fichiers, files d’attente, tables, disques, stockage froid et stockage Premium.
 
-## <a name="global"></a>Globale
+## <a name="global"></a>Global
 
 * [Attestation CSA STAR](https://www.microsoft.com/trustcenter/compliance/csa-star-attestation)
 * [Certification CSA STAR](https://www.microsoft.com/trustcenter/compliance/csa-star-certification)

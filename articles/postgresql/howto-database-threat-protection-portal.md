@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 8b7f52ea318432e97a450a54526f6481b14139c9
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74776141"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-postgresql---single-server"></a>Advanced Threat Protection pour Azure Database pour PostgreSQL - Serveur unique
@@ -20,7 +20,7 @@ La protection avancée contre les menaces d’Azure Database pour PostgreSQL dé
 La protection avancée contre les menaces fait partie de l’offre Advanced Data Security qui est un package unifié de fonctionnalités de sécurité avancées. La protection avancée contre les menaces peut être accessible et gérée via le [portail Azure](https://portal.azure.com), et est actuellement en préversion.
 
 > [!NOTE]
-> La fonctionnalité Advanced Threat Protection **n’est pas** disponible dans les régions administratives et souveraines suivantes du cloud Azure : US Gov Texas, US Gov Arizona, US Gov Iowa, US, Gov Virginie, US DoD Est, US DoD Central, Allemagne Centre, Allemagne Nord, Chine Est, Chine Est 2. Consultez les [produits disponibles par région](https://azure.microsoft.com/global-infrastructure/services/) pour connaître la disponibilité générale des produits.
+> La fonctionnalité de protection avancée contre les menaces **n’est pas** disponible dans les régions Azure Government et de cloud souverain suivantes : US Gov Texas, US Gov Arizona, US Gov Iowa, US Gov Virginie, US DoD Est, US DoD Centre, Allemagne Centre, Allemagne Nord, Chine Est, Chine Est 2. Consultez les [produits disponibles par région](https://azure.microsoft.com/global-infrastructure/services/) pour connaître la disponibilité générale des produits.
 >
 
 > [!NOTE]

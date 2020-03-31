@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: juliako
 ms.openlocfilehash: 39a1dd5c3d26eeb6545a96aa35f9457bd9859c21
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61247241"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227089"
 ---
 # <a name="customizing-media-encoder-standard-presets"></a>Personnalisation des présélections de tâches Media Encoder Standard  
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Cet article explique comment exécuter un encodage avancé avec Media Encoder Standard (MES) en utilisant une présélection personnalisée. Il décrit comment utiliser .NET pour créer une tâche d’encodage et générer un travail qui exécute cette tâche.  
 
@@ -32,7 +32,7 @@ Cet article vous explique comment personnaliser une présélection en utilisant 
 > [!NOTE]
 > Les présélections personnalisées décrites dans cet article ne peuvent pas être utilisées dans les transformations [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/) ou les commandes CLI. Pour plus d’informations, consultez [Conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md).
 
-## <a id="customizing_presets"></a> Personnalisation d'une présélection MES
+## <a name="customizing-a-mes-preset"></a><a id="customizing_presets"></a> Personnalisation d'une présélection MES
 
 ### <a name="original-preset"></a>Présélection d’origine
 
@@ -113,7 +113,7 @@ Ouvrez le fichier **CustomPreset_JSON.json** et supprimez tout d’abord les tro
     }  
 ```
 
-## <a id="encoding_with_dotnet"></a>Encodage à l’aide du Kit de développement logiciel (SDK) .NET de Media Services
+## <a name="encoding-with-media-services-net-sdk"></a><a id="encoding_with_dotnet"></a>Encodage à l’aide du Kit de développement logiciel (SDK) .NET de Media Services
 
 Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Services pour effectuer les tâches suivantes :
 
@@ -134,7 +134,7 @@ Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Se
 
 Configurez votre environnement de développement et ajoutez des informations de connexion au fichier app.config selon la procédure décrite dans l’article [Développement Media Services avec .NET](media-services-dotnet-how-to-use.md). 
 
-#### <a name="example"></a>Exemples   
+#### <a name="example"></a>Exemple   
 
 ```csharp
 using System;

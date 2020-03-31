@@ -1,19 +1,19 @@
 ---
 title: Couverture du géocodage | Microsoft Azure Maps
 description: Le processus de conversion de l’adresse de l’emplacement en coordonnées de latitude et longitude est appelé géocodage. Dans cet article, vous allez découvrir les régions bénéficiant de la couverture du géocodage dans Microsoft Azure Maps.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 12/31/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 149dd0a3e709bbf4660aaae176f76f560de873e2
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 9836bd35b16c4c308b7c9d096b104c0cec68a34c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210053"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335648"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Couverture de géocodage Azure Maps
 

@@ -4,15 +4,15 @@ description: Découvrez comment Analysis Services utilise Azure Metrics Explor
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 03/04/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9e6eab38e0f7bd55fa671aa8c1e99693eeb54c84
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: aaa3a6d128fe7dd466f6f60ab515f05fa38ba63b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572734"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227569"
 ---
 # <a name="monitor-server-metrics"></a>Surveiller les indicateurs de performances du serveur
 
@@ -39,53 +39,53 @@ Ce tableau permet de déterminer les meilleurs indicateurs de performances pour 
 
 |Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|
 |---|---|---|---|---|
-|CommandPoolJobQueueLength|Longueur de la file d’attente des travaux du pool de commandes|Count|Moyenne|Nombre de travaux contenus dans la file d’attente du pool de threads de commandes.|
-|CurrentConnections|Connexion : Connexions en cours|Count|Moyenne|Nombre actuel de connexions client établies.|
-|CurrentUserSessions|Sessions utilisateur actuelles|Count|Moyenne|Nombre actuel de sessions utilisateur établies.|
-|mashup_engine_memory_metric|Mémoire du moteur M|Octets|Moyenne|Utilisation de la mémoire par les processus de moteur mashup|
-|mashup_engine_qpu_metric|QPU du moteur M|Count|Moyenne|Utilisation des QPU par les processus de moteur mashup|
-|memory_metric|Mémoire|Octets|Moyenne|Mémoire. Plage de 0 à 25 Go pour S1, de 0 à 50 Go pour S2 et de 0 à 100 Go pour S4|
-|memory_thrashing_metric|Vidage de mémoire|Pourcentage|Moyenne|Vidage de mémoire moyenne.|
-|CleanerCurrentPrice|Mémoire : prix actuel du nettoyage|Count|Moyenne|Prix actuel de la mémoire, $/octet/temps, normalisé à 1000.|
-|CleanerMemoryNonshrinkable|Mémoire : mémoire de nettoyage non réductible|Octets|Moyenne|Quantité de mémoire, en octets, qui ne doit pas être vidée par le nettoyage en arrière-plan.|
-|CleanerMemoryShrinkable|Mémoire : mémoire de nettoyage réductible|Octets|Moyenne|Quantité de mémoire, en octets, qui doit être vidée par le nettoyage en arrière-plan.|
-|MemoryLimitHard|Mémoire : limite inconditionnelle de la mémoire|Octets|Moyenne|Limite de mémoire physique, du fichier de configuration.|
-|MemoryLimitHigh|Mémoire : limite haute de la mémoire|Octets|Moyenne|Limite de mémoire élevée, du fichier de configuration.|
-|MemoryLimitLow|Mémoire : limite basse de la mémoire|Octets|Moyenne|Limite de mémoire basse, du fichier de configuration.|
-|MemoryLimitVertiPaq|Mémoire : limite de la mémoire VertiPaq|Octets|Moyenne|Limite en mémoire, du fichier de configuration.|
-|MemoryUsage|Mémoire : Utilisation de la mémoire|Octets|Moyenne|Utilisation de la mémoire du processus serveur telle qu’utilisée dans le calcul du coût de la mémoire de nettoyage. Équivaut au compteur Process\PrivateBytes, plus la taille des données mappées en mémoire, en ignorant la mémoire mappée ou allouée par le moteur d’analyse de mémoire (VertiPaq) dépassant la limite de mémoire du moteur.|
-|private_bytes_metric|Octets privés |Octets|Moyenne|Quantité totale de mémoire allouée par le processus du moteur Analysis Services et les processus de conteneur mashup, à l’exclusion de la mémoire partagée avec d’autres processus.|
-|virtual_bytes_metric|Octets virtuels |Octets|Moyenne|Taille actuelle de l’espace d’adressage virtuel utilisé par le processus du moteur Analysis Services et les processus de conteneur mashup.|
-|mashup_engine_private_bytes_metric|Octets privés du moteur M |Octets|Moyenne|Quantité totale de mémoire allouée par les processus de conteneur mashup, à l’exclusion de la mémoire partagée avec d’autres processus.|
-|mashup_engine_virtual_bytes_metric|Octets virtuels du moteur M |Octets|Moyenne|Taille actuelle de l’espace d’adressage virtuel utilisé par les processus de conteneur mashup.|
-|Quota|Mémoire : Quota|Octets|Moyenne|Quota de mémoire actuel, en octets. Le quota de mémoire est également appelé réserve de mémoire ou d’allocation.|
-|QuotaBlocked|Mémoire : quota bloqué|Count|Moyenne|Nombre actuel de requêtes de quota qui sont bloquées en attendant la libération d’autres quotas de mémoire.|
-|VertiPaqNonpaged|Mémoire : mémoire non paginée VertiPaq|Octets|Moyenne|Octets de mémoire verrouillée dans la plage de travail pour utilisation par le moteur en mémoire.|
-|VertiPaqPaged|Mémoire : mémoire paginée VertiPaq|Octets|Moyenne|Octets de mémoire paginée utilisée pour les données en mémoire.|
-|ProcessingPoolJobQueueLength|Longueur de la file d’attente des travaux du pool de traitement|Count|Moyenne|Nombre de travaux autres que d’E/S contenus dans la file d’attente du pool de threads de traitement.|
-|RowsConvertedPerSec|Traitement : lignes converties par seconde|CountPerSecond|Moyenne|Taux de lignes converties lors du traitement.|
-|RowsReadPerSec|Traitement : lignes lues par seconde|CountPerSecond|Moyenne|Taux de lignes lues à partir de toutes les bases de données relationnelles.|
-|RowsWrittenPerSec|Traitement : lignes écrites par seconde|CountPerSecond|Moyenne|Taux de lignes écrites lors du traitement.|
-|qpu_metric|QPU|Count|Moyenne|QPU. Plage de 0 à 100 pour S1, de 0 à 200 pour S2 et de 0 à 400 pour S4|
-|QueryPoolBusyThreads|Threads occupés du pool de threads de requêtes|Count|Moyenne|Nombre de threads occupés dans le pool de threads de requêtes.|
-|SuccessfullConnectionsPerSec|Connexions réussies par seconde|CountPerSecond|Moyenne|Taux de connexions terminées réussies.|
-|CommandPoolBusyThreads|Threads : threads occupés du pool de commandes|Count|Moyenne|Nombre de threads occupés dans le pool de threads de commandes.|
-|CommandPoolIdleThreads|Threads : threads inactifs du pool de commandes|Count|Moyenne|Nombre de threads inactifs dans le pool de threads de commandes.|
-|LongParsingBusyThreads|Threads : threads occupés d'analyse longue|Count|Moyenne|Nombre de threads occupés dans le pool de threads d’analyse longue.|
-|LongParsingIdleThreads|Threads : threads inactifs d'analyse longue|Count|Moyenne|Nombre de threads inactifs dans le pool de threads d’analyse longue.|
-|LongParsingJobQueueLength|Threads : longueur de la file d'attente des travaux d'analyse longue|Count|Moyenne|Nombre de travaux contenus dans la file d’attente du pool de threads d’analyse longue.|
-|ProcessingPoolIOJobQueueLength|Threads : longueur de la file des travaux d'E/S du pool de traitement|Count|Moyenne|Nombre de travaux d’E/S contenus dans la file d’attente du pool de threads de traitement.|
-|ProcessingPoolBusyIOJobThreads|Threads : threads des travaux d'E/S occupés du pool de traitement|Count|Moyenne|Nombre de threads pour les travaux d’E/S en cours d’exécution dans le pool de threads de traitement.|
-|ProcessingPoolBusyNonIOThreads|Threads : threads autres que les threads d'E/S occupés du pool de traitement|Count|Moyenne|Nombre de threads pour les travaux autres que d’E/S en cours d’exécution dans le pool de threads de traitement.|
-|ProcessingPoolIdleIOJobThreads|Threads : threads des travaux d'E/S inactifs du pool de traitement|Count|Moyenne|Nombre de threads inactifs pour les travaux d’E/S le pool de threads de traitement.|
-|ProcessingPoolIdleNonIOThreads|Threads : threads autres que les threads d'E/S inactifs du pool de traitement|Count|Moyenne|Nombre de threads inactifs le pool de threads de traitement dédiés aux travaux autres qu’E/S.|
-|QueryPoolIdleThreads|Threads : threads inactifs du pool de requêtes|Count|Moyenne|Nombre de threads inactifs pour les travaux d’E/S le pool de threads de traitement.|
-|QueryPoolJobQueueLength|Threads : longueur de la file d'attente des travaux du pool de requêtes|Count|Moyenne|Nombre de travaux contenus dans la file d’attente du pool de threads de requêtes.|
-|ShortParsingBusyThreads|Threads : threads occupés d'analyse courte|Count|Moyenne|Nombre de threads occupés dans le pool de threads d’analyse courte.|
-|ShortParsingIdleThreads|Threads : threads inactifs d'analyse courte|Count|Moyenne|Nombre de threads inactifs dans le pool de threads d’analyse courte.|
-|ShortParsingJobQueueLength|Threads : longueur de la file d'attente des travaux d'analyse courte|Count|Moyenne|Nombre de travaux contenus dans la file d’attente du pool de threads d’analyse courte.|
-|TotalConnectionFailures|Nombre total d’échecs de connexion|Count|Moyenne|Total des échecs de tentatives de connexion.|
-|TotalConnectionRequests|Nombre total de demandes de connexion|Count|Moyenne|Nombre total de demandes de connexion. |
+|CommandPoolJobQueueLength|Longueur de la file d’attente des travaux du pool de commandes|Count|Average|Nombre de travaux contenus dans la file d’attente du pool de threads de commandes.|
+|CurrentConnections|Connexion : connexions actuelles|Count|Average|Nombre actuel de connexions client établies.|
+|CurrentUserSessions|Sessions utilisateur actuelles|Count|Average|Nombre actuel de sessions utilisateur établies.|
+|mashup_engine_memory_metric|Mémoire du moteur M|Octets|Average|Utilisation de la mémoire par les processus de moteur mashup|
+|mashup_engine_qpu_metric|QPU du moteur M|Count|Average|Utilisation des QPU par les processus de moteur mashup|
+|memory_metric|Mémoire|Octets|Average|Mémoire. Plage de 0 à 25 Go pour S1, de 0 à 50 Go pour S2 et de 0 à 100 Go pour S4|
+|memory_thrashing_metric|Vidage de mémoire|Pourcentage|Average|Vidage de mémoire moyenne.|
+|CleanerCurrentPrice|Mémoire : prix actuel du nettoyage|Count|Average|Prix actuel de la mémoire, $/octet/temps, normalisé à 1000.|
+|CleanerMemoryNonshrinkable|Mémoire : mémoire de nettoyage non réductible|Octets|Average|Quantité de mémoire, en octets, qui ne doit pas être vidée par le nettoyage en arrière-plan.|
+|CleanerMemoryShrinkable|Mémoire : mémoire de nettoyage réductible|Octets|Average|Quantité de mémoire, en octets, qui doit être vidée par le nettoyage en arrière-plan.|
+|MemoryLimitHard|Mémoire : limite de mémoire physique|Octets|Average|Limite de mémoire physique, du fichier de configuration.|
+|MemoryLimitHigh|Mémoire : limite de mémoire élevée|Octets|Average|Limite de mémoire élevée, du fichier de configuration.|
+|MemoryLimitLow|Mémoire : limite de mémoire basse|Octets|Average|Limite de mémoire basse, du fichier de configuration.|
+|MemoryLimitVertiPaq|Mémoire : limite de mémoire VertiPaq|Octets|Average|Limite en mémoire, du fichier de configuration.|
+|MemoryUsage|Mémoire : utilisation de la mémoire|Octets|Average|Utilisation de la mémoire du processus serveur telle qu’utilisée dans le calcul du coût de la mémoire de nettoyage. Équivaut au compteur Process\PrivateBytes, plus la taille des données mappées en mémoire, en ignorant la mémoire mappée ou allouée par le moteur d’analyse de mémoire (VertiPaq) dépassant la limite de mémoire du moteur.|
+|private_bytes_metric|Octets privés |Octets|Average|Quantité totale de mémoire allouée par le processus du moteur Analysis Services et les processus de conteneur mashup, à l’exclusion de la mémoire partagée avec d’autres processus.|
+|virtual_bytes_metric|Octets virtuels |Octets|Average|Taille actuelle de l’espace d’adressage virtuel utilisé par le processus du moteur Analysis Services et les processus de conteneur mashup.|
+|mashup_engine_private_bytes_metric|Octets privés du moteur M |Octets|Average|Quantité totale de mémoire allouée par les processus de conteneur mashup, à l’exclusion de la mémoire partagée avec d’autres processus.|
+|mashup_engine_virtual_bytes_metric|Octets virtuels du moteur M |Octets|Average|Taille actuelle de l’espace d’adressage virtuel utilisé par les processus de conteneur mashup.|
+|Quota|Mémoire : quota|Octets|Average|Quota de mémoire actuel, en octets. Le quota de mémoire est également appelé réserve de mémoire ou d’allocation.|
+|QuotaBlocked|Mémoire : quota bloqué|Count|Average|Nombre actuel de requêtes de quota qui sont bloquées en attendant la libération d’autres quotas de mémoire.|
+|VertiPaqNonpaged|Mémoire : réserve non paginée VertiPaq|Octets|Average|Octets de mémoire verrouillée dans la plage de travail pour utilisation par le moteur en mémoire.|
+|VertiPaqPaged|Mémoire : réserve paginée VertiPaq|Octets|Average|Octets de mémoire paginée utilisée pour les données en mémoire.|
+|ProcessingPoolJobQueueLength|Longueur de la file d’attente des travaux du pool de traitement|Count|Average|Nombre de travaux autres que d’E/S contenus dans la file d’attente du pool de threads de traitement.|
+|RowsConvertedPerSec|Traitement : lignes converties par seconde|CountPerSecond|Average|Taux de lignes converties lors du traitement.|
+|RowsReadPerSec|Traitement : lignes lues par seconde|CountPerSecond|Average|Taux de lignes lues à partir de toutes les bases de données relationnelles.|
+|RowsWrittenPerSec|Traitement : lignes écrites par seconde|CountPerSecond|Average|Taux de lignes écrites lors du traitement.|
+|qpu_metric|QPU|Count|Average|QPU. Plage de 0 à 100 pour S1, de 0 à 200 pour S2 et de 0 à 400 pour S4|
+|QueryPoolBusyThreads|Threads occupés du pool de threads de requêtes|Count|Average|Nombre de threads occupés dans le pool de threads de requêtes.|
+|SuccessfullConnectionsPerSec|Connexions réussies par seconde|CountPerSecond|Average|Taux de connexions terminées réussies.|
+|CommandPoolBusyThreads|Threads : threads occupés du pool commandes|Count|Average|Nombre de threads occupés dans le pool de threads de commandes.|
+|CommandPoolIdleThreads|Threads : threads inactifs du pool commande|Count|Average|Nombre de threads inactifs dans le pool de threads de commandes.|
+|LongParsingBusyThreads|Threads : threads d’analyse longue occupés|Count|Average|Nombre de threads occupés dans le pool de threads d’analyse longue.|
+|LongParsingIdleThreads|Threads : threads d’analyse longue inactifs|Count|Average|Nombre de threads inactifs dans le pool de threads d’analyse longue.|
+|LongParsingJobQueueLength|Threads : durée de file d’attente des travaux d’analyse longue|Count|Average|Nombre de travaux contenus dans la file d’attente du pool de threads d’analyse longue.|
+|ProcessingPoolIOJobQueueLength|Threads : longueur de la file d’attente des travaux d’E/S du pool de traitement|Count|Average|Nombre de travaux d’E/S contenus dans la file d’attente du pool de threads de traitement.|
+|ProcessingPoolBusyIOJobThreads|Threads : traitement des threads de travail d’E/S occupés du pool|Count|Average|Nombre de threads pour les travaux d’E/S en cours d’exécution dans le pool de threads de traitement.|
+|ProcessingPoolBusyNonIOThreads|Threads : traitement des threads de travail autres qu’E/S occupés du pool|Count|Average|Nombre de threads pour les travaux autres que d’E/S en cours d’exécution dans le pool de threads de traitement.|
+|ProcessingPoolIdleIOJobThreads|Threads : traitement des threads de travail d’E/S ignorés du pool|Count|Average|Nombre de threads inactifs pour les travaux d’E/S le pool de threads de traitement.|
+|ProcessingPoolIdleNonIOThreads|Threads : traitement des threads de travail autres qu’E/S inactifs du pool|Count|Average|Nombre de threads inactifs le pool de threads de traitement dédiés aux travaux autres qu’E/S.|
+|QueryPoolIdleThreads|Threads : threads inactifs du pool de requêtes|Count|Average|Nombre de threads inactifs pour les travaux d’E/S le pool de threads de traitement.|
+|QueryPoolJobQueueLength|Threads : longueur de file d’attente de travaux du pool de requêtes|Count|Average|Nombre de travaux contenus dans la file d’attente du pool de threads de requêtes.|
+|ShortParsingBusyThreads|Threads : threads d’analyse courte occupés|Count|Average|Nombre de threads occupés dans le pool de threads d’analyse courte.|
+|ShortParsingIdleThreads|Threads : threads d’analyse courte inactifs|Count|Average|Nombre de threads inactifs dans le pool de threads d’analyse courte.|
+|ShortParsingJobQueueLength|Threads : durée de file d’attente des travaux d’analyse courte|Count|Average|Nombre de travaux contenus dans la file d’attente du pool de threads d’analyse courte.|
+|TotalConnectionFailures|Nombre total d’échecs de connexion|Count|Average|Total des échecs de tentatives de connexion.|
+|TotalConnectionRequests|Nombre total de demandes de connexion|Count|Average|Nombre total de demandes de connexion. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Vue d’ensemble d’Azure Monitor](../azure-monitor/overview.md)      

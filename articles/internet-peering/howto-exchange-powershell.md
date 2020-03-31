@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 4fd7d345e5efbe6e4e86e5bb410e2df4dd917047
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75773696"
 ---
 # <a name="create-or-modify-an-exchange-peering-using-powershell"></a>Créer ou modifier un Peering Exchange à l’aide de PowerShell
@@ -33,19 +33,19 @@ Si vous préférez, vous pouvez suivre ce guide à l’aide du [portail](howto-e
 ### <a name="sign-in-to-your-azure-account-and-select-your-subscription"></a>Vous connecter à votre compte Azure et sélectionner votre abonnement
 [!INCLUDE [Account](./includes/account-powershell.md)]
 
-### <a name=exchange-location></a>Obtenir la liste des emplacements de Peering compatibles avec le Peering Exchange
+### <a name="get-the-list-of-supported-peering-locations-for-exchange-peering"></a><a name=exchange-location></a>Obtenir la liste des emplacements de Peering compatibles avec le Peering Exchange
 [!INCLUDE [exchange-location](./includes/exchange-powershell-create-location.md)]
 
-### <a name=create></a>Créer un Peering Exchange
+### <a name="create-an-exchange-peering"></a><a name=create></a>Créer un Peering Exchange
 [!INCLUDE [exchange-peering](./includes/exchange-powershell-create-connection.md)]
 
-### <a name=get></a>Obtenir un Peering Exchange
+### <a name="get-exchange-peering"></a><a name=get></a>Obtenir un Peering Exchange
 [!INCLUDE [peering-exchange-get](./includes/exchange-powershell-get.md)]
 
-## <a name="modify"></a>Modifier un Peering Exchange
+## <a name="modify-an-exchange-peering"></a><a name="modify"></a>Modifier un Peering Exchange
 [!INCLUDE [peering-exchange-modify](./includes/exchange-powershell-modify.md)]
 
-## <a name=delete></a>Déprovisionner un Peering Exchange
+## <a name="deprovision-an-exchange-peering"></a><a name=delete></a>Déprovisionner un Peering Exchange
 
 [!INCLUDE [peering-exchange-delete](./includes/delete.md)]
 
@@ -61,4 +61,4 @@ Vous pouvez obtenir une description détaillée de tous les paramètres en exéc
 Get-Help Get-AzPeering -detailed
 ```
 
-Pour plus d’informations, consultez [FAQ sur le Peering Internet](faqs.md)
+Pour plus d’informations, consultez [FAQ sur le peering Internet](faqs.md).

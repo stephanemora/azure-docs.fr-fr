@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 12/03/2019
 ms.author: spelluru
 ms.openlocfilehash: fc5051667100a2ebaa01b7815f825fadd766b08f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75456975"
 ---
 # <a name="troubleshoot-issues-when-applying-artifacts-in-an-azure-devtest-labs-virtual-machine"></a>Résoudre les problèmes liés à l’application d’artefacts dans une machine virtuelle Azure DevTest Labs

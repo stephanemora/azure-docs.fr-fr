@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: aagup
 ms.openlocfilehash: d5eada62bec49fe771373671e9438d2786d6b165
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75458420"
 ---
 # <a name="on-demand-backup-in-azure-service-fabric"></a>Sauvegarde à la demande dans Azure Service Fabric
@@ -19,7 +19,7 @@ Vous pouvez sauvegarder les données des services fiables avec état et Reliable
 Azure Service Fabric comprend des fonctionnalités pour la [sauvegarde périodique des données](service-fabric-backuprestoreservice-quickstart-azurecluster.md) et la sauvegarde des données selon les besoins. La sauvegarde à la demande est utile car elle protège de la _perte des données_/_l’altération des données_ causées par des changements prévus dans le service sous-jacent ou son environnement.
 
 Les fonctionnalités de sauvegarde à la demande sont utiles pour capturer l’état des services avant que vous ne déclenchiez manuellement un service ou une opération de l’environnement du service. Par exemple, si vous apportez une modification dans les fichiers binaires du service lors du passage à une version antérieure ou ultérieure du service. Dans ce cas, la sauvegarde à la demande peut protéger les données d’une éventuelle altération due aux bogues du code de l’application.
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Installez le module Microsoft.ServiceFabric.Powershell.Http [en préversion] pour effectuer des appels de configuration.
 

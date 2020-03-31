@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: ea21502cdab35b261e20af7f23b7b522f77c6667
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75451997"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Gestion de la consommation des ressources et des charges dans Service Fabric à l’aide de mesures
@@ -48,7 +48,7 @@ Quelques éléments à prendre en compte :
 
 Bien !
 
-Les mesures par défaut fonctionnent très bien comme point de départ. Mais elles ne vous permettront pas d’en faire plus. Par exemple :  quelle est la probabilité que le schéma de partitionnement de votre choix garantisse une utilisation des ressources parfaitement uniforme sur l’ensemble des partitions ? Quelle est la probabilité que la charge d’un service donné reste constante au fil du temps, ou même simplement identique sur plusieurs partitions ?
+Les mesures par défaut fonctionnent très bien comme point de départ. Mais elles ne vous permettront pas d’en faire plus. Par exemple : quelle est la probabilité que le schéma de partitionnement de votre choix garantisse une utilisation des ressources parfaitement uniforme sur l’ensemble des partitions ? Quelle est la probabilité que la charge d’un service donné reste constante au fil du temps, ou même simplement identique sur plusieurs partitions ?
 
 Vous pouvez vous contenter des mesures par défaut. Toutefois, cette approche signifie que l’utilisation de votre cluster est inférieure et plus irrégulière que ce que vous souhaitez. En effet, les mesures par défaut ne sont pas adaptatives et partent du principe que tous les éléments sont équivalents. Par exemple, un serveur principal qui est occupé et un autre serveur qui ne l’est pas contribuent à une valeur de « 1 » à la mesure PrimaryCount. Dans le pire des cas, utiliser uniquement les mesures par défaut peut également entraîner des surplanifications de nœuds, ce qui peut causer des problèmes de performances. Si vous souhaitez tirer le meilleur parti de votre cluster et éviter de rencontrer des problèmes de performances, vous devez utiliser des mesures personnalisées et des rapports de charge dynamique.
 

@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: 741cbc82f2ed3ffffb553b146d981b4e35a273f4
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68726676"
 ---
 # <a name="azure-customer-data-protection"></a>Protection des données client Azure   
@@ -33,7 +33,7 @@ Le personnel du support Azure se voit attribuer des comptes Active Directory d�
 
 Toutes les tentatives d’accès sont surveillées et peuvent être affichées dans un ensemble de rapports simple.
 
-## <a name="data-protection"></a>Protection des données
+## <a name="data-protection"></a>Protection de données
 Azure fournit aux clients une sécurité renforcée des données, à la fois par défaut et comme options pour les clients.
 
 **Ségrégation des données :** Azure est un service multilocataire, ce qui signifie que plusieurs machines virtuelles et déploiements clients sont stockés sur le même matériel physique. Azure utilise une isolation logique pour séparer les données de chaque client les unes des autres. La séparation offre les avantages financiers et d’échelle des services multilocataires, tout en empêchant rigoureusement les clients d’accéder aux données des autres.

@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.openlocfilehash: fb13e4f062976e39c3cec607001e6982db228873
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74765628"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Comment sauvegarder et restaurer un serveur Azure Database pour PostgreSQL - Serveur unique avec le Portail Azure
@@ -43,7 +43,7 @@ Dans la capture d’écran ci-dessous, elle a été augmentée à 34 jours.
 
 La période de rétention de sauvegarde détermine jusqu’à quelle date une restauration à un point dans le temps peut être récupérée, dans la mesure où elle est basée sur les sauvegardes disponibles. La restauration à un point dans le temps est décrite plus loin dans la section suivante. 
 
-## <a name="point-in-time-restore"></a>Limite de restauration dans le temps
+## <a name="point-in-time-restore"></a>Restauration dans le temps
 Azure Database pour PostgreSQL vous permet de restaurer le serveur à un point dans le temps et dans une nouvelle copie du serveur. Vous pouvez utiliser ce nouveau serveur pour récupérer vos données ou faire en sorte que vos applications client pointent vers ce nouveau serveur.
 
 Par exemple, si une table a été accidentellement supprimée à midi aujourd'hui, vous pourrez restaurer à l’heure juste avant midi et retrouver la table et les données manquantes à partir de cette nouvelle copie du serveur. La restauration à un point dans le temps est effectuée au niveau du serveur, pas au niveau de la base de données.
@@ -61,7 +61,7 @@ Les étapes suivantes restaurent l’exemple de serveur à un point dans le temp
    - **Point de restauration** : sélectionnez le point dans le temps vers lequel vous souhaitez restaurer.
    - **Serveur cible** : Entrez un nom pour le nouveau serveur.
    - **Emplacement** : vous ne pouvez pas sélectionner la région. Par défaut, elle est identique à celle du serveur source.
-   - **Niveau tarifaire** : vous ne pouvez pas modifier ces paramètres lorsque vous effectuez une restauration à un point dans le temps. Elle est identique à celle du serveur source. 
+   - **Niveau tarifaire** : vous ne pouvez pas modifier ces paramètres lorsque vous effectuez une restauration à un point dans le temps. Elle est identique à celle du serveur source. 
 
 4. Cliquez sur **OK** pour restaurer le serveur à un point dans le temps. 
 

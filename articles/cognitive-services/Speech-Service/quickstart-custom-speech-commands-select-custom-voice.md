@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: anhoang
 ms.openlocfilehash: b0ecbc4dc030fa8e7fbe362c1304c3c97278bdf5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75453332"
 ---
 # <a name="quickstart-use-custom-commands-with-custom-voice-preview"></a>Démarrage rapide : Utiliser des commandes personnalisées avec Custom Voice (préversion)

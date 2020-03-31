@@ -17,13 +17,13 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 48135ea614bbab4ca6649a83895ae5f632918c61
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72387474"
 ---
-# <a name="tutorial-send-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Didacticiel : Envoyer des notifications Push vers des utilisateurs spécifiques à l’aide d’Azure Notification Hubs
+# <a name="tutorial-send-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Tutoriel : Envoyer des notifications Push vers des utilisateurs spécifiques à l’aide d’Azure Notification Hubs
 
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 

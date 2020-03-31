@@ -10,15 +10,15 @@ ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
 ms.topic: conceptual
 ms.date: 06/20/2017
 ms.openlocfilehash: 0a49cbdb4caf474d0628fea3679ce712d37886e7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60813399"
 ---
 # <a name="extend-u-sql-scripts-with-python-code-in-azure-data-lake-analytics"></a>Étendre des scripts U-SQL à l’aide de code Python dans Azure Data Lake Analytics
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer, vérifiez que les extensions Python sont installées dans votre compte Azure Data Lake Analytics.
 
@@ -26,7 +26,7 @@ Avant de commencer, vérifiez que les extensions Python sont installées dans vo
 * Dans le menu de gauche, sous **Démarrage**, cliquez sur **Exemples de scripts**
 * Cliquez sur **Installer des extensions U-SQL**, puis sur **OK**.
 
-## <a name="overview"></a>Vue d'ensemble 
+## <a name="overview"></a>Vue d’ensemble 
 
 Les extensions de Python pour U-SQL permettent aux développeurs d’effectuer une exécution parallèle massive de code Python. L'exemple suivant illustre les étapes de base :
 
@@ -102,6 +102,6 @@ Chaque vertex possède une quantité limitée de mémoire qui lui est assignée.
 
 ## <a name="see-also"></a>Voir aussi
 * [Vue d'ensemble de Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
-* [Développer des scripts U-SQL avec les outils Data Lake pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
+* [Développer des scripts de U-SQL à l’aide d’outils Data Lake Tools pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 * [Utilisation des fonctions U-SQL dans les travaux Analytique Data Lake Azure](data-lake-analytics-use-window-functions.md)
 * [Utiliser Azure Data Lake Tools pour Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)

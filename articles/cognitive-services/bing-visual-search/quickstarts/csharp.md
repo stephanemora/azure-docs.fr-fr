@@ -11,17 +11,17 @@ ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: scottwhi
 ms.openlocfilehash: 07ecac46ab13058d308c17c5747701ee5ed577fc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75446685"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-c"></a>Démarrage rapide : Obtenir des insights sur les images à l’aide de l’API REST Recherche visuelle Bing et de C#
 
 Ce guide de démarrage rapide montre comment charger une image dans l’API Recherche visuelle Bing et comment visualiser les insights qu’elle retourne.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * N’importe quelle édition de [Visual Studio 2019](https://www.visualstudio.com/downloads/).
 * Le [framework Json.NET](https://www.newtonsoft.com/json), disponible sous forme de package NuGet.

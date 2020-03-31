@@ -4,10 +4,10 @@ description: Voici une vue d’ensemble de Service Fabric et de la méthode à s
 ms.topic: conceptual
 ms.date: 8/8/2018
 ms.openlocfilehash: 884cefa3d6a60f55269afac73c40b9f6b21518f6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75458220"
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric et conteneurs

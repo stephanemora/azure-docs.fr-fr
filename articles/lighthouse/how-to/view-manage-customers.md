@@ -4,10 +4,10 @@ description: En tant que fournisseur de services utilisant la gestion des ressou
 ms.date: 01/22/2020
 ms.topic: conceptual
 ms.openlocfilehash: 0d4b3187066754e8a549f029623762df539b30b1
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76543424"
 ---
 # <a name="view-and-manage-customers-and-delegated-resources"></a>Voir et gérer les clients et les ressources déléguées

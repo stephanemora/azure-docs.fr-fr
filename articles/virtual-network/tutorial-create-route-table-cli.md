@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: ff5897766bb56b76a34940ecd786773fd844a336
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5fa94b93e081ab6334c39b848068f50682f5f1f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64683119"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80235065"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>Acheminer le trafic réseau avec une table de routage à l’aide de l’interface de ligne de commande Azure
 
@@ -51,11 +51,11 @@ Avant de pouvoir créer une table de routage, créez un groupe de ressources ave
 az group create \
   --name myResourceGroup \
   --location eastus
-``` 
+```
 
 Créez une table de routage avec [az network route-table create](/cli/azure/network/route-table#az-network-route-table-create). L’exemple suivant crée une table de routage nommée *myRouteTablePublic*. 
 
-```azurecli-interactive 
+```azurecli-interactive
 # Create a route table
 az network route-table create \
   --resource-group myResourceGroup \
@@ -74,7 +74,7 @@ az network route-table route create \
   --address-prefix 10.0.1.0/24 \
   --next-hop-type VirtualAppliance \
   --next-hop-ip-address 10.0.2.4
-``` 
+```
 
 ## <a name="associate-a-route-table-to-a-subnet"></a>Associer une table de routage à un sous-réseau
 
@@ -119,11 +119,11 @@ az network vnet subnet update \
 
 ## <a name="create-an-nva"></a>Créer une NVA
 
-Une appliance virtuelle réseau est une machine virtuelle qui exécute une fonction réseau, telle que le routage, la fonction de pare-feu ou l’optimisation WAN.
+Une NVA est une machine virtuelle qui exécute une fonction réseau, telle que le routage, la fonction de pare-feu ou l’optimisation WAN.
 
 Créez une appliance virtuelle réseau dans le sous-réseau *DMZ* avec [az vm create](/cli/azure/vm). Par défaut, quand vous créez une machine virtuelle, Azure crée une adresse IP publique et l’affecte à la machine virtuelle. Le paramètre `--public-ip-address ""` indique à Azure de ne pas créer d’adresse IP publique et de ne pas l’affecter à la machine virtuelle, car celle-ci n’a pas besoin de se connecter à Internet. Si des clés SSH n’existent pas déjà dans un emplacement de clé par défaut, la commande les crée. Pour utiliser un ensemble spécifique de clés, utilisez l’option `--ssh-key-value`.
 
-```azure-cli-interactive
+```azurecli-interactive
 az vm create \
   --resource-group myResourceGroup \
   --name myVmNva \
@@ -155,6 +155,7 @@ az vm extension set \
   --publisher Microsoft.Azure.Extensions \
   --settings '{"commandToExecute":"sudo sysctl -w net.ipv4.ip_forward=1"}'
 ```
+
 L’exécution de la commande peut prendre jusqu’à une minute.
 
 ## <a name="create-virtual-machines"></a>Créer des machines virtuelles
@@ -192,7 +193,7 @@ az vm create \
 
 La création de la machine virtuelle ne nécessite que quelques minutes. Une fois la machine virtuelle créée, l’interface CLI Azure affiche des informations similaires à celles de l’exemple suivant : 
 
-```azurecli 
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVmPrivate",
@@ -204,13 +205,14 @@ La création de la machine virtuelle ne nécessite que quelques minutes. Une foi
   "resourceGroup": "myResourceGroup"
 }
 ```
+
 Veuillez noter **publicIpAddress**. Cette adresse sera utilisée pour accéder à la machine virtuelle à partir d’Internet dans une prochaine étape.
 
 ## <a name="route-traffic-through-an-nva"></a>Router le trafic via une NVA
 
-Utilisez la commande suivante pour créer une session SSH avec la machine virtuelle *myVmPrivate*. Remplacez *\<publicIpAddress>* par l’adresse IP publique de votre machine virtuelle. Dans l’exemple ci-dessus, l’adresse IP est *13.90.242.231*.
+Utilisez la commande suivante pour créer une session SSH avec la machine virtuelle *myVmPrivate*. Remplacez *\<publicIpAddress>* par l’adresse IP publique de votre machine virtuelle. Dans l’exemple ci-dessus, l’adresse IP est *13.90.242.231*.
 
-```bash 
+```bash
 ssh azureuser@<publicIpAddress>
 ```
 
@@ -218,7 +220,7 @@ Quand vous êtes invité à indiquer un mot de passe, entrez celui que vous avez
 
 Utilisez la commande suivante pour installer la détermination d’itinéraire sur la machine virtuelle *myVmPrivate* :
 
-```bash 
+```bash
 sudo apt-get install traceroute
 ```
 
@@ -230,7 +232,7 @@ traceroute myVmPublic
 
 La réponse ressemble à ce qui suit :
 
-```bash
+```output
 traceroute to myVmPublic (10.0.0.4), 30 hops max, 60 byte packets
 1  10.0.0.4 (10.0.0.4)  1.404 ms  1.403 ms  1.398 ms
 ```
@@ -239,13 +241,13 @@ Vous pouvez voir que le trafic est routé directement de la machine virtuelle *m
 
 Utilisez la commande suivante pour établir une connexion SSH avec la machine virtuelle *myVmPublic* à partir de la machine virtuelle *myVmPrivate* :
 
-```bash 
+```bash
 ssh azureuser@myVmPublic
 ```
 
 Utilisez la commande suivante pour installer la détermination d’itinéraire sur la machine virtuelle *myVmPublic* :
 
-```bash 
+```bash
 sudo apt-get install traceroute
 ```
 
@@ -257,20 +259,21 @@ traceroute myVmPrivate
 
 La réponse ressemble à ce qui suit :
 
-```bash
+```output
 traceroute to myVmPrivate (10.0.1.4), 30 hops max, 60 byte packets
 1  10.0.2.4 (10.0.2.4)  0.781 ms  0.780 ms  0.775 ms
 2  10.0.1.4 (10.0.0.4)  1.404 ms  1.403 ms  1.398 ms
 ```
+
 Vous voyez que le premier tronçon est 10.0.2.4, ce qui correspond à l’adresse IP privée de l’appliance virtuelle réseau (NVA). Le second tronçon est 10.0.1.4, ce qui correspond à l’adresse IP privée de la machine virtuelle *myVmPrivate*. L’itinéraire ajouté à la table de routage *myRouteTablePublic* et associé au sous-réseau *Public* a contraint Azure à acheminer le trafic via l’appliance virtuelle réseau et non directement au sous-réseau *Private*.
 
 Fermez les sessions SSH sur les machines virtuelles *myVmPublic* et *myVmPrivate*.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Quand vous n’avez plus besoin d’un groupe de ressources, utilisez [az group delete](/cli/azure/group) pour le supprimer, ainsi que toutes les ressources qu’il contient.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group delete --name myResourceGroup --yes
 ```
 
