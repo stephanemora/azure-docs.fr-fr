@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 843f12d14120a7becdc1e8b15bfcc65948602c44
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74007750"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Référence sur l’activité d’audit Azure AD
@@ -135,117 +135,117 @@ Cet article répertorie les activités d’audit qui peuvent être enregistrées
 |Gestion des applications|AdminPolicyDatas-SetResources|
 |Gestion des applications|AdminUserJourneys-GetResources|
 |Gestion des applications|AdminUserJourneys-RemoveResources|
-|Authentication|AdminUserJourneys-SetResources|
-|Authentication|Créer un IdentityProvider|
-|Authentication|Créer une application V1|
-|Authentication|Créer une application V2|
-|Authentication|Créer un domaine personnalisé dans le locataire|
-|Authorization|Créer un AdminUserJourney|
-|Authorization|Créer une ressource json localisée|
-|Authorization|Créer un IDP personnalisé|
-|Authorization|Créer un IDP|
-|Authorization|Créer ou mettre à jour une ressource de répertoire B2C|
-|Authorization|Créer une stratégie|
-|Authorization|Créer une stratégie trustFramework|
-|Authorization|Créer une stratégie trustFramework avec un préfixe configurable|
-|Authorization|Créer un attribut utilisateur|
-|Authorization|CreateTrustFrameworkPolicy|
-|Authorization|Crée ou met à jour un AdminUserJourney|
-|Authorization|Supprimer un IDP|
-|Authorization|Supprimer un IdentityProvider|
-|Authorization|Supprimer une application V1|
-|Authorization|Supprimer une application V2|
-|Authorization|Supprimer une autorisation de l’application V2|
-|Authorization|Supprimer une ressource de répertoire B2C|
-|Authorization|Supprimer un conteneur de clés CPIM|
-|Authorization|Supprimer une stratégie trustFramework|
-|Authorization|Supprimer un attribut utilisateur|
-|Authorization|Activer la fonctionnalité B2C|
-|Authorization|Obtenir des ressources de répertoire B2C dans un abonnement|
-|Authorization|Obtenir un IDP personnalisé|
-|Authorization|Obtenir un IDP|
-|Authorization|Obtenir des applications V1 et V2|
-|Authorization|Obtenir une application V1|
-|Authorization|Obtenir des applications V1|
-|Authorization|Obtenir une application V2|
-|Authorization|Obtenir des applications V2|
-|Authorization|Obtenir une ressource de répertoire B2C|
-|Authorization|Obtenir une liste de domaines personnalisés dans le locataire|
-|Authorization|Obtenir un parcours utilisateur|
-|Authorization|Obtenir des réclamations de l’application autorisées pour le parcours utilisateur|
-|Authorization|Obtenir des réclamations déclarées automatiquement autorisées pour le parcours utilisateur|
-|Authorization|Obtenir des réclamations déclarées automatiquement autorisées pour la stratégie|
-|Authorization|Obtenir la liste des revendications de sortie disponibles|
-|Authorization|Obtenir les définitions de contenu pour le parcours utilisateur|
-|Authorization|Obtenir des IDP pour un flux administrateur spécifique|
-|Authorization|Obtenir les métadonnées de clé active du conteneur de clés au format JWK|
-|Authorization|Obtenir une liste de tous les flux d’administration|
-|Authorization|Obtenir une liste des balises de tous les flux d’administration pour l’ensemble des utilisateurs|
-|Authorization|Obtenir une liste des locataires pour un utilisateur|
-|Authorization|Obtenir des revendications déclarées automatiquement des comptes locaux|
-|Authorization|Obtenir une ressource json localisée|
-|Authorization|Obtenir des opérations du fournisseur de ressources Microsoft.AzureActiveDirectory|
-|Authorization|Obtenir des stratégies|
-|Authorization|Obtenir une stratégie|
-|Authorization|Obtenir des propriétés de ressource d’un locataire|
-|Authorization|Obtenir une liste d’IDP pris en charge|
-|Authorization|Obtenir une liste d’IDP pris en charge du parcours utilisateur|
-|Authorization|Obtenir des informations de locataire|
-|Authorization|Obtenir des fonctionnalités autorisées de locataire|
-|Authorization|Obtenir une liste d’IDP personnalisés définie par le locataire|
-|Authorization|Obtenir une liste d’IDP définie par le locataire|
-|Authorization|Obtenir une liste d’IDP locaux définie par le locataire|
-|Authorization|Obtenir des informations sur un locataire pour un utilisateur afin de créer des ressources|
-|Authorization|Obtenir une liste de locataires|
-|Authorization|Obtenir tenantDomains|
-|Authorization|Obtenir la culture par défaut prise en charge pour CPIM|
-|Authorization|Obtenir les informations d’un flux d’administration|
-|Authorization|Obtenir la liste des UserJourneys pour ce locataire|
-|Authorization|Obtient l’ensemble des cultures disponibles prises en charge pour CPIM|
-|Authorization|Obtenir une stratégie trustFramework|
-|Authorization|Obtenir une stratégie trustFramework au format xml|
-|Authorization|Obtenir un attribut utilisateur|
-|Authorization|Obtenir des attributs utilisateur|
-|Authorization|Obtenir une liste de parcours utilisateur|
-|Authorization|GetIEFPolicies|
-|Authorization|GetIdentityProviders|
-|Authorization|GetTrustFrameworkPolicy|
-|Authorization|Obtient un conteneur de clés CPIM au format jwk|
-|Authorization|Obtient une liste de conteneurs de clés dans le locataire|
-|Authorization|Obtient le type de locataire|
-|Authorization|MigrateTenantMetadata|
-|Authorization|Corriger un IdentityProvider|
-|Authorization|PutTrustFrameworkPolicy|
-|Authorization|PutTrustFrameworkpolicy|
-|Authorization|Supprimer un parcours utilisateur|
-|Authorization|Restaurer une sauvegarde de conteneur de clés CPIM|
-|Authorization|Récupérer des autorisations de l’application V2|
-|Authorization|Récupérer des principaux de service d’application V2 dans le locataire actuel|
-|Authorization|Mettre à jour un IDP personnalisé|
-|Authorization|Mettre à jour un IDP|
-|Authorization|Mettre à jour un IDP local|
-|Authorization|Mettre à jour une application V1|
-|Authorization|Mettre à jour une application V2|
-|Authorization|Mettre à jour une autorisation de l’application V2|
-|Authorization|Mettre à jour la stratégie|
-|Authorization|Mettre à jour un attribut utilisateur|
-|Authorization|Charger une clé chiffrée CPIM|
-|Authorization|Autorisation utilisateur : L'API est désactivée pour l'ensemble de fonctionnalités du locataire|
-|Authorization|Autorisation utilisateur : Accès accordé à l'utilisateur en tant que « Tenant Admin »|
-|Authorization|Autorisation utilisateur : Les droits d'accès « Authenticated Users » ont été accordés à l'utilisateur|
-|Authorization|Vérifier si la fonctionnalité B2C est activée|
-|Authorization|Vérifier si la fonctionnalité est activée|
-|Authorization|Créer le programme|
-|Authorization|Supprimer le programme|
-|Authorization|Lier le contrôle du programme|
-|Authorization|Intégrer les révisions d’accès Azure AD|
-|Authorization|Supprimer le lien du contrôle du programme|
-|Authorization|Mettre à jour le programme|
-|Authorization|Désactiver l’authentification unique Bureau|
-|Authorization|Désactiver l’authentification unique Bureau pour un domaine spécifique|
-|Authorization|Désactiver le proxy d’application|
-|Authorization|Désactiver l’authentification directe|
-|Authorization|Activer l’authentification unique Bureau|
+|Authentification|AdminUserJourneys-SetResources|
+|Authentification|Créer un IdentityProvider|
+|Authentification|Créer une application V1|
+|Authentification|Créer une application V2|
+|Authentification|Créer un domaine personnalisé dans le locataire|
+|Autorisation|Créer un AdminUserJourney|
+|Autorisation|Créer une ressource json localisée|
+|Autorisation|Créer un IDP personnalisé|
+|Autorisation|Créer un IDP|
+|Autorisation|Créer ou mettre à jour une ressource de répertoire B2C|
+|Autorisation|Créer une stratégie|
+|Autorisation|Créer une stratégie trustFramework|
+|Autorisation|Créer une stratégie trustFramework avec un préfixe configurable|
+|Autorisation|Créer un attribut utilisateur|
+|Autorisation|CreateTrustFrameworkPolicy|
+|Autorisation|Crée ou met à jour un AdminUserJourney|
+|Autorisation|Supprimer un IDP|
+|Autorisation|Supprimer un IdentityProvider|
+|Autorisation|Supprimer une application V1|
+|Autorisation|Supprimer une application V2|
+|Autorisation|Supprimer une autorisation de l’application V2|
+|Autorisation|Supprimer une ressource de répertoire B2C|
+|Autorisation|Supprimer un conteneur de clés CPIM|
+|Autorisation|Supprimer une stratégie trustFramework|
+|Autorisation|Supprimer un attribut utilisateur|
+|Autorisation|Activer la fonctionnalité B2C|
+|Autorisation|Obtenir des ressources de répertoire B2C dans un abonnement|
+|Autorisation|Obtenir un IDP personnalisé|
+|Autorisation|Obtenir un IDP|
+|Autorisation|Obtenir des applications V1 et V2|
+|Autorisation|Obtenir une application V1|
+|Autorisation|Obtenir des applications V1|
+|Autorisation|Obtenir une application V2|
+|Autorisation|Obtenir des applications V2|
+|Autorisation|Obtenir une ressource de répertoire B2C|
+|Autorisation|Obtenir une liste de domaines personnalisés dans le locataire|
+|Autorisation|Obtenir un parcours utilisateur|
+|Autorisation|Obtenir des réclamations de l’application autorisées pour le parcours utilisateur|
+|Autorisation|Obtenir des réclamations déclarées automatiquement autorisées pour le parcours utilisateur|
+|Autorisation|Obtenir des réclamations déclarées automatiquement autorisées pour la stratégie|
+|Autorisation|Obtenir la liste des revendications de sortie disponibles|
+|Autorisation|Obtenir les définitions de contenu pour le parcours utilisateur|
+|Autorisation|Obtenir des IDP pour un flux administrateur spécifique|
+|Autorisation|Obtenir les métadonnées de clé active du conteneur de clés au format JWK|
+|Autorisation|Obtenir une liste de tous les flux d’administration|
+|Autorisation|Obtenir une liste des balises de tous les flux d’administration pour l’ensemble des utilisateurs|
+|Autorisation|Obtenir une liste des locataires pour un utilisateur|
+|Autorisation|Obtenir des revendications déclarées automatiquement des comptes locaux|
+|Autorisation|Obtenir une ressource json localisée|
+|Autorisation|Obtenir des opérations du fournisseur de ressources Microsoft.AzureActiveDirectory|
+|Autorisation|Obtenir des stratégies|
+|Autorisation|Obtenir une stratégie|
+|Autorisation|Obtenir des propriétés de ressource d’un locataire|
+|Autorisation|Obtenir une liste d’IDP pris en charge|
+|Autorisation|Obtenir une liste d’IDP pris en charge du parcours utilisateur|
+|Autorisation|Obtenir des informations de locataire|
+|Autorisation|Obtenir des fonctionnalités autorisées de locataire|
+|Autorisation|Obtenir une liste d’IDP personnalisés définie par le locataire|
+|Autorisation|Obtenir une liste d’IDP définie par le locataire|
+|Autorisation|Obtenir une liste d’IDP locaux définie par le locataire|
+|Autorisation|Obtenir des informations sur un locataire pour un utilisateur afin de créer des ressources|
+|Autorisation|Obtenir une liste de locataires|
+|Autorisation|Obtenir tenantDomains|
+|Autorisation|Obtenir la culture par défaut prise en charge pour CPIM|
+|Autorisation|Obtenir les informations d’un flux d’administration|
+|Autorisation|Obtenir la liste des UserJourneys pour ce locataire|
+|Autorisation|Obtient l’ensemble des cultures disponibles prises en charge pour CPIM|
+|Autorisation|Obtenir une stratégie trustFramework|
+|Autorisation|Obtenir une stratégie trustFramework au format xml|
+|Autorisation|Obtenir un attribut utilisateur|
+|Autorisation|Obtenir des attributs utilisateur|
+|Autorisation|Obtenir une liste de parcours utilisateur|
+|Autorisation|GetIEFPolicies|
+|Autorisation|GetIdentityProviders|
+|Autorisation|GetTrustFrameworkPolicy|
+|Autorisation|Obtient un conteneur de clés CPIM au format jwk|
+|Autorisation|Obtient une liste de conteneurs de clés dans le locataire|
+|Autorisation|Obtient le type de locataire|
+|Autorisation|MigrateTenantMetadata|
+|Autorisation|Corriger un IdentityProvider|
+|Autorisation|PutTrustFrameworkPolicy|
+|Autorisation|PutTrustFrameworkpolicy|
+|Autorisation|Supprimer un parcours utilisateur|
+|Autorisation|Restaurer une sauvegarde de conteneur de clés CPIM|
+|Autorisation|Récupérer des autorisations de l’application V2|
+|Autorisation|Récupérer des principaux de service d’application V2 dans le locataire actuel|
+|Autorisation|Mettre à jour un IDP personnalisé|
+|Autorisation|Mettre à jour un IDP|
+|Autorisation|Mettre à jour un IDP local|
+|Autorisation|Mettre à jour une application V1|
+|Autorisation|Mettre à jour une application V2|
+|Autorisation|Mettre à jour une autorisation de l’application V2|
+|Autorisation|Mettre à jour la stratégie|
+|Autorisation|Mettre à jour un attribut utilisateur|
+|Autorisation|Charger une clé chiffrée CPIM|
+|Autorisation|Autorisation utilisateur : L'API est désactivée pour l'ensemble de fonctionnalités du locataire|
+|Autorisation|Autorisation utilisateur : Accès accordé à l'utilisateur en tant que « Tenant Admin »|
+|Autorisation|Autorisation utilisateur : Les droits d'accès « Authenticated Users » ont été accordés à l'utilisateur|
+|Autorisation|Vérifier si la fonctionnalité B2C est activée|
+|Autorisation|Vérifier si la fonctionnalité est activée|
+|Autorisation|Créer le programme|
+|Autorisation|Supprimer le programme|
+|Autorisation|Lier le contrôle du programme|
+|Autorisation|Intégrer les révisions d’accès Azure AD|
+|Autorisation|Supprimer le lien du contrôle du programme|
+|Autorisation|Mettre à jour le programme|
+|Autorisation|Désactiver l’authentification unique Bureau|
+|Autorisation|Désactiver l’authentification unique Bureau pour un domaine spécifique|
+|Autorisation|Désactiver le proxy d’application|
+|Autorisation|Désactiver l’authentification directe|
+|Autorisation|Activer l’authentification unique Bureau|
 |Gestion de répertoires|Activer l’authentification unique Bureau pour un domaine spécifique|
 |Gestion de répertoires|Activer le proxy d’application|
 |Gestion de répertoires|Activer l’authentification directe|
@@ -625,4 +625,4 @@ Cet article répertorie les activités d’audit qui peuvent être enregistrées
 
 - [Vue d’ensemble des rapports Azure AD](overview-reports.md).
 - [Rapport de journaux d’audit](concept-audit-logs.md) 
-- [Accès par programme aux rapports Azure AD](concept-reporting-api.md)
+- [Accès par programmation aux rapports Azure AD](concept-reporting-api.md)

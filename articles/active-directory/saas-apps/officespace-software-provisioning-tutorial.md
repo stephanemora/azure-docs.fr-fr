@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/02/2019
 ms.author: Zhchia
 ms.openlocfilehash: 3d472b300400cf230773ba01f3f4362988c34e81
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77063401"
 ---
 # <a name="tutorial-configure-officespace-software-for-automatic-user-provisioning"></a>Tutoriel : Configurer le provisionnement automatique d’utilisateurs sur OfficeSpace Software
@@ -31,7 +31,7 @@ L’objectif de ce tutoriel est de présenter les étapes à effectuer dans Offi
 >
 > Ce connecteur est actuellement en préversion publique. Pour plus d’informations sur les conditions d’utilisation Microsoft Azure générales relatives aux fonctionnalités d’évaluation, consultez [Conditions d’utilisation supplémentaires des préversions Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Le scénario décrit dans ce tutoriel part du principe que vous disposez des prérequis suivants :
 

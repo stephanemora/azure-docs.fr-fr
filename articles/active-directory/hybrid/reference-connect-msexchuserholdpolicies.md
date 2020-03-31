@@ -15,10 +15,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f4c637a01825616334cda8faa594efd08f29de8d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74213072"
 ---
 # <a name="azure-ad-connect---msexchuserholdpolicies-and-cloudmsexchuserholdpolicies"></a>Azure AD Connect - msExchUserHoldPolicies et cloudMsExchUserHoldPolicies
@@ -38,13 +38,13 @@ Flux entrant depuis Active Directory local :
 
 |Attribut Active Directory|Nom de l’attribut|Type de flux|Attribut du métaverse|Règles de synchronisation|
 |-----|-----|-----|-----|-----|
-|Active Directory local|msExchUserHoldPolicies|Directement|msExchUserHoldPolicies|Entrant depuis AD – Utilisateur Exchange|
+|Active Directory local|msExchUserHoldPolicies|Direct|msExchUserHoldPolicies|Entrant depuis AD – Utilisateur Exchange|
 
 Sortant vers Azure AD :
 
 |Attribut du métaverse|Nom de l’attribut|Type de flux|Attribut Azure AD|Règles de synchronisation|
 |-----|-----|-----|-----|-----|
-|Azure Active Directory|msExchUserHoldPolicies|Directement|msExchUserHoldPolicies|Sortant vers AAD - UserExchangeOnline|
+|Azure Active Directory|msExchUserHoldPolicies|Direct|msExchUserHoldPolicies|Sortant vers AAD - UserExchangeOnline|
 
 ## <a name="cloudmsexchuserholdpolicies-synchronization-flow"></a>Flux de synchronisation cloudMsExchUserHoldPolicies
 Par défaut, cloudMsExchUserHoldPolicies est synchronisé par Azure AD Connect directement avec l’attribut cloudMsExchUserHoldPolicies dans le métaverse. Ensuite, si msExchUserHoldPolicies n’a pas la valeur Null dans le métaverse, l’attribut est transmis à Active Directory.
@@ -55,7 +55,7 @@ Entrant depuis Azure AD :
 
 |Attribut Active Directory|Nom de l’attribut|Type de flux|Attribut du métaverse|Règles de synchronisation|
 |-----|-----|-----|-----|-----|
-|Active Directory local|cloudMsExchUserHoldPolicies|Directement|cloudMsExchUserHoldPolicies|Entrant depuis AAD – Utilisateur Exchange|
+|Active Directory local|cloudMsExchUserHoldPolicies|Direct|cloudMsExchUserHoldPolicies|Entrant depuis AAD – Utilisateur Exchange|
 
 Sortant vers Active Directory local :
 

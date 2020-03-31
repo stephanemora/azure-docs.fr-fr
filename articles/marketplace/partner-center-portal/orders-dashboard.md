@@ -1,19 +1,18 @@
 ---
 title: Tableau de bord Commandes de l’Espace partenaires dans l’analytique de la place de marché commerciale
 description: Découvrez comment accéder aux rapports d’analytique sur vos commandes d’offres de la place de marché dans un format graphique et téléchargeable.
-author: ChJenk
-manager: evansma
-ms.author: v-chjen
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: bf4b48fafa5b877053abe653b569cf27eb50d57b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d0db6553a774a69bb8a55538cbd2b4a333be9316
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75475315"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80281406"
 ---
 # <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Tableau de bord Commandes dans l’analytique de la place de marché commerciale
 
@@ -114,7 +113,7 @@ Vous pouvez sélectionner plusieurs filtres afin d’afficher le graphe pour les
 
 - Le type et le nom des offres ne figurent que pour les offres comptant des commandes pendant la plage de dates sélectionnée. Les noms d’offres de la liste s’affichent pour les types d’offres sélectionnés dans la liste.
 - Les filtres appliqués indiquent les métriques totales de toute la sélection pour chaque filtre sélectionné. Il ne s’affichent pas lorsque la sélection par défaut est utilisée.
-- Si **Tout** est sélectionné pour l’une des listes déroulantes, toutes les métriques de la page sélectionnée sont agrégées. Par exemple :  L’option de filtre des types d’offres « Tout » signifie que tous les types d’offre sont sélectionnés. Il s’agit de la sélection par défaut pour les listes déroulantes. Les filtres appliqués n’indiquent rien quand **Tout** est sélectionné.
+- Si **Tout** est sélectionné pour l’une des listes déroulantes, toutes les métriques de la page sélectionnée sont agrégées. Par exemple : L’option de filtre des types d’offres « Tout » signifie que tous les types d’offre sont sélectionnés. Il s’agit de la sélection par défaut pour les listes déroulantes. Les filtres appliqués n’indiquent rien quand **Tout** est sélectionné.
 - **Sélection de valeurs multiples** : toutes les métriques de la page seront agrégées pour toutes les sélections effectuées dans la liste déroulante. En cas de sélections multiples, le filtre appliqué indique le nombre de sélections effectuées, comme dans l’image ci-dessous :
 
     ![Menu Analyser de l’Espace partenaires – Commande avec plusieurs valeurs appliquées au filtre](./media/filters-applied.png)

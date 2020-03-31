@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/02/2019
 ms.author: sutalasi
 ms.openlocfilehash: 429f46156da728bbc24108090eac8c04f68da71c
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74084736"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>Configurer la récupération après sinistre pour SQL Server
@@ -22,10 +22,10 @@ Cet article explique comment protéger les SQL Server back end d’une applicati
 Avant de commencer, assurez-vous que vous comprenez les fonctionnalités de récupération d’urgence de SQL Server. Ces fonctionnalités sont les suivantes :
 
 * Clustering de basculement
-* Groupes de disponibilité AlwaysOn
+* Groupes de disponibilité Always On
 * Mise en miroir de bases de données
 * Copie des journaux de transaction
-* Géoréplication active
+* La géoréplication active
 * Groupes de basculement automatique
 
 ## <a name="combining-bcdr-technologies-with-site-recovery"></a>Combinaison de technologies BCDR avec Site Recovery
@@ -37,7 +37,7 @@ Type de déploiement | Technologie BCDR | RTO attendu pour SQL Server | RPO atte
 SQL Server sur une machine virtuelle (VM) infrastructure as a service (IaaS) Azure ou localement.| [Groupe de disponibilité AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server?view=sql-server-2017) | Le temps nécessaire pour faire du réplica secondaire le réplica principal. | La réplication étant asynchrone vers le réplica secondaire, il y a une perte de données.
 SQL Server sur une machine virtuelle Azure IaaS ou localement.| [Clustering de basculement (instance de cluster de basculement AlwaysOn)](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server?view=sql-server-2017) | Temps nécessaire pour basculer entre les nœuds. | Étant donné que Always On FCI utilise un stockage partagé, la même vue de l’instance de stockage est disponible lors du basculement.
 SQL Server sur une machine virtuelle Azure IaaS ou localement.| [Mise en miroir de bases de données (mode hautes performances)](https://docs.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server?view=sql-server-2017) | Temps nécessaire pour forcer le service, qui utilise le serveur miroir en tant que serveur de secours actif. | La réplication est asynchrone. La base de données miroir peut être un peu en retard par rapport à la base de données principale. Le décalage est généralement faible. Mais il peut devenir important si le système du serveur principal ou du serveur miroir subit une charge importante.<br/><br/>La copie des journaux de transaction peut être un complément à la mise en miroir de bases de données. Il s’agit d’une alternative favorable à la mise en miroir asynchrone de bases de données.
-SQL As Platform as a service (PaaS) sur Azure.<br/><br/>Ce type de déploiement comprend les pools élastiques et les serveurs de Azure SQL Database. | Géoréplication active | 30 secondes après le déclenchement du basculement.<br/><br/>Lorsque le basculement est activé pour l’une des bases de données secondaires, toutes les autres bases de données secondaires sont automatiquement liées à la nouvelle base de données primaire. | RPO de cinq secondes.<br/><br/>La géo-réplication active utilise la technologie Always On de SQL Server. Elle réplique de manière asynchrone les transactions validées entre une base de données primaire vers une base de données secondaire à l’aide de l’isolation d’instantané.<br/><br/>Il est garanti que les données secondaires n’auront jamais de transactions partielles.
+SQL As Platform as a service (PaaS) sur Azure.<br/><br/>Ce type de déploiement comprend les pools élastiques et les serveurs de Azure SQL Database. | La géoréplication active | 30 secondes après le déclenchement du basculement.<br/><br/>Lorsque le basculement est activé pour l’une des bases de données secondaires, toutes les autres bases de données secondaires sont automatiquement liées à la nouvelle base de données primaire. | RPO de cinq secondes.<br/><br/>La géo-réplication active utilise la technologie Always On de SQL Server. Elle réplique de manière asynchrone les transactions validées entre une base de données primaire vers une base de données secondaire à l’aide de l’isolation d’instantané.<br/><br/>Il est garanti que les données secondaires n’auront jamais de transactions partielles.
 SQL en tant que PaaS configuré avec la géoréplication active sur Azure.<br/><br/>Ce type de déploiement comprend une instance gérée SQL Database, des pools élastiques et des serveurs de SQL Database. | Groupes de basculement automatique | RTO d’une heure. | RPO de cinq secondes.<br/><br/>Les groupes de basculement automatique fournissent la sémantique de groupe en plus de la géo-réplication Active. Toutefois, le même mécanisme de réplication asynchrone est utilisé.
 SQL Server sur une machine virtuelle Azure IaaS ou localement.| Réplication avec Azure Site Recovery | Le RTO est généralement inférieur à 15 minutes. Pour plus d’informations, consultez le [SLA RTO fourni par Site Recovery](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). | Une heure pour la cohérence des applications et cinq minutes pour la cohérence des incidents. Si vous souhaitez réduire le RPO, utilisez d’autres technologies BCDR.
 
@@ -54,7 +54,7 @@ Site Recovery orchestre le test de basculement et le basculement de toute votre 
 
 Il existe certaines conditions préalables pour garantir que votre plan de récupération est entièrement personnalisé en fonction de vos besoins. Tout déploiement de SQL Server a généralement besoin d’un déploiement Active Directory. Il a également besoin d’une connectivité pour votre couche application.
 
-### <a name="step-1-set-up-active-directory"></a>Étape 1 : Configurer Active Directory
+### <a name="step-1-set-up-active-directory"></a>Étape 1 : Configurer Active Directory
 
 Configurez Active Directory sur le site de récupération secondaire afin que SQL Server fonctionne correctement.
 
@@ -65,7 +65,7 @@ Configurez Active Directory sur le site de récupération secondaire afin que SQ
 
 Les instructions fournies dans cet article supposent qu’un contrôleur de domaine est disponible sur le site secondaire. Pour en savoir plus, consultez les procédures pour [aider à protéger Active Directory avec Site Recovery](site-recovery-active-directory.md).
 
-### <a name="step-2-ensure-connectivity-with-other-tiers"></a>Étape 2 : Garantir la connectivité avec d’autres niveaux
+### <a name="step-2-ensure-connectivity-with-other-tiers"></a>Étape 2 : Garantir la connectivité avec d’autres niveaux
 
 Une fois que la couche base de données est en cours d’exécution dans la région Azure cible, assurez-vous que vous disposez d’une connectivité avec les niveaux application et Web. Prenez les mesures nécessaires à l’avance pour valider la connectivité avec le test de basculement.
 
@@ -107,7 +107,7 @@ Certaines technologies BCDR, telles que SQL Always On, ne prennent pas en charge
 
     ![Capture d’écran de la fenêtre règles et de la boîte de dialogue Propriétés de l’adresse IP](./media/site-recovery-sql/update-listener-ip.png)
 
-1. Mettez l’écouteur en ligne.
+1. Mettez l'écouteur en ligne.
 
     ![Capture d’écran de la fenêtre intitulée Content_AG montrant les noms et les états des serveurs](./media/site-recovery-sql/bring-listener-online.png)
 
@@ -149,7 +149,7 @@ Site Recovery ne prend pas en charge le cluster invité lors de la réplication 
 
 Pour les clusters SQL Server Standard, la restauration automatique après un basculement non planifié nécessite une sauvegarde et une restauration SQL Server. Cette opération est effectuée à partir de l’instance miroir vers le cluster d’origine, avec le rétablissement de la mise en miroir.
 
-## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
+## <a name="frequently-asked-questions"></a>Forum aux questions
 
 ### <a name="how-does-sql-server-get-licensed-when-used-with-site-recovery"></a>Comment les SQL Server sont-ils concédés sous licence lorsqu’ils sont utilisés avec Site Recovery ?
 

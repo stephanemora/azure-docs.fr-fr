@@ -13,10 +13,10 @@ ms.author: rohitna
 ms.reviewer: genemi, amagarwa, maboja, jrasnick, vanto
 ms.date: 05/14/2019
 ms.openlocfilehash: 9232a99ddd29201e6743c09455d79e9ba22b3b9c
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74420402"
 ---
 # <a name="powershell-for-dns-alias-to-azure-sql-database"></a>PowerShell pour les alias DNS sur Azure SQL Database
@@ -41,13 +41,13 @@ Pour exécuter le script PowerShell de démonstration proposé dans cet article,
 - Un abonnement et un compte Azure, pour un essai gratuit, consultez les [Versions d’essai Azure](https://azure.microsoft.com/free/)
 - Deux serveurs Azure SQL Database
 
-## <a name="example"></a>Exemples
+## <a name="example"></a>Exemple
 
 L’exemple de code suivant commence par affecter des valeurs littérales à plusieurs variables.
 
 Pour exécuter le code, modifiez les valeurs des espaces réservés pour les faire correspondre aux valeurs réelles de votre système.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Les applets de commande utilisées sont les suivantes :
 
@@ -93,7 +93,7 @@ Remove-AzSqlServerDnsAlias –ResourceGroupName $resourceGroupName2 -ServerName 
     -Name $sqlServerDnsAliasName;
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Interface de ligne de commande Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Les commandes utilisées sont les suivantes :
 

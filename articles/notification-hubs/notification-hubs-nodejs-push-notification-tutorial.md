@@ -18,17 +18,17 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 6e109c5a7f4911893c81c88ae84322fb962fff6e
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71213196"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Envoi de notifications Push avec Azure Notification Hubs et Node.js
 
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 > [!IMPORTANT]
 > Pour suivre ce didacticiel, vous avez besoin d'un compte Azure actif. Si vous n’avez pas de compte, vous pouvez créer un compte d’essai gratuit en quelques minutes par le biais de l’[essai gratuit Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-nodejs-how-to-use-notification-hubs).
@@ -100,7 +100,7 @@ L’objet `NotificationHubService` expose les instances d’objet suivantes pour
 - **Windows Phone** : utilisez l’objet `MpnsService`, disponible au niveau de `notificationHubService.mpns`
 - **Plateforme Windows universelle** : utilisez l’objet `WnsService`, disponible au niveau de `notificationHubService.wns`
 
-### <a name="how-to-send-push-notifications-to-android-applications"></a>Activation Envoyer des notifications Push à des applications Android
+### <a name="how-to-send-push-notifications-to-android-applications"></a>Procédure : Envoyer des notifications Push à des applications Android
 
 L’objet `GcmService` fournit une méthode `send` que vous pouvez utiliser pour envoyer des notifications Push à des applications Android. La méthode `send` accepte les paramètres suivants :
 
@@ -125,7 +125,7 @@ notificationHubService.gcm.send(null, payload, function(error){
 });
 ```
 
-### <a name="how-to-send-push-notifications-to-ios-applications"></a>Activation Envoyer des notifications Push à des applications iOS
+### <a name="how-to-send-push-notifications-to-ios-applications"></a>Procédure : Envoyer des notifications Push à des applications iOS
 
 Comme pour les applications Android décrites ci-dessus, l’objet `ApnsService` fournit une méthode `send` permettant d’envoyer des notifications Push à des applications iOS. La méthode `send` accepte les paramètres suivants :
 
@@ -148,7 +148,7 @@ notificationHubService.apns.send(null, payload, function(error){
 });
 ```
 
-### <a name="how-to-send-push-notifications-to-windows-phone-applications"></a>Activation Envoyer des notifications Push à des applications Windows Phone
+### <a name="how-to-send-push-notifications-to-windows-phone-applications"></a>Procédure : Envoyer des notifications Push à des applications Windows Phone
 
 L’objet `MpnsService` fournit une méthode `send` permettant d’envoyer des notifications Push à des applications Windows Phone. La méthode `send` accepte les paramètres suivants :
 
@@ -172,7 +172,7 @@ notificationHubService.mpns.send(null, payload, 'toast', 22, function(error){
 });
 ```
 
-### <a name="how-to-send-push-notifications-to-universal-windows-platform-uwp-applications"></a>Activation Envoyer des notifications Push à des applications de la plateforme Windows universelle (UWP)
+### <a name="how-to-send-push-notifications-to-universal-windows-platform-uwp-applications"></a>Procédure : Envoyer des notifications Push à des applications de la plateforme Windows universelle (UWP)
 
 L’objet `WnsService` fournit une méthode `send` permettant d’envoyer des notifications Push à des applications de la plateforme Windows universelle.  La méthode `send` accepte les paramètres suivants :
 

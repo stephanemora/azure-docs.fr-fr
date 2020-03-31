@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: mbaldwin
 ms.openlocfilehash: cdf616b29a93e786ef26af83b5d3b3541f94d67c
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75972276"
 ---
 # <a name="security-controls-for-azure-vpn-gateway"></a>Contrôles de sécurité pour la passerelle VPN Azure
@@ -42,7 +42,7 @@ Cet article décrit les contrôles de sécurité intégrés dans la passerelle V
 
 | Contrôle de sécurité | Oui/Non | Notes|
 |---|---|--|
-| Authentication| Oui | [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) pour gérer le service et configurer la passerelle VPN Azure. |
+| Authentification| Oui | [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) pour gérer le service et configurer la passerelle VPN Azure. |
 | Autorisation| Oui | Prise en charge de l'autorisation via [RBAC](../role-based-access-control/overview.md). |
 
 ## <a name="data-protection"></a>Protection de données

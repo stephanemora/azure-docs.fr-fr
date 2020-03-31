@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: 42ddab6991b418af3e41da9966cdab69ded87461
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73837893"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-azure-powershell"></a>Bien démarrer avec Azure Data Lake Storage Gen1 à l’aide de PowerShell
 
 > [!div class="op_single_selector"]
-> * [Portal](data-lake-store-get-started-portal.md)
+> * [Portail](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
-> * [Interface de ligne de commande Azure](data-lake-store-get-started-cli-2.0.md)
+> * [Azure CLI](data-lake-store-get-started-cli-2.0.md)
 >
 >
 
@@ -33,7 +33,7 @@ Découvrez comment utiliser Azure PowerShell pour créer un compte Azure Data La
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure PowerShell 1.0 ou version ultérieure**. Consultez [Installation et configuration d’Azure PowerShell](/powershell/azure/overview).
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Authentification
 
 Pour l’authentification auprès de Data Lake Storage Gen1, cet article utilise une approche plus simple où vous êtes invité à entrer les informations d’identification de votre compte Azure. Le niveau d’accès au compte et au système de fichiers Data Lake Storage Gen1 est alors régi par le niveau d’accès de l’utilisateur connecté. Cependant, il existe d’autres approches pour l’authentification sur Data Lake Storage Gen1, à savoir l’authentification de l’utilisateur final ou l’authentification de service à service. Pour obtenir des instructions et plus d’informations sur l’authentification, consultez [l’authentification de l’utilisateur final](data-lake-store-end-user-authenticate-using-active-directory.md) ou [l’authentification de service à service](data-lake-store-authenticate-using-active-directory.md).
 
@@ -62,7 +62,7 @@ Pour l’authentification auprès de Data Lake Storage Gen1, cet article utilise
     New-AzResourceGroup -Name $resourceGroupName -Location "East US 2"
     ```
 
-    ![Créer un groupe de ressources Azure](./media/data-lake-store-get-started-powershell/ADL.PS.CreateResourceGroup.png "Créer un groupe de ressources Azure")
+    ![Créer un groupe de ressources Azure](./media/data-lake-store-get-started-powershell/ADL.PS.CreateResourceGroup.png "Créer un groupe de ressources Azure")
 
 1. Créer un compte Data Lake Storage Gen1. Le nom que vous spécifiez doit contenir uniquement des lettres minuscules et des chiffres.
 

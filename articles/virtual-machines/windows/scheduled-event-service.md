@@ -11,10 +11,10 @@ ms.date: 08/20/2019
 ms.author: sarn
 ms.topic: conceptual
 ms.openlocfilehash: 1cda07c18e4f5ef2a8c00b6a275f22ecc0935751
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74073314"
 ---
 # <a name="monitoring-scheduled-events"></a>Surveillance d’événements planifiés
@@ -153,7 +153,7 @@ Une fois les événements envoyés à Log Analytics, vous pouvez exécuter la [r
     | project-away RenderedDescription,ReqJson
     ```
 
-1. Sélectionnez **Enregistrer**, puis tapez le nom *logQuery*, laissez le type **Requête**, tapez la **catégorie** *VMLogs*, puis sélectionnez **Enregistrer**. 
+1. Sélectionnez **Enregistrer**, puis tapez le nom *logQuery*, laissez le type **Requête**, tapez la **catégorie***VMLogs*, puis sélectionnez **Enregistrer**. 
 
     ![Enregistrer la requête](./media/notifications/save-query.png)
 

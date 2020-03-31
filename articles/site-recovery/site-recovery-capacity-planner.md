@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
 ms.openlocfilehash: 843d5da26d6791cea880e5dfb654fe27b74f5d9f
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73936040"
 ---
 # <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>Planifier la capacité pour la reprise d’activité de machines virtuelles Hyper-V 
@@ -47,7 +47,7 @@ Vous pouvez exécuter l’outil en deux modes :
 
 2. Dans la zone de liste **Sélectionner un type de planificateur**, sélectionnez **Quick Planner** (Planificateur rapide).
 
-   ![Prise en main](./media/site-recovery-capacity-planner/getting-started.png)
+   ![Bien démarrer](./media/site-recovery-capacity-planner/getting-started.png)
 
 3. Dans la feuille de calcul **Capacity Planner** (Planificateur de capacité), saisissez les informations requises. Renseignez tous les champs entourés d’un cercle rouge dans la capture d’écran suivante :
 
@@ -146,5 +146,5 @@ Une fois toutes les informations entrées, sélectionnez **Submit data to the pl
 
    ![Capacity Planner](./media/site-recovery-capacity-planner/capacity-planner.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Apprenez à exécuter](site-recovery-capacity-planning-for-hyper-v-replication.md) l’outil de planification de la capacité.

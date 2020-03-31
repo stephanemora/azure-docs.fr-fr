@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 3f0c6b60e2be625d1f869c3eda4acb9dfd3c6e9e
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74886810"
 ---
 # <a name="output-metadata"></a>Métadonnées de sortie
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Un travail d’encodage est associé à un élément multimédia d’entrée (ou plusieurs) sur lequel vous souhaitez effectuer des tâches d’encodage. Par exemple, encoder un fichier MP4 en ensembles de fichiers MP4 à vitesse de transmission adaptative H.264, créer une miniature, créer des superpositions. À l’achèvement d’une tâche, une ressource de sortie est générée.  L’élément multimédia de sortie contient la vidéo, l’audio, les miniatures, et ainsi de suite. L’élément multimédia de sortie contient également un fichier avec des métadonnées relatives à l’élément multimédia de sortie. Le nom du fichier XML de métadonnées a le format suivant : &lt;nom_fichier_source&gt;_manifest.xml (par exemple, BigBuckBunny_manifest.xml).  
 
 Media Services n’analyse pas préemptivement les éléments multimédia d’entrée pour générer des métadonnées. Les métadonnées d’entrée sont générées uniquement sous forme d’artefact lorsqu’un élément multimédia d’entrée est traité au sein d’un travail. Par conséquent, cet artefact est écrit dans l’élément multimédia de sortie. Différents outils sont utilisés pour générer les métadonnées pour les éléments multimédias d’entrée et de sortie. Ainsi, les métadonnées d’entrée présentent un schéma légèrement différent de celui des métadonnées de sortie.
@@ -33,7 +33,7 @@ Cet article décrit les éléments et types du schéma XML sur lesquels les mét
 
 Vous pouvez trouver le Code du schéma complet et un exemple de XML à la fin de cet article.  
 
-## <a name="AssetFiles"></a> Élément racine AssetFiles
+## <a name="assetfiles-root-element"></a><a name="AssetFiles"></a> Élément racine AssetFiles
 Collection d’entrées AssetFile pour le travail d’encodage.  
 
 ### <a name="child-elements"></a>Éléments enfants
@@ -41,11 +41,11 @@ Collection d’entrées AssetFile pour le travail d’encodage.
 | --- | --- |
 | **AssetFile**<br/><br/> minOccurs="0" maxOccurs="1" |Un élément AssetFile qui fait partie de la collection AssetFiles. |
 
-## <a name="AssetFile"></a> Élément AssetFile
+## <a name="assetfile-element"></a><a name="AssetFile"></a> Élément AssetFile
 Vous trouverez un exemple de XML [Exemple de XML](#xml).  
 
 ### <a name="attributes"></a>Attributs
-| Nom | type | Description |
+| Nom | Type | Description |
 | --- | --- | --- |
 | **Nom**<br/><br/> Obligatoire |**xs:string** |Le nom du fichier multimédia. |
 | **Taille**<br/><br/> minInclusive ="0"<br/><br/> Obligatoire |**xs:long** |Taille du fichier de ressource en octets. |
@@ -58,7 +58,7 @@ Vous trouverez un exemple de XML [Exemple de XML](#xml).
 | **VideoTracks**<br/><br/> minOccurs="0" maxOccurs="1" |Chaque élément AssetFile physique peut contenir zéro ou plusieurs pistes vidéo entrelacées dans un format de conteneur approprié. Pour plus d’informations, consultez l’élément VideoTracks. |
 | **AudioTracks**<br/><br/> minOccurs="0" maxOccurs="1" |Chaque élément AssetFile physique peut contenir zéro ou plusieurs pistes audio entrelacées dans un format de conteneur approprié. Il s’agit de la collection de toutes les pistes audio. Pour plus d’informations, consultez l’élément AudioTracks. |
 
-## <a name="Sources"></a> Sources (élément)
+## <a name="sources-element"></a><a name="Sources"></a> Sources (élément)
 Collection de fichiers multimédias d’entrée/source qui a été traitée afin de produire cet AssetFile.  
 
 Vous trouverez un exemple de XML [Exemple de XML](#xml).  
@@ -68,17 +68,17 @@ Vous trouverez un exemple de XML [Exemple de XML](#xml).
 | --- | --- |
 | **Source**<br/><br/> minOccurs="1" maxOccurs="unbounded" |Un fichier d’entrée/source utilisé lors de la génération de cette ressource. Pour plus d’informations, consultez la page Élément source. |
 
-## <a name="Source"></a> Élément source
+## <a name="source-element"></a><a name="Source"></a> Élément source
 Un fichier d’entrée/source utilisé lors de la génération de cette ressource.  
 
 Vous trouverez un exemple de XML [Exemple de XML](#xml).  
 
 ### <a name="attributes"></a>Attributs
-| Nom | type | Description |
+| Nom | Type | Description |
 | --- | --- | --- |
 | **Nom**<br/><br/> Obligatoire |**xs:string** |Nom du fichier source d’entrée. |
 
-## <a name="VideoTracks"></a> Élément VideoTracks
+## <a name="videotracks-element"></a><a name="VideoTracks"></a> Élément VideoTracks
 Chaque élément AssetFile physique peut contenir zéro ou plusieurs pistes vidéo entrelacées dans un format de conteneur approprié. L’élément **VideoTracks** représente une collection de toutes les pistes vidéo.  
 
 Vous trouverez un exemple de XML [Exemple de XML](#xml).  
@@ -88,20 +88,20 @@ Vous trouverez un exemple de XML [Exemple de XML](#xml).
 | --- | --- |
 | **VideoTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |Une piste vidéo spécifique dans l’élément AssetFile parent. Pour plus d’informations, consultez l’élément VideoTrack. |
 
-## <a name="VideoTrack"></a> Élément VideoTrack
+## <a name="videotrack-element"></a><a name="VideoTrack"></a> Élément VideoTrack
 Une piste vidéo spécifique dans l’élément AssetFile parent.  
 
 Vous trouverez un exemple de XML [Exemple de XML](#xml).  
 
 ### <a name="attributes"></a>Attributs
-| Nom | type | Description |
+| Nom | Type | Description |
 | --- | --- | --- |
 | **Id**<br/><br/> minInclusive ="0"<br/><br/> Obligatoire |**xs:int** |Index de base zéro de cette piste vidéo. **Remarque :**  Cet **ID** ne correspond pas nécessairement au TrackID tel qu’utilisé dans un fichier MP4. |
 | **FourCC**<br/><br/> Obligatoire |**xs:string** |Code FourCC du codec vidéo. |
 | **Profil** |**xs:string** |Profil H264 (uniquement applicable au codec H264). |
 | **Niveau** |**xs:string** |Niveau H264 (uniquement applicable au codec H264). |
-| **Largeur**<br/><br/> minInclusive ="0"<br/><br/> Obligatoire |**xs:int** |Largeur vidéo encodée en pixels. |
-| **Hauteur**<br/><br/> minInclusive ="0"<br/><br/> Obligatoire |**xs:int** |Hauteur vidéo encodée en pixels. |
+| **Width**<br/><br/> minInclusive ="0"<br/><br/> Obligatoire |**xs:int** |Largeur vidéo encodée en pixels. |
+| **Height**<br/><br/> minInclusive ="0"<br/><br/> Obligatoire |**xs:int** |Hauteur vidéo encodée en pixels. |
 | **DisplayAspectRatioNumerator**<br/><br/> minInclusive ="0"<br/><br/> Obligatoire |**xs:double** |Numérateur des proportions d’affichage vidéo. |
 | **DisplayAspectRatioDenominator**<br/><br/> minInclusive ="0"<br/><br/> Obligatoire |**xs:double** |Dénominateur des proportions d’affichage vidéo. |
 | **Framerate**<br/><br/> minInclusive ="0"<br/><br/> Obligatoire |**xs:decimal** |Fréquence d’images vidéo mesurée au format .3f. |
@@ -110,7 +110,7 @@ Vous trouverez un exemple de XML [Exemple de XML](#xml).
 | **TargetBitrate**<br/><br/> minInclusive ="0"<br/><br/> Obligatoire |**xs:int** |Vitesse de transmission cible moyenne pour cette piste vidéo, comme demandé via paramètres prédéfinis d’encodage, en kilobits par seconde. |
 | **MaxGOPBitrate**<br/><br/> minInclusive ="0" |**xs:int** |Vitesse de transmission moyenne GOP maximum pour cette piste vidéo, en kilobits par seconde. |
 
-## <a name="AudioTracks"></a> Élément AudioTracks
+## <a name="audiotracks-element"></a><a name="AudioTracks"></a> Élément AudioTracks
 Chaque élément AssetFile physique peut contenir zéro ou plusieurs pistes audio entrelacées dans un format de conteneur approprié. L’élément **AudioTracks** représente une collection de toutes les pistes audio.  
 
 Vous trouverez un exemple de XML [Exemple de XML](#xml).  
@@ -120,13 +120,13 @@ Vous trouverez un exemple de XML [Exemple de XML](#xml).
 | --- | --- |
 | **AudioTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |Une piste audio spécifique dans l’élément AssetFile parent. Pour plus d’informations, consultez l’élément AudioTrack. |
 
-## <a name="AudioTrack"></a> Élément AudioTrack
+## <a name="audiotrack-element"></a><a name="AudioTrack"></a> Élément AudioTrack
 Une piste audio spécifique dans l’élément AssetFile parent.  
 
 Vous trouverez un exemple de XML [Exemple de XML](#xml).  
 
 ### <a name="attributes"></a>Attributs
-| Nom | type | Description |
+| Nom | Type | Description |
 | --- | --- | --- |
 | **Id**<br/><br/> minInclusive ="0"<br/><br/> Obligatoire |**xs:int** |Index de base zéro de cette piste audio. **Remarque :**  Il ne s’agit pas nécessairement du TrackID tel qu’utilisé dans un fichier MP4. |
 | **Codec** |**xs:string** |Chaîne du codec de piste audio. |
@@ -141,13 +141,13 @@ Vous trouverez un exemple de XML [Exemple de XML](#xml).
 | --- | --- |
 | **LoudnessMeteringResultParameters**<br/><br/> minOccurs="0" maxOccurs="1" |Paramètres de résultat de mesure du niveau sonore. Pour plus d’informations, consultez l’élément LoudnessMeteringResultParameters. |
 
-## <a name="LoudnessMeteringResultParameters"></a> Élément LoudnessMeteringResultParameters
+## <a name="loudnessmeteringresultparameters-element"></a><a name="LoudnessMeteringResultParameters"></a> Élément LoudnessMeteringResultParameters
 Paramètres de résultat de mesure du niveau sonore.  
 
 Vous trouverez un exemple de XML [Exemple de XML](#xml).  
 
 ### <a name="attributes"></a>Attributs
-| Nom | type | Description |
+| Nom | Type | Description |
 | --- | --- | --- |
 | **DPLMVersionInformation** |**xs:string** |Version du kit de développement **Dolby** Professional Loudness Metering. |
 | **DialogNormalization**<br/><br/> minInclusive="-31" maxInclusive="-1"<br/><br/> Obligatoire |**xs:int** |DialogNormalization généré par DPLM, requis lorsque LoudnessMetering est défini |
@@ -509,7 +509,7 @@ Vous trouverez un exemple de XML [Exemple de XML](#xml).
 
 
 
-## <a name="xml"></a> Exemple XML
+## <a name="xml-example"></a><a name="xml"></a> Exemple XML
 
 Le fichier XML suivant est un exemple de fichier de métadonnées de sortie.  
 

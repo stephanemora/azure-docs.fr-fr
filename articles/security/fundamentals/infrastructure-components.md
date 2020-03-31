@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: 68535f70507e7a81d217f4148314a3d76ec832ea
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68727210"
 ---
 # <a name="azure-information-system-components-and-boundaries"></a>Composants et limites du système d’informations Azure
@@ -85,7 +85,7 @@ Les équipes de service sont les suivantes :
 - ISSD : Sécurité
 - Multifactor Authentication
 - SQL Database
-- Storage
+- Stockage
 
 ## <a name="types-of-users"></a>Types d’utilisateurs
 Les employés (ou sous-traitants) de Microsoft sont considérés comme des utilisateurs internes. Tous les autres utilisateurs sont considérés comme des utilisateurs externes. Les utilisateurs internes d’Azure ont tous un statut d’employé auquel est affecté un niveau de sensibilité qui définit leur accès ou non aux données des clients. Les privilèges dont disposent les utilisateurs dans Azure (autorisations accordées après l’authentification) sont décrits dans le tableau suivant :

@@ -1,5 +1,5 @@
 ---
-title: 'Exemple : Facettes à plusieurs niveaux'
+title: 'Exemple : Facettes à plusieurs niveaux'
 titleSuffix: Azure Cognitive Search
 description: Découvrez comment créer des structures à facettes pour les taxonomies à plusieurs niveaux, en créant une structure de navigation imbriquée que vous pouvez inclure dans des pages d’application.
 author: HeidiSteen
@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.openlocfilehash: 8672fa0911d1a031205bb3340fa0c03ab9492a28
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72792937"
 ---
-# <a name="example-multi-level-facets-in-azure-cognitive-search"></a>Exemple : Facettes à plusieurs niveaux dans Recherche cognitive Azure
+# <a name="example-multi-level-facets-in-azure-cognitive-search"></a>Exemple : Facettes à plusieurs niveaux dans Recherche cognitive Azure
 
 Les schémas Recherche cognitive Azure ne prennent pas en charge de manière explicite les catégories de taxonomies à plusieurs niveaux, mais vous pouvez vous en approcher en manipulant le contenu préalablement à l’indexation, puis en appliquant un traitement spécial aux résultats. 
 

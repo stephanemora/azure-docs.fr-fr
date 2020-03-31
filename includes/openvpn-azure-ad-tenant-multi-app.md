@@ -9,13 +9,13 @@ ms.date: 02/18/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: e950d194ab48cec1a70c7bd17617332cb858a55d
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77485632"
 ---
-## <a name="tenant"></a>1. Créer le locataire Azure AD
+## <a name="1-create-the-azure-ad-tenant"></a><a name="tenant"></a>1. Créer le locataire Azure AD
 
 Pour créer un locataire Azure AD, suivez la procédure décrite dans l'article [Créer un locataire](../articles/active-directory/fundamentals/active-directory-access-create-new-tenant.md) :
 
@@ -26,14 +26,14 @@ Pour créer un locataire Azure AD, suivez la procédure décrite dans l'article 
 
    ![Nouveau locataire Azure AD](./media/openvpn-azure-ad-tenant-multi-app/new-tenant.png)
 
-## <a name="users"></a>2. Créer des utilisateurs du locataire
+## <a name="2-create-tenant-users"></a><a name="users"></a>2. Créer des utilisateurs du locataire
 
 Au cours de cette étape, vous allez créer deux utilisateurs Azure du locataire Azure AD : un compte d’administrateur général et un compte d’utilisateur maître. Le compte d'utilisateur principal est utilisé comme compte d'intégration principal (compte de service). Lorsque vous créez un compte d'utilisateur de locataire Azure AD, vous définissez le rôle d'annuaire en fonction du type d'utilisateur que vous souhaitez créer. Utilisez les étapes décrites dans [cet article](../articles/active-directory/fundamentals/add-users-azure-active-directory.md) pour créer au moins deux utilisateurs pour votre locataire Azure AD. Veillez à modifier le **rôle d'annuaire** pour créer les types de compte :
 
 * Administrateur général
 * Utilisateur
 
-## <a name="register-client"></a>3. Inscrire le client VPN
+## <a name="3-register-the-vpn-client"></a><a name="register-client"></a>3. Inscrire le client VPN
 
 Inscrivez le client VPN dans le locataire Azure AD.
 
@@ -83,7 +83,7 @@ Inscrivez le client VPN dans le locataire Azure AD.
 
      ![VPN Azure](./media/openvpn-azure-ad-tenant-multi-app/azure-vpn.png)
 
-## <a name="register-apps"></a>4. Inscrire des applications supplémentaires
+## <a name="4-register-additional-applications"></a><a name="register-apps"></a>4. Inscrire des applications supplémentaires
 
 Au cours de cette étape, vous allez inscrire des applications supplémentaires pour différents utilisateurs et groupes.
 
@@ -124,7 +124,7 @@ Au cours de cette étape, vous allez inscrire des applications supplémentaires 
 
 10. Répétez les étapes de cette section [Inscrire des applications supplémentaires](#register-apps) pour créer le nombre d’applications nécessaires pour vos besoins de sécurité. Chaque application est associée à une passerelle VPN et peut avoir un ensemble différent d’utilisateurs. Une seule application peut être associée à une passerelle.
 
-## <a name="assign-users"></a>5. Affecter des utilisateurs à des applications
+## <a name="5-assign-users-to-applications"></a><a name="assign-users"></a>5. Affecter des utilisateurs à des applications
 
 Affectez des utilisateurs à vos applications.
 

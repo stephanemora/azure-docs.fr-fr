@@ -16,10 +16,10 @@ ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ddfc4bf7ed3bdf214a44a5dfe03259d32b2f3f94
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74025698"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identification et résolution des problèmes d’affectation de licences pour un groupe dans Azure Active Directory
@@ -60,7 +60,7 @@ Pour connaître le nombre de licences disponibles, accédez à **Azure Active Di
 
 Pour voir quels utilisateurs et quels groupes utilisent des licences, sélectionnez un produit. Sous **Utilisateurs sous licence**, vous pouvez voir la liste des utilisateurs auxquels des licences ont été affectées directement, ou par le biais d’un ou de plusieurs groupes. Sous **Groupes sous licence**, vous pouvez voir tous les groupes auxquels ce produit est attribué.
 
-**PowerShell :** Les applets de commande PowerShell signalent cette erreur comme _CountViolation_.
+**PowerShell :** Les applets de commande PowerShell signalent cette erreur comme _CountViolation_.
 
 ## <a name="conflicting-service-plans"></a>Plans de service en conflit
 
@@ -75,7 +75,7 @@ Pour résoudre ce conflit, vous devez désactiver deux des plans. Vous pouvez d�
 
 Seul l’administrateur peut décider de la méthode à utiliser pour résoudre les problèmes de conflit de licences produit. Azure AD ne résout pas automatiquement les conflits de licences.
 
-**PowerShell :** Les applets de commande PowerShell signalent cette erreur comme _MutuallyExclusiveViolation_.
+**PowerShell :** Les applets de commande PowerShell signalent cette erreur comme _MutuallyExclusiveViolation_.
 
 ## <a name="other-products-depend-on-this-license"></a>D’autres produits dépendent de cette licence
 
@@ -83,7 +83,7 @@ Seul l’administrateur peut décider de la méthode à utiliser pour résoudre 
 
 Pour résoudre ce problème, vous devez vérifier que le plan requis est toujours attribué aux utilisateurs par une autre méthode, ou que les services dépendants sont désactivés pour ces utilisateurs. Après cela, vous pouvez supprimer la licence de groupe sur ces utilisateurs.
 
-**PowerShell :** Les applets de commande PowerShell signalent cette erreur comme _DependencyViolation_.
+**PowerShell :** Les applets de commande PowerShell signalent cette erreur comme _DependencyViolation_.
 
 ## <a name="usage-location-isnt-allowed"></a>L’emplacement d’utilisation n’est pas autorisé
 
@@ -93,7 +93,7 @@ Si Azure AD tente d’attribuer une licence de groupe à un utilisateur dont l�
 
 Pour résoudre ce problème, retirez du groupe sous licence les utilisateurs associés à des emplacements non pris en charge. Autrement, si les valeurs d’emplacement d’utilisation actuelles ne représentent pas l’emplacement réel des utilisateurs, vous pouvez modifier ceux-ci de sorte que les licences soient attribuées correctement la prochaine fois (à condition que le nouvel emplacement soit pris en charge).
 
-**PowerShell :** Les applets de commande PowerShell signalent cette erreur comme _ProhibitedInUsageLocationViolation_.
+**PowerShell :** Les applets de commande PowerShell signalent cette erreur comme _ProhibitedInUsageLocationViolation_.
 
 > [!NOTE]
 > Lorsqu’Azure AD attribue des licences de groupe, tous les utilisateurs sans emplacement d’utilisation spécifié héritent de l’emplacement du répertoire. Nous recommandons aux administrateurs de définir des valeurs d’emplacement d’utilisation correctes pour les utilisateurs avant d’utiliser la licence groupée afin de se conformer aux lois et réglementations locales.

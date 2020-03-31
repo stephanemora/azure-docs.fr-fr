@@ -12,10 +12,10 @@ ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 10/10/2019
 ms.openlocfilehash: bad52b364dc83994e7985fc80b1b9f9e7f50481e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73823776"
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>Créer des rapports sur des bases de données cloud avec montée en charge (version préliminaire)
@@ -35,7 +35,7 @@ Ici vous allez créer un gestionnaire des cartes de partitions avec plusieurs pa
 
 1. Générez et exécutez l’exemple d’application **Prise en main des outils de base de données élastique** en suivant les étapes décrites dans la section de l’article [Télécharger et exécuter l’exemple d’application](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app-1). Une fois toutes les étapes terminées, l’invite de commandes suivante s’affiche :
 
-    ![invite de commande][1]
+    ![invite de commandes][1]
 2. Dans la fenêtre de commande, entrez « 1 » et appuyez sur **Entrée**. Cela crée le gestionnaire des cartes de partitions et ajoute deux partitions sur le serveur. Tapez « 3 », puis appuyez sur **Entrée**. Répétez l’action quatre fois. Cela permet d’insérer des lignes d’exemples de données dans vos partitions.
 3. Le [portail Azure](https://portal.azure.com) doit alors montrer trois nouvelles bases de données dans votre serveur :
 

@@ -10,9 +10,31 @@
       href: quickstart-create-templates-use-the-portal.md
     - name: Créer des modèles - VS Code
       href: quickstart-create-templates-use-visual-studio-code.md
+    - name: Services Azure
+      items:
+        - name: AKS
+          href: ../../aks/kubernetes-walkthrough-rm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: Backup
+          href: ../../backup/quick-backup-vm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: Cosmos DB
+          href: ../../cosmos-db/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: Event Grid
+          href: ../../event-grid/blob-event-quickstart-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: Event Hub
+          href: ../../event-hubs/event-hubs-resource-manager-namespace-event-hub.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: Key Vault
+          href: ../../key-vault/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: Load Balancer
+          href: ../../load-balancer/quickstart-load-balancer-standard-public-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: Stratégie
+          href: ../../governance/policy/assign-policy-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: Messagerie Service Bus
+          href: ../../service-bus-messaging/service-bus-resource-manager-namespace-queue.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: SQL Database
+          href: ../../sql-database/sql-database-single-database-get-started-template.md?toc=/azure/azure-resource-manager/templates/toc.json
 - name: Tutoriels
   items:
-    - name: Débutant
+    - name: Modèles pour débutants
       items:
         - name: 1 - Créer un premier modèle
           href: template-tutorial-create-first-template.md
@@ -34,6 +56,15 @@
           href: template-tutorial-add-tags.md
         - name: 10 - Utiliser un fichier de paramètres
           href: template-tutorial-use-parameter-file.md
+    - name: Déploiement
+      items:
+        - name: "1\_- Déployer un modèle local"
+          href: deployment-tutorial-local-template.md
+        - name: "2\_- Déployer un modèle lié"
+          href: deployment-tutorial-linked-template.md
+        - name: "3\_- Créer un pipeline"
+          displayName: Devop
+          href: deployment-tutorial-pipeline.md
     - name: Avancé
       items:
         - name: Utiliser la référence de modèle
@@ -61,9 +92,6 @@
           href: template-tutorial-deploy-sql-extensions-bacpac.md
         - name: Sécuriser des artefacts
           href: template-tutorial-secure-artifacts.md
-        - name: Intégration continue avec Azure Pipelines
-          displayName: DevOps
-          href: template-tutorial-use-azure-pipelines.md
         - name: Utiliser des pratiques de déploiement sécurisé
           displayName: adm
           href: deployment-manager-tutorial.md
@@ -214,7 +242,7 @@
         - name: InvalidTemplate
           href: error-invalid-template.md
         - name: Problèmes de déploiement Linux
-          href: ../../virtual-machines/linux/troubleshoot-deploy-vm.md
+          href: ../../virtual-machines/troubleshooting/troubleshoot-deploy-vm-linux.md
         - name: NoRegisteredProviderFound
           href: error-register-resource-provider.md
         - name: NotFound
@@ -222,9 +250,9 @@
         - name: ParentResourceNotFound
           href: error-parent-resource.md
         - name: Problèmes d’approvisionnement et de répartition pour Linux
-          href: ../../virtual-machines/linux/troubleshoot-deployment-new-vm.md
+          href: ../../virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-linux.md
         - name: Problèmes d’approvisionnement et de répartition pour Windows
-          href: ../../virtual-machines/windows/troubleshoot-deployment-new-vm.md
+          href: ../../virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-windows.md
         - name: RequestDisallowedByPolicy
           href: error-policy-requestdisallowedbypolicy.md
         - name: ReservedResourceName
@@ -234,7 +262,7 @@
         - name: SkuNotAvailable
           href: error-sku-not-available.md
         - name: Problèmes de déploiement Windows
-          href: ../../virtual-machines/windows/troubleshoot-deploy-vm.md
+          href: ../../virtual-machines/troubleshooting/troubleshoot-deploy-vm-windows.md
 - name: Informations de référence
   items:
     - name: Référence de modèle

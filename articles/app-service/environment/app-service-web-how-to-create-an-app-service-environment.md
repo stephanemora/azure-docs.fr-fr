@@ -8,10 +8,10 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 752334e3d594b1f95786aecaca134b74c4e264d5
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74688691"
 ---
 # <a name="how-to-create-an-app-service-environment-v1"></a>Comment créer un environnement App Service Environment v1 
@@ -20,14 +20,14 @@ ms.locfileid: "74688691"
 > Cet article traite de l’environnement App Service Environment v1. Il existe une version plus récente de l’environnement App Service Environment, plus facile à utiliser et qui s’exécute sur des infrastructures plus puissantes. Pour en savoir plus sur la nouvelle version, commencez par la [Présentation de l’environnement App Service Environment](intro.md).
 > 
 
-### <a name="overview"></a>Vue d'ensemble
+### <a name="overview"></a>Vue d’ensemble
 Les environnements App Service Environment (ASE) constituent une option de service Premium d’Azure App Service offrant une fonction de configuration améliorée qui n’est pas disponible dans les clusters mutualisés. La fonctionnalité ASE déploie essentiellement Azure App Service sur le réseau virtuel du client. Pour mieux comprendre les possibilités offertes par les environnements App Service, lisez la documentation [Qu'est-ce qu'un environnement App Service ?][WhatisASE].
 
 ### <a name="before-you-create-your-ase"></a>Avant de créer votre ASE
 Il est important de connaître les choses que vous ne pouvez pas modifier. Voici les aspects que vous ne pouvez pas modifier concernant votre ASE après sa création :
 
-* Location
-* Subscription
+* Emplacement
+* Abonnement
 * Groupe de ressources
 * Réseau virtuel utilisé
 * Sous-réseau utilisé 

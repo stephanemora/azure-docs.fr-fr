@@ -1,15 +1,15 @@
 ---
 author: mgottein
-ms.service: search
+ms.service: cognitive-search
 ms.topic: include
 ms.date: 05/02/2019
 ms.author: magottei
-ms.openlocfilehash: c67c424d9481afadfb486a5bf354940d632dba9e
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: eb90e5befe7d7f37a5ca6e4f13200708fa509ae0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76158895"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80272955"
 ---
 * PDF
 * Formats Microsoft Office : DOCX/DOC/DOCM, XLSX/XLS/XLSM, PPTX/PPT/PPTM, MSG (e-mails Outlook), XML (WORD XML 2003 et 2006)

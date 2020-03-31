@@ -1,6 +1,6 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: virtual-machines
 author: axayjo
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 04/25/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
 ms.openlocfilehash: 40ba5a935e78cd75c4fcd7729e44f1cdf6c2859b
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75772967"
 ---
 Si vous rencontrez des problèmes en exécutant des opérations sur les galeries d’images partagées, les définitions d’image et les versions d’image, réexécutez la commande ayant échoué en mode débogage. Le mode débogage est activé avec le commutateur **-debug** dans l’interface CLI et le commutateur **-Debug** dans PowerShell. Une fois que vous avez localisé l’erreur, suivez ce document pour corriger les erreurs.

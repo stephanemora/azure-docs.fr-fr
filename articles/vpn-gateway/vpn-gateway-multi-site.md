@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 02/11/2020
 ms.author: yushwang
 ms.openlocfilehash: a95cd6ea85a16b0e0bf5f67f5dfc20d57f11463b
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77198091"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>Ajouter une connexion de site à site à un réseau virtuel avec une connexion de passerelle VPN existante (Classic)
@@ -74,7 +74,7 @@ Si vous avez déjà un VPN de site à site avec une passerelle de routage dynami
 1. Créez votre réseau virtuel de site à site à l’aide des instructions suivantes : [Créer un réseau virtuel avec une connexion VPN de site à site](vpn-gateway-site-to-site-create.md).  
 2. Configurez une passerelle de routage dynamique à l’aide des instructions suivantes : [Configurer une passerelle VPN](vpn-gateway-configure-vpn-gateway-mp.md). Veillez à sélectionner le **routage dynamique** pour le type de passerelle.
 
-## <a name="export"></a>2. Exporter le fichier de configuration réseau
+## <a name="2-export-the-network-configuration-file"></a><a name="export"></a>2. Exporter le fichier de configuration réseau
 
 Ouvrez la console PowerShell avec des privilèges élevés. Pour passer au management des services, utilisez cette commande :
 

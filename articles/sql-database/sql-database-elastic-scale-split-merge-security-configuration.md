@@ -12,10 +12,10 @@ ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: a916645f153f73a98e7fc5d4046bdf557e8acf2b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73823532"
 ---
 # <a name="split-merge-security-configuration"></a>Configuration de la sécurité du fractionnement et de la fusion
@@ -189,7 +189,7 @@ Cette rubrique sert de référence uniquement. Suivez les étapes de configurati
 * Configuration du certificat SSL
 * Configuration des certificats clients
 
-## <a name="create-a-self-signed-certificate"></a>Création d’un certificat auto-signé
+## <a name="create-a-self-signed-certificate"></a>Créer un certificat auto-signé
 Exécutez :
 
     makecert ^
@@ -441,7 +441,7 @@ Dans l’ **Assistant Exportation de certificat**:
 7. Entrez un mot de passe fort et confirmez-le.
 8. Cliquez sur **Suivant**.
 9. Tapez ou sélectionnez un nom de fichier dans lequel stocker le certificat (utilisez une extension .PFX).
-10. Cliquez sur **Next**.
+10. Cliquez sur **Suivant**.
 11. Cliquez sur **Terminer**.
 12. Cliquez sur **OK**.
 

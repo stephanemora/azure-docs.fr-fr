@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: kumud
 ms.openlocfilehash: 9829e713f19ab9755e9dc79d676446c8048e09b3
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75751185"
 ---
 # <a name="diagnostic-logging-for-a-network-security-group"></a>Journalisation des diagnostics pour un groupe de sécurité réseau
@@ -48,7 +48,7 @@ Vous pouvez utiliser le [portail Azure](#azure-portal), [PowerShell](#powershell
 
     | Paramètre                                                                                     | Valeur                                                          |
     | ---------                                                                                   |---------                                                       |
-    | Name                                                                                        | Un nom de votre choix.  Par exemple : *myNsgDiagnostics*      |
+    | Nom                                                                                        | Un nom de votre choix.  Par exemple : *myNsgDiagnostics*      |
     | **Archiver dans un compte de stockage**, **Diffuser vers Event Hub** et **Envoyer à Log Analytics** | Vous pouvez sélectionner autant de destinations que vous le souhaitez. Pour en savoir plus sur chacune d’elles, consultez [Destinations des journaux](#log-destinations).                                                                                                                                           |
     | LOG                                                                                         | Sélectionnez une catégorie de journal, ou les deux. Pour en savoir plus sur les données consignées pour chaque catégorie, consultez [Catégories de journal](#log-categories).                                                                                                                                             |
 6. Consultez et analysez les journaux d’activité. Pour plus d’informations, voir [Afficher et analyser les journaux d’activité](#view-and-analyze-logs).

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
 ms.openlocfilehash: 9aecaa6195509ec4c1f0d6b4b14b9bb30817da34
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69906834"
 ---
 [!INCLUDE [Prerequisites](prerequisites-go.md)]
@@ -67,7 +67,7 @@ func main() {
 
 ## <a name="create-a-function-to-determine-sentence-length"></a>Créer une fonction pour déterminer la longueur de phrase
 
-Créons une fonction pour déterminer la longueur de phrase. Cette fonction n'utilisera qu'un seul argument, votre clé d'abonnement Translator Text.
+Créons une fonction pour déterminer la longueur de phrase. Cette fonction n’utilisera qu’un seul argument, votre clé d’abonnement d’API de traduction de texte Translator Text.
 
 ```go
 func breakSentence(subscriptionKey string, uri string)
@@ -78,7 +78,7 @@ func breakSentence(subscriptionKey string, uri string)
 }
 ```
 
-Passons ensuite à la génération de l’URL. L’URL est générée à l’aide des méthodes `Parse()` et `Query()`. Vous remarquerez qu'avec la méthode `Add()`, des paramètres sont ajoutés.
+Passons ensuite à la génération de l’URL. L’URL est générée à l’aide des méthodes `Parse()` et `Query()`. Vous remarquerez qu’avec la méthode `Add()`, des paramètres sont ajoutés.
 
 Copiez ce code dans la fonction `breakSentence`.
 
@@ -91,9 +91,9 @@ u.RawQuery = q.Encode()
 ```
 
 >[!NOTE]
-> Pour plus d'informations sur les points de terminaison, les itinéraires et les paramètres de demande, consultez [API de traduction de texte Translator Text 3.0 : BreakSentence](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence).
+> Pour plus d’informations sur les points de terminaison, les itinéraires et les paramètres de requête, consultez [API de traduction de texte Translator Text 3.0 : BreakSentence](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence).
 
-## <a name="create-a-struct-for-your-request-body"></a>Créer une structure pour le corps de votre demande
+## <a name="create-a-struct-for-your-request-body"></a>Créer une structure pour le corps de la demande
 
 Créez ensuite une structure anonyme pour le corps de la demande et codez-la au format JSON avec `json.Marshal()`. Ajoutez ce code à la fonction `breakSentence`.
 

@@ -12,10 +12,10 @@ ms.date: 11/04/2019
 ms.author: dapine
 ms.custom: seodec18
 ms.openlocfilehash: ddbee3695c2a7ef7cb63c48cccacbd2d53a8c1a9
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73718989"
 ---
 # <a name="configure-computer-vision-docker-containers"></a>Configurer les conteneurs Docker Vision par ordinateur
@@ -53,7 +53,7 @@ Pensez à ajouter le routage `vision/v1.0` à l’URI de point de terminaison, c
 
 |Obligatoire| Nom | Type de données | Description |
 |--|------|-----------|-------------|
-|OUI| `Billing` | Chaîne | URI du point de terminaison de facturation<br><br>Exemple :<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
+|Oui| `Billing` | String | URI du point de terminaison de facturation<br><br>Exemple :<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
 
 ## <a name="eula-setting"></a>Paramètre Eula
 
@@ -81,8 +81,8 @@ La syntaxe exacte de l’emplacement de montage d’hôte varie en fonction du s
 
 |Facultatif| Nom | Type de données | Description |
 |-------|------|-----------|-------------|
-|Non autorisé| `Input` | Chaîne | Les conteneurs Vision par ordinateur n’utilisent pas cet élément.|
-|Facultatif| `Output` | Chaîne | Cible du montage de sortie. La valeur par défaut est `/output`. Il s’agit de l’emplacement des journaux d’activité. Les journaux d’activité de conteneur sont inclus. <br><br>Exemple :<br>`--mount type=bind,src=c:\output,target=/output`|
+|Non autorisé| `Input` | String | Les conteneurs Vision par ordinateur n’utilisent pas cet élément.|
+|Facultatif| `Output` | String | Cible du montage de sortie. La valeur par défaut est `/output`. Il s’agit de l’emplacement des journaux d’activité. Les journaux d’activité de conteneur sont inclus. <br><br>Exemple :<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Exemples de commandes docker run
 
@@ -93,7 +93,7 @@ Les exemples suivants utilisent les paramètres de configuration pour illustrer 
 
 Remplacez {_argument_name_} par vos propres valeurs :
 
-| Placeholder | Valeur | Format ou exemple |
+| Espace réservé | Valeur | Format ou exemple |
 |-------------|-------|---|
 | **{API_KEY}** | Clé de point de terminaison de la ressource `Computer Vision` dans la page Clés Azure `Computer Vision`. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
 | **{ENDPOINT_URI}** | La valeur de point de terminaison de facturation est disponible dans la page Vue d’ensemble Azure `Computer Vision`.| Pour obtenir des exemples explicites, consultez [Collecte des paramètres requis](computer-vision-how-to-install-containers.md#gathering-required-parameters). |

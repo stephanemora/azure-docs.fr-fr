@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/30/2018
 ms.author: TomSh
 ms.openlocfilehash: e5ed60ea59dc8cf19b8f9ca7e96777dbc6980171
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69906055"
 ---
 # <a name="azure-database-security-overview"></a>Vue d’ensemble de la sécurité des bases de données Azure
@@ -69,7 +69,7 @@ Dans la chaîne de connexion de votre application, vous devez spécifier des par
 
 Vous pouvez prendre plusieurs précautions pour sécuriser la base de données. Par exemple, concevoir un système sécurisé, chiffrer les ressources confidentielles et créer un pare-feu autour des serveurs de base de données. Toutefois, en cas de vol des supports physiques (par exemple, les lecteurs ou les bandes de sauvegarde), une personne malveillante ne peut que restaurer ou attacher la base de données et consulter les données.
 
-Une solution consiste à chiffrer les données sensibles dans la base de données et à protéger les clés qui sont utilisées pour chiffrer les données avec un certificat. Cette solution empêche toute personne ne possédant pas les clés d’utiliser les données, mais ce type de protection doit être planifié.
+Une solution consiste à chiffrer les données sensibles dans la base de données et à protéger les clés utilisées pour chiffrer les données avec un certificat. Cette solution empêche toute personne ne possédant pas les clés d’utiliser les données, mais ce type de protection doit être planifié.
 
 Pour résoudre ce problème, SQL Server et SQL Database prennent en charge la fonctionnalité [TDE (Transparent Data Encryption)](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?view=azuresqldb-current&viewFallbackFrom=sql-server-2017). Celle-ci chiffre les fichiers de données SQL Server et SQL Database, au cours d’une phase appelée chiffrement des données au repos.
 
@@ -77,7 +77,7 @@ Ce chiffrement transparent des données vous protège contre le risque d’activ
 
 Le chiffrement transparent des données chiffre le stockage d’une base de données entière, à l’aide d’une clé symétrique appelée clé de chiffrement de base de données. Dans SQL Database, la clé de chiffrement de base de données est protégée par un certificat de serveur intégré. Le certificat de serveur intégré est unique pour chaque serveur SQL Database.
 
-Si une base de données est dans une relation de géoredondance, elle est protégée par une clé différente sur chaque serveur. Si deux bases de données sont connectées au même serveur, elles partagent le même certificat intégré. Microsoft alterne automatiquement ces certificats au moins tous les 90 jours. 
+Si une base de données est dans une relation de géoredondance, elle est protégée par une clé différente sur chaque serveur. Si deux bases de données sont connectées au même serveur, elles partagent le même certificat intégré. Microsoft fait automatiquement alterner ces certificats au moins tous les 90 jours. 
 
 Pour plus d’informations, consultez [Chiffrement transparent des données (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption-tde).
 
@@ -111,7 +111,7 @@ La protection des données commence avec le contrôle de l’accès à celles-ci
 
 Le service Azure SQL Database n’est disponible que via le port TCP 1433. Pour accéder à une base de données SQL depuis votre ordinateur, vérifiez que le pare-feu du client autorise les communications TCP sortantes sur le port 1433. Si les connexions entrantes ne sont pas nécessaires aux autres applications, bloquez-les sur le port TCP 1433.
 
-#### <a name="authentication"></a>Authentication
+#### <a name="authentication"></a>Authentification
 
 Le terme « authentification » fait référence au processus de validation de votre identité lorsque vous vous connectez à la base de données. Une base de données SQL prend en charge deux types d’authentification :
 
@@ -126,13 +126,13 @@ Le terme « authentification » fait référence au processus de validation de
   - Vous pouvez gérer les autorisations de base de données à l’aide de groupes (Azure AD) externes.
   - Elle peut éliminer le stockage des mots de passe en activant l’authentification Windows intégrée et les autres formes d’authentification prises en charge par Azure AD.
 
-#### <a name="authorization"></a>Authorization
+#### <a name="authorization"></a>Autorisation
 
 L’[autorisation](/azure/sql-database/sql-database-manage-logins) désigne ce que vous pouvez faire dans une base de données Azure SQL. Elle est contrôlée par les [rôles attribués](https://msdn.microsoft.com/library/ms189121) à votre compte d’utilisateur et les [autorisations définies au niveau des objets](https://msdn.microsoft.com/library/ms191291.aspx). L’autorisation est le processus de détermination des ressources sécurisables auxquelles un principal peut accéder, ainsi que des opérations autorisées pour ces ressources.
 
 ### <a name="application-access"></a>Accès aux applications
 
-#### <a name="dynamic-data-masking"></a>Masquage des données dynamiques
+#### <a name="dynamic-data-masking"></a>Masquage dynamique des données
 
 Un membre d’un centre d’appels peut identifier un appelant par quelques chiffres de son numéro de sécurité sociale ou de carte de crédit. Mais ces éléments de données ne doivent pas être entièrement accessibles à l’employé du centre d’appels.
 
@@ -144,7 +144,7 @@ Vous pouvez également définir un masque de données approprié pour protéger 
 
 Le [masquage des données dynamiques de SQL Database](/azure/sql-database/sql-database-dynamic-data-masking-get-started) limite l’exposition des données sensibles en les masquant aux utilisateurs sans privilège. Le masquage des données dynamiques est pris en charge pour la version V12 d’Azure SQL Database.
 
-Le [masquage dynamique des données](/sql/relational-databases/security/dynamic-data-masking) contribue à empêcher tout accès non autorisé aux données sensibles en vous permettant d’indiquer la quantité de données sensibles à révéler avec un impact minimal sur la couche application. Il s’agit d’une fonctionnalité de sécurité basée sur des stratégies qui masque les données sensibles dans le jeu de résultats d’une requête dans les champs de la base de données désignés. Les données de la base de données ne sont pas modifiées.
+Le [masquage dynamique des données](/sql/relational-databases/security/dynamic-data-masking) contribue à empêcher tout accès non autorisé aux données sensibles en vous permettant d’indiquer la quantité de données sensibles à révéler avec un impact minimal sur la couche application. Il s’agit d’une fonctionnalité de sécurité basée sur des stratégies qui masque les données sensibles dans le jeu de résultats d’une requête sur des champs de base de données désignés (les données dans la base de données ne sont pas modifiées).
 
 > [!Note]
 > Le masquage des données dynamiques peut être configuré par l’administrateur de base de données Azure, l’administrateur de serveur ou le responsable de la sécurité.
@@ -155,7 +155,7 @@ Une autre exigence de sécurité courante pour les bases de données mutualisée
 
 ![Sécurité au niveau des lignes permettant à un utilisateur d’accéder aux lignes d’une table via une application cliente](./media/database-security-overview/azure-database-fig4.png)
 
-La logique de restriction d’accès se situe dans la couche de base de données plutôt qu’à l’écart des données d’une autre couche d’application. Le système de base de données applique les restrictions d’accès chaque fois qu’un accès aux données est tenté à partir d’un quelconque niveau. Cela rend votre système de sécurité plus fiable et robuste en réduisant sa surface d’exposition.
+La logique de la restriction d'accès est située dans la couche de base de données plutôt que loin des données d'une autre couche Application. Le système de base de données applique les restrictions d'accès chaque fois que cet accès aux données est tenté à partir d'une couche quelconque. Cela rend votre système de sécurité plus fiable et robuste en réduisant sa surface d’exposition.
 
 La sécurité au niveau des lignes met en œuvre le contrôle d’accès en fonction d’un prédicat. Elle opère une évaluation flexible et centralisée, qui peut prendre en compte des métadonnées ou tout autre critère que l’administrateur juge approprié. Le prédicat est utilisé en tant que critère pour déterminer si, en fonction des attributs de l’utilisateur, celui-ci dispose ou non de l’accès approprié aux données. Vous pouvez implémenter un contrôle d’accès en fonction d’une étiquette, en utilisant le contrôle d’accès en fonction d’un prédicat.
 

@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.openlocfilehash: 83902ea5a3e73603311a0c469126ed603d0ebd16
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77064867"
 ---
 # <a name="use-a-jupyter-notebook-and-kqlmagic-extension-to-analyze-data-in-azure-data-explorer"></a>Utiliser un bloc-notes Jupyter et l’extension Kqlmagic pour analyser des données dans Azure Data Explorer
@@ -19,7 +19,7 @@ ms.locfileid: "77064867"
 Jupyter Notebook est une application web open source qui vous permet de créer et de partager des documents contenant du code en temps réel, des équations, des visualisations et du texte narratif. L’utilisation inclut le nettoyage des données et la transformation, la simulation numérique, la modélisation statistique, la visualisation des données et le machine learning.
 [Jupyter Notebook](https://jupyter.org/) offre des fonctions magiques qui étendent les fonctionnalités du noyau par la prise en charge de commandes supplémentaires. KQL magic est une commande qui étend les fonctionnalités du noyau Python dans Jupyter Notebook pour que vous puissiez exécuter des requêtes en langage Kusto en mode natif. Vous pouvez facilement combiner Python et le langage de requête Kusto pour interroger et visualiser des données à l’aide de la bibliothèque Plot.ly enrichie intégrée avec les commandes `render`. Les sources de données pour l’exécution de requêtes sont prises en charge. Ces sources de données incluent Azure Data Explorer, un service d’exploration de données rapide et hautement scalable pour les données de journal et de télémétrie, ainsi que pour les journaux Azure Monitor et Application Insights. KQL magic fonctionne également avec Azure Notebooks, Jupyter Lab et l’extension Jupyter de Visual Studio Code.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Un compte e-mail professionnel qui est membre d’Azure Active Directory (AAD).
 - Jupyter Notebook installé sur votre ordinateur local ou utilisation d’Azure Notebooks et clonage de l’exemple d’[Azure Notebook](https://kustomagicsamples-manojraheja.notebooks.azure.com/j/notebooks/Getting%20Started%20with%20kqlmagic%20on%20Azure%20Data%20Explorer.ipynb)

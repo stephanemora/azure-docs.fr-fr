@@ -14,16 +14,16 @@ ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: ffba203bafaf3837cd2d7fc1a6fd962a6926b186
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72298750"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Prise en main du stockage de files d'attente Azure et des services connectés Visual Studio (projets WebJob)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Cet article explique comment prendre en main Stockage File d’attente Azure dans un projet WebJob Visual Studio Azure après avoir créé ou référencé un compte de stockage Azure à l’aide de la boîte de dialogue **Ajouter des services connectés** de Visual Studio. Quand vous ajoutez un compte de stockage à un projet de tâche web à l’aide de la boîte de dialogue **Ajouter des services connectés** de Visual Studio, le package NuGet d’Azure Storage approprié est installé, les références .NET appropriées sont ajoutées au projet et les chaînes de connexion pour le compte de stockage sont mises à jour dans le fichier App.config.  
 
 Cet article fournit des exemples de code C# qui indiquent comment utiliser la version 1.x du Kit de développement logiciel (SDK) WebJobs Azure avec le service de stockage de files d’attente Azure.
@@ -45,7 +45,7 @@ public static void ProcessQueueMessage([QueueTrigger("logqueue")] string logMess
 
 Outre **string**, le paramètre peut être un tableau d’octets, un objet **CloudQueueMessage** ou un objet POCO que vous définissez.
 
-### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplain_old_clr_object-queue-messages"></a>Messages en file d’attente POCO [(Plain Old CLR Object](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
+### <a name="poco-plain-old-clr-object-queue-messages"></a>Messages en file d’attente POCO [(Plain Old CLR Object](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
 Dans l’exemple suivant, le message de file d’attente contient JSON pour un objet **BlobInformation** qui inclut une propriété **BlobName**. Le Kit de développement logiciel (SDK) désérialise automatiquement l’objet.
 
 ```csharp
@@ -100,7 +100,7 @@ Le Kit de développement logiciel (SDK) implémente un algorithme d’interrupti
 ## <a name="multiple-instances"></a>Instances multiples
 Si votre application web s’exécute sur plusieurs instances, une tâche web continue se lance sur chaque machine, qui attend des déclencheurs et essaie d’exécuter les fonctions. Dans certains scénarios, cela peut entraîner que certaines fonctions traitent deux fois les mêmes données ; ces fonctions doivent donc être idempotentes (écrites de façon que, si elles sont appelées de manière répétitive avec les mêmes données d’entrée, elles ne produisent pas des résultats en double).  
 
-## <a name="parallel-execution"></a>Exécution en parallèle
+## <a name="parallel-execution"></a>Exécution parallèle
 Si vous avez plusieurs fonctions à l’écoute sur différentes files d’attente, le Kit de développement logiciel (SDK) les appelle en parallèle en cas de réception de messages simultanés.
 
 Il en est de même quand plusieurs messages sont reçus en provenance d’une file d’attente unique. Par défaut, le Kit de développement logiciel (SDK) obtient un lot de 16 messages de file d’attente à la fois et exécute la fonction qui les traite en parallèle. [La taille de lot est configurable](#how-to-set-configuration-options). Quand le nombre de messages en cours de traitement tombe sous la moitié de la taille de lot, le Kit de développement logiciel (SDK) obtient un autre lot et commence à traiter ces messages. Par conséquent, le nombre maximal de messages traités simultanément par la fonction est une fois et demie la taille de lot. Cette limite s'applique séparément à chaque fonction qui a un attribut **QueueTrigger** . Si vous ne souhaitez pas d’exécution en parallèle pour les messages reçus sur une file d’attente, affectez la valeur 1 à la taille de lot.
@@ -202,7 +202,7 @@ public static void CreateQueueMessage(
 }
 ```
 
-### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplain_old_clr_object-queue-messages"></a>Messages en file d’attente POCO [(Plain Old CLR Object](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
+### <a name="poco-plain-old-clr-object-queue-messages"></a>Messages en file d’attente POCO [(Plain Old CLR Object](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
 Pour créer un message de file d'attente qui contient un objet POCO plutôt qu'une chaîne, passez le type POCO en tant que paramètre de sortie au constructeur d'attribut **Queue** .
 
 ```csharp
@@ -297,7 +297,7 @@ public static void DeleteBlob(
 }
 ```
 
-### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplain_old_clr_object-queue-messages"></a>Messages en file d’attente POCO [(Plain Old CLR Object](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
+### <a name="poco-plain-old-clr-object-queue-messages"></a>Messages en file d’attente POCO [(Plain Old CLR Object](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
 Pour un objet POCO stocké au format JSON dans le message de file d’attente, vous pouvez utiliser des espaces réservés qui nomment les propriétés de nom de l’objet dans le paramètre **blobPath** de l’attribut **Queue**. Vous pouvez également utiliser des noms de propriété de métadonnées de file d'attente comme espaces réservés. Consultez la section [Obtention des métadonnées de file d’attente ou de message de file d’attente](#get-queue-or-queue-message-metadata).
 
 L’exemple suivant copie un objet blob dans un nouvel objet blob, avec une autre extension. Le message de la file d’attente est un objet **BlobInformation** qui inclut les propriétés **BlobName** et **BlobNameWithoutExtension**. Les noms de propriété sont utilisés en tant qu'espaces réservés dans le chemin de l'objet blob pour les attributs **blob** .

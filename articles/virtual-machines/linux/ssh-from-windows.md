@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
 ms.openlocfilehash: e01fb23bbf1720f7d8df9c269373c1b8dc3ec75c
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74034809"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Comment utiliser des clés SSH avec Windows sur Azure
@@ -105,7 +105,7 @@ ssh azureuser@myvm.westus.cloudapp.azure.com
 
 Si vous avez configuré une phrase secrète au moment de créer votre paire de clés, entrez-la quand vous y êtes invité pendant le processus de connexion.
 
-Si la machine virtuelle utilise la stratégie juste-à-temps, vous devez demander à y accéder avant de pouvoir vous connecter à cette machine virtuelle. Pour plus d'informations sur la stratégie juste-à-temps, consultez [Gérer l’accès à la machine virtuelle à l'aide de la stratégie juste-à-temps](../../security-center/security-center-just-in-time.md).
+Si la machine virtuelle utilise la stratégie juste-à-temps, vous devez demander à y accéder avant de pouvoir vous connecter à cette machine virtuelle. Pour plus d’informations sur la stratégie juste-à-temps, consultez [Gérer l’accès à la machine virtuelle à l’aide de la stratégie juste-à-temps](../../security-center/security-center-just-in-time.md).
 
 ### <a name="connect-with-putty"></a>Se connecter avec PuTTY
 

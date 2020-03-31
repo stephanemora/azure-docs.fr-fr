@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: angle
 ms.openlocfilehash: 3e7d8ee2b156a30b11cda79798a8af8a8ecf4f64
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74776620"
 ---
 # <a name="disclosure-design-patterns"></a>Modèles de conception de divulgation
 Maintenant que vous avez déterminé le [niveau de divulgation](concepts-disclosure-guidelines.md#disclosure-assessment) adéquat pour votre expérience de voix de synthèse, le moment est venu d’explorer les modèles de conception potentiels.
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Vous pouvez appliquer un large éventail de modèles de conception de divulgation à votre expérience de voix de synthèse. Si le résultat de votre évaluation est une « divulgation élevée », nous vous recommandons une [**divulgation explicite**](#explicit-disclosure), ce qui implique de communiquer franchement les origines de la voix de synthèse. Une [**divulgation implicite**](#implicit-disclosure) comprend des signaux et des modèles d’interaction qui profitent aux expériences vocales, que les niveaux de divulgation exigés soient élevés ou faibles.
 ![Éventail des modèles de divulgation](media/responsible-ai/disclosure-patterns/affordances.png)
 

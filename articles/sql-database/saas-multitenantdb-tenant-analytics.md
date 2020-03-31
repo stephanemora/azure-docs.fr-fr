@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
 ms.date: 09/19/2018
 ms.openlocfilehash: 067afd09f942b8062825553a3cf90f715e8d3938
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73822142"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>Requêtes analytiques entre locataires utilisant des données extraites – Application multilocataire
@@ -63,7 +63,7 @@ Enfin, les tables du schéma en étoile sont interrogées. Les résultats de req
 
 Comprendre la fréquence à laquelle chaque client utilise le service fournit une opportunité de créer des plans de service pour répondre à leurs besoins. Ce didacticiel fournit des exemples simples d’analyses qui peuvent être collectés à partir des données client.
 
-## <a name="setup"></a>Paramétrage
+## <a name="setup"></a>Programme d’installation
 
 ### <a name="prerequisites"></a>Prérequis
 
@@ -227,7 +227,7 @@ Vous avez observé les tendances des données client à partir de l’applicatio
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > - Déployé une base de données analytique client avec des tables de schéma en étoile prédéfinies

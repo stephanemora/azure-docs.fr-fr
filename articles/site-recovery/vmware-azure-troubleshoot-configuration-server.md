@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
 ms.openlocfilehash: 25e2b488d3b6e7e5cabd1a71d1489efaf01231b3
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73748554"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Résoudre les problèmes de serveur de configuration
@@ -100,7 +100,7 @@ Paramètre | Détails
 Usage | UnifiedAgentConfigurator.exe /CSEndPoint <adresse IP du serveur configuration\>/PassphraseFilePath <chemin d’accès du fichier de phrase secrète\>
 Journaux d’activité de configuration de l’agent | Situés sous %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log.
 /CSEndPoint | Paramètre obligatoire. Spécifie l’adresse IP du serveur de configuration. Utilisez une adresse IP valide.
-/PassphraseFilePath |  Obligatoire. Emplacement de la phrase secrète. Utilisez n’importe quel chemin d’accès UNC ou local valide.
+/PassphraseFilePath |  Mandatory. Emplacement de la phrase secrète. Utilisez n’importe quel chemin d’accès UNC ou local valide.
 
 ### <a name="if-the-source-machine-runs-linux"></a>Si la machine source exécute Linux
 
@@ -114,7 +114,7 @@ Paramètre | Détails
 --- | ---
 Usage | cd /usr/local/ASR/Vx/bin<br /><br /> UnifiedAgentConfigurator.sh -i <adresse IP du serveur configuration\> - P <chemin d’accès du fichier de phrase secrète\>
 -i | Paramètre obligatoire. Spécifie l’adresse IP du serveur de configuration. Utilisez une adresse IP valide.
--P |  Obligatoire. Chemin d’accès complet du fichier dans lequel la phrase secrète est enregistrée. Utilisez n’importe quel dossier valide.
+-P |  Mandatory. Chemin d’accès complet du fichier dans lequel la phrase secrète est enregistrée. Utilisez n’importe quel dossier valide.
 
 ## <a name="unable-to-configure-the-configuration-server"></a>Impossible de configurer le serveur de configuration
 

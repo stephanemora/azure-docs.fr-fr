@@ -12,10 +12,10 @@ ms.author: anjangsh
 ms.reviewer: MightyPen, sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: 4791cd3a6b6f72c5d9ee4ca828d66b0d361f356c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73816782"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-sql-data-warehouse-data-factory-and-power-bi"></a>Explorer des analyses SaaS avec Azure SQL Database,SQL Data Warehouse, Data Factory et Power BI
@@ -62,7 +62,7 @@ Enfin, les tables du schéma en étoile sont interrogées. Les résultats de req
 
 Ce didacticiel fournit des exemples simples d’informations que vous pouvez recueillir à partir des données de Wingtip Tickets. Comprendre comment chaque salle utilise le service peut permettre au fournisseur de Wingtip Tickets de réfléchir à des plans de service différents ciblant des lieux plus ou moins actifs, par exemple. 
 
-## <a name="setup"></a>Paramétrage
+## <a name="setup"></a>Programme d’installation
 
 ### <a name="prerequisites"></a>Prérequis
 
@@ -194,7 +194,7 @@ Utilisez les étapes suivantes pour vous connecter à Power BI et importer les v
 
     ![sign-in-to-power-bi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
-5. Sélectionnez **Base de données** dans le volet gauche, puis entrez le nom d’utilisateur = *developer* et le mot de passe = *P\@ssword1*. Cliquez sur **Connecter**.  
+5. Sélectionnez **Base de données** dans le volet de gauche, puis saisissez le nom d’utilisateur = *developer* et le mot de passe = *P\@ssword1*. Cliquez sur **Connecter**.  
 
     ![database-sign-in](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 
@@ -248,7 +248,7 @@ Dans l’exemple Wingtip Tickets, vous avez découvert que les ventes de tickets
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Déployer un entrepôt de données SQL rempli avec un schéma en étoile pour des analytiques client.

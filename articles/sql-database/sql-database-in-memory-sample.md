@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/18/2018
 ms.openlocfilehash: e7e7fc44d5f8b46a66c698d3a33ceeab5b8625c4
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73810330"
 ---
 # <a name="in-memory-sample"></a>Exemple en mémoire
@@ -78,7 +78,7 @@ Un résultat de **0** signifie que la technologie en mémoire n’est pas prise 
 
 #### <a name="about-the-created-memory-optimized-items"></a>À propos des éléments créés à mémoire optimisée.
 
-**Tables** : L’exemple contient les tables à mémoire optimisée suivantes :
+**Tables** : L’exemple contient les tables à mémoire optimisée suivantes :
 
 - SalesLT.Product_inmem
 - SalesLT.SalesOrderHeader_inmem
@@ -413,7 +413,7 @@ Dans une base de données ayant le niveau tarifaire P2, vous pouvez attendre une
 
 #### <a name="tools"></a>Outils
 
-- [Portail Azure](https://portal.azure.com/)
+- [Azure portal](https://portal.azure.com/)
 
 - [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 

@@ -6,10 +6,10 @@ manager: rochakm
 ms.topic: how-to
 ms.date: 01/29/2019
 ms.openlocfilehash: 9f394fa8d618c97d74a47ff6e42a002f177cf7d9
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75973662"
 ---
 # <a name="replicate-azure-vms-running-storage-spaces-direct-to-another-region"></a>Répliquer des machines virtuelles Azure exécutant des espaces de stockage direct dans une autre région
@@ -24,7 +24,7 @@ Les [espaces de stockage direct](https://docs.microsoft.com/windows-server/stora
 
 ## <a name="disaster-recovery-with-storage-spaces-direct"></a>Reprise d’activité avec des espaces de stockage direct
 
-Dans un scénario classique, vous pouvez avoir cluster invité de machines virtuelles sur Azure pour accroître la résilience de votre application, tel qu’un serveur de fichiers avec montée en puissance parallèle. Si cela peut fournir à votre application une disponibilité supérieure, vous aimeriez protéger ces applications à l’aide de Site Recovery en cas de défaillance au niveau de la région. Site Recovery réplique les données d’une région Azure vers une autre et active le cluster dans la région de récupération d’urgence en cas de basculement.
+Dans un scénario classique, vous pouvez avoir cluster invité de machines virtuelles sur Azure pour accroître la résilience de votre application, tel qu’un serveur de fichiers avec scale-out. Si cela peut fournir à votre application une disponibilité supérieure, vous aimeriez protéger ces applications à l’aide de Site Recovery en cas de défaillance au niveau de la région. Site Recovery réplique les données d’une région Azure vers une autre et active le cluster dans la région de récupération d’urgence en cas de basculement.
 
 Le diagramme ci-dessous montre un cluster de basculement de machine virtuelle Azure à deux nœuds qui utilise des espaces de stockage direct.
 

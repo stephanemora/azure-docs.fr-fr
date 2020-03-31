@@ -16,10 +16,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d35c81f7bb478d91bd207327ea37c80aa1778142
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74023146"
 ---
 # <a name="activate-my-azure-resource-roles-in-privileged-identity-management"></a>Activer mes rôles de ressources Azure dans Privileged Identity Management
@@ -32,7 +32,7 @@ Cet article est destiné aux membres qui doivent activer leur rôle de ressource
 
 Lorsque vous avez besoin d’endosser un rôle de ressources Azure, vous pouvez demander une activation à l’aide de l’option de la navigation **Mes rôles** dans Privileged Identity Management.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 1. Ouvrez **Azure AD Privileged Identity Management**. Pour plus d’informations sur la façon d’ajouter la mosaïque Privileged Identity Management à votre tableau de bord, consultez [Commencer à utiliser Privileged Identity Management](pim-getting-started.md).
 
@@ -76,7 +76,7 @@ Lorsque vous avez besoin d’endosser un rôle de ressources Azure, vous pouvez 
 
     Si [l’activation du rôle nécessite une approbation](pim-resource-roles-approval-workflow.md), une notification s’affiche dans le coin supérieur droit de votre navigateur pour vous informer que la demande est en attente d’approbation.
 
-    ![La demande d’activation est en attente de la notification d’approbation](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-notification.png)
+    ![La requête d’activation est en attente de la notification d’approbation](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-notification.png)
 
 ## <a name="use-a-role-immediately-after-activation"></a>Utiliser un rôle immédiatement après son activation
 
@@ -120,15 +120,15 @@ Si vous n’avez pas besoin de l’activation d’un rôle nécessitant une appr
 
    ![Ma liste de demandes dans laquelle l’action d’annulation est mise en surbrillance](./media/pim-resource-roles-activate-your-roles/resources-my-requests-cancel.png)
 
-## <a name="troubleshoot"></a>Résolution des problèmes
+## <a name="troubleshoot"></a>Dépanner
 
 ### <a name="permissions-are-not-granted-after-activating-a-role"></a>Les autorisations ne sont pas accordées après l’activation d’un rôle
 
 Quand vous activez un rôle dans Privileged Identity Management, il est possible que l’activation ne se propage pas instantanément à tous les portails qui nécessitent le rôle privilégié. Parfois, même si la modification est propagée, son application immédiate peut être empêchée par la mise en cache web dans un portail. Si l’activation est retardée, voici les étapes à suivre.
 
-1. Déconnectez-vous du portail Azure, puis reconnectez-vous.
+1. Déconnectez-vous du portail Microsoft Azure, puis reconnectez-vous.
 
-    Quand vous activez un rôle de ressource Azure AD, vous voyez les phases de l’activation. Une fois toutes les phases terminées, vous voyez un lien **Se déconnecter**. Vous pouvez utiliser ce lien pour vous déconnecter. Cette procédure résout la plupart des cas de retard d’activation.
+    Quand vous activez un rôle de ressource Azure AD, vous voyez les phases de l’activation. Une fois toutes les phases terminées, un lien **Se déconnecter** s’affiche. Vous pouvez utiliser ce lien pour vous déconnecter. Cette procédure résout la plupart des cas de retard d’activation.
 
 1. Dans Privileged Identity Management, vérifiez que vous êtes répertorié en tant que membre du rôle.
 

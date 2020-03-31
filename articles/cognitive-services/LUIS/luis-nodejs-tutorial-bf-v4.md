@@ -4,10 +4,10 @@ description: En utilisant Node.js, générez un chatbot intégré avec Language 
 ms.topic: tutorial
 ms.date: 02/03/2020
 ms.openlocfilehash: 3ce12176957412a5599ced8b043f553969194efb
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76987836"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-nodejs"></a>Tutoriel : Utilisez un Web App Bot activé avec Language Understanding dans Node.js
@@ -22,7 +22,7 @@ Utilisez Node.js pour créer un bot conversationnel intégré avec compréhensio
 > * Démarrer le bot et l’émulateur localement sur votre ordinateur
 > * Afficher les résultats d’énoncé dans le bot
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * [Émulateur de bot](https://aka.ms/abs/build/emulatordownload)
 * [Visual Studio Code](https://code.visualstudio.com/Download)
@@ -39,9 +39,9 @@ Utilisez Node.js pour créer un bot conversationnel intégré avec compréhensio
     |Paramètre|Objectif|Paramétrage suggéré|
     |--|--|--|
     |Nom du robot|Nom de la ressource|`luis-nodejs-bot-` + `<your-name>`, par exemple, `luis-nodejs-bot-johnsmith`|
-    |Subscription|Abonnement où créer le bot.|Votre abonnement principal.
+    |Abonnement|Abonnement où créer le bot.|Votre abonnement principal.
     |Resource group|Groupe logique de ressources Azure|Créer un groupe pour stocker toutes les ressources utilisées avec ce bot, et nommer le groupe `luis-nodejs-bot-resource-group`.|
-    |Location|Région Azure, qui peut différer de la région de création ou de publication LUIS.|`westus`|
+    |Emplacement|Région Azure, qui peut différer de la région de création ou de publication LUIS.|`westus`|
     |Niveau tarifaire|Utilisé pour les limites de demande de service et la facturation.|`F0` est le niveau gratuit.
     |Nom de l’application|Utilisé comme sous-domaine durant le déploiement de votre bot sur le cloud (par exemple, humanresourcesbot.azurewebsites.net).|`luis-nodejs-bot-` + `<your-name>`, par exemple, `luis-nodejs-bot-johnsmith`|
     |Modèle de bot|Paramètres de Bot Framework : consultez le tableau suivant|

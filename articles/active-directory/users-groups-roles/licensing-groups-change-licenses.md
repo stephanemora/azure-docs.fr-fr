@@ -17,10 +17,10 @@ ms.reviewer: sumitp
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bf2f04e1728f94c89bddcc31c287cc017a79020f
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74025900"
 ---
 # <a name="change-license-assignments-for-a-user-or-group-in-azure-active-directory"></a>Modifier des affectations de licence pour un utilisateur ou un groupe dans Azure Active Directory
@@ -45,7 +45,7 @@ Avant de mettre à jour les affectations de licence, il est important de vérifi
 
 Dans la page **Mettre à jour des affectations de licence**, si vous voyez que certaines cases à cocher ne sont pas disponibles, cela signifie que les services ne sont pas modifiables, car ils sont hérités à partir d’une licence de groupe.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com/) à l’aide d’un compte Administrateur de licence dans votre organisation Azure AD.
+1. Connectez-vous au [Portail Azure](https://portal.azure.com/) à l’aide d’un compte Administrateur de licence dans votre organisation Azure AD.
 1. Sélectionnez **Azure Active Directory** > **Utilisateurs**, puis ouvrez la page **Profil** d’un utilisateur.
 1. Sélectionnez **Licences**.
 1. Sélectionnez **Affectations** pour modifier l’affectation de licence de l’utilisateur ou du groupe. La page **Affectations** vous permet de résoudre les conflits d’affectation de licence.
@@ -60,7 +60,7 @@ Azure AD applique les nouvelles licences et supprime les anciennes simultanémen
 
 ## <a name="change-group-license-assignments"></a>Modifier des affectations de licence de groupe
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com/) à l’aide d’un compte Administrateur de licence dans votre organisation Azure AD.
+1. Connectez-vous au [Portail Azure](https://portal.azure.com/) à l’aide d’un compte Administrateur de licence dans votre organisation Azure AD.
 1. Sélectionnez **Azure Active Directory** > **Groupes**, puis ouvrez la page **Vue d’ensemble** d’un groupe.
 1. Sélectionnez **Licences**.
 1. Sélectionnez la commande **Affectations** pour modifier l’affectation de licence de l’utilisateur ou du groupe.

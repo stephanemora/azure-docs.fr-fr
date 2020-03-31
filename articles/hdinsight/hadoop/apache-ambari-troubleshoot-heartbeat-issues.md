@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 02/06/2020
 ms.openlocfilehash: ab88f65d535be2aef5f0b26fa1171c03276466e8
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77057071"
 ---
 # <a name="apache-ambari-heartbeat-issues-in-azure-hdinsight"></a>Problèmes de pulsations Apache Ambari dans Azure HDInsight
@@ -24,7 +24,7 @@ Cet article décrit les éventuelles solutions à appliquer pour résoudre les p
 
 L’agent Ambari a une utilisation élevée du processeur, ce qui génère dans l’interface utilisateur Ambari des alertes pour certains nœuds indiquant que la pulsation de l’agent Ambari est perdue. L’alerte de pulsation perdue est généralement temporaire.
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 En raison de divers bogues, dans de rares cas, votre agent Ambari peut avoir un pourcentage élevé (proche de 100) d’utilisation du processeur.
 
@@ -63,7 +63,7 @@ En raison de divers bogues, dans de rares cas, votre agent Ambari peut avoir un 
 
 L’agent Ambari n’a pas démarré, ce qui génère dans l’interface utilisateur Ambari des alertes pour certains nœuds indiquant que la pulsation de l’agent Ambari est perdue.
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 Les alertes sont provoquées par l’agent Ambari qui n’est pas en cours d’exécution.
 
@@ -89,7 +89,7 @@ Les alertes sont provoquées par l’agent Ambari qui n’est pas en cours d’e
 
 L’agent de pulsation Ambari a été perdu.
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 Les journaux OMS sont à l’origine d’une utilisation élevée de l’UC.
 

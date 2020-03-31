@@ -8,10 +8,10 @@ ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
 ms.openlocfilehash: 0d4e76f4d02b0287770243bfddf995a19f90d232
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73749447"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Guide de rési=olution des problèmes Azure Disk Encryption
@@ -53,7 +53,7 @@ Pour contourner ce problème, copiez les quatre fichiers suivants à partir d’
    \windows\system32\en-US\bdehdcfg.exe.mui
    ```
 
-1. Entrez la commande suivante :
+1. Entrez la commande suivante :
 
    ```
    bdehdcfg.exe -target default

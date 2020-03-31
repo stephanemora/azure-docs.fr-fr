@@ -9,10 +9,10 @@ ms.date: 02/18/2019
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
 ms.openlocfilehash: feacd463a10bae66dc8fa88a99b9ea60f399e9ec
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74684166"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Développer et déployer des tâches web à l’aide de Visual Studio - Azure App Service
@@ -85,7 +85,7 @@ Si vous utilisez Visual Studio 2015, installez le [Kit de développement logicie
 
 Si vous utilisez Visual Studio 2017, installez la [charge de travail de développement Azure](https://docs.microsoft.com/visualstudio/install/install-visual-studio#step-4---choose-workloads).
 
-### <a id="convert"></a> Activer le déploiement de tâches web pour un projet d’application de console
+### <a name="enable-webjobs-deployment-for-an-existing-console-application-project"></a><a id="convert"></a> Activer le déploiement de tâches web pour un projet d’application de console
 
 Deux options s'offrent à vous :
 
@@ -97,7 +97,7 @@ Deux options s'offrent à vous :
 
   Configurez un projet d'application console existant pour déployer une tâche web seule, sans lien avec un projet web. Utilisez cette option lorsque vous voulez exécuter une tâche web dans une application web seule, sans application web s’exécutant dans cette dernière. Vous pouvez utiliser cette méthode afin de faire évoluer vos ressources de tâches web indépendamment de vos ressources d'application web.
 
-#### <a id="convertlink"></a> Activer un déploiement automatique de tâches web avec un projet web
+#### <a name="enable-automatic-webjobs-deployment-with-a-web-project"></a><a id="convertlink"></a> Activer un déploiement automatique de tâches web avec un projet web
 
 1. Cliquez avec le bouton droit sur le projet web dans l’**Explorateur de solutions**, puis cliquez sur **Ajouter** > **Projet existant en tant que tâche web Azure**.
    
@@ -109,7 +109,7 @@ Deux options s'offrent à vous :
     ![Selecting project in Add Azure WebJob dialog](./media/webjobs-dotnet-deploy-vs/aaw1.png)
 3. Remplissez la boîte de dialogue [Ajouter une tâche web Azure](#configure) , puis cliquez sur **OK**. 
 
-#### <a id="convertnolink"></a> Activer un déploiement de tâches web sans projet web
+#### <a name="enable-webjobs-deployment-without-a-web-project"></a><a id="convertnolink"></a> Activer un déploiement de tâches web sans projet web
 1. Cliquez avec le bouton droit sur le projet d’application de console dans l’**Explorateur de solutions**, puis cliquez sur **Publier en tant que tâche web Azure**. 
    
     ![Publier sous forme de tâche web Azure](./media/webjobs-dotnet-deploy-vs/paw.png)
@@ -119,7 +119,7 @@ Deux options s'offrent à vous :
    
    L'Assistant **Publier le site Web** s'ouvre.  Si vous ne voulez pas publier immédiatement, fermez l’Assistant. Les paramètres que vous avez saisis sont enregistrés au cas où vous souhaiteriez [déployer le projet](#deploy).
 
-### <a id="create"></a>Créer un projet compatible avec les tâches web
+### <a name="create-a-new-webjobs-enabled-project"></a><a id="create"></a>Créer un projet compatible avec les tâches web
 Pour créer un projet compatible avec les tâches web, vous pouvez utiliser le modèle de projet d'application console et activer le déploiement des tâches web comme expliqué dans [la section précédente](#convert). Vous pouvez également utiliser le modèle de nouveau projet de tâche web :
 
 * [Utiliser le modèle de nouveau projet WebJobs pour une tâche web indépendante](#createnolink)
@@ -134,13 +134,13 @@ Pour créer un projet compatible avec les tâches web, vous pouvez utiliser le m
 > 
 > 
 
-#### <a id="createnolink"></a> Utiliser le modèle de nouveau projet WebJobs pour une tâche web indépendante
+#### <a name="use-the-webjobs-new-project-template-for-an-independent-webjob"></a><a id="createnolink"></a> Utiliser le modèle de nouveau projet WebJobs pour une tâche web indépendante
 1. Cliquez sur **Fichier** > **Nouveau projet**, puis dans la boîte de dialogue **Nouveau projet**, cliquez sur **Cloud** > **Azure WebJob (.NET Framework)** .
    
     ![New Project dialog showing WebJob template](./media/webjobs-dotnet-deploy-vs/np.png)
 2. Suivez les instructions affichées précédemment pour [faire du projet de l'application console un projet de tâche web indépendant](#convertnolink).
 
-#### <a id="createlink"></a> Utiliser le modèle de nouveau projet WebJobs pour une tâche web liée à un projet web
+#### <a name="use-the-webjobs-new-project-template-for-a-webjob-linked-to-a-web-project"></a><a id="createlink"></a> Utiliser le modèle de nouveau projet WebJobs pour une tâche web liée à un projet web
 1. Cliquez avec le bouton droit sur le projet web dans l’**Explorateur de solutions**, puis cliquez sur **Ajouter** > **Nouveau projet de tâche web Azure**.
    
     ![New Azure WebJob Project menu entry](./media/webjobs-dotnet-deploy-vs/nawj.png)
@@ -148,7 +148,7 @@ Pour créer un projet compatible avec les tâches web, vous pouvez utiliser le m
     La boîte de dialogue [Ajouter une tâche web Azure](#configure) s'affiche.
 2. Remplissez la boîte de dialogue [Ajouter une tâche web Azure](#configure) , puis cliquez sur **OK**.
 
-### <a id="configure"></a>Boîte de dialogue Ajouter une tâche web Azure
+### <a name="the-add-azure-webjob-dialog"></a><a id="configure"></a>Boîte de dialogue Ajouter une tâche web Azure
 La boîte de dialogue **Ajouter un WebJob Azure** vous permet d’entrer le nom du WebJob et d’exécuter le paramètre de mode de votre WebJob. 
 
 ![Add Azure WebJob dialog](./media/webjobs-dotnet-deploy-vs/aaw2.png)
@@ -162,7 +162,7 @@ Les champs de cette boîte de dialogue correspondent à ceux de la boîte de dia
 > 
 > 
 
-### <a id="publishsettings"></a>webjob-publish-settings.json
+### <a name="webjob-publish-settingsjson"></a><a id="publishsettings"></a>webjob-publish-settings.json
 Lorsque vous configurez une application console pour un déploiement de tâches web, Visual Studio installe le package NuGet [Microsoft.Web.WebJobs.Publish](https://www.nuget.org/packages/Microsoft.Web.WebJobs.Publish/) et stocke les informations de planification dans un fichier *webjob-publish-settings.json* du dossier *Propriétés* du projet WebJobs. Voici un exemple de ce fichier :
 
         {
@@ -177,7 +177,7 @@ Lorsque vous configurez une application console pour un déploiement de tâches 
 
 Vous pouvez modifier ce fichier directement. Visual Studio est doté d'IntelliSense. Le schéma de fichier est stocké à l’adresse [https://schemastore.org](https://schemastore.org/schemas/json/webjob-publish-settings.json) où vous pouvez le consulter.  
 
-### <a id="webjobslist"></a>webjobs-list.json
+### <a name="webjobs-listjson"></a><a id="webjobslist"></a>webjobs-list.json
 Lorsque vous liez un projet compatible avec des tâches web à un projet web, Visual Studio stocke le nom du projet de tâches web sous le nom de fichier *webjobs-list.json* dans le dossier *Propriétés* du projet web. La liste peut contenir plusieurs projets WebJobs, comme illustré dans l’exemple suivant :
 
         {
@@ -194,7 +194,7 @@ Lorsque vous liez un projet compatible avec des tâches web à un projet web, Vi
 
 Vous pouvez modifier ce fichier directement. Visual Studio est doté d'IntelliSense. Le schéma de fichier est stocké à l’adresse [https://schemastore.org](https://schemastore.org/schemas/json/webjobs-list.json) où vous pouvez le consulter.
 
-### <a id="deploy"></a>Déployer un projet WebJobs
+### <a name="deploy-a-webjobs-project"></a><a id="deploy"></a>Déployer un projet WebJobs
 Lorsqu'il est lié à un projet web, un projet de tâches web est déployé automatiquement avec ce dernier. Pour plus d’informations sur le déploiement du projet web, consultez **Procédures** > **Déployer une application** dans le volet de navigation gauche.
 
 Pour déployer un projet WebJobs seul, cliquez avec le bouton droit sur le projet dans l’**Explorateur de solutions**, puis sur **Publier en tant que tâche web Azure**. 

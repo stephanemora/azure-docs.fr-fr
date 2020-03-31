@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 10/15/2019
 ms.author: kumud
 ms.openlocfilehash: 76d1ba2717ac3c8ac8e86687ef1754a8790f3e4d
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72595081"
 ---
 # <a name="reserve-public-ipv6-address-prefix"></a>Réserver un préfixe d’adresses IPv6 publiques

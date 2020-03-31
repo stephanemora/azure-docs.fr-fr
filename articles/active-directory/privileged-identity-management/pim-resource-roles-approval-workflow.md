@@ -16,10 +16,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e779f633efccf7b594c193e165a584d22b1d653b
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74021965"
 ---
 # <a name="approve-or-deny-requests-for-azure-resource-roles-in-privileged-identity-management"></a>Approuver ou rejeter des requêtes de rôles de ressources Azure AD dans Privileged Identity Management
@@ -30,9 +30,9 @@ Suivez les étapes décrites dans cet article pour approuver ou refuser des dema
 
 ## <a name="view-pending-requests"></a>Afficher les demandes en attente
 
-En tant qu’approbateur délégué, vous recevez une notification par e-mail quand une demande de rôle de ressource Azure est en attente d’approbation. Ces requêtes en attente sont affichées dans Privileged Identity Management.
+En tant qu’approbateur délégué, vous recevez une notification par e-mail quand une demande de rôle de ressource Azure est en attente d’approbation. Ces demandes en attente sont affichées dans Privileged Identity Management.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 1. Ouvrez **Azure AD Privileged Identity Management**.
 
@@ -79,5 +79,5 @@ Voici quelques informations sur les notifications de flux de travail :
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Étendre ou renouveler des rôles de ressources Azure dans Privileged Identity Management](pim-resource-roles-renew-extend.md)
-- [Notification par e-mail dans Privileged Identity Management](pim-email-notifications.md)
+- [Notifications par e-mail dans Privileged Identity Management](pim-email-notifications.md)
 - [Approuver ou rejeter des requêtes de rôles Azure AD dans Privileged Identity Management](azure-ad-pim-approval-workflow.md)

@@ -12,10 +12,10 @@ ms.author: craigg
 ms.reviewer: sstein
 ms.date: 01/14/2019
 ms.openlocfilehash: 270fc157fa14efa19ed30d35b614fb769804b72e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73826470"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Utiliser la géorestauration pour récupérer une application SaaS multilocataire à partir de sauvegardes de bases de données
@@ -74,7 +74,7 @@ Ce tutoriel utilise les fonctionnalités Azure SQL Database et la plateforme Azu
 Les scripts de reprise d’activité utilisés dans ce tutoriel sont disponibles dans le [dépôt GitHub de la base de données par locataire SaaS Wingtip Tickets](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant). Consultez les [conseils généraux](saas-tenancy-wingtip-app-guidance-tips.md) pour télécharger et débloquer les scripts de gestion Wingtip Tickets.
 
 > [!IMPORTANT]
-> Comme tous les scripts de gestion Wingtip Tickets, les scripts de reprise d’activité sont donnés à titre d’exemple et n’ont pas vocation à être utilisés en production.
+> Comme tous les scripts de gestion Wingtip Tickets, les scripts de récupération d’urgence sont fournis à titre d’exemple et n’ont pas vocation à être utilisés en production.
 
 ## <a name="review-the-healthy-state-of-the-application"></a>Examiner l’état d’intégrité de l’application
 Avant de lancer le processus de récupération, examinez l’état d’intégrité normale de l’application.
@@ -124,7 +124,7 @@ Cette tâche vous permet de démarrer un processus de synchronisation de la conf
 Laissez la fenêtre PowerShell en cours d’exécution en arrière-plan et poursuivez le tutoriel.
 
 > [!NOTE]
-> Le processus de synchronisation se connecte au catalogue par le biais d’un alias DNS. L’alias est modifié au cours de la restauration et du rapatriement pour pointer vers le catalogue actif. Le processus de synchronisation maintient le catalogue à jour en fonction des modifications apportées à la configuration des bases de données ou des pools dans la région de récupération. Pendant le rapatriement, ces modifications sont appliquées aux ressources équivalentes dans la région d’origine.
+> Le processus de synchronisation se connecte au catalogue via un alias de DNS. L’alias est modifié au cours de la restauration et du rapatriement pour pointer vers le catalogue actif. Le processus de synchronisation maintient le catalogue à jour en fonction des modifications apportées à la configuration des bases de données ou des pools dans la région de récupération. Pendant le rapatriement, ces modifications sont appliquées aux ressources équivalentes dans la région d’origine.
 
 ## <a name="geo-restore-recovery-process-overview"></a>Vue d’ensemble du processus de récupération par géorestauration
 
@@ -364,7 +364,7 @@ Les bases de données de locataire peuvent être réparties entre les régions d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 > [!div class="checklist"]
 > 
 > * Utiliser le catalogue de locataire pour conserver régulièrement les informations de configuration actualisées, et ainsi créer un environnement de récupération d’image miroir dans une autre région.

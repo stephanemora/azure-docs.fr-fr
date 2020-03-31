@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 02/10/2020
 ms.author: swmachan
 ms.openlocfilehash: b41b68725b6747cbada13a9acc321724b3f89d67
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77118582"
 ---
 # <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>Tutoriel : Créer une application Flask avec Azure Cognitive Services
@@ -44,7 +44,7 @@ Pour ceux d’entre vous qui souhaitent plus d’informations après ce tutoriel
 * [Documentation de Flask](http://flask.pocoo.org/)
 * [Flask for Dummies - A Beginner’s Guide to Flask](https://codeburst.io/flask-for-dummies-a-beginners-guide-to-flask-part-uno-53aec6afc5b1)
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Passons en revue les logiciels et les clés d’abonnement dont vous avez besoin pour ce tutoriel.
 

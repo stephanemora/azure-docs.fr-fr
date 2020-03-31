@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 04/24/2019
 ms.author: swmachan
 ms.openlocfilehash: 3c5c74fc853b5a2425a58e1704aad43350cba212
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73837453"
 ---
 # <a name="unsupported-language-deployments"></a>Déploiements de langages non pris en charge
@@ -45,7 +45,7 @@ Une fois envoyé, le modèle n’est plus disponible sous l’onglet **Unrequest
 
 ![Migrer à partir du hub](media/unsupported-language-deployments/request-unsupported-trainings.jpg) 
 
-## <a name="whats-next"></a>Et ensuite ?
+## <a name="whats-next"></a>Quelle est l’étape suivante ?
 
 Les modèles que vous avez sélectionnés pour déploiement sont enregistrés une fois le hub désaffecté, et le déploiement de tous les modèles est annulé.  Vous avez jusqu’au 24 mai pour soumettre des demandes de déploiement de modèles non pris en charge.  Nous allons déployer ces modèles le 15 juin, date à laquelle ils seront accessibles via l’API Translator V3.  Ils seront également disponibles via l’API V2 jusqu’au 1er juillet.  
 

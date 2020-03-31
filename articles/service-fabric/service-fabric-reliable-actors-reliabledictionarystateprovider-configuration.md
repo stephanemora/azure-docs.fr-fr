@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/2/2017
 ms.author: sumukhs
 ms.openlocfilehash: fbd6f7cd3ade753c659464522408aa715cce48f9
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75609738"
 ---
 # <a name="configuring-reliable-actors--reliabledictionaryactorstateprovider"></a>Configuration de Reliable Actors - ReliableDictionaryActorStateProvider
@@ -30,7 +30,7 @@ La configuration globale est spécifiée dans le manifeste de cluster sous la se
 Le manifeste de cluster est un fichier XML simple qui contient les paramètres et les configurations qui s’appliquent à l’ensemble des nœuds et des services du cluster. Le fichier a généralement pour nom ClusterManifest.xml. Vous pouvez voir le manifeste de cluster de votre cluster à l’aide de la commande PowerShell Get-ServiceFabricClusterManifest.
 
 ### <a name="configuration-names"></a>Noms de configuration
-| Name | Unité | Valeur par défaut | Notes |
+| Nom | Unité | Valeur par défaut | Notes |
 | --- | --- | --- | --- |
 | WriteBufferMemoryPoolMinimumInKB |Ko |8388608 |Nombre minimal de Ko à allouer en mode noyau pour le pool de mémoire tampon d’écriture de l’enregistreur d’événements. Ce pool de mémoire est utilisé pour la mise en cache des informations d’état avant l’écriture sur le disque. |
 | WriteBufferMemoryPoolMaximumInKB |Ko |Aucune limite |Taille maximale que peut atteindre le pool de mémoire tampon d’écriture de l’enregistreur d’événements. |
@@ -75,7 +75,7 @@ La configuration par défaut est générée par le modèle Visual Studio et devr
 &lt;ActorName&gt;ServiceReplicatorConfig
 
 ### <a name="configuration-names"></a>Noms de configuration
-| Name | Unité | Valeur par défaut | Notes |
+| Nom | Unité | Valeur par défaut | Notes |
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |Secondes |0.015 |Durée d'attente du réplicateur secondaire après la réception d'une opération et avant de renvoyer un accusé de réception au réplicateur principal. Tous les autres accusés de réception à envoyer pour les opérations traitées durant cet intervalle sont envoyés sous la forme d'une réponse. |
 | ReplicatorEndpoint |N/A |Aucune valeur par défaut (paramètre obligatoire) |Adresse IP et port que le réplicateur principal/secondaire utilise pour communiquer avec d'autres réplicateurs dans le jeu de réplicas. Doit faire référence à un point de terminaison de ressource TCP dans le manifeste de service. Pour en savoir plus sur la définition de ressources de point de terminaison dans le manifeste de service, consultez [Ressources du manifeste de service](service-fabric-service-manifest-resources.md) . |

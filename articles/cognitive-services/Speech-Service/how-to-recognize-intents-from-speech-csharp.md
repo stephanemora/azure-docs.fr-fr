@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: dapine
 ms.openlocfilehash: 5d3c77c307739f9014010a592aa496a1cc83b333
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77120045"
 ---
 # <a name="how-to-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Guide pratique pour reconnaître des intentions vocales avec le SDK Speech pour C#
@@ -35,7 +35,7 @@ Dans ce guide, vous utilisez le SDK Speech pour développer une application cons
 > - Utiliser la reconnaissance vocale à partir d’un fichier
 > - Utiliser la reconnaissance continue pilotée par événements, asynchrone
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Veillez à disposer des éléments suivants avant de commencer à suivre ce guide :
 

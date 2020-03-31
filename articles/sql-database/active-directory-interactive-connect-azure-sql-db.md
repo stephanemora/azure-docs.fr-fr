@@ -12,10 +12,10 @@ ms.author: MirekS
 ms.reviewer: GeneMi, vanto
 ms.date: 10/11/2019
 ms.openlocfilehash: 5e7d58e5e0fc79e407e77ae9d73314a1d5d22666
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73692301"
 ---
 # <a name="connect-to-azure-sql-database-with-azure-multi-factor-authentication"></a>Se connecter à Azure SQL Database avec Microsoft Azure Multi-Factor Authentication
@@ -91,7 +91,7 @@ Pour plus d’informations sur les administrateurs Azure AD et les utilisateurs 
 
 L’administrateur Azure AD d’un serveur SQL Database peut exécuter l’exemple de programme C#. Un utilisateur Azure AD peut exécuter le programme s’il se trouve dans la base de données. Un administrateur SQL Azure AD ou un utilisateur Azure AD qui existe déjà dans la base de données et a l’autorisation `ALTER ANY USER` sur la base de données peut ajouter un utilisateur.
 
-Vous pouvez ajouter un utilisateur à la base de données avec la commande SQL [`Create User`](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql). Par exemple `CREATE USER [<username>] FROM EXTERNAL PROVIDER`.
+Vous pouvez ajouter un utilisateur à la base de données avec la commande SQL [`Create User`](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql). par exemple `CREATE USER [<username>] FROM EXTERNAL PROVIDER`.
 
 Pour plus d’informations, consultez [Utiliser l’authentification Azure Active Directory pour l’authentification auprès de SQL Database, de Managed Instance ou de SQL Data Warehouse](sql-database-aad-authentication.md).
 
@@ -115,7 +115,7 @@ L’exemple C# repose sur l’espace de noms [`System.Data.SqlClient`](https://d
 
 Pour que le programme C# puisse s’exécuter, vous devez attribuer les valeurs appropriées à des champs statiques. Voici des champs avec des exemples de valeurs. Les emplacements dans le portail Azure où vous pouvez obtenir les valeurs nécessaires sont également affichés.
 
-| Nom de champ statique | Exemple de valeur | Emplacement dans le portail Azure |
+| Nom de champ statique | Valeur d'exemple | Emplacement dans le portail Azure |
 | :---------------- | :------------ | :-------------------- |
 | Az_SQLDB_svrName | « my-sqldb-svr.database.windows.net » | **Serveurs SQL** > **Filtrer par nom** |
 | AzureAD_UserID | « auser\@abc.onmicrosoft.com » | **Azure Active Directory** > **Utilisateur** > **Nouvel utilisateur invité** |
@@ -335,6 +335,6 @@ In method 'AcquireTokenAsync', case_0 == '.ActiveDirectoryInteractive'.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont destinés au module Az.Sql. Pour ces cmdlets, voir [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments des commandes dans le module Az et dans les modules AzureRm sont sensiblement identiques.
+> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont destinés au module Az.Sql. Pour ces cmdlets, voir [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments des commandes dans le module Az sont sensiblement identiques à ceux des modules AzureRm.
 
 - [Get-AzSqlServerActiveDirectoryAdministrator](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserveractivedirectoryadministrator)

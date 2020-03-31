@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 08/18/2016
 tags: connectors
 ms.openlocfilehash: 8d3b180b6f1e9dc4ec4b09dd81786cc81e8588da
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75707184"
 ---
 # <a name="manage-email-calendars-and-contacts-in-outlookcom-by-using-azure-logic-apps"></a>Gérer les e-mails, les calendriers et les contacts dans Outlook.com à l’aide d’Azure Logic Apps
 
 Avec [Azure Logic Apps](../logic-apps/logic-apps-overview.md) et le [connecteur Outlook.com](/connectors/outlook/), vous pouvez créer des tâches et workflows automatisés qui gèrent votre compte @outlook.com ou @hotmail.com en générant des applications logiques. Par exemple, vous automatisez les tâches suivantes :
 
-* Recevoir et envoyer un e-mail, répondre à un e-mail.
-* Planifier des réunions sur votre calendrier.
+* Recevoir, envoyer et répondre à des e-mails
+* Planifier des réunions sur votre calendrier
 * Ajouter et modifier des contacts.
 
 Vous pouvez utiliser n’importe quel déclencheur pour démarrer votre workflow, par exemple, lorsqu’un nouvel e-mail arrive, lorsqu’un élément de calendrier est mis à jour ou lorsqu’un événement se produit dans un autre service. Vous pouvez utiliser des actions qui répondent à l’événement déclencheur, par exemple, envoyer un e-mail ou créer un événement de calendrier.
@@ -27,7 +27,7 @@ Vous pouvez utiliser n’importe quel déclencheur pour démarrer votre workflow
 > [!NOTE]
 > Pour automatiser les tâches d’un compte professionnel Microsoft, par exemple @fabrikam.onmicrosoft.com, utilisez le [connecteur Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Un [compte Outlook.com](https://outlook.live.com/owa/)
 
@@ -59,7 +59,7 @@ Une [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) est une op
 
 1. Dans le [portail Azure](https://portal.azure.com), ouvrez votre application logique dans le Concepteur d’applications logiques.
 
-1. Pour ajouter une action comme dernière étape de votre workflow, sélectionnez **Nouvelle étape**. 
+1. Pour ajouter une action comme dernière étape à votre workflow, sélectionnez **Nouvelle étape**. 
 
    Pour ajouter une action entre des étapes, placez votre pointeur au-dessus de la flèche qui les sépare. Cliquez sur le signe ( **+** ) qui s’affiche, puis sélectionnez **Ajouter une action**.
 

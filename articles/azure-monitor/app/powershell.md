@@ -1,18 +1,14 @@
 ---
 title: Automatiser Azure Application Insights avec PowerShell | Microsoft Docs
 description: Automatisez la création et la gestion des ressources, des alertes et des tests de disponibilité dans PowerShell à l’aide d’un modèle Azure Resource Manager.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 10/17/2019
-ms.openlocfilehash: 82b406d6f2d9f9dc4464472108c8136c7b65c67a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 9494b659b5b4357f3190c45d8cc72c4e130f0ecc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977831"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79234669"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>Gérer les ressources Application Insights à l’aide de PowerShell
 
@@ -132,7 +128,7 @@ Créez un fichier .json appelé `template1.json` dans cet exemple. Copiez-y ce c
             },
             "dailyQuotaResetTime": {
                 "type": "int",
-                "defaultValue": 24,
+                "defaultValue": 0,
                 "metadata": {
                     "description": "Enter daily quota reset hour in UTC (0 to 23). Values outside the range will get a random reset hour."
                 }
@@ -324,16 +320,30 @@ Pour accéder aux propriétés du plafond quotidien, utilisez l’applet de comm
 Set-AzApplicationInsightsDailyCap -ResourceGroupName <resource group> -Name <resource name> | Format-List
 ```
 
-Pour définir les propriétés du plafond quotidien, utilisez la même applet de commande. Par exemple, pour définir le plafond à 300 Go/jour, 
+Pour définir les propriétés du plafond quotidien, utilisez la même applet de commande. Par exemple, pour définir le plafond à 300 Go/jour,
 
 ```PS
 Set-AzApplicationInsightsDailyCap -ResourceGroupName <resource group> -Name <resource name> -DailyCapGB 300
 ```
 
+Vous pouvez également utiliser [ARMClient](https://github.com/projectkudu/ARMClient) pour récupérer et définir des paramètres de limite quotidienne.  Pour obtenir les valeurs actuelles, utilisez la commande suivante :
+
+```PS
+armclient GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName/CurrentBillingFeatures?api-version=2018-05-01-preview
+```
+
+## <a name="set-the-daily-cap-reset-time"></a>Définir l’heure de réinitialisation de la limite quotidienne
+
+Pour définir l’heure de réinitialisation de la limite quotidienne, vous pouvez utiliser [ARMClient](https://github.com/projectkudu/ARMClient). Voici un exemple d’utilisation de `ARMClient` pour définir l’heure de réinitialisation sur une nouvelle heure (dans cet exemple, 12:00 UTC) :
+
+```PS
+armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName/CurrentBillingFeatures?api-version=2018-05-01-preview "{'CurrentBillingFeatures':['Basic'],'DataVolumeCap':{'ResetTime':12}}"
+```
+
 <a id="price"></a>
 ## <a name="set-the-pricing-plan"></a>Définir le plan tarifaire 
 
-Pour obtenir le plan tarifaire actuel, utilisez l’applet de commande [Set-AzApplicationInsightsPricingPlan](https://docs.microsoft.com/powershell/module/az.applicationinsights/Set-AzApplicationInsightsPricingPlan) : 
+Pour obtenir le plan tarifaire actuel, utilisez l’applet de commande [Set-AzApplicationInsightsPricingPlan](https://docs.microsoft.com/powershell/module/az.applicationinsights/Set-AzApplicationInsightsPricingPlan) :
 
 ```PS
 Set-AzApplicationInsightsPricingPlan -ResourceGroupName <resource group> -Name <resource name> | Format-List
@@ -354,19 +364,36 @@ Vous pouvez également définir le plan tarifaire en fonction d’une ressource 
                -appName myApp
 ```
 
+Le `priceCode` est défini comme :
+
 |priceCode|Plan|
 |---|---|
 |1|Par Go (anciennement appelé Plan de base)|
 |2|Par nœud (anciennement appelé Plan Entreprise)|
 
+Enfin, vous pouvez utiliser [ARMClient](https://github.com/projectkudu/ARMClient) pour récupérer et définir des plans de tarification et des paramètres de limite quotidienne.  Pour obtenir les valeurs actuelles, utilisez la commande suivante :
+
+```PS
+armclient GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName/CurrentBillingFeatures?api-version=2018-05-01-preview
+```
+
+Vous pouvez définir tous ces paramètres à l’aide de la commande suivante :
+
+```PS
+armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName/CurrentBillingFeatures?api-version=2018-05-01-preview
+"{'CurrentBillingFeatures':['Basic'],'DataVolumeCap':{'Cap':200,'ResetTime':12,'StopSendNotificationWhenHitCap':true,'WarningThreshold':90,'StopSendNotificationWhenHitThreshold':true}}"
+```
+
+Cela définit la limite quotidienne sur 200 Go/jour, configure l’heure de réinitialisation de la limite quotidienne sur 12:00 UTC, envoie des e-mails lorsque la limite et le niveau d’avertissement sont atteints, et définit le seuil d’avertissement sur 90 % de la limite.  
+
 ## <a name="add-a-metric-alert"></a>Ajouter une alerte métrique
 
-Pour automatiser la création d’alertes de métrique, consultez l’[article sur les modèles d’alertes de métrique](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates#template-for-a-simple-static-threshold-metric-alert)
+Pour automatiser la création d’alertes de métrique, consultez l’[article sur le modèle d’alertes de métrique](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates#template-for-a-simple-static-threshold-metric-alert)
 
 
 ## <a name="add-an-availability-test"></a>Ajouter un test de disponibilité
 
-Pour automatiser les tests de disponibilité, consultez l’[article sur les modèles d’alertes de métrique](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates#template-for-an-availability-test-along-with-a-metric-alert).
+Pour automatiser les tests de disponibilité, consultez l’[article sur le modèle d’alertes de métrique](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates#template-for-an-availability-test-along-with-a-metric-alert).
 
 ## <a name="add-more-resources"></a>Ajouter des ressources
 

@@ -5,10 +5,10 @@ ms.date: 11/04/2019
 ms.topic: article
 ms.reviewer: chroyal
 ms.openlocfilehash: a8061aad6d6a1513de70e7c2bc57aa109c666611
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74455926"
 ---
 # <a name="configure-blockchain-data-manager-using-azure-cli"></a>Configurer Blockchain Data Manager avec Azure CLI
@@ -62,7 +62,7 @@ az resource create \
 | Paramètre | Description |
 |-----------|-------------|
 | resource-group | Nom du groupe de ressources dans lequel créer l’instance Blockchain Data Manager. |
-| Nom | Nom de l’instance Data Manager Blockchain. |
+| name | Nom de l’instance Data Manager Blockchain. |
 | resource-type | Le type de ressource est **Microsoft.blockchain/watchers** pour une instance Blockchain Data Manager. |
 | is-full-object | Indique que les propriétés contiennent des options pour la ressource d’observateur. |
 | properties | Chaîne au format JSON contenant les propriétés de la ressource d’observateur. Peut être passé en tant que chaîne ou fichier.  |
@@ -124,8 +124,8 @@ az resource create \
 | Paramètre | Description |
 |-----------|-------------|
 | resource-group | Nom de groupe de ressources dans lequel créer la ressource d’entrée. |
-| Nom | Nom de l’entrée. |
-| namespace | Utilisez l’espace de noms du fournisseur **Microsoft.Blockchain**. |
+| name | Nom de l’entrée. |
+| espace de noms | Utilisez l’espace de noms du fournisseur **Microsoft.Blockchain**. |
 | resource-type | **inputs** est le type de ressource d’une entrée de Data Manager Blockchain. |
 | parent | Chemin d’accès à l’observateur auquel l’entrée est associée. Par exemple, **watchers/mywatcher**. |
 | is-full-object | Indique que les propriétés contiennent des options pour la ressource d’entrée. |
@@ -196,8 +196,8 @@ az resource create \
 | Paramètre | Description |
 |-----------|-------------|
 | resource-group | Nom de groupe de ressources dans lequel créer la ressource de sortie. |
-| Nom | Nom de la sortie. |
-| namespace | Utilisez l’espace de noms du fournisseur **Microsoft.Blockchain**. |
+| name | Nom de la sortie. |
+| espace de noms | Utilisez l’espace de noms du fournisseur **Microsoft.Blockchain**. |
 | resource-type | **outputs** est le type de ressource d’une sortie de Data Manager Blockchain. |
 | parent | Chemin d’accès à l’observateur auquel la sortie est associée. Par exemple, **watchers/mywatcher**. |
 | is-full-object | Indique que les propriétés contiennent des options pour la ressource de sortie. |
@@ -273,8 +273,8 @@ az resource create \
 | Paramètre | Description |
 |-----------|-------------|
 | resource-group | Nom de groupe de ressources dans lequel créer la ressource d’application. |
-| Nom | Nom de l’application. |
-| namespace | Utilisez l’espace de noms du fournisseur **Microsoft.Blockchain**. |
+| name | Nom de l’application. |
+| espace de noms | Utilisez l’espace de noms du fournisseur **Microsoft.Blockchain**. |
 | resource-type | **artifacts** est le type de ressource d’une application Data Manager Blockchain. |
 | parent | Chemin d’accès à l’observateur auquel l’application est associée. Par exemple, **watchers/mywatcher**. |
 | is-full-object | Indique que les propriétés contiennent des options pour la ressource d’application. |
@@ -399,7 +399,7 @@ az resource delete \
 | Paramètre | Description |
 |-----------|-------------|
 | resource-group | Nom du groupe de ressources de l’observateur à supprimer. |
-| Nom | Nom de l’observateur à supprimer. |
+| name | Nom de l’observateur à supprimer. |
 | resource-type | Le type de ressource est **Microsoft.blockchain/watchers** pour un observateur Blockchain Data Manager. |
 
 ### <a name="delete-instance-example"></a>Supprimer un exemple d’instance

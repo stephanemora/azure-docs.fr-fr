@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
 ms.openlocfilehash: eb006482b851e9094b82ec3d0753b74c05296994
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68727829"
 ---
 # <a name="microsoft-threat-modeling-tool-threats"></a>Menaces de l’outil Microsoft de modélisation des menaces
@@ -38,7 +38,7 @@ L’outil de modélisation des menaces vous aide à répondre à certaines quest
 
 Pour vous aider à formuler ces questions spécifiques, Microsoft utilise le modèle STRIDE qui classifie les différents types de menaces et simplifie les conversations de sécurité globale.
 
-| Catégorie | Description |
+| Category | Description |
 | -------- | ----------- |
 | **Usurpation d’identité** | Implique l’accès illégal aux informations d’authentification d’un autre utilisateur, comme le nom d’utilisateur et le mot de passe, ainsi que leur utilisation |
 | **Falsification** | Implique la modification malveillante de données. On peut citer par exemple des modifications non autorisées apportées aux données persistantes, comme celles contenues dans une base de données, et l’altération de données circulant entre deux ordinateurs sur un réseau ouvert, tel qu’Internet |

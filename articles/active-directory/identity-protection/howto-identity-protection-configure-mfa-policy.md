@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2fa6a4cf184b426355f62117ea51642127eee529
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74382140"
 ---
 # <a name="how-to-configure-the-azure-multi-factor-authentication-registration-policy"></a>Procédure : Configurer la stratégie d’inscription de l’authentification multifacteur Azure
@@ -37,7 +37,7 @@ Pour plus d’informations sur Azure Multi-Factor Authentication, consultez [Pr�
 
 1. Accédez au [portail Azure](https://portal.azure.com).
 1. Accédez à **Azure Active Directory** > **Sécurité** > **Identity Protection** > **stratégie d’inscription MFA**.
-   1. Sous **Affectations** :
+   1. Sous **Affectations**
       1. **Utilisateurs** : choisissez **Tous les utilisateurs** ou **Sélectionner des personnes et des groupes** si vous limitez votre lancement.
          1. Si vous le souhaitez, vous pouvez exclure des utilisateurs de la stratégie.
    1. Sous **Contrôles**

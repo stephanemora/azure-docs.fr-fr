@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
 ms.openlocfilehash: 3e58be4b94457d95d28cf6528b9151e4be1802cf
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "72754184"
 ---
 # <a name="define-and-use-moderation-workflows-rest"></a>Définir et utiliser des flux de travail de modération (REST)
 
-Les flux de travail sont des filtres personnalisés basés sur le cloud qui vous permettent de gérer plus efficacement le contenu. Flux de travail peut se connecter à une variété de services pour filtrer le contenu de différentes façons et puis exécutez l’action appropriée. Ce guide vous montre comment utiliser les API REST de flux de travail via la console d’API pour créer et utiliser des flux de travail. Une fois que vous comprenez la structure des API, vous pouvez facilement déplacer ces appels vers n’importe quelle plateforme compatible avec REST.
+Les flux de travail sont des filtres personnalisés basés sur le cloud qui vous permettent de gérer plus efficacement le contenu. Flux de travail peut se connecter à une variété de services pour filtrer le contenu de différentes façons et puis exécutez l’action appropriée. Ce guide vous montre comment utiliser les API REST de flux de travail via la console d’API pour créer et utiliser des flux de travail. Une fois que vous aurez compris la structure des API, vous pourrez facilement déplacer ces appels vers n’importe quelle plateforme compatible avec REST.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -27,17 +27,17 @@ Les flux de travail sont des filtres personnalisés basés sur le cloud qui vous
 
 ## <a name="create-a-workflow"></a>Créer un workflow
 
-Pour créer ou mettre à jour un flux de travail, accédez à la page de référence de l’API **[Flux de travail : créer ou mettre à jour](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59)** et sélectionnez le bouton de votre région clé (que vous pouvez trouver dans l’URL de point de terminaison à la page **Informations d’identification** de l’[Outil de révision](https://contentmoderator.cognitive.microsoft.com/)). Ceci fait démarrer la console d’API, où vous pouvez facilement construire et exécuter des appels d’API REST.
+Pour créer ou mettre à jour un flux de travail, accédez à la page de référence de l’API **[Flux de travail : créer ou mettre à jour](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59)** et sélectionnez le bouton de votre région clé (que vous pouvez trouver dans l’URL de point de terminaison à la page **Informations d’identification** de l’[Outil de révision](https://contentmoderator.cognitive.microsoft.com/)). La console d’API, qui permet de construire et d’exécuter des appels d’API REST, se lance.
 
 ![Sélection de la région sur la page Flux de travail - Créer ou mettre à jour](images/test-drive-region.png)
 
-### <a name="enter-rest-call-parameters"></a>Entrez les paramètres d’appel REST
+### <a name="enter-rest-call-parameters"></a>Entrer les paramètres d’appel REST
 
 Entrez les valeurs de **team**, **workflowname** et **Ocp-Apim-Subscription-Key** :
 
-- **team** : ID d’équipe que vous avez créé lors de la configuration de votre compte [Outil de révision](https://contentmoderator.cognitive.microsoft.com/) compte (il se trouve dans le champ **Id** sur l’écran des informations d’identification de votre outil de révision).
+- **team** : ID d’équipe que vous avez créé lors de la configuration de votre compte [Outil de révision](https://contentmoderator.cognitive.microsoft.com/) (dans le champ **Id**, sur l’écran Informations d’identification de votre Outil de révision).
 - **workflowname** : nom d’un nouveau flux de travail à ajouter (ou un nom existant si vous souhaitez mettre à jour un flux de travail existant).
-- **Ocp-Apim-Subscription-Key** : votre clé Content Moderator. Vous pouvez la trouver sous l’onglet **Paramètres** de l’[Outil de révision](https://contentmoderator.cognitive.microsoft.com).
+- **Ocp-Apim-Subscription-Key** : votre clé Content Moderator. Vous la trouverez sous l’onglet **Paramètres** de [l’Outil de révision](https://contentmoderator.cognitive.microsoft.com).
 
 ![Paramètres de requête et en-têtes de la console Flux de travail - Créer ou mettre à jour](images/workflow-console-parameters.PNG)
 

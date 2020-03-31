@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 10/18/2018
 ms.author: cshoe
 ms.openlocfilehash: 97509001aa66c2c1bf0c91b6b2a5ab25f9d6ec88
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74227063"
 ---
 # <a name="azure-function-event-grid-trigger-local-debugging"></a>Débogage local lors du déclenchement de fonctions Azure Event Grid
@@ -101,7 +101,7 @@ Quand Event Grid reconnaît qu'un nouveau fichier est chargé dans le conteneur 
 
 ![Démarrer ngrok](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-breakpoint.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Pour nettoyer les ressources créées dans cet article, supprimez le conteneur **test** de votre compte de stockage.
 

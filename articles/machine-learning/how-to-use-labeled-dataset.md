@@ -8,10 +8,10 @@ ms.service: machine-learning
 ms.topic: how-to
 ms.date: 01/21/2020
 ms.openlocfilehash: 5138109de3f80d405ce95b605714b511480563f5
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76549345"
 ---
 # <a name="create-and-explore-azure-machine-learning-dataset-with-labels"></a>Créer et explorer un jeu de données Azure Machine Learning avec des étiquettes
@@ -22,7 +22,7 @@ Cet article explique comment exporter les étiquettes de données d’un projet 
 
 Les jeux de données Azure Machine Learning avec étiquettes sont des [jeux de données tabulaires](how-to-create-register-datasets.md#dataset-types) avec une propriété d’étiquette que nous appelons jeux de données étiquetés. Ces types spécifiques de jeux de données tabulaires sont créés uniquement en tant que sortie de projets d’étiquetage de données Azure Machine Learning. Créez un projet d’étiquetage des données en suivant [ces étapes](how-to-create-labeling-projects.md). Machine Learning prend en charge les projets d’étiquetage de données pour la classification d’images (comprenant plusieurs étiquettes ou classes), ainsi que l’identification d’objets à l’aide de zones délimitées.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://aka.ms/AMLFree) avant de commencer.
 * Le [Kit de développement logiciel (SDK) Azure Machine Learning pour Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) ou l’accès à [Azure Machine Learning studio](https://ml.azure.com/).

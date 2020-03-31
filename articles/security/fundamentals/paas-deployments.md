@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
 ms.openlocfilehash: 8fd5a063683d09cb94b45205426871d880119cc2
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77138018"
 ---
 # <a name="securing-paas-deployments"></a>Sécurisation des déploiements PaaS
@@ -51,7 +51,7 @@ Au milieu de l'infrastructure, il n’existe aucune différence entre un déploi
 
 En haut de l'infrastructure (gouvernance des données et gestion des droits), vous prenez un risque qui peut être limité par la gestion de clés (la gestion des clés est traitée dans les bonnes pratiques). Même si la gestion des clés est une responsabilité supplémentaire, vous n'avez plus à gérer certaines zones d'un déploiement PaaS, et vous pouvez donc transférer des ressources vers la gestion des clés.
 
-La plateforme Azure offre également une protection contre le DDoS renforcée à travers diverses technologies de réseau. Toutefois, tous les types de méthodes de protection contre le déni de service distribué (DDoS) basée sur le réseau ont leurs limites par lien et par centre de données. Afin d’éviter l’impact des attaques DDoS de grande envergure, vous pouvez tirer parti des capacités de cloud de base d’Azure qui permettent d'augmenter la taille des instances rapidement et de vous défendre contre les attaques DDoS. Nous aborderons la procédure plus en détail dans les articles sur les pratiques recommandées.
+La plateforme Azure offre également une protection contre le DDoS renforcée à travers diverses technologies de réseau. Toutefois, tous les types de méthodes de protection contre le déni de service distribué (DDoS) basée sur le réseau ont leurs limites par lien et par centre de données. Afin d’éviter l’impact des attaques DDoS de grande envergure, vous pouvez tirer parti des capacités de cloud de base d’Azure qui permettent d'effectuer un scale-out rapidement et de vous défendre contre les attaques DDoS. Nous aborderons la procédure plus en détail dans les articles sur les pratiques recommandées.
 
 ## <a name="modernizing-the-defenders-mindset"></a>Une nouvelle mentalité pour la défense
 Avec les déploiements PaaS, votre approche globale de la sécurité évolue. Vous n'avez pas besoin de tout contrôler vous-même et partagez la responsabilité avec Microsoft.
@@ -100,7 +100,7 @@ Le tableau suivant répertorie les menaces STRIDE et donne des exemples d’att�
 
 | Menace | Propriété de sécurité | Atténuation des risques pour la plateforme Azure |
 | --- | --- | --- |
-| Usurpation d’identité | Authentication | Exigez des connexions HTTPS. |
+| Usurpation d’identité | Authentification | Exigez des connexions HTTPS. |
 | Falsification | Intégrité | Validez des certificats SSL. |
 | Répudiation | Non-répudiation | Activez [la surveillance et les diagnostics Azure](/azure/architecture/best-practices/monitoring). |
 | Divulgation d’informations | Confidentialité | Chiffrez les données sensibles au repos à l’aide de [certificats de service](/rest/api/appservice/certificates). |

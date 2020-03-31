@@ -15,10 +15,10 @@ ms.date: 10/30/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.openlocfilehash: 2e94d9f56a865999f9169650f621a6af892c27ae
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74014377"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Comment utiliser des classeurs Azure Monitor pour créer des rapports Azure Active Directory
@@ -69,7 +69,7 @@ Pour pouvoir utiliser les classeurs Azure Monitor, vous devez disposer des élé
     - Lecteur de rapport
     - Administrateur général
 
-## <a name="roles"></a>contrôleur
+## <a name="roles"></a>Rôles
 Vous devez être dans l’un des rôles suivants et avoir [accès à l’espace de travail Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-azure-permissions) sous-jacent pour gérer les classeurs :
 -   Administrateur général
 -   Administrateur de sécurité
@@ -81,7 +81,7 @@ Vous devez être dans l’un des rôles suivants et avoir [accès à l’espace 
 
 Pour accéder à des classeurs, procédez comme suit :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
 1. Accédez à **Azure Active Directory** > **Supervision** > **Classeurs**. 
 
@@ -105,7 +105,7 @@ Ce classeur montre les tendances suivantes en matière de connexion :
 
 Vous pouvez filtrer chaque tendance selon les catégories suivantes :
 
-- Période
+- Plage temporelle
 
 - Applications
 
@@ -116,7 +116,7 @@ Vous pouvez filtrer chaque tendance selon les catégories suivantes :
 
 Pour chaque tendance, vous obtenez une répartition en fonction des catégories suivantes :
 
-- Location
+- Emplacement
 
     ![Connexions par emplacement](./media/howto-use-azure-monitor-workbooks/45.png)
 
@@ -139,7 +139,7 @@ Ce classeur montre les tendances suivantes en matière de connexion :
 
 Vous pouvez filtrer chaque tendance selon les catégories suivantes :
 
-- Période
+- Plage temporelle
 
 - Applications
 
@@ -163,7 +163,7 @@ Pour accéder au classeur afin d’identifier les connexions via des [stratégie
 
 Ce classeur affiche les tendances relatives aux connexions désactivées. Vous pouvez filtrer chaque tendance selon les catégories suivantes :
 
-- Période
+- Plage temporelle
 
 - Applications
 
@@ -179,7 +179,7 @@ Pour les connexions désactivées, vous obtenez une répartition en fonction de 
 
 ## <a name="conditional-access-insights"></a>Insights sur l’accès conditionnel
 
-### <a name="overview"></a>Vue d'ensemble
+### <a name="overview"></a>Vue d’ensemble
 
 Les classeurs contiennent des requêtes de journal de connexion qui peuvent aider les administrateurs informatiques à surveiller l’impact des stratégies d’accès conditionnel dans leur locataire. Vous avez la possibilité de créer des rapports sur le nombre d’utilisateurs auxquels l’accès a été accordé ou refusé. Le classeur contient des informations sur le nombre d’utilisateurs qui auraient contourné les stratégies d’accès conditionnel en fonction des attributs des utilisateurs au moment de la connexion. Il contient des détails par condition, afin que l’impact d’une stratégie puisse être contextualisé par condition, y compris la plateforme de l’appareil, l’état de l’appareil, l’application cliente, le risque à la connexion, l’emplacement et l’application.
 
@@ -236,7 +236,7 @@ Ce classeur montre les tendances suivantes concernant les connexions désactivé
 
 Vous pouvez filtrer chaque tendance selon les catégories suivantes :
 
-- Période
+- Plage temporelle
 
 - Applications
 
@@ -276,7 +276,7 @@ Ce classeur montre les tendances suivantes en matière de connexion :
 
 Vous pouvez filtrer chaque tendance selon les catégories suivantes :
 
-- Période
+- Plage temporelle
 
 - Applications
 

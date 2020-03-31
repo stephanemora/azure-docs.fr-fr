@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: cherylmc
 ms.openlocfilehash: 4e49a3bc803733f5e78207fa3573c93395924d6a
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74080168"
 ---
 # <a name="move-expressroute-circuits-from-classic-to-resource-manager-deployment-model-using-powershell"></a>Déplacer des circuits ExpressRoute du modèle de déploiement classique vers le modèle de déploiement Resource Manager à l’aide de PowerShell
@@ -30,7 +30,7 @@ Pour utiliser un circuit ExpressRoute pour les modèles de déploiement classiqu
 
 ## <a name="move-an-expressroute-circuit"></a>Déplacer un circuit ExpressRoute
 
-### <a name="step-1-gather-circuit-details-from-the-classic-deployment-model"></a>Étape 1 : Collecter des informations sur le circuit à partir du modèle de déploiement classique
+### <a name="step-1-gather-circuit-details-from-the-classic-deployment-model"></a>Étape 1 : Collecter des informations sur le circuit à partir du modèle de déploiement classique
 
 Connectez-vous à l’environnement classique Azure et collectez la clé de service.
 
@@ -59,7 +59,7 @@ Connectez-vous à l’environnement classique Azure et collectez la clé de serv
    Get-AzureDedicatedCircuit
    ```
 
-### <a name="step-2-sign-in-and-create-a-resource-group"></a>Étape 2 : Se connecter et créer un groupe de ressources
+### <a name="step-2-sign-in-and-create-a-resource-group"></a>Étape 2 : Se connecter et créer un groupe de ressources
 
 Connectez-vous à l’environnement Resource Manager et créez un groupe de ressources.
 

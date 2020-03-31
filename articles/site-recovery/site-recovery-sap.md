@@ -6,10 +6,10 @@ manager: rochakm
 ms.topic: how-to
 ms.date: 11/27/2018
 ms.openlocfilehash: 29acd1b00d23e4f1c2f241027dadbbb406e5e049
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77190794"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Configurer la reprise d’activité pour un déploiement d’application SAP NetWeaver multiniveau
@@ -24,7 +24,7 @@ Avec Site Recovery, vous pouvez effectuer les actions décrites ici.
 
 Vous pouvez protéger les déploiements d’applications SAP NetWeaver à l’aide d’[Azure Site Recovery](site-recovery-overview.md). Cet article traite des meilleures pratiques permettant de protéger un déploiement SAP NetWeaver à trois niveaux sur Azure lorsque vous répliquez vers un autre centre de données Azure à l’aide de Site Recovery. Il décrit les configurations et scénarios pris en charge ainsi que la façon de réaliser des tests de basculement (tests de récupération d’urgence) et des basculements réels.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer, assurez-vous que vous savez accomplir les tâches suivantes :
 

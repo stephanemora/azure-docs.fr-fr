@@ -13,10 +13,10 @@ ms.author: martinco
 ms.reviewer: arvindha
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0d2f284fddfc49632e467adbf5877856b40a81dd
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77522408"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planifier un déploiement d’attribution automatique d’utilisateurs

@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 931865803328189d89c0fbae15caa801c3f7f7c6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60455142"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227793"
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-with-azure-active-directory"></a>Résoudre les problèmes de synchronisation d’un objet avec Azure Active Directory
 
@@ -54,7 +54,7 @@ Le processus de synchronisation comprend les étapes suivantes :
 
 5. **Exportation vers Azure AD :** À l’issue de la synchronisation, les objets sont exportés de l’espace Azure AD CS dans Azure AD.
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 Pour rechercher les erreurs, regardez à différents endroits, dans l’ordre suivant :
 
@@ -79,7 +79,7 @@ La colonne **Status** (État) contient les informations les plus importantes et 
 | stopped-error-limit |Il existe plus de 5 000 erreurs. L’exécution a été automatiquement arrêtée en raison du grand nombre d’erreurs. |
 | completed-\*-errors |L’exécution s’est terminée, mais il existe des erreurs (moins de 5 000) qui doivent être examinées. |
 | completed-\*-warnings |L’exécution s’est terminée, mais des données n’ont pas l’état attendu. Si vous avez des erreurs, ce message n’est, en général, qu’un symptôme. N’explorez pas les avertissements avant d’avoir résolu les erreurs. |
-| réussi |Aucun problème. |
+| success |Aucun problème. |
 
 Lorsque vous sélectionnez une ligne, la partie inférieure de l’onglet **Operations** (Opérations) est mise à jour pour afficher les détails de cette exécution. Situé tout à gauche dans cette zone, vous pouvez voir une liste intitulée **Step #** (Étape #). Cette liste ne s’affiche que si votre forêt contient plusieurs domaines et que chaque domaine est représenté par une étape. Le nom de domaine se trouve sous le titre **Partition**. Sous l’en-tête **(Synchronization Statistics)** (Statistiques de synchronisation), vous trouvez plus d’informations sur le nombre de modifications qui ont été traitées. Sélectionnez les liens pour obtenir la liste des objets modifiés. Si vous avez des objets comportant des erreurs, celles-ci s’affichent sous l’en-tête **Synchronization Errors** (Erreurs de synchronisation).
 

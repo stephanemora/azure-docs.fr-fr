@@ -13,10 +13,10 @@ ms.author: vanto
 ms.reviwer: ''
 ms.date: 03/08/2019
 ms.openlocfilehash: 82c3c3274a8a9d66019ce906ee7be47cedac7470
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73822037"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-the-windows-certificate-store"></a>Always Encrypted : Protéger les données sensibles et stocker les clés de chiffrement dans le magasin de certificats Windows
@@ -46,7 +46,7 @@ Pour ce didacticiel, vous devez disposer des éléments suivants :
 
 ## <a name="create-a-blank-sql-database"></a>Créer une base de données SQL vide
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Cliquez sur **Créer une ressource** > **Données + Stockage** > **SQL Database**.
 3. Créez une base de données **vide** nommée **Clinique** sur un serveur nouveau ou existant. Pour obtenir des instructions détaillées sur la création d’une base de données dans le portail Azure, consultez [Votre première base de données Azure SQL](sql-database-single-database-get-started.md).
 
@@ -59,7 +59,7 @@ Vous aurez besoin de la chaîne de connexion plus loin dans le didacticiel. Une 
 
     ![Copier la chaîne de connexion](./media/sql-database-always-encrypted/connection-strings.png)
 
-## <a name="connect-to-the-database-with-ssms"></a>Connexion à la base de données avec SSMS
+## <a name="connect-to-the-database-with-ssms"></a>Se connecter à la base de données avec SSMS
 
 Ouvrez SSMS et connectez-vous au serveur avec la base de données Clinique.
 
@@ -70,7 +70,7 @@ Ouvrez SSMS et connectez-vous au serveur avec la base de données Clinique.
 
 Si la fenêtre **Nouvelle règle de pare-feu** s’ouvre, connectez-vous à Azure et laissez SSMS créer une règle de pare-feu pour vous.
 
-## <a name="create-a-table"></a>Création d’une table
+## <a name="create-a-table"></a>Créer une table
 
 Dans cette section, vous allez créer une table pour stocker les données des patients. Au départ, il s’agira d’une table normale. Vous allez configurer le chiffrement dans la section suivante.
 
@@ -143,7 +143,7 @@ Vous pouvez vérifier la création des clés dans SSMS en accédant à **Cliniqu
 
 ## <a name="create-a-client-application-that-works-with-the-encrypted-data"></a>Création d’une application cliente compatible avec les données chiffrées
 
-À présent qu’Always Encrypted est configuré, nous allons créer une application qui effectue des *insertions* et des *sélections* sur les colonnes chiffrées. Pour exécuter correctement l’exemple d’application, vous devez le faire sur l’ordinateur utilisé pour exécuter l’Assistant Chiffrement intégral. Pour exécuter l’application sur un autre ordinateur, vous devez déployer vos certificats intégralement chiffrés sur l’ordinateur exécutant l’application cliente.  
+Maintenant qu’Always Encrypted est configuré, nous allons créer une application qui effectue des *insertions* et des *sélections* sur les colonnes chiffrées. Pour exécuter correctement l’exemple d’application, vous devez le faire sur l’ordinateur utilisé pour exécuter l’Assistant Chiffrement intégral. Pour exécuter l’application sur un autre ordinateur, vous devez déployer vos certificats intégralement chiffrés sur l’ordinateur exécutant l’application cliente.  
 
 > [!IMPORTANT]
 > Votre application doit utiliser des objets [SqlParameter](https://msdn.microsoft.com/library/system.data.sqlclient.sqlparameter.aspx) lors de la transmission de données en clair vers le serveur avec des colonnes intégralement chiffrées. La transmission de valeurs littérales sans objets SqlParameter entraînera une exception.
@@ -157,7 +157,7 @@ Vous pouvez vérifier la création des clés dans SSMS en accédant à **Cliniqu
 
 Cette section explique simplement comment activer le chiffrement intégral dans votre chaîne de connexion de base de données. Vous allez modifier l’application console que vous venez de créer dans la section suivante, « Exemple d’application console intégralement chiffrée ».
 
-Pour activer le chiffrement intégral, vous devez ajouter le mot clé **Paramètre de chiffrement de colonne** à votre chaîne de connexion, et le définir sur **Activé**.
+Pour activer Always Encrypted, vous devez ajouter le mot clé **Paramètre de chiffrement de colonne** à votre chaîne de connexion et le définir sur **Activé**.
 
 Vous pouvez définir cette option directement dans la chaîne de connexion, ou la définir à l’aide d’un paramètre [SqlConnectionStringBuilder](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder.aspx). L’exemple d’application de la section suivante montre comment utiliser le paramètre **SqlConnectionStringBuilder**.
 

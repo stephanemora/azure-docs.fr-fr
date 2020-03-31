@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: curtand
 ms.openlocfilehash: 9488b96dda15b0ffb794f83826dc299a5f397b77
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77064000"
 ---
 # <a name="set-up-an-email-address-as-your-verification-method"></a>Configurer une adresse e-mail comme méthode de vérification

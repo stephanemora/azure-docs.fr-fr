@@ -16,15 +16,15 @@ ms.workload: na
 ms.date: 08/22/2019
 ms.author: terrylan
 ms.openlocfilehash: 4fe612db65d985be2f1f1c81d03c3ee735c03889
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69992389"
 ---
 # <a name="develop-a-secure-infrastructure-for-a-pci-app"></a>Développer une infrastructure sécurisée pour une application PCI
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Cette infrastructure sécurisée pour une application PCI (Payment Card Industry) fournit des conseils pour déployer une plateforme PCI comme un environnement de service (PaaS) adapté à la collecte, au stockage et à la récupération des données de titulaires de carte. Cette solution automatise le déploiement et la configuration des ressources Azure pour une architecture de référence commune, illustrant diverses façons dont les clients peuvent satisfaire à des exigences de conformité et de sécurité spécifiques, et sert de base aux clients souhaitant générer et configurer leurs propres solutions sur Azure. La solution implémente un sous-ensemble d’exigences similaires aux normes de sécurité des données appliquées dans l’industrie des cartes de paiement (PCI DSS 3.2).
 
@@ -118,7 +118,7 @@ Il existe de nombreuses manières de déployer des applications sur Azure, notam
 
 - Modèles Microsoft Azure Resource Manager
 - PowerShell
-- D’Azure CLI
+- Azure CLI
 - Portail Azure
 - Azure DevOps
 
@@ -148,7 +148,7 @@ Les groupes de sécurité réseau pour App Service Environment doivent avoir la 
 
 chaque sous-réseau est associé au groupe de sécurité réseau qui lui correspond.
 
-### <a name="config"></a>Configuration
+### <a name="config"></a>Config
 Les sous-réseaux sont configurés comme dans l’image ci-dessous.
  ![Config](./media/secure-pci-web-app/config.png)
 
@@ -228,7 +228,7 @@ Les services Azure assurent une journalisation complète de l’activité du sys
 ### <a name="azure-monitor-logs"></a>Journaux d’activité Azure Monitor
 ces journaux sont regroupés dans [Journaux Azure Monitor](https://azure.microsoft.com/services/log-analytics/) à des fins de traitement, de stockage et de génération de rapports de tableau de bord. Une fois collectées, les données sont organisées dans différentes tables en fonction du type de données dans des espaces de travail Log Analytics. Toutes les données sont ainsi analysées ensemble, quelle que soit leur source d’origine. Par ailleurs, Azure Security Center s’intègre à Journaux Azure Monitor pour permettre aux clients d’utiliser des requêtes Kusto ; ils peuvent alors accéder à leurs données d’événement de sécurité et les combiner avec des données provenant d’autres services.
 
-Cette architecture intègre également les [solutions de supervision](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) suivantes :
+Les [solutions de supervision](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) Azure suivantes sont incluses dans cette architecture :
 
 - [Active Directory Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment) : la solution Active Directory Health Check évalue les risques et l’intégrité des environnements de serveur à intervalles réguliers, et fournit une liste hiérarchisée de suggestions spécifiques pour l’infrastructure de serveur déployée.
 - [SQL Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment) : la solution SQL Health Check évalue les risques et l’intégrité des environnements de serveur à intervalles réguliers, et fournit aux clients une liste hiérarchisée de suggestions spécifiques pour l’infrastructure de serveur déployée.
@@ -262,7 +262,7 @@ Créez un coffre pour l’organisation dans lequel stocker les clés et avoir la
 - Les opérations de chiffrement autorisées pour les clés sont limitées à celles qui sont nécessaires.
 
 ### <a name="vpn-and-expressroute"></a>VPN et ExpressRoute
-Un tunnel VPN sécurisé ou un routage [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) doivent être configurés pour établir une connexion sécurisée aux ressources déployées en lien avec cette architecture de référence d’application web PaaS. En configurant correctement un VPN ou un routage ExpressRoute, les clients peuvent ajouter une couche de protection des données en transit.
+Un tunnel VPN sécurisé ou un routage [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) doivent être configurés pour établir une connexion sécurisée aux ressources déployées en lien avec cette architecture de référence d’application web PaaS. En configurant correctement un VPN ou un routage ExpressRoute, les clients peuvent ajouter une couche de protection au niveau des données en transit.
 
 En implémentant un tunnel VPN sécurisé avec Azure, il est possible de créer une connexion privée virtuelle entre un réseau local et un réseau virtuel Azure. Cette connexion via Internet permet aux clients de « tunneler » des informations en toute sécurité par le biais d’une liaison chiffrée entre leur réseau et Azure. La technologie de réseau privé virtuel de site à site, aussi sécurisée qu’éprouvée, est déployée par des entreprises de toutes tailles depuis des décennies. Le mode tunnel IPsec est utilisé dans cette option comme mécanisme de chiffrement.
 

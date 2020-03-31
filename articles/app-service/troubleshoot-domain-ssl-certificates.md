@@ -9,10 +9,10 @@ ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
 ms.openlocfilehash: e299821b54692327cbb7d497af0295e3b93658cf
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75966974"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Résoudre les problèmes de domaines et de certificats SSL dans Azure App Service
@@ -34,7 +34,7 @@ Si vous ajoutez une liaison SSL, le message d’erreur suivant s’affiche :
 
 « Échec de l’ajout d’une liaison SSL. Impossible de définir le certificat pour l’adresse IP virtuelle existante, car une autre adresse IP virtuelle utilise déjà ce certificat. »
 
-#### <a name="cause"></a>Cause :
+#### <a name="cause"></a>Cause
 
 Ce problème peut se produire si vous disposez de plusieurs liaisons SSL basées sur IP pour une même adresse IP dans plusieurs applications. Par exemple, l’application A dispose du protocole SSL basé sur IP avec un ancien certificat. L’application B dispose du protocole SSL basé sur IP avec un nouveau certificat pour une même adresse IP. Si vous mettez à jour la liaison SSL des applications avec le nouveau certificat, cette opération échoue avec cette erreur, car la même adresse IP est utilisée pour une autre application. 
 
@@ -53,7 +53,7 @@ Lorsque vous essayez de supprimer un certificat, le message d’erreur suivant s
 
 « Impossible de supprimer le certificat car il est en cours d'utilisation dans une liaison SSL. Vous devez supprimer la liaison SSL avant de pouvoir supprimer le certificat. »
 
-#### <a name="cause"></a>Cause :
+#### <a name="cause"></a>Cause
 
 Ce problème peut se produire si le certificat est utilisé par une autre application.
 
@@ -141,7 +141,7 @@ Vous recevez le message d’erreur suivant :
 
 « L’enregistrement DNS est introuvable. »
 
-#### <a name="cause"></a>Cause :
+#### <a name="cause"></a>Cause
 Ce problème se produit pour l’une des raisons suivantes :
 
 - La période de durée de vie (TTL) n’est pas arrivée à expiration. Vérifiez la configuration DNS de votre domaine pour déterminer la valeur TTL, puis attendez l’expiration de la période.
@@ -157,7 +157,7 @@ Ce problème se produit pour l’une des raisons suivantes :
 #### <a name="symptom"></a>Symptôme
 Votre domaine n’est plus visible dans le portail Azure.
 
-#### <a name="cause"></a>Cause : 
+#### <a name="cause"></a>Cause 
 Le propriétaire du domaine l’a peut-être supprimé accidentellement.
 
 #### <a name="solution"></a>Solution
@@ -183,7 +183,7 @@ Si le certificat actuel qui utilise le mauvais domaine est à l’état « Émis
 
 Le certificat App Service a été renouvelé, mais l’application qui l’utilise dispose toujours de l’ancienne version. En outre, vous avez reçu un avertissement indiquant que le protocole HTTPS est requis.
 
-#### <a name="cause"></a>Cause : 
+#### <a name="cause"></a>Cause 
 App Service synchronise automatiquement votre certificat sous 48 heures. Lorsque vous assurez la rotation ou la mise à jour d’un certificat, il arrive que l’application récupère toujours l’ancien certificat et non le certificat qui vient d’être mis à jour. Cela est dû au fait que le travail de synchronisation de la ressource de certificat n’a pas encore été exécuté. Cliquez sur Synchroniser. L’opération de synchronisation met à jour automatiquement les liaisons de nom d’hôte pour le certificat dans App Service sans perturber le fonctionnement de vos applications.
  
 #### <a name="solution"></a>Solution
@@ -249,7 +249,7 @@ Ce problème se produit pour l’une des raisons suivantes :
 
 Lorsque vous ajoutez un nom d’hôte, le processus ne parvient pas à valider le domaine, ni à le vérifier.
 
-#### <a name="cause"></a>Cause : 
+#### <a name="cause"></a>Cause 
 
 Ce problème se produit pour l’une des raisons suivantes :
 

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 01/08/2020
 tags: connectors
 ms.openlocfilehash: b0f2b8b9c369fdb42c7e0e7f77fc090424ae3729
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75732677"
 ---
 # <a name="manage-email-contacts-and-calendars-in-office-365-outlook-by-using-azure-logic-apps"></a>Gérer la messagerie, les contacts et les calendriers dans Office 365 Outlook avec Azure Logic Apps
@@ -27,7 +27,7 @@ Vous pouvez utiliser n’importe quel déclencheur pour démarrer votre workflow
 > [!NOTE]
 > Pour automatiser les tâches d’un compte @outlook.com ou @hotmail.com, utilisez le [connecteur Outlook.com](../connectors/connectors-create-api-outlook.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Un [compte Office 365](https://www.office.com/).
 

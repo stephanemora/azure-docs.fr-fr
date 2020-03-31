@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
 ms.openlocfilehash: 748d10b994080b667885e5d0d5f4d688269e86ab
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68728044"
 ---
 # <a name="microsoft-threat-modeling-tool-mitigations"></a>Atténuations de l’outil Microsoft de modélisation des menaces
@@ -35,8 +35,8 @@ Les corrections de l’outil de modélisation des menaces sont classifiées en f
 | Category | Description |
 | -------- | ----------- |
 | **[Audit et journalisation](threat-modeling-tool-auditing-and-logging.md)** | Qui a fait quoi et quand ? L’audit et la journalisation font référence à la manière dont votre application enregistre les événements liés à la sécurité |
-| **[Authentification](threat-modeling-tool-authentication.md)** | Qui êtes-vous ? L’authentification désigne le processus dans lequel une entité prouve l’identité d’une autre entité, généralement par le biais d’informations d’identification, comme le nom d’utilisateur et le mot de passe |
-| **[Autorisation](threat-modeling-tool-authorization.md)** | Que pouvez-vous faire ? L’autorisation désigne la manière dont votre application fournit des contrôles d’accès pour les ressources et les opérations |
+| **[Authentification](threat-modeling-tool-authentication.md)** | qui êtes-vous ? L’authentification désigne le processus dans lequel une entité prouve l’identité d’une autre entité, généralement par le biais d’informations d’identification, comme le nom d’utilisateur et le mot de passe |
+| **[Autorisation](threat-modeling-tool-authorization.md)** | que pouvez-vous faire ? L’autorisation désigne la manière dont votre application fournit des contrôles d’accès pour les ressources et les opérations |
 | **[Sécurité des communications](threat-modeling-tool-communication-security.md)** | À qui parlez-vous ? La sécurité des communications garantit que toutes les communications effectuées sont aussi sécurisées que possible |
 | **[Gestion des configurations](threat-modeling-tool-configuration-management.md)** | Pour qui votre application s’exécute-t-elle ? À quelles bases de données se connecte-t-elle ? Comment votre application est-elle administrée ? Comment ces paramètres sont-ils sécurisés ? La gestion de la configuration fait référence à la façon dont votre application gère ces problèmes opérationnels |
 | **[Cryptographie](threat-modeling-tool-cryptography.md)** | Comment conservez-vous les secrets (confidentialité) ? Comment protégez-vous vos données ou vos bibliothèques de la falsification (intégrité) ? Comment obtenez-vous des valeurs aléatoires solides d’un point de vue cryptographique ? La cryptographie fait référence à la façon dont votre application applique les principes de confidentialité et d’intégrité |

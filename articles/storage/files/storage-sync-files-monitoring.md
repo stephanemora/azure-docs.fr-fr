@@ -8,10 +8,10 @@ ms.date: 06/28/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: ac09f9b59bc6f47adc9311cc910352c1a0d73b5d
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68699285"
 ---
 # <a name="monitor-azure-file-sync"></a>Superviser Azure File Sync
@@ -36,13 +36,13 @@ Les métriques suivantes pour Azure File Sync sont disponibles dans Azure Monito
 
 | Nom de métrique | Description |
 |-|-|
-| Octets synchronisés | Taille des données transférées (chargement et téléchargement).<br><br>Unité : Octets<br>Type d’agrégation : Somme<br>Dimensions applicables : Nom du point de terminaison de serveur, sens de la synchronisation, nom du groupe de synchronisation |
-| Rappel de hiérarchisation cloud | Taille des données rappelées.<br><br>**Remarque**: cette métrique sera supprimée ultérieurement. Utilisez la métrique de taille de rappel de la hiérarchisation cloud pour surveiller la taille des données rappelées.<br><br>Unité : Octets<br>Type d’agrégation : Somme<br>Dimension applicable : Nom du serveur |
-| Taille de rappel de la hiérarchisation cloud | Taille des données rappelées.<br><br>Unité : Octets<br>Type d’agrégation : Somme<br>Dimension applicable : Nom du serveur, nom du groupe de synchronisation |
-| Taille de rappel de hiérarchisation cloud par application | Taille des données rappelées par application.<br><br>Unité : Octets<br>Type d’agrégation : Somme<br>Dimension applicable : Nom de l’application, nom du serveur, nom du groupe de synchronisation |
-| Débit de rappel de la hiérarchisation cloud | Taille de débit de rappel des données.<br><br>Unité : Octets<br>Type d’agrégation : Somme<br>Dimension applicable : Nom du serveur, nom du groupe de synchronisation |
-| Fichiers ne se synchronisant pas | Nombre de fichiers qui ne peuvent pas être synchronisés.<br><br>Unité : Count<br>Type d’agrégation : Somme<br>Dimensions applicables : Nom du point de terminaison de serveur, sens de la synchronisation, nom du groupe de synchronisation |
-| Fichiers synchronisés | Nombre de fichiers transférés (chargement et téléchargement).<br><br>Unité : Count<br>Type d’agrégation : Somme<br>Dimensions applicables : Nom du point de terminaison de serveur, sens de la synchronisation, nom du groupe de synchronisation |
+| Octets synchronisés | Taille des données transférées (chargement et téléchargement).<br><br>Unité : Octets<br>Type d’agrégation : SUM<br>Dimensions applicables : Nom du point de terminaison de serveur, sens de la synchronisation, nom du groupe de synchronisation |
+| Rappel de hiérarchisation cloud | Taille des données rappelées.<br><br>**Remarque** : cette métrique sera supprimée ultérieurement. Utilisez la métrique de taille de rappel de la hiérarchisation cloud pour surveiller la taille des données rappelées.<br><br>Unité : Octets<br>Type d’agrégation : SUM<br>Dimension applicable : Nom du serveur |
+| Taille de rappel de la hiérarchisation cloud | Taille des données rappelées.<br><br>Unité : Octets<br>Type d’agrégation : SUM<br>Dimension applicable : Nom du serveur, nom du groupe de synchronisation |
+| Taille de rappel de hiérarchisation cloud par application | Taille des données rappelées par application.<br><br>Unité : Octets<br>Type d’agrégation : SUM<br>Dimension applicable : Nom de l’application, nom du serveur, nom du groupe de synchronisation |
+| Débit de rappel de la hiérarchisation cloud | Taille de débit de rappel des données.<br><br>Unité : Octets<br>Type d’agrégation : SUM<br>Dimension applicable : Nom du serveur, nom du groupe de synchronisation |
+| Fichiers ne se synchronisant pas | Nombre de fichiers qui ne peuvent pas être synchronisés.<br><br>Unité : Count<br>Type d’agrégation : SUM<br>Dimensions applicables : Nom du point de terminaison de serveur, sens de la synchronisation, nom du groupe de synchronisation |
+| Fichiers synchronisés | Nombre de fichiers transférés (chargement et téléchargement).<br><br>Unité : Count<br>Type d’agrégation : SUM<br>Dimensions applicables : Nom du point de terminaison de serveur, sens de la synchronisation, nom du groupe de synchronisation |
 | État du serveur en ligne | Nombre de pulsations reçues du serveur.<br><br>Unité : Count<br>Type d’agrégation : Maximale<br>Dimension applicable : Nom du serveur |
 | Résultat de session de synchronisation | Résultat de session de synchronisation (1 = session de synchronisation réussie ; 0 = session de synchronisation ayant échoué)<br><br>Unité : Count<br>Types d’agrégation : Maximale<br>Dimensions applicables : Nom du point de terminaison de serveur, sens de la synchronisation, nom du groupe de synchronisation |
 
@@ -82,7 +82,7 @@ Pour afficher l'intégrité du serveur inscrit ainsi que l'intégrité et les m�
   | Nom de métrique | Description | Nom du panneau |
   |-|-|-|
   | Octets synchronisés | Taille des données transférées (chargement et téléchargement) | Groupe de synchronisation, point de terminaison du serveur |
-  | Rappel de hiérarchisation cloud | Taille des données rappelées | Serveurs inscrits |
+  | Rappel de hiérarchisation cloud | taille des données rappelées ; | Serveurs inscrits |
   | Fichiers ne se synchronisant pas | Nombre de fichiers qui ne peuvent pas être synchronisés | Point de terminaison de serveur |
   | Fichiers synchronisés | Nombre de fichiers transférés (chargement et téléchargement) | Groupe de synchronisation, point de terminaison du serveur |
   | État du serveur en ligne | Nombre de pulsations reçues du serveur | Serveurs inscrits |
@@ -117,18 +117,18 @@ Intégrité de la hiérarchisation cloud :
 
 - Pour surveiller l'activité de hiérarchisation sur un serveur, utilisez les ID d'événement 9003, 9016 et 9029 dans le journal des événements de télémétrie. Celui-ci se trouve dans l'observateur d'événements, sous *Applications and Services\Microsoft\FileSync\Agent*.
 
-  - L’ID d’événement 9003 fournit la distribution des erreurs de distribution pour un point de terminaison de serveur. Par exemple :  le nombre total d'erreurs et le code d'erreur. Un événement est enregistré par code d'erreur.
-  - L’ID d’événement 9016 fournit des résultats de dédoublement pour un volume. Par exemple :  le pourcentage d'espace libre, le nombre de fichiers dupliqués au cours de la session et le nombre d'échecs de duplication de fichiers.
-  - L’ID d’événement 9029 fournit des informations sur les sessions de duplication d’un point de terminaison de serveur. Par exemple :  le nombre de fichiers tentés au cours de la session, le nombre de fichiers hiérarchisés au cours de la session et le nombre de fichiers déjà hiérarchisés.
+  - L’ID d’événement 9003 fournit la distribution des erreurs de distribution pour un point de terminaison de serveur. Par exemple : le nombre total d'erreurs et le code d'erreur. Un événement est enregistré par code d'erreur.
+  - L’ID d’événement 9016 fournit des résultats de dédoublement pour un volume. Par exemple : le pourcentage d'espace libre, le nombre de fichiers dupliqués au cours de la session et le nombre d'échecs de duplication de fichiers.
+  - L’ID d’événement 9029 fournit des informations sur les sessions de duplication d’un point de terminaison de serveur. Par exemple : le nombre de fichiers tentés au cours de la session, le nombre de fichiers hiérarchisés au cours de la session et le nombre de fichiers déjà hiérarchisés.
   
 - Pour surveiller l'activité de rappel sur un serveur, utilisez les ID d'événement 9005, 9006, 9009 et 9059 dans le journal des événements de télémétrie. Celui-ci se trouve dans l'observateur d'événements, sous *Applications and Services\Microsoft\FileSync\Agent*.
 
-  - L’ID d’événement 9005 fournit une fiabilité de rappel pour un point de terminaison de serveur. Par exemple :  le nombre de total de fichiers uniques consultés et le nombre total de fichiers uniques dont l'accès a échoué.
-  - L’ID d’événement 9006 fournit la distribution des erreurs de rappel pour un point de terminaison de serveur. Par exemple :  le nombre total de demandes ayant échoué et le code d'erreur. Un événement est enregistré par code d'erreur.
-  - L’ID d’événement 9009 fournit des informations sur les sessions de rappel d’un point de terminaison de serveur. Par exemple :  DurationSeconds, CountFilesRecallSucceeded et CountFilesRecallFailed.
-  - L’ID d’événement 9059 fournit la distribution des rappels d’application pour un point de terminaison de serveur. Par exemple :  ShareId, Application Name et TotalEgressNetworkBytes.
+  - L’ID d’événement 9005 fournit une fiabilité de rappel pour un point de terminaison de serveur. Par exemple : le nombre de total de fichiers uniques consultés et le nombre total de fichiers uniques dont l'accès a échoué.
+  - L’ID d’événement 9006 fournit la distribution des erreurs de rappel pour un point de terminaison de serveur. Par exemple : le nombre total de demandes ayant échoué et le code d'erreur. Un événement est enregistré par code d'erreur.
+  - L’ID d’événement 9009 fournit des informations sur les sessions de rappel d’un point de terminaison de serveur. Par exemple : DurationSeconds, CountFilesRecallSucceeded et CountFilesRecallFailed.
+  - L’ID d’événement 9059 fournit la distribution des rappels d’application pour un point de terminaison de serveur. Par exemple : ShareId, Application Name et TotalEgressNetworkBytes.
 
-### <a name="performance-counters"></a>Compteurs de performances
+### <a name="performance-counters"></a>Compteurs de performance
 
 Utilisez les compteurs de performances d’Azure File Sync sur le serveur pour surveiller l’activité de synchronisation.
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/05/2019
 ms.author: mbaldwin
 ms.openlocfilehash: a288b44c07bc2df8529f07264dcee648f3af379a
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74079930"
 ---
 # <a name="security-controls-for-azure-expressroute"></a>Contrôles de sécurité pour Azure ExpressRoute
@@ -26,25 +26,25 @@ Cet article décrit les contrôles de sécurité intégrés dans Azure ExpressRo
 |---|---|--|
 | Prise en charge du point de terminaison de service| N/A |  |
 | Prise en charge de l’injection de réseau virtuel| N/A | |
-| Prise en charge de l’isolement réseau et de l’installation de pare-feu| OUI | Chaque client est contenu dans son propre domaine de routage et acheminé vers son propre réseau virtuel |
+| Prise en charge de l’isolement réseau et de l’installation de pare-feu| Oui | Chaque client est contenu dans son propre domaine de routage et acheminé vers son propre réseau virtuel |
 | Prise en charge du tunneling forcé| N/A | Via le protocole de passerelle frontière (BGP). |
 
 ## <a name="monitoring--logging"></a>Supervision et journalisation
 
 | Contrôle de sécurité | Oui/Non | Notes|
 |---|---|--|
-| Prise en charge de la supervision Azure (Log analytics, App insights, etc.)| OUI | Consultez [Supervision, métriques et alertes ExpressRoute](expressroute-monitoring-metrics-alerts.md).|
-| Journalisation et audit du plan de gestion et de contrôle| OUI |  |
+| Prise en charge de la supervision Azure (Log analytics, App insights, etc.)| Oui | Consultez [Supervision, métriques et alertes ExpressRoute](expressroute-monitoring-metrics-alerts.md).|
+| Journalisation et audit du plan de gestion et de contrôle| Oui |  |
 | Journalisation et audit du plan de données| Non |   |
 
 ## <a name="identity"></a>Identité
 
 | Contrôle de sécurité | Oui/Non | Notes|
 |---|---|--|
-| Authentication| OUI | Compte de service de passerelle pour Microsoft (GWM) (contrôleur) ; Accès JIT (juste-à-temps) pour le développement et l’exploitation. |
-| Authorization|  OUI |Compte de service de passerelle pour Microsoft (GWM) (contrôleur) ; Accès JIT (juste-à-temps) pour le développement et l’exploitation. |
+| Authentification| Oui | Compte de service de passerelle pour Microsoft (GWM) (contrôleur) ; Accès JIT (juste-à-temps) pour le développement et l’exploitation. |
+| Autorisation|  Oui |Compte de service de passerelle pour Microsoft (GWM) (contrôleur) ; Accès JIT (juste-à-temps) pour le développement et l’exploitation. |
 
-## <a name="data-protection"></a>Protection des données
+## <a name="data-protection"></a>Protection de données
 
 | Contrôle de sécurité | Oui/Non | Notes |
 |---|---|--|
@@ -52,14 +52,14 @@ Cet article décrit les contrôles de sécurité intégrés dans Azure ExpressRo
 | Chiffrement côté serveur au repos : clés gérées par le client (BYOK) | N/A |  |
 | Chiffrement au niveau des colonnes (Azure Data Services)| N/A | |
 | Chiffrement en transit (comme ExpressRoute, de réseau virtuel et de réseau virtuel à réseau virtuel)| Non | |
-| Appels d’API chiffrés| OUI | Via [Azure Resource Manager](../azure-resource-manager/index.yml) et HTTPS. |
+| Appels d’API chiffrés| Oui | Via [Azure Resource Manager](../azure-resource-manager/index.yml) et HTTPS. |
 
 
 ## <a name="configuration-management"></a>Gestion des configurations
 
 | Contrôle de sécurité | Oui/Non | Notes|
 |---|---|--|
-| Prise en charge de la gestion de la configuration (gestion de version de la configuration, etc.)| OUI | Via le fournisseur de ressources réseau (NRP). |
+| Prise en charge de la gestion de la configuration (gestion de version de la configuration, etc.)| Oui | Via le fournisseur de ressources réseau (NRP). |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

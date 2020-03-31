@@ -17,10 +17,10 @@ ms.date: 11/15/2018
 ms.author: kumud
 ms.reviewer: anavin
 ms.openlocfilehash: 61df13e78dc7115d4f4d45ab18b9ffdae107dc96
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77023257"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>Créer un peering de réseaux virtuels Azure - Modèles de déploiement différents, même abonnement
@@ -80,7 +80,7 @@ Pour créer un peering de réseaux virtuels, vous pouvez utiliser le portail Azu
 13. **Facultatif** : bien que la création de machines virtuelles ne soit pas abordée dans ce tutoriel, vous pouvez créer une machine virtuelle sur chaque réseau virtuel et vous connecter d'une machine virtuelle à l'autre pour valider la connectivité.
 14. **Facultatif** : pour supprimer les ressources créées dans ce tutoriel, effectuez les étapes décrites dans la section [Supprimer des ressources](#delete-portal) de cet article.
 
-## <a name="cli"></a>Créer un peering - interface de ligne de commande Azure
+## <a name="create-peering---azure-cli"></a><a name="cli"></a>Créer un peering - interface de ligne de commande Azure
 
 Effectuez les étapes suivantes à l’aide de l’interface Azure Classic CLI et de l’interface Azure CLI. Vous pouvez effectuer les étapes à partir d’Azure Cloud Shell, en sélectionnant simplement le bouton **Essayer** dans toutes les étapes suivantes, ou en installant l’interface [Azure Classic CLI](/cli/azure/install-cli-version-1.0?toc=%2fazure%2fvirtual-network%2ftoc.json) et [Azure CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json), puis en exécutant les commandes sur votre ordinateur local.
 
@@ -143,7 +143,7 @@ Effectuez les étapes suivantes à l’aide de l’interface Azure Classic CLI e
 7. **Facultatif** : bien que la création de machines virtuelles ne soit pas abordée dans ce tutoriel, vous pouvez créer une machine virtuelle sur chaque réseau virtuel et vous connecter d'une machine virtuelle à l'autre pour valider la connectivité.
 8. **Facultatif** : pour supprimer les ressources créées dans ce tutoriel, effectuez les étapes décrites dans la section [Supprimer des ressources](#delete-cli) de cet article.
 
-## <a name="powershell"></a>Créer un peering - PowerShell
+## <a name="create-peering---powershell"></a><a name="powershell"></a>Créer un peering - PowerShell
 
 1. Installez la dernière version des modules PowerShell [Azure](https://www.powershellgallery.com/packages/Azure) et [Az](https://www.powershellgallery.com/packages/Az/). Si vous débutez dans l’utilisation d’Azure PowerShell, voir [Vue d’ensemble d’Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. Démarrez une session PowerShell.
@@ -206,17 +206,17 @@ Effectuez les étapes suivantes à l’aide de l’interface Azure Classic CLI e
 9. **Facultatif** : bien que la création de machines virtuelles ne soit pas abordée dans ce tutoriel, vous pouvez créer une machine virtuelle sur chaque réseau virtuel et vous connecter d'une machine virtuelle à l'autre pour valider la connectivité.
 10. **Facultatif** : pour supprimer les ressources créées dans ce tutoriel, effectuez les étapes décrites dans la section [Supprimer des ressources](#delete-powershell) de cet article.
 
-## <a name="delete"></a>Supprimer des ressources
+## <a name="delete-resources"></a><a name="delete"></a>Supprimer des ressources
 
 Lorsque vous aurez terminé ce didacticiel, vous souhaiterez peut-être supprimer les ressources que vous avez créées, afin que leur utilisation ne soit pas facturée. La suppression d’un groupe de ressources supprime également toutes les ressources qu’il contient.
 
-### <a name="delete-portal"></a>Portail Azure
+### <a name="azure-portal"></a><a name="delete-portal"></a>Portail Azure
 
 1. Dans le champ de recherche du portail, entrez **myResourceGroup**. Dans les résultats de la recherche, cliquez sur **myResourceGroup**.
 2. Dans le panneau **myResourceGroup**, cliquez sur l’icône **Supprimer**.
 3. Pour confirmer la suppression, dans le champ **TAPEZ LE NOM DU GROUPE DE RESSOURCES :** , entrez **myResourceGroup**, puis cliquez sur **Supprimer**.
 
-### <a name="delete-cli"></a>Interface CLI Azure
+### <a name="azure-cli"></a><a name="delete-cli"></a>Interface CLI Azure
 
 1. Utilisez Azure CLI pour supprimer le réseau virtuel (Resource Manager) avec la commande suivante :
 
@@ -232,7 +232,7 @@ Lorsque vous aurez terminé ce didacticiel, vous souhaiterez peut-être supprime
     azure network vnet delete --vnet myVnet2 --quiet
     ```
 
-### <a name="delete-powershell"></a>PowerShell
+### <a name="powershell"></a><a name="delete-powershell"></a>PowerShell
 
 1. Entrez la commande suivante pour supprimer le réseau virtuel (Resource Manager) :
 

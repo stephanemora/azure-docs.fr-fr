@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: jingwang
 ms.openlocfilehash: 8ebb4f0d1a06a7bf29dc46cd696b6acfd2527095
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927391"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79229997"
 ---
 # <a name="binary-format-in-azure-data-factory"></a>Format Binaire dans Azure Data Factory
 
@@ -31,10 +31,10 @@ Pour obtenir la liste complète des sections et propriétés disponibles pour la
 
 | Propriété         | Description                                                  | Obligatoire |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| Type             | La propriété type du jeu de données doit être définie sur **Binaire**. | OUI      |
-| location         | Paramètres d’emplacement du ou des fichiers. Chaque connecteur basé sur un fichier possède ses propres type d’emplacement et propriétés prises en charge sous `location`. **Consultez les détails dans l’article du connecteur -> section des propriétés du jeu de données**. | OUI      |
+| type             | La propriété type du jeu de données doit être définie sur **Binaire**. | Oui      |
+| location         | Paramètres d’emplacement du ou des fichiers. Chaque connecteur basé sur un fichier possède ses propres type d’emplacement et propriétés prises en charge sous `location`. **Consultez les détails dans l’article du connecteur -> section des propriétés du jeu de données**. | Oui      |
 | compression | Groupe de propriétés pour configurer la compression de fichier. Configurez cette section lorsque vous souhaitez effectuer la compression/décompression lors de l’exécution de l’activité. | Non |
-| Type | Le codec de compression utilisé pour lire/écrire des fichiers binaires. <br>Les valeurs autorisées sont **bzip2**, **gzip**, **deflate**, **ZipDeflate**. À utiliser lors de l’enregistrement du fichier.<br>Notez que lorsque vous utilisez l’activité de copie pour décompresser un ou plusieurs fichiers ZipDeflate et écrire dans le magasin de données du récepteur basé sur des fichiers, les fichiers sont extraits dans le dossier : `<path specified in dataset>/<folder named as source zip file>/`. | Non       |
+| type | Le codec de compression utilisé pour lire/écrire des fichiers binaires. <br>Les valeurs autorisées sont **bzip2**, **gzip**, **deflate**, **ZipDeflate**. À utiliser lors de l’enregistrement du fichier.<br>Notez que lorsque vous utilisez l’activité de copie pour décompresser un ou plusieurs fichiers ZipDeflate et écrire dans le magasin de données du récepteur basé sur des fichiers, les fichiers sont extraits dans le dossier : `<path specified in dataset>/<folder named as source zip file>/`. | Non       |
 | level | Le taux de compression. Appliquez quand le jeu de données est utilisé dans le récepteur d’activité de copie.<br>Les valeurs autorisées sont **Optimal** ou **Fastest**.<br>- **Fastest (le plus rapide) :** l’opération de compression doit se terminer le plus rapidement possible, même si le fichier résultant n’est pas compressé de façon optimale.<br>- **Optimal** : l’opération de compression doit aboutir à une compression optimale, même si elle prend plus de temps. Pour plus d’informations, consultez la rubrique [Niveau de compression](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | Non       |
 
 Voici un exemple de jeu de données Binaire sur Stockage Blob Azure :
@@ -75,7 +75,7 @@ Les propriétés prises en charge dans la section ***\*source\**** de l’activi
 
 | Propriété      | Description                                                  | Obligatoire |
 | ------------- | ------------------------------------------------------------ | -------- |
-| Type          | La propriété type de la source de l’activité de copie doit être définie sur **BinarySource**. | OUI      |
+| type          | La propriété type de la source de l’activité de copie doit être définie sur **BinarySource**. | Oui      |
 | storeSettings | Un groupe de propriétés sur la façon de lire les données d’un magasin de données. Chaque connecteur basé sur un fichier possède ses propres paramètres de lecture pris en charge sous `storeSettings`. **Consultez les détails dans l’article du connecteur -> section des propriétés de l’activité de copie**. | Non       |
 
 ### <a name="binary-as-sink"></a>Binaire en tant que récepteur
@@ -84,7 +84,7 @@ Les propriétés prises en charge dans la section ***\*récepteur\**** de l’ac
 
 | Propriété      | Description                                                  | Obligatoire |
 | ------------- | ------------------------------------------------------------ | -------- |
-| Type          | La propriété type de la source d’activité de copie doit être définie sur **BinarySink**. | OUI      |
+| type          | La propriété type de la source d’activité de copie doit être définie sur **BinarySink**. | Oui      |
 | storeSettings | Groupe de propriétés sur la méthode d’écriture de données dans un magasin de données. Chaque connecteur basé sur un fichier possède ses propres paramètres d’écriture pris en charge sous `storeSettings`. **Consultez les détails dans l’article du connecteur -> section des propriétés de l’activité de copie**. | Non       |
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -12,10 +12,10 @@ ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18
 ms.openlocfilehash: 298228eedb73298f00654f4f72c201d9ed671090
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72177058"
 ---
 # <a name="call-the-computer-vision-api"></a>Appeler l’API Vision par ordinateur
@@ -80,7 +80,7 @@ La façon la plus simple d’effectuer l’appel de l’API Vision par ordinateu
 
 Pour une image spécifiée, obtenez des étiquettes et une description en utilisant une des options suivantes :
 
-### <a name="option-1-get-a-list-of-tags-and-a-description"></a>Option 1 : Obtenir une liste d’étiquettes et une description
+### <a name="option-1-get-a-list-of-tags-and-a-description"></a>Option 1 : Obtenir une liste d’étiquettes et une description
 
 ```
 POST https://westus.api.cognitive.microsoft.com/vision/v2.1/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>
@@ -100,7 +100,7 @@ using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
 }
 ```
 
-### <a name="option-2-get-a-list-of-tags-only-or-a-description-only"></a>Option 2 : Obtenir seulement une liste d’étiquettes ou seulement une description
+### <a name="option-2-get-a-list-of-tags-only-or-a-description-only"></a>Option n°2 : Obtenir seulement une liste d’étiquettes ou seulement une description
 
 Pour les étiquettes seulement, exécutez :
 
@@ -121,7 +121,7 @@ using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
 
 ## <a name="get-domain-specific-analysis-celebrities"></a>Obtenir une analyse spécifique au domaine (célébrités)
 
-### <a name="option-1-scoped-analysis---analyze-only-a-specified-model"></a>Option 1 : Analyse délimitée - Analyser seulement un modèle spécifié
+### <a name="option-1-scoped-analysis---analyze-only-a-specified-model"></a>Option 1 : Analyse délimitée - Analyser seulement un modèle spécifié
 ```
 POST https://westus.api.cognitive.microsoft.com/vision/v2.1/models/celebrities/analyze
 var celebritiesResult = await visionClient.AnalyzeImageInDomainAsync(url, "celebrities");
@@ -134,7 +134,7 @@ GET https://westus.api.cognitive.microsoft.com/vision/v2.1/models
 var models = await visionClient.ListModelsAsync();
 ```
 
-### <a name="option-2-enhanced-analysis---analyze-to-provide-additional-details-by-using-86-categories-taxonomy"></a>Option 2 : Analyse élargie - Analyser pour fournir des détails supplémentaires en utilisant une taxonomie de 86 catégories
+### <a name="option-2-enhanced-analysis---analyze-to-provide-additional-details-by-using-86-categories-taxonomy"></a>Option n°2 : Analyse élargie - Analyser pour fournir des détails supplémentaires en utilisant une taxonomie de 86 catégories
 
 Dans les applications où vous voulez obtenir une analyse d’image générique en plus des détails issus d’un ou plusieurs modèles spécifiques à un domaine, étendez l’API v1 avec le paramètre de requête « models ».
 
@@ -189,7 +189,7 @@ description.captions[].confidence   | `number`  | Score de confiance pour l’ex
 
 ## <a name="retrieve-and-understand-the-json-output-of-domain-specific-models"></a>Récupérer et comprendre la sortie JSON des modèles spécifiques au domaine
 
-### <a name="option-1-scoped-analysis---analyze-only-a-specified-model"></a>Option 1 : Analyse délimitée - Analyser seulement un modèle spécifié
+### <a name="option-1-scoped-analysis---analyze-only-a-specified-model"></a>Option 1 : Analyse délimitée - Analyser seulement un modèle spécifié
 
 La sortie est un tableau d’étiquettes, comme illustré dans l’exemple suivant :
 
@@ -208,7 +208,7 @@ La sortie est un tableau d’étiquettes, comme illustré dans l’exemple suiva
 }
 ```
 
-### <a name="option-2-enhanced-analysis---analyze-to-provide-additional-details-by-using-the-86-categories-taxonomy"></a>Option 2 : Analyse élargie - Analyser pour fournir des détails supplémentaires en utilisant la taxonomie « 86-categories » (86 catégories)
+### <a name="option-2-enhanced-analysis---analyze-to-provide-additional-details-by-using-the-86-categories-taxonomy"></a>Option n°2 : Analyse élargie - Analyser pour fournir des détails supplémentaires en utilisant la taxonomie « 86-categories » (86 catégories)
 
 Pour les modèles spécifiques au domaine qui utilisent l’option 2 (analyse élargie), le type de retour des catégories est étendu, comme illustré dans l’exemple suivant :
 

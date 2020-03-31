@@ -4,10 +4,10 @@ description: Dans cet article, découvrez comment restaurer des bases de donnée
 ms.topic: conceptual
 ms.date: 11/7/2019
 ms.openlocfilehash: 999edba61177758ad9039e81e789efcef99ca1de
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74287387"
 ---
 # <a name="restore-sap-hana-databases-on-azure-vms"></a>Restaurer les bases de données SAP HANA sur des machines virtuelles Azure
@@ -56,7 +56,7 @@ Avant de restaurer une base de données, notez les points suivants :
 
 * Pour en savoir plus sur les types de restauration pris en charge par SAP HANA, reportez-vous à la note SAP HANA [1642148](https://launchpad.support.sap.com/#/notes/1642148).
 
-## <a name="restore-a-database"></a>Restauration d’une base de données
+## <a name="restore-a-database"></a>Restaurer une base de données
 
 * Ouvrez le coffre dans lequel la base de données SAP HANA à restaurer est inscrite.
 

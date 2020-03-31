@@ -12,10 +12,10 @@ ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: iainfou
 ms.openlocfilehash: 06b0fa1979f18981ec5cf78dc9a9dbad8b196394
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71258051"
 ---
 # <a name="known-issues-secure-ldap-alerts-in-azure-active-directory-domain-services"></a>Problèmes connus : Alertes du protocole LDAP sécurisé dans Azure Active Directory Domain Services
@@ -26,11 +26,11 @@ Cet article vous aide à comprendre et à résoudre les alertes courantes avec u
 
 ## <a name="aadds101-secure-ldap-network-configuration"></a>AADDS101 : Configuration du réseau LDAP sécurisé
 
-### <a name="alert-message"></a>Message d'alerte
+### <a name="alert-message"></a>Message d’alerte
 
 *Le protocole LDAP sécurisé sur Internet est activé pour le domaine managé. Toutefois, l’accès au port 636 n’est pas verrouillé à l’aide d’un Groupe de sécurité réseau (NSG). Cela peut exposer les comptes d’utilisateurs du domaine managé à des attaques de mots de passe par force brute.*
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 Lorsque vous activez le protocole LDAP sécurisé, il est recommandé de créer des règles supplémentaires qui restreignent l’accès LDAPS entrant à des adresses IP spécifiques. Ces règles protègent le domaine Azure AD DS managé contre les attaques par force brute. Pour mettre à jour le groupe de sécurité réseau afin de restreindre l’accès au port TCP 636 pour le protocole LDAP sécurisé, procédez comme suit :
 
@@ -54,7 +54,7 @@ L’intégrité du domaine managé Azure AD DS se met automatiquement à jour da
 
 *Le certificat LDAP sécurisé pour le domaine managé expirera le [date]].*
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 Créez un certificat LDAP sécurisé de remplacement en suivant les étapes de [création d’un certificat pour le protocole LDAP sécurisé](tutorial-configure-ldaps.md#create-a-certificate-for-secure-ldap). Appliquez le certificat de remplacement à Azure AD DS et distribuez-le à tous les clients qui se connectent à l’aide du protocole LDAP sécurisé.
 

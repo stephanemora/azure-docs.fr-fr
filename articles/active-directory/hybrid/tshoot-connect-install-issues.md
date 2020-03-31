@@ -16,13 +16,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e75ad29c5b4a76de5317991995f132c6cb53bbe3
-ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70211840"
 ---
-# <a name="troubleshoot-azure-ad-connect-install-issues"></a>Résolution de problèmes : Problèmes d’installation Azure AD Connect
+# <a name="troubleshoot-azure-ad-connect-install-issues"></a>Résoudre les problèmes : Problèmes d’installation Azure Active Directory Connect
 
 ## <a name="recommended-steps"></a>**Étapes recommandées**
 Vérifiez quel [type d’installation d’Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-select-installation) vous convient. Si vous respectez les critères d’installation rapide, nous vous recommandons vivement d’opter pour une telle installation. L’installation expresse vous offre le minimum d’options nécessaires pour accomplir l’installation. Le risque de rencontrer des problèmes est donc réduit. 

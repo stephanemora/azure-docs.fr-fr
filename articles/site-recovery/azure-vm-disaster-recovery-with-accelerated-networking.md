@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
 ms.openlocfilehash: 27691d8fab3e7c8ccd60351dc0be83898ff984ed
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73622429"
 ---
 # <a name="accelerated-networking-with-azure-virtual-machine-disaster-recovery"></a>Mise en réseau accélérée avec la récupération d’urgence de machines virtuelles Azure
 
 Une mise en réseau accélérée permet d’opérer une virtualisation d’E/S d’une racine unique (SR-IOV) sur une machine virtuelle, ce qui améliore considérablement les performances de mise en réseau. Cette voie hautement performante court-circuite l’hôte à partir du chemin d’accès aux données, réduisant ainsi la latence, l’instabilité et l’utilisation du processeur pour servir les charges de travail réseau les plus exigeantes sur les types de machines virtuelles pris en charge. L’illustration suivante montre la communication entre deux machines virtuelles avec ou sans mise en réseau accélérée :
 
-![Opérateurs de comparaison](./media/azure-vm-disaster-recovery-with-accelerated-networking/accelerated-networking-benefit.png)
+![Comparaison](./media/azure-vm-disaster-recovery-with-accelerated-networking/accelerated-networking-benefit.png)
 
 Azure Site Recovery vous permet d’utiliser les avantages de la mise en réseau accélérée, pour les machines virtuelles Azure basculées vers une autre région Azure. Cet article décrit comment utiliser la mise en réseau accélérée pour les machines virtuelles Azure répliquées avec Azure Site Recovery.
 
@@ -52,7 +52,7 @@ Pour plus d’informations sur les instances de machine virtuelle, consultez la 
 Azure Site Recovery prend en charge l’activation de la mise en réseau accélérée pour les machines virtuelles répliquées seulement si celle-ci est activée pour la machine virtuelle source. Si la mise en réseau accélérée n’est pas activée pour votre machine virtuelle source, vous pouvez apprendre [ici](../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms) à activer la mise en réseau accélérée pour les machines virtuelles Linux.
 
 ### <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
-Les distributions suivantes sont prises en charge sans configuration supplémentaire à partir de la galerie Azure :
+Les distributions suivantes sont prises en charge sans configuration supplémentaire à partir de la galerie Azure :
 * **Ubuntu 16.04**
 * **SLES 12 SP3**
 * **RHEL 7.4**

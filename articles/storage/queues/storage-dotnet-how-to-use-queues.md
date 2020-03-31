@@ -9,10 +9,10 @@ ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
 ms.openlocfilehash: 0806c1101c0bc93a1b917cb2d18709721ff0c6d6
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75968292"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Prise en main du stockage de files d’attente Azure à l’aide de .NET
@@ -31,7 +31,7 @@ Ce didacticiel montre comment écrire du code .NET pour des scénarios courants
 
 **Durée estimée :** 45 minutes
 
-### <a name="prerequisites"></a>Conditions préalables requises
+### <a name="prerequisites"></a>Prérequis
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Bibliothèque de client commune du Stockage Azure pour .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)

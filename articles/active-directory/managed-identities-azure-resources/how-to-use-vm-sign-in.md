@@ -16,10 +16,10 @@ ms.date: 12/01/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 34f4dc749c0254b5aa4e9ff018d2a869832de3f0
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74547387"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>Guide pratique de l’utilisation d’identités managées pour ressources Azure sur une machine virtuelle Azure pour se connecter 
@@ -39,16 +39,16 @@ Si vous envisagez d’utiliser les exemples de Azure PowerShell ou Azure CLI dan
 > - L’exemple de script présenté dans cet article part du principe que le client de ligne de commande s’exécute sur une machine virtuelle avec des identités managées pour ressources Azure activées. Utilisez la fonctionnalité « Se connecter » de machine virtuelle dans le portail Azure, pour vous connecter à distance à votre machine virtuelle. Pour plus d’informations sur l’activation d’identités managées pour ressources Azure sur une machine virtuelle, voir [Configurer des identités managées pour ressources Azure sur une machine virtuelle en utilisant le portail Azure](qs-configure-portal-windows-vm.md), ou l’une des variantes de cet article (en utilisant PowerShell, CLI, un modèle ou un Kit de développement logiciel (SDK) Azure). 
 > - Pour éviter les erreurs lors de l’accès aux ressources, l’identité managée de la machine virtuelle doit comporter au moins l’accès « Lecture » à l’étendue appropriée (la machine virtuelle ou plus) pour autoriser les opérations d’Azure Resource Manager sur la machine virtuelle. Pour plus d’informations, voir [Attribuer l’accès aux identités managées pour ressources Azure à une ressource en utilisant le portail Azure](howto-assign-access-portal.md).
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
-Les identités managées pour ressources Azure fournissent un [objet principal du service](../develop/developer-glossary.md#service-principal-object) [créé lors de l’activation d’identités managées pour ressources Azure](overview.md#how-does-the-managed-identities-for-azure-resources-work) sur la machine virtuelle. Le principal du service peut accorder l’accès aux ressources Azure et être utilisé comme identité par des clients de script/ligne de commande pour la connexion et l’accès aux ressources. En règle générale, pour accéder à des ressources sécurisées sous sa propre identité, un client de script doit :  
+Les identités managées pour ressources Azure fournissent un [objet principal du service](../develop/developer-glossary.md#service-principal-object)[créé lors de l’activation d’identités managées pour ressources Azure](overview.md#how-does-the-managed-identities-for-azure-resources-work) sur la machine virtuelle. Le principal du service peut accorder l’accès aux ressources Azure et être utilisé comme identité par des clients de script/ligne de commande pour la connexion et l’accès aux ressources. En règle générale, pour accéder à des ressources sécurisées sous sa propre identité, un client de script doit :  
 
    - être inscrit et consenti avec Azure AD comme une application cliente web/confidentielle
    - connectez-vous sous son principal du service, à l’aide des informations d’identification de l’application (normalement incorporées dans le script)
 
 Avec des identités managées pour ressources Azure, votre client de script n’a plus besoin de faire quoi que ce soit, car il peut se connecter sous le principal du service d’identités managées pour ressources Azure. 
 
-## <a name="azure-cli"></a>D’Azure CLI
+## <a name="azure-cli"></a>Azure CLI
 
 Le script suivant montre comment :
 
@@ -86,7 +86,7 @@ Pour obtenir la liste des ressources qui prennent en charge Azure AD et qui ont 
 
 Des réponses telles que les suivantes peuvent indiquer que l’identité managée pour ressources Azure de la machine virtuelle n’a pas été configurée correctement :
 
-- PowerShell : *Invoke-WebRequest : Impossible de se connecter au serveur distant*
+- PowerShell : *Invoke-WebRequest : Impossible de se connecter au serveur distant*
 - Interface CLI : *MSI : Impossible de récupérer un jeton à partir de `http://localhost:50342/oauth2/token`, erreur 'HTTPConnectionPool(host='localhost', port=50342)* 
 
 Si vous recevez l’une de ces erreurs, revenez à la machine virtuelle Azure dans le [portail Azure](https://portal.azure.com) et :

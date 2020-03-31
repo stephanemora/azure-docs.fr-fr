@@ -17,11 +17,11 @@ ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 959d85f496a4a573a969bf736aba137d5b86154a
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174734"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79230393"
 ---
 # <a name="change-lifecycle-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Modifier les paramètres de cycle de vie d’un package d’accès dans la gestion des droits d’utilisation Azure AD
 
@@ -41,7 +41,7 @@ Pour modifier les paramètres de cycle de vie d’un package d’accès, vous de
 
 1. Cliquez sur **Stratégies** puis sur la stratégie qui contient les paramètres de cycle de vie que vous souhaitez modifier.
 
-    Le volet Détails de la stratégie s’ouvre au bas de la page.
+    Le volet Détails de la stratégie s'ouvre au bas de la page.
 
     ![Package d’accès - Volet des détails de la stratégie](./media/entitlement-management-shared/policy-details.png)
 

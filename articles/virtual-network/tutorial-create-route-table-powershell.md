@@ -18,10 +18,10 @@ ms.date: 03/13/2018
 ms.author: kumud
 ms.custom: ''
 ms.openlocfilehash: 986371e479f7718fff2e1699401987cb0ca8f623
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73163992"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-powershell"></a>Acheminer le trafic réseau avec une table de routage à l’aide de PowerShell
@@ -127,7 +127,7 @@ Set-AzVirtualNetwork
 
 ## <a name="create-an-nva"></a>Créer une NVA
 
-Une appliance virtuelle réseau est une machine virtuelle qui exécute une fonction réseau, telle que le routage, la fonction de pare-feu ou l’optimisation WAN.
+Une NVA est une machine virtuelle qui exécute une fonction réseau, telle que le routage, la fonction de pare-feu ou l’optimisation WAN.
 
 Avant de créer une machine virtuelle, créez une interface réseau.
 
@@ -321,7 +321,7 @@ Vous pouvez voir que le trafic est routé directement de la machine virtuelle *m
 
 Fermez les sessions Bureau à distance sur la machine virtuelle *myVmPrivate*.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous n’avez plus besoin d’un groupe de ressources, utilisez [Remove-AzResourcegroup](/powershell/module/az.resources/remove-azresourcegroup) pour le supprimer, ainsi que toutes les ressources qu’il contient.
 

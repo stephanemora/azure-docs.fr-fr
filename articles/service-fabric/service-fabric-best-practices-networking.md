@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
 ms.openlocfilehash: de2a74ad2d61de18d2150b72be3251e5b5583f2e
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75551792"
 ---
 # <a name="networking"></a>Mise en réseau
@@ -51,7 +51,7 @@ La mise à l’échelle de l’infrastructure est requise pour activer la mise e
 
 * Pour déployer des clusters Service Fabric dans un réseau virtuel existant, suivez la procédure décrite dans [Modèles de mise en réseau de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking).
 
-* Les groupes de sécurité réseau (NSG) sont recommandés pour les types de nœuds qui limitent le trafic entrant et sortant de leur cluster. Assurez-vous que les ports nécessaires sont ouverts dans les groupes de sécurité réseau. Par exemple :  ![Règles de groupe de sécurité réseau Service Fabric][NSGSetup]
+* Les groupes de sécurité réseau (NSG) sont recommandés pour les types de nœuds qui limitent le trafic entrant et sortant de leur cluster. Assurez-vous que les ports nécessaires sont ouverts dans les groupes de sécurité réseau. Par exemple : ![Règles de groupe de sécurité réseau Service Fabric][NSGSetup]
 
 * Le type de nœud principal, qui contient les services système Service Fabric n'est pas tenu d’être exposé via l’équilibreur de charge externe et peut être exposé par un [équilibreur de charge interne](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking#internal-only-load-balancer).
 

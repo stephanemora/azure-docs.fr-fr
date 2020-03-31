@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: 62e5b363f8008380a61e24c0549573a30ecaeb73
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77131866"
 ---
 # <a name="imagery-partner-integration"></a>Intégration de partenaire d’imagerie
@@ -40,7 +40,7 @@ Vous devez utiliser les informations d’identification suivantes dans le logici
 
 Les API incluent une documentation technique Swagger. Pour plus d’informations sur les API et les requêtes ou réponses correspondantes, consultez [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Authentification
 
 FarmBeats utilise Microsoft Azure [Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization) (Azure AD). Azure App Service offre une prise en charge intégrée de l’authentification et de l’autorisation. 
 

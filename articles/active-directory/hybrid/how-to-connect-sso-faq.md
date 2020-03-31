@@ -17,13 +17,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7241c8dfbedb24f95c29ea9e1c3f763218a5668d
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72025680"
 ---
-# <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Authentification unique transparente Azure Active Directory : Questions fréquentes (FAQ)
+# <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Authentification unique transparente Azure Active Directory : Forum aux questions
 
 Dans cet article, nous répondons au forum aux questions sur l’authentification unique et transparente Azure Active Directory. N’hésitez pas à le consulter régulièrement, du contenu nouveau y est fréquemment ajouté.
 
@@ -43,7 +43,7 @@ Non. L’authentification unique transparente est uniquement disponible dans l�
 
 Vous trouverez ci-dessous une liste non exhaustive des applications qui envoient ces paramètres à Azure AD et permettent donc aux utilisateurs de se connecter de manière silencieuse à l’aide de l’authentification unique transparente (par ex. les utilisateurs n’ont pas besoin d’entrer leur nom d’utilisateur ou mot de passe) :
 
-| Nom de l’application | URL d’application à utiliser |
+| Nom de l'application | URL d’application à utiliser |
 | -- | -- |
 | Panneau d’accès | https:\//myapps.microsoft.com/contoso.com |
 | Outlook sur le Web | https:\//outlook.office365.com/contoso.com |
@@ -51,7 +51,7 @@ Vous trouverez ci-dessous une liste non exhaustive des applications qui envoient
 
 En outre, les utilisateurs bénéficient d'une expérience de connexion silencieuse si une application envoie des demandes de connexion à des points de terminaison d'Azure AD configurés en tant que locataires (https:\//login.microsoftonline.com/contoso.com/<..> ou https:\//login.microsoftonline.com/<ID_locataire>/<..>) au lieu du point de terminaison commun d'Azure AD, à savoir https:\//login.microsoftonline.com/common/<...>. Vous trouverez ci-dessous une liste non exhaustive d’applications qui rendent ces types de requêtes de connexion.
 
-| Nom de l’application | URL d’application à utiliser |
+| Nom de l'application | URL d’application à utiliser |
 | -- | -- |
 | SharePoint Online | https:\//contoso.sharepoint.com |
 | Portail Azure | https:\//portal.azure.com/contoso.com |
@@ -151,5 +151,5 @@ Procédez comme suit sur le serveur local où vous exécutez Azure AD Connect :
 
 - [**Démarrage rapide**](how-to-connect-sso-quick-start.md) : Découvrez l’authentification unique transparente Azure AD.
 - [**Immersion technique**](how-to-connect-sso-how-it-works.md) : découvrez comment fonctionne cette fonctionnalité.
-- [**Résolution des problèmes**](tshoot-connect-sso.md) : découvrez comment résoudre les problèmes courants rencontrés avec cette fonctionnalité.
+- [**Résolution des problèmes**](tshoot-connect-sso.md) : découvrez comment résoudre les problèmes courants susceptibles de survenir avec cette fonctionnalité.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) : pour le dépôt de nouvelles demandes de fonctionnalités.

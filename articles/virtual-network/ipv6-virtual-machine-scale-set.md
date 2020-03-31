@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 10/29/2019
 ms.author: kumud
 ms.openlocfilehash: b90910614bcd86a54198b1a0961a3378427ea87e
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73164151"
 ---
 # <a name="deploy-virtual-machine-scale-sets-with-ipv6-in-azure-preview"></a>Déployer des groupes de machines virtuelles identiques avec IPv6 dans Azure (préversion)

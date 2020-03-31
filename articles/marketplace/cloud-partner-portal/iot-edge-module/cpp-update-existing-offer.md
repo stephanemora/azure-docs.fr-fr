@@ -1,19 +1,18 @@
 ---
 title: Mettre à jour une offre de module Azure IoT Edge existante | Place de marché Microsoft Azure
 description: Méthode de mise à jour d’une offre de module IoT Edge existante dans la Place de marché Microsoft Azure.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/18/2018
-ms.author: pabutler
-ms.openlocfilehash: cd0167e1af5bf8ef667df88237d83e9f33ed41f9
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: dceff3e320554edc972654aa49552bffbc4c9a13
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73813395"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80286487"
 ---
 # <a name="update-an-existing-iot-edge-module-offer"></a>Mettre à jour une offre de module IoT Edge existante
 

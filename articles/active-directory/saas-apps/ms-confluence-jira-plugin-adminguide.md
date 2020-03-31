@@ -16,15 +16,15 @@ ms.date: 11/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8679f9a03fded546db68f058bca716ba053aa0fe
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73161194"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Guide de l’administrateur Atlassian Jira et Confluence pour Azure Active Directory
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Le plug-in d’authentification unique (SSO) Azure Active Directory (Azure AD) permet aux clients Microsoft Azure AD d’utiliser leur compte professionnel ou scolaire pour se connecter aux produits serveur Atlassian Jira et Confluence. Il implémente l’authentification unique basée sur SAML 2.0.
 
@@ -41,7 +41,7 @@ Les utilisateurs peuvent également accéder au produit de la société Atlassia
 > [!NOTE]
 > Ce plug-in n’intervient pas dans l’attribution d’utilisateurs.
 
-## <a name="audience"></a>Audience
+## <a name="audience"></a>Public visé
 
 Les administrateurs de Jira et Confluence peuvent utiliser le plug-in pour activer l’authentification unique à l’aide d’Azure AD.
 
@@ -139,7 +139,7 @@ L’image suivante montre l’écran de configuration dans Jira et Confluence :
 
 * **Activer la déconnexion unique** : sélection à effectuer si vous souhaitez vous déconnecter d’Azure AD lorsqu’un utilisateur se déconnecte de Jira ou Confluence.
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 * **Vous obtenez des erreurs de certificats multiples** : Connectez-vous à Azure AD et supprimez les différents certificats disponibles pour l’application. Vérifiez qu’il n’en reste qu’un.
 

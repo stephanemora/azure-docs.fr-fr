@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 1234263fa800a17d0a5c235df54ca2751e3094bb
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69015851"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtres et manifestes dynamiques
@@ -31,7 +31,7 @@ ms.locfileid: "69015851"
 
 Cette rubrique décrit les scénarios courants dans lesquels l’utilisation de filtres s’avère utile pour vos clients, elle fait également le lien avec d’autres rubriques qui montrent comment créer par programmation de tels filtres.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Quand vous distribuez votre contenu aux clients (diffusion en continu d’événements en direct ou vidéo à la demande), votre objectif est de distribuer une vidéo de haute qualité à divers appareils dans des conditions de réseau différentes. Pour atteindre cet objectif, procédez comme suit :
 
 * encodez votre flux dans un flux vidéo à débit binaire multiple ([débit binaire adaptatif](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)) (les conditions de qualité et de réseau sont ainsi prises en charge) ; 
@@ -98,7 +98,7 @@ Pour plus d'informations sur la façon de distribuer votre contenu et générer 
 > 
 > 
 
-### <a id="filters"></a>Filtres
+### <a name="filters"></a><a id="filters"></a>Filtres
 Il existe deux types de filtres d'éléments multimédias : 
 
 * les filtres globaux (applicables à n'importe quel élément multimédia dans le compte Azure Media Services et dont la durée de vie correspond à celle du compte) ; 
@@ -106,7 +106,7 @@ Il existe deux types de filtres d'éléments multimédias :
 
 Les filtres globaux et locaux ont exactement les mêmes propriétés. La principale différence entre les deux a trait aux scénarios auxquels ils sont les plus appropriés. Les filtres globaux conviennent généralement aux profils d'appareil (filtrage de rendu) alors que les filtres locaux peuvent être utilisés pour découper un élément multimédia spécifique.
 
-## <a id="scenarios"></a>Scénarios courants
+## <a name="common-scenarios"></a><a id="scenarios"></a>Scénarios courants
 Comme mentionné précédemment, quand vous distribuez votre contenu aux clients (streaming d’événements en direct ou de vidéo à la demande), votre objectif est de distribuer une vidéo de qualité supérieure à divers appareils, dans des conditions de réseau différentes. De plus, vous pouvez avoir d’autres impératifs impliquant le filtrage de vos éléments multimédias et l’utilisation de **manifestes dynamiques**. Les sections suivantes présentent brièvement différents scénarios de filtrage.
 
 * Spécification d'un seul sous-ensemble de rendus audio et vidéos gérables par certains appareils (au lieu de tous les rendus associés à l'élément multimédia). 

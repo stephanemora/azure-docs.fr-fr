@@ -9,10 +9,10 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
 ms.openlocfilehash: 8570bce87aeea5473b4aadf9bd30bc0a648a6f0f
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72518125"
 ---
 # <a name="azcopy-bench"></a>azcopy bench
@@ -67,7 +67,7 @@ Comme ci-dessus, mais utiliser 50 000 fichiers, chacun d’une taille de 8 MiB
 
 **--log-level** string Définit le niveau de détail pour le fichier journal. Niveaux disponibles : INFO (toutes les requêtes/réponses), WARNING (réponses lentes), ERROR (uniquement les échecs de requêtes) et NONE (aucun journal de sortie) (par défaut : « INFO »)
 
-**--put-md5**  Crée un hachage MD5 de chaque fichier, puis enregistre le hachage en tant que propriété Content-MD5 de l’objet blob ou du fichier de destination. (Par défaut, le hachage n’est pas créé.) Identique au paramètre du même nom dans la commande copy.
+**--put-md5**  Crée un hachage MD5 de chaque fichier, puis enregistre le hachage en tant que propriété Content-MD5 de l’objet blob ou du fichier de destination. (par défaut, le hachage n’est pas créé.) Identique au paramètre du même nom dans la commande copy.
 
 **--size-per-file** string   Taille de chaque fichier de données généré automatiquement. Doit être un nombre immédiatement suivi de K, M ou G, par exemple 12K ou 200G (par défaut : « 250M »).
 

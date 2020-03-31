@@ -12,17 +12,17 @@ ms.topic: quickstart
 ms.date: 02/03/2020
 ms.author: diberry
 ms.openlocfilehash: e06bb4c09b3ebab25c0c0ef8ac5c51f6842f34cd
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76987952"
 ---
 # <a name="quickstart-get-intent-with-a-browser"></a>Démarrage rapide : Reconnaître une intention avec un navigateur
 
 Pour comprendre ce que retourne un point de terminaison de prédiction LUIS, affichez un résultat de prédiction dans un navigateur web.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour pouvoir interroger une application publique, voici ce dont vous avez besoin :
 
@@ -34,7 +34,7 @@ Pour pouvoir interroger une application publique, voici ce dont vous avez besoin
 1. Ouvrez un navigateur web.
 1. Utilisez les URL complètes ci-dessous, en remplaçant `YOUR-KEY` par votre propre clé de création ou de prédiction LUIS. Les requêtes sont des requêtes GET qui incluent l’autorisation, avec votre clé de création ou de prédiction LUIS, en tant que paramètre de chaîne de requête.
 
-    #### <a name="v3-prediction-requesttabv3-1-1"></a>[Requête de prédiction V3](#tab/V3-1-1)
+    #### <a name="v3-prediction-request"></a>[Requête de prédiction V3](#tab/V3-1-1)
 
 
     Le format de l’URL V3 pour une demande de point de terminaison **GET** (par les emplacements) est :
@@ -43,7 +43,7 @@ Pour pouvoir interroger une application publique, voici ce dont vous avez besoin
     https://westus.api.cognitive.microsoft.com/luis/prediction/v3.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict?query=turn on all lights&subscription-key=YOUR-KEY
     `
 
-    #### <a name="v2-prediction-requesttabv2-1-2"></a>[Requête de prédiction V2](#tab/V2-1-2)
+    #### <a name="v2-prediction-request"></a>[Requête de prédiction V2](#tab/V2-1-2)
 
     Le format de l’URL V2 pour une demande de point de terminaison **GET** est :
 
@@ -53,7 +53,7 @@ Pour pouvoir interroger une application publique, voici ce dont vous avez besoin
 
 1. Collez l’URL dans une fenêtre de navigateur, puis appuyez sur Entrée. Le navigateur affiche un résultat JSON qui indique que LUIS a détecté l’intention `HomeAutomation.TurnOn` comme première intention et l’entité `HomeAutomation.Operation` pourvue de la valeur `on`.
 
-    #### <a name="v3-prediction-responsetabv3-2-1"></a>[Réponse de prédiction V3](#tab/V3-2-1)
+    #### <a name="v3-prediction-response"></a>[Réponse de prédiction V3](#tab/V3-2-1)
 
     ```JSON
     {
@@ -74,7 +74,7 @@ Pour pouvoir interroger une application publique, voici ce dont vous avez besoin
     }
     ```
 
-    #### <a name="v2-prediction-responsetabv2-2-2"></a>[Réponse de prédiction V2](#tab/V2-2-2)
+    #### <a name="v2-prediction-response"></a>[Réponse de prédiction V2](#tab/V2-2-2)
 
     ```json
     {
@@ -99,7 +99,7 @@ Pour pouvoir interroger une application publique, voici ce dont vous avez besoin
 
 1. Pour voir toutes les intentions, ajoutez le paramètre de chaîne de requête approprié.
 
-    #### <a name="v3-prediction-endpointtabv3-3-1"></a>[Point de terminaison de prédiction V3](#tab/V3-3-1)
+    #### <a name="v3-prediction-endpoint"></a>[Point de terminaison de prédiction V3](#tab/V3-3-1)
 
     Ajoutez `show-all-intents=true` à la fin de la chaîne de requête pour **afficher toutes les intentions** :
 
@@ -132,7 +132,7 @@ Pour pouvoir interroger une application publique, voici ce dont vous avez besoin
     }
     ```
 
-    #### <a name="v2-prediction-endpointtabv2"></a>[Point de terminaison de prédiction V2](#tab/V2)
+    #### <a name="v2-prediction-endpoint"></a>[Point de terminaison de prédiction V2](#tab/V2)
 
     Ajoutez `verbose=true` à la fin de la chaîne de requête pour **afficher toutes les intentions** :
 

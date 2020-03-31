@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/08/2019
 ms.author: sutalasi
 ms.openlocfilehash: 3a59f137240eff2a3a68fa5547be8c6c25d3e5fe
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75772225"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Répliquer des machines virtuelles prenant en charge Azure Disk Encryption vers une autre région Azure
@@ -22,7 +22,7 @@ Cet article décrit comment répliquer des machines virtuelles Azure avec Azure 
 > Site Recovery prend actuellement en charge ADE, avec et sans Azure Active Directory (AAD) pour les machines virtuelles exécutant les systèmes d’exploitation Windows et Linux.  Pour les machines exécutant ADE 1.1 (sans AAD), les machines virtuelles doivent utiliser des disques managés. Les machines virtuelles avec des disques non managés ne sont pas prises en charge. Si vous passez de ADE 0.1 (avec AAD) à 1.1, vous devez désactiver la réplication et activer la réplication pour une machine virtuelle après avoir activé 1.1.
 
 
-## <a id="required-user-permissions"></a> Autorisations utilisateur requises
+## <a name="required-user-permissions"></a><a id="required-user-permissions"></a> Autorisations utilisateur requises
 Site Recovery a besoin que l’utilisateur dispose d’une autorisation de création du coffre de clés dans la région cible et d’une autorisation de copie des clés du coffre de clés de la région source dans le coffre de la région cible.
 
 Pour activer la réplication de machines virtuelles prenant en charge Azure Disk Encryption à partir du portail Azure, l’utilisateur a besoin des autorisations sur les coffres de clés de la **région source et de la région cible**.
@@ -133,7 +133,7 @@ Vous pouvez utiliser [un script](#copy-disk-encryption-keys-to-the-dr-region-by-
 
 ![Boîte de dialogue Mettre à jour les paramètres ADE](./media/azure-to-azure-how-to-enable-replication-ade-vms/update-ade-settings.png)
 
-## <a id="trusted-root-certificates-error-code-151066"></a>Résoudre les problèmes d’autorisation du coffre de clés lors de la réplication d’une machine virtuelle Azure vers Azure
+## <a name="troubleshoot-key-vault-permission-issues-during--azure-to-azure-vm-replication"></a><a id="trusted-root-certificates-error-code-151066"></a>Résoudre les problèmes d’autorisation du coffre de clés lors de la réplication d’une machine virtuelle Azure vers Azure
 
 Pour pouvoir lire le secret et le copier dans le coffre de clés de la région cible, Azure Site Recovery requiert au minimum des autorisations de lecture dans le coffre de clés de la région source, ainsi que des autorisations de lecture dans le coffre de clés de la région cible. 
 

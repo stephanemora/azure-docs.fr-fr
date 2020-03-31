@@ -1,19 +1,18 @@
 ---
 title: Configurer des références SKU pour une offre d’application Azure | Place de marché Azure
 description: Comment configurer les références SKU pour une application managée Azure et un modèle de solution Azure.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.author: pabutler
-ms.openlocfilehash: 2430d7e6fa74438c148d3cb849510be06243faa0
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.author: dsindona
+ms.openlocfilehash: 043394a1303456ce5b209bb84b5afaf09f6beba4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76543152"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80289071"
 ---
 # <a name="azure-application-skus-tab"></a>Onglet Références de l’application Azure
 

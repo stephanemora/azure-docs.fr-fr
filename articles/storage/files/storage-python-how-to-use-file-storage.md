@@ -8,10 +8,10 @@ ms.date: 12/14/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 139e3009722761172b7bbd57805a7f5b07e55fc0
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68699398"
 ---
 # <a name="develop-for-azure-files-with-python"></a>Développement pour Azure Files avec Python

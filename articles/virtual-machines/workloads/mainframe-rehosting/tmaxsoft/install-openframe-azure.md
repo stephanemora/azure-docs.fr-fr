@@ -9,10 +9,10 @@ ms.date: 04/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 ms.openlocfilehash: 1ad6e52c421d9cfec4640d3a330b5507d6ed3e9b
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72436052"
 ---
 # <a name="install-tmaxsoft-openframe-on-azure"></a>Installer TmaxSoft OpenFrame sur Azure
@@ -64,7 +64,7 @@ Le tableau suivant indique la configuration requise pour l’installation sur Az
 
 <table>
 <thead>
-    <tr><th>Prérequis</th><th>Description</th></tr>
+    <tr><th>Condition requise</th><th>Description</th></tr>
 </thead>
 <tbody>
 <tr><td>Distributions Linux prises en charge sur Azure
@@ -1167,7 +1167,7 @@ OSC est l’environnement OpenFrame similaire à IBM CICS, qui prend en charge l
      Lorsque vous avez terminé, le message « Installation Complete » (Installation terminée) s’affiche.
 
 4. Vérifiez que le profil Bash est mis à jour avec les variables OSC.
-5. Passez en revue le fichier OpenFrame\_OSC7\_0\_Fix2\_InstallLog.log. Le résultat suivant doit s’afficher :
+5. Passez en revue le fichier OpenFrame\_OSC7\_0\_Fix2\_InstallLog.log. Il doit se présenter comme suit :
 
      ```
      Summary 
@@ -1359,7 +1359,7 @@ Avant d’installer JEUS, installez le package Apache Ant, qui fournit les bibli
      [oframe7@ofdemo setup]$ . .bash_profile
      ```
 
-11. *Facultative*. Créez un alias pour arrêter et démarrer facilement les composants JEUS :
+11. *Facultatif*. Créez un alias pour arrêter et démarrer facilement les composants JEUS :
 
      ```     
      # JEUS alias

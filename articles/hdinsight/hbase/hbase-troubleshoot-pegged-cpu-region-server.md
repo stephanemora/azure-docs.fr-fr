@@ -8,10 +8,10 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/01/2019
 ms.openlocfilehash: 16c994029e91d743f1c2a7e2eab51eb86fc378e8
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75887306"
 ---
 # <a name="scenario-pegged-cpu-on-region-server-in-apache-hbase-cluster-in-azure-hdinsight"></a>Scénario : Processeur invariable sur le serveur de région dans le cluster Apache HBase d'Azure HDInsight
@@ -22,7 +22,7 @@ Cet article décrit les éventuelles solutions à appliquer pour résoudre les p
 
 Le processus du serveur de région Apache HBase commence à occuper près de 200 % du processeur, ce qui entraîne le déclenchement d'alertes sur le processus et le cluster HBase Master, qui ne fonctionnent pas à pleine capacité.
 
-## <a name="cause"></a>Cause :
+## <a name="cause"></a>Cause
 
 Si vous exécutez la version 3.4 du cluster HBase, vous avez peut-être rencontré un bogue provoqué par la mise à niveau du JDK vers la version 1.7.0_151. Le symptôme est le suivant : le processus du serveur de région commence à occuper près de 200 % du processeur (pour le vérifier, exécutez la commande `top` ; si un processus occupe près de 200 % du processeur, relevez son PID et vérifiez qu'il s'agit bien du processus du serveur de région en exécutant `ps -aux | grep`).
 

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.subservice: autoscale
 ms.openlocfilehash: c82b170bb3801bdc701ed84230db57f5691523ea
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77120690"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Utilisation d’actions de mise à l’échelle automatique pour envoyer des notifications d’alerte webhook et par courrier électronique dans Azure Moonitor
@@ -17,7 +17,7 @@ Cet article explique comment paramétrer des déclencheurs pour vous permettre d
 ## <a name="webhooks"></a>webhooks
 Les webhooks vous permettent d’acheminer les notifications d’alerte Azure vers d’autres systèmes afin qu’elles soient post-traitées ou personnalisées. À titre d’exemple, citons l’acheminement de l’alerte vers des services qui peuvent gérer une demande web entrante pour envoyer des SMS, consigner des bogues, informer une équipe par le biais de services de conversation ou de messagerie, etc. L’URI du webhook doit être un point de terminaison HTTP ou HTTPS valide.
 
-## <a name="email"></a>Email
+## <a name="email"></a>E-mail
 Un courrier électronique peut être envoyé à n’importe quelle adresse électronique valide. Les administrateurs et les coadministrateurs de l’abonnement dans lequel la règle est exécutée seront également avertis.
 
 ## <a name="cloud-services-and-app-services"></a>Services cloud et App Services
@@ -102,7 +102,7 @@ Lorsque la notification de mise à l’échelle automatique est générée, les 
 | Champ | Obligatoire ? | Description |
 | --- | --- | --- |
 | status |Oui |L’état qui indique qu’une action de mise à l’échelle automatique a été générée. |
-| opération |Oui |Pour une augmentation des instances, l’option est « augmenter la taille des instances » ; pour une diminution des instances, l’option est « Diminuer la taille des instances » |
+| opération |Oui |Pour une augmentation des instances, l’option est « Scale-out » ; pour une diminution des instances, l’option est « Scale-in » |
 | contexte |Oui |Le contexte de l’action de mise à l’échelle automatique |
 | timestamp |Oui |Horodatage du déclenchement de l’action de mise à l’échelle automatique. |
 | id |Oui |ID Resource Manager du paramètre de mise à l’échelle automatique |

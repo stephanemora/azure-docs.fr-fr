@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: aahi
 ms.openlocfilehash: 110cef117683b20170649a231226c8193496edf3
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68423922"
 ---
 # <a name="using-ranking-to-display-entity-search-results"></a>Utilisation du classement pour afficher les résultats de la recherche d’entités  
@@ -31,7 +31,7 @@ Au sein de chaque groupe, le tableau [Éléments](https://docs.microsoft.com/res
   
 L’utilisation de `answerType` et `resultIndex` est un processus en deux étapes. Tout d’abord, utilisez `answerType` pour identifier la réponse qui contient les résultats à afficher. Ensuite, utilisez `resultIndex` pour indexer dans les résultats de cette réponse afin d’en afficher le résultat. (La valeur `answerType` correspond au nom du champ dans l’objet [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#searchresponse).) Si vous êtes censé afficher tous les résultats de la réponse ensemble, l’élément de réponse de classement n’inclut pas le champ `resultIndex`.
 
-Vous devez faire correspondre l’ID du classement et l’ID d’une réponse (ou un de ses résultats) pour pouvoir utiliser cet ID. Si un objet de réponse inclut un champ `id`, affichez tous les résultats de réponses ensemble. Par exemple, si l’objet `Entities` inclut le champ `id`, affichez tous les articles d’entités ensemble. Si l’objet `Entities` n’inclut pas le champ `id`, alors chaque entité comprend un champ `id` et la réponse de classement mélange les résultats d’entités avec les résultats de lieux.  
+Vous devez faire correspondre l’ID du classement et l’ID d’une réponse (ou un de ses résultats) pour pouvoir utiliser cet ID. Si un objet de réponse inclut un champ `id`, affichez tous les résultats de la réponse ensemble. Par exemple, si l’objet `Entities` inclut le champ `id`, affichez tous les articles d’entités ensemble. Si l’objet `Entities` n’inclut pas le champ `id`, alors chaque entité comprend un champ `id` et la réponse de classement mélange les résultats d’entités avec les résultats de lieux.  
   
 ## <a name="ranking-response-example"></a>Exemple de réponse de classement
 

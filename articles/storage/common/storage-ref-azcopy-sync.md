@@ -9,10 +9,10 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
 ms.openlocfilehash: 1bff46c8584934ab8bcffce74763edc8363533d6
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76988241"
 ---
 # <a name="azcopy-sync"></a>azcopy sync
@@ -137,7 +137,7 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 **--delete-destination** string   Détermine si les fichiers de l’emplacement de destination qui ne sont pas présents dans l’emplacement source doivent être supprimés. Valeurs possibles : true, false ou prompt. Si la valeur est définie sur prompt, l’utilisateur est invité à répondre à une question avant de planifier la suppression des fichiers et des objets blob. (par défaut : « false ») (par défaut : « false »)
 
-**--exclude-attributes** string   (Windows uniquement) Exclut les fichiers dont les attributs correspondent à la liste d’attributs. Par exemple :  A;S;R
+**--exclude-attributes** string   (Windows uniquement) Exclut les fichiers dont les attributs correspondent à la liste d’attributs. Par exemple : A;S;R
 
 **--exclude-path** string Exclut ces chemins lors de la copie. Cette option ne prend pas en charge les caractères génériques (*). Vérifie le préfixe de chemin relatif (Par exemple : myFolder;myFolder/subDirName/file.pdf.) En cas d’utilisation combinée avec la traversée de comptes, les chemins n’incluent pas le nom du conteneur.
 
@@ -145,7 +145,7 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 **-h, --help**                        Aide pour la synchronisation
 
-**--include-attributes** string   (Windows uniquement) Inclut uniquement les fichiers dont les attributs correspondent à la liste d’attributs. Par exemple :  A;S;R
+**--include-attributes** string   (Windows uniquement) Inclut uniquement les fichiers dont les attributs correspondent à la liste d’attributs. Par exemple : A;S;R
 
 **--include-pattern** string      Inclut uniquement les fichiers dont le nom correspond à la liste de caractères génériques. Par exemple : \*.jpg;\*.pdf;exactName
 

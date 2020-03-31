@@ -7,17 +7,17 @@ ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
 ms.openlocfilehash: 61b930eec1385b8c4054f9c202547a82e61e55e7
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75769266"
 ---
 # <a name="customize-an-http-endpoint-in-azure-functions"></a>Personnaliser un point de terminaison HTTP dans Azure Functions
 
 Dans cet article, vous allez découvrir comment Azure Functions vous permet de générer des API hautement évolutives. Azure Functions est fourni avec une collection de liaisons et de déclencheurs HTTP intégrés qui permettent de créer facilement un point de terminaison dans différents langages, dont Node.JS et C# et bien plus encore. Dans cet article, vous allez personnaliser un déclencheur HTTP pour gérer des actions spécifiques dans votre conception d’API. Vous allez également préparer le développement de votre API, l’intégration avec Proxys Azure Functions et la configuration d’API factices. Tout cela s’effectue sur l’environnement de calcul sans serveur de Functions. Vous n’avez donc pas à vous soucier de la mise à l’échelle des ressources et vous pouvez vous concentrer uniquement sur votre logique d’API.
 
-## <a name="prerequisites"></a>Conditions préalables requises 
+## <a name="prerequisites"></a>Prérequis 
 
 [!INCLUDE [Previous quickstart note](../../includes/functions-quickstart-previous-topics.md)]
 
@@ -99,7 +99,7 @@ Répétez les étapes de la page [Créer une application de fonction](https://do
 
     | Champ | Exemple de valeur | Description |
     |---|---|---|
-    | Name | HelloProxy | Nom convivial utilisé uniquement à des fins de gestion. |
+    | Nom | HelloProxy | Nom convivial utilisé uniquement à des fins de gestion. |
     | Modèle d’itinéraire | /api/remotehello | Détermine l’itinéraire utilisé pour appeler ce proxy. |
     | URL principale | https://%HELLO_HOST%/api/hello | Spécifie le point de terminaison vers lequel la demande doit être redirigée via proxy. |
     

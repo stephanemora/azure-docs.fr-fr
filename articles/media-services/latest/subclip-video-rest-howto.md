@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/10/2019
 ms.author: juliako
 ms.openlocfilehash: c39aded55fe36cb130459a4f6f119f872b1adbc4
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76514321"
 ---
 # <a name="subclip-a-video-when-encoding-with-media-services---rest"></a>Sous-découper une vidéo lors de l’encodage avec Media Services - REST
@@ -26,7 +26,7 @@ Vous pouvez découper ou sous-découper une vidéo lors de son encodage à l’a
 
 L’exemple REST de cette rubrique crée un travail qui découpe une vidéo à mesure qu’il envoie un travail d’encodage. 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre les étapes décrites dans cette rubrique, vous devez :
 
