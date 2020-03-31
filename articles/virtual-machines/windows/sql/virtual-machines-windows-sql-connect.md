@@ -15,11 +15,11 @@ ms.date: 12/12/2017
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: deb337d989a3658e909cefa7a9ab028e37792562
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77918374"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79224605"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Se connecter à une machine virtuelle SQL Server sur Azure
 
@@ -91,7 +91,7 @@ En supposant que vous ayez configuré le DNS sur votre réseau virtuel, vous po
 Server=mysqlvm;Integrated Security=true
 ```
 
-## <a id="change"></a>Modifier les paramètres de connectivité SQL
+## <a name="change-sql-connectivity-settings"></a><a id="change"></a>Modifier les paramètres de connectivité SQL
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
@@ -111,7 +111,7 @@ Vous pouvez modifier les paramètres de connectivité pour votre machine virtuel
 
    ![Notification de mise à jour de la machine virtuelle SQL](./media/virtual-machines-windows-sql-connect/sql-vm-updating-notification.png)
 
-## <a id="manualtcp"></a> Activer le protocole TCP/IP pour les éditions Developer et Express
+## <a name="enable-tcpip-for-developer-and-express-editions"></a><a id="manualtcp"></a> Activer le protocole TCP/IP pour les éditions Developer et Express
 
 Lors de la configuration des paramètres de connectivité de SQL Server, Azure n’active pas automatiquement le protocole TCP/IP pour les éditions SQL Server Developer et Express. Les étapes ci-dessous expliquent comment activer manuellement le protocole TCP/IP pour vous connecter à distance via une adresse IP.
 
@@ -129,7 +129,7 @@ Les étapes suivantes décrivent comment créer un nom DNS pour votre machine vi
 
 [!INCLUDE [Connect to SQL Server in a VM Resource Manager](../../../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
 
-## <a id="manual"></a> Configuration manuelle et résolution des problèmes
+## <a name="manual-configuration-and-troubleshooting"></a><a id="manual"></a> Configuration manuelle et résolution des problèmes
 
 Bien que le portail offre des options de configuration automatique de la connectivité, il est utile de savoir comment configurer manuellement la connectivité. Comprendre la configuration requise peut également faciliter la résolution des problèmes.
 

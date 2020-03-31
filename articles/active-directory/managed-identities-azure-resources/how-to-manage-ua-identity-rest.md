@@ -16,10 +16,10 @@ ms.date: 06/26/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 39e108451e4c19e77e01b5bcc5d8dd21e86ad73a
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74547425"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-rest-api-calls"></a>Créer, répertorier ou supprimer une identité managée affectée par l’utilisateur en utilisant des appels d’API REST
@@ -32,7 +32,7 @@ Dans cet article, découvrez comment créer, répertorier et supprimer une ident
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Si vous n’êtes pas familiarisé avec les identités managées pour ressources Azure, voir la [section Vue d’ensemble](overview.md). **Veillez à lire [la différence entre les identités managées affectées par le système et celles affectées par l’utilisateur](overview.md#how-does-the-managed-identities-for-azure-resources-work)** .
+- Si vous n’êtes pas familiarisé avec les identités managées pour ressources Azure, consultez la [section Vue d’ensemble](overview.md). **Veillez à consulter la [différence entre les identités managées affectées par le système et celles affectées par l’utilisateur](overview.md#how-does-the-managed-identities-for-azure-resources-work)** .
 - Si vous n’avez pas encore de compte Azure, [inscrivez-vous à un essai gratuit](https://azure.microsoft.com/free/) avant de continuer.
 - Si vous utilisez Windows, installez le [sous-système Windows pour Linux](https://msdn.microsoft.com/commandline/wsl/about) ou utilisez [Azure Cloud Shell](../../cloud-shell/overview.md) dans le portail Azure.
 - Si vous utilisez le [sous-système Windows pour Linux](https://msdn.microsoft.com/commandline/wsl/about) ou un [système d’exploitation de distribution Linux](/cli/azure/install-azure-cli-apt?view=azure-cli-latest), [installez la console locale Azure CLI](/cli/azure/install-azure-cli).
@@ -62,14 +62,14 @@ s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<U
 
 |En-tête de requête  |Description  |
 |---------|---------|
-|*Content-Type*     | Requis. Défini sur `application/json`.        |
-|*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide.        |
+|*Content-Type*     | Obligatoire. Défini sur `application/json`.        |
+|*Autorisation*     | Obligatoire. Défini sur un jeton d’accès `Bearer` valide.        |
 
 **Corps de la demande**
 
 |Nom  |Description  |
 |---------|---------|
-|location     | Requis. Emplacement de la ressource.        |
+|location     | Obligatoire. Emplacement de la ressource.        |
 
 ## <a name="list-user-assigned-managed-identities"></a>Répertorier les identités managées affectées par l’utilisateur
 
@@ -85,8 +85,8 @@ GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/
 
 |En-tête de requête  |Description  |
 |---------|---------|
-|*Content-Type*     | Requis. Défini sur `application/json`.        |
-|*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide.        |
+|*Content-Type*     | Obligatoire. Défini sur `application/json`.        |
+|*Autorisation*     | Obligatoire. Défini sur un jeton d’accès `Bearer` valide.        |
 
 ## <a name="delete-a-user-assigned-managed-identity"></a>Supprimer une identité managée affectée par l’utilisateur
 
@@ -105,8 +105,8 @@ DELETE https://management.azure.com/subscriptions/80c696ff-5efa-4909-a64d-f1b616
 ```
 |En-tête de requête  |Description  |
 |---------|---------|
-|*Content-Type*     | Requis. Défini sur `application/json`.        |
-|*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide.        |
+|*Content-Type*     | Obligatoire. Défini sur `application/json`.        |
+|*Autorisation*     | Obligatoire. Défini sur un jeton d’accès `Bearer` valide.        |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

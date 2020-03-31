@@ -16,15 +16,15 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ae70b8386b1dc3ebd570d2651cded3eda75dfc53
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73847069"
 ---
 # <a name="create-an-access-review-of-azure-resource-roles-in-privileged-identity-management"></a>Créer une révision d’accès des rôles de ressources Azure dans Privileged Identity Management
 
-L’accès aux rôles de ressources Azure privilégiés pour les employés change au fil du temps. Pour réduire les risques associés aux attributions de rôles obsolètes, vous devez vérifier les accès régulièrement. Vous pouvez utiliser Azure Active Directory (Azure AD) Privileged Identity Management (PIM) pour créer des révisions d’accès pour les rôles de ressources Azure privilégiés. Vous pouvez également configurer des révisions d’accès périodiques qui se produisent automatiquement.
+L’accès aux rôles de ressources Azure privilégiés pour les employés change au fil du temps. Pour réduire les risques associés aux attributions de rôles obsolètes, vous devez vérifier les accès régulièrement. Vous pouvez utiliser Azure Active Directory (Azure AD) Privileged Identity Management (PIM) pour créer des révisions d’accès pour les rôles de ressources Azure privilégiés. Vous pouvez également configurer des révisions d’accès périodiques qui interviennent automatiquement.
 
 Cet article explique comment créer une ou plusieurs révisions d’accès pour les rôles de ressources Azure privilégiés.
 

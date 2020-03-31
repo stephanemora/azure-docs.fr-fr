@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: diberry
 ms.openlocfilehash: 7412677773b60a1894a6ece7251e797bfddee091
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280807"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79218775"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Comprendre ce que sont les bons énoncés pour votre application LUIS
 
@@ -132,7 +132,7 @@ Les développeurs doivent commencer à tester leur application LUIS avec un traf
 
 Une fois votre modèle formé et publié, et après réception des requêtes de [point de terminaison](luis-glossary.md#endpoint), [examinez les énoncés](luis-how-to-review-endpoint-utterances.md) suggérés par LUIS. LUIS sélectionne sur le point de terminaison les énoncés qui présentent des scores bas en lien avec l’intention ou l’entité. 
 
-## <a name="best-practices"></a>Bonnes pratiques
+## <a name="best-practices"></a>Meilleures pratiques
 
 Consultez les [meilleures pratiques](luis-concept-best-practices.md) et appliquez-les dans le cadre de votre cycle de création ordinaire.
 
@@ -144,8 +144,8 @@ Dans les énoncés suivants, le mot `fair` est un homographe. Il est orthographi
 
 |Énoncé|
 |--|
-|What kind of county fairs are happening in the Seattle area this summer?|
-|Is the current rating for the Seattle review fair?|
+|Quelles sont les foires qui ont lieu dans la région de Seattle cet été ?|
+|L’évaluation actuelle pour Seattle est-elle juste ?|
 
 Si vous souhaitez qu’une entité d’événement recherche toutes les données d’événement, étiquetez le mot `fair` dans le premier énoncé, mais pas dans le second.
 

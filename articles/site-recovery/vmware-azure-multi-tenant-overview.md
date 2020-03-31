@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: 840049265d3b6e4d2fddd794646bfd5691aab9a1
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74083988"
 ---
 # <a name="overview-of-multi-tenant-support-for-vmware-disaster-recovery-to-azure-with-csp"></a>Vue d’ensemble de la prise en charge de l’architecture multilocataire pour la reprise d’activité de VMware sur Azure avec CSP
@@ -89,7 +89,7 @@ Configurez le serveur de configuration avec un compte auquel un rôle spécial a
 
 3. Attribuez un niveau d’accès au compte vCenter (utilisé dans le serveur de configuration du locataire) pour divers objets comme suit :
 
->| Object | Rôle | Remarques |
+>| Object | Role | Notes |
 >| --- | --- | --- |
 >| vCenter | Lecture seule | Nécessaire uniquement pour autoriser l’accès vCenter pour la gestion de différents objets. Vous pouvez supprimer cette autorisation si le compte ne sera jamais fourni à un locataire ou utilisé pour des opérations de gestion sur le vCenter. |
 >| Centre de données | Azure_Site_Recovery |  |

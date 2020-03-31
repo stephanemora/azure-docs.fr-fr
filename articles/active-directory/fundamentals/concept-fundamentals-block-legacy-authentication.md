@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 63271567e70955f6dfb0b10a5c882b6dce9545ce
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74932186"
 ---
 # <a name="blocking-legacy-authentication"></a>Blocage de l’authentification héritée
@@ -45,7 +45,7 @@ Une fois que vous savez qui utilise l’authentification héritée dans votre an
 
 Cette section explique chacune des étapes nécessaires à la mise à jour de votre environnement vers l’authentification moderne. Avant d’activer une stratégie de blocage de l’authentification héritée au sein de votre organisation, lisez les étapes ci-dessous.
 
-### <a name="step-1-enable-modern-authentication-in-your-directory"></a>Étape 1 : Activer l’authentification moderne dans votre annuaire
+### <a name="step-1-enable-modern-authentication-in-your-directory"></a>Étape 1 : Activer l’authentification moderne dans votre annuaire
 
 Lorsque vous activez l’authentification moderne, la première étape consiste à vérifier que votre annuaire prend en charge l’authentification moderne. L’authentification moderne est activée par défaut dans les annuaires depuis le 1er août 2017. Si votre annuaire a été créé avant cette date, vous devrez activer manuellement l’authentification moderne en procédant de la façon suivante :
 
@@ -54,7 +54,7 @@ Lorsque vous activez l’authentification moderne, la première étape consiste 
 
 Veillez à effectuer cette étape avant de poursuivre. Il est essentiel de modifier les configurations de votre annuaire en premier, car ce sont elles qui déterminent le protocole qui sera utilisé par tous les clients Office. Même si vous utilisez des clients Office qui prennent en charge l’authentification moderne, ceux-ci utiliseront par défaut les protocoles hérités si l’authentification moderne est désactivée dans votre annuaire.
 
-### <a name="step-2-office-applications"></a>Étape 2 : Applications Office
+### <a name="step-2-office-applications"></a>Étape 2 : Applications Office
 
 Une fois que vous avez activé l’authentification moderne dans votre annuaire, vous pouvez commencer la mise à jour des applications en activant l’authentification moderne pour les clients Office. Les clients Office 2016 ou version ultérieure prennent en charge l’authentification moderne par défaut. Aucune étape supplémentaire n’est nécessaire.
 

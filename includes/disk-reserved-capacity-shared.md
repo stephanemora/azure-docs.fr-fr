@@ -9,10 +9,10 @@ ms.date: 01/15/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: cb959b94807678187363d3132ece273584f13a0a
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77590812"
 ---
 Économisez sur votre utilisation du Stockage sur disque Azure avec une capacité de réserve. Des réservations de Stockage sur disque Azure associées au service Azure Reserved Virtual Machine Instances vous permettent de réduire le coût total de vos machines virtuelles. La remise sur la réservation est appliquée automatiquement aux disques correspondants dans l’étendue de réservation sélectionnée. En raison de cette application automatique, vous n’avez pas besoin d’attribuer une réservation à un disque managé pour bénéficier les remises.

@@ -12,10 +12,10 @@ ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 12/20/2018
 ms.openlocfilehash: 6d0a728401ac9f0156cc8fa913ce486bb577c6dd
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73825172"
 ---
 # <a name="data-sync-agent-for-azure-sql-data-sync"></a>Agent de synchronisation des données pour Azure SQL Data Sync
@@ -27,7 +27,7 @@ Synchronisez des données avec des bases de données SQL Server locales en insta
 
 ## <a name="download-and-install"></a>Télécharger et installer
 
-Pour télécharger l’Agent de synchronisation des données, accédez à [Agent de synchronisation des données Azure SQL](https://www.microsoft.com/download/details.aspx?id=27693).
+Pour télécharger l’Agent de synchronisation des données, accédez à [Agent de synchronisation des donnéesAzure SQL](https://www.microsoft.com/download/details.aspx?id=27693).
 
 ### <a name="install-silently"></a>Installer en mode silencieux
 
@@ -47,7 +47,7 @@ msiexec /i "SQLDataSyncAgent-2.0-x86-ENU.msi" TARGETDIR="C:\Program Files (x86)\
 
 Pour configurer l'Agent de synchronisation des données afin de synchroniser des données avec une ou plusieurs bases de données SQL Server locales, consultez l'article [Ajouter une base de données SQL Server locale](sql-database-get-started-sql-data-sync.md#add-on-prem).
 
-## <a name="agent-faq"></a>FAQ sur l'Agent de synchronisation des données
+## <a name="data-sync-agent-faq"></a><a name="agent-faq"></a>FAQ sur l'Agent de synchronisation des données
 
 ### <a name="why-do-i-need-a-client-agent"></a>Pourquoi ai-je besoin d’un agent client ?
 
@@ -79,7 +79,7 @@ Si vous souhaitez exécuter l’agent local à partir d’un autre ordinateur, p
 4. Patientez pendant que l’agent client télécharge la liste des bases de données locales qui ont été enregistrées précédemment.
 5. Indiquez les informations d’identification de base de données pour toutes les bases de données apparaissant comme inaccessibles. Ces bases de données doivent être accessibles depuis le nouvel ordinateur sur lequel l’agent est installé.
 
-## <a name="agent-tshoot"></a> Résoudre les problèmes liés à l’Agent de synchronisation des données
+## <a name="troubleshoot-data-sync-agent-issues"></a><a name="agent-tshoot"></a> Résoudre les problèmes liés à l’Agent de synchronisation des données
 
 - [L’installation, la désinstallation ou la réparation de l’agent client échoue.](#agent-install)
 
@@ -95,7 +95,7 @@ Si vous souhaitez exécuter l’agent local à partir d’un autre ordinateur, p
 
 - [L’application locale Agent de synchronisation ne peut pas se connecter au service de synchronisation local.](#agent-connect)
 
-### <a name="agent-install"></a> L’installation, la désinstallation ou la réparation de l’agent client échoue.
+### <a name="the-client-agent-install-uninstall-or-repair-fails"></a><a name="agent-install"></a> L’installation, la désinstallation ou la réparation de l’agent client échoue.
 
 - **Cause**. Cet échec peut avoir de nombreuses causes. Pour déterminer la cause spécifique de cet échec, consultez les journaux d’activité.
 
@@ -106,7 +106,7 @@ Si vous souhaitez exécuter l’agent local à partir d’un autre ordinateur, p
 
     Vous pouvez également activer la journalisation pour toutes les installations effectuées par Windows Installer. L’article de la Base de connaissances Microsoft [Guide pratique pour activer la journalisation de Windows Installer](https://support.microsoft.com/help/223300/how-to-enable-windows-installer-logging) fournit une solution en un clic pour activer la journalisation pour Windows Installer. Il indique également l’emplacement des journaux d’activité.
 
-### <a name="agent-uninstall"></a> Mon agent client ne fonctionne pas après l’annulation de la désinstallation.
+### <a name="the-client-agent-doesnt-work-after-i-cancel-the-uninstall"></a><a name="agent-uninstall"></a> Mon agent client ne fonctionne pas après l’annulation de la désinstallation.
 
 L’agent client ne fonctionne pas, même après l’annulation de sa désinstallation.
 
@@ -117,7 +117,7 @@ L’agent client ne fonctionne pas, même après l’annulation de sa désinstal
     -   Utilisez services.msc afin de réentrer les informations d’identification pour l’agent client.
     -   Désinstallez cet agent client, puis installez-en un nouveau. Téléchargez et installez l’agent client le plus récent à partir du [Centre de téléchargement](https://www.microsoft.com/download/details.aspx?id=27693).
 
-### <a name="agent-list"></a> Ma base de données n’est pas répertoriée dans la liste des agents.
+### <a name="my-database-isnt-listed-in-the-agent-list"></a><a name="agent-list"></a> Ma base de données n’est pas répertoriée dans la liste des agents.
 
 Lorsque vous essayez d’ajouter une base de données SQL Server existante à un groupe de synchronisation, la base de données n’apparaît pas dans la liste des agents.
 
@@ -136,7 +136,7 @@ Ce problème peut avoir les causes suivantes :
 
     L’agent local télécharge la liste des bases de données associées uniquement lors du premier envoi de la clé de l’agent. Il ne la télécharge pas lors des envois suivants. Les bases de données inscrites pendant le déplacement d’un agent ne sont pas visibles sur l’instance d’origine de l’agent.
 
-### <a name="agent-start"></a> L’agent client ne démarre pas (Erreur 1069).
+### <a name="client-agent-doesnt-start-error-1069"></a><a name="agent-start"></a> L’agent client ne démarre pas (Erreur 1069).
 
 Vous découvrez que l’agent n’est pas exécuté sur un ordinateur qui héberge SQL Server. Lorsque vous essayez de démarrer manuellement l’agent, une boîte de dialogue affiche le message « Erreur 1069 : L’échec d’une ouverture de session a empêché le démarrage du service ».
 
@@ -160,7 +160,7 @@ Vous découvrez que l’agent n’est pas exécuté sur un ordinateur qui héber
   1. Dans la fenêtre **Services**, cliquez avec le bouton droit sur le service **Agent SQL Data Sync**, puis cliquez sur **Démarrer**.
   1. Fermez la fenêtre **Services**.
 
-### <a name="agent-key"></a> Je ne parviens pas à envoyer la clé d’un agent.
+### <a name="i-cant-submit-the-agent-key"></a><a name="agent-key"></a> Je ne parviens pas à envoyer la clé d’un agent.
 
 Une fois que vous avez créé ou recréé la clé d’un agent, vous essayez d’envoyer cette clé par le biais de l’application SqlAzureDataSyncAgent. Mais l’envoi échoue.
 
@@ -196,7 +196,7 @@ Une fois que vous avez créé ou recréé la clé d’un agent, vous essayez d�
   1. Sélectionnez **OK**.
   1. Fermez le programme.
 
-### <a name="agent-delete"></a> L’agent client ne peut pas être supprimé du portail si la base de données locale associée est inaccessible.
+### <a name="the-client-agent-cant-be-deleted-from-the-portal-if-its-associated-on-premises-database-is-unreachable"></a><a name="agent-delete"></a> L’agent client ne peut pas être supprimé du portail si la base de données locale associée est inaccessible.
 
 Si un point de terminaison local (autrement dit, une base de données) inscrite auprès d’un agent client SQL Data Sync devient inaccessible, l’agent client ne peut pas être supprimé.
 
@@ -207,7 +207,7 @@ Si un point de terminaison local (autrement dit, une base de données) inscrite 
 > [!NOTE]
 > S’il reste des tables de métadonnées de synchronisation après une opération « Forcer la suppression », utilisez `deprovisioningutil.exe` pour les nettoyer.
 
-### <a name="agent-connect"></a> L’application locale Agent de synchronisation ne peut pas se connecter au service de synchronisation local.
+### <a name="local-sync-agent-app-cant-connect-to-the-local-sync-service"></a><a name="agent-connect"></a> L’application locale Agent de synchronisation ne peut pas se connecter au service de synchronisation local.
 
 - **Résolution**. Essayez les étapes suivantes :
 
@@ -231,7 +231,7 @@ Vous pouvez exécuter les commandes suivantes de l’Agent de synchronisation de
 SqlDataSyncAgentCommand.exe -action pingsyncservice
 ```
 
-#### <a name="example"></a>Exemples
+#### <a name="example"></a>Exemple
 
 ```cmd
 SqlDataSyncAgentCommand.exe -action "pingsyncservice"
@@ -245,7 +245,7 @@ SqlDataSyncAgentCommand.exe -action "pingsyncservice"
 SqlDataSyncAgentCommand.exe -action displayregistereddatabases
 ```
 
-#### <a name="example"></a>Exemples
+#### <a name="example"></a>Exemple
 
 ```cmd
 SqlDataSyncAgentCommand.exe -action "displayregistereddatabases"
@@ -259,7 +259,7 @@ SqlDataSyncAgentCommand.exe -action "displayregistereddatabases"
 Usage: SqlDataSyncAgentCommand.exe -action submitagentkey -agentkey [agent key]  -username [user name] -password [password]
 ```
 
-#### <a name="example"></a>Exemples
+#### <a name="example"></a>Exemple
 
 ```cmd
 SqlDataSyncAgentCommand.exe -action submitagentkey -agentkey [agent key generated from portal, PowerShell, or API] -username [user name to sync metadata database] -password [user name to sync metadata database]
@@ -292,7 +292,7 @@ Lorsque vous utilisez cette commande pour annuler l'inscription d'une base de do
 SqlDataSyncAgentCommand.exe -action unregisterdatabase -servername [on-premisesdatabase server name] -databasename [on-premisesdatabase name]
 ```
 
-#### <a name="example"></a>Exemples
+#### <a name="example"></a>Exemple
 
 ```cmd
 SqlDataSyncAgentCommand.exe -action "unregisterdatabase" -serverName localhost -databaseName testdb

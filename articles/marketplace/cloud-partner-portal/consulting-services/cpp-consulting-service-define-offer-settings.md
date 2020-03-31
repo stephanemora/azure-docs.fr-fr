@@ -1,19 +1,18 @@
 ---
 title: Définir les paramètres d’une offre de services de conseil | Place de marché Azure
 description: Définissez les paramètres d’une offre de services de conseil Azure ou Dynamics 365 sur le portail Cloud Partner pour la Place de marché Azure.
-services: Azure, Marketplace, Cloud Partner Portal,
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.author: pabutler
-ms.openlocfilehash: e505f9aa1ec08708b85176d5b05fc5b40ceb295e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: ac7ac2cc049c87b3f619f68a9a93a2268d961114
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818143"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278567"
 ---
 # <a name="offer-settings-tab"></a>Onglet des paramètres de l’offre
 

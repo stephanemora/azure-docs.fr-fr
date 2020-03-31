@@ -12,10 +12,10 @@ ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: b492d8e3bdcf6d9a41df3eb79ef159985cc715cf
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76168882"
 ---
 # <a name="sample-explore-an-image-processing-app-with-c"></a>Exemple : Explorer une application de traitement d’image avec C#
@@ -28,7 +28,7 @@ Explorez une application Windows de base qui utilise l’API Vision par ordinate
 > * Exécuter l’exemple d’application et interagir pour réaliser différents scénarios
 > * Explorer les différents scénarios inclus dans l’exemple d’application
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant d’explorer l’exemple d’application, assurez-vous que vous avez rempli les conditions préalables suivantes :
 

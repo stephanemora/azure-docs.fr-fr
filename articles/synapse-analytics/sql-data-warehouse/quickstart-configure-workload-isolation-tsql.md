@@ -1,22 +1,22 @@
 ---
 title: 'Démarrage rapide : Configurer l’isolation de la charge de travail - T-SQL'
 description: Utilisez T-SQL pour configurer l’isolation de la charge de travail.
-services: sql-data-warehouse
+services: synapse-analytics
 author: ronortloff
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: quickstart
-ms.subservice: workload-management
+ms.subservice: ''
 ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 29f380c468eef27fa7bc00930b5005c8d0b0bf16
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 555d437fb0ee898473b37febb1774924b55bfa1d
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80124459"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80350846"
 ---
 # <a name="quickstart-configure-workload-isolation-using-t-sql"></a>Démarrage rapide : Configurer l’isolation de la charge de travail à l’aide de T-SQL
 

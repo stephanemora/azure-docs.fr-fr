@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: sutalasi
 ms.openlocfilehash: 3edd182e335bc679d95d7be64f45b617a9f54c1a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73663172"
 ---
 # <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>Résultats des tests de la réplication Hyper-V vers un site secondaire
@@ -133,9 +133,9 @@ Les résultats indiquent clairement que la solution Site Recovery, utilisée ave
 
 | Charge de travail | Taille des E/S (Ko) | Pourcentage d’accès | Pourcentage de lectures | E/S en attente | Modèle d’E/S |
 | --- | --- | --- | --- | --- | --- |
-| Serveur de fichiers |4<br />8<br />16<br />32<br />64 |60 %<br />20%<br />5 %<br />5 %<br />10% |80 %<br />80 %<br />80 %<br />80 %<br />80 % |8<br />8<br />8<br />8<br />8 |100 % aléatoires |
+| Serveur de fichiers |4<br />8<br />16<br />32<br />64 |60%<br />20%<br />5 %<br />5 %<br />10 % |80 %<br />80 %<br />80 %<br />80 %<br />80 % |8<br />8<br />8<br />8<br />8 |100 % aléatoires |
 | SQL Server (volume 1)<br />SQL Server (volume 2) |8<br />64 |100 %<br />100 % |70 %<br />0 % |8<br />8 |100 % aléatoires<br />100 % séquentiel |
-| Microsoft Exchange |32 |100 % |67 % |8 |100 % aléatoires |
+| Exchange |32 |100 % |67 % |8 |100 % aléatoires |
 | Station de travail/VDI |4<br />64 |66 %<br />34 % |70 %<br />95 % |1<br />1 |100 % aléatoires |
 | Serveur de fichiers web |4<br />8<br />64 |33 %<br />34 %<br />33 % |95 %<br />95 %<br />95 % |8<br />8<br />8 |75 % aléatoires |
 
@@ -150,9 +150,9 @@ Les résultats indiquent clairement que la solution Site Recovery, utilisée ave
 | SQL Server |51 |1 |4 |167 |10 |
 | Microsoft Exchange Server |71 |1 |4 |552 |10 |
 | Serveur de fichiers |50 |1 |2 |552 |22 |
-| VDI |149 |0,5 |1 |80 |6 |
-| Serveur web |149 |0,5 |1 |80 |6 |
-| TOTAL |470 | | |96,83 To |4 108 |
+| VDI |149 |.5 |1 |80 |6 |
+| Serveur web |149 |.5 |1 |80 |6 |
+| TOTAL |470 | | |96,83 To |4108 |
 
 ### <a name="site-recovery-settings"></a>Paramètres de Site Recovery
 
@@ -161,10 +161,10 @@ Les résultats indiquent clairement que la solution Site Recovery, utilisée ave
 
 | Cloud VMM principal | Machines virtuelles protégées | Fréquence de réplication | Points de récupération supplémentaires |
 | --- | --- | --- | --- |
-| PrimaryCloudRpo15m |142 |15 minutes |Aucun |
-| PrimaryCloudRpo30s |47 |30 secondes |Aucun |
+| PrimaryCloudRpo15m |142 |15 minutes |None |
+| PrimaryCloudRpo30s |47 |30 secondes |None |
 | PrimaryCloudRpo30sArp1 |47 |30 secondes |1 |
-| PrimaryCloudRpo5m |235 |5 minutes |Aucun |
+| PrimaryCloudRpo5m |235 |5 minutes |None |
 
 ### <a name="performance-metrics"></a>Mesures de performances
 

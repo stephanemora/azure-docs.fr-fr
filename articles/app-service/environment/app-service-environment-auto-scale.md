@@ -8,16 +8,16 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 4f071c0d09fc2fa97eeea45bd82228b7eb8434a2
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74687293"
 ---
 # <a name="autoscaling-and-app-service-environment-v1"></a>Mise à l’échelle automatique et environnement App Service v1
 
 > [!NOTE]
-> Cet article traite de l’environnement App Service Environment v1.  Il existe une version plus récente de l’environnement App Service Environment, plus facile à utiliser et qui s’exécute sur des infrastructures plus puissantes. Pour en savoir plus sur la nouvelle version, commencez par la [Présentation de l’environnement App Service](intro.md).
+> Cet article traite de l’environnement App Service Environment v1.  Il existe une version plus récente de l’environnement App Service Environment, plus facile à utiliser et qui s’exécute sur des infrastructures plus puissantes. Pour en savoir plus sur la nouvelle version, commencez par la section [Présentation de l’environnement App Service Environment](intro.md).
 > 
 
 Les environnements Azure App Service prennent en charge la *mise à l’échelle automatique*. Vous pouvez mettre à l’échelle automatiquement des pools de Workers individuels en fonction de mesures ou de la planification.
@@ -61,8 +61,8 @@ L’environnement App Service est configuré sur mise à l’échelle manuelle, 
 
 * **Serveurs frontaux :** 3
 * **Pool de Workers 1** : 10
-* **Pool de Workers 2** : 5.
-* **Pool de Workers 3** : 5.
+* **Pool de Workers 2** : 5
+* **Pool de Workers 3** : 5
 
 Le pool de Workers 1 est utilisé pour les charges de travail, tandis que le pool de Workers 2 et le pool de Workers 3 sont utilisés pour les charges de travail de développement et d’assurance qualité.
 
@@ -76,7 +76,7 @@ Frank connaît bien l’application. Il sait que les heures de pointe de charge 
 | --- | --- |
 | **Nom :** Profil jour de semaine |**Nom :** Profil week-end |
 | **Mise à l’échelle par :** Règles de planification et de performance |**Mise à l’échelle par :** Règles de planification et de performance |
-| **Profil :** Les jours de la semaine |**Profil :** Week-end |
+| **Profil :** Jours de la semaine |**Profil :** Week-end |
 | **Type :** Périodicité |**Type :** Périodicité |
 | **Plage cible :** Entre 5 et 20 instances |**Plage cible :** Entre 3 et 10 instances |
 | **Jours :** Lundi, mardi, mercredi, jeudi, vendredi |**Jours :** Samedi, dimanche |
@@ -88,7 +88,7 @@ Frank connaît bien l’application. Il sait que les heures de pointe de charge 
 | **Mesure :** % d’UC |**Mesure :** % d’UC |
 | **Opération :** Supérieur à 60 % |**Opération :** Supérieur à 80 % |
 | **Durée :** 5 minutes |**Durée :** 10 minutes |
-| **Agrégation de temps :** Moyenne |**Agrégation de temps :** Moyenne |
+| **Agrégation de temps :** Average |**Agrégation de temps :** Average |
 | **Action :** Augmenter le nombre de 2 |**Action :** Augmenter le nombre de 1 |
 | **Refroidissement (minutes) :** 15 |**Refroidissement (minutes) :** 20 |
 |  | |
@@ -97,7 +97,7 @@ Frank connaît bien l’application. Il sait que les heures de pointe de charge 
 | **Mesure :** % d’UC |**Mesure :** % d’UC |
 | **Opération :** Inférieur à 30 % |**Opération :** Inférieur à 20 % |
 | **Durée :** 10 minutes |**Durée :** 15 minutes |
-| **Agrégation de temps :** Moyenne |**Agrégation de temps :** Moyenne |
+| **Agrégation de temps :** Average |**Agrégation de temps :** Average |
 | **Action :** Diminuer le nombre de 1 |**Action :** Diminuer le nombre de 1 |
 | **Refroidissement (minutes) :** 20 |**Refroidissement (minutes) :** 10 |
 
@@ -147,7 +147,7 @@ Grâce à ces informations, Frank peut définir le profil et les règles de mise
 | --- | --- |
 | **Nom :** Profil jour de semaine |**Nom :** Profil week-end |
 | **Mise à l’échelle par :** Règles de planification et de performance |**Mise à l’échelle par :** Règles de planification et de performance |
-| **Profil :** Les jours de la semaine |**Profil :** Week-end |
+| **Profil :** Jours de la semaine |**Profil :** Week-end |
 | **Type :** Périodicité |**Type :** Périodicité |
 | **Plage cible :** Entre 13 et 25 instances |**Plage cible :** Entre 6 et 15 instances |
 | **Jours :** Lundi, mardi, mercredi, jeudi, vendredi |**Jours :** Samedi, dimanche |
@@ -158,8 +158,8 @@ Grâce à ces informations, Frank peut définir le profil et les règles de mise
 | **Ressource :** Pool de Workers 1 |**Ressource :** Pool de Workers 1 |
 | **Mesure :** WorkersAvailable |**Mesure :** WorkersAvailable |
 | **Opération :** Inférieur à 8 |**Opération :** Inférieur à 3 |
-| **Durée :** 20 minutes |**Durée :** 30 minutes |
-| **Agrégation de temps :** Moyenne |**Agrégation de temps :** Moyenne |
+| **Durée :** 20 minutes |**Durée :** 30 minutes |
+| **Agrégation de temps :** Average |**Agrégation de temps :** Average |
 | **Action :** Augmenter le nombre de 8 |**Action :** Augmenter le nombre de 3 |
 | **Refroidissement (minutes) :** 180 |**Refroidissement (minutes) :** 180 |
 |  | |
@@ -167,8 +167,8 @@ Grâce à ces informations, Frank peut définir le profil et les règles de mise
 | **Ressource :** Pool de Workers 1 |**Ressource :** Pool de Workers 1 |
 | **Mesure :** WorkersAvailable |**Mesure :** WorkersAvailable |
 | **Opération :** Supérieur à 8 |**Opération :** Supérieur à 3 |
-| **Durée :** 20 minutes |**Durée :** 15 minutes |
-| **Agrégation de temps :** Moyenne |**Agrégation de temps :** Moyenne |
+| **Durée :** 20 minutes |**Durée :** 15 minutes |
+| **Agrégation de temps :** Average |**Agrégation de temps :** Average |
 | **Action :** Diminuer le nombre de 2 |**Action :** Diminuer le nombre de 3 |
 | **Refroidissement (minutes) :** 120 |**Refroidissement (minutes) :** 120 |
 
@@ -203,8 +203,8 @@ Pour ce scénario, Frank sait que le taux d’erreur augmente après que les fro
 | **Ressource :** Nom du pool frontal |
 | **Mesure :** % d’UC |
 | **Opération :** Supérieur à 60 % |
-| **Durée :** 20 minutes |
-| **Agrégation de temps :** Moyenne |
+| **Durée :** 20 minutes |
+| **Agrégation de temps :** Average |
 | **Action :** Augmenter le nombre de 3 |
 | **Refroidissement (minutes) :** 120 |
 |  |
@@ -213,7 +213,7 @@ Pour ce scénario, Frank sait que le taux d’erreur augmente après que les fro
 | **Mesure :** % d’UC |
 | **Opération :** Inférieur à 30 % |
 | **Durée :** 20 minutes |
-| **Agrégation de temps :** Moyenne |
+| **Agrégation de temps :** Average |
 | **Action :** Diminuer le nombre de 3 |
 | **Refroidissement (minutes) :** 120 |
 

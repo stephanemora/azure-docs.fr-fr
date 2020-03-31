@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/18/2016
 ms.author: mikejo
 ms.openlocfilehash: 21270d3c7143ce063ffe30d939368b9813e9072e
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70094103"
 ---
 # <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Test des performances d'un service cloud local dans l'émulateur de calcul Azure avec le profileur Visual Studio
@@ -29,7 +29,7 @@ Vous pouvez également profiler votre application en local dans l'émulateur de 
 
 Cet article présente la méthode de profilage par échantillonnage de l'UC, qui peut se faire en local dans l'émulateur. Cette méthode de profilage est peu intrusive. Selon une fréquence d'échantillonnage définie, le profileur enregistre un instantané de la pile d'appels. Les données sont collectées pendant un certain temps, puis sont présentées dans un rapport. Cette méthode de profilage indique plutôt, dans une application qui effectue beaucoup de calculs, où se fait la plus grande part du travail du processeur.  Ceci vous permet de vous occuper en priorité des « points chauds », là où votre application passe le plus de temps.
 
-## <a name="1-configure-visual-studio-for-profiling"></a>1: Configurer Visual Studio pour le profilage
+## <a name="1-configure-visual-studio-for-profiling"></a>1 : Configurer Visual Studio pour le profilage
 Tout d'abord, certaines options de configuration de Visual Studio peuvent s'avérer utiles dans le cadre du profilage. Afin de bien comprendre les rapports de profilage, vous aurez besoin de symboles (fichiers .pdb) pour votre application, ainsi que de symboles pour les bibliothèques système. Assurez-vous que vous faites référence aux serveurs de symboles disponibles. Pour cela, dans le menu **Outils** de Visual Studio, sélectionnez **Options**, puis **Débogage**, et enfin **Symboles**. Assurez-vous que Microsoft Symbol Servers figure bien dans **Emplacements du fichier de symboles (.pdb)** .  Vous pouvez également référencer https://referencesource.microsoft.com/symbols, qui peut avoir des fichiers de symboles supplémentaires.
 
 ![Options de symbole][4]
@@ -155,7 +155,7 @@ Les rapports indiquent les différences entre les deux tests.
 
 Félicitations ! Vous avez fait connaissance avec le profileur.
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 * Assurez-vous que le profilage porte bien sur une build Release et exécutez sans débogage.
 * Si l'option Attacher/Détacher n'est pas activée dans le menu Profileur, exécutez l'Assistant Performance.
 * Utilisez l'émulateur de calcul pour connaître l'état de votre application. 

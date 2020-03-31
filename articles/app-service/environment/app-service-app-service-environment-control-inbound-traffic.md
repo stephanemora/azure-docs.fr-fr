@@ -8,14 +8,14 @@ ms.date: 01/11/2017
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: aa43d44a691fa9151959e8817596bdfc9bba65f0
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74687393"
 ---
 # <a name="how-to-control-inbound-traffic-to-an-app-service-environment"></a>Contrôle du trafic entrant vers un environnement App Service
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Un environnement App Service peut être créé **soit** dans un réseau virtuel Azure Resource Manager, **soit** dans un [réseau virtuel][virtualnetwork] de modèle de déploiement classique.  Il est possible de définir un nouveau réseau virtuel et un nouveau sous-réseau au moment de la création d'un environnement App Service.  Vous pouvez également créer un environnement App Service dans un réseau virtuel préexistant et un sous-réseau préexistant.  Suite à une modification effectuée en juin 2016, les environnements ASE peuvent également être déployés dans les réseaux virtuels qui utilisent soit des plages d’adresses publiques soit des espaces d’adressage RFC1918 (par exemple, des adresses privées).  Pour plus de détails sur la création d’un environnement App Service, consultez [Création d’un environnement App Service][HowToCreateAnAppServiceEnvironment].
 
 Un environnement App Service doit toujours être créé dans un sous-réseau, car un sous-réseau fournit une limite réseau qui peut être utilisée pour verrouiller le trafic entrant derrière des appareils et des services en amont, de sorte que le trafic HTTP et HTTPS soit accepté uniquement à partir d'adresses IP en amont.

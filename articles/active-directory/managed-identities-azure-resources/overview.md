@@ -12,15 +12,15 @@ ms.subservice: msi
 ms.devlang: ''
 ms.topic: overview
 ms.custom: mvc
-ms.date: 09/26/2019
+ms.date: 03/25/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a721d1e486010e22927512985611cccdd99f4505
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 707b03d46615f3acfa0797d1dc0865d53ef75dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78248317"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80282118"
 ---
 # <a name="what-are-managed-identities-for-azure-resources"></a>Que sont les identités managées pour les ressources Azure ?
 
@@ -56,7 +56,7 @@ Votre code peut utiliser une identité managée pour faire une demande de jetons
 
 Le diagramme suivant illustre le fonctionnement des identités de service administré avec les machines virtuelles (VM) Azure :
 
-![Identités de service administré et machines virtuelles Azure](media/overview/msi-vm-vmextension-imds-example.png)
+![Identités de service administré et machines virtuelles Azure](media/overview/data-flow.png)
 
 |  Propriété    | Identité managée affectée par le système | Identité managée affectée par l’utilisateur |
 |------|----------------------------------|--------------------------------|
@@ -143,7 +143,7 @@ Découvrez comment utiliser une identité managée avec d’autres services Azur
 * [Azure Data Factory](../../data-factory/data-factory-service-identity.md).
 
 
-## Quels sont les services Azure qui prennent en charge la fonctionnalité ?<a name="which-azure-services-support-managed-identity"></a>
+## <a name="what-azure-services-support-the-feature"></a>Quels sont les services Azure qui prennent en charge la fonctionnalité ?<a name="which-azure-services-support-managed-identity"></a>
 
 Les identités managées pour les ressources Azure peuvent servir à l’authentification auprès des services prenant en charge l’authentification Azure AD. Pour obtenir la liste des services Azure qui prennent en charge la fonctionnalité d’identités managées pour les ressources Azure, consultez [Services qui prennent en charge les identités managées pour les ressources Azure](services-support-msi.md).
 

@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 08/2/2019
 ms.author: mayg
 ms.openlocfilehash: 7237bb7e0538ba1a9b6333ccb6589efe657a247d
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74423948"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Résoudre les problèmes de réplication pour les serveurs physiques et machines virtuelles VMware
 
 Cet article décrit certains problèmes courants et erreurs spécifiques que vous pouvez rencontrer lorsque vous répliquez des machines virtuelles et serveurs physiques VMware locaux sur Azure avec [Site Recovery](site-recovery-overview.md).
 
-## <a name="step-1-monitor-process-server-health"></a>Étape 1 : Surveiller l’intégrité du serveur de processus
+## <a name="step-1-monitor-process-server-health"></a>Étape 1 : Surveiller l’intégrité du serveur de processus
 
 Site Recovery utilise le [serveur de processus](vmware-physical-azure-config-process-server-overview.md#process-server) pour recevoir et optimiser les données répliquées, ainsi que pour les envoyer à Azure.
 
@@ -28,7 +28,7 @@ Nous vous recommandons de surveiller l’intégrité des serveurs de processus d
 - [Passer en revue les meilleures pratiques](vmware-physical-azure-troubleshoot-process-server.md#best-practices-for-process-server-deployment)
 - [Détecter un problème](vmware-physical-azure-troubleshoot-process-server.md#check-process-server-health) d’intégrité du serveur de processus
 
-## <a name="step-2-troubleshoot-connectivity-and-replication-issues"></a>Étape 2 : Détecter les problèmes de connectivité et de réplication
+## <a name="step-2-troubleshoot-connectivity-and-replication-issues"></a>Étape 2 : Détecter les problèmes de connectivité et de réplication
 
 Les défaillances de réplication initiales et en cours résultent souvent de problèmes de connectivité entre le serveur source et le serveur de processus, ou entre ce dernier et Azure. 
 

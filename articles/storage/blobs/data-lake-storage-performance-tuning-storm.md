@@ -9,10 +9,10 @@ ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: 125c583512f6bae34c2dd3c3dd76a1b96a181ac1
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74327904"
 ---
 # <a name="tune-performance-storm-hdinsight--azure-data-lake-storage-gen2"></a>Régler les performances : Storm, HDInsight et Azure Data Lake Storage Gen2
@@ -22,10 +22,10 @@ Comprendre les facteurs à prendre en compte lorsque vous optimisez les performa
 ## <a name="prerequisites"></a>Prérequis
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Un compte Azure Data Lake Storage Gen2**. Pour obtenir des instructions afin d’en créer un, consultez [Démarrage rapide : Créer un compte de stockage pour l’analyse](data-lake-storage-quickstart-create-account.md).
+* **Un compte Azure Data Lake Storage Gen2**. Pour obtenir les instructions de création de compte, consultez [Démarrage rapide : Créer un compte de stockage pour l’analyse](data-lake-storage-quickstart-create-account.md).
 * Un **cluster Azure HDInsight** avec un accès à un compte Data Lake Storage Gen2. Consultez [Utiliser Azure Data Lake Storage Gen2 avec des clusters Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2). Veillez à activer le Bureau à distance pour le cluster.
 * **Exécution d’un cluster Storm sur Data Lake Storage Gen2**. Pour plus d’informations, consultez [Présentation d’Apache Storm sur HDInsight : analyse en temps réel pour Hadoop](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-overview).
-* **Recommandations en matière de réglage des performances sur Data Lake Storage Gen2**.  Pour en savoir plus sur les concepts généraux relatifs aux performances, consultez [Recommandations en matière de réglage des performances de Data Lake Storage Gen2](data-lake-storage-performance-tuning-guidance.md).   
+* **Conseils de réglage des performances sur Data Lake Storage Gen2**.  Pour en savoir plus sur les concepts généraux relatifs aux performances, consultez [Recommandations en matière de réglage des performances de Data Lake Storage Gen2](data-lake-storage-performance-tuning-guidance.md).   
 
 ## <a name="tune-the-parallelism-of-the-topology"></a>Ajuster le parallélisme de la topologie
 
