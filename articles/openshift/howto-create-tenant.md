@@ -7,11 +7,11 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.openlocfilehash: ad03538cafcce9c1d660d0f2ac5eb3c6ae5f4f38
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76270451"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79224765"
 ---
 # <a name="create-an-azure-ad-tenant-for-azure-red-hat-openshift"></a>Créer un locataire Azure AD pour Azure Red Hat OpenShift
 

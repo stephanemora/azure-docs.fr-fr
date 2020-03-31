@@ -16,10 +16,10 @@ ms.date: 05/31/2017
 ms.author: saurabh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 2490c3de60e0deac6a1a4ddc5abc95cb46e240b2
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74073840"
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Utiliser la surveillance et les diagnostics avec une machine virtuelle Windows et des modèles Azure Resource Manager
@@ -157,24 +157,24 @@ La valeur MetricAggregation de *PT1M* et *PT1H* fait référence à une agrégat
 ## <a name="wadmetrics-tables-in-storage"></a>Tables WADMetrics dans le stockage
 La configuration des métriques ci-dessus génère les tables de votre compte de stockage de diagnostics avec les conventions de nommage suivantes :
 
-* **WADMetrics** : Préfixe standard pour toutes les tables WADMetrics
-* **PT1H** ou **PT1M** : Indique que la table contient des données agrégées sur 1 heure ou 1 minute
-* **P10D** : Indique que la table contient les données d’une période de 10 jours à partir du moment où la table a commencé à collecter les données
-* **V2S** : Constante de chaîne
-* **aaaammjj** : Date à laquelle la table a démarré la collecte de données
+* **WADMetrics** : préfixe standard pour toutes les tables WADMetrics
+* **PT1H** ou **PT1M** : indique que la table contient des données agrégées sur 1 heure ou 1 minute
+* **P10D** : indique que la table contiendra les données pour une période de 10 jours à partir du moment où la table a commencé à collecter les données
+* **V2S** : constante de chaîne
+* **aaaammjj** : date à laquelle la table a démarré la collecte de données
 
-Exemple : *WADMetricsPT1HP10DV2S20151108* contient les données de métriques agrégées sur une heure pendant 10 jours à partir du 11 novembre 2015    
+Exemple : *WADMetricsPT1HP10DV2S20151108* contient les données de mesures agrégées pendant une heure et pour une période de 10 jours commençant le 11 novembre 2015    
 
 Chaque table WADMetrics contient les colonnes suivantes :
 
-* **PartitionKey** : La clé de partition se base sur la valeur *resourceID* pour identifier de manière unique la ressource de machine virtuelle. Par exemple : `002Fsubscriptions:<subscriptionID>:002FresourceGroups:002F<ResourceGroupName>:002Fproviders:002FMicrosoft:002ECompute:002FvirtualMachines:002F<vmName>`  
-* **RowKey** : Suit le format `<Descending time tick>:<Performance Counter Name>`. Le calcul du cycle horaire décroissant correspond aux cycles horaires maximaux moins l’heure de début de la période d’agrégation. Par exemple, si la période d’échantillonnage a démarré le 10 novembre 2015 à 00h00 UTC, le calcul est le suivant : `DateTime.MaxValue.Ticks - (new DateTime(2015,11,10,0,0,0,DateTimeKind.Utc).Ticks)`. Pour le compteur de performances d’octets disponibles en mémoire, la clé de ligne a l’aspect suivant : `2519551871999999999__:005CMemory:005CAvailable:0020Bytes`
-* **CounterName** : Nom du compteur de performances. Cela correspond à l’élément *counterSpecifier* défini dans la configuration XML.
-* **Maximum** : Valeur maximale du compteur de performances sur la période d’agrégation.
-* **Minimale** : Valeur minimale du compteur de performances sur la période d’agrégation.
-* **Total** : Somme de toutes les valeurs du compteur de performances signalées sur la période d’agrégation.
-* **Nombre** : Nombre total de valeurs signalées pour le compteur de performances.
-* **Average** : Valeur moyenne (total/count) du compteur de performances sur la période d’agrégation.
+* **PartitionKey** : la clé de partition se base sur la valeur *resourceID* pour identifier de manière unique la ressource de machine virtuelle. Par exemple : `002Fsubscriptions:<subscriptionID>:002FresourceGroups:002F<ResourceGroupName>:002Fproviders:002FMicrosoft:002ECompute:002FvirtualMachines:002F<vmName>`  
+* **RowKey** : suit le format `<Descending time tick>:<Performance Counter Name>`. Le calcul du cycle horaire décroissant correspond aux cycles horaires maximaux moins l’heure de début de la période d’agrégation. Par exemple, si la période d’échantillonnage a démarré le 10 novembre 2015 à 00h00 UTC, le calcul est le suivant : `DateTime.MaxValue.Ticks - (new DateTime(2015,11,10,0,0,0,DateTimeKind.Utc).Ticks)`. Pour le compteur de performances d’octets disponibles en mémoire, la clé de ligne a l’aspect suivant : `2519551871999999999__:005CMemory:005CAvailable:0020Bytes`
+* **CounterName** : nom du compteur de performances. Cela correspond à l’élément *counterSpecifier* défini dans la configuration XML.
+* **Maximum** : valeur maximale du compteur de performances sur la période d’agrégation.
+* **Minimum** : valeur minimale du compteur de performances sur la période d’agrégation.
+* **Total** : somme de toutes les valeurs du compteur de performances signalées sur la période d’agrégation.
+* **Count** : nombre total de valeurs signalées pour le compteur de performances.
+* **Average** : valeur moyenne (total/count) du compteur de performances sur la période d’agrégation.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour obtenir un exemple de modèle complet d’une machine virtuelle Windows avec l’extension Diagnostics, consultez [201-vm-monitoring-diagnostics-extension](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-monitoring-diagnostics-extension)   

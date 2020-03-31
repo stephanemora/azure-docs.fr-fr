@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: diberry
 ms.openlocfilehash: 6ee156efb5512c92d86ba05513b6a2b91df4eae8
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976959"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79219179"
 ---
 # <a name="entities-and-their-purpose-in-luis"></a>Entités et leur objectif dans LUIS
 
@@ -40,7 +40,7 @@ Les entités doivent être étiquetées de manière cohérente sur tous les éno
 |Énoncé|Entité|Données|
 |--|--|--|
 |Acheter 3 tickets pour New York|Nombre prédéfini<br>Location.Destination|3<br>New York|
-|Acheter un ticket de New York à Londres pour le 5 mars|Location.Origin<br>Location.Destination<br>datetimeV2 prédéfini|New York<br>Londres<br>5 mars 2018|
+|Acheter un ticket de New York à Londres pour le 5 mars|Location.Origin<br>Location.Destination<br>datetimeV2 prédéfini|New York<br>London<br>5 mars 2018|
 
 ### <a name="entities-are-optional"></a>Les entités sont facultatives
 
@@ -90,7 +90,7 @@ Lorsque vous créez une fonctionnalité de liste d’expressions dans votre appl
 
 Choisissez l’entité en fonction de la façon dont les données doivent être extraites et être représentées une fois extraites.
 
-|Type d’entité|Objectif|
+|Type d'entité|Objectif|
 |--|--|
 |[**Issue de l’apprentissage automatique**](tutorial-machine-learned-entity.md)|Les entités apprises par la machine apprennent à partir du contexte dans l’énoncé. Regroupement parent d’entités, quel que soit le type d’entité. Cela rend la variation du placement dans les exemples d’énoncés significative. |
 |[**Liste**](reference-entity-list.md)|Liste d’éléments et de leurs synonymes extraits avec une **correspondance exacte du texte**.|
@@ -109,7 +109,7 @@ Les deux exemples d’une entité `location` doivent être extraits. L’applica
 Il existe deux techniques d’extraction de données relatives au contexte :
 
  * L’entité `location` est une entité issue de machine learning qui utilise deux entités de sous-composants pour capturer `origin` et `destination` (par défaut)
- * L’entité `location` utilise deux **rôles** `origin` et `destination`
+ * L’entité `location` utilise deux **rôles**`origin` et `destination`
 
 Plusieurs entités peuvent exister dans un énoncé et être extraites sans utiliser la décomposition ni les rôles si le contexte dans lequel elles sont utilisées n’a pas d’importance. Par exemple, si l’énoncé inclut une liste d’emplacements, `I want to travel to Seattle, Cairo, and London.`, il s’agit d’une liste où chaque élément n’a aucune autre signification.
 
@@ -140,5 +140,5 @@ Découvrez les concepts relatifs aux bons [énoncés](luis-concept-utterance.md)
 
 Consulter [Ajouter des entités](luis-how-to-add-entities.md) pour découvrir comment ajouter des entités à votre application LUIS.
 
-Consultez le [tutoriel : Extraire des données structurées à partir d’un énoncé utilisateur avec des entités issues du Machine Learning dans LUIS](tutorial-machine-learned-entity.md) pour apprendre à extraire des données structurées d’un énoncé à l’aide de l’entité issue de machine learning.
+Voir le [tutoriel : Extraire des données structurées à partir d’un énoncé utilisateur avec des entités issues du Machine Learning dans LUIS](tutorial-machine-learned-entity.md) pour apprendre à extraire des données structurées d’un énoncé à l’aide de l’entité issue de machine learning.
  

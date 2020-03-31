@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4743195fc79d43571ec79a13b8518edc7e81379b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67109293"
 ---
 # <a name="determine-multi-factor-authentication-requirements-for-your-hybrid-identity-solution"></a>Déterminer les besoins d'authentification multifacteur (Multi-Factor Authentication) pour votre solution d'identités hybrides
@@ -56,7 +56,7 @@ Après avoir répondu à ces questions, vous serez en mesure de déterminer s'il
 * L'authentification multifacteur doit-elle être toujours activée ou uniquement lorsque les utilisateurs se connectent en dehors votre réseau d'entreprise ?
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Définir une stratégie d’adoption des identités hybrides](plan-hybrid-identity-design-considerations-identity-adoption-strategy.md)
+[Définir une stratégie d'adoption des identités hybrides](plan-hybrid-identity-design-considerations-identity-adoption-strategy.md)
 
 ## <a name="see-also"></a>Voir aussi
 [Présentation des considérations relatives à la conception](plan-hybrid-identity-design-considerations-overview.md)

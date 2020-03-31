@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c851b5ef024e6584e6f8c93995208b08a91fbb60
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "62095487"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Synchronisation d’Azure AD Connect : gérer les erreurs LargeObject provoquées par l’attribut userCertificate
@@ -48,7 +48,7 @@ Tant que l’erreur LargeObject n’est pas résolue, les autres modifications d
 
  * Réduire le nombre de valeurs de certificat sur l’objet AD local (15 au plus) en supprimant les valeurs qui ne sont plus utilisées par votre organisation. Cette option est adaptée si la multiplication des attributs est provoquée par des certificats expirés ou non utilisés. Vous pouvez utiliser le [script PowerShell disponible ici](https://gallery.technet.microsoft.com/Remove-Expired-Certificates-0517e34f) pour trouver, sauvegarder et supprimer les certificats arrivés à expiration dans votre service AD local. Nous vous recommandons, avant de supprimer les certificats, de consulter les administrateurs de l’infrastructure de clé publique de votre organisation.
 
- * Configurer Azure AD Connect pour exclure l’attribut userCertificate de l’exportation vers Azure AD. En règle générale, nous déconseillons cette option, car l’attribut peut être utilisé par Microsoft Online Services pour certains scénarios, notamment :
+ * Configurer Azure AD Connect pour exclure l’attribut userCertificate de l’exportation vers Azure AD. En règle générale, nous déconseillons cette option, car l’attribut peut être utilisé par Microsoft Online Services pour certains scénarios, En particulier :
     * L’attribut userCertificate de l’objet utilisateur est utilisé par les clients Outlook et Exchange Online pour le chiffrement et la signature des messages. Pour en savoir plus sur cette fonctionnalité, reportez-vous à l’article [S/MIME pour le chiffrement et la signature des messages](https://technet.microsoft.com/library/dn626158(v=exchg.150).aspx).
 
     * L’attribut userCertificate sur l’objet ordinateur est utilisé par Azure AD pour autoriser les appareils Windows 10 locaux et joints à un domaine à se connecter à Azure AD. Pour en savoir plus sur cette fonctionnalité, reportez-vous à l’article [Connecter des appareils joints à un domaine à Azure AD pour les expériences Windows 10](https://docs.microsoft.com/azure/active-directory/active-directory-azureadjoin-devices-group-policy).
@@ -92,7 +92,7 @@ Il existe normalement une règle de synchronisation activée et configurée pour
 
     | Attribut | Valeur |
     | --- | --- |
-    | Direction |**Sortante** |
+    | Sens |**Sortante** |
     | Type d'objet MV |**Person** |
     | Connecteur |*nom de votre connecteur Azure AD* |
     | Type d’objet de connecteur |**user** |
@@ -105,7 +105,7 @@ Il existe normalement une règle de synchronisation activée et configurée pour
 7. Dans l’écran de modification, sélectionnez l’onglet **Filtre d’étendue**.
 8. Notez la configuration du filtre d’étendue. Si vous utilisez la règle de synchronisation OOB, il doit y avoir exactement **un groupe de filtres d’étendue comportant deux clauses**, notamment :
 
-    | Attribut | Operator | Valeur |
+    | Attribut | Opérateur | Valeur |
     | --- | --- | --- |
     | sourceObjectType | EQUAL | Utilisateur |
     | cloudMastered | NOTEQUAL | True |
@@ -123,7 +123,7 @@ La nouvelle règle de synchronisation doit avoir le même **filtre d’étendue*
     | Type d’objet système connecté | **user** | |
     | Type d’objet métaverse | **person** | |
     | Type de lien | **Join** | |
-    | Precedence | *Choisissez un nombre compris entre 1 et 99* | Le nombre sélectionné ne doit pas être utilisé par une règle de synchronisation existante ; il doit avoir une valeur inférieure à celle de la règle de synchronisation existante (et, par conséquent, une priorité plus élevée). |
+    | Priorité | *Choisissez un nombre compris entre 1 et 99* | Le nombre sélectionné ne doit pas être utilisé par une règle de synchronisation existante ; il doit avoir une valeur inférieure à celle de la règle de synchronisation existante (et, par conséquent, une priorité plus élevée). |
 
 3. Accédez à l’onglet **Filtre d’étendue** et implémentez le filtre d’étendue utilisé par la règle de synchronisation existante.
 4. Ignorez l’onglet **Règles de jointure**.
@@ -137,7 +137,7 @@ La nouvelle règle de synchronisation doit avoir le même **filtre d’étendue*
     
 6. Cliquez sur le bouton **Ajouter** pour créer la règle de synchronisation.
 
-### <a name="step-4-verify-the-new-sync-rule-on-an-existing-object-with-largeobject-error"></a>Étape 4. Vérifier la nouvelle règle de synchronisation sur un objet existant comportant l’erreur LargeObject
+### <a name="step-4-verify-the-new-sync-rule-on-an-existing-object-with-largeobject-error"></a>Étape 4. Vérifier la nouvelle règle de synchronisation sur un objet existant comportant l’erreur LargeObject
 Il s’agit de vérifier que la règle de synchronisation créée fonctionne correctement sur un objet AD existant comportant une erreur LargeObject, avant de l’appliquer à d’autres objets :
 1. Accédez à l’onglet **Opérations** dans Synchronization Service Manager.
 2. Sélectionnez l’opération Exporter vers Azure AD la plus récente, puis cliquez sur l’un des objets comportant une erreur LargeObject.

@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 01/30/2019
 ms.author: tomfitz
 ms.openlocfilehash: aac2f3ea2b52ac0319f96279deed13c1145749bd
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74451572"
 ---
 ## <a name="deploy-template-from-cloud-shell"></a>Déployer le modèle à partir de Cloud Shell
 
 Vous pouvez utiliser [Cloud Shell](../articles/cloud-shell/overview.md) pour déployer votre modèle. Pour déployer un modèle externe, indiquez précisément l’URI du modèle comme vous le feriez pour tout autre déploiement externe. Pour déployer un modèle local, vous devez d’abord charger votre modèle dans le compte de stockage de votre Cloud Shell. Cette section explique comment charger le modèle dans compte Cloud Shell, et le déployer sous forme de fichier local. Si vous n’avez pas utilisé Cloud Shell, consultez [Vue d’ensemble d’Azure Cloud Shell](../articles/cloud-shell/overview.md) pour obtenir plus d’informations sur sa configuration.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
 1. Sélectionnez votre groupe de ressources Cloud Shell. Le modèle de nom est `cloud-shell-storage-<region>`.
 

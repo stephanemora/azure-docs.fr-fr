@@ -8,12 +8,12 @@ ms.author: klam
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/19/2019
-ms.openlocfilehash: 6c7112b6b5944042036fd3e7af6ec6f6dfbde0c0
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 795acd67a8d4a9f8b8b7d78799a92134f249cf8d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77526142"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79233001"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Modèle de tarif pour Azure Logic Apps
 
@@ -64,7 +64,7 @@ Un [*environnement de service d’intégration* (ISE)](../logic-apps/connect-vir
 
   Pour plus d’informations sur les limites des comptes d’intégration, consultez [Limites et configuration de Logic Apps](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). Vous trouverez plus d’informations sur les [niveaux de comptes d’intégration et leur modèle de tarification](#integration-accounts) plus loin dans cette rubrique.
 
-Si vous choisissez la référence SKU de l’environnement de service d’intégration (ISE) Premium, l’unité de base a une capacité fixe. Si vous avez besoin d’un débit plus élevé, vous pouvez [ajouter des unités d’échelle supplémentaires](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity) pendant la création ou par la suite. La référence SKU de Developer ISE ne peut pas jouter d’unités d’échelle supplémentaires. Les applications logiques qui s’exécutent dans un ISE n’entraînent aucun coût en termes de conservation des données.
+Si vous choisissez la référence SKU de l’environnement de service d’intégration (ISE) Premium, l’unité de base a une capacité fixe. Si vous avez besoin d’un débit plus élevé, vous pouvez [ajouter des unités d’échelle supplémentaires](../logic-apps/ise-manage-integration-service-environment.md#add-capacity) pendant la création ou par la suite. La référence SKU de Developer ISE ne peut pas jouter d’unités d’échelle supplémentaires. Les applications logiques qui s’exécutent dans un ISE n’entraînent aucun coût en termes de conservation des données.
 
 Pour connaître la tarification, consultez [Tarification Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps).
 

@@ -4,10 +4,10 @@ description: Pour les partenaires CSP, la gestion des ressources déléguées Az
 ms.date: 12/18/2019
 ms.topic: conceptual
 ms.openlocfilehash: 66ea74751f12a499a1e2d9e083497da31746e3c7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75456910"
 ---
 # <a name="azure-lighthouse-and-the-cloud-solution-provider-program"></a>Azure Lighthouse et le programme Fournisseur de solutions cloud

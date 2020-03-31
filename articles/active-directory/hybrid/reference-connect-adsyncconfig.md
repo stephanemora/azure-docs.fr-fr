@@ -11,10 +11,10 @@ ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 554bb99121190198982f64deb6ee0674aa8831ed
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60381193"
 ---
 # <a name="azure-ad-connect--adsyncconfig-powershell-reference"></a>Azure AD Connect :  Référence PowerShell ADSyncConfig
@@ -26,7 +26,7 @@ La documentation suivante fournit des informations de référence sur le module 
 ### <a name="synopsis"></a>SYNOPSIS
 Obtient le nom du compte et le domaine qui est configuré dans chaque connecteur Active Directory
 
-### <a name="syntax"></a>SYNTAXE
+### <a name="syntax"></a>SYNTAX
 
 ```
 Get-ADSyncADConnectorAccount
@@ -47,7 +47,7 @@ Get-ADSyncADConnectorAccount
 ### <a name="synopsis"></a>SYNOPSIS
 Obtient les objets AD pour lesquels l’héritage des autorisations est désactivé
 
-### <a name="syntax"></a>SYNTAXE
+### <a name="syntax"></a>SYNTAX
 
 ```
 Get-ADSyncObjectsWithInheritanceDisabled [-SearchBase] <String> [[-ObjectClass] <String>] [<CommonParameters>]
@@ -79,7 +79,7 @@ Find all types of objects with disabled inheritance in a OU
 
 Get-ADSyncObjectsWithInheritanceDisabled -SearchBase OU=AzureAD,DC=Contoso,DC=com -ObjectClass '*'
 
-### <a name="parameters"></a>PARAMÈTRES
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-searchbase"></a>-SearchBase
 SearchBase pour la requête LDAP qui peut être un DistinguishedName ou un nom de domaine complet de domaine AD
@@ -120,7 +120,7 @@ Pour plus d’informations, consultez about_CommonParameters (https://go.microso
 ### <a name="synopsis"></a>SYNOPSIS
 Initialiser votre forêt et domaine Active Directory pour les autorisations de lecture de base.
 
-### <a name="syntax"></a>SYNTAXE
+### <a name="syntax"></a>SYNTAX
 
 #### <a name="userdomain"></a>UserDomain
 ```
@@ -176,7 +176,7 @@ Set-ADSyncBasicReadPermissions -ADConnectorAccountDN 'CN=ADConnector,OU=AzureAD,
 Set-ADSyncBasicReadPermissions -ADConnectorAccountName 'ADConnector' -ADConnectorAccountDomain 'Contoso.com' -ADobjectDN 'OU=AzureAD,DC=Contoso,DC=com'
 ```
 
-### <a name="parameters"></a>PARAMÈTRES
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-adconnectoraccountname"></a>-ADConnectorAccountName
 Nom du compte Active Directory qui est ou sera utilisé par Synchronisation Azure AD Connect pour gérer les objets dans l’annuaire.
@@ -293,7 +293,7 @@ Pour plus d’informations, consultez about_CommonParameters (https://go.microso
 ### <a name="synopsis"></a>SYNOPSIS
 Initialiser votre forêt et domaine Active Directory pour la fonctionnalité Exchange hybride.
 
-### <a name="syntax"></a>SYNTAXE
+### <a name="syntax"></a>SYNTAX
 
 #### <a name="userdomain"></a>UserDomain
 ```
@@ -343,7 +343,7 @@ Set-ADSyncExchangeHybridPermissions -ADConnectorAccountDN 'CN=ADConnector,OU=Azu
 Set-ADSyncExchangeHybridPermissions -ADConnectorAccountName 'ADConnector' -ADConnectorAccountDomain 'Contoso.com' -ADobjectDN 'OU=AzureAD,DC=Contoso,DC=com'
 ```
 
-### <a name="parameters"></a>PARAMÈTRES
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-adconnectoraccountname"></a>-ADConnectorAccountName
 Nom du compte Active Directory qui est ou sera utilisé par Synchronisation Azure AD Connect pour gérer les objets dans l’annuaire.
@@ -460,7 +460,7 @@ Pour plus d’informations, consultez about_CommonParameters (https://go.microso
 ### <a name="synopsis"></a>SYNOPSIS
 Initialiser votre forêt et domaine Active Directory pour la fonctionnalité Dossier public de messagerie Exchange.
 
-### <a name="syntax"></a>SYNTAXE
+### <a name="syntax"></a>SYNTAX
 
 #### <a name="userdomain"></a>UserDomain
 ```
@@ -505,7 +505,7 @@ Set-ADSyncExchangeMailPublicFolderPermissions -ADConnectorAccountDN 'CN=ADConnec
 Set-ADSyncExchangeMailPublicFolderPermissions -ADConnectorAccountName 'ADConnector' -ADConnectorAccountDomain 'Contoso.com' -ADobjectDN 'OU=AzureAD,DC=Contoso,DC=com'
 ```
 
-### <a name="parameters"></a>PARAMÈTRES
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-adconnectoraccountname"></a>-ADConnectorAccountName
 Nom du compte Active Directory qui est ou sera utilisé par Synchronisation Azure AD Connect pour gérer les objets dans l’annuaire.
@@ -622,7 +622,7 @@ Pour plus d’informations, consultez about_CommonParameters (https://go.microso
 ### <a name="synopsis"></a>SYNOPSIS
 Initialiser votre forêt et domaine Active Directory pour la fonctionnalité mS-DS-ConsistencyGuid.
 
-### <a name="syntax"></a>SYNTAXE
+### <a name="syntax"></a>SYNTAX
 
 #### <a name="userdomain"></a>UserDomain
 ```
@@ -666,7 +666,7 @@ Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountDN 'CN=ADConnector,O
 Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountName 'ADConnector' -ADConnectorAccountDomain 'Contoso.com' -ADobjectDN 'OU=AzureAD,DC=Contoso,DC=com'
 ```
 
-### <a name="parameters"></a>PARAMÈTRES
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-adconnectoraccountname"></a>-ADConnectorAccountName
 Nom du compte Active Directory qui est ou sera utilisé par Synchronisation Azure AD Connect pour gérer les objets dans l’annuaire.
@@ -783,7 +783,7 @@ Pour plus d’informations, consultez about_CommonParameters (https://go.microso
 ### <a name="synopsis"></a>SYNOPSIS
 Initialiser votre forêt et domaine Active Directory pour la synchronisation de hachage du mot de passe.
 
-### <a name="syntax"></a>SYNTAXE
+### <a name="syntax"></a>SYNTAX
 
 #### <a name="userdomain"></a>UserDomain
 ```
@@ -817,7 +817,7 @@ Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountName 'ADConnector' -ADC
 Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN 'CN=ADConnector,OU=AzureAD,DC=Contoso,DC=com'
 ```
 
-### <a name="parameters"></a>PARAMÈTRES
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-adconnectoraccountname"></a>-ADConnectorAccountName
 Nom du compte Active Directory qui sera utilisé par Synchronisation Azure AD Connect pour gérer les objets dans l’annuaire.
@@ -904,7 +904,7 @@ Pour plus d’informations, consultez about_CommonParameters (https://go.microso
 ### <a name="synopsis"></a>SYNOPSIS
 Initialiser votre forêt et domaine Active Directory pour la réécriture du mot de passe à partir d’Azure AD.
 
-### <a name="syntax"></a>SYNTAXE
+### <a name="syntax"></a>SYNTAX
 
 #### <a name="userdomain"></a>UserDomain
 ```
@@ -952,7 +952,7 @@ Set-ADSyncPasswordWritebackPermissions -ADConnectorAccountDN 'CN=ADConnector,OU=
 Set-ADSyncPasswordWritebackPermissions -ADConnectorAccountName 'ADConnector' -ADConnectorAccountDomain 'Contoso.com' -ADobjectDN 'OU=AzureAD,DC=Contoso,DC=com'
 ```
 
-### <a name="parameters"></a>PARAMÈTRES
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-adconnectoraccountname"></a>-ADConnectorAccountName
 Nom du compte Active Directory qui est ou sera utilisé par Synchronisation Azure AD Connect pour gérer les objets dans l’annuaire.
@@ -1071,7 +1071,7 @@ Renforcer les autorisations sur un objet AD qui n’appartient à aucun groupe d
 Un exemple typique est le compte AD Connect (MSOL) créé automatiquement par AAD Connect.
 Ce compte dispose d’autorisations de réplication sur tous les domaines, mais il peut être facilement compromis car il n’est pas protégé.
 
-### <a name="syntax"></a>SYNTAXE
+### <a name="syntax"></a>SYNTAX
 
 ```
 Set-ADSyncRestrictedPermissions [-ADConnectorAccountDN] <String> [-Credential] <PSCredential>
@@ -1111,7 +1111,7 @@ Attribuez ces autorisations spécifiques :
 Set-ADSyncRestrictedPermissions -ADConnectorAccountDN "CN=TestAccount1,CN=Users,DC=Contoso,DC=com" -Credential $(Get-Credential)
 ```
 
-### <a name="parameters"></a>PARAMÈTRES
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-adconnectoraccountdn"></a>-ADConnectorAccountDN
 DistinguishedName du compte Active Directory dont les autorisations doivent être renforcées.
@@ -1131,7 +1131,7 @@ Accept wildcard characters: False
 
 #### <a name="-credential"></a>-Credential
 Informations d’identification de l’administrateur qui dispose des privilèges nécessaires pour restreindre les autorisations sur le compte ADConnectorAccountDN. Il s’agit généralement de l’administrateur d’entreprise ou de domaine. Utilisez le nom de domaine complet du compte d’administrateur afin d’éviter les échecs de recherche de compte.
-Exemple : CONTOSO\admin
+Exemple : CONTOSO\admin
 
 ```yaml
 Type: PSCredential
@@ -1200,7 +1200,7 @@ Pour plus d’informations, consultez about_CommonParameters (https://go.microso
 ### <a name="synopsis"></a>SYNOPSIS
 Initialiser votre forêt et domaine Active Directory pour la réécriture du groupe à partir d’Azure AD.
 
-### <a name="syntax"></a>SYNTAXE
+### <a name="syntax"></a>SYNTAX
 
 #### <a name="userdomain"></a>UserDomain
 ```
@@ -1245,7 +1245,7 @@ Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN 'CN=ADConnector
 Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountName 'ADConnector' -ADConnectorAccountDomain 'Contoso.com' -ADobjectDN 'OU=AzureAD,DC=Contoso,DC=com'
 ```
 
-### <a name="parameters"></a>PARAMÈTRES
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-adconnectoraccountname"></a>-ADConnectorAccountName
 Nom du compte Active Directory qui est ou sera utilisé par Synchronisation Azure AD Connect pour gérer les objets dans l’annuaire.
@@ -1362,7 +1362,7 @@ Pour plus d’informations, consultez about_CommonParameters (https://go.microso
 ### <a name="synopsis"></a>SYNOPSIS
 Affiche les autorisations d’un objet AD spécifié.
 
-### <a name="syntax"></a>SYNTAXE
+### <a name="syntax"></a>SYNTAX
 
 ```
 Show-ADSyncADObjectPermissions [-ADobjectDN] <String> [<CommonParameters>]
@@ -1379,7 +1379,7 @@ L’ADobjectDN doit être fourni dans un format DistinguishedName.
 Show-ADSyncADObjectPermissions -ADobjectDN 'OU=AzureAD,DC=Contoso,DC=com'
 ```
 
-### <a name="parameters"></a>PARAMÈTRES
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-adobjectdn"></a>-ADobjectDN
 {{Fill ADobjectDN Description}}

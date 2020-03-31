@@ -5,11 +5,11 @@ ms.date: 11/04/2019
 ms.topic: conceptual
 ms.reviewer: brendal
 ms.openlocfilehash: 9600a6a251552acd319cc68d2bd281584d65546d
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74324985"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227385"
 ---
 # <a name="azure-blockchain-tokens-templates"></a>Modèles Azure Blockchain Tokens
 

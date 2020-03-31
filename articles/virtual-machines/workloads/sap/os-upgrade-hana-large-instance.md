@@ -14,10 +14,10 @@ ms.date: 07/04/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3a0a5d39a7cb2162186291ea534a623ef45c40d4
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78675631"
 ---
 # <a name="operating-system-upgrade"></a>Mise à niveau du système d’exploitation
@@ -27,7 +27,7 @@ Ce document décrit en détail les mises à niveau du système d’exploitation 
 >La mise à niveau du système d’exploitation relève de la responsabilité du client. Le support des opérations Microsoft peut vous indiquer les éléments clés à surveiller pendant la mise à niveau. Consultez également le fournisseur de votre système d’exploitation avant de planifier une mise à niveau.
 
 Pendant le provisionnement de l’unité HLI, l’équipe des opérations Microsoft installe le système d’exploitation.
-Au fil du temps, il vous appartient d’effectuer la maintenance du système d’exploitation sur l’unité HLI : mise à jour corrective, réglage, mise à niveau, etc.
+Au fil du temps, il vous appartient d’effectuer la maintenance du système d’exploitation sur l’unité HLI : mise à jour corrective, réglage, mise à niveau, etc.
 
 Avant d’apporter des modifications majeures au système d’exploitation (par exemple, une mise à niveau de SP1 vers SP2), vous devez contacter l’équipe des opérations de Microsoft en ouvrant un ticket de support.
 

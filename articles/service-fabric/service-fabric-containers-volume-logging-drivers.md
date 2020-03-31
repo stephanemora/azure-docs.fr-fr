@@ -4,10 +4,10 @@ description: Service Fabric prend en charge l’utilisation d’Azure Files pour
 ms.topic: conceptual
 ms.date: 6/10/2018
 ms.openlocfilehash: 514a0cb12359d58e38ebc30ae12cdb277757f2b2
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75750047"
 ---
 # <a name="azure-files-volume-driver-for-service-fabric"></a>Pilote de volume Azure Files pour Service Fabric

@@ -8,12 +8,12 @@ ms.date: 08/09/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: bb31a10623bd5e8ea9a406b37acf84995774045c
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 5320c9d7f1ea5ae882c67ee631f5bbafbf97b039
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772303"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79530867"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Préparer le déploiement en production d’une solution IoT Edge
 
@@ -39,7 +39,7 @@ Un certificat d’autorité de certification doit être installé sur chaque app
 
 Pour comprendre le rôle du certificat d’autorité de certification d’appareil, voir [Comment Azure IoT Edge utilise les certificats](iot-edge-certs.md).
 
-Pour savoir comment installer des certificats sur un appareil IoT Edge et y faire référence dans le fichier config.yaml, consultez [Installer des certificats de production sur un appareil IoT Edge](how-to-install-production-certificates.md).
+Pour savoir comment installer des certificats sur un appareil IoT Edge et y faire référence dans le fichier config.yaml, consultez [Installer des certificats de production sur un appareil IoT Edge](how-to-manage-device-certificates.md).
 
 ### <a name="have-a-device-management-plan"></a>Élaborer un plan de gestion des appareils
 
@@ -224,7 +224,7 @@ Vous pouvez limiter la taille de tous les fichiers de journaux de conteneur dans
 
 Ajoutez ces informations dans un fichier nommé `daemon.json` et placez-le à l’emplacement approprié pour votre plateforme d’appareil.
 
-| Plateforme | Location |
+| Plateforme | Emplacement |
 | -------- | -------- |
 | Linux | `/etc/docker/` |
 | Windows | `C:\ProgramData\iotedge-moby\config\` |

@@ -4,10 +4,10 @@ description: Informations de référence pour la charge utile JSON liée aux req
 ms.topic: article
 ms.date: 03/05/2019
 ms.openlocfilehash: 8354ef9db24d5825238155ac567d5d829f9b0d7f
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74455960"
 ---
 # <a name="azure-container-registry-webhook-reference"></a>Référence de webhook Azure Container Registry
@@ -38,31 +38,31 @@ Webhook déclenché lorsqu’une image conteneur est envoyée vers un référent
 
 |Élément|Type|Description|
 |-------------|----------|-----------|
-|`id`|Chaîne|ID de l’événement de webhook.|
+|`id`|String|ID de l’événement de webhook.|
 |`timestamp`|DateTime|Heure à laquelle l’événement de webhook a été déclenché.|
-|`action`|Chaîne|Action qui a déclenché l’événement de webhook.|
+|`action`|String|Action qui a déclenché l’événement de webhook.|
 |[cible](#target)|Type complexe|Cible de l’événement qui a déclenché l’événement de webhook.|
 |[requête](#request)|Type complexe|Requête qui a généré l’événement de webhook.|
 
-### <a name="target"></a>cible
+### <a name="target"></a><a name="target"></a>cible
 
 |Élément|Type|Description|
 |------------------|----------|-----------|
-|`mediaType`|Chaîne|Type MIME de l’objet référencé.|
+|`mediaType`|String|Type MIME de l’objet référencé.|
 |`size`|Int32|Nombre d’octets du contenu. Identique au champ Longueur.|
-|`digest`|Chaîne|Résumé du contenu, tel que défini par la spécification d’API du Registre V2 HTTP.|
+|`digest`|String|Résumé du contenu, tel que défini par la spécification d’API du Registre V2 HTTP.|
 |`length`|Int32|Nombre d’octets du contenu. Identique au champ Taille.|
-|`repository`|Chaîne|Nom du référentiel.|
-|`tag`|Chaîne|Nom de la balise d’image.|
+|`repository`|String|Nom du référentiel.|
+|`tag`|String|Nom de la balise d’image.|
 
-### <a name="request"></a>requête
+### <a name="request"></a><a name="request"></a>requête
 
 |Élément|Type|Description|
 |------------------|----------|-----------|
-|`id`|Chaîne|ID de la requête qui a initié l’événement.|
-|`host`|Chaîne|Nom d’hôte accessible de l’extérieur de l’instance du registre, tel que spécifié par l’en-tête d’hôte HTTP sur les requêtes entrantes.|
-|`method`|Chaîne|Méthode de requête qui a généré l’événement.|
-|`useragent`|Chaîne|En-tête d’agent utilisateur de la requête.|
+|`id`|String|ID de la requête qui a initié l’événement.|
+|`host`|String|Nom d’hôte accessible de l’extérieur de l’instance du registre, tel que spécifié par l’en-tête d’hôte HTTP sur les requêtes entrantes.|
+|`method`|String|Méthode de requête qui a généré l’événement.|
+|`useragent`|String|En-tête d’agent utilisateur de la requête.|
 
 ### <a name="payload-example-image-push-event"></a>Exemple de charge utile : événement push d’image
 
@@ -102,22 +102,22 @@ Webhook déclenché quand un graphique Helm est envoyé vers un référentiel.
 
 |Élément|Type|Description|
 |-------------|----------|-----------|
-|`id`|Chaîne|ID de l’événement de webhook.|
+|`id`|String|ID de l’événement de webhook.|
 |`timestamp`|DateTime|Heure à laquelle l’événement de webhook a été déclenché.|
-|`action`|Chaîne|Action qui a déclenché l’événement de webhook.|
+|`action`|String|Action qui a déclenché l’événement de webhook.|
 |[cible](#helm_target)|Type complexe|Cible de l’événement qui a déclenché l’événement de webhook.|
 
-### <a name="helm_target"></a>cible
+### <a name="target"></a><a name="helm_target"></a>cible
 
 |Élément|Type|Description|
 |------------------|----------|-----------|
-|`mediaType`|Chaîne|Type MIME de l’objet référencé.|
+|`mediaType`|String|Type MIME de l’objet référencé.|
 |`size`|Int32|Nombre d’octets du contenu.|
-|`digest`|Chaîne|Résumé du contenu, tel que défini par la spécification d’API du Registre V2 HTTP.|
-|`repository`|Chaîne|Nom du référentiel.|
-|`tag`|Chaîne|Nom de balise du graphique.|
-|`name`|Chaîne|Nom du graphique.|
-|`version`|Chaîne|Version du graphique.|
+|`digest`|String|Résumé du contenu, tel que défini par la spécification d’API du Registre V2 HTTP.|
+|`repository`|String|Nom du référentiel.|
+|`tag`|String|Nom de balise du graphique.|
+|`name`|String|Nom du chart.|
+|`version`|String|Version du chart.|
 
 ### <a name="payload-example-chart-push-event"></a>Exemple de charge utile : événement push de graphique
 
@@ -152,28 +152,28 @@ Webhook déclenché quand un référentiel d’image sou un manifeste est suppri
 
 |Élément|Type|Description|
 |-------------|----------|-----------|
-|`id`|Chaîne|ID de l’événement de webhook.|
+|`id`|String|ID de l’événement de webhook.|
 |`timestamp`|DateTime|Heure à laquelle l’événement de webhook a été déclenché.|
-|`action`|Chaîne|Action qui a déclenché l’événement de webhook.|
+|`action`|String|Action qui a déclenché l’événement de webhook.|
 |[cible](#delete_target)|Type complexe|Cible de l’événement qui a déclenché l’événement de webhook.|
 |[requête](#delete_request)|Type complexe|Requête qui a généré l’événement de webhook.|
 
-### <a name="delete_target"></a> cible
+### <a name="target"></a><a name="delete_target"></a> cible
 
 |Élément|Type|Description|
 |------------------|----------|-----------|
-|`mediaType`|Chaîne|Type MIME de l’objet référencé.|
-|`digest`|Chaîne|Résumé du contenu, tel que défini par la spécification d’API du Registre V2 HTTP.|
-|`repository`|Chaîne|Nom du référentiel.|
+|`mediaType`|String|Type MIME de l’objet référencé.|
+|`digest`|String|Résumé du contenu, tel que défini par la spécification d’API du Registre V2 HTTP.|
+|`repository`|String|Nom du référentiel.|
 
-### <a name="delete_request"></a> requête
+### <a name="request"></a><a name="delete_request"></a> requête
 
 |Élément|Type|Description|
 |------------------|----------|-----------|
-|`id`|Chaîne|ID de la requête qui a initié l’événement.|
-|`host`|Chaîne|Nom d’hôte accessible de l’extérieur de l’instance du registre, tel que spécifié par l’en-tête d’hôte HTTP sur les requêtes entrantes.|
-|`method`|Chaîne|Méthode de requête qui a généré l’événement.|
-|`useragent`|Chaîne|En-tête d’agent utilisateur de la requête.|
+|`id`|String|ID de la requête qui a initié l’événement.|
+|`host`|String|Nom d’hôte accessible de l’extérieur de l’instance du registre, tel que spécifié par l’en-tête d’hôte HTTP sur les requêtes entrantes.|
+|`method`|String|Méthode de requête qui a généré l’événement.|
+|`useragent`|String|En-tête d’agent utilisateur de la requête.|
 
 ### <a name="payload-example-image-delete-event"></a>Exemple de charge utile : événement de suppression d’image
 
@@ -214,22 +214,22 @@ Webhook déclenché quand un graphique Helm ou un référentiel est supprimé.
 
 |Élément|Type|Description|
 |-------------|----------|-----------|
-|`id`|Chaîne|ID de l’événement de webhook.|
+|`id`|String|ID de l’événement de webhook.|
 |`timestamp`|DateTime|Heure à laquelle l’événement de webhook a été déclenché.|
-|`action`|Chaîne|Action qui a déclenché l’événement de webhook.|
+|`action`|String|Action qui a déclenché l’événement de webhook.|
 |[cible](#chart_delete_target)|Type complexe|Cible de l’événement qui a déclenché l’événement de webhook.|
 
-### <a name="chart_delete_target"></a> cible
+### <a name="target"></a><a name="chart_delete_target"></a> cible
 
 |Élément|Type|Description|
 |------------------|----------|-----------|
-|`mediaType`|Chaîne|Type MIME de l’objet référencé.|
+|`mediaType`|String|Type MIME de l’objet référencé.|
 |`size`|Int32|Nombre d’octets du contenu.|
-|`digest`|Chaîne|Résumé du contenu, tel que défini par la spécification d’API du Registre V2 HTTP.|
-|`repository`|Chaîne|Nom du référentiel.|
-|`tag`|Chaîne|Nom de balise du graphique.|
-|`name`|Chaîne|Nom du graphique.|
-|`version`|Chaîne|Version du graphique.|
+|`digest`|String|Résumé du contenu, tel que défini par la spécification d’API du Registre V2 HTTP.|
+|`repository`|String|Nom du référentiel.|
+|`tag`|String|Nom de balise du graphique.|
+|`name`|String|Nom du chart.|
+|`version`|String|Version du chart.|
 
 ### <a name="payload-example-chart-delete-event"></a>Exemple de charge utile : événement de suppression de graphique
 

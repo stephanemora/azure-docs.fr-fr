@@ -1,6 +1,6 @@
 ---
 title: Charger des fichiers dans un compte Azure Media Services à partir d’Azure StorSimple | Microsoft Docs
-description: Cet article donne une brève vue d’ensemble de Azure StorSimple Data Manager. L’article contient également des liens vers des didacticiels qui expliquent comment extraire des données de StorSimple et les charger en tant que ressources dans un compte Azure Media Services.
+description: Cet article donne une brève vue d’ensemble d’Azure StorSimple Data Manager. L’article contient également des liens vers des didacticiels qui expliquent comment extraire des données de StorSimple et les charger en tant que ressources dans un compte Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,28 +15,28 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: c77b700cab4afd411c3a2df824ee8335cb394cda
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "64868315"
 ---
 # <a name="upload-files-into-an-azure-media-services-account-from-azure-storsimple"></a>Charger des fichiers dans un compte Azure Media Services à partir d’Azure StorSimple  
 
 > [!NOTE]
-> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consultez aussi [Conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md)
+> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consultez aussi [Conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md).
 >
 > 
 > Azure StorSimple Data Manager est actuellement disponible en version préliminaire privée. 
 > 
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Dans Media Services, vous téléchargez vos fichiers numériques dans une ressource. L’élément multimédia peut contenir des fichiers vidéo, des fichiers audio, des images, des collections de miniatures, des pistes textuelles et des légendes (ainsi que les métadonnées concernant ces fichiers). Une fois les fichiers téléchargés, votre contenu est stocké en toute sécurité dans le cloud et peut faire l’objet d’un traitement et d’une diffusion en continu.
 
 [Azure StorSimple](https://docs.microsoft.com/azure/storsimple/) utilise le stockage cloud pour étendre la solution sur site et hiérarchise automatiquement les données sur le stockage local et le stockage cloud. L’appareil StorSimple déduplique et compresse les données avant de les envoyer vers le cloud. Il améliore considérablement l’efficacité d’envoi de fichiers volumineux vers le cloud. Le service [StorSimple Data Manager](../../storsimple/storsimple-data-manager-overview.md) fournit des API vous permettant d’extraire des données à partir de StorSimple et de les présenter sous la forme de ressources AMS.
 
-## <a name="get-started"></a>Prise en main
+## <a name="get-started"></a>Bien démarrer
 
 1. [Créer un compte Media Services](media-services-portal-create-account.md) dans lequel vous souhaitez transférer les ressources.
 2. Inscrivez-vous à la version préliminaire de Data Manager, comme décrit dans l’article [StorSimple Data Manager](../../storsimple/storsimple-data-manager-overview.md).

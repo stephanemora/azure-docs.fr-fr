@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 07/10/2019
 ms.author: vilibert
 ms.openlocfilehash: a154ab4742f0d0d7acae0376bcf894bc2b62b4cd
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74186757"
 ---
 # <a name="proactively-ensuring-you-have-access-to-grub-and-sysrq-could-save-you-lots-of-down-time"></a>Vous assurer de manière proactive que vous avez accès à GRUB et sysrq peut vous faire gagner beaucoup de temps
@@ -81,9 +81,9 @@ La garantie de pouvoir accéder à la Serial console Azure et à GRUB signifie q
 
 - Méthode héritée
 
-## <a name="disk-swap-video"></a>Vidéo d’échange de disque :
+## <a name="disk-swap-video"></a>Vidéo sur l’échange de disque :
 
-Si vous n’avez pas accès à GRUB, regardez [cette](https://youtu.be/m5t0GZ5oGAc) vidéo et découvrez comment vous pouvez facilement automatiser la procédure d’échange de disque pour récupérer votre machine virtuelle
+Si vous n’avez pas accès à GRUB, regardez [cette vidéo](https://youtu.be/m5t0GZ5oGAc) et découvrez comment vous pouvez facilement automatiser la procédure d’échange de disque pour récupérer votre machine virtuelle.
 
 ## <a name="challenges"></a>Défis :
 

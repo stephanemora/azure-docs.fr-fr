@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: ganesr
 ms.openlocfilehash: 7c223e3802d499e002b12580b17cb9ee3f1bea97
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74076610"
 ---
 # <a name="getting-arp-tables-in-the-classic-deployment-model"></a>Obtention de tables ARP dans le modèle de déploiement classique

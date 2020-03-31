@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/05/2019
 ms.author: encorona
 ms.openlocfilehash: 86a12bd1dccc2b6ac15010546d7e990b768ebc02
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75453348"
 ---
 # <a name="how-to-add-a-one-step-correction-to-a-custom-command-preview"></a>Procédure : Ajouter une correction en une étape à une commande personnalisée (préversion)
@@ -25,14 +25,14 @@ Une correction en une étape est utilisée pour mettre à jour une commande qui 
 
 Par exemple, si vous venez de configurer une alarme, vous pouvez changer d’avis et mettre à jour l’heure de l’alarme.
 
-- Entrée : Définir une alarme pour demain à midi
-- Sortie : « OK, alarme définie pour le 06/12/2019 à 12:00:00 »
+- Entrée : Set alarm for tomorrow at noon
+- Sortie : "Ok, alarm set for 12/06/2019 12:00:00"
 - Entrée : Non, demain à 13h00
 - Sortie : « OK »
 
 N’oubliez pas que cela implique que le développeur dispose d’un mécanisme permettant de mettre à jour l’alarme dans l’application principale.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Vous devez avoir effectué les étapes décrites dans les articles suivants :
 
@@ -66,8 +66,8 @@ Pour illustrer la correction en une étape, nous allons étendre la commande **S
 
 Sélectionnez le panneau de test pour essayer quelques interactions.
 
-- Entrée : Définir une alarme pour demain à midi
-- Sortie : « Voulez-vous vraiment définir une alarme pour le 07/12/2019 12:00:00 ? »
+- Entrée : Set alarm for tomorrow at noon
+- Sortie : "Are you sure you want to set an alarm for 12/07/2019 12:00:00?"
 - Entrée : Oui
 - Sortie : « OK, alarme définie pour le 07/12/2019 à 12:00:00 »
 - Entrée : Non, demain à 13h00

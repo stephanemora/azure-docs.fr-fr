@@ -4,10 +4,10 @@ description: Découvrez comment mettre à niveau la version ou la configuration 
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.openlocfilehash: 6da9b4c6890895141ecc419382f05f667614fb31
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75451823"
 ---
 # <a name="upgrading-and-updating-a-service-fabric-standalone-cluster"></a>Mise à niveau et mise à jour d’un cluster Service Fabric autonome

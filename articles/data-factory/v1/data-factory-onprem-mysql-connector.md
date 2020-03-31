@@ -13,11 +13,11 @@ ms.date: 06/06/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 90fccba016a3db9ff85f8ec7c8fd426ef3c896a2
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928104"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79236333"
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Déplacer des données depuis MySQL à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -49,7 +49,7 @@ Pour que la passerelle de gestion des données puisse se connecter à la base de
 ## <a name="getting-started"></a>Prise en main
 Vous pouvez créer un pipeline avec une activité de copie qui déplace les données d’un magasin de données Cassandra local à l’aide de différents outils/API. 
 
-- Le moyen le plus simple de créer un pipeline consiste à utiliser **l’Assistant Copie**. Consultez le [tutoriel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Copie](data-factory-copy-data-wizard-tutorial.md) pour obtenir une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copie de données. 
+- Le moyen le plus simple de créer un pipeline consiste à utiliser **l’Assistant Copie**. Voir le [tutoriel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Copie](data-factory-copy-data-wizard-tutorial.md) pour obtenir une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copie de données. 
 - Vous pouvez également utiliser les outils suivants pour créer un pipeline : **Visual Studio**, **Azure PowerShell**, **modèle Azure Resource Manager**, **.NET API** et **API REST**. Pour obtenir des instructions détaillées sur la création d’un pipeline avec une activité de copie, consultez le [didacticiel sur l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
 
 Que vous utilisiez des outils ou des API, la création d’un pipeline qui déplace les données d’un magasin de données source vers un magasin de données récepteur implique les étapes suivantes :
@@ -67,14 +67,14 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| type |La propriété type doit être définie sur : **OnPremisesMySql** |OUI |
-| server |Nom du serveur MySQL. |OUI |
-| database |Nom de la base de données MySQL. |OUI |
-| schema |Nom du schéma dans la base de données. |Non |
-| authenticationType |Type d'authentification utilisé pour se connecter à la base de données MySQL. Les valeurs possibles sont les suivantes : `Basic`. |OUI |
-| userName |Spécifiez le nom d’utilisateur associé à la connexion à la base de données MySQL. |OUI |
-| password |Spécifiez le mot de passe du compte d’utilisateur que vous avez indiqué. |OUI |
-| gatewayName |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à la base de données MySQL locale. |OUI |
+| type |La propriété type doit être définie sur : **OnPremisesMySql** |Oui |
+| server |Nom du serveur MySQL. |Oui |
+| database |Nom de la base de données MySQL. |Oui |
+| schéma |Nom du schéma dans la base de données. |Non |
+| authenticationType |Type d'authentification utilisé pour se connecter à la base de données MySQL. Les valeurs possibles sont les suivantes : `Basic`. |Oui |
+| userName |Spécifiez le nom d’utilisateur associé à la connexion à la base de données MySQL. |Oui |
+| mot de passe |Spécifiez le mot de passe du compte d’utilisateur que vous avez indiqué. |Oui |
+| gatewayName |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à la base de données MySQL locale. |Oui |
 
 ## <a name="dataset-properties"></a>Propriétés du jeu de données
 Pour obtenir une liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Création de jeux de données](data-factory-create-datasets.md). Les sections comme la structure, la disponibilité et la stratégie d'un jeu de données JSON sont similaires pour tous les types de jeux de données (SQL Azure, Azure Blob, Azure Table, etc.).
@@ -298,46 +298,46 @@ Comme mentionné dans l’article consacré aux [activités de déplacement de d
 
 Lors du déplacement de données vers MySQL, les mappages suivants sont utilisés pour passer des types MySQL aux types .NET.
 
-| Type de base de données MySQL | Type de .NET Framework |
+| Type de base de données MySQL | Type .NET Framework |
 | --- | --- |
 | bigint non signé |Decimal |
 | bigint |Int64 |
 | bit |Decimal |
-| objet blob |Byte[] |
-| valeur booléenne |Boolean |
-| char |Chaîne |
-| date |Datetime |
-| datetime |Datetime |
-| décimal |Decimal |
+| objet BLOB |Byte[] |
+| bool |Boolean |
+| char |String |
+| Date |Datetime |
+| DATETIME |Datetime |
+| Décimal |Decimal |
 | double précision |Double |
-| Double |Double |
-| enum |Chaîne |
+| double |Double |
+| enum |String |
 | float |Unique |
 | int non signé |Int64 |
 | int |Int32 |
 | entier non signé |Int64 |
-| integer |Int32 |
+| entier |Int32 |
 | long varbinary |Byte[] |
-| long varchar |Chaîne |
+| long varchar |String |
 | longblob |Byte[] |
-| longtext |Chaîne |
+| longtext |String |
 | mediumblob |Byte[] |
 | mediumint non signé |Int64 |
 | mediumint |Int32 |
-| mediumtext |Chaîne |
-| numérique |Decimal |
+| mediumtext |String |
+| numeric |Decimal |
 | real |Double |
-| set |Chaîne |
+| set |String |
 | smallint non signé |Int32 |
-| smallint |Int16 |
-| text |Chaîne |
+| SMALLINT |Int16 |
+| text |String |
 | time |TimeSpan |
 | timestamp |Datetime |
 | tinyblob |Byte[] |
 | tinyint non signé |Int16 |
-| tinyint |Int16 |
-| tinytext |Chaîne |
-| varchar |Chaîne |
+| TINYINT |Int16 |
+| tinytext |String |
+| varchar |String |
 | year |Int |
 
 ## <a name="map-source-to-sink-columns"></a>Mapper les colonnes source aux colonnes du récepteur

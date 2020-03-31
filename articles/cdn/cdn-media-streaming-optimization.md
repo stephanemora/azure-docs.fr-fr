@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/01/2018
 ms.author: magattus
 ms.openlocfilehash: c6ed546735058e330368151adb0df7323f943050
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593665"
 ---
 # <a name="media-streaming-optimization-with-azure-cdn"></a>Optimisation de la diffusion multimédia en continu avec Azure CDN 
@@ -87,7 +87,7 @@ Le temps de mise en cache négatif court est utile pour le déchargement de l’
 |   | Livraison web générale | Diffusion multimédia en continu générale | Diffusion multimédia en continu de vidéo à la demande  
 --- | --- | --- | ---
 Mise en cache : Positive <br> HTTP 200, 203, 300, <br> 301, 302 et 410 | 7 jours |365 jours | 365 jours   
-Mise en cache : Negative <br> HTTP 204, 305, 404, <br> et 405 | Aucun | 1 seconde | 1 seconde
+Mise en cache : Negative <br> HTTP 204, 305, 404, <br> et 405 | None | 1 seconde | 1 seconde
  
 ### <a name="deal-with-origin-failure"></a>Traitement des défaillances de l’origine  
 

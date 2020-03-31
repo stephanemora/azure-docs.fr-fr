@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: diberry
 ms.openlocfilehash: 9a8e8cb331dd11eebaddbcbf8f603c1148415aef
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79117374"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Modifications de point de terminaison de prédiction pour V3
@@ -226,7 +226,7 @@ const associatedMetadata = entities.$instance.my_list_entity[item];
 
 Dans V2, le tableau `entities` retournait toutes les entités prédites avec le nom d’entité en guise d’identificateur unique. Dans V3, si l’entité utilise des rôles et que la prédiction porte sur un rôle d’entité, l’identificateur principal est le nom de rôle. Cela est possible, car les noms de rôle d’entité doivent être uniques dans toute l’application, y compris les autres noms de modèle (intention, entité).
 
-L’exemple suivant contient un énoncé qui comporte le texte `Yellow Bird Lane`. Ce texte est prédit en tant que rôle `Destination` d’une entité `Location` personnalisée.
+L’exemple suivant contient un énoncé qui comporte le texte `Yellow Bird Lane`. Ce texte est prédit en tant que rôle `Location` d’une entité `Destination` personnalisée.
 
 |Texte d’énoncé|Nom de l’entité|Nom de rôle|
 |--|--|--|

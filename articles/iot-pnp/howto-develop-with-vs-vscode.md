@@ -4,16 +4,16 @@ description: Utilisez Visual Studio et Visual Studio Code pour accélérer la cr
 author: liydu
 ms.author: liydu
 ms.date: 12/26/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: b4325aa6f379dc0b281d06cb593c28448698c71b
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 91e7b1c0be9a38c3d79440f07d944d182980dc10
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75531324"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80159232"
 ---
 # <a name="use-visual-studio-and-visual-studio-code-to-build-iot-plug-and-play-devices"></a>Utiliser Visual Studio et Visual Studio Code pour générer des appareils IoT Plug-and-Play
 
@@ -27,7 +27,7 @@ Cet article vous montre comment :
 
 Pour en savoir plus sur l’utilisation de VS Code pour développer des appareils IoT, consultez [https://github.com/microsoft/vscode-iot-workbench](https://github.com/microsoft/vscode-iot-workbench).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Installez [Visual Studio Code](https://code.visualstudio.com/).
 

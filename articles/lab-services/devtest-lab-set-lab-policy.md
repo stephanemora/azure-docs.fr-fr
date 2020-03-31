@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: aa0ffbd69e73ddbef72e0eabf79f2736079c3d23
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60636429"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79233081"
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Gérer toutes les stratégies d’un laboratoire dans Azure DevTest Labs
 
@@ -91,7 +91,7 @@ En tant que propriétaire d’un laboratoire, vous pouvez configurer une planifi
 
 1. Sur la page d’accueil de votre laboratoire, sélectionnez **Configuration et stratégies**.
 2. Sélectionnez **Stratégie d'arrêt automatique** dans la section **Planifications** du menu de gauche.
-3. Sélectionnez l'une des options. Les sections suivantes vous donnent plus de détails sur ces options : La stratégie définie s’applique seulement aux nouvelles machines virtuelles créées dans le labo et pas aux machines virtuelles déjà existantes. 
+3. Sélectionnez l'une des options. Les sections suivantes vous donnent plus de détails sur ces options : la stratégie définie s’applique uniquement aux nouvelles machines virtuelles créées dans le laboratoire et non aux machines virtuelles déjà existantes. 
 
     ![Options de stratégie d'arrêt automatique](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-options.png)
 
@@ -125,7 +125,7 @@ La stratégie de démarrage automatique vous permet de spécifier quand les mach
 
 Une fois activée, cette stratégie n’est pas automatiquement appliquée à toutes les machines virtuelles dans le laboratoire en cours. Pour appliquer ce paramètre à une machine virtuelle spécifique, ouvrez le volet de gestion de la machine virtuelle et modifiez son paramètre **Démarrage automatique**.
 
-## <a name="set-expiration-date"></a>Définir une date d’expiration
+## <a name="set-expiration-date"></a>Définir la date d’expiration
 Lorsque vous [créez la machine virtuelle](devtest-lab-add-vm.md), vous pouvez définir une date d’expiration. Dans **Paramètres avancés**, choisissez l’icône de calendrier pour spécifier la date à laquelle la machine virtuelle est automatiquement supprimée. Par défaut, la machine virtuelle n’arrive jamais à expiration.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
@@ -138,5 +138,5 @@ Une fois que vous avez défini et appliqué les différents paramètres de strat
   pour afficher le coût estimé à ce jour pour le mois en cours et le coût projeté pour la fin du mois.
 * [Créer une image personnalisée](devtest-lab-create-template.md) : quand vous créez une machine virtuelle, vous spécifiez une base, qui peut être soit une image personnalisée, soit une image Marketplace. Cet article explique comment créer une image personnalisée à partir d’un fichier VHD.
 * [Configurer des images Marketplace](devtest-lab-configure-marketplace-images.md) : Azure DevTest Labs prend en charge la création de machines virtuelles basées sur des images Azure Marketplace. Cet article explique comment spécifier, le cas échéant, les images Azure Marketplace pouvant être utilisées lors de la création de machines virtuelles dans un laboratoire.
-* [Créer une machine virtuelle dans un laboratoire](devtest-lab-add-vm.md) : montre comment créer une machine virtuelle à partir d’une image de base (personnalisée ou Marketplace) et comment utiliser des artefacts dans votre machine virtuelle.
+* [Créer une machine virtuelle dans un laboratoire](devtest-lab-add-vm.md) : montre comment créer une machine virtuelle à partir d’une image de base (personnalisée ou Place de marché) et comment utiliser des artefacts dans votre machine virtuelle.
 

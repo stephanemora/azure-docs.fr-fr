@@ -15,10 +15,10 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 22fa1de0a0e3bb91480212381e07b17875bf0bf4
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74275561"
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Publier des applications sur des réseaux et emplacements distincts à l’aide de groupes de connecteurs
@@ -40,7 +40,7 @@ Pour regrouper vos connecteurs, vous devez vous assurer que vous avez [installé
 
 Procédez comme suit pour créer autant de groupes de connecteurs que vous le souhaitez.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Sélectionnez **Azure Active Directory** > **Applications d’entreprise** > **Proxy d’application**.
 1. Sélectionnez **Nouveau groupe de connecteurs**. Le panneau Nouveau groupe de connecteurs s’affiche.
 

@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2a3e7373a8b0354a3d08debf944f2f77f1609382
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60347689"
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect : Effectuer une mise à niveau depuis une version précédente vers la dernière
@@ -87,7 +87,7 @@ Vous devez configurer ce qui suit de la même façon sur les deux serveurs :
 
 * Connexion aux mêmes forêts
 * Tout filtrage de domaine et d’unité organisationnelle
-* Fonctionnalités facultatives identiques, telles que la synchronisation de mot de passe et l’écriture différée du mot de passe
+* Fonctionnalités facultatives identiques, telles que la synchronisation de mot de passe et la réécriture du mot de passe
 
 **Migrer les règles de synchronisation personnalisées**  
 Pour déplacer des règles de synchronisation personnalisées, procédez comme suit :
@@ -135,7 +135,7 @@ Il peut arriver que vous ne souhaitiez pas que ces actions prioritaires aient li
 
 Pour ajouter les actions prioritaires pour l’importation complète et la synchronisation complète sur un connecteur arbitraire, exécutez l’applet de commande suivante : `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> -FullImportRequired $true -FullSyncRequired $true`
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 La section suivante contient des informations et des solutions de dépannage que vous pouvez utiliser si vous rencontrez des difficultés lors de la mise à niveau d’Azure AD Connect.
 
 ### <a name="azure-active-directory-connector-missing-error-during-azure-ad-connect-upgrade"></a>Erreur de connecteur Azure Active Directory manquant au cours de la mise à niveau d’Azure AD Connect

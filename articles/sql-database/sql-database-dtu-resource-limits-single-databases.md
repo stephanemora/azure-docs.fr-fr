@@ -12,11 +12,11 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/20/2019
 ms.openlocfilehash: a4c435b4874301fe6fb804085c5b265954cd4f5a
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75637590"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228649"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-purchasing-model"></a>Limites de ressources pour des bases de données uniques suivant le modèle d’achat DTU
 

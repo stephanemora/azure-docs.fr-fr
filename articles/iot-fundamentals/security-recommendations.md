@@ -10,10 +10,10 @@ ms.date: 11/13/2019
 ms.author: dkshir
 ms.custom: security-recommendations
 ms.openlocfilehash: 0ada9a520a5be56444a1c3e746a68dbcf9275686
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74048457"
 ---
 # <a name="security-recommendations-for-azure-internet-of-things-iot-deployment"></a>Recommandations de sécurité pour le déploiement d’Azure IoT
@@ -25,7 +25,7 @@ Certaines recommandations contenues dans cet article peuvent être supervisées 
 - Pour plus d’informations sur les recommandations Azure Security Center, consultez [Recommandations de sécurité dans Azure Security Center](../security-center/security-center-recommendations.md).
 - Pour plus d’informations sur Azure Security Center, consultez [Qu’est-ce qu’Azure Security Center ?](../security-center/security-center-intro.md)
 
-## <a name="general"></a>Généralités
+## <a name="general"></a>Général
 
 | Recommandation | Commentaires | Pris en charge par ASC |
 |-|----|--|
@@ -40,7 +40,7 @@ Certaines recommandations contenues dans cet article peuvent être supervisées 
 | Définir le contrôle d’accès pour le hub | [Comprenez et définissez le type d’accès](iot-security-deployment.md#securing-the-cloud) que chaque composant aura dans votre solution IoT Hub, selon sa fonctionnalité. Les autorisations admises sont *Lecture du Registre*, *RegistryReadWrite*, *ServiceConnect* et *DeviceConnect*. Les [stratégies d’accès partagé par défaut dans votre hub IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security#access-control-and-permissions) peuvent également aider à définir les autorisations pour chaque composant en fonction de son rôle. | - |
 | Définir le contrôle d’accès pour les services principaux | Les données reçues par votre solution IoT Hub peuvent être utilisées par d’autres services Azure tels que [Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/), [Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/), [App Service](https://docs.microsoft.com/azure/app-service/), [Logic Apps](https://docs.microsoft.com/azure/logic-apps/) et le [stockage d’objets Blob](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction). Assurez-vous de comprendre et d’autoriser les autorisations d’accès appropriées comme indiqué pour ces services. | - |
 
-## <a name="data-protection"></a>Protection des données
+## <a name="data-protection"></a>Protection de données
 
 | Recommandation | Commentaires | Pris en charge par ASC |
 |-|----|--|

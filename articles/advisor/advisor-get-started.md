@@ -4,11 +4,11 @@ description: Prise en main du conseiller Azure.
 ms.topic: article
 ms.date: 02/01/2019
 ms.openlocfilehash: 8c2699030b1a6d428ddc2a4db40a66003824cf10
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75443136"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79229669"
 ---
 # <a name="get-started-with-azure-advisor"></a>Prise en main d’Azure Advisor
 
@@ -27,7 +27,7 @@ Découvrez comment accéder à Advisor à l’aide du portail Azure, obtenir des
 
 1. Le tableau de bord Advisor présente un résumé de vos recommandations pour tous les abonnements sélectionnés.  Vous pouvez choisir les abonnements pour lesquels afficher les recommandations à l’aide de la liste déroulante de filtrage des abonnements.
 
-1. Pour obtenir des recommandations pour une catégorie spécifique, cliquez sur un des onglets : **Haute disponibilité**, **Sécurité**, **Performances** ou **Coût**. 
+1. Pour obtenir des recommandations pour une catégorie spécifique, cliquez sur l’onglet **Haute disponibilité**, **Sécurité**, **Performances** ou **Coût**. 
 
    ![Tableau de bord du conseiller Azure](./media/advisor-overview/advisor-dashboard.png)
 

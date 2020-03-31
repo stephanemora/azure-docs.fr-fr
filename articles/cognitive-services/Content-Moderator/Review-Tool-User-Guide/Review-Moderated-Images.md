@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pafarley
 ms.openlocfilehash: b02324923e3f004395105b8e04165390cb950fe7
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73044129"
 ---
 # <a name="create-human-reviews"></a>Créer des révisions humaines
 
 Dans ce guide, vous apprendrez à configurer des [révisions](../review-api.md#reviews) sur le site web de l’outil de révision. Les révisions stockent et affichent le contenu que les modérateurs humains vont évaluer. Les modérateurs peuvent modifier les balises appliquées et appliquer leurs propres balises personnalisées selon leurs besoins. Lorsqu’un utilisateur termine une révision, les résultats sont envoyés à un point de terminaison de rappel spécifié, puis le contenu est retiré du site.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Connectez-vous ou créez un compte sur le site de l’[outil de révision](https://contentmoderator.cognitive.microsoft.com/) de Content Moderator.
 

@@ -10,10 +10,10 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 01/08/2020
 ms.openlocfilehash: c718daa4bc99bffd6fcfeb084299bed6682fe884
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75780753"
 ---
 # <a name="how-to-migrate-your-sqlite-database-to-azure-sql-database-serverless"></a>Migrer votre base de données SQLite vers Azure SQL Database Serverless
@@ -23,7 +23,7 @@ Azure SQL Database serverless est un niveau de calcul pour les bases de données
 
 Une fois que vous aurez suivi les étapes ci-dessous, votre base de données sera migrée dans Azure SQL Database Serverless, ce qui vous permettra de mettre votre base de données à la disposition d’autres utilisateurs ou applications dans le cloud et de payer uniquement en fonction de votre utilisation, avec un minimum de modifications à apporter au code de l’application.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 - Un abonnement Azure
 - La base de données SQLite2 ou SQLite3 que vous voulez migrer
 - Un environnement Windows
@@ -71,7 +71,7 @@ Une fois que vous aurez suivi les étapes ci-dessous, votre base de données ser
 
 9. Définissez le type d’authentification sur Anonyme.
 
-10. Testez la connexion.
+10. Tester la connexion
 
     ![capture d’écran indiquant que la connexion a été établie dans Azure Data Factory](./media/tutorial-sqlite-db-to-azure-sql-serverless-offline/linked-services-test-successful.png)
 

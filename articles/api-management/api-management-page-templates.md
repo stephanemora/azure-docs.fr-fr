@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: ce56c406c884471c445b25343d5c42f9edcbe4c4
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176563"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79226565"
 ---
 # <a name="page-templates-in-azure-api-management"></a>Modèles de page dans Gestion des API Azure
 Gestion des API Azure vous offre la possibilité de personnaliser le contenu des pages du portail des développeurs à l’aide d’un ensemble de modèles qui configurent leur contenu. En utilisant la syntaxe [DotLiquid](http://dotliquidmarkup.org/) et l’éditeur de votre choix, comme [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), ainsi qu’un ensemble de [ressources de chaîne](api-management-template-resources.md#strings), de [ressources de glyphe](api-management-template-resources.md#glyphs) et de [contrôles de page](api-management-page-controls.md) localisés, vous disposez d’un large choix pour configurer le contenu des pages selon vos besoins à l’aide de ces modèles.  
@@ -38,7 +38,7 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="SignIn"></a> Connexion  
+##  <a name="sign-in"></a><a name="SignIn"></a> Connexion  
  Le modèle de **connexion** vous permet de personnaliser la page de connexion dans le portail des développeurs.  
   
  ![Page de connexion](./media/api-management-page-templates/APIM-Sign-In-Page-Developer-Portal-Templates.png "Modèles du portail des développeurs - Page de connexion APIM")  
@@ -137,7 +137,7 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
 }
 ```  
   
-##  <a name="SignUp"></a> Inscription  
+##  <a name="sign-up"></a><a name="SignUp"></a> Inscription  
  Le modèle d’**inscription** vous permet de personnaliser la page d’inscription dans le portail des développeurs.  
   
  ![Page d’inscription](./media/api-management-page-templates/APIM-Sign-Up-Page-Developer-Portal-Templates.png "Modèles du portail des développeurs - Page d’inscription APIM")  
@@ -185,7 +185,7 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
 }  
 ```  
   
-##  <a name="PageNotFound"></a> Page introuvable  
+##  <a name="page-not-found"></a><a name="PageNotFound"></a> Page introuvable  
  Le modèle **Page introuvable** vous permet de personnaliser la page « Page introuvable » dans le portail des développeurs.  
   
  ![Page introuvable](./media/api-management-page-templates/APIM-Not-Found-Page-Developer-Portal-Templates.png "Modèles du portail des développeurs - Page introuvable")  

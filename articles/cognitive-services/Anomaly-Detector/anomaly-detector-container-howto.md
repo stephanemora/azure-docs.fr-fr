@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: dapine
 ms.openlocfilehash: 45abd904ea95cf8e68583ba5630a485af59479ec
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327253"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79218931"
 ---
 # <a name="install-and-run-anomaly-detector-containers-preview"></a>Installer et exécuter des conteneurs du Détecteur d’anomalies (préversion)
 
 Le Détecteur d’anomalies présente la caractéristique de conteneur suivante :
 
-| Fonction | Caractéristiques |
+| Fonction | Fonctionnalités |
 |--|--|
 | Détecteur d’anomalies | <li> Détecte les anomalies en temps réel. <li> Détecte les anomalies tout au long de votre jeu de données par lots. <li> Déduit la plage normale attendue de vos données. <li> Prend en charge l’ajustement de la sensibilité de détection des anomalies pour mieux ajuster vos données. |
 
@@ -38,7 +38,7 @@ L’utilisation des conteneurs Détecteur d’anomalies est soumise aux prérequ
 |--|--|
 |Moteur Docker| Vous avez besoin d’un moteur Docker installé sur un [ordinateur hôte](#the-host-computer). Docker fournit des packages qui configurent l’environnement Docker sur [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) et [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Pour apprendre les principes de base de Docker et des conteneurs, consultez la [vue d’ensemble de Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Vous devez configurer Docker pour permettre aux conteneurs de se connecter à Azure et de lui envoyer des données de facturation. <br><br> **Sur Windows**, vous devez également configurer Docker pour prendre en charge les conteneurs Linux.<br><br>|
 |Bonne connaissance de Docker | Vous devez avoir une compréhension élémentaire des concepts Docker, notamment les registres, référentiels, conteneurs et images conteneurs, ainsi qu’une maîtrise des commandes `docker` de base.| 
-|Ressource Détecteur d’anomalies |Pour pouvoir utiliser ces conteneurs, vous devez avoir :<br><br>une ressource _Détecteur d'anomalies_ d’Azure afin d’obtenir la clé API et l’URI du point de terminaison associés. Les deux valeurs disponibles dans les pages Clés et Vue d’ensemble de **Détecteur d’anomalies** du Portail Azure sont nécessaires pour le démarrage du conteneur.<br><br>**{API_KEY}**  : L’une des deux clés de ressource disponibles à la page **Clés**<br><br>**{ENDPOINT_URI}**  : le point de terminaison tel qu'il est fourni à la page **Vue d’ensemble**|
+|Ressource Détecteur d’anomalies |Pour pouvoir utiliser ces conteneurs, vous devez avoir :<br><br>une ressource _Détecteur d'anomalies_ d’Azure afin d’obtenir la clé API et l’URI du point de terminaison associés. Les deux valeurs disponibles dans les pages Clés et Vue d’ensemble de **Détecteur d’anomalies** du Portail Azure sont nécessaires pour le démarrage du conteneur.<br><br>**{API_KEY}**  : L’une des deux clés de ressource disponibles à la page **Clés**<br><br>**{ENDPOINT_URI}**  : Le point de terminaison tel qu'il est fourni à la page**Vue d’ensemble**|
 
 [!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
 
@@ -60,7 +60,7 @@ Vous devez d’abord compléter et envoyer le [formulaire de requête de contene
 
 Le tableau suivant décrit la quantité minimale et recommandée de cœurs de processeur et de mémoire à allouer pour le conteneur Détecteur d’anomalies.
 
-| Requêtes par seconde (RPS) | Minimale | Recommandé |
+| Requêtes par seconde (RPS) | Minimum | Recommandé |
 |-----------|---------|-------------|
 | 10 RPS | 4 cœurs, 1 Go de mémoire | 8 cœurs, 2 Go de mémoire |
 | 20 RPS | 8 cœurs, 2 Go de mémoire | 16 cœurs, 4 Go de mémoire |
@@ -162,7 +162,7 @@ Utilisez l’hôte, http://localhost:5000, pour les API de conteneur.
 
 [!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 Si vous exécutez le conteneur avec un [montage](anomaly-detector-container-configuration.md#mount-settings) de sortie et la journalisation activée, il génère des fichiers journaux qui sont utiles pour résoudre les problèmes qui se produisent lors du démarrage ou de l’exécution du conteneur.
 

@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: ff608cac9786ebc0d3908ce4d88fb501e621be6c
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176605"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79224865"
 ---
 # <a name="azure-api-management-page-controls"></a>Contrôles de page Gestion des API Azure
 Gestion des API Azure fournit les contrôles suivants à utiliser dans les modèles du portail des développeurs.  
@@ -47,7 +47,7 @@ Pour plus d’informations sur l’utilisation de modèles, consultez la page [G
 -   [subscribe-button](#subscribe-button)  
 -   [subscription-cancel](#subscription-cancel)  
   
-##  <a name="app-actions"></a> app-actions  
+##  <a name="app-actions"></a><a name="app-actions"></a> app-actions  
  Le contrôle `app-actions` fournit une interface utilisateur pour interagir avec les applications sur la page de profil utilisateur dans le portail des développeurs.  
   
  ![contrôle app&#45;actions](./media/api-management-page-controls/APIM-app-actions-control.png "contrôle APIM app-actions")  
@@ -58,7 +58,7 @@ Pour plus d’informations sur l’utilisation de modèles, consultez la page [G
 <app-actions params="{ appId: '{{app.id}}' }"></app-actions>  
 ```  
   
-### <a name="parameters"></a>parameters  
+### <a name="parameters"></a>Paramètres  
   
 |Paramètre|Description|  
 |---------------|-----------------|  
@@ -69,7 +69,7 @@ Pour plus d’informations sur l’utilisation de modèles, consultez la page [G
   
 -   [Applications](api-management-user-profile-templates.md#Applications)  
   
-##  <a name="basic-signin"></a> basic-signin  
+##  <a name="basic-signin"></a><a name="basic-signin"></a> basic-signin  
  Le contrôle `basic-signin` fournit un contrôle pour la collecte des informations de connexion utilisateur dans la page de connexion du portail des développeurs.  
   
  ![contrôle basic&#45;signin](./media/api-management-page-controls/APIM-basic-signin-control.png "contrôle APIM basic-signin")  
@@ -80,15 +80,15 @@ Pour plus d’informations sur l’utilisation de modèles, consultez la page [G
 <basic-SignIn></basic-SignIn>  
 ```  
   
-### <a name="parameters"></a>parameters  
- Aucune.  
+### <a name="parameters"></a>Paramètres  
+ Aucun.  
   
 ### <a name="developer-portal-templates"></a>Modèles du portail des développeurs  
  Le contrôle `basic-signin` peut être utilisé dans les modèles suivants du portail des développeurs :  
   
 -   [Connexion](api-management-page-templates.md#SignIn)  
   
-##  <a name="paging-control"></a> paging-control  
+##  <a name="paging-control"></a><a name="paging-control"></a> paging-control  
  Le contrôle `paging-control` fournit des fonctionnalités de pagination sur les pages du portail des développeurs qui affichent une liste d’éléments.  
   
  ![contrôle paging](./media/api-management-page-controls/APIM-paging-control.png "contrôle APIM paging")  
@@ -99,8 +99,8 @@ Pour plus d’informations sur l’utilisation de modèles, consultez la page [G
 <paging-control></paging-control>  
 ```  
   
-### <a name="parameters"></a>parameters  
- Aucune.  
+### <a name="parameters"></a>Paramètres  
+ Aucun.  
   
 ### <a name="developer-portal-templates"></a>Modèles du portail des développeurs  
  Le contrôle `paging-control` peut être utilisé dans les modèles suivants du portail des développeurs :  
@@ -111,7 +111,7 @@ Pour plus d’informations sur l’utilisation de modèles, consultez la page [G
   
 -   [Liste de produits](api-management-product-templates.md#ProductList)  
   
-##  <a name="providers"></a> providers  
+##  <a name="providers"></a><a name="providers"></a> providers  
  Le contrôle `providers` fournit un contrôle pour la sélection des fournisseurs d’authentification sur la page de connexion du portail des développeurs.  
   
  ![contrôle providers](./media/api-management-page-controls/APIM-providers-control.png "contrôle APIM providers")  
@@ -122,15 +122,15 @@ Pour plus d’informations sur l’utilisation de modèles, consultez la page [G
 <providers></providers>  
 ```  
   
-### <a name="parameters"></a>parameters  
- Aucune.  
+### <a name="parameters"></a>Paramètres  
+ Aucun.  
   
 ### <a name="developer-portal-templates"></a>Modèles du portail des développeurs  
  Le contrôle `providers` peut être utilisé dans les modèles suivants du portail des développeurs :  
   
 -   [Connexion](api-management-page-templates.md#SignIn)  
   
-##  <a name="search-control"></a> search-control  
+##  <a name="search-control"></a><a name="search-control"></a> search-control  
  Le contrôle `search-control` fournit des fonctionnalités de recherche sur les pages du portail des développeurs affichant une liste d’éléments.  
   
  ![contrôle search](./media/api-management-page-controls/APIM-search-control.png "contrôle APIM search")  
@@ -141,8 +141,8 @@ Pour plus d’informations sur l’utilisation de modèles, consultez la page [G
 <search-control></search-control>  
 ```  
   
-### <a name="parameters"></a>parameters  
- Aucune.  
+### <a name="parameters"></a>Paramètres  
+ Aucun.  
   
 ### <a name="developer-portal-templates"></a>Modèles du portail des développeurs  
  Le contrôle `search-control` peut être utilisé dans les modèles suivants du portail des développeurs :  
@@ -151,7 +151,7 @@ Pour plus d’informations sur l’utilisation de modèles, consultez la page [G
   
 -   [Liste de produits](api-management-product-templates.md#ProductList)  
   
-##  <a name="sign-up"></a> sign-up  
+##  <a name="sign-up"></a><a name="sign-up"></a> sign-up  
  Le contrôle `sign-up` fournit un contrôle pour la collecte des informations de profil utilisateur sur la page d’inscription du portail des développeurs.  
   
  ![contrôle sign&#45;up](./media/api-management-page-controls/APIM-sign-up-control.png "contrôle APIM sign-up")  
@@ -162,15 +162,15 @@ Pour plus d’informations sur l’utilisation de modèles, consultez la page [G
 <sign-up></sign-up>  
 ```  
   
-### <a name="parameters"></a>parameters  
- Aucune.  
+### <a name="parameters"></a>Paramètres  
+ Aucun.  
   
 ### <a name="developer-portal-templates"></a>Modèles du portail des développeurs  
  Le contrôle `sign-up` peut être utilisé dans les modèles suivants du portail des développeurs :  
   
 -   [Inscription](api-management-page-templates.md#SignUp)  
   
-##  <a name="subscribe-button"></a> subscribe-button  
+##  <a name="subscribe-button"></a><a name="subscribe-button"></a> subscribe-button  
  `subscribe-button` fournit un contrôle pour abonner un utilisateur à un produit.  
   
  ![contrôle subscribe&#45;button](./media/api-management-page-controls/APIM-subscribe-button-control.png "contrôle APIM subscribe-button")  
@@ -181,15 +181,15 @@ Pour plus d’informations sur l’utilisation de modèles, consultez la page [G
 <subscribe-button></subscribe-button>  
 ```  
   
-### <a name="parameters"></a>parameters  
- Aucune.  
+### <a name="parameters"></a>Paramètres  
+ Aucun.  
   
 ### <a name="developer-portal-templates"></a>Modèles du portail des développeurs  
  Le contrôle `subscribe-button` peut être utilisé dans les modèles suivants du portail des développeurs :  
   
 -   [Produit](api-management-product-templates.md#Product)  
   
-##  <a name="subscription-cancel"></a> subscription-cancel  
+##  <a name="subscription-cancel"></a><a name="subscription-cancel"></a> subscription-cancel  
  Le contrôle `subscription-cancel` fournit un contrôle pour annuler l’abonnement à un produit sur la page de profil utilisateur du portail des développeurs.  
   
  ![contrôle subscription&#45;cancel](./media/api-management-page-controls/APIM-subscription-cancel-control.png "contrôle APIM subscription-cancel")  
@@ -202,7 +202,7 @@ Pour plus d’informations sur l’utilisation de modèles, consultez la page [G
   
 ```  
   
-### <a name="parameters"></a>parameters  
+### <a name="parameters"></a>Paramètres  
   
 |Paramètre|Description|  
 |---------------|-----------------|  
