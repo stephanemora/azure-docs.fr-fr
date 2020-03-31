@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e662d2c6d7939756dee6eb25ca62fef171b7d6d0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67109333"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Définir une stratégie d’adoption des identités hybrides
@@ -185,8 +185,8 @@ Options de conception multifacteur :
 | Applications Microsoft |Oui |Oui |
 | Applications SaaS dans la galerie d’applications |Oui |Oui |
 | Applications IIS publiées via le proxy d'application Azure AD |Oui |Oui |
-| Applications IIS non publiées via le proxy Azure AD App |no |Oui |
-| Accès à distance en tant que VPN, passerelle Bureau à distance (RDG) |no |Oui |
+| Applications IIS non publiées via le proxy Azure AD App |non |Oui |
+| Accès à distance en tant que VPN, passerelle Bureau à distance (RDG) |non |Oui |
 
 Même si vous avez opté pour une solution pour votre stratégie, vous devez toujours utiliser l’évaluation ci-dessus sur l’emplacement où se trouvent vos utilisateurs.  Cela peut entraîner la modification de la solution.  Utilisez le tableau ci-dessous pour vous aider à déterminer les éléments suivants :
 

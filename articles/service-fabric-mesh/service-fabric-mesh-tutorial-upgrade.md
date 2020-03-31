@@ -7,10 +7,10 @@ ms.date: 11/29/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 7cdb8868f760ef0f35ab90c06b411110f871738c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75351713"
 ---
 # <a name="tutorial-learn-how-to-upgrade-a-service-fabric-application-using-visual-studio"></a>Tutoriel : Découvrez comment mettre à niveau une application Service Fabric à l'aide de Visual Studio
@@ -31,7 +31,7 @@ Cette série de tutoriels vous montre comment effectuer les opérations suivante
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer ce tutoriel :
 

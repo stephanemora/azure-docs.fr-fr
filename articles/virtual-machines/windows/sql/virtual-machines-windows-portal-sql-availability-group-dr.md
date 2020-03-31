@@ -9,18 +9,18 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: 388c464e-a16e-4c9d-a0d5-bb7cf5974689
 ms.service: virtual-machines-sql
-ms.custom: seo-lt-2019
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: cd27e581aaca241fc15886f9f72546f92391b744
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 8ca871a6f525d4e68ce70060e6faddbcfc8e1f3f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772679"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80060113"
 ---
 # <a name="configure-an-availability-group-on-azure-sql-server-virtual-machines-in-different-regions"></a>Configurer un groupe de disponibilité sur des machines virtuelles Azure SQL Server dans plusieurs régions
 
@@ -182,7 +182,7 @@ Pour tester la connectivité de l’écouteur à la région distante, vous pouve
 
 Après avoir testé la connectivité, replacez le réplica principal dans votre centre de données principal et rétablissez les paramètres de fonctionnement normaux du mode de disponibilité. Le tableau suivant présente les paramètres de fonctionnement normaux de l’architecture décrite dans ce document :
 
-| Location | Instance de serveur | Role | Mode de disponibilité | Mode de basculement
+| Emplacement | Instance de serveur | Role | Mode de disponibilité | Mode de basculement
 | ----- | ----- | ----- | ----- | -----
 | Centre de données principal | SQL-1 | Principal | Synchrone | Automatique
 | Centre de données principal | SQL-2 | Secondary | Synchrone | Automatique

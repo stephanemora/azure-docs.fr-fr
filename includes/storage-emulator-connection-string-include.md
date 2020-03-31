@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: 8c577db3e9f2bff9e86c3a7c37274630f90dd680
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67177267"
 ---
 L’émulateur de stockage prend en charge uniquement un compte fixe et une clé d’authentification connue pour l’authentification par clé partagée. Ce compte et cette clé sont les seules informations d’identification par clé partagée autorisées pour une utilisation avec l’émulateur de stockage. Il s'agit de :

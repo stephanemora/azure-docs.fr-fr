@@ -4,10 +4,10 @@ description: Configurez une tâche Azure Container Registry (tâche ACR) pour li
 ms.topic: article
 ms.date: 01/14/2020
 ms.openlocfilehash: 47d3d643ee1287ef4f444095a2c6cfe6dcab294b
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76842518"
 ---
 # <a name="external-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>Authentification externe dans une tâche ACR à l’aide d’une identité managée par Azure 
@@ -26,7 +26,7 @@ Cet exemple montre les étapes à effectuer à l’aide d’une identité manag�
 
 Dans un scénario concret, une entreprise peut publier des images sur un dépôt privé dans Docker Hub dans le cadre d’un processus de génération. 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Vous avez besoin d’un registre de conteneurs Azure dans lequel vous exécutez la tâche. Dans cet article, ce registre est nommé *myregistry*. Remplacez-le par votre propre nom de registre dans les étapes suivantes.
 

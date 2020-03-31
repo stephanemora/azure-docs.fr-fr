@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 384157828e9c816b150e40bf3f09b74578c4a98e
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67482093"
 ---
 # <a name="tutorial-join-a-new-windows-10-device-with-azure-ad-during-a-first-run"></a>Didacticiel : Joindre un nouvel appareil Windows 10 à Azure AD lors de la première utilisation
@@ -31,11 +31,11 @@ Dans *l’expérience OOBE (out-of-box experience)* de Windows, la jonction à u
  
 Dans le cadre de ce didacticiel, vous allez apprendre à joindre un appareil à Azure AD lors de la première utilisation :
  > [!div class="checklist"]
-> * Prérequis
+> * Conditions préalables requises
 > * Joindre un appareil
 > * Vérification
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour joindre un appareil Windows 10, le service d’inscription des appareils doit être configuré pour vous permettre d’inscrire des appareils. En plus d’avoir l’autorisation de joindre des appareils dans votre locataire Azure AD, vous devez avoir moins d’appareils inscrits que le nombre maximal configuré. Pour plus d’informations, consultez [Configurer les paramètres de l’appareil](device-management-azure-portal.md#configure-device-settings).
 

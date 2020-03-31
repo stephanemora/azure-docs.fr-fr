@@ -1,19 +1,18 @@
 ---
 title: Créer un back-end d’application mobile serverless avec Azure Functions et d’autres services
 description: Apprenez-en davantage sur les services de calcul permettant de créer un back-end d’application mobile solide et serverless.
-author: elamalani
-manager: elamalani
+author: codemillmatt
 ms.service: vs-appcenter
 ms.assetid: 444f0959-aa7f-472c-a6c7-9eecea3a34b9
 ms.topic: conceptual
-ms.date: 10/22/2019
-ms.author: emalani
-ms.openlocfilehash: ec7091a32a1be8d875e16d8e0a9b20b5e80de387
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.date: 03/24/2020
+ms.author: masoucou
+ms.openlocfilehash: d6a2bbc984a8808d2cd8a9b292e55d80f43f2e9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76291955"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240144"
 ---
 # <a name="build-mobile-back-end-components-with-compute-services"></a>Créer des composants de back-end mobile avec les services de calcul
 Chaque application mobile a besoin d’un back-end qui est responsable du stockage des données, de la logique métier et de la sécurité. La gestion de l’infrastructure pour héberger et exécuter du code back-end vous oblige à dimensionner, provisionner et mettre à l’échelle plusieurs serveurs. Vous devez également gérer les mises à jour du système d’exploitation et le matériel impliqué, ainsi qu’appliquer des correctifs de sécurité. Vous devez ensuite surveiller les performances, la disponibilité et la tolérance de panne de tous ces composants d’infrastructure. 

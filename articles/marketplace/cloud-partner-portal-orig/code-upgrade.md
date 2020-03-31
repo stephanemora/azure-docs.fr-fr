@@ -1,20 +1,18 @@
 ---
 title: Mise à niveau du code vers la dernière plateforme | Place de marché Azure
 description: 'Dépréciation de l’article Portail Cloud Partner, ajout d’un lien à l’article Espace partenaires ; auparavant : « Cette rubrique explique comment mettre à niveau votre version de la plateforme Microsoft Dynamics 365 pour les opérations vers la dernière version »'
-services: Azure, Marketplace, Cloud Partner Portal,
-author: ChJenk
-manager: Ricardo.Villalobos
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.author: v-chjen
-ms.openlocfilehash: 2647e59ddd08e0051afc97415c79c20c431b1e3e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: db5ec661e575d7a6d2f994040a9fb452bd87b507
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819072"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80276153"
 ---
 # <a name="upgrading-code-to-the-latest-platform"></a>Mise à niveau du code vers la dernière plateforme
 

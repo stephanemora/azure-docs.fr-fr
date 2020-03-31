@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 02/07/2019
-ms.openlocfilehash: 7356f627c8a85cb89f3900e1af84d5e0a7d4be17
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.openlocfilehash: 9af7b471210ca3cc69428e68aef4aafaee159344
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79096208"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79299071"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Configurer la réplication dans une base de données d’instances managées Azure SQL Database
 
@@ -42,7 +42,6 @@ La réplication transactionnelle est disponible en préversion publique dans une
 
 La configuration d’une instance gérée pour fonctionner en tant que base de données du serveur de publication et/ou base de données du serveur de distribution implique que les conditions suivantes soient respectées :
 
-- Que l’instance managée ne participe pas actuellement à une relation de géoréplication.
 - L’instance gérée de la base de données du serveur de publication se trouve sur le même réseau virtuel que la base de données du serveur de distribution et la base de données de l’abonné, ou le [VNET Peering](../virtual-network/tutorial-connect-virtual-networks-powershell.md) a été établi entre les réseaux virtuels des trois entités. 
 - La connectivité doit utiliser l’authentification SQL entre les participants de la réplication.
 - Un partage de compte de stockage Azure pour le répertoire de travail de réplication.

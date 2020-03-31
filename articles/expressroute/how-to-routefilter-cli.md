@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: anzaman
 ms.openlocfilehash: c3c50a005e119890fb17fcf7b3114a747bbe34bf
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74033409"
 ---
-# <a name="configure-route-filters-for-microsoft-peering-azure-cli"></a>Configurer des filtres de routage pour le peering Microsoft : D’Azure CLI
+# <a name="configure-route-filters-for-microsoft-peering-azure-cli"></a>Configurer des filtres de routage pour le peering Microsoft : Azure CLI
 
 > [!div class="op_single_selector"]
 > * [Portail Azure](how-to-routefilter-portal.md)
 > * [Azure PowerShell](how-to-routefilter-powershell.md)
-> * [Interface de ligne de commande Azure](how-to-routefilter-cli.md)
+> * [Azure CLI](how-to-routefilter-cli.md)
 > 
 
 Les filtres de routage permettent d’utiliser un sous-ensemble de services pris en charge via le peering Microsoft. Les étapes décrites dans cet article vous aident à configurer et à gérer des filtres de routage pour les circuits ExpressRoute.
@@ -32,7 +32,7 @@ Si vous avez besoin de connectivité à tous les services, de nombreux préfixes
 
 * Définir des filtres de routage et les appliquer à votre circuit ExpressRoute. Un filtre de routage est une ressource qui vous permet de sélectionner la liste des services que vous envisagez d’utiliser via le peering Microsoft. Les routeurs ExpressRoute envoient uniquement la liste des préfixes qui appartiennent aux services identifiés dans le filtre de routage.
 
-### <a name="about"></a>À propos des filtres de routage
+### <a name="about-route-filters"></a><a name="about"></a>À propos des filtres de routage
 
 Lorsque le peering Microsoft est configuré sur votre circuit ExpressRoute, les routeurs de périphérie Microsoft établissent une paire de sessions BGP avec les routeurs de périphérie (les vôtres ou ceux de votre fournisseur de connectivité). Aucun routage n’est publié sur votre réseau. Pour activer les annonces de routage sur votre réseau, vous devez associer un filtre de routage.
 
@@ -45,7 +45,7 @@ Pour être en mesure de joindre des filtres de routage à des services Office 3
 > 
 > 
 
-### <a name="workflow"></a>Flux de travail
+### <a name="workflow"></a><a name="workflow"></a>Flux de travail
 
 Pour pouvoir vous connecter aux services par le biais du peering Microsoft, vous devez effectuer les étapes de configuration suivantes :
 
@@ -90,7 +90,7 @@ Sélectionnez l’abonnement pour lequel vous souhaitez créer un circuit Expre
 az account set --subscription "<subscription ID>"
 ```
 
-## <a name="prefixes"></a>Étape 1 : Obtenir la liste des préfixes et des valeurs de communauté BGP
+## <a name="step-1-get-a-list-of-prefixes-and-bgp-community-values"></a><a name="prefixes"></a>Étape 1 : Obtenir la liste des préfixes et des valeurs de communauté BGP
 
 ### <a name="1-get-a-list-of-bgp-community-values"></a>1. Obtenir la liste des valeurs de communauté BGP
 
@@ -103,7 +103,7 @@ az network route-filter rule list-service-communities
 
 Dressez la liste des valeurs de communauté BGP que vous souhaitez utiliser dans le filtre de routage.
 
-## <a name="filter"></a>Étape 2 : Créer un filtre de routage et une règle de filtre
+## <a name="step-2-create-a-route-filter-and-a-filter-rule"></a><a name="filter"></a>Étape 2 : Créer un filtre de routage et une règle de filtre
 
 Un filtre de routage ne peut avoir qu’une seule règle, et cette règle doit être de type « Autoriser ». Cette règle peut être associée à une liste des valeurs de communauté BGP.
 
@@ -123,7 +123,7 @@ Exécutez la commande suivante pour créer une règle :
 az network route-filter rule create --filter-name MyRouteFilter -n CRM --communities 12076:5040 --access Allow -g MyResourceGroup
 ```
 
-## <a name="attach"></a>Étape 3 : Joindre le filtre de routage à un circuit ExpressRoute
+## <a name="step-3-attach-the-route-filter-to-an-expressroute-circuit"></a><a name="attach"></a>Étape 3 : Joindre le filtre de routage à un circuit ExpressRoute
 
 Exécutez la commande suivante pour joindre le filtre de routage au circuit ExpressRoute :
 
@@ -131,9 +131,9 @@ Exécutez la commande suivante pour joindre le filtre de routage au circuit Expr
 az network express-route peering update --circuit-name MyCircuit -g ExpressRouteResourceGroupName --name MicrosoftPeering --route-filter MyRouteFilter
 ```
 
-## <a name="tasks"></a>Tâches courantes
+## <a name="common-tasks"></a><a name="tasks"></a>Tâches courantes
 
-### <a name="getproperties"></a>Obtenir les propriétés d’un filtre de routage
+### <a name="to-get-the-properties-of-a-route-filter"></a><a name="getproperties"></a>Obtenir les propriétés d’un filtre de routage
 
 Pour obtenir les propriétés d’un filtre de routage, utilisez la commande suivante :
 
@@ -141,7 +141,7 @@ Pour obtenir les propriétés d’un filtre de routage, utilisez la commande sui
 az network route-filter show -g ExpressRouteResourceGroupName --name MyRouteFilter 
 ```
 
-### <a name="updateproperties"></a>Mettre à jour les propriétés d’un filtre de routage
+### <a name="to-update-the-properties-of-a-route-filter"></a><a name="updateproperties"></a>Mettre à jour les propriétés d’un filtre de routage
 
 Si le filtre de routage est déjà joint à un circuit, les mises à jour de la liste de communautés BGP propagent automatiquement les modifications de publication de préfixe appropriées via les sessions BGP établies. Vous pouvez mettre à jour la liste de communautés BGP de votre filtre de routage à l’aide de la commande suivante :
 
@@ -149,7 +149,7 @@ Si le filtre de routage est déjà joint à un circuit, les mises à jour de la 
 az network route-filter rule update --filter-name MyRouteFilter -n CRM -g ExpressRouteResourceGroupName --add communities '12076:5040' --add communities '12076:5010'
 ```
 
-### <a name="detach"></a>Détacher un filtre de routage d’un circuit ExpressRoute
+### <a name="to-detach-a-route-filter-from-an-expressroute-circuit"></a><a name="detach"></a>Détacher un filtre de routage d’un circuit ExpressRoute
 
 Une fois qu’un filtre de routage est détaché du circuit ExpressRoute, aucun préfixe n’est publié via la session BGP. Vous pouvez détacher un filtre de routage d’un circuit ExpressRoute à l’aide de la commande suivante :
 
@@ -157,7 +157,7 @@ Une fois qu’un filtre de routage est détaché du circuit ExpressRoute, aucun 
 az network express-route peering update --circuit-name MyCircuit -g ExpressRouteResourceGroupName --name MicrosoftPeering --remove routeFilter
 ```
 
-### <a name="delete"></a>Supprimer un filtre de routage
+### <a name="to-delete-a-route-filter"></a><a name="delete"></a>Supprimer un filtre de routage
 
 Vous ne pouvez supprimer un filtre de routage que s’il n’est attaché à aucun circuit. Assurez-vous que le filtre de routage n’est pas attaché à un circuit avant de tenter de le supprimer. Vous pouvez supprimer un filtre de routage à l’aide de la commande suivante :
 

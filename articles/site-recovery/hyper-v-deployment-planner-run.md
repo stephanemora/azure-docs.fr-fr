@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: mayg
 ms.openlocfilehash: ba1979c940d4a92b3d1a7a52a4f356b2896ece55
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74082618"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Exécuter le planificateur de déploiement Azure Site Recovery pour la reprise d’activité de Hyper-V sur Azure
@@ -285,7 +285,7 @@ ASRDeploymentPlanner.exe -Operation GetThroughput /?
 | -VMListFile | Le fichier qui contient la liste des machines virtuelles à profiler pour calculer la bande passante consommée. Le chemin d’accès du fichier peut être absolu ou relatif. Pour Hyper-V, ce fichier est le fichier de sortie de l’opération GetVMList. Si vous préparez manuellement, le fichier doit contenir un nom ou une adresse IP de serveur suivi du nom de machine virtuelle (séparé par un \ par ligne). Le nom de la machine virtuelle spécifié dans le fichier doit être identique au nom de la machine virtuelle sur l’hôte Hyper-V.<br><br>**Exemple :** le fichier VMList.txt contient les machines virtuelles suivantes :<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
 |-Environment|(Facultatif) Votre environnement cible pour le compte de stockage Azure. Ce paramètre peut être défini sur l’une des trois valeurs suivantes : AzureCloud, AzureUSGovernment ou AzureChinaCloud. La valeur par défaut est AzureCloud. Utilisez ce paramètre lorsque votre région Azure cible correspond à Azure - Gouvernement des États-Unis ou Azure - Chine 21Vianet.|
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 ```
 ASRDeploymentPlanner.exe -Operation GetThroughput -Virtualization Hyper-V -Directory "E:\Hyper-V_ProfiledData" -VMListFile "E:\Hyper-V_ProfiledData\ProfileVMList1.txt"  -StorageAccountName  asrspfarm1 -StorageAccountKey by8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
 ```

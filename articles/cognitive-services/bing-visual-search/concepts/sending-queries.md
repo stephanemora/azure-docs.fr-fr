@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: aahi
 ms.openlocfilehash: 5d27aa80a63232694e1c9951f98b2191ba575e74
-ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75913067"
 ---
 # <a name="sending-search-queries-to-the-bing-visual-search-api"></a>Envoi de requêtes de recherche à l’API Recherche visuelle Bing
@@ -73,7 +73,7 @@ Les requêtes doivent être envoyées uniquement en tant que requêtes HTTP POS
 
 Votre requête doit spécifier les paramètres suivants. Au minimum, vous devez inclure le paramètre de requête `mkt` :
 
-| Name | Valeur | Type | Obligatoire |
+| Nom | Valeur | Type | Obligatoire |
 | --- | --- | --- | --- |
 | <a name="cc" />cc  | Code à 2 caractères du pays représentant d’où proviennent les résultats.<br /><br /> Si vous définissez ce paramètre, vous devez également spécifier l’en-tête [Accept-Language](#acceptlanguage). Bing utilise la première langue prise en charge qu’il trouve dans la liste et associe la langue au code de pays que vous spécifiez pour déterminer le marché à partir duquel renvoyer les résultats. Si la liste des langues n’inclut de langue prise en charge, Bing recherche la langue et le marché les plus proches qui prennent en charge la requête. Sinon, il peut utiliser un marché agrégé ou par défaut pour les résultats au lieu de celui spécifié.<br /><br /> Vous ne devez utiliser ce paramètre de requête et le paramètre de requête `Accept-Language` que si vous spécifiez plusieurs langues ; sinon, vous devez utiliser les paramètres de requête `mkt` et `setLang`.<br /><br /> Ce paramètre et le paramètre de requête [mkt](#mkt) s’excluent mutuellement &mdash; ne spécifiez pas les deux. | String | Non       |
 | <a name="mkt" />mkt   | Marché d’où proviennent les résultats. <br /><br /> **REMARQUE :** Il est recommandé de toujours spécifier le marché, s’il est connu. Le fait d’indiquer le marché aide Bing à router la requête et à renvoyer une réponse appropriée et optimale.<br /><br /> Ce paramètre et le paramètre de requête [cc](#cc) s’excluent mutuellement &mdash; ne spécifiez pas les deux. | String | Oui      |

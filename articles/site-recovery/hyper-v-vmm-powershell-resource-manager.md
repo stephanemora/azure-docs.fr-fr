@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 1/10/2020
 ms.author: sutalasi
 ms.openlocfilehash: deef7bfdbc28d744cb81da59d3ffc13a1abee54d
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77048615"
 ---
 # <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>Configurer la reprise d’activité de machines virtuelles Hyper-V sur un site secondaire à l’aide de PowerShell (Resource Manager)
@@ -20,7 +20,7 @@ Cet article montre comment automatiser les étapes de la réplication des machin
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Examinez [l’architecture et les composants du scénario](hyper-v-vmm-architecture.md).
 - Vérifiez les [exigences de prise en charge](site-recovery-support-matrix-to-sec-site.md) pour tous les composants.

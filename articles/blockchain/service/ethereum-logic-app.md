@@ -5,10 +5,10 @@ ms.date: 10/14/2019
 ms.topic: article
 ms.reviewer: chrisseg
 ms.openlocfilehash: 4a9acfd6098ed45fd92c7e3047b5d1446eeddbd6
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74325222"
 ---
 # <a name="use-the-ethereum-blockchain-connector-with-azure-logic-apps"></a>Utiliser le connecteur Ethereum Blockchain avec Azure Logic Apps
@@ -155,8 +155,8 @@ Pour vous aider à configurer une connexion à un membre Azure Blockchain Servic
 
 | Propriété | Description |
 |----------|-------------|
-|**Nom de connexion** | Nom de la connexion d’API. Requis. |
-|**Ethereum RPC endpoint** | Adresse HTTP du nœud de transaction Azure Blockchain Service. Requis. Pour plus d’informations, consultez [Obtenir le point de terminaison RPC](#get-the-rpc-endpoint). |
+|**Nom de connexion** | Nom de la connexion d’API. Obligatoire. |
+|**Ethereum RPC endpoint** | Adresse HTTP du nœud de transaction Azure Blockchain Service. Obligatoire. Pour plus d’informations, consultez [Obtenir le point de terminaison RPC](#get-the-rpc-endpoint). |
 |**Private key** | Clé privée du compte Ethereum. Une clé privée ou une adresse de compte et un mot de passe sont requis pour les transactions. Pour plus d’informations, consultez [Obtenir la clé privée](#get-the-private-key). |
 |**Adresse du compte** | Adresse du compte membre Azure Blockchain Service. Une clé privée ou une adresse de compte et un mot de passe sont requis pour les transactions. Pour plus d’informations, consultez [Obtenir l’adresse du compte](#get-the-account-address). |
 |**Account password** | Le mot de passe du compte est défini lors de la création du membre. Pour plus d’informations sur la réinitialisation du mot de passe, consultez [Compte Ethereum](consortium.md#ethereum-account).|
@@ -176,7 +176,7 @@ L’adresse du point de terminaison RPC Azure Blockchain Service est nécessaire
 
 **Pour utiliser le portail Azure :**
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Accédez au membre Azure Blockchain Service. Sélectionnez **Nœuds de transaction**, puis le lien du nœud de transaction par défaut.
 
     ![Page des nœuds de transaction avec la sélection (nœud par défaut)](./media/ethereum-logic-app/transaction-nodes.png)

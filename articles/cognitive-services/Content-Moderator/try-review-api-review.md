@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: pafarley
 ms.openlocfilehash: a9726e41a84926d00d48b51e31f534a3d8c2fe0c
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "72757140"
 ---
 # <a name="create-human-reviews-rest"></a>Créer des révisions humaines (REST)
 
-Les [révisions](./review-api.md#reviews) stockent et affichent le contenu que les modérateurs humains vont évaluer. Lorsqu’un utilisateur termine une révision, les résultats sont envoyés à un point de terminaison de rappel spécifié. Dans ce guide, vous apprendrez à configurer des révisions à l’aide des API REST de révision via la console d’API. Une fois que vous comprenez la structure des API, vous pouvez facilement déplacer ces appels vers n’importe quelle plateforme compatible avec REST.
+Les [révisions](./review-api.md#reviews) stockent et affichent le contenu que les modérateurs humains vont évaluer. Lorsqu’un utilisateur termine une révision, les résultats sont envoyés à un point de terminaison de rappel spécifié. Dans ce guide, vous apprendrez à configurer des révisions à l’aide des API REST de révision via la console d’API. Une fois que vous aurez compris la structure des API, vous pourrez facilement déplacer ces appels vers n’importe quelle plateforme compatible avec REST.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -27,7 +27,7 @@ Les [révisions](./review-api.md#reviews) stockent et affichent le contenu que l
 
 ## <a name="create-a-review"></a>Créer une révision
 
-Pour créer une révision, accédez à la page de référence de l’API **[Révision - Créer](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4)** et sélectionnez le bouton de votre région clé (que vous pouvez trouver dans l’URL de point de terminaison à la page **Informations d’identification** de l’[Outil de révision](https://contentmoderator.cognitive.microsoft.com/)). Ceci fait démarrer la console d’API, où vous pouvez facilement construire et exécuter des appels d’API REST.
+Pour créer une révision, accédez à la page de référence de l’API **[Révision - Créer](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4)** et sélectionnez le bouton de votre région clé (que vous pouvez trouver dans l’URL de point de terminaison à la page **Informations d’identification** de l’[Outil de révision](https://contentmoderator.cognitive.microsoft.com/)). La console d’API, qui permet de construire et d’exécuter des appels d’API REST, se lance.
 
 ![Sélection d’une région Révision - Get](images/test-drive-region.png)
 
@@ -35,8 +35,8 @@ Pour créer une révision, accédez à la page de référence de l’API **[Rév
 
 Entrez les valeurs de **teamName** et **Ocp-Apim-Subscription-Key** :
 
-- **teamName** : ID d’équipe que vous avez créé lors de la configuration de votre compte [Outil de révision](https://contentmoderator.cognitive.microsoft.com/) compte (il se trouve dans le champ **Id** sur l’écran des informations d’identification de votre outil de révision).
-- **Ocp-Apim-Subscription-Key** : votre clé Content Moderator. Vous pouvez la trouver sous l’onglet **Paramètres** de l’[Outil de révision](https://contentmoderator.cognitive.microsoft.com).
+- **teamName** : ID d’équipe que vous avez créé lors de la configuration de votre compte [Outil de révision](https://contentmoderator.cognitive.microsoft.com/) (dans le champ **Id**, sur l’écran Informations d’identification de votre Outil de révision).
+- **Ocp-Apim-Subscription-Key** : votre clé Content Moderator. Vous la trouverez sous l’onglet **Paramètres** de [l’Outil de révision](https://contentmoderator.cognitive.microsoft.com).
 
 ### <a name="enter-a-review-definition"></a>Entrez une définition de révision
 
@@ -45,7 +45,7 @@ Modifiez la zone **Corps de la demande** pour entrer la requête JSON avec les c
 - **Métadonnées** : paires clé-valeur personnalisées à retourner à votre point de terminaison de rappel. Si la clé est un code court qui est défini dans l’[outil de révision](https://contentmoderator.cognitive.microsoft.com), elle s’affiche sous forme d’une balise.
 - **Contenu** : Dans le cas de contenu de type Image et Vidéo, il s’agit d’une chaîne URL pointant vers le contenu. Pour le contenu de type Texte, il s’agit de la chaîne de texte réelle.
 - **ContentId** : chaîne d’identificateur personnalisée. cette chaîne est transmise à l'API et retournée via le rappel. Elle est utile pour associer des métadonnées ou des identificateurs internes aux résultats d’un travail de modération.
-- **CallbackEndpoint** : (Facultatif) L’URL permettant de recevoir des informations de rappel lorsque la révision est terminée.
+- **CallbackEndpoint** : (Facultatif) URL permettant de recevoir les informations de rappel une fois la révision terminée.
 
 Le corps de la demande par défaut présente des exemples des différents types de révisions que vous pouvez créer :
 

@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: dc8a870d692108f3a33b89a1c3826d421dfd1f63
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 147f43148c0f804adf70f1a792ba1b8a772fdae4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824395"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294490"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Dix choses que vous pouvez effectuer sur la machine virtuelle Science des données de Windows
 
@@ -142,7 +142,7 @@ Vous pouvez déployer des modèles R générés sur la DSVM ou ailleurs sur Azur
 
 Utilisez la procédure et les extraits de code suivants pour configurer, générer, publier et utiliser un modèle en tant que service web dans Azure Machine Learning.
 
-#### <a name="set-up"></a>Installation
+#### <a name="set-up"></a>Configurer
 
 Créez un fichier settings.json sous un répertoire nommé ```.azureml``` dans votre répertoire de base. Entrez les paramètres de votre espace de travail Azure Machine Learning.
 
@@ -262,7 +262,7 @@ Dans Visual Studio, vous pouvez effectuer la même opération de clonage. La cap
 Vous trouverez plus d’informations sur l’utilisation de Git pour travailler avec votre dépôt GitHub en consultant les ressources disponibles sur github.com. L’ [aide-mémoire](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf) constitue une référence utile.
 
 ## <a name="access-azure-data-and-analytics-services"></a>Accéder aux services de données et d’analytique Azure
-### <a name="azure-blob-storage"></a>Stockage d'objets blob Azure
+### <a name="azure-blob-storage"></a>Stockage Blob Azure
 Stockage Blob Azure est un service de stockage cloud fiable et économique pour tous les types de données. Cette section décrit comment déplacer des données vers le stockage d’objets blob et accéder à des données stockées dans un objet blob Azure.
 
 #### <a name="prerequisites"></a>Prérequis
@@ -836,7 +836,7 @@ Une fois les données importées, vous pouvez accéder à Jupyter et ouvrir le n
 ## <a name="use-power-bi-reports-and-dashboards"></a>Utiliser des rapports et des tableaux de bord Power BI 
 Vous pouvez visualiser le fichier JSON Volcano de l’exemple Azure Cosmos DB précédent dans Power BI Desktop afin d’obtenir des insights visuels des données. Les étapes détaillées sont présentées dans [l’article Power BI](../../cosmos-db/powerbi-visualize.md). Les étapes principales sont les suivantes :
 
-1. Ouvrez Power BI Desktop et sélectionnez **obtenir les données**. Spécifiez l’URL suivante : https://cahandson.blob.core.windows.net/samples/volcano.json.
+1. Ouvrez Power BI Desktop et sélectionnez **obtenir les données**. Spécifiez l’URL suivante : `https://cahandson.blob.core.windows.net/samples/volcano.json`.
 2. Vous devez voir les enregistrements JSON importés sous forme de liste. Convertissez la liste en table afin que Power BI puisse l’utiliser.
 4. Développez les colonnes en sélectionnant l’icône de développement (flèche).
 5. Notez que cet emplacement est un champ **Enregistrement**. Développez l'enregistrement et sélectionnez uniquement les coordonnées. Une **coordonnée** est une colonne de liste.

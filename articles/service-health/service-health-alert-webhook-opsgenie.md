@@ -4,10 +4,10 @@ description: Obtenir des notifications personnalisées sur les événements d’
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.openlocfilehash: def12d5e7b1b93b8370cd7be61538fca53531ae1
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77654135"
 ---
 # <a name="send-azure-service-health-alerts-with-opsgenie-using-webhooks"></a>Envoyer des alertes sur l’intégrité du service Azure avec OpsGenie à l’aide de webhooks

@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 930a3f0cf629c99fc03a84c701bcf7b2807c77c1
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75972860"
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Utilisation de modèles pour créer des entités Azure Data Factory
@@ -37,8 +37,8 @@ Les [modèles Azure Resource Manager](../../azure-resource-manager/templates/ove
 ## <a name="tutorials"></a>Tutoriels
 Reportez-vous aux didacticiels suivants pour obtenir des instructions détaillées sur la création d’entités Data Factory à l’aide de modèles Resource Manager :
 
-* [Tutoriel : Créer un pipeline pour copier des données à l’aide du modèle Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
-* [Tutoriel : Créer un pipeline pour traiter des données à l’aide du modèle Azure Resource Manager](data-factory-build-your-first-pipeline.md)
+* [Didacticiel : Créer un pipeline pour copier des données à l’aide du modèle Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
+* [Didacticiel : Créer un pipeline pour traiter des données à l’aide du modèle Azure Resource Manager](data-factory-build-your-first-pipeline.md)
 
 ## <a name="data-factory-templates-on-github"></a>Modèles Data Factory sur GitHub
 Découvrez les modèles de démarrage rapide Azure suivants sur GitHub :

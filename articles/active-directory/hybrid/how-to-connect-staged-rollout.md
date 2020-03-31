@@ -11,10 +11,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f3044ebdd716eb85dc63d3a77089912d0d51d8b6
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74915227"
 ---
 # <a name="migrate-to-cloud-authentication-by-using-staged-rollout-preview"></a>Migrer vers l’authentification cloud à l’aide du lancement intermédiaire (version préliminaire)
@@ -221,19 +221,19 @@ Pour tester la connexion avec *l’authentification unique transparente* :
 
 La suppression de l’utilisateur du groupe désactive le lancement intermédiaire pour l’utilisateur. Pour désactiver la fonctionnalité de déploiement intermédiaire, assurez-vous que le contrôle est sur **DÉSACTIVER**.
 
-## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
+## <a name="frequently-asked-questions"></a>Forum aux questions
 
 **Q : Puis-je utiliser cette fonctionnalité en production ?**
 
-R : Oui, vous pouvez utiliser cette fonctionnalité dans votre locataire de production, mais nous vous recommandons de l’essayer d’abord dans votre locataire de test.
+A : Oui, vous pouvez utiliser cette fonctionnalité dans votre locataire de production, mais nous vous recommandons de l’essayer d’abord dans votre locataire de test.
 
 **Q : Cette fonctionnalité peut-elle être utilisée pour maintenir une « coexistence » permanente, où certains utilisateurs utilisent l’authentification fédérée et d’autres l’authentification cloud ?**
 
-R : Non, cette fonctionnalité est conçue pour migrer progressivement de l’authentification fédérée à l’authentification cloud, pour finalement n’avoir recours qu’à cette dernière. Nous déconseillons un état mixte permanent, car cela peut entraîner des flux d’authentification inattendus.
+A : Non, cette fonctionnalité est conçue pour migrer progressivement de l’authentification fédérée à l’authentification cloud, pour finalement n’avoir recours qu’à cette dernière. Nous déconseillons un état mixte permanent, car cela peut entraîner des flux d’authentification inattendus.
 
 **Q : Puis-je utiliser PowerShell pour effectuer un lancement intermédiaire ?**
 
-R : Oui. Pour découvrir comment utiliser PowerShell pour effectuer un lancement intermédiaire, consultez la [version préliminaire Azure AD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
+A : Oui. Pour découvrir comment utiliser PowerShell pour effectuer un lancement intermédiaire, consultez la [version préliminaire Azure AD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Version préliminaire Azure AD 2.0](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout )

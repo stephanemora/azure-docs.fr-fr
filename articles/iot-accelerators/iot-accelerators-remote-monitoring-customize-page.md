@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: ec0b9fbdfdb96317e1e7f6fe00384ba4f8c42bcc
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 0228f317e2d3380f2387dd557a27203eb3abc4ad
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68607957"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240263"
 ---
 # <a name="add-a-custom-page-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Ajouter une page personnalisée à l’interface utilisateur web de l’accélérateur de solution de supervision à distance
 
@@ -24,7 +24,7 @@ Cet article vous montre comment ajouter une nouvelle page à l’interface utili
 
 D’autres procédures étendent ce scénario pour ajouter davantage de fonctionnalités à la page que vous ajoutez.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour effectuer les étapes de ce guide pratique, vous devez avoir installé les logiciels suivants sur votre machine de développement locale :
 
@@ -156,7 +156,7 @@ Si vous le souhaitez, vous pouvez connecter votre copie locale en cours d’exé
 
 1. Utilisez le portail Azure ou [l’interface CLI az](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) pour activer l’accès SSH à la machine virtuelle qui héberge les microservices dans votre solution. Par exemple :
 
-    ```sh
+    ```azurecli
     az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
     ```
 
@@ -164,7 +164,7 @@ Si vous le souhaitez, vous pouvez connecter votre copie locale en cours d’exé
 
 1. Utilisez le portail Azure ou [l’interface CLI az](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) pour rechercher le nom et l’adresse IP publique de votre machine virtuelle. Par exemple :
 
-    ```sh
+    ```azurecli
     az resource list --resource-group {your solution name} -o table
     az vm list-ip-addresses --name {your vm name from previous command} --resource-group {your solution name} -o table
     ```

@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 05002c1b11ef31b61fb4036f09dc8edcdafca767
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75608378"
 ---
 # <a name="integrate-azure-active-directory-logs-with-arcsight-using-azure-monitor"></a>Intégrer des journaux d’activité Azure Active Directory à ArcSight à l’aide d’Azure Monitor
@@ -30,7 +30,7 @@ ms.locfileid: "75608378"
 
 Dans cet article, vous allez apprendre à router les journaux d’activité Azure AD vers ArcSight à l’aide d’Azure Monitor. 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour utiliser cette fonctionnalité, vous avez besoin des éléments suivants :
 * Un hub d’événements Azure contenant les journaux d’activité d’Azure AD. Découvrez comment [diffuser en continu vos journaux d’activité sur un hub d’événements](quickstart-azure-monitor-stream-logs-to-event-hub.md). 

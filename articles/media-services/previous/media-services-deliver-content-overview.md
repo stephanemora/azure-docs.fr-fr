@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 22d98656f42f52f2fba0845fac6f1d210d2cf0bd
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76264676"
 ---
 # <a name="deliver-content-to-customers"></a>Fournir du contenu aux clients
@@ -55,7 +55,7 @@ Vous pouvez définir des filtres pour vos éléments multimédias avec Media Ser
 
 Pour plus d’informations, consultez [Filtres et manifestes dynamiques](media-services-dynamic-manifest-overview.md).
 
-## <a name="a-idlocatorslocators"></a><a id="locators"/>Localisateurs
+## <a name="locators"></a><a id="locators"/>Localisateurs
 Pour fournir aux utilisateurs une URL pouvant être utilisée pour diffuser en continu ou télécharger votre contenu, vous devez d’abord publier votre élément multimédia en créant un localisateur. Un localisateur fournit un point d’entrée pour accéder aux fichiers contenus dans une ressource. Media Services prend en charge deux types de localisateurs :
 
 * Localisateurs OnDemandOrigin. Ils sont utilisés pour diffuser du contenu multimédia (par exemple, MPEG-DASH, HLS ou Smooth Streaming) ou télécharger progressivement des fichiers.
@@ -87,7 +87,7 @@ Pour fournir aux utilisateurs des URL de diffusion en continu, vous devez d’ab
 
 Vous ne pouvez transmettre en continu avec le protocole SSL que si le point de terminaison de streaming à partir duquel vous distribuez votre contenu a été créé après le 10 septembre 2014. Si vos URL de diffusion sont basées sur des points de terminaison créés après le 10 septembre 2014, l’URL contient « streaming.mediaservices.windows.net ». Les URL de diffusion qui contiennent « origin.mediaservices.windows.net » (ancien format) ne sont pas compatibles avec le protocole SSL. Si votre URL suit l’ancien format et que vous souhaitez être en mesure de diffuser via le protocole SSL, créez un point de terminaison. Utilisez des URL basées sur le nouveau point de terminaison de streaming pour diffuser votre contenu avec le protocole SSL.
 
-## <a name="a-idurlsstreaming-url-formats"></a><a id="URLs"/>Formats d’URL de streaming
+## <a name="streaming-url-formats"></a><a id="URLs"/>Formats d’URL de streaming
 
 ### <a name="mpeg-dash-format"></a>Format MPEG-DASH
 {nom du point de terminaison de diffusion en continu-nom du compte media services}.streaming.mediaservices.windows.net/{ID_de_localisateur}/{nom_de_fichier}.ISM/Manifest(format=mpd-time-csf)
@@ -118,7 +118,7 @@ Exemple :
 
 http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest
 
-### <a id="fmp4_v20"></a>Manifeste Smooth Streaming 2.0 (manifeste hérité)
+### <a name="smooth-streaming-20-manifest-legacy-manifest"></a><a id="fmp4_v20"></a>Manifeste Smooth Streaming 2.0 (manifeste hérité)
 Par défaut, le manifeste Smooth Streaming contient la balise de répétition (r-tag). Toutefois, certains lecteurs ne gèrent pas la balise r-tag. Les clients disposant de ces lecteurs peuvent utiliser un format qui désactive la balise r-tag :
 
 {nom du point de terminaison de diffusion en continu-nom du compte media services}.streaming.mediaservices.windows.net/{ID_de_localisateur}/{nom_de_fichier}.ISM/Manifest(format=fmp4-v20)

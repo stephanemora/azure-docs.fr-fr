@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: jobreen
 ms.openlocfilehash: 1846b036f12fe7e691021ec0248782cad946d9b7
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75649181"
 ---
 # <a name="azure-custom-providers-resource-onboarding-overview"></a>Vue d’ensemble de l’intégration des ressources des fournisseurs personnalisés Azure

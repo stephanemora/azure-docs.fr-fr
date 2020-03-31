@@ -7,10 +7,10 @@ ms.reviewer: deli, klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/25/2019
 ms.openlocfilehash: a9c167c5767a4156147e13a1e4ae21162e506474
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75445855"
 ---
 # <a name="create-schedule-and-run-recurring-tasks-and-workflows-with-the-recurrence-trigger-in-azure-logic-apps"></a>Créer, planifier et exécuter des tâches et des flux de travail récurrents avec le déclencheur Récurrence dans Azure Logic Apps
@@ -34,7 +34,7 @@ Pour connaître les différences entre ce déclencheur et le déclencheur Fenêt
 > [!TIP]
 > Pour déclencher votre application logique et l’exécuter une seule fois, voir [Exécuter des travaux une seule fois](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#run-once).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [vous inscrire pour obtenir un compte Azure gratuitement](https://azure.microsoft.com/free/).
 

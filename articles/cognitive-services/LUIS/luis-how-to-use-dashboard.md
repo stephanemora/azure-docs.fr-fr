@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 11/08/2019
 ms.author: diberry
 ms.openlocfilehash: d9ae126753f55349f9bf3eefd20bc4d222866af1
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73888211"
 ---
 # <a name="how-to-use-the-dashboard-to-improve-your-app"></a>Guide pratique pour utiliser le tableau de bord afin d’améliorer votre application
@@ -157,7 +157,7 @@ Le filtre vous permet de trouver les intentions présentant un problème spécif
 |Filtrer|Pourcentage conseillé|Objectif|
 |--|--|--|
 |Intentions les plus problématiques|-|**Commencez ici** : la correction des énoncés dans cette intention améliorera l’application davantage que d’autres corrections.|
-|Prédictions correctes ci-dessous|60 %|Il s’agit du pourcentage d’énoncés dans l’intention sélectionnée qui sont corrects mais qui ont un score de confiance inférieur au seuil. |
+|Prédictions correctes ci-dessous|60%|Il s’agit du pourcentage d’énoncés dans l’intention sélectionnée qui sont corrects mais qui ont un score de confiance inférieur au seuil. |
 |Prédictions vagues ci-dessus|15 %|Il s’agit du pourcentage d’énoncés dans l’intention sélectionnée qui sont confondus avec l’intention rivale la plus proche.|
 |Prédictions incorrectes ci-dessus|15 %|Il s’agit du pourcentage d’énoncés dans l’intention sélectionnée qui sont prédits de façon incorrecte. |
 

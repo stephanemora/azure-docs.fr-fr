@@ -10,10 +10,10 @@ ms.date: 04/02/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: a66f73e028594cf90f1fa1765910a3df3adbad1a
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74849477"
 ---
 # <a name="certificate-assets-in-azure-automation"></a>Ressources de certificats dans Azure Automation

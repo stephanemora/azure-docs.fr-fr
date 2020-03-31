@@ -1,19 +1,18 @@
 ---
 title: Publication d’une offre de services de conseil Azure et Dynamics 365 | Place de marché Azure
 description: Publiez une offre de services de conseil Azure ou Dynamics 365 sur le portail Cloud Partner pour Place de marché Azure ou AppSource.
-services: Azure, Marketplace, Cloud Partner Portal,
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/30/2018
-ms.author: pabutler
-ms.openlocfilehash: 3d2daf68bae5e24dd8ec3501befd186a50c2cb16
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 1b00e177ed45762d10d0603b1d0a1fb2c1807416
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818108"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278499"
 ---
 # <a name="publish-a-consulting-service-offer"></a>Publier une offre de service de conseil
 

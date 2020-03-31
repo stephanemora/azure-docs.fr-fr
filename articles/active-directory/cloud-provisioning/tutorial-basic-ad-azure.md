@@ -11,13 +11,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 356a05d4d92f17ceb66ff0208153ec3eac736757
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74795364"
 ---
-# <a name="tutorial-basic-active-directory-environment"></a>Didacticiel : Environnement Azure Active Directory simple
+# <a name="tutorial-basic-active-directory-environment"></a>Tutoriel : Environnement Azure Active Directory simple
 
 Ce tutoriel vous guide dans la création d’un environnement Active Directory simple. 
 
@@ -83,7 +83,7 @@ Pour terminer la création de la machine virtuelle, vous devez terminer l’inst
 6. Saisissez votre clé de licence et cliquez sur **Suivant**.
 7. Acceptez les termes du contrat de licence et cliquez sur **Suivant**.
 8. Sélectionnez **Personnalisé :  installer Windows uniquement (avancé)**
-9. Cliquez sur **Suivant**
+9. Cliquez sur **Suivant**.
 10. Une fois l’installation terminée, redémarrez la machine virtuelle, connectez-vous et exécutez les mises à jour Windows pour vous assurer que la machine virtuelle est à jour.  Installez les dernières mises à jour.
 
 ## <a name="install-active-directory-prerequisites"></a>Installer les prérequis pour Active Directory
@@ -270,7 +270,7 @@ Pour terminer la création de la machine virtuelle, vous devez terminer l’inst
 6. Saisissez votre clé de licence et cliquez sur **Suivant**.
 7. Acceptez les termes du contrat de licence et cliquez sur **Suivant**.
 8. Sélectionnez **Personnalisé :  installer Windows uniquement (avancé)**
-9. Cliquez sur **Suivant**
+9. Cliquez sur **Suivant**.
 10. Une fois l’installation terminée, redémarrez la machine virtuelle, connectez-vous et exécutez les mises à jour Windows pour vous assurer que la machine virtuelle est à jour.  Installez les dernières mises à jour.
 
 ### <a name="install-active-directory-prerequisites"></a>Installer les prérequis pour Active Directory

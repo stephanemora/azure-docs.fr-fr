@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/29/2019
 ms.author: steveesp
 ms.openlocfilehash: 00efc2754948d53d4f80a6261dbd4041b358185b
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74896356"
 ---
 # <a name="test-vm-network-latency"></a>Tester la latence du réseau des machines virtuelles
@@ -29,7 +29,7 @@ D’autres outils de connectivité courants, tels que Ping, peuvent mesurer la l
 
 Pour un test précis de la latence du réseau des protocoles utilisés par la plupart des applications, SockPerf (pour Linux) et latte.exe (pour Windows) produisent les résultats les plus pertinents. Cet article couvre ces deux outils.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 En utilisant deux machines virtuelles, l’une en tant qu’expéditeur et l’autre en tant que récepteur, vous créez un canal de communication bidirectionnel. Grâce à cette approche, vous pouvez envoyer et recevoir des paquets dans les deux sens et mesurer la durée des boucles (RTT).
 

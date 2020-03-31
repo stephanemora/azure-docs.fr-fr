@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/05/2016
 ms.author: matd
 ms.openlocfilehash: 4dcda65384190050e11f1bf9b15c706b0e38c6b3
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75561641"
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>StorSimple comme cible de sauvegarde avec Backup Exec
@@ -79,7 +79,7 @@ StorSimple offre les avantages suivants :
 
 Bien que StorSimple présente deux principaux scénarios de déploiement (cible de sauvegarde principale et secondaire), il s’agit essentiellement d’un dispositif de stockage de bloc. StorSimple exécute la totalité des tâches de compression et de déduplication. Il envoie et récupère de façon transparente les données entre le cloud, l’application et le système de fichiers.
 
-Pour plus d'informations sur StorSimple, consultez l'article [StorSimple série 8000 : une solution de stockage cloud hybride](storsimple-overview.md). En outre, vous pouvez consulter les [caractéristiques techniques de StorSimple série 8000](storsimple-technical-specifications-and-compliance.md).
+Pour plus d’informations sur StorSimple, consultez l’article [StorSimple série 8000 : une solution de stockage de cloud hybride](storsimple-overview.md). En outre, vous pouvez consulter les [caractéristiques techniques de StorSimple série 8000](storsimple-technical-specifications-and-compliance.md).
 
 > [!IMPORTANT]
 > L’utilisation d’un appareil StorSimple comme cible de sauvegarde n’est prise en charge que pour StorSimple 8000 Update 3 et les versions ultérieures.
@@ -184,7 +184,7 @@ Dans cette section, nous fournissons quelques exemples de configuration. Les exe
 
 | Tâches de déploiement StorSimple  | Commentaires supplémentaires |
 |---|---|
-| Déploiement de votre appareil StorSimple local | Versions prises en charge : Update 3 et versions ultérieures. |
+| Déploiement de votre appareil StorSimple local | Versions prises en charge : Update 3 et versions ultérieures. |
 | Activez la cible de sauvegarde. | Utilisez ces commandes pour activer ou désactiver le mode de cible de sauvegarde et pour obtenir l’état. Pour plus d’informations, consultez l’article [Connexion à distance à un appareil StorSimple](storsimple-remote-connect.md).</br> Pour activer le mode de sauvegarde : `Set-HCSBackupApplianceMode -enable`. </br> Pour désactiver le mode de sauvegarde : `Set-HCSBackupApplianceMode -disable`. </br> Pour obtenir l’état actuel des paramètres de mode de sauvegarde : `Get-HCSBackupApplianceMode`. |
 | Création d’un conteneur de volumes commun pour votre volume qui stocke les données de sauvegarde. Toutes les données d’un conteneur de volumes sont dédupliquées. | Les conteneurs de volumes StorSimple définissent les domaines de déduplication.  |
 | Créez les volumes StorSimple. | Créez des volumes en les dimensionnant le plus conformément possible à l’usage que vous prévoyez d’en faire, car la taille du volume a une incidence sur la durée des captures instantanées cloud. Pour plus d’informations sur la taille d’un volume, consultez les [stratégies de rétention](#retention-policies).</br> </br> Utilisez les volumes hiérarchisés StorSimple et cochez la case **Utiliser ce volume pour les données d’archivage auxquelles vous accédez moins souvent**. </br> L’utilisation de volumes épinglés localement uniquement n’est pas prise en charge. |
@@ -379,7 +379,7 @@ Le tableau suivant montre comment configurer des sauvegardes à exécuter sur le
 \* La capacité totale inclut 17 Tio de disques StorSimple et 1 Tio de volume RAID local.
 
 
-### <a name="gfs-example-schedule-gfs-rotation-weekly-monthly-and-yearly-schedule"></a>Exemple de planification GFS : planification de rotation GFS hebdomadaire, mensuelle et annuelle
+### <a name="gfs-example-schedule-gfs-rotation-weekly-monthly-and-yearly-schedule"></a>Exemple de planification GFS : planification de rotation GFS hebdomadaire, mensuelle et annuelle
 
 | Week | Complète | Incrémentielle jour 1 | Incrémentielle jour 2 | Incrémentielle jour 3 | Incrémentielle jour 4 | Incrémentielle jour 5 |
 |---|---|---|---|---|---|---|
@@ -483,7 +483,7 @@ Un sinistre peut être dû à plusieurs facteurs. Le tableau ci-après répertor
 Les documents référencés dans cet article sont les suivants :
 
 - [StorSimple multipath I/O setup (Configuration de StorSimple MPIO)](storsimple-configure-mpio-windows-server.md)
-- [Scénarios de stockage : Allocation dynamique](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
+- [Storage scenarios: Thin provisioning (Scénarios de stockage : allocation dynamique)](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
 - [Using GPT drives (Utilisation de disques de table de partition GUID)](https://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
 - [Set up shadow copies for shared folders (Configurer des clichés instantanés de dossiers partagés)](https://technet.microsoft.com/library/cc771893.aspx)
 

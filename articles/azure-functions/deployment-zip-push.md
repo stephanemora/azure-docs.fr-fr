@@ -4,10 +4,10 @@ description: Utilisez les fonctionnalités de déploiement de fichier Zip du ser
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.openlocfilehash: 6bda0859ca4741fe74f572b204e40130c56c46fc
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75769663"
 ---
 # <a name="zip-deployment-for-azure-functions"></a>Déploiement zip pour Azure Functions
@@ -62,7 +62,7 @@ Toutefois, vous aurez peut-être créé vos fonctions à l’aide de l’éditeu
 
 Vous pouvez également télécharger un fichier .zip à partir d’un dépôt GitHub. Quand vous téléchargez un dépôt GitHub sous la forme d’un fichier zip, GitHub ajoute un niveau de dossier supplémentaire à la branche. Ce niveau de dossier supplémentaire signifie que vous ne pouvez pas déployer le fichier .zip directement tel que vous l’avez téléchargé à partir de GitHub. Si vous utilisez un dépôt GitHub pour tenir à jour votre application de fonction, vous devez utiliser [l’intégration continue](functions-continuous-deployment.md) pour la déployer.  
 
-## <a name="cli"></a>Déployer à l’aide d’Azure CLI
+## <a name="deploy-by-using-azure-cli"></a><a name="cli"></a>Déployer à l’aide d’Azure CLI
 
 Vous pouvez utiliser Azure CLI pour déclencher un déploiement Push. Effectuez le déploiement Push d’un fichier .zip sur votre application de fonction à l’aide de la commande [az functionapp deployment source config-zip](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip). Pour exécuter cette commande, vous devez utiliser Azure CLI version 2.0.21 ou ultérieure. Pour vérifier votre version d’Azure CLI, utilisez la commande `az --version`.
 

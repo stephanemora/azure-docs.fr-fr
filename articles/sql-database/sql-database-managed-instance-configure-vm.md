@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, srbozovi, bonova
 ms.date: 02/18/2019
 ms.openlocfilehash: 7273c7b1dbf5eb6c855b95a8661f38bd4bd14af7
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73839048"
 ---
 # <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Démarrage rapide : Configurer la machine virtuelle Azure pour qu’elle se connecte à Azure SQL Database Managed Instance
@@ -28,7 +28,7 @@ Ce guide de démarrage rapide utilise les ressources créées dans [Créer une i
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
-Connectez-vous au [Portail Azure](https://portal.azure.com/).
+Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 ## <a name="create-a-new-subnet-in-the-managed-instance-vnet"></a>Créer un sous-réseau dans le réseau virtuel Managed Instance
 
@@ -48,10 +48,10 @@ Les étapes suivantes créent un sous-réseau dans le réseau virtuel Managed In
    | ---------------- | ----------------- | ----------- |
    | **Nom** | Nom valide|Pour connaître les noms valides, consultez [Conventions d’affectation de noms](/azure/architecture/best-practices/resource-naming).|
    | **Plage d’adresses (bloc CIDR)** | Plage valide | La valeur par défaut convient pour ce guide de démarrage rapide.|
-   | **Groupe de sécurité réseau** | Aucun | La valeur par défaut convient pour ce guide de démarrage rapide.|
-   | **Table de routage** | Aucun | La valeur par défaut convient pour ce guide de démarrage rapide.|
+   | **Groupe de sécurité réseau** | None | La valeur par défaut convient pour ce guide de démarrage rapide.|
+   | **Table de routage** | None | La valeur par défaut convient pour ce guide de démarrage rapide.|
    | **Points de terminaison de service** | 0 sélectionné | La valeur par défaut convient pour ce guide de démarrage rapide.|
-   | **Délégation de sous-réseau** | Aucun | La valeur par défaut convient pour ce guide de démarrage rapide.|
+   | **Délégation de sous-réseau** | None | La valeur par défaut convient pour ce guide de démarrage rapide.|
 
    ![Nouveau sous-réseau Managed Instance pour la machine virtuelle cliente](./media/sql-database-managed-instance-configure-vm/new-subnet.png)
 

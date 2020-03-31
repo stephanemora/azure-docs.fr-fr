@@ -1,6 +1,6 @@
 ---
-title: Fichier include
-description: Fichier include
+title: Fichier Include
+description: Fichier Include
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 02/18/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 77fc6070010791bf96c944114929eba95842c9d4
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77471684"
 ---
 Dans la préversion, les disques managés pour lesquels la fonctionnalité Disques partagés est activée sont soumis aux limitations suivantes :

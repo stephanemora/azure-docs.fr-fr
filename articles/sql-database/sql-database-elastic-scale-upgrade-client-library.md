@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
 ms.openlocfilehash: a1ab684f13c56698d4359f2bf74826f3dd696c6d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73823506"
 ---
 # <a name="upgrade-an-app-to-use-the-latest-elastic-database-client-library"></a>Mettre à niveau une application pour utiliser la dernière version de la bibliothèque cliente de bases de données élastiques
@@ -44,7 +44,7 @@ Effectuez ces étapes afin de garantir que plus aucune version antérieure de la
 
 **4. Mettez à niveau vos bases de données du Gestionnaire de cartes de partitions**. Mettez à niveau les métadonnées de prise en charge de vos cartes de partitions dans Azure SQL Database.  Vous pouvez effectuer cette opération avec PowerShell ou C#. Ces deux options sont expliquées ci-dessous.
 
-***Option 1 : mise à niveau des métadonnées en utilisant PowerShell***
+***Option n°1 : mise à niveau des métadonnées en utilisant PowerShell***
 
 1. Téléchargez [ici](https://nuget.org/nuget.exe) la dernière version de l’utilitaire de ligne de commande de NuGet et enregistrez-la dans un dossier.
 2. Ouvrez une invite de commandes, accédez au dossier choisi et exécutez cette commande : `nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Client`
@@ -52,7 +52,7 @@ Effectuez ces étapes afin de garantir que plus aucune version antérieure de la
 4. Téléchargez le scriptlet de la mise à niveau du client de la base de données élastique à partir du [centre de scripts](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-Database-Elastic-6442e6a9) et enregistrez-le dans le dossier contenant la DLL.
 5. Dans ce dossier, exécutez « PowerShell .\upgrade.ps1 » à partir de l’invite de commandes et suivez les invites.
 
-***Option 2 : mise à niveau des métadonnées en utilisant C#***
+***Option n°2 : mise à niveau des métadonnées en utilisant C#***
 
 Une autre solution consiste à créer une application Visual Studio qui ouvre votre gestionnaire de mappages de partitions, effectue une itération sur toutes les partitions, et met à niveau les métadonnées en appelant les méthodes [UpgradeLocalStore](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.upgradelocalstore) et [UpgradeGlobalStore](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.upgradeglobalstore). Voici un exemple :
 
