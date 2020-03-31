@@ -4,10 +4,10 @@ description: QnA Maker présente des limites de métadonnées pour certaines par
 ms.topic: reference
 ms.date: 02/14/2020
 ms.openlocfilehash: 6375a6c6efc0c7016d9947e04e9479385aa80af5
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78273351"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Limites de la base de connaissances QnA Maker

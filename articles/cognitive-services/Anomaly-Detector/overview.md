@@ -10,14 +10,16 @@ ms.subservice: anomaly-detector
 ms.topic: overview
 ms.date: 12/18/2019
 ms.author: aahi
-ms.openlocfilehash: 05ed7903cafbb265f23ba74a24ee0498be0effe9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9237e670dd8d43c4036f996c477948944718e3aa
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448973"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80053709"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>Présentation de l’API Détecteur d’anomalies
+
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 L’API Détecteur d’anomalies vous permet de surveiller et de détecter des anomalies dans vos données de série chronologique grâce à l’apprentissage automatique. L’API Détecteur d’anomalies s’adapte en identifiant et en appliquant automatiquement les modèles les mieux adaptés à vos données, indépendamment du secteur d’activité, du scénario ou du volume de données. À l’aide de vos données de série chronologique, l’API détermine les limites pour la détection des anomalies, les valeurs attendues et les points de données qui constituent des anomalies.
 
@@ -27,7 +29,7 @@ L’utilisation du détecteur d'anomalies ne nécessite aucune expérience préa
 
 ## <a name="features"></a>Fonctionnalités
 
-Grâce au détecteur d’anomalies, vous pouvez automatiquement détecter des anomalies, dans l’ensemble de vos données de série chronologique ou en temps réel. 
+Grâce au détecteur d’anomalies, vous pouvez automatiquement détecter des anomalies, dans l’ensemble de vos données de série chronologique ou en temps réel.
 
 |Fonctionnalité  |Description  |
 |---------|---------|
@@ -52,7 +54,7 @@ Pour exécuter le notebook, procédez comme suit :
 1. Désactivez l’option « public » dans la boîte de dialogue avant de procéder à l’opération de clonage. Dans le cas contraire, votre notebook, avec toutes les clés d’abonnement, sera public.
 1. Cliquez sur **Exécuter sur le calcul gratuit**
 1. Sélectionnez l’un des notebooks.
-1. Ajoutez votre clé d’abonnement à l’API Détecteur d'anomalies valide à la variable `subscription_key`. 
+1. Ajoutez votre clé d’abonnement à l’API Détecteur d'anomalies valide à la variable `subscription_key`.
 1. Modifiez la variable `endpoint` à votre point de terminaison. Par exemple : `https://westus2.api.cognitive.microsoft.com/anomalydetector/v1.0/timeseries/last/detect`
 1. Dans la barre de menus supérieure, cliquez sur **Cellule**, puis sur **Exécuter tout**.
 

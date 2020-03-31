@@ -17,11 +17,11 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 3f07105c14d4dafeb689eaaf7d679f93e5f235fe
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77605331"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79230557"
 ---
 # <a name="protected-web-api-code-configuration"></a>API web protégée : Configuration de code
 

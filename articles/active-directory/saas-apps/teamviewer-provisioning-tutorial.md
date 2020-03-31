@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 01/27/2020
 ms.author: Zhchia
 ms.openlocfilehash: dc33cf9249a5b804ef46e75ff1822eaa5c6f9d6a
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77366438"
 ---
 # <a name="tutorial-configure-teamviewer-for-automatic-user-provisioning"></a>Tutoriel : Configurer TeamViewer pour l'approvisionnement automatique d'utilisateurs

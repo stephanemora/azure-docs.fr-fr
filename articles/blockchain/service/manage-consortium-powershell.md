@@ -5,10 +5,10 @@ ms.date: 10/14/2019
 ms.topic: article
 ms.reviewer: zeyadr
 ms.openlocfilehash: e819dd39481b58d446384a5e2253c548ce0c267c
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77505984"
 ---
 # <a name="manage-consortium-members-in-azure-blockchain-service-using-powershell"></a>Gérer les membres d’un consortium dans Azure Blockchain Service à l’aide de PowerShell

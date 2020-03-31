@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.openlocfilehash: 5b2e4c03347020b5d5fc67927165403f06854e0b
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77110913"
 ---
 # <a name="get-started-with-device-management-nodejs"></a>Prise en main de la gestion d’appareils (Node.js)
@@ -33,7 +33,7 @@ Ce didacticiel vous explique les procédures suivantes :
 
 * **dmpatterns_getstarted_service.js**, qui appelle une méthode directe sur l’application de l’appareil simulé, affiche la réponse et affiche les propriétés signalées pour la mise à jour.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Node.j version 10.0.x ou ultérieure. L’article [Préparer votre environnement de développement](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) décrit l’installation de Node.js pour ce didacticiel sur Windows ou sur Linux.
 

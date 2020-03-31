@@ -1,19 +1,18 @@
 ---
 title: Onglet Paramètres d’une offre Dynamics 365 for Customer Engagement | Place de marché Azure
 description: 'Dépréciation de l’article Portail Cloud Partner, ajout d’un lien à l’article Espace partenaires ; auparavant : « Configurez les paramètres d’une offre d’application Dynamics 365 for Customer Engagement sur la Place de marché AppSource. »'
-services: Dynamics 365 for Customer Engagement Offer, Azure, Marketplace, Cloud Partner Portal, AppSource
-author: ChJenk
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.author: v-chjen
-ms.openlocfilehash: 34d4886b8913da24177b939d88eb90dd8650542f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 06ae437209b52d3aae92cd1784ccae722992766e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824750"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278363"
 ---
 # <a name="dynamics-365-for-customer-engagement-offer-settings-tab"></a>Onglet Paramètres d’une offre Dynamics 365 for Customer Engagement
 

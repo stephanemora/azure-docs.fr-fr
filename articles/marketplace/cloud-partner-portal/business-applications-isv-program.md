@@ -1,19 +1,18 @@
 ---
 title: Guide d'intégration au programme Microsoft Business Applications Independent Software Vendor (ISV) Connect
 description: Voici comment s’intégrer au programme Business Applications ISV Connect.
-services: Azure Marketplace, Cloud Partner Portal
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 7/12/2019
-ms.author: evansma
-ms.openlocfilehash: 4a47886176b704cc3bc36cc9fa85d1d3faee4c58
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: f7fd3f43c7faddb5481411dc9c4c94864b6dc0b1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819147"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288969"
 ---
 # <a name="microsoft-business-applications-independent-software-vendor-isv-connect-program-onboarding-guide"></a>Guide d'intégration au programme Microsoft Business Applications Independent Software Vendor (ISV) Connect
 

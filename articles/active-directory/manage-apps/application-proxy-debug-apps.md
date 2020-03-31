@@ -12,10 +12,10 @@ ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.openlocfilehash: 575891d99c077299f5e7abf008c1ebb2b158373f
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74382072"
 ---
 # <a name="debug-application-proxy-application-issues"></a>Déboguer les problèmes d’application de proxy d’application 
@@ -45,7 +45,7 @@ Cet organigramme vous guide tout au long des étapes de débogage des problèmes
 |2 | Vérifiez l’affectation d'utilisateurs à l'application | Assurez-vous que votre compte d’utilisateur est autorisé à accéder à l’application à partir du réseau d’entreprise, puis effectuez un test de signature en suivant la procédure [Tester l’application](application-proxy-add-on-premises-application.md#test-the-application). Si les problèmes de connexion persistent, consultez [Résoudre les erreurs de connexion](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context).  |
 |3 | Ouvrez un navigateur et essayez d’accéder à l’application | Si une erreur s’affiche immédiatement, vérifiez que le service Proxy d’application est correctement configuré. Pour plus d'informations sur des messages d'erreur spécifiques, consultez [Résoudre les problèmes liés au service Proxy d'application et les messages d'erreur](application-proxy-troubleshoot.md).  |
 |4 | Vérifiez la configuration de votre domaine personnalisé ou corrigez l’erreur | Si la page ne s’affiche pas, vérifiez que votre domaine personnalisé est correctement configuré en consultant [Utilisation des domaines personnalisés](application-proxy-configure-custom-domain.md).<br></br>Si la page ne se charge et qu'un message d’erreur s'affiche, corrigez l’erreur en consultant [Résoudre les problèmes liés au service Proxy d'application et les messages d’erreur](application-proxy-troubleshoot.md). <br></br>Si un message d'erreur met plus de 20 secondes à s'afficher, il peut s'agir d'un problème de connectivité. Consultez l'article [Déboguer les connecteurs Proxy d'application](application-proxy-debug-connectors.md).  |
-|5\. | Si les problèmes persistent, procédez au débogage du connecteur | Il peut s'agir d'un problème de connectivité entre le proxy et le connecteur ou le connecteur et le serveur principal. Consultez l'article [Déboguer les connecteurs Proxy d'application](application-proxy-debug-connectors.md). |
+|5 | Si les problèmes persistent, procédez au débogage du connecteur | Il peut s'agir d'un problème de connectivité entre le proxy et le connecteur ou le connecteur et le serveur principal. Consultez l'article [Déboguer les connecteurs Proxy d'application](application-proxy-debug-connectors.md). |
 |6 | Publiez toutes les ressources, vérifiez les outils de développement du navigateur et corrigez les liens | Assurez-vous que le chemin de publication inclut l’ensemble des images, scripts et feuilles de style nécessaires à votre application. Pour plus d'informations, consultez [Ajouter une application locale à Azure AD](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad). <br></br>Utilisez les outils de développement du navigateur (F12 dans Internet Explorer ou Microsoft Edge) et vérifiez s'il existe d'éventuels problèmes de publication, comme décrit dans [La page d'application ne s'affiche pas correctement](application-proxy-page-appearance-broken-problem.md). <br></br>Pour plus d'informations sur la résolution des liens rompus, consultez [Les liens de la page ne fonctionnent pas](application-proxy-page-links-broken-problem.md). |
 |7 | Vérifiez la latence du réseau | Si la page se charge lentement, découvrez comment réduire la latence du réseau dans [Considérations relatives à la réduction de la latence](application-proxy-network-topology.md#considerations-for-reducing-latency). | 
 |8 | Consultez l'aide ayant trait à la résolution de problèmes supplémentaires | Si les problèmes persistent, recherchez d’autres articles de résolution des problèmes dans la [documentation de résolution des problèmes liés au service Proxy d'application](application-proxy-troubleshoot.md). |

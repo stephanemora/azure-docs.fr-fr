@@ -10,10 +10,10 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.openlocfilehash: f68e25a618f5c6499ccc9d76c510eab8f1650330
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77110885"
 ---
 # <a name="get-started-with-device-management-java"></a>Prise en main de la gestion d’appareils (Java)
@@ -51,7 +51,7 @@ Ce didacticiel vous explique les procédures suivantes :
 > [!NOTE]
 > Pour plus d’informations sur les SDK que vous pouvez utiliser pour générer des applications qui s’exécutent sur les appareils et sur le back-end de solution, consultez [Kits SDK Azure IoT](iot-hub-devguide-sdks.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * [Java SE Development Kit 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable). Veillez à sélectionner **Java 8** sous **Prise en charge à long terme** pour accéder aux téléchargements du kit JDK 8.
 

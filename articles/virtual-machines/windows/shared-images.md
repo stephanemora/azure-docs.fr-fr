@@ -16,10 +16,10 @@ ms.date: 05/06/2019
 ms.author: cynthn
 ms.custom: ''
 ms.openlocfilehash: db877c96167fc011c1a8bd52cc1d0b63260007c9
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74066252"
 ---
 # <a name="create-a-shared-image-gallery-with-azure-powershell"></a>Créer une galerie d’images partagées avec Azure PowerShell 

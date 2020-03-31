@@ -1,18 +1,18 @@
 ---
 title: Check-list de publication pour AppSource | Place de marché Azure
 description: Publication de check-lists pour AppSource.
-author: jm-aditi-ms
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/05/2018
 ms.author: dsindona
-ms.openlocfilehash: 4dc70fdcce3711e61472cbbf579051a0b9306770
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7fcf23d1a599199adfc5a50f76a7b72b96ece7a8
+ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80285008"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80387731"
 ---
 # <a name="publishing-checklist-for-appsource"></a>Publication de check-lists pour AppSource  
 

@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: e1cb1bec6273fa79315b9439bec1412622ebfe28
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75773664"
 ---
 L’exemple suivant montre comment créer un peering direct 10 Gbits/s à Seattle.
@@ -34,7 +34,7 @@ $connection1 = New-AzPeeringDirectConnectionObject `
 > [!NOTE]
 > Dans l’exemple ci-avant, l’<index> de $peeringLocation [<index>] doit correspondre à l’emplacement de peering de votre choix.
 
-Créez une autre connexion au cas où vous aurez besoin d’une redondance à l’emplacement du peering donné :
+Créez une autre connexion au cas où vous auriez besoin d’une redondance à l’emplacement du Peering donné :
 
 ```powershell
 $connection2 = New-AzPeeringDirectConnectionObject `

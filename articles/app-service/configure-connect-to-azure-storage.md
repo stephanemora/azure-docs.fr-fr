@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 7/01/2019
 ms.author: msangapu
 ms.openlocfilehash: 64ef4dfe81e6415f1285a74962e2123507715119
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77120674"
 ---
 # <a name="configure-azure-files-in-a-windows-container-on-app-service"></a>Configurer Azure Files dans un conteneur Windows sur App Service
@@ -20,7 +20,7 @@ ms.locfileid: "77120674"
 
 Ce guide montre comment accéder au stockage Azure dans des conteneurs Windows. Seuls les [partages de fichiers Azure](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-cli) et [partages de fichiers Premium](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-premium-fileshare) sont pris en charge. Vous utiliserez des partages de fichiers Azure dans ce guide pratique. Les avantages sont multiples : sécurisation et portabilité du contenu, accès à plusieurs applications et multiplication des méthodes de transfert.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - [Azure CLI](/cli/azure/install-azure-cli) 2.0.46 (ou version ultérieure).
 - [Une application de conteneur Windows existante dans Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-windows-container)

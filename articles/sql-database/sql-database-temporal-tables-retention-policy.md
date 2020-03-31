@@ -12,19 +12,19 @@ ms.author: bonova
 ms.reviewer: carlrab
 ms.date: 09/25/2018
 ms.openlocfilehash: 3c2460c6f5e0905f45106148ecc3e8a949cf221f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73820681"
 ---
 # <a name="manage-historical-data-in-temporal-tables-with-retention-policy"></a>Gérer les données d’historique dans les tables temporelles avec la stratégie de rétention
 
 Par rapport aux tables normales, les tables temporelles peuvent augmenter la taille des bases de données, notamment si vous conservez les données d’historique pendant longtemps. Par conséquent, une stratégie de rétention des données d’historique est un aspect important de la planification et de la gestion du cycle de vie de chaque table temporelle. Les tables temporelles dans Azure SQL Database sont fournies avec un mécanisme de conservation facile à utiliser qui vous permet d’accomplir cette tâche.
 
-La rétention d’historique temporelle peut être configurée au niveau de tables spécifiques, ce qui permet aux utilisateurs de créer des stratégies d’ancienneté flexibles. L’application de la rétention temporelle est simple : elle ne requiert qu’un seul paramètre à définir lors de la modification du schéma ou de la création de la table.
+La rétention d’historique temporelle peut être configurée au niveau de la table individuelle, ce qui permet aux utilisateurs de créer des stratégies de vieillissement flexibles. L’application de la rétention temporelle est simple : un seul paramètre doit être défini durant la création de la table ou le changement de schéma.
 
-Une fois que vous avez défini la stratégie de conservation, Azure SQL Database commence par vérifier régulièrement s’il existe des lignes d’historique éligibles pour le nettoyage automatique des données. L’identification des lignes correspondantes et leur suppression de la table d’historique se produisent en toute transparence, dans la tâche d’arrière-plan planifiée et exécutée par le système. La condition d’ancienneté des lignes de la table d’historique est vérifiée en fonction de la colonne représentant la fin de la période SYSTEM_TIME. Par exemple, si la période de rétention est définie sur six mois, les lignes de table éligibles pour le nettoyage répondent à la condition suivante :
+Une fois que vous avez défini la stratégie de conservation, Azure SQL Database commence par vérifier régulièrement s’il existe des lignes d’historique éligibles pour le nettoyage automatique des données. L’identification des lignes correspondantes et leur suppression de la table d’historique se produisent de façon transparente, dans la tâche en arrière-plan planifiée et exécutée par le système. La condition d’âge des lignes de la table d’historique est vérifiée en fonction de la colonne représentant la fin de la période SYSTEM_TIME. Par exemple, si la période de rétention est définie à six mois, les lignes de table éligibles pour un nettoyage répondent à la condition suivante :
 
 ```
 ValidTo < DATEADD (MONTH, -6, SYSUTCDATETIME())
@@ -41,7 +41,7 @@ SELECT is_temporal_history_retention_enabled, name
 FROM sys.databases
 ```
 
-L’indicateur de base de données **is_temporal_history_retention_enabled** est défini sur Activé par défaut, mais les utilisateurs peuvent le modifier avec l’instruction ALTER DATABASE. Il est automatiquement défini sur Désactivé après une opération de [limite de restauration dans le temps](sql-database-recovery-using-backups.md). Pour activer le nettoyage de la rétention d’historique temporelle pour votre base de données, exécutez l’instruction suivante :
+L’indicateur de base de données **is_temporal_history_retention_enabled** a la valeur ON par défaut, mais les utilisateurs peuvent le changer à l’aide de l’instruction ALTER DATABASE. Il est automatiquement défini sur Désactivé après une opération de [limite de restauration dans le temps](sql-database-recovery-using-backups.md). Si vous souhaitez activer le nettoyage de la rétention d’historique temporelle pour votre base de données, exécutez l’instruction suivante :
 
 ```sql
 ALTER DATABASE <myDB>
@@ -51,7 +51,7 @@ SET TEMPORAL_HISTORY_RETENTION  ON
 > [!IMPORTANT]
 > Vous pouvez configurer la durée de rétention pour les tables temporelles même si **is_temporal_history_retention_enabled** est DÉSACTIVÉ, mais le nettoyage automatique des lignes anciennes n’est pas déclenché dans ce cas.
 
-La stratégie de rétention est configurée lors de la création de table en spécifiant la valeur du paramètre HISTORY_RETENTION_PERIOD :
+La stratégie de rétention est configurée durant la création de la table quand vous spécifiez la valeur du paramètre HISTORY_RETENTION_PERIOD :
 
 ```sql
 CREATE TABLE dbo.WebsiteUserInfo
@@ -73,9 +73,9 @@ CREATE TABLE dbo.WebsiteUserInfo
  );
 ```
 
-Azure SQL Database permet de spécifier la période de conservation à l’aide de différentes unités de temps : JOURS, SEMAINES, MOIS et ANNÉES. Si HISTORY_RETENTION_PERIOD est omis, la rétention INFINITE est utilisée. Vous pouvez également utiliser le mot clé INFINITE de façon explicite.
+Azure SQL Database permet de spécifier la période de conservation à l’aide de différentes unités de temps : DAYS, WEEKS, MONTHS et YEARS. Si HISTORY_RETENTION_PERIOD est omis, la rétention est censée être INFINITE. Vous pouvez également utiliser explicitement le mot clé INFINITE.
 
-Dans certains scénarios, vous pouvez configurer la rétention après la création de la table ou pour modifier la valeur configurée précédemment. Dans ce cas, utilisez l’instruction ALTER TABLE :
+Dans certains scénarios, vous pouvez configurer la rétention après la création de la table, ou pour changer une valeur configurée. Dans ce cas, utilisez l’instruction ALTER TABLE :
 
 ```sql
 ALTER TABLE dbo.WebsiteUserInfo
@@ -85,7 +85,7 @@ SET (SYSTEM_VERSIONING = ON (HISTORY_RETENTION_PERIOD = 9 MONTHS));
 > [!IMPORTANT]
 > Le fait de définir SYSTEM_VERSIONING sur Désactivé *ne préserve pas* la valeur de période de rétention. La définition de SYSTEM_VERSIONING sur Activé sans spécifier HISTORY_RETENTION_PERIOD résulte de façon explicite en une période de rétention illimitée (INFINITE).
 
-Pour vérifier l’état actuel de la stratégie de rétention, utilisez la requête suivante qui joint l’indicateur d’activation de la rétention temporelle au niveau de la base de données avec des périodes de rétention pour les tables individuelles :
+Pour passer en revue l’état actuel de la stratégie de rétention, utilisez la requête suivante qui permet de joindre l’indicateur d’activation de rétention temporelle au niveau de la base de données aux périodes de rétention de tables individuelles :
 
 ```sql
 SELECT DB.is_temporal_history_retention_enabled,
@@ -103,14 +103,14 @@ ON T1.history_table_id = T2.object_id WHERE T1.temporal_type = 2
 
 ## <a name="how-sql-database-deletes-aged-rows"></a>Comment SQL Database supprime les anciennes lignes
 
-Le processus de nettoyage dépend de la disposition de l’index de la table d’historique. Il est important de noter que *seules les tables d’historique avec un index cluster (B-tree ou columnstore) peuvent avoir une stratégie de rétention limitée configurée*. Une tâche en arrière-plan est créée pour effectuer le nettoyage des anciennes données pour toutes les tables temporelles avec une période de rétention limitée.
-La logique de nettoyage de l’index cluster rowstore (arbre B (B-tree)) supprime les anciennes lignes dans des blocs plus petits (jusqu’à 10 K), ce qui permet de réduire la pression sur le journal de la base de données et le sous-système d’E/S. Bien que la logique de nettoyage utilise l’index B-tree, l’ordre des suppressions de lignes antérieures à la période de rétention ne peut pas être garanti complètement. Par conséquent, *ne dépendez pas de l’ordre de nettoyage dans vos applications*.
+Le processus de nettoyage dépend de la disposition de l’index de la table d’historique. Il est important de noter que *seules les tables d’historique avec un index cluster (arbre B (B-tree) ou columnstore) peuvent avoir une stratégie de rétention limitée et configurée*. Une tâche en arrière-plan est créée afin d’effectuer le nettoyage des anciennes données pour toutes les tables temporelles dont la période de rétention est limitée.
+La logique de nettoyage de l’index cluster rowstore (arbre B (B-tree)) supprime les anciennes lignes dans des blocs plus petits (jusqu’à 10 K), ce qui permet de réduire la pression sur le journal de la base de données et le sous-système d’E/S. Bien que la logique de nettoyage utilise l’index d’arbre B (B-tree) nécessaire, l’ordre des suppressions des lignes antérieures à la période de rétention ne peut pas être garanti. Vous ne devez donc *pas accepter de dépendances relatives à l’ordre de nettoyage dans vos applications*.
 
 La tâche de nettoyage pour le cluster columnstore supprime l’ensemble [des groupes de lignes](https://msdn.microsoft.com/library/gg492088.aspx) en une fois (ceux-ci contiennent généralement 1 million de lignes chacun), ce qui est très efficace, en particulier lorsque les données d’historique sont générées à un rythme élevé.
 
-![Rétention de cluster columnstore](./media/sql-database-temporal-tables-retention-policy/cciretention.png)
+![Rétention de columnstore en cluster](./media/sql-database-temporal-tables-retention-policy/cciretention.png)
 
-Une compression des données performante et un nettoyage efficace de la rétention font des index cluster columnstore un choix idéal pour les scénarios dans lesquels votre charge de travail génère rapidement de gros volumes de données d’historique. Ce modèle est généralement utilisé pour les [charges de travail de traitement transactionnel intensives qui utilisent des tables temporelles](https://msdn.microsoft.com/library/mt631669.aspx) à des fins de suivi des modifications et l’audit, d’analyse de tendances ou d’ingestion des données IoT.
+En raison de l’excellence de la compression des données et de l’efficacité du nettoyage de la rétention, l’index columnstore cluster est un choix idéal dans les scénarios où votre charge de travail génère rapidement une grande quantité de données d’historique. Ce modèle est généralement utilisé pour les [charges de travail de traitement transactionnel intensives qui utilisent des tables temporelles](https://msdn.microsoft.com/library/mt631669.aspx) à des fins de suivi des modifications et l’audit, d’analyse de tendances ou d’ingestion des données IoT.
 
 ## <a name="index-considerations"></a>Considérations relatives aux index
 

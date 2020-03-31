@@ -4,10 +4,10 @@ description: Analysez les performances d'un site web sans le redéployer. Foncti
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.openlocfilehash: 63d632df61548d15a1e0a606cf2e198207faf341
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77670047"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrumenter des applications web au runtime avec jonction sans code Application Insights
@@ -84,7 +84,7 @@ Si vous souhaitez procéder à la republication sans ajouter Application Insight
 4. Rétablissez les éventuelles modifications que vous avez effectuées dans le fichier .config.
 
 
-## <a name="troubleshoot"></a>Résolution des problèmes
+## <a name="troubleshooting"></a><a name="troubleshoot"></a>Résolution des problèmes
 
 ### <a name="confirm-a-valid-installation"></a>Vérifier la validité d'une installation 
 
@@ -247,7 +247,7 @@ Identifiez les applications qui sont surveillées :
 
 * Télécharge la version la plus récente du Kit de développement logiciel (SDK) Application Insights sur le serveur.
 
-## <a name="questions"></a>Questions sur Status Monitor
+## <a name="questions-about-status-monitor"></a><a name="questions"></a>Questions sur Status Monitor
 
 ### <a name="what-is-status-monitor"></a>Qu’est-ce que Status Monitor ?
 
@@ -304,13 +304,13 @@ Pour les applications déjà instrumentées au moment de la compilation :
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
-## <a name="download"></a>Télécharger Status Monitor
+## <a name="download-status-monitor"></a><a name="download"></a>Télécharger Status Monitor
 
 - Utiliser le nouveau [module PowerShell](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview)
 - Téléchargez et exécutez le [programme d’installation Status Monitor](https://go.microsoft.com/fwlink/?LinkId=506648).
 - Ou exécutez [Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx) et recherchez-y Application Insights Status Monitor.
 
-## <a name="next"></a>Étapes suivantes
+## <a name="next-steps"></a><a name="next"></a>Étapes suivantes
 
 Affichez vos données de télémétrie :
 

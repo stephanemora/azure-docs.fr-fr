@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
 ms.openlocfilehash: 154160f9a3fbd485ee6383bf3d5ff1c291520a75
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71088522"
 ---
 # <a name="remote-desktop-license-server-isnt-available-when-you-connect-to-an-azure-vm"></a>Le serveur de licences des services Bureau à distance n’est pas disponible lorsque vous vous connectez à une machine virtuelle Azure
@@ -40,7 +40,7 @@ Toutefois, vous pouvez vous connecter à la machine virtuelle normalement à l�
 mstsc /v:<Server>[:<Port>] /admin
 ```
 
-## <a name="cause"></a>Cause :
+## <a name="cause"></a>Cause
 
 Ce problème survient si un serveur de licences des services Bureau à distance n’est pas disponible pour fournir une licence permettant de démarrer une session à distance. Il peut avoir plusieurs origines, même si un rôle Hôte de session Bureau à distance a été configuré sur la machine virtuelle :
 
@@ -62,7 +62,7 @@ Pour résoudre ce problème, [sauvegardez le disque du système d’exploitation
 
     Si vous ne pouvez pas vous connecter à la machine virtuelle à l’aide d’une session d’administration, vous pouvez utiliser la [console série de la machine virtuelle sur Azure](serial-console-windows.md) pour accéder à la machine virtuelle comme suit :
 
-    1. Accéder à la Console série en sélectionnant **Support & Troubleshooting (Support et dépannage)**  > **Console série (préversion)** . Si la fonctionnalité est activée sur la machine virtuelle, vous pouvez connecter la machine virtuelle.
+    1. Accéder à la Console série en sélectionnant **Support & Troubleshooting (Support et dépannage)**  > **Console série (préversion)** . Si la fonctionnalité est activée sur la machine virtuelle, vous pouvez connecter la machine.
 
     2. Créez un canal pour une instance CMD. Entrez **CMD** pour démarrer le canal et en obtenir le nom.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: c4b2dea05b459d6e9ae4eb086fa127d88a84a768
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: e17112cbe2a494a585cd5a09c36cfe449d3d433c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78249210"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79365813"
 ---
 # <a name="common-errors-and-troubleshooting-steps-for-azure-active-directory-domain-services"></a>Erreurs courantes et étapes de dépannage pour Azure Active Directory Domain Services
 
@@ -30,7 +30,7 @@ Si vous avez des difficultés à activer Azure AD DS, examinez ci-dessous les er
 
 | **Exemple de message d’erreur** | **Résolution :** |
 | --- |:--- |
-| *Le nom addscontoso.com est déjà utilisé sur ce réseau. Spécifiez un nom qui n’est pas utilisé.* |[Conflit de nom de domaine dans le réseau virtuel](troubleshoot.md#domain-name-conflict) |
+| *Le nom aaddscontoso.com est déjà utilisé sur ce réseau. Spécifiez un nom qui n’est pas utilisé.* |[Conflit de nom de domaine dans le réseau virtuel](troubleshoot.md#domain-name-conflict) |
 | *Les services de domaine n’ont pas pu être activés pour ce client Azure AD. Le service ne dispose pas des autorisations adéquates pour l’application appelée « Synchronisation des services de domaine Azure AD ». Supprimez l’application appelée « Synchronisation des services de domaine Azure AD » et réessayez d’activer les services de domaine pour votre client Azure AD.* |[L’application Domain Services ne dispose pas des autorisations adéquates pour l’application de synchronisation d’Azure AD Domain Services](troubleshoot.md#inadequate-permissions) |
 | *Les services de domaine n’ont pas pu être activés pour ce client Azure AD. L’application de services de domaine dans votre client Azure AD n’a pas les autorisations requises pour activer les services de domaine. Supprimez l’application avec l’identificateur d’application d87dcbc6-a371-462e-88e3-28ad15ec4e64 et essayez ensuite d’activer les services de domaine pour votre client Azure AD.* |[L’application Domain Services n’est pas configurée correctement dans votre locataire Azure AD](troubleshoot.md#invalid-configuration) |
 | *Les services de domaine n’ont pas pu être activés pour ce client Azure AD. L’application Microsoft Azure AD est désactivée dans votre client Azure AD. Activez l’application avec l’identificateur d’application 00000002-0000-0000-c000-000000000000 et essayez ensuite d’activer les services de domaine pour votre client Azure AD.* |[L’application Microsoft Graph est désactivée dans votre client Azure AD.](troubleshoot.md#microsoft-graph-disabled) |

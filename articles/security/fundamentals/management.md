@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/31/2019
 ms.author: terrylan
 ms.openlocfilehash: 45efaadf7d15fff290165fe831c45c0bc063db53
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73643793"
 ---
 # <a name="security-management-in-azure"></a>Gestion de la sécurité dans Azure
@@ -43,16 +43,16 @@ En règle générale, la plupart des attaques ciblées entraînant des violation
 ### <a name="operational-security-fundamentals"></a>Principes de base pour la sécurité opérationnelle
 Pour une gestion et un fonctionnement plus sécurisés, vous pouvez réduire la surface d’attaque d’un client en limitant le nombre de points d’entrée possibles. Cette opération peut être réalisée grâce aux principes de sécurité de séparation des tâches et de répartition des environnements.
 
-L’isolement des fonctions sensibles évite l’effet domino. Exemples :
+L’isolement des fonctions sensibles évite l’effet domino. Exemples :
 
 * Les tâches d’administration ne doivent pas être associées à des activités susceptibles d’entraîner une compromission (par exemple, un programme malveillant présent dans le courrier électronique de l’administrateur peut infecter un serveur d’infrastructure).
 * La station de travail utilisée pour les opérations ultrasensibles ne doit pas être utilisée pour les activités à haut risque, comme la navigation sur Internet.
 
-La limitation de la surface d’attaque du système par la suppression de logiciels inutiles. Exemple :
+La limitation de la surface d’attaque du système par la suppression de logiciels inutiles. Exemple :
 
 * Une station d’administration, de support ou de développement standard n’a pas besoin d’un client de messagerie ni d’autres applications de productivité si elle sert principalement à gérer les services cloud.
 
-Les systèmes clients disposant d’un accès administrateur aux composants d’infrastructure doivent être soumis à une stratégie aussi stricte que possible afin de limiter les risques de sécurité. Exemples :
+Les systèmes clients disposant d’un accès administrateur aux composants d’infrastructure doivent être soumis à une stratégie aussi stricte que possible afin de limiter les risques de sécurité. Exemples :
 
 * Les stratégies de sécurité peuvent inclure des paramètres de stratégie de groupe refusant l’accès libre à Internet à partir de l’appareil, et l’utilisation d’une configuration de pare-feu restrictive.
 * Utilisez des réseaux privés virtuels (VPN) de sécurité du protocole Internet (IPsec) si un accès direct est requis.
@@ -106,7 +106,7 @@ Vous pouvez limiter l’accès à la gestion des services de plateforme et d’i
 ### <a name="management-gateway"></a>Passerelle de gestion
 Pour centraliser tous les accès d’administration et simplifier l’analyse ainsi que la journalisation, vous pouvez déployer un serveur [Passerelle des services Bureau à distance](https://technet.microsoft.com/library/dd560672) dédié sur votre réseau local, qui sera connecté à votre environnement Azure.
 
-Une passerelle des services Bureau à distance désigne un service de proxy RDP basé sur une stratégie et qui met en application des exigences de sécurité. L’implémentation d’une passerelle des services Bureau à distance avec la protection d’accès réseau (NAP) Windows Server garantit que seuls les clients répondant aux critères d’intégrité de la sécurité établis par les objets de stratégie de groupe des services de domaine Active Directory (AD DS) peuvent se connecter. Par ailleurs :
+Une passerelle des services Bureau à distance désigne un service de proxy RDP basé sur une stratégie et qui met en application des exigences de sécurité. L’implémentation d’une passerelle des services Bureau à distance avec la protection d’accès réseau (NAP) Windows Server garantit que seuls les clients répondant aux critères d’intégrité de la sécurité établis par les objets de stratégie de groupe des services de domaine Active Directory (AD DS) peuvent se connecter. Informations supplémentaires :
 
 * Configurez un [certificat de gestion Azure](https://msdn.microsoft.com/library/azure/gg551722.aspx) sur la passerelle des services Bureau à distance afin qu’il soit le seul hôte autorisé à accéder au portail Azure.
 * Associez la passerelle des services Bureau à distance au même [domaine de gestion](https://technet.microsoft.com/library/bb727085.aspx) que les stations de travail d’administration. Cette opération est indispensable lorsque vous utilisez une connexion VPN IPsec de site à site ou ExpressRoute au sein d’un domaine offrant une approbation à sens unique vers Azure AD, ou lorsque vous fédérez des informations d’identification entre votre instance AD DS locale et Azure AD.
@@ -118,7 +118,7 @@ Une passerelle des services Bureau à distance désigne un service de proxy RDP 
 ## <a name="security-guidelines"></a>Conseils de sécurité
 En règle générale, la sécurisation des stations de travail d’administration pour le cloud s’apparente aux pratiques utilisées pour les stations de travail locales, comme la minimisation de la build et les autorisations restrictives. Certains aspects uniques de la gestion du cloud relèvent plutôt de la gestion d’entreprise à distance ou hors bande. Ces derniers incluent l’utilisation et l’audit des informations d’identification, de l’accès à distance sécurisé, ainsi que de la détection des menaces et des interventions associées.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Authentification
 Vous pouvez vous servir des restrictions d’ouverture de session Azure dans l’optique de limiter les adresses IP sources pouvant accéder aux outils d’administration et aux demandes d’accès à l’audit. Pour permettre à Azure d’identifier les clients de gestion (stations de travail et/ou applications), vous pouvez configurer SMAPI (avec des outils clients tels que les applets de commande Windows PowerShell) et le portail Azure en vue d’exiger l’installation de certificats de gestion côté client en plus des certificats SSL. Il est vivement recommandé d’exiger l’application de l’authentification multifacteur pour tous les accès administrateur.
 
 Certaines applications ou certains services déployés dans Azure peuvent avoir leurs propres mécanismes d’authentification pour l’accès utilisateur ou administrateur, tandis que d’autres tirent pleinement avantage d’Azure AD. Selon que vous fédérez des informations d’identification par le biais des services de fédération Active Directory (AD FS), que vous utilisiez la synchronisation de répertoires ou que vous conserviez uniquement les comptes d’utilisateur dans le cloud, [Microsoft Identity Manager](https://technet.microsoft.com/library/mt218776.aspx) (qui fait partie d’Azure AD Premium) vous aide à gérer les cycles de vie d’identité entre les ressources.
@@ -180,7 +180,7 @@ Dans la figure ci-dessous, l’image portable est un système joint au domaine, 
 
 Il est plus facile de perdre un lecteur flash USB qu’un ordinateur de bureau classique. L’utilisation de BitLocker pour chiffrer la totalité du volume ainsi que la création d’un mot de passe fort empêchent toute action malveillante. De plus, en cas de perte de la clé USB, la révocation et [l’émission d’un nouveau certificat de gestion](https://technet.microsoft.com/library/hh831574.aspx) avec réinitialisation rapide du mot de passe peut limiter l’exposition. Les journaux d’audit d’administration résident dans Azure, et non sur le client, ce qui minimise encore davantage les risques de perte des données.
 
-## <a name="best-practices"></a>Bonnes pratiques
+## <a name="best-practices"></a>Meilleures pratiques
 Tenez compte des recommandations suivantes pour la gestion des applications et des données dans Azure.
 
 ### <a name="dos-and-donts"></a>Choses à faire et à ne pas faire

@@ -2,19 +2,18 @@
 title: Contrôles de sécurité pour le Stockage Azure
 description: Check-list des contrôles de sécurité pour l’évaluation du Stockage Azure
 services: storage
-documentationcenter: ''
 author: msmbaldwin
-manager: rkarlin
 ms.service: storage
+ms.subservice: common
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 2cc54077456fce1e7e0f47843a762beee8e715f7
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 379acaf48c02f0a579c07773cd48366d962a44f5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77526754"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80061117"
 ---
 # <a name="security-controls-for-azure-storage"></a>Contrôles de sécurité pour le Stockage Azure
 
@@ -53,7 +52,7 @@ Cet article décrit les contrôles de sécurité intégrés au Stockage Azure.
 
 | Contrôle de sécurité | Oui/Non | Notes|
 |---|---|--|
-| Authentication| Oui | Azure Active Directory, clé partagée, jeton d’accès partagé. |
+| Authentification| Oui | Azure Active Directory, clé partagée, jeton d’accès partagé. |
 | Autorisation| Oui | Autorisation de support via le contrôle d’accès en fonction du rôle (RBAC), les listes de contrôle d'accès POSIX et les jetons SAS |
 
 ## <a name="configuration-management"></a>Gestion des configurations

@@ -14,10 +14,10 @@ ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dc06abca08b2522ac57552e85f7c1bac3ef854af
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68561885"
 ---
 # <a name="edit-your-group-information-using-azure-active-directory"></a>Modifier les informations de votre groupe avec Azure Active Directory
@@ -25,7 +25,7 @@ ms.locfileid: "68561885"
 Avec Azure Active Directory (Azure AD), vous pouvez modifier les paramètres d’un groupe, y compris son nom, sa description ou son type d’appartenance.
 
 ## <a name="to-edit-your-group-settings"></a>Modifier vos paramètres de groupe
-1. Connectez-vous au [Portail Azure](https://portal.azure.com) à l’aide d’un compte d’administrateur général pour l’annuaire.
+1. Connectez-vous au [portail Azure](https://portal.azure.com) à l’aide d’un compte d’administrateur général pour le répertoire.
 
 2. Sélectionnez **Azure Active Directory**, puis **Groupes**.
 

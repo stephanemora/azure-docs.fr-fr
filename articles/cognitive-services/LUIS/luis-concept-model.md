@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
 ms.openlocfilehash: d721ceb25b3ce2408563a0bed16457d05affe7b4
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280865"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79218803"
 ---
 # <a name="design-with-intent-and-entity-models"></a>Conception avec modèles d’intention et d’entité 
 

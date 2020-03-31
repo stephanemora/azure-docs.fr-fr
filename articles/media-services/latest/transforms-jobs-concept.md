@@ -13,17 +13,17 @@ ms.topic: article
 ms.date: 08/19/2019
 ms.author: juliako
 ms.openlocfilehash: ab99b974aed6f8cd5e1da2ee9b427f593b405889
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73571237"
 ---
 # <a name="transforms-and-jobs-in-media-services"></a>Transformations et travaux dans Media Services
 
 Cette rubrique fournit des informations détaillées sur les [transformations](https://docs.microsoft.com/rest/api/media/transforms) et les [travaux](https://docs.microsoft.com/rest/api/media/jobs) et explique la relation entre ces entités.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 ### <a name="transformsjobs-workflow"></a>Flux de travail de transformations/travaux
 
@@ -38,7 +38,7 @@ Le schéma qui suit présente le flux de travail transformations/travaux :
 3. Répertorier les transformations.
 4. Supprimer une transformation si vous ne prévoyez pas de l’utiliser ultérieurement.
 
-#### <a name="example"></a>Exemples
+#### <a name="example"></a>Exemple
 
 Supposons que vous souhaitez extraire la première image de toutes vos vidéos sous la forme d’une image miniature. Vous devrez effectuer les étapes suivantes :
 
@@ -76,7 +76,7 @@ Sélectionnez l’image pour l’afficher en plein écran.
 
 <a href="./media/api-diagrams/transform-large.png" target="_blank"><img src="./media/api-diagrams/transform-small.png"></a>
 
-## <a name="jobs"></a>Tâches
+## <a name="jobs"></a>travaux
 
 Un **travail** est la demande réelle envoyée à Media Services pour appliquer la **transformation** à un contenu vidéo ou audio d’entrée donné. Lorsque la transformation est créée, vous pouvez envoyer des travaux à l’aide des API Media Services ou de l’un des kits de développement logiciel (SDK) publiés. Le **travail** spécifie des informations telles que l’emplacement de la vidéo d’entrée et celui de la sortie. Vous pouvez spécifier l'emplacement de votre vidéo d'entrée en utilisant : des URL HTTPS, des URL SAS ou des [éléments multimédia](https://docs.microsoft.com/rest/api/media/assets).  
 
@@ -124,6 +124,6 @@ Découvrez l’article [Communauté Azure Media Services](media-services-communi
 - Avant de commencer le développement, consultez [Développement avec les API Media Services v3](media-services-apis-overview.md) (informations sur l’accès aux API, les conventions d’affectation de noms, etc.)
 - Consultez les didacticiels suivants :
 
-    - [Tutoriel : Encoder un fichier distant basé sur une URL et diffuser la vidéo en continu](stream-files-tutorial-with-rest.md)
-    - [Tutoriel : Charger, encoder et diffuser des vidéos en continu](stream-files-tutorial-with-api.md)
-    - [Tutoriel : Analyser des vidéos avec Media Services v3](analyze-videos-tutorial-with-api.md)
+    - [Tutoriel : Encoder un fichier distant basé sur une URL et diffuser la vidéo en continu](stream-files-tutorial-with-rest.md)
+    - [Tutoriel : Charger, encoder et diffuser des vidéos en continu](stream-files-tutorial-with-api.md)
+    - [Tutoriel : Analyser des vidéos avec Media Services v3](analyze-videos-tutorial-with-api.md)

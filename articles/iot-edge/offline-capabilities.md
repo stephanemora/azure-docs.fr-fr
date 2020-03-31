@@ -7,12 +7,12 @@ ms.date: 11/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a057eac8d2a0114cb58f738277e3e9a8fed90672
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 55512491121aee28404ab5f85b4223c67a2f0e1e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548660"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80236061"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>Comprendre les fonctionnalités hors connexion étendues pour les appareils, modules et appareils enfants IoT Edge
 
@@ -70,7 +70,7 @@ Vous pouvez déclarer les relations parent-enfant au moment où vous créez un a
 
 À l’aide de l’interface de ligne de commande [Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) avec l’[extension IoT](https://github.com/azure/azure-iot-cli-extension) (v0.7.0 ou version ultérieure), vous pouvez gérer les relations parent-enfant avec les sous-commandes [device-identity](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest). L’exemple ci-dessous utilise une requête pour affecter tous les appareils non IoT Edge dans le hub à des appareils enfants d’un appareil IoT Edge.
 
-```shell
+```azurecli
 # Set IoT Edge parent device
 egde_device="edge-device1"
 

@@ -7,10 +7,10 @@ ms.date: 5/03/2019
 ms.author: alkarche
 ms.reviewer: glenga
 ms.openlocfilehash: 0c70c69f547405eb8ebdcf6dcc6ae597db151e53
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75433214"
 ---
 # <a name="tutorial-integrate-functions-with-an-azure-virtual-network"></a>Tutoriel : Intégrer Azure Functions à un réseau virtuel Azure
@@ -32,7 +32,7 @@ Le diagramme suivant représente l’architecture de la solution que vous créez
 
 Les fonctions qui s’exécutent dans le plan Premium ont les mêmes fonctionnalités d’hébergement que les applications web dans Azure App Service, ce qui inclut la fonctionnalité d’intégration de réseau virtuel. Pour en savoir plus sur l’intégration d’un réseau virtuel, y compris la résolution des problèmes et la configuration avancée, consultez [Intégrer une application à un réseau virtuel Azure](../app-service/web-sites-integrate-with-vnet.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour ce tutoriel, il est important de comprendre l’adressage IP et la gestion des sous-réseaux. Vous pouvez commencer par [cet article qui couvre les principes fondamentaux de l’adressage et de la gestion de sous-réseaux](https://support.microsoft.com/help/164015/understanding-tcp-ip-addressing-and-subnetting-basics). De nombreux autres articles et vidéos sont disponibles en ligne.
 
@@ -122,7 +122,7 @@ Avec un site WordPress en cours d’exécution sur une machine virtuelle dans un
     | **Sous-réseau** | Créer un sous-réseau | Créez un sous-réseau dans le réseau virtuel que votre application de fonction utilisera. L’intégration au réseau virtuel doit être configurée pour utiliser un sous-réseau vide. Peu importe que vos fonctions utilisent un sous-réseau différent de celui de votre machine virtuelle. Le réseau virtuel achemine automatiquement le trafic entre les deux sous-réseaux. |
     | **Nom du sous-réseau** | Function-Net | Nom du nouveau sous-réseau. |
     | **Bloc d’adresses du réseau virtuel** | 10.10.0.0/16 | Choisissez le même bloc d’adresses utilisé par le site WordPress. Vous devez avoir un seul bloc d’adresses défini. |
-    | **Plage d’adresses** | 10.10.2.0/24   | La taille du sous-réseau limite le nombre total d’instances que votre application de fonction du plan Premium peut atteindre. Cet exemple utilise un sous-réseau `/24` avec 254 adresses d’hôte disponibles. Ce sous-réseau est surprovisionné, mais facile à calculer. |
+    | **Plage d’adresses** | 10.10.2.0/24   | La taille du sous-réseau limite le nombre total d’instances vers lequel votre application de fonction du plan Premium peut effectuer un scale-out. Cet exemple utilise un sous-réseau `/24` avec 254 adresses d’hôte disponibles. Ce sous-réseau est surprovisionné, mais facile à calculer. |
 
 1. Sélectionnez **OK** pour ajouter le sous-réseau. Fermez les pages Intégration de réseau virtuel et État de la fonctionnalité réseau pour revenir à la page de votre application de fonction.
 

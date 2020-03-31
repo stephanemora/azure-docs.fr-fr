@@ -4,10 +4,10 @@ description: Découvrez comment arrêter ou démarrer manuellement des conteneur
 ms.topic: article
 ms.date: 04/15/2019
 ms.openlocfilehash: c9f8afea33c65df940d02823ec394697d2786d6a
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74533419"
 ---
 # <a name="manually-stop-or-start-containers-in-azure-container-instances"></a>Arrêter ou démarrer manuellement des conteneurs dans Azure Container Instances
@@ -24,7 +24,7 @@ Lorsque les conteneurs sont recyclés, les [ressources](container-instances-cont
 
 L'arrêt n’a aucun effet si le groupe de conteneurs est déjà terminé (état Réussite ou Échec). Par exemple, un groupe de conteneurs avec des tâches de conteneur à exécution unique correctement exécutées se termine dans un état Réussite. Toute tentative visant à arrêter un groupe dans cet état ne change pas ce dernier. 
 
-## <a name="start"></a>Start
+## <a name="start"></a>Démarrer
 
 Lorsqu'un groupe de conteneurs est arrêté - soit parce que les conteneurs s’arrêtent d’eux-mêmes, soit parce que vous avez arrêté manuellement le groupe - vous pouvez démarrer les conteneurs. Par exemple, utilisez la commande [az container start][az-container-start] ou le portail Azure pour démarrer manuellement les conteneurs du groupe. Si l’image d’un conteneur est mise à jour, une nouvelle image est extraite. 
 

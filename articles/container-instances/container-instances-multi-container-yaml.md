@@ -4,13 +4,13 @@ description: Dans ce didacticiel, vous découvrez comment déployer un groupe mu
 ms.topic: article
 ms.date: 04/03/2019
 ms.openlocfilehash: cce98ec56ee1d84c087150ba486b9482515b46f0
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74533590"
 ---
-# <a name="tutorial-deploy-a-multi-container-group-using-a-yaml-file"></a>Didacticiel : Déployer un groupe multiconteneur à l’aide d’un fichier YAML
+# <a name="tutorial-deploy-a-multi-container-group-using-a-yaml-file"></a>Tutoriel : Déployer un groupe multiconteneur à l’aide d’un fichier YAML
 
 > [!div class="op_single_selector"]
 > * [YAML](container-instances-multi-container-yaml.md)
@@ -168,7 +168,7 @@ Comme vous pouvez le voir, l’annexe envoie régulièrement une requête HTTP �
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez utilisé un fichier YAML pour déployer un groupe multiconteneur dans Azure Container Instances. Vous avez appris à effectuer les actions suivantes :
+Dans ce didacticiel, vous avez utilisé un fichier YAML pour déployer un groupe multiconteneur dans Azure Container Instances. Vous avez appris à :
 
 > [!div class="checklist"]
 > * Configurer un fichier YAML pour un groupe multiconteneur

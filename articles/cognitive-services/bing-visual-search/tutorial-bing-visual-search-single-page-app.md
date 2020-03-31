@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: tutorial
-ms.date: 11/29/2019
+ms.date: 03/27/2020
 ms.author: aahi
-ms.openlocfilehash: 02095a307e5227f477f51e857ee423d22a8edf8f
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 83cdaecfb819fb1f4677b051f87e23e0e03daef2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74689153"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80370099"
 ---
-# <a name="create-a-visual-search-single-page-web-app"></a>Créer une application Recherche visuelle d’une seule page
+# <a name="tutorial-create-a-visual-search-single-page-web-app"></a>Tutoriel : Créer une application Recherche visuelle d’une seule page
 
 L’API Recherche visuelle Bing retourne des insights pour une image. Vous pouvez charger une image ou fournir une URL vers une image. Les insights sont des images visuellement similaires, des sources d’achat, des pages web qui incluent l’image, etc. Les insights retournés par l’API Recherche visuelle Bing sont similaires à ceux qui apparaissent sur Bing.com/images.
 
@@ -123,4 +123,4 @@ Avec l’ensemble du nouveau code JavaScript et des nouveaux éléments HTML en 
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Rogner une image avec le SDK Recherche visuelle Bing pour C#](tutorial-visual-search-crop-area-results.md)
+> [Tutoriel : Rogner une image avec le SDK Recherche visuelle Bing pour C#](tutorial-visual-search-crop-area-results.md)

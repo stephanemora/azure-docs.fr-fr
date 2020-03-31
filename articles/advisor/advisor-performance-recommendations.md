@@ -4,10 +4,10 @@ description: Utilisez Advisor pour optimiser les performances de vos déploiemen
 ms.topic: article
 ms.date: 01/29/2019
 ms.openlocfilehash: 405ec395feeb33b8511b9b915151b2ed9503c371
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75443055"
 ---
 # <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>Améliorer les performances des applications Azure avec Azure Advisor
@@ -82,7 +82,7 @@ Une utilisation très intense du processeur pendant une période prolongée peut
 ### <a name="reduce-memory-constraints-on-your-azure-mysql-azure-postgresql-and-azure-mariadb-servers-or-move-to-a-memory-optimized-sku"></a>Réduire les contraintes de mémoire sur vos serveurs Azure MySQL, Azure PostgreSQL et Azure MariaDB, ou passer à une référence SKU à mémoire optimisée
 Un taux d’accès au cache faible peut ralentir les performances de requête et augmenter les IOPS. Cela peut être dû à un mauvais plan de requête ou à l’exécution d’une charge de travail nécessitant beaucoup de mémoire. Une correction du plan de requête ou une  [augmentation de la mémoire](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers) du serveur de base de données Azure Database pour PostgreSQL, du serveur de base de données Azure MySQL ou du serveur Azure MariaDB permet d’optimiser l’exécution de la charge de travail de la base de données. Azure Advisor identifie les serveurs affectés par cette variation importante du pool de tampons, et suggère de corriger le plan de requête, de passer à une référence SKU supérieure avec davantage de mémoire, ou d’augmenter la taille de la mémoire afin de pouvoir traiter davantage d’IOPS.
 
-### <a name="use-a-azure-mysql-or-azure-postgresql-read-replica-to-scale-out-reads-for-read-intensive-workloads"></a>Utiliser un réplica en lecture Azure MySQL ou Azure PostgreSQL afin d’augmenter la taille des instances des charges de travail intensives en lecture
+### <a name="use-a-azure-mysql-or-azure-postgresql-read-replica-to-scale-out-reads-for-read-intensive-workloads"></a>Utiliser un réplica en lecture Azure MySQL ou Azure PostgreSQL afin d’effectuer un scale-out des charges de travail intensives en lecture
 Azure Advisor exploite des méthodes heuristiques basées sur la charge de travail, telles que le ratio lectures/écritures sur le serveur au cours des sept derniers jours, pour identifier les charges de travail intensives en lecture. Votre ressource de base de données Azure pour PostgreSQL ou de base de données Azure pour MySQL avec un ratio lectures/écritures très élevé peut entraîner des contentions de processeur ou de mémoire qui ralentissent les performances de requête. L’ajout d’un  [réplica](https://docs.microsoft.com/azure/postgresql/howto-read-replicas-portal) vous aide à augmenter la taille des instances des lectures vers le serveur réplica, en évitant les contraintes de processeur ou de mémoire sur le serveur principal. Advisor identifie les serveurs traitant de telles charges de travail intenses en lectures et suggère l’ajout d’un  [réplica en lecture](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas) pour alléger certaines charges de travail en lecture.
 
 

@@ -10,11 +10,11 @@ ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 5c44561895bc1905328ec0eb357bee1c68a8eb55
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76510530"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79233305"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Déployer des modules Azure IoT Edge à partir du portail Azure
 
@@ -22,7 +22,7 @@ Une fois que vous avez créé des modules IoT Edge avec votre logique métier, v
 
 Cet article explique comment le portail Azure vous aide à créer un manifeste de déploiement et à étendre le déploiement à un appareil IoT Edge. Pour plus d’informations sur la création d’un déploiement ciblant plusieurs appareils en fonction de leurs balises partagées, consultez [Déployer et surveiller des modules IoT Edge à grande échelle](how-to-deploy-monitor.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Un [hub IoT](../iot-hub/iot-hub-create-through-portal.md) dans votre abonnement Azure.
 * Un [appareil IoT Edge](how-to-register-device.md#register-in-the-azure-portal) avec le runtime IoT Edge installé.

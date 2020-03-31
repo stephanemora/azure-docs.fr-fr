@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
 ms.openlocfilehash: fc397088e46f0d2b623080f3deed24c386e7d8b4
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74168487"
 ---
 # <a name="azure-hpc-cache-data-ingest---manual-copy-method"></a>Ingestion de données Azure HPC Cache - Copie manuelle
@@ -114,7 +114,7 @@ Dans l’exemple ci-dessus, l’ensemble des trois points de montage de destinat
 
 Enfin, quand vous avez atteint la limite des capacités des clients, l’ajout d’autres threads de copie ou de points de montage supplémentaires ne génère pas d’autre augmentation de la métrique fichiers/seconde ni octets/seconde. Dans ce cas, vous pouvez déployer un autre client avec le même ensemble de points de montage qui exécutera ses propres ensembles de processus de copie de fichiers. 
 
-Exemple :
+Exemple :
 
 ```bash
 Client1: cp -R /mnt/source/dir1/dir1a /mnt/destination/dir1/ &

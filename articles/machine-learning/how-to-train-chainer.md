@@ -11,10 +11,10 @@ author: maxluk
 ms.reviewer: sdgilley
 ms.date: 08/02/2019
 ms.openlocfilehash: e2840a6295140e0dc22a032fa844c0488403c5a5
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75534117"
 ---
 # <a name="train-and-register-chainer-models-at-scale-with-azure-machine-learning"></a>Entraîner et inscrire des modèles Chainer à l’échelle avec Azure Machine Learning
@@ -22,13 +22,13 @@ ms.locfileid: "75534117"
 
 Dans cet article, découvrez comment exécuter vos scripts de formation [Chainer](https://chainer.org/) à l’échelle de l’entreprise à l’aide de la classe d’[estimateur Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) d’Azure Machine Learning. L’exemple de script de formation de cet article utilise le [jeu de données MNIST](http://yann.lecun.com/exdb/mnist/) populaire pour classifier les chiffres manuscrits à l’aide d’un réseau neural profond (DNN) créé à l’aide de la bibliothèque python Chainer qui s’exécute par-dessus [numpy](https://www.numpy.org/).
 
-Que vous soyez en train de former un modèle Chainer d’apprentissage approfondi ou que vous transmettez un modèle existant dans le Cloud, vous pouvez utiliser Azure Machine Learning pour faire évoluer les travaux de formation Open source à l’aide de ressources de calcul élastiques dans le Cloud. Vous pouvez créer, déployer, mettre à jour et surveiller des modèles de niveau production avec Azure Machine Learning. 
+Que vous soyez en train de former un modèle Chainer d’apprentissage profond ou que vous déposez un modèle existant dans le Cloud, vous pouvez utiliser Azure Machine Learning pour effectuer un scale-out des tâches de formation Open source à l’aide des ressources de calcul de Cloud élastique. Vous pouvez créer, déployer, mettre à jour et surveiller des modèles de niveau production avec Azure Machine Learning. 
 
 En savoir plus la [comparaison entre apprentissage profond et apprentissage automatique](concept-deep-learning-vs-machine-learning.md).
 
 Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree) dès aujourd’hui.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Exécutez ce code sur l’un de ces environnements :
 

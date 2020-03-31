@@ -12,11 +12,11 @@ ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 01/21/2020
 ms.openlocfilehash: b9fdd1b25e53e1cdc8aa76564304a61adaa8d804
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78360547"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79232485"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>Qu’est-ce que l’instance managée Azure SQL Database ?
 
@@ -255,7 +255,7 @@ Une nouvelle syntaxe a été ajoutée pour créer des principaux (connexions) de
 
 L’option de déploiement d’instance managée vous permet de gérer de manière centralisée les identités d’utilisateur de base de données et d’autres services Microsoft avec l’[Intégration d’Azure Active Directory](sql-database-aad-authentication.md). Cette fonctionnalité simplifie la gestion des autorisations et améliore la sécurité. Azure Active Directory prend en charge l’[authentification multifacteur](sql-database-ssms-mfa-authentication-configure.md) (MFA) pour augmenter la sécurité des données et des applications, ainsi qu’un processus d’authentification unique.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Authentification
 
 L’authentification d’instance managée fait référence à la façon dont les utilisateurs prouvent leur identité quand ils se connectent à la base de données. Une base de données SQL prend en charge deux types d’authentification :  
 

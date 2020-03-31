@@ -9,10 +9,10 @@ ms.date: 04/26/2019
 ms.topic: article
 manager: carmonm
 ms.openlocfilehash: fa7f72989d47499127714eddfa6b5e98aa80178c
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73749227"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-by-using-run-command"></a>Exécuter des scripts PowerShell dans votre machine virtuelle Windows à l’aide de Run Command
@@ -61,7 +61,7 @@ The entity was not found in this Azure location
 |**ResetRDPCert**|Supprime le certificat SSL lié à l’écouteur RDP et restaure les valeurs par défaut pour la sécurité de l’écouteur RDP. Utilisez ce script si vous rencontrez des problèmes avec le certificat.|
 |**SetRDPPort**|Définit le numéro de port par défaut ou spécifié par l’utilisateur pour les connexions Bureau à distance. Active les règles de pare-feu pour l’accès entrant au port.|
 
-## <a name="azure-cli"></a>D’Azure CLI
+## <a name="azure-cli"></a>Azure CLI
 
 L’exemple suivant utilise la commande [az vm run-command](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) pour exécuter un script d’interpréteur de commandes sur une machine virtuelle Windows Azure.
 
@@ -83,7 +83,7 @@ Accédez à une machine virtuelle dans le [Portail Azure](https://portal.azure.c
 
 ![Liste des commandes](./media/run-command/run-command-list.png)
 
-Choisissez une commande à exécuter. Certaines des commandes peuvent avoir des paramètres d’entrée facultatifs ou obligatoires. Pour ces commandes, les paramètres sont présentés en tant que champs de texte vous permettant de fournir les valeurs d’entrée. Pour chaque commande, vous pouvez afficher le script en cours d’exécution en développant **Afficher le script**. La commande **RunPowerShellScript** est différente des autres commandes, car elle vous permet de fournir votre propre script personnalisé.
+Choisissez une commande à exécuter. Certaines des commandes peuvent avoir des paramètres d’entrée facultatifs ou obligatoires. Pour ces commandes, les paramètres sont présentés en tant que champs de texte vous permettant de fournir les valeurs d’entrée. Pour chaque commande, vous pouvez voir le script en cours d’exécution en développant **Afficher le script**. La commande **RunPowerShellScript** est différente des autres commandes, car elle vous permet de fournir votre propre script personnalisé.
 
 > [!NOTE]
 > Les commandes intégrées ne sont pas modifiables.
@@ -94,7 +94,7 @@ Une fois que vous avez choisi la commande, sélectionnez **Exécuter** pour exé
 
 ## <a name="powershell"></a>PowerShell
 
-L’exemple suivant utilise la cmdlet [Invoke-AzVMRunCommand](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand) pour exécuter un script PowerShell sur une machine virtuelle Azure. Pour la cmdlet, le script référencé dans le paramètre `-ScriptPath` doit se situer au même emplacement qu'elle.
+L’exemple suivant utilise l’applet de commande [Invoke-AzVMRunCommand](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand) pour exécuter un script PowerShell sur une machine virtuelle Azure. Pour la cmdlet, le script référencé dans le paramètre `-ScriptPath` doit se situer au même emplacement qu'elle.
 
 ```azurepowershell-interactive
 Invoke-AzVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' -CommandId 'RunPowerShellScript' -ScriptPath '<pathToScript>' -Parameter @{"arg1" = "var1";"arg2" = "var2"}
@@ -104,7 +104,7 @@ Invoke-AzVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' 
 
 Le listage des commandes d’exécution ou l’affichage des détails d’une commande nécessite l’autorisation `Microsoft.Compute/locations/runCommands/read` au niveau de l’abonnement. Le rôle intégré [Lecteur](../../role-based-access-control/built-in-roles.md#reader) et les niveaux supérieurs disposent de cette autorisation.
 
-L’exécution d’une commande requiert l’autorisation `Microsoft.Compute/virtualMachines/runCommand/action` au niveau de l’abonnement. Le rôle [Contributeur de machines virtuelles](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) et les niveaux supérieurs disposent de cette autorisation.
+L’exécution d’une commande nécessite l’autorisation `Microsoft.Compute/virtualMachines/runCommand/action` au niveau de l’abonnement. Le rôle [Contributeur de machines virtuelles](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) et les niveaux supérieurs disposent de cette autorisation.
 
 Vous pouvez utiliser un des [rôles intégrés](../../role-based-access-control/built-in-roles.md) ou créer un [rôle personnalisé](../../role-based-access-control/custom-roles.md) afin d’exécuter Run Command.
 

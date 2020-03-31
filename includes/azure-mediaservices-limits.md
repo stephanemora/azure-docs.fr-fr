@@ -4,17 +4,17 @@ ms.service: cost-management-billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 49150daa783280f47cb9401434ebfab8f6204090
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 2fe091a4ff0295ecadfd69ba3f2d4ca59e9612e5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224441"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80334731"
 ---
 >[!NOTE]
 >Pour les ressources qui ne sont pas corrigées, ouvrez un ticket de support pour demander une augmentation des quotas. Ne créez pas d’autres comptes Azure Media Services pour obtenir des limites supérieures.
 
-| Ressource | Limite par défaut | 
+| Ressource | Limite | 
 | --- | --- | 
 | Comptes Azure Media Services dans un même abonnement | 25 (fixe) |
 | Unités réservées Multimédia par compte Media Services |25 (S1)<br/>10 (S2, S3)<sup>1</sup> | 
@@ -24,7 +24,7 @@ ms.locfileid: "74224441"
 | Actifs par tâche | 50 |
 | Actifs par travail | 100 |
 | Localisateurs uniques associés à un actif à un moment donné | 5<sup>4</sup> |
-| Canaux live par compte Media Services |5\.|
+| Canaux live par compte Media Services |5|
 | Programmes dans un état Arrêté par canal |50|
 | Programmes en cours d’exécution par canal |3|
 | Points de terminaison de streaming arrêtés ou en cours d’exécution par compte Media Services|2|
@@ -54,8 +54,8 @@ ms.locfileid: "74224441"
 
 Le tableau suivant indique les limites pour les unités réservées Multimédia S1, S2 et S3. Si votre fichier source dépasse la limite définie dans le tableau, votre travail d’encodage échoue. Si vous encodez des sources de résolution 4K de longue durée, vous devez obligatoirement utiliser des unités réservées Multimédia S3 afin d’obtenir les performances nécessaires. Si vous avez un contenu 4K d’une taille supérieure à la limite de 260 Go des unités réservées Multimédia S3, ouvrez un ticket de support.
 
-|Types d’unités réservées Multimédia   |Taille maximale en entrée (Go)|
+|Types d’unités réservées Multimédia    |Taille maximale en entrée (Go)|
 |---|---|
-|S1 |   26|
-|S2 | 60|
-|S3 |260|
+|S1 |    26|
+|S2    | 60|
+|S3    |260|

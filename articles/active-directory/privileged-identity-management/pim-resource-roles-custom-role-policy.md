@@ -15,10 +15,10 @@ ms.date: 11/08/2019
 ms.author: curtand
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fbe08cff2b57155f8f3315f5d3454abfbdad47a0
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73847061"
 ---
 # <a name="use-custom-roles-for-azure-resources-in-privileged-identity-management"></a>Utiliser des rôles personnalisés pour des ressources Azure dans Privileged Identity Management
@@ -50,5 +50,5 @@ Pour finir, [attribuez des rôles](pim-resource-roles-assign-roles.md) au groupe
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Configurer les paramètres des rôles de ressource Azure dans Privileged Identity Management](pim-resource-roles-configure-role-settings.md)
+- [Configurer les paramètres des rôles de ressources Azure dans Privileged Identity Management](pim-resource-roles-configure-role-settings.md)
 - [Rôles personnalisés dans Azure](../../role-based-access-control/custom-roles.md)

@@ -17,11 +17,11 @@ ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: e50733c843dfd21e35572f00fc6690e1e84aba97
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77617371"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79235885"
 ---
 # <a name="install-sap-netweaver-ha-on-a-windows-failover-cluster-and-shared-disk-for-an-sap-ascsscs-instance-in-azure"></a>Installer la haute disponibilité SAP NetWeaver sur un cluster de basculement Windows et un disque partagé pour une instance SAP ASCS/SCS dans Azure
 
@@ -165,7 +165,7 @@ Il n’existe pas de considérations particulières lorsque différents services
 >
 >
 
-## <a name="31c6bd4f-51df-4057-9fdf-3fcbc619c170"></a>Installer SAP avec une instance ASCS/SCS à haute disponibilité
+## <a name="install-sap-with-a-high-availability-ascsscs-instance"></a><a name="31c6bd4f-51df-4057-9fdf-3fcbc619c170"></a>Installer SAP avec une instance ASCS/SCS à haute disponibilité
 
 > [!IMPORTANT]
 > Veillez à ne pas placer votre fichier d’échange sur des volumes SIOS DataKeeper mis en miroir. DataKeeper ne prend pas en charge les volumes mis en miroir. Vous pouvez laisser votre fichier d’échange sur le lecteur temporaire D d’une machine virtuelle (valeur par défaut). S’il ne s’y trouve pas déjà, déplacez le fichier d’échange Windows sur le lecteur D de votre machine virtuelle Azure.
@@ -180,7 +180,7 @@ L’installation de SAP avec une instance ASCS/SCS à haute disponibilité impli
 * Ajouter un port de sondage.
 * Ouvrir le port de sondage du Pare-feu Windows.
 
-### <a name="a97ad604-9094-44fe-a364-f89cb39bf097"></a>Créer un nom d’hôte virtuel pour l’instance SAP ASCS/SCS en cluster
+### <a name="create-a-virtual-host-name-for-the-clustered-sap-ascsscs-instance"></a><a name="a97ad604-9094-44fe-a364-f89cb39bf097"></a>Créer un nom d’hôte virtuel pour l’instance SAP ASCS/SCS en cluster
 
 1. Dans le Gestionnaire DNS Windows, créez une entrée DNS pour le nom d’hôte virtuel de l’instance ASC/SCS.
 
@@ -201,7 +201,7 @@ L’installation de SAP avec une instance ASCS/SCS à haute disponibilité impli
 
    _**Figure 2 :** Nouveau nom virtuel et nouvelle adresse TCP/IP de la configuration du cluster SAP ASCS/SCS_
 
-### <a name="eb5af918-b42f-4803-bb50-eff41f84b0b0"></a> Installer le premier nœud de cluster SAP
+### <a name="install-the-sap-first-cluster-node"></a><a name="eb5af918-b42f-4803-bb50-eff41f84b0b0"></a> Installer le premier nœud de cluster SAP
 
 1. Exécutez l’option du premier nœud de cluster sur le nœud A du cluster, par exemple sur pr1-ascs-0*host.
 2. Pour conserver les ports par défaut pour l’équilibrage de charge interne Azure, sélectionnez :
@@ -219,7 +219,7 @@ Les quelques étapes suivantes ne sont pas décrites dans la documentation d’i
 >
 >
 
-### <a name="e4caaab2-e90f-4f2c-bc84-2cd2e12a9556"></a> Modifier le profil SAP de l’instance ASCS/SCS
+### <a name="modify-the-sap-profile-of-the-ascsscs-instance"></a><a name="e4caaab2-e90f-4f2c-bc84-2cd2e12a9556"></a> Modifier le profil SAP de l’instance ASCS/SCS
 
 Tout d’abord, ajoutez un nouveau paramètre de profil. Ce paramètre de profil empêche les connexions entre les processus de travail SAP et le serveur de mise en file d’attente de se fermer lorsqu’elles sont inactives pendant trop longtemps. Nous mentionnons ce scénario problématique dans la section [Ajouter des entrées de registre aux deux nœuds de cluster de l’instance SAP ASCS/SCS][sap-ha-guide-8.11]. Dans cette section, nous apportons également deux modifications à certains paramètres de connexion TCP/IP de base. Dans un deuxième temps, vous devez configurer le serveur de mise en file d’attente pour qu’il envoie un signal `keep_alive` afin que les connexions n’atteignent pas le seuil d’inactivité de l’équilibrage de charge interne Azure.
 
@@ -240,7 +240,7 @@ Pour modifier le profil SAP de l’instance ASCS/SCS :
 
 2. Pour appliquer les modifications, redémarrez l’instance SAP ASCS/SCS.
 
-### <a name="10822f4f-32e7-4871-b63a-9b86c76ce761"></a> Ajouter un port de sondage
+### <a name="add-a-probe-port"></a><a name="10822f4f-32e7-4871-b63a-9b86c76ce761"></a> Ajouter un port de sondage
 
 Utilisez la fonctionnalité de sondage de l’équilibrage de charge interne pour que la configuration de cluster entière fonctionne avec Azure Load Balancer. Généralement, l’équilibrage de charge interne Azure répartit équitablement la charge de travail entrante entre les machines virtuelles participantes.
 
@@ -340,7 +340,7 @@ Pour ajouter un port de sondage :
 
    _**Figure 4 :** Sonder le port de cluster après avoir défini la nouvelle valeur_
 
-### <a name="4498c707-86c0-4cde-9c69-058a7ab8c3ac"></a> Ouvrir le port de sondage du pare-feu Windows
+### <a name="open-the-windows-firewall-probe-port"></a><a name="4498c707-86c0-4cde-9c69-058a7ab8c3ac"></a> Ouvrir le port de sondage du pare-feu Windows
 
 Ouvrez un port de sondage du pare-feu Windows sur les deux nœuds de cluster. Utilisez le script suivant pour ouvrir un port de sondage du pare-feu Windows. Mettez à jour les variables PowerShell de votre environnement.
 
@@ -352,15 +352,15 @@ Ouvrez un port de sondage du pare-feu Windows sur les deux nœuds de cluster. Ut
 
 **ProbePort** est défini sur **62000**. Vous pouvez maintenant accéder au partage de fichiers \\\ascsha-clsap\sapmnt depuis d’autres hôtes, par exemple ascsha-dbas.
 
-## <a name="85d78414-b21d-4097-92b6-34d8bcb724b7"></a> Installer l’instance de base de données
+## <a name="install-the-database-instance"></a><a name="85d78414-b21d-4097-92b6-34d8bcb724b7"></a> Installer l’instance de base de données
 
 Pour installer l’instance de base de données, suivez la procédure décrite dans la documentation d’installation de SAP.
 
-## <a name="8a276e16-f507-4071-b829-cdc0a4d36748"></a> Installer le deuxième nœud de cluster
+## <a name="install-the-second-cluster-node"></a><a name="8a276e16-f507-4071-b829-cdc0a4d36748"></a> Installer le deuxième nœud de cluster
 
 Pour installer le deuxième cluster, suivez les étapes décrites dans le guide d’installation de SAP.
 
-## <a name="094bc895-31d4-4471-91cc-1513b64e406a"></a> Modifier le type de démarrage de l’instance de service Windows SAP ERS
+## <a name="change-the-start-type-of-the-sap-ers-windows-service-instance"></a><a name="094bc895-31d4-4471-91cc-1513b64e406a"></a> Modifier le type de démarrage de l’instance de service Windows SAP ERS
 
 Choisir le type de démarrage du service Windows SAP ERS **Automatique (début différé)** sur les deux nœuds du cluster.
 
@@ -368,11 +368,11 @@ Choisir le type de démarrage du service Windows SAP ERS **Automatique (début d
 
 _**Figure 5 :** Définir le type de service de l’instance SAP ERS sur Automatique (début différé)_
 
-## <a name="2477e58f-c5a7-4a5d-9ae3-7b91022cafb5"></a> Installer le serveur d’applications principal SAP
+## <a name="install-the-sap-primary-application-server"></a><a name="2477e58f-c5a7-4a5d-9ae3-7b91022cafb5"></a> Installer le serveur d’applications principal SAP
 
 Installez l’instance de serveur d’application principal (PAS) \<SID\>-di-0 sur la machine virtuelle désignée pour héberger le PAS. Il n’y a aucune dépendance vis-à-vis d’Azure. Il n’y a aucun paramètre propre à DataKeeper.
 
-## <a name="0ba4a6c1-cc37-4bcf-a8dc-025de4263772"></a> Installer le serveur d’applications supplémentaire SAP
+## <a name="install-the-sap-additional-application-server"></a><a name="0ba4a6c1-cc37-4bcf-a8dc-025de4263772"></a> Installer le serveur d’applications supplémentaire SAP
 
 Installez un serveur d’applications supplémentaire SAP (AAS) sur toutes les machines virtuelles désignées pour héberger une instance de serveur d’applications SAP. Par exemple, sur \<SID\>-di-1 à \<SID\>-di-&lt;n&gt;.
 
@@ -381,10 +381,10 @@ Installez un serveur d’applications supplémentaire SAP (AAS) sur toutes les m
 >
 
 
-## <a name="18aa2b9d-92d2-4c0e-8ddd-5acaabda99e9"></a> Tester le basculement et la réplication SIOS de l’instance SAP ASCS/SCS
+## <a name="test-the-sap-ascsscs-instance-failover-and-sios-replication"></a><a name="18aa2b9d-92d2-4c0e-8ddd-5acaabda99e9"></a> Tester le basculement et la réplication SIOS de l’instance SAP ASCS/SCS
 Vous pouvez facilement tester et surveiller le basculement et la réplication de disque SIOS d’une instance SAP ASCS/SCS à l’aide du Gestionnaire du cluster de basculement et de l’outil de configuration et de gestion de SIOS DataKeeper.
 
-### <a name="65fdef0f-9f94-41f9-b314-ea45bbfea445"></a> L’instance SAP ASCS/SCS s’exécute sur le nœud de cluster A
+### <a name="sap-ascsscs-instance-is-running-on-cluster-node-a"></a><a name="65fdef0f-9f94-41f9-b314-ea45bbfea445"></a> L’instance SAP ASCS/SCS s’exécute sur le nœud de cluster A
 
 Le groupe de clusters SAP PR1 s’exécute sur le nœud de cluster A, par exemple sur pr1-ascs-0. Affectez le lecteur de disque partagé S, qui fait partie du groupe de clusters SAP PR1, au nœud de cluster A. L’instance ASCS/SCS utilise aussi le lecteur de disque S. 
 
@@ -398,7 +398,7 @@ Dans l’outil de configuration et de gestion de SIOS DataKeeper, vous pouvez co
 
 _**Figure 7 :** Dans SIOS DataKeeper, répliquer le volume local du nœud de cluster A sur le nœud de cluster B_
 
-### <a name="5e959fa9-8fcd-49e5-a12c-37f6ba07b916"></a> Basculement du nœud A au nœud B
+### <a name="failover-from-node-a-to-node-b"></a><a name="5e959fa9-8fcd-49e5-a12c-37f6ba07b916"></a> Basculement du nœud A au nœud B
 
 1. Choisissez l’une des options suivantes pour lancer le basculement du groupe de clusters SAP \<SID\> du nœud de cluster A au nœud de cluster B :
    - Gestionnaire du cluster de basculement  

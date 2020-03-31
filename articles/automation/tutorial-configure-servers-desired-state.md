@@ -6,10 +6,10 @@ ms.subservice: dsc
 ms.topic: conceptual
 ms.date: 08/08/2018
 ms.openlocfilehash: 9e2f04f59a56be6c516eb90de45fdf7327673086
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75416584"
 ---
 # <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>Configurer les serveurs à l’état souhaité et gérer la dérive
@@ -23,7 +23,7 @@ Azure Automation State Configuration vous permet de spécifier des configuration
 > - Attribuer une configuration de nœud à un nœud géré
 > - Vérifier l’état de conformité d’un nœud géré
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour exécuter ce didacticiel, les éléments suivants sont nécessaires :
 

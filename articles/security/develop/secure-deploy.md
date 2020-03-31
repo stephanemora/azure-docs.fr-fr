@@ -14,16 +14,16 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: dfe4f09d00a5629249a3041946190f56e83c3480
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68934883"
 ---
 # <a name="deploy-secure-applications-on-azure"></a>Déployer des applications sécurisées sur Azure
 Cet article présente les activités et contrôles de sécurité à prendre en compte lorsque vous déployez des applications pour le cloud. Les questions et concepts de sécurité à prendre en compte pendant les phases de mise en production et de réponse du [Microsoft Security Development Lifecycle](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) y sont abordés. L’objectif est de vous aider à définir les activités et services Azure que vous pouvez utiliser pour déployer une application plus sécurisée.
 
-Les phases de Microsoft Security Development Lifecycle suivantes sont traitées dans cet article :
+Les phases de Microsoft Security Development Lifecycle suivantes sont traitées dans cet article :
 
 - Libérer
 - response

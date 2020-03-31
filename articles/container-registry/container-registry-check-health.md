@@ -4,10 +4,10 @@ description: Découvrez comment exécuter une commande de diagnostic rapide pour
 ms.topic: article
 ms.date: 07/02/2019
 ms.openlocfilehash: ea4432c9e92c4a0380517e39678814e2d1cb3bfc
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74456419"
 ---
 # <a name="check-the-health-of-an-azure-container-registry"></a>Vérifier l’intégrité d’un registre de conteneurs Azure
@@ -53,7 +53,7 @@ az acr check-health --ignore-errors
 az acr check-health --name myregistry --ignore-errors
 ```      
 
-Exemple de sortie :
+Exemple de sortie :
 
 ```console
 $ az acr check-health --name myregistry --ignore-errors --yes
@@ -76,7 +76,7 @@ Fetch access token for registry 'myregistry.azurecr.io' : OK
 
 Pour plus d’informations sur les codes d’erreur retournés par la commande [az acr check-health][az-acr-check-health], consultez la [référence sur l’erreur de vérification d’intégrité](container-registry-health-error-reference.md).
 
-Consultez la section [FAQ](container-registry-faq.md) pour voir les questions fréquemment posées et les autres problèmes connus relatifs à Azure Container Registry.
+Consultez la section [FAQ](container-registry-faq.md) pour voir les questions fréquemment posées et d’autres problèmes connus relatifs à Azure Container Registry.
 
 
 

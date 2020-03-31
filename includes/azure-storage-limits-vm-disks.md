@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 03/18/2019
 ms.author: rogarana
-ms.openlocfilehash: 8b25d2395811a2197aff6d653c5038a4380021e9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c3028ed7629c41eece354dd2554ede9249bac4f8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "68669641"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80334963"
 ---
 Une machine virtuelle Azure prend en charge l’attachement d’un certain nombre de disques de données. En fonction des cibles d’évolutivité et de performances des disques de données d’une machine virtuelle, vous pouvez déterminer le nombre et le type de disque dont vous avez besoin pour répondre à vos exigences de performances et de capacité.
 
@@ -20,14 +20,14 @@ Une machine virtuelle Azure prend en charge l’attachement d’un certain nombr
 
 Le tableau suivant illustre les limite par défaut et maximales du nombre de ressources par région et par abonnement. Il n’existe aucune limite au nombre de disques managés, d’instantanés et d’images par groupe de ressources.  
 
-> | Ressource | Limite par défaut  | Limite maximale |
-> | --- | --- | --- |
-> | Disques managés Standard | 50 000 | 50 000 |
-> | Disques managés SSD standard | 50 000 | 50 000 |
-> | Disques managés Premium | 50 000 | 50 000 |
-> | Standard_LRS snapshots | 50 000 | 50 000 |
-> | Standard_ZRS snapshots | 50 000 | 50 000 |
-> | Image managée | 50 000 | 50 000 |
+> | Ressource | Limite |
+> | --- | --- |
+> | Disques managés Standard | 50 000 |
+> | Disques managés SSD standard | 50 000 |
+> | Disques managés Premium | 50 000 |
+> | Standard_LRS snapshots | 50 000 |
+> | Standard_ZRS snapshots | 50 000 |
+> | Image managée | 50 000 |
 
 * **Pour les comptes de stockage standard :** un compte de stockage standard a un taux de requêtes total maximal de 20 000 opérations d’E/S par seconde. Le nombre d’opérations d’E/S par seconde sur l’ensemble de vos disques de machine virtuelle dans un compte de stockage standard ne doit pas dépasser cette limite.
   

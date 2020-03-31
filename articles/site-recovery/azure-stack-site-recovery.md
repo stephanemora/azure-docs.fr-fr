@@ -9,10 +9,10 @@ ms.service: site-recovery
 ms.date: 08/05/2019
 ms.author: raynew
 ms.openlocfilehash: 15cd729063545914f791de39a075af9084f72bef
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75426563"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Répliquer des machines virtuelles Azure Stack dans Azure
@@ -61,7 +61,7 @@ La réplication fonctionne comme suit :
 7. Les machines répliquées communiquent avec le serveur de configuration (port d’entrée HTTPS 443) pour gérer la réplication. Les machines envoient les données de réplication au serveur de processus (port d’entrée HTTPS 9443 ; modifiable).
 8. Le trafic est répliqué sur des points de terminaison publics de stockage Azure via Internet. Une autre solution consiste à utiliser un peering public Azure ExpressRoute. La réplication du trafic à partir d’un site local vers Azure via un réseau VPN de site à site n’est pas prise en charge.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Voici les éléments requis pour configurer ce scénario.
 

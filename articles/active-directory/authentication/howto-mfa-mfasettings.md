@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 077032e4fe3886d5bf9a678dffdffca1a5802091
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848406"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79230953"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurer les paramètres d’Azure Multi-Factor Authentication
 
@@ -97,7 +97,7 @@ Configurez la fonctionnalité d’_alerte de fraude_ pour que vos utilisateurs p
 
 ### <a name="view-fraud-reports"></a>Afficher les rapports de fraude
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Sélectionnez **Azure Active Directory** > **Connexions**. Le rapport de fraude fait désormais partie du rapport de connexions Azure Active Directory standard.
 
 ## <a name="notifications"></a>Notifications
@@ -192,7 +192,7 @@ La fonctionnalité de _contournement à usage unique_ permet à un utilisateur d
 
 ### <a name="view-the-one-time-bypass-report"></a>Afficher le rapport de contournement à usage unique
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Accédez à **Azure Active Directory** > **Sécurité** > **MFA** > **Contournement à usage unique**.
 
 ## <a name="caching-rules"></a>Règles de mise en cache
@@ -277,7 +277,7 @@ Azure AD prend en charge la fédération (ou authentification unique) avec les s
 
 Par défaut, les utilisateurs ne peuvent pas créer des mots de passe d’application. La fonctionnalité des mots de passe d’application doit être activée. Pour permettre aux utilisateurs de créer des mots de passe d’application, procédez comme suit :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. À gauche, sélectionnez **Azure Active Directory** > **Utilisateurs**.
 3. Sélectionnez **Multi-Factor Authentication**.
 4. Sous Multi-Factor Authentication, sélectionnez **Paramètres du service**.
@@ -317,7 +317,7 @@ Que la fonctionnalité Adresses IP approuvées soit activée ou non, la vérific
 
 ### <a name="enable-named-locations-by-using-conditional-access"></a>Activer les emplacements nommés à l’aide de l’accès conditionnel
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. À gauche, sélectionnez **Azure Active Directory** > **Sécurité** > **Accès conditionnel** > **Emplacements nommés**.
 3. Sélectionnez **Nouvel emplacement**.
 4. Entrez le nom de l’emplacement.
@@ -327,7 +327,7 @@ Que la fonctionnalité Adresses IP approuvées soit activée ou non, la vérific
 
 ### <a name="enable-the-trusted-ips-feature-by-using-conditional-access"></a>Activer la fonctionnalité Adresses IP approuvées à l’aide de l’accès conditionnel
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. À gauche, sélectionnez **Azure Active Directory** > **Sécurité** >  **Accès conditionnel** > **Emplacements nommés**.
 3. Sélectionnez **Configurer des adresses IP approuvées MFA**.
 4. Dans la page **Paramètres du service**, sous **Adresses IP approuvées**, choisissez l’une des deux options suivantes :
@@ -345,7 +345,7 @@ Que la fonctionnalité Adresses IP approuvées soit activée ou non, la vérific
 
 ### <a name="enable-the-trusted-ips-feature-by-using-service-settings"></a>Activer la fonctionnalité Adresses IP approuvées à l’aide des paramètres du service
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. À gauche, sélectionnez **Azure Active Directory** > **Utilisateurs**.
 3. Sélectionnez **Multi-Factor Authentication**.
 4. Sous Multi-Factor Authentication, sélectionnez **Paramètres du service**.
@@ -377,7 +377,7 @@ Lorsque vos utilisateurs inscrivent leurs comptes à Multi-Factor Authentication
 
 ### <a name="enable-and-disable-verification-methods"></a>Activer et désactiver des méthodes de vérification
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. À gauche, sélectionnez **Azure Active Directory** > **Utilisateurs**.
 3. Sélectionnez **Multi-Factor Authentication**.
 4. Sous Multi-Factor Authentication, sélectionnez **Paramètres du service**.
@@ -413,7 +413,7 @@ La fonctionnalité réduit le nombre d’authentifications sur les applications 
 
 ### <a name="enable-remember-multi-factor-authentication"></a>Activer Mémoriser Multi-Factor Authentication
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. À gauche, sélectionnez **Azure Active Directory** > **Utilisateurs**.
 3. Sélectionnez **Multi-Factor Authentication**.
 4. Sous Multi-Factor Authentication, sélectionnez **Paramètres du service**.

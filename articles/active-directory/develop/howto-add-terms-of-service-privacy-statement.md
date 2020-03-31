@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
 ms.openlocfilehash: 8fc85781f139b45e9e37f6e0f7cc36974041352d
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78300007"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Procédure : Configuration des conditions d’utilisation du service et de la déclaration de confidentialité d’une application
@@ -55,7 +55,7 @@ Quand les conditions d’utilisation et la déclaration de confidentialité sont
 * [À l’aide de l’objet JSON de l’application](#app-object-json)
 * [À l’aide de l’API Microsoft Graph](#msgraph-rest-api)
 
-### <a name="azure-portal"></a>À l’aide du Portail Azure
+### <a name="using-the-azure-portal"></a><a name="azure-portal"></a>À l’aide du Portail Azure
 Suivez les étapes ci-dessous dans le portail Azure.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
@@ -66,7 +66,7 @@ Suivez les étapes ci-dessous dans le portail Azure.
 
     ![Les propriétés de l’application contiennent les URL des conditions d’utilisation du service et de la déclaration de confidentialité](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
 
-### <a name="app-object-json"></a>À l’aide de l’objet JSON de l’application
+### <a name="using-the-app-object-json"></a><a name="app-object-json"></a>À l’aide de l’objet JSON de l’application
 
 Si vous préférez modifier directement l’objet JSON de l’application, vous pouvez utiliser l’éditeur de manifeste dans le portail Azure ou le portail d’inscription des applications pour inclure des liens vers les conditions d’utilisation et la déclaration de confidentialité de votre application.
 
@@ -77,7 +77,7 @@ Si vous préférez modifier directement l’objet JSON de l’application, vous 
     }
 ```
 
-### <a name="msgraph-rest-api"></a>À l’aide de l’API Microsoft Graph
+### <a name="using-the-microsoft-graph-api"></a><a name="msgraph-rest-api"></a>À l’aide de l’API Microsoft Graph
 
 Pour mettre à jour toutes vos applications par programmation, vous pouvez utiliser l’API Microsoft Graph afin d’inclure des liens vers les documents des conditions d’utilisation et de la déclaration de confidentialité.
 

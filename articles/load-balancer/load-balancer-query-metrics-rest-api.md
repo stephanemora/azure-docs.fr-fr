@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: allensu
 ms.openlocfilehash: 760ec8a945ab88b63dde2de75f5354818facf4f2
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74225259"
 ---
 # <a name="get-load-balancer-usage-metrics-using-the-rest-api"></a>Récupérer les métriques d’usage de Load Balancer avec l’API REST
@@ -37,8 +37,8 @@ Les en-têtes suivants sont requis :
 
 |En-tête de requête|Description|  
 |--------------------|-----------------|  
-|*Content-Type :*|Requis. Défini sur `application/json`.|  
-|*Authorization :*|Requis. Défini sur un [jeton d’accès](/rest/api/azure/#authorization-code-grant-interactive-clients) `Bearer` valide. |  
+|*Content-Type :*|Obligatoire. Défini sur `application/json`.|  
+|*Authorization :*|Obligatoire. Défini sur un [jeton d’accès](/rest/api/azure/#authorization-code-grant-interactive-clients) `Bearer` valide. |  
 
 ### <a name="uri-parameters"></a>Paramètres URI
 

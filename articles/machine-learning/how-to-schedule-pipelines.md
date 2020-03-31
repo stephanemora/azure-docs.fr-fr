@@ -10,17 +10,17 @@ ms.author: laobri
 author: lobrien
 ms.date: 11/12/2019
 ms.openlocfilehash: fed411ea171274513308ec3efa68da80e4d25f8a
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77116765"
 ---
 # <a name="schedule-machine-learning-pipelines-with-azure-machine-learning-sdk-for-python"></a>Planifier des pipelines Machine Learning avec le kit de développement logiciel (SDK) Azure Machine Learning pour Python
 
 Dans cet article, vous allez apprendre à planifier un pipeline de manière programmatique pour qu’il s’exécute sur Azure. Vous pouvez choisir de créer une planification basée sur la durée calendaire ou sur les modifications du système de fichiers. Les calendriers basés sur la durée peuvent être utilisés pour prendre en charge des tâches de routine, telles que la surveillance de la dérive des données. Les planifications basées sur les modifications peuvent être utilisées pour réagir à des modifications irrégulières ou imprévisibles, telles que de nouvelles données téléchargées ou d’anciennes données modifiées. Après avoir appris à créer des planifications, vous apprendrez comment les récupérer et les désactiver.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://aka.ms/AMLFree).
 

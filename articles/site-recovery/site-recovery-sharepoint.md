@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 6/27/2019
 ms.author: sutalasi
 ms.openlocfilehash: d74e28ce470c23bbc8ee2081532a198c260ccea5
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74706363"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Configurer la reprise d’activité pour une application SharePoint multiniveau à l’aide d’Azure Site Recovery
@@ -19,7 +19,7 @@ ms.locfileid: "74706363"
 Cet article explique en détail comment protéger une application SharePoint à l’aide d’[Azure Site Recovery](site-recovery-overview.md).
 
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Microsoft SharePoint est une application puissante qui peut aider un groupe ou service à s’organiser, à collaborer et à partager des informations. SharePoint permet les portails intranet, la gestion des documents et fichiers, la collaboration, les réseaux sociaux, les réseaux extranet, les sites web, la recherche de contenu d’entreprise et le décisionnel. Elle offre également des capacités d’intégration de système, d’intégration de processus et d’automatisation de flux de travail. En règle générale, les organisations le considèrent comme une application de niveau 1 sensible à la perte de données et au temps d’arrêt.
 
@@ -62,10 +62,10 @@ Site Recovery est indépendant de toute application et doit fonctionner avec n'i
 
 **Scénario** | **Vers un site secondaire** | **Vers Azure**
 --- | --- | ---
-**Hyper-V** | OUI | OUI
-**VMware** | OUI | OUI
-**Serveur physique** | OUI | OUI
-**Microsoft Azure** | N/D | OUI
+**Hyper-V** | Oui | Oui
+**VMware** | Oui | Oui
+**Serveur physique** | Oui | Oui
+**Microsoft Azure** | N/D | Oui
 
 
 ### <a name="things-to-keep-in-mind"></a>Points à prendre en compte
@@ -86,7 +86,7 @@ Suivez [ce guide](site-recovery-vmware-to-azure.md) pour démarrer la réplicati
 
 ## <a name="networking-configuration"></a>Configuration de la mise en réseau
 
-### <a name="network-properties"></a>Propriétés du réseau
+### <a name="network-properties"></a>Propriétés réseau
 
 * Pour les machines virtuelles de niveau web et de niveau application, configurez les paramètres réseau dans le portail Azure afin que les machines virtuelles soient associées au bon réseau de récupération d’urgence après le basculement.
 

@@ -1,19 +1,19 @@
 ---
 title: Couverture météo | Microsoft Azure Maps
 description: Dans cet article, vous allez découvrir la couverture de la météo dans Microsoft Azure Maps.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: fdae00a07b364252ae6d297a6df5eb242beac262
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 60761f7641d8cf87121992fce9050aea0f0b434b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207942"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80333585"
 ---
 # <a name="azure-maps-weather-coverage"></a>Couverture météo Azure Maps
 

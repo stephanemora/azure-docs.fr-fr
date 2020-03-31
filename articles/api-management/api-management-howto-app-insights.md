@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
 ms.openlocfilehash: 12aeea8393a00d7d2662c826f847265bdbdc0119
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75442711"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Guide pratique pour intégrer la Gestion des API Azure avec Azure Application Insights
 
 La Gestion des API Azure est parfaitement compatible avec Azure Application Insights, un service extensible permettant aux développeurs web de créer et de gérer des applications sur de multiples plateformes. Ce guide décrit la marche à suivre pour effectuer cette intégration, ainsi que des stratégies visant à réduire l’impact sur le fonctionnement de l’instance de service Gestion des API.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce guide, vous devrez disposer d’une instance de Gestion des API Azure. Si vous n’en avez pas, suivez d’abord le [tutoriel](get-started-create-service-instance.md).
 

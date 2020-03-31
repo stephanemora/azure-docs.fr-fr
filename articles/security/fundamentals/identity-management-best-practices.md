@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/28/2019
 ms.author: barclayn
 ms.openlocfilehash: 52ef3a9b1df058d5d2e954b424094f9dbaeba15b
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73053340"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Meilleures pratiques en matière de sécurité du contrôle d’accès et de la gestion des identités Azure
@@ -30,7 +30,7 @@ Pour chaque bonne pratique, nous détaillons les éléments suivants :
 
 * Nature de la bonne pratique
 * Raison pour laquelle activer cette bonne pratique
-* Conséquence possible en cas de non-utilisation de la meilleure pratique
+* Conséquence possible en cas de non-utilisation de la bonne pratique
 * Alternatives possibles à la meilleure pratique
 * Comment apprendre à utiliser la bonne pratique
 
@@ -99,7 +99,7 @@ Pour plus d’informations, consultez [Implémenter la synchronisation de hachag
 Les organisations qui n’intègrent pas leur identité locale avec leur identité cloud peuvent avoir une charge plus importante dans la gestion des comptes. Cette surcharge augmente la probabilité d’erreurs et de failles de sécurité.
 
 > [!Note]
-> Vous devez choisir dans quels répertoires les comptes critiques résideront, et si la station de travail d’administrateur utilisée sera gérée par de nouveaux service cloud ou par des processus existants. L’utilisation de processus d’administration et d’approvisionnement d’identités existants peut réduire certains risques, mais également présenter un risque de compromission d’un compte local par un attaquant et de passage dans le cloud. Vous souhaiterez peut-être utiliser une stratégie différente pour différents rôles (par exemple, administrateur IT vs administrateur d’unité). Deux options s’offrent à vous. La première option consiste à créer des comptes Azure AD qui ne sont pas synchronisées avec votre instance Active Directory locale. Reliez votre station de travail d’administrateur à Azure AD. L’administration et l’application de correctifs sont possibles avec Microsoft Intune. La seconde option consiste à utiliser des comptes d’administrateur existants en synchronisant avec votre instance Active Directory locale. Utilisez des stations de travail existantes dans votre domaine Active Directory pour l’administration et la sécurité.
+> Vous devez choisir dans quels répertoires les comptes critiques résideront, et si la station de travail d’administrateur utilisée sera gérée par de nouveaux service cloud ou par des processus existants. L’utilisation de processus d’administration et d’approvisionnement d’identités existants peut réduire certains risques, mais également présenter un risque de compromission d’un compte local par un attaquant et de passage dans le cloud. Vous souhaiterez peut-être utiliser une stratégie différente pour différents rôles (par exemple, administrateur IT vs administrateur d’unité). Vous avez le choix entre deux options. La première option consiste à créer des comptes Azure AD qui ne sont pas synchronisées avec votre instance Active Directory locale. Reliez votre station de travail d’administrateur à Azure AD. L’administration et l’application de correctifs sont possibles avec Microsoft Intune. La seconde option consiste à utiliser des comptes d’administrateur existants en synchronisant avec votre instance Active Directory locale. Utilisez des stations de travail existantes dans votre domaine Active Directory pour l’administration et la sécurité.
 
 ## <a name="manage-connected-tenants"></a>Gérer les locataires connectés
 Votre organisation de sécurité a besoin de visibilité pour évaluer les risques et déterminer si les stratégies de votre organisation et les exigences réglementaires sont respectées. Vous devez vous assurer que votre organisation de sécurité a une visibilité de tous les abonnements connectés à votre environnement de production et à votre réseau (via [Azure ExpressRoute](../../expressroute/expressroute-introduction.md) ou [VPN site à site](../../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)). Un [Administrateur général/Administrateur de société](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator-permissions) dans Azure AD peuvent élever leurs privilèges d’accès au rôle d’[Administrateur d’accès utilisateur](../../role-based-access-control/built-in-roles.md#user-access-administrator) et voir tous les abonnements et groupes managés connectés à votre environnement.

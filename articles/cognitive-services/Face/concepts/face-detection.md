@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: pafarley
 ms.openlocfilehash: 15e39eb9f5b8dd3556ea9ff8240bc2c9d252cd31
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73743055"
 ---
 # <a name="face-detection-and-attributes"></a>Détection et attributs de visage

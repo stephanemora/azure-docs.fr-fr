@@ -4,10 +4,10 @@ description: Cet article décrit comment gérer et surveiller des bases de donn�
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.openlocfilehash: 4daf068e97a08d1a611ef64cb64569cacd5d7420
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74172154"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Gérer et surveiller des bases de données SQL Server sauvegardées
@@ -38,7 +38,7 @@ Comme les sauvegardes de fichiers journaux interviennent toutes les 15 minutes,
 
 Pour surveiller les alertes de sauvegarde de base de données :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
 2. Sur le tableau de bord du coffre, sélectionnez **Alertes et événements**.
 

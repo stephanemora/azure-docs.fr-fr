@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
 ms.openlocfilehash: 9d213c8fa03ad2ca5e5fd7e620e52aa502749be2
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75969336"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79219155"
 ---
 # <a name="authoring-and-runtime-keys"></a>Clés de création et d'exécution
 

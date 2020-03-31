@@ -16,14 +16,14 @@ ms.date: 03/20/2019
 ms.author: anilmur
 ms.reviewer: juliako;johndeu
 ms.openlocfilehash: 4dceb558532305c6d2e84563e25ab05508423090
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72801943"
 ---
 # <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>Créer des flux de travail d’encodage avancé avec le Concepteur de flux de travail  
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Le **Concepteur de flux de travail** est un outil de bureau Windows qui permet de concevoir et de générer des flux de travail personnalisés à encoder avec **Media Encoder Premium Workflow**.
 À l'aide de la puissance de l'outil de conception de flux de travail, vous pouvez concevoir et créer des flux de travail complexes qui seront exécutés dans **Media Encoder Premium**.  
 
@@ -41,7 +41,7 @@ Cet outil permet aussi de modifier nos [flux de travail publiés](media-services
 
 Une fois créé, un fichier de flux de travail peut être téléchargé comme ressource et être utilisé pour l'encodage de fichiers multimédias. Pour plus d'informations sur l'encodage avec **Media Encoder Premium Workflow** en utilisant **.NET**, consultez la page [Encodage avancé avec Media Encoder Premium Workflow](media-services-encode-with-premium-workflow.md).
 
-## <a id="existing_workflows"></a>Modifier des flux de travail existants
+## <a name="modify-existing-workflows"></a><a id="existing_workflows"></a>Modifier des flux de travail existants
 Les [flux de travail publiés](media-services-workflow-designer.md#existing_workflows) par défaut peuvent être modifiés à l'aide de l'outil Concepteur. Vous pouvez vous procurer les fichiers de flux de travail par défaut [ici](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows). Le dossier contient aussi la description de ces fichiers.
 
 Les vidéos suivantes vous indiquent comment utiliser le concepteur.

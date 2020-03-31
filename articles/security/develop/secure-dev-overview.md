@@ -14,10 +14,10 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: c4314a0dcbbcb907ef4d6de0a2788cf04dfe1641
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68934865"
 ---
 # <a name="secure-development-best-practices-on-azure"></a>Bonnes pratiques du développement sécurisé sur Azure
@@ -27,7 +27,7 @@ Les suggestions présentées dans les articles proviennent de notre expérience 
 
 Ces articles sont conçus comme une ressource qui aidera les concepteurs, les développeurs et les testeurs de logiciels, à tous les niveaux, à créer et déployer des applications Azure sécurisées.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 La sécurité est un des aspects les plus importants d’une application, et n’est pas une chose si simple. Heureusement, Azure propose de nombreux services qui peuvent vous aider à sécuriser votre application dans le cloud. Ces articles concernent les activités et services Azure que vous pouvez implémenter à chaque étape du cycle de vie du développement de votre logiciel pour vous aider à développer du code plus sécurisé et à déployer une application plus sécurisée dans le cloud.
 
@@ -41,8 +41,8 @@ Nous suivons les phases de [Microsoft Security Development Lifecycle](https://ms
 
 Les phases SDL sont les suivantes :
 
-  - Formation
-  - Configuration requise
+  - Entrainement
+  - Spécifications
   - Conception
   - Implémentation
   - Vérification

@@ -10,14 +10,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 12/18/2017
-ms.openlocfilehash: 79a7b157d5daf8940aba454808c65ed433cfe29c
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 4cf918abae51ca330054ef86e57095d29a21a37a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169011"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79204526"
 ---
 # <a name="analyze-customer-churn-using-azure-machine-learning-studio-classic"></a>Analyse de l’attrition des clients à l’aide d’Azure Machine Learning Studio (classique)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
 ## <a name="overview"></a>Vue d’ensemble
 Cet article présente une implémentation de référence d’un projet d’analyse de l’attrition des clients, créé à l’aide de Microsoft Azure Machine Learning Studio (classique). Il aborde différents modèles génériques associés afin d’apporter une résolution holistique au problème de l’attrition des clients. Nous mesurons également la précision des modèles générés à l’aide de Machine Learning (ML), en déterminant des directions à suivre pour la suite du développement.  
 

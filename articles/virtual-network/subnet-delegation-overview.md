@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 11/20/2019
 ms.author: kumud
 ms.openlocfilehash: b33ff808b802b6848e2d5debaf515a73bf21a1bc
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74281063"
 ---
 # <a name="what-is-subnet-delegation"></a>Qu’est-ce que la délégation de sous-réseau ?

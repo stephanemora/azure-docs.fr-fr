@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
 ms.openlocfilehash: 8b0db4a1e55b53165e40e176834d66b62926e24b
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74421555"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Déplacement de données entre des bases de données cloud mises à l’échelle
@@ -24,7 +24,7 @@ Si vous êtes un développeur Software as a Service et que votre application con
 
 L'outil de fractionnement et de fusion fonctionne comme un service web Azure. Grâce à cet outil, un administrateur ou un développeur déplace des shardlets (les données d'une partition) entre différentes bases de données (partitions). L'outil s’appuie sur la gestion de cartes de partitions pour gérer la base de données de métadonnées de service et garantir des mappages cohérents.
 
-![Vue d'ensemble][1]
+![Vue d’ensemble][1]
 
 ## <a name="download"></a>Téléchargement
 
@@ -166,7 +166,7 @@ Le package de service de fractionnement et de fusion inclut un rôle de travail 
 
   Si une opération en cours n’est plus nécessaire, vous pouvez l’annuler en spécifiant son ID dans ce champ. Vous pouvez récupérer l’ID de l’opération dans la table des états de demande (voir Section 8.1) ou dans la sortie du navigateur Web dans lequel vous avez envoyé la demande.
 
-## <a name="requirements-and-limitations"></a>Spécifications et limitations
+## <a name="requirements-and-limitations"></a>Limitations et exigences
 
 L'implémentation actuelle du service de fractionnement et de fusion est soumise aux conditions requises et limitations suivantes :
 
@@ -219,7 +219,7 @@ Le service de fusion et de fractionnement utilise Diagnostics Azure basé sur Az
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont destinés au module Az.Sql. Pour ces cmdlets, voir [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments des commandes dans le module Az et dans les modules AzureRm sont sensiblement identiques.
+> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont destinés au module Az.Sql. Pour ces cmdlets, voir [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments des commandes dans le module Az sont sensiblement identiques à ceux des modules AzureRm.
 
 Pour activer la surveillance et le diagnostic à l'aide de la configuration de diagnostic pour les rôles Web et les rôles de travail fournis par le package NuGet, exécutez les commandes suivantes à l'aide d'Azure PowerShell :
 

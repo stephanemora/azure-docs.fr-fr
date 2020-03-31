@@ -12,10 +12,10 @@ ms.author: joke
 ms.reviewer: sstein
 ms.date: 03/13/2019
 ms.openlocfilehash: 5a7ed254de7b7ea32f2fb357d860354693e46e92
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73827232"
 ---
 # <a name="migrate-to-the-new-elastic-database-jobs"></a>Migrer vers les nouvelles tâches de base de données élastique
@@ -92,7 +92,7 @@ Use-AzureSqlJobConnection -CurrentAzureSubscription -Credential (Get-Credential)
 
 Maintenant que les applets de commande de tâches élastiques anciennes et nouvelles sont initialisées, migrez vos informations d’identification de tâche, cibles et tâches vers la nouvelle *base de données de travaux*.
 
-### <a name="setup"></a>Paramétrage
+### <a name="setup"></a>Programme d’installation
 
 ```powershell
 $ErrorActionPreference = "Stop";
@@ -375,7 +375,7 @@ Pour migrer vos cibles (serveurs, bases de données et collections personnalisé
 Migrate-TargetGroups $agent
 ```
 
-Exemple de sortie :
+Exemple de sortie :
 
 ```powershell
 # --------------------- Migrating target groups ---------------------
@@ -572,7 +572,7 @@ Pour migrer les tâches, le contenu de la tâche, les déclencheurs de tâche et
 Migrate-Jobs $agent
 ```
 
-Exemple de sortie :
+Exemple de sortie :
 ```powershell
 --------------------- Migrating jobs and job steps ---------------------
 Job job1

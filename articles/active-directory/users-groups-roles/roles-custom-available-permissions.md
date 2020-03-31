@@ -14,10 +14,10 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d6156857202c1cca94df6d70ec2059daf55178f1
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74025147"
 ---
 # <a name="application-registration-subtypes-and-permissions-in-azure-active-directory"></a>Les sous-types et les autorisations d’inscription de l’application dans Azure Active Directory
@@ -91,7 +91,7 @@ Accorde l’accès en lecture des propriétés d’inscription d’application s
 
 Octroie les mêmes autorisations que microsoft.directory/applications/standard/read, mais uniquement pour les applications monolocataire.
 
-### <a name="update"></a>Mettre à jour
+### <a name="update"></a>Update
 
 #### <a name="microsoftdirectoryapplicationsallpropertiesupdate"></a>microsoft.directory/applications/allProperties/update
 
@@ -170,4 +170,4 @@ Octroie les mêmes autorisations que microsoft.directory/applications/permission
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Créer des rôles personnalisés à l’aide du [portail Azure, d’Azure AD PowerShell et de l’API Graph](roles-create-custom.md)
-- [Afficher les affectations d’un rôle personnalisé](roles-view-assignments.md)
+- [Afficher les attributions d’un rôle personnalisé](roles-view-assignments.md)

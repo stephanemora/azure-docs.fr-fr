@@ -4,11 +4,11 @@ description: Fournit une vue d’ensemble de l’architecture, des composants et
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.openlocfilehash: b093c6702bb26fe537622727fe1b623141bf4160
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77584385"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79233973"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Architecture et composants d’Azure Backup
 

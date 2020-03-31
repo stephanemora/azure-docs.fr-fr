@@ -12,10 +12,10 @@ ms.date: 10/01/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: ee18916a59bb081d65494f46e7aba7c29c7177cc
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "71718515"
 ---
 # <a name="detect-adult-content"></a>Détecter du contenu pour adultes
@@ -37,5 +37,5 @@ La classification « pour adultes » regroupe plusieurs catégories :
 
 L'API [Analyser l'image](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) permet de détecter du contenu pour adultes. Lorsque vous ajoutez la valeur de `Adult` au paramètre de requête **visualFeatures**, l’API renvoie les trois propriétés booléennes &mdash;`isAdultContent`, `isRacyContent` et `isGoryContent`&mdash;dans sa réponse JSON. La méthode renvoie également les propriétés correspondantes &mdash;`adultScore`, `racyScore` et `goreScore`&mdash;qui représentent des scores de confiance compris entre zéro et un pour chaque catégorie respective.
 
-- [Démarrage rapide : Analyser une image (SDK .NET)](./quickstarts-sdk/csharp-analyze-sdk.md)
-- [Démarrage rapide : Analyser une image (API REST)](./quickstarts/csharp-analyze.md)
+- [Démarrage rapide : Analyser une image (SDK .NET)](./quickstarts-sdk/csharp-analyze-sdk.md)
+- [Démarrage rapide : Analyser une image (API REST)](./quickstarts/csharp-analyze.md)

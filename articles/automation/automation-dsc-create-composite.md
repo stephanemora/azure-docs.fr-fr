@@ -10,12 +10,12 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c060462a84b197cdd0aec1beecc0b4d4807feb49
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 05f0a81a738688df15ea9060071d9e266b54b7d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76030117"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79136653"
 ---
 # <a name="convert-configurations-to-composite-resources"></a>Convertir des configurations en ressources composites
 
@@ -47,7 +47,7 @@ Commencez par faire un appel de source de type [dot sourcing](https://blogs.tech
 Ensuite, au lieu d’exécuter la configuration pour générer un fichier MOF, utilisez la fonction fournie par le module CompositeResource pour automatiser une conversion.
 L’applet de commande charge le contenu de votre configuration, obtient la liste de paramètres et génère un nouveau module avec tout ce dont vous avez besoin.
 
-Une fois que vous avez généré un module, vous pouvez incrémenter la version et ajouter des notes de publication chaque fois que vous apportez des modifications et que vous les publiez dans votre propre [référentiel PowerShellGet](https://kevinmarquette.github.io/2018-03-03-Powershell-Using-a-NuGet-server-for-a-PSRepository/?utm_source=blog&utm_medium=blog&utm_content=psscriptrepo).
+Une fois que vous avez généré un module, vous pouvez incrémenter la version et ajouter des notes de publication chaque fois que vous apportez des modifications et que vous les publiez dans votre propre [référentiel PowerShellGet](https://powershellexplained.com/2018-03-03-Powershell-Using-a-NuGet-server-for-a-PSRepository/?utm_source=blog&utm_medium=blog&utm_content=psscriptrepo).
 
 Après avoir créé un module de ressources composites contenant votre configuration (ou plusieurs configurations), vous pouvez les utiliser dans l’[expérience de création composable](/azure/automation/compose-configurationwithcompositeresources) d’Azure ou les ajouter à des [scripts de configuration DSC](/powershell/scripting/dsc/configurations/configurations) pour générer des fichiers MOF et [charger ces mêmes fichiers MOF dans Azure Automation](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
 Inscrivez ensuite vos serveurs [localement](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances) ou [dans Azure](/azure/automation/automation-dsc-onboarding#azure-virtual-machines) pour extraire les configurations.

@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 03/10/2020
 ms.author: lahugh
-ms.openlocfilehash: a71b7b7de6f6039106b43576847675f48de803c8
-ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+ms.openlocfilehash: cb05a8c42c5710182f81d4bc1c76b78abe59c882
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79088068"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79470501"
 ---
 # <a name="h-series"></a>Série H
 
@@ -85,7 +85,7 @@ La Place de marché Azure présente de nombreuses distributions Linux qui prenne
 
   [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../includes/virtual-machines-common-ubuntu-rdma.md)]  
 
-  Pour plus d’informations sur l’activation InfiniBand, la configuration de MPI, consultez [Activer InfiniBand](/workloads/hpc/enable-infiniband.md).
+  Pour plus d’informations sur l’activation InfiniBand, la configuration de MPI, consultez [Activer InfiniBand](./workloads/hpc/enable-infiniband.md).
 
 ## <a name="other-sizes"></a>Autres tailles
 

@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 07/10/2019
 ms.author: stevelas
 ms.openlocfilehash: b483317960409fe1fbea181706f12375606fe659
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75445750"
 ---
 # <a name="recommendations-for-tagging-and-versioning-container-images"></a>Suggestions pour la création de balises et de versions pour les images de conteneurs

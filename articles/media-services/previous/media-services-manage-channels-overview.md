@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 99efe375fad142963214b09df24be70bc3bc9d99
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77131613"
 ---
 # <a name="overview-of-live-streaming-using-media-services"></a>Vue d’ensemble du streaming en direct à l’aide d’Azure Media Services
@@ -137,7 +137,7 @@ Vous êtes responsable de l’arrêt de vos canaux lorsque vous avez terminé d�
 >
 >
 
-### <a id="states"></a>États du canal et mappage au mode de facturation
+### <a name="channel-states-and-how-they-map-to-the-billing-mode"></a><a id="states"></a>États du canal et mappage au mode de facturation
 État actuel d’un canal. Les valeurs possibles incluent :
 
 * **Arrêté**. Ceci est l'état initial du canal après sa création (sauf si le démarrage automatique a été sélectionné dans le portail). Aucune facturation ne survient dans cet état. Dans cet état, les propriétés du canal peuvent être mises à jour, mais le streaming n’est pas autorisé.

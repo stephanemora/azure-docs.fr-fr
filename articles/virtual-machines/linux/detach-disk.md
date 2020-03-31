@@ -8,10 +8,10 @@ ms.date: 07/18/2018
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: f8a0790169b17ad7755386f9bdd4f9372efc83e7
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74036364"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-linux-virtual-machine"></a>Comment détacher un disque de données d’une machine virtuelle Linux

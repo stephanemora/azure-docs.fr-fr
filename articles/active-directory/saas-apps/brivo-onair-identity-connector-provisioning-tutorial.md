@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: Zhchia
-ms.openlocfilehash: e49ed9c7c6b0733f2ef95d1baa0b0f001206780e
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: f3c1e7337c0ce07b7fbebb9f954deeb75f0b9584
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77058601"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80246651"
 ---
 # <a name="tutorial-configure-brivo-onair-identity-connector-for-automatic-user-provisioning"></a>Tutoriel : Configurer Brivo Onair Identity Connector pour l’approvisionnement automatique d’utilisateurs
 
@@ -31,12 +31,12 @@ L’objectif de ce tutoriel est de présenter les étapes à effectuer dans Briv
 >
 > Ce connecteur est actuellement en préversion publique. Pour plus d’informations sur les conditions d’utilisation Microsoft Azure générales relatives aux fonctionnalités d’évaluation, consultez [Conditions d’utilisation supplémentaires des préversions Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Le scénario décrit dans ce tutoriel part du principe que vous disposez des prérequis suivants :
 
 * un locataire Azure AD ;
-* [Un client Brivo Onair Identity Connector](https://www.brivo.com/quote)
+* [Un client Brivo Onair Identity Connector](https://www.brivo.com/lp/quote)
 * Un compte d’utilisateur dans Brivo Onair Identity Connector avec des autorisations d’administrateur senior.
 
 ## <a name="assigning-users-to-brivo-onair-identity-connector"></a>Affectation d’utilisateurs à Brivo Onair Identity Connector
@@ -54,7 +54,7 @@ Avant de configurer et d’activer l’attribution automatique d’utilisateurs,
 
 ## <a name="setup-brivo-onair-identity-connector-for-provisioning"></a>Configurer Brivo Onair Identity Connector pour l’approvisionnement
 
-1.  Connectez-vous à votre console d’administration [Brivo Onair Identity Connector](https://acs.brivo.com/login/). Accédez à **Compte > Paramètres du compte**.
+1.    Connectez-vous à votre console d’administration [Brivo Onair Identity Connector](https://acs.brivo.com/login/). Accédez à **Compte > Paramètres du compte**.
 
     ![Console d’administration Brivo Onair Identity Connector](media/brivo-onair-identity-connector-provisioning-tutorial/admin.png)
 
@@ -62,7 +62,7 @@ Avant de configurer et d’activer l’attribution automatique d’utilisateurs,
 
     ![Brivo Onair Identity Connector Azure](media/brivo-onair-identity-connector-provisioning-tutorial/azuread.png)
 
-3.  Cliquez sur le bouton **Copier le jeton** et enregistrez le **Jeton secret**. Cette valeur sera entrée dans le champ Jeton secret de l’onglet Approvisionnement de votre application Brivo Onair Identity Connector dans le Portail Azure.
+3.    Cliquez sur le bouton **Copier le jeton** et enregistrez le **Jeton secret**. Cette valeur sera entrée dans le champ Jeton secret de l’onglet Approvisionnement de votre application Brivo Onair Identity Connector dans le Portail Azure.
 
     ![Jeton Brivo Onair Identity Connector](media/brivo-onair-identity-connector-provisioning-tutorial/token.png)
 

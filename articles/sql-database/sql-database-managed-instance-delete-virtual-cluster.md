@@ -11,10 +11,10 @@ ms.author: danil
 ms.reviewer: douglas, carlrab, sstein
 ms.date: 06/26/2019
 ms.openlocfilehash: 496d67a73207fd17182c31c5adad25c1fbe60c4f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73820459"
 ---
 # <a name="delete-a-subnet-after-deleting-an-azure-sql-database-managed-instance"></a>Supprimer un sous-réseau après avoir supprimé une instance managée Azure SQL Database

@@ -15,11 +15,11 @@ ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.openlocfilehash: 52779b7ffea0f33676426f145a700c7181cf0bf1
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77161254"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79230733"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Procédure : personnaliser des revendications émises dans le jeton SAML pour les applications d’entreprise
 
@@ -69,9 +69,9 @@ Un élément NameID temporaire est également pris en charge, mais il n’est pa
 
 Sélectionnez la source souhaitée pour la revendication `NameIdentifier` (ou NameID). Vous pouvez sélectionner les options suivantes.
 
-| Name | Description |
+| Nom | Description |
 |------|-------------|
-| Email | Adresse e-mail de l’utilisateur |
+| E-mail | Adresse e-mail de l’utilisateur |
 | userprincipalName | Nom d’utilisateur principal (UPN) de l’utilisateur |
 | onpremisessamaccount | Nom de compte SAM qui a été synchronisé à partir d’Azure AD en local |
 | objectid | ID d’objet de l’utilisateur dans Azure AD |

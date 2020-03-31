@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
 ms.openlocfilehash: c218b5dc8ca3bfa0358a9b6a0d4867696762a8d4
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77430939"
 ---
 # <a name="configure-a-security-policy-in-azure-policy-using-the-rest-api"></a>Configurer une stratégie de sécurité dans Azure Policy à l’aide de l’API REST
@@ -115,7 +115,7 @@ Cet exemple vous montre comment supprimer une affectation :
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
  ```
 
-## Informations de référence sur les noms de stratégies <a name="policy-names"></a>
+## <a name="policy-names-reference"></a>Informations de référence sur les noms de stratégies <a name="policy-names"></a>
 
 |Nom de stratégie dans Security Center|Nom de stratégie affiché dans Azure Policy |Nom du paramètre d’effet de la stratégie|
 |----|----|----|

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: cherylmc
 ms.openlocfilehash: 0aaf816cdfe7d42fd345eb4f010cf47b1615f462
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76989533"
 ---
 # <a name="copy-and-paste-to-a-virtual-machine-azure-bastion"></a>Copier et coller vers une machine virtuelle : Azure Bastion
@@ -24,7 +24,7 @@ Pour les navigateurs qui prennent en charge l’accès à l’API de Presse-papi
 
 Seul le copier/coller de texte est pris en charge. Pour les opérations de copie et collage directs, votre navigateur peut vous demander l’accès au Presse-papiers lors de l’initialisation de la session Bastion. **Autorisez** la page web à accéder au Presse-papiers.
 
-## <a name="to"></a>Copier vers une session à distance
+## <a name="copy-to-a-remote-session"></a><a name="to"></a>Copier vers une session à distance
 
 Une fois connecté à la machine virtuelle à l’aide du [portail Azure](https://portal.azure.com), procédez comme suit :
 
@@ -39,7 +39,7 @@ Une fois connecté à la machine virtuelle à l’aide du [portail Azure](https:
 
    ![coller](./media/bastion-vm-manage/local.png)
 
-## <a name="from"></a>Copier depuis une session à distance
+## <a name="copy-from-a-remote-session"></a><a name="from"></a>Copier depuis une session à distance
 
 Une fois connecté à la machine virtuelle à l’aide du [portail Azure](https://portal.azure.com), procédez comme suit :
 

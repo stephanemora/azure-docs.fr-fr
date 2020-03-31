@@ -11,14 +11,16 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 05/25/2018
 ms.reviewer: jmartens, mldocs
-ms.openlocfilehash: a4ce383959b10836791ea065ffe8a9c243f6ad0d
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 03341b9e663398f2c42266dead0d2dd01e97c3f3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168984"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79204543"
 ---
 # <a name="view-and-delete-in-product-user-data-from-azure-ai-gallery"></a>Visualiser et supprimer d’Azure AI Gallery des données utilisateur intégrées au produit
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Vous pouvez visualiser et supprimer d’Azure AI Gallery vos données utilisateurs intégrées au produit en utilisant l’interface ou l’API de catalogue AI Gallery. Cet article vous explique comment procéder.
 
@@ -30,9 +32,9 @@ Vous pouvez visualiser et supprimer d’Azure AI Gallery vos données utilisateu
 
 Vous pouvez visualiser les éléments que vous avez publiés via l’interface utilisateur du site web Azure AI Gallery. Les utilisateurs peuvent visualiser les solutions, projets et expériences publics et non répertoriés, ainsi que d’autres éléments publiés :
 
-1.  Connectez-vous à [Azure AI Gallery](https://gallery.azure.ai/).
-2.  Cliquez sur l’image du profil dans le coin supérieur droit, puis sur le nom du compte pour charger la page de votre profil.
-3.  La page de profil affiche tous les éléments publiés sur la galerie, y compris les entrées non répertoriées.
+1.    Connectez-vous à [Azure AI Gallery](https://gallery.azure.ai/).
+2.    Cliquez sur l’image du profil dans le coin supérieur droit, puis sur le nom du compte pour charger la page de votre profil.
+3.    La page de profil affiche tous les éléments publiés sur la galerie, y compris les entrées non répertoriées.
 
 ## <a name="use-the-ai-gallery-catalog-api-to-view-your-data"></a>Utiliser l’API de catalogue AI Gallery pour visualiser vos données
 
@@ -43,9 +45,9 @@ Les réponses du catalogue sont retournées au format JSON.
 ### <a name="get-an-author-id"></a>Obtenir un ID d’auteur
 L’ID d’auteur est basé sur l’adresse e-mail utilisée lors de la publication sur Azure AI Gallery. Il ne change pas :
 
-1.  Connectez-vous à [Azure AI Gallery](https://gallery.azure.ai/).
-2.  Cliquez sur l’image du profil dans le coin supérieur droit, puis sur le nom du compte pour charger la page de votre profil.
-3.  L’URL dans la barre d’adresse affiche l’ID alphanumérique après `authorId=`. Par exemple, pour l’URL : `https://gallery.azure.ai/Home/Author?authorId=99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA`
+1.    Connectez-vous à [Azure AI Gallery](https://gallery.azure.ai/).
+2.    Cliquez sur l’image du profil dans le coin supérieur droit, puis sur le nom du compte pour charger la page de votre profil.
+3.    L’URL dans la barre d’adresse affiche l’ID alphanumérique après `authorId=`. Par exemple, pour l’URL : `https://gallery.azure.ai/Home/Author?authorId=99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA`
         
     L’ID d’auteur est : `99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA`
 
@@ -55,12 +57,12 @@ Vous avez besoin d’un jeton d’accès pour visualiser des entités non réper
 
 Pour obtenir un jeton d’accès, vous devez examiner l’en-tête `DataLabAccessToken` d’une requête HTTP que le navigateur fait auprès de l’API de catalogue quand vous êtes connecté :
 
-1.  Connectez-vous à [Azure AI Gallery](https://gallery.azure.ai/).
-2.  Cliquez sur l’image du profil dans le coin supérieur droit, puis sur le nom du compte pour charger la page de votre profil.
-3.  Ouvrez le volet Outils de développement du navigateur en appuyant sur F12, sélectionnez l’onglet Réseau, puis actualisez la page. 
+1.    Connectez-vous à [Azure AI Gallery](https://gallery.azure.ai/).
+2.    Cliquez sur l’image du profil dans le coin supérieur droit, puis sur le nom du compte pour charger la page de votre profil.
+3.    Ouvrez le volet Outils de développement du navigateur en appuyant sur F12, sélectionnez l’onglet Réseau, puis actualisez la page. 
 4. Filtrez les requêtes sur la chaîne *catalog* en la tapant dans la zone de texte Filtre.
-5.  Dans les requêtes auprès de l’URL `https://catalog.cortanaanalytics.com/entities`, recherchez une requête GET, puis sélectionnez l’onglet *En-têtes*. Faites défiler jusqu’à la section *En-têtes des requêtes*.
-6.  Le jeton alphanumérique se trouve sous l’en-tête `DataLabAccessToken`. Pour conserver vos données en sécurité, ne partagez pas ce jeton.
+5.    Dans les requêtes auprès de l’URL `https://catalog.cortanaanalytics.com/entities`, recherchez une requête GET, puis sélectionnez l’onglet *En-têtes*. Faites défiler jusqu’à la section *En-têtes des requêtes*.
+6.    Le jeton alphanumérique se trouve sous l’en-tête `DataLabAccessToken`. Pour conserver vos données en sécurité, ne partagez pas ce jeton.
 
 ### <a name="view-user-information"></a>Visualiser les informations utilisateur
 Avec l’ID d’auteur que vous avez obtenu lors des étapes précédentes, visualisez les informations d’un profil d’utilisateur en remplaçant `[AuthorId]` dans l’URL suivante :
@@ -92,9 +94,9 @@ Par exemple :
 
 Cette requête affiche seulement des entités publiques. Pour visualiser toutes vos entités, y compris celles qui sont non répertoriées, spécifiez le jeton d’accès obtenu à la section précédente.
 
-1.  Avec un outil comme [Postman](https://www.getpostman.com), créez une requête HTTP GET sur l’URL du catalogue, comme décrit dans [Obtenir votre jeton d’accès](#get-your-access-token).
-2.  Créez un en-tête de requête HTTP nommé `DataLabAccessToken`, avec la valeur définie sur le jeton d’accès.
-3.  Envoyez la requête HTTP.
+1.    Avec un outil comme [Postman](https://www.getpostman.com), créez une requête HTTP GET sur l’URL du catalogue, comme décrit dans [Obtenir votre jeton d’accès](#get-your-access-token).
+2.    Créez un en-tête de requête HTTP nommé `DataLabAccessToken`, avec la valeur définie sur le jeton d’accès.
+3.    Envoyez la requête HTTP.
 
 > [!TIP]
 > Si les entités non répertoriées n’apparaissent pas dans les réponses de l’API de catalogue, la raison peut en être que l’utilisateur a un jeton d’accès non valide ou expiré. Déconnectez-vous d’Azure AI Gallery, puis répétez les étapes de [Obtenir votre jeton d’accès](#get-your-access-token) pour renouveler le jeton. 

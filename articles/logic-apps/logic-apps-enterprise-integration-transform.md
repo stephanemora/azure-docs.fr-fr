@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 07/08/2016
 ms.openlocfilehash: 500769a39ba7658b35c1abb80101f6234170c941
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74792381"
 ---
 # <a name="create-maps-that-transform-xml-between-formats-in-azure-logic-apps-with-enterprise-integration-pack"></a>Créer des mappages qui convertissent des données XML entre les différents formats dans Azure Logic Apps à l’aide d’Enterprise Integration Pack
@@ -36,7 +36,7 @@ Après avoir chargé la transformation / le mappage dans votre compte d’intég
 
 Maintenant que vous avez exécuté la configuration requise, il est temps de créer votre application logique :  
 
-1. Créez une application logique et [liez-la à votre compte d’intégration](../logic-apps/logic-apps-enterprise-integration-accounts.md "Découvrez comment lier un compte d’intégration à une application logique.") qui contient le mappage.
+1. Créez une application logique et [liez-la à votre compte d’intégration](../logic-apps/logic-apps-enterprise-integration-accounts.md "Découvrez comment lier un compte d’intégration à une application logique") qui contient le mappage.
 2. Ajouter un déclenchement de **Requête** à votre application logique  
    ![](./media/logic-apps-enterprise-integration-transforms/transform-1.png)    
 3. Ajoutez l’action **Transformer XML** en sélectionnant d’abord **Ajouter une action**   

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 6ddda38d887cdfe30b449847e2f625ba17f33898
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76510802"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Connecter un appareil en aval à une passerelle Azure IoT Edge
@@ -33,7 +33,7 @@ Cet article identifie les problèmes courants liés aux connexions d’appareils
 
 Dans cet article, les termes *passerelle* et *passerelle IoT Edge* font référence à un appareil IoT Edge configuré comme passerelle transparente.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Mettez le fichier de certificat **azure-iot-test-only.root.ca.cert.pem** généré dans [Configurer un appareil IoT Edge en tant que passerelle transparente](how-to-create-transparent-gateway.md) à la disposition de votre appareil en aval. Celui-ci se sert de ce certificat pour valider l’identité de l’appareil de passerelle.
 * Utilisez la chaîne de connexion modifiée qui pointe vers l’appareil de passerelle, comme expliqué dans [Authentifier un appareil en aval auprès d’Azure IoT Hub](how-to-authenticate-downstream-device.md).

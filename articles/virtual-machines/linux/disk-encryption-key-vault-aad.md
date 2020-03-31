@@ -9,10 +9,10 @@ ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
 ms.openlocfilehash: 1fa9f4e790b49e83ed4c46e92242ff182d9a47b5
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78970646"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption-with-azure-ad-previous-release"></a>Création et configuration d’un coffre de clés pour Azure Disk Encryption avec Azure AD (version précédente)
@@ -44,7 +44,7 @@ Azure Disk Encryption est intégré à [Azure Key Vault](https://azure.microsoft
 >Pour garantir que les secrets de chiffrement ne franchissent pas les limites régionales, Azure Disk Encryption exige que le coffre de clés se trouve dans la même région que les machines virtuelles. Créez et utilisez un coffre de clés situé dans la même région que la machine virtuelle à chiffrer. 
 
 
-### <a name="bkmk_KVPSH"></a> Créer un coffre de clés avec PowerShell
+### <a name="create-a-key-vault-with-powershell"></a><a name="bkmk_KVPSH"></a> Créer un coffre de clés avec PowerShell
 
 Vous pouvez créer un coffre de clés avec Azure PowerShell à l’aide de l’applet de commande [New-AzKeyVault](/powershell/module/az.keyvault/New-azKeyVault). Pour découvrir les applets de commande supplémentaires pour Key Vault, consultez l’article [Az.KeyVault](/powershell/module/az.keyvault/). 
 
@@ -64,7 +64,7 @@ Vous pouvez créer un coffre de clés avec Azure PowerShell à l’aide de l’a
 4. Notez les données **Nom du coffre**, **Nom du groupe de ressources**, **ID de ressource**, **URI du coffre** et **ID d’objet** qui sont renvoyées à des fins d’utilisation ultérieure dans le cadre du chiffrement des données. 
 
 
-### <a name="bkmk_KVCLI"></a> Créer un coffre de clés avec Azure CLI
+### <a name="create-a-key-vault-with-azure-cli"></a><a name="bkmk_KVCLI"></a> Créer un coffre de clés avec Azure CLI
 Vous pouvez gérer votre coffre de clés avec Azure CLI à l’aide des commandes [az keyvault](/cli/azure/keyvault#commands). Pour créer un coffre de clés, utilisez la commande [az keyvault create](/cli/azure/keyvault#az-keyvault-create).
 
 1. Le cas échéant, créez un groupe de ressources avec la commande [az group create](/cli/azure/group#az-group-create). Pour obtenir la liste des emplacements, utilisez la commande [az account list-locations](/cli/azure/account#az-account-list) 
@@ -82,7 +82,7 @@ Vous pouvez gérer votre coffre de clés avec Azure CLI à l’aide des commande
 
 4. Notez les données **Nom du coffre**, **Nom du groupe de ressources**, **ID de ressource**, **URI du coffre** et **ID d’objet** qui sont renvoyées à des fins d’utilisation ultérieure. 
 
-### <a name="bkmk_KVRM"></a> Créer un coffre de clés avec un modèle Resource Manager
+### <a name="create-a-key-vault-with-a-resource-manager-template"></a><a name="bkmk_KVRM"></a> Créer un coffre de clés avec un modèle Resource Manager
 
 Vous pouvez créer un coffre de clés à l’aide du [modèle Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create).
 
@@ -90,11 +90,11 @@ Vous pouvez créer un coffre de clés à l’aide du [modèle Resource Manager](
 2. Sélectionnez l’abonnement, le groupe de ressources, l’emplacement du groupe de ressources, le nom du coffre de clés, l’ID d’objet, les conditions juridiques et le contrat, puis cliquez sur **Acheter**. 
 
 
-## <a name="bkmk_ADapp"></a> Configurer une application Azure AD et le principal de service 
+## <a name="set-up-an-azure-ad-app-and-service-principal"></a><a name="bkmk_ADapp"></a> Configurer une application Azure AD et le principal de service 
 Lorsque le chiffrement doit être activé sur une machine virtuelle en cours d’exécution dans Azure, Azure Disk Encryption génère et écrit les clés de chiffrement dans votre coffre de clés. La gestion des clés de chiffrement dans votre coffre de clés nécessite l’authentification Azure AD. Créez une application Azure AD à cet effet. Pour l’authentification, vous pouvez utiliser soit l’authentification par clé secrète client, soit [l’authentification Azure AD par certificat client](../../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md).
 
 
-### <a name="bkmk_ADappPSH"></a> Configurer une application Azure AD et un principal de service avec Azure PowerShell 
+### <a name="set-up-an-azure-ad-app-and-service-principal-with-azure-powershell"></a><a name="bkmk_ADappPSH"></a> Configurer une application Azure AD et un principal de service avec Azure PowerShell 
 Pour exécuter les commandes suivantes, obtenez et utilisez le [module Azure AD PowerShell](/powershell/azure/active-directory/install-adv2). 
 
 1. Pour créer une application Azure AD, utilisez la cmdlet PowerShell [New-AzADApplication](/powershell/module/az.resources/new-azadapplication). Vous pouvez définir MyApplicationHomePage et MyApplicationUri sur les valeurs de votre choix.
@@ -109,7 +109,7 @@ Pour exécuter les commandes suivantes, obtenez et utilisez le [module Azure AD 
 3. $azureAdApplication.ApplicationId est l’ID de client Azure AD, et $aadClientSecret est la clé secrète client que vous utiliserez par la suite pour activer Azure Disk Encryption. Prenez soin de bien sauvegarder la clé secrète de client Azure AD. L’exécution de l’élément `$azureAdApplication.ApplicationId` vous présentera l’ID d’application.
 
 
-### <a name="bkmk_ADappCLI"></a> Configurer une application Azure AD et un principal de service avec Azure CLI
+### <a name="set-up-an-azure-ad-app-and-service-principal-with-azure-cli"></a><a name="bkmk_ADappCLI"></a> Configurer une application Azure AD et un principal de service avec Azure CLI
 
 Vous pouvez gérer vos principaux de service avec Azure CLI à l’aide des commandes [az ad sp](/cli/azure/ad/sp). Pour plus d’informations, consultez l’article [Créer un principal du service Azure](/cli/azure/create-an-azure-service-principal-azure-cli).
 
@@ -120,7 +120,7 @@ Vous pouvez gérer vos principaux de service avec Azure CLI à l’aide des comm
      ```
 3.  L’élément appId renvoyé est l’ID de client Azure AD utilisé dans d’autres commandes. Il s’agit également du nom de principal de service (SPN) que vous utiliserez pour la commande az keyvault set-policy. Le mot de passe est la clé secrète client que vous utiliserez par la suite pour activer Azure Disk Encryption. Prenez soin de bien sauvegarder la clé secrète de client Azure AD.
  
-### <a name="bkmk_ADappRM"></a> Configurer une application Azure AD et un principal de service par le biais du Portail Azure
+### <a name="set-up-an-azure-ad-app-and-service-principal-though-the-azure-portal"></a><a name="bkmk_ADappRM"></a> Configurer une application Azure AD et un principal de service par le biais du Portail Azure
 Pour créer une application Azure AD, exécutez la procédure de l’article [Utiliser le portail pour créer une application et un principal du service Azure Active Directory pouvant accéder aux ressources](../../active-directory/develop/howto-create-service-principal-portal.md). Chaque étape répertoriée ci-après vous permet d’accéder directement à la section de l’article appropriée. 
 
 1. [Vérifiez les autorisations requises](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
@@ -131,13 +131,13 @@ Pour créer une application Azure AD, exécutez la procédure de l’article [Ut
         - La clé d’authentification est utilisée par l’application en tant qu’information d’identification pour la connexion à Azure AD. Dans le Portail Azure, ce secret est appelé clés, mais n’a aucun rapport avec les coffres de clés. Sécurisez ce secret de manière appropriée. 
      - L’ID d’application sera utilisé par la suite en tant qu’élément AadClientId pour Set-AzVMDiskEncryptionExtension et en tant qu’élément ServicePrincipalName pour Set-AzKeyVaultAccessPolicy. 
 
-## <a name="bkmk_KVAP"></a> Définir la stratégie d’accès au coffre de clés pour l’application Azure AD
+## <a name="set-the-key-vault-access-policy-for-the-azure-ad-app"></a><a name="bkmk_KVAP"></a> Définir la stratégie d’accès au coffre de clés pour l’application Azure AD
 Pour écrire des secrets de chiffrement dans un coffre de clés spécifié, Azure Disk Encryption a besoin de l’ID client et de la clé secrète client de l’application Azure Active Directory qui dispose des autorisations pour écrire des secrets dans le coffre de clés. 
 
 > [!NOTE]
 > Azure Disk Encryption requiert de configurer les stratégies d’accès suivantes sur votre application cliente Azure AD : autorisations _WrapKey_ et _Set_.
 
-### <a name="bkmk_KVAPPSH"></a> Définir la stratégie d’accès au coffre de clés pour l’application Azure AD avec Azure PowerShell
+### <a name="set-the-key-vault-access-policy-for-the-azure-ad-app-with-azure-powershell"></a><a name="bkmk_KVAPPSH"></a> Définir la stratégie d’accès au coffre de clés pour l’application Azure AD avec Azure PowerShell
 Votre application Azure AD a besoin d’autorisations d’accès aux clés ou aux clés secrètes dans le coffre. Exécutez la cmdlet [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) pour accorder des autorisations à l’application, en utilisant l’ID client (qui a été généré quand l’application a été enregistrée) comme valeur du paramètre _–ServicePrincipalName_. Pour en savoir plus, consultez le billet de blog [Azure Key Vault – Étape par étape](https://blogs.technet.com/b/kv/archive/2015/06/02/azure-key-vault-step-by-step.aspx). 
 
 1. Définissez la stratégie d’accès au coffre de clés pour l’application AD avec PowerShell.
@@ -149,7 +149,7 @@ Votre application Azure AD a besoin d’autorisations d’accès aux clés ou au
      Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -ServicePrincipalName $aadClientID -PermissionsToKeys 'WrapKey' -PermissionsToSecrets 'Set' -ResourceGroupName $KVRGname
      ```
 
-### <a name="bkmk_KVAPCLI"></a> Définir la stratégie d’accès au coffre de clés pour l’application Azure AD avec Azure CLI
+### <a name="set-the-key-vault-access-policy-for-the-azure-ad-app-with-azure-cli"></a><a name="bkmk_KVAPCLI"></a> Définir la stratégie d’accès au coffre de clés pour l’application Azure AD avec Azure CLI
 Utilisez la commande [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy) pour définir la stratégie d’accès. Pour plus d’informations, consultez l’article [Gestion de Key Vault à l’aide de l’interface de ligne de commande (CLI) 2.0](../../key-vault/key-vault-manage-with-cli2.md#authorizing-an-application-to-use-a-key-or-secret).
 
 Fournissez le principal de service que vous avez créé par le biais de l’accès à Azure CLI pour obtenir les secrets et inclure les clés dans un wrapper avec la commande suivante :
@@ -158,7 +158,7 @@ Fournissez le principal de service que vous avez créé par le biais de l’acc�
      az keyvault set-policy --name "MySecureVault" --spn "<spn created with CLI/the Azure AD ClientID>" --key-permissions wrapKey --secret-permissions set
      ```
 
-### <a name="bkmk_KVAPRM"></a> Définir la stratégie d’accès au coffre de clés pour l’application Azure AD avec le portail
+### <a name="set-the-key-vault-access-policy-for-the-azure-ad-app-with-the-portal"></a><a name="bkmk_KVAPRM"></a> Définir la stratégie d’accès au coffre de clés pour l’application Azure AD avec le portail
 
 1. Ouvrez le groupe de ressources avec votre coffre de clés.
 2. Sélectionnez votre coffre de clés, accédez à **Stratégies d’accès**, puis cliquez sur **Ajouter nouveau**.
@@ -171,10 +171,10 @@ Fournissez le principal de service que vous avez créé par le biais de l’acc�
 
 ![Autorisations du secret Azure Key Vault - Définir](./media/disk-encryption/keyvault-portal-fig3b.png)
 
-## <a name="bkmk_KVper"></a>Définissez les stratégies d'accès avancé du coffre de clés
+## <a name="set-key-vault-advanced-access-policies"></a><a name="bkmk_KVper"></a>Définissez les stratégies d'accès avancé du coffre de clés
 La plateforme Azure doit avoir accès aux clés et aux clés secrètes de chiffrement dans votre coffre de clés afin de les mettre à disposition de la machine virtuelle pour lancer et déchiffrer les volumes. Activez le chiffrement de disque sur le coffre de clés ; dans le cas contraire, les déploiements échoueront.  
 
-### <a name="bkmk_KVperPSH"></a> Définir les stratégies d’accès avancé au coffre de clés avec Azure PowerShell
+### <a name="set-key-vault-advanced-access-policies-with-azure-powershell"></a><a name="bkmk_KVperPSH"></a> Définir les stratégies d’accès avancé au coffre de clés avec Azure PowerShell
  Utilisez l’applet de commande PowerShell de coffre de clés [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) pour activer le chiffrement de disque pour le coffre de clés.
 
   - **Activer Key Vault pour le chiffrement de disque :** EnabledForDiskEncryption est requis pour Azure Disk Encryption.
@@ -195,7 +195,7 @@ La plateforme Azure doit avoir accès aux clés et aux clés secrètes de chiffr
      Set-AzKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MyKeyVaultResourceGroup' -EnabledForTemplateDeployment
      ```
 
-### <a name="bkmk_KVperCLI"></a> Définir les stratégies d’accès avancé au coffre de clés avec Azure CLI
+### <a name="set-key-vault-advanced-access-policies-using-the-azure-cli"></a><a name="bkmk_KVperCLI"></a> Définir les stratégies d’accès avancé au coffre de clés avec Azure CLI
 Utilisez la commande [az keyvault update](/cli/azure/keyvault#az-keyvault-update) afin d’activer le chiffrement de disque pour le coffre de clés. 
 
  - **Activer Key Vault pour le chiffrement de disque :** Enabled-for-disk-encryption est requis. 
@@ -215,7 +215,7 @@ Utilisez la commande [az keyvault update](/cli/azure/keyvault#az-keyvault-update
      ```
 
 
-### <a name="bkmk_KVperrm"></a> Définir les stratégies d’accès avancé au coffre de clés par le biais du Portail Azure
+### <a name="set-key-vault-advanced-access-policies-through-the-azure-portal"></a><a name="bkmk_KVperrm"></a> Définir les stratégies d’accès avancé au coffre de clés par le biais du Portail Azure
 
 1. Sélectionnez votre coffre de clés, accédez à **Stratégies d’accès**, puis sélectionnez **Cliquez ici pour afficher les stratégies d’accès avancé**.
 2. Cochez la case **Activer l’accès à Azure Disk Encryption pour chiffrer des volumes**.
@@ -225,7 +225,7 @@ Utilisez la commande [az keyvault update](/cli/azure/keyvault#az-keyvault-update
 ![Stratégies d’accès avancé au coffre de clés Azure](./media/disk-encryption/keyvault-portal-fig4.png)
 
 
-## <a name="bkmk_KEK"></a> Configurer une clé de chiffrement à clé (facultatif)
+## <a name="set-up-a-key-encryption-key-optional"></a><a name="bkmk_KEK"></a> Configurer une clé de chiffrement à clé (facultatif)
 Si vous souhaitez utiliser une clé de chiffrement à clé pour renforcer la protection des clés de chiffrement, ajoutez une clé de chiffrement à clé à votre coffre de clés. Utilisez la cmdlet [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) pour créer une clé de chiffrement à clé dans le coffre de clés. Vous pouvez également importer une clé de chiffrement à clé à partir de votre module de sécurité matériel de gestion des clés locales. Pour plus d’informations, consultez la [documentation concernant Key Vault](../../key-vault/key-vault-hsm-protected-keys.md). Quand une clé de chiffrement principale est spécifiée, Azure Disk Encryption utilise cette clé pour wrapper les secrets de chiffrement avant d’écrire dans Key Vault. 
 
 * Lors de la génération de clés, utilisez un type de clé RSA. Azure Disk Encryption ne prend pas encore en charge l’utilisation de clés à courbe elliptique.
@@ -240,7 +240,7 @@ Si vous souhaitez utiliser une clé de chiffrement à clé pour renforcer la pro
   * URL de coffre de clés inacceptable : *https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
   * URL de coffre de clés acceptable : *https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
-### <a name="bkmk_KEKPSH"></a> Configurer une clé de chiffrement à clé avec Azure PowerShell 
+### <a name="set-up-a-key-encryption-key-with-azure-powershell"></a><a name="bkmk_KEKPSH"></a> Configurer une clé de chiffrement à clé avec Azure PowerShell 
 Avant d’utiliser le script PowerShell, vous devez connaître les prérequis pour Azure Disk Encryption afin de comprendre les étapes figurant dans le script. L’exemple de script peut nécessiter certaines modifications pour votre environnement. Ce script crée tous les prérequis pour Azure Disk Encryption et chiffre une machine virtuelle IaaS existante en incluant la clé de chiffrement de disque dans un wrapper à l’aide d’une clé de chiffrement à clé. 
 
  ```powershell
@@ -288,7 +288,7 @@ Avant d’utiliser le script PowerShell, vous devez connaître les prérequis po
      Set-AzVMDiskEncryptionExtension -ResourceGroupName $VMRGName -VMName $vmName -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $keyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId;
 ```
 
-## <a name="bkmk_Cert"></a> Authentification par certificat (facultatif)
+## <a name="certificate-based-authentication-optional"></a><a name="bkmk_Cert"></a> Authentification par certificat (facultatif)
 Si vous souhaitez utiliser l’authentification par certificat, vous pouvez charger un certificat dans votre coffre de clés et le déployer sur le client. Avant d’utiliser le script PowerShell, vous devez connaître les prérequis pour Azure Disk Encryption afin de comprendre les étapes figurant dans le script. L’exemple de script peut nécessiter certaines modifications pour votre environnement.
 
      
@@ -367,7 +367,7 @@ Si vous souhaitez utiliser l’authentification par certificat, vous pouvez char
    Set-AzVMDiskEncryptionExtension -ResourceGroupName $VMRGName -VMName $VMName -AadClientID $AADClientID -AadClientCertThumbprint $AADClientCertThumbprint -DiskEncryptionKeyVaultUrl $DiskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId
  ```
 
-## <a name="bkmk_CertKEK"></a> Authentification par certificat et clé de chiffrement à clé (facultatif)
+## <a name="certificate-based-authentication-and-a-kek-optional"></a><a name="bkmk_CertKEK"></a> Authentification par certificat et clé de chiffrement à clé (facultatif)
 
 Si vous souhaitez utiliser l’authentification par certificat et inclure la clé de chiffrement dans un wrapper avec une clé de chiffrement à clé, vous pouvez utiliser le script ci-après en guise d’exemple. Avant d’utiliser le script PowerShell, vous devez connaître tous les prérequis précédents pour Azure Disk Encryption afin de comprendre les étapes figurant dans le script. L’exemple de script peut nécessiter certaines modifications pour votre environnement.
 

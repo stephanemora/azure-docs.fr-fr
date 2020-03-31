@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: b98ab8d3c4d03115ea689b4dfd3d8dee753f019d
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 1169ed0e9a2b970ee0e30d73ea20c87001b62786
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715083"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80239447"
 ---
 # <a name="autoscale-your-aks-pods-using-application-gateway-metrics-beta"></a>Mettre à l’échelle automatiquement vos pods AKS avec des métriques Application Gateway (bêta)
 
@@ -29,7 +29,7 @@ Nous allons utiliser les deux composants suivants :
 
 1. Nous allons tout d’abord créer un principal de service Azure AAD et lui attribuer l’accès `Monitoring Reader` via le groupe de ressources Application Gateway. 
 
-    ```bash
+    ```azurecli
         applicationGatewayGroupName="<application-gateway-group-id>"
         applicationGatewayGroupId=$(az group show -g $applicationGatewayGroupName -o tsv --query "id")
         az ad sp create-for-rbac -n "azure-k8s-metric-adapter-sp" --role "Monitoring Reader" --scopes applicationGatewayGroupId

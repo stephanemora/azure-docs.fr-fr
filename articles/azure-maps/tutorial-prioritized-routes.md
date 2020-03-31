@@ -1,20 +1,20 @@
 ---
 title: 'Tutoriel : Trouver plusieurs routes en fonction du mode de transport | Microsoft Azure Maps'
 description: Dans ce tutoriel, vous allez apprendre à trouver des itinéraires pour différents modes de transport en utilisant Microsoft Azure Maps.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 01/14/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 628a3003cec2cc2ca58f1b133cf3236417dfa94e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c7ed2421f468dfbb64c635683a7909b517105bc7
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77209492"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80333802"
 ---
 # <a name="tutorial-find-routes-for-different-modes-of-travel-using-azure-maps"></a>Tutoriel : Rechercher des itinéraires pour différents modes de déplacement avec Azure Maps
 

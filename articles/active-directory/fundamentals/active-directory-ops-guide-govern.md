@@ -12,10 +12,10 @@ ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
 ms.openlocfilehash: 4826bcdc85e0c6189c51aa262014fe154bb479b1
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74534813"
 ---
 # <a name="azure-active-directory-governance-operations-reference-guide"></a>Guide de référence des opérations de gouvernance Azure Active Directory
@@ -23,13 +23,13 @@ ms.locfileid: "74534813"
 Cette section du [Guide de référence des opérations Azure AD](active-directory-ops-guide-intro.md) décrit les vérifications et les mesures à prendre pour évaluer et approuver l’accès accordé aux identités privilégiées et non privilégiées, et pour auditer et contrôler les modifications apportées à l’environnement.
 
 > [!NOTE]
-> Ces recommandations sont valables à la date de publication, mais elles peuvent évoluer au fil du temps. Les organisations doivent évaluer en continu leurs pratiques de gouvernance, au fil de l’évolution des produits et des services Microsoft.
+> Ces suggestions sont valables à la date de publication mais peuvent évoluer. Les organisations doivent évaluer en continu leurs pratiques de gouvernance, au fil de l’évolution des produits et des services Microsoft.
 
 ## <a name="key-operational-processes"></a>Processus opérationnels clés
 
 ### <a name="assign-owners-to-key-tasks"></a>Affecter les propriétaires à des tâches clés
 
-La gestion d’Azure Active Directory nécessite l’exécution continue de tâches et de processus opérationnels clés, qui peuvent ne pas faire partie d’un projet de déploiement. Il est cependant important de configurer ces tâches pour optimiser votre environnement. Les tâches clés et leurs propriétaires recommandés sont les suivantes :
+La gestion d’Azure Active Directory nécessite l’exécution continue de tâches et de processus opérationnels clés, qui peuvent ne pas faire partie d’un projet de déploiement. Il est cependant important de configurer ces tâches pour optimiser votre environnement. Les tâches clés et leurs propriétaires recommandés sont listés ci-après :
 
 | Tâche | Propriétaire |
 | :- | :- |
@@ -45,7 +45,7 @@ La gestion d’Azure Active Directory nécessite l’exécution continue de tâc
 | Si les stratégies incluent des workflows d’approbation, passer régulièrement en revue les approbations des workflows | Propriétaires d’application |
 | Examiner les exceptions dans les stratégies de sécurité, comme les stratégies d’accès conditionnel, via des révisions des accès | Équipe des opérations InfoSec |
 
-En passant votre liste en revue, vous pouvez constater qu’il est nécessaire d’affecter un propriétaire à des tâches qui n’en ont pas, ou d’ajuster la propriété des tâches avec des propriétaires qui ne sont pas alignés sur les recommandations ci-dessus.
+Quand vous passerez votre liste en revue, vous devrez peut-être affecter un propriétaire à des tâches qui en sont dépourvues, ou modifier la propriété des tâches avec propriétaires qui ne sont pas conformes aux suggestions ci-dessus.
 
 #### <a name="owner-recommended-reading"></a>Lectures recommandées pour les propriétaires
 

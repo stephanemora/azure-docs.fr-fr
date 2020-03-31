@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
 ms.openlocfilehash: 5eba50e7cfc00c081622972ca09f305b34c19c47
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74034998"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>Utiliser la console série pour les appels SysRq et NMI
@@ -98,7 +98,7 @@ Pour obtenir la documentation propre à la distribution sur SysRq et les étapes
 - [Collecte des journaux d’activité d’incident](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
 
 ## <a name="non-maskable-interrupt-nmi"></a>Interruption non masquable (NMI) 
-Une interruption non masquable (NMI) est conçue pour créer un signal que les logiciels sur une machine virtuelle n’ignoreront pas. À l’origine, les NMI ont été utilisées pour surveiller les problèmes matériels sur les systèmes nécessitant des temps de réponse spécifiques.  Aujourd’hui, les programmeurs et les administrateurs système utilisent souvent les NMI comme mécanisme de débogage ou de dépannage des systèmes qui ne répondent pas.
+Une interruption non masquable (NMI) est conçue pour créer un signal que les logiciels sur une machine virtuelle n’ignoreront pas. À l’origine, les NMI ont été utilisées pour surveiller les problèmes matériels sur les systèmes nécessitant des temps de réponse spécifiques.  Aujourd’hui, les programmeurs et les administrateurs système utilisent souvent NMI comme mécanisme de débogage ou de dépannage des systèmes qui ne répondent pas.
 
 La console série peut être utilisée pour envoyer une NMI à une machine virtuelle Azure à l’aide de l’icône de clavier dans la barre de commandes ci-dessous. Une fois que la NMI est remise, la configuration de machine virtuelle contrôle le mode de réponse du système.  Les systèmes d’exploitation Linux peuvent être configurés de façon à provoquer un incident et à créer une image mémoire lorsque le système d’exploitation reçoit une NMI.
 
@@ -129,5 +129,5 @@ Pour plus d'informations sur les configurations du noyau Linux, notamment `unkno
 ## <a name="next-steps"></a>Étapes suivantes
 * La page principale de documentation de la console série Linux se trouve [ici](serial-console.md).
 * Utiliser la console série pour [démarrer dans GRUB et entrer en mode mono-utilisateur](serial-console-grub-single-user-mode.md)
-* La console série est également disponible pour les machines virtuelles [Windows](../windows/serial-console.md).
+* La console série est également disponible pour les machines virtuelles [Windows](../windows/serial-console.md)
 * En savoir plus sur les [diagnostics de démarrage](boot-diagnostics.md)

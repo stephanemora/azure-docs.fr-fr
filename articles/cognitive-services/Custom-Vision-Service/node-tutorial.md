@@ -10,18 +10,18 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: areddish
-ms.openlocfilehash: 7490e1261262ff26eec48a691e22ec177954dcf3
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: f1c0d8f72fe59ff9a8c0fdba86d97ea588a9a808
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76169447"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80366631"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-nodejs-sdk"></a>Démarrage rapide : Créer un projet de classification d’images avec le SDK Custom Vision Node.js
 
 Cet article vous montre comment bien démarrer avec le SDK Vision par ordinateur et Node.js pour générer un modèle de classification d’images. Après la création du projet, vous pouvez ajouter des étiquettes, charger des images, entraîner le projet, obtenir l’URL du point de terminaison de prédiction publié du projet et utiliser ce point de terminaison pour tester programmatiquement une image. Utilisez cet exemple comme modèle pour générer votre propre application Node.js. Si vous voulez générer et utiliser un modèle de classification _sans_ code, consultez le [guide basé sur navigateur](getting-started-build-a-classifier.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - [Node.js 8](https://www.nodejs.org/en/download/) ou ultérieur installé.
 - [npm](https://www.npmjs.com/) installé.
@@ -51,8 +51,8 @@ Pour créer un nouveau projet Service Vision personnalisée, ajoutez le code sui
 ```javascript
 const util = require('util');
 const fs = require('fs');
-const TrainingApiClient = require("@azure/cognitiveservices-customvision-training");
-const PredictionApiClient = require("@azure/cognitiveservices-customvision-prediction");
+const TrainingApi = require("@azure/cognitiveservices-customvision-training");
+const PredictionApi = require("@azure/cognitiveservices-customvision-prediction");
 
 const setTimeoutPromise = util.promisify(setTimeout);
 
@@ -65,7 +65,7 @@ const endPoint = "https://<my-resource-name>.cognitiveservices.azure.com/"
 
 const publishIterationName = "classifyModel";
 
-const trainer = new TrainingApiClient(trainingKey, endPoint);
+const trainer = new TrainingApi.TrainingAPIClient(trainingKey, endPoint);
 
 (async () => {
     console.log("Creating project...");
@@ -133,7 +133,7 @@ await trainer.publishIteration(sampleProject.id, trainingIteration.id, publishIt
 Pour envoyer une image au point de terminaison de prédiction et récupérer la prédiction, ajoutez le code suivant à la fin du fichier :
 
 ```javascript
-    const predictor = new PredictionApiClient(predictionKey, endPoint);
+    const predictor = new PredictionApi.PredictionAPIClient(predictionKey, endPoint);
     const testFile = fs.readFileSync(`${sampleDataRoot}/Test/test_image.jpg`);
 
     const results = await predictor.classifyImage(sampleProject.id, publishIterationName, testFile);

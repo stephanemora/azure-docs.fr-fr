@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 48f3109b4c87e25444629ca25411894eab8a9d56
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71827140"
 ---
 # <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Synchronisation d’Azure AD Connect : prévention des suppressions accidentelles

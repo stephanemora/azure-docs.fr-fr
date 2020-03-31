@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 449095c92c30638b25836a2c7803176f7f0512e5
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 42efec9f6c680572350005ac8152dcc31509c6e1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048064"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80295562"
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-azure-powershell"></a>Créer une passerelle d’application hébergeant plusieurs sites à l’aide d’Azure PowerShell
 
@@ -36,7 +36,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser PowerShell en local, vous devez exécuter le module Azure PowerShell version 1.0.0 ou version ultérieure pour les besoins de ce didacticiel. Pour trouver la version, exécutez `Get-Module -ListAvailable Az`. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzAccount` pour créer une connexion avec Azure.
+Si vous choisissez d’installer et d’utiliser PowerShell en local, vous devez exécuter le module Azure PowerShell version 1.0.0 ou version ultérieure pour les besoins de ce tutoriel. Pour trouver la version, exécutez `Get-Module -ListAvailable Az`. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzAccount` pour créer une connexion avec Azure.
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
@@ -256,7 +256,7 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ## <a name="test-the-application-gateway"></a>Tester la passerelle d’application
 
-Entrez votre nom de domaine dans la barre d’adresse de votre navigateur. Par exemple, https://www.contoso.com.
+Entrez votre nom de domaine dans la barre d’adresse de votre navigateur. Par exemple, `https://www.contoso.com`.
 
 ![Tester le site contoso dans la passerelle d’application](./media/application-gateway-create-multisite-azureresourcemanager-powershell/application-gateway-iistest.png)
 

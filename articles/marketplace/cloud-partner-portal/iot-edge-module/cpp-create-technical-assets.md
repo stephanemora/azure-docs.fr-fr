@@ -1,19 +1,18 @@
 ---
 title: Créer des ressources techniques de module Azure IoT Edge | Place de marché Azure
 description: Créez des ressources techniques pour un module IoT Edge.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/18/2018
-ms.author: pabutler
-ms.openlocfilehash: 57bc2f789836a7d3453004cdacc59029c4b24129
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 304ea31f2a6f9820226a6ad0db8bfc803e6fdb94
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827623"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80285212"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>Préparer vos ressources techniques de module IoT Edge
 
@@ -30,7 +29,7 @@ Un module IoT Edge est un conteneur compatible avec Docker conçu pour être ex�
 
 Les exigences techniques suivantes doivent être remplies pour que votre module IoT Edge puisse être certifié et publié sur la Place de marché Microsoft Azure.
 
-### <a name="platform-support"></a>Prise en charge de plateformes
+### <a name="platform-support"></a>Plateforme prise en charge
 
 Votre module IoT Edge doit prendre en charge une des options de plateforme suivantes.
 

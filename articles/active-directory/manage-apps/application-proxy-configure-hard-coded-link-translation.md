@@ -17,10 +17,10 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: aa0dc2081aff5a24fb830b756131cccd5c6ce810
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69533699"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Rediriger les liens codés en dur pour les applications publiées avec le Proxy d’application Azure AD
@@ -35,9 +35,9 @@ Si vous ne pouvez pas utiliser des domaines personnalisés dans votre locataire,
 > [!NOTE]
 > La traduction des liens n’est pas prise en charge pour les URL internes codées en dur générées via JavaScript.
 
-**Option 1 : Utiliser Managed Browser ou Microsoft Edge** – Cette solution s'applique uniquement si vous envisagez de recommander ou d'exiger que les utilisateurs accèdent à l'application par le biais du navigateur Intune Managed Browser ou Microsoft Edge. Elle gère toutes les URL publiées. 
+**Option n°1 : Utiliser Managed Browser ou Microsoft Edge** – Cette solution s'applique uniquement si vous envisagez de recommander ou d'exiger que les utilisateurs accèdent à l'application par le biais du navigateur Intune Managed Browser ou Microsoft Edge. Elle gère toutes les URL publiées. 
 
-**Option 2 : Utiliser l’extension MyApps** – Cette solution exige des utilisateurs qu’ils installent une extension de navigateur côté client, mais elle gère les URL publiées et fonctionne avec les navigateurs les plus populaires. 
+**Option n°2 : Utiliser l’extension MyApps** – Cette solution exige des utilisateurs qu’ils installent une extension de navigateur côté client, mais elle gère les URL publiées et fonctionne avec les navigateurs les plus populaires. 
 
 **Option 3 : Utiliser le paramètre de traduction de lien** – Il s’agit d’un paramètre côté administrateur qui n’est pas visible par les utilisateurs. Toutefois, il gère uniquement les URL en HTML et CSS.   
 
@@ -50,13 +50,13 @@ Ces trois fonctionnalités garantissent le fonctionnement de vos liens quel que 
 > Ou, si l’application que vous souhaitez configurer avec une traduction de liens est SharePoint, consultez [Configurer les mappages d’accès de substitution pour SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx) pour une autre approche des liens de mappage. 
 
  
-### <a name="option-1-intune-managed-browser-and-microsoft-edge-integration"></a>Option 1 : Intégration d'Intune Managed Browser et de Microsoft Edge 
+### <a name="option-1-intune-managed-browser-and-microsoft-edge-integration"></a>Option 1 : Intégration d'Intune Managed Browser et de Microsoft Edge 
 
 Vous pouvez utiliser Intune Managed Browser ou Microsoft Edge afin de mieux protéger votre application et votre contenu. Pour utiliser cette solution, vous devez exiger/recommander que les utilisateurs accèdent à l’application par le biais d’Intune Managed Browser. Toutes les URL internes publiées avec Proxy d’application seront reconnues par Managed Browser et redirigées vers l’URL externe correspondante. Cela garantit le fonctionnement de toutes les URL internes codées en dur, et si un utilisateur accède au navigateur et tape directement l’URL interne, elle fonctionnera même si l’utilisateur est distant.  
 
 Pour plus d’informations, notamment sur la façon de configurer cette option, consultez la documentation de [Managed Browser](https://docs.microsoft.com/intune/app-configuration-managed-browser).  
 
-### <a name="option-2-myapps-browser-extension"></a>Option 2 : Extension de navigateur MyApps 
+### <a name="option-2-myapps-browser-extension"></a>Option n°2 : Extension de navigateur MyApps 
 
 Avec l’extension de navigateur MyApps, toutes les URL internes publiées avec Proxy d’application sont reconnues par l’extension et redirigées vers l’URL externe correspondante. Cela garantit le fonctionnement de toutes les URL internes codées en dur, et si un utilisateur accède à la barre d’adresse du navigateur et tape directement l’URL interne, elle fonctionnera même si l’utilisateur est distant.  
 
@@ -64,7 +64,7 @@ Pour utiliser cette fonctionnalité, l’utilisateur doit télécharger l’exte
 
 Pour plus d’informations, notamment sur la configuration de cette option, consultez la documentation de [l’extension de navigateur MyApps](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access#download-and-install-the-my-apps-secure-sign-in-extension).
 
-### <a name="option-3-link-translation-setting"></a>Option 3 : Paramètre de traduction de lien 
+### <a name="option-3-link-translation-setting"></a>Option 3 : Paramètre de traduction de lien 
 
 Quand la traduction de lien est activée, le service Proxy d’application effectue des recherches dans le code HTML et CSS afin de trouver les liens internes publiés, puis traduit ces liens afin que vos utilisateurs bénéficient d’une expérience sans interruption. L’utilisation de l’extension de navigateur MyApps est préférée au paramètre de traduction de liens dans la mesure où elle offre une expérience plus performante aux utilisateurs.
 
@@ -90,7 +90,7 @@ Liste complète des balises de code HTML pour lesquelles le proxy d’applicatio
 * a
 * audio
 * base
-* button
+* Bouton
 * div
 * embed
 * form
@@ -103,7 +103,7 @@ Liste complète des balises de code HTML pour lesquelles le proxy d’applicatio
 * link
 * menuitem
 * meta
-* objet
+* object
 * script
 * source
 * track

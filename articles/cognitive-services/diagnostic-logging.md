@@ -1,5 +1,5 @@
 ---
-title: Journalisation de diagnostic
+title: la journalisation des diagnostics.
 titleSuffix: Azure Cognitive Services
 description: Ce guide fournit des instructions pas à pas pour activer la journalisation des diagnostics pour un service Azure Cognitive Services. Ces journaux fournissent des informations riches et fréquentes sur l’exploitation d’une ressource et permettent l’identification et le débogage des problèmes.
 services: cognitive-services
@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 06/14/2019
 ms.author: erhopf
 ms.openlocfilehash: 539a35f170b2ee0c94762a30ed9376ca4a416210
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "71827895"
 ---
 # <a name="enable-diagnostic-logging-for-azure-cognitive-services"></a>Activer la journalisation des diagnostics pour Azure Cognitive Services
@@ -41,7 +41,7 @@ Commençons par activer la journalisation des diagnostics à partir du portail A
 2. Ensuite, dans le menu de navigation de gauche, recherchez **Supervision**, puis sélectionnez **Paramètres de diagnostic**. Cet écran contient tous les paramètres de diagnostic créés précédemment pour cette ressource.
 3. Si vous souhaitez utiliser une ressource créée précédemment, vous pouvez la sélectionner maintenant. Sinon, sélectionnez **+ Ajouter un paramètre de diagnostic**.
 4. Attribuez un nom au paramètre. Sélectionnez ensuite **Archiver dans un compte de stockage**, puis **Envoyer à Log Analytics**.
-5. Quand vous êtes invité à procéder à la configuration, sélectionnez le compte de stockage et l’espace de travail OMS dont vous voulez vous servir pour stocker les journaux de diagnostic. **Remarque**: Si vous n’avez pas de compte de stockage ni d’espace de travail OMS, suivez les invites pour en créer un.
+5. Quand vous êtes invité à procéder à la configuration, sélectionnez le compte de stockage et l’espace de travail OMS dont vous voulez vous servir pour stocker les journaux de diagnostic. **Remarque** : Si vous n’avez pas de compte de stockage ni d’espace de travail OMS, suivez les invites pour en créer un.
 6. Sélectionnez **Audit**, **RequestResponse**, et **AllMetrics**. Définissez ensuite la période de rétention de vos données de journal de diagnostic. Si la stratégie de rétention est définie sur zéro, les événements de cette catégorie de journal sont stockés indéfiniment.
 7. Cliquez sur **Enregistrer**.
 

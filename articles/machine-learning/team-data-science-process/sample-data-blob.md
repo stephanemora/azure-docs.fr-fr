@@ -12,13 +12,13 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 4832762a88073f4d819925659bf9078e18f60c2d
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76720277"
 ---
-# <a name="heading"></a>Échantillonner des données dans le stockage d’objets blob Azure
+# <a name="sample-data-in-azure-blob-storage"></a><a name="heading"></a>Échantillonner des données dans le stockage d’objets blob Azure
 
 Cet article traite de l’échantillonnage des données conservées dans le stockage d’objets blob Azure par le biais du téléchargement de ces données par programmation, puis de leur échantillonnage à l’aide de procédures écrites dans Python.
 
@@ -63,7 +63,7 @@ Cette tâche d’échantillonnage est une étape du [processus TDSP (Team Data S
 
 Vous pouvez à présent travailler sur l’échantillon de 1 % de la trame de données ci-dessus à d’autres fins d’exploration et de génération de fonctionnalités.
 
-## <a name="heading"></a>Télécharger les données et les lire dans Azure Machine Learning
+## <a name="upload-data-and-read-it-into-azure-machine-learning"></a><a name="heading"></a>Télécharger les données et les lire dans Azure Machine Learning
 Vous pouvez sous-échantillonner les données et les utiliser directement dans Azure Machine Learning en utilisant l’exemple de code ci-dessous :
 
 1. Écrivez la trame de données dans un fichier local :

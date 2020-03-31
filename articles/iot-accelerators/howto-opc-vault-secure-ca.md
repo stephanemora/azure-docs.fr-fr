@@ -9,17 +9,17 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 88f8188779c5fb6b3cd07c67e9f35a6b8f9ad97d
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200086"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79233385"
 ---
 # <a name="run-the-opc-vault-certificate-management-service-securely"></a>Exécuter le service de gestion de certificats OPC Vault de manière sécurisée
 
 Cet article explique comment exécuter le service de gestion de certificats OPC Vault de manière sécurisée dans Azure et passe en revue les autres consignes de sécurité à prendre en considération.
 
-## <a name="roles"></a>contrôleur
+## <a name="roles"></a>Rôles
 
 ### <a name="trusted-and-authorized-roles"></a>Rôles approuvés et autorisés
 

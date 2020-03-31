@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/16/2016
 ms.author: kasing
 ms.openlocfilehash: ca52a458104b4de0f7b3ed2aa3f76109a5623c97
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74067314"
 ---
 # <a name="setting-up-winrm-access-for-virtual-machines-in-azure-resource-manager"></a>Configuration de l’accès WinRM pour les machines virtuelles dans Azure Resource Manager
@@ -33,14 +33,14 @@ Voici les étapes à suivre pour configurer une machine virtuelle avec une conne
 
  
 
-## <a name="step-1-create-a-key-vault"></a>Étape 1 : Créer un coffre de clés
+## <a name="step-1-create-a-key-vault"></a>Étape 1 : Créer un coffre de clés
 Vous pouvez utiliser la commande ci-dessous pour créer le coffre de clés
 
 ```
 New-AzKeyVault -VaultName "<vault-name>" -ResourceGroupName "<rg-name>" -Location "<vault-location>" -EnabledForDeployment -EnabledForTemplateDeployment
 ```
 
-## <a name="step-2-create-a-self-signed-certificate"></a>Étape 2 : Créer un certificat auto-signé
+## <a name="step-2-create-a-self-signed-certificate"></a>Étape 2 : Créer un certificat auto-signé
 Vous pouvez créer un certificat auto-signé à l’aide de ce script PowerShell
 
 ```

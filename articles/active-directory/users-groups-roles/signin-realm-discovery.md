@@ -14,10 +14,10 @@ ms.reviewer: kexia
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c8b6a65a964016f702fcf75aa4cbdab33a952e3b
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74024249"
 ---
 # <a name="home-realm-discovery-for-azure-active-directory-sign-in-pages"></a>Découverte du domaine d’accueil pour les pages de connexion Azure Active Directory

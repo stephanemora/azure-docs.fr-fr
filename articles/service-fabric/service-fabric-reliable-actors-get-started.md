@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: vturecek
 ms.openlocfilehash: a6e4fb48653572139463738c82de632ff7d55074
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75466254"
 ---
 # <a name="getting-started-with-reliable-actors"></a>Prise en main de Reliable Actors
@@ -19,7 +19,7 @@ ms.locfileid: "75466254"
 
 Cet article décrit la création et le débogage d'une simple application Reliable Actors dans Visual Studio. Pour plus d’informations sur Reliable Actors, consultez l’article [Présentation du modèle Reliable Actors de Service Fabric](service-fabric-reliable-actors-introduction.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer, assurez-vous d’avoir configuré l’environnement de développement Service Fabric, y compris Visual Studio, sur votre ordinateur. Pour plus de détails, voir [Configuration de l’environnement de développement](service-fabric-get-started.md).
 

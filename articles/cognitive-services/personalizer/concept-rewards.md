@@ -4,11 +4,11 @@ description: Le score de récompense indique à quel point le choix de personnal
 ms.date: 02/20/2020
 ms.topic: conceptual
 ms.openlocfilehash: 734e4d0fdcec25884f8535ec61ccd10569fa8890
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623778"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79218575"
 ---
 # <a name="reward-scores-indicate-success-of-personalization"></a>Les scores de récompense indiquent la réussite de la personnalisation
 

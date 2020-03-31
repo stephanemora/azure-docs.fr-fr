@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
 ms.openlocfilehash: bf12a5b7850a56d945e1082be6c522c31738669c
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73954079"
 ---
 # <a name="integrate-expressroute-with-disaster-recovery-for-azure-vms"></a>Intégrer ExpressRoute avec la récupération d'urgence pour les machines virtuelles Azure
@@ -104,7 +104,7 @@ Les déploiements d’entreprise classiques ont des charges de travail répartie
 
 #### <a name="spoke-to-hub"></a>Spoke à hub
 
-**Direction** | **Paramètre** | **State**
+**Sens** | **Paramètre** | **State**
 --- | --- | ---
 Spoke à hub | Autoriser l’adresse du réseau virtuel | activé
 Spoke à hub | Autoriser le trafic transféré | activé
@@ -115,7 +115,7 @@ Spoke à hub | Utiliser des passerelles à distance | activé
 
 #### <a name="hub-to-spoke"></a>Hub à spoke
 
-**Direction** | **Paramètre** | **State**
+**Sens** | **Paramètre** | **State**
 --- | --- | ---
 Hub à spoke | Autoriser l’adresse du réseau virtuel | activé
 Hub à spoke | Autoriser le trafic transféré | activé

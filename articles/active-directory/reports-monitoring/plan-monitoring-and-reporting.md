@@ -13,10 +13,10 @@ ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5ad84b8910e8d4f8af9845c33c22d128e317dedc
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74232105"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Planifier un déploiement de création de rapports et de supervision Azure Active Directory
@@ -111,7 +111,7 @@ La création de rapports et la supervision permettent de répondre aux exigences
 
 Avec la supervision Azure AD, vous pouvez router vos journaux d’activité Azure AD vers le système qui répond le mieux aux besoins de votre entreprise. Vous pouvez les conserver afin de créer des rapports et d’effectuer des analyses dans le long terme, en vue d’obtenir des insights sur votre environnement et de les intégrer à vos outils SIEM.
 
-#### <a name="decision-flow-chartan-image-showing-what-is-described-in-subsequent-sectionsmediareporting-deployment-plandeploy-reporting-flow-diagrampng"></a>Organigramme décisionnel![Image montrant ce qui est décrit dans les sections suivantes.](media/reporting-deployment-plan/deploy-reporting-flow-diagram.png)
+#### <a name="decision-flow-chartan-image-showing-what-is-described-in-subsequent-sections"></a>Organigramme décisionnel![Image montrant ce qui est décrit dans les sections suivantes.](media/reporting-deployment-plan/deploy-reporting-flow-diagram.png)
 
 #### <a name="archive-logs-in-a-storage-account"></a>Archiver des journaux dans un compte de stockage
 

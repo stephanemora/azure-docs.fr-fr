@@ -1,19 +1,18 @@
 ---
 title: Codes pays/région de co-vente | Place de marché Azure
 description: Utilisez ces codes pays/région à deux lettres lorsque vous fournissez des coordonnées dans la page de co-vente de votre offre.
-author: MaggiePucciEvans
-manager: evansma
-ms.author: evansma
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: 925218879ce0dc1c69054f861e37e86c122d47f9
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 097fe2c394cb48a13fbc9cb253ef4df9c9959713
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934349"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80277054"
 ---
 # <a name="co-sell-country-and-region-codes"></a>Codes pays/région de co-vente
 
@@ -181,7 +180,7 @@ Si un contact couvre plusieurs pays/régions, entrez chacun des codes à deux l
 | Namibie                             | N/D        |
 | Nauru                               | NR        |
 | Népal                               | NP        |
-| Pays-bas                         | NL        |
+| Pays-Bas                         | NL        |
 | Nouvelle-Calédonie                       | NC        |
 | Nouvelle-Zélande                         | NZ        |
 | Nicaragua                           | NI        |
@@ -260,7 +259,7 @@ Si un contact couvre plusieurs pays/régions, entrez chacun des codes à deux l
 | Ouganda                              | UG        |
 | Ukraine                             | UA        |
 | Émirats Arabes Unis                | AE        |
-| United Kingdom                      | Go        |
+| Royaume-Uni                      | Go        |
 | États-Unis                       | US        |
 | Uruguay                             | UY        |
 | États-Unis Îles éloignées               | UM        |

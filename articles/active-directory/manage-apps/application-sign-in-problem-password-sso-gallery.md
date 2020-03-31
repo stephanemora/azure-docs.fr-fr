@@ -16,10 +16,10 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e9fd17d9e066be6a1abff5165436a09b8921184e
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68381297"
 ---
 # <a name="sign-in-problems-with-an-azure-ad-gallery-app-configured-for-sso"></a>Problèmes de connexion à une application de la galerie Azure AD configurée pour l’authentification unique
@@ -187,7 +187,7 @@ Pour assigner des utilisateurs directement à une application, procédez comme s
 Si vous obtenez un message d’erreur lorsque vous configurez l’authentification unique et que vous assignez des utilisateurs, ouvrez un ticket de support. Veillez à fournir autant d’informations que possible :
 
 -   ID d’erreur de corrélation
--   UPN (adresse e-mail de l’utilisateur)
+-   Nom d’utilisateur principal (adresse de messagerie de l’utilisateur)
 -   ID de locataire
 -   Type de navigateur
 -   Fuseau horaire et heure ou période à laquelle l’erreur s’est produite

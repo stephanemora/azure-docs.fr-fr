@@ -19,8 +19,6 @@
           href: connect-metamask.md
         - name: Utilisation de Geth
           href: connect-geth.md
-        - name: Utilisation de Truffle
-          href: connect-truffle.md
 - name: Tutoriels
   items:
     - name: Créer des contrats intelligents

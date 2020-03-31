@@ -12,10 +12,10 @@ ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 08/20/2019
 ms.openlocfilehash: 1ee2efbb8aebfc2f1a94c89edef6166898946d8a
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74422530"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Synchroniser des données sur plusieurs bases de données cloud et locales avec SQL Data Sync
@@ -112,7 +112,7 @@ Data Sync utilise des déclencheurs d’insertion, de mise à jour et de suppres
 
 Le provisionnement et le déprovisionnement lors de la création, la mise à jour et la suppression du groupe de synchronisation peuvent également avoir un impact sur les performances de la base de données.
 
-## <a name="sync-req-lim"></a> Spécifications et limitations
+## <a name="requirements-and-limitations"></a><a name="sync-req-lim"></a> Spécifications et limitations
 
 ### <a name="general-requirements"></a>Conditions générales
 
@@ -146,16 +146,16 @@ Le provisionnement et le déprovisionnement lors de la création, la mise à jou
 
 Data Sync ne peut pas synchroniser des colonnes en lecture seule ou générées par le système. Par exemple :
 
-- Colonnes calculées.
+- Colonnes calculées
 - Colonnes générées par le système pour les tables temporelles.
 
 #### <a name="limitations-on-service-and-database-dimensions"></a>Limitations des dimensions de la base de données et du service
 
 | **Dimensions**                                                  | **Limite**              | **Solution de contournement**              |
 |-----------------------------------------------------------------|------------------------|-----------------------------|
-| Nombre maximal de groupes de synchronisation auquel peut appartenir une base de données.       | 5\.                      |                             |
+| Nombre maximal de groupes de synchronisation auquel peut appartenir une base de données.       | 5                      |                             |
 | Nombre maximal de points de terminaison dans un seul groupe de synchronisation              | 30                     |                             |
-| Nombre maximal de points de terminaison locaux dans un seul groupe de synchronisation. | 5\.                      | Créer plusieurs groupes de synchronisation |
+| Nombre maximal de points de terminaison locaux dans un seul groupe de synchronisation. | 5                      | Créer plusieurs groupes de synchronisation |
 | Noms de la base de données, de la table, du schéma et des colonnes                       | 50 caractères par nom |                             |
 | Tables dans un groupe de synchronisation                                          | 500                    | Créer plusieurs groupes de synchronisation |
 | Colonnes d’une table dans un groupe de synchronisation                              | 1 000                   |                             |
@@ -229,7 +229,7 @@ Vous devez mettre à jour le schéma d’une base de données dans un groupe de 
 - [Automatiser la réplication des modifications de schéma dans Azure SQL Data Sync](sql-database-update-sync-schema.md)
 - [Utiliser PowerShell pour mettre à jour le schéma de synchronisation dans un groupe de synchronisation existant](scripts/sql-database-sync-update-schema.md)
 
-### <a name="monitor-and-troubleshoot"></a>Surveiller et résoudre des problèmes
+### <a name="monitor-and-troubleshoot"></a>Superviser et dépanner
 
 SQL Data Sync s’exécute-t-il comme prévu ? Pour surveiller l’activité et résoudre les problèmes, consultez les articles suivants :
 

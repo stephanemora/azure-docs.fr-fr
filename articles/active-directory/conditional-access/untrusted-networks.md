@@ -12,13 +12,13 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4cedec7f0bd51460796d8138f8d481d2982098f4
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74380003"
 ---
-# <a name="how-to-require-mfa-for-access-from-untrusted-networks-with-conditional-access"></a>Activation Exiger une authentification multifacteur (MFA) pour l’accès à partir de réseaux non approuvés disposant d’un accès conditionnel   
+# <a name="how-to-require-mfa-for-access-from-untrusted-networks-with-conditional-access"></a>Procédure : Exiger une authentification multifacteur (MFA) pour l’accès à partir de réseaux non approuvés disposant d’un accès conditionnel   
 
 Azure Active Directory (Azure AD) active l’authentification unique aux appareils, applications et des services depuis n’importe quel endroit. Vos utilisateurs peuvent accéder à vos applications cloud non seulement à partir du réseau de votre organisation, mais aussi à partir de n’importe quel emplacement Internet non approuvé. Une meilleure pratique courante pour l’accès à partir de réseaux non approuvés consiste à exiger une authentification multifacteur (MFA).
 
@@ -69,4 +69,4 @@ Suivant l’approche décrite dans cet article, vous pouvez maintenant configure
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur l’accès conditionnel, voir [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](../active-directory-conditional-access-azure-portal.md).
+Pour plus d’informations sur l’accès conditionnel, voir [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](../active-directory-conditional-access-azure-portal.md)

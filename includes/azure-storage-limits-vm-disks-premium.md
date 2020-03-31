@@ -4,16 +4,16 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: rogarana
-ms.openlocfilehash: e7e57c6a821731874dcb1d99a3133b6ede1da26e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ef18feb10dabc6a77e6512c6a32ad44b32c6e832
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "67177052"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80334762"
 ---
 **Disques de machines virtuelles non managés Premium : Limites par compte**
 
-| Ressource | Limite par défaut |
+| Ressource | Limite |
 | --- | --- |
 | Capacité totale des disques par compte |35 To |
 | Capacité totale des instantanés par compte |10 To |
@@ -32,7 +32,7 @@ ms.locfileid: "67177052"
 
 **Disques de machines virtuelles non managés Premium : Limites par machine virtuelle**
 
-| Ressource | Limite par défaut |
+| Ressource | Limite |
 | --- | --- |
 | Maximum d’E/S par seconde par machine virtuelle |80 000 E/S par seconde avec la machine virtuelle GS5 |
 | Débit maximal par machine virtuelle |2 000 Mo/s avec la machine virtuelle GS5 |

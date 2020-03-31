@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 91401031945d0ec3ac22fc8cbcea8ba73580ee50
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 28151476ce96fabc92e04078396119d0eb8c2f17
+ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77442001"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80389356"
 ---
 # <a name="ingest-data-using-the-azure-data-explorer-python-library"></a>Ingérer des données à l’aide de la bibliothèque Python de l’Explorateur de données Azure
 
@@ -22,9 +22,9 @@ Vous allez d’abord créer une table et un mappage de données dans un cluster.
 
 Cet article est également disponible dans [Azure Notebook](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueuedIngestSingleBlob.ipynb).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-* Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+* Compte Azure avec un abonnement actif. [Créez gratuitement un compte](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 * [Python 3.4+](https://www.python.org/downloads/).
 
@@ -105,7 +105,7 @@ BLOB_PATH = "https://" + ACCOUNT_NAME + ".blob.core.windows.net/" + \
 
 ## <a name="create-a-table-on-your-cluster"></a>Créer une table sur votre cluster
 
-Créez une table qui correspond au schéma des données du fichier StormEvents.csv. Lorsque ce code s'exécute, il renvoie un message semblable au suivant : *Pour vous connecter, utilisez un navigateur web afin d'ouvrir la page https://microsoft.com/devicelogin et entrez le code F3W4VWZDM pour vous authentifier*. Suivez les étapes pour vous connecter, puis revenez pour exécuter le bloc de code suivant. Les blocs de code suivants qui établissent une connexion vous demandent de vous reconnecter.
+Créez une table qui correspond au schéma des données du fichier StormEvents.csv. Lorsque ce code s’exécute, il retourne un message similaire au suivant : *Pour vous connecter, utilisez un navigateur web pour ouvrir la page https://microsoft.com/devicelogin et entrez le code F3W4VWZDM pour l’authentification*. Suivez les étapes pour vous connecter, puis revenez pour exécuter le bloc de code suivant. Les blocs de code suivants qui établissent une connexion vous demandent de vous reconnecter.
 
 ```python
 KUSTO_CLIENT = KustoClient(KCSB_DATA)
@@ -136,7 +136,7 @@ Mettez en file d’attente un message pour extraire les données du stockage d�
 INGESTION_CLIENT = KustoIngestClient(KCSB_INGEST)
 
 # All ingestion properties are documented here: https://docs.microsoft.com/azure/kusto/management/data-ingest#ingestion-properties
-INGESTION_PROPERTIES = IngestionProperties(database=KUSTO_DATABASE, table=DESTINATION_TABLE, dataFormat=DataFormat.csv,
+INGESTION_PROPERTIES = IngestionProperties(database=KUSTO_DATABASE, table=DESTINATION_TABLE, dataFormat=DataFormat.CSV,
                                            mappingReference=DESTINATION_TABLE_COLUMN_MAPPING, additionalProperties={'ignoreFirstRecord': 'true'})
 # FILE_SIZE is the raw size of the data in bytes
 BLOB_DESCRIPTOR = BlobDescriptor(BLOB_PATH, FILE_SIZE)

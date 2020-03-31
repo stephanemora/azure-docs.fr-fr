@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 11/08/2019
 ms.author: dapine
 ms.openlocfilehash: 308a474970db54022e5351fdf349d9572fbafb0d
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75888564"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79218779"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installer et exécuter des conteneurs Docker LUIS
  
@@ -28,7 +28,7 @@ La vidéo suivante illustre l’utilisation de ce conteneur.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Voici les prérequis à l’exécution du conteneur LUIS :
 
@@ -243,7 +243,7 @@ Le conteneur fournit des API de point de terminaison de prédiction de requête 
 
 Utilisez l’hôte, `http://localhost:5000`, pour les API de conteneur.
 
-# <a name="v3-prediction-endpointtabv3"></a>[Point de terminaison de prédiction V3](#tab/v3)
+# <a name="v3-prediction-endpoint"></a>[Point de terminaison de prédiction V3](#tab/v3)
 
 |Type de package|Verbe HTTP|Routage|Paramètres de requête|
 |--|--|--|--|
@@ -259,7 +259,7 @@ Les paramètres de requête configurent ce qui est retourné dans la réponse de
 |`log`|boolean|Enregistre les requêtes, qui peuvent être utilisées ultérieurement pour l’[apprentissage actif](luis-how-to-review-endpoint-utterances.md). La valeur par défaut est false.|
 |`show-all-intents`|boolean|Valeur booléenne indiquant s’il faut retourner toutes les intentions ou uniquement l’intention au score le plus élevé. La valeur par défaut est false.|
 
-# <a name="v2-prediction-endpointtabv2"></a>[Point de terminaison de prédiction V2](#tab/v2)
+# <a name="v2-prediction-endpoint"></a>[Point de terminaison de prédiction V2](#tab/v2)
 
 |Type de package|Verbe HTTP|Routage|Paramètres de requête|
 |--|--|--|--|
@@ -282,7 +282,7 @@ Les paramètres de requête configurent ce qui est retourné dans la réponse de
 
 Voici un exemple de commande CURL pour interroger le conteneur d’une application publiée :
 
-# <a name="v3-prediction-endpointtabv3"></a>[Point de terminaison de prédiction V3](#tab/v3)
+# <a name="v3-prediction-endpoint"></a>[Point de terminaison de prédiction V3](#tab/v3)
 
 Pour interroger un modèle dans un emplacement, utilisez l’API suivante :
 
@@ -308,7 +308,7 @@ curl -G \
 "http://localhost:5000/luis/v3.0/apps/{APP_ID}/versions/{APP_VERSION}/predict"
 ```
 
-# <a name="v2-prediction-endpointtabv2"></a>[Point de terminaison de prédiction V2](#tab/v2)
+# <a name="v2-prediction-endpoint"></a>[Point de terminaison de prédiction V2](#tab/v2)
 
 Pour interroger un modèle dans un emplacement, utilisez l’API suivante :
 

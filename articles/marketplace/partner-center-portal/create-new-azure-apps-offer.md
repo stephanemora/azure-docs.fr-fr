@@ -1,19 +1,18 @@
 ---
 title: Créer une offre Azure Apps dans la Place de marché commerciale
 description: Découvrez comment créer une offre Azure Apps pour référencer ou vendre votre application sur la Place de marché Azure, sur AppSource ou via le programme Fournisseur de solutions cloud (CSP), en utilisant le portail de la Place de marché commerciale dans l’Espace partenaires Microsoft.
-author: MaggiePucciEvans
-manager: evansma
-ms.author: evansma
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: 69d7bc81f5adc4797be86f946fdb656b4b6cc682
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 0ff1bbd976273a7d0cbfb22effebdf45c84d2f41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760888"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80277237"
 ---
 # <a name="create-an-azure-application-offer"></a>Créer une offre d’application Azure
 
@@ -169,7 +168,7 @@ Vous devez définir les informations de la Place de marché (nom de l’offre, d
 > [!NOTE]
 > Il n’est pas nécessaire que le contenu du référencement de l’offre (par exemple, la description, les documents, les captures d’écran, les conditions d’utilisation, etc.) soit en anglais, tant que sa description commence par l’expression : « This application is available only in [langue autre que l’anglais]. » Il est également possible de fournir une *URL de lien utile* pour offrir du contenu dans une langue autre que celle utilisée dans le contenu de la liste des offres.
 
-### <a name="name"></a>Name
+### <a name="name"></a>Nom
 
 Le nom que vous entrez ici s’affichera auprès des clients comme titre de votre référencement d’offre. Ce champ est prérempli avec le texte que vous avez entré pour **Alias d’offre** lorsque vous avez créé l’offre, mais vous pouvez modifier cette valeur. Ce nom peut être une marque déposée (et vous pouvez inclure des symboles de marque ou de copyright). Le nom ne peut pas comporter plus de 50 caractères et ne peut pas contenir d’emoji.
 
@@ -309,7 +308,7 @@ Les services Azure Government gèrent des données soumises à certaines réglem
 
 L’onglet **Liste des plans** affiche les informations de chaque plan listé, qui peuvent être différentes d’un plan à un autre dans la même offre.
 
-### <a name="name"></a>Name
+### <a name="name"></a>Nom
 
 Il est prérempli sur la base du nom que vous avez attribué à votre plan au moment de sa création.  Ce nom est utilisé comme titre de ce « plan logiciel » affiché dans la Place de marché.  Il peut comporter jusqu’à 100 caractères.
 

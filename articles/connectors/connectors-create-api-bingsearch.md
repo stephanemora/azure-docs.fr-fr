@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 tags: connectors
 ms.openlocfilehash: e547ae59f7b3260f46756825bca2bef1c10bcc97
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75665885"
 ---
 # <a name="find-results-in-bing-search-by-using-azure-logic-apps"></a>Résultats de la recherche de Recherche Bing obtenus à l’aide d’Azure Logic Apps
@@ -23,7 +23,7 @@ Par exemple, vous pouvez rechercher des éléments d’actualités en fonction d
 Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/). Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md) et [Démarrage rapide : Créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 Pour obtenir des informations techniques spécifiques aux connecteurs, consultez la [référence du connecteur de recherche Bing](https://docs.microsoft.com/connectors/bingsearch/).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Un [compte Cognitive Services](../cognitive-services/cognitive-services-apis-create-account.md)
 

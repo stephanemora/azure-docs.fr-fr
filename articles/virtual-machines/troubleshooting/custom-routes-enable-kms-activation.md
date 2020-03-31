@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 12/20/2018
 ms.author: genli
 ms.openlocfilehash: 90034a56fcf5211059d37270e12391249f7a16b5
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77920159"
 ---
 # <a name="windows-activation-fails-in-forced-tunneling-scenario"></a>L’activation de Windows échoue dans un scénario de tunneling forcé
@@ -28,7 +28,7 @@ Cet article explique comment résoudre le problème d’activation KMS que vous 
 
 Vous activez [le tunneling forcé](../../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) sur les sous-réseaux de réseau virtuel Azure pour rediriger tout le trafic Internet vers votre réseau local. Dans ce scénario, les machines virtuelles Azure qui exécutent Windows ne parviennent pas à activer Windows.
 
-## <a name="cause"></a>Cause :
+## <a name="cause"></a>Cause
 
 Les machines virtuelles Windows Azure doivent se connecter au serveur Azure KMS pour l’activation des fenêtres. L’activation exige que la demande d’activation provienne d’une adresse IP publique Azure. Dans le scénario de tunneling forcé, l’activation échoue parce que la demande d’activation provient de votre réseau local plutôt que d’une adresse IP publique Azure.
 

@@ -4,10 +4,10 @@ description: Décrit comment afficher des fichiers journaux d’activité de con
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.openlocfilehash: c47a408b272f95dbfcf3d791c644bfeb52254a72
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75458186"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>Afficher les fichiers journaux d’activité d’un service de conteneurs Service Fabric

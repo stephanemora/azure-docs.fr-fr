@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/11/2019
 ms.author: juliako
 ms.openlocfilehash: cd955f97a2f26543f799d95b7dc0b1de235333c5
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74186214"
 ---
 # <a name="filter-your-manifests-using-dynamic-packager"></a>Filtrer vos manifestes à l’aide de Dynamic Packager
@@ -52,11 +52,11 @@ Vous pouvez utiliser la [page de démo Azure Media Player](https://aka.ms/azurem
 
 ![Diagnostics Azure Media Player][amp_diagnostics]
 
-### <a name="examples-urls-with-filters-in-query-string"></a>Exemples : URL avec des filtres dans la chaîne de requête
+### <a name="examples-urls-with-filters-in-query-string"></a>Exemples : URL avec des filtres dans la chaîne de requête
 
 Vous pouvez appliquer des filtres aux protocoles de diffusion en continu ABR : HLS, MPEG-DASH et Smooth Streaming. Le tableau suivant présente des exemples d’URL utilisant des filtres :
 
-|Protocol|Exemples|
+|Protocol|Exemple|
 |---|---|
 |HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`|
 |MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
@@ -137,7 +137,7 @@ Pour combiner des filtres, définissez leurs noms dans l’URL du manifeste ou d
 
 Pour plus d’informations, consultez [ce billet de blog](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/)
 
-## <a name="considerations-and-limitations"></a>Considérations et limitations
+## <a name="considerations-and-limitations"></a>Observations et limitations
 
 - Les valeurs **forceEndTimestamp**, **presentationWindowDuration** et **liveBackoffDuration** ne doivent pas être définies pour un filtre de vidéo à la demande (VOD). Elles sont uniquement utilisées pour les scénarios de filtre en direct.
 - Un manifeste dynamique fonctionne dans les limites d'un groupe d'images (GOP - images clés), par conséquent, le découpage est précis au niveau du GOP.

@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 9409f14b20684afa1a39d45e663ff316f405cc97
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76717915"
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Science des données évolutive avec Azure Data Lake : procédure complète
@@ -50,7 +50,7 @@ Azure Machine Learning Studio (classique) est utilisé pour créer et déployer 
 ### <a name="scripts"></a>Scripts
 Seules les principales étapes sont décrites dans cette procédure pas à pas. Vous pouvez télécharger la version complète du **script U-SQL** et du **bloc-notes Jupyter** à partir de [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 Avant de commencer ces rubriques, vous devez disposer des éléments suivants :
 
 * Un abonnement Azure. Si vous n’en avez pas, consultez [Obtenir une version d’évaluation gratuite Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
@@ -156,7 +156,7 @@ Pour exécuter U-SQL, ouvrez Visual Studio, cliquez sur **Fichier--> Nouveau--> 
 
 ![9](./media/data-lake-walkthrough/9-portal-submit-job.PNG)
 
-### <a name="ingest"></a>Ingestion de données : données lues à partir d’un objet blob public
+### <a name="data-ingestion-read-in-data-from-public-blob"></a><a name="ingest"></a>Ingestion de données : données lues à partir d’un objet blob public
 
 L’emplacement des données dans l’objet blob Azure, auquel il est fait référence sous la forme **wasb://container\_name\@blob\_storage\_account\_name.blob.core.windows.net/blob_name**, peut être extrait à l’aide de **Extractors.Csv()** . Remplacez vos propres noms de conteneur et de compte de stockage dans les scripts suivants pour container\_name\@blob\_storage\_account\_name dans l’adresse wasb. Les noms de fichiers étant au même format, il est possibile d'utiliser **trip\_data\_\{\*\}.csv** pour lire les 12 fichiers de course.
 
@@ -219,7 +219,7 @@ De même, vous pouvez lire dans les jeux de données de prix. Cliquez avec le bo
 
  ![11](./media/data-lake-walkthrough/11-data-in-ADL.PNG)
 
-### <a name="quality"></a>Contrôles de qualité des données
+### <a name="data-quality-checks"></a><a name="quality"></a>Contrôles de qualité des données
 Une fois les tables relatives aux courses et aux tarifs lues, les contrôles de qualité des données peuvent être effectués de la façon suivante. Les fichiers CSV qui en résultent peuvent être exportés vers le stockage d'objets blob Azure ou vers Azure Data Lake Storage.
 
 Recherchez le nombre de médaillons et le nombre unique de médaillons :
@@ -291,7 +291,7 @@ Recherchez les valeurs manquantes pour certaines variables :
 
 
 
-### <a name="explore"></a>Exploration des données
+### <a name="data-exploration"></a><a name="explore"></a>Exploration des données
 Effectuez des explorations de données avec les scripts suivants pour obtenir une meilleure compréhension des données.
 
 Recherchez la répartition des courses avec et sans pourboire :
@@ -358,7 +358,7 @@ Recherchez les percentiles de distance de la course :
     USING Outputters.Csv();
 
 
-### <a name="join"></a>Joindre des tables relatives aux courses et aux tarifs
+### <a name="join-trip-and-fare-tables"></a><a name="join"></a>Joindre des tables relatives aux courses et aux tarifs
 Les tables relatives aux courses et aux tarifs peuvent être jointes par médaillon, hack_license et pickup_time.
 
     //join trip and fare table
@@ -400,7 +400,7 @@ Pour chaque niveau de nombre de passagers, calculez le nombre d’enregistrement
     USING Outputters.Csv();
 
 
-### <a name="sample"></a>Échantillonnage des données
+### <a name="data-sampling"></a><a name="sample"></a>Échantillonnage des données
 Tout d’abord, sélectionnez aléatoirement 0,1 % des données à partir de la table jointe :
 
     //random select 1/1000 data for modeling purpose
@@ -440,7 +440,7 @@ Ensuite, procédez à un échantillonnage stratifié par variable binaire tip_cl
     USING Outputters.Csv();
 
 
-### <a name="run"></a>Exécuter des travaux U-SQL
+### <a name="run-u-sql-jobs"></a><a name="run"></a>Exécuter des travaux U-SQL
 Après avoir modifié les scripts U-SQL, vous pouvez les envoyer au serveur à l'aide de votre compte Azure Data Lake Analytics. Cliquez sur **Data Lake**, **Envoyer le travail**, sélectionnez votre **Compte Analytics**, choisissez **Parallélisme**, puis cliquez sur le bouton **Envoyer**.
 
  ![12](./media/data-lake-walkthrough/12-submit-USQL.PNG)

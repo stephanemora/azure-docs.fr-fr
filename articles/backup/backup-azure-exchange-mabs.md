@@ -4,12 +4,12 @@ description: Découvrez comment sauvegarder un serveur Exchange dans une sauveg
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.openlocfilehash: 9e623b1bdce93c340ccd0e61f9f5145e7154beff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b9c8cfb32adce39dab47159c7d644b92e0ced46e
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78295842"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80397953"
 ---
 # <a name="back-up-an-exchange-server-to-azure-with-azure-backup-server"></a>Sauvegarder un serveur Exchange dans Azure avec le serveur de sauvegarde Azure
 
@@ -34,7 +34,7 @@ Pour installer l’agent de protection du serveur de sauvegarde Azure sur le se
 4. Sélectionnez la base de données du serveur Exchange que vous souhaitez protéger, puis cliquez sur **Suivant**.
 
    > [!NOTE]
-   > Si vous protégez Exchange 2013, vérifiez les [Conditions préalables pour Exchange 2013](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/dn751029(v=sc.12)).
+   > Si vous protégez Exchange 2013, vérifiez les [Conditions préalables pour Exchange 2013](https://docs.microsoft.com/system-center/dpm/back-up-exchange?view=sc-dpm-2016).
    >
    >
 

@@ -7,27 +7,29 @@
     - name: Comparer les API Recherche Bing
       href: ../Bing-Web-Search/bing-api-comparison.md
       maintainContext: true
-- name: Démarrages rapides de l’API REST
+- name: Démarrages rapides
   expanded: true
   items:
-    - name: 'C#'
-      href: quickstarts/csharp.md
-    - name: Java
-      href: quickstarts/java.md
-    - name: Node.js
-      href: quickstarts/nodejs.md
-    - name: PHP
-      href: quickstarts/php.md
-    - name: Python
-      href: quickstarts/python.md
-    - name: Ruby
-      href: quickstarts/ruby.md
-- name: Bibliothèque cliente
-  items:
-    - name: 'C#'
-      href: quickstarts/csharp-sdk.md
-    - name: Go
-      href: quickstarts/go-sdk.md
+    - name: API REST
+      items:
+        - name: 'C#'
+          href: quickstarts/csharp.md
+        - name: Java
+          href: quickstarts/java.md
+        - name: Node.js
+          href: quickstarts/nodejs.md
+        - name: PHP
+          href: quickstarts/php.md
+        - name: Python
+          href: quickstarts/python.md
+        - name: Ruby
+          href: quickstarts/ruby.md
+    - name: Bibliothèque cliente
+      items:
+        - name: 'C#'
+          href: quickstarts/csharp-sdk.md
+        - name: Go
+          href: quickstarts/go-sdk.md
 - name: Tutoriels
   items:
     - name: Application web à page unique

@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
 ms.openlocfilehash: ab972db78cd213497fb96486b3e16b01f2c4c6eb
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73823627"
 ---
 # <a name="elastic-database-tools-glossary"></a>Glossaire des outils de base de données élastique
@@ -26,7 +26,7 @@ Ces termes sont utilisés dans [Ajout d’une partition à l’aide des outils d
 
 ![Termes liés ç l’infrastructure flexible][1]
 
-**Base de données** : base de données Azure SQL. 
+**Base de données** : base de données Azure SQL. 
 
 **Routage dépendant des données** : fonctionnalité qui permet à une application de se connecter à une partition en fonction d’une clé de sharding spécifique. Consultez [Routage dépendant des données](sql-database-elastic-scale-data-dependent-routing.md). Comparer à la **[Multi-Shard Query](sql-database-elastic-scale-multishard-querying.md)** .
 
@@ -50,7 +50,7 @@ Voici une représentation de bases de données **partitionnées** de type mono-u
 
 **Tables de référence** : tables non partitionnées, mais qui sont répliquées sur plusieurs partitions. Par exemple, les codes postaux peuvent être stockés dans une table de référence. 
 
-**Partition** : base de données Azure SQL Database qui stocke les données d’un jeu de données partitionnées. 
+**Partitionner** : base de données Azure SQL Database qui stocke les données d’un jeu de données partitionnées. 
 
 **Élasticité des partitions** : capacité à effectuer une **mise à l’échelle horizontale** et une **mise à l’échelle verticale**.
 

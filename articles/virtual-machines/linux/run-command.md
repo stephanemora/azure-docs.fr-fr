@@ -9,10 +9,10 @@ ms.date: 04/26/2019
 ms.topic: article
 manager: carmonm
 ms.openlocfilehash: 21787854590d3ca0be2cbd6e9d167de33482c787
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72597883"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-by-using-run-command"></a>Exécuter des scripts shell dans votre machine virtuelle Linux avec Run Command
@@ -54,7 +54,7 @@ The entity was not found in this Azure location
 |**RunShellScript**|Exécute un script shell Linux.|
 |**ifconfig**| Obtient la configuration de toutes les interfaces réseau.|
 
-## <a name="azure-cli"></a>D’Azure CLI
+## <a name="azure-cli"></a>Azure CLI
 
 L’exemple suivant utilise la commande [az vm run-command](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) pour exécuter un script shell sur une machine virtuelle Linux Azure.
 

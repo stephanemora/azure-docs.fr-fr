@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cc8a62bd75a01cb6b7184cb52585c4f8b08cadb
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 145439ebedd2ddf7c081339146010c66f37fe1af
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78378209"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79136532"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Planifier un déploiement d’authentification sans mot de passe dans Azure Active Directory
 
@@ -130,7 +130,7 @@ Consultez les [Bonnes pratiques pour un pilote](https://aka.ms/deploymentplans) 
 
 ## <a name="plan-passwordless-authentication-with-the-microsoft-authenticator-app"></a>Planifier l’authentification sans mot de passe avec l’application Microsoft Authenticator
 
-L’application Microsoft Authenticator est téléchargeable gratuitement à partir de Google Play ou d’Apple App Store. [En savoir plus sur le téléchargement de l’application Microsoft Authenticator](https://www.microsoft.com/account/authenticator?cmp=h66ftb_42hbak). Demandez aux utilisateurs de télécharger l’application Microsoft Authenticator et de suivre les instructions pour activer la connexion par téléphone. 
+L’application Microsoft Authenticator est téléchargeable gratuitement à partir de Google Play ou d’Apple App Store. [En savoir plus sur le téléchargement de l’application Microsoft Authenticator](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6). Demandez aux utilisateurs de télécharger l’application Microsoft Authenticator et de suivre les instructions pour activer la connexion par téléphone. 
 
 L’application transforme n’importe quel téléphone iOS ou Android en informations d’identification fortes et sans mot de passe. Les utilisateurs se connectent à n’importe quelle plateforme ou n’importe quel navigateur en obtenant une notification sur leur téléphone, en faisant correspondre un nombre affiché à l’écran à celui affiché sur leur téléphone, puis en utilisant les données biométriques ou un code confidentiel pour confirmer. [Consultez les détails sur le fonctionnement de l’application Microsoft Authenticator](https://docs.microsoft.com/azure/security/fundamentals/ad-passwordless#user-using-microsoft-authenticator-for-passwordless-sign-in). 
 

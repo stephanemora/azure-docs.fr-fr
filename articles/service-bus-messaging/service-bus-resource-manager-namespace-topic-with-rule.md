@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 11/27/2019
 ms.author: spelluru
-ms.openlocfilehash: d4c4f055114ccd0be4bbc588b7785eb0fb2f48c4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6cbaf447dfcf06ae11f2282d7d847978297af8b8
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75426891"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80384889"
 ---
 # <a name="create-a-service-bus-namespace-with-topic-subscription-and-rule-using-an-azure-resource-manager-template"></a>Créer un espace de noms Service Bus avec rubrique, abonnement et règle à l’aide d’un modèle Azure Resource Manager
 
@@ -40,8 +40,6 @@ Pour accéder au modèle complet, consultez le [modèle d’espace de noms Servi
 > * [Créer un espace de noms Service Bus par rubrique et abonnement](service-bus-resource-manager-namespace-topic.md)
 > 
 > Pour connaître les derniers modèles, recherchez Service Bus dans la galerie de [modèles de démarrage rapide Azure][Azure Quickstart Templates] .
-> 
-> 
 
 ## <a name="what-do-you-deploy"></a>Que déployez-vous ?
 
@@ -64,6 +62,7 @@ Azure Resource Manager vous permet de définir des paramètres pour les valeurs 
 Le modèle définit les paramètres suivants :
 
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
+
 Nom de l’espace de noms Service Bus à créer.
 
 ```json
@@ -73,6 +72,7 @@ Nom de l’espace de noms Service Bus à créer.
 ```
 
 ### <a name="servicebustopicname"></a>serviceBusTopicName
+
 Nom de la rubrique créée dans l’espace de noms Service Bus.
 
 ```json
@@ -82,6 +82,7 @@ Nom de la rubrique créée dans l’espace de noms Service Bus.
 ```
 
 ### <a name="servicebussubscriptionname"></a>serviceBusSubscriptionName
+
 Nom de l'abonnement créé dans l'espace de noms Service Bus.
 
 ```json
@@ -89,7 +90,9 @@ Nom de l'abonnement créé dans l'espace de noms Service Bus.
 "type": "string"
 }
 ```
+
 ### <a name="servicebusrulename"></a>serviceBusRuleName
+
 Nom de la règle (filtre) créée dans l’espace de noms Service Bus.
 
 ```json
@@ -97,7 +100,9 @@ Nom de la règle (filtre) créée dans l’espace de noms Service Bus.
    "type": "string",
   }
 ```
+
 ### <a name="servicebusapiversion"></a>serviceBusApiVersion
+
 La version de l’API Service Bus du modèle.
 
 ```json
@@ -108,7 +113,9 @@ La version de l’API Service Bus du modèle.
            "description": "Service Bus ApiVersion used by the template" 
        }
 ```
+
 ## <a name="resources-to-deploy"></a>Ressources à déployer
+
 Crée un espace de noms Service Bus standard de type **Messagerie**, avec rubrique, abonnement et règles.
 
 ```json
@@ -164,21 +171,25 @@ Crée un espace de noms Service Bus standard de type **Messagerie**, avec rubriq
 Pour la syntaxe et les propriétés JSON, consultez [espaces de noms](/azure/templates/microsoft.servicebus/namespaces), [rubriques](/azure/templates/microsoft.servicebus/namespaces/topics), [abonnements](/azure/templates/microsoft.servicebus/namespaces/topics/subscriptions) et [règles](/azure/templates/microsoft.servicebus/namespaces/topics/subscriptions/rules).
 
 ## <a name="commands-to-run-deployment"></a>Commandes pour l’exécution du déploiement
+
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ## <a name="powershell"></a>PowerShell
-```powershell
+
+```powershell-interactive
 New-AzureResourceGroupDeployment -Name \<deployment-name\> -ResourceGroupName \<resource-group-name\> -TemplateUri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-topic-subscription-rule/azuredeploy.json>
 ```
 
 ## <a name="azure-cli"></a>Azure CLI
-```azurecli
+
+```azurecli-interactive
 azure config mode arm
 
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-topic-subscription-rule/azuredeploy.json>
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Découvrez comment gérer ces ressources en consultant les articles suivants :
 
 * [Gérer Azure Service Bus](service-bus-management-libraries.md)
@@ -193,4 +204,3 @@ Découvrez comment gérer ces ressources en consultant les articles suivants :
 [Recommended naming conventions for Azure resources]: /azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging
 [Service Bus namespace with topic, subscription, and rule]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-topic-subscription-rule/
 [Service Bus queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
-

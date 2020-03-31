@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2019
 ms.author: cynthn
 ms.openlocfilehash: 353a266b647c299515c15889c302ba4409aa511b
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73171055"
 ---
 # <a name="deploy-vms-to-proximity-placement-groups-using-azure-cli"></a>Déployer des machines virtuelles dans des groupes de placements avec Azure CLI

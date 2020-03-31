@@ -9,12 +9,12 @@ ms.author: mbaldwin
 ms.service: key-vault
 ms.topic: reference
 ms.date: 12/16/2019
-ms.openlocfilehash: 8c9390ea498647d34e8643ed4be596372ffb8696
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 01fb5393217834bc0196da25c4a56314ca7eae2a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293383"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294535"
 ---
 # <a name="azure-key-vault-rest-api-error-codes"></a>Codes d’erreur d’API REST Azure Key Vault
  
@@ -99,7 +99,7 @@ Il est important que toutes les valeurs soient correctement identifiées dans le
 
 ### <a name="troubleshooting-401"></a>Résolution des problèmes 401
 
-Les erreurs 401 doivent être examinées à partir du point de génération de jetons, avant que la requête ne soit envoyée au coffre de clés. En général, le code est utilisé pour demander le jeton. Une fois le jeton reçu, il est transmis dans la requête Key Vault. Si le code s’exécute localement, vous pouvez utiliser Fiddler pour capturer la requête/réponse dans https://login.microsoftonline.com. Une requête ressemble à ceci :
+Les erreurs 401 doivent être examinées à partir du point de génération de jetons, avant que la requête ne soit envoyée au coffre de clés. En général, le code est utilisé pour demander le jeton. Une fois le jeton reçu, il est transmis dans la requête Key Vault. Si le code s’exécute localement, vous pouvez utiliser Fiddler pour capturer la requête/réponse dans `https://login.microsoftonline.com`. Une requête ressemble à ceci :
 
 ``` 
 POST https://login.microsoftonline.com/<key vault tenant ID>/oauth2/token HTTP/1.1

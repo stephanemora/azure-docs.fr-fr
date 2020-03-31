@@ -4,11 +4,11 @@ description: Surveillance efficace de vos rôles Web et de travail avec Applicat
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.openlocfilehash: ce794a7bd18635fddfa30056ab2d675dc138097d
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77655835"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79234765"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights pour les services cloud Azure
 [Application Insights][start] peut superviser les [applications de service cloud Azure](https://azure.microsoft.com/services/cloud-services/) pour vérifier la disponibilité, les performances, les échecs et l’utilisation en combinant les données des SDK Application Insights avec les données d’[Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) de vos services cloud. Avec les retours que vous obtenez sur les performances et l’efficacité de votre application dans la nature, vous pouvez prendre des décisions avisées sur la direction de la conception de chaque cycle de développement.
@@ -94,7 +94,7 @@ L’objectif est d’insérer vos clés d’instrumentation Application Insights
 
 Si vous voulez changer le niveau des informations de diagnostics envoyées à Application Insights, [modifiez directement les fichiers *.cscfg*](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
 
-## <a name="sdk"></a>Installation du Kit de développement logiciel (SDK) dans chaque projet
+## <a name="install-the-sdk-in-each-project"></a><a name="sdk"></a>Installation du Kit de développement logiciel (SDK) dans chaque projet
 Avec cette option, vous pouvez ajouter une télémétrie métier personnalisée à n’importe quel rôle. L’option permet d’analyser en détail l’utilisation et les performances de votre application.
 
 Dans Visual Studio, configurez le Kit de développement logiciel (SDK) Application Insights pour chaque projet d’application cloud.

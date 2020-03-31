@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: bea00f429f31f2be62ee6a9c00f88873c595d94c
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76509816"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>Stocker des données en périphérie avec le Stockage Blob Azure sur IoT Edge
@@ -53,7 +53,7 @@ Si un arrêt inattendu du processus (par exemple, une panne de courant) se produ
 * Spécifiez la durée en minutes (deleteAfterMinutes) après laquelle les objets blob sont supprimés automatiquement.
 * Choisissez la possibilité de conserver l’objet blob pendant son chargement en cas d’expiration de la valeur deleteAfterMinutes.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Un appareil Azure IoT Edge :
 

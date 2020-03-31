@@ -8,16 +8,16 @@ ms.topic: conceptual
 description: Utilisez un référentiel Helm privé dans un espace Azure Dev.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, conteneurs, Helm
 manager: gwallace
-ms.openlocfilehash: 6036184c43242f2ec2279438950b26dfb53e9bb4
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.openlocfilehash: c8f0e463bc78d278d8162f8389664dbb46a83301
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77538667"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240466"
 ---
 # <a name="use-a-private-helm-repository-in-azure-dev-spaces"></a>Utiliser un référentiel Helm privé dans Azure Dev Spaces
 
-[Helm][helm] est un gestionnaire de packages pour Kubernetes. Helm utilise un format [chart][helm-chart] pour empaqueter les dépendances. Les graphiques Helm sont stockés dans un référentiel, qui peut être public ou privé. Azure Dev Spaces récupère uniquement les graphiques Helm auprès des référentiels publics lors de l’exécution de votre application. Dans les cas où le référentiel Helm est privé ou Azure Dev Spaces ne peut pas y accéder, vous pouvez ajouter un graphique à partir de ce référentiel directement à votre application. L’ajout du graphique permet à Azure Dev Spaces d’exécuter votre application sans avoir à accéder au référentiel Helm privé.
+[Helm][helm] est un gestionnaire de package pour Kubernetes. Helm utilise un format [chart][helm-chart] pour empaqueter les dépendances. Les graphiques Helm sont stockés dans un référentiel, qui peut être public ou privé. Azure Dev Spaces récupère uniquement les graphiques Helm auprès des référentiels publics lors de l’exécution de votre application. Dans les cas où le référentiel Helm est privé ou Azure Dev Spaces ne peut pas y accéder, vous pouvez ajouter un graphique à partir de ce référentiel directement à votre application. L’ajout du graphique permet à Azure Dev Spaces d’exécuter votre application sans avoir à accéder au référentiel Helm privé.
 
 ## <a name="add-the-private-helm-repository-to-your-local-machine"></a>Ajouter le référentiel Helm privé à votre ordinateur local
 
@@ -37,7 +37,7 @@ azds prep --enable-ingress
 ```
 
 > [!TIP]
-> La commande `prep` tente de générer un [Dockerfile et un chart Helm](../how-dev-spaces-works.md#prepare-your-code) pour votre projet. Azure Dev Spaces utilise ces fichiers pour générer et exécuter votre code. Toutefois, vous pouvez modifier ces fichiers si vous souhaitez changer la façon dont le projet est généré et exécuté.
+> La commande `prep` tente de générer un [Dockerfile et un chart Helm](../how-dev-spaces-works-prep.md#prepare-your-code) pour votre projet. Azure Dev Spaces utilise ces fichiers pour générer et exécuter votre code. Toutefois, vous pouvez modifier ces fichiers si vous souhaitez changer la façon dont le projet est généré et exécuté.
 
 Créez un fichier [requirements.yaml][helm-requirements] avec votre graphique dans le répertoire des graphiques de votre application. Par exemple, si votre application est nommée *app1*, vous devez créer *charts/app1/requirements.yaml*.
 

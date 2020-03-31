@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
 ms.openlocfilehash: b7a561907e3f1968eb9adead3606822d7a1321c8
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155627"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231929"
 ---
 # <a name="troubleshoot-authentication-errors-when-you-use-rdp-to-connect-to-azure-vm"></a>Résoudre les erreurs d’authentification quand vous utilisez le protocole RDP pour vous connecter à une machine virtuelle Azure
 
@@ -41,7 +41,7 @@ Vous capturez une capture d’écran d’une machine virtuelle Azure qui affiche
 
 **Cet ordinateur ne peut pas se connecter à l’ordinateur distant. Réessayez de vous connecter. Si le problème persiste, contactez le propriétaire de l’ordinateur distant ou votre administrateur réseau.**
 
-## <a name="cause"></a>Cause :
+## <a name="cause"></a>Cause
 
 Il existe plusieurs raisons pour lesquelles l’authentification NLA peut bloquer l’accès RDP à une machine virtuelle.
 
@@ -124,7 +124,7 @@ REG add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-T
 REG add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v fAllowSecProtocolNegotiation /t REG_DWORD /d 1 /f
 ```
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 ### <a name="for-domain-joined-vms"></a>Pour les machines virtuelles jointes à un domaine
 
@@ -246,7 +246,7 @@ reg query "HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Prot
 > [!Note]
 > Obtenez la version x.x de SSH/TLS à partir des journaux d’activité du système d’exploitation invité sur les erreurs SCHANNEL.
 
-#### <a name="fips-compliant"></a> Vérifier les connexions à algorithmes conformes à la norme FIPS
+#### <a name="check-fips-compliant-algorithms-connections"></a><a name="fips-compliant"></a> Vérifier les connexions à algorithmes conformes à la norme FIPS
 
 Vous pouvez forcer Bureau à distance à utiliser uniquement des connexions à algorithmes compatibles avec la norme FIPS. Cette configuration peut être effectuée à l’aide d’une clé de Registre. Pour ce faire, ouvrez une fenêtre d’invite de commandes avec élévation de privilèges, puis interrogez les clés suivantes :
 

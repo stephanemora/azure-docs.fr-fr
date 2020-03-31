@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 12/11/2018
 ms.author: rogarana
 ms.openlocfilehash: aeb15fbb8da44a203789e06a359cb664998602ab
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77123220"
 ---
 L’agent Azure File Sync est mis à jour régulièrement pour ajouter de nouvelles fonctionnalités et pour résoudre les problèmes. Nous vous recommandons de configurer Microsoft Update pour obtenir les mises à jour de l’agent Azure File Sync lorsqu’elles sont disponibles.
 
 #### <a name="major-vs-minor-agent-versions"></a>Versions d’agent majeures et mineures
-* Les versions majeures de l’agent contiennent souvent de nouvelles fonctionnalités, et la première partie du numéro de version est constituée d’un nombre croissant. Par exemple :  \*2.\*.\*\*
+* Les versions majeures de l’agent contiennent souvent de nouvelles fonctionnalités, et la première partie du numéro de version est constituée d’un nombre croissant. Par exemple : \*2.\*.\*\*
 * Les versions mineures de l’agent sont également appelées « correctifs », et sont publiées plus fréquemment que les versions majeures. Elles contiennent souvent des correctifs de bogues et des améliorations mineures, mais pas de nouvelles fonctionnalités. Par exemple, \*\*.3.\*\*
 
 #### <a name="upgrade-paths"></a>Chemins de mise à jour

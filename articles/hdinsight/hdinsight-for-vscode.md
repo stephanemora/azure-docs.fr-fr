@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/11/2019
 ms.openlocfilehash: 9a81868d678b4c0277e904e879c73185a378bf70
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75435682"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Utilisez les outils Spark et Hive pour Visual Studio Code
@@ -20,7 +20,7 @@ Découvrez comment utiliser les outils Spark et Hive pour Visual Studio Code pou
 
 L’extension Spark & Hive Tools peut être installée sur les plateformes prises en charge par Visual Studio Code, notamment Windows, Linux et macOS. Les différentes plateformes ont les prérequis suivants.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Les éléments suivants sont requis pour effectuer les étapes décrites dans cet article :
 
@@ -276,7 +276,7 @@ Méthode 2 - Envoyez un fichier. Vous constatez que le dossier .vscode est ajout
     ![Configuration d’Apache Livy HDInsight](./media/hdinsight-for-vscode/hdi-apache-livy-config.png)
 
     >[!NOTE]
-    >Pour les paramètres **driverMemory** et **executorMemory**, définissez la valeur et l’unité. Par exemple :  1 g ou 1 024 m.
+    >Pour les paramètres **driverMemory** et **executorMemory**, définissez la valeur et l’unité. Par exemple : 1 g ou 1 024 m.
 
 + Configurations Livy prises en charge :
 

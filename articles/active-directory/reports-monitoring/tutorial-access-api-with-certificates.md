@@ -17,10 +17,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4d723af5d994006c4ae4f90905ede73fa87326bf
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74014267"
 ---
 # <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Tutoriel : Obtenir des données à l’aide de l’API de création de rapports Azure Active Directory avec des certificats
@@ -92,10 +92,10 @@ Dans ce didacticiel, vous allez apprendre à utiliser un certificat de test pour
 8. Utilisez le jeton d’accès dans votre script PowerShell pour interroger l’API Graph. Utilisez la cmdlet **Invoke-MSCloudIdMSGraphQuery** à partir de MSCloudIDUtils pour énumérer le point de terminaison SignIns et DirectoryAudits. Cette cmdlet gère les résultats composés de plusieurs pages et les envoie ensuite dans le pipeline PowerShell.
 
 9. Interrogez le point de terminaison directoryAudits pour récupérer les journaux d’audit. 
-   ![Portail Azure](./media/tutorial-access-api-with-certificates/query-directoryAudits.png)
+   ![Azure portal](./media/tutorial-access-api-with-certificates/query-directoryAudits.png)
 
 10. Interrogez le point de terminaison SignIns pour récupérer les journaux d’activité de connexion.
-    ![Portail Azure](./media/tutorial-access-api-with-certificates/query-signins.png)
+    ![Azure portal](./media/tutorial-access-api-with-certificates/query-signins.png)
 
 11. Vous pouvez maintenant choisir d’exporter ces données dans un fichier CSV et de les enregistrer dans un système SIEM. Vous pouvez également encapsuler votre script dans une tâche planifiée pour obtenir régulièrement des données Azure AD à partir de votre client sans avoir à stocker des clés d’application dans le code source. 
 

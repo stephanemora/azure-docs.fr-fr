@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 07/29/2019
 ms.author: memildin
 ms.openlocfilehash: 408b0f020be72b8e6b10dd6c97298afda1b91360
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77603588"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79225261"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Recommandations de sécurité dans le Centre de sécurité Azure 
 Cette rubrique explique comment visualiser et comprendre les recommandations d’Azure Security Center pour vous aider à protéger vos ressources Azure.
@@ -40,7 +40,7 @@ Chaque recommandation vous fournit les informations suivantes :
 - Ressources nécessitant une action recommandée de votre part.
 - L’**impact du niveau de sécurité**, à savoir la proportion selon laquelle l’implémentation de cette recommandation va augmenter votre niveau de sécurité.
 
-## Surveiller les recommandations <a name="monitor-recommendations"></a>
+## <a name="monitor-recommendations"></a>Surveiller les recommandations <a name="monitor-recommendations"></a>
 
 Azure Security Center analyse l’état de sécurité de vos ressources pour identifier les vulnérabilités potentielles. La vignette **Recommandations** sous **Vue d’ensemble** montre le nombre total de recommandations identifiées par Security Center.
 

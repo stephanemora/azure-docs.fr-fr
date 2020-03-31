@@ -12,10 +12,10 @@ ms.author: genemi
 ms.reviewer: billgib,andrela,stein
 ms.date: 09/24/2018
 ms.openlocfilehash: 4ea18ee23d845b2d16209b23de14dc3cd70aaa59
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74133152"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Provisionner et inscrire dans un catalogue de nouveaux locataires dans une application SaaS utilisant une base de données Azure SQL Database multilocataire
@@ -61,7 +61,7 @@ Avec un catalogue, vous pouvez changer le nom ou l’emplacement d’une base de
 
 Le catalogue peut également indiquer si un locataire est hors connexion pour maintenance ou dans le cadre d’autres opérations. Et le catalogue peut être étendu pour stocker d’autres locataires ou d’autres métadonnées de base de données, par exemple :
 - Le niveau de service ou l’édition d’une base de données.
-- La version du schéma de base de données.
+- Version du schéma de la base de données.
 - Le nom du locataire et son contrat SLA (contrat de niveau de service).
 - Des informations permettant d’activer la gestion des applications, le service clientèle ou les processus devops.
 
@@ -114,7 +114,7 @@ Les données de locataire sont ensuite initialisées et inscrites dans la carte 
 
 ## <a name="tutorial-begins"></a>Début du didacticiel
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Provisionner un locataire dans une base de données multilocataire

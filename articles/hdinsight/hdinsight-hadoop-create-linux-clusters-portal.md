@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/19/2020
 ms.openlocfilehash: bcc71b7244ba3498b2fcde023d372e67f41d6117
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77623263"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Créer des clusters Linux dans HDInsight à l’aide du portail Azure
@@ -85,7 +85,7 @@ Facultatif : Spécifiez une base de données SQL existante pour enregistrer les 
 
 Sélectionnez **Suivant : Sécurité et réseau >>** pour passer à l’onglet suivant.
 
-## <a name="security--networking"></a>Sécurité et réseau
+## <a name="security--networking"></a>Sécurité + mise en réseau
 
 ![HDInsight - Créer un cluster - Sécurité et réseau](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-security-networking.png "HDInsight - Créer un cluster - Sécurité et réseau")
 

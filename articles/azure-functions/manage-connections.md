@@ -4,11 +4,11 @@ description: Découvrez comment éviter les problèmes de performances dans Azur
 ms.topic: conceptual
 ms.date: 02/25/2018
 ms.openlocfilehash: 872ad9a1b8f0a7da6fe410e68f08469ac11045a5
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226498"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79234845"
 ---
 # <a name="manage-connections-in-azure-functions"></a>Gérer les connexions dans Azure Functions
 

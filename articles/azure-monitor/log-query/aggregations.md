@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: d164c53e7e2be55f3cede389901a256ba388808d
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77670302"
 ---
 # <a name="aggregations-in-azure-monitor-log-queries"></a>Agrégations dans des requêtes Azure Monitor | Microsoft Docs
@@ -85,8 +85,8 @@ Heartbeat
 |États-Unis    | 19                  |
 |Canada           | 3                   |
 |Irlande          | 0                   |
-|Royaume-Uni   | 0                   |
-|Pays-Bas      | 2                   |
+|United Kingdom   | 0                   |
+|Pays-bas      | 2                   |
 
 
 Pour analyser des sous-groupes encore plus petits de vos données, ajoutez des noms de colonnes supplémentaires à la section `by`. Par exemple, vous pouvez peut-être compter le nombre d’ordinateurs distincts de chaque pays/région par OSType :

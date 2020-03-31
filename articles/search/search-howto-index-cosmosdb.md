@@ -10,11 +10,11 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/02/2020
 ms.openlocfilehash: d1723b6c5d56554fbff576f6a07e37455845bda4
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77498625"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79236861"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>Guide pratique pour indexer des données Cosmos DB avec un indexeur dans Recherche cognitive Azure 
 
@@ -362,7 +362,7 @@ L'exemple suivant crée une source de données avec des conseils pour une strat�
         }
     }
 
-## <a name="NextSteps"></a>Étapes suivantes
+## <a name="next-steps"></a><a name="NextSteps"></a>Étapes suivantes
 
 Félicitations ! Vous avez appris à intégrer Azure Cosmos DB avec Recherche cognitive Azure à l’aide d’un indexeur.
 

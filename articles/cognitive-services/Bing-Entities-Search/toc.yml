@@ -7,7 +7,7 @@
     - name: Comparer les API Recherche Bing
       href: ../Bing-Web-Search/bing-api-comparison.md
       maintainContext: true
-- name: Démarrages rapides de l’API REST
+- name: Démarrages rapides
   expanded: true
   items:
     - name: API REST

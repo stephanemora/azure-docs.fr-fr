@@ -12,14 +12,14 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
 ms.openlocfilehash: 83d24d45d7628a2e02068c8757fa6568d6d3fc37
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73823478"
 ---
 # <a name="using-elastic-database-client-library-with-dapper"></a>Utilisation de la bibliothèque cliente de la base de données élastique avec Dapper
-Ce document est destiné aux développeurs qui utilisent Dapper pour générer des applications, mais veulent également adopter les [outils de base de données élastique](sql-database-elastic-scale-introduction.md) pour créer des applications implémentant le partitionnement pour la montée en puissance parallèle de la couche Données.  Ce document présente les modifications devant être appliquées aux applications basées sur Dapper pour intégrer des outils de base de données élastique. Nous nous concentrerons sur la composition de la gestion de partition de base de données élastique et du routage dépendant des données avec Dapper. 
+Ce document est destiné aux développeurs qui utilisent Dapper pour générer des applications, mais veulent également adopter les [outils de base de données élastique](sql-database-elastic-scale-introduction.md) pour créer des applications implémentant le partitionnement pour effectuer un scale-out de la couche Données.  Ce document présente les modifications devant être appliquées aux applications basées sur Dapper pour intégrer des outils de base de données élastique. Nous nous concentrerons sur la composition de la gestion de partition de base de données élastique et du routage dépendant des données avec Dapper. 
 
 **Exemple de code** : [outils de base de données élastique pour l’intégration Azure SQL Database - Dapper](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-e19fc77f).
 
@@ -48,8 +48,8 @@ Plutôt que d’utiliser la méthode traditionnelle de création des connexions 
 ### <a name="requirements-for-dapper-integration"></a>Configuration requise pour l’intégration Dapper
 Durant l’utilisation des API de la bibliothèque cliente de la base de données élastique et de Dapper, vous souhaitez conserver les propriétés suivantes :
 
-* **Scale-out** : nous voulons ajouter ou supprimer des bases de données de la couche Données de l’application partitionnée en fonction des demandes de capacité de l’application. 
-* **Cohérence** : sachant que l’application a fait l’objet d’un scale-out en utilisant le partitionnement, vous devez effectuer un routage dépendant des données. Pour ce faire, vous souhaitez utiliser les fonctionnalités de routage dépendant des données de la bibliothèque. En particulier, vous souhaitez conserver les garanties de validation et de cohérence fournies par les connexions réparties via le Gestionnaire de carte de partition afin d’éviter une corruption ou des résultats de requête incorrects. Cela garantit que les connexions à un shardlet donné sont rejetées ou arrêtées si (par exemple) le shardlet est en cours de déplacement vers une partition différente à l’aide des API de fractionnement et de fusion.
+* **Effectuer un scale-out** : nous voulons ajouter ou supprimer des bases de données de la couche Données de l’application partitionnée en fonction des demandes de capacité de l’application. 
+* **Cohérence** : sachant que l’application a fait l’objet d’un scale-out en utilisant le partitionnement, vous devez effectuer un routage dépendant des données. Pour ce faire, vous souhaitez utiliser les fonctionnalités de routage dépendant des données de la bibliothèque. En particulier, vous souhaitez conserver les garanties de validation et de cohérence fournies par les connexions réparties via le Gestionnaire de carte de partition afin d’éviter une corruption ou des résultats de requête incorrects. Cela garantit que les connexions à un shardlet donné sont rejetées ou arrêtées si (par exemple) le shardlet est en cours de déplacement vers une partition différente à l’aide des API de fractionnement et de fusion.
 * **Mappage d’objets** : nous voulons préserver le caractère pratique des mappages fournis par Dapper pour la traduction entre les classes dans l’application et les structures de base de données sous-jacentes. 
 
 La section suivante fournit des instructions relatives aux exigences pour les applications basées sur **Dapper** et **DapperExtensions**.
