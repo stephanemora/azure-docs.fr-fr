@@ -11,10 +11,10 @@ ms.date: 08/27/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: cbbd083a6b62733d71c316af95dffaa188b28955
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78186486"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Vue d’ensemble des jetons dans Azure Active Directory B2C
@@ -50,7 +50,7 @@ Les revendications dans les jetons d’ID ne sont pas retournées dans un ordre 
 
 Le tableau suivant énumère les revendications auxquelles vous pouvez vous attendre avec les jetons d’identification et les jetons d’accès émis par Azure AD B2C.
 
-| Nom | Revendication | Valeur d'exemple | Description |
+| Name | Revendication | Valeur d'exemple | Description |
 | ---- | ----- | ------------- | ----------- |
 | Public visé | `aud` | `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` | Identifie le destinataire du jeton. Pour Azure AD B2C, l’audience est l’ID de l’application. Votre application doit valider cette valeur et rejeter le jeton s’il ne correspond pas. Audience est synonyme de ressource. |
 | Émetteur | `iss` |`https://{tenant}.b2clogin.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` | Identifie le service d’émission de jeton de sécurité (STS) qui construit et retourne le jeton. Elle identifie également le répertoire dans lequel l’utilisateur a été authentifié. Votre application doit valider la revendication de l’émetteur de manière à s’assurer que le jeton provient bien du point de terminaison approprié. |

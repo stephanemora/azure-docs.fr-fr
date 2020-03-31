@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.openlocfilehash: 2440b93629416ea73fcf211cbe7bf5a3b72ab2e7
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74267325"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>Migrer des clusters Apache Hadoop locaux vers Azure HDInsight : raisons et avantages
@@ -58,7 +58,7 @@ Azure HDInsight est une distribution cloud des composants Hadoop. Azure HDInsigh
 - **Intégration avec d’autres services Azure** : HDInsight s’intègre facilement avec d’autres services Azure populaires, à savoir :
 
     - Azure Data Factory (ADF)
-    - un stockage Azure Blob
+    - Stockage Blob Azure
     - Azure Data Lake Storage Gen2
     - Azure Cosmos DB
     - Azure SQL Database
@@ -96,12 +96,12 @@ Cette section fournit des modèles de questionnaires, afin de vous aider à coll
 |Nombre de clusters|4|
 |Nombre de nœuds principaux|2|
 |Nombre de nœuds Worker|100|
-|Nombre de nœuds de périphérie| 5\.|
+|Nombre de nœuds de périphérie| 5|
 |Espace disque total|100 To|
 |Configuration des nœuds principaux|m/y, UC, disque, etc.|
 |Configuration des nœuds de données|m/y, UC, disque, etc.|
 |Configuration des nœuds de périphérie|m/y, UC, disque, etc.|
-|Chiffrement HDFS ?|OUI|
+|Chiffrement HDFS ?|Oui|
 |Haute disponibilité|HDFS, metastore|
 |Récupération d'urgence / sauvegarde|Cluster de sauvegarde ?|  
 |Systèmes dépendants du cluster|SQL Server, Teradata, Power BI, MongoDB|
@@ -129,7 +129,7 @@ Cette section fournit des modèles de questionnaires, afin de vous aider à coll
 |Travaux structurés de diffusion en continu|5 travaux (chaque minute)||
 |Travaux de formation aux modèles AML|2 travaux (une fois par semaine)||
 |Langages de programmation|Python, Scala, Java||
-|Scripts|Shell, Python||
+|Création de scripts|Shell, Python||
 |**Rubrique** : **Données**|||
 |Sources de données|Fichiers plats, Json, Kafka, SGBDR||
 |Orchestration de données|Flux de travail Oozie, Airflow||
@@ -147,10 +147,10 @@ Cette section fournit des modèles de questionnaires, afin de vous aider à coll
 |Taux de croissance des données|10 % par an||
 |Taux de croissance des nœuds du cluster|5 % par an
 |**Rubrique** : **Utilisation du cluster**|||
-|Pourcentage moyen d’utilisation de l’UC|60 %||
+|Pourcentage moyen d’utilisation de l’UC|60%||
 |Pourcentage moyen d’utilisation de la mémoire|75 %||
 |Espace disque utilisé|75 %||
-|Pourcentage moyen d’utilisation du réseau|25%
+|Pourcentage moyen d’utilisation du réseau|25 %
 |**Rubrique** : **Personnel**|||
 |Nombre d’administrateurs|2||
 |Nombre de développeurs|10||
@@ -158,7 +158,7 @@ Cette section fournit des modèles de questionnaires, afin de vous aider à coll
 |Compétences|Hadoop, Spark||
 |Nombre de ressources disponibles pour les efforts de migration|2||
 |**Rubrique** : **Limitations**|||
-|Limitations actuelles|Latence élevée||
+|Limites actuelles|Latence élevée||
 |Défis actuels|Problèmes liés à la concurrence||
 
 ### <a name="azure-requirements-questionnaire"></a>Questionnaire relatif aux exigences d’Azure
@@ -167,8 +167,8 @@ Cette section fournit des modèles de questionnaires, afin de vous aider à coll
 |---|---|---|
 |**Question**|**Exemple**|**Réponse**|
 | Région recommandée|USA Est||
-|Réseau virtuel recommandé ?|OUI||
-|HA/récupération d’urgence requise(s) ?|OUI||
+|Réseau virtuel recommandé ?|Oui||
+|HA/récupération d’urgence requise(s) ?|Oui||
 |Intégration dans d’autres services cloud ?|ADF, CosmosDB||
 |**Rubrique** :   **Déplacement des données**  |||
 |Préférence en matière de charge initiale|DistCp, Data Box, ADF, WANDisco||
@@ -177,25 +177,25 @@ Cette section fournit des modèles de questionnaires, afin de vous aider à coll
 |**Rubrique** :   **Supervision et alertes** |||
 |Utilisation de fonctions de supervision et de création d’alertes Azure ou intégration d’une fonction de supervision tierce ?|Utiliser la supervision et les alertes Azure||
 |**Rubrique** :   **Préférences de sécurité** |||
-|Pipeline de données privé et protégé ?|OUI||
-|Cluster joint au domaine (ESP) ?|     OUI||
-|Synchronisation Active Directory locale vers le cloud ?|     OUI||
+|Pipeline de données privé et protégé ?|Oui||
+|Cluster joint au domaine (ESP) ?|     Oui||
+|Synchronisation Active Directory locale vers le cloud ?|     Oui||
 |Nombre d’utilisateurs AD à synchroniser ?|          100||
-|Synchroniser les mots de passe sur le cloud ?|    OUI||
-|Utilisateurs du cloud uniquement ?|                 OUI||
+|Synchroniser les mots de passe sur le cloud ?|    Oui||
+|Utilisateurs du cloud uniquement ?|                 Oui||
 |MFA requise ?|                       Non|| 
-|Exigences relatives aux autorisations associées aux données ?|  OUI||
-|Contrôle d’accès en fonction du rôle|        OUI||
-|Audit nécessaire ?|                  OUI||
-|Chiffrement des données au repos ?|          OUI||
-|Chiffrement des données en transit ?|       OUI||
+|Exigences relatives aux autorisations associées aux données ?|  Oui||
+|Contrôle d’accès en fonction du rôle|        Oui||
+|Audit nécessaire ?|                  Oui||
+|Chiffrement des données au repos ?|          Oui||
+|Chiffrement des données en transit ?|       Oui||
 |**Rubrique** :   **Préférences de récréation d’architecture** |||
 |Cluster unique ou types de cluster spécifiques ?|Types de cluster spécifiques||
 |Stockage à distance ou stockage colocalisé ?|Stockage à distance||
 |Clusters plus petits si les données sont stockées à distance ?|Clusters plus petits||
 |Utiliser plusieurs clusters plus petits plutôt qu’un seul cluster volumineux ?|Utiliser plusieurs clusters plus petits||
-|Utiliser un metastore à distance ?|OUI||
-|Partager des metastores entre plusieurs clusters différents ?|OUI||
+|Utiliser un metastore à distance ?|Oui||
+|Partager des metastores entre plusieurs clusters différents ?|Oui||
 |Décomposer les charges de travail ?|Remplacer les travaux Hive par des travaux Spark||
 |Utiliser ADF pour l’orchestration des données ?|Non||
 

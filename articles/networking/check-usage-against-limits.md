@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2018
-ms.openlocfilehash: f59b688b2ce41985d69e800d6d1f6c6d7ce5e0d4
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: cffa5677c5531f3887639c049998523d7d07586a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278328"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79455560"
 ---
 # <a name="check-resource-usage-against-limits"></a>Vérifier l’utilisation des ressources par rapport aux limites
 
@@ -27,13 +27,13 @@ Dans cet article, vous apprendrez comment afficher le nombre de chaque type de r
 
 1. Connectez-vous au [portail](https://portal.azure.com) Azure.
 2. En haut à gauche du portail Azure, sélectionnez **Tous les services**.
-3. Dans la zone **Filtre**, entrez *Abonnements*. Quand la mention **Abonnements** apparaît dans les résultats de recherche, sélectionnez-la.
+3. Dans la zone *Filtre*, entrez **Abonnements**. Quand la mention **Abonnements** apparaît dans les résultats de recherche, sélectionnez-la.
 4. Sélectionnez le nom de l’abonnement pour lequel vous souhaitez afficher les informations d’utilisation.
 5. Sous **PARAMÈTRES**, sélectionnez **Utilisation + quota**.
 6. Vous pouvez sélectionner les options suivantes :
-   - **Types de ressources** : vous pouvez sélectionner tous les types de ressources ou sélectionner les types de ressources spécifiques que vous souhaitez afficher.
-   - **Fournisseurs** : vous pouvez sélectionner tous les fournisseurs de ressources ou sélectionner **Compute**, **Réseau** ou **Stockage**.
-   - **Emplacements** : vous pouvez sélectionner tous les emplacements Azure ou sélectionner des emplacements spécifiques.
+   - **Types de ressources** : vous pouvez sélectionner tous les types de ressources ou sélectionnez les types de ressources spécifiques que vous souhaitez afficher.
+   - **Fournisseurs** : vous pouvez sélectionner tous les fournisseurs de ressources ou sélectionnez **Compute**, **Réseau** ou **Stockage**.
+   - **Emplacements** : vous pouvez sélectionner tous les emplacements Azure ou sélectionnez des emplacements spécifiques.
    - Vous pouvez choisir d’afficher toutes les ressources ou uniquement les ressources où au moins une ressource est déployée.
 
      Dans l’image suivante, l’exemple montre toutes les ressources réseau avec au moins une ressource déployée dans USA Est :
@@ -59,7 +59,7 @@ Get-AzNetworkUsage `
 
 Le résultat que vous recevez est formaté de la même manière que ce qui suit :
 
-```powershell
+```output
 ResourceType            CurrentValue Limit
 ------------            ------------ -----
 Virtual Networks                   1    50
@@ -83,7 +83,7 @@ az network list-usages \
 
 Le résultat que vous recevez est formaté de la même manière que ce qui suit :
 
-```azurecli
+```output
 Name                    CurrentValue Limit
 ------------            ------------ -----
 Virtual Networks                   1    50

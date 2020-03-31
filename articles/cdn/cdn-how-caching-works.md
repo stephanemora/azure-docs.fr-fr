@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: magattus
 ms.openlocfilehash: 92d93fbf9fa2f8df15acb62802d7ac53db836dc1
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593859"
 ---
 # <a name="how-caching-works"></a>Comment la mise en cache fonctionne
@@ -116,7 +116,7 @@ Toutes les ressources ne peuvent pas être mises en cache. Le tableau suivant mo
 |-------------------|-----------------------------------|------------------------|------------------------------|
 | Codes d’état HTTP | 200, 203, 206, 300, 301, 410, 416 | 200                    | 200, 203, 300, 301, 302, 401 |
 | Méthodes HTTP      | GET, HEAD                         | GET                    | GET                          |
-| Limites de taille de fichiers  | 300 Go                            | 300 Go                 | - Optimisation de la livraison web générale : 1,8 Go<br />- Optimisation de la diffusion multimédia en continu : 1,8 Go<br />- Optimisation des fichiers volumineux : 150 Go |
+| Limites de taille de fichiers  | 300 Go                            | 300 Go                 | - Optimisation de la livraison web générale : 1,8 Go<br />- Optimisation de la diffusion multimédia en continu : 1,8 Go<br />- Optimisation des fichiers volumineux : 150 Go |
 
 Pour permettre l’activation de la mise en cache d’**Azure CDN Standard de Microsoft** sur une ressource, le serveur d’origine doit prendre en charge les requêtes HTTP HEAD et GET et les valeurs content-length doivent être identiques pour l’ensemble des réponses HTTP HEAD et GET associées à la ressource. Dans le cas d’une requête HEAD, le serveur d’origine doit prendre en charge la requête et répondre avec les en-têtes qu’il aurait utilisé s’il avait reçu une requête GET.
 
@@ -126,8 +126,8 @@ Le tableau suivant décrit le comportement de mise en cache par défaut des prod
 
 |    | Microsoft : Livraison web générale | Verizon : Livraison web générale | Verizon : DSA | Akamai : Livraison web générale | Akamai : DSA | Akamai : Téléchargement de fichiers volumineux | Akamai : diffusion multimédia en continu générale ou VOD |
 |------------------------|--------|-------|------|--------|------|-------|--------|
-| **Honorer l’origine**       | OUI    | OUI   | Non   | OUI    | Non   | OUI   | OUI    |
-| **Durée de cache CDN** | 2 jours |7 jours | Aucun | 7 jours | Aucun | 1 jour | 1 an |
+| **Honorer l’origine**       | Oui    | Oui   | Non   | Oui    | Non   | Oui   | Oui    |
+| **Durée de cache CDN** | 2 jours |7 jours | None | 7 jours | None | 1 jour | 1 an |
 
 **Honorer l’origine** : indique s’il faut honorer les en-têtes de la directive du cache pris en charge s’il y en a dans la réponse HTTP du serveur d’origine.
 

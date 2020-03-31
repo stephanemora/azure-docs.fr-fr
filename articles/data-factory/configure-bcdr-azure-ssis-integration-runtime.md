@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/14/2018
 ms.openlocfilehash: 92f7d25a9c19409b220b6a71fba87da91e51a415
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74928495"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-with-azure-sql-database-geo-replication-and-failover"></a>Configurer Azure-SSIS Integration Runtime avec la géo-réplication et le basculement Azure SQL Database
 
 Cet article explique comment configurer Azure-SSIS Integration Runtime avec la géo-réplication Azure SQL Database pour la base de données SSISDB. Lorsqu’un basculement se produit, vous pouvez garantir le bon fonctionnement d’Azure-SSIS Integration Runtime avec la base de données secondaire.
 
-Pour plus d’informations sur la géoréplication et le basculement de SQL Database, consultez [Vue d’ensemble : géoréplication active et groupes de basculement automatique](../sql-database/sql-database-geo-replication-overview.md).
+Pour plus d’informations sur la géo-réplication et le basculement de SQL Database, consultez [Vue d’ensemble : géo-réplication active et groupes de basculement automatique](../sql-database/sql-database-geo-replication-overview.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -51,11 +51,11 @@ Cette section s’applique lorsque l’une des conditions suivantes est remplie�
 
 - Azure-SSIS Integration Runtime pointe vers le point de terminaison du serveur principal du groupe de basculement. Ce point de terminaison change lors du basculement.
 
-  Ou
+  OR
 
 - Le serveur Azure SQL Database est configuré avec la règle de point de terminaison de service de réseau virtuel.
 
-  Ou
+  OR
 
 - Le serveur de base de données est une instance SQL Database Managed Instance configurée avec un réseau virtuel.
 
@@ -71,7 +71,7 @@ En cas de basculement, vous devez effectuer les opérations suivantes :
 
 Les sections suivantes décrivent ces étapes plus en détail.
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables requises
 
 - Activez la récupération d’urgence sur votre serveur Azure SQL Database au cas où le serveur subirait une interruption en même temps. Pour plus d’informations, voir [Vue d’ensemble de la continuité d’activité avec Azure SQL Database](../sql-database/sql-database-business-continuity.md).
 
@@ -104,7 +104,7 @@ Suivez ces étapes pour arrêter votre runtime d’intégration Azure-SSIS, basc
 
 Dans le cas d’un incident ADF ou Azure-SSIS IR dans la région en cours, vous pouvez faire en sorte que votre SSISDB continue à fonctionner avec un nouveau runtime d’intégration Azure-SSIS dans une nouvelle région.
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables requises
 
 - Si vous utilisez un réseau virtuel dans la région actuelle, utilisez un autre réseau virtuel dans la nouvelle région pour connecter votre runtime d’intégration Azure-SSIS. Pour plus d’information, voir [Joindre un runtime d’intégration Azure-SSIS à un réseau virtuel](join-azure-ssis-integration-runtime-virtual-network.md).
 

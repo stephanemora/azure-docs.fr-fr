@@ -4,16 +4,16 @@ description: Comment gérer vos préférences d’application personnelles, tell
 author: lmasieri
 ms.author: lmasieri
 ms.date: 07/10/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 6bfc70ada906f5c444ace5cd7bb96555700586db
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: e2b0dbe8b7738a8c4c551eccca72897bbf1594b9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73806151"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80157889"
 ---
 # <a name="manage-your-personal-application-preferences"></a>Gérer vos préférences d’application personnelles
 

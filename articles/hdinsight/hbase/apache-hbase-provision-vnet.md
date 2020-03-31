@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/23/2019
 ms.openlocfilehash: e4e15d1c6554fc567f668b2033bff5b5664db918
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75972788"
 ---
 # <a name="create-apache-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Créer des clusters Apache HBase sur HDInsight dans un réseau virtuel Azure
@@ -57,9 +57,9 @@ Dans cette section, vous allez créer un cluster Apache HBase basé sur Linux av
 
     |Propriété |Valeur |
     |---|---|
-    |Subscription|Sélectionnez un abonnement Azure utilisé pour créer le cluster HDInsight, le compte de stockage dépendant et le réseau virtuel Azure.|
+    |Abonnement|Sélectionnez un abonnement Azure utilisé pour créer le cluster HDInsight, le compte de stockage dépendant et le réseau virtuel Azure.|
     Resource group|Sélectionnez **Créer nouveau** et spécifiez un nouveau nom de groupe de ressources.|
-    |Location|Sélectionnez l’emplacement du groupe de ressources.|
+    |Emplacement|Sélectionnez l’emplacement du groupe de ressources.|
     |Nom du cluster|Entrez un nom pour le cluster Hadoop à créer.|
     |Nom d’utilisateur et mot de passe de la connexion de cluster|Le nom d’utilisateur par défaut est **admin**. Fournissez un mot de passe.|
     |Nom d’utilisateur et mot de passe SSH|Le nom d’utilisateur par défaut est **sshuser**.  Fournissez un mot de passe.|

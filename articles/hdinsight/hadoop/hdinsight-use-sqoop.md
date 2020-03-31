@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.openlocfilehash: 8353c0fba034022a79570d09b320b7b5c4c3e60a
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74951851"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>Utiliser Apache Sqoop avec Hadoop dans HDInsight
@@ -60,7 +60,7 @@ Le cluster HDInsight inclut des exemples de données. Vous utilisez les deux él
 
 Dans cet article, vous utilisez ces deux jeux de données pour tester l’importation et l’exportation Sqoop.
 
-## <a name="create-cluster-and-sql-database"></a>Configurer un environnement de test
+## <a name="set-up-test-environment"></a><a name="create-cluster-and-sql-database"></a>Configurer un environnement de test
 
 Le cluster, la base de données SQL et d’autres objets sont créés via le portail Azure en utilisant un modèle Azure Resource Manager. Le modèle se trouve dans les [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-sql-database/). Le modèle Resource Manager appelle un package bacpac pour déployer les schémas de table sur une base de données SQL.  Le package bacpac est situé dans le conteneur d’objets blob public https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. Si vous souhaitez utiliser un conteneur privé pour stocker les fichiers bacpac, appliquez les valeurs suivantes au modèle :
 
@@ -121,5 +121,5 @@ HDInsight peut exécuter des tâches Sqoop à l’aide de différentes méthodes
 Vous maîtrisez à présent l’utilisation de Sqoop. Pour plus d'informations, consultez les rubriques suivantes :
 
 * [Utilisation d’Apache Hive avec HDInsight](../hdinsight-use-hive.md)
-* [Chargez des données dans HDInsight](../hdinsight-upload-data.md) : Découvrez d’autres méthodes pour charger des données dans HDInsight ou le stockage Blob Azure.
+* [Téléchargement de données vers HDInsight](../hdinsight-upload-data.md): découvrez d'autres méthodes pour télécharger des données vers HDInsight ou le stockage d'objets blob Azure.
 * [Utiliser Apache Sqoop pour échanger des données entre Apache Hadoop sur HDInsight et SQL Database](./apache-hadoop-use-sqoop-mac-linux.md)

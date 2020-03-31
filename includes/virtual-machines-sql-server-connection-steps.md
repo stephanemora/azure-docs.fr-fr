@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
 ms.openlocfilehash: 297317ff33d88d6390220980ef35f2538579e310
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67177004"
 ---
 ### <a name="open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine"></a>Ouverture de ports TCP dans le pare-feu Windows pour l'instance par défaut du moteur de base de données
@@ -16,7 +16,7 @@ ms.locfileid: "67177004"
 2. Une fois connecté, sur l’écran d’accueil, tapez **WF.msc**, puis appuyez sur ENTRÉE.
    
     ![Démarrer le programme du pare-feu](./media/virtual-machines-sql-server-connection-steps/12Open-WF.png)
-3. Dans le **Pare-feu Windows avec fonctions avancées de sécurité**, dans le volet gauche, cliquez avec le bouton droit sur **Règles de trafic entrant**, puis sur **Nouvelle règle** dans le volet d’action.
+3. Dans le **Pare-feu Windows avec fonctions avancées de sécurité**, dans le volet gauche, cliquez avec le bouton droit sur **Règles de trafic entrant**, puis cliquez sur **Nouvelle règle** dans le volet Action.
    
     ![Nouvelle règle](./media/virtual-machines-sql-server-connection-steps/13New-FW-Rule.png)
 4. Dans la boîte de dialogue de **Assistant Nouvelle règle de trafic entrant**, sous **Type de règle**, sélectionnez **Port**, puis cliquez sur **Suivant**.
@@ -24,14 +24,14 @@ ms.locfileid: "67177004"
    
     ![Port TCP 1433](./media/virtual-machines-sql-server-connection-steps/14Port-1433.png)
 6. Cliquez sur **Suivant**.
-7. Dans la boîte de dialogue **Action**, sélectionnez **Autoriser la connexion**, puis cliquez sur **Suivant**.
+7. Dans la boîte de dialogue **Action** , sélectionnez **Autoriser la connexion**, puis cliquez sur **Suivant**.
    
-    **Note de sécurité :** la sélection de l’option **Autoriser la connexion si elle est sécurisée** peut renforcer la sécurité. Sélectionnez cette option si vous voulez configurer des options de sécurité supplémentaires dans votre environnement.
+    **Remarque relative à la sécurité** : la sélection de l’option **Autoriser la connexion si elle est sécurisée** peut renforcer la sécurité. Sélectionnez cette option si vous voulez configurer des options de sécurité supplémentaires dans votre environnement.
    
     ![Autoriser les connexions](./media/virtual-machines-sql-server-connection-steps/15Allow-Connection.png)
 8. Dans la boîte de dialogue **Profil**, sélectionnez **Public**, **Privé** et **Domaine**. Cliquez ensuite sur **Suivant**.
    
-    **Note de sécurité :**  la sélection de l’option **Public** autorise l’accès via Internet. Lorsque cela est possible, sélectionnez un profil plus restrictif.
+    **Remarque relative à la sécurité** : la sélection de l’option **Public** autorise l’accès via Internet. Lorsque cela est possible, sélectionnez un profil plus restrictif.
    
     ![Profil public](./media/virtual-machines-sql-server-connection-steps/16Public-Private-Domain-Profile.png)
 9. Dans la boîte de dialogue **Nom**, entrez un nom et une description pour cette règle, puis cliquez sur **Terminer**.
@@ -60,7 +60,7 @@ Le moteur de base de données de SQL Server ne peut pas utiliser l'authentificat
     ![Se connecter au serveur](./media/virtual-machines-sql-server-connection-steps/19Connect-to-Server.png)
 3. Dans SQL Server Management Studio Object Explorer, cliquez avec le bouton droit sur le nom de l'instance de SQL Server (le nom de la machine virtuelle), puis cliquez sur **Propriétés**.
    
-    ![Propriétés de serveur](./media/virtual-machines-sql-server-connection-steps/20Server-Properties.png)
+    ![Propriétés du serveur](./media/virtual-machines-sql-server-connection-steps/20Server-Properties.png)
 4. Dans la page **Sécurité**, sous **Authentification du serveur**, sélectionnez **Mode d’authentification SQL Server et Windows**, puis cliquez sur **OK**.
    
     ![Sélectionner le mode d'authentification](./media/virtual-machines-sql-server-connection-steps/21Mixed-Mode.png)
@@ -74,14 +74,14 @@ Le moteur de base de données de SQL Server ne peut pas utiliser l'authentificat
 Pour vous connecter au moteur de base de données à partir d'un autre ordinateur, vous devez créer au moins une connexion d'authentification SQL Server.
 
 1. Dans SQL Server Management Studio Object Explorer, développez le dossier de l'instance de serveur dans laquelle vous voulez créer la connexion.
-2. Cliquez avec le bouton droit sur le dossier **Sécurité**, pointez sur **Nouveau**, puis sélectionnez **Connexion...** .
+2. Cliquez avec le bouton droit sur le dossier **Sécurité**, pointez sur **Nouveau**, puis sélectionnez **Connexion…** .
    
     ![Nouvelle connexion](./media/virtual-machines-sql-server-connection-steps/23New-Login.png)
 3. Dans la boîte de dialogue **Nouvelle connexion**, sur la page **Général**, entrez le nom du nouvel utilisateur dans la zone **Nom de connexion**.
 4. Sélectionnez **Authentification SQL Server**.
 5. Dans la zone **Mot de passe** , entrez un mot de passe pour le nouvel utilisateur. Entrez de nouveau ce mot de passe dans la zone **Confirmer le mot de passe** .
 6. Sélectionnez les options de mise en œuvre de mot de passe nécessaires (**Appliquer la stratégie de mot de passe**, **Appliquer l’expiration du mot de passe**, et **L’utilisateur doit changer de mot de passe à la prochaine connexion**). Si vous utilisez cette connexion pour vous-même, il est inutile d’exiger un mot de passe à la prochaine connexion.
-7. Dans la liste **Base de données par défaut** , sélectionnez une base de données par défaut pour la connexion. **principale** . Si vous n'avez pas encore créé de base de données d'utilisateur, gardez la valeur par défaut **master**.
+7. Sélectionnez une base de données par défaut pour le compte de connexion dans la liste **Base de données par défaut** . **principale** . Si vous n'avez pas encore créé de base de données d'utilisateur, gardez la valeur par défaut **master**.
    
     ![Propriétés de connexion](./media/virtual-machines-sql-server-connection-steps/24Test-Login.png)
 8. S’il s’agit de votre première connexion, vous pouvez désigner cette connexion en tant qu’administrateur SQL Server. Si tel est le cas, sur la page **Rôles du serveur**, activez la case à cocher **administrateur système**.

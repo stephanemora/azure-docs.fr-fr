@@ -14,17 +14,17 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: jeedes
 ms.openlocfilehash: a70abd1cddb866037926bbbc881682d50599366b
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76699255"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Procédure : Configurer les revendications de rôle émises dans le jeton SAML pour les applications d'entreprise
 
 Grâce à Azure Active Directory (Azure AD), vous pouvez personnaliser le type de revendications de rôle que vous recevez après avoir autorisé une application.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Un abonnement Azure AD avec l’installation des répertoires.
 - Un abonnement pour lequel l’authentification unique (SSO) est activée. Vous devez configurer l’authentification unique avec votre application.

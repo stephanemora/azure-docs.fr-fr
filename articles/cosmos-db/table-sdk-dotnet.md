@@ -9,13 +9,13 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/17/2018
 ms.openlocfilehash: 5a5305ffd388d2573d250d93131c1fed236008b7
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76771627"
 ---
-# <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>API .NET Table Azure Cosmos DB : Téléchargement et notes de publication
+# <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>API .NET Table Azure Cosmos DB : Téléchargement et notes de publication
 
 > [!div class="op_single_selector"]
 > * [.NET](table-sdk-dotnet.md)
@@ -28,7 +28,7 @@ ms.locfileid: "76771627"
 |---|---|
 |**Téléchargement du Kit de développement logiciel (SDK)**|[NuGet](https://aka.ms/acdbtablenuget)|
 |**Démarrage rapide**|[Azure Cosmos DB : Créer une application avec .NET et l’API Table](create-table-dotnet.md)|
-|**Didacticiel**|[Azure Cosmos DB : Développer avec l’API Table dans .NET](tutorial-develop-table-dotnet.md)|
+|**Didacticiel**|[Azure Cosmos DB : Développer avec l’API Table dans .NET](tutorial-develop-table-dotnet.md)|
 |**Infrastructure actuellement prise en charge**|[Microsoft .NET Framework 4.5.1](https://www.microsoft.com/en-us/download/details.aspx?id=40779)|
 
 > [!IMPORTANT]
@@ -39,40 +39,40 @@ ms.locfileid: "76771627"
 
 ## <a name="release-notes"></a>Notes de publication
 
-### <a name="a-name212212"></a><a name="2.1.2"/>2.1.2
+### <a name="212"></a><a name="2.1.2"/>2.1.2
 
 * Résolution des bogues
 
-### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
+### <a name="210"></a><a name="2.1.0"/>2.1.0
 
 * Résolution des bogues
 
-### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
+### <a name="200"></a><a name="2.0.0"/>2.0.0
 
 * Ajout de la prise en charge des écritures multirégions
 * Dépendances de package NuGet corrigées sur Microsoft.Azure.DocumentDB, Microsoft.OData.Core, Microsoft.OData.Edm et Microsoft.Spatial
 
-### <a name="a-name113113"></a><a name="1.1.3"/>1.1.3
+### <a name="113"></a><a name="1.1.3"/>1.1.3
 
 * Dépendances de package NuGet corrigées sur Microsoft.Azure.Storage.Common et Microsoft.Azure.DocumentDB.
 * Résolution des bogues dans la sérialisation de table lorsque JsonConvert.DefaultSettings est configuré.
 
-### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
+### <a name="111"></a><a name="1.1.1"/>1.1.1
 
 * Validation supplémentaire pour les ETAGs incorrectement formés en mode direct.
 * Bogue de requête LINQ corrigé en mode de passerelle.
 * API synchrones désormais exécutées sur le pool de threads avec SynchronizationContext.
 
-### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
+### <a name="110"></a><a name="1.1.0"/>1.1.0
 
 * Ajouter TableQueryMaxItemCount, TableQueryEnableScan, TableQueryMaxDegreeOfParallelism et TableQueryContinuationTokenLimitInKb à TableRequestOptions
 * Correctifs de bogues
 
-### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
+### <a name="100"></a><a name="1.0.0"/>1.0.0
 
 * Version en disponibilité générale
 
-### <a name="a-name010-preview090-preview"></a><a name="0.1.0-preview"/>0.9.0 - préversion
+### <a name="090-preview"></a><a name="0.1.0-preview"/>0.9.0 - préversion
 
 * Version préliminaire initiale
 

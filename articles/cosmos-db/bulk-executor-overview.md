@@ -8,15 +8,15 @@ ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
 ms.openlocfilehash: 9d335bcf6daf0b38e7a68ca2d40894dd64c93e40
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75442156"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Vue d’ensemble de la bibliothèque d’exécuteur en bloc Azure Cosmos DB
  
-Azure Cosmos DB est un service de base de données rapide, flexible et distribué à l’échelle mondiale, conçu pour une montée en puissance élastique afin de prendre en charge : 
+Azure Cosmos DB est un service de base de données rapide, flexible et distribué à l’échelle mondiale, conçu pour effectuer un scale-out élastique afin de prendre en charge : 
 
 * Un important débit de lecture et d’écriture (plusieurs millions d’opérations par seconde).  
 * Le stockage de volumes élevés (plusieurs centaines de téraoctets ou plus) de données transactionnelles et opérationnelles avec une latence prévisible de l’ordre de la milliseconde  
@@ -32,7 +32,7 @@ La bibliothèque d’exécuteur en bloc vous permet de tirer parti de ces stocka
 
 * Elle élimine les tâches fastidieuses liées à l’écriture de la logique d’application qui gère la limitation du taux des requêtes, les délais d’attente des requêtes et autres exceptions temporaires en les traitant efficacement dans la bibliothèque.  
 
-* Elle fournit un mécanisme simplifié pour la montée en puissance des applications effectuant des opérations en bloc. Une seule instance d’exécuteur en bloc sur une machine virtuelle Azure peut consommer plus de 500 000 RU/s. Vous pouvez atteindre un débit plus élevé en ajoutant des instances supplémentaires à chacune des machines virtuelles clientes.  
+* Elle fournit un mécanisme simplifié pour le scale-out des applications effectuant des opérations en bloc. Une seule instance d’exécuteur en bloc sur une machine virtuelle Azure peut consommer plus de 500 000 RU/s. Vous pouvez atteindre un débit plus élevé en ajoutant des instances supplémentaires à chacune des machines virtuelles clientes.  
  
 * Elle peut importer en bloc plus d’un téraoctet de données par heure en faisant appel à une architecture de montée en puissance.  
 

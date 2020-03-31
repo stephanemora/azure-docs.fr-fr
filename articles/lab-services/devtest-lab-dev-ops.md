@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/10/2019
 ms.author: spelluru
 ms.openlocfilehash: 62c44bfea28d47d7c32aa7ef440a40d45c314683
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67081610"
 ---
 # <a name="integration-of-azure-devtest-labs-and-azure-devops"></a>Intégration d’Azure DevTest Labs et d’Azure DevOps
@@ -42,7 +42,7 @@ Un lab doit se concentrer sur une équipe qui travaille dans une zone de fonctio
 ## <a name="cicd-pipeline"></a>Pipeline CI/CD 
 Le pipeline CI/CD est un des composants essentiels dans DevOps qui déplacent le code à partir d’une demande de tirage du développeur, l’intègre avec le code existant, puis le déploie dans l’écosystème de production. Toutes les ressources n’ont pas besoin d’être dans un lab. Par exemple, un hôte Jenkins pourrait être configuré en dehors du laboratoire comme une ressource plus persistante. Voici quelques exemples spécifiques de l’intégration de labs dans le pipeline. 
 
-### <a name="build"></a>Créer 
+### <a name="build"></a>Build 
 Le pipeline de build se concentre sur la création d’un package de composants testés ensemble pour être remis au pipeline de mise en production. Les labs peuvent faire partie du pipeline de build en tant qu’emplacement pour les agents de build et d’autres ressources de support. La possibilité de générer dynamiquement l’infrastructure offre un meilleur contrôle. Avec la possibilité d’avoir plusieurs environnements dans un lab, chaque build peut être exécuté de façon asynchrone tout en utilisant l’ID du build dans les informations de l’environnement pour identifier uniquement les ressources de ce build.   
 
 Pour les agents de build, la capacité d’un lab à limiter l’accès améliore la sécurité et réduit les risques de corruptions accidentelles.  

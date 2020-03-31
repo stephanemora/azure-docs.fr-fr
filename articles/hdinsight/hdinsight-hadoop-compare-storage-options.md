@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.openlocfilehash: 98d71434ac9e3f712be0cbd8c505b7d5a537e7cc
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79095553"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Comparer les options de stockage à utiliser avec les clusters Azure HDInsight
@@ -159,7 +159,7 @@ Plusieurs travaux WebHCat, notamment Apache Hive, MapReduce, streaming Apache Ha
 
 Les objets blob peuvent être utilisés pour les données structurées et non structurées. Les conteneurs d’objets blob stockent des données en tant que paires clé/valeur et ils n’ont pas de hiérarchie de répertoires. Cependant, le nom de la clé peut inclure une barre oblique (« / ») pour faire comme si un fichier était stocké dans une structure de répertoires. Par exemple, une clé d’objet blob peut être `input/log1.txt`. Il n’existe aucun répertoire `input` réel, mais en raison de la présence de la barre oblique dans le nom de la clé, celle-ci apparaît comme un chemin de fichier.
 
-### <a id="benefits"></a>Avantages du stockage Azure
+### <a name="benefits-of-azure-storage"></a><a id="benefits"></a>Avantages du stockage Azure
 Les clusters de calcul et les ressources de stockage qui ne sont pas colocalisés ont des coûts implicites en termes de performances. Ces coûts sont atténués par la façon dont les clusters de calcul sont créés à proximité des ressources de compte de stockage à l’intérieur de la région Azure. Dans cette région, les nœuds de calcul peuvent accéder efficacement aux données par le biais du réseau à haut débit à l’intérieur de Stockage Azure.
 
 Quand vous stockez les données dans Stockage Azure plutôt qu’HDFS, vous obtenez plusieurs avantages :
@@ -215,12 +215,12 @@ Data Lake Storage Gen1 peut stocker des données dans leur format natif, en l’
 
 Les conteneurs Data Lake Storage Gen1 pour données sont essentiellement des dossiers et des fichiers. Vous travaillez sur les données stockées à l’aide de SDK, du portail Azure et d’Azure Powershell. Tant que vous placez vos données dans le magasin en utilisant ces interfaces et les conteneurs appropriés, vous pouvez stocker n’importe quel type de données. Data Lake Storage Gen1 n’effectue aucune opération particulière sur les données en fonction du type de données qu’il contient.
 
-## <a name="DataLakeStoreSecurity"></a>Sécurité des données dans Data Lake Storage Gen1
+## <a name="data-security-in-data-lake-storage-gen1"></a><a name="DataLakeStoreSecurity"></a>Sécurité des données dans Data Lake Storage Gen1
 Data Lake Storage Gen1 utilise Azure Active Directory pour l’authentification, et des listes de contrôle d’accès pour gérer l’accès à vos données.
 
 | **Fonctionnalité** | **Description** |
 | --- | --- |
-| Authentication |Data Lake Storage Gen1 s’intègre à Azure Active Directory (Azure AD) pour la gestion des identités et des accès de toutes les données stockées dans Data Lake Storage Gen1. Grâce à cette intégration, Data Lake Storage Gen1 tire parti de toutes les fonctionnalités d’Azure AD, notamment l’authentification multifacteur, l’accès conditionnel, le contrôle d’accès en fonction du rôle, la supervision de l’utilisation des applications, la supervision de la sécurité, les alertes, et ainsi de suite. Data Lake Storage Gen1 prend en charge le protocole OAuth 2.0 pour l’authentification auprès de l’interface REST. Voir [Authentification auprès d’Azure Data Lake Storage Gen1 à l’aide d’Azure Active Directory](../data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md).|
+| Authentification |Data Lake Storage Gen1 s’intègre à Azure Active Directory (Azure AD) pour la gestion des identités et des accès de toutes les données stockées dans Data Lake Storage Gen1. Grâce à cette intégration, Data Lake Storage Gen1 tire parti de toutes les fonctionnalités d’Azure AD, notamment l’authentification multifacteur, l’accès conditionnel, le contrôle d’accès en fonction du rôle, la supervision de l’utilisation des applications, la supervision de la sécurité, les alertes, et ainsi de suite. Data Lake Storage Gen1 prend en charge le protocole OAuth 2.0 pour l’authentification auprès de l’interface REST. Voir [Authentification auprès d’Azure Data Lake Storage Gen1 à l’aide d’Azure Active Directory](../data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md).|
 | Contrôle d’accès |Data Lake Storage Gen1 offre un contrôle d’accès grâce à la prise en charge des autorisations de type POSIX exposées par le protocole WebHDFS. Les ACL peuvent être activées au niveau du dossier racine, des sous-dossiers et des fichiers individuels. Pour plus d’informations sur le fonctionnement des listes ACL dans le contexte de Data Lake Storage Gen1, consultez [Contrôle d’accès dans Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md). |
 | Chiffrement |Data Lake Storage Gen1 assure également le chiffrement des données stockées dans le compte. Vous spécifiez les paramètres de chiffrement lors de la création d’un compte Data Lake Storage Gen1. Vous pouvez choisir de chiffrer vos données ou non. Pour plus d’informations, consultez l’article [Chiffrement dans Data Lake Storage Gen1](../data-lake-store/data-lake-store-encryption.md). Pour savoir comment définir une configuration avec chiffrement, consultez [Bien démarrer avec Azure Data Lake Storage Gen1 à l’aide du Portail Azure](../data-lake-store/data-lake-store-get-started-portal.md). |
 

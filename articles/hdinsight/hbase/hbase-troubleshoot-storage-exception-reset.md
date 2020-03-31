@@ -8,10 +8,10 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/08/2019
 ms.openlocfilehash: a7af6407191577112f936bfb9048985e85c868ea
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75887221"
 ---
 # <a name="scenario-storage-exception-after-connection-reset-in-azure-hdinsight"></a>Scénario : Exception de stockage après la réinitialisation de la connexion dans Azure HDInsight
@@ -22,7 +22,7 @@ Cet article décrit les éventuelles solutions à appliquer pour résoudre les p
 
 Impossible de créer une nouvelle table Apache HBase.
 
-## <a name="cause"></a>Cause :
+## <a name="cause"></a>Cause
 
 Au cours d’un processus de troncation de table, un problème de connexion de stockage s’est produit. L’entrée de table a été supprimée dans la table de métadonnées HBase. Tous les fichiers blob ont été supprimés, sauf un.
 

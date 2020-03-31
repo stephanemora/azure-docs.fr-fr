@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/12/2018
 ms.author: magattus
 ms.openlocfilehash: dec753d7c891d226aa2e6d3efa993d8d24adfbaa
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593841"
 ---
 # <a name="x-ec-debug-http-headers-for-azure-cdn-rules-engine"></a>En-têtes HTTP X-EC-Debug pour le moteur de règles Azure CDN
@@ -105,8 +105,8 @@ Le terme utilisé dans la syntaxe de l’en-tête de réponse ci-dessus est déf
 
 Valeur  | Description
 -------| --------
-OUI    | Indique que le contenu demandé était éligible pour la mise en cache.
-NON     | Indique que le contenu demandé n’était pas éligible pour la mise en cache. Cet état peut être dû à l’une des raisons suivantes : <br /> - Configuration spécifique au client : Une configuration spécifique à votre compte peut empêcher les serveurs POP de mettre en cache une ressource. Par exemple, le moteur de règles peut empêcher la mise en cache d’une ressource en activant la fonctionnalité de contournement du cache pour les requêtes applicables.<br /> - En-têtes de réponse du cache : Les en-têtes Cache-Control et Expires de la ressource demandée peuvent empêcher les serveurs POP de la mettre en cache.
+YES    | Indique que le contenu demandé était éligible pour la mise en cache.
+Non     | Indique que le contenu demandé n’était pas éligible pour la mise en cache. Cet état peut être dû à l’une des raisons suivantes : <br /> - Configuration spécifique au client : Une configuration spécifique à votre compte peut empêcher les serveurs POP de mettre en cache une ressource. Par exemple, le moteur de règles peut empêcher la mise en cache d’une ressource en activant la fonctionnalité de contournement du cache pour les requêtes applicables.<br /> - En-têtes de réponse du cache : Les en-têtes Cache-Control et Expires de la ressource demandée peuvent empêcher les serveurs POP de la mettre en cache.
 UNKNOWN | Indique que les serveurs n’ont pas pu déterminer si la ressource demandée pouvait être mise en cache. Cet état se produit généralement lorsque la requête est refusée en raison de l’authentification basée sur jeton.
 
 ### <a name="sample-response-header"></a>Exemple d’en-tête de réponse

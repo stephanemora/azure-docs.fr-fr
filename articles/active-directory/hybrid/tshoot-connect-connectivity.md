@@ -16,12 +16,12 @@ ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7519f47037d2d7ff37564ab27c1cc58b65ff6c14
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 72dbb404d1b4d3618909e0233f332d2f98b51516
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64572784"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80049732"
 ---
 # <a name="troubleshoot-azure-ad-connectivity"></a>Résoudre les problèmes de connectivité liés à Azure AD
 Cet article décrit le fonctionnement de la connectivité entre Azure AD Connect et Azure AD ainsi que la résolution des problèmes de connectivité. Ces problèmes sont susceptibles de se produire dans un environnement doté d’un serveur proxy.
@@ -78,10 +78,10 @@ Cette erreur s’affiche si le point de terminaison **https://secure.aadcdn.micr
 Si l’Assistant Installation réussit à se connecter à Azure AD, mais que le mot de passe lui-même ne peut pas être vérifié, le message suivant apparaît :  
 ![Mot de passe incorrect.](./media/tshoot-connect-connectivity/badpassword.png)
 
-* Le mot de passe est-il temporaire et doit-il être modifié ? Le mot de passe est-il correct ? Connectez-vous à https://login.microsoftonline.com (sur un autre ordinateur que le serveur Azure AD Connect) et vérifiez que le compte est utilisable.
+* Le mot de passe est-il temporaire et doit-il être modifié ? Le mot de passe est-il correct ? Connectez-vous à `https://login.microsoftonline.com` (sur un autre ordinateur que le serveur Azure AD Connect) et vérifiez que le compte est utilisable.
 
 ### <a name="verify-proxy-connectivity"></a>Vérifier la connectivité du proxy
-Pour vérifier si le serveur Azure AD Connect dispose d’une connectivité réelle avec le proxy et Internet, utilisez quelques commandes PowerShell pour voir si le proxy autorise ou non les demandes web. À une invite PowerShell, exécutez `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc`. (Techniquement, le premier appel est vers https://login.microsoftonline.com et cet URI fonctionne également, mais l’autre URI répond plus rapidement.)
+Pour vérifier si le serveur Azure AD Connect dispose d’une connectivité réelle avec le proxy et Internet, utilisez quelques commandes PowerShell pour voir si le proxy autorise ou non les demandes web. À une invite PowerShell, exécutez `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc`. (Techniquement, le premier appel est vers `https://login.microsoftonline.com` et cet URI fonctionne également, mais l’autre URI répond plus rapidement.)
 
 PowerShell utilise la configuration du fichier machine.config pour contacter le proxy. Les paramètres de winhttp/netsh ne doivent pas affecter ces applets de commande.
 
@@ -104,7 +104,7 @@ Quand Azure AD Connect envoie une demande d'exportation à Azure AD, Azure AD pe
 ## <a name="the-communication-pattern-between-azure-ad-connect-and-azure-ad"></a>Modèle de communication entre Azure AD Connect et Azure AD
 Si vous avez suivi l’ensemble des étapes précédentes et que vous ne pouvez toujours pas vous connecter, vous pouvez commencer à examiner les journaux d’activité du réseau. Cette section documente un modèle de connectivité réussi et normal. Elle indique également les fausses pistes courantes qui peuvent être ignorées quand vous lisez les journaux d’activité du réseau.
 
-* Il s’agit d’appels vers https://dc.services.visualstudio.com. Il n’est pas impératif que cette URL soit ouverte dans le proxy pour que l’installation réussisse, et vous pouvez ignorer ces appels.
+* Il s’agit d’appels vers `https://dc.services.visualstudio.com`. Il n’est pas impératif que cette URL soit ouverte dans le proxy pour que l’installation réussisse, et vous pouvez ignorer ces appels.
 * Vous constatez que la résolution DNS répertorie les hôtes réels de l’espace de noms DNS nsatc.net et d’autres espaces de noms ne figurant pas sous microsoftonline.com. Néanmoins, il n’existe pas de demandes de service web sur les noms de serveur réels, et vous n’avez pas à ajouter ces URL au proxy.
 * Les points de terminaison adminwebservice et provisioningapi sont des points de terminaison de découverte, et ils sont utilisés pour rechercher le point de terminaison réel à utiliser. Ces points de terminaison diffèrent selon votre région.
 

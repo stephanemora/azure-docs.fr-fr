@@ -3,7 +3,7 @@ title: Afficher les rapports et les journaux dans la gestion des droits d’util
 description: Découvrez comment afficher le rapport d’affectations d’utilisateur et les journaux d’audit dans la gestion des droits d’utilisation Azure Active Directory.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: barclayn
 manager: daveba
 editor: jocastel-MSFT
 ms.service: active-directory
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 10/28/2019
-ms.author: ajburnle
+ms.date: 03/22/2020
+ms.author: barclayn
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 819badb85e532275b4d5d6ca84c3e6e7fe527fa0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 514f8e86d6bd28cc5212e0f0058f00e270f43e35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422551"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80128414"
 ---
 # <a name="view-reports-and-logs-in-azure-ad-entitlement-management"></a>Afficher les rapports et les journaux dans la gestion des droits d’utilisation Azure AD
 
@@ -109,5 +109,6 @@ Lorsque l’attribution du package d’accès d’un utilisateur expire, est ann
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+- [Archiver les rapports et les journaux](entitlement-management-logs-and-reporting.md)
 - [Résoudre les problèmes de gestion des droits d’utilisation Azure AD](entitlement-management-troubleshoot.md)
 - [Scénarios courants](entitlement-management-scenarios.md)

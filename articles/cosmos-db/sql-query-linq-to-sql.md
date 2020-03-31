@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
 ms.openlocfilehash: d43f95b91df7d0c9c442339de51936200f4688e2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75441254"
 ---
 # <a name="linq-to-sql-translation"></a>Conversion LINQ en SQL
@@ -54,7 +54,7 @@ Le fournisseur de requêtes prend en charge les expressions scalaires suivantes�
     new int[] { 3, child.grade, 5 };
   ```
 
-## <a id="SupportedLinqOperators"></a>Opérateurs LINQ pris en charge
+## <a name="supported-linq-operators"></a><a id="SupportedLinqOperators"></a>Opérateurs LINQ pris en charge
 
 Le fournisseur LINQ inclus avec le kit SDK .NET SQL prend en charge les opérateurs suivants :
 

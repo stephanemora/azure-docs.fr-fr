@@ -3,17 +3,17 @@ title: Présentation de Files d’attente Azure - Stockage Azure
 description: Présentation de Files d’attente Azure
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 06/07/2019
+ms.date: 03/18/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: overview
 ms.reviewer: cbrooks
-ms.openlocfilehash: 0e8bac8344bec06b58a22b8c9162cd8bd22ee700
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 4a2bea77578282d68d86bc1a8cea765aa2cbd555
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750435"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80060843"
 ---
 # <a name="what-are-azure-queues"></a>Que sont les files d’attente Azure ?
 
@@ -23,7 +23,7 @@ Stockage File d’attente Azure est un service permettant de stocker un grand no
 
 Le service de file d’attente contient les composants suivants :
 
-![Concepts de File d’attente](./media/storage-queues-introduction/queue1.png)
+![Diagramme montrant la relation qui existe entre un compte de stockage, les files d’attente et les messages](./media/storage-queues-introduction/queue1.png)
 
 * **Format d’URL** : Les files d’attente sont adressables à l’aide du format d’URL suivant :
 

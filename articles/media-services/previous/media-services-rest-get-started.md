@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 8989acc6d21a3c53be9d97c74ed7fbf03ba54819
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76773679"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Prendre en main la diffusion de contenus à la demande avec REST  
@@ -36,7 +36,7 @@ Cliquez sur l’image pour l’afficher en plein écran.
 
 <a href="./media/media-services-rest-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-rest-get-started/media-services-overview-object-model-small.png"></a> 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 Les conditions préalables suivantes sont requises pour commencer à développer avec les API REST et Media Services.
 
 * Un compte Azure. Pour plus d’informations, consultez [Essai gratuit Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -79,11 +79,11 @@ Pour démarrer le point de terminaison de streaming, procédez comme suit :
 4. Cliquez sur l’icône de démarrage.
 5. Cliquez sur le bouton Enregistrer pour enregistrer vos modifications.
 
-## <a id="connect"></a>Connexion à un compte Media Services à l’aide de l’API REST
+## <a name="connect-to-the-media-services-account-with-rest-api"></a><a id="connect"></a>Connexion à un compte Media Services à l’aide de l’API REST
 
 Pour savoir comment vous connecter à l’API AMS, consultez [Accéder à l’API Azure Media Services avec l’authentification Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
-## <a id="upload"></a>Création d’une ressource et téléchargement d’un fichier vidéo à l’aide de l’API REST
+## <a name="create-a-new-asset-and-upload-a-video-file-with-rest-api"></a><a id="upload"></a>Création d’une ressource et téléchargement d’un fichier vidéo à l’aide de l’API REST
 
 Dans Media Services, vous téléchargez vos fichiers numériques dans une ressource. L’entité **Asset** peut contenir des fichiers vidéo et audio, des images, des collections de miniatures, des pistes textuelles et des légendes (et les métadonnées concernant ces fichiers).  Une fois les fichiers téléchargés dans la ressource, votre contenu est stocké en toute sécurité dans le cloud et peut faire l’objet d’un traitement et d’une diffusion en continu.
 
@@ -405,7 +405,7 @@ Si l’opération réussit, l’élément suivant est retourné :
     HTTP/1.1 204 No Content
     ...
 
-## <a id="encode"></a>Encoder le fichier source en un ensemble de fichiers MP4 à débit adaptatif
+## <a name="encode-the-source-file-into-a-set-of-adaptive-bitrate-mp4-files"></a><a id="encode"></a>Encoder le fichier source en un ensemble de fichiers MP4 à débit adaptatif
 
 Après avoir reçu des éléments multimédias dans Media Services, vous pouvez encoder un média, modifier le format de ce dernier, lui appliquer un filigrane, etc. avant de le livrer à des clients. Afin de garantir des performances et une disponibilité optimales, ces activités sont planifiées et exécutées dans de nombreuses instances de rôle en arrière-plan. Ces activités s’appellent des travaux et chaque Travail se compose de tâches atomiques qui effectuent le travail à proprement parler sur le fichier de ressource (pour plus d’informations, consultez les descriptions de [Travail](https://docs.microsoft.com/rest/api/media/operations/job) et [Tâche](https://docs.microsoft.com/rest/api/media/operations/task)).
 
@@ -692,7 +692,7 @@ Le code suivant montre comment demander l’ID de la ressource de sortie
        ]
     }
 
-## <a id="publish_get_urls"></a>Publication des éléments et obtention des URL de diffusion et de téléchargement progressif avec l’API REST
+## <a name="publish-the-asset-and-get-streaming-and-progressive-download-urls-with-rest-api"></a><a id="publish_get_urls"></a>Publication des éléments et obtention des URL de diffusion et de téléchargement progressif avec l’API REST
 
 Pour diffuser en continu ou télécharger un élément multimédia, vous devez tout d'abord le « publier » en créant un localisateur. Les localisateurs assurent l’accès aux fichiers contenus dans l’élément multimédia. Media Services prend en charge deux types de localisateurs : les localisateurs OnDemandOrigin, utilisés pour diffuser du contenu multimédia (par exemple, MPEG DASH, HLS ou Smooth Streaming) et les localisateurs d'URL SAS (signature d'accès partagé), utilisés pour télécharger des fichiers multimédias. 
 
@@ -910,7 +910,7 @@ Pour la diffusion en continu MPEG DASH, ajoutez (format=mpd-time-csf) après «�
     http://amstestaccount001.streaming.mediaservices.windows.net/ebf733c4-3e2e-4a68-b67b-cc5159d1d7f2/BigBuckBunny.ism/manifest(format=mpd-time-csf)
 
 
-## <a id="play"></a>Lecture de votre contenu
+## <a name="play-your-content"></a><a id="play"></a>Lecture de votre contenu
 Pour tester votre vidéo, utilisez le [lecteur Azure Media Services](https://aka.ms/azuremediaplayer).
 
 Pour tester le téléchargement progressif, collez l’URL dans un navigateur (par exemple, Internet Explorer, Chrome ou Safari).

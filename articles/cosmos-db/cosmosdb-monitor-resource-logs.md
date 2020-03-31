@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: sngun
 ms.openlocfilehash: 184fc65dae57292243be9abdca71a129512b3d0b
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78252056"
 ---
 # <a name="monitor-azure-cosmos-db-data-by-using-diagnostic-settings-in-azure"></a>Surveillez les données Azure Cosmos DB à l’aide des paramètres de diagnostic dans Azure
@@ -65,7 +65,7 @@ Les indicateurs de performance de la plateforme et le journal d’activité sont
 Pour plus d’informations sur la création d’un paramètre de diagnostic à l’aide du Portail Azure, de l’interface CLI ou de PowerShell, consultez [Créer un paramètre de diagnostic pour collecter les journaux et les indicateurs de performance de la plateforme dans Azure](../azure-monitor/platform/diagnostic-settings.md) article.
 
 
-## <a id="diagnostic-queries"></a> Résoudre les problèmes liés aux requêtes de diagnostic
+## <a name="troubleshoot-issues-with-diagnostics-queries"></a><a id="diagnostic-queries"></a> Résoudre les problèmes liés aux requêtes de diagnostic
 
 1. Comment obtenir les frais de requête pour les requêtes coûteuses ?
 

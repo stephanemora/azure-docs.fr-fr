@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: mjbrown
 ms.openlocfilehash: 221a3118808a044ef1b1b822b9c95772bf792f34
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75441706"
 ---
 # <a name="how-to-write-stored-procedures-and-triggers-in-azure-cosmos-db-by-using-the-javascript-query-api"></a>Comment écrire des procédures stockées et des déclencheurs dans Azure Cosmos DB à l’aide de l’API de requête JavaScript
 
 Azure Cosmos DB vous permet d’envoyer des requêtes optimisées à l’aide d’une interface JavaScript fluide, sans avoir besoin de connaissances particulières en matière de langage SQL. Vous pouvez utiliser cette interface pour écrire des procédures stockées ou des déclencheurs. Pour en savoir plus sur la prise en charge de l’API de requête JavaScript dans Azure Cosmos DB, consultez l’article [Working with JavaScript language-integrated query API with Azure Cosmos DB](javascript-query-api.md) (Utilisation de l’API de requête avec langage intégré JavaScript avec Azure Cosmos DB).
 
-## <a id="stored-procedures"></a>Procédure stockée utilisant l’API de requête JavaScript
+## <a name="stored-procedure-using-the-javascript-query-api"></a><a id="stored-procedures"></a>Procédure stockée utilisant l’API de requête JavaScript
 
 L’exemple de code suivant illustre comment l’API de requête JavaScript est utilisée dans le contexte d’une procédure stockée. La procédure stockée insère un élément Azure Cosmos, spécifié par un paramètre d’entrée, et met à jour un document de métadonnées à l’aide de la méthode `__.filter()`, avec minSize, maxSize et totalSize basés sur la propriété de taille de l’élément d’entrée.
 

@@ -5,10 +5,10 @@ ms.topic: troubleshooting
 ms.date: 08/18/2017
 ms.author: pepogors
 ms.openlocfilehash: bf61858b446c1ac6d4a0210571fffaa721ad0166
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78254883"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Questions fréquentes sur Service Fabric
@@ -132,7 +132,7 @@ B. Pour les hôtes MSI d’un groupe de machines virtuelles identiques, vous pou
 
 ### <a name="whats-the-best-way-to-query-data-across-partitions-of-a-reliable-collection"></a>Quel est le meilleur moyen d’interroger des données sur plusieurs partitions d’une collection fiable ?
 
-Les collections fiables sont généralement [partitionnées](service-fabric-concepts-partitioning.md) pour permettre l’extensibilité et augmenter les performances ainsi que le débit. Cela signifie que l’état d’un service peut être réparti entre des dizaines voire des centaines d’ordinateurs. Pour effectuer des opérations sur ce jeu de données complet, plusieurs possibilités s’offrent à vous :
+Les collections fiables sont généralement [partitionnées](service-fabric-concepts-partitioning.md) pour permettre d’effectuer un scale-out et d’augmenter les performances ainsi que le débit. Cela signifie que l’état d’un service peut être réparti entre des dizaines voire des centaines d’ordinateurs. Pour effectuer des opérations sur ce jeu de données complet, plusieurs possibilités s’offrent à vous :
 
 - Créer un service qui interroge toutes les partitions d’un autre service pour extraire les données requises.
 - Créer un service capable de recevoir des données provenant de toutes les partitions d’un autre service.

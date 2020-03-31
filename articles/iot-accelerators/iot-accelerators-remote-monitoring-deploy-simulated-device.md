@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 08/15/2018
 ms.topic: conceptual
 ms.openlocfilehash: 7cbab38db859935c9f4490d79a131d6c9a7e302b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "66427572"
 ---
 # <a name="deploy-a-new-simulated-device"></a>Déployer un nouvel appareil simulé
@@ -35,7 +35,7 @@ Pour effectuer les étapes décrites dans ce guide pratique, vous avez besoin d�
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour effectuer les procédures de ce guide, vous avez besoin des éléments suivants :
 
@@ -136,7 +136,7 @@ Vous pouvez désormais utiliser vos modèles d’appareils personnalisés dans l
 
 1. Vous pouvez utiliser le tableau de bord pour afficher la télémétrie de l’appareil et appeler des méthodes de l’appareil.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous envisagez d’explorer davantage, laissez l’accélérateur de solution de supervision à distance déployé.
 

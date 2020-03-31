@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/24/2020
 ms.author: spelluru
 ms.openlocfilehash: c611ecdb5a2534f7368e533e3e19e6e3f96de57f
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78190447"
 ---
 # <a name="use-a-shared-image-gallery-in-azure-lab-services"></a>Utiliser une galerie d’images partagées dans Azure Lab Services
@@ -26,7 +26,7 @@ Cet article explique comment les administrateurs de laboratoire/enseignants peuv
 > [!NOTE]
 > Actuellement, Azure Lab Services prend en charge la création de modèles de machines virtuelles basés uniquement sur des images de machine virtuelle **généralisées** (et non sur des images spécialisées) d’une galerie d’images partagées. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 - Créez une galerie d’images partagées à l’aide [d’Azure PowerShell](../../virtual-machines/windows/shared-images.md) ou [d’Azure CLI](../../virtual-machines/linux/shared-images.md).
 - Vous avez associé la galerie d’images partagées au compte de laboratoire. Pour obtenir des instructions détaillées, consultez [Attach or detach a shared image gallery in Azure Lab Services](how-to-attach-detach-shared-image-gallery.md) (Attacher ou détacher une galerie d’images partagées dans Azure Lab Services).
 

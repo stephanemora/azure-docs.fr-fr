@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/11/2020
-ms.openlocfilehash: dd0343fc2e25a50f9aa9a9fdc3ef5ebb9615bc56
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: 963b86852a7df557ad7179e444e7c3a2692f57d9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79125680"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79531450"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Résoudre les problèmes de performances de l’activité de copie
 
@@ -96,7 +96,7 @@ Si les performances de l’activité de copie ne répondent pas à vos attentes 
 
 - **Le « transfert – écriture dans le récepteur » a connu une longue durée de travail :**
 
-  - adoptez les meilleures pratiques de chargement de données spécifiques au connecteur si elles s’appliquent. Par exemple, lors de la copie de données dans [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md) (anciennement SQL DW), utilisez PolyBase ou l’instruction COPY. 
+  - Adoptez les meilleures pratiques de chargement de données spécifiques au connecteur si elles s’appliquent. Par exemple, lors de la copie de données dans [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md) (anciennement SQL DW), utilisez PolyBase ou l’instruction COPY. 
 
   - Vérifiez si ADF signale une erreur de limitation sur le récepteur ou si votre magasin de données est soumis à une utilisation intensive. Si c’est le cas, réduisez vos charges de travail sur le magasin de données ou essayez de contacter votre administrateur de magasin de données pour augmenter la valeur de limitation ou la ressource disponible.
 
@@ -177,7 +177,7 @@ Voici des références relatives au monitoring et au réglage des performances p
 * Stockage Blob Azure : [Objectifs de performance et de scalabilité pour le stockage d’objets blob](../storage/blobs/scalability-targets.md) et [Liste de contrôle des performances et de la scalabilité pour le stockage d’objets blob](../storage/blobs/storage-performance-checklist.md).
 * Stockage Table Azure : [Objectifs de performance et de scalabilité pour le stockage Table](../storage/tables/scalability-targets.md) et [Liste de contrôle des performances et de la scalabilité pour le stockage Table](../storage/tables/storage-performance-checklist.md).
 * Azure SQL Database : Vous pouvez [surveiller les performances](../sql-database/sql-database-single-database-monitor.md) et vérifier le pourcentage de l’unité de transaction de base de données (DTU).
-* Azure SQL Data Warehouse : Sa capacité est mesurée en DWU (Data Warehouse Units). Consultez [Gestion de la puissance de calcul dans Azure SQL Data Warehouse (Vue d’ensemble)](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
+* Azure SQL Data Warehouse : Sa capacité est mesurée en DWU (Data Warehouse Units). Consultez [Gestion de la puissance de calcul dans Azure SQL Data Warehouse (Vue d’ensemble)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 * Azure Cosmos DB : [Niveaux de performances dans Azure Cosmos DB](../cosmos-db/performance-levels.md).
 * Serveur SQL Server local : [Surveiller et régler les performances](https://msdn.microsoft.com/library/ms189081.aspx).
 * Serveur de fichiers local : [Réglage des performances des serveurs de fichiers](https://msdn.microsoft.com/library/dn567661.aspx).

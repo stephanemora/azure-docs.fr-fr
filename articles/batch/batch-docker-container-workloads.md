@@ -11,10 +11,10 @@ ms.date: 03/02/2020
 ms.author: labrenne
 ms.custom: seodec18
 ms.openlocfilehash: 81f4e753ffbaaefd5761c9396a6533bac9f212c1
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78254839"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Exécuter des applications de conteneur sur Azure Batch
@@ -27,18 +27,18 @@ Vous devez être familiarisé avec les concepts de conteneur et savoir comment c
 
 L’utilisation de conteneurs permet de lancer simplement des tâches par lot sans avoir à gérer un environnement et des dépendances pour exécuter des applications. Les conteneurs déploient les applications sous la forme d’unités légères, portables et autonomes pouvant s’exécuter dans différents environnements. Par exemple, générez et testez localement un conteneur, puis chargez l’image conteneur dans un registre dans Azure ou ailleurs. Le modèle de déploiement de conteneur permet de s’assurer que l’environnement d’exécution de votre application est toujours correctement installé et configuré, où que votre application soit hébergée. Les tâches basées sur le conteneur dans Batch peuvent également tirer parti des fonctionnalités des tâches non basées sur le conteneur, notamment les packages d’applications et la gestion des fichiers de ressources et des fichiers de sortie.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-* **Versions du SDK** : Les SDK Batch prennent en charge des images conteneur dans les versions suivantes :
+* **Versions du SDK** : le SDK prend en charge des images conteneur dans les versions suivantes :
     * API REST (version : 6.0 du 01/09/2017)
     * Kit de développement logiciel Batch .NET SDK (version 8.0.0)
     * Kit de développement logiciel Batch Python (version 4.0)
     * Kit de développement logiciel Batch Java (version 3.0)
     * Kit de développement logiciel Batch Node.js (version 3.0)
 
-* **Comptes** : Dans votre abonnement Azure, vous devez créer un compte Batch et, éventuellement, un compte de stockage Azure.
+* **Comptes** : sur votre abonnement Azure, vous devez créer un compte Batch et, éventuellement, un compte de stockage Azure.
 
-* **Une image de machine virtuelle prise en charge** : Les conteneurs sont uniquement pris en charge dans les pools créés lors de la configuration des machines virtuelles à partir d’images détaillées dans la section « Images de machines virtuelles prises en charge ». Si vous fournissez une image personnalisée, consultez les considérations présentées dans la section suivante et la configuration requise dans [Utiliser une image personnalisée managée pour créer un pool de machines virtuelles](batch-custom-images.md).
+* **Une image de machine virtuelle prise en charge** : les conteneurs sont uniquement pris en charge dans les pools créés lors de la configuration des machines virtuelles à partir d’images détaillées dans la section « Images de machines virtuelles prises en charge ». Si vous fournissez une image personnalisée, consultez les considérations présentées dans la section suivante et la configuration requise dans [Utiliser une image personnalisée managée pour créer un pool de machines virtuelles](batch-custom-images.md).
 
 ### <a name="limitations"></a>Limites
 

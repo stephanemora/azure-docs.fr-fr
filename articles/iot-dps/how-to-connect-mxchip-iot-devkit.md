@@ -9,15 +9,15 @@ ms.service: iot-dps
 services: iot-dps
 manager: jeffya
 ms.openlocfilehash: f05e92f0452b1cfff23e2094354203fd7eaea48b
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74975650"
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>Utiliser l’approvisionnement automatique du service Azure IoT Hub Device Provisioning pour inscrire le DevKit IoT MXChip auprès d’IoT Hub
 
-Cet article décrit la procédure d’utilisation de [l’approvisionnement automatique](concepts-auto-provisioning.md) du service Azure IoT Hub Device Provisioning pour inscrire le DevKit IoT MXChip auprès d’IoT Hub. Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Cet article décrit la procédure d’utilisation de [l’approvisionnement automatique](concepts-auto-provisioning.md) du service Azure IoT Hub Device Provisioning pour inscrire le DevKit IoT MXChip auprès d’IoT Hub. Dans ce tutoriel, vous allez apprendre à :
 
 * configurer le point de terminaison global du service Device Provisioning sur un appareil.
 * utiliser un secret d’appareil unique (UDS) pour générer un certificat X.509 ;

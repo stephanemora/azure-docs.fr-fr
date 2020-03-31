@@ -12,10 +12,10 @@ author: nabhishek
 manager: shwang
 ms.date: 03/15/2018
 ms.openlocfilehash: 20858069b745beeaf64951c4ef23c2eb85251985
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74929111"
 ---
 # <a name="transform-data-by-running-a-jar-activity-in-azure-databricks"></a>Transformer des données en exécutant une activité Jar dans Azure Databricks
@@ -57,13 +57,13 @@ Le tableau suivant décrit les propriétés JSON utilisées dans la définition 
 
 |Propriété|Description|Obligatoire|
 |:--|---|:-:|
-|name|Nom de l'activité dans le pipeline.|OUI|
+|name|Nom de l'activité dans le pipeline.|Oui|
 |description|Texte décrivant l’activité.|Non|
-|Type|Pour l’activité Databricks Jar, le type d’activité est DatabricksSparkJar.|OUI|
-|linkedServiceName|Nom du service lié Databricks sur lequel s’exécute l’activité Jar. Pour en savoir plus sur ce service lié, consultez l’article  [Services liés de calcul](compute-linked-services.md) .|OUI|
-|mainClassName|Nom complet de la classe contenant la méthode principale à exécuter. Cette classe doit être contenue dans un fichier JAR fourni en tant que bibliothèque.|OUI|
+|type|Pour l’activité Databricks Jar, le type d’activité est DatabricksSparkJar.|Oui|
+|linkedServiceName|Nom du service lié Databricks sur lequel s’exécute l’activité Jar. Pour en savoir plus sur ce service lié, consultez l’article  [Services liés de calcul](compute-linked-services.md) .|Oui|
+|mainClassName|Nom complet de la classe contenant la méthode principale à exécuter. Cette classe doit être contenue dans un fichier JAR fourni en tant que bibliothèque.|Oui|
 |parameters|Paramètres qui sont transmis à la méthode principale.  C’est un tableau de chaînes.|Non|
-|libraries|Liste de bibliothèques à installer sur le cluster qui exécute la tâche. Il peut s’agir d’un tableau de < chaîne, objet >|Oui (au moins une contenant la méthode mainClassName)|
+|libraries|Liste de bibliothèques à installer sur le cluster qui exécute le travail. Il peut s’agir d’un tableau de < chaîne, objet >|Oui (au moins une contenant la méthode mainClassName)|
 
 > [!NOTE]
 > **Problème connu** : quand vous utilisez le même [cluster interactif](compute-linked-services.md#example---using-existing-interactive-cluster-in-databricks) pour exécuter simultanément plusieurs activités Databricks Jar (sans redémarrage du cluster), vous pouvez rencontrer un problème connu avec Databricks. En effet, dans ce cas, les paramètres de la première activité sont également utilisés par les activités suivantes. Des paramètres incorrects sont alors transmis aux travaux suivants. Pour limiter ce risque, utilisez plutôt un [cluster de travail](compute-linked-services.md#example---using-new-job-cluster-in-databricks). 
@@ -108,7 +108,7 @@ Pour plus d’informations, consultez la [documentation Databricks](https://docs
 
 ## <a name="how-to-upload-a-library-in-databricks"></a>Comment charger une bibliothèque dans Databricks
 
-#### <a name="using-databricks-workspace-uihttpsdocsazuredatabricksnetuser-guidelibrarieshtmlcreate-a-library"></a>[Interface utilisateur de l’espace de travail Databricks](https://docs.azuredatabricks.net/user-guide/libraries.html#create-a-library)
+#### <a name="using-databricks-workspace-ui"></a>[Interface utilisateur de l’espace de travail Databricks](https://docs.azuredatabricks.net/user-guide/libraries.html#create-a-library)
 
 Pour obtenir le chemin dbfs de la bibliothèque ajoutée par le biais de l’interface utilisateur, vous pouvez utiliser [CLI Databricks (installation)](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#install-the-cli). 
 
@@ -116,7 +116,7 @@ En général, les bibliothèques Jar sont stockées sous dbfs:/FileStore/jars lo
 
 
 
-#### <a name="copy-library-using-databricks-clihttpsdocsazuredatabricksnetuser-guidedev-toolsdatabricks-clihtmlcopy-a-file-to-dbfs"></a>[Copier une bibliothèque avec CLI Databricks](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#copy-a-file-to-dbfs)
+#### <a name="copy-library-using-databricks-cli"></a>[Copier une bibliothèque avec CLI Databricks](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#copy-a-file-to-dbfs)
 Utilisez l’interface CLI Databricks [(étapes d’installation)](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#install-the-cli). 
 
 Exemple - Copie de JAR dans dbfs: *dbfs cp SparkPi-assembly-0.1.jar dbfs:/docs/sparkpi.jar*

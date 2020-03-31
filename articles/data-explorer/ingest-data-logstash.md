@@ -8,23 +8,23 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: 86f6732cbf2409d3c79a3d7709100e8af24988a0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "66494541"
 ---
 # <a name="ingest-data-from-logstash-to-azure-data-explorer"></a>Ingérer des données depuis Logstash vers Azure Data Explorer
 
 [Logstash](https://www.elastic.co/products/logstash) est un pipeline open source de traitement de données côté serveur qui ingère simultanément des données provenant de nombreuses sources, les transforme, puis les envoie à votre « remise » préférée. Dans cet article, vous allez envoyer ces données à Azure Data Explorer, c’est-à-dire à un service rapide et hautement scalable d’exploration de données de journal et de télémétrie. Vous allez commencer par créer une table et un mappage de données dans un cluster de test, puis vous allez demander à Logstash d’envoyer des données dans la table et valider les résultats.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Un abonnement Azure. Si vous n’en avez pas, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
 * Un [cluster de test et une base de données](create-cluster-database-portal.md) Azure Data Explorer
 * [Instructions d’installation](https://www.elastic.co/guide/en/logstash/current/installing-logstash.html) de Logstash version 6+
 
-## <a name="create-a-table"></a>Création d’une table
+## <a name="create-a-table"></a>Créer une table
 
 Une fois que vous avez un cluster et une base de données, le moment est venu de créer une table.
 
@@ -136,7 +136,7 @@ Nous sommes maintenant prêts à exécuter Logstash pour tester nos paramètres.
 
 1. Sélectionnez Ctrl+C pour quitter Logstash.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Exécutez la commande suivante dans votre base de données pour nettoyer la table `logs` :
 

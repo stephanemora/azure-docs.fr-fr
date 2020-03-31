@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 09/12/2019
 ms.author: terrylan
 ms.openlocfilehash: 11bf7c0ae05c2e52d59efb32be47ce6bd96fac4f
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76937977"
 ---
 # <a name="develop-secure-app-for-an-azure-ad-app"></a>Développer une application sécurisée pour une application Azure AD
@@ -71,7 +71,7 @@ Certains exemples de menaces et de vulnérabilités potentielles générés par 
 
 ![Sortie du modèle de menace](./media/secure-aad-app/threat-model-output.png)
 
-### <a name="prerequisites"></a>Conditions préalables requises
+### <a name="prerequisites"></a>Prérequis
 Pour permettre le bon fonctionnement de l'application, vous devez installer les outils suivants :
 
 - Un éditeur de code pour modifier et voir le code de l’application.[Visual Studio Code](https://code.visualstudio.com/) est une option open source.

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/02/2019
 ms.openlocfilehash: 65e85548420116bdfcab87fe9f81a20e66226beb
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74803795"
 ---
 # <a name="query-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Interroger les journaux Azure Monitor pour surveiller les clusters HDInsight
@@ -24,7 +24,7 @@ Découvrez des scénarios de base sur l'utilisation des journaux Azure Monitor p
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Vous devez avoir configuré un cluster HDInsight pour utiliser les journaux Azure Monitor, et ajouté les solutions de supervision des journaux Azure Monitor propres au cluster HDInsight à l'espace de travail. Pour obtenir des instructions, consultez [Utiliser les journaux Azure Monitor avec des clusters HDInsight](hdinsight-hadoop-oms-log-analytics-tutorial.md).
 

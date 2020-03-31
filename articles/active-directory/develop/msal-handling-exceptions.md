@@ -15,12 +15,12 @@ ms.date: 11/22/2019
 ms.author: marsma
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 018d0c3bc009f6063de75b9a479be650b2c06e7c
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: f78c64fc0ba25dc3310b24e873dbae266ea2f281
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77160842"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80050319"
 ---
 # <a name="handle-msal-exceptions-and-errors"></a>Gérer les erreurs et les exceptions MSAL
 
@@ -36,7 +36,7 @@ Durant la connexion, vous pouvez rencontrer des erreurs concernant les consentem
 
 Pour plus d’informations sur la gestion des erreurs pour votre application, consultez la section suivante qui correspond à la langue que vous utilisez.
 
-## <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
+## <a name="net"></a>[.NET](#tab/dotnet)
 
 Quand vous traitez les exceptions .NET, vous pouvez utiliser le type d’exception lui-même et le membre `ErrorCode` pour les distinguer. Les valeurs de `ErrorCode` sont des constantes de type [MsalError](/dotnet/api/microsoft.identity.client.msalerror?view=azure-dotnet).
 
@@ -50,7 +50,7 @@ Voici les exceptions courantes pouvant être levées et certaines atténuations 
 
 | Exception | Code d'erreur | Limitation des risques|
 | --- | --- | --- |
-| [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS65001 : L’utilisateur ou l’administrateur n’a pas donné son consentement pour utiliser l’application portant l’ID « {appId} » et le nom « {appName} ». Envoyez une demande d’autorisation interactive pour cet utilisateur et cette ressource.| Vous devez d’abord obtenir le consentement de l’utilisateur. Si vous n’utilisez pas .NET Core (qui n’a pas d’interface utilisateur web), appelez (une seule fois) `AcquireTokeninteractive`. Si vous utilisez .NET Core ou que vous ne souhaitez pas effectuer une `AcquireTokenInteractive`, l’utilisateur peut accéder à une URL pour donner son consentement : https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id={clientId}&response_type=code&scope=user.read. pour appeler `AcquireTokenInteractive` : `app.AcquireTokenInteractive(scopes).WithAccount(account).WithClaims(ex.Claims).ExecuteAsync();`|
+| [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS65001 : L’utilisateur ou l’administrateur n’a pas donné son consentement pour utiliser l’application portant l’ID « {appId} » et le nom « {appName} ». Envoyez une demande d’autorisation interactive pour cet utilisateur et cette ressource.| Vous devez d’abord obtenir le consentement de l’utilisateur. Si vous n’utilisez pas .NET Core (qui n’a pas d’interface utilisateur web), appelez (une seule fois) `AcquireTokeninteractive`. Si vous utilisez .NET Core ou que vous ne souhaitez pas effectuer une `AcquireTokenInteractive`, l’utilisateur peut accéder à une URL pour donner son consentement : `https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id={clientId}&response_type=code&scope=user.read`. pour appeler `AcquireTokenInteractive` : `app.AcquireTokenInteractive(scopes).WithAccount(account).WithClaims(ex.Claims).ExecuteAsync();`|
 | [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS50079 : L’utilisateur est obligé d’utiliser l’authentification multifacteur (MFA).| Il n’y a pas d’atténuation. Si l’authentification multifacteur est configurée pour votre locataire et qu’Azure Active Directory (AAD) décide de l’appliquer, vous avez besoin de basculer vers un flux interactif, comme `AcquireTokenInteractive` ou `AcquireTokenByDeviceCode`.|
 | [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) |AADSTS90010 : Le type d’autorisation n’est pas pris en charge sur les points de terminaison */common* ou */consumers*. Utilisez le point de terminaison */organizations* ou propre au locataire. Vous avez utilisé */common*.| Comme expliqué dans le message d’Azure AD, l’autorité doit avoir un locataire ou utiliser */organizations*.|
 | [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) | AADSTS70002 : Le corps de la requête doit contenir le paramètre : `client_secret or client_assertion`.| Cette exception peut être levée si votre application n’a pas été inscrite en tant qu’application cliente publique dans Azure AD. Dans le Portail Azure, modifiez le manifeste de votre application et affectez à `allowPublicClient` la valeur `true`. |
@@ -138,7 +138,7 @@ catch (MsalUiRequiredException ex) when (ex.ErrorCode == MsalError.InvalidGrantE
 }
 ```
 
-## <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+## <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 MSAL.js fournit des objets d’erreur qui résument et classifient les différents types d’erreurs courantes. Il fournit également une interface pour accéder à des détails spécifiques des erreurs, comme les messages d’erreur, afin de les traiter de manière appropriée.
 
@@ -231,7 +231,7 @@ myMSALObj.acquireTokenSilent(request).then(function (response) {
 });
 ```
 
-## <a name="pythontabpython"></a>[Python](#tab/python)
+## <a name="python"></a>[Python](#tab/python)
 
 Dans MSAL pour Python, la plupart des erreurs sont transmises sous la forme d’une valeur renvoyée de l’appel d’API. L’erreur est représentée sous la forme d’un dictionnaire contenant la réponse JSON de la plateforme d’identité Microsoft.
 
@@ -242,7 +242,7 @@ Lorsqu’une erreur est retournée, la clé `"error_description"` contient un me
 
 Dans MSAL pour Python, les exceptions sont rares car la plupart des erreurs sont gérées en renvoyant une valeur d’erreur. L’exception `ValueError` est levée uniquement en cas de problème lié à la façon dont vous essayez d’utiliser la bibliothèque, par exemple lorsque des paramètres d’API sont incorrects.
 
-## <a name="javatabjava"></a>[Java](#tab/java)
+## <a name="java"></a>[Java](#tab/java)
 
 Dans MSAL pour Java, il existe trois types d’exceptions : `MsalClientException`, `MsalServiceException` et `MsalInteractionRequiredException` ; tous héritant de `MsalException`.
 
@@ -298,7 +298,7 @@ MSAL expose un champ `reason`, que vous pouvez utiliser pour fournir une meilleu
         }
 ```
 
-## <a name="iosmacostabiosmacos"></a>[iOS/macOS](#tab/iosmacos)
+## <a name="iosmacos"></a>[iOS/macOS](#tab/iosmacos)
 
 La liste complète des erreurs MSAL pour iOS et macOS est répertoriée dans l’[énumération MSALError](https://github.com/AzureAD/microsoft-authentication-library-for-objc/blob/master/MSAL/src/public/MSALError.h#L128).
 

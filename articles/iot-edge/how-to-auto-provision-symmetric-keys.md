@@ -9,12 +9,12 @@ ms.date: 10/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3adefbdf248deaec6170037521ab65890356d184
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: d9944308d00c9cfecbd38a6443efb49913148806
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76510887"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79535916"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>Créer et approvisionner un appareil IoT Edge à l’aide de l’attestation de clé symétrique
 
@@ -175,14 +175,14 @@ La section du fichier de configuration pour l’approvisionnement des clés sym�
 provisioning:
    source: "dps"
    global_endpoint: "https://global.azure-devices-provisioning.net"
-   scope_id: "{scope_id}"
+   scope_id: "<SCOPE_ID>"
    attestation:
       method: "symmetric_key"
-      registration_id: "{registration_id}"
-      symmetric_key: "{symmetric_key}"
+      registration_id: "<REGISTRATION_ID>"
+      symmetric_key: "<SYMMETRIC_KEY>"
 ```
 
-Remplacez les valeurs d’espace réservé pour `{scope_id}`, `{registration_id}` et `{symmetric_key}` par les données que vous avez collectées précédemment. Assurez-vous que la ligne **d’approvisionnement :** n’est pas précédée d’une espace et que les éléments imbriqués sont en retrait de deux espaces.
+Remplacez les valeurs d’espace réservé pour `<SCOPE_ID>`, `<REGISTRATION_ID>` et `<SYMMETRIC_KEY>` par les données que vous avez collectées précédemment. Assurez-vous que la ligne **approvisionnement :** n’est pas précédée d’une espace et que les éléments imbriqués sont en retrait de deux espaces.
 
 ### <a name="windows-device"></a>Appareil Windows
 

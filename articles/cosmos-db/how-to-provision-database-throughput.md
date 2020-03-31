@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
 ms.openlocfilehash: ef7d06dfb074a3453f5589284cbdaf079c48d111
-ms.sourcegitcommit: e6bce4b30486cb19a6b415e8b8442dd688ad4f92
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78933767"
 ---
 # <a name="provision-throughput-on-a-database-in-azure-cosmos-db"></a>Provisionner le débit sur une base de données dans Azure Cosmos DB
@@ -19,7 +19,7 @@ Cet article explique comment provisionner le débit sur une base de données dan
 
 ## <a name="provision-throughput-using-azure-portal"></a>Approvisionner le débit à l’aide du portail Azure
 
-### <a id="portal-sql"></a>API (Core) SQL
+### <a name="sql-core-api"></a><a id="portal-sql"></a>API (Core) SQL
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
@@ -46,7 +46,7 @@ Pour créer une base de données avec débit partagé, voir
 > [!Note]
 > Vous pouvez utiliser les SDK Cosmos pour l’API SQL afin de provisionner le débit de toutes les API. Vous pouvez éventuellement utiliser l’exemple suivant pour l’API Cassandra.
 
-### <a id="dotnet-all"></a>Toutes les API
+### <a name="all-apis"></a><a id="dotnet-all"></a>Toutes les API
 
 ### <a name="net-v2-sdk"></a>SDK .Net v2
 
@@ -67,7 +67,7 @@ await client.CreateDatabaseIfNotExistsAsync(
 
 [!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/DatabaseDocsSampleCode.cs?name=DatabaseCreateWithThroughput)]
 
-### <a id="dotnet-cassandra"></a>API Cassandra
+### <a name="cassandra-api"></a><a id="dotnet-cassandra"></a>API Cassandra
 Une commande similaire peut être exécutée avec n’importe quel pilote conforme à CQL. 
 ```csharp
 // Create a Cassandra keyspace and provision throughput of 400 RU/s

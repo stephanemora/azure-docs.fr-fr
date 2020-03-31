@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/16/2020
 ms.author: jingwang
 ms.openlocfilehash: 1418205843fefc76db4e73832736b308d0cc79a3
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76122608"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Stocker des informations d’identification dans Azure Key Vault
@@ -42,7 +42,7 @@ Les propriétés suivantes sont prises en charge pour le service lié Azure Key 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type doit être définie sur : **AzureKeyVault**. | Oui |
+| type | La propriété de type doit être définie sur **AzureKeyVault**. | Oui |
 | baseUrl | Spécifiez l’URL d’Azure Key Vault. | Oui |
 
 **Utilisation de l’interface utilisateur de création :**
@@ -75,7 +75,7 @@ Les propriétés suivantes sont prises en charge lorsque vous configurez un cham
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type du champ doit être définie sur : **AzureKeyVaultSecret**. | Oui |
+| type | La propriété de type du champ doit être définie sur **AzureKeyVaultSecret**. | Oui |
 | secretName | Nom du secret dans Azure Key Vault. | Oui |
 | secretVersion | Version du secret dans Azure Key Vault.<br/>Si elle n’est pas spécifiée, la version la plus récente du secret est utilisée.<br/>Si elle est spécifiée, elle utilise la version spécifiée.| Non |
 | store | Fait référence au service lié Azure Key Vault que vous utilisez pour stocker les informations d’identification. | Oui |

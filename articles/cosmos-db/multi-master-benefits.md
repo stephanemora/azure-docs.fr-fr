@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: mjbrown
 ms.openlocfilehash: b21b6ba82ba1ada0103501b8beeca270df86abd9
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74872007"
 ---
 # <a name="understand-multi-master-benefits-in-azure-cosmos-db"></a>Comprendre les avantages du multimaître dans Azure Cosmos DB
@@ -22,7 +22,7 @@ Les opérateurs de compte COSMOS DB doivent choisir la configuration de distribu
 |Spécification de l’application|Plusieurs emplacements d’écriture|Emplacement d’écriture unique|Remarque|
 |---|---|---|---|
 |Latence d’écriture SLA < 10 ms à 99 %|**Oui**|Non|Les comptes avec un emplacement d’écriture unique subissent une latence réseau supplémentaire entre les régions pour chaque écriture.|
-|Latence de lecture SLA < 10 ms à 99 %|**Oui**|OUI| |
+|Latence de lecture SLA < 10 ms à 99 %|**Oui**|Oui| |
 |Écriture SLA à 99,999 %|**Oui**|Non|Les comptes avec un emplacement d’écriture unique ont une garantie par contrat SLA de 99,99 %|
 |RTO = 0|**Oui**|Non|Temps d’indisponibilité nul pour les écritures en cas de sinistres régionaux. Les comptes avec un emplacement d’écriture unique ont un RTO de 15 minutes.|
 

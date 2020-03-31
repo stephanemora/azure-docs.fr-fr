@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/23/2019
 ms.author: alkohli
 ms.openlocfilehash: 21b05631f1c225c9c4b1f7c65d18588900850b8e
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77911734"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Protection des données et sécurité Azure Data Box
@@ -80,7 +80,7 @@ Azure Data Box collecte et affiche des informations personnelles dans les instan
 
   - Nom du contact
   - Numéro de téléphone
-  - E-mail
+  - Email
   - Adresse postale
   - City
   - Code postal

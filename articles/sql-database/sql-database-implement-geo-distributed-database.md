@@ -11,14 +11,14 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 1da977f41add19afa6f84b7e5a3dc99c980ac1cf
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 58d5bd4a7f3087e11056354f7534c3c9dbebca3c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74421127"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80067284"
 ---
-# <a name="tutorial-implement-a-geo-distributed-database"></a>Didacticiel : Implémenter une base de données géo-distribuée
+# <a name="tutorial-implement-a-geo-distributed-database"></a>Tutoriel : mettre en œuvre une base de données géo-distribuée
 
 Configurez une application et une base de données Azure SQL pour le basculement sur une région distante, puis testez un plan de basculement. Vous allez apprendre à effectuer les actions suivantes :
 
@@ -29,18 +29,18 @@ Configurez une application et une base de données Azure SQL pour le basculement
 
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont destinés au module Az.Sql. Pour ces cmdlets, voir [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments des commandes dans le module Az et dans les modules AzureRm sont sensiblement identiques.
+> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont destinés au module Az.Sql. Pour ces cmdlets, voir [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments des commandes dans le module Az sont sensiblement identiques à ceux des modules AzureRm.
 
 Pour suivre le tutoriel, vérifiez que les éléments suivants sont installés :
 
 - [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 - Une base de données unique dans Azure SQL Database Pour en créer une :
-  - [Portal](sql-database-single-database-get-started.md)
+  - [Portail](sql-database-single-database-get-started.md)
   - [INTERFACE DE LIGNE DE COMMANDE](sql-database-cli-samples.md)
   - [PowerShell](sql-database-powershell-samples.md)
 
@@ -58,7 +58,7 @@ Pour suivre le tutoriel, vérifiez que les éléments suivants sont installés 
 
 À l’aide d’Azure PowerShell, créez des [groupes de basculement](sql-database-auto-failover-group.md) entre un serveur SQL Azure existant et un nouveau serveur SQL Azure dans une autre région. Ajoutez ensuite l’exemple de base de données au groupe de basculement.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 > [!IMPORTANT]
 > [!INCLUDE [sample-powershell-install](../../includes/sample-powershell-install-no-ssh.md)]
@@ -90,12 +90,12 @@ Get-AzSqlDatabase -ResourceGroupName $resourceGroup -ServerName $server -Databas
     Add-AzSqlDatabaseToFailoverGroup -ResourceGroupName $resourceGroup -ServerName $server -FailoverGroupName $failoverGroup
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Interface de ligne de commande Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 > [!IMPORTANT]
 > Exécutez `az login` pour vous connecter à Azure.
 
-```powershell
+```azurecli
 $admin = "<adminName>"
 $password = "<password>"
 $resourceGroup = "<resourceGroupName>"
@@ -317,7 +317,7 @@ Vous pouvez également changer les paramètres de géoréplication dans le porta
 
 Exécutez les scripts suivants pour simuler un basculement et observer les résultats de l’application. Notez l’échec de certaines insertions et sélections durant la migration de base de données.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Vous pouvez vérifier le rôle du serveur de reprise d’activité pendant le test avec la commande suivante :
 
@@ -342,11 +342,11 @@ Pour tester un basculement :
     -ServerName $server -FailoverGroupName $failoverGroup
    ```
 
-# <a name="azure-clitabazure-cli"></a>[Interface de ligne de commande Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Vous pouvez vérifier le rôle du serveur de reprise d’activité pendant le test avec la commande suivante :
 
-```azure-cli
+```azurecli
 az sql failover-group show --name $failoverGroup --resource-group $resourceGroup --server $drServer
 ```
 
@@ -354,13 +354,13 @@ Pour tester un basculement :
 
 1. Démarrer un basculement manuel du groupe de basculement :
 
-   ```azure-cli
+   ```azurecli
    az sql failover-group set-primary --name $failoverGroup --resource-group $resourceGroup --server $drServer
    ```
 
 1. Rétablir le groupe de basculement sur le serveur principal :
 
-   ```azure-cli
+   ```azurecli
    az sql failover-group set-primary --name $failoverGroup --resource-group $resourceGroup --server $server
    ```
 
@@ -368,7 +368,7 @@ Pour tester un basculement :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez configuré une application et une base de données Azure SQL pour le basculement sur une région distante, puis testé votre plan de basculement. Vous avez appris à effectuer les actions suivantes :
+Dans ce tutoriel, vous avez configuré une application et une base de données Azure SQL pour le basculement sur une région distante, puis testé votre plan de basculement. Vous avez appris à :
 
 > [!div class="checklist"]
 > - Créer un groupe de basculement de géoréplication

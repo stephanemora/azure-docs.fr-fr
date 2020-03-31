@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/12/2019
 ms.author: spelluru
 ms.openlocfilehash: a15148260bccadc59966c86031100f0e0332b0f9
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67861616"
 ---
 # <a name="use-claim-capabilities-in-azure-devtest-labs"></a>Utiliser les fonctionnalités de revendication dans Azure DevTest Labs

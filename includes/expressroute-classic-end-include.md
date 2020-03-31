@@ -9,10 +9,10 @@ ms.date: 03/22/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 1a8c90a7ae2e89122db0823da7cb0b084df3dbae
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67176798"
 ---
 > [!IMPORTANT]
@@ -24,4 +24,4 @@ ms.locfileid: "67176798"
 > Utilisez les liens suivants pour créer et gérer des circuits ExpressRoute dans le modèle de déploiement Resource Manager :
 > 
 > - [Créer et gérer des circuits ExpressRoute](../articles/expressroute/expressroute-howto-circuit-portal-resource-manager.md)<br>
-> - [Configurer l’acheminement (homologation) pour les circuits ExpressRoute](../articles/expressroute/expressroute-howto-routing-portal-resource-manager.md)
+> - [Configurer le routage (peering) pour les circuits ExpressRoute](../articles/expressroute/expressroute-howto-routing-portal-resource-manager.md)

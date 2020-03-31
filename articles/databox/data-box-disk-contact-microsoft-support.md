@@ -4,16 +4,16 @@ description: Découvrez comment enregistrer une demande de support pour les prob
 services: databox
 author: alkohli
 ms.service: databox
-ms.subservice: ''
+ms.subservice: disk
 ms.topic: article
 ms.date: 05/24/2019
 ms.author: alkohli
-ms.openlocfilehash: acba9d2c87d2fb23e48ac24cec22388044702bac
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 000659793707c860de881f150e6ce07e4506c602
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66240145"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80064966"
 ---
 # <a name="open-a-support-ticket-for-azure-data-box"></a>Ouvrir un ticket de support pour Azure Data Box 
 

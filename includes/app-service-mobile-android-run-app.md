@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 05/09/2019
 ms.author: crdun
 ms.openlocfilehash: 63c54f8af91b6b4a76ba49d5e6fc7b3cda9f5b98
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "66240316"
 ---
 1. Ouvrez le projet avec **Android Studio**, en utilisant **Importer un projet (Eclipse ADT, Gradle, etc.)** . Assurez-vous d’éviter toute erreur JDK avec ce choix d’importation.
 
 2. Ouvrez le fichier `ToDoActivity.java` dans le dossier ZUMOAPPNAME/app/src/main/java/com/example/zumoappname. Le nom de l’application est `ZUMOAPPNAME`.
 
-3. Ouvrez le [Portail Microsoft Azure](https://portal.azure.com/), puis accédez à l’application mobile que vous avez créée. Sur le panneau `Overview`, recherchez l’URL qui correspond au point de terminaison public de votre application mobile. Exemple : la valeur sitename relative au nom de l’application « test123 » est https://test123.azurewebsites.net.
+3. Ouvrez le [Portail Microsoft Azure](https://portal.azure.com/), puis accédez à l’application mobile que vous avez créée. Sur le panneau `Overview`, recherchez l’URL qui correspond au point de terminaison public de votre application mobile. Exemple : la valeur sitename relative au nom de l’application « test123 » est https://test123.azurewebsites.net.
 
 4. Dans la méthode `onCreate()`, remplacez le paramètre `ZUMOAPPURL` par le point de terminaison public ci-dessus.
     

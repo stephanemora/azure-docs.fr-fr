@@ -10,10 +10,10 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 7184fb5c45ce41de2bd63b55fb67cbd9ba6361e3
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76844715"
 ---
 # <a name="tutorial-forward-events-to-event-grid-cloud"></a>Tutoriel : Transférer des événements vers le cloud Event Grid
@@ -25,7 +25,7 @@ Cet article vous guide tout au long des étapes nécessaires pour transférer de
 
  Pour suivre ce didacticiel, vous devez comprendre les concepts d’Event Grid à la [périphérie](concepts.md) et dans [Azure](../concepts.md). Pour accéder à d'autres types de destinations, consultez [Gestionnaires d'événements](event-handlers.md). 
 
-## <a name="prerequisites"></a>Conditions préalables requises 
+## <a name="prerequisites"></a>Prérequis 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 * **Abonnement Azure** : Créez un [compte gratuit](https://azure.microsoft.com/free) si vous n’en avez pas encore. 

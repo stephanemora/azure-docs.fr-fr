@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.openlocfilehash: fd6d3e24adfc22d2f6ea17f09b8dea4638a054b6
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76769037"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Réplicas en lecture dans Azure Database pour PostgreSQL - Serveur unique
@@ -146,7 +146,7 @@ Lorsque votre application est en mesure de traiter les lectures et les écriture
 
 Cette section résume les considérations relatives à la fonctionnalité de réplica en lecture.
 
-### <a name="prerequisites"></a>Conditions préalables requises
+### <a name="prerequisites"></a>Prérequis
 Avant de créer un réplica en lecture, vous devez affecter au paramètre `azure.replication_support` la valeur **REPLICA** sur le serveur maître. Quand vous changez ce paramètre, un redémarrage du serveur est nécessaire pour que la modification soit prise en compte. Le paramètre `azure.replication_support` s’applique uniquement aux niveaux à usage général et à mémoire optimisée.
 
 ### <a name="new-replicas"></a>Nouveaux réplicas

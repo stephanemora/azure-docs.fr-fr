@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 09/04/2018
 ms.author: spelluru
 ms.openlocfilehash: f8c57b9e1fabbd04a7d9c92484b0f52f074c2577
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65872327"
 ---
 # <a name="test-your-app-in-azure"></a>Tester votre application dans Azure 
@@ -24,7 +24,7 @@ Cet article décrit la procédure de test de votre application dans Azure à l�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prérequis 
+## <a name="prerequisites"></a>Conditions préalables requises 
 1. [Créez un abonnement Azure](https://azure.microsoft.com/free/) si vous n’en avez pas, puis connectez-vous au [portail Azure](https://portal.azure.com).
 2. Suivez les instructions de [cet article](devtest-lab-create-lab.md) pour créer un labo à l’aide d’Azure DevTest Labs. Épinglez le labo à votre tableau de bord afin de pouvoir le retrouver facilement lors de la prochaine connexion. Azure DevTest Labs vous permet de créer rapidement des ressources dans Azure en minimisant le gaspillage et en contrôlant les coûts. Pour en savoir plus sur DevTest Labs, voir [Vue d’ensemble](devtest-lab-overview.md). 
 3. Créez un compte Stockage Azure dans le groupe de ressources du labo en suivant les instructions de l’article [Créer un compte de stockage](../storage/common/storage-create-storage-account.md). Dans la page **Créer un compte de stockage**, sélectionnez **Utiliser l’existant** pour **Groupe de ressources**, puis sélectionnez le **groupe de ressources du labo**. 
@@ -32,7 +32,7 @@ Cet article décrit la procédure de test de votre application dans Azure à l�
 
 ## <a name="mount-the-file-share-on-your-local-machine"></a>Monter le partage de fichiers sur votre ordinateur local
 1. Sur votre ordinateur local, utilisez le script de la section [Conservation d’informations d’identification de partage de fichiers dans Windows](../storage/files/storage-how-to-use-files-windows.md#persisting-azure-file-share-credentials-in-windows) de l’article [Utiliser un partage de fichiers Azure avec Windows](../storage/files/storage-how-to-use-files-windows.md). 
-2. Ensuite, utilisez la commande `net use` pour monter le partage de fichiers sur votre ordinateur. Voici l’exemple de commande : Spécifiez le nom de votre stockage Azure et le nom du partage de fichiers avant d’exécuter la commande. 
+2. Ensuite, utilisez la commande `net use` pour monter le partage de fichiers sur votre ordinateur. Voici l’exemple de commande (spécifiez le nom de votre stockage Azure et le nom du partage de fichiers avant d’exécuter la commande) : 
 
     `net use Z: \\<YOUR AZURE STORAGE NAME>.file.core.windows.net\<YOUR FILE SHARE NAME> /persistent:yes`
 

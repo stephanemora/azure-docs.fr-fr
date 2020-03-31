@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 394b242ab46da7821f77e8d008836753f4e358e2
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67177012"
 ---
-Dans cette étape, vous créez manuellement l’écouteur du groupe de disponibilité dans le Gestionnaire du cluster de basculement et SQL Server Management Studio.
+Dans cette étape, vous créez manuellement l’écouteur du groupe de disponibilité dans le Gestionnaire du cluster de basculement et dans SQL Server Management Studio.
 
 1. Ouvrez le Gestionnaire du cluster de basculement à partir du nœud qui héberge le réplica principal.
 
@@ -29,7 +29,7 @@ Dans cette étape, vous créez manuellement l’écouteur du groupe de disponibi
 6. Cliquez sur l’onglet **Ressources**, puis développez le point d’accès client vous venez de créer. 
     La ressource d’adresse IP de chaque réseau de cluster dans votre cluster est affichée. S’il s’agit d’une solution basée uniquement sur Azure, une seule ressource d’adresse IP est affichée.
 
-7. Effectuez l’une des actions suivantes :
+7. Effectuez l'une des opérations suivantes :
    
    * Pour configurer une solution hybride :
      

@@ -6,21 +6,21 @@ ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 12/02/2019
+ms.date: 3/18/2020
 ms.custom: mvc
-ms.openlocfilehash: 4bb5c62a7df53548ff59a03c6ccc8fb28f1503d3
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 7b81e88fe6f658fdf4c1857c6082100894c6f2f6
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74765681"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80067717"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-using-a-simple-azure-cli-command---az-mysql-up-preview"></a>Démarrage rapide : Créer un serveur Azure Database pour MySQL à l’aide d’une simple commande Azure CLI - az mysql up (préversion)
 
 > [!IMPORTANT]
 > La commande Azure CLI [az mysql up](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up) est disponible en préversion.
 
-Base de données Azure pour MySQL est un service géré qui vous permet d’exécuter, de gérer et de mettre à l’échelle des bases de données MySQL hautement disponibles dans le cloud. L’interface de ligne de commande (CLI) Azure permet de créer et gérer des ressources Azure à partir de la ligne de commande ou dans les scripts. Ce guide de démarrage rapide vous montre comment utiliser la commande [az mysql up](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up) pour créer un serveur Azure Database pour MySQL à partir d’Azure CLI. En plus de créer le serveur, la commande `az mysql up` crée un exemple de base de données, un utilisateur racine dans la base de données, ouvre le pare-feu pour les services Azure et crée des règles de pare-feu par défaut pour l’ordinateur client. Cela permet d’accélérer le processus de développement.
+Base de données Azure pour MySQL est un service géré qui vous permet d’exécuter, de gérer et de mettre à l’échelle des bases de données MySQL hautement disponibles dans le cloud. L’interface Azure CLI permet de créer et gérer des ressources Azure à partir de la ligne de commande ou à l’aide de scripts. Ce guide de démarrage rapide vous montre comment utiliser la commande [az mysql up](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up) pour créer un serveur Azure Database pour MySQL à partir d’Azure CLI. En plus de créer le serveur, la commande `az mysql up` crée un exemple de base de données, un utilisateur racine dans la base de données, ouvre le pare-feu pour les services Azure et crée des règles de pare-feu par défaut pour l’ordinateur client. Cela permet d’accélérer le processus de développement.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -34,7 +34,7 @@ Vous devrez vous connecter à votre compte à l’aide de la commande [az login]
 az login
 ```
 
-Si vous avez plusieurs abonnements, sélectionnez l’abonnement approprié dans lequel la ressource doit être facturée. Sélectionnez l’ID d’abonnement spécifique sous votre compte à l’aide de la commande [az account set](/cli/azure/account). Remplacez la propriété **subscription id** de la sortie **az login** pour votre abonnement dans l’espace réservé subscription id.
+Si vous avez plusieurs abonnements, sélectionnez l’abonnement approprié dans lequel la ressource doit être facturée. Sélectionnez l’ID d’abonnement spécifique sous votre compte à l’aide de la commande [az account set](/cli/azure/account). Remplacez la propriété **ID d’abonnement** de la sortie **az login** pour votre abonnement dans l’espace réservé de l’ID d’abonnement.
 
 ```azurecli
 az account set --subscription <subscription id>
@@ -90,7 +90,7 @@ Une fois que la commande `az mysql up` a abouti, une liste de chaînes de connex
 
 Vous pouvez utiliser la commande [az mysql show-connection-string](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-show-connection-string) pour lister à nouveau ces chaînes de connexion.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Supprimez toutes les ressources que vous avez créées au cours de ce démarrage rapide à l’aide de la commande ci-dessous. Cette commande supprime le serveur Azure Database pour MySQL et le groupe de ressources.
 

@@ -14,10 +14,10 @@ ms.date: 03/16/2018
 ms.author: rohink
 ms.custom: ''
 ms.openlocfilehash: 927d774ee30a291607a8a47fc2fd6878c1bc6fee
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76938695"
 ---
 # <a name="how-to-send-real-user-measurements-to-azure-traffic-manager-using-web-pages"></a>Comment envoyer les mesures des utilisateurs réels à Azure Traffic Manager avec des pages web
@@ -36,13 +36,13 @@ Pour obtenir la clé de mesures des utilisateurs réels à l’aide du portail A
  
    ![Générer une clé de mesures des utilisateurs réels](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
 
-   **Figure 1 : Génération de la clé de mesures utilisateur réelles**
+   **Figure 1 : Génération de la clé de mesures des utilisateurs réels**
 
 5. Le panneau affiche maintenant la clé de mesures des utilisateurs réels générée et un extrait de code JavaScript qui doit être incorporé à votre page HTML.
  
     ![Code JavaScript pour la clé de mesures des utilisateurs réels](./media/traffic-manager-create-rum-web-pages/rum-javascript-code.png)
 
-    **Figure 2 : Clé de mesures utilisateur réelles et code JavaScript de mesure**
+    **Figure 2 : Clé de mesures des utilisateurs réels et code JavaScript de mesure**
  
 6. Cliquez sur le bouton **Copier** pour copier le code JavaScript. 
 
@@ -58,7 +58,7 @@ Une fois que vous avez obtenu la clé de mesures des utilisateurs réels, l’é
  
     ![Incorporer du code JavaScript dans une page web pour les mesures des utilisateurs réels](./media/traffic-manager-create-rum-web-pages/real-user-measurement-embed-script.png)  
 
-    **Figure 3 : Code HTML simple auquel est incorporé du code JavaScript pour les mesures utilisateur réelles**
+    **Figure 3 : Code HTML simple auquel est incorporé du code JavaScript pour les mesures des utilisateurs réels**
 
 3.  Enregistrez le fichier HTML et hébergez-le sur un serveur Web connecté à Internet. 
 4. La prochaine fois que cette page est affichée dans un navigateur web, le code JavaScript référencé est téléchargé et le script exécute les opérations de mesure et de création de rapports.

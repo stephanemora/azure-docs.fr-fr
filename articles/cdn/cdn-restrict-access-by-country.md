@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 06/19/2018
 ms.author: magattus
 ms.openlocfilehash: 75c422d456f2509ce478e2609a6509f78a6eb31e
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593428"
 ---
 # <a name="restrict-azure-cdn-content-by-countryregion"></a>Limiter l’accès à votre contenu CDN Azure par pays/région
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Par défaut, lorsqu’un utilisateur demande du contenu, ce dernier est fourni, quel que soit l’emplacement d’où vient la demande. Cependant, dans certains cas, vous souhaiterez limiter l’accès à votre contenu par pays/région. Avec la fonction de *filtrage géographique*, vous pouvez créer des règles sur les chemins d’accès spécifiques de votre point de terminaison CDN pour autoriser ou bloquer le contenu dans certains pays/régions.
 
 > [!IMPORTANT]
@@ -69,7 +69,7 @@ Une fois que vous avez fini de sélectionner les pays/régions, sélectionnez **
 
 ![Règles de filtrage géographique](./media/cdn-filtering/cdn-geo-filtering-rules.png)
 
-### <a name="clean-up-resources"></a>Supprimer des ressources
+### <a name="clean-up-resources"></a>Nettoyer les ressources
 Pour supprimer une règle, sélectionnez-la dans la liste de la page **Filtrage géographique**, puis choisissez **Supprimer**.
 
 ## <a name="azure-cdn-premium-from-verizon-profiles"></a>Profils Azure CDN Premium de Verizon
@@ -95,7 +95,7 @@ Pour les profils **Azure CDN Premium de Verizon**, l’interface utilisateur de 
 
     ![Règles de filtrage géographique](./media/cdn-filtering/cdn-geo-filtering-premium-rules.png)
 
-### <a name="clean-up-resources"></a>Supprimer des ressources
+### <a name="clean-up-resources"></a>Nettoyer les ressources
 Dans la table de règles de filtrage par pays/région, sélectionnez l’icône de suppression en regard d’une règle pour la supprimer, ou l’icône de modification pour la modifier.
 
 ## <a name="considerations"></a>Considérations

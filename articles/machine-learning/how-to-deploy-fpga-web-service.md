@@ -11,17 +11,17 @@ ms.author: jordane
 author: jpe316
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: b036dd9c440e01bf32b35ee01c1d39d4ce6e129b
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.openlocfilehash: 8cb6cf49e302122849dc2402bcff008e72e15608
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78402702"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79472356"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga-and-how-to-deploy"></a>Présentation des FPGA (Field Programmable Gate Arrays) et de la façon dont ils sont déployés
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Cet article présente les FGPA (Field-Programmable Gate Array) et explique comment déployer vos modèles à l’aide d’Azure Machine Learning sur un FPGA Azure. 
+Cet article présente les FGPA (Field-Programmable Gate Array) et explique comment déployer vos modèles à l’aide d’Azure Machine Learning sur un FPGA Azure.
 
 Les FPGA contiennent un tableau de blocs logiques programmables et une hiérarchie d’interconnexions reconfigurables. Les interconnexions permettent la configuration de ces blocs de différentes façons après leur fabrication. Par rapport aux autres circuits intégrés, les FPGA offrent une combinaison de programmabilité et de performances.
 
@@ -52,7 +52,7 @@ Les FPGA sur Azure prennent en charge :
 
 + Les scénarios de classification et de reconnaissance d’images
 + Le déploiement de TensorFlow
-+ Le matériel FPGA d’Intel 
++ Le matériel FPGA d’Intel
 
 Ces modèles DNN sont actuellement disponibles :
   - ResNet 50
@@ -81,12 +81,9 @@ Les scénarios suivants utilisent les FPGA :
 
 + [Cartographie de couverture terrestre](https://blogs.technet.microsoft.com/machinelearning/2018/05/29/how-to-use-fpgas-for-deep-learning-inference-to-perform-land-cover-mapping-on-terabytes-of-aerial-images/)
 
-
-
-## <a name="example-deploy-models-on-fpgas"></a>Exemple : Déployer des modèles sur des FPGA 
+## <a name="example-deploy-models-on-fpgas"></a>Exemple : Déployer des modèles sur des FPGA
 
 Vous pouvez déployer un modèle en tant que service web sur FGPA avec des modèles accélérés matériellement Azure Machine Learning. L’utilisation de FGPA assure une inférence à très faible latence, même avec une taille de lot unique. L’inférence, ou notation du modèle, est la phase où le modèle déployé est utilisé pour la prédiction, généralement sur des données de production.
-
 
 ### <a name="prerequisites"></a>Prérequis
 
@@ -94,7 +91,7 @@ Vous pouvez déployer un modèle en tant que service web sur FGPA avec des modè
 
 - Quota FPGA. Utilisez Azure CLI pour vérifier si vous disposez de quota :
 
-    ```shell
+    ```azurecli-interactive
     az vm list-usage --location "eastus" -o table --query "[?localName=='Standard PBS Family vCPUs']"
     ```
 
@@ -117,7 +114,7 @@ Vous pouvez déployer un modèle en tant que service web sur FGPA avec des modè
  
 - Le kit de développement logiciel (SDK) Python pour modèles accélérés matériellement :
 
-    ```shell
+    ```bash
     pip install --upgrade azureml-accel-models
     ```
 

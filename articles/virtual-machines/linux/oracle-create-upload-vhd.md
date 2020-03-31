@@ -3,7 +3,7 @@ title: Créer et télécharger un VHD Oracle Linux
 description: Apprenez à créer et à télécharger un disque dur virtuel (VHD) Azure contenant un système d'exploitation Oracle Linux.
 services: virtual-machines-linux
 documentationcenter: ''
-author: mimckitt
+author: gbowerman
 manager: gwallace
 editor: tysonn
 tags: azure-service-management,azure-resource-manager
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/10/2019
-ms.author: mimckitt
-ms.openlocfilehash: 240333e55f23f2536d3cf14d2bb817e5776c8139
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.author: guybo
+ms.openlocfilehash: 784d6c01125a9fd6ec291f32e989e4b22e7607af
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251592"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80066576"
 ---
 # <a name="prepare-an-oracle-linux-virtual-machine-for-azure"></a>Préparation d’une machine virtuelle Linux Oracle pour Azure
 
@@ -45,7 +45,7 @@ Vous devez suivre des étapes de configuration spécifiques dans le système d'e
    
         # sudo rpm -e --nodeps NetworkManager
    
-    **Remarque :** si le package n'est pas déjà installé, la commande échoue et un message d'erreur s'affiche. Ceci est normal.
+    **Remarque :** si le package n’est pas déjà installé, la commande échoue et un message d’erreur s’affiche. Ceci est normal.
 4. Créez un fichier nommé **network** in the `/etc/sysconfig/` et entrez-y le texte suivant :
    
         NETWORKING=yes

@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 8d118e71b29b54b034788c37916091ad8f8b996f
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277125"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228169"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>Déballer, monter en rack et câbler votre appareil StorSimple 8600
 
@@ -256,7 +256,7 @@ Procédez comme suit pour brancher les câbles de port série de votre appareil.
 6. Vérifiez que la connexion fonctionne en appuyant sur Entrée sur la console. Un menu de la console série doit apparaître.
 
 > [!NOTE]
-> **Gestion en service réduit** : quand l’appareil est installé dans un centre de données distant ou dans une salle informatique avec un accès limité, vérifiez que les connexions série aux deux contrôleurs sont toujours connectées à un commutateur de console série ou à un équipement similaire. Cela permet de commander à distance hors bande et de prendre en charge les opérations en cas d’interruption du réseau ou en cas de défaillance inattendue.
+> **Gestion en service réduit :** lorsque l’appareil est installé dans un centre de données distant ou dans une salle informatique avec un accès limité, assurez-vous que les connexions série sur les deux contrôleurs sont toujours connectées à un commutateur de console série ou à un équipement similaire. Cela permet de commander à distance hors bande et de prendre en charge les opérations en cas d’interruption du réseau ou en cas de défaillance inattendue.
 > 
 > 
 

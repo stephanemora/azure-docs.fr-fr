@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/01/2018
 ms.author: magattus
 ms.openlocfilehash: 4fe72985a799595908a0ff6bceb1a73dca823c8f
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593782"
 ---
 # <a name="large-file-download-optimization-with-azure-cdn"></a>Optimisation avec Azure CDN des téléchargements de fichiers volumineux
@@ -110,8 +110,8 @@ L’optimisation des fichiers volumineux utilise des temps d’expiration de mis
 
 |    | Livraison web générale | Optimisation des fichiers volumineux 
 --- | --- | --- 
-Mise en cache : Positive <br> HTTP 200, 203, 300, <br> 301, 302 et 410 | 7 jours |1 jour  
-Mise en cache : Negative <br> HTTP 204, 305, 404, <br> et 405 | Aucun | 1 seconde 
+Mise en cache : positive <br> HTTP 200, 203, 300, <br> 301, 302 et 410 | 7 jours |1 jour  
+Mise en cache : négative <br> HTTP 204, 305, 404, <br> et 405 | None | 1 seconde 
 
 ### <a name="deal-with-origin-failure"></a>Traitement des défaillances de l’origine
 
@@ -127,7 +127,7 @@ Condition | Valeurs
 --- | --- 
 Types de fichiers pris en charge | 3g2, 3gp, asf, avi, bz2, dmg, exe, f4v, flv, <br> gz, hdp, iso, jxr, m4v, mkv, mov, mp4, <br> mpeg, mpg, mts, pkg, qt, rm, swf, tar, <br> tgz, wdp, webm, webp, wma, wmv, zip  
 Taille minimale du fichier | 10 Mo 
-Taille maximale du fichier | 150 Go 
+Taille maximale du fichier | 150 Go 
 Caractéristiques du serveur d’origine | Doit prendre en charge des demandes de plages d’octets 
 
 ## <a name="additional-considerations"></a>Considérations supplémentaires

@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: ryanwi
 ms.openlocfilehash: 36d74b9926639bb4ec49821a3d73b5d615016394
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76702672"
 ---
 # <a name="azure-portal-registration-fields-for-custom-developed-apps"></a>Champs d’inscription du portail Azure pour les applications personnalisées
@@ -40,7 +40,7 @@ Cet article décrit brièvement tous les champs disponibles dans le formulaire d
 
 | Champ            | Description                                                                              |
 |------------------|------------------------------------------------------------------------------------------|
-| Name             | Le nom de l’application. Il doit être composé de quatre caractères minimum.                |
+| Nom             | Le nom de l’application. Il doit être composé de quatre caractères minimum.                |
 | Types de comptes pris en charge| Sélectionnez les comptes que vous souhaitez que votre application prenne en charge : les comptes dans cet annuaire organisationnel uniquement, les comptes dans n’importe quel annuaire organisationnel ou les comptes dans n’importe quel annuaire organisationnel et compte Microsoft personnel.  |
 | URI de redirection (facultatif) | sélectionnez le type d’application que vous créez, **Web** ou **Client public (mobile et bureau)** , puis entrez l’URI de redirection (ou URL de réponse) de votre application. Pour les applications web, indiquez l’URL de base de votre application. Par exemple, http://localhost:31544 peut être l’URL pour une application web en cours d’exécution sur votre ordinateur local. Les utilisateurs peuvent utiliser cette URL pour se connecter à une application web cliente. Pour les applications de client public, indiquez l’URI utilisé par Azure AD pour retourner les réponses de jeton. Entrez une valeur spécifique de votre application, par exemple, myapp://auth. Pour voir des exemples spécifiques pour les applications web ou natives, consultez les [Guides de démarrage rapides](https://docs.microsoft.com/azure/active-directory/develop).|
 
@@ -60,7 +60,7 @@ Après avoir rempli les champs ci-dessus, l’application est inscrite dans le p
 | Charger un nouveau logo | Ce champ vous permet de charger un logo pour votre application. Le logo doit être au format .bmp, .jpg ou .png, et la taille du fichier doit être inférieure à 100 Ko. Les dimensions de l’image doivent être de 215 x 215 pixels et les dimensions de l’image centrale de 94 x 94 pixels.|
 | URL de la page d’accueil   | Il s’agit de l’URL de connexion spécifiée lors de l’inscription de l’application.|
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Authentification
 
 | Champ           | Description        |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

@@ -13,10 +13,10 @@ ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/27/2020
 ms.openlocfilehash: 194da036260a78b27748dfc7f755212ab4f30b1e
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78256028"
 ---
 # <a name="known-issuesmigration-limitations-with-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>Problèmes connus/limitations de migration avec les migrations de MongoDB vers l’API Azure Cosmos DB pour MongoDB
@@ -27,7 +27,7 @@ Les sections suivantes décrivent les problèmes connus et les limitations assoc
 
 * **Symptôme** : Ce problème est apparent quand un utilisateur ne parvient pas à se connecter au serveur source MongoDB. Bien que tous les ports de pare-feu soient ouverts, l’utilisateur ne peut toujours pas se connecter.
 
-| Cause :         | Résolution |
+| Cause         | Résolution |
 | ------------- | ------------- |
 | L’utilisation d’un certificat auto-signé dans Azure Database Migration Service peut entraîner l’échec de la migration car le certificat SSL est incorrect. Le message d’erreur peut inclure le texte « Le certificat distant n’est pas valide selon la procédure de validation. ». | Utilisez un certificat authentique délivré par une autorité de certification.  Les certificats auto-signés sont généralement utilisés uniquement lors des tests internes. Quand vous installez un certificat authentique délivré par une autorité de certification, vous pouvez utiliser SSL dans Azure Database Migration Service sans problème (les connexions à Cosmos DB utilisent SSL sur l’API Mongo).<br><br> |
 
@@ -35,7 +35,7 @@ Les sections suivantes décrivent les problèmes connus et les limitations assoc
 
 * **Symptôme** : Impossible d’accéder à la liste des bases de données dans le panneau **Paramètre de base de données** lors de l’utilisation du mode **Données du stockage Azure** dans le panneau **Sélectionner une source**.
 
-| Cause :         | Résolution |
+| Cause         | Résolution |
 | ------------- | ------------- |
 | La chaîne de connexion du compte de stockage ne contient pas les informations de la signature d’accès partagé et ne peut donc pas être authentifiée. | Créez la signature d’accès partagé sur le conteneur d’objets blob dans l’Explorateur Stockage et utilisez l’URL avec les informations de signature d’accès partagé du conteneur comme chaîne de connexion source.<br><br> |
 
@@ -43,7 +43,7 @@ Les sections suivantes décrivent les problèmes connus et les limitations assoc
 
 * **Symptôme** : La migration échoue.
 
-| Cause :         | Résolution |
+| Cause         | Résolution |
 | ------------- | ------------- |
 | Vous tentez de migrer vers Azure Cosmos DB à partir d’une version non prise en charge de MongoDB. | À mesure que de nouvelles versions de MongoDB sont publiées, elles sont testées pour garantir la compatibilité avec Azure Database Migration Service, et le service est régulièrement mis à jour pour accepter la ou les versions les plus récentes. En cas de besoin de migration immédiat, en guise de solution de contournement vous pouvez exporter les bases de données/collections vers Stockage Azure et faire pointer la source vers l’image mémoire résultante. Créez la signature d’accès partagé sur le conteneur d’objets blob dans l’Explorateur Stockage, puis utilisez l’URL avec les informations de signature d’accès partagé du conteneur comme chaîne de connexion source.<br><br> |
 

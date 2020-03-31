@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
 ms.openlocfilehash: 74d56d553c4049a98b4401c66b27ae33e31da5c0
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74927112"
 ---
 # <a name="copy-data-from-marketo-using-azure-data-factory-preview"></a>Copier des données de Marketo avec Azure Data Factory (préversion)
@@ -51,10 +51,10 @@ Les propriétés prises en charge pour le service lié Marketo sont les suivante
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type doit être définie sur : **Marketo** | OUI |
-| endpoint | Point de terminaison du serveur Marketo (en l’occurrence, 123-ABC-321.mktorest.com).  | OUI |
-| clientId | ID client de votre service Marketo.  | OUI |
-| clientSecret | Secret client de votre service Marketo. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
+| type | La propriété type doit être définie sur : **Marketo** | Oui |
+| endpoint | Point de terminaison du serveur Marketo (en l’occurrence, 123-ABC-321.mktorest.com).  | Oui |
+| clientId | ID client de votre service Marketo.  | Oui |
+| clientSecret | Secret client de votre service Marketo. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
 | useEncryptedEndpoints | Indique si les points de terminaison de la source de données sont chiffrés suivant le protocole HTTPS. La valeur par défaut est true.  | Non |
 | useHostVerification | Indique si le nom d’hôte du certificat du serveur doit correspondre à celui du serveur en cas de connexion SSL. La valeur par défaut est true.  | Non |
 | usePeerVerification | Indique s’il faut vérifier l’identité du serveur en cas de connexion SSL. La valeur par défaut est true.  | Non |
@@ -86,7 +86,7 @@ Pour copier des données de Marketo, affectez la valeur **MarketoObject** à la 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type du jeu de données doit être définie sur : **MarketoObject** | OUI |
+| type | La propriété type du jeu de données doit être définie sur : **MarketoObject** | Oui |
 | tableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
@@ -116,7 +116,7 @@ Pour copier des données de Marketo, affectez la valeur **MarketoSource** au typ
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type de la source d’activité de copie doit être définie sur : **MarketoSource** | OUI |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **MarketoSource** | Oui |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM Activitiy_Types"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**

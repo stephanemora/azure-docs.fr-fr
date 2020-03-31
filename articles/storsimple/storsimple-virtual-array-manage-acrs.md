@@ -16,15 +16,15 @@ ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1dfc1b0e0576402624bfe62de0e206d9bd7cd1b0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "64724414"
 ---
 # <a name="use-storsimple-device-manager-to-manage-access-control-records-for-storsimple-virtual-array"></a>Utiliser StorSimple Device Manager pour gérer les enregistrements de contrôle d’accès pour StorSimple Virtual Array
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Les enregistrements de contrôle d’accès vous permettent de spécifier les hôtes qui peuvent se connecter à un volume sur le StorSimple Virtual Array (également appelé appareil virtuel local StorSimple). Les enregistrements de contrôle d’accès sont définis pour un volume spécifique et contiennent les noms complets iSCSI (IQN) des ordinateurs hôtes. Quand un hôte essaie de se connecter à un volume, l’appareil vérifie l’enregistrement de contrôle d’accès associé à ce volume pour le nom IQN et, s’il existe une correspondance, la connexion est établie. Le panneau **Enregistrements de contrôle d’accès** de la section **Configuration** de votre service Device Manager affiche tous les enregistrements de contrôle d’accès avec les noms complets iSCSI (IQN) des hôtes correspondants.
 
@@ -53,7 +53,7 @@ Procédez comme suit pour obtenir le nom IQN d’un hôte Windows exécutant Win
 
 Pour ajouter des enregistrements de contrôle d’accès, utilisez le panneau **Enregistrements de contrôle d’accès** de la section **Configuration** de votre service StorSimple Device Manager. En général, vous associez un enregistrement de contrôle d’accès à un volume.
 
-Pour plus d’informations sur l’association d’un enregistrement de contrôle d’accès à un volume, consultez la page [Ajouter un volume](storsimple-virtual-array-deploy3-iscsi-setup.md#step-3-add-a-volume).
+Pour plus d’informations sur l’association d’un ACR à un volume, consultez la page [Ajouter un volume](storsimple-virtual-array-deploy3-iscsi-setup.md#step-3-add-a-volume).
 
 > [!IMPORTANT]
 > Lorsque vous attribuez un enregistrement de contrôle d’accès à un volume, veillez à ce que plusieurs hôtes non cluster n’accèdent pas simultanément au volume, sans quoi celui-ci pourrait être endommagé.

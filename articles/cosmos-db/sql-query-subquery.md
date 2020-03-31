@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
 ms.openlocfilehash: 42d9e8b190747a3ffaf0e46ea1eddda33d09bb24
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74870562"
 ---
 # <a name="sql-subquery-examples-for-azure-cosmos-db"></a>Exemples de sous-requêtes SQL pour Azure Cosmos DB
@@ -47,7 +47,7 @@ Les sous-requêtes multivaleurs retournent un ensemble de documents et sont touj
 
 Les sous-requêtes multivaleurs peuvent optimiser des expressions JOIN en envoyant les prédicats après chaque expression de sélection multiple, plutôt qu’après toutes les jointures croisées dans la clause WHERE.
 
-Examinez la requête suivante :
+Considérez la requête suivante :
 
 ```sql
 SELECT Count(1) AS Count
@@ -368,7 +368,7 @@ SELECT EXISTS (SELECT undefined)
 
 La sous-requête inclut dans un objet la liste des valeurs de la liste sélectionnée. Si la liste sélectionnée n’a aucune valeur, la sous-requête retourne la valeur unique « {} ». Cette valeur étant définie, EXISTS a la valeur true.
 
-### <a name="example-rewriting-array_contains-and-join-as-exists"></a>Exemple : réécriture d’ARRAY_CONTAINS et JOIN avec EXISTS
+### <a name="example-rewriting-array_contains-and-join-as-exists"></a>Exemple : réécriture d’ARRAY_CONTAINS et JOIN avec EXISTS
 
 Un cas d’usage courant d’ARRAY_CONTAINS consiste à filtrer un document en fonction de l’existence d’un élément dans un tableau. Dans ce cas, nous vérifions si le tableau tags contient un élément nommé « orange ».
 

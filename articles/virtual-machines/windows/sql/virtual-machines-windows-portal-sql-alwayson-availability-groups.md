@@ -15,13 +15,13 @@ ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
 ms.openlocfilehash: d7c88e500886453fbfb53655748ccf7025ab7d3d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75374251"
 ---
-# <a name="configure-always-on-availability-groups-in-azure-virtual-machines-automatically-resource-manager"></a>Configurer automatiquement des groupes de disponibilité AlwaysOn dans des machines virtuelles Azure : Gestionnaire de ressources
+# <a name="configure-always-on-availability-groups-in-azure-virtual-machines-automatically-resource-manager"></a>Configurer des groupes de disponibilité Always On dans des machines virtuelles Azure automatiquement : Resource Manager
 
 Ce didacticiel vous montre comment créer un groupe de disponibilité SQL Server qui utilise des machines virtuelles Azure Resource Manager. Il utilise des panneaux Azure pour configurer un modèle. Au cours de ce didacticiel, vous pourrez passer en revue les paramètres par défaut, entrer les paramètres exigés et mettre à jour les panneaux du portail.
 

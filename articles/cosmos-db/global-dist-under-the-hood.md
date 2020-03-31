@@ -8,10 +8,10 @@ ms.date: 12/02/2019
 ms.author: sngun
 ms.reviewer: sngun
 ms.openlocfilehash: a46a69476a2ad6550bc7b3a533fd09565d461db3
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74872126"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---under-the-hood"></a>Distribution de données mondiale avec Azure Cosmos DB - Sous le capot
@@ -54,11 +54,11 @@ Un groupe de partitions physiques, une de chacune des régions configurées avec
 
 ![Jeux de partitions](./media/global-dist-under-the-hood/dynamic-overlay-of-resource-partitions.png)
 
-Vous pouvez considérer un jeu de partitions comme un « super jeu de réplicas » dispersé géographiquement, composé de plusieurs jeux de réplicas possédant le même ensemble de clés. De façon similaire à un jeu de réplicas, l’appartenance à un groupe de partitions est dynamique. Elle varie en fonction des opérations de gestion de partition physique implicites pour ajouter/supprimer des partitions dans un groupe de partitions donné (par exemple, quand vous augmentez le débit sur un conteneur, ajoutez/supprimez une région pour votre base de données Cosmos ou en cas d’échec). Étant donné que chaque partition (d’un groupe de partitions) gère l’appartenance au groupe de partitions à l’intérieur de son propre jeu de réplicas, l’appartenance est entièrement décentralisée et hautement disponible. Lors de la reconfiguration d’un groupe de partitions, la topologie de la superposition entre les partitions physiques est également établie. La topologie est sélectionnée de façon dynamique en fonction du niveau de cohérence, de la distance géographique et de la bande passante réseau disponible entre les partitions physiques source et cible.  
+Vous pouvez considérer un jeu de partitions comme un « super jeu de réplicas » dispersé géographiquement, composé de plusieurs jeux de réplicas possédant le même ensemble de clés. De façon similaire à un jeu de réplicas, l’appartenance à un groupe de partitions est dynamique. Elle varie en fonction des opérations de gestion de partition physique implicites pour ajouter/supprimer des partitions dans un groupe de partitions donné (par exemple, quand vous effectuez un scale-out du débit sur un conteneur, ajoutez/supprimez une région pour votre base de données Cosmos ou en cas d’échec). Étant donné que chaque partition (d’un groupe de partitions) gère l’appartenance au groupe de partitions à l’intérieur de son propre jeu de réplicas, l’appartenance est entièrement décentralisée et hautement disponible. Lors de la reconfiguration d’un groupe de partitions, la topologie de la superposition entre les partitions physiques est également établie. La topologie est sélectionnée de façon dynamique en fonction du niveau de cohérence, de la distance géographique et de la bande passante réseau disponible entre les partitions physiques source et cible.  
 
 Le service vous permet de configurer vos bases de données Cosmos avec une ou plusieurs régions d’écriture. Selon le choix opéré, des groupes de partitions sont configurés pour accepter les écritures dans une région précise ou dans toutes les régions. Le système utilise un protocole consensuel imbriqué à deux niveaux. Un niveau opère à l’intérieur des réplicas d’un jeu de réplicas d’une partition physique acceptant les écritures, et l’autre opère au niveau d’un groupe de partitions pour fournir des garanties d’ordre complètes pour toutes les écritures validées à l’intérieur du groupe de partitions. Ce consensus imbriqué à plusieurs niveaux est vital pour l’implémentation de nos contrats SLA rigoureux en matière de haute disponibilité, ainsi que pour l’implémentation des modèles de cohérence que Cosmos DB offre à ses clients.  
 
-## <a name="conflict-resolution"></a>Résolution des conflits
+## <a name="conflict-resolution"></a>Résolution de conflits
 
 Notre conception de la propagation des mises à jour, de la résolution des conflits et du suivi de la causalité s’inspire de travaux antérieurs menés sur les [algorithmes épidémiques](https://www.cs.utexas.edu/~lorenzo/corsi/cs395t/04S/notes/naor98load.pdf) et le système [Bayou](https://zoo.cs.yale.edu/classes/cs422/2013/bib/terry95managing.pdf). Si les noyaux des idées ont survécu et offrent un cadre de référence commode pour communiquer la conception de système de Cosmos DB, ils ont également subi une transformation importante au fur et à mesure de leur application au système Cosmos DB. Cela était nécessaire car les systèmes précédents n’étaient conçus ni avec la gouvernance des ressources, ni avec l’échelle à laquelle Cosmos DB doit opérer, ni pour offrir les capacités (par exemple, la cohérence en fonction de l’obsolescence limitée) et les contrats SLA rigoureux et complets que Cosmos DB offre à ses clients.  
 

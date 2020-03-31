@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: cynthn
 ms.openlocfilehash: 6040bf8862131f5a8a5564cd2f5d845fa0490a95
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78944903"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-linux-vms"></a>Procédure pas à pas d’exemple d’infrastructure Azure pour les machines virtuelles Linux
@@ -64,13 +64,13 @@ Adventure Works Cycles a déterminé qu’Azure Disques managés doivent être u
 Un réseau virtuel cloud a été créé avec les paramètres suivants via le portail Azure :
 
 * Nom : AZOS-USE-VN01
-* Localisation : USA Est 2
+* Emplacement : USA Est 2
 * Espace d’adressage du réseau virtuel : 10.0.0.0/8
 * Premier sous-réseau :
-  * Nom : FrontEnd
+  * Nom : FrontEnd
   * Espace d’adressage : 10.0.1.0/24
 * Second sous-réseau :
-  * Nom : BackEnd
+  * Nom : BackEnd
   * Espace d’adressage : 10.0.2.0/24
 
 ## <a name="availability-sets"></a>Groupes à haute disponibilité

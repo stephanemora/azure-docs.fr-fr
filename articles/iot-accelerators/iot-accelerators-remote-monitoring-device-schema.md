@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 12/18/2018
 ms.topic: conceptual
 ms.openlocfilehash: 0f9669d491648ecc621aab27d0908dcc3dc84438
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65823323"
 ---
 # <a name="understand-the-device-model-schema"></a>Comprendre le schéma de modèle d’appareil
@@ -114,7 +114,7 @@ L’exemple suivant montre la définition de l’objet état de l’appareil pou
 
 Le service de simulation exécute le fichier **chiller-01-state.js** toutes les cinq secondes pour mettre à jour l’état de l’appareil. Vous pouvez voir les fichiers JavaScript pour les appareils simulés par défaut dans le [dossier scipts](https://github.com/Azure/device-simulation-dotnet/tree/master/Services/data/devicemodels/scripts) sur GitHub. Par convention, ces fichiers JavaScript ont le suffixe **-state** pour les différencier des fichiers qui implémentent les comportements de la méthode.
 
-## <a name="properties"></a>properties
+## <a name="properties"></a>Propriétés
 
 La section `Properties` du schéma définit les valeurs de propriété que l’appareil indique à la solution. Par exemple :
 
@@ -165,9 +165,9 @@ Actuellement, vous ne pouvez utiliser que des schémas de message JSON. Les cham
 * Binaire - sérialisé à l’aide de base64
 * Texte
 * Boolean
-* Entier
+* Integer
 * Double
-* Datetime
+* DateTime
 
 Pour envoyer des messages de télémétrie à des intervalles différents, ajoutez plusieurs types de données de télémétrie au tableau `Telemetry`. L’exemple suivant envoie les données de température et d’humidité toutes les 10 secondes et l’état de la lumière toutes les minutes :
 
@@ -235,7 +235,7 @@ Vous pouvez voir les fichiers JavaScript pour les appareils simulés par défaut
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Cet article vous a décrit comment créer votre propre modèle personnalisé d’appareil simulé. Cet article vous a montré comment :
+Cet article vous a décrit comment créer votre propre modèle personnalisé d’appareil simulé. Cet article vous a montré comment :
 
 <!-- Repeat task list from intro -->
 >[!div class="checklist"]

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: mjbrown
 ms.openlocfilehash: 4dee017323bda5fc08598a9b24cadd11516807cf
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75441731"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Comment écrire des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur dans Azure Cosmos DB
@@ -25,7 +25,7 @@ Pour appeler une procédure stockée, un déclencheur, une fonction définie par
 > [!Tip]
 > Cosmos prend en charge le déploiement de conteneurs avec des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur. Pour plus d’informations, consultez [Créer un conteneur Azure Cosmos DB avec des fonctionnalités côté serveur.](manage-sql-with-resource-manager.md#create-sproc)
 
-## <a id="stored-procedures"></a>Comment écrire des procédures stockées
+## <a name="how-to-write-stored-procedures"></a><a id="stored-procedures"></a>Comment écrire des procédures stockées
 
 Les procédures stockées sont écrites à l’aide de JavaScript ; elles peuvent créer, mettre à jour, lire, interroger et supprimer des éléments à l’intérieur d’un conteneur Azure Cosmos. Les procédures stockées sont enregistrées par collection, et elles peuvent s’appliquer à tout document ou pièce jointe figurant dans cette collection.
 
@@ -49,7 +49,7 @@ L’objet de contexte donne accès à toutes les opérations pouvant être effec
 
 Une fois écrite, la procédure stockée doit être inscrite auprès d’une collection. Pour plus d’informations, consultez l’article [How to use stored procedures in Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md#stored-procedures) (Comment utiliser des procédures stockées dans Azure Cosmos DB).
 
-### <a id="create-an-item"></a>Créer un élément à l’aide de la procédure stockée
+### <a name="create-an-item-using-stored-procedure"></a><a id="create-an-item"></a>Créer un élément à l’aide de la procédure stockée
 
 Quand vous créez un élément à l’aide d’une procédure stockée, il est inséré dans le conteneur Azure Cosmos et un ID pour le nouvel élément est retourné. La création d’un élément est une opération asynchrone, et varie selon les fonctions de rappel JavaScript. La fonction de rappel présente deux paramètres : un pour l’objet d’erreur en cas d’échec de l’opération et un autre pour une valeur renvoyée, ici l’objet créé. À l’intérieur du rappel, vous pouvez gérer l’exception ou générer une erreur. Si aucun rappel n’est fourni et qu’une erreur se produit, le runtime d’Azure Cosmos DB génère une erreur. 
 
@@ -88,7 +88,7 @@ function sample(arr) {
 }
 ```
 
-### <a id="transactions"></a>Transactions dans des procédures stockées
+### <a name="transactions-within-stored-procedures"></a><a id="transactions"></a>Transactions dans des procédures stockées
 
 Vous pouvez implémenter des transactions sur des éléments dans un conteneur à l’aide d’une procédure stockée. L’exemple suivant utilise des transactions au sein d’une application de jeu de football fantastique pour échanger des joueurs entre deux équipes dans une seule opération. La procédure stockée essaie de lire les deux éléments Azure Cosmos, qui correspondent chacun aux ID de joueurs transmis en tant qu’arguments. Si deux joueurs sont trouvés, la procédure stockée met à jour les éléments en intervertissant leurs équipes. Si des erreurs se produisent, elle génère une exception JavaScript qui annule implicitement la transaction.
 
@@ -156,7 +156,7 @@ function tradePlayers(playerId1, playerId2) {
 }
 ```
 
-### <a id="bounded-execution"></a>Exécution liée dans des procédures stockées
+### <a name="bounded-execution-within-stored-procedures"></a><a id="bounded-execution"></a>Exécution liée dans des procédures stockées
 
 Voici un exemple de procédure stockée qui importe en bloc des éléments dans un conteneur Azure Cosmos. La procédure stockée gère l’exécution liée en vérifiant la valeur de retour booléenne à partir de `createDocument`, puis utilise le nombre d’éléments insérés dans chaque appel de la procédure stockée pour effectuer le suivi de la progression et la reprendre d’un lot à un autre.
 
@@ -211,11 +211,11 @@ function bulkImport(items) {
 }
 ```
 
-## <a id="triggers"></a>Comment écrire des déclencheurs
+## <a name="how-to-write-triggers"></a><a id="triggers"></a>Comment écrire des déclencheurs
 
 Azure Cosmos DB prend en charge les prédéclencheurs et les post-déclencheurs. Les prédéclencheurs sont exécutés avant de modifier un élément de la base de données, et les post-déclencheurs sont exécutés après la modification d’un élément de la base de données.
 
-### <a id="pre-triggers"></a>Prédéclencheurs
+### <a name="pre-triggers"></a><a id="pre-triggers"></a>Prédéclencheurs
 
 Voici un exemple de la façon dont un prédéclencheur est utilisé pour valider les propriétés d’un élément Azure Cosmos en cours de création. Dans cet exemple, nous utilisons l’exemple ToDoList de l’article [Démarrage rapide : Développer une application web .NET avec Azure Cosmos DB à l’aide de l’API SQL et du portail Azure](create-sql-api-dotnet.md) pour ajouter une propriété timestamp à un élément nouvellement ajouté qui n’en contient pas.
 
@@ -244,7 +244,7 @@ Lorsque les déclencheurs sont inscrits, vous pouvez spécifier les opérations 
 
 Pour des exemples d’inscription et d’appel d’un prédéclencheur, consultez les articles dédiés aux [prédéclencheurs](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) et aux [post-déclencheurs](how-to-use-stored-procedures-triggers-udfs.md#post-triggers). 
 
-### <a id="post-triggers"></a>Post-déclencheurs
+### <a name="post-triggers"></a><a id="post-triggers"></a>Post-déclencheurs
 
 L’exemple suivant illustre un post-déclencheur. Ce déclencheur interroge l’élément de métadonnées et le met à jour avec des informations relatives à l’élément qui vient d’être créé.
 
@@ -286,7 +286,7 @@ Un élément important à noter est l’exécution transactionnelle des déclenc
 
 Pour des exemples d’inscription et d’appel d’un prédéclencheur, consultez les articles dédiés aux [prédéclencheurs](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) et aux [post-déclencheurs](how-to-use-stored-procedures-triggers-udfs.md#post-triggers). 
 
-## <a id="udfs"></a>Comment écrire des fonctions définies par l’utilisateur
+## <a name="how-to-write-user-defined-functions"></a><a id="udfs"></a>Comment écrire des fonctions définies par l’utilisateur
 
 L’exemple suivant crée une fonction définie par l’utilisateur pour calculer les impôts sur le revenu en fonction de diverses tranches de revenu. Cette fonction définie par l’utilisateur peut ensuite être utilisée dans une requête. Dans le cadre de cet exemple, supposons qu’il existe un conteneur appelé « Revenus » avec des propriétés comme suit :
 

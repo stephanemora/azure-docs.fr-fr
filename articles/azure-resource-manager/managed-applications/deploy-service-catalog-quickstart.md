@@ -5,14 +5,14 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3fa9709e096e908907772c940fc5e2f2895b7eb3
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 9a69296ddfc93fd7e8a6650df91876829631f5d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75649297"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79473062"
 ---
-# <a name="deploy-service-catalog-app-through-azure-portal"></a>Déployer une application du catalogue de services à l’aide du portail Microsoft Azure
+# <a name="quickstart-deploy-service-catalog-app-through-azure-portal"></a>Démarrage rapide : Déployer une application du catalogue de services à l’aide du portail Microsoft Azure
 
 Dans le [démarrage rapide précédent](publish-managed-app-definition-quickstart.md), vous avez publié une définition d’application managée. Dans ce démarrage rapide, vous allez créer une application de catalogue de services à partir de cette définition.
 

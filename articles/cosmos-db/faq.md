@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 322d1c9ead1e7591c359c35c445fa32529db22ef
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 75cef47c1ed2b6da054442a4a1215141e67ad1b0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77462477"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79498577"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Questions fréquentes sur les différentes API dans Azure Cosmos DB
 
@@ -77,7 +77,7 @@ Pour demander de nouvelles fonctionnalités, faites une nouvelle demande sur [Us
 
 Pour résoudre un problème relatif à votre compte, enregistrez une [demande de support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) sur le portail Azure.
 
-## <a id="try-cosmos-db"></a>Souscrire à l’offre Essayez gratuitement Azure Cosmos DB
+## <a name="try-azure-cosmos-db-subscriptions"></a><a id="try-cosmos-db"></a>Souscrire à l’offre Essayez gratuitement Azure Cosmos DB
 
 Vous pouvez désormais profiter pendant une durée limitée de l’expérience Azure Cosmos DB, sans abonnement, libre de frais et d’engagement. Pour souscrire à l'offre Essayez gratuitement Azure Cosmos DB, accédez à la page [Essayez gratuitement Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) et utilisez n'importe quel compte Microsoft personnel (MSA). Cette souscription est indépendante de l’offre [Créez votre compte Azure gratuit](https://azure.microsoft.com/free/) et peut être couplée à celle-ci ou à un abonnement Azure payant.
 
@@ -236,7 +236,7 @@ Parallèlement aux codes d’erreur MongoDB habituels, l’API Azure Cosmos DB p
 
 Oui, vous pouvez utiliser le pilote Mongo ODBC de Simba avec l’API Azure Cosmos DB pour MongoDB.
 
-## <a id="table"></a>API de table
+## <a name="table-api"></a><a id="table"></a>API de table
 
 ### <a name="how-can-i-use-the-table-api-offering"></a>Comment utiliser l’offre de l’API Table ?
 
@@ -404,7 +404,7 @@ Vous pouvez ajouter autant de régions que vous le souhaitez pour le compte, et 
 
 ### <a name="is-the-table-api-enabled-for-backups"></a>L’API Table prend-elle en charge les sauvegardes ?
 
-Oui, l’API Table tire parti de la plateforme d’Azure Cosmos DB pour les sauvegardes. Les sauvegardes sont effectuées automatiquement. Pour plus d’informations, voir [Sauvegarde et restauration en ligne automatiques avec Azure Cosmos DB](online-backup-and-restore.md).
+Oui, l’API Table tire parti de la plateforme d’Azure Cosmos DB pour les sauvegardes. Les sauvegardes sont effectuées automatiquement. Pour plus d’informations, voir [Sauvegarde et restauration en ligne automatiques avec Azure Cosmos DB](../synapse-analytics/sql-data-warehouse/backup-and-restore.md).
 
 ### <a name="does-the-table-api-index-all-attributes-of-an-entity-by-default"></a>L’API Table indexe-t-elle par défaut tous les attributs d’une entité ?
 
@@ -638,7 +638,7 @@ g.V('mary').out('knows').executionProfile()
 
 La sortie du profil ci-dessus indique combien de temps est consacré à l’obtention des objets de vertex, des objets d’arête, ainsi que la taille du jeu de données de travail. Cela concerne les mesures de coût standard pour les requêtes Azure Cosmos DB.
 
-## <a id="cassandra"></a> API Cassandra
+## <a name="cassandra-api"></a><a id="cassandra"></a> API Cassandra
 
 ### <a name="what-is-the-protocol-version-supported-by-azure-cosmso-db-cassandra-api-is-there-a-plan-to-support-other-protocols"></a>Quelle est la version de protocole prise en charge par l’API Cassandra de Azure Cosmo DB ? Prévoyez-vous de prendre en charge d’autres protocoles ?
 
@@ -761,7 +761,7 @@ Actuellement, Azure Cosmos DB offre une expérience optimisée pour l’environn
 ### <a name="does-cassandra-api-provide-full-backups"></a>L’API Cassandra fournit-elle des sauvegardes complètes ?
 
 Azure Cosmos DB réalise actuellement deux sauvegardes complètes gratuites toutes les quatre heures, sur toutes les API. Il est donc inutile de configurer une planification de sauvegarde ou d’autres choses.
-Si vous souhaitez modifier la rétention et la fréquence, envoyez un e-mail à l’adresse [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) ou soumettez une demande d’assistance. Pour en savoir plus sur la fonctionnalité de sauvegarde, consultez l’article [Sauvegarde et restauration en ligne automatiques avec Azure Cosmos DB](online-backup-and-restore.md).
+Si vous souhaitez modifier la rétention et la fréquence, envoyez un e-mail à l’adresse [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) ou soumettez une demande d’assistance. Pour en savoir plus sur la fonctionnalité de sauvegarde, consultez l’article [Sauvegarde et restauration en ligne automatiques avec Azure Cosmos DB](../synapse-analytics/sql-data-warehouse/backup-and-restore.md).
 
 ### <a name="how-does-the-cassandra-api-account-handle-failover-if-a-region-goes-down"></a>Comment le compte d’API Cassandra gère-t-il le basculement en cas de défaillance d’une région ?
 

@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.openlocfilehash: 8ced9767d81affceef851820ee587f4f3dd24deb
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74975667"
 ---
 # <a name="choose-distribution-columns-in-azure-database-for-postgresql--hyperscale-citus"></a>Choisir les colonnes de distribution dans Azure Database pour PostgreSQL – Hyperscale (Citus)
@@ -35,7 +35,7 @@ Le diagramme suivant illustre la colocation dans le modèle de données mutualis
 Pour appliquer cette conception dans votre propre schéma, identifiez ce qui constitue un locataire dans votre application. Les instances courantes incluent une société, un compte, une organisation ou un client. Le nom de colonne ressemble à `company_id` ou `customer_id`. Examinez chacune de vos requêtes et demandez-vous si elle fonctionnerait si elle contenait des clauses WHERE supplémentaires pour restreindre toutes les tables impliquées aux lignes avec le même ID de locataire ?
 Les requêtes dans le modèle mutualisé sont étendues à un locataire. Par exemple, des requêtes sur les ventes ou l’inventaire sont étendues dans un magasin donné.
 
-#### <a name="best-practices"></a>Bonnes pratiques
+#### <a name="best-practices"></a>Meilleures pratiques
 
 -   **Partitionnez les tables distribuées selon une colonne tenant\_id commune.** Par exemple, dans une application SaaS où les locataires sont des entreprises, la valeur tenant\_id est susceptible d’être la valeur company\_id.
 -   **Convertissez les tables de petite taille partagées entre locataires en tables de référence.** Lorsque plusieurs locataires partagent une petite table d’informations, distribuez-la comme une table de référence.
@@ -51,7 +51,7 @@ Nous utilisons « ID d’entité » pour désigner les colonnes de distributio
 
 Les requêtes en temps réel nécessitent en général des agrégats numériques regroupés par date ou par catégorie. Hyperscale (Citus) envoie ces requêtes à chaque partition pour obtenir des résultats partiels et assemble la réponse finale sur le nœud coordinateur. Les requêtes s’exécutent plus rapidement lorsqu’un maximum de nœuds contribuent, et lorsque aucun nœud unique ne doit faire une quantité disproportionnée du travail.
 
-#### <a name="best-practices"></a>Bonnes pratiques
+#### <a name="best-practices"></a>Meilleures pratiques
 
 -   **Choisissez une colonne présentant une cardinalité élevée comme colonne de distribution.** À titre de comparaison, un champ d’état sur une table de commandes avec les valeurs « nouvelle », « payée » et « livrée » est un choix médiocre de colonne de distribution. Il part du principe que seules ces quelques valeurs existent, ce qui limite le nombre de partitions pouvant stocker les données et le nombre de nœuds pouvant les traiter. Parmi les colonnes présentant une cardinalité élevée, il est également judicieux de choisir les celles qui sont fréquemment utilisées dans les clauses group-by ou en tant que clés de jointure.
 -   **Choisissez une colonne avec une distribution uniforme.** Si vous distribuez une table sur une colonne déviée vers certaines valeurs courantes, les données de la table ont tendance à s’accumuler dans certaines partitions. Les nœuds contenant ces partitions finissent par effectuer plus de travail que les autres nœuds.
@@ -67,7 +67,7 @@ Dans une charge de travail de série chronologique, les applications interrogent
 
 L’erreur la plus fréquente lors de la modélisation des informations de série chronologique dans Hyperscale (Citus) consiste à utiliser l’horodatage comme colonne de distribution. Une distribution de hachage basée sur le temps distribue le temps de façon apparemment aléatoire dans différentes partitions plutôt que de conserver des plages de temps groupées dans des partitions. Les requêtes qui impliquent du temps font généralement référence à des plages de temps, par exemple, pour obtenir les données les plus récentes. Ce type de distribution de hachage entraîne une surcharge du réseau.
 
-#### <a name="best-practices"></a>Bonnes pratiques
+#### <a name="best-practices"></a>Meilleures pratiques
 
 -   **Ne choisissez pas un horodatage comme colonne de distribution.** Choisissez une colonne de distribution différente. Dans une application mutualisée, utilisez l’ID de locataire ou, dans une application en temps réel, l’ID d’entité.
 -   **Utilisez le partitionnement de table PostgreSQL pour les données temporelles à la place.** Utilisez le partitionnement de table pour diviser une table volumineuse de données chronologiques en plusieurs tables héritées contenant chacune différentes plages de temps. La distribution d’une table partitionnée Postgres dans Hyperscale (Citus) crée des partitions pour les tables héritées.

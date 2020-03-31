@@ -5,10 +5,10 @@ ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/15/2019
 ms.openlocfilehash: 24169356600c25e664221af397051bb0fec3e459
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78673090"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Résoudre les problèmes liés à l’agent Microsoft Azure Recovery Services (MARS)
@@ -39,7 +39,7 @@ Nous vous recommandons de passer en revue les points suivants avant de commencer
 
 **Message d’erreur** : Informations d’identification du coffre fournies non valides. Cela signifie que le fichier est endommagé ou qu’il ne contient pas les dernières informations d’identification associées au service de récupération. (ID : 34513)
 
-| Cause : | Actions recommandées |
+| Cause | Actions recommandées |
 | ---     | ---    |
 | **Les informations d’identification du coffre ne sont pas valides** <br/> <br/> Les fichiers d’informations d’identification du coffre peuvent avoir été endommagés ou être arrivés à expiration. (Par exemple, ils peuvent avoir été téléchargés plus de 48 heures avant l’heure de l’inscription.)| Téléchargez les nouvelles informations d’identification du coffre Recovery Services sur le portail Microsoft Azure. (Voir l’étape 6 de la section [Download the MARS agent](https://docs.microsoft.com/azure/backup/install-mars-agent#download-the-mars-agent) (Télécharger l’agent MARS).) Suivez ensuite ces étapes : <ul><li> Si vous avez déjà installé et inscrit MARS, ouvrez la console MMC de l’agent Sauvegarde Microsoft Azure, puis sélectionnez **Inscrire le serveur** dans le volet **Actions** pour terminer l’inscription avec les nouvelles informations d’identification. <br/> <li> Si la nouvelle installation échoue, réessayez avec les nouvelles informations d’identification.</ul> **Remarque** : Si plusieurs fichiers d’informations d’identification de coffre ont été téléchargés, seul le plus récent est valide pendant 48 heures. Nous vous recommandons de télécharger un nouveau fichier d’informations d’identification de coffre.
 | **Le serveur proxy/pare-feu bloque l’inscription** <br/>or <br/>**Aucune connectivité Internet** <br/><br/> Si votre machine ou serveur proxy a une connectivité à Internet limitée et que vous ne garantissez pas l’accès pour les URL nécessaires, l’inscription échoue.| Suivez ces étapes :<br/> <ul><li> Travaillez avec votre équipe informatique pour vous assurer que le système dispose d’une connectivité Internet.<li> Si vous n’avez pas de serveur proxy, vérifiez que l’option de proxy n’est pas sélectionnée lorsque vous inscrivez l’agent. [Vérifiez vos paramètres de proxy](#verifying-proxy-settings-for-windows).<li> Si vous avez un pare-feu/serveur proxy, travaillez avec votre équipe de mise en réseau pour vous assurer que ces URL et adresses IP sont accessibles :<br/> <br> **URLs**<br> `www.msftncsi.com` <br> .Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>**Adresses IP**<br>  20.190.128.0/18 <br>  40.126.0.0/18 <br/></ul></ul>Essayez de procéder une nouvelle fois à l’inscription après avoir effectué les étapes précédentes de résolution des problèmes.<br></br> Si vous êtes connecté via Azure ExpressRoute, assurez-vous que les paramètres sont configurés comme décrit dans [Prise en charge Azure ExpressRoute](backup-support-matrix-mars-agent.md#azure-expressroute-support).

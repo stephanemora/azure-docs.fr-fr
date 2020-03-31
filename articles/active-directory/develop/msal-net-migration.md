@@ -13,12 +13,12 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 737b25fd4c83c459f033bd7b07f6362909e38056
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: cccb886e13482292e8ab9afa2b34bd9dd2c3229b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78299881"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80050303"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Migration d’applications vers MSAL.NET
 
@@ -143,9 +143,9 @@ MSAL.NET transforme le cache de jetons en classe sealed, en supprimant la possib
 
 ## <a name="signification-of-the-common-authority"></a>Signification de l’autorité commune
 
-Dans v1.0, si vous utilisez l’autorité https://login.microsoftonline.com/common , vous autorisez les utilisateurs à se connecter à n’importe quel compte AAD (pour n’importe quelle organisation). Consultez [Validation de l’autorité dans ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AuthenticationContext:-the-connection-to-Azure-AD#authority-validation).
+Dans v1.0, si vous utilisez l’autorité `https://login.microsoftonline.com/common`, vous autorisez les utilisateurs à se connecter à n’importe quel compte AAD (pour n’importe quelle organisation). Consultez [Validation de l’autorité dans ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AuthenticationContext:-the-connection-to-Azure-AD#authority-validation).
 
-Si vous utilisez l’autorité https://login.microsoftonline.com/common dans v2.0, vous autorisez les utilisateurs à se connecter à n’importe quelle organisation AAD ou à un compte personnel Microsoft (MSA). Dans MSAL.NET, si vous voulez limiter la connexion à un compte AAD (même comportement qu’avec ADAL.NET), vous devez utiliser https://login.microsoftonline.com/organizations. Pour plus d’informations, consultez le paramètre `authority` dans l’[application cliente publique](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Client-Applications#publicclientapplication).
+Si vous utilisez l’autorité `https://login.microsoftonline.com/common` dans v2.0, vous autorisez les utilisateurs à se connecter à n’importe quelle organisation AAD ou à un compte personnel Microsoft (MSA). Dans MSAL.NET, si vous voulez limiter la connexion à un compte AAD (même comportement qu’avec ADAL.NET), vous devez utiliser `https://login.microsoftonline.com/organizations`. Pour plus d’informations, consultez le paramètre `authority` dans l’[application cliente publique](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Client-Applications#publicclientapplication).
 
 ## <a name="v10-and-v20-tokens"></a>Jetons v1.0 et v2.0
 

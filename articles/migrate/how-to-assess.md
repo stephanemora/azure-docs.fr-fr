@@ -8,10 +8,10 @@ ms.manager: carmonm
 ms.date: 11/19/2019
 ms.author: raynew
 ms.openlocfilehash: 64af78abd8f82b41d4a03fbb56c96e3038cef5a5
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74185910"
 ---
 # <a name="add-assessment-tools"></a>Ajouter des outils d’évaluation

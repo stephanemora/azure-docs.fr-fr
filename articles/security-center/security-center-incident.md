@@ -6,14 +6,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 03/15/2020
 ms.author: memildin
-ms.openlocfilehash: 1a6dbaeac5355d50edb93a7f215d7f8e88231e98
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 98fc339e473ffb2bf54e7119634e93046cca1ef3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77615965"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79415667"
 ---
 # <a name="manage-security-incidents-in-azure-security-center"></a>Gérer les incidents de sécurité dans Azure Security Center
 
@@ -23,7 +23,7 @@ Cette rubrique explique les incidents dans Security Center, et comment utiliser 
 
 ## <a name="what-is-a-security-incident"></a>Qu’est-ce qu’un incident de sécurité ?
 
-Dans le Centre de sécurité, un incident de sécurité est un regroupement de toutes les alertes d’une ressource correspondant à des modèles de [chaîne de destruction](https://blogs.technet.microsoft.com/office365security/addressing-your-cxos-top-five-cloud-security-concerns/) . Les incidents apparaissent dans la liste [Alertes de sécurité](security-center-managing-and-responding-alerts.md). Cliquez sur un incident pour afficher les alertes associées, ce qui vous permet d’en savoir plus sur chaque occurrence.
+Dans le Centre de sécurité, un incident de sécurité est un regroupement de toutes les alertes d’une ressource correspondant à des modèles de [chaîne de destruction](alerts-reference.md#intentions) . Les incidents apparaissent dans la liste [Alertes de sécurité](security-center-managing-and-responding-alerts.md). Cliquez sur un incident pour afficher les alertes associées, ce qui vous permet d’en savoir plus sur chaque occurrence.
 
 ## <a name="managing-security-incidents"></a>Gestion des incidents de sécurité
 
@@ -44,28 +44,10 @@ Dans le Centre de sécurité, un incident de sécurité est un regroupement de t
 
 1. Suivez les étapes de correction indiquées pour chaque alerte.
 
-Pour plus d’informations sur les alertes, consultez [Gestion et résolution des alertes de sécurité](security-center-managing-and-responding-alerts.md).
-
-Les rubriques suivantes vous guident tout au long des différentes alertes en fonction des types de ressources :
-
-* [Alertes pour les machines IaaS Windows](threat-protection.md#windows-machines)
-* [Alertes pour les machines IaaS Linux](threat-protection.md#linux-machines)
-* [Alertes pour Azure App Service](threat-protection.md#app-services)
-* [Alertes pour les conteneurs Azure](threat-protection.md#azure-containers)
-* [Alertes pour SQL Database et SQL Data Warehouse](threat-protection.md#data-sql)
-* [Alertes pour Stockage Azure](threat-protection.md#azure-storage)
-* [Alertes pour Cosmos DB](threat-protection.md#cosmos-db)
-
-Les rubriques suivantes expliquent comment Security Center utilise les différentes données de télémétrie qu’il collecte à partir de l’intégration à l’infrastructure Azure afin d’appliquer des couches de protection supplémentaires pour les ressources déployées sur Azure :
-
-* [Alertes pour la couche de gestion Azure (Azure Resource Manager) (préversion)](threat-protection.md#management-layer)
-* [Alertes pour Azure Key Vault (préversion)](threat-protection.md#azure-keyvault)
-* [Alertes pour la couche réseau Azure](threat-protection.md#network-layer)
-* [Alertes provenant d’autres services](threat-protection.md#alerts-other)
 
 ## <a name="see-also"></a>Voir aussi
-Dans ce document, vous avez vu comment utiliser la fonctionnalité de gestion des incidents de sécurité du Centre de sécurité. Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
+Dans ce document, vous avez vu comment utiliser la fonctionnalité de gestion des incidents de sécurité du Centre de sécurité. Pour obtenir des informations associées, consultez les rubriques suivantes :
 
-* [Alertes de sécurité dans Azure Security Center](security-center-alerts-overview.md).
+* [Protection contre les menaces dans Azure Security Center](threat-protection.md)
+* [Alertes de sécurité dans le Centre de sécurité Azure](security-center-alerts-overview.md)
 * [Gérer les alertes de sécurité](security-center-managing-and-responding-alerts.md)
-* [Guide des opérations et de planification du Centre de sécurité Azure](security-center-planning-and-operations-guide.md)

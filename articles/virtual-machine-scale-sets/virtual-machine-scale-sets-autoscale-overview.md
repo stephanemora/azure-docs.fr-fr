@@ -11,10 +11,10 @@ ms.date: 05/29/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: eb96be187502afcccfd3fb2c88f709facfbc3b59
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76278137"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Vue d’ensemble de la mise à l’échelle automatique avec des groupes de machines virtuelles identiques Azure
@@ -30,7 +30,7 @@ Au cours d’une soirée ou d’un week-end, la demande de votre application peu
 
 
 ## <a name="use-host-based-metrics"></a>Utiliser des mesures basées sur les hôtes
-Vous pouvez créer des règles de mise à l’échelle automatique qui intègrent des mesures d’hôtes disponibles à partir de vos instances de machine virtuelle. Les mesures d’hôtes vous offrent une visibilité sur les performances des instances de machine virtuelle dans un groupe identique sans devoir installer ou configurer des agents supplémentaires et des collections de données. Les règles de mise à l’échelle automatique qui utilisent ces mesures peuvent augmenter ou diminuer le nombre d’instances de machine virtuelle en réponse à l’utilisation du processeur, la demande de mémoire ou l’accès au disque.
+Vous pouvez créer des règles de mise à l’échelle automatique qui intègrent des mesures d’hôtes disponibles à partir de vos instances de machine virtuelle. Les mesures d’hôtes vous offrent une visibilité sur les performances des instances de machine virtuelle dans un groupe identique sans devoir installer ou configurer des agents supplémentaires et des collections de données. Les règles de mise à l’échelle automatique qui utilisent ces mesures peuvent effectuer un scale-out ou un scale-in du nombre d’instances de machine virtuelle en réponse à l’utilisation du processeur, la demande de mémoire ou l’accès au disque.
 
 Les règles de mise à l’échelle qui utilisent des indicateurs basés sur les hôtes peuvent être créées avec l’un des outils suivants :
 
@@ -93,7 +93,7 @@ Les règles de mise à l’échelle automatique sont alors déclenchées lorsque
 
 
 ### <a name="actions-when-rules-trigger"></a>Actions lors du déclenchent des règles
-Lorsqu’une règle de mise à l’échelle automatique est déclenchée, votre groupe identique peut automatiquement diminuer la taille des instances de l’une des manières suivantes :
+Lorsqu’une règle de mise à l’échelle automatique est déclenchée, votre groupe identique peut automatiquement effectuer un scale-in de l’une des manières suivantes :
 
 | Opération de mise à l'échelle     | Cas d’utilisation                                                                                                                               |
 |---------------------|----------------------------------------------------------------------------------------------------------------------------------------|
@@ -124,7 +124,7 @@ Vous pouvez également créer des règles de mise à l’échelle automatique ba
 
 Les exemples suivants sont des scénarios qui peuvent bénéficier de l’utilisation de règles de mise à l’échelle automatique basées sur la planification :
 
-- Redimensionner automatiquement le nombre d’instances de machines virtuelles au début de la journée de travail lorsque la demande du client augmente. À la fin de la journée de travail, redimensionner automatiquement le nombre d’instances de machines virtuelles afin de réduire les coûts des ressources pendant la nuit, lorsque l’utilisation de l’application est faible.
+- Effectuer automatiquement un scale-out du nombre d’instances de machines virtuelles au début de la journée de travail lorsque la demande du client augmente. À la fin de la journée de travail, effectuez automatiquement un scale-in du nombre d’instances de machines virtuelles afin de réduire les coûts des ressources pendant la nuit, lorsque l’utilisation de l’application est faible.
 - Si un service utilise fortement une application durant certaines parties du mois ou du cycle fiscal, redimensionner automatiquement le nombre d’instances de machines virtuelles pour prendre en compte des exigences supplémentaires.
 - Lors d’un événement marketing, d’une saison de promotions ou de fêtes, vous pouvez automatiquement mettre à l’échelle le nombre d’instances de machines virtuelles afin d’anticiper la demande du client. 
 

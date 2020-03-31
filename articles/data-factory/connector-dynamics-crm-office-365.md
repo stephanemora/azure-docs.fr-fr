@@ -13,10 +13,10 @@ ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 11/20/2019
 ms.openlocfilehash: d065439839ba5db479305ae81c61892cb5cf5e70
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74929449"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copier des données à partir et vers Dynamics 365 (Common Data Service) ou Dynamics CRM à l’aide d’Azure Data Factory
@@ -42,7 +42,7 @@ Consultez le tableau suivant sur les configurations et les types d’authentific
 
 | Versions de Dynamics | Types d’authentification | Exemples de services liés |
 |:--- |:--- |:--- |
-| Common Data Service <br> Dynamics 365 (en ligne) <br> Dynamics CRM en ligne | Principal de service AAD <br> office365 | [Dynamics en ligne + principal de service AAD ou Office365 auth](#dynamics-365-and-dynamics-crm-online) |
+| Common Data Service <br> Dynamics 365 (en ligne) <br> Dynamics CRM en ligne | Principal de service AAD <br> Office365 | [Dynamics en ligne + principal de service AAD ou Office365 auth](#dynamics-365-and-dynamics-crm-online) |
 | Dynamics 365 local avec IFD <br> Dynamics CRM 2016 local avec IFD <br> Dynamics CRM 2015 local avec IFD | IFD | [Dynamics local avec IFD + authentification IFD](#dynamics-365-and-dynamics-crm-on-premises-with-ifd) |
 
 Plus spécifiquement pour Dynamics 365, les types d’applications suivants sont pris en charge :
@@ -60,7 +60,7 @@ Ce connecteur Dynamics se base sur les [outils Dynamics XRM](https://docs.micros
 >[!TIP]
 >Pour copier des données issues de **Dynamics 365 for Finance and Operations**, vous pouvez utiliser le [connecteur Dynamics AX](connector-dynamics-ax.md).
 
-## <a name="get-started"></a>Prise en main
+## <a name="get-started"></a>Bien démarrer
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -74,15 +74,15 @@ Les propriétés prises en charge pour le service lié Dynamics sont les suivant
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur **Dynamics**, **DynamicsCrm** ou **CommonDataServiceForApps**. | OUI |
-| deploymentType | Type de déploiement de l’instance Dynamics. Il doit être **« en ligne »** pour Dynamics en ligne. | OUI |
-| serviceUri | L’URL de service de votre instance Dynamics, par exemple `https://adfdynamics.crm.dynamics.com`. | OUI |
-| authenticationType | Type d’authentification pour se connecter à un serveur Dynamics. Les valeurs autorisées sont les suivantes : **AADServicePrincipal** ou **« Office365 »** . | OUI |
-| servicePrincipalId | Spécifiez l’ID de l’application Azure Active Directory. | Oui, en utilisant l’authentification `AADServicePrincipal` |
-| servicePrincipalCredentialType | Spécifiez le type d’informations d’identification à utiliser pour l’authentification de principal du service. Les valeurs autorisées sont les suivantes : **ServicePrincipalKey** ou **ServicePrincipalCert**. | Oui, en utilisant l’authentification `AADServicePrincipal` |
-| servicePrincipalCredential | Spécifier les informations d'identification du principal de service. <br>Lors de l’utilisation de `ServicePrincipalKey` comme type d’informations d’identification, `servicePrincipalCredential` peut être une chaîne (ADF le chiffrera lors du déploiement du service lié) ou une référence à un secret dans AKV. <br>Lors de l’utilisation de `ServicePrincipalCert` comme informations d’identification, `servicePrincipalCredential` doit être une référence à un certificat dans AKV. | Oui, en utilisant l’authentification `AADServicePrincipal` | 
+| type | La propriété type doit être définie sur **Dynamics**, **DynamicsCrm** ou **CommonDataServiceForApps**. | Oui |
+| deploymentType | Type de déploiement de l’instance Dynamics. Il doit être **« en ligne »** pour Dynamics en ligne. | Oui |
+| serviceUri | L’URL de service de votre instance Dynamics, par exemple `https://adfdynamics.crm.dynamics.com`. | Oui |
+| authenticationType | Type d’authentification pour se connecter à un serveur Dynamics. Les valeurs autorisées sont les suivantes : **AADServicePrincipal** ou **« Office365 »** . | Oui |
+| servicePrincipalId | Spécifiez l’ID de l’application Azure Active Directory. | Oui en utilisant l’authentification `AADServicePrincipal` |
+| servicePrincipalCredentialType | Spécifiez le type d’informations d’identification à utiliser pour l’authentification de principal du service. Les valeurs autorisées sont les suivantes : **ServicePrincipalKey** ou **ServicePrincipalCert**. | Oui en utilisant l’authentification `AADServicePrincipal` |
+| servicePrincipalCredential | Spécifier les informations d'identification du principal de service. <br>Lors de l’utilisation de `ServicePrincipalKey` comme type d’informations d’identification, `servicePrincipalCredential` peut être une chaîne (ADF le chiffrera lors du déploiement du service lié) ou une référence à un secret dans AKV. <br>Lors de l’utilisation de `ServicePrincipalCert` comme informations d’identification, `servicePrincipalCredential` doit être une référence à un certificat dans AKV. | Oui en utilisant l’authentification `AADServicePrincipal` | 
 | username | Indiquez le nom d'utilisateur à utiliser pour se connecter à Dynamics. | Oui en utilisant l’authentification `Office365` |
-| password | Indiquez le mot de passe du compte d’utilisateur défini pour le nom d’utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui en utilisant l’authentification `Office365` |
+| mot de passe | Indiquez le mot de passe du compte d’utilisateur défini pour le nom d’utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui en utilisant l’authentification `Office365` |
 | connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. | Non pour la source, oui pour le récepteur si le service lié à la source n’a pas de runtime d’intégration |
 
 >[!NOTE]
@@ -171,14 +171,14 @@ Les propriétés prises en charge pour le service lié Dynamics sont les suivant
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur **Dynamics**, **DynamicsCrm** ou **CommonDataServiceForApps**. | OUI |
-| deploymentType | Type de déploiement de l’instance Dynamics. Cela doit être **« OnPremisesWithIfd »** pour Dynamics local avec IFD.| OUI |
-| hostName | Nom d’hôte du serveur Dynamics local. | OUI |
+| type | La propriété type doit être définie sur **Dynamics**, **DynamicsCrm** ou **CommonDataServiceForApps**. | Oui |
+| deploymentType | Type de déploiement de l’instance Dynamics. Cela doit être **« OnPremisesWithIfd »** pour Dynamics local avec IFD.| Oui |
+| hostName | Nom d’hôte du serveur Dynamics local. | Oui |
 | port | Port du serveur Dynamics local. | Non, la valeur par défaut est 443 |
-| organizationName | Nom d’organisation de l’instance Dynamics. | OUI |
-| authenticationType | Type d’authentification pour se connecter au serveur Dynamics. Spécifiez **« Ifd »** pour Dynamics local avec IFD. | OUI |
-| username | Indiquez le nom d'utilisateur à utiliser pour se connecter à Dynamics. | OUI |
-| password | Indiquez le mot de passe du compte d’utilisateur défini pour le nom d’utilisateur. Vous pouvez choisir de marquer ce champ comme SecureString pour le stocker en toute sécurité dans le fichier de définition d’application, ou stocker le mot de passe dans Azure Key Vault et laisser l’activité de copie en tirer (pull) les données lors de la copie. Pour plus d’informations, consultez la page [Stocker des informations d’identification dans Key Vault](store-credentials-in-key-vault.md). | OUI |
+| organizationName | Nom d’organisation de l’instance Dynamics. | Oui |
+| authenticationType | Type d’authentification pour se connecter au serveur Dynamics. Spécifiez **« Ifd »** pour Dynamics local avec IFD. | Oui |
+| username | Indiquez le nom d'utilisateur à utiliser pour se connecter à Dynamics. | Oui |
+| mot de passe | Indiquez le mot de passe du compte d’utilisateur défini pour le nom d’utilisateur. Vous pouvez choisir de marquer ce champ comme SecureString pour le stocker en toute sécurité dans le fichier de définition d’application, ou stocker le mot de passe dans Azure Key Vault et laisser l’activité de copie en tirer (pull) les données lors de la copie. Pour plus d’informations, consultez la page [Stocker des informations d’identification dans Key Vault](store-credentials-in-key-vault.md). | Oui |
 | connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. | Non pour Source, Oui pour Récepteur |
 
 **Exemple : Dynamics local avec IFD utilisant l’authentification IFD**
@@ -217,7 +217,7 @@ Pour copier des données depuis et vers Dynamics, les propriétés suivantes son
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur **DynamicsEntity**, **DynamicsCrmEntity** ou **CommonDataServiceForAppsEntity**. |OUI |
+| type | La propriété type du jeu de données doit être définie sur **DynamicsEntity**, **DynamicsCrmEntity** ou **CommonDataServiceForAppsEntity**. |Oui |
 | entityName | Nom logique de l’entité à récupérer. | Non pour la source (si « query » est spécifié dans la source de l’activité) ; Oui pour le récepteur |
 
 **Exemple :**
@@ -249,7 +249,7 @@ Pour copier des données depuis Dynamics, les propriétés suivantes sont prises
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source de l’activité de copie doit être définie sur **DynamicsSource**, **DynamicsCrmSource** ou **CommonDataServiceForAppsSource**. | OUI |
+| type | La propriété type de la source de l’activité de copie doit être définie sur **DynamicsSource**, **DynamicsCrmSource** ou **CommonDataServiceForAppsSource**. | Oui |
 | query | FetchXML est un langage de requête propriétaire qui est utilisé dans Dynamics (en ligne et local). Consultez l’exemple qui suit. Pour en savoir plus, consultez [Générer des requêtes avec FetchXML](https://msdn.microsoft.com/library/gg328332.aspx). | Non (si « entityName » est spécifié dans le jeu de données) |
 
 >[!NOTE]
@@ -317,8 +317,8 @@ Pour copier des données dans Dynamics, les propriétés suivantes sont prises e
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du récepteur d’activité de copie doit être définie sur **DynamicsSink**, **DynamicsCrmSink**ou **CommonDataServiceForAppsSink**. | OUI |
-| writeBehavior | Comportement d’écriture de l’opération.<br/>La valeur autorisée est **« Upsert »** . | OUI |
+| type | La propriété type du récepteur d’activité de copie doit être définie sur **DynamicsSink**, **DynamicsCrmSink**ou **CommonDataServiceForAppsSink**. | Oui |
+| writeBehavior | Comportement d’écriture de l’opération.<br/>La valeur autorisée est **« Upsert »** . | Oui |
 | alternateKeyName | Spécifiez le nom de clé de remplacement défini sur votre entité pour exécuter « Upsert ». | Non |
 | writeBatchSize | Nombre de lignes de données écrites dans Dynamics pour chaque lot. | Non (valeur par défaut : 10) |
 | ignoreNullValues | Indique si les valeurs Null des données d’entrée (à l’exception des champs clés) doivent être ignorées pendant une opération d’écriture.<br/>Les valeurs autorisées sont **true** et **false**.<br>- **True** : Laisser inchangées les données dans l’objet de destination quand vous effectuez une opération upsert/mise à jour. Insérer une valeur définie par défaut lorsque vous effectuez une opération insert.<br/>- **False** : Mettre à jour les données dans l’objet de destination quand vous effectuez une opération upsert/mise à jour. Insérer une valeur NULL lorsque vous effectuez une opération insert. | Non (valeur par défaut : false) |
@@ -372,22 +372,22 @@ Configurez le type de données Data Factory correspondant dans la structure du j
 
 | Type de données Dynamics | Type de données intermédiaires d’Azure Data Factory | Prise en charge en tant que source | Prise en charge en tant que récepteur |
 |:--- |:--- |:--- |:--- |
-| AttributeTypeCode.BigInt | long | ✓ | ✓ |
+| AttributeTypeCode.BigInt | Long | ✓ | ✓ |
 | AttributeTypeCode.Boolean | Boolean | ✓ | ✓ |
 | AttributeType.Customer | Guid | ✓ | |
 | AttributeType.DateTime | Datetime | ✓ | ✓ |
 | AttributeType.Decimal | Decimal | ✓ | ✓ |
 | AttributeType.Double | Double | ✓ | ✓ |
-| AttributeType.EntityName | Chaîne | ✓ | ✓ |
+| AttributeType.EntityName | String | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
 | AttributeType.Lookup | Guid | ✓ | ✓ (avec une seule cible associée) |
 | AttributeType.ManagedProperty | Boolean | ✓ | |
-| AttributeType.Memo | Chaîne | ✓ | ✓ |
+| AttributeType.Memo | String | ✓ | ✓ |
 | AttributeType.Money | Decimal | ✓ | ✓ |
 | AttributeType.Owner | Guid | ✓ | |
 | AttributeType.Picklist | Int32 | ✓ | ✓ |
 | AttributeType.Uniqueidentifier | Guid | ✓ | ✓ |
-| AttributeType.String | Chaîne | ✓ | ✓ |
+| AttributeType.String | String | ✓ | ✓ |
 | AttributeType.State | Int32 | ✓ | ✓ |
 | AttributeType.Status | Int32 | ✓ | ✓ |
 

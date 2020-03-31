@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 54a18bb20ab9af3ad794ed678ea3234a712bf5cb
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 0399e1659fb7cc6a650c6b3c1d0189c8802d4904
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75531160"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80064313"
 ---
 # <a name="what-is-iot-plug-and-play-preview"></a>Qu’est ce que la préversion d’IoT Plug-and-Play ?
 
@@ -77,7 +77,7 @@ En tant que développeur d’appareils, vous pouvez envoyer des produits matéri
 
 ## <a name="regional-availability"></a>Disponibilité régionale
 
-Au cours de la préversion publique, IoT Plug-and-Play est disponible dans les régions Europe Nord, USA Centre et Japon Est. Veillez à créer votre hub dans l’une de ces régions.
+En préversion publique, IoT Plug-and-Play est disponible dans toutes les régions.
 
 ## <a name="message-quotas-in-iot-hub"></a>Quotas de message dans IoT Hub
 Pendant la préversion publique, les appareils IoT Plug-and-Play envoient des messages séparés par interface, ce qui peut augmenter le nombre de messages comptabilisés dans le [quota de messages](../iot-hub/iot-hub-devguide-quotas-throttling.md).

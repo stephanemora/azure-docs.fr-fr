@@ -6,17 +6,17 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 09/04/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 222dab87ee71870e564e426d7466555893cc565b
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 79f68635820125161ed4f5777e27a20de9e6fbe8
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70305185"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80049393"
 ---
 # <a name="what-is-the-azure-ad-connect-admin-agent"></a>Présentation de l’agent d’administration Azure AD Connect 
 L’agent d’administration Azure AD Connect est un nouveau composant d’Azure Active Directory Connect qui peut être installé sur un serveur Azure Active Directory Connect. Il est utilisé pour collecter des données spécifiques à partir de votre environnement Active Directory qui permettent à un ingénieur du support Microsoft de résoudre les problèmes quand vous créez une demande de support. 
@@ -31,16 +31,16 @@ Les informations que l’agent d’administration Azure AD Connect récupère �
 ## <a name="install-the-azure-ad-connect-administration-agent-on-the-azure-ad-connect-server"></a>Installer l’agent d’administration Azure AD Connect sur le serveur Azure AD Connect 
 
 Configuration requise :
-1.  Azure AD Connect est installé sur le serveur
-2.  Azure AD Connect Health est installé sur le serveur
+1.    Azure AD Connect est installé sur le serveur
+2.    Azure AD Connect Health est installé sur le serveur
 
 ![agent d’administration](media/whatis-aadc-admin-agent/adminagent0.png)
 
 Les fichiers binaires de l’agent d’administration Azure AD Connect sont placés sur le serveur AAD Connect. Pour installer l’agent, procédez comme suit :
 
-1.  Ouvrez PowerShell en mode Administrateur
-2.  Accédez au répertoire où l’application est située, cd « C:\Program Files\Microsoft Azure Active Directory Connect\Tools »
-3.  Exécuter ConfigureAdminAgent.ps1
+1.    Ouvrez PowerShell en mode Administrateur
+2.    Accédez au répertoire où se trouve l’application, cd "C:\Program Files\Microsoft Azure Active Directory Connect\Tools".
+3.    Exécuter ConfigureAdminAgent.ps1
 
 Quand vous y êtes invité, entrez vos informations d’identification d’administrateur général Azure AD. Il doit s’agir des mêmes informations d’identification que celles entrées lors de l’installation d’Azure AD Connect.
 
@@ -53,11 +53,11 @@ Quand vous créez une demande de support, l’ingénieur du support Microsoft pe
 
 L’ingénieur du support Microsoft ne peut modifier aucune donnée dans votre système et ne peut voir aucun mot de passe. 
 
-## <a name="what-if-i-dont-want-the-microsoft-support-engineer-to-access-my-data"></a>Que se passe-t-il si je ne veux pas que l’ingénieur du support Microsoft accède à mes données ? 
+## <a name="what-if-i-dont-want-the-microsoft-support-engineer-to-access-my-data"></a>Que faire si je ne veux pas que l’ingénieur du support Microsoft accède à mes données ? 
 Une fois que l’agent est installé, si vous ne souhaitez pas que l’ingénieur du service Microsoft accède à vos données pour un appel au support, vous pouvez désactiver la fonctionnalité en modifiant le fichier de configuration de service, comme décrit ci-dessous : 
 
-1.  Ouvrez **C:\Program Files\Microsoft Azure AD Connect Administration Agent\AzureADConnectAdministrationAgentService.exe.config** dans le Bloc-notes.
-2.  Désactivez le paramètre **UserDataEnabled** comme indiqué ci-dessous. Si le paramètre **UserDataEnabled** existe et a la valeur true, affectez-lui la valeur false. Si le paramètre n’existe pas, ajoutez-le comme indiqué ci-dessous.    
+1.    Ouvrez **C:\Program Files\Microsoft Azure AD Connect Administration Agent\AzureADConnectAdministrationAgentService.exe.config** dans le Bloc-notes.
+2.    Désactivez le paramètre **UserDataEnabled** comme indiqué ci-dessous. Si le paramètre **UserDataEnabled** existe et a la valeur true, affectez-lui la valeur false. Si le paramètre n’existe pas, ajoutez-le comme indiqué ci-dessous.    
 
     ```xml
     <appSettings>
@@ -66,8 +66,8 @@ Une fois que l’agent est installé, si vous ne souhaitez pas que l’ingénieu
     </appSettings>
     ```
 
-3.  Enregistrez le fichier de configuration.
-4.  Redémarrez le service de l’agent d’administration Azure AD Connect comme indiqué ci-dessous
+3.    Enregistrez le fichier de configuration.
+4.    Redémarrez le service de l’agent d’administration Azure AD Connect comme indiqué ci-dessous
 
 ![agent d’administration](media/whatis-aadc-admin-agent/adminagent2.png)
 

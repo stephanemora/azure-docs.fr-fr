@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/16/2020
 ms.author: spelluru
 ms.openlocfilehash: 9604da5252254120ac7bd3fca3f0cc97324aef92
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76293213"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-azure-pipelines-cicd-pipeline"></a>Intégrer Azure DevTest Labs dans votre pipeline CI/CD Azure Pipelines
@@ -35,7 +35,7 @@ Cet article explique comment utiliser des tâches Azure DevTest Labs pour créer
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Inscrivez-vous ou connectez-vous à votre organisation [Azure DevOps](https://dev.azure.com), puis [créez un projet](/vsts/organizations/projects/create-project) dans l’organisation. 
   
@@ -120,7 +120,7 @@ Pour ajouter des variables pour les valeurs :
    
 1. Pour chaque variable, sélectionnez **Ajouter**, puis entrez le nom et la valeur :
    
-   |Name|Valeur|
+   |Nom|Valeur|
    |---|---|
    |*vmName*|Nom de la machine virtuelle que vous avez assigné dans le modèle Resource Manager|
    |*userName*|Nom d’utilisateur pour accéder à la machine virtuelle|

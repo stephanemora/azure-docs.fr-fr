@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/22/2020
 ms.openlocfilehash: 7fd287377a82caeaecea264f0165d12ced57f5cd
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76722673"
 ---
 # <a name="scenario-apache-ambari-directory-alerts-in-azure-hdinsight"></a>Scénario : Alertes de répertoire Apache Ambari dans Azure HDInsight
@@ -27,7 +27,7 @@ Vous recevez des erreurs d’Apache Ambari semblables à celles-ci :
 1/1 log-dirs have errors: [ /mnt/resource/hadoop/yarn/log : Cannot create directory: /mnt/resource/hadoop/yarn/log ]
 ```
 
-## <a name="cause"></a>Cause :
+## <a name="cause"></a>Cause
 
 Les répertoires indiqués dans l’alerte Ambari sont absents sur les nœuds Worker concernés.
 

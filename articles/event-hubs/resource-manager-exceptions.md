@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 12/08/2019
 ms.author: spelluru
 ms.openlocfilehash: e6ee1137fce97cbe5a64aa5287223f6ba09dcf47
-ms.sourcegitcommit: 6e42ce0ca0a7ac572398e9d024fcf69906670d74
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74936107"
 ---
 # <a name="azure-event-hubs---resource-manager-exceptions"></a>Azure Event Hubs – Exceptions Resource Manager

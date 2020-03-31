@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/02/2019
 ms.openlocfilehash: f875d8f4603a8f51b8b8fed2438e6f3a30c87aeb
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74931174"
 ---
 # <a name="copy-data-from-sap-ecc-by-using-azure-data-factory"></a>Copier des données de SAP ECC avec Azure Data Factory
@@ -23,7 +23,7 @@ ms.locfileid: "74931174"
 Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour copier des données à partir de SAP ECC (SAP Enterprise Central Component). Pour plus d’informations, consultez l’article [Vue d’ensemble d’activité de copie](copy-activity-overview.md).
 
 >[!TIP]
->Pour en savoir plus sur la prise en charge générale de l'intégration de données SAP par ADF, consultez le [livre blanc Intégration de données SAP à l'aide d'Azure Data Factory](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) qui contient une présentation détaillée, une comparaison et des conseils.
+>Pour en savoir plus sur la prise en charge générale de l’intégration de données SAP par ADF, consultez le livre blanc [Intégration de données SAP à l’aide d’Azure Data Factory](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) offrant une présentation détaillée, une comparaison et des conseils.
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
@@ -49,7 +49,7 @@ Plus précisément, ce connecteur SAP ECC prend en charge ce qui suit :
 >[!TIP]
 >Pour copier des données à partir de SAP ECC via une table ou un affichage SAP, utilisez le connecteur de [Table SAP](connector-sap-table.md), qui est plus rapide et plus évolutif.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 En règle générale, SAP ECC expose des entités par le biais de services OData via la passerelle SAP. Pour utiliser ce connecteur SAP ECC, vous devez :
 
@@ -57,11 +57,11 @@ En règle générale, SAP ECC expose des entités par le biais de services OData
 
 - **Activer et configurer le service SAP OData**. Vous pouvez activer le service OData par le biais de TCODE SICF en quelques secondes. Vous pouvez également configurer les objets qui doivent être exposés. Pour plus d’informations, consultez la page [guide pas à pas](https://blogs.sap.com/2012/10/26/step-by-step-guide-to-build-an-odata-service-based-on-rfcs-part-1/).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-## <a name="get-started"></a>Prise en main
+## <a name="get-started"></a>Bien démarrer
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -73,13 +73,13 @@ Les propriétés prises en charge pour le service lié SAP ECC sont les suivante
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| `type` | La propriété `type` doit être définie sur `SapEcc`. | OUI |
-| `url` | L’URL du service OData SAP ECC. | OUI |
+| `type` | La propriété `type` doit être définie sur `SapEcc`. | Oui |
+| `url` | L’URL du service OData SAP ECC. | Oui |
 | `username` | Le nom d’utilisateur utilisé pour se connecter à SAP ECC. | Non |
 | `password` | Le mot de passe en texte en clair utilisé pour se connecter à SAP ECC. | Non |
-| `connectVia` | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Pour plus d’informations, consultez la section [Prérequis](#prerequisites). Si vous ne spécifiez pas de runtime, le runtime d’intégration Azure par défaut est utilisé. | Non |
+| `connectVia` | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Pour plus d’informations, consultez la section [Conditions préalables](#prerequisites). Si vous ne spécifiez pas de runtime, le runtime d’intégration Azure par défaut est utilisé. | Non |
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 ```json
 {
@@ -112,9 +112,9 @@ Les propriétés prises en charge sont les suivantes :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| `path` | Chemin de l’entité OData SAP ECC. | OUI |
+| `path` | Chemin de l’entité OData SAP ECC. | Oui |
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 ```json
 {
@@ -145,10 +145,10 @@ Les propriétés prises en charge dans la section `source` de l’activité de c
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| `type` | La propriété `SapEccSource` de la section `type` d’activité de copie doit être définie sur `source`. | OUI |
+| `type` | La propriété `type` de la section `source` d’activité de copie doit être définie sur `SapEccSource`. | Oui |
 | `query` | Les options de requête OData pour filtrer les données. Par exemple :<br/><br/>`"$select=Name,Description&$top=10"`<br/><br/>Le connecteur SAP ECC copie les données à partir de l’URL combinée :<br/><br/>`<URL specified in the linked service>/<path specified in the dataset>?<query specified in the copy activity's source section>`<br/><br/>Pour plus d’informations, consultez [OData URL components](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Non |
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 ```json
 "activities":[
@@ -205,7 +205,7 @@ Lorsque vous copiez des données de SAP ECC, les mappages suivants sont utilisé
 > [!NOTE]
 > Les types de données complexes ne sont actuellement pas pris en charge.
 
-## <a name="lookup-activity-properties"></a>Propriétés de l’activité de recherche
+## <a name="lookup-activity-properties"></a>Propriétés de l’activité Lookup
 
 Pour en savoir plus sur les propriétés, consultez [Activité Lookup](control-flow-lookup-activity.md).
 

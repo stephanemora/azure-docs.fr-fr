@@ -12,10 +12,10 @@ ms.date: 07/31/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 5daf88e746ea803f345c79bd31d656f2615b6754
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78184092"
 ---
 # <a name="migrate-an-owin-based-web-api-to-b2clogincom"></a>Migrer une API web OWIN vers b2clogin.com
@@ -29,7 +29,7 @@ Les sections suivantes présentent un exemple d’activation de plusieurs émett
 > [!NOTE]
 > Cet article s’adresse aux clients Azure AD B2C ayant actuellement des API et des applications déployées qui font référence à `login.microsoftonline.com` et qui souhaitent migrer vers le point de terminaison `b2clogin.com` recommandé. Si vous configurez une nouvelle application, utilisez [b2clogin.com](b2clogin.md) comme indiqué.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de poursuivre les étapes de cet article, vous devez disposer des ressources Azure AD B2C suivantes :
 

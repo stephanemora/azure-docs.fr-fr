@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
-ms.date: 01/15/2019
-ms.openlocfilehash: 6dfc0a59ab4150173196fae82d90eca4880d5364
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 03/17/2020
+ms.openlocfilehash: 50b832baa9253f47b5f10980ae1764c9425ed4d7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818875"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79476947"
 ---
 # <a name="configure-an-existing-virtual-network-for-azure-sql-database-managed-instance"></a>Configurer un réseau virtuel existant pour Azure SQL Database Managed Instance
 
@@ -31,14 +31,14 @@ Si l’un des cas suivants vous concerne, vous pouvez valider et modifier votre 
 > [!Note]
 > Vous pouvez uniquement créer une instance Managed Instance dans les réseaux virtuels créés par le biais du modèle de déploiement Azure Resource Manager. Les réseaux virtuels Azure créés par le biais du modèle de déploiement classique ne sont pas pris en charge. Calculez la taille du sous-réseau en suivant les instructions de l’article [Déterminer la taille du sous-réseau pour les options Managed Instance](sql-database-managed-instance-determine-size-vnet-subnet.md). Vous ne pouvez pas redimensionner le sous-réseau après avoir déployé les ressources à l’intérieur.
 >
-> Après la création d’une instance gérée, le déplacement de l’instance gérée ou du réseau virtuel vers un autre groupe de ressources ou vers un autre abonnement n’est pas pris en charge.
+> Après la création d’une instance managée, le déplacement de l’instance managée ou du réseau virtuel vers un autre groupe de ressources ou vers un autre abonnement n’est pas pris en charge.
 
 ## <a name="validate-and-modify-an-existing-virtual-network"></a>Valider et modifier un réseau virtuel existant
 
 Si vous souhaitez créer une instance managée à l’intérieur d’un sous-réseau existant, nous vous recommandons de préparer ce dernier à l’aide du script PowerShell suivant :
 
 ```powershell
-$scriptUrlBase = 'https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/manage/azure-sql-db-managed-instance/prepare-subnet'
+$scriptUrlBase = 'https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/manage/azure-sql-db-managed-instance/delegate-subnet'
 
 $parameters = @{
     subscriptionId = '<subscriptionId>'
@@ -47,7 +47,7 @@ $parameters = @{
     subnetName = '<subnetName>'
     }
 
-Invoke-Command -ScriptBlock ([Scriptblock]::Create((iwr ($scriptUrlBase+'/prepareSubnet.ps1?t='+ [DateTime]::Now.Ticks)).Content)) -ArgumentList $parameters
+Invoke-Command -ScriptBlock ([Scriptblock]::Create((iwr ($scriptUrlBase+'/delegateSubnet.ps1?t='+ [DateTime]::Now.Ticks)).Content)) -ArgumentList $parameters
 ```
 
 Le script prépare le sous-réseau en trois étapes :

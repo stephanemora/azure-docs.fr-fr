@@ -1,5 +1,5 @@
 ---
-title: 'Créer et modifier un circuit ExpressRoute : D’Azure CLI'
+title: 'Créer et modifier un circuit ExpressRoute : Azure CLI'
 description: Cet article explique comment créer, provisionner, vérifier, mettre à jour, supprimer et déprovisionner un circuit ExpressRoute à l’aide de l’interface CLI.
 services: expressroute
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: cherylmc
-ms.openlocfilehash: 75729811b63e8de3047e45e9b90f5fa3ec657901
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: b967e1d8751a9c6a5214fef5241d57e954ad9f17
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083217"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79476149"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>Créer et modifier un circuit ExpressRoute à l’aide de l’interface de ligne de commande
 
@@ -20,9 +20,9 @@ ms.locfileid: "74083217"
 Cet article décrit comment créer un circuit Azure ExpressRoute à l’aide de l’interface de ligne de commande (CLI). Cet article vous montre également comment vérifier l'état, mettre à jour ou supprimer et déprovisionner un circuit. Si vous souhaitez utiliser une autre méthode pour les circuits ExpressRoute, vous pouvez sélectionner un article dans la liste suivante :
 
 > [!div class="op_single_selector"]
-> * [Portail Azure](expressroute-howto-circuit-portal-resource-manager.md)
+> * [Azure portal](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
-> * [Interface de ligne de commande Azure](howto-circuit-cli.md)
+> * [Azure CLI](howto-circuit-cli.md)
 > * [Modèle Azure Resource Manager](expressroute-howto-circuit-resource-manager-template.md)
 > * [Vidéo - portail Azure](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (classique)](expressroute-howto-circuit-classic.md)
@@ -33,13 +33,13 @@ Cet article décrit comment créer un circuit Azure ExpressRoute à l’aide de 
 * Avant de commencer, installez la dernière version des commandes CLI (version 2.0 ou ultérieure). Pour plus d’informations sur l’installation des commandes CLI, consultez [Installer l’interface de ligne de commande Microsoft Azure](/cli/azure/install-azure-cli) et [Prise en main d’Azure CLI](/cli/azure/get-started-with-azure-cli).
 * Examinez les [conditions préalables](expressroute-prerequisites.md) et les [flux de travail](expressroute-workflows.md) avant de commencer la configuration.
 
-## <a name="create"></a>Créer et approvisionner un circuit ExpressRoute
+## <a name="create-and-provision-an-expressroute-circuit"></a><a name="create"></a>Créer et approvisionner un circuit ExpressRoute
 
 ### <a name="1-sign-in-to-your-azure-account-and-select-your-subscription"></a>1. Vous connecter à votre compte Azure et sélectionner votre abonnement
 
 Pour commencer votre configuration, connectez-vous à votre compte Azure. Si vous utilisez le CloudShell « Essayez-le », vous êtes connecté automatiquement. Utilisez les exemples suivants pour faciliter votre connexion :
 
-```azurecli
+```azurecli-interactive
 az login
 ```
 
@@ -65,7 +65,7 @@ az network express-route list-service-providers
 
 La réponse ressemble à ce qui suit :
 
-```azurecli
+```output
 [
   {
     "bandwidthsOffered": [
@@ -163,7 +163,7 @@ az network express-route list
 
 Votre clé de service apparaît dans le champ *ServiceKey* de la réponse.
 
-```azurecli
+```output
 "allowClassicOperations": false,
 "authorizations": [],
 "circuitProvisioningState": "Enabled",
@@ -204,21 +204,21 @@ az network express-route list -h
 
 Quand vous créez un circuit ExpressRoute, ce circuit affiche l’état suivant :
 
-```azurecli-interactive
+```output
 "serviceProviderProvisioningState": "NotProvisioned"
 "circuitProvisioningState": "Enabled"
 ```
 
 Le circuit passe à l’état suivant quand le fournisseur de connectivité est sur le point de l’activer pour vous :
 
-```azurecli-interactive
+```output
 "serviceProviderProvisioningState": "Provisioning"
 "circuitProvisioningState": "Enabled"
 ```
 
 Pour pouvoir être utilisé, un circuit ExpressRoute doit être dans l’état suivant :
 
-```azurecli-interactive
+```output
 "serviceProviderProvisioningState": "Provisioned"
 "circuitProvisioningState": "Enabled
 ```
@@ -233,7 +233,7 @@ az network express-route show --resource-group ExpressRouteResourceGroup --name 
 
 La réponse ressemble à ce qui suit :
 
-```azurecli
+```output
 "allowClassicOperations": false,
 "authorizations": [],
 "circuitProvisioningState": "Enabled",
@@ -275,7 +275,7 @@ Pour obtenir des instructions pas à pas, consultez l’article [Configuration d
 
 Maintenant, vous devez lier un réseau virtuel à votre circuit ExpressRoute. Utilisez l’article sur la [liaison de réseaux virtuels à des circuits ExpressRoute](howto-linkvnet-cli.md).
 
-## <a name="modify"></a>Modification d’un circuit ExpressRoute
+## <a name="modifying-an-expressroute-circuit"></a><a name="modify"></a>Modification d’un circuit ExpressRoute
 
 Vous pouvez modifier certaines propriétés d'un circuit ExpressRoute sans affecter la connectivité. Vous pouvez apporter les modifications suivantes sans temps d'arrêt :
 
@@ -345,7 +345,7 @@ az network express-route update -n MyCircuit -g ExpressRouteResourceGroup --sku-
 
 Consultez les instructions dans [Transférer des circuits ExpressRoute du modèle de déploiement classique vers le modèle de déploiement Resource Manager](expressroute-howto-move-arm.md).
 
-## <a name="delete"></a>Annulation de l’approvisionnement et suppression d’un circuit ExpressRoute
+## <a name="deprovisioning-and-deleting-an-expressroute-circuit"></a><a name="delete"></a>Annulation de l’approvisionnement et suppression d’un circuit ExpressRoute
 
 Pour déprovisionner et supprimer un circuit ExpressRoute, veillez à bien comprendre les critères suivants :
 

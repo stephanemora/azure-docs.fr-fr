@@ -1,29 +1,25 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: functions
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 10/17/2019
+ms.date: 03/04/2020
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 7da9f795f1865d635a26cd3acf3866dff3565716
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: c590b61ee1424d32d83dc5f758682fde37492c3a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76021286"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80057132"
 ---
-1. Dans le menu du Portail Azure, sélectionnez **Créer une ressource**.
-
-    ![Ajouter une ressource à l’aide du menu Portail Azure](./media/functions-create-function-app-portal/create-function-app-resource.png)
+1. Dans le menu du portail Azure ou dans la page **Accueil**, sélectionnez **Créer une ressource**.
 
 1. Dans la page **Nouveau**, sélectionnez **Calcul** > **Application de fonction**.
 
-1. Utilisez les paramètres d’application de fonction comme indiqué dans le tableau sous l’image.
-
-    ![Concepts de base](./media/functions-create-function-app-portal/function-app-create-basics.png)
+1. Dans la page **De base**, utilisez les paramètres d’application de fonction comme indiqué dans le tableau ci-dessous.
 
     | Paramètre      | Valeur suggérée  | Description |
     | ------------ | ---------------- | ----------- |
@@ -31,37 +27,36 @@ ms.locfileid: "76021286"
     | **[Groupe de ressources](../articles/azure-resource-manager/management/overview.md)** |  *myResourceGroup* | Nom du nouveau groupe de ressources dans lequel créer votre Function App. |
     | **Nom de l’application de fonction** | Nom globalement unique | Nom qui identifie votre nouvelle Function App. Les caractères valides sont `a-z` (insensible à la casse), `0-9`et `-`.  |
     |**Publier**| Code | Option permettant de publier des fichiers de code ou un conteneur Docker. |
-    | **Pile d’exécution** | Langage préféré | Choisissez un runtime qui prend en charge votre langage de programmation de fonction favori. Choisissez **.NET** pour les fonctions C# et F#. |
+    | **Pile d’exécution** | Langage préféré | Choisissez un runtime qui prend en charge votre langage de programmation de fonction favori. Choisissez **.NET Core** pour les fonctions C# et F#. |
+    |**Version**| Numéro de version | Choisissez la version de votre runtime installé.  |
     |**Région**| Région recommandée | Choisissez une [région](https://azure.microsoft.com/regions/) près de chez vous ou près d’autres services auxquels ont accès vos fonctions. |
 
-    Sélectionnez le bouton **Suivant : Hébergement >** .
+    ![Concepts de base](./media/functions-create-function-app-portal/function-app-create-basics.png)
 
-1. Entrez les paramètres suivants pour l’hébergement.
-
-    ![Hébergement](./media/functions-create-function-app-portal/function-app-create-hosting.png)
+1. Sélectionnez **Suivant : Hébergement**. Dans la page **Hébergement**, entrez les paramètres suivants.
 
     | Paramètre      | Valeur suggérée  | Description |
     | ------------ | ---------------- | ----------- |
     | **[Compte de stockage](../articles/storage/common/storage-account-create.md)** |  Nom globalement unique |  Créez un compte de stockage utilisé par votre application de fonction. Les noms des comptes de stockage doivent comporter entre 3 et 24 caractères, uniquement des lettres minuscules et des chiffres. Vous pouvez également utiliser un compte existant qui doit répondre aux [exigences relatives aux comptes de stockage](../articles/azure-functions/functions-scale.md#storage-account-requirements). |
     |**Système d’exploitation**| Système d’exploitation préféré | Un système d’exploitation est présélectionné pour vous en fonction de la sélection de votre pile d’exécution, mais vous pouvez modifier le paramètre si nécessaire. |
-    | **[Plan](../articles/azure-functions/functions-scale.md)** | Plan de consommation | Plan d’hébergement qui définit la façon dont les ressources sont allouées à votre Function App. Dans la valeur par défaut **Plan de consommation**, les ressources sont ajoutées dynamiquement comme requis par vos fonctions. Avec cet hébergement [serverless](https://azure.microsoft.com/overview/serverless-computing/), vous payez uniquement pour la durée d’exécution de vos fonctions. Si vous exécutez dans un plan App Service, vous devez gérer la [mise à l’échelle de votre application de fonction](../articles/azure-functions/functions-scale.md).  |
+    | **[Plan](../articles/azure-functions/functions-scale.md)** | **Consommation (serverless)** | Plan d’hébergement qui définit la façon dont les ressources sont allouées à votre Function App. Dans le plan de **Consommation** par défaut, les ressources sont ajoutées dynamiquement en fonction des besoins de vos fonctions. Avec cet hébergement [serverless](https://azure.microsoft.com/overview/serverless-computing/), vous payez uniquement pour la durée d’exécution de vos fonctions. Si vous exécutez dans un plan App Service, vous devez gérer la [mise à l’échelle de votre application de fonction](../articles/azure-functions/functions-scale.md).  |
 
-    Sélectionnez le bouton **Suivant : Surveillance >** .
+    ![Hébergement](./media/functions-create-function-app-portal/function-app-create-hosting.png)
 
-1. Entrez les paramètres suivants pour la surveillance.
-
-    ![Surveillance](./media/functions-create-function-app-portal/function-app-create-monitoring.png)
+1. Sélectionnez **Suivant : Supervision**. Dans la page **Supervision**, entrez les paramètres suivants.
 
     | Paramètre      | Valeur suggérée  | Description |
     | ------------ | ---------------- | ----------- |
     | **[Application Insights](../articles/azure-functions/functions-monitoring.md)** | Default | Crée une ressource Application Insights avec le même *nom de l’application* dans la région prise en charge la plus proche. En développant ce paramètre, vous pouvez changer le **Nouveau nom de ressource** ou choisir un autre **Emplacement** dans une [Zone géographique Azure](https://azure.microsoft.com/global-infrastructure/geographies/) où vous voulez stocker vos données. |
 
-    Sélectionnez **Vérifier + créer** pour passer en revue les sélections de configuration d’application.
+    ![Surveillance](./media/functions-create-function-app-portal/function-app-create-monitoring.png)
 
-1. Sélectionnez **Créer** pour configurer et déployer l’application de fonction.
+1. Sélectionnez **Vérifier + créer** pour passer en revue les sélections de configuration d’application.
+
+1. Dans la page **Vérifier + créer**, vérifiez vos paramètres, puis sélectionnez **Créer** pour provisionner et déployer l’application de fonction.
 
 1. Cliquez sur l’icône Notification en haut à droite du portail pour voir le message **Le déploiement a été effectué**.
 
-    ![Notification de déploiement](./media/functions-create-function-app-portal/function-app-create-notification2.png)
-
 1. Sélectionnez **Accéder à la ressource** pour afficher votre nouvelle application de fonction. Vous pouvez également sélectionner **Épingler au tableau de bord**. L’épinglage permet de revenir plus facilement à cette ressource d’application de fonction à partir de votre tableau de bord.
+
+    ![Notification de déploiement](./media/functions-create-function-app-portal/function-app-create-notification2.png)

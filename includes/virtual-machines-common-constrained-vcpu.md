@@ -9,10 +9,10 @@ ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
 ms.openlocfilehash: 24fbab2bb637edf6c7e31215cdc7ac82bdb0ebab
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67177058"
 ---
 Certaines charges de travail de base de données, comme SQL Server ou Oracle, nécessitent une mémoire, un espace de stockage et une bande passante d’E/S élevés, mais pas forcément un grand nombre de cœurs. De nombreuses charges de travail de base de données ne nécessitent pas une utilisation intensive du processeur. Azure offre certaines tailles de machine virtuelle pour lesquelles vous pouvez limiter le nombre de processeurs virtuels par machine virtuelle afin de réduire le coût des licences logicielles, tout en conservant une mémoire, un espace de stockage et une bande passante d’E/S identiques.
@@ -24,7 +24,7 @@ Par exemple, la taille actuelle de machine virtuelle Standard_GS5 dispose de 32 
 Les frais de licence facturés pour SQL Server ou Oracle sont limités au nouveau nombre de processeurs virtuels et les autres produits doivent être facturés selon le nouveau nombre de processeurs virtuels. Cela entraîne une augmentation de 50 à 75 % du rapport entre les caractéristiques de machine virtuelle et les processeurs virtuels actifs (facturables). Ces nouvelles tailles de machines virtuelles permettent aux charges de travail des clients d’utiliser la même quantité de bande passante E/S, de mémoire et stockage, tout en optimisant le coût des licences logicielles. Ainsi, le coût de calcul, qui inclut les frais de licence du système d’exploitation, reste le même qu’avec la taille d’origine. Pour plus d’informations, voir [Azure VM sizes for more cost-effective database workloads](https://azure.microsoft.com/blog/announcing-new-azure-vm-sizes-for-more-cost-effective-database-workloads/) (Des tailles de machine virtuelle Azure pour optimiser le coût des charges de travail de base de données).
 
 
-| Nom                | Processeurs virtuels | Spécifications           |
+| Name                | Processeurs virtuels | Spécifications           |
 |---------------------|------|-----------------|
 | Standard_M8-2ms     | 2    | Identique à M8ms    |
 | Standard_M8-4ms     | 4    | Identique à M8ms    |

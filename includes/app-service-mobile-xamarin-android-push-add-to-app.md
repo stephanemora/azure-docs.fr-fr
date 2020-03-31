@@ -5,10 +5,10 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.openlocfilehash: baf0f07002a21a8e4e60bc17186107b471243202
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67177570"
 ---
 1. Créez une classe dans le projet appelée `ToDoBroadcastReceiver`.
@@ -109,7 +109,7 @@ ms.locfileid: "67177570"
     }
     ```
 
-    Cette méthode utilise l’ID d’inscription GCM retourné pour s’inscrire auprès d’Azure pour les notifications push. Les balises peuvent uniquement être ajoutées à l'inscription après sa création. Pour plus d’informations, consultez [Procédure : Ajouter des balises à l’installation d’un périphérique pour l’envoi de données aux balises](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags).
+    Cette méthode utilise l’ID d’inscription GCM retourné pour s’inscrire auprès d’Azure pour les notifications push. Les balises peuvent uniquement être ajoutées à l'inscription après sa création. Pour plus d’informations, consultez [Ajouter des balises à l’installation d’un périphérique pour l’envoi de données aux balises](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags).
 
 7. Remplacez la méthode **OnMessage** dans **PushHandlerService** par le code suivant :
 

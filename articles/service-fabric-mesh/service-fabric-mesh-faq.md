@@ -5,10 +5,10 @@ ms.author: pepogors
 ms.date: 4/23/2019
 ms.topic: troubleshooting
 ms.openlocfilehash: 2a5c2ea63d162eb6fb78ab702e0519f8ac25dcc7
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78252490"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Questions fréquemment posées sur Service Fabric mesh
@@ -163,7 +163,7 @@ Dans votre modèle d’application, utilisez l’ID de ressource complet pour qu
 ]
 ```
 
-### <a name="when-i-scale-out-all-of-my-containers-are-affected-including-running-ones"></a>Lorsque je monte en charge, je vois que tous mes conteneurs sont affectés, y compris ceux qui sont en cours d’exécution
+### <a name="when-i-scale-out-all-of-my-containers-are-affected-including-running-ones"></a>Lorsque j’effectue un scale-out, tous mes conteneurs sont affectés, y compris ceux qui sont en cours d’exécution
 
 Il s’agit d’un bogue. Un correctif est en cours d’implémentation.
 
