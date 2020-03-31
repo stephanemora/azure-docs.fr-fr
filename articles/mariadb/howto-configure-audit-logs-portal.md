@@ -5,22 +5,22 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: e3c87143652895c57b464cba229a0e68049ffeb2
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: d31b7531e00199ea63c7b057dacff1b67d7cedc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74767515"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79528929"
 ---
-# <a name="configure-and-access-audit-logs-in-the-azure-portal"></a>Configurer et consulter les journaux d’audit sur le Portail Azure
+# <a name="configure-and-access-audit-logs-in-the-azure-portal"></a>Configurer et consulter les journaux d’audit dans le portail Azure
 
 Vous pouvez configurer les [journaux d’audit Azure Database for MariaDB](concepts-audit-logs.md) et les paramètres de diagnostic à partir du Portail Azure.
 
 > [!IMPORTANT]
 > Pour l’instant, la fonctionnalité Journal d’audit n’existe qu’en préversion.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour parcourir ce guide pratique, vous avez besoin des éléments suivants :
 
@@ -30,7 +30,7 @@ Pour parcourir ce guide pratique, vous avez besoin des éléments suivants :
 
 Activez et configurez l’enregistrement d’audit.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 1. Sélectionnez votre serveur Azure Database for MariaDB.
 

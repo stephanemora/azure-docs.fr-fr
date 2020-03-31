@@ -7,14 +7,14 @@ author: bwren
 ms.author: bwren
 ms.date: 02/18/2020
 ms.openlocfilehash: 5e5034e99d37d3681192c2ad066f28acd1c4aeeb
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77672529"
 ---
 # <a name="send-data-from-windows-azure-diagnostics-extension-to-azure-event-hubs"></a>Envoyer des données provenant de l’extension Diagnostics Azure pour Windows à Azure Event Hubs
-L’extension Diagnostics Azure est un agent présent dans Azure Monitor qui collecte des données de supervision dans le système d’exploitation invité et des charges de travail de machines virtuelles Azure et autres ressources de calcul. Cet article explique comment envoyer des données de l’extension Diagnostics Azure pour Windows (WAD) à [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) afin de pouvoir les transférer vers des emplacements en dehors d’Azure.
+L’extension Diagnostics Azure est un agent présent dans Azure Monitor qui collecte des données de supervision dans le système d’exploitation invité et des charges de travail de machines virtuelles Azure et d’autres ressources de calcul. Cet article explique comment envoyer des données de l’extension Diagnostics Azure pour Windows (WAD) à [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) afin de pouvoir les transférer vers des emplacements en dehors d’Azure.
 
 ## <a name="supported-data"></a>Données prises en charge
 
@@ -25,7 +25,7 @@ Les données collectées auprès du système d’exploitation invité qui peuven
 * Journaux des événements Windows, y compris les journaux des applications dans le journal des événements Windows
 * Journaux d’activité d’infrastructure de diagnostics Azure
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Extension de diagnostic Windows 1.6 ou ultérieure. Consultez [Versions et historique des schémas de configuration de l’extension Diagnostics Azure](diagnostics-extension-versions.md) pour obtenir un historique des versions et [Vue d’ensemble de l’extension Diagnostics Azure](diagnostics-extension-overview.md) pour connaître les ressources prises en charge.
 * L’espace de noms Event Hubs doit toujours être approvisionné. Pour plus d’informations, consultez [Prise en main d’Azure Event Hubs](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md).
@@ -38,7 +38,7 @@ Diagnostics Azure envoie toujours les journaux d’activité et les mesures à u
 
 | Propriété | Description |
 |:---|:---|
-| Nom | Nom descriptif du récepteur. Utilisé dans la configuration pour spécifier les sources de données à envoyer au récepteur. |
+| Name | Nom descriptif du récepteur. Utilisé dans la configuration pour spécifier les sources de données à envoyer au récepteur. |
 | Url  | URL de l’Event Hub sous la forme \<event-hubs-namespace\>.servicebus.windows.net/\<event-hub-name\>.          |
 | SharedAccessKeyName | Nom d’une stratégie d’accès partagé pour l’Event Hub qui dispose au moins de l’autorisation **Send** (Envoyer). |
 | SharedAccessKey     | Clé primaire ou secondaire de la stratégie d’accès partagé pour l’Event Hub. |

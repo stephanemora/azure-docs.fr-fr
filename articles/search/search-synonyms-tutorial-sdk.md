@@ -9,13 +9,13 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 8cc085fd27004928babd7df305a4452d1b068f6e
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72794234"
 ---
-# <a name="example-add-synonyms-for-azure-cognitive-search-in-c"></a>Exemple : Ajouter des synonymes pour le service Recherche cognitive Azure en C#
+# <a name="example-add-synonyms-for-azure-cognitive-search-in-c"></a>Exemple : Ajouter des synonymes pour le service Recherche cognitive Azure en C#
 
 Les synonymes développent une requête en faisant correspondre les termes considérés comme sémantiquement équivalents à l’expression entrée. Par exemple, vous souhaiterez peut-être que le terme « voiture » vous permette de trouver des documents contenant les mots « automobile » ou « véhicule ». 
 
@@ -41,7 +41,7 @@ La configuration requise du didacticiel est la suivante :
 * [Bibliothèque .NET Microsoft.Azure.Search](https://aka.ms/search-sdk)
 * [Guide pratique pour utiliser la Recherche cognitive Azure à partir d’une application .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Les requêtes avant et après présentent la valeur des synonymes. Dans cet exemple, vous utilisez un exemple d’application qui exécute des requêtes et retourne des résultats sur un index d’exemples. L’exemple d’application crée un petit index nommé « hotels » comprenant deux documents. L’application exécute des requêtes de recherche à l’aide de termes et d’expressions qui n’apparaissent pas dans l’index, active la fonctionnalité de synonymes, puis lance les mêmes recherches une nouvelle fois. Le code ci-dessous montre le flux global.
 
@@ -167,7 +167,7 @@ L’ajout de synonymes modifie complètement l’expérience de recherche. Dans 
 ## <a name="sample-application-source-code"></a>Code source de l'exemple d'application
 Vous trouverez le code source complet de l’exemple d’application utilisé dans cette procédure sur [GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToSynonyms).
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Le moyen le plus rapide de procéder à un nettoyage après un exemple consiste à supprimer le groupe de ressources contenant le service Recherche cognitive Azure. Vous pouvez maintenant supprimer le groupe de ressources pour supprimer définitivement tout ce qu’il contient. Dans le portail, le nom du groupe de ressources figure dans la page Vue d’ensemble du service Recherche cognitive Azure.
 

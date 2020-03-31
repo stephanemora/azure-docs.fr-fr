@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7762366f68bee2cd8c44e81bb22366c504ff1a73
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: ae3d38d92990d7a1af4146c25b017286ebd29352
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484431"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80061031"
 ---
 # <a name="configure-a-site-to-site-vpn-for-use-with-azure-files"></a>Configurer un VPN site à site pour une utilisation avec Azure Files
 Vous pouvez utiliser une connexion VPN site à site (S2S) pour monter vos partages de fichiers Azure sur SMB à partir de votre réseau local sans ouvrir le port 445. Vous pouvez configurer un VPN site à site à l’aide d’une [Passerelle VPN Azure](../../vpn-gateway/vpn-gateway-about-vpngateways.md) qui est une ressource Azure offrant des services VPN, déployée dans un groupe de ressources, à côté de comptes de stockage ou d’autres ressources Azure.
@@ -24,7 +24,9 @@ Avant de poursuivre cet article, nous vous recommandons vivement de lire l’art
 L’article décrit en détail la procédure à suivre pour configurer un VPN site à site sous Linux afin de monter des partages de fichiers Azure localement. Si vous souhaitez acheminer le trafic pour Azure File Sync via un VPN site à site, voir [Paramètres de proxy et de pare-feu d’Azure File Sync](storage-sync-files-firewall-and-proxy.md).
 
 ## <a name="prerequisites"></a>Prérequis
-- Partage de fichiers Azure que vous souhaitez monter localement. Vous pouvez utiliser un partage de fichiers Azure [standard](storage-how-to-create-file-share.md) ou [premium](storage-how-to-create-premium-fileshare.md) avec votre VPN site à site.
+- Un partage de fichiers Azure que vous voulez monter localement. Les partages de fichiers Azure sont déployés sur des comptes de stockage. Ces comptes sont des constructions de gestion représentant un pool de stockage partagé dans lequel vous pouvez déployer plusieurs partages de fichiers, ainsi que d’autres ressources de stockage, telles que des conteneurs d’objets blob ou des files d’attente. Pour plus d’informations sur le déploiement des partages de fichiers et des comptes de stockage Azure, consultez [Créer un partage de fichiers Azure](storage-how-to-create-file-share.md).
+
+- Un point de terminaison privé pour le compte de stockage sur lequel se trouve le partage de fichiers Azure que vous souhaitez monter localement. Pour plus d’informations sur la création d’un point de terminaison privé, consultez [Configuration des points de terminaison réseau Azure Files](storage-files-networking-endpoints.md?tabs=azure-portal). 
 
 - Une appliance réseau ou un serveur dans votre centre de centres local qui est compatible avec la passerelle VPN Azure. Azure Files est indépendant de l’appliance de réseau local choisie, mais la passerelle VPN Azure gère une [liste d’appareils testés](../../vpn-gateway/vpn-gateway-about-vpn-devices.md). Les diverses appliances réseau offrant différentes fonctionnalités, caractéristiques de performances et fonctionnalités de gestion, vous devez tenir compte de celles-ci lors de la sélection d’une appliance réseau.
 
@@ -46,7 +48,7 @@ Dans la table des matières du portail Azure, sélectionnez **Créer une ressour
 
 Pour déployer une passerelle VPN Azure, vous devez renseigner les champs suivants :
 
-- **Nom** : Nom de la ressource Azure pour la passerelle VPN. Vous pouvez choisir n’importe quel nom que vous jugez utile pour votre gestion.
+- **Name** : Nom de la ressource Azure pour la passerelle VPN. Vous pouvez choisir n’importe quel nom que vous jugez utile pour votre gestion.
 - **Région** : Région dans laquelle la passerelle VPN sera déployée.
 - **Type de passerelle** : Pour déployer un VPN site à site, vous devez sélectionner **VPN**.
 - **Type de VPN** : Selon votre périphérique VPN, vous avez le choix entre *Basé sur itinéraires** ou **Basé sur des stratégies**. Les VPN basés sur itinéraires prennent en charge IKEv2, tandis que les VPN basés sur des stratégies prennent en charge uniquement IKEv1. Pour en savoir plus sur les deux types de passerelles VPN, voir [À propos des passerelles VPN basées sur le routage et les stratégies](../../vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md#about)
@@ -63,7 +65,7 @@ Une passerelle de réseau local est une ressource Azure représentant votre appl
 
 Pour le déploiement de la ressource de passerelle de réseau local, vous devez renseigner les champs suivants :
 
-- **Nom** : Nom de la ressource Azure pour la passerelle de réseau local. Vous pouvez choisir n’importe quel nom que vous jugez utile pour votre gestion.
+- **Name** : Nom de la ressource Azure pour la passerelle de réseau local. Vous pouvez choisir n’importe quel nom que vous jugez utile pour votre gestion.
 - **Adresse IP** : Adresse IP publique de votre passerelle locale.
 - **Espace d’adressage** : Plage d’adresses du réseau que cette passerelle de réseau local représente. Vous pouvez ajouter plusieurs plages d’espace d’adressage, mais vous devez vous assurer que les plages que vous spécifiez ici ne se chevauchent pas avec des plages ou autres réseaux auxquels vous souhaitez vous connecter. 
 - **Configurer les paramètres BGP** : Ne configurez les paramètres BGP que si votre configuration en a besoin. Pour en savoir plus sur ce paramètre, voir [À propos du protocole BGP avec la passerelle VPN Azure](../../vpn-gateway/vpn-gateway-bgp-overview.md).
@@ -76,27 +78,10 @@ Sélectionnez **Créer** pour créer la ressource de passerelle de réseau local
 ## <a name="configure-on-premises-network-appliance"></a>Configurer une appliance de réseau local
 Les étapes spécifiques pour configurer votre appliance de réseau local varient en fonction de l’appliance réseau que votre organisation a sélectionnée. Selon l’appareil choisi par votre organisation, la [liste des appareils testés](../../vpn-gateway/vpn-gateway-about-vpn-devices.md) peut comporter un lien vers des instructions du fournisseur de votre périphérique pour la configuration de celui-ci avec une passerelle VPN Azure.
 
-## <a name="create-private-endpoint-preview"></a>Créer un point de terminaison privé (préversion)
-La création d’un point de terminaison privé pour votre compte de stockage attribue à ce dernier une adresse IP dans l’espace d’adressage IP de votre réseau virtuel. Lorsque vous montez votre partage de fichiers Azure à partir d’un emplacement local en utilisant cette adresse IP privée, les règles d’acheminement définies automatiquement par l’installation VPN acheminent votre demande de montage vers le compte de stockage via le VPN. 
-
-Dans le panneau du compte de stockage, sélectionnez **Connexion de point de terminaison privé** dans la table des matières de gauche, puis **+ Point de terminaison privé**	pour créer un point de terminaison privé. L’assistant obtenu comprend plusieurs pages :
-
-![Capture d’écran de la section De base de la fenêtre Créer un point de terminaison privé](media/storage-files-configure-s2s-vpn/create-private-endpoint-1.png)
-
-Sous l’onglet **De base**, sélectionnez le groupe de ressources, le nom et la région souhaités pour votre point de terminaison privé. Vous pouvez choisir ce que vous voulez. Ils ne doivent pas nécessairement correspondre au compte de stockage. Vous devez simplement créer le point de terminaison privé dans la même région que le réseau virtuel dans lequel vous souhaitez créer le point de terminaison privé.
-
-Sous l’onglet **Ressource**, activez la case d’option **Se connecter à une ressource Azure dans mon répertoire**. Sous **Type de ressource**, sélectionnez **Microsoft.Storage/storageAccounts** pour le type de ressource. Le champ **Ressource** est le compte de stockage contenant le partage de fichiers Azure auquel vous souhaitez vous connecter. La sous-ressource cible est **fichier**, car elle est destinée à Azure Files.
-
-L’onglet **Configuration** vous permet de sélectionner le réseau virtuel et le sous-réseau spécifiques auxquels vous souhaitez ajouter votre point de terminaison privé. Sélectionnez le réseau virtuel que vous avez créé précédemment. Vous devez sélectionner un sous-réseau distinct du sous-réseau auquel vous avez ajouté votre point de terminaison de service ci-dessus.
-
-L’onglet **Configuration** vous permet également de configurer une zone DNS privée. Cela n’est pas obligatoire mais vous permet d’utiliser un chemin d’accès UNC convivial (tel que `\\mystorageaccount.privatelink.file.core.windows.net\myshare`) au lieu d’un chemin d’accès UNC avec une adresse IP pour monter le partage de fichiers Azure. Vous pouvez également faire cela avec vos propres serveurs DNS au sein de votre réseau virtuel.
-
-Cliquez sur **Vérifier + créer** pour créer le point de terminaison privé. Une fois le point de terminaison privé créé, deux nouvelles ressources s’affichent : une ressource de point de terminaison privé et une interface de réseau virtuel couplée. La ressource d’interface de réseau virtuel a l’adresse IP privée dédiée du compte de stockage. 
-
 ## <a name="create-the-site-to-site-connection"></a>Créer la connexion de site à site
 Pour terminer le déploiement d’un VPN S2S, vous devez créer une connexion entre votre appliance de réseau local (représentée par la ressource de passerelle de réseau local) et la passerelle VPN. Pour ce faire, accédez à la passerelle VPN que vous avez créée ci-dessus. Dans la table des matières de la passerelle VPN, sélectionnez **Connexions**, puis cliquez sur **Ajouter**. Dans le volet **Ajouter une connexion** qui s’affiche, vous devez renseigner les champs suivants :
 
-- **Nom** : Le nom de la connexion. Une passerelle VPN pouvant héberger plusieurs connexions, choisissez un nom utile pour votre gestion, qui distingue cette connexion particulière.
+- **Name** : Le nom de la connexion. Une passerelle VPN pouvant héberger plusieurs connexions, choisissez un nom utile pour votre gestion, qui distingue cette connexion particulière.
 - **Type de connexion** : Étant donné qu’il s’agit d’une connexion S2S, sélectionnez **Site à site (IPsec)** dans la liste déroulante.
 - **Passerelle de réseau virtuel** : Ce champ est sélectionné automatiquement pour la passerelle VPN à laquelle vous établissez la connexion et ne peut pas être modifié.
 - **Passerelle de réseau local** : Il s’agit de la passerelle de réseau local que vous souhaitez connecter à votre passerelle VPN. Le volet de sélection qui s’affiche devrait avoir le nom de la passerelle de réseau local que vous avez créée ci-dessus.
@@ -112,6 +97,6 @@ La dernière étape de la configuration d’un VPN S2S consiste à vérifier qu�
 - [Linux](storage-how-to-use-files-linux.md)
 
 ## <a name="see-also"></a>Voir aussi
-- [Vue d'ensemble de la mise en réseau Azure Files](storage-files-networking-overview.md)
+- [Vue d’ensemble de la mise en réseau Azure Files](storage-files-networking-overview.md)
 - [Configurer un VPN point à site (P2S) sous Windows pour une utilisation avec Azure Files](storage-files-configure-p2s-vpn-windows.md)
 - [Configurer un VPN point à site (P2S) sous Linux pour une utilisation avec Azure Files](storage-files-configure-p2s-vpn-linux.md)

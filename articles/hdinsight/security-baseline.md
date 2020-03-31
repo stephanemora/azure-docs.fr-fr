@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: c3452fc68f7add40979513d3e3956f1c93e327f0
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: eddfcacd01a67fffa8e3e992e021ed1771d25944
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78943945"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79471334"
 ---
 # <a name="azure-security-baseline-for-hdinsight"></a>Base de référence de sécurité Azure pour HDInsight
 
@@ -851,13 +851,13 @@ https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-li
 
 ### <a name="61-use-azure-asset-discovery"></a>6.1 : Utiliser la découverte de ressources Azure
 
-**Instructions** : Utilisez Azure Resource Graph pour interroger/découvrir toutes les ressources (comme le calcul, le stockage, le réseau, les ports, les protocoles, etc.), dont les clusters Azure HDInsight, dans vos abonnements.  Vérifiez que vous disposez des autorisations (en lecture) appropriées dans votre locataire et que vous pouvez répertorier tous les abonnements Azure ainsi que les ressources présentes dans vos abonnements.
+**Instructions** : Utilisez Azure Resource Graph pour interroger/découvrir toutes les ressources (comme le calcul, le stockage, le réseau, les ports, les protocoles, etc.), dont les clusters Azure HDInsight, dans vos abonnements.  Vérifiez que vous disposez des autorisations (en lecture) appropriées dans votre locataire et pouvez répertorier tous les abonnements Azure ainsi que les ressources qu’ils contiennent.
 
 
-Bien que les ressources Azure classiques puissent être découvertes via Resource Graph, il est vivement recommandé de créer et d’utiliser des ressources Azure Resource Manager à l’avenir.
+Bien que les ressources Azure classiques puissent être découvertes via Azure Resource Graph, il est vivement recommandé de créer et d’utiliser des ressources Azure Resource Manager à l’avenir.
 
 
-Créer des requêtes avec Azure Graph :
+Créer des requêtes avec Azure Resource Graph :
 
 https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
@@ -930,10 +930,10 @@ Utilisez Azure Resource Graph pour interroger/découvrir les ressources dans vos
 
 Configurer et gérer Azure Policy : https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Créer des requêtes avec Azure Graph : https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Créer des requêtes avec Azure Resource Graph : https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -950,11 +950,11 @@ Créer des requêtes avec Azure Graph : https://docs.microsoft.com/azure/govern
 **Instructions** : Utilisez Azure Resource Graph pour interroger/découvrir toutes les ressources (comme le calcul, le stockage, le réseau, les ports, les protocoles, etc.), dont les clusters Azure HDInsight, dans vos abonnements.  Supprimez toutes les ressources Azure non approuvées que vous découvrez. Pour les nœuds de cluster Azure HDInsight, implémentez une solution tierce afin de supprimer les logiciels non approuvés ou de générer des alertes s’y rapportant.
 
 
-Créer des requêtes avec Azure Graph :
+Créer des requêtes avec Azure Resource Graph :
 
 https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 

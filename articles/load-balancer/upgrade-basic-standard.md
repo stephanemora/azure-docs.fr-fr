@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 01/23/2020
 ms.author: irenehua
 ms.openlocfilehash: a4c8b029b199915cce9a417430e67675a03d327f
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77659949"
 ---
 # <a name="upgrade-azure-public-load-balancer"></a>Mettre à niveau l’équilibreur de charge public Azure
@@ -73,7 +73,7 @@ Pour exécuter le script :
 
 1. Examinez les paramètres requis :
 
-   * **oldRgName : [Chaîne] : Obligatoire** – Il s’agit du groupe de ressources pour votre instance Basic Load Balancer existante que vous souhaitez mettre à niveau. Pour trouver cette valeur de chaîne, accédez au Portail Azure, sélectionnez votre source d’équilibreur de charge De base, puis cliquez sur la **Vue d’ensemble** de l’équilibreur de charge. Le groupe de ressources figure dans cette page.
+   * **oldRgName : [Chaîne] : Obligatoire** – Il s’agit du groupe de ressources pour votre instance Basic Load Balancer existante que vous souhaitez mettre à niveau. Pour trouver cette valeur de chaîne, accédez au Portail Azure, sélectionnez votre source Basic Load Balancer, puis cliquez sur la **Vue d’ensemble** de l’équilibreur de charge. Le groupe de ressources figure dans cette page.
    * **oldLBName : [Chaîne] : Obligatoire** – Il s’agit du nom de l’instance Basic Load Balancer existante que vous souhaitez mettre à niveau. 
    * **newrgName : [Chaîne] : Obligatoire** – Il s’agit du groupe de ressources dans lequel l’instance Standard Load Balancer est créée. Ce peut être un nouveau groupe de ressources ou un groupe existant. Si vous choisissez un groupe de ressources existant, notez que le nom de l’équilibreur de charge doit être unique au sein du groupe de ressources. 
    * **newlocation : [Chaîne] : Obligatoire** – Il s’agit de l’emplacement où l’instance Standard Load Balancer est créée. Pour une meilleure association avec d’autres ressources existantes, il est préférable que l’instance Standard Load Balancer hérite du même emplacement que l’instance Basic Load Balancer.

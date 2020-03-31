@@ -9,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/07/2019
 ms.openlocfilehash: 1d684957939c5cb83aae05962c1694f7a8d8da23
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498223"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79233597"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>Gérer des clusters HDInsight à l’aide de l’API REST d’Apache Ambari
 
@@ -21,7 +21,7 @@ ms.locfileid: "73498223"
 
 Découvrez comment utiliser l’API REST d’Apache Ambari pour gérer et surveiller les clusters Apache Hadoop dans Azure HDInsight.
 
-## <a id="whatis"></a>Qu’est-ce qu’Apache Ambari ?
+## <a name="what-is-apache-ambari"></a><a id="whatis"></a>Qu’est-ce qu’Apache Ambari ?
 
 [Apache Ambari](https://ambari.apache.org) simplifie la gestion et la supervision des clusters Hadoop en fournissant une interface utilisateur web simple d’emploi, adossée à ses [API REST](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).  Ambari est fourni par défaut avec les clusters HDInsight Linux.
 
@@ -39,7 +39,7 @@ Découvrez comment utiliser l’API REST d’Apache Ambari pour gérer et survei
 
  L’URI (Uniform Resource Identifier) de base pour l’API REST Ambari sur HDInsight est `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME`, où `CLUSTERNAME` est le nom de votre cluster.  Les noms de cluster dans les URI sont **sensibles à la casse**.  Le nom du cluster dans la partie du nom de domaine complet (FQDN) de l’URI (`CLUSTERNAME.azurehdinsight.net`) n’est pas sensible à la casse, au contraire des autres occurrences dans l’URI.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Authentification
 
 Une connexion à Ambari sur HDInsight requiert HTTPS. Utilisez le nom du compte Administrateur (la valeur par défaut est **admin**) et le mot de passe fournis lors de la création du cluster.
 
@@ -99,7 +99,7 @@ $respObj = ConvertFrom-Json $resp.Content
 $respObj.Clusters.health_report
 ```
 
-### <a name="example-get-the-fqdn-of-cluster-nodes"></a> Obtenir le nom de domaine complet de nœuds de cluster
+### <a name="get-the-fqdn-of-cluster-nodes"></a><a name="example-get-the-fqdn-of-cluster-nodes"></a> Obtenir le nom de domaine complet de nœuds de cluster
 
 Lorsque vous travaillez avec HDInsight, vous pouvez avoir besoin de connaître le nom de domaine complet (FQDN) d'un nœud de cluster. Vous pouvez facilement récupérer le nom de domaine complet des différents nœuds du cluster à l’aide des exemples suivants :
 
@@ -131,7 +131,7 @@ $respObj = ConvertFrom-Json $resp.Content
 $respObj.host_components.HostRoles.host_name
 ```
 
-**Nœuds de travail**  
+**Nœuds worker**  
 
 ```bash
 curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/HDFS/components/DATANODE" \
@@ -159,7 +159,7 @@ $respObj = ConvertFrom-Json $resp.Content
 $respObj.host_components.HostRoles.host_name
 ```
 
-### <a name="example-get-the-internal-ip-address-of-cluster-nodes"></a> Obtenir l’adresse IP interne de nœuds de cluster
+### <a name="get-the-internal-ip-address-of-cluster-nodes"></a><a name="example-get-the-internal-ip-address-of-cluster-nodes"></a> Obtenir l’adresse IP interne de nœuds de cluster
 
 Les adresses IP renvoyées par les exemples de cette section ne sont pas directement accessibles sur Internet. Elles sont uniquement accessibles au sein du réseau virtuel Azure qui contient le cluster HDInsight.
 
@@ -253,7 +253,7 @@ La valeur de retour est similaire à l’un des exemples suivants :
 > [!NOTE]  
 > L’applet de commande [Get-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) fournie par [Azure PowerShell](/powershell/azure/overview) retourne également les informations de stockage du cluster.
 
-### <a name="get-all-configurations"></a> Obtenir toutes les configurations
+### <a name="get-all-configurations"></a><a name="get-all-configurations"></a> Obtenir toutes les configurations
 
 Récupérez les configurations disponibles pour votre cluster.
 
@@ -358,7 +358,7 @@ Cet exemple renvoie un document JSON qui contient la configuration actuelle pour
      }
      ```
 
-2. Modifiez `newconfig.json`.  
+2. Modifier `newconfig.json`.  
    Ouvrez le document `newconfig.json` et modifiez/ajoutez des valeurs dans l’objet `properties`. L’exemple suivant modifie la valeur de `"livy.server.csrf_protection.enabled"` de `"true"` en `"false"`.
 
         "livy.server.csrf_protection.enabled": "false",

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: a5c62c67cd401c043352b06e6e6070a7fc0f1296
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67177101"
 ---
 #### <a name="to-connect-through-the-serial-console"></a>Pour établir une connexion via la console série
@@ -21,11 +21,11 @@ ms.locfileid: "67177101"
 5. Dans le volet droit, sous **Type de connexion**, cliquez sur **Série**.
 6. Dans le volet droit, tapez le port COM approprié. Assurez-vous que les paramètres de configuration série sont définis comme suit :
    
-   * Vitesse : 115 200
+   * Vitesse : 115 200
    * Bits de données : 8
    * Bits d’arrêt : 1
-   * Parité : Aucun
-   * Contrôle de flux : Aucun
+   * Parité : aucune
+   * Contrôle de flux : aucun
      
      Ces paramètres sont affichés dans l’illustration suivante.
      

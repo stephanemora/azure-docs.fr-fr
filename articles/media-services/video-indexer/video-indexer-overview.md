@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 02/02/2020
 ms.author: juliako
 ms.openlocfilehash: efd8386f464bfdf2ac27d3be07e6572dc27952e1
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78163588"
 ---
 # <a name="what-is-video-indexer"></a>Qu’est-ce que Video Indexer ?

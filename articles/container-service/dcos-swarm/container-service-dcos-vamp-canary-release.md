@@ -8,10 +8,10 @@ ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
 ms.openlocfilehash: 2af20a1ddf4239b7eec6cceabf2ff9711959c128
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77189113"
 ---
 # <a name="deprecated-canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>(DÉPRÉCIÉ) Contrôler la validité de microservices de mise en production avec Vamp sur un cluster DC/OS Azure Container Service
@@ -133,7 +133,7 @@ Ce scénario utilise un exemple d’application monolithique appelé [**sava**](
 
 1. Accédez à **Deployments**.
 
-2. Cliquez sur **Add**.
+2. Cliquez sur **Ajouter**.
 
 3. Collez dans le fichier YAML de schéma suivant. Ce schéma contient un seul cluster avec une seule variante de service, que nous allons changer ultérieurement :
 
@@ -197,7 +197,7 @@ Pour fusionner le nouveau service sava 1.1 avec le déploiement en cours d’ex�
 
 1. Dans l’interface utilisateur de Vamp, cliquez sur **Schémas**.
 
-2. Cliquez sur **Add** (Ajouter), puis collez l’extrait au format YAML du blueprint ci-dessous. Ce blueprint décrit une nouvelle variante de service (sava:1.1.0) à déployer dans le cluster existant (sava_cluster).
+2. Cliquez sur **Ajouter**, puis collez dans le fichier YAML de schéma suivant : ce schéma décrit une nouvelle variante de service (sava:1.1.0) à déployer dans le cluster existant (sava_cluster).
 
    ```YAML
    name: sava:1.1.0      # blueprint name

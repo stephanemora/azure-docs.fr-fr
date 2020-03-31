@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 05/10/2018
 ms.author: akjosh
 ms.openlocfilehash: bd9dc05a84a4ee54fce40e6c88e87ac90bfee8a5
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073604"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79226817"
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>Gérer les utilisateurs administratifs, SSH, et vérifier ou réparer les disques de machines virtuelles Linux à l’aide de l’extension VMAccess avec Azure CLI
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Le disque de votre machine virtuelle Linux affiche des erreurs. Vous avez d'une certaine manière réinitialisé le mot de passe racine de votre machine virtuelle Linux ou supprimé accidentellement votre clé privée SSH. Dans les anciens centres de données, vous deviez aller sur place et ouvrir le KVM pour accéder à la console du serveur. Considérez l’extension Azure VMAccess comme ce commutateur KVM qui vous permet d’accéder à la console pour réinitialiser l’accès à Linux ou effectuer la maintenance au niveau du disque.
 
 Cet article vous explique comment utiliser l’extension Azure VMAccess pour vérifier ou réparer un disque, réinitialiser l’accès des utilisateurs administratifs, gérer les comptes d’utilisateur ou mettre à jour la configuration SSH sous Linux lors de leur exécution en tant que machines virtuelles Azure Resource Manager. Si vous avez besoin de gérer des machines virtuelles classiques, vous pouvez suivre les instructions figurant dans la [Documentation de la machine virtuelle classique](../linux/classic/reset-access-classic.md). 
@@ -31,7 +31,7 @@ Cet article vous explique comment utiliser l’extension Azure VMAccess pour vé
 > [!NOTE]
 > Si vous utilisez l’extension VMAccess pour réinitialiser le mot de passe de votre machine virtuelle après l’installation de l’extension de connexion AAD, vous devez réexécuter l’extension de connexion AAD pour réactiver la connexion AAD sur votre machine.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 ### <a name="operating-system"></a>Système d’exploitation
 
 L’extension d’accès aux machines virtuelles peut être exécutée sur ces distributions de Linux :
@@ -66,7 +66,7 @@ az vm user update \
   --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
-> **REMARQUE :** La commande `az vm user update` ajoute le texte de la nouvelle clé publique au fichier `~/.ssh/authorized_keys` pour l’utilisateur administrateur sur la machine virtuelle. Cette opération ne remplace pas ou ne supprime pas les clés SSH existantes. Cela ne supprime pas les clés préalables définies au moment du déploiement ou de mises à jour ultérieures via l’extension VMAccess.
+> **REMARQUE  :** la commande `az vm user update` ajoute le texte de la nouvelle clé publique au fichier `~/.ssh/authorized_keys` pour l’utilisateur administrateur sur la machine virtuelle. Cette opération ne remplace pas ou ne supprime pas les clés SSH existantes. Cela ne supprime pas les clés préalables définies au moment du déploiement ou de mises à jour ultérieures via l’extension VMAccess.
 
 ## <a name="reset-password"></a>Réinitialiser le mot de passe
 L’exemple suivant réinitialise le mot de passe pour l’utilisateur `azureuser` sur la machine virtuelle `myVM` :
@@ -247,7 +247,7 @@ az vm extension set \
 ```
 ## <a name="troubleshoot-and-support"></a>Dépannage et support technique
 
-### <a name="troubleshoot"></a>Résolution des problèmes
+### <a name="troubleshoot"></a>Dépanner
 
 Vous pouvez récupérer les données sur l’état des déploiements d’extension à partir du portail Azure et à l’aide de l’interface de ligne de commande Azure. Pour afficher l’état du déploiement des extensions pour une machine virtuelle donnée, exécutez la commande suivante à l’aide de l’interface de ligne de commande Azure.
 

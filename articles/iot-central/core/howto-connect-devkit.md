@@ -4,16 +4,16 @@ description: En tant que développeur d’appareils, découvrez comment connecte
 author: liydu
 ms.author: liydu
 ms.date: 12/03/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: jeffya
-ms.openlocfilehash: 929651264cc900e38ca24d4a2ea703a3c586aedd
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 0a393ae8629f1742002344ee717a6719269a6722
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024566"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80158566"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Connecter un appareil DevKit IoT MXChip à votre application Azure IoT Central
 
@@ -25,7 +25,7 @@ Dans cet article sur les procédures, vous :
 - Préparez l’appareil et le connectez à votre application IoT Central ;
 - Affichez les données de télémétrie et les propriétés de l'appareil dans IoT Central.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer les étapes de cet article, vous avez besoin des ressources suivantes :
 

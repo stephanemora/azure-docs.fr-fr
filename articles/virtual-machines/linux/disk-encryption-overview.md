@@ -2,17 +2,18 @@
 title: Activer Azure Disk Encryption pour les machines virtuelles Linux
 description: Cet article fournit des instructions pour l’activation de Microsoft Azure Disk Encryption pour les machines virtuelles Linux.
 author: msmbaldwin
-ms.service: security
+ms.service: virtual-machines-linux
+ms.subservice: security
 ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 96ac1becfed74141b3b1544646f5d82bd0985045
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: ff1b37c3053ffa91dcb432cd97a7dd6fd71dad1c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988418"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79226837"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Azure Disk Encryption pour les machines virtuelles Linux 
 
@@ -80,13 +81,13 @@ Les distributions de serveur Linux qui ne sont pas approuvées par Azure ne pren
 > [!NOTE]
 > La nouvelle implémentation d’Azure Disk Encryption est prise en charge pour les disques de système d’exploitation et de données RHEL pour les images avec Paiement à l’utilisation de RHEL7.  
 >
-> ADE est également pris en charge pour les images Gold Bring-Your-Own-Subscription de RHEL, mais uniquement **après** que l’abonnement ait été inscrit. Pour plus d’informations, consultez [Images Gold BYOS (Apportez votre propre abonnement) de Red Hat Enterprise Linux dans Azure](../workloads/redhat/byos.md##encrypt-red-hat-enterprise-linux-bring-your-own-subscription-gold-images)
+> ADE est également pris en charge pour les images Gold Bring-Your-Own-Subscription de RHEL, mais uniquement **après** que l’abonnement ait été inscrit. Pour plus d’informations, consultez [Images Gold BYOS (Apportez votre propre abonnement) de Red Hat Enterprise Linux dans Azure](../workloads/redhat/byos.md#encrypt-red-hat-enterprise-linux-bring-your-own-subscription-gold-images)
 
 ## <a name="additional-vm-requirements"></a>Configuration requise supplémentaire pour les machines virtuelles
 
 Azure Disk Encryption nécessite la présence des modules dm-crypt et vfat sur le système. La suppression ou la désactivation de vfat de l’image par défaut empêchera le système de lire le volume de clés et d’obtenir la clé nécessaire pour déverrouiller les disques lors des redémarrages suivants. Les étapes de renforcement du système qui suppriment le module vfat du système ne sont pas compatibles avec Azure Disk Encryption. 
 
-Avant d’activer le chiffrement, vous devez lister correctement les disques de données à chiffrer dans /etc/fstab. Utilisez un nom d’appareil de traitement par blocs persistant pour cette entrée, car les noms d’appareil au format « /dev/sdX » ne restent pas nécessairement associés au même disque entre les redémarrages, en particulier après une opération de chiffrement. Pour plus d’informations sur ce comportement, consultez : [Résoudre les problèmes liés aux modifications des noms de périphérique de machine virtuelle Linux](troubleshoot-device-names-problems.md)
+Avant d’activer le chiffrement, vous devez lister correctement les disques de données à chiffrer dans /etc/fstab. Utilisez un nom d’appareil de traitement par blocs persistant pour cette entrée, car les noms d’appareil au format « /dev/sdX » ne restent pas nécessairement associés au même disque entre les redémarrages, en particulier après une opération de chiffrement. Pour plus d’informations sur ce comportement, consultez l’article [Résoudre les problèmes liés aux modifications des noms de périphérique de machine virtuelle Linux](troubleshoot-device-names-problems.md).
 
 Vérifiez que les paramètres /etc/fstab sont correctement configurés pour le montage. Pour configurer ces paramètres, exécutez la commande mount -a, ou redémarrez la machine virtuelle et déclenchez le remontage de cette façon. Une fois cette opération effectuée, consultez la sortie de la commande lsblk pour vérifier que le lecteur est toujours monté. 
 - Si le fichier /etc/fstab ne monte pas correctement le lecteur avant l’activation du chiffrement, Azure Disk Encryption ne pourra pas procéder au montage du lecteur.

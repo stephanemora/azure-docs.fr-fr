@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 984b03288b8dae644fc04a2cd78fb03a2e027f62
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: e69a03cd142fdbcc5864ee38a4843e1c2e44a124
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76722201"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477151"
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Exécuter des tâches de science des données : exploration, modélisation et déploiement
 
@@ -26,7 +26,7 @@ Les tâches courantes de science des données incluent l’exploration, la modé
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server)
 
 
-## 1. <a name='DataQualityReportUtility-1'></a> Exploration 
+## <a name="1--exploration"></a>1. <a name='DataQualityReportUtility-1'></a> Exploration 
 
 Un scientifique des données peut effectuer les tâches d’exploration et de création de rapports de plusieurs façons : à l’aide de bibliothèques et de packages disponibles pour Python (matplotlib, par exemple) ou de R (ggplot ou lattice, par exemple). Il peut personnaliser ce code en fonction des besoins d’exploration de données pour des scénarios spécifiques. Les contraintes liées aux données structurées diffèrent de celles liées aux données non structurées, telles que le texte ou les images. 
 
@@ -41,7 +41,7 @@ Cet utilitaire R Markdown ou Python Notebook constitue un outil souple et intera
 Pour l’instant, l’outil fonctionne uniquement sur les trames de données en mémoire. Un fichier YAML est nécessaire pour spécifier les paramètres du jeu de données à explorer. Pour plus d’informations, consultez [IDEAR dans Utilitaires de science des données TDSP](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/DataReport-Utils).
 
 
-## 2. <a name='ModelingUtility-2'></a> Modélisation
+## <a name="2--modeling"></a>2. <a name='ModelingUtility-2'></a> Modélisation
 
 Il existe de nombreux kits de ressources et packages pour l’apprentissage de modèles dans une variété de langages. Les scientifiques des données sont libres d’utiliser ceux avec lesquels ils se sentent le mieux, l’important étant qu’ils tiennent compte des contraintes de précision et de latence liées aux cas d’usage d’entreprise et aux scénarios de production.
 
@@ -74,11 +74,11 @@ Pour plus d’informations, consultez [Utilitaire de modélisation et de créati
 Une fois que plusieurs modèles ont été générés, vous devez généralement vous doter d’un système qui vous permet de les inscrire et de les gérer. En règle générale, vous avez besoin d’une combinaison de scripts ou d’API et d’une base de données backend ou d’un système de gestion de versions. Voici quelques options que vous pouvez envisager pour ces tâches de gestion :
 
 1. [Azure Machine Learning - Service de gestion des modèles](../index.yml)
-2. [ModelDB de MIT](https://mitdbg.github.io/modeldb/) 
+2. [ModelDB de MIT](http://modeldb.csail.mit.edu:3000/projects) 
 3. [SQL Server comme système de gestion de modèle](https://blogs.technet.microsoft.com/dataplatforminsider/2016/10/17/sql-server-as-a-machine-learning-model-management-system/)
 4. [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
-## 3. <a name='Deployment-3'></a> Déploiement
+## <a name="3--deployment"></a>3. <a name='Deployment-3'></a> Déploiement
 
 Le déploiement en production permet à un modèle de jouer un rôle actif dans une entreprise. Les prédictions issues d’un modèle déployé peuvent être utilisées pour les décisions d’entreprise.
 

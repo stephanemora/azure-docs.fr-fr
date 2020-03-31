@@ -15,22 +15,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: terrylan
-ms.openlocfilehash: f7d993799fed637fbec55afc8f06d90c8fc6910f
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: c73f585e3102618cea378716491f9354810a6db8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726777"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80125006"
 ---
 # <a name="best-practices-for-securing-paas-databases-in-azure"></a>Bonnes pratiques pour la sécurisation des bases de données PaaS dans Azure
 
-Dans cet article, nous abordons un ensemble de bonnes pratiques de sécurité [Azure SQL Database](../../sql-database/sql-database-technical-overview.md) et [SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) pour protéger vos applications mobiles et web PaaS (Platform-as-a-Service). Ces bonnes pratiques sont issues de notre expérience d’Azure, mais également de celle des clients, comme vous.
+Dans cet article, nous abordons un ensemble de bonnes pratiques de sécurité [Azure SQL Database](../../sql-database/sql-database-technical-overview.md) et [SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) pour protéger vos applications mobiles et web PaaS (Platform-as-a-Service). Ces bonnes pratiques sont issues de notre expérience d’Azure, mais également de celle des clients, comme vous.
 
 Azure SQL Database et SQL Data Warehouse fournissent un service de base de données relationnelle pour vos applications basées sur Internet. Examinons les services qui protègent vos applications et vos données lors de l’utilisation d’Azure SQL Database et de SQL Data Warehouse dans un déploiement PaaS :
 
 - Authentification Azure Active Directory (au lieu de l'authentification SQL Server)
 - Pare-feu SQL Azure
-- Chiffrement transparent des données (TDE)
+- Transparent Data Encryption (TDE)
 
 ## <a name="use-a-centralized-identity-repository"></a>Utiliser un référentiel d’identités centralisé
 Des bases de données Azure SQL peuvent être configurées pour utiliser l'un des deux types d’authentification :
@@ -53,7 +53,7 @@ Des bases de données Azure SQL peuvent être configurées pour utiliser l'un de
 Pour en savoir plus sur l'authentification Azure AD, consultez :
 
 - [Utiliser l’authentification Azure Active Directory pour l’authentification auprès de SQL Database, de Managed Instance ou de SQL Data Warehouse](../../sql-database/sql-database-aad-authentication.md)
-- [Authentification sur Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-authentication.md)
+- [Authentification sur Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-authentication.md)
 - [L’authentification basée sur le jeton prend en charge la base de données SQL Azure à l’aide de l’authentification Azure AD](../../sql-database/sql-database-aad-authentication.md)
 
 > [!NOTE]
@@ -68,7 +68,7 @@ Les restrictions d’adresse IP source par défaut de SQL Database autorisent l
 
 Pour en savoir plus sur le pare-feu SQL Azure et les restrictions d'adresse IP, consultez :
 
-- [Contrôle de l’accès à Azure SQL Database et SQL Data Warehouse](../../sql-database/sql-database-control-access.md)
+- [Contrôle de l’accès à Azure SQL Database et SQL Data Warehouse](../../sql-database/sql-database-manage-logins.md)
 - [Règles de pare-feu Azure SQL Database et SQL Data Warehouse](../../sql-database/sql-database-firewall-configure.md)
 
 
@@ -84,7 +84,7 @@ Le chiffrement au niveau de l’application doit également être utilisé pour 
 Vous pouvez prendre des précautions supplémentaires pour sécuriser la base de données, comme la conception d’un système sécurisé, le chiffrement de ressources confidentielles et la création d’un pare-feu autour des serveurs de base de données.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans cet article, nous avons abordé un ensemble de bonnes pratiques de sécurité SQL Database et SQL Data Warehouse pour protéger vos applications PaaS mobiles et web. Pour en savoir plus sur la sécurisation de vos déploiements PaaS, consultez :
+Dans cet article, nous avons abordé un ensemble de bonnes pratiques de sécurité SQL Database et SQL Data Warehouse pour protéger vos applications PaaS mobiles et web. Pour en savoir plus sur la sécurisation de vos déploiements PaaS, consultez :
 
 - [Sécurisation des déploiements PaaS](paas-deployments.md)
 - [Sécurisation des applications mobiles et web PaaS à l’aide d’Azure App Services](paas-applications-using-app-services.md)

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8c44d6266f5ea8cdd4f75d0449cb49852e71c905
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78672398"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Activer Enterprise State Roaming dans Azure Active Directory
@@ -25,7 +25,7 @@ Enterprise State Roaming est disponible pour toute organisation disposant d’un
 Lorsque vous activez Enterprise State Roaming, votre organisation reçoit automatiquement une licence gratuite à utilisation limitée pour le service de protection Azure Rights Management d’Azure Information Protection. Cet abonnement gratuit est limité au chiffrage et au déchiffrage des paramètres d’entreprise et des données d’application synchronisés par Enterprise State Roaming. Vous devez avoir [un abonnement payant](https://azure.microsoft.com/pricing/details/information-protection/) pour utiliser toutes les fonctionnalités du service Azure Rights Management.
 
 > [!NOTE]
-> Cet article s’applique au précédent navigateur HTML Microsoft Edge qui a été lancé avec Windows 10 en juillet 2015. L’article ne s’applique pas au nouveau navigateur Microsoft Edge basé sur Chromium publié le 15 janvier 2020. Pour plus d’informations sur le comportement de synchronisation pour le nouveau navigateur Microsoft Edge, consultez l’article [Synchronisation de Microsoft Edge](/deployedge/microsoft-edge-enterprise-sync).
+> Cet article s’applique au navigateur HTML Microsoft Edge ancien lancé avec Windows 10 en juillet 2015. L’article ne s’applique pas au nouveau navigateur Microsoft Edge basé sur Chromium publié le 15 janvier 2020. Pour plus d’informations sur le comportement de synchronisation pour le nouveau navigateur Microsoft Edge, consultez l’article [Synchronisation de Microsoft Edge](/deployedge/microsoft-edge-enterprise-sync).
 
 ## <a name="to-enable-enterprise-state-roaming"></a>Activer Enterprise State Roaming
 
@@ -39,7 +39,7 @@ Pour qu’un appareil Windows 10 utilise le service Enterprise State Roaming, l
 
 ## <a name="data-storage"></a>Stockage des données
 
-Les données Enterprise State Roaming sont hébergées dans une ou plusieurs [régions Azure](https://azure.microsoft.com/regions/) qui correspondent le plus à la valeur de pays/région définie dans l’instance Azure Active Directory. Les données Enterprise State Roaming sont partitionnées selon les trois principales régions géographiques : Amérique du Nord, EMEA et Asie-Pacifique. Les données Enterprise State Roaming pour le client sont situées localement dans la région géographique, et ne sont pas répliquées entre régions.  Par exemple :
+Les données Enterprise State Roaming sont hébergées dans une ou plusieurs [régions Azure](https://azure.microsoft.com/regions/) qui correspondent le plus à la valeur de pays/région définie dans l’instance Azure Active Directory. Les données Enterprise State Roaming sont partitionnées selon les trois principales régions : Amérique du Nord, EMEA et Asie-Pacifique. Les données Enterprise State Roaming pour le client sont situées localement dans la région géographique, et ne sont pas répliquées entre régions.  Par exemple :
 
 | Valeur Pays/région | Emplacement de l’hébergement des données |
 | -------------------- | ------------------------ |
@@ -73,9 +73,9 @@ Les données synchronisées vers le cloud Microsoft à l’aide d’Enterprise S
 
 La suppression explicite est lorsqu’un administrateur Azure supprime un utilisateur ou un répertoire, ou qu’il demande explicitement que les données soient supprimées.
 
-* **Suppression d’un utilisateur** : Quand un utilisateur est supprimé dans Azure AD, ses données d’itinérance sont supprimées après 90 à 180 jours. 
-* **Suppression d’un annuaire** : La suppression de tout un annuaire dans Azure AD est une opération à effet immédiat. Toutes les données de paramètres associées à ce répertoire sont supprimées après 90 à 180 jours. 
-* **Suppression à la demande** : Si l’administrateur Azure AD veut supprimer manuellement les données d’un utilisateur spécifique ou des données de paramètres, il peut soumettre un ticket au [support technique Azure](https://azure.microsoft.com/support/). 
+* **Suppression d’un utilisateur**: lorsqu’un utilisateur est supprimé dans Azure AD, les données d’itinérance de l’utilisateur sont supprimées après 90 à 180 jours. 
+* **Suppression d’un répertoire**: la suppression d’un répertoire entier dans Azure AD est une opération à effet immédiat. Toutes les données de paramètres associées à ce répertoire sont supprimées après 90 à 180 jours. 
+* **Suppression à la demande**: si l’administrateur Azure AD souhaite supprimer manuellement des données d’utilisateur ou de paramètre spécifiques, il peut soumettre un ticket au [support technique Azure](https://azure.microsoft.com/support/). 
 
 ### <a name="stale-data-deletion"></a>Suppression des données obsolètes
 

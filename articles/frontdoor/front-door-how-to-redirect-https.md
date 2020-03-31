@@ -7,12 +7,12 @@ ms.service: frontdoor
 ms.topic: article
 ms.date: 5/21/2019
 ms.author: sharadag
-ms.openlocfilehash: 7fabc1e3445d3dbd357700ffde3caeb985cc60c4
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: b7385ef27cd17705f2c86b6f57d4780511b6935c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67601971"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80246855"
 ---
 # <a name="create-a-front-door-with-http-to-https-redirection-using-the-azure-portal"></a>Créer une porte d’entrée avec redirection de HTTP vers HTTPS à l’aide du portail Microsoft Azure
 
@@ -32,7 +32,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 1. Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
 2. Cliquez sur  **Créer une ressource** dans le coin supérieur gauche du portail Azure.
 3. Recherchez la **porte d’entrée** à l’aide de la barre de recherche. Après avoir trouvé le type de ressource, cliquez sur **Créer**.
-4. Choisissez un abonnement, puis utilisez un groupe de ressources existant ou créez-en un. Notez que l’emplacement demandé dans l’interface utilisateur est pour le groupe de ressources uniquement. Votre configuration de porte d’entrée va être déployée sur l’ensemble des [emplacements POP d’Azure Front Door](https://docs.microsoft.com/azure/frontdoor/front-door-faq#what-are-the-pop-locations-for-azure-front-door-service).
+4. Choisissez un abonnement, puis utilisez un groupe de ressources existant ou créez-en un. Notez que l’emplacement demandé dans l’interface utilisateur est pour le groupe de ressources uniquement. Votre configuration de porte d’entrée va être déployée sur l’ensemble des [emplacements POP d’Azure Front Door](front-door-faq.md#what-are-the-pop-locations-for-azure-front-door).
 
     ![Configurer les paramètres de base pour la nouvelle porte d’entrée](./media/front-door-url-redirect/front-door-create-basics.png)
 
@@ -75,18 +75,18 @@ Après avoir ajouté l’enregistrement CNAME, la page d’enregistrements DNS r
 
 ![Domaine personnalisé CNAME sur la porte d’entrée](./media/front-door-url-redirect/front-door-dns-cname.png)
 
-#### <a name="onboard-the-custom-domain-on-your-front-door"></a>Intégrer le domaine personnalisé à votre porte d’entrée
+#### <a name="onboard-the-custom-domain-on-your-front-door"></a>Intégrer le domaine personnalisé à votre Front Door
 
-1. Dans l’onglet du Concepteur de porte d’entrée, cliquez sur l’icône « + » dans la section des hôtes frontend pour ajouter un nouveau domaine personnalisé. 
+1. Dans l’onglet du concepteur de Front Door, cliquez sur l’icône « + » dans la section des hôtes frontend pour ajouter un nouveau domaine personnalisé. 
 2. Entrez le nom DNS personnalisé complet dans le champ de nom d’hôte personnalisé, par exemple `www.contosonews.com`. 
-3. Une fois le mappage CNAME du domaine à votre porte d’entrée validé, cliquez sur **Ajouter** pour ajouter le domaine personnalisé.
+3. Une fois le mappage CNAME du domaine à votre Front Door validé, cliquez sur **Ajouter** pour ajouter le domaine personnalisé.
 4. Cliquez sur **Enregistrer** pour envoyer les modifications.
 
 ![Menu Domaines personnalisés](./media/front-door-url-redirect/front-door-add-custom-domain.png)
 
 ### <a name="enable-https-on-your-custom-domain"></a>Activer HTTPS sur votre domaine personnalisé
 
-1. Cliquez sur le domaine personnalisé qui a été ajouté et, sous la section **HTTPS sur un domaine personnalisé**, modifiez l’état sur **Activé**.
+1. Cliquez sur le domaine personnalisé qui a été ajouté puis, sous la section **HTTPS sur un domaine personnalisé**, modifiez l’état sur **Activé**.
 2. Vous pouvez laisser le **type de gestion de certificats** défini sur _Porte d’entrée managée_ pour le certificat gratuit conservé, géré et avec rotation automatique par la porte d’entrée. Vous pouvez également choisir d’utiliser votre propre certificat SSL personnalisé stocké avec Azure Key Vault. Ce didacticiel part du principe que le certificat géré de porte d’entrée est utilisé.
 ![Activation de HTTPS pour un domaine personnalisé](./media/front-door-url-redirect/front-door-custom-domain-https.png)
 

@@ -15,10 +15,10 @@ ms.author: ryanwi
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 26030c12d98d796ceb1f66f198aede6e40eebd94
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78399015"
 ---
 # <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Informations d’identification de certificat d’authentification d’application de la Plateforme d’identités Microsoft
@@ -42,12 +42,12 @@ Plateforme d’identités Microsoft - Pour calculer l’assertion, vous pouvez u
 
 | Paramètre |  Notes |
 | --- | --- |
-| `aud` | Audience: Doit être **https://login.microsoftonline.com/*tenant_Id*/oauth2/token** |
+| `aud` | Public : doit être **https://login.microsoftonline.com/*tenant_Id*  /oauth2/jeton** |
 | `exp` | Date d’expiration : date d’expiration du jeton. L’heure est représentée en nombre de secondes à partir du 1er janvier 1970 (1970-01-01T0:0:0Z) UTC jusqu’à l’expiration du jeton.|
 | `iss` | Émetteur : doit être le paramètre client_id (ID de l’application du service client) |
 | `jti` | GUID : ID JWT |
 | `nbf` | Pas avant : date avant laquelle le jeton ne peut pas être utilisé. L’heure est représentée en nombre de secondes à partir du 1er janvier 1970 (1970-01-01T0:0:0Z) UTC jusqu’au moment de l’émission du jeton. |
-| `sub` | Objet : En ce qui concerne `iss`, doit être le paramètre client_id (ID de l’application du service client) |
+| `sub` | Objet : comme pour `iss`, doit être le paramètre client_id (ID de l’application du service client) |
 
 ### <a name="signature"></a>Signature
 
@@ -95,7 +95,7 @@ Vous pouvez associer les informations d’identification du certificat à l’ap
 Dans l’inscription d’application Azure pour l’application cliente :
 1. Cliquez sur **Certificats et secrets**.
 2. Cliquez sur **Charger un certificat** et sélectionnez le fichier de certificat à charger.
-3. Cliquez sur **Add**.
+3. Cliquez sur **Ajouter**.
   Une fois le certificat chargé, les valeurs d'empreinte numérique, de date de début et d’expiration s'affichent.
 
 ### <a name="updating-the-application-manifest"></a>Mise à jour du manifeste d’application

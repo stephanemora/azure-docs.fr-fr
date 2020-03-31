@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: 6c7fcb1429438ee024cb226b63cfcdcab05ed9f8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: acd87fac5ec2edc40d27d98f073e13c0acae8d8a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65205801"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79498592"
 ---
 # <a name="introduction-to-the-azure-cosmos-db-etcd-api-preview"></a>Présentation de l’API etcd Azure Cosmos DB (préversion)
 
@@ -50,7 +50,7 @@ Azure Cosmos DB offre une extensibilité élastique de lecture et d’écritures
 
 ### <a name="security--enterprise-readiness"></a>Sécurité et préparation pour l’entreprise
 
-Lorsque des données etcd sont stockées dans Azure Cosmos DB, les développeurs Kubernetes obtiennent automatiquement le [chiffrement intégré au repos](database-encryption-at-rest.md), les [certifications et conformité](compliance.md) et les [fonctionnalités de sauvegarde et restauration](online-backup-and-restore.md) pris en charge par Azure Cosmos DB. 
+Lorsque des données etcd sont stockées dans Azure Cosmos DB, les développeurs Kubernetes obtiennent automatiquement le [chiffrement intégré au repos](database-encryption-at-rest.md), les [certifications et conformité](compliance.md) et les [fonctionnalités de sauvegarde et restauration](../synapse-analytics/sql-data-warehouse/backup-and-restore.md) pris en charge par Azure Cosmos DB. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

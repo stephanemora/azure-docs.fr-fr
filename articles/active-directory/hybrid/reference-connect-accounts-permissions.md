@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect : Comptes et autorisations | Microsoft Docs'
+title: 'Azure AD Connect : comptes et autorisations | Microsoft Docs'
 description: Cette rubrique décrit les comptes utilisés et créés, ainsi que les autorisations nécessaires.
 services: active-directory
 documentationcenter: ''
@@ -17,14 +17,14 @@ ms.date: 10/03/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72ae1301be4a3a3c086961aae72fb9eeb12aeda2
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 6071e6553fb1275fea63a37b4897aef2685bd509
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71960228"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227865"
 ---
-# <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect : Comptes et autorisations
+# <a name="azure-ad-connect-accounts-and-permissions"></a>Autorisations et comptes Azure AD Connect
 
 ## <a name="accounts-used-for-azure-ad-connect"></a>Comptes utilisés pour Azure AD Connect
 
@@ -40,9 +40,9 @@ Azure AD Connect utilise 3 comptes pour synchroniser les informations provenant
 
 En plus de ces trois comptes utilisés pour exécuter Azure AD Connect, vous avez également besoin de comptes supplémentaires pour installer Azure AD Connect.  Ces règles sont les suivantes :
 
-- **Compte d'administrateur local** : l’administrateur qui installe Azure AD Connect et qui a des autorisations d’administrateur local sur la machine.
+- **Compte d’administrateur local** : l’administrateur qui installe Azure AD Connect et qui a des autorisations d’administrateur local sur la machine.
 
-- **Compte d’administrateur d’entreprise AD DS**. Utilisé de façon facultative pour créer le « compte de connecteur AD DS » ci-dessus.
+- **Compte d’administrateur d’entreprise AD DS** : utilisé de façon facultative pour créer le « compte de connecteur AD DS » ci-dessus.
 
 - **Compte d’administrateur général Azure AD**. Utilisé pour créer le compte de connecteur Azure AD et configurer Azure AD.
 
@@ -50,16 +50,15 @@ En plus de ces trois comptes utilisés pour exécuter Azure AD Connect, vous ave
 
 
 >[!IMPORTANT]
-> À partir de la build 1.4.###.#, il n'est plus possible d'utiliser un compte administrateur d'entreprise ou un compte administrateur de domaine comme compte de connecteur AD DS.  Si vous tentez d'entrer un compte administrateur d'entreprise ou un compte administrateur de domaine tout en spécifiant **utiliser un compte existant**, vous recevrez une erreur.
+> À partir de la build 1.4.###.#, il n'est plus possible d'utiliser un compte administrateur d'entreprise ou un compte administrateur de domaine comme compte de connecteur AD DS.  Si vous tentez d’entrer un compte administrateur d’entreprise ou administrateur de domaine tout en spécifiant **utiliser un compte existant**, vous recevrez une erreur.
 
 > [!NOTE]
 > La gestion des comptes administratifs utilisés dans Azure AD Connect à partir d’une forêt administrative ESAE (également connue sous le nom de « forêt rouge ») est prise en charge.
 > Les forêts administratives dédiées permettent aux organisations d’héberger des comptes, stations de travail et groupes administratifs dans un environnement dont les contrôles de sécurité sont renforcés par rapport à ceux de l’environnement de production.
-> Pour en savoir plus sur les forêts administratives dédiées, consultez [Approche de la conception de forêt administrative ESAE](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#esae-administrative-forest-design-approach)
->>>>>>> e683a61b0ed62ae739941410f658a127534e2481
+> Pour en savoir plus sur les forêts administratives dédiées, consultez [Approche de la conception de forêt administrative ESAE](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#esae-administrative-forest-design-approach).
 
 > [!NOTE]
-> Le rôle d'administrateur général n'est pas nécessaire après la configuration initiale, et le seul compte requis est celui qui dispose du rôle **Comptes de synchronisation d'annuaires**. Cela ne signifie pas nécessairement que vous vous contenterez de vouloir supprimer le compte doté du rôle d'administrateur général. Il est préférable de remplacer le rôle par un rôle moins puissant, car la suppression totale du compte peut entraîner des problèmes si vous avez besoin de réexécuter l'Assistant. En réduisant les privilèges du rôle, vous aurez toujours la possibilité de les revoir à la hausse si vous êtes amené à réutiliser l'Assistant Azure AD Connect. 
+> Le rôle d'administrateur général n'est pas nécessaire après la configuration initiale, et le seul compte requis est celui qui dispose du rôle **Comptes de synchronisation d'annuaires**. Cela ne signifie pas nécessairement que vous vous contenterez de vouloir supprimer le compte doté du rôle Administrateur général. Il est préférable de remplacer le rôle par un rôle moins puissant, car la suppression totale du compte peut entraîner des problèmes si vous avez besoin de réexécuter l'Assistant. En réduisant les privilèges de ce rôle, vous aurez toujours la possibilité de les revoir à la hausse si vous êtes amené à réutiliser l’Assistant Azure AD Connect. 
 
 ## <a name="installing-azure-ad-connect"></a>Installation d’Azure AD Connect
 L’Assistant d’installation d’Azure AD Connect offre deux chemins d’accès différents :
@@ -134,7 +133,7 @@ Voici un résumé des pages de l’Assistant Installation personnalisée, des in
 >[!IMPORTANT]
 >Un nouveau module PowerShell dénommé ADSyncConfig.psm1 a été introduit avec la version **1.1.880.0**. (sortie en août 2018) et inclut une collection de cmdlets pour vous aider à configurer les autorisations Active Directory adéquates pour le compte Azure AD DS Connector.
 >
->Pour plus d’informations, voir [Azure AD Connect : Configurer l’autorisation du compte de connecteur AD DS](how-to-connect-configure-ad-ds-connector-account.md).
+>Pour plus d’informations, consultez la rubrique [Utilisation d’Azure AD Connect Health avec AD DS](how-to-connect-configure-ad-ds-connector-account.md)
 
 Le compte que vous spécifiez dans la page **Connexion de vos annuaires** doit exister dans Active Directory avant l’installation.  Azure AD Connect 1.1.524.0 ou version ultérieure comprend une option permettant à l’Assistant Azure AD Connect de créer le **compte de connecteur AD DS** utilisé pour se connecter à Active Directory.  
 
@@ -152,7 +151,7 @@ Les autorisations dont vous avez besoin dépendent des fonctionnalités facultat
 | Écriture différée des appareils |Autorisations accordées avec un script PowerShell comme décrit dans [Écriture différée des appareils](how-to-connect-device-writeback.md). |
 | Écriture différée de groupe |Vous permet de récrire **Groupes Office 365** sur une forêt avec Exchange installé.  Pour plus d’informations, consultez [Écriture différée de groupe](how-to-connect-preview.md#group-writeback).|
 
-## <a name="upgrade"></a>Mise à niveau
+## <a name="upgrade"></a>Mettre à niveau
 Lors de la mise à niveau vers une nouvelle version d’Azure AD Connect, vous devez disposer des autorisations suivantes :
 
 >[!IMPORTANT]
@@ -163,7 +162,7 @@ Lors de la mise à niveau vers une nouvelle version d’Azure AD Connect, vous d
 | --- | --- | --- |
 | Utilisateur exécutant l’Assistant d’installation |Administrateur du serveur local |Mettre à jour des fichiers binaires. |
 | Utilisateur exécutant l’Assistant d’installation |Membre d'ADSyncAdmins |Modifier les règles de synchronisation et d'autre configurations. |
-| Utilisateur exécutant l’Assistant d’installation |Si vous utilisez un serveur SQL complet : DBO (ou similaire) de la base de données du moteur de synchronisation |Apporter des modifications au niveau de la base de données, telles que la mise à jour des tables avec de nouvelles colonnes. |
+| Utilisateur exécutant l’Assistant d’installation |Si vous utilisez un serveur SQL complet : propriétaire (DBO, ou rôle similaire) de la base de données du moteur de synchronisation |Apporter des modifications au niveau de la base de données, telles que la mise à jour des tables avec de nouvelles colonnes. |
 
 ## <a name="more-about-the-created-accounts"></a>Plus d’informations sur les comptes créés
 ### <a name="ad-ds-connector-account"></a>Compte de connecteur AD DS
@@ -201,7 +200,7 @@ Légende :
 - sMSA - [Compte de service géré autonome](https://technet.microsoft.com/library/dd548356.aspx)
 - gMSA - [Compte de service géré de groupe](https://technet.microsoft.com/library/hh831782.aspx)
 
-| | LocalDB</br>Express | LocalDB/LocalSQL</br>Personnalisée | SQL à distance</br>Personnalisée |
+| | LocalDB</br>Express | LocalDB/LocalSQL</br>Custom | SQL à distance</br>Custom |
 | --- | --- | --- | --- |
 | **Machine de groupe de travail/autonome** | Non pris en charge | **VSA**</br>Compte local (2008)</br>Compte local |  Non pris en charge |
 | **ordinateur joint à un domaine** | **VSA**</br>Compte local (2008) | **VSA**</br>Compte local (2008)</br>Compte local</br>Compte du domaine</br>sMSA, gMSA | **gMSA**</br>Compte du domaine |

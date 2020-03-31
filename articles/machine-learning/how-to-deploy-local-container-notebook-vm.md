@@ -11,10 +11,10 @@ author: MrudulaN
 ms.reviewer: larryfr
 ms.date: 03/05/2020
 ms.openlocfilehash: afbd9950c31bc1c40b01ec0aaf3d2bfffb8a6b94
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78398234"
 ---
 # <a name="deploy-a-model-to-azure-machine-learning-compute-instances"></a>Déployer un modèle sur des instances de calcul Azure Machine Learning
@@ -29,7 +29,7 @@ Découvrez comment utiliser Azure Machine Learning pour déployer un modèle en 
 > [!TIP]
 > Le déploiement d’un modèle à partir d’un Jupyter Notebook sur une instance de calcul vers un service web sur la même machine virtuelle est un _déploiement local_. Dans ce cas, l’ordinateur « local » est l’instance de calcul. Pour plus d’informations sur les déploiement, consultez [Déployer des modèles avec Azure Machine Learning](how-to-deploy-and-where.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Un espace de travail Azure Machine Learning avec une instance de calcul en cours d’exécution. Pour plus d’informations, consultez [Configuration de l’environnement et de l’espace de travail](tutorial-1st-experiment-sdk-setup.md).
 

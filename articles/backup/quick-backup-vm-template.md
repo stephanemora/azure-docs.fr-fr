@@ -4,17 +4,19 @@ description: Découvrez comment sauvegarder vos machines virtuelles avec un mod�
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/14/2019
-ms.custom: mvc
-ms.openlocfilehash: 721213dcdd4751de936968b7e67a4b5d31b8d9ec
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.custom: mvc,subject-armqs
+ms.openlocfilehash: c40dc7ef8fc55acade709b1ffbbd86ff306f7f0e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980651"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79459240"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-resource-manager-template"></a>Sauvegarder une machine virtuelle dans Azure avec un modèle Resource Manager
 
 La [sauvegarde Azure](backup-overview.md) sauvegarde les applications et machines locales, ainsi que les machines virtuelles Azure. Cet article explique la procédure de sauvegarde d’une machine virtuelle Azure avec un modèle Resource Manager et Azure PowerShell. Ce guide de démarrage rapide porte essentiellement sur le déploiement d’un modèle Resource Manager en vue de créer un coffre Recover Services. Pour plus d’informations sur le développement de modèles Resource Manager, consultez la [documentation Resource Manager](/azure/azure-resource-manager/) et les [informations de référence sur les modèles](/azure/templates/microsoft.recoveryservices/allversions).
+
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 Vous pouvez également sauvegarder une machine virtuelle en utilisant [Azure PowerShell](./quick-backup-vm-powershell.md), l’interface [Azure CLI](quick-backup-vm-cli.md) ou le [portail Azure](quick-backup-vm-portal.md).
 
@@ -22,9 +24,26 @@ Vous pouvez également sauvegarder une machine virtuelle en utilisant [Azure Pow
 
 Un [coffre Recovery Services](backup-azure-recovery-services-vault-overview.md) est un conteneur logique qui stocke des données de sauvegarde pour des ressources protégées, telles que des machines virtuelles Azure. Quand un travail de sauvegarde s’exécute, il crée un point de récupération à l’intérieur du coffre Recovery Services. Vous pouvez ensuite utiliser un de ces points de récupération pour restaurer des données à un moment donné dans le temps.
 
+### <a name="review-the-template"></a>Vérifier le modèle
+
 Le modèle utilisé dans ce guide de démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/). Ce modèle vous permet de déployer une machine virtuelle Windows simple et un coffre Recovery Services configuré avec la stratégie par défaut pour la protection.
 
-Pour déployer le modèle, sélectionnez **Try it** afin d’ouvrir Azure Cloud Shell, puis collez le script PowerShell suivant dans la fenêtre de l’interpréteur de commandes. Pour coller le code, cliquez avec le bouton droit sur la fenêtre de l’interpréteur de commandes, puis sélectionnez **Coller**.
+:::code language="json" source="~/quickstart-templates/101-recovery-services-create-vm-and-configure-backup/azuredeploy.json" range="1-247" highlight="221-245":::
+
+Les ressources définies dans le modèle sont les suivantes :
+
+- [**Microsoft.Storage/storageAccounts**](/azure/templates/microsoft.storage/storageaccounts)
+- [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses)
+- [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups)
+- [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
+- [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces)
+- [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines)
+- [**Microsoft.RecoveryServices/vaults**](/azure/templates/microsoft.recoveryservices/vaults)
+- [**Microsoft.RecoveryServices/vaults/backupFabrics/protectionContainers/protectedItems**](/azure/templates/microsoft.recoveryservices/vaults/backupfabrics/protectioncontainers/protecteditems)
+
+### <a name="deploy-the-template"></a>Déployer le modèle
+
+Pour déployer le modèle, sélectionnez **Essayer** afin d’ouvrir Azure Cloud Shell, puis collez le script PowerShell suivant dans la fenêtre de l’interpréteur de commandes. Pour coller le code, cliquez avec le bouton droit sur la fenêtre de l’interpréteur de commandes, puis sélectionnez **Coller**.
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter a project name (limited to eight characters) that is used to generate Azure resource names"
@@ -42,11 +61,13 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 Dans ce démarrage rapide, vous utilisez Azure PowerShell pour déployer le modèle Resource Manager. Le [portail Azure](../azure-resource-manager/templates/deploy-portal.md), l’interface [Azure CLI](../azure-resource-manager/templates/deploy-cli.md) et [l’API Rest](../azure-resource-manager/templates/deploy-rest.md) peuvent également être utilisés pour déployer des modèles.
 
-## <a name="start-a-backup-job"></a>Démarrer un travail de sauvegarde
+## <a name="validate-the-deployment"></a>Valider le déploiement
+
+### <a name="start-a-backup-job"></a>Démarrer un travail de sauvegarde
 
 Le modèle crée une machine virtuelle et permet la sauvegarde sur la machine virtuelle. Après avoir déployé le modèle, vous devez démarrer un travail de sauvegarde. Pour plus d’informations, consultez [Démarrer un travail de sauvegarde](./quick-backup-vm-powershell.md#start-a-backup-job).
 
-## <a name="monitor-the-backup-job"></a>Surveiller le travail de sauvegarde
+### <a name="monitor-the-backup-job"></a>Surveiller le travail de sauvegarde
 
 Pour surveiller le travail de sauvegarde, consultez [Surveiller le travail de sauvegarde](./quick-backup-vm-powershell.md#monitor-the-backup-job).
 
@@ -72,3 +93,4 @@ Dans ce guide de démarrage rapide, vous avez créé un coffre Recovery Services
 
 - [Découvrez comment](tutorial-backup-vm-at-scale.md) sauvegarder des machines virtuelles dans le portail Azure.
 - [Découvrez comment](tutorial-restore-disk.md) rapidement restaurer une machine virtuelle
+- [Découvrez comment](../azure-resource-manager/templates/template-tutorial-create-first-template.md) créer des modèles Resource Manager.

@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/19/2019
 ms.openlocfilehash: b0dc974185ad616d57327e9cc3743db9ecb20e54
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78302727"
 ---
 # <a name="azure-hdinsight-cluster-creation-errors"></a>Azure HDInsight : Erreurs lors de la création du cluster
@@ -32,7 +32,7 @@ Cet article décrit les solutions aux erreurs que vous pouvez rencontrer lors de
 
 « Le serveur distant a retourné une erreur : (404) introuvable. »
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 Le service HDInsight ne peut pas accéder à l’URL d’action de script que vous avez fournie dans le cadre de la requête de création de cluster. Le service reçoit le message d’erreur précédent lorsqu’il tente d’accéder à l’action de script.
 
@@ -54,7 +54,7 @@ Le service HDInsight ne peut pas accéder à l’URL d’action de script que v
 
 « L’URI de script donné \<SCRIPT_URI\> se trouve dans ADLS, mais ce cluster n’a pas de principal de stockage Data Lake »
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 Le service HDInsight ne peut pas accéder à l’URL d’action de script que vous avez fournie dans le cadre de la requête de création de cluster. Le service reçoit le message d’erreur précédent lorsqu’il tente d’accéder à l’action de script.
 
@@ -70,7 +70,7 @@ Ajoutez le compte Azure Data Lake Storage GEN 1 correspondant au cluster. Ajo
 
 « La taille de machine virtuelle "\<CUSTOMER_SPECIFIED_VM_SIZE\>" fournie dans la requête n’est pas valide ou n’est pas prise en charge pour le rôle "\<ROLE\> ». Les valeurs autorisées sont : \<VALID_VM_SIZE_FOR_ROLE\>».
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 La taille de machine virtuelle que vous avez spécifiée n’est pas autorisée pour le rôle. Cette erreur peut se produire si la valeur de la taille de la machine virtuelle ne fonctionne pas comme prévu ou n’est pas adaptée au rôle de l’ordinateur.
 
@@ -86,7 +86,7 @@ Le message d’erreur répertorie les valeurs valides pour la taille de la machi
 
 « L’identifiant de réseau virtuel n’est pas valide. VirtualNetworkId ’\<USER_VIRTUALNETWORKID\>’ * »
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 La valeur **VirtualNetworkId** que vous avez spécifiée lors de la création du cluster n’est pas au format approprié.
 
@@ -110,7 +110,7 @@ Voici un exemple d’identifiant de réseau virtuel :
 
 « Échec du déploiement du cluster en raison d’une erreur dans l’action du script personnalisé. Actions ayant échoué : \<SCRIPT_NAME\>, veuillez vous rendre sur l’interface utilisateur Ambari pour continuer de déboguer l’erreur. »
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 Le script personnalisé que vous avez fourni lors de la requête de création de cluster est exécuté après que le cluster a été déployé avec succès. Ce code d’erreur indique qu’une erreur s’est produite lors de l’exécution du script personnalisé nommé \<SCRIPT_NAME\>.
 
@@ -126,7 +126,7 @@ Le script personnalisé que vous avez fourni lors de la requête de création de
 
 « La version de schéma \<META_STORE_TYPE\> \<METASTORE_MAJOR_VERSION\> dans la base de données \<database_name\> n’est pas compatible avec la version de cluster \<CLUSTER_VERSION\> »
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 Le metastore personnalisé est incompatible avec la version de cluster HDInsight sélectionnée. Actuellement, les clusters HDInsight 4,0 prennent uniquement en charge les versions 3.0 et ultérieures de la version de, tandis que les clusters HDInsight 3.6 ne prennent pas en charge la version 3.0 et les versions ultérieures de la bibliothèque
 
@@ -142,7 +142,7 @@ Utilisez uniquement les versions Metastore qui sont prises en charge par votre v
 
 « Impossible de se connecter au point de terminaison de gestion du cluster pour effectuer une opération de mise à l’échelle. Vérifiez que les règles de sécurité réseau ne bloquent pas l’accès externe au cluster, et que l’interface utilisateur du gestionnaire de cluster (Ambari) est accessible. »
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 Une règle de pare-feu de votre groupe de sécurité réseau bloque les communications de cluster avec les services d’intégrité et de gestion Azure critiques.
 
@@ -163,7 +163,7 @@ Si vous envisagez d’utiliser des groupes de sécurité réseau pour contrôler
 
 « L’identité gérée ne dispose pas d’autorisations sur le compte de stockage. Vérifiez que le rôle Propriétaire des données Blob du stockage est attribué à l’identité managée sur le compte de stockage. Storage: /subscriptions/ \<Subscription ID\> /resourceGroups/\< Resource Group Name\> /providers/Microsoft.Storage/storageAccounts/ \<Storage Account Name\>, Managed Identity: /subscriptions/ \<Subscription ID\> /resourceGroups/ /\< Resource Group Name\> /providers/Microsoft.ManagedIdentity/userAssignedIdentities/ \<User Managed Identity Name\> »
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 Vous n’avez pas fourni les autorisations nécessaires pour gérer l’identité. L’identité gérée affectée par l’utilisateur n’a pas le rôle de contributeur de stockage d’objets BLOB sur le compte de stockage Azure Data Lake Storage Gen2.
 
@@ -184,7 +184,7 @@ Pour plus d’informations, consultez [Définir les autorisations de l’identit
 
 « Les règles de sécurité dans le groupe de sécurité réseau /subscriptions/\<SubscriptionID\>/resourceGroups/<Resource Group name\> default/providers/Microsoft.Network/networkSecurityGroups/\<Network Security Group Name\> configured with subnet /subscriptions/\<SubscriptionID\>/resourceGroups/\<Resource Group name\> RG-westeurope-vnet-tomtom-default/providers/Microsoft.Network/virtualNetworks/\<Virtual Network Name\>/subnets/\<Subnet Name\> n’autorise pas les connectivités entrantes ou sortantes. Pour plus d’informations, consultez [Planifier un réseau virtuel pour Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment) ou contactez le support. »
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 Si les groupes de sécurité réseau ou les itinéraires définis par l’utilisateur contrôlent le trafic entrant vers votre cluster HDInsight, assurez-vous que votre cluster peut communiquer avec les services d’intégrité et de gestion Azure critiques.
 
@@ -204,7 +204,7 @@ Si vous envisagez d’utiliser des groupes de sécurité réseau pour contrôler
 
 « Le programme d’installation du cluster n’a pas pu installer les composants sur un ou plusieurs ordinateurs hôtes. Veuillez relancez la requête. »
 
-### <a name="cause"></a>Cause : 
+### <a name="cause"></a>Cause 
 
 En règle générale, cette erreur est générée en cas de problème temporaire ou une panne d’Azure.
 

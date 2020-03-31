@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.openlocfilehash: ae1773ec1d470b9cff2efb00c200427b7b4c2fb4
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69614821"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Réglage des performances de requête avec Azure Cosmos DB
@@ -136,13 +136,13 @@ Pour plus d’informations sur les options et les en-têtes de demande d’API R
 ## <a name="best-practices-for-query-performance"></a>Meilleures pratiques pour les performances de requêtes
 Les éléments suivants sont les facteurs les plus courants qui affectent les performances de requêtes Azure Cosmos DB. Nous approfondissons chacune de ces rubriques dans cet article.
 
-| Facteur | Conseil | 
+| Factor | Conseil | 
 | ------ | -----| 
 | Débit approvisionné | Mesurez la RU (unité de requête) par requête et assurez-vous d’avoir le débit approvisionné nécessaire pour vos requêtes. | 
 | Partitionnement et clés de partition | Préférez les requêtes avec la valeur de clé de partition dans la clause de filtre pour une latence faible. |
 | Options de requête et de kit SDK | Suivez les meilleures pratiques du kit SDK, comme la connectivité directe, et paramétrez les options d’exécution de requêtes du côté client. |
 | Latence du réseau | Prenez en compte la surcharge réseau dans la prise de mesures, et utilisez des API d’hébergement multiple pour lire à partir de la région la plus proche. |
-| Stratégie d'indexation | Assurez-vous que vous disposez de la stratégie ou des chemins d’indexation nécessaires pour la requête. |
+| Stratégie d’indexation | Assurez-vous que vous disposez de la stratégie ou des chemins d’indexation nécessaires pour la requête. |
 | Mesures d’exécution des requêtes | Analysez les mesures de l’exécution des requêtes pour identifier les réécritures potentielles de formes de données et de requêtes.  |
 
 ### <a name="provisioned-throughput"></a>Débit approvisionné

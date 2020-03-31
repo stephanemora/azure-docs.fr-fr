@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 62c8c93e07326e776cbe089042abc481544794bc
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74113228"
 ---
 # <a name="odata-comparison-operators-in-azure-cognitive-search---eq-ne-gt-lt-ge-and-le"></a>Opérateurs de comparaison OData dans Recherche cognitive Azure : `eq`, `ne`, `gt`, `lt`, `ge`, `le`
@@ -100,7 +100,7 @@ Pour les comparaisons qui ne sont pas autorisées, notamment la comparaison d’
 
 Lorsque vous utilisez des opérateurs de comparaison, il est important de se rappeler que tous les champs qui ne sont pas des collections dans Recherche cognitive Azure peuvent potentiellement être `null`. Le tableau suivant répertorie tous les résultats possibles pour une expression de comparaison où chaque côté peut être `null` :
 
-| Operator | Résultat lorsque seul le champ ou la variable est `null` | Résultat lorsque seule la constante est `null` | Résultat lorsque le champ/la variable et la constante sont `null` |
+| Opérateur | Résultat lorsque seul le champ ou la variable est `null` | Résultat lorsque seule la constante est `null` | Résultat lorsque le champ/la variable et la constante sont `null` |
 | --- | --- | --- | --- |
 | `gt` | `false` | HTTP 400 : erreur de demande incorrecte | HTTP 400 : erreur de demande incorrecte |
 | `lt` | `false` | HTTP 400 : erreur de demande incorrecte | HTTP 400 : erreur de demande incorrecte |
@@ -113,7 +113,7 @@ En résumé, `null` est uniquement égal à lui-même et n’est pas inférieur 
 
 Si votre index comporte des champs de type `Edm.Double` et que vous chargez des valeurs `NaN` sur ces champs, vous devez en tenir compte lors de l’écriture des filtres. Recherche cognitive Azure implémente la norme IEEE 754 pour la gestion des valeurs `NaN`. Les comparaisons avec ces valeurs produisent des résultats non évidents, comme indiqué dans le tableau suivant.
 
-| Operator | Résultat lorsqu’au moins un opérande est `NaN` |
+| Opérateur | Résultat lorsqu’au moins un opérande est `NaN` |
 | --- | --- |
 | `gt` | `false` |
 | `lt` | `false` |
@@ -157,6 +157,6 @@ Correspondance des documents pour les hôtels comprenant au moins une chambre de
 ## <a name="next-steps"></a>Étapes suivantes  
 
 - [Filtres dans la Recherche cognitive Azure](search-filters.md)
-- [Vue d’ensemble du langage d’expression OData pour la Recherche cognitive Azure](query-odata-filter-orderby-syntax.md)
-- [Informations de référence sur la syntaxe d’expression OData pour la Recherche cognitive Azure](search-query-odata-syntax-reference.md)
-- [Rechercher des documents &#40;API REST de Recherche cognitive Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Vue d’ensemble du langage d’expression OData pour Recherche cognitive Azure](query-odata-filter-orderby-syntax.md)
+- [Informations de référence sur la syntaxe d’expression OData pour Recherche cognitive Azure](search-query-odata-syntax-reference.md)
+- [Rechercher des documents &#40;API REST de la recherche cognitive Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

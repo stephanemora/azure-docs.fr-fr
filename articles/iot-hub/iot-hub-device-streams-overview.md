@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: robinsh
 ms.openlocfilehash: ff738e56226f7cbb720a754573a9d8607e0e3247
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73890466"
 ---
 # <a name="iot-hub-device-streams-preview"></a>Flux d'appareils IoT Hub (préversion)
@@ -28,7 +28,7 @@ Les flux d'appareils IoT Hub offrent les avantages suivants :
 
 * **Connectivité sécurisée via un pare-feu :** Les appareils IoT sont accessibles depuis les points de terminaison de service, sans ouverture du port du pare-feu entrant au niveau de l'appareil ou du réseau (seule une connectivité sortante vers IoT Hub est requise sur le port 443).
 
-* **Authentication :** Le côté appareil et le côté service du tunnel doivent s'authentifier auprès de IoT Hub à l'aide des informations d'identification correspondantes.
+* **Authentication (Authentification) :** Le côté appareil et le côté service du tunnel doivent s'authentifier auprès de IoT Hub à l'aide des informations d'identification correspondantes.
 
 * **Chiffrement :** Par défaut, les flux d'appareils IoT Hub utilisent des connexions TSL. Ainsi, le trafic est chiffré, indépendamment du fait que l'application utilise ou non le chiffrement.
 

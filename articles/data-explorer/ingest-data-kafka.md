@@ -8,17 +8,17 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: 03b46ff50683149a22c71ccb155480a0f08455bd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "66497283"
 ---
 # <a name="ingest-data-from-kafka-into-azure-data-explorer"></a>Ingérer des données de Kafka dans Azure Data Explorer
  
 L’Explorateur de données Azure est un service d’exploration de données rapide et hautement évolutive pour les données des journaux et les données de télémétrie. Azure Data Explorer permet l’ingestion (le chargement de données) à partir de Kafka. Kafka est une plateforme de streaming distribuée qui permet la création de pipelines de données de streaming en temps réel, qui déplacent les données de façon fiable entre des systèmes ou des applications.
  
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
  
 * Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer. 
  
@@ -36,14 +36,14 @@ Kafka Connect est un outil pour le streaming de données scalable et fiable entr
 
 Kafka peut charger un `.jar` en tant que plug-in qui fera office de connecteur personnalisé. Pour produire un tel `.jar`, nous allons cloner le code localement et générer une build avec Maven. 
 
-#### <a name="clone"></a>Cloner
+#### <a name="clone"></a>Clone
 
 ```bash
 git clone git://github.com:Azure/kafka-sink-azure-kusto.git
 cd ./kafka-sink-azure-kusto/kafka/
 ```
 
-#### <a name="build"></a>Créer
+#### <a name="build"></a>Build
 
 Générez une build localement avec Maven pour produire un `.jar` complet avec des dépendances.
 
@@ -112,7 +112,7 @@ Créez une table dans ADX à laquelle Kafka peut envoyer des données. Créez la
 
 Maintenant que le cluster Kafka est connecté à ADX, utilisez l’[exemple d’application](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) que vous avez téléchargé pour générer des données.
 
-### <a name="clone"></a>Cloner
+### <a name="clone"></a>Clone
 
 Clonez l’exemple d’application localement :
 
@@ -121,7 +121,7 @@ git clone git://github.com:Azure/azure-kusto-samples-dotnet.git
 cd ./azure-kusto-samples-dotnet/kafka/
 ```
 
-### <a name="run-the-app"></a>Exécution de l'application
+### <a name="run-the-app"></a>Exécuter l’application
 
 1. Ouvrez la solution de l’application exemple dans Visual Studio.
 

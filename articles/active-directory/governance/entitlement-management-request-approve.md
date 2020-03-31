@@ -16,12 +16,12 @@ ms.date: 10/27/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 634e3532e13fcba5c9b802bd77c9530c0a831eb8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 20ec63efe16f1120ca6e7d07c8917d8ad2b3a0e0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422514"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79230313"
 ---
 # <a name="approve-or-deny-access-requests-in-azure-ad-entitlement-management"></a>Approuver ou refuser des demandes d’accès dans la gestion des droits d’utilisation Azure AD
 
@@ -43,7 +43,7 @@ La première étape pour approuver ou refuser les demandes d’accès consiste �
 
 Si vous n’avez pas reçu l’e-mail, vous pouvez localiser les demandes d’accès en attente d’approbation comme suit.
 
-1. Connectez-vous au portail Mon Accès sur [https://myaccess.microsoft.com](https://myaccess.microsoft.com).
+1. Connectez-vous au portail Mon Accès sur [https://myaccess.microsoft.com](https://myaccess.microsoft.com).  (Pour le gouvernement des États-Unis, le domaine figurant dans le lien du portail Mon Accès sera `myaccess.microsoft.us`.)
 
 1. Dans le menu de gauche, cliquez sur **Approbations** pour afficher la liste des demandes d’accès en attente d’approbation.
 

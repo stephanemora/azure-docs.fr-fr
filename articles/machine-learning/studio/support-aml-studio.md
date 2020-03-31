@@ -9,14 +9,16 @@ ms.topic: conceptual
 author: peterclu
 ms.author: amlstudiodocs
 ms.date: 01/18/2019
-ms.openlocfilehash: ee4ef451888638c0ba33d7938c88b836b28f3fe5
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 5529d09d71eb9f4ef1d9b4d8185cafb11f644bc8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894642"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79501307"
 ---
 # <a name="get-support-and-training-for-azure-machine-learning-studio-classic"></a>Bénéficier d'un support et d'une formation pour Azure Machine Learning Studio (classique)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Cet article contient des informations sur Azure Machine Learning Studio (classique) et sur le support que vous pouvez obtenir pour résoudre vos problèmes.
 
@@ -25,7 +27,7 @@ Cet article contient des informations sur Azure Machine Learning Studio (classiq
 Consultez nos ressources d’apprentissage :
 + [Tutoriels et guides pratiques](../studio/index.yml) 
 + [Vidéos de science des données pour débutants](../studio/data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) 
-+ [Aide-mémoire d’algorithme](../studio/algorithm-cheat-sheet.md) 
++ [Aide-mémoire d’algorithme](../../synapse-analytics/sql-data-warehouse/cheat-sheet.md) 
 
 ## <a name="submit-doc-feedback"></a>Envoyer des commentaires sur la documentation
 

@@ -4,11 +4,11 @@ description: Les projets Azure Notebooks (préversion) gèrent une collection de
 ms.topic: how-to
 ms.date: 02/25/2019
 ms.openlocfilehash: b29ff336c09a3bbf05a57c8a3a503b1875b76e54
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646243"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79236113"
 ---
 # <a name="create-and-clone-projects-in-azure-notebooks-preview"></a>Créer et cloner des projets dans Azure Notebooks en préversion
 
@@ -72,7 +72,7 @@ Les mots réservés suivants ne peut pas être utilisés en tant qu’ID de proj
 | --- | --- | --- | --- | --- | --- |
 | à propos de | account | administration | api | blog | classe |
 | content | dashboard | explorer | faq | help | html |
-| home | importation | bibliothèque | gestion | new | notebook |
+| home | importer | bibliothèque | gestion | new | notebook |
 | blocs-notes | pdf | preview | Prix | profile | recherche |
 | status | support | test | | | |
 

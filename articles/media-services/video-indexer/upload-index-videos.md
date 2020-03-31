@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 02/18/2020
 ms.author: juliako
 ms.openlocfilehash: 245eabdf4d77682c87062c2581239a554112d748
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77468760"
 ---
 # <a name="upload-and-index-your-videos"></a>Charger et indexer vos vidéos  
@@ -58,7 +58,7 @@ L’article décrit comment télécharger et indexer vos vidéos avec les option
 
 Pour obtenir la liste des formats de fichiers que vous pouvez utiliser avec Video Indexer, consultez l’article [conteneur d’entrée/formats de fichiers](../latest/media-encoder-standard-formats.md#input-containerfile-formats).
 
-## <a name="a-idwebsiteupload-and-index-a-video-using-the-video-indexer-website"></a><a id="website"/>Télécharger et indexer une vidéo à l’aide du site web Video Indexer
+## <a name="upload-and-index-a-video-using-the-video-indexer-website"></a><a id="website"/>Télécharger et indexer une vidéo à l’aide du site web Video Indexer
 
 > [!NOTE]
 > Un nom de vidéo ne doit pas dépasser 80 caractères.
@@ -74,7 +74,7 @@ Pour obtenir la liste des formats de fichiers que vous pouvez utiliser avec Vide
 
     Une fois l’analyse terminée par Video Indexer, vous obtiendrez une notification contenant un lien vers votre vidéo et une brève description des éléments découverts dedans. Par exemple : personnes, rubriques, OCR.
 
-## <a name="a-idapisupload-and-index-with-api"></a><a id="apis"/>Télécharger et indexer avec API
+## <a name="upload-and-index-with-api"></a><a id="apis"/>Télécharger et indexer avec API
 
 Utilisez l’API [Télécharger une vidéo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) pour télécharger et indexer vos vidéos en fonction d’une URL. L’exemple de code dans l’article inclut le code commenté qui montre comment charger le tableau d’octets. 
 

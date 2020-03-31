@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/16/2018
 ms.author: magattus
 ms.openlocfilehash: a5881bea578f2791f8dc0d6e760fd15c6f47e435
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593264"
 ---
 # <a name="verizon-specific-http-headers-for-azure-cdn-rules-engine"></a>En-têtes HTTP spécifiques à Verizon pour le moteur de règles Azure CDN
@@ -33,7 +33,7 @@ Par exemple, pour supprimer l’en-tête `Via`, le champ d’en-têtes de la rè
 
 Le tableau suivant décrit les en-têtes qui peuvent être ajoutés par le POP du CDN Verizon dans la requête :
 
-En-tête de requête | Description | Exemples
+En-tête de requête | Description | Exemple
 ---------------|-------------|--------
 [Via](#via-request-header) | Identifie le serveur POP ayant traité par proxy la requête à un serveur d’origine. | HTTP/1.1 ECS (dca/1A2B)
 X-Forwarded-For | Indique l’adresse IP du demandeur.| 10.10.10.10
@@ -50,7 +50,7 @@ Le format par le biais duquel l’en-tête de la requête `Via` identifie un ser
 `Via: Protocol from Platform (POP/ID)` 
 
 Les termes utilisés dans la syntaxe sont définis comme suit :
-- Protocole : indique la version du protocole (par exemple, HTTP/1.1) utilisé pour traiter la requête par proxy. 
+- Protocol : indique la version du protocole (par exemple, HTTP/1.1) utilisé pour traiter la requête par proxy. 
 
 - Platform : indique la plateforme sur laquelle le contenu a été demandé. Les codes suivants sont valides pour ce champ : 
 
@@ -62,7 +62,7 @@ Les termes utilisés dans la syntaxe sont définis comme suit :
 
 - POP : indique le [POP](cdn-pop-abbreviations.md) qui a traité la requête. 
 
-- ID : À usage interne uniquement.
+- ID : à usage interne uniquement.
 
 ### <a name="example-via-request-header"></a>Exemple d’en-tête de requête Via
 

@@ -1,19 +1,18 @@
 ---
 title: Conditions préalables à une offre d’application Power BI | Place de marché Azure
 description: Fournit les conditions préalables pour la publication d’une application Power BI dans AppSource.
-services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.author: pabutler
-ms.openlocfilehash: 486a1b9ca213828b5a26571de7bc34d06f56d434
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 5c95c50f5597eee51c66cc68273478b1b9f0e2df
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826020"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80286334"
 ---
 # <a name="power-bi-app-offer-prerequisites"></a>Conditions préalables à une offre d’application Power BI
 

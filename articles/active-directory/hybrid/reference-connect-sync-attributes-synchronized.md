@@ -17,13 +17,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6a82766be01476890bbf18b518ce21febe0d07f1
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74766087"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227817"
 ---
-# <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Synchronisation d’Azure AD Connect : Attributs synchronisés avec Azure Active Directory
+# <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure Active Directory Connect Sync : attributs synchronisés avec Azure Active Directory
 Cette rubrique répertorie les attributs synchronisés par Azure AD Connect Sync.  
 Les attributs sont regroupés selon l’application Azure AD associée.
 
@@ -83,7 +83,7 @@ Dans ce cas, commencez par la liste des attributs dans cette rubrique et identif
 | extensionAttribute7 |X |X |X | |
 | extensionAttribute8 |X |X |X | |
 | extensionAttribute9 |X |X |X | |
-| facsimileTelephoneNumber |X |X | | |
+| facsimiletelephonenumber |X |X | | |
 | givenName |X |X | | |
 | homePhone |X |X | | |
 | info |X |X |X |Cet attribut n'est actuellement pas utilisé pour les groupes. |
@@ -204,7 +204,7 @@ Dans ce cas, commencez par la liste des attributs dans cette rubrique et identif
 | extensionAttribute7 |X |X |X | |
 | extensionAttribute8 |X |X |X | |
 | extensionAttribute9 |X |X |X | |
-| facsimileTelephoneNumber |X |X | | |
+| facsimiletelephonenumber |X |X | | |
 | givenName |X |X | | |
 | hideDLMembership | | |X | |
 | homePhone |X |X | | |
@@ -267,7 +267,7 @@ Dans ce cas, commencez par la liste des attributs dans cette rubrique et identif
 | department |X |X | | |
 | description |X |X |X | |
 | displayName |X |X |X | |
-| facsimileTelephoneNumber |X |X |X | |
+| facsimiletelephonenumber |X |X |X | |
 | givenName |X |X | | |
 | homePhone |X |X | | |
 | ipPhone |X |X | | |
@@ -348,7 +348,7 @@ Dans ce cas, commencez par la liste des attributs dans cette rubrique et identif
 | countryCode |X |X | | |
 | description |X |X |X | |
 | displayName |X |X |X | |
-| facsimileTelephoneNumber |X |X | | |
+| facsimiletelephonenumber |X |X | | |
 | givenName |X |X | | |
 | l |X |X | | |
 | managedBy | | |X | |
@@ -396,7 +396,7 @@ Ce groupe est un ensemble d’attributs qui peut être utilisé si l’annuaire 
 | usageLocation |X | | |propriété mécanique. Pays/Région de l’utilisateur. Utilisé pour l’attribution de licence. |
 | userPrincipalName |X | | |Le nom UPN est l’ID de connexion de l’utilisateur. Le plus souvent, identique à la valeur [mail]. |
 
-## <a name="windows-10"></a>Windows 10
+## <a name="windows-10"></a>Windows 10
 Un ordinateur (appareil) Windows 10 joint à un domaine synchronisera certains attributs sur Azure AD. Pour plus d'informations sur les scénarios, consultez [Connecter des appareils joints au domaine à Azure AD pour des expériences Windows 10](../active-directory-azureadjoin-devices-group-policy.md). Ces attributs sont toujours synchronisés et Windows 10 n'apparaît pas comme une application que vous pouvez désélectionner. Un ordinateur appartenant au domaine Windows 10 est identifié par l'attribut userCertificate.
 
 | Nom de l'attribut | Appareil | Commentaire |
@@ -425,12 +425,12 @@ Ces attributs sont écrits en différé depuis Azure AD vers Active Directory lo
 | Nom d’attribut (instance locale d’AD) | Nom d’attribut (interface utilisateur Connect) | Utilisateur | Contact | Groupe | Commentaire |
 | --- |:---:|:---:|:---:| --- |---|
 | msDS-ExternalDirectoryObjectID| ms-DS-External-Directory-Object-Id |X | | |Dérivé de cloudAnchor dans Azure AD. Cet attribut est une nouveauté dans Exchange 2016 et Windows Server 2016 AD. |
-| msExchArchiveStatus| ms-Exch-ArchiveStatus |X | | |Archive en ligne : Permet aux clients d’archiver le courrier. |
-| msExchBlockedSendersHash| ms-Exch-BlockedSendersHash |X | | |Filtrage : Réécrit le filtrage local, les données sécurisées en ligne et les données des expéditeurs bloqués provenant des clients. |
-| msExchSafeRecipientsHash| ms-Exch-SafeRecipientsHash  |X | | |Filtrage : Réécrit le filtrage local, les données sécurisées en ligne et les données des expéditeurs bloqués provenant des clients. |
-| msExchSafeSenderHash| ms-Exch-SafeSendersHash  |X | | |Filtrage : Réécrit le filtrage local, les données sécurisées en ligne et les données des expéditeurs bloqués provenant des clients. |
-| msExchUCVoiceMailSettings| ms-Exch-UCVoiceMailSettings |X | | |Activer la messagerie unifiée (MU) - Messagerie vocale en ligne : Utilisée par l’intégration de Microsoft Lync Server pour indiquer à Lync Server local que l’utilisateur dispose de la messagerie vocale dans les services en ligne. |
-| msExchUserHoldPolicies| ms-Exch-UserHoldPolicies |X | | |Conservation pour litige : Permet aux services cloud de déterminer quels utilisateurs sont sous conservation pour litige. |
+| msExchArchiveStatus| ms-Exch-ArchiveStatus |X | | |Archive en ligne : permet aux clients d’archiver le courrier. |
+| msExchBlockedSendersHash| ms-Exch-BlockedSendersHash |X | | |Filtrage : écrit en différé le filtrage local, les données sécurisées en ligne et les données des expéditeurs bloqués provenant des clients. |
+| msExchSafeRecipientsHash| ms-Exch-SafeRecipientsHash  |X | | |Filtrage : écrit en différé le filtrage local, les données sécurisées en ligne et les données des expéditeurs bloqués provenant des clients. |
+| msExchSafeSenderHash| ms-Exch-SafeSendersHash  |X | | |Filtrage : écrit en différé le filtrage local, les données sécurisées en ligne et les données des expéditeurs bloqués provenant des clients. |
+| msExchUCVoiceMailSettings| ms-Exch-UCVoiceMailSettings |X | | |Activer la messagerie unifiée (MU) - messagerie vocale en ligne : utilisée par l’intégration de Microsoft Lync Server pour indiquer à Lync Server local que l’utilisateur dispose de la messagerie vocale dans les services en ligne. |
+| msExchUserHoldPolicies| ms-Exch-UserHoldPolicies |X | | |Conservation pour litige : permet aux services cloud de déterminer quels utilisateurs sont sous conservation pour litige. |
 | proxyAddresses| proxyAddresses |X |X |X |Seule l’adresse x500 d’Exchange Online est insérée. |
 | publicDelegates| ms-Exch-Public-Delegates  |X | | |Permet à une boîte aux lettres Exchange Online d’obtenir des droits SendOnBehalfTo sur les boîtes aux lettres Exchange sur site des utilisateurs. Nécessite Azure AD Connect 1.1.552.0 ou version ultérieure. |
 

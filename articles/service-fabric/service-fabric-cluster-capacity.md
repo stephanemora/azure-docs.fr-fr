@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: pepogors
 ms.openlocfilehash: 6e60fc10dd7e0eec24de4a089d09d914624dcfbc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75463307"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79229449"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considérations en matière de planification de la capacité du cluster Service Fabric
 Pour un déploiement de production, la planification de la capacité est une étape importante. Voici certains éléments que vous devez prendre en compte dans ce processus.
@@ -105,7 +105,7 @@ Utilisez les niveaux de durabilité Silver ou Gold pour tous les types de nœuds
 - Conservez au minimum cinq nœuds pour tout groupe de machines virtuelles identiques sur lequel le niveau de durabilité Gold ou Silver est activé.
 - Chaque groupe de machines virtuelles identiques avec le niveau de durabilité Silver ou Gold doit être mappé à son propre type de nœud dans le cluster Service Fabric. Le mappage de plusieurs groupes de machines virtuelles identiques à un type de nœud unique empêche le fonctionnement correct de la coordination entre le cluster Service Fabric et l’infrastructure Azure.
 - Ne supprimez pas d’instances de machine virtuelle aléatoires. Opérez toujours une descente en puissance du groupe de machines virtuelles identiques. La suppression d’instances de machine virtuelle aléatoires risque de créer des déséquilibres au sein de l’instance de machine virtuelle répartie sur UD et FD. Ce déséquilibre peut nuire à la capacité du système à équilibrer correctement la charge entre les instances de service/réplicas de service.
-- Si vous utilisez la fonctionnalité Mise à l’échelle automatique, définissez les règles de façon à ce que la diminution de la taille des instances (suppression d’instances de machine virtuelle) soit effectuée nœud après nœud. La descente en puissance de plusieurs instances en même temps présente des risques.
+- Si vous utilisez la fonctionnalité Mise à l’échelle automatique, définissez les règles de façon à ce que le scale-in (suppression d’instances de machine virtuelle) soit effectué nœud après nœud. La descente en puissance de plusieurs instances en même temps présente des risques.
 - En cas de suppression ou de désallocation de machines virtuelles sur le type de nœud principal, vous ne devez jamais réduire le nombre de machines virtuelles d’allouées en-dessous de ce qu’exige le niveau de fiabilité. Ces opérations sont bloquées pour une durée indéterminée dans un groupe identique avec un niveau de durabilité Silver ou Gold.
 
 ## <a name="the-reliability-characteristics-of-the-cluster"></a>Caractéristiques de fiabilité du cluster
@@ -142,7 +142,7 @@ Voici la recommandation sur le choix du niveau de fiabilité.  Le nombre de nœu
 Voici nos recommandations pour planifier la capacité du type de nœud principal :
 
 - **Nombre d’instances de machine virtuelle pour exécuter les charges de travail en production dans Azure :** Vous devez spécifier une taille minimale du type de nœud principal de 5 et un niveau de fiabilité Silver.  
-- **Nombre d’instances de machine virtuelle pour exécuter des charges de travail de test dans Azure :** vous devez définir la taille minimale du type de nœud principal sur 1 ou 3. Le cluster à un nœud s’exécute avec une configuration spéciale. Par conséquent, l’augmentation de la taille des instances de ce cluster n’est pas prise en charge. Le cluster à un nœud n’est pas fiable. Par conséquent, dans votre modèle Resource Manager, vous devez supprimer / ne pas spécifier cette configuration (ne pas définir la valeur de configuration ne suffit pas). Si vous configurez le cluster à un nœud via le portail, la configuration est automatiquement prise en charge. Les clusters à un et trois nœuds ne sont pas pris en charge pour l’exécution des charges de travail de production. 
+- **Nombre d’instances de machine virtuelle pour exécuter des charges de travail de test dans Azure :** vous devez définir la taille minimale du type de nœud principal sur 1 ou 3. Le cluster à un nœud s’exécute avec une configuration spéciale. Par conséquent, effectuer un scale-out de ce cluster n’est pas pris en charge. Le cluster à un nœud n’est pas fiable. Par conséquent, dans votre modèle Resource Manager, vous devez supprimer / ne pas spécifier cette configuration (ne pas définir la valeur de configuration ne suffit pas). Si vous configurez le cluster à un nœud via le portail, la configuration est automatiquement prise en charge. Les clusters à un et trois nœuds ne sont pas pris en charge pour l’exécution des charges de travail de production. 
 - **Référence de la machine virtuelle** : comme les services système s’exécutent sur le type de nœud principal, votre choix de référence de machine virtuelle pour celui-ci doit prendre en compte la charge maximale globale que vous prévoyez de placer dans le cluster. Voici une analogie pour illustrer mon propos ici : considérez le type de nœud principal comme vos « poumons », qui alimentent votre cerveau en oxygène ; si le cerveau ne reçoit pas assez d’oxygène, votre corps souffre. 
 
 Les besoins en capacité d’un cluster sont déterminés par la charge de travail que vous prévoyez d’exécuter dans celui-ci. Par conséquent, nous ne pouvons pas fournir de recommandations qualitatives pour votre charge de travail spécifique. Néanmoins, vous trouverez ci-dessous des recommandations générales qui vous aideront à bien démarrer.
@@ -158,7 +158,7 @@ Pour les charges de travail de production :
 - Les machines virtuelles de faible priorité ne sont pas prises en charge.
 
 > [!WARNING]
-> La modification de la taille d’une référence SKU de machine virtuelle de nœud principal sur un cluster en cours d’exécution, est une opération de mise à l’échelle qui est documentée dans [Augmenter la taille des instances d’un groupe de machines virtuelles identiques](virtual-machine-scale-set-scale-node-type-scale-out.md).
+> La modification de la taille d’une référence SKU de machine virtuelle de nœud principal sur un cluster en cours d’exécution, est une opération de mise à l’échelle qui est documentée dans [Effectuer un scale-out d’un groupe de machines virtuelles identiques](virtual-machine-scale-set-scale-node-type-scale-out.md).
 
 ## <a name="non-primary-node-type---capacity-guidance-for-stateful-workloads"></a>Type de nœud non principal - Recommandations en matière de capacité pour les charges de travail avec état
 

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: snehaa
 ms.openlocfilehash: c85c5c6e11beb0178139dad152f56f420b2ac26f
-ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78926725"
 ---
 # <a name="azure-migrate-common-questions"></a>Azure Migrate : Questions courantes
@@ -34,7 +34,7 @@ Utilisez Azure Migrate pour découvrir, évaluer et migrer des données, des app
 
 [Azure Site Recovery](../site-recovery/site-recovery-overview.md) est une solution de reprise d’activité. 
 
-L’outil Azure Migrate: Server Migration utilise des fonctionnalités Site Recovery de back-end pour la migration lift-and-shift de certains ordinateurs locaux.
+Azure Migrate : Server Migration utilise des fonctionnalités Site Recovery de back-end pour la migration lift-and-shift de certains ordinateurs locaux.
 
 ## <a name="whats-the-difference-between-azure-migrate-server-assessment-and-the-map-toolkit"></a>Quelle est la différence entre Azure Migrate: Server Assessment et Map Toolkit ?
 

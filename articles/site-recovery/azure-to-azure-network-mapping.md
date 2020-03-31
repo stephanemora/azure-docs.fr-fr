@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: mayg
 ms.openlocfilehash: b8f0512f978f25ca196ad6e9a7a03243c47f0662
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954156"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79229193"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Configurer le mappage réseau et l’adressage IP pour les réseaux virtuels
 
 Cet article explique comment mapper deux instances de réseaux virtuels Azure situés dans différentes régions Azure et comment configurer l’adressage IP entre les réseaux. Le mappage réseau fournit un comportement par défaut pour la sélection du réseau cible en fonction du réseau source, au moment de l’activation de la réplication.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de mapper des réseaux, vous devez avoir des [réseaux virtuels Azure](../virtual-network/virtual-networks-overview.md) dans les régions Azure source et cible. 
 
@@ -67,8 +67,8 @@ Le sous-réseau de la machine virtuelle cible est sélectionné en fonction du n
 
 L’adresse IP pour chaque carte réseau sur une machine virtuelle cible est configurée comme suit :
 
-- **DHCP** : si la carte réseau de la machine virtuelle source utilise le protocole DHCP, la carte réseau de la machine virtuelle cible est également configurée pour utiliser DHCP.
-- **Adresse IP statique** : si la carte réseau de la machine virtuelle source utilise un adressage IP statique, la carte réseau de la machine virtuelle cible utilise également une adresse IP statique.
+- **DHCP** : si la carte réseau de la machine virtuelle source utilise le protocole DHCP, la carte réseau de la machine virtuelle cible est également configurée pour utiliser DHCP.
+- **Adresse IP statique** : si la carte réseau de la machine virtuelle source utilise un adressage IP statique, la carte réseau de la machine virtuelle cible utilise également une adresse IP statique.
 
 
 ## <a name="ip-address-assignment-during-failover"></a>Affectation d’adresses IP lors du basculement
@@ -84,8 +84,8 @@ Espace d’adressage différent | L’adresse IP suivante disponible dans le sou
 
 **Réseau cible** | **Détails**
 --- | ---
-Le réseau cible est le réseau virtuel pour le basculement | - L’adresse IP cible est statique avec la même adresse IP. <br/><br/>  - Si la même adresse IP est déjà attribuée, alors l’adresse IP est la prochaine disponible à la fin de la plage du sous-réseau. Par exemple :  si l’adresse IP source est 10.0.0.19 et que le réseau de basculement utilise la plage 10.0.0.0/24, alors l’adresse IP suivante attribuée à la machine virtuelle cible est 10.0.0.254.
-Le réseau cible n’est pas le réseau virtuel pour le basculement | - L’adresse IP cible est statique avec la même adresse IP.<br/><br/>  - Si la même adresse IP est déjà attribuée, alors l’adresse IP est la prochaine disponible à la fin de la plage du sous-réseau.<br/><br/> Par exemple :  si l’adresse IP source est 10.0.0.19 et que le basculement se trouve sur un réseau qui n’est pas le réseau de basculement, avec la plage 10.0.0.0/24, alors l’adresse IP statique cible est 10.0.0.0.19 si elle est disponible, et dans le cas contraire, 10.0.0.254.
+Le réseau cible est le réseau virtuel pour le basculement | - L’adresse IP cible est statique avec la même adresse IP. <br/><br/>  - Si la même adresse IP est déjà attribuée, alors l’adresse IP est la prochaine disponible à la fin de la plage du sous-réseau. Par exemple : si l’adresse IP source est 10.0.0.19 et si le réseau de basculement utilise la plage 10.0.0.0/24, alors l’adresse IP suivante attribuée à la machine virtuelle cible est 10.0.0.254.
+Le réseau cible n’est pas le réseau virtuel pour le basculement | - L’adresse IP cible est statique avec la même adresse IP.<br/><br/>  - Si la même adresse IP est déjà attribuée, alors l’adresse IP est la prochaine disponible à la fin de la plage du sous-réseau.<br/><br/> Par exemple : si l’adresse IP source est 10.0.0.19 et si le basculement se trouve sur un réseau qui n’est pas le réseau de basculement, avec la plage 10.0.0.0/24, alors l’adresse IP statique cible sera 10.0.0.0.19 si elle est disponible, et dans le cas contraire, elle sera 10.0.0.254.
 
 - Le réseau virtuel de basculement est le réseau cible que vous sélectionnez lorsque vous configurez la récupération d’urgence.
 - Nous vous recommandons de toujours utiliser un réseau de non production pour le test de basculement.

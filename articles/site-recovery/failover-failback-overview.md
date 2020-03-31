@@ -4,11 +4,11 @@ description: En savoir plus sur le basculement et les défaillances dans Azure S
 ms.topic: conceptual
 ms.date: 12/24/2019
 ms.openlocfilehash: d9b54f3c452212e12419a5ffd67b116c8660308d
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77539516"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79236493"
 ---
 # <a name="about-on-premises-disaster-recovery-failoverfailback"></a>À propos du basculement/restauration de la récupération d’urgence au niveau local
 

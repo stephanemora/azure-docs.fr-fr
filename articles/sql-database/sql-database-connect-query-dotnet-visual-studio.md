@@ -11,18 +11,18 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/31/2019
-ms.openlocfilehash: b37430ed7f23088c9bcacd555d68e484310de700
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 75f84f87fc59a870a0c88fd24cb1b1b8894b3e2a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75562151"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79209568"
 ---
 # <a name="quickstart-use-net-and-c-in-visual-studio-to-connect-to-and-query-an-azure-sql-database"></a>Démarrage rapide : Utilisation de NET et C# dans Visual Studio pour se connecter à une base de données Azure SQL et l’interroger
 
-Ce guide de démarrage rapide montre comment utiliser [l’infrastructure .NET](https://www.microsoft.com/net/) et le code C# dans Visual Studio pour interroger une base de données Azure SQL avec des instructions Transact-SQL.
+Ce guide de démarrage rapide montre comment utiliser [.NET Framework](https://www.microsoft.com/net/) et le code C# dans Visual Studio pour interroger une base de données Azure SQL avec des instructions Transact-SQL.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer ce démarrage rapide, les éléments suivants sont requis :
 

@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/14/2020
 ms.openlocfilehash: 85b7093df99127b690c51e8f2f28d18e3f5f3c95
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75981635"
 ---
 # <a name="process-events-from-azure-event-hubs-with-apache-storm-on-hdinsight-c"></a>Traiter des événements issus d’Azure Event Hubs avec Apache Storm sur HDInsight (C#)
@@ -42,10 +42,10 @@ Microsoft fournit un ensemble de composants Java qui peut être utilisé pour co
 
 Les composants suivants sont utilisés dans cet exemple :
 
-* __EventHubSpout__ : lit des données à partir d’Event Hubs.
-* __EventHubBolt__ : écrit des données vers Event Hubs.
-* __EventHubSpoutConfig__ : permet de configurer EventHubSpout.
-* __EventHubBoltConfig__ : permet de configurer EventHubBolt.
+* __EventHubSpout__ : lit les données à partir d’Event Hubs.
+* __EventHubBolt__ : écrit des données dans Event Hubs.
+* __EventHubSpoutConfig__ : permet de configurer EventHubSpout.
+* __EventHubBoltConfig__ : permet de configurer EventHubBolt.
 
 ### <a name="example-spout-usage"></a>Exemple d’utilisation du spout
 

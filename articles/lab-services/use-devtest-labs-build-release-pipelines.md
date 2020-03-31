@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 01/16/2020
 ms.author: spelluru
 ms.openlocfilehash: e16f3c5a0c0b2b86d6a893f541cefb275a8e7d07
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76169236"
 ---
 # <a name="use-devtest-labs-in-azure-pipelines-build-and-release-pipelines"></a>Utiliser DevTest Labs dans les pipelines de build et de mise en production Azure Pipelines
@@ -67,7 +67,7 @@ Dans la tâche Créer un environnement (tâche **Créer un environnement Azure D
 
 Nous vous recommandons d’utiliser des listes déroulantes sur la page au lieu d’entrer les informations manuellement. Si vous entrez manuellement les informations, entrez des ID de ressource Azure complets. La tâche affiche les noms conviviaux au lieu des ID de ressource. 
 
-Le nom de l’environnement est le nom affiché dans DevTest Labs. Il doit s’agir d’un nom unique pour chaque build. Par exemple :  **TestEnv$(Build.BuildId)** . 
+Le nom de l’environnement est le nom affiché dans DevTest Labs. Il doit s’agir d’un nom unique pour chaque build. Par exemple : **TestEnv$(Build.BuildId)** . 
 
 Vous pouvez spécifier un fichier de paramètres ou des paramètres pour transmettre des informations dans le modèle Resource Manager. 
 

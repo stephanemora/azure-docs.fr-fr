@@ -16,10 +16,10 @@ ms.date: 01/29/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7cf449880c1a7d1fdd1f951bf5ecbb7316efb8e8
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76991881"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-health-support-system"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Health Support System
@@ -32,7 +32,7 @@ Dans ce tutoriel, vous allez apprendre à intégrer Health Support System à Azu
 
 Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour commencer, vous devez disposer de ce qui suit :
 

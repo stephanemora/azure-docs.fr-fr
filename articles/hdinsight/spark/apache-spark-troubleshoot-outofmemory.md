@@ -8,11 +8,11 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/15/2019
 ms.openlocfilehash: 31cdef281b1cb26d01a4690c815e3d3621e2c053
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894310"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79233465"
 ---
 # <a name="outofmemoryerror-exceptions-for-apache-spark-in-azure-hdinsight"></a>Exceptions OutOfMemoryError pour Apache Spark dans Azure HDInsight
 
@@ -52,7 +52,7 @@ java.lang.OutOfMemoryError
     ...
 ```
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 La cause la plus probable de cette exception est que le segment de mémoire allouée aux machines virtuelles Java (JVM) est insuffisant. Ces JVM sont lancées en tant qu’exécuteurs ou pilotes dans le cadre de l’application Apache Spark.
 
@@ -100,7 +100,7 @@ Vous recevez l’erreur suivante lors de l’ouverture d’événements dans le 
 scala.MatchError: java.lang.OutOfMemoryError: Java heap space (of class java.lang.OutOfMemoryError)
 ```
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 Ce problème est souvent dû à un manque de ressources lors de l’ouverture de fichiers Spark Event volumineux. La taille du tas Spark est définie sur 1 Go par défaut, mais les fichiers d’événements Spark volumineux peuvent nécessiter une taille supérieure.
 
@@ -192,7 +192,7 @@ Exception in thread "main" java.lang.OutOfMemoryError: unable to create new nati
   ## using "vmstat" found  we had enough free memory
 ```
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 `java.lang.OutOfMemoryError: unable to create new native thread` indique que le système d’exploitation ne peut pas attribuer plus de threads natifs aux JVM. Il est confirmé que cette exception est due à la violation de la limite du nombre de threads par processus.
 

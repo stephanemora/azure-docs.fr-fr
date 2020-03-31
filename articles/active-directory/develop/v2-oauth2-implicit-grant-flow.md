@@ -17,12 +17,12 @@ ms.date: 11/19/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 4f35162be513873637f9a87260410d891fdace10
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 6e3f021fd888bbb408fa66964c54d22f0d68e84e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78300466"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80297697"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Plateforme d’identités Microsoft et flux d’octroi implicite
 
@@ -64,11 +64,14 @@ Ce modèle permet à l’application JavaScript de renouveler les jetons d’acc
 
 ## <a name="is-the-implicit-grant-suitable-for-my-app"></a>L’octroi implicite est-il adapté à mon application ?
 
-L’octroi implicite présente plus de risques que d’autres octrois, et les points auxquels vous devez être attentif sont bien documentés (par exemple, dans [Utilisation incorrecte du jeton d’accès pour emprunter l’identité d’un propriétaire des ressources dans un flux implicite][OAuth2-Spec-Implicit-Misuse] et [Modèle de menace OAuth 2.0 et considérations de sécurité][OAuth2-Threat-Model-And-Security-Implications]). Toutefois, le profil de risque supérieur est principalement dû au fait qu’il est destiné à autoriser les applications qui exécutent du code actif, envoyé à un navigateur par une ressource distante. Si vous optez pour une architecture d’application à page unique, que vous n’avez aucun composant principal ou que vous envisagez d’appeler une API Web à l’aide de JavaScript, l’utilisation du flux implicite pour l’acquisition de jeton est recommandée.
+L’octroi implicite présente plus de risques que d’autres octrois, et les points auxquels vous devez être attentif sont bien documentés (par exemple, [Mauvaise utilisation du jeton d’accès pour emprunter l’identité du propriétaire des ressources dans un flux implicite][OAuth2-Spec-Implicit-Misuse] et[Modèle de menace et considérations de sécurité OAuth 2.0][OAuth2-Threat-Model-And-Security-Implications]). Toutefois, le profil de risque supérieur est principalement dû au fait qu’il est destiné à autoriser les applications qui exécutent du code actif, envoyé à un navigateur par une ressource distante. Si vous optez pour une architecture d’application à page unique, que vous n’avez aucun composant principal ou que vous envisagez d’appeler une API Web à l’aide de JavaScript, l’utilisation du flux implicite pour l’acquisition de jeton est recommandée.
 
 Si votre application est un client natif, le flux implicite n’est pas idéal. L’absence du cookie de session Azure AD dans le contexte d’un client natif empêche votre application de maintenir une session longue. En d’autres termes, votre application sollicite régulièrement l’utilisateur pour obtenir des jetons d’accès aux nouvelles ressources.
 
 Si vous développez une application web qui comprend un principal et utilise une API à partir de son code principal, le flux implicite n’est pas non plus la solution idéale. D’autres modes d’octroi d’autorisation sont beaucoup plus puissants. Par exemple, l’octroi d’informations d’identification du client OAuth2 permet d’obtenir des jetons correspondant aux autorisations attribuées à l’application elle-même, et non aux délégations de l’utilisateur. Le client conserve ainsi l’accès par programmation aux ressources, même lorsqu’un utilisateur n’est pas actif dans une session et ainsi de suite. De plus, ces modes d’octroi offrent de meilleurs gages de sécurité. Par exemple, les jetons d’accès ne transitent jamais par le navigateur de l’utilisateur. Ils ne risquent donc pas d’être enregistrés dans l’historique du navigateur. L’application cliente peut également effectuer une authentification forte lorsqu’elle demande un jeton.
+
+[OAuth2-Spec-Implicit-Misuse]: https://tools.ietf.org/html/rfc6749#section-10.16
+[OAuth2-Threat-Model-And-Security-Implications]: https://tools.ietf.org/html/rfc6819
 
 ## <a name="protocol-diagram"></a>Schéma de protocole
 

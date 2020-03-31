@@ -3,12 +3,12 @@ title: Utiliser Azure Monitor pour les conteneurs afin de consulter les mesures 
 description: Cet article décrit l’affichage en temps réel des mesures sans l’utilisation de kubectl avec Azure Monitor pour les conteneurs.
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: fbb08a8ed3deeff061065916241ee2d724603be3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4604635c985057ec0b7f49a0d1cca7111dfc8eec
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75404933"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79216581"
 ---
 # <a name="how-to-view-metrics-in-real-time"></a>Comment afficher les mesures en temps réel
 
@@ -34,7 +34,7 @@ Cette fonctionnalité effectue une opération d’interrogation sur les points d
 
 La fréquence d’interrogation est configurée dans la liste déroulante **Définir l’intervalle**. Vous pouvez ainsi définir la durée entre chaque interrogation : toutes les 1, 5, 15 ou 30 secondes. 
 
-![Menu déroulant pour définir l’intervalle d’interrogation Démarrer](./media/container-insights-livedata-metrics/cluster-view-polling-interval-dropdown.ping.png)
+![Menu déroulant pour définir l’intervalle d’interrogation Démarrer](./media/container-insights-livedata-metrics/cluster-view-polling-interval-dropdown.png)
 
 >[!IMPORTANT]
 >Lorsque vous essayez de résoudre un problème, nous vous recommandons de définir la fréquence d’interrogation sur 1 seconde pendant la durée de vos tentatives de résolution. Ces requêtes peuvent avoir un impact sur la disponibilité et la limitation de l’API Kubernetes sur votre cluster. Ensuite, définissez un intervalle d’interrogation plus long. 

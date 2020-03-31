@@ -9,10 +9,10 @@ ms.date: 11/13/2019
 ms.author: absha
 ms.custom: mvc
 ms.openlocfilehash: b90736b3ed1c1f69488fde4a386cf215d751c362
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74012854"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-portal"></a>Réécrire les en-têtes de requête et de réponse HTTP avec Azure Application Gateway - Azure portal
@@ -27,23 +27,23 @@ Vous devez disposer d’une instance de la référence SKU Application Gateway v
 
 ## <a name="create-required-objects"></a>Créer les objets requis
 
-Pour configurer la réécriture d’en-têtes HTTP, procédez comme suit.
+Pour configurer la réécriture d’en-tête HTTP, vous devez effectuer ces étapes.
 
 1. Créez les objets nécessaires à la réécriture d’en-tête HTTP :
 
-   - **Action de réécriture** : permet de spécifier la requête et les champs d’en-tête de requête que vous souhaitez réécrire, ainsi que la nouvelle valeur des en-têtes. Vous pouvez associer une ou plusieurs conditions de réécriture avec une action de réécriture.
+   - **Action de réécriture** : permet de spécifier la requête et les champs d’en-tête de requête que vous souhaitez réécrire, ainsi que la nouvelle valeur des en-têtes. Vous pouvez associer une ou plusieurs conditions de réécriture à une action de réécriture.
 
-   - **Condition de réécriture** : une configuration facultative. Les conditions de réécriture évaluent le contenu des requêtes et réponses HTTP(S). L’action de réécriture se produira si la requête ou la réponse HTTP(S) correspondent à la condition de réécriture.
+   - **Condition de réécriture** : configuration facultative. Les conditions de réécriture évaluent le contenu des requêtes et réponses HTTP(S). L’action de réécriture se produit si la requête ou la réponse HTTP(S) correspondent à la condition de réécriture.
 
      Si vous associez plusieurs conditions à une action, cette dernière ne se produit que lorsque toutes les conditions sont remplies. En d’autres termes, il s’agit d’une opération AND logique.
 
    - **Règle de réécriture** : contient plusieurs combinaisons d’actions/conditions de réécriture.
 
-   - **Séquence de règle** : permet de déterminer l’ordre dans lequel les règles de réécriture s’exécutent. Cette configuration est utile quand vous disposez de plusieurs règles de réécriture dans un jeu de réécritures. Une règle de réécriture qui présente une valeur de séquence de règle peu élevée s’exécute en premier. Si vous attribuez la même valeur de séquence de règle à deux règles de réécriture, l’ordre d’exécution n’est pas déterministe.
+   - **Séquence de règle** : permet de déterminer l’ordre dans lequel les règles de réécriture s’exécutent. Cette configuration est utile quand vous disposez de plusieurs règles de réécriture dans un jeu de réécritures. Une règle de réécriture qui présente une valeur de séquence de règle inférieure s’exécute en premier. Si vous attribuez la même valeur de séquence de règle à deux règles de réécriture, l’ordre d’exécution n’est pas déterministe.
 
-   - **Jeu de réécriture** : contient plusieurs règles de réécriture qui seront associées à une règle d’acheminement de requête.
+   - **Jeu de réécritures** : contient plusieurs règles de réécriture qui seront associées à une règle de routage de requête.
 
-2. Attachez le jeu de réécriture à une règle d’acheminement. La configuration de réécriture est attachée à l’écouteur source par le biais de la règle d’acheminement. Quand vous utilisez une règle de routage de base, la configuration de réécriture d’en-tête est associée à un écouteur source et correspond à une réécriture d’en-tête globale. Quand vous utilisez une règle de routage basée sur le chemin, la configuration de réécriture d’en-tête est définie sur le mappage du chemin d’URL. Dans ce cas, elle s’applique uniquement à la zone de chemin spécifique d’un site.
+2. Attachez le jeu de réécriture à une règle d’acheminement. La configuration de réécriture est attachée à l’écouteur source via la règle de routage. Quand vous utilisez une règle de routage de base, la configuration de réécriture d’en-tête est associée à un écouteur source et correspond à une réécriture d’en-tête globale. Quand vous utilisez une règle de routage basée sur le chemin, la configuration de réécriture d’en-tête est définie sur le mappage du chemin d’URL. Dans ce cas, elle s’applique uniquement à la zone de chemin spécifique d’un site.
 
 Vous pouvez créer plusieurs jeux de réécritures d’en-tête HTTP et appliquer chacun d’eux à différents écouteurs. En revanche, vous ne pouvez appliquer qu’un seul jeu de réécritures à un écouteur spécifique.
 

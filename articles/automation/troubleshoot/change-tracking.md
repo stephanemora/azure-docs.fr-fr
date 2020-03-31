@@ -10,23 +10,23 @@ ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 6cadaea1a20743071acbe8860df02ca7bbdde954
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77198528"
 ---
 # <a name="troubleshoot-change-tracking-and-inventory"></a>Résolution des problèmes avec la fonction Suivi des modifications et inventaire
 
 ## <a name="windows"></a>Windows
 
-### <a name="records-not-showing-windows"></a>Scénario : Les enregistrements Change Tracking n’apparaissent pas pour les ordinateurs Windows
+### <a name="scenario-change-tracking-records-arent-showing-for-windows-machines"></a><a name="records-not-showing-windows"></a>Scénario : Les enregistrements Change Tracking n’apparaissent pas pour les ordinateurs Windows
 
 #### <a name="issue"></a>Problème
 
 Vous ne voyez pas les résultats Change Tracking et Inventaire pour les ordinateurs Windows qui intègrent cette fonction.
 
-#### <a name="cause"></a>Cause :
+#### <a name="cause"></a>Cause
 
 Cette erreur peut avoir les causes suivantes :
 
@@ -79,7 +79,7 @@ Si vous utilisez une image clonée, commencez par exécuter Sysprep sur l’imag
 
 Vous ne voyez pas les résultats Change Tracking et Inventaire pour les ordinateurs Linux qui intègrent cette fonction. 
 
-#### <a name="cause"></a>Cause :
+#### <a name="cause"></a>Cause
 Voici les causes possibles de ce problème :
 * L’agent Log Analytics pour Linux n’est pas en cours d’exécution.
 * L’agent Log Analytics pour Linux n’est pas configuré correctement.

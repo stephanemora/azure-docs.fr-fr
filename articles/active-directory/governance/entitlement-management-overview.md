@@ -3,7 +3,7 @@ title: Présentation de la gestion des droits d’utilisation - Azure AD
 description: Obtenez une vue d’ensemble de la gestion des droits d'utilisation Azure Active Directory et découvrez comment l’utiliser pour gérer l’accès aux groupes, applications et sites SharePoint Online pour les utilisateurs internes et externes.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: barclayn
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 01/10/2020
-ms.author: ajburnle
+ms.date: 03/22/2020
+ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d1faf501aff8960a4b1961b34164be07b1d685d
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 3deb87fec8241ad6126314f3f6ce5fb9600ad1fb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75932474"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80128564"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>Présentation de la gestion des droits d’utilisation Azure AD
 
@@ -150,11 +150,11 @@ Les licences Azure AD Premium P2 ne sont **pas** requises pour les tâches sui
 
 Pour chaque licence Azure AD Premium P2 payante que vous achetez pour vos utilisateurs membres (employés), vous pouvez utiliser Azure AD B2B pour inviter jusqu’à 5 utilisateurs invités. Ces utilisateurs invités peuvent également utiliser les fonctionnalités d’Azure AD Premium P2. Pour plus d’informations, consultez les conseils sur l’[affectation de licences Azure AD B2B Collaboration](../b2b/licensing-guidance.md).
 
-Pour plus d’informations sur les licences, consultez [Assigner ou supprimer des licences à l’aide du portail Azure Active Directory](../fundamentals/license-users-groups.md).
+Pour plus d’informations sur les licences, consultez [Attribuer ou supprimer des licences à l’aide du portail Azure Active Directory](../fundamentals/license-users-groups.md).
 
 ### <a name="example-license-scenarios"></a>Exemples de scénarios de licence
 
-Voici quelques exemples de scénarios de licence pour vous aider à déterminer le nombre de licences dont vous devez disposer.
+Voici quelques exemples de scénarios de licence pour vous permettre de déterminer le nombre de licences dont vous devez disposer.
 
 | Scénario | Calcul | Nombre de licences |
 | --- | --- | --- |

@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: 482dc0ab549ec6b9f05bc9f74a3d31ac13646ce5
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 6c81e50560de69f7702e852d4602680fde7f01f3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169208"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79218125"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-classic-web-service"></a>Déployer un service web Azure Machine Learning Studio (classique)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Azure Machine Learning Studio (classique) vous permet de générer et de tester une solution d’analytique prédictive. Vous pouvez ensuite déployer la solution comme un service web.
 
@@ -123,7 +125,7 @@ Pour plus d’informations sur l’accès à un service web Machine Learning Stu
 
 Vous pouvez gérer vos nouveaux services web par le biais du portail des services web Machine Learning Studio (classique). Dans la [page principale du portail](https://services.azureml.net/), cliquez sur **Services web**. Sur la page de services web, vous pouvez supprimer ou copier un service. Pour surveiller un service spécifique, cliquez sur le service, puis sur **Tableau de bord**. Pour surveiller les tâches de traitement par lots associées au service web, cliquez sur **Batch Request Log**(Journal de requête de traitement par lots).
 
-### <a id="multi-region"></a> Déployer votre nouveau service web dans plusieurs régions
+### <a name="deploy-your-new-web-service-to-multiple-regions"></a><a id="multi-region"></a> Déployer votre nouveau service web dans plusieurs régions
 
 Vous pouvez facilement déployer un nouveau service web dans plusieurs régions, sans avoir besoin de plusieurs abonnements ni espaces de travail.
 

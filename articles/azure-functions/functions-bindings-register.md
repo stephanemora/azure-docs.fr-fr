@@ -6,11 +6,11 @@ ms.topic: reference
 ms.date: 07/08/2019
 ms.author: cshoe
 ms.openlocfilehash: 1688fe848beb62731391bf4399a0dabec5265320
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78357862"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79235173"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Inscrire des extensions de liaison Azure Functions
 
@@ -31,7 +31,7 @@ Le tableau suivant indique quand et comment vous inscrivez des liaisons.
 |Bibliothèque de classes C# avec Visual Studio|[Utiliser les outils NuGet](#vs)|[Utiliser les outils NuGet](#vs)|
 |Bibliothèque de classes C# avec Visual Studio Code|N/A|[Utiliser CLI .NET Core](#vs-code)|
 
-## <a name="extension-bundles"></a>Offres groupées d’extension pour développement local
+## <a name="extension-bundles-for-local-development"></a><a name="extension-bundles"></a>Offres groupées d’extension pour développement local
 
 Les offres groupées d’extensions constituent une technologie de déploiement qui vous permet d’ajouter un jeu d’extensions de liaison Functions compatible avec votre application de fonction. Un ensemble prédéfini d’extensions est ajouté lorsque vous générez votre application. Les packages d’extension définis dans une offre groupée sont compatibles entre eux, vous permettant ainsi d’éviter les conflits entre les packages. Vous activez les offres groupées d’extensions dans le fichier host.json de l’application.  
 
@@ -47,7 +47,7 @@ Pour utiliser des offres groupées d’extension, mettez à jour le fichier *hos
 
 <a name="local-csharp"></a>
 
-## <a name="vs"></a> Bibliothèque de classes C\# avec Visual Studio
+## <a name="c-class-library-with-visual-studio"></a><a name="vs"></a> Bibliothèque de classes C\# avec Visual Studio
 
 Dans **Visual Studio**, vous pouvez installer des packages à partir de la console du Gestionnaire de package avec la commande [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package), comme indiqué dans l’exemple suivant :
 
@@ -61,7 +61,7 @@ Remplacez `<TARGET_VERSION>` dans l’exemple par une version spécifique du pac
 
 Si vous utilisez `Install-Package` pour faire référence à une liaison, vous n’avez pas besoin d’utiliser des [offres groupées d’extensions](#extension-bundles). Cette approche est spécifique aux bibliothèques de classes générées dans Visual Studio.
 
-## <a name="vs-code"></a> Bibliothèque de classes C# avec Visual Studio Code
+## <a name="c-class-library-with-visual-studio-code"></a><a name="vs-code"></a> Bibliothèque de classes C# avec Visual Studio Code
 
 Dans **Visual Studio Code**, installez des packages pour un projet de bibliothèque de classes C# à partir de l’invite de commandes avec la commande [dotnet add package](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) dans CLI .NET Core. L’exemple suivant montre comment ajouter une liaison :
 

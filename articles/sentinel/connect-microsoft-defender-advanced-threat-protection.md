@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/13/2019
 ms.author: yelevin
 ms.openlocfilehash: ee2c917d02a442ebabc0e1b40bc245982af794f8
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77588210"
 ---
 # <a name="connect-alerts-from-microsoft-defender-advanced-threat-protection"></a>Connecter des alertes de Microsoft Defender Advanced Threat Protection 
@@ -32,7 +32,7 @@ ms.locfileid: "77588210"
 
 Vous pouvez diffuser des alertes depuis [Microsoft Defender Advanced Threat Protection](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) dans Azure Sentinel en un seul clic. Cette connexion vous permet de diffuser les alertes de Microsoft Defender Advanced Threat Protection dans Azure Sentinel. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Licence valide de Microsoft Defender Advanced Threat Protection activée comme cela est décrit dans [Valider l’attribution de licence et terminer la configuration de Microsoft Defender Advanced Threat Protection](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/licensing). 
 - Vous devez être administrateur ou administrateur de la sécurité sur le locataire Azure Sentinel.

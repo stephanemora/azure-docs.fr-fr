@@ -9,11 +9,11 @@ ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: 3c09a95309e001def306698bbba4f6d0a1a2804d
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543655"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228409"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2"></a>Utiliser DistCp pour copier des données entre Azure Storage Blob et Azure Data Lake Storage Gen2
 
@@ -71,9 +71,9 @@ La granularité la plus basse de DistCp étant un fichier unique, la définition
 
 Voici quelques conseils à suivre.
 
-* **Étape 1 : Déterminer la mémoire totale disponible pour la file d’attente d’application YARN « par défaut »**  - La première étape consiste à déterminer la quantité de mémoire disponible pour la file d’attente d’application YARN « par défaut ». Ces informations sont disponibles dans le portail de Ambari associé au cluster. Accédez à YARN et affichez l’onglet Configurations pour voir la mémoire YARN disponible pour la file d’attente d’application « par défaut ». Il s’agit de la mémoire totale disponible pour votre travail DistCp (qui est en fait un travail MapReduce).
+* **Étape 1 : Déterminer la mémoire totale disponible pour la file d’attente d’application YARN « par défaut »**  - La première étape consiste à déterminer la quantité de mémoire disponible pour la file d’attente d’application YARN « par défaut ». Ces informations sont disponibles dans le portail de Ambari associé au cluster. Accédez à YARN et affichez l’onglet Configurations pour voir la mémoire YARN disponible pour la file d’attente d’application « par défaut ». Il s’agit de la mémoire totale disponible pour votre travail DistCp (qui est en fait un travail MapReduce).
 
-* **Étape 2 : Calculer le nombre de mappeurs** - La valeur de **m** est égale au quotient de la mémoire YARN totale divisée par la taille du conteneur YARN. Les informations sur la taille du conteneur YARN sont également disponibles dans le portail Ambari. Accédez à YARN et affichez l’onglet Configurations. La taille du conteneur YARN s’affiche dans cette fenêtre. L’équation pour obtenir le nombre de mappeurs (**m**) est
+* **Étape 2 : Calculer le nombre de mappeurs** - La valeur de **m** est égale au quotient de la mémoire YARN totale divisée par la taille du conteneur YARN. Les informations sur la taille du conteneur YARN sont également disponibles dans le portail Ambari. Accédez à YARN et affichez l’onglet Configurations. La taille du conteneur YARN s’affiche dans cette fenêtre. L’équation pour obtenir le nombre de mappeurs (**m**) est
 
         m = (number of nodes * YARN memory for each node) / YARN container size
 

@@ -1,6 +1,6 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: container-service
 author: dlepow
 ms.service: container-service
@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 11/22/2019
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: ac928d9087ba5db312540b8ec542d7a2a29e2a99
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 6b4678b381e769993b01bbedd1cb4c0aeefc0cc1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77179072"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80334635"
 ---
-| Ressource | Limite par défaut |
+| Ressource | Limite |
 | --- | :--- |
 | Clusters maximum par abonnement | 100 |
 | Nombre maximal de nœuds par cluster avec les groupes à haute disponibilité de machines virtuelles et la référence SKU Standard Load Balancer  | 100 |

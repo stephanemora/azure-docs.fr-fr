@@ -5,13 +5,13 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.openlocfilehash: 3e4a1fc3de58b8e65ab9c7a288bdf3eb37e7bae0
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671968"
 ---
-# <a name="metric-telemetry-application-insights-data-model"></a>Télémétrie des métriques : Modèle de données Application Insights
+# <a name="metric-telemetry-application-insights-data-model"></a>Télémétrie des mesure : modèle de données Application Insights
 
 Deux types de télémétrie des mesures sont prises en charge par [Application Insights](../../azure-monitor/app/app-insights-overview.md) : la mesure unique et la mesure pré-agrégée. La mesure unique consiste simplement dans un nom et une valeur. La mesure pré-agrégée spécifie les valeurs minimale et maximale de la mesure dans l’intervalle d’agrégation, ainsi que son écart standard.
 
@@ -33,7 +33,7 @@ Système de représentation des mesures et compteurs de processus :
 | `\ASP.NET Applications(??APP_W3SVC_PROC??)\Request Execution Time`   | Travail en cours... | [requestExecutionTime](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FrequestExecutionTime) | durée d’exécution moyenne des requêtes
 | `\ASP.NET Applications(??APP_W3SVC_PROC??)\Requests In Application Queue` | Travail en cours... | [requestsInQueue](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FrequestsInQueue) | nombre de requêtes en attente de traitement dans une file d’attente
 
-## <a name="name"></a>Nom
+## <a name="name"></a>Name
 
 Nom de la mesure que vous aimeriez voir dans le portail Application Insights et dans l’interface utilisateur. 
 

@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/17/2018
 ms.openlocfilehash: 0320be3a2cfbb96367799577a6e56bcf5da87dcb
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77658504"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-azure-monitor"></a>Guide de référence des vignettes du Concepteur de vues dans Azure Monitor
@@ -18,8 +18,8 @@ Grâce au Concepteur de vues d’Azure Monitor, vous pouvez créer plusieurs vue
 
 Pour plus d’informations sur le Concepteur de vues, consultez :
 
-* [Concepteur de vues](view-designer.md) : présentation du Concepteur de vues et des procédures de création et de modification des vues personnalisées.
-* [Référence des composants de visualisation](view-designer-parts.md) : guide de référence pour les paramètres des composants de visualisation disponibles dans vos vues personnalisées.
+* [Concepteur de vues](view-designer.md) : fournit une présentation du Concepteur de vues et des procédures de création et de modification des vues personnalisées.
+* [Référence des composants de visualisation](view-designer-parts.md) : fournit un guide de référence pour les paramètres des composants de visualisation disponibles dans vos vues personnalisées.
 
 
 Les vignettes du Concepteur de vues disponibles sont décrites dans le tableau suivant :  
@@ -45,7 +45,7 @@ La vignette **Nombre** affiche à la fois le nombre d’enregistrements retourn�
 
 | Paramètre | Description |
 |:--- |:--- |
-| Nom |Texte affiché en haut de la vignette. |
+| Name |Texte affiché en haut de la vignette. |
 | Description |Texte affiché sous le nom de la vignette. |
 | **Vignette** | |
 | Légende |Texte affiché sous la valeur. |
@@ -63,7 +63,7 @@ Cette vignette affiche le nombre d’enregistrements retournés par deux requêt
 
 | Paramètre | Description |
 |:--- |:--- |
-| Nom |Texte affiché en haut de la vignette. |
+| Name |Texte affiché en haut de la vignette. |
 | Description |Texte affiché sous le nom de la vignette. |
 | **Première vignette** | |
 | Légende |Texte affiché sous la valeur. |
@@ -84,13 +84,13 @@ La vignette **Anneau** affiche un nombre unique qui résume une colonne de valeu
 
 | Paramètre | Description |
 |:--- |:--- |
-| Nom |Texte affiché en haut de la vignette. |
+| Name |Texte affiché en haut de la vignette. |
 | Description |Texte affiché sous le nom de la vignette. |
 | **Anneau** | |
 | Requête |Requête exécutée pour l’anneau. La première propriété est une valeur de texte et la seconde une valeur numérique. Cette requête utilise habituellement le mot clé *measure* pour synthétiser les résultats. |
 | **Anneau** |**&gt; Centrer** |
 | Texte |Texte affiché sous la valeur à l’intérieur de l’anneau. |
-| Opération |Opération effectuée sur la valeur de propriété afin de la résumer en une valeur unique.<ul><li>Somme : additionner les valeurs de tous les enregistrements avec la valeur de propriété.</li><li>Pourcentage : pourcentage des valeurs additionnées des enregistrements avec la valeur de propriété, comparé aux valeurs additionnées de tous les enregistrements.</li></ul> |
+| Opération |Opération effectuée sur la valeur de propriété afin de la résumer en une valeur unique.<ul><li>Sum : additionner les valeurs de tous les enregistrements avec la valeur de propriété.</li><li>Percentage : pourcentage des valeurs additionnées des enregistrements avec la valeur de propriété, comparé aux valeurs additionnées de tous les enregistrements.</li></ul> |
 | Valeurs de résultat utilisées dans l’opération relative au centre |Vous pouvez sélectionner le signe plus (+) pour ajouter une ou plusieurs valeurs. Les résultats de la requête sont alors limités aux enregistrements dont vous avez spécifié les valeurs de propriété. Si aucune valeur n’est ajoutée, tous les enregistrements sont inclus dans la requête. |
 | **Anneau** |**&gt; Options supplémentaires** |
 | Couleurs |Couleur affiché pour chacune des trois premières propriétés. Pour spécifier d’autres couleurs pour des valeurs de propriété spécifiques, utilisez l’option *Mappage avancé des couleurs*. |
@@ -108,7 +108,7 @@ Cette vignette est un graphique en courbes qui affiche plusieurs séries à part
 
 | Paramètre | Description |
 |:--- |:--- |
-| Nom |Texte affiché en haut de la vignette. |
+| Name |Texte affiché en haut de la vignette. |
 | Description |Texte affiché sous le nom de la vignette. |
 | **Graphique en courbes** | |
 | Requête |Requête exécutée pour le graphique en courbes. La première propriété est une valeur de texte et la seconde une valeur numérique. Cette requête utilise habituellement le mot clé *measure* pour synthétiser les résultats. Si la requête utilise le mot clé *interval*, l’axe des abscisses (X) utilise cet intervalle de temps. Si la requête n’utilise pas le mot clé *interval*, l’axe des abscisses utilise des intervalles d’une heure. |
@@ -129,14 +129,14 @@ Cette vignette contient à la fois un graphique en courbes avec plusieurs série
 
 | Paramètre | Description |
 |:--- |:--- |
-| Nom |Texte affiché en haut de la vignette. |
+| Name |Texte affiché en haut de la vignette. |
 | Description |Texte affiché sous le nom de la vignette. |
 | **Graphique en courbes** | |
 | Requête |Requête exécutée pour le graphique en courbes. La première propriété est une valeur de texte et la seconde une valeur numérique. Cette requête utilise habituellement le mot clé *measure* pour synthétiser les résultats. Si la requête utilise le mot clé *interval*, l’axe des abscisses (X) utilise cet intervalle de temps. Si la requête n’utilise pas le mot clé *interval*, l’axe des abscisses utilise des intervalles d’une heure. |
 | **Graphique en courbes** |**&gt; Légende** |
 | Titre de la légende | Texte affiché au-dessus de la valeur de la légende. |
 | Nom de la série |Valeur de propriété de série à utiliser comme valeur de la légende. Si aucune série n’est fournie, tous les enregistrements de la requête sont utilisés. |
-| Opération |Opération effectuée sur la valeur de propriété afin de la résumer en une valeur unique pour la légende.<ul><li>Moyenne : moyenne des valeurs de tous les enregistrements.</li><li>Nombre : nombre d’enregistrements renvoyés par la requête.</li><li>Dernier exemple : valeur du dernier intervalle inclus dans le graphique.</li><li>Max : valeur maximale des intervalles inclus dans le graphique.</li><li>Min : valeur minimale des intervalles inclus dans le graphique.</li><li>Somme : somme des valeurs de tous les enregistrements.</li></ul> |
+| Opération |Opération effectuée sur la valeur de propriété afin de la résumer en une valeur unique pour la légende.<ul><li>Average : moyenne des valeurs de tous les enregistrements.</li><li>Count : nombre d’enregistrements retournés par la requête.</li><li>Last Sample : valeur du dernier intervalle inclus dans le graphique.</li><li>Max : valeur maximale des intervalles inclus dans le graphique.</li><li>Min : valeur minimale des intervalles inclus dans le graphique.</li><li>Sum : somme des valeurs de tous les enregistrements.</li></ul> |
 | **Graphique en courbes** |**> Axe Y** |
 | Utiliser l’échelle logarithmique |Sélectionnez ce lien pour utiliser une échelle logarithmique pour l’axe des ordonnées (Y). |
 | Units |Spécifiez les unités à utiliser pour exprimer les valeurs retournées par la requête. Ces informations sont utilisées pour afficher sur le graphique des étiquettes indiquant les types de valeurs et, le cas échéant, pour convertir les valeurs. Le type d’*Unité* spécifie la catégorie de l’unité, et définit les valeurs de type *Unité actuelle* disponibles. Si vous sélectionnez une valeur pour l’option *Convertir en*, les valeurs numériques sont converties du type *Unité actuelle* au type *Convertir en*. |
@@ -154,18 +154,18 @@ La vignette **Deux chronologies** affiche les résultats de deux requêtes de jo
 
 | Paramètre | Description |
 |:--- |:--- |
-| Nom |Texte affiché en haut de la vignette. |
+| Name |Texte affiché en haut de la vignette. |
 | Description |Texte affiché sous le nom de la vignette. |
 | Premier graphique | |
 | Légende |Texte affiché sous la légende de la première série. |
 | Couleur |Couleur utilisée pour les colonnes de la première série. |
 | Requête de graphique |Requête exécutée pour la première série. Le nombre d’enregistrements sur chaque intervalle de temps est représenté par les colonnes de graphique. |
-| Opération |Opération effectuée sur la valeur de propriété afin de la résumer en une valeur unique pour la légende.<ul><li>Moyenne : moyenne des valeurs de tous les enregistrements.</li><li>Nombre : nombre d’enregistrements renvoyés par la requête.</li><li>Dernier exemple : valeur du dernier intervalle inclus dans le graphique.</li><li>Max : valeur maximale des intervalles inclus dans le graphique.</li></ul> |
+| Opération |Opération effectuée sur la valeur de propriété afin de la résumer en une valeur unique pour la légende.<ul><li>Average : moyenne des valeurs de tous les enregistrements.</li><li>Count : nombre d’enregistrements retournés par la requête.</li><li>Last Sample : valeur du dernier intervalle inclus dans le graphique.</li><li>Max : valeur maximale des intervalles inclus dans le graphique.</li></ul> |
 | **Deuxième graphique** | |
 | Légende |Texte affiché sous la légende de la deuxième série. |
 | Couleur |Couleur utilisée pour les colonnes de la deuxième série. |
 | Requête de graphique |Requête exécutée pour la deuxième série. Le nombre d’enregistrements sur chaque intervalle de temps est représenté par les colonnes de graphique. |
-| Opération |Opération effectuée sur la valeur de propriété afin de la résumer en une valeur unique pour la légende.<ul><li>Moyenne : moyenne des valeurs de tous les enregistrements.</li><li>Nombre : nombre d’enregistrements renvoyés par la requête.</li><li>Dernier exemple : valeur du dernier intervalle inclus dans le graphique.</li><li>Max : valeur maximale des intervalles inclus dans le graphique. |
+| Opération |Opération effectuée sur la valeur de propriété afin de la résumer en une valeur unique pour la légende.<ul><li>Average : moyenne des valeurs de tous les enregistrements.</li><li>Count : nombre d’enregistrements retournés par la requête.</li><li>Last Sample : valeur du dernier intervalle inclus dans le graphique.</li><li>Max : valeur maximale des intervalles inclus dans le graphique. |
 | **Avancée** |**&gt; Vérification du flux de données** |
 | activé |Sélectionnez ce lien si la vérification du flux de données doit être activée pour la vignette. Cette approche fournit un autre message si les données ne sont pas disponibles. Normalement, vous adoptez cette approche pour fournir un message entre l’installation de la vue et le moment où les données deviennent disponibles. |
 | Requête |Requête exécutée pour déterminer si les données sont disponibles pour la vue. Si la requête ne retourne aucun résultat, un message s’affiche à la place de la valeur de la requête principale. |

@@ -8,11 +8,11 @@ ms.date: 12/18/2019
 ms.author: bwren
 ms.subservice: logs
 ms.openlocfilehash: 36bd464624118b7671a3879bcc1d34114bba9ce3
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77658997"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79226273"
 ---
 # <a name="collect-azure-platform-logs-in-log-analytics-workspace-in-azure-monitor"></a>Collecter les journaux de plateforme Azure dans l’espace de travail Log Analytics dans Azure Monitor
 [Les journaux de plateforme](platform-logs-overview.md) dans Azure, y compris le journal d’activité Azure et les journaux de ressources, fournissent des informations de diagnostic et d’audit détaillées pour les ressources Azure et la plateforme Azure dont elles dépendent. Cet article décrit la collecte de journaux de ressources dans un espace de travail Log Analytics, ce qui vous permet d’analyser ceux-ci avec d’autres données de surveillance collectées dans les journaux Azure Monitor à l’aide de puissantes requêtes de journal, ainsi que d’exploiter d’autres fonctionnalités d’Azure Monitor, telles que les alertes et les visualisations. 
@@ -25,7 +25,7 @@ La collecte de journaux de plateforme dans un espace de travail Log Analytics vo
 * **Génération d'alertes** - Recevez une notification proactive des conditions et modèles critiques identifiés dans vos journaux de ressources à l’aide des [alertes de journal dans Azure Monitor](alerts-log.md).
 * **Visualisations** - Épinglez les résultats d’une requête de journal dans un tableau de bord Azure ou incluez-les dans un classeur en tant que rapport interactif.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 Si vous n’en avez pas déjà, vous devez [créer un espace de travail](../learn/quick-create-workspace.md). Cet espace de travail ne doit pas nécessairement se trouver dans le même abonnement que la ressource qui envoie des journaux d’activité, à condition que l’utilisateur qui configure le paramètre ait un accès RBAC approprié aux deux abonnements.
 
 ## <a name="create-a-diagnostic-setting"></a>Créer un paramètre de diagnostic

@@ -10,12 +10,12 @@ ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: lcozzens
-ms.openlocfilehash: 2521adfda731c06c879f5cfeb6283567228bf664
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: c156d5f1242674adc53a2a813e9b2c140221ecfb
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77919360"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80245308"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-azure-app-configuration"></a>Démarrage rapide : Créer une application Java Spring avec Azure App Configuration
 
@@ -31,13 +31,15 @@ Dans ce guide de démarrage rapide, vous intégrez Azure App Configuration dans 
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-1. Sélectionnez **Explorateur de configurations** >  **+ Créer** pour ajouter les paires clé-valeur suivantes :
+6. Sélectionnez **Explorateur de configurations** >  **+ Créer** > **Clé-valeur** pour ajouter les paires clé-valeur suivantes :
 
     | Clé | Valeur |
     |---|---|
     | /application/config.message | Hello |
 
     Laissez **Étiquette** et **Type de contenu** vides pour l’instant.
+
+7. Sélectionnez **Appliquer**.
 
 ## <a name="create-a-spring-boot-app"></a>Créer une application Spring Boot
 
@@ -146,7 +148,7 @@ Utilisez [Spring Initializr](https://start.spring.io/) pour créer un projet Spr
 
 1. Définissez une variable d’environnement nommée **APP_CONFIGURATION_CONNECTION_STRING** et affectez-lui la valeur de la clé d’accès à votre magasin App Configuration. Sur la ligne de commande, exécutez la commande suivante et redémarrez l’invite de commandes pour que la modification soit prise en compte :
 
-    ```CLI
+    ```cmd
         setx APP_CONFIGURATION_CONNECTION_STRING "connection-string-of-your-app-configuration-store"
     ```
 
@@ -158,7 +160,7 @@ Utilisez [Spring Initializr](https://start.spring.io/) pour créer un projet Spr
 
     Si vous utilisez macOS ou Linux, exécutez la commande suivante :
 
-    ```console
+    ```cmd
         export APP_CONFIGURATION_CONNECTION_STRING='connection-string-of-your-app-configuration-store'
     ```
 
@@ -166,14 +168,14 @@ Utilisez [Spring Initializr](https://start.spring.io/) pour créer un projet Spr
 
 1. Générez votre application Spring Boot avec Maven, puis exécutez-la. Par exemple :
 
-    ```CLI
+    ```cmd
     mvn clean package
     mvn spring-boot:run
     ```
 
 2. Lorsque votre application s’exécute, utilisez *curl* pour la tester. Par exemple :
 
-      ```CLI
+      ```cmd
       curl -X GET http://localhost:8080/
       ```
 
@@ -185,7 +187,7 @@ Utilisez [Spring Initializr](https://start.spring.io/) pour créer un projet Spr
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En suivant ce guide de démarrage rapide, vous avez créé un magasin App Configuration et vous l’avez utilisé avec une application Java Spring. Pour plus d’informations, consultez [Spring sur Azure](https://docs.microsoft.com/java/azure/spring-framework/). Pour savoir comment utiliser une identité managée Azure afin de simplifier l’accès à App Configuration, passez au tutoriel suivant.
+En suivant ce guide de démarrage rapide, vous avez créé un magasin App Configuration et vous l’avez utilisé avec une application Java Spring. Pour plus d’informations, consultez [Spring sur Azure](https://docs.microsoft.com/java/azure/spring-framework/). Pour savoir comment permettre à votre application Java Spring d’actualiser dynamiquement les paramètres de configuration, passez au tutoriel suivant.
 
 > [!div class="nextstepaction"]
-> [Intégration des identités managées](./howto-integrate-azure-managed-service-identity.md)
+> [Activer la configuration dynamique](./enable-dynamic-configuration-java-spring-app.md)

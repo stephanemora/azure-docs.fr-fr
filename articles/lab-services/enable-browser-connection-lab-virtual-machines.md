@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/09/2019
 ms.author: takamath
 ms.openlocfilehash: e2dd642139ae082cc0d0838e61399c549d2d812a
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74970767"
 ---
 # <a name="enable-browser-connection-on-lab-virtual-machines"></a>Activer la connexion du navigateur sur les machines virtuelles du labo 
@@ -43,7 +43,7 @@ Vous ne pouvez pas créer de machines virtuelles de labo dans un sous-réseau Az
 ## <a name="enable-vm-creation-in-the-subnet"></a>Activez la création de machines virtuelles dans le sous-réseau
 À présent, activez la création de machines virtuelles dans ce sous-réseau en procédant comme suit : 
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Dans le menu de navigation de gauche, sélectionnez **Tous les services**. 
 1. Sélectionnez **DevTest Labs** dans la liste. 
 1. Dans la liste de labos, sélectionnez *votre labo*. 

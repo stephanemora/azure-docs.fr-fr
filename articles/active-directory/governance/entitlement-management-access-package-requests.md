@@ -3,7 +3,7 @@ title: Afficher les demandes d’accès à un package d’accès dans la gestion
 description: Découvrez comment afficher les demandes d’accès à un package d’accès dans la gestion des droits d’utilisation Azure Active Directory.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 10/15/2019
-ms.author: ajburnle
+ms.date: 03/22/2020
+ms.author: barclayn
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: addc7db2aa2f0f9ba16438d2a31d6c7cc6bfa49e
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: f210602817c03b73ca4c48da2c3dad5549777f47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174502"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80128730"
 ---
 # <a name="view-requests-for-an-access-package-in-azure-ad-entitlement-management"></a>Afficher les demandes d’accès à un package d’accès dans la gestion des droits d’utilisation Azure AD
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
 ms.openlocfilehash: d74fd2e3f6b5cc090c6313aba67a1e139c713b85
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78344089"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79225169"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guide de prise en main pour les développeurs Azure
 
@@ -43,7 +43,7 @@ Votre application a besoin d’un stockage sur le cloud et Azure propose plusieu
 
 ### <a name="application-hosting"></a>Hébergement d’applications
 
-Azure propose plusieurs offres de calcul basées sur le cloud pour exécuter votre application sans avoir à vous soucier des détails d’infrastructure. Vous pouvez facilement monter en puissance ou augmenter la taille des instances de vos ressources à mesure que l’utilisation de vos applications augmente.
+Azure propose plusieurs offres de calcul basées sur le cloud pour exécuter votre application sans avoir à vous soucier des détails d’infrastructure. Vous pouvez facilement effectuer un scale-up ou un scale-out de vos ressources à mesure que l’utilisation de vos applications augmente.
 
 Azure propose des services qui prennent en charge vos besoins d’hébergement et de développement d’applications. Azure fournit une infrastructure IaaS (Infrastructure as a Service) pour vous donner un contrôle total sur l’hébergement de vos applications. Les offres PaaS (Platform as a Service) d’Azure fournissent des services complètement managés nécessaires pour dynamiser vos applications. Azure inclut même un hébergement serverless dans lequel il vous suffit d’écrire votre code.
 
@@ -163,7 +163,7 @@ Azure permet d’utiliser des conteneurs dans vos applications de plusieurs faç
   >
   > **Prise en main** : [utilisez une image Docker personnalisée pour App Service sur Linux](../../app-service/containers/quickstart-docker-go.md).
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Authentification
 
 Il est essentiel non seulement de savoir qui utilise vos applications, mais aussi d’empêcher tout accès non autorisé à vos ressources. Azure offre plusieurs moyens d’authentifier vos clients d’application.
 

@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 2522b31788df294c37db4326985edd6c85774561
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: d5525c02edb30eff0ee8971a382f2acb8f2e57ee
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78191841"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79455721"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Problèmes connus et dépannage d’Azure Machine Learning
 
@@ -124,7 +124,7 @@ Vous ne serez pas en mesure de déployer des modèles sur des FPGA tant que vous
 
 ## <a name="automated-machine-learning"></a>Machine learning automatisé
 
-Le machine learning automatisé des flux de tenseur ne prend actuellement pas en charge la version 1.13 des flux de tenseur. Si vous installez cette version, les dépendances de package cesseront de fonctionner. Nous nous efforçons de résoudre ce problème dans une version ultérieure. 
+Le machine learning automatisé des flux de tenseur ne prend actuellement pas en charge la version 1.13 des flux de tenseur. Si vous installez cette version, les dépendances de package cesseront de fonctionner. Nous nous efforçons de résoudre ce problème dans une version ultérieure.
 
 ### <a name="experiment-charts"></a>Graphiques d’expérience
 
@@ -145,7 +145,7 @@ script_params = {
 } 
 ```
 
-Si vous n’incluez pas la barre oblique « / » de début, vous devez préfixer le répertoire de travail, par exemple `/mnt/batch/.../tmp/dataset`, sur la cible de calcul pour indiquer l’emplacement où vous souhaitez monter le jeu de données. 
+Si vous n’incluez pas la barre oblique « / » de début, vous devez préfixer le répertoire de travail, par exemple `/mnt/batch/.../tmp/dataset`, sur la cible de calcul pour indiquer l’emplacement où vous souhaitez monter le jeu de données.
 
 ### <a name="fail-to-read-parquet-file-from-http-or-adls-gen-2"></a>Échec de la lecture du fichier Parquet à partir de HTTP ou ADLS Gen 2
 
@@ -205,14 +205,14 @@ Si cette erreur apparaît lorsque vous utilisez le Machine Learning automatisé,
 
 Si cette erreur s’affiche lorsque vous utilisez le machine learning automatisé :
 
-1. Exécutez cette commande pour installer deux packages dans votre cluster Azure Databricks : 
+1. Exécutez cette commande pour installer deux packages dans votre cluster Azure Databricks :
 
-   ```
+   ```bash
    scikit-learn==0.19.1
    pandas==0.22.0
    ```
 
-1. Détachez, puis réattachez le cluster à votre notebook. 
+1. Détachez, puis réattachez le cluster à votre notebook.
 
 Si ces étapes ne résolvent pas le problème, essayez de redémarrer le cluster.
 
@@ -265,11 +265,11 @@ Si vous recevez une erreur `Unable to upload project files to working directory 
 
 Si vous utilisez le partage de fichiers pour d’autres charges de travail, telles que le transfert de données, il est recommandé d’utiliser des objets blob afin de permettre l’utilisation du partage de fichiers pour l’envoi des exécutions. Vous pouvez également répartir la charge de travail entre deux espaces de travail.
 
-## <a name="webservices-in-azure-kubernetes-service-failures"></a>Défaillances des WebServices dans Azure Kubernetes Service 
+## <a name="webservices-in-azure-kubernetes-service-failures"></a>Défaillances des WebServices dans Azure Kubernetes Service
 
 De nombreuses défaillances de WebService dans Azure Kubernetes Service peuvent être déboguées en se connectant au cluster à l’aide de `kubectl`. Vous pouvez obtenir `kubeconfig.json` pour un cluster Azure Kubernetes Service en exécutant
 
-```bash
+```azurecli-interactive
 az aks get-credentials -g <rg> -n <aks cluster name>
 ```
 
@@ -313,7 +313,7 @@ Problèmes connus avec l’étiquetage des projets.
 
 ### <a name="only-datasets-created-on-blob-datastores-can-be-used"></a>Seuls des jeux de données créés sur des magasins de données blob peuvent être utilisés
 
-Il s’agit d’une limitation connue de la version actuelle. 
+Il s’agit d’une limitation connue de la version actuelle.
 
 ### <a name="after-creation-the-project-shows-initializing-for-a-long-time"></a>Après la création, le projet affiche le message « Initialisation » pendant une longue période de temps
 

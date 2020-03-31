@@ -13,10 +13,10 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.openlocfilehash: d061a132699e733e78a7d717ee32222b158d73b4
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74927532"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Activité Delete dans Azure Data Factory
@@ -26,7 +26,7 @@ L’activité Delete dans Azure Data Factory vous permet de supprimer des fichie
 > [!WARNING]
 > Les fichiers ou dossiers supprimés ne peuvent pas être restaurés. Soyez donc prudent quand vous supprimez des fichiers ou dossiers à l’aide de l’activité Delete.
 
-## <a name="best-practices"></a>Bonnes pratiques
+## <a name="best-practices"></a>Meilleures pratiques
 
 Voici quelques recommandations relatives à l’utilisation de l’activité Delete :
 
@@ -82,7 +82,7 @@ Voici quelques recommandations relatives à l’utilisation de l’activité Del
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| dataset | Fournit la référence au jeu de données pour déterminer les fichiers ou le dossier à supprimer. | OUI |
+| dataset | Fournit la référence au jeu de données pour déterminer les fichiers ou le dossier à supprimer. | Oui |
 | recursive | Indique si les fichiers sont supprimés de manière récursive des sous-dossiers ou uniquement du dossier spécifié.  | Non. Par défaut, il s’agit de `false`. |
 | maxConcurrentConnections | Nombre de connexions simultanées au magasin de stockage pour supprimer un dossier ou des fichiers.   |  Non. Par défaut, il s’agit de `1`. |
 | enablelogging | Indique si vous devez enregistrer les noms des dossiers ou fichiers qui ont été supprimés. Si la valeur est true, vous devez fournir un compte de stockage pour enregistrer le fichier journal dans lequel vous pouvez suivre les comportements de l’activité Delete. | Non |

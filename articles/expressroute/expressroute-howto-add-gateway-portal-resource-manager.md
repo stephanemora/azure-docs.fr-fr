@@ -9,11 +9,11 @@ ms.date: 12/06/2018
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: 87b656f0ef999b3b15a89476f5cba4c4fcfc2b1e
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037400"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231269"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Configurer une passerelle de réseau virtuel pour ExpressRoute à l’aide du portail Azure
 > [!div class="op_single_selector"]
@@ -47,7 +47,7 @@ Les étapes de cette tâche utilisent un réseau virtuel basé sur les valeurs f
 
 Vous pouvez afficher une [vidéo](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network) de ces étapes avant de commencer votre configuration.
 
-## <a name="create-the-gateway-subnet"></a>Création d’un sous-réseau de passerelle
+## <a name="create-the-gateway-subnet"></a>Créer le sous-réseau de passerelle
 
 1. Dans le [portail](https://portal.azure.com), accédez au réseau virtuel Resource Manager pour lequel vous souhaitez créer une passerelle de réseau virtuel.
 2. Dans la section**Paramètres** du panneau de votre réseau virtuel, cliquez sur **Sous-réseaux** pour développer le panneau Sous-réseaux.
@@ -66,14 +66,14 @@ Vous pouvez afficher une [vidéo](https://azure.microsoft.com/documentation/vide
 2. Dans le panneau **Créer une passerelle réseau virtuel**, renseignez les valeurs pour votre passerelle de réseau virtuel.
 
     ![Créer les champs du panneau de la passerelle de réseau virtuel](./media/expressroute-howto-add-gateway-portal-resource-manager/gw.png "Créer les champs du panneau de la passerelle de réseau virtuel")
-3. **Nom** : Nommez votre passerelle. Cela ne revient pas au même que de nommer un sous-réseau de passerelle. Il s’agit du nom de l’objet de passerelle que vous créez.
+3. **Name** : Nommez votre passerelle. Cela ne revient pas au même que de nommer un sous-réseau de passerelle. Il s’agit du nom de l’objet de passerelle que vous créez.
 4. **Type de passerelle** : Sélectionnez **ExpressRoute**.
-5. **Référence SKU** : Sélectionnez la référence SKU de la passerelle dans la liste déroulante.
+5. **SKU** : Sélectionnez la référence SKU de la passerelle dans la liste déroulante.
 6. **Emplacement** : Renseignez le champ **Emplacement** de manière à ce qu’il pointe vers l’emplacement où se trouve votre réseau virtuel. Si l’emplacement ne pointe pas vers la région où se trouve votre réseau virtuel, le réseau virtuel n’apparaît pas dans la liste déroulante « Choisir un réseau virtuel ».
 7. Choisissez le réseau virtuel auquel vous souhaitez ajouter cette passerelle. Cliquez sur **Réseau virtuel** pour ouvrir le panneau **Choisir un réseau virtuel**. Sélectionnez le réseau virtuel. Si vous ne voyez pas votre réseau virtuel, assurez-vous que le champ **Emplacement** pointe sur la région dans laquelle se trouve votre réseau virtuel.
 9. Définissez une adresse IP publique. Cliquez sur **l’adresse IP publique** pour ouvrir le panneau **Choisir une adresse IP publique**. Cliquez sur **Créer** pour ouvrir le panneau **Créer une adresse IP publique**. Donnez à un nom à votre adresse IP publique. Ce panneau crée un objet d’adresse IP publique à laquelle une adresse IP publique sera être affectée dynamiquement. Cliquez sur **OK** pour enregistrer vos modifications à ce panneau.
 10. **Abonnement**: Vérifiez que l’abonnement approprié est sélectionné.
-11. **Groupe de ressources** : Ce paramètre est déterminé par le réseau virtuel que vous sélectionnez.
+11. **Groupe de ressources** : Ce paramètre est déterminé par le réseau virtuel que vous sélectionnez.
 12. Ne changez pas **l’emplacement** après avoir spécifié les paramètres ci-dessus.
 13. Vérifiez les paramètres. Si vous souhaitez que votre passerelle apparaisse sur le tableau de bord, vous pouvez sélectionner **Épingler au tableau de bord** en bas du panneau.
 14. Cliquez sur **Créer** pour créer la passerelle. Les paramètres sont validés et la passerelle se déploie. La création d’une passerelle de réseau virtuel peut prendre jusqu’à 45 minutes.

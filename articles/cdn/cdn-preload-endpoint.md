@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/12/2018
 ms.author: magattus
 ms.openlocfilehash: d91507ad2cb271b23b588ef7da88e6e6712915b1
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593582"
 ---
 # <a name="pre-load-assets-on-an-azure-cdn-endpoint"></a>Préchargement d’éléments multimédias sur un point de terminaison CDN Azure
@@ -68,6 +68,6 @@ Ce didacticiel vous guide tout au long du préchargement de contenu mis en cache
 
 ## <a name="see-also"></a>Voir aussi
 * [Purger un point de terminaison CDN Azure](cdn-purge-endpoint.md)
-* [Informations de référence sur l’API REST Azure CDN : Précharger du contenu sur un point de terminaison](https://docs.microsoft.com/rest/api/cdn/endpoints/loadcontent)
-* [Informations de référence sur l’API REST Azure CDN : Vider le contenu d’un point de terminaison](https://docs.microsoft.com/rest/api/cdn/endpoints/purgecontent)
+* [Référence API REST du CDN Azure : précharger le contenu d’un point de terminaison](https://docs.microsoft.com/rest/api/cdn/endpoints/loadcontent)
+* [Référence API REST du CDN Azure : vider le contenu d’un point de terminaison](https://docs.microsoft.com/rest/api/cdn/endpoints/purgecontent)
 

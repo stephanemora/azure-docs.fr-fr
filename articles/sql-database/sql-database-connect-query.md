@@ -12,11 +12,11 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
 ms.openlocfilehash: 647bdcf5c8c49b5c942419c78155ed4f61c848bb
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826871"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215487"
 ---
 # <a name="quickstarts-azure-sql-database-connect-and-query"></a>Guides de démarrage rapide : Se connecter à une base de données Azure SQL et l’interroger
 
@@ -28,7 +28,7 @@ Le document suivant contient des liens vers des exemples Azure expliquant commen
 |---|---|
 |[SQL Server Management Studio](sql-database-connect-query-ssms.md)|Ce guide de démarrage rapide montre comment utiliser SSMS pour se connecter à une base de données Azure SQL, puis utiliser des instructions Transact-SQL pour interroger, insérer, mettre à jour et supprimer des données dans la base de données.|
 |[Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)|Ce guide de démarrage rapide explique comment utiliser Azure Data Studio pour se connecter à une base de données Azure SQL, puis recourir à des instructions T-SQL (Transact-SQL) pour créer le TutorialDB utilisé dans les tutoriels Azure Data Studio.|
-|[Portail Azure](sql-database-connect-query-portal.md)|Ce guide de démarrage rapide indique comment utiliser l’éditeur de requête pour se connecter à une base de données SQL, puis utiliser les instructions Transact-SQL pour interroger, insérer, mettre à jour et supprimer des données dans la base de données.|
+|[Azure portal](sql-database-connect-query-portal.md)|Ce guide de démarrage rapide indique comment utiliser l’éditeur de requête pour se connecter à une base de données SQL, puis utiliser les instructions Transact-SQL pour interroger, insérer, mettre à jour et supprimer des données dans la base de données.|
 |[Visual Studio Code](sql-database-connect-query-vscode.md)|Ce guide de démarrage rapide explique comment utiliser Visual Studio Code pour se connecter à une base de données Azure SQL, puis utiliser des instructions Transact-SQL pour interroger, insérer, mettre à jour et supprimer des données dans la base de données.|
 |[.NET avec Visual Studio](sql-database-connect-query-dotnet-visual-studio.md)|Ce guide de démarrage rapide explique comment utiliser le .NET Framework pour créer un programme C# avec Visual Studio en vue de se connecter à une base de données Azure SQL et recourir à des instructions Transact-SQL pour interroger des données.|
 |[.NET Core](sql-database-connect-query-dotnet-core.md)|Ce guide de démarrage rapide explique comment utiliser .NET Core sur Windows/Linux/macOS pour créer un programme C# en vue de se connecter à une base de données Azure SQL et recourir à des instructions Transact-SQL pour interroger des données.|
@@ -59,26 +59,26 @@ Vous avez le choix entre plusieurs frameworks et bibliothèques pour vous connec
 
 Le tableau suivant répertorie les bibliothèques de connectivité ou *pilotes* que les applications clientes peuvent utiliser dans une variété de langages pour se connecter à SQL Server et l’utiliser localement ou dans le cloud. Vous pouvez les utiliser sur Linux, Windows ou Docker, pour vous connecter à Azure SQL Database et Azure SQL Data Warehouse. 
 
-| Langage | Plateforme | Ressources supplémentaires | Téléchargement | Prise en main |
+| Langage | Plateforme | Ressources supplémentaires | Téléchargement | Bien démarrer |
 | :-- | :-- | :-- | :-- | :-- |
 | C# | Windows, Linux, macOS | [Microsoft ADO.NET pour SQL Server](https://docs.microsoft.com/sql/connect/ado-net/microsoft-ado-net-sql-server) | [Télécharger](https://www.microsoft.com/net/download/) | [Prise en main](https://www.microsoft.com/sql-server/developer-get-started/csharp/ubuntu)
 | Java | Windows, Linux, macOS | [Pilote Microsoft JDBC pour SQL Server](https://msdn.microsoft.com/library/mt484311.aspx) | [Télécharger](https://go.microsoft.com/fwlink/?linkid=852460) |  [Prise en main](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu)
 | PHP | Windows, Linux, macOS| [Pilote PHP SQL pour SQL Server](https://docs.microsoft.com/sql/connect/php/microsoft-php-driver-for-sql-server) | [Télécharger](https://docs.microsoft.com/sql/connect/php/download-drivers-php-sql-server) | [Prise en main](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu/)
 | Node.js | Windows, Linux, macOS | [Pilote Node.js pour SQL Server](https://msdn.microsoft.com/library/mt652093.aspx) | [Installer](https://msdn.microsoft.com/library/mt652094.aspx) |  [Prise en main](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu)
-| Python | Windows, Linux, macOS | [Pilote Python SQL](https://msdn.microsoft.com/library/mt652092.aspx) | Choix d’installation : <br/> \*[pymssql](https://msdn.microsoft.com/library/mt694094.aspx) <br/> \*[pyodbc](https://msdn.microsoft.com/library/mt763257.aspx) |  [Prise en main](https://www.microsoft.com/sql-server/developer-get-started/python/ubuntu)
+| Python | Windows, Linux, macOS | [Pilote Python SQL](https://msdn.microsoft.com/library/mt652092.aspx) | Choix d’installation : <br/> \* [pymssql](https://msdn.microsoft.com/library/mt694094.aspx) <br/> \* [pyodbc](https://msdn.microsoft.com/library/mt763257.aspx) |  [Prise en main](https://www.microsoft.com/sql-server/developer-get-started/python/ubuntu)
 | Ruby | Windows, Linux, macOS | [Pilote Ruby pour SQL Server](https://msdn.microsoft.com/library/mt691981.aspx) | [Installer](https://msdn.microsoft.com/library/mt711041.aspx) | [Prise en main](https://www.microsoft.com/sql-server/developer-get-started/ruby/ubuntu)
-| C++ | Windows, Linux, macOS | [Pilote Microsoft ODBC pour SQL Server](https://msdn.microsoft.com/library/mt654048(v=sql.1).aspx) | [Télécharger](https://msdn.microsoft.com/library/mt654048(v=sql.1).aspx) |  
+| C++ | Windows, Linux, macOS | [Pilote Microsoft ODBC pour SQL Server](https://msdn.microsoft.com/library/mt654048(v=sql.1).aspx) | [Télécharger](https://msdn.microsoft.com/library/mt654048(v=sql.1).aspx) |  
 
 Le tableau suivant répertorie des exemples de frameworks de mappage relationnel objet (ORM) et de frameworks web que les applications clientes peuvent utiliser avec SQL Server exécuté localement ou dans le cloud. Vous pouvez utiliser les frameworks sur Linux, Windows ou Docker, pour vous connecter à SQL Database et SQL Data Warehouse. 
 
-| Langage | Plateforme | ORM(s) |
+| Langage | Plateforme | ORM |
 | :-- | :-- | :-- |
 | C# | Windows, Linux, macOS | [Entity Framework](https://docs.microsoft.com/ef)<br>[Entity Framework Core](https://docs.microsoft.com/ef/core/index) |
-| Java | Windows, Linux, macOS |[Hibernate ORM](https://hibernate.org/orm)|
+| Java | Windows, Linux, macOS |[Mettre en veille prolongée](https://hibernate.org/orm)|
 | PHP | Windows, Linux, macOS | [Laravel (Eloquent)](https://laravel.com/docs/eloquent)<br>[Doctrine](https://www.doctrine-project.org/projects/orm.html) |
 | Node.js | Windows, Linux, macOS | [Sequelize ORM](https://docs.sequelizejs.com) |
 | Python | Windows, Linux, macOS |[Django](https://www.djangoproject.com/) |
-| Ruby | Windows, Linux, macOS | [Ruby on Rails](https://rubyonrails.org/) |
+| Ruby | Windows, Linux, macOS | [Ruby on rails](https://rubyonrails.org/) |
 ||||
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -93,8 +93,8 @@ Le tableau suivant répertorie des exemples de frameworks de mappage relationnel
   - [Connexion à SQL Database à l’aide de Python](sql-database-connect-query-python.md)
   - [Connexion à SQL Database à l’aide de Ruby](sql-database-connect-query-ruby.md)
 - Exemples de code de logique de nouvelle tentative :
-  - [Se connecter de façon robuste à SQL avec ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
-  - [Se connecter de façon robuste à SQL avec PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
+  - [Connexion résiliente à SQL avec ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
+  - [Connexion résiliente à SQL avec PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
 
 <!-- Link references. -->
 

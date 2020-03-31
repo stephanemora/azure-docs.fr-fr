@@ -10,12 +10,12 @@ ms.date: 02/25/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 6b36694c2fe1bf264c876944b054d39371db616c
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 7ae5f59a1bd96362d5466b2f6363185ba168d942
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77614291"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228325"
 ---
 # <a name="azure-storage-redundancy"></a>Redondance de Stockage Azure
 
@@ -61,7 +61,7 @@ Le tableau suivant répertorie les types de comptes de stockage qui prennent en 
 
 |    Type de compte de stockage    |    Régions prises en charge    |    Services pris en charge    |
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
-|    Universel v2<sup>1</sup>    | Asie du Sud-Est<br /> Europe septentrionale<br />  Europe occidentale<br /> France Centre<br /> Japon Est<br /> Sud du Royaume-Uni<br /> USA Centre<br /> USA Est<br /> USA Est 2<br /> USA Ouest 2    |    Objets blob de blocs<br /> Objets blob de pages<sup>2</sup><br /> Partages de fichiers (standard)<br /> Tables<br /> Files d’attente<br /> |
+|    Universel v2<sup>1</sup>    | Asie du Sud-Est<br /> Australie Est<br /> Europe septentrionale<br />  Europe occidentale<br /> France Centre<br /> Japon Est<br /> Afrique du Sud Nord<br /> Sud du Royaume-Uni<br /> USA Centre<br /> USA Est<br /> USA Est 2<br /> USA Ouest 2    |    Objets blob de blocs<br /> Objets blob de pages<sup>2</sup><br /> Partages de fichiers (standard)<br /> Tables<br /> Files d’attente<br /> |
 |    BlockBlobStorage<sup>1</sup>    | Europe occidentale<br /> USA Est    |    Objets blob de blocs uniquement    |
 |    FileStorage    | Europe occidentale<br /> USA Est    |    Azure Files uniquement    |
 
@@ -109,10 +109,12 @@ GZRS et RA-GZRS sont actuellement disponibles en préversion dans les régions s
 - Asie du Sud-Est
 - Europe septentrionale
 - Europe occidentale
+- Japon Est
 - Sud du Royaume-Uni
 - USA Est
 - USA Est 2
 - USA Centre
+- USA Ouest 2
 
 Microsoft continue d’activer le stockage GZRS et RA-GZRS dans d’autres régions Azure. Consultez la page [Mises à jour de service Azure](https://azure.microsoft.com/updates/) régulièrement pour plus d’informations sur les régions prises en charge.
 
@@ -123,7 +125,7 @@ Pour plus d’informations sur les prix de la préversion, consultez les prix de
 
 ## <a name="read-access-to-data-in-the-secondary-region"></a>Accès en lecture aux données dans la région secondaire
 
-Le stockage géo-redondant (GRS ou GZRS) réplique vos données vers un autre emplacement physique dans la région secondaire pour offrir une protection contre les pannes régionales. Toutefois, ces données peuvent être lues uniquement si le client ou Microsoft lance un basculement de la région primaire vers la région secondaire. Lorsque vous activez l’accès en lecture à la région secondaire, vos données sont accessibles en lecture si la région primaire devient indisponible. Pour l’accès en lecture à la région secondaire, activez le stockage géographiquement redondant avec accès en lecture (RA-GRS) ou le stockage géographiquement redondant interzone avec accès en lecture (RA-GZRS).
+Le stockage géo-redondant (GRS ou GZRS) réplique vos données vers un autre emplacement physique dans la région secondaire pour offrir une protection contre les pannes régionales. Toutefois, ces données peuvent être lues uniquement si le client ou Microsoft lance un basculement de la région primaire vers la région secondaire. Lorsque vous activez l’accès en lecture à la région secondaire, vos données sont accessibles en lecture si la région primaire devient indisponible. Pour un accès en lecture dans la région secondaire, activez le stockage géographiquement redondant avec accès en lecture (RA-GRS) ou le stockage géographiquement redondant interzone avec accès en lecture (RA-GZRS).
 
 ### <a name="design-your-applications-for-read-access-to-the-secondary"></a>Concevoir vos applications pour l’accès en lecture à la région secondaire
 

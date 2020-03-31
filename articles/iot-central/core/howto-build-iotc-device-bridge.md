@@ -6,14 +6,14 @@ ms.service: iot-central
 author: viv-liu
 ms.author: viviali
 ms.date: 07/09/2019
-ms.topic: conceptual
+ms.topic: how-to
 manager: peterpr
-ms.openlocfilehash: b79020b4da08eeade0af885b4a6ca9f01c81c526
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 6499c9c29d10a2056b0af5499b68b5edd67d82cb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023206"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80158416"
 ---
 # <a name="build-the-iot-central-device-bridge-to-connect-other-iot-clouds-to-iot-central"></a>Générer le pont d’appareil IoT Central pour connecter d’autres clouds IoT à IoT Central
 
@@ -23,10 +23,10 @@ Le pont d’appareil IoT Central est une solution open source qui connecte votre
 
 ## <a name="what-is-it-and-how-does-it-work"></a>Description et fonctionnement
 Le pont d’appareil IoT Central est une solution open source dans GitHub. Elle est prête à l’emploi grâce à un bouton « Déployer sur Azure » qui déploie un modèle Azure Resource Manager personnalisé avec plusieurs ressources Azure dans votre abonnement Azure. Les ressources incluent :
--   Application Azure Function
--   Compte Stockage Azure
--   Plan de consommation
--   Azure Key Vault
+-    Application Azure Function
+-    Compte Stockage Azure
+-    Plan de consommation
+-    Azure Key Vault
 
 L’application de fonction est l’élément critique du pont d’appareils. Elle reçoit les requêtes HTTP POST à partir d’autres plateformes IoT ou plateformes personnalisées via une intégration webhook simple. Nous vous proposons des exemples qui montrent comment vous connecter aux clouds Sigfox, Particle et TTN. Vous pouvez facilement étendre cette solution pour vous connecter à votre cloud IoT personnalisé si votre plateforme peut envoyer des requêtes HTTP POST à votre application de fonction.
 L’application de fonction convertit les données dans un format accepté par IoT Central et les transfère via des API DPS.

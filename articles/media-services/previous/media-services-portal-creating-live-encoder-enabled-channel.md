@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 7d2e4274e6feaebac6536eed2f8a99d251cd5ceb
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77162563"
 ---
 # <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>Effectuer une diffusion dynamique en continu à l’aide de Media Services pour créer des flux à vitesses de transmission multiples avec le portail Azure  
@@ -61,7 +61,7 @@ Ci-après figurent les étapes générales impliquées dans la création d’app
 1. Arrêtez l’événement chaque fois que vous voulez arrêter la diffusion et archiver l’événement.
 1. Supprimez l’événement (et éventuellement l’élément multimédia).   
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Les éléments suivants sont requis pour suivre le didacticiel.
 

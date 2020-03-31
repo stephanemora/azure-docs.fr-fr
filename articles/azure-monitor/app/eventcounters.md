@@ -4,10 +4,10 @@ description: Supervisez les compteurs d’événements .NET/.NET Core système e
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.openlocfilehash: 2094c012e86131073fc66be4f2ac2fb2e81ef4c1
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77663587"
 ---
 # <a name="eventcounters-introduction"></a>Présentation des compteurs d’événements
@@ -146,6 +146,6 @@ Un compteur d’événements n’a pas besoin d’autorisations spéciales. Il p
 
  L’[extension Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps) pour ASP.NET Core ne prend pas encore en charge cette fonctionnalité. Ce document sera mis à jour quand cette fonctionnalité sera prise en charge.
 
-## <a name="next"></a>Étapes suivantes
+## <a name="next-steps"></a><a name="next"></a>Étapes suivantes
 
 * [Suivi des dépendances](../../azure-monitor/app/asp-net-dependencies.md)

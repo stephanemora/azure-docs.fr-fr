@@ -17,11 +17,11 @@ ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 102bbfbd1c02c93830f5c7fce89fe95d7fde54c5
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174643"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79230365"
 ---
 # <a name="change-resource-roles-for-an-access-package-in-azure-ad-entitlement-management"></a>Changer les rôles de ressources pour un package d’accès dans la gestion des droits d’utilisation d’Azure Active Directory
 
@@ -33,7 +33,7 @@ Cette vidéo présente une vue d’ensemble du changement d’un package d’acc
 
 ## <a name="check-catalog-for-resources"></a>Rechercher des ressources dans le catalogue
 
-Si vous devez ajouter des ressources à un package d’accès, vérifiez si les ressources dont vous avez besoin sont disponibles dans le catalogue. Si vous êtes gestionnaire de package d’accès, vous ne pouvez pas ajouter de ressources à un catalogue, même si vous êtes propriétaire de celles-ci. Vous êtes limité à l’utilisation des ressources disponibles dans le catalogue.
+Si vous devez ajouter des ressources à un package d’accès, vérifiez si les ressources dont vous avez besoin sont disponibles dans le catalogue. Si vous êtes gestionnaire de package d’accès, vous ne pouvez pas ajouter de ressources à un catalogue, même si vous êtes propriétaire de celles-ci. Vous ne pouvez utiliser que les ressources disponibles dans le catalogue.
 
 **Rôle prérequis :** Administrateur général, administrateur d’utilisateurs ou gestionnaire de package d’accès
 
@@ -183,5 +183,5 @@ Lorsque vous supprimez un membre d’une équipe, il est également supprimé du
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Créer un groupe de base et ajouter des membres avec Azure Active Directory](../fundamentals/active-directory-groups-create-azure-portal.md)
-- [Guide pratique pour configurer les revendications de rôle émises dans le jeton SAML pour les applications d’entreprise](../develop/active-directory-enterprise-app-role-management.md)
+- [Procédure : configurer les revendications de rôle émises dans le jeton SAML pour les applications d’entreprise](../develop/active-directory-enterprise-app-role-management.md)
 - [Présentation de SharePoint Online](/sharepoint/introduction)

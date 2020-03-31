@@ -11,14 +11,14 @@ ms.date: 11/30/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: ed393f721d4461ebadea41f8dad707d4881865cd
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78183903"
 ---
-# <a name="azure-ad-b2c-authentication-protocols"></a>Azure AD B2C : Protocoles d’authentification
-Azure Active Directory B2C (Azure AD B2C) fournit l’identité en tant que service pour vos applications en prenant en charge deux protocoles standard : OpenID Connect et OAuth 2.0. Bien que ce service soit conforme aux normes, vous pouvez constater de subtiles différences entre deux implémentations différentes de ces protocoles.
+# <a name="azure-ad-b2c-authentication-protocols"></a>Azure AD B2C : protocoles d’authentification
+Azure Active Directory B2C (Azure AD B2C) fournit l’identité en tant que service pour vos applications en prenant en charge deux protocoles standard, OpenID Connect et OAuth 2.0. Bien que ce service soit conforme aux normes, vous pouvez constater de subtiles différences entre deux implémentations différentes de ces protocoles.
 
 Les informations fournies dans ce guide sont utiles si vous écrivez votre code en envoyant et en traitant directement des requêtes HTTP, plutôt qu’en utilisant une bibliothèque open source. Nous vous recommandons de lire les informations de cette page avant d’entrer dans les détails de chaque protocole. En revanche, si vous connaissez déjà Azure AD B2C, vous pouvez accéder directement aux [guides de référence du protocole](#protocols).
 

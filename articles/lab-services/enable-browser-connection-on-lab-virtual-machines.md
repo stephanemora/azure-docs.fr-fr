@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 08/19/2019
 ms.author: takamath
 ms.openlocfilehash: 2ddc56c60c547bd4ce48d620a83fb79246762bfb
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69641981"
 ---
 # <a name="enable-browser-connection-on-lab-virtual-machines"></a>Activer la connexion du navigateur sur les machines virtuelles du labo 
@@ -38,7 +38,7 @@ Pour découvrir comment déployer un hôte Bastion dans un réseau virtuel, cons
 
 Pour découvrir comment connecter votre labo à un réseau virtuel configuré sur Bastion, consultez la page [Configurer un réseau virtuel dans Azure DevTest Labs](devtest-lab-configure-vnet.md). Sélectionnez le réseau virtuel sur lequel l’hôte Bastion est déployé et le **AzureBastionSubnet** qui s’y trouve. Voici les étapes détaillées : 
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Dans le menu de navigation de gauche, sélectionnez **Tous les services**. 
 1. Sélectionnez **DevTest Labs** dans la liste. 
 1. Dans la liste de labos, sélectionnez *votre labo*. 

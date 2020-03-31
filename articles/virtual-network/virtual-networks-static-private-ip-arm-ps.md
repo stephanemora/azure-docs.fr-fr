@@ -17,11 +17,11 @@ ms.date: 02/07/2019
 ms.author: kumud
 ms.custom: ''
 ms.openlocfilehash: 1745ca176fac18b4903686cb556670531ee40a1a
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196592"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79225093"
 ---
 # <a name="create-a-virtual-machine-with-a-static-private-ip-address-using-powershell"></a>Créer une machine virtuelle avec une adresse IP privée statique à l’aide de PowerShell
 
@@ -98,7 +98,7 @@ Vous pouvez effectuer les étapes suivantes à partir de votre ordinateur local 
 > [!IMPORTANT]
 > Pour accéder à la machine virtuelle à partir d’Internet, vous devez attribuer une adresse IP publique à la machine virtuelle. Vous pouvez également remplacer une attribution d’adresse IP privée dynamique en attribution statique. Pour plus d’informations, consultez [Add, change, or remove IP addresses for an Azure network interface](virtual-network-network-interface-addresses.md) (Ajouter, modifier ou supprimer des adresses IP pour une interface réseau Azure). En outre, il est recommandé de limiter le trafic réseau vers votre machine virtuelle en associant un groupe de sécurité réseau à l’interface réseau, au sous-réseau que vous avez créé dedans ou aux deux. Pour plus d’informations, consultez [Create, change, or delete a network security group](manage-network-security-group.md) (Créer, modifier ou supprimer un groupe de sécurité réseau).
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Quand vous n’avez plus besoin d’un groupe de ressources, vous pouvez utiliser [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) pour le supprimer ainsi que toutes les ressources qu’il contient :
 

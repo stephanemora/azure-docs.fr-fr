@@ -1,19 +1,18 @@
 ---
 title: Stockage Table Azure | Place de marché Azure
 description: Configurer la gestion des prospects dans le stockage Table Azure.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.author: pabutler
-ms.openlocfilehash: 21105d72ccd288faf0fed58019e67afe2e1c9d01
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: cee28c65b97d4ac163f78b746dc7be9ee210843c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825273"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280352"
 ---
 # <a name="lead-management-instructions-for-table-storage"></a>Instructions de gestion des prospects pour le stockage Table
 
@@ -133,7 +132,7 @@ Dans les étapes suivantes, vous allez vous connecter à votre table de stockage
    1. Dans la fenêtre **Envoyer un message électronique**, complétez les champs suivants :
 
       - **À** : adresse e-mail de toutes les personnes qui recevront la notification.
-      - **Objet** : objet du courrier. Par exemple :  *Nouveaux prospects !*
+      - **Objet** : objet du courrier. Par exemple : *Nouveaux prospects !*
       - **Corps** : texte que vous souhaitez inclure dans chaque courrier (facultatif). Collez-le également dans `body('Get_entities')?['value']` comme fonction pour insérer des informations sur les prospects.
 
         >[!NOTE] 
@@ -141,7 +140,7 @@ Dans les étapes suivantes, vous allez vous connecter à votre table de stockage
 
       ![Configurer la messagerie pour la notification des prospects](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-emailbody-fx.png)
 
-1. Sélectionnez **Enregistrer** pour enregistrer le flux. Microsoft Flow vérifie automatiquement s'il contient des erreurs. Si aucune erreur n’est détectée, votre flux s’exécute dès qu’il est enregistré.
+1. Sélectionnez **Enregistrer** pour enregistrer le flux. Microsoft Flow vérifie automatiquement s'il contient des erreurs. Si aucune erreur n’est détectée, le flux s’exécute dès qu’il est enregistré.
 
     L'image suivante montre à quoi doit ressembler le flux final.
 

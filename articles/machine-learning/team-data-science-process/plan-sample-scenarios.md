@@ -12,11 +12,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 48b51c40e5de8f10d9d1d16b02e2c70b045816b3
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76710492"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227205"
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Scénarios d’analyses avancées dans Azure Machine Learning
 Cet article présente les divers exemples de sources de données et les scénarios cibles qui peuvent être gérés par le processus [TDSP (Team Data Science Process)](overview.md). Le processus TDSP fournit une approche systématique permettant aux équipes de collaborer à la création d’applications intelligentes. Les scénarios présentés ici illustrent les options disponibles dans le flux de travail de traitement basées sur les caractéristiques des données, les emplacements sources et les référentiels cibles dans Azure.
@@ -35,7 +35,7 @@ Les sections suivantes présentent quelques exemples de scénarios. Pour chaque 
 > 
 > 
 
-## <a name="smalllocal"></a>Scénario \#1 : jeu de données tabulaires petit à moyen dans des fichiers locaux
+## <a name="scenario-1-small-to-medium-tabular-dataset-in-local-files"></a><a name="smalllocal"></a>Scénario \#1 : jeu de données tabulaires petit à moyen dans des fichiers locaux
 ![Fichiers locaux petits à moyens][1]
 
 #### <a name="additional-azure-resources-none"></a>Autres ressources Azure : None
@@ -43,7 +43,7 @@ Les sections suivantes présentent quelques exemples de scénarios. Pour chaque 
 1. Téléchargez un jeu de données.
 1. Créez un flux d’expérience Azure Machine Learning commençant par le ou les jeux téléchargés.
 
-## <a name="smalllocalprocess"></a>Scénario \#2 : jeu de données petit à moyen de fichiers locaux nécessitant un traitement
+## <a name="scenario-2-small-to-medium-dataset-of-local-files-that-require-processing"></a><a name="smalllocalprocess"></a>Scénario \#2 : jeu de données petit à moyen de fichiers locaux nécessitant un traitement
 ![Fichiers locaux petits à moyens avec traitement][2]
 
 #### <a name="additional-azure-resources-azure-virtual-machine-ipython-notebook-server"></a>Autres ressources Azure : Machine virtuelle Azure (serveur IPython Notebook)
@@ -56,7 +56,7 @@ Les sections suivantes présentent quelques exemples de scénarios. Pour chaque 
 1. Lisez les données des objets blob Azure à l’aide du module [Importer des données][import-data].
 1. Créez un flux d’expérience Azure Machine Learning commençant par le ou les jeux de données ingérés.
 
-## <a name="largelocal"></a>Scénario \#3 : jeu de données volumineux de fichiers locaux, ciblant des objets blob Azure
+## <a name="scenario-3-large-dataset-of-local-files-targeting-azure-blobs"></a><a name="largelocal"></a>Scénario \#3 : jeu de données volumineux de fichiers locaux, ciblant des objets blob Azure
 ![Fichiers locaux volumineux][3]
 
 #### <a name="additional-azure-resources-azure-virtual-machine-ipython-notebook-server"></a>Autres ressources Azure : Machine virtuelle Azure (serveur IPython Notebook)
@@ -71,7 +71,7 @@ Les sections suivantes présentent quelques exemples de scénarios. Pour chaque 
 1. Lisez les données des objets blob Azure à l’aide du module [Importer des données][import-data].
 1. Créez un flux d’expérience Azure Machine Learning commençant par le ou les jeux de données ingérés.
 
-## <a name="smalllocaltodb"></a>Scénario \#4 : jeu de données petit à moyen de fichiers locaux, ciblant SQL Server dans une machine virtuelle Azure
+## <a name="scenario-4-small-to-medium-dataset-of-local-files-targeting-sql-server-in-an-azure-virtual-machine"></a><a name="smalllocaltodb"></a>Scénario \#4 : jeu de données petit à moyen de fichiers locaux, ciblant SQL Server dans une machine virtuelle Azure
 ![Fichiers locaux petits à moyens vers une base de données SQL dans Azure][4]
 
 #### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>Autres ressources Azure : Machine virtuelle Azure (SQL Server / serveur IPython Notebook)
@@ -101,7 +101,7 @@ Les sections suivantes présentent quelques exemples de scénarios. Pour chaque 
 1. Lisez les données directement à partir de SQL Server à l’aide du module [Importer des données][import-data]. Si besoin, collez la requête nécessaire qui extrait les champs, crée les fonctionnalités et échantillonne les données directement dans la requête [Importer des données][import-data].
 1. Créez un flux d’expérience Azure Machine Learning commençant par le ou les jeux de données ingérés.
 
-## <a name="largelocaltodb"></a>Scénario \#5 : Jeu de données volumineux dans des fichiers locaux, ciblant SQL Server dans une machine virtuelle Azure
+## <a name="scenario-5-large-dataset-in-local-files-target-sql-server-in-azure-vm"></a><a name="largelocaltodb"></a>Scénario \#5 : Jeu de données volumineux dans des fichiers locaux, ciblant SQL Server dans une machine virtuelle Azure
 ![Fichiers locaux volumineux vers une base de données SQL dans Azure][5]
 
 #### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>Autres ressources Azure : Machine virtuelle Azure (SQL Server / serveur IPython Notebook)
@@ -138,7 +138,7 @@ Les sections suivantes présentent quelques exemples de scénarios. Pour chaque 
 1. Lisez les données directement à partir de SQL Server à l’aide du module [Importer des données][import-data]. Si besoin, collez la requête nécessaire qui extrait les champs, crée les fonctionnalités et échantillonne les données directement dans la requête [Importer des données][import-data].
 1. Flux d’expérience Azure Machine Learning simple commençant par le jeu de données téléchargé
 
-## <a name="largedbtodb"></a>Scénario \#6 : jeu de données volumineux dans une base de données SQL Server locale, ciblant SQL Server sur une machine virtuelle Azure
+## <a name="scenario-6-large-dataset-in-a-sql-server-database-on-premises-targeting-sql-server-in-an-azure-virtual-machine"></a><a name="largedbtodb"></a>Scénario \#6 : jeu de données volumineux dans une base de données SQL Server locale, ciblant SQL Server sur une machine virtuelle Azure
 ![Base de données SQL volumineuse sur site vers une base de données SQL dans Azure][6]
 
 #### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>Autres ressources Azure : Machine virtuelle Azure (SQL Server / serveur IPython Notebook)
@@ -186,7 +186,7 @@ Pour répliquer l’ensemble de la base de données SQL Server dans votre machi
 
 [Déplacer une base de données à l’aide de la méthode de détachement et d’attachement (Transact-SQL)](https://technet.microsoft.com/library/ms187858\(v=sql.110\).aspx)
 
-## <a name="largedbtohive"></a>Scénario \#7 : données volumineuses (« Big Data ») dans des fichiers locaux, ciblant une base de données Hive dans des clusters Hadoop Azure HDInsight
+## <a name="scenario-7-big-data-in-local-files-target-hive-database-in-azure-hdinsight-hadoop-clusters"></a><a name="largedbtohive"></a>Scénario \#7 : données volumineuses (« Big Data ») dans des fichiers locaux, ciblant une base de données Hive dans des clusters Hadoop Azure HDInsight
 ![Données volumineuses (« Big Data ») dans la base de données Hive cible locale][9]
 
 #### <a name="additional-azure-resources-azure-hdinsight-hadoop-cluster-and-azure-virtual-machine-ipython-notebook-server"></a>Autres ressources Azure : cluster Hadoop Azure HDInsight et machine virtuelle Azure (serveur IPython Notebook)
@@ -230,7 +230,7 @@ Pour répliquer l’ensemble de la base de données SQL Server dans votre machi
 1. Lisez les données directement à partir de `Hive Queries` à l’aide du module [Importer des données][import-data]. Si besoin, collez la requête nécessaire qui extrait les champs, crée les fonctionnalités et échantillonne les données directement dans la requête [Importer des données][import-data].
 1. Flux d’expérience Azure Machine Learning simple commençant par le jeu de données téléchargé.
 
-## <a name="decisiontree"></a>Arbre de décision pour le choix du scénario
+## <a name="decision-tree-for-scenario-selection"></a><a name="decisiontree"></a>Arbre de décision pour le choix du scénario
 ---
 Le schéma suivant résume les scénarios décrits ci-dessus et les processus de science des données ainsi que les choix technologiques effectués qui vous guident vers chacun des scénarios détaillés. Le traitement des données, l’exploration, la conception de fonctionnalités et l’échantillonnage peuvent survenir dans un(e) ou plusieurs méthodes/environnements (dans l’environnement source, l’environnement intermédiaire et/ou l’environnement cible) et peuvent s’effectuer de manière itérative en fonction des besoins. Le schéma illustre uniquement les flux possibles et ne fournit pas d’énumération exhaustive.
 

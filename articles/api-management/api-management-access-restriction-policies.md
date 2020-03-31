@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
 ms.openlocfilehash: 3ba620d66b84e6724751b2024059e8ecd66888cd
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75902497"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231665"
 ---
 # <a name="api-management-access-restriction-policies"></a>Stratégies de restriction des accès de la Gestion des API
 
 Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](https://go.microsoft.com/fwlink/?LinkID=398186).
 
-## <a name="AccessRestrictionPolicies"></a> Stratégies de restriction des accès
+## <a name="access-restriction-policies"></a><a name="AccessRestrictionPolicies"></a> Stratégies de restriction des accès
 
 -   [Check HTTP header](api-management-access-restriction-policies.md#CheckHTTPHeader) : applique l’existence et/ou la valeur d’un en-tête HTTP.
 -   [Limit call rate by subscription](api-management-access-restriction-policies.md#LimitCallRate) : empêche les pics d’utilisation de l’API en limitant le débit d’appels par abonnement.
@@ -37,7 +37,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 > [!TIP]
 > Vous pouvez utiliser des stratégies de restriction d’accès dans différentes étendues à des fins différentes. Par exemple, vous pouvez sécuriser l’intégralité de l’API avec l’authentification AAD en appliquant la stratégie `validate-jwt` au niveau de l’API ou vous pouvez l’appliquer au niveau de l’opération d’API et utiliser `claims` pour un contrôle plus granulaire.
 
-## <a name="CheckHTTPHeader"></a> Check HTTP header
+## <a name="check-http-header"></a><a name="CheckHTTPHeader"></a> Check HTTP header
 
 Utilisez la stratégie `check-header` pour imposer un en-tête HTTP donné à une demande. Vous pouvez éventuellement vérifier si l’en-tête a une certaine valeur ou une valeur comprise dans une plage de valeurs autorisées. Si la vérification échoue, la stratégie met fin au traitement de la demande et renvoie le message d’erreur et le code d’état HTTP spécifiés par la stratégie.
 
@@ -60,14 +60,14 @@ Utilisez la stratégie `check-header` pour imposer un en-tête HTTP donné à un
 
 ### <a name="elements"></a>Éléments
 
-| Name         | Description                                                                                                                                   | Obligatoire |
+| Nom         | Description                                                                                                                                   | Obligatoire |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | check-header | Élément racine.                                                                                                                                 | Oui      |
 | value        | Valeur autorisée de l’en-tête HTTP. Lorsque plusieurs éléments de valeurs sont spécifiés, la vérification est considérée comme réussie si l’une des valeurs correspond. | Non       |
 
 ### <a name="attributes"></a>Attributs
 
-| Name                       | Description                                                                                                                                                            | Obligatoire | Default |
+| Nom                       | Description                                                                                                                                                            | Obligatoire | Default |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | failed-check-error-message | Message d’erreur à renvoyer dans le corps de la réponse HTTP si l’en-tête n’existe pas ou a une valeur non valide. Les éventuels caractères spéciaux de ce message doivent être correctement placés dans une séquence d’échappement. | Oui      | N/A     |
 | failed-check-httpcode      | Code d’état HTTP à renvoyer si l’en-tête n’existe pas ou a une valeur non valide.                                                                                        | Oui      | N/A     |
@@ -82,7 +82,7 @@ Cette stratégie peut être utilisée dans les [sections](https://azure.microsof
 
 -   **Étendues de la stratégie :** toutes les étendues
 
-## <a name="LimitCallRate"></a> Limit call rate by subscription
+## <a name="limit-call-rate-by-subscription"></a><a name="LimitCallRate"></a> Limit call rate by subscription
 
 La stratégie `rate-limit` évite les pics d’utilisation des API par abonnement en limitant le débit d’appels à un nombre spécifié pour une période donnée. Lorsque cette stratégie est déclenchée, l’appelant reçoit le code d’état de réponse `429 Too Many Requests`.
 
@@ -120,7 +120,7 @@ La stratégie `rate-limit` évite les pics d’utilisation des API par abonnemen
 
 ### <a name="elements"></a>Éléments
 
-| Name       | Description                                                                                                                                                                                                                                                                                              | Obligatoire |
+| Nom       | Description                                                                                                                                                                                                                                                                                              | Obligatoire |
 | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | rate-limit | Élément racine.                                                                                                                                                                                                                                                                                            | Oui      |
 | api        | Ajoutez un ou plusieurs éléments de ce type pour imposer une limite de débit d’appels aux API au sein du produit. Les limites de débit d’appels au niveau du produit et de l’API s’appliquent indépendamment les unes des autres. L’API peut être référencée via `name` ou `id`. Si les deux attributs sont fournis, `id` sera utilisé et `name` sera ignoré.                    | Non       |
@@ -128,7 +128,7 @@ La stratégie `rate-limit` évite les pics d’utilisation des API par abonnemen
 
 ### <a name="attributes"></a>Attributs
 
-| Name           | Description                                                                                           | Obligatoire | Default |
+| Nom           | Description                                                                                           | Obligatoire | Default |
 | -------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | name           | Nom de l’API à laquelle la limite de débit s’applique.                                                | Oui      | N/A     |
 | calls          | Nombre maximal d’appels autorisés au cours de l’intervalle de temps spécifié dans le paramètre `renewal-period`. | Oui      | N/A     |
@@ -142,7 +142,7 @@ Cette stratégie peut être utilisée dans les [sections](https://azure.microsof
 
 -   **Étendues de la stratégie :** produit, API, opération
 
-## <a name="LimitCallRateByKey"></a> Limite de débit d’appels par clé
+## <a name="limit-call-rate-by-key"></a><a name="LimitCallRateByKey"></a> Limite de débit d’appels par clé
 
 > [!IMPORTANT]
 > Cette fonctionnalité n’est pas disponible dans le niveau **Consommation** du service Gestion des API.
@@ -185,13 +185,13 @@ Dans l’exemple suivant, la limite de débit est indexée par l’adresse IP de
 
 ### <a name="elements"></a>Éléments
 
-| Name              | Description   | Obligatoire |
+| Nom              | Description   | Obligatoire |
 | ----------------- | ------------- | -------- |
 | rate-limit-by-key | Élément racine. | Oui      |
 
 ### <a name="attributes"></a>Attributs
 
-| Name                | Description                                                                                           | Obligatoire | Default |
+| Nom                | Description                                                                                           | Obligatoire | Default |
 | ------------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | calls               | Nombre maximal d’appels autorisés au cours de l’intervalle de temps spécifié dans le paramètre `renewal-period`. | Oui      | N/A     |
 | counter-key         | Clé à utiliser pour la stratégie de limite de débit.                                                             | Oui      | N/A     |
@@ -206,7 +206,7 @@ Cette stratégie peut être utilisée dans les [sections](https://azure.microsof
 
 -   **Étendues de la stratégie :** toutes les étendues
 
-## <a name="RestrictCallerIPs"></a> Restrict caller IPs
+## <a name="restrict-caller-ips"></a><a name="RestrictCallerIPs"></a> Restrict caller IPs
 
 La stratégie `ip-filter` filtre (autorise/rejette) les appels de certaines adresses IP et/ou de certaines plages d’adresses.
 
@@ -232,7 +232,7 @@ Dans l’exemple suivant, la stratégie autorise uniquement les requêtes entran
 
 ### <a name="elements"></a>Éléments
 
-| Name                                      | Description                                         | Obligatoire                                                       |
+| Nom                                      | Description                                         | Obligatoire                                                       |
 | ----------------------------------------- | --------------------------------------------------- | -------------------------------------------------------------- |
 | ip-filter                                 | Élément racine.                                       | Oui                                                            |
 | address                                   | Spécifie une adresse IP unique à filtrer.   | Au moins un élément `address` ou `address-range` est requis. |
@@ -240,7 +240,7 @@ Dans l’exemple suivant, la stratégie autorise uniquement les requêtes entran
 
 ### <a name="attributes"></a>Attributs
 
-| Name                                      | Description                                                                                 | Obligatoire                                           | Default |
+| Nom                                      | Description                                                                                 | Obligatoire                                           | Default |
 | ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
 | address-range from="address" to="address" | Plage d'adresses IP pour lesquelles autoriser ou refuser l'accès.                                        | Obligatoire lorsque l’élément `address-range` est utilisé. | N/A     |
 | ip-filter action="allow &#124; forbid"    | Spécifie si les appels doivent être autorisés ou non pour les adresses IP et plages spécifiées. | Oui                                                | N/A     |
@@ -252,7 +252,7 @@ Cette stratégie peut être utilisée dans les [sections](https://azure.microsof
 -   **Sections de la stratégie :** inbound
 -   **Étendues de la stratégie :** toutes les étendues
 
-## <a name="SetUsageQuota"></a> Set usage quota by subscription
+## <a name="set-usage-quota-by-subscription"></a><a name="SetUsageQuota"></a> Set usage quota by subscription
 
 La stratégie `quota` applique un volume d’appels et/ou un quota de bande passante renouvelable ou illimité par abonnement.
 
@@ -287,7 +287,7 @@ La stratégie `quota` applique un volume d’appels et/ou un quota de bande pass
 
 ### <a name="elements"></a>Éléments
 
-| Name      | Description                                                                                                                                                                                                                                                                                  | Obligatoire |
+| Nom      | Description                                                                                                                                                                                                                                                                                  | Obligatoire |
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | quota     | Élément racine.                                                                                                                                                                                                                                                                                | Oui      |
 | api       | Ajoutez un ou plusieurs éléments de ce type pour imposer un quota d’appel aux API au sein du produit. Les quotas d’appel au niveau du produit et de l’API s’appliquent indépendamment les uns des autres. L’API peut être référencée via `name` ou `id`. Si les deux attributs sont fournis, `id` sera utilisé et `name` sera ignoré.                    | Non       |
@@ -295,7 +295,7 @@ La stratégie `quota` applique un volume d’appels et/ou un quota de bande pass
 
 ### <a name="attributes"></a>Attributs
 
-| Name           | Description                                                                                               | Obligatoire                                                         | Default |
+| Nom           | Description                                                                                               | Obligatoire                                                         | Default |
 | -------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------- |
 | name           | Nom de l’API ou de l’opération à laquelle s’applique le quota.                                             | Oui                                                              | N/A     |
 | bandwidth      | Nombre maximal de kilo-octets autorisés au cours de l’intervalle de temps spécifié dans le paramètre `renewal-period`. | Il est obligatoire de spécifier `calls`, `bandwidth` ou les deux. | N/A     |
@@ -309,7 +309,7 @@ Cette stratégie peut être utilisée dans les [sections](https://azure.microsof
 -   **Sections de la stratégie :** inbound
 -   **Étendues de la stratégie :** product
 
-## <a name="SetUsageQuotaByKey"></a> Set usage quota by key
+## <a name="set-usage-quota-by-key"></a><a name="SetUsageQuotaByKey"></a> Set usage quota by key
 
 > [!IMPORTANT]
 > Cette fonctionnalité n’est pas disponible dans le niveau **Consommation** du service Gestion des API.
@@ -349,13 +349,13 @@ Dans l’exemple suivant, le quota est indexé par l’adresse IP de l’appelan
 
 ### <a name="elements"></a>Éléments
 
-| Name  | Description   | Obligatoire |
+| Nom  | Description   | Obligatoire |
 | ----- | ------------- | -------- |
 | quota | Élément racine. | Oui      |
 
 ### <a name="attributes"></a>Attributs
 
-| Name                | Description                                                                                               | Obligatoire                                                         | Default |
+| Nom                | Description                                                                                               | Obligatoire                                                         | Default |
 | ------------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------- |
 | bandwidth           | Nombre maximal de kilo-octets autorisés au cours de l’intervalle de temps spécifié dans le paramètre `renewal-period`. | Il est obligatoire de spécifier `calls`, `bandwidth` ou les deux. | N/A     |
 | calls               | Nombre maximal d’appels autorisés au cours de l’intervalle de temps spécifié dans le paramètre `renewal-period`.     | Il est obligatoire de spécifier `calls`, `bandwidth` ou les deux. | N/A     |
@@ -370,7 +370,7 @@ Cette stratégie peut être utilisée dans les [sections](https://azure.microsof
 -   **Sections de la stratégie :** inbound
 -   **Étendues de la stratégie :** toutes les étendues
 
-## <a name="ValidateJWT"></a> Validate JWT
+## <a name="validate-jwt"></a><a name="ValidateJWT"></a> Validate JWT
 
 La stratégie `validate-jwt` applique l’existence et la validité d’un JWT extrait d’un en-tête HTTP ou d’un paramètre de requête spécifié.
 
@@ -515,7 +515,7 @@ Cet exemple montre comment utiliser la stratégie [Validate JWT](api-management-
 
 ### <a name="attributes"></a>Attributs
 
-| Name                            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                            | Obligatoire                                                                         | Default                                                                           |
+| Nom                            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                            | Obligatoire                                                                         | Default                                                                           |
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
 | clock-skew                      | Intervalle de temps. Permet de spécifier l’écart maximal de durée estimée entre les horloges système de l’émetteur du jeton et l’instance de gestion des API.                                                                                                                                                                                                                                                                                                               | Non                                                                               | 0 seconde                                                                         |
 | failed-validation-error-message | Message d’erreur à renvoyer dans le corps de la réponse HTTP si le JWT n’est pas validé. Les éventuels caractères spéciaux de ce message doivent être correctement placés dans une séquence d’échappement.                                                                                                                                                                                                                                                                                                 | Non                                                                               | Le message d’erreur par défaut dépend du problème de validation, par exemple « JWT absent ». |

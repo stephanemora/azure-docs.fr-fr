@@ -1,6 +1,6 @@
 ---
 title: Interprétation de votre carte de performance | Microsoft Docs
-description: Questions fréquentes (FAQ) sur Azure Internet Analyzer.
+description: Il s’agit de la FAQ sur Azure Internet Analyzer.
 services: internet-analyzer
 author: mattcalder
 ms.service: internet-analyzer
@@ -8,10 +8,10 @@ ms.topic: guide
 ms.date: 10/16/2019
 ms.author: mebeatty
 ms.openlocfilehash: a05c704f62d93bdc110d8a5943dd266ca22eb5f4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73510298"
 ---
 # <a name="interpreting-your-scorecard"></a>Interprétation de votre carte de performance
@@ -24,7 +24,7 @@ L’onglet Carte de performance se trouve dans le menu des ressources d’Intern
 ## <a name="filters"></a>Filtres
 
 * ***Test :*** Sélectionnez le test dont vous souhaitez voir les résultats ; chaque test a sa propre carte de performance. Les données de test s’affichent dès que les données sont suffisantes pour effectuer l’analyse, généralement dans les 24 heures. 
-* ***Période & date de fin :*** Trois cartes de performance sont générées quotidiennement : chaque carte reflète une période d’agrégation spécifique : les 24 heures précédentes (jour), les sept jours précédents (semaine) et les 30 jours précédents (mois). Utilisez le filtre « Date de fin » pour sélectionner le dernier jour de la période que vous souhaitez voir. 
+* ***Période et date de fin :*** Trois cartes de performance sont générées quotidiennement : chaque carte reflète une période d’agrégation spécifique : les 24 heures précédentes (jour), les sept jours précédents (semaine) et les 30 jours précédents (mois). Utilisez le filtre « Date de fin » pour sélectionner le dernier jour de la période que vous souhaitez voir. 
 * ***Pays :*** Pour chaque pays pour lequel vous avez des utilisateurs finaux, une carte de performance est générée. Le filtre Global contient tous les utilisateurs finaux.
 
 ## <a name="measurement-count"></a>Nombre de mesures
@@ -57,4 +57,4 @@ Une série chronologique montre comment une métrique change dans le temps. Sur 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations, consultez notre [vue d’ensemble d’Internet Analyzer](internet-analyzer-overview.md).
+Si vous souhaitez en savoir plus, veuillez consulter la page [Qu’est-ce qu’Internet Analyzer ? (Préversion)](internet-analyzer-overview.md).

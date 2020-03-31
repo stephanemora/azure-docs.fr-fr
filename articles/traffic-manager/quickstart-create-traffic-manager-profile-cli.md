@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: rohink
-ms.openlocfilehash: 36ad1c47e115f06aea2017a049cefe36304504bf
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: e19850243498fc24c9a726f4603590df15f3a046
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76934835"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79531513"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application-using-azure-cli"></a>Démarrage rapide : Créer un profil Traffic Manager pour assurer une haute disponibilité à vos applications web avec Azure CLI
 
@@ -88,6 +88,7 @@ az appservice plan create \
     --sku S1
 
 ```
+
 ### <a name="create-a-web-app-in-the-app-service-plan"></a>Créer une application web dans le plan App Service
 Créez deux instances de l’application web en utilisant la commande [az webapp create](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) dans les plans App Service dans les régions Azure *USA Est* et *Europe Ouest*.
 
@@ -111,7 +112,7 @@ az webapp create \
 Ajoutez les deux applications web en tant que points de terminaison Traffic Manager en utilisant la commande [az network traffic-manager endpoint create](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-create) dans le profil Traffic Manager comme suit :
 
 - Déterminez l’ID d’application web et ajoutez l’application web située dans la région Azure *USA Est* comme point de terminaison principal pour le routage de tout le trafic utilisateur. 
-- Déterminez l’ID d’application web et ajoutez l’application web située dans la région Azure *Europe Ouest* en tant que point de terminaison de basculement. 
+- Déterminez l’ID d’application web et ajoutez l’application web située dans la région Azure *Europe Ouest* comme point de terminaison de basculement. 
 
 Quand le point de terminaison principal n’est pas disponible, le trafic est automatiquement routé vers le point de terminaison de basculement.
 
@@ -127,6 +128,7 @@ az webapp show \
     --query id
 
 ```
+
 Prenez note de l’ID affiché dans la sortie, et utilisez la commande suivante pour ajouter le point de terminaison :
 
 ```azurecli-interactive
@@ -151,6 +153,7 @@ az webapp show \
     --query id
 
 ```
+
 Prenez note de l’ID affiché dans la sortie, et utilisez la commande suivante pour ajouter le point de terminaison :
 
 ```azurecli-interactive
@@ -212,7 +215,7 @@ Copiez la valeur de **RelativeDnsName**. Le nom DNS de votre profil Traffic Mana
 
 Une fois que vous avez terminé, supprimez les groupes de ressources, les applications web et toutes les ressources associées en utilisant la commande [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete).
 
-```azurepowershell-interactive
+```azurecli-interactive
 
 az group delete \
     --resource-group myResourceGroup

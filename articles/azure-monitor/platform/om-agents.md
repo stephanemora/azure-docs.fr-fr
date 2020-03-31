@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 08/13/2019
 ms.openlocfilehash: 92b6737f48d8d8704f461c9adac92284b323b05f
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77659405"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79234197"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Connecter Operations Manager à Azure Monitor
 
@@ -33,7 +33,7 @@ Le diagramme suivant représente la connexion entre les serveurs et agents d'adm
 
 Si vos stratégies de sécurité informatiques n’autorisent pas les ordinateurs sur votre réseau à se connecter à Internet, les serveurs d’administration peuvent être configurés pour se connecter à la passerelle Log Analytics afin de recevoir des informations de configuration et d’envoyer les données collectées en fonction des solutions activées. Pour plus d'informations et pour savoir comment configurer votre groupe d'administration Operations Manager afin de communiquer via une passerelle Log Analytics avec Azure Monitor, consultez [Connecter des ordinateurs à Azure Monitor en utilisant la passerelle Log Analytics](../../azure-monitor/platform/gateway.md).  
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer, passez en revue les exigences suivantes.
 
@@ -115,19 +115,19 @@ Lors de l’inscription initiale de votre groupe d’administration Operations M
 1. Dans la console Operations Manager, sélectionnez l’espace de travail **Administration** .
 1. Développez le nœud Operations Management Suite, puis cliquez sur **Connexion**.
 1. Cliquez sur le lien **S’inscrire auprès de Operations Management Suite** .
-1. Sur la page **Assistant Intégration d’Operations Management Suite : authentification**, entrez l’adresse e-mail ou le numéro de téléphone et le mot de passe du compte administrateur associés à votre abonnement OMS, puis cliquez sur **Se connecter**.
+1. Dans la page **Assistant Intégration d’Operations Management Suite : authentification**, entrez l’adresse e-mail ou le numéro de téléphone et le mot de passe du compte d’administrateur associés à votre abonnement OMS, puis cliquez sur **Se connecter**.
 
    >[!NOTE]
    >Le nom « Operations Management Suite » a été retiré.
 
-1. Une fois authentifié, vous êtes invité à sélectionner votre espace de travail Log Analytics ainsi que votre tenant et votre abonnement Azure sur la page **Assistant Intégration d’Operations Management Suite : Sélectionner la page Espace de travail**. Vous êtes invité à sélectionner votre locataire Azure, votre abonnement et l’espace de travail Log Analytics. Si vous avez plusieurs espaces de travail, sélectionnez celui que vous souhaitez inscrire auprès du groupe d’administration d’Operations Manager dans la liste déroulante, puis cliquez sur **Suivant**.
+1. Une fois authentifié, vous êtes invité à sélectionner votre espace de travail Log Analytics ainsi que votre tenant et votre abonnement Azure sur la page **Assistant Intégration d’Operations Management Suite : sélection d’un espace de travail**. Si vous avez plusieurs espaces de travail, sélectionnez celui que vous souhaitez inscrire auprès du groupe d’administration d’Operations Manager dans la liste déroulante, puis cliquez sur **Suivant**.
 
    > [!NOTE]
    > Operations Manager prend uniquement en charge un espace de travail Log Analytics à la fois. La connexion et les ordinateurs enregistrés sur Azure Monitor avec l'espace de travail précédent sont supprimés d'Azure Monitor.
    >
    >
-1. Sur la page **Assistant Intégration d’Operations Management Suite : résumé**, vérifiez vos paramètres. S’ils sont corrects, cliquez sur **Créer**.
-1. Sur la page **Assistant Intégration d’Operations Management Suite : fin** , cliquez sur **Fermer**.
+1. Dans la page **Assistant Intégration d’Operations Management Suite : résumé**, vérifiez vos paramètres. S’ils sont corrects, cliquez sur **Créer**.
+1. Dans la page **Assistant Intégration d’Operations Management Suite : fin**, cliquez sur **Fermer**.
 
 ### <a name="add-agent-managed-computers"></a>Ajout d’ordinateurs gérés par des agents
 
@@ -147,7 +147,7 @@ Si un serveur proxy interne se trouve entre le groupe d'administration et Azure 
 1. Ouvrez la console Operations Manager, puis sélectionnez l'espace de travail **Administration** .
 1. Développez Operations Management Suite, puis cliquez sur **Connexions**.
 1. Dans la vue Connexion à OMS, cliquez sur **Configurer le serveur proxy**.
-1. Sur la page **Assistant Operations Management Suite : serveur proxy**, sélectionnez **Utiliser un serveur proxy pour accéder à Operations Management Suite**, puis saisissez l’URL avec le numéro de port, par exemple http://corpproxy:80, et cliquez sur **Terminer**.
+1. Dans la page **Assistant Operations Management Suite : serveur proxy**, sélectionnez **Utiliser un serveur proxy pour accéder à Operations Management Suite**, puis tapez l’URL avec le numéro de port, par exemple http://corpproxy:80, et cliquez sur **Terminer**.
 
 Si votre serveur proxy requiert une authentification, procédez comme suit pour configurer les informations d'identification et les paramètres qui doivent se propager sur les ordinateurs gérés qui envoient des rapports à Azure Monitor dans le groupe d'administration.
 
@@ -187,7 +187,7 @@ Pour continuer à suivre votre processus habituel de contrôle des modifications
 1. Dans la page **Assistant Intégration de Log Analytics**, entrez l’adresse e-mail ou le numéro de téléphone et le mot de passe du compte d’administrateur associé à votre nouvel espace de travail Log Analytics.
 
    > [!NOTE]
-   > La page **Assistant Intégration d’Operations Management Suite : sélectionner un espace de travail** indique l’espace de travail existant en cours d’utilisation.
+   > La page **Assistant Intégration d’Operations Management Suite : sélectionner un espace de travail** indique l’espace de travail existant en cours d’utilisation.
    >
    >
 

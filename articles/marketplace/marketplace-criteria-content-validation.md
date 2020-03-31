@@ -1,20 +1,18 @@
 ---
 title: Validation du contenu des critères de la Place de marché | Place de marché Azure
 description: Cet article décrit comment devenir un éditeur dans la Place de marché.
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
-manager: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/31/2019
-ms.author: evansma
-ms.openlocfilehash: 8c0af3f059d1beb0e1d07d3494b31c674f15438d
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.author: dsindona
+ms.openlocfilehash: 83dfa4f713068475faaab36c77b0df8f27e718c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980871"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80277203"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Instructions relatives aux listes de la Place de marché Azure
 

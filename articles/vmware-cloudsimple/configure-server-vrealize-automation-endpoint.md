@@ -1,6 +1,6 @@
 ---
-title: Azure VMware Solutions (AVS) - Configurer vCenter sur un cloud privé AVS pour vRealize Automation
-description: Décrit comment configurer un serveur VMware vCenter sur votre cloud privé AVS en tant que point de terminaison pour VMware vRealize Automation
+title: Azure VMware Solution by CloudSimple – Configurer vCenter sur le cloud privé pour vRealize Automation
+description: Décrit comment configurer un serveur VMware vCenter sur votre cloud privé CloudSimple en tant que point de terminaison pour VMware vRealize Automation
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/19/2019
@@ -8,23 +8,23 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 41106498594ac05b944323e5f5e63de739aedf37
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: df73acfc469a8b7b5329b61095aefdbd73baafd4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77024838"
 ---
-# <a name="set-up-vcenter-on-your-avs-private-cloud-for-vmware-vrealize-automation"></a>Configurer vCenter sur votre cloud privé AVS pour VMware vRealize Automation
+# <a name="set-up-vcenter-on-your-private-cloud-for-vmware-vrealize-automation"></a>Configurer vCenter sur votre cloud privé pour VMware vRealize Automation
 
-Vous pouvez configurer un serveur VMware vCenter sur votre cloud privé AVS en tant que point de terminaison pour VMware vRealize Automation.
+Vous pouvez configurer un serveur VMware vCenter sur votre cloud privé CloudSimple en tant que point de terminaison pour VMware vRealize Automation.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
 Effectuez les tâches suivantes avant de configurer le serveur vCenter :
 
-* Configurez une [connexion VPN de site à site](vpn-gateway.md#set-up-a-site-to-site-vpn-gateway) entre votre environnement local et votre cloud privé AVS.
-* [Configurez le transfert DNS de demandes DNS locales](on-premises-dns-setup.md) sur les serveurs DNS de votre cloud privé AVS.
+* Configurez une [connexion VPN de site à site](vpn-gateway.md#set-up-a-site-to-site-vpn-gateway) entre votre environnement local et votre cloud privé.
+* [Configurez le transfert DNS de demandes DNS locales](on-premises-dns-setup.md) sur les serveurs DNS de votre cloud privé.
 * Soumettez [une demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) pour créer un utilisateur administratif IaaS vRealize Automation avec le jeu d’autorisations répertorié dans le tableau suivant.
 
 | Valeur d'attribut | Autorisation |
@@ -44,7 +44,7 @@ Effectuez les tâches suivantes avant de configurer le serveur vCenter :
 
 ## <a name="install-vrealize-automation-in-your-on-premises-environment"></a>Installer vRealize Automation dans votre environnement local
 
-1. Connectez-vous à l’appliance serveur IaaS vRealize Automation dans le rôle d’administrateur IaaS que le support AVS a créé pour vous.
+1. Connectez-vous à l’appliance serveur IaaS vRealize Automation dans le rôle d’administrateur IaaS que le support CloudSimple a créé pour vous.
 2. Déployez un agent vSphere pour le point de terminaison vRealize Automation.
     1. Accédez à https://*vra-url*:5480/installer, où *vra-url* est l’URL que vous utilisez pour accéder à l’interface utilisateur d’administration de vRealize Automation.
     2. Cliquez sur **Programme d'installation IaaS** pour télécharger le programme d'installation.<br>
@@ -59,7 +59,7 @@ Effectuez les tâches suivantes avant de configurer le serveur vCenter :
     ![Informations de connexion vRA](media/configure-vra-endpoint-account.png)
     8. Pour les paramètres de proxy, entrez **vSphere** pour **Type d’agent**. Entrez le nom de l’agent.
     9. Entrez le nom de domaine complet du serveur IaaS dans les champs **Hôte de service du gestionnaire** et **Hôte de service web du gestionnaire de modèle**. Cliquez sur **Tester** pour tester la connexion de chacune des valeurs de nom de domaine complet. Si le test échoue, modifiez vos paramètres DNS afin que le nom d’hôte du serveur IaaS soit résolu.
-    10. Entrez un nom pour le point de terminaison du serveur vCenter pour le cloud privé AVS. Enregistrez le nom pour une utilisation ultérieure dans le processus de configuration.
+    10. Entrez un nom pour le point de terminaison du serveur vCenter pour le cloud privé. Enregistrez le nom pour une utilisation ultérieure dans le processus de configuration.
 
         ![Proxy d’installation de vRA](media/configure-vra-endpoint-proxy.png)
 
@@ -72,8 +72,8 @@ Effectuez les tâches suivantes avant de configurer le serveur vCenter :
 2. Sélectionnez **Infrastructure** > **Points de terminaison** > **Points de terminaison**.
 3. Sélectionnez **Nouveau** > **vSphere** > **virtual**.
 4. Entrez le nom du point de terminaison vSphere que vous avez spécifié dans la procédure précédente.
-5. Pour **Adresse**, entrez l’URL du serveur vCenter de cloud privé AVS au format https://*vcenter-fqdn*/sdk, où *vcenter-fqdn* est le nom du serveur vCenter.
-6. Entrez les informations d’identification pour l’utilisateur administratif IaaS vRealize Automation que le support AVS a créé pour vous.
+5. Pour **Adresse**, entrez l’URL du cloud privé vCenter Server au format https://*vcenter-fqdn*/sdk, où *vcenter-fqdn* est le nom du serveur vCenter.
+6. Entrez les informations d’identification pour l’utilisateur administratif IaaS vRealize Automation que le support CloudSimple a créé pour vous.
 7. Cliquez sur **Tester la connexion** pour valider les informations d’identification de l’utilisateur. Si le test échoue, vérifiez l’URL, les informations du compte et le [nom du point de terminaison](#verify-the-endpoint-name), puis refaites le test.
 8. Après un test réussi, cliquez sur **OK** pour créer le point de terminaison vSphere.
     ![accès à la configuration du point de terminaison vRA](media/configure-vra-endpoint-vra-edit.png)

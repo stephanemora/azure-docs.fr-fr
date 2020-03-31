@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: spelluru
 ms.openlocfilehash: 28d3ba14aa7769ac4f3fc22bd2b5bd7acd30557c
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76514015"
 ---
 # <a name="security-controls-for-azure-service-bus-relay"></a>Contrôles de sécurité pour Azure Service Bus Relay
@@ -40,7 +40,7 @@ Cet article décrit les contrôles de sécurité intégrés à Azure Service Bus
 
 | Contrôle de sécurité | Oui/Non | Notes| Documentation |
 |---|---|--|--|
-| Authentication| Oui | Via SAS. | [Authentification et autorisation Azure Relay](relay-authentication-and-authorization.md) |
+| Authentification| Oui | Via SAS. | [Authentification et autorisation Azure Relay](relay-authentication-and-authorization.md) |
 | Autorisation|  Oui | Via SAS. | [Authentification et autorisation Azure Relay](relay-authentication-and-authorization.md) |
 
 ## <a name="data-protection"></a>Protection de données

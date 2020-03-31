@@ -2,15 +2,15 @@
 title: Configurer et gérer Azure Notebooks (préversion)
 description: Découvrez comment gérer les métadonnées de projet, les fichiers projet, l’environnement et les étapes de configuration du projet via l’interface utilisateur Azure Notebooks et un accès direct au terminal.
 ms.topic: how-to
-ms.date: 05/13/2019
-ms.openlocfilehash: 5c97372133315e6f0bcd3b854793b6b4746b5ba5
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.date: 02/28/2020
+ms.openlocfilehash: 1674effda2cb9bda45f49c91ca618225b0a75f0c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646260"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79236121"
 ---
-# <a name="a-idmanage-and-configure-projects--manage-and-configure-projects-in-azure-notebooks-preview"></a><a id="manage-and-configure-projects" />Gérer et configurer des projets dans Azure Notebooks (préversion)
+# <a name="manage-and-configure-projects-in-azure-notebooks-preview"></a><a id="manage-and-configure-projects" />Gérer et configurer des projets dans Azure Notebooks (préversion)
 
 Un projet dans Azure Notebooks (préversion) est essentiellement une configuration de la machine virtuelle Linux sous-jacente dans laquelle des notebooks Jupyter sont exécutés, avec un dossier de fichiers et des métadonnées descriptives. 
 
@@ -131,6 +131,9 @@ Les informations relatives au projet varient selon le type d’opération que vo
 - **Script shell** : Dans la deuxième liste déroulante, sélectionnez un script shell bash dans le projet (généralement un fichier avec l’extension *.sh*) qui contient les commandes que vous souhaitez exécuter pour initialiser l’environnement.
 
 - **Environment.yml** : Dans la deuxième liste déroulante, sélectionnez un fichier *environments.yml* pour les projets Python avec un environnement conda.
+
+   > [!WARNING]
+   > Comme il s’agit d’un service en préversion en cours de développement, il existe un problème connu où le paramètre `Environment.yml` n’est pas appliqué à votre projet comme prévu. À l’heure actuelle, le projet et les notebooks Jupyter qu’il contient ne chargent pas le fichier d’environnement spécifié.
 
 Quand vous avez terminé l’ajout des étapes, sélectionnez **Enregistrer**.
 

@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
 ms.openlocfilehash: c6e74e7992326d2a4b8fe24510742422b005c2e2
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76756158"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79236033"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolation dans le cloud public Azure
 Azure offre la possibilité d’exécuter des applications et des machines virtuelles sur une infrastructure physique partagée. L’une des principales motivations économiques pour exécuter des applications dans un environnement cloud est la possibilité de répartir le coût des ressources partagées entre plusieurs clients. Cette pratique de mutualisation améliore l’efficacité en multiplexant des ressources entre différents clients à faible coût. Malheureusement, elle présente également le risque de partager des serveurs physiques et d’autres ressources d’infrastructure pour exécuter vos machines virtuelles et applications sensibles appartenant peut-être à un utilisateur arbitraire et potentiellement malveillant.

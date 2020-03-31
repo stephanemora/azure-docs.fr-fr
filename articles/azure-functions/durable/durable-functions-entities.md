@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: overview
 ms.date: 12/17/2019
 ms.author: azfuncdf
-ms.openlocfilehash: d469d52a6db6c3640d07b46422ffe669a898dde8
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 6ecf3bb5999296b2f5f8f5c25616fac8e0278cda
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76262994"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80132524"
 ---
 # <a name="entity-functions"></a>Fonctions d’entité
 
@@ -41,7 +41,7 @@ Pour appeler une opération sur une entité, vous devez spécifier :
 * L’**ID d’entité** de l’entité cible.
 * Le **nom de l’opération**, une chaîne qui spécifie l’opération à effectuer. Par exemple, l’entité `Counter` peut prendre en charge les opérations `add`, `get` ou `reset`.
 * L’**entrée d’opération**, qui est un paramètre d’entrée facultatif pour l’opération. Par exemple, l’opération « add » peut prendre une valeur entière comme entrée.
-* L’**heure planifiée*, qui est un paramètre facultatif pour spécifier le délai de livraison de l’opération. Par exemple, une opération peut être planifiée de manière fiable pour s’exécuter plusieurs jours à l’avenir.
+* L’**heure planifiée**, qui est un paramètre facultatif pour spécifier le délai de livraison de l’opération. Par exemple, une opération peut être planifiée de manière fiable pour s’exécuter plusieurs jours à l’avenir.
 
 Les opérations peuvent retourner une valeur de résultat ou un résultat d’erreur (par exemple une erreur JavaScript ou une exception .NET). Ce résultat ou cette erreur peut être observé par les orchestrations qui ont appelé l’opération.
 
@@ -55,7 +55,7 @@ Une **syntaxe basée sur la fonction**, où les entités sont représentées en 
 
 Une **syntaxe basée sur les classes (.NET uniquement)** , où les entités et les opérations sont représentées par des classes et des méthodes. Cette syntaxe produit un code plus facile à lire et permet d’appeler des opérations de façon sécurisée. La syntaxe basée sur la classe est une fine couche par-dessus la syntaxe basée sur la fonction ; ainsi, les deux variantes peuvent être utilisées de manière interchangeable dans la même application.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ### <a name="example-function-based-syntax---c"></a>Exemple : Syntaxe basée sur les fonctions - C#
 
@@ -109,7 +109,7 @@ L’état de cette entité est un objet de type `Counter`, qui contient un champ
 
 Pour plus d’informations sur la syntaxe basée sur la classe et sur son utilisation, consultez [Définition des classes d’entités](durable-functions-dotnet-entities.md#defining-entity-classes).
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ### <a name="example-javascript-entity"></a>Exemple : Entité JavaScript
 
@@ -171,7 +171,7 @@ Les exemples ci-dessous illustrent les différentes façons d’accéder aux ent
 
 Pour accéder aux entités à partir d’une fonction Azure ordinaire, également connue sous le nom de fonction cliente, utilisez la [liaison du client d’entité](durable-functions-bindings.md#entity-client). L’exemple suivant montre une fonction déclenchée par une file d’attente qui signale une entité à l’aide de cette liaison.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 > [!NOTE]
 > Par souci de simplicité, les exemples ci-dessous illustrent la syntaxe faiblement typée pour l’accès aux entités. En général, nous vous recommandons d’[accéder aux entités via des interfaces](durable-functions-dotnet-entities.md#accessing-entities-through-interfaces), car cela permet un meilleur contrôle de type.
@@ -189,7 +189,7 @@ public static Task Run(
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -209,7 +209,7 @@ Le terme *signal* signifie que l’appel de l’API d’entité est unidirection
 
 Les fonctions clientes peuvent également interroger l’état d’une entité, comme illustré dans l’exemple suivant :
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("QueryCounter")]
@@ -223,7 +223,7 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -244,7 +244,7 @@ Les requêtes d’état d’entité sont envoyées au magasin de suivi durable e
 
 Les fonctions orchestrator peuvent accéder à des entités en utilisant des API sur la [liaison du déclencheur d’orchestration](durable-functions-bindings.md#orchestration-trigger). L’exemple de code suivant montre une fonction orchestrator qui appelle et signale une entité `Counter`.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("CounterOrchestration")]
@@ -263,7 +263,7 @@ public static async Task Run(
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -291,7 +291,7 @@ Seules les orchestrations peuvent appeler des entités et obtenir une réponse, 
 Une fonction d’entité peut envoyer des signaux à d’autres entités (voire à elle-même) pendant qu’elle exécute une opération.
 Par exemple, nous pouvons modifier l’exemple d’entité `Counter` précédente pour qu’elle envoie un signal « milestone-reached » à une entité de supervision quand le compteur atteint la valeur 100.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
    case "add":
@@ -306,7 +306,7 @@ Par exemple, nous pouvons modifier l’exemple d’entité `Counter` précédent
         break;
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
     case "add":
@@ -321,7 +321,7 @@ Par exemple, nous pouvons modifier l’exemple d’entité `Counter` précédent
 
 ---
 
-## <a name="entity-coordination"></a>Coordination d’entités (actuellement .NET uniquement)
+## <a name="entity-coordination-currently-net-only"></a><a name="entity-coordination"></a>Coordination d’entités (actuellement .NET uniquement)
 
 Il peut arriver que vous deviez coordonner des opérations entre plusieurs entités. Par exemple, dans une application bancaire, vous pouvez avoir des entités représentant des comptes bancaires individuels. Lorsque vous transférez de l’argent d’un compte à un autre, vous devez vous assurer que le compte source possède des fonds suffisants. Vous devez également veiller à ce que les mises à jour des deux comptes (source et de destination) soient effectuées de manière cohérente par rapport au contexte de transaction.
 

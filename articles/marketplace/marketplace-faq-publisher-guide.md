@@ -1,19 +1,18 @@
 ---
 title: FAQ sur la Place de marché commerciale de Microsoft
 description: Réponses aux questions courantes sur la Place de marché Azure et Microsoft AppSource
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/4/2019
-ms.author: ellacroi
-ms.openlocfilehash: 6a7a0d5bdd07221be823f8b94bd581db6d966fa8
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.author: dsindona
+ms.openlocfilehash: ae5c691375d52bc7da7a877f5b2e0c2ca52cc87e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74306412"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288459"
 ---
 # <a name="microsoft-commercial-marketplace-faqs"></a>FAQ sur la Place de marché commerciale de Microsoft
 
@@ -47,7 +46,7 @@ La Place de marché Microsoft Azure propose des solutions et services techniques
 
 **Comment démarrer dans la Place de marché Microsoft Azure ?**
 
-La [Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com/marketplace/apps) vous offre un vaste éventail d’applications et solutions d’entreprise, certifiées et optimisées pour s’exécuter sur Azure. Vous pouvez également accéder à la Place de marché Azure via le [portail Azure] quand vous [**créez une ressource**](https://portal.azure.com/#create/hub).
+La [Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com/marketplace/apps) vous offre un vaste éventail d’applications et solutions d’entreprise, certifiées et optimisées pour s’exécuter sur Azure. Vous pouvez également accéder à la Place de marché Azure via le [Azure portal] quand vous [**créez une ressource**](https://portal.azure.com/#create/hub).
 
 **Quels sont les principaux avantages de la Place de marché Azure ?**
 
@@ -58,7 +57,7 @@ Avec la Place de marché Microsoft Azure, les clients peuvent découvrir des app
 Les offres de la Place de marché Microsoft Azure peuvent être achetées par les moyens suivants :
 
 * [La vitrine web](https://azuremarketplace.microsoft.com/marketplace/apps)
-* [Le portail Azure][Portail Azure]
+* [Le portail Azure][azure portal]
 * [L’interface Azure CLI](/cli/azure/?view=azure-cli-latest)
 
 >[!Note]
@@ -128,7 +127,7 @@ L’abonnement Azure est inclus dans le prix de la solution de l’éditeur de l
 
 + *Par utilisateur :* Les abonnements SaaS peuvent être facturés sur une base « par utilisateur » mensuellement ou annuellement. 
 
-Pour plus de détails sur la tarification spécifique des offres, rendez-vous sur la page des détails de la solution sur [https://azure.microsoft.com/pricing/](https://azure.microsoft.com/pricing/) ou dans le [portail Azure].
+Pour plus de détails sur la tarification spécifique des offres, rendez-vous sur la page des détails de la solution sur [https://azure.microsoft.com/pricing/](https://azure.microsoft.com/pricing/) ou dans le [Azure portal].
 
 > [!Note]
 > À l’exception des frais mensuels, sauf stipulation contraire, des frais d’utilisation d’Azure s’appliquent à tous les modèles de tarification.
@@ -181,9 +180,9 @@ Non. L’éditeur possédant des solutions sur la Place de marché Azure peut fi
 
 **Où puis-je obtenir des informations sur mon abonnement et la facturation Place de marché Azure ?**
 
-Les clients disposant d’un [Programme d’abonnement en ligne Microsoft](https://azure.microsoft.com/support/legal/subscription-agreement/?country=us&language=en) (abonnés directement via le web) peuvent consulter les détails de leur achat de la Place de marché sous l’onglet Factures de la section Gestion des coûts + facturation du [portail Azure].
+Les clients disposant d’un [Programme d’abonnement en ligne Microsoft](https://azure.microsoft.com/support/legal/subscription-agreement/?country=us&language=en) (abonnés directement via le web) peuvent consulter les détails de leur achat de la Place de marché sous l’onglet Factures de la section Gestion des coûts + facturation du [Azure portal].
 
-Les clients disposant d’un Contrat Entreprise peuvent consulter les détails de leur achat de la Place de marché sous l’onglet Factures de la section Gestion des coûts + facturation du [portail Azure].
+Les clients disposant d’un Contrat Entreprise peuvent consulter les détails de leur achat de la Place de marché sous l’onglet Factures de la section Gestion des coûts + facturation du [Azure portal].
 
 Les partenaires fournisseurs de solutions cloud (CSP) peuvent consulter les détails d’un achat réalisé sur la Place de marché Azure pour chaque client dans l’Espace partenaire, dans l’onglet Historique de commande après avoir sélectionné une société dans l’affichage Clients.
 
@@ -209,7 +208,7 @@ Pour migrer d’autres services achetés sur la Place de marché Azure vers votr
 
 **Comment puis-je accéder à mes informations d’utilisation des achats sur la Place de marché Azure ?**
 
-Une estimation de votre utilisation figure dans le [portail Azure]. Cette estimation peut ne pas comprendre les activités récentes et peut être basée sur des projections dérivées de l’utilisation passée. Dans le cadre d’une préversion publique, cette possibilité peut ne pas être disponible pour tous les achats, et peut varier en fonction du type de produit.
+Une estimation de votre utilisation figure dans le [Azure portal]. Cette estimation peut ne pas comprendre les activités récentes et peut être basée sur des projections dérivées de l’utilisation passée. Dans le cadre d’une préversion publique, cette possibilité peut ne pas être disponible pour tous les achats, et peut varier en fonction du type de produit.
 
 ### <a name="customer-support"></a>Service client
 
@@ -365,7 +364,7 @@ Pour plus d’informations, consultez [Suppression d’une offre](./cloud-partne
 *Web Apps (applications SaaS, extensions) et services de conseil :*
 
 1. Dans le Partner Center, sélectionnez l’icône Point d’interrogation, puis cliquez sur **Support**.
-1. Accédez à <https://go.microsoft.com/fwlink/?linkid=844975>
+1. Atteindre <https://go.microsoft.com/fwlink/?linkid=844975>.
 1. Sur la page de support, sélectionnez le type d’offre.
 1. Sélectionnez **Supprimer** pour supprimer une offre publiée.
 1. Créez un ticket d’incident.
@@ -393,7 +392,7 @@ Visitez la page [Services de commercialisation Microsoft](https://partner.micros
 
 **Où les solutions de la Place de marché Azure sont-elles promues au sein des propriétés web de Microsoft ?**
 
-Les solutions de la Place de marché Azure sont disponibles sur le [Portail Azure] et sur le [site web Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/). Les développeurs cloud et les professionnels de l’informatique qui utilisent Azure voient les solutions à chaque connexion. Un sous-ensemble de solutions de partenaires est également présenté en rotation sur la [page d’accueil de la Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace) et la [page des solutions Azure](https://azure.microsoft.com/solutions/).
+Les solutions de la Place de marché Azure sont disponibles sur le [Azure portal] et sur le [site web Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/). Les développeurs cloud et les professionnels de l’informatique qui utilisent Azure voient les solutions à chaque connexion. Un sous-ensemble de solutions de partenaires est également présenté en rotation sur la [page d’accueil de la Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace) et la [page des solutions Azure](https://azure.microsoft.com/solutions/).
 
 ### <a name="billing-and-payments"></a>Facturation et paiements
 
@@ -477,4 +476,4 @@ Oui, aussitôt que vous en aurez fait la demande via un ticket de support, Micro
 Consultez la page [Guide de l’éditeur Place de marché Azure et AppSource](/azure/marketplace/marketplace-publishers-guide).
 
 
-[Portail Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com

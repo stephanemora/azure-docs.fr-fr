@@ -1,6 +1,6 @@
 ---
-title: Azure VMware Solutions (AVS) – Allouer des adresses IP publiques
-description: Explique comment allouer des adresses IP publiques à des machines virtuelles dans un environnement de cloud privé AVS
+title: Azure VMware Solution by CloudSimple - Allouer des adresses IP publiques
+description: Explique comment allouer des adresses IP publiques à des machines virtuelles dans un environnement de cloud privé
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/15/2019
@@ -8,18 +8,18 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 87133f5efb9f096d3fdb0956aab1caac58b4bd94
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 565c9ad0fbd37b026a1ba555d83b9032d2efcba4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77024294"
 ---
-# <a name="allocate-public-ip-addresses-for-avs-private-cloud-environment"></a>Allouer des adresses IP publiques pour un environnement de cloud privé AVS
+# <a name="allocate-public-ip-addresses-for-private-cloud-environment"></a>Allouer des adresses IP publiques pour un environnement de cloud privé
 
-Ouvrez l’onglet Adresses IP publiques de la page Réseau pour allouer des adresses IP publiques à des machines virtuelles de votre environnement de cloud privé AVS.
+Ouvrez l’onglet Public IPs de la page Network (Réseau) pour allouer des adresses IP publiques aux machines virtuelles de votre environnement de cloud privé.
 
-1. [Accédez au portail AVS](access-cloudsimple-portal.md), puis sélectionnez **Réseau** dans le menu latéral.
+1. [Accédez au portail CloudSimple](access-cloudsimple-portal.md), puis sélectionnez **Network** dans le menu latéral.
 2. Sélectionnez **Public IPs**.
 3. Cliquez sur **New Public IP**.
 

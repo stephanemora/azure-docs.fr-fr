@@ -4,7 +4,6 @@ description: Fournit des scripts PowerShell pour créer et gérer des points de 
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: ''
 ms.devlang: PowerShell
 ms.topic: conceptual
 author: rohitnayakmsft
@@ -12,16 +11,16 @@ ms.author: rohitna
 ms.reviewer: genemi, vanto
 ms.date: 03/12/2019
 tags: azure-synapse
-ms.openlocfilehash: f61403ef50af209fdc6e811191d31ccc83f8da73
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 1e8ec394eab1df0aebe394b8acebc74c7ed49e9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78191858"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80124703"
 ---
 # <a name="powershell--create-a-virtual-service-endpoint-and-vnet-rule-for-sql"></a>PowerShell :  Créer un point de terminaison de service virtuel et une règle de réseau virtuel pour SQL
 
-Les *règles de réseau virtuel* constituent une fonctionnalité de sécurité du pare-feu. Elles permettent de déterminer si le serveur de vos bases de données uniques et de votre pool élastique Azure [SQL Database](sql-database-technical-overview.md), ou de vos bases de données [Azure Synapse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md), doit accepter les communications provenant de sous-réseaux spécifiques de réseaux virtuels.
+Les *règles de réseau virtuel* constituent une fonctionnalité de sécurité du pare-feu. Elles permettent de déterminer si le serveur de vos bases de données uniques et de votre pool élastique Azure [SQL Database](sql-database-technical-overview.md), ou de vos bases de données [Azure Synapse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md), doit accepter les communications provenant de sous-réseaux spécifiques de réseaux virtuels.
 
 > [!IMPORTANT]
 > Cet article s’applique à un serveur SQL Azure et à la base de données SQL Database et à l’entrepôt de données dans Azure Synapse créés sur le serveur SQL Azure. Par souci de simplicité, le nom « SQL Database » est utilisé pour faire référence à SQL Database et à Azure Synapse. Cet article ne s'applique *pas* au déploiement d'une **instance managée** dans Azure SQL Database car aucun point de terminaison de service ne lui est associé.

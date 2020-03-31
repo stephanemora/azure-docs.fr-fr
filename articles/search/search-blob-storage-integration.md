@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: af7d04bd74ada296b9f0e0f7c149c2a781cec579
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73496494"
 ---
 # <a name="add-full-text-search-to-azure-blob-data-using-azure-cognitive-search"></a>Ajouter la recherche en texte intégral à des données blob Azure à l’aide de Recherche cognitive Azure
@@ -45,7 +45,7 @@ Un *indexeur* est un sous-service qui reconnaît les sources de données. Avec s
 
 Dans Stockage Azure, les objets blob sont indexés à l’aide de l’[indexeur de stockage d’objets blob de Recherche cognitive Azure](search-howto-indexing-azure-blob-storage.md). Vous pouvez appeler cet indexeur à partir de l’Assistant **Importation des données**, d’une API REST ou du kit SDK .NET. Dans le code, vous pouvez utiliser cet indexeur en définissant le type et en fournissant des informations de connexion qui incluent un compte Stockage Azure associé à un conteneur d’objets blob. Vous pouvez créer un sous-ensemble de vos objets blob en créant un répertoire virtuel, que vous pouvez ensuite transmettre comme paramètre, ou en filtrant sur une extension de type de fichier.
 
-Un indexeur effectue le « craquage de document » en ouvrant un objet blob pour en inspecter le contenu. Une fois connecté à la source de données, il s’agit de la première étape du pipeline. Pour les données blob, c’est à ce stade que les fichiers PDF, les documents Office et d’autres types de contenu sont détectés. La craquage de document avec extraction de texte n’est pas facturé. Si vos objets blob contiennent des images, celles-ci sont ignorées si vous n’[ajoutez pas l’enrichissement par IA](search-blob-ai-integration.md). L’indexation standard s’applique uniquement au contenu texte.
+Un indexeur effectue le « craquage de document » en ouvrant un objet blob pour en inspecter le contenu. Une fois connecté à la source de données, il s’agit de la première étape du pipeline. Pour les données blob, c’est à ce stade que les fichiers PDF, les documents Office et d’autres types de contenu sont détectés. Le craquage de document avec extraction de texte n’est pas facturé. Si vos objets blob contiennent des images, celles-ci sont ignorées si vous n’[ajoutez pas l’enrichissement par IA](search-blob-ai-integration.md). L’indexation standard s’applique uniquement au contenu texte.
 
 L’indexeur d’objets blob est assorti de paramètres de configuration et prend en charge le suivi des modifications si les données sous-jacentes fournissent suffisamment d’informations. Vous trouverez des informations supplémentaires sur les fonctionnalités de base dans [Indexeur de stockage d’objets blob de Recherche cognitive Azure](search-howto-indexing-azure-blob-storage.md).
 

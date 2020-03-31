@@ -9,11 +9,11 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.openlocfilehash: 47eae55493c5db281ee1be0f9d32f8f8190fc286
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76546943"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79233493"
 ---
 # <a name="control-access-to-iot-hub"></a>Contrôler l’accès à IoT Hub
 
@@ -57,7 +57,7 @@ Par exemple, dans une solution IoT classique :
 > [!NOTE]
 > Pour plus d’informations, consultez la page [Autorisations](#iot-hub-permissions).
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Authentification
 
 Azure IoT Hub accorde l’accès aux points de terminaison en vérifiant un jeton par rapport aux stratégies d’accès partagé et aux informations d’identification de sécurité du registre des identités.
 

@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 03/09/2020
 ms.author: terrylan
 ms.openlocfilehash: ad6d3992f03802174eb03aa30b57b8d3dac1d6c4
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78942956"
 ---
 # <a name="azure-sql-database-security-features"></a>Fonctionnalités de sécurité Azure SQL Database    
@@ -62,9 +62,9 @@ Toutes les informations accessibles au public sont gérées au sein du réseau d
 ### <a name="vlan-isolation"></a>Isolation du VLAN
 Le réseau de production Azure est logiquement séparé en trois grands réseaux VLAN :
 
-- Le VLAN principal : Interconnecte les nœuds des clients non approuvés.
-- Le VLAN du contrôleur de structure : Contient les systèmes de support et les contrôleurs de structure approuvés.
-- Le VLAN de l’appareil : Contient les réseaux approuvés et les autres infrastructures d’appareil.
+- Le VLAN principal : interconnecte les nœuds des clients non approuvés.
+- Le VLAN du contrôleur de structure : contient les systèmes de support et les contrôleurs de structure approuvés.
+- Le VLAN de l’appareil : contient les réseaux approuvés et les autres infrastructures d’appareil.
 
 ### <a name="packet-filtering"></a>Filtrage des paquets
 Les pare-feux IPFilter et logiciels implémentés sur le système d’exploitation racine et le système d’exploitation invité des nœuds appliquent des restrictions de connectivité et empêchent le trafic non autorisé entre les machines virtuelles.

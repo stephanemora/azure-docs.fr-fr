@@ -1,19 +1,18 @@
 ---
 title: API de service de mesure de la Place de marché | Place de marché Azure
 description: Événement d’utilisation pour les offres SaaS dans la place de marché Azure.
-author: MaggiePucciEvans
-manager: evansma
-ms.author: evansma
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: dea950ff72eff2372fc10f989d4ce77fa746c4bf
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 315f36e5aed9dee0a89e1f9f504b18a6bed806e0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75933586"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80275745"
 ---
 # <a name="marketplace-metering-service-apis"></a>API de service de mesure de la Place de marché
 

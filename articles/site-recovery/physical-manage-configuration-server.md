@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
-ms.openlocfilehash: f443f0362ecad8448895322686a7175b2813141e
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 25be48e9caed446be3a86a11143ce3040808065a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084616"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294307"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Gérer le serveur de configuration pour la reprise après sinistre d’un serveur physique
 
@@ -20,14 +20,14 @@ Vous configurez un serveur de configuration local quand vous utilisez le service
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Le tableau répertorie les prérequis du déploiement d'une machine de serveur de configuration locale.
 
 | **Composant** | **Prérequis** |
 | --- |---|
 | Cœurs d’unité centrale| 8 |
-| RAM | 16 Go|
+| RAM | 16 Go|
 | Nombre de disques | 3, y compris le disque du système d’exploitation, le disque de cache du serveur de processus et le lecteur de conservation pour la restauration automatique |
 | Espace disque disponible (cache du serveur de traitement) | 600 Go
 | Espace disque disponible (disque de rétention) | 600 Go|
@@ -39,7 +39,7 @@ Le tableau répertorie les prérequis du déploiement d'une machine de serveur d
 | IIS | - Aucun site web par défaut préexistant <br> - Activer l’[authentification anonyme](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Activer le paramètre [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx)  <br> - Aucune application/aucun site web préexistants ne doivent écouter le port 443<br>|
 | Type de carte réseau | VMXNET3 (en cas de déploiement comme machine virtuelle VMware) |
 | Type d’adresse IP | statique |
-| Accès à Internet | Le serveur doit également accéder à ces URL : <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://management.azure.com <br> - *.services.visualstudio.com <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi (non requis pour les serveurs de processus de Scale-out) <br> - time.nist.gov <br> - time.windows.com |
+| Accès à Internet | Le serveur doit également accéder à ces URL : <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - `https://management.azure.com` <br> - *.services.visualstudio.com <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi (non requis pour les serveurs de processus de Scale-out) <br> - time.nist.gov <br> - time.windows.com |
 | Ports | 443 (Orchestration du canal de contrôle)<br>9443 (Transport de données)|
 
 ## <a name="download-the-latest-installation-file"></a>Télécharger le fichier d’installation le plus récent
@@ -71,7 +71,7 @@ La dernière version du fichier d’installation du serveur configuration est di
      ![Pare-feu](./media/physical-manage-configuration-server/combined-wiz4.png)
 6. Dans **Vérification de la configuration requise**, le programme d’installation procède à une vérification afin de garantir le bon déroulement de l’installation. Si un avertissement s’affiche à propos de la **vérification de la synchronisation globale**, vérifiez que l’heure de l’horloge système (paramètres **Date et heure**) est identique à celle du fuseau horaire.
 
-    ![Prérequis](./media/physical-manage-configuration-server/combined-wiz5.png)
+    ![Conditions préalables requises](./media/physical-manage-configuration-server/combined-wiz5.png)
 7. Dans **Configuration MySQL**, créez des informations d’identification pour vous connecter à l’instance de serveur MySQL installée.
 
     ![MySQL](./media/physical-manage-configuration-server/combined-wiz6.png)
@@ -106,7 +106,7 @@ Exécutez le fichier d’installation de la manière suivante :
   ```
 
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Paramètres
 
 |Nom du paramètre| Type | Description| Valeurs|
 |-|-|-|-|
@@ -114,7 +114,7 @@ Exécutez le fichier d’installation de la manière suivante :
 |/InstallLocation|Obligatoire|Dossier d’installation des composants| N’importe quel dossier sur l’ordinateur|
 |/MySQLCredsFilePath|Obligatoire|Chemin d’accès du fichier où sont stockées les informations d’identification du serveur MySQL|Le fichier doit être au format spécifié ci-dessous|
 |/VaultCredsFilePath|Obligatoire|Chemin d’accès du fichier d’informations d’identification du coffre|Chemin d’accès valide du fichier|
-|/EnvType|Obligatoire|Type d’environnement que vous souhaitez protéger |VMware<br>NonVMware|
+|/EnvType|Obligatoire|Type d’environnement à protéger |VMware<br>NonVMware|
 |/PSIP|Obligatoire|Adresse IP de la carte réseau à utiliser pour le transfert de données de réplication| Une adresse IP valide|
 |/CSIP|Obligatoire|Adresse IP de la carte réseau sur laquelle le serveur de configuration écoute| Une adresse IP valide|
 |/PassphraseFilePath|Obligatoire|Chemin d’accès complet vers l’emplacement du fichier de phrase secrète|Chemin d’accès valide du fichier|
@@ -178,7 +178,7 @@ Vous pouvez modifier les paramètres de proxy pour la machine du serveur de conf
       ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
 5. Indiquez les détails du serveur proxy, puis cliquez sur le bouton **Inscrire**.  
 6. Ouvrez une fenêtre de commandes PowerShell administrateur.
-7. Exécutez la commande suivante
+7. Exécutez la commande suivante :
 
     ```powershell
     $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
@@ -207,7 +207,7 @@ Vous pouvez modifier les paramètres de proxy pour la machine du serveur de conf
 5. Téléchargez un nouveau fichier d’inscription à partir du portail et indiquez-le comme entrée de l’outil.
 6. Indiquez les détails du serveur proxy, puis cliquez sur le bouton **Inscrire**.  
 7. Ouvrez une fenêtre de commandes PowerShell administrateur.
-8. Exécutez la commande suivante
+8. Exécutez la commande suivante :
     ```powershell
     $pwd = ConvertTo-SecureString -String MyProxyUserPassword
     Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $pwd
@@ -252,9 +252,9 @@ Mettez à niveau le serveur comme suit :
 >   Si vous envisagez de réutiliser le serveur de configuration avec Azure Site Recovery, vous pouvez passer directement à l’étape 4.
 
 1. Connectez-vous au serveur de configuration en tant qu’administrateur.
-2. Ouvrez le Panneau de configuration > Programme > Désinstaller des programmes.
+2. Ouvrez le Panneau de configuration > Programme > Désinstaller des programmes
 3. Désinstallez les programmes dans la séquence suivante :
-   * Agent Microsoft Azure Recovery Services
+   * Agent Microsoft Azure Recovery Services
    * Service Mobilité/Serveur cible maître Microsoft Azure Site Recovery
    * Fournisseur Microsoft Azure Site Recovery
    * Serveur de configuration Microsoft Azure Site Recovery/Serveur de traitement

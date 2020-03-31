@@ -4,11 +4,11 @@ description: Documentation de référence pour les paramètres d’application o
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.openlocfilehash: 3853ccbfd492bfaf4a82d62e6d31ab938285ee2e
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76963697"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79235269"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Informations de référence sur les paramètres d’application d’Azure Functions
 
@@ -157,7 +157,7 @@ Pour les plans Consommation et Premium uniquement. Chemin d’accès au fichier 
 
 ## <a name="website_max_dynamic_application_scale_out"></a>WEBSITE\_MAX\_DYNAMIC\_APPLICATION\_SCALE\_OUT
 
-Nombre maximal d’instances possibles de l’application de fonction. Par défaut, il n’y pas de limite.
+Nombre maximal d’instances possibles vers lequel l’application de fonction peut effectuer un scale-out. Par défaut, il n’y pas de limite.
 
 > [!NOTE]
 > Ce paramètre est une fonctionnalité d’évaluation et fiable uniquement si la valeur définie est <= 5

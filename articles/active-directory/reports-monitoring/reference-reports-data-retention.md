@@ -3,7 +3,7 @@ title: Pendant combien de temps les données de rapport sont-elles conservées p
 description: Découvrez la durée pendant laquelle Azure stocke les différents types de données de rapport.
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 183e53b0-0647-42e7-8abe-3e9ff424de12
@@ -13,18 +13,19 @@ ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
-ms.author: chadam
+ms.date: 03/24/2020
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c52f8873527d92e621ef032f5bc3e82d3364a691
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 54636600c208f8f5df9fa2e25460c63dd9f46e85
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989580"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80239545"
 ---
 # <a name="how-long-does-azure-ad-store-reporting-data"></a>Pendant combien de temps les données de rapport sont-elles conservées par Azure AD ?
+
 
 Dans cet article, vous allez en savoir plus sur les stratégies de rétention des données pour les différents rapports d’activité dans Azure Active Directory. 
 
@@ -33,7 +34,7 @@ Dans cet article, vous allez en savoir plus sur les stratégies de rétention de
 | Édition d’Azure AD | Début de la collection |
 | :--              | :--   |
 | Azure AD Premium P1 <br /> Azure AD Premium P2 | Lorsque vous souscrivez un abonnement |
-| Azure AD Gratuit <br /> Azure AD Standard | La première fois que vous ouvrez le [panneau Azure Active Directory](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) ou utilisez les [API de création de rapports](https://aka.ms/aadreports)  |
+| Azure AD Gratuit| La première fois que vous ouvrez le [panneau Azure Active Directory](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) ou utilisez les [API de création de rapports](https://aka.ms/aadreports)  |
 
 ---
 
@@ -66,19 +67,19 @@ Pour les signaux de sécurité, le processus de collection démarre lorsque vous
 
 **Rapports d’activité**    
 
-| Rapport                 | Azure AD Gratuit | Azure AD Standard | Azure AD Premium P1 | Azure AD Premium P2 |
-| :--                    | :--           | :--            | :--                 | :--                 |
-| Journaux d’audit             | 7 jours        |  7 jours        | 30 jours             | 30 jours             |
-| Connexions               | N/A           |  N/A           | 30 jours             | 30 jours             |
-| Utilisation d’Azure MFA        | 30 jours       |  30 jours       | 30 jours             | 30 jours             |
+| Rapport                 | Azure AD Gratuit | Azure AD Premium P1 | Azure AD Premium P2 |
+| :--                    | :--           | :--                 | :--                 |
+| Journaux d’audit             | 7 jours        | 30 jours             | 30 jours             |
+| Connexions               | 7 jours        | 30 jours             | 30 jours             |
+| Utilisation d’Azure MFA        | 30 jours       | 30 jours             | 30 jours             |
 
 Vous pouvez conserver les données d'activité d'audit et de connexion au-delà de la période de conservation par défaut décrite ci-dessus en les acheminant vers un compte de stockage Azure à l'aide d'Azure Monitor. Pour plus d’informations, consultez [Archiver des journaux d’activité Azure AD sur un compte de stockage Azure](quickstart-azure-monitor-route-logs-to-storage-account.md).
 
 **Signaux de sécurité**
 
-| Rapport         | Azure AD Gratuit | Azure AD Standard | Azure AD Premium P1 | Azure AD Premium P2 |
-| :--            | :--           | :--            | :--                 | :--                 |
-| Les utilisateurs à risque  | 7 jours        | 7 jours         | 30 jours             | 90 jours             |
-| Connexions risquées | 7 jours        | 7 jours         |  30 jours            | 90 jours             |
+| Rapport         | Azure AD Gratuit | Azure AD Premium P1 | Azure AD Premium P2 |
+| :--            | :--           | :--                 | :--                 |
+| Les utilisateurs à risque  | 7 jours        | 30 jours             | 90 jours             |
+| Connexions risquées | 7 jours        | 30 jours             | 90 jours             |
 
 ---

@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8a1f774aae071a561bdda2d8c349861d640cb287
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 68994f9b79af55b32527eed52bbc4e5866c89538
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572472"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79205155"
 ---
 # <a name="quickstart-configure-server-firewall---portal"></a>Démarrage rapide : Configurer un pare-feu de serveur - Portail
 
@@ -22,11 +22,12 @@ Ce démarrage rapide vous aide à configurer un pare-feu pour votre serveur Azur
 
 - Un serveur Analysis Services dans votre abonnement. Pour en savoir plus, consultez [Démarrage rapide : Créer un serveur - Portail](analysis-services-create-server.md) ou [Démarrage rapide : Créer un serveur - PowerShell](analysis-services-create-powershell.md)
 - Une ou plusieurs plages d’adresses IP pour les ordinateurs clients (si nécessaire).
-- Notez que le scénario d’importation à partir de Power BI Premium n’est pas pris en charge actuellement.
+- Certains scénarios dans lesquels Power BI Premium se connecte à Azure Analysis Services, y compris l’importation de données (actualisation) et les rapports paginés, ne sont actuellement pas pris en charge, même quand l’option Autoriser l’accès à partir de Power BI est activée. Le scénario le plus courant consistant à utiliser Live Connect à partir de Power BI Premium est pris en charge. Tous les scénarios Power BI Pro sont pris en charge.
+
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure. 
 
-[Se connecter au portail](https://portal.azure.com)
+[Connectez-vous au portail](https://portal.azure.com)
 
 ## <a name="configure-a-firewall"></a>Configurer un pare-feu
 
@@ -38,7 +39,7 @@ Ce démarrage rapide vous aide à configurer un pare-feu pour votre serveur Azur
 
      ![Paramètres du pare-feu](./media/analysis-services-qs-firewall/aas-qs-firewall.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous n’en avez plus besoin, supprimez les plages d’adresses IP ou désactivez le pare-feu.
 

@@ -5,13 +5,13 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.openlocfilehash: fa9bc4efd9549cbcb1d50439989c5dea79d9d60c
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671934"
 ---
-# <a name="exception-telemetry-application-insights-data-model"></a>Télémétrie des exceptions : Modèle de données Application Insights
+# <a name="exception-telemetry-application-insights-data-model"></a>Télémétrie des exceptions : modèle de données Application Insights
 
 Dans [Application Insights](../../azure-monitor/app/app-insights-overview.md), une instance d’exception représente une exception prise en charge ou non prise en charge générée pendant l’exécution de l’application surveillée.
 
@@ -19,7 +19,7 @@ Dans [Application Insights](../../azure-monitor/app/app-insights-overview.md), u
 
 Identificateur indiquant à quel endroit du code l’exception a été levée. Utilisé pour le regroupement des exceptions. Généralement, une combinaison de type d’exception et une fonction de la pile des appels.
 
-Longueur maximale : 1 024 caractères
+Longueur maximale : 1024 caractères
 
 ## <a name="severity-level"></a>Niveau de gravité
 

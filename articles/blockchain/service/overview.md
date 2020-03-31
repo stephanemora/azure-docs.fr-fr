@@ -1,15 +1,15 @@
 ---
 title: Vue d’ensemble d’Azure Blockchain Service
 description: Vue d’ensemble d’Azure Blockchain Service
-ms.date: 11/21/2019
+ms.date: 03/12/2020
 ms.topic: overview
-ms.reviewer: janders
-ms.openlocfilehash: 55e1be191b21c7c66b013f70d83fe6c046488e05
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.reviewer: ravastra
+ms.openlocfilehash: b9f5deb501fb93327fa5d5cfcfd5bb583ed6135e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75387375"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79205069"
 ---
 # <a name="what-is-azure-blockchain-service"></a>À propos d’Azure Blockchain Service
 
@@ -29,7 +29,7 @@ Vous pouvez déployer Azure Blockchain Service via le portail Azure, Azure CLI o
 
 ### <a name="performance-and-service-tiers"></a>Niveaux de performance et de service
 
-Azure Blockchain Service propose deux niveaux de service : *De base* et *Standard*. Chaque niveau offre des performances et des fonctionnalités différentes afin de prendre en charge des charges de travail de développement et test légères ainsi que des déploiements de blockchain de production à très grande échelle. Les deux niveaux comprennent au moins un nœud de transaction, plus un nœud validateur (De base) ou deux nœuds validateur (Standard).
+Azure Blockchain Service propose deux niveaux de service : *De base* et *Standard*. Chaque niveau offre des performances et des fonctionnalités différentes afin de prendre en charge des charges de travail de développement et test légères ainsi que des déploiements de blockchain de production à très grande échelle. Utilisez le niveau *De base* pour le développement, les tests et les preuves de concept. Utilisez le niveau *Standard* pour les déploiements en production. Les deux niveaux comprennent au moins un nœud de transaction, plus un nœud validateur (De base) ou deux nœuds validateur (Standard). 
 
 ![Niveaux de tarification](./media/overview/pricing-tiers.png)
 

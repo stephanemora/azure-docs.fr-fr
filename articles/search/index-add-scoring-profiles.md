@@ -20,11 +20,11 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 516637b812afece1966006ce6d894dd1e32e6293
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666305"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79225309"
 ---
 # <a name="add-scoring-profiles-to-an-azure-cognitive-search-index"></a>Ajouter des profils de score à un index Recherche cognitive Azure
 
@@ -87,7 +87,7 @@ Le score de recherche est calculé sur la base de propriétés statistiques des 
 
  Un classement basé sur la pertinence peut également être mis en œuvre par l'intermédiaire de profils de calcul de score. Songez aux pages de résultats de recherche que vous avez utilisées par le passé, qui vous permettaient de trier par prix, date, évaluation ou pertinence. Dans Recherche cognitive Azure, les profils de calcul de score déterminent l'option « pertinence ». Vous contrôlez la définition de la pertinence en fonction de vos objectifs et du type d'expérience de recherche que vous souhaitez.  
 
-##  <a name="bkmk_ex"></a> Exemple  
+##  <a name="example"></a><a name="bkmk_ex"></a> Exemple  
  Comme indiqué précédemment, un calcul de score personnalisé est mis en œuvre à l'aide d'un ou de plusieurs profils de calcul de score définis dans un schéma d'index.  
 
  Cet exemple montre le schéma d'un index comprenant deux profils de calcul de score (`boostGenre`, `newAndHighlyRated`). Toute requête sur cet index qui comprend un profil comme paramètre de requête utilise le profil pour évaluer le jeu de résultats.  
@@ -173,7 +173,7 @@ Le score de recherche est calculé sur la base de propriétés statistiques des 
 
  Une fois l'index défini, générez-le en chargeant le schéma d'index, puis des documents. Consultez [Créer un index &#40;API REST de Recherche cognitive Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index) et [Ajouter, mettre à jour ou supprimer des documents &#40;API REST de Recherche cognitive Azure&#41; ](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) pour obtenir des instructions relatives à ces opérations. Une fois l'index généré, vous disposez d'un profil de calcul de score fonctionnel qui opère avec vos données de recherche.  
 
-##  <a name="bkmk_template"></a> Modèle  
+##  <a name="template"></a><a name="bkmk_template"></a> Modèle  
  Cette section présente la syntaxe et le modèle de profils de calcul de score. Pour obtenir la description des attributs, consultez [Référence des attributs d'index](#bkmk_indexref) dans la section suivante.  
 
 ```  
@@ -227,14 +227,14 @@ Le score de recherche est calculé sur la base de propriétés statistiques des 
 . . .  
 ```  
 
-##  <a name="bkmk_indexref"></a> Référence des attributs d'index  
+##  <a name="index-attributes-reference"></a><a name="bkmk_indexref"></a> Référence des attributs d'index  
 
 > [!NOTE]  
 >  Vous pouvez appliquer une fonction de calcul de score uniquement à des champs filtrables.  
 
 |Attribut|Description|  
 |---------------|-----------------|  
-|`name`|Requis. Nom du profil de calcul de score. Il suit les conventions d'affectation de noms applicables aux champs. Il doit commencer par une lettre, ne peut pas contenir les signes point, deux-points ou @, et ne peut pas commencer par l'expression « azureSearch » (avec respect de la casse).|  
+|`name`|Obligatoire. Nom du profil de calcul de score. Il suit les conventions d'affectation de noms applicables aux champs. Il doit commencer par une lettre, ne peut pas contenir les signes point, deux-points ou @, et ne peut pas commencer par l'expression « azureSearch » (avec respect de la casse).|  
 |`text`|Contient la propriété weights.|  
 |`weights`|facultatif. Contient des paires nom-valeur spécifiant chacune un nom de champ et une pondération relative. La pondération relative doit être un entier positif ou un nombre à virgule flottante.<br /><br /> Les pondérations permettent d’indiquer l’importance d’un champ pouvant faire l’objet d’une recherche par rapport à d’autres.|  
 |`functions`|facultatif. Vous pouvez appliquer une fonction de calcul de score uniquement à des champs filtrables.|  
@@ -256,7 +256,7 @@ Le score de recherche est calculé sur la base de propriétés statistiques des 
 |`functionAggregation`|facultatif. S'applique uniquement quand des fonctions sont spécifiées. Les valeurs autorisées sont les suivantes : sum (par défaut), average, minimum, maximum et firstMatching. Un score de recherche est une valeur unique calculée à partir de plusieurs variables, notamment plusieurs fonctions. Cet attribut indique comment les valorisations de toutes les fonctions sont combinées en une valorisation agrégée qui est ensuite appliquée au score du document de base. Le score de base dépend de la valeur [tf-idf](http://www.tfidf.com/) calculée à partir du document et de la requête de recherche.|  
 |`defaultScoringProfile`|Lors de l'exécution d'une requête de recherche, le calcul de score par défaut est utilisé ([tf-idf](http://www.tfidf.com/) uniquement) si aucun profil de calcul de score n'est spécifié.<br /><br /> Un nom de profil de calcul de score par défaut peut être défini ici de façon à ce que Recherche cognitive Azure utilise ce profil quand aucun profil spécifique n'est fourni dans la requête de recherche.|  
 
-##  <a name="bkmk_interpolation"></a>Définition d'interpolations  
+##  <a name="set-interpolations"></a><a name="bkmk_interpolation"></a>Définition d'interpolations  
  Les interpolations vous permettent de définir la forme de la pente utilisée pour calculer les scores. Le score allant d'élevé à faible, la pente est toujours décroissante, mais l’interpolation détermine la courbe de la pente descendante. Les interpolations utilisables sont les suivantes :  
 
 |||  
@@ -268,7 +268,7 @@ Le score de recherche est calculé sur la base de propriétés statistiques des 
 
  ![Lignes constantes, linéaires, quadratiques, log10 sur le graphique](media/scoring-profiles/azuresearch_scorefunctioninterpolationgrapht.png "AzureSearch_ScoreFunctionInterpolationGrapht")  
 
-##  <a name="bkmk_boostdur"></a> Définition de boostingDuration  
+##  <a name="set-boostingduration"></a><a name="bkmk_boostdur"></a> Définition de boostingDuration  
  `boostingDuration` est un attribut de la fonction `freshness`. Il permet de définir une période d'expiration après laquelle la valorisation s'arrête pour un document spécifique. Par exemple, pour valoriser une ligne de produits ou une marque pendant une période promotionnelle de 10 jours, vous spécifiez la période de 10 jours en tant que « P10D » pour les documents correspondants.  
 
  `boostingDuration` doit être au format « dayTimeDuration » XSD (sous-ensemble limité d'une valeur de durée ISO 8601). Le modèle est le suivant : « P[nD][T[nH][nM][nS]] ».  

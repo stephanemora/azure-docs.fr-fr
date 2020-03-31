@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: raynew
 ms.openlocfilehash: de6953b6648613595bc9975b17941b3a453a6d60
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74185977"
 ---
 # <a name="best-practices-for-creating-assessments"></a>Meilleures pratiques pour la création d’évaluations
@@ -28,7 +28,7 @@ Les évaluations que vous créez avec Azure Migrate Server Assessment sont une c
 **Basée sur les performances** | Évaluations qui donnent des recommandations en fonction des données de performances collectées | Les recommandations concernant les machines virtuelles sont fonction des données d’utilisation du processeur et de la mémoire.<br/><br/> Les recommandations concernant le type de disque (HDD/SSD ou disque managé premium) sont fonction de l’IOPS et du débit des disques locaux.
 **Telle quelle locale** | Évaluations qui n’utilisent pas de données de performances pour formuler des recommandations. | Les recommandations concernant la taille des machines virtuelles sont basées sur la taille de la machines virtuelle locale.<br/><br> Le type de disque recommandé est basé sur ce que vous sélectionnez dans le paramètre type de stockage pour l’évaluation.
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 Par exemple, si vous avez une machine virtuelle locale avec quatre cœurs utilisée à 20 % et une mémoire de 8 Go utilisée à 10 %, les évaluations seront les suivantes :
 
 - **Évaluation basée sur les performances** :

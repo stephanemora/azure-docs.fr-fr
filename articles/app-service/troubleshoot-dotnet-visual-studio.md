@@ -6,15 +6,15 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.custom: seodec18
-ms.openlocfilehash: 5c0a236dc6ebf02c859d9db3f25f0e9016ac35ab
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 3305cfb81980984574961b2a84a056f5d1879ead
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688385"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79235953"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Dépanner une application dans Azure App Service à l'aide de Visual Studio
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Ce didacticiel explique comment utiliser les outils Visual Studio pour déboguer une application dans [App Service](https://go.microsoft.com/fwlink/?LinkId=529714) en activant le [Mode débogage](https://docs.microsoft.com/visualstudio/debugger/) à distance ou en consultant les journaux des applications et des serveurs web.
 
 Vous apprendrez ce qui suit :
@@ -28,7 +28,7 @@ Vous apprendrez ce qui suit :
 
 Si vous disposez de Visual Studio Ultimate, vous pouvez également utiliser [IntelliTrace](/visualstudio/debugger/intellitrace) à des fins de débogage. IntelliTrace n’est pas couvert dans ce didacticiel.
 
-## <a name="prerequisites"></a>Configuration requise
+## <a name="prerequisites"></a><a name="prerequisites"></a>Configuration requise
 Ce didacticiel fonctionne avec l'environnement de développement, le projet web et l'application App Service que vous avez configurés dans [Créer une application ASP.NET dans Azure App Service](app-service-web-get-started-dotnet-framework.md). Pour les sections WebJobs, vous aurez besoin de l’application créée dans le cadre de la [Prise en main du Kit de développement logiciel (SDK) Azure WebJobs][GetStartedWJ].
 
 Les exemples de code inclus dans ce didacticiel sont destinés à une application Web C# MVC, mais les procédures de résolution de problèmes sont identiques pour les applications Visual Basic et Web Forms.
@@ -37,7 +37,7 @@ Ce tutoriel suppose que vous utilisez Visual Studio 2019.
 
 La fonctionnalité de diffusion de journaux d’activité en continu est opérationnelle uniquement pour les applications ciblant .NET Framework 4 ou une version ultérieure.
 
-## <a name="sitemanagement"></a>Configuration et gestion de l'application
+## <a name="app-configuration-and-management"></a><a name="sitemanagement"></a>Configuration et gestion de l'application
 Visual Studio permet d'accéder à un sous-ensemble des fonctionnalités de gestion des applications et des paramètres de configuration disponibles sur le [portail Azure](https://go.microsoft.com/fwlink/?LinkId=529715). Cette section présente les éléments disponibles en cas d’utilisation de **l’Explorateur de serveurs**. Pour connaître les dernières fonctionnalités d’intégration d’Azure, essayez également **Cloud Explorer** . Vous pouvez ouvrir les deux fenêtres à partir du menu **Affichage** .
 
 1. Si vous n’êtes pas encore connecté à Azure dans Visual Studio, cliquez avec le bouton droit sur **Azure** et sélectionnez Se connecter à **Abonnement Microsoft Azure** dans **l’Explorateur de serveurs**.
@@ -65,7 +65,7 @@ Visual Studio permet d'accéder à un sous-ensemble des fonctionnalités de ges
 
     Pour effectuer une tâche de gestion d'application non exécutable dans cette fenêtre, cliquez sur **Ouvrir dans le portail de gestion** pour ouvrir une fenêtre de navigateur sur le portail Azure.
 
-## <a name="remoteview"></a>Accès aux fichiers d'applications dans l'Explorateur de serveurs
+## <a name="access-app-files-in-server-explorer"></a><a name="remoteview"></a>Accès aux fichiers d'applications dans l'Explorateur de serveurs
 En général, vous déployez un projet Web avec l’indicateur `customErrors` défini sur la valeur `On` ou `RemoteOnly` dans le fichier Web.config, ce qui signifie que vous n’obtenez pas de message d’erreur utile en cas de problème. Généralement, ces messages se présentent sous la forme d’une page comme celles qui suivent :
 
 **Erreur de serveur dans l’application « / » :**
@@ -103,7 +103,7 @@ Généralement, la méthode la plus simple pour rechercher la cause d’une erre
 
 La modification du fichier Web.config n'est qu'un exemple des scénarios dans lesquels la capacité de lire et de modifier des fichiers sur votre application App Service simplifie la résolution des problèmes.
 
-## <a name="remotedebug"></a>Applications de débogage à distance
+## <a name="remote-debugging-apps"></a><a name="remotedebug"></a>Applications de débogage à distance
 Si le message d'erreur détaillé ne fournit pas assez d'informations et que vous ne pouvez pas recréer l'erreur localement, une autre méthode pour résoudre le problème consiste à exécuter le mode de débogage à distance. Vous pouvez définir des points d'arrêt, manipuler directement la mémoire, parcourir le code en détail et même modifier le chemin d'accès du code.
 
 Le débogage à distance ne fonctionne pas avec les éditions Express de Visual Studio.
@@ -165,7 +165,7 @@ Cette section illustre comment déboguer à distance à l'aide du projet que vou
 
      ![Page « À propos de » avec une nouvelle valeur](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugchangeinwa.png)
 
-## <a name="remotedebugwj"></a> Débogage à distance de WebJobs
+## <a name="remote-debugging-webjobs"></a><a name="remotedebugwj"></a> Débogage à distance de WebJobs
 Cette section explique comment déboguer un élément à distance en utilisant le projet et l'application que vous avez créés avec le didacticiel [Prise en main du Kit de développement logiciel (SDK) Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki).
 
 Les fonctionnalités présentées dans cette section sont disponibles uniquement dans Visual Studio 2013 avec Update 4 ou version ultérieure.
@@ -245,7 +245,7 @@ Si votre fonction [a écrit des journaux d’activité](https://github.com/Azure
 * Lorsque vous activez la fonctionnalité de débogage à distance, un compteur démarre sur le serveur : après 48 heures, la fonctionnalité est automatiquement désactivée. Cette limite de 48 heures a été définie à des fins de sécurité et de performances. Vous pouvez facilement réactiver la fonctionnalité autant de fois que nécessaire. Nous vous recommandons de la désactiver lorsque vous n'utilisez pas le débogage.
 * Vous pouvez manuellement connecter le débogueur à n'importe quel processus, et pas seulement au processus de l'application (w3wp.exe). Pour plus d'informations sur l'utilisation du mode débogage dans Visual Studio, consultez la page [Débogage dans Visual Studio](/visualstudio/debugger/debugging-in-visual-studio).
 
-## <a name="logsoverview"></a>Présentation des journaux de diagnostic
+## <a name="diagnostic-logs-overview"></a><a name="logsoverview"></a>Présentation des journaux de diagnostic
 Une application ASP.NET qui s’exécute dans une application App Service peut créer les types de journaux d’activité suivants :
 
 * **Journaux d’activité de suivi d’application**<br/>
@@ -261,7 +261,7 @@ La fonction de journalisation affecte les performances des applications. Pour ce
 
 Les journaux d’activité sont consignés dans des fichiers du dossier *LogFiles*, au sein du système de fichiers de votre application, et ils sont accessibles par FTP. Il est également possible d’écrire les journaux d’activité de serveur Web et d’application dans un compte Azure Storage. Vous pouvez conserver davantage de journaux d’activité sur un compte de stockage que sur le système de fichiers. Le système de fichiers peut conserver jusqu’à 100 Mo de journaux d’activité (il ne conserve pas les journaux d’activité très longtemps : Azure libère de l'espace pour les nouveaux fichiers journaux en supprimant les anciens une fois la limite atteinte).  
 
-## <a name="apptracelogs"></a>Création et affichage des journaux d’activité de suivi d’application
+## <a name="create-and-view-application-trace-logs"></a><a name="apptracelogs"></a>Création et affichage des journaux d’activité de suivi d’application
 Dans cette section, vous effectuerez les tâches suivantes :
 
 * ajout d’instructions de traçage au projet web que vous avez créé dans [Prise en main d’Azure et ASP.NET](app-service-web-get-started-dotnet-framework.md).
@@ -405,7 +405,7 @@ Ces éléments permettent d'effectuer les opérations suivantes :
 
 Si vous entrez une chaîne de recherche ou une expression régulière, Visual Studio filtre les informations de journalisation au niveau du client. Cela signifie que vous pouvez entrer les critères après l’affichage des journaux d’activité dans la fenêtre **Sortie** et que vous pouvez modifier les critères de filtrage sans avoir à régénérer les journaux d’activité.
 
-## <a name="webserverlogs"></a>Affichage des journaux d’activité de serveur Web
+## <a name="view-web-server-logs"></a><a name="webserverlogs"></a>Affichage des journaux d’activité de serveur Web
 Les journaux d’activité de serveur Web enregistrent toutes les activités HTTP de l’application. Afin de pouvoir afficher ces journaux dans la fenêtre **Sortie**, vous devez les activer pour l'application et indiquer à Visual Studio que vous souhaitez les surveiller.
 
 1. Dans l’onglet **Configuration de l’application web Azure** que vous avez ouvert à partir de l’**Explorateur de serveurs**, remplacez la valeur du paramètre Journalisation du serveur web par **Activé**, puis cliquez sur **Enregistrer**.
@@ -427,7 +427,7 @@ Par défaut, Azure écrit les journaux d’activité dans le système de fichier
 
 Si vous utilisez le portail pour activer la journalisation de serveur web sur un compte de stockage Azure, puis désactivez la journalisation dans Visual Studio, les paramètres de votre compte de stockage sont restaurés lorsque vous réactivez la journalisation dans Visual Studio.
 
-## <a name="detailederrorlogs"></a>Affichage des journaux d’activité de messages d’erreur détaillés
+## <a name="view-detailed-error-message-logs"></a><a name="detailederrorlogs"></a>Affichage des journaux d’activité de messages d’erreur détaillés
 Les journaux d’activité d’erreur détaillés fournissent des informations supplémentaires sur les requêtes HTTP ayant pour résultat des codes de réponse d’erreur (400 ou au-delà). Afin de pouvoir afficher ces journaux dans la fenêtre **Sortie** , vous devez les activer pour l'application et indiquer à Visual Studio que vous souhaitez les surveiller.
 
 1. Dans l’onglet **Configuration de l’application web Azure** que vous avez ouvert à partir de l’**Explorateur de serveurs**, remplacez la valeur du paramètre **Messages d’erreur détaillés** par **Activé**, puis cliquez sur **Enregistrer**.
@@ -450,7 +450,7 @@ Les journaux d’activité d’erreur détaillés fournissent des informations s
 
     ![Journal des erreurs détaillé - fenêtre du navigateur](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-detailederrorloginbrowser.png)
 
-## <a name="downloadlogs"></a>Téléchargement de journaux d’activité du système de fichiers
+## <a name="download-file-system-logs"></a><a name="downloadlogs"></a>Téléchargement de journaux d’activité du système de fichiers
 Tous les journaux d’activité que vous pouvez surveiller dans la fenêtre **Sortie** peuvent aussi être téléchargés en tant que fichiers *.zip* .
 
 1. Dans la fenêtre **Sortie**, cliquez sur **Télécharger les journaux d’activité de diffusion en continu**.
@@ -549,7 +549,7 @@ Storage accounts offer more storage and longer-lasting retention for logs compar
 
      ![Trace table in Server Explorer](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-tracetablerow.png)
  -->
-## <a name="failedrequestlogs"></a>Affichage des journaux d’activité de suivi de demandes ayant échoué
+## <a name="view-failed-request-tracing-logs"></a><a name="failedrequestlogs"></a>Affichage des journaux d’activité de suivi de demandes ayant échoué
 Les journaux d’activité de suivi de demandes ayant échoué sont utiles pour comprendre les détails de gestion IIS d’une requête HTTP, dans des scénarios tels que des problèmes de réécriture d’URL ou d’authentification.
 
 Les applications App Service utilisent la même fonctionnalité de suivi de demandes ayant échoué que celle que proposait IIS 7.0 et versions ultérieures. Cependant, vous ne pouvez pas accéder aux paramètres IIS permettant de configurer les erreurs à journaliser. Lorsque vous activez le suivi des demandes ayant échoué, toutes les erreurs sont récupérées.
@@ -567,7 +567,7 @@ Vous pouvez afficher les journaux d’activité de suivi des demandes ayant éch
 
 3. Dans l’onglet **Configuration** de la fenêtre **Application web Microsoft Azure** de Visual Studio, cliquez sur **Ouvrir l’élément dans le portail de gestion**.
 
-4. Sur le [portail Azure](https://portal.azure.com) (page **Paramètres**) de votre application, cliquez sur **Informations d'identification du déploiement**, puis entrez un nouveau nom d'utilisateur et un nouveau mot de passe.
+4. Sur le [Portail Azure](https://portal.azure.com), dans la page **Paramètres** de votre application, cliquez sur **Informations d’identification du déploiement**, puis entrez un nouveau nom d’utilisateur et un nouveau mot de passe.
 
     ![Nouveaux nom d'utilisateur et mot de passe FTP](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-enterftpcredentials.png)
 
@@ -599,7 +599,7 @@ Vous pouvez afficher les journaux d’activité de suivi des demandes ayant éch
 
     ![Suivi d'une demande ayant échoué dans le navigateur](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-failedrequestinbrowser.png)
 
-## <a name="nextsteps"></a>Étapes suivantes
+## <a name="next-steps"></a><a name="nextsteps"></a>Étapes suivantes
 Vous avez vu en quoi Visual Studio facilite l’affichage des journaux d’activité créés par une application App Service. Les sections suivantes fournissent des liens vers des ressources supplémentaires sur des rubriques connexes :
 
 * Résolution des problèmes App Service
@@ -620,7 +620,7 @@ Pour en savoir plus sur la résolution des problèmes liés aux applications dan
 Pour obtenir des réponses sur une question relative à la résolution des problèmes, ouvrez un fil de discussion dans l'un des forums suivants :
 
 * [Forum Azure sur le site ASP.NET](https://forums.asp.net/1247.aspx/1?Azure+and+ASP+NET).
-* [Forum Azure sur MSDN](https://social.msdn.microsoft.com/Forums/windowsazure/).
+* [Forum Azure sur Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-webapps.html).
 * [StackOverflow.com](https://www.stackoverflow.com).
 
 ### <a name="debugging-in-visual-studio"></a>Débogage dans Visual Studio

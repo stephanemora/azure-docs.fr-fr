@@ -1,19 +1,18 @@
 ---
 title: Gestion des prospects pour la Place de marché cloud | Place de marché Azure et AppSource
 description: Vue d’ensemble des différentes questions relatives à la publication d’offres et d’artefacts techniques sur la Place de marché Azure et AppSource
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: yijenj
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/05/2018
-ms.author: pabutler
-ms.openlocfilehash: 047ffd983cecd9f9bd971ee3f97e15734d14ce66
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 94510d02a28e0364f1c715dbcf9ff641fe2b14fb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73813273"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80286130"
 ---
 # <a name="lead-management-for-cloud-marketplace"></a>Gestion des prospects pour la Place de marché cloud
 
@@ -87,7 +86,7 @@ Une fois les paramètres techniques configurés, vous devez incorporer ces prosp
 
 > Résolution : Connectez-vous au portail Cloud Partner, puis, dans Détails de la vitrine >> Destination des prospects >> URL, vérifiez qu’il s’agit d’une instance Dynamics CRM valide.
 
-## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
+## <a name="frequently-asked-questions"></a>Forum aux questions
 
 **Que sont les prospects et en quoi sont-ils importants pour moi qui suis éditeur sur la Place de marché ?** 
 

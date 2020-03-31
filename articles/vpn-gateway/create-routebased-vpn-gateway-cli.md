@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 10/04/2018
 ms.author: cherylmc
-ms.openlocfilehash: 1f0cc1d63f8560399d1d71c8d010c37bd2c5e387
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: 121790fce220874babedf67cd72471caa7e92ae6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75778751"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80241101"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-cli"></a>Créer une passerelle VPN basée sur des itinéraires à l’aide de l’interface CLI
 
@@ -29,15 +29,15 @@ Si vous choisissez d’installer et d’utiliser l’interface de ligne de comma
 Créez un groupe de ressources avec la commande [az group create](/cli/azure/group). Un groupe de ressources est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. 
 
 
-```azurecli-interactive 
+```azurecli-interactive
 az group create --name TestRG1 --location eastus
 ```
 
-## <a name="vnet"></a>Créer un réseau virtuel
+## <a name="create-a-virtual-network"></a><a name="vnet"></a>Créer un réseau virtuel
 
 Utilisez la commande [az network vnet create](/cli/azure/network/vnet) pour créer un réseau virtuel. L’exemple suivant crée un réseau virtuel nommé **VNet1** à l’emplacement **EastUS** :
 
-```azurecli-interactive 
+```azurecli-interactive
 az network vnet create \
   -n VNet1 \
   -g TestRG1 \
@@ -47,11 +47,11 @@ az network vnet create \
   --subnet-prefix 10.1.0.0/24
 ```
 
-## <a name="gwsubnet"></a>Ajouter un sous-réseau de passerelle
+## <a name="add-a-gateway-subnet"></a><a name="gwsubnet"></a>Ajouter un sous-réseau de passerelle
 
 Le sous-réseau de passerelle contient les adresses IP réservées utilisées par les services de passerelle de réseau virtuel. Appuyez-vous sur les exemples suivants pour ajouter un sous-réseau de passerelle :
 
-```azurepowershell-interactive
+```azurecli-interactive
 az network vnet subnet create \
   --vnet-name VNet1 \
   -n GatewaySubnet \
@@ -59,7 +59,7 @@ az network vnet subnet create \
   --address-prefix 10.1.255.0/27 
 ```
 
-## <a name="PublicIP"></a>Demander une adresse IP publique
+## <a name="request-a-public-ip-address"></a><a name="PublicIP"></a>Demander une adresse IP publique
 
 Une passerelle VPN doit présenter une adresse IP publique allouée dynamiquement. L’adresse IP publique sera affectée à la passerelle VPN que vous créez pour votre réseau virtuel. Appuyez-vous sur l’exemple suivant pour demander une adresse IP publique :
 
@@ -70,7 +70,7 @@ az network public-ip create \
   --allocation-method Dynamic 
 ```
 
-## <a name="CreateGateway"></a>Créer la passerelle VPN
+## <a name="create-the-vpn-gateway"></a><a name="CreateGateway"></a>Créer la passerelle VPN
 
 Créez la passerelle VPN à l’aide de la commande [az network vnet-gateway create](/cli/azure/group).
 
@@ -91,7 +91,7 @@ az network vnet-gateway create \
 
 La création de la passerelle VPN peut prendre 45 minutes, voire plus.
 
-## <a name="viewgw"></a>Afficher la passerelle VPN
+## <a name="view-the-vpn-gateway"></a><a name="viewgw"></a>Afficher la passerelle VPN
 
 ```azurecli-interactive
 az network vnet-gateway show \
@@ -101,7 +101,7 @@ az network vnet-gateway show \
 
 La réponse se présente ainsi :
 
-```
+```output
 {
   "activeActive": false,
   "bgpSettings": null,
@@ -159,7 +159,7 @@ La valeur associée au champ **ipAddress** est l’adresse IP publique de votre 
 
 Exemple de réponse :
 
-```
+```output
 {
   "dnsSettings": null,
   "etag": "W/\"a12d4d03-b27a-46cc-b222-8d9364b8166a\"",
@@ -170,6 +170,7 @@ Exemple de réponse :
     "etag": null,
     "id": "/subscriptions/<subscription ID>/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW/ipConfigurations/vnetGatewayConfig0",
 ```
+
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous n’avez plus besoin des ressources créées, utilisez la commande [az group delete](/cli/azure/group) pour supprimer le groupe de ressources. Ce faisant, vous supprimez le groupe de ressources et l’ensemble des ressources qu’il contient.

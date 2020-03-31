@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: b6b9d0f146fd98fd90aa8858e522449be571842c
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: dcb63031e6c033ce2372dc05e588b0f54cb1609f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293162"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294819"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Présentation du gestionnaire d’extensions de configuration d’état souhaité Microsoft Azure
 
@@ -38,16 +38,16 @@ Cet article fournit des informations sur deux scénarios : l’utilisation de l�
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
-- **Ordinateur local** : pour pouvoir interagir avec l'extension de machine virtuelle Azure, vous devez utiliser le portail Azure ou le Kit de développement logiciel (SDK) Azure PowerShell.
-- **Agent invité** : la machine virtuelle Azure définie par la configuration DSC doit inclure un système d'exploitation prenant en charge Windows Management Framework (WMF) version 4.0 ou ultérieure. Pour la liste complète des versions de système d’exploitation prises en charge, voir [l’historique des versions de l’extension DSC](/powershell/scripting/dsc/getting-started/azuredscexthistory).
+- **Ordinateur local**: pour pouvoir interagir avec l’extension de machine virtuelle Azure, vous devez utiliser le portail Azure ou le Kit de développement logiciel (SDK) Azure PowerShell.
+- **Agent invité** : la machine virtuelle Azure définie par la configuration DSC doit inclure un système d’exploitation prenant en charge Windows Management Framework (WMF) version 4.0 ou ultérieure. Pour la liste complète des versions de système d’exploitation prises en charge, voir [l’historique des versions de l’extension DSC](/powershell/scripting/dsc/getting-started/azuredscexthistory).
 
 ## <a name="terms-and-concepts"></a>Termes et concepts
 
 Ce guide part du principe que vous connaissez les concepts suivants :
 
-- **Configuration** : document de configuration DSC.
-- **Nœud** : cible d'une configuration DSC. Dans ce document, le terme *nœud* fait toujours référence à une machine virtuelle Azure.
-- **Données de configuration** : fichier .psd1 contenant les données d'environnement d'une configuration.
+- **Configuration** : document de configuration DSC.
+- **Nœud** : cible d’une configuration DSC. Dans ce document, le terme *nœud* fait toujours référence à une machine virtuelle Azure.
+- **Données de configuration** : fichier .psd1 contenant les données d’environnement pour une configuration.
 
 ## <a name="architecture"></a>Architecture
 
@@ -73,7 +73,7 @@ Lorsque vous utilisez l’extension DSC pour inscrire un nœud auprès du servic
 - RegistrationKey - Secret partagé utilisé pour inscrire des nœuds auprès du service
 - NodeConfigurationName - Nom de la configuration de nœuds (MOF) à tirer (pull) du service pour configurer le rôle serveur
 
-Ces informations peuvent être consultées dans le [portail Azure](../../automation/automation-dsc-onboarding.md#azure-portal) ou dans PowerShell.
+Ces informations peuvent être consultées dans le [portail Azure](../../automation/automation-dsc-onboarding.md#onboard-a-vm-using-azure-portal) ou dans PowerShell.
 
 ```powershell
 (Get-AzAutomationRegistrationInfo -ResourceGroupName <resourcegroupname> -AutomationAccountName <accountname>).Endpoint
@@ -182,21 +182,21 @@ Pour configurer DSC dans le portail :
 
 Le portail collecte l’entrée suivante :
 
-- **Script ou modules de configuration** : ce champ est obligatoire (le formulaire n'a pas été mis à jour pour le [script de configuration par défaut](#default-configuration-script)). Les scripts et modules de configuration nécessitent un fichier .ps1 qui contient un script de configuration ou un fichier .zip avec un script de configuration .ps1 à la racine. Si vous utilisez un fichier .zip, toutes les ressources dépendantes doivent figurer dans les dossiers de module à l’intérieur du fichier .zip. Vous pouvez créer le fichier .zip à l’aide de la cmdlet **Publish-AzureVMDscConfiguration -OutputArchivePath** incluse dans le Kit de développement logiciel (SDK) Azure PowerShell. Le fichier .zip sera chargé dans votre stockage d’objets blob d’utilisateur et sécurisé par un jeton SAP.
+- **Script ou modules de configuration** : ce champ est obligatoire (le formulaire n’a pas été mis à jour pour le [script de configuration par défaut](#default-configuration-script)). Les scripts et modules de configuration nécessitent un fichier .ps1 qui contient un script de configuration ou un fichier .zip avec un script de configuration .ps1 à la racine. Si vous utilisez un fichier .zip, toutes les ressources dépendantes doivent figurer dans les dossiers de module à l’intérieur du fichier .zip. Vous pouvez créer le fichier .zip à l’aide de la cmdlet **Publish-AzureVMDscConfiguration -OutputArchivePath** incluse dans le Kit de développement logiciel (SDK) Azure PowerShell. Le fichier .zip sera chargé dans votre stockage d’objets blob d’utilisateur et sécurisé par un jeton SAP.
 
-- **Nom de configuration qualifié du module** : vous pouvez inclure plusieurs fonctions de configuration dans un fichier .ps1. Entrez le nom du script .ps1 de configuration suivi de \\ et du nom de la fonction de configuration. Par exemple, si votre script .ps1 s’appelle « configuration.ps1 » et que la configuration s’appelle **IisInstall**, entrez **configuration.ps1\IisInstall**.
+- **Nom de configuration qualifié du module** : vous pouvez inclure plusieurs fonctions de configuration dans un fichier .ps1. Entrez le nom du script .ps1 de configuration suivi de \\ et du nom de la fonction de configuration. Par exemple, si votre script .ps1 s’appelle « configuration.ps1 » et que la configuration s’appelle **IisInstall**, entrez **configuration.ps1\IisInstall**.
 
-- **Arguments de configuration** : si la fonction de configuration prend des arguments, entrez-les ici au format **argumentName1=value1,argumentName2=value2**. Il s’agit d’un format d’argument de configuration différent de celui qui est accepté via les applets de commande PowerShell ou les modèles Resource Manager.
+- **Arguments de configuration** : si la fonction de configuration prend des arguments, entrez-les ici au format **argumentName1=value1,argumentName2=value2**. Il s’agit d’un format d’argument de configuration différent de celui qui est accepté via les applets de commande PowerShell ou les modèles Resource Manager.
 
-- **Fichier de données de configuration PSD1** : Ce champ est facultatif. Si votre configuration nécessite un fichier de données de configuration dans .psd1, utilisez ce champ pour sélectionner le champ de données et le charger dans votre stockage d’objets blob d’utilisateur. Le fichier de données de configuration est sécurisé par un jeton SAP dans le stockage Blob.
+- **Fichier PSD1 de données de configuration**: ce champ est facultatif. Si votre configuration nécessite un fichier de données de configuration dans .psd1, utilisez ce champ pour sélectionner le champ de données et le charger dans votre stockage d’objets blob d’utilisateur. Le fichier de données de configuration est sécurisé par un jeton SAP dans le stockage Blob.
 
-- **Version WMF** : Spécifie la version de Windows Management Framework (WMF) qui doit être installée sur votre machine virtuelle. Lorsque cette propriété est définie sur latest, la version la plus récente de WMF est installée. Actuellement, les seules valeurs possibles pour cette propriété sont 4.0, 5.0, 5.1 et latest. Les valeurs possibles font l’objet de mises à jour. La valeur par défaut est **latest**.
+- **Version WMF** : spécifie la version de Windows Management Framework (WMF) qui doit être installée sur votre machine virtuelle. Lorsque cette propriété est définie sur latest, la version la plus récente de WMF est installée. Actuellement, les seules valeurs possibles pour cette propriété sont 4.0, 5.0, 5.1 et latest. Les valeurs possibles font l’objet de mises à jour. La valeur par défaut est **latest**.
 
-- **Collecte de données** : détermine si l'extension collecte des données de télémétrie. Pour plus d’informations, consultez la page [Azure DSC Extension Data Collection](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/) (Collection de données d’extension Azure DSC).
+- **Collecte de données** : détermine si l’extension collecte des données de télémétrie. Pour plus d’informations, consultez la page [Azure DSC Extension Data Collection](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/) (Collection de données d’extension Azure DSC).
 
-- **Version** : spécifie la version de l'extension DSC à installer. Pour obtenir plus d’informations sur les versions, consultez [Historique des versions de l’extension DSC](/powershell/scripting/dsc/getting-started/azuredscexthistory).
+- **Version** : spécifie la version de l’extension DSC à installer. Pour obtenir plus d’informations sur les versions, consultez [Historique des versions de l’extension DSC](/powershell/scripting/dsc/getting-started/azuredscexthistory).
 
-- **Automatiquement mettre à niveau la version mineure** : ce champ est mappé au commutateur **AutoUpdate** dans les cmdlets et permet à l'extension de procéder automatiquement à la mise à jour vers la version la plus récente lors de l'installation. **Oui** demande au Gestionnaire d’extensions d’utiliser la toute dernière version disponible, et **Non** force l’installation de la **Version** spécifiée. Ne sélectionner ni **Oui** ni **Non** revient à sélectionner **Non**.
+- **Automatiquement mettre à niveau la version mineure** : ce champ est mappé au commutateur **AutoUpdate** dans les applets de commande et permet à l’extension de procéder automatiquement à la mise à jour vers la version la plus récente lors de l’installation. **Oui** demande au Gestionnaire d’extensions d’utiliser la toute dernière version disponible, et **Non** force l’installation de la **Version** spécifiée. Ne sélectionner ni **Oui** ni **Non** revient à sélectionner **Non**.
 
 ## <a name="logs"></a>Journaux d’activité
 

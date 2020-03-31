@@ -1,19 +1,18 @@
 ---
 title: Tableau de bord Client dans l’analytique de la place de marché commerciale dans l’Espace partenaires
 description: Découvrez comment accéder à des informations détaillées sur vos clients, notamment les tendances de croissance, avec le tableau de bord Client dans l’analytique de la place de marché commerciale.
-author: ChJenk
-manager: evansma
-ms.author: v-chjen
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: f2eaaf2ec2f3dad1da345d0cfeadf1cae223a592
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 7fe56a81bc82f9d49cf9f81b30986882b6d13cfe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264014"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80286113"
 ---
 # <a name="customer-dashboard-in-commercial-marketplace-analytics"></a>Tableau de bord Client dans l’analytique de la place de marché commerciale
 

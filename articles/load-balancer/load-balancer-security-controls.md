@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: allensu
 ms.openlocfilehash: 6043e574697489b6566641c352bc21a2b6d87f51
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74214895"
 ---
 # <a name="security-controls-for-azure-load-balancer"></a>Contrôles de sécurité pour Azure Load Balancer
@@ -34,18 +34,18 @@ Cet article documente les contrôles de sécurité intégrés dans Azure Load Ba
 
 | Contrôle de sécurité | Oui/Non | Notes|
 |---|---|--|
-| Prise en charge de la supervision Azure (Log analytics, App insights, etc.)| OUI | Consultez les [Journaux Azure Monitor pour une instance publique de Basic Load Balancer](load-balancer-monitor-log.md). |
-| Journalisation et audit du plan de gestion et de contrôle| OUI | Consultez les [Journaux Azure Monitor pour une instance publique de Basic Load Balancer](load-balancer-monitor-log.md). |
+| Prise en charge de la supervision Azure (Log analytics, App insights, etc.)| Oui | Consultez les [Journaux Azure Monitor pour une instance publique de Basic Load Balancer](load-balancer-monitor-log.md). |
+| Journalisation et audit du plan de gestion et de contrôle| Oui | Consultez les [Journaux Azure Monitor pour une instance publique de Basic Load Balancer](load-balancer-monitor-log.md). |
 | Journalisation et audit du plan de données | N/A |  |
 
 ## <a name="identity"></a>Identité
 
 | Contrôle de sécurité | Oui/Non | Notes|
 |---|---|--|
-| Authentication| N/A |  |
-| Authorization| N/A |  |
+| Authentification| N/A |  |
+| Autorisation| N/A |  |
 
-## <a name="data-protection"></a>Protection des données
+## <a name="data-protection"></a>Protection de données
 
 | Contrôle de sécurité | Oui/Non | Notes |
 |---|---|--|
@@ -53,7 +53,7 @@ Cet article documente les contrôles de sécurité intégrés dans Azure Load Ba
 | Le chiffrement en transit (tel que le chiffrement ExpressRoute, le chiffrement dans un réseau virtuel, et le chiffrement de réseau virtuel à réseau virtuel)| N/A | |
 | Chiffrement côté serveur au repos : clés gérées par le client (BYOK) | N/A | |
 | Chiffrement au niveau des colonnes (Azure Data Services)| N/A | |
-| Appels d’API chiffrés| OUI | Via [Azure Resource Manager](../azure-resource-manager/index.yml). |
+| Appels d’API chiffrés| Oui | Via [Azure Resource Manager](../azure-resource-manager/index.yml). |
 
 ## <a name="configuration-management"></a>Gestion des configurations
 

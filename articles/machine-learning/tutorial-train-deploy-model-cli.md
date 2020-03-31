@@ -8,13 +8,13 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 01/08/2019
-ms.openlocfilehash: 70fa17e3e6f91bf393865cc979a8e47e4bf8687b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.date: 03/26/2020
+ms.openlocfilehash: 401ce2aed2c783169592f0dc664a3a7baea415b6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78393345"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80336619"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>Tutoriel : Entraîner et déployer un modèle à partir de l’interface CLI
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -68,7 +68,7 @@ Le répertoire `examples/cli-train-deploy` du projet contient les fichiers suiva
 Le répertoire contient les fichiers suivants, qui servent à déployer le modèle entraîné sous forme de service web :
 
 * `aciDeploymentConfig.yml`: fichier de __configuration de déploiement__. Ce fichier définit l’environnement d’hébergement nécessaire au modèle.
-* `inferenceConfig.yml`: fichier de __configuration de l’inférence__. Ce fichier définit l’environnement logiciel utilisé par le service pour attribuer un score aux données avec le modèle.
+* `inferenceConfig.json`: fichier de __configuration de l’inférence__. Ce fichier définit l’environnement logiciel utilisé par le service pour attribuer un score aux données avec le modèle.
 * `score.py`: script Python qui accepte les données entrantes, leur attribue un score en utilisant le modèle, puis retourne une réponse.
 * `scoring-env.yml`: dépendances conda nécessaires à l’exécution du modèle et du script `score.py`.
 * `testdata.json`: un fichier de données qui peut être utilisé pour tester le service web déployé.
@@ -82,6 +82,8 @@ az login
 ```
 
 Si l’interface CLI peut ouvrir votre navigateur par défaut, elle le fera et chargera une page de connexion par la même occasion. Dans le cas contraire, vous devez ouvrir un navigateur et suivre les instructions de la ligne de commande. Les instructions impliquent de naviguer vers [https://aka.ms/devicelogin](https://aka.ms/devicelogin) et d’entrer un code d’autorisation.
+
+[!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)]
 
 ## <a name="install-the-machine-learning-extension"></a>Installer l’extension Machine Learning
 
@@ -201,10 +203,10 @@ Le résultat de cette commande doit ressembler au JSON suivant :
 }
 ```
 
-Cette commande crée une cible de calcul nommée `cpu`, avec un maximum de quatre nœuds. La taille de machine virtuelle sélectionnée procure une machine virtuelle avec une ressource GPU. Pour plus d’informations sur la taille de machine virtuelle, consultez [Types et tailles de machine virtuelle].
+Cette commande crée une cible de calcul nommée `cpu-cluster`, avec un maximum de quatre nœuds. La taille de machine virtuelle sélectionnée procure une machine virtuelle avec une ressource GPU. Pour plus d’informations sur la taille de machine virtuelle, consultez [Types et tailles de machine virtuelle].
 
 > [!IMPORTANT]
-> Le nom de la cible de calcul (`cpu` dans le cas présent) est important. Il est référencé par le fichier `.azureml/mnist.runconfig` utilisé dans la section suivante.
+> Le nom de la cible de calcul (`cpu-cluster` dans le cas présent) est important. Il est référencé par le fichier `.azureml/mnist.runconfig` utilisé dans la section suivante.
 
 ## <a name="define-the-dataset"></a>Définir le jeu de données
 
@@ -242,11 +244,11 @@ Le résultat de cette commande doit ressembler au JSON suivant :
 }
 ```
 
-
 > [!IMPORTANT]
 > Copiez la valeur de l'entrée `id`, telle qu'elle est utilisée dans la section suivante.
 
 Pour accéder à un modèle plus complet de jeu de données, utilisez la commande suivante :
+
 ```azurecli-interactive
 az ml dataset register --show-template
 ```
@@ -302,7 +304,7 @@ Pour plus d’informations sur les fichiers de configuration d’exécution, con
 
 ## <a name="submit-the-training-run"></a>Soumettre l’exécution d’entraînement
 
-Pour démarrer une exécution d’entraînement sur la cible de calcul `cpu-compute`, utilisez la commande suivante :
+Pour démarrer une exécution d’entraînement sur la cible de calcul `cpu-cluster`, utilisez la commande suivante :
 
 ```azurecli-interactive
 az ml run submit-script -c mnist -e myexperiment --source-directory scripts -t runoutput.json
@@ -316,7 +318,7 @@ Le paramètre `-t` stocke une référence à cette exécution dans un fichier JS
 
 Pendant le traitement de l’exécution d’entraînement, les informations de la session d’entraînement sont diffusées en continu sur la ressource de calcul distante. Une partie de ces informations sont similaires au texte suivant :
 
-```text
+```output
 Predict the test set
 Accuracy is 0.9185
 ```
@@ -371,7 +373,7 @@ La première commande télécharge le modèle inscrit dans le répertoire actif.
 Pour déployer un modèle, utilisez la commande suivante :
 
 ```azurecli-interactive
-az ml model deploy -n myservice -m "mymodel:1" --ic inferenceConfig.yml --dc aciDeploymentConfig.yml
+az ml model deploy -n myservice -m "mymodel:1" --ic inferenceConfig.json --dc aciDeploymentConfig.yml
 ```
 
 > [!NOTE]
@@ -379,7 +381,7 @@ az ml model deploy -n myservice -m "mymodel:1" --ic inferenceConfig.yml --dc aci
 
 Cette commande déploie un nouveau service nommé `myservice`, en utilisant la version 1 du modèle que vous avez inscrit précédemment.
 
-Le fichier `inferenceConfig.yml` fournit des informations sur l'utilisation du modèle pour l'inférence. Par exemple, il fait référence au script d'entrée (`score.py`) et aux dépendances logicielles. 
+Le fichier `inferenceConfig.yml` fournit des informations sur l'utilisation du modèle pour l'inférence. Par exemple, il fait référence au script d'entrée (`score.py`) et aux dépendances logicielles.
 
 Pour plus d’informations sur la structure de ce fichier, consultez le [schéma de configuration de l’inférence](reference-azure-machine-learning-cli.md#inference-configuration-schema). Pour plus d’informations sur les scripts d’entrée, consultez [Déployer des modèles avec Azure Machine Learning](how-to-deploy-and-where.md#prepare-to-deploy).
 
@@ -428,7 +430,7 @@ az ml service run -n myservice -d @testdata.json
 > [!TIP]
 > Si vous utilisez PowerShell, utilisez plutôt la commande suivante :
 >
-> ```powershell
+> ```azurecli-interactive
 > az ml service run -n myservice -d `@testdata.json
 > ```
 
@@ -451,10 +453,10 @@ Cette commande retourne un document JSON qui contient le nom du service supprim�
 
 ### <a name="delete-the-training-compute"></a>Supprimer la cible de calcul d’entraînement
 
-Si vous prévoyez de continuer à utiliser l’espace de travail Azure Machine Learning, mais que vous souhaitez supprimer la cible de calcul `cpu-compute` créée pour l’entraînement, utilisez la commande suivante :
+Si vous prévoyez de continuer à utiliser l’espace de travail Azure Machine Learning, mais que vous souhaitez supprimer la cible de calcul `cpu-cluster` créée pour l’entraînement, utilisez la commande suivante :
 
 ```azurecli-interactive
-az ml computetarget delete -n cpu
+az ml computetarget delete -n cpu-cluster
 ```
 
 Cette commande retourne un document JSON qui contient l’ID de la cible de calcul supprimée. La suppression de la cible de calcul peut prendre plusieurs minutes.

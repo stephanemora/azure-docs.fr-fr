@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: 9e010a5179f2da2d5bbce5526d59ac075a9270b0
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 1b347707b3c656bd692a29f0fd748c1503be4fb8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169259"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79218011"
 ---
 # <a name="getting-started-with-the-r-programming-language-in-azure-machine-learning-studio-classic"></a>Prise en main du langage de programmation R dans Azure Machine Learning Studio (classique)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 <!-- Stephen F Elston, Ph.D. -->
 
@@ -37,7 +39,7 @@ Dans ce guide, nous allons utiliser les données de production et de tarificatio
 
 Les données utilisées dans cet article, ainsi que les scripts R, peuvent être téléchargées depuis [MachineLearningSamples-Notebooks/studio-samples](https://github.com/Azure-Samples/MachineLearningSamples-Notebooks/tree/master/studio-samples). À l’origine, les données du fichier `cadairydata.csv` ont été synthétisées à partir des informations disponibles sur le site de l’Université du Wisconsin à l’adresse [https://dairymarkets.com](https://dairymarkets.com).
 
-### <a name="organization"></a>Organization
+### <a name="organization"></a>Organisation
 
 À travers plusieurs étapes successives, vous allez apprendre à créer, tester et exécuter du code R d’analytique et de manipulation de données dans l’environnement Azure Machine Learning Studio (classique).  
 
@@ -47,7 +49,7 @@ Les données utilisées dans cet article, ainsi que les scripts R, peuvent êtr
 * Après avoir préparé nos données, nous procéderons à l’analyse des corrélations entre plusieurs variables figurant dans notre jeu de données.
 * Enfin, nous créerons un modèle de prévision chronologique saisonnier pour la production de lait.
 
-## <a id="mlstudio"></a>Interaction avec le langage R dans Machine Learning Studio (classique)
+## <a name="interact-with-r-language-in-machine-learning-studio-classic"></a><a id="mlstudio"></a>Interaction avec le langage R dans Machine Learning Studio (classique)
 
 Cette section vous fait découvrir certains concepts de base de l’interaction avec le langage de programmation R dans l’environnement Machine Learning Studio (classique). Le langage R offre un outil efficace pour créer des modules personnalisés d’analytique et de manipulation de données dans l’environnement Azure Machine Learning Studio (classique).
 
@@ -139,7 +141,7 @@ Un tutoriel de présentation sur RStudio est disponible à l’adresse [Présent
 
 Vous trouverez des informations complémentaires sur l’utilisation de RStudio dans le [documentation Guide de RStudio](#appendixa) ci-dessous.  
 
-## <a id="scriptmodule"></a>Obtention de données dans et hors du module d'exécution de script R
+## <a name="get-data-in-and-out-of-the-execute-r-script-module"></a><a id="scriptmodule"></a>Obtention de données dans et hors du module d'exécution de script R
 
 Dans cette section, nous allons voir comment obtenir des données dans et hors du module [d’exécution de script R][execute-r-script]. Nous examinerons les façons de gérer les différents types de données lus dans et hors du module [d’exécution de script R][execute-r-script].
 
@@ -147,7 +149,7 @@ Le code complet pour cette section se trouve dans [MachineLearningSamples-Notebo
 
 ### <a name="load-and-check-data-in-machine-learning-studio-classic"></a>Chargement et vérification des données dans Machine Learning Studio (classique)
 
-#### <a id="loading"></a>Chargement du jeu de données
+#### <a name="load-the-dataset"></a><a id="loading"></a>Chargement du jeu de données
 
 Nous allons commencer par charger le fichier **csdairydata.csv** dans Azure Machine Learning Studio (classique).
 
@@ -347,7 +349,7 @@ En faisant défiler l'écran vers le bas, nous voyons la sortie graphique de not
 
 *Figure 8 : sortie graphique du port d’appareil R.*  
 
-## <a id="filtering"></a>Filtrage et transformation des données
+## <a name="data-filtering-and-transformation"></a><a id="filtering"></a>Filtrage et transformation des données
 
 Dans cette section, nous allons effectuer certaines opérations de filtrage et de transformation de données de base sur les données du secteur laitier californien. À la fin de cette section, les données seront dans un format idoine pour générer un modèle d'analyse.  
 
@@ -643,7 +645,7 @@ Comme nous pouvons le constater, les valeurs ont été transformées. À présen
 
 À ce stade, nos données sont nettoyées et nous sommes prêts à procéder à une modélisation. Au vu de l’aperçu de visualisation de la sortie du jeu de données de résultat du module [d’exécution de script R][execute-r-script], vous pouvez constater que la colonne « Mois » est de type « catégorique » et qu’elle contient 12 valeurs uniques, là encore comme prévu.
 
-## <a id="timeseries"></a>Objets de série chronologique et analyse des corrélations
+## <a name="time-series-objects-and-correlation-analysis"></a><a id="timeseries"></a>Objets de série chronologique et analyse des corrélations
 
 Dans cette section, nous allons explorer quelques objets de série chronologique R de base et analyser les corrélations entre certaines variables. Notre objectif est ici de sortir un tableau de données contenant les informations de corrélation par paire à plusieurs décalages.
 
@@ -942,7 +944,7 @@ L’exécution du code génère la sortie présentée dans la figure 19 après 
 
 *Figure 19 : résultats générés par l’analyse des corrélations.*
 
-## <a id="seasonalforecasting"></a>Exemple de série chronologique : prévision saisonnière
+## <a name="time-series-example-seasonal-forecasting"></a><a id="seasonalforecasting"></a>Exemple de série chronologique : prévision saisonnière
 
 Les données se trouvent maintenant dans un format adapté à l’analyse et nous avons déterminé qu’il n’y avait pas de corrélations significatives entre les variables. Continuons et créons un modèle de prévision chronologique. Nous nous servirons de ce modèle pour établir des prévisions concernant la production de lait californienne au cours des 12 mois de 2013.
 
@@ -1300,7 +1302,7 @@ L'exécution de ce code génère la sortie présentée dans la figure 27 au niv
 
 Ces résultats nous montrent que l’ajout des facteurs saisonniers au modèle a pour effet de réduire sensiblement l’erreur RMS. Fort logiquement, l'erreur RMS au niveau des données d'apprentissage est plus limitée qu'au niveau de la prévision.
 
-## <a id="appendixa"></a>Documentation Guide de RStudio
+## <a name="guide-to-rstudio-documentation"></a><a id="appendixa"></a>Documentation Guide de RStudio
 
 RStudio est très bien documenté. Voici quelques liens vers les principales sections de la documentation RStudio pour vous aider à démarrer.
 
@@ -1308,7 +1310,7 @@ RStudio est très bien documenté. Voici quelques liens vers les principales sec
 * **Modification et exécution de code R** : RStudio offre un environnement intégré qui permet de modifier et d’exécuter du code R. Consultez [Modification et exécution de code](https://support.rstudio.com/hc/articles/200484448-Editing-and-Executing-Code) pour plus d’informations.
 * **Débogage** : RStudio intègre de puissantes fonctionnalités de débogage. Consultez [Débogage avec RStudio](https://support.rstudio.com/hc/articles/200713843-Debugging-with-RStudio) pour plus d’informations sur ces fonctionnalités. Pour plus d’informations sur les fonctionnalités de dépannage par point d’arrêt, consultez [Résolution des problèmes de point d’arrêt](https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting).
 
-## <a id="appendixb"></a>Pour aller plus loin
+## <a name="further-reading"></a><a id="appendixb"></a>Pour aller plus loin
 
 Ce tutoriel sur la programmation en R couvre les concepts de base de ce qu’il vous faut pour utiliser le langage R avec Azure Machine Learning Studio (classique). Si vous ne connaissez pas le langage R, deux présentations sont disponibles sur le site CRAN :
 

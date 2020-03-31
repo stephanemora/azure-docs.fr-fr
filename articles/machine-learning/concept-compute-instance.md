@@ -10,11 +10,11 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 12/13/2019
 ms.openlocfilehash: 280851b2fea0b8100a7d0f8ec8105109a41c8c83
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77252074"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79237145"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Qu’est-ce qu’une instance de calcul Azure Machine Learning ?
 
@@ -38,7 +38,7 @@ Une instance de calcul est une station de travail cloud complètement managée q
 |Préconfigurée&nbsp;ou&nbsp;ML|Gagnez du temps sur les tâches d’installation grâce à des packages ML préconfigurés et à jour, des infrastructures de Deep Learning et des pilotes GPU.|
 |Entièrement personnalisable|Les scénarios avancés deviennent un jeu d’enfant grâce à la prise en charge étendue des types de machines virtuelles Azure, y compris les GPU et la personnalisation de bas niveau persistante, comme l’installation de packages et de pilotes. |
 
-## <a name="contents"></a>Outils et environnements
+## <a name="tools-and-environments"></a><a name="contents"></a>Outils et environnements
 
 L’instance de calcul Azure Machine Learning vous permet de créer, d’effectuer l’apprentissage et de déployer des modèles dans une expérience de notebook entièrement intégrée dans votre espace de travail.
 
@@ -139,7 +139,7 @@ Le quota de cœurs dédiés par région qui s’applique à la création d’une
 
 Les instances de calcul peuvent être utilisées comme [cible de calcul d’entraînement](concept-compute-target.md#train), comme les clusters d’entraînement pour le calcul Azure Machine Learning. Configurez une machine virtuelle multi-GPU pour exécuter des travaux de formation distribués à l’aide d’estimateurs TensorFlow/PyTorch. Vous pouvez également créer une configuration de série de tests et l’utiliser pour exécuter votre expérience sur l’instance de calcul. Vous pouvez utiliser l’instance de calcul comme cible de déploiement d’inférence local dans les scénarios de test/débogage.
 
-## <a name="notebookvm"></a>Qu’est-il arrivé à la machine virtuelle Notebook ?
+## <a name="what-happened-to-notebook-vm"></a><a name="notebookvm"></a>Qu’est-il arrivé à la machine virtuelle Notebook ?
 
 Les instances de calcul remplacent la machine virtuelle Notebook.  
 

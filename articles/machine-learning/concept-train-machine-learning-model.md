@@ -10,10 +10,10 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/05/2020
 ms.openlocfilehash: 68ad9cc47d68f7bc3ae952f7e458781cdc1c4ab2
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79129767"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Former des modèles avec Azure Machine Learning
@@ -69,7 +69,7 @@ Définissez les itérations, la configuration des hyperparamètres, la caractér
 * [Exemples : exemples Jupyter Notebook pour le machine learning automatisé](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning)
 * [Procédure : configurer des expériences de ML automatisé dans Python](how-to-configure-auto-train.md)
 * [Procédure : entraîner automatiquement un modèle de prévision de série chronologique](how-to-auto-train-forecast.md)
-* [Guide pratique pour créer, explorer et déployer des expériences de Machine Learning automatisé avec Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md)
+* [Procédure : créer, explorer et déployer des expériences de Machine Learning automatisé avec Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md)
 
 ### <a name="estimators"></a>Estimateurs
 

@@ -8,10 +8,10 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/08/2019
 ms.openlocfilehash: ffec5cb4b1d36a2a2a7ca3ae7bbc40e20e075d4b
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75887272"
 ---
 # <a name="scenario-hdp-upgrade-causes-no-data-in-apache-phoenix-views-in-azure-hdinsight"></a>Scénario : La mise à niveau HDP ne génère aucune donnée dans les vues Apache Phoenix dans Azure HDInsight
@@ -22,7 +22,7 @@ Cet article décrit les éventuelles solutions à appliquer pour résoudre les p
 
 Une vue Apache Phoenix ne contient aucune date après la mise à niveau de HDP 2.4 vers HDP 2.5.
 
-## <a name="cause"></a>Cause :
+## <a name="cause"></a>Cause
 
 La table d’index pour les vues (tous les index d’une vue sont stockés dans une seule table Apache HBase physique) est tronquée pendant la mise à niveau
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/31/2018
 ms.author: sharadag
-ms.openlocfilehash: 67a4f9eb3290ba09a2c19325464cf7ad224856e7
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: a98a933113322509f6fda8678350e9415d0b4058
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184512"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79471419"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>Démarrage rapide : Créer une porte d’entrée pour une application web globale hautement disponible
 
@@ -42,7 +42,7 @@ Pour suivre ce guide de démarrage rapide, vous devez avoir déployé deux insta
      | Nom           | Entrez un nom unique pour votre application web  |
      | Resource group          | Sélectionnez **Nouveau**, puis tapez *myResourceGroupFD1* |
      | Plan/lieu App Service         | Sélectionnez **Nouveau**.  Dans le plan App Service, entrez *myAppServicePlanEastUS*, puis sélectionnez **OK**. 
-     |      Location  |   USA Est        |
+     |      Emplacement  |   USA Est        |
     |||
 
 3. Sélectionnez **Create** (Créer).
@@ -54,7 +54,7 @@ Pour suivre ce guide de démarrage rapide, vous devez avoir déployé deux insta
      | Nom           | Entrez un nom unique pour votre application web  |
      | Resource group          | Sélectionnez **Nouveau**, puis tapez *myResourceGroupFD2* |
      | Plan/lieu App Service         | Sélectionnez **Nouveau**.  Dans le plan App Service, entrez *myAppServicePlanEastUS*, puis sélectionnez **OK**. 
-     |      Location  |   Europe Ouest      |
+     |      Emplacement  |   Europe Ouest      |
     |||
 
 
@@ -75,14 +75,14 @@ Ensuite, vous devez configurer votre ou vos backends d’application dans un poo
 3. Sélectionnez « App Service » comme **Type d’hôte cible**, sélectionnez l’abonnement dans lequel vous avez créé le site web, puis choisissez le premier site web à partir du **nom d’hôte cible**, autrement dit, *myAppServicePlanEastUS.azurewebsites.net*.
 4. Laissez les champs restants tels quels pour l’instant et cliquez sur **Ajouter**.
 5. Répétez les étapes 2 à 4 pour ajouter l’autre site web, autrement dit, *myAppServicePlanWestEurope.azurewebsites.net*
-6. Vous pouvez aussi choisir de mettre à jour les paramètres de sonde d’intégrité et d’équilibrage de charge du pool de backends, mais les valeurs par défaut doivent également fonctionner. Cliquez sur **Add**.
+6. Vous pouvez éventuellement choisir de mettre à jour les paramètres de sonde d’intégrité et d’équilibrage de charge du pool de back-ends. Toutefois, les valeurs par défaut doivent également fonctionner. Cliquez sur **Add**.
 
 
 ### <a name="c-add-a-routing-rule"></a>C. Ajouter une règle de routage
 Enfin, cliquez sur l’icône « + » d’une règle de routage pour la configurer. Vous devez le faire pour mapper votre hôte backend au pool de backends, ce qui consiste en fait à définir que si une demande arrive sur `myappfrontend.azurefd.net`, il faut la transférer au pool de backends `myBackendPool`. Cliquez sur **Ajouter** pour ajouter la règle de routage de votre porte d’entrée. Vous devez maintenant être prêt à créer la porte d’entrée. Cliquez sur **Vérifier et créer**.
 
 >[!WARNING]
-> Vous **devez** vérifier que chaque hôte frontend dans votre porte d’entrée a une règle de routage avec un chemin par défaut (/\*) associé. Autrement dit, dans toutes vos règles de routage, il doit y en avoir au moins une pour chaque hôte frontend défini dans le chemin par défaut (/\*). Dans le cas contraire, votre trafic d’utilisateur final risque de ne pas être routé correctement.
+> Vous **devez** vérifier que chaque hôte frontend dans votre porte d’entrée a une règle de routage avec un chemin par défaut (/\*) associé. En d’autres termes, parmi toutes vos règles d’acheminement, il doit exister au moins une règle d’acheminement pour chacun des hôtes frontend définis dans le chemin par défaut (« /\* »). Sinon, le trafic de l’utilisateur final risque de ne pas être routé correctement.
 
 ## <a name="view-front-door-in-action"></a>Voir Front Door en action
 Une fois la porte d’entrée créée, le déploiement global de la configuration prend quelques minutes. Ensuite, accédez à l’hôte frontend que vous avez créé : ouvrez un navigateur web et entrez l’URL `myappfrontend.azurefd.net`. Votre demande est automatiquement routée vers le frontend le plus proche de vous à partir des backends spécifiés dans le pool de backends. 
@@ -90,7 +90,7 @@ Une fois la porte d’entrée créée, le déploiement global de la configuratio
 ### <a name="view-front-door-handle-application-failover"></a>Voir comment Front Door gère le basculement d’application
 Si vous voulez tester un basculement instantané global effectué par Front Door, vous pouvez accéder à l’un des sites web que vous avez créés et l’arrêter. Selon le paramètre de sonde d’intégrité défini pour le pool de backends, nous basculons instantanément le trafic vers l’autre déploiement de site web. Vous pouvez aussi tester le comportement en désactivant le backend dans la configuration du pool de backends pour votre porte d’entrée. 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, les application web et toutes les ressources associées.
 
 ## <a name="next-steps"></a>Étapes suivantes

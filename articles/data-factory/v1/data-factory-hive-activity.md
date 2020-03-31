@@ -13,10 +13,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: d153f8c316cbb76e063f07f7f823c8d9c4a21f87
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74703351"
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Transformer des données à l’aide d’une activité Hive dans Azure Data Factory 
@@ -38,7 +38,7 @@ ms.locfileid: "74703351"
 L’activité Hive HDInsight d’un [pipeline](data-factory-create-pipelines.md) Data Factory exécute des requêtes Hive sur [votre propre](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) cluster ou cluster [à la demande](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) HDInsight sous Windows ou Linux. Cet article s'appuie sur l'article [Activités de transformation des données](data-factory-data-transformation-activities.md) qui présente une vue d'ensemble de la transformation des données et les activités de transformation prises en charge.
 
 > [!NOTE] 
-> Si vous découvrez Azure Data Factory, lisez la [présentation d’Azure Data Factory](data-factory-introduction.md) et suivez le tutoriel : [Générer votre premier pipeline de données](data-factory-build-your-first-pipeline.md) avant de lire cet article. 
+> Si vous découvrez Azure Data Factory, lisez la [Présentation d’Azure Data Factory](data-factory-introduction.md) et suivez le didacticiel : [Générer votre premier pipeline de données](data-factory-build-your-first-pipeline.md) avant de lire cet article. 
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -74,17 +74,17 @@ L’activité Hive HDInsight d’un [pipeline](data-factory-create-pipelines.md)
 ## <a name="syntax-details"></a>Détails de la syntaxe
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| name |Nom de l’activité |OUI |
+| name |Nom de l’activité |Oui |
 | description |Texte décrivant la raison motivant l’activité. |Non |
-| type |HDinsightHive |OUI |
+| type |HDinsightHive |Oui |
 | inputs |Entrées utilisées par l’activité Hive |Non |
-| outputs |Sorties produites par l’activité Hive |OUI |
-| linkedServiceName |Référence au cluster HDInsight enregistré comme un service lié dans Data Factory |OUI |
+| outputs |Sorties produites par l’activité Hive |Oui |
+| linkedServiceName |Référence au cluster HDInsight enregistré comme un service lié dans Data Factory |Oui |
 | script |Spécifier le script en ligne Hive |Non |
 | scriptPath |Stockez le script Hive dans un stockage d'objets blob Azure et indiquez le chemin d'accès au fichier. Utilisez la propriété ’script’ ou ’scriptPath’. Les deux propriétés ne peuvent pas être utilisées simultanément. Le nom de fichier respecte la casse. |Non |
 | defines |Spécifier les paramètres sous forme de paires clé/valeur pour le référencement au sein du script Hive à l'aide de ’hiveconf’ |Non |
 
-## <a name="example"></a>Exemples
+## <a name="example"></a>Exemple
 Prenons un exemple d’analyse de journaux d’activité de jeux où vous souhaitez identifier le temps passé par les utilisateurs à jouer à des jeux créés par votre entreprise. 
 
 Le journal suivant est un exemple de journal de jeu séparé par des virgules (`,`) et contenant les champs suivants : ProfileID, SessionStart, Duration, SrcIPAddress et GameType.

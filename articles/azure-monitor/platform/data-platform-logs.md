@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 06b35fdcd9da333c3c9d94d41c84a2f25ede59ad
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: dd499a82ba1011d96772d6722e25a434d43a6bf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77666563"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79480196"
 ---
 # <a name="logs-in-azure-monitor"></a>Journaux dans Azure Monitor
 
@@ -84,7 +84,7 @@ Azure Monitor peut collecter des données de journal à partir de diverses sourc
 
 | Données | Description |
 |:---|:---|
-| Diagnostics de ressources | Configurer les paramètres de diagnostic pour écrire des données de diagnostic, dont des métriques, dans un espace de travail Log Analytics. Consultez [Envoyer en streaming les journaux de ressources Azure à Log Analytics](resource-logs-collect-storage.md). |
+| Diagnostics de ressources | Configurer les paramètres de diagnostic pour écrire des données de diagnostic, dont des métriques, dans un espace de travail Log Analytics. Consultez [Envoyer en streaming les journaux de ressources Azure à Log Analytics](resource-logs-collect-workspace.md). |
 | Solutions de supervision | Les solutions de supervision écrivent des données qu’elles collectent dans leur espace de travail Log Analytics. Pour la liste des solutions, voir [Détails sur la collecte de données pour les solutions de gestion dans Azure](../insights/solutions-inventory.md). Pour plus de détails sur l’installation et l’utilisation de solutions, voir [Solutions de monitoring dans Azure Monitor](../insights/solutions.md). |
 | Mesures | Envoyer des métriques de plateforme pour des ressources Azure Monitor à un espace de travail Log Analytics afin de conserver les données de journal plus longtemps et d’effectuer une analyse complexe avec d’autres types de données à l’aide du [langage de requête Kusto](/azure/kusto/query/). Consultez [Envoyer en streaming les journaux de ressources Azure à Log Analytics](resource-logs-collect-storage.md). |
 | Stockage de table Azure | Collecter des données à partir d’un stockage Azure où certaines ressources Azure écrivent des données de surveillance. Voir [Utiliser un Stockage Blob Azure pour IIS et un Stockage Table Azure pour des événements avec Log Analytics](diagnostics-extension-logs.md). |

@@ -16,10 +16,10 @@ ms.date: 03/18/2019
 ms.author: anilmur
 ms.reviewer: juliako
 ms.openlocfilehash: a32624c37cd8ca7fbef9e38ca61de9369791dd25
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77162529"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Comment effectuer une diffusion de vidéo en flux continu à l’aide d’Azure Media Services pour créer des flux à vitesses de transmission multiples.
@@ -57,7 +57,7 @@ Le tableau suivant montre comment les états du canal sont mappés aux états de
 Pour arrêter la facturation, vous devez arrêter le canal via l’API ou dans le portail Azure.
 Vous êtes responsable de l'arrêt de vos canaux lorsque vous avez terminé d'utiliser le canal d'encodage en temps réel.  Ne pas arrêter un canal d'encodage provoque la facturation continue.
 
-### <a id="states"></a>États du canal et mappage au mode de facturation
+### <a name="channel-states-and-how-they-map-to-the-billing-mode"></a><a id="states"></a>États du canal et mappage au mode de facturation
 État actuel d’un canal. Les valeurs possibles incluent :
 
 * **Arrêté**. Ceci est l'état initial du canal après sa création (sauf si le démarrage automatique a été sélectionné dans le portail). Aucune facturation ne survient dans cet état. Dans cet état, les propriétés du canal peuvent être mises à jour, mais le streaming n’est pas autorisé.
@@ -85,7 +85,7 @@ Le diagramme suivant représente un workflow de streaming en direct où un canal
 
 ![Flux de travail live][live-overview]
 
-## <a id="scenario"></a>Scénario courant de diffusion dynamique en continu
+## <a name="common-live-streaming-scenario"></a><a id="scenario"></a>Scénario courant de diffusion dynamique en continu
 Ci-après figurent les étapes générales impliquées dans la création d’applications courantes de diffusion en continu dynamique.
 
 > [!NOTE]
@@ -123,14 +123,14 @@ Ci-après figurent les étapes générales impliquées dans la création d’app
 > 
 > 
 
-## <a id="channel"></a>Configurations de l’entrée (réception) du canal
-### <a id="Ingest_Protocols"></a>Protocole de diffusion en continu de réception
+## <a name="channels-input-ingest-configurations"></a><a id="channel"></a>Configurations de l’entrée (réception) du canal
+### <a name="ingest-streaming-protocol"></a><a id="Ingest_Protocols"></a>Protocole de diffusion en continu de réception
 Si le **Type d’encodeur** est défini sur **Standard**, les options valides sont les suivantes :
 
 * **RTMP**
 * **MP4 fragmenté** (Smooth Streaming) à débit binaire unique
 
-#### <a id="single_bitrate_RTMP"></a>RTMP à débit binaire unique
+#### <a name="single-bitrate-rtmp"></a><a id="single_bitrate_RTMP"></a>RTMP à débit binaire unique
 Considérations :
 
 * Le flux entrant ne peut pas contenir de vidéo à débit binaire multiple
@@ -210,7 +210,7 @@ L’envoi dans un flux SPTS est recommandé. Si le flux d’entrée contient pl
 #### <a name="language"></a>Langage
 Identificateur de langue du flux audio, conformément à la norme ISO 639-2, par exemple ENG. En son absence, la valeur par défaut est UND (non définie).
 
-### <a id="preset"></a>Présélection du système
+### <a name="system-preset"></a><a id="preset"></a>Présélection du système
 Spécifie la présélection à utiliser par l’encodeur dynamique dans ce canal. Actuellement, la seule valeur autorisée est **Default720p** (par défaut).
 
 **Default720p** encode la vidéo dans les 6 couches suivantes.
@@ -262,7 +262,7 @@ Durée (en secondes) de l’affichage de l’ardoise. Pour que l’affichage de 
 ### <a name="insert-slate-on-ad-marker"></a>Insérer une ardoise dans le marqueur de publicité
 S’il est défini sur true, ce paramètre configure l’encodeur dynamique pour insérer une image d’ardoise pendant une pause publicitaire. La valeur par défaut est true. 
 
-### <a id="default_slate"></a>ID de ressource d'ardoise par défaut
+### <a name="default-slate-asset-id"></a><a id="default_slate"></a>ID de ressource d'ardoise par défaut
 
 facultatif. Spécifie l’ID de la ressource Media Services qui contient l’image d’ardoise. La valeur par défaut est Null. 
 
@@ -299,7 +299,7 @@ Si vous souhaitez conserver le contenu archivé sans qu’il soit disponible pou
 ## <a name="getting-a-thumbnail-preview-of-a-live-feed"></a>Obtention d’une image miniature d’un flux en direct
 Si le paramètre Encodage en temps réel est activé, vous pouvez désormais obtenir un aperçu du flux en direct lorsqu’il atteint le canal. Ce peut être un outil intéressant lorsqu’il s’agit de vérifier si votre flux en direct atteint réellement le canal. 
 
-## <a id="states"></a>États du canal et mappage des états au mode de facturation
+## <a name="channel-states-and-how-states-map-to-the-billing-mode"></a><a id="states"></a>États du canal et mappage des états au mode de facturation
 État actuel d’un canal. Les valeurs possibles incluent :
 
 * **Arrêté**. C’est l’état initial du canal après sa création. Dans cet état, les propriétés du canal peuvent être mises à jour, mais le streaming n’est pas autorisé.
@@ -322,7 +322,7 @@ Le tableau suivant montre comment les états du canal sont mappés au mode de fa
 > 
 > 
 
-## <a id="Considerations"></a>Considérations
+## <a name="considerations"></a><a id="Considerations"></a>Considérations
 * Quand un canal de type de codage **Standard** subit une perte de flux de source d'entrée/contribution, il compense cette perte en remplaçant l'audio ou la vidéo source par une ardoise d'erreur et un silence. Le canal continue d’émettre une ardoise jusqu’à la reprise du flux d’entrée/de contribution. Nous vous recommandons de ne pas laisser un canal direct dans cet état pendant plus de 2 heures. Au-delà de ce point, ni le comportement du canal au moment de la reconnexion de l’entrée ni son comportement en réponse à une commande de réinitialisation ne sont garantis. Vous devez alors arrêter le canal, le supprimer et en créer un autre.
 * Vous ne pouvez pas modifier le protocole d’entrée pendant l’exécution du canal ou de ses programmes associés. Si vous avez besoin d’autres protocoles, vous devez créer des canaux distincts pour chaque protocole d’entrée.
 * Chaque fois que vous reconfigurez l’encodeur dynamique, appelez la méthode de réinitialisation **Reset** sur le canal. Avant de réinitialiser le canal, vous devez arrêter le programme. Une fois le canal réinitialisé, redémarrez le programme.

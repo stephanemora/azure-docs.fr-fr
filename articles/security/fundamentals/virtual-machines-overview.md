@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 10/2/2019
 ms.author: terrylan
 ms.openlocfilehash: a1726e18ea8c1ba86d77d7b9ca3d50c444620361
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77657161"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Vue d’ensemble de la sécurité des machines virtuelles Azure
@@ -91,7 +91,7 @@ La solution est intégrée à Azure Key Vault, ce qui vous permet de contrôler 
 En savoir plus :
 
 * [Azure Disk Encryption pour machines virtuelles Iaas](/azure/security/azure-security-disk-encryption-overview)
-* [Démarrage rapide : Chiffrer une machine virtuelle IaaS Windows avec Azure PowerShell](../../virtual-machines/linux/disk-encryption-powershell-quickstart.md)
+* [Démarrage rapide : chiffrer une machine virtuelle IaaS Windows avec Azure PowerShell](../../virtual-machines/linux/disk-encryption-powershell-quickstart.md)
 
 ## <a name="virtual-machine-backup"></a>Sauvegarde de machine virtuelle
 
@@ -108,11 +108,11 @@ Une partie importante de la stratégie de continuité des activités et de récu
 
 Site Recovery :
 
-* **Simplifie votre stratégie de continuité d'activité et de reprise d'activité** : Site Recovery facilite la gestion de la réplication, du basculement et de la récupération de plusieurs charges de travail et applications métier à partir d’un emplacement unique. Site Recovery orchestre la réplication et le basculement, sans intercepter les données de vos applications ni posséder des informations à leur sujet.
-* **Fournit une réplication flexible** : À l’aide de Site Recovery, vous pouvez répliquer des charges de travail s’exécutant sur des machines virtuelles Hyper-V et VMware, et des serveurs physiques Windows/Linux.
-* **Prend en charge le basculement et la récupération** : Site Recovery fournit des tests de basculement pour prendre en charge des exercices de récupération d’urgence sans affecter les environnements de production. Vous pouvez également exécuter des basculements planifiés avec une perte de données zéro pour les interruptions attendues, ou des basculements non planifiés avec une perte de données minimale (en fonction de la fréquence de réplication) pour les incidents inattendus. Après le basculement, vous pouvez procéder à une restauration automatique sur vos sites principaux. Site Recovery fournit des plans de récupération qui peuvent inclure des scripts et des classeurs Azure Automation afin que vous puissiez personnaliser le basculement et la récupération d’applications multiniveaux.
-* **Élimine les centres de données secondaires** : Vous pouvez répliquer vos éléments vers un site local secondaire ou sur Azure. L’utilisation d’Azure comme destination de la récupération d’urgence élimine le coût et la complexité associés à la gestion d’un site secondaire. Les données répliquées sont stockées dans Azure Storage.
-* **S’intègre aux technologies BCDR existantes** : Site Recovery est compatible avec les fonctionnalités BCDR d’autres applications. Par exemple, vous pouvez utiliser Site Recovery pour aider à protéger le serveur principal SQL Server des charges de travail d’entreprise. Cela inclut la prise en charge native de SQL Server AlwaysOn pour gérer le basculement des groupes de disponibilité.
+* **Simplifie votre stratégie de continuité des activités et de récupération d’urgence** : Site Recovery facilite la gestion de la réplication, du basculement et de la récupération de plusieurs charges de travail et applications métier à partir d’un site unique. Site Recovery orchestre la réplication et le basculement, sans intercepter les données de vos applications ni posséder des informations à leur sujet.
+* **Fournit une réplication flexible** : à l’aide de Site Recovery, vous pouvez répliquer des charges de travail s’exécutant sur des machines virtuelles Hyper-V et VMware, et des serveurs physiques Windows/Linux.
+* **Prend en charge le basculement et la récupération** : Site Recovery fournit des tests de basculement pour prendre en charge la marche à suivre en cas de récupération d’urgence sans affecter les environnements de production. Vous pouvez également exécuter des basculements planifiés avec une perte de données zéro pour les interruptions attendues, ou des basculements non planifiés avec une perte de données minimale (en fonction de la fréquence de réplication) pour les incidents inattendus. Après le basculement, vous pouvez procéder à une restauration automatique sur vos sites principaux. Site Recovery fournit des plans de récupération qui peuvent inclure des scripts et des classeurs Azure Automation afin que vous puissiez personnaliser le basculement et la récupération d’applications multiniveaux.
+* **Élimine le centre de données secondaire** : vous pouvez procéder à une réplication vers un site secondaire local ou vers Azure. L’utilisation d’Azure comme destination de la récupération d’urgence élimine le coût et la complexité associés à la gestion d’un site secondaire. Les données répliquées sont stockées dans Azure Storage.
+* **S’intègre aux technologies existantes de continuité des activités et de récupération d’urgence** : Site Recovery collabore avec les fonctionnalités de continuité des activités et de récupération d’urgence d’autres applications. Par exemple, vous pouvez utiliser Site Recovery pour aider à protéger le serveur principal SQL Server des charges de travail d’entreprise. Cela inclut la prise en charge native de SQL Server AlwaysOn pour gérer le basculement des groupes de disponibilité.
 
 En savoir plus :
 
@@ -153,8 +153,8 @@ Azure Virtual Machines bénéficie des certifications FISMA, FedRAMP, HIPAA, PCI
 
 En savoir plus :
 
-* [Centre de gestion de la confidentialité Microsoft : Conformité](https://www.microsoft.com/en-us/trustcenter/compliance)
-* [Cloud de confiance : Sécurité, confidentialité et conformité dans Microsoft Azure](https://download.microsoft.com/download/1/6/0/160216AA-8445-480B-B60F-5C8EC8067FCA/WindowsAzure-SecurityPrivacyCompliance.pdf)
+* [Centre de gestion de la confidentialité Microsoft - Conformité](https://www.microsoft.com/en-us/trustcenter/compliance)
+* [Cloud de confiance : sécurité, confidentialité et conformité dans Microsoft Azure](https://download.microsoft.com/download/1/6/0/160216AA-8445-480B-B60F-5C8EC8067FCA/WindowsAzure-SecurityPrivacyCompliance.pdf)
 
 ## <a name="confidential-computing"></a>Calcul confidentiel
 

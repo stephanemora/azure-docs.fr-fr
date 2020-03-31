@@ -5,17 +5,17 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.openlocfilehash: 675ad278cb8bdc0ced4eff3bd77572f44c9808fc
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68857379"
 ---
 Dans cette section, vous mettez à jour le code dans votre projet de serveur principal Mobile Apps existant pour envoyer une notification Push chaque fois qu’un nouvel élément est ajouté. Ce processus est rendu possible par la fonctionnalité [modèle](../articles/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) d’Azure Notification Hubs, qui autorise l’envoi de notifications Push multiplateforme. Les différents clients sont inscrits pour les notifications Push à l’aide de modèles, et une notification Push universelle unique peut accéder à toutes les plates-formes clientes.
 
-Choisissez l’une des procédures ci-après correspondant au type de votre projet de serveur principal &mdash; [projet de serveur principal .NET](#dotnet) ou [projet de serveur principal Node.js](#nodejs).
+Choisissez l’une des procédures ci-après correspondant au type de votre projet de serveur principal &mdash;[projet de serveur principal .NET](#dotnet) ou [projet de serveur principal Node.js](#nodejs).
 
-### <a name="dotnet"></a>Projet de serveur principal .NET
+### <a name="net-back-end-project"></a><a name="dotnet"></a>Projet de serveur principal .NET
 
 1. Dans Visual Studio, cliquez avec le bouton droit sur le projet de serveur. Ensuite, sélectionnez **Gérer les packages NuGet**. Recherchez `Microsoft.Azure.NotificationHubs`, puis sélectionnez **Installer**. Ce processus installe la bibliothèque Notification Hubs pour l’envoi de notifications à partir du serveur principal.
 2. Dans le projet de serveur, ouvrez **Contrôleurs** > **TodoItemController.cs**. Puis ajoutez les instructions using suivantes :
@@ -68,7 +68,7 @@ Choisissez l’une des procédures ci-après correspondant au type de votre proj
 
 4. Publier à nouveau le projet de serveur
 
-### <a name="nodejs"></a>Projet de serveur principal Node.js
+### <a name="nodejs-back-end-project"></a><a name="nodejs"></a>Projet de serveur principal Node.js
 
 1. Configurez votre projet back-end.
 2. Remplacez le code existant dans todoitem.js par le code suivant :

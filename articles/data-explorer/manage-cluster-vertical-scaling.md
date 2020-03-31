@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/14/2019
 ms.openlocfilehash: 95275598febae2b6b0355a7bc3e512490dae500d
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77560437"
 ---
 # <a name="manage-cluster-vertical-scaling-scale-up-in-azure-data-explorer-to-accommodate-changing-demand"></a>Gérer la mise à l'échelle verticale d'un cluster (montée en puissance) dans Azure Data Explorer pour prendre en compte les fluctuations de la demande
@@ -48,7 +48,7 @@ Vous venez de configurer une mise à l'échelle verticale pour votre cluster Azu
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Vous pouvez également [gérer la mise à l’échelle horizontale de cluster](manage-cluster-horizontal-scaling.md) afin d’adapter de manière dynamique le nombre d’instances en fonction des métriques que vous spécifiez.
+* Vous pouvez également [gérer la mise à l’échelle horizontale de cluster](manage-cluster-horizontal-scaling.md) afin d’effectuer un scale-out de manière dynamique du nombre d’instances en fonction des métriques que vous spécifiez.
 
 * Supervisez l’utilisation de vos ressources en suivant les instructions de cet article : [Superviser les performances, l’intégrité et l’utilisation d’Azure Data Explorer avec des métriques](using-metrics.md).
 

@@ -3,12 +3,12 @@ title: Sorties dans des modèles
 description: Explique comment définir des valeurs de sortie dans un modèle Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.openlocfilehash: ec96b45cdc5ccf488d46c2d8da03caf16d002dfa
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 203bfc66e9515ef14a5fe1315ef5b9ee07075041
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77622839"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79460022"
 ---
 # <a name="outputs-in-azure-resource-manager-template"></a>Sorties dans un modèle Azure Resource Manager
 
@@ -98,7 +98,7 @@ Pour obtenir des valeurs de sortie à partir de l’historique des déploiements
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
-az group deployment show \
+az deployment group show \
   -g <resource-group-name> \
   -n <deployment-name> \
   --query properties.outputs.resourceID.value

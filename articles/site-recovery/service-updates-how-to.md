@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: rajanaki
 ms.openlocfilehash: 3489f7f812798504d0c57a265a04e57344105419
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910474"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79229113"
 ---
 # <a name="service-updates-in-site-recovery"></a>Mises à jour de service dans Site Recovery
 
@@ -118,7 +118,7 @@ L’exemple du tableau montre comment cela fonctionne.
 |9.16 |  9.18 | Facultatif|
 |9.16 | 9.19 | Facultatif|
 | 9.16 | 9.20 | Facultatif
- | 9.16 | 9.21 | Obligatoire.<br/><br/> Effectuez une mise à niveau vers 9.20, puis redémarrez avant de procéder à la mise à niveau vers 9.21.
+ | 9.16 | 9.21 | Mandatory.<br/><br/> Effectuez une mise à niveau vers 9.20, puis redémarrez avant de procéder à la mise à niveau vers 9.21.
 
 ## <a name="hyper-v-vm-disaster-recovery-to-azure"></a>Récupération d’urgence de machine virtuelle Hyper-V vers Azure
 

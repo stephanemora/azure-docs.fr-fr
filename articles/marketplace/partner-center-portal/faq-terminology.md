@@ -1,19 +1,18 @@
 ---
 title: Questions fréquentes et terminologie relatives à l’analytique de la Place de marché commerciale dans l’Espace partenaires
 description: Découvrez des réponses aux questions fréquemment posées au sujet de l’analytique de la Place de marché commerciale. Comprend un dictionnaire de données sur la terminologie de l’analytique.
-author: ChJenk
-manager: evansma
-ms.author: v-chjen
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 081109c2208e2006eb1628fbf0cfb99b1e6bd8f9
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: d53ae01fb302382ca5bc2d31e729e153aea6c838
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77462137"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80286079"
 ---
 # <a name="frequently-asked-questions-and-terminology-for-commercial-marketplace-analytics"></a>Questions fréquentes et terminologie relatives à l’analytique de la Place de marché commerciale
 

@@ -1,18 +1,17 @@
 ---
 title: Processus de paiement sur la place de marché commerciale | Place de marché Azure
 description: Découvrez comment recevoir les paiements de vos revenus sur la place de marché commerciale.
-author: MaggiePucciEvans
-manager: evansma
-ms.author: evansma
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/10/2019
-ms.openlocfilehash: 7f539d4165df04ddca198385f9eef4f90ed15189
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 3c75d5ccdd2d632fbc31d1be3faf6cbc6d3fb223
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75933597"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80275830"
 ---
 # <a name="getting-paid"></a>Processus de paiement
 Voici quelques informations importantes sur la réception du paiement de vos offres, modules complémentaires et recettes publicitaires.

@@ -10,14 +10,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
-ms.openlocfilehash: 30e9e31c7b3f372ed252f1b81eeece02d2ca1f21
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 2277aa3de5955efe5a3e4cb938fa557352f89006
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168504"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79217978"
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-studio-classic-web-services-portal"></a>Gérer un service web à l’aide du portail des services web Azure Machine Learning Studio (classique)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
 Vous pouvez gérer vos services web Machine Learning nouveaux et classiques à l’aide du portail des services web Microsoft Azure Machine Learning. Étant donné que les services web classiques et nouveaux sont basés sur des technologies différentes , les fonctionnalités de gestion diffèrent légèrement pour chacun d’eux.
 
 Le portail des services web Azure Machine Learning vous permet d’effectuer les opérations suivantes :
@@ -92,7 +95,7 @@ Vous pouvez mettre à jour les propriétés suivantes :
 Cliquez sur l’option de menu **Plans** à partir de la page Démarrage rapide des services web. Vous pouvez également cliquer sur le plan associé au service web spécifique pour gérer ce plan.
 
 * **Nouveau** vous permet de créer un nouveau plan.
-* **Add/Remove Plan instance** (Ajouter/supprimer une instance de plan) vous permet d’augmenter la taille du plan existant pour ajouter de la capacité.
+* **Add/Remove Plan instance** (Ajouter/supprimer une instance de plan) vous permet d’effectuer un scale-out du plan existant pour ajouter de la capacité.
 * **Upgrade/DownGrade** (Mettre à niveau/rétrograder) vous permet de mettre à l’échelle un plan existant pour ajouter de la capacité.
 * **Supprimer** vous permet de supprimer un plan.
 

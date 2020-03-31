@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: de56ba1281d0f20c8be838fa1bc9ebc24905b26c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73666928"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79229897"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Surveiller et gérer les pipelines Azure Data Factory à l’aide de l’application de surveillance et gestion
 > [!div class="op_single_selector"]
@@ -58,7 +58,7 @@ Dans la liste Activity Windows (Fenêtres d’activité), dans le volet central,
 Si vous ne disposez pas d’une application de fabrique de données pour tester ces étapes, suivez ce didacticiel : [Copie de données de Stockage Blob vers SQL Database à l’aide de Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="understand-the-monitoring-and-management-app"></a>Présentation de l’application de surveillance et gestion
-Il existe trois onglets sur la gauche : **Explorateur de ressources**, **Vues de surveillance** et **Alertes**. Le premier onglet (**Explorateur de ressources**) est sélectionné par défaut.
+Trois onglets sont disponibles sur le côté gauche : **Explorateur de ressources**, **Vues de surveillance** et **Alertes**. Le premier onglet (**Explorateur de ressources**) est sélectionné par défaut.
 
 ### <a name="resource-explorer"></a>Explorateur de ressources
 Vous voyez l'affichage suivant :
@@ -144,7 +144,7 @@ Dans la fenêtre contextuelle et l’Explorateur de fenêtres d’activité, vou
 
 ![Flèches gauche/droite de l’Explorateur de fenêtres d’activité](./media/data-factory-monitor-manage-app/ActivityWindowExplorerLeftRightArrows.png)
 
-En bas de la vue schématique figurent les boutons suivants : zoom avant, zoom arrière, zoom d’ajustement, zoom à 100 %, verrouiller la disposition. Le bouton **Verrouiller la disposition** vous empêche de déplacer accidentellement des tables et des pipelines dans la vue schématique. L’option est activée par défaut. Vous pouvez la désactiver et déplacer des entités dans la vue schématique. Lorsque vous la désactivez, vous pouvez utiliser le dernier bouton pour positionner automatiquement les tables et les pipelines. Vous pouvez également effectuer des zooms avant et arrière à l’aide de la roulette de la souris.
+En bas de la vue schématique, vous trouverez des boutons pour effectuer un zoom avant ou arrière, zoomer pour ajuster, effectuer un Zoom à 100 % et verrouiller la disposition. Le bouton **Verrouiller la disposition** vous empêche de déplacer accidentellement des tables et des pipelines dans la vue schématique. L’option est activée par défaut. Vous pouvez la désactiver et déplacer des entités dans la vue schématique. Lorsque vous la désactivez, vous pouvez utiliser le dernier bouton pour positionner automatiquement les tables et les pipelines. Vous pouvez également effectuer des zooms avant et arrière à l’aide de la roulette de la souris.
 
 ![Commandes de zoom de la vue schématique](./media/data-factory-monitor-manage-app/DiagramViewZoomCommands.png)
 
@@ -159,7 +159,7 @@ Les fenêtres d’activité peuvent avoir l’un des statuts suivants :
 
 <table>
 <tr>
-    <th align="left">Statut</th><th align="left">État secondaire</th><th align="left">Description</th>
+    <th align="left">Statut</th><th align="left">Sous-état</th><th align="left">Description</th>
 </tr>
 <tr>
     <td rowspan="8">En attente</td><td>ScheduleTime</td><td>L’heure d’exécution de la fenêtre d’activité n’est pas encore venue.</td>
@@ -177,7 +177,7 @@ Les fenêtres d’activité peuvent avoir l’un des statuts suivants :
 <td>ActivityResume</td><td>L’activité est mise en pause et ne peut pas exécuter les fenêtres d’activité jusqu’à sa reprise.</td>
 </tr>
 <tr>
-<td>Retry</td><td>L’exécution de l’activité est retentée.</td>
+<td>Recommencer</td><td>L’exécution de l’activité est retentée.</td>
 </tr>
 <tr>
 <td>Validation</td><td>La validation n’a pas encore démarré.</td>
@@ -196,7 +196,7 @@ Les fenêtres d’activité peuvent avoir l’un des statuts suivants :
 <td rowspan="4">Échec</td><td>TimedOut</td><td>L'exécution de l’activité a pris plus de temps que l’activité ne l’autorise.</td>
 </tr>
 <tr>
-<td>Canceled</td><td>La fenêtre d’activité a été annulée par l’utilisateur.</td>
+<td>Opération annulée</td><td>La fenêtre d’activité a été annulée par l’utilisateur.</td>
 </tr>
 <tr>
 <td>Validation</td><td>La validation a échoué.</td>
@@ -210,7 +210,7 @@ Les fenêtres d’activité peuvent avoir l’un des statuts suivants :
 <td>Ignoré</td><td>-</td><td>La fenêtre d’activité n’a pas été traitée.</td>
 </tr>
 <tr>
-<td>Aucun</td><td>-</td><td>Fenêtre d’activité qui a été réinitialisée alors qu’elle existait avec un statut différent.</td>
+<td>None</td><td>-</td><td>Fenêtre d’activité qui a été réinitialisée alors qu’elle existait avec un statut différent.</td>
 </tr>
 </table>
 

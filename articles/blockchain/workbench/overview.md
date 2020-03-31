@@ -4,12 +4,12 @@ description: Vue d’ensemble d’Azure Blockchain Workbench (préversion) et de
 ms.date: 09/05/2019
 ms.topic: overview
 ms.reviewer: brendal
-ms.openlocfilehash: 88c162539e5d0480d7f938c674b96c2f396774e3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 162626ba2303ab04bd2963a5add61c556615ebec
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75387069"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79203642"
 ---
 # <a name="what-is-azure-blockchain-workbench"></a>Qu’est-ce qu’Azure Blockchain Workbench ?
 
@@ -29,7 +29,7 @@ Azure Blockchain Workbench fournit une application web et des API REST pour gér
 
 Vous pouvez utiliser les API REST Blockchain Workbench et les API basées sur message pour l’intégration avec des systèmes existants. Les API fournissent une interface pour permettre le remplacement ou l’utilisation de plusieurs technologies de comptabilité distribuées, d’offres de stockage et de base de données.
 
-Blockchain Workbench peut transformer les messages envoyés à son API basée sur message pour générer des transactions dans un format attendu par l’API native de ce blockchain.  Workbench peut signer et acheminer les transactions vers le blockchain approprié. 
+Blockchain Workbench peut transformer les messages envoyés à son API basée sur les messages pour générer des transactions dans un format attendu par l’API native de cette blockchain.  Workbench peut signer et acheminer les transactions vers le blockchain approprié. 
 
 Workbench remet automatiquement des événements à Service Bus et Event Grid pour envoyer des messages aux consommateurs en aval. Les développeurs peuvent effectuer l’intégration avec l’un de ces systèmes de messagerie pour diriger les transactions et examiner les résultats.
 
@@ -47,7 +47,7 @@ Azure Blockchain Workbench facilite l’analyse de données et d’événements 
 
 ## <a name="support-and-feedback"></a>Support et commentaires
 
-Pour vous tenir informé sur Azure Blockchain, visitez le [blog Azure Blockchain](https://azure.microsoft.com/blog/topics/blockchain/). Vous y trouverez les toutes dernières offres du service Blockchain ainsi que diverses informations de la part de l’équipe d’ingénierie d’Azure Blockchain.
+Pour vous tenir informé sur Azure Blockchain, visitez le [blog Azure Blockchain](https://azure.microsoft.com/blog/topics/blockchain/). Vous y trouverez les toutes dernières offres du service Blockchain ainsi que diverses informations de l’équipe technique d’Azure Blockchain.
 
 Pour faire des commentaires sur le produit ou suggérer de nouvelles fonctionnalités, postez votre idée ou votez pour une autre idée sur le [forum de commentaires Azure pour Blockchain](https://aka.ms/blockchainuservoice).
 

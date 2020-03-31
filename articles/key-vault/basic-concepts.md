@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 03ad504258dd9448753f37402067a0da3e0a2c00
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78197638"
 ---
 # <a name="azure-key-vault-basic-concepts"></a>Concepts de base d’Azure Key Vault
@@ -43,7 +43,7 @@ Voici d’autres termes importants :
 
     ![Diagramme illustrant le fonctionnement des identités managées pour les ressources Azure](./media/key-vault-whatis/msi.png)
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Authentification
 Pour effectuer des opérations avec un coffre de clés, vous devez vous authentifier auprès de celui-ci. Il existe trois façons de s’authentifier auprès de Key Vault :
 
 - [Identités managées pour les ressources Azure](../active-directory/managed-identities-azure-resources/overview.md) : quand vous déployez une application sur une machine virtuelle dans Azure, vous pouvez attribuer une identité à votre machine virtuelle qui a accès à Key Vault. Vous pouvez également assigner une identité aux [autres ressources Azure](../active-directory/managed-identities-azure-resources/overview.md). L’avantage de cette approche est que l’application ou le service ne gère pas la rotation du premier secret. Azure fait alterner automatiquement l’identité. Nous recommandons cette approche en tant que meilleure pratique. 

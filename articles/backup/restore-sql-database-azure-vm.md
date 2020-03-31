@@ -3,12 +3,12 @@ title: Restaurer des bases de données SQL Server sur une machine virtuelle Azur
 description: Cet article explique comment restaurer des bases de données SQL Server exécutées sur une machine virtuelle Azure et sauvegardées avec Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: 58525069af28be250c3536db076a38fb350bc1da
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 642476c98ca223da01bda5c6eb79ee9b53732468
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75390763"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227461"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Restaurer des bases de données SQL Server sur des machines virtuelles Azure
 
@@ -23,7 +23,7 @@ Sauvegarde Azure peut restaurer des bases de données SQL Server s’exécutant 
 - Restaurer à une date ou une heure spécifique (à la seconde), en utilisant les sauvegardes de fichiers journaux. Sauvegarde Azure détermine automatiquement la sauvegarde différentielle complète appropriée, et la chaîne des sauvegardes de fichiers journaux nécessaires pour restaurer en fonction de la date/heure sélectionnée.
 - Restaurez une sauvegarde complète ou différentielle spécifique sur un point de récupération spécifique.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant de restaurer une base de données, notez les points suivants :
 
@@ -112,24 +112,25 @@ Pour restaurer les données de sauvegarde sous forme de fichiers .bak plutôt qu
 2. Sélectionnez le nom du serveur SQL Server où vous voulez restaurer les fichiers de sauvegarde.
 3. Dans le **Chemin d’accès de destination sur le serveur**, entrez le chemin d’accès du dossier sur le serveur sélectionné à l’étape 2. Il s’agit de l’emplacement où le service doit vider tous les fichiers de sauvegarde nécessaires. En règle générale, un chemin d’accès de partage réseau, ou le chemin d’un partage de fichiers Azure monté lorsqu’il est spécifié comme chemin de destination, permet un accès plus facile à ces fichiers par d’autres ordinateurs du même réseau ou avec le même partage de fichiers Azure monté sur ces fichiers.<BR>
 
->Pour restaurer les fichiers de sauvegarde de base de données sur un partage de fichiers Azure monté sur la machine virtuelle inscrite cible, assurez-vous que NT AUTHORITY\SYSTEM a accès au partage de fichiers. Vous pouvez effectuer les étapes ci-dessous pour accorder les autorisations de lecture/écriture au compte AFS monté sur la machine virtuelle :
->- Exécuter `PsExec -s cmd` pour entrer dans l’interpréteur de commandes NT AUTHORITY\SYSTEM
->   - Exécutez `cmdkey /add:<storageacct>.file.core.windows.net /user:AZURE\<storageacct> /pass:<storagekey>`
->   - Vérifier l’accès avec `dir \\<storageacct>.file.core.windows.net\<filesharename>`
->- Lancer une restauration en tant que fichiers à partir du coffre de sauvegarde vers `\\<storageacct>.file.core.windows.net\<filesharename>` comme chemin d’accès<BR>
-Vous pouvez télécharger PsExec via <https://docs.microsoft.com/sysinternals/downloads/psexec>
+    >Pour restaurer les fichiers de sauvegarde de base de données sur un partage de fichiers Azure monté sur la machine virtuelle inscrite cible, assurez-vous que NT AUTHORITY\SYSTEM a accès au partage de fichiers. Vous pouvez effectuer les étapes ci-dessous pour accorder les autorisations de lecture/écriture au compte AFS monté sur la machine virtuelle :
+    >
+    >- Exécuter `PsExec -s cmd` pour entrer dans l’interpréteur de commandes NT AUTHORITY\SYSTEM
+    >   - Exécutez `cmdkey /add:<storageacct>.file.core.windows.net /user:AZURE\<storageacct> /pass:<storagekey>`
+    >   - Vérifier l’accès avec `dir \\<storageacct>.file.core.windows.net\<filesharename>`
+    >- Lancer une restauration en tant que fichiers à partir du coffre de sauvegarde vers `\\<storageacct>.file.core.windows.net\<filesharename>` comme chemin d’accès<BR>
+    Vous pouvez télécharger PsExec via <https://docs.microsoft.com/sysinternals/downloads/psexec>
 
 4. Sélectionnez **OK**.
 
-![Sélectionner Restaurer sous forme de fichiers](./media/backup-azure-sql-database/restore-as-files.png)
+    ![Sélectionner Restaurer sous forme de fichiers](./media/backup-azure-sql-database/restore-as-files.png)
 
 5. Sélectionnez le **Point de restauration** auquel tous les fichiers .bak disponibles seront restaurés.
 
-![Sélectionner un point de restauration](./media/backup-azure-sql-database/restore-point.png)
+    ![Sélectionner un point de restauration](./media/backup-azure-sql-database/restore-point.png)
 
 6. Tous les fichiers de sauvegarde associés au point de récupération sélectionné sont vidés dans le chemin de destination. Vous pouvez restaurer les fichiers sous forme de base de données sur n’importe quel ordinateur sur lequel ils sont présents à l’aide de SQL Server Management Studio.
 
-![Fichiers de sauvegarde restaurés dans le chemin de destination](./media/backup-azure-sql-database/sql-backup-files.png)
+    ![Fichiers de sauvegarde restaurés dans le chemin de destination](./media/backup-azure-sql-database/sql-backup-files.png)
 
 ### <a name="restore-to-a-specific-point-in-time"></a>Restaurer à un point spécifique dans le temps
 
@@ -163,6 +164,9 @@ Si vous avez sélectionné **Complète et différentielle** comme type de restau
 1. Sélectionnez un point de récupération dans la liste, puis cliquez sur **OK** pour terminer la procédure de sélection du point de restauration.
 
     ![Choisir un point de récupération complète](./media/backup-azure-sql-database/choose-fd-recovery-point.png)
+
+    >[!NOTE]
+    > Par défaut, les points de récupération des 30 derniers jours sont affichés. Vous pouvez afficher les points de récupération datant de plus de 30 jours en cliquant sur **Filtrer**, puis en sélectionnant une plage personnalisée.
 
 1. Dans le menu **Configuration avancée**, si vous voulez conserver la base de données non opérationnelle après la restauration, activez **Restaurer avec l’option NORECOVERY**.
 1. Si vous voulez changer l’emplacement de restauration sur le serveur de destination, entrez un nouveau chemin cible.

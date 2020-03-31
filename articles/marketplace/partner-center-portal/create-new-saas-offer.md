@@ -1,19 +1,18 @@
 ---
 title: Créer une nouvelle offre SaaS dans la Place de marché commerciale existante
 description: Comment créer une nouvelle offre Software as a service (SaaS) pour répertorier ou vendre dans la Place de marché Azure, AppSource ou via le programme de fournisseur de solutions Cloud (CSP) avec le portail de la Place de marché commerciale sur Microsoft Partner Center.
-author: ChJenk
-manager: evansma
-ms.author: v-chjen
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: 9d06b34b459bf1d48aa293a889af57fb6192015d
-ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
+ms.openlocfilehash: 3f2201db4b78ba61ba15608a676a8b9f8f5e612a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78208863"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80286198"
 ---
 # <a name="create-a-new-saas-offer"></a>Créer une nouvelle offre SaaS
 

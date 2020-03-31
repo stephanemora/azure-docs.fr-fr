@@ -3,12 +3,12 @@ title: Forum aux questions sur Azure Kubernetes Service (AKS)
 description: Recherchez des réponses à certaines des questions les plus fréquemment posées sur Azure Kubernetes Service (AKS).
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.openlocfilehash: 1531308a8d0bd5a09952d8ad8ccd03c92f2f99eb
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: c4bb4328af5df7f729967c7b249847b2ab098770
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77914600"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79497756"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Forum aux questions sur Azure Kubernetes Service (AKS)
 
@@ -132,7 +132,7 @@ Les nœuds d’agent AKS sont facturés en tant que machines virtuelles Azure st
 
 ## <a name="can-i-movemigrate-my-cluster-between-azure-tenants"></a>Puis-je déplacer/migrer mon cluster entre des locataires Azure ?
 
-Vous pouvez utiliser la commande `az aks update-credentials` pour déplacer un cluster AKS entre des locataires Azure. Suivez les instructions de la page [Choisir de mettre à jour ou de créer un principal du service](https://docs.microsoft.com/azure/aks/update-credentials), puis de la section [Mettre à jour le cluster AKS avec les nouvelles informations d’identification](https://docs.microsoft.com/azure/aks/update-credentials#update-aks-cluster-with-new-credentials).
+Vous pouvez utiliser la commande `az aks update-credentials` pour déplacer un cluster AKS entre des locataires Azure. Suivez les instructions de la page [Choisir de mettre à jour ou de créer un principal du service](https://docs.microsoft.com/azure/aks/update-credentials), puis de la section [Mettre à jour le cluster AKS avec les nouvelles informations d’identification](https://docs.microsoft.com/azure/aks/update-credentials#update-aks-cluster-with-new-service-principal-credentials).
 
 ## <a name="can-i-movemigrate-my-cluster-between-subscriptions"></a>Puis-je déplacer/migrer mon cluster entre des abonnements ?
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/25/2019
 ms.author: thvankra
 ms.openlocfilehash: c2c695608653130b97bf29cc9ce48e2fbb429209
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74694609"
 ---
 # <a name="change-feed-in-the-azure-cosmos-db-api-for-cassandra"></a>Flux de modification dans l’API Azure Cosmos DB pour Cassandra
@@ -80,7 +80,7 @@ Pour obtenir les modifications apportées à une seule ligne par clé primaire, 
 
 ```
 
-## <a name="current-limitations"></a>Limitations actuelles
+## <a name="current-limitations"></a>Limites actuelles
 
 Les limitations suivantes s’appliquent quand un flux de modification est utilisé avec l’API Cassandra :
 

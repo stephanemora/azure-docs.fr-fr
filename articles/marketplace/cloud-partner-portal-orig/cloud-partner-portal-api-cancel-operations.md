@@ -1,19 +1,18 @@
 ---
 title: API Annuler une opération | Place de marché Azure
 description: Annulez des opérations.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: 374425dbd2abacb2114b5792d7476bc341fa353a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 6d4c1f52f0f3b1e05ec06f5a66a36323f346d4eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819785"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280539"
 ---
 # <a name="cancel-operation"></a>Annuler une opération 
 
@@ -28,8 +27,8 @@ Vous pouvez fournir une liste d’adresses e-mail séparées par des virgules av
 
 |  **Nom**    |      **Description**                                  |    **Type de données**  |
 | ------------ |     ----------------                                  |     -----------   |
-| publisherId  |  Identificateur du serveur de publication, par exemple `contoso`         |   Chaîne          |
-| offerId      |  Identificateur de l’offre                                     |   Chaîne          |
+| publisherId  |  Identificateur du serveur de publication, par exemple `contoso`         |   String          |
+| offerId      |  Identificateur de l’offre                                     |   String          |
 | api-version  |  Version actuelle de l’API                               |    Date           |
 |  |  |  |
 
@@ -40,7 +39,7 @@ Vous pouvez fournir une liste d’adresses e-mail séparées par des virgules av
 |  **Nom**              |  **Valeur**         |
 |  ---------             |  ----------        |
 |  Content-Type          |  application/json  |
-|  Authorization         |  Porteur de VOTRE JETON |
+|  Autorisation         |  Porteur de VOTRE JETON |
 |  |  |
 
 

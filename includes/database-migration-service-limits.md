@@ -4,15 +4,15 @@ ms.service: sql-database
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: douglasl
-ms.openlocfilehash: f76ad3f91c2d05508d700e6ef40c9d342b87b5e3
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: bf8d0992cd25b52955ac90cecc00750d93343da6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "67177460"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335075"
 ---
 Azure Database Migration Service est un service complètement managé conçu pour permettre la migration transparente de plusieurs sources de base de données vers des plateformes de données Azure, pour un temps d’arrêt minime.
 
-| **Ressource** | **Limite par défaut** | **Commentaires** |
+| **Ressource** | **Limite** | **Commentaires** |
 | --- | --- | --- |
 | Nombre maximal de services par abonnement par région |2 | Pour demander une augmentation de cette limite, contactez le support. |

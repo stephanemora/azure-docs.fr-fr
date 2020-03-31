@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2020
 ms.author: spelluru
-ms.openlocfilehash: 1d399ffec2cd702dcfa39310803bc780b85bfde1
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: a8124e9860ba5703e96f96c90bc0cf37e42baf9c
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77187459"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398353"
 ---
 # <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-net-core-microsoftazureeventhubs"></a>Envoyer ou recevoir des événements vers/depuis Azure Event Hubs à l'aide de .NET Core (Microsoft.Azure.EventHubs)
 Ce guide de démarrage rapide montre comment recevoir des événements d’un hub d’événements et lui en envoyer à l’aide de la bibliothèque .NET Core **Microsoft.Azure.EventHubs**.
 
 > [!WARNING]
-> Ce guide de démarrage rapide utilise l'ancien package **Microsoft.Azure.EventHubs**. Pour obtenir un guide de démarrage rapide qui utilise la bibliothèque **Azure.Messaging.EventHubs** la plus récente, consultez [Envoyer et recevoir des événements à l’aide de la bibliothèque Azure.Messaging.EventHubs](get-started-dotnet-standard-send-v2.md). Pour migrer votre application de l’ancienne bibliothèque vers la nouvelle, consultez [Guide to migrate from Microsoft.Azure.EventHubs to Azure.Messaging.EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/migration-guide-from-v4.md).
+> Ce guide de démarrage rapide utilise l'ancien package **Microsoft.Azure.EventHubs**. Pour obtenir un guide de démarrage rapide qui utilise la bibliothèque **Azure.Messaging.EventHubs** la plus récente, consultez [Envoyer et recevoir des événements à l’aide de la bibliothèque Azure.Messaging.EventHubs](get-started-dotnet-standard-send-v2.md). Pour migrer votre application de l’ancienne bibliothèque vers la nouvelle, consultez [Guide to migrate from Microsoft.Azure.EventHubs to Azure.Messaging.EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 Si vous débutez avec Azure Event Hubs, consultez la [vue d’ensemble d’Event Hubs](event-hubs-about.md) avant de suivre ce guide de démarrage rapide. 
 
 Pour effectuer ce démarrage rapide, vous avez besoin de ce qui suit :

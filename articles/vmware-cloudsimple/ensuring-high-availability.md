@@ -1,6 +1,6 @@
 ---
 title: Garantir la haute disponibilité des applications lors de leur exécution dans VMware sur Azure
-description: Décrit les fonctionnalités de haute disponibilité AVS qui permettent de résoudre les erreurs courantes pour les applications exécutées dans un cloud privé AVS
+description: Décrit les fonctionnalités de haute disponibilité CloudSimple qui permettent de résoudre les scénarios de défaillance courants pour les applications exécutées dans un cloud privé CloudSimple
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/20/2019
@@ -8,16 +8,16 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: b32f7f3f38098f935382cce46d8251340784b940
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: a3eed033ba6a1a6f9237116a53ec7751ae906fe4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77025348"
 ---
 # <a name="ensure-application-high-availability-when-running-in-vmware-on-azure"></a>Garantir la haute disponibilité des applications lors de leur exécution dans VMware sur Azure
 
-La solution AVS fournit des fonctionnalités de haute disponibilité pour les applications exécutées sur VMware dans l'environnement Azure. Le tableau suivant répertorie les scénarios de défaillance et les fonctionnalités de haute disponibilité (HA) associées.
+La solution CloudSimple fournit des fonctionnalités de haute disponibilité pour les applications exécutées sur VMware dans l'environnement Azure. Le tableau suivant répertorie les scénarios de défaillance et les fonctionnalités de haute disponibilité (HA) associées.
 
 | Scénario de défaillance | Application protégée ? | Fonctionnalité HA plateforme | Fonctionnalité HA VMware | Fonctionnalité HA Azure |
 ------------ | ------------- | ------------ | ------------ | ------------- |
@@ -35,15 +35,15 @@ La solution AVS fournit des fonctionnalités de haute disponibilité pour les ap
 | Défaillance centre de données | YES |  |  | Zones de disponibilité |
 | Défaillance régionale | YES  |  |  | Régions Azure |
 
-Azure VMware Solution by AVS fournit les fonctionnalités de haute disponibilité suivantes.
+Azure VMware Solution by CloudSimple fournit les fonctionnalités de haute disponibilité suivantes.
 
 ## <a name="fast-replacement-of-failed-node"></a>Remplacement rapide du nœud défaillant
 
-Le logiciel du plan de contrôle AVS surveille en permanence l'intégrité des clusters VMware et détecte toute défaillance sur un nœud ESXi. Il ajoute ensuite automatiquement un nouvel hôte ESXi au cluster VMware concerné à partir de son pool de nœuds disponibles et retire le nœud défaillant du cluster. Cette fonctionnalité permet de restaurer rapidement la capacité disponible dans le cluster VMware afin de rétablir la résilience fournie par le réseau SAN virtuel et la haute disponibilité VMware.
+Le logiciel du plan de contrôle de CloudSimple surveille en permanence l'intégrité des clusters VMware et détecte toute défaillance sur un nœud ESXi. Il ajoute ensuite automatiquement un nouvel hôte ESXi au cluster VMware concerné à partir de son pool de nœuds disponibles et retire le nœud défaillant du cluster. Cette fonctionnalité permet de restaurer rapidement la capacité disponible dans le cluster VMware afin de rétablir la résilience fournie par le réseau SAN virtuel et la haute disponibilité VMware.
 
 ## <a name="placement-groups"></a>Groupes de placement
 
-Un utilisateur qui crée un cloud privé AVS peut sélectionner une région Azure et un groupe de placement dans la région sélectionnée. Un groupe de placement est un ensemble de nœuds répartis sur plusieurs racks au sein du même segment de réseau. Les nœuds d'un même groupe de placement peuvent se joindre avec un maximum de deux tronçons de commutation supplémentaires. Un groupe de placement se trouve toujours dans la même zone de disponibilité Azure et s'étend sur plusieurs racks. Le plan de contrôle AVS répartit les nœuds d'un cloud privé AVS sur plusieurs racks en fonction de l'effort optimal. Les nœuds de différents groupes de placement sont placés dans des racks différents.
+Un utilisateur qui crée un cloud privé peut sélectionner une région Azure et un groupe de placement dans la région sélectionnée. Un groupe de placement est un ensemble de nœuds répartis sur plusieurs racks au sein du même segment de réseau. Les nœuds d'un même groupe de placement peuvent se joindre avec un maximum de deux tronçons de commutation supplémentaires. Un groupe de placement se trouve toujours dans la même zone de disponibilité Azure et s'étend sur plusieurs racks. Le plan de contrôle CloudSimple répartit les nœuds d'un cloud privé sur plusieurs racks en fonction de l'effort optimal. Les nœuds de différents groupes de placement sont placés dans des racks différents.
 
 ## <a name="availability-zones"></a>Zones de disponibilité
 
@@ -55,7 +55,7 @@ La connectivité du centre de données à Azure vNet via ExpressRoute comporte d
 
 ## <a name="redundant-networking-services"></a>Services de mise en réseau redondants
 
-Tous les services de mise en réseau AVS du cloud privé AVS (VLAN, pare-feu, adresses IP publiques, Internet, VPN, etc.) sont conçus pour être hautement disponibles et capables de prendre en charge le contrat de niveau de service (SLA).
+Tous les services de mise en réseau CloudSimple du cloud privé (VLAN, pare-feu, adresses IP publiques, Internet, VPN, etc.) sont conçus pour être hautement disponibles et capables de prendre en charge le contrat de niveau de service (SLA).
 
 ## <a name="azure-layer-7-load-balancer-for-stateless-vmware-vms"></a>Azure Load Balancer Layer 7 pour les machines virtuelles VMware sans état
 

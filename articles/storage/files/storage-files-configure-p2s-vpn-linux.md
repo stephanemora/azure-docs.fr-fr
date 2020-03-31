@@ -7,24 +7,26 @@ ms.topic: overview
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: b988435fc6928d52321cb427e2412e7ca81680d2
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: cfff05ed52258ee448d83a521b99dca7d356a0f9
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73126465"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80061044"
 ---
 # <a name="configure-a-point-to-site-p2s-vpn-on-linux-for-use-with-azure-files"></a>Configurer un VPN point à site (P2S) sous Linux pour une utilisation avec Azure Files
-Vous pouvez utiliser une connexion VPN point à site (P2S) pour monter vos partages de fichiers Azure via SMB en dehors d'Azure, sans ouvrir le port 445. Une connexion VPN point à site est une connexion VPN entre Azure et un client individuel. Pour utiliser une connexion VPN P2S avec Azure Files, une connexion VPN P2S doit être configurée pour chaque client qui souhaite se connecter. Si de nombreux clients doivent se connecter à vos partages de fichiers Azure depuis votre réseau local, vous pouvez utiliser une connexion VPN site à site (S2S) au lieu d'une connexion point à site pour chaque client. Pour en savoir plus, consultez [Configurer un VPN site à site pour une utilisation avec Azure Files](storage-files-configure-s2s-vpn.md).
+Vous pouvez utiliser une connexion VPN point à site (P2S) pour monter vos partages de fichiers Azure sur SMB en dehors d’Azure, sans ouvrir le port 445. Une connexion VPN point à site est une connexion VPN entre Azure et un client individuel. Pour utiliser une connexion VPN P2S avec Azure Files, une connexion VPN P2S doit être configurée pour chaque client qui souhaite se connecter. Si de nombreux clients doivent se connecter à vos partages de fichiers Azure depuis votre réseau local, vous pouvez utiliser une connexion VPN site à site (S2S) au lieu d’une connexion point à site pour chaque client. Pour plus d’informations, consultez [Configurer un VPN site à site pour une utilisation avec Azure Files](storage-files-configure-s2s-vpn.md).
 
-Avant de poursuivre cet article, nous vous recommandons vivement de lire [Vue d'ensemble de la mise en réseau Azure Files](storage-files-networking-overview.md) car vous y trouverez une présentation complète des options de mise en réseau disponibles pour Azure Files.
+Avant de poursuivre cet article, nous vous recommandons vivement de lire l’article [Vue d’ensemble de la mise en réseau Azure Files](storage-files-networking-overview.md), qui fournit une présentation complète des options de mise en réseau disponibles pour Azure Files.
 
-L'article décrit en détail la procédure à suivre pour configurer un VPN point à site sous Linux afin de monter des partages de fichiers Azure localement. Si vous souhaitez acheminer le trafic Azure File Sync via un VPN, consultez [Configurer les paramètres de proxy et de pare-feu d'Azure File Sync](storage-sync-files-firewall-and-proxy.md).
+L'article décrit en détail la procédure à suivre pour configurer un VPN point à site sous Linux afin de monter des partages de fichiers Azure localement. Si vous souhaitez router le trafic Azure File Sync via un VPN, consultez [Configuration les paramètres de proxy et de pare-feu d’Azure File Sync](storage-sync-files-firewall-and-proxy.md).
 
 ## <a name="prerequisites"></a>Prérequis
 - Version la plus récente de l'interface Azure CLI. Pour plus d'informations sur l'installation d'Azure CLI, consultez [Installer l'interface CLI Azure PowerShell](https://docs.microsoft.com/cli/azure/install-azure-cli) et sélectionnez votre système d'exploitation. Si vous préférez utiliser le module Azure PowerShell sous Linux, rien ne vous en empêche. Sachez toutefois que les instructions ci-dessous s'appliquent à Azure CLI.
 
-- Partage de fichiers Azure que vous souhaitez monter localement. Vous pouvez utiliser un partage de fichiers Azure [standard](storage-how-to-create-file-share.md) ou [premium](storage-how-to-create-premium-fileshare.md) avec votre VPN point à site.
+- Un partage de fichiers Azure que vous voulez monter localement. Les partages de fichiers Azure sont déployés sur des comptes de stockage. Ces comptes sont des constructions de gestion représentant un pool de stockage partagé dans lequel vous pouvez déployer plusieurs partages de fichiers, ainsi que d’autres ressources de stockage, telles que des conteneurs d’objets blob ou des files d’attente. Pour plus d’informations sur le déploiement des partages de fichiers et des comptes de stockage Azure, consultez [Créer un partage de fichiers Azure](storage-how-to-create-file-share.md).
+
+- Un point de terminaison privé pour le compte de stockage sur lequel se trouve le partage de fichiers Azure que vous souhaitez monter localement. Pour plus d’informations sur la création d’un point de terminaison privé, consultez [Configuration des points de terminaison réseau Azure Files](storage-files-networking-endpoints.md?tabs=azure-cli). 
 
 ## <a name="install-required-software"></a>Installer les logiciels nécessaires
 La passerelle de réseau virtuel Azure peut fournir des connexions VPN par le biais de plusieurs protocoles VPN, dont IPsec et OpenVPN. Ce guide explique comment utiliser IPsec et utilise le package strongSwan pour assurer la prise en charge sous Linux. 
@@ -38,11 +40,11 @@ installDir="/etc/"
 ```
 
 ### <a name="deploy-a-virtual-network"></a>Déployer un réseau virtuel 
-Pour accéder à votre partage de fichiers Azure et à d'autres ressources Azure depuis un environnement local via un VPN point à site, vous devez créer un réseau virtuel. La connexion VPN point à site que vous allez créer automatiquement constitue un pont entre votre ordinateur Linux local et ce réseau virtuel Azure.
+Pour accéder à votre partage de fichiers Azure et à d’autres ressources Azure depuis un environnement local via un VPN point à site, vous devez créer un réseau virtuel. La connexion VPN point à site que vous allez créer automatiquement constitue un pont entre votre ordinateur Linux local et ce réseau virtuel Azure.
 
 Le script suivant crée un réseau virtuel Azure doté de trois sous-réseaux : un pour le point de terminaison de service de votre compte de stockage, un pour le point de terminaison privé de votre compte de stockage (celui-ci est nécessaire pour accéder localement au compte de stockage sans créer de routage personnalisé pour l'adresse IP publique du compte de stockage, qui peut changer), et un pour votre passerelle de réseau virtuel qui fournit le service VPN. 
 
-N'oubliez pas de remplacer `<region>`, `<resource-group>` et `<desired-vnet-name>` par les valeurs correspondant à votre environnement.
+N’oubliez pas de remplacer `<region>`, `<resource-group>` et `<desired-vnet-name>` par les valeurs correspondant à votre environnement.
 
 ```bash
 region="<region>"
@@ -79,85 +81,6 @@ gatewaySubnet=$(az network vnet subnet create \
     --query "id" | tr -d '"')
 ```
 
-## <a name="restrict-the-storage-account-to-the-virtual-network"></a>Limiter le compte de stockage au réseau virtuel
-Par défaut, lorsque vous créez un compte de stockage, vous pouvez y accéder de n'importe où dans le monde, à condition que vous disposiez des moyens nécessaires pour authentifier votre demande (avec votre identité Active Directory ou la clé de votre compte de stockage, par exemple). Pour limiter l'accès à ce compte de stockage au réseau virtuel que vous venez de créer, vous devez créer un ensemble de règles réseau qui autorise l'accès au sein du réseau virtuel et refuse tous les autres accès.
-
-Cette limitation au réseau virtuel requiert l'utilisation d'un point de terminaison de service. Le point de terminaison de service est une construction de mise en réseau par laquelle le DNS public ou l'adresse IP publique n'est accessible qu'à partir du réseau virtuel. Comme il n'est pas garanti que l'adresse IP publique reste la même, nous préférons finalement utiliser un point de terminaison privé plutôt qu'un point de terminaison de service pour le compte de stockage. Toutefois, il n'est pas possible de limiter le compte de stockage, sauf si un point de terminaison de service est également exposé.
-
-N'oubliez pas de remplacer `<storage-account-name>` par le compte de stockage auquel vous souhaitez accéder.
-
-```bash
-storageAccountName="<storage-account-name>"
-
-az storage account network-rule add \
-    --resource-group $resourceGroupName \
-    --account-name $storageAccountName \
-    --subnet $serviceEndpointSubnet > /dev/null
-
-az storage account update \
-    --resource-group $resourceGroupName \
-    --name $storageAccountName \
-    --bypass "AzureServices" \
-    --default-action "Deny" > /dev/null
-```
-
-## <a name="create-a-private-endpoint-preview"></a>Créer un point de terminaison privé (préversion)
-La création d'un point de terminaison privé pour votre compte de stockage attribue à ce dernier une adresse IP dans l'espace d'adressage IP de votre réseau virtuel. Lorsque vous montez votre partage de fichiers Azure à partir d'un emplacement local en utilisant cette adresse IP privée, les règles d'acheminement définies automatiquement par l'installation VPN acheminent votre demande de montage vers le compte de stockage via le VPN. 
-
-```bash
-zoneName="privatelink.file.core.windows.net"
-
-storageAccount=$(az storage account show \
-    --resource-group $resourceGroupName \
-    --name $storageAccountName \
-    --query "id" | tr -d '"')
-
-az resource update \
-    --ids $privateEndpointSubnet \
-    --set properties.privateEndpointNetworkPolicies=Disabled > /dev/null
-
-az network private-endpoint create \
-    --resource-group $resourceGroupName \
-    --name "$storageAccountName-PrivateEndpoint" \
-    --location $region \
-    --subnet $privateEndpointSubnet \
-    --private-connection-resource-id $storageAccount \
-    --group-ids "file" \
-    --connection-name "privateEndpointConnection" > /dev/null
-
-az network private-dns zone create \
-    --resource-group $resourceGroupName \
-    --name $zoneName > /dev/null
-
-az network private-dns link vnet create \
-    --resource-group $resourceGroupName \
-    --zone-name $zoneName \
-    --name "$virtualNetworkName-link" \
-    --virtual-network $virtualNetworkName \
-    --registration-enabled false > /dev/null
-
-networkInterfaceId=$(az network private-endpoint show \
-    --name "$storageAccountName-PrivateEndpoint" \
-    --resource-group $resourceGroupName \
-    --query 'networkInterfaces[0].id' | tr -d '"')
- 
-storageAccountPrivateIP=$(az resource show \
-    --ids $networkInterfaceId \
-    --api-version 2019-04-01 \
-    --query "properties.ipConfigurations[0].properties.privateIPAddress" | tr -d '"')
-
-fqdnQuery="properties.ipConfigurations[0].properties.privateLinkConnectionProperties.fqdns[0]"
-fqdn=$(az resource show \
-    --ids $networkInterfaceId \
-    --api-version 2019-04-01 \
-    --query $fqdnQuery | tr -d '"')
-
-az network private-dns record-set a create \
-    --name $storageAccountName \
-    --zone-name $zoneName \
-    --resource-group $resourceGroupName > /dev/null
-```
-
 ## <a name="create-certificates-for-vpn-authentication"></a>Créer des certificats pour l'authentification VPN
 Pour que les connexions VPN de vos ordinateurs Linux locaux soient authentifiées afin d'accéder à votre réseau virtuel, vous devez créer deux certificats : un certificat racine, qui sera fourni à la passerelle de machine virtuelle, et un certificat client, qui sera signé avec le certificat racine. Le script suivant crée les certificats requis.
 
@@ -191,10 +114,10 @@ openssl pkcs12 -in "clientCert.pem" -inkey "clientKey.pem" -certfile rootCert.pe
 ## <a name="deploy-virtual-network-gateway"></a>Déployer une passerelle de réseau virtuel
 La passerelle de réseau virtuel Azure correspond au service auquel vos ordinateurs Linux locaux se connecteront. Le déploiement de ce service requiert deux composants de base : une adresse IP publique qui identifiera la passerelle auprès de vos clients où qu'ils se trouvent dans le monde, et un certificat racine que vous avez précédemment créé et qui sera utilisé pour authentifier vos clients.
 
-N'oubliez pas de remplacer `<desired-vpn-name-here>` par le nom que vous souhaitez donner à ces ressources.
+N’oubliez pas de remplacer `<desired-vpn-name-here>` par le nom que vous souhaitez donner à ces ressources.
 
 > [!Note]  
-> Le déploiement de la passerelle de réseau virtuel Azure peut prendre jusqu'à 45 minutes. Pendant le déploiement de cette ressource, ce script bash sera bloqué pour permettre l'exécution du déploiement. Ceci est normal.
+> Le déploiement de la passerelle de réseau virtuel Azure peut prendre jusqu’à 45 minutes. Pendant le déploiement de cette ressource, ce script bash sera bloqué pour permettre l'exécution du déploiement. Ceci est normal.
 
 ```bash
 vpnName="<desired-vpn-name-here>"
@@ -286,6 +209,6 @@ sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccountName,pa
 ```
 
 ## <a name="see-also"></a>Voir aussi
-- [Vue d'ensemble de la mise en réseau Azure Files](storage-files-networking-overview.md)
+- [Vue d’ensemble de la mise en réseau Azure Files](storage-files-networking-overview.md)
 - [Configurer un VPN point à site (P2S) sous Windows pour une utilisation avec Azure Files](storage-files-configure-p2s-vpn-windows.md)
 - [Configurer un VPN site à site (S2S) pour une utilisation avec Azure Files](storage-files-configure-s2s-vpn.md)

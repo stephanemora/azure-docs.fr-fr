@@ -13,11 +13,11 @@ ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 83086fa2cb96eba423b9111134a0406d7256821f
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78185775"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231081"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Accès aux journaux d’audit Azure AD B2C
 
@@ -53,7 +53,7 @@ Le volet des détails de l’activité contient les informations pertinentes sui
 
 |Section|Champ|Description|
 |-------|-----|-----------|
-| Activité | Nom | Activité qui a eu lieu. Par exemple, *Émettre un id_token pour l’application*, qui conclut la connexion d’utilisateur réelle. |
+| Activité | Name | Activité qui a eu lieu. Par exemple, *Émettre un id_token pour l’application*, qui conclut la connexion d’utilisateur réelle. |
 | Initié par (intervenant) | ObjectId | **ID d’objet** de l’application B2C à laquelle l’utilisateur se connecte. Cet identificateur n’est pas visible dans le portail Azure, mais il est accessible via l’API Microsoft Graph. |
 | Initié par (intervenant) | Nom de principal de service | **ID d’Application** de l’application B2C à laquelle l’utilisateur se connecte. |
 | Cible(s) | ObjectId | **ID d’objet** de l’utilisateur qui se connecte. |

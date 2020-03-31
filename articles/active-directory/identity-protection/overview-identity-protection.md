@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: overview
-ms.date: 10/18/2019
+ms.date: 03/17/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e928d67ba7102df3d342e77705ea895f9230ff3
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: d2b1d9748b243dcc2104ce7b8e0e8735a7b7276f
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72887699"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79497680"
 ---
 # <a name="what-is-azure-active-directory-identity-protection"></a>Présentation d’Azure Active Directory Identity Protection
 
@@ -48,12 +48,12 @@ Identity Protection identifie les risques selon les classifications suivantes :
 
 | Type de détection des risques | Description |
 | --- | --- |
-| Voyage inhabituel | Connexion à partir d'un emplacement inhabituel par rapport aux dernières connexions de l'utilisateur |
+| Voyage inhabituel | Connexion à partir d’un emplacement inhabituel par rapport aux dernières connexions de l’utilisateur |
 | Adresse IP anonyme | Connexion à partir d'une adresse IP anonyme (par exemple : navigateur Tor, VPN anonymes). |
-| Propriétés de connexion inhabituelles | Connexion avec des propriétés inhabituelles pour l'utilisateur concerné |
+| Propriétés de connexion inhabituelles | Connexion avec des propriétés inhabituelles pour l’utilisateur concerné |
 | Adresse IP liée à un programme malveillant | Connexion à partir d'une adresse IP liée à un programme malveillant |
 | Informations d'identification divulguées | Cette détection des risques indique que les informations d’identification valides de l’utilisateur ont fait l’objet d’une fuite |
-| Azure AD Threat Intelligence | Les sources de renseignements sur les menaces internes et externes de Microsoft ont identifié un modèle d'attaque connu |
+| Azure AD Threat Intelligence | Les sources de renseignements sur les menaces internes et externes de Microsoft ont identifié un modèle d’attaque connu |
 
 Pour plus de détails sur ces risques et sur la façon dont ils sont calculés, consultez l'article [Qu'est-ce qu'un risque ?](concept-identity-protection-risks.md).
 
@@ -79,25 +79,34 @@ Pour en savoir plus sur l'intégration des informations d'Identity Protection da
 
 Identity Protection exige que les utilisateurs disposent d'une des autorisations d'accès suivantes : Lecteur de sécurité, Opérateur de sécurité, Administrateur de la sécurité, Lecteur général ou Administrateur général.
 
+| Role | Peut | Ne peut pas |
+| --- | --- | --- |
+| Administrateur général | Accès complet à Identity Protection |   |
+| Administrateur de sécurité | Accès complet à Identity Protection | Réinitialiser un mot de passe pour un utilisateur |
+| Opérateur de sécurité | Afficher tous les rapports Identity Protection et le panneau Vue d’ensemble <br><br> Ignorer le risque lié à l’utilisateur, confirmer que la connexion est sécurisée, confirmer la compromission | Configurer ou modifier des stratégies <br><br> Réinitialiser un mot de passe pour un utilisateur <br><br> Configurer des alertes |
+| Lecteur de sécurité | Afficher tous les rapports Identity Protection et le panneau Vue d’ensemble | Configurer ou modifier des stratégies <br><br> Réinitialiser un mot de passe pour un utilisateur <br><br> Configurer des alertes <br><br> Envoyer des commentaires sur les détections |
+
+Les administrateurs d’accès conditionnel peuvent également créer des stratégies qui prennent en compte le risque lié à la connexion en tant que condition. Pour plus d’informations, consultez l’article [Accès conditionnel : Conditions](../conditional-access/concept-conditional-access-conditions.md#sign-in-risk).
+
 ## <a name="license-requirements"></a>Conditions de licence :
 
 [!INCLUDE [Active Directory P2 license](../../../includes/active-directory-p2-license.md)]
 
 | Fonctionnalité | Détails | Azure AD Premium P2 | Azure AD Premium P1 | Azure AD Basic/Free |
 | --- | --- | --- | --- | --- |
-| Stratégies de risque | Stratégie de risque utilisateur (via Identity Protection) | OUI | Non | Non |
-| Stratégies de risque | Stratégie de risque de connexion (via Identity Protection ou l’accès conditionnel) | OUI | Non | Non |
-| Rapports de sécurité | Vue d'ensemble | OUI | Non | Non |
+| Stratégies de risque | Stratégie de risque utilisateur (via Identity Protection) | Oui | Non | Non |
+| Stratégies de risque | Stratégie de risque de connexion (via Identity Protection ou l’accès conditionnel) | Oui | Non | Non |
+| Rapports de sécurité | Vue d’ensemble | Oui | Non | Non |
 | Rapports de sécurité | Utilisateurs à risque | Accès total | Informations limitées | Informations limitées |
 | Rapports de sécurité | Connexions risquées | Accès total | Informations limitées | Informations limitées |
 | Rapports de sécurité | Détections de risques | Accès total | Informations limitées | Non |
-| Notifications | Alertes Utilisateurs à risque détectés | OUI | Non | Non |
-| Notifications | Synthèse hebdomadaire | OUI | Non | Non |
-| | Stratégie d'inscription MFA | OUI | Non | Non |
+| Notifications | Alertes Utilisateurs à risque détectés | Oui | Non | Non |
+| Notifications | Synthèse hebdomadaire | Oui | Non | Non |
+| | Stratégie d'inscription MFA | Oui | Non | Non |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [vue d’ensemble de la sécurité](concept-identity-protection-security-overview.md)
+- [Vue d’ensemble de la sécurité](concept-identity-protection-security-overview.md)
 
 - [Qu'est-ce qu'un risque ?](concept-identity-protection-risks.md)
 

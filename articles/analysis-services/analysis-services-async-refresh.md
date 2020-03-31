@@ -8,10 +8,10 @@ ms.date: 01/14/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 6457f062a40e60a491220fcf977585e8b07445b2
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78273719"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Actualisation asynchrone avec l’API REST
@@ -56,7 +56,7 @@ Par exemple, vous pouvez utiliser le verbe POST sur la collection Refreshes pour
 https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refreshes
 ```
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Authentification
 
 Tous les appels doivent être authentifiés avec un jeton d’Azure Active Directory (OAuth 2) valide dans l’en-tête d’autorisation et doivent respecter les conditions suivantes :
 

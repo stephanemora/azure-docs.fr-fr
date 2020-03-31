@@ -1,18 +1,18 @@
 ---
 title: Stockage cloud pour créer des applications hautement sécurisées, durables et scalables avec Stockage Azure
 description: Découvrez les services permettant de stocker de gros volumes de données d’application mobile structurées et non structurées dans le cloud.
-author: elamalani
+author: codemillmatt
 ms.assetid: 12bbb070-9b3c-4faf-8588-ccff02097224
 ms.service: vs-appcenter
 ms.topic: article
-ms.date: 10/22/2019
-ms.author: emalani
-ms.openlocfilehash: 53754976a6e1f6d893cf7d6ab73d57c95dae193f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/24/2020
+ms.author: masoucou
+ms.openlocfilehash: 682f06936480d9018d759b4df3bed80be1206faf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453252"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240973"
 ---
 # <a name="cloud-storage-for-highly-secure-durable-scalable-apps-with-azure-storage"></a>Stockage cloud pour des applications hautement sécurisées, durables et scalables avec Stockage Azure
 Le service [Stockage Azure](https://azure.microsoft.com/services/storage/) est la solution de stockage cloud de Microsoft pour les applications récentes qui offre un magasin d’objets hautement scalable pour des objets de données, un service de système de fichiers pour le cloud, un magasin de messagerie pour une messagerie fiable et un magasin NoSQL. Le Stockage Azure est :

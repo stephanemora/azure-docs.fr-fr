@@ -1,28 +1,26 @@
 ---
 title: Protection des instances pour les groupes de machines virtuelles identiques Azure
 description: Découvrez comment protéger les instances de groupes de machines virtuelles identiques des opérations scale-in et scale-set.
-author: mayanknayar
+author: avirishuv
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
-ms.date: 05/22/2019
-ms.author: manayar
-ms.openlocfilehash: 071ea79f4d288e86cc5b9347f8607b4ff7190bc1
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.date: 02/26/2020
+ms.author: avverma
+ms.openlocfilehash: 021faad28fb575c4ffeb4d895ad451d8cd82b1a5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76275790"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227973"
 ---
-# <a name="instance-protection-for-azure-virtual-machine-scale-set-instances-preview"></a>Protection des instances pour les groupes de machines virtuelles identiques Azure (préversion)
+# <a name="instance-protection-for-azure-virtual-machine-scale-set-instances"></a>Protection des instances pour les groupes de machines virtuelles identiques Azure
+
 Les groupes de machines virtuelles identiques Azure offrent une meilleure élasticité en termes de charge de travail via la [mise à l’échelle automatique](virtual-machine-scale-sets-autoscale-overview.md) pour vous permettre de configurer la mise à l'échelle de votre infrastructure. En outre, les groupes identiques vous permettent de gérer, configurer et mettre à jour un grand nombre de machines virtuelles de manière centralisée à l'aide de différents paramètres de [stratégie de mise à niveau](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model). Vous pouvez configurer une mise à jour sur le modèle de groupe identique, et la nouvelle configuration s'applique automatiquement à chaque instance de groupe identique si vous avez défini la stratégie de mise à niveau sur Automatique ou Continue.
 
 Alors que votre application traite le trafic, vous pouvez souhaiter que des instances spécifiques soient traitées différemment du reste de l'instance de groupe identique. Par exemple, si certaines instances du groupe identique effectuent des opérations de longue durée, vous préférerez peut-être attendre qu'elles soient terminées avant de mettre à l'échelle ces instances. Il est également possible que des instances spécialisées du groupe identique effectuent des tâches supplémentaires ou différentes de celles des autres membres du groupe. Et dès lors, vous pouvez ne pas souhaiter que ces machines virtuelles « spéciales » soient modifiées en même temps que les autres instances du groupe. La protection des instances met à disposition des contrôles supplémentaires pour permettre de tels scénarios.
 
 Cet article vous explique comment appliquer et utiliser les différentes fonctionnalités de protection des instances avec les instances de groupe identique.
-
-> [!NOTE]
->La protection des instances est actuellement en préversion publique. Aucune procédure de consentement n'est requise pour utiliser la fonctionnalité en préversion publique décrite ci-dessous. La préversion de la fonctionnalité de protection des instances est uniquement prise avec la version de l'API 2019-03-01 et les groupes identiques utilisant des disques managés.
 
 ## <a name="types-of-instance-protection"></a>Types de protection des instances
 Les groupes identiques fournissent deux types de fonctionnalités de protection des instances :
@@ -44,6 +42,17 @@ Les groupes identiques fournissent deux types de fonctionnalités de protection 
 La protection des instances peut être appliquée aux instances de groupe identique une fois ces instances créées. La protection est uniquement appliquée et modifiée sur le [modèle d’instance](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-vm-model-view) et non sur le [modèle de groupe identique](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-model).
 
 Il existe plusieurs façons d'appliquer la protection contre les opérations scale-in sur vos instances de groupe identique, comme détaillé dans les exemples ci-dessous.
+
+### <a name="azure-portal"></a>Portail Azure
+
+Vous pouvez appliquer une protection contre les opérations scale-in à une instance du groupe identique via le portail Azure. Vous ne pouvez pas ajuster plusieurs instances à la fois. Répétez les étapes pour chacune des instances que vous souhaitez protéger.
+ 
+1. Accédez à un groupe de machines virtuelles identiques existant.
+1. Sélectionnez **Instances** dans le menu de gauche, sous **Paramètres**.
+1. Sélectionnez le nom de l'instance à protéger.
+1. Sélectionnez l'onglet **Stratégie de protection**.
+1. Dans le panneau **Stratégie de protection**, sélectionnez l'option **Protection contre les opérations scale-in**.
+1. Sélectionnez **Enregistrer**. 
 
 ### <a name="rest-api"></a>API REST
 
@@ -101,6 +110,17 @@ La protection des instances peut être appliquée aux instances de groupe identi
 Protéger une instance contre les actions de groupe identique protège aussi l'instance contre les opérations scale-in initiées par la mise à l'échelle automatique.
 
 Il existe plusieurs façons d'appliquer la protection contre les actions de groupe identique sur vos instances de groupe identique, comme détaillé dans les exemples ci-dessous.
+
+### <a name="azure-portal"></a>Portail Azure
+
+Vous pouvez appliquer une protection contre les actions de groupe identique à une instance du groupe identique via le portail Azure. Vous ne pouvez pas ajuster plusieurs instances à la fois. Répétez les étapes pour chacune des instances que vous souhaitez protéger.
+ 
+1. Accédez à un groupe de machines virtuelles identiques existant.
+1. Sélectionnez **Instances** dans le menu de gauche, sous **Paramètres**.
+1. Sélectionnez le nom de l'instance à protéger.
+1. Sélectionnez l'onglet **Stratégie de protection**.
+1. Dans le panneau **Stratégie de protection**, sélectionnez l'option **Protection contre les actions de groupe identique**.
+1. Sélectionnez **Enregistrer**. 
 
 ### <a name="rest-api"></a>API REST
 

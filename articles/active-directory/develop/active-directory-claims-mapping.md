@@ -1,5 +1,5 @@
 ---
-title: Personnaliser les revendications d’application cliente Azure AD (PowerShell)
+title: Personnaliser les revendications d’application de locataire Azure AD (PowerShell)
 titleSuffix: Microsoft identity platform
 description: Cette page décrit le mappage de revendications Azure Active Directory.
 services: active-directory
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 57a66f73a2c0c37426c23c7274853148fd976ac8
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 49860504da8dd2a1b994a23a24df95f59c959c90
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76699068"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79230765"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Procédure : Personnaliser des revendications émises dans des jetons pour une application spécifique dans un locataire (préversion)
 
@@ -142,7 +142,7 @@ Il existe des ensembles de revendications qui définissent comment et quand ils 
 | onprem_sam_account_name |
 | onprem_sid |
 | openid2_id |
-| password |
+| mot de passe |
 | platf |
 | polids |
 | pop_jwk |
@@ -415,7 +415,7 @@ Selon la méthode choisie, un ensemble d’entrées et sorties est attendu. Déf
 
 ### <a name="custom-signing-key"></a>Clé de signature personnalisée
 
-Une clé de signature personnalisée doit être affectée à l’objet de principal du service pour qu’une stratégie de mappage de revendications entre en vigueur. Cela garantit la reconnaissance que les jetons ont été modifiés par le créateur de la stratégie de mappage de revendications et protège les applications contre les stratégies de mappage de revendications créées par des personnes malveillantes. Pour ajouter une clé de signature personnalisée, vous pouvez utiliser la cmdlet Azure PowerShell `new-azureadapplicationkeycredential` pour créer des informations d’identification de clé symétrique pour votre objet d’application. Pour plus d’informations sur cette cmdlet Azure PowerShell, cliquez [ici](https://docs.microsoft.com/powershell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0).
+Une clé de signature personnalisée doit être affectée à l’objet de principal du service pour qu’une stratégie de mappage de revendications entre en vigueur. Cela garantit la reconnaissance que les jetons ont été modifiés par le créateur de la stratégie de mappage de revendications et protège les applications contre les stratégies de mappage de revendications créées par des personnes malveillantes. Pour ajouter une clé de signature personnalisée, vous pouvez utiliser l’applet de commande Azure PowerShell `new-azureadapplicationkeycredential` pour créer des informations d’identification de clé symétrique pour votre objet d’application. Pour plus d’informations sur cette applet de commande Azure PowerShell, consultez [New-AzureADApplicationKeyCredential](https://docs.microsoft.com/powerShell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0).
 
 Les applications pour lesquelles le mappage de revendications est activé doivent valider leurs clés de signature de jeton en ajoutant `appid={client_id}` à leurs [demandes de métadonnées OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). Le format du document de métadonnées OpenID Connect que vous utilisez se trouve ci-dessous : 
 
@@ -435,7 +435,7 @@ Des stratégies de mappage de revendications peuvent être attribuées uniquemen
 
 Dans Azure AD, de nombreux scénarios sont possibles où vous pouvez personnaliser des revendications émises dans des jetons pour des principaux du service spécifiques. Cette section décrit quelques scénarios courants qui peuvent vous aider à comprendre comment utiliser le type de stratégie de mappage de revendications.
 
-#### <a name="prerequisites"></a>Conditions préalables requises
+#### <a name="prerequisites"></a>Prérequis
 
 Dans les exemples suivants, vous créez, mettez à jour, liez et supprimez des stratégies pour les principaux du service. Si vous débutez avec Azure AD, nous vous recommandons de vous [documenter sur l’obtention d’un locataire Azure Active Directory](quickstart-create-new-tenant.md) avant de continuer avec ces exemples.
 
@@ -469,7 +469,7 @@ Dans cet exemple, vous créez une stratégie qui supprime l’ensemble de revend
       Get-AzureADPolicy
       ```
 1. Affectez la stratégie au principal de service. Vous devez également obtenir l’ObjectId de votre principal du service.
-   1. Pour afficher tous les principaux du service de votre organisation, vous pouvez [interroger Microsoft Graph](/graph/traverse-the-graph). Ou bien, dans l’[Afficheur Graph](https://developer.microsoft.com/graph/graph-explorer), connectez-vous à votre compte Azure AD.
+   1. Pour afficher tous les principaux de service de votre organisation, vous pouvez [interroger l’API Microsoft Graph](/graph/traverse-the-graph). Ou, dans l’[afficheur Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer), connectez-vous à votre compte Azure AD.
    2. Une fois que vous disposez de l’ObjectId de votre principal du service, exécutez la commande suivante :  
      
       ``` powershell
@@ -493,7 +493,7 @@ Dans cet exemple, vous créez une stratégie qui ajoute EmployeeID et TenantCoun
       Get-AzureADPolicy
       ```
 1. Affectez la stratégie au principal de service. Vous devez également obtenir l’ObjectId de votre principal du service. 
-   1. Pour afficher tous les principaux du service de votre organisation, vous pouvez [interroger Microsoft Graph](/graph/traverse-the-graph). Ou bien, dans l’[Afficheur Graph](https://developer.microsoft.com/graph/graph-explorer), connectez-vous à votre compte Azure AD.
+   1. Pour afficher tous les principaux de service de votre organisation, vous pouvez [interroger l’API Microsoft Graph](/graph/traverse-the-graph). Ou, dans l’[afficheur Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer), connectez-vous à votre compte Azure AD.
    2. Une fois que vous disposez de l’ObjectId de votre principal du service, exécutez la commande suivante :  
      
       ``` powershell
@@ -517,7 +517,7 @@ Dans cet exemple, vous créez une stratégie qui émet une revendication personn
       Get-AzureADPolicy
       ```
 1. Affectez la stratégie au principal de service. Vous devez également obtenir l’ObjectId de votre principal du service. 
-   1. Pour afficher tous les principaux du service de votre organisation, vous pouvez [interroger Microsoft Graph](/graph/traverse-the-graph). Ou bien, dans l’[Afficheur Graph](https://developer.microsoft.com/graph/graph-explorer), connectez-vous à votre compte Azure AD.
+   1. Pour afficher tous les principaux de service de votre organisation, vous pouvez [interroger l’API Microsoft Graph](/graph/traverse-the-graph). Ou, dans l’[afficheur Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer), connectez-vous à votre compte Azure AD.
    2. Une fois que vous disposez de l’ObjectId de votre principal du service, exécutez la commande suivante : 
      
       ``` powershell

@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 1d6eafd38d418066ddf5933139bd4caf6e69ddea
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: de056f61337311642589ba937c6d9842d8354d36
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74766971"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79530136"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-mariadb"></a>Advanced Threat Protection pour Azure Database for MariaDB
 
@@ -23,7 +23,7 @@ La protection avancée contre les menaces fait partie de l’offre Advanced Data
 > Advanced Threat Protection est disponible en préversion publique. Cette fonctionnalité est disponible dans toutes les régions Azure où Azure Database for MariaDB est déployé, pour les serveurs à usage général et à mémoire optimisée.
 
 > [!NOTE]
-> La fonctionnalité Advanced Threat Protection **n’est pas** disponible dans les régions administratives et souveraines suivantes du cloud Azure : US Gov Texas, US Gov Arizona, US Gov Iowa, US, Gov Virginie, US DoD Est, US DoD Central, Allemagne Centre, Allemagne Nord, Chine Est, Chine Est 2. Consultez les [produits disponibles par région](https://azure.microsoft.com/global-infrastructure/services/) pour connaître la disponibilité générale des produits.
+> La fonctionnalité de protection avancée contre les menaces **n’est pas** disponible dans les régions Azure Government et de cloud souverain suivantes : US Gov Texas, US Gov Arizona, US Gov Iowa, US Gov Virginie, US DoD Est, US DoD Centre, Allemagne Centre, Allemagne Nord, Chine Est, Chine Est 2. Consultez les [produits disponibles par région](https://azure.microsoft.com/global-infrastructure/services/) pour connaître la disponibilité générale des produits.
 
 ## <a name="set-up-threat-detection"></a>Configurer la détection des menaces
 1. Lancez le portail Azure sur [https://portal.azure.com](https://portal.azure.com).
@@ -63,4 +63,4 @@ Cliquez sur **Threat detection alert** (Alerte de détection des menaces) pour o
 ## <a name="next-steps"></a>Étapes suivantes
 
 * En savoir plus sur [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
-* Pour plus d’informations sur les prix, consultez la [page Tarification d’Azure Database for MariaDB](https://azure.microsoft.com/pricing/details/mariadb/).  
+* Pour plus d’informations sur les prix, consultez la page [Tarification d’Azure Database for MariaDB](https://azure.microsoft.com/pricing/details/mariadb/).  

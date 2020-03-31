@@ -20,11 +20,11 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: d35c96657f48905f37c9ebe246d81ebb9545cf27
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77149879"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79236901"
 ---
 # <a name="lucene-query-syntax-in-azure-cognitive-search"></a>Syntaxe de requête Lucene dans la Recherche cognitive Azure
 
@@ -65,7 +65,7 @@ Pour obtenir d’autres exemples, consultez [Exemples de syntaxe de requête Luc
 > [!NOTE]  
 >  La Recherche cognitive Azure prend également en charge une [syntaxe de requête simple](query-simple-syntax.md) : il s’agit d’un langage de requête simple et robuste qui peut être utilisé pour la recherche directe de mots clés.  
 
-##  <a name="bkmk_syntax"></a> Principes de base de la syntaxe  
+##  <a name="syntax-fundamentals"></a><a name="bkmk_syntax"></a> Principes de base de la syntaxe  
  Les principes de base suivants de la syntaxe s’appliquent à toutes les requêtes qui utilisent la syntaxe Lucene.  
 
 ### <a name="operator-evaluation-in-context"></a>Évaluation des opérateurs en contexte
@@ -99,7 +99,7 @@ Le regroupement de champs est similaire, mais il délimite le regroupement à un
 ### <a name="searchmode-parameter-considerations"></a>Considérations relatives au paramètre SearchMode  
  L’impact de `searchMode` sur les requêtes, comme décrit dans [Syntaxe de requête simple dans la Recherche cognitive Azure](query-simple-syntax.md), s’applique également à la syntaxe de requête Lucene. Ainsi, `searchMode` en combinaison avec des opérateurs NOT peut entraîner des résultats de requête qui peuvent sembler étrange si vous ne comprenez pas bien les implications de la façon dont vous définissez le paramètre. Si vous conservez la valeur par défaut, `searchMode=any`, et que vous utilisez un opérateur NOT, l’opération est considérée comme une action OR : ainsi, « New York » NOT « Seattle » retourne toutes les villes qui ne sont pas Seattle.  
 
-##  <a name="bkmk_boolean"></a> Opérateurs booléens (AND, OR, NOT) 
+##  <a name="boolean-operators-and-or-not"></a><a name="bkmk_boolean"></a> Opérateurs booléens (AND, OR, NOT) 
  Spécifiez toujours les opérateurs booléens de texte (AND, OR, NOT) tout en majuscules.  
 
 ### <a name="or-operator-or-or-"></a>Opérateur OR `OR` ou `||`
@@ -119,13 +119,13 @@ L’utilisation de `searchMode=any` augmente le rappel des requêtes en incluant
 
 L’utilisation de `searchMode=all` augmente la précision des requêtes en incluant moins de résultats, et par défaut, « - » est interprété comme « AND NOT ». Par exemple, `wifi -luxury` établit une correspondance avec les documents qui contiennent le terme `wifi` et ne contiennent pas le terme `luxury`. Il s’agit sans doute d’un comportement plus intuitif pour l’opérateur -. Ainsi, vous pouvez préférer `searchMode=all` à `searchMode=any` si vous voulez optimiser les recherches pour la précision au lieu du rappel *et* si vos utilisateurs utilisent fréquemment l’opérateur `-` dans les recherches.
 
-##  <a name="bkmk_querysizelimits"></a> Limite de taille des requêtes  
+##  <a name="query-size-limitations"></a><a name="bkmk_querysizelimits"></a> Limite de taille des requêtes  
  Il existe une limite à la taille des requêtes que vous pouvez envoyer à la Recherche cognitive Azure. Plus précisément, vous pouvez avoir au maximum 1 024 clauses (des expressions séparées par AND, OR, etc.). Il existe également une limite d’environ 32 Ko pour la taille d’un terme individuel dans une requête. Si votre application génère des requêtes de recherche par programmation, nous vous recommandons de la concevoir de façon à ce qu’elle ne génère pas des requêtes d’une taille illimitée.  
 
-##  <a name="bkmk_searchscoreforwildcardandregexqueries"></a> Scoring des requêtes avec des caractères génériques et des expressions régulières
+##  <a name="scoring-wildcard-and-regex-queries"></a><a name="bkmk_searchscoreforwildcardandregexqueries"></a> Scoring des requêtes avec des caractères génériques et des expressions régulières
  La Recherche cognitive Azure utilise un scoring basé sur la fréquence ([TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)) pour les requêtes de texte. Cependant, pour les requêtes avec des caractères génériques et des expressions régulières où l’étendue des termes est potentiellement vaste, le facteur de fréquence est ignoré pour empêcher que le classement soit faussé par les correspondances avec des termes plus rares. Toutes les correspondances sont traitées de façon égale pour les recherches avec des caractères génériques et avec des expressions régulières.
 
-##  <a name="bkmk_fields"></a> Recherche par champ  
+##  <a name="fielded-search"></a><a name="bkmk_fields"></a> Recherche par champ  
 Vous pouvez définir une opération de recherche par champ avec la syntaxe `fieldName:searchExpression`, où l’expression de recherche peut être un mot ou une phrase, ou une expression plus complexe entre parenthèses, éventuellement avec des opérateurs booléens. Voici quelques exemples :  
 
 - genre:jazz NOT history  
@@ -139,7 +139,7 @@ Le champ spécifié dans `fieldName:searchExpression` doit être un champ `searc
 > [!NOTE]
 > Lorsque vous utilisez des expressions de recherche par champ, il est inutile d’utiliser le paramètre `searchFields`, car chaque expression de recherche par champ a un nom de champ spécifié explicitement. Cependant, vous pouvez toujours utiliser le paramètre `searchFields` si vous voulez exécuter une requête où certaines parties sont limitées à un champ spécifique, et le reste peut s’appliquer à plusieurs champs. Par exemple, la requête `search=genre:jazz NOT history&searchFields=description` ne correspondrait à `jazz` qu’au niveau du champ `genre`, alors qu’elle correspondrait au champ `NOT history` avec le champ `description`. Le nom du champ fourni dans `fieldName:searchExpression` a toujours priorité sur le paramètre `searchFields`, c’est pourquoi dans cet exemple, nous n’avons pas besoin d’inclure `genre` dans le paramètre `searchFields`.
 
-##  <a name="bkmk_fuzzy"></a> Recherche approximative  
+##  <a name="fuzzy-search"></a><a name="bkmk_fuzzy"></a> Recherche approximative  
  Une recherche partielle recherche des correspondances dans les termes qui ont une construction similaire. D’après la [documentation Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), les recherches partielles sont basées sur la [Distance Levenshtein-Damerau](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance). Les recherches approximatives peuvent développer un terme jusqu’à un maximum de 50 termes qui répondent aux critères de distance. 
 
  Pour effectuer une recherche approximative, utilisez le symbole « ~ » (tilde) à la fin d’un mot avec un paramètre facultatif, un nombre compris entre 0 et 2 (la valeur par défaut), qui spécifie la distance de modification. Par exemple, « blue~ » ou « blue~1 » retournent « blue », « blues » et « glue ».
@@ -147,23 +147,23 @@ Le champ spécifié dans `fieldName:searchExpression` doit être un champ `searc
  La recherche partielle est applicable uniquement pour les termes, et non les expressions, mais vous pouvez ajouter le tilde à chaque terme individuel dans un nom en plusieurs parties ou une expression. Par exemple, « Unviersté~ de~ « Wshington~ » correspondrait à « Université de Washington ».
  
 
-##  <a name="bkmk_proximity"></a> Recherche de proximité  
+##  <a name="proximity-search"></a><a name="bkmk_proximity"></a> Recherche de proximité  
  Les recherches de proximité servent à rechercher des termes qui sont proches les uns des autres dans un document. Insérez un signe tilde « ~ » à la fin d’une expression, suivi du nombre de mots qui créent la limite de proximité. Par exemple, `"hotel airport"~5` recherche les termes « hotel » et « airport » distants de 5 mots ou moins dans un document.  
 
 
-##  <a name="bkmk_termboost"></a> Promotion de termes  
+##  <a name="term-boosting"></a><a name="bkmk_termboost"></a> Promotion de termes  
  La promotion de termes signifie que vous pouvez accorder à un document un rang plus élevé s’il contient le terme promu, par rapport aux documents qui ne contiennent pas ce terme. À ne pas confondre avec les profils de score qui promeuvent certains champs, plutôt que des termes spécifiques.  
 
 L’exemple suivant permet d’illustrer les différences entre les deux. Supposons qu’un profil de score promeuve les correspondances dans un certain champ, disons *genre* dans l’[exemple musicstoreindex](index-add-scoring-profiles.md#bkmk_ex). En utilisant la promotion de termes, vous pouvez promouvoir encore plus certains termes de recherche. Par exemple, `rock^2 electronic` promeut les documents qui contiennent les termes de recherche dans le champ genre en les classant mieux que d’autres champs de recherche de l’index. Par ailleurs, les documents qui contiennent le terme de recherche *rock* bénéficient d’un meilleur classement que ceux qui contiennent le terme de recherche *electronic* en raison de la valeur de promotion du terme (2).  
 
  Pour promouvoir un terme, utilisez le signe « ^ » (caret) avec un facteur de promotion (un nombre) à la fin du terme recherché. Vous pouvez également promouvoir des expressions. Plus le facteur de promotion est élevé, plus le terme est pertinent par rapport aux autres termes de recherche. Par défaut, le facteur de promotion est égal à 1. Ce facteur doit être positif, mais il peut être inférieur à 1 (par exemple 0,20).  
 
-##  <a name="bkmk_regex"></a> Recherche d’expression régulière  
+##  <a name="regular-expression-search"></a><a name="bkmk_regex"></a> Recherche d’expression régulière  
  Une recherche d’expression régulière trouve une correspondance en fonction du contenu placé entre des barres obliques « / », comme le décrit la [classe RegExp](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/util/automaton/RegExp.html).  
 
  Par exemple, pour rechercher des documents contenant « motel » ou « hotel », spécifiez `/[mh]otel/`.  Les recherches d’expression régulière se font par comparaison avec des mots individuels.   
 
-##  <a name="bkmk_wildcard"></a> Recherche par caractères génériques  
+##  <a name="wildcard-search"></a><a name="bkmk_wildcard"></a> Recherche par caractères génériques  
  Vous pouvez utiliser la syntaxe généralement reconnue pour effectuer des recherches avec plusieurs caractères génériques (*) ou un caractère générique unique (?). Notez que l’Analyseur de requêtes Lucene prend en charge l’utilisation de ces symboles avec un terme unique, et non une expression.  
 
  Par exemple, pour rechercher des documents contenant les mots avec le préfixe « note », comme « notebook » ou « notepad », spécifiez « note* ».  

@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 04/30/2019
 ms.author: robinsh
 ms.openlocfilehash: 7f7e957502419b766f7da63048e8168192ea20da
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286653"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79237409"
 ---
 # <a name="communicate-with-your-iot-hub-by-using-the-amqp-protocol"></a>Communication avec votre IoT Hub à l’aide du protocole AMQP
 
@@ -29,7 +29,7 @@ Les informations suivantes sont requises pour le client du service :
 | Information | Valeur |
 |-------------|--------------|
 | Nom d’hôte du hub IoT | `<iot-hub-name>.azure-devices.net` |
-| Nom de la clé | `service` |
+| Nom de clé | `service` |
 | Clé d’accès | Clé primaire ou secondaire associée au service |
 | Signature d’accès partagé | Signature d’accès partagé à courte durée de vie au format suivant : `SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`. Pour obtenir le code de génération de cette signature, consultez [Contrôler l’accès à IoT Hub](./iot-hub-devguide-security.md#security-token-structure).
 
@@ -67,8 +67,8 @@ Pour en savoir plus sur l’échange de messages cloud-à-appareil entre le serv
 
 | Créé par | Type de liaison | Chemin de liaison | Description |
 |------------|-----------|-----------|-------------|
-| de diffusion en continu | Liaison d’expéditeur | `/messages/devicebound` | Les messages cloud-à-appareil destinés aux appareils sont envoyés à cette liaison par le service. Les messages envoyés sur cette liaison ont leur propriété `To` définie sur le chemin de liaison de récepteur de l’appareil cible, `/devices/<deviceID>/messages/devicebound`. |
-| de diffusion en continu | Liaison de récepteur | `/messages/serviceBound/feedback` | Messages de commentaires d’achèvement, de rejet et d’abandon provenant d’appareils reçus sur cette liaison par service. Pour plus d’informations sur les messages de commentaires, consultez [Envoyer des messages cloud-à-appareil à partir d’un hub IoT](./iot-hub-devguide-messages-c2d.md#message-feedback). |
+| Service | Liaison d’expéditeur | `/messages/devicebound` | Les messages cloud-à-appareil destinés aux appareils sont envoyés à cette liaison par le service. Les messages envoyés sur cette liaison ont leur propriété `To` définie sur le chemin de liaison de récepteur de l’appareil cible, `/devices/<deviceID>/messages/devicebound`. |
+| Service | Liaison de récepteur | `/messages/serviceBound/feedback` | Messages de commentaires d’achèvement, de rejet et d’abandon provenant d’appareils reçus sur cette liaison par service. Pour plus d’informations sur les messages de commentaires, consultez [Envoyer des messages cloud-à-appareil à partir d’un hub IoT](./iot-hub-devguide-messages-c2d.md#message-feedback). |
 
 L’extrait de code suivant montre comment créer un message cloud-à-appareil et l’envoyer à un appareil à l’aide de la [bibliothèque uAMQP dans Python](https://github.com/Azure/azure-uamqp-python).
 

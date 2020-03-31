@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
 ms.openlocfilehash: a3b70af71c2ce19835ac2ef8fc8ceed79ca5fe1a
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73889527"
 ---
 # <a name="best-practices-for-device-configuration-within-an-iot-solution"></a>Bonnes pratiques en matière de configuration d’appareil dans une solution IoT
@@ -20,9 +20,9 @@ La gestion automatique des appareils dans Azure IoT Hub automatise une grande pa
 
 * **Fabricant/intégrateur de matériel IoT** : Il s’agit de fabricants de matériel IoT, d’intégrateurs qui assemblent des matériels provenant de différents fabricants, ou de fournisseurs de matériels dédiés à un déploiement IoT réalisé ou intégré par d’autres fournisseurs. Ils sont impliqués dans le développement et l’intégration de microprogrammes, de systèmes d’exploitation incorporés et de logiciels incorporés.
 
-* **Développeur de solutions IoT** : Le développement d’une solution IoT est généralement assuré par un développeur de solutions. Ce développeur peut faire partie d’une équipe interne ou être un intégrateur système spécialisé dans cette activité. Le développeur de solutions IoT peut développer plusieurs composants de la solution IoT en partant de zéro, intégrer de nombreux composants standard ou open source, ou encore personnaliser un [accélérateur de solution IoT](/azure/iot-accelerators/).
+* **Développeur de solutions IoT** : le développement d’une solution IoT est généralement assuré par un développeur de solutions. Ce développeur peut faire partie d’une équipe interne ou être un intégrateur système spécialisé dans cette activité. Le développeur de solutions IoT peut développer plusieurs composants de la solution IoT en partant de zéro, intégrer de nombreux composants standard ou open source, ou encore personnaliser un [accélérateur de solution IoT](/azure/iot-accelerators/).
 
-* **Opérateur de solutions IoT** : Une fois déployée, la solution IoT nécessite une exploitation, une surveillance, des mises à niveau et une maintenance sur le long terme. Ces tâches peuvent être assurées par une équipe interne comprenant des spécialistes en technologies de l’information, des équipes d’exploitation et de maintenance du matériel et des spécialistes du domaine qui contrôlent le comportement de l’infrastructure IoT globale.
+* **Opérateur de solutions IoT** : une fois déployée, la solution IoT nécessite une exploitation, une surveillance, des mises à niveau et une maintenance sur le long terme. Ces tâches peuvent être assurées par une équipe interne comprenant des spécialistes en technologies de l’information, des équipes d’exploitation et de maintenance du matériel et des spécialistes du domaine qui contrôlent le comportement de l’infrastructure IoT globale.
 
 ## <a name="understand-automatic-device-management-for-configuring-iot-devices-at-scale"></a>Comprendre la gestion automatique des appareils pour la configuration des appareils IoT à grande échelle
 

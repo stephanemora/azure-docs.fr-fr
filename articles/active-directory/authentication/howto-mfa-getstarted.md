@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b6da67589b15b4ab043510c0375c26c12f645adb
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76155144"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79230977"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>Planification d’un déploiement Azure Multi-Factor Authentication basé sur le cloud
 
@@ -230,11 +230,11 @@ Il est important que vous évitiez de perdre l’accès à votre locataire Azure
    * Dans l’onglet **Exclure**, cochez la case **Utilisateurs et groupes** et choisissez vos comptes d’accès d’urgence.
    * Cliquez sur **Done**.
 1. Sous **Applications Cloud**, sélectionnez la case d’option **Toutes les applications cloud**.
-   * FACULTATIF : sous l’onglet **Exclure**, choisissez les applications cloud pour lesquelles votre organisation ne nécessite pas d’authentification multifacteur.
+   * FACULTATIF : Dans l’onglet **Exclure**, choisissez les applications cloud pour lesquelles votre organisation ne nécessite pas d’authentification multifacteur.
    * Cliquez sur **Done**.
 1. Sous la section **Conditions** :
-   * FACULTATIF : si vous avez activé Azure Identity Protection, vous pouvez choisir d’évaluer le risque de connexion dans le cadre de la stratégie.
-   * FACULTATIF : si vous avez configuré des emplacements approuvés ou des emplacements nommés, vous pouvez spécifier l’inclusion ou l’exclusion de ces emplacements à partir de la stratégie.
+   * FACULTATIF : Si vous avez activé Azure Identity Protection, vous pouvez choisir d’évaluer le risque de connexion dans le cadre de la stratégie.
+   * FACULTATIF : Si vous avez configuré des emplacements approuvés ou des emplacements nommés, vous pouvez spécifier l’inclusion ou l’exclusion de ces emplacements à partir de la stratégie.
 1. Sous **Accord**, assurez-vous que la case d’option **Accorder l’accès** est sélectionnée.
     * Cochez la case **Exiger une authentification multifacteur**.
     * Cliquez sur **Sélectionner**.

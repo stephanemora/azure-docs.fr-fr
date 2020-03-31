@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
 ms.openlocfilehash: d8f63984a5ad3717b470657aba02224794122cd5
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74930838"
 ---
 # <a name="copy-data-from-phoenix-using-azure-data-factory"></a>Copier des données de Phoenix à l’aide d’Azure Data Factory 
@@ -49,13 +49,13 @@ Les propriétés prises en charge pour le service lié Phoenix sont les suivante
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type doit être définie sur : **Phoenix** | OUI |
-| host | Adresse IP ou nom d’hôte du serveur Phoenix (c’est-à-dire 192.168.222.160)  | OUI |
+| type | La propriété type doit être définie sur : **Phoenix** | Oui |
+| host | Adresse IP ou nom d’hôte du serveur Phoenix (c’est-à-dire 192.168.222.160)  | Oui |
 | port | Port TCP utilisé par le serveur Phoenix pour écouter les connexions clientes. La valeur par défaut est 8765. Si vous êtes connecté à Azure HDInsights, spécifiez le port 443. | Non |
 | httpPath | URL partielle correspondant au serveur Phoenix (c’est-à-dire, /gateway/sandbox/phoenix/version). Spécifiez `/hbasephoenix0` si vous utilisez un cluster HDInsights.  | Non |
-| authenticationType | Mécanisme d’authentification utilisé pour se connecter au serveur Phoenix. <br/>Les valeurs autorisées sont les suivantes : **Anonymous**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | OUI |
+| authenticationType | Mécanisme d’authentification utilisé pour se connecter au serveur Phoenix. <br/>Les valeurs autorisées sont les suivantes : **Anonymous**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Oui |
 | username | Nom d’utilisateur utilisé pour se connecter au serveur Phoenix.  | Non |
-| password | Mot de passe correspondant au nom d’utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Non |
+| mot de passe | Mot de passe correspondant au nom d’utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Non |
 | enableSsl | Indique si les connexions au serveur sont chiffrées suivant le protocole SSL. La valeur par défaut est false.  | Non |
 | trustedCertPath | Chemin d’accès complet du fichier .pem contenant les certificats d’autorité de certification approuvés permettant de vérifier le serveur en cas de connexion via SSL. Cette propriété n’est disponible que si le protocole SSL est utilisé sur un runtime d’intégration auto-hébergé. Valeur par défaut : le fichier cacerts.pem installé avec le runtime d’intégration.  | Non |
 | useSystemTrustStore | Indique s’il faut utiliser un certificat d’autorité de certification provenant du magasin de confiance du système ou d’un fichier PEM spécifié. La valeur par défaut est false.  | Non |
@@ -96,8 +96,8 @@ Pour copier des données de Phoenix, affectez la valeur **PhoenixObject** à la 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type du jeu de données doit être définie sur : **PhoenixObject** | OUI |
-| schema | Nom du schéma. |Non (si « query » dans la source de l’activité est spécifié)  |
+| type | La propriété type du jeu de données doit être définie sur : **PhoenixObject** | Oui |
+| schéma | Nom du schéma. |Non (si « query » dans la source de l’activité est spécifié)  |
 | table | Nom de la table. |Non (si « query » dans la source de l’activité est spécifié)  |
 | tableName | Nom de la table avec le schéma. Cette propriété est prise en charge pour la compatibilité descendante. Utilisez `schema` et `table` pour une nouvelle charge de travail. | Non (si « query » dans la source de l’activité est spécifié) |
 
@@ -128,7 +128,7 @@ Pour copier des données de Phoenix, définissez **PhoenixSource** comme type de
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type de la source d’activité de copie doit être définie sur : **PhoenixSource** | OUI |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **PhoenixSource** | Oui |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**

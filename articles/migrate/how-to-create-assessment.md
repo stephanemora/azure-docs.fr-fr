@@ -7,31 +7,31 @@ ms.topic: article
 ms.date: 07/15/2019
 ms.author: raynew
 ms.openlocfilehash: cffde2a677650387dffd19733e082ff7002ccb55
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68228976"
 ---
 # <a name="create-an-assessment"></a>Créer une évaluation
 
-Cet article explique comment créer une évaluation pour les machines virtuelles VMware locales ou les machines virtuelles Hyper-V avec Azure Migrate : Évaluation de serveur.
+Cet article explique comment créer une évaluation pour les machines virtuelles VMware locales ou les machines virtuelles Hyper-V avec Azure Migrate : Server Assessment.
 
 [Azure Migrate](migrate-services-overview.md) vous aide à migrer vers Azure. Azure Migrate offre un hub centralisé pour suivre la découverte, l’évaluation et la migration d’une infrastructure, d’applications et de données locales vers Azure. Le hub fournit des outils Azure pour l’évaluation et la migration, ainsi que des offres d’éditeurs de logiciels indépendant (ISV) tiers. 
 
 ## <a name="before-you-start"></a>Avant de commencer
 
 - Assurez-vous que vous avez [créé](how-to-add-tool-first-time.md) un projet Azure Migrate.
-- Si vous avez déjà créé un projet, assurez-vous que vous avez [ajouté](how-to-assess.md) Azure Migrate : Outil d’évaluation de serveur.
-- Pour créer une évaluation, vous devez configurer une appliance Azure Migrate pour [VMware](how-to-set-up-appliance-vmware.md) ou [Hyper-V](how-to-set-up-appliance-hyper-v.md). L’appliance découvre les machines locales et envoie les métadonnées et les données de performances à Azure Migrate : Évaluation de serveur. [Plus d’informations](migrate-appliance.md)
+- Si vous avez déjà créé un projet, assurez-vous que vous avez [ajouté](how-to-assess.md) Azure Migrate : Server Assessment.
+- Pour créer une évaluation, vous devez configurer une appliance Azure Migrate pour [VMware](how-to-set-up-appliance-vmware.md) ou [Hyper-V](how-to-set-up-appliance-hyper-v.md). L’appliance découvre les machines locales et envoie les métadonnées et les données de performances à Azure Migrate : Server Assessment. [Plus d’informations](migrate-appliance.md)
 
 
 ## <a name="assessment-overview"></a>Vue d’ensemble de l’évaluation
-Vous pouvez créer deux types d’évaluation à l’aide d’Azure Migrate : Évaluation de serveur.
+Vous pouvez créer deux types d’évaluation à l’aide d’Azure Migrate : Server Assessment.
 
 **Évaluation** | **Détails** | **Données**
 --- | --- | ---
-**En fonction des performances** | Évaluations basées sur les données de performances collectées | **Taille de machine virtuelle recommandée** : En fonction des données d’utilisation du processeur et de la mémoire.<br/><br/> **Type de disque recommandé (disque managé Standard ou Premium)**  : En fonction des IOPS et du débit des disques locaux.
+**Basée sur les performances** | Évaluations basées sur les données de performances collectées | **Taille de machine virtuelle recommandée** : En fonction des données d’utilisation du processeur et de la mémoire.<br/><br/> **Type de disque recommandé (disque managé Standard ou Premium)**  : En fonction des IOPS et du débit des disques locaux.
 **Localement** | Évaluations basées sur le dimensionnement local. | **Taille de machine virtuelle recommandée** : En fonction de la taille de machine virtuelle locale<br/><br> **Type de disque recommandé** : En fonction du paramètre de type de stockage que vous sélectionnez pour l’évaluation.
 
 [Apprenez-en davantage](concepts-assessment-calculation.md) sur les évaluations.
@@ -43,7 +43,7 @@ Exécutez une évaluation comme suit :
 1. Passez en revue les [meilleures pratiques](best-practices-assessment.md) liées à la création d’évaluations.
 2. Sous l’onglet **Serveurs**, dans la vignette **Azure Migrate : Mosaïque**  d’évaluation de serveur, cliquez sur **Évaluer**.
 
-    ![Évaluation](./media/how-to-create-assessment/assess.png)
+    ![Évaluer](./media/how-to-create-assessment/assess.png)
 
 2. Dans **Évaluer les serveurs**, spécifiez un nom pour l’évaluation.
 3. Cliquez sur **Tout afficher** pour passer en revue les propriétés de l’évaluation.

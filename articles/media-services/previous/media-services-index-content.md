@@ -16,10 +16,10 @@ ms.date: 09/22/2019
 ms.author: juliako
 ms.reviewer: johndeu
 ms.openlocfilehash: 7ccc2d5956b44a8cd85f19e0905539c32f58bc5e
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78163996"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>Indexation de fichiers multimédias avec Azure Media Indexer
@@ -142,7 +142,7 @@ Si aucun fichier de configuration n’est spécifié, le fichier multimédia est
 ```
 
 <!-- __ -->
-### <a id="output_files"></a>Fichiers de sortie
+### <a name="output-files"></a><a id="output_files"></a>Fichiers de sortie
 Par défaut, une tâche d’indexation génère les fichiers de sortie suivants. Les fichiers sont stockés dans la première ressource de sortie.
 
 Lorsqu’il existe plusieurs fichiers multimédias d’entrée, l’indexeur génère un fichier manifeste pour les sorties du travail, nommé « JobResult.txt ». Pour chaque fichier multimédia d’entrée, les fichiers TTML, WebVTT et de mots clés qui en résultent sont numérotés de façon séquentielle et nommés avec l’« Alias ».
@@ -240,7 +240,7 @@ Si tous les fichiers multimédias d’entrée ne sont pas correctement indexés,
 
 Les mêmes sorties que pour des tâches réussies sont générées. Vous pouvez consulter le fichier manifeste de sortie pour savoir quels fichiers d’entrée ont échoué, en fonction des valeurs de la colonne d’erreur. Pour les fichiers d’entrée ayant échoué, les fichiers TTML, WebVTT et de mots clés NE sont PAS générés.
 
-### <a id="preset"></a> Présélection de tâches pour l’Indexeur multimédia Azure
+### <a name="task-preset-for-azure-media-indexer"></a><a id="preset"></a> Présélection de tâches pour l’Indexeur multimédia Azure
 Le traitement de l’Indexeur multimédia Azure peut être personnalisé par une tâche facultative prédéfinie à côté de la tâche.  La section suivante décrit le format de ce fichier xml de configuration.
 
 | Nom | Require | Description |
@@ -249,7 +249,7 @@ Le traitement de l’Indexeur multimédia Azure peut être personnalisé par une
 | **métadonnées** |false |Métadonnées pour les fichiers de ressources actives utilisés pour l’Adaptation du vocabulaire.  Il est utile préparer l’indexeur à reconnaître les mots de vocabulaire non standard tels que des noms propres.<br/>`<metadata key="..." value="..."/>` <br/><br/>Vous pouvez fournir des **valeurs** pour les **clés** prédéfinies. Les clés actuellement prises en charge sont les suivantes :<br/><br/>« titre » et « description ». Elles servent à l’adaptation du vocabulaire pour sélectionner le modèle de langue pour votre travail et améliorer la précision de la reconnaissance vocale.  Les valeurs amorcent des recherches sur Internet pour rechercher des documents pertinents du point de vue contextuel en utilisant le contenu pour étoffer le dictionnaire interne pour la durée de la tâche d’indexation.<br/>`<metadata key="title" value="[Title of the media file]" />`<br/>`<metadata key="description" value="[Description of the media file] />"` |
 | **fonctionnalités** <br/><br/> ajoutées dans la version 1.2. Actuellement, la seule fonctionnalité prise en charge est la reconnaissance vocale (« ASR »). |false |La fonctionnalité de reconnaissance vocale a les clés de paramètres suivantes :<table><tr><th><p>Clé</p></th>        <th><p>Description</p></th><th><p>Valeur d'exemple</p></th></tr><tr><td><p>Langage</p></td><td><p>La langue naturelle à reconnaître dans le fichier multimédia.</p></td><td><p>Anglais, espagnol</p></td></tr><tr><td><p>CaptionFormats</p></td><td><p>une liste délimitée par des points-virgules des formats de sous-titre souhaités (le cas échéant)</p></td><td><p>ttml;webvtt</p></td></tr><tr><td><p></p></td><td><p> </p></td><td><p>True; False</p></td></tr><tr><td><p>GenerateKeywords</p></td><td><p>Indicateur booléen indiquant si un fichier XML de mot-clé est requis ou non.</p></td><td><p>True; False. </p></td></tr><tr><td><p>ForceFullCaption</p></td><td><p>Indicateur booléen spécifiant s’il faut forcer ou non les sous-titres complets (quel que soit le niveau de confiance).  </p><p>La valeur par défaut est false, auquel cas les mots et expressions dont le niveau de confiance est inférieur ou égal à 50 % sont omis dans les sous-titres finaux et remplacés par des points de suspension («... »).  Les points de suspension sont utiles pour le contrôle de la qualité et l’audit des sous-titres.</p></td><td><p>True; False. </p></td></tr></table> |
 
-### <a id="error_codes"></a>Codes d’erreur
+### <a name="error-codes"></a><a id="error_codes"></a>Codes d’erreur
 En cas d’erreur, Azure Media indexeur doit signaler un des codes d’erreur suivants :
 
 | Code | Nom | Causes possibles |
@@ -265,7 +265,7 @@ En cas d’erreur, Azure Media indexeur doit signaler un des codes d’erreur su
 | 4000 |Indexation en lot partiellement réussie |Impossible d'indexer certains des fichiers multimédias d’entrée. Pour plus d’informations, consultez <a href="#output_files">Fichiers de sortie</a>. |
 | Autres |Erreurs internes |Veuillez contacter l’équipe du support technique. indexer@microsoft.com |
 
-## <a id="supported_languages"></a>Langues prises en charge
+## <a name="supported-languages"></a><a id="supported_languages"></a>Langues prises en charge
 Les langues prises en charge pour le moment sont l’anglais et l’espagnol.  
 
 ## <a name="media-services-learning-paths"></a>Parcours d’apprentissage de Media Services

@@ -8,11 +8,11 @@ ms.date: 01/24/2020
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: fb931c309b5f85902d8abc9cc6da45576bff4041
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78358101"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79229729"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considérations relatives à la mise en réseau pour un environnement App Service Environment #
 
@@ -40,7 +40,7 @@ Si vous possédez un ASE ILB, l’adresse de l’équilibreur de charge interne 
 
 ## <a name="ase-subnet-size"></a>Taille du sous-réseau de l’ASE ##
 
-La taille du sous-réseau utilisé pour héberger un ASE ne peut pas être modifiée une fois l’ASE déployé.  L’ASE utilise une adresse pour chaque rôle d’infrastructure, ainsi que pour chaque instance de plan App Service Isolé.  De plus, cinq adresses sont utilisées par Azure Networking pour chaque sous-réseau créé.  Un ASE sans aucun plan App Service utilise 12 adresses avant la création d’une application.  S’il s’agit d’un ASE ILB, il utilise 13 adresses avant la création d’une application dans cet environnement. Lorsque vous augmentez la taille des instances de votre ASE, les rôles d’infrastructure sont ajoutés à chaque fois que les instances de votre plan App Service sont multipliées par 15 ou 20.
+La taille du sous-réseau utilisé pour héberger un ASE ne peut pas être modifiée une fois l’ASE déployé.  L’ASE utilise une adresse pour chaque rôle d’infrastructure, ainsi que pour chaque instance de plan App Service Isolé.  De plus, cinq adresses sont utilisées par Azure Networking pour chaque sous-réseau créé.  Un ASE sans aucun plan App Service utilise 12 adresses avant la création d’une application.  S’il s’agit d’un ASE ILB, il utilise 13 adresses avant la création d’une application dans cet environnement. Lorsque vous effectuez un scale-out de votre ASE, les rôles d’infrastructure sont ajoutés à chaque fois que les instances de votre plan App Service sont multipliées par 15 ou 20.
 
    > [!NOTE]
    > Le sous-réseau doit contenir uniquement l’ASE. Veillez à choisir un espace d’adressage qui permet une croissance future. Vous ne pouvez pas modifier ce paramètre par la suite. Nous vous recommandons une taille de `/24` avec 256 adresses.

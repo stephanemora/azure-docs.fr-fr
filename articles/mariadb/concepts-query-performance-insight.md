@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: eb124f40ff915b56011d5f16cd83a9358960621e
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 88777ee44551ed6abdb7a6c7c909d6bf55db48c0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74772300"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79527842"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mariadb"></a>Query Performance Insight dans Azure Database for MariaDB
 
@@ -56,7 +56,7 @@ Vous pouvez cliquer et faire glisser dans le graphique pour réduire l’afficha
 ### <a name="wait-statistics"></a>Statistiques d’attente 
 
 > [!NOTE]
-> Les statistiques d’attente sont destinées à la résolution des problèmes de performances des requêtes. Nous vous recommandons de ne les activer qu’à des fins de résolution des problèmes. <br>Si le portail Azure indique le message d’erreur « *En raison du problème rencontré pour « Microsoft.DBforMariaDB », il est impossible de répondre à la demande. Si ce problème persiste ou est inattendu, contactez le support avec ces informations.*  ». quand vous visualisez les statistiques d’attente, utilisez une période plus courte.
+> Les statistiques d’attente sont destinées à la résolution des problèmes de performances des requêtes. Nous vous recommandons de ne les activer qu’à des fins de résolution des problèmes. <br>Si le portail Azure indique le message d’erreur « *En raison du problème rencontré pour « Microsoft.DBforMariaDB », il est impossible de répondre à la demande. Si ce problème persiste ou est inattendu, contactez le support avec ces informations.*  » quand vous visualisez les statistiques d’attente, utilisez une période plus courte.
 
 Les statistiques d’attente fournissent une vue des événements d’attente qui se produisent pendant l’exécution d’une requête spécifique. Pour en savoir plus sur les types d’événements d’attente, consultez la [documentation du moteur MySQL](https://go.microsoft.com/fwlink/?linkid=2098206).
 

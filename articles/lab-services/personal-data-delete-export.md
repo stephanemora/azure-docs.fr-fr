@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 01/16/2020
 ms.author: spelluru
 ms.openlocfilehash: c87e2fb534480bbf9bbe625d67782e5a11eda18c
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76169700"
 ---
 # <a name="export-or-delete-personal-data-from-azure-devtest-labs"></a>Exporter ou supprimer des données personnelles à partir d’Azure DevTest Labs
@@ -169,7 +169,7 @@ Le fichier **virtualmachines.csv** contient les colonnes de données suivantes 
 | ResourceGroupName | Nom du groupe de ressources qui contient la machine virtuelle | 
 | ResourceId | ID de ressource complet pour la machine virtuelle. |
 | ResourceUId | GUID pour la machine virtuelle |
-| Name | Nom de la machine virtuelle. |
+| Nom | Nom de la machine virtuelle. |
 | CreatedTime | Date-heure à laquelle la machine virtuelle a été créée. |
 | DeletedDate | Date-heure à laquelle la machine virtuelle a été supprimée. Si la valeur est vide, la suppression n’a pas encore eu lieu. |
 | ResourceOwner | Propriétaire de la machine virtuelle. Si la valeur est vide, il s’agit d’une machine virtuelle qui peut être revendiquée ou créée par un principal de service. |
@@ -197,7 +197,7 @@ Les colonnes de données contenues dans **Disks. csv** sont répertoriées ci-de
 | ResourceGroupName | Nom du groupe de ressources qui contient le laboratoire | 
 | ResourceId | ID de ressource complet pour la machine virtuelle. |
 | ResourceUId | GUID pour la machine virtuelle |
- |Name | Nom du disque attaché |
+ |Nom | Nom du disque attaché |
 | CreatedTime |La date et l'heure de création du disque de données. |
 | DeletedDate | La date et l’heure de suppression du disque de données. |
 | ResourceStatus | État de la ressource. Actif, si la ressource existe. Inactif, en cas de suppression. |

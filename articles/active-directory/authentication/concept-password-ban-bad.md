@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ef127d120b32f5344bce0f68d79f48401087f0ce
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848610"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231013"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Éliminer les mots de passe incorrects de votre organisation
 
@@ -98,7 +98,7 @@ Chaque fois qu’un utilisateur change ou réinitialise son mot de passe, la for
 
 Même si le mot de passe d'un utilisateur contient un mot interdit, il peut être accepté s'il est globalement suffisamment fort. Un mot de passe nouvellement configuré passe par les étapes suivantes pour évaluer sa force globale et déterminer s'il doit être accepté ou rejeté.
 
-### <a name="step-1-normalization"></a>Étape 1 : Normalisation
+### <a name="step-1-normalization"></a>Étape 1 : Normalisation
 
 Un nouveau mot de passe est d'abord soumis à un processus de normalisation. Cette technique permet de mapper un petit ensemble de mots de passe interdits à un ensemble beaucoup plus large de mots de passe potentiellement faibles.
 
@@ -113,7 +113,7 @@ La normalisation se décompose en deux parties.  Premièrement, toutes les majus
 
 Exemple : supposons que le mot de passe « blank » soit interdit et qu'un utilisateur tente de remplacer son mot de passe par « Bl@nK ». Bien que « Bl@nk » ne soit pas spécifiquement interdit, le processus de normalisation le remplace par « blank », qui est un mot de passe interdit.
 
-### <a name="step-2-check-if-password-is-considered-banned"></a>Étape 2 : Déterminer si le mot de passe est interdit
+### <a name="step-2-check-if-password-is-considered-banned"></a>Étape 2 : Déterminer si le mot de passe est interdit
 
 #### <a name="fuzzy-matching-behavior"></a>Correspondance approximative
 

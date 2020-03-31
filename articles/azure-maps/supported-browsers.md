@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.openlocfilehash: e81b15b974469d319384a67b08512130b7876a30
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76988785"
 ---
 # <a name="web-sdk-supported-browsers"></a>Navigateurs pris en charge pour le kit SDK web
@@ -61,7 +61,7 @@ Les modules de SDK web suivants sont également pris en charge dans Node.js :
 
 - Module Services ([documentation](how-to-use-services-module.md) | [module npm](https://www.npmjs.com/package/azure-maps-rest))
 
-## <a name="Target-Legacy-Browsers"></a>Navigateurs hérités cibles
+## <a name="target-legacy-browsers"></a><a name="Target-Legacy-Browsers"></a>Navigateurs hérités cibles
 
 Vous pouvez cibler des navigateurs plus anciens qui ne prennent pas en charge WebGL ou qui en ont seulement une prise en charge limitée. Dans ces cas-là, nous vous recommandons d’utiliser les services Azure Maps avec un contrôle de carte open source tel que [Leaflet](https://leafletjs.com/). Voici un exemple :
 

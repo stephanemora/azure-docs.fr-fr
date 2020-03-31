@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/10/2019
 ms.author: markscu
 ms.openlocfilehash: 4ace0de6d252680eb64990277b9478adf752f54d
-ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79087006"
 ---
 # <a name="job-and-task-error-checking"></a>Vérification des erreurs de travail et de tâche

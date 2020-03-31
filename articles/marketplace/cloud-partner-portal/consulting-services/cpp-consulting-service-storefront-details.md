@@ -1,19 +1,18 @@
 ---
 title: Entrer les détails d’une vitrine pour une offre de conseil | Place de marché Azure
 description: Définissez des détails d’une vitrine dans une offre de service de conseil Azure ou Dynamics 365 dans le Portail Cloud Partner.
-services: Azure, Marketplace, Cloud Partner Portal,
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.author: pabutler
-ms.openlocfilehash: 557cfeb66301650e932e5ce271080e9fc8a256d6
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.author: dsindona
+ms.openlocfilehash: 7e1989ee5fcc428bc7d29c17432ded8dab24ecee
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77191163"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80281695"
 ---
 # <a name="storefront-details-tab"></a>Onglet des informations sur les vitrines
 

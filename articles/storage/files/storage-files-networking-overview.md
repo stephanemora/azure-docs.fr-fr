@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 02/22/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 09d7f93c7a1d8ad9e567ecfe0bb3854d9d54f6e0
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 383ad5e5063a0a207320a517c34f3b41cc57804a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77597743"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80067151"
 ---
 # <a name="azure-files-networking-considerations"></a>Considérations relatives à la mise en réseau Azure Files 
 Vous pouvez vous connecter à un partage de fichiers Azure de deux manières :
@@ -22,12 +22,14 @@ Vous pouvez vous connecter à un partage de fichiers Azure de deux manières :
 
 Cet article explique comment configurer la mise en réseau lorsque votre cas d’utilisation demande à accéder directement au partage de fichiers Azure au lieu d’utiliser Azure File Sync. Pour plus d’informations sur les considérations relatives à la mise en réseau pour un déploiement d’Azure File Sync, voir [Paramètres de proxy et de pare-feu d’Azure File Sync](storage-sync-files-firewall-and-proxy.md).
 
-La configuration réseau des partages de fichiers Azure s’effectue sur le compte de stockage Azure. Un compte de stockage est une construction de gestion qui représente un pool de stockage partagé dans lequel vous pouvez déployer plusieurs partages de fichiers, ainsi que d’autres ressources de stockage, telles que des conteneurs d’objets blob ou des files d’attente. Les comptes de stockage présentent plusieurs paramètres qui permettent sécuriser l’accès réseau à vos partages de fichiers : points de terminaison réseau, paramètres de pare-feu de compte de stockage et chiffrement en transit.
+La configuration réseau des partages de fichiers Azure s’effectue sur le compte de stockage Azure. Un compte de stockage est une construction de gestion qui représente un pool de stockage partagé dans lequel vous pouvez déployer plusieurs partages de fichiers, ainsi que d’autres ressources de stockage, telles que des conteneurs d’objets blob ou des files d’attente. Les comptes de stockage présentent plusieurs paramètres qui permettent sécuriser l’accès réseau à vos partages de fichiers : points de terminaison réseau, paramètres de pare-feu de compte de stockage et chiffrement en transit. 
+
+Avant d’entamer la lecture de ce guide conceptuel, nous vous recommandons de lire [Planification d’un déploiement Azure Files](storage-files-planning.md).
 
 ## <a name="accessing-your-azure-file-shares"></a>Accès à vos partages de fichiers Azure
 Quand vous déployez un partage de fichiers Azure dans un compte de stockage, le partage de fichiers est immédiatement accessible via le point de terminaison public du compte de stockage. Cela signifie que les demandes authentifiées, comme celles qui sont autorisées par l’identité d’ouverture de session d’un utilisateur, peuvent provenir de l’intérieur ou de l’extérieur d’Azure en toute sécurité. 
 
-Dans de nombreux environnements de clients, un montage initial du partage de fichiers Azure sur votre station de travail locale échouera, alors même que des montages à partir de machines virtuelles Azure ont réussi. Cela est dû au fait que de nombreuses organisations et autres fournisseurs de services Internet bloquent le port dont se sert SMB pour communiquer, à savoir le port 445. Cette pratique résulte des recommandations de sécurité concernant les versions héritées et déconseillées du protocole SMB. Même si SMB 3.0 est un protocole sécurisé pour Internet, les versions antérieures de SMB, en particulier SMB 1.0, ne le sont pas. Les partages de fichiers Azure sont uniquement accessibles en externe via SMB 3.0 et le protocole FileREST (qui est également un protocole sécurisé pour Internet) via le point de terminaison public.
+Dans de nombreux environnements de clients, un montage initial du partage de fichiers Azure sur votre station de travail locale échouera, alors même que les montages à partir de machines virtuelles Azure réussissent. Cela est dû au fait que de nombreuses organisations et autres fournisseurs de services Internet bloquent le port dont se sert SMB pour communiquer, à savoir le port 445. Cette pratique résulte des recommandations de sécurité concernant les versions héritées et déconseillées du protocole SMB. Même si SMB 3.0 est un protocole sécurisé pour Internet, les versions antérieures de SMB, en particulier SMB 1.0, ne le sont pas. Les partages de fichiers Azure sont uniquement accessibles en externe via SMB 3.0 et le protocole FileREST (qui est également un protocole sécurisé pour Internet) via le point de terminaison public.
 
 Sachant que le moyen le plus simple d’accéder à votre partage de fichiers Azure en local est d’ouvrir votre réseau local au port 445, Microsoft recommande d’effectuer les étapes suivantes de façon à supprimer SMB 1.0 de votre environnement :
 
@@ -65,6 +67,8 @@ L’utilisation de points de terminaison privés avec Azure Files vous permet de
 - Établir une connexion sécurisée avec vos partages de fichiers Azure à partir de réseaux locaux en utilisant une connexion VPN ou ExpressRoute avec un peering privé.
 - Sécuriser vos partages de fichiers Azure en configurant le pare-feu du compte de stockage de façon à bloquer toutes les connexions sur le point de terminaison public. Par défaut, la création d’un point de terminaison privé n’a pas pour effet de bloquer les connexions au point de terminaison public.
 - Renforcer la sécurité du réseau virtuel en bloquant l’exfiltration des données du réseau virtuel (et des limites du peering).
+
+Pour créer un point de terminaison privé, consultez [Configuration des points de terminaison privés pour Azure Files](storage-files-networking-endpoints.md).
 
 ### <a name="private-endpoints-and-dns"></a>Points de terminaison privés et DNS
 Quand vous créez un point de terminaison privé, par défaut, nous créons aussi une zone DNS privée (ou en mettons une existante à jour) correspondant au sous-domaine `privatelink`. Vous n’êtes pas à proprement parler tenu de créer une zone DNS privée pour utiliser un point de terminaison privé avec votre compte de stockage. Cependant, cela est en général fortement recommandé et explicitement exigé quand il s’agit de monter un partage de fichiers Azure avec un principal d’utilisateur Active Directory ou d’y accéder à partir de l’API FileREST.
@@ -126,7 +130,7 @@ Cela traduit le fait que le compte de stockage peut exposer à la fois le point 
 
 - Modifiez le fichier hosts sur vos clients pour faire en sorte que `storageaccount.file.core.windows.net` soit résolu en adresse IP privée du point de terminaison privé souhaité. Cela est fortement déconseillé pour les environnements de production, car vous devrez apporter ces modifications à chaque client désireux de monter vos partages de fichiers Azure, et les modifications apportées au compte de stockage ou au point de terminaison privé ne seront pas gérées automatiquement.
 - Créez un enregistrement A pour `storageaccount.file.core.windows.net` sur vos serveurs DNS locaux. L’avantage de cette méthode est que les clients de votre environnement local pourront résoudre automatiquement le compte de stockage sans avoir à configurer chaque client. Cependant, cette solution s’avère tout aussi fragile pour ce qui est de la modification du fichier hosts, car les modifications n’apparaîtront pas. Bien que fragile, cette solution peut s’avérer être le meilleur choix pour certains environnements.
-- Transférez la zone de `core.windows.net` de vos serveurs DNS locaux vers votre zone DNS privée Azure. Il est possible d’atteindre l’hôte DNS privé Azure via une adresse IP spéciale (`168.63.129.16`) qui est uniquement accessible à l’intérieur des réseaux virtuels qui sont liés à la zone DNS privée Azure. Pour contourner cette limitation, vous pouvez exécuter des serveurs DNS supplémentaires à l’intérieur de votre réseau virtuel, qui transféreront `core.windows.net` vers la zone DNS privée Azure. Pour simplifier cette configuration, nous avons prévu des applets de commande PowerShell qui assurent le déploiement automatique des serveurs DNS dans votre réseau virtuel Azure et les configurent comme vous le souhaitez.
+- Transférez la zone de `core.windows.net` de vos serveurs DNS locaux vers votre zone DNS privée Azure. Il est possible d’atteindre l’hôte DNS privé Azure via une adresse IP spéciale (`168.63.129.16`) qui est uniquement accessible à l’intérieur des réseaux virtuels qui sont liés à la zone DNS privée Azure. Pour contourner cette limitation, vous pouvez exécuter des serveurs DNS supplémentaires à l’intérieur de votre réseau virtuel, qui transféreront `core.windows.net` vers la zone DNS privée Azure. Pour simplifier cette configuration, nous avons prévu des applets de commande PowerShell qui assurent le déploiement automatique des serveurs DNS dans votre réseau virtuel Azure et les configurent comme vous le souhaitez. Pour savoir comment configurer le transfert DNS, consultez [Configuration du DNS avec Azure Files](storage-files-networking-dns.md).
 
 ## <a name="storage-account-firewall-settings"></a>Paramètres de pare-feu de compte de stockage
 Un pare-feu est une stratégie réseau qui détermine les demandes qui sont autorisées à accéder au point de terminaison public d’un compte de stockage. En utilisant le pare-feu de compte de stockage, vous pouvez limiter l’accès au point de terminaison public du compte de stockage à certaines adresses IP, à des plages ou à un réseau virtuel. En général, la plupart des stratégies de pare-feu d’un compte de stockage limitent l’accès réseau à un ou plusieurs réseaux virtuels. 

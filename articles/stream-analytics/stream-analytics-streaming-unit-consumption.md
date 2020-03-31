@@ -8,11 +8,11 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/27/2020
 ms.openlocfilehash: 397e455c8b6a1097e2a32473036e1acd2bbdf2eb
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77921145"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79232045"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Comprendre et ajuster les unités de streaming
 
@@ -111,7 +111,7 @@ Le nombre d’événements sans correspondance de la jointure affecte la consomm
 
 Dans cet exemple, il est possible qu’un grand nombre de publicités s’affichent et que quelques personnes cliquent dessus ; cette configuration est requise pour conserver l’ensemble des événements dans la fenêtre de temps. La consommation de mémoire est proportionnelle à la taille de la fenêtre et au taux d’événements. 
 
-Pour corriger ce problème, envoyez des événements à Event Hub avec un partitionnement par clés de jointure (ID dans ce cas) et augmentez la taille des instances de la requête en autorisant le système à traiter chaque partition d’entrée séparément à l’aide de **PARTITION BY** comme indiqué :
+Pour corriger ce problème, envoyez des événements à Event Hub avec un partitionnement par clés de jointure (ID dans ce cas) et effectuez un scale-out de la requête en autorisant le système à traiter chaque partition d’entrée séparément à l’aide de **PARTITION BY** comme indiqué :
 
    ```sql
    SELECT clicks.id
@@ -125,12 +125,12 @@ Une fois que la requête est partitionnée, elle est répartie sur plusieurs nœ
 ## <a name="temporal-analytic-functions"></a>Fonctions analytiques temporelles
 La mémoire consommée (taille de l’état) d’une fonction analytique temporelle est proportionnelle au taux d’événements multiplié par la durée. La mémoire consommée par les fonctions analytiques n’est pas proportionnelle à la taille de la fenêtre, mais plutôt le nombre de partitions dans chaque fenêtre de temps.
 
-La solution est similaire à celle de la jointure temporelle. Vous pouvez augmenter la taille des instances de la requête à l’aide de **PARTITION BY**. 
+La solution est similaire à celle de la jointure temporelle. Vous pouvez effectuer un scale-out de la requête à l’aide de **PARTITION BY**. 
 
 ## <a name="out-of-order-buffer"></a>Mémoire tampon d’événements en désordre 
 L’utilisateur peut configurer la taille de la mémoire tampon d’événements en désordre dans le volet de configuration Ordre des événements. La mémoire tampon est utilisée pour contenir des entrées pendant la durée d’affichage de la fenêtre et les réorganiser. La taille de la mémoire tampon est proportionnelle à la vitesse d’entrée des événements multipliée par la taille de la fenêtre d’événements en désordre. La taille de fenêtre par défaut est égale à 0. 
 
-Pour corriger le dépassement de capacité de la mémoire tampon, augmenter la taille des instances de la requête à l’aide de **PARTITION BY**. Une fois que la requête est partitionnée, elle est répartie sur plusieurs nœuds. Par conséquent, le nombre d’événements arrivant dans chaque nœud est réduit, ce qui réduit d’autant le nombre d’événements dans chaque mémoire tampon de réorganisation. 
+Pour corriger le dépassement de capacité de la mémoire tampon, effectuez un scale-out de la requête à l’aide de **PARTITION BY**. Une fois que la requête est partitionnée, elle est répartie sur plusieurs nœuds. Par conséquent, le nombre d’événements arrivant dans chaque nœud est réduit, ce qui réduit d’autant le nombre d’événements dans chaque mémoire tampon de réorganisation. 
 
 ## <a name="input-partition-count"></a>Nombre de partitions d’entrée 
 Chaque partition d’entrée d’une entrée de travail a une mémoire tampon. Plus le nombre de partitions d’entrée est élevé, plus le travail consomme de ressources. Pour chaque unité de streaming, Azure Stream Analytics peut traiter environ 1 Mo/s d’entrée. Par conséquent, vous pouvez optimiser en faisant correspondre le nombre d’unités de streaming Stream Analytics avec le nombre de partitions dans votre Concentrateur d’événements. 

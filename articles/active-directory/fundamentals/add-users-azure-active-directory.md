@@ -14,11 +14,11 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3d72616422934501e042375edfb10a25aa27c527
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073498"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79230433"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Ajouter ou supprimer des utilisateurs à l’aide d’Azure Active Directory
 
@@ -40,15 +40,15 @@ Pour ajouter un nouvel utilisateur, procédez comme suit :
 
 1. Sur la page **Utilisateur**, entrez les informations pour cet utilisateur :
 
-   - **Nom**. Requis. Prénom et nom du nouvel utilisateur. Par exemple, *Mary Parker*.
+   - **Nom**. Obligatoire. Prénom et nom du nouvel utilisateur. Par exemple, *Mary Parker*.
 
-   - **Nom d’utilisateur**. Requis. Nom d’utilisateur du nouvel utilisateur. Par exemple : `mary@contoso.com`.
+   - **Nom d’utilisateur**. Obligatoire. Nom d’utilisateur du nouvel utilisateur. Par exemple : `mary@contoso.com`.
 
      Le domaine dans le nom d’utilisateur doit correspondre au nom de domaine par défaut initial, *\<votrenomdedomaine>.onmicrosoft.com*, ou à un nom de domaine personnalisé, comme *contoso.com*. Pour plus d’informations sur la création d’un nom de domaine personnalisé, consultez [Ajouter votre nom de domaine personnalisé à l’aide du Portail Azure Active Directory](add-custom-domain.md).
 
    - **Groupes**. Si vous le souhaitez, vous pouvez ajouter l’utilisateur à un ou plusieurs groupes existants. Vous pouvez également ajouter l’utilisateur à des groupes ultérieurement. Pour plus d’informations sur l’ajout d’utilisateurs à des groupes, consultez [Créer un groupe de base et ajouter des membres avec Azure Active Directory](active-directory-groups-create-azure-portal.md).
 
-   - **Rôle d'annuaire** : si vous devez attribuer des autorisations d’administration Azure AD à l’utilisateur, vous pouvez les ajouter à un rôle Azure AD. Vous pouvez attribuer à l'utilisateur le rôle d'Administrateur général, ou lui confier un ou plusieurs des rôles d'administrateur limités dans Azure AD. Pour plus d’informations sur l’affectation de rôles, consultez [Attribuer des rôles aux utilisateurs](active-directory-users-assign-role-azure-portal.md).
+   - **Rôle d’annuaire** : si vous devez attribuer des autorisations d’administration Azure AD à l’utilisateur, vous pouvez les ajouter à un rôle Azure AD. Vous pouvez attribuer à l'utilisateur le rôle d'Administrateur général, ou lui confier un ou plusieurs des rôles d'administrateur limités dans Azure AD. Pour plus d’informations sur l’affectation de rôles, consultez [Attribuer des rôles aux utilisateurs](active-directory-users-assign-role-azure-portal.md).
 
    - **Informations sur l’emploi** : Vous pouvez ajouter ici des informations supplémentaires sur l’utilisateur, ou le faire ultérieurement. Pour plus d’informations sur l’ajout d’informations sur l’utilisateur, consultez [Ajouter ou modifier des informations de profil utilisateur](active-directory-users-profile-azure-portal.md).
 

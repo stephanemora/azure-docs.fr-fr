@@ -10,12 +10,12 @@ ms.author: ramakoni
 ms.reviewer: ''
 ms.date: 09/27/2019
 manager: dcscontentpm
-ms.openlocfilehash: ed80482147d415ed890bb50ee70be9457c9c5211
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: cf2d9b218fe63414af2446b8562d3ba187b2d395
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77562290"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79535763"
 ---
 # <a name="azure-sql-database-importexport-service-takes-a-long-time-to-import-or-export-a-database"></a>Le service Import/Export d’Azure SQL Database prend beaucoup de temps pour importer ou exporter une base de données
 
@@ -47,7 +47,7 @@ Si vos exportations de base de données sont uniquement utilisées pour la récu
 
 ## <a name="things-to-consider-when-you-export-or-import-an-azure-sql-database"></a>Éléments à prendre en compte lorsque vous exportez ou importez une base de données SQL Azure
 
-* Toutes les méthodes décrites dans cet article utilisent le quota « Unité de transaction de base de données » (ou DTU, pour « Database Transaction Unit »), ce qui entraîne une limitation par le service Azure SQL Database. Vous pouvez [afficher les statistiques DTU pour la base de données dans le portail Azure](https://docs.microsoft.com/azure/sql-database/sql-database-monitor-tune-overview#monitor-database-performance). Si la base de données atteint ses limites de ressources, [mettez à niveau le niveau de service](https://docs.microsoft.com/azure/sql-database/sql-database-scale-resources) pour ajouter d’autres ressources.
+* Toutes les méthodes décrites dans cet article utilisent le quota « Unité de transaction de base de données » (ou DTU, pour « Database Transaction Unit »), ce qui entraîne une limitation par le service Azure SQL Database. Vous pouvez [afficher les statistiques DTU pour la base de données dans le portail Azure](https://docs.microsoft.com/azure/sql-database/sql-database-monitor-tune-overview#sql-database-resource-monitoring). Si la base de données atteint ses limites de ressources, [mettez à niveau le niveau de service](https://docs.microsoft.com/azure/sql-database/sql-database-scale-resources) pour ajouter d’autres ressources.
 * Dans l’idéal, vous devez exécuter des applications clientes (telles que l’utilitaire SqlPackage ou votre application DAC personnalisée) à partir d’une machine virtuelle dans la même région que votre base de données SQL. Dans le cas contraire, vous risquez de rencontrer des problèmes de performances liés à la latence du réseau.
 * L’exportation de tables volumineuses sans index cluster peut être très lente, voire entraîner un échec. Ce comportement se produit parce que la table ne peut pas être fractionnée et exportée en parallèle. Au lieu de cela, elle doit être exportée dans une transaction unique, ce qui entraîne un ralentissement des performances et une défaillance potentielle pendant l’exportation, en particulier pour les tables volumineuses.
 

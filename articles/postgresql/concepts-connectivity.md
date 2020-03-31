@@ -8,10 +8,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: fe5b772946bece165a4e09f170355dc7b595a48f
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74768841"
 ---
 # <a name="handling-transient-connectivity-errors-for-azure-database-for-postgresql---single-server"></a>Gestion des erreurs de connectivité temporaires pour Azure Database pour PostgreSQL - Serveur unique
@@ -30,7 +30,7 @@ Les erreurs temporaires doivent être gérées à l’aide de la logique de nouv
 * Une connexion inactive est supprimée côté serveur. Lorsque vous essayez d’émettre une commande, elle ne peut pas s’exécuter
 * Une connexion active qui exécute actuellement une commande est supprimée.
 
-Le premier et le deuxième cas sont assez simples à gérer. Essayez d’ouvrir à nouveau la connexion. Lorsque vous réussissez, l’erreur temporaire a été atténuée par le système. Vous pouvez à nouveau utiliser votre base de données Azure Database pour PostgreSQL. Nous vous recommandons d'attendre avant de réessayer la connexion. Abandonnez si les tentatives initiales échouent. Ainsi, le système peut utiliser toutes les ressources disponibles pour résoudre la situation d’erreur. Nous vous recommandons de procéder comme suit :
+Le premier et le deuxième cas sont assez simples à gérer. Essayez d’ouvrir à nouveau la connexion. Lorsque vous réussissez, l’erreur temporaire a été atténuée par le système. Vous pouvez à nouveau utiliser votre base de données Azure Database pour PostgreSQL. Nous vous recommandons d’attendre avant de réessayer la connexion. Abandonnez si les tentatives initiales échouent. Ainsi, le système peut utiliser toutes les ressources disponibles pour résoudre la situation d’erreur. Nous vous recommandons de procéder comme suit :
 
 * Patientez 5 secondes avant votre première nouvelle tentative.
 * Pour chaque nouvelle tentative suivante, augmentez l’attente de façon exponentielle, jusqu’à 60 secondes.
@@ -38,7 +38,7 @@ Le premier et le deuxième cas sont assez simples à gérer. Essayez d’ouvrir 
 
 Lorsqu’une connexion échoue avec une transaction active, il est plus difficile de gérer correctement la récupération. Il existe deux cas : Si la transaction était en lecture seule par nature, vous pouvez rouvrir la connexion et relancer la transaction. Toutefois, si la transaction a également été écrite dans la base de données, vous devez déterminer si la transaction a été annulée ou si elle a réussi avant que l’erreur temporaire se produise. Dans ce cas, il se peut que vous n’ayez tout simplement pas reçu l’accusé de réception de validation du serveur de base de données.
 
-Une façon d’y remédier est de générer un identifiant unique sur le client qui est utilisé pour toutes les tentatives. Vous transmettez cet ID unique dans le cadre de la transaction au serveur et vous le stockez dans une colonne avec une contrainte unique. Ainsi, vous pouvez retenter la transaction en toute sécurité. Elle aboutit si la transaction précédente a été restaurée et que l’ID unique généré par le client n’existe pas encore dans le système. Elle échoue et indique une violation de clé en double si l’ID unique a été précédemment stocké, car la transaction précédente s'est correctement terminée.
+Une façon d’y remédier est de générer un identifiant unique sur le client qui est utilisé pour toutes les tentatives. Vous transmettez cet ID unique dans le cadre de la transaction au serveur et vous le stockez dans une colonne avec une contrainte unique. Ainsi, vous pouvez retenter la transaction en toute sécurité. Elle aboutit si la transaction précédente a été restaurée et que l’ID unique généré par le client n’existe pas encore dans le système. Elle échoue et indique une violation de clé en double si l’ID unique a été précédemment stocké, car la transaction précédente s’est correctement terminée.
 
 Si votre programme communique avec Azure Database pour PostgreSQL par le biais d’un intergiciel (middleware) tiers, demandez au fournisseur s’il contient une logique de nouvelle tentative pour les erreurs temporaires.
 

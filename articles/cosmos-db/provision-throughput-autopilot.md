@@ -7,11 +7,11 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 89af30788fe5129cddc6a3607b8c722549b610d1
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264048"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79225677"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-in-autopilot-mode-preview"></a>Créer des conteneurs et des bases de données Azure Cosmos en mode Autopilot (Préversion)
 
@@ -82,7 +82,7 @@ Vous pouvez configurer les bases de données ou les conteneurs en mode Autopilot
 
 Pour créer une base de données à débit partagé avec le mode Autopilot, sélectionnez l'option **Approvisionner le débit d’une base de données**.
 
-## <a id="autopilot-limits"></a> Limites de débit et de stockage pour AutoPilot
+## <a name="throughput-and-storage-limits-for-autopilot"></a><a id="autopilot-limits"></a> Limites de débit et de stockage pour AutoPilot
 
 Le tableau suivant indique les limites de débit et de stockage pour AutoPilot pour les différentes options en mode AutoPilot :
 

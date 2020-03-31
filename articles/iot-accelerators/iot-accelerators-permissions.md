@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: dobett
 ms.openlocfilehash: 87f6b9cef50e4b8c388be835b2aa7bed8177ac4b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61447430"
 ---
 # <a name="use-the-azureiotsolutionscom-site-to-deploy-your-solution-accelerator"></a>Utiliser le site azureiotsolutions.com pour déployer votre accélérateur de solution
@@ -28,7 +28,7 @@ Vous pouvez déployer les accélérateurs de solution dans les configurations su
 
 * **Standard** : un déploiement étendu de l’infrastructure pour le développement d’un environnement de production. Azure Container Service déploie les microservices sur plusieurs machines virtuelles Azure. Kubernetes orchestre les conteneurs Docker qui hébergent les microservices individuels.
 * **De base** : une version à coût réduit pour une démonstration ou pour tester un déploiement. Tous les microservices se déploient sur une seule machine virtuelle Azure.
-* **Locales** : un déploiement de machine local pour les tests et le développement. Cette approche déploie les microservices vers un conteneur Docker local et se connecte aux services IoT Hub, Azure Cosmos DB et Stockage Azure dans le cloud.
+* **Local** : un déploiement de machine local pour les tests et le développement. Cette approche déploie les microservices vers un conteneur Docker local et se connecte aux services IoT Hub, Azure Cosmos DB et Stockage Azure dans le cloud.
 
 Chacun des accélérateurs de solution utilise une combinaison différente des services Azure comme IoT Hub, Azure Stream Analytics et Cosmos DB. Pour plus d’informations, visitez [AzureIoTSolutions.com](https://www.azureiotsolutions.com/Accelerators) et sélectionnez un accélérateur de solution.
 

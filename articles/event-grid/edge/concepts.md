@@ -10,10 +10,10 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 73309e10e88c11e639e6ac6fd3bb061e1b5c685b
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72991850"
 ---
 # <a name="event-grid-concepts"></a>Concepts d’Event Grid
@@ -26,7 +26,7 @@ Un événement correspond à la plus petite quantité d’informations décrivan
 
 Pour connaître les propriétés incluses dans un événement, voir [Schéma d’événements Azure Event Grid](event-schemas.md).
 
-## <a name="publishers"></a>Éditeurs
+## <a name="publishers"></a>Serveurs de publication
 
 Un éditeur est l’utilisateur ou organisation qui décide d’envoyer des événements à Event Grid. Vous pouvez publier des événements à partir de votre propre application.
 

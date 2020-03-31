@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/14/2019
-ms.openlocfilehash: 804aeee112d060c411a4e37b5d19e4766307b0a0
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 218c1c98a2ed775ae86c1657156991879708cc7a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169165"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79217935"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Recycler et déployer un modèle Machine Learning
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Le recyclage représente un moyen de garantir que les modèles Machine Learning restent précis et qu’ils reposent sur les données les plus pertinentes. Cet article montre comment recycler et déployer un modèle Machine Learning sous la forme d’un nouveau service web dans Studio (classique). Pour recycler un service web classique, voir cet article [guide pratique](retrain-classic-web-service.md).
 
@@ -59,7 +61,7 @@ Pour cet exemple, nous utilisons le langage C# pour créer l’application de re
 
 Suivez les étapes ci-dessous pour appeler les API de recyclage :
 
-1. Créez une application console C# dans Visual Studio : **Nouveau** > **Projet** > **Visual C#**  > **Bureau classique Windows** > **Console App (.NET Framework)** .
+1. Créez une application console en C# dans Visual Studio : **Nouveau** > **Projet** > **Visual C#**  > **Bureau classique Windows** > **Application console (.NET Framework)** .
 1. Connectez-vous au portail des services web Azure Machine Learning.
 1. Cliquez sur le service web que vous utilisez.
 1. Cliquez sur **Consommer**.

@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: overview
 ms.date: 07/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4508b69261cd7b1fb5e400eaf7ffaae67d5cb476
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: b4aa5dfd288819930da2f7af36b7d70df709e638
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647960"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79473028"
 ---
 # <a name="azure-managed-applications-overview"></a>Vue d’ensemble des applications gérées Azure
 
@@ -19,7 +19,7 @@ Les applications managées Azure vous permettent de proposer aux consommateurs d
 Une application gérée est similaire à un modèle de solution de la Place de marché à une importante différence près. Dans une application managée, les ressources sont déployées vers un groupe de ressources géré par l’éditeur de l’application. Le groupe de ressources est présent dans l’abonnement du consommateur, mais une identité du locataire de l’éditeur a accès au groupe de ressources. En tant qu’éditeur, vous spécifiez le coût de l’assistance en continu de la solution.
 
 > [!NOTE]
-> Auparavant, la documentation des fournisseurs de clients Azure était incluse dans la documentation des applications managées. Cette documentation se trouve maintenant dans [Fournisseurs personnalisés Azure](../custom-providers/overview.md).
+> Jusqu’à présent, la documentation des fournisseurs personnalisés Azure était incluse dans la documentation des applications managées. Cette documentation se trouve maintenant dans [Fournisseurs personnalisés Azure](../custom-providers/overview.md).
 
 ## <a name="advantages-of-managed-applications"></a>Avantages des applications gérées
 

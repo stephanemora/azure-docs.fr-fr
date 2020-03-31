@@ -1,18 +1,18 @@
 ---
 title: Automatiser le cycle de vie de vos applications avec Visual Studio App Center et les services Azure
 description: Découvrez les services comme App Center, qui aident à configurer une compilation et une intégration continues de vos applications mobiles.
-author: elamalani
+author: codemillmatt
 ms.assetid: 34a8a070-9b3c-4faf-8588-ccff02097224
 ms.service: vs-appcenter
 ms.topic: article
-ms.date: 10/22/2019
-ms.author: emalani
-ms.openlocfilehash: 9b0a9e10a88836ce83e636db20180c3692ab4429
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/24/2020
+ms.author: masoucou
+ms.openlocfilehash: 0560f47b832ec2965d9b567e1aeff78baa9c247c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453188"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240923"
 ---
 # <a name="automate-the-lifecycle-of-your-apps-with-continuous-build-and-integration"></a>Automatisez le cycle de vie de vos application avec une compilation et une intégration continues
 
@@ -49,13 +49,13 @@ Avec la puissance ajoutée des services Visual Studio App Center, vous pouvez co
 - [Prise en main d’App Center Build](/appcenter/build/)
 
 ## <a name="azure-pipelines"></a>Azure Pipelines
- [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) dans Azure DevOps est un service complet d’intégration continue (CI) et de livraison continue (CD) qui fonctionne avec votre fournisseur Git préféré. Il peut être déployé sur la plupart des services cloud les plus populaires, y compris Azure. Vous pouvez commencer avec votre code sur GitHub, GitHub Enterprise Server, GitLab, Bitbucket Cloud ou Azure Repos. Une fois déployé, il vous permet d’automatiser la génération, le test et le déploiement de votre code pour Microsoft Azure, Google Cloud Platform, ou Amazon Web Services (AWS).
+ [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) dans Azure DevOps est un service complet d’intégration continue (CI) et de livraison continue (CD) qui fonctionne avec votre fournisseur Git préféré. Il peut être déployé sur la plupart des services cloud les plus populaires, y compris Azure. Vous pouvez commencer avec votre code sur GitHub, GitHub Enterprise Server, GitLab, Bitbucket Cloud ou Azure Repos. Vous pouvez ensuite automatiser la génération, le test et le déploiement de votre code sur Microsoft Azure, Google Cloud Platform, ou Amazon Web Services (AWS).
 
 **Fonctionnalités clés**
 - **Expérience basée sur les tâches simplifiée pour la configuration d’un serveur CI :** Configurez un serveur CI pour les applications mobiles natives (Android, iOS et Windows) et multiplateformes (Xamarin, Cordova et React Native), en plus des technologies serveur basées ou non sur Microsoft (Node.js, Java).
 - **Tous les langages, plateformes et cloud :** Compiler, tester et déployer des applications Node.js, Python, Java, PHP, Ruby, Go, C/C++, C#, Android et iOS. Exécutez en parallèle sur Linux, macOS et Windows. Déployez sur des fournisseurs de cloud comme Azure, AWS et Google Cloud Platform. Distribuez des applications mobiles via des canaux bêta et des App Stores.
 - **Prise en charge native des conteneurs :** Créez facilement des conteneurs et envoyez-les à n’importe quel registre. Déployez des conteneurs sur des hôtes indépendants ou sur Kubernetes.
-- **Workflows avancés :** Créez facilement des chaînes de génération et des builds multiphases. Obtenez la prise en charge de YAML, l’intégration des tests, les portes de mise en production, la création de rapports, etc.
+- **Workflows avancés :** Créez facilement des chaînes de génération et des builds multiphases. Bénéficiez de la prise en charge de YAML, de l’intégration des tests, des portes de mise en production, de la création de rapports, etc.
 - **Extensible :** Utilisez un éventail de tâches de génération, de test et de déploiement créées par la communauté, dont des centaines d’extensions allant de Slack à SonarCloud. Vous pouvez même déployer à partir d’autres systèmes CI, tels que Jenkins. Les webhooks et API REST peuvent faciliter l’intégration.
 - **Builds hébergées dans le cloud gratuitement :** Ces builds sont disponibles pour les référentiels publics et privés.
 - **Prise en charge du déploiement vers d’autres fournisseurs cloud :** Les fournisseurs incluent AWS et Google Cloud Platform.

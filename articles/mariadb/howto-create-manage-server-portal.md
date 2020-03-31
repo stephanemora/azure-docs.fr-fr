@@ -5,19 +5,19 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: b70b4810f32941938b6afe217f94e18a0f2f3523
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 43004f8c52bbec17f78ed4be024cf75224dbd179
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74767124"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79530238"
 ---
 # <a name="manage-an-azure-database-for-mariadb-server-using-the-azure-portal"></a>Gérer un serveur Azure Database for MariaDB à l’aide du Portail Azure
 Cet article vous explique comment gérer vos serveurs Azure Database for MariaDB. Les tâches de gestion incluent notamment la mise à l’échelle du calcul et du stockage, la réinitialisation de mot de passe et l’affichage des informations relatives au serveur.
 
 ## <a name="sign-in"></a>Se connecter
-Connectez-vous au [Portail Azure](https://portal.azure.com).
+Connectez-vous au [portail Azure](https://portal.azure.com).
 
 ## <a name="create-a-server"></a>Créer un serveur
 Consultez le [guide de démarrage rapide](quickstart-create-mariadb-server-database-using-azure-portal.md) pour savoir comment créer et prendre en main un serveur Azure Database for MariaDB.
@@ -75,7 +75,7 @@ Vous pouvez modifier le mot de passe du rôle d’administrateur à l’aide du 
 
 1. Dans le Portail Azure, sélectionnez votre serveur. Dans la fenêtre **Vue d’ensemble**, sélectionnez **Réinitialiser le mot de passe**.
 
-   ![Vue d’ensemble](./media/howto-create-manage-server-portal/overview-reset-password.png)
+   ![vue d'ensemble](./media/howto-create-manage-server-portal/overview-reset-password.png)
 
 2. Entrez un nouveau mot de passe et confirmez-le. La zone de texte vous indique les exigences en matière de complexité du mot de passe.
 

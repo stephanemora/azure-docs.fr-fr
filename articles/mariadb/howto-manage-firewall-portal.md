@@ -5,18 +5,18 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 70e6611cc3006424bcd1bc3a0f0838ad40c09634
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 8be8e948595cfb93049c0d6c93f421e4902e771d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74766019"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79530663"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-portal"></a>Créer et gérer des règles de pare-feu Azure Database for MariaDB à l’aide du Portail Azure
 Les règles de pare-feu au niveau du serveur sont utiles pour gérer l’accès à un serveur Azure Database for MariaDB à partir d’une adresse IP spécifique ou d’une plage d’adresses IP.
 
-Des règles de réseau virtuel (VNet) peuvent également être utilisées pour sécuriser l’accès à votre serveur. Découvrez comment [créer et gérer des règles et des points de terminaison de service de réseau virtuel à l'aide du portail Azure](howto-manage-vnet-portal.md).
+Des règles de réseau virtuel (VNet) peuvent également être utilisées pour sécuriser l'accès à votre serveur. Découvrez comment [créer et gérer des règles et des points de terminaison de service de réseau virtuel à l'aide du portail Azure](howto-manage-vnet-portal.md).
 
 ## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Créer une règle de pare-feu au niveau du serveur dans le portail Azure
 
@@ -56,4 +56,4 @@ Répétez les étapes pour gérer les règles de pare-feu.
 
 ## <a name="next-steps"></a>Étapes suivantes
  - De même, vous pouvez utiliser un script pour [créer et gérer des règles de pare-feu Azure Database for MariaDB à l’aide d’Azure CLI](howto-manage-firewall-cli.md).
- - Pour sécuriser davantage l’accès à votre serveur, [créez et gérez des règles et des points de terminaison de service de réseau virtuel à l’aide du portail Azure](howto-manage-vnet-portal.md).
+ - Pour sécuriser davantage l'accès à votre serveur, [créez et gérez des règles et des points de terminaison de service de réseau virtuel à l'aide du portail Azure](howto-manage-vnet-portal.md).

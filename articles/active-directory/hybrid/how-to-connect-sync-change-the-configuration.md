@@ -13,13 +13,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d77882817934d5ad98f16965aeb9dc246931c495
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919067"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79230141"
 ---
-# <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Synchronisation Azure AD Connect : modifier la configuration par défaut
+# <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Synchronisation d’Azure AD Connect : modifier la configuration par défaut
 L’objectif de cet article est d’expliquer comment apporter des modifications à la configuration par défaut dans la synchronisation Azure Active Directory (Azure AD) Connect. Elle explique pas à pas la procédure pour les scénarios courants. À la fin, vous serez capable d’apporter des modifications simples à votre configuration en fonction de vos propres règles d’entreprise.
 
 > [!WARNING]
@@ -56,7 +56,7 @@ Par défaut, le [planificateur](how-to-connect-sync-feature-scheduler.md) s’ex
 1. Cliquez sur **Ajouter une nouvelle règle**.
 2. Sur la page **Description**, entrez les informations suivantes :  
    ![Filtrage des règles entrantes](./media/how-to-connect-sync-change-the-configuration/description2.png)  
-   * **Nom** : donnez un nom descriptif à la règle.
+   * **Name** : donnez un nom descriptif à la règle.
    * **Description** : texte descriptif permettant aux autres utilisateurs de comprendre l’objet de la règle.
    * **Système connecté** : système dans lequel se trouve l’objet. Dans ce cas, sélectionnez le **Connecteur Active Directory**.
    * **Type d’objet de système connecté/métaverse** : sélectionnez respectivement **Utilisateur** et **Personne**.
@@ -233,7 +233,7 @@ Pour éviter d’exporter des modifications indésirables sur Azure AD, veillez 
  3. Ouvrez Synchronization Service Manager en accédant au menu **Démarrer** > **Service de synchronisation**.
  4. Accédez à l’onglet **Opérations** et confirmez qu’aucune opération ne possède l’état *En cours*.
 
-### <a name="step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema"></a>Étape 2 : Ajouter l’attribut source au schéma du connecteur AD local
+### <a name="step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema"></a>Étape 2 : Ajouter l’attribut source au schéma du connecteur AD local
 Certains attributs Azure AD ne sont pas importés dans l’espace connecteur AD local. Pour ajouter l’attribut source à la liste des attributs importés :
 
  1. Accédez à l’onglet **Connecteurs** dans Synchronization Service Manager.
@@ -243,7 +243,7 @@ Certains attributs Azure AD ne sont pas importés dans l’espace connecteur AD 
  5. Cliquez sur **OK** pour enregistrer.
 ![Ajouter l’attribut source au schéma du connecteur AD local](./media/how-to-connect-sync-change-the-configuration/usertype1.png)
 
-### <a name="step-3-add-the-usertype-to-the-azure-ad-connector-schema"></a>Étape 3 : Ajouter UserType au schéma du Connecteur Azure AD
+### <a name="step-3-add-the-usertype-to-the-azure-ad-connector-schema"></a>Étape 3 : Ajouter UserType au schéma du Connecteur Azure AD
 Par défaut, l’attribut UserType n’est pas importé dans l’espace Azure AD Connect. Pour ajouter l’attribut UserType à la liste des attributs importés :
 
  1. Accédez à l’onglet **Connecteurs** dans Synchronization Service Manager.
@@ -254,7 +254,7 @@ Par défaut, l’attribut UserType n’est pas importé dans l’espace Azure AD
 
 ![Ajouter un attribut source au schéma du connecteur Azure AD](./media/how-to-connect-sync-change-the-configuration/usertype2.png)
 
-### <a name="step-4-create-an-inbound-synchronization-rule-to-flow-the-attribute-value-from-on-premises-active-directory"></a>Étape 4 : Créer une règle de synchronisation de trafic entrant pour transmettre la valeur de l’attribut à partir de l’Active Directory local
+### <a name="step-4-create-an-inbound-synchronization-rule-to-flow-the-attribute-value-from-on-premises-active-directory"></a>Étape 4 : Créer une règle de synchronisation de trafic entrant pour transmettre la valeur de l’attribut à partir de l’Active Directory local
 La règle de synchronisation du trafic entrant permet de transmettre la valeur de l’attribut au métaverse à partir de l’attribut source d’Active Directory en local :
 
 1. Ouvrez Synchronization Service Manager en accédant au menu **Démarrer** > **Éditeur de règles de synchronisation**.
@@ -268,13 +268,13 @@ La règle de synchronisation du trafic entrant permet de transmettre la valeur d
     | Description | *Fournissez une description* |  |
     | Système connecté | *Sélectionnez le connecteur AD local* |  |
     | Type d’objet système connecté | **Utilisateur** |  |
-    | Type d’objet Metaverse | **Person** |  |
+    | Type d’objet métaverse | **Person** |  |
     | Type de lien | **Join** |  |
-    | Precedence | *Choisissez une valeur comprise entre 1 et 99* | Les valeurs comprises entre 1 et 99 sont réservées aux règles de synchronisation personnalisées. Ne sélectionnez pas de valeur utilisée par une autre règle de synchronisation. |
+    | Priorité | *Choisissez une valeur comprise entre 1 et 99* | Les valeurs comprises entre 1 et 99 sont réservées aux règles de synchronisation personnalisées. Ne sélectionnez pas de valeur utilisée par une autre règle de synchronisation. |
 
 5. Accédez à l’onglet **Filtre d’étendue**, puis ajoutez un **groupe de filtres à étendue unique** avec la clause suivante :
 
-    | Attribut | Operator | Valeur |
+    | Attribut | Opérateur | Valeur |
     | --- | --- | --- |
     | adminDescription | NOTSTARTWITH | Utilisateur\_ |
 
@@ -284,13 +284,13 @@ La règle de synchronisation du trafic entrant permet de transmettre la valeur d
 
     | Type de flux | Attribut cible | Source | Appliquer une seule fois | Type de fusion |
     | --- | --- | --- | --- | --- |
-    | Directement | UserType | extensionAttribute1 | Désactivé | Mettre à jour |
+    | Direct | UserType | extensionAttribute1 | Désactivé | Update |
 
     Autre exemple : vous souhaitez dériver la valeur de l’attribut UserType à partir d’autres propriétés. Par exemple, vous voulez synchroniser tous les utilisateurs en tant qu’Invités si leur attribut userPrincipalName AD local se termine par l’élément de domaine <em>@partners.fabrikam123.org</em>. Vous pouvez implémenter une expression de ce type :
 
     | Type de flux | Attribut cible | Source | Appliquer une seule fois | Type de fusion |
     | --- | --- | --- | --- | --- |
-    | Expression | UserType | IIF(IsPresent([userPrincipalName]),IIF(CBool(InStr(LCase([userPrincipalName]),"@partners.fabrikam123.org")=0),"Member","Guest"),Error("UserPrincipalName is not present to determine UserType")) | Désactivé | Mettre à jour |
+    | Expression | UserType | IIF(IsPresent([userPrincipalName]),IIF(CBool(InStr(LCase([userPrincipalName]),"@partners.fabrikam123.org")=0),"Member","Guest"),Error("UserPrincipalName is not present to determine UserType")) | Désactivé | Update |
 
 7. Cliquez sur **Ajouter** pour créer la règle de trafic entrant.
 
@@ -310,13 +310,13 @@ La règle de synchronisation du trafic sortant permet de transmettre la valeur d
     | Description | *Fournissez une description* ||
     | Système connecté | *Sélectionnez le connecteur AAD* ||
     | Type d’objet système connecté | **Utilisateur** ||
-    | Type d’objet Metaverse | **Person** ||
+    | Type d’objet métaverse | **Person** ||
     | Type de lien | **Join** ||
-    | Precedence | *Choisissez une valeur comprise entre 1 et 99* | Les valeurs comprises entre 1 et 99 sont réservées aux règles de synchronisation personnalisées. Ne sélectionnez pas de valeur utilisée par une autre règle de synchronisation. |
+    | Priorité | *Choisissez une valeur comprise entre 1 et 99* | Les valeurs comprises entre 1 et 99 sont réservées aux règles de synchronisation personnalisées. Ne sélectionnez pas de valeur utilisée par une autre règle de synchronisation. |
 
 5. Accédez à l’onglet **Filtre d’étendue**, puis ajoutez un **groupe de filtres à étendue unique** avec deux clauses :
 
-    | Attribut | Operator | Valeur |
+    | Attribut | Opérateur | Valeur |
     | --- | --- | --- |
     | sourceObjectType | EQUAL | Utilisateur |
     | cloudMastered | NOTEQUAL | True |
@@ -327,7 +327,7 @@ La règle de synchronisation du trafic sortant permet de transmettre la valeur d
 
     | Type de flux | Attribut cible | Source | Appliquer une seule fois | Type de fusion |
     | --- | --- | --- | --- | --- |
-    | Directement | UserType | UserType | Désactivé | Mettre à jour |
+    | Direct | UserType | UserType | Désactivé | Update |
 
 7. Cliquez sur **Ajouter** pour créer la règle de trafic sortant.
 
@@ -385,7 +385,7 @@ Vous pouvez procéder comme suit pour vérifier les modifications tandis que vou
 > [!NOTE]
 > Ces étapes ne comprennent pas la synchronisation complète et l’exportation sur le Connecteur Azure AD, qui ne sont pas obligatoires, car les valeurs d’attributs sont transmises uniquement d’Active Directory en local à Azure AD.
 
-### <a name="step-7-re-enable-the-sync-scheduler"></a>Étape 7 : Réactiver le planificateur de synchronisation
+### <a name="step-7-re-enable-the-sync-scheduler"></a>Étape 7 : Réactiver le planificateur de synchronisation
 Réactivez le planificateur de synchronisation intégré :
 
 1. Démarrez une session PowerShell.

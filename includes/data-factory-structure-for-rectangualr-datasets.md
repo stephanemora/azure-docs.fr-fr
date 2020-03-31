@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 1ab404b838af65dcb75395dfeee1ca0553e497a1
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67177733"
 ---
 ## <a name="specifying-structure-definition-for-rectangular-datasets"></a>Spécification de la définition de la structure des jeux de données rectangulaires
@@ -18,7 +18,7 @@ Chaque colonne contient les propriétés suivantes :
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| name |Nom de la colonne. |OUI |
+| name |Nom de la colonne. |Oui |
 | type |Type de données de la colonne. Pour plus d’informations sur le moment où vous devez spécifier les informations de type, consultez la section des conversions de type ci-dessous. |Non |
 | culture |Culture .NET à utiliser lorsque le type est spécifié et qu’il est de type .NET Datetime ou Datetimeoffset. La valeur par défaut est « fr-fr ». |Non |
 | format |Chaîne de format à utiliser lorsque le type est spécifié et qu’il est de type .NET Datetime ou Datetimeoffset. |Non |
@@ -49,12 +49,12 @@ La fabrique de données prend en charge les valeurs de type .NET conformes CLS 
 * Int16
 * Int32 
 * Int64
-* Single
+* Unique
 * Double
 * Decimal
 * Byte[]
 * Bool
-* Chaîne 
+* String 
 * Guid
 * Datetime
 * Datetimeoffset

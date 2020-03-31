@@ -4,16 +4,16 @@ description: Connectez-vous à un réseau Azure Blockchain Service à l’aide d
 ms.date: 09/12/2019
 ms.topic: quickstart
 ms.reviewer: janders
-ms.openlocfilehash: 21e45b80a9a08dd6bdeefb0ab01fadabaa08cbce
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: c0bad9efde44ce53f6b0656af3ac4af32ffe051d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456021"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79205114"
 ---
 # <a name="quickstart-use-metamask-to-connect-and-deploy-a-smart-contract"></a>Démarrage rapide : Utiliser MetaMask pour vous connecter et déployer un contrat intelligent
 
-Dans ce guide de démarrage rapide, vous allez utiliser MetaMask pour vous connecter à un réseau Azure Blockchain Service, puis utiliser Remix pour déployer un contrat intelligent. Metamask est une extension de navigateur qui permet de gérer un portefeuille Ether et d’effectuer des actions relatives aux contrats intelligents.
+Dans ce guide de démarrage rapide, vous allez utiliser MetaMask pour vous connecter à un réseau Azure Blockchain Service, puis vous allez utiliser Remix pour déployer un contrat intelligent. Metamask est une extension de navigateur qui permet de gérer un portefeuille Ether et d’effectuer des actions relatives aux contrats intelligents.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -25,15 +25,16 @@ Dans ce guide de démarrage rapide, vous allez utiliser MetaMask pour vous conne
 
 ## <a name="get-endpoint-address"></a>Obtenir l’adresse de point de terminaison
 
-Vous avez besoin de l’adresse du point de terminaison Azure Blockchain Service pour vous connecter au réseau Blockchain. L’adresse du point de terminaison et les clés d’accès se trouvent sur le portail Azure.
+Vous avez besoin de l’adresse du point de terminaison Azure Blockchain Service pour vous connecter au réseau Blockchain. L’adresse du point de terminaison et les clés d’accès se trouvent dans le portail Azure.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-1. Accédez au membre Azure Blockchain Service. Sélectionnez **Nœuds de transaction**, puis le lien du nœud de transaction par défaut.
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Accédez au membre Azure Blockchain Service.
+1. Sélectionnez **Nœuds de transaction**, puis le lien du nœud de transaction par défaut.
 
     ![Sélectionner le nœud de transaction par défaut](./media/connect-metamask/transaction-nodes.png)
 
 1. Sélectionnez **Chaînes de connexion > Clés d’accès**.
-1. Copiez l’adresse du point de terminaison située sous **HTTPS (Clé d’accès 1)** . Vous aurez besoin de cette adresse pour la section suivante.
+1. Copiez l’adresse du point de terminaison située sous **HTTPS (Clé d’accès 1)** .
 
     ![Chaîne de connexion](./media/connect-metamask/connection-string.png)
 
@@ -44,10 +45,10 @@ Vous avez besoin de l’adresse du point de terminaison Azure Blockchain Service
 
     ![Custom RPC](./media/connect-metamask/custom-rpc.png)
 
-1. Dans **New Network > New RPC URL**, entrez l’adresse de point de terminaison que vous avez copiée dans la section précédente.
+1. Dans **New Network > New RPC URL** (Nouveau réseau > Nouvelle URL RPC), collez l’adresse de point de terminaison que vous avez copiée ci-dessus.
 1. Sélectionnez **Enregistrer**.
 
-    Si la connexion a réussi, le réseau privé s’affiche dans la liste déroulante des réseaux.
+    Si la connexion réussit, le réseau privé s’affiche dans la liste déroulante des réseaux.
 
     ![Nouveau réseau](./media/connect-metamask/new-network.png)
 
@@ -86,7 +87,7 @@ Remix est un environnement de développement Solidity basé sur le navigateur. L
     ```
 
     Le **contrat Simple** déclare une variable d’état nommée **balance**. Deux fonctions sont définies. La fonction **add** ajoute un nombre à **balance**. La fonction **get** retourne la valeur de **balance**.
-1. Pour compiler le contrat, commencez par sélectionner le volet du compilateur Solidity, puis sélectionnez **Compile simple.sol** (Compiler simple.sol). 
+1. Pour compiler le contrat, commencez par sélectionner le volet du compilateur Solidity, puis sélectionnez **Compile simple.sol** (Compiler simple.sol).
 
     ![Compiler](./media/connect-metamask/compile.png)
 
@@ -94,12 +95,12 @@ Remix est un environnement de développement Solidity basé sur le navigateur. L
 
     ![Onglet Run](./media/connect-metamask/injected-web3.png)
 
-1. Sélectionnez le contrat **Simple**, puis sélectionnez **Deploy**.
+1. Sélectionnez le contrat **simple**, puis **Deploy** (Déployer).
 
     ![Déployer](./media/connect-metamask/deploy.png)
 
 
-1. Une notification MetaMask vous informe que les fonds ne sont pas suffisants pour effectuer la transaction.
+1. Une notification MetaMask vous informe que les fonds sont insuffisants pour effectuer la transaction.
 
     Pour un réseau public Blockchain, vous avez besoin d’Ether pour payer le coût de la transaction. Dans la mesure où il s’agit d’un réseau privé de consortium, vous pouvez définir le prix du gaz sur zéro.
 
@@ -114,24 +115,24 @@ Remix est un environnement de développement Solidity basé sur le navigateur. L
 
     ![Deployed Contracts](./media/connect-metamask/deployed-contract.png)
 
-    Deux actions **add** et **get** correspondent aux fonctions définies dans le contrat.
+    Deux actions, **add** et **get**, correspondent aux fonctions définies dans le contrat.
 
-1. Pour effectuer une transaction **add** dans la blockchain, entrez un nombre à ajouter, puis sélectionnez **add**. Vous pouvez recevoir de Remix un message d’échec de l’évaluation du gaz. Vous envoyez la transaction à une blockchain privée qui ne nécessite pas de gaz. Sélectionnez **Send Transaction** (Envoyer la transaction) pour forcer la transaction.
-1. Comme lorsque vous avez déployé le contrat, une notification MetaMask vous informe que les fonds ne sont pas suffisants pour effectuer la transaction.
+1. Pour effectuer une transaction **add** dans la blockchain, entrez un nombre à ajouter, puis sélectionnez **add**. Vous allez éventuellement recevoir de la part de Remix un message d’échec relatif à l’évaluation du gaz : « Vous envoyez la transaction à une blockchain privée qui ne nécessite pas de gaz. » Sélectionnez **Send Transaction** (Envoyer la transaction) pour forcer la transaction.
+1. Comme au moment où vous avez déployé le contrat, une notification MetaMask vous informe que les fonds sont insuffisants pour effectuer la transaction.
 
     Dans la mesure où il s’agit d’un réseau privé de consortium, vous pouvez définir le prix du gaz sur zéro.
 
-1.  Sélectionnez **Gas Fee > Edit > Advanced**, définissez **Gas Price** sur 0, puis sélectionnez **Save**.
+1. Sélectionnez **Gas Fee > Edit > Advanced** (Frais de gaz > Modifier > Avancé), affectez à **Gas Price** (Prix du gaz) la valeur 0, puis sélectionnez **Save** (Enregistrer).
 1. Sélectionnez **Confirm** (Confirmer) pour envoyer la transaction à la blockchain.
 1. Sélectionnez l’action **get**. Il s’agit d’un appel pour interroger les données de nœud. Aucune transaction n’est nécessaire.
-1. Dans le volet de débogage de Remix, vous pouvez voir des informations détaillées sur les transactions de la blockchain.
 
-    ![Historique du débogage](./media/connect-metamask/debug.png)
+Le volet de débogage de Remix affiche des détails sur les transactions de la blockchain :
 
-    Vous pouvez voir la création du contrat **Simple**, la transaction pour **simple.add** et l’appel à **simple.get**.
+    ![Debug history](./media/connect-metamask/debug.png)
 
-1. Vous pouvez également voir l’historique des transactions dans MetaMask. Ouvrez l’extension de navigateur MetaMask.
-1. Dans la section **History** (Historique), vous pouvez voir le journal des transactions et le contrat déployé.
+    You can see the **simple** contract creation, transaction for **simple.add**, and call to **simple.get**.
+
+Pour voir l’historique des transactions dans MetaMask, ouvrez l’extension de navigateur MetaMask, puis recherchez dans la section **History** (Historique) un journal de déploiement du contrat et des transactions.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

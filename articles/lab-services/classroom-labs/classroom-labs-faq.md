@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/14/2020
 ms.author: spelluru
 ms.openlocfilehash: 8d1ed128181d036af0026ae273c2c5bf1d3a066e
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77443497"
 ---
 # <a name="classroom-labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Labs de salle de classe dans Azure Lab Services - Forum aux questions (FAQ)
@@ -33,23 +33,23 @@ Non. Non. Quand le professeur active la machine virtuelle d’un étudiant, cela
 
 ## <a name="schedules"></a>Planifications
 
-### <a name="do-all-vms-in-the-lab-start-automatically-when-a-schedule-is-set"></a>Toutes les machines virtuelles du labo démarrent-elles automatiquement quand un calendrier est défini ? 
+### <a name="do-all-vms-in-the-lab-start-automatically-when-a-schedule-is-set"></a>Toutes les machines virtuelles du lab démarrent-elles automatiquement quand un calendrier est défini ? 
 Non. Cela ne concerne pas toutes les machines virtuelles, mais uniquement celles qui sont attribuées à des utilisateurs selon un calendrier. Les machines virtuelles qui ne sont pas attribuées à un utilisateur ne démarrent pas automatiquement. Ce comportement est normal. 
 
 ## <a name="lab-accounts"></a>Comptes lab
 
-### <a name="why-am-i-not-able-to-create-a-lab-because-of-unavailability-of-the-address-range"></a>Pourquoi je ne peux pas créer un labo si la plage d’adresses n’est pas disponible ? 
-Les labos de salle de classe peuvent créer des machines virtuelles de labo dans une plage d’adresses IP que vous spécifiez lors de la création de votre compte lab dans le portail Azure. Quand une plage d’adresses est fournie, 512 adresses IP sont allouées à chaque labo créé par la suite pour les machines virtuelles de labo. La plage d’adresses du compte lab doit être suffisamment étendue pour prendre en charge tous les labos que vous envisagez de créer sous le compte lab. 
+### <a name="why-am-i-not-able-to-create-a-lab-because-of-unavailability-of-the-address-range"></a>Pourquoi ne puis-je pas créer un lab en cas d’indisponibilité de la plage d’adresses ? 
+Les labs de salle de classe peuvent créer des machines virtuelles de lab dans une plage d’adresses IP que vous spécifiez lors de la création de votre compte lab dans le Portail Azure. Quand une plage d’adresses est fournie, 512 adresses IP sont allouées à chaque lab créé par la suite pour les machines virtuelles de lab. La plage d’adresses du compte lab doit être suffisamment étendue pour prendre en charge tous les labs que vous envisagez de créer sous le compte lab. 
 
-Par exemple, si vous avez un bloc de /19 - 10.0.0.0/19, cette plage d’adresses prend en charge 8 192 adresses IP et 16 labos (8 192/512 = 16 labos). Dans ce cas, la création du 17e labo échoue.
+Par exemple, si vous avez un bloc de /19 - 10.0.0.0/19, cette plage d’adresses prend en charge 8 192 adresses IP et 16 labs (8 192/512 = 16 labs). Dans ce cas, la création du 17e lab échouera.
 
-### <a name="what-port-ranges-should-i-open-on-my-organizations-firewall-setting-to-connect-to-lab-virtual-machines-via-rdpssh"></a>Quelles plages de ports dois-je ouvrir sur le paramètre de pare-feu de mon organisation pour permettre la connexion aux machines virtuelles d’un labo via RDP/SSH ?
+### <a name="what-port-ranges-should-i-open-on-my-organizations-firewall-setting-to-connect-to-lab-virtual-machines-via-rdpssh"></a>Quelles plages de ports dois-je ouvrir sur le paramètre de pare-feu de mon organisation pour permettre la connexion aux machines virtuelles d’un lab via RDP/SSH ?
 
 Les ports sont les suivants : 49152–65535. Les labos de salle de classe se trouvent derrière un équilibreur de charge. Chaque labo dispose d’une adresse IP publique unique et chaque machine virtuelle du labo possède un port unique. 
 
 Vous pouvez également voir l’adresse IP privée de chaque machine virtuelle sous l’onglet **Pool de machines virtuelles** de la page d’accueil du labo dans le portail Azure. Si vous republiez un labo, son adresse IP publique ne change pas. Cependant, l’adresse IP privée et le numéro de port de chaque machine virtuelle dans le labo peuvent changer. Pour en savoir plus, consultez l’article [Paramètres de pare-feu pour Azure Lab Services](how-to-configure-firewall-settings.md).
 
-### <a name="what-public-ip-address-range-should-i-open-on-my-organizations-firewall-settings-to-connect-to-lab-virtual-machines-via-rdpssh"></a>Quelles plages d’adresses IP publiques dois-je ouvrir sur le paramètre de pare-feu de mon organisation pour permettre la connexion aux machines virtuelles d’un labo via RDP/SSH ?
+### <a name="what-public-ip-address-range-should-i-open-on-my-organizations-firewall-settings-to-connect-to-lab-virtual-machines-via-rdpssh"></a>Quelles plages d’adresses IP publiques dois-je ouvrir sur le paramètre de pare-feu de mon organisation pour permettre la connexion aux machines virtuelles d’un lab via RDP/SSH ?
 Consultez [Plages d’adresses IP et balises de service Azure - Cloud public](https://www.microsoft.com/download/details.aspx?id=56519), qui fournit la plage d’adresses IP publiques pour les centres de données dans Azure. Vous pouvez ouvrir les adresses IP des régions où se trouvent vos comptes de laboratoire.
 
 ## <a name="virtual-machine-images"></a>Images de machine virtuelle
@@ -60,8 +60,8 @@ Quand un administrateur vous ajoute à un compte lab comme créateur de labo, vo
 
 ## <a name="users"></a>Utilisateurs
 
-### <a name="how-many-users-can-be-in-a-classroom-lab"></a>Combien peut-il y avoir d’utilisateurs dans un labo de classe ?
-Vous pouvez ajouter jusqu’à 400 utilisateurs à un labo de classe. 
+### <a name="how-many-users-can-be-in-a-classroom-lab"></a>Combien peut-il y avoir d’utilisateurs dans un laboratoire de classe ?
+Vous pouvez ajouter jusqu’à 400 utilisateurs à un laboratoire de classe. 
 
 ## <a name="blog-post"></a>Billet de blog
 Abonnez-vous au [blog Azure Lab Services](https://azure.microsoft.com/blog/tag/azure-lab-services/).

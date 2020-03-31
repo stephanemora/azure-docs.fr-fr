@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 07/22/2019
-ms.openlocfilehash: e97a712664a5864062fef2bba36dda76175af715
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: ed0c570449a0c21e9eace1273228539db7c208da
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78199850"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80238654"
 ---
 # <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Démarrage rapide : Créer un cluster et une base de données Azure Data Explorer
 
@@ -37,7 +37,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 Créez un cluster Azure Data Explorer avec un ensemble défini de ressources de calcul et de stockage dans un groupe de ressources Azure.
 
-1. Cliquez sur le bouton **Créer une ressource** (+) dans le coin supérieur gauche du portail.
+1. Sélectionnez le bouton **+ Créer une ressource** dans le coin supérieur gauche du portail.
 
 1. Recherchez *Azure Data Explorer*.
 
@@ -55,7 +55,7 @@ Créez un cluster Azure Data Explorer avec un ensemble défini de ressources de 
     | Resource group | Votre groupe de ressources | Utilisez un groupe de ressources existant ou créez-en un. |
     | Nom du cluster | Nom de cluster unique | Choisissez un nom unique qui identifie votre cluster. Le nom de domaine *[Région].kusto.windows.net* est ajouté au nom de cluster que vous fournissez. Le nom doit être uniquement composé de lettres minuscules et de chiffres. Il doit comprendre entre 4 et 22 caractères.
     | Région | *USA Ouest* ou *USA Ouest 2* | Sélectionnez *USA Ouest* ou *USA Ouest 2* (si vous utilisez des zones de disponibilité) pour ce guide de démarrage rapide. Pour un système de production, sélectionnez la région qui répond le mieux à vos besoins.
-    | Zones de disponibilité | *1*, *2* et/ou *3* | Placez les instances de cluster dans différentes zones de disponibilité de la même région (facultatif). Les [zones de disponibilité Azure](/azure/availability-zones/az-overview) sont des emplacements physiques uniques au sein de la même région Azure. Elles protègent un cluster et des données Azure Data Explorer contre la défaillance partielle d’une région. Les nœuds de cluster sont créés, par défaut, dans le même centre de données. Le fait de sélectionner plusieurs zones de disponibilité vous permet d’éliminer un point de défaillance unique et de garantir une haute disponibilité. Le déploiement sur des zones de disponibilité est possible uniquement pendant la création du cluster et ne peut pas être modifié ultérieurement.
+    | Zones de disponibilité | *1*, *2* et/ou *3* | Placez les instances de cluster dans différentes zones de disponibilité de la même région (facultatif). Les [zones de disponibilité Azure](/azure/availability-zones/az-overview) sont des emplacements physiques uniques au sein de la même région Azure. Elles protègent un cluster et des données Azure Data Explorer contre la défaillance partielle d’une région. Les nœuds de cluster sont créés, par défaut, dans le même centre de données. Le fait de sélectionner plusieurs zones de disponibilité vous permet d’éliminer un point de défaillance unique et de garantir une haute disponibilité. Le déploiement dans les zones de disponibilité est possible uniquement au moment de la création du cluster et ne peut pas être modifié plus tard.
     | Spécifications de calcul | *D13_v2* | Sélectionnez la spécification du prix le plus bas pour ce guide de démarrage rapide. Pour un système de production, sélectionnez la spécification qui répond le mieux à vos besoins.
     | | | |
 

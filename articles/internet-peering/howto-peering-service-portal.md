@@ -1,21 +1,21 @@
 ---
-title: Activer Peering Service sur un Peering direct à l’aide du portail
+title: Activer Peering Service sur un peering direct en utilisant le portail
 titleSuffix: Azure
-description: Activer Peering Service sur un Peering direct à l’aide du portail
+description: Activer Peering Service sur un peering direct en utilisant le portail
 services: internet-peering
-author: prmitiki
+author: derekolo
 ms.service: internet-peering
 ms.topic: article
-ms.date: 11/27/2019
-ms.author: prmitiki
-ms.openlocfilehash: d6b67c42ef8a5ba5ae98894775d1f56cee39ba8b
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.date: 3/18/2020
+ms.author: derekol
+ms.openlocfilehash: 87a65826a338f4098ae24c33939ea7f9d4475e36
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75773872"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80129973"
 ---
-# <a name="enable-peering-service-on-a-direct-peering-using-the-portal"></a>Activer Peering Service sur un Peering direct à l’aide du portail
+# <a name="enable-peering-service-on-a-direct-peering-using-the-portal"></a>Activer Peering Service sur un peering direct en utilisant le portail
 
 Cet article explique comment activer [Peering Service](overview-peering-service.md) sur un Peering direct en utilisant le portail.
 
@@ -27,12 +27,12 @@ Si vous préférez, vous pouvez suivre ce guide à l’aide de [PowerShell](howt
     * Pour convertir un Peering direct hérité, suivez les instructions fournies dans [Convertir un Peering direct existant en ressource Azure à l’aide du portail](howto-legacy-direct-portal.md).
     * Pour créer un Peering direct, suivez les instructions fournies dans [Créer ou modifier un Peering direct à l’aide du portail](howto-direct-portal.md).
 
-## <a name="enable-peering-service-on-a-direct-peering"></a>Activer Peering Service sur un Peering direct
+## <a name="enable-peering-service-on-a-direct-peering"></a>Activer Peering Service sur un peering direct
 
-### <a name= get></a>Afficher un Peering direct
+### <a name="view-direct-peering"></a><a name= get></a>Afficher un Peering direct
 [!INCLUDE [peering-direct-get-portal](./includes/direct-portal-get.md)]
 
-### <a name= get></a>Activer le Peering direct pour Peering Service
+### <a name="enable-the-direct-peering-for-peering-service"></a><a name= get></a>Activer le Peering direct pour Peering Service
 
 Après avoir ouvert le Peering direct à l’étape précédente, activez-le pour Peering Service.
 [!INCLUDE [peering-direct-modify](./includes/peering-service-direct-portal.md)]

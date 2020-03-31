@@ -1,6 +1,6 @@
 ---
 title: Configuration système requise de Microsoft Azure Data Box | Microsoft Docs
-description: En savoir plus sur la configuration logicielle et réseau requise pour votre solution Azure Data Box
+description: En savoir plus sur la configuration logicielle et réseau requise pour une Azure Data Box
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 07/11/2019
 ms.author: alkohli
 ms.openlocfilehash: e232ad131b1c0930afcf5e7e78b386aba2c9490b
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839739"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79229769"
 ---
 # <a name="azure-data-box-system-requirements"></a>Conditions requises pour le système Data Box
 

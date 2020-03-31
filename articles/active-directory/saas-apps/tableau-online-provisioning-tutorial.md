@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Configurer Tableau Online pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
+title: 'Didacticiel : configurer Tableau Online pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
 description: Découvrez comment configurer Azure Active Directory pour approvisionner et déprovisionner automatiquement des comptes d’utilisateur sur Tableau Online.
 services: active-directory
 documentationcenter: ''
@@ -17,13 +17,13 @@ ms.date: 03/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5fae770950810899f7c6583fa401110c3e85022b
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77064210"
 ---
-# <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>Tutoriel : Configurer Tableau Online pour l’approvisionnement automatique d’utilisateurs
+# <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>Didacticiel : configurer Tableau Online pour l’approvisionnement automatique d’utilisateurs
 
 Ce tutoriel présente les étapes à effectuer dans Tableau Online et Azure Active Directory (Azure AD) afin de configurer Azure AD pour provisionner et déprovisionner automatiquement des utilisateurs et des groupes sur Tableau Online.
 

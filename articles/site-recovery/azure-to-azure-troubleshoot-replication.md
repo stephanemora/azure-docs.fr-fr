@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: troubleshooting
 ms.date: 8/2/2019
-ms.openlocfilehash: e5e52c6e8560c7369054cfc9fcf2ba4c405671e0
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 67b68cc8a1db4a058675dc51fb3805093c455908
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190808"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80276663"
 ---
 # <a name="troubleshoot-replication-in-azure-vm-disaster-recovery"></a>Résoudre les problèmes de réplication dans le cadre de la reprise d’activité d’une machine virtuelle Azure
 
@@ -23,7 +23,7 @@ ID d'erreur : 153007
 
 Les sections suivantes décrivent les causes et solutions.
 
-## <a name="high-data-change-rate-on-the-source-virtal-machine"></a>Taux élevé de changement de données sur la machine virtuelle source
+## <a name="high-data-change-rate-on-the-source-virtual-machine"></a><a name="high-data-change-rate-on-the-source-virtal-machine"></a>Taux élevé de changement de données sur la machine virtuelle source
 
 Azure Site Recovery crée un événement si le taux de modification des données sur la machine virtuelle source dépasse les limites prises en charge. Pour voir si le problème est dû à un taux d’évolution élevé, accédez à **Éléments répliqués** > **Machine virtuelle** > **Événements – dernières 72 heures**.
 Vous devez voir l’événement « Taux de modification des données au-delà des limites prises en charge » :
@@ -42,12 +42,12 @@ Deux limites sont à prendre en compte : le taux d’évolution des données pa
 
 **Stockage de réplication cible** | **Taille moyenne des E/S du disque source** |**Activité moyenne des données du disque source** | **Activité totale des données par jour du disque de données source**
 ---|---|---|---
-Stockage Standard | 8 Ko | 2 Mo/s | 168 Go par disque
-Disque Premium P10 ou P15 | 8 Ko  | 2 Mo/s | 168 Go par disque
-Disque Premium P10 ou P15 | 16 Ko | 4 Mo/s |  336 Go par disque
+Stockage Standard | 8 Ko    | 2 Mo/s | 168 Go par disque
+Disque Premium P10 ou P15 | 8 Ko    | 2 Mo/s | 168 Go par disque
+Disque Premium P10 ou P15 | 16 Ko | 4 Mo/s |    336 Go par disque
 Disque Premium P10 ou P15 | 32 Ko ou plus | 8 Mo/s | 672 Go par disque
 Disque Premium P20 ou P30 ou P40 ou P50 | 8 Ko    | 5 Mo/s | 421 Go par disque
-Disque Premium P20 ou P30 ou P40 ou P50 | 16 Ko ou plus |10 Mo/s | 842 Go par disque
+Disque Premium P20 ou P30 ou P40 ou P50 | 16 Ko ou plus |20 Mo/s | 1 684 Go par disque
 
 ### <a name="solution"></a>Solution
 
@@ -69,7 +69,7 @@ Un pic dans le taux de modification des données peut provenir d’une rafale oc
     1. Vous pouvez voir une bannière dans **vue d’ensemble** qui indique qu’une URL SAS a été générée. Cliquez sur cette bannière et annulez l’exportation. Ignorez cette étape si vous ne voyez pas la bannière.
     1. Dès que l’URL SAS est révoquée, accédez à **Configuration** pour le disque managé. Augmentez la taille afin que Site Recovery prenne en charge le taux d’évolution observé sur le disque source.
 
-## <a name="Network-connectivity-problem"></a>Problèmes de connectivité réseau
+## <a name="network-connectivity-problems"></a><a name="Network-connectivity-problem"></a>Problèmes de connectivité réseau
 
 ### <a name="network-latency-to-a-cache-storage-account"></a>Latence du réseau pour le compte de stockage de cache
 
@@ -98,7 +98,7 @@ Voici quelques-uns des problèmes les plus courants.
 
 #### <a name="known-issue-in-sql-server-2016-and-2017"></a>Problème connu dans SQL Server 2016 et 2017
 
-**Procédure de résolution** : Reportez-vous à l’article [Error occurs when you back up a virtual machine with non-component based backup in SQL Server 2016 and 2017](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component) (Une erreur se produit lorsque vous sauvegardez une machine virtuelle avec une sauvegarde non basée sur des composants dans SQL Server 2016 et 2017).
+**Procédure de résolution** : Reportez-vous à l’article [Error occurs when you back up a virtual machine with non-component based backup in SQL Server 2016 and 2017](https://support.microsoft.com/en-us/help/4508218/cumulative-update-16-for-sql-server-2017) (Une erreur se produit lorsque vous sauvegardez une machine virtuelle avec une sauvegarde non basée sur des composants dans SQL Server 2016 et 2017).
 
 #### <a name="youre-using-azure-storage-spaces-direct-configuration"></a>Vous utilisez la configuration des espaces de stockage direct Azure
 

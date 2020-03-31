@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: f957459cf20a018ae53ba6ec90fb478dd0c69044
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: c7779d82ddd6e5fd1bf7fcd983937ea6c10dab1c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770898"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79537072"
 ---
 # <a name="performance-recommendations-in-azure-database-for-mysql"></a>Recommandations sur les performances dans Azure Database pour MySQL
 

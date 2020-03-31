@@ -11,12 +11,12 @@ author: srinia
 ms.author: srinia
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: 633c3ffc8e266087c88116a15c43469727a9a50d
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: e5b07ac0e9421cbca034b17c573cab16641f49f7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77133647"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79214473"
 ---
 # <a name="create-configure-and-manage-elastic-jobs"></a>Créer, configurer et gérer des travaux élastiques
 
@@ -35,7 +35,7 @@ Si vous n’avez pas encore utilisé de travaux élastiques, [découvrez-en plus
 
 1. Créez des informations d’identification pour l’exécution de travaux dans la *Base de données des travaux* à l’aide de [PowerShell](elastic-jobs-powershell.md) ou de [T-SQL](elastic-jobs-tsql.md#create-a-credential-for-job-execution).
 2. Définissez le groupe cible (bases de données sur lesquelles exécuter le travail) à l’aide de [PowerShell](elastic-jobs-powershell.md) ou de [T-SQL](elastic-jobs-tsql.md#create-a-target-group-servers).
-3. Créez des informations d’identification d’agent de travail dans chaque base de données sur laquelle le travail sera exécuté [(ajoutez l’utilisateur, ou le rôle, à chaque base de données dans le groupe)](sql-database-control-access.md). Pour obtenir un exemple, consultez le [tutoriel PowerShell](elastic-jobs-powershell.md).
+3. Créez des informations d’identification d’agent de travail dans chaque base de données sur laquelle le travail sera exécuté [(ajoutez l’utilisateur, ou le rôle, à chaque base de données dans le groupe)](sql-database-manage-logins.md). Pour obtenir un exemple, consultez le [tutoriel PowerShell](elastic-jobs-powershell.md).
 4. Créez un travail à l’aide de [PowerShell](elastic-jobs-powershell.md) ou de [T-SQL](elastic-jobs-tsql.md#deploy-new-schema-to-many-databases).
 5. Ajoutez des étapes de travail à l’aide de [PowerShell](elastic-jobs-powershell.md) ou de [T-SQL](elastic-jobs-tsql.md#deploy-new-schema-to-many-databases).
 6. Exécutez un travail à l’aide de [PowerShell](elastic-jobs-powershell.md#run-the-job) ou de [T-SQL](elastic-jobs-tsql.md#begin-ad-hoc-execution-of-a-job).
@@ -77,7 +77,7 @@ La préversion est actuellement limitée à 100 travaux simultanés.
 
 Pour éviter la surcharge des ressources durant l’exécution de travaux sur des bases de données dans un pool élastique SQL, vous pouvez configurer les travaux de manière à limiter le nombre de bases de données sur lesquelles un travail peut s’exécuter simultanément.
 
-Définissez le nombre de bases de données simultanées sur lesquelles un travail s’exécute en définissant le paramètre `@max_parallelism` de la procédure stockée `sp_add_jobstep`dans T-SQL, ou `Add-AzSqlElasticJobStep -MaxParallelism` dans PowerShell.
+Définissez le nombre de bases de données simultanées sur lesquelles un travail s’exécute en définissant le paramètre `sp_add_jobstep` de la procédure stockée `@max_parallelism`dans T-SQL, ou `Add-AzSqlElasticJobStep -MaxParallelism` dans PowerShell.
 
 ## <a name="best-practices-for-creating-jobs"></a>Bonnes pratiques relatives à la création de travaux
 

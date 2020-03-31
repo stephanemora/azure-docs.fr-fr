@@ -8,10 +8,10 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/30/2019
 ms.openlocfilehash: 8a9c7ed9f6b5b8ec89bfca6dd59034b11f05f9a3
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75895159"
 ---
 # <a name="scenario-reducer-is-slow-in-azure-hdinsight"></a>Scénario : Le réducteur est lent dans Azure HDInsight
@@ -22,7 +22,7 @@ Cet article décrit la procédure à suivre pour résoudre les problèmes rencon
 
 Lorsque vous exécutez une requête comme `insert into table1 partition(a,b) select a,b,c from table2`, le plan de requête démarre un ensemble de regroupements, mais les données de chaque partition sont dirigées vers un seul réducteur. La requête est alors aussi lente que le temps pris par le réducteur de la plus grande partition.
 
-## <a name="cause"></a>Cause :
+## <a name="cause"></a>Cause
 
 Ouvrez [beeline](../hadoop/apache-hadoop-use-hive-beeline.md) et vérifiez la valeur du `hive.optimize.sort.dynamic.partition`.
 

@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: sstein, carlrab
 ms.date: 09/26/2019
-ms.openlocfilehash: 2af153e5cf09cf331be016066e9c9210a0d39b03
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 25128442cd922f6b9130586e245695b6880f661c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838155"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80257612"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Démarrage rapide : Créer une instance managée Azure SQL Database
 
@@ -96,7 +96,7 @@ Les étapes suivantes vous montrent comment créer une instance managée :
    | **Classement** | Choisissez le classement à utiliser pour votre instance managée. Si vous migrez des bases de données à partir de SQL Server, vérifiez le classement de la source avec `SELECT SERVERPROPERTY(N'Collation')` et utilisez cette valeur.| Pour plus d’informations sur les classements, consultez [Définir ou changer le classement du serveur](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation).|   
    | **Fuseau horaire** | Sélectionnez le fuseau horaire que votre instance managée doit utiliser.|Pour plus d’informations, consultez [Fuseaux horaires](sql-database-managed-instance-timezone.md).|
    | **Utiliser comme basculement secondaire** | Sélectionnez **Oui**. | Activez cette option pour utiliser l’instance managée comme groupe de basculement secondaire.|
-   | **Instance managée principale** (si **Utiliser comme basculement secondaire** est défini sur **Oui**) | Choisissez une instance managée principale existante qui sera jointe à la même zone DNS avec l’instance managée que vous créez. | Cette étape permet de configurer le groupe de basculement après sa création. Pour plus d’informations, consultez [Tutoriel : Ajouter une instance managée SQL Database à un groupe de basculement](sql-database-managed-instance-failover-group-tutorial.md).|
+   | **Instance managée principale** (si **Utiliser comme basculement secondaire** est défini sur **Oui**) | Choisissez une instance managée principale existante qui sera jointe à la même zone DNS avec l’instance managée que vous créez. | Cette étape permet de configurer le groupe de basculement après sa création. Pour plus d’informations, consultez [Didacticiel : Ajouter une instance managée SQL Database à un groupe de basculement](sql-database-managed-instance-failover-group-tutorial.md).|
 
 ### <a name="review--create"></a>Vérifier + créer
 
@@ -122,6 +122,10 @@ Les étapes suivantes vous montrent comment créer une instance managée :
 > 1. Dans le portail Azure, ouvrez le groupe de ressources (sous l’onglet **Informations de base**) dans lequel vous allez déployer une instance managée.
 > 2. Sélectionnez **Déploiements**.
 > 3. Sélectionnez l’opération de déploiement de l’instance managée en cours.
+
+> [!IMPORTANT]
+> Pour connaître l’état de la création d’une instance managée, vous devez disposer d’**autorisations de lecture** pour le groupe de ressources. Si vous ne disposez pas de cette autorisation ou si vous la révoquez pendant la création de l’instance managée, celle-ci peut ne pas figurer dans la liste des déploiements de groupes de ressources.
+>
 
 ## <a name="post-deployment-operations"></a>Opérations post-déploiement
 

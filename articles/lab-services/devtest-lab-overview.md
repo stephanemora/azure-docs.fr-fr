@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: spelluru
 ms.openlocfilehash: b7cd6bb1fd0377ca1440d9c667453df922aacbd4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60561453"
 ---
 # <a name="about-azure-devtest-labs"></a>À propos d’Azure DevTest Labs
@@ -85,7 +85,7 @@ Les développeurs peuvent également créer des ressources PaaS, comme des clust
 Utilisez des plug-ins prêts à l’emploi ou l’API pour provisionner des environnement de développement/test directement à partir de votre [outil d’intégration continue](devtest-lab-integrate-ci-cd-vsts.md) préféré, d’un environnement de développement intégré ou d’un pipeline de mise en production automatisé. Vous pouvez également utiliser l’outil en ligne de commande complet.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez les articles suivants :
+Voir les articles suivants :
 
 - Pour en savoir plus sur DevTest Labs, consultez [Concepts de DevTest Labs](devtest-lab-concepts.md).
 - Pour une démonstration avec des instructions pas à pas, consultez [Tutoriel : Configurer un labo avec Azure DevTest Labs](tutorial-create-custom-lab.md).

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: jingwang
 ms.openlocfilehash: d811076e0d78ed2812681447bebe8e6e07aa33e2
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75892665"
 ---
 # <a name="copy-data-from-google-cloud-storage-using-azure-data-factory"></a>Copier des données à partir de Google Cloud Storage avec Azure Data Factory
@@ -35,7 +35,7 @@ Plus spécifiquement, ce connecteur Google Cloud Storage prend en charge la copi
 >[!NOTE]
 >Copier des données à partir de Google Cloud Storage exploite le [connecteur Amazon S3](connector-amazon-simple-storage-service.md) avec le point de terminaison personnalisé S3 correspondant, car Google Cloud Storage offre une interopérabilité compatible S3.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 La configuration suivante est requise sur votre compte Google Cloud Storage :
 
@@ -221,7 +221,7 @@ Pour en savoir plus sur les propriétés, consultez [Activité Delete](delete-ac
 ## <a name="legacy-models"></a>Modèles hérités
 
 >[!NOTE]
->Les modèles suivants sont toujours pris en charge tels quels, à des fins de compatibilité descendante. Nous vous suggérons d’utiliser le nouveau modèle mentionné dans les sections ci-dessus à partir de maintenant. L’interface utilisateur de création ADF peut désormais générer ce nouveau modèle.
+>Les Modèles suivants sont toujours pris en charge tels quels à des fins de compatibilité descendante. Il est recommandé d’utiliser le nouveau Modèle mentionné dans les sections ci-dessus à partir de maintenant. L’interface utilisateur de création ADF peut désormais générer ce nouveau Modèle.
 
 ### <a name="legacy-dataset-model"></a>Modèle de jeu de données hérité
 

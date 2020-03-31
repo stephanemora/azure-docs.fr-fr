@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.openlocfilehash: 9ce88c687df4e329acd2949d0b26033dc10c94ea
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 2e5b01a271eb290229904fc98d1268760e01620d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77619488"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79224725"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Créer des utilisateurs dans Azure Database pour PostgreSQL - Serveur unique
 
@@ -67,7 +67,7 @@ Vous pouvez surveiller votre consommation d’E/S dans le Portail Azure ou à l�
 
 ### <a name="reaching-the-storage-limit"></a>Atteindre la limite de stockage
 
-Les serveurs avec moins de 100 Go de stockage approvisionnés sont marqués en lecture seule si l’espace de stockage libre est inférieur à 512 Mo ou à 5 % de la taille approvisionnée. Les serveurs avec plus de 100 Go de stockage approvisionnés sont marqués en lecture seule lorsque l’espace de stockage libre est inférieur à 5 Go.
+Les serveurs dont le stockage provisionné est inférieur ou égal à 100 Go sont marqués en lecture seule si l’espace de stockage libre est inférieur à 512 Mo ou à 5 % de la taille provisionnée. Les serveurs avec plus de 100 Go de stockage approvisionnés sont marqués en lecture seule lorsque l’espace de stockage libre est inférieur à 5 Go.
 
 Par exemple, si vous avez approvisionné 110 Go de stockage et que l’utilisation réelle dépasse 105 Go, le serveur est marqué en lecture seule. Sinon, si vous avez approvisionné 5 Go de stockage, le serveur est marqué en lecture seule lorsque le stockage disponible est inférieur à 512 Mo.
 
@@ -79,7 +79,7 @@ Nous vous recommandons d’activer la croissance automatique du stockage ou de c
 
 ### <a name="storage-auto-grow"></a>Croissance automatique du stockage
 
-La croissance automatique du stockage permet à votre serveur de disposer en permanence d’un espace de stockage suffisant et de ne pas passer en lecture seule. Si la croissance automatique du stockage est activée, le stockage évolue automatiquement sans affecter la charge de travail. Pour les serveurs avec moins de 100 Go de stockage approvisionnés, la taille de stockage approvisionné augmente de 5 Go dès que l’espace de stockage libre est inférieur à 1 Go ou 10 % (selon la valeur la plus élevée) du stockage approvisionné. Pour les serveurs avec plus de 100 Go de stockage approvisionnés, la taille de stockage approvisionné augmente de 5 % lorsque l’espace de stockage libre est inférieur à 5 % de la taille de stockage approvisionné. Les limites de stockage maximales indiquées ci-dessus s’appliquent.
+La croissance automatique du stockage permet à votre serveur de disposer en permanence d’un espace de stockage suffisant et de ne pas passer en lecture seule. Si la croissance automatique du stockage est activée, le stockage évolue automatiquement sans affecter la charge de travail. Pour les serveurs dont le stockage provisionné est inférieur ou égal à 100 Go, la taille de stockage provisionné augmente de 5 Go dès que l’espace de stockage libre est inférieur à 1 Go ou 10 % (selon la valeur la plus élevée) du stockage provisionné. Pour les serveurs avec plus de 100 Go de stockage provisionnés, la taille de stockage provisionné augmente de 5 % quand l’espace de stockage libre est inférieur à 10 Go ou 5 % de la taille de stockage provisionné (selon la valeur la plus élevée). Les limites de stockage maximales indiquées ci-dessus s’appliquent.
 
 Par exemple, si vous avez approvisionné 1 000 Go de stockage et que l’utilisation réelle dépasse 950 Go, la taille de stockage du serveur passe à 1 050 Go. Sinon, si vous avez configuré 10 Go de stockage, la taille de stockage passe à 15 Go lorsque moins de 1 Go de stockage est libre.
 
@@ -108,4 +108,4 @@ Pour obtenir les dernières informations sur la tarification, veuillez consulter
 
 - Découvrez comment [Créer un serveur PostgreSQL dans le portail](tutorial-design-database-using-azure-portal.md).
 - En savoir plus sur les [limites de service](concepts-limits.md). 
-- Apprendre à [monter en charge avec des réplicas en lecture](howto-read-replicas-portal.md).
+- Apprendre à [effectuer un scale-out avec des réplicas en lecture](howto-read-replicas-portal.md).

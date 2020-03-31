@@ -9,10 +9,10 @@ ms.custom: hdiseo17may2017
 ms.topic: conceptual
 ms.date: 10/29/2019
 ms.openlocfilehash: 7eb1f7e1ce02a30f84cb520438f60fcbcfa3a965
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73100146"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>Charger des données pour des travaux Apache Hadoop dans HDInsight
@@ -37,8 +37,8 @@ Microsoft fournit les utilitaires suivants pour utiliser le Stockage Azure :
 
 | Outil | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
-| [Portail Azure](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
-| [Interface de ligne de commande Azure](../storage/blobs/storage-quickstart-blobs-cli.md) |✔ |✔ |✔ |
+| [Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
+| [Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md) |✔ |✔ |✔ |
 | [Azure PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md) | | |✔ |
 | [AZCopy](../storage/common/storage-use-azcopy-v10.md) |✔ | |✔ |
 | [Commande Hadoop](#commandline) |✔ |✔ |✔ |
@@ -46,7 +46,7 @@ Microsoft fournit les utilitaires suivants pour utiliser le Stockage Azure :
 > [!NOTE]  
 > La commande Hadoop est uniquement disponible sur le cluster HDInsight. La commande autorise uniquement le chargement de données du système de fichiers local sur le Stockage Azure.  
 
-## <a id="commandline"></a>Ligne de commande Hadoop
+## <a name="hadoop-command-line"></a><a id="commandline"></a>Ligne de commande Hadoop
 
 La ligne de commande Hadoop est utile uniquement pour stocker les données dans le blob du stockage Azure quand celles-ci sont déjà présentes sur le nœud principal du cluster.
 
@@ -58,7 +58,7 @@ Une fois connecté, vous pouvez utiliser la syntaxe suivante pour télécharger 
 hadoop fs -copyFromLocal <localFilePath> <storageFilePath>
 ```
 
-Par exemple, `hadoop fs -copyFromLocal data.txt /example/data/data.txt`
+Par exemple : `hadoop fs -copyFromLocal data.txt /example/data/data.txt`
 
 Comme le système de fichiers par défaut pour HDInsight se trouve dans le Stockage Azure, /example/data.txt s’y trouve également. Vous pouvez également faire référence au fichier comme ceci :
 
@@ -92,17 +92,17 @@ Consultez [Monter le stockage Azure comme un lecteur Local](https://blogs.msdn.c
 
 ## <a name="upload-using-services"></a>Effectuer un chargement en utilisant des services
 
-### <a name="azure-data-factory"></a>Azure Data Factory
+### <a name="azure-data-factory"></a>Azure Data Factory
 
 Le service Azure Data Factory est un service entièrement géré pour composer des services de stockage de données, de traitement de données et de déplacement de données dans des pipelines de production rationalisés, évolutifs et fiables.
 
 |Type de stockage|Documentation|
 |----|----|
-|Stockage d'objets blob Azure|[Copier des données vers ou depuis le stockage Blob Azure à l’aide d’Azure Data Factory](../data-factory/connector-azure-blob-storage.md)|
+|Stockage Blob Azure|[Copier des données vers ou depuis le stockage Blob Azure à l’aide d’Azure Data Factory](../data-factory/connector-azure-blob-storage.md)|
 |Azure Data Lake Storage Gen1|[Copier des données vers ou depuis Azure Data Lake Storage Gen1 à l'aide d'Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)|
 |Azure Data Lake Storage Gen2 |[Charger des données dans Azure Data Lake Storage Gen2 avec Azure Data Factory](../data-factory/load-azure-data-lake-storage-gen2.md)|
 
-### <a id="sqoop"></a>Apache Sqoop
+### <a name="apache-sqoop"></a><a id="sqoop"></a>Apache Sqoop
 
 Sqoop est un outil conçu pour transférer des données entre Hadoop et des bases de données relationnelles. Vous pouvez l’utiliser pour importer des données depuis un système de gestion de base de données relationnelle (SGBDR) tel que SQ Server, MySQL ou Oracle dans un système de fichiers distribués Hadoop (HDFS), transformer des données dans Hadoop avec MapReduce ou Hive et exporter à nouveau les données dans un SGBDR.
 
@@ -121,11 +121,11 @@ Le Stockage Azure est également accessible à l’aide d’un SDK Azure dans le
 
 Pour plus d'informations sur l'installation des kits de développement logiciel (SDK) Azure, consultez [Téléchargements Azure](https://azure.microsoft.com/downloads/)
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
-### <a id="storageexception"></a>Exception de stockage pour l’écriture sur un objet blob
+### <a name="storage-exception-for-write-on-blob"></a><a id="storageexception"></a>Exception de stockage pour l’écriture sur un objet blob
 
-**Symptômes** : Quand vous utilisez la commande `hadoop` ou `hdfs dfs` pour écrire des fichiers supérieurs à ~12 Go sur un cluster HBase, vous pouvez rencontrer l’erreur suivante :
+**Symptômes** : Quand vous utilisez la commande `hadoop` ou `hdfs dfs` pour écrire des fichiers supérieurs à ~12 Go sur un cluster HBase, vous pouvez rencontrer l’erreur suivante :
 
     ERROR azure.NativeAzureFileSystem: Encountered Storage Exception for write on Blob : example/test_large_file.bin._COPYING_ Exception details: null Error Code : RequestBodyTooLarge
     copyFromLocal: java.io.IOException

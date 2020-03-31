@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 70f905d15c69876ced56c25ec92f858bb15b7d36
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c95ed6dde3c00c0688ccfd58565fd112427c8899
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75372208"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79135936"
 ---
 # <a name="create-or-delete-a-container-in-azure-storage-with-net"></a>Créer ou supprimer un conteneur dans le stockage Azure avec .NET
 
-Les objets BLOB dans le stockage Azure sont organisés en conteneurs. Avant de pouvoir télécharger un objet BLOB, vous devez d’abord créer un conteneur. Cet article explique comment créer ou supprimer les conteneurs à l’aide de la [bibliothèque de client de stockage Azure pour .NET](/dotnet/api/overview/azure/storage/client).
+Les objets BLOB dans le stockage Azure sont organisés en conteneurs. Avant de pouvoir télécharger un objet BLOB, vous devez d’abord créer un conteneur. Cet article explique comment créer ou supprimer les conteneurs à l’aide de la [bibliothèque de client de stockage Azure pour .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
 
 ## <a name="name-a-container"></a>Nommer un conteneur
 

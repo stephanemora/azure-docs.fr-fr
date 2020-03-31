@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/06/2020
-ms.openlocfilehash: ab7aaeb2b28592aab38d112b02340160a6c882ee
-ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
+ms.openlocfilehash: f1541c177cea2d223a5e7df576d95fab7eafb310
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2020
-ms.locfileid: "78927510"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80296943"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Régénérer des clés d’accès de compte de stockage
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -92,6 +92,8 @@ Pour mettre à jour Azure Machine Learning afin d’utiliser la nouvelle clé, e
         ```azurecli-interactive
         az login
         ```
+
+        [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)]
 
     1. Pour mettre à jour l’espace de travail afin d’utiliser la nouvelle clé, utilisez la commande suivante. Remplacez `myworkspace` par le nom de votre espace de travail Azure Machine Learning et remplacez `myresourcegroup` par le nom du groupe de ressources Azure qui contient l’espace de travail.
 

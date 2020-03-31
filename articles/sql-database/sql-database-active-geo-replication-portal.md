@@ -12,11 +12,11 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 02/13/2019
 ms.openlocfilehash: 601c537a51e29ae1f107127e1b83c07448eee9ab
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75348875"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228685"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Configurer la géoréplication active pour Azure SQL Database dans le portail Azure et initier le basculement
 
@@ -24,7 +24,7 @@ Cet article montre comment configurer la [géoréplication active pour les bases
 
 Pour plus d’informations sur les groupes de basculement automatique avec les bases de données uniques et mises en pool, consultez [Meilleures pratiques d’utilisation des groupes de basculement avec des bases de données uniques et mises en pool](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools). Pour plus d’informations sur les groupes de basculement automatique avec Managed Instance, consultez [Meilleures pratiques d’utilisation des groupes de basculement avec des instances gérées](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-managed-instances).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour configurer la géo-réplication active à l’aide du portail Azure, vous devez disposer des ressources suivantes :
 

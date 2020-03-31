@@ -4,10 +4,10 @@ description: Attribuer des stratégies intégrées dans Azure Policy pour audite
 ms.topic: article
 ms.date: 02/26/2020
 ms.openlocfilehash: 012cd013de1c60fddcfb28e4bca96d761ada41ab
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78330734"
 ---
 # <a name="audit-compliance-of-azure-container-registries-using-azure-policy"></a>Auditer la conformité des registres de conteneurs Azure à l’aide d’Azure Policy

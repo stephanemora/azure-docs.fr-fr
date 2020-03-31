@@ -2,18 +2,18 @@
 title: Guide de publication d’une offre de machine virtuelle pour la Place de marché Azure
 description: Cet article décrit les conditions requises pour publier une machine virtuelle et un essai logiciel gratuit à déployer à partir de la place de marché.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: ellacroi
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/09/2018
-ms.author: ellacroi
-ms.openlocfilehash: 0f2047501b6c57b2bb98ff7e3c56498417644324
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 34de5f59e96a37282063741a1664f512697c167b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818988"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288714"
 ---
 # <a name="virtual-machine-offer-publishing-guide"></a>Guide de publication d’une offre de machine virtuelle
 
@@ -23,14 +23,7 @@ Il s’agit d’offres de transaction qui sont déployées et facturées via la 
 
 ## <a name="free-trial"></a>Version d’évaluation gratuite 
 
-Vous pouvez donner aux utilisateurs la possibilité de tester votre offre en leur proposant des licences logicielles à durée limitée suivant le modèle de facturation BYOL (apportez votre propre licence). Voici les exigences requises pour déployer cette offre : 
-
-|Configuration requise  |Détails  |
-|---------|---------|
-|Période d’essai gratuite et évaluation     |   Vos clients peuvent utiliser votre application gratuitement pendant une durée limitée. Ils n’ont pas de frais de licence ou d’abonnement à payer pour votre offre. Vos clients ne sont pas obligés de payer le produit ou service interne Microsoft sous-jacent. Toutes les options de la version d’évaluation sont déployées sur votre abonnement Azure. Vous avez le contrôle exclusif de la gestion et de l’optimisation des coûts. Vous pouvez choisir un essai gratuit ou une démonstration interactive. Quel que soit votre choix, votre essai gratuit doit permettre aux clients de tester gratuitement votre offre pendant une durée définie.|
-|Solution facile à configurer et prête à l’emploi    |  Votre application doit être facile et rapide à configurer.       |
-|Disponibilité/Temps d’activité    |    La durée de fonctionnement de votre plateforme ou application SaaS doit être au minimum égale à 99,9 % du temps total.     |
-|Azure Active Directory     |    Votre offre doit permettre l’authentification unique fédérée Azure Active Directory (Azure AD) avec activation du consentement.     |
+Vous pouvez donner aux utilisateurs la possibilité de tester votre offre en leur proposant des licences logicielles à durée limitée suivant le modèle de facturation BYOL (apportez votre propre licence). 
 
 ## <a name="test-drive"></a>Version d’évaluation
 
@@ -38,7 +31,7 @@ Vous déployez une ou plusieurs machines virtuelles par le biais d’application
 
 Contactez-nous à l’adresse [amp-testdrive](mailto:amp-testdrive@microsoft.com) pour commencer. 
 
-|Configuration requise  |Détails |
+|Spécifications  |Détails |
 |---------|---------|
 | Vous avez une application de la place de marché   |    Une ou plusieurs machines virtuelles via IaaS ou SaaS.      |
 
@@ -57,13 +50,13 @@ Utilisez le type d’offre Machine virtuelle si vous déployez une appliance vir
 > Vous pouvez limiter la découverte et le déploiement de votre machine virtuelle à un ensemble spécifique de clients en publiant l’image et les tarifs sous forme d’offre privée. Les offres privées vous permettent de créer des offres exclusives pour vos clients les plus fidèles et de proposer des conditions et des logiciels personnalisés. Les conditions personnalisées vous permettent de présenter différents scénarios, notamment des offres économiques avec des conditions et des tarifs adaptés ainsi qu’un accès en avant-première à des logiciels en version limitée. Les offres privées vous permettent de proposer des tarifs ou des produits spécifiques à un ensemble limité de clients en créant une référence SKU avec ces détails.  
 > *   Pour plus d’informations sur les offres privées, visitez la page Offres privées sur la Place de marché Azure à l’adresse [azure.microsoft.com/blog/private-offers-on-azure-marketplace](https://azure.microsoft.com/blog/private-offers-on-azure-marketplace).  
 
-| Prérequis | Détails |  
+| Condition requise | Détails |  
 |:--- |:--- | 
 | Facturation et mesure | Votre machine virtuelle doit prendre en charge la facturation mensuelle BYOL ou avec paiement à l’utilisation. |  
 | Disque dur virtuel compatible avec Azure | Les machines virtuelles doivent être basées sur Windows ou Linux. <ul> <li>Pour plus d’informations sur la création d’un disque dur virtuel Linux, consultez [Distributions Linux approuvées sur Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).</li> <li>Pour plus d’informations sur la création d’un disque dur virtuel Windows, consultez [Créer un disque dur virtuel compatible avec Azure](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md).</li> </ul> |  
 
 >[!Note]
->L’abonnement à un réseau de partenaires fournisseurs de solution cloud est maintenant disponible.  Veuillez consulter [Fournisseurs de solutions cloud](./cloud-solution-providers.md) pour plus d’informations sur le marketing de votre offre via les réseaux de partenaires fournisseurs de solutions cloud Microsoft.
+>L’abonnement à un réseau de partenaires fournisseurs de solution cloud est maintenant disponible.  Consultez [Fournisseurs de solutions cloud](./cloud-solution-providers.md) pour plus d’informations sur le marketing de votre offre via les réseaux de partenaires fournisseurs de solutions cloud Microsoft.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

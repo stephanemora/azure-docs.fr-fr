@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: b817b3cfe47ed08cae9e7e0b1c2c24363f2ccfed
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974800"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79233329"
 ---
 # <a name="how-to-use-tools-provided-in-the-sdks-to-simplify-development-for-provisioning"></a>Comment utiliser les outils fournis dans les SDK pour simplifier le développement pour l’approvisionnement
 Le service IoT Hub Device Provisioning Service simplifie le processus d’approvisionnement en assurant un [approvisionnement automatique](concepts-auto-provisioning.md) sans contact et juste-à-temps d’une manière sécurisée et évolutive.  Une attestation de sécurité sous la forme d’un certificat X.509 ou un module de plateforme sécurisée (TPM) est requise.  Microsoft collabore également avec d’[autres partenaires fournisseurs de matériel de sécurité](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) afin d’améliorer la fiabilité de la sécurisation des déploiements IoT. La compréhension des exigences de sécurité du matériel est un processus qui peut s’avérer complexe pour les développeurs. Un ensemble de SDK du service Azure IoT Provisioning est mis à disposition des développeurs, qui recourent à une couche de commodité pour l’écriture des clients interagissant avec le service de provisionnement. Les kits de développement logiciel fournissent également des exemples de scénarios communs ainsi qu’un ensemble d’outils simplifiant l’attestation de sécurité dans le développement.
@@ -33,11 +33,11 @@ Les étapes de l’utilisation du simulateur TPM sont les suivantes :
 Utilisez des [certificats X.509](https://docs.microsoft.com/azure/iot-dps/concepts-security#x509-certificates) comme mécanisme d’attestation pour mettre à l’échelle la production et simplifier le provisionnement des appareils.  Il existe [différentes manières](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview#how-to-get-an-x509-ca-certificate) d’obtenir un certificat X.509 :
 * Pour un environnement de production, nous vous recommandons d’acheter un certificat d’autorité de certification X.509 après d’une autorité de certification racine publique.
 * Pour un environnement de test, vous pouvez générer un certificat racine X.509 ou une chaîne de certificats X.509 par les biais suivant :
-    * OpenSSL : Vous pouvez utiliser des scripts pour la génération de certificats :
+    * OpenSSL : vous pouvez utiliser des scripts pour la génération de certificats :
         * [Node.JS](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/tools)
         * [PowerShell ou Bash](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)
         
-    * Émulateur DICE (Device Identity Composition Engine) : DICE peut être utilisé pour l’identité et l’attestation du périphérique de chiffrement basées sur le protocole TLS et les certificats clients X.509.  [En savoir](https://www.microsoft.com/research/publication/device-identity-dice-riot-keys-certificates/) plus sur l’identité du périphérique avec DICE.
+    * Émulateur DICE (Device Identity Composition Engine) : DICE peut être utilisé pour l’identité et l’attestation du périphérique de chiffrement basées sur le protocole TLS et les certificats clients X.509.  [En savoir](https://www.microsoft.com/research/publication/device-identity-dice-riot-keys-certificates/) plus sur l’identité du périphérique avec DICE.
 
 ### <a name="using-x509-certificate-generator-with-dice-emulator"></a>Utilisation du générateur de certificats X.509 avec l’émulateur DICE
 Les SDK fournissent un générateur de certificats X.509 avec l’émulateur DICE, dans le [SDK Java](https://github.com/Azure/azure-iot-sdk-java/tree/master/provisioning/provisioning-tools/provisioning-x509-cert-generator).  Ce générateur fonctionne sur plusieurs plateformes.  Le certificat généré peut être utilisé pour le développement dans d’autres langues.

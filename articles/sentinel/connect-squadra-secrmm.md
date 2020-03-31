@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 02/20/2020
 ms.author: yelevin
 ms.openlocfilehash: d904e51321870fb4b61a237c23e425034b76dc0b
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77588108"
 ---
 # <a name="connect-your-squadra-technologies-secrmm-data-to-azure-sentinel"></a>Connecter vos données Squadra Technologies secRMM à Azure Sentinel 
@@ -40,7 +40,7 @@ La solution Squadra Technologies secRMM peut intégrer et exporter des journaux 
 2. Suivez les étapes décrites dans le [guide d’intégration de Squadra Technologies pour Azure Sentinel](http://www.squadratechnologies.com/StaticContent/ProductDownload/secRMM/9.9.0.0/secRMMAzureSentinelAdministratorGuide.pdf) afin de récupérer des données Squadra secRMM dans Azure Sentinel.   
 
 
-## <a name="find-your-data"></a>Trouver vos données
+## <a name="find-your-data"></a>Rechercher vos données
 
 Une fois la connexion correctement établie, les données apparaissent dans l’espace de travail Log Analytics sous CustomLogs secRMM_CL.
 Si vous souhaitez utiliser le schéma approprié dans l’espace de travail Log Analytics pour Squadra Technologies secRMM, recherchez secRMM_CL.

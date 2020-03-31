@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 10/01/2019
 ms.custom: seodec18
 ms.openlocfilehash: 357ea2cc598bca3e008a74f021895e1e45a3874f
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78300999"
 ---
 # <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>Configurer l’authentification mutuelle TLS pour Azure App Service
@@ -24,7 +24,7 @@ Vous pouvez restreindre l’accès à votre application Azure App Service en act
 
 ## <a name="enable-client-certificates"></a>Activer les certificats clients
 
-Pour configurer votre application afin qu’elle impose des certificats clients, vous devez affecter la valeur `true` au paramètre `clientCertEnabled`. Pour définir ce paramètre, exécutez la commande suivante dans [Cloud Shell](https://shell.azure.com).
+Pour configurer votre application afin qu’elle impose des certificats clients, vous devez affecter la valeur `clientCertEnabled` au paramètre `true`. Pour définir ce paramètre, exécutez la commande suivante dans [Cloud Shell](https://shell.azure.com).
 
 ```azurecli-interactive
 az webapp update --set clientCertEnabled=true --name <app_name> --resource-group <group_name>

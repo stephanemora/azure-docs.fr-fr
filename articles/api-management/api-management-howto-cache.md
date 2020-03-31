@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: apimpm
 ms.openlocfilehash: bf8d8a2c11962467300ae8d65fe5bbbe9a65cf92
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75708353"
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>Ajout de mise en cache pour améliorer les performances dans Gestion des API Azure
@@ -46,7 +46,7 @@ Pour suivre ce tutoriel :
 + [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md)
 + [Importer et publier une API](import-and-publish.md)
 
-## <a name="caching-policies"> </a>Ajouter les stratégies de mise en cache
+## <a name="add-the-caching-policies"></a><a name="caching-policies"> </a>Ajouter les stratégies de mise en cache
 
 Avec les stratégies de mise en cache montrées dans cet exemple, la première requête envoyée à l’opération **GetSpeakers** renvoie une réponse du service principal. Cette réponse est mise en cache, du fait des en-têtes et des paramètres de chaîne de requête spécifiés. Les autres appels à l'opération comportant des paramètres correspondants recevront la réponse mise en cache, jusqu'à expiration de la durée de mise en cache.
 
@@ -77,7 +77,7 @@ Avec les stratégies de mise en cache montrées dans cet exemple, la première r
 > [!TIP]
 > Si vous utilisez un cache externe, comme décrit dans [Utiliser un Cache Azure pour Redis externe dans Gestion des API Azure](api-management-howto-cache-external.md), vous souhaiterez peut-être spécifier l’attribut `caching-type` des stratégies de mise en cache. Consultez [Stratégies de mise en cache de Gestion des API](api-management-caching-policies.md) pour plus d’informations.
 
-## <a name="test-operation"> </a>Appel d’une opération et test de la mise en cache
+## <a name="call-an-operation-and-test-the-caching"></a><a name="test-operation"> </a>Appel d’une opération et test de la mise en cache
 Pour voir la mise en cache en action, appelez l'opération depuis le portail des développeurs.
 
 1. Dans le portail Azure, accédez à votre instance APIM.
@@ -87,7 +87,7 @@ Pour voir la mise en cache en action, appelez l'opération depuis le portail des
 5. Cliquez sur l’onglet **Test** dans le menu supérieur droit.
 6. Appuyez sur **Envoyer**.
 
-## <a name="next-steps"> </a>Étapes suivantes
+## <a name="next-steps"></a><a name="next-steps"> </a>Étapes suivantes
 * Pour plus d’informations sur les stratégies de mise en cache, voir la section [Stratégies de mise en cache][Caching policies] dans [Référence de stratégie de Gestion des API][API Management policy reference].
 * Pour plus d’informations sur la mise en cache des éléments par clé à l’aide d’expressions de stratégie, consultez [Mise en cache personnalisée dans la gestion des API Azure](api-management-sample-cache-by-key.md).
 * Pour plus d’informations sur l’utilisation du Cache Azure pour Redis externe, consultez [Utiliser un Cache Azure pour Redis externe dans Gestion des API Azure](api-management-howto-cache-external.md).

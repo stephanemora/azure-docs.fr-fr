@@ -20,15 +20,15 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: f6e8ed5baef9b8594bb1fe03942e831fd8264a56
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74113075"
 ---
 # <a name="understanding-odata-collection-filters-in-azure-cognitive-search"></a>Présentation des filtres de collection OData dans Recherche cognitive Azure
 
-Pour appliquer un [filtre](query-odata-filter-orderby-syntax.md) sur des champs de collection dans Recherche cognitive Azure, vous pouvez utiliser les opérateurs [`any` et `all`](search-query-odata-collection-operators.md) avec des **expressions lambda**. Les expressions lambda sont des expressions booléennes qui font référence à une **variable de portée**. Les opérateurs `any` et `all` sont analogues à une boucle `for` dans la plupart des langages de programmation, avec la variable de portée jouant le rôle de variable de boucle et l’expression lambda en tant que corps de la boucle. La variable de portée prend la valeur « actuelle » de la collection pendant l’itération de la boucle.
+Pour appliquer un [filtre](query-odata-filter-orderby-syntax.md) sur des champs de collection dans la Recherche cognitive Azure, vous pouvez utiliser les [opérateurs `any` et `all`](search-query-odata-collection-operators.md) avec des **expressions lambda**. Les expressions lambda sont des expressions booléennes qui font référence à une **variable de portée**. Les opérateurs `any` et `all` sont analogues à une boucle `for` dans la plupart des langages de programmation, avec la variable de portée jouant le rôle de variable de boucle et l’expression lambda en tant que corps de la boucle. La variable de portée prend la valeur « actuelle » de la collection pendant l’itération de la boucle.
 
 Du moins, c’est ainsi qu’elle fonctionne sur le plan conceptuel. En réalité, Recherche cognitive Azure implémente les filtres d’une manière très différente du fonctionnement des boucles `for`. Dans l’idéal, cette différence est invisible pour vous, mais elle ne l’est pas dans certaines situations. Le résultat final est qu’il existe des règles que vous devez suivre lors de l’écriture d’expressions lambda.
 
@@ -101,7 +101,7 @@ Façon dont `Rooms/Description` est stocké pour la recherche en texte intégral
 | room | 1, 2 |
 | standard | 1 |
 | suite | 1 |
-| view | 1 |
+| vue | 1 |
 
 Par conséquent, contrairement au filtre ci-dessus, qui dit : « Trouver une correspondance avec les documents où une chambre a un `Type` égal à « Deluxe Room » (Chambre de luxe) et où **cette même chambre** a un `BaseRate` (Tarif de base) inférieur à 100 », la requête de recherche indique « Trouver une correspondance avec les documents où `Rooms/Type` (Chambres/Type) contient le terme « deluxe » (de luxe) et où `Rooms/Description` (Chambres/Description) contient l’expression « city view » (vue sur la ville). Il n’existe aucun concept de chambres individuelles dont les champs peuvent être mis en corrélation dans ce dernier cas.
 
@@ -189,7 +189,7 @@ Pour obtenir des exemples spécifiques des types de filtres qui sont autorisés 
 ## <a name="next-steps"></a>Étapes suivantes  
 
 - [Résolution de problèmes liés aux filtres de collection OData dans Recherche cognitive Azure](search-query-troubleshoot-collection-filters.md)
-- [Filtres dans Recherche cognitive Azure](search-filters.md)
-- [Vue d’ensemble du langage d’expression OData pour la Recherche cognitive Azure](query-odata-filter-orderby-syntax.md)
-- [Informations de référence sur la syntaxe d’expression OData pour la Recherche cognitive Azure](search-query-odata-syntax-reference.md)
-- [Rechercher des documents &#40;API REST de Recherche cognitive Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Filtres dans la Recherche cognitive Azure](search-filters.md)
+- [Vue d’ensemble du langage d’expression OData pour Recherche cognitive Azure](query-odata-filter-orderby-syntax.md)
+- [Informations de référence sur la syntaxe d’expression OData pour Recherche cognitive Azure](search-query-odata-syntax-reference.md)
+- [Rechercher des documents &#40;API REST de la recherche cognitive Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

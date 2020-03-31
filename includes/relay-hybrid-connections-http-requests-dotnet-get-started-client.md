@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/16/2018
 ms.author: clemensv
 ms.custom: include file
-ms.openlocfilehash: 8d73a22473ffff358c7424249c7581f6af740718
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: ce29cd03de46e1d93d7f1f28f9f5184cd59a57e7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67177652"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "79200340"
 ---
 ### <a name="create-a-console-application"></a>Création d’une application console
 
@@ -82,6 +82,7 @@ Dans Visual Studio, créez un nouveau projet **Application de console (.NET Fram
     using System.IO;
     using System.Threading;
     using System.Threading.Tasks;
+    using System.Net.Http;
     using Microsoft.Azure.Relay;
    
     namespace Client

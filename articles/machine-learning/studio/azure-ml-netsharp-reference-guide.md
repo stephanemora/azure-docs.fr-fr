@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: b297a3f975450b7459895ce7c0abc79e9b2fcdea
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: c1912e670a9cf1c178b58cefbd33171f15be2483
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168927"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79218245"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio-classic"></a>Guide du langage de spécification des réseaux neuronaux Net# pour Azure Machine Learning Studio (classique)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 NET# est un langage développé par Microsoft et utilisé pour définir des architectures de réseaux neuronaux complexes, comme les réseaux neuronaux profonds ou les convolutions de dimensions arbitraires. Vous pouvez utiliser des structures complexes pour améliorer l’entraînement à partir de données telles que des images, des sons ou des vidéos.
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 02/20/2020
 ms.author: wieastbu
 ms.custom: fasttrack-new
-ms.openlocfilehash: fde48d63bd343fbed1f82e60819131ffb043a795
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: 55acea360de11c5fcc699d65daf92cf24dfd691d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78967628"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79475474"
 ---
 # <a name="protect-spa-backend-with-oauth-20-azure-active-directory-b2c-and-azure-api-management"></a>Protéger le back-end d’une application monopage avec OAuth 2.0 à l’aide d’Azure Active Directory B2C et de Gestion des API Azure
 
@@ -250,7 +250,7 @@ Vous devez ajouter des blocs d’adresses au format CIDR au panneau de restricti
 
    > [!NOTE]
    > La section qui suit est facultative et ne s’applique pas au niveau **Consommation**, qui ne prend pas en charge le portail des développeurs.
-   > Si vous n’envisagez pas d’utiliser le portail des développeurs, ou si vous ne pouvez pas l’utiliser car vous utilisez le niveau Consommation, ignorez cette étape et accédez directement à [« Générer l’application monopage JavaScript pour consommer l’API »](##build-the-javascript-spa-to-consume-the-api).
+   > Si vous n’envisagez pas d’utiliser le portail des développeurs, ou si vous ne pouvez pas l’utiliser car vous utilisez le niveau Consommation, ignorez cette étape et accédez directement à [« Générer l’application monopage JavaScript pour consommer l’API »](#build-the-javascript-spa-to-consume-the-api).
 
 ## <a name="optional-configure-the-developer-portal"></a>[Facultatif] Configurer le portail des développeurs
 
@@ -461,8 +461,5 @@ Les étapes ci-dessus peuvent être adaptées et modifiées pour autoriser de no
 * En savoir plus sur [Azure Active Directory et OAuth2.0](../active-directory/develop/authentication-scenarios.md).
 * Découvrez plus de [vidéos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) sur Gestion des API.
 * Pour les autres méthodes permettant de sécuriser votre service principal, consultez [Authentification mutuelle des certificats](api-management-howto-mutual-certificates.md).
-* Vous pourriez aussi utiliser l’API Graph Azure AD pour assigner des revendications personnalisées, et utiliser une stratégie Gestion des API pour vérifier leur présence dans le jeton.
-
 * [Création d’une instance du service Gestion des API](get-started-create-service-instance.md).
-
 * [Gérer votre première API](import-and-publish.md).

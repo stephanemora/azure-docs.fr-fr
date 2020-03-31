@@ -13,11 +13,11 @@ ms.workload: infrastructure
 ms.date: 10/22/2018
 ms.author: genli
 ms.openlocfilehash: 8046e4f42db50db15c840a13b95ae1f3620a8c7f
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77918255"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231913"
 ---
 #  <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>Erreur interne en cas de connexion à une machine virtuelle Azure avec le Bureau à distance
 
@@ -134,7 +134,7 @@ Connectez-vous à la [console série et ouvrez une instance de PowerShell](./ser
 
 4. Redémarrez la machine virtuelle, puis essayez de lancer une connexion Bureau à distance à la machine virtuelle. Si l’erreur persiste, passez à l’étape suivante.
 
-#### <a name="step-3-enable-all-supported-tls-versions"></a>Étape 3 : Activer toutes les versions prises en charge de TLS
+#### <a name="step-3-enable-all-supported-tls-versions"></a>Étape 3 : Activer toutes les versions prises en charge de TLS
 
 Le client RDP utilise par défaut le protocole TLS 1.0. Toutefois, il peut être remplacé par TLS 1.1, qui est devenu le nouveau standard. Si TLS 1.1 est désactivé sur la machine virtuelle, la connexion échoue.
 1.  Dans une instance CMD, activez le protocole TLS :

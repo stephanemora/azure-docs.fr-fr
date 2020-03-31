@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/25/2019
 ms.openlocfilehash: 5cf1986711479f7330b0cd477744d9f4e2ac6459
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76548932"
 ---
 # <a name="use-the-extended-features-of-the-apache-spark-history-server-to-debug-and-diagnose-spark-applications"></a>Utiliser les fonctionnalités étendues du serveur d’historique Apache Spark pour déboguer et diagnostiquer des applications Spark
@@ -310,7 +310,7 @@ Si vous souhaitez effectuer une mise à niveau avec un correctif logiciel, utili
     |Propriété |Valeur |
     |---|---|
     |Type de script|- Personnalisé|
-    |Name|UpgradeJar|
+    |Nom|UpgradeJar|
     |URI de script bash|`https://hdinsighttoolingstorage.blob.core.windows.net/shsscriptactions/upgrade_spark_enhancement.sh`|
     |Type(s) de nœud|Head, Worker|
     |Paramètres|`https://${account_name}.blob.core.windows.net/packages/jars/spark-enhancement-${version}.jar`|

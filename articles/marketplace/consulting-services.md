@@ -3,18 +3,17 @@ title: Services de conseil dans la Place de marché Azure et AppSource
 description: Cet article décrit les critères d’éligibilité et les exigences de publication des nouvelles offres de services de conseil dans la Place de marché Azure.
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
-manager: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/27/2020
-ms.author: evansma
-ms.openlocfilehash: 1506a4180a5991e6f6e8ed946192bcbf10bbeac0
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.author: dsindona
+ms.openlocfilehash: 987d04a4138c37d9073e5e9925f06c93d7ebb8e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78296149"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80281576"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Services de conseil dans la Place de marché Azure et AppSource
 Les services de conseil dans la Place de marché Azure et AppSource permettent aux partenaires Microsoft de connecter les clients à des services pour gérer et étendre leur utilisation d’Azure en fonction de leurs besoins professionnels. 
@@ -65,7 +64,7 @@ Les partenaires doivent avoir une **compétence Silver ou Gold** dans le domaine
 | Dynamics 365 Sales <br> Dynamics 365 Marketing <br> Dynamics 365 Customer Service <br> Dynamics 365 Field Service <br> Dynamics 365 Human Resources |   Doit être certifié Gold ou Silver dans la [Compétence Applications professionnelles dans le cloud](https://partner.microsoft.com/membership/cloud-business-applications-competency) pour l’option Engagement client.    | 
 | Dynamics 365 Finance <br> Dynamics 365 Supply Chain Management <br> Dynamics 365 Commerce <br> Dynamics 365 Human Resources <br> Dynamics 365 Project Service Automation |  Doit être certifié Gold ou Silver dans la [Compétence Applications professionnelles dans le cloud](https://partner.microsoft.com/membership/cloud-business-applications-competency) pour l’option Opérations unifiées.       |
 | Dynamics 365 Customer Insights | Doit avoir au moins une implémentation en production réussie de [Dynamics 365 Customer Insights](https://dynamics.microsoft.com/ai/customer-insights/) avec au moins cinq mesures et cinq segments. |
-| Dynamics 365 Business Central | Doit être certifié Gold ou Silver dans la [Compétence Planification des ressources d’entreprise](https://partner.microsoft.com/membership/enterprise-resource-planning-competency) et doit être le fournisseur de solutions cloud pour au moins trois clients Business Central. <br> <br> OU <br> <br> Doit avoir publié une application [Business Central dans AppSource](https://appsource.microsoft.com/) |
+| Dynamics 365 Business Central | Doit être certifié Gold ou Silver dans la [Compétence Planification des ressources d’entreprise](https://partner.microsoft.com/membership/enterprise-resource-planning-competency) et doit être le fournisseur de solutions cloud pour au moins trois clients Business Central. <br> <br> OR <br> <br> Doit avoir publié une application [Business Central dans AppSource](https://appsource.microsoft.com/) |
 | Power BI | Doit apparaître dans la [liste de présentation des partenaires Power BI](https://powerbi.microsoft.com/partner-showcase/?term=&country=&industry=&department=).|
 |Power Apps | Doit être éligible aux Avantages avancés dans le [Programme de partenariat Power Apps](https://aka.ms/PowerAppsPartner). |
 

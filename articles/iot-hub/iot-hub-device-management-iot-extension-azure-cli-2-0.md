@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 01/16/2018
 ms.author: menchi
-ms.openlocfilehash: c189ad1a6b6ebc13b71ca547176af27a43a78a7d
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: 88c3d1f4213b161d5e322349a7f0e1bc1dd952e7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78673440"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80239658"
 ---
 # <a name="use-the-iot-extension-for-azure-cli-for-azure-iot-hub-device-management"></a>Utiliser l’extension IoT pour Azure CLI permettant la gestion des appareils Azure IoT Hub
 
@@ -61,7 +61,7 @@ Exécutez Azure CLI et l’extension IoT pour Azure CLI avec différentes option
 
 * [Python 2.7x ou Python 3.x](https://www.python.org/downloads/)
 
-* l’interface de ligne de commande Azure. Si vous devez l’installer, consultez [Installer l’interface Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Vous devez utiliser Azure CLI version 2.0.70 ou ultérieure. Utilisez `az –version` pour valider.
+* l’interface de ligne de commande Azure. Si vous devez l’installer, consultez [Installer l’interface Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Vous devez utiliser Azure CLI version 2.0.70 (au minimum) ou ultérieure. Utilisez `az –version` pour valider.
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
@@ -71,13 +71,13 @@ Exécutez Azure CLI et l’extension IoT pour Azure CLI avec différentes option
 
 Connectez-vous à votre compte Azure en exécutant la commande suivante :
 
-```bash
+```azurecli
 az login
 ```
 
 ## <a name="direct-methods"></a>Méthodes directes
 
-```bash
+```azurecli
 az iot hub invoke-device-method --device-id <your device id> \
   --hub-name <your hub name> \
   --method-name <the method name> \
@@ -88,7 +88,7 @@ az iot hub invoke-device-method --device-id <your device id> \
 
 Définissez un intervalle de propriété = 3000 en exécutant la commande suivante :
 
-```bash
+```azurecli
 az iot hub device-twin update -n <your hub name> \
   -d <your device id> --set properties.desired.interval = 3000
 ```
@@ -99,7 +99,7 @@ Cette propriété peut être lue sur votre appareil.
 
 Obtenez les propriétés signalées de l’appareil en exécutant la commande suivante :
 
-```bash
+```azurecli
 az iot hub device-twin show -n <your hub name> -d <your device id>
 ```
 
@@ -109,13 +109,13 @@ L’une des propriétés jumelles signalées est $metadata.$lastUpdated, qui ind
 
 Affichez les balises et les propriétés de votre appareil en exécutant la commande suivante :
 
-```bash
+```azurecli
 az iot hub device-twin show --hub-name <your hub name> --device-id <your device id>
 ```
 
 Ajoutez un champ role = temperature&humidity à l’appareil en exécutant la commande suivante :
 
-```bash
+```azurecli
 az iot hub device-twin update \
   --hub-name <your hub name> \
   --device-id <your device id> \
@@ -126,14 +126,14 @@ az iot hub device-twin update \
 
 Interrogez les appareils avec une balise role = temperature&humidity en exécutant la commande suivante :
 
-```bash
+```azurecli
 az iot hub query --hub-name <your hub name> \
   --query-command "SELECT * FROM devices WHERE tags.role = 'temperature&humidity'"
 ```
 
 Interrogez les appareils, à l’exception de ceux qui ont une balise role = temperature&humidity en exécutant la commande suivante :
 
-```bash
+```azurecli
 az iot hub query --hub-name <your hub name> \
   --query-command "SELECT * FROM devices WHERE tags.role != 'temperature&humidity'"
 ```

@@ -1,5 +1,5 @@
 ---
-title: 'Interopérabilité des fonctionnalités de connectivité de back-end Azure : Analyse du plan de données | Microsoft Docs'
+title: 'Interopérabilité des fonctionnalités de connectivité de back-end Azure : analyse du plan de données | Microsoft Docs'
 description: Cet article fournit l’analyse du plan de données de l’initialisation (tearDown) de test que vous pouvez utiliser pour analyser l’interopérabilité entre ExpressRoute, un réseau privé virtuel (VPN) de site à site et le peering de réseau virtuel dans Azure.
 documentationcenter: na
 services: networking
@@ -11,13 +11,13 @@ ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
 ms.openlocfilehash: 815976c672272270e465610e17fef3aea79387f6
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77526635"
 ---
-# <a name="interoperability-in-azure-back-end-connectivity-features-data-plane-analysis"></a>Interopérabilité des fonctionnalités de connectivité de back-end Azure : Analyse du plan de données
+# <a name="interoperability-in-azure-back-end-connectivity-features-data-plane-analysis"></a>Interopérabilité des fonctionnalités de connectivité de back-end Azure : analyse du plan de données
 
 Cet article décrit l’analyse du plan de données de l’[initialisation (tearDown) de test][Setup]. Vous pouvez également consulter la [configuration de l’initialisation (tearDown) de test][Configuration] et l’[analyse du plan de contrôle][Control-Analysis] de l’initialisation (tearDown) de test.
 

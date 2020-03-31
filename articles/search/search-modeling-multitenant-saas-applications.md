@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: d37abd1b5d212c3d920cb68b6236029b2112ae24
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74113275"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-cognitive-search"></a>Modèles de conception pour les applications SaaS mutualisées et Recherche cognitive Azure
@@ -44,12 +44,12 @@ Il existe différents [niveaux tarifaires](https://azure.microsoft.com/pricing/d
 | Nombre maximal d’unités de recherche (réplicas*partitions) par service |3 |36 |36 |36 |36 (3 partitions max.) |
 | Stockage maximal par service |2 Go |300 Go |1,2 To |2,4 To |600 Go |
 | Stockage maximal par partition |2 Go |25 Go |100 Go |200 Go |200 Go |
-| Nombre maximal d’index par service |5\. |50 |200 |200 |3000 (1 000 index max. par partition) |
+| Nombre maximal d’index par service |5 |50 |200 |200 |3000 (1 000 index max. par partition) |
 
 #### <a name="s3-high-density"></a>Haute densité S3
 Dans le niveau tarifaire S3 de Recherche cognitive Azure, il existe une option pour le mode haute densité (HD) conçu spécifiquement pour les scénarios mutualisés. Dans de nombreux cas, il est nécessaire de prendre en charge un grand nombre de clients plus petits sous un seul service pour tirer parti des avantages de simplicité et de rentabilité.
 
-S3 HD permet de réunir les nombreux index de petite taille sous la gestion d’un seul service de recherche en troquant la possibilité d’augmenter la taille des instances des index à l’aide de partitions contre la possibilité d’héberger plus d’index dans un seul service.
+S3 HD permet de réunir les nombreux index de petite taille sous la gestion d’un seul service de recherche en troquant la possibilité d’effectuer un scale-out des index à l’aide de partitions contre la possibilité d’héberger plus d’index dans un seul service.
 
 Concrètement, un service S3 peut avoir entre 1 et 200 index qui, ensemble, peuvent héberger jusqu’à 1,4 milliard de documents. À l’inverse, un niveau S3 HD ne permettrait aux index individuels que d’atteindre 1 million de documents, mais il peut gérer jusqu’à 1 000 index par partition (jusqu’à 3 000 par service), soit au total 200 millions de documents par partition (jusqu’à 600 millions par service).
 

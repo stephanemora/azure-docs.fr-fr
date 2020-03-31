@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 7/17/2019
 ms.author: allensu
 ms.openlocfilehash: d419c213b3bcfef3631d68eb9d4cb485291bed31
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78304189"
 ---
 # <a name="load-balancer-outbound-rules"></a>Règles de trafic sortant dans Load Balancer
@@ -64,7 +64,7 @@ Dans l’API version « 2018-07-01 », une définition de règle de trafic sorta
 >[!NOTE]
 >La configuration de la NAT de trafic sortant effective est composée à partir de l’ensemble des règles de trafic sortant et règles d’équilibrage de charge. Les règles de trafic sortant sont incrémentielles pour les règles d’équilibrage de charge. Pour savoir comment gérer la NAT de trafic sortant effective quand plusieurs règles s’appliquent à une machine virtuelle, consultez [Désactiver la NAT de trafic sortant pour une règle d’équilibrage de charge](#disablesnat). Vous devez [désactiver la SNAT de trafic sortant](#disablesnat) quand vous définissez une règle de trafic sortant qui utilise la même adresse IP publique qu’une règle d’équilibrage de charge.
 
-### <a name="scale"></a> Mettre à l’échelle la NAT de trafic sortant avec plusieurs adresses IP
+### <a name="scale-outbound-nat-with-multiple-ip-addresses"></a><a name="scale"></a> Mettre à l’échelle la NAT de trafic sortant avec plusieurs adresses IP
 
 Une règle de trafic sortant peut être utilisée avec une seule adresse IP publique, mais les règles de trafic sortant facilitent la configuration de la mise à l’échelle de la NAT de trafic sortant. Vous pouvez utiliser plusieurs adresses IP pour vos scénarios à grande échelle et utiliser des règles de trafic sortant afin de limiter les risques [d’épuisement de ports SNAT](load-balancer-outbound-connections.md#snatexhaust).  
 
@@ -74,7 +74,7 @@ De plus, vous pouvez utiliser un [préfixe d’adresse IP publique](https://aka.
 
 Avec cette option, vous ne pouvez pas créer des ressources d’adresse IP publique de manière individuelle à partir du préfixe d’adresse IP publique, car la règle de trafic sortant doit avoir un contrôle total sur le préfixe d’adresse IP publique.  Si vous souhaitez un contrôle plus précis, créez une ressource d’adresse IP publique individuelle à partir du préfixe d’adresse IP publique et assignez plusieurs adresses IP publiques individuellement au frontend d’une règle de trafic sortant.
 
-### <a name="snatports"></a> Paramétrer l’allocation de ports SNAT
+### <a name="tune-snat-port-allocation"></a><a name="snatports"></a> Paramétrer l’allocation de ports SNAT
 
 Vous pouvez utiliser des règles de trafic sortant pour paramétrer [l’allocation de ports SNAT automatique en fonction de la taille du pool backend](load-balancer-outbound-connections.md#preallocatedports) et pour changer le nombre de ports SNAT alloués automatiquement.
 
@@ -87,7 +87,7 @@ Chaque adresse IP publique de tous les frontends d’une règle de trafic sortan
 
 Vous pouvez revenir à une [allocation de ports SNAT automatique en fonction de la taille du pool backend](load-balancer-outbound-connections.md#preallocatedports) en spécifiant 0 comme nombre de ports. Dans ce cas, les 50 premières instances de machine virtuelle obtiennent 1 024 ports, les instances de machine virtuelle 51 à 100 obtiennent 512 ports, et ainsi de suite selon la table.
 
-### <a name="idletimeout"></a> Contrôler le délai d’inactivité des flux sortants
+### <a name="control-outbound-flow-idle-timeout"></a><a name="idletimeout"></a> Contrôler le délai d’inactivité des flux sortants
 
 Les règles de trafic sortant ont un paramètre de configuration qui permet de contrôler le délai d’inactivité des flux sortants et de l’ajuster en fonction des besoins de votre application.  Le délai d’inactivité des flux sortants est de 4 minutes par défaut.  Le paramètre peut être défini sur une valeur comprise entre 4 et 120, selon le nombre de minutes du délai d’inactivité nécessaire pour les flux auxquels cette règle particulière s’applique.
 
@@ -95,7 +95,7 @@ Pour définir le délai d’inactivité des flux sortants à une (1) heure, util
 
           "idleTimeoutInMinutes": 60
 
-### <a name="tcprst"></a> <a name="tcpreset"></a> Activer la réinitialisation TCP au terme du délai d’inactivité
+### <a name="enable-tcp-reset-on-idle-timeout"></a><a name="tcprst"></a> <a name="tcpreset"></a> Activer la réinitialisation TCP au terme du délai d’inactivité
 
 Le comportement par défaut de Load Balancer consiste à supprimer silencieusement des flux quand le délai d’inactivité d’un flux sortant est atteint.  Avec le paramètre enableTCPReset, vous pouvez définir un comportement plus prévisible de l’application et contrôler s’il faut déclencher une réinitialisation TCP (TCP RST) bidirectionnelle quand le délai d’inactivité d’un flux sortant est atteint. 
 
@@ -105,7 +105,7 @@ Pour activer la réinitialisation TCP sur une règle de trafic sortant, utilisez
 
 Pour plus d’informations, y compris sur la disponibilité dans les régions, consultez [Réinitialisation TCP au terme du délai d’inactivité](https://aka.ms/lbtcpreset).
 
-### <a name="proto"></a> Prendre en charge les protocoles de transport TCP et UDP avec une seule règle
+### <a name="support-both-tcp-and-udp-transport-protocols-with-a-single-rule"></a><a name="proto"></a> Prendre en charge les protocoles de transport TCP et UDP avec une seule règle
 
 Vous choisirez probablement l’option "All" pour le protocole de transport de la règle de trafic sortant, mais vous pouvez également appliquer la règle de trafic sortant à un protocole de transport spécifique, par choix ou par nécessité.
 
@@ -113,7 +113,7 @@ Pour définir le protocole sur TCP ou UDP, utilisez le paramètre suivant :
 
           "protocol": "All"
 
-### <a name="disablesnat"></a> Désactiver la NAT de trafic sortant pour une règle d’équilibrage de charge
+### <a name="disable-outbound-nat-for-a-load-balancing-rule"></a><a name="disablesnat"></a> Désactiver la NAT de trafic sortant pour une règle d’équilibrage de charge
 
 Comme indiqué précédemment, les règles d’équilibrage de charge fournissent une programmation automatique de la NAT de trafic sortant. Toutefois, dans certains scénarios, il est préférable, ou obligatoire, de désactiver la programmation automatique de la NAT de trafic sortant par la règle d’équilibrage de charge pour que vous puissiez contrôler ou adapter vous-même le comportement.  Dans certains scénarios de règles de trafic sortant, il est important de désactiver la programmation automatique de la NAT de trafic sortant.
 
@@ -145,7 +145,7 @@ Les règles de trafic sortant n’introduisent pas de nouveau concept pour la d�
 
 ## <a name="scenarios"></a>Scénarios
 
-### <a name="groom"></a> Grouper les connexions sortantes dans un ensemble spécifique d’adresses IP publiques
+### <a name="groom-outbound-connections-to-a-specific-set-of-public-ip-addresses"></a><a name="groom"></a> Grouper les connexions sortantes dans un ensemble spécifique d’adresses IP publiques
 
 Vous pouvez utiliser une règle de trafic sortant pour préparer les connexions sortantes de sorte qu’elles semblent provenir d’un ensemble spécifique d’adresses IP publiques. Cette pratique facilite les scénarios de mise sur liste verte.  Cette adresse IP publique source peut être la même que celle utilisée par une règle d’équilibrage de charge ou être un ensemble d’adresses IP publiques différent de celui utilisé par une règle d’équilibrage de charge.  
 
@@ -157,7 +157,7 @@ Vous pouvez utiliser une règle de trafic sortant pour préparer les connexions 
    
 Si vous ne souhaitez pas utiliser la règle d’équilibrage de charge pour le trafic sortant, vous devez [désactiver la SNAT de trafic sortant](#disablesnat) sur la règle d’équilibrage de charge.
 
-### <a name="modifysnat"></a> Modifier l’allocation de ports SNAT
+### <a name="modify-snat-port-allocation"></a><a name="modifysnat"></a> Modifier l’allocation de ports SNAT
 
 Vous pouvez utiliser des règles de trafic sortant pour paramétrer [l’allocation de ports SNAT automatique en fonction de la taille du pool backend](load-balancer-outbound-connections.md#preallocatedports).
 
@@ -165,7 +165,7 @@ Par exemple, si vous avez deux machines virtuelles qui partagent une seule adres
 
 Consultez l’article [Connexions sortantes](load-balancer-outbound-connections.md) et la section sur l’allocation et l’utilisation des ports [SNAT](load-balancer-outbound-connections.md#snat).
 
-### <a name="outboundonly"></a> Activer pour le trafic sortant uniquement
+### <a name="enable-outbound-only"></a><a name="outboundonly"></a> Activer pour le trafic sortant uniquement
 
 Vous pouvez utiliser un équilibreur de charge standard public afin de fournir la NAT de trafic sortant dans un groupe de machines virtuelles. Dans ce scénario, vous pouvez utiliser une règle de trafic sortant uniquement, sans avoir besoin d’autres règles.
 
@@ -199,7 +199,7 @@ Lorsque vous utilisez un équilibreur de charge standard interne, la NAT de traf
    1. Placez les machines virtuelles dans un pool backend.
    2. Définissez une ou plusieurs configurations IP frontend avec une ou plusieurs adresses IP publiques ou avec un préfixe d’adresse IP publique.
    3. Configurez une règle de trafic sortant sur le même équilibreur de charge.
-   4. Spécifiez "protocol": "All" dans la définition de la règle de trafic sortant
+   4. Spécifiez "protocol": "All" dans la définition de la règle de trafic sortant.
 
 ## <a name="limitations"></a>Limites
 

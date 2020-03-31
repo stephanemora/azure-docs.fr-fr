@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodc18
 ms.date: 03/04/2019
-ms.openlocfilehash: 7a82c8af518ec062eb38f921ebf85848d10da129
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 34316b13c93ca2739e87262dd09dcbaf38186b16
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168914"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79204475"
 ---
-# <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Infographie téléchargeable : principes de base de l’apprentissage automatique avec exemples d’algorithmes
+# <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Infographie téléchargeable : Principes de base de l’apprentissage automatique avec exemples d’algorithmes
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Téléchargez cette vue d’ensemble infographique présentant de manière simple les concepts de base de l’apprentissage automatique pour en savoir plus sur les algorithmes populaires utilisés pour répondre aux questions les plus courantes concernant l’apprentissage automatique. Des exemples d’algorithmes aident les débutants à mieux comprendre quels algorithmes utiliser et à quoi ils servent.
 
@@ -29,7 +31,7 @@ Téléchargez cette vue d’ensemble infographique présentant de manière simpl
 
 **[Téléchargement : Infographie sur les principes de base de Machine Learning avec des liens vers des exemples d’algorithmes (PDF)](https://download.microsoft.com/download/0/5/A/05AE6B94-E688-403E-90A5-6035DBE9EEC5/machine-learning-basics-infographic-with-algorithm-examples.pdf)**
 
-![Infographie : principes de base de l’apprentissage automatique avec exemples d’algorithmes. Algorithmes populaires. Apprentissage automatique pour les débutants.](./media/basics-infographic-with-algorithm-examples/machine-learning-basics-infographic-with-algorithm-examples.png)
+![Infographie : Principes de base de l’apprentissage automatique avec exemples d’algorithmes. Algorithmes populaires. Apprentissage automatique pour les débutants.](./media/basics-infographic-with-algorithm-examples/machine-learning-basics-infographic-with-algorithm-examples.png)
 
 ## <a name="more-help-with-algorithms-for-beginners-and-advanced-users"></a>Aide supplémentaire sur les algorithmes pour les débutants et les utilisateurs expérimentés
 

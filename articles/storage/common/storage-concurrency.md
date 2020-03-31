@@ -11,11 +11,11 @@ ms.date: 12/20/2019
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 9879f98e72e22fc0745a9e91f29216cbe74ab8fe
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460483"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228337"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Gestion de l’accès concurrentiel dans Microsoft Azure Storage
 
@@ -49,7 +49,7 @@ Ce processus se déroule comme suit :
 4. Si la valeur ETag de l'objet blob n'est pas la même que la balise ETag dans l'en-tête conditionnel **If-Match** de la demande, le service renvoie une erreur 412 au client. Cela indique au client que l'objet blob a été mis à jour par un autre processus depuis la récupération par le client.
 5. Si la valeur ETag actuelle de l'objet blob est la même que la balise ETag dans l'en-tête conditionnel **If-Match** de la demande, le service effectue l'opération demandée et met la valeur ETag de l'objet blob à jour pour indiquer qu'il a créé une nouvelle version.  
 
-L'extrait de code C# suivant (à l'aide de la bibliothèque de stockage cliente 4.2.0) présente un exemple simple de construction d'une condition d'accès **If-Match AccessCondition** basée sur la valeur ETag obtenue à partir des propriétés d'un objet blob précédemment récupéré ou inséré. Il utilise ensuite l’objet **AccessCondition** au moment de mettre à jour l’objet blob : l’objet **AccessCondition** ajoute l’en-tête **If-Match** à la demande. Si l’objet blob a été mis à jour par un autre processus, le service Blob retourne un message d’état HTTP 412 (Échec de la condition préalable). Vous pouvez télécharger l’exemple complet ici : [Gestion de l’accès concurrentiel avec Stockage Azure](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).  
+L'extrait de code C# suivant (à l'aide de la bibliothèque de stockage cliente 4.2.0) présente un exemple simple de construction d'une condition d'accès **If-Match AccessCondition** basée sur la valeur ETag obtenue à partir des propriétés d'un objet blob précédemment récupéré ou inséré. Il utilise ensuite l’objet **AccessCondition** au moment de mettre à jour l’objet blob : l’objet **AccessCondition** ajoute l’en-tête **If-Match** à la demande. Si l’objet blob a été mis à jour par un autre processus, le service Blob retourne un message d’état HTTP 412 (Échec de la condition préalable). Vous pouvez télécharger l’exemple complet ici : [Gestion de l’accès concurrentiel avec Azure Storage](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).  
 
 ```csharp
 // Retrieve the ETag from the newly created blob
@@ -131,7 +131,7 @@ Pour verrouiller un objet blob de manière à l'utiliser de manière exclusive, 
 
 Les baux permettent la prise en charge de différentes stratégies de synchronisation, dont des stratégies d'écriture exclusive/de lecture partagée, d'écriture exclusive/de lecture exclusive et d'écriture partagée/de lecture exclusive. Si un bail existe, le service de stockage applique une stratégie d’écriture exclusive (opérations Placement, Définition et Suppression). Cependant, pour garantir l’exclusivité des opérations de lecture, le développeur doit veiller à ce que toutes les applications clientes utilisent un identificateur de bail et à ce que seul un client à la fois dispose d’un identificateur de bail valable. Les opérations de lecture sans identificateur de bail entraînent l’application d’une stratégie de lecture partagée.  
 
-L'extrait de code C# suivant présente un exemple d'obtention d'un bail exclusif de 30 secondes sur un objet blob, de mise à jour du contenu de l'objet blob et de libération du bail. Si l’objet blob fait déjà l’objet d’un bail valide quand vous tentez d’obtenir un nouveau bail, le service Blob retourne un message d’état HTTP 409 (Conflit). L’extrait de code ci-dessous utilise un objet **AccessCondition** pour encapsuler les informations relatives au bail au moment où il formule une demande de mise à jour de l’objet blob dans le service de stockage.  Vous pouvez télécharger l’exemple complet ici : [Gestion de l’accès concurrentiel avec Stockage Azure](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
+L'extrait de code C# suivant présente un exemple d'obtention d'un bail exclusif de 30 secondes sur un objet blob, de mise à jour du contenu de l'objet blob et de libération du bail. Si l’objet blob fait déjà l’objet d’un bail valide quand vous tentez d’obtenir un nouveau bail, le service Blob retourne un message d’état HTTP 409 (Conflit). L’extrait de code ci-dessous utilise un objet **AccessCondition** pour encapsuler les informations relatives au bail au moment où il formule une demande de mise à jour de l’objet blob dans le service de stockage.  Vous pouvez télécharger l’exemple complet ici : [Gestion de l’accès concurrentiel avec Azure Storage](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
 
 ```csharp
 // Acquire lease for 15 seconds
@@ -215,7 +215,7 @@ Pour utiliser l'accès concurrentiel optimiste et pour déterminer si un autre p
 
 Notez que, contrairement au service Blob, le client doit inclure un en-tête **If-Match** dans les demandes de mise à jour dans le cadre du service de Table. Il est cependant possible de procéder de force à une mise à jour inconditionnelle (règle de Thomas) et de contourner les vérifications d'accès concurrentiel en ajoutant le caractère générique (\*) dans l'en-tête **If-Match** de la demande.  
 
-L’extrait de code C# suivant présente une entité de client précédemment créée ou récupérée et dont l’adresse de messagerie a été mise à jour. L'opération d'insertion ou de récupération initiale stocke la valeur ETag dans l'objet client et, l'exemple utilisant la même instance d'objet lors de l'exécution de l'opération de remplacement, il renvoie automatiquement la valeur ETag au service de Table, ce qui permet au service de vérifier les violations d'accès concurrentiel. Si l'entité a été mise à jour par un autre processus dans le service de stockage de tables, le service renvoie un message d'état HTTP 412 (Échec de la condition préalable).  Vous pouvez télécharger l’exemple complet ici : [Gestion de l’accès concurrentiel avec Stockage Azure](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
+L’extrait de code C# suivant présente une entité de client précédemment créée ou récupérée et dont l’adresse de messagerie a été mise à jour. L'opération d'insertion ou de récupération initiale stocke la valeur ETag dans l'objet client et, l'exemple utilisant la même instance d'objet lors de l'exécution de l'opération de remplacement, il renvoie automatiquement la valeur ETag au service de Table, ce qui permet au service de vérifier les violations d'accès concurrentiel. Si l'entité a été mise à jour par un autre processus dans le service de stockage de tables, le service renvoie un message d'état HTTP 412 (Échec de la condition préalable).  Vous pouvez télécharger l’exemple complet ici : [Gestion de l’accès concurrentiel avec Azure Storage](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
 
 ```csharp
 try
@@ -292,5 +292,5 @@ Pour plus d’informations concernant Azure Storage, consultez la page :
 * [Page d’accueil de Microsoft Azure Storage](https://azure.microsoft.com/services/storage/)
 * [Introduction à Azure Storage](storage-introduction.md)
 * Prise en main du Stockage [Blob](../blobs/storage-dotnet-how-to-use-blobs.md), [Table](../../cosmos-db/table-storage-how-to-use-dotnet.md), [File d’attente](../storage-dotnet-how-to-use-queues.md) et [Fichier](../storage-dotnet-how-to-use-files.md)
-* Architecture de stockage - [Stockage Azure : Un service de stockage cloud hautement disponible à cohérence forte](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
+* Architecture de stockage – [Stockage Azure : service de stockage cloud à haute disponibilité et à forte cohérence](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 

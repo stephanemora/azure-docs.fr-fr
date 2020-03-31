@@ -1,39 +1,38 @@
 ---
 title: Offre d’application Azure, onglet Place de marché
 description: Utilisez l’onglet Place de marché pour identifier les ressources marketing pour une offre d’application Azure.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.author: pabutler
-ms.openlocfilehash: 967b66a67d51b3a79bcf930ce977af48acc3dd63
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 94bbfb16a967a97b1ee6f6d51a5f55bc8ba13227
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827578"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80281763"
 ---
 # <a name="azure-application-marketplace-tab"></a>Onglet Place de marché - Application Azure
 
-Utilisez l’onglet Place de marché pour décrire votre application Azure et fournir des ressources marketing. Cet onglet comprend les formulaires suivants : Overview (Vue d’ensemble), Marketing Artifacts (Artefacts marketing), Lead Management (Gestion des prospects) et Legal (Informations juridiques).
+Utilisez l’onglet Place de marché pour décrire votre application Azure et fournir des ressources marketing. Cet onglet comprend les formulaires suivants : Overview (Vue d’ensemble), Marketing Artifacts (Artefacts marketing), Lead Management (Gestion des prospects) et Legal (Informations juridiques).
 
 ## <a name="overview-form"></a>Formulaire Vue d'ensemble
 
-Le formulaire Vue d’ensemble contient les champs obligatoires et facultatifs illustrés dans la capture d’écran suivante. Les champs obligatoires sont indiqués par un astérisque (*).
+Le formulaire Overview (Vue d’ensemble) contient les champs obligatoires et facultatifs illustrés dans la capture d’écran suivante. Les champs obligatoires sont indiqués par un astérisque (*).
 
 ![Formulaire Vue d'ensemble](./media/azureapp-marketplace-overview.png)
 
-Le tableau suivant décrit les paramètres à utiliser pour la création d’une vitrine pour l’offre.   Les champs accompagnés d’un astérisque sont obligatoires.
+Le tableau suivant décrit les paramètres à utiliser pour la création d’une vitrine pour l’offre.   Les champs marqués d’un astérisque sont obligatoires.
 
 |      Champ         |    Description    |
 |  ---------------   |  ---------------  |
 | **Titre\***        | Titre de l’offre. Il est affiché de façon visible dans la Place de marché. La longueur maximale est de 50 caractères. |
 | **Résumé\***      | Court résumé de l’offre. La longueur maximale est de 100 caractères.           |
-| **Résumé long\*** | Résumé plus détaillé de l’offre (il peut être identique au contenu du champ Résumé). La longueur maximale est de 256 caractères.           |
+| **Long Summary (Résumé long)\*** | Résumé plus détaillé de l’offre (il peut être identique au contenu du champ Résumé). La longueur maximale est de 256 caractères.           |
 | **Description\***  | Description de l’offre. La longueur maximale est de 3 000 caractères. Mise en forme HTML simple, comprenant des balises&lt;p&gt;, &lt;em&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;ol&gt; et header.  |
-| **Identificateur marketing\*** | URL unique à associer à cette offre. Elle inclut généralement le nom de votre solution et de votre organisation, avec une longueur maximale de 50 caractères. Choisissez un identificateur marketing court et convivial pour votre service. Il sera utilisé dans les URL de la Place de marché pour cette offre. Par exemple, si votre ID d’éditeur est « contoso » et votre identificateur marketing « sampleApp », l’URL de votre offre sur la Place de marché Azure sera https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp  
+| **Marketing Identifier\*** (Identificateur marketing) | URL unique à associer à cette offre. Elle inclut généralement le nom de votre solution et de votre organisation, avec une longueur maximale de 50 caractères. Choisissez un identificateur marketing court et convivial pour votre service. Il sera utilisé dans les URL de la Place de marché pour cette offre. Par exemple, si votre ID d’éditeur est « contoso » et votre identificateur marketing « sampleApp », l’URL de votre offre sur la Place de marché Azure sera https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp  
 | **ID d’abonnement à la préversion\*** | Ajoutez entre 1 et 100 identificateurs d’abonnement d’utilisateurs de la préversion. Ces abonnements autorisés ont accès à l’offre dès qu’elle est disponible en préversion et après sa publication, avant sa mise en service.          |
 | **Liens utiles**    | Vous pouvez éventuellement fournir des liens vers diverses ressources pour les utilisateurs de votre offre, comme la prise en charge, la documentation, les forums, etc.  Il vous est recommandé d’ajouter au moins un lien vers votre documentation.            |
 | **Catégories suggérées (5 maximum)\*** | Sélectionnez cinq catégories maximum. Les catégories sélectionnées servent à mapper votre offre aux catégories de produits disponibles sur la Place de marché Microsoft Azure et le portail Azure. Elles sont affichées sur les pages de navigation et la page des détails de votre produit. |
@@ -62,7 +61,7 @@ Le tableau suivant décrit les artefacts marketing.
 
 ### <a name="artifact-examples-in-azure-marketplace"></a>Exemples d’artefact dans la Place de marché Azure
 
-La capture d’écran suivante montre un exemple de résultat de recherche dans la Place de marché.
+La capture d’écran suivante montre un exemple de résultat de recherche sur la Place de marché.
 
 ![Résultat de recherche d’offre dans la Place de marché](./media/azureapp-marketplace-example-browse.png)
 
@@ -122,7 +121,7 @@ Pour plus d’informations, voir [Configurer des prospects](https://docs.microso
 
 ## <a name="legal"></a>Informations juridiques
 
-Utilisez le formulaire Informations juridiques pour fournir la documentation juridique requise pour toutes les offres.
+Utilisez le formulaire Legal (Informations juridiques) afin de fournir la documentation juridique requise pour toutes les offres.
 
 Fournissez les informations suivantes :
 

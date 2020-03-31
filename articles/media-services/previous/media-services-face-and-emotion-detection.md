@@ -16,10 +16,10 @@ ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: milanga
 ms.openlocfilehash: 2d746167f993438e5fce467365844df2078c08a6
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77919309"
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Détection des visages et des émotions avec Azure Media Analytics
@@ -48,14 +48,14 @@ Le processeur multimédia **Azure Media Face Detector** est uniquement disponibl
 Cet article apporte des précisions sur **Azure Media Face Detector** et illustre son utilisation avec le kit SDK Media Services pour .NET.
 
 ## <a name="face-detector-input-files"></a>Fichiers d’entrée du détecteur facial
-Fichiers vidéo. Actuellement, les formats suivants sont pris en charge : MP4, MOV et WMV.
+Fichiers vidéo. Les formats suivants sont actuellement pris en charge : MP4, MOV et WMV.
 
 ## <a name="face-detector-output-files"></a>Fichiers de sortie du détecteur facial
 L’API de détection et de suivi facial permet une détection d’emplacement et un suivi de visage très précis ; elle peut détecter jusqu’à 64 visages humains dans une vidéo. Les visages filmés de face donnent les meilleurs résultats ; les visages filmés de côté ou les visages de taille réduite (24 x 24 pixels ou moins) peuvent ne pas être aussi précis.
 
 Les visages détectés et suivis sont retournés avec les coordonnées (point gauche et supérieur, largeur, hauteur) indiquant l’emplacement des visages dans l’image en pixels, mais aussi un numéro d’identification pour chaque visage, indiquant le suivi de cette personne. Les numéros d’identification des visages peuvent être réinitialisés dans des cas où le visage filmé de face sort de l’image ou si un élément vient se superposer ; certaines personnes peuvent ainsi se voir attribuer plusieurs identifiants.
 
-## <a id="output_elements"></a>Éléments du fichier de sortie JSON
+## <a name="elements-of-the-output-json-file"></a><a id="output_elements"></a>Éléments du fichier de sortie JSON
 
 [!INCLUDE [media-services-analytics-output-json](../../../includes/media-services-analytics-output-json.md)]
 
@@ -158,7 +158,7 @@ Lors de la création d’une tâche de vidéo **Azure Media Face Detector**, vou
 #### <a name="attribute-descriptions"></a>Descriptions des attributs
 | Nom de l’attribut | Description |
 | --- | --- |
-| Mode |Visages : Détection faciale uniquement.<br/>PerFaceEmotion : Retourne les valeurs d’émotion indépendamment pour chaque détection faciale.<br/>AggregateEmotion : Retourne les valeurs d’émotion moyennes pour tous les visages dans l’image. |
+| Mode |Faces : détection faciale uniquement.<br/>PerFaceEmotion : retourne les valeurs d’émotion indépendamment pour chaque détection faciale.<br/>AggregateEmotion : retourne les valeurs d’émotion moyennes pour tous les visages dans l’image. |
 | AggregateEmotionWindowMs |Utilisez cet attribut si le mode AggregateEmotion est sélectionné. Spécifie la longueur de la vidéo utilisée pour produire chaque résultat agrégé, en millisecondes. |
 | AggregateEmotionIntervalMs |Utilisez cet attribut si le mode AggregateEmotion est sélectionné. Spécifie à quelle fréquence les résultats agrégés doivent être produits. |
 

@@ -12,17 +12,17 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 625d9d5c5ecf095d4acbff625754b2065f184536
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76722524"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227217"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Créer des tables Hive et charger des données à partir de Stockage Blob Azure
 
 Cet article présente des requêtes Hive génériques qui créent des tables Hive et chargent des données à partir d’un stockage d’objets blob Azure. Il donne également quelques conseils sur le partitionnement des tables Hive et sur l’utilisation du format ORC (Optimized Row Columnar) pour améliorer les performances des requêtes.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 Cet article suppose que vous avez :
 
 * Créé un compte de stockage Azure. Pour obtenir des instructions, consultez [À propos des comptes de stockage Azure](../../storage/common/storage-introduction.md).
@@ -40,7 +40,7 @@ Si vous souhaitez vous exercer avec l’exemple **NYC Taxi Trip Data**, vous dev
 * **décompresser** tous les fichiers en fichiers .csv, puis
 * les **télécharger** à l’emplacement par défaut (ou un conteneur approprié) du compte de stockage Azure. Les options de ce type de compte sont présentées dans la rubrique [Utiliser Stockage Azure avec des clusters Azure HDInsight](../../hdinsight/hdinsight-hadoop-use-blob-storage.md). Pour découvrir le processus qui vous permet de télécharger les fichiers .csv du conteneur par défaut sur le compte de stockage, consultez cette [page](hive-walkthrough.md#upload).
 
-## <a name="submit"></a>Envoi de requêtes Hive
+## <a name="how-to-submit-hive-queries"></a><a name="submit"></a>Envoi de requêtes Hive
 Pour envoyer des requêtes Hive, utilisez au choix :
 
 * [Envoyer des requêtes Hive avec la ligne de commande Hadoop dans le nœud principal du cluster Hadoop](#headnode)
@@ -51,7 +51,7 @@ Des requêtes Hive sont similaires à SQL. Si vous maîtrisez SQL, l’ [aide-m�
 
 Lors de l’envoi d’une requête Hive, vous pouvez également contrôler la destination de sa sortie : écran, fichier local sur le nœud principal ou blob Azure.
 
-### <a name="headnode"></a>Envoyer des requêtes Hive avec la ligne de commande Hadoop dans le nœud principal du cluster Hadoop
+### <a name="submit-hive-queries-through-hadoop-command-line-in-headnode-of-hadoop-cluster"></a><a name="headnode"></a>Envoyer des requêtes Hive avec la ligne de commande Hadoop dans le nœud principal du cluster Hadoop
 Une requête Hive complexe envoyée directement au nœud principal du cluster Hadoop est traitée plus rapidement qu'avec un éditeur Hive ou des scripts Azure PowerShell.
 
 Connectez-vous au nœud principal du cluster Hadoop, ouvrez la ligne de commande Hadoop sur le bureau du nœud principal et saisissez la commande `cd %hive_home%\bin`.
@@ -111,13 +111,13 @@ Si vous ouvrez le conteneur par défaut du cluster Hadoop à l’aide d’Azure 
 
 ![Explorateur Stockage Azure montrant la sortie de la requête Hive](./media/move-hive-tables/output-hive-results-3.png)
 
-### <a name="hive-editor"></a>Envoyer des requêtes Hive avec l’éditeur Hive
+### <a name="submit-hive-queries-with-the-hive-editor"></a><a name="hive-editor"></a>Envoyer des requêtes Hive avec l’éditeur Hive
 Vous pouvez également utiliser la console de requête (éditeur Hive) en entrant une URL sous la forme *https:\//\<Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor* dans un navigateur web. Vous devez être connecté pour afficher cette console, et vous devez donc saisir ici vos informations d’identification de cluster Hadoop.
 
-### <a name="ps"></a>Envoyer des requêtes Hive avec les commandes Azure PowerShell
+### <a name="submit-hive-queries-with-azure-powershell-commands"></a><a name="ps"></a>Envoyer des requêtes Hive avec les commandes Azure PowerShell
 Vous pouvez également utiliser PowerShell pour envoyer des requêtes Hive. Pour obtenir de l'aide, consultez [Envoi de tâches Hive avec PowerShell](../../hdinsight/hadoop/apache-hadoop-use-hive-powershell.md).
 
-## <a name="create-tables"></a>Créer la base de données et les tables Hive
+## <a name="create-hive-database-and-tables"></a><a name="create-tables"></a>Créer la base de données et les tables Hive
 Les requêtes Hive sont disponibles en téléchargement dans le [dépôt GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_db_tbls_load_data_generic.hql).
 
 Voici la requête Hive qui crée une table Hive.
@@ -144,7 +144,7 @@ Voici les descriptions des champs que vous devez renseigner et d’autres opéra
 * **\<storage location\>**  : emplacement Stockage Azure où enregistrer les données des tables Hive. Si vous ne spécifiez pas *LOCATION \<storage location\>* , la base de données et les tables sont stockées dans le répertoire *hive/warehouse/* du conteneur par défaut du cluster Hive par défaut. Si vous souhaitez spécifier l’emplacement de stockage, ce dernier doit se trouver dans le conteneur par défaut de la base de données et des tables. Cet emplacement doit être désigné comme emplacement par rapport au conteneur par défaut du cluster sous la forme *'wasb:///\<répertoire 1>/'* ou *'wasb:///\<répertoire 1>/\<répertoire 2>/'* , etc. Une fois la requête exécutée, les répertoires relatifs sont créés dans le conteneur par défaut.
 * **TBLPROPERTIES("skip.header.line.count"="1")** : si le fichier de données contient une ligne d’en-tête, vous devez ajouter cette propriété **à la fin** de la requête *create table*. Sinon, cette ligne d’en-tête est chargée comme un enregistrement dans la table. Si le fichier de données ne contient aucune ligne d’en-tête, cette configuration peut être omise dans la requête.
 
-## <a name="load-data"></a>Chargement des données dans des tables Hive
+## <a name="load-data-to-hive-tables"></a><a name="load-data"></a>Chargement des données dans des tables Hive
 Voici la requête Hive qui charge les données dans une table Hive.
 
     LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
@@ -156,7 +156,7 @@ Voici la requête Hive qui charge les données dans une table Hive.
   >
   >
 
-## <a name="partition-orc"></a>Rubriques avancées : Table partitionnée et Stocker des données Hive au format ORC
+## <a name="advanced-topics-partitioned-table-and-store-hive-data-in-orc-format"></a><a name="partition-orc"></a>Rubriques avancées : Table partitionnée et Stocker des données Hive au format ORC
 Si les données sont volumineuses, le partitionnement de la table est avantageux pour les requêtes qui doivent n’en balayer que quelques partitions. Par exemple, il est raisonnable de partitionner les données journalisées d’un site Web par dates.
 
 Outre le partitionnement des tables Hive, il est également judicieux de stocker les données Hive au format ORC (Optimized Row Columnar). Pour plus d'informations sur le format ORC, consultez l'article <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC#LanguageManualORC-ORCFiles" target="_blank">L'utilisation de fichiers ORC améliore les performances lorsque Hive lit, écrit et traite des données</a>.
@@ -181,7 +181,7 @@ Lors de l’interrogation de tables partitionnées, il est recommandé d’ajout
     from <database name>.<partitioned table name>
     where <partitionfieldname>=<partitionfieldvalue> and ...;
 
-### <a name="orc"></a>Stocker des données Hive au format ORC
+### <a name="store-hive-data-in-orc-format"></a><a name="orc"></a>Stocker des données Hive au format ORC
 Vous ne pouvez pas charger directement des données au format ORC depuis le stockage blob dans des tables Hive. Voici les étapes que vous devez suivre pour charger des données au format ORC depuis des blobs Azure dans des tables Hive.
 
 Créez une table externe **STORED AS TEXTFILE** et chargez les données du stockage blob dedans.

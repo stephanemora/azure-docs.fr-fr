@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 5ca153f0d52b65aa1ee56d5757381f1f31c7eeb5
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 828f738ff8923dc8194e2449f5fb0be74ef45ad7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77120823"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79473555"
 ---
 # <a name="api-management-authentication-policies"></a>Stratégies d’authentification dans Gestion des API
 Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](https://go.microsoft.com/fwlink/?LinkID=398186).
 
-##  <a name="AuthenticationPolicies"></a> Stratégies d’authentification
+##  <a name="authentication-policies"></a><a name="AuthenticationPolicies"></a> Stratégies d’authentification
 
 -   [Authenticate with Basic](api-management-authentication-policies.md#Basic) : authentification avec un service principal à l’aide de l’authentification de base.
 
@@ -31,7 +31,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 
 -   [Authenticate with managed identity](api-management-authentication-policies.md#ManagedIdentity) (Authentifier avec identité gérée) : authentification avec [l’identité managée](../active-directory/managed-identities-azure-resources/overview.md) pour le service Gestion des API.
 
-##  <a name="Basic"></a> Authenticate with Basic
+##  <a name="authenticate-with-basic"></a><a name="Basic"></a> Authenticate with Basic
  La stratégie `authentication-basic` permet l’authentification auprès d’un service principal à l’aide de l’authentification de base. Cette stratégie définit en réalité l’en-tête d’autorisation HTTP sur la valeur correspondant aux informations d’identification fournies dans la stratégie.
 
 ### <a name="policy-statement"></a>Instruction de la stratégie
@@ -66,7 +66,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 
 -   **Étendues de la stratégie :** toutes les étendues
 
-##  <a name="ClientCertificate"></a> Authenticate with client certificate
+##  <a name="authenticate-with-client-certificate"></a><a name="ClientCertificate"></a> Authenticate with client certificate
  La stratégie `authentication-certificate` permet l’authentification auprès d’un service principal à l’aide d’un certificat client. Le certificat doit être [installé dans Gestion des API](https://go.microsoft.com/fwlink/?LinkID=511599) en premier et identifié par son empreinte.
 
 ### <a name="policy-statement"></a>Instruction de la stratégie
@@ -106,7 +106,7 @@ Dans cet exemple, le certificat client est identifié par le nom de ressource.
   
 -   **Étendues de la stratégie :** toutes les étendues  
 
-##  <a name="ManagedIdentity"></a> Authentifier avec l’identité managée  
+##  <a name="authenticate-with-managed-identity"></a><a name="ManagedIdentity"></a> Authentifier avec l’identité managée  
  Utilisez la stratégie `authentication-managed-identity` pour vous authentifier auprès d’un service principal à l’aide de l’identité managée du service Gestion des API. Cette stratégie utilise essentiellement l’identité managée pour obtenir un jeton d’accès auprès d’Azure Active Directory afin d’accéder à la ressource spécifiée. Une fois le jeton obtenu, la stratégie définit la valeur du jeton dans l'en-tête `Authorization` à l’aide du schéma `Bearer`.
   
 ### <a name="policy-statement"></a>Instruction de la stratégie  
@@ -118,7 +118,7 @@ Dans cet exemple, le certificat client est identifié par le nom de ressource.
 ### <a name="example"></a>Exemple  
 #### <a name="use-managed-identity-to-authenticate-with-a-backend-service"></a>Utiliser Identité managée pour s’authentifier auprès d’un service principal
 ```xml  
-<authentication-managed-identity resource="https://graph.windows.net"/> 
+<authentication-managed-identity resource="https://graph.microsoft.com"/> 
 ```
 ```xml  
 <authentication-managed-identity resource="https://management.azure.com/"/> <!--Azure Resource Manager-->

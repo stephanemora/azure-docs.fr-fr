@@ -7,19 +7,19 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
-ms.topic: tutorial
-ms.date: 02/03/2020
+ms.topic: quickstart
+ms.date: 03/17/2020
 ms.author: juliako
-ms.openlocfilehash: 1f3d442ea7cf6d95427aaa9c072410119e2735af
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 22b06ce99333750d48d1cb65d9f60779572723b9
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989805"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79499633"
 ---
 # <a name="quickstart-how-to-sign-up-and-upload-your-first-video"></a>Démarrage rapide : Comment s’inscrire et charger votre première vidéo
 
-Ce tutoriel de démarrage vous montre comment vous connecter au site web Video Indexer et charger votre première vidéo.
+Ce guide de démarrage rapide vous montre comment vous connecter au site web Video Indexer, et comment charger votre première vidéo.
 
 Lorsque vous créez un compte Video Indexer, vous pouvez choisir un compte d’essai gratuit (où vous obtenez un certain nombre de minutes d’indexation gratuites) ou une option payante (où vous n’êtes pas limités par le quota). Avec l’essai gratuit, Video Indexer fournit jusqu’à 600 heures d’indexation gratuite aux utilisateurs du site web et jusqu’à 2 400 heures d’indexation gratuite aux utilisateurs de l’API. Avec l’option payante, vous créez un compte Video Indexer [connecté à votre abonnement Azure et un compte Azure Media Services](connect-to-azure.md). Vous payez pour les minutes indexées, ainsi que pour les frais liés au compte Azure Media Services. 
 
@@ -27,10 +27,10 @@ Lorsque vous créez un compte Video Indexer, vous pouvez choisir un compte d’
 
 Pour commencer à développer avec Video Indexer, accédez au site web [Video Indexer](https://www.videoindexer.com) et inscrivez-vous.
 
-## <a name="upload-a-video-using-the-video-indexer-website"></a>Charger une vidéo à l’aide du site web Video Indexer
-
 > [!NOTE]
-> Un nom de vidéo ne doit pas dépasser 80 caractères.
+> Une fois que vous avez commencé à utiliser Video Indexer, l’ensemble de vos données stockées et du contenu chargé fait l’objet d’un chiffrement à clé gérée (au repos) par Microsoft.
+
+## <a name="upload-a-video-using-the-video-indexer-website"></a>Charger une vidéo à l’aide du site web Video Indexer
 
 ### <a name="supported-file-formats-for-video-indexer"></a>Formats de fichiers pris en charge pour Video Indexer
 
@@ -40,6 +40,9 @@ Pour obtenir la liste des formats de fichiers que vous pouvez utiliser avec Vide
 
 1. Connectez-vous au site web [Video Indexer](https://www.videoindexer.ai/).
 2. Pour charger une vidéo, appuyez sur le bouton ou le lien **Charger**.
+
+    > [!NOTE]
+    > Le nom de la vidéo ne doit pas dépasser 80 caractères.
 
     ![Télécharger](./media/video-indexer-get-started/video-indexer-upload.png)
 

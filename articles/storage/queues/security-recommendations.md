@@ -5,16 +5,17 @@ description: Découvrez les recommandations de sécurité pour Stockage File d�
 services: storage
 author: tamram
 ms.service: storage
+ms.subservice: queues
 ms.topic: conceptual
 ms.date: 12/12/2019
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: 1315e1f81ee32a544b623b7f3ffad61a7e7275d8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8bb56db9eed962ac8f8202c61a7446527c15dfc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75476923"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80060896"
 ---
 # <a name="security-recommendations-for-queue-storage"></a>Recommandations de sécurité pour Stockage File d’attente
 

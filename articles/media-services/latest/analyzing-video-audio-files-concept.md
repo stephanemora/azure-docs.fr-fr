@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 01/30/2020
 ms.author: juliako
 ms.openlocfilehash: 1d28fc37b98493322b9e201ac899b7911dd1d705
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988343"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79232825"
 ---
 # <a name="analyze-video-and-audio-files-with-azure-media-services"></a>Analyser des fichiers vidéo et audio avec Azure Media Services
 
@@ -67,7 +67,7 @@ La sortie inclut un fichier JSON (insights.json) contenant tous les insights tro
 
 ### <a name="transcript"></a>transcription
 
-|Name|Description|
+|Nom|Description|
 |---|---|
 |id|ID de la ligne.|
 |text|La transcription proprement dite.|
@@ -105,7 +105,7 @@ Exemple :
 
 ### <a name="ocr"></a>ocr
 
-|Name|Description|
+|Nom|Description|
 |---|---|
 |id|ID de la ligne ROC.|
 |text|Texte de l’OCR.|
@@ -148,7 +148,7 @@ Exemple :
 
 ### <a name="faces"></a>visages
 
-|Name|Description|
+|Nom|Description|
 |---|---|
 |id|ID du visage.|
 |name|Nom du visage. Il peut s'agir de la valeur « Unknown #0 », d’une célébrité identifiée ou d'une personne formée par le client.|
@@ -193,7 +193,7 @@ Exemple :
 
 ### <a name="shots"></a>captures
 
-|Name|Description|
+|Nom|Description|
 |---|---|
 |id|ID de la capture.|
 |keyFrames|Liste des images clés au sein de la capture (chacune possède un ID et une liste d’intervalles de temps d’instances). Les instances des images clés comptent un champ thumbnailId pourvu de l’ID de miniature de l’élément keyFrame.|
@@ -250,7 +250,7 @@ Exemple :
 
 ### <a name="statistics"></a>statistiques
 
-|Name|Description|
+|Nom|Description|
 |---|---|
 |CorrespondenceCount|Nombre de correspondances contenues dans la vidéo.|
 |WordCount|Nombre de mots par intervenant.|
@@ -263,7 +263,7 @@ Exemple :
 
 Les sentiments sont regroupés par leur champ sentimentType (neutre/positif/négatif). Par exemple, 0-0.1, 0.1-0.2.
 
-|Name|Description|
+|Nom|Description|
 |---|---|
 |id|ID du sentiment.|
 |averageScore |Moyenne de tous les résultats obtenus pour toutes les instances de ce type de sentiment : neutre/positif/négatif|
@@ -298,7 +298,7 @@ Les sentiments sont regroupés par leur champ sentimentType (neutre/positif/nég
 
 ### <a name="labels"></a>étiquettes
 
-|Name|Description|
+|Nom|Description|
 |---|---|
 |id|ID de l’étiquette.|
 |name|Nom de l’étiquette (par exemple, « ordinateur », « TV »).|
@@ -356,7 +356,7 @@ Les sentiments sont regroupés par leur champ sentimentType (neutre/positif/nég
 
 ### <a name="keywords"></a>mots clés
 
-|Name|Description|
+|Nom|Description|
 |---|---|
 |id|ID du mot clé.|
 |text|Texte du mot clé.|
@@ -407,7 +407,7 @@ Le bloc visualContentModeration contient des intervalles de temps qui sont susce
 
 Les vidéos trouvées qui contiennent des éléments pour adultes ou choquants peuvent être disponibles pour un affichage privé uniquement. Les utilisateurs peuvent soumettre une demande de révision manuelle du contenu, auquel cas l’attribut `IsAdult` contient le résultat de la révision manuelle.
 
-|Name|Description|
+|Nom|Description|
 |---|---|
 |id|ID de modération du contenu visuel.|
 |adultScore|Degré du contenu pour adultes (d’après Content Moderator).|

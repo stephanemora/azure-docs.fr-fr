@@ -9,17 +9,17 @@ ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 11/07/2019
 ms.openlocfilehash: 460079248e6cbd939c36b84f94cac41dce4dda2b
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73747669"
 ---
-# <a name="tutorial-query-a-sql-server-linux-docker-container-in-a-virtual-network-from-an-azure-databricks-notebook"></a>Didacticiel : Interroger un conteneur Docker SQL Server Linux dans un réseau virtuel à partir d’un notebook Azure Databricks
+# <a name="tutorial-query-a-sql-server-linux-docker-container-in-a-virtual-network-from-an-azure-databricks-notebook"></a>Tutoriel : Interroger un conteneur Docker SQL Server Linux dans un réseau virtuel à partir d’un notebook Azure Databricks
 
 Ce tutoriel vous montre comment intégrer Azure Databricks à un conteneur Docker SQL Server Linux sur un réseau virtuel. 
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Déployer un espace de travail Azure Databricks sur un réseau virtuel
@@ -192,7 +192,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
     display(df)
     ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, l’espace de travail Azure Databricks et toutes les ressources associées. La suppression du travail évite une facturation inutile. Si vous avez l’intention d’utiliser l’espace de travail Azure Databricks à l’avenir, vous pouvez arrêter le cluster et le redémarrer ultérieurement. Si vous ne pensez pas continuer à utiliser cet espace de travail Azure Databricks, supprimez toutes les ressources créées au cours de ce tutoriel en procédant comme suit :
 
@@ -204,4 +204,4 @@ Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, l’esp
 
 Passez à l’article suivant pour savoir comment extraire, transformer et charger des données à l’aide d’Azure Databricks.
 > [!div class="nextstepaction"]
-> [Tutoriel : Extraire, transformer et charger des données à l'aide d'Azure Databricks](databricks-extract-load-sql-data-warehouse.md)
+> [Tutoriel : Extraire, transformer et charger des données à l'aide d'Azure Databricks](databricks-extract-load-sql-data-warehouse.md)

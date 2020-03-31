@@ -8,14 +8,14 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.workload: big-data
 ms.topic: quickstart
-ms.date: 05/08/2019
+ms.date: 03/23/2020
 ms.custom: mvc
-ms.openlocfilehash: 46bad14978957ab474cfc0eda3e523874246d3f3
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: d6af521238a034bc22612335119f08284b87eb4b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77586221"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80132709"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Démarrage rapide : Exécuter une tâche Spark sur Azure Databricks avec le portail Azure
 
@@ -58,6 +58,8 @@ Dans cette section, vous créez un espace de travail Azure Databricks en utilisa
 3. Sélectionnez **Vérifier + créer**, puis **Créer**. La création de l’espace de travail dure quelques minutes. Pendant la création de l'espace de travail, vous pouvez consulter l'état du déploiement dans **Notifications**. À l’issue de ce processus, votre compte d’utilisateur est automatiquement ajouté comme utilisateur administrateur dans l’espace de travail.
 
     ![Vignette de déploiement Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-deployment-tile.png "Vignette de déploiement Databricks")
+
+    Lorsque le déploiement d’un espace de travail échoue, l’espace de travail est malgré tout créé en état d’échec. Supprimez l’espace de travail défaillant et créez un espace de travail qui résout les erreurs de déploiement. Lorsque vous supprimez l’espace de travail défaillant, le groupe de ressources managé et toutes les ressources déployées correctement sont également supprimés.
 
 ## <a name="create-a-spark-cluster-in-databricks"></a>Créer un cluster Spark dans Databricks
 

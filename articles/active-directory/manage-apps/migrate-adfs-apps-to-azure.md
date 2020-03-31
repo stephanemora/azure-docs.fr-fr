@@ -14,10 +14,10 @@ ms.date: 03/02/2018
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ec825a562b57f081305af20ee6a6ce078d5c0505
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77159010"
 ---
 # <a name="move-applications-from-ad-fs-to-azure-ad"></a>Déplacer des applications entre AD FS et Azure AD 
@@ -167,7 +167,7 @@ Des étapes supplémentaires sont nécessaires pour certaines configurations dan
 Actuellement, les applications que vous pouvez déplacer facilement sont les applications SAML 2.0 qui utilisent l’ensemble standard d’éléments de configuration et de revendications. Il peut s’agir des éléments suivants :
 
 - Nom d’utilisateur principal.
-- Adresse de messagerie.
+- Adresse e-mail.
 - Prénom.
 - Nom.
 - D’un autre attribut comme **NameID** de SAML, y compris l’attribut de messagerie Azure AD, le préfixe de messagerie, l’attribut employeeid, les attributs d’extension 1-15, ou l’attribut local **SamAccountName**. Pour plus d’informations, consultez la section [Modification de la revendication NameIdentifier](../develop/active-directory-saml-claims-customization.md).

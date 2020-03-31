@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/08/2020
 ms.openlocfilehash: cb17fe24339ad618229b3456ece15c206f79bdb7
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76899953"
 ---
 # <a name="encryption-at-rest-of-content-in-azure-cognitive-search-using-customer-managed-keys-in-azure-key-vault"></a>Chiffrement du contenu au repos dans Recherche cognitive Azure à l’aide de clés gérées par le client dans Azure Key Vault
@@ -28,7 +28,7 @@ Toutes les clés ne doivent pas nécessairement se trouver dans le même Key Vau
 > [!IMPORTANT] 
 > Cette caractéristique est disponible dans l’[API REST version 2019-05-06](https://docs.microsoft.com/rest/api/searchservice/) et le [.NET SDK version 8.0-preview](search-dotnet-sdk-migration-version-9.md). Il n’existe actuellement aucune prise en charge pour configurer des clés de chiffrement gérées par le client dans le Portail Azure. Le service Recherche doit être créé après janvier 2019 et ne peut pas être un service gratuit (partagé).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Les services suivants sont utilisés dans cet exemple. 
 
@@ -211,7 +211,7 @@ Vous pouvez maintenant envoyer la demande de création d’un mappage de synonym
 > Même si la propriété **encryptionKey** peut être ajoutée aux index ou mappages de synonymes Recherche cognitive Azure existants, elle peut être mise à jour en fournissant des valeurs différentes pour chacun des trois informations du coffre de clés (par exemple, en mettant à jour la version de la clé). Lorsque vous passez à une nouvelle clé Key Vault ou à une nouvelle version de clé, tout index ou mappage de synonymes Recherche cognitive Azure qui utilise la clé doit d'abord être mis à jour pour utiliser la nouvelle clé **avant** de supprimer la clé\version précédente. Si vous ne le faites pas, l'index ou le mappage de synonymes deviendra inutilisable et il ne pourra pas déchiffrer le contenu une fois que l'accès aux clés sera perdu.   
 > Une restauration ultérieure des autorisations d’accès au coffre de clés restaurera l’accès au contenu.
 
-## <a name="aad-app"></a> Avancé : Utiliser une application Azure Active Directory managée en externe
+## <a name="advanced-use-an-externally-managed-azure-active-directory-application"></a><a name="aad-app"></a> Avancé : Utiliser une application Azure Active Directory managée en externe
 
 Lorsqu'une identité managée n'est pas possible, vous pouvez créer une application Azure Active Directory avec un principal de sécurité pour votre service Recherche cognitive Azure. Plus précisément, une identité managée n'est pas viable dans ces conditions :
 

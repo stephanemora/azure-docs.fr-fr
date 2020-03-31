@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/04/2019
 ms.author: spelluru
 ms.openlocfilehash: 2b600edc4c360a2b2990be34e44bb8fbd1c8f721
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74133177"
 ---
 # <a name="set-up-a-lab-to-teach-ethical-hacking-class"></a>Configurer un labo pour enseigner le piratage éthique 

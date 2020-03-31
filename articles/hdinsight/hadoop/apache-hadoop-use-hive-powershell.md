@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/24/2019
 ms.openlocfilehash: deaa934b257fab74830d75e308a283e7608dc590
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75552591"
 ---
 # <a name="run-apache-hive-queries-using-powershell"></a>Exécuter des requêtes Apache Hive avec PowerShell
@@ -36,13 +36,13 @@ Azure PowerShell fournit des *cmdlets* qui vous permettent d'exécuter à distan
 
 Les applets de commande suivants sont utilisés lors de l'exécution de requêtes Hive sur un cluster à distance HDInsight :
 
-* `Connect-AzAccount`: Authentifie Azure PowerShell dans votre abonnement Azure.
-* `New-AzHDInsightHiveJobDefinition`: Crée une *définition de travail* à l’aide des instructions HiveQL spécifiées.
-* `Start-AzHDInsightJob`: Envoie la définition de travail à HDInsight et démarre le travail. Un objet *job* est retourné.
-* `Wait-AzHDInsightJob`: Utilise l’objet de travail pour vérifier l’état du travail. Il attend que la tâche soit terminée ou que le délai d’attente soit dépassé.
-* `Get-AzHDInsightJobOutput`: Utilisé pour récupérer la sortie du travail.
-* `Invoke-AzHDInsightHiveJob`: Utilisé pour exécuter les instructions HiveQL. Cette applet de commande bloque la fin de la requête, puis retourne les résultats.
-* `Use-AzHDInsightCluster`: Définit le cluster actuel à utiliser pour la commande `Invoke-AzHDInsightHiveJob`.
+* `Connect-AzAccount` : authentifie Azure PowerShell dans votre abonnement Azure.
+* `New-AzHDInsightHiveJobDefinition` : crée une *définition de tâche* à l’aide des instructions HiveQL spécifiées.
+* `Start-AzHDInsightJob` : envoie la définition de la tâche à HDInsight et démarre la tâche. Un objet *job* est retourné.
+* `Wait-AzHDInsightJob` : utilise l’objet de la tâche pour vérifier l’état de la tâche. Il attend que la tâche soit terminée ou que le délai d’attente soit dépassé.
+* `Get-AzHDInsightJobOutput` : utilisé pour récupérer la sortie de la tâche.
+* `Invoke-AzHDInsightHiveJob` : utilisé pour exécuter les instructions HiveQL. Cette applet de commande bloque la fin de la requête, puis retourne les résultats.
+* `Use-AzHDInsightCluster` : définit le cluster actuel à utiliser pour la commande `Invoke-AzHDInsightHiveJob`.
 
 Les étapes suivantes montrent comment utiliser ces cmdlets pour exécuter une tâche sur votre cluster HDInsight :
 

@@ -4,7 +4,6 @@ description: En savoir plus sur l’utilisation des fonctionnalités de votre Ki
 services: active-directory
 author: rwike77
 manager: CelesteDG
-ms.assetid: 40710225-05ab-40a3-9aec-8b4e96b6b5e7
 ms.service: active-directory
 ms.subservice: azuread-dev
 ms.workload: identity
@@ -15,14 +14,15 @@ ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: brandwe, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 48c28831d1fbbfc4fe78ebe12e5a158a8259cf44
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ROBOTS: NOINDEX
+ms.openlocfilehash: 0b87a9cd0ae29281faad4209f4449d547921835d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78190294"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154812"
 ---
-# <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Procédure : Activer l’authentification unique entre applications sur Android à l’aide de la bibliothèque ADAL
+# <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Procédure : activer l’authentification unique entre applications sur Android à l’aide de la bibliothèque ADAL
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
@@ -32,7 +32,7 @@ La plateforme d’identité de Microsoft, avec les kits de développement logici
 
 Dans cette procédure, vous allez découvrir comment configurer le Kit de développement logiciel (SDK) dans votre application afin de fournir l’authentification unique à vos clients.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Cette procédure suppose que vous savez comment :
 
@@ -106,7 +106,7 @@ Voici la procédure à suivre :
 2. Établir un nouvel URI de redirection à fournir à l’application et à votre inscription d’application
 3. Configuration des autorisations appropriées dans le manifeste Android
 
-#### <a name="step-1-enable-broker-mode-in-your-application"></a>Étape 1 : Activer le mode répartiteur dans votre application
+#### <a name="step-1-enable-broker-mode-in-your-application"></a>Étape 1 : Activer le mode répartiteur dans votre application
 
 La capacité de votre application à utiliser le répartiteur est activée lorsque vous créez les paramètres, ou la configuration initiale, de votre instance d’authentification. Pour ce faire dans votre application :
 
@@ -114,7 +114,7 @@ La capacité de votre application à utiliser le répartiteur est activée lorsq
 AuthenticationSettings.Instance.setUseBroker(true);
 ```
 
-#### <a name="step-2-establish-a-new-redirect-uri-with-your-url-scheme"></a>Étape 2 : Établissez un nouvel URI de redirection avec votre schéma d’URL
+#### <a name="step-2-establish-a-new-redirect-uri-with-your-url-scheme"></a>Étape 2 : Établissez un nouvel URI de redirection avec votre schéma d’URL
 
 Pour garantir que l’application appropriée reçoit les jetons d’identification retournés, il est nécessaire de respecter la procédure de rappel de votre application pouvant être vérifiée par votre système d’exploitation Android. Le système d’exploitation Android utilise le hachage du certificat dans Google Play Store. Ce hachage du certificat ne peut pas être falsifié par une application non fiable. Avec l’URI de l’application de répartiteur, Microsoft vérifie que les jetons sont retournés à l’application appropriée. Une URI de redirection unique est nécessaire pour être inscrit sur l’application.
 
@@ -126,7 +126,7 @@ ex. : *msauth://com.example.userapp/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D*
 
 Vous pouvez inscrire cet URI de direction dans l’inscription de votre application avec le [portail Azure](https://portal.azure.com/). Pour plus d’informations sur l’inscription d’applications Azure AD, consultez [Intégration avec Azure Active Directory](../develop/active-directory-how-to-integrate.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 
-#### <a name="step-3-set-up-the-correct-permissions-in-your-application"></a>Étape 3 : Configurer les autorisations appropriées dans votre application
+#### <a name="step-3-set-up-the-correct-permissions-in-your-application"></a>Étape 3: Configurer les autorisations appropriées dans votre application
 
 Dans Android, l’application de répartiteur utilise la fonctionnalité de Gestionnaire de comptes du système d’exploitation Android pour gérer les informations d’identification entre les applications. Pour pouvoir utiliser le répartiteur dans Android, le manifeste de votre application doit être autorisé à utiliser les comptes AccountManager. Ces autorisations sont décrites en détail dans la [documentation Google pour AccountManager disponible ici](https://developer.android.com/reference/android/accounts/AccountManager.html)
 

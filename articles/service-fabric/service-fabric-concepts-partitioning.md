@@ -4,11 +4,11 @@ description: Explique comment partitionner les services Service Fabric avec éta
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.openlocfilehash: 1f3ee2196bad8b8a0c992ed498d40b4cf5820f2c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75434061"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79229357"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Partitionnement des services fiables Service Fabric
 Cet article présente les concepts de base pour le partitionnement des services fiables d’Azure Service Fabric. Le code source utilisé dans cet article est également disponible sur [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
@@ -35,7 +35,7 @@ Service Fabric facilite le développement de services avec état évolutifs en o
 Dans le cadre des services avec état Service Fabric, le partitionnement désigne le processus permettant d’assigner, à une partition de service donnée, la responsabilité d’une partie de l’état complet du service. (Comme indiqué précédemment, une partition est un ensemble de [réplicas](service-fabric-availability-services.md)). Service Fabric présente l’avantage de placer les partitions sur des nœuds différents. Cela leur permet de croître jusqu’à la limite de ressource du nœud. En même temps que les besoins en matière de données augmentent, les partitions augmentent aussi et Service Fabric rééquilibre les partitions entre les nœuds. Cela garantit l’utilisation continue efficace des ressources matérielles.
 
 Pour vous donner un exemple, imaginons que vous commenciez par un cluster à 5 nœuds et un service configuré avec 10 partitions et une cible de trois réplicas. Dans ce cas, Service Fabric équilibre et distribue les réplicas sur le cluster, et vous obtenez deux [réplicas](service-fabric-availability-services.md) principaux par nœud.
-À présent, si vous devez étendre votre cluster sur 10 nœuds, Service Fabric rééquilibre les [réplicas](service-fabric-availability-services.md) principaux sur les 10 nœuds. De la même manière, si vous revenez à 5 nœuds, Service Fabric rééquilibre tous les réplicas sur les 5 nœuds.  
+À présent, si vous devez effectuer un scale-out de votre cluster sur 10 nœuds, Service Fabric rééquilibre les [réplicas](service-fabric-availability-services.md) principaux sur les 10 nœuds. De la même manière, si vous revenez à 5 nœuds, Service Fabric rééquilibre tous les réplicas sur les 5 nœuds.  
 
 La figure 2 montre la distribution des 10 partitions avant et après la mise à l’échelle du cluster.
 
@@ -44,7 +44,7 @@ La figure 2 montre la distribution des 10 partitions avant et après la mise à
 Le système est donc mis à l’échelle dans la mesure où les demandes des clients sont réparties entre plusieurs ordinateurs. Les performances globales de l’application sont améliorées et les conflits d’accès aux blocs de données sont réduits.
 
 ## <a name="plan-for-partitioning"></a>Planification du partitionnement
-Avant d’implémenter un service, vous devez toujours envisager la stratégie de partitionnement requise pour la mise à l’échelle. Il existe différentes approches, mais toutes se concentrent sur ce que l’application doit effectuer. Dans le contexte de cet article, passons en revue quelques-uns des aspects les plus importants.
+Avant d’implémenter un service, vous devez toujours envisager la stratégie de partitionnement requise pour effectuer un scale-out. Il existe différentes approches, mais toutes se concentrent sur ce que l’application doit effectuer. Dans le contexte de cet article, passons en revue quelques-uns des aspects les plus importants.
 
 Une bonne approche consiste à réfléchir de prime abord à la structure de l’état qui doit être partitionné.
 
@@ -75,7 +75,7 @@ Pour planifier votre partitionnement, vous devez également tenir compte des res
 * Les limites de mémoire système
 * Les limites de stockage du disque
 
-Par conséquent, que se passe-t-il si vous subissez des contraintes de ressources dans un cluster en cours d’exécution ? Il vous suffit simplement d’augmenter la taille de votre cluster pour prendre en compte les nouvelles spécifications.
+Par conséquent, que se passe-t-il si vous subissez des contraintes de ressources dans un cluster en cours d’exécution ? Il vous suffit simplement d’effectuer un scale-out de votre cluster pour prendre en compte les nouvelles spécifications.
 
 [Le guide de planification de la capacité](service-fabric-capacity-planning.md) propose des conseils qui vous aideront à déterminer le nombre de nœuds nécessaires à votre cluster.
 

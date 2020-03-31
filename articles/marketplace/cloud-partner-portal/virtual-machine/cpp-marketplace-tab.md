@@ -1,23 +1,22 @@
 ---
 title: Onglet Place de marché de machine virtuelle dans le portail Microsoft Cloud Partner pour la Place de marché Azure
 description: Décrit l’onglet Place de marché utilisé pour créer une offre de machine virtuelle de la Place de marché Microsoft Azure.
-services: Azure, Marketplace, Cloud Partner Portal, virtual machine
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: pabutler
-ms.openlocfilehash: 283274986c753fc8ad05b9b7b0dd87aea956bcce
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.author: dsindona
+ms.openlocfilehash: 567dc83e36020ef9af328f52dae89ef37b6e4908
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75762890"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80277719"
 ---
 # <a name="virtual-machine-marketplace-tab"></a>Onglet Place de marché de machine virtuelle
 
-L’onglet **Place de marché** de la page **Nouvelle offre** vous permet de proposer à vos clients potentiels des accords et informations juridiques, commerciaux et marketing, ainsi que de gérer des prospects depuis la Place de marché. Ce formulaire long est divisé en quatre sections : **Overview** (Vue d’ensemble), **Marketing Artifacts** (Artefacts marketing), **Lead Management** (Gestion des prospects) et **Legal** (Informations juridiques).
+L’onglet **Place de marché** de la page **Nouvelle offre** vous permet de proposer à vos clients potentiels des accords et informations juridiques, commerciaux et marketing, ainsi que de gérer des prospects depuis la Place de marché. Ce long formulaire est divisé en quatre sections : **Vue d’ensemble**, **Artefacts marketing**, **Gestion des prospects** et **Informations légales**.
 
 
 ## <a name="overview-section"></a>Section Vue d’ensemble

@@ -12,7 +12,7 @@
       href: app-sign-in-risk.md
 - name: Tutoriels
   items:
-    - name: Exiger l’utilisation de Microsoft Azure Multi-Factor Authentication
+    - name: Exiger l’utilisation d’Azure Multi-Factor Authentication
       href: ../authentication/tutorial-enable-azure-mfa.md?toc=/azure/active-directory/conditional-access/toc.json&bc=/azure/active-directory/conditional-access/breadcrumb/toc.json
 - name: Concepts
   expanded: false
@@ -58,22 +58,24 @@
       href: best-practices.md
     - name: Stratégies d’accès conditionnel courantes
       items:
+        - name: Bloquer l’authentification héritée
+          href: howto-conditional-access-policy-block-legacy.md
         - name: Exiger MFA pour les administrateurs
           href: howto-conditional-access-policy-admin-mfa.md
         - name: Exiger MFA pour la gestion Azure
           href: howto-conditional-access-policy-azure-management.md
         - name: Exiger MFA pour tous les utilisateurs
           href: howto-conditional-access-policy-all-users-mfa.md
-        - name: Bloquer l’authentification héritée
-          href: howto-conditional-access-policy-block-legacy.md
         - name: Accès conditionnel basé sur les risques
           href: howto-conditional-access-policy-risk.md
-        - name: Exiger un emplacement approuvé pour l’inscription MFA
+        - name: Sécuriser l’inscription des informations de sécurité
           href: howto-conditional-access-policy-registration.md
         - name: Bloquer l’accès par emplacement
           href: howto-conditional-access-policy-location.md
         - name: Exiger un appareil conforme
           href: howto-conditional-access-policy-compliant-device.md
+        - name: Bloquer l’accès
+          href: howto-conditional-access-policy-block-access.md
     - name: Bloquer l’authentification héritée
       href: block-legacy-authentication.md
     - name: Exiger des applications client approuvées
@@ -94,6 +96,8 @@
       href: policy-migration-mfa.md
     - name: Dépannage
       items:
+        - name: Résoudre les problèmes de connexion
+          href: troubleshoot-conditional-access.md
         - name: Résoudre les problèmes avec l’outil What If
           href: troubleshoot-conditional-access-what-if.md
 - name: Ressources

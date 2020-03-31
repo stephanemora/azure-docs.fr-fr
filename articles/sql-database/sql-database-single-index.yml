@@ -1,16 +1,16 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Azure SQL Database\_: Base de données unique"
+title: Azure SQL Database
 metadata:
-  title: Documentation - base de données unique
-  meta.description: Learn how to use Azure SQL databases.
+  title: "Documentation\_: base de données unique, serveur de base de données, pool élastique"
+  description: 'Découvrez les guides de démarrage rapide, les tutoriels et les exemples concernant les bases de données uniques, les pools élastiques et les serveurs de base de données Azure SQL Database.'
   services: sql-database
   requires-business-manager-approval: false
   ms.service: sql-database
   ms.subservice: single-database
   ms.topic: overview
   author: jovanpop-msft
-  ms.author: jovanpop-msft
+  ms.author: jovanpop
   ms.reviewer: carlrab
   manager: craigg
   ms.date: 04/26/2019

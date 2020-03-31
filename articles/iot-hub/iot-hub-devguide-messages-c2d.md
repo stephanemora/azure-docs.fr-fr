@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: d4a51a44b48e94669e92a9d525c1b0966df53c18
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 3a7254cc9de89a297811792b4dd64b4b669ba8e4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68964130"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79233241"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>Envoyer des messages cloud-à-appareil à partir d’IoT Hub
 
@@ -134,12 +134,36 @@ Chaque hub IoT expose les options de configuration suivantes pour la messagerie 
 
 | Propriété                  | Description | Plage et valeur par défaut |
 | ------------------------- | ----------- | ----------------- |
-| defaultTtlAsIso8601       | Durée de vie par défaut des messages cloud-à-appareil | Intervalle ISO_8601 de 2 jours maximum (minimum 1 minute) ; valeur par défaut : 1 heure |
+| defaultTtlAsIso8601       | Durée de vie par défaut des messages cloud-à-appareil | Intervalle ISO_8601 de 2 jours maximum (minimum 1 minute) ; valeur par défaut : 1 heure |
 | maxDeliveryCount          | Nombre de remises maximal pour les files d’attente par appareil cloud-à-appareil | 1 à 100 ; valeur par défaut : 10 |
-| feedback.ttlAsIso8601     | Rétention des messages de commentaire liés au service | Intervalle ISO_8601 de 2 jours maximum (minimum 1 minute) ; valeur par défaut : 1 heure |
-| feedback.maxDeliveryCount | Nombre de remises maximal pour la file d’attente de commentaires | 1 à 100 ; valeur par défaut : 100 |
+| feedback.ttlAsIso8601     | Rétention des messages de commentaire liés au service | Intervalle ISO_8601 de 2 jours maximum (minimum 1 minute) ; valeur par défaut : 1 heure |
+| feedback.maxDeliveryCount | Nombre de remises maximal pour la file d’attente de commentaires | 1 à 100 ; valeur par défaut : 10 |
+| feedback.lockDurationAsIso8601 | Nombre de remises maximal pour la file d’attente de commentaires | Intervalle ISO_8601 de 5 à 300 secondes (minimum 5 secondes) ; valeurs par défaut : 60 secondes. |
 
-Pour plus d’informations sur la définition de ces options de configuration, consultez [Création d’un IoT Hub](iot-hub-create-through-portal.md).
+Vous pouvez définir les options de configuration de l’une des manières suivantes :
+
+* **Portail Azure**: Sous **Paramètres** dans votre hub IoT, sélectionnez **Points de terminaison intégrés**, puis développez **Messagerie cloud-à-appareil**. (La définition des propriétés **feedback.maxDeliveryCount** et **feedback.lockDurationAsIso8601** n’est actuellement pas prise en charge dans le Portail Azure.)
+
+    ![Définir les options de configuration pour la messagerie cloud-à-appareil dans le portail](./media/iot-hub-devguide-messages-c2d/c2d-configuration-portal.png)
+
+* **Azure CLI** : Utilisez la commande [az iot hub update](https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-update) :
+
+    ```azurecli
+    az iot hub update --name {your IoT hub name} \
+        --set properties.cloudToDevice.defaultTtlAsIso8601=PT1H0M0S
+
+    az iot hub update --name {your IoT hub name} \
+        --set properties.cloudToDevice.maxDeliveryCount=10
+
+    az iot hub update --name {your IoT hub name} \
+        --set properties.cloudToDevice.feedback.ttlAsIso8601=PT1H0M0S
+
+    az iot hub update --name {your IoT hub name} \
+        --set properties.cloudToDevice.feedback.maxDeliveryCount=10
+
+    az iot hub update --name {your IoT hub name} \
+        --set properties.cloudToDevice.feedback.lockDurationAsIso8601=PT0H1M0S
+    ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

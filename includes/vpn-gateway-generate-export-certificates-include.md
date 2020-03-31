@@ -1,21 +1,21 @@
 ---
-title: Fichier include
-description: Fichier include
+title: Fichier Include
+description: Fichier Include
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 10/10/2019
+ms.date: 03/19/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 1e18223736964b0327a4c8f6ddb73ddb4f58889a
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: e85dc8c079205484db9b7b7c43a0086f69feb3be
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78304921"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80059919"
 ---
-## <a name="rootcert"></a>Créer un certificat racine auto-signé
+## <a name="create-a-self-signed-root-certificate"></a><a name="rootcert"></a>Créer un certificat racine auto-signé
 
 Utilisez la cmdlet New-SelfSignedCertificate pour créer un certificat racine auto-signé. Pour obtenir des informations sur des paramètres supplémentaires, consultez [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
 
@@ -30,7 +30,7 @@ Utilisez la cmdlet New-SelfSignedCertificate pour créer un certificat racine au
    ```
  3. Laissez la console PowerShell ouverte si vous souhaitez créer un certificat client juste après avoir créé ce certificat racine.
 
-## <a name="clientcert"></a>Générer un certificat client
+## <a name="generate-a-client-certificate"></a><a name="clientcert"></a>Générer un certificat client
 
 Chaque ordinateur client qui se connecte à un réseau virtuel avec une connexion de point à site doit avoir un certificat client installé. Vous générez un certificat client à partir du certificat racine auto-signé, puis l’exportez et l’installez. Si le certificat client n’est pas installé, l’authentification échoue. 
 
@@ -52,7 +52,7 @@ New-SelfSignedCertificate -Type Custom -DnsName P2SChildCert -KeySpec Signature 
 -Signer $cert -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.2")
 ```
 
-### <a name="ex2"></a>Exemple 2 : nouvelle session de la console PowerShell
+### <a name="example-2---new-powershell-console-session"></a><a name="ex2"></a>Exemple 2 : nouvelle session de la console PowerShell
 
 Si vous créez des certificats clients supplémentaires ou que vous n’utilisez pas la même session PowerShell que pour créer votre certificat racine auto-signé, suivez les étapes suivantes :
 
@@ -90,7 +90,7 @@ Si vous créez des certificats clients supplémentaires ou que vous n’utilisez
    -Signer $cert -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.2")
    ```
 
-## <a name="cer"></a>Exporter la clé publique du certificat racine (.cer)
+## <a name="export-the-root-certificate-public-key-cer"></a><a name="cer"></a>Exporter la clé publique du certificat racine (.cer)
 
 [!INCLUDE [Export public key](vpn-gateway-certificates-export-public-key-include.md)]
 
@@ -98,6 +98,6 @@ Si vous créez des certificats clients supplémentaires ou que vous n’utilisez
 
 Vous souhaiterez peut-être exporter le certificat racine autosigné et le stocker à des fins de sauvegarde. Si nécessaire, vous pouvez l’installer ultérieurement sur un autre ordinateur et générer d’autres certificats clients. Pour exporter le certificat racine auto-signé au format .pfx, sélectionnez le certificat racine et suivez les étapes décrites dans la section [Exporter un certificat client](#clientexport).
 
-## <a name="clientexport"></a>Exporter le certificat client
+## <a name="export-the-client-certificate"></a><a name="clientexport"></a>Exporter le certificat client
 
 [!INCLUDE [Export client certificate](vpn-gateway-certificates-export-client-cert-include.md)]

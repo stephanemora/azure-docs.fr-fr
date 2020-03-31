@@ -3,7 +3,7 @@ documentType: LandingData
 title: Instance managée SQL
 metadata:
   title: "Documentation Managed Instance\_– Tutoriels, informations de référence sur les API"
-  meta.description: Learn how to use a managed instance in Azure SQL Database.
+  description: "Découvrez les guides de démarrage rapide, les tutoriels et les exemples relatifs à Azure SQL Database Managed Instance, qui est une instance de moteur de base de données SQL\_Server complètement managée et hébergée dans le cloud."
   services: sql-database
   author: jovanpop-msft
   ms.reviewer: carlrab

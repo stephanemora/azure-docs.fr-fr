@@ -9,11 +9,11 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 3fef5db90c3ae63a8fa48835646e09f9dfe6f023
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113830"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79225317"
 ---
 # <a name="tips-for-ai-enrichment-in-azure-cognitive-search"></a>Conseils sur l’enrichissement par IA dans Recherche cognitive Azure
 
@@ -104,9 +104,9 @@ Pour une [indexation parallèle](search-howto-large-index.md), placez vos donné
 Pour plus d’informations, voir [Indexation de jeux de données volumineux](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets).
 
 ## <a name="see-also"></a>Voir aussi
-+ [Démarrage rapide : Créer un pipeline d’enrichissement de l’IA dans le portail](cognitive-search-quickstart-blob.md)
-+ [Tutoriel : Découvrir les API REST d’enrichissement de l’IA](cognitive-search-tutorial-blob.md)
++ [Démarrage rapide : Créer un pipeline d’enrichissement de l’IA dans le portail](cognitive-search-quickstart-blob.md)
++ [Tutoriel : Découvrir les API REST d’enrichissement de l’IA](cognitive-search-tutorial-blob.md)
 + [Spécification des informations d’identification de la source de données](search-howto-indexing-azure-blob-storage.md#how-to-specify-credentials)
 + [Indexation de jeux de données volumineux](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)
-+ [Guide pratique pour définir un jeu de compétences](cognitive-search-defining-skillset.md)
++ [Guide pratique pour définir un ensemble de compétences](cognitive-search-defining-skillset.md)
 + [Guide pratique pour mapper des champs enrichis à un index](cognitive-search-output-field-mapping.md)

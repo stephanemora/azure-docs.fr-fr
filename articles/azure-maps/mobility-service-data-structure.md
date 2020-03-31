@@ -1,19 +1,19 @@
 ---
 title: Structures des données du service Mobility dans Azure Maps | Microsoft Azure Maps
 description: Dans cet article, vous allez découvrir les structures des données et les champs courants retournés via les services Mobility Microsoft Azure Maps.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 06/05/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 685810a6efa46c8eb3ad6cee0c2424299f0347d8
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 30696c5dcb3353ea468aa78dbc107dae4d292edb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209611"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80334442"
 ---
 # <a name="data-structures-in-azure-maps-mobility-service"></a>Structure des données Azure Maps Mobility Service
 

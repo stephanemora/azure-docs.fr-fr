@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: victorh
 ms.openlocfilehash: bcea9a8674e4b1979698b7d28eb4192172b0dc11
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73931317"
 ---
 # <a name="deploy-a-trusted-security-partner-preview"></a>Déployer un partenaire de sécurité de confiance (préversion)
@@ -77,9 +77,9 @@ Pour que vous puissiez configurer des tunnels vers la passerelle VPN de votre hu
 
 1. Créer un principal de service Azure Active Directory (AD) : vous pouvez ignorer l’URL de redirection. 
 
-   [Guide pratique pour Utiliser le portail pour créer une application Azure AD et un principal de service ayant accès aux ressources](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)
+   [Procédure : Utiliser le portail pour créer une application Azure AD et un principal de service ayant accès aux ressources](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)
 2. Ajoutez des droits d’accès et une étendue pour le principal de service.
-   [Guide pratique pour Utiliser le portail pour créer une application Azure AD et un principal de service ayant accès aux ressources](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)
+   [Procédure : Utiliser le portail pour créer une application Azure AD et un principal de service ayant accès aux ressources](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)
 
    > [!NOTE]
    > Pour un contrôle plus précis, vous pouvez limiter l’accès à votre groupe de ressources.
@@ -115,7 +115,7 @@ Une fois terminées les étapes du paramétrage des routes, les machines virtuel
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Tutoriel : Sécuriser votre réseau cloud avec Azure Firewall Manager Preview à l’aide du portail Azure](secure-cloud-network.md)
+- [Tutoriel : Sécuriser votre réseau cloud avec Azure Firewall Manager Preview à l’aide du portail Azure](secure-cloud-network.md)
 
 
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/23/2018
 ms.author: takamath
 ms.openlocfilehash: ca843213760cee60799568a6f33059c2bd91c835
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75643285"
 ---
 # <a name="deliver-a-proof-of-concept"></a>Fournir une preuve de concept 
@@ -43,7 +43,7 @@ Pour commencer à fournir une preuve de concept. Il est important de prendre le 
 * [Documentation DevTest Labs pour les entreprises](devtest-lab-guidance-prescriptive-adoption.md)
 * [Introduction à la mise en réseau Azure](../virtual-network/virtual-networks-overview.md)
 
-## <a name="prerequisites"></a>Conditions préalables requises 
+## <a name="prerequisites"></a>Prérequis 
 
 Pour mener à bien un pilote ou une preuve de concept avec DevTest Labs, il existe plusieurs prérequis : 
 

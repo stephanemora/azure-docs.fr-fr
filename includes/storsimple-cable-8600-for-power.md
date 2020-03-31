@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 9b9922602218280d58331a755ed0dfed7df96f40
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67177099"
 ---
 #### <a name="to-cable-your-device-for-power"></a>Raccorder votre appareil à l'alimentation électrique
@@ -43,8 +43,8 @@ ms.locfileid: "67177099"
     | 2 |PCM 0 |
     | 3 |PCM 1 |
     | 4 |Contrôleur 0 |
-    | 5\. |Contrôleur 1 |
-    | 6\. |Contrôleur 0 du boîtier EBOD |
+    | 5 |Contrôleur 1 |
+    | 6 |Contrôleur 0 du boîtier EBOD |
     | 7 |Contrôleur 1 du boîtier EBOD |
     | 8 |Boîtier EBOD |
     | 9 |PDU |

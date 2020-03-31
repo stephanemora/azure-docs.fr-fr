@@ -1,19 +1,19 @@
 ---
 title: Ajouter un calque de mosaïques à des cartes Android | Microsoft Azure Maps
 description: Dans cet article, vous allez apprendre à afficher un calque de mosaïques sur une carte à l’aide de l’Android SDK Microsoft Azure Maps.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 8e1a77ae83783b2841a2600654a9775e9ceb6ada
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: f98598bd1307bb1b46ff23814780c5f809b9ac90
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209934"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335560"
 ---
 # <a name="add-a-tile-layer-to-a-map-using-the-azure-maps-android-sdk"></a>Ajouter un calque de mosaïques à une carte à l’aide de l’Android SDK Azure Maps
 
@@ -37,7 +37,7 @@ L’URL de la mosaïque passée à une couche de mosaïques doit être l’URL H
 * `{bbox-epsg-3857}` - chaîne de rectangle englobant au format `{west},{south},{east},{north}` du système SRID EPSG 3857.
 * `{subdomain}` : espace réservé pour les valeurs de sous-domaine, si la valeur de sous-domaine est spécifiée.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre la procédure décrite dans cet article, vous devez installer [Android SDK Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) afin de charger une carte.
 

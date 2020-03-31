@@ -4,11 +4,11 @@ description: Découvrez comment utiliser l’API REST pour restaurer des partage
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.openlocfilehash: 1c3160491ef92c62745af1468556e7d5c30437fc
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77444938"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227477"
 ---
 # <a name="restore-azure-file-shares-using-rest-api"></a>Restaurer des partages de fichiers Azure à l’aide de l’API REST
 
@@ -18,7 +18,7 @@ Cet article explique comment restaurer l’intégralité d’un partage de fichi
 
 * Afficher les points de restauration d’un partage de fichiers Azure sauvegardé
 * Restaurer un partage de fichiers Azure complet
-* Restaurer des fichiers ou dossiers individuels
+* restaurer des fichiers ou dossiers individuels ;
 
 ## <a name="prerequisites"></a>Prérequis
 

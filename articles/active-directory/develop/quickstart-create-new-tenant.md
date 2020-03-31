@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 02/05/2019
+ms.date: 03/12/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 74747e1bc5247e2a95a180b7361eafe8ca795bc2
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 1d2140ca0064e2eb6b12726bcee7bf5362de8fbe
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77160704"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79408281"
 ---
 # <a name="quickstart-set-up-a-tenant"></a>Démarrage rapide : Configurer un locataire
 
@@ -72,6 +72,6 @@ Pour commencer à créer des applications pour connecter des comptes sociaux et 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Testez le guide de démarrage rapide sur le codage et commencez à authentifier des utilisateurs. 
-* Pour obtenir des exemples de code plus détaillés, consultez la section de **didacticiels** de la documentation.
-* Vous souhaitez déployer votre application dans le cloud ? Découvrez comment [déployer des conteneurs sur Azure](https://docs.microsoft.com/azure/index#pivot=products&panel=containers). 
+* [Inscrivez une application](quickstart-register-app.md) et intégrez-la à la plateforme des identités Microsoft. 
+* Découvrez les [principes de base de l’authentification](authentication-scenarios.md).
+* Pour plus d’informations sur la relation entre les abonnements et un client Azure AD, consultez [Association des abonnements Azure avec Azure Active Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md).

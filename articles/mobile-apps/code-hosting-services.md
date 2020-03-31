@@ -1,18 +1,18 @@
 ---
 title: Héberger votre code source d’application mobile dans le cloud avec GitHub et Azure DevOps
 description: Découvrez les services permettant d’héberger votre code d’application mobile dans le cloud avec les services Microsoft.
-author: elamalani
+author: codemillmatt
 ms.assetid: 12a8a079-9b3c-4faf-2222-ccff02097224
 ms.service: vs-appcenter
 ms.topic: article
-ms.date: 10/22/2019
-ms.author: emalani
-ms.openlocfilehash: 8662b9f77614339ff514fa4fcf97dc1ee8fc7417
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/24/2020
+ms.author: masoucou
+ms.openlocfilehash: 66d8980ab53010af0703d789fbe791c60a32052d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454485"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240957"
 ---
 # <a name="cloud-hosted-source-code-management-services"></a>Services de gestion du code source hébergé dans le cloud
 Si vous avez des équipes de développement dont plusieurs membres de l’équipe travaillent sur la même base de code, vous devez trouver un emplacement approprié pour héberger votre code. Le stockage des données dans le Cloud et la présence d’un référentiel centralisé permettent à tout le monde de charger, de modifier et de gérer les fichiers de code. Ils peuvent également interagir avec d’autres développeurs sur des projets. Le code peut être facilement accessible, quel que soit l’endroit où vous vous trouvez, à condition que vous disposiez d’une connexion Internet.
