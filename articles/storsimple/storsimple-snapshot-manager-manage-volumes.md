@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 04/18/2016
 ms.author: twooley
 ms.openlocfilehash: f09d4dd46a50f1794e51342a939b8919c5c523ef
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75931628"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228137"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-volumes"></a>Utiliser le Gestionnaire d’instantanés StorSimple pour afficher et gérer les volumes
 ## <a name="overview"></a>Vue d’ensemble
@@ -93,7 +93,7 @@ Appliquez la procédure suivante pour afficher des informations sur les volumes 
    
    | Colonne de résultats | Description |
    |:--- |:--- |
-   |  Name |La colonne **Nom** contient la lettre de lecteur attribuée à chaque volume découvert. |
+   |  Nom |La colonne **Nom** contient la lettre de lecteur attribuée à chaque volume découvert. |
    |  Appareil |La colonne **Appareil** comporte l’adresse IP de l’appareil connecté à l’ordinateur hôte. |
    |  Nom de volume d’appareil |La colonne **Nom de volume d’appareil** comporte le nom du volume d’appareil auquel appartient le volume sélectionné. Il s’agit du nom de volume défini dans le portail Azure pour ce volume spécifique. |
    |  Chemins d’accès |La colonne **Chemins d’accès** affiche le chemin d’accès au volume. Il s’agit de la lettre de lecteur ou du point de montage à partir de laquelle/duquel le volume est accessible sur l’ordinateur hôte. |
@@ -130,7 +130,7 @@ Appliquer la procédure suivante pour relancer l’analyse des volumes connecté
 ## <a name="configure-and-back-up-a-basic-volume"></a>Configurer et sauvegarder un volume de base
 Appliquez la procédure suivante pour configurer la sauvegarde d’un volume de base, puis démarrer immédiatement la sauvegarde ou créer une stratégie de planification des sauvegardes.
 
-### <a name="prerequisites"></a>Conditions préalables requises
+### <a name="prerequisites"></a>Prérequis
 Avant de commencer :
 
 * Assurez-vous que l’appareil StorSimple et l’ordinateur hôte sont correctement configurés. Pour plus d’informations, accédez à la page [Déployer votre appareil local StorSimple](storsimple-deployment-walkthrough-u2.md).
@@ -158,7 +158,7 @@ Procédez comme suit pour configurer la sauvegarde d’un volume dynamique mis e
 * Étape 1 : Utiliser la gestion des disques pour créer un volume dynamique en miroir. 
 * Étape 2 : Utiliser le Gestionnaire d’instantanés StorSimple pour configurer la sauvegarde.
 
-### <a name="prerequisites"></a>Conditions préalables requises
+### <a name="prerequisites"></a>Prérequis
 Avant de commencer :
 
 * Assurez-vous que l’appareil StorSimple et l’ordinateur hôte sont correctement configurés. Pour plus d’informations, accédez à la page [Déployer votre appareil local StorSimple](storsimple-8000-deployment-walkthrough-u2.md).

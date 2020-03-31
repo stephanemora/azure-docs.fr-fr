@@ -11,18 +11,18 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: a5fe5d6d4076c5d82d33737d05bb95ede0a89c00
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 4cf260620d4e907fdb9190a052155fa22f1c7985
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822036"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398342"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Applications multi-locataires avec des outils de base de données élastique et la sécurité au niveau des lignes
 
 Les [outils de base de données élastique](sql-database-elastic-scale-get-started.md) et la fonction de [sécurité au niveau des lignes (SNL)][rls] coopèrent pour permettre la mise à l’échelle de la couche Données d’une application multilocataire au moyen d’Azure SQL Database. Ensemble, ces technologies vous aident à générer une application possédant une couche Données hautement évolutive. La couche Données prend en charge les partitions mutualisées et utilise **ADO.NET SqlClient** ou **Entity Framework**. Pour plus d’informations, consultez [Modèles de conception pour les applications SaaS multilocataires avec Azure SQL Database](saas-tenancy-app-design-patterns.md).
 
-- Les **outils de base de données élastique** permettent aux développeurs de monter en charge la couche Données avec des pratiques de partitionnement standard à l’aide de bibliothèques .NET et de modèles de service Microsoft Azure. En gérant les partitions à l’aide de la [bibliothèque cliente de bases de données élastiques][s-d-elastic-database-client-library], vous rationalisez et automatisez de nombreuses tâches de l’infrastructure portant généralement sur le partitionnement.
+- Les **outils de base de données élastique** permettent aux développeurs d’effectuer un scale-out de la couche Données avec des pratiques de partitionnement standard à l’aide de bibliothèques .NET et de modèles de service Microsoft Azure. En gérant les partitions à l’aide de la [bibliothèque cliente de bases de données élastiques][s-d-elastic-database-client-library], vous rationalisez et automatisez de nombreuses tâches de l’infrastructure portant généralement sur le partitionnement.
 - La **sécurité au niveau des lignes** permet aux développeurs de stocker en toute sécurité des données pour plusieurs locataires dans la même base de données. Les stratégies de sécurité SNL filtrent les lignes qui n’appartiennent pas au locataire exécutant une requête. La centralisation de la logique de filtre à l’intérieur de la base de données simplifie la maintenance et réduit le risque d’une erreur de sécurité. L’alternative consistant à s’appuyer sur la totalité du code client pour appliquer la sécurité est risquée.
 
 Grâce à l’utilisation conjointe de ces fonctionnalités, une application peut stocker les données de plusieurs locataires au sein de la base de données d’une seule et même partition. Le coût par locataire est inférieur lorsque les locataires partagent une base de données. Cependant, la même application peut également offrir à ses locataires premium une option de paiement pour leur propre partition locataire unique dédiée. L’un des avantages de l’isolation du locataire unique est la meilleure garantie de performances. Dans une base de données à locataire unique, il n’existe aucun autre locataire en concurrence pour les ressources.
@@ -45,13 +45,13 @@ L’objectif est d’utiliser les API de [routage dépendant des données](sql-d
 
 Ce projet étend celui que décrit la section [Outils de base de données pour base de données SQL Microsoft Azure - Intégration d’Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) , en ajoutant la prise en charge des bases de données de partition multi-locataires. Le projet crée une application de console simple pour la création de blogs et de publications. Le projet inclut quatre locataires, ainsi que deux bases de données de partition mutualisée. Cette configuration est illustrée dans le précédent diagramme.
 
-Générez et exécutez l'application. Cette exécution démarre le gestionnaire de mappage de la partition dédiée aux outils de base de données élastique et effectue les tests suivants :
+Générez et exécutez l’application. Cette exécution démarre le gestionnaire de mappage de la partition dédiée aux outils de base de données élastique et effectue les tests suivants :
 
 1. À l’aide d’Entity Framework et de LINQ, créez un blog et affichez tous les blogs pour chaque client.
 2. À l’aide de la fonction SqlClient ADO.NET, affichez tous les blogs d’un locataire.
 3. Essayez d’insérer un blog associé à un locataire incorrect, afin de vérifier qu’une erreur est déclenchée.
 
-Comme la fonction RLS n’a pas encore été activée sur les bases de données de la partition, vous pouvez voir que chacun de ces tests met en lumière un problème : les locataires peuvent afficher des blogs qui ne leur appartiennent pas et l’application est autorisée à insérer un blog associé à un locataire incorrect. Le reste de cet article explique comment résoudre ces problèmes en appliquant l’isolation des locataires avec la fonction RLS. La procédure à suivre implique deux étapes :
+Comme la fonction RLS n’a pas encore été activée sur les bases de données de la partition, vous pouvez voir que chacun de ces tests met en lumière un problème : les locataires peuvent afficher des blogs qui ne leur appartiennent pas et l’application est autorisée à insérer un blog associé à un locataire incorrect. Le reste de cet article explique comment résoudre ces problèmes en appliquant l’isolation des locataires avec la fonction RLS. En deux étapes :
 
 1. **Couche Application** : Modifiez le code de l’application pour toujours définir le TenantId actuel dans SESSION\_CONTEXT après l’ouverture d’une connexion. L’exemple de projet définit déjà le TenantId de cette manière.
 2. **Couche données** : Créez une stratégie de sécurité SNL dans chaque base de données de partition pour filtrer les lignes selon le TenantId stocké dans SESSION\_CONTEXT. Créez une stratégie pour chaque base de données de partition. Dans le cas contraire, les lignes de partitions mutualisées ne seront pas filtrées.
@@ -253,7 +253,7 @@ GO
 ```
 
 > [!TIP]
-> Dans un projet complexe, vous devrez peut-être ajouter le prédicat sur des centaines de tables, ce qui peut s’avérer fastidieux. Il existe une procédure stockée d’assistance qui génère automatiquement une stratégie de sécurité et ajoute un prédicat sur toutes les tables d’un schéma. Pour plus d’informations, consultez le billet de blog [Apply Row-Level Security to all tables - helper script (Appliquer la sécurité au niveau des lignes à toutes les tables - Script d’assistance)](https://blogs.msdn.com/b/sqlsecurity/archive/20../../apply-row-level-security-to-all-tables-helper-script).
+> Dans un projet complexe, vous devrez peut-être ajouter le prédicat sur des centaines de tables, ce qui peut s’avérer fastidieux. Il existe une procédure stockée d’assistance qui génère automatiquement une stratégie de sécurité et ajoute un prédicat sur toutes les tables d’un schéma. Pour plus d’informations, consultez le billet de blog [Apply Row-Level Security to all tables - helper script (Appliquer la sécurité au niveau des lignes à toutes les tables - Script d’assistance)](https://techcommunity.microsoft.com/t5/sql-server/apply-row-level-security-to-all-tables-helper-script/ba-p/384360).
 
 À présent, si vous exécutez l’exemple d’application une nouvelle fois, les locataires ne sont en mesure de voir que les lignes qui leur appartiennent. Par ailleurs, l’application ne peut pas insérer des lignes qui appartiennent à un locataire autre que celui qui est actuellement connecté à la base de données de partition. De plus, l’application ne peut mettre à jour le TenantId sur aucune ligne trouvée. Si elle tente d’effectuer l’une ou l’autre de ces opérations, une exception DbUpdateException est déclenchée.
 
@@ -345,14 +345,14 @@ GO
 
 ## <a name="summary"></a>Résumé
 
-Les outils de base de données élastique et la fonction de sécurité au niveau des lignes (RLS) peuvent être utilisés ensemble pour faire monter en charge la couche Données d’une application prenant en charge les partitions multi-locataires ou à un seul locataire. Les partitions mutualisées peuvent être utilisées pour stocker les données plus efficacement. Cette efficacité est prononcée lorsqu’un grand nombre de locataires possède seulement quelques lignes de données. Les partitions de locataire unique peuvent prendre en charge les locataires premium aux exigences de performances et d’isolation plus strictes. Pour plus d’informations, consultez [Sécurité au niveau des lignes][rls].
+Les outils de base de données élastique et la fonction de sécurité au niveau des lignes (RLS) peuvent être utilisés ensemble pour effectuer un scale-out de la couche Données d’une application prenant en charge les partitions multi-locataires ou à un seul locataire. Les partitions mutualisées peuvent être utilisées pour stocker les données plus efficacement. Cette efficacité est prononcée lorsqu’un grand nombre de locataires possède seulement quelques lignes de données. Les partitions de locataire unique peuvent prendre en charge les locataires premium aux exigences de performances et d’isolation plus strictes. Pour plus d’informations, consultez [Sécurité au niveau des lignes][rls].
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 - [Qu’est-ce qu’un pool élastique Azure ?](sql-database-elastic-pool.md)
 - [Scale-out avec Azure SQL Database](sql-database-elastic-scale-introduction.md)
 - [Modèles de conception pour les applications SaaS multilocataires avec Azure SQL Database](saas-tenancy-app-design-patterns.md)
-- [Authentification sur les applications mutualisées, avec Azure AD et OpenID Connect](../guidance/guidance-multitenant-identity-authenticate.md)
+- [Authentification dans des applications multi-locataires avec Azure AD et OpenID Connect](../guidance/guidance-multitenant-identity-authenticate.md)
 - [Application Tailspin Surveys](../guidance/guidance-multitenant-identity-tailspin.md)
 
 ## <a name="questions-and-feature-requests"></a>Questions et demandes de fonctionnalités

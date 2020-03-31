@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/07/2020
 ms.author: radeltch
-ms.openlocfilehash: e0bb959429786bf83be23b1374ef43ce553bf2c7
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 4fd01764c183098a8bd78d502eea7ab173fa22cc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598678"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80293910"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>Connectivité de point de terminaison public pour les machines virtuelles avec Azure Standard Load Balancer dans les scénarios de haute disponibilité SAP
 
@@ -102,7 +102,7 @@ La configuration ressemblerait à ceci :
    1. Sélectionnez les machines virtuelles et leurs adresses IP et ajoutez-les au pool principal  
 3. [Créez des règles sortantes](https://docs.microsoft.com/azure/load-balancer/configure-load-balancer-outbound-cli#create-outbound-rule). Actuellement, il n’est pas possible de créer des règles sortantes à partir du portail Azure. Vous pouvez créer des règles de trafic sortant avec [Azure CLI](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest).  
 
-   ```
+   ```azurecli
     az network lb outbound-rule create --address-pool MyBackendPoolOfPublicILB --frontend-ip-configs MyPublicILBFrondEndIP --idle-timeout 30 --lb-name MyPublicILB --name MyOutBoundRules  --outbound-ports 10000 --enable-tcp-reset true --protocol All --resource-group MyResourceGroup
    ```
 
@@ -176,7 +176,7 @@ Vous pouvez utiliser le proxy pour autoriser les appels de Pacemaker au point de
 ### <a name="important-considerations"></a>Points importants à prendre en compte
 
   - Si un proxy d’entreprise est déjà en place, vous pouvez acheminer les appels sortants vers des points de terminaison publics. Les appels sortants vers des points de terminaison publics passent par le point de contrôle de l’entreprise.  
-  - Assurez-vous que la configuration du proxy autorise la connectivité sortante vers l’API de gestion Azure : https://management.azure.com  
+  - Assurez-vous que la configuration du proxy autorise la connectivité sortante vers l’API de gestion Azure : `https://management.azure.com`  
   - Vérifiez qu’il existe un itinéraire entre les machines virtuelles et le proxy  
   - Le proxy gère uniquement les appels HTTP/HTTPS. S’il est nécessaire d’effectuer des appels sortants vers le point de terminaison public sur différents protocoles (par exemple, RFC), une solution alternative sera nécessaire  
   - La solution de proxy doit être hautement disponible, afin d’éviter l’instabilité dans le cluster Pacemaker  
@@ -188,8 +188,9 @@ Vous pouvez utiliser le proxy pour autoriser les appels de Pacemaker au point de
 Il existe de nombreuses options de proxy disponibles dans le secteur. Les instructions pas à pas pour le déploiement du proxy n’entrent pas dans le cadre de ce document. Dans l’exemple ci-dessous, nous supposons que votre proxy répond à **MyProxyService** et qu’il écoute le port **MyProxyPort**.  
 Pour autoriser Pacemaker à communiquer avec l’API de gestion Azure, procédez comme suit sur tous les nœuds de cluster :  
 
-1. Modifiez le fichier de configuration de Pacemaker /etc/sysconfig/pacemaker et ajoutez les lignes suivantes (tous les nœuds de cluster) :  
-   ```
+1. Modifiez le fichier de configuration de Pacemaker /etc/sysconfig/pacemaker et ajoutez les lignes suivantes (tous les nœuds de cluster) :
+
+   ```console
    sudo vi /etc/sysconfig/pacemaker
    # Add the following lines
    http_proxy=http://MyProxyService:MyProxyPort
@@ -197,8 +198,9 @@ Pour autoriser Pacemaker à communiquer avec l’API de gestion Azure, procédez
    ```
 
 2. Redémarrez le service Pacemaker sur **tous** les nœuds de cluster.  
-  - SUSE  
-     ```
+  - SUSE
+ 
+     ```console
      # Place the cluster in maintenance mode
      sudo crm configure property maintenance-mode=true
      #Restart on all nodes
@@ -208,7 +210,8 @@ Pour autoriser Pacemaker à communiquer avec l’API de gestion Azure, procédez
      ```
 
   - Red Hat  
-     ```
+
+     ```console
      # Place the cluster in maintenance mode
      sudo pcs property set maintenance-mode=true
      #Restart on all nodes

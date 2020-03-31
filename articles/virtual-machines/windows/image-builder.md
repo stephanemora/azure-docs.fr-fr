@@ -7,12 +7,12 @@ ms.date: 07/31/2019
 ms.topic: article
 ms.service: virtual-machines-windows
 manager: gwallace
-ms.openlocfilehash: 9dc4909db5560be6eb082dbad85d4b2d42113bdd
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: e82d82dac833f7455e3d83d7e11c0c57c4eea816
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828697"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80238801"
 ---
 # <a name="preview-create-a-windows-vm-with-azure-image-builder"></a>Aperçu : Créer une machine virtuelle Windows avec le Générateur d’images Azure
 
@@ -28,7 +28,7 @@ Pour configurer l’image, nous allons utiliser un exemple de modèle .json. Le 
 
 
 > [!IMPORTANT]
-> Le Générateur d’images Azure est actuellement en version préliminaire publique.
+> Le Générateur d’images Azure est actuellement en préversion publique.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
@@ -195,7 +195,7 @@ az vm create \
 
 ## <a name="verify-the-customization"></a>Vérifier la personnalisation
 
-Créez une connexion Bureau à distance à la machine virtuelle avec le nom d’utilisateur et le mot de passe définis lors de la création de la machine virtuelle. À l’intérieur de la machine virtuelle, ouvrez une invite de commande et saisissez :
+Créez une connexion Bureau à distance à la machine virtuelle avec le nom d’utilisateur et le mot de passe définis lors de la création de la machine virtuelle. Dans la machine virtuelle, ouvrez une invite de commande et tapez :
 
 ```console
 dir c:\
@@ -210,6 +210,7 @@ Vous devez voir ces deux répertoires créés pendant la personnalisation de l�
 Lorsque vous avez terminé, supprimez les ressources.
 
 ### <a name="delete-the-image-builder-template"></a>Supprimer le modèle de générateur d’images
+
 ```azurecli-interactive
 az resource delete \
     --resource-group $imageResourceGroup \
@@ -218,6 +219,7 @@ az resource delete \
 ```
 
 ### <a name="delete-the-image-resource-group"></a>Supprimer le groupe de ressources d’image
+
 ```azurecli-interactive
 az group delete -n $imageResourceGroup
 ```

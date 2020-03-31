@@ -5,14 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: article
-ms.date: 02/18/2020
+ms.date: 03/19/2020
 ms.author: cherylmc
-ms.openlocfilehash: c74f703927999bf35dd2d8292b8fa0a6d3c55065
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: b1e6305d142530ab19849f61f12a122d0c6434aa
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77459784"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80059304"
 ---
 # <a name="expressroute-encryption-ipsec-over-expressroute-for-virtual-wan"></a>Chiffrement ExpressRoute : IPsec sur ExpressRoute pour Virtual WAN
 
@@ -58,7 +58,7 @@ Dans ces deux exemples, Azure envoie le trafic à 10.0.1.0/24 via la connexion V
 
 [!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
 
-## <a name="openvwan"></a>1. Créer un réseau Virtual WAN et un hub avec des passerelles
+## <a name="1-create-a-virtual-wan-and-hub-with-gateways"></a><a name="openvwan"></a>1. Créer un réseau Virtual WAN et un hub avec des passerelles
 
 Avant de continuer, les ressources Azure suivantes et les configurations locales correspondantes doivent être en place :
 
@@ -67,7 +67,7 @@ Avant de continuer, les ressources Azure suivantes et les configurations locales
 
 Pour connaître les étapes de création d’un réseau étendu (WAN) virtuel Azure et d’un hub avec une association ExpressRoute, consultez [Créer une association ExpressRoute à l’aide d’Azure Virtual WAN](virtual-wan-expressroute-portal.md). Pour connaître les étapes de création d’une passerelle VPN dans le WAN virtuel, consultez [Créer une connexion site à site à l’aide d’Azure Virtual WAN](virtual-wan-site-to-site-portal.md).
 
-## <a name="site"></a>2. Créer un site pour le réseau local
+## <a name="2-create-a-site-for-the-on-premises-network"></a><a name="site"></a>2. Créer un site pour le réseau local
 
 La ressource de site est la même que les sites VPN non ExpressRoute pour un WAN virtuel. L’adresse IP du périphérique VPN local peut désormais être une IP privée, ou une IP publique dans le réseau local accessible par le Peering privé ExpressRoute créée à l’étape 1.
 
@@ -99,7 +99,7 @@ La ressource de site est la même que les sites VPN non ExpressRoute pour un WAN
 
 1. Sélectionnez **Suivant : Vérifier + créer >** pour vérifier les valeurs des paramètres et créer le site VPN. Si vous avez sélectionné **Hubs** pour vous connecter, la connexion sera établie entre le réseau local et la passerelle VPN du hub.
 
-## <a name="hub"></a>3. Mettre à jour le paramètre de connexion VPN de façon à utiliser ExpressRoute
+## <a name="3-update-the-vpn-connection-setting-to-use-expressroute"></a><a name="hub"></a>3. Mettre à jour le paramètre de connexion VPN de façon à utiliser ExpressRoute
 
 Après avoir créé le site VPN et établi la connexion au hub, suivez les étapes ci-dessous pour configurer la connexion de façon à utiliser le Peering privé ExpressRoute :
 
@@ -114,7 +114,7 @@ Après avoir créé le site VPN et établi la connexion au hub, suivez les étap
 
 Une fois que vous avez enregistré vos modifications, la passerelle VPN du hub utilisera les adresses IP privées pour établir les connexions IPsec/IKE avec le périphérique VPN local par ExpressRoute.
 
-## <a name="associate"></a>4. Récupérer les adresses IP privées de la passerelle VPN du hub
+## <a name="4-get-the-private-ip-addresses-for-the-hub-vpn-gateway"></a><a name="associate"></a>4. Récupérer les adresses IP privées de la passerelle VPN du hub
 
 Téléchargez la configuration du périphérique VPN pour obtenir les adresses IP privées de la passerelle VPN du hub. Vous avez besoin de ces adresses pour configurer le périphérique VPN local.
 
@@ -219,22 +219,17 @@ Si vous avez besoin d’instructions pour configurer votre périphérique, vous 
 * Un nouveau WAN virtuel peut prendre en charge IKEv1 et IKEv2.
 * Le WAN virtuel peut uniquement utiliser des périphériques VPN basés sur un itinéraire et des instructions de périphérique.
 
-## <a name="viewwan"></a>5. Afficher votre WAN virtuel
+## <a name="5-view-your-virtual-wan"></a><a name="viewwan"></a>5. Afficher votre WAN virtuel
 
 1. Accédez au WAN virtuel.
-1. Sur la page **Vue d’ensemble**, chaque point sur la carte représente un hub. Placez le curseur sur n’importe quel point pour afficher un résumé de l’intégrité du hub.
+1. Sur la page **Vue d’ensemble**, chaque point sur la carte représente un hub.
 1. Dans la section **Hubs et connexions**, vous pouvez afficher l’état du hub, du site, de la région et de la connexion VPN. Vous pouvez également afficher les octets entrés et sortis.
 
-## <a name="viewhealth"></a>6. Afficher l’intégrité des ressources
-
-1. Accédez à votre WAN.
-1. Dans la section **SUPPORT + résolution des problèmes**, sélectionnez **Intégrité** pour afficher votre ressource.
-
-## <a name="connectmon"></a>7. Surveiller une connexion
+## <a name="7-monitor-a-connection"></a><a name="connectmon"></a>7. Surveiller une connexion
 
 Créez une connexion pour surveiller les communications entre une machine virtuelle Azure et un site distant. Pour plus d’informations sur la façon de configurer un contrôleur de connexion, consultez [Surveiller une communication réseau](~/articles/network-watcher/connection-monitor.md). Le champ source est l’adresse IP de la machine virtuelle dans Azure, et l’adresse IP de destination est le l’adresse IP du site.
 
-## <a name="cleanup"></a>8. Nettoyer les ressources
+## <a name="8-clean-up-resources"></a><a name="cleanup"></a>8. Nettoyer les ressources
 
 Quand vous n’avez plus besoin de ces ressources, vous pouvez utiliser [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) pour supprimer le groupe de ressources et toutes les ressources qu’il contient. Exécutez la commande PowerShell suivante et remplacez `myResourceGroup` par le nom de votre groupe de ressources :
 

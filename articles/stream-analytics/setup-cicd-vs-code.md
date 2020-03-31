@@ -9,10 +9,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/28/2020
 ms.openlocfilehash: deb6c2439cc84f196b7f42fd9f49d3ebfd057cbb
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76962173"
 ---
 # <a name="deploy-an-azure-stream-analytics-job-using-cicd-npm-package"></a>Déployer un travail Azure Stream Analytics à l'aide du package npm CI/CD 
@@ -153,7 +153,7 @@ Ouvrez un navigateur web et accédez à votre projet Azure Stream Analytics Visu
    |Abonnement Azure| Choisissez votre abonnement.|
    |Action| *Créer ou mettre à jour un groupe de ressources*|
    |Resource group| Choisissez un nom pour le groupe de ressources de test qui contiendra votre travail Stream Analytics.|
-   |Location|Sélectionnez l’emplacement de votre groupe de ressources de test.|
+   |Emplacement|Sélectionnez l’emplacement de votre groupe de ressources de test.|
    |Emplacement du modèle| *Artefact lié*|
    |Modèle| $(Build.ArtifactStagingDirectory)\drop\myASAJob.JobTemplate.json |
    |Paramètres de modèle|($(Build.ArtifactStagingDirectory)\drop\myASAJob.JobTemplate.parameters.json|
@@ -170,7 +170,7 @@ Ouvrez un navigateur web et accédez à votre projet Azure Stream Analytics Visu
    |Abonnement Azure| Choisissez votre abonnement.|
    |Action| *Créer ou mettre à jour un groupe de ressources*|
    |Resource group| Choisissez un nom pour le groupe de ressources de production qui contiendra votre travail Stream Analytics.|
-   |Location|Sélectionnez l’emplacement de votre groupe de ressources de production.|
+   |Emplacement|Sélectionnez l’emplacement de votre groupe de ressources de production.|
    |Emplacement du modèle| *Artefact lié*|
    |Modèle| $(Build.ArtifactStagingDirectory)\drop\myASAJob.JobTemplate.json |
    |Paramètres de modèle|($(Build.ArtifactStagingDirectory)\drop\myASAJob.JobTemplate.parameters.json|

@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Prérequis pour un groupe de disponibilité'
+title: 'Tutoriel : Prérequis pour un groupe de disponibilité'
 description: Ce didacticiel montre comment configurer les conditions préalables pour la création d’un groupe de disponibilité SQL Server AlwaysOn sur des machines virtuelles Azure.
 services: virtual-machines
 documentationCenter: na
@@ -9,18 +9,18 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: c492db4c-3faa-4645-849f-5a1a663be55a
 ms.service: virtual-machines-sql
-ms.custom: seo-lt-2019
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
-ms.openlocfilehash: 4c89489964410104726b65e1b1fc3577945ce14a
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.custom: seo-lt-2019
+ms.openlocfilehash: c80a4c07e0649612b4c024cac79833c4b730f55e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224765"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80060167"
 ---
 # <a name="prerequisites-for-creating-always-on-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Prérequis de la création de groupes de disponibilité AlwaysOn sur des machines virtuelles Azure SQL Server
 
@@ -41,14 +41,14 @@ Ce didacticiel suppose que vous avez des notions de base sur les groupes de disp
 Vous avez besoin d’un compte Azure. Vous pouvez [ouvrir un compte Azure gratuit](https://signup.azure.com/signup?offer=ms-azr-0044p&appId=102&ref=azureplat-generic&redirectURL=https:%2F%2Fazure.microsoft.com%2Fget-started%2Fwelcome-to-azure%2F&correlationId=24f9d452-1909-40d7-b609-2245aa7351a6&l=en-US) ou [activer les avantages de l’abonnement à Visual Studio](https://docs.microsoft.com/visualstudio/subscriptions/subscriber-benefits).
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Cliquez sur **+** pour créer un nouvel objet dans le portail.
 
    ![Nouvel objet](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-portalplus.png)
 
 3. Tapez **Groupe de ressources** dans la fenêtre de recherche **Marketplace**.
 
-   ![Groupe de ressources](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-resourcegroupsymbol.png)
+   ![Resource group](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-resourcegroupsymbol.png)
 4. Cliquez sur **Groupe de ressources**.
 5. Cliquez sur **Créer**.
 6. Sous **Nom du groupe de ressources**, saisissez un nom pour le groupe de ressources. Par exemple, tapez **sql-ha-rg**.
@@ -56,7 +56,7 @@ Vous avez besoin d’un compte Azure. Vous pouvez [ouvrir un compte Azure gratui
 8. Sélectionnez un emplacement. L’emplacement est la région Azure où vous souhaitez créer le groupe de disponibilité. Cet article génère toutes les ressources à un emplacement Azure.
 9. Assurez-vous que l’option **Épingler au tableau de bord** est activée. Ce paramètre facultatif place un raccourci vers le groupe de ressources sur le tableau de bord du Portail Azure.
 
-   ![Groupe de ressources](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-resourcegroup.png)
+   ![Resource group](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-resourcegroup.png)
 
 10. Cliquez sur **Créer** pour créer le groupe de ressources.
 
@@ -82,7 +82,7 @@ Pour créer le réseau virtuel :
 
    | **Champ** | Valeur |
    | --- | --- |
-   | **Name** |autoHAVNET |
+   | **Nom** |autoHAVNET |
    | **Espace d’adressage** |10.33.0.0/24 |
    | **Nom du sous-réseau** |Admin |
    | **Plage d’adresses de sous-réseau** |10.33.0.0/29 |
@@ -144,10 +144,10 @@ Configurez deux groupes à haute disponibilité en vous basant sur les paramètr
 
 | **Champ** | Groupe à haute disponibilité du contrôleur de domaine | Groupe à haute disponibilité SQL Server |
 | --- | --- | --- |
-| **Name** |adavailabilityset |sqlavailabilityset |
+| **Nom** |adavailabilityset |sqlavailabilityset |
 | **Groupe de ressources** |SQL-HA-RG |SQL-HA-RG |
 | **Domaines d'erreur** |3 |3 |
-| **Domaines de mise à jour** |5\. |3 |
+| **Domaines de mise à jour** |5 |3 |
 
 Après avoir créé les groupes à haute disponibilité, revenez au groupe de ressources dans le Portail Azure.
 
@@ -175,7 +175,7 @@ Le tableau suivant indique les paramètres relatifs à ces deux machines :
 
 | **Champ** | Valeur |
 | --- | --- |
-| **Name** |Premier contrôleur de domaine : *ad-primary-dc*.</br>Second contrôleur de domaine *ad-secondary-dc*. |
+| **Nom** |Premier contrôleur de domaine : *ad-primary-dc*.</br>Second contrôleur de domaine *ad-secondary-dc*. |
 | **Type de disque de machine virtuelle** |SSD |
 | **Nom d'utilisateur** |DomainAdmin |
 | **Mot de passe** |Contoso!0000 |
@@ -307,7 +307,7 @@ Une fois que le serveur a terminé de modifier la configuration, redémarrez-le.
 
 Dans le portail Azure, sous réseau virtuel, modifiez le serveur DNS pour inclure l’adresse IP du contrôleur de domaine secondaire. Ce paramètre permet la redondance du service DNS.
 
-### <a name="DomainAccounts"></a> Configurer les comptes de domaine
+### <a name="configure-the-domain-accounts"></a><a name="DomainAccounts"></a> Configurer les comptes de domaine
 
 Lors des étapes suivantes, vous configurez les comptes Active Directory. La table qui suit affiche les comptes :
 
@@ -342,7 +342,7 @@ Procédez comme suit pour créer chaque compte.
 6. Cochez la case **Créer des objets ordinateur**.
 
      ![Autorisations de l’utilisateur Corp](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/33-addpermissions.png)
-7. Cliquez sur **OK**, puis sur **OK** à nouveau. Fermez la fenêtre des propriétés **corp**.
+7. Cliquez sur **OK**, puis à nouveau sur **OK**. Fermez la fenêtre des propriétés **corp**.
 
 Maintenant que vous avez fini de configurer Active Directory et les objets utilisateur, créez deux machines virtuelles SQL Server et une machine virtuelle de serveur témoin. Joignez les trois machines virtuelles au domaine.
 
@@ -369,7 +369,7 @@ Créez ensuite trois machines virtuelles : deux machines virtuelles SQL Server 
 | Sélectionnez l’élément de la galerie approprié. |**Windows Server 2016 Datacenter** |**SQL Server 2016 SP1 Enterprise sur Windows Server 2016** |**SQL Server 2016 SP1 Enterprise sur Windows Server 2016** |
 | **Notions** |**Nom** = cluster-fsw<br/>**Nom d’utilisateur** = DomainAdmin<br/>**Mot de passe** = Contoso!0000<br/>**Abonnement** = votre abonnement<br/>**Groupe de ressources** = SQL-HA-RG<br/>**Emplacement** = Votre emplacement Azure |**Nom** = sqlserver-0<br/>**Nom d’utilisateur** = DomainAdmin<br/>**Mot de passe** = Contoso!0000<br/>**Abonnement** = votre abonnement<br/>**Groupe de ressources** = SQL-HA-RG<br/>**Emplacement** = Votre emplacement Azure |**Nom** = sqlserver-1<br/>**Nom d’utilisateur** = DomainAdmin<br/>**Mot de passe** = Contoso!0000<br/>**Abonnement** = votre abonnement<br/>**Groupe de ressources** = SQL-HA-RG<br/>**Emplacement** = Votre emplacement Azure |
 | Configuration de la machine virtuelle - **Taille** |**TAILLE** = DS1\_V2 (1 processeur virtuel, 3,5 Go) |**TAILLE** = DS2\_V2 (2 processeurs virtuels, 7 Go)</br>La taille doit prendre en charge un stockage SSD (prise en charge des disques Premium. )) |**TAILLE** = DS2\_V2 (2 processeurs virtuels, 7 Go) |
-| Configuration de la machine virtuelle - **Paramètres** |**Stockage** : Utiliser des disques managés.<br/>**Réseau virtuel** = autoHAVNET<br/>**Sous-réseau** = sqlsubnet(10.1.1.0/24)<br/>**Adresse IP publique** générée automatiquement.<br/>**Groupe de sécurité réseau** = aucun<br/>**Diagnostics de surveillance** = activés<br/>**Compte de stockage de diagnostics** = utilisez un compte de stockage généré automatiquement<br/>**Groupe à haute disponibilité** = sqlAvailabilitySet<br/> |**Stockage** : Utiliser des disques managés.<br/>**Réseau virtuel** = autoHAVNET<br/>**Sous-réseau** = sqlsubnet(10.1.1.0/24)<br/>**Adresse IP publique** générée automatiquement.<br/>**Groupe de sécurité réseau** = aucun<br/>**Diagnostics de surveillance** = activés<br/>**Compte de stockage de diagnostics** = utilisez un compte de stockage généré automatiquement<br/>**Groupe à haute disponibilité** = sqlAvailabilitySet<br/> |**Stockage** : Utiliser des disques managés.<br/>**Réseau virtuel** = autoHAVNET<br/>**Sous-réseau** = sqlsubnet(10.1.1.0/24)<br/>**Adresse IP publique** générée automatiquement.<br/>**Groupe de sécurité réseau** = aucun<br/>**Diagnostics de surveillance** = activés<br/>**Compte de stockage de diagnostics** = utilisez un compte de stockage généré automatiquement<br/>**Groupe à haute disponibilité** = sqlAvailabilitySet<br/> |
+| Configuration de la machine virtuelle - **Paramètres** |**Stockage** : Utiliser des disques managés.<br/>**Réseau virtuel** = autoHAVNET<br/>**Sous-réseau** = sqlsubnet(10.1.1.0/24)<br/>**Adresse IP publique** générée automatiquement.<br/>**Groupe de sécurité réseau** = aucun<br/>**Diagnostics de surveillance** = activés<br/>**Compte de stockage de diagnostics** = utilisez un compte de stockage généré automatiquement<br/>**Groupe à haute disponibilité** = sqlAvailabilitySet<br/> |**Stockage** : Utiliser des disques managés.<br/>**Réseau virtuel** = autoHAVNET<br/>**Sous-réseau** = sqlsubnet(10.1.1.0/24)<br/>**Adresse IP publique** générée automatiquement.<br/>**Groupe de sécurité réseau** = aucun<br/>**Diagnostics de surveillance** = activés<br/>**Compte de stockage de diagnostics** = utilisez un compte de stockage généré automatiquement<br/>**Groupe à haute disponibilité** = sqlAvailabilitySet<br/> |**Stockage** : Utiliser des disques managés.<br/>**Réseau virtuel** = autoHAVNET<br/>**Sous-réseau** = sqlsubnet(10.1.1.0/24)<br/>**Adresse IP publique** générée automatiquement.<br/>**Groupe de sécurité réseau** = aucun<br/>**Diagnostics de surveillance** = activés<br/>**Compte de stockage de diagnostics** = utilisez un compte de stockage généré automatiquement<br/>**Groupe à haute disponibilité** = sqlAvailabilitySet<br/> |
 | Configuration de la machine virtuelle - **Paramètres SQL Server** |Non applicable |**Connectivité SQL** = privée (dans le réseau virtuel)<br/>**Port** = 1433<br/>**Authentification SQL** = désactivée<br/>**Configuration du stockage** = général<br/>**Mise à jour corrective automatisée** : dimanche à 2h00<br/>**Sauvegarde automatisée** = désactivée</br>**Intégration Azure Key Vault** = Désactivée |**Connectivité SQL** = privée (dans le réseau virtuel)<br/>**Port** = 1433<br/>**Authentification SQL** = désactivée<br/>**Configuration du stockage** = général<br/>**Mise à jour corrective automatisée** : dimanche à 2h00<br/>**Sauvegarde automatisée** = désactivée</br>**Intégration Azure Key Vault** = Désactivée |
 
 <br/>
@@ -381,7 +381,7 @@ Créez ensuite trois machines virtuelles : deux machines virtuelles SQL Server 
 
 Une fois les trois machines virtuelles entièrement configurées, vous devez les attacher au domaine **corp.contoso.com** et accorder à CORP\Install des droits d’administration sur les machines.
 
-### <a name="joinDomain"></a>Joindre les serveurs au domaine
+### <a name="join-the-servers-to-the-domain"></a><a name="joinDomain"></a>Joindre les serveurs au domaine
 
 Vous pouvez maintenant joindre les machines virtuelles à **corp.contoso.com**. Procédez comme suit pour les machines virtuelles SQL Server et pour le serveur témoin de partage :
 
@@ -410,11 +410,11 @@ Après le redémarrage de chaque machine virtuelle en tant que membre du domaine
 7. Cliquez sur **OK** pour fermer la boîte de dialogue **Propriétés de Administrateurs**.
 8. Répétez les étapes précédentes avec **sqlserver-1** et **cluster-fsw**.
 
-### <a name="setServiceAccount"></a>Définir les comptes de service SQL Server
+### <a name="set-the-sql-server-service-accounts"></a><a name="setServiceAccount"></a>Définir les comptes de service SQL Server
 
 Sur chaque machine virtuelle SQL Server, définissez le compte de service SQL Server. Utilisez les comptes que vous avez créés lors de la configuration des comptes de domaine.
 
-1. Ouvrez le **Gestionnaire de configuration de SQL Server**.
+1. Ouvrez le **Gestionnaire de configuration SQL Server**.
 2. Cliquez avec le bouton droit sur le service SQL Server, puis cliquez sur **Propriétés**.
 3. Définissez le compte et le mot de passe.
 4. Répétez ces étapes sur l’autre machine virtuelle SQL Server.  

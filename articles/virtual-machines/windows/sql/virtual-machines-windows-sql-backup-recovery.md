@@ -15,11 +15,11 @@ ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
 ms.openlocfilehash: e4c126bbac73accb984f1040a7fea1740d919233
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78392800"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79226637"
 ---
 # <a name="backup-and-restore-for-sql-server-in-azure-virtual-machines"></a>Sauvegarde et restauration de SQL Server dans les machines virtuelles Azure
 
@@ -39,7 +39,7 @@ Le tableau suivant contient des informations sur les différentes options de sau
 
 Les sections suivantes décrivent plus en détail chacune de ces options. La dernière section de cet article contient un résumé sous la forme d’une matrice des fonctionnalités.
 
-## <a id="automated"></a> Sauvegarde automatisée
+## <a name="automated-backup"></a><a id="automated"></a> Sauvegarde automatisée
 
 La sauvegarde automatisée fournit un service de sauvegarde automatique pour les éditions SQL Server Standard et Entreprise s’exécutant sur une machine virtuelle Windows dans Azure. Ce service est fourni par [l’extension SQL Server IaaS Agent](virtual-machines-windows-sql-server-agent-extension.md), qui est automatiquement installée sur les images de machine virtuelle Windows SQL Server dans le portail Azure.
 
@@ -58,7 +58,7 @@ Pour plus d’informations sur la configuration de la sauvegarde automatisée de
 - **SQL Server 2016/2017** : [Sauvegarde automatisée version 2 pour les machines virtuelles Azure](virtual-machines-windows-sql-automated-backup-v2.md)
 - **SQL Server 2014** : [Sauvegarde automatisée pour les machines virtuelles SQL Server 2014](virtual-machines-windows-sql-automated-backup.md)
 
-## <a id="azbackup"></a> Sauvegarde Azure pour les machines virtuelles SQL
+## <a name="azure-backup-for-sql-vms"></a><a id="azbackup"></a> Sauvegarde Azure pour les machines virtuelles SQL
 
 [Sauvegarde Azure](/azure/backup/) contient une fonctionnalité de sauvegarde Entreprise pour SQL Server exécuté sur des machines virtuelles Azure. Toutes les sauvegardes sont stockées et gérées dans un coffre Recovery Services. Cette solution apporte plusieurs avantages, en particulier pour les entreprises :
 
@@ -79,7 +79,7 @@ Pour une vue d’ensemble rapide de son fonctionnement et une démonstration, re
 
 Cette solution Sauvegarde Azure pour les machines virtuelles SQL est mise à la disposition générale. Pour plus d’informations, consultez [Sauvegarder une base de données SQL Server dans Azure](../../../backup/backup-azure-sql-database.md).
 
-## <a id="manual"></a> Sauvegarde manuelle
+## <a name="manual-backup"></a><a id="manual"></a> Sauvegarde manuelle
 
 Si vous souhaitez gérer manuellement les opérations de sauvegarde et de restauration sur vos machines virtuelles SQL, plusieurs options sont à votre disposition selon la version de SQL Server que vous utilisez. Pour une vue d’ensemble de la sauvegarde et de la restauration, consultez les articles suivants en fonction de votre version de SQL Server :
 

@@ -8,12 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: manayar
-ms.openlocfilehash: 222f26febb7b14c627307295a8cdd68a17694d03
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 74195e83e17140b67ac060e1791c580e90e720f6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76275895"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79534437"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>FAQ sur les groupes de machines virtuelles identiques Azure
 
@@ -162,7 +162,7 @@ Pour plus d’informations, consultez [Création ou mise à jour d’un groupe d
 ### <a name="how-do-i-use-self-signed-certificates-provisioned-for-azure-service-fabric-clusters"></a>Comment faire pour utiliser des certificats auto-signés approvisionnés pour les clusters Azure Service Fabric
 Pour obtenir l’exemple le plus récent, utilisez l’instruction Azure CLI suivante dans l’interpréteur de commandes Azure et lisez la documentation sur l’exemple de module CLI Service Fabrics (imprimée dans stdout) :
 
-```bash
+```azurecli
 az sf cluster create -h
 ```
 
@@ -331,7 +331,7 @@ Du point de vue de la conformité, les groupes de machines virtuelles identiques
 
 Pour plus d’informations, consultez le [Centre de gestion de la confidentialité de Microsoft](https://www.microsoft.com/TrustCenter/Compliance/PCI).
 
-### <a name="does-managed-identities-for-azure-resourceshttpsdocsmicrosoftcomazureactive-directorymsi-overview-work-with-virtual-machine-scale-sets"></a>Les [identités managées pour ressources Azure](https://docs.microsoft.com/azure/active-directory/msi-overview) fonctionnent-elles avec des groupes de machines virtuelles identiques ?
+### <a name="does-managed-identities-for-azure-resources-work-with-virtual-machine-scale-sets"></a>Les [identités managées pour ressources Azure](https://docs.microsoft.com/azure/active-directory/msi-overview) fonctionnent-elles avec des groupes de machines virtuelles identiques ?
 
 Oui. Vous pouvez voir des exemples de modèles MSI dans les modèles de démarrage rapide Azure pour [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi) et [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi).
 
@@ -521,6 +521,7 @@ Pour déployer un groupe de machines virtuelles identiques sur un réseau virtue
 ### <a name="can-i-use-scale-sets-with-accelerated-networking"></a>Puis-je me servir de groupes identiques lors d’une mise en réseau accélérée ?
 
 Oui. Pour utiliser la mise en réseau accélérée, définissez enableAcceleratedNetworking sur True dans les paramètres networkInterfaceConfigurations du groupe identique. Par exemple
+
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
@@ -540,6 +541,7 @@ Oui. Pour utiliser la mise en réseau accélérée, définissez enableAccelerate
 ### <a name="how-can-i-configure-the-dns-servers-used-by-a-scale-set"></a>Comment puis-je configurer les serveurs DNS utilisés par un groupe identique ?
 
 Pour créer un groupe de machines virtuelles identiques avec une configuration DNS personnalisée, ajoutez un paquet JSON dnsSettings à la section networkInterfaceConfigurations du groupe identique. Exemple :
+
 ```json
     "dnsSettings":{
         "dnsServers":["10.0.0.6", "10.0.0.5"]
@@ -639,9 +641,11 @@ Oui, vous pouvez utiliser l’opération de réinitialisation pour réinitialise
 ### <a name="is-it-possible-to-integrate-scale-sets-with-azure-monitor-logs"></a>Est-il possible d’intégrer des groupes identiques aux journaux Azure Monitor ?
 
 Oui, vous pouvez le faire en installant l’extension Azure Monitor sur les machines virtuelles du groupe identique. Voici un exemple d’interface de ligne de commande Azure :
-```
+
+```azurecli
 az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group Team-03 --vmss-name nt01 --settings "{'workspaceId': '<your workspace ID here>'}" --protected-settings "{'workspaceKey': '<your workspace key here'}"
 ```
+
 Vous trouverez les éléments workspaceId et workspaceKey requis dans l’espace de travail Log Analytics du portail Azure. Dans la page de présentation, cliquez sur la vignette Paramètres. Cliquez sur l’onglet Sources connectées, situé en haut de la page.
 
 > [!NOTE]
@@ -685,7 +689,7 @@ Pour obtenir des informations sur les propriétés de chaque machine virtuelle s
 
 Non, vous ne pouvez pas transférer des arguments d’extension différents à des machines virtuelles différentes dans un groupe de machines virtuelles identiques. Toutefois, les extensions peuvent agir en fonction des propriétés uniques de la machine virtuelle où elles s’exécutent, comme le nom de la machine. Les extensions peuvent aussi interroger les métadonnées d’instance sur http://169.254.169.254 pour obtenir plus d’informations sur la machine virtuelle.
 
-### <a name="why-are-there-gaps-between-my-virtual-machine-scale-set-vm-machine-names-and-vm-ids-for-example-0-1-3"></a>Pourquoi y a-t-il des écarts entre les noms de machines virtuelles de mon groupe de machines virtuelles identiques et les ID des machines virtuelles ? Par exemple :  0, 1, 3...
+### <a name="why-are-there-gaps-between-my-virtual-machine-scale-set-vm-machine-names-and-vm-ids-for-example-0-1-3"></a>Pourquoi y a-t-il des écarts entre les noms de machines virtuelles de mon groupe de machines virtuelles identiques et les ID des machines virtuelles ? Par exemple : 0, 1, 3...
 
 Il existe des écarts entre les noms des machines virtuelles de votre groupe de machines virtuelles identiques et les ID des machines virtuelles, car la propriété **overprovision** de votre groupe de machines virtuelles identiques est définie sur la valeur par défaut **true**. Si le sur-approvisionnement est défini sur **true**, le nombre de machines virtuelles créées est supérieur à ce qui est demandé. Les machines virtuelles supplémentaires sont ensuite supprimées. Dans ce cas, vous obtenez une fiabilité de déploiement accrue aux dépens d’une affectation de noms contigus et de règles NAT contiguës.
 
@@ -696,7 +700,7 @@ Vous pouvez définir cette propriété sur **false**. Pour les petits groupes de
 La principale différence entre la suppression d’une machine virtuelle dans un groupe de machines virtuelles identiques et la libération de la machine virtuelle est que `deallocate` ne supprime pas les disques durs virtuels (VHD). Il existe des coûts de stockage associés à l’exécution de `stop deallocate`. Vous pouvez choisir l’une ou l’autre option pour l’une des raisons suivantes :
 
 - Vous souhaitez arrêter de payer des frais de calcul, mais conserver l’état des disques des machines virtuelles.
-- Vous souhaitez démarrer un groupe de machines virtuelles plus rapidement par rapport à la montée en puissance d’un groupe de machines virtuelles identiques.
+- Vous souhaitez démarrer un groupe de machines virtuelles plus rapidement par rapport au scale-out d’un groupe de machines virtuelles identiques.
   - En relation avec ce scénario, vous avez peut-être créé votre propre moteur de mise à l’échelle automatique et souhaitez obtenir une mise à l’échelle de bout en bout plus rapide.
 - Vous avez un groupe de machines virtuelles identiques qui est distribué inégalement entre les domaines d’erreur ou les domaines de mise à jour. Cela peut être dû au fait que vous avez supprimé sélectivement des machines virtuelles, ou parce que des machines virtuelles ont été supprimées après le sur-approvisionnement. Exécutez `stop deallocate` suivi de `start` sur le groupe de machines virtuelles identiques pour distribuer uniformément les machines virtuelles entre les domaines d’erreur ou les domaines de mise à jour.
 

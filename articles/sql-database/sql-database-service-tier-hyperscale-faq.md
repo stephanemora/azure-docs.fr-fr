@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
-ms.date: 10/12/2019
-ms.openlocfilehash: 6a25d5197746e04ffa25ee397e6d8451e24ae176
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.date: 03/03/2020
+ms.openlocfilehash: 9f518df02b1923513fd014be53646a9a1be8465e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75615001"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79232437"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Questions fréquentes (FAQ) sur le niveau Hyperscale dans Azure SQL Database
 
@@ -236,7 +236,7 @@ Le modèle de récupération simple ou de journalisation en bloc n’est pas pri
 
 ### <a name="does-hyperscale-allow-provisioning-multiple-nodes-for-parallel-ingesting-of-large-amounts-of-data"></a>Hyperscale permet-il l’approvisionnement de plusieurs nœuds pour l’ingestion en parallèle de grandes quantités de données ?
 
-Non. Hyperscale est une architecture à multitraitement symétrique (SMP) et n’est pas une architecture MMP (Massively Parallel Processing) ou une architecture multimaître. Vous pouvez créer plusieurs réplicas seulement pour un scale-out des charges de travail en lecture seule.
+Non. Hyperscale est une architecture à multitraitement symétrique (SMP) et n’est pas une architecture MMP (Massively Parallel Processing) ou une architecture multimaître. Vous pouvez créer plusieurs réplicas seulement pour effectuer un scale-out des charges de travail en lecture seule.
 
 ### <a name="what-is-the-oldest-sql-server-version-supported-for-migration-to-hyperscale"></a>Quelle est la version de SQL Server la plus ancienne prise en charge pour la migration vers Hyperscale ?
 
@@ -274,7 +274,7 @@ Non. Les sauvegardes sont gérées par le sous-système de stockage et tirent pa
 
 ### <a name="can-i-perform-geo-restore-with-a-hyperscale-database"></a>Puis-je effectuer une géorestauration avec une base de données Hyperscale ?
 
-Oui.  La géo-restauration est entièrement prise en charge. Contrairement à la limite de restauration dans le temps, la géorestauration peut nécessiter une opération à l’échelle des données de longue durée.
+Oui. La géo-restauration est entièrement prise en charge. Contrairement à la limite de restauration dans le temps, la géorestauration nécessite une opération à l’échelle des données. Les fichiers de données étant copiés en parallèle, la durée de cette opération dépend principalement de la taille du fichier le plus volumineux dans la base de données, plutôt que de la taille totale de celle-ci. La durée de la géorestauration est beaucoup plus courte si la base de données est restaurée dans la région Azure [associée](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) à la région de la base de données source.
 
 ### <a name="can-i-set-up-geo-replication-with-hyperscale-database"></a>Puis-je configurer la géoréplication avec une base de données Hyperscale ?
 

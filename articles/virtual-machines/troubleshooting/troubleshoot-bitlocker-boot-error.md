@@ -13,11 +13,11 @@ ms.workload: infrastructure
 ms.date: 08/23/2019
 ms.author: genli
 ms.openlocfilehash: 80fd91106530c0150a85d508b24041b2263da925
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749667"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79226709"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Erreurs de démarrage BitLocker dans une machine virtuelle Azure
 
@@ -36,7 +36,7 @@ ms.locfileid: "73749667"
 - Entrez le mot de passe pour déverrouiller le lecteur [] Appuyez sur la touche Insertion pour afficher le mot de passe à mesure que vous le tapez.
 - Entrez votre clé de récupération. Chargez votre clé de récupération à partir d’un périphérique USB.
 
-## <a name="cause"></a>Cause :
+## <a name="cause"></a>Cause
 
 Ce problème peut se produire lorsque la machine virtuelle ne peut pas localiser le fichier BEK pour déchiffrer le disque chiffré.
 
@@ -283,7 +283,7 @@ Si vous utilisez l’ancien module AZ PowerShell, vous devez remplacer les deux 
 
 **Exemples de paramètres**
 
-| parameters  | Exemple de valeur  |Commentaires   |
+| Paramètres  | Exemple de valeur  |Commentaires   |
 |---|---|---|
 |  $keyVaultName | myKeyVault2112852926  | Nom du coffre de clés qui stocke la clé |
 |$kekName   |mykey   | Nom de la clé utilisée pour chiffrer la machine virtuelle|

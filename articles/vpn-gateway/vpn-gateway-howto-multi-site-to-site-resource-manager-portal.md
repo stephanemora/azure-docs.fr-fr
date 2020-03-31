@@ -10,10 +10,10 @@ ms.workload: infrastructure-services
 ms.date: 10/09/2019
 ms.author: cherylmc
 ms.openlocfilehash: 7b438f2b966dc43d41b91a138b39193d230d5546
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75779686"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>Ajouter une connexion de site à site à un réseau virtuel avec une connexion de passerelle VPN existante
@@ -35,7 +35,7 @@ Nous mettons à jour ce tableau à mesure que de nouveaux articles et des outils
 
 [!INCLUDE [vpn-gateway-table-multi-site](../../includes/vpn-gateway-table-multisite-include.md)]
 
-## <a name="before"></a>Avant de commencer
+## <a name="before-you-begin"></a><a name="before"></a>Avant de commencer
 Vérifiez les points suivants :
 
 * Vous n’effectuez pas une nouvelle configuration de connexions coexistantes ExpressRoute/passerelle VPN.
@@ -45,7 +45,7 @@ Vérifiez les points suivants :
 * Vous disposez d’un périphérique VPN compatible et d’une personne capable de le configurer. Consultez [À propos des périphériques VPN](vpn-gateway-about-vpn-devices.md). Si vous ne maîtrisez pas la configuration de votre appareil VPN ou les plages d’adresses IP mentionnées dans la configuration de votre réseau local, vous devez contacter une personne qui peut vous fournir ces informations.
 * Vous disposez d’une adresse IP publique exposée en externe pour votre périphérique VPN. Cette adresse IP ne peut pas se trouver derrière un NAT.
 
-## <a name="part1"></a>Partie 1 - Configuration d’une connexion
+## <a name="part-1---configure-a-connection"></a><a name="part1"></a>Partie 1 - Configuration d’une connexion
 1. Dans un navigateur, accédez au [portail Azure](https://portal.azure.com) et, si nécessaire, connectez-vous avec votre compte Azure.
 2. Cliquez sur **Toutes les ressources**, repérez votre **passerelle de réseau virtuel** dans la liste des ressources, puis cliquez dessus.
 3. Dans la page **Passerelle de réseau virtuel**, cliquez sur **Connexions**.
@@ -61,7 +61,7 @@ Vérifiez les points suivants :
      
      ![Page Ajouter une connexion](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addconnectionblade.png "Page Ajouter une connexion")<br>
 
-## <a name="part2"></a>Partie 2 - Ajout d’une passerelle de réseau local
+## <a name="part-2---add-a-local-network-gateway"></a><a name="part2"></a>Partie 2 - Ajout d’une passerelle de réseau local
 1. Cliquez sur **Passerelle de réseau local** ***Choisir une passerelle de réseau local***. La page **Choisir une passerelle de réseau local** s’ouvre.
    
     ![Choisir une passerelle de réseau local](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/chooselng.png "Choisir une passerelle de réseau local")<br>
@@ -75,13 +75,13 @@ Vérifiez les points suivants :
    * **Espace d’adressage :** espace d’adressage qui doit être routé vers le nouveau site de réseau local.
 4. Cliquez sur **OK** dans la page **Créer une passerelle de réseau local** pour enregistrer les modifications.
 
-## <a name="part3"></a>Partie 3 : ajout de la clé partagée et création de la connexion
+## <a name="part-3---add-the-shared-key-and-create-the-connection"></a><a name="part3"></a>Partie 3 : ajout de la clé partagée et création de la connexion
 1. Dans la page **Ajouter une connexion**, ajoutez la clé partagée à utiliser pour créer la connexion. Vous pouvez soit obtenir la clé partagée à partir de votre périphérique VPN, soit en créer une ici et configurer votre périphérique VPN de sorte qu’il utilise la même clé partagée. Il importe que les clés soient exactement les mêmes.
    
     ![Clé partagée](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/sharedkey.png "Clé partagée")<br>
 2. Au bas de la page, cliquez sur **OK** pour créer la connexion.
 
-## <a name="part4"></a>Partie 4 - Vérification de la connexion VPN
+## <a name="part-4---verify-the-vpn-connection"></a><a name="part4"></a>Partie 4 - Vérification de la connexion VPN
 
 
 [!INCLUDE [vpn-gateway-verify-connection-ps-rm](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]

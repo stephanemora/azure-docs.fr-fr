@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: cherylmc
 ms.openlocfilehash: 5d80cb2f2ed844126d1e9311151e6c53fcb11840
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894870"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79225037"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>Configurer une connexion point à site à l'aide d'une authentification par certificat (classique)
 
@@ -35,7 +35,7 @@ Vous utilisez une passerelle VPN point à site (P2S) pour créer une connexion s
 
 ![Diagramme point à site](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/point-to-site-connection-diagram.png)
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Les connexions d'authentification par certificat point à site requièrent les éléments suivants :
 
@@ -136,7 +136,7 @@ Vous allez maintenant créer un sous-réseau de passerelle et une passerelle de 
 
 9. Sur la page **Nouvelle connexion VPN**, sélectionnez **OK** en bas de la page pour commencer à créer votre passerelle de réseau virtuel. L'achèvement d'une passerelle VPN peut prendre jusqu'à 45 minutes en fonction de la référence SKU de passerelle que vous sélectionnez.
  
-## <a name="generatecerts"></a>Créer des certificats
+## <a name="create-certificates"></a><a name="generatecerts"></a>Créer des certificats
 
 Azure utilise des certificats afin d'authentifier les clients VPN pour les VPN point à site. Vous chargez les informations de la clé publique du certificat racine vers Azure. La clé publique est alors considérée comme *approuvée*. Les certificats clients doivent être générés à partir du certificat racine approuvé, puis installés sur chaque ordinateur client dans le magasin de certificats Certificates-Current User\Personal\Certificates. Le certificat permet d'authentifier le client lorsqu'il se connecte au réseau virtuel. 
 

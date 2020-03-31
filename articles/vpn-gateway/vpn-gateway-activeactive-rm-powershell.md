@@ -9,11 +9,11 @@ ms.date: 07/24/2018
 ms.author: yushwang
 ms.reviewer: cherylmc
 ms.openlocfilehash: ec3697208434eb971e47136416f2c2cc541b5cea
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152072"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79225057"
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>Configurer des connexions VPN S2S en mode actif/actif avec des passerelles VPN Azure
 
@@ -40,7 +40,7 @@ Vous pouvez combiner ces instructions afin de créer une topologie de réseau pl
 >   * VpnGw1, VpnGw2, VpnGw3
 >   * HigPerformance (pour les anciennes références héritées)
 
-## <a name ="aagateway"></a>Partie 1 : créer et configurer des passerelles VPN en mode actif/actif
+## <a name="part-1---create-and-configure-active-active-vpn-gateways"></a><a name ="aagateway"></a>Partie 1 : créer et configurer des passerelles VPN en mode actif/actif
 Les étapes suivantes permettent de configurer votre passerelle VPN Azure en modes actif/actif. Les principales différences entre les passerelles en modes actif/actif et actif/passif sont les suivantes :
 
 * Vous devez créer deux configurations IP de passerelle avec deux adresses IP publiques.
@@ -157,7 +157,7 @@ L’ordre des adresses IP publiques pour les instances de passerelle et celui de
 
 Une fois la passerelle créée, vous pouvez l’utiliser pour établir une connexion intersite ou de réseau virtuel à réseau virtuel en mode actif/actif. Les sections suivantes détaillent les étapes à effectuer pour terminer l’exercice.
 
-## <a name ="aacrossprem"></a>Partie 2 : établir une connexion intersite en mode actif/actif
+## <a name="part-2---establish-an-active-active-cross-premises-connection"></a><a name ="aacrossprem"></a>Partie 2 : établir une connexion intersite en mode actif/actif
 Pour établir une connexion intersite, vous devez créer une passerelle de réseau local pour représenter votre périphérique VPN local, et une connexion entre la passerelle VPN Azure et la passerelle du réseau local. Dans cet exemple, la passerelle VPN Azure est en mode actif/actif. Par conséquent, même s’il n’existe qu’un seul périphérique VPN local (passerelle de réseau local) et une seule ressource de connexion, les deux instances de passerelle VPN Azure établissent des tunnels VPN S2S avec l’appareil local.
 
 Avant de poursuivre, vérifiez que vous avez terminé la [Partie 1](#aagateway) de cet exercice.
@@ -272,7 +272,7 @@ Une fois la connexion (les tunnels) établie, vous disposez d’appareils VPN à
 
 ![dual-redundancy-crossprem](./media/vpn-gateway-activeactive-rm-powershell/dual-redundancy.png)
 
-## <a name ="aav2v"></a>Partie 3 : établir une connexion de réseau virtuel à réseau virtuel en mode actif/actif
+## <a name="part-3---establish-an-active-active-vnet-to-vnet-connection"></a><a name ="aav2v"></a>Partie 3 : établir une connexion de réseau virtuel à réseau virtuel en mode actif/actif
 Cette section décrit comment créer une connexion de réseau virtuel à réseau virtuel en mode actif/actif avec le protocole BGP. 
 
 Les instructions ci-dessous sont la suite des étapes précédentes répertoriées plus haut. Pour créer et configurer TestVNet1 et la passerelle VPN avec le protocole BGP, vous devez achever la [Partie 1](#aagateway) . 
@@ -368,7 +368,7 @@ Une fois ces étapes terminées, la connexion s’établit en quelques minutes, 
 
 ![active-active-v2v](./media/vpn-gateway-activeactive-rm-powershell/vnet-to-vnet.png)
 
-## <a name ="aaupdate"></a>Mise à jour d’une passerelle VPN existante
+## <a name="update-an-existing-vpn-gateway"></a><a name ="aaupdate"></a>Mise à jour d’une passerelle VPN existante
 
 La section vous aide à configurer une passerelle VPN Azure existante pour passer du mode actif/passif au mode actif/actif, ou inversement.
 

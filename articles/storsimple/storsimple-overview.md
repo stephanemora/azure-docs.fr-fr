@@ -15,17 +15,17 @@ ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: timlt
 ms.openlocfilehash: 2a6650cac975c575415a329361da00d4fbfcaa9d
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68965116"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>StorSimple série 8000 : une solution de stockage de cloud hybride
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Bienvenue dans Microsoft Azure StorSimple, solution de stockage intégrée qui gère les tâches de stockage entre les appareils locaux et le stockage cloud Microsoft Azure. StorSimple est une solution SAN efficace, rentable et facile à gérer qui élimine la plupart des problèmes et des frais liés à la protection des données et du stockage d’entreprise. Il utilise l’appareil propriétaire StorSimple série 8000, s’intègre à des services cloud et fournit un ensemble d’outils de gestion pour offrir une vue claire de tout le stockage d’entreprise, y compris le stockage cloud. (Les informations de déploiement StorSimple publiées sur le site web Microsoft Azure s’appliquent aux appareils StorSimple de la série 8000 uniquement. Si vous utilisez un appareil StorSimple de la série 5000/7000, consultez l’ [Aide de StorSimple](http://onlinehelp.storsimple.com/).)
 
 StorSimple utilise la [hiérarchisation du stockage](#automatic-storage-tiering) pour gérer les données stockées sur différents supports de stockage. Les données couramment utilisées sont stockées sur site sur des disques SSD, les données utilisées moins fréquemment sont stockées sur des lecteurs de disques durs et les données d’archivage sont placées dans le cloud. De plus, StorSimple utilise la déduplication et la compression pour réduire le volume de stockage utilisé par les données. Pour plus d’informations, consultez [Déduplication et compression](#deduplication-and-compression). Pour obtenir les définitions d’autres termes et concepts clés utilisés dans la documentation de StorSimple série 8000, consultez la section [Terminologie StorSimple](#storsimple-terminology) à la fin de cet article.
@@ -208,40 +208,40 @@ La déduplication réduit la quantité globale de données stockées en élimina
 ## <a name="storsimple-workload-summary"></a>Résumé des charges de travail StorSimple
 Voici un tableau résumant les charges de travail StorSimple prises en charge.
 
-| Scénario | Charge de travail | Pris en charge | Restrictions | Version |
+| Scénario | Charge de travail | Prise en charge | Restrictions | Version |
 | --- | --- | --- | --- | --- |
-| Collaboration |Partage de fichiers |OUI | |Toutes les versions |
-| Collaboration |Partage de fichiers distribués |OUI | |Toutes les versions |
+| Collaboration |Partage de fichiers |Oui | |Toutes les versions |
+| Collaboration |Partage de fichiers distribués |Oui | |Toutes les versions |
 | Collaboration |SharePoint |Oui* |Pris en charge uniquement avec des volumes épinglés localement |Update 2 et versions ultérieures |
-| Archivage |Archivage de fichiers simple |OUI | |Toutes les versions |
+| Archivage |Archivage de fichiers simple |Oui | |Toutes les versions |
 | Virtualisation |Machines virtuelles |Oui* |Pris en charge uniquement avec des volumes épinglés localement |Update 2 et versions ultérieures |
 | Base de données |SQL |Oui* |Pris en charge uniquement avec des volumes épinglés localement |Update 2 et versions ultérieures |
 | Surveillance vidéo |Surveillance vidéo |Oui* |Pris en charge lorsque l’appareil StorSimple est exclusivement dédié à cette charge de travail |Update 2 et versions ultérieures |
-| Sauvegarde |Sauvegarde de la cible principale |Oui* |Pris en charge lorsque l’appareil StorSimple est exclusivement dédié à cette charge de travail |Update 3 et versions ultérieures |
-| Sauvegarde |Sauvegarde de la cible secondaire |Oui* |Pris en charge lorsque l’appareil StorSimple est exclusivement dédié à cette charge de travail |Update 3 et versions ultérieures |
+| Backup |Sauvegarde de la cible principale |Oui* |Pris en charge lorsque l’appareil StorSimple est exclusivement dédié à cette charge de travail |Update 3 et versions ultérieures |
+| Backup |Sauvegarde de la cible secondaire |Oui* |Pris en charge lorsque l’appareil StorSimple est exclusivement dédié à cette charge de travail |Update 3 et versions ultérieures |
 
 *Oui&#42; - Des restrictions et des recommandations sur la solution doivent s’appliquer.*
 
 Les charges de travail suivantes ne sont pas prises en charge par les appareils StorSimple série 8000. En cas de déploiement sur StorSimple, ces charges de travail entraîneront une configuration non prise en charge.
 
 * Imagerie médicale
-* Microsoft Exchange
+* Exchange
 * VDI
 * Oracle
 * SAP
-* Données volumineuses (« Big Data »)
+* Big Data
 * Distribution de contenu
 * Démarrage à partir de SCSI
 
 Voici une liste des composants d’infrastructure pris en charge par StorSimple.
 
-| Scénario | Charge de travail | Pris en charge | Restrictions | Version |
+| Scénario | Charge de travail | Prise en charge | Restrictions | Version |
 | --- | --- | --- | --- | --- |
-| Généralités |ExpressRoute |OUI | |Toutes les versions |
-| Généralités |DataCore FC |Oui* |Prise en charge avec DataCore SANsymphony |Toutes les versions |
-| Généralités |DFSR |Oui* |Pris en charge uniquement avec des volumes épinglés localement |Toutes les versions |
-| Généralités |Indexation |Oui* |Pour les volumes hiérarchisés, seule l’indexation des métadonnées est prise en charge (aucune donnée).<br>Pour les volumes épinglés localement, l’indexation complète est prise en charge. |Toutes les versions |
-| Généralités |Protection contre les virus |Oui* |Pour les volumes hiérarchisés, seule l’analyse des ouvertures et des fermetures est prise en charge.<br> Pour les volumes épinglés localement, l’analyse complète est prise en charge. |Toutes les versions |
+| Général |ExpressRoute |Oui | |Toutes les versions |
+| Général |DataCore FC |Oui* |Prise en charge avec DataCore SANsymphony |Toutes les versions |
+| Général |DFSR |Oui* |Pris en charge uniquement avec des volumes épinglés localement |Toutes les versions |
+| Général |Indexation |Oui* |Pour les volumes hiérarchisés, seule l’indexation des métadonnées est prise en charge (aucune donnée).<br>Pour les volumes épinglés localement, l’indexation complète est prise en charge. |Toutes les versions |
+| Général |Protection contre les virus |Oui* |Pour les volumes hiérarchisés, seule l’analyse des ouvertures et des fermetures est prise en charge.<br> Pour les volumes épinglés localement, l’analyse complète est prise en charge. |Toutes les versions |
 
 *Oui&#42; - Des restrictions et des recommandations sur la solution doivent s’appliquer.*
 

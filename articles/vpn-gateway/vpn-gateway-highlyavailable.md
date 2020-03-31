@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 09/24/2016
 ms.author: yushwang
 ms.openlocfilehash: 91fb0896238881130bd02916f8fd579eee9bd16b
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75779618"
 ---
 # <a name="highly-available-cross-premises-and-vnet-to-vnet-connectivity"></a>Configuration haute disponibilité pour la connectivité entre les réseaux locaux et la connectivité entre deux réseaux virtuels
 Cet article fournit une vue d’ensemble des options de configuration haute disponibilité dont vous pouvez tirer parti pour la connectivité entre vos réseaux locaux et la connectivité entre deux réseaux virtuels en utilisant des passerelles VPN Azure.
 
-## <a name = "activestandby"></a>À propos de la redondance de passerelle VPN Azure
+## <a name="about-azure-vpn-gateway-redundancy"></a><a name = "activestandby"></a>À propos de la redondance de passerelle VPN Azure
 Chaque passerelle VPN Azure comprend deux instances dans une configuration de type actif / passif. En cas de maintenance planifiée ou d’interruption non planifiée au niveau de l’instance active, l’instance de secours prend automatiquement le relais (par un basculement) et reprend les connexions VPN S2S ou entre deux réseaux virtuels. Le basculement entraîne une brève interruption. Dans le cadre d’une maintenance planifiée, la connectivité doit être restaurée dans les 10 à 15 secondes. En cas de problèmes non planifiés, la récupération de la connexion est plus longue et peut atteindre 1 minute à 1 minute trente dans le pire des cas. Pour les connexions client VPN P2S à la passerelle, les connexions P2S seront rompues et les utilisateurs devront se reconnecter à partir des ordinateurs clients.
 
 ![Actif / passif](./media/vpn-gateway-highlyavailable/active-standby.png)
@@ -29,7 +29,7 @@ Pour établir des connexions hautement disponibles entre vos réseaux locaux, vo
 * Utilisation d’une passerelle VPN Azure en mode actif-actif
 * Combinaison des deux
 
-### <a name = "activeactiveonprem"></a>Utilisation de plusieurs périphériques VPN en local
+### <a name="multiple-on-premises-vpn-devices"></a><a name = "activeactiveonprem"></a>Utilisation de plusieurs périphériques VPN en local
 Vous pouvez utiliser plusieurs périphériques VPN de votre réseau local pour vous connecter à votre passerelle VPN Azure, comme illustré dans le schéma suivant :
 
 ![Plusieurs périphériques VPN en local](./media/vpn-gateway-highlyavailable/multiple-onprem-vpns.png)

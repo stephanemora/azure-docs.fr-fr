@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/14/2018
 ms.author: cherylmc
 ms.openlocfilehash: a354f8031c26ca86876dc6f3a2092610226cc84b
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75834571"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Configurer une connexion de passerelle VPN de réseau virtuel à réseau virtuel à l’aide d’Azure CLI
@@ -31,7 +31,7 @@ Les étapes mentionnées dans cet article s’appliquent au modèle de déploiem
 >
 >
 
-## <a name="about"></a>À propos de la connexion de réseaux virtuels
+## <a name="about-connecting-vnets"></a><a name="about"></a>À propos de la connexion de réseaux virtuels
 
 Il existe plusieurs manières de se connecter à des réseaux virtuels. Les sections ci-dessous décrivent les différentes manières de se connecter à des réseaux virtuels.
 
@@ -47,7 +47,7 @@ Si vous travaillez avec une configuration réseau complexe, vous pouvez connecte
 
 Vous envisagerez probablement de connecter vos réseaux virtuels à l’aide de VNet Peering. VNet Peering n’utilise pas une passerelle VPN et possède d’autres contraintes. En outre, la [tarification de VNet Peering](https://azure.microsoft.com/pricing/details/virtual-network) est différente de la [tarification de la passerelle VPN de réseau virtuel à réseau virtuel](https://azure.microsoft.com/pricing/details/vpn-gateway). Pour plus d’informations, consultez l’article [Peering de réseaux virtuels](../virtual-network/virtual-network-peering-overview.md).
 
-## <a name="why"></a>Pourquoi créer une connexion de réseau virtuel à réseau virtuel ?
+## <a name="why-create-a-vnet-to-vnet-connection"></a><a name="why"></a>Pourquoi créer une connexion de réseau virtuel à réseau virtuel ?
 
 Vous pouvez décider de connecter des réseaux virtuels à l’aide d’une connexion de réseau virtuel à réseau virtuel pour les raisons suivantes :
 
@@ -61,7 +61,7 @@ Vous pouvez décider de connecter des réseaux virtuels à l’aide d’une conn
 
 Vous pouvez combiner une communication de réseau virtuel à réseau virtuel avec des configurations multisites. Vous établissez ainsi des topologies réseau qui combinent une connectivité entre différents locaux et une connectivité entre différents réseaux virtuels.
 
-## <a name="steps"></a>Quelles étapes de réseau virtuel à réseau virtuel dois-je utiliser ?
+## <a name="which-vnet-to-vnet-steps-should-i-use"></a><a name="steps"></a>Quelles étapes de réseau virtuel à réseau virtuel dois-je utiliser ?
 
 Cet article inclut deux ensembles distincts d’étapes de connexion de réseau virtuel à réseau virtuel. L’un des ensembles est destiné aux [réseaux virtuels qui se trouvent dans le même abonnement](#samesub), et l’autre aux [réseaux virtuels qui se trouvent dans des abonnements différents](#difsub). 
 
@@ -76,13 +76,13 @@ Pour cet exercice, vous pouvez combiner des configurations ou choisir simplement
   ![Diagramme v2v](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
 
 
-## <a name="samesub"></a>Connecter des réseaux virtuels situés dans le même abonnement
+## <a name="connect-vnets-that-are-in-the-same-subscription"></a><a name="samesub"></a>Connecter des réseaux virtuels situés dans le même abonnement
 
 ### <a name="before-you-begin"></a>Avant de commencer
 
 Avant de commencer, installez la dernière version des commandes CLI (version 2.0 ou ultérieure). Pour plus d’informations sur l’installation des commandes CLI, consultez l’article [Installer l’interface de ligne de commande Azure](/cli/azure/install-azure-cli).
 
-### <a name="Plan"></a>Panifier vos plages d’adresses IP
+### <a name="plan-your-ip-address-ranges"></a><a name="Plan"></a>Panifier vos plages d’adresses IP
 
 Dans les étapes suivantes, vous allez créer deux réseaux virtuels avec leurs sous-réseaux de passerelle respectifs et leur configuration. Vous allez ensuite créer une connexion VPN entre les deux réseaux virtuels. Il est important de planifier les plages d’adresses IP pour votre configuration réseau. N’oubliez pas que vous devez vous assurer qu’aucune plage de réseaux virtuels ou de réseaux locaux ne se chevauche. Dans ces exemples, nous n’incluons pas de serveur DNS. Si vous souhaitez une résolution de noms pour vos réseaux virtuels, consultez la page [Résolution de noms](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
@@ -117,11 +117,11 @@ Nous utilisons les valeurs suivantes dans les exemples :
 * VPNType : RouteBased
 * Connexion : VNet4toVNet1
 
-### <a name="Connect"></a>Étape 1 : connectez-vous à votre abonnement
+### <a name="step-1---connect-to-your-subscription"></a><a name="Connect"></a>Étape 1 : connectez-vous à votre abonnement
 
 [!INCLUDE [CLI login](../../includes/vpn-gateway-cli-login-numbers-include.md)]
 
-### <a name="TestVNet1"></a>Étape 2 : créez et configurez TestVNet1
+### <a name="step-2---create-and-configure-testvnet1"></a><a name="TestVNet1"></a>Étape 2 : créez et configurez TestVNet1
 
 1. Créez un groupe de ressources.
 
@@ -159,7 +159,7 @@ Nous utilisons les valeurs suivantes dans les exemples :
    az network vnet-gateway create -n VNet1GW -l eastus --public-ip-address VNet1GWIP -g TestRG1 --vnet TestVNet1 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
    ```
 
-### <a name="TestVNet4"></a>Étape 3 : créez et configurez TestVNet4
+### <a name="step-3---create-and-configure-testvnet4"></a><a name="TestVNet4"></a>Étape 3 : créez et configurez TestVNet4
 
 1. Créez un groupe de ressources.
 
@@ -194,11 +194,11 @@ Nous utilisons les valeurs suivantes dans les exemples :
    az network vnet-gateway create -n VNet4GW -l westus --public-ip-address VNet4GWIP -g TestRG4 --vnet TestVNet4 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
    ```
 
-### <a name="createconnect"></a>Étape 4 : créez les connexions
+### <a name="step-4---create-the-connections"></a><a name="createconnect"></a>Étape 4 : créez les connexions
 
 Vous avez maintenant deux réseaux virtuels avec des passerelles VPN. L’étape suivante consiste à créer des connexions à la passerelle VPN entre les passerelles de réseau virtuel. Si vous avez utilisé les exemples ci-dessus, vos passerelles de réseau virtuel se trouvent dans différents groupes de ressources. Lorsque les passerelles se trouvent dans différents groupes de ressources, vous devez identifier et spécifier l’ID de ressource pour chaque passerelle lors de la connexion. Si vos réseaux virtuels sont dans le même groupe de ressources, vous pouvez utiliser le [deuxième ensemble d’instructions](#samerg) , dans la mesure où il n’est pas nécessaire de spécifier les ID de ressource.
 
-### <a name="diffrg"></a>Connexion de réseaux virtuels qui se trouvent dans différents groupes de ressources
+### <a name="to-connect-vnets-that-reside-in-different-resource-groups"></a><a name="diffrg"></a>Connexion de réseaux virtuels qui se trouvent dans différents groupes de ressources
 
 1. Obtenez l’ID de ressource de VNet1GW à partir de la sortie de la commande suivante :
 
@@ -249,7 +249,7 @@ Vous avez maintenant deux réseaux virtuels avec des passerelles VPN. L’étape
    ```
 5. Vérifiez vos connexions. Consultez [Vérifier votre connexion](#verify).
 
-### <a name="samerg"></a>Pour connecter des réseaux virtuels qui se trouvent dans le même groupe de ressources
+### <a name="to-connect-vnets-that-reside-in-the-same-resource-group"></a><a name="samerg"></a>Pour connecter des réseaux virtuels qui se trouvent dans le même groupe de ressources
 
 1. Créez la connexion de TestVNet1 à TestVNet4. Lors de cette étape, vous créez la connexion de TestVNet1 à TestVNet4. Notez que les groupes de ressources sont les mêmes dans les exemples. Une clé partagée est également référencée dans les exemples. Vous pouvez utiliser vos propres valeurs pour la clé partagée, toutefois, cette dernière doit correspondre aux deux connexions. La création d’une connexion prend quelques instants.
 
@@ -263,15 +263,15 @@ Vous avez maintenant deux réseaux virtuels avec des passerelles VPN. L’étape
    ```
 3. Vérifiez vos connexions. Consultez [Vérifier votre connexion](#verify).
 
-## <a name="difsub"></a>Connecter des réseaux virtuels situés dans différents abonnements
+## <a name="connect-vnets-that-are-in-different-subscriptions"></a><a name="difsub"></a>Connecter des réseaux virtuels situés dans différents abonnements
 
 Dans ce scénario, vous connectez TestVNet1 et TestVNet5. Les réseaux virtuels se trouvent dans différents abonnements. Les abonnements ne sont pas tenus d’être associés au même locataire Active Directory. Cette configuration nécessite l’ajout d’une connexion supplémentaire entre réseaux virtuels pour connecter TestVNet1 à TestVNet5.
 
-### <a name="TestVNet1diff"></a>Étape 5 : créez et configurez TestVNet1
+### <a name="step-5---create-and-configure-testvnet1"></a><a name="TestVNet1diff"></a>Étape 5 : créez et configurez TestVNet1
 
 Ces instructions sont la suite des étapes décrites dans les sections précédentes. Vous devez terminer les étapes [1](#Connect) et [2](#TestVNet1) pour créer et configurer TestVNet1 et la passerelle VPN pour TestVNet1. Pour cette configuration, il n’est pas nécessaire de créer TestVNet4 à partir de la section précédente. Néanmoins, si vous la créez, elle n’entrera pas en conflit avec ces étapes. Une fois les étapes 1 et 2 effectuées, passez à l’étape 6 (ci-dessous).
 
-### <a name="verifyranges"></a>Étape 6 : vérifiez les plages d’adresses IP
+### <a name="step-6---verify-the-ip-address-ranges"></a><a name="verifyranges"></a>Étape 6 : vérifiez les plages d’adresses IP
 
 Lors de la création de connexions supplémentaires, il est important de s’assurer que l’espace d’adressage IP du nouveau réseau virtuel ne chevauche aucune de vos autres plages de réseaux virtuels ou de passerelles de réseau locales. Pour cet exercice, vous pouvez utiliser les valeurs suivantes pour TestVNet5 :
 
@@ -290,7 +290,7 @@ Lors de la création de connexions supplémentaires, il est important de s’ass
 * Connexion : VNet5toVNet1
 * ConnectionType : VNet2VNet
 
-### <a name="TestVNet5"></a>Étape 7 : créez et configurez TestVNet5
+### <a name="step-7---create-and-configure-testvnet5"></a><a name="TestVNet5"></a>Étape 7 : créez et configurez TestVNet5
 
 Cette étape doit être effectuée dans le cadre du nouvel abonnement, Abonnement 5. Cette partie peut être effectuée par l’administrateur dans une organisation différente qui possède l’abonnement. Pour basculer entre les abonnements, utilisez `az account list --all` pour répertorier les abonnements disponibles pour votre compte, puis `az account set --subscription <subscriptionID>` pour basculer vers l’abonnement que vous souhaitez utiliser.
 
@@ -329,7 +329,7 @@ Cette étape doit être effectuée dans le cadre du nouvel abonnement, Abonnemen
    az network vnet-gateway create -n VNet5GW -l japaneast --public-ip-address VNet5GWIP -g TestRG5 --vnet TestVNet5 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
    ```
 
-### <a name="connections5"></a>Étape 8 : créez les connexions
+### <a name="step-8---create-the-connections"></a><a name="connections5"></a>Étape 8 : créez les connexions
 
 Étant donné que les passerelles se trouvent dans différents abonnements, cette étape est divisée en deux sessions CLI notées **[Abonnement 1]** et **[Abonnement 5]** . Pour basculer entre les abonnements, utilisez `az account list --all` pour répertorier les abonnements disponibles pour votre compte, puis `az account set --subscription <subscriptionID>` pour basculer vers l’abonnement que vous souhaitez utiliser.
 
@@ -367,12 +367,12 @@ Cette étape doit être effectuée dans le cadre du nouvel abonnement, Abonnemen
    az network vpn-connection create -n VNet5ToVNet1 -g TestRG5 --vnet-gateway1 /subscriptions/e7e33b39-fe28-4822-b65c-a4db8bbff7cb/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW -l japaneast --shared-key "eeffgg" --vnet-gateway2 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW
    ```
 
-## <a name="verify"></a>Vérifier les connexions
+## <a name="verify-the-connections"></a><a name="verify"></a>Vérifier les connexions
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
 [!INCLUDE [verify connections](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
 
-## <a name="faq"></a>Forum Aux Questions sur l’interconnexion de réseaux virtuels
+## <a name="vnet-to-vnet-faq"></a><a name="faq"></a>Forum Aux Questions sur l’interconnexion de réseaux virtuels
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes

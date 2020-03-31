@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: cherylmc
 ms.openlocfilehash: 1173da81736661048d1e4e12d9919bc2aadf73ee
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73511210"
 ---
 # <a name="view-effective-routes-of-a-virtual-hub"></a>Voir les routes effectives d’un hub virtuel
 
 Vous pouvez voir toutes les routes de votre hub WAN virtuel dans le portail Azure. Pour voir les routes, accédez au hub virtuel, puis sélectionnez **Routing -> View Effective Routes** (Routage -> Voir les routes effectives).
 
-## <a name="understand"></a>Comprendre les routes
+## <a name="understanding-routes"></a><a name="understand"></a>Comprendre les routes
 
 L’exemple suivant peut vous aider à mieux comprendre l’affichage des routes d’un réseau WAN virtuel.
 
@@ -30,13 +30,13 @@ Dans cet exemple, nous supposons aussi que la branche 1 Europe Ouest est connec
 
 ![diagramme](./media/effective-routes-virtual-hub/diagram.png)
 
-## <a name="view"></a>Voir les routes effectives
+## <a name="view-effective-routes"></a><a name="view"></a>Voir les routes effectives
 
 Quand vous sélectionnez « View Effective Routes » (Voir les routes effectives) dans le portail, cela génère la sortie présentée dans la [table de routes du hub](#routetable) USA Est.
 
 En contexte, la première ligne implique que le hub USA Est a appris la route 10.20.1.0/24 (branche 1) grâce à la connexion du *type de tronçon suivant* VPN ('Next hop' VPN Gateway Instance0 IP 10.1.0.6, Instance1 IP 10.1.0.7). *Origine de la route* référence l’ID de la ressource. *Chemin AS* indique le chemin AS pour la branche 1.
 
-### <a name="routetable"></a>Table de routes du hub
+### <a name="hub-route-table"></a><a name="routetable"></a>Table de routes du hub
 
 Utilisez la barre de défilement au bas de la table pour voir le « Chemin AS ».
 
@@ -55,13 +55,13 @@ Utilisez la barre de défilement au bas de la table pour voir le « Chemin AS 
 > Dans notre exemple de topologie, si les hubs USA Est et Europe Ouest ne communiquaient pas entre eux, la route apprise (10.9.0.0/16) n’existerait pas. Les hubs présentent uniquement les réseaux qui y sont connectés directement.
 >
 
-## <a name="additional"></a>Informations supplémentaires
+## <a name="additional-information"></a><a name="additional"></a>Informations supplémentaires
 
-### <a name="abouthubroute"></a>À propos de la table de routes du hub
+### <a name="about-the-hub-route-table"></a><a name="abouthubroute"></a>À propos de la table de routes du hub
 
 Vous pouvez créer une route de hub virtuel et l’appliquer à la table de routage de hub virtuel. Vous pouvez appliquer plusieurs itinéraires à la table de routage du hub virtuel. Cela vous permet de définir une route pour le réseau virtuel de destination en utilisant une adresse IP (généralement l’appliance réseau virtuelle dans un réseau virtuel en rayon). Pour plus d’informations sur les appliances réseau virtuelles, consultez [Router le trafic d’un hub virtuel vers une appliance réseau virtuelle (NVA)](virtual-wan-route-table-portal.md).
 
-### <a name="aboutdefaultroute"></a>À propos de la route par défaut (0.0.0.0/0)
+### <a name="about-default-route-00000"></a><a name="aboutdefaultroute"></a>À propos de la route par défaut (0.0.0.0/0)
 
 Un hub virtuel a la capacité de propager une route par défaut apprise vers une connexion de réseau virtuel, VPN site à site ou ExpressRoute si l’indicateur est « Activé » sur la connexion. Cet indicateur est visible lorsque vous modifiez une connexion de réseau virtuel, une connexion VPN ou une connexion ExpressRoute. « EnableInternetSecurity » a toujours la valeur false par défaut sur les connexions de réseau virtuel, ExpressRoute et VPN des hubs.
 
@@ -69,4 +69,4 @@ La route par défaut n’a pas pour origine le hub WAN virtuel. Elle est propag�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur Azure Virtual WAN, consultez l’article [Vue d'ensemble d’Azure Virtual WAN](virtual-wan-about.md).
+Pour plus d’informations sur Azure Virtual WAN, consultez l’article [Vue d’ensemble d’Azure Virtual WAN](virtual-wan-about.md).

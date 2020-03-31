@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 02/10/2020
 ms.author: cherylmc
 ms.openlocfilehash: d8c6b68a38d4b60cf7a3194e6a5ded8804cc416f
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77150168"
 ---
 # <a name="create-a-zone-redundant-virtual-network-gateway-in-azure-availability-zones"></a>Créer une passerelle de réseau virtuel redondante interzone dans les zones de disponibilité Azure
@@ -23,7 +23,7 @@ Vous pouvez déployer des passerelles VPN et ExpressRoute dans des zones de disp
 
 [!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
-## <a name="variables"></a>1. Déclarer vos variables
+## <a name="1-declare-your-variables"></a><a name="variables"></a>1. Déclarer vos variables
 
 Déclarez les variables que vous souhaitez utiliser. Utilisez l’exemple ci-dessous en utilisant vos propres valeurs si nécessaire. Si vous fermez votre session PowerShell/Cloud Shell au cours de l’exercice, copiez et collez les valeurs une nouvelle fois pour redéclarer les variables. Lorsque vous spécifiez un emplacement, vérifiez que la région que vous spécifiez est prise en charge. Pour plus d’informations, visitez le [FAQ](#faq).
 
@@ -43,7 +43,7 @@ $GwIP1       = "VNet1GWIP"
 $GwIPConf1   = "gwipconf1"
 ```
 
-## <a name="configure"></a>2. Créer un réseau virtuel
+## <a name="2-create-the-virtual-network"></a><a name="configure"></a>2. Créer un réseau virtuel
 
 Créez un groupe de ressources.
 
@@ -59,7 +59,7 @@ $besub1 = New-AzVirtualNetworkSubnetConfig -Name $BESubnet1 -AddressPrefix $BEPr
 $vnet = New-AzVirtualNetwork -Name $VNet1 -ResourceGroupName $RG1 -Location $Location1 -AddressPrefix $VNet1Prefix -Subnet $fesub1,$besub1
 ```
 
-## <a name="gwsub"></a>3. Ajouter le sous-réseau de passerelle
+## <a name="3-add-the-gateway-subnet"></a><a name="gwsub"></a>3. Ajouter le sous-réseau de passerelle
 
 Le sous-réseau de passerelle contient les adresses IP réservées utilisées par les services de passerelle de réseau virtuel. Appuyez-vous sur les exemples suivants pour ajouter et définir un sous-réseau de passerelle :
 
@@ -75,11 +75,11 @@ Définissez la configuration de sous-réseau de passerelle du réseau virtuel.
 ```azurepowershell-interactive
 $getvnet | Set-AzVirtualNetwork
 ```
-## <a name="publicip"></a>4. Demander une adresse IP publique
+## <a name="4-request-a-public-ip-address"></a><a name="publicip"></a>4. Demander une adresse IP publique
  
 Dans cette étape, choisissez les instructions qui s’appliquent à la passerelle que vous souhaitez créer. La sélection des zones pour le déploiement des passerelles varie selon les zones spécifiées pour l’adresse IP publique.
 
-### <a name="ipzoneredundant"></a>Pour les passerelles redondantes interzone
+### <a name="for-zone-redundant-gateways"></a><a name="ipzoneredundant"></a>Pour les passerelles redondantes interzone
 
 Demandez une adresse IP publique avec une référence SKU PublicIpaddress **Standard** et ne spécifiez aucune zone. Dans ce cas, l’adresse IP publique Standard créée sera une adresse IP publique redondante interzone.   
 
@@ -87,7 +87,7 @@ Demandez une adresse IP publique avec une référence SKU PublicIpaddress **Stan
 $pip1 = New-AzPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Name $GwIP1 -AllocationMethod Static -Sku Standard
 ```
 
-### <a name="ipzonalgw"></a>Pour les passerelles zonales
+### <a name="for-zonal-gateways"></a><a name="ipzonalgw"></a>Pour les passerelles zonales
 
 Demandez une adresse IP publique avec une référence SKU PublicIpaddress **Standard**. Spécifiez la zone (1, 2 ou 3). Toutes les instances de la passerelle seront déployées dans cette zone.
 
@@ -95,14 +95,14 @@ Demandez une adresse IP publique avec une référence SKU PublicIpaddress **Stan
 $pip1 = New-AzPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Name $GwIP1 -AllocationMethod Static -Sku Standard -Zone 1
 ```
 
-### <a name="ipregionalgw"></a>Pour les passerelles régionales
+### <a name="for-regional-gateways"></a><a name="ipregionalgw"></a>Pour les passerelles régionales
 
 Demandez une adresse IP publique avec une référence SKU PublicIpaddress **De base**. Dans ce cas, la passerelle est déployée comme une passerelle régionale et n’a pas de redondance de zone intégrée. Les instances de passerelle sont créées dans des zones, respectivement.
 
 ```azurepowershell-interactive
 $pip1 = New-AzPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Name $GwIP1 -AllocationMethod Dynamic -Sku Basic
 ```
-## <a name="gwipconfig"></a>5. Créer la configuration de l’adresse IP
+## <a name="5-create-the-ip-configuration"></a><a name="gwipconfig"></a>5. Créer la configuration de l’adresse IP
 
 ```azurepowershell-interactive
 $getvnet = Get-AzVirtualNetwork -ResourceGroupName $RG1 -Name $VNet1
@@ -110,7 +110,7 @@ $subnet = Get-AzVirtualNetworkSubnetConfig -Name $GwSubnet1 -VirtualNetwork $get
 $gwipconf1 = New-AzVirtualNetworkGatewayIpConfig -Name $GwIPConf1 -Subnet $subnet -PublicIpAddress $pip1
 ```
 
-## <a name="gwconfig"></a>6. Créer la passerelle
+## <a name="6-create-the-gateway"></a><a name="gwconfig"></a>6. Créer la passerelle
 
 Créez la passerelle de réseau virtuel.
 
@@ -126,7 +126,7 @@ New-AzVirtualNetworkGateway -ResourceGroup $RG1 -Location $Location1 -Name $Gw1 
 New-AzVirtualNetworkGateway -ResourceGroup $RG1 -Location $Location1 -Name $Gw1 -IpConfigurations $GwIPConf1 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1AZ
 ```
 
-## <a name="faq"></a>Forum Aux Questions
+## <a name="faq"></a><a name="faq"></a>Forum Aux Questions
 
 ### <a name="what-will-change-when-i-deploy-these-new-skus"></a>Qu’est-ce qui va changer lorsque je déploierai ces nouvelles références SKU ?
 

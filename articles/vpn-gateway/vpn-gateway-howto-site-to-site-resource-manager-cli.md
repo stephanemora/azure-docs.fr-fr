@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: cherylmc
 ms.openlocfilehash: 6d28a5a37be2947ea6cc7019d2b3cc73932c60d6
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75779091"
 ---
 # <a name="create-a-virtual-network-with-a-site-to-site-vpn-connection-using-cli"></a>Créer un réseau virtuel avec une connexion VPN de site à site à l’aide de l’interface de ligne de commande
@@ -43,7 +43,7 @@ Vérifiez que vous disposez des éléments ci-dessous avant de commencer votre c
  
   [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-### <a name="example"></a>Exemples de valeurs
+### <a name="example-values"></a><a name="example"></a>Exemples de valeurs
 
 Vous pouvez utiliser ces valeurs pour créer un environnement de test ou vous y référer pour mieux comprendre les exemples de cet article :
 
@@ -68,13 +68,13 @@ GatewayType             = Vpn 
 ConnectionName          = VNet1toSite2
 ```
 
-## <a name="Login"></a>1. Connexion à votre abonnement
+## <a name="1-connect-to-your-subscription"></a><a name="Login"></a>1. Connexion à votre abonnement
 
 Si vous choisissez d’exécuter CLI localement, connectez-vous à votre abonnement. Si vous utilisez Azure Cloud Shell dans le navigateur, vous n’avez pas besoin de vous connecter à votre abonnement. Vous vous connectez automatiquement dans Azure Cloud Shell. Toutefois, il est possible que vous souhaitiez vérifier que vous utilisez l’abonnement approprié après vous être connecté.
 
 [!INCLUDE [CLI login](../../includes/vpn-gateway-cli-login-include.md)]
 
-## <a name="rg"></a>2. Créer un groupe de ressources
+## <a name="2-create-a-resource-group"></a><a name="rg"></a>2. Créer un groupe de ressources
 
 L’exemple suivant crée un groupe de ressources nommé « TestRG1 » à l’emplacement « eastus ». Si vous disposez déjà d’un groupe de ressources dans la région où vous souhaitez créer votre réseau virtuel, vous pouvez l’utiliser à la place de l’exemple donné.
 
@@ -82,7 +82,7 @@ L’exemple suivant crée un groupe de ressources nommé « TestRG1 » à l’
 az group create --name TestRG1 --location eastus
 ```
 
-## <a name="VNet"></a>3. Créez un réseau virtuel
+## <a name="3-create-a-virtual-network"></a><a name="VNet"></a>3. Créez un réseau virtuel
 
 Si vous n’avez pas de réseau virtuel, créez-en un à l’aide de la commande [az network vnet create](/cli/azure/network/vnet). Lorsque vous créez un réseau virtuel, vérifiez que les espaces d’adressage que vous spécifiez ne chevauchent pas les espaces d’adressage de votre réseau local.
 
@@ -97,7 +97,7 @@ L’exemple suivant permet de créer un réseau virtuel nommé « TestVNet1 »
 az network vnet create --name TestVNet1 --resource-group TestRG1 --address-prefix 10.11.0.0/16 --location eastus --subnet-name Subnet1 --subnet-prefix 10.11.0.0/24
 ```
 
-## 4. <a name="gwsub"></a>Créer le sous-réseau de passerelle
+## <a name="4-create-the-gateway-subnet"></a>4. <a name="gwsub"></a>Créer le sous-réseau de passerelle
 
 
 [!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-include.md)]
@@ -110,7 +110,7 @@ az network vnet subnet create --address-prefix 10.11.255.0/27 --name GatewaySubn
 
 [!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
-## <a name="localnet"></a>5. Créer la passerelle de réseau local
+## <a name="5-create-the-local-network-gateway"></a><a name="localnet"></a>5. Créer la passerelle de réseau local
 
 La passerelle de réseau local fait généralement référence à votre emplacement local. Donnez au site un nom auquel Azure pourra se référer, puis spécifiez l’adresse IP du périphérique VPN local vers lequel vous allez créer une connexion. Spécifiez également les préfixes d’adresses IP qui seront acheminés via la passerelle VPN vers le périphérique VPN. Les préfixes d’adresses que vous spécifiez sont les préfixes situés sur votre réseau local. Vous pouvez facilement mettre à jour ces préfixes si votre réseau local change.
 
@@ -125,7 +125,7 @@ Utilisez la commande [az network local-gateway create](/cli/azure/network/local-
 az network local-gateway create --gateway-ip-address 23.99.221.164 --name Site2 --resource-group TestRG1 --local-address-prefixes 10.0.0.0/24 20.0.0.0/24
 ```
 
-## <a name="PublicIP"></a>6. Demander une adresse IP publique
+## <a name="6-request-a-public-ip-address"></a><a name="PublicIP"></a>6. Demander une adresse IP publique
 
 Une passerelle VPN doit avoir une adresse IP publique. Vous commencez par demander la ressource d’adresse IP, puis vous y faites référence lors de la création de votre passerelle de réseau virtuel. L’adresse IP est affectée dynamiquement à la ressource lors de la création de la passerelle VPN. Actuellement, la passerelle VPN prend uniquement en charge l’allocation d’adresses IP publiques *dynamiques*. Vous ne pouvez pas demander d’affectation d’adresse IP publique statique. Toutefois, cela ne signifie pas que l’adresse IP change après son affectation à votre passerelle VPN. L’adresse IP publique change uniquement lorsque la passerelle est supprimée, puis recréée. Elle n’est pas modifiée lors du redimensionnement, de la réinitialisation ou des autres opérations de maintenance/mise à niveau internes de votre passerelle VPN.
 
@@ -135,7 +135,7 @@ Utilisez la commande [az network public-ip create](/cli/azure/network/public-ip)
 az network public-ip create --name VNet1GWIP --resource-group TestRG1 --allocation-method Dynamic
 ```
 
-## <a name="CreateGateway"></a>7. Créer la passerelle VPN
+## <a name="7-create-the-vpn-gateway"></a><a name="CreateGateway"></a>7. Créer la passerelle VPN
 
 Créez la passerelle VPN de réseau virtuel. La création d’une passerelle VPN peut prendre 45 minutes ou plus.
 
@@ -151,7 +151,7 @@ Créez la passerelle VPN à l’aide de la commande [az network vnet-gateway cre
 az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWIP --resource-group TestRG1 --vnet TestVNet1 --gateway-type Vpn --vpn-type RouteBased --sku VpnGw1 --no-wait 
 ```
 
-## <a name="VPNDevice"></a>8. Configuration de votre périphérique VPN
+## <a name="8-configure-your-vpn-device"></a><a name="VPNDevice"></a>8. Configuration de votre périphérique VPN
 
 Les connexions site à site vers un réseau local nécessitent un périphérique VPN. Dans cette étape, vous configurez votre périphérique VPN. Pour configurer votre périphérique VPN, vous avez besoin des éléments suivants :
 
@@ -166,7 +166,7 @@ Les connexions site à site vers un réseau local nécessitent un périphérique
 [!INCLUDE [Configure VPN device](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
 
 
-## <a name="CreateConnection"></a>9. Créer la connexion VPN
+## <a name="9-create-the-vpn-connection"></a><a name="CreateConnection"></a>9. Créer la connexion VPN
 
 Créez la connexion VPN de site à site entre votre passerelle de réseau virtuel et votre périphérique VPN local. Soyez particulièrement attentif à la valeur de clé partagée qui doit correspondre à la valeur de clé partagée configurée pour votre périphérique VPN.
 
@@ -178,17 +178,17 @@ az network vpn-connection create --name VNet1toSite2 --resource-group TestRG1 --
 
 Après un bref délai, la connexion sera établie.
 
-## <a name="toverify"></a>10. Vérifier la connexion VPN
+## <a name="10-verify-the-vpn-connection"></a><a name="toverify"></a>10. Vérifier la connexion VPN
 
 [!INCLUDE [verify connection](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
 
 Si vous souhaitez utiliser une autre méthode pour vérifier votre connexion, consultez l’article [Vérifier une connexion de passerelle VPN](vpn-gateway-verify-connection-resource-manager.md).
 
-## <a name="connectVM"></a>Se connecter à une machine virtuelle
+## <a name="to-connect-to-a-virtual-machine"></a><a name="connectVM"></a>Se connecter à une machine virtuelle
 
 [!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-s2s-include.md)]
 
-## <a name="tasks"></a>Tâches courantes
+## <a name="common-tasks"></a><a name="tasks"></a>Tâches courantes
 
 Cette section contient des commandes courantes qui sont utiles lorsque vous travaillez avec des configurations de site à site. Pour obtenir la liste complète des commandes de mise en réseau CLI, consultez [Networking - az network](/cli/azure/network) (Mise en réseau - az network).
 

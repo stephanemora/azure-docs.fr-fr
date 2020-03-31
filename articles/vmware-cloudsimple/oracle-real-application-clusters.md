@@ -1,5 +1,5 @@
 ---
-title: Azure VMware Solutions (AVS) - Optimiser votre cloud privé AVS pour Oracle RAC
+title: Azure VMware Solution by CloudSimple - Optimiser votre cloud privé CloudSimple pour Oracle RAC
 description: Explique comment déployer un nouveau cluster et optimiser une machine virtuelle pour l’installation et la configuration d’Oracle Real Application Clusters (RAC).
 author: sharaths-cs
 ms.author: b-shsury
@@ -8,29 +8,29 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: fe4f7bf71b4836404a4f878b37c3ea7fab138588
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 733a225c66040cb2ab819f041647120c8b63b6a0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77016015"
 ---
-# <a name="optimize-your-avs-private-cloud-for-installing-oracle-rac"></a>Optimiser votre cloud privé AVS pour l'installation d'Oracle RAC
+# <a name="optimize-your-cloudsimple-private-cloud-for-installing-oracle-rac"></a>Optimiser votre cloud privé CloudSimple pour l’installation d’Oracle RAC
 
-Vous pouvez déployer Oracle Real Application Clusters (RAC) dans votre environnement de cloud privé AVS. Ce guide explique comment déployer un nouveau cluster et optimiser une machine virtuelle pour la solution Oracle RAC. Après avoir effectué les étapes de cette rubrique, vous pouvez installer et configurer Oracle RAC.
+Vous pouvez déployer Oracle Real Application Clusters (RAC) dans votre environnement de cloud privé CloudSimple. Ce guide explique comment déployer un nouveau cluster et optimiser une machine virtuelle pour la solution Oracle RAC. Après avoir effectué les étapes de cette rubrique, vous pouvez installer et configurer Oracle RAC.
 
 ## <a name="storage-policy"></a>Stratégie de stockage
 
-La réussite de l’implémentation d’Oracle RAC nécessite un nombre suffisant de nœuds dans le cluster. Dans la stratégie de stockage vSAN, des défaillances à tolérer (FTT, Failures To Tolerate) sont appliquées aux disques de données utilisés pour le stockage des disques de bases de données, de journaux et de restauration par progression. Le nombre de nœuds nécessaires pour tolérer efficacement les défaillances est de 2N+1, où N est la valeur de FTT.
+La réussite de l’implémentation d’Oracle RAC nécessite un nombre suffisant de nœuds dans le cluster.  Dans la stratégie de stockage vSAN, des défaillances à tolérer (FTT, Failures To Tolerate) sont appliquées aux disques de données utilisés pour le stockage des disques de bases de données, de journaux et de restauration par progression.  Le nombre de nœuds nécessaires pour tolérer efficacement les défaillances est de 2N+1, où N est la valeur de FTT.
 
 Exemple : Si la FTT souhaitée est 2, le nombre total de nœuds dans le cluster doit être égal à 2*2+1 = 5.
 
 ## <a name="overview-of-deployment"></a>Vue d’ensemble du déploiement
 
-Les sections suivantes expliquent comment configurer votre environnement de cloud privé AVS pour Oracle RAC.
+Les sections suivantes décrivent comment configurer votre environnement de cloud privé CloudSimple pour Oracle RAC.
 
 1. Bonnes pratiques en matière de configuration des disques
-2. Déployer un cluster vSphere de cloud privé AVS
+2. Déployer un cluster vSphere de cloud privé CloudSimple
 3. Configurer la mise en réseau pour Oracle RAC
 4. Configurer les stratégies de stockage vSAN
 5. Créer des machines virtuelles Oracle et créer des disques de machines virtuelles partagés
@@ -38,7 +38,7 @@ Les sections suivantes expliquent comment configurer votre environnement de clou
 
 ## <a name="best-practices-for-disk-configuration"></a>Bonnes pratiques en matière de configuration des disques
 
-Les machines virtuelles Oracle RAC ont plusieurs disques, qui sont utilisés pour une fonction spécifique. Des disques partagés sont montés sur toutes les machines virtuelles, et utilisés par le cluster RAC Oracle. Les disques d’installation de système d’exploitation et de logiciels sont montés uniquement sur les machines virtuelles individuelles. 
+Les machines virtuelles Oracle RAC ont plusieurs disques, qui sont utilisés pour une fonction spécifique.  Des disques partagés sont montés sur toutes les machines virtuelles, et utilisés par le cluster RAC Oracle.  Les disques d’installation de système d’exploitation et de logiciels sont montés uniquement sur les machines virtuelles individuelles.  
 
 ![Vue d’ensemble des disques de machines virtuelles Oracle RAC](media/oracle-vm-disks-overview.png)
 
@@ -68,44 +68,44 @@ L’exemple suivant utilise les disques définis dans le tableau ci-dessous.
 
 ### <a name="operating-system-and-software-disk-configuration"></a>Configuration des disques de système d’exploitation et de logiciels
 
-Chaque machine virtuelle Oracle est configurée avec plusieurs disques pour le système d’exploitation hôte, l’échange, l’installation de logiciels et d’autres fonctions du système d’exploitation. Ces disques ne sont pas partagés par les machines virtuelles. 
+Chaque machine virtuelle Oracle est configurée avec plusieurs disques pour le système d’exploitation hôte, l’échange, l’installation de logiciels et d’autres fonctions du système d’exploitation.  Ces disques ne sont pas partagés par les machines virtuelles.  
 
 * Trois disques pour chaque machine virtuelle sont configurés en tant que disques virtuels et montés sur des machines virtuelles Oracle RAC.
     * Disque de système d’exploitation
     * Disque pour le stockage des fichiers d’installation d’Oracle Grid
     * Disque pour le stockage des fichiers d’installation de base de données Oracle
 * Les disques peuvent être configurés comme **Thin Provisioned** (alloués dynamiquement).
-* Chaque disque est monté sur le premier contrôleur SCSI (SCSI0). 
+* Chaque disque est monté sur le premier contrôleur SCSI (SCSI0).  
 * Le partage est défini sur **No sharing** (Aucun partage).
-* La redondance est définie sur le stockage à l’aide de stratégies vSAN. 
+* La redondance est définie sur le stockage à l’aide de stratégies vSAN.  
 
 ![Configuration des groupes de disques de données Oracle RAC](media/oracle-vm-os-disks.png)
 
 ### <a name="data-disk-configuration"></a>Configuration des disques de données
 
-Les disques de données sont principalement utilisés pour le stockage des fichiers de base de données. 
+Les disques de données sont principalement utilisés pour le stockage des fichiers de base de données.  
 
 * Quatre disques sont configurés en tant que disques virtuels et montés sur toutes les machines virtuelles Oracle RAC.
 * Chaque disque est monté sur un contrôleur SCSI différent.
-* Chaque disque virtuel est configuré au format **Thick Provision Eager Zeroed**. 
-* Le partage est défini sur **Multi-writer**. 
-* Les disques doivent être configurés en tant que groupe de disques ASM (Automatic Storage Management). 
-* La redondance est définie sur le stockage à l’aide de stratégies vSAN. 
+* Chaque disque virtuel est configuré au format **Thick Provision Eager Zeroed**.  
+* Le partage est défini sur **Multi-writer**.  
+* Les disques doivent être configurés en tant que groupe de disques ASM (Automatic Storage Management).  
+* La redondance est définie sur le stockage à l’aide de stratégies vSAN.  
 * La redondance ASM est définie sur **External**.
 
 ![Configuration des groupes de disques de données Oracle RAC](media/oracle-vm-data-disks.png)
 
 ### <a name="redo-log-disk-configuration"></a>Configuration des disques des journaux de phase de restauration par progression
 
-Les fichiers journaux de phase de restauration par progression servent à stocker une copie des modifications apportées à la base de données. Ils sont utilisés quand les données doivent être récupérées après une défaillance.
+Les fichiers journaux de phase de restauration par progression servent à stocker une copie des modifications apportées à la base de données.  Ils sont utilisés quand les données doivent être récupérées après une défaillance.
 
-* Les disques des journaux de phase de restauration par progression doivent être configurés en tant que groupes de disques multiples. 
+* Les disques des journaux de phase de restauration par progression doivent être configurés en tant que groupes de disques multiples.  
 * Six disques sont créés et montés sur toutes les machines virtuelles Oracle RAC.
 * Les disques sont montés sur différents contrôleurs SCSI.
 * Chaque disque virtuel est configuré au format **Thick Provision Eager Zeroed**.
-* Le partage est défini sur **Multi-writer**. 
+* Le partage est défini sur **Multi-writer**.  
 * Les disques doivent être configurés dans deux groupes de disques ASM.
-* Chaque groupe de disques ASM contient trois disques, qui se trouvent sur des contrôleurs SCSI différents. 
+* Chaque groupe de disques ASM contient trois disques, qui se trouvent sur des contrôleurs SCSI différents.  
 * La redondance ASM est définie sur **Normal**.
 * Cinq fichiers journaux de phase de restauration par progression sont créés sur le groupe de journaux de phase de restauration par progression ASM.
 
@@ -139,7 +139,7 @@ Les disques votants fournissent une fonctionnalité de disque de quorum comme ca
 
 ### <a name="oracle-fast-recovery-area-disk-configuration-optional"></a>Configuration des disques de la zone de récupération rapide Oracle (facultatif)
 
-La zone de récupération rapide (FRA, Fast Recovery Area) est gérée par le système de fichiers par le biais du groupe de disques Oracle ASM. Elle fournit un emplacement de stockage partagé pour les fichiers de sauvegarde et de récupération. Oracle crée des journaux archivés et des journaux Flashback dans la zone de récupération rapide. Oracle Recovery Manager (RMAN) peut éventuellement stocker ses jeux de sauvegardes et copies d’images dans la zone de récupération rapide, et il l’utilise dans le cadre de la restauration de fichiers pendant la récupération des supports.
+La zone de récupération rapide (FRA, Fast Recovery Area) est gérée par le système de fichiers par le biais du groupe de disques Oracle ASM.  Elle fournit un emplacement de stockage partagé pour les fichiers de sauvegarde et de récupération. Oracle crée des journaux archivés et des journaux Flashback dans la zone de récupération rapide. Oracle Recovery Manager (RMAN) peut éventuellement stocker ses jeux de sauvegardes et copies d’images dans la zone de récupération rapide, et il l’utilise dans le cadre de la restauration de fichiers pendant la récupération des supports.
 
 * Deux disques sont créés et montés sur toutes les machines virtuelles Oracle RAC.
 * Les disques sont montés sur différents contrôleurs SCSI.
@@ -150,26 +150,26 @@ La zone de récupération rapide (FRA, Fast Recovery Area) est gérée par le sy
 
 ![Configuration des groupes de disques de données Oracle RAC](media/oracle-vm-fra-disks.png)
 
-## <a name="deploy-avs-private-cloud-vsphere-cluster"></a>Déployer un cluster vSphere de cloud privé AVS
+## <a name="deploy-cloudsimple-private-cloud-vsphere-cluster"></a>Déployer un cluster vSphere de cloud privé CloudSimple
 
-Pour déployer un cluster vSphere sur votre cloud privé AVS, procédez comme suit :
+Pour déployer un cluster vSphere sur votre cloud privé, effectuez les étapes suivantes :
 
-1. À partir du portail AVS, [créez un cloud privé AVS](create-private-cloud.md). AVS crée un utilisateur vCenter par défaut nommé « cloudowner » dans le nouveau cloud privé AVS. Pour plus d'informations sur l'utilisateur et le modèle d'autorisation par défaut du cloud privé AVS, consultez [Modèle d'autorisation du cloud privé AVS](learn-private-cloud-permissions.md). Cette étape crée le cluster de gestion principal de votre cloud privé AVS.
+1. À partir du portail CloudSimple, [créez un cloud privé](create-private-cloud.md). CloudSimple crée un utilisateur vCenter par défaut nommé « cloudowner » dans chaque nouveau cloud privé. Pour plus d’informations sur l’utilisateur et le modèle d’autorisation par défaut du cloud privé, consultez [Modèle d’autorisation du cloud privé](learn-private-cloud-permissions.md).  Cette étape crée le cluster de gestion principal pour votre cloud privé.
 
-2. À partir du portail AVS, [développez le cloud privé AVS](expand-private-cloud.md) avec un nouveau cluster. Ce cluster sera utilisé pour déployer Oracle RAC. Sélectionnez le nombre de nœuds en fonction de la tolérance de panne souhaitée (trois nœuds au minimum).
+2. À partir du portail CloudSimple, [développez le cloud privé](expand-private-cloud.md) avec un nouveau cluster.  Ce cluster sera utilisé pour déployer Oracle RAC.  Sélectionnez le nombre de nœuds en fonction de la tolérance de panne souhaitée (trois nœuds au minimum).
 
 ## <a name="set-up-networking-for-oracle-rac"></a>Configurer la mise en réseau pour Oracle RAC
 
-1. Dans votre cloud privé AVS, [créez deux réseaux VLAN](create-vlan-subnet.md) (un pour le réseau public Oracle et l'autre pour le réseau privé Oracle) et attribuez les CIDR de sous-réseau appropriés.
-2. Une fois les réseaux VLAN créés, créez les [groupes de ports distribués sur le serveur vCenter du cloud privé AVS](create-vlan-subnet.md#use-vlan-information-to-set-up-a-distributed-port-group-in-vsphere).
+1. Dans votre cloud privé, [créez deux réseaux locaux virtuels](create-vlan-subnet.md) (un pour le réseau public Oracle et un pour le réseau privé Oracle) et attribuez les CIDR de sous-réseau appropriés.
+2. Une fois les réseaux locaux virtuels créés, créez les [groupes de ports distribués sur le cloud privé vCenter](create-vlan-subnet.md#use-vlan-information-to-set-up-a-distributed-port-group-in-vsphere).
 3. Configurez une [machine virtuelle de serveur DHCP et DNS](dns-dhcp-setup.md) sur votre cluster de gestion pour l’environnement Oracle.
-4. [Configurez le transfert DNS sur le serveur DNS](on-premises-dns-setup.md#create-a-conditional-forwarder) installé dans le cloud privé AVS.
+4. [Configurez le transfert DNS sur le serveur DNS](on-premises-dns-setup.md#create-a-conditional-forwarder) installé dans le cloud privé.
 
 ## <a name="set-up-vsan-storage-policies"></a>Configurer les stratégies de stockage vSAN
 
-Les stratégies vSAN définissent les défaillances à tolérer et l’entrelacement de disques pour les données stockées sur les disques de machines virtuelles. La stratégie de stockage créée doit être appliquée sur les disques de machines virtuelles lors de la création de la machine virtuelle.
+Les stratégies vSAN définissent les défaillances à tolérer et l’entrelacement de disques pour les données stockées sur les disques de machines virtuelles.  La stratégie de stockage créée doit être appliquée sur les disques de machines virtuelles lors de la création de la machine virtuelle.
 
-1. [Connectez-vous au client vSphere](https://docs.azure.cloudsimple.com/vsphere-access) de votre cloud privé AVS.
+1. [Connectez-vous au client vSphere](https://docs.azure.cloudsimple.com/vsphere-access) de votre cloud privé.
 2. Dans le menu supérieur, sélectionnez **Policies and Profiles** (Stratégies et profils).
 3. Dans le menu de gauche, sélectionnez **VM Storage Policies** (Stratégies de stockage de machines virtuelles), puis **Create a VM storage Policy** (Créer une stratégie de stockage de machines virtuelles).
 4. Entrez un nom explicite pour la stratégie, puis cliquez sur **NEXT**.
@@ -181,7 +181,7 @@ Les stratégies vSAN définissent les défaillances à tolérer et l’entrelace
 
 ## <a name="create-oracle-vms-and-create-shared-vm-disks-for-oracle"></a>Créer des machines virtuelles Oracle et créer des disques de machines virtuelles partagés pour Oracle
 
-Pour créer une machine virtuelle pour Oracle, clonez une machine virtuelle existante ou créez-en une nouvelle. Cette section décrit comment créer une machine virtuelle, puis la cloner pour en créer une deuxième après avoir installé le système d’exploitation de base. Une fois les machines virtuelles créées, vous pouvez y ajouter des disques. Le cluster Oracle utilise des disques partagés pour le stockage des données, des journaux et des journaux de phase de restauration par progression.
+Pour créer une machine virtuelle pour Oracle, clonez une machine virtuelle existante ou créez-en une nouvelle.  Cette section décrit comment créer une machine virtuelle, puis la cloner pour en créer une deuxième après avoir installé le système d’exploitation de base.  Une fois les machines virtuelles créées, vous pouvez y ajouter des disques.  Le cluster Oracle utilise des disques partagés pour le stockage des données, des journaux et des journaux de phase de restauration par progression.
 
 ### <a name="create-vms"></a>Créer des machines virtuelles
 
@@ -205,7 +205,7 @@ Une fois le système d’exploitation installé, vous pouvez cloner une deuxièm
 
 ### <a name="create-shared-disks-for-vms"></a>Créer des disques partagés pour les machines virtuelles
 
-Oracle utilise un disque partagé pour stocker les fichiers de données, journaux, et journaux de phase de restauration par progression. Vous pouvez créer un disque partagé sur vCenter et le monter sur les deux machines virtuelles. Pour bénéficier de meilleures performances, placez les disques de données sur différents contrôleurs SCSI. Les étapes ci-dessous montrent comment créer un disque partagé sur vCenter, puis l’attacher à une machine virtuelle. Le client Flash vCenter est utilisé pour modifier les propriétés de la machine virtuelle.
+Oracle utilise un disque partagé pour stocker les fichiers de données, journaux, et journaux de phase de restauration par progression.  Vous pouvez créer un disque partagé sur vCenter et le monter sur les deux machines virtuelles.  Pour bénéficier de meilleures performances, placez les disques de données sur différents contrôleurs SCSI. Les étapes ci-dessous montrent comment créer un disque partagé sur vCenter, puis l’attacher à une machine virtuelle. Le client Flash vCenter est utilisé pour modifier les propriétés de la machine virtuelle.
 
 #### <a name="create-disks-on-the-first-vm"></a>Créer des disques sur la première machine virtuelle
 
@@ -241,10 +241,10 @@ Répétez les étapes 2 à 7 pour tous les nouveaux disques requis pour les fich
 
 ## <a name="set-up-vm-host-affinity-rules"></a>Configurer des règles d’affinité de machine virtuelle à hôte
 
-Les règles d’affinité de machine virtuelle à hôte garantissent que la machine virtuelle s’exécute sur l’hôte souhaité. Vous pouvez définir des règles sur vCenter afin d’être sûr que la machine virtuelle Oracle s’exécute sur l’hôte disposant des ressources adéquates et afin de répondre à des exigences spécifiques en matière de gestion des licences.
+Les règles d’affinité de machine virtuelle à hôte garantissent que la machine virtuelle s’exécute sur l’hôte souhaité.  Vous pouvez définir des règles sur vCenter afin d’être sûr que la machine virtuelle Oracle s’exécute sur l’hôte disposant des ressources adéquates et afin de répondre à des exigences spécifiques en matière de gestion des licences.
 
-1. Sur le portail AVS, [élevez les privilèges](escalate-private-cloud-privileges.md) de l'utilisateur cloudowner.
-2. [Connectez-vous au client vSphere](https://docs.azure.cloudsimple.com/vsphere-access) de votre cloud privé AVS.
+1. Dans le portail CloudSimple, [augmentez les privilèges](escalate-private-cloud-privileges.md) de l’utilisateur cloudowner.
+2. [Connectez-vous au client vSphere](https://docs.azure.cloudsimple.com/vsphere-access) de votre cloud privé.
 3. Dans le client vSphere, sélectionnez le cluster où les machines virtuelles Oracle sont déployées, puis cliquez sur **Configure**.
 4. Sous Configure, sélectionnez **VM/Host Groups** (Groupes d’hôtes/machines virtuelles).
 5. Cliquez sur **+**

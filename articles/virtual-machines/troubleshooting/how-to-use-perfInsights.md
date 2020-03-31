@@ -14,11 +14,11 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 783b479dd3e5f429516799d7d3ea82f363cac2ec
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058173"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79226745"
 ---
 # <a name="how-to-use-perfinsights"></a>Utilisation de PerfInsights
 
@@ -104,27 +104,27 @@ Les informations portant sur la configuration de la machine virtuelle Windows, d
 |Données collectées                              |  |  | Scénarios de performances |  |  | |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
 |                               | Analyse rapide des performances | Benchmarking | Analyse des performances | Analyse de fichiers Azure | Analyse avancée des performances |
-| Informations tirées des journaux d’événements       | OUI                        | OUI                                | OUI                      | OUI                  | OUI                  |
-| Informations système                | OUI                        | OUI                                | OUI                      | OUI                  | OUI                  |
-| Mappage de volume                        | OUI                        | OUI                                | OUI                      | OUI                  | OUI                  |
-| Mappage de disque                          | OUI                        | OUI                                | OUI                      | OUI                  | OUI                  |
-| Tâches en cours d’exécution                     | OUI                        | OUI                                | OUI                      | OUI                  | OUI                  |
-| Compteurs de fiabilité de stockage      | OUI                        | OUI                                | OUI                      | OUI                  | OUI                  |
-| Informations sur le stockage               | OUI                        | OUI                                | OUI                      | OUI                  | OUI                  |
-| Sortie Fsutil                     | OUI                        | OUI                                | OUI                      | OUI                  | OUI                  |
-| Informations du pilote de filtre                | OUI                        | OUI                                | OUI                      | OUI                  | OUI                  |
-| Sortie Netstat                    | OUI                        | OUI                                | OUI                      | OUI                  | OUI                  |
-| Configuration réseau             | OUI                        | OUI                                | OUI                      | OUI                  | OUI                  |
-| Configuration du pare-feu            | OUI                        | OUI                                | OUI                      | OUI                  | OUI                  |
-| Configuration de SQL Server          | OUI                        | OUI                                | OUI                      | OUI                  | OUI                  |
-| Suivis des diagnostics de performances *  | OUI                        | OUI                                | OUI                      | OUI                  | OUI                  |
-| Suivi du compteur de performances **      |                            |                                    | OUI                      |                      | OUI                  |
-| Suivi du compteur SMB **              |                            |                                    |                          | OUI                  |                      |
-| Suivi du compteur SQL Server **       |                            |                                    | OUI                      |                      | OUI                  |
-| Suivi XPerf                       |                            |                                    |                          |                      | OUI                  |
-| Suivi StorPort                    |                            |                                    |                          |                      | OUI                  |
-| Suivi réseau                     |                            |                                    |                          | OUI                  | OUI                  |
-| Suivi d’évaluation Diskspd ***       |                            | OUI                                |                          |                      |                      |
+| Informations tirées des journaux d’événements       | Oui                        | Oui                                | Oui                      | Oui                  | Oui                  |
+| Informations système                | Oui                        | Oui                                | Oui                      | Oui                  | Oui                  |
+| Mappage de volume                        | Oui                        | Oui                                | Oui                      | Oui                  | Oui                  |
+| Mappage de disque                          | Oui                        | Oui                                | Oui                      | Oui                  | Oui                  |
+| Tâches en cours d’exécution                     | Oui                        | Oui                                | Oui                      | Oui                  | Oui                  |
+| Compteurs de fiabilité de stockage      | Oui                        | Oui                                | Oui                      | Oui                  | Oui                  |
+| Informations sur le stockage               | Oui                        | Oui                                | Oui                      | Oui                  | Oui                  |
+| Sortie Fsutil                     | Oui                        | Oui                                | Oui                      | Oui                  | Oui                  |
+| Informations du pilote de filtre                | Oui                        | Oui                                | Oui                      | Oui                  | Oui                  |
+| Sortie Netstat                    | Oui                        | Oui                                | Oui                      | Oui                  | Oui                  |
+| Configuration réseau             | Oui                        | Oui                                | Oui                      | Oui                  | Oui                  |
+| Configuration du pare-feu            | Oui                        | Oui                                | Oui                      | Oui                  | Oui                  |
+| Configuration de SQL Server          | Oui                        | Oui                                | Oui                      | Oui                  | Oui                  |
+| Suivis des diagnostics de performances *  | Oui                        | Oui                                | Oui                      | Oui                  | Oui                  |
+| Suivi du compteur de performances **      |                            |                                    | Oui                      |                      | Oui                  |
+| Suivi du compteur SMB **              |                            |                                    |                          | Oui                  |                      |
+| Suivi du compteur SQL Server **       |                            |                                    | Oui                      |                      | Oui                  |
+| Suivi XPerf                       |                            |                                    |                          |                      | Oui                  |
+| Suivi StorPort                    |                            |                                    |                          |                      | Oui                  |
+| Suivi réseau                     |                            |                                    |                          | Oui                  | Oui                  |
+| Suivi d’évaluation Diskspd ***       |                            | Oui                                |                          |                      |                      |
 |       |                            |                         |                                                   |                      |                      |
 
 ### <a name="performance-diagnostics-trace-"></a>Suivi des diagnostics de performances (*)

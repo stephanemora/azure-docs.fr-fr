@@ -1,6 +1,6 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: virtual-machines-windows, virtual-machines-linux
 author: cynthn
 ms.service: multiple
@@ -9,19 +9,19 @@ ms.date: 10/09/2018
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 98d765e2f6909f00f8dfe76d06aef017aad67adf
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "71174949"
 ---
 ## <a name="terminology"></a>Terminologie
 
 Une image de Place de Marché dans Azure a les attributs suivants :
 
-* **Éditeur** : L’organisation qui a créé l’image. Exemples : Canonical, MicrosoftWindowsServer
-* **Offre** : Nom du groupe d’images associées, créé par un éditeur. Exemples : UbuntuServer, WindowsServer
-* **SKU** : L’instance d’une offre, par exemple une version majeure d’un logiciel. Exemples : 18.04-LTS, 2019-Datacenter
+* **Éditeur** : L’organisation qui a créé l’image. Exemples : Canonical, MicrosoftWindowsServer
+* **Offre** : Nom du groupe d’images associées, créé par un éditeur. Exemples : UbuntuServer, WindowsServer
+* **SKU** : L’instance d’une offre, par exemple une version majeure d’un logiciel. Exemples : 18.04-LTS, 2019-Datacenter
 * **Version** : Numéro de version d’une référence SKU d’image. 
 
 Pour identifier une image de Place de Marché lorsque vous déployez une machine virtuelle par programmation, indiquez ces valeurs individuellement en tant que paramètres. Certains outils acceptent l’*URN* de l’image, qui combine ces valeurs en les séparant par un deux-points (:) : *Éditeur*:*Offre*:*Référence SKU*:*Version*. Dans l’URN, vous pouvez remplacer le numéro de version par la valeur « latest », qui permet de sélectionner la dernière version de l’image. 

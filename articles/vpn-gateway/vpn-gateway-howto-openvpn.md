@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: cherylmc
 ms.openlocfilehash: 7505420cc31fe751ecc0c114a89fea0734cbc6cf
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77162405"
 ---
 # <a name="configure-openvpn-for-azure-point-to-site-vpn-gateway"></a>Configurer OpenVPN pour la passerelle VPN Azure de point à site
@@ -20,14 +20,14 @@ Cet article vous aide à configurer le **protocole OpenVPN®** sur la passerelle
 
 
 
-## <a name="vnet"></a>1. Créer un réseau VPN de point à site
+## <a name="1-create-a-point-to-site-vpn"></a><a name="vnet"></a>1. Créer un réseau VPN de point à site
 
 Si vous ne disposez pas d’un environnement de point à site opérationnel, suivez les instructions de création. Consultez l’article [Créer un VPN de point à site](vpn-gateway-howto-point-to-site-resource-manager-portal.md) pour créer et configurer une passerelle VPN de point à site avec l’authentification par certificat native Azure. 
 
 > [!IMPORTANT]
 > La référence De base n’est pas prise en charge pour OpenVPN.
 
-## <a name="enable"></a>2. Activer OpenVPN sur la passerelle
+## <a name="2-enable-openvpn-on-the-gateway"></a><a name="enable"></a>2. Activer OpenVPN sur la passerelle
 
 Activez OpenVPN sur votre passerelle. Assurez-vous que la passerelle est configurée de point à site (IKEv2 ou SSTP) avant d’exécuter les commandes suivantes :
 

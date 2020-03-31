@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: cherylmc
 ms.openlocfilehash: 7848dda09b39f446dd218b7ce1eb2a07664bcaa6
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77190411"
 ---
 # <a name="automation-guidelines-for-virtual-wan-partners"></a>Conseils d’automatisation pour les partenaires Virtual WAN
@@ -20,7 +20,7 @@ Cet article vous aide à comprendre comment configurer l’environnement d’aut
 
 Un appareil de branche (un périphérique VPN client local ou SDWAN CPE) utilise généralement un tableau de bord contrôleur/appareil pour le provisionnement. Les administrateurs de solutions SD-WAN peuvent souvent utiliser une console de gestion pour préprovisionner un appareil avant de le brancher au réseau. Ce périphérique compatible VPN obtient sa logique de plan de contrôle à partir d’un contrôleur. Le contrôleur du périphérique VPN ou SD-WAN peut utiliser des API Azure pour automatiser la connectivité à Azure Virtual WAN. Ce type de connexion nécessite que le périphérique local dispose d’une adresse IP publique exposée en externe.
 
-## <a name ="before"></a>Avant de commencer l’automatisation
+## <a name="before-you-begin-automating"></a><a name ="before"></a>Avant de commencer l’automatisation
 
 * Vérifiez que votre appareil prend en charge IPsec IKEv1/IKEv2. Voir [Stratégies par défaut](#default).
 * Consultez les [API REST](#additional) à utiliser pour automatiser la connectivité à Azure Virtual WAN.
@@ -31,14 +31,14 @@ Un appareil de branche (un périphérique VPN client local ou SDWAN CPE) utilise
   * Chargement des informations sur l’appareil de branche dans Azure Virtual WAN
   * Téléchargement de la configuration Azure et configuration de la connectivité à partir de l’appareil de branche dans Azure Virtual WAN
 
-### <a name ="additional"></a>Informations supplémentaires
+### <a name="additional-information"></a><a name ="additional"></a>Informations supplémentaires
 
 * [API REST](https://docs.microsoft.com/rest/api/virtualwan/virtualhubs) pour automatiser la création d’un hub virtuel
 * [API REST](https://docs.microsoft.com/rest/api/virtualwan/vpngateways) pour automatiser la passerelle VPN Azure pour Virtual WAN
 * [API REST](https://docs.microsoft.com/rest/api/virtualwan/vpnconnections) pour connecter un VPNSite à un hub VPN Azure
 * [Stratégies IPsec par défaut](#default)
 
-## <a name ="ae"></a>Expérience client
+## <a name="customer-experience"></a><a name ="ae"></a>Expérience client
 
 Réfléchissez à l’expérience que votre client attend concernant Azure Virtual WAN.
 
@@ -50,9 +50,9 @@ Réfléchissez à l’expérience que votre client attend concernant Azure Virtu
   6. À la fin de cette étape dans votre solution, l’utilisateur profitera d’une connexion de site à site transparente entre l’appareil de branche et le hub virtuel. Vous pouvez également configurer des connexions supplémentaires entre d’autres hubs. Chaque connexion est un tunnel actif/actif. Votre client peut choisir d’utiliser un fournisseur d’accès différent pour chacun des liens du tunnel.
   7. Envisagez de fournir des fonctionnalités de dépannage et de supervision dans l’interface de gestion CPE. Les scénarios classiques sont par exemple « le client ne peut pas accéder aux ressources Azure en raison d’un problème de CPE », « afficher les paramètres IPsec côté CPE », etc.
 
-## <a name ="understand"></a>Détails de l’automatisation
+## <a name="automation-details"></a><a name ="understand"></a>Détails de l’automatisation
 
-###  <a name="access"></a>Contrôle d’accès
+###  <a name="access-control"></a><a name="access"></a>Contrôle d’accès
 
 Les clients doivent pouvoir configurer un contrôle d'accès approprié pour le réseau WAN virtuel dans l’interface utilisateur de l’appareil. L’utilisation d’un principal de service Azure est recommandée. Un accès basé sur le principal de service fournit au contrôleur de l’appareil une authentification adéquate pour charger des informations de branche. Pour plus d’informations, consultez la page [Créer un principal de service](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Bien que cette fonctionnalité ne fasse pas partie de l’offre Azure Virtual WAN, nous répertorions ci-dessous les étapes classiques à suivre pour configurer l’accès dans Azure. Suite à cela, les détails pertinents sont saisis dans le tableau de bord de gestion de périphérique.
 
@@ -61,11 +61,11 @@ Les clients doivent pouvoir configurer un contrôle d'accès approprié pour le 
 * Obtenir l’ID de locataire
 * Affecter l’application au rôle « Contributeur »
 
-###  <a name="branch"></a>Charger les informations d’appareil de branche
+###  <a name="upload-branch-device-information"></a><a name="branch"></a>Charger les informations d’appareil de branche
 
 Il est recommandé de concevoir l’expérience utilisateur pour charger les informations de branche (site local) dans Azure. Vous pouvez utiliser les [API REST](https://docs.microsoft.com/rest/api/virtualwan/vpnsites) pour VPNSite afin de créer les informations de site dans Virtual WAN. Vous pouvez fournir tous les appareils VPN/SDWAN de branche, ou sélectionner les personnalisations d’appareil adéquates.
 
-### <a name="device"></a>Téléchargement de la configuration de l’appareil et connectivité
+### <a name="device-configuration-download-and-connectivity"></a><a name="device"></a>Téléchargement de la configuration de l’appareil et connectivité
 
 Cette étape inclut le téléchargement de la configuration Azure et la configuration de la connectivité à partir de l’appareil de branche dans Azure Virtual WAN. Dans cette étape, un client qui n’utilise pas un fournisseur doit télécharger manuellement la configuration Azure et l’appliquer à son appareil VPN/SDWAN local. En tant que fournisseur, vous devez automatiser cette étape. Pour plus d’informations, consultez la page sur les [API REST](https://docs.microsoft.com/rest/api/virtualwan/vpnsitesconfiguration/download) de téléchargement. Le contrôleur d’appareil peut appeler l’API REST « GetVpnConfiguration » pour télécharger la configuration Azure.
 
@@ -74,7 +74,7 @@ Cette étape inclut le téléchargement de la configuration Azure et la configur
   * Si les réseaux virtuels Azure sont attachés au hub virtuel, ils apparaîtront en tant que ConnectedSubnets (sous-réseaux connectés).
   * La connectivité VPN utilise une configuration basée sur des routes et prend en charge les protocoles IKEv1 et IKEv2.
 
-## <a name="devicefile"></a>Fichier de configuration d’appareil
+## <a name="device-configuration-file"></a><a name="devicefile"></a>Fichier de configuration d’appareil
 
 Le fichier de configuration de périphérique contient les paramètres à utiliser lors de la configuration de votre périphérique VPN sur site. Lorsque vous affichez ce fichier, notez les informations suivantes :
 
@@ -204,7 +204,7 @@ Le fichier de configuration de périphérique contient les paramètres à utilis
    }
   ```
 
-## <a name="default"></a>Détails sur la connectivité
+## <a name="connectivity-details"></a><a name="default"></a>Détails sur la connectivité
 
 La configuration de votre périphérique VPN/SDWAN local ou SD-WAN doit correspondre aux algorithmes et paramètres suivants spécifiés dans la stratégie IPsec/IKE Azure, ou les contenir.
 
@@ -215,11 +215,11 @@ La configuration de votre périphérique VPN/SDWAN local ou SD-WAN doit correspo
 * Algorithme d’intégrité IPsec
 * Groupe PFS
 
-### <a name="default"></a>Stratégies par défaut pour la connectivité IPsec
+### <a name="default-policies-for-ipsec-connectivity"></a><a name="default"></a>Stratégies par défaut pour la connectivité IPsec
 
 [!INCLUDE [IPsec Default](../../includes/virtual-wan-ipsec-include.md)]
 
-### <a name="custom"></a>Stratégies personnalisées pour la connectivité IPsec
+### <a name="custom-policies-for-ipsec-connectivity"></a><a name="custom"></a>Stratégies personnalisées pour la connectivité IPsec
 
 [!INCLUDE [IPsec Custom](../../includes/virtual-wan-ipsec-custom-include.md)]
 

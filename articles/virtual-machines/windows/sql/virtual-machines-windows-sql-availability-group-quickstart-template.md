@@ -16,10 +16,10 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: edf810dfc975eebaf261eac7b89106c9e29c759c
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74022377"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-an-availability-group-for-sql-server-on-an-azure-vm"></a>Utiliser des modèles de démarrage rapide Azure afin de configurer un groupe de disponibilité pour SQL Server sur une machine virtuelle Azure
@@ -48,7 +48,7 @@ Les autorisations suivantes sont nécessaires pour configurer le groupe de dispo
 - Le compte d’utilisateur du domaine qui contrôle le service SQL Server. 
 
 
-## <a name="step-1-create-the-failover-cluster-and-join-sql-server-vms-to-the-cluster-by-using-a-quickstart-template"></a>Étape 1 : Créer le cluster de basculement et joindre des machines virtuelles SQL Server au cluster à l’aide du modèle de démarrage rapide 
+## <a name="step-1-create-the-failover-cluster-and-join-sql-server-vms-to-the-cluster-by-using-a-quickstart-template"></a>Étape 1 : Créer le cluster de basculement et joindre des machines virtuelles SQL Server au cluster à l’aide du modèle de démarrage rapide 
 Une fois que vos machines virtuelles SQL Server ont été inscrites auprès du fournisseur de ressources de machine virtuelle SQL, vous pouvez joindre vos machines virtuelles SQL Server à *SqlVirtualMachineGroups*. Cette ressource définit les métadonnées du cluster de basculement Windows. Les métadonnées englobent la version, l’édition, le nom de domaine complet, les comptes Active Directory nécessaires à la gestion du cluster et du service SQL Server ainsi que le compte de stockage en tant que témoin cloud. 
 
 L’ajout de machines virtuelles SQL Server au groupe de ressources *SqlVirtualMachineGroup* amorce le service de cluster de basculement Windows pour créer le cluster et joint ces machines virtuelles SQL Server à ce cluster. Cette étape est automatisée avec le modèle de démarrage rapide **101-sql-vm-ag-setup**. Vous pouvez l’implémenter en effectuant les étapes suivantes :
@@ -82,7 +82,7 @@ L’ajout de machines virtuelles SQL Server au groupe de ressources *SqlVirtualM
 > Les informations d’identification fournies durant le déploiement du modèle sont stockées uniquement pour la durée du déploiement. À l’issue du déploiement, ces mots de passe sont supprimés. Vous serez invité à les fournir à nouveau si vous ajoutez d’autres machines virtuelles SQL Server au cluster. 
 
 
-## <a name="step-2-manually-create-the-availability-group"></a>Étape 2 : Créer manuellement le groupe de disponibilité 
+## <a name="step-2-manually-create-the-availability-group"></a>Étape 2 : Créer manuellement le groupe de disponibilité 
 Créez manuellement le groupe de disponibilité comme vous le feriez normalement, en utilisant [SQL Server Management Studio](/sql/database-engine/availability-groups/windows/use-the-availability-group-wizard-sql-server-management-studio), [PowerShell](/sql/database-engine/availability-groups/windows/create-an-availability-group-sql-server-powershell) ou [Transact-SQL](/sql/database-engine/availability-groups/windows/create-an-availability-group-transact-sql). 
 
 >[!IMPORTANT]
@@ -146,7 +146,7 @@ Pour configurer l’équilibreur de charge interne et créer l’écouteur de gr
    |**Nom du cluster de basculement existant** | Nom du cluster auquel vos machines virtuelles SQL Server sont jointes. |
    | **Groupe de disponibilité SQL existant**| Nom du groupe de disponibilité duquel vos machines virtuelles SQL Server font partie. |
    | **Liste des machines virtuelles existantes** | Noms des machines virtuelles SQL Server qui font partie du groupe de disponibilité précédemment mentionné. Séparez les noms d’une virgule et d’un espace (par exemple : *SQLVM1, SQLVM2*). |
-   | **Écouteur** | Nom DNS que vous voulez attribuer à l’écouteur. Par défaut, ce modèle spécifie le nom « aglistener », mais vous pouvez le modifier. Le nom ne doit pas dépasser 15 caractères. |
+   | **Port d'écoute** | Nom DNS que vous voulez attribuer à l’écouteur. Par défaut, ce modèle spécifie le nom « aglistener », mais vous pouvez le modifier. Le nom ne doit pas dépasser 15 caractères. |
    | **Port de l’écouteur** | Port que vous voulez que l’écouteur utilise. En règle générale, il doit s’agir du port par défaut, à savoir, 1433. C’est le numéro de port indiqué par le modèle. Mais si votre port par défaut a été modifié, le port de l’écouteur doit plutôt utiliser cette valeur modifiée. | 
    | **Adresse IP de l’écouteur** | Adresse IP que vous voulez que l’écouteur utilise. Cette adresse IP étant créée pendant le déploiement du modèle, indiquez-en une qui n’est pas déjà utilisée.  |
    | **Sous-réseau existant** | Nom du sous-réseau interne de vos machines virtuelles SQL Server (par exemple : *default*). Vous pouvez déterminer cette valeur en accédant à **Groupe de ressources**, en sélectionnant votre réseau virtuel, en choisissant **Sous-réseaux** dans le volet **Paramètres**, puis en copiant la valeur figurant sous **Nom**. |

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/06/2020
 ms.author: cherylmc
 ms.openlocfilehash: 8aa4fe143c78d2053ce8c48e4866a5522057aa0c
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77062959"
 ---
 # <a name="migrate-to-azure-virtual-wan"></a>Migration vers Azure Virtual WAN
@@ -57,7 +57,7 @@ L’équipe qui s’occupe du réseau a été chargée de mettre en œuvre un mo
   - **Réseau virtuel vers hub à hub vers réseau virtuel** : Les réseaux virtuels de type spoke de régions différentes doivent être en mesure de communiquer entre eux.
 - Offrir aux utilisateurs itinérants de Contoso (ordinateur portable et téléphone) la possibilité d’accéder aux ressources de l’entreprise, même sans connexion au réseau de l’entreprise.
 
-## <a name="architecture"></a>Architecture d’Azure Virtual WAN
+## <a name="azure-virtual-wan-architecture"></a><a name="architecture"></a>Architecture d’Azure Virtual WAN
 
 La figure suivante illustre une vue d’ensemble de la topologie cible mise à jour à l’aide d’Azure Virtual WAN pour répondre aux exigences décrites dans la section précédente.
 

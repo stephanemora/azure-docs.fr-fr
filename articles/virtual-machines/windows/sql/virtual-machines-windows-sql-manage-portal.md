@@ -14,11 +14,11 @@ ms.date: 05/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 244ad7d079fd7baf25f8079557576c42d25ca785
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102065"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79224617"
 ---
 # <a name="manage-sql-server-vms-in-azure-by-using-the-azure-portal"></a>Gérer des machines virtuelles SQL Server dans Azure à partir du portail Azure
 
@@ -27,7 +27,7 @@ Sur le [portail Azure](https://portal.azure.com), la ressource **Machines virtue
 ![Ressource Machines virtuelles SQL](media/virtual-machines-windows-sql-manage-portal/sql-vm-manage.png)
 
 
-## <a name="remarks"></a>Remarques
+## <a name="remarks"></a>Notes
 
 - Nous vous recommandons d’utiliser la ressource **Machines virtuelles SQL** pour voir et gérer vos machines virtuelles SQL Server dans Azure. Mais pour l’heure, la ressource **Machines virtuelles SQL** ne prend pas en charge la gestion des machines virtuelles SQL Server [en fin de support](virtual-machines-windows-sql-server-2008-eos-extend-support.md). Pour gérer les paramètres de vos machines virtuelles SQL Server en fin de support, utilisez plutôt l’[onglet Configuration de SQL Server](#access-the-sql-server-configuration-tab) déprécié. 
 - La ressource **Machines virtuelles SQL** est disponible uniquement pour les machines virtuelles SQL Server qui ont été [inscrites auprès du fournisseur de ressources de machine virtuelle SQL](virtual-machines-windows-sql-register-with-resource-provider.md). 
@@ -59,7 +59,7 @@ Pour accéder à la ressource **Machines virtuelles SQL**, procédez comme suit�
 ## <a name="access-the-sql-server-configuration-tab"></a>Accéder à l’onglet Configuration de SQL Server
 L’onglet **Configuration de SQL Server** est désormais déconseillé. Pour l’heure, il s’agit de la seule méthode permettant de gérer les machines virtuelles SQL Server [en fin de support](virtual-machines-windows-sql-server-2008-eos-extend-support.md) et celles qui n’ont pas été [inscrites auprès du fournisseur de ressources de machine virtuelle SQL](virtual-machines-windows-sql-register-with-resource-provider.md).
 
-Pour accéder à l’onglet déconseillé **Configuration de SQL Server**, accédez à la ressource **Machines virtuelles**. Procédez comme suit :
+Pour accéder à l’onglet déconseillé **Configuration de SQL Server**, accédez à la ressource **Machines virtuelles**. Utiliser les étapes suivantes :
 
 1. Ouvrez le [portail Azure](https://portal.azure.com). 
 1. Sélectionnez **Tous les services**. 

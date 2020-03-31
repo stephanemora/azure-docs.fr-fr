@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 02/03/2020
 ms.custom: seodec18
 ms.openlocfilehash: 8232fd4c2a1e17800c96854b4ba7298e57ed84b7
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76989890"
 ---
 # <a name="shape-json-to-maximize-query-performance"></a>Mise en forme de JSON afin d’optimiser les performances des requêtes 

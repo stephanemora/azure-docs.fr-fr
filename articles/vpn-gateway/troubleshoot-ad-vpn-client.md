@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: cherylmc
 ms.openlocfilehash: 8871e92f0911c4d3cbcc1772bef1daeb5c70b5d7
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74151975"
 ---
 # <a name="troubleshoot-an-azure-ad-authentication-vpn-client"></a>Résoudre les problèmes d’un client VPN avec l’authentification Azure AD
 
 Cet article vous aide à résoudre les problèmes rencontrés par un client VPN pour se connecter à un réseau virtuel à l’aide d’un VPN point à site et de l’authentification Azure Active Directory.
 
-## <a name="status"></a>Afficher le journal d’état
+## <a name="view-status-log"></a><a name="status"></a>Afficher le journal d’état
 
 Affichez le journal d’état pour examiner les messages d’erreur.
 
@@ -28,7 +28,7 @@ Affichez le journal d’état pour examiner les messages d’erreur.
 2. Recherchez dans les journaux des erreurs susceptibles d’indiquer le problème.
 3. Les messages d’erreur sont affichés en rouge.
 
-## <a name="clear"></a>Effacer les informations de connexion
+## <a name="clear-sign-in-information"></a><a name="clear"></a>Effacer les informations de connexion
 
 Effacez les informations de connexion.
 
@@ -39,7 +39,7 @@ Effacez les informations de connexion.
 3. Essayez de vous connecter.
 4. Si la connexion échoue encore, passez à la section suivante.
 
-## <a name="diagnostics"></a>Exécuter les diagnostics
+## <a name="run-diagnostics"></a><a name="diagnostics"></a>Exécuter les diagnostics
 
 Exécutez les diagnostics sur le client VPN.
 
@@ -55,7 +55,7 @@ Exécutez les diagnostics sur le client VPN.
 3. Si l’un de ces tests échoue, contactez votre administrateur réseau pour résoudre le problème.
 4. La section suivante vous montre comment collecter les journaux, si vous en avez besoin.
 
-## <a name="logfiles"></a>Collecter les fichiers journaux du client
+## <a name="collect-client-log-files"></a><a name="logfiles"></a>Collecter les fichiers journaux du client
 
 Collectez les fichiers journaux du client. Vous pouvez ensuite envoyer les fichiers journaux au support technique ou à votre administrateur par la méthode de votre choix (par exemple, par e-mail).
 

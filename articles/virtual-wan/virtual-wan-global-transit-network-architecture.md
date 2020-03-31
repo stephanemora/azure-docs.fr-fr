@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 02/06/2020
 ms.author: cherylmc
 ms.openlocfilehash: 17d0e678008c76da32f20562aa795e83e49c80e4
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77064969"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Architecture du réseau de transit global Virtual WAN
@@ -33,7 +33,7 @@ Dans ce modèle, un rayon peut être :
 
 La figure 1 montre la vue logique du réseau de transit global où les utilisateurs répartis géographiquement, les sites physiques et les réseaux virtuels sont interconnectés via un hub réseau hébergé dans le cloud. Cette architecture permet une connectivité de transit à un seul tronçon logique entre les points de terminaison du réseau.
 
-## <a name="globalnetworktransit"></a>Réseau de transit global avec Virtual WAN
+## <a name="global-transit-network-with-virtual-wan"></a><a name="globalnetworktransit"></a>Réseau de transit global avec Virtual WAN
 
 Azure Virtual WAN est un service réseau cloud managé par Microsoft. Tous les composants réseau qui composent ce service sont hébergés et managés par Microsoft. Pour plus d’informations sur Azure Virtual WAN, consultez [Vue d’ensemble d’Azure Virtual WAN](virtual-wan-about.md).
 
@@ -47,7 +47,7 @@ Dans l’architecture Azure Virtual WAN, les hubs WAN virtuels sont provisionné
 
 Vous pouvez établir un WAN virtuel en créant un seul hub WAN virtuel dans la région qui possède le plus grand nombre de rayons (branches, réseaux virtuels, utilisateurs), puis en connectant à ce hub les rayons qui se trouvent dans d’autres régions. Cette approche est conseillée quand l’empreinte informatique de l’entreprise se limite principalement à une région avec quelques rayons à distance.  
   
-## <a name="hubtohub"></a>Connectivité de hub à hub
+## <a name="hub-to-hub-connectivity"></a><a name="hubtohub"></a>Connectivité de hub à hub
 
 L’empreinte cloud d’une entreprise peut s’étendre sur plusieurs régions du cloud et, dans ce cas, il est primordial (du point de vue de la latence) d’accéder au cloud à partir d’une région la plus proche possible de son site physique et de ses utilisateurs. Un des principes clés de l’architecture du réseau de transit global consiste à permettre une connectivité inter-régions entre tous les points de terminaison des réseaux cloud et locaux. Cela signifie que le trafic à partir d’une branche connectée au cloud dans une région peut atteindre une autre branche ou un réseau virtuel dans une région différente grâce à la connectivité de hub à hub fournie par [Azure Global Network](https://azure.microsoft.com/global-infrastructure/global-network/).
 
@@ -59,7 +59,7 @@ Quand plusieurs hubs sont activés dans un seul WAN virtuel, les hubs sont autom
 
 De plus, tous les hubs qui font partie du même WAN virtuel peuvent être associés à des stratégies de sécurité et d’accès différentes selon les régions. Pour plus d’informations, consultez [Contrôle de la sécurité et de la stratégie](#security), plus loin dans cet article.
 
-## <a name="anytoany"></a>Connexion universelle
+## <a name="any-to-any-connectivity"></a><a name="anytoany"></a>Connexion universelle
 
 L’architecture du réseau de transit global permet une connectivité universelle via des hubs WAN virtuels. Cette architecture élimine ou réduit le besoin d’un maillage complet ou partiel de la connectivité entre les rayons, qui sont plus complexes à créer et gérer. En outre, comparativement aux réseaux maillés, le contrôle du routage dans le réseau en étoile est plus facile à configurer et gérer.
 
@@ -111,7 +111,7 @@ Le chemin d’accès utilisateur distant à branche permet aux utilisateurs dist
 
 Le transit de réseau virtuel à réseau virtuel permet de relier des réseaux virtuels entre eux afin d’interconnecter les applications multiniveau qui sont distribuées sur plusieurs réseaux virtuels. Vous pouvez également connecter des réseaux virtuels entre eux par le biais du peering de réseaux virtuels. Cette approche est plus adaptée dans certains scénarios où le transit via le hub VWAN n’est pas nécessaire.
 
-## <a name="security"></a>Contrôle de la sécurité et de la stratégie
+## <a name="security-and-policy-control"></a><a name="security"></a>Contrôle de la sécurité et de la stratégie
 
 Les hubs Azure Virtual WAN interconnectent tous les points de terminaison réseau sur le réseau hybride et peuvent potentiellement voir l’ensemble du trafic sur le réseau de transit. Il est possible de changer des hubs Virtual WAN en hubs virtuels sécurisés en déployant le Pare-feu Azure à l’intérieur des hubs VWAN pour contrôler la stratégie, l’accès et la sécurité dans le cloud. L’orchestration des Pare-feu Azure dans les hubs WAN virtuels peut être effectuée par Azure Firewall Manager.
 

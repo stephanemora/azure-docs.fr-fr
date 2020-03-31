@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.author: normesta
 ms.date: 01/22/2020
 ms.openlocfilehash: aaf61ccbb3577036c614aa6196d2af57124550fa
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76907460"
 ---
 # <a name="integrate-a-static-website-with-azure-cdn"></a>Intégrer un site web statique avec Azure CDN

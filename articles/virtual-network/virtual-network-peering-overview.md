@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2019
 ms.author: anavin
-ms.openlocfilehash: e47c7d7c4e982604814b227544a98bb301a20105
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 5fb54e812e72b9393ffdf632085d0f32ab8b1988
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980106"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79235797"
 ---
 # <a name="virtual-network-peering"></a>Peering de réseau virtuel
 
@@ -84,7 +84,7 @@ Vous pouvez aussi résoudre les problèmes de connectivité à la machine virtue
 
 Vous pouvez également essayer [Détecter un problème d’appairage de réseaux virtuels](virtual-network-troubleshoot-peering-issues.md).
 
-## Contraintes pour les réseaux virtuels appairés<a name="requirements-and-constraints"></a>
+## <a name="constraints-for-peered-virtual-networks"></a>Contraintes pour les réseaux virtuels appairés<a name="requirements-and-constraints"></a>
 
 Les contraintes ci-après s’appliquent uniquement quand des réseaux virtuels sont appairés à l’échelle mondiale :
 
@@ -101,16 +101,16 @@ Pour en savoir plus sur les autorisations requises pour créer un appairage de r
 
 Un coût nominal s’applique pour le trafic entrant et sortant qui utilise une connexion d’appairage de réseaux virtuels. Pour plus d’informations, consultez [Tarification de Réseau virtuel Microsoft Azure](https://azure.microsoft.com/pricing/details/virtual-network).
 
-Le transit par passerelle est une propriété de Peering qui permet à un réseau virtuel d’exploiter la passerelle VPN/ExpressRoute d’un réseau virtuel appairé. Le transit par passerelle fonctionne pour la connectivité intersite et de réseau à réseau. Le trafic vers la passerelle (entrant ou sortant) dans le réseau virtuel appairé entraîne des frais d’appairage de réseaux virtuels. Pour plus d’informations, consultez [Tarification de la passerelle VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/) pour connaître les frais de passerelle VPN et Tarification de la passerelle ExpressRoute pour ceux de la passerelle ExpressRoute.
+Le transit par passerelle est une propriété de Peering qui permet à un réseau virtuel d’exploiter la passerelle VPN/ExpressRoute d’un réseau virtuel appairé. Le transit par passerelle fonctionne pour la connectivité intersite et de réseau à réseau. Le trafic vers la passerelle (entrant ou sortant) dans le réseau virtuel appairé entraîne des frais d’appairage de réseaux virtuels sur le réseau virtuel spoke (ou réseau virtuel non-passerelle). Pour plus d’informations, consultez [Tarification de la passerelle VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/) pour connaître les frais de passerelle VPN et Tarification de la passerelle ExpressRoute pour ceux de la passerelle ExpressRoute.
 
 >[!NOTE]
-> Une version précédente de ce document indiquait que les frais d’appairage de réseaux virtuels ne s’appliquaient pas au transit par passerelle. Le document reflète désormais la tarification exacte, conformément à la page de tarification.
+> Une version précédente de ce document indiquait que les frais d’appairage de réseaux virtuels ne s’appliquaient pas au réseau virtuel spoke (ou réseau virtuel non-passerelle) avec un transit par passerelle. Le document reflète désormais la tarification exacte, conformément à la page de tarification.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Vous pouvez créer un Peering entre deux réseaux virtuels. Les réseaux peuvent appartenir au même abonnement, à des modèles de déploiement différents dans le même abonnement ou à des abonnements différents. Suivez un didacticiel pour l’un des scénarios suivants :
 
-    |Modèle de déploiement Azure             | Subscription  |
+    |Modèle de déploiement Azure             | Abonnement  |
     |---------                          |---------|
     |Les deux modèles Resource Manager              |[Identique](tutorial-connect-virtual-networks-portal.md)|
     |                                   |[Différent](create-peering-different-subscriptions.md)|

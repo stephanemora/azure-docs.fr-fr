@@ -9,17 +9,17 @@ ms.author: sachinp
 ms.reviewer: sstein
 ms.date: 02/04/2020
 ms.openlocfilehash: ff2be6972bb4e8af266d0aa8a56d1879bc1b8b78
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77586153"
 ---
 # <a name="request-quota-increases-for-azure-sql-database"></a>Demander des augmentations de quota pour Azure SQL Database
 
 Cet article explique comment demander une augmentation de quota pour les instances managées, serveurs et bases de données uniques Azure SQL Database. Il explique également comment activer l’accès d’un abonnement à une région.
 
-## <a id="newquota"></a> Créer une demande de support
+## <a name="create-a-new-support-request"></a><a id="newquota"></a> Créer une demande de support
 
 Suivez les étapes ci-après pour créer une demande de support à partir du portail Azure pour SQL Database.
 
@@ -54,7 +54,7 @@ Suivez les étapes ci-après pour créer une demande de support à partir du por
 
 Quand vous cliquez sur **Fournir des détails**, la fenêtre **Détails du quota** s’affiche. Elle vous permet d’ajouter des informations. Les sections suivantes décrivent les différentes options disponibles pour les types de quota **SQL Database** et **SQL Database Managed Instance**.
 
-## <a id="sqldbquota"></a> Types de quota SQL Database
+## <a name="sql-database-quota-types"></a><a id="sqldbquota"></a> Types de quota SQL Database
 
 Les sections suivantes décrivent trois options d’augmentation de quota pour les types de quota **SQL Database** :
 
@@ -90,7 +90,7 @@ Suivez les étapes ci-après pour demander une augmentation du nombre de serveur
 
 Pour en savoir plus, consultez [Limites de ressources SQL Database et gouvernance des ressources](sql-database-resource-limits-database-server.md).
 
-### <a id="other"></a>Activer l’accès d’un abonnement à une région
+### <a name="enable-subscription-access-to-a-region"></a><a id="other"></a>Activer l’accès d’un abonnement à une région
 
 Certains types d’offre ne sont pas disponibles dans toutes les régions. Vous pouvez rencontrer une erreur telle que la suivante :
 
@@ -100,7 +100,7 @@ Si votre abonnement a besoin d’un accès à une région particulière, utilise
 
 ![Autres détails de quota](./media/quota-increase-request/quota-details-whitelisting.png)
 
-## <a id="sqlmiquota"></a> Type de quota SQL Server Managed Instance
+## <a name="managed-instance-quota-type"></a><a id="sqlmiquota"></a> Type de quota SQL Server Managed Instance
 
 Pour le type de quota **SQL Server Managed Instance**, effectuez les étapes suivantes :
 

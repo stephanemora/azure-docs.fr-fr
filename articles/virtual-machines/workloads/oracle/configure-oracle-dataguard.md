@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 52723ca53b9156dd8e8183d92d8d4a350750c936
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 7a165935e2c232167a0752272d244ce98bf6aff2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100110"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79534403"
 ---
 # <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Implémenter Oracle Data Guard sur une machine virtuelle Azure Linux 
 
@@ -87,7 +87,7 @@ az vm create \
 
 Une fois la machine virtuelle créée, Azure CLI affiche des informations similaires à celles de l’exemple suivant. Notez la valeur de `publicIpAddress`. Vous utilisez cette adresse pour accéder à la machine virtuelle.
 
-```azurecli
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -101,6 +101,7 @@ Une fois la machine virtuelle créée, Azure CLI affiche des informations simila
 ```
 
 Créez myVM2 (machine virtuelle de secours) :
+
 ```azurecli
 az vm create \
      --resource-group myResourceGroup \
@@ -130,7 +131,7 @@ az network nsg rule create --resource-group myResourceGroup\
 
 Le résultat doit ressembler à la réponse suivante :
 
-```bash
+```output
 {
   "access": "Allow",
   "description": null,
@@ -198,9 +199,10 @@ $ dbca -silent \
    -storageType FS \
    -ignorePreReqs
 ```
+
 Les résultats doivent ressembler à la réponse suivante :
 
-```bash
+```output
 Copying database files
 1% complete
 2% complete
@@ -263,6 +265,7 @@ SQL> STARTUP MOUNT;
 SQL> ALTER DATABASE ARCHIVELOG;
 SQL> ALTER DATABASE OPEN;
 ```
+
 Activez la journalisation forcée et vérifiez qu’au moins un fichier journal est présent :
 
 ```bash
@@ -341,11 +344,13 @@ ADR_BASE_LISTENER = /u01/app/oracle
 ```
 
 Activez Data Guard Broker :
+
 ```bash
 $ sqlplus / as sysdba
 SQL> ALTER SYSTEM SET dg_broker_start=true;
 SQL> EXIT;
 ```
+
 Démarrez l’écouteur :
 
 ```bash
@@ -429,6 +434,7 @@ $ lsnrctl start
 ### <a name="restore-the-database-to-myvm2-standby"></a>Restaurer la base de données sur myVM2 (machine virtuelle de secours)
 
 Créez le fichier de paramètres « /tmp/initcdb1_stby.ora » dont le contenu est le suivant :
+
 ```bash
 *.db_name='cdb1'
 ```
@@ -447,6 +453,7 @@ Créez un fichier de mot de passe :
 ```bash
 $ orapwd file=/u01/app/oracle/product/12.1.0/dbhome_1/dbs/orapwcdb1 password=OraPasswd1 entries=10
 ```
+
 Lancez la base de données sur myVM2 :
 
 ```bash
@@ -464,6 +471,7 @@ $ rman TARGET sys/OraPasswd1@cdb1 AUXILIARY sys/OraPasswd1@cdb1_stby
 ```
 
 Exécutez les commandes suivantes dans RMAN :
+
 ```bash
 DUPLICATE TARGET DATABASE
   FOR STANDBY
@@ -475,11 +483,14 @@ DUPLICATE TARGET DATABASE
 ```
 
 Vous devez voir des messages similaires au suivant une fois l’exécution de la commande terminée. Quittez RMAN.
-```bash
+
+```output
 media recovery complete, elapsed time: 00:00:00
 Finished recover at 29-JUN-17
 Finished Duplicate Db at 29-JUN-17
+```
 
+```bash
 RMAN> EXIT;
 ```
 
@@ -520,6 +531,7 @@ Enabled.
 ```
 
 Examinez la configuration :
+
 ```bash
 DGMGRL> SHOW CONFIGURATION;
 
@@ -586,6 +598,7 @@ With the Partitioning, OLAP, Advanced Analytics and Real Application Testing opt
 
 SQL>
 ```
+
 ## <a name="test-the-data-guard-configuration"></a>Tester la configuration de Data Guard
 
 ### <a name="switch-over-the-database-on-myvm1-primary"></a>Commutez la base de données sur myVM1 (machine virtuelle principale)
@@ -635,6 +648,7 @@ SQL>
 ### <a name="switch-over-the-database-on-myvm2-standby"></a>Commuter la base de données vers myVM2 (machine virtuelle de secours)
 
 Pour commuter, exécutez la commande suivante sur myVM2 :
+
 ```bash
 $ dgmgrl sys/OraPasswd1@cdb1_stby
 DGMGRL for Linux: Version 12.1.0.2.0 - 64bit Production
@@ -687,6 +701,6 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Tutoriel : Créer des machines virtuelles hautement disponibles](../../linux/create-cli-complete.md)
+[Tutoriel : Créer des machines virtuelles hautement disponibles](../../linux/create-cli-complete.md)
 
 [Explorer des exemples Azure CLI de déploiement de machines virtuelles](../../linux/cli-samples.md)

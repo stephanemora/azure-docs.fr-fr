@@ -9,10 +9,10 @@ ms.date: 2/22/2020
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: ed6abbac7c5953eaec4fa4584248d0d98b49ba63
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77596884"
 ---
 # <a name="create-an-azure-file-share"></a>Crée un partage de fichiers Azure
@@ -80,7 +80,7 @@ La section des paramètres avancés contient plusieurs paramètres importants po
 
 Les autres paramètres disponibles sous l’onglet Avancé (suppression réversible d’objet blob, espace de noms hiérarchique pour Azure Data Lake Storage Gen 2 et NFSv3 pour le stockage Blob) ne s’appliquent pas à Azure Files.
 
-#### <a name="tags"></a>Étiquettes
+#### <a name="tags"></a>Balises
 Les étiquettes sont des paires nom/valeur qui vous permettent de catégoriser les ressources et d’afficher une facturation centralisée en appliquant la même étiquette à plusieurs ressources et groupes de ressources. Ces options sont facultatives et peuvent être appliquées après la création du compte de stockage.
 
 #### <a name="review--create"></a>Vérifier + créer

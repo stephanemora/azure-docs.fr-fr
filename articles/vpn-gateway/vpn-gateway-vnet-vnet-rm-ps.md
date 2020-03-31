@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: cherylmc
 ms.openlocfilehash: eebe66ca038b31f23ca864b107816b8cf761b29c
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75860518"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Configurer une connexion de passerelle VPN de réseau virtuel à réseau virtuel à l’aide de PowerShell
@@ -28,7 +28,7 @@ Les étapes mentionnées dans cet article s’appliquent au modèle de déploiem
 > * [Connexions entre différents modèles de déploiement - Portail Azure](vpn-gateway-connect-different-deployment-models-portal.md)
 > * [Connexions entre différents modèles de déploiement - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 
-## <a name="about"></a>À propos de la connexion de réseaux virtuels
+## <a name="about-connecting-vnets"></a><a name="about"></a>À propos de la connexion de réseaux virtuels
 
 Il existe plusieurs manières de se connecter à des réseaux virtuels. Les sections ci-dessous décrivent les différentes manières de se connecter à des réseaux virtuels.
 
@@ -44,7 +44,7 @@ Si vous travaillez avec une configuration réseau complexe, vous pouvez connecte
 
 Vous envisagerez probablement de connecter vos réseaux virtuels à l’aide de VNet Peering. VNet Peering n’utilise pas une passerelle VPN et possède d’autres contraintes. En outre, la [tarification de VNet Peering](https://azure.microsoft.com/pricing/details/virtual-network) est différente de la [tarification de la passerelle VPN de réseau virtuel à réseau virtuel](https://azure.microsoft.com/pricing/details/vpn-gateway). Pour plus d’informations, consultez l’article [Peering de réseaux virtuels](../virtual-network/virtual-network-peering-overview.md).
 
-## <a name="why"></a>Pourquoi créer une connexion de réseau virtuel à réseau virtuel ?
+## <a name="why-create-a-vnet-to-vnet-connection"></a><a name="why"></a>Pourquoi créer une connexion de réseau virtuel à réseau virtuel ?
 
 Vous pouvez décider de connecter des réseaux virtuels à l’aide d’une connexion de réseau virtuel à réseau virtuel pour les raisons suivantes :
 
@@ -58,7 +58,7 @@ Vous pouvez décider de connecter des réseaux virtuels à l’aide d’une conn
 
 Vous pouvez combiner une communication de réseau virtuel à réseau virtuel avec des configurations multisites. Vous établissez ainsi des topologies réseau qui combinent une connectivité entre différents locaux et une connectivité entre différents réseaux virtuels.
 
-## <a name="steps"></a>Quelles étapes de réseau virtuel à réseau virtuel dois-je utiliser ?
+## <a name="which-vnet-to-vnet-steps-should-i-use"></a><a name="steps"></a>Quelles étapes de réseau virtuel à réseau virtuel dois-je utiliser ?
 
 Cet article inclut deux ensembles d’étapes distincts. L’un des ensembles est destiné aux [réseaux virtuels qui se trouvent dans le même abonnement](#samesub), et l’autre aux [réseaux virtuels qui se trouvent dans des abonnements différents](#difsub).
 La différence essentielle entre ces deux ensembles est que vous devez utiliser des sessions PowerShell distinctes quand vous configurez les connexions pour des réseaux virtuels qui se trouvent dans des abonnements différents. 
@@ -73,7 +73,7 @@ Pour cet exercice, vous pouvez combiner des configurations ou choisir simplement
 
   ![Diagramme v2v](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
 
-## <a name="samesub"></a>Connexion de réseaux virtuels situés dans le même abonnement
+## <a name="how-to-connect-vnets-that-are-in-the-same-subscription"></a><a name="samesub"></a>Connexion de réseaux virtuels situés dans le même abonnement
 
 ### <a name="before-you-begin"></a>Avant de commencer
 
@@ -83,7 +83,7 @@ Pour cet exercice, vous pouvez combiner des configurations ou choisir simplement
 
 * Si vous préférez installer localement la dernière version du module Azure PowerShell, consultez [Guide pratique pour installer et configurer Azure PowerShell](/powershell/azure/overview).
 
-### <a name="Step1"></a>Étape 1 : planifier vos plages d’adresses IP
+### <a name="step-1---plan-your-ip-address-ranges"></a><a name="Step1"></a>Étape 1 : planifier vos plages d’adresses IP
 
 Dans les étapes suivantes, vous allez créer deux réseaux virtuels avec leurs sous-réseaux de passerelle respectifs et leur configuration. Vous allez ensuite créer une connexion VPN entre les deux réseaux virtuels. Il est important de planifier les plages d’adresses IP pour votre configuration réseau. N’oubliez pas que vous devez vous assurer qu’aucune plage de réseaux virtuels ou de réseaux locaux ne se chevauche. Dans ces exemples, nous n’incluons pas de serveur DNS. Si vous souhaitez une résolution de noms pour vos réseaux virtuels, consultez la page [Résolution de noms](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
@@ -121,7 +121,7 @@ Nous utilisons les valeurs suivantes dans les exemples :
 * ConnectionType : VNet2VNet
 
 
-### <a name="Step2"></a>Étape 2 : créez et configurez TestVNet1
+### <a name="step-2---create-and-configure-testvnet1"></a><a name="Step2"></a>Étape 2 : créez et configurez TestVNet1
 
 1. Vérifiez vos paramètres d’abonnement.
 
@@ -292,7 +292,7 @@ Attendez que les deux passerelles soient terminées. Redémarrez votre session A
    ```
 4. Vérifiez votre connexion. Consultez la section [Vérification de votre connexion](#verify).
 
-## <a name="difsub"></a>Connexion de réseaux virtuels situés dans différents abonnements
+## <a name="how-to-connect-vnets-that-are-in-different-subscriptions"></a><a name="difsub"></a>Connexion de réseaux virtuels situés dans différents abonnements
 
 Dans ce scénario, vous connectez TestVNet1 et TestVNet5. TestVNet1 et TestVNet5 se trouvent dans des abonnements différents. Les abonnements ne sont pas tenus d’être associés au même locataire Active Directory.
 
@@ -471,13 +471,13 @@ Dans cet exemple, étant donné que les passerelles se trouvent dans différents
    New-AzVirtualNetworkGatewayConnection -Name $Connection51 -ResourceGroupName $RG5 -VirtualNetworkGateway1 $vnet5gw -VirtualNetworkGateway2 $vnet1gw -Location $Location5 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
    ```
 
-## <a name="verify"></a>Vérification d’une connexion
+## <a name="how-to-verify-a-connection"></a><a name="verify"></a>Vérification d’une connexion
 
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
 [!INCLUDE [verify connections powershell](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 
-## <a name="faq"></a>Forum Aux Questions sur l’interconnexion de réseaux virtuels
+## <a name="vnet-to-vnet-faq"></a><a name="faq"></a>Forum Aux Questions sur l’interconnexion de réseaux virtuels
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 

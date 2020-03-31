@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: ace19f17f5d7a5e920808b76258459c0eba62890
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: a27d4c1712e9d65afcfc8792eac88be468829f6f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750532"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79536375"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Configurer Oracle ASM sur une machine virtuelle Linux Azure  
 
@@ -62,7 +62,7 @@ L’exemple suivant crée une machine virtuelle nommée myVM qui a une taille St
 
 Une fois que vous avez créé la machine virtuelle, Azure CLI affiche des informations similaires à l’exemple suivant. Notez la valeur pour `publicIpAddress`. Vous utilisez cette adresse pour accéder à la machine virtuelle.
 
-   ```azurecli
+   ```output
    {
      "fqdns": "",
      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -79,7 +79,7 @@ Une fois que vous avez créé la machine virtuelle, Azure CLI affiche des inform
 
 Pour créer une session SSH avec la machine virtuelle et configurer des paramètres supplémentaires, utilisez la commande suivante. Remplacez l’adresse IP par la valeur de `publicIpAddress` pour votre machine virtuelle.
 
-```bash 
+```bash
 ssh <publicIpAddress>
 ```
 
@@ -161,7 +161,7 @@ Pour ce didacticiel, l’utilisateur par défaut est *grid* et le groupe par dé
 
    Le résultat de cette commande doit ressembler à ce qui suit, jusqu’aux invites.
 
-    ```bash
+    ```output
    Configuring the Oracle ASM library driver.
 
    This will configure the on-boot properties of the Oracle ASM library
@@ -178,13 +178,14 @@ Pour ce didacticiel, l’utilisateur par défaut est *grid* et le groupe par dé
    ```
 
 2. Affichez la configuration du disque :
+
    ```bash
    cat /proc/partitions
    ```
 
    Le résultat de cette commande doit ressembler à la liste suivante de disques disponibles.
 
-   ```bash
+   ```output
    8       16   14680064 sdb
    8       17   14678976 sdb1
    8        0   52428800 sda
@@ -211,7 +212,7 @@ Pour ce didacticiel, l’utilisateur par défaut est *grid* et le groupe par dé
    
    Avec les réponses fournies ci-dessus, la sortie de la commande `fdisk` doit se présenter comme suit :
 
-   ```bash
+   ```output
    Device contains not a valid DOS partition table, or Sun, SGI or OSF disklabel
    Building a new DOS disklabel with disk identifier 0xf865c6ca.
    Changes will remain in memory only, until you decide to write them.
@@ -255,7 +256,7 @@ Pour ce didacticiel, l’utilisateur par défaut est *grid* et le groupe par dé
 
    La sortie de la commande doit se présenter comme suit :
 
-   ```bash
+   ```output
    major minor  #blocks  name
 
      8       16   14680064 sdb
@@ -282,8 +283,8 @@ Pour ce didacticiel, l’utilisateur par défaut est *grid* et le groupe par dé
    ```
 
    La sortie de la commande doit se présenter comme suit :
-   
-   ```bash
+
+   ```output
    Checking if ASM is loaded: no
    Checking if /dev/oracleasm is mounted: no
    Initializing the Oracle ASMLib driver:                     [  OK  ]
@@ -297,11 +298,11 @@ Pour ce didacticiel, l’utilisateur par défaut est *grid* et le groupe par dé
    service oracleasm createdisk DATA /dev/sdd1 
    service oracleasm createdisk DATA1 /dev/sde1 
    service oracleasm createdisk FRA /dev/sdf1
-   ```    
+   ```
 
    La sortie de la commande doit se présenter comme suit :
 
-   ```bash
+   ```output
    Marking disk "ASMSP" as an ASM disk:                       [  OK  ]
    Marking disk "DATA" as an ASM disk:                        [  OK  ]
    Marking disk "DATA1" as an ASM disk:                       [  OK  ]
@@ -312,11 +313,11 @@ Pour ce didacticiel, l’utilisateur par défaut est *grid* et le groupe par dé
 
    ```bash
    service oracleasm listdisks
-   ```   
+   ```
 
    Le résultat de la commande doit énumérer les disques Oracle ASM suivants :
 
-   ```bash
+   ```output
     ASMSP
     DATA
     DATA1
@@ -371,7 +372,7 @@ Pour télécharger et préparer Oracle Grid Infrastructure, procédez comme suit
    ```
 
 4. Décompressez les fichiers (installez l’outil de décompression Linux si ce n’est pas déjà fait).
-   
+
    ```bash
    sudo yum install unzip
    sudo unzip linuxamd64_12102_grid_1of2.zip
@@ -379,7 +380,7 @@ Pour télécharger et préparer Oracle Grid Infrastructure, procédez comme suit
    ```
 
 5. Changez l’autorisation :
-   
+
    ```bash
    sudo chown -R grid:oinstall /opt/grid
    ```
@@ -390,7 +391,7 @@ Pour télécharger et préparer Oracle Grid Infrastructure, procédez comme suit
    sudo chmod 777 /etc/waagent.conf  
    vi /etc/waagent.conf
    ```
-   
+
    Recherchez `ResourceDisk.SwapSizeMB` et remplacez la valeur par **8192**. Vous devez appuyer sur `insert` pour passer en mode d’insertion, saisir la valeur **8192**, puis appuyer sur `esc` pour revenir au mode de commande. Pour écrire les modifications et fermer le fichier, saisissez `:wq` et appuyez sur `enter`.
    
    > [!NOTE]
@@ -550,6 +551,7 @@ Le logiciel de base de données Oracle est déjà installé sur l’image de la 
    cd /u01/app/oracle/product/12.1.0/dbhome_1/bin
    ./dbca
    ```
+
    L’Assistant de configuration de base de données s’ouvre.
 
 2. Sur la page **Database Operation** (Opération de base de données), cliquez sur `Create Database`.

@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 03/27/2018
 ms.author: alzam
 ms.openlocfilehash: f88053c93884e10e46a0f7d70106bda67b057562
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77425717"
 ---
 # <a name="troubleshoot-point-to-site-vpn-connections-from-mac-os-x-vpn-clients"></a>Résoudre les problèmes de connexion VPN point à site à partir de clients Mac OS X
@@ -25,7 +25,7 @@ Cet article vous aidera à résoudre les problèmes de connectivité point à si
 * Version du système d’exploitation (10.11 ou ultérieure)
 
 
-## <a name="VPNClient"></a> Résoudre les problèmes d’authentification par certificat
+## <a name="troubleshoot-certificate-based-authentication"></a><a name="VPNClient"></a> Résoudre les problèmes d’authentification par certificat
 1. Vérifiez les paramètres du client VPN. Accédez à la fenêtre **Réseau** en appuyant sur Commande + Maj, puis tapez « VPN » pour vérifier les paramètres du client VPN. Dans la liste, cliquez sur l’entrée VPN à examiner.
 
    ![Authentification par certificat IKEv2](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2cert1.jpg)
@@ -38,7 +38,7 @@ Cet article vous aidera à résoudre les problèmes de connectivité point à si
 6. Vérifiez que **Certificat** est sélectionné dans la liste déroulante.
 7. Cliquez sur le bouton **Sélectionner** et vérifiez que le certificat approprié est sélectionné. Cliquez sur **OK** pour enregistrer les éventuelles modifications apportées.
 
-## <a name="ikev2"></a>Résoudre les problèmes d’authentification par nom d’utilisateur et mot de passe
+## <a name="troubleshoot-username-and-password-authentication"></a><a name="ikev2"></a>Résoudre les problèmes d’authentification par nom d’utilisateur et mot de passe
 
 1. Vérifiez les paramètres du client VPN. Accédez à la fenêtre **Réseau** en appuyant sur Commande + Maj, puis tapez « VPN » pour vérifier les paramètres du client VPN. Dans la liste, cliquez sur l’entrée VPN à examiner.
 
@@ -51,7 +51,7 @@ Cet article vous aidera à résoudre les problèmes de connectivité point à si
    ![Authentication settings](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth4.png)
 6. Vérifiez que les informations d’identification saisies sont correctes.
 
-## <a name="additional"></a>Étapes supplémentaires
+## <a name="additional-steps"></a><a name="additional"></a>Étapes supplémentaires
 
 Si vous avez suivi les étapes précédentes et que tout est correctement configuré, téléchargez [Wireshark](https://www.wireshark.org/#download) et effectuez une capture de paquets.
 

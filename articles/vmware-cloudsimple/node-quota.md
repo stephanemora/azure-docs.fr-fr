@@ -1,6 +1,6 @@
 ---
-title: Azure VMware Solutions (AVS) - Quota de nœuds AVS
-description: Décrit les limites de quota pour les nœuds AVS et comment demander une augmentation de quota
+title: Azure VMware Solution by CloudSimple - Quota de nœuds CloudSimple
+description: Décrit les limites de quota pour les nœuds de CloudSimple et comment demander une augmentation du quota
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/19/2019
@@ -8,24 +8,24 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: fa1b056c8c96fb09def63ca1cd696fc2da5e9bed
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 83dc9e26e03eb955d88340d1ed21084d4e685ed8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77019636"
 ---
-# <a name="avs-node-quota-limits"></a>Limites de quota pour les nœuds AVS
+# <a name="cloudsimple-node-quota-limits"></a>Limites de quota de nœuds CloudSimple
 
-Quatre nœuds constituent la quantité par défaut disponible à l’achat, lorsque votre abonnement est activé pour le service AVS. Vous pouvez acheter tout [type de nœud](cloudsimple-node.md) à partir du portail Azure. Un minimum de trois nœuds de la même référence SKU sont nécessaires pour créer un cloud privé AVS. Si vous avez acheté les nœuds, vous pourriez voir une erreur lorsque vous tentez d’acheter des nœuds supplémentaires.
+Quatre nœuds est la quantité par défaut disponible à l’achat, lorsque votre abonnement est activé pour le service CloudSimple.  Vous pouvez acheter tout [type de nœud](cloudsimple-node.md) à partir du portail Azure.  Un minimum de trois nœuds de la même référence SKU est requis pour créer un cloud privé.  Si vous avez acheté les nœuds, vous pourriez voir une erreur lorsque vous tentez d’acheter des nœuds supplémentaires.
 
 ## <a name="quota-increase"></a>Augmentation de quota
 
-Vous pouvez augmenter le quota de nœuds en envoyant une demande de prise en charge. L’équipe des opérations de service évaluera la requête et travaillera avec vous pour augmenter le quota de nœuds. Sélectionnez les options suivantes lorsque vous ouvrez un nouveau ticket :
+Vous pouvez augmenter le quota de nœuds en envoyant une demande de prise en charge. L’équipe des opérations de service évaluera la requête et travaillera avec vous pour augmenter le quota de nœuds.  Sélectionnez les options suivantes lorsque vous ouvrez un nouveau ticket :
 
 * Type de problème : **Technique**
 * Abonnement : **Votre ID d’abonnement**
-* Type de service : **VMware Solution by AVS**
+* Type de service : **VMware Solution by CloudSimple**
 * Type de problème : **Quota de nœuds dédiés**
 * Sous-type de problème : **Augmenter le quota de nœuds dédiés**
 * Objet : **Augmentation de quota**
@@ -38,4 +38,4 @@ Dans les détails du ticket de support, indiquez le nombre requis de nœuds et l
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Acheter des nœuds](create-nodes.md)
-* [Présentation des nœuds AVS](cloudsimple-node.md)
+* [Vue d’ensemble des nœuds CloudSimple](cloudsimple-node.md)

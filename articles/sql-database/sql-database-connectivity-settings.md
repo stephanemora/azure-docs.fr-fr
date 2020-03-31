@@ -10,11 +10,11 @@ ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 03/09/2020
 ms.openlocfilehash: d18fdee85bd0fbabe68fe9890c4a2dc74366041d
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79096681"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79366085"
 ---
 # <a name="azure-sql-connectivity-settings"></a>Paramètres de connectivité d’Azure SQL
 > [!NOTE]

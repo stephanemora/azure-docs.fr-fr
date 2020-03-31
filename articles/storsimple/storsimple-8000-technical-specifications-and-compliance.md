@@ -15,15 +15,15 @@ ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.openlocfilehash: 061194422a8c1bc449dbef0c4f04bb8e1db10dea
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68965291"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Caractéristiques techniques et conformité de l’appareil StorSimple
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
@@ -46,7 +46,7 @@ Le boîtier EBOD utilise un PCM de 580 W et le boîtier principal un PCM de 764
 | Output |Tension en mode veille 5 V \@ 2,0 A |Tension en mode veille 5 V \@ 2,7 A |
 | +5V \@ 42 A |+5V \@ 40 A | |
 | +12V \@ 38 A |+12V \@ 38 A | |
-| Enfichable à chaud |OUI |OUI |
+| Enfichable à chaud |Oui |Oui |
 | Commutateurs et voyants LED |Interrupteur marche/arrêt et quatre voyants LED d’état |Interrupteur marche/arrêt et six voyants LED d’état |
 | Refroidissement du boîtier |Ventilateurs axiaux avec vitesse variable réglable |Ventilateurs axiaux avec vitesse variable réglable |
 
@@ -74,7 +74,7 @@ Les appareils StorSimple disposent d’une combinaison de disques durs et de dis
 | Modèle d’appareil/capacité | 8100 | 8600 |
 | --- | --- | --- |
 | Nombre de disques durs |8 |19 |
-| Nombre de disques SSD |4 |5\. |
+| Nombre de disques SSD |4 |5 |
 | Capacité de disque dur unique |4 To |4 To |
 | Capacité de disque SSD unique |400 Go |800 Go |
 | Capacité de rechange |4 To |4 To |
@@ -95,7 +95,7 @@ Le tableau suivant répertorie les dimensions du boîtier en millimètres et en 
 
 | Boîtier | Millimètres | Pouces |
 | --- | --- | --- |
-| Hauteur |87,9 |3,46 |
+| Hauteur |87,9 |3.46 |
 | Largeur entre brides de montage |483 |19,02 |
 | Largeur du boîtier |443 |17,44 |
 | Profondeur de la bride de montage avant à l’extrémité du corps du boîtier |577 |22,72 |

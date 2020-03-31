@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 09/25/2018
 ms.author: yushwang
 ms.openlocfilehash: 42a07ac00fd8a26918164f6547bf57c2b021d14c
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75863612"
 ---
 # <a name="how-to-configure-bgp-on-an-azure-vpn-gateway-by-using-cli"></a>Configurer BGP sur une passerelle VPN Azure à l’aide de CLI
@@ -39,7 +39,7 @@ Chaque partie de ces trois parties constitue un bloc de base pour activer BGP da
 
 Vous pouvez les combiner pour créer un réseau de transit plus complexe, à plusieurs tronçons, qui répond à vos besoins.
 
-## <a name ="enablebgp"></a>Activer BGP pour la passerelle VPN
+## <a name="enable-bgp-for-your-vpn-gateway"></a><a name ="enablebgp"></a>Activer BGP pour la passerelle VPN
 
 Cette partie est obligatoire avant d’effectuer des étapes des autres sections de configuration. Les étapes suivantes configurent les paramètres BGP de la passerelle VPN Azure comme indiqué dans le diagramme ci-dessous :
 
@@ -51,7 +51,7 @@ Installez la dernière version des commandes CLI (version 2.0 ou ultérieure). 
 
 ### <a name="step-1-create-and-configure-testvnet1"></a>Étape 1 : Créer et configurer TestVNet1
 
-#### <a name="Login"></a>1. Connexion à votre abonnement
+#### <a name="1-connect-to-your-subscription"></a><a name="Login"></a>1. Connexion à votre abonnement
 
 [!INCLUDE [CLI login](../../includes/vpn-gateway-cli-login-include.md)]
 
@@ -118,7 +118,7 @@ az network vnet-gateway list -g TestBGPRG1 
 
 Une fois la passerelle créée, vous pouvez l’utiliser pour établir une connexion intersite ou de réseau virtuel à réseau virtuel avec BGP.
 
-## <a name ="crossprembgp"></a>Établir une connexion intersite avec BGP
+## <a name="establish-a-cross-premises-connection-with-bgp"></a><a name ="crossprembgp"></a>Établir une connexion intersite avec BGP
 
 Pour établir une connexion intersite, vous devez créer une passerelle de réseau local pour représenter votre périphérique VPN local. Ensuite, vous connectez la passerelle VPN Azure à la passerelle de réseau local. Alors que ces étapes sont semblables à la création d’autres connexions, ils incluent les propriétés supplémentaires nécessaires pour spécifier les paramètres de configuration BGP.
 
@@ -210,7 +210,7 @@ eBGP Multihop        : Ensure the "multihop" option for eBGP is enabled on your 
 
 Après quelques minutes, la connexion doit être établie. La session de peering BGP démarre une fois la connexion IPsec établie.
 
-## <a name ="v2vbgp"></a>Établir une connexion de réseau virtuel à réseau virtuel avec BGP
+## <a name="establish-a-vnet-to-vnet-connection-with-bgp"></a><a name ="v2vbgp"></a>Établir une connexion de réseau virtuel à réseau virtuel avec BGP
 
 Cette section ajoute une connexion de réseau virtuel à réseau virtuel avec le protocole BGP, comme illustré dans le diagramme ci-dessous : 
 

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/12/2017
 ms.author: yushwang
 ms.openlocfilehash: 78147a96d6d9e92c2602b6a83cbed743cf2abf37
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77152038"
 ---
 # <a name="how-to-configure-bgp-on-azure-vpn-gateways-using-powershell"></a>Configurer BGP sur des passerelles VPN Azure à l’aide de PowerShell
@@ -38,7 +38,7 @@ Chaque partie des instructions constitue un bloc de base pour activer BGP dans v
 
 Vous pouvez les combiner pour créer un réseau de transit plus complexe, à plusieurs tronçons, qui répond à vos besoins.
 
-## <a name ="enablebgp"></a>Partie 1 – Configurer BGP sur la passerelle VPN Azure
+## <a name="part-1---configure-bgp-on-the-azure-vpn-gateway"></a><a name ="enablebgp"></a>Partie 1 – Configurer BGP sur la passerelle VPN Azure
 Les étapes suivantes configurent les paramètres BGP de la passerelle VPN Azure comme indiqué dans le diagramme ci-dessous :
 
 ![Passerelle BGP](./media/vpn-gateway-bgp-resource-manager-ps/bgp-gateway.png)
@@ -135,7 +135,7 @@ $vnet1gw.BgpSettingsText
 
 Une fois la passerelle créée, vous pouvez l’utiliser pour établir une connexion intersite ou de réseau virtuel à réseau virtuel avec BGP. Les sections suivantes détaillent les étapes à effectuer pour terminer l’exercice.
 
-## <a name ="crossprembbgp"></a>Partie 2 - Établir une connexion intersite avec BGP
+## <a name="part-2---establish-a-cross-premises-connection-with-bgp"></a><a name ="crossprembbgp"></a>Partie 2 - Établir une connexion intersite avec BGP
 
 Pour établir une connexion intersite, vous devez créer une passerelle de réseau local pour représenter votre périphérique VPN local, et une connexion entre la passerelle VPN et la passerelle du réseau local. Bien qu’il existe des articles qui vous guident tout au long de ces étapes, cet article contient les propriétés supplémentaires nécessaires pour spécifier les paramètres de configuration BGP.
 
@@ -209,7 +209,7 @@ L’exemple ci-dessous répertorie les paramètres que vous devez saisir dans la
 
 La connexion est établie après quelques minutes, et la session de peering BGP débute une fois la connexion IPsec établie.
 
-## <a name ="v2vbgp"></a>Partie 3 - Établir une connexion de réseau virtuel à réseau virtuel avec BGP
+## <a name="part-3---establish-a-vnet-to-vnet-connection-with-bgp"></a><a name ="v2vbgp"></a>Partie 3 - Établir une connexion de réseau virtuel à réseau virtuel avec BGP
 
 Cette section ajoute une connexion de réseau virtuel à réseau virtuel avec le protocole BGP, comme illustré dans le diagramme ci-dessous :
 

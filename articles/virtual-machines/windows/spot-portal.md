@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 02/11/2020
 ms.author: cynthn
 ms.openlocfilehash: 8845d0f9277384c1cc32b31b5ea5151cd0668c79
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77158976"
 ---
 # <a name="preview-deploy-spot-vms-using-the-azure-portal"></a>Aperçu : Déployer des machines virtuelles Spot à l’aide du portail Azure

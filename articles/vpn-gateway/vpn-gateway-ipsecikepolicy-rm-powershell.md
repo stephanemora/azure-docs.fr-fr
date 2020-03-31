@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 02/14/2018
 ms.author: yushwang
 ms.openlocfilehash: eaca48fc354f1cf37635e9729b04eaaaa882ba1c
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77161900"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Configurer la stratégie IPsec/IKE pour des connexions VPN S2S ou de réseau virtuel à réseau virtuel
@@ -21,7 +21,7 @@ Cet article vous guide dans les étapes de configuration de la stratégie IPsec/
 
 
 
-## <a name="about"></a>À propos des paramètres de stratégie IPsec et IKE pour les passerelles VPN Azure
+## <a name="about-ipsec-and-ike-policy-parameters-for-azure-vpn-gateways"></a><a name="about"></a>À propos des paramètres de stratégie IPsec et IKE pour les passerelles VPN Azure
 La norme de protocole IPsec et IKE standard prend en charge un vaste éventail d’algorithmes de chiffrement dans différentes combinaisons. Pour découvrir comment cela peut vous aider à vous assurer que la connectivité entre sites locaux et de réseau virtuel à réseau virtuel répond à vos besoins de conformité ou de sécurité, voir [À propos des exigences de chiffrement et des passerelles VPN Azure](vpn-gateway-about-compliance-crypto.md).
 
 Cet article fournit des instructions pour créer et configurer une stratégie IPsec/IKE et appliquer celle-ci à une connexion nouvelle ou existante :
@@ -40,7 +40,7 @@ Cet article fournit des instructions pour créer et configurer une stratégie IP
 > 3. Vous devez spécifier tous les algorithmes et paramètres pour IKE (mode principal) et IPsec (mode rapide). Vous n’êtes pas en droit de spécifier de stratégie partielle.
 > 4. Consulter les spécifications de votre fournisseur de périphérique VPN pour vous assurer que la stratégie est prise en charge sur vos périphériques VPN locaux. Des connexions S2S ou de réseau virtuel à réseau virtuel ne peuvent pas être établies si les stratégies ne sont pas compatibles.
 
-## <a name ="workflow"></a>Partie 1 : flux de travail de la création et de la définition d’une stratégie IPsec/IKE
+## <a name="part-1---workflow-to-create-and-set-ipsecike-policy"></a><a name ="workflow"></a>Partie 1 : flux de travail de la création et de la définition d’une stratégie IPsec/IKE
 Cette section décrit le flux de travail de la création et de la mise à jour d’une stratégie IPsec/IKE sur une connexion VPN S2S ou de réseau virtuel à réseau virtuel :
 1. créer un réseau virtuel et une passerelle VPN ;
 2. créer une passerelle de réseau local pour une connexion entre sites locaux, ou un autre réseau virtuel et une passerelle pour une connexion de réseau virtuel à réseau virtuel ;
@@ -52,7 +52,7 @@ Les instructions fournies dans cet article expliquent comment établir et config
 
 ![stratégie IPSec/IKE](./media/vpn-gateway-ipsecikepolicy-rm-powershell/ipsecikepolicy.png)
 
-## <a name ="params"></a>Partie 2 : algorithmes de chiffrement pris en charge et avantages clés
+## <a name="part-2---supported-cryptographic-algorithms--key-strengths"></a><a name ="params"></a>Partie 2 : algorithmes de chiffrement pris en charge et avantages clés
 
 Le tableau suivant répertorie les algorithmes de chiffrement et les forces de clé pris en charge et configurables par les clients :
 
@@ -107,7 +107,7 @@ Le tableau suivant répertorie les groupes Diffie-Hellman correspondants pris en
 
 Reportez-vous à [RFC3526](https://tools.ietf.org/html/rfc3526) et [RFC5114](https://tools.ietf.org/html/rfc5114) pour plus d’informations.
 
-## <a name ="crossprem"></a>Partie 3 : création d’une connexion VPN S2S avec une stratégie IPsec/IKE
+## <a name="part-3---create-a-new-s2s-vpn-connection-with-ipsecike-policy"></a><a name ="crossprem"></a>Partie 3 : création d’une connexion VPN S2S avec une stratégie IPsec/IKE
 
 Cette section vous guide tout au long des étapes de création d’une connexion VPN S2S avec une stratégie IPsec/IKE. Les étapes suivantes créent la connexion comme indiqué dans le diagramme :
 
@@ -115,12 +115,12 @@ Cette section vous guide tout au long des étapes de création d’une connexion
 
 Pour des instructions détaillées concernant la création d’une connexion VPN S2S, voir [Créer une connexion VPN S2S](vpn-gateway-create-site-to-site-rm-powershell.md).
 
-### <a name="before"></a>Avant de commencer
+### <a name="before-you-begin"></a><a name="before"></a>Avant de commencer
 
 * Assurez-vous de disposer d’un abonnement Azure. Si vous ne disposez pas déjà d’un abonnement Azure, vous pouvez activer vos [avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).
 * Installez les applets de commande PowerShell Azure Resource Manager. Consultez [Présentation d’Azure PowerShell](/powershell/azure/overview) pour plus d’informations sur l’installation des applets de commande PowerShell.
 
-### <a name="createvnet1"></a>Étape 1 : création du réseau virtuel, de la passerelle VPN et de la passerelle de réseau local
+### <a name="step-1---create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a><a name="createvnet1"></a>Étape 1 : création du réseau virtuel, de la passerelle VPN et de la passerelle de réseau local
 
 #### <a name="1-declare-your-variables"></a>1. Déclarer vos variables
 
@@ -184,7 +184,7 @@ New-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Lo
 New-AzLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 -Location $Location1 -GatewayIpAddress $LNGIP6 -AddressPrefix $LNGPrefix61,$LNGPrefix62
 ```
 
-### <a name="s2sconnection"></a>Étape 2 : création d’une connexion VPN S2S avec une stratégie IPsec/IKE
+### <a name="step-2---create-a-s2s-vpn-connection-with-an-ipsecike-policy"></a><a name="s2sconnection"></a>Étape 2 : création d’une connexion VPN S2S avec une stratégie IPsec/IKE
 
 #### <a name="1-create-an-ipsecike-policy"></a>1. Créez une stratégie IPsec/IKE.
 
@@ -216,7 +216,7 @@ Vous pouvez éventuellement ajouter « -UsePolicyBasedTrafficSelectors $True »
 > Une fois qu’une stratégie IPsec/IKE est spécifiée sur une connexion, la passerelle VPN Azure ne fait qu’envoyer ou accepter la proposition IPsec/IKE avec les algorithmes de chiffrement et puissances de clé spécifiés sur cette connexion particulière. Assurez-vous que votre périphérique VPN local pour la connexion utilise ou accepte la combinaison de stratégies exacte. À défaut, le tunnel VPN S2S ne peut pas être établi.
 
 
-## <a name ="vnet2vnet"></a>Partie 4 : création d’une connexion de réseau virtuel à réseau virtuel avec une stratégie IPsec/IKE
+## <a name="part-4---create-a-new-vnet-to-vnet-connection-with-ipsecike-policy"></a><a name ="vnet2vnet"></a>Partie 4 : création d’une connexion de réseau virtuel à réseau virtuel avec une stratégie IPsec/IKE
 
 Les étapes de création d’une connexion de réseau virtuel à réseau virtuel avec une stratégie IPsec/IKE sont similaires à celles d’une connexion VPN S2S. Les exemples de scripts ci-dessous créent la connexion comme illustré dans le diagramme :
 
@@ -224,7 +224,7 @@ Les étapes de création d’une connexion de réseau virtuel à réseau virtuel
 
 Pour plus d’informations sur les étapes de création d’une connexion de réseau virtuel à réseau virtuel, voir [Créer une connexion de réseau virtuel à réseau virtuel](vpn-gateway-vnet-vnet-rm-ps.md). Pour créer et configurer TestVNet1 et la passerelle VPN, vous devez procéder de la manière décrite dans la [Partie 3](#crossprem).
 
-### <a name="createvnet2"></a>Étape 1 : création du deuxième réseau virtuel et de la passerelle VPN
+### <a name="step-1---create-the-second-virtual-network-and-vpn-gateway"></a><a name="createvnet2"></a>Étape 1 : création du deuxième réseau virtuel et de la passerelle VPN
 
 #### <a name="1-declare-your-variables"></a>1. Déclarer vos variables
 
@@ -304,7 +304,7 @@ Une fois ces étapes accomplies, la connexion est établie en quelques minutes e
 ![stratégie IPSec/IKE](./media/vpn-gateway-ipsecikepolicy-rm-powershell/ipsecikepolicy.png)
 
 
-## <a name ="managepolicy"></a>Partie 5 : mise à jour de la stratégie IPsec/IKE pour une connexion
+## <a name="part-5---update-ipsecike-policy-for-a-connection"></a><a name ="managepolicy"></a>Partie 5 : mise à jour de la stratégie IPsec/IKE pour une connexion
 
 La dernière section présente la gestion de la stratégie IPsec/IKE pour une connexion S2S ou de réseau virtuel à réseau virtuel existante. L’exercice ci-dessous vous guide dans les opérations suivantes sur une connexion :
 

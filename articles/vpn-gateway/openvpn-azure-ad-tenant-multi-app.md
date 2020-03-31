@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: alzam
 ms.openlocfilehash: 118ea21cbdd2e0527659c7c1beb40d8e42fa1d10
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77485636"
 ---
 # <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Créer un locataire Azure Active Directory pour les connexions de protocole OpenVPN P2S
@@ -24,7 +24,7 @@ Pour vous connecter à votre réseau virtuel, vous pouvez utiliser l'authentific
 
 [!INCLUDE [create](../../includes/openvpn-azure-ad-tenant-multi-app.md)]
 
-## <a name="enable-authentication"></a>6. Activer l’authentification sur la passerelle
+## <a name="6-enable-authentication-on-the-gateway"></a><a name="enable-authentication"></a>6. Activer l’authentification sur la passerelle
 
 Au cours de cette étape, vous allez activer l’authentification Azure AD sur la passerelle VPN.
 

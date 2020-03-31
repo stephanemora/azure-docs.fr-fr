@@ -9,10 +9,10 @@ ms.date: 11/12/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to work with routing tables for NVA.
 ms.openlocfilehash: a55e1453fe7fe4d135286b22dabf58d434762581
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75645104"
 ---
 # <a name="create-a-virtual-hub-route-table-to-steer-traffic-to-a-network-virtual-appliance"></a>Créer une table d’itinéraires de hub virtuel pour diriger le trafic vers une appliance réseau virtuelle
@@ -43,7 +43,7 @@ Vérifiez que vous respectez les critères suivants :
 5. Vérifiez que les deux réseaux virtuels sont créés. Ils seront utilisés en tant que réseaux virtuels spokes. Dans cet article, le réseau virtuel spoke bénéficie des espaces d’adressage 10.0.2.0/24 et 10.0.3.0/24. Si vous avez besoin d’informations sur la création d’un réseau virtuel, consultez l’article [Créer un réseau virtuel à l’aide de PowerShell](../virtual-network/quick-create-powershell.md).
 6. Veillez à ce qu’aucune passerelle de réseau virtuel n’existe dans les réseaux virtuels.
 
-## <a name="signin"></a>1. Se connecter
+## <a name="1-sign-in"></a><a name="signin"></a>1. Se connecter
 
 Assurez-vous d’avoir installé la dernière version des cmdlets PowerShell de Resource Manager. Pour plus d’informations sur l’installation des applets de commande PowerShell, consultez l’article [Installation et configuration d’Azure PowerShell](/powershell/azure/install-az-ps). Ceci est important, car les versions antérieures des cmdlets ne contiennent pas les valeurs actuelles dont vous avez besoin pour cet exercice.
 
@@ -63,7 +63,7 @@ Assurez-vous d’avoir installé la dernière version des cmdlets PowerShell de 
    Select-AzSubscription -SubscriptionName "Name of subscription"
    ```
 
-## <a name="rg"></a>2. Créer des ressources
+## <a name="2-create-resources"></a><a name="rg"></a>2. Créer des ressources
 
 1. Créez un groupe de ressources.
 
@@ -81,7 +81,7 @@ Assurez-vous d’avoir installé la dernière version des cmdlets PowerShell de 
    New-AzVirtualHub -VirtualWan $virtualWan -ResourceGroupName "testRG" -Name "westushub" -AddressPrefix "10.0.1.0/24" -Location "West US"
    ```
 
-## <a name="connections"></a>3. Créer des connexions
+## <a name="3-create-connections"></a><a name="connections"></a>3. Créer des connexions
 
 Créez des connexions de réseau virtuel du hub à partir des réseaux Indirect Spoke VNet et DMZ VNet vers le hub virtuel.
 
@@ -95,7 +95,7 @@ Créez des connexions de réseau virtuel du hub à partir des réseaux Indirect 
   New-AzVirtualHubVnetConnection -ResourceGroupName "testRG" -VirtualHubName "westushub" -Name  "testvnetconnection3" -RemoteVirtualNetwork $remoteVirtualNetwork3
   ```
 
-## <a name="route"></a>4. Créer un itinéraire de hub virtuel
+## <a name="4-create-a-virtual-hub-route"></a><a name="route"></a>4. Créer un itinéraire de hub virtuel
 
 Dans cet article, le réseau Indirect Spoke VNet bénéficie des espaces d’adressage 10.0.2.0/24 et 10.0.3.0/24 et l’adresse IP privée de l’interface du réseau DMZ VNet est 10.0.4.5.
 
@@ -103,7 +103,7 @@ Dans cet article, le réseau Indirect Spoke VNet bénéficie des espaces d’adr
 $route1 = New-AzVirtualHubRoute -AddressPrefix @("10.0.2.0/24", "10.0.3.0/24") -NextHopIpAddress "10.0.4.5"
 ```
 
-## <a name="applyroute"></a>5. Créer une table d’itinéraires de hub virtuel
+## <a name="5-create-a-virtual-hub-route-table"></a><a name="applyroute"></a>5. Créer une table d’itinéraires de hub virtuel
 
 Créez une table d’itinéraires de hub virtuel, puis appliquez-y l’itinéraire créé.
  
@@ -111,7 +111,7 @@ Créez une table d’itinéraires de hub virtuel, puis appliquez-y l’itinérai
 $routeTable = New-AzVirtualHubRouteTable -Route @($route1)
 ```
 
-## <a name="commit"></a>6. Valider les modifications
+## <a name="6-commit-the-changes"></a><a name="commit"></a>6. Valider les modifications
 
 Validez les modifications pour le hub virtuel.
 
@@ -121,4 +121,4 @@ Update-AzVirtualHub -ResourceGroupName "testRG" -Name "westushub" -RouteTable $r
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur le WAN virtuel, consultez la page [Vue d'ensemble de WAN virtuel](virtual-wan-about.md).
+Pour plus d’informations sur Virtual WAN, consultez la page [Vue d’ensemble de Virtual WAN](virtual-wan-about.md).

@@ -12,11 +12,11 @@ ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 08/27/2019
 ms.openlocfilehash: c57f9eed2147504dd7b3313d58468fb76ab40caa
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552540"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79232545"
 ---
 # <a name="tutorial-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>Tutoriel : Ajouter un pool élastique Azure SQL Database à un groupe de basculement
 
@@ -28,7 +28,7 @@ Configurez un groupe de basculement pour un pool élastique Azure SQL Database e
 > - Créer un [groupe de basculement](sql-database-auto-failover-group.md) pour deux pools élastiques entre deux serveurs SQL logiques
 > - Tester le basculement.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce tutoriel, veillez à disposer des éléments suivants : 
 
@@ -43,7 +43,7 @@ Pour suivre ce tutoriel, veillez à disposer des éléments suivants :
 Dans cette étape, vous allez créer un pool élastique et y ajouter votre base de données unique. 
 
 
-# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
+# <a name="portal"></a>[Portail](#tab/azure-portal)
 
 Créez votre pool élastique avec le Portail Azure. 
 
@@ -71,7 +71,7 @@ Créez votre pool élastique avec le Portail Azure.
 1. Sélectionnez **Vérifier + créer** pour passer en revue les paramètres de votre pool élastique, puis sélectionnez **Créer** pour créer votre pool élastique. 
 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Créez vos pools élastiques et votre serveur secondaire avec PowerShell. 
 
    ```powershell-interactive
@@ -129,7 +129,7 @@ Cette partie du tutoriel utilise les cmdlets PowerShell suivantes :
 Dans de cette étape, vous allez créer un [groupe de basculement](sql-database-auto-failover-group.md) entre un serveur SQL Azure existant et un nouveau serveur SQL Azure dans une autre région. Ensuite, vous ajouterez le pool élastique au groupe de basculement. 
 
 
-# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
+# <a name="portal"></a>[Portail](#tab/azure-portal)
 
 Créez votre groupe de basculement avec le Portail Azure. 
 
@@ -163,7 +163,7 @@ Créez votre groupe de basculement avec le Portail Azure.
 1. Sélectionnez **Sélectionner** pour appliquer les paramètres de votre pool élastique au groupe de basculement, puis sélectionnez **Créer** pour créer votre groupe de basculement. L’ajout du pool élastique au groupe de basculement démarre automatiquement le processus de géoréplication.
 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Créez votre groupe de basculement avec PowerShell. 
 
@@ -252,7 +252,7 @@ Cette partie du tutoriel utilise les cmdlets PowerShell suivantes :
 Dans cette étape, vous allez faire basculer votre groupe de basculement sur le serveur secondaire, puis effectuer une restauration automatique en utilisant le portail Azure. 
 
 
-# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
+# <a name="portal"></a>[Portail](#tab/azure-portal)
 
 Testez le basculement de votre groupe de basculement à l’aide du portail Azure. 
 
@@ -276,7 +276,7 @@ Testez le basculement de votre groupe de basculement à l’aide du portail Azur
 1. Sélectionnez **Basculement** à nouveau pour rétablir les paramètres d’origine du groupe de basculement. 
 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Testez le basculement de votre groupe de basculement à l’aide de PowerShell. 
 
@@ -357,7 +357,7 @@ Cette partie du tutoriel utilise les cmdlets PowerShell suivantes :
 Nettoyez les ressources en supprimant le groupe de ressources. 
 
 
-# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
+# <a name="portal"></a>[Portail](#tab/azure-portal)
 
 
 1. Accédez à votre groupe de ressources sur le [portail Azure](https://portal.azure.com).
@@ -365,7 +365,7 @@ Nettoyez les ressources en supprimant le groupe de ressources.
 1. Tapez le nom du groupe de ressources, `myResourceGroup`, dans la zone de texte, puis sélectionnez **Supprimer** pour supprimer le groupe de ressources. 
 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Nettoyez vos ressources avec PowerShell. 
 
@@ -392,7 +392,7 @@ Cette partie du tutoriel utilise la cmdlet PowerShell suivante :
 
 ## <a name="full-script"></a>Script complet
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 [!code-powershell-interactive[main](../../powershell_scripts/sql-database/failover-groups/add-elastic-pool-to-failover-group-az-ps.ps1 "Add elastic pool to a failover group")]
 
@@ -414,7 +414,7 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Supprime un groupe de ressources. | 
 
 
-# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
+# <a name="portal"></a>[Portail](#tab/azure-portal)
 Aucun script n’est disponible pour le portail Azure.
 
 ---

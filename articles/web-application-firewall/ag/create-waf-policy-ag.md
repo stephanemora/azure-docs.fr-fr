@@ -8,10 +8,10 @@ ms.service: web-application-firewall
 ms.date: 02/08/2020
 ms.author: victorh
 ms.openlocfilehash: 3e8cd2f1e594cd6a60296b2df135f275641df313
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77086980"
 ---
 # <a name="create-web-application-firewall-policies-for-application-gateway"></a>Créer des stratégies de pare-feu d’applications web pour Application Gateway
@@ -37,7 +37,7 @@ Commencez par créer une stratégie WAF de base avec un ensemble de règles par 
    |Paramètre  |Valeur  |
    |---------|---------|
    |Stratégie pour     |WAF régional (Application Gateway)|
-   |Subscription     |Sélectionnez le nom de votre abonnement|
+   |Abonnement     |Sélectionnez le nom de votre abonnement|
    |Resource group     |Sélectionnez votre groupe de ressources|
    |Nom de stratégie     |Tapez un nom unique pour votre stratégie WAF.|
 3. Sous l’onglet **Association**, entrez l’un des paramètres suivants, puis sélectionnez **Ajouter** :
@@ -69,7 +69,7 @@ Pour créer une règle personnalisée, sélectionnez **Ajouter une règle person
 
 [ ![Modifier une règle personnalisée](../media/create-waf-policy-ag/edit-custom-rule.png) ](../media/create-waf-policy-ag/edit-custom-rule-lrg.png#lightbox)
 
-## <a name="migrate"></a>Migrer votre configuration WAF vers une stratégie WAF
+## <a name="migrate-your-waf-config-to-a-waf-policy"></a><a name="migrate"></a>Migrer votre configuration WAF vers une stratégie WAF
 
 Si vous disposez d’un WAF, vous avez peut-être remarqué des modifications dans le portail. Tout d’abord, vous devez identifier le type de stratégie que vous avez activée sur votre WAF. Il existe trois états possibles :
 

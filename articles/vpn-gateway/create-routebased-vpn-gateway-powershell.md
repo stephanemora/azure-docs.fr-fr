@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/10/2020
 ms.author: cherylmc
 ms.openlocfilehash: 8a4bb9d2ac7b8124fa9b1e00f3ecceda4f4a4cdf
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77152956"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-powershell"></a>Création d’une passerelle VPN basée sur un itinéraire à l’aide de PowerShell
@@ -34,7 +34,7 @@ Créez un groupe de ressources Azure avec [New-AzResourceGroup](/powershell/modu
 New-AzResourceGroup -Name TestRG1 -Location EastUS
 ```
 
-## <a name="vnet"></a>Créer un réseau virtuel
+## <a name="create-a-virtual-network"></a><a name="vnet"></a>Créer un réseau virtuel
 
 Créez un réseau virtuel avec [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). L’exemple suivant crée un réseau virtuel nommé **VNet1** à l’emplacement **EastUS** :
 
@@ -62,7 +62,7 @@ Définissez la configuration de sous-réseau pour le réseau virtuel à l'aide d
 $virtualNetwork | Set-AzVirtualNetwork
 ```
 
-## <a name="gwsubnet"></a>Ajouter un sous-réseau de passerelle
+## <a name="add-a-gateway-subnet"></a><a name="gwsubnet"></a>Ajouter un sous-réseau de passerelle
 
 Le sous-réseau de passerelle contient les adresses IP réservées utilisées par les services de passerelle de réseau virtuel. Appuyez-vous sur les exemples suivants pour ajouter un sous-réseau de passerelle :
 
@@ -84,7 +84,7 @@ Définissez la configuration de sous-réseau pour le réseau virtuel à l'aide d
 $vnet | Set-AzVirtualNetwork
 ```
 
-## <a name="PublicIP"></a>Demander une adresse IP publique
+## <a name="request-a-public-ip-address"></a><a name="PublicIP"></a>Demander une adresse IP publique
 
 Une passerelle VPN doit présenter une adresse IP publique allouée dynamiquement. Lorsque vous créez une connexion à une passerelle VPN, il s’agit de l’adresse IP que vous spécifiez. Appuyez-vous sur l’exemple suivant pour demander une adresse IP publique :
 
@@ -92,7 +92,7 @@ Une passerelle VPN doit présenter une adresse IP publique allouée dynamiquemen
 $gwpip= New-AzPublicIpAddress -Name VNet1GWIP -ResourceGroupName TestRG1 -Location 'East US' -AllocationMethod Dynamic
 ```
 
-## <a name="GatewayIPConfig"></a>Créer la configuration de l’adresse IP de la passerelle
+## <a name="create-the-gateway-ip-address-configuration"></a><a name="GatewayIPConfig"></a>Créer la configuration de l’adresse IP de la passerelle
 
 La configuration de la passerelle définit le sous-réseau et l’adresse IP publique à utiliser. Utilisez l’exemple suivant pour créer la configuration de votre passerelle :
 
@@ -101,7 +101,7 @@ $vnet = Get-AzVirtualNetwork -Name VNet1 -ResourceGroupName TestRG1
 $subnet = Get-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
 $gwipconfig = New-AzVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id
 ```
-## <a name="CreateGateway"></a>Créer la passerelle VPN
+## <a name="create-the-vpn-gateway"></a><a name="CreateGateway"></a>Créer la passerelle VPN
 
 La création de la passerelle VPN peut prendre 45 minutes, voire plus. Une fois l’opération terminée, vous êtes en mesure d’établir une connexion entre votre réseau virtuel et un autre réseau virtuel. Sinon, créez une connexion entre votre réseau virtuel et un emplacement local. Créez une passerelle VPN à l'aide de la cmdlet [New-AzVirtualNetworkGateway](/powershell/module/az.network/New-azVirtualNetworkGateway).
 
@@ -111,7 +111,7 @@ New-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
 -VpnType RouteBased -GatewaySku VpnGw1
 ```
 
-## <a name="viewgw"></a>Afficher la passerelle VPN
+## <a name="view-the-vpn-gateway"></a><a name="viewgw"></a>Afficher la passerelle VPN
 
 Vous pouvez consulter la passerelle VPN à l'aide de la cmdlet [Get-AzVirtualNetworkGateway](/powershell/module/az.network/Get-azVirtualNetworkGateway).
 
@@ -164,7 +164,7 @@ BgpSettings            : {
      
 ```
 
-## <a name="viewgwpip"></a>Afficher l’adresse IP publique
+## <a name="view-the-public-ip-address"></a><a name="viewgwpip"></a>Afficher l’adresse IP publique
 
 Pour afficher l'adresse IP publique de votre passerelle VPN, utilisez la cmdlet [Get-AzPublicIpAddress](/powershell/module/az.network/Get-azPublicIpAddress).
 

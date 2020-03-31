@@ -9,10 +9,10 @@ ms.date: 03/05/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to create a route table using the portal.
 ms.openlocfilehash: 0807b535adc45093b439dba5ab8a0ea26b2a0721
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78402947"
 ---
 # <a name="create-a-virtual-wan-hub-route-table-for-nvas-azure-portal"></a>Créer une table de routage de hub Virtual WAN pour des appliances réseau virtuelles : Portail Azure
@@ -40,11 +40,11 @@ Vérifiez que vous respectez les critères suivants :
 
     * Les réseaux virtuels n'ont pas besoin de sous-réseau de passerelle.
 
-## <a name="signin"></a>1. Se connecter
+## <a name="1-sign-in"></a><a name="signin"></a>1. Se connecter
 
 Dans un navigateur, accédez au [portail Azure](https://portal.azure.com) et connectez-vous avec votre compte Azure.
 
-## <a name="vwan"></a>2. Créer un WAN virtuel
+## <a name="2-create-a-virtual-wan"></a><a name="vwan"></a>2. Créer un WAN virtuel
 
 Créez un WAN virtuel. Utilisez les exemples de valeurs suivants :
 
@@ -54,7 +54,7 @@ Créez un WAN virtuel. Utilisez les exemples de valeurs suivants :
 
 [!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-vwan-include.md)]
 
-## <a name="hub"></a>3. Créer un hub
+## <a name="3-create-a-hub"></a><a name="hub"></a>3. Créer un hub
 
 Créez le hub. Utilisez les exemples de valeurs suivants :
 
@@ -64,7 +64,7 @@ Créez le hub. Utilisez les exemples de valeurs suivants :
 
 [!INCLUDE [Create a hub](../../includes/virtual-wan-tutorial-hub-include.md)]
 
-## <a name="route"></a>4. Créer et implémenter une table de routage de hub
+## <a name="4-create-and-apply-a-hub-route-table"></a><a name="route"></a>4. Créer et implémenter une table de routage de hub
 
 Mettez à jour le hub avec une table de routage de hub. Utilisez les exemples de valeurs suivants :
 
@@ -78,7 +78,7 @@ Mettez à jour le hub avec une table de routage de hub. Utilisez les exemples de
 5. Dans la colonne **Si le préfixe de destination est**, ajoutez les espaces d’adressage. Dans la colonne **Envoyer à l'adresse du tronçon suivant**, ajoutez l’adresse IP privée pour l’interface réseau de l’appliance réseau virtuelle DMZ.
 6. Cliquez sur **Confirmer** pour mettre à jour la ressource hub avec les paramètres de la table de routage.
 
-## <a name="connections"></a>5. Créer les connexions de réseau virtuel
+## <a name="5-create-the-vnet-connections"></a><a name="connections"></a>5. Créer les connexions de réseau virtuel
 
 Créez une connexion de réseau virtuel au hub à partir de chaque réseau virtuel spoke indirect (VNet1 et VNet2). Ces connexions de réseau virtuel sont représentées par les flèches bleues dans la figure ci-dessus. Créez ensuite une connexion de réseau virtuel au hub à partir du réseau virtuel d'appliance virtuelle réseau (flèche noire dans la figure).
 

@@ -8,10 +8,10 @@ ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
 ms.openlocfilehash: 09e55abcd97317b87f8a272afa51c6b4ace572e8
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77598083"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Résoudre les problèmes de niveau de performance d’Azure Files
@@ -73,7 +73,7 @@ Si l’application utilisée par le client est à thread unique, cela peut entra
 
 ## <a name="very-high-latency-for-requests"></a>Latence très élevée pour les requêtes
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 la machine virtuelle cliente peut se trouver dans une autre région que le partage de fichiers.
 
@@ -94,7 +94,7 @@ Une cause potentielle est l’absence de prise en charge de plusieurs canaux SMB
 
 ## <a name="throughput-on-linux-clients-is-significantly-lower-when-compared-to-windows-clients"></a>Le débit sur les clients Linux est nettement plus faible que sur les clients Windows.
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 Il s’agit d’un problème connu d’implémentation de client SMB sur Linux.
 
@@ -106,7 +106,7 @@ Il s’agit d’un problème connu d’implémentation de client SMB sur Linux.
 
 ## <a name="high-latencies-for-metadata-heavy-workloads-involving-extensive-openclose-operations"></a>Latences élevées pour les charges de travail lourdes de métadonnées impliquant des opérations d’ouverture/de fermeture étendues.
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 Absence de prise en charge pour les baux de répertoire.
 
@@ -118,7 +118,7 @@ Absence de prise en charge pour les baux de répertoire.
 
 ## <a name="low-iops-on-centosrhel"></a>IOPS faibles sur CentOS/RHEL
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 Une profondeur d’E/S supérieure à 1 n’est pas prise en charge sur CentOS/RHEL.
 
@@ -133,7 +133,7 @@ Si vous rencontrez des ralentissements lorsque vous copiez des fichiers vers et 
 
 ## <a name="jitterysaw-tooth-pattern-for-iops"></a>Modèle instable/en dents de scie pour les IOPS
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 L’application cliente dépasse constamment les IOPS de la ligne de base. Actuellement, il n’y a pas de lissage de la charge de requêtes côté service. Par conséquent, si le client dépasse les IOPS de la ligne de base, il sera limité par le service. De par cette limitation, le client peut être confronté à un modèle d’IOPS instable/en dents de scie. Dans ce cas, les IOPS moyennes obtenues par le client peuvent être inférieures aux IOPS de la ligne de base.
 
@@ -144,7 +144,7 @@ L’application cliente dépasse constamment les IOPS de la ligne de base. Actue
 
 ## <a name="excessive-directoryopendirectoryclose-calls"></a>Appels DirectoryOpen/DirectoryClose excessifs
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 Si le nombre d’appels DirectoryOpen/DirectoryClose compte parmi les principaux appels d’API et que vous ne pensez pas que le client fera autant d’appels, le problème vient peut-être du logiciel antivirus installé sur la machine virtuelle cliente Azure.
 
@@ -154,7 +154,7 @@ Si le nombre d’appels DirectoryOpen/DirectoryClose compte parmi les principaux
 
 ## <a name="file-creation-is-slower-than-expected"></a>La création de fichiers est plus lente que prévu
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 Des charges de travail qui s’appuient sur la création d’un grand nombre de fichiers ne verront pas une grande différence entre le niveau de performance de partages de fichiers premium et les partages de fichiers standard.
 
@@ -164,7 +164,7 @@ Des charges de travail qui s’appuient sur la création d’un grand nombre de 
 
 ## <a name="slow-performance-from-windows-81-or-server-2012-r2"></a>Niveau de performance ralenti à partir de Windows 8.1 ou de Server 2012 R2
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 Latence de l’accès à Azure Files pour des charges de travail intensives d’E/S supérieure à celle attendue.
 

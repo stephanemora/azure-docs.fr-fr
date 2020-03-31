@@ -1,6 +1,6 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,13 +9,13 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 52084b065ef65a69a6691b6646d1e199f011910d
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67176898"
 ---
-### <a name="gwipnoconnection"></a> Pour modifier l’adresse IP de la passerelle de réseau local - sans connexion de passerelle
+### <a name="to-modify-the-local-network-gateway-ip-address---no-gateway-connection"></a><a name="gwipnoconnection"></a> Pour modifier l’adresse IP de la passerelle de réseau local - sans connexion de passerelle
 
 Utilisez l’exemple fourni pour modifier une passerelle de réseau local sans connexion de passerelle. Lorsque vous modifiez cette valeur, vous pouvez également modifier les préfixes d’adresse en même temps.
 
@@ -23,7 +23,7 @@ Utilisez l’exemple fourni pour modifier une passerelle de réseau local sans c
 2. Dans la zone **Adresse IP**, modifiez l’adresse IP.
 3. Cliquez sur **Enregistrer** pour enregistrer les paramètres.
 
-### <a name="gwipwithconnection"></a>Pour modifier l’adresse IP de la passerelle de réseau local - avec une connexion de passerelle existante
+### <a name="to-modify-the-local-network-gateway-ip-address---existing-gateway-connection"></a><a name="gwipwithconnection"></a>Pour modifier l’adresse IP de la passerelle de réseau local - avec une connexion de passerelle existante
 
 Pour modifier une passerelle de réseau local qui dispose d’une connexion, vous devez d’abord supprimer la connexion. Une fois la connexion supprimée, vous pouvez modifier l’adresse IP de la passerelle et recréer une connexion. Vous pouvez également modifier les préfixes d’adresse en même temps. Cela entraînera une interruption de votre connexion VPN. Lorsque vous modifiez l’adresse IP de la passerelle, vous n’avez pas besoin de supprimer la passerelle VPN. Vous devez uniquement supprimer la connexion.
  

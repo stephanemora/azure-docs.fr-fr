@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 01/30/2020
 ms.custom: seodec18
 ms.openlocfilehash: 3ea73e2ca20faea30294bc5d5e1788415095c39f
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76905369"
 ---
 # <a name="add-an-iot-hub-event-source-to-your-time-series-insights-environment"></a>Ajouter une source d’événement IoT Hub à votre environnement Time Series Insights
@@ -25,7 +25,7 @@ Cet article décrit comment utiliser le portail Azure pour ajouter une source d�
 > [!NOTE]
 > Les instructions dans cet article s’appliquent à la fois aux environnements Azure Time Series Insights GA et Time Series Insights Préversion.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Créez un [environnement Azure Time Series Insights](time-series-insights-update-create-environment.md).
 * Créez un [IoT Hub à l’aide du portail Azure](../iot-hub/iot-hub-create-through-portal.md).
@@ -74,7 +74,7 @@ Pour ajouter un nouveau groupe de consommateurs à votre IoT Hub :
 
        | Propriété | Description |
        | --- | --- |
-       | Subscription | Abonnement auquel appartient le hub IoT souhaité. |
+       | Abonnement | Abonnement auquel appartient le hub IoT souhaité. |
        | Nom de l’IoT Hub | Nom du hub IoT sélectionné. |
        | Nom de la stratégie IoT Hub | Sélectionnez la stratégie d’accès partagé. Vous trouverez la stratégie d’accès partagé dans l’onglet Paramètres IoT Hub. Chaque stratégie d’accès partagé a un nom, les autorisations que vous définissez ainsi que des clés d’accès. La stratégie d’accès partagé pour votre source d’événements *doit* avoir des autorisations de **connexion au service**. |
        | Clé de stratégie IoT Hub | La clé est déjà renseignée. |

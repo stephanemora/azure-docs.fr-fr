@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 02/12/2020
 ms.author: cherylmc
 ms.openlocfilehash: 63c6329ad62289cd127902c1438073b28fc8683e
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77201847"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Configurer une connexion de réseau virtuel à réseau virtuel (classique)
@@ -43,7 +43,7 @@ Les réseaux virtuels que vous connectez peuvent être situés dans différents 
 
 ![Connexions de réseau virtuel à réseau virtuel](./media/vpn-gateway-howto-vnet-vnet-portal-classic/aboutconnections.png)
 
-### <a name="why"></a>Pourquoi connecter des réseaux virtuels ?
+### <a name="why-connect-virtual-networks"></a><a name="why"></a>Pourquoi connecter des réseaux virtuels ?
 
 Vous pouvez décider de connecter des réseaux virtuels pour les raisons suivantes :
 
@@ -61,11 +61,11 @@ Vous pouvez décider de connecter des réseaux virtuels pour les raisons suivant
 
 Pour plus d’informations sur les connexions de réseau virtuel à réseau virtuel, consultez la partie [Interconnexion de réseaux virtuels](#faq) à la fin de cet article.
 
-### <a name="powershell"></a>Utilisation d’Azure PowerShell
+### <a name="working-with-azure-powershell"></a><a name="powershell"></a>Utilisation d’Azure PowerShell
 
 Nous utilisons le portail pour la plupart des étapes, mais vous devez utiliser PowerShell pour créer les connexions entre les réseaux virtuels. Vous ne pouvez pas créer des connexions à l’aide du portail Azure. [!INCLUDE [vpn-gateway-classic-powershell](../../includes/vpn-gateway-powershell-classic-locally.md)]
 
-## <a name="plan"></a>Étape 1 : planifier vos plages d’adresses IP
+## <a name="step-1---plan-your-ip-address-ranges"></a><a name="plan"></a>Étape 1 : planifier vos plages d’adresses IP
 
 Il est important de choisir les plages que vous utiliserez pour configurer vos réseaux virtuels. Pour cette configuration, vous devez vous assurer que vos plages de réseau virtuel ne se chevauchent pas entre elles ou avec un réseau local auquel elles se connectent.
 
@@ -78,7 +78,7 @@ Le tableau suivant présente un exemple de la définition de vos réseaux virtu
 | TestVNet1 |TestVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |USA Est |VNet4Local<br>(10.41.0.0/16)<br>(10.42.0.0/16) |
 | TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |USA Ouest |VNet1Local<br>(10.11.0.0/16)<br>(10.12.0.0/16) |
 
-## <a name="vnetvalues"></a>Étape 2 : créer les réseaux virtuels
+## <a name="step-2---create-the-virtual-networks"></a><a name="vnetvalues"></a>Étape 2 : créer les réseaux virtuels
 
 Créez deux réseaux virtuels dans le [portail Azure](https://portal.azure.com). Pour découvrir comment créer des réseaux virtuels classiques, consultez [Créer un réseau virtuel (classique)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). 
 
@@ -127,7 +127,7 @@ GatewaySubnet : 10.41.1.0/27
 
 Dans cette section, vous allez configurer le type de connexion et le site local, puis créer la passerelle.
 
-## <a name="localsite"></a>Étape 3 : configurer le site local
+## <a name="step-3---configure-the-local-site"></a><a name="localsite"></a>Étape 3 : configurer le site local
 
 Azure utilise les paramètres spécifiés dans chaque site de réseau local pour déterminer comment router le trafic entre les réseaux virtuels. Chaque réseau virtuel doit pointer vers le réseau local vers lequel vous souhaitez acheminer le trafic. Vous déterminez le nom à utiliser pour faire référence à chaque site de réseau local. Il est préférable d’utiliser un nom descriptif.
 
@@ -151,7 +151,7 @@ Le site local de chaque réseau virtuel correspond à l’autre réseau virtuel.
 
     ![site local](./media/vpn-gateway-howto-vnet-vnet-portal-classic/localsite.png)
 
-## <a name="gw"></a>Étape 4 : créer la passerelle de réseau virtuel
+## <a name="step-4---create-the-virtual-network-gateway"></a><a name="gw"></a>Étape 4 : créer la passerelle de réseau virtuel
 
 Chaque réseau virtuel doit disposer d’une passerelle de réseau virtuel. La passerelle de réseau virtuel achemine et chiffre le trafic.
 
@@ -163,11 +163,11 @@ Chaque réseau virtuel doit disposer d’une passerelle de réseau virtuel. La p
 6. Cliquez sur **OK**.
 7. Sur la page **Nouvelle connexion VPN**, cliquez sur **OK** pour commencer à créer votre passerelle de réseau virtuel. La création d’une passerelle nécessite généralement au moins 45 minutes, selon la référence SKU de passerelle sélectionnée.
 
-## <a name="vnet4settings"></a>Étape 5 : configurer les paramètres de TestVNet4
+## <a name="step-5---configure-testvnet4-settings"></a><a name="vnet4settings"></a>Étape 5 : configurer les paramètres de TestVNet4
 
 Répétez les étapes jusqu’à la [Création d’un site local](#localsite) et la [Création de la passerelle de réseau virtuel](#gw) pour configurer TestVNet4, en remplaçant les valeurs si cela est nécessaire. Si vous effectuez cette opération en guise d’exercice, utilisez les [valeurs d’exemple](#vnetvalues).
 
-## <a name="updatelocal"></a>Étape 6 : mettre à jour les sites locaux
+## <a name="step-6---update-the-local-sites"></a><a name="updatelocal"></a>Étape 6 : mettre à jour les sites locaux
 
 Une fois vos passerelles de réseau virtuel créées pour les deux réseaux virtuels, vous devez ajuster les valeurs **d’adresse IP de passerelle VPN** des sites locaux.
 
@@ -203,7 +203,7 @@ Une fois vos passerelles de réseau virtuel créées pour les deux réseaux virt
 6. Fermez les autres pages.
 7. Répétez ces étapes pour TestVNet4.
 
-## <a name="getvalues"></a>Étape 7 : récupérer des valeurs à partir du fichier de configuration réseau
+## <a name="step-7---retrieve-values-from-the-network-configuration-file"></a><a name="getvalues"></a>Étape 7 : récupérer des valeurs à partir du fichier de configuration réseau
 
 Lorsque vous créez des réseaux virtuels classiques dans le portail Azure, le nom que vous voyez ne correspond pas au nom complet que vous utilisez pour PowerShell. Par exemple, un réseau virtuel qui semble être nommé **TestVNet1** dans le portail Azure peut avoir un nom beaucoup plus long dans le fichier de configuration réseau. Le nom pourrait être semblable au suivant : **Groupe ClassicRG TestVNet1**. Lorsque vous créez vos connexions, il est important d’utiliser les valeurs que vous voyez dans le fichier de configuration réseau.
 
@@ -238,7 +238,7 @@ Dans les étapes suivantes, vous allez vous connecter à votre compte Azure et t
    ```
 7. Dans un éditeur de texte, ouvrez le fichier, puis affichez les noms de vos réseaux virtuels et de vos sites. Ces noms sont ceux que vous utiliserez lorsque vous allez créer vos connexions.<br>Les noms des réseaux virtuels sont répertoriés comme suit : **VirtualNetworkSite name =**<br>Les noms des sites sont répertoriés comme suit : **LocalNetworkSiteRef name =**
 
-## <a name="createconnections"></a>Étape 8 : créer les connexions de passerelle VPN
+## <a name="step-8---create-the-vpn-gateway-connections"></a><a name="createconnections"></a>Étape 8 : créer les connexions de passerelle VPN
 
 Lorsque vous avez terminé les étapes précédentes, vous pouvez définir les clés prépartagées IPsec/IKE et créer la connexion. Cet ensemble d’étapes utilise PowerShell. Les connexions de réseau virtuel à réseau virtuel pour le modèle de déploiement classique ne peuvent pas être configurées dans le portail Azure.
 
@@ -267,7 +267,7 @@ Dans les exemples ci-dessous, notez que la clé partagée est exactement identiq
    StatusCode     : OK
    ```
 
-## <a name="faq"></a>Interconnexion de réseaux virtuels pour les réseaux virtuels classiques
+## <a name="vnet-to-vnet-considerations-for-classic-vnets"></a><a name="faq"></a>Interconnexion de réseaux virtuels pour les réseaux virtuels classiques
 * Les réseaux virtuels peuvent être situés dans des abonnements identiques ou différents.
 * Les réseaux virtuels peuvent être situés dans des régions (emplacements) identiques ou différentes.
 * Un service cloud ou un point de terminaison d’équilibrage de charge ne peut pas s’étendre sur différents réseaux virtuels, même si ces derniers sont interconnectés.

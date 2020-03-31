@@ -8,10 +8,10 @@ ms.date: 02/07/2019
 ms.author: cherylmc
 ms.topic: conceptual
 ms.openlocfilehash: f351f14796ec736bd5525f139a518c9a0dd3d19f
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77162104"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell"></a>Supprimer une passerelle de réseau virtuel avec PowerShell
@@ -56,7 +56,7 @@ Si vous avez plusieurs abonnements, spécifiez celui que vous souhaitez utiliser
 Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
 ```
 
-## <a name="S2S"></a>Supprimer une passerelle VPN de site à site
+## <a name="delete-a-site-to-site-vpn-gateway"></a><a name="S2S"></a>Supprimer une passerelle VPN de site à site
 
 Pour supprimer une passerelle de réseau virtuel pour une configuration S2S, vous devez d’abord supprimer chaque ressource liée à la passerelle de réseau virtuel. Les ressources doivent être supprimées dans un certain ordre en raison des dépendances. Quand vous travaillez avec les exemples ci-dessous, certaines valeurs doivent être spécifiées, tandis que d’autres sont des résultats en sortie. Nous utilisons les valeurs suivantes dans les exemples à des fins de démonstration :
 
@@ -139,7 +139,7 @@ $GWSub = Get-AzVirtualNetwork -ResourceGroupName "RG1" -Name "VNet1" | Remove-Az
 Set-AzVirtualNetwork -VirtualNetwork $GWSub
 ```
 
-## <a name="v2v"></a>Supprimer une passerelle VPN de réseau virtuel à réseau virtuel
+## <a name="delete-a-vnet-to-vnet-vpn-gateway"></a><a name="v2v"></a>Supprimer une passerelle VPN de réseau virtuel à réseau virtuel
 
 Si vous souhaitez supprimer une passerelle de réseau virtuel pour une configuration V2V, vous devez d’abord supprimer chaque ressource liée à la passerelle de réseau virtuel. Les ressources doivent être supprimées dans un certain ordre en raison des dépendances. Quand vous travaillez avec les exemples ci-dessous, certaines valeurs doivent être spécifiées, tandis que d’autres sont des résultats en sortie. Nous utilisons les valeurs suivantes dans les exemples à des fins de démonstration :
 
@@ -227,7 +227,7 @@ $GWSub = Get-AzVirtualNetwork -ResourceGroupName "RG1" -Name "VNet1" | Remove-Az
 Set-AzVirtualNetwork -VirtualNetwork $GWSub
 ```
 
-## <a name="deletep2s"></a>Suppression d’une passerelle VPN de point à site
+## <a name="delete-a-point-to-site-vpn-gateway"></a><a name="deletep2s"></a>Suppression d’une passerelle VPN de point à site
 
 Pour supprimer une passerelle de réseau virtuel pour une configuration P2S, vous devez d’abord supprimer chaque ressource liée à la passerelle de réseau virtuel. Les ressources doivent être supprimées dans un certain ordre en raison des dépendances. Quand vous travaillez avec les exemples ci-dessous, certaines valeurs doivent être spécifiées, tandis que d’autres sont des résultats en sortie. Nous utilisons les valeurs suivantes dans les exemples à des fins de démonstration :
 
@@ -286,7 +286,7 @@ $GWSub = Get-AzVirtualNetwork -ResourceGroupName "RG1" -Name "VNet1" | Remove-Az
 Set-AzVirtualNetwork -VirtualNetwork $GWSub
 ```
 
-## <a name="delete"></a>Supprimer une passerelle VPN en supprimant le groupe de ressources
+## <a name="delete-a-vpn-gateway-by-deleting-the-resource-group"></a><a name="delete"></a>Supprimer une passerelle VPN en supprimant le groupe de ressources
 
 Si vous n’avez pas besoin de conserver de ressources dans le groupe de ressources et que vous voulez simplement recommencer à zéro, vous pouvez supprimer tout un groupe de ressources. Il s’agit d’un moyen rapide de tout supprimer. Les étapes suivantes s’appliquent uniquement au modèle de déploiement Resource Manager.
 

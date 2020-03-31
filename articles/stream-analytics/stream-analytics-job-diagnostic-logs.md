@@ -6,13 +6,13 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/19/2019
-ms.openlocfilehash: f318b373f6a6f46ee3a85703c6099c76568580ba
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/27/2020
+ms.openlocfilehash: cdb6629441becd0a8356debe3360830ff11a7a9d
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75426144"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398420"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>Résoudre les problèmes liés à Azure Stream Analytics à l’aide des journaux de diagnostic
 
@@ -94,7 +94,7 @@ Azure Stream Analytics capture deux catégories de journaux de diagnostics :
 
 Tous les journaux d’activité sont stockés au format JSON. Chaque entrée comprend les champs de chaîne courants suivants :
 
-Name | Description
+Nom | Description
 ------- | -------
 time | L’horodatage (heure UTC) du journal.
 resourceId | L’ID de la ressource sur laquelle l’opération a eu lieu, en majuscules. Comprend l’ID d’abonnement, le groupe de ressources et le nom du travail. Par exemple, **/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**.
@@ -112,7 +112,7 @@ Les journaux d’activité d’exécution contiennent des informations sur les �
 
 Toute erreur qui se produit lorsque le travail traite des données est consignée dans cette catégorie de journaux d’activité. La plupart du temps, ces journaux d’activité sont créés au cours des opérations de lecture, de sérialisation et d’écriture des données. Ces journaux d’activité n’incluent pas les erreurs de connectivité. Les erreurs de connectivité sont traitées comme des événements génériques. Vous pouvez en apprendre davantage sur la cause des différentes [erreurs de données d’entrée et de sortie](https://docs.microsoft.com/azure/stream-analytics/data-errors).
 
-Name | Description
+Nom | Description
 ------- | -------
 Source | Nom de l’entrée ou de la sortie du travail où l’erreur s’est produite.
 Message | Message associé à l’erreur.
@@ -133,7 +133,7 @@ En fonction de la valeur **operationName**, les erreurs de données ont le sché
 
 Les événements génériques couvrent tout le reste.
 
-Name | Description
+Nom | Description
 -------- | --------
 Error | (facultatif) Informations sur l’erreur, en général des informations sur l’exception si celles-ci sont disponibles.
 Message| Message de journal.

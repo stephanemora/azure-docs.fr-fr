@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: mbaldwin
 ms.openlocfilehash: f105eac0f6f21ea3358340a4e2aaec7d1f1a95ad
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77190558"
 ---
 # <a name="security-controls-for-windows-virtual-machines"></a>Contrôles de sécurité pour Machines virtuelles Windows
@@ -43,7 +43,7 @@ Cet article décrit les contrôles de sécurité intégrés dans Machines virtue
 
 | Contrôle de sécurité | Oui/Non | Notes|
 |---|---|--|
-| Authentication| Oui |  |
+| Authentification| Oui |  |
 | Autorisation| Oui |  |
 
 ## <a name="data-protection"></a>Protection de données
