@@ -6,12 +6,12 @@ ms.author: sudbalas
 ms.date: 03/08/2020
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: 6a5cc5bbdb56e308d79b8eb2c8db546184cedb39
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.openlocfilehash: 53036a43cbb0fe3c3a1e61f7124fe7dcbef228f3
+ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79080341"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80388931"
 ---
 # <a name="integrate-key-vault-with-azure-private-link"></a>Intégrer Key Vault avec Azure Private Link
 
@@ -19,11 +19,11 @@ Le service Azure Private Link vous permet d’accéder aux services Azure (par e
 
 Un point de terminaison privé Azure est une interface réseau qui vous connecte de façon privée et sécurisée à un service basé sur la technologie Azure Private Link. Le point de terminaison privé utilise une adresse IP privée de votre réseau virtuel, plaçant de fait le service dans votre réseau virtuel. Sachant que l’ensemble du trafic à destination du service peut être routé via le point de terminaison privé, il n’y a aucun besoin de passerelles, d’appareils NAT, de connexions ExpressRoute ou VPN ou d’adresses IP publiques. Le trafic entre votre réseau virtuel et le service transite par le réseau principal de Microsoft, éliminant ainsi toute exposition à l’Internet public. Vous pouvez vous connecter à une instance d’une ressource Azure, ce qui vous donne le plus haut niveau de granularité en matière de contrôle d’accès.
 
-Pour plus d’informations, consultez [Qu’est-ce qu’Azure Private Link (préversion) ?](../private-link/private-link-overview.md)
+Pour plus d’informations, consultez [Qu’est-ce qu’Azure Private Link ?](../private-link/private-link-overview.md)
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour intégrer un coffre de clés à Azure Private Link (préversion), vous avez besoin des éléments suivants :
+Pour intégrer un coffre de clés avec Azure Private Link, vous avez besoin des éléments suivants :
 
 - Un coffre de clés.
 - Un réseau virtuel Azure.
@@ -46,7 +46,7 @@ Vous pouvez créer un coffre de clés en suivant les étapes décrites dans [Dé
 
 Après avoir configuré les éléments de base du coffre de clés, sélectionnez l’onglet Mise en réseau et suivez ces étapes :
 
-1. Sélectionnez la case d’option Point de terminaison privé (préversion) sous l’onglet Mise en réseau.
+1. Sélectionnez la case d’option Point de terminaison privé sous l’onglet Réseau.
 1. Cliquer sur le bouton « + Ajouter » pour ajouter un point de terminaison privé.
 
     ![Image](./media/private-link-service-1.png)
@@ -57,7 +57,7 @@ Après avoir configuré les éléments de base du coffre de clés, sélectionnez
 1. Laissez l’option « intégrer à la zone DNS privée » inchangée.  
 1. Sélectionnez « OK ».
 
-    ![Image](./media/private-link-service-2.png)
+    ![Image](./media/private-link-service-8.png)
  
 Le point de terminaison privé configuré est maintenant visible. Vous avez maintenant la possibilité de supprimer et de modifier ce point de terminaison privé. Sélectionnez le bouton « Vérifier + créer » et créez le coffre de clés. Le déploiement prend entre 5 et 10 minutes. 
 
@@ -69,7 +69,7 @@ Si vous disposez déjà d’un coffre de clés, vous pouvez créer une connexion
 1. Dans la barre de recherche, tapez « coffres de clés ».
 1. Dans la liste, sélectionnez le coffre de clés auquel vous voulez ajouter un point de terminaison privé.
 1. Sélectionnez l’onglet « Mise en réseau » en dessous de Paramètres.
-1. Sélectionnez l’onglet Connexions des points de terminaison privés (préversion) en haut de la page.
+1. Sélectionnez l’onglet Connexions des points de terminaison privés en haut de la page
 1. Sélectionnez le bouton « + Point de terminaison privé » en haut de la page.
 
     ![Image](./media/private-link-service-3.png) ![Image](./media/private-link-service-4.png)
@@ -100,6 +100,10 @@ az provider register -n Microsoft.KeyVault
 ### <a name="create-a-new-key-vault"></a>Créer un coffre de clés
 ```console
 az keyvault create --name {KEY VAULT NAME} --resource-group {RG} --location {AZURE REGION}
+```
+### <a name="turn-on-key-vault-firewall"></a>Activer le pare-feu Key Vault
+```console
+az keyvault update --name {KEY VAULT NAME} --resource-group {RG} --location {AZURE REGION} --default-action deny
 ```
 ### <a name="create-a-virtual-network"></a>Création d'un réseau virtuel
 ```console
@@ -220,9 +224,9 @@ Aliases:  <your-key-vault-name>.vault.azure.net
 
 ## <a name="limitations-and-design-considerations"></a>Limitations et remarques sur la conception
 
-**Prix** : Pour obtenir des informations sur les prix, consultez [Tarifs Azure Private Link (préversion)](https://azure.microsoft.com/pricing/details/private-link/).
+**Prix** : Pour plus d’informations sur la tarification, consultez la section [Tarification Azure Private Link](https://azure.microsoft.com/pricing/details/private-link/).
 
-**Limitations** :  Le point de terminaison privé pour Azure Key Vault est en préversion publique. Cette fonctionnalité est disponible dans toutes les régions publiques Azure.
+**Limitations** :  Le point de terminaison privé pour Azure Key Vault est disponible uniquement dans les régions publiques Azure.
 
 **Nombre maximal de points de terminaison privés par coffre de clés** : 64.
 
@@ -232,5 +236,5 @@ Pour plus d’informations, consultez [Service Azure Private Link : Limitations
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrir plus en détail [Azure Private Link (préversion)](../private-link/private-link-service-overview.md)
+- En savoir plus sur [Azure Private Link](../private-link/private-link-service-overview.md)
 - En savoir plus sur [Azure Key Vault](key-vault-overview.md)

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 02/03/2020
 ms.author: ayshak
 ms.openlocfilehash: 5121ef8eb3123d830233e91968c69b331d255bd0
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78161078"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Tailles de machines virtuelles modulables Série B
@@ -27,7 +27,7 @@ Mise en cache du Stockage Premium :  Non pris en charge
 
 Migration dynamique : Prise en charge
 
-Mises à jour avec préservation de la mémoire : Prises en charge
+Mises à jour avec préservation de la mémoire : Prise en charge
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Perf. du processeur de base de machine virtuelle | Perf. du processeur max. de machine virtuelle | Crédits initiaux | Crédits cumulés/heure | Crédits cumulés max. | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS/MBps | Débit du disque non mis en cache max. : IOPS/Mbits/s | Nombre max de cartes réseau |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|

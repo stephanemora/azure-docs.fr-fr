@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 01/07/2020
 ms.custom: seodec18
 ms.openlocfilehash: c117510749abcf997e414371faa6dea1dc79ea7a
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75861759"
 ---
 # <a name="azure-time-series-insights-preview-explorer"></a>Explorateur Azure Time Series Insights en préversion
 
 Cet article décrit les diverses fonctionnalités disponibles dans [l’application web de démonstration](https://insights.timeseries.azure.com/preview/demo) d’Azure Time Series Insights (préversion).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour commencer à utiliser la préversion de l’Explorateur Azure Time Series Insights, vous devez :
 

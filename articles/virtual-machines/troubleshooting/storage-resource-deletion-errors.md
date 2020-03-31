@@ -12,17 +12,17 @@ ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
 ms.openlocfilehash: 50ab4b0f1e676ffcba0ce69ab6aa957e4c77ab88
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71058154"
 ---
 # <a name="troubleshoot-storage-resource-deletion-errors"></a>Résoudre les erreurs de suppression de ressources de stockage
 
 Dans certains scénarios, vous pouvez rencontrer l’une des erreurs suivantes lorsque vous essayez de supprimer un compte de stockage Azure, un conteneur ou un blob dans un déploiement Azure Resource Manager :
 
-> **Échec de la suppression du compte de stockage « StorageAccountName ». Error: Impossible de supprimer le compte de stockage, car ses artefacts sont en cours d'utilisation.**
+> **Échec de la suppression du compte de stockage « StorageAccountName ». Erreur : Impossible de supprimer le compte de stockage, car ses artefacts sont en cours d'utilisation.**
 > 
 > **Impossible de supprimer # sur # conteneur(s) :<br>disques durs virtuels : Il existe actuellement un bail sur le conteneur et aucun ID de bail n’a été spécifié dans la demande.**
 > 
@@ -39,10 +39,10 @@ Le processus de suppression d’un compte de stockage, d’un conteneur ou d’u
 
 Effectuez une nouvelle tentative de suppression du compte de stockage, du conteneur ou du blob après avoir terminé ces étapes.
 
-## <a name="step-1-identify-blob-attached-to-a-vm"></a>Étape 1 : Identifier les objets blob joints à une machine virtuelle
+## <a name="step-1-identify-blob-attached-to-a-vm"></a>Étape 1 : Identifier les objets blob joints à une machine virtuelle
 
 ### <a name="scenario-1-deleting-a-blob--identify-attached-vm"></a>Scénario 1 : Suppression d'un objet blob - Identifier la machine virtuelle jointe
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Dans le menu Hub, sélectionnez **Toutes les ressources**. Accédez au compte de stockage, sous **Service BLOB** sélectionnez **Conteneurs** et accédez au blob à supprimer.
 3. Si le paramètre **État du bail** du blob est défini sur **Alloué**, cliquez avec le bouton droit et sélectionnez **Modifier les métadonnées** pour ouvrir le volet Métadonnées d’objet blob. 
 
@@ -59,7 +59,7 @@ Effectuez une nouvelle tentative de suppression du compte de stockage, du conten
 > Si **MicrosoftAzureCompute_VMName** et **MicrosoftAzureCompute_DiskType** n’apparaissent pas dans les métadonnées du blob, cela signifie que le blob est explicitement alloué et qu’il n’est pas joint à une machine virtuelle. Les blobs alloués ne peuvent pas être supprimés tant que le bail n’a pas été résilié. Pour résilier le bail, cliquez avec le bouton droit sur le blob et sélectionnez **Résilier le bail**. Les blobs alloués qui ne sont pas joints à une machine virtuelle empêchent la suppression du blob, mais n’empêchent pas la suppression d’un conteneur ou d’un compte de stockage.
 
 ### <a name="scenario-2-deleting-a-container---identify-all-blobs-within-container-that-are-attached-to-vms"></a>Scénario 2 : Suppression d'un conteneur - Identifier tous les objets blobs du conteneur qui sont joints aux machines virtuelles
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Dans le menu Hub, sélectionnez **Toutes les ressources**. Accédez au compte de stockage, sous **Service BLOB** sélectionnez **Conteneurs** et accédez au conteneur à supprimer.
 3. Cliquez pour ouvrir le conteneur, et la liste des blobs qu’il contient s’affiche. Identifiez tous les blobs avec Type d’objet blob = **Objet blob de pages** et État du bail = **Alloué** dans cette liste. Suivez le scénario 1 pour identifier la machine virtuelle associée à chacun de ces objets blob.
 
@@ -68,15 +68,15 @@ Effectuez une nouvelle tentative de suppression du compte de stockage, du conten
 4. Suivez [l’étape 2](#step-2-delete-vm-to-detach-os-disk) et [l’étape 3](#step-3-detach-data-disk-from-the-vm) pour supprimer des machines virtuelles avec **OSDisk** et détacher **DataDisk**. 
 
 ### <a name="scenario-3-deleting-storage-account---identify-all-blobs-within-storage-account-that-are-attached-to-vms"></a>Scénario 3 : Suppression du compte de stockage - Identifier tous les objets blob du compte de stockage qui sont joints aux machines virtuelles
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Dans le menu Hub, sélectionnez **Toutes les ressources**. Accédez au compte de stockage, sous **Service BLOB** sélectionnez **Objets blob**.
 3. Dans le volet **Conteneurs**, identifiez tous les conteneurs dans lesquels le paramètre **État du bail** est défini sur **Alloué** et suivez le [scénario 2](#scenario-2-deleting-a-container---identify-all-blobs-within-container-that-are-attached-to-vms) pour chaque conteneur **alloué**.
 4. Suivez [l’étape 2](#step-2-delete-vm-to-detach-os-disk) et [l’étape 3](#step-3-detach-data-disk-from-the-vm) pour supprimer des machines virtuelles avec **OSDisk** et détacher **DataDisk**. 
 
-## <a name="step-2-delete-vm-to-detach-os-disk"></a>Étape 2 : Supprimer une machine virtuelle pour détacher le disque du système d'exploitation
+## <a name="step-2-delete-vm-to-detach-os-disk"></a>Étape 2 : Supprimer une machine virtuelle pour détacher le disque du système d'exploitation
 Si le disque dur virtuel est un disque de système d’exploitation, vous devez supprimer la machine virtuelle avant de pouvoir supprimer le disque dur virtuel joint. Aucune action supplémentaire ne sera nécessaire pour les disques de données joints à la même machine virtuelle une fois ces étapes effectuées :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Dans le menu Hub, sélectionnez **Machines virtuelles**.
 3. Sélectionnez la machine virtuelle à laquelle le disque dur virtuel est joint.
 4. Assurez-vous qu’aucun élément n’utilise activement la machine virtuelle, et que vous n’avez plus besoin de la machine virtuelle.
@@ -86,7 +86,7 @@ Si le disque dur virtuel est un disque de système d’exploitation, vous devez 
 ## <a name="step-3-detach-data-disk-from-the-vm"></a>Étape 3 : Détacher un disque de données de la machine virtuelle
 Si le disque dur virtuel est un disque de données, détachez le disque dur virtuel de la machine virtuelle pour supprimer le bail :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Dans le menu Hub, sélectionnez **Machines virtuelles**.
 3. Sélectionnez la machine virtuelle à laquelle le disque dur virtuel est joint.
 4. Sélectionnez **Disques** dans le volet **Détails de la machine virtuelle**.

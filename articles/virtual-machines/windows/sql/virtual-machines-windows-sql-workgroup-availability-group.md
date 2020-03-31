@@ -14,10 +14,10 @@ ms.workload: iaas-sql-server
 ms.date: 01/29/2020
 ms.author: mathoma
 ms.openlocfilehash: 72c04cf5e3e5fbdeac2d267dfc7b2703bd37a1c2
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77122585"
 ---
 # <a name="configure-a-workgroup-availability-group"></a>Configurer un groupe de disponibilité pour un groupe de travail 
@@ -25,7 +25,7 @@ ms.locfileid: "77122585"
 Cet article décrit les étapes nécessaires à la création d'un cluster indépendant du domaine Active Directory avec un groupe de disponibilité Always On ; c'est ce que l'on appelle également un cluster de groupe de travail. Cet article se concentre sur les étapes de préparation et de configuration du groupe de travail et du groupe de disponibilité, sans s'attarder sur les étapes décrites dans d'autres articles, comme la création du cluster ou le déploiement du groupe de disponibilité. 
 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Afin de configurer un groupe de disponibilité pour un groupe de travail, vous devez disposer de ce qui suit :
 - Au moins deux machines virtuelles Windows Server 2016 (ou version ultérieure) exécutant SQL Server 2016 (ou version ultérieure), déployées sur le même groupe à haute disponibilité, ou dans des zones de disponibilité différentes, et utilisant des adresses IP statiques 

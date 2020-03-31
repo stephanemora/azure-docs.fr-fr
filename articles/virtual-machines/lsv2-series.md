@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
 ms.openlocfilehash: 103e19d6e299956b5ee1ad45b577e25f9f2de1c4
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78164030"
 ---
 # <a name="lsv2-series"></a>Série Lsv2
@@ -31,9 +31,9 @@ Premium Storage : Prise en charge
 
 Mise en cache du Stockage Premium : Non pris en charge
 
-Migration dynamique : Non prise en charge
+Migration dynamique : Non pris en charge
 
-Mises à jour avec préservation de la mémoire : Non prises en charge
+Mises à jour avec préservation de la mémoire : Non pris en charge
 
 | Taille | Processeurs virtuels | Mémoire (Gio) | Disque temporaire<sup>1</sup> (Gio) | Disques NVMe<sup>2</sup> | Débit de disque NVMe <sup>3</sup> (IOPS de lecture/Mbits/s) | Débit maximal de disque de données sans mise en cache (IOPS / Mbits/s)<sup>4</sup> | Nombre max de disques de données | Nombre max de cartes réseau / Bande passante réseau attendue (MBps) |
 |---|---|---|---|---|---|---|---|---|

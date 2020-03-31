@@ -1,20 +1,20 @@
 ---
 title: 'Tutoriel : Créer une limite géographique et suivre des appareils sur une carte | Microsoft Azure Maps'
 description: Découvrez comment définir une limite géographique et suivre des appareils en fonction de cette limite géographique à l’aide du service spatial Microsoft Azure Maps.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 1/15/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: e0e918a2508bb65de176b030a73598e221aff676
-ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
+ms.openlocfilehash: 126829f12d71e40511c26e781cb191988c1d031e
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2020
-ms.locfileid: "77370181"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80333867"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Tutoriel : Configurer une limite géographique à l’aide d’Azure Maps
 
@@ -150,13 +150,13 @@ Une fois l’application Postman installée, suivez ces étapes pour charger la 
    }
    ```
 
-5. Cliquez sur Send (Envoyer), puis examinez l’en-tête de la réponse. Une fois que la demande a réussi, l’en-tête **Location** contient l’URI d’état. L’URI d’état a le format suivant. 
+5. Cliquez sur Send (Envoyer), puis examinez l’en-tête de la réponse. Une fois que la demande a réussi, l’en-tête **Location** contient l’URI d’état. L’URI d’état a le format suivant. La valeur uploadStatusId n’est pas entourée de { }. Il est courant de placer entre des { } les valeurs que l’utilisateur doit entrer ou les valeurs qui varient en fonction de l’utilisateur.
 
    ```HTTP
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0
    ```
 
-6. Copiez votre URI d’état et ajoutez la clé d’abonnement. Le format de l’URI d’état doit être semblable à celui ci-dessous. Notez que dans le format ci-dessous, vous devez remplacer {subscription-Key}, y compris { }, par votre clé d’abonnement.
+6. Copiez votre URI d’état et ajoutez la clé d’abonnement. Le format de l’URI d’état doit être semblable à celui ci-dessous. Notez que dans le format ci-dessous, vous devez remplacer {subscription-key}, sans inclure les { }, par votre clé d’abonnement.
 
    ```HTTP
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0&subscription-key={Subscription-key}
@@ -166,7 +166,8 @@ Une fois l’application Postman installée, suivez ces étapes pour charger la 
 
    ```JSON
    {
-    "udid" : "{udId}"
+    "status": "Succeeded",
+    "resourceLocation": "https://atlas.microsoft.com/mapData/metadata/{udId}?api-version=1.0"
    }
    ```
 

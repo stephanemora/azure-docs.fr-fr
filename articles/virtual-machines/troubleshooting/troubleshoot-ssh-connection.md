@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 05/30/2017
 ms.author: genli
-ms.openlocfilehash: 1194b2d90e5a12b1ecf3664a48055ca763f31a4f
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: f221a0bdf579dbbf42ecf64e18803decfb718456
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77919445"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80060662"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Dépannage d’une connexion SSH à une machine virtuelle Linux Azure défaillante, qui génère une erreur ou qui est refusée
 Cet article vous aide à trouver et corriger les problèmes qui se produisent en raison d’erreurs SSH (Secure Shell), d’échecs de connexion SSH ou de refus SSH quand vous essayez de vous connecter à une machine virtuelle Linux. Vous pouvez utiliser le portail Azure, l’interface de ligne de commande Azure ou l’extension d’accès aux machines virtuelles pour Linux pour dépanner et résoudre des problèmes de connexion.
@@ -59,15 +59,15 @@ Pour commencer, sélectionnez votre machine virtuelle dans le portail Azure. Fai
 
 ![Réinitialisation de la configuration SSH ou des informations d’identification dans le portail Azure](./media/troubleshoot-ssh-connection/reset-credentials-using-portal.png)
 
-### <a name="a-idreset-config-reset-the-ssh-configuration"></a><a id="reset-config" />Réinitialiser la configuration SSH
+### <a name="reset-the-ssh-configuration"></a><a id="reset-config" />Réinitialiser la configuration SSH
 Pour réinitialiser la configuration SSH, sélectionnez `Reset configuration only` dans la section **Mode** comme dans la capture d’écran précédente, puis sélectionnez **Mettre à jour**. Une fois cette opération terminée, essayez de nouveau d’accéder à votre machine Virtuelle.
 
-### <a name="a-idreset-credentials-reset-ssh-credentials-for-a-user"></a><a id="reset-credentials" />Réinitialiser les informations d’identification SSH d’un utilisateur
+### <a name="reset-ssh-credentials-for-a-user"></a><a id="reset-credentials" />Réinitialiser les informations d’identification SSH d’un utilisateur
 Pour réinitialiser les informations d’identification d’un utilisateur existant, sélectionnez `Reset SSH public key` ou `Reset password` dans la section **Mode** comme dans la capture d’écran précédente. Spécifiez le nom d’utilisateur et une clé SSH ou un nouveau mot de passe, puis sélectionnez **Mettre à jour**.
 
 Vous pouvez également créer un utilisateur avec des privilèges sudo sur la machine virtuelle à partir de ce menu. Entrez un nouveau nom d’utilisateur et le mot de passe ou la clé SSH associés, puis sélectionnez **Mettre à jour**.
 
-### <a name="a-idsecurity-rules-check-security-rules"></a><a id="security-rules" />Vérifier les règles de sécurité
+### <a name="check-security-rules"></a><a id="security-rules" />Vérifier les règles de sécurité
 
 Utilisez la [vérification des flux IP](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) pour savoir si une règle d’un groupe de sécurité réseau bloque le trafic depuis ou vers une machine virtuelle. Vous pouvez également vérifier les règles de groupe de sécurité effectives pour vous assurer que la règle « Allow » entrante du groupe de sécurité réseau existe pour le port SSH (par défaut, 22). Pour en savoir plus, voir [Utilisation de règles de sécurité effectives pour résoudre des problèmes de flux de trafic de machine virtuelle](../../virtual-network/diagnose-network-traffic-filter-problem.md).
 
@@ -80,18 +80,24 @@ La [console série de machine virtuelle Azure](./serial-console-linux.md) donne 
 
 ### <a name="check-that-ssh-is-running"></a>Vérifier que SSH est opérationnel
 Vous pouvez utiliser la commande suivante pour vérifier que SSH fonctionne sur votre machine virtuelle :
+
+```console
+ps -aux | grep ssh
 ```
-$ ps -aux | grep ssh
-```
+
 Si vous obtenez une sortie, c’est que SSH est opérationnel.
 
 ### <a name="check-which-port-ssh-is-running-on"></a>Vérifier le port sur lequel SSH s’exécute
+
 Vous pouvez utiliser la commande suivante pour vérifier sur quel port SSH s’exécute :
+
+```console
+sudo grep Port /etc/ssh/sshd_config
 ```
-$ sudo grep Port /etc/ssh/sshd_config
-```
+
 La sortie que vous obtenez se présente comme suit :
-```
+
+```output
 Port 22
 ```
 
@@ -200,7 +206,7 @@ azure vm reset-access --resource-group myResourceGroup --name myVM \
     --user-name myUsername --ssh-key-file ~/.ssh/id_rsa.pub
 ```
 
-## <a name="a-idrestart-vm-restart-a-vm"></a><a id="restart-vm" />Redémarrer une machine virtuelle
+## <a name="restart-a-vm"></a><a id="restart-vm" />Redémarrer une machine virtuelle
 Si vous avez réinitialisé la configuration SSH et les informations d’identification utilisateur, ou si une erreur a été générée lors de cette opération, vous pouvez essayer de redémarrer la machine virtuelle à l’adresse liée aux problèmes de calcul.
 
 ### <a name="azure-portal"></a>Portail Azure
@@ -221,11 +227,11 @@ az vm restart --resource-group myResourceGroup --name myVM
 
 L’exemple suivant redémarre la machine virtuelle nommée `myVM` dans le groupe de ressources nommé `myResourceGroup`. Utilisez vos propres valeurs comme suit :
 
-```azurecli
+```console
 azure vm restart --resource-group myResourceGroup --name myVM
 ```
 
-## <a name="a-idredeploy-vm-redeploy-a-vm"></a><a id="redeploy-vm" />Redéployer une machine virtuelle
+## <a name="redeploy-a-vm"></a><a id="redeploy-vm" />Redéployer une machine virtuelle
 Vous pouvez redéployer une machine virtuelle vers un autre nœud dans Azure, ce qui peut permettre de résoudre les problèmes de mise en réseau sous-jacents. Pour en savoir plus sur le redéploiement d’une machine virtuelle, consultez [Redéployer une machine virtuelle vers un nouveau nœud Azure](../windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 > [!NOTE]
@@ -249,7 +255,7 @@ az vm redeploy --resource-group myResourceGroup --name myVM
 
 L’exemple suivant redéploie la machine virtuelle nommée `myVM` dans le groupe de ressources nommé `myResourceGroup`. Utilisez vos propres valeurs comme suit :
 
-```azurecli
+```console
 azure vm redeploy --resource-group myResourceGroup --name myVM
 ```
 

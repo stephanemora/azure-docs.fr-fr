@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 31137bba8c9b6b88c6a8b9569c02ae887e73e8d0
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 0706b7d3c238c154d3694b5760266299a7d788ae
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309605"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79536868"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Implémenter Oracle Golden Gate sur une machine virtuelle Linux Azure 
 
@@ -85,6 +85,7 @@ Créez une machine virtuelle avec la commande [az vm create](/cli/azure/vm).
 L’exemple qui suit permet de créer deux machines virtuelles, nommées `myVM1` et `myVM2`. Créez les clés SSH si elles n’existent pas déjà dans un emplacement de clé par défaut. Pour utiliser un ensemble spécifique de clés, utilisez l’option `--ssh-key-value`.
 
 #### <a name="create-myvm1-primary"></a>Créez myVM1 (machine virtuelle principale) :
+
 ```azurecli
 az vm create \
      --resource-group myResourceGroup \
@@ -97,7 +98,7 @@ az vm create \
 
 Lorsque la machine virtuelle a été créée, l’interface CLI Azure affiche des informations similaires à l’exemple suivant. (Notez la valeur de `publicIpAddress`. Cette adresse est utilisée pour accéder à la machine virtuelle.)
 
-```azurecli
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -111,6 +112,7 @@ Lorsque la machine virtuelle a été créée, l’interface CLI Azure affiche de
 ```
 
 #### <a name="create-myvm2-replicate"></a>Créez myVM2 (machine virtuelle de réplication) :
+
 ```azurecli
 az vm create \
      --resource-group myResourceGroup \
@@ -139,7 +141,7 @@ az network nsg rule create --resource-group myResourceGroup\
 
 Les résultats doivent ressembler à la réponse suivante :
 
-```bash
+```output
 {
   "access": "Allow",
   "description": null,
@@ -172,7 +174,7 @@ az network nsg rule create --resource-group myResourceGroup\
 
 Utilisez la commande suivante pour créer une session SSH avec la machine virtuelle. Remplacez l’adresse IP par la valeur `publicIpAddress` de votre machine virtuelle.
 
-```bash 
+```bash
 ssh <publicIpAddress>
 ```
 
@@ -207,9 +209,10 @@ $ dbca -silent \
    -storageType FS \
    -ignorePreReqs
 ```
+
 Les résultats doivent ressembler à la réponse suivante :
 
-```bash
+```output
 Copying database files
 1% complete
 2% complete
@@ -259,6 +262,7 @@ export LD_LIBRARY_PATH=$ORACLE_HOME/lib
 ```
 
 ### <a name="start-oracle-listener"></a>Démarrer l’écouteur d’Oracle
+
 ```bash
 $ lsnrctl start
 ```
@@ -268,6 +272,7 @@ $ lsnrctl start
 ```bash
 sudo su - oracle
 ```
+
 Créez la base de données :
 
 ```bash
@@ -289,6 +294,7 @@ $ dbca -silent \
    -storageType FS \
    -ignorePreReqs
 ```
+
 Définissez les variables ORACLE_SID et ORACLE_HOME.
 
 ```bash
@@ -309,6 +315,7 @@ export LD_LIBRARY_PATH=$ORACLE_HOME/lib
 ```
 
 ### <a name="start-oracle-listener"></a>Démarrer l’écouteur d’Oracle
+
 ```bash
 $ sudo su - oracle
 $ lsnrctl start
@@ -426,11 +433,12 @@ Il s’agit d’une étape facultative. Vous pouvez l’ignorer si vous utilisez
 Pour installer Oracle Golden Gate, procédez comme suit :
 
 1. Connectez-vous en tant qu’oracle. (Vous devez pouvoir vous connecter sans avoir à saisir un mot de passe.) Vérifiez que Xming est en cours d’exécution avant de commencer l’installation.
- 
+
    ```bash
    $ cd /opt/fbo_ggs_Linux_x64_shiphome/Disk1
    $ ./runInstaller
    ```
+
 2. Sélectionnez « Oracle GoldenGate for Oracle Database 12c ». Puis sélectionnez **Suivant** pour continuer.
 
    ![Capture d’écran de la page Select Installation (Sélectionner l’installation)](./media/oracle-golden-gate/golden_gate_install_01.png)
@@ -536,6 +544,7 @@ Pour installer Oracle Golden Gate, procédez comme suit :
 
    GGSCI> EDIT PARAMS EXTORA
    ```
+
 5. Ajoutez ce qui suit au fichier de paramètres d’extraction (en utilisant les commandes vi). Appuyez sur la touche ÉCHAP, ':wq!' pour enregistrer le fichier. 
 
    ```bash
@@ -550,6 +559,7 @@ Pour installer Oracle Golden Gate, procédez comme suit :
    TABLE pdb1.test.TCUSTMER;
    TABLE pdb1.test.TCUSTORD;
    ```
+
 6. Extrait de registre--extrait intégré :
 
    ```bash
@@ -565,6 +575,7 @@ Pour installer Oracle Golden Gate, procédez comme suit :
 
    GGSCI> exit
    ```
+
 7. Configurer des points de contrôle d’extraction et démarrer l’extraction en temps réel :
 
    ```bash
@@ -587,6 +598,7 @@ Pour installer Oracle Golden Gate, procédez comme suit :
    MANAGER     RUNNING
    EXTRACT     RUNNING     EXTORA      00:00:11      00:00:04
    ```
+
    Dans cette étape, vous recherchez le SCN de départ, qui sera utilisé ultérieurement, dans une autre section :
 
    ```bash
@@ -684,6 +696,7 @@ Pour installer Oracle Golden Gate, procédez comme suit :
    $ ./ggsci
    GGSCI> EDIT PARAMS REPORA  
    ```
+
    Contenu du fichier de paramètres REPORA :
 
    ```bash
@@ -726,12 +739,14 @@ Pour installer Oracle Golden Gate, procédez comme suit :
   $ ./ggsci
   GGSCI> EDIT PARAMS MGR
   ```
+
 Mettez le fichier à jour avec le contenu suivant :
 
   ```bash
   PORT 7809
   ACCESSRULE, PROG *, IPADDR *, ALLOW
   ```
+
 Puis, redémarrez le service Manager :
 
   ```bash
@@ -750,6 +765,7 @@ $ ./ggsci
 GGSCI> START EXTRACT INITEXT
 GGSCI> VIEW REPORT INITEXT
 ```
+
 #### <a name="3-set-up-the-replication-on-myvm2-replicate"></a>3. Configurer la réplication sur myVM2 (machine virtuelle de réplication)
 
 Remplacez le numéro SCN par le numéro que vous avez obtenu précédemment :
@@ -759,12 +775,13 @@ Remplacez le numéro SCN par le numéro que vous avez obtenu précédemment :
   $ ./ggsci
   START REPLICAT REPORA, AFTERCSN 1857887
   ```
+
 La réplication a commencé et vous pouvez la tester en insérant de nouveaux enregistrements dans les tables TEST.
 
 
 ### <a name="view-job-status-and-troubleshooting"></a>Afficher l’état du travail et la résolution des problèmes
 
-#### <a name="view-reports"></a>Afficher des rapports
+#### <a name="view-reports"></a>Afficher les rapports
 Pour afficher des rapports sur myVM1, exécutez les commandes suivantes :
 
   ```bash

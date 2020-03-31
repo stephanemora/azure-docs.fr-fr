@@ -5,18 +5,18 @@ services: virtual-machines-linux
 author: MashaMSFT
 manager: craigg
 ms.date: 10/22/2019
-ms.topic: conceptual
 tags: azure-service-management
+ms.topic: conceptual
 ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 85d2396a05e7496b56bd83bd834150aa6d864c62
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 43ba4eed4dcfd6d8e86c21f1ee5214108c44a8c2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72882683"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80060232"
 ---
 # <a name="provision-a-linux-sql-server-virtual-machine-in-the-azure-portal"></a>Approvisionnement d’une machine virtuelle Linux SQL Server dans le portail Azure
 
@@ -26,7 +26,7 @@ ms.locfileid: "72882683"
 
 Dans ce guide de démarrage rapide, vous utilisez le portail Azure pour créer une machine virtuelle Linux dans laquelle est installé SQL Server 2017.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 * [Créer une machine virtuelle Linux SQL à partir de la galerie](#create)
 * [Se connecter à la nouvelle machine virtuelle avec SSH](#connect)
@@ -37,9 +37,9 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free) avant de commencer.
 
-## <a id="create"></a> Créer une machine virtuelle Linux dans laquelle est installée SQL Server
+## <a name="create-a-linux-vm-with-sql-server-installed"></a><a id="create"></a> Créer une machine virtuelle Linux dans laquelle est installée SQL Server
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 1. Dans le volet de gauche, sélectionnez **Créer une ressource**.
 
@@ -101,7 +101,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 1. Sélectionnez **Revoir + créer**.
 1. Dans le volet **Vérifier + créer**, sélectionnez **Créer**.
 
-## <a id="connect"></a> Se connecter à la machine virtuelle Linux
+## <a name="connect-to-the-linux-vm"></a><a id="connect"></a> Se connecter à la machine virtuelle Linux
 
 Si vous utilisez déjà un interpréteur de commandes BASH, connectez-vous à la machine virtuelle Azure à l’aide de la commande **SSH**. Dans la commande suivante, remplacez le nom d’utilisateur et l’adresse IP de la machine virtuelle pour vous connecter à votre machine virtuelle Linux.
 
@@ -128,7 +128,7 @@ Pour en savoir plus la connexion aux machines virtuelles Linux, consultez [Créa
 > [!Note]
 > Si vous voyez une alerte de sécurité PuTTY relative à la clé d’hôte du serveur non mise en cache dans le Registre, choisissez parmi les options suivantes. Si vous faites confiance à cet ordinateur hôte, sélectionnez **Yes** (Oui) pour ajouter la clé à la mémoire cache de PuTTy et poursuivre la connexion. Si vous souhaitez vous connecter une seule fois, sans ajouter la clé dans le cache, sélectionnez **No** (Non). Si vous ne faites pas confiance à cet ordinateur hôte, sélectionnez **Cancel** (Annuler) pour abandonner la connexion.
 
-## <a id="password"></a> Modifier le mot de passe d’administrateur
+## <a name="change-the-sa-password"></a><a id="password"></a> Changer le mot de passe AS
 
 La nouvelle machine virtuelle installe SQL Server avec un mot de passe d’administrateur aléatoire. Réinitialisez ce mot de passe pour vous connecter à SQL Server avec les informations d’administrateur.
 
@@ -153,7 +153,7 @@ La nouvelle machine virtuelle installe SQL Server avec un mot de passe d’admin
 
 Plusieurs [packages](sql-server-linux-virtual-machines-overview.md#packages) SQL Server sont installés par défaut, y compris le package d’outils de lignes de commandes SQL Server. Le package contient les outils **sqlcmd** et **bcp**. Pour des questions pratiques, vous pouvez ajouter le chemin des outils, `/opt/mssql-tools/bin/`, à la variable d’environnement **CHEMIN** (facultatif).
 
-1. Exécutez les commandes suivantes pour modifier le **CHEMIN** des sessions de connexion et des sessions interactives :
+1. Exécutez les commandes suivantes afin de modifier la variable **PATH** pour les sessions de connexion et les sessions interactives/sans connexion :
 
    ```bash
    echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bash_profile
@@ -161,7 +161,7 @@ Plusieurs [packages](sql-server-linux-virtual-machines-overview.md#packages) SQL
    source ~/.bashrc
    ```
 
-## <a id="remote"></a> Configurer des connexions à distance
+## <a name="configure-for-remote-connections"></a><a id="remote"></a> Configurer des connexions à distance
 
 Si vous avez besoin de vous connecter à distance à SQL Server sur la machine virtuelle Azure, vous devez configurer une règle entrante sur le groupe de sécurité réseau. La règle autorise le trafic sur le port qu’écoute SQL Server (port 1433 par défaut). Les étapes suivantes montrent comment utiliser le portail Azure.
 

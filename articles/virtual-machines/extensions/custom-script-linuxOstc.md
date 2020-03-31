@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: danis
-ms.openlocfilehash: b7dbabf5be8b1f223f6e39f294b9d7022b83c4f8
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: a3eae08510e57227b91deeeb7a7a608a6652cb4a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073178"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79535406"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>Utiliser l’extension de script personnalisé Azure Version 1 avec des machines virtuelles Linux
 
@@ -35,7 +35,7 @@ Il existe deux extensions de script personnalisé Linux :
 
 * Version 1 - Microsoft.OSTCExtensions.CustomScriptForLinux
 
-* Version 2 - Microsoft.Azure.Extensions.CustomScript
+* Version 2 : Microsoft.Azure.Extensions.CustomScript
 
 Basculez vers des déploiements nouveaux et existants pour utiliser la nouvelle version ([Microsoft.Azure.Extensions.CustomScript](custom-script-linux.md)) à la place. Cette nouvelle version se veut être une solution de remplacement instantané. Ainsi, pour procéder à la migration, il vous suffit de changer le nom et la version ; il est inutile de modifier la configuration de l’extension.
 
@@ -120,11 +120,11 @@ Ces éléments doivent être traités comme des données sensibles et spécifié
 
 | Nom | Valeur/Exemple | Type de données |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | date |
+| apiVersion | 2015-06-15 | Date |
 | publisher | Microsoft.OSTCExtensions | string |
 | type | CustomScriptForLinux | string |
 | typeHandlerVersion | 1.5 | int |
-| fileUris (p. ex.) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
+| fileUris (p. ex.) | https://github.com/MyProject/Archive/MyPythonScript.py | tableau |
 | commandToExecute (p. ex.) | python MyPythonScript.py \<my-param1\> | string |
 | enableInternalDNSCheck | true | boolean |
 | storageAccountName (p. ex.) | examplestorageacct | string |
@@ -182,7 +182,7 @@ Les extensions de machines virtuelles Azure peuvent être déployées avec des m
 >[!NOTE]
 >Ces noms de propriétés respectent la casse. Pour éviter des problèmes de déploiement, utilisez les noms présentés ici.
 
-## <a name="azure-cli"></a>D’Azure CLI
+## <a name="azure-cli"></a>Azure CLI
 
 Si vous utilisez Azure CLI pour exécuter l’extension de script personnalisé, créez un fichier de configuration ou des fichiers. Vous devez indiquer au moins la propriété « commandToExecute ».
 
@@ -258,7 +258,7 @@ az vm extension set
   --protected-settings ./protected-config.json
 ```
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 Lors de l’exécution de l’extension de script personnalisé, le script est créé ou téléchargé dans un répertoire semblable à l’exemple suivant. La sortie de la commande y est également enregistrée, dans les fichiers `stdout` et `stderr`.
 
@@ -274,7 +274,7 @@ Pour résoudre les problèmes, recherchez d’abord le journal de l’agent Linu
 
 Vous devez rechercher l’exécution de l’extension, qui doit se présenter ainsi :
 
-```text
+```output
 2018/04/26 15:29:44.835067 INFO [Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2] Target handler state: enabled
 2018/04/26 15:29:44.867625 INFO [Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2] [Enable] current handler state is: notinstalled
 2018/04/26 15:29:44.959605 INFO Event: name=Microsoft.OSTCExtensions.CustomScriptForLinux, op=Download, message=Download succeeded, duration=59
@@ -305,7 +305,7 @@ L’étape suivante consiste à rechercher le fichier journal, selon le format s
 
 Vous devez rechercher l’exécution individuelle, qui doit se présenter ainsi :
 
-```text
+```output
 2018/04/26 15:29:46 [Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2] Enable,transitioning,0,Launching the script...
 2018/04/26 15:29:46 [Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2] sequence number is 0
 2018/04/26 15:29:46 [Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2] setting file path is/var/lib/waagent/Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2/config/0.settings
@@ -347,7 +347,7 @@ az vm extension list -g myResourceGroup --vm-name myVM
 
 La sortie ressemble au texte suivant :
 
-```azurecli
+```output
 Name                  ProvisioningState    Publisher                   Version  AutoUpgradeMinorVersion
 --------------------  -------------------  ------------------------  ---------  -------------------------
 CustomScriptForLinux  Succeeded            Microsoft.OSTCExtensions        1.5  True

@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 01/27/2020
+ms.date: 03/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0a32ee682490c5930b8c48d069087020c4763dcb
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: e62b3c551f41bca0055f35cf6bf62c59d921c73b
+ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79127753"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80294827"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Qu’est-ce que Windows Virtual Desktop ? 
 
@@ -123,11 +123,32 @@ Pour bénéficier de performances optimales, vérifiez que votre réseau remplit
 
 Les clients Bureau à distance suivants prennent en charge Windows Virtual Desktop :
 
-* [Windows](connect-windows-7-and-10.md)
+* [Windows Desktop](connect-windows-7-and-10.md)
 * [Web](connect-web.md)
-* [Mac](connect-macos.md)
+* [macOS](connect-macos.md)
 * [iOS](connect-ios.md)
 * [Android (préversion)](connect-android.md)
+
+> [!IMPORTANT]
+> Windows Virtual Desktop ne prend pas en charge le client RADC (Connexions RemoteApp et Bureau à distance) ni le client MSTSC (Connexion Bureau à distance).
+
+> [!IMPORTANT]
+> Windows Virtual Desktop ne prend pas actuellement en charge le client Bureau à distance à partir du Microsoft Store. La prise en charge de ce client sera ajoutée dans une version ultérieure.
+
+Les clients Bureau à distance doivent avoir accès aux URL suivantes :
+
+|Adresse|Port sortant|Objectif|Client(s)|
+|---|---|---|---|
+|*.wvd.microsoft.com|Port TCP 443|Trafic de service|Tous|
+|*.servicebus.windows.net|Port TCP 443|Résolution des problèmes de données|Tous|
+|go.microsoft.com|Port TCP 443|Microsoft FWLinks|Tous|
+|aka.ms|Port TCP 443|Réducteur d’URL Microsoft|Tous|
+|docs.microsoft.com|Port TCP 443|Documentation|Tous|
+|privacy.microsoft.com|Port TCP 443|Déclaration de confidentialité|Tous|
+|query.prod.cms.rt.microsoft.com|Port TCP 443|Mises à jour de client|Windows Desktop|
+
+>[!IMPORTANT]
+>L’ouverture de ces URL est essentielle pour une expérience client fiable. Il n’est pas possible de bloquer l’accès à ces URL, car cela affecterait le fonctionnement du service. Ces URL correspondent seulement aux sites et ressources du client, et n’incluent pas les URL d’autres services comme Azure Active Directory.
 
 ## <a name="supported-virtual-machine-os-images"></a>Images de système d’exploitation de machine virtuelle prises en charge
 

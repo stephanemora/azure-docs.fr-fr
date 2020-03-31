@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 01/30/2020
 ms.custom: seodec18
 ms.openlocfilehash: c3b06289ba6ce98d4307a8255981ecdba069fdfa
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76905394"
 ---
 # <a name="add-an-event-hub-event-source-to-your-time-series-insights-environment"></a>Ajouter une source d’événement Event Hub à votre environnement Time Series Insights
@@ -25,7 +25,7 @@ Cet article explique comment utiliser le Portail Azure pour ajouter une source d
 > [!NOTE]
 > Les étapes décrites dans cet article s’appliquent à la fois aux environnements Time Series Insights - GA et Time Series Insights - Préversion.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Créez un environnement Time Series Insights comme décrit dans [Créer un environnement Azure Time Series Insights](./time-series-insights-update-create-environment.md).
 - Créez un hub d’événements. Lisez [Créer un espace de noms Event Hubs et un concentrateur d’événements avec le Portail Azure](../event-hubs/event-hubs-create.md).
@@ -78,7 +78,7 @@ Pour ajouter un groupe de consommateurs dans votre Event Hub :
 
        | Propriété | Description |
        | --- | --- |
-       | Subscription | Abonnement auquel appartiennent l’espace de noms et l’instance Event Hub souhaités. |
+       | Abonnement | Abonnement auquel appartiennent l’espace de noms et l’instance Event Hub souhaités. |
        | Espace de noms Event Hub | Espace de noms Event Hub auquel appartient l’instance Event Hub souhaitée. |
        | Nom de l’Event Hub | Nom de l’instance Event Hub souhaitée. |
        | Valeur de stratégie Event Hub | Sélectionnez la stratégie d’accès partagé souhaitée. Vous pouvez créer la stratégie d’accès partagé dans l’onglet **Configurer** de l’Event Hub. Chaque stratégie d’accès partagé a un nom, les autorisations que vous définissez ainsi que des clés d’accès. La stratégie d’accès partagé pour votre source d’événements *doit* avoir des autorisations de **lecture**. |

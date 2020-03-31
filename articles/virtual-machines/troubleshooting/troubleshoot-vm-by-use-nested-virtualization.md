@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: genli
 ms.openlocfilehash: e1acfc3216ccfaeac035f1ff31e82c7b67c17daf
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76119616"
 ---
 # <a name="troubleshoot-a-faulty-azure-vm-by-using-nested-virtualization-in-azure"></a>Dépanner une machine virtuelle Azure défaillante à l’aide d’une virtualisation imbriquée dans Azure
 
 Cet article explique comment créer un environnement de virtualisation imbriqué dans Microsoft Azure pour pouvoir ensuite monter le disque de la machine virtuelle défaillante à dépanner sur l’hôte Hyper-V (machine virtuelle de secours).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour monter la machine virtuelle défaillante, la machine virtuelle de secours doit utiliser le même type de compte de stockage (Standard ou Premium) que la machine virtuelle défaillante.
 

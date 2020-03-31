@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: rohink
 ms.openlocfilehash: 7886764a69eefa68be071a801bea65ae995fbdc3
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76938510"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>Utilisation de PowerShell pour gérer Traffic Manager
@@ -61,7 +61,7 @@ Le tableau suivant décrit les paramètres :
 
 | Paramètre | Description |
 | --- | --- |
-| Name |Nom de la ressource de profil Traffic Manager. Les profils d’un même groupe de ressources doivent avoir un nom unique. Ce nom est différent du nom DNS utilisé pour les requêtes DNS. |
+| Nom |Nom de la ressource de profil Traffic Manager. Les profils d’un même groupe de ressources doivent avoir un nom unique. Ce nom est différent du nom DNS utilisé pour les requêtes DNS. |
 | ResourceGroupName |Nom du groupe de ressources contenant la ressource de profil. |
 | TrafficRoutingMethod |Spécifie la méthode de routage du trafic utilisée pour identifier le point de terminaison qui est retourné en réponse à une requête DNS. Les valeurs possibles sont « Performance », « Weighted » ou « Priority ». |
 | RelativeDnsName |Spécifie la partie nom d’hôte du nom DNS fourni par ce profil Traffic Manager. Cette valeur est combinée au nom de domaine DNS utilisé par Azure Traffic Manager pour former le nom de domaine complet (FQDN) du profil. Par exemple, la valeur définie « contoso » devient « contoso.trafficmanager.net ». |

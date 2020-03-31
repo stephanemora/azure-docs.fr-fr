@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 02/11/2020
 ms.custom: seodec18
 ms.openlocfilehash: c3c7f59ecb3a06d80012917e2da4425a899859d7
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152514"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228013"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>Envoyer des événements à un environnement Time Series Insights à l'aide d'un hub d'événements
 

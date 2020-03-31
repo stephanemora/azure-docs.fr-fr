@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
 ms.openlocfilehash: 54ba87b681a055bb46b81ca81d2bcdd103491f27
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77921451"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>Windows affiche « CRITICAL SERVICE FAILED » sur écran bleu lors du démarrage d’une machine virtuelle Azure
@@ -30,7 +30,7 @@ Une machine virtuelle Windows ne démarre pas. Quand vous vérifiez les captures
 - « Votre PC a rencontré un problème et doit redémarrer. Vous pouvez le redémarrer. Pour plus d’informations sur ce problème et les solutions possibles, visitez https://windows.com/stopcode. Si vous appelez un agent du support technique, fournissez-lui l'information suivante : Code d'arrêt : ÉCHEC DU SERVICE CRITIQUE » 
 - « Votre PC a rencontré un problème et doit redémarrer. Nous collectons simplement quelques informations sur l’erreur, puis nous vous aiderons à redémarrer. Si vous souhaitez en savoir plus, vous pourrez ultérieurement rechercher cette erreur en ligne : CRITICAL_SERVICE_FAILED »
 
-## <a name="cause"></a>Cause :
+## <a name="cause"></a>Cause
 
 Les erreurs d’arrêt peuvent avoir plusieurs causes. Les causes les plus courantes sont :
 - Problème au niveau d’un pilote

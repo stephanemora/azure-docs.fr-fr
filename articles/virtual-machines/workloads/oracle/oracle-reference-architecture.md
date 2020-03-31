@@ -13,10 +13,10 @@ ms.date: 12/13/2019
 ms.author: rogirdh
 ms.custom: ''
 ms.openlocfilehash: 235482f5d44877e5c4e47aed4d7eaf2baea5c3fd
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75560332"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Architectures de référence pour Oracle Database Enterprise Edition sur Azure

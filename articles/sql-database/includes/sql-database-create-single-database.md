@@ -7,10 +7,10 @@ ms.date: 03/10/2020
 ms.author: mathoma
 ms.reviewer: vanto
 ms.openlocfilehash: c1ca87b6e7b8afb50522e73107707e15782a0a91
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79199635"
 ---
 Lors de cette étape, vous allez créer un serveur Azure SQL Database et une base de données unique qui utilise des exemples de données AdventureWorksLT. Vous pouvez créer la base de données à l’aide des menus et écrans du portail Azure, ou à l’aide d’un script Azure CLI ou PowerShell dans Azure Cloud Shell.

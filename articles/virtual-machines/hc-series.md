@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
 ms.openlocfilehash: cc25fb9b21d535ef07bcfae673be48216427b370
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78164778"
 ---
 # <a name="hc-series"></a>Série HC
@@ -24,9 +24,9 @@ Premium Storage : Prise en charge
 
 Mise en cache du Stockage Premium : Prise en charge
 
-Migration dynamique : Non prise en charge
+Migration dynamique : Non pris en charge
 
-Mises à jour avec préservation de la mémoire : Non prises en charge
+Mises à jour avec préservation de la mémoire : Non pris en charge
 
 | Taille | Processeurs virtuels | Processeur | Mémoire (Go) | Bande passante mémoire (Go/s) | Fréquence du processeur de base (GHz) | Fréquence de tous les cœurs (GHz, pic) | Fréquence d’un cœur (GHz, pic) | Performances RDMA (Gbit/s) | Prise en charge MPI | Stockage temporaire (Go) | Disques de données max. | Cartes réseau Ethernet max. |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
 ms.openlocfilehash: 3643fbabef08d890ce121d41a9bc1eb40c88459d
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78273926"
 ---
 # <a name="ncv2-series"></a>Série NCv2
@@ -24,9 +24,9 @@ Premium Storage :  Prise en charge
 
 Mise en cache du Stockage Premium :  Prise en charge
 
-Migration dynamique : Non prise en charge
+Migration dynamique : Non pris en charge
 
-Mises à jour avec préservation de la mémoire : Non prises en charge
+Mises à jour avec préservation de la mémoire : Non pris en charge
 
 > [!IMPORTANT]
 > Pour cette série de machines virtuelles, le quota de processeurs virtuels (cœurs) dans votre abonnement est initialement défini sur 0 dans chaque région. [Demandez une augmentation du quota de processeurs virtuels](../azure-supportability/resource-manager-core-quotas-request.md) pour cette série dans une [région disponible](https://azure.microsoft.com/regions/services/).

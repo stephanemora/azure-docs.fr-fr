@@ -15,10 +15,10 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: a6600af353daf2bfa7b49196f48ba5b60e6c45fb
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74022367"
 ---
 # <a name="use-the-azure-cli-to-configure-an-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Utiliser Azure CLI pour configurer un groupe de disponibilité Always On pour SQL Server sur une machine virtuelle Azure
@@ -38,7 +38,7 @@ Vous avez besoin des autorisations de compte suivantes pour configurer le groupe
 - Un compte d’utilisateur de domaine existant qui dispose d’une autorisation de **création d’objet ordinateur** dans le domaine. Par exemple, un compte d’administrateur de domaine dispose généralement d’une autorisation suffisante (par exemple : account@domain.com). _Ce compte doit également faire partie du groupe administrateur local sur chaque machine virtuelle pour créer le cluster._
 - Le compte d’utilisateur du domaine qui contrôle le service SQL Server. 
  
-## <a name="step-1-create-a-storage-account-as-a-cloud-witness"></a>Étape 1 : Créer un compte de stockage en tant que témoin de cloud
+## <a name="step-1-create-a-storage-account-as-a-cloud-witness"></a>Étape 1 : Créer un compte de stockage en tant que témoin de cloud
 Le cluster a besoin d’un compte de stockage configuré en tant que témoin de cloud. Vous pouvez utiliser un compte de stockage existant ou en créer un. Si vous voulez utiliser un compte de stockage existant, passez à la section suivante. 
 
 L’extrait de code suivant crée le compte de stockage : 
@@ -54,7 +54,7 @@ az storage account create -n <name> -g <resource group name> -l <region ex:eastu
 >[!TIP]
 > Vous pouvez rencontrer l’erreur `az sql: 'vm' is not in the 'az sql' command group` si vous utilisez une version obsolète d’Azure CLI. Téléchargez la [dernière version d’Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest) pour ne plus avoir cette erreur.
 
-## <a name="step-2-define-windows-failover-cluster-metadata"></a>Étape 2 : Définir les métadonnées de cluster de basculement Windows
+## <a name="step-2-define-windows-failover-cluster-metadata"></a>Étape 2 : Définir les métadonnées de cluster de basculement Windows
 Le groupe de commandes [az sql vm group](https://docs.microsoft.com/cli/azure/sql/vm/group?view=azure-cli-latest) d’Azure CLI gère les métadonnées du service Cluster de basculement Windows Server (WSFC) qui héberge le groupe de disponibilité. Les métadonnées de cluster englobent le domaine Active Directory, les comptes de cluster, les comptes de stockage à utiliser en tant que témoin de cloud et la version de SQL Server. Utilisez [az sql vm group create](https://docs.microsoft.com/cli/azure/sql/vm/group?view=azure-cli-latest#az-sql-vm-group-create) pour définir les métadonnées de WSFC de sorte qu’à la première machine virtuelle SQL Server ajoutée, le cluster soit créé comme défini. 
 
 L’extrait de code suivant définit les métadonnées du cluster :
@@ -93,7 +93,7 @@ az sql vm add-to-group -n <VM2 Name> -g <Resource Group Name> --sqlvm-group <clu
 ```
 Utilisez cette commande pour ajouter d’autres machines virtuelles SQL Server au cluster. Modifiez uniquement le paramètre `-n` pour le nom de machine virtuelle SQL Server. 
 
-## <a name="step-4-create-the-availability-group"></a>Étape 4 : Création du groupe de disponibilité
+## <a name="step-4-create-the-availability-group"></a>Étape 4 : Créez le groupe de disponibilité
 Créez manuellement le groupe de disponibilité comme vous le feriez normalement, en utilisant [SQL Server Management Studio](/sql/database-engine/availability-groups/windows/use-the-availability-group-wizard-sql-server-management-studio), [PowerShell](/sql/database-engine/availability-groups/windows/create-an-availability-group-sql-server-powershell) ou [Transact-SQL](/sql/database-engine/availability-groups/windows/create-an-availability-group-transact-sql). 
 
 >[!IMPORTANT]

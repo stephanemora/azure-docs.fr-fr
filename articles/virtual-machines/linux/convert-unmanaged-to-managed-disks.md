@@ -8,10 +8,10 @@ ms.date: 12/15/2017
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: 2774dcbd5fc5b01627b965c2c02d870412c8bf77
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78969690"
 ---
 # <a name="convert-a-linux-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Convertir les disques non managés d’une machine virtuelle Linux en disques managés

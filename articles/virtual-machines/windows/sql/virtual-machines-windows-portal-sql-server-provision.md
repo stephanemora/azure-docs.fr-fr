@@ -16,11 +16,11 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 1fdf776570b6f10a363fb98dfe343387d86219d6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75350908"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79226641"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Guide pratique pour provisionner une machine virtuelle Windows SQL Server dans le portail Azure
 
@@ -33,7 +33,7 @@ Utilisez ce guide pour créer votre propre machine virtuelle SQL Server. Ou bien
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a id="select"></a> Images de la galerie des machines virtuelles SQL Server
+## <a name="sql-server-virtual-machine-gallery-images"></a><a id="select"></a> Images de la galerie des machines virtuelles SQL Server
 
 Lorsque vous créez une machine virtuelle SQL Server, vous pouvez sélectionner une des images préconfigurées à partir de la galerie des machines virtuelles. Les étapes suivantes montrent comment sélectionner une des images SQL Server 2017.
 
@@ -64,7 +64,7 @@ Sous l’onglet **De base**, fournissez les informations suivantes :
 * Sous **Détails du projet**, vérifiez que l’abonnement approprié est sélectionné. 
 *  Dans la section **Groupe de ressources**, sélectionnez un groupe de ressources existant dans la liste déroulante ou choisissez **Créer** pour en créer un. Un groupe de ressources est une collection de ressources liées dans Azure (machines virtuelles, comptes de stockage, réseaux virtuels, etc.). 
 
-    ![Subscription](media/quickstart-sql-vm-create-portal/basics-project-details.png)
+    ![Abonnement](media/quickstart-sql-vm-create-portal/basics-project-details.png)
 
   > [!NOTE]
   > L’utilisation d’un nouveau groupe de ressources est utile si vous testez ou découvrez les déploiements SQL Server dans Azure. Une fois que vous avez terminé votre test, supprimez le groupe de ressources pour supprimer automatiquement la machine virtuelle et toutes les ressources associées à ce groupe de ressources. Pour plus d’informations sur les groupes de ressources, consultez [Vue d’ensemble d’Azure Resource Manager](../../../azure-resource-manager/management/overview.md).
@@ -163,7 +163,7 @@ En règle générale, améliorez la sécurité en choisissant la connectivité a
 
 
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Authentification
 
 Si vous exigez l’authentification SQL Server, cliquez sur **Activer** sous **Authentification SQL**, sous l’onglet **Paramètres SQL Server**.
 
@@ -256,7 +256,7 @@ Vous pouvez surveiller le déploiement à partir du portail Azure. Le bouton **N
 > [!NOTE]
 > Afin de vous donner une idée des temps de déploiement, nous avons déployé une machine virtuelle SQL dans les USA Est avec les paramètres par défaut. Ce déploiement de test a duré 12 minutes au total. Mais cette durée peut varier en fonction de votre région et des paramètres sélectionnés.
 
-## <a id="remotedesktop"></a> Ouvrir la machine virtuelle à l’aide du Bureau à distance
+## <a name="open-the-vm-with-remote-desktop"></a><a id="remotedesktop"></a> Ouvrir la machine virtuelle à l’aide du Bureau à distance
 
 Pour vous connecter à la machine virtuelle SQL Server à l’aide du Bureau à distance, procédez comme suit.
 
@@ -266,7 +266,7 @@ Une fois que vous vous connectez à la machine virtuelle SQL Server, vous pouvez
 
 L’accès à la machine permet de modifier directement les paramètres SQL Server et ceux de la machine en fonction de vos besoins. Par exemple, vous pourriez configurer les paramètres du pare-feu ou modifier les paramètres de configuration SQL Server.
 
-## <a id="connect"></a> Se connecter à SQL Server à distance
+## <a name="connect-to-sql-server-remotely"></a><a id="connect"></a> Se connecter à SQL Server à distance
 
 Dans cette procédure pas à pas, vous avez sélectionné l’accès **Public** pour la machine virtuelle et **l’authentification SQL Server**. Ces paramètres ont configuré automatiquement la machine virtuelle pour autoriser les connexions SQL Server à partir de n’importe quel client sur internet (en supposant qu’il dispose de la connexion SQL qui convient).
 

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
 ms.openlocfilehash: 808b14f118e842cb9e52d110075f92ba25a343c9
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78164421"
 ---
 # <a name="dv2-and-dsv2-series"></a>Séries Dv2 et DSv2
@@ -30,7 +30,7 @@ Mise en cache du Stockage Premium :  Non pris en charge
 
 Migration dynamique : Prise en charge
 
-Mises à jour avec préservation de la mémoire : Prises en charge
+Mises à jour avec préservation de la mémoire : Prise en charge
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Débit de stockage temporaire max. : IOPS/Mbits/s en lecture/Mbits/s en écriture | Disques de données max. | Débit : E/S par seconde | Nombre de cartes réseau/bande passante réseau attendue (Mbits/s) max. |
 |---|---|---|---|---|---|---|---|
@@ -52,7 +52,7 @@ Mise en cache du Stockage Premium :  Prise en charge
 
 Migration dynamique : Prise en charge
 
-Mises à jour avec préservation de la mémoire : Prises en charge
+Mises à jour avec préservation de la mémoire : Prise en charge
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS/Mbits/s (taille du cache en Gio) | Débit du disque non mis en cache max. : IOPS/Mbits/s | Nombre de cartes réseau/bande passante réseau attendue (Mbits/s) max. |
 |---|---|---|---|---|---|---|---|

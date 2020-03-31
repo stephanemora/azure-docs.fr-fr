@@ -14,10 +14,10 @@ ms.date: 10/21/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 015aa4c209a99921a930a51b15c3d0230722519a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75353884"
 ---
 # <a name="bulk-register-sql-virtual-machines-in-azure-with-the-sql-vm-resource-provider"></a>Inscrire en bloc des machines virtuelles SQL dans Azure avec le fournisseur de ressources de machines virtuelles SQL
@@ -30,7 +30,7 @@ Le processus d’inscription ne présente aucun risque, n’a pas de temps d’a
 
 Pour plus d’informations sur le fournisseur de ressources, consultez [Fournisseur de ressources de machine virtuelle SQL](virtual-machines-windows-sql-register-with-resource-provider.md). 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour inscrire votre machine virtuelle SQL Server auprès du fournisseur de ressources, voici ce dont vous avez besoin : 
 

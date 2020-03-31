@@ -1,24 +1,18 @@
 ---
 title: Support Azure pour les machines virtuelles de 2e génération
 description: Vue d’ensemble de la prise en charge Azure pour les machines virtuelles de 2e génération
-services: virtual-machines-linux
-documentationcenter: ''
 author: ju-shim
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 02/11/2020
 ms.author: jushiman
-ms.openlocfilehash: 70b13b16e6aca6b0bdb0858a32a219defef6cca3
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: b68179caed4df5efd3696d7d6a3739a1e07a3c80
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77162036"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79232029"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Support des machines virtuelles de 2e génération dans Azure
 
@@ -33,18 +27,18 @@ Les machines virtuelles de 2e génération utilisent la nouvelle architecture de
 Les machines virtuelles de 1ère génération sont prises en charge dans toutes les tailles de machines virtuelles dans Azure (sauf les machines virtuelles de série Mv2). Azure prend désormais en charge la 2e génération de machines virtuelles des séries sélectionnées suivantes :
 
 * [Série B](https://docs.microsoft.com/azure/virtual-machines/linux/b-series-burstable)
-* [Série DC](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general#dc-series)
-* Séries [Dsv2](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general#dsv2-series) et [Dsv3](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general#dsv3-series-1)
-* [Série Esv3](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory#esv3-series)
-* [Série Fsv2](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-compute#fsv2-series-1)
+* [Série DC](../dcv2-series.md)
+* [Séries DSv2](../dv2-dsv2-series.md) et [Dsv3](../dv3-dsv3-series.md)
+* [Série Esv3](../ev3-esv3-series.md)
+* [Série Fsv2](../fsv2-series.md)
 * [Série GS](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-previous-gen#gs-series)
-* [Série HB](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc#hb-series)
-* [Série HC](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc#hc-series)
-* Séries [Ls](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-previous-gen#ls-series) et [Lsv2](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-storage#lsv2-series)
-* [Série Mv2](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory#mv2-series)
-* [Série NCv2](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#ncv2-series) et [série NCv3](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#ncv3-series)
-* [Série ND](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#nd-series)
-* [Série NVv3](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#nvv3-series--1)
+* [Série HB](../hb-series.md)
+* [Série HC](../hc-series.md)
+* Séries [Ls](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-previous-gen#ls-series) et [Lsv2](../lsv2-series.md)
+* [Série Mv2](../mv2-series.md)
+* [Série NCv2](../ncv2-series.md) et [série NCv3](../ncv3-series.md)
+* [Série ND](../nd-series.md)
+* [Série NVv3](../nvv3-series.md)
 
 > [!NOTE]
 > L’utilisation d’images de machine virtuelle de 2e génération pour les machines virtuelles de la série MV2 est généralement disponible, car la série MV2 fonctionne exclusivement avec les images de machine virtuelle de 2e génération. Les images de machine virtuelle de génération 1 ne sont pas prises en charge sur les machines virtuelles de série MV2. 
@@ -58,8 +52,9 @@ Les machines virtuelles de 2e génération prennent en charge les images de la P
 * SUSE Linux Enterprise Server 15 SP1
 * SUSE Linux Enterprise Server 12 SP4
 * Ubuntu Server 16.04, 18.04, 19.04, 19.10 
-* RHEL 8.0, 7.6, 7.5, 7.4, 7.0
-* Cent OS 8.0
+* RHEL 8.1, 8.0, 7.7, 7.6, 7.5, 7.4, 7.0
+* Cent OS 8.0, 7.7, 7.6, 7.5, 7.4
+* Oracle Linux 7.7, 7.7-CI
 
 ## <a name="on-premises-vs-azure-generation-2-vms"></a>Local Machines virtuelles de 2e génération Azure
 
@@ -103,17 +98,17 @@ Dans le portail Azure ou Azure CLI, vous pouvez créer des machines virtuelles d
 
 #### <a name="azure-portal"></a>Portail Azure
 
-Vous trouverez ci-dessous les étapes de création d’une machine virtuelle de génération 2 (Gen2) dans le Portail Azure.
+Vous trouverez ci-dessous les étapes de création d’une machine virtuelle de génération 2 (Gen2) dans le portail Azure.
 
 1. Connectez-vous au portail Azure sur https://portal.azure.com.
 1. Sélectionnez **Créer une ressource**.
-1. Cliquez sur **Afficher tous** à partir de Place de marché Azure sur la gauche.
+1. Cliquez sur **Afficher tout** à partir de la Place de Marché Azure sur la gauche.
 1. Sélectionnez une image qui prend en charge Gen2.
 1. Cliquez sur **Créer**.
-1. Sous l’onglet **Avancé**, sous la section **Génération de la machine virtuelle**, sélectionnez l’option **Gen 2**.
+1. Dans l’onglet **Avancé**, sous la section **Génération de machine virtuelle**, sélectionnez l’option **Gen 2**.
 1. Dans l’onglet **De base**, sous **Détails de l’instance**, accédez à **Taille** et ouvrez le panneau **Sélectionner une taille de machine virtuelle**.
 1. Sélectionnez une [machine virtuelle de génération 2 prise en charge](#generation-2-vm-sizes).
-1. Pour terminer la création de la machine virtuelle, parcourez le [flux de création du Portail Azure](quick-create-portal.md).
+1. Pour terminer la création de la machine virtuelle, parcourez le [flux de création du portail Azure](quick-create-portal.md).
 
 ![Sélectionner une machine virtuelle de génération 1 ou de génération 2](./media/generation-2/gen1-gen2-select.png)
 
@@ -198,11 +193,11 @@ Vous pouvez également créer des machines virtuelles de 2e génération à l’
 * **Puis-je migrer une machine virtuelle à partir de la 1ère génération à la 2e génération ?**  
     Non, vous ne pouvez pas modifier la génération d’une machine virtuelle après sa création. Si vous avez besoin de passer d’une génération à une autre, créez une machine virtuelle de la génération souhaitée.
 
-* **Pourquoi la taille de la machine virtuelle n’est-elle pas activée dans le sélecteur de taille lorsque j’essaie de créer une machine virtuelle Gen2 ?**
+* **Pourquoi la taille de la machine virtuelle n’est-elle pas activée dans le sélecteur de taille quand j’essaie de créer une machine virtuelle Gen2 ?**
 
-    Cela peut être résolu en procédant comme suit :
+    Vous pouvez résoudre ce problème en effectuant les étapes suivantes :
 
-    1. Vérifiez que la propriété **Génération de la machine virtuelle** est définie sur **Gen 2** dans l’onglet **Avancé**.
+    1. Vérifiez que la propriété **Génération de machine virtuelle** est définie sur **Gen 2** dans l’onglet **Avancé**.
     1. Vérifiez que vous recherchez une [taille de machine virtuelle qui prend en charge les machines virtuelles Gen2](#generation-2-vm-sizes).
 
 ## <a name="next-steps"></a>Étapes suivantes

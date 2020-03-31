@@ -9,10 +9,10 @@ ms.workload: infrastructure-services
 ms.date: 02/28/2020
 ms.author: banders
 ms.openlocfilehash: 57123abfe7f343a75d264d43afb88f9de1409e8a
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/01/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78207679"
 ---
 # <a name="save-costs-with-a-reserved-instance-of-azure-dedicated-hosts"></a>Économiser sur les coûts grâce à une instance réservée d’hôtes Azure Dedicated Host

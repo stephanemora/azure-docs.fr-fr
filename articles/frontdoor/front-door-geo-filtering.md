@@ -1,6 +1,6 @@
 ---
-title: Filtrage géographique sur un domaine Azure Front Door Service | Microsoft Docs
-description: Dans cet article, vous en apprendrez plus sur la stratégie de filtrage géographique Azure Front Door Service
+title: Géofiltrage sur un domaine Azure Front Door | Microsoft Docs
+description: Dans cet article, vous en apprendrez plus sur la stratégie de géofiltrage Azure Front Door
 services: frontdoor
 documentationcenter: ''
 author: KumudD
@@ -9,20 +9,20 @@ ms.service: frontdoor
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: article
 ms.date: 03/21/2019
 ms.author: kumud
 ms.reviewer: tyao
-ms.openlocfilehash: 7ad2d181b6343644205c58ab1d5fe83dc25542d4
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 2cdde705d0e9f0905d4c33648b5415758d838b06
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67846422"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411183"
 ---
 # <a name="what-is-geo-filtering-on-a-domain-for-azure-front-door"></a>Présentation du filtrage géographique sur un domaine Azure Front Door
 
-Par défaut, Azure Front Door Service répond aux demandes de l’utilisateur, quel que soit son emplacement. Toutefois, dans certains cas, vous devrez peut-être limiter l’accès à vos applications web en fonction du pays/de la région. Le service de pare-feu d’applications web (WAF) au niveau de Front Door vous permet de définir une stratégie à l’aide de règles d’accès personnalisées pour un chemin d’accès spécifique à votre point de terminaison. Cette stratégie autorisera ou bloquera l’accès à partir de pays/régions spécifiés. 
+Par défaut, Azure Front Door répond aux demandes de l’utilisateur, quel que soit son emplacement. Toutefois, dans certains cas, vous devrez peut-être limiter l’accès à vos applications web en fonction du pays/de la région. Le service de pare-feu d’applications web (WAF) au niveau de Front Door vous permet de définir une stratégie à l’aide de règles d’accès personnalisées pour un chemin d’accès spécifique à votre point de terminaison. Cette stratégie autorisera ou bloquera l’accès à partir de pays/régions spécifiés. 
 
 Une stratégie WAF est généralement constituée d’un ensemble de règles personnalisées. Une règle se compose de conditions de correspondance, d’une action et d’une priorité. Dans les conditions de correspondance, vous pourrez définir une variable de correspondance, un opérateur et une valeur de correspondance.  En ce qui concerne la règle de filtrage géographique, la variable de correspondance est REMOTE_ADDR, l’opérateur est GeoMatch, la valeur correspond à l’indicatif à deux lettres du pays d’intérêt. Vous pouvez combiner une condition GeoMatch et une condition de correspondance de chaîne REQUEST_URI pour créer une règle de filtrage géographique basé sur le chemin d’accès.
 
@@ -35,7 +35,7 @@ Vous pouvez configurer une stratégie de filtrage géographique pour votre porte
 | AD | Andorre |
 | AE | Émirats Arabes Unis|
 | AF | Afghanistan|
-| AG | Antigua-et-Barbuda|
+| Groupe de disponibilité | Antigua-et-Barbuda|
 | AL | Albanie|
 | AM | Arménie|
 | AO | Angola|
@@ -89,7 +89,7 @@ Vous pouvez configurer une stratégie de filtrage géographique pour votre porte
 | FJ | Fidji|
 | FM | Micronésie, États fédérés de|
 | FR | France|
-| GB | Royaume-Uni|
+| Go | Royaume-Uni|
 | GE | Géorgie|
 | GF | Guyane française|
 | GH | Ghana|
@@ -154,8 +154,8 @@ Vous pouvez configurer une stratégie de filtrage géographique pour votre porte
 | NE | Niger|
 | NG | Nigeria|
 | NI | Nicaragua|
-| NL | Pays-bas|
-| NON | Norvège|
+| NL | Pays-Bas|
+| Non | Norvège|
 | NP | Népal|
 | NR | Nauru|
 | NZ | Nouvelle-Zélande|
@@ -174,7 +174,7 @@ Vous pouvez configurer une stratégie de filtrage géographique pour votre porte
 | RO | Roumanie|
 | RS | Serbie|
 | RU | Fédération de Russie|
-| RW | Rwanda|
+| L/E | Rwanda|
 | SA | Arabie Saoudite|
 | SD | Soudan|
 | SE | Suède|
@@ -198,7 +198,7 @@ Vous pouvez configurer une stratégie de filtrage géographique pour votre porte
 | TZ | Tanzanie, République de|
 | UA | Ukraine|
 | UG | Ouganda|
-| FR | États-Unis|
+| US | États-Unis|
 | UY | Uruguay|
 | UZ | Ouzbékistan|
 | VC | Saint-Vincent-et-les-Grenadines|
