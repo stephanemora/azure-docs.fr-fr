@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: b-juche
 ms.openlocfilehash: 62e67d4965444df0e731b4387808ed3b89e4673a
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72597208"
 ---
 # <a name="troubleshoot-azure-netapp-files-resource-provider-errors"></a>Corriger les erreurs du fournisseur de ressources Azure NetApp Files 
@@ -84,7 +84,7 @@ Cette erreur se produit quand vous essayez de modifier le nom de domaine dans Ac
 * Cause :   
 Vous essayez de mettre à jour la propriété de nom de domaine.
 * Solution :    
-Aucune. Vous ne pouvez pas modifier le nom de domaine.
+Aucun. Vous ne pouvez pas modifier le nom de domaine.
 * Solution de contournement :   
 Supprimez tous les volumes à l’aide de la configuration Active Directory. Ensuite, supprimez la configuration Active Directory et recréez les volumes.
 
@@ -108,7 +108,7 @@ Cette erreur est une exception non gérée dont la cause n’est pas connue.
 * Solution :   
 Contactez le centre d’aide et de support Azure pour signaler la raison détaillée mentionnée dans les journaux.
 * Solution de contournement :   
-Aucune.
+Aucun.
 
 ***Le nom du chemin du fichier peut contenir seulement des lettres, des chiffres et des traits d’union (« - »).***
 
@@ -250,7 +250,7 @@ L’API sous-jacente ne répond pas, ce qui se traduit par une erreur interne. C
 * Solution :   
 Ce problème est généralement temporaire. La requête devrait réussir après un certain temps.
 * Solution de contournement :   
-Aucune. L’API sous-jacente est essentielle pour la gestion des volumes.
+Aucun. L’API sous-jacente est essentielle pour la gestion des volumes.
 
 ***Aucun ID de résultat d’opération trouvé pour « {0} ».***
 
@@ -294,7 +294,7 @@ Vous essayez de créer (et non de mettre à jour) un répertoire Active Director
 * Solution :   
 Si la configuration Active Directory n’est pas utilisée, vous pouvez d’abord supprimer la configuration existante, puis réessayer l’opération de création.
 * Solution de contournement :   
-Aucune. Un seul répertoire Active Directory est autorisé.
+Aucun. Un seul répertoire Active Directory est autorisé.
 
 ***Opération « {operation} » non prise en charge.***
 
@@ -331,7 +331,7 @@ Cette erreur se produit lorsque vous essayez de modifier la cible de montage ou 
 La cible de montage est définie lors de sa création. Vous ne pouvez pas la modifier par la suite.
 Les instantanés ne contiennent pas de propriétés modifiables.
 * Solution :   
-Aucune. Ces ressources n’ont pas de propriétés modifiables.
+Aucun. Ces ressources n’ont pas de propriétés modifiables.
 
 ***Taille du pool trop petite pour la taille totale du volume.***
 
@@ -380,7 +380,7 @@ Cette erreur se produit quand vous essayez de mettre à jour ou de corriger `Pro
 * Cause :   
 La propriété `ProtocolType` est définie lors de la création du volume.  Vous ne pouvez pas la mettre à jour.
 * Solution :   
-Aucune.
+Aucun.
 * Solution de contournement :   
 Créez un autre volume avec de nouveaux types de protocole.
 
@@ -435,7 +435,7 @@ La longueur du nom du serveur SMB dépasse 10 caractères.
 * Solution :   
 Utilisez un nom de serveur plus court. La longueur maximale est de 10 caractères.
 * Solution de contournement :   
-Aucune.  Consultez la solution ci-dessus. 
+Aucun.  Consultez la solution ci-dessus. 
 
 ***Impossible de modifier SubnetId***
 
@@ -457,7 +457,7 @@ Cette erreur se produit quand vous essayez de créer un nouveau volume, mais que
 * Solution :   
 Vérifiez la valeur de `subnetId` pour vous assurer qu’elle contient un `resourceId` pour le sous-réseau utilisé.
 * Solution de contournement :   
-Aucune. Consultez la solution ci-dessus. 
+Aucun. Consultez la solution ci-dessus. 
 
 ***Le sous-réseau doit avoir une délégation « Microsoft.NetApp/volumes ».***
 
@@ -490,7 +490,7 @@ L’API sous-jacente envoie une erreur inconnue. Cette erreur est généralement
 * Solution :   
 Ce problème est généralement temporaire. La requête devrait réussir après un certain temps. Si le problème persiste, créez un ticket de support technique pour étudier le problème.
 * Solution de contournement :   
-Aucune. L’API sous-jacente est essentielle pour la gestion des volumes.
+Aucun. L’API sous-jacente est essentielle pour la gestion des volumes.
 
 ***La valeur reçue « {propertyName} » correspond à une propriété inconnue.***
 
@@ -510,7 +510,7 @@ Seuls les volumes peuvent être mis à jour. Cette erreur se produit lorsque vou
 * Cause :   
 La ressource que vous voulez mettre à jour ne prend pas en charge l’opération de mise à jour. Seules les propriétés des volumes peuvent être modifiées.
 * Solution :   
-Aucune. La ressource que vous essayez de mettre à jour ne prend pas en charge l’opération de mise à jour. Il n’est donc pas possible de la modifier.
+Aucun. La ressource que vous essayez de mettre à jour ne prend pas en charge l’opération de mise à jour. Il n’est donc pas possible de la modifier.
 * Solution de contournement :   
 Pour un volume : créez une ressource avec la mise à jour en place, puis migrez les données.
 
@@ -567,7 +567,7 @@ Le volume n’existe pas ou la création a échoué.
 * Solution :   
 Vérifiez que vous modifiez le volume approprié et que la création du volume a réussi. Ou vérifiez que le volume pour lequel vous créez un instantané existe.
 * Solution de contournement :   
-Aucune.  Consultez la solution ci-dessus. 
+Aucun.  Consultez la solution ci-dessus. 
 
 ***Le jeton de création spécifié existe déjà***
 

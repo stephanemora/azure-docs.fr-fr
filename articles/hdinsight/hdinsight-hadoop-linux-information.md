@@ -9,17 +9,17 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.openlocfilehash: 3d9dec0065bb62821fcedcbc4f6e5b578c061caf
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934557"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79233617"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informations sur l’utilisation de HDInsight sous Linux
 
 Les clusters Azure HDInsight fournissent Apache Hadoop dans un environnement Linux familier, exécuté dans le cloud Azure. En principe, il fonctionne comme tout autre Hadoop sur une installation Linux. Ce document présente des différences spécifiques que vous devriez connaître.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 La plupart des étapes décrites dans ce document utilisent les utilitaires ci-après, que vous pouvez avoir besoin d’installer sur votre système.
 
@@ -111,7 +111,7 @@ Quand vous utilisez Stockage Azure ou Data Lake Storage, vous n’avez aucune op
 
 Dans HDInsight, les ressources de stockage de données (Stockage Blob Azure et Azure Data Lake Storage) sont dissociées des ressources de calcul. Par conséquent, vous pouvez créer des clusters HDInsight pour effectuer les calculs dont vous avez besoin et, par la suite, supprimer le cluster lorsque le travail est terminé, tout en conservant vos fichiers de données en toute sécurité dans le stockage cloud aussi longtemps que nécessaire.
 
-### <a name="URI-and-scheme"></a>URI et schéma
+### <a name="uri-and-scheme"></a><a name="URI-and-scheme"></a>URI et schéma
 
 Certaines commandes peuvent vous imposer de spécifier le schéma dans l’URI lorsque vous accédez à un fichier. Par exemple, le composant Storm-HDFS requiert la spécification du schéma. Lorsque vous n’utilisez pas le stockage par défaut (stockage ajouté en tant que stockage « supplémentaire » au cluster), vous devez toujours indiquer le schéma dans l’URI.
 
@@ -208,7 +208,7 @@ Si vous utilisez __Azure Data Lake Storage__, consultez les liens suivants pour 
 * [Java](../data-lake-store/data-lake-store-get-started-java-sdk.md)
 * [Python](../data-lake-store/data-lake-store-get-started-python.md)
 
-## <a name="scaling"></a>Mise à l’échelle de votre cluster
+## <a name="scaling-your-cluster"></a><a name="scaling"></a>Mise à l’échelle de votre cluster
 
 La fonctionnalité de mise à l’échelle d’un cluster vous permet de modifier de manière dynamique le nombre de nœuds de données utilisés par un cluster. Vous pouvez effectuer des opérations de mise à l’échelle pendant que d’autres travaux ou processus s’exécutent sur un cluster.  Consultez également [Mettre à l’échelle les clusters HDInsight](./hdinsight-scaling-best-practices.md)
 

@@ -1,6 +1,6 @@
 ---
-title: Azure VMware Solutions (AVS) – Gérer les machines virtuelles du cloud privé AVS dans Azure
-description: Décrit comment gérer les machines virtuelles du cloud privé AVS dans le portail Azure, y compris l’ajout de disques, la modification de la capacité des machines virtuelles et l’ajout d’interfaces réseau
+title: Azure VMware Solution by CloudSimple - Gérer les machines virtuelles du cloud privé dans Azure
+description: Décrit comment gérer les machines virtuelles du cloud privé CloudSimple dans le portail Azure, y compris l’ajout de disques, la modification de la capacité des machines virtuelles et l’ajout d’interfaces réseau
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/16/2019
@@ -8,16 +8,16 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 0cce1dc7ff3935a3174d4e96b553a5485950df73
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 44a0b8fe56477620c0ac47d5c5de8830dac46214
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77014995"
 ---
-# <a name="manage-your-avs-private-cloud-virtual-machines-in-azure"></a>Gérer vos machines virtuelles de cloud privé AVS dans Azure
+# <a name="manage-your-cloudsimple-private-cloud-virtual-machines-in-azure"></a>Gérer vos machines virtuelles de cloud privé CloudSimple dans Azure
 
-Pour gérer les machines virtuelles que vous avez [créées pour votre cloud privé AVS](azure-create-vm.md), connectez-vous au [portail Azure](https://portal.azure.com). Recherchez et sélectionnez la machine virtuelle (recherchez sous **Tous les services** ou **Machines virtuelles** dans le menu latéral).
+Pour gérer les machines virtuelles que vous avez [créées pour votre cloud privé CloudSimple](azure-create-vm.md), connectez-vous au [portail Azure](https://portal.azure.com). Recherchez et sélectionnez la machine virtuelle (recherchez sous **Tous les services** ou **Machines virtuelles** dans le menu latéral).
 
 ## <a name="control-virtual-machine-operation"></a>Contrôler le fonctionnement de la machine virtuelle
 
@@ -53,10 +53,10 @@ Pour ajouter un disque de machine virtuelle, ouvrez la page **Disques** de la ma
 
    | Élément | Description |
    | ------------ | ------------- |
-   | Name | Entrez un nom pour identifier le disque.  |
-   | Size | Sélectionnez une des tailles disponibles.  |
+   | Nom | Entrez un nom pour identifier le disque.  |
+   | Taille | Sélectionnez une des tailles disponibles.  |
    | Contrôleur SCSI | Sélectionnez un contrôleur SCSI. Les contrôleurs disponibles varient en fonction des systèmes d’exploitation pris en charge.  |
-   | Mode | Détermine comment le disque participe aux captures instantanées. Choisissez une de ces options : <br> - Indépendant persistant : Toutes les données écrites sur le disque sont écrites de façon permanente.<br> - Indépendant non persistant : Les modifications écrites sur le disque sont abandonnées lors de la mise hors tension ou de la réinitialisation de la machine virtuelle. Ce mode vous permet de toujours redémarrer la machine virtuelle dans le même état. Pour plus d’informations, consultez la [documentation de VMware](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html). |
+   | Mode | Détermine comment le disque participe aux captures instantanées. Choisissez une de ces options : <br> - Indépendant persistant : Toutes les données écrites sur le disque sont écrites de façon permanente.<br> - Indépendant non persistant : Les modifications écrites sur le disque sont abandonnées lors de la mise hors tension ou de la réinitialisation de la machine virtuelle.  Ce mode vous permet de toujours redémarrer la machine virtuelle dans le même état. Pour plus d’informations, consultez la [documentation de VMware](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html). |
 
 Pour supprimer un disque, sélectionnez-le, puis cliquez sur **Supprimer**.
 
@@ -76,8 +76,8 @@ Pour ajouter une interface, cliquez sur **Ajouter une interface réseau**. Confi
 
    | Control | Description |
    | ------------ | ------------- |
-   | Name | Entrez un nom pour identifier l’interface.  |
-   | Réseau | Effectuez une sélection dans la liste des réseaux de votre vSphere de cloud privé AVS.  |
+   | Nom | Entrez un nom pour identifier l’interface.  |
+   | Réseau | Sélectionnez dans la liste des réseaux dans votre cloud privé vSphere.  |
    | Adaptateur | Sélectionnez un adaptateur vSphere dans la liste des types disponibles configurés pour la machine virtuelle. Pour plus d’informations, consultez l’article de la base de connaissances VMware [Choosing a network adapter for your virtual machine](https://kb.vmware.com/s/article/1001805). |
    | Mettre sous tension au démarrage | Choisissez s’il faut activer la carte réseau quand la machine virtuelle est démarrée. La valeur par défaut est **Activer**. |
 

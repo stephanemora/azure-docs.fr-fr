@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/24/2020
 ms.author: cherylmc
 ms.openlocfilehash: 381f45a51002188c72174cff83c26b829912a0b9
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77596825"
 ---
 # <a name="connect-using-ssh-to-a-linux-virtual-machine-using-azure-bastion"></a>Connexion SSH à une machine virtuelle Linux à l'aide d'Azure Bastion
@@ -45,7 +45,7 @@ Pour vous connecter à la machine virtuelle Linux par le biais du protocole SSH,
 
 * Port d’entrée : SSH (22)
 
-## <a name="username"></a>Connexion : Utilisation du nom d’utilisateur et du mot de passe
+## <a name="connect-using-username-and-password"></a><a name="username"></a>Connexion : Utilisation du nom d’utilisateur et du mot de passe
 
 1. Ouvrez le [portail Azure](https://portal.azure.com). Accédez à la machine virtuelle à laquelle vous souhaitez vous connecter, puis cliquez sur **Se connecter** et sélectionnez **Bastion** dans la liste déroulante.
 
@@ -56,7 +56,7 @@ Pour vous connecter à la machine virtuelle Linux par le biais du protocole SSH,
 1. Entrez le nom d’utilisateur et le mot de passe pour le protocole SSH vers votre machine virtuelle.
 1. Cliquez sur le bouton **Se connecter** après avoir entré la clé.
 
-## <a name="privatekey"></a>Connexion : Entrez manuellement une clé privée
+## <a name="connect-manually-enter-a-private-key"></a><a name="privatekey"></a>Connexion : Entrez manuellement une clé privée
 
 1. Ouvrez le [portail Azure](https://portal.azure.com). Accédez à la machine virtuelle à laquelle vous souhaitez vous connecter, puis cliquez sur **Se connecter** et sélectionnez **Bastion** dans la liste déroulante.
 
@@ -68,7 +68,7 @@ Pour vous connecter à la machine virtuelle Linux par le biais du protocole SSH,
 1. Entrez votre clé privée dans la zone de texte **Clé privée SSH** (ou collez-la directement).
 1. Cliquez sur le bouton **Se connecter** après avoir entré la clé.
 
-## <a name="ssh"></a>Connexion : Utilisation d’un fichier de clé privée
+## <a name="connect-using-a-private-key-file"></a><a name="ssh"></a>Connexion : Utilisation d’un fichier de clé privée
 
 1. Ouvrez le [portail Azure](https://portal.azure.com). Accédez à la machine virtuelle à laquelle vous souhaitez vous connecter, puis cliquez sur **Se connecter** et sélectionnez **Bastion** dans la liste déroulante.
 

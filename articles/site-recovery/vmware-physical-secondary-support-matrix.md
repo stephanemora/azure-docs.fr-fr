@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: cabd3f7693c6b6b86bf0324bdafdfe1377d1ece8
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082190"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228797"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Matrice de prise en charge de la récupération d’urgence des machines virtuelles VMware et serveurs physiques sur un site secondaire
 
@@ -33,8 +33,8 @@ Le scénario Site Recovery de réplication entre des centres de données VMware 
 Les partenaires existants peuvent intégrer de nouveaux clients au scénario jusqu’à la fin de la prise en charge.
 - En 2018 et 2019, deux mises à jour seront publiées :
 
-    - Mise à jour 7 : résout des problèmes de configuration et de conformité réseau et prend en charge TLS 1.2.
-    - Mise à jour 8 : ajoute la prise en charge des systèmes d’exploitation Linux RHEL/CentOS 7.3/7.4/7.5 et SUSE 12
+    - Mise à jour 7 : résout les problèmes de configuration et de conformité réseau, et prend en charge TLS 1.2.
+    - Mise à jour 8 : ajoute la prise en charge des systèmes d’exploitation Linux RHEL/CentOS 7.3/7.4/7.5 et de SUSE 12
     - Après la mise à jour 8, aucune autre mise à jour ne sera publiée. La prise en charge du correctif logiciel sera limitée pour les systèmes d’exploitation ajoutés dans la mise à jour 8 et les corrections de bogues seront basées sur le meilleur effort.
 
 ## <a name="host-servers"></a>Serveurs hôtes
@@ -68,15 +68,15 @@ Seules les machines Linux avec le stockage suivant peuvent être répliquées :
 
 **Configuration** | **Pris en charge**  
 --- | --- 
-Hôte - Association de cartes réseau | OUI 
-Hôte -VLAN | OUI 
-Hôte - IPv4 | OUI 
+Hôte - Association de cartes réseau | Oui 
+Hôte -VLAN | Oui 
+Hôte - IPv4 | Oui 
 Hôte - IPv6 | Non 
 Machine virtuelle invitée - Association de cartes réseau | Non
-Machine virtuelle invitée - IPv4 | OUI
+Machine virtuelle invitée - IPv4 | Oui
 Machine virtuelle invitée - IPv6 | Non
-Machine virtuelle invitée - Windows/Linux - Adresse IP statique | OUI
-Machine virtuelle invitée - Plusieurs cartes réseau | OUI
+Machine virtuelle invitée - Windows/Linux - Adresse IP statique | Oui
+Machine virtuelle invitée - Plusieurs cartes réseau | Oui
 
 
 ## <a name="storage"></a>Stockage
@@ -85,29 +85,29 @@ Machine virtuelle invitée - Plusieurs cartes réseau | OUI
 
 **Stockage (hôte)** | **Pris en charge** 
 --- | --- 
-NFS | OUI 
+NFS | Oui 
 SMB 3.0 | N/A 
-SAN (ISCSI) | OUI 
-Chemins d’accès multiples (MPIO) | OUI 
+SAN (ISCSI) | Oui 
+Chemins d’accès multiples (MPIO) | Oui 
 
 ### <a name="guest-or-physical-server-storage"></a>Stockage sur serveur physique ou invité
 
 **Configuration** | **Pris en charge** 
 --- | --- 
-VMDK | OUI 
+VMDK | Oui 
 VHD/VHDX | N/A 
 Machine virtuelle de 2e génération | N/A 
-Disque de cluster partagé | OUI 
+Disque de cluster partagé | Oui 
 Disque chiffré | Non 
-UEFI| OUI 
+UEFI| Oui 
 NFS | Non 
 SMB 3.0 | Non 
-RDM | OUI 
-Disque > 1 To | OUI 
-Volume avec disque à bandes > 1 To<br/><br/> LVM | OUI 
+RDM | Oui 
+Disque > 1 To | Oui 
+Volume avec disque à bandes > 1 To<br/><br/> LVM | Oui 
 Espaces de stockage | Non 
-Ajout/suppression de disque à chaud | OUI 
-Exclure le disque | OUI 
+Ajout/suppression de disque à chaud | Oui 
+Exclure le disque | Oui 
 Chemins d’accès multiples (MPIO) | N/A 
 
 ## <a name="vaults"></a>Coffres
@@ -124,7 +124,7 @@ Le Service mobilité coordonne la réplication entre les serveurs VMware locaux 
 | **Mettre à jour** | **Détails** |
 | --- | --- |
 |Mises à jour Scout | Les mises à jour Scout sont cumulatives. <br/><br/> [En savoir plus et télécharger](vmware-physical-secondary-disaster-recovery.md#updates) les dernières mises à jour Scout |
-|Mises à jour de composants | Les mises à jour Scout incluent les mises à jour pour tous les composants, y compris le serveur RX, le serveur de configuration, les serveurs maîtres et process cibles, les serveurs v-Continuum et les serveurs sources à protéger.<br/><br/> [Plus d’informations](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates)|
+|Mises à jour de composants | Les mises à jour Scout incluent les mises à jour pour tous les composants, y compris le serveur RX, le serveur de configuration, les serveurs maîtres et process cibles, les serveurs v-Continuum et les serveurs sources à protéger.<br/><br/> [En savoir plus](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates).|
 
 
 ## <a name="next-steps"></a>Étapes suivantes

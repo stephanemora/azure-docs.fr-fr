@@ -15,11 +15,11 @@ ms.date: 03/19/2019
 ms.author: juliako
 ms.reviewer: anilmur
 ms.openlocfilehash: 87cd7c63939331190530a46071a6b4c40480562f
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792589"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79232785"
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>Codecs et formats de Media Encoder Premium Workflow
 
@@ -34,7 +34,7 @@ Codecs et formats de sortie de Media Encoder Premium Workflow
 
 **Media Encoder Premium Workflow** prend en charge le sous-titrage décrit dans [cette](#closed_captioning) section 
 
-## <a id="input_formats"></a>Codecs et formats d’entrée de Media Encoder Premium Workflow
+## <a name="media-encoder-premium-workflow-input-formats-and-codecs"></a><a id="input_formats"></a>Codecs et formats d’entrée de Media Encoder Premium Workflow
 
 La section suivante répertorie les codecs et les formats de fichiers que ce processeur multimédia prend en charge en entrée.
 
@@ -71,7 +71,7 @@ La section suivante répertorie les codecs et les formats de fichiers que ce pro
 * Windows Media Audio
 * WAV/PCM
 
-## <a id="output_format"></a>Codecs et formats de sortie de Media Encoder Premium Workflow
+## <a name="media-encoder-premium-workflow-output-formats-and-codecs"></a><a id="output_format"></a>Codecs et formats de sortie de Media Encoder Premium Workflow
 
 La section suivante répertorie les codecs et les formats de fichiers pris en charge en sortie avec ce processeur multimédia.
 
@@ -112,7 +112,7 @@ La section suivante répertorie les codecs et les formats de fichiers pris en ch
 >[!NOTE]
 >Si vous encodez en Dolby® Digital (AC3), la sortie peut uniquement être écrite dans un fichier MP4 ISO.
 
-## <a id="closed_captioning"></a>Prise en charge du sous-titrage
+## <a name="support-for-closed-captioning"></a><a id="closed_captioning"></a>Prise en charge du sous-titrage
 
 En entrée, **Media Encoder Premium Workflow** prend en charge :
 

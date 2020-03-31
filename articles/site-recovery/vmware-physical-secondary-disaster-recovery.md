@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: raynew
 ms.openlocfilehash: 71d230c9fea25edfbf0ca4ea40f15b69779ad060
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73620532"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228801"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Configurer la récupération d’urgence de machines virtuelles ou de serveurs physiques VMware locaux sur un site secondaire
 
@@ -51,7 +51,7 @@ o Pour les machines physiques, suivez ce [didacticiel](./physical-azure-disaster
 **Composants requis** |Service de mobilité sur les machines répliquées. Serveur de configuration local, serveur de processus, serveur cible maître. Serveur de processus temporaire dans Azure pour la restauration automatique.|Service de mobilité, serveur de processus, serveur de configuration et cible maître
 **Configuration et orchestration** |Coffre Recovery Services dans le portail Azure | À l’aide de vContinuum 
 **Répliqué** |Disque (Windows et Linux) |Volume - Windows<br> Disque - Linux
-**Cluster de disque partagé** |Non pris en charge|Pris en charge
+**Cluster de disque partagé** |Non pris en charge|Prise en charge
 **Limites d’activité de données (moyenne)** |10 Mo/s de données par disque<br> 25 Mo/s de données par machine virtuelle<br> [En savoir plus](./site-recovery-vmware-deployment-planner-analyze-report.md#azure-site-recovery-limits) | > 10 Mo/s de données par disque  <br> > 25 Mo/s de données par machine virtuelle
 **Surveillance** |À partir du portail Azure|À partir de CX (serveur de configuration)
 **Matrice de prise en charge** | [Pour plus d’informations, cliquez ici](./vmware-physical-azure-support-matrix.md)|[Télécharger la matrice compatible ASR Scout](https://aka.ms/asr-scout-cm)
@@ -125,7 +125,7 @@ Téléchargez le fichier .zip [update](https://aka.ms/asr-scout-update7).zip et 
   5. **Serveur vContinuum** :  Copiez **InMage_Scout_vContinuum_MT_8.0.7.0_Windows_GA_27Dec2018_release.exe** sur le serveur.  Vérifiez que vous avez fermé l’Assistant vContinuum. Double-cliquez sur le fichier pour l’exécuter.
   6. **Serveur cible maître Linux** : Pour mettre à jour l’agent unifié, copiez **InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release.tar.gz** sur le serveur cible maître Linux et extrayez-le. Dans le dossier extrait, exécutez **/Install**.
   7. **Serveur source Windows** : Pour mettre à jour l’agent unifié, copiez **InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe** sur le serveur source. Double-cliquez sur le fichier pour l’exécuter. 
-  8. **Serveur source Linux** : pour mettre à jour l’agent unifié, copiez la version correspondante du fichier de l’agent unifié sur le serveur Linux et extrayez-le. Dans le dossier extrait, exécutez **/Install**.  Exemple : Pour le serveur RHEL 6.7 64 bits, copiez **InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release.tar.gz** sur le serveur et extrayez-le. Dans le dossier extrait, exécutez **/Install**.
+  8. **Serveur source Linux** : pour mettre à jour l’agent unifié, copiez la version correspondante du fichier de l’agent unifié sur le serveur Linux et extrayez-le. Dans le dossier extrait, exécutez **/Install**.  Exemple : Pour le serveur RHEL 6.7 64 bits, copiez **InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release.tar.gz** sur le serveur et extrayez-le. Dans le dossier extrait, exécutez **/Install**.
   9. Après avoir mis à jour le serveur de configuration, le serveur de processus et le serveur RX avec les programmes d’installation mentionnés ci-dessus, il est nécessaire d’effectuer la mise à niveau manuelle des bibliothèques PHP et MySQL en suivant la procédure de la section 7.4 du [guide d’installation rapide](https://aka.ms/asr-scout-quick-install-guide).
 
 ## <a name="enable-replication"></a>Activer la réplication
@@ -143,7 +143,7 @@ Téléchargez le fichier .zip [update](https://aka.ms/asr-scout-update7).zip et 
 ## <a name="updates"></a>Mises à jour
 
 ### <a name="site-recovery-scout-801-update-7"></a>Site Recovery Scout 8.0.1 Update 7 
-Date de mise à jour : Téléchargez la mise à jour du 31 décembre 2018, [Scout Update 7](https://aka.ms/asr-scout-update7).
+Mise à jour : Téléchargez la mise à jour du 31 décembre 2018, [Scout Update 7](https://aka.ms/asr-scout-update7).
 Scout Update 7 est un programme d’installation complet qui peut être utilisé pour une nouvelle installation ainsi que pour mettre à jour les agents/MT existants issus de mises à jour précédentes (d’Update 1 à Update 6). Elle contient tous les correctifs d’Update 1 à Update 6, ainsi que les nouveaux correctifs et améliorations décrits ci-dessous.
  
 #### <a name="new-features"></a>Nouvelles fonctionnalités
@@ -151,10 +151,10 @@ Scout Update 7 est un programme d’installation complet qui peut être utilis�
 * Support TLS v1.2
 
 #### <a name="bug-and-security-fixes"></a>Correctifs de bogues et de sécurité
-* Problème résolu : La configuration IP des machines de cluster/autonomes Windows est incorrecte lors de la récupération/DR-Drill.
-* Problème résolu : Il arrive que l’opération Ajouter un disque échoue pour le cluster V2V.
+* Résolu : La configuration IP des machines de cluster/autonomes Windows est incorrecte lors de la récupération/DR-Drill.
+* Résolu : Il arrive que l’opération Ajouter un disque échoue pour le cluster V2V.
 * Problème résolu : vContinuum Assistant se bloque pendant la phase de récupération si le serveur cible maître est de type Windows Server 2016
-* Problème résolu : Les problèmes de sécurité MySQL sont atténués grâce à la mise à niveau de MySQL vers la version 5.7.23
+* Résolu : Les problèmes de sécurité MySQL sont atténués grâce à la mise à niveau de MySQL vers la version 5.7.23
 
 #### <a name="manual-upgrade-for-php-and-mysql-on-csps-and-rx"></a>Mise à niveau manuelle pour PHP et MySQL sur CS, PS et RX
 La plateforme de scripts PHP doit être mise à niveau vers la version 7.2.10 sur le serveur de configuration, le serveur de processus et le serveur RX.
@@ -162,7 +162,7 @@ Le système de gestion de base de données MySQL doit être mise à niveau vers 
 Veuillez suivre les étapes manuelles du [guide d’installation rapide](https://aka.ms/asr-scout-quick-install-guide) pour mettre à niveau les versions de PHP et de MySQL.
 
 ### <a name="site-recovery-scout-801-update-6"></a>Site Recovery Scout 8.0.1 Update 6 
-Date de mise à jour : 12 octobre 2017
+Mise à jour : 12 octobre 2017
 
 Téléchargez [Scout Update 6](https://aka.ms/asr-scout-update6).
 
@@ -199,7 +199,7 @@ Téléchargez le fichier .zip de [mise à jour](https://aka.ms/asr-scout-update6
   6. **Serveur cible maître Linux** : pour mettre à jour l’agent unifié, copiez **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** sur le serveur cible maître et extrayez-le. Dans le dossier extrait, exécutez **/Install**.
   7. **Serveur source Windows** : Pour mettre à jour l’agent unifié, copiez **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** sur le serveur source. Double-cliquez sur le fichier pour l’exécuter. 
   Vous n’avez pas besoin d’installer l’agent Update 5 sur le serveur source si ce dernier a déjà été mis à jour avec l’Update 4 ou si l’agent source est installé avec le programme d’installation le plus récent **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe**.
-  8. **Serveur source Linux** : pour mettre à jour l’agent unifié, copiez la version correspondante du fichier de l’agent unifié sur le serveur Linux et extrayez-le. Dans le dossier extrait, exécutez **/Install**.  Exemple : pour le serveur RHEL 6.7 64 bits, copiez **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** sur le serveur et extrayez-le. Dans le dossier extrait, exécutez **/Install**.
+  8. **Serveur source Linux** : pour mettre à jour l’agent unifié, copiez la version correspondante du fichier de l’agent unifié sur le serveur Linux et extrayez-le. Dans le dossier extrait, exécutez **/Install**.  Exemple : pour le serveur RHEL 6.7 64 bits, copiez **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** sur le serveur et extrayez-le. Dans le dossier extrait, exécutez **/Install**.
 
 
 > [!NOTE]
@@ -231,7 +231,7 @@ Scout Update 5 est une mise à jour cumulative. Elle contient tous les correctif
     * Corrigé : échec de la protection du cluster à un seul nœud en raison d’un problème de non-correspondance SCSI. 
     * Corrigé : échec de la reprotection du serveur de cluster Windows P2V si les disques du cluster cible sont présents. 
     
-* Corrigé : lors de la protection de la restauration automatique, si le serveur cible maître sélectionné ne se trouve pas sur le même serveur ESXi que la machine source protégée (lors de la protection du transfert), vContinuum sélectionne le mauvais serveur cible maître lors la récupération de la restauration automatique, ce qui entraîne l’échec de l’opération de récupération.
+* Résolu : lors de la protection de la restauration automatique, si le serveur cible maître sélectionné ne se trouve pas sur le même serveur ESXi que la machine source protégée (lors de la protection du transfert), vContinuum sélectionne le mauvais serveur cible maître lors la récupération de la restauration automatique, ce qui entraîne l’échec de l’opération de récupération.
 
 > [!NOTE]
 > * Les correctifs de cluster P2V s’appliquent seulement aux clusters MSCS physiques qui sont nouvellement protégés avec Site Recovery Scout Update 5. Pour installer les correctifs de cluster sur des clusters P2V MSCS protégés avec des mises à jour plus anciennes, suivez les étapes de mise à niveau mentionnées dans la section 12 de [Site Recovery Scout Release Notes](https://aka.ms/asr-scout-release-notes).

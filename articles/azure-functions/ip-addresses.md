@@ -4,11 +4,11 @@ description: Découvrez comment trouver les adresses IP entrantes et sortantes d
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.openlocfilehash: a1c4174b8f1f2349cbd35c32cbee468ee5b4cd4a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78358074"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79234857"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Adresses IP dans Azure Functions
 
@@ -30,7 +30,7 @@ Chaque application de fonction a une seule adresse IP entrante. Pour la trouver�
 3. Sélectionnez **Fonctionnalités de la plateforme**.
 4. Sélectionnez **Propriétés** : l’adresse IP entrante apparaît sous **Adresse IP virtuelle**.
 
-## <a name="find-outbound-ip-addresses"></a>Adresses IP sortantes de l’application de fonction
+## <a name="function-app-outbound-ip-addresses"></a><a name="find-outbound-ip-addresses"></a>Adresses IP sortantes de l’application de fonction
 
 Chaque application de fonction a différentes adresses IP sortantes disponibles. Toute connexion sortante d’une fonction, par exemple, à une base de données principale, utilise l’une des adresses IP sortantes comme adresse IP d’origine. Il n’est pas possible de savoir à l’avance laquelle sera utilisée. C’est pourquoi le service principal doit ouvrir son pare-feu à toutes les adresses IP sortantes de l’application de fonction.
 
@@ -80,7 +80,7 @@ Par exemple, le fragment JSON Europe Ouest peut se présenter ainsi :
 
  Pour savoir quand ce fichier est mis à jour et quand les adresses IP changent, développez la section **Détails** de la [page du Centre de téléchargement](https://www.microsoft.com/en-us/download/details.aspx?id=56519).
 
-## <a name="inbound-ip-address-changes"></a>Changement d’adresse IP entrante
+## <a name="inbound-ip-address-changes"></a><a name="inbound-ip-address-changes"></a>Changement d’adresse IP entrante
 
 L’adresse IP entrante **peut** changer dans les cas suivants :
 

@@ -12,10 +12,10 @@ ms.author: anjangsh
 ms.reviewer: sstein
 ms.date: 01/25/2019
 ms.openlocfilehash: 4577f611287a27366b1168e07565861c16fe0e38
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76987020"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Bien démarrer avec les outils de base de données élastique
@@ -24,7 +24,7 @@ Ce document présente l’expérience du développeur dans la [bibliothèque cli
 
 ## <a name="elastic-database-tools-for-java"></a>Outils de base de données élastique pour Java
 
-### <a name="prerequisites"></a>Conditions préalables requises
+### <a name="prerequisites"></a>Prérequis
 
 * JDK (Java Developer Kit) version 1.8 ou ultérieure
 * [Maven](https://maven.apache.org/download.cgi)
@@ -70,7 +70,7 @@ Pour ajouter la bibliothèque cliente à votre propre projet Maven, ajoutez la d
 
 ## <a name="elastic-database-tools-for-net"></a>Outils de base de données élastique pour .NET
 
-### <a name="prerequisites"></a>Conditions préalables requises
+### <a name="prerequisites"></a>Prérequis
 
 * Visual Studio 2012 ou ultérieur avec C#. Téléchargez une version gratuite à la page [Téléchargements Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 * NuGet 2.7 ou ultérieur. Pour obtenir la toute dernière version, consultez la page [Installation de NuGet](https://docs.nuget.org/docs/start-here/installing-nuget).
@@ -100,13 +100,13 @@ Félicitations ! Vous avez correctement conçu et exécuté votre première appl
 
 ## <a name="key-pieces-of-the-code-sample"></a>Éléments clés de l’exemple de code
 
-* **Gestion des partitions et des cartes de partitions** : le code montre comment utiliser les partitions, les plages et les mappages dans le fichier *ShardManagementUtils.cs*. Pour plus d’informations, consultez la page [Monter en charge les bases de données avec le Gestionnaire de cartes de partitions](https://go.microsoft.com/?linkid=9862595).  
+* **Gestion des partitions et des cartes de partitions** : le code montre comment utiliser les partitions, les plages et les mappages dans le fichier *ShardManagementUtils.cs*. Pour plus d’informations, consultez la page [Effectuer un scale-out des bases de données avec le Gestionnaire de cartes de partitions](https://go.microsoft.com/?linkid=9862595).  
 
 * **Routage dépendant des données** : le routage des transactions vers la partition appropriée est indiqué dans le fichier *DataDependentRoutingSample.cs*. Pour plus d’informations, consultez la page [Routage dépendant des données](https://go.microsoft.com/?linkid=9862596). 
 
 * **Interrogation sur plusieurs partitions** : l’interrogation dans les partitions est illustrée dans le fichier *MultiShardQuerySample.cs*. Pour plus d’informations, consultez la page [Interrogation de plusieurs partitions](https://go.microsoft.com/?linkid=9862597).
 
-* **Ajout de partitions vides** : l’ajout itératif de nouvelles partitions vides est effectué par le code dans le fichier *CreateShardSample.cs*. Pour plus d’informations, consultez la page [Monter en charge les bases de données avec le Gestionnaire de cartes de partitions](https://go.microsoft.com/?linkid=9862595).
+* **Ajout de partitions vides** : l’ajout itératif de nouvelles partitions vides est effectué par le code dans le fichier *CreateShardSample.cs*. Pour plus d’informations, consultez la page [Effectuer un scale-out des bases de données avec le Gestionnaire de cartes de partitions](https://go.microsoft.com/?linkid=9862595).
 
 ## <a name="other-elastic-scale-operations"></a>Autres opérations de mise à l’échelle élastique
 

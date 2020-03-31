@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: aahi
 ms.openlocfilehash: f68429a75ddb141c9e42babde3faa9f93fe949cc
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74072680"
 ---
 # <a name="sending-search-requests-to-the-bing-entity-search-api"></a>Envoi de requêtes de recherche à l’API Recherche d’entités Bing
@@ -35,7 +35,7 @@ Nous vous recommandons de générer toutes les requêtes à partir d’un serveu
 
 ## <a name="specifying-query-parameters-and-headers"></a>Indiquer les paramètres de requête et les en-têtes
 
-La requête doit indiquer le paramètre [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#query) qui contient le terme de recherche de l’utilisateur. La requête doit également indiquer le paramètre [mkt](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#mkt) qui vous permet de choisir le marché dont proviennent les résultats. Pour obtenir la liste complète des paramètres de requête facultatifs, consultez la page [Paramètres de requête](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#query-parameters). L’URL encode tous les paramètres de requête.  
+La requête doit indiquer le paramètre [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#query), qui contient le terme de recherche de l’utilisateur. La requête doit également indiquer le paramètre [mkt](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#mkt) qui vous permet de choisir le marché dont proviennent les résultats. Pour obtenir la liste complète des paramètres de requête facultatifs, consultez la page [Paramètres de requête](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#query-parameters). L’URL encode tous les paramètres de requête.  
   
 La requête doit indiquer l’en-tête [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#subscriptionkey). Nous vous conseillons également d’indiquer les en-têtes suivants (qui sont facultatifs) :  
   
@@ -48,7 +48,7 @@ Les en-têtes d’emplacement et d’adresse IP client sont importants, car ils
 
 Pour obtenir la liste complète des en-têtes de requête et de réponse, consultez la page [En-têtes](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#headers).
 
-## <a name="the-request"></a>Requête
+## <a name="the-request"></a>Requête.
 
 Le code suivant illustre une requête d’entités qui inclut tous les paramètres de requête et les en-têtes suggérés. 
 
@@ -62,11 +62,11 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com  
 ```  
 
-Si vous appelez l’une des API Bing pour la première fois, n’incluez pas l’en-tête ID client. Indiquez uniquement l’ID client si vous avez précédemment appelé une API Bing et que Bing a renviyé un ID client pour la combinaison utilisateur/appareil.
+Si vous appelez l’une des API Bing pour la première fois, n’incluez pas l’en-tête ID client. Indiquez uniquement l’ID client si vous avez précédemment appelé une API Bing et si Bing a renvoyé un ID client pour la combinaison utilisateur/appareil.
 
-## <a name="the-response"></a>Réponse
+## <a name="the-response"></a>La réponse
 
-Le code suivant affiche la réponse à la requête précédente. L’exemple montre également les en-têtes de réponse spécifiques à Bing. Pour plus d’informations sur l’objet de réponse, consultez la page [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#searchresponse).
+Voici la réponse à la requête précédente. L’exemple montre également les en-têtes de réponse propres à Bing. Pour plus d’informations sur l’objet de réponse, consultez la page [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#searchresponse).
 
 [!INCLUDE [cognitive-services-bing-url-note](../../../../includes/cognitive-services-bing-url-note.md)]
 

@@ -1,19 +1,19 @@
 ---
 title: Module Outils de dessin | Microsoft Azure Maps
 description: Dans cet article, vous allez apprendre à définir des données d’options de dessin à l’aide du kit SDK Web Microsoft Azure Maps
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 01/29/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: f3634149b744b9a03f0ed89aafbc20932701bdbc
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 711609f9382e2153cbc738d544933796dbbe2e99
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77208180"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80334307"
 ---
 # <a name="use-the-drawing-tools-module"></a>Utiliser le module Outils de dessin
 
@@ -26,8 +26,8 @@ Le SDK web Azure Maps fournit un *module Outils de dessin*. Ce module facilite l
     - Utiliser la version d’Azure Content Delivery Network du module des services Azure Maps hébergée globalement. Ajoutez une référence au code JavaScript et à la feuille de style CSS dans l’élément `<head>` du fichier :
 
         ```html
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/drawing/0.1/atlas-drawing.min.css" type="text/css" />
-        <script src="https://atlas.microsoft.com/sdk/javascript/drawing/0.1/atlas-drawing.min.js"></script>
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/drawing/0/atlas-drawing.min.css" type="text/css" />
+        <script src="https://atlas.microsoft.com/sdk/javascript/drawing/0/atlas-drawing.min.js"></script>
         ```
 
     - Ou vous pouvez charger le module Outils de dessin pour le code source du Kit de développement logiciel (SDK) web d’Azure Maps localement à l’aide du package npm [azure-maps-drawing-tools](https://www.npmjs.com/package/azure-maps-drawing-tools), puis l’héberger avec votre application. Ce package inclut aussi des définitions de TypeScript. Utilisez la commande suivante :

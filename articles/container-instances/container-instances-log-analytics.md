@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 01/08/2020
 ms.author: danlep
 ms.openlocfilehash: 304e98fff386911b878877d2f03d489d0eef5dd7
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75770541"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Groupe de conteneurs et journalisation des instances de conteneur avec les journaux d’activité Azure Monitor
@@ -22,7 +22,7 @@ Pour envoyer des données de journal et des données d’événements d’un gro
 > [!NOTE]
 > Pour le moment, vous pouvez uniquement envoyer des données d’événements d’instances de conteneur Linux à Log Analytics.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour activer la journalisation dans vos instances de conteneur, vous avez besoin des éléments suivants :
 

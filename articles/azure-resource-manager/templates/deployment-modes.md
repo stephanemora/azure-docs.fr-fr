@@ -3,12 +3,12 @@ title: Modes de déploiement
 description: Explique comment spécifier s’il faut utiliser un mode de déploiement complet ou incrémentiel avec Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 01/17/2020
-ms.openlocfilehash: 9cc0e8eb20a0375a98906524d4d598ccb473d2a8
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 1077d92f076797fb03c4fe750b353e2306f9b6de
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207585"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79460243"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Modes de déploiement Azure Resource Manager
 
@@ -95,7 +95,7 @@ New-AzResourceGroupDeployment `
 Pour définir le mode de déploiement lors du déploiement avec Azure CLI, utilisez le paramètre `mode`.
 
 ```azurecli-interactive
-az group deployment create \
+az deployment group create \
   --name ExampleDeployment \
   --mode Complete \
   --resource-group ExampleGroup \

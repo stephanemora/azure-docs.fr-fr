@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: diberry
 ms.openlocfilehash: efef3faf3cc4ff04235254f0ff6538d92a831196
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619941"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79219191"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>Stratégies d’entreprise pour une application LUIS
 Révisez ces stratégies de conception pour votre application d’entreprise.
@@ -69,7 +69,7 @@ Comprendre comment cette hiérarchie d’appels est établie à partir de Bot Bu
 ### <a name="intent-limits-in-dispatch-model"></a>Limites des intentions dans le modèle de répartition
 Une application de répartition a 500 sources de répartition maximum, ce qui équivaut à 500 intentions. 
 
-## <a name="more-information"></a>Plus d’informations
+## <a name="more-information"></a>Informations complémentaires
 
 * [Kit de développement logiciel (SDK) Bot Framework](https://github.com/Microsoft/botframework)
 * [Didacticiel du modèle de répartition](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&branch=master&tabs=cs)

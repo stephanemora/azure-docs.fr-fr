@@ -1,6 +1,6 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,15 +9,15 @@ ms.date: 11/12/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 8087025810214f3edbb74e628698eb69558f3500
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74085237"
 ---
 Lorsque vous créez une passerelle de réseau virtuel, vous devez spécifier la référence SKU de passerelle que vous voulez utiliser. Sélectionnez la référence SKU qui répond à vos besoins en fonction des types de charges de travail, des débits, des fonctionnalités et des contrats de niveau de service. Pour connaître les références SKU des passerelles de réseau virtuel dans les Zones de disponibilité Azure, voir [Références SKU des passerelles pour les Zones de disponibilité Azure](../articles/vpn-gateway/about-zone-redundant-vnet-gateways.md).
 
-###  <a name="benchmark"></a>Références SKU de passerelle par tunnel, connexion et débit
+###  <a name="gateway-skus-by-tunnel-connection-and-throughput"></a><a name="benchmark"></a>Références SKU de passerelle par tunnel, connexion et débit
 
 [!INCLUDE [Aggregated throughput by SKU](./vpn-gateway-table-gwtype-aggtput-include.md)]
 
@@ -27,7 +27,7 @@ Lorsque vous créez une passerelle de réseau virtuel, vous devez spécifier la 
 >  * Pour les références (SKU) de passerelle ExpressRoute, voir [Passerelles de réseau virtuel pour ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md).
 >
 
-###  <a name="feature"></a>Références SKU de passerelle par ensemble de fonctionnalités
+###  <a name="gateway-skus-by-feature-set"></a><a name="feature"></a>Références SKU de passerelle par ensemble de fonctionnalités
 
 Les nouvelles références SKU de passerelle VPN rationalisent les ensembles de fonctionnalités proposés sur les passerelles :
 
@@ -41,7 +41,7 @@ Les nouvelles références SKU de passerelle VPN rationalisent les ensembles de 
 
 (\*\*) La référence SKU De base est considérée comme une référence SKU héritée. La référence SKU De base a certaines limitations en termes de fonctionnalités. Vous ne pouvez pas redimensionner une passerelle qui utilise une référence SKU De base vers l’une des nouvelles références SKU de passerelle. À la place, vous devez passer à une nouvelle référence SKU, ce qui implique la suppression et la recréation de votre passerelle VPN.
 
-###  <a name="workloads"></a>Références SKU de passerelle - Charges de travail de production ou charges de travail de développement et de test
+###  <a name="gateway-skus---production-vs-dev-test-workloads"></a><a name="workloads"></a>Références SKU de passerelle - Charges de travail de production ou charges de travail de développement et de test
 
 En raison de différences des contrats de niveau de service et des ensembles de fonctionnalités, nous vous recommandons les références SKU suivantes pour la production par rapport au développement et au test :
 

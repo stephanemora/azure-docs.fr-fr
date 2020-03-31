@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5c3102480e316c634930c356ae02f769767b7d08
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69900036"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Synchronisation d’Azure AD Connect : Référence des fonctions
@@ -80,7 +80,7 @@ Les fonctions ayant pour type **mvbin**, **mvstr** et **mvref** ne peuvent fonct
 | [Contains](#contains) |[Count](#count) |[Item](#item) |[ItemOrNull](#itemornull) | |
 | [Join](#join) |[RemoveDuplicates](#removeduplicates) |[Split](#split) | | |
 | **Flux de programme** | | | | |
-| [Error](#error) |[IIF](#iif) |[Sélection](#select) |[Switch](#switch) | |
+| [Error](#error) |[IIF](#iif) |[Select](#select) |[Switch](#switch) | |
 | [Where](#where) |[With](#with) | | | |
 | **Text** | | | | |
 | [GUID](#guid) |[InStr](#instr) |[InStrRev](#instrrev) |[LCase](#lcase) | |
@@ -363,7 +363,7 @@ La fonction CGuid convertit la représentation sous forme de chaîne d’un GUID
 * Une chaîne rédigée au format suivant : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx ou {xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}
 
 ---
-### <a name="contains"></a>Contains
+### <a name="contains"></a>Contient
 **Description :**  
 La fonction Contains détecte une chaîne à l’intérieur d’un attribut à valeurs multiples.
 
@@ -478,7 +478,7 @@ Convertit une chaîne en attribut de référence.
 `CRef("CN=LC Services,CN=Microsoft,CN=lcspool01,CN=Pools,CN=RTC Service," & %Forest.LDAP%)`
 
 ---
-### <a name="cstr"></a>CStr
+### <a name="cstr"></a>CChaîne
 **Description :**  
 La fonction CStr convertit en un type de données de chaîne.
 
@@ -494,7 +494,7 @@ La fonction CStr convertit en un type de données de chaîne.
 Peut renvoyer « cn=Joe,dc=contoso,dc=com ».
 
 ---
-### <a name="dateadd"></a>DateAdd
+### <a name="dateadd"></a>AjDate
 **Description :**  
 Renvoie un objet Date contenant une date à laquelle un intervalle de temps spécifié a été ajouté.
 
@@ -810,7 +810,7 @@ L’inverse de cette fonction est appelé IsNullOrEmpty.
 `Switch(IsPresent([directManager]),[directManager], IsPresent([skiplevelManager]),[skiplevelManager], IsPresent([director]),[director])`
 
 ---
-### <a name="item"></a>Item
+### <a name="item"></a>Élément
 **Description :**  
 La fonction Item renvoie un élément à partir d’une chaîne/d’un attribut à valeurs multiples.
 
@@ -865,7 +865,7 @@ Il existe une parité entre les fonctions Join et Split. La fonction Join prend 
 Peut retourner : « SMTP:john.doe@contoso.com,smtp:jd@contoso.com »
 
 ---
-### <a name="lcase"></a>LCase
+### <a name="lcase"></a>Minuscule
 **Description :**  
 La fonction LCase convertit tous les caractères d’une chaîne en minuscules.
 
@@ -877,7 +877,7 @@ La fonction LCase convertit tous les caractères d’une chaîne en minuscules.
 Renvoie « test ».
 
 ---
-### <a name="left"></a>Left
+### <a name="left"></a>Gauche
 **Description :**  
 La fonction Left renvoie un nombre spécifié de caractères en partant de la gauche d’une chaîne.
 
@@ -901,7 +901,7 @@ Si la chaîne contient moins de caractères que le nombre spécifié dans numCha
 Renvoie « Joh ».
 
 ---
-### <a name="len"></a>Len
+### <a name="len"></a>NbCar
 **Description :**  
 La fonction Len renvoie le nombre de caractères contenus dans une chaîne.
 
@@ -913,7 +913,7 @@ La fonction Len renvoie le nombre de caractères contenus dans une chaîne.
 Renvoie 8.
 
 ---
-### <a name="ltrim"></a>LTrim
+### <a name="ltrim"></a>SupprGauche
 **Description :**  
 La fonction LTrim supprime les espaces blancs situés au début d’une chaîne.
 
@@ -925,7 +925,7 @@ La fonction LTrim supprime les espaces blancs situés au début d’une chaîne.
 Renvoie « Test ».
 
 ---
-### <a name="mid"></a>Mid
+### <a name="mid"></a>ExtracChaîne
 **Description :**  
 La fonction Mid renvoie un nombre donné de caractères à partir d’une position spécifiée dans une chaîne.
 
@@ -956,7 +956,7 @@ Renvoie « hn Do ».
 Renvoie « Doe ».
 
 ---
-### <a name="now"></a>Now
+### <a name="now"></a>maintenant
 **Description :**  
 La fonction Now renvoie une valeur DateTime indiquant la date et l’heure actuelles qui correspondent à la date et à l’heure système de votre ordinateur.
 
@@ -1154,7 +1154,7 @@ Si la chaîne contient un nombre de caractères inférieur au nombre spécifié 
 Renvoie « Doe ».
 
 ---
-### <a name="rtrim"></a>RTrim
+### <a name="rtrim"></a>SupprDroite
 **Description :**  
 La fonction RTrim supprime les espaces blancs situés à la fin d’une chaîne.
 
@@ -1217,7 +1217,7 @@ La fonction StringFromSid convertit en chaîne un tableau d’octets contenant u
 `str StringFromSid(bin ObjectSID)`  
 
 ---
-### <a name="switch"></a>Switch
+### <a name="switch"></a>Commutateur
 **Description :**  
 La fonction Switch est utilisée pour renvoyer une valeur unique en fonction des conditions évaluées.
 
@@ -1246,7 +1246,7 @@ La valeur peut être également la fonction Error qui renvoie une chaîne person
 Renvoie la langue parlée dans certaines grandes villes ; sinon, renvoie une erreur.
 
 ---
-### <a name="trim"></a>Trim
+### <a name="trim"></a>SupprEspace
 **Description :**  
 La fonction Trim supprime les espaces blancs situés au début et à la fin d’une chaîne.
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: 4d5ddb229cd6a41235990437bc0f8db08e3381ce
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74974885"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>Renouvellement des certificats d’appareil X.509
@@ -116,7 +116,7 @@ Pour mettre à jour une inscription de groupe suite à une violation de la sécu
 
 4. Cliquez sur l’onglet **Gérer les inscriptions** pour votre instance de service de provisionnement des appareils, puis cliquez sur la liste **Groupes d’inscription**. Cliquez sur le nom de votre groupe d’inscription dans la liste.
 
-5. Cliquez sur **Certificat d’autorité de certification**, puis sélectionnez votre nouveau certificat d’autorité de certification racine. Cliquez ensuite sur **Enregistrer**. 
+5. Cliquez sur **Certificat d’autorité de certification**, puis sélectionnez votre nouveau certificat d’autorité de certification racine. Ensuite, cliquez sur **Enregistrer**. 
 
     ![Sélection du nouveau certificat d’autorité de certification racine](./media/how-to-roll-certificates/select-new-root-cert.png)
 
@@ -162,7 +162,7 @@ Par la suite, lorsque le certificat secondaire approchera également de sa date 
 
 2. Cliquez sur l’onglet **Gérer les inscriptions** pour votre instance de service de provisionnement des appareils, puis cliquez sur la liste **Groupes d’inscription**. Cliquez sur le nom de votre groupe d’inscription dans la liste.
 
-3. Cliquez sur **Certificat d’autorité de certification**, puis sélectionnez votre nouveau certificat d’autorité de certification racine sous la configuration **Certificat secondaire**. Cliquez ensuite sur **Enregistrer**. 
+3. Cliquez sur **Certificat d’autorité de certification**, puis sélectionnez votre nouveau certificat d’autorité de certification racine sous la configuration **Certificat secondaire**. Ensuite, cliquez sur **Enregistrer**. 
 
     ![Sélection du nouveau certificat d’autorité de certification racine](./media/how-to-roll-certificates/select-new-root-secondary-cert.png)
 

@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: 276e691351d852d6dcb0075d47bf33af6767fc10
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68226095"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79229885"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Contrôle d’accès dans Azure Data Lake Storage Gen1
 
@@ -58,7 +58,7 @@ Les autorisations sur un objet de système de fichiers sont **Lecture**, **Écri
 | Forme numérique | Forme abrégée |      Signification     |
 |--------------|------------|------------------------|
 | 7            | `RWX`        | Lecture + Écriture + Exécution |
-| 5\.            | `R-X`        | Lecture + Exécution         |
+| 5            | `R-X`        | Lecture + Exécution         |
 | 4            | `R--`        | Lire                   |
 | 0            | `---`        | Aucune autorisation         |
 
@@ -75,7 +75,7 @@ Voici quelques scénarios courants pour vous aider à comprendre les autorisatio
 |-----------|---------------------|-----------|------------|-------------|----------------|
 | Lire      | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
 | Ajouter à | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
-| Supprimer    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| DELETE    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
 | Créer    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
 | List      | /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
 | List      | /Seattle/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
@@ -132,8 +132,8 @@ Comme il n’existe aucun « groupe principal », associé aux utilisateurs de
 
 **Affectation du groupe propriétaire pour un nouveau fichier ou dossier**
 
-* **Cas n° 1** : le dossier racine « / ». Ce dossier est créé lors de la création d’un compte Data Lake Storage Gen1. Dans ce cas, le groupe propriétaire est défini sur un GUID composé uniquement de zéros.  Cette valeur n’autorise pas l’accès.  Il s’agit d’un espace réservé jusqu’à ce qu’un groupe soit affecté.
-* **Cas 2** (tous les autres cas) : lorsqu’un nouvel élément est créé, le groupe propriétaire est copié à partir du dossier parent.
+* **Cas 1** : le dossier racine « / ». Ce dossier est créé lors de la création d’un compte Data Lake Storage Gen1. Dans ce cas, le groupe propriétaire est défini sur un GUID composé uniquement de zéros.  Cette valeur n’autorise pas l’accès.  Il s’agit d’un espace réservé jusqu’à ce qu’un groupe soit affecté.
+* **Cas 2** (tous les autres cas) : lorsqu’un élément est créé, le groupe propriétaire est copié à partir du dossier parent.
 
 **Modification du groupe propriétaire**
 

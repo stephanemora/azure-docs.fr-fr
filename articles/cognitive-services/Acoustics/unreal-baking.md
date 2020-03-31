@@ -12,10 +12,10 @@ ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
 ms.openlocfilehash: 7a868a5f9b06499e23710399733b0659d97f900d
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68854904"
 ---
 # <a name="project-acoustics-unreal-bake-tutorial"></a>Tutoriel de baking Project Acoustics Unreal
@@ -196,7 +196,7 @@ Une fois que vous avez lancé un baking, vous pouvez fermer Unreal. En fonction 
 
 Les informations d’identification Azure sont stockées de façon sécurisée sur votre machine locale et associées à votre projet Unreal. Elles sont utilisées exclusivement pour établir une connexion sécurisée vers Azure.
 
-### <a name="Estimating-bake-cost"></a> Estimation du coût d'un baking Azure
+### <a name="estimating-azure-bake-cost"></a><a name="Estimating-bake-cost"></a> Estimation du coût d'un baking Azure
 
 Pour estimer le coût d’un baking donné, prenez la valeur affichée dans **Estimated Compute Cost**, qui est une durée, et multipliez-la par le coût horaire (dans votre devise locale) du **Type de nœud de machine virtuelle** que vous avez sélectionné. Le résultat n’inclut pas la durée nécessaire pour préparer les nœuds à l’exécution. Par exemple, si vous sélectionnez **Standard_F8s_v2** comme type de nœud, qui a un coût de 0,40 $/heure, et que l’estimation du coût de calcul est de 3 heures et 57 minutes, le coût estimé pour exécuter le travail sera de 0,40 $ * ~4 heures = ~1,60 $. Le coût réel sera probablement un peu plus élevé à cause de la durée supplémentaire nécessaire au démarrage des nœuds. Vous trouverez le coût horaire des nœuds dans la page [Tarification d’Azure Batch](https://azure.microsoft.com/pricing/details/virtual-machines/linux) (sélectionnez « Optimisée pour le calcul » ou « Calcul hautes performances » comme catégorie).
 
@@ -204,7 +204,7 @@ Pour estimer le coût d’un baking donné, prenez la valeur affichée dans **Es
 
 Une fois le baking terminé, vérifiez que les points de sonde et les voxels sont à leurs emplacements attendus en exécutant le plug-in de runtime.
 
-## <a name="Data-Files"></a>Fichiers de données
+## <a name="data-files"></a><a name="Data-Files"></a>Fichiers de données
 
 Quatre fichiers de données sont créés par ce plug-in à différents stades. Seul l’un d’entre eux est nécessaire lors de l’exécution et est placé dans le dossier Content/Acoustics de votre projet, qui est automatiquement ajouté au chemin de packaging de votre projet. Les trois autres sont trouvent dans le dossier Acoustics Data et ne sont pas packagés.
 

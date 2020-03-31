@@ -1,8 +1,8 @@
 ---
 title: Ajouter des invités B2B sans e-mail ou lien d’invitation - Azure AD
 description: Vous pouvez permettre à un utilisateur invité d’ajouter d’autres utilisateurs invités à votre Azure AD sans échanger d’invitation dans Azure Active Directory B2B Collaboration.
-services: active-directory
 documentationcenter: ''
+services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
@@ -12,12 +12,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9efbb941e589cb8e4cf56ee06a697a1557a3cc89
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 42c9caaf581fab37e2e55cbe408db6d6d846622a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74268931"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80050905"
 ---
 # <a name="add-b2b-collaboration-guest-users-without-an-invitation-link-or-email"></a>Ajouter des utilisateurs invités B2B Collaboration sans e-mail ou lien d’invitation
 
@@ -31,7 +31,7 @@ Avant la mise à disposition de cette nouvelle méthode, vous pouviez inviter de
  
 Cette méthode d’origine fonctionne toujours. Toutefois, elle se comporte désormais différemment. Si vous utilisez PowerShell, vous remarquerez qu’un compte d’invité a désormais l’état **En attente d’acceptation** au lieu de passer immédiatement à **Accepté**. Bien que l’état soit en attente, l’utilisateur invité peut toujours se connecter et accéder à l’application sans cliquer sur un lien d’invitation figurant dans un courrier électronique. L’état en attente signifie que l’utilisateur n’a pas encore donné son [consentement](redemption-experience.md#consent-experience-for-the-guest), là où il a accepté les conditions de confidentialité de l’organisation à l’origine de l’invitation. L’utilisateur invité voit cet écran de consentement quand il se connecte pour la première fois. 
 
-Si vous invitez un utilisateur dans le répertoire, l’utilisateur invité doit accéder directement à l’URL du portail Azure propre au client des ressources (tel que https://portal.azure.com/ *resourcetenant*.onmicrosoft.com) pour afficher et accepter les conditions de confidentialité.
+Si vous invitez un utilisateur dans le répertoire, l’utilisateur invité doit accéder directement à l’URL du portail Azure propre au client des ressources (tel que https://portal.azure.com/*resourcetenant*.onmicrosoft.com) pour afficher et accepter les conditions de confidentialité.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

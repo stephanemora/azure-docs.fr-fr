@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/31/2020
+ms.date: 03/11/2020
 ms.author: dapine
-ms.openlocfilehash: 230fbd14ce33b52b1e7a1f9cc9cd530ccdec169a
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 714cdefa7100160a510d1922a2547ae53692d76c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77562528"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79367803"
 ---
-# <a name="about-direct-line-speech"></a>À propos de Direct Line Speech
+# <a name="what-is-direct-line-speech"></a>Qu’est-ce que Direct Line Speech ?
 
 **Direct Line Speech** est une solution de bout en bout robuste permettant de créer un assistant vocal extensible et flexible. Elle est alimentée par Bot Framework et son canal Direct Line Speech, qui est optimisé pour l’interaction vocale avec les bots.
 

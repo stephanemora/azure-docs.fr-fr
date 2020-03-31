@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: c68e58bb18a5dba07855234af07b0a8be767bed0
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 32a04518d3cd097a02ec3045da891237fc0e405a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75927926"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80334769"
 ---
 Il existe certaines limites au nombre de métriques et d’événements par application, c’est-à-dire, par clé d’instrumentation. Les limites varient selon le [plan de tarification](https://azure.microsoft.com/pricing/details/application-insights/) que vous choisissez.
 
-| Ressource | Limite par défaut | Remarque
+| Ressource | Limite | Remarque
 | --- | --- | --- |
 | Total des données par jour | 100 Go | Vous pouvez réduire les données en définissant une limite. Si vous avez besoin de davantage de données, vous pouvez augmenter la limite dans le portail, jusqu’à 1 000 Go. Pour une capacité supérieure à 1 000 Go, envoyez un e-mail à AIDataCap@microsoft.com.
 | Limitation | 32 000 événements/seconde | La limite est mesurée par minute.

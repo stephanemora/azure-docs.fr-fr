@@ -1,5 +1,5 @@
 ---
-title: Créer une galerie d’images partagées Azure à l’aide du portail
+title: Créer une instance Azure Shared Image Gallery à l’aide du portail
 description: Découvrez comment utiliser le Portail Azure pour créer et partager des images de machine virtuelle.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -16,13 +16,13 @@ ms.date: 11/06/2019
 ms.author: cynthn
 ms.custom: ''
 ms.openlocfilehash: 6273b58d9db53cfc4f6647885c70148982f0b950
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74975497"
 ---
-# <a name="create-an-azure-shared-image-gallery-using-the-portal"></a>Créer une galerie d’images partagées Azure à l’aide du portail
+# <a name="create-an-azure-shared-image-gallery-using-the-portal"></a>Créer une instance Azure Shared Image Gallery à l’aide du portail
 
 Une [galerie d’images partagées](shared-image-galleries.md) simplifie considérablement le partage d’images personnalisées dans votre organisation. Les images personnalisées sont comme des images de la Place de marché, sauf que vous les créez vous-même. Les images personnalisées peuvent être utilisées pour amorcer des tâches de déploiement comme le préchargement des applications, les configurations d’application et d’autres configurations de système d’exploitation. 
 
@@ -76,7 +76,7 @@ Vous pouvez maintenant créer une ou plusieurs machines virtuelles. Cet exemple 
 1. Une fois la machine virtuelle validée, sélectionnez **Créer** en bas de la page pour démarrer le déploiement.
 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Dès que vous n’en avez plus besoin, vous pouvez supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées. Pour cela, sélectionnez le groupe de ressources de la machine virtuelle, sélectionnez **Supprimer**, puis confirmez le nom du groupe de ressources à supprimer.
 

@@ -4,11 +4,11 @@ description: Servez-vous des invites et du contexte pour gérer plusieurs tours 
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.openlocfilehash: abdde09fbb1f6b066772366c5cea933824cb5864
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210412"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79219031"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Utiliser des invites de suivi pour créer plusieurs tours de conversation
 
@@ -80,7 +80,7 @@ Quand vous ajoutez un document hiérarchique, QnA Maker détermine des invites d
 
 ## <a name="create-knowledge-base-with-multi-turn-prompts-with-the-create-api"></a>Créer la base de connaissances avec des invites multitours à l’aide de l’API Create
 
-Vous pouvez créer une base de connaissances avec des invites multitours à l’aide de l’[API Create de QnA Maker](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create). Les invites sont ajoutées dans le tableau `prompts` de la propriété `context`.
+Vous pouvez créer une base de connaissances avec des invites multitours à l’aide de l’[API Create de QnA Maker](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create). Les invites sont ajoutées dans le tableau `context` de la propriété `prompts`.
 
 ## <a name="show-questions-and-answers-with-context"></a>Présenter les questions et les réponses avec du contexte
 
@@ -359,7 +359,7 @@ Le [texte d’affichage et l’ordre d’affichage](https://docs.microsoft.com/r
 
 ## <a name="add-or-delete-multi-turn-prompts-with-the-update-api"></a>Ajouter ou supprimer des invites multitours à l’aide de l’API Update
 
-Vous pouvez ajouter ou supprimer des invites multitours à l’aide de l’[API Update de QnA Maker](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update).  Les invites sont ajoutées dans le tableau `promptsToAdd` et le tableau `promptsToDelete` de la propriété `context`.
+Vous pouvez ajouter ou supprimer des invites multitours à l’aide de l’[API Update de QnA Maker](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update).  Les invites sont ajoutées dans le tableau `context` et le tableau `promptsToAdd` de la propriété `promptsToDelete`.
 
 ## <a name="export-knowledge-base-for-version-control"></a>Exporter la base de connaissances pour la gestion de versions
 

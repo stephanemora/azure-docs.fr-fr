@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4b57c4f474b0b9def08005f32f48225d36ea8cf1
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74848831"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Bien démarrer avec l’authentification par certificat dans Azure Active Directory
@@ -32,7 +32,7 @@ Cette rubrique :
 - Vous indique la procédure pour configurer et utiliser l’authentification par certificat pour les utilisateurs de clients dans les plans Office 365 Enterprise, Business et Education et US Government. Cette fonctionnalité est disponible en version préliminaire dans les plans Office 365 China, US Government Defense et US Government Federal.
 - Suppose que vous avez déjà une [infrastructure de clé publique (PKI)](https://go.microsoft.com/fwlink/?linkid=841737) et [AD FS](../hybrid/how-to-connect-fed-whatis.md) configurés.
 
-## <a name="requirements"></a>Configuration requise
+## <a name="requirements"></a>Spécifications
 
 Pour configurer l’authentification basée sur les certificats, les conditions suivantes doivent être remplies :
 
@@ -47,7 +47,7 @@ Pour configurer l’authentification basée sur les certificats, les conditions 
 >[!IMPORTANT]
 >La taille maximale d’une liste de révocation de certificats à télécharger et à mettre en cache par Azure Active Directory est de 20 Mo, et le temps nécessaire au téléchargement de cette liste ne doit pas dépasser 10 secondes.  Si Azure Active Directory ne parvient pas à télécharger une liste de révocation de certificats, les authentifications basées sur les certificats émis par l’autorité de certification correspondante échouent. Les bonnes pratiques permettant de s’assurer que les fichiers CRL se trouvent dans des limites de taille acceptables consistent à conserver les durées de vie des certificats dans des limites raisonnables, et à nettoyer les certificats expirés. 
 
-## <a name="step-1-select-your-device-platform"></a>Étape 1 : Sélectionner la plateforme de votre appareil
+## <a name="step-1-select-your-device-platform"></a>Étape 1 : Sélectionner la plateforme de votre appareil
 
 Dans un premier temps, pour la plateforme d’appareil qui vous intéresse, vous devez passer en revue les éléments suivants :
 
@@ -59,7 +59,7 @@ Les informations connexes existent pour les plateformes d’appareils suivantes�
 - [Android](active-directory-certificate-based-authentication-android.md)
 - [iOS](active-directory-certificate-based-authentication-ios.md)
 
-## <a name="step-2-configure-the-certificate-authorities"></a>Étape 2 : Configurer les autorités de certification
+## <a name="step-2-configure-the-certificate-authorities"></a>Étape 2 : Configurer les autorités de certification
 
 Pour configurer vos autorités de certification dans Azure Active Directory, pour chaque autorité de certification, vous devez télécharger les éléments suivants :
 
@@ -99,7 +99,7 @@ Pour la configuration, vous pouvez utiliser [Azure Active Directory PowerShell V
 
 Comme première étape de configuration, vous devez établir une connexion avec votre client. Dès qu’une connexion est établie avec votre locataire, vous pouvez examiner, ajouter, supprimer et modifier les autorités de certification approuvées qui sont définies dans votre annuaire.
 
-### <a name="connect"></a>Connecter
+### <a name="connect"></a>Se connecter
 
 Pour établir une connexion avec votre client, utilisez l’applet de commande [Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0) :
 

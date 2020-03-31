@@ -6,11 +6,11 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.openlocfilehash: 6950f1dd81ef2c70f2c45fb4c547ed7676067790
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77462307"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79235085"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions-overview"></a>Vue d’ensemble des liaisons de Stockage Blob Azure pour Azure Functions
 
@@ -24,15 +24,15 @@ Azure Functions s’intègre à [Stockage Azure](https://docs.microsoft.com/azur
 
 ## <a name="add-to-your-functions-app"></a>Ajouter à votre application de fonction
 
-### <a name="functions-2x-and-higher"></a>Functions 2.x et ultérieur
+### <a name="functions-2x-and-higher"></a>Functions 2.x et versions ultérieures
 
 Pour utiliser le déclencheur et les liaisons, vous devez référencer le package approprié. Le package NuGet est utilisé pour les bibliothèques de classes .NET, tandis que le bundle d’extensions est utilisé pour tous les autres types d’applications.
 
-| Langage                                        | Ajouter via…                                   | Notes 
+| Langage                                        | Ajouter via...                                   | Notes 
 |-------------------------------------------------|---------------------------------------------|-------------|
 | C#                                              | L’installation du [package NuGet], version 3.x | |
 | Script C#, Java, JavaScript, Python, PowerShell | L’inscription du [bundle d’extensions]          | Il est recommandé d’utiliser l’[extension Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) avec Visual Studio Code. |
-| Script C# (en ligne uniquement dans le portail Azure)         | Ajout d’une liaison                            | Pour mettre à jour des extensions de liaison existantes sans avoir à republier votre application de fonction, consultez [Mettre à jour vos extensions]. |
+| Script C# (en ligne uniquement dans le portail Azure)         | Ajout d’une liaison                            | Pour mettre à jour des extensions de liaison existantes sans avoir à republier votre application de fonction, voir [Mettre à jour vos extensions]. |
 
 [core tools]: ./functions-run-local.md
 [Bundle d’extensions]: ./functions-bindings-register.md#extension-bundles
@@ -48,6 +48,6 @@ Les applications Functions 1.x ont automatiquement une référence au package N
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Exécuter une fonction quand des données de stockage d’objets Blob sont modifiées](./functions-bindings-storage-blob-trigger.md)
-- [Lire des données de stockage d’objets Blob lors de l’exécution d’une fonction](./functions-bindings-storage-blob-input.md)
+- [Exécuter une fonction quand les données de stockage Blob changent](./functions-bindings-storage-blob-trigger.md)
+- [Lire des données de stockage de blobs lors de l’exécution d’une fonction](./functions-bindings-storage-blob-input.md)
 - [Écrire des données de stockage d’objets blob à partir d’une fonction](./functions-bindings-storage-blob-output.md)

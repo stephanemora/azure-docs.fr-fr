@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: 690c3e281e65f54f240c70f7a6e5038f54102c99
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77560590"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-powershell"></a>Créer un cluster et une base de données Azure Data Explorer à l’aide de PowerShell
@@ -26,7 +26,7 @@ ms.locfileid: "77560590"
 
 Azure Data Explorer est un service d’analytique données rapide et complètement managé pour l’analyse en temps réel de gros volumes de données diffusées en continu par des applications, des sites web, des appareils IoT, etc. Pour utiliser Azure Data Explorer, créez tout d’abord un cluster et une ou plusieurs bases de données dans ce cluster. Ensuite, ingérez (chargez) des données dans une base de données pour pouvoir exécuter des requêtes dessus. Dans cet article, vous créez un cluster et une base de données en utilisant Powershell. Vous pouvez exécuter des scripts et des applets de commande PowerShell sur Windows, sur Linux ou dans [Azure Cloud Shell](../cloud-shell/overview.md) avec [Az.Kusto](/powershell/module/az.kusto/?view=azps-1.4.0#kusto) pour créer et configurer des clusters et des bases de données Azure Data Explorer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -67,7 +67,7 @@ Les étapes suivantes ne sont pas obligatoires si vous exécutez des commandes d
 
    |**Paramètre** | **Valeur suggérée** | **Description du champ**|
    |---|---|---|
-   | Nom | *mykustocluster* | Nom souhaité de votre cluster.|
+   | Name | *mykustocluster* | Nom souhaité de votre cluster.|
    | Sku | *D13_v2* | Référence SKU utilisée pour votre cluster. |
    | ResourceGroupName | *testrg* | Nom du groupe de ressources dans lequel sera créé le cluster. |
 
@@ -92,7 +92,7 @@ Si le résultat contient `provisioningState` avec la valeur `Succeeded`, alors l
    |**Paramètre** | **Valeur suggérée** | **Description du champ**|
    |---|---|---|
    | ClusterName | *mykustocluster* | Nom du cluster dans lequel la base de données est créée.|
-   | Nom | *mykustodatabase* | Nom de votre base de données.|
+   | Name | *mykustodatabase* | Nom de votre base de données.|
    | ResourceGroupName | *testrg* | Nom du groupe de ressources dans lequel sera créé le cluster. |
    | SoftDeletePeriod | *3650:00:00:00* | Durée pendant laquelle les données restent disponibles pour les requêtes. |
    | HotCachePeriod | *3650:00:00:00* | Durée pendant laquelle les données sont conservées dans le cache. |

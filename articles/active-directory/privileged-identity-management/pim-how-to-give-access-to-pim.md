@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7424e92f8520d13137b6ac8787523095058a005f
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74022112"
 ---
 # <a name="grant-access-to-other-administrators-to-manage-privileged-identity-management"></a>Accorder l’accès à d’autres administrateurs pour la gestion de Privileged Identity Management
@@ -32,7 +32,7 @@ Assurez-vous qu’il y a toujours au moins deux utilisateurs auxquels est affect
 
 ## <a name="grant-access-to-manage-pim"></a>Accorder l’accès pour gérer PIM
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 1. Dans Azure AD, ouvrez **Privileged Identity Management**.
 
@@ -70,7 +70,7 @@ Assurez-vous qu’il y a toujours au moins deux utilisateurs auxquels est affect
 
 Avant de supprimer quelqu’un du rôle Administrateur de rôle privilégié, assurez-vous toujours qu’au moins deux utilisateurs y sont affectés.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 1. Ouvrez **Azure AD Privileged Identity Management**.
 

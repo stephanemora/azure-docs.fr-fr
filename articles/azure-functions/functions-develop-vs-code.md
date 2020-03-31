@@ -4,11 +4,11 @@ description: Découvrez comment développer et tester Azure Functions à l’aid
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.openlocfilehash: 2d33b7dddf29d37d174bdb7734e9048bc1658840
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78940986"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79235065"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Développer Azure Functions avec Visual Studio Code
 
@@ -234,7 +234,7 @@ Quand vous choisissez **+ Créer une application de fonction dans Azure...** , l
 
 Si vous souhaitez fournir des noms explicites pour les ressources créées, vous devez opter pour le chemin de création avancé.
 
-### <a name="enable-publishing-with-advanced-create-options"></a>Publier un projet sur une nouvelle application de fonction dans Azure à l’aide des options avancées
+### <a name="publish-a-project-to-a-new-function-app-in-azure-by-using-advanced-options"></a><a name="enable-publishing-with-advanced-create-options"></a>Publier un projet sur une nouvelle application de fonction dans Azure à l’aide des options avancées
 
 Les étapes suivantes permettent de publier votre projet dans une nouvelle application de fonction créée avec les options de création avancées.
 

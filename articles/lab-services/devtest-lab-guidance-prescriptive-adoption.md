@@ -14,10 +14,10 @@ ms.date: 04/12/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: 32e828f420d41d7a67e4f41ac8a4a0698711ce2f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "64916405"
 ---
 # <a name="devtest-labs-in-the-enterprise"></a>DevTest Labs dans l’entreprise
@@ -38,7 +38,7 @@ Ce document s’adresse aux planificateurs, architectes et responsables IT charg
 
 ## <a name="enterprise-customers"></a>Clients Entreprise
 
-De nombreux clients actuels de DevTest Labs utilisent avec succès DevTest Labs pour le développement et le test des charges de travail dans leurs organisations. [Plus d’informations](https://azure.microsoft.com/case-studies/?term=DevTest+labs)
+De nombreux clients actuels de DevTest Labs utilisent avec succès DevTest Labs pour le développement et le test des charges de travail dans leurs organisations. [En savoir plus](https://azure.microsoft.com/case-studies/?term=DevTest+labs).
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Architecture de référence pour une entreprise](devtest-lab-reference-architecture.md)

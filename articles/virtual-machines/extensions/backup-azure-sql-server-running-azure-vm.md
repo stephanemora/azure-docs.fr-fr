@@ -8,21 +8,21 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: dacurwin
-ms.openlocfilehash: 77492454e2519c98cadfb6819c850c4830015b59
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: b17e4031edaedc6b0a63d305d20a77e5b58f91ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748964"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80247382"
 ---
 # <a name="azure-backup-for-sql-server-running-in-azure-vm"></a>Sauvegarde Azure pour SQL Server s’exécutant sur une machine virtuelle Azure
 
 Sauvegarde Azure, entre autres offres, prend en charge la sauvegarde des charges de travail telles que SQL Server s’exécutant sur des machines virtuelles Azure. L’application SQL s’exécutant dans une machine virtuelle Azure, le service de sauvegarde a besoin d’autorisations pour accéder à l’application et récupérer les informations nécessaires.
 Pour ce faire, Sauvegarde Azure installe l'extension **AzureBackupWindowsWorkload** sur la machine virtuelle dans laquelle le serveur SQL Server est en cours d’exécution, lors du processus d’inscription déclenché par l’utilisateur.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-Pour obtenir la liste des scénarios pris en charge, reportez-vous à la [matrice de prise en charge](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#scenario-support) Sauvegarde Azure.
+Pour obtenir la liste des scénarios pris en charge, reportez-vous à la [matrice de prise en charge](../../backup/sql-support-matrix.md#scenario-support) Sauvegarde Azure.
 
 ## <a name="network-connectivity"></a>Connectivité réseau
 
@@ -85,9 +85,9 @@ Le JSON suivant illustre le schéma de l’extension WorkloadBackup.
 
 ### <a name="property-values"></a>Valeurs de propriétés
 
-Nom | Valeur/Exemple | Type de données
+Name | Valeur/Exemple | Type de données
  --- | --- | ---
-locale | en-us  |  string
+locale | fr-FR  |  string
 taskId | "1c0ae461-9d3b-418c-a505-bb31dfe2095d"  | string
 objectStr <br/> (publicSettings)  | "eyJjb250YWluZXJQcm9wZXJ0aWVzIjp7IkNvbnRhaW5lcklEIjoiMzVjMjQxYTItOGRjNy00ZGE5LWI4NTMtMjdjYTJhNDZlM2ZkIiwiSWRNZ210Q29udGFpbmVySWQiOjM0NTY3ODg5LCJSZXNvdXJjZUlkIjoiMDU5NWIwOGEtYzI4Zi00ZmFlLWE5ODItOTkwOWMyMGVjNjVhIiwiU3Vic2NyaXB0aW9uSWQiOiJkNGEzOTliNy1iYjAyLTQ2MWMtODdmYS1jNTM5ODI3ZTgzNTQiLCJVbmlxdWVDb250YWluZXJOYW1lIjoiODM4MDZjODUtNTQ4OS00NmNhLWEyZTctNWMzNzNhYjg3OTcyIn0sInN0YW1wTGlzdCI6W3siU2VydmljZU5hbWUiOjUsIlNlcnZpY2VTdGFtcFVybCI6Imh0dHA6XC9cL015V0xGYWJTdmMuY29tIn1dfQ==" | string
 commandStartTimeUTCTicks | "636967192566036845"  | string

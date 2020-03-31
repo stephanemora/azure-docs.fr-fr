@@ -12,10 +12,10 @@ ms.date: 12/05/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 01dd03eb0ed17fc43e62c8f749dfa2de78e38f69
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74974578"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-java"></a>Démarrage rapide : Générer une miniature à l’aide de l’API REST Vision par ordinateur et de Java
@@ -27,7 +27,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 ## <a name="prerequisites"></a>Prérequis
 
 - Vous devez utiliser la plateforme [Java&trade;, avec le kit Standard Edition Development 7 ou 8](https://aka.ms/azure-jdks) (JDK 7 ou 8) installé.
-- Vous devez disposer d’une clé d’abonnement pour la Vision par ordinateur. Vous pouvez obtenir une clé d’essai gratuit auprès de [Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Vous pouvez également suivre les instructions mentionnées dans [Créer un compte Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) pour vous abonner à Vision par ordinateur et obtenir votre clé. Ensuite, [créez des variables d’environnement](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) pour la chaîne de point de terminaison de la clé et du service, nommés respectivement `COMPUTER_VISION_SUBSCRIPTION_KEY` et `COMPUTER_VISION_ENDPOINT`.
+- Vous devez disposer d’une clé d’abonnement pour la Vision par ordinateur. Vous pouvez obtenir une clé d’essai gratuit auprès de [Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Vous pouvez également suivre les instructions mentionnées dans [Créer un compte Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) pour vous abonner à Vision par ordinateur et obtenir votre clé. Ensuite, [créez des variables d’environnement](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) pour la chaîne de point de terminaison de la clé et du service, nommées respectivement `COMPUTER_VISION_SUBSCRIPTION_KEY` et `COMPUTER_VISION_ENDPOINT`.
 
 ## <a name="create-and-run-the-sample-application"></a>Créer et exécuter l’exemple d’application
 
@@ -60,7 +60,7 @@ Pour créer et exécuter l’exemple, effectuez les étapes suivantes :
 
 1. Remplacez la classe publique `Main` par le code suivant.
 1. Remplacez éventuellement la valeur de `imageToAnalyze` par l’URL d’une autre image pour laquelle vous souhaitez générer une miniature.
-1. Enregistrez, puis créez le projet Java.
+1. Enregistrez les modifications, puis générez le projet Java.
 1. Si vous utilisez un IDE, exécutez `Main`. Sinon, ouvrez une fenêtre d’invite de commandes et utilisez la commande `java` pour exécuter la classe compilée. Par exemple : `java Main`.
 
 ```java
@@ -157,7 +157,7 @@ public class Main {
 
 ## <a name="examine-the-response"></a>Examiner la réponse
 
-Une réponse correcte est retournée sous forme de données binaires qui représentent les données d’image de la miniature. Si la requête aboutit, la miniature est générée à partir des données binaires de la réponse, et est affichée dans une fenêtre distincte, créée par l’exemple d’application. Si la requête échoue, la réponse s’affiche dans la fenêtre de la console. La réponse associée à l’échec de la requête contient un code d’erreur et un message indiquant la cause du problème.
+Une réponse réussie est retournée sous forme de données binaires qui représentent les données image de la miniature. Si la requête aboutit, la miniature est générée à partir des données binaires de la réponse, et est affichée dans une fenêtre distincte, créée par l’exemple d’application. Si la requête échoue, la réponse s’affiche dans la fenêtre de console. La réponse associée à l’échec de la requête contient un code d’erreur et un message indiquant la cause du problème.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

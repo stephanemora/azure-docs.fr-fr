@@ -1,7 +1,7 @@
 ---
-title: Associer un NSA d’homologue à un abonnement Azure en utilisant le portail
+title: Associer un ASN de pair à un abonnement Azure en utilisant le portail
 titleSuffix: Azure
-description: Associer un NSA d’homologue à un abonnement Azure en utilisant le portail
+description: Associer un ASN de pair à un abonnement Azure en utilisant le portail
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -9,17 +9,17 @@ ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: cee548aff49cd5e4a57eed994b8ade2d157c6313
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75912130"
 ---
-# <a name="associate-peer-asn-to-azure-subscription-using-the-portal"></a>Associer un NSA d’homologue à un abonnement Azure en utilisant le portail
+# <a name="associate-peer-asn-to-azure-subscription-using-the-portal"></a>Associer un ASN de pair à un abonnement Azure en utilisant le portail
 
 Avant de soumettre une demande de Peering, vous devez d’abord associer votre NSA à un abonnement Azure en effectuant les étapes ci-dessous.
 
-Si vous préférez, vous pouvez suivre ce guide à l’aide d [PowerShell](howto-subscription-association-powershell.md).
+Si vous préférez, vous pouvez suivre ce guide à l’aide de [PowerShell](howto-subscription-association-powershell.md).
 
 ## <a name="create-peerasn-to-associate-your-asn-with-azure-subscription"></a>Créer un PeerAsn pour associer votre NSA à un abonnement Azure
 
@@ -27,7 +27,7 @@ Si vous préférez, vous pouvez suivre ce guide à l’aide d [PowerShell](howto
 [!INCLUDE [Account](./includes/account-portal.md)]
 
 ### <a name="register-for-peering-resource-provider"></a>S’inscrire auprès du fournisseur de ressources de Peering
-Inscrivez-vous auprès du fournisseur de ressources de Peering dans votre abonnement en effectuant les étapes ci-dessous. Si vous n’effectuez pas ces étapes, les ressources Azure nécessaires pour configurer le Peering ne sont pas accessibles.
+Inscrivez-vous auprès du fournisseur de ressources de Peering dans votre abonnement en effectuant les étapes ci-dessous. Si vous n’exécutez pas cette commande, les ressources Azure nécessaires pour configurer le Peering ne sont pas accessibles.
 
 1. Cliquez sur **Abonnements** dans le coin supérieur gauche du portail. Si cette option n’est pas visible, cliquez sur **Plus de services** et recherchez-la.
 
@@ -101,7 +101,7 @@ Vous pouvez créer une nouvelle ressource PeerAsn pour associer un numéro de sy
 Une fois que la ressource PeerAsn est déployée avec succès, vous devez attendre que Microsoft approuve la demande d’association. L’approbation peut prendre jusqu’à 12 heures. Une fois la demande approuvée, vous recevrez une notification à l’adresse e-mail entrée dans la section ci-dessus.
 
 > [!IMPORTANT]
-> Attendez que l’état de validation passe à « Approuvé » avant de soumettre une demande de Peering. Cette approbation peut prendre jusqu’à 12 heures.
+> Attendez que l’état de validation passe à « Approved » avant de soumettre une demande de Peering. Cette approbation peut prendre jusqu’à 12 heures.
 
 ## <a name="modify-peerasn"></a>Modifier un PeerAsn
 La modification de PeerAsn n’est pas prise en charge actuellement. Si vous avez besoin de le modifier, contactez l’assistance [Peering Microsoft](mailto:peering@microsoft.com).
@@ -118,4 +118,4 @@ La suppression d’un PeerAsn n’est pas prise en charge actuellement. Si vous 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-Pour plus d’informations, consultez [FAQ sur le Peering Internet](faqs.md).
+Pour plus d’informations, consultez [FAQ sur le peering Internet](faqs.md).
