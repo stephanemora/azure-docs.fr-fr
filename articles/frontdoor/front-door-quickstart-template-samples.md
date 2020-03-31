@@ -1,6 +1,6 @@
 ---
-title: Exemples de modèles Azure Resource Manager - Azure Front Door Service
-description: Exemples de modèles Azure Resource Manager pour Azure Front Door Service
+title: Exemples de modèles Azure Resource Manager - Azure Front Door
+description: Exemples de modèles Azure Resource Manager pour Azure Front Door
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -10,23 +10,23 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/13/2018
 ms.author: sharadag
-ms.openlocfilehash: 2684c9852cb3e946d8ec1840fc166053204dfae0
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: de3b13162e7828542331e7e7a34d0101f7feaf71
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184590"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79471647"
 ---
 # <a name="azure-resource-manager-deployment-model-templates-for-front-door"></a>Modèles de déploiement Azure Resource Manager pour Front Door
 
-Le tableau suivant comprend des liens vers des modèles de déploiement Azure Resource Manager pour Azure Front Door Service. 
+Le tableau suivant comprend des liens vers des modèles de déploiement Azure Resource Manager pour Azure Front Door. 
 
 | | |
 | ---| ---|
 | [Créer une porte d’entrée de base](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-create-basic)| Crée une configuration de porte d’entrée de base avec un seul backend. |
 | [Créer une porte d’entrée avec plusieurs backends et pools de backends, et un routage basé sur les URL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-create-multiple-backends)| Crée une porte d’entrée avec l’équilibrage de charge configuré pour plusieurs backends du pool de backends, ainsi qu’entre des pools de backends, basé sur les chemins d’URL. |
 | [Intégrer un domaine personnalisé avec HTTPS (certificat géré par Front Door) avec Front Door](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-custom-domain)| Ajoutez un domaine personnalisé à votre porte d’entrée et activez le trafic HTTPS pour celui-ci avec un certificat géré par Front Door et généré via DigiCert. |
-| [Créer une porte d’entrée avec filtrage géographique](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering)| Créer une porte d’entrée qui autorise/bloque le trafic provenant de certains pays et de certaines régions. |
+| [Créer une porte d’entrée avec géofiltrage](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering)| Créer une porte d’entrée qui autorise/bloque le trafic provenant de certains pays et de certaines régions. |
 | [Contrôler les sondes d’intégrité pour vos backends sur Front Door](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-health-probes)| Mettez à jour votre porte d’entrée pour modifier les paramètres de sonde d’intégrité en changeant le chemin des sondes, ainsi que les intervalles auxquels les sondes sont envoyées. |
 | [Créer une porte d’entrée avec une configuration de backend Active/En veille](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-priority-lb)| Crée une porte d’entrée qui montre le routage en fonction de la priorité pour la topologie d’application Actif/En veille, c’est-à-dire qui envoie par défaut tout le trafic au backend principal (priorité la plus élevée) jusqu’à ce qu’il devienne indisponible. |
 | [Créer une porte d’entrée avec la mise en cache activée pour certaines routes](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-create-caching)| Crée une porte d’entrée avec la mise en cache activée pour la configuration de routage définie, ce qui a pour effet de mettre en cache les ressources statiques pour votre charge de travail. |

@@ -1,5 +1,5 @@
 ---
-title: 'Synchronisation d’Azure AD Connect : Extensions d’annuaire | Microsoft Docs'
+title: 'Azure AD Connect Sync : extensions d’annuaire | Microsoft Docs'
 description: Cette rubrique décrit la fonctionnalité d’extensions d’annuaire dans Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -17,13 +17,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 80438319a6337dd6f28f9bdca8a428829b6cb0b9
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77917911"
 ---
-# <a name="azure-ad-connect-sync-directory-extensions"></a>Synchronisation d’Azure AD Connect : Extensions d’annuaire
+# <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect Sync : extensions d’annuaire
 Vous pouvez utiliser les extensions d’annuaire pour étendre le schéma dans Azure Active Directory (Azure AD) avec vos propres attributs à partir d’un annuaire Active Directory local. Cette fonctionnalité vous permet de générer des applications métiers en consommant les attributs que vous continuez à gérer en local. Ces attributs peuvent être utilisés via des [extensions](https://docs.microsoft.com/graph/extensibility-overview
 ). Vous pouvez voir les attributs disponibles à l’aide de [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). Vous pouvez également utiliser cette fonctionnalité pour créer des groupes dynamiques dans Azure AD.
 
@@ -41,8 +41,8 @@ Vous pouvez configurer les attributs supplémentaires à synchroniser dans le ch
 L’installation affiche les attributs suivants, qui sont des candidats valides :
 
 * Types d’utilisateur et d’objet de groupe
-* Attributs à valeur unique : Chaîne, booléen, entier, binaire
-* Attributs à valeurs multiples : Chaîne, binaire
+* Attributs à valeur unique : chaîne, booléen, entier, binaire
+* Attributs à valeurs multiples : chaîne, binaire
 
 
 >[!NOTE]
@@ -69,7 +69,7 @@ Ces attributs sont désormais disponibles par le biais de l’API Microsoft Grap
 >[!NOTE]
 > Dans l’API Microsoft Graph, vous devez demander que les attributs soient retournés. Sélectionnez explicitement les attributs comme suit : `https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division`.
 >
-> Pour plus d’informations, consultez [Microsoft Graph : Utiliser des paramètres de requête](https://developer.microsoft.com/graph/docs/concepts/query_parameters#select-parameter).
+> Pour plus d’informations, consultez l’article [Microsoft Graph : Utilisation de paramètres de requête](https://developer.microsoft.com/graph/docs/concepts/query_parameters#select-parameter).
 
 ## <a name="use-the-attributes-in-dynamic-groups"></a>Utiliser les attributs dans des groupes dynamiques
 

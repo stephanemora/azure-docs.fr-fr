@@ -6,13 +6,13 @@ ms.author: andrela
 ms.service: mariadb
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 12/02/2019
-ms.openlocfilehash: 9ba02f53ba5765d90e8bba80e4d99922d7eb7c46
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 3/19/2020
+ms.openlocfilehash: 698220a7f81dc5fb9d70d2aa65e96dfa199af444
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432050"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80063839"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-portal"></a>Créer un serveur Azure Database for MariaDB à l’aide du portail Azure
 
@@ -37,36 +37,34 @@ Pour créer un serveur Azure Database for MariaDB :
    ![Option Azure Database for MariaDB](./media/quickstart-create-mariadb-server-database-using-azure-portal/2_navigate-to-mariadb.png)
 
 3. Entrez ou sélectionnez les détails de serveur suivants :
-   
+
    ![Créer un formulaire de serveur](./media/quickstart-create-mariadb-server-database-using-azure-portal/4-create-form.png)
 
     Paramètre | Valeur suggérée | Description
     ---|---|---
     Nom du serveur | *un nom de serveur unique* | Choisissez un nom unique qui identifie votre serveur Azure Database for MariaDB. Par exemple, **mydemoserver**. Le nom de domaine *.mariadb.database.azure.com* est ajouté au nom du serveur que vous entrez. Le nom de serveur ne peut contenir que des lettres minuscules, des chiffres et le caractère de trait d’union (-). Il doit contenir entre 3 et 63 caractères.
-    Subscription | *votre abonnement* | Sélectionnez l’abonnement Azure que vous souhaitez utiliser pour votre serveur. Si vous avez plusieurs abonnements, choisissez celui dans lequel la ressource est facturée.
+    Abonnement | *votre abonnement* | Sélectionnez l’abonnement Azure que vous souhaitez utiliser pour votre serveur. Si vous avez plusieurs abonnements, choisissez celui dans lequel la ressource est facturée.
     Resource group | **myresourcegroup** | Entrez le nom d’un nouveau groupe de ressources, ou sélectionnez un groupe de ressources existant. 
     Sélectionner une source | **Vide** | Sélectionnez **Vide** pour créer un nouveau serveur à partir de zéro. (Sélectionnez **Sauvegarde** si vous créez un serveur à partir d’une géosauvegarde d’un serveur Azure Database for MariaDB existant.)
     Connexion d’administrateur serveur | **myadmin** | Un compte de connexion à utiliser lors de la connexion au serveur. Le nom de connexion d’administrateur ne doit pas être **azure_superuser**, **admin**, **administrator**, **root**, **guest** ou **public**.
     Mot de passe | *votre choix* | Entrez un nouveau mot de passe pour le compte d’administrateur du serveur. Il doit contenir entre 8 et 128 caractères. Votre mot de passe doit contenir des caractères de trois des catégories suivantes : Lettres majuscules, lettres minuscules, chiffres (0-9) et caractères non alphanumériques (comme !, $, #, %, etc.).
     Confirmer le mot de passe | *votre choix*| Confirmez le mot de passe du compte d’administrateur.
-    Location | *La région la plus proche de vos utilisateurs*| Choisissez l’emplacement le plus proche de vos utilisateurs ou de vos autres applications Azure.
+    Emplacement | *La région la plus proche de vos utilisateurs*| Choisissez l’emplacement le plus proche de vos utilisateurs ou de vos autres applications Azure.
     Version | *La version la plus récente*| La version la plus récente (sauf si vous avez des exigences spécifiques pour utiliser une autre version).
     Niveau tarifaire | Consultez la description. | Les configurations de calcul, de stockage et de sauvegarde pour votre nouveau serveur. Sélectionnez **Niveau tarifaire** > **Usage général**. Conservez les valeurs par défaut des paramètres suivants :<br><ul><li>**Génération de calcul** (Gen 5)</li><li>**vCore** (4 vCores)</li><li>**Stockage** (100 Go)</li><li>**Période de rétention de sauvegarde** (7 jours)</li></ul><br>Pour activer les sauvegardes de votre serveur dans le stockage géoredondant, sélectionnez **Géographiquement redondant** pour **Options de redondance de sauvegarde**. <br><br>Pour enregistrer cette sélection du niveau tarifaire, sélectionnez **OK**. La capture d’écran suivante capture ces sélections.
   
    > [!NOTE]
    > Choisissez le niveau tarifaire De base si votre charge de travail n’a pas besoin d’une grande capacité de calcul et d’E/S. Notez que les serveurs créés avec le niveau tarifaire De base ne peuvent plus ensuite être mis à l’échelle vers le niveau Usage général ou Mémoire optimisée. Pour plus d’informations, consultez la [page des tarifs](https://azure.microsoft.com/pricing/details/mariadb/).
-   > 
 
    ![Créer un serveur - Fenêtre de niveau tarifaire](./media/quickstart-create-mariadb-server-database-using-azure-portal/3-pricing-tier.png)
 
-4.  Sélectionnez **Créer** pour approvisionner le serveur. L’approvisionnement peut durer jusqu’à 20 minutes.
-   
-5.  Pour surveiller le processus de déploiement, sélectionnez **Notifications** dans la barre d’outils (icône de cloche).
-   
+4. Sélectionnez **Vérifier + créer** pour provisionner le serveur. L’approvisionnement peut durer jusqu’à 20 minutes.
+
+5. Pour surveiller le processus de déploiement, sélectionnez **Notifications** dans la barre d’outils (icône de cloche).
+
 Par défaut, les bases de données suivantes sont créées sous votre serveur : **information_schema**, **mysql**, **performance_schema**, et **sys**.
 
-
-## <a name="configure-firewall-rule"></a>Configurer une règle de pare-feu au niveau du serveur
+## <a name="configure-a-server-level-firewall-rule"></a><a name="configure-firewall-rule"></a>Configurer une règle de pare-feu au niveau du serveur
 
 Le service Azure Database for MariaDB crée un pare-feu au niveau du serveur. Le pare-feu empêche les applications et les outils externes de se connecter au serveur ou à toute base de données sur le serveur, sauf si une règle de pare-feu est créée pour ouvrir le pare-feu à des adresses IP spécifiques. 
 
@@ -77,20 +75,19 @@ Pour créer une règle de pare-feu au niveau du serveur :
 2. Sur la page de vue d’ensemble du serveur, sélectionnez **Sécurité de la connexion**.
 
 3. Sous **Règles de pare-feu**, sélectionnez la zone de texte vide de la colonne **Nom de la règle** pour commencer à créer la règle de pare-feu. Spécifiez la plage exacte d’adresses IP des clients qui se connecteront à ce serveur.
-   
+
    ![Sécurité de connexion : règles de pare-feu](./media/quickstart-create-mariadb-server-database-using-azure-portal/5-firewall-2.png)
 
-4. Dans la barre d’outils supérieure de la page **Sécurité de la connexion**, sélectionnez **Enregistrer**. Avant de continuer, attendez de voir la notification indiquant que la mise à jour s’est terminée avec succès. 
+4. Dans la barre d’outils supérieure de la page **Sécurité de la connexion**, sélectionnez **Enregistrer**. Avant de continuer, attendez de voir la notification indiquant que la mise à jour s’est terminée avec succès.
 
    > [!NOTE]
    > Les connexions à Azure Database for MariaDB communiquent sur le port 3306. Si vous essayez de vous connecter depuis un réseau d’entreprise, le trafic sortant sur le port 3306 peut être bloqué. Dans ce cas, pour vous connecter à votre serveur, votre service informatique doit ouvrir le port 3306.
-   > 
 
 ## <a name="get-connection-information"></a>Obtenir des informations de connexion
 
 Pour vous connecter à votre serveur de base de données, il vous faut le nom de serveur complet et les informations d’identification de connexion d’administrateur. Il est possible que vous ayez noté ces valeurs précédemment dans cet article. Si vous ne l’avez pas fait, vous pouvez facilement localiser le nom du serveur et les informations de connexion sur la page **Vue d’ensemble** ou sur la page **Propriétés** du serveur sur le Portail Azure :
 
-1. Accédez à la page **Vue d’ensemble** de votre serveur. Prenez note des valeurs du **nom du serveur** et du **nom de connexion d’administrateur du serveur**. 
+1. Accédez à la page **Vue d’ensemble** de votre serveur. Prenez note des valeurs du **nom du serveur** et du **nom de connexion d’administrateur du serveur**.
 
 2. Pour copier les valeurs, placez votre curseur sur la zone à copier. L’icône de copie s’affiche à droite du texte. Sélectionnez l’icône de copie appropriée pour copier les valeurs qui vous intéressent.
 
@@ -113,13 +110,13 @@ Tout d’abord, nous allons utiliser l’outil de ligne de commande [mysql](http
 
     Pour vous connecter à un serveur Azure Database for MariaDB à l’aide de l’utilitaire mysql, utilisez le format suivant :
 
-    ```bash
+    ```cmd
     mysql --host <fully qualified server name> --user <server admin login name>@<server name> -p
     ```
 
     Par exemple, la commande ci-après permet de se connecter au serveur de notre exemple :
 
-    ```azurecli-interactive
+    ```cmd
     mysql --host mydemoserver.mariadb.database.azure.com --user myadmin@mydemoserver -p
     ```
 
@@ -129,11 +126,11 @@ Tout d’abord, nous allons utiliser l’outil de ligne de commande [mysql](http
     --user | *nom de connexion d’administrateur du serveur* |Le nom d’utilisateur de connexion administrateur du serveur que vous avez utilisé pour créer le serveur Azure Database for MariaDB. Si vous ne vous souvenez pas du nom d’utilisateur, effectuez la procédure de la section précédente pour obtenir les informations de connexion. Le format est *nom_utilisateur\@nom_serveur*.
     -p | *votre mot de passe*<br>(patienter jusqu’à être invité) |Lorsque vous y êtes invité, entrez le mot de passe que vous avez utilisé pour créer le serveur. Les caractères du mot de passe que vous tapez ne sont pas visibles au niveau de l’invite bash. Après avoir entré le mot de passe, appuyez sur Entrée.
 
-   Une fois l’utilitaire mysql connecté, une invite `mysql>` s’affiche. Vous pouvez entrer des commandes à l’invite. 
+   Une fois l’utilitaire mysql connecté, une invite `mysql>` s’affiche. Vous pouvez entrer des commandes à l’invite.
 
    Voici un exemple de sortie mysql :
 
-    ```bash
+    ```output
     Welcome to the MySQL monitor.  Commands end with ; or \g.
     Your MySQL connection id is 65505
     Server version: 5.6.39.0 MariaDB Server
@@ -209,7 +206,6 @@ Pour se connecter au serveur à l’aide de MySQL Workbench :
 
     > [!NOTE]
     > Le protocole SSL est appliqué par défaut sur votre serveur. Une configuration supplémentaire est nécessaire pour que la connexion soit réussie. Pour plus d’informations, voir [Configuration de la connectivité SSL dans votre application pour se connecter de manière sécurisée à Azure Database for MariaDB](./howto-configure-ssl.md). Pour désactiver le protocole SSL de ce guide de démarrage rapide, sélectionnez **Sécurité de la connexion** dans le menu sur la page de vue d’ensemble du serveur dans le Portail Azure. Pour **Appliquer une connexion SSL**, sélectionnez **Désactivé**.
-    >
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
@@ -217,19 +213,18 @@ Vous disposez de deux moyens de supprimer les ressources que vous avez créées 
 
 > [!TIP]
 > Les autres guides de démarrage rapide de cette collection reposent sur ce guide. Si vous souhaitez continuer à utiliser les guides de démarrage rapide d’Azure Database for MariaDB, ne supprimez pas les ressources créées au cours de ce guide. Sinon, procédez comme suit pour supprimer toutes les ressources que vous avez créées dans le cadre de ce guide de démarrage rapide.
->
 
 Pour supprimer l’intégralité du groupe de ressources, y compris le serveur nouvellement créé :
 
-1.  Dans le Portail Azure, localisez votre groupe de ressources. Dans le menu de gauche, sélectionnez **Groupes de ressources**, puis le nom de votre groupe de ressources (dans notre exemple, **myresourcegroup**).
+1. Dans le Portail Azure, localisez votre groupe de ressources. Dans le menu de gauche, sélectionnez **Groupes de ressources**, puis le nom de votre groupe de ressources (dans notre exemple, **myresourcegroup**).
 
-2.  Dans la page du groupe de ressources, sélectionnez **Supprimer**. Ensuite, entrez le nom de votre groupe de ressources (dans notre exemple, **myresourcegroup**) pour confirmer la suppression. Sélectionnez **Supprimer**.
+2. Dans la page du groupe de ressources, sélectionnez **Supprimer**. Ensuite, entrez le nom de votre groupe de ressources (dans notre exemple, **myresourcegroup**) pour confirmer la suppression. Sélectionnez **Supprimer**.
 
 Pour ne supprimer que le serveur nouvellement créé :
 
 1. Dans le Portail Azure, localisez votre serveur s’il n’est pas déjà ouvert. Dans le menu de gauche, sélectionnez **Toutes les ressources**. Recherchez ensuite le serveur que vous avez créé.
 
-2. Dans la page **Vue d’ensemble**, sélectionnez **Supprimer**. 
+2. Dans la page **Vue d’ensemble**, sélectionnez **Supprimer**.
 
    ![Azure Database for MariaDB : Supprimer le serveur](./media/quickstart-create-mariadb-server-database-using-azure-portal/delete-server.png)
 

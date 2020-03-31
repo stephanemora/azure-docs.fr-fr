@@ -15,16 +15,16 @@ ms.workload: infrastructure
 ms.date: 06/06/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 603bffe3d28214dbdcd51888925c3c653d0759e7
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 89ed0bad2729a9e0983d4ef7f8a53faa4f5426ac
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74068183"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79415658"
 ---
-# <a name="tutorial-back-up-and-restore-files-for-windows-virtual-machines-in-azure"></a>Didacticiel : Sauvegarder et restaurer des fichiers pour des machines virtuelles Windows dans Azure
+# <a name="tutorial-back-up-and-restore-files-for-windows-virtual-machines-in-azure"></a>Tutoriel : Sauvegarder et restaurer des fichiers pour des machines virtuelles Windows dans Azure
 
-Vous pouvez protéger vos données en effectuant des sauvegardes à intervalles réguliers. Azure Backup crée des points de récupération stockés dans des coffres de récupération géoredondants. Quand vous effectuez une restauration à partir d’un point de récupération, vous pouvez restaurer la machine virtuelle entière ou des fichiers spécifiques. Cet article explique comment restaurer un fichier unique sur une machine virtuelle exécutant Windows Server et IIS. Si vous ne disposez d’aucune machine virtuelle, vous pouvez en créer une à l’aide du [démarrage rapide Windows](quick-create-portal.md). Ce didacticiel vous explique comment effectuer les opérations suivantes :
+Vous pouvez protéger vos données en effectuant des sauvegardes à intervalles réguliers. Azure Backup crée des points de récupération stockés dans des coffres de récupération géoredondants. Quand vous effectuez une restauration à partir d’un point de récupération, vous pouvez restaurer la machine virtuelle entière ou des fichiers spécifiques. Cet article explique comment restaurer un fichier unique sur une machine virtuelle exécutant Windows Server et IIS. Si vous ne disposez d’aucune machine virtuelle, vous pouvez en créer une à l’aide du [démarrage rapide Windows](quick-create-portal.md). Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Créer une sauvegarde de machine virtuelle
@@ -33,7 +33,7 @@ Vous pouvez protéger vos données en effectuant des sauvegardes à intervalles 
 
 ## <a name="backup-overview"></a>Présentation de la sauvegarde
 
-Lorsque le service Sauvegarde Azure lance une sauvegarde, il déclenche l’extension de sauvegarde pour prendre un instantané à un moment donné. Le service Sauvegarde Azure utilise l’extension _VMSnapshot_. L’extension est installée lors de la première sauvegarde de machine virtuelle si cette machine virtuelle est exécutée. Si la machine virtuelle n’est pas en cours d’exécution, le service Sauvegarde prend un instantané du stockage sous-jacent (car aucune écriture de l’application n’a lieu pendant l’arrêt de la machine virtuelle).
+Lorsque le service Sauvegarde Azure lance une sauvegarde, il déclenche l’extension de sauvegarde pour prendre un instantané à un moment donné. Le service Sauvegarde Azure utilise l’[extension VMSnapshot](https://docs.microsoft.com/azure/virtual-machines/extensions/vmsnapshot-windows). L’extension est installée lors de la première sauvegarde de machine virtuelle si cette machine virtuelle est exécutée. Si la machine virtuelle n’est pas en cours d’exécution, le service Sauvegarde prend un instantané du stockage sous-jacent (car aucune écriture de l’application n’a lieu pendant l’arrêt de la machine virtuelle).
 
 Lorsque de la prise d’un instantané de machines virtuelles Windows, le service Sauvegarde se coordonne avec le service VSS pour obtenir un instantané cohérent des disques de la machine virtuelle. Après que le service Sauvegarde Azure a pris l’instantané, les données sont transférées vers le coffre de sauvegarde. Pour optimiser l’efficacité, le service identifie et transfère uniquement les blocs de données qui ont été modifiés depuis la sauvegarde précédente.
 
@@ -42,7 +42,7 @@ Une fois le transfert de données terminé, l’instantané est supprimé et un 
 ## <a name="create-a-backup"></a>Création d'une sauvegarde
 Créez une simple sauvegarde quotidienne planifiée dans un coffre Recovery Services. 
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 1. Dans le menu de gauche, sélectionnez **Machines virtuelles**. 
 1. Dans la liste, sélectionnez la machine virtuelle que vous souhaitez sauvegarder.
 1. Dans le panneau de la machine virtuelle, dans la section **Opérations**, cliquez sur **Sauvegarde**. Le panneau **Activer la sauvegarde** s’ouvre.
@@ -93,7 +93,7 @@ Dans cet exemple, vous découvrirez comment récupérer le fichier image qui est
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Créer une sauvegarde de machine virtuelle

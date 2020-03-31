@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: 1bfb9362aa0e893a8bf1a758e5a0069e85ab227b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438760"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231501"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-portal"></a>Bien démarrer avec Azure Data Lake Storage Gen1 à l’aide du Portail Azure
 
@@ -26,7 +26,7 @@ ms.locfileid: "75438760"
 
 Découvrez comment utiliser le portail Azure pour créer un compte Data Lake Storage Gen1 et effectuer des opérations de base telles que la création de dossiers, le chargement et le téléchargement de fichiers de données, la suppression de votre compte, etc. Pour plus d’informations, consultez [Présentation d’Azure Data Lake Storage Gen1](data-lake-store-overview.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
@@ -58,7 +58,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
 4. Cliquez sur **Créer**. Si vous choisissez d’épingler le compte au tableau de bord, vous serez renvoyé au tableau de bord et vous pourrez voir la progression du provisionnement de votre compte Data Lake Storage Gen1. Une fois le compte Data Lake Storage Gen1 provisionné, le panneau du compte s’affiche.
 
-## <a name="assign-permissions-to-azure-key-vault"></a>Attribuer des autorisations à Azure Key Vault
+## <a name="assign-permissions-to-azure-key-vault"></a><a name="assign-permissions-to-azure-key-vault"></a>Attribuer des autorisations à Azure Key Vault
 
 Si vous avez utilisé des clés d’un coffre de clés Azure pour configurer le chiffrement sur le compte Data Lake Storage Gen1, vous devez configurer l’accès entre le compte Data Lake Storage Gen1 et le compte Azure Key Vault. Pour ce faire, procédez comme suit.
 
@@ -80,7 +80,7 @@ Si vous avez utilisé des clés d’un coffre de clés Azure pour configurer le 
 >
 >
 
-## <a name="createfolder"></a>Créer des dossiers
+## <a name="create-folders"></a><a name="createfolder"></a>Créer des dossiers
 
 Vous pouvez créer des dossiers dans votre compte Data Lake Storage Gen1 pour gérer et stocker des données.
 
@@ -96,7 +96,7 @@ Vous pouvez créer des dossiers dans votre compte Data Lake Storage Gen1 pour g�
 
     ![Créer des dossiers dans un compte Data Lake](./media/data-lake-store-get-started-portal/ADL.New.Directory.png "Créer des dossiers dans un compte Data Lake")
 
-## <a name="uploaddata"></a>Charger des données
+## <a name="upload-data"></a><a name="uploaddata"></a>Charger des données
 
 Vous pouvez charger vos données sur un compte Data Lake Storage Gen1 directement à la racine ou dans un dossier que vous avez créé dans le compte.
 
@@ -107,7 +107,7 @@ Vous pouvez charger vos données sur un compte Data Lake Storage Gen1 directemen
 
 Si vous recherchez des exemples de données à charger, vous pouvez récupérer le dossier **Données Ambulance** dans le [Référentiel Git Azure Data Lake](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 
-## <a name="properties"></a>Actions disponibles sur les données stockées
+## <a name="actions-available-on-the-stored-data"></a><a name="properties"></a>Actions disponibles sur les données stockées
 
 Cliquez sur l’icône représentant des points de suspension en regard d’un fichier et, dans le menu contextuel, cliquez sur l’action que vous souhaitez exécuter sur les données.
 

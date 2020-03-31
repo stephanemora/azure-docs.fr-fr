@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6187fa9f274c6d00c1c9872a1b27268ac91295e
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: 2b99a80a90df8fcfc5efe6dfa0c2cd7e8e5e04e0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78161484"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80050874"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Fédération directe avec AD FS et des fournisseurs tiers pour les utilisateurs invités (version préliminaire)
 |     |
@@ -47,6 +47,7 @@ Avec la fédération directe, les utilisateurs invités se connectent à votre c
 
 ### <a name="dns-verified-domains-in-azure-ad"></a>Domaines vérifiés par DNS dans Azure AD
 Le domaine avec lequel vous voulez vous fédérer ne doit ***pas*** être vérifié par le système DNS dans Azure AD. Vous êtes autorisé à configurer la fédération directe avec des locataires Azure AD non managés (vérifiés par e-mail ou « viraux »), car ils ne sont pas vérifiés par le système DNS.
+
 ### <a name="authentication-url"></a>URL d’authentification
 La fédération directe est uniquement autorisée pour les stratégies où le domaine de l’URL d’authentification correspond au domaine cible, ou lorsque l’URL d’authentification correspond à l’un de ces fournisseurs d’identité autorisés (cette liste est susceptible de changer) :
 -   accounts.google.com

@@ -9,10 +9,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/15/2019
 ms.openlocfilehash: 20da2d54ea54674656b2c1006d094c63133baf79
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72264493"
 ---
 # <a name="use-azure-data-factory-command-activity-to-run-azure-data-explorer-control-commands"></a>Utiliser l’activité de commande Azure Data Factory pour exécuter des commandes de contrôle Azure Data Explorer
@@ -23,7 +23,7 @@ ms.locfileid: "72264493"
 
 * Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
 * [Un cluster et une base de données Azure Data Explorer](create-cluster-database-portal.md)
-* Une source de données
+* Une source de données.
 * [Une fabrique de données](data-factory-load-data.md#create-a-data-factory)
 
 ## <a name="create-a-new-pipeline"></a>Créer un pipeline

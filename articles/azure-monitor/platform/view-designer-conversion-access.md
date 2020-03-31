@@ -7,14 +7,14 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.openlocfilehash: fb53a966b0dc4959253ac0786ef09ef3c497e809
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77658844"
 ---
 # <a name="view-designer-to-workbooks-conversion-summary-and-access"></a>Récapitulatif et accès pour la conversion du Concepteur de vues en classeurs
-Le [Concepteur de vues](view-designer.md) est une fonctionnalité d’Azure Monitor qui vous permet de créer des vues personnalisées pour voir les données de votre espace de travail Log Analytics avec des graphiques, des listes et des chronologies. Celles-ci sont progressivement supprimées et remplacées par des classeurs, qui offrent des fonctionnalités supplémentaires. Cet article explique en détail comment vous pouvez créer un récapitulatif de la vue d’ensemble et les autorisations nécessaires pour accéder aux classeurs.
+Le [concepteur de vues](view-designer.md) est une fonctionnalité d'Azure Monitor qui vous permet de créer des vues personnalisées pour vous aider à visualiser les données de votre espace de travail Log Analytics, avec des graphiques, des listes et des chronologies. Celles-ci sont progressivement supprimées et remplacées par des classeurs, qui offrent des fonctionnalités supplémentaires. Cet article explique en détail comment vous pouvez créer un récapitulatif de la vue d’ensemble et les autorisations nécessaires pour accéder aux classeurs.
 
 ## <a name="creating-your-workspace-summary-from-azure-dashboard"></a>Création du récapitulatif de votre espace de travail à partir du tableau de bord Azure
 Les utilisateurs du Concepteur de vues peuvent avoir l’habitude d’une vignette de vue d’ensemble pour représenter un ensemble de vues. Pour conserver une vue d’ensemble comme le récapitulatif de l’espace de travail du Concepteur de vues, les classeurs offrent des étapes épinglées, qui peuvent être épinglées sur votre [tableau de bord du portail Azure](../../azure-portal/azure-portal-dashboards.md). Tout comme les vignettes de vue d’ensemble du récapitulatif de l’espace de travail, les éléments de classeur épinglés sont liés directement à la vue du classeur.

@@ -8,10 +8,10 @@ ms.date: 09/04/2019
 ms.author: bharathb
 ms.reviewer: sngun
 ms.openlocfilehash: d225a14edddcad58c08094dbc758d67df8f834e6
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70376482"
 ---
 # <a name="create-a-real-time-dashboard-using-azure-cosmos-db-and-power-bi"></a>Créer un tableau de bord en temps réel à l’aide d’Azure Cosmos DB et Power BI
@@ -23,7 +23,7 @@ Cet article décrit les étapes à suivre pour créer un tableau de bord de mét
 Il existe plusieurs façons de configurer des tableaux de bord de rapport basés sur des données stockées dans Azure Cosmos DB. Le tableau suivant décrit la configuration de la génération de rapports pour chaque scénario selon les exigences d’obsolescence et la taille des données :
 
 
-|Scénario |Paramétrage |
+|Scénario |Programme d’installation |
 |---------|---------|
 |1. Génération de rapports ad hoc (sans actualisation)    |  [Connecteur Power BI Azure Cosmos DB avec mode d’importation](powerbi-visualize.md)       |
 |2. Génération de rapports ad hoc avec actualisation périodique   |  [Connecteur Power BI Azure Cosmos DB avec mode d’importation (actualisation périodique planifiée)](powerbi-visualize.md)       |
@@ -70,9 +70,9 @@ Configurez un pipeline d’ingestion pour charger les [données météo](https:/
    
    |Propriété  |Type de données  |Filtrer  |
    |---------|---------|---------|
-   |_ts     |   Chiffre      |  [_ts] > Duration.TotalSeconds(RangeStart - #datetime(1970, 1, 1, 0, 0, 0)) and [_ts] < Duration.TotalSeconds(RangeEnd - #datetime(1970, 1, 1, 0, 0, 0)))       |
-   |Date (par exemple : - 2019-08-19)     |   Chaîne      | [Document.date]> DateTime.ToText(RangeStart,"yyyy-MM-dd") and [Document.date] < DateTime.ToText(RangeEnd,"yyyy-MM-dd")        |
-   |Date (par exemple : - 2019-08-11 12:00:00)   |  Chaîne       |  [Document.date]> DateTime.ToText(RangeStart," yyyy-mm-dd HH:mm:ss") and [Document.date] < DateTime.ToText(RangeEnd,"yyyy-mm-dd HH:mm:ss")       |
+   |_ts     |   Numérique      |  [_ts] > Duration.TotalSeconds(RangeStart - #datetime(1970, 1, 1, 0, 0, 0)) and [_ts] < Duration.TotalSeconds(RangeEnd - #datetime(1970, 1, 1, 0, 0, 0)))       |
+   |Date (par exemple : - 2019-08-19)     |   String      | [Document.date]> DateTime.ToText(RangeStart,"yyyy-MM-dd") and [Document.date] < DateTime.ToText(RangeEnd,"yyyy-MM-dd")        |
+   |Date (par exemple : - 2019-08-11 12:00:00)   |  String       |  [Document.date]> DateTime.ToText(RangeStart," yyyy-mm-dd HH:mm:ss") and [Document.date] < DateTime.ToText(RangeEnd,"yyyy-mm-dd HH:mm:ss")       |
 
 
 1. **Définissez la stratégie d’actualisation** : définissez la stratégie d’actualisation en accédant à l’onglet **Actualisation incrémentielle** par le biais du **menu contextuel** de la table. Définissez la stratégie d’actualisation pour actualiser les données **chaque jour** et stocker les données du mois dernier.

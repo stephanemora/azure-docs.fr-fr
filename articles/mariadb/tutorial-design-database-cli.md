@@ -1,21 +1,21 @@
 ---
-title: 'Didacticiel : Concevoir une base de données Azure Database for MariaDB - Azure CLI'
+title: 'Tutoriel : Concevoir une base de données Azure Database for MariaDB - Azure CLI'
 description: Ce tutoriel explique comment créer et gérer un serveur et une base de données Azure Database for MariaDB avec Azure CLI, depuis la ligne de commande.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 12/02/2019
+ms.date: 3/18/2020
 ms.custom: mvc
-ms.openlocfilehash: 91283b453e71e476d247e752b24e9eec0047a814
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 455d7a0c1b3826060ade1083ec6eea99e397574b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74776779"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79534845"
 ---
-# <a name="tutorial-design-an-azure-database-for-mariadb-using-azure-cli"></a>Didacticiel : Concevoir une base de données Azure Database for MariaDB à l’aide d’Azure CLI
+# <a name="tutorial-design-an-azure-database-for-mariadb-using-azure-cli"></a>Tutoriel : Concevoir une base de données Azure Database for MariaDB à l’aide d’Azure CLI
 
 Azure Database for MariaDB est un service de base de données relationnelle dans le cloud Microsoft qui repose sur le moteur de base de données MariaDB Community Edition. Dans ce didacticiel, vous allez utiliser l’interface Azure CLI (interface de ligne de commande) et d’autres utilitaires pour apprendre à :
 
@@ -23,8 +23,8 @@ Azure Database for MariaDB est un service de base de données relationnelle dans
 > * Créer une base de données Azure Database for MariaDB
 > * Configurer le pare-feu du serveur
 > * Utiliser [l’outil de ligne de commande mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) pour créer une base de données
-> * Charger les exemples de données
-> * Données de requête
+> * Charger un exemple de données
+> * Interroger des données
 > * Mettre à jour des données
 > * Restaurer des données
 
@@ -189,7 +189,7 @@ La commande `az mariadb server restore` a besoin des paramètres suivants :
 | --- | --- | --- |
 | resource-group |  myResourceGroup |  Groupe de ressources dans lequel se trouve le serveur source.  |
 | name | mydemoserver-restored | Nom du serveur créé par la commande de restauration. |
-| restore-point-in-time | 2017-04-13T13:59:00Z | Choisissez la date et l’heure à utiliser pour la restauration. Elles doivent être comprises dans la période de rétention de la sauvegarde du serveur source. Utilisez le format de date et d’heure ISO8601. Par exemple, vous pouvez utiliser votre propre fuseau horaire local, comme `2017-04-13T05:59:00-08:00`, ou le format UTC `2017-04-13T13:59:00Z`. |
+| restore-point-in-time | 2017-04-13T13:59:00Z | Choisissez la date et l’heure à utiliser pour la restauration. Elles doivent être comprises dans la période de rétention de la sauvegarde du serveur source. Utilisez le format de date et d’heure ISO8601. Par exemple, vous pouvez utiliser votre fuseau horaire local, comme `2017-04-13T05:59:00-08:00`, ou le format UTC Zulu `2017-04-13T13:59:00Z`. |
 | source-server | mydemoserver | Nom ou identifiant du serveur source à partir duquel la restauration s’effectuera. |
 
 La restauration d’un serveur à un point antérieur dans le temps entraîne la création d’un nouveau serveur, qui est la copie du serveur d’origine tel qu’il était à l’instant spécifié. Les valeurs d’emplacement et de niveau tarifaire du serveur restauré sont les mêmes que celles du serveur source.
@@ -202,7 +202,7 @@ Dans ce didacticiel, vous avez appris à effectuer les opérations suivantes :
 > * Créer un serveur Azure Database for MariaDB
 > * Configurer le pare-feu du serveur
 > * Utiliser [l’outil de ligne de commande mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) pour créer une base de données
-> * Charger les exemples de données
-> * Données de requête
+> * Charger un exemple de données
+> * Interroger des données
 > * Mettre à jour des données
 > * Restaurer des données

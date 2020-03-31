@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bc88640cdff4f716902a80bb149913b961d40ae3
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900053"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79230097"
 ---
 # <a name="azure-ad-connect-staging-server-and-disaster-recovery"></a>Azure AD Connect : Serveur de préproduction et reprise d’activité après sinistre
 Avec un serveur en mode intermédiaire, vous pouvez apporter des modifications à la configuration et visualiser les modifications avant de rendre le serveur actif. Il permet également d’exécuter une importation et la synchronisation complètes afin de vérifier que toutes les modifications sont attendues avant de les appliquer dans un environnement de production.
@@ -123,7 +123,7 @@ Une méthode courante et prise en charge consiste à exécuter le moteur de sync
 ### <a name="sql-high-availability"></a>Haute disponibilité SQL
 Si vous n’utilisez pas SQL Server Express livré avec Azure AD Connect, la haute disponibilité pour SQL Server doit alors être prise en compte. Les solutions de haute disponibilité prises en charge incluent la mise en clusters SQL et AOA (Groupes de disponibilité AlwaysOn). Les solutions non prises en charge incluent la mise en miroir.
 
-La prise en charge de SQL AOA a été ajoutée à Azure AD Connect version 1.1.524.0. Vous devez activer SQL AOA avant d’installer Azure AD Connect. Pendant l’installation, Azure AD Connect détecte si l’instance SQL spécifiée est activée ou non pour SQL AOA. Si SQL AOA est activé, Azure AD Connect détermine si SQL AOA est configuré pour utiliser une réplication synchrone ou asynchrone. Lorsque vous configurez l’écouteur de groupe de disponibilité, il est recommandé de définir la propriété RegisterAllProvidersIP sur 0. En effet, Azure AD Connect utilise actuellement SQL Native Client pour se connecter à SQL, et SQL Native Client ne prend pas en charge l’utilisation de la propriété MultiSubNetFailover.
+La prise en charge de SQL AOA a été ajoutée à Azure AD Connect version 1.1.524.0. Vous devez activer SQL AOA avant d’installer Azure AD Connect. Pendant l’installation, Azure AD Connect détecte si l’instance SQL spécifiée est activée ou non pour SQL AOA. Si SQL AOA est activé, Azure AD Connect détermine si SQL AOA est configuré pour utiliser une réplication synchrone ou asynchrone. Lorsque vous configurez l’écouteur de groupe de disponibilité, il est recommandé de définir la propriété RegisterAllProvidersIP sur 0. En effet, Azure AD Connect utilise actuellement SQL Native Client pour se connecter à SQL, et SQL Native Client ne prend pas en charge l’utilisation de la propriété MultiSubNetFailover.
 
 ## <a name="appendix-csanalyzer"></a>Annexe CSAnalyzer
 Consultez la section [vérifier](#verify) pour découvrir comment utiliser ce script.

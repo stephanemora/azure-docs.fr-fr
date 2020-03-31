@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: a711303b95eb4acb9c226ce052466bf65d15a038
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 6db2c907abc495ca3c88e1e73e885043a8f19997
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77612773"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79481532"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutoriel : Configurer le protocole LDAP sécurisé pour un domaine managé Azure Active Directory Domain Services
 
@@ -66,9 +66,9 @@ Le certificat que vous demandez ou que vous créez doit répondre aux exigences 
 * **Nom du sujet** : le nom du sujet du certificat doit correspondre à votre domaine managé. Par exemple, si le nom de votre domaine est *aaddscontoso.com*, le nom du sujet du certificat doit être * *.aaddscontoso.com*.
     * Le nom DNS ou le nom alternatif du sujet du certificat doit être un certificat générique pour garantir le bon fonctionnement du protocole LDAP sécurisé avec Azure AD Domain Services. Les contrôleurs de domaine utilisent des noms aléatoires, et peuvent être supprimés ou ajoutés pour garantir que le service reste disponible.
 * **Utilisation de la clé** : Le certificat doit être configuré pour les *signatures numériques* et le *chiffrage des clés*.
-* **Rôle du certificat** : le certificat doit être valide pour l’authentification de serveur SSL.
+* **Rôle du certificat** : le certificat doit être valide pour l’authentification de serveur TLS.
 
-Dans ce tutoriel, nous allons créer un certificat auto-signé pour le protocole LDAP sécurisé en utilisant l’applet de commande [New-SelfSignedCertificate][New-SelfSignedCertificate]. Ouvrez une fenêtre PowerShell en tant qu’**Administrateur**, puis exécutez les commandes suivantes. Remplacez la variable *$dnsName* par le nom DNS utilisé par votre propre domaine managé, par exemple *aaddscontoso.com* :
+Plusieurs outils sont disponibles pour créer un certificat auto-signé, parmi lesquels OpenSSL, Keytool, MakeCert et l’[applet de commande New-SelfSignedCertificate][New-SelfSignedCertificate]. Dans ce tutoriel, nous allons créer un certificat auto-signé pour le protocole LDAP sécurisé en utilisant l’applet de commande [New-SelfSignedCertificate][New-SelfSignedCertificate]. Ouvrez une fenêtre PowerShell en tant qu’**Administrateur**, puis exécutez les commandes suivantes. Remplacez la variable *$dnsName* par le nom DNS utilisé par votre propre domaine managé, par exemple *aaddscontoso.com* :
 
 ```powershell
 # Define your own DNS name used by your Azure AD DS managed domain
@@ -142,7 +142,7 @@ Avant de pouvoir utiliser le certificat numérique créé à l’étape précéd
 1. Comme ce certificat est utilisé pour déchiffrer des données, vous devez en contrôler l’accès avec soin. Vous pouvez utiliser un mot de passe pour protéger le certificat. Sans le mot de passe correct, le certificat ne peut pas être appliqué à un service.
 
     Dans la page **Sécurité**, choisissez l’option **Mot de passe** pour protéger le fichier de certificat *.PFX*. Entrez et confirmez un mot de passe, puis sélectionnez **Suivant**. Ce mot de passe est utilisé dans la section suivante pour activer le protocole LDAP sécurisé pour votre domaine managé Azure AD DS.
-1. Dans la page **Fichier à exporter**, spécifiez le nom du fichier et l’emplacement où vous voulez exporter le certificat, par exemple *C:\Users\accountname\azure-ad-ds.pfx*.
+1. Dans la page **Fichier à exporter**, spécifiez le nom du fichier et l’emplacement où vous voulez exporter le certificat, par exemple *C:\Users\accountname\azure-ad-ds.pfx*. Notez le mot de passe et l’emplacement du fichier *.PFX*, car vous devrez fournir ces informations aux étapes suivantes.
 1. Dans la page de vérification, sélectionnez **Terminer** pour exporter le certificat vers un fichier de certificat *.PFX*. Une boîte de dialogue de confirmation s’affiche quand le certificat a été exporté avec succès.
 1. Laissez la console MMC ouverte pour l’utiliser dans la section suivante.
 

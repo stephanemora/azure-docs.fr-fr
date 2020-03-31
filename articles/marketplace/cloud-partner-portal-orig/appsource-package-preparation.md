@@ -1,20 +1,18 @@
 ---
 title: Préparation d’un package AppSource | Place de marché Azure
 description: Explique comment préparer et créer un package AppSource.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: pbutlerm
-manager: Ricardo.Villalobos
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: 2c6b78e62afb43562910c872d31e2c9f564040da
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 76f8cbd6cb16b585a7dbda7b2ffa5eeeeb1b68d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73806099"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280607"
 ---
 # <a name="appsource-package-preparation"></a>Préparation d'un package AppSource
 
@@ -34,8 +32,8 @@ Le package créé pour l'outil Package Deployer fait partie du package AppSource
 
 Pour créer un package pour l'outil Package Deployer, suivez les instructions ci-dessous : [https://msdn.microsoft.com/library/dn688182.aspx](https://msdn.microsoft.com/library/dn688182.aspx). Lorsqu'il sera terminé, votre package comprendra les ressources suivantes :
 
-1. Dossier du package : contient l'ensemble des solutions, données de configuration, fichiers plats et contenus de votre package. _Remarque : Dans l’exemple suivant, nous partons du principe que le dossier du package s’appelle « PkgFolder »_
-2. dll : L’assembly contient le code personnalisé de votre package. _Remarque : Dans l’exemple suivant, nous partons du principe que ce fichier s’appelle « MicrosoftSample.dll »._
+1. Dossier du package : contient l'ensemble des solutions, données de configuration, fichiers plats et contenus de votre package. _Remarque : dans l’exemple suivant, le dossier du package s'appelle « PkgFolder »_ .
+2. dll : l’assembly contient le code personnalisé de votre package. _Remarque : dans l’exemple suivant, ce fichier s’appelle « MicrosoftSample.dll »._
 
 Vous devez maintenant créer un fichier appelé « **Content_Types.xml** ». Celui-ci répertoriera les extensions de toutes les ressources contenues dans votre package. Voici un exemple de code pour le fichier.
 
@@ -112,13 +110,13 @@ Voici un exemple de code pour le fichier input.xml. Voir les définitions dans l
 |SolutionAnchorName |Nom du fichier zip de la solution dans l'outil Package Deployer utilisé pour le nom d’affichage et la description des ressources de la solution.|
 | StartDate| Date à laquelle le package de la solution sera disponible. Le format est MM/JJ/AAAA.|
 |EndDate|Date à partir de laquelle le package de la solution ne sera plus disponible. Le format est MM/JJ/AAAA. |
-|SupportedCountries |Il s’agit d’une liste des pays/régions (séparés par des virgules) concernés par ce package. Contactez les services en ligne pour obtenir la liste de tous les codes de pays actuels. Au moment de rédiger cet article, la liste est la suivante : AE,AL,AM,AO,AR,AT,AU,AZ,BA,BB,BD,BE,BG,BH,BM,BN,BO,BR,BY,CA,CH,CI,CL,CM,CO,CR,CV,CW,CY,CZ,DE,DK,DO,DZ,EC,EE,EG,ES,FI,FR,GB,GE,GH,GR,GT,HK,HN,HR,HU,ID,IE,IL,IN,IQ,IS,IT,JM,JO,JP,KE,KG,KN,KR,KW,KY,KZ,LB,LK,LT,LU,LV,LY,MA,MC,MD,ME,MK,MN,MO,MT,MU,MX,MY,NG,NI,NL,NO,NZ,OM,PA,PE,PH,PK,PL,PR,PS,PT,PY,QA,RO,RS,RU,RW,SA,SE,SG,SI,SK,SN,SV,TH,TM,TN,TR,TT,TW,UA,US,UY,UZ,VE,VI,VN,ZA,ZW |
+|SupportedCountries |Il s’agit d’une liste des pays/régions (séparés par des virgules) concernés par ce package. Contactez les services en ligne pour obtenir la liste de tous les codes de pays actuels. Au moment où ce document a été rédigé, la liste était : AE,AL,AM,AO,AR,AT,AU,AZ,BA,BB,BD,BE,BG,BH,BM,BN,BO,BR,BY,CA,CH,CI,CL,CM,CO,CR,CV,CW,CY,CZ,DE,DK,DO,DZ,EC,EE,EG,ES,FI,FR,GB,GE,GH,GR,GT,HK,HN,HR,HU,ID,IE,IL,IN,IQ,IS,IT,JM,JO,JP,KE,KG,KN,KR,KW,KY,KZ,LB,LK,LT,LU,LV,LY,MA,MC,MD,ME,MK,MN,MO,MT,MU,MX,MY,NG,NI,NL,NO,NZ,OM,PA,PE,PH,PK,PL,PR,PS,PT,PY,QA,RO,RS,RU,RW,SA,SE,SG,SI,SK,SN,SV,TH,TM,TN,TR,TT,TW,UA,US,UY,UZ,VE,VI,VN,ZA,ZW |
 |LearnMoreLink | URL de la page Plus d’informations concernant ce package. |
 |Locales|Une instance de ce nœud pour chacune des langues que vous souhaitez prendre en charge dans l'expérience utilisateur préférée de la solution. Ce nœud contient des enfants qui décrivent les paramètres régionaux, le logo et les conditions de chaque langue.|
-|Paramètres régionaux : PackageLocale.Code|LCID de la langue correspondant à ce nœud. Exemple : Anglais (États-Unis) correspond à 1033|
-|Paramètres régionaux : PackageLocale.IsDefault|Indique qu’il s’agit de la langue par défaut. Celle-ci est utilisée comme langue de secours si la langue choisie par le client n’est pas disponible.|
-|Paramètres régionaux : Logo|Désigne le logo que vous souhaitez utiliser pour ce package. La taille de l’icône est de 32 x 32. Les formats autorisés sont PNG et JPG.|
-|Paramètres régionaux : Termes : PackageTerm.File|Nom du fichier HTML contenant les termes de votre contrat de licence.|
+|Locales: PackageLocale.Code|LCID de la langue correspondant à ce nœud. Exemple : le LCID de l'anglais des États-Unis est 1033.|
+|Locales: PackageLocale.IsDefault|Indique qu’il s’agit de la langue par défaut. Celle-ci est utilisée comme langue de secours si la langue choisie par le client n’est pas disponible.|
+|Locales: Logo|Désigne le logo que vous souhaitez utiliser pour ce package. La taille de l’icône est de 32 x 32. Les formats autorisés sont PNG et JPG.|
+|Locales:Terms: PackageTerm.File|Nom du fichier HTML contenant les termes de votre contrat de licence.|
 
 Le logo apparaîtra ici :
 

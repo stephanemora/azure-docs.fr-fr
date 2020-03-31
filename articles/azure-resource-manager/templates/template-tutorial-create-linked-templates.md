@@ -5,16 +5,16 @@ author: mumian
 ms.date: 12/03/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: dab69c32f7277cd5d746e001b36118e673401bca
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: e1cce566fb7aab286c57f32d9348e51dd0a7c1ee
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250138"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80239334"
 ---
-# <a name="tutorial-create-linked-azure-resource-manager-templates"></a>Tutoriel : Créer des modèles Azure Resource Manager liés
+# <a name="tutorial-create-linked-arm-templates"></a>Tutoriel : Créer des modèles ARM liés
 
-Découvrez comment créer des modèles Azure Resource Manager liés. Avec des modèles liés, un modèle peut appeler un autre modèle. C’est idéal pour la modularisation de modèles. Dans ce tutoriel, vous utilisez le même modèle que celui utilisé dans le [Tutoriel : Créer des modèles Azure Resource Manager avec des ressources dépendantes](./template-tutorial-create-templates-with-dependent-resources.md), qui crée une machine virtuelle, un réseau virtuel et d’autres ressources dépendantes, notamment un compte de stockage. Vous séparez la création de la ressource de compte de stockage à un modèle lié.
+Découvrez comment créer des modèles Azure Resource Manager (ARM) liés. Avec des modèles liés, un modèle peut appeler un autre modèle. C’est idéal pour la modularisation de modèles. Dans ce tutoriel, vous utilisez le même modèle que celui utilisé dans le [Tutoriel : Créer des modèles ARM avec des ressources dépendantes](./template-tutorial-create-templates-with-dependent-resources.md), qui crée une machine virtuelle, un réseau virtuel et d’autres ressources dépendantes, notamment un compte de stockage. Vous séparez la création de la ressource de compte de stockage à un modèle lié.
 
 Appeler un modèle lié équivaut à effectuer un appel de fonction.  Vous allez également découvrir comment passer des valeurs de paramètre au modèle lié et comment obtenir des « valeurs de retour » à partir de celui-ci.
 
@@ -39,18 +39,18 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléments suivants :
 
-* Visual Studio Code avec l’extension Outils Resource Manager. Consultez [Utiliser Visual Studio Code pour créer des modèles Azure Resource Manager](use-vs-code-to-create-template.md).
+* Visual Studio Code avec l’extension Outils Resource Manager. Consultez [Utiliser Visual Studio Code pour créer des modèles ARM](use-vs-code-to-create-template.md).
 * Pour une sécurité optimale, utilisez un mot de passe généré pour le compte administrateur de la machine virtuelle. Voici un exemple pour générer un mot de passe :
 
     ```console
     openssl rand -base64 32
     ```
 
-    Azure Key Vault a été conçu pour protéger les clés et autres secrets de chiffrement. Pour plus d’informations, consultez [Didacticiel : Intégrer Azure Key Vault à un déploiement de modèle Resource Manager](./template-tutorial-use-key-vault.md). Nous vous recommandons également de mettre à jour votre mot de passe tous les trois mois.
+    Azure Key Vault a été conçu pour protéger les clés et autres secrets de chiffrement. Pour plus d’informations, consultez [Didacticiel : Intégrer Azure Key Vault à un déploiement de modèle ARM](./template-tutorial-use-key-vault.md). Nous vous recommandons également de mettre à jour votre mot de passe tous les trois mois.
 
 ## <a name="open-a-quickstart-template"></a>Ouvrir un modèle de démarrage rapide
 
-Modèles de démarrage rapide Azure est un référentiel pour les modèles Resource Manager. Au lieu de créer un modèle à partir de zéro, vous pouvez chercher un exemple de modèle et le personnaliser. Le modèle utilisé dans ce didacticiel se nomme [Déployer une machine virtuelle Windows simple](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/). Il s’agit du même modèle que celui utilisé dans le [Tutoriel : Créer des modèles Azure Resource Manager avec des ressources dépendantes](./template-tutorial-create-templates-with-dependent-resources.md). Vous enregistrez deux copies du même modèle à utiliser en tant que :
+Le dépôt Modèles de démarrage rapide Azure contient les modèles ARM. Au lieu de créer un modèle à partir de zéro, vous pouvez chercher un exemple de modèle et le personnaliser. Le modèle utilisé dans ce didacticiel se nomme [Déployer une machine virtuelle Windows simple](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/). Il s’agit du même modèle que celui utilisé dans le [Tutoriel : Créer des modèles ARM avec des ressources dépendantes](./template-tutorial-create-templates-with-dependent-resources.md). Vous enregistrez deux copies du même modèle à utiliser en tant que :
 
 * **Modèle principal** : créez toutes les ressources à l’exception du compte de stockage.
 * **Modèle lié** : créez le compte de stockage.
@@ -165,7 +165,7 @@ Le modèle lié crée un compte de stockage. Le modèle lié peut être utilisé
 
 ## <a name="upload-the-linked-template"></a>Charger le modèle lié
 
-Le modèle principal et le modèle lié doivent être accessibles à partir de l’emplacement où vous exécutez le déploiement. Dans ce tutoriel, vous utilisez la même méthode de déploiement Cloud Shell que celle utilisée dans le [Tutoriel : Créer des modèles Azure Resource Manager avec des ressources dépendantes](./template-tutorial-create-templates-with-dependent-resources.md). Le modèle principal (azuredeploy.json) est chargé dans l’interpréteur de commandes (shell). Le modèle lié (linkedTemplate.json) doit être partagé quelque part de manière sécurisée. Le script PowerShell suivant crée un compte Stockage Azure, charge le modèle sur le compte de stockage, puis génère un jeton SAS pour accorder un accès limité au fichier de modèle. Pour simplifier ce tutoriel, le script télécharge un modèle lié terminé à partir d’un dépôt GitHub. Si vous souhaitez utiliser le modèle lié que vous avez créé, vous pouvez utiliser [Cloud Shell](https://shell.azure.com) pour charger votre modèle lié, puis modifier le script afin d’utiliser votre propre modèle lié.
+Le modèle principal et le modèle lié doivent être accessibles à partir de l’emplacement où vous exécutez le déploiement. Dans ce tutoriel, vous utilisez la même méthode de déploiement Cloud Shell que celle utilisée dans le [Tutoriel : Créer des modèles ARM avec des ressources dépendantes](./template-tutorial-create-templates-with-dependent-resources.md). Le modèle principal (azuredeploy.json) est chargé dans l’interpréteur de commandes (shell). Le modèle lié (linkedTemplate.json) doit être partagé quelque part de manière sécurisée. Le script PowerShell suivant crée un compte Stockage Azure, charge le modèle sur le compte de stockage, puis génère un jeton SAS pour accorder un accès limité au fichier de modèle. Pour simplifier ce tutoriel, le script télécharge un modèle lié terminé à partir d’un dépôt GitHub. Si vous souhaitez utiliser le modèle lié que vous avez créé, vous pouvez utiliser [Cloud Shell](https://shell.azure.com) pour charger votre modèle lié, puis modifier le script afin d’utiliser votre propre modèle lié.
 
 > [!NOTE]
 > Le script limite la durée d’utilisation du jeton SAS à huit heures. Si vous avez besoin de plus de temps pour suivre ce tutoriel, augmentez le délai d’expiration.
@@ -266,7 +266,7 @@ Le modèle principal se nomme azuredeploy.json.
 
 ## <a name="configure-dependency"></a>Configurer la dépendance
 
-Nous avons vu dans le [Tutoriel : Créer des modèles Azure Resource Manager avec des ressources dépendantes](./template-tutorial-create-templates-with-dependent-resources.md) que la ressource de machine virtuelle dépendait du compte de stockage :
+Nous avons vu dans le [Tutoriel : Créer des modèles ARM avec des ressources dépendantes](./template-tutorial-create-templates-with-dependent-resources.md), la ressource de machine virtuelle dépend du compte de stockage :
 
 ![Diagramme de dépendance des modèles Azure Resource Manager](./media/template-tutorial-create-linked-templates/resource-manager-template-visual-studio-code-dependency-diagram.png)
 

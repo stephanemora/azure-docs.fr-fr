@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: Zhchia
 ms.openlocfilehash: 0182d0158144a010274799cc41991ba87120e9d8
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76907168"
 ---
 # <a name="tutorial-configure-mixpanel-for-automatic-user-provisioning"></a>Tutoriel : Configurer Mixpanel pour l'approvisionnement automatique d'utilisateurs
@@ -35,7 +35,7 @@ Ce tutoriel décrit les étapes que vous devez effectuer dans Mixpanel et Azure 
 > * Approvisionner des groupes et des appartenances aux groupes dans Mixpanel
 > * [Authentification unique](https://docs.microsoft.com/azure/active-directory/saas-apps/mixpanel-tutorial) auprès de Mixpanel (recommandé)
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Le scénario décrit dans ce tutoriel part du principe que vous disposez des prérequis suivants :
 * [Un locataire Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 

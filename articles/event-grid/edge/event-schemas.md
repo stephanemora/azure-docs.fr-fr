@@ -10,10 +10,10 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: ba261aeedf6574f69d3c05f8fd005c912dcc59d1
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73242469"
 ---
 # <a name="event-schemas"></a>Schémas d’événement
@@ -57,12 +57,12 @@ Tous les événements contiennent les données de niveau supérieur suivantes :
 | Propriété | Type | Obligatoire | Description |
 | -------- | ---- | ----------- |-----------
 | topic | string | Non | Doit correspondre à la rubrique sur laquelle il est publié. S’il n’est pas spécifié, Event Grid le remplit avec le nom de la rubrique sur laquelle il est publié. |
-| subject | string | OUI | Chemin de l’objet de l’événement, défini par le serveur de publication. |
-| eventType | string | OUI | Type d’événement de cette source d’événements, par exemple, BlobCreated. |
-| eventTime | string | OUI | L’heure à quelle l’événement est généré selon l’heure UTC du fournisseur. |
+| subject | string | Oui | Chemin de l’objet de l’événement, défini par le serveur de publication. |
+| eventType | string | Oui | Type d’événement de cette source d’événements, par exemple, BlobCreated. |
+| eventTime | string | Oui | L’heure à quelle l’événement est généré selon l’heure UTC du fournisseur. |
 | id | string | Non | Identificateur unique de l’événement. |
 | data | object | Non | Permet de capturer les données d’événement propres à l’entité de publication. |
-| dataVersion | string | OUI | Version du schéma de l’objet de données. Le serveur de publication définit la version du schéma. |
+| dataVersion | string | Oui | Version du schéma de l’objet de données. Le serveur de publication définit la version du schéma. |
 | metadataVersion | string | Non | Version du schéma des métadonnées d’événement. Event Grid définit le schéma des propriétés de niveau supérieur. Event Grid fournit cette valeur. |
 
 ### <a name="example--eventgrid-schema-event"></a>Exemple – Événement de schéma EventGrid

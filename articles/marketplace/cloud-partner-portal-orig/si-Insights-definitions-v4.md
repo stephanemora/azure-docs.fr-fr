@@ -1,19 +1,18 @@
 ---
 title: Définitions des insights vendeur
 description: Contient les définitions de la plupart des termes que vous rencontrerez dans Seller Insights.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: 2571f916f6efc61772b2734119e197996e2ffe3c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 082e5f13ae44a58088b7728103415dbfa5a969f1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73809106"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280131"
 ---
 <a name="seller-insights-definitions"></a>Définitions des insights vendeur
 =======================
@@ -25,7 +24,7 @@ Le tableau suivant contient les définitions de la plupart des termes que vous r
 | **Type de licence Azure**                               | Type de contrat de licence utilisé par les clients pour acheter Azure.  Également appelé canal.                                                  |
 | **Type de licence Azure : fournisseur de solutions cloud**      | Le client final se procure Azure et votre offre de la Place de marché par le biais de son fournisseur de solutions cloud, qui agit en tant que revendeur.                 |
 | **Type de licence Azure : entreprise**                   | Le client final se procure Azure et votre offre de la Place de marché par le biais d'un contrat Entreprise, signé directement auprès de Microsoft.                  |
-| **Type de licence Azure : entreprise, via un revendeur**  | Le client final se procure Azure et votre offre de la Place de marché par le biais d’un revendeur qui lui propose un contrat Entreprise avec Microsoft.     |
+| **Type de licence Azure : entreprise, via un revendeur**  | Le client final se procure Azure et votre offre de Place de marché par le biais d’un revendeur qui lui propose un contrat Entreprise avec Microsoft.     |
 | **Type de licence Azure : paiement à l’utilisation**                | Le client final se procure Azure et votre offre de la Place de marché dans le cadre d’un contrat « Paiement à l’utilisation », signé directement avec Microsoft.                |
 | **Montant des frais (DC)**                              | Montant facturé au client, dans la devise de facturation du client (*devise client*, DC).                                                                 |
 | **Montant des frais (DE)**                               | Montant facturé au client, dans la *devise de paiement* (DE).                                                                      |
@@ -43,7 +42,7 @@ Le tableau suivant contient les définitions de la plupart des termes que vous r
 | **Adresse e-mail du client**                         | Adresse e-mail fournie par le client final.  Elle peut être différente de l’adresse e-mail associée à l’abonnement Azure du client.                   |
 | **Prénom du client**                              | Prénom fourni par le client.  Il peut être différent du prénom associé à l’abonnement Azure du client.                    |
 | **Nom du client**                               | Nom fourni par le client.  Il peut être différent du prénom associé à l’abonnement Azure du client.                    |
-| **ID du client**                               | Identificateur unique affecté à un client.  Un client peut avoir zéro ou plusieurs abonnements de la Place de marché Azure.                    |
+| **ID du client**                               | Identificateur unique attribué à un client.  Un client peut avoir zéro ou plusieurs abonnements de la Place de marché Azure.                    |
 | **Mode de paiement du client**                            | Mode de paiement utilisé par le client.  Par exemple, cela peut être un chèque électronique, une facture ou carte.                             |
 | **Code postal du client**                             | Code postal fourni par le client.  Il peut être différent du code postal associé à l’abonnement Azure du client.                                                                 |
 | **État du client**                                   | État (adresse) fourni par le client.  Il peut être différent de l’État associé à l’abonnement Azure du client.                                                                 |

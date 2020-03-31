@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/13/2019
 ms.author: juliako
-ms.openlocfilehash: cb6095f1579334b9fe35a02a3006de32ff551989
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: 0b6667965ddd1fce30bb2da2593e2a9274b595ed
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78268170"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79472014"
 ---
 # <a name="tutorial-stream-live-with-media-services"></a>Tutoriel : Diffuser en direct avec Media Services
 
@@ -34,7 +34,7 @@ Ce didacticiel explique les procédures suivantes :
 > [!div class="checklist"]
 > * Télécharger l’exemple d’application décrit dans la rubrique.
 > * Examiner le code qui effectue la diffusion en continu
-> * Surveiller l’événement avec le [Lecteur multimédia Azure](https://amp.azure.net/libs/amp/latest/docs/index.html) à l’adresse https://ampdemo.azureedge.net
+> * Surveiller l’événement avec le [Lecteur multimédia Azure](https://amp.azure.net/libs/amp/latest/docs/index.html) à l’adresse [https://ampdemo.azureedge.net](https://ampdemo.azureedge.net).
 > * Supprimer des ressources.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]

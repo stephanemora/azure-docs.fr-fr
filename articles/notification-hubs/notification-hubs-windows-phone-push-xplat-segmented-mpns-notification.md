@@ -1,5 +1,5 @@
 ---
-title: Notifications Push vers des téléphones Windows spécifiques à l’aide d’Azure Notification Hubs | Microsoft Docs
+title: Envoyer des notifications Push à des téléphones Windows spécifiques à l’aide d’Azure Notification Hubs | Microsoft Docs
 description: Ce didacticiel vous apprend à utiliser Azure Notification Hubs pour envoyer des notifications vers des appareils Windows Phone 8 ou Windows Phone 8.1 (pas tous) enregistrés avec le serveur principal de l’application.
 services: notification-hubs
 documentationcenter: windows
@@ -17,14 +17,14 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 88326b07a96dcc8ce7a72f8709a88c2662f48707
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 72ecb5bdb6bb024c5e4422548dd11888c03e4799
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213396"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80126940"
 ---
-# <a name="tutorial-push-notifications-to-specific-windows-phone-devices-by-using-azure-notification-hubs"></a>Didacticiel : Notifications Push vers des appareils Windows Phone spécifiques à l’aide d’Azure Notification Hubs
+# <a name="tutorial-send-push-notifications-to-specific-windows-phones-using-azure-notification-hubs"></a>Tutoriel : Envoyer des notifications Push à des téléphones Windows spécifiques à l’aide d’Azure Notification Hubs
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
@@ -35,7 +35,7 @@ Vous activez ce scénario en incluant une ou plusieurs *balises* durant la créa
 > [!NOTE]
 > Le kit de développement logiciel (SDK) Windows Phone Notification Hubs ne prend pas en charge l’utilisation des services WNS avec les applications Silverlight Windows Phone 8.1. Pour utiliser WNS (et non MPNS) avec les applications Windows Phone 8.1 Silverlight, suivez le didacticiel Notification Hubs - Windows Phone Silverlight, qui s’appuie sur des API REST.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Ajout d’une sélection de catégories à l’application mobile

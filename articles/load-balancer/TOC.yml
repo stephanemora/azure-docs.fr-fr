@@ -64,6 +64,14 @@
       href: load-balancer-security-controls.md
 - name: Procédures
   items:
+    - name: Groupes identiques de machines virtuelles
+      items:
+        - name: Utiliser avec un équilibreur de charge Azure existant - Portail
+          href: configure-vm-scale-set-portal.md
+        - name: Utiliser avec un équilibreur de charge Azure existant - PowerShell
+          href: configure-vm-scale-set-powershell.md
+        - name: Utiliser avec un équilibreur de charge Azure existant - CLI
+          href: configure-vm-scale-set-cli.md
     - name: Passer d’un équilibreur de charge De base à un équilibreur de charge Standard
       items:
         - name: Mettre à niveau un équilibreur de charge public De base

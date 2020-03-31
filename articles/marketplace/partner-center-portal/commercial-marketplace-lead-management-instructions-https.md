@@ -1,19 +1,18 @@
 ---
 title: Point de terminaison HTTPS | Place de marché Azure
 description: Configurez la gestion des prospects pour un point de terminaison HTTPS.
-services: Azure, Marketplace, commercial marketplace, Partner Center
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.author: evansma
-ms.openlocfilehash: 83efb9cfd1ee7464a334ebc4064dbfaa20ab30de
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 6a0131cf94759fc529a52ea33d5392a60c5ef30c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73812284"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80281593"
 ---
 # <a name="configure-lead-management-using-an-https-endpoint"></a>Configuration de la gestion des prospects à l’aide d’un point de terminaison HTTPS
 
@@ -198,15 +197,15 @@ Vous pouvez vérifier que tout fonctionne comme prévu en utilisant les étapes 
 
 ## <a name="configure-your-offer-to-send-leads-to-the-https-endpoint"></a>Configuration de votre offre pour l’envoi des prospects au point de terminaison HTTPS
 
-Lorsque vous êtes prêt à configurer les informations de gestion des prospects pour votre offre dans le portail de publication, procédez comme suit :
+Lorsque vous êtes prêt à configurer les informations de gestion des prospects pour votre offre sur le portail de publication, procédez comme suit :
 
 1. Accédez à la page **Configuration de l'offre** de votre offre.
-2. Sélectionnez **Connecter** dans la section de gestion des prospects.
+2. Sélectionnez **Connexion** dans la section Gestion des prospects.
 3. Dans la fenêtre contextuelle des détails de la connexion, sélectionnez **Point de terminaison HTTPS** pour **Destination du prospect** et collez l’URL HTTP POST dans le flux que vous avez créé en suivant les étapes précédentes dans le champ **URL du point de terminaison HTTPS**.
 4. Sélectionnez **Enregistrer**. 
 
 >[!Note] 
->Vous devez terminer la configuration du reste de l’offre et la publier avant de pouvoir recevoir des prospects pour cette offre.
+>Vous devez terminer la configuration du reste de l'offre et la publier avant de pouvoir recevoir des prospects pour cette offre.
 
 Quand des prospects sont générés, Microsoft les envoie au service Flow, qui les achemine vers le système CRM ou l’adresse e-mail que vous avez configuré.
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 4b99e83a8e71b13183c76321c7076b85a212f021
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76510972"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Intégration continue et déploiement continu dans Azure IoT Edge
@@ -28,7 +28,7 @@ Dans cet article, vous allez apprendre à utiliser les tâches Azure IoT Edge in
 * **Azure IoT Edge - Générer le manifeste de déploiement** génère le fichier final du manifeste de déploiement IoT Edge à partir d'un fichier deployment.template.json et des variables.
 * **Azure IoT Edge - Déployer sur des appareils IoT Edge** vous aide à créer des déploiements IoT Edge sur un ou plusieurs appareils IoT Edge.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Référentiel Azure Repos. Si vous n’en avez pas, vous pouvez [créer un référentiel Git dans votre projet](https://docs.microsoft.com/azure/devops/repos/git/create-new-repo?view=vsts&tabs=new-nav).
 * Solution IoT Edge validée et envoyée (push) vers votre référentiel. Si vous souhaitez créer un exemple de solution pour tester cet article, suivez la procédure décrite dans [Développer et déboguer des modules dans Visual Studio Code](how-to-vs-code-develop-module.md) ou [Développer et déboguer des modules C# dans Visual Studio](how-to-visual-studio-develop-csharp-module.md).

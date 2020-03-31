@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: 69e2c053c9fb874889bc3d5b08be6e0c7ce875a5
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77162903"
 ---
 # <a name="azure-media-services-concepts"></a>Concepts Azure Media Services 
@@ -27,7 +27,7 @@ ms.locfileid: "77162903"
 
 Cette rubrique fournit une vue d'ensemble des concepts les plus importants liés à Media Services.
 
-## <a name="a-idassetsassets-and-storage"></a><a id="assets"/>Éléments multimédias et stockage
+## <a name="assets-and-storage"></a><a id="assets"/>Éléments multimédias et stockage
 ### <a name="assets"></a>Éléments multimédias
 Un [élément multimédia](https://docs.microsoft.com/rest/api/media/operations/asset) contient des fichiers numériques (y compris vidéo, audio, images, collections de miniatures, légendes et fichiers de sous-titres) et les métadonnées associées à ces fichiers. Une fois les fichiers numériques chargés dans un élément multimédia, ils peuvent être utilisés dans des flux de travail de diffusion et d’encodage Media Services.
 
@@ -75,7 +75,7 @@ Un conteneur d’objets blob regroupe un ensemble d’objets blob. Les conteneur
 > 
 > 
 
-### <a name="a-idlocatorslocators"></a><a id="locators"/>Localisateurs
+### <a name="locators"></a><a id="locators"/>Localisateurs
 Les [localisateur](https://docs.microsoft.com/rest/api/media/operations/locator)s fournissent un point d’entrée pour accéder aux fichiers contenus dans une ressource. Une stratégie d’accès est utilisée pour définir les autorisations et la durée pendant laquelle un client a accès à un élément multimédia donné. Les localisateurs peuvent avoir une relation plusieurs-à-un avec une stratégie d’accès, de telle sorte que différents localisateurs puissent fournir différentes heures de démarrage et différents types de connexions à différents clients tout en utilisant tous les mêmes paramètres d’autorisation et de durée. Toutefois, en raison d’une restriction de stratégie d’accès partagé définie par les services de stockage Azure, vous ne pouvez pas avoir plus de cinq localisateurs uniques associés simultanément à un élément multimédia donné. 
 
 Media Services prend en charge deux types de localisateurs : Les localisateurs OnDemandOrigin, utilisés pour diffuser du contenu multimédia (par exemple, MPEG DASH, HLS ou Smooth Streaming) ou télécharger progressivement du contenu multimédia et des localisateurs d’URL SAS, qui servent à charger ou à télécharger des fichiers multimédias vers/depuis le stockage Azure. 
@@ -91,7 +91,7 @@ Un [travail](https://docs.microsoft.com/rest/api/media/operations/job) sert gén
 
 Un travail contient des métadonnées concernant le traitement à effectuer. Chaque travail contient une ou plusieurs [tâche](https://docs.microsoft.com/rest/api/media/operations/task)s qui spécifient une tâche de traitement atomique, ses éléments multimédias d’entrée, ses éléments multimédias de sortie, un processeur multimédia et ses paramètres associés. Les tâches d’un travail peuvent être chaînées, c’est-à-dire que la ressource de sortie d’une tâche peut être transmise comme ressource d’entrée à la tâche suivante. De cette façon, un travail peut contenir tout le traitement nécessaire à une présentation multimédia.
 
-## <a id="encoding"></a>Encodage
+## <a name="encoding"></a><a id="encoding"></a>Encodage
 Azure Media Services fournit plusieurs options pour l’encodage de fichiers multimédias dans le cloud.
 
 Quand vous commencez à utiliser Media Services, il est important de bien comprendre la différence entre les codecs et les formats de fichiers.
@@ -160,7 +160,7 @@ Pour plus d’informations, consultez les articles suivants :
 - [Protéger avec PlayReady/Widevine](media-services-protect-with-playready-widevine.md)
 
 ## <a name="delivering"></a>Remise
-### <a name="a-iddynamic_packagingdynamic-packaging"></a><a id="dynamic_packaging"/>Empaquetage dynamique
+### <a name="dynamic-packaging"></a><a id="dynamic_packaging"/>Empaquetage dynamique
 Lors de l’utilisation de Media Services, il est recommandé de toujours encoder vos fichiers mezzanine en un ensemble de fichiers MP4 à vitesse de transmission adaptative, puis de convertir le jeu au format souhaité en utilisant l’ [empaquetage dynamique](media-services-dynamic-packaging-overview.md).
 
 ### <a name="streaming-endpoint"></a>point de terminaison de diffusion en continu

@@ -15,14 +15,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 01/30/2019
 ms.author: cynthn
-ms.openlocfilehash: 3b1f4ef9d4e36c35cc72716125392aaff05eab6d
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 2a636ae5609d9cb5c81782af5a419a27d7880106
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034467"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80154370"
 ---
-# <a name="tutorial-install-a-lamp-web-server-on-a-linux-virtual-machine-in-azure"></a>Didacticiel : Installer un serveur web LAMP sur une machine virtuelle Linux dans Azure
+# <a name="tutorial-install-a-lamp-web-server-on-a-linux-virtual-machine-in-azure"></a>Tutoriel : Installer un serveur web LAMP sur une machine virtuelle Linux dans Azure
 
 Cet article vous guide à travers le déploiement d’un serveur web Apache, de celui de MySQL et de PHP (la pile LAMP) sur une machine virtuelle Ubuntu dans Azure. Si vous préférez le serveur web NGINX, consultez le didacticiel [Pile LEMP](tutorial-lemp-stack.md). Pour voir le serveur LAMP fonctionner, vous pouvez éventuellement installer et configurer un site WordPress. Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
@@ -113,7 +113,7 @@ sudo sh -c 'echo "<?php phpinfo(); ?>" > /var/www/html/info.php'
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez déployé un serveur LAMP dans Azure. Vous avez appris à effectuer les actions suivantes :
+Dans ce didacticiel, vous avez déployé un serveur LAMP dans Azure. Vous avez appris à :
 
 > [!div class="checklist"]
 > * Créer une machine virtuelle Ubuntu
@@ -122,10 +122,10 @@ Dans ce didacticiel, vous avez déployé un serveur LAMP dans Azure. Vous avez a
 > * Vérifier l’installation et la configuration
 > * Installer WordPress sur le serveur LAMP
 
-Passez au didacticiel suivant pour savoir comment mieux protéger les serveurs SSL à l’aide des certificats SSL.
+Passez au tutoriel suivant pour savoir comment mieux protéger les serveurs web à l’aide des certificats TLS/SSL.
 
 > [!div class="nextstepaction"]
-> [Sécuriser un serveur web avec SSL](tutorial-secure-web-server.md)
+> [Sécuriser un serveur web avec TLS](tutorial-secure-web-server.md)
 
 [2]: ./media/tutorial-lamp-stack/phpsuccesspage.png
 [3]: ./media/tutorial-lamp-stack/apachesuccesspage.png

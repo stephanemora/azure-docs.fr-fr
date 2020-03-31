@@ -5,16 +5,16 @@ author: mumian
 ms.date: 05/21/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 189d54454a1259d08400e3762b3fbf1c633474bd
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: f88f141257e8e614f62c7441c313002b5735116d
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250048"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80239188"
 ---
-# <a name="tutorial-use-condition-in-azure-resource-manager-templates"></a>Tutoriel : Utiliser une condition dans des modèles Azure Resource Manager
+# <a name="tutorial-use-condition-in-arm-templates"></a>Tutoriel : Utiliser une condition dans des modèles ARM
 
-Découvrez comment déployer des ressources Azure en fonction des conditions.
+Découvrez comment déployer des ressources Azure en fonction des conditions d’un modèle Azure Resource Manager (ARM).
 
 Dans le didacticiel [Définir l’ordre de déploiement des ressources](./template-tutorial-create-templates-with-dependent-resources.md), vous créez une machine virtuelle, un réseau virtuel et d’autres ressources dépendantes, y compris un compte de stockage. Plutôt que de créer un compte de stockage à chaque fois, vous laissez le choix aux utilisateurs de créer un compte de stockage ou d’utiliser un compte de stockage existant. Vous définissez pour cela un paramètre supplémentaire. Si la valeur du paramètre est « nouveau », un nouveau compte de stockage est créé. Sinon, un compte de stockage existant avec le nom fourni est utilisé.
 
@@ -31,9 +31,9 @@ Ce tutoriel décrit les tâches suivantes :
 Ce tutoriel traite uniquement d’un scénario de base d’utilisation de conditions. Pour plus d'informations, consultez les pages suivantes :
 
 * [Structure de fichiers de modèle : Condition](conditional-resource-deployment.md).
-* [Déployer une ressource de manière conditionnelle dans un modèle Azure Resource Manager](/azure/architecture/building-blocks/extending-templates/conditional-deploy).
+* [Déployer une ressource de manière conditionnelle dans un modèle ARM](/azure/architecture/building-blocks/extending-templates/conditional-deploy).
 * [Fonction de modèle : If](./template-functions-logical.md#if).
-* [Fonctions de comparaison pour les modèles Azure Resource Manager](./template-functions-comparison.md)
+* [Fonctions de comparaison pour les modèles ARM](./template-functions-comparison.md)
 
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -41,18 +41,18 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléments suivants :
 
-* Visual Studio Code avec l’extension Outils Resource Manager. Consultez [Utiliser Visual Studio Code pour créer des modèles Azure Resource Manager](use-vs-code-to-create-template.md).
+* Visual Studio Code avec l’extension Outils Resource Manager. Consultez [Utiliser Visual Studio Code pour créer des modèles ARM](use-vs-code-to-create-template.md).
 * Pour une sécurité optimale, utilisez un mot de passe généré pour le compte administrateur de la machine virtuelle. Voici un exemple pour générer un mot de passe :
 
     ```console
     openssl rand -base64 32
     ```
 
-    Azure Key Vault a été conçu pour protéger les clés et autres secrets de chiffrement. Pour plus d’informations, consultez [Didacticiel : Intégrer Azure Key Vault à un déploiement de modèle Resource Manager](./template-tutorial-use-key-vault.md). Nous vous recommandons également de mettre à jour votre mot de passe tous les trois mois.
+    Azure Key Vault a été conçu pour protéger les clés et autres secrets de chiffrement. Pour plus d’informations, consultez [Didacticiel : Intégrer Azure Key Vault à un déploiement de modèle ARM](./template-tutorial-use-key-vault.md). Nous vous recommandons également de mettre à jour votre mot de passe tous les trois mois.
 
 ## <a name="open-a-quickstart-template"></a>Ouvrir un modèle de démarrage rapide
 
-Modèles de démarrage rapide Azure est un référentiel pour les modèles Resource Manager. Au lieu de créer un modèle à partir de zéro, vous pouvez chercher un exemple de modèle et le personnaliser. Le modèle utilisé dans ce didacticiel se nomme [Déployer une machine virtuelle Windows simple](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
+Le dépôt Modèles de démarrage rapide Azure contient les modèles ARM. Au lieu de créer un modèle à partir de zéro, vous pouvez chercher un exemple de modèle et le personnaliser. Le modèle utilisé dans ce didacticiel se nomme [Déployer une machine virtuelle Windows simple](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
 1. À partir de Visual Studio Code, sélectionnez **Fichier**>**Ouvrir un fichier**.
 2. Collez l’URL suivante dans **Nom de fichier** :

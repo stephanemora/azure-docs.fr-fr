@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: e9ae19e503b6b54e881af3c6477f77ffa1c930b0
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.date: 3/18/2020
+ms.openlocfilehash: 2de04bbb1523151ac566b78bf99eba34c437fccd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78252618"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79537089"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>Monitoring dans Azure Database pour MySQL
 La surveillance des données relatives à vos serveurs vous aide à résoudre les problèmes et à optimiser votre charge de travail. Azure Database pour MySQL propose diverses métriques qui fournissent des insights sur le comportement de votre serveur.

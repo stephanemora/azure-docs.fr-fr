@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/14/2020
 ms.openlocfilehash: 27ed553035ce9d7abf57ffe93078df9c17b8408c
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77617737"
 ---
 # <a name="azure-stream-analytics-jobconfigjson-fields"></a>Champs JobConfig.json Azure Stream Analytics
@@ -37,7 +37,7 @@ Les champs suivants sont pris en charge dans le fichier *JobConfig.json* utilis�
 }
 ```
 
-|Nom|Type|Obligatoire|Valeur|
+|Name|Type|Obligatoire|Valeur|
 |----|----|--------|-----|
 |DataLocale|string|Non|Paramètres régionaux des données de la tâche Stream Analytics. La valeur doit être le nom d’une culture .NET prise en charge. La valeur par défaut est « en-US » si aucune n’est spécifiée.|
 |OutputErrorPolicy|string|Non|Indique la stratégie à appliquer aux événements qui arrivent à la sortie et qui ne peuvent pas être écrits dans le stockage externe en raison d’une constitution inappropriée (valeurs de colonne manquantes ou avec une taille ou un type incorrect). - Arrêter ou Supprimer|

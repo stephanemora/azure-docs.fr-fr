@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/9/2019
-ms.openlocfilehash: ba091d05aa243fab08138c96827d2f657d9755de
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.date: 3/18/2020
+ms.openlocfilehash: 243530b4badb9b19d288a91f247eefbcf622fb87
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976296"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79536409"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mariadb-by-using-the-azure-portal"></a>Guide pratique pour configurer des paramètres de serveur dans Azure Database for MariaDB à l’aide du portail Azure
 
@@ -57,7 +57,7 @@ Ces paramètres de serveur ne sont pas configurables dans le système :
 
 |**Paramètre**|**Valeur fixe**|
 | :------------------------ | :-------- |
-|innodb_file_per_table dans le niveau de base|ÉTEINT|
+|innodb_file_per_table dans le niveau de base|OFF|
 |innodb_flush_log_at_trx_commit|1|
 |sync_binlog|1|
 |innodb_log_file_size|512 Mo|

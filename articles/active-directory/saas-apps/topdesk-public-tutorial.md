@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à TOPdesk - Public | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à TOPdesk - Public | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et TOPdesk - Public.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: jeedes
 ms.openlocfilehash: e5575a2e8f776e87fcd4e6f4a7a9244752ebfd9a
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71950425"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-topdesk---public"></a>Didacticiel : Intégration d’Azure Active Directory à TOPdesk - Public
+# <a name="tutorial-azure-active-directory-integration-with-topdesk---public"></a>Tutoriel : Intégration d’Azure Active Directory à TOPdesk - Public
 
 Dans ce didacticiel, vous allez apprendre à intégrer TOPdesk - Public à Azure Active Directory (Azure AD).
 L’intégration de TOPdesk - Public dans Azure AD vous offre les avantages suivants :
@@ -127,7 +127,7 @@ Pour configurer l’authentification unique Azure AD avec TOPdesk - Public, eff
     > [!NOTE] 
     > Si les valeurs **Identificateur** et **URL de réponse** ne sont pas renseignées automatiquement, vous devez les entrer manuellement. Pour Identificateur, suivez le modèle comme indiqué ci-dessus, et vous obtenez la valeur URL de réponse à partir de la section **Configurer l’authentification unique TOPdesk - Public** plus loin dans le tutoriel. La valeur **URL de connexion** n’est pas réelle. Vous devez donc la mettre à jour avec l’URL de connexion réelle. Contactez l’[équipe de support technique TOPdesk - Public](https://help.topdesk.com/saas/enterprise/user/) pour obtenir la valeur. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-5. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies en fonction de vos besoins, puis enregistrez-le sur votre ordinateur.
+5. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies selon vos besoins, puis enregistrez-le sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
 
@@ -151,15 +151,15 @@ Pour configurer l’authentification unique Azure AD avec TOPdesk - Public, eff
 
 3. Cliquez sur **Login Settings**.
    
-    ![Paramètres de connexion](./media/topdesk-public-tutorial/ic790599.png "Paramètres de connexion")
+    ![Paramètres de connexion](./media/topdesk-public-tutorial/ic790599.png "Login Settings")
 
 4. Développez le menu **Login Settings**, puis cliquez sur **General**.
    
-    ![Général](./media/topdesk-public-tutorial/ic790600.png "Général")
+    ![Généralités](./media/topdesk-public-tutorial/ic790600.png "Général")
 
 5. Dans la section **Public** de la section de configuration **SAML login**, procédez comme suit :
    
-    ![Paramètres techniques](./media/topdesk-public-tutorial/ic790601.png "Paramètres techniques")
+    ![Paramètres techniques](./media/topdesk-public-tutorial/ic790601.png "Technical Settings")
    
     a. Cliquez sur **Download** pour télécharger le fichier de métadonnées public et enregistrez-le en local sur votre ordinateur.
    
@@ -171,7 +171,7 @@ Pour configurer l’authentification unique Azure AD avec TOPdesk - Public, eff
    
 6. Pour créer un fichier de certificat, procédez comme suit :
     
-    ![Certificat](./media/topdesk-public-tutorial/ic790606.png "Certificat")
+    ![Certificate](./media/topdesk-public-tutorial/ic790606.png "Certificat")
     
     a. Ouvrez le fichier de métadonnées téléchargé à partir du portail Azure.
     
@@ -183,11 +183,11 @@ Pour configurer l’authentification unique Azure AD avec TOPdesk - Public, eff
 
 7. Dans la section **Public**, cliquez sur **Add**.
     
-    ![Connexion SAML](./media/topdesk-public-tutorial/ic790625.png "Connexion SAML")
+    ![Connexion SAML](./media/topdesk-public-tutorial/ic790625.png "SAML login")
 
 8. Dans la boîte de dialogue **SAML configuration assistant** , procédez comme suit :
     
-    ![Assistant de configuration SAML](./media/topdesk-public-tutorial/ic790608.png "Assistant de configuration SAML")
+    ![Assistant de configuration SAML](./media/topdesk-public-tutorial/ic790608.png "SAML configuration assistant")
     
     a. Pour charger votre fichier de métadonnées téléchargé à partir du portail Azure, dans **Métadonnées de fédération**, cliquez sur **Parcourir**.
 
@@ -219,7 +219,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez brittasimon@yourcompanydomain.extension. Par exemple, BrittaSimon@contoso.com
+    b. Dans le champ **Nom d’utilisateur**, tapez brittasimon@yourcompanydomain.extension. Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
@@ -261,11 +261,11 @@ Pour pouvoir se connecter à TOPdesk - Public, les utilisateurs d’Azure AD doi
 
 2. Dans le menu en haut, cliquez sur **TOPdesk \> New \> Support Files \> Person**.
    
-    ![Personne](./media/topdesk-public-tutorial/ic790628.png "Personne")
+    ![Person](./media/topdesk-public-tutorial/ic790628.png "Personne")
 
 3. Dans la boîte de dialogue New User, procédez comme suit :
    
-    ![Nouvelle personne](./media/topdesk-public-tutorial/ic790629.png "Nouvelle personne")
+    ![Nouvelle personne](./media/topdesk-public-tutorial/ic790629.png "New Person")
    
     a. Cliquez sur l’onglet General.
 
@@ -290,4 +290,4 @@ Quand vous cliquez sur la vignette TOPdesk - Public dans le volet d’accès, vo
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

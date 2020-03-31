@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 3e505e4823db8c9f42bbff216f30326081110dcf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67088978"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamseer"></a>Tutoriel : Intégration d’Azure Active Directory à TeamSeer
@@ -38,7 +38,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 Pour configurer l’intégration d’Azure AD à TeamSeer, vous avez besoin des éléments suivants :
 
-* Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un [compte gratuit](https://azure.microsoft.com/free/)
+* Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un [compte gratuit](https://azure.microsoft.com/free/)
 * Un abonnement TeamSeer pour lequel l’authentification unique est activée
 
 ## <a name="scenario-description"></a>Description du scénario
@@ -130,19 +130,19 @@ Pour configurer l’authentification unique Azure AD avec TeamSeer, effectuez l
 
 1. Accédez à **HR Admin**.
 
-    ![Administrateur RH](./media/teamseer-tutorial/ic789634.png "Administrateur RH")
+    ![HR Admin](./media/teamseer-tutorial/ic789634.png "HR Admin")
 
 1. Cliquez sur **Setup**.
 
-    ![Configuration](./media/teamseer-tutorial/ic789635.png "Configuration")
+    ![Paramétrage](./media/teamseer-tutorial/ic789635.png "Programme d’installation")
 
 1. Cliquez sur **Set up SAML provider details**.
 
-    ![Paramètres SAML](./media/teamseer-tutorial/ic789636.png "Paramètres SAML")
+    ![Paramètres SAML](./media/teamseer-tutorial/ic789636.png "SAML Settings")
 
 1. Dans la section des détails sur le fournisseur SAML, procédez comme suit :
 
-    ![Paramètres SAML](./media/teamseer-tutorial/ic789637.png "Paramètres SAML")
+    ![Paramètres SAML](./media/teamseer-tutorial/ic789637.png "SAML Settings")
 
     a. Dans la zone de texte **URL**, collez l’**URL de connexion** que vous avez copiée dans le portail Azure.
 
@@ -150,7 +150,7 @@ Pour configurer l’authentification unique Azure AD avec TeamSeer, effectuez l
 
 1. Pour configurer le fournisseur SAML, procédez comme suit :
 
-    ![Paramètres SAML](./media/teamseer-tutorial/ic789638.png "Paramètres SAML")
+    ![Paramètres SAML](./media/teamseer-tutorial/ic789638.png "SAML Settings")
 
     a. Dans la zone de test **Tester l’adresse de messagerie**, entrez l’adresse de messagerie de l’utilisateur de test.
   
@@ -177,7 +177,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
     b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
-    Par exemple, BrittaSimon@contoso.com
+    Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
@@ -219,11 +219,11 @@ Pour se connecter à TeamSeer, les utilisateurs d’Azure AD doivent être provi
 
 1. Accédez à **HR Admin \> Users** (Administrateur RH > Utilisateurs), puis cliquez sur **Run the New User wizard** (Exécuter l’Assistant Nouvel utilisateur).
 
-    ![Administrateur RH](./media/teamseer-tutorial/ic789640.png "Administrateur RH")
+    ![HR Admin](./media/teamseer-tutorial/ic789640.png "HR Admin")
 
 1. Dans la section **User Details** , procédez comme suit :
 
-    ![Détails de l’utilisateur](./media/teamseer-tutorial/ic789641.png "Détails de l’utilisateur")
+    ![Détails de l’utilisateur](./media/teamseer-tutorial/ic789641.png "User Details")
 
     a. Dans les zones de texte correspondantes, indiquez le **prénom**, le **nom** et le **nom d’utilisateur (adresse e-mail)** d’un compte Azure AD valide que vous souhaitez provisionner.
   
@@ -246,4 +246,4 @@ Quand vous cliquez sur la vignette TeamSeer dans le volet d’accès, vous devez
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

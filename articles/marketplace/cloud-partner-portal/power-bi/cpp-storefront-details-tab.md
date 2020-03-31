@@ -1,19 +1,18 @@
 ---
 title: Détails de la vitrine d’une offre d’application Power BI - Place de marché Azure
 description: Configurez les champs Détails de la vitrine d’une offre d’application Power BI pour la Place de marché Microsoft AppSource.
-services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.author: pabutler
-ms.openlocfilehash: 309b2eb33c594b5233c547e3bf45a49aa3a25678
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: b69ef8aa57393c5be8d23aaf4af1821697295235
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73817663"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80281678"
 ---
 # <a name="power-bi-app-storefront-details-tab"></a>Onglet Détails de la vitrine des applications Power BI
 
@@ -30,7 +29,7 @@ Le tableau suivant fournit des informations supplémentaires sur ces champs. Les
 
 |   Champ               |   Description                                                                           |
 |-----------------------|-----------------------------------------------------------------------------------------|
-| **Résumé de l’offre\***     | Une brève description de l’objet de l’application comptant 100 caractères au maximum.                             |
+| **Offer summary\*** (Résumé de l’offre)     | Une brève description de l’objet de l’application comptant 100 caractères au maximum.                             |
 | **Description de l’offre\*** | Une description de l’application comptant 3 000 caractères au maximum. Ce champ prend en charge la mise en forme HTML simple. |
 |   |    |
 

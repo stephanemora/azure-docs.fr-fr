@@ -9,10 +9,10 @@ ms.date: 07/09/2019
 ms.topic: article
 ms.service: event-hubs
 ms.openlocfilehash: 531426656fe833752c9c4685688c00de3894895b
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69991943"
 ---
 # <a name="process-data-from-your-event-hub-using-azure-stream-analytics"></a>Traiter des données de votre instance Event Hub avec Azure Stream Analytics 
@@ -26,7 +26,7 @@ Voici les principaux avantages de l’intégration d’Azure Event Hubs et d'Azu
 
 ## <a name="end-to-end-flow"></a>Flux de bout en bout
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com). 
+1. Connectez-vous au [portail Azure](https://portal.azure.com). 
 1. Accédez à votre **espace de noms Event Hubs**, puis au **Event Hub** contenant les données entrantes. 
 1. Sélectionnez **Traiter des données** sur la page Event Hub.  
 
@@ -74,7 +74,7 @@ Voici les principaux avantages de l’intégration d’Azure Event Hubs et d'Azu
       ![Définir la sortie et démarrer le travail](./media/process-data-azure-stream-analytics/set-output-start-job.png)
 
 
-## <a name="known-limitations"></a>Limites connues
+## <a name="known-limitations"></a>Limitations connues
 Lors du test de votre requête, les résultats correspondants mettent environ 6 secondes à charger. Nous mettons tout en œuvre pour améliorer le niveau de performance des tests. Toutefois, lors d'un déploiement en production, Azure Stream Analytics affiche une latence inférieure à une seconde.
 
 ## <a name="streaming-units"></a>Unités de diffusion en continu

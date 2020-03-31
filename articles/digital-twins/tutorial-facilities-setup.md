@@ -9,14 +9,16 @@ ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 01/10/2020
-ms.openlocfilehash: 16e4a7e2f06d2630c970f8daa4428e7a184a79df
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 878b64fe6dd491adbb61c4c74cf4a5fc039858cd
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77163039"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79371407"
 ---
 # <a name="tutorial-deploy-azure-digital-twins-preview-and-configure-a-spatial-graph"></a>Tutoriel : Déployer la préversion d’Azure Digital Twins et configurer un graphique spatial
+
+[!INCLUDE [digital-twins-preview-limit-alert](../../includes/digital-twins-preview-limit-alert.md)]
 
 Vous pouvez utiliser le service Azure Digital Twins en préversion pour rassembler des personnes, des lieux et des appareils dans un système spatial homogène. Cette série de tutoriels montre comment utiliser Azure Digital Twins pour détecter l’occupation d’une salle avec des conditions optimales de qualité d’air et de température. 
 
@@ -36,9 +38,9 @@ Dans le premier didacticiel de cette série, vous allez apprendre à effectuer l
 
 Ces didacticiels utilisent et modifient les mêmes exemples que ceux du [démarrage rapide de recherche de salles disponibles](quickstart-view-occupancy-dotnet.md), pour une couverture plus détaillée des concepts.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
-- Un abonnement Azure. Si vous ne possédez pas de compte Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Un abonnement Azure. Si vous n’avez pas de compte Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 - Le kit SDK .NET Core. Les exemples Azure Digital Twins utilisés dans ces tutoriels sont écrits en C#. Veillez à installer le [kit SDK .NET Core version 2.1.403 ou ultérieure](https://www.microsoft.com/net/download) sur votre machine de développement pour créer et exécuter l’exemple. Vérifiez que la version appropriée est installée sur votre machine en exécutant `dotnet --version` dans une fenêtre de commande.
 
@@ -147,7 +149,7 @@ Le fichier **provisionSample.yaml** contient les nœuds suivants :
 
 - **spaces** : dans le modèle d’objet Digital Twins, l’élément `spaces` représente les emplacements physiques. Chaque espace est doté d’un élément `Type`, par exemple Region (Région), Venue (Lieu) ou Customer (Client), et d’un élément `Name` convivial. Les espaces peuvent appartenir à d’autres espaces, ce qui crée une structure hiérarchique. Le fichier provisionSample.yaml contient le graphe spatial d’un bâtiment imaginaire. Remarquez l’imbrication logique des espaces de type `Floor` au sein de `Venue`, de `Area` à un étage, et des nœuds `Room` dans une zone. 
 
-- **devices** : les espaces peuvent contenir des éléments `devices`, qui sont des entités physiques ou virtuelles gérant un certain nombre de capteurs. Par exemple, un appareil peut être le téléphone d’un utilisateur, un pod de capteur Raspberry Pi ou une passerelle. Dans le bâtiment imaginaire de votre exemple, notez que la salle nommée **Focus Room** (Salle de réflexion) contient un appareil **Raspberry Pi 3 A1**. Chaque nœud d’appareil est identifié par un élément `hardwareId` unique, qui est codé en dur dans l’exemple. Pour configurer cet exemple pour une production réelle, remplacez ces éléments par des valeurs de votre configuration.  
+- **devices** : les espaces peuvent contenir des éléments `devices`, qui sont des entités physiques ou virtuelles gérant un certain nombre de capteurs. Par exemple, un appareil peut être le téléphone d’un utilisateur, un pod de capteur Raspberry Pi ou une passerelle. Dans le bâtiment imaginaire de votre exemple, notez que la salle nommée **Focus Room** (Salle de réflexion) contient un appareil **Raspberry Pi 3 A1**. Chaque nœud d’appareil est identifié par un élément `hardwareId` unique, qui est codé en dur dans l’exemple. Pour configurer cet exemple pour une production réelle, remplacez ces éléments par des valeurs de votre configuration.  
 
 - **sensors** : un appareil peut contenir plusieurs `sensors`. Ils peuvent détecter et enregistrer des modifications physiques, telles que la température, les mouvements et le niveau de batterie. Chaque nœud de capteur est identifié de façon unique par un élément `hardwareId`, codé en dur ici. Pour une application réelle, remplacez ceux-ci en utilisant les identificateurs uniques des capteurs de votre configuration. Le fichier provisionSample.yaml contient deux capteurs pour enregistrer *Motion* (les mouvements) et *CarbonDioxide* (le dioxyde de carbone). Ajoutez un autre capteur pour enregistrer *Température*, en ajoutant les lignes suivantes sous les lignes du capteur CarbonDioxide. Ces éléments sont fournis dans provisionSample.yaml en tant que lignes commentées. Vous pouvez supprimer les marques de commentaire en retirant le caractère `#` au début de chaque ligne. 
 

@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.openlocfilehash: 5794a2c754e2082fdf45ad689bdb89ea494541c2
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73679855"
 ---
 # <a name="filter-activity-in-azure-data-factory"></a>Activité de filtrage dans Azure Data Factory
@@ -38,14 +38,14 @@ Vous pouvez utiliser une activité de filtrage dans un pipeline pour appliquer u
 
 Propriété | Description | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | --------
-Nom | Nom de l’activité `Filter`. | Chaîne | OUI
-Type | Doit être défini sur **filter** | Chaîne | OUI
-condition | Condition à utiliser pour filtrer l’entrée. | Expression | OUI
-items | Tableau d’entrée sur lequel le filtre sera appliqué. | Expression | OUI
+name | Nom de l’activité `Filter`. | String | Oui
+type | Doit être défini sur **filter** | String | Oui
+condition | Condition à utiliser pour filtrer l’entrée. | Expression | Oui
+items | Tableau d’entrée sur lequel le filtre sera appliqué. | Expression | Oui
 
-## <a name="example"></a>Exemples
+## <a name="example"></a>Exemple
 
-Dans cet exemple, le pipeline a deux activités : **Filter** et **ForEach**. L’activité filter est configurée pour filtrer les éléments dont la valeur est supérieure à 3 dans le tableau d’entrée. Ensuite, l’activité ForEach effectue une itération sur les valeurs filtrées et définit la variable **test** sur la valeur actuelle.
+Dans cet exemple, le pipeline a deux activités : **filter** et **ForEach**. L’activité filter est configurée pour filtrer les éléments dont la valeur est supérieure à 3 dans le tableau d’entrée. Ensuite, l’activité ForEach effectue une itération sur les valeurs filtrées et définit la variable **test** sur la valeur actuelle.
 
 ```json
 {

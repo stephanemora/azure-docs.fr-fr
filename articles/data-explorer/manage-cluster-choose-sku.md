@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/14/2019
 ms.openlocfilehash: 2d078f9715a0cfa171f0c88776a4ab78c15215a8
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77561848"
 ---
 # <a name="select-the-correct-vm-sku-for-your-azure-data-explorer-cluster"></a>Sélectionner la bonne référence SKU de machine virtuelle pour votre cluster Azure Data Explorer 
@@ -89,5 +89,5 @@ Les spécifications techniques des machines virtuelles du cluster Azure Data Exp
 
 * Vous pouvez [appliquer un scale-up ou un scale-down](manage-cluster-vertical-scaling.md) au cluster moteur à tout moment en changeant la référence SKU de machine virtuelle, en fonction des besoins. 
 
-* Vous pouvez [appliquer un scale-in ou un scale-out](manage-cluster-horizontal-scaling.md) au cluster moteur pour modifier la capacité, en fonction des demandes.
+* Vous pouvez [effectuer un scale-in ou un scale-out](manage-cluster-horizontal-scaling.md) de la taille du cluster moteur pour modifier la capacité, en fonction des demandes.
 

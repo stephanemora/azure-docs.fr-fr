@@ -4,10 +4,10 @@ description: Surveillez les compteurs de performances système et .NET personnal
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.openlocfilehash: 94d2520c17867f6d70caffd002a76365a425986f
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77669877"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Compteurs de performances système dans Application Insights
@@ -149,7 +149,7 @@ La prise en charge des compteurs de performances dans ASP.Net Core est limitée�
 ## <a name="alerts"></a>Alertes
 Comme d’autres mesures, vous pouvez [définir une alerte](../../azure-monitor/app/alerts.md) pour vous avertir si un compteur de performances dépasse une limite que vous spécifiez. Ouvrez le volet Alertes et cliquez sur Ajouter une alerte.
 
-## <a name="next"></a>Étapes suivantes
+## <a name="next-steps"></a><a name="next"></a>Étapes suivantes
 
 * [Suivi des dépendances](../../azure-monitor/app/asp-net-dependencies.md)
 * [Suivi des exceptions](../../azure-monitor/app/asp-net-exceptions.md)

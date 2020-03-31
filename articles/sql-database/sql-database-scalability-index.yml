@@ -3,7 +3,7 @@ documentType: LandingData
 title: Extensibilité
 metadata:
   title: Azure SQL Database - Scalabilité
-  meta.description: Learn how to scale your Azure SQL Database.
+  description: Découvrez comment Azure SQL Database permet de facilement mettre à l’échelle une base de données en ajoutant plus de puissance de calcul (scale-up) ou plus d’unités de base de données (scale-out).
   services: sql-database
   ms.subservice: scale-out
   author: jovanpop-msft
@@ -14,7 +14,7 @@ metadata:
   ms.devlang: null
   ms.topic: overview
   ms.date: 01/25/2019
-  ms.author: jovanpop-msft
+  ms.author: jovanpop
 sections:
   - items:
       - type: paragraph

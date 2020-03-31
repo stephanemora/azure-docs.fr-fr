@@ -8,10 +8,10 @@ ms.date: 12/18/2019
 ms.author: bwren
 ms.subservice: logs
 ms.openlocfilehash: fb2f9ff5af68575d9f9d29e9a6aca83d603395b3
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77672410"
 ---
 # <a name="create-diagnostic-setting-to-collect-platform-logs-and-metrics-in-azure"></a>Créer un paramètre de diagnostic pour collecter des journaux et métriques de plateforme dans Azure
@@ -83,7 +83,7 @@ Vous pouvez configurer des paramètres de diagnostic sur le portail Azure à par
    > [!NOTE]
    > L’envoi de métriques multidimensionnelles via les paramètres de diagnostic n’est pas pris en charge actuellement. Les métriques à plusieurs dimensions sont exportées en tant que métriques dimensionnelles uniques aplaties, puis agrégées dans les valeurs de la dimension.
    >
-   > *Par exemple* : La métrique « Messages entrants » sur un Event Hub peut être examinée et représentée sur un niveau par file d’attente. Toutefois, lors de l’exportation via les paramètres de diagnostic, la métrique est représentée sous la forme de tous les messages entrants, dans toutes les files d’attente de l’Event Hub.
+   > *Par exemple* : la métrique« Messages entrants » sur un Event Hub peut être examinée et représentée sur un niveau par file d’attente. Toutefois, lors de l’exportation via les paramètres de diagnostic, la métrique est représentée sous la forme de tous les messages entrants, dans toutes les files d’attente de l’Event Hub.
 
 6. Cliquez sur **Enregistrer**.
 
@@ -92,7 +92,7 @@ Après quelques instants, le nouveau paramètre apparaît dans la liste des para
 
 
 ## <a name="create-diagnostic-settings-using-powershell"></a>Créer des paramètres de diagnostic à l’aide de PowerShell
-Pour créer un paramètre de diagnostic avec [Azure PowerShell](powershell-quickstart-samples.md), utilisez la cmdlet [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting). Pour obtenir une description des paramètres de celle-ci, consultez sa documentation.
+Pour créer un paramètre de diagnostic avec [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting), utilisez la cmdlet [Set-AzDiagnosticSetting](powershell-quickstart-samples.md). Pour obtenir une description des paramètres de celle-ci, consultez sa documentation.
 
 > [!IMPORTANT]
 > Vous ne pouvez pas utiliser cette méthode pour le journal d’activité Azure. Utilisez plutôt la méthode [Créer un paramètre de diagnostic dans Azure Monitor à l’aide d’un modèle Resource Manager](diagnostic-settings-template.md) pour créer un modèle Resource Manager et le déployer avec PowerShell.
@@ -106,7 +106,7 @@ Set-AzDiagnosticSetting -Name KeyVault-Diagnostics -ResourceId /subscriptions/xx
 
 
 ## <a name="create-diagnostic-settings-using-azure-cli"></a>Créer des paramètres de diagnostic à l’aide d’Azure CLI
-Pour créer un paramètre de diagnostic avec [Azure CLI](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest), utilisez la commande [az monitor diagnostic-settings create](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create). Pour une description des paramètres de cette commande, consultez sa documentation.
+Pour créer un paramètre de diagnostic avec [Azure CLI](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create), utilisez la commande [az monitor diagnostic-settings create](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest). Pour une description des paramètres de cette commande, consultez sa documentation.
 
 > [!IMPORTANT]
 > Vous ne pouvez pas utiliser cette méthode pour le journal d’activité Azure. Utilisez plutôt la méthode [Créer un paramètre de diagnostic dans Azure Monitor à l’aide d’un modèle Resource Manager](diagnostic-settings-template.md) pour créer un modèle Resource Manager et le déployer avec CLI.
@@ -127,7 +127,7 @@ az monitor diagnostic-settings create  \
 ```
 
 ### <a name="configure-diagnostic-settings-using-rest-api"></a>Configurer des paramètres de diagnostic à l’aide de l’API REST
-Pour créer ou mettre à jour des paramètres de diagnostic à l’aide de l’[API REST Azure Monitor](https://docs.microsoft.com/rest/api/monitor/), voir [Paramètres de diagnostic](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings).
+Pour créer ou mettre à jour des paramètres de diagnostic à l’aide de l’[API REST Azure Monitor](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings), voir [Paramètres de diagnostic](https://docs.microsoft.com/rest/api/monitor/).
 
 
 ### <a name="configure-diagnostic-settings-using-resource-manager-template"></a>Configurer des paramètres de diagnostic à l’aide du modèle Resource Manager

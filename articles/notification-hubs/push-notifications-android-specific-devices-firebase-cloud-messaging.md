@@ -1,5 +1,5 @@
 ---
-title: Notifications Push vers des appareils Android spécifiques avec Azure Notification Hubs et Google Firebase Cloud Messaging | Microsoft Docs
+title: Envoyer des notifications Push à des appareils spécifiques avec Azure Notification Hubs et Google Firebase Cloud Messaging | Microsoft Docs
 description: Apprenez à utiliser Notifications Hubs pour envoyer des notifications Push vers des appareils Android spécifiques à l’aide d’Azure Notification Hubs et de Google Firebase Cloud Messaging (FCM).
 services: notification-hubs
 documentationcenter: android
@@ -17,24 +17,24 @@ ms.date: 04/30/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 04/30/2019
-ms.openlocfilehash: 1d0825fcfbcf10aaebc320a5c7cbbf2dd8c13856
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: b7ee3afc2e8b9958a868c8c117262d2017c9b600
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213339"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80126874"
 ---
-# <a name="tutorial-push-notifications-to-specific-android-devices-using-azure-notification-hubs-and-google-firebase-cloud-messaging-fcm"></a>Didacticiel : Notifications Push vers des appareils Android spécifiques avec Azure Notification Hubs et Google Firebase Cloud Messaging (FCM)
+# <a name="tutorial-send-notifications-to-specific-devices-using-notification-hubs-and-google-firebase-cloud-messaging"></a>Tutoriel : Envoyer des notifications Push à des appareils spécifiques avec Notification Hubs et Google Firebase Cloud Messaging
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Ce didacticiel vous présente l’utilisation d’Azure Notification Hubs pour diffuser des notifications relatives aux dernières nouvelles vers une application Android. Lorsque vous aurez terminé, vous pourrez vous inscrire aux catégories de dernières nouvelles qui vous intéressent et recevoir uniquement des notifications Push pour ces catégories. Ce scénario est un modèle courant pour de nombreuses applications pour lesquelles des notifications doivent être envoyées à des groupes d’utilisateurs qui ont signalé antérieurement un intérêt, par exemple, lecteur RSS, applications pour fans de musique, etc.
 
 Les scénarios de diffusion sont activés en incluant une ou plusieurs *balises* durant la création d’une inscription dans le hub de notification. Lorsque des notifications sont envoyées à une balise, tous les appareils pour lesquels cette balise est inscrite reçoivent la notification. Les balises étant de simples chaînes, il n’est pas nécessaire de les mettre en service à l’avance. Pour plus d’informations sur les balises, consultez [Routage et expressions de balise Notification Hubs](notification-hubs-tags-segment-push-message.md).
 
-Dans ce didacticiel, vous effectuez les actions suivantes :
+Dans ce tutoriel, vous allez effectuer les actions suivantes :
 
 > [!div class="checklist"]
 > * Ajout d’une sélection de catégories à l’application mobile.

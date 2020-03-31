@@ -16,10 +16,10 @@ ms.date: 02/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 007e8d87c670376ad334c1c4e58fd93995930b78
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77616258"
 ---
 # <a name="sap-ase-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Déploiement SGBD de machines virtuelles SAP ASE Azure pour charge de travail SAP
@@ -93,7 +93,7 @@ Exemple de configuration d’un petit serveur de base de données SAP ASE avec u
 | Système de fichiers | NTFS | XFS |
 | Taille de bloc de format | nécessite des tests de charge de travail | nécessite des tests de charge de travail | --- |
 | Nombre et type de disques de données | Stockage Premium : 2 x P10 (RAID0) | Stockage Premium : 2 x P10 (RAID0)| Cache = Lecture seule |
-| Nombre et type de disques de journaux | Stockage Premium : 1 x P20  | Stockage Premium : 1 x P20 | Cache = AUCUN |
+| Nombre et type de disques de données | Stockage Premium : 1 x P20  | Stockage Premium : 1 x P20 | Cache = AUCUN |
 | Paramètre ASE MaxMemory | 90 % de RAM physique | 90 % de RAM physique | en supposant une instance unique |
 | Nombre d’unités de sauvegarde | 4 | 4| --- |
 | Nombre et type de disques de sauvegarde | 1 | 1 | --- |
@@ -134,7 +134,7 @@ Exemple de configuration d’un petit serveur de base de données SAP ASE avec u
 | Système de fichiers | NTFS | XFS |
 | Taille de bloc de format | nécessite des tests de charge de travail | nécessite des tests de charge de travail | --- |
 | Nombre et type de disques de données | Stockage Premium : 4 x P30 (RAID0) | Stockage Premium : 4 x P30 (RAID0)| Cache = Lecture seule |
-| Nombre et type de disques de journaux | Stockage Premium : 1 x P20  | Stockage Premium : 1 x P20 | Cache = AUCUN |
+| Nombre et type de disques de données | Stockage Premium : 1 x P20  | Stockage Premium : 1 x P20 | Cache = AUCUN |
 | Paramètre ASE MaxMemory | 90 % de RAM physique | 90 % de RAM physique | en supposant une instance unique |
 | Nombre d’unités de sauvegarde | 4 | 4| --- |
 | Nombre et type de disques de sauvegarde | 1 | 1 | --- |

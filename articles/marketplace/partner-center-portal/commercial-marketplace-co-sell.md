@@ -1,19 +1,18 @@
 ---
 title: Option Co-vente de l'Espace partenaires | Place de marché Azure
 description: Les informations que vous fournissez dans l'onglet Co-vente de votre offre sont utilisées par les équipes commerciales de Microsoft pour en savoir plus sur votre solution lors de l'évaluation de son adéquation avec les besoins des clients.
-author: ChJenk
-manager: evansma
-ms.author: v-chjen
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/06/2019
-ms.openlocfilehash: 5f5f98b908ce54624a5d73a2ed74b2e9ea8966ff
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3b0b38b767495b1a06405f0d41222b73baee8d53
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75431955"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80277071"
 ---
 # <a name="co-sell-option-in-partner-center"></a>Option Co-vente de l'Espace partenaires
 
@@ -24,7 +23,7 @@ L’option Co-vente dans l’Espace partenaires est disponible pour certains typ
 | **Type d’offre** | **Page Co-vente disponible dans l’Espace partenaires** |
 |    -----------------------    |    -----------------------------  |
 | SaaS (software as a service) |     Disponibilité générale autour de février 2020      |
-| Dynamics 365 for Customer Engagement & PowerApps      |     Déjà disponible      |
+| Dynamics 365 for Customer Engagement et PowerApps      |     Déjà disponible      |
 | Dynamics 365 for Operations     |     Déjà disponible       |
 | Dynamics 365 Business Central      |  Disponibilité générale autour de février 2020     |
 | Azure Application     |     Disponibilité générale autour de février 2020     |
@@ -32,7 +31,7 @@ L’option Co-vente dans l’Espace partenaires est disponible pour certains typ
 | Conteneur Azure     |     Annoncé prochainement       |
 | Service de conseil      |     Annoncé prochainement       |
 | Module IoT Edge      |     Annoncé prochainement       |
-| Application de service Power BI     |     Annoncé prochainement       |
+| Application de service Power BI     |     Annoncé prochainement       |
 |  |
 
 ## <a name="listing"></a>Énumération
@@ -53,7 +52,7 @@ Les types de solution permettent de définir les scénarios pour lesquels votre 
 | Appareil (matériel) | Offre impliquant la production ou la vente de matériel d'un fabricant d'appareils. |
 | IP (application) | Applications ou autres matériaux protégés par une licence et destinés à être utilisés par le client. Par exemple : programme CRM qui peut être concédé sous licence et installé localement. |
 | Service | Compétences pratiques pour un projet ponctuel spécifique, souvent proposées par des consultants. Par exemple : configuration d'une base de données pour un client (le client assumant la responsabilité de l'exploitation de la base de données à l'issue de la livraison). |
-| Service managé | Compétences pratiques pour un projet basé sur le cloud, généralement sur une base continue. Par exemple :  fournir une plateforme et des outils pour exécuter une base de données en ligne, la gestion en continu étant assurée par le fournisseur du service managé. |
+| Service managé | Compétences pratiques pour un projet basé sur le cloud, généralement sur une base continue. Par exemple : fournir une plateforme et des outils pour exécuter une base de données en ligne, la gestion en continu étant assurée par le fournisseur du service managé. |
 
 ### <a name="solution-areas"></a>Domaines fonctionnels
 

@@ -12,12 +12,12 @@ ms.date: 05/31/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f23b20d460952ae582c292c8015851b9dc2ea98
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7047dfd0f02ffe95dcacfdf4ddc014047a338513
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108173"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79481192"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Utilisation du proxy d’application Azure AD pour publier des applications locales pour les utilisateurs distants
 
@@ -81,7 +81,7 @@ Après s’être connectés, les utilisateurs externes peuvent accéder aux appl
 
 ![Architecture du proxy d’application Azure AD](media/what-is-application-proxy/azure-ad-application-proxy-architecture.png)
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Authentification
 
 Il existe plusieurs façons de configurer une application pour l’authentification unique et la méthode que vous choisissez dépend de l’authentification utilisée par votre application. Le proxy d’application prend en charge les types d’applications suivants :
 
@@ -145,7 +145,7 @@ Le diagramme suivant montre globalement comment les services d’authentificatio
 |Active Directory (AD)|Active Directory s'exécute localement pour effectuer l’authentification des comptes de domaine. Lorsque l’authentification unique est configurée, le connecteur communique avec AD pour effectuer toute authentification supplémentaire requise.|
 |Application locale|Enfin, l’utilisateur est en mesure d’accéder à une application locale.|
 
-Le proxy d’application Azure AD comprend le service de proxy d’application basé sur le cloud et un connecteur local. Le connecteur écoute les demandes du service de proxy d’application et gère les connexions aux applications internes. Notez bien que toutes les communications se font sur SSL et vont toujours du connecteur vers le service de proxy d’application. Autrement dit, les communications sont uniquement sortantes. Le connecteur utilise un certificat client pour l’authentification sur le service de proxy d’application de presque tous les appels. La seule exception à la sécurité de connexion est l’étape initiale d’installation, au cours de laquelle le certificat client est établi. Consultez la section [Sous le capot](application-proxy-security.md#under-the-hood) du proxy d’application pour plus d’informations.
+Le proxy d’application Azure AD comprend le service de proxy d’application basé sur le cloud et un connecteur local. Le connecteur écoute les demandes du service de proxy d’application et gère les connexions aux applications internes. Notez bien que toutes les communications se font sur TLS et vont toujours du connecteur vers le service de proxy d’application. Autrement dit, les communications sont uniquement sortantes. Le connecteur utilise un certificat client pour l’authentification sur le service de proxy d’application de presque tous les appels. La seule exception à la sécurité de connexion est l’étape initiale d’installation, au cours de laquelle le certificat client est établi. Consultez la section [Sous le capot](application-proxy-security.md#under-the-hood) du proxy d’application pour plus d’informations.
 
 ### <a name="application-proxy-connectors"></a>Connecteurs de proxy d’application
 
@@ -166,7 +166,7 @@ Nous vous recommandons de toujours déployer plusieurs connecteurs pour des ques
 
 Les connecteurs interrogent également le serveur pour déterminer si une version plus récente du connecteur est disponible. Vous avez la possibilité de mettre à jour manuellement les connecteurs, mais ils sont mis à jour automatiquement tant que le service de mise à jour du connecteur de proxy d’application est en cours d’exécution. Pour les abonnés avec plusieurs connecteurs, les mises à jour automatiques ciblent un seul connecteur à la fois dans chaque groupe afin d’éviter les temps d’arrêt dans votre environnement.
 
-**Remarque**: Vous pouvez superviser la [page d’historique des versions](application-proxy-release-version-history.md) du proxy d’application pour être averti quand des mises à jour sont publiées en vous abonnant à son flux RSS.
+**Remarque** : Vous pouvez superviser la [page d’historique des versions](application-proxy-release-version-history.md) du proxy d’application pour être averti quand des mises à jour sont publiées en vous abonnant à son flux RSS.
 
 Chaque connecteur de proxy d’application est attribué à un [groupe de connecteurs](application-proxy-connector-groups.md). Les connecteurs d’un même groupe de connecteurs agissent comme une seule unité pour assurer la haute disponibilité et l’équilibrage de charge. Vous pouvez créer des groupes, leur attribuer des connecteurs dans le portail Azure, puis attribuer des connecteurs spécifiques pour servir des applications spécifiques. Nous vous recommandons d’avoir au moins deux connecteurs dans chaque groupe de connecteurs pour assurer la haute disponibilité.
 
@@ -180,10 +180,10 @@ Pour plus d’informations sur l’endroit où installer vos connecteurs et l’
 
 ## <a name="other-use-cases"></a>Autres cas d’usage
 
-À ce stade, nous nous sommes concentrés sur l’utilisation du proxy d’application pour publier des applications locales en externe tout en activant l’authentification unique pour toutes vos applications cloud et locales. Toutefois, il existe d’autres cas d’usage pour le proxy d’application. À savoir :
+À ce stade, nous nous sommes concentrés sur l’utilisation du proxy d’application pour publier des applications locales en externe tout en activant l’authentification unique pour toutes vos applications cloud et locales. Toutefois, il existe d’autres cas d’usage pour le proxy d’application. Ils comprennent :
 
 * **Publier des API REST de manière sécurisée**. Quand vous avez une logique métier ou des API s’exécutant localement ou hébergées sur des machines virtuelles dans le cloud, le proxy d’application fournit un point de terminaison public pour accéder à l’API. L’accès du point de terminaison d’API vous permet de contrôler l’authentification et l’autorisation sans ports entrants. Il fournit une sécurité supplémentaire grâce à des fonctionnalités Azure AD Premium, comme l’authentification multifacteur et l’accès conditionnel basé sur l’appareil, pour tous les appareils de bureau, iOS, MAC et Android qui utilisent Intune. Pour plus d’informations, consultez [Comment permettre aux applications clientes natives d’interagir avec des applications de proxy](application-proxy-configure-native-client-application.md) et [Protéger une API à l’aide d’OAuth 2.0 avec Azure Active Directory et la gestion des API](https://docs.microsoft.com/azure/api-management/api-management-howto-protect-backend-with-aad).
-* **Services Bureau à distance** **.** Les déploiements de services Bureau à distance standard nécessitent des connexions entrantes ouvertes. Toutefois, le [déploiement de services Bureau à distance avec le proxy d’application](application-proxy-integrate-with-remote-desktop-services.md) a une connexion sortante permanente à partir du serveur qui exécute le service du connecteur. De cette façon, vous pouvez proposer plus d’applications aux utilisateurs finaux en publiant des applications locales via les services Bureau à distance. Vous pouvez aussi réduire la surface d’attaque du déploiement avec un ensemble limité de contrôles (vérification en deux étapes et accès conditionnel) sur les services Bureau à distance.
+* **Services Bureau à distance** **(RDS)** . Les déploiements de services Bureau à distance standard nécessitent des connexions entrantes ouvertes. Toutefois, le [déploiement de services Bureau à distance avec le proxy d’application](application-proxy-integrate-with-remote-desktop-services.md) a une connexion sortante permanente à partir du serveur qui exécute le service du connecteur. De cette façon, vous pouvez proposer plus d’applications aux utilisateurs finaux en publiant des applications locales via les services Bureau à distance. Vous pouvez aussi réduire la surface d’attaque du déploiement avec un ensemble limité de contrôles (vérification en deux étapes et accès conditionnel) sur les services Bureau à distance.
 * **Publier des applications qui se connectent avec WebSocket**. La prise en charge de [Qlik Sense](application-proxy-qlik.md) est en préversion publique et sera étendue à d’autres applications par la suite.
 * **Autorisez les applications clientes natives à interagir avec des applications de proxy**. Vous pouvez utiliser le proxy d’application Azure AD pour publier des applications web, mais aussi pour publier des [applications clientes natives](application-proxy-configure-native-client-application.md) configurées avec la bibliothèque d’authentification Azure AD (ADAL). Les applications clientes natives sont différentes des applications web parce qu’elles sont installées sur un appareil alors que les applications web sont accessibles via un navigateur.
 

@@ -41,6 +41,10 @@
       href: tutorial-visual-search-image-upload.md
     - name: Rogner et rechercher dans une zone d’image
       href: tutorial-visual-search-crop-area-results.md
+    - name: Rechercher des images similaires dans des recherches précédentes
+      href: tutorial-visual-search-insights-token.md
+    - name: Créer une application web monopage
+      href: tutorial-bing-visual-search-single-page-app.md
 - name: Exemples
   items:
     - name: Exemples de code
@@ -63,10 +67,6 @@
     - name: Redimensionner et rogner les miniatures
       maintainContext: true
       href: ../bing-web-search/resize-and-crop-thumbnails.md
-    - name: Rechercher une image à l’aide de jetons d’insight d’image
-      href: tutorial-visual-search-insights-token.md
-    - name: Créer une application web monopage
-      href: tutorial-bing-visual-search-single-page-app.md
 - name: Informations de référence
   items:
     - name: API REST v7

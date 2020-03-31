@@ -4,10 +4,10 @@ description: Guide pratique pour créer et gérer, avec Azure Notebooks, un prof
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.openlocfilehash: d90eebf1b7b463e038bc5e54f51df0eb6ca746c4
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75646277"
 ---
 # <a name="your-profile-and-user-id-for-azure-notebooks-preview"></a>Profil et identifiant utilisateur pour Azure Notebooks (préversion)

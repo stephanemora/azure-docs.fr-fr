@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 08/05/2019
 ms.author: joelpell
 ms.openlocfilehash: 8d99f63ae084b4f1dae3c0125420eaecf5655e2d
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74034749"
 ---
 # <a name="optimize-performance-on-the-lsv2-series-virtual-machines"></a>Optimiser les performances sur les machines virtuelles de la série Lsv2
@@ -27,7 +27,7 @@ La conception des machines virtuelles de la série Lsv2 exploite au maximum le p
 - Ubuntu 16.04
 - RHEL 8.0
 - Debian 9
-- Debian 10
+- Debian 10
 
 Cet article fournit des conseils et des suggestions pour faire en sorte que vos charges de travail et vos applications atteignent les performances maximales dans les machines virtuelles. Les informations contenues dans cette page seront constamment mises à jour à mesure que de nouvelles images optimisées Lsv2 seront ajoutées à la Place de marché Azure.
 
@@ -85,7 +85,7 @@ Voici quelques scénarios où les données du client sont effacées par mesure d
 
 Pour en savoir plus sur les options de sauvegarde des données sur le stockage local, consultez [Sauvegarde et récupération d’urgence pour les disques IaaS Azure](backup-and-disaster-recovery-for-azure-iaas-disks.md).
 
-## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
+## <a name="frequently-asked-questions"></a>Forum aux questions
 
 * **Comment lancer le déploiement de machines virtuelles de la série Lsv2 ?**  
    Comme n’importe quelle autre machine virtuelle, utilisez le [portail](quick-create-portal.md), [Azure CLI](quick-create-cli.md) ou [PowerShell](quick-create-powershell.md) pour créer une machine virtuelle.

@@ -2,13 +2,13 @@
 title: Tutoriel - Sauvegarder des bases de données SAP HANA dans des machines virtuelles Azure
 description: Dans ce tutoriel, découvrez comment sauvegarder des bases de données SAP HANA s’exécutant sur une machine virtuelle Azure dans un coffre Recovery Services de Sauvegarde Azure.
 ms.topic: tutorial
-ms.date: 11/12/2019
-ms.openlocfilehash: bb84f6b362adf7c190f3300e6e3f1bc572153151
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.date: 02/24/2020
+ms.openlocfilehash: f64dd74ad0e038c5cad152e20ae2255de03114e3
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75753980"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79501458"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Tutoriel : Sauvegarder des bases de données SAP HANA dans une machine virtuelle Azure
 
@@ -22,36 +22,16 @@ Ce tutoriel vous explique comment sauvegarder des bases de données SAP HANA s�
 
 [Voici](sap-hana-backup-support-matrix.md#scenario-support) tous les scénarios actuellement pris en charge.
 
-## <a name="onboard-to-the-public-preview"></a>Intégration à la préversion publique
-
-Exécutez la procédure d’intégration à la préversion publique ci-après :
-
-* Dans le portail, inscrivez votre ID d’abonnement auprès du fournisseur de services Recovery Services en [suivant les instructions de cet article](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors#solution-3---azure-portal).
-
-* Pour PowerShell, exécutez cette cmdlet. Ce processus doit s’achever en présentant la mention « Inscrit ».
-
-    ```powershell
-    Register-AzProviderFeature -FeatureName "HanaBackup" –ProviderNamespace Microsoft.RecoveryServices
-    ```
-
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant de configurer les sauvegardes, prenez soin d’effectuer les opérations suivantes :
 
-1. Sur la machine virtuelle qui exécute la base de données SAP HANA, installez et activez les packages de pilotes ODBC à partir du package/média SUSE Linux Enterprise Server (SLES) officiels à l’aide de zypper, en procédant comme suit :
-
-```bash
-sudo zypper update
-sudo zypper install unixODBC
-```
-
->[!NOTE]
-> Si vous ne mettez pas à jour les dépôts, vérifiez que la version d’unixODBC est au minimum 2.3.4. Pour connaître la version de uniXODBC, exécutez `odbcinst -j` en tant que racine
->
-
-2. Autorisez la connectivité à Internet de la machine virtuelle pour permettre à cette dernière d’atteindre Azure, comme décrit dans la [procédure ci-dessous](#set-up-network-connectivity).
-
-3. Exécutez le script de préinscription dans la machine virtuelle où HANA est installé en tant qu’utilisateur racine. [Ce script](https://aka.ms/scriptforpermsonhana) définira les [autorisations appropriées](#setting-up-permissions).
+* Autorisez la connectivité de la machine virtuelle à Internet pour lui permettre d’atteindre Azure comme décrit dans la procédure [Configurer la connectivité réseau](#set-up-network-connectivity) ci-dessous.
+* Le **hdbuserstore** doit inclure une clé qui respecte les critères suivants :
+  * Elle doit être présente dans le **hdbuserstore** par défaut.
+  * Pour MDC, la clé doit pointer vers le port SQL de **NAMESERVER**. Pour SDC, elle doit pointer vers le port SQL de **INDEXSERVER**.
+  * Elle doit disposer des informations d’identification nécessaires pour ajouter et supprimer des utilisateurs.
+* Exécutez le script de configuration de sauvegarde SAP HANA (script de préinscription) dans la machine virtuelle où HANA est installé en tant qu’utilisateur racine. [Ce script](https://aka.ms/scriptforpermsonhana) prépare le système HANA pour la sauvegarde. Pour en savoir plus sur le script de préinscription, reportez-vous à la section [Ce que fait le script de préinscription](#what-the-pre-registration-script-does).
 
 ## <a name="set-up-network-connectivity"></a>Configurer la connectivité réseau
 
@@ -110,15 +90,22 @@ Utiliser les balises du service NSG | Plus faciles à gérer car les modificatio
 Utiliser les balises FQDN du Pare-feu Azure | Plus faciles à gérer car les noms de domaine complet sont managés automatiquement | Utilisabes avec Pare-feu Azure uniquement
 Utiliser un proxy HTTP | Le contrôle granulaire dans le proxy sur les URL de stockage est autorisé <br/><br/> Un seul point d’accès Internet aux machines virtuelles <br/><br/> Non soumis aux modifications d’adresse IP Azure | Frais supplémentaires d’exécution de machine virtuelle avec le logiciel de serveur proxy
 
-## <a name="setting-up-permissions"></a>Configurer les autorisations
+## <a name="what-the-pre-registration-script-does"></a>Ce que fait le script de préinscription
 
-Le script de préinscription effectue les actions suivantes :
+Le script de préinscription assure les fonctions suivantes :
 
-1. Il crée AZUREWLBACKUPHANAUSER dans un système HANA et ajoute les rôles et autorisations requis :
-   * DATABASE ADMIN : permet de créer de nouvelles bases de données pendant la restauration.
-   * CATALOG READ : permet de lire le catalogue de sauvegarde.
-   * SAP_INTERNAL_HANA_SUPPORT : permet d’accéder à certaines tables privées.
-2. Ajoute une clé à Hdbuserstore pour le plug-in HANA afin de gérer toutes les opérations (requêtes de base de données, opérations de restauration, configuration et exécution de la sauvegarde).
+* Il installe ou met à jour tous les packages nécessaires à l’agent de Sauvegarde Azure sur votre distribution.
+* Il effectue les vérifications de connectivité réseau sortante avec les serveurs de Sauvegarde Azure et les services dépendants comme Azure Active Directory et Stockage Azure.
+* Il se connecte à votre système HANA à l’aide de la clé utilisateur figurant dans les [prérequis](#prerequisites). La clé utilisateur permet de créer un utilisateur de sauvegarde (AZUREWLBACKUPHANAUSER) dans le système HANA et peut être supprimée dès lors que le script de préinscription a été correctement exécuté.
+* AZUREWLBACKUPHANAUSER reçoit les rôles et autorisations nécessaires suivants :
+  * DATABASE ADMIN (dans le cas de MDC) et BACKUP ADMIN (dans le cas de SDC) : pour créer des bases de données lors de la restauration.
+  * CATALOG READ : permet de lire le catalogue de sauvegarde.
+  * SAP_INTERNAL_HANA_SUPPORT : permet d’accéder à certaines tables privées.
+* Le script ajoute une clé à **hdbuserstore** pour AZUREWLBACKUPHANAUSER afin que le plug-in de sauvegarde HANA gère toutes les opérations (requêtes de base de données, opérations de restauration, configuration et exécution de la sauvegarde).
+
+>[!NOTE]
+> Vous pouvez transmettre explicitement la clé utilisateur indiquée dans le cadre des [prérequis](#prerequisites) en tant que paramètre au script de pré-inscription : `-sk SYSTEM_KEY_NAME, --system-key SYSTEM_KEY_NAME` <br><br>
+>Pour connaître les autres paramètres acceptés par le script, utilisez la commande `bash msawb-plugin-config-com-sap-hana.sh --help`
 
 Pour confirmer la création de la clé, exécutez la commande HDBSQL sur la machine HANA avec les informations d’identification SIDADM :
 
@@ -129,8 +116,7 @@ hdbuserstore list
 La sortie de commande doit afficher la clé {SID} {DBNAME} avec l’utilisateur en tant que AZUREWLBACKUPHANAUSER.
 
 >[!NOTE]
-> Vérifiez que vous disposez d’un ensemble unique de fichiers SSFS sous /usr/sap/{SID}/home/.hdb/. Vous ne devez trouver qu’un seul dossier dans ce chemin d’accès.
->
+> Vérifiez que vous disposez d’un ensemble unique de fichiers SSFS sous `/usr/sap/{SID}/home/.hdb/`. Vous ne devez trouver qu’un seul dossier dans ce chemin d’accès.
 
 ## <a name="create-a-recovery-service-vault"></a>Créer un coffre Recovery Services
 
@@ -142,25 +128,25 @@ Pour créer un archivage de Recovery Services :
 
 2. Dans le menu de gauche, sélectionnez **Tous les services**
 
-![Sélectionner Tous les services](./media/tutorial-backup-sap-hana-db/all-services.png)
+   ![Sélectionner Tous les services](./media/tutorial-backup-sap-hana-db/all-services.png)
 
 3. Dans la boîte de dialogue **Tous les services**, entrez **Recovery Services**. Liste des filtres de ressources variant en fonction de votre entrée. Dans la liste des ressources, sélectionnez **Coffres Recovery Services**.
 
-![Sélectionner Coffres Recovery Services](./media/tutorial-backup-sap-hana-db/recovery-services-vaults.png)
+   ![Sélectionner Coffres Recovery Services](./media/tutorial-backup-sap-hana-db/recovery-services-vaults.png)
 
 4. Dans le tableau de bord **Coffres Recovery Services**, sélectionnez **Ajouter**.
 
-![Ajouter un coffre Recovery Services](./media/tutorial-backup-sap-hana-db/add-vault.png)
+   ![Ajouter un coffre Recovery Services](./media/tutorial-backup-sap-hana-db/add-vault.png)
 
-La boîte de dialogue **Coffre Recovery Services** s’ouvre. Attribuez des valeurs aux champs **Nom, Abonnement, Groupe de ressources** et **Emplacement**
+   La boîte de dialogue **Coffre Recovery Services** s’ouvre. Attribuez des valeurs aux champs **Nom, Abonnement, Groupe de ressources** et **Emplacement**
 
-![Créer un coffre Recovery Services](./media/tutorial-backup-sap-hana-db/create-vault.png)
+   ![Créer un coffre Recovery Services](./media/tutorial-backup-sap-hana-db/create-vault.png)
 
-* **Name** : Le nom est utilisé pour identifier le coffre Recovery Services et doit être propre à l’abonnement Azure. Spécifiez un nom composé d’au moins deux caractères, mais sans dépasser 50 caractères. Il doit commencer par une lettre et ne peut être constitué que de lettres, chiffres et traits d’union. Pour ce tutoriel, nous avons utilisé le nom **SAPHanaVault**.
-* **Abonnement**: choisissez l’abonnement à utiliser. Si vous êtes membre d’un seul abonnement, son nom s’affiche. Si vous ne savez pas quel abonnement utiliser, utilisez l’abonnement par défaut (suggéré). Vous ne disposez de plusieurs choix que si votre compte professionnel ou scolaire est associé à plusieurs abonnements Azure. Ici, nous avons utilisé l’abonnement de **laboratoire de solution SAP HANA**.
-* **Groupe de ressources** : Utilisez un groupe de ressources existant ou créez-en un. Ici, nous avons utilisé **SAPHANADemo**.<br>
-Pour afficher la liste des groupes de ressources disponibles dans votre abonnement, sélectionnez **Utiliser existant**, puis sélectionnez une ressource dans la zone de liste déroulante. Pour créer un groupe de ressources, sélectionnez **Créer** et entrez le nom. Pour obtenir des informations complètes sur les groupes de ressources, consultez [Vue d’ensemble d’Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
-* **Emplacement** : sélectionnez la région géographique du coffre. Le coffre doit se trouver dans la même région que la machine virtuelle exécutant SAP HANA. Nous avons utilisé **USA Est 2**.
+   * **Name** : Le nom est utilisé pour identifier le coffre Recovery Services et doit être propre à l’abonnement Azure. Spécifiez un nom composé d’au moins deux caractères, mais sans dépasser 50 caractères. Il doit commencer par une lettre et ne peut être constitué que de lettres, chiffres et traits d’union. Pour ce tutoriel, nous avons utilisé le nom **SAPHanaVault**.
+   * **Abonnement**: choisissez l’abonnement à utiliser. Si vous êtes membre d’un seul abonnement, son nom s’affiche. Si vous ne savez pas quel abonnement utiliser, utilisez l’abonnement par défaut (suggéré). Vous ne disposez de plusieurs choix que si votre compte professionnel ou scolaire est associé à plusieurs abonnements Azure. Ici, nous avons utilisé l’abonnement de **laboratoire de solution SAP HANA**.
+   * **Groupe de ressources** : Utilisez un groupe de ressources existant ou créez-en un. Ici, nous avons utilisé **SAPHANADemo**.<br>
+   Pour afficher la liste des groupes de ressources disponibles dans votre abonnement, sélectionnez **Utiliser existant**, puis sélectionnez une ressource dans la zone de liste déroulante. Pour créer un groupe de ressources, sélectionnez **Créer** et entrez le nom. Pour obtenir des informations complètes sur les groupes de ressources, consultez [Vue d’ensemble d’Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+   * **Emplacement** : sélectionnez la région géographique du coffre. Le coffre doit se trouver dans la même région que la machine virtuelle exécutant SAP HANA. Nous avons utilisé **USA Est 2**.
 
 5. Sélectionnez **Vérifier + créer**.
 
@@ -185,15 +171,15 @@ Maintenant que les bases de données à sauvegarder sont découvertes, nous allo
 
 1. Cliquez sur **Configurer la sauvegarde**.
 
-![Configurer une sauvegarde](./media/tutorial-backup-sap-hana-db/configure-backup.png)
+   ![Configurer une sauvegarde](./media/tutorial-backup-sap-hana-db/configure-backup.png)
 
 2. Dans **Sélectionner les éléments à sauvegarder**, sélectionnez une ou plusieurs bases de données à protéger, puis cliquez sur **OK**.
 
-![Sélectionner les éléments à sauvegarder](./media/tutorial-backup-sap-hana-db/select-items-to-backup.png)
+   ![Sélectionner les éléments à sauvegarder](./media/tutorial-backup-sap-hana-db/select-items-to-backup.png)
 
 3. Dans **Stratégie de sauvegarde > Choisir une stratégie de sauvegarde**, créez une stratégie de sauvegarde pour les bases de données en suivant les instructions de la section suivante.
 
-![Choisir une stratégie de sauvegarde](./media/tutorial-backup-sap-hana-db/backup-policy.png)
+   ![Choisir une stratégie de sauvegarde](./media/tutorial-backup-sap-hana-db/backup-policy.png)
 
 4. Après avoir créé la stratégie, dans le menu **Sauvegarde**, cliquez sur **Activer la sauvegarde**.
 
@@ -212,11 +198,11 @@ Spécifiez les paramètres de stratégie comme suit :
 
 1. Dans **Nom de la stratégie**, entrez le nom de la nouvelle stratégie. Dans le cas présent, entrez **SAPHANA**.
 
-![Entrer le nom de la nouvelle stratégie](./media/tutorial-backup-sap-hana-db/new-policy.png)
+   ![Entrer le nom de la nouvelle stratégie](./media/tutorial-backup-sap-hana-db/new-policy.png)
 
 2. Dans **Stratégie de sauvegarde complète**, sélectionnez une **Fréquence de sauvegarde**. Vous pouvez choisir **Quotidienne** ou **Hebdomadaire**. Pour ce tutoriel, nous avons choisi la sauvegarde **Quotidienne**.
 
-![Sélectionner une fréquence de sauvegarde](./media/tutorial-backup-sap-hana-db/backup-frequency.png)
+   ![Sélectionner une fréquence de sauvegarde](./media/tutorial-backup-sap-hana-db/backup-frequency.png)
 
 3. Dans **Durée de rétention**, configurez les paramètres de rétention pour la sauvegarde complète.
    * Par défaut, toutes les options sont sélectionnées. Désactivez les limites de durée de rétention que vous ne souhaitez pas utiliser et définissez celles qui vous intéressent.
@@ -230,9 +216,9 @@ Spécifiez les paramètres de stratégie comme suit :
 
    ![Stratégie de sauvegarde différentielle](./media/tutorial-backup-sap-hana-db/differential-backup-policy.png)
 
->[!NOTE]
->Pour l’instant, les sauvegardes incrémentielles ne sont pas prises en charge.
->
+   >[!NOTE]
+   >Pour l’instant, les sauvegardes incrémentielles ne sont pas prises en charge.
+   >
 
 7. Cliquez sur **OK** pour enregistrer la stratégie et revenir au menu **Stratégie de sauvegarde** principal.
 8. Sélectionnez **Sauvegarde de fichier journal** pour ajouter une stratégie de sauvegarde de fichier journal.
@@ -241,9 +227,9 @@ Spécifiez les paramètres de stratégie comme suit :
 
     ![Stratégie de sauvegarde de fichier journal](./media/tutorial-backup-sap-hana-db/log-backup-policy.png)
 
->[!NOTE]
-> Les sauvegardes de fichiers journaux ne commencent à se produire qu’en cas de réussite d’une sauvegarde complète.
->
+   >[!NOTE]
+   > Les sauvegardes de fichiers journaux ne commencent à se produire qu’en cas de réussite d’une sauvegarde complète.
+   >
 
 9. Cliquez sur **OK** pour enregistrer la stratégie et revenir au menu **Stratégie de sauvegarde** principal.
 10. Après avoir défini la stratégie de sauvegarde, cliquez sur **OK**.

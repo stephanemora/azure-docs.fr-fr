@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/02/2019
 ms.openlocfilehash: eba7d7ad009b2ef0442a916983489489eb5cceb8
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74806658"
 ---
 # <a name="use-the-net-sdk-for-apache-hbase"></a>Utiliser le SDK .NET pour Apache HBase
 
-[Apache HBase](apache-hbase-overview.md) offre deux choix principaux pour travailler avec vos données : [les requêtes Apache Hive et les appels à l’API RESTful de HBase](apache-hbase-tutorial-get-started-linux.md). Vous pouvez travailler directement avec l’API REST à l’aide de la commande `curl` ou d’un utilitaire similaire.
+[Apache HBase](apache-hbase-overview.md) fournit deux principales options pour utiliser vos données : [les requêtes Apache Hive et des appels à l’API RESTful de HBase](apache-hbase-tutorial-get-started-linux.md). Vous pouvez travailler directement avec l’API REST à l’aide de la commande `curl` ou d’un utilitaire similaire.
 
 Pour les applications C# et .NET, la [bibliothèque de client Microsoft HBase REST pour .NET](https://www.nuget.org/packages/Microsoft.HBase.Client/) fournit une bibliothèque de client sur l’API REST HBase.
 
@@ -116,7 +116,7 @@ HBase implémente [Cloud BigTable](https://cloud.google.com/bigtable/) afin que 
 
 ![Exemple de sortie de données Apache HBase](./media/apache-hbase-rest-sdk/hdinsight-table-roles.png)
 
-## <a name="select-data"></a>Sélectionner des données
+## <a name="select-data"></a>Sélectionner les données
 
 Pour lire des données à partir d’une table HBase, passez le nom de table et la clé de ligne à la méthode `GetCellsAsync` pour retourner le `CellSet`.
 

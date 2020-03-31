@@ -1,26 +1,26 @@
 ---
-title: 'Didacticiel : Mapper un nom DNS personnalisé existant'
+title: 'Tutoriel : Mapper un nom DNS personnalisé existant'
 description: Découvrez comment ajouter un nom de domaine DNS (domaine personnel) à une application web, au serveur principal d’une application mobile ou à une application API dans Azure App Service.
 keywords: app service, azure app service, mappage de domaine, nom de domaine, domaine existant, nom d'hôte
 ms.assetid: dc446e0e-0958-48ea-8d99-441d2b947a7c
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 06/06/2019
-ms.custom: seodec18
-ms.openlocfilehash: 37bb1193056894ea824f4aa1723fb327f54bccae
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 2e62062fabfbb7c320bbeaf473979ccef96b0ba3
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672073"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80047214"
 ---
-# <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Didacticiel : Mapper un nom DNS personnalisé existant à Azure App Service
+# <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Tutoriel : Mapper un nom DNS personnalisé existant à Azure App Service
 
 [Azure App Service](overview.md) offre un service d’hébergement web hautement évolutif appliquant des mises à jour correctives automatiques. Ce tutoriel vous montre comment mapper un nom DNS personnalisé existant à Azure App Service.
 
 ![Navigation au sein du portail pour accéder à l’application Azure](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Mapper un sous-domaine (par exemple, `www.contoso.com`) à l’aide d’un enregistrement CNAME
@@ -192,7 +192,7 @@ Pour l’exemple de domaine `contoso.com`, créez les enregistrements A et TXT 
 
 | Type d’enregistrement | Host | Valeur |
 | - | - | - |
-| A | `@` | Adresse IP de [Copier l’adresse IP de l’application](#info) |
+| Un | `@` | Adresse IP de [Copier l’adresse IP de l’application](#info) |
 | TXT | `@` | `<app_name>.azurewebsites.net` |
 
 > [!NOTE]
@@ -200,7 +200,7 @@ Pour l’exemple de domaine `contoso.com`, créez les enregistrements A et TXT 
 >
 > | Type d’enregistrement | Host | Valeur |
 > | - | - | - |
-> | A | `www` | Adresse IP de [Copier l’adresse IP de l’application](#info) |
+> | Un | `www` | Adresse IP de [Copier l’adresse IP de l’application](#info) |
 > | TXT | `www` | `<app_name>.azurewebsites.net` |
 >
 
@@ -298,7 +298,7 @@ Dans votre navigateur, accédez aux noms DNS que vous avez configurés précéde
 
 ![Navigation au sein du portail pour accéder à l’application Azure](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
 
-## <a name="resolve-404-not-found"></a>Résoudre une erreur 404 « Introuvable »
+## <a name="resolve-404-not-found"></a>Résoudre une erreur 404 « Introuvable »
 
 Si vous recevez une erreur HTTP 404 (Introuvable) lors de la navigation vers l'URL de votre domaine personnalisé, vérifiez que votre domaine résout l'adresse IP de votre application en utilisant <a href="https://www.whatsmydns.net/" target="_blank">WhatsmyDNS.net</a>. Dans le cas contraire, cela peut être dû à l’une des raisons suivantes :
 
@@ -327,7 +327,7 @@ Une fois l’opération terminée, votre application devrait renvoyer la bonne p
 
 Vous pouvez automatiser la gestion des domaines personnalisés à l’aide de scripts, en utilisant [Azure CLI](/cli/azure/install-azure-cli) ou [Azure PowerShell](/powershell/azure/overview). 
 
-### <a name="azure-cli"></a>D’Azure CLI 
+### <a name="azure-cli"></a>Azure CLI 
 
 La commande suivante ajoute un nom DNS personnalisé configuré à une application App Service. 
 

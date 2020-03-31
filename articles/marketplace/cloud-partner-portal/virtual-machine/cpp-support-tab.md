@@ -1,23 +1,22 @@
 ---
 title: Onglet Support de machine virtuelle dans le Portail Cloud Partner pour la Place de marché Azure
 description: Décrit l’onglet Support utilisé pour créer une offre de machine virtuelle Place de marché Azure.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: pabutler
-ms.openlocfilehash: fcf7a51e69e901ae04b29c4fb621d401d170d2f1
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: e8143f33aacbc68653d19ffb72e88af447f8cc40
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73808804"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288850"
 ---
 # <a name="virtual-machine-support-tab"></a>Onglet Support de machine virtuelle
 
-Dans l’onglet **Support** de la page **Nouvelle offre**, vous pouvez indiquer les ressources de support utilisateur et technique associées à votre offre.  Celui-ci est divisé en trois zones : **Ingénierie**, **Service clientèle** et **URL du support**.
+Dans l’onglet **Support** de la page **Nouvelle offre**, vous pouvez indiquer les ressources de support utilisateur et technique associées à votre offre.  L’onglet est divisé en trois zones : **Ingénierie**, **Support technique**, et **URL du support technique**.
 
 ![Onglet Support du formulaire Nouvelle offre pour les machines virtuelles](./media/publishvm_012.png)
 

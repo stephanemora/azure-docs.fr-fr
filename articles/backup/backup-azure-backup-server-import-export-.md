@@ -5,10 +5,10 @@ ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 1/28/2020
 ms.openlocfilehash: 080b0bc53b2058bd186e90f354b8f5bcda510414
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78197050"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>Workflow de la sauvegarde hors connexion pour DPM et le serveur de sauvegarde Azure

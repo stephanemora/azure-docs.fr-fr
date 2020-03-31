@@ -1,19 +1,18 @@
 ---
 title: Déployer une machine virtuelle Azure à partir d’un disque dur virtuel utilisateur | Place de marché Azure
 description: Explique comment déployer une image de disque dur virtuel utilisateur pour créer une instance de machine virtuelle Azure.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/29/2018
-ms.author: pabutler
-ms.openlocfilehash: 8421e9b7b7e2b7d13054e977da83be044b4e6af7
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 957bc187b0123338947f62333c913cf82a6c66a1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73816646"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80277954"
 ---
 # <a name="deploy-an-azure-vm-from-a-user-vhd"></a>Déployer une machine virtuelle Azure à partir d’un disque dur virtuel utilisateur
 
@@ -34,7 +33,7 @@ Copiez le modèle Azure Resource Manager de [déploiement de disque dur virtuel]
 | subscriptionId             | Identificateur de l’abonnement Azure                                                  |
 | Location                   | Sélectionnez un emplacement géographique Azure standard pour le groupe de ressources                       |
 | vmName                     | Nom de la machine virtuelle                                                    |
-| vaultName                  | Nom du Key Vault.                                                          |
+| VaultName                  | Nom du Key Vault.                                                          |
 | vaultResourceGroup         | Groupe de ressources du Key Vault.
 | certificateUrl             | URL du certificat, y compris la version stockée dans le coffre de clés, par exemple : `https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7` |
 | vhdUrl                     | URL du disque dur virtuel                                                   |

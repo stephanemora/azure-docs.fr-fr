@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: 68be15e1ffd9093ab67fc046edaad991d633ca7e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 651daa0af8188b386220d97390e7a61615f94120
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445365"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79369401"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Gérer les niveaux de cohérence dans Azure Cosmos DB
 
@@ -25,7 +25,7 @@ Le [niveau de cohérence par défaut](consistency-levels.md) est le niveau de co
 
 ### <a name="cli"></a>Interface de ligne de commande
 
-```bash
+```azurecli
 # create with a default consistency
 az cosmosdb create --name <name of Cosmos DB Account> --resource-group <resource group name> --default-consistency-level Session
 
@@ -69,7 +69,7 @@ Pour afficher ou modifier le niveau de cohérence par défaut, connectez-vous au
 
 Les clients peuvent remplacer le niveau de cohérence par défaut, qui est défini par le service. Le niveau de cohérence peut être défini pour chaque demande, ce qui a pour effet de remplacer le niveau de cohérence par défaut défini au niveau du compte.
 
-### <a id="override-default-consistency-dotnet"></a>Kit SDK .NET V2
+### <a name="net-sdk-v2"></a><a id="override-default-consistency-dotnet"></a>Kit SDK .NET V2
 
 ```csharp
 // Override consistency at the client level
@@ -81,7 +81,7 @@ RequestOptions requestOptions = new RequestOptions { ConsistencyLevel = Consiste
 var response = await client.CreateDocumentAsync(collectionUri, document, requestOptions);
 ```
 
-### <a id="override-default-consistency-dotnet-v3"></a>Kit SDK .NET V3
+### <a name="net-sdk-v3"></a><a id="override-default-consistency-dotnet-v3"></a>Kit SDK .NET V3
 
 ```csharp
 // Override consistency at the request level via request options
@@ -94,7 +94,7 @@ var response = await client.GetContainer(databaseName, containerName)
         requestOptions);
 ```
 
-### <a id="override-default-consistency-java-async"></a>Kit SDK Java Async
+### <a name="java-async-sdk"></a><a id="override-default-consistency-java-async"></a>Kit SDK Java Async
 
 ```java
 // Override consistency at the client level
@@ -108,7 +108,7 @@ AsyncDocumentClient client =
                 .withConnectionPolicy(policy).build();
 ```
 
-### <a id="override-default-consistency-java-sync"></a>Kit SDK Java Sync
+### <a name="java-sync-sdk"></a><a id="override-default-consistency-java-sync"></a>Kit SDK Java Sync
 
 ```java
 // Override consistency at the client level
@@ -116,7 +116,7 @@ ConnectionPolicy connectionPolicy = new ConnectionPolicy();
 DocumentClient client = new DocumentClient(accountEndpoint, accountKey, connectionPolicy, ConsistencyLevel.Eventual);
 ```
 
-### <a id="override-default-consistency-javascript"></a>Kit SDK Node.js/JavaScript/TypeScript
+### <a name="nodejsjavascripttypescript-sdk"></a><a id="override-default-consistency-javascript"></a>Kit SDK Node.js/JavaScript/TypeScript
 
 ```javascript
 // Override consistency at the client level
@@ -129,7 +129,7 @@ const client = new CosmosClient({
 const { body } = await item.read({ consistencyLevel: ConsistencyLevel.Eventual });
 ```
 
-### <a id="override-default-consistency-python"></a>Kit SDK Python
+### <a name="python-sdk"></a><a id="override-default-consistency-python"></a>Kit SDK Python
 
 ```python
 # Override consistency at the client level
@@ -144,7 +144,7 @@ Parmi les différents niveaux de cohérence rencontrés dans Azure Cosmos DB fig
 
 Pour gérer les jetons de session manuellement, obtenez le jeton de session à partir de la réponse, puis définissez-les par requête. Si vous n’avez pas besoin de gérer des jetons de session manuellement, les exemples ci-dessous ne vous sont pas utiles. Le kit SDK effectue le suivi des jetons de session automatiquement. Si vous ne définissez pas le jeton de session manuellement, par défaut, le kit SDK utilise le jeton de session le plus récent.
 
-### <a id="utilize-session-tokens-dotnet"></a>Kit SDK .NET V2
+### <a name="net-sdk-v2"></a><a id="utilize-session-tokens-dotnet"></a>Kit SDK .NET V2
 
 ```csharp
 var response = await client.ReadDocumentAsync(
@@ -157,7 +157,7 @@ var response = await client.ReadDocumentAsync(
                 UriFactory.CreateDocumentUri(databaseName, collectionName, "SalesOrder1"), options);
 ```
 
-### <a id="utilize-session-tokens-dotnet-v3"></a>Kit SDK .NET V3
+### <a name="net-sdk-v3"></a><a id="utilize-session-tokens-dotnet-v3"></a>Kit SDK .NET V3
 
 ```csharp
 Container container = client.GetContainer(databaseName, collectionName);
@@ -169,7 +169,7 @@ options.SessionToken = sessionToken;
 ItemResponse<SalesOrder> response = await container.ReadItemAsync<SalesOrder>(salesOrder.Id, new PartitionKey(salesOrder.PartitionKey), options);
 ```
 
-### <a id="utilize-session-tokens-java-async"></a>Kit SDK Java Async
+### <a name="java-async-sdk"></a><a id="utilize-session-tokens-java-async"></a>Kit SDK Java Async
 
 ```java
 // Get session token from response
@@ -191,7 +191,7 @@ requestOptions.setSessionToken(sessionToken);
 Observable<ResourceResponse<Document>> readObservable = client.readDocument(document.getSelfLink(), options);
 ```
 
-### <a id="utilize-session-tokens-java-sync"></a>Kit SDK Java Sync
+### <a name="java-sync-sdk"></a><a id="utilize-session-tokens-java-sync"></a>Kit SDK Java Sync
 
 ```java
 // Get session token from response
@@ -204,7 +204,7 @@ options.setSessionToken(sessionToken);
 ResourceResponse<Document> response = client.readDocument(documentLink, options);
 ```
 
-### <a id="utilize-session-tokens-javascript"></a>Kit SDK Node.js/JavaScript/TypeScript
+### <a name="nodejsjavascripttypescript-sdk"></a><a id="utilize-session-tokens-javascript"></a>Kit SDK Node.js/JavaScript/TypeScript
 
 ```javascript
 // Get session token from response
@@ -215,7 +215,7 @@ const sessionToken = headers["x-ms-session-token"];
 const { body } = await item.read({ sessionToken });
 ```
 
-### <a id="utilize-session-tokens-python"></a>Kit SDK Python
+### <a name="python-sdk"></a><a id="utilize-session-tokens-python"></a>Kit SDK Python
 
 ```python
 // Get the session token from the last response headers

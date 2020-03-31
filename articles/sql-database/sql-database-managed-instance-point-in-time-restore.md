@@ -1,5 +1,5 @@
 ---
-title: 'Instance gérée : limite de restauration dans le temps'
+title: 'Instance managée : limite de restauration dans le temps (PITR)'
 description: Restaurer une base de données SQL dans une instance gérée à un point antérieur dans le temps.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, mathoma
 ms.date: 08/25/2019
-ms.openlocfilehash: 9ed694ec524c4e3e033c3139735e8e079141ec4a
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 27f465e6864d0ff639e825c8a816d86648bd8853
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76515120"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79232493"
 ---
 # <a name="restore-a-sql-database-in-a-managed-instance-to-a-previous-point-in-time"></a>Restaurer une base de données SQL dans une instance gérée à un point antérieur dans le temps
 
@@ -24,22 +24,18 @@ Utilisez la limite de restauration dans le temps (PITR) pour créer une base de 
 
 La limite de restauration dans le temps est utile dans les scénarios de récupération, tels que les incidents provoqués par des erreurs, les données chargées de façon incorrecte ou la suppression de données cruciales. Vous pouvez également l’utiliser simplement à des fins de test ou d’audit. Les fichiers de sauvegarde sont conservés pendant une période comprise entre 7 et 35 jours, en fonction des paramètres de votre base de données.
 
-La limite de restauration dans le temps peut :
+La limite de restauration dans le temps peut restaurer une base de données :
 
-- Restaurer une base de données à partir d’une base de données existante.
-- Restaurer une base de données à partir d’une base de données supprimée.
-
-En outre, pour une instance gérée, la limite de restauration dans le temps peut également :
-
-- Restaurer une base de données dans la même instance managée.
-- Restaurer une base de données vers une autre instance managée.
-
-> [!NOTE]
-> La limite de restauration dans le temps d’une instance managée entière n’est pas possible. Cet explique uniquement ce qui est possible : une limite de restauration dans le temps d’une base de données hébergée sur une instance gérée.
+- à partir d’une base de données existante.
+- à partir d’une base de données supprimée.
+- vers la même instance managée ou vers une autre instance managée. 
 
 ## <a name="limitations"></a>Limites
 
-Lorsque vous restaurez d’une instance gérée vers une autre, les deux instances doivent se trouver dans le même abonnement et la même région. La restauration inter-régions et inter-abonnements ne sont actuellement pas prises en charge.
+La limite de restauration dans le temps sur une instance managée présente les limitations suivantes :
+
+- Lorsque vous restaurez d’une instance gérée vers une autre, les deux instances doivent se trouver dans le même abonnement et la même région. La restauration inter-régions et inter-abonnements ne sont actuellement pas prises en charge.
+- La limite de restauration dans le temps d’une instance managée entière n’est pas possible. Cet explique uniquement ce qui est possible : une limite de restauration dans le temps d’une base de données hébergée sur une instance gérée.
 
 > [!WARNING]
 > Tenez compte de la taille de stockage de votre instance gérée. Selon la taille des données à restaurer, vous risquez de manquer de stockage d’instance. S’il n’y a pas assez d’espace pour les données restaurées, utilisez une approche différente.
@@ -48,15 +44,15 @@ Le tableau suivant présente les scénarios de limite de restauration dans le te
 
 |           |Restaurer la base de données existante sur la même instance gérée| Restaurer la base de données existante sur une autre instance gérée|Restaurer la base de données déposée sur la même instance gérée|Restaurer la base de données déposée sur une autre instance gérée|
 |:----------|:----------|:----------|:----------|:----------|
-|**Azure portal**| Oui|Non |Non|Non|
+|**Azure portal**| Oui|Non |Oui|Non|
 |**Azure CLI**|Oui |Oui |Non|Non|
 |**PowerShell**| Oui|Oui |Oui|Oui|
 
 ## <a name="restore-an-existing-database"></a>Restaurer une base de données existante
 
-Restaurez une base de données existante sur la même instance à l’aide du portail Azure, de PowerShell ou d’Azure CLI. Pour restaurer une base de données sur une autre instance, utilisez PowerShell ou Azure CLI en spécifiant les propriétés du groupe de ressources et de l’instance gérée cibles. Si vous spécifiez pas ces paramètres, la base de données sera restaurée par défaut sur l’instance existante. Le portail Azure ne prend pas actuellement en charge la restauration vers une autre instance.
+Restaurez une base de données existante sur la même instance à l’aide du portail Azure, de PowerShell ou d’Azure CLI. Pour restaurer une base de données sur une autre instance, utilisez PowerShell ou Azure CLI en spécifiant les propriétés du groupe de ressources et de l’instance managée cibles. Si vous spécifiez pas ces paramètres, la base de données sera restaurée par défaut sur l’instance existante. Le portail Azure ne prend pas actuellement en charge la restauration vers une autre instance.
 
-# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
+# <a name="portal"></a>[Portail](#tab/azure-portal)
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com). 
 2. Accédez à votre instance gérée et sélectionnez la base de données à restaurer.
@@ -67,7 +63,7 @@ Restaurez une base de données existante sur la même instance à l’aide du po
 4. Dans la page **Restaurer**, sélectionnez le point pour la date et l’heure auquel restaurer la base de données.
 5. Sélectionnez **Confirmer** pour restaurer votre base de données. Cette action démarre le processus de restauration qui crée une nouvelle base de données et est rempli avec les données de la base de données d’origine au point spécifié dans le temps. Pour plus d’informations sur le processus de récupération, consultez [Heure de récupération](sql-database-recovery-using-backups.md#recovery-time).
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Si Azure PowerShell n’est pas encore installé, consultez [Installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
@@ -92,7 +88,7 @@ Restore-AzSqlInstanceDatabase -FromPointInTimeBackup `
                               -TargetInstanceDatabaseName $targetDatabase `
 ```
 
-Pour restaurer la base de données vers une autre instance gérée, spécifiez également le nom du groupe de ressources et le nom de l’instance gérée cibles :  
+Pour restaurer la base de données vers une autre instance managée, spécifiez également le nom du groupe de ressources et le nom de l’instance managée cibles :  
 
 ```powershell-interactive
 $targetResourceGroupName = "<Resource group of target managed instance>"
@@ -110,7 +106,7 @@ Restore-AzSqlInstanceDatabase -FromPointInTimeBackup `
 
 Pour plus d’informations, consultez [.Restore-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase).
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Si Azure CLI n’est pas encore installé, consultez [Installer l’interface de ligne de commande Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
@@ -136,9 +132,18 @@ Pour obtenir une explication détaillée des paramètres disponibles, consultez 
 
 ## <a name="restore-a-deleted-database"></a>La restauration d’une base de données supprimée
 
-Il est possible de restaurer une base de données supprimée à l’aide de PowerShell ou du portail Azure. Pour ce faire, veuillez utiliser ce document sur le [Portail Azure](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups#managed-instance-database-1). La base de données peut être restaurée sur la même instance ou sur une autre instance.
+La restauration d’une base de données supprimée peut être effectuée en utilisant PowerShell ou le portail Azure. Pour restaurer une base de données supprimée sur la même instance, utilisez le portail Azure ou PowerShell. Pour restaurer une base de données supprimée sur une autre instance, utilisez PowerShell. 
 
-Pour restaurer la base de données supprimée à l’aide de PowerShell, spécifiez vos valeurs pour les paramètres de la commande suivante. Exécutez ensuite la commande :
+### <a name="portal"></a>Portail 
+
+
+Pour récupérer une base de données managée à partir du portail Azure, ouvrez la page de vue d’ensemble de l’instance managée, puis sélectionnez **Bases de données supprimées**. Choisissez une base de données supprimée que vous souhaitez restaurer, puis tapez le nom de la nouvelle base de données qui sera créée avec les données restaurées à partir de la sauvegarde.
+
+  ![Capture d’écran de la restauration d’une base de données d’instance Azure SQL supprimée](./media/sql-database-recovery-using-backups/restore-deleted-sql-managed-instance-annotated.png)
+
+### <a name="powershell"></a>PowerShell
+
+Pour restaurer une base de données sur la même instance, mettez à jour les valeurs des paramètres, puis exécutez la commande PowerShell suivante : 
 
 ```powershell-interactive
 $subscriptionId = "<Subscription ID>"
@@ -148,30 +153,33 @@ Select-AzSubscription -SubscriptionId $subscriptionId
 $resourceGroupName = "<Resource group name>"
 $managedInstanceName = "<Managed instance name>"
 $deletedDatabaseName = "<Source database name>"
+$targetDatabaseName = "<target database name>"
 
-$deleted_db = Get-AzSqlDeletedInstanceDatabaseBackup -ResourceGroupName $resourceGroupName `
-            -InstanceName $managedInstanceName -DatabaseName $deletedDatabaseName 
+$deletedDatabase = Get-AzSqlDeletedInstanceDatabaseBackup -ResourceGroupName $resourceGroupName `
+-InstanceName $managedInstanceName -DatabaseName $deletedDatabaseName
 
-$pointInTime = "2018-06-27T08:51:39.3882806Z"
-$properties = New-Object System.Object
-$properties | Add-Member -type NoteProperty -name CreateMode -Value "PointInTimeRestore"
-$properties | Add-Member -type NoteProperty -name RestorePointInTime -Value $pointInTime
-$properties | Add-Member -type NoteProperty -name RestorableDroppedDatabaseId -Value $deleted_db.Id
+Restore-AzSqlinstanceDatabase -Name $deletedDatabase.Name `
+   -InstanceName $deletedDatabase.ManagedInstanceName `
+   -ResourceGroupName $deletedDatabase.ResourceGroupName `
+   -DeletionDate $deletedDatabase.DeletionDate `
+   -PointInTime UTCDateTime `
+   -TargetInstanceDatabaseName $targetDatabaseName
 ```
 
-Pour restaurer la base de données supprimée sur une autre instance, modifiez le nom du groupe de ressources et le nom de l’instance gérée. Vérifiez également que le paramètre d’emplacement correspond à l’emplacement du groupe de ressources et de l’instance gérée.
+Pour restaurer la base de données vers une autre instance managée, spécifiez également le nom du groupe de ressources et le nom de l’instance managée cibles :
 
 ```powershell-interactive
-$resourceGroupName = "<Second resource group name>"
-$managedInstanceName = "<Second managed instance name>"
+$targetResourceGroupName = "<Resource group of target managed instance>"
+$targetInstanceName = "<Target managed instance name>"
 
-$location = "West Europe"
-
-$restoredDBName = "WorldWideImportersPITR"
-$resource_id = "subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/managedInstances/$managedInstanceName/databases/$restoredDBName"
-
-New-AzResource -Location $location -Properties $properties `
-        -ResourceId $resource_id -ApiVersion "2017-03-01-preview" -Force
+Restore-AzSqlinstanceDatabase -Name $deletedDatabase.Name `
+   -InstanceName $deletedDatabase.ManagedInstanceName `
+   -ResourceGroupName $deletedDatabase.ResourceGroupName `
+   -DeletionDate $deletedDatabase.DeletionDate `
+   -PointInTime UTCDateTime `
+   -TargetInstanceDatabaseName $targetDatabaseName `
+   -TargetResourceGroupName $targetResourceGroupName `
+   -TargetInstanceName $targetInstanceName 
 ```
 
 ## <a name="overwrite-an-existing-database"></a>Remplacer une base de données existante
@@ -197,13 +205,13 @@ Utilisez l’une des méthodes suivantes pour vous connecter à votre base de do
 - [Point à site](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-p2s)
 - [Point de terminaison public](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure)
 
-# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
+# <a name="portal"></a>[Portail](#tab/azure-portal)
 
 Dans le portail Azure, sélectionnez la base de données à partir de l’instance gérée et sélectionnez **Supprimer**.
 
    ![Supprimer une base de données à l’aide du portail Azure](media/sql-database-managed-instance-point-in-time-restore/delete-database-from-mi.png)
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Utilisez la commande PowerShell suivante pour supprimer une base de données existante d’une instance managée :
 
@@ -215,7 +223,7 @@ $databaseName = "<Source database>"
 Remove-AzSqlInstanceDatabase -Name $databaseName -InstanceName $managedInstanceName -ResourceGroupName $resourceGroupName
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Utilisez la commande Azure CLI suivante pour supprimer une base de données existante d’une instance managée :
 

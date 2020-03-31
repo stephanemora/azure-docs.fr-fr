@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: alkohli
 ms.openlocfilehash: 54f6473954c73de6ec29602c3d1563579b3e8cc6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60754401"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231441"
 ---
 # <a name="troubleshoot-your-azure-data-box-gateway-issues"></a>Résoudre les problèmes d’Azure Data Box Gateway 
 
@@ -31,11 +31,11 @@ Pour diagnostiquer et corriger les erreurs d’appareil, vous pouvez exécuter l
 
 1. Dans l’interface utilisateur web locale, accédez à **Dépannage > Tests de diagnostic**. Sélectionnez le test que vous souhaitez exécuter, puis cliquez sur **Exécuter le test**. Cette opération exécute les tests pour diagnostiquer les éventuels problèmes sur votre réseau, appareil, proxy web, horodatage ou paramètres cloud. Vous êtes averti que des tests sont en cours d’exécution sur l’appareil.
 
-    ![Résolution des problèmes](media/data-box-gateway-troubleshoot/run-diag-1.png)
+    ![Ajout d’une planification](media/data-box-gateway-troubleshoot/run-diag-1.png)
  
 2. Une fois les tests terminés, les résultats correspondants s’affichent. Si un test échoue, l’URL de l’action recommandée vous est présentée. Vous pouvez cliquer sur cette URL pour visualiser l’action recommandée. 
  
-    ![Résolution des problèmes](media/data-box-gateway-troubleshoot/run-diag-2.png)
+    ![Ajout d’une planification](media/data-box-gateway-troubleshoot/run-diag-2.png)
 
 
 ## <a name="collect-support-package"></a>Collecter un package de support
@@ -46,7 +46,7 @@ Pour collecter un package de support, procédez comme suit.
 
 1. Dans l’interface utilisateur web locale, accédez à **Dépannage > Support**. Cliquez sur **Créer un package de support**. Le système commence à collecter le package de support. La collection du package peut nécessiter plusieurs minutes.
 
-    ![Résolution des problèmes](media/data-box-gateway-troubleshoot/collect-logs-1.png)
+    ![Ajout d’une planification](media/data-box-gateway-troubleshoot/collect-logs-1.png)
  
 2. Une fois le package de support créé, cliquez sur **Télécharger le package de support**. Un package compressé est téléchargé dans le chemin d’accès que vous avez choisi. Vous pouvez décompresser le package.
 
@@ -58,7 +58,7 @@ Toutes les erreurs rencontrées lors des processus de chargement et d’actualis
 
 1. Pour visualiser les fichiers d’erreurs, accédez à votre partage, puis cliquez sur ce dernier pour afficher le contenu. 
 
-      ![Résolution des problèmes](media/data-box-gateway-troubleshoot/troubleshoot-logs-1.png)
+      ![Ajout d’une planification](media/data-box-gateway-troubleshoot/troubleshoot-logs-1.png)
 
 2. Cliquez sur le _dossier Microsoft Data Box Gateway_. Ce dossier comporte deux sous-dossiers :
 
@@ -75,7 +75,7 @@ Toutes les erreurs rencontrées lors des processus de chargement et d’actualis
 
 3. Lorsque ce fichier signale une erreur (présentée dans cet exemple), notez le code de l’erreur, 16001 dans le cas présent. Recherchez ci-après la description de ce code d’erreur en fonction de la référence de l’erreur.
 
-    |     Code d'erreur     |     Nom de l’exception                                         |     Description de l’erreur                                                                                                                                                                                                                     |
+    |     Code d'erreur     |     Nom de l’exception                                         |     Description de l'erreur                                                                                                                                                                                                                     |
     |--------------------|------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     |    100             |    ERROR_CONTAINER_OR_SHARE_NAME_LENGTH                    |    Le nom du conteneur ou du partage doit comporter entre 3 et 63 caractères.                                                                                                                                                                     |
     |    101             |    ERROR_CONTAINER_OR_SHARE_NAME_ALPHA_NUMERIC_DASH        |    Le nom du conteneur ou du partage doit uniquement comporter des lettres, des chiffres ou des traits d’union.                                                                                                                                                       |

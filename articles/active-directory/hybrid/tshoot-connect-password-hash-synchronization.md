@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6feed11fcfc597658f3ec148b5dd18bb7e3f8f83
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60383091"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227797"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Résoudre les problèmes de synchronisation du hachage de mot de passe avec Azure AD Connect Sync
 
@@ -173,13 +173,13 @@ Le reste de cette section décrit les résultats spécifiques qui sont retourné
 
 #### <a name="the-active-directory-object-isnt-exported-to-azure-ad"></a>L’objet Active Directory n’est pas exporté vers Azure AD
 
-La synchronisation du hachage de mot de passe de ce compte Active Directory local échoue, car il n’existe aucun objet correspondant dans le client Azure AD. L’erreur suivante est retournée :
+La synchronisation du hachage de mot de passe de ce compte Active Directory local échoue, car il n’existe aucun objet correspondant dans le client Azure AD. L'erreur suivante est retournée :
 
 ![Objet Azure Active Directory manquant](./media/tshoot-connect-password-hash-synchronization/phssingleobjectnotexported.png)
 
 #### <a name="user-has-a-temporary-password"></a>L’utilisateur a un mot de passe temporaire
 
-Actuellement, Azure AD Connect ne prend pas en charge la synchronisation des mots de passe temporaires avec Azure AD. Un mot de passe est considéré comme temporaire si l’option **L’utilisateur doit changer le mot de passe à la prochaine ouverture de session** est définie pour l’utilisateur Active Directory local. L’erreur suivante est retournée :
+Actuellement, Azure AD Connect ne prend pas en charge la synchronisation des mots de passe temporaires avec Azure AD. Un mot de passe est considéré comme temporaire si l’option **L’utilisateur doit changer le mot de passe à la prochaine ouverture de session** est définie pour l’utilisateur Active Directory local. L'erreur suivante est retournée :
 
 ![Le mot de passe temporaire n’est pas exporté](./media/tshoot-connect-password-hash-synchronization/phssingleobjecttemporarypassword.png)
 

@@ -9,20 +9,20 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: cf2aa9bc1234f8bc92829b107d1a788b75d56a6b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 144c59c8bc24e8e10584702ec6cd48f7aa8c15c1
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075087"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222906"
 ---
-# <a name="tutorial-connect-set-up-and-activate-azure-data-box-edge"></a>Didacticiel : Se connecter à Azure Data Box Edge, la configurer et l’activer 
+# <a name="tutorial-connect-set-up-and-activate-azure-data-box-edge"></a>Tutoriel : Se connecter à Azure Data Box Edge, la configurer et l’activer 
 
 Ce tutoriel explique comment vous connecter à votre appareil Azure Data Box Edge, comment le configurer et l’activer avec l’interface utilisateur web locale.
 
 Le processus de configuration et d’activation peut prendre 20 minutes environ.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Se connecter à un appareil physique
@@ -47,7 +47,7 @@ Avant de configurer et d’activer votre appareil Data Box Edge, assurez-vous qu
 3. Ouvrez une fenêtre de navigateur et accédez à l’interface utilisateur web locale de l’appareil à l’adresse `https://192.168.100.10`.  
     Cette action peut prendre quelques minutes après la mise sous tension de l’appareil. 
 
-    Une erreur ou un avertissement vous indique qu’il existe un problème avec le certificat de sécurité du site web. 
+    Une erreur ou un avertissement vous indique que le certificat de sécurité du site web présente un problème. 
    
     ![Message erreur de certificat de sécurité du site web](./media/data-box-edge-deploy-connect-setup-activate/image2.png)
 
@@ -101,6 +101,11 @@ Le tableau de bord présente les différents paramètres nécessaires à la conf
    c. Si vous utilisez une authentification, entrez un nom d’utilisateur et un mot de passe.
 
    d. Cliquez sur **Appliquer les paramètres** pour valider et appliquer les paramètres du proxy web que vous avez configurés.
+   
+   > [!NOTE]
+   > Les fichiers PAC ne sont pas pris en charge. Un fichier PAC définit la manière dont les navigateurs web et les autres agents utilisateurs peuvent choisir automatiquement le serveur proxy approprié (méthode d’accès) pour récupérer une URL donnée.
+   > Les proxys qui tentent d’intercepter et de lire tout le trafic (puis de tout resigner avec leur propre certification) ne sont pas compatibles, car le certificat du proxy n’est pas approuvé.
+   > En général, les proxys transparents fonctionnent bien avec Azure Data Box Edge.
 
 4. (Facultatif) Dans le volet de gauche, sélectionnez **Paramètres de l’heure**, puis configurez les paramètres de l’heure de votre appareil, notamment le fuseau horaire et les serveurs NTP principal et secondaire.  
     Les serveurs NTP sont requis. En effet, votre appareil doit synchroniser les heures pour pouvoir s’authentifier auprès de vos fournisseurs de services cloud.
@@ -147,7 +152,7 @@ La configuration de l’appareil est terminée. Vous pouvez maintenant ajouter d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Se connecter à un appareil physique

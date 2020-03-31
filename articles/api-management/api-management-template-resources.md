@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: c3b6123c63bf530463379a175745ef86baf2c5a3
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176493"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79226553"
 ---
 # <a name="azure-api-management-template-resources"></a>Ressources du modèle Gestion des API Azure
 La Gestion des API Azure fournit les types de ressources suivants, utilisables dans les modèles du portail des développeurs.  
@@ -31,7 +31,7 @@ La Gestion des API Azure fournit les types de ressources suivants, utilisables d
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="strings"></a> Ressources de chaînes  
+##  <a name="string-resources"></a><a name="strings"></a> Ressources de chaînes  
  La Gestion des API fournit un ensemble complet de ressources de chaînes utilisables dans le portail des développeurs. Ces ressources sont traduites dans toutes les langues prises en charge par la Gestion des API. L’ensemble de modèles par défaut utilise ces ressources pour les étiquettes, les en-têtes de pages et les éventuelles chaînes constantes affichées dans le portail des développeurs. Pour utiliser une ressource de chaîne dans vos modèles, fournir le préfixe de la chaîne de ressource suivi du nom de la chaîne, comme le montre l’exemple suivant.  
   
 ```  
@@ -111,30 +111,30 @@ Les options de localisation suivantes sont prises en charge :
   
 -   [UserProfile](#UserProfile)  
   
-###  <a name="ApisStrings"></a> ApisStrings  
+###  <a name="apisstrings"></a><a name="ApisStrings"></a> ApisStrings  
   
-|Nom|Texte|  
+|Name|Texte|  
 |----------|----------|  
 |PageTitleApis|API|  
   
-###  <a name="AppDetailsStrings"></a> AppDetailsStrings  
+###  <a name="appdetailsstrings"></a><a name="AppDetailsStrings"></a> AppDetailsStrings  
   
-|Nom|Texte|  
+|Name|Texte|  
 |----------|----------|  
 |WebApplicationsDetailsTitle|Aperçu de l’application.|  
-|WebApplicationsRequirementsHeader|Configuration requise|  
+|WebApplicationsRequirementsHeader|Spécifications|  
 |WebApplicationsScreenshotAlt|Capture d'écran|  
 |WebApplicationsScreenshotsHeader|Captures d’écran.|  
   
-###  <a name="ApplicationListStrings"></a> ApplicationListStrings  
+###  <a name="applicationliststrings"></a><a name="ApplicationListStrings"></a> ApplicationListStrings  
   
-|Nom|Texte|  
+|Name|Texte|  
 |----------|----------|  
 |WebDevelopersAppDeleteConfirmation|Voulez-vous vraiment supprimer l’application ?|  
 |WebDevelopersAppNotPublished|Non publié.|  
 |WebDevelopersAppNotSubmitted|Non soumis.|  
 |WebDevelopersAppTableCategoryHeader|Category|  
-|WebDevelopersAppTableNameHeader|Nom|  
+|WebDevelopersAppTableNameHeader|Name|  
 |WebDevelopersAppTableStateHeader|State|  
 |WebDevelopersEditLink|Modifier|  
 |WebDevelopersRegisterAppLink|Inscription de l’application|  
@@ -142,15 +142,15 @@ Les options de localisation suivantes sont prises en charge :
 |WebDevelopersSubmitLink|Submit|  
 |WebDevelopersYourApplicationsHeader|Vos applications|  
   
-###  <a name="AppStrings"></a> AppStrings  
+###  <a name="appstrings"></a><a name="AppStrings"></a> AppStrings  
   
-|Nom|Texte|  
+|Name|Texte|  
 |----------|----------|  
-|WebApplicationsHeader|APPLICATIONS|  
+|WebApplicationsHeader|Applications|  
   
-###  <a name="CommonResources"></a> CommonResources  
+###  <a name="commonresources"></a><a name="CommonResources"></a> CommonResources  
   
-|Nom|Texte|  
+|Name|Texte|  
 |----------|----------|  
 |NoItemsToDisplay|Aucun résultat trouvé.|  
 |GeneralExceptionMessage|Il y a un problème. Il peut s’agir d’un dysfonctionnement temporaire ou d’un bogue. Réessayez.|  
@@ -159,9 +159,9 @@ Les options de localisation suivantes sont prises en charge :
 |AzureActiveDirectory|Azure Active Directory|  
 |HttpLargeRequestMessage|Le texte de la requête HTTP est trop long.|  
   
-###  <a name="CommonStrings"></a> CommonStrings  
+###  <a name="commonstrings"></a><a name="CommonStrings"></a> CommonStrings  
   
-|Nom|Texte|  
+|Name|Texte|  
 |----------|----------|  
 |ButtonLabelCancel|Annuler|  
 |ButtonLabelSave|Enregistrer|  
@@ -183,9 +183,9 @@ Les options de localisation suivantes sont prises en charge :
 |TablePlaceholderNothingToDisplay|Aucune donnée pour la période et l’étendue sélectionnées.|  
 |ButtonLabelClose|fermez|  
   
-###  <a name="Documentation"></a> Documentation  
+###  <a name="documentation"></a><a name="Documentation"></a> Documentation  
   
-|Nom|Texte|  
+|Name|Texte|  
 |----------|----------|  
 |WebDocumentationInvalidHeaderErrorMessage|En-tête non valide « {0} »|  
 |WebDocumentationInvalidRequestErrorMessage|URL de demande non valide.|  
@@ -302,7 +302,7 @@ Les options de localisation suivantes sont prises en charge :
 |OAuth2UnsupportedTokenType|Le type de jeton « {0} » n’est pas pris en charge.|  
 |OAuth2InvalidState|Réponse non valide du serveur d’autorisation.|  
 |OAuth2GrantType_AuthorizationCode|Code d’autorisation.|  
-|OAuth2GrantType_Implicit|Implicite.|  
+|OAuth2GrantType_Implicit|Implicite|  
 |OAuth2GrantType_ClientCredentials|Informations d'identification du client|  
 |OAuth2GrantType_ResourceOwnerPassword|Mot de passe de propriétaire de la ressource.|  
 |WebDocumentation302Code|302 Trouvé.|  
@@ -331,9 +331,9 @@ Les options de localisation suivantes sont prises en charge :
 |SectionHeadingCodeSamples|Exemples de code|  
 |TextblockOpenidConnectHeaderDescription|Jeton d’ID OpenID Connect obtenu de <i\>{0}</i\>. Types d’autorisation pris en charge : <i\>{1}</i\>.|  
   
-###  <a name="ErrorPageStrings"></a> ErrorPageStrings  
+###  <a name="errorpagestrings"></a><a name="ErrorPageStrings"></a> ErrorPageStrings  
   
-|Nom|Texte|  
+|Name|Texte|  
 |----------|----------|  
 |LinkLabelBack|Retour|  
 |LinkLabelHomePage|page d'accueil|  
@@ -349,9 +349,9 @@ Les options de localisation suivantes sont prises en charge :
 |TitlePotentialCause|Cause potentielle.|  
 |TitlePotentialSolution|Il peut simplement s’agir d’un problème temporaire, quelques actions à tenter.|  
   
-###  <a name="IssuesStrings"></a> IssuesStrings  
+###  <a name="issuesstrings"></a><a name="IssuesStrings"></a> IssuesStrings  
   
-|Nom|Texte|  
+|Name|Texte|  
 |----------|----------|  
 |WebIssuesIndexTitle|Problèmes|  
 |WebIssuesNoActiveSubscriptions|Vous ne disposez d’aucun abonnement actif. Vous devez vous abonner à un produit pour signaler un problème.|  
@@ -360,9 +360,9 @@ Les options de localisation suivantes sont prises en charge :
 |WebIssuesSignIn|se connecter|  
 |WebIssuesStatusReportedBy|État: {0} &#124; Signalé par {1}|  
   
-###  <a name="NotFoundStrings"></a> NotFoundStrings  
+###  <a name="notfoundstrings"></a><a name="NotFoundStrings"></a> NotFoundStrings  
   
-|Nom|Texte|  
+|Name|Texte|  
 |----------|----------|  
 |LinkLabelHomePage|page d'accueil|  
 |LinkLabelSendUsEmail|Envoyez-nous un e-mail.|  
@@ -375,9 +375,9 @@ Les options de localisation suivantes sont prises en charge :
 |TitlePotentialCause|Cause potentielle.|  
 |TitlePotentialSolution|Solution potentielle.|  
   
-###  <a name="ProductDetailsStrings"></a> ProductDetailsStrings  
+###  <a name="productdetailsstrings"></a><a name="ProductDetailsStrings"></a> ProductDetailsStrings  
   
-|Nom|Texte|  
+|Name|Texte|  
 |----------|----------|  
 |WebProductsAgreement|En m’abonnant au produit {0}, j’accepte les `<a data-toggle='modal' href='#legal-terms'\>Terms of Use</a\>`.|  
 |WebProductsLegalTermsLink|Conditions d’utilisation|  
@@ -397,23 +397,23 @@ Les options de localisation suivantes sont prises en charge :
 |TextblockSubscriptionDescription|Un nouvel abonnement sera créé ainsi :|  
 |TextblockSubscriptionLimitReached|Limite d’abonnements atteinte.|  
   
-###  <a name="ProductsStrings"></a> ProductsStrings  
+###  <a name="productsstrings"></a><a name="ProductsStrings"></a> ProductsStrings  
   
-|Nom|Texte|  
+|Name|Texte|  
 |----------|----------|  
-|PageTitleProducts|Produits|  
+|PageTitleProducts|Products|  
   
-###  <a name="ProviderInfoStrings"></a> ProviderInfoStrings  
+###  <a name="providerinfostrings"></a><a name="ProviderInfoStrings"></a> ProviderInfoStrings  
   
-|Nom|Texte|  
+|Name|Texte|  
 |----------|----------|  
 |TextboxExternalIdentitiesDisabled|La connexion est désactivée par les administrateurs pour l’instant.|  
 |TextboxExternalIdentitiesSigninInvitation|Vous pouvez également vous connecter avec|  
 |TextboxExternalIdentitiesSigninInvitationPrimary|Connectez-vous avec :|  
   
-###  <a name="SigninResources"></a> SigninResources  
+###  <a name="signinresources"></a><a name="SigninResources"></a> SigninResources  
   
-|Nom|Texte|  
+|Name|Texte|  
 |----------|----------|  
 |PrincipalNotFound|Principal introuvable ou signature non valide.|  
 |ErrorSsoAuthenticationFailed|Échec de l’authentification SSO.|  
@@ -507,9 +507,9 @@ Les options de localisation suivantes sont prises en charge :
 |DialogHeadingTermsOfUse|Conditions d’utilisation|  
 |ValidationMessageConsentNotAccepted|Vous devez accepter les conditions d’utilisation pour pouvoir continuer.|  
   
-###  <a name="SigninStrings"></a> SigninStrings  
+###  <a name="signinstrings"></a><a name="SigninStrings"></a> SigninStrings  
   
-|Nom|Texte|  
+|Name|Texte|  
 |----------|----------|  
 |WebAuthenticationForgotPassword|Vous avez oublié votre mot de passe ?|  
 |WebAuthenticationIfAdministrator|Si vous êtes un administrateur, vous devez vous connecter `<a href="{0}"\>here</a\>`.|  
@@ -519,9 +519,9 @@ Les options de localisation suivantes sont prises en charge :
 |WebAuthenticationSigninTitle|Se connecter|  
 |WebAuthenticationSignUpNow|ici|  
   
-###  <a name="SignupStrings"></a> SignupStrings  
+###  <a name="signupstrings"></a><a name="SignupStrings"></a> SignupStrings  
   
-|Nom|Texte|  
+|Name|Texte|  
 |----------|----------|  
 |PageTitleSignup|Inscription|  
 |WebAuthenticationAlreadyAMember|Déjà membre ?|  
@@ -529,9 +529,9 @@ Les options de localisation suivantes sont prises en charge :
 |WebAuthenticationSigninNow|Se connecter|  
 |ButtonLabelSignup|Inscription|  
   
-###  <a name="SubscriptionListStrings"></a> SubscriptionListStrings  
+###  <a name="subscriptionliststrings"></a><a name="SubscriptionListStrings"></a> SubscriptionListStrings  
   
-|Nom|Texte|  
+|Name|Texte|  
 |----------|----------|  
 |SubscriptionCancelConfirmation|Voulez-vous vraiment annuler cet abonnement ?|  
 |SubscriptionRenewConfirmation|Voulez-vous vraiment renouveler cet abonnement ?|  
@@ -543,7 +543,7 @@ Les options de localisation suivantes sont prises en charge :
 |ButtonLabelRenewSubscription|Renouveler|  
 |WebDevelopersSubscriptionRequested|Demandé sur {0}|  
 |WebDevelopersSubscriptionRequestedState|Demandé|  
-|WebDevelopersSubscriptionTableNameHeader|Nom|  
+|WebDevelopersSubscriptionTableNameHeader|Name|  
 |WebDevelopersSubscriptionTableStateHeader|State|  
 |WebDevelopersUsageStatisticsLink|Rapports d’analyse|  
 |WebDevelopersYourSubscriptions|Vos abonnements|  
@@ -552,9 +552,9 @@ Les options de localisation suivantes sont prises en charge :
 |PageTitleRenameSubscription|Renommer l’abonnement|  
 |SubscriptionPropertyLabelName|Nom d’abonnement|  
   
-###  <a name="SubscriptionStrings"></a> SubscriptionStrings  
+###  <a name="subscriptionstrings"></a><a name="SubscriptionStrings"></a> SubscriptionStrings  
   
-|Nom|Texte|  
+|Name|Texte|  
 |----------|----------|  
 |SectionHeadingCloseAccount|Vous souhaitez fermer votre compte ?|  
 |PageTitleDeveloperProfile|Profil|  
@@ -563,16 +563,16 @@ Les options de localisation suivantes sont prises en charge :
 |InformationMessageKeyWasRegenerated|Voulez-vous vraiment régénérer cette clé ?|  
 |ButtonLabelShowKey|Afficher|  
   
-###  <a name="UpdateProfileStrings"></a> UpdateProfileStrings  
+###  <a name="updateprofilestrings"></a><a name="UpdateProfileStrings"></a> UpdateProfileStrings  
   
-|Nom|Texte|  
+|Name|Texte|  
 |----------|----------|  
 |ButtonLabelUpdateProfile|Mettre à jour le profil|  
 |PageTitleUpdateProfile|Mettre à jour les informations du compte|  
   
-###  <a name="UserProfile"></a> UserProfile  
+###  <a name="userprofile"></a><a name="UserProfile"></a> UserProfile  
   
-|Nom|Texte|  
+|Name|Texte|  
 |----------|----------|  
 |ButtonLabelChangeAccountInfo|Modifier les informations du compte|  
 |ButtonLabelChangePassword|Modifier le mot de passe|  
@@ -594,7 +594,7 @@ Les options de localisation suivantes sont prises en charge :
 |ValidationMessageSubscriptionNameRequired|Le nom d'abonnement ne peut pas être vide.|  
 |ApiManagementUserLimitReached|Ce service a atteint le nombre maximal d’utilisateurs autorisés. Veuillez passer à un niveau tarifaire supérieur.|  
   
-##  <a name="glyphs"></a> Ressources de glyphes  
+##  <a name="glyph-resources"></a><a name="glyphs"></a> Ressources de glyphes  
  Les modèles du portail des développeurs de la Gestion des API peuvent utiliser les glyphes [Glyphicons de Bootstrap](https://getbootstrap.com/components/#glyphicons). Cet ensemble de glyphes contient plus de 250 glyphes au format de police provenant de l’ensemble Halflings [Glyphicon](https://glyphicons.com/). Pour utiliser un glyphe de cet ensemble, utilisez la syntaxe suivante.  
   
 ```html  

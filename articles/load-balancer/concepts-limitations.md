@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/14/2020
 ms.author: allensu
-ms.openlocfilehash: aab6a4de7be57df1f691861533a4528a0bcae571
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: a94b51e49951948974b8f42f6c89cd3c84f95d65
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77605641"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80064275"
 ---
 # <a name="load-balancer-components-and-limitations"></a>Composants et limitations d’Azure Load Balancer
-Azure Load Balancer contient plusieurs composants clés qui servent à son fonctionnement.  Ces composants peuvent être configurés dans votre abonnement via le portail Azure, Azure CLI ou Azure PowerShell.  
+Azure Load Balancer contient plusieurs composants clés pour son fonctionnement.  Ces composants peuvent être configurés dans votre abonnement via le portail Azure, Azure CLI ou Azure PowerShell.  
 
 ## <a name="load-balancer-components"></a>Composants Load Balancer
 
@@ -50,10 +50,13 @@ Les équilibreurs de charge De base ont une étendue limitée (groupe à haute d
 * **Règles d’équilibrage de charge** : les règles d’équilibrage de charge sont celles qui indiquent à Load Balancer ce qui doit être fait et quand. 
 * **Règles NAT entrantes** : Une règle NAT de trafic entrant réachemine le trafic d’un port spécifique d’une adresse IP donnée du serveur front-end vers un port spécifique d’une instance donnée du serveur back-end à l’intérieur du réseau virtuel. Ce **[réacheminement de port](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-port-forwarding-portal)** est accompli à l’aide de la même distribution basée sur le hachage que pour l’équilibrage de charge. Les scénarios courants pour cette fonctionnalité incluent les sessions de protocole RDP (Remote Desktop Protocol) ou SSH (Secure Shell) avec des instances de machines virtuelles individuelles à l’intérieur du réseau virtuel Azure. Vous pouvez mapper plusieurs points de terminaison internes à des ports sur la même adresse IP de serveur frontal. Vous pouvez utiliser les adresses IP frontales pour administrer à distance vos machines virtuelles sans serveur de rebond supplémentaire.
 * **Règles de trafic sortant** : Une **[règle de trafic sortant](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview)** configure la traduction d’adresses réseau (NAT) du trafic sortant pour que toutes les machines virtuelles ou instances identifiées par le pool de back-ends de votre équilibreur de charge De base soient traduites en front-end.
-L’équilibreur de charge De base ne prend pas en charge les règles de trafic sortant.
-![Équilibrage de charge Azure](./media/load-balancer-overview/load-balancer-overview.png)
 
-## <a name = "load-balancer-concepts"></a>Concepts relatifs à l’équilibreur de charge
+  L’équilibreur de charge De base ne prend pas en charge les règles de trafic sortant.
+
+  ![Azure Load Balancer](./media/load-balancer-overview/load-balancer-overview.png)
+* **Protocoles de transport** : Load Balancer ne prend pas en charge ICMP. Les tests Ping ICMP effectués à destination d’un équilibreur de charge public vont donc expirer. Pour effectuer un test Ping à destination de votre équilibreur de charge public, utilisez TCP Ping
+
+## <a name="load-balancer-concepts"></a><a name = "load-balancer-concepts"></a>Concepts relatifs à l’équilibreur de charge
 
 Load Balancer offre les fonctionnalités de base suivantes pour les applications TCP et UDP :
 
@@ -88,21 +91,21 @@ L’image suivante montre la distribution basée sur le hachage :
   * Elle permet une mise à niveau et une récupération d’urgence simples des services, étant donné que le serveur frontal peut être dynamiquement mappé à une autre instance du service.
   * Elle facilite la gestion des listes de contrôle d’accès (ACL). Les ACL exprimées comme des adresses IP de serveur frontal ne changent pas quand les services montent en puissance, descendent en puissance ou sont redéployés. La traduction des connexions sortantes en un plus petit nombre d’adresses IP que de machines réduit la charge liée à l’implémentation de listes vertes de destinataires.
 
-  Standard Load Balancer utilise un [algorithme SNAT robuste, scalable et prévisible](load-balancer-outbound-connections.md#snat). Voici les principes clés à retenir lors de l’utilisation de Standard Load Balancer :
+  Standard Load Balancer utilise un [algorithme SNAT robuste, scalable et prévisible](load-balancer-outbound-connections.md#snat). Voici les principes clés à retenir lors de l’utilisation de Load Balancer Standard :
 
-    - Les règles de l’équilibrage de charge infèrent la façon dont SNAT (Secure Network Address Translation) est programmé. Les règles de l’équilibrage de charge sont spécifiques au protocole. La SNAT est spécifique au protocole et la configuration doit refléter cela plutôt que créer un effet secondaire.
+    - Les règles de l’équilibrage de charge infèrent la façon dont SNAT (Secure Network Address Translation) est programmé. Les règles d’équilibrage de charge sont spécifiques au protocole. Dans la mesure où SNAT est spécifique au protocole, la configuration doit le refléter au lieu de produire un effet secondaire.
 
     - **Plusieurs front-ends** Quand plusieurs front-ends sont disponibles, tous les front-ends sont utilisés et chacun multiplie le nombre de ports SNAT disponibles. Si vous souhaitez davantage de ports SNAT, car vous attendez ou vous rencontrez déjà une demande élevée pour les connexions sortantes, vous pouvez également ajouter l’inventaire de ports SNAT incrémentiels en configurant d’autres serveurs frontaux, des règles et des pools principaux aux ressources de la même machine virtuelle.
 
     - **Contrôler quel front-end utiliser pour la sortie** Vous pouvez choisir et contrôler si vous ne souhaitez pas utiliser un front-end particulier pour des connexions sortantes. Si vous voulez limiter la provenance des connexions sortantes à une seule adresse IP front-end spécifique, vous pouvez désactiver la SNAT sortante sur la règle qui exprime le mappage sortant.
 
-    - **Contrôler la connectivité sortante** Les scénarios de trafic sortant sont explicites et la connectivité sortante n’existe pas tant qu’elle n’a pas été spécifiée. Load Balancer Standard existe dans le contexte du réseau virtuel.  Un réseau virtuel est un réseau isolé et privé.  Sauf si une association avec une adresse IP publique existe, la connectivité n’est pas autorisée.  Vous pouvez atteindre des [points de terminaison de service du réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md) car ils se trouvent à l’intérieur et sont locaux à votre réseau virtuel.  Si vous souhaitez établir une connectivité sortante vers une destination en dehors de votre réseau virtuel, vous avez deux options :
+    - **Contrôler la connectivité sortante** Les scénarios de trafic sortant sont explicites et la connectivité sortante n’existe pas tant qu’elle n’a pas été spécifiée. Load Balancer Standard existe dans le contexte du réseau virtuel.  Un réseau virtuel est un réseau isolé et privé.  Sauf si une association avec une adresse IP publique existe, la connectivité n’est pas autorisée.  Vous pouvez atteindre les [points de terminaison de service de réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md), car ils se trouvent dans votre réseau virtuel et sont locaux par rapport à celui-ci.  Si vous souhaitez établir une connectivité sortante vers une destination en dehors de votre réseau virtuel, vous avez deux options :
         - assigner une adresse IP publique de référence SKU Standard comme adresse IP publique de niveau de l’Instance à la ressource de la machine virtuelle ou
         - placer la ressource de la machine virtuelle dans le pool principal d’un Load Balancer Standard public.
 
         Les deux permettent une connectivité sortante à partir du réseau virtuel vers l’extérieur du réseau virtuel. 
 
-        Si vous disposez _uniquement_ d’un Load Balancer Standard interne associé au pool principal dans lequel se trouve votre ressource de machine virtuelle, votre machine virtuelle ne peut atteindre que des ressources de réseau virtuel et les [points de terminaison de service du réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md).  Vous pouvez suivre les étapes décrites dans le paragraphe précédent pour créer une connectivité sortante.
+        Si vous disposez _seulement_ d’un service Standard Load Balancer interne associé au pool de serveurs back-end dans lequel se trouve votre ressource de machine virtuelle, cette dernière peut atteindre uniquement les ressources de réseau virtuel et les [points de terminaison de service de réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md).  Vous pouvez suivre les étapes décrites dans le paragraphe précédent pour créer une connectivité sortante.
 
         La connectivité sortante d’une ressource de machine virtuelle non associée aux références SKU Standard reste comme avant.
 
@@ -125,7 +128,7 @@ Consultez [Présentation détaillée des ports HA](load-balancer-ha-ports-overvi
 Pour la comparaison, Load Balancer de base sélectionne un seul serveur frontal de manière aléatoire et il n’existe aucune possibilité de contrôler quel serveur est sélectionné.
 ## <a name="load-balancer-types"></a>Types d’équilibreurs de charge
 
-### <a name = "publicloadbalancer"></a>Équilibreur de charge public
+### <a name="public-load-balancer"></a><a name = "publicloadbalancer"></a>Équilibreur de charge public
 
 Un Load Balancer public mappe l’adresse IP publique et le port du trafic entrant à l’adresse IP privée et au port de la machine virtuelle. Load Balancer mappe le trafic dans l’autre sens pour le trafic de réponse provenant de la machine virtuelle. Vous pouvez distribuer des types de trafic donnés entre plusieurs machines virtuelles ou services en appliquant des règles d’équilibrage de charge. Par exemple, vous pouvez répartir la charge du trafic des requêtes web entre plusieurs serveurs web.
 
@@ -144,7 +147,7 @@ Les clients Internet envoient des requêtes de page web à l’adresse IP publi
 
 Azure Load Balancer répartit par défaut le trafic réseau équitablement sur plusieurs instances de machine virtuelle. Vous pouvez également configurer l’affinité de session. Pour plus d’informations, consultez [Configuration du mode de distribution pour Azure Load Balancer](load-balancer-distribution-mode.md).
 
-### <a name = "internalloadbalancer"></a> Équilibreur de charge interne
+### <a name="internal-load-balancer"></a><a name = "internalloadbalancer"></a> Équilibreur de charge interne
 
 Contrairement à un équilibreur de charge public, l’équilibreur de charge interne dirige le trafic uniquement vers les ressources qui se trouvent à l’intérieur d’un réseau virtuel ou qui utilisent un VPN pour accéder à l’infrastructure Azure. L’infrastructure Azure limite l’accès aux adresses IP du serveur frontal soumis à l’équilibrage de charge au sein d’un réseau virtuel. Les adresses IP du serveur frontal et les réseaux virtuels ne sont jamais directement exposés à un point de terminaison Internet. Les applications métier internes s’exécutent dans Azure et sont accessibles à partir d’Azure ou à partir des ressources locales.
 
@@ -162,7 +165,7 @@ Un équilibreur de charge interne permet d’effectuer les types d’équilibrag
 
 *Figure : Équilibrage d’applications multiniveaux à l’aide d’un Load Balancer public et d’un Load Balancer interne*
 
-## <a name="skus"></a> Comparaison des références SKU de Load Balancer
+## <a name="load-balancer-sku-comparison"></a><a name="skus"></a> Comparaison des références SKU de Load Balancer
 
 L’équilibreur de charge prend en charge les références SKU De base et Standard. Ces références SKU présentent des différences en termes d’échelle de scénario, de fonctionnalités et de tarification. N’importe quel scénario possible avec la référence SKU De base de Load Balancer peut être créé avec la référence SKU Standard. Les API sont identiques pour ces deux références SKU et sont appelées en spécifiant une référence SKU. Les références SKU pour Load Balancer et les adresses IP publiques sont prises en charge à partir de la version d’API `2017-08-01`. Les deux références SKU présentent les mêmes API et structure générales.
 
@@ -176,7 +179,7 @@ Les machines virtuelles autonomes, les groupes à haute disponibilité et les gr
 
 Pour plus d’informations, consultez [Limites de Load balancer](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer). Pour obtenir plus d’informations sur la référence SKU Standard de Load Balancer, consultez également la [présentation](load-balancer-standard-overview.md), la page relative à la [tarification](https://aka.ms/lbpricing) et la page relative au [SLA](https://aka.ms/lbsla).
 
-## <a name = "limitations"></a>Limitations
+## <a name="limitations"></a><a name = "limitations"></a>Limitations
 
 - Les références SKU ne sont pas mutables. Vous ne pouvez pas modifier la référence SKU d’une ressource existante.
 - Une ressource de machine virtuelle autonome, une ressource de groupe à haute disponibilité ou une ressource de groupe de machines virtuelles identiques peut faire référence à une seule référence SKU, jamais aux deux.

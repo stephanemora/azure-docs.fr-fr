@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à NetDocuments | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à NetDocuments | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et NetDocuments.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 09/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 71e5e13485c4a10664d98363e8e99bfd3b4f4bcf
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72035708"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netdocuments"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à NetDocuments
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netdocuments"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à NetDocuments
 
 Dans ce tutoriel, vous allez apprendre à intégrer NetDocuments à Azure Active Directory (Azure AD). Quand vous intégrez NetDocuments à Azure AD, vous pouvez :
 
@@ -145,7 +145,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 4. Cliquez sur **Configure advanced authentication options**.
     
-    ![Configurer les options d’authentification avancées](./media/netdocuments-tutorial/ic795048.png "Configurer les options d’authentification avancées")
+    ![Configurer les options d’authentification avancées](./media/netdocuments-tutorial/ic795048.png "Configure advanced authentication options")
 
 5. Dans la boîte de dialogue **Identité fédérée**, procédez comme suit :
    
@@ -168,7 +168,7 @@ Dans le cas de NetDocuments, l’approvisionnement est une tâche manuelle.
 
 2. Dans le menu situé en haut, cliquez sur **Admin**.
    
-    ![Administrateur](./media/netdocuments-tutorial/ic795051.png "Administrateur")
+    ![Administrateur](./media/netdocuments-tutorial/ic795051.png "Admin")
 
 3. Cliquez sur **Add and remove users and groups**.
    
@@ -176,7 +176,7 @@ Dans le cas de NetDocuments, l’approvisionnement est une tâche manuelle.
 
 4. Dans la zone de texte **Email Address**, tapez l’adresse e-mail d’un compte Azure Active Directory valide à approvisionner, puis cliquez sur **Add User**.
    
-    ![Adresse de messagerie](./media/netdocuments-tutorial/ic795053.png "adresse de messagerie")
+    ![Adresse e-mail](./media/netdocuments-tutorial/ic795053.png "Adresse de messagerie")
    
     >[!NOTE]
     >Le titulaire du compte Azure Active Directory recevra un message électronique contenant un lien pour confirmer le compte avant qu’il ne soit activé. Vous pouvez utiliser n’importe quels outils ou API de création de compte utilisateur, fournis par NetDocuments, pour approvisionner des comptes utilisateur Azure Active Directory.

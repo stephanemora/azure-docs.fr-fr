@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/26/2018
 ms.openlocfilehash: 4913152125b0fafd74db575f835d53fa992b075e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75439542"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79229961"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Utilisation des activités personnalisées dans un pipeline Azure Data Factory
 
@@ -324,7 +324,7 @@ Cette sérialisation n’est pas véritablement sécurisée et n’est pas desti
 
 Pour accéder aux propriétés de type *SecureString* à partir d’une activité personnalisée, lisez le fichier `activity.json`, placé dans le même dossier que le fichier EXE, désérialisez le code JSON, puis accédez à la propriété JSON (extendedProperties => [propertyName] => valeur).
 
-## <a name="compare-v2-v1"></a> Comparer les activités personnalisées de la version 2 et les activités DotNet (personnalisées) de la version 1
+## <a name="compare-v2-custom-activity-and-version-1-custom-dotnet-activity"></a><a name="compare-v2-v1"></a> Comparer les activités personnalisées de la version 2 et les activités DotNet (personnalisées) de la version 1
 
 Dans la version 1 d’Azure Data Factory, pour implémenter une activité DotNet (personnalisée), on crée un projet de bibliothèque de classes .NET avec une classe qui implémente la méthode `Execute` de l’interface `IDotNetActivity`. Les services liés, les jeux de données et les propriétés étendues de la charge utile JSON d’une activité DotNet (personnalisée) sont transmis à la méthode d’exécution sous forme d’objets fortement typés. Pour plus d’informations sur le comportement de la version 1, consultez la page [DotNet (personnalisé) dans la version 1](v1/data-factory-use-custom-activities.md). À cause de cette implémentation, le code de votre activité DotNet de la version 1 doit cibler .NET Framework 4.5.2. L’activité DotNet de la version 1 doit également être exécutée sur des nœuds de pools Azure Batch Windows.
 

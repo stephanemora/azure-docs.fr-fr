@@ -14,10 +14,10 @@ ms.workload: NA
 ms.date: 04/15/2019
 ms.author: alkohli
 ms.openlocfilehash: 44a05ecb273bdf7582300c3b6a9110e2ada0994c
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77471820"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>Options pour migrer des données de la gamme StorSimple 5000-7000 
@@ -95,7 +95,7 @@ R. Même si les services peuvent continuer à fonctionner, il se peut que Micros
 
 R. En fonction de leur scénario, les utilisateurs de la gamme StorSimple 5000-7000 disposent des options de migration suivantes. 
 
- - **Mettre à niveau vers la série 8000** : utilisez cette option si vous souhaitez continuer sur la plateforme StorSimple. 
+ - **Mettre à niveau vers la gamme 8000** : utilisez cette option si vous souhaitez continuer sur la plateforme StorSimple. 
  - **Migrer vers Azure File Sync** : utilisez cette option si vous souhaitez basculer vers le format natif d’Azure. Vous pouvez utiliser Azure File Sync pour la gestion centralisée des partages de fichiers. 
 
 Vous pouvez contacter le Support Microsoft pour discuter des options de migration non répertoriées ici.

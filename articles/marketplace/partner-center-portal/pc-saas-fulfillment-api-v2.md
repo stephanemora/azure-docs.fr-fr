@@ -1,19 +1,18 @@
 ---
 title: API de traitement SaaS v2 | Place de marché Azure
 description: Cet article explique comment créer et gérer une offre SaaS sur AppSource et la Place de marché Azure à l’aide des API de traitement v2 associées.
-services: Azure, Marketplace, Cloud Partner Portal,
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 10/18/2019
-ms.author: evansma
-ms.openlocfilehash: 4c73a59352422626ec3c6012607009995479d0cc
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: ca49418013357ecaae62ea5e91374eaa1cbde59d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73816602"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80275762"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>API de traitement SaaS, version 2 
 
@@ -281,7 +280,7 @@ Erreur interne du serveur.
 
 Obtient l’abonnement SaaS spécifié. Utilisez cet appel pour obtenir des informations sur la licence et des informations sur le plan.
 
-##### <a name="getbr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>Obtenir<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId?api-version=<ApiVersion>`
+##### <a name="getbr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>Obtenir<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
 
 *Paramètres de requête :*
 
@@ -593,7 +592,7 @@ Erreur interne du serveur.
 
 Annuler l’abonnement et supprimer l’abonnement spécifié.
 
-##### <a name="deletebr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionid-api-versionapiversion"></a>Supprimer<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId> ?api-version=<ApiVersion>`
+##### <a name="deletebr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>DELETE<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
 
 *Paramètres de requête :*
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/07/2019
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 9df7593a9fd191d3a734fba5e81fb1aecba08345
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: d2423d04ead9040cce53d847d24efe75be680d94
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77668823"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80397307"
 ---
 # <a name="view-and-retrieve-azure-activity-log-events"></a>Afficher et récupérer les événements du journal d’activité Azure
 
@@ -168,35 +168,6 @@ Obtenir les journaux d’activité sans filter ou select :
 ```HTTP
 GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5b33/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01
 ```
-
-
-## <a name="activity-logs-analytics-monitoring-solution"></a>Solution de supervision Activity Log Analytics
-La solution de supervision Activity Log Analytics inclut plusieurs requêtes de journal et vues pour analyser les enregistrements du journal d’activité dans votre espace de travail Log Analytics.
-
-### <a name="prerequisites"></a>Prérequis
-Vous devez créer un paramètre de diagnostic pour envoyer le journal d’activité de votre abonnement à un espace de travail Log Analytics. Consultez [Collecter les journaux d’activité de la plateforme Azure dans l’espace de travail Log Analytics dans Azure Monitor](resource-logs-collect-workspace.md).
-
-### <a name="install-the-solution"></a>Installer la solution
-Suivez la procédure décrite dans [Installer une solution de supervision](../insights/solutions.md#install-a-monitoring-solution) pour installer la solution **Activity Log Analytics**. Aucune configuration supplémentaire n'est requise.
-
-### <a name="use-the-solution"></a>Utiliser la solution
-Cliquez sur **Journaux** en haut de la page **Journal d’activité** pour ouvrir la [solution de supervision Activity Log Analytics](activity-log-collect.md) pour l’abonnement. Ou accédez à toutes les solutions de surveillance dans le menu **Surveillance** de votre abonnement dans le portail Azure. Sélectionnez **Plus** dans la section **Insights** pour ouvrir la page **Vue d’ensemble** avec les vignettes des solutions. La vignette **Azure Activity Log** affiche le nombre d'enregistrements **AzureActivity** dans votre espace de travail.
-
-![Vignette Journaux d’activité Azure](media/collect-activity-logs/azure-activity-logs-tile.png)
-
-
-Cliquez sur la vignette **Journaux d’activité Azure** pour ouvrir l'affichage **Journaux d’activité Azure**. La vue inclut les composants de visualisation dans le tableau suivant. Chaque partie répertorie jusqu'à 10 éléments répondant à ses critères en ce qui concerne l’intervalle de temps spécifié. Vous pouvez exécuter une requête de journal qui renvoie tous les enregistrements correspondants en cliquant sur **Afficher tout** en bas du composant.
-
-![Tableau de bord Journaux d’activité Azure](media/collect-activity-logs/activity-log-dash.png)
-
-| Composant de visualisation | Description |
-| --- | --- |
-| Entrées de journal d’activité Azure | Affiche un graphique à barres du plus grand nombre d’enregistrements d’entrée de journal d’activité Azure pour la période sélectionnée et la liste des 10 premiers appelants d’activité. Cliquez sur le graphique à barres pour exécuter une recherche dans les journaux de `AzureActivity`. Cliquez sur un élément appelant pour exécuter une recherche dans les journaux qui renvoie toutes les entrées de journal d’activité pour cet élément. |
-| Journaux d’activité par état | Affiche un graphique en anneau de l’état des journaux d’activité Azure pour la période sélectionnée et la liste des 10 premiers enregistrements d'état. Cliquez sur le graphique pour exécuter une requête de journal pour `AzureActivity | summarize AggregatedValue = count() by ActivityStatus`. Cliquez sur un élément d’état pour exécuter une recherche dans les journaux qui renvoie toutes les entrées de journal d’activité pour cet enregistrement d’état. |
-| Journaux d’activité par ressource | Affiche le nombre total de ressources avec les journaux d’activité et répertorie les dix premières ressources avec le nombre d’enregistrements pour chaque ressource. Cliquez sur la zone Total pour exécuter une recherche dans les journaux de `AzureActivity | summarize AggregatedValue = count() by Resource`, qui affiche toutes les ressources Azure disponibles pour la solution. Cliquez sur une ressource pour exécuter une requête de journal qui renvoie tous les enregistrements d’activité pour cette ressource. |
-| Journaux d’activité par fournisseur de ressources | Affiche le nombre total de fournisseurs de ressources qui génèrent des journaux d’activité et répertorie les dix premiers. Cliquez sur la zone Total pour exécuter une requête de journal pour `AzureActivity | summarize AggregatedValue = count() by ResourceProvider`, qui affiche tous les fournisseurs de ressources Azure. Cliquez sur un fournisseur de ressources pour exécuter une requête de journal qui renvoie tous les enregistrements d’activité pour ce fournisseur. |
-
-
 
 
 ## <a name="next-steps"></a>Étapes suivantes

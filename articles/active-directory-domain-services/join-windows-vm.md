@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/19/2020
 ms.author: iainfou
-ms.openlocfilehash: d15877107e49c57f8f33b8ec41caeb7d48230b91
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: f853d6d59a4c23b7b52a2a0ba800ace58c997f6e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77613874"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79481583"
 ---
 # <a name="tutorial-join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Tutoriel : Joindre une machine virtuelle Windows Server à un domaine géré
 
@@ -39,7 +39,7 @@ Pour effectuer ce didacticiel, vous avez besoin des ressources suivantes :
     * Si nécessaire, [créez un locataire Azure Active Directory][create-azure-ad-tenant] ou [associez un abonnement Azure à votre compte][associate-azure-ad-tenant].
 * Un domaine managé Azure Active Directory Domain Services activé et configuré dans votre locataire Azure AD.
     * Si nécessaire, [créez et configurez une instance Azure Active Directory Domain Services][create-azure-ad-ds-instance].
-* Un compte d’utilisateur membre du groupe *Administrateurs Azure AD DC* dans votre locataire Azure AD.
+* Un compte d’utilisateur membre du domaine managé Azure AD DS.
     * Vérifiez que la synchronisation du hachage de mot de passe ou que la réinitialisation du mot de passe en libre-service d’Azure AD Connect a été effectuée pour que le compte puisse se connecter au domaine managé Azure AD DS.
 * Un hôte Azure Bastion déployé dans votre réseau virtuel Azure AD DS.
     * Si nécessaire, [créez un hôte Azure Bastion][azure-bastion].
@@ -74,7 +74,7 @@ Si vous disposez déjà d’une machine virtuelle que vous voulez joindre à un 
 
 1. Par défaut, les machines virtuelles créées dans Azure sont accessibles à partir d’Internet à l’aide de RDP. Quand RDP est activé, des attaques de connexion automatique sont susceptibles de se produire, ce qui peut désactiver les comptes avec des noms communs, comme *admin* ou *administrator* en raison de plusieurs tentatives de connexion successives en échec.
 
-    RDP doit être activé seulement quand c’est nécessaire et être limité à un ensemble de plages d’adresses IP autorisées. Cette configuration permet d’améliorer la sécurité de la machine virtuelle et de réduire le champ des attaques potentielles. Ou, créez et utilisez un hôte Azure Bastion qui autorise l’accès uniquement via le portail Azure sur SSL. Dans l’étape suivante de ce tutoriel, vous allez utiliser un hôte Azure Bastion pour vous connecter de façon sécurisée à la machine virtuelle.
+    RDP doit être activé seulement quand c’est nécessaire et être limité à un ensemble de plages d’adresses IP autorisées. Cette configuration permet d’améliorer la sécurité de la machine virtuelle et de réduire le champ des attaques potentielles. Vous pouvez aussi créer et utiliser un hôte Azure Bastion qui autorise l’accès uniquement via le portail Azure sur TLS. Dans l’étape suivante de ce tutoriel, vous allez utiliser un hôte Azure Bastion pour vous connecter de façon sécurisée à la machine virtuelle.
 
     Pour le moment, désactivez les connexions RDP directes à la machine virtuelle.
 
@@ -153,7 +153,7 @@ Une fois la machine virtuelle créée et une connexion RDP basée sur le web ét
 
     ![Spécifier le domaine managé Azure AD DS auquel se joindre](./media/join-windows-vm/join-domain.png)
 
-1. Entrez les informations d’identification du domaine pour vous joindre au domaine. Utilisez les informations d’identification d’un utilisateur appartenant au groupe *Administrateurs Azure AD DC*. Seuls les membres de ce groupe ont les privilèges nécessaires pour pouvoir joindre des machines au domaine managé Azure AD DS. Le compte doit faire partie du domaine géré Azure AD DS ou du Client Azure AD : les comptes de répertoires externes associés à votre Client Azure AD ne peuvent pas s’authentifier correctement au cours du processus de jonction de domaine. Les informations d’identification du compte peuvent être spécifiées de l’une des manières suivantes :
+1. Entrez les informations d’identification du domaine pour vous joindre au domaine. Utilisez les informations d’identification d’un utilisateur membre du domaine managé Azure AD DS. Le compte doit faire partie du domaine géré Azure AD DS ou du Client Azure AD : les comptes de répertoires externes associés à votre Client Azure AD ne peuvent pas s’authentifier correctement au cours du processus de jonction de domaine. Les informations d’identification du compte peuvent être spécifiées de l’une des manières suivantes :
 
     * **Format UPN** (recommandé) : Entrez le suffixe du nom de l’utilisateur principal (UPN) pour le compte d’utilisateur, tel qu’il est configuré dans Azure AD. Par exemple, le suffixe UPN de l’utilisateur *contosoadmin* serait `contosoadmin@aaddscontoso.onmicrosoft.com`. Il existe deux cas d’utilisation courants dans lesquels le format UPN peut être utilisé de façon fiable pour se connecter au domaine, au lieu du format *SAMAccountName* :
         * Si le préfixe UPN d’un utilisateur est long, par exemple *deehasareallylongname*, le *SAMAccountName* peut être généré automatiquement.
@@ -169,7 +169,7 @@ Une fois la machine virtuelle créée et une connexion RDP basée sur le web ét
 1. Pour terminer le processus de jonction au domaine managé Azure AD DS, redémarrez la machine virtuelle.
 
 > [!TIP]
-> Vous pouvez joindre une machine virtuelle à un domaine en utilisant PowerShell avec l’applet de commande [Add-Computer][add-computer]. L’exemple suivant joint le domaine *AADDSCONTOSO*, puis redémarre la machine virtuelle. Quand vous y êtes invité, entrez les informations d’identification d’un utilisateur appartenant au groupe *Administrateurs Azure AD DC* :
+> Vous pouvez joindre une machine virtuelle à un domaine en utilisant PowerShell avec l’applet de commande [Add-Computer][add-computer]. L’exemple suivant joint le domaine *AADDSCONTOSO*, puis redémarre la machine virtuelle. Quand vous y êtes invité, entrez les informations d’identification d’un utilisateur membre du domaine managé Azure AD DS :
 >
 > `Add-Computer -DomainName AADDSCONTOSO -Restart`
 >
@@ -218,7 +218,7 @@ Si vous recevez une invite demandant des informations d’identification pour jo
 
 Après avoir essayé chacune de ces étapes de dépannage, réessayez de joindre la machine virtuelle Windows Server au domaine managé.
 
-* Vérifiez que le compte d’utilisateur que vous spécifiez appartient au groupe *Administrateurs AAD DC*.
+* Vérifiez que le compte d’utilisateur spécifié appartient au domaine managé Azure AD DS.
 * Vérifiez que le compte fait partie du domaine géré par Azure AD DS ou par le Client Azure AD. Les comptes de répertoires externes associés à votre Client Azure AD ne peuvent pas s’authentifier correctement au cours du processus de jonction de domaine.
 * Essayez en utilisant le format UPN pour spécifier les informations d’identification, par exemple `contosoadmin@aaddscontoso.onmicrosoft.com`. S’il existe de nombreux utilisateurs avec le même préfixe UPN sur votre locataire, ou si votre préfixe UPN est très long, le *SAMAccountName* de votre compte peut être généré automatiquement. Dans ces cas-là, le format *SAMAccountName* de votre compte peut être différent de ce que vous attendez ou de ce que vous utilisez dans votre domaine local.
 * Vérifiez que vous avez [activé la synchronisation de mot de passe][password-sync] avec votre domaine managé. Sans cette étape de configuration, les hachages de mot de passe nécessaires ne sont pas présents dans le domaine managé Azure AD DS pour authentifier correctement votre tentative de connexion.

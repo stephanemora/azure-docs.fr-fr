@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Sprinklr | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Sprinklr | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Sprinklr.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 9e4025d040783bff1cd85fb46d571e3a89967892
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67089661"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sprinklr"></a>Didacticiel : Intégration d’Azure Active Directory à Sprinklr
+# <a name="tutorial-azure-active-directory-integration-with-sprinklr"></a>Tutoriel : Intégration d’Azure Active Directory à Sprinklr
 
 Dans ce didacticiel, vous allez apprendre à intégrer Sprinklr à Azure Active Directory (Azure AD).
 L’intégration de Sprinklr dans Azure AD vous offre les avantages suivants :
@@ -136,15 +136,15 @@ Pour configurer l’authentification unique Azure AD avec Sprinklr, effectuez le
 
 1. Accédez à **Manager Partner \> Single Sign** dans le volet gauche.
 
-    ![Gérer les partenaires](./media/sprinklr-tutorial/ic782908.png "Gérer les partenaires")
+    ![Manage Partner](./media/sprinklr-tutorial/ic782908.png "Manage Partner")
 
 1. Cliquez sur **+Add Single Sign Ons**.
 
-    ![Authentification unique](./media/sprinklr-tutorial/ic782909.png "Authentification unique")
+    ![Single Sign-Ons](./media/sprinklr-tutorial/ic782909.png "Single Sign-Ons")
 
 1. Dans la page **Single Sign on** , procédez comme suit :
 
-    ![Authentification unique](./media/sprinklr-tutorial/ic782910.png "Authentification unique")
+    ![Single Sign-Ons](./media/sprinklr-tutorial/ic782910.png "Single Sign-Ons")
 
     a. Dans la zone de texte **Name** (Nom), indiquez le nom de votre configuration (par exemple, *WAADSSOTest*).
 
@@ -187,7 +187,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
     b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
-    Par exemple, BrittaSimon@contoso.com
+    Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
@@ -237,7 +237,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 1. Dans la page **Edit User** , procédez comme suit :
 
-    ![Modifier l’utilisateur](./media/sprinklr-tutorial/ic782916.png "Modifier l’utilisateur")
+    ![Modifier l’utilisateur](./media/sprinklr-tutorial/ic782916.png "Edit User")
 
     a. Dans les zones de texte **Email**, **First Name** et **Last Name**, saisissez les informations du compte utilisateur Azure AD que vous souhaitez approvisionner.
 
@@ -254,7 +254,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 1. Accédez à **Role**, puis procédez comme suit :
 
-    ![Rôles de partenaires](./media/sprinklr-tutorial/ic782917.png "Rôles de partenaires")
+    ![Rôles de partenaire](./media/sprinklr-tutorial/ic782917.png "Partner Roles")
 
     a. Dans la liste **Global**, sélectionnez **ALL_Permissions**.  
 
@@ -275,4 +275,4 @@ Quand vous cliquez sur la vignette Sprinklr dans le volet d’accès, vous devez
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

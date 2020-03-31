@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: c6259dabd5ee9c53d37a3396f36832720a103c23
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 38f9d0338ce4c47024d670e6d3ee89a97faecc91
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582165"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80238677"
 ---
 # <a name="use-azure-hpc-cache-with-azure-netapp-files"></a>Utiliser Azure HPC Cache avec Azure NetApp Files
 
@@ -21,7 +21,7 @@ Azure NetApp Files associe leur système d’exploitation ONTAP à l’évolutiv
 
 L’ajout d’un composant Azure HPC Cache peut améliorer l’accès aux fichiers en présentant plusieurs volumes Azure NetApp Files dans un espace de noms agrégé. Il peut fournir une mise en cache de périphérie pour les volumes situés dans une région de service différente. Cela peut également améliorer les performances à la demande pour les volumes qui ont été créés à des niveaux de service de niveau inférieur pour réduire les coûts.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Pour utiliser un système Azure NetApp Files comme stockage principal avec Azure HPC Cache, suivez ce processus.
 
@@ -66,7 +66,7 @@ Notez que vous pouvez modifier le quota de stockage d’un volume et la taille d
 
 ## <a name="create-storage-targets-in-the-cache"></a>Créer des cibles de stockage dans le cache
 
-Une fois votre système Azure NetApp Files configuré et le cache Azure HPC Cache créé, définissez des cibles de stockage dans le cache qui pointent vers les volumes du système de fichiers.
+Une fois votre système Azure NetApp Files configuré et le cache Azure HPC Cache{1}{2}créé, définissez des cibles de stockage dans le cache qui pointent vers les volumes du système de fichiers.
 
 Créez une cible de stockage pour chaque adresse IP utilisée par vos volumes Azure NetApp Files. L’adresse IP est indiquée dans la page des instructions de montage du volume.
 
@@ -76,7 +76,7 @@ Suivez les [instructions de montage dans la Documentation Azure NetApp Files](..
 
 Vous pouvez également trouver des adresses IP avec l’interface de ligne de commande Azure :
 
-```bash
+```azurecli
 az netappfiles volume list -g ${RESOURCE_GROUP} --account-name ${ANF_ACCOUNT} --pool-name ${POOL} --query "[].mountTargets[].ipAddress" | grep -Ee '[0-9]+[.][0-9]+[.][0-9]+[.][0-9]+' | tr -d '"' | tr -d , | sort | uniq
 ```
 

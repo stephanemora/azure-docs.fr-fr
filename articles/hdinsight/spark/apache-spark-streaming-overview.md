@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/20/2019
 ms.openlocfilehash: 521d72642a27995d096402a4ca0e4af632b0788c
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74406261"
 ---
 # <a name="overview-of-apache-spark-streaming"></a>Vue d’ensemble d’Apache Spark Streaming
@@ -228,7 +228,7 @@ Après la première minute, 12 entrées sont obtenues, à savoir 6 entrées de c
 | 2 | 1497316299158
 | 3 | 1497316304178
 | 4 | 1497316309204
-| 5\. | 1497316314224
+| 5 | 1497316314224
 | 6 | 1497316319243
 | 7 | 1497316324260
 | 8 | 1497316329278

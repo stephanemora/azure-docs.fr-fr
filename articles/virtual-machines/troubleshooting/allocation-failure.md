@@ -13,10 +13,10 @@ ms.topic: troubleshooting
 ms.date: 04/13/2018
 ms.author: cjiang
 ms.openlocfilehash: b4750ad9fdfa214aa4d7b6a0355c319e7eb1d9c3
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77484398"
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-vms-in-azure"></a>Résoudre les problèmes d’allocation pendant la création, le redémarrage ou le redimensionnement de machines virtuelles dans Azure
@@ -25,7 +25,7 @@ Quand vous créez une machine virtuelle, redémarrez des machines virtuelles aya
 
 **Code d’erreur** : AllocationFailed ou ZonalAllocationFailed
 
-**Message d’erreur** : « L'allocation a échoué. We do not have sufficient capacity for the requested VM size in this region. Pour en savoir plus sur l’amélioration de la probabilité de réussite de l’allocation, voir https :\//aka.ms/allocation-guidance
+**Message d’erreur** : « Allocation failed. We do not have sufficient capacity for the requested VM size in this region. Pour en savoir plus sur l’amélioration de la probabilité de réussite de l’allocation, voir https :\//aka.ms/allocation-guidance
 
 Cet article explique les causes de certains échecs d’allocation courants et propose des solutions possibles.
 
@@ -47,7 +47,7 @@ Une demande pour redimensionner une machine virtuelle ou ajouter une machine vir
 Si la machine virtuelle peut faire partie d’un autre groupe à haute disponibilité, créez une machine virtuelle dans un autre groupe à haute disponibilité (dans la même région). Cette nouvelle machine virtuelle peut ensuite être ajoutée au même réseau virtuel.
 
 Arrêtez (libérez) toutes les machines virtuelles dans le même groupe à haute disponibilité, puis redémarrez chacune d’elles.
-Pour les arrêter : Cliquez sur Groupes de ressources > [votre groupe de ressources] > Ressources > [votre groupe à haute disponibilité] > Machines virtuelles > [votre machine virtuelle] > Arrêter.
+Procédure d’arrêt : Cliquez sur Groupes de ressources > [votre groupe de ressources] > Ressources > [votre groupe à haute disponibilité] > Machines virtuelles > [votre machine virtuelle] > Arrêter.
 Une fois toutes les machines virtuelles arrêtées, sélectionnez la première, puis cliquez sur Démarrer.
 Cette étape permet de retenter une allocation et de sélectionner un autre cluster disposant d’une capacité suffisante.
 
@@ -60,7 +60,7 @@ Une désallocation partielle signifie que vous avez arrêté (désalloué) une o
 ### <a name="workaround"></a>Solution de contournement
 
 Arrêtez (libérez) toutes les machines virtuelles dans le même groupe à haute disponibilité, puis redémarrez chacune d’elles.
-Pour les arrêter : Cliquez sur Groupes de ressources > [votre groupe de ressources] > Ressources > [votre groupe à haute disponibilité] > Machines virtuelles > [votre machine virtuelle] > Arrêter.
+Procédure d’arrêt : Cliquez sur Groupes de ressources > [votre groupe de ressources] > Ressources > [votre groupe à haute disponibilité] > Machines virtuelles > [votre machine virtuelle] > Arrêter.
 Une fois toutes les machines virtuelles arrêtées, sélectionnez la première, puis cliquez sur Démarrer.
 Ainsi, vous pouvez effectuer une nouvelle tentative d’allocation et sélectionner un autre cluster disposant d’une capacité suffisante.
 
@@ -83,7 +83,7 @@ Essayez de [redéployer la machine virtuelle](https://docs.microsoft.com/azure/v
 
 ## <a name="allocation-failures-for-older-vm-sizes-av1-dv1-dsv1-d15v2-ds15v2-etc"></a>Échecs d’allocation pour les anciennes tailles de machine virtuelle (Av1, Dv1, DSv1, D15v2, DS15v2, etc.)
 
-À mesure que nous étendons l’infrastructure Azure, nous déployons du matériel de nouvelle génération conçu pour prendre en charge les types de machines virtuelles les plus récents. Certaines anciennes machines virtuelles ne peuvent pas être exécutées dans notre infrastructure de dernière génération. Les clients peuvent donc rencontrer des échecs d’allocation avec ces références SKU héritées. Pour prévenir ce problème, nous encourageons les clients qui utilisent des machines virtuelles héritées à s'équiper de machines virtuelles plus récentes, conformément aux recommandations suivantes : Ces machines virtuelles, optimisées pour fonctionner avec le matériel le plus récent, vous permettront de bénéficier de meilleurs prix et de performances accrues. 
+À mesure que nous étendons l’infrastructure Azure, nous déployons du matériel de nouvelle génération conçu pour prendre en charge les types de machines virtuelles les plus récents. Certaines anciennes machines virtuelles ne peuvent pas être exécutées dans notre infrastructure de dernière génération. Les clients peuvent donc rencontrer des échecs d’allocation avec ces références SKU héritées. Pour éviter ce problème, nous encourageons les clients qui utilisent des machines virtuelles appartenant à d’anciennes séries de passer à l’équivalent récent de leurs machines virtuelles en suivant les recommandations ci-dessous. Ces machines virtuelles sont optimisées pour la dernière génération de matériel et vous permettent de profiter de meilleurs tarifs et de meilleures performances. 
 
 |Taille/Série de machine virtuelle héritée|Taille/Série de machine virtuelle recommandée|Informations complémentaires|
 |----------------------|----------------------------|--------------------|

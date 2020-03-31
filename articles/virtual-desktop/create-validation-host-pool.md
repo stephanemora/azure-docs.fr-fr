@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 08/29/2019
+ms.date: 03/13/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 58a7689263f9bc761eb0b904a9376c1ca0112c13
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: f2b51213dfc6d7e55f76e78b92d12111f84736be
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79128108"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79365387"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Tutoriel : Créer un pool d’hôtes pour valider les mises à jour de service
 
@@ -76,7 +76,7 @@ Les mises à jour de service sont mensuelles. S’il existe des problèmes majeu
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez créé un pool d’hôte de validation, vous pouvez apprendre à déployer et à vous connecter à un outil de gestion pour la gestion des ressources Microsoft Virtual Desktop.
+Un pool d’hôtes de validation étant créé, vous pouvez apprendre à utiliser Azure Service Health pour superviser votre déploiement de Windows Virtual Desktop. 
 
 > [!div class="nextstepaction"]
-> [Didacticiel de déploiement d’un outil de gestion](./manage-resources-using-ui.md)
+> [Configurer des alertes de service](./set-up-service-alerts.md)

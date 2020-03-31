@@ -95,6 +95,9 @@
     - name: Apprentissage du modèle
       displayName: 'run config, estimator, machine learning pipeline, ml pipeline, train model'
       href: concept-train-machine-learning-model.md
+    - name: Entraînement distribué
+      displayName: 'parallellization, deep learning, deep neural network, dnn'
+      href: concept-distributed-training.md
     - name: Gestion de modèles (MLOps)
       displayName: 'deploy, deployment, publish, production, operationalize, operationalization'
       href: concept-model-management-and-deployment.md
@@ -111,6 +114,9 @@
     - name: Machine learning automatisé
       displayName: 'automl, auto ml'
       href: concept-automated-ml.md
+    - name: Éviter les pièges du machine learning
+      displayName: 'automl, auto ml, risks'
+      href: concept-manage-ml-pitfalls.md
     - name: Instance de calcul
       displayName: 'resource, dsvm, Data Science Virtual Machine'
       href: concept-compute-instance.md
@@ -184,39 +190,47 @@
           href: concept-train-model-git-integration.md
     - name: Utilisation des données
       items:
-        - name: Se connecter aux données dans Stockage Azure
-          displayName: 'blob, get, fileshare, access storage, mount, download'
-          href: how-to-access-data.md
-        - name: Obtenir des données à partir d’une banque de données
-          displayName: 'data, data set, register, access data'
-          href: how-to-create-register-datasets.md
-        - name: Entraîner avec des jeux de données
-          displayName: 'data, dataset, mount'
-          href: how-to-train-with-datasets.md
-        - name: Importer des données dans le concepteur
-          displayName: 'designer, data, import, dataset, datastore'
-          href: how-to-designer-import-data.md
-        - name: Détecter la dérive des données sur des jeux de données
-          displayName: 'data, dataset'
-          href: how-to-monitor-datasets.md
-        - name: Gérer les versions et faire le suivi de jeux de données
-          displayName: 'data, data set'
-          href: how-to-version-track-datasets.md
-        - name: Obtenir des données étiquetées
-          displayName: 'data, dataset, labeling'
-          href: how-to-create-labeling-projects.md
-        - name: Étiqueter les images
-          displayName: 'data, dataset, labeling'
-          href: how-to-label-images.md
-        - name: Créer des jeux de données avec des étiquettes
-          displayName: 'data, labels, torchvision'
-          href: how-to-use-labeled-dataset.md
-        - name: Ingestion des données avec Azure Data Factory
-          displayName: 'data, ingestion, adf'
-          href: how-to-data-ingest-adf.md
-        - name: DevOps pour l’ingestion de données
-          displayName: 'data, ingestion, devops'
-          href: how-to-cicd-data-ingestion.md
+        - name: Données de l’étiquette
+          items:
+            - name: Obtenir des données étiquetées
+              displayName: 'data, dataset, labeling'
+              href: how-to-create-labeling-projects.md
+            - name: Étiqueter les images
+              displayName: 'data, dataset, labeling'
+              href: how-to-label-images.md
+            - name: Créer des jeux de données avec des étiquettes
+              displayName: 'data, labels, torchvision'
+              href: how-to-use-labeled-dataset.md
+        - name: Obtenir des données
+          items:
+            - name: Ingestion des données avec Azure Data Factory
+              displayName: 'data, ingestion, adf'
+              href: how-to-data-ingest-adf.md
+            - name: DevOps pour l’ingestion de données
+              displayName: 'data, ingestion, devops'
+              href: how-to-cicd-data-ingestion.md
+            - name: Importer des données dans le concepteur
+              displayName: 'designer, data, import, dataset, datastore'
+              href: how-to-designer-import-data.md
+        - name: Accéder aux données
+          items:
+            - name: Se connecter à Stockage Azure
+              displayName: 'blob, get, fileshare, access, mount, download, data lake'
+              href: how-to-access-data.md
+            - name: Obtenir des données à partir d’une banque de données
+              displayName: 'data, data set, register, access data'
+              href: how-to-create-register-datasets.md
+        - name: Gérer et consommer des données
+          items:
+            - name: Entraîner avec des jeux de données
+              displayName: 'data, dataset, mount'
+              href: how-to-train-with-datasets.md
+            - name: Détecter la dérive des données sur des jeux de données
+              displayName: 'data, dataset'
+              href: how-to-monitor-datasets.md
+            - name: Gérer les versions et faire le suivi de jeux de données
+              displayName: 'data, data set'
+              href: how-to-version-track-datasets.md
     - name: Entraîner des modèles
       items:
         - name: Utiliser des estimateurs pour le machine learning
@@ -337,6 +351,7 @@
         - name: Déclencher un pipeline
           href: how-to-trigger-published-pipeline.md
         - name: Déboguer et dépanner les pipelines
+          displayName: designer
           href: how-to-debug-pipelines.md
         - name: Déboguer des pipelines dans Application Insights
           displayname: 'pipelines, log, monitor'

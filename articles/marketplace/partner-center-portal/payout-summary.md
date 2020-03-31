@@ -1,18 +1,17 @@
 ---
 title: Récapitulatif des paiements de la place de marché commerciale | Place de marché Azure
 description: La page Récapitulatif des paiements vous montre les détails de l’argent que vous avez gagné avec votre offre. Elle vous permet également de savoir quand vous recevrez des paiements et le montant que vous allez percevoir.
-author: MaggiePucciEvans
-manager: evansma
-ms.author: evansma
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
 ms.topic: guide
 ms.date: 12/10/2019
-ms.openlocfilehash: 6ee6b6f325ba58ecaa3c3acb5d5ded173262bafb
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 678dc8b058d0ae0694dafeb4222b2fc9f10ecda7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715429"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288697"
 ---
 # <a name="payout-reporting"></a>Rapports de paiement
 

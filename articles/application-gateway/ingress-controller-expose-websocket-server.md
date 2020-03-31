@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 01fde82e69917f59f6519524c4c8828feb84a4f9
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 1f068c9d98a827afd16da01bdc40cbb6ca5dc465
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795964"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79297830"
 ---
 # <a name="expose-a-websocket-server-to-application-gateway"></a>Exposer un serveur WebSocket à Application Gateway
 
-Comme indiqué dans la documentation d’Application Gateway v2 - [Application Gateway prend en charge les protocoles WebSocket et HTTP/2 de manière native](https://docs.microsoft.com/azure/application-gateway/overview#websocket-and-http2-traffic). Notez que, pour Application Gateway et l’entrée Kubernetes, Il n’existe aucun paramètre configurable par l’utilisateur permettant d’activer ou de désactiver de manière sélective la prise en charge de WebSocket.
+Comme indiqué dans la documentation d’Application Gateway v2 - [Application Gateway prend en charge les protocoles WebSocket et HTTP/2 de manière native](features.md#websocket-and-http2-traffic). Notez que, pour Application Gateway et l’entrée Kubernetes, Il n’existe aucun paramètre configurable par l’utilisateur permettant d’activer ou de désactiver de manière sélective la prise en charge de WebSocket.
 
 Le YAML de déploiement Kubernetes ci-dessous montre la configuration minimale utilisée pour déployer un serveur WebSocket, ce qui revient à déployer un serveur Web normal :
 ```yaml

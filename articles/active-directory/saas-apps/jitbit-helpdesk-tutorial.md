@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory avec Jitbit Helpdesk | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory avec Jitbit Helpdesk | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Jitbit Helpdesk.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 29addcd62afd193af83196b2d942e9778ff3f031
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67099404"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-jitbit-helpdesk"></a>Didacticiel : Intégration d’Azure Active Directory avec Jitbit Helpdesk
+# <a name="tutorial-azure-active-directory-integration-with-jitbit-helpdesk"></a>Tutoriel : Intégration d’Azure Active Directory avec Jitbit Helpdesk
 
 Dans ce didacticiel, vous allez apprendre à intégrer Jitbit Helpdesk à Azure Active Directory (Azure AD).
 L’intégration de Jitbit Helpdesk dans Azure AD vous offre les avantages suivants :
@@ -141,11 +141,11 @@ Pour configurer l’authentification unique Azure AD avec Jitbit Helpdesk, effe
 
 1. Cliquez sur **General settings**.
 
-    ![Utilisateurs, entreprises et autorisations](./media/jitbit-helpdesk-tutorial/ic777680.png "Utilisateurs, entreprises et autorisations")
+    ![Utilisateurs, sociétés et autorisations](./media/jitbit-helpdesk-tutorial/ic777680.png "Utilisateurs, sociétés et autorisations")
 
 1. Dans la section de configuration **Authentication settings** , procédez comme suit :
 
-    ![Authentication settings](./media/jitbit-helpdesk-tutorial/ic777683.png "Authentication settings")
+    ![Paramètres d’authentification](./media/jitbit-helpdesk-tutorial/ic777683.png "Authentication settings")
 
     a. Sélectionnez **Activer l’authentification unique SAML 2.0** pour vous connecter à l’aide de l’authentification unique, avec **OneLogin**.
 
@@ -174,7 +174,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
     b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
-    Par exemple, BrittaSimon@contoso.com
+    Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
@@ -220,7 +220,7 @@ Pour pouvoir se connecter à Jitbit Helpdesk, les utilisateurs d’Azure Active
 
 1. Cliquez sur **Users, companies and permissions**.
 
-    ![Utilisateurs, entreprises et autorisations](./media/jitbit-helpdesk-tutorial/ic777682.png "Utilisateurs, entreprises et autorisations")
+    ![Utilisateurs, sociétés et autorisations](./media/jitbit-helpdesk-tutorial/ic777682.png "Utilisateurs, sociétés et autorisations")
 
 1. Cliquez sur **Add User**.
 
@@ -228,7 +228,7 @@ Pour pouvoir se connecter à Jitbit Helpdesk, les utilisateurs d’Azure Active
 
 1. Dans la section Créer, entrez les données du compte Azure AD que vous souhaitez configurer comme suit :
 
-    ![Créer](./media/jitbit-helpdesk-tutorial/ic777686.png "créer")
+    ![Créer](./media/jitbit-helpdesk-tutorial/ic777686.png "Créer")
 
    a. Dans la zone de texte **Username** (Nom d’utilisateur), tapez le nom de l’utilisateur, par exemple, **BrittaSimon**.
 
@@ -255,4 +255,4 @@ Quand vous cliquez sur la vignette Jitbit Helpdesk dans le volet d’accès, vou
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

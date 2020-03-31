@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/22/2020
 ms.openlocfilehash: f9dfcb930e3fe4f862f9f51ff00270d0eb0c66ca
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77539108"
 ---
 # <a name="scenario-apache-ambari-stale-alerts-in-azure-hdinsight"></a>Scénario : Alertes obsolètes Apache Ambari dans Azure HDInsight
@@ -24,7 +24,7 @@ Dans l’interface utilisateur Apache Ambari, vous pouvez voir une alerte sembla
 
 ![Exemple d’alerte obsolète Apache Ambari](./media/apache-ambari-troubleshoot-stale-alerts/ambari-stale-alerts-example.png)
 
-## <a name="cause"></a>Cause :
+## <a name="cause"></a>Cause
 
 Les agents Ambari surveillent en permanence l’intégrité d’un grand nombre de ressources. Les *alertes* peuvent être configurées pour vous signaler si des propriétés spécifiques du cluster respectent ou non des seuils prédéterminés. Après chaque vérification de ressource, si la condition d’alerte est remplie, les agents Ambari signalent l’état au serveur Ambari et déclenchent une alerte. Si une alerte n’est pas vérifiée dans l’intervalle défini dans son profil d’alerte, le serveur déclenche une alerte *Alertes obsolètes du serveur Ambari*.
 

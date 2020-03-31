@@ -8,10 +8,10 @@ ms.author: bwren
 ms.date: 05/24/2017
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8ef9f27546e9db95d5a41769e1b5bc7bc0c2f851
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77663060"
 ---
 # <a name="adding-azure-automation-resources-to-a-management-solution-preview"></a>Ajout de ressources Azure Automation à une solution de gestion (préversion)
@@ -25,7 +25,7 @@ Les [solutions de gestion]( solutions.md) comprennent généralement des runbook
 > Les exemples dans cet article utilisent des paramètres et des variables obligatoires ou communs aux solutions de gestion. Ils sont décrits dans la rubrique [Conception et génération d’une solution de gestion dans Azure]( solutions-creating.md) 
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 Cet article suppose que vous êtes déjà familiarisé avec les informations suivantes.
 
 - Comment [créer une solution de gestion]( solutions-creating.md).
@@ -165,7 +165,7 @@ Les propriétés des ressources d’informations d’identification sont décrit
 | Propriété | Description |
 |:--- |:--- |
 | userName |Nom d’utilisateur des informations d’identification. |
-| mot de passe |Mot de passe des informations d’identification. |
+| password |Mot de passe des informations d’identification. |
 
 
 ## <a name="schedules"></a>Planifications

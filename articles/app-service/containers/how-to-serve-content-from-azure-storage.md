@@ -5,12 +5,12 @@ author: msangapu-msft
 ms.topic: article
 ms.date: 01/02/2020
 ms.author: msangapu
-ms.openlocfilehash: b2be84625035bb368784f3f423d63121c29255ad
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 79a4e423f7a2b6570234c958ac833cdf5c6a75e4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121419"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79297915"
 ---
 # <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>Distribuer du contenu issu du Stockage Azure dans App Service sur Linux
 
@@ -20,12 +20,12 @@ ms.locfileid: "77121419"
 
 Ce guide montre comment joindre Stockage Azure à App Service sur Linux. Les avantages sont multiples : sécurisation et portabilité du contenu, stockage persistant, accès à plusieurs applications et méthodes de transfert multiples.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - [Azure CLI](/cli/azure/install-azure-cli) 2.0.46 (ou version ultérieure).
 - Une [application Azure App Service sur Linux](https://docs.microsoft.com/azure/app-service/containers/).
 - [Compte Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-cli)
-- Un [partage et répertoire de fichiers Azure](https://docs.microsoft.com/azure/storage/common/storage-azure-cli#create-and-manage-file-shares).
+- Un [partage et répertoire de fichiers Azure](../../storage/files/storage-how-to-use-files-cli.md).
 
 
 ## <a name="limitations-of-azure-storage-with-app-service"></a>Limitations de Stockage Azure avec App Service

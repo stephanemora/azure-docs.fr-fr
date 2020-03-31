@@ -9,11 +9,11 @@ ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
 ms.openlocfilehash: 7f3f5177e084693c45bed1088a4e1d091be100ed
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76960258"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79233181"
 ---
 # <a name="500xxx-internal-errors"></a>500xxx Erreurs internes
 
@@ -31,7 +31,7 @@ Votre demande adressée à IoT Hub échoue en générant une erreur commençant 
 
 * **InternalServerError (aucun code d’erreur)**  : IoT Hub a rencontré une erreur interne.
 
-## <a name="cause"></a>Cause :
+## <a name="cause"></a>Cause
 
 Une réponse d’erreur 500xxx peut avoir plusieurs causes. Dans tous les cas, le problème est très probablement temporaire. Bien que l’équipe IoT Hub s’efforce continuellement de respecter les termes du [Contrat de niveau de service (SLA)](https://azure.microsoft.com/support/legal/sla/iot-hub/), de petits sous-ensembles de nœuds IoT Hub rencontrent parfois des erreurs temporaires. Lorsque votre appareil tente de se connecter à un nœud présentant un problème, vous recevez cette erreur.
 

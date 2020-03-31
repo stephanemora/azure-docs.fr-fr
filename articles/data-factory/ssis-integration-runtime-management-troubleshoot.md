@@ -12,17 +12,17 @@ manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/08/2019
 ms.openlocfilehash: 52b1d93935e6428563c72361655893ffddf8a507
-ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74941851"
 ---
 # <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>Résoudre les problèmes de gestion du runtime d’intégration SSIS dans Azure Data Factory
 
 Cet article explique comment résoudre les problèmes liés à la gestion du runtime d’intégration SSIS (SSIS IR).
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Si vous rencontrez un problème lors du provisionnement ou de l’annulation du provisionnement du runtime d’intégration SSIS, un message d’erreur s’affiche dans le portail Microsoft Azure Data Factory ou une erreur est retournée par une cmdlet PowerShell. L’erreur est toujours présentée sous la forme d’un code d’erreur avec un message d’erreur détaillé.
 
@@ -163,7 +163,7 @@ Quand vous joignez l’Azure-SSIS Integration Runtime (Azure-SSIS IR) au Réseau
 
 Outre les problèmes de réseau virtuel mentionnés ci-dessus, vous pouvez également rencontrer un problème lié aux IP publiques statiques. Veuillez vérifier les erreurs suivantes pour obtenir de l’aide.
 
-### <a name="InvalidPublicIPSpecified"></a>InvalidPublicIPSpecified
+### <a name="invalidpublicipspecified"></a><a name="InvalidPublicIPSpecified"></a>InvalidPublicIPSpecified
 
 Cette erreur peut se produire pour diverses raisons quand vous démarrez l’Azure-SSIS IR :
 

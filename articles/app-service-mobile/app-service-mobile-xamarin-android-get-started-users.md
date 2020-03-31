@@ -7,10 +7,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.openlocfilehash: fa70b7419e1877ab2daba49ad154cdfd5a8d2cba
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77458951"
 ---
 # <a name="add-authentication-to-your-xamarinandroid-app"></a>Ajout de l'authentification à votre application Xamarin.Android
@@ -21,10 +21,10 @@ Cette rubrique montre comment authentifier les utilisateurs d'une application Mo
 
 Ce didacticiel est basé sur le démarrage rapide de Mobile App. Vous devez également commencer par suivre le didacticiel [Création d’une application Xamarin.Android]. Si vous n’utilisez pas le projet de serveur du démarrage rapide téléchargé, vous devez ajouter le package d’extension d’authentification à votre projet. Pour plus d'informations sur les packages d'extension de serveur, consultez [Fonctionnement avec le Kit de développement logiciel (SDK) du serveur principal .NET pour Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-## <a name="register"></a>Inscription de votre application pour l’authentification et configuration d’App Services
+## <a name="register-your-app-for-authentication-and-configure-app-services"></a><a name="register"></a>Inscription de votre application pour l’authentification et configuration d’App Services
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-## <a name="redirecturl"></a>Ajouter votre application aux URL de redirection externes autorisées
+## <a name="add-your-app-to-the-allowed-external-redirect-urls"></a><a name="redirecturl"></a>Ajouter votre application aux URL de redirection externes autorisées
 
 L’authentification sécurisée nécessite de définir un nouveau schéma d’URL pour votre application. Cela permet au système d’authentification de vous rediriger vers votre application une fois le processus d’authentification terminé. Dans ce didacticiel, nous utilisons le schéma d’URL _appname_. Toutefois, vous pouvez utiliser le schéma d’URL de votre choix. Il doit être propre à votre application mobile. Pour activer la redirection côté serveur, procédez comme suit :
 
@@ -38,14 +38,14 @@ L’authentification sécurisée nécessite de définir un nouveau schéma d’U
 
 5. Cliquez sur **Enregistrer**.
 
-## <a name="permissions"></a>Restriction des autorisations pour les utilisateurs authentifiés
+## <a name="restrict-permissions-to-authenticated-users"></a><a name="permissions"></a>Restriction des autorisations pour les utilisateurs authentifiés
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 Dans Visual Studio ou Xamarin Studio, exécutez le projet client sur un appareil ou un émulateur. Vérifiez qu'une exception non gérée avec un code d'état 401 (Non autorisé) est générée après le démarrage de l'application. Cette exception se produit, car l'application tente d'accéder à votre serveur principal d’applications mobiles en tant qu'utilisateur non authentifié. La table *TodoItem* nécessite désormais l’authentification.
 
 Ensuite, vous mettrez à jour l’application cliente pour demander des ressources au backend Mobile App avec un utilisateur authentifié.
 
-## <a name="add-authentication"></a>Ajout de l’authentification à l’application
+## <a name="add-authentication-to-the-app"></a><a name="add-authentication"></a>Ajout de l’authentification à l’application
 L'application est mise à jour de manière à demander aux utilisateurs de cliquer sur le bouton **Se connecter** et de s'authentifier avant que les données ne s'affichent.
 
 1. Ajoutez le code suivant à la classe **TodoActivity** :
@@ -89,7 +89,7 @@ L'application est mise à jour de manière à demander aux utilisateurs de cliqu
     Cela crée une nouvelle méthode pour authentifier un utilisateur et un gestionnaire de méthode pour un nouveau bouton **Se connecter** . L'utilisateur de l'exemple de code ci-dessus est authentifié à l'aide d'une connexion Facebook. Une boîte de dialogue permet d'afficher l'ID d'utilisateur une fois authentifié.
    
    > [!NOTE]
-   > Si vous utilisez un autre fournisseur d’identité que Facebook, remplacez la valeur passée à la méthode **LoginAsync** ci-dessus par l’une des valeurs suivantes : *MicrosoftAccount*, *Twitter*, *Google* ou *WindowsAzureActiveDirectory*.
+   > Si vous utilisez un autre fournisseur d’identité que Facebook, remplacez la valeur passée à la méthode **LoginAsync** ci-dessus par l’une des valeurs suivantes : *MicrosoftAccount*, *Twitter*, *Google* ou *WindowsAzureActiveDirectory*.
    > 
    > 
 2. Dans la méthode **OnCreate** , supprimez ou supprimez les marques de commentaire de la ligne de code suivante :

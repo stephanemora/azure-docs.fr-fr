@@ -4,10 +4,10 @@ description: Configurez les paramètres de diagnostic Log Analytics pour tous le
 ms.topic: conceptual
 ms.date: 02/14/2020
 ms.openlocfilehash: c92957cab3e1ed745e7031e3c6f32e7ecda550a5
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77584504"
 ---
 # <a name="configure-vault-diagnostics-settings-at-scale"></a>Configuration à grande échelle des paramètres de diagnostic de coffre

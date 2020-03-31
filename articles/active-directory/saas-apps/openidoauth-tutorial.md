@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dbf9cde8dd2032e81abe0fb2572c2181d4ba21ee
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: f8a2c962c69ead28c4e79b663010eab77a499f5c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160215"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80048417"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Configurer une application OpenID/OAuth à partir de la galerie d’applications Azure AD
 
@@ -71,7 +71,7 @@ L’utilisateur ou l’administrateur peut alors donner son consentement pour l�
 > [!NOTE]
 > Si vous mettez votre application à la disposition des utilisateurs dans plusieurs répertoires, vous devez disposer d’un mécanisme permettant de déterminer le locataire dans lequel ils se trouvent. Une application à locataire unique ne doit regarder que dans son propre répertoire pour y rechercher un utilisateur. Une application mutualisée doit identifier un utilisateur spécifique dans tous les répertoires d’Azure AD.
 > 
-> À cet effet, Azure AD fournit un point de terminaison d’authentification commun vers lequel une application mutualisée peut diriger les demandes de connexion, plutôt que vers un point de terminaison propre au locataire. Ce point de terminaison est [https://login.microsoftonline.com/common](https://login.microsoftonline.com/common) pour tous les répertoires d’Azure AD. Un point de terminaison propre à un locataire peut être [https://login.microsoftonline.com/contoso.onmicrosoft.com](https://login.microsoftonline.com/contoso.onmicrosoft.com). 
+> À cet effet, Azure AD fournit un point de terminaison d’authentification commun vers lequel une application mutualisée peut diriger les demandes de connexion, plutôt que vers un point de terminaison propre au locataire. Ce point de terminaison est `https://login.microsoftonline.com/common` pour tous les répertoires dans Azure AD. Un point de terminaison propre à un locataire peut être `https://login.microsoftonline.com/contoso.onmicrosoft.com`. 
 >
 > Il est important de tenir compte du point de terminaison commun lorsque vous développez votre application. Vous avez besoin de la logique nécessaire pour gérer plusieurs locataires pendant la connexion, la déconnexion et la validation des jetons.
 
@@ -125,9 +125,9 @@ Les étapes suivantes vous montrent comment l’expérience de consentement fonc
 
 3. Si l’utilisateur n’est pas déjà authentifié, le point de terminaison /authorize d’Azure AD l’invite à se connecter.
 
-    ![Authentication](./media/openidoauth-tutorial/authentication.png)
+    ![Authentification](./media/openidoauth-tutorial/authentication.png)
 
-4. Une fois l’utilisateur connecté, Azure AD détermine s’il est nécessaire d’afficher une page de consentement pour l’utilisateur. La détermination est différente selon que l’utilisateur (ou l’administrateur de son organisation), a déjà accordé ou non son consentement à l'application.
+4. Une fois l’utilisateur connecté, Azure AD détermine s’il est nécessaire d’afficher une page de consentement pour l’utilisateur. La détermination est différente selon que l’utilisateur (ou l’administrateur de son organisation) a déjà accordé ou non son consentement à l’application.
 
    Si le consentement n’a pas été accordé, Azure AD invite l’utilisateur à le fournir et affiche les autorisations requises pour le fonctionnement. Les autorisations qui s’affichent dans la boîte de dialogue de consentement correspondent à celles qui sont sélectionnées dans les autorisations déléguées du portail Azure.
 
@@ -144,14 +144,14 @@ En tant qu’administrateur, vous pouvez également donner votre consentement po
 > [!NOTE]
 > Pour les applications monopage (SPA) qui utilisent ADAL.js, vous devez maintenant accorder un consentement explicite à l’aide du bouton **Accorder le consentement administrateur**. Sinon, l’application échoue lorsque le jeton d’accès est demandé.
 
-Les autorisations application seule nécessitent toujours le consentement de l’administrateur d’un client. Si votre application demande une autorisation application seule et qu’un utilisateur tente de se connecter à l’application, un message d’erreur s’affiche. Le message indique que l’utilisateur n’est pas en mesure de donner son consentement.
+Les autorisations d’application uniquement nécessitent toujours le consentement de l’administrateur d’un locataire. Si votre application demande une autorisation application seule et qu’un utilisateur tente de se connecter à l’application, un message d’erreur s’affiche. Le message indique que l’utilisateur n’est pas en mesure de donner son consentement.
 
 Si votre application utilise des autorisations qui nécessitent un consentement administrateur, vous devez y intégrer une option comme un bouton ou un lien afin que l’administrateur puisse démarrer l’action. La requête que votre application envoie pour cette action est une demande d’autorisation OAuth2/OpenID Connect ordinaire. Cette requête inclut le paramètre de chaîne de requête *prompt=admin_consent*. 
 
-Une fois que l’administrateur a donné son consentement et que le principal de service est créé dans le locataire du client, les demandes de connexion ultérieures n’ont plus besoin du paramètre *prompt=admin_consent*. Comme l’administrateur a décidé que les autorisations demandées sont acceptables, les autres utilisateurs du locataire n’ont plus à donner leur consentement par la suite.
+Une fois que l’administrateur a donné son consentement et que le principal de service est créé dans le locataire du client, les demandes de connexion ultérieures n’ont pas besoin du paramètre *prompt=admin_consent*. Comme l’administrateur a décidé que les autorisations demandées sont acceptables, les autres utilisateurs du locataire n’ont plus à donner leur consentement par la suite.
 
 L’administrateur d’un client peut empêcher les utilisateurs standard de donner son consentement aux applications. Si cette fonctionnalité est désactivée, le consentement de l’administrateur est toujours requis pour que l’application soit utilisée dans le client. Si vous souhaitez tester votre application avec le consentement de l’utilisateur final désactivé, vous trouverez le commutateur de configuration dans le [portail Azure](https://portal.azure.com/). Il se trouve dans la section [Paramètres utilisateur](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) sous **Applications d’entreprise**.
 
-Le paramètre *prompt=admin_consent* peut également être utilisé par les applications qui demandent des autorisations ne nécessitant pas le consentement de l’administrateur. Exemple d’application qui requiert une expérience : l’administrateur des locataires « s’inscrit » une seule fois et aucun autre utilisateur n’a à donner de consentement à compter de ce moment.
+Le paramètre *prompt=admin_consent* peut également être utilisé par les applications qui demandent des autorisations ne nécessitant pas le consentement de l’administrateur. Exemple d’application qui requiert une expérience : l’administrateur des locataires « s’inscrit » une fois et aucun autre utilisateur n’est invité à donner son consentement à compter de ce moment.
 
 Imaginez qu’une application nécessite un consentement administrateur, et qu’un administrateur se connecte sans envoyer le paramètre *prompt=admin_consent*. Si l’administrateur donne son consentement pour l’application, celui-ci s’applique uniquement pour son compte d’utilisateur. Les utilisateurs standard ne peuvent toujours pas se connecter ni donner leur consentement pour l’application. Cette fonctionnalité s’avère particulièrement utile si vous souhaitez donner à l’administrateur des locataires la possibilité d’explorer votre application avant d’autoriser l’accès à d’autres utilisateurs.

@@ -6,17 +6,17 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 06/24/2019
 ms.author: danis
-ms.openlocfilehash: 73df3a12ebea3b94563d02eda8f1211401d1ae3f
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: fef41f4dc90c03e3efbe4c8a75e495c26eec64b8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78969192"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80066817"
 ---
 # <a name="prepare-an-existing-linux-azure-vm-image-for-use-with-cloud-init"></a>Préparer une image de machine virtuelle Azure Linux existante pour une utilisation avec cloud-init
 Cet article explique comment prendre une machine virtuelle Azure existante et la préparer pour la redéployer et utiliser cloud-init. L’image obtenue peut être utilisée pour déployer une nouvelle machine virtuelle ou des groupes de machines virtuelles identiques, qui peuvent par la suite être personnalisés par cloud-init au moment du déploiement.  Ces scripts cloud-init s’exécutent au premier démarrage une fois que les ressources ont été approvisionnées par Azure. Pour plus d’informations sur le fonctionnement de cloud-init en mode natif dans Azure et sur les versions de Linux prises en charge, consultez [Présentation de cloud-init](using-cloud-init.md)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 Ce document suppose que vous disposez déjà d’une machine virtuelle Azure exécutant une version prise en charge du système d’exploitation Linux. Vous avez déjà configuré la machine en fonction de vos besoins, installé tous les modules nécessaires, traité toutes les mises à jour requises et effectué des tests pour vous assurer qu’elle répond à vos exigences. 
 
 ## <a name="preparing-rhel-76--centos-76"></a>Préparation RHEL 7.6/CentOS 7.6
@@ -29,12 +29,14 @@ sudo yum install - y cloud-init
 ```
 
 Mettez à jour la section `cloud_init_modules` dans `/etc/cloud/cloud.cfg` pour inclure les modules suivants :
+
 ```bash
 - disk_setup
 - mounts
 ```
 
 Voici un exemple de ce à quoi une section `cloud_init_modules` classique ressemble.
+
 ```bash
 cloud_init_modules:
  - migrator
@@ -51,7 +53,9 @@ cloud_init_modules:
  - users-groups
  - ssh
 ```
-Un certain nombre de tâches relatives à l’approvisionnement et à la gestion des disques éphémères doit être mis à jour dans `/etc/waagent.conf`. Exécutez les commandes suivantes pour mettre à jour les paramètres appropriés. 
+
+Un certain nombre de tâches relatives à l’approvisionnement et à la gestion des disques éphémères doit être mis à jour dans `/etc/waagent.conf`. Exécutez les commandes suivantes pour mettre à jour les paramètres appropriés.
+
 ```bash
 sed -i 's/Provisioning.Enabled=y/Provisioning.Enabled=n/g' /etc/waagent.conf
 sed -i 's/Provisioning.UseCloudInit=n/Provisioning.UseCloudInit=y/g' /etc/waagent.conf
@@ -72,12 +76,14 @@ Si votre image Azure existante dispose d’un fichier d’échange configuré et
 Pour les images basées sur Red Hat : suivez les instructions dans le document RedHat suivant qui explique comment [supprimer le fichier d’échange](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/storage_administration_guide/swap-removing-file).
 
 Pour les images CentOS avec le fichier d’échange activé, vous pouvez exécuter la commande suivante pour désactiver le fichier d’échange :
+
 ```bash
 sudo swapoff /mnt/resource/swapfile
 ```
 
 Vérifiez que la référence de fichier d’échange est supprimée de `/etc/fstab` - cela doit ressembler à la sortie suivante :
-```text
+
+```output
 # /etc/fstab
 # Accessible filesystems, by reference, are maintained under '/dev/disk'
 # See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info
@@ -87,9 +93,11 @@ UUID=7c473048-a4e7-4908-bad3-a9be22e9d37d /boot xfs defaults 0 0
 ```
 
 Pour gagner de l’espace et supprimer le fichier d’échange, vous pouvez exécuter la commande suivante :
+
 ```bash
 rm /mnt/resource/swapfile
 ```
+
 ## <a name="extra-step-for-cloud-init-prepared-image"></a>Étape supplémentaire pour l’image préparée pour cloud-init
 > [!NOTE]
 > Si votre image était auparavant une image configurée et préparée pour **cloud-init**, vous devez effectuer les étapes suivantes.
@@ -112,7 +120,7 @@ Pour plus d’informations sur les commandes de déprovisionnement de l’agent 
 
 Quittez la session SSH, puis à partir de votre interpréteur de commandes bash, exécutez les commandes Azure CLI suivantes pour désallouer, généraliser et créer une image de machine virtuelle Azure.  Remplacez `myResourceGroup` et `sourceVmName` par les informations appropriées reflétant votre machine virtuelle source.
 
-```bash
+```azurecli
 az vm deallocate --resource-group myResourceGroup --name sourceVmName
 az vm generalize --resource-group myResourceGroup --name sourceVmName
 az image create --resource-group myResourceGroup --name myCloudInitImage --source sourceVmName

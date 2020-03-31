@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory avec ITRP | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory avec ITRP | Microsoft Docs'
 description: Dans ce tutoriel, vous allez découvrir comment configurer l’authentification unique entre Azure Active Directory et ITRP.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: d44391624e29d2bdd182bb07452e0e8def2d1407
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67656690"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-itrp"></a>Didacticiel : Intégration d’Azure Active Directory avec ITRP
+# <a name="tutorial-azure-active-directory-integration-with-itrp"></a>Tutoriel : Intégration d’Azure Active Directory avec ITRP
 
 Dans ce tutoriel, vous allez apprendre à intégrer ITRP à Azure Active Directory (Azure AD).
 Cette intégration offre les avantages suivants :
@@ -139,11 +139,11 @@ Pour configurer l’authentification unique Azure AD avec ITRP, effectuez les é
 
 1. En haut de la fenêtre, sélectionnez l’icône **Settings** (Paramètres ) :
 
-    ![Icône des paramètres](./media/itrp-tutorial/ic775570.png "Icône des paramètres")
+    ![Icône Paramètres](./media/itrp-tutorial/ic775570.png "Icône Paramètres")
 
 1. Dans le volet gauche, sélectionnez **Single Sign-On** (Authentification unique) :
 
-    ![Sélectionnez Single Sign-On](./media/itrp-tutorial/ic775571.png "Sélectionnez Single Sign-On")
+    ![Sélectionner l’authentification unique](./media/itrp-tutorial/ic775571.png "Sélectionner l’authentification unique")
 
 1. Dans la section de configuration **Single Sign-On**, effectuez les étapes suivantes.
 
@@ -183,7 +183,7 @@ Dans cette section, vous allez créer un utilisateur de test appelé Britta Simo
 
     1. Sélectionnez **Afficher le mot de passe**, puis notez la valeur affichée dans la zone **Mot de passe**.
 
-    1. Sélectionnez **Créer**.
+    1. Sélectionnez **Create** (Créer).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
@@ -225,15 +225,15 @@ Pour créer un compte d’utilisateur, procédez comme suit :
 
 1. Dans le menu, sélectionnez **Personnes** :
 
-    ![Sélectionnez Personnes](./media/itrp-tutorial/ic775587.png "Sélectionnez Personnes")
+    ![Sélectionner des personnes](./media/itrp-tutorial/ic775587.png "Sélectionner des personnes")
 
 1. Sélectionnez le signe plus ( **+** ) pour ajouter une nouvelle personne :
 
-    ![Sélectionnez le signe plus](./media/itrp-tutorial/ic775576.png "Sélectionnez le signe plus")
+    ![Sélectionner le signe plus](./media/itrp-tutorial/ic775576.png "Sélectionner le signe plus")
 
 1. Dans la boîte de dialogue **Ajouter une nouvelle personne**, effectuez les étapes suivantes.
 
-    ![Boîte de dialogue Ajouter une nouvelle personne](./media/itrp-tutorial/ic775577.png "Boîte de dialogue Ajouter une nouvelle personne")
+    ![Boîte de dialogue Add New Person](./media/itrp-tutorial/ic775577.png "Boîte de dialogue Add New Person")
 
     1. Entrez l’adresse e-mail d’un compte Azure AD valide que vous souhaitez ajouter.
 
@@ -254,4 +254,4 @@ Quand vous sélectionnez la vignette ITRP dans le volet d’accès, vous devez �
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

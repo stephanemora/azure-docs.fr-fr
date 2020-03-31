@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
 ms.openlocfilehash: c606f6e60b1c906a0d5c29992287d126aaa37b7b
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77602943"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Comment utiliser le Kit de développement logiciel (SDK) Azure WebJobs pour le traitement en arrière-plan basé sur les événements
@@ -119,7 +119,7 @@ static void Main()
 }
 ```
 
-### <a name="jobhost-servicepointmanager-settings"></a>Gestion des connexions simultanées (version 2.*x*)
+### <a name="managing-concurrent-connections-version-2x"></a><a name="jobhost-servicepointmanager-settings"></a>Gestion des connexions simultanées (version 2.*x*)
 
 Dans la version 3.*x*, la limite du nombre de connexions par défaut est infinie. Si, pour une raison quelconque, vous devez changer cette limite, vous pouvez utiliser la propriété [`MaxConnectionsPerServer`](/dotnet/api/system.net.http.winhttphandler.maxconnectionsperserver) de la classe [`WinHttpHandler`](/dotnet/api/system.net.http.winhttphandler).
 
@@ -993,7 +993,7 @@ config.LoggerFactory = new LoggerFactory()
     .AddApplicationInsights(clientFactory);
 ```
 
-## <a id="nextsteps"></a>Étapes suivantes
+## <a name="next-steps"></a><a id="nextsteps"></a>Étapes suivantes
 
 Cet article vous a permis de découvrir des extraits qui montrent comment prendre en charge les scénarios courants d’utilisation du kit SDK WebJobs. Pour obtenir des exemples complets, consultez [azure-webjobs-sdk-samples](https://github.com/Azure/azure-webjobs-sdk/tree/dev/sample/SampleHost).
 

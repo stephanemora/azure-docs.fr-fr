@@ -15,14 +15,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 01/30/2019
 ms.author: cynthn
-ms.openlocfilehash: 1de2e70ccafbbde49e764437bfe8ce94602747b6
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6d603dbf2746608f499ba37b4f17b533b64bc941
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034451"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80154353"
 ---
-# <a name="tutorial-install-a-lemp-web-server-on-a-linux-virtual-machine-in-azure"></a>Didacticiel : Installer un serveur web LEMP sur une machine virtuelle Linux dans Azure
+# <a name="tutorial-install-a-lemp-web-server-on-a-linux-virtual-machine-in-azure"></a>Tutoriel : Installer un serveur web LEMP sur une machine virtuelle Linux dans Azure
 
 Cet article vous guide à travers le déploiement d’un serveur web NGINX, de celui de MySQL et de PHP (la pile LEMP) sur une machine virtuelle Ubuntu dans Azure. Pouvant également être installée dans Azure, la pile LEMP est une alternative à la très répandue [pile LAMP](tutorial-lamp-stack.md). Pour voir le serveur LEMP fonctionner, vous pouvez éventuellement installer et configurer un site WordPress. Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
@@ -161,7 +161,7 @@ sudo sh -c 'echo "<?php phpinfo(); ?>" > /var/www/html/info.php'
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez déployé un serveur LEMP dans Azure. Vous avez appris à effectuer les actions suivantes :
+Dans ce didacticiel, vous avez déployé un serveur LEMP dans Azure. Vous avez appris à :
 
 > [!div class="checklist"]
 > * Créer une machine virtuelle Ubuntu
@@ -170,10 +170,10 @@ Dans ce didacticiel, vous avez déployé un serveur LEMP dans Azure. Vous avez a
 > * Vérifier l’installation et la configuration
 > * Installer WordPress sur la pile LEMP
 
-Passez au didacticiel suivant pour savoir comment mieux protéger les serveurs SSL à l’aide des certificats SSL.
+Passez au tutoriel suivant pour savoir comment mieux protéger les serveurs web à l’aide des certificats TLS/SSL.
 
 > [!div class="nextstepaction"]
-> [Sécuriser un serveur web avec SSL](tutorial-secure-web-server.md)
+> [Sécuriser un serveur web avec TLS](tutorial-secure-web-server.md)
 
 [2]: ./media/tutorial-lemp-stack/phpsuccesspage.png
 [3]: ./media/tutorial-lemp-stack/nginx.png

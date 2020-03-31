@@ -15,15 +15,15 @@ ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.openlocfilehash: b05d1f36d1e74b3d915e216676859654fbcbacf3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60578661"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228209"
 ---
 # <a name="replace-an-ebod-controller-on-your-storsimple-device"></a>Remplacer un contrôleur EBOD sur votre appareil StorSimple
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Ce didacticiel explique comment remplacer un module de contrôleur EBOD défectueux sur votre appareil Microsoft Azure StorSimple. Pour remplacer un module de contrôleur EBOD, vous devez :
 
 * Retirer le contrôleur EBOD défectueux
@@ -60,8 +60,8 @@ Avant de retirer le module de contrôleur EBOD défectueux de votre appareil Sto
    | 2 |LED d’alimentation |
    | 3 |Connecteurs SaaS |
    | 4 |LED SAS |
-   | 5\. |Ports série (utilisation en usine uniquement) |
-   | 6\. |Port A (Entrée hôte) |
+   | 5 |Ports série (utilisation en usine uniquement) |
+   | 6 |Port A (Entrée hôte) |
    | 7 |Port B (Sortie hôte) |
    | 8 |Port C (utilisation en usine uniquement) |
 
@@ -92,8 +92,8 @@ La procédure et le tableau suivants expliquent comment installer un module de c
    | 2 |PCM 0 |
    | 3 |PCM 1 |
    | 4 |Contrôleur 0 |
-   | 5\. |Contrôleur 1 |
-   | 6\. |Contrôleur 0 du boîtier EBOD |
+   | 5 |Contrôleur 1 |
+   | 6 |Contrôleur 0 du boîtier EBOD |
    | 7 |Contrôleur 1 du boîtier EBOD |
    | 8 |Boîtier EBOD |
    | 9 |Unités de distribution de l’alimentation |

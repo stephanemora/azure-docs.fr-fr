@@ -8,23 +8,23 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 0446ee4fb238d2fa8447f998536c3c14d968f630
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 74fec059bdffb91f5a7774d430e2f1897f0e863c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78303203"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79474456"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>Tutoriel : Préparer le déploiement d’Azure Data Box Gateway
 
-
-Ce didacticiel est le premier d’une série de didacticiels permettant de déployer entièrement Azure Data Box Gateway. Il explique comment préparer le Portail Azure pour déployer la ressource Data Box Gateway. 
+Ce didacticiel est le premier d’une série de didacticiels permettant de déployer entièrement Azure Data Box Gateway. Il explique comment préparer le Portail Azure pour déployer la ressource Data Box Gateway.
 
 Vous avez besoin de privilèges d’administrateur pour terminer le processus d’installation et de configuration. La préparation du portail prend moins de 10 minutes.
 
 Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
+>
 > * Créer une nouvelle ressource
 > * Télécharger l'image de l’appareil virtuel
 > * Obtenir la clé d'activation
@@ -50,12 +50,11 @@ Dans les informations suivantes, vous trouverez la configuration requise pour vo
 
 Avant de commencer, assurez-vous que :
 
-- Votre abonnement Microsoft Azure doit être pris en charge pour la ressource Data Box Gateway. Les abonnements de type Paiement à l’utilisation sont aussi pris en charge.
-- Vous disposez d’un accès Propriétaire ou Contributeur au niveau du groupe de ressources pour les ressources Data Box Edge/Data Box Gateway, IoT Hub et Stockage Azure.
-
+* Votre abonnement Microsoft Azure est activé pour une ressource Azure Stack Edge. Vérifiez que vous avez utilisé un abonnement pris en charge tel que [Contrat Entreprise (EA) Microsoft](https://azure.microsoft.com/overview/sales-number/), [Fournisseur de solutions cloud (CSP)](https://docs.microsoft.com/partner-center/azure-plan-lp) ou [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/).
+* Vous disposez d’un accès Propriétaire ou Contributeur au niveau du groupe de ressources pour les ressources Data Box Edge/Data Box Gateway, IoT Hub et Stockage Azure.
     - Pour créer une ressource Data Box Edge/Data Box Gateway, vous devez disposer d’autorisations Contributeur (ou supérieures) au niveau du groupe de ressources. Vous devez également être sûr que le fournisseur `Microsoft.DataBoxEdge` est inscrit. Pour plus d’informations sur l’inscription, consultez [Inscrire un fournisseur de ressources](data-box-gateway-manage-access-power-connectivity-mode.md#register-resource-providers).
     - Pour créer une ressource de compte de stockage, là encore, vous avez besoin d’autorisations Contributeur (ou supérieures) au niveau du groupe de ressources. Par défaut, le stockage Azure est un fournisseur de ressources inscrit.
-- Vous avez un accès Administrateur ou Utilisateur à l’API Graph Azure Active Directory. Pour plus d’informations, consultez [API Graph Azure Active Directory](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
+- Vous disposez d’un accès administrateur ou utilisateur à l’API Microsoft Graph. Pour plus d’informations, consultez la [documentation de référence sur les autorisations Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference).
 - Vous disposez d’un compte de stockage Microsoft Azure doté d’informations d’identification d’accès.
 
 ### <a name="for-the-data-box-gateway-device"></a>Pour l’appareil Data Box Gateway

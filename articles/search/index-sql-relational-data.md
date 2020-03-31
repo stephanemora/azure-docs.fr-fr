@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 3b973dd05d23d190c77986ca9bf6d39656739cd8
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72790091"
 ---
 # <a name="how-to-model-relational-sql-data-for-import-and-indexing-in-azure-cognitive-search"></a>Comment modéliser des données relationnelles SQL pour l’importation et l’indexation dans la Recherche cognitive Azure
@@ -159,4 +159,4 @@ Avec votre propre jeu de données, vous pouvez utiliser l’[Assistant Importer 
 Essayez le guide de démarrage rapide suivant pour découvrir les étapes de base de l’Assistant Importer des données.
 
 > [!div class="nextstepaction"]
-> [Démarrage rapide : Créer un index de recherche à l’aide du portail Azure](search-get-started-portal.md)
+> [Démarrage rapide : Créer un index de recherche à l’aide du portail Azure](search-get-started-portal.md)

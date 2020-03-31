@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
 ms.openlocfilehash: f9043ae1414b63f25583d52100774f3e87754a74
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77661837"
 ---
 # <a name="faq---general-questions-about-azure-security-center"></a>FAQ - Questions générales sur Azure Security Center
@@ -86,7 +86,7 @@ Azure Security Center collecte, analyse et fusionne automatiquement les données
 * Des alertes de sécurité émises par des solutions de sécurité partenaires intégrées, telles que des logiciels anti-programme malveillant ou des pare-feu d’applications web
 
 
-## Pourquoi les valeurs du niveau de sécurité ont-elles changé ? <a name="secure-score-faq"></a>
+## <a name="why-did-secure-score-values-change"></a>Pourquoi les valeurs du niveau de sécurité ont-elles changé ? <a name="secure-score-faq"></a>
 Depuis février 2019, Security Center a ajusté le score de quelques recommandations, afin de mieux adapter leur niveau de gravité. À la suite de cet ajustement, il est possible que l’ensemble des valeurs des niveaux de sécurité aient changé.  Pour plus d’informations sur le niveau de sécurité, consultez [Calcul des scores de sécurité](security-center-secure-score.md).
 
 

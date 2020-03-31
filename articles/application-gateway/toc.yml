@@ -15,6 +15,9 @@
       href: quick-create-powershell.md
     - name: Créer une passerelle d’application - Azure CLI
       href: quick-create-cli.md
+    - name: "Créer une passerelle d’application\_- Modèle ARM"
+      displayName: Resource Manager
+      href: quick-create-template.md
 - name: Tutoriels
   items:
     - name: Sécuriser avec SSL
@@ -47,6 +50,8 @@
           href: application-gateway-components.md
         - name: Présentation de la configuration
           href: configuration-overview.md
+    - name: Prise en charge du trafic élevé
+      href: high-traffic-support.md
     - name: "Référence SKU de mise à l’échelle version\_2"
       href: application-gateway-autoscaling-zone-redundant.md
     - name: Routage

@@ -1,14 +1,14 @@
 ---
 title: Exemples de contrôles de blueprint DoD Impact Level 4
 description: Mappage de contrôles de l’exemple de blueprint DoD Impact Level 4. Chaque contrôle est mis en correspondance avec une ou plusieurs stratégies Azure qui simplifient l’évaluation.
-ms.date: 02/09/2020
+ms.date: 03/06/2020
 ms.topic: sample
-ms.openlocfilehash: 15ab3bc8bf53d54161ecc3b1f0dc138c3ff923c1
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 001c838ed6a19269a6abbcebd59ee2e344b6a296
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77154707"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79415391"
 ---
 # <a name="control-mapping-of-the-dod-impact-level-4-blueprint-sample"></a>Mappage de contrôles de l’exemple de blueprint DoD Impact Level 4
 
@@ -83,6 +83,20 @@ Ce blueprint permet de superviser et de contrôler les accès distants en affect
 - Le débogage à distance devrait être désactivé pour Function App
 - Le débogage à distance doit être désactivé pour l'application web
 
+## <a name="ac-23-data-mining"></a>AC-23 Exploration de données
+
+Ce blueprint fournit des définitions de stratégie qui vous permettent de vérifier que les notifications de sécurité des données sont correctement activées. De plus, ce blueprint permet de s’assurer que l’audit et Advanced Data Security sont configurés sur les serveurs SQL.
+
+- Advanced Data Security doit être activé sur vos serveurs SQL
+- Advanced Data Security doit être activée sur vos instances managées SQL.
+- Les types Advanced Threat Protection doivent être définis sur « Tous » dans les paramètres Advanced Data Security du serveur SQL.
+- Les types Advanced Threat Protection doivent être définis sur « Tous » dans les paramètres Advanced Data Security de l’instance gérée SQL.
+- L’audit doit être activé sur les paramètres de sécurité des données avancés sur SQL Server
+- Les notifications par e-mail aux administrateurs et propriétaires d’abonnements doivent être activées dans les paramètres Advanced Data Security SQL Server
+- Les notifications par e-mail aux administrateurs et propriétaires d’abonnements doivent être activées dans les paramètres Advanced Data Security de l’instance managée SQL
+- Les paramètres Advanced Data Security pour le serveur SQL doivent inclure une adresse e-mail pour la réception des alertes de sécurité.
+- Les paramètres Advanced Data Security pour l’instance gérée SQL doivent inclure une adresse e-mail pour la réception des alertes de sécurité.
+
 ## <a name="au-3-2-content-of-audit-records--centralized-management-of-planned-audit-record-content"></a>AU-3 (2) Contenu des enregistrements d’audit | Gestion centralisée du contenu planifié des enregistrements d’audit
 
 Les données de journal collectées par Azure Monitor sont stockées dans un espace de travail Log Analytics, permettant une configuration et une gestion centralisées. Ce blueprint vous permet de garantir que les événements sont journalisés. Il affecte pour cela des définitions [Azure Policy](../../../policy/overview.md) qui auditent et appliquent le déploiement de l’agent Log Analytics sur les machines virtuelles Azure.
@@ -123,8 +137,6 @@ Ces définitions de stratégie vérifient également la configuration des journa
 Pour plus d’informations sur l’analyse et la surveillance des vulnérabilités, nous vous recommandons d’utiliser également Azure Sentinel et Azure Security Center.
 
 - \[Préversion\] : L’évaluation des vulnérabilités doit être activée sur les machines virtuelles
-- \[Préversion\] : Activer Azure Monitor pour machines virtuelles
-- \[Préversion\] : Activer Azure Monitor pour les groupes de machines virtuelles identiques
 - L’évaluation des vulnérabilités doit être activée sur vos serveurs SQL
 - Auditer le paramètre de diagnostic
 - L’évaluation des vulnérabilités doit être activée sur vos instances managées SQL
@@ -133,6 +145,8 @@ Pour plus d’informations sur l’analyse et la surveillance des vulnérabilit�
 - Les vulnérabilités de vos bases de données SQL doivent être éliminées
 - Les vulnérabilités doivent être corrigées avec une solution d’évaluation des vulnérabilités
 - Les vulnérabilités détectées dans la configuration de la sécurité de vos groupes de machines virtuelles identiques doivent être corrigées
+- \[Préversion\] : Auditer le déploiement de Log Analytics Agent - Image de machine virtuelle (système d’exploitation) non listée
+- \[Préversion\] : Auditer le déploiement de Log Analytics Agent dans VMSS - Image de machine virtuelle (système d’exploitation) non listée
 
 ## <a name="au-12-audit-generation"></a>AU-12 Génération de l’audit
 
@@ -236,6 +250,16 @@ Ce blueprint permet d’appliquer des mots de passe forts en affectant des défi
 - \[Préversion\] : Déployer des exigences pour auditer les machines virtuelles Windows qui ne limitent pas la longueur minimale du mot de passe à 14 caractères
 - \[Préversion\] : Déployer des exigences pour auditer les machines virtuelles Windows qui ne stockent pas les mots de passe à l’aide du chiffrement réversible
 
+## <a name="ir-6-2-incident-reporting--vulnerabilities-related-to-incidents"></a>IR-6 (2) Rapports d’incidents | Vulnérabilités liées aux incidents
+
+Ce blueprint fournit des définitions de stratégie qui auditent les enregistrements avec l’analyse de l’évaluation des vulnérabilités sur les machines virtuelles, les groupes identiques de machines virtuelles et les serveurs SQL. Ces insights fournissent des informations en temps réel sur l’état de la sécurité de vos ressources déployées et peuvent vous aider à classer par ordre de priorité les actions de correction.
+
+- Les vulnérabilités détectées dans la configuration de la sécurité de vos groupes de machines virtuelles identiques doivent être corrigées
+- Les vulnérabilités doivent être corrigées avec une solution d’évaluation des vulnérabilités
+- Les vulnérabilités de la configuration de sécurité sur vos machines doivent être corrigées
+- Les vulnérabilités dans les configurations de la sécurité des conteneurs doivent être corrigées
+- Les vulnérabilités de vos bases de données SQL doivent être éliminées
+
 ## <a name="ra-5-vulnerability-scanning"></a>RA-5 Analyse des vulnérabilités
 
 Ce blueprint permet de gérer les vulnérabilités du système d’informations en affectant des définitions [Azure Policy](../../../policy/overview.md) qui supervisent les vulnérabilités en rapport avec le système d’exploitation, SQL et les machines virtuelles dans Azure Security Center. Azure Security Center fournit des fonctionnalités de création de rapports qui vous permettent d’obtenir des insights en temps réel sur l’état de la sécurité des ressources Azure déployées. Ce blueprint affecte également des définitions de stratégie qui auditent et appliquent Advanced Data Security sur les serveurs SQL. Advanced Data Security comprend l’évaluation des vulnérabilités et des fonctionnalités de protection avancée contre les menaces pour vous aider à comprendre les vulnérabilités dans vos ressources déployées.
@@ -312,6 +336,30 @@ Ce blueprint permet de gérer les défauts du système d’informations en affec
 - Les vulnérabilités de vos bases de données SQL doivent être éliminées
 - Les vulnérabilités doivent être corrigées avec une solution d’évaluation des vulnérabilités
 
+## <a name="si-02-06-flaw-remediation--removal-of-previous-versions-of-software--firmware"></a>SI-02 (06) Correction des défauts | Suppression des versions précédentes des logiciels/microprogrammes
+
+Ce blueprint affecte des définitions de stratégie qui vous permettent de vérifier que les applications utilisent la dernière version du .NET Framework, de HTTP, de Java, de PHP, de Python et de TLS. Ce blueprint affecte également une définition de stratégie qui garantit que Kubernetes Services est mis à niveau vers sa version non vulnérable.
+
+- Vérifier que la version du .Net Framework est la plus récente, si elle est utilisée dans le cadre de l’application API
+- Vérifier que la version du .Net Framework est la plus récente, si elle est utilisée dans le cadre de l’application de fonction
+- Vérifier que la version du .Net Framework est la plus récente, si elle est utilisée dans le cadre de l’application web
+- Vérifier que la version de HTTP est la plus récente, si elle est utilisée pour exécuter l’application API
+- Vérifier que la version de HTTP est la plus récente, si elle est utilisée pour exécuter l’application de fonction
+- Vérifier que la version de HTTP est la plus récente, si elle est utilisée pour exécuter l’application web
+- Vérifier que la version de Java est la plus récente, si elle est utilisée dans le cadre de l’application API
+- Vérifier que la version de Java est la plus récente, si elle est utilisée dans le cadre de l’application de fonction
+- Vérifier que la version de Java est la plus récente, si elle est utilisée dans le cadre de l’application web
+- Vérifier que la version de PHP est la plus récente, si elle est utilisée dans le cadre de l’application API
+- Vérifier que la version de PHP est la plus récente, si elle est utilisée dans le cadre de l’application de fonction
+- Vérifier que la version de PHP est la plus récente, si elle est utilisée dans le cadre de l’application web
+- Vérifier que la version de Python est la plus récente, si elle est utilisée dans le cadre de l’application API
+- Vérifier que la version de Python est la plus récente, si elle est utilisée dans le cadre de l’application de fonction
+- Vérifier que la version de Python est la plus récente, si elle est utilisée dans le cadre de l’application web
+- La dernière version de TLS doit être utilisée dans votre application API
+- La dernière version de TLS doit être utilisée dans votre application de fonction
+- La dernière version de TLS doit être utilisée dans votre application web
+- \[Préversion\] : Kubernetes Services doit être mis à niveau vers une version non vulnérable de Kubernetes
+
 ## <a name="si-3-malicious-code-protection"></a>SI-3 Protection contre les codes malveillants
 
 Ce blueprint permet de gérer la protection des points de terminaison, notamment la protection contre le code malveillant, en affectant des définitions [Azure Policy](../../../policy/overview.md) qui supervisent l’absence de protection des points de terminaison sur les machines virtuelles dans Azure Security Center, et appliquent la solution anti-programme malveillant de Microsoft sur les machines virtuelles Windows.
@@ -347,6 +395,18 @@ Ce blueprint vous aide à superviser votre système en auditant et en appliquant
 - Déployer la détection de menaces sur les serveurs SQL
 - Emplacements autorisés
 - Emplacements autorisés pour les groupes de ressources
+
+## <a name="si-4-12-information-system-monitoring--automated-alerts"></a>SI-4 (12) Supervision du système d’information | Alertes automatisées
+
+Ce blueprint fournit des définitions de stratégie qui vous permettent de vérifier que les notifications de sécurité des données sont correctement activées. De plus, ce blueprint garantit que le niveau tarifaire standard est activé pour Azure Security Center. Notez que le niveau tarifaire standard permet la détection des menaces sur les réseaux et les machines virtuelles, en fournissant des fonctions de renseignement sur les menaces, la détection d’anomalies et l’analytique de comportement dans Azure Security Center.
+
+- La notification par e-mail au propriétaire de l’abonnement pour les alertes à gravité élevée doit être activée
+- Une adresse e-mail de contact de sécurité doit être fournie pour votre abonnement 
+- Les notifications par e-mail aux administrateurs et propriétaires d’abonnements doivent être activées dans les paramètres Advanced Data Security de l’instance managée SQL 
+- Les notifications par e-mail aux administrateurs et propriétaires d’abonnements doivent être activées dans les paramètres Advanced Data Security SQL Server 
+- Un numéro de téléphone de contact de sécurité doit être fourni pour votre abonnement
+- Les paramètres Advanced Data Security pour le serveur SQL doivent inclure une adresse e-mail pour la réception des alertes de sécurité.
+- Le niveau tarifaire standard Security Center doit être sélectionné
 
 ## <a name="si-4-18-information-system-monitoring--analyze-traffic--covert-exfiltration"></a>SI-4 (18) Supervision du système d’information | Analyser le trafic/l’exfiltration secrète
 

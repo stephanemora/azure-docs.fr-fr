@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: ec84d3804c24766c6344e9909ba10089e186599c
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 7bb386d39f53331e77bee4d863c431c2e3655f5c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623457"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79298833"
 ---
 # <a name="define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Définir un nouveau type d’appareil de passerelle IoT dans votre application Azure IoT Central
 
@@ -203,6 +203,9 @@ Dans ce didacticiel, vous avez appris à :
 * Définir une visualisation pour la télémétrie de l’appareil.
 * Ajouter des relations.
 * Publier votre modèle d’appareil.
+
+> [!NOTE]
+> La génération de code basé sur VS Code n’est pas prise en charge pour les appareils de passerelle modélisés dans IoT Central.
 
 À présent, vous pouvez :
 

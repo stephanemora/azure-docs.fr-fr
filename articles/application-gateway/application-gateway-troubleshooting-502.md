@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/16/2019
 ms.author: amsriva
 ms.openlocfilehash: 17bed17b536f6e88fc821fd83e09a1d6ea218bc3
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74130475"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Résolution des erreurs de passerelle incorrecte dans Application Gateway
@@ -20,7 +20,7 @@ Découvrez comment résoudre les erreurs de passerelle incorrecte (502) reçues 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Après avoir configuré une passerelle Application Gateway, vous pouvez rencontrer l’erreur « Erreur serveur 502 : 502 - Le serveur Web a reçu une réponse erronée lors de son utilisation en tant que passerelle ou serveur proxy », Cette erreur peut se produire pour les raisons suivantes :
 
@@ -33,7 +33,7 @@ Après avoir configuré une passerelle Application Gateway, vous pouvez rencontr
 
 ## <a name="network-security-group-user-defined-route-or-custom-dns-issue"></a>Problème de groupe de sécurité réseau, de routage défini par l’utilisateur ou de DNS personnalisé
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 si l’accès au serveur principal est bloqué à cause d’un groupe de sécurité réseau, d’un itinéraire défini par l’utilisateur ou d’un DNS personnalisé, les instances de la passerelle d’application ne peuvent pas atteindre le pool principal. Cela provoque des échecs de sondes, à l’origine des erreurs 502.
 
@@ -74,7 +74,7 @@ Le cas échéant, vérifiez que le serveur DNS peut résoudre correctement le no
 
 ## <a name="problems-with-default-health-probe"></a>Problèmes avec la sonde d’intégrité par défaut
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 Les erreurs 502 peuvent également indiquer que la sonde d’intégrité par défaut ne peut pas atteindre les machines virtuelles du serveur principal.
 
@@ -100,7 +100,7 @@ Le tableau suivant répertorie les valeurs associées à la sonde d’intégrit�
 
 ## <a name="problems-with-custom-health-probe"></a>Problèmes avec la sonde d’intégrité personnalisée
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 Les sondes d’intégrité personnalisées apportent davantage de flexibilité au comportement de contrôle par défaut. Lorsque vous utilisez des sondes personnalisées, vous pouvez configurer l’intervalle d’analyse, l’URL, le chemin à tester et le nombre de réponses en échec autorisé avant que l’instance de pool principal soit marquée comme étant défectueuse.
 
@@ -128,7 +128,7 @@ Vérifiez que la sonde d’intégrité personnalisée est correctement configur�
 
 ## <a name="request-time-out"></a>Délai d’attente de la demande
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 À réception d’une requête de l’utilisateur, la passerelle d’application applique les règles configurées à la demande et achemine cette demande à une instance de pool principal. Application Gateway observe un temps d’attente (configurable) pour recevoir une réponse de l’instance de serveur principal. Par défaut, cet intervalle est de **20** secondes. Si la passerelle d’application ne reçoit pas de réponse de l’application principale dans cet intervalle, la requête de l’utilisateur reçoit une erreur 502.
 
@@ -142,7 +142,7 @@ Application Gateway vous permet de configurer ce paramètre via BackendHttpSetti
 
 ## <a name="empty-backendaddresspool"></a>Pool d’adresses principal vide
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 Si la passerelle d’application ne dispose d’aucune machine virtuelle ou d’aucun groupe de machines virtuelles identiques configurés dans le pool d’adresses principal, elle ne peut pas acheminer les requêtes client et envoie alors une erreur de passerelle incorrecte.
 
@@ -184,7 +184,7 @@ BackendAddressPoolsText :
 
 ## <a name="unhealthy-instances-in-backendaddresspool"></a>Instances non intègres dans BackendAddressPool
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 Si aucune des instances de BackendAddressPool n’est intègre, la passerelle d’application ne dispose d’aucun serveur principal vers lequel acheminer la requête utilisateur. Cette situation peut se produire lorsque les instances de serveur principal sont intègres, mais que l’application requise n’est pas déployée.
 

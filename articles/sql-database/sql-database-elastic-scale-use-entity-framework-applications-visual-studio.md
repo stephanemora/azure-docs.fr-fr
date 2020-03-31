@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/04/2019
 ms.openlocfilehash: 1653a904875964d86864c59c718603a6dacdcbda
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77087185"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Bibliothèque cliente de la base de données élastique avec Entity Framework
@@ -44,10 +44,10 @@ Une fois ces bases de données créées, remplissez les espaces réservés dans 
 
 Les développeurs d'Entity Framework s'appuient sur l'un des quatre flux de travail suivants pour créer des applications et garantir la persistance pour les objets d'application :
 
-* **Code First (Nouvelle base de données)**  : le développeur EF crée le modèle dans le code de l’application dont EF se sert pour générer la base de données. 
-* **Code First (Base de données existante)**  : le développeur laisse EF générer le code d’application du modèle à partir d’une base de données existante.
-* **Model First** : le développeur crée le modèle dans le concepteur EF, puis EF crée la base de données à partir de ce modèle.
-* **Database First** : le développeur utilise les outils EF pour déduire le modèle à partir d’une base de données existante. 
+* **Code First (Nouvelle base de données)** : le développeur Entity Framework crée le modèle dans le code de l'application, puis Entity Framework génère la base de données à partir de celui-ci. 
+* **Code First (Base de données existante)** : le développeur laisse Entity Framework générer le code d'application du modèle à partir d'une base de données existante.
+* **Model First**: le développeur crée le modèle dans le concepteur d'Entity Framework, puis Entity Framework crée la base de données à partir de ce modèle.
+* **Database First**: le développeur utilise les outils Entity Framework pour déduire le modèle à partir d'une base de données existante. 
 
 Toutes ces approches s'appuient sur la classe DbContext pour gérer en toute transparence les connexions et le schéma de base de données d'une application. Les différents constructeurs de la classe de base DbContext permettent différents niveaux de contrôle sur la création de la connexion, l’amorçage de la base de données et la création du schéma. Les problèmes surviennent principalement en raison du fait que la gestion des connexions de base de données fournie par Entity Framework interfère avec les fonctionnalités de gestion des connexions des interfaces de routage dépendant des données fournies par la bibliothèque cliente de base de données élastique. 
 
@@ -63,10 +63,10 @@ Le gestionnaire des cartes de partitions empêche tout affichage incohérent des
 
 Lors de l’utilisation des API de la bibliothèque cliente de base de données élastique et des API Entity Framework, vous souhaitez conserver les propriétés suivantes : 
 
-* **Scale-out** : pour ajouter ou supprimer des bases de données de la couche Données de l’application partitionnée en fonction des besoins de capacité de l’application. Cela revient à contrôler la création et la suppression des bases de données et à utiliser les API du gestionnaire des cartes de partitions de la base de données élastique pour gérer les bases de données et les mappages des shardlets. 
+* **Montée en charge**: nous souhaitons ajouter ou supprimer des bases de données de la couche Données de l'application partitionnée si nécessaire pour les demandes de capacité de l'application. Cela revient à contrôler la création et la suppression des bases de données et à utiliser les API du gestionnaire des cartes de partitions de la base de données élastique pour gérer les bases de données et les mappages des shardlets. 
 * **Cohérence** : l’application utilise le partitionnement et les fonctionnalités de routage dépendant des données de la bibliothèque cliente. Pour éviter d'obtenir des résultats de requêtes incorrects ou altérés, les connections sont demandées via le gestionnaire des cartes de partitions. Cela maintient également la validation et la cohérence.
-* **Code First** : pour conserver le côté pratique du paradigme Code First d’EF. Dans Code First, les classes de l'application sont mappées en toute transparence vers les structures de base de données sous-jacentes. Le code d’application interagit avec les propriétés DbSet qui masquent la plupart des aspects impliqués dans le traitement de base de données sous-jacent.
-* **Schéma** : Entity Framework gère la création initiale des schémas de base de données ainsi que leur évolution ultérieure au fil des migrations. En gardant ces capacités, il est facile d'adapter votre application à mesure que les données évoluent. 
+* **Code First**: pour conserver la commodité du paradigme Code First d'Entity Framework. Dans Code First, les classes de l'application sont mappées en toute transparence vers les structures de base de données sous-jacentes. Le code d’application interagit avec les propriétés DbSet qui masquent la plupart des aspects impliqués dans le traitement de base de données sous-jacent.
+* **Schéma**: Entity Framework gère la création initiale de schémas de base de données et l'évolution subséquente des schémas via des migrations. En gardant ces capacités, il est facile d'adapter votre application à mesure que les données évoluent. 
 
 Le guide suivant indique comment répondre à ces impératifs pour les applications Code First à l'aide des outils de base de données élastique. 
 
@@ -197,14 +197,14 @@ Les exemples de code ci-dessus illustrent les réécritures de constructeur par 
 | MyContext(DbCompiledModel) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel) |DbContext(DbConnection, DbCompiledModel, bool) |La connexion est créée avec le modèle fourni pour la carte de partitions et la clé de partitionnement données. Le modèle compilé est transmis au c’tor de base. |
 | MyContext(DbConnection, bool) |ElasticScaleContext(ShardMap, TKey, bool) |DbContext(DbConnection, bool) |La connexion doit être déduite de la carte de partitions et de la clé. Elle ne peut pas être fournie comme entrée (sauf si cette entrée utilisait déjà la carte de partitions et la clé). La valeur booléenne est transmise. |
 | MyContext(string, DbCompiledModel) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel) |DbContext(DbConnection, DbCompiledModel, bool) |La connexion doit être déduite de la carte de partitions et de la clé. Elle ne peut pas être fournie comme entrée (sauf si cette entrée utilisait la carte de partitions et la clé). Le modèle compilé est transmis. |
-| MyContext(ObjectContext, bool) |ElasticScaleContext(ShardMap, TKey, ObjectContext, bool) |DbContext(ObjectContext, bool) |Le nouveau constructeur doit s'assurer que toute connexion dans ObjectContext transmise en tant qu'entrée est réacheminée vers une connexion gérée par une infrastructure élastique. Ce document ne contient pas de présentation détaillée d’ObjectContext. |
+| MyContext(ObjectContext, bool) |ElasticScaleContext(ShardMap, TKey, ObjectContext, bool) |DbContext(ObjectContext, bool) |Le nouveau constructeur doit garantir qu’aucune connexion dans ObjectContext transmise en tant qu’entrée est réacheminée vers une connexion gérée par une infrastructure élastique. Ce document ne contient pas de présentation détaillée d’ObjectContext. |
 | MyContext(DbConnection, DbCompiledModel, bool) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel, bool) |DbContext(DbConnection, DbCompiledModel, bool); |La connexion doit être déduite de la carte de partitions et de la clé. Elle ne peut pas être fournie comme entrée (sauf si cette entrée utilisait déjà la carte de partitions et la clé). Les valeurs Model et Boolean sont transmises au constructeur de classe de base. |
 
 ## <a name="shard-schema-deployment-through-ef-migrations"></a>Déploiement de schéma de partition via des migrations Entity Framework
 
 La gestion de schéma automatique est un avantage fourni par Entity Framework. Dans le contexte d’applications utilisant des outils de base de données élastique, vous souhaitez conserver cette fonctionnalité de provisionnement automatique du schéma pour les partitions récemment créées en cas d’ajout de bases de données à l’application partitionnée. Le cas d'usage principal correspond à l'augmentation de la capacité de la couche Données des applications partitionnées en utilisant EF. Le fait de s'appuyer sur les fonctionnalités d'Entity Framework pour la gestion des schémas permet de réduire l'effort d'administration de base de données grâce à une application partitionnée basée sur Entity Framework. 
 
-Le déploiement de schéma via des migrations EF fonctionne mieux sur des **connexions non ouvertes**. Ce comportement diffère de celui du scénario de routage dépendant des données qui s’appuie sur la connexion ouverte fournie par l’API cliente de la base de données élastique. Une autre différence se situe au niveau de l’exigence de cohérence : même s’il est tout indiqué de vérifier la cohérence pour toutes les connexions de routage dépendant des données afin de vous protéger contre la manipulation simultanée de cartes de partitions, ce problème ne concerne pas le déploiement de schéma initial vers une nouvelle base de données qui n’est pas encore inscrite dans la carte de partitions et qui n’a pas encore été allouée pour contenir des shardlets. Vous pouvez donc vous reposer sur des connexions de base de données standard pour ce scénario, et non sur le routage dépendant des données.  
+Le déploiement de schéma via des migrations EF fonctionne mieux sur des **connexions non ouvertes**. Ce comportement diffère de celui du scénario de routage dépendant des données qui s’appuie sur la connexion ouverte fournie par l’API cliente de la base de données élastique. Une autre différence se situe au niveau des besoins de cohérence : même s'il est souhaitable de garantir la cohérence pour toutes les connexions de routage dépendant des données afin de vous protéger contre la manipulation simultanée des cartes de partitions, ce problème ne concerne pas le déploiement de schéma initial vers une nouvelle base de données qui n'est pas encore inscrite dans la carte de partitions et n'a pas encore été allouée pour l'hébergement de shardlets. Vous pouvez donc vous reposer sur des connexions de base de données standard pour ce scénario, et non sur le routage dépendant des données.  
 
 Cela mène vers une approche où le déploiement de schéma via des migrations Entity Framework est étroitement lié à l'inscription de la nouvelle base de données en tant que partition dans la carte de partitions de l'application. Ceci nécessite les conditions préalables suivantes : 
 

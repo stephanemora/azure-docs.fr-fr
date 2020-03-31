@@ -7,18 +7,18 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: cherylmc
-ms.openlocfilehash: 47ee05113d46f66efd02978fed09cf72edc5ac1c
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: dcca1417aec52fb4bf99d5c480d81995154a68b0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77049936"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481974"
 ---
 # <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Configurer ExpressRoute Direct à l’aide d’Azure CLI
 
 Vous pouvez utiliser Azure ExpressRoute Direct pour vous connecter directement au réseau mondial Microsoft à partir d’emplacements de peering distribués stratégiquement dans le monde entier. Pour plus d’informations, consultez [À propos d’ExpressRoute Direct Connect](expressroute-erdirect-about.md).
 
-## <a name="resources"></a>Créer la ressource
+## <a name="create-the-resource"></a><a name="resources"></a>Créer la ressource
 
 1. Connectez-vous à Azure et sélectionnez l’abonnement qui contient ExpressRoute. La ressource ExpressRoute Direct et vos circuits ExpressRoute doivent se trouver dans le même abonnement. Dans Azure CLI, exécutez les commandes suivantes :
 
@@ -51,7 +51,7 @@ Vous pouvez utiliser Azure ExpressRoute Direct pour vous connecter directement a
 
    **Exemple de sortie**
   
-   ```azurecli
+   ```output
    [
    {
     "address": "21715 Filigree Court, DC2, Building F, Ashburn, VA 20147",
@@ -118,7 +118,7 @@ Vous pouvez utiliser Azure ExpressRoute Direct pour vous connecter directement a
 
    **Exemple de sortie**
 
-   ```azurecli
+   ```output
    {
    "address": "21715 Filigree Court, DC2, Building F, Ashburn, VA 20147",
    "availableBandwidths": [
@@ -156,7 +156,7 @@ Vous pouvez utiliser Azure ExpressRoute Direct pour vous connecter directement a
 
    **Exemple de sortie**
 
-   ```azurecli
+   ```output
    {
    "allocationDate": "Wednesday, October 17, 2018",
    "bandwidthInGbps": 100,
@@ -208,7 +208,7 @@ Vous pouvez utiliser Azure ExpressRoute Direct pour vous connecter directement a
    }  
    ```
 
-## <a name="state"></a>Modifier AdminState pour les liens
+## <a name="change-adminstate-for-links"></a><a name="state"></a>Modifier AdminState pour les liens
 
 Utilisez ce processus pour effectuer un test de la couche 1. Vérifiez que chaque connexion croisée est correctement corrigée dans chaque routeur des ports principaux et secondaires.
 
@@ -224,7 +224,7 @@ Utilisez ce processus pour effectuer un test de la couche 1. Vérifiez que chaq
    ```
    **Exemple de sortie**
 
-   ```azurecli
+   ```output
    {
    "allocationDate": "Wednesday, October 17, 2018",
    "bandwidthInGbps": 100,
@@ -278,7 +278,7 @@ Utilisez ce processus pour effectuer un test de la couche 1. Vérifiez que chaq
 
    Utilisez la même procédure pour désactiver les ports en utilisant `AdminState = "Disabled"`.
 
-## <a name="circuit"></a>Créer un circuit
+## <a name="create-a-circuit"></a><a name="circuit"></a>Créer un circuit
 
 Par défaut, vous pouvez créer 10 circuits dans l’abonnement qui contient la ressource ExpressRoute Direct. Le Support Microsoft peut relever la limite par défaut. Vous êtes chargé du suivi de la bande passante provisionnée et utilisée. La bande passante provisionnée est la somme de la bande passante de tous les circuits de la ressource ExpressRoute Direct. La bande passante utilisée est l’utilisation physique des interfaces physiques sous-jacentes.
 
@@ -297,7 +297,7 @@ Créez un circuit dans la ressource ExpressRoute Direct :
 
   **Exemple de sortie**
 
-  ```azurecli
+  ```output
   {
   "allowClassicOperations": false,
   "allowGlobalReach": false,

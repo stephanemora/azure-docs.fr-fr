@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à xMatters OnDemand | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à xMatters OnDemand | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et xMatters OnDemand.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
 ms.openlocfilehash: e8ae31122d59238ac104d7d873cf56f32977c9af
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67086514"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-xmatters-ondemand"></a>Didacticiel : Intégration d’Azure Active Directory à xMatters OnDemand
+# <a name="tutorial-azure-active-directory-integration-with-xmatters-ondemand"></a>Tutoriel : Intégration d’Azure Active Directory à xMatters OnDemand
 
 Dans ce didacticiel, vous allez découvrir comment intégrer xMatters OnDemand à Azure Active Directory (Azure AD).
 L’intégration de xMatters OnDemand à Azure AD vous offre les avantages suivants :
@@ -152,11 +152,11 @@ Pour configurer l’authentification unique Azure AD avec xMatters OnDemand, pro
 
 2. Dans la barre d’outils de la partie supérieure, cliquez sur **Admin**, puis sur **Company Details** dans la barre de navigation située à gauche.
 
-    ![Administrateur](./media/xmatters-ondemand-tutorial/IC776795.png "Administrateur")
+    ![Administrateur](./media/xmatters-ondemand-tutorial/IC776795.png "Admin")
 
 3. Dans la page **SAML Configuration** , procédez comme suit :
 
-    ![Configuration SAML](./media/xmatters-ondemand-tutorial/IC776796.png "Configuration SAML")
+    ![Configuration SAML](./media/xmatters-ondemand-tutorial/IC776796.png "SAML Configuration")
 
     a. Sélectionnez **Enable SAML**.
 
@@ -168,7 +168,7 @@ Pour configurer l’authentification unique Azure AD avec xMatters OnDemand, pro
 
     e. Dans la partie supérieure de la page Company Details, cliquez sur **Save Changes**.
 
-    ![Détails sur la société](./media/xmatters-ondemand-tutorial/IC776797.png "Détails sur la société")
+    ![Company details](./media/xmatters-ondemand-tutorial/IC776797.png "Détails sur l’entreprise")
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD 
 
@@ -188,7 +188,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez brittasimon@yourcompanydomain.extension. Par exemple, BrittaSimon@contoso.com
+    b. Dans le champ **Nom d’utilisateur**, tapez brittasimon@yourcompanydomain.extension. Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
@@ -234,7 +234,7 @@ L’objectif de cette section est de créer un utilisateur appelé Britta Simon 
 
 3. Dans la section **Add a User** , procédez comme suit :
 
-    ![Ajouter un utilisateur](./media/xmatters-ondemand-tutorial/IC781049.png "Ajouter un utilisateur")
+    ![Add a User](./media/xmatters-ondemand-tutorial/IC781049.png "Ajouter un utilisateur") (Ajouter un utilisateur)
 
     a. Sélectionnez **Active**.
 
@@ -260,5 +260,5 @@ Le fait de cliquer sur la vignette xMatters OnDemand dans le panneau d’accès 
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

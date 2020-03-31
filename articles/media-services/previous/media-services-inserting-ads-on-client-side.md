@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 274ee09ae98dd229b255e58261f462e322be9f89
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77565738"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>Insertion de publicités du côté client
@@ -31,7 +31,7 @@ Pour en savoir plus sur la prise en charge du sous-titrage codé et des publicit
 > 
 > 
 
-## <a id="insert_ads_into_media"></a>Insertion de publicités dans vos supports
+## <a name="inserting-ads-into-your-media"></a><a id="insert_ads_into_media"></a>Insertion de publicités dans vos supports
 Azure Media Services assure la prise en charge des insertions publicitaires via la plateforme Windows Media : Infrastructures de lecteur. Des infrastructures de lecteur avec prise en charge des publicités sont disponibles pour les périphériques Windows 8, Silverlight, Windows Phone 8 et iOS. Chaque infrastructure de lecteur contient un exemple de code qui montre comment implémenter une application de type lecteur. Il existe trois sortes de publicités différentes que vous pouvez insérer dans votre liste multimédia :
 
 * **Linéaire** : publicité en plein cadre qui interrompt la vidéo principale.

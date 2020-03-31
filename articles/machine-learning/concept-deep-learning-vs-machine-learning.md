@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 03/05/2020
-ms.openlocfilehash: a930dc3974536047096912505b9a786cf53c41b8
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.openlocfilehash: bcacf4ff66e114f65ac75f0aadd1564875f15f62
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78328589"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79501369"
 ---
 # <a name="deep-learning-vs-machine-learning"></a>Apprentissage profond et apprentissage automatique
 
@@ -120,4 +120,4 @@ Les articles suivants expliquent comment utiliser la technologie du deep learnin
 
 - [Classifier des chiffres manuscrits à l’aide d’un modèle Chainer](https://docs.microsoft.com/azure/machine-learning/how-to-train-chainer?WT.mc_id=docs-article-lazzeri)
 
-Utilisez également l’[Aide-mémoire de l’algorithme de Machine Learning](algorithm-cheat-sheet.md) pour choisir des algorithmes pour votre modèle.
+Utilisez également l’[Aide-mémoire de l’algorithme de Machine Learning](../synapse-analytics/sql-data-warehouse/cheat-sheet.md) pour choisir des algorithmes pour votre modèle.

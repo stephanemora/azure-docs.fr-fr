@@ -15,16 +15,16 @@ ms.date: 03/19/2019
 ms.author: juliako
 ms.reviewer: milanga
 ms.openlocfilehash: f4c021531a4d04bf16e5dbee4172952433f675d9
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77913002"
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>Détecter les mouvements avec Azure Media Analytics
 
 > [!NOTE]
-> Le processeur multimédia **Azure Media Motion Detector** va être mis hors service. Pour connaître les dates de mise hors service, consultez la rubrique [Composants hérités](legacy-components.md).
+> Le processeur multimédia **Azure Media Motion Detector** va être mis hors service. Pour connaître la date de mise hors service, consultez la rubrique [Composants hérités](legacy-components.md).
  
 ## <a name="overview"></a>Vue d’ensemble
 
@@ -37,7 +37,7 @@ Le processeur multimédia **Azure Media Motion Detector** est uniquement disponi
 Cet article fournit des informations détaillées sur **Azure Media Motion Detector** et illustre son utilisation avec le SDK Media Services pour .NET
 
 ## <a name="motion-detector-input-files"></a>Fichiers d’entrée du détecteur de mouvement
-Fichiers vidéo. Actuellement, les formats suivants sont pris en charge : MP4, MOV et WMV.
+Fichiers vidéo. Les formats suivants sont actuellement pris en charge : MP4, MOV et WMV.
 
 ## <a name="task-configuration-preset"></a>Configuration de la tâche (préconfiguration)
 Lors de la création d’une tâche de vidéo **Azure Media Motion Detector**, vous devez spécifier une présélection de configuration. 
@@ -45,12 +45,12 @@ Lors de la création d’une tâche de vidéo **Azure Media Motion Detector**, v
 ### <a name="parameters"></a>Paramètres
 Vous pouvez utiliser les paramètres suivants :
 
-| Nom | Options | Description | Default |
+| Name | Options | Description | Default |
 | --- | --- | --- | --- |
 | sensitivityLevel |String : « low », « medium », « high » |Définit le niveau de sensibilité auquel les mouvements sont signalés. Réglez cette option pour ajuster le nombre de faux positifs. |« medium » |
 | frameSamplingValue |Entier positif |Définit la fréquence d’exécution de l’algorithme. 1 = chaque trame, 2 = toutes les 2 trames, etc. |1 |
 | detectLightChange |Boolean : « True », « False » |Définit si des changements d’éclairage sont signalés dans les résultats. |« False » |
-| mergeTimeThreshold |Xs-time : hh:mm:ss<br/>Exemple : 00:00:03 |Spécifie la fenêtre de temps entre les événements de mouvement lorsque 2 événements sont combinés et signalés comme 1. |00:00:00 |
+| mergeTimeThreshold |Xs-time: Hh:mm:ss<br/>Exemple : 00:00:03 |Spécifie la fenêtre de temps entre les événements de mouvement lorsque 2 événements sont combinés et signalés comme 1. |00:00:00 |
 | detectionZones |Tableau de zones de détection :<br/>- Zone de détection est un tableau de 3 points ou plus<br/>- Point est une coordonnée x et y de 0 à 1. |Décrit la liste des zones de détection polygonale à utiliser.<br/>Les résultats sont signalés avec les zones en tant qu’ID, la première étant « id » :0 |Zone unique, couvrant la trame entière. |
 
 ### <a name="json-example"></a>Exemple JSON
@@ -90,7 +90,7 @@ Une tâche de détection de mouvement renvoie un fichier JSON dans l’élément
 
 L’API de détecteur de mouvement indique lorsqu’un mouvement a été détecté dans une vidéo d’arrière-plan fixe (par exemple, une vidéo de surveillance). Le détecteur de mouvement est optimisé pour réduire au minimum les fausses alertes, telles que les ombres et les variations d’éclairage. Les limitations actuelles des algorithmes incluent les vidéos en vision nocturne, les objets semi-transparents et les petits objets.
 
-### <a id="output_elements"></a>Éléments du fichier de sortie JSON
+### <a name="elements-of-the-output-json-file"></a><a id="output_elements"></a>Éléments du fichier de sortie JSON
 > [!NOTE]
 > Dans la dernière version, le format de sortie JSON a été modifié et peut représenter une rupture pour certains clients.
 > 

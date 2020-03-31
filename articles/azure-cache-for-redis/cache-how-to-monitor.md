@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/13/2017
 ms.openlocfilehash: 86cbeddba699e89ce1127dbac72dac81dcc41449
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76547487"
 ---
 # <a name="how-to-monitor-azure-cache-for-redis"></a>Surveillance du cache Azure pour Redis

@@ -1,19 +1,18 @@
 ---
 title: Client d'auto-test pour prévalider une machine virtuelle | Place de marché Azure
 description: Comment créer un client d’auto-test pour prévalider une image de machine virtuelle pour la Place de marché Azure.
-services: Azure, Marketplace, Cloud Partner Portal, Virtual Machine
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/23/2018
-ms.author: pabutler
-ms.openlocfilehash: fc62875873f38630e592c79aebd6a138665ed6e4
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: fb568400cb60f108303909353bfa703e98ab6157
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73809205"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80286419"
 ---
 # <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>Créer un client d’auto-test pour prévalider une image de machine virtuelle Azure
 
@@ -65,11 +64,11 @@ Le tableau suivant décrit les champs de l’API.
 
 |      Champ         |    Description    |
 |  ---------------   |  ---------------  |
-|  Authorization     |  La chaîne « Bearer xxxx-xxxx-xxxx-xxxxx » contient le jeton client Azure Active Directory (AD), qui peut être créé à l’aide de PowerShell.          |
+|  Autorisation     |  La chaîne « Bearer xxxx-xxxx-xxxx-xxxxx » contient le jeton client Azure Active Directory (AD), qui peut être créé à l’aide de PowerShell.          |
 |  DNSName           |  Nom DNS de la machine virtuelle à tester    |
 |  Utilisateur              |  Nom d’utilisateur pour la connexion à la machine virtuelle         |
 |  Mot de passe          |  Mot de passe pour la connexion à la machine virtuelle          |
-|  OS                |  Système d’exploitation de la machine virtuelle : soit `Linux` ou `Windows`          |
+|  Système d''exploitation                |  Système d’exploitation de la machine virtuelle : soit `Linux` ou `Windows`          |
 |  PortNo            |  Numéro du port ouvert pour la connexion à la machine virtuelle. Le numéro de port est généralement `22` pour Linux et `5986` pour Windows.          |
 |  |  |
 
@@ -220,7 +219,7 @@ La capture d’écran suivante montre les résultats JSON de l’appel de curl.
 
 Utilisez les étapes suivantes pour choisir le locataire Azure AD où vous voulez créer votre application.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Dans la barre de menus du haut, sélectionnez votre compte puis, dans la liste Répertoire, choisissez le locataire Active Directory auprès duquel vous voulez inscrire votre application. Vous pouvez aussi sélectionner l’icône **Répertoire + abonnement** pour afficher le filtre d’abonnement global. La capture d’écran suivante présente un exemple de ce filtre.
 
    ![Sélectionner le filtre d’abonnement](./media/stclient-subscription-filter.png)

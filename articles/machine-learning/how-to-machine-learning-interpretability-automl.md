@@ -10,12 +10,12 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: trbye
 ms.date: 10/25/2019
-ms.openlocfilehash: b2c7825b10feab45df9cb89dbe2b82da1c143866
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: e6fa3b9705fcd718f802b73560e7703b008af2b5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79129747"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80064007"
 ---
 # <a name="model-interpretability-in-automated-machine-learning"></a>Interprétabilité des modèles en Machine Learning automatisé
 
@@ -31,7 +31,7 @@ Dans cet article, vous apprendrez comment :
 - Activer les visualisations pour vous aider à voir les modèles dans les données et les explications.
 - Implémenter une interprétabilité pendant l’inférence ou le scoring.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Fonctionnalités d’interprétabilité. Exécutez `pip install azureml-interpret azureml-contrib-interpret` pour obtenir les packages nécessaires.
 - Des connaissances en matière de génération d’expériences de ML automatisé. Pour plus d’informations sur la façon d’utiliser le Kit de développement logiciel (SDK) Azure Machine Learning, suivez ce [tutoriel sur les modèles de régression](tutorial-auto-train-models.md) ou consultez la rubrique [Configurer des expériences de ML automatisé](how-to-configure-auto-train.md).

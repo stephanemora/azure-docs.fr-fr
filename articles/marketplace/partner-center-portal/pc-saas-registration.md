@@ -1,19 +1,18 @@
 ---
 title: Inscrire une application SaaS | Place de marché Microsoft Azure
 description: Explique comment inscrire une application SaaS à l’aide du portail Azure.
-services: Azure, Marketplace, Cloud Partner Portal, Azure portal
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/23/2019
-ms.author: evansma
-ms.openlocfilehash: b2e02e42ab63f893574ca5217fd2f36c7481aabd
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 9c20fe34e108de95a34aabea56390e8a6f0d858f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827940"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80275711"
 ---
 # <a name="register-a-saas-application"></a>Inscrire une application SaaS
 
@@ -33,20 +32,20 @@ Azure n’impose aucune contrainte sur l’authentification que le service SaaS 
 
 Toute application qui souhaite utiliser les fonctionnalités d’Azure AD doit d’abord être enregistrée dans un locataire Azure AD. Le processus d’enregistrement implique de fournir à Azure AD des informations sur votre application, notamment l’URL où elle est située, l’URL à laquelle envoyer une réponse après avoir authentifié un utilisateur, l’URI qui identifie l’application, et ainsi de suite.  Pour inscrire une nouvelle application à l’aide du portail Azure, procédez comme suit :
 
-1.  Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1.  Connectez-vous au [portail Azure](https://portal.azure.com/).
 2.  Si votre compte vous propose plusieurs accès, cliquez sur votre compte en haut à droite et définissez votre session de portail pour le locataire Azure AD souhaité.
 3.  Dans le volet de navigation gauche, cliquez sur le service **Azure Active Directory**, cliquez sur **Inscriptions des applications**, puis cliquez sur **Nouvelle inscription d’application**.
 
     ![Inscriptions des applications SaaS](./media/saas-offer-app-registration-v1.png)
 
 4.  Sur la page, saisissez les informations d\'inscription de votre application :
-    -   **Nom** : saisissez un nom d’application explicite
+    -   **Nom** : saisissez un nom d’application explicite
     -   **Type d’application** : 
         - Sélectionnez **Native** pour les [applications clientes](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) installées localement sur un appareil. Ce paramètre est utilisé pour les [clients natifs](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#native-client) publics OAuth.
         - Sélectionnez **Application Web / API** pour les [applications clientes](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) et les [ressources/applications API](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server) installées sur un serveur sécurisé. Ce paramètre est utilisé pour les [clients web](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client) confidentiels OAuth et les [clients basés sur un agent utilisateur](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client) publics.
         La même application peut également exposer un client et une ressource/API.
-    -   **URL de connexion** : pour des applications web app/API, indiquez l’URL de base de votre application. Par exemple, **http://localhost:31544** peut être l’URL pour une application web en cours d’exécution sur votre ordinateur local. Les utilisateurs peuvent alors utiliser cette URL pour se connecter à une application web cliente.
-    -   **URI de redirection** : pour des applications natives, indiquez l’URI utilisé par Azure AD pour retourner les réponses de jeton. Saisissez une valeur spécifique à votre application, par exemple **http://MyFirstAADApp** .
+    -   **URL de connexion** : pour les applications de type Application Web/API, indiquez l’URL de base de votre application. Par exemple, **http://localhost:31544** peut être l’URL pour une application web en cours d’exécution sur votre ordinateur local. Les utilisateurs peuvent alors utiliser cette URL pour se connecter à une application web cliente.
+    -   **URI de redirection** : pour les applications natives, indiquez un URI de redirection utilisé par Azure AD pour retourner les réponses de jeton. Saisissez une valeur spécifique à votre application, par exemple **http://MyFirstAADApp** .
 
         ![Inscriptions des applications SaaS](./media/saas-offer-app-registration-v1-2.png)
 

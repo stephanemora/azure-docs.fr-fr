@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ffb0f7cdb320d009eb1549efabac60d7710b9b0e
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.openlocfilehash: 88ae3c45126403161e35ec46e5ccc2666c3edb55
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79080091"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80050074"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Se connecter à une machine virtuelle Windows dans Azure via l’authentification Azure Active Directory (préversion)
 
@@ -177,7 +177,7 @@ Après quelques instants, le principal de sécurité est attribué au rôle dans
 
 L’exemple suivant illustre l’utilisation de la commande [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) pour attribuer le rôle Connexion de l’administrateur aux machines virtuelles à la machine virtuelle de votre utilisateur Azure actuel. Le nom d’utilisateur de votre compte Azure actif est obtenu à l’aide de la commande [az account show](/cli/azure/account#az-account-show), et l’étendue est définie sur la machine virtuelle créée lors d’une étape précédente avec [az vm show](/cli/azure/vm#az-vm-show). L’étendue peut également être attribuée au niveau d’un groupe de ressources ou d’un abonnement, et les autorisations d’héritage RBAC normales s’appliquent. Pour plus d’informations, consultez [Contrôle d’accès en fonction du rôle](../../virtual-machines/linux/login-using-aad.md).
 
-```   zureCLI
+```   AzureCLI
 username=$(az account show --query user.name --output tsv)
 vm=$(az vm show --resource-group myResourceGroup --name myVM --query id -o tsv)
 
@@ -278,7 +278,7 @@ Ce code de sortie se traduit par DSREG_E_MSI_TENANTID_UNAVAILABLE, car l’exten
 
 #### <a name="issue-2-aadloginforwindows-extension-fails-to-install-with-exit-code--2145648607"></a>Problème2 : Échec de l’installation de l’extension AADLoginForWindows avec le code de sortie :-2145648607.
 
-Ce code de sortie se traduit par DSREG_AUTOJOIN_DISC_FAILED, car l’extension n’est pas en mesure d’atteindre le point de terminaison https://enterpriseregistration.windows.net.
+Ce code de sortie se traduit par DSREG_AUTOJOIN_DISC_FAILED, car l’extension n’est pas en mesure d’atteindre le point de terminaison `https://enterpriseregistration.windows.net`.
 
 1. Vérifiez que les points de terminaison requis sont accessibles à partir de la machine virtuelle à l’aide de la ligne de commande :
 

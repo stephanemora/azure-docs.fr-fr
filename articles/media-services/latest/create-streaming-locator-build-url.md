@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 03/04/2020
 ms.author: juliako
 ms.openlocfilehash: 2972c60aa5874c21a6f7bce21020ad58b5f3b556
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78304372"
 ---
 # <a name="create-a-streaming-locator-and-build-urls"></a>Créer un localisateur de streaming et générer des URL
@@ -24,7 +24,7 @@ Dans Azure Media Services, pour générer une URL de streaming, vous devez d’a
 
 Cet article montre comment créer un localisateur de streaming et générer une URL à l’aide des kits SDK Java et .NET.
 
-## <a name="prerequisite"></a>Prérequis 
+## <a name="prerequisite"></a>Configuration requise 
 
 Passez en revue l’[empaquetage dynamique](dynamic-packaging-overview.md)
 

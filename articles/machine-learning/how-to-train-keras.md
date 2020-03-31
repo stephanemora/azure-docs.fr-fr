@@ -12,11 +12,11 @@ ms.reviewer: peterlu
 ms.date: 08/01/2019
 ms.custom: seodec18
 ms.openlocfilehash: ba7976d602412037578d0a324916718b2d515aac
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771783"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79232849"
 ---
 # <a name="train-and-register-a-keras-classification-model-with-azure-machine-learning"></a>Entraîner et enregistrer un modèle de classification Keras avec Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -29,7 +29,7 @@ Que vous développiez un modèle Keras de A à Z ou importiez un modèle existan
 
 Pour plus d’informations sur les différences entre l’apprentissage automatique et l’apprentissage approfondi, consultez l’[article conceptuel](concept-deep-learning-vs-machine-learning.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Exécutez ce code sur l’un de ces environnements :
 

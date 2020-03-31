@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.openlocfilehash: 3010c1d597907e7d5c7f82c8b42721dc1f934f6f
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74781857"
 ---
 # <a name="hdinsight-cluster-management-best-practices"></a>Bonnes pratiques pour la gestion des clusters HDInsight
@@ -23,12 +23,12 @@ Découvrez les bonnes pratiques à suivre pour gérer des clusters HDInsight.
 
 | Option | Documents |
 |---|---|
-| Azure Data Factory | [Créer des clusters Apache Hadoop à la demande dans HDInsight avec Azure Data Factory](./hdinsight-hadoop-create-linux-clusters-adf.md) |
+| Azure Data Factory | [Créer des clusters Apache Hadoop à la demande dans HDInsight avec Azure Data Factory](./hdinsight-hadoop-create-linux-clusters-adf.md) |
 | Personnaliser un modèle Resource Manager | [Créer des clusters Apache Hadoop dans HDInsight avec des modèles Resource Manager](./hdinsight-hadoop-create-linux-clusters-arm-templates.md) |
 | Modèles de démarrage rapide | [Modèles de démarrage rapide HDInsight](https://azure.microsoft.com/resources/templates/?term=hdinsight) |
 | Exemples Azure | [Exemples Azure HDInsight](https://docs.microsoft.com/samples/browse/?products=azure-hdinsight) |
 | Portail Azure | [Créer des clusters Linux dans HDInsight à l’aide du portail Azure](./spark/apache-spark-intellij-tool-plugin.md) |
-| D’Azure CLI | [Créer des clusters HDInsight à l’aide d’Azure CLI](./hdinsight-hadoop-create-linux-clusters-azure-cli.md) |
+| Azure CLI | [Créer des clusters HDInsight à l’aide d’Azure CLI](./hdinsight-hadoop-create-linux-clusters-azure-cli.md) |
 | Azure PowerShell | [Créer des clusters Linux dans HDInsight à l’aide d’Azure PowerShell](./hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |
 | cURL | [Créer des clusters Apache Hadoop à l’aide de l’API REST Azure](./hdinsight-hadoop-create-linux-clusters-curl-rest.md) |
 | SDK (.NET, Python, Java) | [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet), [Python](https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python), [Java](https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable), [Go](https://docs.microsoft.com/azure/hdinsight/hdinsight-go-sdk-overview) |
@@ -47,7 +47,7 @@ Découvrez les bonnes pratiques à suivre pour gérer des clusters HDInsight.
 
 ## <a name="what-are-some-errors-i-might-face-when-creating-clusters"></a>Quelles sont les erreurs susceptibles de se produire quand je crée des clusters ?
 
-| Error | Plus d’informations |
+| Error | Informations complémentaires |
 |---|---|
 | Aucun quota | Il y a des quotas limitant le nombre de quotas que vous pouvez créer sur votre abonnement dans chaque région. Pour plus d’informations, consultez [Planification de la capacité : quotas](./hdinsight-capacity-planning.md). |
 | Pas d’autres adresses IP disponibles | Chaque réseau virtuel peut avoir un nombre limité d’adresses IP. Quand vous créez un cluster HDInsight, chaque nœud (y compris les nœuds Zookeeper et de passerelle) utilise certaines de ces adresses IP allouées. Cette erreur se produit lorsque toutes les adresses IP sont déjà utilisées.  |

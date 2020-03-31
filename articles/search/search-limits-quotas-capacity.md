@@ -9,11 +9,11 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.openlocfilehash: 6ee339cb709a5d825b39b4accf294761c99ee41a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846288"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79236853"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Limites de service de la Recherche cognitive Azure
 
@@ -149,7 +149,7 @@ Les estimations sont plus prévisibles si elles sont calculées sur des services
 
 Pour les niveaux Stockage optimisé, attendez-vous à un plus faible débit des requêtes et à une latence plus élevée que les niveaux Standard.  La méthodologie pour estimer les performances des requêtes est la même que pour les niveaux Standard.
 
-## <a name="data-limits-ai-enrichment"></a>Limites de données (enrichissement par IA)
+## <a name="data-limits-ai-enrichment"></a>Limites de données (enrichissement de l’IA)
 
 Un [pipeline d’enrichissement par IA](cognitive-search-concept-intro.md) faisant appel à une ressource Analyse de texte pour la [reconnaissance d’entités](cognitive-search-skill-entity-recognition.md), l’[extraction de phrases clés](cognitive-search-skill-keyphrases.md), l’[analyse des sentiments](cognitive-search-skill-sentiment.md), la [détection de langue](cognitive-search-skill-language-detection.md) et la [détection PII](cognitive-search-skill-pii-detection.md) est sujet à des limites de données. La taille maximale d’un enregistrement doit être de 50 000 caractères telle que mesurée par [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Si vous avez besoin de découper vos données avant de les envoyer à l’Analyseur des sentiments, utilisez la [compétence Fractionnement du texte](cognitive-search-skill-textsplit.md).
 

@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à Zoom | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Zoom | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Zoom.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 09/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5f9d727154adf0a2099d7a9144c109cef9c91238
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "70743968"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zoom"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Zoom
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zoom"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Zoom
 
 Dans ce tutoriel, vous allez découvrir comment intégrer Zoom dans Azure Active Directory (Azure AD). Quand vous intégrez Zoom à Azure AD, vous pouvez :
 
@@ -140,13 +140,13 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 2. Cliquez sur l’onglet **Single Sign-On** .
 
-    ![Onglet Single Sign-On](./media/zoom-tutorial/ic784700.png "Single sign-on")
+    ![Onglet Single Sign-On](./media/zoom-tutorial/ic784700.png "Authentification unique")
 
 3. Cliquez sur l’onglet **Security Control**, puis accédez aux paramètres **Single Sign-On**.
 
 4. Dans la section Single Sign-On, procédez comme suit :
 
-    ![Section Single Sign-On](./media/zoom-tutorial/ic784701.png "Single sign-on")
+    ![Section Single Sign-On](./media/zoom-tutorial/ic784701.png "Authentification unique")
 
     a. Dans la zone de texte **URL de la page de connexion** , collez la valeur **URL de connexion** que vous avez copiée à partir du portail Azure.
 

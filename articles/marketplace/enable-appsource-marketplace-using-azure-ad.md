@@ -1,20 +1,18 @@
 ---
 title: Activer une liste Microsoft AppSource et Place de marché Microsoft Azure à l’aide d’Azure Active Directory | Azure
 description: Activer un type de liste à l’aide d’Azure Active Directory dans la Place de marché Azure et AppSource pour les éditeurs d’application et de service.
-services: Azure, AppSource, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
-manager: pabutler
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/12/2018
-ms.author: pabutler
-ms.openlocfilehash: 9423263270313659017b16a5e34511e7ef385af5
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 45855038e60dcdc3be4f98cfdceed69df5e8c946
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825885"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80286317"
 ---
 # <a name="enable-an-appsource-and-marketplace-listing-by-using-azure-active-directory"></a>Activer une liste AppSource et Place de marché en utilisant Azure Active Directory
 
@@ -39,7 +37,7 @@ Aux différents [types d’offre et options de référencement](https://docs.mic
 | Machine virtuelle | N/A | Non | Non | Non |
 | Applications Azure ( modèle de solution)  | N/A | N/A | N/A | N/A |
 | Applications managées  | N/A | N/A | N/A | Non |
-| SaaS  | Non | OUI | OUI | OUI |
+| SaaS  | Non | Oui | Oui | Oui |
 | Containers  | N/A | N/A | N/A | Non |
 | Services de conseil  | Non | N/A | N/A | N/A |
 

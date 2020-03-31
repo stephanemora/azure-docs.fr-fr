@@ -17,14 +17,14 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: b68d77bfdcf3fee0285b3c03ae0c598a3f6875c0
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 709926671e1ad4d8beefaf0f1cff4c56b1948ca3
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75531137"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80127367"
 ---
-# <a name="tutorial-push-notification-to-specific-android-application-users-by-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>Tutoriel : Notification push aux utilisateurs de l’application Android spécifique à l’aide d’Azure Notification Hubs et de Google Cloud Messaging (déconseillée)
+# <a name="tutorial-send-push-notification-to-specific-android-users-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>Tutoriel : Envoyer une notification Push à des utilisateurs Android spécifiques avec Azure Notification Hubs et Google Cloud Messaging (déprécié)
 
 > [!WARNING]
 > À compter du 10 avril 2018, Google a déconseillé Google Cloud Messaging (GCM). Le serveur GCM et les API clientes sont déconseillés et seront supprimés dès le 29 mai 2019. Pour plus d’informations, consultez [GCM et FCM dans la foire aux questions](https://developers.google.com/cloud-messaging/faq).
@@ -40,7 +40,7 @@ Dans ce tutoriel, vous effectuez les étapes suivantes :
 > * Mettre à jour une application Android.
 > * Test de l'application
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Suivre le [Tutoriel : Notifications Push vers des appareils Android avec Azure Notification Hubs et Google Cloud Messaging](notification-hubs-android-push-notification-google-gcm-get-started.md) avant de passer à ce tutoriel.
 

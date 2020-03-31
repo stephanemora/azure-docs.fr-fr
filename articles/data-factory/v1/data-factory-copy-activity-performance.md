@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 9ca44b1917cfaed5d01c31f8f06d98e5e4b611a8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c4ca328aa0ddc61d86a435b93fe775f294287b98
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438920"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79527382"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guide sur les performances et le réglage de l’activité de copie
 
@@ -274,7 +274,7 @@ Nous vous recommandons d’effectuer cette procédure pour régler les performan
 ## <a name="considerations-for-data-management-gateway"></a>Considérations relatives à la passerelle de gestion des données
 **Configuration de la passerelle** : nous vous recommandons d’utiliser un ordinateur dédié pour héberger la passerelle de gestion des données. Voir [Considérations relatives à l’utilisation de la passerelle de gestion des données](data-factory-data-management-gateway.md#considerations-for-using-gateway).
 
-**Supervision de la passerelle et scale-up/out** : une seule passerelle logique comportant un ou plusieurs nœuds de passerelle peut traiter simultanément plusieurs exécutions de l’activité de copie. Vous pouvez afficher un instantané en temps quasi réel de l’utilisation des ressources (processeur, mémoire, réseau (entrant/sortant), etc.) sur un ordinateur de passerelle, et voir le nombre de travaux simultanés en cours d’exécution par rapport à la limite dans le portail Azure. Voir [Surveillance de la passerelle dans le portail](data-factory-data-management-gateway.md#monitor-gateway-in-the-portal). Si vous avez besoin de déplacer des données hybrides avec de nombreuses exécutions d’activité de copie simultanées ou avec un gros volume de données à copier, vous devriez envisager [d’augmenter la taille des instances de passerelle](data-factory-data-management-gateway-high-availability-scalability.md#scale-considerations) afin de mieux utiliser vos ressources ou de configurer plus de ressources pour répondre à vos besoins de copie.
+**Supervision de la passerelle et scale-up/out** : une seule passerelle logique comportant un ou plusieurs nœuds de passerelle peut traiter simultanément plusieurs exécutions de l’activité de copie. Vous pouvez afficher un instantané en temps quasi réel de l’utilisation des ressources (processeur, mémoire, réseau (entrant/sortant), etc.) sur un ordinateur de passerelle, et voir le nombre de travaux simultanés en cours d’exécution par rapport à la limite dans le portail Azure. Voir [Surveillance de la passerelle dans le portail](data-factory-data-management-gateway.md#monitor-gateway-in-the-portal). Si vous avez besoin de déplacer des données hybrides avec de nombreuses exécutions d’activité de copie simultanées ou avec un gros volume de données à copier, vous devriez envisager [d’effectuer un scale-up ou un scale-out de la passerelle](data-factory-data-management-gateway-high-availability-scalability.md#scale-considerations) afin de mieux utiliser vos ressources ou de configurer plus de ressources pour répondre à vos besoins de copie.
 
 ## <a name="considerations-for-the-source"></a>Considérations relatives à la source
 ### <a name="general"></a>Général
@@ -419,7 +419,7 @@ Voici des références relatives à la surveillance et au réglage des performan
 * Stockage Blob Azure : [Objectifs de performance et de scalabilité pour le stockage d’objets blob](../../storage/blobs/scalability-targets.md) et [Liste de contrôle des performances et de la scalabilité pour le stockage d’objets blob](../../storage/blobs/storage-performance-checklist.md).
 * Stockage Table Azure : [Objectifs de performance et de scalabilité pour le stockage Table](../../storage/tables/scalability-targets.md) et [Liste de contrôle des performances et de la scalabilité pour le stockage Table](../../storage/tables/storage-performance-checklist.md).
 * Azure SQL Database : vous pouvez [surveiller les performances](../../sql-database/sql-database-single-database-monitor.md) et vérifier le pourcentage de l’unité de transaction de base de données (DTU)
-* Azure SQL Data Warehouse : sa capacité est mesurée en Data Warehouse Units (DWU) ; voir [Gestion de la puissance de calcul dans Azure SQL Data Warehouse (Vue d’ensemble)](../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)
+* Azure SQL Data Warehouse : sa capacité est mesurée en Data Warehouse Units (DWU) ; voir [Gestion de la puissance de calcul dans Azure SQL Data Warehouse (Vue d’ensemble)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)
 * Azure Cosmos DB : [Niveaux de performances dans Azure Cosmos DB](../../cosmos-db/performance-levels.md)
 * Serveur SQL Server local : [Surveillance et réglage des performances](https://msdn.microsoft.com/library/ms189081.aspx)
 * Serveur de fichiers local : [Réglage des performances des serveurs de fichiers](https://msdn.microsoft.com/library/dn567661.aspx)

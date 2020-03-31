@@ -1,19 +1,18 @@
 ---
 title: Fournisseurs de solutions cloud | Place de marché Azure
 description: Les éditeurs peuvent maintenant proposer leurs offres via le canal partenaire Fournisseur de solutions cloud (CSP) Microsoft.
-services: Azure, Marketplace, Compute, Storage, Networking, Partner Center
-author: ChJenk
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/12/2019
-ms.author: v-chjen
-ms.openlocfilehash: 546702af671cfe9506a4fc0448f40b7b8353960c
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.author: dsindona
+ms.openlocfilehash: 9d7cbdd5ad551ba48f08f62237d5384aa7998fb8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038795"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80281661"
 ---
 # <a name="cloud-solution-providers"></a>Fournisseurs de solutions cloud
 

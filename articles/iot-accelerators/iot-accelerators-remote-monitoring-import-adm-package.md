@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 11/29/2018
 ms.topic: conceptual
 ms.openlocfilehash: 8100914e9a1d1489cb80de55a689e17f6d28a941
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61443331"
 ---
 # <a name="import-an-automatic-device-management-package-into-your-remote-monitoring-solution-accelerator"></a>Importer un package de gestion automatique des appareils dans votre accélérateur de solution de supervision à distance
@@ -47,7 +47,7 @@ Vous disposez maintenant d’un fichier qui contient la configuration de la gest
 
 Suivez les étapes ci-dessous pour importer une configuration de gestion automatique des appareils en tant que package dans votre solution :
 
-1. Accédez à la page **Packages** dans l’interface utilisateur web de la supervision à distance :  ![Page Packages](media/iot-accelerators-remote-monitoring-import-adm-package/packagepage.png)
+1. Accédez à la page **Packages** dans l’interface utilisateur web de la supervision à distance : ![Page Packages](media/iot-accelerators-remote-monitoring-import-adm-package/packagepage.png)
 
 1. Cliquez sur **+ Nouveau package**, choisissez **Configuration** comme type de package, puis cliquez sur **Parcourir** pour sélectionner le fichier **configuration.json** que vous avez enregistré dans la section précédente :
 

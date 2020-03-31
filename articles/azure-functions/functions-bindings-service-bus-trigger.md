@@ -7,10 +7,10 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.openlocfilehash: 1ead7fcd9d474369e3a62e372a971d88d26f4e9c
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78273567"
 ---
 # <a name="azure-service-bus-trigger-for-azure-functions"></a>Déclencheur Azure Service Bus pour Azure Functions
@@ -256,7 +256,7 @@ Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), util
 
 Le compte Service Bus à utiliser est déterminé dans l’ordre suivant :
 
-* La propriété `Connection` de l’attribut `ServiceBusTrigger`.
+* La propriété `ServiceBusTrigger` de l’attribut `Connection`.
 * L’attribut `ServiceBusAccount` appliqué au même paramètre que l’attribut `ServiceBusTrigger`.
 * L’attribut `ServiceBusAccount` appliqué à la fonction.
 * L’attribut `ServiceBusAccount` appliqué à la classe.

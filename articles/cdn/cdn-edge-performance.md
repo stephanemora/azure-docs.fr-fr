@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: b8a65d4ae6aaac78e642c851a66b745a940fa0ad
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593894"
 ---
 # <a name="analyze-edge-node-performance-in-microsoft-azure-cdn"></a>Analyser les performances du nœud de périmètre dans Microsoft Azure CDN
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Edge Performance Analytics fournit des informations précises sur le trafic et la bande passante utilisés pour le CDN. Ces informations peuvent ensuite être exploitées pour générer des statistiques de tendances, ce qui vous permet d’obtenir des informations sur la manière dont vos ressources sont mises en cache et distribuées à vos clients. Vous pouvez ensuite formuler une stratégie sur la façon d’optimiser la distribution de votre contenu et déterminer les problèmes à résoudre afin de mieux tirer parti du CDN. Vous pourrez ainsi non seulement améliorer les performances de diffusion des données mais également réduire vos coûts CDN.
 
 > [!NOTE]
@@ -55,7 +55,7 @@ Ce tableau de bord se décompose comme suit :
     ![Bouton de gestion du panneau de profil CDN](./media/cdn-edge-performance/cdn-manage-btn.png)
    
     Le portail de gestion CDN s'ouvre.
-2. Pointez sur l’onglet **Analytics** puis sur le menu volant **Analyse des performances de périmètre**.  Cliquez sur **Tableau de bord**.
+2. Pointez sur l’onglet **Analytics**, puis sur le menu volant **Analyse des performances de périmètre**.  Cliquez sur **Tableau de bord**.
    
     Le tableau de bord d’analyse des nœuds de périmètre s’affiche.
 
@@ -70,10 +70,10 @@ Le tableau de bord contient un graphique qui assure le suivi d’une mesure pend
 * Cliquez sur View One Year Ago pour superposer sur le graphique l’activité de l’année précédente sur la même période de temps. Ce type de comparaison permet de connaître les modèles d’utilisation à long terme du CDN. La partie en haut à droite du graphique contient une légende indiquant le code couleur pour chaque graphique linéaire.
 
 #### <a name="updating-the-chart"></a>Mise à jour du graphique
-* Intervalle de temps : Effectuez une des opérations suivantes :
+* Time Range : effectuez l’une des opérations suivantes :
   * Sélectionnez la région souhaitée dans la chronologie. Le graphique sera actualisé avec les données correspondant à la période sélectionnée.
   * Double-cliquez sur le graphique pour afficher toutes les données historiques disponibles sur une période maximum de deux ans.
-* Mesure : cliquez sur l’icône de graphique qui s’affiche en regard de la mesure souhaitée. Le graphique et la chronologie seront actualisés avec les données de la mesure correspondante.
+* Metric : cliquez sur l’icône de graphique qui s’affiche en regard de la mesure souhaitée. Le graphique et la chronologie seront actualisés avec les données de la mesure correspondante.
 
 ### <a name="key-metrics-and-statistics"></a>Statistiques et mesures clés
 #### <a name="efficiency-metrics"></a>Mesures de l’efficacité
@@ -171,7 +171,7 @@ Chaque rapport de ce module contient un graphique et des statistiques sur l’ut
 | User Agent |Contient un graphique à barres affichant les 10 principaux agents utilisateurs qui demandent du contenu via notre CDN. En règle générale, un agent utilisateur est un navigateur web, un lecteur multimédia ou un navigateur de téléphone mobile. Les statistiques correspondant aux 100 premiers agents utilisateurs s’affichent directement sous ce graphique. |
 | Referrers |Contient un graphique à barres affichant les 10 principales références au contenu consulté via notre CDN. En règle générale, une référence correspond à l’URL de la page web ou d’une ressource comportant un lien vers votre contenu. Des informations détaillées sont fournies sous le graphique pour les 100 principales références. |
 | Compression Types |Contient un graphique en anneau qui répartit les ressources demandées selon qu’elles ont été ou non compressées par nos serveurs Edge. Le pourcentage de ressources compressées est réparti selon le type de compression utilisé. Des informations détaillées sont fournies sous le graphique pour chaque type de compression et pour chaque état. |
-| File Types |Contient un graphique à barres qui affiche les 10 principaux types de fichiers qui ont été demandés via notre CDN pour votre compte. Dans le cadre de ce rapport, un type de fichier est défini par l’extension du nom de fichier de la ressource et par le type de support Internet (par exemple, .html \[texte/html\], .htm \[texte/html\], .aspx \[texte/html\], etc.). Des informations détaillées sont fournies sous le graphique pour les 100 principaux types de fichiers. |
+| Types de fichiers |Contient un graphique à barres qui affiche les 10 principaux types de fichiers qui ont été demandés via notre CDN pour votre compte. Dans le cadre de ce rapport, un type de fichier est défini par l’extension du nom de fichier de la ressource et par le type de support Internet (par exemple, .html \[texte/html\], .htm \[texte/html\], .aspx \[texte/html\], etc.). Des informations détaillées sont fournies sous le graphique pour les 100 principaux types de fichiers. |
 | Unique Files |Contient un graphique représentant le nombre total de ressources uniques qui ont été demandées sur une journée donnée au cours d’une période de temps spécifiée. |
 | Token Auth Summary |Contient un graphique à secteurs décrivant brièvement si les ressources demandées étaient ou non protégées par une authentification par jeton. Les ressources protégées s’affichent sur le graphique en fonction des résultats de leur tentative d’authentification. |
 | Token Auth Deny Details |Contient un graphique à barres qui vous permet d’afficher les 10 principales demandes refusées en raison de l’authentification par jeton. |

@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 04/05/2019
 ms.author: memildin
 ms.openlocfilehash: 792b95b120f67afcd360730acbd783a3071388b2
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77431483"
 ---
 # <a name="protect-your-network-resources"></a>Protéger vos ressources réseau
@@ -79,9 +79,9 @@ Dans l’affichage **Topologie** du mappage réseau, vous pouvez afficher les ap
 
 1. Vous pouvez modifier ce que vous voyez sur le mappage réseau à l’aide de filtres en haut. Vous pouvez centrer le mappage sur :
 
-   -  **Intégrité de la sécurité** : Vous pouvez filtrer le mappage selon la gravité (haute, moyenne, faible) de vos ressources Azure.
-   - **Suggestions** : Vous pouvez sélectionner les ressources qui sont affichées selon les suggestions actives sur ces ressources. Par exemple, vous pouvez afficher uniquement les ressources pour lesquels Security Center vous recommande d’activer des groupes de sécurité réseau.
-   - **Zones de réseau** : Par défaut, le mappage affiche uniquement les ressources accessibles sur Internet. Vous pouvez également sélectionner les machines virtuelles internes.
+   -  **Intégrité de la sécurité** : vous pouvez filtrer le mappage selon la gravité (haute, moyenne, faible) de vos ressources Azure.
+   - **Suggestions** : vous pouvez sélectionner les ressources qui sont affichées selon les suggestions actives sur ces ressources. Par exemple, vous pouvez afficher uniquement les ressources pour lesquels Security Center vous recommande d’activer des groupes de sécurité réseau.
+   - **Zones de réseau** : par défaut, le mappage affiche uniquement les ressources accessibles sur Internet. Vous pouvez également sélectionner les machines virtuelles internes.
  
 2. Vous pouvez cliquer sur **Réinitialiser** dans le coin supérieur gauche à tout moment pour retourner le mappage à son état par défaut.
 
@@ -114,7 +114,7 @@ Pour explorer une ressource au niveau du détail :
 [![Mappage de trafic réseau](./media/security-center-network-recommendations/network-map-traffic.png)](./media/security-center-network-recommendations/network-map-traffic.png#lightbox)
 
 
-## Mise en réseau héritée <a name ="legacy-networking"></a>
+## <a name="legacy-networking"></a>Mise en réseau héritée <a name ="legacy-networking"></a>
 
 Si vous n’avez pas le niveau Standard de Security Center, cette section explique comment afficher les suggestions de mise en réseau gratuites.
 

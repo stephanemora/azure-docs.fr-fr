@@ -10,12 +10,12 @@ ms.date: 12/18/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 63075152ea4b3bf1a3aa208cf2a9642ef46642db
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5250a27e6c5fcf012207f1edb95ad46c0aabfe63
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75371771"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79536171"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-powershell"></a>Créer une SAP de délégation d’utilisateur pour un conteneur ou un objet blob avec PowerShell
 
@@ -121,7 +121,7 @@ New-AzStorageContainerSASToken -Context $ctx `
 
 Le jeton SAS de délégation d’utilisateur retourné sera semblable à ce qui suit :
 
-```
+```output
 ?sv=2018-11-09&sr=c&sig=<sig>&skoid=<skoid>&sktid=<sktid>&skt=2019-08-05T22%3A24%3A36Z&ske=2019-08-07T07%3A
 00%3A00Z&sks=b&skv=2018-11-09&se=2019-08-07T07%3A00%3A00Z&sp=rwdl
 ```
@@ -143,7 +143,7 @@ New-AzStorageBlobSASToken -Context $ctx `
 
 L’URI de SAP de délégation d’utilisateur retournée sera semblable à ce qui suit :
 
-```
+```output
 https://storagesamples.blob.core.windows.net/sample-container/blob1.txt?sv=2018-11-09&sr=b&sig=<sig>&skoid=<skoid>&sktid=<sktid>&skt=2019-08-06T21%3A16%3A54Z&ske=2019-08-07T07%3A00%3A00Z&sks=b&skv=2018-11-09&se=2019-08-07T07%3A00%3A00Z&sp=racwd
 ```
 

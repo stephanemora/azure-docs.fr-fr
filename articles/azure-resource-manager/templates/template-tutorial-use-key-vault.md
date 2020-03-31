@@ -6,16 +6,16 @@ ms.date: 05/23/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: bae67b0177823ab4558085db67423edea062fa3c
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: a305914c5c870543e16c515880955693c2634044
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250072"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80239179"
 ---
-# <a name="tutorial-integrate-azure-key-vault-in-your-resource-manager-template-deployment"></a>Tutoriel : Intégrer Azure Key Vault à votre déploiement de modèle Resource Manager
+# <a name="tutorial-integrate-azure-key-vault-in-your-arm-template-deployment"></a>Tutoriel : Intégrer Azure Key Vault à votre déploiement de modèle ARM
 
-Découvrez comment récupérer les secrets d’un coffre de clés Azure Key Vault et comment les passer en tant que paramètres quand vous déployez Azure Resource Manager. La valeur du paramètre n’est jamais exposée, car vous référencez uniquement son ID de coffre de clés. Pour plus d’informations, consultez l’article [Utiliser Azure Key Vault pour transmettre une valeur de paramètre sécurisée pendant le déploiement](./key-vault-parameter.md).
+Découvrez comment récupérer les secrets d’un coffre de clés Azure et les passer en tant que paramètres quand vous déployez un modèle Azure Resource Manager (ARM). La valeur du paramètre n’est jamais exposée, car vous référencez uniquement son ID de coffre de clés. Pour plus d’informations, consultez l’article [Utiliser Azure Key Vault pour transmettre une valeur de paramètre sécurisée pendant le déploiement](./key-vault-parameter.md).
 
 Dans le tutoriel [Définir l’ordre de déploiement des ressources](./template-tutorial-create-templates-with-dependent-resources.md), vous créez une machine virtuelle. Vous devez fournir le nom d’utilisateur et le mot de passe de l’administrateur de la machine virtuelle. Au lieu de fournir le mot de passe, vous pouvez le stocker au préalable dans le coffre de clés Azure Key Vault. Il vous suffit ensuite de personnaliser le modèle pour récupérer le mot de passe à partir du coffre de clés au cours du déploiement.
 
@@ -39,7 +39,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléments suivants :
 
-* Visual Studio Code avec l’extension Outils Resource Manager. Consultez [Utiliser Visual Studio Code pour créer des modèles Azure Resource Manager](use-vs-code-to-create-template.md).
+* Visual Studio Code avec l’extension Outils Resource Manager. Consultez [Utiliser Visual Studio Code pour créer des modèles ARM](use-vs-code-to-create-template.md).
 * Pour une sécurité optimale, utilisez un mot de passe généré pour le compte administrateur de la machine virtuelle. Voici un exemple de génération de mot de passe :
 
     ```console
@@ -49,7 +49,7 @@ Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléme
 
 ## <a name="prepare-a-key-vault"></a>Préparer un coffre de clés
 
-Dans cette section, vous créez un coffre de clés auquel vous ajoutez un secret pour pouvoir le récupérer quand vous déployez votre modèle. Il existe de nombreuses façons de créer un coffre de clés. Dans ce tutoriel, vous utilisez Azure PowerShell pour déployer un [modèle Resource Manager](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorials-use-key-vault/CreateKeyVault.json). Ce modèle effectue les actions suivantes :
+Dans cette section, vous créez un coffre de clés auquel vous ajoutez un secret pour pouvoir le récupérer quand vous déployez votre modèle. Il existe de nombreuses façons de créer un coffre de clés. Dans ce tutoriel, vous utilisez Azure PowerShell pour déployer un [modèle ARM](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorials-use-key-vault/CreateKeyVault.json). Ce modèle effectue les actions suivantes :
 
 * Crée un coffre de clés avec activation de la propriété `enabledForTemplateDeployment`. Cette propriété doit avoir la valeur *true* pour que le processus de déploiement de modèle puisse accéder aux secrets définis dans le coffre de clés.
 * Ajoute un secret au coffre de clés. Le secret stocke le mot de passe d’administrateur de la machine virtuelle.
@@ -97,7 +97,7 @@ Vous avez préparé un coffre de clés et un secret. Les sections suivantes expl
 
 ## <a name="open-a-quickstart-template"></a>Ouvrir un modèle de démarrage rapide
 
-Le référentiel Modèles de démarrage rapide Azure contient les modèles Resource Manager. Au lieu de créer un modèle à partir de zéro, vous pouvez chercher un exemple de modèle et le personnaliser. Le modèle utilisé dans ce tutoriel se nomme [Déployer une machine virtuelle Windows simple](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
+Le dépôt Modèles de démarrage rapide Azure contient les modèles ARM. Au lieu de créer un modèle à partir de zéro, vous pouvez chercher un exemple de modèle et le personnaliser. Le modèle utilisé dans ce tutoriel se nomme [Déployer une machine virtuelle Windows simple](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
 1. Dans Visual Studio Code, sélectionnez **Fichier** > **Ouvrir un fichier**.
 
@@ -107,7 +107,7 @@ Le référentiel Modèles de démarrage rapide Azure contient les modèles Resou
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
     ```
 
-1. Sélectionnez **Ouvrir** pour ouvrir le fichier. Le scénario est identique à celui utilisé dans [Tutoriel : Créer des modèles Azure Resource Manager avec des ressources dépendantes](./template-tutorial-create-templates-with-dependent-resources.md).
+1. Sélectionnez **Ouvrir** pour ouvrir le fichier. Le scénario est identique à celui utilisé dans [Tutoriel : Créer des modèles ARM avec des ressources dépendantes](./template-tutorial-create-templates-with-dependent-resources.md).
    Le modèle définit cinq ressources :
 
    * `Microsoft.Storage/storageAccounts`. Consultez la [référence de modèle](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).

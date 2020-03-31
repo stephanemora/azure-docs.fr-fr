@@ -1,5 +1,5 @@
 ---
-title: Envoyer des notifications Push vers Android avec Azure Notification Hubs et Firebase Cloud Messaging | Microsoft Docs
+title: Envoyer des notifications Push à Android avec Azure Notification Hubs et Firebase | Microsoft Docs
 description: Dans ce didacticiel, vous découvrirez comment utiliser Azure Notification Hubs et Google Firebase Cloud Messaging pour envoyer des notifications Push à des appareils Android.
 services: notification-hubs
 documentationcenter: android
@@ -18,14 +18,14 @@ ms.date: 09/11/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 09/11/2019
-ms.openlocfilehash: 1af109405118754daa08adf848f1da3f04534455
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: e0682a33540cafd8ebab1bb248d462b30ee4dc2a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387503"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80127535"
 ---
-# <a name="tutorial-send-push-notifications-to-android-devices-using-google-firebase-cloud-messaging"></a>Didacticiel : Envoyer des notifications Push aux appareils Android à l’aide de Google Firebase Cloud Messaging
+# <a name="tutorial-send-push-notifications-to-android-devices-using-firebase"></a>Tutoriel : Envoyer des notifications Push aux appareils Android à l’aide de Firebase
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -44,7 +44,7 @@ Dans ce tutoriel, vous effectuez les étapes suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour suivre ce didacticiel, vous avez besoin d'un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/free/). 
+Pour suivre ce didacticiel, vous avez besoin d'un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. Pour plus d’informations, consultez [Essai gratuit Azure](https://azure.microsoft.com/free/). 
 
 Vous devez également disposer des éléments suivants : 
 
@@ -86,7 +86,7 @@ Vous devez suivre ce didacticiel avant tous les autres didacticiels Notification
 
 Votre hub est désormais configuré pour fonctionner avec Firebase Cloud Messaging. Vous disposez également des chaînes de connexion nécessaires pour envoyer des notifications à un appareil et inscrire une application pour recevoir des notifications.
 
-## <a id="connecting-app"></a>Connexion de votre application au hub de notification
+## <a name="connect-your-app-to-the-notification-hub"></a><a id="connecting-app"></a>Connexion de votre application au hub de notification
 
 ### <a name="add-google-play-services-to-the-project"></a>Ajout de services Google Play au projet
 
@@ -177,8 +177,8 @@ Votre hub est désormais configuré pour fonctionner avec Firebase Cloud Messagi
 
     Veillez à mettre à jour ces trois espaces réservés dans le code suivant pour la classe `NotificationSettings` :
 
-   * **HubListenConnectionString** : chaîne de connexion **DefaultListenAccessSignature** de votre hub. Vous pouvez copier cette chaîne de connexion en cliquant sur **Stratégies d’accès** dans votre hub sur le [portail Azure].
-   * **HubName** : utilisez le nom qui s’affiche dans la page du hub sur le [portail Azure].
+   * **HubListenConnectionString** : chaîne de connexion **DefaultListenAccessSignature** de votre hub. Vous pouvez copier cette chaîne de connexion en cliquant sur **Stratégies d’accès** dans votre hub sur le [Azure portal].
+   * **HubName** : utilisez le nom qui s’affiche dans la page du hub sur le [Azure portal].
 
      `NotificationSettings` code :
 
@@ -407,7 +407,7 @@ Votre hub est désormais configuré pour fonctionner avec Firebase Cloud Messagi
     }
     ```
 
-9. La méthode `ToastNotify` utilise le contrôle *« Hello World »* `TextView` pour afficher en permanence un rapport d’état et des notifications dans l’application. Dans votre disposition **res** > **layout** > **activity_main.xml**, ajoutez l’ID suivant pour ce contrôle.
+9. La méthode `ToastNotify` utilise le contrôle *« Hello World »* `TextView` pour afficher en permanence un rapport d’état et des notifications dans l’application. Dans votre disposition **res** > **layout** > **activity_main.xml**, ajoutez l’ID suivant pour ce contrôle.
 
     ```java
     android:id="@+id/text_hello"
@@ -540,7 +540,7 @@ Votre hub est désormais configuré pour fonctionner avec Firebase Cloud Messagi
 
 ## <a name="test-send-notification-from-the-notification-hub"></a>Test de l’envoi d’une notification à partir du hub de notification
 
-Vous pouvez envoyer des notifications Push à partir du [portail Azure] en procédant comme suit :
+Vous pouvez envoyer des notifications Push à partir du [Azure portal] en procédant comme suit :
 
 1. Sur le portail Azure, dans la page Hub de notification de votre hub, dans la section **Dépannage**, sélectionnez **Envoi de test**.
 3. Pour les **plateformes**, sélectionnez **Android**.
@@ -564,7 +564,7 @@ Vérifiez aussi que vous avez ajouté votre compte Google à l’émulateur en c
 Dans ce didacticiel, vous avez utilisé Firebase Cloud Messaging pour diffuser des notifications à tous les appareils Android inscrits auprès du service. Pour savoir comment envoyer des notifications Push à des appareils spécifiques, passez au didacticiel suivant :
 
 > [!div class="nextstepaction"]
->[Tutoriel : Notifications Push sur des appareils Android spécifiques](push-notifications-android-specific-devices-firebase-cloud-messaging.md)
+>[Tutoriel : Notifications Push sur des appareils Android spécifiques](push-notifications-android-specific-devices-firebase-cloud-messaging.md)
 
 <!-- Images. -->
 
@@ -573,4 +573,4 @@ Dans ce didacticiel, vous avez utilisé Firebase Cloud Messaging pour diffuser d
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Referencing a library project]: https://go.microsoft.com/fwlink/?LinkId=389800
 [Notification Hubs Guidance]: notification-hubs-push-notification-overview.md
-[Portail Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com

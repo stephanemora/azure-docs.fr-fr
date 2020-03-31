@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 02/18/2020
+ms.date: 03/13/2020
 ms.author: victorh
-ms.openlocfilehash: 0ba2ce30cee3ff7e3a9f71b4f1b0928fa84e775d
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 149782f627d586e927c828506a7d4f1b5437b987
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77443145"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79366272"
 ---
 # <a name="what-is-azure-firewall-manager-preview"></a>Présentation de la préversion d’Azure Firewall Manager
 
@@ -27,7 +27,7 @@ Firewall Manager assure la gestion de la sécurité pour deux types d’architec
    Un [hub Azure Virtual WAN](../virtual-wan/virtual-wan-about.md#resources) est une ressource managée par Microsoft qui vous permet de créer facilement des architectures « Hub and Spoke ». Lorsque les stratégies de sécurité et de routage sont associées à un hub, elles sont appelées *[hub virtuel sécurisé](secured-virtual-hub.md)* . 
 - **réseau virtuel hub**
 
-   Il s’agit d’un réseau virtuel Azure standard que vous créez et gérez vous-même. Quand des stratégies de sécurité sont associées à un hub de ce type, on parle de *réseau virtuel hub*. Pour l’instant, seule la stratégie du Pare-feu Azure est prise en charge. Vous pouvez associer des réseaux virtuels spoke qui contiennent vos services et serveurs de charge de travail. Vous pouvez également gérer les pare-feu dans des réseaux virtuels autonomes qui ne sont associés à aucun réseau spoke.
+   Il s’agit d’un réseau virtuel Azure standard que vous créez et gérez vous-même. Quand des stratégies de sécurité sont associées à un hub de ce type, on parle de *réseau virtuel hub*. Pour l’instant, seule la stratégie de pare-feu Azure est prise en charge. Vous pouvez appairer des réseaux virtuels spoke qui contiennent vos services et serveurs de charge de travail. Vous pouvez également gérer les pare-feu dans des réseaux virtuels autonomes qui ne sont associés à aucun réseau spoke.
 
 Pour avoir une comparaison détaillée des architectures de *hub virtuel sécurisé* et de *réseau virtuel hub*, consultez [Quelles sont les options d’architecture d’Azure Firewall Manager ?](vhubs-and-vnets.md)
 
@@ -80,13 +80,14 @@ Les problèmes connus de la préversion d’Azure Firewall Manager sont les suiv
 
 |Problème  |Description  |Limitation des risques  |
 |---------|---------|---------|
-|Limitations du filtrage tiers|Le filtrage du trafic V2I avec des fournisseurs tiers n’est pas pris en charge avec le Pare-feu Azure B2V et V2V.|Investigation en cours.|
-|Le fractionnement du trafic n’est actuellement pas pris en charge|Le fractionnement du trafic Office 365 et du trafic PaaS public Azure n’est pas pris en charge actuellement. Par conséquent, la sélection d’un fournisseur tiers pour V2I ou B2I envoie également tout le trafic PaaS public Azure et le trafic Office 365 via le service partenaire.|Examen en cours du fractionnement du trafic au niveau du hub.
-|Un seul hub virtuel sécurisé par région|Vous ne pouvez pas avoir plus d’un hub virtuel sécurisé par région|Créez plusieurs réseaux étendus virtuels dans une région.|
-|Les stratégies de base doivent se trouver dans la même région que la stratégie locale.|Créez toutes vos stratégies locales dans la même région que la stratégie de base. Vous pouvez toujours appliquer une stratégie qui a été créée dans une région sur un hub sécurisé à partir d’une autre région.|Investigation en cours.|
-|La communication entre les hubs ne fonctionne pas pour les hubs virtuels sécurisés|La communication de hub virtuel sécurisé à hub virtuel sécurisé n’est pas encore prise en charge.|Investigation en cours.|
+|Limitations du filtrage tiers.|Le filtrage du trafic V2I avec des fournisseurs tiers n’est pas pris en charge avec le Pare-feu Azure B2V et V2V.|Enquête|
+|La division du trafic n’est pas prise en charge.|Le fractionnement du trafic Office 365 et du trafic PaaS public Azure n’est pas pris en charge actuellement. Par conséquent, la sélection d’un fournisseur tiers pour V2I ou B2I envoie également tout le trafic PaaS public Azure et le trafic Office 365 via le service partenaire.|Enquête sur la division du trafic au niveau du hub.
+|Un seul hub virtuel sécurisé par région.|Vous ne pouvez pas avoir plus d’un hub virtuel sécurisé par région.|Créez plusieurs réseaux étendus virtuels dans une région.|
+|Les stratégies de base doivent se trouver dans la même région que la stratégie locale.|Créez toutes vos stratégies locales dans la même région que la stratégie de base. Vous pouvez toujours appliquer une stratégie qui a été créée dans une région sur un hub sécurisé à partir d’une autre région.|Enquête|
+|La communication entre les hubs ne fonctionne pas pour les hubs virtuels sécurisés|La communication de hub virtuel sécurisé à hub virtuel sécurisé n’est pas encore prise en charge.|Enquête|
 |Tous les hubs virtuels sécurisés partageant le même réseau étendu virtuel doivent se trouver dans le même groupe de ressources.|Ce comportement est aujourd’hui cohérent avec les hubs Virtual WAN.|Créez plusieurs réseaux étendus virtuels pour permettre la création de hubs virtuels sécurisés dans différents groupes de ressources.|
-|Les groupes IP ne sont pas pris en charge dans la stratégie de pare-feu|Les groupes IP sont en préversion publique et ne sont actuellement pris en charge qu’avec les règles de pare-feu traditionnelles|Correction en cours
+|Les groupes IP ne sont pas pris en charge dans la stratégie de pare-feu.|Les groupes IP sont en préversion publique et sont pris en charge uniquement avec les règles de pare-feu classiques.|Correction en cours.
+|Les abonnements de fournisseurs de solutions Cloud ne sont pas pris en charge.|Les [abonnements de fournisseurs de solutions Cloud](https://azure.microsoft.com/offers/ms-azr-0145p/) ne sont pas pris en charge.|Enquête
 
 ## <a name="next-steps"></a>Étapes suivantes
 

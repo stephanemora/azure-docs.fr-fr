@@ -5,16 +5,16 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 11/04/2019
+ms.date: 03/11/2020
 ms.author: cherylmc
-ms.openlocfilehash: b144a70ee88138966d9cc38a56e1cff1e63fca1b
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 66efa0f2922e70908616c7c447d782efee8f6b1b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74424149"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79137175"
 ---
-# <a name="tutorial-create-and-manage-a-vpn-gateway-using-powershell"></a>Didacticiel : Créer et gérer une passerelle VPN à l’aide de PowerShell
+# <a name="tutorial-create-and-manage-a-vpn-gateway-using-powershell"></a>Tutoriel : Créer et gérer une passerelle VPN à l’aide de PowerShell
 
 Les passerelles VPN Azure fournissent une connectivité entre les locaux du client et Azure. Ce tutoriel décrit les éléments de base du déploiement d’une passerelle VPN Azure, notamment la création et la gestion d’une passerelle VPN. Vous allez apprendre à effectuer les actions suivantes :
 
@@ -28,9 +28,7 @@ Le diagramme suivant illustre le réseau virtuel et la passerelle VPN créés da
 
 ![Réseau virtuel et passerelle VPN](./media/vpn-gateway-tutorial-create-gateway-powershell/vnet1-gateway.png)
 
-### <a name="azure-cloud-shell-and-azure-powershell"></a>Azure Cloud Shell et Azure PowerShell
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+### <a name="working-with-azure-cloud-shell-and-azure-powershell"></a>Utilisation d’Azure Cloud Shell et Azure PowerShell
 
 [!INCLUDE [working with cloud shell](../../includes/vpn-gateway-cloud-shell-powershell.md)]
 
@@ -116,7 +114,7 @@ $gwipconf = New-AzVirtualNetworkGatewayIpConfig -Name $GwIPConf1 `
 
 ## <a name="create-a-vpn-gateway"></a>Créer une passerelle VPN
 
-La création de la passerelle VPN peut prendre 45 minutes, voire plus. Une fois l’opération terminée, vous pouvez créer une connexion entre votre réseau virtuel et un autre réseau virtuel. Vous pouvez également créer une connexion entre votre réseau virtuel et un emplacement local. Créez une passerelle VPN à l’aide de l’applet de commande [New-AzVirtualNetworkGateway](/powershell/module/az.network/New-azVirtualNetworkGateway).
+La création de la passerelle VPN peut prendre 45 minutes, voire plus. Une fois l’opération terminée, vous pouvez créer une connexion entre votre réseau virtuel et un autre réseau virtuel. Vous pouvez également créer une connexion entre votre réseau virtuel et un emplacement local. Créez une passerelle VPN à l'aide de la cmdlet [New-AzVirtualNetworkGateway](/powershell/module/az.network/New-azVirtualNetworkGateway).
 
 ```azurepowershell-interactive
 New-AzVirtualNetworkGateway -Name $Gw1 -ResourceGroupName $RG1 `
@@ -166,7 +164,7 @@ Reset-AzVirtualNetworkGateway -VirtualNetworkGateway $gateway
 
 Pour plus d’informations, consultez [Réinitialiser une passerelle VPN](vpn-gateway-resetgw-classic.md).
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous passez au [tutoriel suivant](vpn-gateway-tutorial-vpnconnection-powershell.md), conservez ces ressources car elles vous seront demandées en prérequis.
 

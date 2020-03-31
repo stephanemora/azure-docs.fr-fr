@@ -1,19 +1,18 @@
 ---
 title: Conditions préalables à l'utilisation d'API | Place de marché Azure
 description: Conditions préalables à l'utilisation d'API du portail Cloud Partner.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: d3c2d89d3c3561e86047529e5b284e4481fc1652
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 2a1022c6d041bf645b43dfed391a489de30b2fce
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819699"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288561"
 ---
 <a name="api-prerequisites"></a>Conditions préalables à l'utilisation d'API
 ================

@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Thirdlight | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Thirdlight | Microsoft Docs'
 description: Dans ce tutoriel, vous allez découvrir comment configurer l’authentification unique entre Azure Active Directory et ThirdLight.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 448d46cd21a63488c4f567d5555fe6406fc0fa73
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67089088"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-thirdlight"></a>Didacticiel : Intégration d’Azure Active Directory à Thirdlight
+# <a name="tutorial-azure-active-directory-integration-with-thirdlight"></a>Tutoriel : Intégration d’Azure Active Directory à Thirdlight
 
 L’objectif de ce didacticiel est de vous apprendre à intégrer ThirdLight avec Azure Active Directory (Azure AD). Cette intégration offre les avantages suivants :
 
@@ -134,7 +134,7 @@ Pour configurer l’authentification unique Azure AD avec ThirdLight, procédez 
 
 1. Accédez **Configuration** > **Administration système** > **SAML2** :
 
-    ![Administration système](./media/thirdlight-tutorial/ic805843.png "Administration système")
+    ![Administration système](./media/thirdlight-tutorial/ic805843.png "Administration de système")
 
 1. Dans la section de configuration de SAML2, procédez comme suit.
   
@@ -170,7 +170,7 @@ Dans cette section, vous allez créer un utilisateur de test appelé Britta Simo
 
     1. Sélectionnez **Afficher le mot de passe**, puis notez la valeur affichée dans la zone **Mot de passe**.
 
-    1. Sélectionnez **Créer**.
+    1. Sélectionnez **Create** (Créer).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
@@ -214,7 +214,7 @@ Pour créer un compte d’utilisateur, procédez comme suit :
 
 1. Entrez le nom d’utilisateur, un nom ou une description ainsi que l’adresse électronique d’un compte Azure AD valide que vous souhaitez approvisionner. Choisissez un paramètre prédéfini ou un groupe de nouveaux membres.
 
-1. Sélectionnez **Créer**.
+1. Sélectionnez **Create** (Créer).
 
 > [!NOTE]
 > Vous pouvez utiliser n’importe quel API ou outil de création de compte d’utilisateur fourni par ThirdLight pour provisionner des comptes d’utilisateurs Azure AD.
@@ -231,4 +231,4 @@ Le fait de sélectionner la vignette ThirdLight dans le panneau d’accès doit 
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

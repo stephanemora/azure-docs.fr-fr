@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 06/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: d9778544fd9e20dc3244a37c644117d1cd505a96
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 90ed4bf8f0389619f130e998ed76c720442092b2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438668"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79474473"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-edge"></a>Tutoriel : préparer le déploiement d’Azure Data Box Edge  
 
@@ -25,6 +25,7 @@ Vous avez besoin de privilèges d’administrateur pour terminer le processus d�
 Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
+>
 > * Créer une nouvelle ressource
 > * Obtenir la clé d'activation
 
@@ -44,7 +45,7 @@ Pour déployer Data Box Edge, consultez les didacticiels suivants dans l’ordre
 
 Vous pouvez maintenant commencer à configurer le portail Azure.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Vous trouverez ci-après la configuration requise pour votre ressource Data Box Edge, votre appareil Data Box Edge et le réseau du centre de données.
 
@@ -52,13 +53,12 @@ Vous trouverez ci-après la configuration requise pour votre ressource Data Box 
 
 Avant de commencer, assurez-vous que :
 
-- Votre abonnement Microsoft Azure est activé pour la ressource Data Box Edge. Les abonnements de type Paiement à l’utilisation ne sont pas pris en charge.
-- Vous disposez d’un accès Propriétaire ou Contributeur au niveau du groupe de ressources pour les ressources Data Box Edge/Data Box Gateway, IoT Hub et Stockage Azure.
-
+* Votre abonnement Microsoft Azure est activé pour une ressource Azure Stack Edge. Vérifiez que vous avez utilisé un abonnement pris en charge tel que [Contrat Entreprise (EA) Microsoft](https://azure.microsoft.com/overview/sales-number/), [Fournisseur de solutions cloud (CSP)](https://docs.microsoft.com/partner-center/azure-plan-lp) ou [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/).
+* Vous disposez d’un accès Propriétaire ou Contributeur au niveau du groupe de ressources pour les ressources Data Box Edge/Data Box Gateway, IoT Hub et Stockage Azure.
     - Pour créer une ressource Data Box Edge/Data Box Gateway, vous devez disposer d’autorisations Contributeur (ou supérieures) au niveau du groupe de ressources. Vous devez également être sûr que le fournisseur `Microsoft.DataBoxEdge` est inscrit. Pour plus d’informations sur l’inscription, consultez [Inscrire un fournisseur de ressources](data-box-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
     - Pour créer une ressource IoT Hub, vérifiez que le fournisseur Microsoft.Devices est bien inscrit. Pour plus d’informations sur l’inscription, consultez [Inscrire un fournisseur de ressources](data-box-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
     - Pour créer une ressource de compte de stockage, là encore, vous avez besoin d’autorisations Contributeur (ou supérieures) au niveau du groupe de ressources. Par défaut, le stockage Azure est un fournisseur de ressources inscrit.
-- Vous avez un accès Administrateur ou Utilisateur à l’API Graph Azure Active Directory. Pour plus d’informations, consultez [API Graph Azure Active Directory](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
+- Vous disposez d’un accès administrateur ou utilisateur à l’API Microsoft Graph. Pour plus d’informations, consultez la [documentation de référence sur les autorisations Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference).
 - Vous disposez d’un compte de stockage Microsoft Azure doté d’informations d’identification d’accès.
 
 ### <a name="for-the-data-box-edge-device"></a>Pour l’appareil Data Box Edge
@@ -95,9 +95,9 @@ Pour créer une ressource Data Box Edge, procédez comme suit dans le portail Az
     - Ou bien, au portail Azure Government à cette URL : [https://portal.azure.us](https://portal.azure.us) Pour plus d’informations, accédez à [Se connecter à Azure Government à l’aide du portail](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
 
 2. Dans le volet de gauche, sélectionnez **+ Créer une ressource**. Recherchez **Data Box Edge / Data Box Gateway**. Sélectionnez **Data Box Edge / Data Box Gateway**. Sélectionnez **Create** (Créer).
-3. Sélectionnez l’abonnement que vous souhaitez utiliser pour l’appareil Data Box Edge. Sélectionnez la région dans laquelle vous souhaitez déployer la ressource Data Box Edge. Pour cette version, les zones USA Est, Asie Sud-Est et Europe Ouest sont disponibles. 
+3. Sélectionnez l’abonnement que vous souhaitez utiliser pour l’appareil Data Box Edge. Sélectionnez la région dans laquelle vous souhaitez déployer la ressource Data Box Edge. Pour obtenir la liste complète des régions où la ressource Azure Stack Edge est disponible, consultez [Disponibilité des produits Azure par région](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all).
 
-    Choisissez l’emplacement le plus proche de la région géographique dans laquelle vous souhaitez déployer votre appareil. La région stocke les métadonnées uniquement pour la gestion des appareils. Les données réelles peuvent être stockées dans n’importe quel compte de stockage. 
+    Choisissez l’emplacement le plus proche de la région géographique dans laquelle vous souhaitez déployer votre appareil. La région stocke les métadonnées uniquement pour la gestion des appareils. Les données réelles peuvent être stockées dans n’importe quel compte de stockage.
     
     Dans l’option **Data Box Edge**, sélectionnez **Créer**.
 
@@ -107,15 +107,15 @@ Pour créer une ressource Data Box Edge, procédez comme suit dans le portail Az
     
     |Paramètre  |Valeur  |
     |---------|---------|
-    |Subscription    |Ce champ est automatiquement renseigné en fonction de la sélection antérieure. L’abonnement est lié à votre compte de facturation. |
+    |Abonnement    |Ce champ est automatiquement renseigné en fonction de la sélection antérieure. L’abonnement est lié à votre compte de facturation. |
     |Resource group  |Sélectionnez un groupe existant ou créez-en un.<br>Obtenez plus d’informations sur les [groupes de ressources Azure](../azure-resource-manager/management/overview.md).     |
 
 4. Entrez ou sélectionnez les **détails de l’instance** suivants.
 
     |Paramètre  |Valeur  |
     |---------|---------|
-    |Name   | Entrez un nom reconnaissable pour identifier la ressource.<br>Le nom doit être compris entre 2 et 50 caractères, et se composer uniquement de lettres, de chiffres et de traits d’union.<br> Le nom doit commencer et se terminer par une lettre ou un chiffre.        |
-    |Région     |Pour cette version, les zones USA Est, Asie Sud-Est et Europe Ouest sont disponibles pour déployer votre ressource. Si vous utilisez Azure Government, toutes les régions administratives sont disponibles, comme indiqué dans [Régions Azure](https://azure.microsoft.com/global-infrastructure/regions/).<br> Choisissez l’emplacement le plus proche de la région géographique dans laquelle vous souhaitez déployer votre appareil.|
+    |Nom   | Entrez un nom reconnaissable pour identifier la ressource.<br>Le nom doit être compris entre 2 et 50 caractères, et se composer uniquement de lettres, de chiffres et de traits d’union.<br> Le nom doit commencer et se terminer par une lettre ou un chiffre.        |
+    |Région     |Pour obtenir la liste complète des régions où la ressource Azure Stack Edge est disponible, consultez [Disponibilité des produits Azure par région](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Si vous utilisez Azure Government, toutes les régions administratives sont disponibles, comme indiqué dans [Régions Azure](https://azure.microsoft.com/global-infrastructure/regions/).<br> Choisissez l’emplacement le plus proche de la région géographique dans laquelle vous souhaitez déployer votre appareil.|
 
     ![Détails du projet et de l’instance](media/data-box-edge-deploy-prep/data-box-edge-resource.png)
 

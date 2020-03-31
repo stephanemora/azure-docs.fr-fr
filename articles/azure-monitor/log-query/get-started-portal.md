@@ -1,140 +1,140 @@
 ---
-title: Prise en main d'Azure Monitor Log Analytics | Microsoft Docs
-description: Cet article fournit un didacticiel dédié à l’écriture de requêtes dans le Portail Azure à l’aide de Log Analytics.
+title: 'Tutoriel : Bien démarrer avec les requêtes Log Analytics'
+description: Ce tutoriel vous montre comment écrire et gérer des requêtes de journal Azure Monitor à l’aide de Log Analytics dans le Portail Azure.
 ms.subservice: logs
 ms.topic: tutorial
 author: bwren
 ms.author: bwren
-ms.date: 07/19/2019
-ms.openlocfilehash: 1cf1695db50e6aee2a5dae24ed5231fdda7c12de
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.date: 03/17/2020
+ms.openlocfilehash: 29e24166218a6757cded9d1b002321800ab0c073
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77670234"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80055618"
 ---
-# <a name="get-started-with-log-analytics-in-azure-monitor"></a>Prise en main de Log Analytics dans Azure Monitor
+# <a name="tutorial-get-started-with-log-analytics-queries"></a>Tutoriel : Bien démarrer avec les requêtes Log Analytics
 
-> [!NOTE]
-> Vous pouvez effectuer cet exercice dans votre propre environnement si vous collectez des données à partir d’au moins une machine virtuelle. Si ce n’est pas le cas, utilisez notre [environnement de démonstration](https://portal.loganalytics.io/demo), qui comporte de nombreux exemples de données.
+Ce tutoriel vous montre comment utiliser Log Analytics pour écrire, exécuter et gérer des requêtes de journal Azure Monitor dans le Portail Azure. Vous pouvez utiliser des requêtes Log Analytics pour rechercher des termes, identifier des tendances, analyser des modèles et fournir beaucoup d’autres insights issus de vos données. 
 
-Dans ce tutoriel, vous allez apprendre à utiliser Log Analytics dans le portail Azure pour écrire des requêtes de journal Azure Monitor. Au terme du tutoriel, vous saurez :
+Ce tutoriel vous montre comment utiliser Log Analytics pour :
 
-- Utiliser Log Analytics pour écrire une requête simple
-- Comprendre le schéma de vos données
-- Filtrer, trier et regrouper les résultats
-- Appliquer un intervalle de temps
-- Créer des graphiques
-- Enregistrer et charger des requêtes
-- Exporter et partager des requêtes
+> [!div class="checklist"]
+> * Comprendre le schéma des données de journal
+> * Écrire et exécuter des requêtes simples, et modifier l’intervalle de temps pour les requêtes
+> * Filtrer, trier et regrouper les résultats de requête
+> * Afficher, modifier et partager des visuels des résultats de requête
+> * Enregistrer, charger, exporter et copier des requêtes et des résultats
 
-Pour un tutoriel sur l'écriture de requêtes de journal, consultez [Bien démarrer avec les requêtes de journal dans Azure Monitor](get-started-queries.md).<br>
-Pour plus d’informations sur les requêtes de journal, consultez [Vue d’ensemble des requêtes de journal dans Azure Monitor](log-query-overview.md).
+Pour plus d’informations sur les requêtes de journal, consultez [Vue d’ensemble des requêtes de journal dans Azure Monitor](log-query-overview.md).<br/>
+Pour suivre un tutoriel détaillé sur l’écriture de requêtes de journal, consultez [Bien démarrer avec les requêtes de journal dans Azure Monitor](get-started-queries.md).
 
-## <a name="meet-log-analytics"></a>Présentation de Log Analytics
-Log Analytics est un outil web utilisé pour écrire et exécuter des requêtes de journal Azure Monitor. Pour l’ouvrir, sélectionnez **Journaux d’activité** dans le menu Azure Monitor. Une nouvelle requête vide s’affiche.
+## <a name="open-log-analytics"></a>Ouvrir Log Analytics
+Pour utiliser Log Analytics, vous devez être connecté à un compte Azure. Si vous ne possédez pas de compte Azure, [créez un compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-![page d'accueil](media/get-started-portal/homepage.png)
+Vous pouvez effectuer la plupart des étapes de ce tutoriel en utilisant [cet environnement de démonstration](https://portal.loganalytics.io/demo) qui comprend de nombreux exemples de données. Avec l’environnement de démonstration, vous ne pouvez pas enregistrer les requêtes ni épingler les résultats à un tableau de bord.
 
-## <a name="firewall-requirements"></a>Configuration requise du pare-feu
-Pour utiliser Log Analytics, votre navigateur doit pouvoir accéder aux adresses suivantes. Si votre navigateur accède au portail Azure par le biais d’un pare-feu, vous devez activer l’accès à ces adresses.
-
-| Uri | IP | Ports |
-|:---|:---|:---|
-| portal.loganalytics.io | Dynamique | 80,443 |
-| api.loganalytics.io | Dynamique | 80,443 |
-| docs.loganalytics.io | Dynamique | 80,443 |
-
-## <a name="basic-queries"></a>Requêtes de base
-Les requêtes peuvent être utilisées pour rechercher des termes, identifier des tendances, analyser des modèles et fournissent de nombreux autres insights basés sur vos données. Démarrez avec une requête de base :
-
-```Kusto
-Event | search "error"
-```
-
-Cette requête recherche dans la table _Event_ les enregistrements qui contiennent le terme _error_ dans n’importe quelle propriété.
-
-Les requêtes peuvent commencer par un nom de table ou une commande [search](/azure/kusto/query/searchoperator). L’exemple ci-dessus commence par le nom de table _Event_, qui récupère tous les enregistrements à partir de la table Event. Le caractère barre verticale (|) sépare les commandes. Ainsi, la sortie de la première commande sert d'entrée à la commande suivante. Vous pouvez ajouter n’importe quel nombre de commandes à une seule requête.
-
-Une autre façon d’écrire cette même requête serait :
-
-```Kusto
-search in (Event) "error"
-```
-
-Dans cet exemple, l’étendue de la commande **search** est la table _Event_, et le terme _error_ est recherché dans tous les enregistrements de cette table.
-
-## <a name="running-a-query"></a>Exécution d’une requête
-Exécutez une requête en cliquant sur le bouton **Exécuter** ou en appuyant sur **Maj+Entrée**. Prenez en compte les détails suivants qui déterminent le code exécuté et les données retournées :
-
-- Sauts de ligne : un simple saut facilite la lecture de votre requête. Plusieurs sauts de ligne la scindent en requêtes distinctes.
-- Curseur : placez votre curseur à l’intérieur de la requête pour l’exécuter. La première ligne vide trouvée marque la fin de la requête actuelle.
-- Intervalle de temps : un intervalle de temps couvrant les _dernières 24 heures_ est défini par défaut. Pour utiliser un autre intervalle, utilisez le sélecteur d’heure ou ajoutez un filtre d’intervalle de temps explicite à votre requête.
-
+Vous avez aussi la possibilité d’utiliser votre propre environnement si Azure Monitor vous sert à collecter des données de journal sur au moins une ressource Azure. Pour ouvrir un espace de travail Log Analytics, dans le volet de navigation gauche d’Azure Monitor, sélectionnez **Journaux**. 
 
 ## <a name="understand-the-schema"></a>Comprendre le schéma
-Le schéma est une collection de tables regroupées visuellement sous une catégorie logique. Plusieurs catégories proviennent de solutions de supervision. La catégorie _LogManagement_ contient des données courantes telles que les événements Windows et Syslog, les données de performances et les pulsations d'agent.
+Un *schéma* est une collection de tables regroupées en catégories logiques. Le schéma de démonstration comporte plusieurs catégories issues des solutions de supervision. Par exemple, la catégorie **LogManagement** contient les événements Windows et Syslog, les données de performances et les pulsations d’agent.
+
+Les tables du schéma sont présentées sous l’onglet **Tables** de l’espace de travail Log Analytics. Les tables contiennent des colonnes ; le type de données de chaque colonne est représenté par une icône affichée à côté du nom de la colonne. Par exemple, la table**Event** contient des colonnes de texte comme **Computer** et des colonnes numériques comme **EventCategory**.
 
 ![schéma](media/get-started-portal/schema.png)
 
-Dans chaque table, les données sont organisées en colonnes avec différents types de données, comme l’indiquent les icônes en regard du nom de colonne. Par exemple, la table _Event_ illustrée dans la capture d’écran comporte des colonnes telles que _Computer_, qui contient du texte, _EventCategory_, qui contient des nombres, et _TimeGenerated_, qui contient des dates/heures.
+## <a name="write-and-run-basic-queries"></a>Écrire et exécuter des requêtes de base
 
-## <a name="filter-the-results"></a>Filtrer les résultats
-Commencez par récupérer tout le contenu de la table _Event_.
+Log Analytics s’ouvre en affichant une nouvelle requête vide dans l’**Éditeur de requête**.
+
+![Log Analytics](media/get-started-portal/homepage.png)
+
+### <a name="write-a-query"></a>Écrivez votre requête.
+Les requêtes de journal Azure Monitor utilisent une version du langage de requête Kusto. Les requêtes peuvent commencer par un nom de table ou une commande [search](/azure/kusto/query/searchoperator). 
+
+La requête suivante récupère tous les enregistrements de la table **Event** :
 
 ```Kusto
 Event
 ```
 
-Log Analytics définit automatiquement l'étendue des résultats par :
+Le caractère barre verticale (|) sépare les commandes. Ainsi, la sortie de la première commande sert d’entrée à la commande suivante. Vous pouvez ajouter n’importe quel nombre de commandes à une seule requête. La requête suivante récupère les enregistrements de la table **Event**, puis recherche le terme **error** dans toutes les propriétés :
 
-- Intervalle de temps :  par défaut, les requêtes sont limitées aux dernières 24 heures.
-- Nombre de résultats : les résultats sont limités à un maximum de 10 000 enregistrements.
+```Kusto
+Event 
+| search "error"
+```
 
-Cette requête étant très générale, elle retourne trop de résultats pour être utile. Vous pouvez filtrer les résultats par le biais des éléments de la table ou en ajoutant explicitement un filtre à la requête. Le filtrage des résultats par le biais des éléments de la table s’applique au jeu de résultats existant, tandis qu’un filtre appliqué à la requête elle-même retourne un nouveau jeu de résultats filtré et peut donc produire des résultats plus précis.
+L’ajout d’un saut de ligne rend les requêtes plus lisibles. Si plusieurs sauts de ligne sont ajoutés, la requête est divisée en plusieurs requêtes distinctes.
 
-### <a name="add-a-filter-to-the-query"></a>Ajouter un filtre à la requête
-Il existe une flèche à gauche de chaque enregistrement. Cliquez sur cette flèche pour ouvrir les détails de l’enregistrement correspondant.
+Voici une autre façon d’écrire la même requête :
 
-Placez le curseur au-dessus d’un nom de colonne afin qu’apparaissent les icônes « + » et « - ». Pour ajouter un filtre qui ne retourne que les enregistrements ayant la même valeur, cliquez sur le signe « + ». Cliquez sur « - » pour exclure les enregistrements ayant cette valeur, puis cliquez sur **Exécuter** pour réexécuter la requête.
+```Kusto
+search in (Event) "error"
+```
 
-![Ajouter un filtre à une requête](media/get-started-portal/add-filter.png)
+Dans le deuxième exemple, la commande **search** recherche le terme **error** uniquement dans les enregistrements de la table **Events**.
 
-### <a name="filter-through-the-table-elements"></a>Filtrer par le biais des éléments de la table
-Maintenant concentrons-nous sur les événements ayant pour gravité _Error_. Cette information est spécifiée dans une colonne nommée _EventLevelName_. Vous aurez besoin de faire défiler l’affichage vers la droite pour voir cette colonne.
+Par défaut, Log Analytics limite les requêtes à l’intervalle de temps des dernières 24 heures. Pour définir un autre intervalle de temps, ajoutez un filtre **TimeGenerated** explicite à la requête ou utilisez le contrôle **Intervalle de temps**.
 
-Cliquez sur l’icône Filtre à côté du titre de colonne, puis dans la fenêtre indépendante, sélectionnez les valeurs qui _commencent par_ le texte _error_ :
-
-![Filtrer](media/get-started-portal/filter.png)
-
-
-## <a name="sort-and-group-results"></a>Trier et regrouper les résultats
-Les résultats sont désormais limités de manière à inclure uniquement les événements d’erreur issus de SQL Server, créés dans les dernières 24 heures. Toutefois, les résultats ne sont pas triés. Pour trier les résultats en fonction d’une colonne spécifique, telle que _timestamp_, cliquez sur le titre de la colonne. Un premier clic trie par ordre croissant, tandis qu’un deuxième clic trie par ordre décroissant.
-
-![Trier la colonne](media/get-started-portal/sort-column.png)
-
-Une autre façon d’organiser les résultats consiste à utiliser des groupes. Pour regrouper les résultats selon une colonne spécifique, faites simplement glisser l’en-tête de la colonne au-dessus des autres colonnes. Pour créer des sous-groupes, faites glisser d’autres colonnes vers la barre supérieure.
-
-![Groupes](media/get-started-portal/groups.png)
-
-## <a name="select-columns-to-display"></a>Sélectionner les colonnes à afficher
-La table de résultats inclut souvent un grand nombre de colonnes. Peut-être constaterez-vous que certaines colonnes retournées ne sont pas affichées par défaut ou souhaiterez-vous supprimer certaines colonnes qui sont affichées. Pour sélectionner les colonnes à afficher, cliquez sur le bouton Colonnes :
-
-![Select columns](media/get-started-portal/select-columns.png)
-
-
-## <a name="select-a-time-range"></a>Sélectionner un intervalle de temps
-Par défaut, Log Analytics applique l’intervalle de temps correspondant aux _dernières 24 heures_. Pour utiliser un autre intervalle, sélectionnez une autre valeur par le biais du sélecteur d’heure, puis cliquez sur **Exécuter**. Outre les valeurs prédéfinies, vous pouvez utiliser l’option _intervalle de temps personnalisé_ pour sélectionner un intervalle absolu pour votre requête.
+### <a name="use-the-time-range-control"></a>Utiliser le contrôle Intervalle de temps
+Pour utiliser le contrôle **Intervalle de temps**, sélectionnez-le dans la barre supérieure, puis sélectionnez une valeur dans la liste déroulante, ou l’option **Personnalisé** afin de créer un intervalle de temps personnalisé.
 
 ![Sélecteur d’heure](media/get-started-portal/time-picker.png)
 
-Quand vous sélectionnez un intervalle de temps personnalisé, les valeurs sélectionnées sont exprimées en UTC et peuvent donc être différentes de celles de votre fuseau horaire local.
+- Les valeurs de l’intervalle de temps sont exprimées en temps UTC et peuvent donc être différentes de celles de votre fuseau horaire local.
+- Si la requête définit explicitement un filtre **TimeGenerated**, le contrôle sélecteur affiche **Définir dans la requête** et est désactivé pour empêcher tout conflit.
 
-Si la requête contient explicitement un filtre pour _TimeGenerated_, le titre du sélecteur d’heure indique _Défini dans la requête_. La sélection manuelle est désactivée pour éviter un conflit.
+### <a name="run-a-query"></a>Exécution d’une requête
+Pour exécuter une requête, placez le curseur dans la requête, puis sélectionnez **Exécuter** dans la barre supérieure ou appuyez sur **Maj**+**Entrée**. La requête s’exécute jusqu’à ce qu’elle arrive à une ligne vide.
 
+## <a name="filter-results"></a>Filtrer les résultats
+Log Analytics limite les résultats à 10 000 enregistrements. Une requête générale comme `Event` retourne trop de résultats pour être utile. Vous pouvez filtrer les résultats de la requête en limitant les éléments de table inclus dans la requête ou en ajoutant explicitement un filtre aux résultats. Le filtrage sur les éléments de table retourne un nouveau jeu de résultats, alors qu’un filtre explicite s’applique au jeu de résultats existant.
 
-## <a name="charts"></a>Graphiques
-Les résultats des requêtes peuvent être présentés sous la forme d’une table, mais également sous forme graphique. Utilisez la requête suivante en guise d’exemple :
+### <a name="filter-by-restricting-table-elements"></a>Filtrer en limitant les éléments de table
+Pour filtrer les résultats de la requête `Event` sur les événements **Error** en limitant les éléments de table inclus dans la requête :
+
+1. Dans les résultats de la requête, sélectionnez la flèche déroulante à côté d’un enregistrement dont la colonne **EventLevelName** contient **Error**. 
+   
+1. Dans les détails développés, cliquez sur **...** devant **EventLevelName**, puis sélectionnez **Inclure « Error »** . 
+   
+   ![Ajouter un filtre à une requête](media/get-started-portal/add-filter.png)
+   
+1. Notez que la requête dans l’**Éditeur de requête** a été remplacée par celle-ci :
+   
+   ```Kusto
+   Event
+   | where EventLevelName == "Error"
+   ```
+   
+1. Sélectionnez **Exécuter** pour exécuter la nouvelle requête.
+
+### <a name="filter-by-explicitly-filtering-results"></a>Filtrer par un filtrage explicite des résultats
+Pour filtrer les résultats de la requête `Event` sur les événements **Error** en appliquant un filtre aux résultats :
+
+1. Dans les résultats de la requête, sélectionnez l’icône **Filtrer** à côté de l’en-tête de colonne **EventLevelName**. 
+   
+1. Dans le premier champ de la fenêtre contextuelle, sélectionnez **Est égal à** et dans le champ en dessous, entrez *error*. 
+   
+1. Sélectionnez **Filtrer**.
+   
+   ![Filtrer](media/get-started-portal/filter.png)
+
+## <a name="sort-group-and-select-columns"></a>Trier, regrouper et sélectionner des colonnes
+Pour trier les résultats d’une requête en fonction d’une colonne spécifique, par exemple **TimeGenerated [UTC]** , sélectionnez l’en-tête de la colonne. Sélectionnez de nouveau cet en-tête pour passer de l’ordre croissant à l’ordre décroissant, ou inversement.
+
+![Trier la colonne](media/get-started-portal/sort-column.png)
+
+Une autre façon d’organiser les résultats consiste à utiliser des groupes. Pour regrouper les résultats d’après une colonne spécifique, faites glisser l’en-tête de la colonne vers la barre au-dessus de la table de résultats qui indique **Faites glisser un en-tête de colonne et placez-le ici pour regrouper en fonction de cette colonne**. Pour créer des sous-groupes, faites glisser d’autres colonnes vers la barre supérieure. Vous pouvez réorganiser la hiérarchie et trier les groupes et sous-groupes dans la barre.
+
+![Groupes](media/get-started-portal/groups.png)
+
+Pour masquer ou afficher des colonnes dans les résultats, sélectionnez **Colonnes** au-dessus de la table, puis sélectionnez ou désélectionnez les colonnes de votre choix dans la liste déroulante.
+
+![Select columns](media/get-started-portal/select-columns.png)
+
+## <a name="view-and-modify-charts"></a>Afficher et modifier des graphiques
+Vous pouvez également examiner les résultats de la requête sous une forme graphique. Entrez l’exemple de requête suivante :
 
 ```Kusto
 Event 
@@ -143,58 +143,65 @@ Event
 | summarize count() by Source 
 ```
 
-Par défaut, les résultats sont affichés dans une table. Cliquez sur _Graphique_ pour afficher les résultats sous forme graphique :
+Par défaut, les résultats sont affichés dans une table. Sélectionnez **Graphique** au-dessus de la table pour afficher les résultats sous une forme graphique.
 
 ![Graphique à barres](media/get-started-portal/bar-chart.png)
 
-Les résultats sont affichés dans un graphique à barres empilées. Cliquez sur _Histogramme empilé_ et sélectionnez _Secteurs_ pour obtenir un autre affichage des résultats :
+Les résultats sont représentés dans un graphique à barres empilées. Sélectionnez d’autres options, comme **Histogramme empilé** ou **Secteurs** pour voir des représentations différentes des résultats.
 
 ![Graphique à secteurs](media/get-started-portal/pie-chart.png)
 
-Vous pouvez changer manuellement différentes propriétés de l’affichage, telles que les axes x et y, ou les préférences de regroupement et de fractionnement, à partir de la barre de contrôle.
+Vous pouvez changer manuellement les propriétés de la vue, telles que les axes x et y ou les préférences de regroupement et de fractionnement, à partir de la barre de contrôle.
 
-Vous pouvez également définir l’affichage par défaut dans la requête elle-même, à l’aide de l’opérateur render.
+Vous pouvez également définir les vues par défaut dans la requête elle-même, à l’aide de l’opérateur [render](/azure/kusto/query/renderoperator).
 
-### <a name="smart-diagnostics"></a>Smart Diagnostics
-Sur un graphique temporel, s’il existe un pic ou une chute brutal dans vos données, un point peut être mis en évidence sur la ligne. Cela indique que _Smart Diagnostics_ a identifié une combinaison de propriétés qui filtrent le changement soudain. Cliquez sur le point pour obtenir plus de détails sur le filtre, et pour afficher la version filtrée. Cela peut vous aider à identifier l’origine de la modification :
-
-![Smart Diagnostics](media/get-started-portal/smart-diagnostics.png)
-
-## <a name="pin-to-dashboard"></a>Épingler au tableau de bord
-Pour épingler un diagramme ou une table à l’un de vos tableaux de bord Azure partagés, cliquez sur l’icône en forme d’épingle. Notez que cette icône a été déplacée vers le haut de la fenêtre de Log Analytics, différente de la capture d’écran ci-dessous.
+## <a name="pin-results-to-a-dashboard"></a>Épingler des résultats à un tableau de bord
+Pour épingler une table ou un graphique de résultats Log Analytics à un tableau de bord Azure partagé, sélectionnez **Épingler au tableau de bord** dans la barre supérieure. 
 
 ![Épingler au tableau de bord](media/get-started-portal/pin-dashboard.png)
 
-Certaines simplifications sont appliquées à un graphique quand vous l’épinglez à un tableau de bord :
+Dans le volet **Épingler à un autre tableau de bord**, sélectionnez ou créez un tableau de bord partagé auquel les résultats seront épinglés, puis sélectionnez **Appliquer**. La table ou le graphique s’affiche sur le tableau de bord Azure sélectionné.
 
-- Colonnes et lignes de table : si vous souhaitez épingler une table au tableau de bord, celle-ci doit avoir au plus quatre colonnes. Seules les sept premières lignes sont affichées.
-- Restriction de temps : les requêtes sont automatiquement limitées aux 14 derniers jours.
-- Restriction de nombre d’emplacements : si vous utilisez un graphique comportant un grand nombre d’emplacements discrets, les emplacements les moins remplis sont automatiquement regroupés en un seul emplacement _autres_.
+![Graphique épinglé au tableau de bord](media/get-started-portal/pin-dashboard2.png)
 
-## <a name="save-queries"></a>Enregistrer des requêtes
-Une fois que vous avez créé une requête utile, vous pouvez l’enregistrer ou la partager avec d’autres utilisateurs. L’icône **Enregistrer** se trouve sur la barre supérieure.
+Une table ou un graphique que vous épinglez à un tableau de bord partagé présente les limitations suivantes : 
 
-Vous pouvez enregistrer la page de l’intégralité de la requête ou une requête unique en tant que fonction. Les fonctions sont des requêtes qui peuvent également être référencées par d’autres requêtes. Pour enregistrer une requête en tant que fonction, vous devez fournir un alias de fonction, qui est le nom utilisé pour appeler cette requête quand elle est référencée par d’autres requêtes.
+- Seules les données des 14 derniers jours sont prises en compte.
+- Une table peut afficher un maximum de quatre colonnes et les sept premières lignes.
+- Les graphiques qui contiennent beaucoup de catégories différentes regroupent automatiquement les catégories les moins remplies dans une seule et même catégorie **Autres**.
 
-![Enregistrer la fonction](media/get-started-portal/save-function.png)
+## <a name="save-load-or-export-queries"></a>Enregistrer, charger ou exporter des requêtes
+Une fois que vous avez créé une requête, vous pouvez enregistrer ou partager la requête ou des résultats avec d’autres utilisateurs. 
 
->[!NOTE]
->Les caractères suivants sont pris en charge : `a–z, A–Z, 0-9, -, _, ., <space>, (, ), |` dans le champ **Nom** lors de l’enregistrement ou de la modification de la requête enregistrée.
+### <a name="save-queries"></a>Enregistrer des requêtes
+Pour enregistrer une requête :
 
-Les requêtes Log Analytics sont toujours enregistrées dans un espace de travail sélectionné et partagées avec les autres utilisateurs de cet espace de travail.
+1. Sélectionnez **Enregistrer** dans la barre supérieure.
+   
+1. Dans la boîte de dialogue **Enregistrer**, attribuez à la requête un **Nom**, qui peut contenir les caractères suivants : a–z, A–Z, 0-9, espace, trait d’union, trait de soulignement, point, parenthèse ou barre verticale. 
+   
+1. Spécifiez si la requête doit être enregistrée en tant que **Requête** ou **Fonction**. Les fonctions sont des requêtes que d’autres requêtes peuvent référencer. 
+   
+   Pour enregistrer une requête en tant que fonction, entrez un **Alias de fonction**, qui est un nom abrégé utilisé par les autres requêtes pour appeler cette requête.
+   
+1. Entrez une **Catégorie** sous laquelle afficher la requête dans l’**Explorateur de requêtes**.
+   
+1. Sélectionnez **Enregistrer**.
+   
+   ![Enregistrer la fonction](media/get-started-portal/save-function.png)
 
-## <a name="load-queries"></a>Charger des requêtes
-L’icône Explorateur de requêtes se trouve dans la zone supérieure droite. Il répertorie toutes les requêtes enregistrées par catégorie. Il vous permet également de marquer des requêtes spécifiques en tant que Favoris pour pouvoir les retrouver rapidement. Double-cliquez sur une requête enregistrée pour l’ajouter à la fenêtre active.
+### <a name="load-queries"></a>Charger des requêtes
+Pour charger une requête enregistrée, sélectionnez **Explorateur de requêtes** en haut à droite. Le volet de l’**Explorateur de requêtes** s’ouvre et liste toutes les requêtes par catégorie. Développez les catégories ou entrez un nom de requête dans la barre de recherche, puis sélectionnez une requête pour la charger dans l’**Éditeur de requête**. Vous pouvez marquer une requête comme **Favori** en sélectionnant l’étoile à côté de son nom.
 
 ![Explorateur de requêtes](media/get-started-portal/query-explorer.png)
 
-## <a name="export-and-share-as-link"></a>Exporter et partager en tant que lien
-Log Analytics prend en charge plusieurs méthodes d'exportation :
+### <a name="export-and-share-queries"></a>Exporter et partager des requêtes
+Pour exporter une requête, sélectionnez **Exporter** dans la barre supérieure, puis sélectionnez **Exporter au format CSV - Toutes les colonnes**, **Exporter au format CSV - Colonnes affichées** ou **Exporter vers Power BI (requête M)** dans la liste déroulante.
 
-- Excel : enregistrer les résultats dans un fichier CSV.
-- Power BI : exporter les résultats dans Power BI. Pour plus d'informations, consultez [Importation de données de journal Azure Monitor dans Power BI](../../azure-monitor/platform/powerbi.md).
-- Partager un lien : vous pouvez partager la requête elle-même sous la forme d’un lien, puis envoyer celui-ci à d’autres utilisateurs ayant accès à l’espace de travail afin qu’ils puissent exécuter la requête.
+Pour partager un lien vers une requête, sélectionnez **Copier le lien** dans la barre supérieure, puis sélectionnez **Copier le lien vers la requête**, **Copier le texte de la requête** ou **Copier les résultats de la requête** pour copier dans le Presse-papiers. Vous pouvez envoyer le lien de la requête à d’autres utilisateurs qui ont accès au même espace de travail.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez-en plus sur la [rédaction des requêtes de journal Azure Monitor](get-started-queries.md).
+Passez au tutoriel suivant pour en savoir plus sur l’écriture de requêtes de journal dans Azure Monitor.
+> [!div class="nextstepaction"]
+> [Écrire des requêtes de journal dans Azure Monitor](get-started-queries.md)

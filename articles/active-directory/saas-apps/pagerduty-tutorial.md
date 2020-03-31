@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Pagerduty | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Pagerduty | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et PagerDuty.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: b7a522aaf35303bbd87e7aafe65b1302f1b98bc0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67095331"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-pagerduty"></a>Didacticiel : Intégration d’Azure Active Directory à Pagerduty
+# <a name="tutorial-azure-active-directory-integration-with-pagerduty"></a>Tutoriel : Intégration d’Azure Active Directory à Pagerduty
 
 Dans ce didacticiel, vous allez apprendre à intégrer PagerDuty avec Azure Active Directory (Azure AD).
 L’intégration de PagerDuty avec Azure AD offre les avantages suivants :
@@ -132,7 +132,7 @@ Pour configurer l’authentification unique Azure AD avec PagerDuty, effectuez l
 
 2. Dans le menu situé en haut, cliquez sur **Account Settings**.
 
-    ![Paramètres de compte](./media/pagerduty-tutorial/ic778535.png "Paramètres de compte")
+    ![Paramètres du compte](./media/pagerduty-tutorial/ic778535.png "Account Settings")
 
 3. Cliquez sur **Single Sign-on**.
 
@@ -140,7 +140,7 @@ Pour configurer l’authentification unique Azure AD avec PagerDuty, effectuez l
 
 4. Dans la page **Enable Single Sign-on (SSO)** , effectuez les étapes suivantes :
 
-    ![Activer l’authentification unique](./media/pagerduty-tutorial/ic778537.png "activer l’authentification unique")
+    ![Activer l’authentification unique](./media/pagerduty-tutorial/ic778537.png "Activer l’authentification unique")
 
     a. Ouvrez dans le Bloc-notes votre certificat codé en base 64 téléchargé à partir du portail Azure, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **X.509 Certificate**.
   
@@ -173,7 +173,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
     b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
-    Par exemple, BrittaSimon@contoso.com
+    Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
@@ -221,11 +221,11 @@ Dans le cas de Pagerduty, l’approvisionnement est une tâche manuelle.
 
 3. Cliquez sur **Add Users**.
    
-    ![Ajouter des utilisateurs](./media/pagerduty-tutorial/ic778539.png "ajouter des utilisateurs")
+    ![Ajout d’utilisateurs](./media/pagerduty-tutorial/ic778539.png "Ajouter des utilisateurs")
 
 4.  Dans la boîte de dialogue **Invite your team**, effectuez les étapes suivantes :
    
-    ![Inviter votre équipe](./media/pagerduty-tutorial/ic778540.png "inviter votre équipe")
+    ![Inviter votre équipe](./media/pagerduty-tutorial/ic778540.png "Inviter dans votre équipe")
 
     a. Tapez le **prénom et le nom** d’un utilisateur, par exemple **Britta Simon**. 
    
@@ -248,5 +248,5 @@ Quand vous cliquez sur la vignette PagerDuty dans le volet d’accès, vous deve
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

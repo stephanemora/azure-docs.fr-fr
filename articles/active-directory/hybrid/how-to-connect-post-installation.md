@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect : Étapes suivantes et gestion d’Azure AD Connect | Microsoft Docs'
+title: 'Azure AD Connect : Étapes suivantes et gestion Azure AD Connect | Microsoft Docs'
 description: Apprenez à étendre la configuration par défaut et les tâches opérationnelles pour Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c204029557a73dc3f02015afb92c0fdbf0d4d50e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64571330"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79230181"
 ---
 # <a name="next-steps-and-how-to-manage-azure-ad-connect"></a>Étapes suivantes et gestion d’Azure AD Connect
 Utilisez les procédures opérationnelles dans cet article pour personnaliser Azure Active Directory (Azure AD) Connect pour l’adapter aux besoins et aux spécifications de votre organisation.  

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/31/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 986aa000102cfed01666c8a95c00847ecc0cd651
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 40fd8217285643aa7d706d194d7f78ba0634dd32
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77047265"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80048958"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Amazon Web Services (AWS)
 
@@ -28,7 +28,7 @@ Dans ce tutoriel, vous allez apprendre à intégrer Amazon Web Services à Azu
 
 * Dans Azure AD, contrôler qui a accès à Amazon Web Services (AWS).
 * Autoriser vos utilisateurs à se connecter automatiquement à Amazon Web Services (AWS) avec leur compte Azure AD.
-* Gérer vos comptes à un emplacement central : le Portail Azure.
+* Gérer vos comptes à un emplacement central : le portail Azure.
 
 Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
@@ -46,14 +46,14 @@ Nous vous recommandons cette approche pour les raisons suivantes :
 
 - Chaque application vous fournit un certificat X509 unique. Chaque instance d’une instance de l’application AWS peut alors avoir une date d’expiration de certificat différente que vous pouvez gérer en fonction de chaque compte AWS. La substitution de certificat globale est plus aisée dans ce cas.
 
-- Vous pouvez activer l’attribution d’utilisateurs avec une application AWS dans Azure AD, puis notre service extrait tous les rôles de ce compte AWS. Vous n’êtes pas obligé d’ajouter ou de mettre à jour manuellement les rôles AWS sur l’application.
+- Vous pouvez activer l’attribution d’utilisateurs avec une application AWS dans Azure AD, puis notre service extrait tous les rôles de ce compte AWS. Vous n’êtes pas obligé d’ajouter ni de mettre à jour manuellement les rôles AWS sur l’application.
 
 - Vous pouvez attribuer le propriétaire de l’application individuellement pour l’application. Cette personne peut gérer l’application directement dans Azure AD.
 
 > [!Note]
 > Veillez à utiliser uniquement une application de la galerie.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour commencer, vous devez disposer de ce qui suit :
 
@@ -337,7 +337,10 @@ Dans cette section, vous autorisez B.Simon à utiliser l’authentification uniq
     ![Capture d’écran de la section Settings, avec mise en évidence de l’option On](./media/amazon-web-service-tutorial/provisioning2.png)
 
 > [!NOTE]
-> Le service de provisionnement importe uniquement les rôles d’AWS dans Azure AD. Ce service ne reprovisionne pas les utilisateurs et les groupes d’Azure AD vers AWS.
+> Le service de provisionnement importe les rôles uniquement d’AWS vers Azure AD. Ce service ne provisionne pas les utilisateurs et les groupes d’Azure AD dans AWS.
+
+> [!NOTE]
+> Après avoir enregistré les informations d’identification de provisionnement, vous devez attendre que le cycle de synchronisation initial s’exécute. La synchronisation prend environ 40 minutes. Vous pouvez voir le statut en bas de la page **Mise en service**, sous **Statut actuel**.
 
 ### <a name="create-amazon-web-services-aws-test-user"></a>Créer un utilisateur de test Amazon Web Services (AWS)
 
@@ -367,7 +370,7 @@ Quand vous cliquez sur la vignette Amazon Web Services (AWS) dans le volet d�
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

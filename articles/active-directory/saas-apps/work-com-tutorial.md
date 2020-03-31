@@ -1,5 +1,5 @@
 ---
-title: "Didacticiel : Intégration d'Azure Active Directory à Work.com | Microsoft Docs"
+title: "Tutoriel : Intégration d'Azure Active Directory à Work.com | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Work.com.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e7a6dc16eef1bb36a5bd6cbf0502a83481230bc0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67087093"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-workcom"></a>Didacticiel : Intégration d'Azure Active Directory à Work.com
+# <a name="tutorial-azure-active-directory-integration-with-workcom"></a>Tutoriel : Intégration d'Azure Active Directory à Work.com
 
 Dans ce didacticiel, vous allez apprendre à intégrer Work.com dans Azure Active Directory (Azure AD).
 L’intégration de Work.com dans Azure AD vous offre les avantages suivants :
@@ -134,29 +134,29 @@ Pour configurer l’authentification unique Azure AD auprès de Work.com, effec
 
 2. Accédez à **Setup**.
    
-    ![Configuration](./media/work-com-tutorial/ic794108.png "Configuration")
+    ![Paramétrage](./media/work-com-tutorial/ic794108.png "Programme d’installation")
 
 3. Dans le volet de navigation gauche, dans la section **Administer**, cliquez sur **Domain Management** pour développer la section associée, puis cliquez sur **My Domain** pour ouvrir la page **My Domain**. 
    
-    ![Mon domaine](./media/work-com-tutorial/ic767825.png "mon domaine")
+    ![My Domain](./media/work-com-tutorial/ic767825.png "My Domain")
 
 4. Pour vérifier que votre domaine a été configuré correctement, assurez-vous qu’il figure dans **Step 4 Deployed to Users**, puis passez en revue **My Domain Settings**.
    
-    ![Domaine déployé sur l’utilisateur](./media/work-com-tutorial/ic784377.png "domaine déployé sur l’utilisateur")
+    ![Domaine déployé pour l’utilisateur](./media/work-com-tutorial/ic784377.png "Domaine déployé pour l’utilisateur")
 
 5. Connectez-vous à votre locataire Work.com.
 
 6. Accédez à **Setup**.
     
-    ![Configuration](./media/work-com-tutorial/ic794108.png "Configuration")
+    ![Paramétrage](./media/work-com-tutorial/ic794108.png "Programme d’installation")
 
 7. Développez le menu **Security Controls**, puis cliquez sur **Single Sign-On Settings**.
     
-    ![Paramètres d’authentification unique](./media/work-com-tutorial/ic794113.png "paramètres d’authentification unique")
+    ![Paramètres d’authentification unique](./media/work-com-tutorial/ic794113.png "Paramètres d’authentification unique")
 
 8. Dans la page **Single Sign on Settings** , procédez comme suit :
     
-    ![SAML activé](./media/work-com-tutorial/ic781026.png "SAML activé")
+    ![SAML activé](./media/work-com-tutorial/ic781026.png "SAML Enabled")
     
     a. Sélectionnez **SAML Enabled**.
     
@@ -164,7 +164,7 @@ Pour configurer l’authentification unique Azure AD auprès de Work.com, effec
 
 9. Dans la section **SAML Single Sign-On Settings** , procédez comme suit :
     
-    ![Configuration de l’authentification unique SAML](./media/work-com-tutorial/ic794114.png "Configuration de l’authentification unique SAML")
+    ![Paramètre d’authentification unique SAML](./media/work-com-tutorial/ic794114.png "Paramètre d’authentification unique SAML")
     
     a. Dans la zone de texte **Name** , tapez le nom de votre configuration.  
        
@@ -191,15 +191,15 @@ Pour configurer l’authentification unique Azure AD auprès de Work.com, effec
 
 10. Dans le volet de navigation gauche du portail classique Work.com, cliquez sur **Domain Management** pour développer la section associée, puis sur **My Domain** pour ouvrir la page **My Domain**. 
     
-    ![Mon domaine](./media/work-com-tutorial/ic794115.png "mon domaine")
+    ![My Domain](./media/work-com-tutorial/ic794115.png "My Domain")
 
 11. Dans la section **Login Page Branding** de la page **My Domain**, cliquez sur **Edit**.
     
-    ![Personnalisation de la page de connexion](./media/work-com-tutorial/ic767826.png "personnalisation de la page de connexion")
+    ![Personnalisation de la page de connexion](./media/work-com-tutorial/ic767826.png "Personnalisation de la page de connexion")
 
 12. Le nom des **SAML SSO Settings** s’affiche dans la section **Authentication Service** de la page **Login Page Branding**. Sélectionnez-le, puis cliquez sur **Save**.
     
-    ![Personnalisation de la page de connexion](./media/work-com-tutorial/ic784366.png "personnalisation de la page de connexion")
+    ![Personnalisation de la page de connexion](./media/work-com-tutorial/ic784366.png "Personnalisation de la page de connexion")
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD 
 
@@ -219,7 +219,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez `brittasimon@yourcompanydomain.extension`. Par exemple, BrittaSimon@contoso.com
+    b. Dans le champ **Nom d’utilisateur**, tapez `brittasimon@yourcompanydomain.extension`. Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
@@ -261,11 +261,11 @@ Pour que les utilisateurs d’Azure AD puissent se connecter, leur accès doit �
 
 2. Accédez à **Setup**.
    
-    ![Configuration](./media/work-com-tutorial/IC794108.png "Configuration")
+    ![Paramétrage](./media/work-com-tutorial/IC794108.png "Programme d’installation")
 
 3. Accédez à **Manage Users \> Users**.
    
-    ![Gestion des utilisateurs](./media/work-com-tutorial/IC784369.png "Gestion des utilisateurs")
+    ![Gérer les utilisateurs](./media/work-com-tutorial/IC784369.png "Manage Users")
 
 4. Cliquez sur **New User**.
    
@@ -273,7 +273,7 @@ Pour que les utilisateurs d’Azure AD puissent se connecter, leur accès doit �
 
 5. Dans la section Modification de l’utilisateur, procédez comme suit pour les attributs d’un compte Azure AD valide que vous souhaitez configurer dans les zones de texte correspondantes :
    
-    ![Modification de l’utilisateur](./media/work-com-tutorial/ic794118.png "modification de l’utilisateur")
+    ![Modification de l’utilisateur](./media/work-com-tutorial/ic794118.png "Modification de l’utilisateur")
    
     a. Dans la zone de texte **Prénom**, entrez le **prénom** de l’utilisateur **Britta**.
     
@@ -307,5 +307,5 @@ Le fait de cliquer sur la vignette Work.com dans le volet d’accès doit vous c
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

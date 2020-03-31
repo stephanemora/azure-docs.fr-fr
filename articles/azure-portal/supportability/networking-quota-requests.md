@@ -8,10 +8,10 @@ ms.topic: article
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
 ms.openlocfilehash: 9b5c7043b06172c2d4931ca1c3fd3ac5d0e80883
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76547753"
 ---
 # <a name="networking-limit-increase"></a>Augmentation de la limite réseau
@@ -87,6 +87,6 @@ Suivez les instructions suivantes pour créer une demande de support en utilisan
 
 1. Suivez les étapes décrites dans [Demander une augmentation du quota réseau au niveau de l’abonnement](#request-networking-quota-increase-at-subscription-level-using-help--support), en commençant à l’étape 3.
 
-## <a name="about-networking-limits"></a>À propos des limites réseau
+## <a name="about-networking-limits"></a>À propos des limites de mise en réseau
 
 Pour en savoir plus sur les limites réseau, consultez la section [Réseaux](../../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) de la page Limites ou nos questions fréquentes (FAQ) sur les limites réseau.

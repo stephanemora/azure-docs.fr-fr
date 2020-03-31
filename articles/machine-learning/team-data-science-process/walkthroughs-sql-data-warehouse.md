@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 4c8be715391f71e281ca41cc68428a2d29d78783
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: f657f02a39a023f6cb620895549105e7fd1eb233
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75864126"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80128162"
 ---
 # <a name="sql-data-warehouse-data-science-walkthroughs-using-t-sql-and-python-on-azure"></a>Procédures pas à pas sur la science des données SQL Data Warehouse à l’aide de T-SQL et de Python sur Azure
 
-Ces procédures pas à pas utilisent SQL Data Warehouse pour effectuer une analyse prédictive. Ils suivent les étapes décrites dans le processus TDSP (Team Data Science Process). Vous trouverez une vue d’ensemble du processus TDSP sur la page [Processus de science des données](overview.md) Pour une présentation de SQL Data Warehouse, consultez [En quoi consiste Azure SQL Data Warehouse ?](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
+Ces procédures pas à pas utilisent SQL Data Warehouse pour effectuer une analyse prédictive. Ils suivent les étapes décrites dans le processus TDSP (Team Data Science Process). Vous trouverez une vue d’ensemble du processus TDSP sur la page [Processus de science des données](overview.md) Pour une présentation de SQL Data Warehouse, consultez [En quoi consiste Azure SQL Data Warehouse ?](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
 
 D’autres guides de la science des données qui appliquent le processus TDSP sont regroupés en fonction de la **plateforme** qu’ils utilisent. Consultez [Procédures pas à pas du processus TDSP (Team Data Science Process)](walkthroughs.md) pour connaître les détails de ces exemples.
 

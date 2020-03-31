@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 642cc42a9853fe0a93a40ca65652b6dc5fcd8d40
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: f69b65ece09a63c7a1d9e23d5cd488d9659724ad
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78195275"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79457421"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Gérer Key Vault à l’aide de l’interface de ligne de commande Azure 
 
@@ -219,7 +219,7 @@ Pour autoriser cette même application à lire les secrets de votre coffre, sais
 az keyvault set-policy --name "ContosoKeyVault" --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --secret-permissions get
 ```
 
-## <a name="bkmk_KVperCLI"></a>Définir des stratégies avancées d’accès au coffre de clés
+## <a name="setting-key-vault-advanced-access-policies"></a><a name="bkmk_KVperCLI"></a>Définir des stratégies avancées d’accès au coffre de clés
 
 Utilisez [mise à jour du paramètre keyvault az](/cli/azure/keyvault#az-keyvault-update) pour activer des stratégies avancées pour le coffre de clés.
 
@@ -237,9 +237,9 @@ Activer Key Vault pour le chiffrement de disque : Obligatoire quand vous utilis
 
 Activer Key Vault pour le déploiement d’un modèle : autorise Resource Manager à récupérer des secrets dans le coffre.
 
-```azurecli 
- az keyvault update --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --enabled-for-template-deployment "true"
- ```
+```azurecli
+az keyvault update --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --enabled-for-template-deployment "true"
+```
 
 ## <a name="working-with-hardware-security-modules-hsms"></a>Utiliser des modules de sécurité matériels (HSM)
 

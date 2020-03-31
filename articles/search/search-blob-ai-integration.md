@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 591437eb3951164d53388b6164103948e9ad65e0
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73496439"
 ---
 # <a name="use-ai-to-understand-blob-storage-data"></a>Utiliser l’IA pour comprendre les données de stockage blob
@@ -42,7 +42,7 @@ Au milieu se trouve l’architecture du pipeline proprement dite. Le pipeline es
 
 ## <a name="start-with-services"></a>Commencer avec les services
 
-Vous avez besoin de Recherche cognitive Azure et de Stockage Blob Azure. Dans Stockage Blob, vous avez besoin d’un conteneur qui fournit le contenu source.
+Vous avez besoin de Recherche cognitive Azure et de Stockage d’objets blob Azure. Dans Stockage Blob, vous avez besoin d’un conteneur qui fournit le contenu source.
 
 Vous pouvez commencer directement dans votre page du portail des comptes Stockage. Dans la page de navigation de gauche, sous **Service Blob**, cliquez sur **Ajouter Recherche cognitive Azure** pour créer un nouveau service ou en sélectionner un existant. 
 

@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: automation
 manager: carmonm
 ms.openlocfilehash: 4cea558b11d7ee7bbe838cecbd061cd487b536d2
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769861"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79235421"
 ---
 # <a name="troubleshoot-errors-with-shared-resources"></a>Résoudre des erreurs en lien avec des ressources partagées
 
@@ -21,13 +21,13 @@ Cet article présente des solutions pour résoudre des problèmes que vous pouve
 
 ## <a name="modules"></a>Modules
 
-### <a name="module-stuck-importing"></a>Scénario : Module dont l’importation est bloquée
+### <a name="scenario-a-module-is-stuck-importing"></a><a name="module-stuck-importing"></a>Scénario : Module dont l’importation est bloquée
 
 #### <a name="issue"></a>Problème
 
 Un module est bloqué dans l’état **Importation** quand vous importez ou mettez à jour vos modules dans Azure Automation.
 
-#### <a name="cause"></a>Cause :
+#### <a name="cause"></a>Cause
 
 L’importation de modules PowerShell est un processus complexe en plusieurs étapes. Ce processus introduit la possibilité qu’un module ne s’importe pas correctement. Si ce problème se produit, il se peut que le module que vous importez soit bloqué dans un état transitoire. Pour en savoir plus sur ce processus, voir [Importation d’un module PowerShell](/powershell/scripting/developer/module/importing-a-powershell-module#the-importing-process).
 
@@ -39,7 +39,7 @@ Pour résoudre ce problème, vous devez supprimer le module bloqué dans l’ét
 Remove-AzureRmAutomationModule -Name ModuleName -ResourceGroupName ExampleResourceGroup -AutomationAccountName ExampleAutomationAccount -Force
 ```
 
-### <a name="update-azure-modules-importing"></a>Scénario : L'importation des modules AzureRM est bloquée après une tentative de mise à jour de ceux-ci
+### <a name="scenario-azurerm-modules-are-stuck-importing-after-trying-to-update-them"></a><a name="update-azure-modules-importing"></a>Scénario : L'importation des modules AzureRM est bloquée après une tentative de mise à jour de ceux-ci
 
 #### <a name="issue"></a>Problème
 
@@ -49,7 +49,7 @@ Une bannière contenant le message suivant reste dans votre compte après la ten
 Azure modules are being updated
 ```
 
-#### <a name="cause"></a>Cause :
+#### <a name="cause"></a>Cause
 
 Un problème a été identifié lors de la mise à jour des modules AzureRM dans un compte Automation appartenant à un groupe de ressources dont le nom numérique commence par 0.
 
@@ -57,13 +57,13 @@ Un problème a été identifié lors de la mise à jour des modules AzureRM dans
 
 Pour mettre à jour vos modules Azure dans votre compte Automation, celui-ci doit appartenir à un groupe de ressources portant un nom alphanumérique. Pour le moment, les groupes de ressources dont les noms numériques commencent par 0 ne peuvent pas mettre à jour les modules AzureRM.
 
-### <a name="module-fails-to-import"></a>Scénario : Le module ne parvient pas à terminer l’importation ou il est impossible d’exécuter des cmdlets après l’importation
+### <a name="scenario-module-fails-to-import-or-cmdlets-cant-be-executed-after-importing"></a><a name="module-fails-to-import"></a>Scénario : Le module ne parvient pas à terminer l’importation ou il est impossible d’exécuter des cmdlets après l’importation
 
 #### <a name="issue"></a>Problème
 
 Un module ne parvient pas à importer ou réussit l’importation, mais aucune applet de commande n’est extraite.
 
-#### <a name="cause"></a>Cause :
+#### <a name="cause"></a>Cause
 
 Voici quelques raisons courantes pour lesquelles l’importation d’un module dans Azure Automation peut échouer :
 
@@ -80,13 +80,13 @@ Une des solutions suivantes corrige ce problème :
 * Ouvrez le fichier .psd1 et regardez si le module possède des dépendances. Si c’est le cas, téléchargez ces modules dans le compte Automation.
 * Assurez-vous que les fichiers .dll référencés sont présents dans le dossier de module.
 
-### <a name="all-modules-suspended"></a>Scénario : L’exécution d’Update-AzureModule.ps1 est suspendue lors de la mise à jour des modules
+### <a name="scenario-update-azuremoduleps1-suspends-when-updating-modules"></a><a name="all-modules-suspended"></a>Scénario : L’exécution d’Update-AzureModule.ps1 est suspendue lors de la mise à jour des modules
 
 #### <a name="issue"></a>Problème
 
 Lorsque vous utilisez le runbook [Update-AzureModule.ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AzureModule.ps1) pour mettre à jour vos modules Azure, le processus de mise à jour du module est suspendu.
 
-#### <a name="cause"></a>Cause :
+#### <a name="cause"></a>Cause
 
 Lors de l’utilisation du script `Update-AzureModule.ps1`, le paramètre par défaut déterminant le nombre de modules mis à jour simultanément est de 10. Le processus de mise à jour est sujet aux erreurs lorsque les modules mis à jour en même temps sont en nombre excessif.
 
@@ -118,7 +118,7 @@ Si le processus de mise à jour est suspendu, vous devez ajouter le paramètre `
 
 ## <a name="run-as-accounts"></a>Compte d’identification
 
-### <a name="unable-create-update"></a>Scénario : Vous ne pouvez pas créer ou mettre à jour un compte d’identification
+### <a name="scenario-youre-unable-to-create-or-update-a-run-as-account"></a><a name="unable-create-update"></a>Scénario : Vous ne pouvez pas créer ou mettre à jour un compte d’identification
 
 #### <a name="issue"></a>Problème
 
@@ -128,7 +128,7 @@ Quand vous tentez de créer ou de mettre à jour un compte d’identification, v
 You do not have permissions to create…
 ```
 
-#### <a name="cause"></a>Cause :
+#### <a name="cause"></a>Cause
 
 Vous ne disposez pas des autorisations nécessaires pour créer ou mettre à jour le compte d’identification, ou la ressource est verrouillée au niveau du groupe de ressources.
 
@@ -138,7 +138,7 @@ Pour créer ou mettre à jour d’un compte d’identification, vous devez dispo
 
 Si le problème est dû à un verrou, vérifiez que le verrou peut être supprimé. Accédez ensuite à la ressource verrouillée, cliquez sur le verrou, puis choisissez **Supprimer** pour supprimer le verrou.
 
-### <a name="iphelper"></a>Scénario : Vous recevez l'erreur « Impossible de trouver le point d'entrée 'GetPerAdapterInfo' dans la DLL 'iplpapi.dll' » lors de l'exécution d'un runbook.
+### <a name="scenario-you-receive-the-error-unable-to-find-an-entry-point-named-getperadapterinfo-in-dll-iplpapidll-when-executing-a-runbook"></a><a name="iphelper"></a>Scénario : Vous recevez l'erreur « Impossible de trouver le point d'entrée 'GetPerAdapterInfo' dans la DLL 'iplpapi.dll' » lors de l'exécution d'un runbook.
 
 #### <a name="issue"></a>Problème
 
@@ -148,7 +148,7 @@ Lors de l'exécution d'un runbook, vous recevez l'exception suivante :
 Unable to find an entry point named 'GetPerAdapterInfo' in DLL 'iplpapi.dll'
 ```
 
-#### <a name="cause"></a>Cause :
+#### <a name="cause"></a>Cause
 
 Cette erreur est probablement due à un [Compte d'identification](../manage-runas-account.md) mal configuré.
 

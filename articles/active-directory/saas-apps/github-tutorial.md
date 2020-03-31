@@ -15,20 +15,19 @@ ms.topic: tutorial
 ms.date: 01/31/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f4084532ac370880df69d825927240c297dd371
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: e812e1b03637a3ecd7a45f02664c4e3547f1aef1
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79129909"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79138975"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à GitHub
 
 Dans ce tutoriel, vous allez apprendre à intégrer GitHub à Azure Active Directory (Azure AD). Quand vous intégrez GitHub à Azure AD, vous pouvez :
 
-* Contrôler dans Azure AD qui a accès à GitHub.
-* Permettre à vos utilisateurs de se connecter automatiquement à GitHub avec leur compte Azure AD.
-* Gérer vos comptes à un emplacement central : le Portail Azure.
+* Contrôler dans Azure AD qui a accès à votre organisation GitHub Enterprise Cloud.
+* Gérez l’accès à votre organisation GitHub Enterprise Cloud à partir d’emplacement central : le Portail Azure.
 
 Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
@@ -45,7 +44,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 * GitHub prend en charge l’authentification unique initiée par le **fournisseur de services**
 
-* GitHub prend en charge l’[attribution d’utilisateurs **automatique**](github-provisioning-tutorial.md).
+* GitHub prend en charge le [provisionnement d’utilisateurs **automatique** (invitations d’organisation)](github-provisioning-tutorial.md)
 * Après avoir configuré GitHub, vous pouvez appliquer le contrôle de session, qui protège l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrir comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-github-from-the-gallery"></a>Ajout de GitHub à partir de la galerie

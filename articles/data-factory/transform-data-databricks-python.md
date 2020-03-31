@@ -12,10 +12,10 @@ ms.author: daperlov
 ms.reviewer: maghan
 manager: anandsub
 ms.openlocfilehash: be2e389a0f103983a566a3f74d201e5589d84586
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74926733"
 ---
 # <a name="transform-data-by-running-a-python-activity-in-azure-databricks"></a>Transformer des données en exécutant une activité Python dans Azure Databricks
@@ -63,13 +63,13 @@ Le tableau suivant décrit les propriétés JSON utilisées dans la définition 
 
 |Propriété|Description|Obligatoire|
 |---|---|---|
-|name|Nom de l'activité dans le pipeline.|OUI|
+|name|Nom de l'activité dans le pipeline.|Oui|
 |description|Texte décrivant l’activité.|Non|
-|Type|Pour l’activité Databricks Python, le type d’activité est DatabricksSparkPython.|OUI|
-|linkedServiceName|Nom du service lié Databricks sur lequel s’exécute l’activité Python. Pour en savoir plus sur ce service lié, consultez l’article  [Services liés de calcul](compute-linked-services.md) .|OUI|
-|pythonFile|L’URI du fichier Python à exécuter. Seuls les chemins DBFS sont pris en charge.|OUI|
+|type|Pour l’activité Databricks Python, le type d’activité est DatabricksSparkPython.|Oui|
+|linkedServiceName|Nom du service lié Databricks sur lequel s’exécute l’activité Python. Pour en savoir plus sur ce service lié, consultez l’article  [Services liés de calcul](compute-linked-services.md) .|Oui|
+|pythonFile|L’URI du fichier Python à exécuter. Seuls les chemins DBFS sont pris en charge.|Oui|
 |parameters|Les paramètres de ligne de commande qui sont passés au fichier Python. C’est un tableau de chaînes.|Non|
-|libraries|Liste de bibliothèques à installer sur le cluster qui exécute la tâche. Il peut s’agir d’un tableau de < chaîne, objet >|Non|
+|libraries|Liste de bibliothèques à installer sur le cluster qui exécute le travail. Il peut s’agir d’un tableau de < chaîne, objet >|Non|
 
 ## <a name="supported-libraries-for-databricks-activities"></a>Bibliothèques prises en charge pour les activités Databricks
 
@@ -111,7 +111,7 @@ Pour plus d’informations, consultez la [documentation Databricks](https://docs
 
 ## <a name="how-to-upload-a-library-in-databricks"></a>Comment charger une bibliothèque dans Databricks
 
-#### <a name="using-databricks-workspace-uihttpsdocsazuredatabricksnetuser-guidelibrarieshtmlcreate-a-library"></a>[Interface utilisateur de l’espace de travail Databricks](https://docs.azuredatabricks.net/user-guide/libraries.html#create-a-library)
+#### <a name="using-databricks-workspace-ui"></a>[Interface utilisateur de l’espace de travail Databricks](https://docs.azuredatabricks.net/user-guide/libraries.html#create-a-library)
 
 Pour obtenir le chemin dbfs de la bibliothèque ajoutée par le biais de l’interface utilisateur, vous pouvez utiliser [CLI Databricks (installation)](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#install-the-cli). 
 
@@ -119,6 +119,6 @@ En général, les bibliothèques Jar sont stockées sous dbfs:/FileStore/jars lo
 
 
 
-#### <a name="copy-library-using-databricks-clihttpsdocsazuredatabricksnetuser-guidedev-toolsdatabricks-clihtmlcopy-a-file-to-dbfs"></a>[Copier une bibliothèque avec CLI Databricks](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#copy-a-file-to-dbfs)
+#### <a name="copy-library-using-databricks-cli"></a>[Copier une bibliothèque avec CLI Databricks](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#copy-a-file-to-dbfs)
 
 Exemple : *databricks fs cp SparkPi-assembly-0.1.jar dbfs:/FileStore/jars*

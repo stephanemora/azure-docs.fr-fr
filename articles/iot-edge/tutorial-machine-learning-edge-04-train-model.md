@@ -4,16 +4,16 @@ description: Dans ce tutoriel, vous allez entraîner un modèle Machine Learning
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 2/10/2020
+ms.date: 3/24/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a5c754373ba9437c631e62acbb5d6d246db4c862
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 57630b789233dd23e61398f445b434e4ba08b48e
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77650756"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80236017"
 ---
 # <a name="tutorial-train-and-deploy-an-azure-machine-learning-model"></a>Tutoriel : Entraîner et déployer un modèle Azure Machine Learning
 
@@ -62,7 +62,9 @@ Nous allons charger des exemples de fichiers notebooks dans un nouveau projet Az
 
 1. Dans la page utilisateur de votre nouveau compte, sélectionnez **Mes projets** dans la barre de menus supérieure.
 
-1. Dans la boîte de dialogue **Créer un projet**, fournissez un **nom de projet** qui formera automatiquement l’**ID de projet**.
+1. Ajoutez un nouveau projet en sélectionnant le bouton **+** .
+
+1. Dans la boîte de dialogue **Créer un projet**, fournissez un **Nom de projet**. 
 
 1. Vous pouvez laisser les cases **Public** et **README** non cochées, car le projet n’a pas besoin d’être public ni d’avoir un fichier readme.
 
@@ -73,6 +75,8 @@ Nous allons charger des exemples de fichiers notebooks dans un nouveau projet Az
 1. Sélectionnez **Choisir des fichiers**.
 
 1. Accédez à **C:\source\IoTEdgeAndMlSample\AzureNotebooks**. Sélectionnez tous les fichiers de la liste, puis cliquez sur **Ouvrir**.
+
+1. Cochez la case **J’ai confiance dans le contenu de ces fichiers**.
 
 1. Sélectionnez **Charger** pour commencer le téléchargement, puis sélectionnez **Terminé** une fois le processus terminé.
 
@@ -110,24 +114,22 @@ Maintenant que le projet est créé, vous pouvez exécuter les notebooks.
 
     ![Sélectionner le premier notebook à exécuter](media/tutorial-machine-learning-edge-04-train-model/select-turbofan-regression-notebook.png)
 
-1. Si vous y êtes invité, choisissez le noyau Python 3.6 dans la boîte de dialogue et sélectionnez **Set Kernel** (Définir le noyau).
-
 1. Si le notebook est répertorié en tant que **Non approuvé**, cliquez sur le widget **Non approuvé** dans l’angle supérieur droit du notebook. Dans la boîte de dialogue qui s’affiche, sélectionnez **Approuver**.
 
-1. Dans le notebook, faites défiler la liste jusqu’à la cellule qui suit les instructions **Set global properties** (Définir des propriétés globales) et qui commence par le code `AZURE_SUBSCRIPTION_ID =`. Ensuite, renseignez les valeurs de votre abonnement, de vos paramètres et de vos ressources Azure.
-
-    ![Définir les propriétés globales dans le notebook](media/tutorial-machine-learning-edge-04-train-model/set-global-properties.png)
-
-1. Exécutez cette cellule en sélectionnant **Exécuter** dans la barre d’outils.
+1. Pour de meilleurs résultats, lisez la documentation de chaque cellule et exécutez-la individuellement. Sélectionnez **Exécuter** dans la barre d’outils. Plus tard, il vous sera utile d’exécuter plusieurs cellules. Vous pouvez ignorer les avertissements de mise à niveau et d’obsolescence.
 
     Quand une cellule est en cours d’exécution, un astérisque entre crochets ([\*]) s’affiche. Lorsque l’opération est terminée dans la cellule, l’astérisque est remplacé par un numéro et une sortie peut s’afficher. Les cellules d’un notebook sont générées de façon séquentielle, et vous ne pouvez exécuter qu’une seule cellule à la fois.
 
-    Suivez les instructions du notebook. Vous pouvez également utiliser les options d’exécution du menu **Cellule** : `Ctrl` + `Enter` pour exécuter une cellule et `Shift` + `Enter` pour exécuter une cellule et passer à la cellule suivante.
+    Vous pouvez également utiliser les options d’exécution du menu **Cellule** : `Ctrl` + `Enter` pour exécuter une cellule et `Shift` + `Enter` pour exécuter une cellule et passer à la cellule suivante.
 
     > [!TIP]
     > Pour les opérations de cellule cohérentes, évitez d’exécuter le même notebook à partir de plusieurs onglets de votre navigateur.
 
-1. Faites défiler jusqu’à la cellule qui suit immédiatement le texte de présentation **Créer un espace de travail**, puis exécutez cette cellule. Dans la sortie de la cellule, recherchez le lien qui vous demande de vous connecter pour vous authentifier. 
+1. Dans la cellule qui suit les instructions **Set global properties** (Définir des propriétés globales), entrez les valeurs de votre abonnement, de vos paramètres et de vos ressources Azure. Ensuite, exécutez la cellule.
+
+    ![Définir les propriétés globales dans le notebook](media/tutorial-machine-learning-edge-04-train-model/set-global-properties.png)
+
+1. Dans la cellule précédente **Workspace details** (Détails de l’espace de travail), après son exécution, recherchez le lien qui vous demande de vous connecter pour vous authentifier :
 
     ![Invite de connexion pour l’authentification des appareils](media/tutorial-machine-learning-edge-04-train-model/sign-in-prompt.png)
 
@@ -135,17 +137,17 @@ Maintenant que le projet est créé, vous pouvez exécuter les notebooks.
 
     ![Authentifier l’application à la confirmation de l’appareil](media/tutorial-machine-learning-edge-04-train-model/cross-platform-cli.png)
 
-1. À présent, vous pouvez exécuter le reste des cellules. La meilleure solution est d’exécuter toutes les cellules afin que le code qu’elles contiennent s’exécute de manière séquentielle. Sélectionnez **Tout exécuter** dans le menu **Cellule**. Revenez en haut du notebook pour examiner la façon dont les opérations de cellule se sont terminées.
+1. Dans la cellule qui précède **Explore the results** (Explorer les résultats), copiez la valeur de l’ID d’exécution et collez-la pour l’ID d’exécution dans la cellule qui suit **Reconstitute a run** (Reconstituer une exécution).
 
-    Dans la section **Explorer les données**, vous pouvez passer en revue les cellules de la sous-section **Sensor readings and RUL** (Mesures des capteurs et durée de vie utile résiduelle) qui affichent des nuages de points représentant les mesures des capteurs.
+   ![Copier l’ID d’exécution entre les cellules](media/tutorial-machine-learning-edge-04-train-model/automl-id.png)
 
-    ![Nuages de points représentant les mesures des capteurs](media/tutorial-machine-learning-edge-04-train-model/sensor-readings.png)
+1. Exécutez les cellules restantes dans le notebook.
 
-1. Enregistrez le notebook et revenez à la page de votre projet en cliquant sur le nom de votre projet dans l’angle supérieur droit du notebook ou en retournant dans votre navigateur.
+1. Enregistrez le notebook et revenez à la page de votre projet.
 
-1. Ouvrez **02-turbofan\_deploy\_model.ipynb** et répétez les étapes de cette procédure pour exécuter le deuxième notebook.
+1. Ouvrez **02-turbofan\_deploy\_model.ipynb** et exécutez chaque cellule. Vous devrez vous connecter pour vous authentifier dans la cellule qui suit **Configure workspace** (Configurer l’espace de travail).
 
-1. Enregistrez le notebook et revenez à la page de votre projet en cliquant sur le nom de votre projet dans l’angle supérieur droit du notebook ou en retournant dans votre navigateur.
+1. Enregistrez le notebook et revenez à la page de votre projet.
 
 ### <a name="verify-success"></a>Vérifier la réussite de l’exécution
 
@@ -161,11 +163,21 @@ Pour vérifier si les notebooks se sont correctement exécutés, regardez si cer
     | ./aml_config/model_config.json | Fichier de configuration dont nous aurons besoin pour déployer le modèle dans l’espace de travail Machine Learning **turbofanDemo** Azure |
     | myenv.yml| Fournit des informations sur les dépendances pour le modèle Machine Learning déployé.|
 
-1. Dans le portail Azure, vérifiez que l’espace de travail Machine Learning **turboFanDemo** se trouve dans votre groupe de ressources.
+1. Vérifiez que les ressources Azure suivantes ont été créées. Certains noms de ressources sont ajoutés avec des caractères aléatoires.
+
+    | Ressource Azure | Nom |
+    | --- | --- |
+    | Espace de travail Machine Learning | turborfanDemo |
+    | Container Registry | turbofandemoxxxxxxxx |
+    | Applications Insights | turbofaninsightxxxxxxxx |
+    | Key Vault | turbofankeyvaultbxxxxxxxx |
+    | Stockage | turbofanstoragexxxxxxxxx |
 
 ### <a name="debugging"></a>Débogage
 
-Vous pouvez insérer des instructions Python dans le notebook pour le débogage, principalement la commande `print()`. Si vous voyez des variables ou des objets qui ne sont pas définis, exécutez les cellules là où ils sont déclarés ou instanciés en premier.
+Vous pouvez insérer des instructions Python dans le notebook pour le débogage, telles que la commande `print()` pour afficher des valeurs. Si vous voyez des variables ou des objets qui ne sont pas définis, exécutez les cellules là où ils sont déclarés ou instanciés en premier.
+
+Vous devrez peut-être supprimer les ressources Azure et les fichiers créés si vous avez besoin de restaurer les notebooks.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -8,10 +8,10 @@ ms.date: 10/28/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 28d7b2955c84833841760e441cd2919181e22bc7
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73572793"
 ---
 # <a name="manage-analysis-services"></a>Gérer Analysis Services
@@ -56,7 +56,7 @@ Pour obtenir toutes les dernières fonctionnalités et bénéficier d’une exp�
     ![Se connecter dans SSMS](./media/analysis-services-manage/aas-manage-connect-ssms.png)
 
 ## <a name="server-administrators-and-database-users"></a>Administrateurs de serveur et utilisateurs de base de données
-Dans Azure Analysis Services, il existe deux types d’utilisateur : les administrateurs de serveur et les utilisateurs de base de données. Les deux types d’utilisateur doivent exister dans Azure Active Directory et être spécifiés par adresse de messagerie d’organisation ou UPN. Pour en savoir plus, consultez l’article [Authentification et autorisations utilisateur](analysis-services-manage-users.md).
+Dans Azure Analysis Services, il existe deux types d’utilisateur : les administrateurs de serveur et les utilisateurs de base de données. Les deux types d’utilisateur doivent exister dans Azure Active Directory et être spécifiés par adresse de messagerie d’organisation ou UPN. Pour en savoir plus, consultez [Authentification et autorisations utilisateur](analysis-services-manage-users.md).
 
 
 ## <a name="troubleshooting-connection-problems"></a>Résolution des problèmes de connexion

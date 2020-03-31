@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: mcoskun
 ms.openlocfilehash: ac6bb14517b67a4b308460583e8c9fb99a2df9f0
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75922772"
 ---
 # <a name="backup-and-restore-reliable-services-and-reliable-actors"></a>Sauvegarder et restaurer Reliable Services et Reliable Actors
@@ -35,7 +35,7 @@ Par exemple, un service peut souhaiter sauvegarder des données afin de les prot
 La fonctionnalité Sauvegarder/Restaurer permet aux services reposant sur l’API Reliable Services de créer et de restaurer des sauvegardes. Les API de sauvegarde fournies par la plateforme permettent d’effectuer une ou plusieurs sauvegardes de l’état d’une partition de service, sans bloquer les opérations de lecture et d’écriture. Les API de restauration permettent la restauration de l’état d’une partition d’être à partir d’une sauvegarde choisie.
 
 ## <a name="types-of-backup"></a>Types de sauvegarde
-Il existe deux options de sauvegarde : Complète et incrémentielle.
+Il existe deux options de sauvegarde : complète et incrémentielle.
 Une sauvegarde complète est une sauvegarde qui contient toutes les données nécessaires pour recréer l’état du réplica, à savoir des points de contrôle et l’ensemble des enregistrements de journal.
 Dans la mesure où une sauvegarde complète regroupe les points de contrôle et les journaux, elle ne peut être restaurée d’elle-même.
 

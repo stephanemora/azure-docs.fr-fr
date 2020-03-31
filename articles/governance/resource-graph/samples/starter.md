@@ -4,11 +4,11 @@ description: Utilisez Azure Resource Graph pour exécuter certaines requêtes de
 ms.date: 11/21/2019
 ms.topic: sample
 ms.openlocfilehash: b966d8c239cb6ff706c967174bcea23bf25de374
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279447"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79221966"
 ---
 # <a name="starter-resource-graph-query-samples"></a>Exemples de requêtes Resource Graph de démarrage
 
@@ -38,7 +38,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Azure CLI (par le biais d’une extension) et Azure PowerShell (par le biais d’un module) prennent en charge Azure Resource Graph. Avant d’exécuter les requêtes suivantes, vérifiez que votre environnement est prêt. Consultez [Azure CLI](../first-query-azurecli.md#add-the-resource-graph-extension) et [Azure PowerShell](../first-query-powershell.md#add-the-resource-graph-module) pour savoir comment installer et valider l’environnement de votre interpréteur de commandes.
 
-## <a name="a-namecount-resources-count-azure-resources"></a><a name="count-resources" />Compter les ressources Azure
+## <a name="count-azure-resources"></a><a name="count-resources" />Compter les ressources Azure
 
 Cette requête retourne le nombre de ressources Azure présentes dans les abonnements auxquels vous avez accès. Elle permet également de valider que votre interpréteur de commandes dispose des composants Azure Resource Graph appropriés et en état de fonctionnement.
 
@@ -47,19 +47,19 @@ Resources
 | summarize count()
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Interface de ligne de commande Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az graph query -q "Resources | summarize count()"
 ```
 
-# <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Search-AzGraph -Query "Resources | summarize count()"
 ```
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portail](#tab/azure-portal)
 
 ![Icône de l’Explorateur Resource Graph](../media/resource-graph-small.png) Essayez cette requête dans l’Explorateur Azure Resource Graph :
 
@@ -69,7 +69,7 @@ Search-AzGraph -Query "Resources | summarize count()"
 
 ---
 
-## <a name="a-namecount-keyvaults-count-key-vault-resources"></a><a name="count-keyvaults" />Compter les ressources de coffre de clés
+## <a name="count-key-vault-resources"></a><a name="count-keyvaults" />Compter les ressources de coffre de clés
 
 Cette requête utilise `count` au lieu de `summarize` pour compter le nombre d’enregistrements retournés. Seuls les coffres de clés sont inclus dans le décompte.
 
@@ -79,19 +79,19 @@ Resources
 | count
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Interface de ligne de commande Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az graph query -q "Resources | where type =~ 'microsoft.keyvault/vaults' | count"
 ```
 
-# <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Search-AzGraph -Query "Resources | where type =~ 'microsoft.keyvault/vaults' | count"
 ```
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portail](#tab/azure-portal)
 
 ![Icône de l’Explorateur Resource Graph](../media/resource-graph-small.png) Essayez cette requête dans l’Explorateur Azure Resource Graph :
 
@@ -101,7 +101,7 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.keyvault/vaults' | c
 
 ---
 
-## <a name="a-namelist-resources-list-resources-sorted-by-name"></a><a name="list-resources" />Lister les ressources triées par nom
+## <a name="list-resources-sorted-by-name"></a><a name="list-resources" />Lister les ressources triées par nom
 
 Cette requête renvoie n’importe quel type de ressource, mais uniquement les propriétés de **nom**, de **type**, et d’**emplacement**. Elle utilise `order by` pour trier les propriétés par **nom** dans l’ordre croissant (`asc`).
 
@@ -111,19 +111,19 @@ Resources
 | order by name asc
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Interface de ligne de commande Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az graph query -q "Resources | project name, type, location | order by name asc"
 ```
 
-# <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Search-AzGraph -Query "Resources | project name, type, location | order by name asc"
 ```
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portail](#tab/azure-portal)
 
 ![Icône de l’Explorateur Resource Graph](../media/resource-graph-small.png) Essayez cette requête dans l’Explorateur Azure Resource Graph :
 
@@ -133,7 +133,7 @@ Search-AzGraph -Query "Resources | project name, type, location | order by name 
 
 ---
 
-## <a name="a-nameshow-vms-show-all-virtual-machines-ordered-by-name-in-descending-order"></a><a name="show-vms" />Afficher toutes les machines virtuelles classées par nom dans l’ordre décroissant
+## <a name="show-all-virtual-machines-ordered-by-name-in-descending-order"></a><a name="show-vms" />Afficher toutes les machines virtuelles classées par nom dans l’ordre décroissant
 
 Pour répertorier uniquement les machines virtuelles (qui sont de type `Microsoft.Compute/virtualMachines`), vous pouvez utiliser la propriété **type** dans les résultats. Comme dans la requête précédente, `order by` indique l’ordre de tri (`desc` spécifie un ordre décroissant). Lors de la mise en correspondance du type, `=~` indique à Resource Graph de ne pas respecter la casse.
 
@@ -144,19 +144,19 @@ Resources
 | order by name desc
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Interface de ligne de commande Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az graph query -q "Resources | project name, location, type| where type =~ 'Microsoft.Compute/virtualMachines' | order by name desc"
 ```
 
-# <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Search-AzGraph -Query "Resources | project name, location, type| where type =~ 'Microsoft.Compute/virtualMachines' | order by name desc"
 ```
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portail](#tab/azure-portal)
 
 ![Icône de l’Explorateur Resource Graph](../media/resource-graph-small.png) Essayez cette requête dans l’Explorateur Azure Resource Graph :
 
@@ -166,7 +166,7 @@ Search-AzGraph -Query "Resources | project name, location, type| where type =~ '
 
 ---
 
-## <a name="a-nameshow-sorted-show-first-five-virtual-machines-by-name-and-their-os-type"></a><a name="show-sorted" />Afficher les cinq premières machines virtuelles par nom et leur type de système d’exploitation
+## <a name="show-first-five-virtual-machines-by-name-and-their-os-type"></a><a name="show-sorted" />Afficher les cinq premières machines virtuelles par nom et leur type de système d’exploitation
 
 Cette requête utilise `top` pour récupérer uniquement les cinq enregistrements correspondants classés par nom. Le type de ressource Azure est `Microsoft.Compute/virtualMachines`. `project` indique à Azure Resource Graph les propriétés à inclure.
 
@@ -177,19 +177,19 @@ Resources
 | top 5 by name desc
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Interface de ligne de commande Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az graph query -q "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | project name, properties.storageProfile.osDisk.osType | top 5 by name desc"
 ```
 
-# <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | project name, properties.storageProfile.osDisk.osType | top 5 by name desc"
 ```
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portail](#tab/azure-portal)
 
 ![Icône de l’Explorateur Resource Graph](../media/resource-graph-small.png) Essayez cette requête dans l’Explorateur Azure Resource Graph :
 
@@ -199,7 +199,7 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachi
 
 ---
 
-## <a name="a-namecount-os-count-virtual-machines-by-os-type"></a><a name="count-os" />Compter les machines virtuelles par type de système d’exploitation
+## <a name="count-virtual-machines-by-os-type"></a><a name="count-os" />Compter les machines virtuelles par type de système d’exploitation
 
 Partons de la requête précédente. Nous limitons toujours les ressources Azure à celles de type `Microsoft.Compute/virtualMachines`, mais nous ne limitons plus le nombre d’enregistrements retournés.
 Au lieu de cela, nous utilisons `summarize` et `count()` pour définir comment regrouper et agréger les valeurs par propriété (`properties.storageProfile.osDisk.osType` dans cet exemple). Pour voir à quoi ressemble cette chaîne dans l’objet complet, consultez [Explorer les ressources - Découverte de machines virtuelles](../concepts/explore-resources.md#virtual-machine-discovery).
@@ -210,19 +210,19 @@ Resources
 | summarize count() by tostring(properties.storageProfile.osDisk.osType)
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Interface de ligne de commande Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az graph query -q "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by tostring(properties.storageProfile.osDisk.osType)"
 ```
 
-# <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by tostring(properties.storageProfile.osDisk.osType)"
 ```
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portail](#tab/azure-portal)
 
 ![Icône de l’Explorateur Resource Graph](../media/resource-graph-small.png) Essayez cette requête dans l’Explorateur Azure Resource Graph :
 
@@ -241,19 +241,19 @@ Resources
 | summarize count() by tostring(os)
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Interface de ligne de commande Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az graph query -q "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | extend os = properties.storageProfile.osDisk.osType | summarize count() by tostring(os)"
 ```
 
-# <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | extend os = properties.storageProfile.osDisk.osType | summarize count() by tostring(os)"
 ```
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portail](#tab/azure-portal)
 
 ![Icône de l’Explorateur Resource Graph](../media/resource-graph-small.png) Essayez cette requête dans l’Explorateur Azure Resource Graph :
 
@@ -266,7 +266,7 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachi
 > [!NOTE]
 > Même si `=~` autorise la mise en correspondance sans respect de la casse, sachez que l’utilisation de propriétés comme **properties.storageProfile.osDisk.osType** dans la requête nécessite le respect de la casse. Si la casse de la propriété est incorrecte, une valeur null ou incorrecte est retournée et la totalisation ou le regroupement est erroné.
 
-## <a name="a-nameshow-storage-show-resources-that-contain-storage"></a><a name="show-storage" />Afficher les ressources contenant du stockage
+## <a name="show-resources-that-contain-storage"></a><a name="show-storage" />Afficher les ressources contenant du stockage
 
 Au lieu de définir explicitement le type à mettre en correspondance, cet exemple de requête trouve n’importe quelle ressource Azure contenant (`contains`) le mot **storage**.
 
@@ -275,19 +275,19 @@ Resources
 | where type contains 'storage' | distinct type
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Interface de ligne de commande Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az graph query -q "Resources | where type contains 'storage' | distinct type"
 ```
 
-# <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Search-AzGraph -Query "Resources | where type contains 'storage' | distinct type"
 ```
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portail](#tab/azure-portal)
 
 ![Icône de l’Explorateur Resource Graph](../media/resource-graph-small.png) Essayez cette requête dans l’Explorateur Azure Resource Graph :
 
@@ -297,7 +297,7 @@ Search-AzGraph -Query "Resources | where type contains 'storage' | distinct type
 
 ---
 
-## <a name="a-namelist-publicip-list-all-public-ip-addresses"></a><a name="list-publicip" />Lister toutes les adresses IP publiques
+## <a name="list-all-public-ip-addresses"></a><a name="list-publicip" />Lister toutes les adresses IP publiques
 
 Comme dans la requête précédente, nous recherchons toutes les ressources dont le type contient un mot (ici, **publicIPAddresses**).
 Cette requête va plus loin en incluant uniquement les résultats où **properties.ipAddress**
@@ -311,19 +311,19 @@ Resources
 | limit 100
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Interface de ligne de commande Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az graph query -q "Resources | where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress) | project properties.ipAddress | limit 100"
 ```
 
-# <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Search-AzGraph -Query "Resources | where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress) | project properties.ipAddress | limit 100"
 ```
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portail](#tab/azure-portal)
 
 ![Icône de l’Explorateur Resource Graph](../media/resource-graph-small.png) Essayez cette requête dans l’Explorateur Azure Resource Graph :
 
@@ -333,7 +333,7 @@ Search-AzGraph -Query "Resources | where type contains 'publicIPAddresses' and i
 
 ---
 
-## <a name="a-namecount-resources-by-ip-count-resources-that-have-ip-addresses-configured-by-subscription"></a><a name="count-resources-by-ip" />Compter les ressources ayant des adresses IP configurées par abonnement
+## <a name="count-resources-that-have-ip-addresses-configured-by-subscription"></a><a name="count-resources-by-ip" />Compter les ressources ayant des adresses IP configurées par abonnement
 
 Reprenons l’exemple de requête précédent et ajoutons `summarize` et `count()` pour obtenir une liste par abonnement des ressources avec des adresses IP configurées.
 
@@ -343,19 +343,19 @@ Resources
 | summarize count () by subscriptionId
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Interface de ligne de commande Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az graph query -q "Resources | where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress) | summarize count () by subscriptionId"
 ```
 
-# <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Search-AzGraph -Query "Resources | where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress) | summarize count () by subscriptionId"
 ```
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portail](#tab/azure-portal)
 
 ![Icône de l’Explorateur Resource Graph](../media/resource-graph-small.png) Essayez cette requête dans l’Explorateur Azure Resource Graph :
 
@@ -365,7 +365,7 @@ Search-AzGraph -Query "Resources | where type contains 'publicIPAddresses' and i
 
 ---
 
-## <a name="a-namelist-tag-list-resources-with-a-specific-tag-value"></a><a name="list-tag" />Lister les ressources avec une valeur de balise spécifique
+## <a name="list-resources-with-a-specific-tag-value"></a><a name="list-tag" />Lister les ressources avec une valeur de balise spécifique
 
 Nous pouvons limiter les résultats en fonction d’autres propriétés que le type de ressource Azure, notamment une étiquette. Dans cet exemple, nous filtrons les ressources Azure ayant une étiquette nommée **environment** avec pour valeur **internal**.
 
@@ -375,19 +375,19 @@ Resources
 | project name
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Interface de ligne de commande Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az graph query -q "Resources | where tags.environment=~'internal' | project name"
 ```
 
-# <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Search-AzGraph -Query "Resources | where tags.environment=~'internal' | project name"
 ```
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portail](#tab/azure-portal)
 
 ![Icône de l’Explorateur Resource Graph](../media/resource-graph-small.png) Essayez cette requête dans l’Explorateur Azure Resource Graph :
 
@@ -405,19 +405,19 @@ Resources
 | project name, tags
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Interface de ligne de commande Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az graph query -q "Resources | where tags.environment=~'internal' | project name, tags"
 ```
 
-# <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Search-AzGraph -Query "Resources | where tags.environment=~'internal' | project name, tags"
 ```
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portail](#tab/azure-portal)
 
 ![Icône de l’Explorateur Resource Graph](../media/resource-graph-small.png) Essayez cette requête dans l’Explorateur Azure Resource Graph :
 
@@ -427,7 +427,7 @@ Search-AzGraph -Query "Resources | where tags.environment=~'internal' | project 
 
 ---
 
-## <a name="a-namelist-specific-tag-list-all-storage-accounts-with-specific-tag-value"></a><a name="list-specific-tag" />Lister tous les comptes de stockage avec une valeur de balise spécifique
+## <a name="list-all-storage-accounts-with-specific-tag-value"></a><a name="list-specific-tag" />Lister tous les comptes de stockage avec une valeur de balise spécifique
 
 Combinez la fonctionnalité de filtre de l’exemple précédent, et filtrez le type de ressource Azure en utilisant la propriété **type**. Cette requête limite également notre recherche à certains types de ressources Azure, qui disposent d’un nom d’étiquette et d’une valeur spécifiques.
 
@@ -437,19 +437,19 @@ Resources
 | where tags['tag with a space']=='Custom value'
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Interface de ligne de commande Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az graph query -q "Resources | where type =~ 'Microsoft.Storage/storageAccounts' | where tags['tag with a space']=='Custom value'"
 ```
 
-# <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Storage/storageAccounts' | where tags['tag with a space']=='Custom value'"
 ```
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portail](#tab/azure-portal)
 
 ![Icône de l’Explorateur Resource Graph](../media/resource-graph-small.png) Essayez cette requête dans l’Explorateur Azure Resource Graph :
 
@@ -462,7 +462,7 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Storage/storageAccou
 > [!NOTE]
 > Cet exemple utilise une condition `==` pour la mise en correspondance au lieu de `=~`. `==` indique que la mise en correspondance respecte la casse.
 
-## <a name="a-nameshow-aliases-show-aliases-for-a-virtual-machine-resource"></a><a name="show-aliases" />Afficher des alias pour une ressource de machine virtuelle
+## <a name="show-aliases-for-a-virtual-machine-resource"></a><a name="show-aliases" />Afficher des alias pour une ressource de machine virtuelle
 
 Des [alias Azure Policy](../../policy/concepts/definition-structure.md#aliases) sont utilisés par Azure Policy pour gérer la conformité des ressources. Azure Resource Graph peut restituer les _alias_ d’un type de ressource. Ces valeurs sont utiles pour comparer la valeur actuelle des alias au moment de la création d’une définition de stratégie personnalisée. Le tableau des _alias_ n’est pas fourni par défaut dans les résultats d’une requête. Utilisez `project aliases` pour l’ajouter explicitement aux résultats.
 
@@ -473,19 +473,19 @@ Resources
 | project aliases
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Interface de ligne de commande Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az graph query -q "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | limit 1 | project aliases"
 ```
 
-# <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | limit 1 | project aliases" | ConvertTo-Json
 ```
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portail](#tab/azure-portal)
 
 ![Icône de l’Explorateur Resource Graph](../media/resource-graph-small.png) Essayez cette requête dans l’Explorateur Azure Resource Graph :
 
@@ -495,7 +495,7 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachi
 
 ---
 
-## <a name="a-namedistinct-alias-values-show-distinct-values-for-a-specific-alias"></a><a name="distinct-alias-values" />Afficher des valeurs distinctes pour un alias spécifique
+## <a name="show-distinct-values-for-a-specific-alias"></a><a name="distinct-alias-values" />Afficher des valeurs distinctes pour un alias spécifique
 
 Voir la valeur des alias sur une ressource unique est utile, mais cela ne montre pas la valeur réelle de l’utilisation d’Azure Resource Graph pour interroger différents abonnements. Cet exemple passe en revue l’ensemble des valeurs d’un alias spécifique et restitue les valeurs distinctes.
 
@@ -506,19 +506,19 @@ Resources
 | distinct tostring(alias)
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Interface de ligne de commande Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az graph query -q "Resources | where type=~'Microsoft.Compute/virtualMachines' | extend alias = aliases['Microsoft.Compute/virtualMachines/storageProfile.osDisk.managedDisk.storageAccountType'] | distinct tostring(alias)"
 ```
 
-# <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Search-AzGraph -Query "Resources | where type=~'Microsoft.Compute/virtualMachines' | extend alias = aliases['Microsoft.Compute/virtualMachines/storageProfile.osDisk.managedDisk.storageAccountType'] | distinct tostring(alias)"
 ```
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portail](#tab/azure-portal)
 
 ![Icône de l’Explorateur Resource Graph](../media/resource-graph-small.png) Essayez cette requête dans l’Explorateur Azure Resource Graph :
 
@@ -528,7 +528,7 @@ Search-AzGraph -Query "Resources | where type=~'Microsoft.Compute/virtualMachine
 
 ---
 
-## <a name="a-nameunassociated-nsgs-show-unassociated-network-security-groups"></a><a name="unassociated-nsgs" />Afficher les groupes de sécurité réseau qui ne sont pas associés
+## <a name="show-unassociated-network-security-groups"></a><a name="unassociated-nsgs" />Afficher les groupes de sécurité réseau qui ne sont pas associés
 
 Cette requête retourne les groupes de sécurité réseau (NSG) qui ne sont pas associés à une interface réseau ou à un sous-réseau.
 
@@ -539,19 +539,19 @@ Resources
 | sort by name asc
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Interface de ligne de commande Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az graph query -q "Resources | where type =~ 'microsoft.network/networksecuritygroups' and isnull(properties.networkInterfaces) and isnull(properties.subnets) | project name, resourceGroup | sort by name asc"
 ```
 
-# <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Search-AzGraph -Query "Resources | where type =~ 'microsoft.network/networksecuritygroups' and isnull(properties.networkInterfaces) and isnull(properties.subnets) | project name, resourceGroup | sort by name asc"
 ```
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portail](#tab/azure-portal)
 
 ![Icône de l’Explorateur Resource Graph](../media/resource-graph-small.png) Essayez cette requête dans l’Explorateur Azure Resource Graph :
 
@@ -565,4 +565,4 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.network/networksecur
 
 - Découvrez plus en détails le [langage de requête](../concepts/query-language.md).
 - Découvrez plus en détails comment [explorer des ressources](../concepts/explore-resources.md).
-- Consultez des exemples de [Requêtes avancées](advanced.md).
+- Consulter des exemples de [requêtes avancées](advanced.md).

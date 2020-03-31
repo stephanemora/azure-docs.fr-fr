@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/24/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc8ba01ea8a443c4f8a3a8e7b911dcc605ee61ea
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: 149718dcd325ef6bd6a6754ba100ffdc34be0a07
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78967708"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79136412"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-signalfx"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory avec SignalFx
 
@@ -30,7 +30,7 @@ Ce tutoriel explique comment intégrer SignalFx à Azure Active Directory (Azure
 * Permettre à vos utilisateurs de se connecter automatiquement à SignalFx avec leur compte Azure AD.
 * Gérer vos comptes à un seul et même endroit (le portail Azure).
 
-Pour plus d’informations sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/what-is-single-sign-on).
+Pour plus d’informations sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -57,7 +57,7 @@ Suivez ces instructions pour ajouter l’application SignalFx à votre liste d�
 1. Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 1. Sélectionnez **Nouvelle application**.
 1. Dans la section **Ajouter à partir de la galerie**, dans la zone de recherche, entrez puis sélectionnez **SignalFx**.
-    * Vous aurez peut-être à attendre quelques minutes avant que l’application soit ajoutée à votre locataire.
+     * Vous aurez peut-être à attendre quelques minutes avant que l’application soit ajoutée à votre locataire.
 1. Laissez le portail Azure ouvert, puis ouvrez un nouvel onglet web.    
 
 ## <a name="step-2-begin-signalfx-sso-configuration"></a>Étape 2 : Commencer la configuration de l’authentification unique SignalFx
@@ -175,7 +175,7 @@ Lisez les informations suivantes pour savoir comment tester l’authentification
 
 - [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/what-is-single-sign-on)
+- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

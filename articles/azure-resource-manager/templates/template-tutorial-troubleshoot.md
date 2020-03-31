@@ -5,16 +5,16 @@ author: mumian
 ms.date: 01/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: ab12b206d5bb82956a8b607368af44ea0eaca40e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 30b66414e87f642bc72b8723ebff57f2e9009f17
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75471034"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80239249"
 ---
-# <a name="tutorial-troubleshoot-resource-manager-template-deployments"></a>Tutoriel : Résoudre les problèmes liés aux déploiements de modèles Resource Manager
+# <a name="tutorial-troubleshoot-arm-template-deployments"></a>Tutoriel : Résoudre les problèmes des déploiements de modèles ARM
 
-Découvrez comment corriger les erreurs de déploiement des modèles Resource Manager. Au cours de ce tutoriel, vous allez configurer deux erreurs dans un modèle, puis apprendre à utiliser les journaux d’activité et l’historique de déploiement pour résoudre les problèmes.
+Découvrez comment corriger les erreurs de déploiement des modèles Azure Resource Manager (ARM). Au cours de ce tutoriel, vous allez configurer deux erreurs dans un modèle, puis apprendre à utiliser les journaux d’activité et l’historique de déploiement pour résoudre les problèmes.
 
 Il existe deux types d’erreurs liées au déploiement d’un modèle :
 
@@ -35,11 +35,11 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléments suivants :
 
-* Visual Studio Code avec l’extension Outils Resource Manager. Consultez [Utiliser Visual Studio Code pour créer des modèles Azure Resource Manager](use-vs-code-to-create-template.md).
+* Visual Studio Code avec l’extension Outils Resource Manager. Consultez [Utiliser Visual Studio Code pour créer des modèles ARM](use-vs-code-to-create-template.md).
 
 ## <a name="create-a-problematic-template"></a>Créer un modèle problématique
 
@@ -128,4 +128,4 @@ Lorsque vous n’en avez plus besoin, nettoyez les ressources Azure que vous ave
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à résoudre les erreurs de déploiement des modèles Resource Manager.  Pour plus d’informations, consultez [Résoudre les erreurs courantes de déploiement Azure avec Azure Resource Manager](common-deployment-errors.md).
+Dans ce tutoriel, vous avez appris à résoudre les erreurs de déploiement des modèles ARM.  Pour plus d’informations, consultez [Résoudre les erreurs courantes de déploiement Azure avec Azure Resource Manager](common-deployment-errors.md).

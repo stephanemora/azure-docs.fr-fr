@@ -12,10 +12,10 @@ ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 03/12/2018
 ms.openlocfilehash: 39b8745b65eccd8e4d1b5986490e30be443ad656
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74913518"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Exécuter une instance Databricks Notebook avec l’activité Databricks Notebook dans Azure Data Factory
@@ -134,7 +134,7 @@ Dans cette section, vous allez créer un service Databricks lié. Ce service li�
 
     ![Faire glisser l’instance Notebook vers l’aire de conception](media/transform-data-using-databricks-notebook/new-adf-pipeline.png)
 
-1.  Dans les propriété de l’activité **Databricks** **Notebook**, au bas de la fenêtre, procédez comme suit :
+1.  Dans les propriétés de la fenêtre d’activité **Databricks** **Notebook** en bas, effectuez les étapes suivantes :
 
     a. Basculez vers l’onglet **Azure Databricks**.
 
@@ -197,7 +197,7 @@ La boîte de dialogue **Exécution du pipeline** invite à saisir le paramètre 
 
 ![Indiquer une valeur pour les paramètres de nom](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image21.png)
 
-## <a name="monitor-the-pipeline-run"></a>Surveiller l’exécution du pipeline
+## <a name="monitor-the-pipeline-run"></a>Surveiller l’exécution du pipeline.
 
 1.  Basculez vers l’onglet **Surveiller**. Vérifiez qu’un pipeline est exécuté. Il faut compter environ 5 à 8 minutes pour créer un cluster de travaux Databricks, où s’exécute l’instance Notebook.
 
@@ -223,7 +223,7 @@ Vous pouvez cliquer sur le **nom du travail** et naviguer pour afficher plus de 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Le pipeline dans cet exemple déclenche une activité Databricks Notebook et lui transmet un paramètre. Vous avez appris à effectuer les actions suivantes :
+Le pipeline dans cet exemple déclenche une activité Databricks Notebook et lui transmet un paramètre. Vous avez appris à :
 
   - Créer une fabrique de données.
 

@@ -10,14 +10,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 07621bd2d0593ea3896aba0deb65e0b856e5987b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6fd8573c78d80c950bdeb41ec01e2835def3979a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432241"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79204254"
 ---
 # <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio-classic"></a>Tutoriel 1 : Prédire le risque de crédit – Azure Machine Learning Studio (classique)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
@@ -38,7 +40,7 @@ Dans cette partie du tutoriel, vous allez effectuer les opérations suivantes :
 
 Vous pouvez ensuite utiliser cette expérience pour [entraîner des modèles dans la deuxième partie](tutorial-part2-credit-risk-train.md), puis [les déployer dans la troisième partie](tutorial-part3-credit-risk-deploy.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Ce didacticiel suppose que vous avez utilisé Machine Learning Studio (classique) au moins une fois et que vous comprenez les concepts du Machine Learning. Il ne suppose pas non plus que vous êtes un expert.
 
@@ -66,7 +68,7 @@ Une fois votre espace de travail créé, ouvrez Machine Learning Studio (classiq
 > Dans la page **PARAMÈTRES**, cliquez sur **UTILISATEURS**, puis cliquez sur **INVITER PLUS D’UTILISATEURS** en bas de la fenêtre.
 > 
 
-## <a name="upload"></a>Charger des données existantes
+## <a name="upload-existing-data"></a><a name="upload"></a>Charger des données existantes
 
 Pour développer un modèle prédictif pour un risque de crédit, vous avez besoin de données que vous pouvez utiliser pour entraîner puis tester le modèle. Pour ce tutoriel, vous allez utiliser le modèle « UCI Statlog (German Credit Data) Data Set » qui se trouve dans le dépôt UC Irvine Machine Learning. Vous pouvez le trouver ici :  
 <a href="https://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">https://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)</a>

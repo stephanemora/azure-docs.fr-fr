@@ -5,16 +5,16 @@ author: mumian
 ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 91a37178f8dc8ecc3c61ca16f193e2e52c309d46
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 9ed14ce1af6421accccface1b66119057d1c5a30
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209475"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80239292"
 ---
-# <a name="tutorial-create-multiple-resource-instances-with-resource-manager-templates"></a>Tutoriel : Créer plusieurs instances de ressources grâce à des modèles Resource Manager
+# <a name="tutorial-create-multiple-resource-instances-with-arm-templates"></a>Tutoriel : Créer plusieurs instances de ressources grâce à des modèles ARM
 
-Découvrez comment procéder à une itération dans votre modèle Azure Resource Manager pour créer plusieurs instances d’une ressource Azure. Dans ce tutoriel, vous modifiez un modèle pour créer trois instances de compte de stockage.
+Découvrez comment procéder à une itération dans votre modèle Azure Resource Manager (ARM) pour créer plusieurs instances d’une ressource Azure. Dans ce tutoriel, vous modifiez un modèle pour créer trois instances de compte de stockage.
 
 ![Azure Resource Manager crée plusieurs instances de diagramme](./media/template-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances-diagram.png)
 
@@ -31,11 +31,11 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléments suivants :
 
-* Visual Studio Code avec l’extension Outils Resource Manager. Consultez [Utiliser Visual Studio Code pour créer des modèles Azure Resource Manager](use-vs-code-to-create-template.md).
+* Visual Studio Code avec l’extension Outils Resource Manager. Consultez [Utiliser Visual Studio Code pour créer des modèles ARM](use-vs-code-to-create-template.md).
 
 ## <a name="open-a-quickstart-template"></a>Ouvrir un modèle de démarrage rapide
 
-[Modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/) est un référentiel pour les modèles Resource Manager. Au lieu de créer un modèle à partir de zéro, vous pouvez chercher un exemple de modèle et le personnaliser. Le modèle utilisé dans ce démarrage rapide se nomme [Créer un compte de stockage standard](https://azure.microsoft.com/resources/templates/101-storage-account-create/). Le modèle définit une ressource de compte de stockage Azure.
+Le dépôt [Modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/) contient les modèles ARM. Au lieu de créer un modèle à partir de zéro, vous pouvez chercher un exemple de modèle et le personnaliser. Le modèle utilisé dans ce démarrage rapide se nomme [Créer un compte de stockage standard](https://azure.microsoft.com/resources/templates/101-storage-account-create/). Le modèle définit une ressource de compte de stockage Azure.
 
 1. À partir de Visual Studio Code, sélectionnez **Fichier**>**Ouvrir un fichier**.
 2. Collez l’URL suivante dans **Nom de fichier** :
@@ -108,7 +108,7 @@ Le modèle complet ressemble à ceci :
 }
 ```
 
-Pour plus d’informations sur la création de plusieurs instances, consultez [Déployer plusieurs instances d’une ressource ou d’une propriété dans des modèles Azure Resource Manager](./copy-resources.md)
+Pour plus d’informations sur la création de plusieurs instances, consultez [Déployer plusieurs instances d’une ressource ou d’une propriété dans des modèles ARM](./copy-resources.md)
 
 ## <a name="deploy-the-template"></a>Déployer le modèle
 

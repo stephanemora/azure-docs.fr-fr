@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 4750673eb60529d812e4df71de9203d4d59a0cc9
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.openlocfilehash: 76b7a97a5be5e7952b0ac11d93bd68656ff8f1ec
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77212271"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79454310"
 ---
 # <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-cli"></a>Tutoriel : Déploiement de modules HSM sur un réseau virtuel existant à l’aide d’Azure CLI
 
@@ -47,7 +47,7 @@ Il est supposé que :
 - Vous avez créé un groupe de ressources pour ces ressources, et que les nouvelles ressources déployées dans ce tutoriel devront être ajoutées à ce groupe.
 - Vous avez déjà créé le réseau virtuel, le sous-réseau et les machines virtuelles nécessaires d’après le diagramme ci-dessus, et que vous souhaitez intégrer deux modules HSM à ce déploiement.
 
-Toutes les instructions ci-dessous supposent que vous avez déjà ouvert le portail Azure ainsi que Cloud Shell (sélectionnez \>\_ en haut à droite du portail).
+Toutes les instructions ci-dessous supposent que vous avez déjà accédé au portail Azure et que vous avez ouvert Cloud Shell (sélectionnez \>\_ en haut à droite du portail).
 
 ## <a name="provisioning-a-dedicated-hsm"></a>Provisionnement d’un module HSM dédié
 
@@ -79,7 +79,7 @@ Les deux commandes doivent retourner l’état « Registered » (Inscrit), com
 
 Un module HSM est provisionné dans le réseau virtuel d’un client. Il est donc nécessaire de disposer d’un réseau virtuel et d’un sous-réseau. Pour permettre la communication entre le réseau virtuel et l’appareil physique, vous devez utiliser une passerelle ExpressRoute. En outre, vous devez utiliser une machine virtuelle pour accéder au module HSM à l’aide du logiciel client Gemalto. Ces ressources ont été rassemblées dans un fichier de modèle, avec le fichier de paramètres correspondant, pour une plus grande facilité d’utilisation. Pour obtenir ces fichiers, contactez Microsoft directement à l’adresse HSMrequest@Microsoft.com.
 
-Une fois que vous avez reçu ces fichiers, vous devez insérer les noms choisis pour vos ressources dans le fichier de paramètres. Insérez les noms sur les lignes où la valeur est vide ("value": "".).
+Une fois que vous avez reçu ces fichiers, vous devez insérer les noms choisis pour vos ressources dans le fichier de paramètres. Modifiez les lignes où la valeur est vide ("value": "".).
 
 - `namingInfix` Préfixe des noms de ressources HSM
 - `ExistingVirtualNetworkName` Nom du réseau virtuel utilisé pour les modules HSM
@@ -144,7 +144,8 @@ az network vnet create \
 ```
 
 ```azurecli
---vnet-name myHSM-vnet \
+az network vnet create \
+  --vnet-name myHSM-vnet \
   --resource-group myRG \
   --name hsmsubnet \
   --address-prefixes 10.2.1.0/24 \
@@ -193,7 +194,7 @@ az resource show \
 
 ![Sortie de l’approvisionnement](media/tutorial-deploy-hsm-cli/progress-status2.png)
 
-Vous pouvez également voir les ressources à l’aide de l’[Explorateur de ressources Azure](https://resources.azure.com/).   Dans l’Explorateur, développez « Abonnements » sur la gauche, développez votre abonnement pour HSM dédié, développez « Groupes de ressources », développez le groupe de ressources que vous avez utilisé, puis sélectionnez l’élément « Ressources ».
+Vous pouvez également voir les ressources à l’aide de l’[Explorateur de ressources Azure](https://resources.azure.com/).   Une fois dans l’Explorateur, développez « Abonnements » sur la gauche, votre abonnement pour HSM dédié, « Groupes de ressources », le groupe de ressources que vous avez utilisé, puis sélectionnez l’élément « Ressources ».
 
 ## <a name="testing-the-deployment"></a>Test du déploiement
 
@@ -207,9 +208,9 @@ L’adresse IP de la machine virtuelle peut également être utilisée à la pl
 ![liste des composants](media/tutorial-deploy-hsm-cli/resources.png)
 
 >[!NOTE]
->Remarquez la case à cocher « Afficher les types masqués », qui, lorsqu’elle est sélectionnée, affiche les ressources HSM.
+>Notez la case à cocher « Afficher les types masqués » qui, quand elle est cochée, affiche les ressources HSM.
 
-Dans la capture d’écran ci-dessus, le fait de cliquer sur « HSM1_HSMnic » ou « HSM2_HSMnic » affiche l’adresse IP privée appropriée. Sinon, la commande `az resource show` utilisée ci-dessus permet également d’identifier l’adresse IP appropriée. 
+Dans la capture d’écran ci-dessus, un clic sur « HSM1_HSMnic » ou « HSM2_HSMnic » affiche l’adresse IP privée appropriée. Sinon, la commande `az resource show` utilisée ci-dessus permet également d’identifier l’adresse IP appropriée. 
 
 Une fois que vous avez obtenu la bonne adresse IP, exécutez la commande suivante en remplaçant cette adresse :
 

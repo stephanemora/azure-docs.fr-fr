@@ -10,25 +10,22 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 01/24/2020
+ms.date: 03/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 21725e64bb359b2f11086baceb186605f010b796
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 94b351ddb18ca596f47e8ef40cff8229c838d7bd
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561457"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80239204"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate-preview"></a>Tutoriel : Utiliser des scripts de déploiement pour créer un certificat auto-signé (préversion)
 
-Découvrez comment utiliser des scripts de déploiement dans des modèles Azure Resource Manager. Les scripts de déploiement permettent d’effectuer des étapes personnalisées impossibles à réaliser avec des modèles Resource Manager. Créer un certificat auto-signé est un exemple.  Dans ce tutoriel, vous allez créer un modèle pour déployer un coffre de clés Azure, puis utiliser une ressource `Microsoft.Resources/deploymentScripts` dans le même modèle pour créer un certificat et enfin ajouter ce certificat au coffre de clés. Pour en savoir plus sur les scripts de déploiement, consultez [Utiliser des scripts de déploiement dans des modèles Azure Resource Manager](./deployment-script-template.md).
-
-> [!NOTE]
-> Le script de déploiement est actuellement en préversion. Pour l’utiliser, vous devez [vous inscrire à la préversion](https://aka.ms/armtemplatepreviews).
+Découvrez comment utiliser des scripts de déploiement dans des modèles Azure Resource Manager (ARM). Les scripts de déploiement permettent d’effectuer des étapes personnalisées impossibles à réaliser avec des modèles ARM. Créer un certificat auto-signé est un exemple.  Dans ce tutoriel, vous allez créer un modèle pour déployer un coffre de clés Azure, puis utiliser une ressource `Microsoft.Resources/deploymentScripts` dans le même modèle pour créer un certificat et enfin ajouter ce certificat au coffre de clés. Pour en savoir plus sur les scripts de déploiement, consultez [Utiliser des scripts de déploiement dans des modèles ARM](./deployment-script-template.md).
 
 > [!IMPORTANT]
-> Deux ressources de script de déploiement, un compte de stockage et une instance de conteneur sont créés dans le même groupe de ressources pour l’exécution du script et la résolution des problèmes. Ces ressources sont généralement supprimées par le service de script lorsque l’exécution du script atteint un état terminal. Vous êtes facturé pour ces ressources tant qu’elles ne sont pas supprimées. Pour plus d’informations, consultez [Nettoyer les ressources de script de déploiement](./deployment-script-template.md#clean-up-deployment-script-resources).
+> Deux ressources de script de déploiement, un compte de stockage et une instance de conteneur, sont créées dans le même groupe de ressources pour l’exécution du script et la résolution de problèmes. Ces ressources sont généralement supprimées par le service de script lorsque l’exécution du script atteint un état terminal. Vous êtes facturé pour ces ressources tant qu’elles ne sont pas supprimées. Pour plus d’informations, consultez [Nettoyer les ressources de script de déploiement](./deployment-script-template.md#clean-up-deployment-script-resources).
 
 Ce tutoriel décrit les tâches suivantes :
 
@@ -43,7 +40,7 @@ Ce tutoriel décrit les tâches suivantes :
 
 Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléments suivants :
 
-* **[Visual Studio Code](https://code.visualstudio.com/) avec l’extension Outils Resource Manager**. Consultez [Utiliser Visual Studio Code pour créer des modèles Azure Resource Manager](./use-vs-code-to-create-template.md).
+* **[Visual Studio Code](https://code.visualstudio.com/) avec l’extension Outils Resource Manager**. Consultez [Utiliser Visual Studio Code pour créer des modèles ARM](./use-vs-code-to-create-template.md).
 
 * **Une identité managée affectée par l’utilisateur avec le rôle de contributeur au niveau de l’abonnement**. Cette identité est utilisée pour exécuter les scripts de déploiement. Pour en créer une, consultez [Identité managée affectée par l’utilisateur](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#user-assigned-managed-identity). Vous avez besoin de l’ID d’identité lorsque vous déployez le modèle. Le format de l’identité est le suivant :
 
@@ -62,7 +59,7 @@ Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléme
 
 ## <a name="open-a-quickstart-template"></a>Ouvrir un modèle de démarrage rapide
 
-Au lieu de créer un modèle à partir de zéro, ouvrez un modèle à partir de [Modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/). Le référentiel Modèles de démarrage rapide Azure contient les modèles Resource Manager.
+Au lieu de créer un modèle à partir de zéro, ouvrez un modèle à partir de [Modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/). Le dépôt Modèles de démarrage rapide Azure contient les modèles ARM.
 
 Le modèle utilisé dans ce guide de démarrage rapide est appelé [Créer un coffre de clés et un secret Azure](https://azure.microsoft.com/resources/templates/101-key-vault-create/). Le modèle crée un coffre de clés, puis y ajoute un secret.
 
@@ -348,7 +345,7 @@ Lorsque vous n’en avez plus besoin, nettoyez les ressources Azure que vous ave
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à utiliser un script de déploiement dans des modèles Azure Resource Manager. Pour savoir comment déployer des ressources Azure en fonction des conditions, consultez :
+Dans ce tutoriel, vous avez appris à utiliser un script de déploiement dans des modèles ARM. Pour savoir comment déployer des ressources Azure en fonction des conditions, consultez :
 
 > [!div class="nextstepaction"]
 > [Utiliser des conditions](./template-tutorial-use-conditions.md)

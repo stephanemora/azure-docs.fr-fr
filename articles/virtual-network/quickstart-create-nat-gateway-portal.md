@@ -14,19 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/24/2020
 ms.author: allensu
-ms.openlocfilehash: c6da4b54dbc982c69e9d3004a5da8f63deffa3e9
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 1ff13d8ef0ca4c6cf499c3245d3ef14370283075
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78246026"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80066385"
 ---
 # <a name="quickstart-create-a-nat-gateway-using-the-azure-portal"></a>Démarrage rapide : Créer une passerelle NAT avec le portail Azure
 
 Ce guide de démarrage rapide vous montre comment utiliser le service NAT de Réseau virtuel Azure. Vous allez créer une passerelle NAT pour fournir une connectivité sortante à une machine virtuelle dans Azure. 
 
->[!NOTE] 
->Le service NAT de Réseau virtuel Azure est disponible en préversion publique à ce stade, et disponible dans un ensemble limité de [régions](./nat-overview.md#region-availability). Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Consultez les [Conditions d’utilisation supplémentaires des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms).
+Si vous préférez, au lieu d’utiliser le portail, vous pouvez effectuer ces étapes dans [Azure CLI](quickstart-create-nat-gateway-cli.md), [Azure PowerShell](quickstart-create-nat-gateway-powershell.md) ou déployer un [modèle ARM](quickstart-create-nat-gateway-powershell.md).
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
@@ -179,6 +178,5 @@ Consultez les métriques dans Azure Monitor pour découvrir le fonctionnement de
 - Guide de démarrage rapide du déploiement d’une [ressource de passerelle NAT avec Azure CLI](./quickstart-create-nat-gateway-cli.md).
 - Guide de démarrage rapide du déploiement d’une [ressource de passerelle NAT avec Azure PowerShell](./quickstart-create-nat-gateway-powershell.md).
 - Guide de démarrage rapide du déploiement d’une [ressource de passerelle NAT avec le portail Azure](./quickstart-create-nat-gateway-portal.md).
-- [Faites-nous part de vos commentaires sur la préversion publique](https://aka.ms/natfeedback).
 > [!div class="nextstepaction"]
 

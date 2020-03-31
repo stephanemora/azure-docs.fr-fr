@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 1/9/2019
 ms.author: lcozzens
-ms.openlocfilehash: f27ad43fabbba92f97a4035b00f72a8a4af4cc5c
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: 420d9b48013f5f6debe588667fe1cc0390517e66
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77500213"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80245376"
 ---
 # <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>Démarrage rapide : Créer une application .NET Core avec App Configuration
 
@@ -27,13 +27,15 @@ Dans ce guide de démarrage rapide, vous intégrez Azure App Configuration dans 
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Sélectionnez **Explorateur de configurations** > **Créer** pour ajouter les paires clé-valeur suivantes :
+6. Sélectionnez **Explorateur de configurations** > **Créer** > **Clé-valeur** pour ajouter les paires clé-valeur suivantes :
 
     | Clé | Valeur |
     |---|---|
     | TestApp:Settings:Message | Data from Azure App Configuration |
 
     Laissez **Étiquette** et **Type de contenu** vides pour l’instant.
+
+7. Sélectionnez **Appliquer**.
 
 ## <a name="create-a-net-core-console-app"></a>Créer une application console .NET Core
 
@@ -43,22 +45,22 @@ Vous utilisez l’[interface de ligne de commande (CLI) .NET Core](https://docs.
 
 2. Dans le nouveau dossier, exécutez la commande suivante pour créer un projet d’application ASP.NET Core :
 
-    ```CLI
-        dotnet new console
+    ```dotnetcli
+    dotnet new console
     ```
 
 ## <a name="connect-to-an-app-configuration-store"></a>Se connecter à un magasin App Configuration
 
 1. Ajoutez une référence au package NuGet `Microsoft.Extensions.Configuration.AzureAppConfiguration` en exécutant la commande suivante :
 
-    ```CLI
-        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration
+    ```dotnetcli
+    dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration
     ```
 
 2. Exécutez la commande suivante pour restaurer les packages de votre projet :
 
-    ```CLI
-        dotnet restore
+    ```dotnetcli
+    dotnet restore
     ```
 
 3. Ouvrez *Program.cs*, puis ajoutez une référence au fournisseur App Configuration .NET Core.
@@ -83,32 +85,34 @@ Vous utilisez l’[interface de ligne de commande (CLI) .NET Core](https://docs.
 
 ## <a name="build-and-run-the-app-locally"></a>Générer et exécuter l’application localement
 
-1. Définissez une variable d’environnement nommée **ConnectionString** et affectez-lui la valeur de la clé d’accès à votre magasin App Configuration. Sur la ligne de commande, exécutez la commande suivante et redémarrez l’invite de commandes pour que la modification soit prise en compte :
+1. Définissez une variable d’environnement nommée **ConnectionString** et affectez-lui la valeur de la clé d’accès à votre magasin App Configuration. Sur la ligne de commande, exécutez la commande suivante :
 
-    ```CLI
-        setx ConnectionString "connection-string-of-your-app-configuration-store"
+    ```cmd
+    setx ConnectionString "connection-string-of-your-app-configuration-store"
     ```
 
     Si vous utilisez Windows PowerShell, exécutez la commande suivante :
 
     ```azurepowershell
-        $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
+    $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
     ```
 
     Si vous utilisez macOS ou Linux, exécutez la commande suivante :
 
         export ConnectionString='connection-string-of-your-app-configuration-store'
 
+    Redémarrez l’invite de commandes pour que la modification soit prise en compte. Imprimez la valeur de la variable d’environnement pour confirmer qu’elle est correctement définie.
+
 2. Exécutez la commande suivante pour générer l’application console :
 
-    ```CLI
-        dotnet build
+    ```dotnetcli
+    dotnet build
     ```
 
 3. La génération terminée correctement, lancez la commande suivante pour exécuter l’application localement :
 
-    ```CLI
-        dotnet run
+    ```dotnetcli
+    dotnet run
     ```
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources

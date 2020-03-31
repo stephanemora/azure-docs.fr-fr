@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 08/07/2019
 ms.author: alkohli
 ms.openlocfilehash: 581f95bd813445d2cc9bd83d91917ea83f0bf04f
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68987467"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79229781"
 ---
 # <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Utiliser le Portail Azure pour administrer votre Azure Data Box et Azure Data Box Heavy
 
@@ -209,7 +209,7 @@ Vous êtes informé par courrier électronique dès que l’état de l’apparei
 |Completed       |La commande a été terminée avec succès.<br> Vérifiez que vos données se trouvent bien dans Azure avant de supprimer les données locales des serveurs.         |
 |Completed with errors (Terminée avec des erreurs)| La copie des données a été effectuée mais des erreurs se sont produites pendant l’opération. <br> Consultez les journaux d’activité de copie en utilisant le chemin d’accès spécifié dans le portail Azure. Consultez [des exemples de journaux de copie lorsque le téléchargement s’est terminé avec des erreurs](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-errors).   |
 |Terminé avec des avertissements| La copie des données a été effectuée, mais vos données ont été modifiées. Les données comportaient des erreurs non critiques d’objet BLOB ou de nom de fichier qui ont été corrigées en modifiant les noms des fichiers ou des objets BLOB. <br> Consultez les journaux d’activité de copie en utilisant le chemin d’accès spécifié dans le portail Azure. Prenez note des modifications apportées à vos données. Consultez [des exemples de journaux de copie lorsque le téléchargement s’est terminé avec des avertissements](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-warnings).   |
-|Canceled            |La commande a été annulée. <br> Soit vous avez annulé la commande, soit une erreur s’est produite et le service a annulé la commande. Si elle ne peut pas être traitée sous 90 jours, la commande est également annulée et vous en êtes informé.     |
+|Opération annulée            |La commande a été annulée. <br> Soit vous avez annulé la commande, soit une erreur s’est produite et le service a annulé la commande. Si elle ne peut pas être traitée sous 90 jours, la commande est également annulée et vous en êtes informé.     |
 |Nettoyer | Les données sur les disques de l’appareil sont effacées. Le nettoyage de l’appareil est considéré comme terminé lorsque l’historique de la commande est disponible au téléchargement dans le portail Azure.|
 
 

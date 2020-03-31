@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/27/2019
 ms.openlocfilehash: 7a2becf8cb43568383c324bb9f4f5b2e7b844268
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77667141"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Solution Azure Key Vault Analytics dans Azure Monitor
@@ -131,9 +131,9 @@ Pour utiliser la solution mise à jour :
 1. [Configurez les diagnostics pour qu’ils soient directement envoyés à un espace de travail Log Analytics à partir de Key Vault](#enable-key-vault-diagnostics-in-the-portal).  
 2. Activez la solution Azure Key Vault en procédant de la manière décrite dans [Ajouter des solutions Azure Monitor à partir de la Galerie Solutions](../../azure-monitor/insights/solutions.md).
 3. Mettez à jour les requêtes, les tableaux de bord et les alertes enregistrés pour qu’ils utilisent le nouveau type de données.
-   + Le type KeyVaults est remplacé par : AzureDiagnostics. Vous pouvez utiliser ResourceType pour filtrer les journaux d’activité Key Vault.
+   + Le type passe de KeyVaults à AzureDiagnostics. Vous pouvez utiliser ResourceType pour filtrer les journaux d’activité Key Vault.
    + Au lieu de `KeyVaults`, utilisez `AzureDiagnostics | where ResourceType'=="VAULTS"`.
-   + Champs : (les noms de champs sont sensibles à la casse)
+   + Champs : (les noms de champs respectent la casse)
    + Pour tous les champs dont le suffixe est \_s, \_d ou \_g, remplacez le premier caractère du nom par une lettre minuscule.
    + Pour tous les champs dont le suffixe est \_o, les données sont réparties sur plusieurs champs, selon les noms de champs imbriqués. Par exemple, l’UPN de l’appelant est stocké dans un champ `identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s`.
    + Le champ CallerIpAddress est remplacé par CallerIPAddress

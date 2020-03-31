@@ -1,5 +1,6 @@
 ---
 title: Accéder aux objets blob de stockage à l’aide d’un domaine personnalisé Azure CDN via HTTPS
+description: Découvrez comment ajouter un domaine personnalisé Azure CDN et activer HTTPS sur ce domaine pour votre point de terminaison de stockage Blob personnalisé.
 services: cdn
 documentationcenter: ''
 author: mdgattuso
@@ -14,14 +15,14 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: e6415c9e8e0ab8743042891a2d0d422dffe37bdb
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: be09229136289e343856f1e2ba61cda63730d21f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279109"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80053963"
 ---
-# <a name="tutorial-access-storage-blobs-using-an-azure-cdn-custom-domain-over-https"></a>Didacticiel : Accéder aux objets blob de stockage à l’aide d’un domaine personnalisé Azure CDN via HTTPS
+# <a name="tutorial-access-storage-blobs-using-an-azure-cdn-custom-domain-over-https"></a>Tutoriel : Accéder aux objets blob de stockage à l’aide d’un domaine personnalisé Azure CDN via HTTPS
 
 Une fois que vous avez intégré votre compte de stockage Azure à Azure Content Delivery Network (CDN), vous pouvez ajouter un domaine personnalisé et activer le protocole HTTPS sur ce domaine pour le point de terminaison de votre stockage d’objets blob personnalisé. 
 
@@ -59,7 +60,7 @@ Lorsque vous accédez à des objets blob via Azure CDN, vous payez [le prix du s
 Par exemple, si vous disposez d’un compte de stockage aux États-Unis, accessible à l’aide d’Azure CDN, et qu’une personne en Europe tente d’accéder à l’un des objets blob dans ce compte de stockage via Azure CDN, Azure CDN vérifie d’abord le serveur POP européen le plus proche pour cet objet blob. S’il le trouve, Azure CDN accède à cette copie de l’objet blob et utilise la tarification CDN, car l’accès se fait via Azure CDN. Dans le cas contraire, Azure CDN copie l’objet blob vers le serveur POP, ce qui entraîne des frais de sortie et de transaction tels que spécifiés dans la tarification du stockage d’objets Blob, et accède ensuite au fichier sur le serveur POP, ce qui entraîne la facturation Azure CDN.
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Tutoriel : Définir des règles de mise en cache d’Azure CDN](cdn-caching-rules-tutorial.md)
+[Tutoriel : Définir des règles de mise en cache d’Azure CDN](cdn-caching-rules-tutorial.md)
 
 
 

@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/18/2020
 ms.openlocfilehash: a3a313ef9cd74ba901f5a6a2d82a18e3c21145dc
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77462517"
 ---
 # <a name="monitor-query-requests-in-azure-cognitive-search"></a>Surveiller les demandes de requête dans Recherche cognitive Azure
@@ -189,7 +189,7 @@ Power BI is an analytical reporting tool useful for visualizing data, including 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si ce n'est déjà fait, passez en revue les principes de base de la surveillance des services de recherche pour en savoir plus sur les différentes capacités de surveillance disponibles.
+Si ce n’est déjà fait, passez en revue les principes de base de la surveillance des services de recherche pour en savoir plus sur les différentes capacités de surveillance disponibles.
 
 > [!div class="nextstepaction"]
 > [Surveiller les opérations et l'activité dans Recherche cognitive Azure](search-monitor-usage.md)

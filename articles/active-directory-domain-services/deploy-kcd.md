@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: iainfou
 ms.openlocfilehash: 216fdeca9893f4e290474512617f13382d22890f
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77614018"
 ---
 # <a name="configure-kerberos-constrained-delegation-kcd-in-azure-active-directory-domain-services"></a>Configurer la délégation Kerberos contrainte (KCD) dans Azure Active Directory Domain Services
@@ -24,7 +24,7 @@ Pendant leur exécution, les applications peuvent avoir besoin d’accéder à d
 
 Cet article vous montre comment configurer la délégation Kerberos contrainte basée sur les ressources dans un domaine managé Azure AD DS.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour effectuer ce qui est décrit dans cet article, vous avez besoin des ressources suivantes :
 

@@ -10,10 +10,10 @@ ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: 2ce5b8472fe10b51cff34677c9ce5a89888bdc01
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74075059"
 ---
 # <a name="create-an-application-gateway-with-ssl-termination-using-azure-powershell"></a>Créer une passerelle d’application avec un arrêt SSL à l’aide d’Azure PowerShell
@@ -289,7 +289,7 @@ Pour accepter l’avertissement de sécurité si vous avez utilisé un certifica
 
 ![Tester l’URL de base dans la passerelle d’application](./media/tutorial-ssl-powershell/application-gateway-iistest.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Quand vous n’en avez plus besoin, supprimez le groupe de ressources, la passerelle d’application et toutes les ressources associées à l’aide de [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
 

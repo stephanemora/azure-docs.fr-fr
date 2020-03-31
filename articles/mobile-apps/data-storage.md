@@ -1,18 +1,18 @@
 ---
 title: Stocker, gérer et conserver des données d’application dans le cloud avec Visual Studio App Center et les services Azure
 description: Découvrez des services tels que Visual Studio App Center qui vous permettent de stocker, de gérer et de conserver les données des applications mobiles dans le cloud.
-author: elamalani
+author: codemillmatt
 ms.assetid: 12344321-0123-4678-8588-ccff02097224
 ms.service: vs-appcenter
 ms.topic: article
-ms.date: 10/22/2019
-ms.author: emalani
-ms.openlocfilehash: 04de01e1fd3dba88145c7f3748ca30b31ab1740a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/24/2020
+ms.author: masoucou
+ms.openlocfilehash: 166847325fa9094136f1c2a143f1751420f05f66
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454445"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240908"
 ---
 # <a name="store-sync-and-query-mobile-application-data-from-the-cloud"></a>Stocker, synchroniser et interroger des données d’application mobile à partir du cloud
 Quel que soit le type d'application que vous créez, vous êtes susceptible de générer et de traiter des données. Les attentes des utilisateurs de votre application sont élevées. Ils veulent que l'application fonctionne rapidement et avec fluidité, en toutes circonstances. La plupart des applications fonctionnent également sur plusieurs appareils. Vous pouvez accéder à votre application à partir d'un ordinateur de bureau ou d'un appareil mobile. Plusieurs utilisateurs peuvent utiliser l'application en même temps et partager des données en espérant disposer d'un accès immédiat et en temps réel aux données.

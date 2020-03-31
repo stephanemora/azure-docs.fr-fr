@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 77cc4732e017d95cbae19578cf26b1111b08fdde
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75908987"
 ---
 # <a name="associate-peer-asn-to-azure-subscription-using-powershell"></a>Associer un NSA d’homologue à un abonnement Azure à l’aide de PowerShell
@@ -109,4 +109,4 @@ La suppression d’un PeerASN n’est pas prise en charge actuellement. Si vous 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-Pour plus d’informations, consultez [FAQ sur le Peering Internet](faqs.md).
+Pour plus d’informations, consultez [FAQ sur le peering Internet](faqs.md).

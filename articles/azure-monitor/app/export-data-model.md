@@ -4,10 +4,10 @@ description: Décrit les propriétés exportées à partir de l’exportation co
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.openlocfilehash: e4dd2310169476e54c06083fee11b2e4cccecd8d
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77663873"
 ---
 # <a name="application-insights-export-data-model"></a>Modèle d’exportation de données Application Insights
@@ -225,7 +225,7 @@ Envoyées par [TrackRequest](../../azure-monitor/app/api-custom-events-metrics.m
 
 | Path | Type | Notes |
 | --- | --- | --- |
-| request [0] count |entier |100 / (taux d’[échantillonnage](../../azure-monitor/app/sampling.md) ). Par exemple : 4 =&gt; 25 %. |
+| request [0] count |entier |100 / (taux d’[échantillonnage](../../azure-monitor/app/sampling.md) ). Par exemple, 4 =&gt; 25 %. |
 | request [0] durationMetric.value |nombre |Délai entre l’arrivée de la requête et la réponse. 1e7 = 1s |
 | request [0] id |string |ID d’opération |
 | request [0] name |string |GET/POST + base d’URL  Longueur maximale 250 |

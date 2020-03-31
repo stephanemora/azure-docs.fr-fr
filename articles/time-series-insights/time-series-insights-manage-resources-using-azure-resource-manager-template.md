@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 02/04/2020
 ms.custom: seodec18
 ms.openlocfilehash: 1caa80469504d52d3103fb2776fb3e7210971690
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77024396"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Créer des ressources Time Series Insights à l’aide de modèles Azure Resource Manager
@@ -63,7 +63,7 @@ La procédure suivante explique comment utiliser PowerShell pour déployer un mo
      | --- | --- |
      | eventHubNamespaceName | Espace de noms du hub de la source de l’événement. |
      | eventHubName | Nom du hub de la source de l’événement. |
-     | consumerGroupName | Nom du groupe de consommation que le service Time Series Insights utilisera pour lire les données à partir du hub d’événements. **REMARQUE :** Pour éviter les conflits de ressources, ce groupe de consommateurs doit être dédié au service Time Series Insights et ne pas être partagé avec d'autres lecteurs. |
+     | consumerGroupName | Nom du groupe de consommation que le service Time Series Insights utilisera pour lire les données à partir du hub d’événements. **REMARQUE :** Pour éviter la contention de ressources, ce groupe de consommation doit être dédié au service Time Series Insights et non partagé avec d’autres lecteurs. |
      | environmentName | Nom de l’environnement. Il ne peut pas inclure : `<`, `>`, `%`, `&`, `:`, `\\`, `?`, `/`, ni aucun caractère de contrôle. Tous les autres caractères sont autorisés.|
      | eventSourceName | Nom de la ressource enfant de la source de l’événement. Il ne peut pas inclure : `<`, `>`, `%`, `&`, `:`, `\\`, `?`, `/`, ni aucun caractère de contrôle. Tous les autres caractères sont autorisés. |
 
@@ -73,7 +73,7 @@ La procédure suivante explique comment utiliser PowerShell pour déployer un mo
 
      | Paramètre | Description |
      | --- | --- |
-     | existingEventHubResourceId | ID de ressource facultatif d’un hub d’événements existant qui sera connecté à l’environnement Time Series Insights par le biais de la source de l’événement. **REMARQUE :** L'utilisateur qui déploie le modèle doit disposer de privilèges pour effectuer l'opération listkeys sur le hub d'événements. Si aucune valeur n’est transmise, un nouveau hub d’événements sera créé par le modèle. |
+     | existingEventHubResourceId | ID de ressource facultatif d’un hub d’événements existant qui sera connecté à l’environnement Time Series Insights par le biais de la source de l’événement. **REMARQUE :** L’utilisateur qui déploie le modèle doit avoir des privilèges pour réaliser l’opération listkeys sur le hub d’événements. Si aucune valeur n’est transmise, un nouveau hub d’événements sera créé par le modèle. |
      | environmentDisplayName | Nom convivial facultatif à afficher dans les outils et les interfaces utilisateur à la place du nom de l’environnement. |
      | environmentSkuName | Nom du la référence SKU. Pour plus d’informations, consultez la [page Tarification de Time Series Insights](https://azure.microsoft.com/pricing/details/time-series-insights/).  |
      | environmentSkuCapacity | Capacité unitaire de la référence SKU. Pour plus d’informations, consultez la [page Tarification de Time Series Insights](https://azure.microsoft.com/pricing/details/time-series-insights/).|

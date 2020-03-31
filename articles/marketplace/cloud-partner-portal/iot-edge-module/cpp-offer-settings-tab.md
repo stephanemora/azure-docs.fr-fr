@@ -1,19 +1,18 @@
 ---
 title: Paramètres de l’offre d’un module Azure IoT Edge | Place de marché Azure
 description: Configurez les paramètres de l’offre pour un module IoT Edge.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.author: pabutler
-ms.openlocfilehash: 1043f467a7363bc0e3eedba40fd2246015592276
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 0fb15a6d71278be9b380f793d39732e763d6447d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73814092"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80286572"
 ---
 # <a name="iot-edge-module-offer-settings-tab"></a>Onglet Paramètres d’offre de module IoT Edge
 

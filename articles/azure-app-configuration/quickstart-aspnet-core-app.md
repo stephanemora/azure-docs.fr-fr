@@ -8,12 +8,12 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 02/19/2020
 ms.author: lcozzens
-ms.openlocfilehash: ee50d180c579e117c16f1a956871068f0a46e976
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: 537dabe09c41012b9e15998ce3af8198dcfb62d3
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77498570"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80245772"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Démarrage rapide : Créer une application ASP.NET Core avec Azure App Configuration
 
@@ -31,7 +31,7 @@ Dans ce guide de démarrage rapide, vous utilisez Azure App Configuration pour c
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Sélectionnez **Explorateur de configurations** > **Créer** pour ajouter les paires clé-valeur suivantes :
+6. Sélectionnez **Explorateur de configurations** > **Créer** > **Clé-valeur** pour ajouter les paires clé-valeur suivantes :
 
     | Clé | Valeur |
     |---|---|
@@ -40,7 +40,7 @@ Dans ce guide de démarrage rapide, vous utilisez Azure App Configuration pour c
     | TestApp:Settings:FontColor | Noir |
     | TestApp:Settings:Message | Data from Azure App Configuration |
 
-    Laissez **Étiquette** et **Type de contenu** vides pour l’instant.
+    Laissez **Étiquette** et **Type de contenu** vides pour l’instant. Sélectionnez **Appliquer**.
 
 ## <a name="create-an-aspnet-core-web-app"></a>Créez une application web ASP.NET Core
 
@@ -58,44 +58,51 @@ dotnet new mvc --no-https
 
 Pour utiliser Secret Manager, ajoutez un élément `UserSecretsId` à votre fichier  *.csproj*.
 
-Ouvrez le fichier  *.csproj*. Ajoutez un élément `UserSecretsId` comme indiqué ici. Vous pouvez utiliser le même GUID ou remplacer cette valeur par votre propre valeur. Enregistrez le fichier .
+1. Ouvrez le fichier  *.csproj*.
 
-> [!IMPORTANT]
-> `CreateHostBuilder` remplace `CreateWebHostBuilder` dans .NET Core 3.0.  Sélectionnez la syntaxe appropriée en fonction de votre environnement.
+1.  Ajoutez un élément `UserSecretsId` comme indiqué ici. Vous pouvez utiliser le même GUID ou remplacer cette valeur par votre propre valeur.
 
-#### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
-
-```xml
-<Project Sdk="Microsoft.NET.Sdk.Web">
-
-    <PropertyGroup>
-        <TargetFramework>netcoreapp2.1</TargetFramework>
-        <UserSecretsId>79a3edd0-2092-40a2-a04d-dcb46d5ca9ed</UserSecretsId>
-    </PropertyGroup>
-
-    <ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore.App" />
-        <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
-    </ItemGroup>
-
-</Project>
-```
-
-#### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
-
-```xml
-<Project Sdk="Microsoft.NET.Sdk.Web">
+    > [!IMPORTANT]
+    > `CreateHostBuilder` remplace `CreateWebHostBuilder` dans .NET Core 3.0.  Sélectionnez la syntaxe appropriée en fonction de votre environnement.
     
-    <PropertyGroup>
-        <TargetFramework>netcoreapp3.1</TargetFramework>
-        <UserSecretsId>79a3edd0-2092-40a2-a04d-dcb46d5ca9ed</UserSecretsId>
-    </PropertyGroup>
+    #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
+    
+    ```xml
+    <Project Sdk="Microsoft.NET.Sdk.Web">
+    
+        <PropertyGroup>
+            <TargetFramework>netcoreapp2.1</TargetFramework>
+            <UserSecretsId>79a3edd0-2092-40a2-a04d-dcb46d5ca9ed</UserSecretsId>
+        </PropertyGroup>
+    
+        <ItemGroup>
+            <PackageReference Include="Microsoft.AspNetCore.App" />
+            <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+        </ItemGroup>
+    
+    </Project>
+    ```
+    
+    #### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
+    
+    ```xml
+    <Project Sdk="Microsoft.NET.Sdk.Web">
+        
+        <PropertyGroup>
+            <TargetFramework>netcoreapp3.1</TargetFramework>
+            <UserSecretsId>79a3edd0-2092-40a2-a04d-dcb46d5ca9ed</UserSecretsId>
+        </PropertyGroup>
+    
+    </Project>
+    ```
+    ---
 
-</Project>
-```
----
+1. Enregistrez le fichier  *.csproj*.
 
-L’outil Secret Manager stocke les données sensibles pour les travaux de développement à l’extérieur de l’arborescence de votre projet. Cette approche empêche le partage accidentel des secrets d’une application au sein du code source. Pour plus d’informations sur Secret Manager, consultez [Stockage sécurisé des secrets d’application en développement dans ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/app-secrets).
+L’outil Secret Manager stocke les données sensibles pour les travaux de développement à l’extérieur de l’arborescence de votre projet. Cette approche empêche le partage accidentel des secrets d’une application au sein du code source.
+
+> [!TIP]
+> Pour en savoir plus sur Secret Manager, consultez [Stockage sécurisé des secrets d’application en développement dans ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/app-secrets).
 
 ## <a name="connect-to-an-app-configuration-store"></a>Se connecter à un magasin App Configuration
 
@@ -113,7 +120,7 @@ L’outil Secret Manager stocke les données sensibles pour les travaux de déve
 
 1. Ajoutez un secret nommé *ConnectionStrings:AppConfig* à Secret Manager.
 
-    Ce secret contient la chaîne de connexion permettant d’accéder à votre magasin App Configuration. Dans la commande suivante, remplacez la valeur par la chaîne de connexion de votre magasin App Configuration.
+    Ce secret contient la chaîne de connexion permettant d’accéder à votre magasin App Configuration. Dans la commande suivante, remplacez la valeur par la chaîne de connexion de votre magasin App Configuration. La chaîne de connexion se trouve sous **Clés d’accès** dans le portail Azure.
 
     Cette commande doit être exécutée dans le même répertoire que le fichier *.csproj*.
 

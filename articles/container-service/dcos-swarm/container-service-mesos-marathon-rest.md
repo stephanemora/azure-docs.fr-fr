@@ -8,10 +8,10 @@ ms.date: 04/04/2017
 ms.author: iainfou
 ms.custom: mvc
 ms.openlocfilehash: 3492f35d54dd3ee61ab8d29a3af06e4998bbd477
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76277777"
 ---
 # <a name="deprecated-dcos-container-management-through-the-marathon-rest-api"></a>(DÉCONSEILLÉ) Gestion de conteneur DC/OS à l’aide de l’API REST Marathon
@@ -112,13 +112,13 @@ Le résultat du serveur Nginx ressemble à ce qui suit :
 
 
 ## <a name="scale-your-containers"></a>Mettre vos conteneurs à l’échelle
-Vous pouvez utiliser l’API Marathon pour diminuer ou augmenter la taille des déploiements des instances d’application. Dans l’exemple précédent, vous avez déployé une instance d’une application. Nous allons augmenter la taille de déploiement pour obtenir trois instances d’une application. Pour ce faire, créez un fichier JSON avec le texte JSON suivant et stockez-le dans un emplacement accessible.
+Vous pouvez utiliser l’API Marathon pour effectuer un scale-out ou un scale-in dans les déploiements d’application. Dans l’exemple précédent, vous avez déployé une instance d’une application. Nous allons augmenter la taille de déploiement pour obtenir trois instances d’une application. Pour ce faire, créez un fichier JSON avec le texte JSON suivant et stockez-le dans un emplacement accessible.
 
 ```json
 { "instances": 3 }
 ```
 
-À partir de la connexion par tunnel, exécutez la commande suivante pour augmenter la taille des instances de l’application.
+À partir de la connexion par tunnel, exécutez la commande suivante pour effectuer un scale-out de l’application.
 
 > [!NOTE]
 > L'URI est http:\//localhost/marathon/v2/apps/, suivi de l'ID de l'application que vous souhaitez mettre à l'échelle. Si vous utilisiez l'exemple Nginx fourni ici, l'URI serait http:\//localhost/marathon/v2/apps/nginx.
@@ -169,13 +169,13 @@ Pour déployer un conteneur au format Docker, stockez le fichier JSON dans un em
 Invoke-WebRequest -Method Post -Uri http://localhost/marathon/v2/apps -ContentType application/json -InFile 'c:\marathon.json'
 ```
 
-Vous pouvez également utiliser l’API Marathon pour diminuer ou augmenter la taille des déploiements des instances d’application. Dans l’exemple précédent, vous avez déployé une instance d’une application. Nous allons augmenter la taille de déploiement pour obtenir trois instances d’une application. Pour ce faire, créez un fichier JSON avec le texte JSON suivant et stockez-le dans un emplacement accessible.
+Vous pouvez également utiliser l’API Marathon pour effectuer un scale-out ou un scale-in dans les déploiements d’application. Dans l’exemple précédent, vous avez déployé une instance d’une application. Nous allons augmenter la taille de déploiement pour obtenir trois instances d’une application. Pour ce faire, créez un fichier JSON avec le texte JSON suivant et stockez-le dans un emplacement accessible.
 
 ```json
 { "instances": 3 }
 ```
 
-Exécutez la commande suivante pour augmenter la taille des instances de l’application :
+Exécutez la commande suivante pour effectuer un scale-out de l’application :
 
 > [!NOTE]
 > L'URI est http:\//localhost/marathon/v2/apps/, suivi de l'ID de l'application que vous souhaitez mettre à l'échelle. Si vous utilisiez l'exemple Nginx fourni ici, l'URI serait http:\//localhost/marathon/v2/apps/nginx.

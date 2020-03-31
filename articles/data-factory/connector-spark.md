@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/04/2019
 ms.openlocfilehash: 63e352ce47c5934171594ae87ee307603fff4c35
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74931028"
 ---
 # <a name="copy-data-from-spark-using-azure-data-factory"></a>Copier des données de Spark avec Azure Data Factory 
@@ -49,14 +49,14 @@ Les propriétés suivantes sont prises en charge pour le service lié Spark :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type doit être définie sur : **Spark** | OUI |
-| host | Adresse IP ou nom d’hôte du serveur Spark.  | OUI |
-| port | Port TCP utilisé par le serveur Spark pour écouter les connexions clientes. Si vous êtes connecté à Azure HDInsights, spécifiez le port 443. | OUI |
+| type | La propriété type doit être définie sur : **Spark** | Oui |
+| host | Adresse IP ou nom d’hôte du serveur Spark.  | Oui |
+| port | Port TCP utilisé par le serveur Spark pour écouter les connexions clientes. Si vous êtes connecté à Azure HDInsights, spécifiez le port 443. | Oui |
 | serverType | Type de serveur Spark. <br/>Les valeurs autorisées sont les suivantes : **SharkServer**, **SharkServer2**, **SparkThriftServer** | Non |
 | thriftTransportProtocol | Protocole de transport à utiliser dans la couche Thrift. <br/>Les valeurs autorisées sont les suivantes : **Binary**, **SASL**, **HTTP** | Non |
-| authenticationType | Méthode d’authentification utilisée pour accéder au serveur Spark. <br/>Les valeurs autorisées sont les suivantes : **Anonymous**, **Username**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | OUI |
+| authenticationType | Méthode d’authentification utilisée pour accéder au serveur Spark. <br/>Les valeurs autorisées sont les suivantes : **Anonymous**, **Username**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Oui |
 | username | Nom d’utilisateur utilisé pour accéder au serveur Spark.  | Non |
-| password | Mot de passe correspondant à l’utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Non |
+| mot de passe | Mot de passe correspondant à l’utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Non |
 | httpPath | URL partielle correspondant au serveur Spark.  | Non |
 | enableSsl | Indique si les connexions au serveur sont chiffrées suivant le protocole SSL. La valeur par défaut est false.  | Non |
 | trustedCertPath | Chemin d’accès complet du fichier .pem contenant les certificats d’autorité de certification approuvés permettant de vérifier le serveur en cas de connexion via SSL. Cette propriété n’est disponible que si le protocole SSL est utilisé sur un runtime d’intégration auto-hébergé. Valeur par défaut : le fichier cacerts.pem installé avec le runtime d’intégration.  | Non |
@@ -94,8 +94,8 @@ Pour copier des données de Spark, affectez la valeur **SparkObject** à la prop
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type du jeu de données doit être définie sur : **SparkObject** | OUI |
-| schema | Nom du schéma. |Non (si « query » dans la source de l’activité est spécifié)  |
+| type | La propriété type du jeu de données doit être définie sur : **SparkObject** | Oui |
+| schéma | Nom du schéma. |Non (si « query » dans la source de l’activité est spécifié)  |
 | table | Nom de la table. |Non (si « query » dans la source de l’activité est spécifié)  |
 | tableName | Nom de la table avec le schéma. Cette propriété est prise en charge pour la compatibilité descendante. Utilisez `schema` et `table` pour une nouvelle charge de travail. | Non (si « query » dans la source de l’activité est spécifié) |
 
@@ -126,7 +126,7 @@ Pour copier des données de Spark, affectez la valeur **SparkSource** au type so
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type de la source d’activité de copie doit être définie sur : **SparkSource** | OUI |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **SparkSource** | Oui |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**

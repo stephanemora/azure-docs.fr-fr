@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: 8c5b3fcc1cb2ac481be0b435c48ce213c716edde
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 05968fdd9e2ddfd89bd9310c744d9ee699f440d2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78198165"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79472722"
 ---
 # <a name="tutorial-use-a-linux-vm-and-a-net-app-to-store-secrets-in-azure-key-vault"></a>Tutoriel : Utiliser une machine virtuelle Linux et une application .NET pour stocker des secrets dans Azure Key Vault
 
@@ -43,7 +43,7 @@ Avant d’aller plus loin, lisez les [concepts de base relatifs à Key Vault](ba
 
 ## <a name="understand-managed-service-identity"></a>Comprendre Managed Service Identity
 
-Azure Key Vault peut stocker des informations d'identification de façon sécurisée afin qu’elles ne se retrouvent pas dans votre code, mais pour les récupérer vous devez vous authentifier sur Azure Key Vault. Toutefois, pour vous authentifier auprès de Key Vault, vous avez besoin d’informations d’identification. Il s’agit d’un problème de démarrage classique. Avec Azure et Azure Active Directory (Azure AD), Managed Service Identity (MSI) peut fournir une identité de démarrage qui simplifie grandement le démarrage.
+Azure Key Vault peut stocker des informations d’identification de façon sécurisée afin de ne pas les avoir dans votre code, mais pour les récupérer, vous devez vous authentifier auprès d’Azure Key Vault. Toutefois, pour vous authentifier auprès de Key Vault, vous avez besoin d’informations d’identification. Il s’agit d’un problème de démarrage classique. Avec Azure et Azure Active Directory (Azure AD), Managed Service Identity (MSI) peut fournir une identité de démarrage qui simplifie grandement le démarrage.
 
 Quand vous activez MSI pour un service Azure comme Machines virtuelles, App Service ou Functions, Azure crée un principal de service pour l’instance du service dans Azure Active Directory. Il injecte les informations d’identification du principal de service dans l’instance du service.
 
@@ -114,7 +114,7 @@ az vm create \
 
 La création de la machine virtuelle et des ressources de support ne nécessite que quelques minutes. L’exemple de sortie suivant illustre la réussite de l’opération de création d’une machine virtuelle.
 
-```azurecli
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -139,7 +139,7 @@ az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourRe
 
 La commande doit retourner ce qui suit :
 
-```azurecli
+```output
 {
   "systemAssignedIdentity": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "userAssignedIdentities": {}

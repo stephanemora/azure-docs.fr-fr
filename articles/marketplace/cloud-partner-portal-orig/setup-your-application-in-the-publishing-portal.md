@@ -1,20 +1,18 @@
 ---
 title: Configurer votre application dans le portail de publication
 description: Instructions relatives à la configuration de votre application dans le portail de publication cloud.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: pbutlerm
-manager: Ricardo.Villalobos
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: 1bf89f94d91e0d809428cf8098db0fb37afdb47a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 2676dbf72309eeb51be1f08e7bae2c1502cc671e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73814680"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280199"
 ---
 # <a name="setup-your-application-in-the-publishing-portal"></a>Configurer votre application dans le portail de publication
 
@@ -91,7 +89,7 @@ Remarque : Le déploiement de « Sovereign and US Gov Cloud » en Allemagne R
 
 ### <a name="offer-summary"></a>Résumé de l’offre
 
-Résumé de la proposition de valeur de votre offre. Il figurera sur la page de recherche de votre offre. Il ne peut pas comprendre plus de 100 caractères.
+Résumé de la proposition de valeur de votre offre. Il figurera sur la page de recherche de votre offre. Elle ne doit pas dépasser 100 caractères.
 
 ### <a name="offer-description"></a>Description de l’offre
 
@@ -131,7 +129,7 @@ Entrez la date de publication de votre application
 
 ### <a name="products-your-app-works-with-max-3"></a>Produits utilisés par votre application (3 max.)
 
-Liste des produits spécifiques avec lesquels votre application fonctionne. Vous pouvez indiquer au maximum trois produits. Pour ajouter un produit à la liste, cliquez sur le signe plus (à côté de nouveau). Dans le champ de texte ouvert qui est créé pour vous, entrez ensuite le nom d’un produit avec lequel votre application fonctionne.
+Liste des produits spécifiques avec lesquels votre application fonctionne. Vous pouvez indiquer au maximum trois produits. Pour ajouter un produit à la liste, cliquez sur le signe plus (à côté de nouveau). Dans le champ de texte ouvert qui est créé, entrez le nom du produit avec lequel votre application fonctionne.
 
 ### <a name="search-keywords-max-3"></a>Mots clés de recherche (3 max.)
 
@@ -153,11 +151,11 @@ Il figurera sur la page détaillée de votre application. **Seul le format png e
 
 ### <a name="videos"></a>Videos
 
-Vous pouvez charger un maximum de quatre vidéos. Pour chaque vidéo que vous souhaitez charger, vous devez indiquer le nom de la vidéo, l’URL (YouTube ou Vimeo uniquement) et la miniature à associer à la vidéo. La miniature doit être au format png et d’une taille de 1280 \* 720 px. Pour ajouter une ou plusieurs vidéos nouvelles, cliquez sur le signe plus. Les miniatures des vidéos figureront sur la page détaillée de votre application.
+Vous pouvez charger un maximum de quatre vidéos. Pour chaque vidéo que vous souhaitez charger, vous devez indiquer le nom de la vidéo, l’URL (YouTube ou Vimeo uniquement) et la miniature à associer à la vidéo. La miniature doit être au format png et d’une résolution de 1280 \* 720 px. Pour ajouter une ou plusieurs vidéos nouvelles, cliquez sur le signe plus. Les miniatures des vidéos figureront sur la page détaillée de votre application.
 
 ### <a name="documents"></a>Documents
 
-Vous pouvez charger un maximum de trois documents au format PDF. Pour chaque document que vous souhaitez charger, vous devez en indiquer le nom, puis charger le document. Le document doit être au format pdf.
+Vous pouvez charger un maximum de trois documents au format PDF. Vous devez indiquer le nom de chaque document que vous voulez charger et ensuite charger le document. Le document doit être au format pdf.
 
 Pour ajouter un ou plusieurs documents nouveaux, cliquez sur le signe plus
 

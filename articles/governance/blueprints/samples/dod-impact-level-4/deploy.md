@@ -1,14 +1,14 @@
 ---
 title: Exemple de blueprint DoD Impact Level 4
 description: Étapes de déploiement pour l’exemple de blueprint DoD Impact Level 4 et informations détaillées sur les paramètres d’artefact de blueprint.
-ms.date: 02/09/2020
+ms.date: 03/06/2020
 ms.topic: sample
-ms.openlocfilehash: 087b5947f86d33e44cd72754b79acd457674d545
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: c92e24327bc1879b8fea89cf85a50f845e473810
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77154697"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79415306"
 ---
 # <a name="deploy-the-dod-impact-level-4-blueprint-sample"></a>Déployer l’exemple de blueprint DoD Impact Level 4
 
@@ -132,7 +132,8 @@ Le tableau suivant fournit la liste des paramètres d’artefact de blueprint :
 |\[Préversion\] : DoD Impact Level 4|Affectation de rôle|L’authentification multifacteur doit être activée sur les comptes disposant d’autorisations de propriétaire sur votre abonnement|Vous trouverez des informations sur les effets de la stratégie dans [Comprendre les effets d’Azure Policy](../../../policy/concepts/effects.md).|
 |\[Préversion\] : DoD Impact Level 4|Affectation de rôle|L’authentification multifacteur doit être activée sur les comptes disposant d’autorisations d’écriture sur votre abonnement|Vous trouverez des informations sur les effets de la stratégie dans [Comprendre les effets d’Azure Policy](../../../policy/concepts/effects.md).|
 |\[Préversion\] : DoD Impact Level 4|Affectation de rôle|La sauvegarde géoredondante à long terme doit être activée pour les bases de données Azure SQL|Vous trouverez des informations sur les effets de la stratégie dans [Comprendre les effets d’Azure Policy](../../../policy/concepts/effects.md).|
-
+|Emplacements autorisés|Affectation de rôle|Emplacements autorisés|Cette stratégie vous permet de restreindre les emplacements que votre organisation peut spécifier lors du déploiement de ressources. Utilisez-la pour appliquer vos exigences de conformité géographique.|
+|Emplacements autorisés pour les groupes de ressources|Affectation de rôle |Emplacements autorisés|Cette stratégie vous permet de restreindre les emplacements où votre organisation peut créer des groupes de ressources. Utilisez-la pour appliquer vos exigences de conformité géographique.|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

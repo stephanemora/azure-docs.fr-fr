@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/12/2019
-ms.openlocfilehash: 950f8600dac6fccfa72f5dea6e900a210572ee38
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.date: 03/18/2020
+ms.openlocfilehash: 361ba17532d27a7020be1b6874993da999f48604
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973532"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79527705"
 ---
 # <a name="supported-azure-database-for-mariadb-server-versions"></a>Versions du serveur Azure Database for MariaDB prises en charge
 

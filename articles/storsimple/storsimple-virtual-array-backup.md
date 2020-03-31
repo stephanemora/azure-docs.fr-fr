@@ -16,15 +16,15 @@ ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a61dcca1f78b6ba444a2deefcf6b8bb4fd5c5087
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60581297"
 ---
 # <a name="back-up-shares-or-volumes-on-your-storsimple-virtual-array"></a>Sauvegarde de partages ou de volumes sur votre StorSimple Virtual Array
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 StorSimple Virtual Array est un périphérique virtuel local de stockage cloud hybride qui peut être configuré comme un serveur de fichiers ou un serveur iSCSI. Le tableau virtuel vous permet de créer des sauvegardes planifiées et manuelles de l’ensemble des partages ou des volumes sur l’appareil. Configuré comme serveur de fichiers, il permet également la récupération au niveau de l’élément. Ce didacticiel vous explique comment créer des sauvegardes planifiées et manuelles et effectuer une récupération au niveau de l’élément pour restaurer un fichier supprimé sur votre tableau virtuel.
 
@@ -32,7 +32,7 @@ Ce didacticiel s’applique uniquement aux instances StorSimple Virtual Array. P
 
 ## <a name="back-up-shares-and-volumes"></a>Sauvegarder des partages et des volumes
 
-Les sauvegardes fournissent une protection jusqu’à une date et une heure, et optimisent la récupération tout en réduisant les délais de restauration pour les partages et les sauvegardes. Vous pouvez sauvegarder un partage ou un volume sur votre appareil StorSimple de deux manières : **Planifiée** ou **Manuelle**. Chacune des méthodes est abordée dans les sections suivantes.
+Les sauvegardes fournissent une protection jusqu’à une date et une heure, et optimisent la récupération tout en réduisant les délais de restauration pour les partages et les sauvegardes. Vous pouvez sauvegarder un partage ou un volume sur votre appareil StorSimple de deux manières : **planifiée** ou **manuelle**. Chacune des méthodes est abordée dans les sections suivantes.
 
 ## <a name="change-the-backup-start-time"></a>Modifier l’heure de début de la sauvegarde
 

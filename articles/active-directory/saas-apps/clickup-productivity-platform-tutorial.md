@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à ClickUp Productivity Platform | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à ClickUp Productivity Platform | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et ClickUp Productivity Platform.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 4647d78255f611959bb86ca00ff6920bc823d49a
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: f497955b698d7ca390b40686e94d553a7cd5c948
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73158575"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80048746"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-clickup-productivity-platform"></a>Didacticiel : Intégration d’Azure Active Directory à ClickUp Productivity Platform
+# <a name="tutorial-azure-active-directory-integration-with-clickup-productivity-platform"></a>Tutoriel : Intégration d’Azure Active Directory à ClickUp Productivity Platform
 
 Dans ce tutoriel, vous allez apprendre à intégrer ClickUp Productivity Platform à Azure Active Directory (Azure AD).
 L’intégration de ClickUp Productivity Platform à Azure AD vous offre les avantages suivants :
@@ -120,7 +120,9 @@ Pour configurer l’authentification unique Azure AD auprès de ClickUp Producti
 
 1. Dans une autre fenêtre de navigateur web, connectez-vous à votre locataire ClickUp Productivity Platform en tant qu’administrateur.
 
-2. Cliquez sur **User profile** (Profil utilisateur) et sélectionnez **Settings** (Paramètres).
+2. Cliquez sur **User profile** (Profil utilisateur), puis sélectionnez **Settings** (Paramètres).
+
+    ![Configuration ClickUp Productivity Platform](./media/clickup-productivity-platform-tutorial/configure0.png)
 
     ![Configuration ClickUp Productivity Platform](./media/clickup-productivity-platform-tutorial/configure1.png)
 
@@ -159,7 +161,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
     b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
-    Par exemple, BrittaSimon@contoso.com
+    Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
@@ -195,7 +197,9 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 1. Dans une autre fenêtre de navigateur web, connectez-vous à votre locataire ClickUp Productivity Platform en tant qu’administrateur.
 
-2. Cliquez sur **User profile** (Profil utilisateur) et sélectionnez **Users** (Utilisateurs).
+2. Cliquez sur **User profile** (Profil utilisateur), puis sélectionnez **People** (Personnes).
+   
+    ![Configuration ClickUp Productivity Platform](./media/clickup-productivity-platform-tutorial/configure0.png)
 
     ![Configuration ClickUp Productivity Platform](./media/clickup-productivity-platform-tutorial/user1.png)
 
@@ -218,5 +222,5 @@ Le fait de cliquer sur la vignette ClickUp Productivity Platform dans le volet d
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

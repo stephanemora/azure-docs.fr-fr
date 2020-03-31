@@ -1,19 +1,18 @@
 ---
 title: Point de terminaison HTTPS | Place de marché Azure
 description: Configurez la gestion des prospects pour un point de terminaison HTTPS.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/24/2018
-ms.author: pabutler
-ms.openlocfilehash: 817e431f5386b10345d414190e8bda0954ef2aca
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: cb6ef173e97a7c2bbd7d7cad5e5074b1f2d0f066
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825225"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288595"
 ---
 # <a name="configure-lead-management-using-an-https-endpoint"></a>Configuration de la gestion des prospects à l’aide d’un point de terminaison HTTPS
 

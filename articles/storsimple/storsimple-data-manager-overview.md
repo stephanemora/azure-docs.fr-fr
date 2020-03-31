@@ -15,15 +15,15 @@ ms.workload: TBD
 ms.date: 05/21/2018
 ms.author: alkohli
 ms.openlocfilehash: 2ffe17bf7ef4f01c18d2c26f4a045add7302272d
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67876098"
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>Vue d’ensemble de la solution StorSimple Data Manager
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Microsoft Azure StorSimple utilise le stockage cloud pour étendre la solution locale, et hiérarchise automatiquement les données sur le stockage local et le cloud. Les données sont stockées dans le cloud dans un format dédupliqué et compressé, de façon à maximiser l’efficacité et à réduire les coûts. Étant au format StorSimple, elles ne sont pas directement utilisables par d’autres applications cloud.
 

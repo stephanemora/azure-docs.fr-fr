@@ -1,21 +1,21 @@
 ---
-title: 'Didacticiel : Utiliser l’API de flux Apache Kafka - Azure HDInsight '
+title: 'Tutoriel : Utiliser l’API de flux Apache Kafka - Azure HDInsight '
 description: Didacticiel - Découvrez comment utiliser l’API de flux Apache Kafka avec Kafka sur HDInsight. Cette API vous permet d’effectuer un traitement de flux entre des rubriques dans Kafka.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 10/08/2019
-ms.openlocfilehash: f256adfd1fc970512cad5fb93ec235fc27a50373
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.custom: hdinsightactive
+ms.date: 03/20/2020
+ms.openlocfilehash: 2885fccd95d09149ae496b80a658f34e5b697d0b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72817749"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80064490"
 ---
-# <a name="tutorial-use-apache-kafka-streams-api-in-azure-hdinsight"></a>Didacticiel : Utiliser l’API de flux Apache Kafka - Azure HDInsight
+# <a name="tutorial-use-apache-kafka-streams-api-in-azure-hdinsight"></a>Tutoriel : Utiliser l’API de flux Apache Kafka - Azure HDInsight
 
 Découvrez comment créer une application qui utilise l’API Apache Kafka Streams et comment l’exécuter avec Kafka sur HDInsight.
 
@@ -25,7 +25,7 @@ Le traitement des flux Kafka est souvent effectué à l’aide d’Apache Spark 
 
 Pour plus d’informations sur les flux Kafka, consultez la documentation [d’introduction aux flux](https://kafka.apache.org/10/documentation/streams/) sur le site Apache.org.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Comprendre le code
@@ -72,7 +72,7 @@ Les points importants à comprendre dans le fichier `pom.xml` sont les suivants 
 * Plug-ins : les plug-ins Maven fournissent diverses fonctionnalités. Dans ce projet, les plug-ins suivants sont utilisés :
 
     * `maven-compiler-plugin`: permet de définir la version Java utilisée par le projet à la version 8. Java 8 est la version requise par HDInsight 3.6.
-    * `maven-shade-plugin`: permet de générer un fichier uber jar qui contient cette application, ainsi que toutes les dépendances. Il permet aussi de définir le point d’entrée de l’application, si bien que vous pouvez exécuter directement le fichier Jar sans spécifier la classe principale.
+    * `maven-shade-plugin`: permet de générer un fichier uber jar qui contient cette application ainsi que toutes les dépendances. Il permet aussi de définir le point d’entrée de l’application, si bien que vous pouvez exécuter directement le fichier Jar sans spécifier la classe principale.
 
 ### <a name="streamjava"></a>Stream.java
 
@@ -165,7 +165,8 @@ Pour générer et déployer le projet dans votre cluster Kafka sur HDInsight, pr
     export password='PASSWORD'
     ```
 
-4. Extrayez le nom du cluster avec la bonne casse. La casse réelle du nom du cluster peut être différente de la casse attendue, suivant la façon dont le cluster a été créé. Cette commande obtient la casse réelle, puis la stocke dans une variable. Entrez la commande suivante :
+4. Extrayez le nom du cluster avec la bonne casse. La casse réelle du nom du cluster peut être différente de la casse attendue, suivant la façon dont le cluster a été créé. Cette commande obtient la casse réelle, puis la stocke dans une variable. Entrez la commande suivante :
+
     ```bash
     export clusterName=$(curl -u admin:$password -sS -G "http://headnodehost:8080/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
     ```
@@ -173,7 +174,7 @@ Pour générer et déployer le projet dans votre cluster Kafka sur HDInsight, pr
     > [!Note]  
     > Si vous effectuez ce processus de l’extérieur du cluster, la procédure pour stocker le nom du cluster est différente. Récupérez le nom du cluster en minuscules à partir du portail Azure. Ensuite, remplacez le nom du cluster par `<clustername>` dans la commande suivante, puis exécutez-la : `export clusterName='<clustername>'`.  
 
-5. Pour obtenir les hôtes de répartition Kafka et les hôtes Apache ZooKeeper, utilisez les commandes suivantes. Lorsque vous y êtes invité, entrez le mot de passe du compte de connexion (admin) au cluster. Vous êtes invité à entrer le mot de passe deux fois.
+5. Pour obtenir les hôtes de répartition Kafka et les hôtes Apache ZooKeeper, utilisez les commandes suivantes. Lorsque vous y êtes invité, entrez le mot de passe du compte de connexion (admin) au cluster.
 
     ```bash
     export KAFKAZKHOSTS=$(curl -sS -u admin:$password -G https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2);
@@ -181,8 +182,8 @@ Pour générer et déployer le projet dans votre cluster Kafka sur HDInsight, pr
     export KAFKABROKERS=$(curl -sS -u admin:$password -G https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2);
     ```
 
-> [!Note]  
-> Ces commandes nécessitent un accès à Ambari. Si votre cluster se trouve derrière un groupe de sécurité réseau, exécutez ces commandes à partir d’un ordinateur qui peut accéder à Ambari. 
+    > [!Note]  
+    > Ces commandes nécessitent un accès à Ambari. Si votre cluster se trouve derrière un groupe de sécurité réseau, exécutez ces commandes à partir d’un ordinateur qui peut accéder à Ambari.
 
 6. Pour créer les rubriques utilisées par l’opération de diffusion en continu, utilisez les commandes suivantes :
 
@@ -257,7 +258,7 @@ Pour générer et déployer le projet dans votre cluster Kafka sur HDInsight, pr
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --delete --topic wordcount-example-Counts-changelog --zookeeper $KAFKAZKHOSTS
     ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Pour supprimer les ressources créées par ce didacticiel, vous pouvez supprimer le groupe de ressources. La suppression du groupe de ressources efface également le cluster HDInsight associé et d’autres ressources liées au groupe de ressources.
 

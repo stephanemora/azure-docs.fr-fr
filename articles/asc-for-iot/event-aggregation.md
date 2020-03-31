@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 09/26/2019
 ms.author: mlottner
 ms.openlocfilehash: ca1d1a5761e62b2838a474dcb83f450987972998
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73928971"
 ---
 # <a name="azure-security-center-for-iot-event-aggregation"></a>Agrégation d’événements Azure Security Center pour IoT
@@ -64,7 +64,7 @@ Chaque événement agrégé représente une période de 24 heures des alertes c
 ## <a name="event-aggregation-twin-configuration"></a>Configuration du jumeau d’agrégration d’événements
 Apportez des modifications à la configuration de l’agrégration d’événements Azure Security Center pour IoT à l’intérieur de l’[objet de configuration de l’agent](how-to-agent-configuration.md) de l’identité de jumeau de module du module **azureiotsecurity**.
 
-| Nom de la configuration | Valeurs possibles | Détails | Remarques |
+| Nom de la configuration | Valeurs possibles | Détails | Notes |
 |:-----------|:---------------|:--------|:--------|
 | aggregationEnabledProcessCreate | boolean | Activer/désactiver l’agrégation d’événements pour les événements de création de processus |
 | aggregationIntervalProcessCreate | Chaîne TimeSpan ISO8601 | Intervalle d’agrégation pour les événements de création de processus |

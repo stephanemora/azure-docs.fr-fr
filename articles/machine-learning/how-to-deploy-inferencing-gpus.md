@@ -11,10 +11,10 @@ author: csteegz
 ms.reviewer: larryfr
 ms.date: 03/05/2020
 ms.openlocfilehash: b0fd537d1930e7c9d5f7a33f56ec5d00b1556562
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78398341"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Déployer un modèle de deep learning pour une inférence avec GPU
@@ -33,7 +33,7 @@ L’inférence, ou notation de modèle, est la phase au cours de laquelle le mod
 > [!NOTE]
 > Les informations contenues dans cet article s’appuient sur l’article[How to deploy to Azure Kubernetes Service (Comment déployer sur Azure Kubernetes Service)](how-to-deploy-azure-kubernetes-service.md). L’article « How to deploy to Azure Kubernetes Service » couvre généralement le déploiement sur AKS,mais cet article traite du déploiement spécifique au GPU.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Un espace de travail Azure Machine Learning. Pour plus d’informations, voir la page [Créer un espace de travail Azure Machine Learning](how-to-manage-workspace.md).
 
@@ -139,7 +139,7 @@ Ce fichier est nommé `score.py`. Pour plus d’informations sur les scripts d�
 
 ## <a name="define-the-conda-environment"></a>Définir l’environnement Conda
 
-Le fichier d’environnement Conda spécifie les dépendances pour le service. Il inclut les dépendances requises aussi bien par le modèle que par le script d’entrée. Notez que vous devez indiquer azureml-defaults avec la version >= 1.0.45 en tant que dépendance pip, car elle contient les fonctionnalités nécessaires pour héberger le modèle en tant que service web. Le code YAML suivant définit l’environnement pour un modèle Tensorflow. Il spécifie `tensorflow-gpu`, qui utilise le GPU utilisé dans ce déploiement :
+Le fichier d’environnement Conda spécifie les dépendances pour le service. Il inclut les dépendances requises aussi bien par le modèle que par le script d’entrée. Notez que vous devez spécifier azureml-defaults avec la version 1.0.45 ou une version supérieure en tant que dépendance pip, car elle contient les fonctionnalités nécessaires pour héberger le modèle comme un service web. Le code YAML suivant définit l’environnement pour un modèle Tensorflow. Il spécifie `tensorflow-gpu`, qui utilise le GPU utilisé dans ce déploiement :
 
 ```yaml
 name: project_environment

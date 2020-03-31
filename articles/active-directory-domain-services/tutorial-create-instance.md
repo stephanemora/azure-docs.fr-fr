@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/15/2020
 ms.author: iainfou
-ms.openlocfilehash: 86097a8706956a768def107dd312c9a20c63c6ff
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 14b3292a08e9bb0a60710053cd0b7ffc9d0db115
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77612343"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79223076"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance"></a>Tutoriel : Créer et configurer une instance Azure Active Directory Domain Services
 
@@ -68,9 +68,9 @@ Quand vous créez une instance Azure AD DS, vous spécifiez un nom DNS. Voici qu
 * **Suffixes de domaine non routables :** D’une façon générale, nous vous recommandons d’éviter un suffixe de nom de domaine non routable, comme *contoso.local*. Le suffixe *.local* n’est pas routable et peut entraîner des problèmes de résolution DNS.
 
 > [!TIP]
-> Si vous créez un nom de domaine personnalisé, faites attention aux espaces de noms DNS existants. Il est recommandé d’utiliser un nom de domaine distinct de tout espace de noms DNS Azure ou local existant.
+> Si vous créez un nom de domaine personnalisé, faites attention aux espaces de noms DNS existants. Il est recommandé d’utiliser un nom de domaine distinct de tout espace de noms DNS local ou Azure existant.
 >
-> Par exemple, si vous disposez de l’espace de noms DNS existant *contoso.com*, créez un domaine managé Azure AD DS avec le nom de domaine personnalisé *aaddscontoso.com*. Si vous devez utiliser le protocole LDAP sécurisé, vous devez inscrire et posséder ce nom de domaine personnalisé pour générer les certificats requis.
+> Par exemple, si vous disposez de l’espace de noms DNS existant *contoso.com*, créez un domaine managé Azure AD DS avec le nom de domaine personnalisé *aaddscontoso.com*. Si vous devez utiliser le protocole LDAP sécurisé, vous devez inscrire et avoir ce nom de domaine personnalisé pour générer les certificats requis.
 >
 > Vous devrez peut-être créer des enregistrements DNS supplémentaires pour d’autres services dans votre environnement, ou des redirecteurs DNS conditionnels entre les espaces de noms DNS existants dans votre environnement. Par exemple, si vous exécutez un serveur web qui héberge un site à l’aide du nom DNS racine, il peut y avoir des conflits de nommage qui nécessitent des entrées DNS supplémentaires.
 >
@@ -136,7 +136,7 @@ Avec Azure AD DS correctement déployé, configurez maintenant le réseau virtue
 
 1. L’onglet **Vue d’ensemble** pour votre domaine managé montre quelques **Étapes de configuration obligatoires**. La première étape de configuration est de mettre à jour les paramètres du serveur DNS pour votre réseau virtuel. Une fois les paramètres DNS correctement configurés, cette étape n’apparaît plus.
 
-    Les adresses listées sont les contrôleurs de domaine à utiliser dans le réseau virtuel. Dans cet exemple, ces adresses sont *10.1.0.4* et *10.1.0.5*. Vous pouvez trouver ultérieurement ces adresses IP sous l’onglet **Propriétés**.
+    Les adresses listées sont les contrôleurs de domaine à utiliser dans le réseau virtuel. Dans cet exemple, ces adresses sont *10.0.1.4* et *10.0.1.5*. Vous pouvez trouver ultérieurement ces adresses IP sous l’onglet **Propriétés**.
 
     ![Configurer les paramètres DNS pour votre réseau virtuel avec les adresses IP d’Azure AD Domain Services](./media/tutorial-create-instance/configure-dns.png)
 

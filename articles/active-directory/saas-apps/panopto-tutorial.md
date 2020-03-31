@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Panopto | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Panopto | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Panopto.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/17/2019
 ms.author: jeedes
 ms.openlocfilehash: 027876e3d8d669d2ab41d37e24f4171c2349adaa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67095004"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-panopto"></a>Didacticiel : Intégration d’Azure Active Directory à Panopto
+# <a name="tutorial-azure-active-directory-integration-with-panopto"></a>Tutoriel : Intégration d’Azure Active Directory à Panopto
 
 Dans ce didacticiel, vous allez apprendre à intégrer Panopto à Azure Active Directory (Azure AD).
 L’intégration de Panopto à Azure AD vous offre les avantages suivants :
@@ -112,7 +112,7 @@ Pour configurer l’authentification unique Azure AD avec Panopto, effectuez le
     > [!NOTE]
     > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Contactez l’[équipe de support technique Panopto](mailto:support@panopto.com%E2%80%8E) pour obtenir la valeur. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-5. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies en fonction de vos besoins, puis enregistrez-le sur votre ordinateur.
+5. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies selon vos besoins, puis enregistrez-le sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
 
@@ -132,15 +132,15 @@ Pour configurer l’authentification unique Azure AD avec Panopto, effectuez le
 
 2. Dans la barre d’outils située sur la gauche, cliquez sur **System (Système)** , puis sur **Identity Providers (Fournisseurs d’identité)** .
    
-    ![Système](./media/panopto-tutorial/ic777670.png "système")
+    ![Système](./media/panopto-tutorial/ic777670.png "Système")
 
 3. Cliquez sur **Add Provider**.
    
-    ![Fournisseurs d’identité](./media/panopto-tutorial/ic777671.png "fournisseurs d’identité")
+    ![Fournisseurs d’identité](./media/panopto-tutorial/ic777671.png "Identity Providers")
    
 4. Dans la section du fournisseur SAML, procédez comme suit :
    
-    ![Configuration SaaS](./media/panopto-tutorial/ic777672.png "configuration SaaS")
+    ![Configuration SaaS](./media/panopto-tutorial/ic777672.png "Configuration SaaS")
     
     a. Dans la liste **Provider Type (Type de fournisseur)** , sélectionnez **SAML20**.    
     
@@ -175,7 +175,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
     b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
-    Par exemple, BrittaSimon@contoso.com
+    Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
@@ -227,5 +227,5 @@ Le fait de cliquer sur la vignette Panopto dans le volet d’accès doit vous co
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

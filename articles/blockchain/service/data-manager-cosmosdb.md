@@ -1,19 +1,19 @@
 ---
 title: Utiliser Blockchain Data Manager pour mettre à jour Azure Cosmos DB - Azure Blockchain Service
 description: Utiliser Blockchain Data Manager pour Azure Blockchain Service pour envoyer des données blockchain à Azure Cosmos DB
-ms.date: 12/04/2019
+ms.date: 03/08/2020
 ms.topic: tutorial
 ms.reviewer: chroyal
-ms.openlocfilehash: 79c39d9883b5ba618e368b0ff6d3e95f1af5bd96
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 483a5246274f63549dfb2914361ede6aa001e02e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977390"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79533179"
 ---
-# <a name="tutorial-use-blockchain-data-manager-to-send-data-to-azure-cosmos-db"></a>Didacticiel : Utiliser Blockchain Data Manager pour envoyer des données à Azure Cosmos DB
+# <a name="tutorial-use-blockchain-data-manager-to-send-data-to-azure-cosmos-db"></a>Tutoriel : Utiliser Blockchain Data Manager pour envoyer des données à Azure Cosmos DB
 
-Dans ce didacticiel, vous utilisez Blockchain Data Manager pour Azure Blockchain Service afin d’enregistrer des données de transaction blockchain dans Azure Cosmos DB. Blockchain Data Manager capture, transforme et fournit des données de registre blockchain à des rubriques Azure Event Grid. Pour ce faire, dans Azure Event Grid, utilisez un connecteur Azure Logic Apps pour créer les documents dans une base de données Azure Cosmos DB. Lorsque vous aurez terminé ce didacticiel, vous pourrez parcourir les données de transaction blockchain dans l’Explorateur de données Azure Cosmos DB.
+Dans ce didacticiel, vous utilisez Blockchain Data Manager pour Azure Blockchain Service afin d’enregistrer des données de transaction blockchain dans Azure Cosmos DB. Blockchain Data Manager capture, transforme et fournit des données de registre blockchain à des rubriques Azure Event Grid. Depuis Azure Event Grid, utilisez un connecteur d’application logique Azure pour créer des documents dans une base de données Azure Cosmos DB. Lorsque vous aurez terminé ce didacticiel, vous pourrez parcourir les données de transaction blockchain dans l’Explorateur de données Azure Cosmos DB.
 
 [![Détail de la transaction blockchain](./media/data-manager-cosmosdb/raw-msg.png)](./media/data-manager-cosmosdb/raw-msg.png#lightbox)
 
@@ -41,7 +41,7 @@ Dans ce tutoriel, vous allez :
 
 Une instance Blockchain Data Manager se connecte à un nœud de transaction Azure Blockchain Service et le surveille. Une instance capture toutes les données de bloc brut et de transaction brute à partir du nœud de transaction. Une connexion sortante envoie des données blockchain à Azure Event Grid. Vous configurez une seule connexion sortante lorsque vous créez l’instance.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Accédez au membre Azure Blockchain Service que vous avez créé en suivant le [Guide de démarrage rapide prérequis : Créer un membre de blockchain à l’aide du Portail Azure](create-member.md). Sélectionnez **Blockchain Data Manager**.
 1. Sélectionnez **Ajouter**.
 
@@ -49,11 +49,11 @@ Une instance Blockchain Data Manager se connecte à un nœud de transaction Azur
 
     Entrez les informations suivantes :
 
-    Paramètre | Exemples | Description
+    Paramètre | Exemple | Description
     --------|---------|------------
     Nom | mywatcher | Entrez un nom unique pour un Blockchain Data Manager.
     Nœud de transaction | myblockchainmember | Sélectionnez le nœud de transaction par défaut du membre Azure Blockchain Service que vous avez créé lors de l’étape prérequise.
-    Nom de connexion | cosmosdb | Entrez un nom unique pour la connexion sortante dans laquelle les données de transaction blockchain sont envoyées.
+    Nom de la connexion | cosmosdb | Entrez un nom unique pour la connexion sortante dans laquelle les données de transaction blockchain sont envoyées.
     Point de terminaison Event Grid | myTopic | Sélectionnez la rubrique Event Grid que vous avez créée lors de l’étape prérequise. Remarque : L’instance de Blockchain Data Manager et la rubrique Event Grid doivent être associées au même abonnement.
 
 1. Sélectionnez **OK**.
@@ -204,7 +204,7 @@ Chaque application logique doit démarrer avec un déclencheur, qui s’active l
 
     | Paramètre | Description
     |---------|-------------|
-    | Subscription | Sélectionnez l’abonnement Azure qui contient la rubrique Event Hub. |
+    | Abonnement | Sélectionnez l’abonnement Azure qui contient la rubrique Event Hub. |
     | Type de ressource | Sélectionnez **Microsoft.EventGrid.Topics**. |
     | Nom de la ressource | Sélectionnez le nom de la rubrique Event Grid dans laquelle Blockchain Data Manager envoie ses messages de données de transaction. |
 
@@ -247,17 +247,17 @@ L’application logique surveille la rubrique Event Grid. Elle crée un document
 
 ## <a name="send-a-transaction"></a>Envoyer une transaction
 
-L’étape suivante consiste à tester ce que vous venez de créer, en transmettant une transaction vers le registre blockchain. Utilisez le script **sendrequest.js** que vous avez créé en suivant le [didacticiel prérequis : Utiliser Visual Studio Code pour créer, générer et déployer des contrats intelligents](send-transaction.md).
+L’étape suivante consiste à tester ce que vous venez de créer, en transmettant une transaction vers le registre blockchain. Utilisez la fonction **SendRequest** du contrat **HelloBlockchain** que vous avez créée dans le [tutoriel prérequis : Utiliser Visual Studio Code pour créer, générer et déployer des contrats intelligents](send-transaction.md).
 
-Dans le volet Terminal de VS Code, utilisez Truffle pour exécuter le script sur votre réseau blockchain de consortium. Dans la barre de menus du volet Terminal, sélectionnez l’onglet **Terminal**, et **PowerShell** dans la liste déroulante.
+1. Utilisez la page d’interaction du contrat intelligent du kit de développement Azure Blockchain pour appeler la fonction **SendRequest**. Cliquez avec le bouton droit sur **HelloBlockchain.sol** et choisissez **Show Smart Contract Interaction Page** (Afficher la page d’interaction du contrat intelligent) dans le menu.
 
-``` PowerShell
-truffle exec sendrequest.js --network <blockchain network>
-```
+    ![Choix de l’option permettant d’afficher la page d’interaction du contrat intelligent](./media/data-manager-cosmosdb/contract-interaction.png)
 
-Remplacez le \<réseau blockchain\> par le nom du réseau blockchain défini dans le fichier **truffle-config. js**.
+1. Choisissez l’action de contrat **SendRequest** et entrez **Hello, Blockchain!** pour le paramètre **requestMessage**. Sélectionnez **Execute** (Exécuter) pour appeler la fonction **SendRequest** par le biais d’une transaction.
 
-![Envoyer la transaction](./media/data-manager-cosmosdb/send-request.png)
+    ![Exécuter l’action SendRequest](./media/data-manager-cosmosdb/sendrequest-action.png)
+
+La fonction SendRequest définit les champs **RequestMessage** et **State**. L’état actuel de **RequestMessage** correspond à l’argument que vous avez passé (**Hello, Blockchain**). La valeur du champ **State** reste **Request**.
 
 ## <a name="view-transaction-data"></a>Afficher les données de transaction
 
@@ -285,7 +285,7 @@ Maintenant que vous avez connecté votre instance de Blockchain Data Manager à 
 
 Félicitations ! Vous venez de créer un explorateur de messages des transactions blockchain à l’aide de Blockchain Data Manager et d’Azure Cosmos DB.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous n’en aurez plus besoin, vous pourrez supprimer les ressources et groupes de ressources que vous avez utilisés dans le cadre de ce didacticiel. Pour supprimer un groupe de ressources :
 

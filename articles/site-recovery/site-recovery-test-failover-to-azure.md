@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: 26c734b7a2e9f5592ee6d51dfee4650a3998ab1a
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091737"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79229021"
 ---
 # <a name="run-a-test-failover-disaster-recovery-drill-to-azure"></a>Exécuter un test de basculement (exercice de récupération d'urgence) sur Azure 
 
@@ -52,10 +52,10 @@ Cette procédure explique comment exécuter un test de basculement pour un plan 
 
 Quand vous déclenchez un test de basculement, voici ce qui se produit :
 
-1. **Conditions préalables**: Une vérification des prérequis est effectuée pour garantir que toutes les conditions nécessaires pour le basculement sont respectées.
-2. **Basculement** : Le basculement se produit et prépare les données, afin qu’une machine virtuelle Azure puisse être créée.
+1. **Prérequis** : Une vérification des prérequis est effectuée pour garantir que toutes les conditions nécessaires pour le basculement sont respectées.
+2. **Basculement** : Le basculement se produit et prépare les données, afin qu’une machine virtuelle Azure puisse être créée.
 3. **Les dernières** : Si vous avez choisi le dernier point de récupération, un point de récupération est créé à partir des données envoyées au service.
-4. **Démarrer** : cette étape crée une machine virtuelle Azure à l’aide des données traitées à l’étape précédente.
+4. **Démarrer** : cette étape crée une machine virtuelle Azure à l’aide des données traitées à l’étape précédente.
 
 ### <a name="failover-timing"></a>Durée du basculement
 

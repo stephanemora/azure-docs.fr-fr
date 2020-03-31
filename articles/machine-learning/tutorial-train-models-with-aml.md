@@ -1,7 +1,7 @@
 ---
 title: 'Tutoriel sur la classification d’images : Entraîner des modèles'
 titleSuffix: Azure Machine Learning
-description: Découvrez comment entraîner un modèle de classification d’images avec scikit-learn dans un notebook Python Jupyter à l’aide d’Azure Machine Learning. Ce tutoriel est le premier d’une série de deux.
+description: Utilisez Azure Machine Learning pour entraîner un modèle de classification d’images avec scikit-learn dans un notebook Python Jupyter. Ce tutoriel est la première partie d’une série de deux.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,14 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 02/10/2020
 ms.custom: seodec18
-ms.openlocfilehash: 5a2ff4d78c1e0e67b390f607da69cc299e2dce4a
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 8cf46db06a4a2f8fa86f97dab5a8477cf427c999
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77116477"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80159068"
 ---
-# <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn-using-azure-machine-learning"></a>Tutoriel : entraîner des modèles de classification d’images avec des données MNIST et scikit-learn à l’aide d’Azure Machine Learning
+# <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn"></a>Tutoriel : Entraîner des modèles de classification d’images avec des données MNIST et scikit-learn 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Dans ce tutoriel, vous allez entraîner un modèle Machine Learning sur des ressources de calcul distantes. Vous allez utiliser le workflow d’entraînement et de déploiement pour Azure Machine Learning dans un notebook Jupyter Python.  Vous pourrez ensuite utiliser le bloc-notes en tant que modèle pour entraîner votre propre modèle Machine Learning avec vos propres données. Ce tutoriel est le **premier d’une série de deux**.  
@@ -39,7 +39,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de com
 >[!NOTE]
 > Le code présenté dans cet article a été testé avec le [Kit de développement logiciel (SDK) Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) version 1.0.65.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Suivre le [Tutoriel : Commencez à créer votre première expérience Azure ML](tutorial-1st-experiment-sdk-setup.md) pour :
     * Créer un espace de travail
@@ -57,7 +57,7 @@ Vous trouverez également le tutoriel et le fichier **utils.py** correspondant s
 > Basculez maintenant vers le notebook Jupyter si vous voulez lire le code à mesure que vous l’exécutez. 
 > Pour exécuter une seule cellule de code dans un notebook, cliquez sur celle-ci et appuyez sur **Maj + Entrée**. Sinon, exécutez l’intégralité du notebook en choisissant **Run all** (Tout exécuter) dans la barre d’outils supérieure.
 
-## <a name="start"></a>Configurer votre environnement de développement
+## <a name="set-up-your-development-environment"></a><a name="start"></a>Configurer votre environnement de développement
 
 Toute la configuration pour votre travail de développement peut être effectuée dans un bloc-notes Python. La configuration comprend les actions suivantes :
 

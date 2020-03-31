@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.openlocfilehash: 67df46742be52b03bd91af19654fbfac5df29646
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073763"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79226865"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Extensions et fonctionnalités de machine virtuelle pour Linux
 
@@ -37,7 +37,7 @@ Plusieurs extensions de machine virtuelle Azure sont disponibles, chacune impliq
 
 En plus des extensions propres à des processus, une extension de script personnalisé est disponible pour les machines virtuelles Windows et Linux. L’extension de script personnalisé pour Linux permet d’exécuter n’importe quel script Bash sur une machine virtuelle. Les scripts personnalisés s’avèrent utile pour concevoir des déploiements Azure qui nécessitent une configuration plus avancée que celle fournie par les outils Azure natifs. Pour plus d’informations sur l’extension de script personnalisé pour les machines virtuelles Linux, consultez [cet article](custom-script-linux.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 La gestion de l’extension sur la machine virtuelle nécessite l’installation préalable de l’agent Linux Azure. Certaines extensions spécifiques présentent des prérequis, tels que l’accès à des ressources ou dépendances.
 
@@ -83,7 +83,7 @@ Les extensions de machine virtuelle Azure s’exécutent sur des machines virtue
 
 Vous pouvez exécuter une extension sur une machine virtuelle existante à l’aide des méthodes ci-après.
 
-### <a name="azure-cli"></a>D’Azure CLI
+### <a name="azure-cli"></a>Azure CLI
 
 Vous pouvez exécuter les extensions de machine virtuelle Azure sur une machine virtuelle existante avec la commande [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set). L’exemple suivant exécute l’extension de script personnalisé sur une machine virtuelle nommée *myVM* dans un groupe de ressources nommé *myResourceGroup*. Remplacez l’exemple de nom de groupe de ressources, le nom de la machine virtuelle et le script à exécuter (https:\//raw.githubusercontent.com/me/project/hello.sh) par vos propres informations. 
 
@@ -403,7 +403,7 @@ Vous pouvez également supprimer une extension dans le portail Azure en procéda
 
 ## <a name="common-vm-extension-reference"></a>Informations de référence sur les extensions de machine virtuelle courantes
 
-| Nom de l’extension | Description | Plus d’informations |
+| Nom de l’extension | Description | Informations complémentaires |
 | --- | --- | --- |
 | Extension de script personnalisé pour Linux |Exécuter des scripts sur une machine virtuelle Azure |[Extension de script personnalisé pour Linux](custom-script-linux.md) |
 | Extension d’accès aux machines virtuelles |Récupérer l’accès à une machine virtuelle Azure |[Extension d’accès aux machines virtuelles](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |

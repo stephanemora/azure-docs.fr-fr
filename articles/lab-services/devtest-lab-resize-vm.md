@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: spelluru
 ms.openlocfilehash: bf7c425766a97aaa1d143133f04502a0aa3c36cb
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76756175"
 ---
 # <a name="resize-a-vm-in-a-lab-in-azure-devtest-labs"></a>Redimensionner une machine virtuelle dans un labo dans Azure DevTest Labs

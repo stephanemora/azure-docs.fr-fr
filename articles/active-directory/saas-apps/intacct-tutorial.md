@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Sage Intacct | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Sage Intacct | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Sage Intacct.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 08/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b28390dba009226d493f5bfc6a5270b067f5bba0
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73570551"
 ---
-# <a name="tutorial-integrate-sage-intacct-with-azure-active-directory"></a>Didacticiel : Intégrer Sage Intacct à Azure Active Directory
+# <a name="tutorial-integrate-sage-intacct-with-azure-active-directory"></a>Tutoriel : Intégrer Sage Intacct à Azure Active Directory
 
 Dans ce didacticiel, vous allez apprendre à intégrer Sage Intacct à Azure Active Directory (Azure AD). Quand vous intégrez Sage Intacct à Azure AD, vous pouvez :
 
@@ -93,7 +93,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     | Nom  |  Attribut source|
     | ---------------| --------------- |
     | Nom de l’entreprise | **ID de société Sage Intacct** |
-    | Nom | La valeur doit être la même que l’**ID d’utilisateur** Sage Intacct que vous entrez dans la **section Créer un utilisateur de test Sage Intacct**, décrite plus loin dans ce didacticiel. |
+    | name | La valeur doit être la même que l’**ID d’utilisateur** Sage Intacct que vous entrez dans la **section Créer un utilisateur de test Sage Intacct**, décrite plus loin dans ce didacticiel. |
     | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier | La valeur doit être la même que l’**ID d’utilisateur de l’authentification unique fédérée** Sage Intacct que vous entrez dans la **section Créer un utilisateur de test Sage Intacct**, décrite plus loin dans ce didacticiel. |
 
     a. Cliquez sur le bouton **Ajouter une nouvelle revendication** pour ouvrir la boîte de dialogue **Gérer les revendications des utilisateurs**.
@@ -106,7 +106,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     e. Dans la liste **Attribut de la source**, tapez la valeur d’attribut indiquée pour cette ligne.
 
-    f. Cliquez sur **OK**.
+    f. Cliquez sur **OK**
 
     g. Cliquez sur **Enregistrer**.
 
@@ -154,7 +154,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 1. Cliquez sur l’onglet **Company**, puis sur **Company Info**.
 
-    ![Company](./media/intacct-tutorial/ic790037.png "Company")
+    ![Société](./media/intacct-tutorial/ic790037.png "Company")
 
 1. Cliquez sur l’onglet **Security**, puis sur **Edit**.
 
@@ -162,7 +162,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 1. Dans la section **Single sign on (SSO)** , procédez comme suit :
 
-    ![Single sign On](./media/intacct-tutorial/ic790039.png "Single sign On")
+    ![Authentification unique](./media/intacct-tutorial/ic790039.png "Authentification unique")
 
     a. Sélectionnez **Enable Single Sign-On**.
 
@@ -190,11 +190,11 @@ Pour configurer les utilisateurs Azure AD de sorte qu’ils puissent se connecte
 
 1. Cliquez sur l’onglet **Ajouter**.
 
-    ![Add](./media/intacct-tutorial/ic790042.png "Add")
+    ![Ajouter](./media/intacct-tutorial/ic790042.png "Ajouter")
 
 1. Dans la section **User Information** , procédez comme suit :
 
-    ![User Information](./media/intacct-tutorial/ic790043.png "User Information")
+    ![Informations utilisateur](./media/intacct-tutorial/ic790043.png "User Information")
 
     a. Tapez **l’ID utilisateur**, le **nom**, le **prénom**, **l’adresse de messagerie**, le **titre** et le **numéro de téléphone** d’un compte Azure AD que vous souhaitez approvisionner dans la section **Informations utilisateur**.
 
@@ -209,7 +209,7 @@ Pour configurer les utilisateurs Azure AD de sorte qu’ils puissent se connecte
 
 1. Cliquez sur l’onglet **Authentification unique** et vérifiez que l’**ID d’utilisateur de l’authentification unique fédérée** dans la capture d’écran ci-dessus soit identique à la valeur **Attribut source** mappée avec `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` dans la section **Attributs de l’utilisateur** du portail Azure.
 
-    ![User Information](./media/intacct-tutorial/ic790044.png "User Information")
+    ![Informations utilisateur](./media/intacct-tutorial/ic790044.png "User Information")
 
 > [!NOTE]
 > Pour approvisionner des comptes d’utilisateurs Azure AD, vous pouvez utiliser d’autres outils de création de compte utilisateur Sage Intacct ou des API fournies par Sage Intacct.

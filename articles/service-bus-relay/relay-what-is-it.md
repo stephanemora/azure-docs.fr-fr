@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: spelluru
 ms.openlocfilehash: 964a472a5c0a6350090f83755747a12e89a1650e
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68422918"
 ---
 # <a name="what-is-azure-relay"></a>Qu’est-ce qu’Azure Relay ?
@@ -40,7 +40,7 @@ Dans le modèle de transfert de données par relais, les étapes de base impliqu
 4. Le service de relais *relaie* ensuite les données au service local via le socket bidirectionnel dédié au client. Le client n’a pas besoin d’une connexion directe au service local. Il n’a pas besoin de connaître l’emplacement du service. De plus, le service local n’a pas besoin de ports entrants ouverts sur le pare-feu.
 
 
-## <a name="features"></a>Caractéristiques 
+## <a name="features"></a>Fonctionnalités 
 Azure Relay comprend deux fonctionnalités :
 
 - [Connexions hybrides](#hybrid-connections) : utilise les sockets web standard ouverts permettant des scénarios multi-plateformes.

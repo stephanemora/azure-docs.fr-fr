@@ -12,11 +12,11 @@ ms.date: 02/12/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 3f78934fb11dd4f9e34bf27d565d471d47f250b4
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928188"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231569"
 ---
 # <a name="move-data-from-an-sftp-server-using-azure-data-factory"></a>Déplacer des données depuis un serveur SFTP à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -41,7 +41,7 @@ Pour copier des données à partir d’un serveur SFTP local, vous devez install
 ## <a name="getting-started"></a>Prise en main
 Vous pouvez créer un pipeline avec une activité de copie qui déplace les données d’une source SFTP à l’aide de différents outils/API.
 
-- Le moyen le plus simple de créer un pipeline consiste à utiliser **l’Assistant Copie**. Consultez le [tutoriel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Copie](data-factory-copy-data-wizard-tutorial.md) pour obtenir une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copie de données.
+- Le moyen le plus simple de créer un pipeline consiste à utiliser **l’Assistant Copie**. Voir le [tutoriel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Copie](data-factory-copy-data-wizard-tutorial.md) pour obtenir une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copie de données.
 
 - Vous pouvez également utiliser les outils suivants pour créer un pipeline : **Visual Studio**, **Azure PowerShell**, **modèle Azure Resource Manager**, **.NET API** et **API REST**. Pour obtenir des instructions détaillées sur la création d’un pipeline avec une activité de copie, consultez le [didacticiel sur l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). Pour des exemples JSON visant à copier des données d’un serveur SFTP vers Stockage Blob Azure, consultez [Exemple JSON : copier des données d’un serveur SFTP vers Stockage Blob Azure](#json-example-copy-data-from-sftp-server-to-azure-blob) de cet article.
 
@@ -50,10 +50,10 @@ Le tableau suivant fournit la description des éléments JSON spécifiques du se
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| Type | La propriété de type doit être définie sur `Sftp`. |OUI |
-| host | Nom ou adresse IP du serveur SFTP. |OUI |
+| type | La propriété de type doit être définie sur `Sftp`. |Oui |
+| host | Nom ou adresse IP du serveur SFTP. |Oui |
 | port |Port sur lequel le serveur SFTP écoute. La valeur par défaut est : 21 |Non |
-| authenticationType |Spécification du type d’authentification. Valeurs autorisées : **Basic**, **SshPublicKey**. <br><br> Reportez-vous aux sections [Utilisation de l’authentification par clé publique SSH](#using-basic-authentication) et [Utilisation de l’authentification par clé publique SSH](#using-ssh-public-key-authentication) portant respectivement sur des propriétés supplémentaires et des exemples JSON. |OUI |
+| authenticationType |Spécification du type d’authentification. Valeurs autorisées : **Basic**, **SshPublicKey**. <br><br> Reportez-vous aux sections [Utilisation de l’authentification par clé publique SSH](#using-basic-authentication) et [Utilisation de l’authentification par clé publique SSH](#using-ssh-public-key-authentication) portant respectivement sur des propriétés supplémentaires et des exemples JSON. |Oui |
 | skipHostKeyValidation | Spécifiez s’il faut ignorer la validation de la clé hôte. | Non. valeur par défaut : false |
 | hostKeyFingerprint | Spécifiez l’empreinte de la clé hôte. | Oui, si `skipHostKeyValidation` est défini sur false.  |
 | gatewayName |Nom de la passerelle de gestion des données pour se connecter à un serveur SFTP local. | Oui en cas de copie de données à partir d’un serveur SFTP local. |
@@ -65,10 +65,10 @@ Pour utiliser l’authentification de base, définissez `authenticationType` sur
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| username | Utilisateur ayant accès au serveur SFTP. |OUI |
-| password | Mot de passe de l’utilisateur (nom d’utilisateur). | OUI |
+| username | Utilisateur ayant accès au serveur SFTP. |Oui |
+| mot de passe | Mot de passe de l’utilisateur (nom d’utilisateur). | Oui |
 
-#### <a name="example-basic-authentication"></a>Exemple : Authentification de base
+#### <a name="example-basic-authentication"></a>Exemple : Authentification de base
 ```json
 {
     "name": "SftpLinkedService",
@@ -88,7 +88,7 @@ Pour utiliser l’authentification de base, définissez `authenticationType` sur
 }
 ```
 
-#### <a name="example-basic-authentication-with-encrypted-credential"></a>Exemple : Authentification de base avec informations d’identification chiffrées
+#### <a name="example-basic-authentication-with-encrypted-credential"></a>Exemple : Authentification de base avec informations d’identification chiffrées
 
 ```JSON
 {
@@ -115,7 +115,7 @@ Pour utiliser l’authentification de clé publique SSH, définissez `authentica
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| username |Utilisateur ayant accès au serveur SFTP |OUI |
+| username |Utilisateur ayant accès au serveur SFTP |Oui |
 | privateKeyPath | Spécifiez le chemin absolu au fichier de clé privée auquel la passerelle peut accéder. | Spécifiez soit la propriété `privateKeyPath`, soit la propriété `privateKeyContent`. <br><br> S’applique uniquement pour la copie de données à partir d’un serveur SFTP local. |
 | privateKeyContent | Une chaîne sérialisée du contenu de la clé privée. L’Assistant de copie peut lire le fichier de clé privée et extraire le contenu de clé privée automatiquement. Si vous utilisez tout autre outil/SDK, utilisez plutôt la propriété privateKeyPath. | Spécifiez soit la propriété `privateKeyPath`, soit la propriété `privateKeyContent`. |
 | passPhrase | Spécifiez la phrase secrète/le mot de passe pour déchiffrer la clé privée si le fichier de clé est protégé par une phrase secrète. | Oui, si le fichier de clé privée est protégé par une phrase secrète. |
@@ -123,7 +123,7 @@ Pour utiliser l’authentification de clé publique SSH, définissez `authentica
 > [!NOTE]
 > Le connecteur SFTP prend en charge la clé OpenSSH RSA/DSA. Assurez-vous que le contenu de votre keyfile commence par «-----BEGIN [RSA/DSA] PRIVATE KEY-----». Si le fichier de clé privée est un fichier au format ppk, utilisez l’outil Putty pour effectuer la conversion du format .ppk vers le format OpenSSH.
 
-#### <a name="example-sshpublickey-authentication-using-private-key-filepath"></a>Exemple : authentification SshPublicKey à l’aide du chemin du fichier de clé privée
+#### <a name="example-sshpublickey-authentication-using-private-key-filepath"></a>Exemple : authentification SshPublicKey à l’aide du chemin du fichier de clé privée
 
 ```json
 {
@@ -144,7 +144,7 @@ Pour utiliser l’authentification de clé publique SSH, définissez `authentica
 }
 ```
 
-#### <a name="example-sshpublickey-authentication-using-private-key-content"></a>Exemple : authentification SshPublicKey à l’aide du contenu de clé privée
+#### <a name="example-sshpublickey-authentication-using-private-key-content"></a>Exemple : authentification SshPublicKey à l’aide du contenu de clé privée
 
 ```json
 {
@@ -171,7 +171,7 @@ La section **typeProperties** est différente pour chaque type de jeu de donnée
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| folderPath |Sous-chemin du dossier. Utilisez le caractère d’échappement « \ » pour les caractères spéciaux contenus dans la chaîne. Pour obtenir des exemples, consultez la section Exemples de définitions de jeux de données et de services liés.<br/><br/>Vous pouvez également effectuer une combinaison avec la propriété **partitionBy** pour que les chemins d’accès de dossier soient basés sur les dates et heures de démarrage et d’arrêt de la tranche. |OUI |
+| folderPath |Sous-chemin du dossier. Utilisez le caractère d’échappement « \ » pour les caractères spéciaux contenus dans la chaîne. Pour obtenir des exemples, consultez la section Exemples de définitions de jeux de données et de services liés.<br/><br/>Vous pouvez également effectuer une combinaison avec la propriété **partitionBy** pour que les chemins d’accès de dossier soient basés sur les dates et heures de démarrage et d’arrêt de la tranche. |Oui |
 | fileName |Spécifiez le nom du fichier dans l’élément **folderPath** si vous souhaitez que la table se réfère à un fichier spécifique du dossier. Si vous ne spécifiez aucune valeur pour cette propriété, le tableau pointe vers tous les fichiers du dossier.<br/><br/>Lorsque fileName n’est pas spécifié pour un jeu de données de sortie, le nom du fichier généré aura ce format dans l’exemple suivant : <br/><br/>`Data.<Guid>.txt` (Exemple : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Non |
 | fileFilter |Spécifiez un filtre à utiliser pour sélectionner un sous-ensemble de fichiers dans le folderPath plutôt que tous les fichiers.<br/><br/>Les valeurs autorisées sont : `*` (plusieurs caractères) et `?` (caractère unique).<br/><br/>Exemple 1 : `"fileFilter": "*.log"`<br/>Exemple 2 : `"fileFilter": 2014-1-?.txt"`<br/><br/> fileFilter s’applique à un jeu de données FileShare d’entrée. Cette propriété n’est pas prise en charge avec HDFS. |Non |
 | partitionedBy |partitionedBy peut être utilisé pour spécifier un folderPath dynamique, fileName pour les données de série chronologique. Par exemple, folderPath peut être paramétré pour toutes les heures de données. |Non |
@@ -224,7 +224,7 @@ En revanche, les propriétés disponibles dans la section typeProperties de l’
 Pour plus d’informations, voir [Formats de fichiers et de compression pris en charge dans Azure Data Factory](data-factory-supported-file-and-compression-formats.md).
 
 ## <a name="json-example-copy-data-from-sftp-server-to-azure-blob"></a>Exemple JSON : copier des données d’un serveur SFTP vers Stockage Blob Azure
-L’exemple suivant présente des exemples de définitions de JSON que vous pouvez utiliser pour créer un pipeline à l’aide de [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou d’[Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ils indiquent comment copier des données depuis la source SFTP vers Azure Blob Storage. Toutefois, les données peuvent être copiées **directement** vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores-and-formats) , via l’activité de copie de Microsoft Azure Data Factory.
+L’exemple suivant présente des exemples de définitions JSON que vous pouvez utiliser pour créer un pipeline à l’aide de [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou d’[Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ils indiquent comment copier des données depuis la source SFTP vers Azure Blob Storage. Toutefois, les données peuvent être copiées **directement** vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores-and-formats) , via l’activité de copie de Microsoft Azure Data Factory.
 
 > [!IMPORTANT]
 > Cet exemple fournit des extraits de code JSON. Il n’inclut pas d’instructions détaillées pour la création de la fabrique de données. Les instructions se trouvent dans l’article [Déplacement de données entre des emplacements locaux et le cloud](data-factory-move-data-between-onprem-and-cloud.md) .
@@ -411,6 +411,6 @@ Le pipeline contient une activité de copie qui est configurée pour utiliser le
 Consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md) pour en savoir plus sur les facteurs clés affectant les performances de déplacement des données (activité de copie) dans Azure Data Factory et les différentes manières de les optimiser.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez les articles suivants :
+Voir les articles suivants :
 
 * [Didacticiel de l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) pour obtenir des instructions détaillées sur la création d’un pipeline avec Activité de copie.

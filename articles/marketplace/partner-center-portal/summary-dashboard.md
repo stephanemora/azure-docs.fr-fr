@@ -1,19 +1,18 @@
 ---
 title: Tableau de bord Résumé de l’analytique de l’Espace partenaires sur la place de marché commerciale
 description: Découvrez comment accéder aux graphes, tendances et valeurs des données agrégées qui résument l’activité de la place de marché dans le tableau de bord Résumé de l’Espace partenaires.
-author: ChJenk
-manager: evansma
-ms.author: v-chjen
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: e20f3d156df139cfaf1935bae7fc7babd3e35fc5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3da3109bd813fc3b99a4f59e5a357fa351c75394
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75475099"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80281372"
 ---
 # <a name="summary-dashboard-in-commercial-marketplace-analytics"></a>Tableau de bord Résumé dans l’analytique de la place de marché commerciale
 
@@ -48,7 +47,7 @@ Une sélection par plage de dates est disponible en haut à droite de chaque pag
 
 ### <a name="summary-section"></a>Section Résumé
 
-La section Résumé présente le nombre total de commandes créées et de clients acquis ainsi que l’utilisation déclarée sur la plage de dates sélectionnée. Le mois en cours déjà commencé sera exclu du calcul de ces métriques. Par exemple :  Si vous avez sélectionné comme période 6 mois, les heures d’utilisation sont calculées pour les six mois précédant le mois en cours. Si une plage de dates personnalisée est sélectionnée, la partie entamée du mois en cours sera exclue du calcul.
+La section Résumé présente le nombre total de commandes créées et de clients acquis ainsi que l’utilisation déclarée sur la plage de dates sélectionnée. Le mois en cours déjà commencé sera exclu du calcul de ces métriques. Par exemple : Si vous avez sélectionné comme période 6 mois, les heures d’utilisation sont calculées pour les six mois précédant le mois en cours. Si une plage de dates personnalisée est sélectionnée, la partie entamée du mois en cours sera exclue du calcul.
 
 ![Tendances de croissance dans le tableau de bord Résumé](./media/summary-summary-section.png)
 

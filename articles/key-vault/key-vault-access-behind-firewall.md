@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: ambapat
-ms.openlocfilehash: 36dada57e587da6e023a83c8ebb6555abe44b9ba
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 42b4eab5f2417f97ab3d37274e6fca1965eca95f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78184844"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79457455"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>Accès à Azure Key Vault derrière un pare-feu
 
@@ -33,7 +33,7 @@ Il existe des variantes selon votre configuration et l’environnement.
 
 Tout le trafic vers le coffre de clés pour chacune des 3 fonctions (authentification, gestion et accès au plan de données) passe par le protocole HTTPS : port 443. Cependant, il faut compter occasionnellement sur un trafic HTTP (port 80) pour les CRL. Les clients qui prennent en charge le protocole OCSP ne doivent pas atteindre les CRL, mais peuvent occasionnellement atteindre [http://cdp1.public-trust.com/CRL/Omniroot2025.crl](http://cdp1.public-trust.com/CRL/Omniroot2025.crl).  
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Authentification
 
 L’application cliente de coffre de clés doit accéder aux points de terminaison Azure Active Directory pour l’authentification. Le point de terminaison utilisé dépend de la configuration du locataire Azure AD, du type de principal (principal d’utilisateur ou principal du service) et du type de compte (par exemple, compte Microsoft ou ID d’organisation).  
 
@@ -52,7 +52,7 @@ Pour la gestion d’un coffre de clés Key Vault (CRUD et définition de la stra
 | Type d’opération | Point de terminaison:port |
 | --- | --- |
 | Opérations du plan de contrôle Key Vault<br> via Azure Resource Manager |**Mondial :**<br> management.azure.com:443<br><br> **Azure China :**<br> management.chinacloudapi.cn:443<br><br> **Azure US Government :**<br> management.usgovcloudapi.net:443<br><br> **Azure Germany :**<br> management.microsoftazure.de:443 |
-| API Graph Azure Active Directory |**Mondial :**<br> graph.windows.net:443<br><br> **Azure China :**<br> graph.chinacloudapi.cn:443<br><br> **Azure US Government :**<br> graph.windows.net:443<br><br> **Azure Germany :**<br> graph.cloudapi.de:443 |
+| API Microsoft Graph |**Mondial :**<br> graph.microsoft.com:443<br><br> **Azure China :**<br> graph.chinacloudapi.cn:443<br><br> **Azure US Government :**<br> graph.microsoft.com:443<br><br> **Azure Germany :**<br> graph.cloudapi.de:443 |
 
 ## <a name="key-vault-operations"></a>Opérations Key Vault
 

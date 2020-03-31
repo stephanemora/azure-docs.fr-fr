@@ -1,5 +1,5 @@
 ---
-title: "Didacticiel : Intégration d'Azure Active Directory à Rackspace SSO | Microsoft Docs"
+title: "Tutoriel : Intégration d'Azure Active Directory à Rackspace SSO | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Rackspace SSO.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
 ms.openlocfilehash: 31826f5d4d88c977f859a009bface2fddf3a1c88
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67093193"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-rackspace-sso"></a>Didacticiel : Intégration d'Azure Active Directory à Rackspace SSO
+# <a name="tutorial-azure-active-directory-integration-with-rackspace-sso"></a>Tutoriel : Intégration d'Azure Active Directory à Rackspace SSO
 
 Dans ce didacticiel, vous allez apprendre à intégrer Rackspace SSO à Azure Active Directory (Azure AD).
 L’intégration de Rackspace SSO à Azure AD vous offre les avantages suivants :
@@ -153,7 +153,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez `brittasimon@yourcompanydomain.extension`. Par exemple, BrittaSimon@contoso.com
+    b. Dans le champ **Nom d’utilisateur**, tapez `brittasimon@yourcompanydomain.extension`. Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
@@ -200,7 +200,7 @@ Rackspace utilise une **stratégie de mappage d’attributs** pour affecter des 
 L’exemple suivant de **stratégie de mappage d’attributs** montre :
 1. Définition du nom de l’utilisateur Rackspace sur la revendication SAML `user.name`. Vous pouvez utiliser n’importe quelle revendication, mais il est plus courant de définir ceci sur un champ contenant l’adresse e-mail de l’utilisateur.
 1. Définition des rôles Rackspace `admin` et `billing:admin` sur un utilisateur en mettant en correspondance un groupe Azure AD, sur la base du nom de groupe ou de l’UID de groupe. Une *substitution* de `"{0}"` dans le champ `roles` est utilisée, et elle sera remplacée par les résultats des expressions de règle `remote`.
-1. Utilisation de la `"{D}"`*substitution par défaut* pour permettre à Rackspace de récupérer des champs SAML supplémentaires en recherchant des revendications SAML standard et bien connues dans l’échange SAML.
+1. Utilisation de la *substitution par défaut* de `"{D}"` pour permettre à Rackspace de récupérer des champs SAML supplémentaires en recherchant des revendications SAML standard et connues dans l’échange SAML.
 
 ```yaml
 ---
@@ -244,5 +244,5 @@ Vous pouvez également utiliser le bouton **Valider** dans les paramètres d’a
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

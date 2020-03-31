@@ -6,13 +6,13 @@ ms.author: andrela
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 12/02/2019
-ms.openlocfilehash: bbf2e3204cb1e703aba445822bfb699fae13a112
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 3/20/2020
+ms.openlocfilehash: 50a3eebaa18674a0d0a7e9da88b8d3386e5016c5
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454309"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80067798"
 ---
 # <a name="create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Création d’un serveur Azure Database pour MySQL à l’aide du portail Azure
 
@@ -41,13 +41,13 @@ Pour créer un serveur de base de données Azure pour MySQL, suivez les étapes 
     **Paramètre** | **Valeur suggérée** | **Description du champ** 
     ---|---|---
     Nom du serveur | Nom de serveur unique | Entrez un nom unique qui identifie votre serveur Azure Database pour MySQL. Par exemple, mydemoserver. Le nom de domaine *.mysql.database.azure.com* est ajouté au nom de serveur que vous fournissez. Le nom de serveur ne peut contenir que des lettres minuscules, des chiffres et le caractère de trait d’union (-). Il doit inclure entre 3 et 63 caractères.
-    Subscription | Votre abonnement | Sélectionnez l’abonnement Azure que vous souhaitez utiliser pour votre serveur. Si vous avez plusieurs abonnements, sélectionnez l’abonnement dans lequel la ressource est facturée.
+    Abonnement | Votre abonnement | Sélectionnez l’abonnement Azure que vous souhaitez utiliser pour votre serveur. Si vous avez plusieurs abonnements, sélectionnez l’abonnement dans lequel la ressource est facturée.
     Resource group | *myresourcegroup* | Spécifiez un nom de groupe de ressources nouveau ou existant.
     Sélectionner une source | *Vide* | Sélectionnez *Vide* pour créer un nouveau serveur à partir de zéro. (Vous sélectionnez *Sauvegarde* si vous créez un serveur à partir d’une sauvegarde géographique d’un serveur Azure Database pour MySQL existant).
     Connexion d’administrateur serveur | myadmin | Un compte de connexion à utiliser lors de la connexion au serveur. Le nom de connexion d’administrateur ne doit pas être **azure_superuser**, **admin**, **administrator**, **root**, **guest** ou **public**.
     Mot de passe | *Votre choix* | Spécifiez un mot de passe pour le compte Administrateur du serveur. Il doit inclure entre 8 et 128 caractères. Votre mot de passe doit contenir des caractères de trois des catégories suivantes : Lettres majuscules, lettres minuscules, chiffres (0-9) et caractères non alphanumériques (comme !, $, #, %, etc.).
     Confirmer le mot de passe | *Votre choix*| Confirmez le mot de passe du compte d’administrateur.
-    Location | *La région la plus proche de vos utilisateurs*| Choisissez l’emplacement le plus proche de vos utilisateurs ou de vos autres applications Azure.
+    Emplacement | *La région la plus proche de vos utilisateurs*| Choisissez l’emplacement le plus proche de vos utilisateurs ou de vos autres applications Azure.
     Version | *La version principale la plus récente*| La version principale la plus récente (sauf si vous avez des exigences spécifiques).
     Niveau tarifaire | **Usage général**, **Gen 5**, **2 vCores**, **5 Go**, **7 jours**, **Géoredondant** | Les configurations de calcul, de stockage et de sauvegarde pour votre nouveau serveur. Sélectionnez **Niveau tarifaire**. Ensuite, sélectionnez l’onglet **Usage général**. *Gen 5*, *4 vCores*, *100 Go* et *7 jours* sont les valeurs par défaut pour **Génération de calcul**, **vCore**, **Stockage** et la **Période de conservation des sauvegardes**. Vous pouvez laisser ces curseurs en l’état. Pour activer les sauvegardes de votre serveur dans le stockage géo-redondant, sélectionnez **Géographiquement redondant** dans les **Options de redondance de sauvegarde**. Pour enregistrer cette sélection du niveau tarifaire, sélectionnez **OK**. La capture d’écran suivante capture ces sélections.
   
@@ -57,7 +57,7 @@ Pour créer un serveur de base de données Azure pour MySQL, suivez les étapes 
 
    ![Créer un serveur - Fenêtre de niveau tarifaire](./media/quickstart-create-mysql-server-database-using-azure-portal/3-pricing-tier.png)
 
-4. Sélectionnez **Créer** pour approvisionner le serveur. L’approvisionnement peut durer jusqu’à 20 minutes.
+4. Sélectionnez **Vérifier + créer** pour provisionner le serveur. L’approvisionnement peut durer jusqu’à 20 minutes.
    
 5. Dans la barre d’outils, sélectionnez **Notifications** (icône de cloche) pour surveiller le processus de déploiement.
    
@@ -171,7 +171,7 @@ Vous venez de vous connecter au serveur Azure Database pour MySQL et de créer u
 ## <a name="connect-to-the-server-by-using-the-mysql-workbench-gui-tool"></a>Connectez-vous au serveur à l’aide de l’outil MySQL Workbench GUI
 Pour vous connecter au serveur à l’aide de l’outil MySQL Workbench GUI, procédez comme suit :
 
-1.  Ouvrez l’application MySQL Workbench sur votre ordinateur client. Vous pouvez télécharger et installer MySQL Workbench à partir de la page [Télécharger MySQL Workbench](https://dev.mysql.com/downloads/workbench/).
+1.    Ouvrez l’application MySQL Workbench sur votre ordinateur client. Vous pouvez télécharger et installer MySQL Workbench à partir de la page [Télécharger MySQL Workbench](https://dev.mysql.com/downloads/workbench/).
 
 2. Créez une nouvelle connexion. Sélectionnez l’icône plus (+) à côté du titre **Connexions MySQL**.
 
@@ -202,9 +202,9 @@ Vous disposez de deux moyens de supprimer les ressources que vous avez créées 
 
 Pour supprimer l’intégralité du groupe de ressources, y compris le serveur que vous venez de créer, procédez comme suit :
 
-1.  Localisez votre groupe de ressources dans le portail Azure. Dans le menu de gauche, sélectionnez **Groupes de ressources**, puis le nom du groupe de ressources, **myresourcegroup** dans notre exemple.
+1.    Localisez votre groupe de ressources dans le portail Azure. Dans le menu de gauche, sélectionnez **Groupes de ressources**, puis le nom du groupe de ressources, **myresourcegroup** dans notre exemple.
 
-2.  Dans la page de votre groupe de ressources, sélectionnez **Supprimer**. Entrez ensuite le nom de votre groupe de ressources (**myresourcegroup** dans notre exemple) dans la zone pour confirmer la suppression, et sélectionnez **Supprimer**.
+2.    Dans la page de votre groupe de ressources, sélectionnez **Supprimer**. Entrez ensuite le nom de votre groupe de ressources (**myresourcegroup** dans notre exemple) dans la zone pour confirmer la suppression, et sélectionnez **Supprimer**.
 
 Pour supprimer uniquement le serveur que vous venez de créer, procédez comme suit :
 

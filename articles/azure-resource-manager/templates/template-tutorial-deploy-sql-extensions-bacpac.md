@@ -5,18 +5,18 @@ author: mumian
 ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 27ac4b67aa19aa59abe80ccf9409acf7b587a22b
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 8e65ebbfa0971bf2156165b55ca18eee3cc74bc9
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250096"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80239272"
 ---
-# <a name="tutorial-import-sql-bacpac-files-with-azure-resource-manager-templates"></a>Tutoriel : Importer des fichiers SQL BACPAC avec des modèles Azure Resource Manager
+# <a name="tutorial-import-sql-bacpac-files-with-arm-templates"></a>Tutoriel : Importer des fichiers SQL BACPAC avec des modèles ARM
 
-Découvrez comment utiliser les extensions Azure SQL Database pour importer un fichier SQL BACPAC avec des modèles Azure Resource Manager. Les artefacts de déploiement correspondent à tous les fichiers, en plus des principaux fichiers modèles requis pour effectuer un déploiement. Le fichier BACPAC est un artefact. 
+Découvrez comment utiliser les extensions Azure SQL Database pour importer un fichier BACPAC avec des modèles Azure Resource Manager (ARM). Les artefacts de déploiement correspondent à tous les fichiers, en plus des principaux fichiers modèles requis pour effectuer un déploiement. Le fichier BACPAC est un artefact. 
 
-Dans ce tutoriel, vous allez créer un modèle pour déployer un serveur Azure SQL et une base de données SQL et importer un fichier BACPAC. Pour plus d’informations sur la façon de déployer des extensions de machines virtuelles Azure à l’aide de modèles Azure Resource Manager, consultez [Tutoriel : Déployer des extensions de machines virtuelles avec des modèles Azure Resource Manager](./template-tutorial-deploy-vm-extensions.md).
+Dans ce tutoriel, vous allez créer un modèle pour déployer un serveur Azure SQL et une base de données SQL et importer un fichier BACPAC. Pour plus d’informations sur la façon de déployer des extensions de machine virtuelle Azure à l’aide de modèles ARM, consultez [Tutoriel : Déployer des extensions de machine virtuelle avec des modèles ARM](./template-tutorial-deploy-vm-extensions.md).
 
 Ce tutoriel décrit les tâches suivantes :
 
@@ -33,20 +33,20 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléments suivants :
 
-* Visual Studio Code avec l’extension Outils Resource Manager Consultez [Utiliser Visual Studio Code pour créer des modèles Azure Resource Manager](./use-vs-code-to-create-template.md).
+* Visual Studio Code avec l’extension Outils Resource Manager Consultez [Utiliser Visual Studio Code pour créer des modèles ARM](./use-vs-code-to-create-template.md).
 * Pour une sécurité optimale, utilisez un mot de passe généré pour le compte administrateur Azure SQL Server. Voici un exemple que vous pouvez utiliser pour générer un mot de passe :
 
     ```console
     openssl rand -base64 32
     ```
 
-    Azure Key Vault a été conçu pour protéger les clés et autres secrets de chiffrement. Pour plus d’informations, consultez [Didacticiel : Intégrer Azure Key Vault à un déploiement de modèle Resource Manager](./template-tutorial-use-key-vault.md). Nous vous recommandons également de mettre à jour votre mot de passe tous les trois mois.
+    Azure Key Vault a été conçu pour protéger les clés et autres secrets de chiffrement. Pour plus d’informations, consultez [Didacticiel : Intégrer Azure Key Vault à un déploiement de modèle ARM](./template-tutorial-use-key-vault.md). Nous vous recommandons également de mettre à jour votre mot de passe tous les trois mois.
 
 ## <a name="prepare-a-bacpac-file"></a>Préparer un fichier BACPAC
 
 Un fichier BACPAC est partagé dans [GitHub](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac). Pour créer le vôtre, consultez [Exporter une base de données Azure SQL dans un fichier BACPAC](../../sql-database/sql-database-export.md). Si vous choisissez de publier le fichier sur votre propre emplacement, vous devez mettre à jour le modèle plus tard dans ce didacticiel.
 
-Le fichier BACPAC doit être stocké dans un compte Stockage Azure avant de pouvoir être importé à l’aide d’un modèle Resource Manager. Le script PowerShell suivant prépare le fichier BACPAC en suivant les étapes ci-dessous :
+Le fichier BACPAC doit être stocké dans un compte de stockage Azure avant de pouvoir être importé à l’aide d’un modèle ARM. Le script PowerShell suivant prépare le fichier BACPAC en suivant les étapes ci-dessous :
 
 * Télécharger le fichier BACPAC.
 * Création d’un compte Azure Storage.

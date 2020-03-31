@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/11/2019
+ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 2ef528438591006be6e4cdec508dd15a7fb0a143
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6e3313e3ae201d0b730d8582fed9659d89f0d0c1
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75357679"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80063057"
 ---
 # <a name="what-is-role-based-access-control-rbac-for-azure-resources"></a>Qu’est-ce que le contrôle d’accès en fonction du rôle (RBAC) pour les ressources Azure ?
 
@@ -46,7 +46,7 @@ Lorsque vous planifiez votre stratégie de contrôle d’accès, vous pouvez acc
 
 ## <a name="how-rbac-works"></a>Fonctionnement du le contrôle d’accès en fonction du rôle (RBAC)
 
-Les attributions de rôles vous permettent de contrôler l’accès aux ressources à l’aide du contrôle d’accès en fonction du rôle (RBAC). Ce concept est essentiel à comprendre : il s’agit de la façon dont les autorisations sont appliquées. Une attribution de rôle se compose de trois éléments : un principal de sécurité, une définition de rôle et une étendue.
+Les attributions de rôles vous permettent de contrôler l’accès aux ressources à l’aide du contrôle d’accès en fonction du rôle (RBAC). Il s’agit d’un concept clé dont la compréhension est essentielle, à savoir la façon dont les autorisations sont appliquées. Une attribution de rôle se compose de trois éléments : un principal de sécurité, une définition de rôle et une étendue.
 
 ### <a name="security-principal"></a>Principal de sécurité
 
@@ -68,7 +68,7 @@ Une *définition de rôle* est une collection d’autorisations. Elle est géné
 Azure inclut plusieurs [rôles intégrés](built-in-roles.md) que vous pouvez utiliser. Voici les quatre rôles fondamentaux intégrés : Les trois premiers s’appliquent à tous les types de ressources.
 
 - [Propriétaire](built-in-roles.md#owner) : dispose d’un accès total à toutes les ressources, ainsi que le droit de déléguer l’accès à d’autres personnes.
-- [Contributeur](built-in-roles.md#contributor) : peut créer et gérer tous les types de ressources Azure, mais ne peut pas accorder l’accès à d’autres personnes.
+- [Contributeur](built-in-roles.md#contributor) : peut créer et gérer tous les types de ressource Azure mais ne peut pas octroyer l’accès à d’autres personnes.
 - [Lecteur](built-in-roles.md#reader) : peut consulter les ressources Azure existantes.
 - [Administrateur de l’accès utilisateur](built-in-roles.md#user-access-administrator) : vous permet de gérer l’accès des utilisateurs aux ressources Azure.
 
@@ -102,7 +102,7 @@ Vous pouvez créer des attributions de rôles à l’aide du Portail Azure, d’
 
 ## <a name="multiple-role-assignments"></a>Attributions de rôles multiples
 
-Que se passe-t-il si plusieurs attributions de rôles se chevauchent ? RBAC étant un modèle additif, vos autorisations effectives correspondent à l’ajout de vos attributions de rôles. Prenons l’exemple suivant où un utilisateur reçoit le rôle Contributeur pour l’étendue de l’abonnement et le rôle Lecteur pour un groupe de ressources. L’ajout des autorisations du rôle Contributeur et des autorisations du rôle Lecteur correspond effectivement au rôle Contributeur pour le groupe de ressources. Ainsi, dans ce cas, l’attribution du rôle Lecteur n’a aucun impact.
+Que se passe-t-il si plusieurs attributions de rôles se chevauchent ? RBAC étant un modèle additif, vos autorisations effectives correspondent à la somme de vos attributions de rôles. Prenons l’exemple suivant où un utilisateur reçoit le rôle Contributeur pour l’étendue de l’abonnement et le rôle Lecteur pour un groupe de ressources. La somme des autorisations du rôle Contributeur et des autorisations du rôle Lecteur correspond effectivement au rôle Contributeur pour le groupe de ressources. Ainsi, dans ce cas, l’attribution du rôle Lecteur n’a aucun impact.
 
 ![Attributions de rôles multiples](./media/overview/rbac-multiple-roles.png)
 
@@ -126,7 +126,7 @@ Voici les principales étapes suivies par RBAC pour déterminer si vous avez acc
 
 1. Azure Resource Manager détermine si l’action contenue dans l’appel d’API est incluse dans les rôles dont l’utilisateur dispose pour cette ressource.
 
-1. Si l’utilisateur n’a aucun rôle avec l’action à l’étendue demandée, l’accès n’est pas accordé. Sinon, Azure Resource Manager vérifie si une affectation de refus s’applique.
+1. Si l’utilisateur n’a aucun rôle avec l’action appropriée dans l’étendue demandée, l’accès n’est pas octroyé. Sinon, Azure Resource Manager vérifie si une affectation de refus s’applique.
 
 1. Si c’est le cas, l’accès est bloqué. Autrement, l’accès est accordé.
 

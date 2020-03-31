@@ -16,11 +16,11 @@ ms.date: 4/26/2019
 ms.author: steveesp
 ms.reviewer: kumud, mareat
 ms.openlocfilehash: 47f58b25b082784177910d14ab95d8d242fda71a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78355656"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79225301"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>Bande passante réseau des machines virtuelles
 
@@ -39,10 +39,10 @@ Les machines virtuelles Azure doivent être associées à une interface réseau 
 Le débit sortant attendu et le nombre d’interfaces réseau prises en charge par chaque taille de machine virtuelle sont détaillés dans les spécifications des tailles de machine virtuelle Azure [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) et [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Sélectionnez un type, comme le type d’usage général, puis choisissez une série de tailles dans la page qui en résulte, par exemple « Dv2-series ». Chaque série comporte une table, dont la dernière colonne, intitulée **Nombre max de cartes réseau/Performance réseau attendue (Mbits/s)** , détaille les spécifications de mise en réseau. 
 
 Cette limite de débit s’applique à la machine virtuelle. Le débit n’est pas affecté par les facteurs suivants :
-- **Nombre d'interfaces réseau** : La limite de bande passante inclut l’ensemble du trafic sortant en provenance de la machine virtuelle.
-- **Mise en réseau accélérée** : bien que cette fonctionnalité puisse être utile pour atteindre la limite publiée, elle ne modifie pas cette limite.
-- **Destination du trafic** : toutes les destinations s’inscrivent dans la limite de sortie.
-- **Protocole** : L’intégralité du trafic sortant, sur l’ensemble des protocoles, s’inscrit dans la limite.
+- **Nombre d’interfaces réseau** : la limite de bande passante inclut l’ensemble du trafic sortant en provenance de la machine virtuelle.
+- **Mise en réseau accélérée** : bien que cette fonctionnalité puisse être utile pour atteindre la limite publiée, elle ne modifie pas cette limite.
+- **Destination du trafic** : toutes les destinations s’inscrivent dans la limite de sortie.
+- **Protocole** : l’intégralité du trafic sortant, sur l’ensemble des protocoles, s’inscrit dans la limite.
 
 ## <a name="network-flow-limits"></a>Limites de flux de réseau
 
@@ -66,7 +66,7 @@ Des métriques permettant de suivre le nombre de flux réseau et le taux de cré
 
 ![azure-monitor-flow-metrics.png](media/virtual-machine-network-throughput/azure-monitor-flow-metrics.png)
 
-Le taux d’établissement et de fin de connexions peut également affecter le niveau de performance réseau, car l’établissement et la fin des connexions partagent l’UC avec les routines de traitement de paquets. Nous vous recommandons d’évaluer les charges de travail pour les modèles de trafic attendus et de monter en charge de manière appropriée en fonction de vos besoins en matière de niveau de performance. 
+Le taux d’établissement et de fin de connexions peut également affecter le niveau de performance réseau, car l’établissement et la fin des connexions partagent l’UC avec les routines de traitement de paquets. Nous vous recommandons d’évaluer les charges de travail pour les modèles de trafic attendus et d’effectuer un scale-out de manière appropriée en fonction de vos besoins en matière de niveau de performance. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/01/2019
 ms.reviewer: sngun
 ms.openlocfilehash: b24b69716e472082abfdb388e7d79e88a8e23e64
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72754787"
 ---
 # <a name="total-cost-of-ownership-tco-with-azure-cosmos-db"></a>Coût total de possession avec Azure Cosmos DB
@@ -60,7 +60,7 @@ Le modèle de provisionnement serverless d’Azure Cosmos DB vous évite de devo
 
 * Pour plus d’informations, consultez [En quoi le modèle de tarification Azure Cosmos DB est rentable pour les clients](total-cost-ownership.md)
 * En savoir plus sur l’[optimisation pour le développement et le test](optimize-dev-test.md)
-* En savoir plus sur [l’optimisation du coût du débit](optimize-cost-throughput.md)
+* En savoir plus sur l’[optimisation du coût du débit](optimize-cost-throughput.md)
 * En savoir plus sur l’[optimisation du coût de stockage](optimize-cost-storage.md)
 * En savoir plus sur l’[optimisation du coût des lectures et écritures](optimize-cost-reads-writes.md)
 * En savoir plus sur l’[optimisation du coût des requêtes](optimize-cost-queries.md)

@@ -11,17 +11,17 @@ ms.author: srbozovi
 ms.reviewer: vanto, carlrab
 ms.date: 05/07/2019
 ms.openlocfilehash: 1acd7d6a3b203997e3acd8d7959b1572e09845f3
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227985"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228601"
 ---
 # <a name="configure-public-endpoint-in-azure-sql-database-managed-instance"></a>Configurer un point de terminaison public dans Azure SQL Database Managed Instance
 
 Un point de terminaison public pour une [instance gérée](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) permet l’accès aux données de votre instance gérée depuis un emplacement extérieur au [réseau virtuel](../virtual-network/virtual-networks-overview.md). Vous pouvez accéder à votre instance gérée à partir de services Azure multilocataires, tels que Power BI et Azure App Service, ou d’un réseau local. Comme vous utilisez le point de terminaison public sur une instance gérée, vous n’avez pas besoin de recourir à un VPN, ce qui peut aider à éviter les problèmes de débit VPN.
 
-Cet article porte sur les points suivants :
+Dans cet article, vous allez apprendre à :
 
 > [!div class="checklist"]
 > - Activer un point de terminaison public pour votre instance gérée dans le Portail Microsoft Azure
@@ -99,8 +99,8 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
     |**Destination**     |Quelconque         |En conservant la valeur Tout pour le paramètre Destination, vous autorisez le trafic au sein du sous-réseau de l’instance gérée |
     |**Plages de ports de destination**     |3342         |Définissez la portée du port de destination sur 3342, qui est le point de terminaison TDS public de l’instance gérée |
     |**Protocole**     |TCP         |L’instance gérée utilise le protocole TCP pour TDS |
-    |**Action**     |AUTORISER         |Autorisez le trafic entrant vers une instance gérée par le biais du point de terminaison public |
-    |**Priorité**     |1300         |Assurez-vous que cette règle présente une priorité plus élevée que la règle **deny_all_inbound** |
+    |**Action**     |Allow         |Autorisez le trafic entrant vers une instance gérée par le biais du point de terminaison public |
+    |**Priorité**     |1 300         |Assurez-vous que cette règle présente une priorité plus élevée que la règle **deny_all_inbound** |
 
     ![mi-nsg-rules.png](media/sql-database-managed-instance-public-endpoint-configure/mi-nsg-rules.png)
 

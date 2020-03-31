@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.openlocfilehash: f63c78c59d7d6be3c66ea0785389eff73e3bff60
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73678367"
 ---
 # <a name="validation-activity-in-azure-data-factory"></a>Activité Validation dans Azure Data Factory
@@ -60,10 +60,10 @@ Vous pouvez utiliser une Validation dans un pipeline pour garantir que l’exéc
 
 Propriété | Description | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | --------
-Nom | Nom de l’activité « Validation » | Chaîne | OUI |
-Type | Doit être défini sur **Validation**. | Chaîne | OUI |
-dataset | L’activité bloquera l’exécution jusqu’à ce qu’elle ait confirmé que cette référence de jeu de données existe et qu’elle remplit les critères spécifiés, ou que le délai d’attente ait été atteint. Le jeu de données fourni doit prendre en charge la propriété « MinimumSize » ou « ChildItems ». | Référence de jeu de données | OUI |
-timeout | Spécifie le délai d’expiration d’exécution de l’activité. Si aucune valeur n’est spécifiée, la valeur par défaut est sept jours (« 7:00:00:00 »). Le format est j.hh:mm:ss | Chaîne | Non |
+name | Nom de l’activité « Validation » | String | Oui |
+type | Doit être défini sur **Validation**. | String | Oui |
+dataset | L’activité bloquera l’exécution jusqu’à ce qu’elle ait confirmé que cette référence de jeu de données existe et qu’elle remplit les critères spécifiés, ou que le délai d’attente ait été atteint. Le jeu de données fourni doit prendre en charge la propriété « MinimumSize » ou « ChildItems ». | Référence de jeu de données | Oui |
+délai d'expiration | Spécifie le délai d’expiration d’exécution de l’activité. Si aucune valeur n’est spécifiée, la valeur par défaut est sept jours (« 7:00:00:00 »). Le format est j.hh:mm:ss | String | Non |
 sleep | Délai en secondes entre les tentatives de validation. Si aucune valeur n’est spécifiée, la valeur par défaut est 10 secondes. | Integer | Non |
 childItems | Vérifie si le dossier a des éléments enfants. Peut être défini sur -true : vérifie que le dossier existe et qu’il a des éléments. Bloque jusqu’à ce qu’au moins un élément se trouve dans le dossier ou que la valeur de délai d’attente soit atteinte. -false : vérifie que le dossier existe et qu’il est vide. Bloque jusqu’à ce que le dossier soit vide ou que la valeur de délai d’attente soit atteinte. Si aucune valeur n’est spécifiée, l’activité bloquera jusqu’à ce que le dossier existe ou que le délai d’attente soit atteint. | Boolean | Non |
 minimumSize | Taille minimale d’un fichier en octets. Si aucune valeur n’est spécifiée, la valeur par défaut est de 0 octet | Integer | Non |

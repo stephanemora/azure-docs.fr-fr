@@ -7,10 +7,10 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 06/25/2019
 ms.openlocfilehash: 3714ce2a8098608851991115aa82afdc00d08a47
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77459386"
 ---
 # <a name="add-authentication-to-your-apache-cordova-app"></a>Ajout de l’authentification à votre application Apache Cordova
@@ -19,12 +19,12 @@ ms.locfileid: "77459386"
 ## <a name="summary"></a>Résumé
 Dans ce didacticiel, vous allez ajouter l’authentification au projet de démarrage rapide todolist sur Apache Cordova en faisant appel à un fournisseur d’identité pris en charge. Ce didacticiel est basé sur le didacticiel [Prise en main des applications mobiles] , que vous devez effectuer en premier.
 
-## <a name="register"></a>Inscription de votre application pour l’authentification et configuration d’App Service
+## <a name="register-your-app-for-authentication-and-configure-the-app-service"></a><a name="register"></a>Inscription de votre application pour l’authentification et configuration d’App Service
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
 [Regarder une vidéo montrant des étapes similaires](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-8-Azure-authentication)
 
-## <a name="permissions"></a>Restriction des autorisations pour les utilisateurs authentifiés
+## <a name="restrict-permissions-to-authenticated-users"></a><a name="permissions"></a>Restriction des autorisations pour les utilisateurs authentifiés
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 À présent, vous pouvez vérifier que l’accès anonyme à votre serveur principal a été désactivé. Dans Visual Studio :
@@ -35,7 +35,7 @@ Dans ce didacticiel, vous allez ajouter l’authentification au projet de démar
 
 Ensuite, vous mettez à jour l’application pour authentifier les utilisateurs avant de demander des ressources à partir du serveur principal d’applications mobiles.
 
-## <a name="add-authentication"></a>Ajout de l’authentification à l’application
+## <a name="add-authentication-to-the-app"></a><a name="add-authentication"></a>Ajout de l’authentification à l’application
 1. Ouvrez votre projet dans **Visual Studio**, puis ouvrez le fichier `www/index.html` pour modification.
 2. Localisez la balise META `Content-Security-Policy` dans la section d’en-tête.  Ajoutez l’hôte OAuth à la liste des ressources autorisées.
 
@@ -85,7 +85,7 @@ Ensuite, vous mettez à jour l’application pour authentifier les utilisateurs 
 4. Dans le code que vous venez d'ajouter, remplacez `SDK_Provider_Name` par le nom de votre fournisseur de connexion. Par exemple, pour Azure Active Directory, utilisez `client.login('aad')`.
 5. Exécutez votre projet.  Une fois que le projet a terminé l’initialisation, votre application affiche la page de connexion OAuth du fournisseur d’authentification choisi.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a><a name="next-steps"></a>Étapes suivantes
 * En savoir plus [À propos de l’authentification] avec Azure App Service.
 * Poursuivez le didacticiel en ajoutant les [Notifications Push] à votre application Apache Cordova.
 

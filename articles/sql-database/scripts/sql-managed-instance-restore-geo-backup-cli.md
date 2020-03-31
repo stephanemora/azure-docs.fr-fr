@@ -1,0 +1,67 @@
+---
+title: Exemple CLI de restauration d’une sauvegarde géoredondante avec Azure SQL Database
+description: Exemple de script Azure CLI pour la restauration d’une base de données Azure SQL Managed Instance à partir d’une sauvegarde géoredondante.
+services: sql-database
+ms.service: sql-database
+ms.subservice: backup-restore
+ms.custom: ''
+ms.devlang: azurecli
+ms.topic: sample
+author: jovanpop-msft
+ms.author: jovanpop
+ms.reviewer: sstein
+ms.date: 07/03/2019
+ms.openlocfilehash: 1bd0322aee83fb980c60382a2ff3eaab1cd1313c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80061747"
+---
+# <a name="use-cli-to-restore-a-managed-instance-database-to-another-geo-region"></a>Utiliser CLI pour restaurer une base de données Managed Instance dans une autre région de zone géographique
+
+Cet exemple de script Azure CLI restaure une base de données Azure SQL Managed Instance à partir d’une région de zone géographique distante (géorestauration).  
+
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0 ou une version ultérieure pour poursuivre la procédure décrite dans cet article. Exécutez `az --version` pour trouver la version. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli).
+
+## <a name="sample-script"></a>Exemple de script
+
+### <a name="prerequisites"></a>Prérequis
+
+Une paire existante d’instances managées ; consultez [Utiliser Azure CLI pour créer une instance managée Azure SQL Database](sql-database-create-configure-managed-instance-cli.md).
+
+### <a name="sign-in-to-azure"></a>Connexion à Azure
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+### <a name="run-the-script"></a>Exécuter le script
+
+```azurepowershell-interactive
+#!/bin/bash
+$instance = "<instanceId>" # add instance here
+$targetInstance = "<targetInstanceId>" # add target instance here
+$resource = "<resourceId>" # add resource here
+
+$randomIdentifier = $(Get-Random)
+$managedDatabase = "managedDatabase-$randomIdentifier"
+
+echo "Creating $($managedDatabase) on $($instance)..."
+az sql midb create -g $resource --mi $instance -n $managedDatabase
+
+echo "Restoring $($managedDatabase) to $($targetInstance)..."
+az sql midb restore -g $resource --mi $instance -n $managedDatabase --dest-name $targetInstance --time "2018-05-20T05:34:22"
+```
+
+## <a name="sample-reference"></a>Informations de référence sur l’exemple
+
+Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à une documentation spécifique.
+
+| | |
+|---|---|
+| [az sql midb](/cli/azure/sql/midb) | Commandes de base de données Managed Instance. |
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](/cli/azure).
+
+Vous trouverez des exemples supplémentaires de scripts CLI SQL Database dans [Documentation Azure SQL Database](../sql-database-cli-samples.md).

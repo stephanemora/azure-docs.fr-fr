@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/23/2019
 ms.author: spelluru
 ms.openlocfilehash: af119ef026b70fcb4a56b4f823d20c0e9eddddc8
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75903244"
 ---
 # <a name="security-controls-for-azure-service-bus-messaging"></a>Contrôles de sécurité pour la messagerie Azure Service Bus
@@ -41,7 +41,7 @@ Cet article décrit les contrôles de sécurité intégrés à la messagerie Azu
 
 | Contrôle de sécurité | Oui/Non | Notes| Documentation |
 |---|---|--|--|
-| Authentication| Oui | Géré avec la [fonctionnalité Managed Service Identity d’Azure Active Directory](service-bus-managed-service-identity.md).| [Authentification et autorisation Service Bus](service-bus-authentication-and-authorization.md) |
+| Authentification| Oui | Géré avec la [fonctionnalité Managed Service Identity d’Azure Active Directory](service-bus-managed-service-identity.md).| [Authentification et autorisation Service Bus](service-bus-authentication-and-authorization.md) |
 | Autorisation| Oui | Prend en charge l’autorisation par [contrôle d’accès en fonction du rôle (RBAC)](authenticate-application.md) et jeton SAS. | [Authentification et autorisation Service Bus](service-bus-authentication-and-authorization.md) |
 
 ## <a name="data-protection"></a>Protection de données

@@ -1,6 +1,6 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: media-services
 author: Juliako
 ms.service: media-services
@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 01/28/2019
 ms.author: juliako
 ms.custom: include file
-ms.openlocfilehash: db431d7815cfcc006563bd6da438154ef77ae6e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5ebbac39c8850737ea6f9ef333e45d305a520655
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66814706"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79461212"
 ---
-## <a name="cli-shell"></a>Interpréteur de commandes CLI
+## <a name="use-cli-shell"></a>Utiliser l’interpréteur de commandes CLI
 
 Il est recommandé d’utiliser [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest) pour exécuter des commandes CLI. **Cloud Shell** est un interpréteur de commandes interactif et gratuit que vous pouvez utiliser pour effectuer les étapes mentionnées dans cet article. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Il vous donne la possibilité de choisir l’expérience d’interpréteur de commandes la plus adaptée à votre façon de travailler. Les utilisateurs Linux peuvent choisir une expérience Bash, et les utilisateurs Windows l’option PowerShell.
 
@@ -43,7 +43,7 @@ Chemin d'accès relatif du fichier (tous les systèmes d'exploitation)
 Chemin d'accès absolu du fichier sous Linux/Mac et Windows
 
 * `@ "/usr/home/mytestfile.json"`
-*   `@"c:\tmp\user\mytestfile.json"`
+*    `@"c:\tmp\user\mytestfile.json"`
 
 Utilisez `{file}` si la commande demande un chemin vers le fichier. Par exemple : `az ams transform create -a amsaccount -g resourceGroup -n custom --preset .\customPreset.json`. <br/> Utilisez `@{file}` si la commande va charger le fichier spécifié. Par exemple : `az ams account-filter create -a amsaccount -g resourceGroup -n filterName --tracks @tracks.json`.
 

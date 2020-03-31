@@ -1,5 +1,5 @@
 ---
-title: "Didacticiel : Intégration d'Azure Active Directory à Deputy | Microsoft Docs"
+title: "Tutoriel : Intégration d'Azure Active Directory à Deputy | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Deputy.
 services: active-directory
 documentationCenter: na
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 33830ce5822b2edee345cf58fc6f2a53d3c863fa
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: cd021b9547048e9f5218ce4f2b8b110b15d05963
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227599"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80048554"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-deputy"></a>Didacticiel : Intégration d'Azure Active Directory à Deputy
+# <a name="tutorial-azure-active-directory-integration-with-deputy"></a>Tutoriel : Intégration d'Azure Active Directory à Deputy
 
 Dans ce didacticiel, vous allez apprendre à intégrer Deputy à Azure Active Directory (Azure AD).
 L’intégration de Deputy dans Azure AD vous offre les avantages suivants :
@@ -174,13 +174,13 @@ Pour configurer l’authentification unique Azure AD avec Deputy, effectuez les
 
 ### <a name="configure-deputy-single-sign-on"></a>Configurer l’authentification unique Deputy
 
-1. Accédez à l’URL suivante :[https://(votre-sous-domaine).deputy.com/exec/config/system_config]( https://(your-subdomain).deputy.com/exec/config/system_config). Accédez aux **Paramètres de sécurité** et cliquez sur **Modifier**.
+1. Accédez à l'URL suivante :`https://(your-subdomain).deputy.com/exec/config/system_config`. Accédez aux **Paramètres de sécurité** et cliquez sur **Modifier**.
    
-    ![Configurer l'authentification unique](./media/deputy-tutorial/tutorial_deputy_004.png)
+    ![Configure Single Sign-On](./media/deputy-tutorial/tutorial_deputy_004.png)
 
 2. Sur cette page **Paramètres de sécurité** , procédez comme suit.
 
-    ![Configurer l'authentification unique](./media/deputy-tutorial/tutorial_deputy_005.png)
+    ![Configure Single Sign-On](./media/deputy-tutorial/tutorial_deputy_005.png)
     
     a. Activez la **connexion à partir de réseaux sociaux**.
    
@@ -213,7 +213,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
     b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
-    Par exemple, BrittaSimon@contoso.com
+    Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 

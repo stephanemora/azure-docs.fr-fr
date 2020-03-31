@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 05/24/2019
-ms.openlocfilehash: 484d4e8df8a8fdceed62a65858126a16d028121e
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: efa498ba600a664beab4b9a49eae2b2c3f1c8397
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77670081"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80298308"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>Démarrage rapide : Prise en main d'Application Insights dans un projet web Java
 
@@ -176,7 +176,7 @@ En accumulant toujours plus de données, vous pouvez exécuter des requêtes à 
 
 ![Exemple d’Analytics](./media/java-get-started/0025.png)
 
-## <a name="7-install-your-app-on-the-server"></a>7. Installer votre application sur le serveur
+## <a name="install-your-app-on-the-server"></a>Installer votre application sur le serveur
 Publiez maintenant votre application sur le serveur, laissez le temps aux usagers de l’utiliser, puis observez les données de télémétrie qui s’affichent sur le portail.
 
 * Assurez-vous que votre pare-feu autorise votre application à envoyer les données de télémétrie vers ces ports :

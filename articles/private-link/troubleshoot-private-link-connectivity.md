@@ -1,5 +1,5 @@
 ---
-title: Résoudre les problèmes de connectivité Azure Private Link
+title: Résoudre les problèmes de connectivité d’Azure Private Link
 description: Guide pas à pas pour diagnostiquer la connectivité de liaison privée
 services: private-link
 documentationcenter: na
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: rdhillon
 ms.openlocfilehash: 1e5253d617c87d5869cebc817da6d265ebfdfa7e
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77539465"
 ---
 # <a name="troubleshoot-azure-private-link-connectivity-problems"></a>Résoudre les problèmes de connectivité d’Azure Private Link
@@ -30,10 +30,10 @@ Vous pouvez activer votre service qui s’exécute en arrière-plan du niveau St
 
 Voici les scénarios de connectivité disponibles avec Private Link :
 
-- réseau virtuel de la même région ;
+- Réseau virtuel de la même région
 - réseaux virtuels avec peering régional ;
 - réseaux virtuels avec peering mondial ;
-- circuits Azure ExpressRoute ou client local via VPN.
+- Circuits Azure ExpressRoute ou client local via VPN
 
 ## <a name="deployment-troubleshooting"></a>Résolution des problèmes liés au déploiement
 
@@ -41,7 +41,7 @@ Lisez les informations de la section [Désactivation des stratégies réseau sur
 
 Vérifiez que le paramètre **privateLinkServiceNetworkPolicies** est désactivé pour le sous-réseau à partir duquel vous sélectionnez l’adresse IP source.
 
-## <a name="diagnose-connectivity-problems"></a>Diagnostic des problèmes de connectivité
+## <a name="diagnose-connectivity-problems"></a>Diagnostiquer les problèmes de connectivité
 
 Si vous rencontrez des problèmes de connectivité liés à votre installation Private Link, passez en revue ces étapes pour vérifier que toutes les configurations habituelles sont bien correctes.
 
@@ -103,11 +103,11 @@ Si vous rencontrez des problèmes de connectivité liés à votre installation P
 
     a. Sur une ressource du service Private Link, sélectionnez **Métriques**.
      - Sélectionnez **Octets entrants** ou **Octets sortants**.
-     - Vérifiez que les données sont transmises lorsque vous tentez de vous connecter au service Private Link. Prévoyez un délai d’environ 10 minutes.
+     - Vérifiez que les données sont transmises lorsque vous tentez de vous connecter au service Private Link. Prévoyez un retard d’environ 10 minutes.
 
        ![Vérifier les métriques du service Private Link](./media/private-link-tsg/pls-metrics.png)
 
-1. Si votre problème n’est toujours pas résolu et que les difficultés de connectivité persistent, contactez l’équipe [Support Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+1. Si votre problème n’est toujours pas résolu et qu’un problème de connectivité persiste, contactez l’[équipe de support Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -6,11 +6,11 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/15/2019
 ms.author: maquaran
-ms.openlocfilehash: 8bd024fae7496db6c9cb6410df26975fde1984f7
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 0023f68400b36b9abd3b9d4a789895e79f67aa03
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77585286"
 ---
 # <a name="use-the-change-feed-estimator"></a>Utilisation de l’estimateur de flux de modification
@@ -33,11 +33,11 @@ Comme le [processeur de flux de modification](./change-feed-processor.md), l’e
 
 Par exemple, si votre processeur de flux de modification est défini comme suit :
 
-:::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs" id="StartProcessorEstimator":::
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=StartProcessorEstimator)]
 
 La méthode correcte pour initialiser un estimateur afin de mesurer ce processeur consisterait à utiliser `GetChangeFeedEstimatorBuilder` comme suit :
 
-:::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs" id="StartEstimator":::
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=StartEstimator)]
 
 Où le processeur et l’estimateur partagent le même `leaseContainer` et le même nom.
 
@@ -45,7 +45,7 @@ Les deux autres paramètres sont le délégué, qui recevra un nombre représent
 
 Voici un exemple de délégué qui reçoit l’estimation :
 
-:::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs" id="EstimationDelegate":::
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=EstimationDelegate)]
 
 Vous pouvez envoyer cette estimation à votre solution de supervision et l’utiliser pour comprendre le fonctionnement de votre progression au fil du temps.
 

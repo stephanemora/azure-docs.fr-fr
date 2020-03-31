@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: mjbrown
 ms.openlocfilehash: 4eaa2974817bfcd8bef83e5139d75a2d4c2ec107
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74873707"
 ---
 # <a name="create-an-azure-cosmos-container"></a>Créer un conteneur Azure Cosmos
@@ -19,9 +19,9 @@ Cet article explique les différentes façons de créer un conteneur Azure Cosmo
 
 ## <a name="create-a-container-using-azure-portal"></a>Créer un conteneur à l’aide du portail Azure
 
-### <a id="portal-sql"></a>API SQL
+### <a name="sql-api"></a><a id="portal-sql"></a>API SQL
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 1. [Créez un compte Azure Cosmos](create-sql-api-dotnet.md#create-account) ou sélectionnez un compte existant.
 
@@ -35,9 +35,9 @@ Cet article explique les différentes façons de créer un conteneur Azure Cosmo
 
     ![Capture d'écran du volet Explorateur de données, avec l'option Nouveau conteneur mise en surbrillance](./media/how-to-create-container/partitioned-collection-create-sql.png)
 
-### <a id="portal-mongodb"></a>API Azure Cosmos DB pour MongoDB
+### <a name="azure-cosmos-db-api-for-mongodb"></a><a id="portal-mongodb"></a>API Azure Cosmos DB pour MongoDB
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 1. [Créez un compte Azure Cosmos](create-mongodb-dotnet.md#create-a-database-account) ou sélectionnez un compte existant.
 
@@ -51,9 +51,9 @@ Cet article explique les différentes façons de créer un conteneur Azure Cosmo
 
     ![Capture d'écran de l'API Azure Cosmos DB pour MongoDB, boîte de dialogue Ajouter un conteneur](./media/how-to-create-container/partitioned-collection-create-mongodb.png)
 
-### <a id="portal-cassandra"></a>API Cassandra
+### <a name="cassandra-api"></a><a id="portal-cassandra"></a>API Cassandra
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 1. [Créez un compte Azure Cosmos](create-cassandra-dotnet.md#create-a-database-account) ou sélectionnez un compte existant.
 
@@ -70,9 +70,9 @@ Cet article explique les différentes façons de créer un conteneur Azure Cosmo
 > [!NOTE]
 > Pour l’API Cassandra, la clé primaire est utilisée comme clé de partition.
 
-### <a id="portal-gremlin"></a>API Gremlin
+### <a name="gremlin-api"></a><a id="portal-gremlin"></a>API Gremlin
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 1. [Créez un compte Azure Cosmos](create-graph-dotnet.md#create-a-database-account) ou sélectionnez un compte existant.
 
@@ -87,9 +87,9 @@ Cet article explique les différentes façons de créer un conteneur Azure Cosmo
 
     ![Capture d’écran de l’API Gremlin, boîte de dialogue Ajouter un graphe](./media/how-to-create-container/partitioned-collection-create-gremlin.png)
 
-### <a id="portal-table"></a>API de table
+### <a name="table-api"></a><a id="portal-table"></a>API de table
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 1. [Créez un compte Azure Cosmos](create-table-dotnet.md#create-a-database-account) ou sélectionnez un compte existant.
 
@@ -104,7 +104,7 @@ Cet article explique les différentes façons de créer un conteneur Azure Cosmo
 > [!Note]
 > Pour l’API Table, la clé de partition est spécifiée chaque fois que vous ajoutez une nouvelle ligne.
 
-## Créer un conteneur à l'aide d'Azure CLI<a id="cli-sql"></a><a id="cli-mongodb"></a><a id="cli-cassandra"></a><a id="cli-gremlin"></a><a id="cli-table"></a>
+## <a name="create-a-container-using-azure-cli"></a>Créer un conteneur à l'aide d'Azure CLI<a id="cli-sql"></a><a id="cli-mongodb"></a><a id="cli-cassandra"></a><a id="cli-gremlin"></a><a id="cli-table"></a>
 
 Les liens ci-dessous expliquent comment créer des conteneurs pour Azure Cosmos DB à l'aide d'Azure CLI.
 
@@ -116,7 +116,7 @@ Pour obtenir la liste de tous les exemples Azure CLI de l'ensemble des API Azure
 * [Créer un graphique Gremlin à l'aide d'Azure CLI](./scripts/cli/gremlin/create.md)
 * [Créer une table API Table à l'aide d'Azure CLI](./scripts/cli/table/create.md)
 
-## Créer un conteneur à l'aide de PowerShell<a id="ps-sql"></a><a id="ps-mongodb"><a id="ps-cassandra"></a><a id="ps-gremlin"><a id="ps-table"></a>
+## <a name="create-a-container-using-powershella-idps-mongodba-idps-gremlin"></a>Créer un conteneur à l'aide de PowerShell<a id="ps-sql"></a><a id="ps-mongodb"><a id="ps-cassandra"></a><a id="ps-gremlin"><a id="ps-table"></a>
 
 Les liens ci-dessous expliquent comment créer des conteneurs pour Azure Cosmos DB à l'aide de PowerShell.
 
@@ -130,7 +130,7 @@ Pour obtenir la liste de tous les exemples Azure CLI de l'ensemble des API Azure
 
 ## <a name="create-a-container-using-net-sdk"></a>Créer un conteneur à l’aide du kit de développement logiciel (SDK) .NET
 
-### <a id="dotnet-sql-graph"></a>API SQL et API Gremlin
+### <a name="sql-api-and-gremlin-api"></a><a id="dotnet-sql-graph"></a>API SQL et API Gremlin
 
 ```csharp
 // Create a container with a partition key and provision 1000 RU/s throughput.
@@ -144,7 +144,7 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 1000 });
 ```
 
-### <a id="dotnet-mongodb"></a>API Azure Cosmos DB pour MongoDB
+### <a name="azure-cosmos-db-api-for-mongodb"></a><a id="dotnet-mongodb"></a>API Azure Cosmos DB pour MongoDB
 
 ```csharp
 // Create a collection with a partition key by using Mongo Shell:
@@ -154,7 +154,7 @@ db.runCommand( { shardCollection: "myDatabase.myCollection", key: { myShardKey: 
 > [!Note]
 > Le protocole filaire MongoDB ne comprend pas le concept d’[unités de requête](request-units.md). Pour créer une collection avec un débit provisionné dessus, utilisez le portail Azure ou les SDK Cosmos DB pour l’API SQL.
 
-### <a id="dotnet-cassandra"></a>API Cassandra
+### <a name="cassandra-api"></a><a id="dotnet-cassandra"></a>API Cassandra
 
 ```csharp
 // Create a Cassandra table with a partition/primary key and provision 1000 RU/s throughput.

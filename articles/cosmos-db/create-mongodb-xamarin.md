@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 06/20/2018
+ms.date: 03/16/2020
 ms.author: masoucou
-ms.openlocfilehash: a21e3705fe367e478ec02b82ec83c4ad7cfb4151
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 98b0ddf345ebd19e2cd974db3891e88c9f72530d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445459"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79481685"
 ---
 # <a name="quickstart-build-a-xamarinforms-app-with-net-sdk-and-azure-cosmos-dbs-api-for-mongodb"></a>Démarrage rapide : Générer une application Xamarin.Forms avec le SDK .NET et l’API Azure Cosmos DB pour MongoDB
 
@@ -52,10 +52,18 @@ L’exemple décrit dans cet article est compatible avec la version 2.6.1 du pil
 
 Commencez par télécharger l’exemple d’application sur GitHub. Il implémente une application de liste de tâches avec le modèle de stockage de documents de MongoDB.
 
-1. Ouvrez une invite de commandes, créez un nouveau dossier nommé git-samples, puis fermez l’invite de commandes.
+
+
+# <a name="windows"></a>[Windows](#tab/windows)
+
+1. Sur Windows, ouvrez une invite de commandes, ou sur Mac, ouvrez le terminal, créez un dossier nommé git-samples, puis fermez la fenêtre.
+
+    ```batch
+    md "C:\git-samples"
+    ```
 
     ```bash
-    md "C:\git-samples"
+    mkdir '$home\git-samples\
     ```
 
 2. Ouvrez une fenêtre de terminal git comme Git Bash et utilisez la commande `cd` pour accéder au nouveau dossier d’installation pour l’exemple d’application.
@@ -86,6 +94,8 @@ Les extraits de code suivants sont tirés de la classe `MongoService`, à l’em
 
     settings.SslSettings =
         new SslSettings() { EnabledSslProtocols = SslProtocols.Tls12 };
+
+    settings.RetryWrites = false;
 
     MongoClient mongoClient = new MongoClient(settings);
     ```
@@ -159,6 +169,11 @@ Maintenant, retournez dans le portail Azure afin d’obtenir les informations de
 2. Ouvrez le fichier **APIKeys.cs** dans le répertoire **Helpers** du projet **TaskList.Core**.
 
 3. Copiez la valeur de votre **chaîne de connexion principale** depuis le portail (avec le bouton copier) et faites-en la valeur du champ **ConnectionString** dans votre fichier **APIKeys.cs**.
+
+4. Supprimez `&replicaSet=globaldb` de la chaîne de connexion. Vous obtenez une erreur d’exécution si vous ne supprimez pas cette valeur de la chaîne de requête.
+
+> [!IMPORTANT]
+> Vous devez supprimer la paire clé/valeur `&replicaSet=globaldb` dans la chaîne de requête de la chaîne de connexion pour éviter une erreur d’exécution.
 
 Vous venez de mettre à jour votre application avec toutes les informations nécessaires pour communiquer avec Azure Cosmos DB.
 

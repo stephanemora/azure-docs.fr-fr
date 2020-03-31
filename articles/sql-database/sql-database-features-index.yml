@@ -3,7 +3,7 @@ documentType: LandingData
 title: Fonctionnalités
 metadata:
   title: Azure SQL Database - Fonctionnalités
-  meta.description: Learn about the features in Azure SQL Database.
+  description: Découvrez les fonctionnalités de base de données d’Azure SQL Database qui permettent d’effectuer des opérations plus puissantes et d’implémenter des scénarios avancés.
   services: sql-database
   author: jovanpop-msft
   manager: craigg
@@ -12,7 +12,7 @@ metadata:
   ms.devlang: null
   ms.topic: overview
   ms.date: 02/06/2019
-  ms.author: jovanpop-msft
+  ms.author: jovanpop
 sections:
   - items:
       - type: paragraph

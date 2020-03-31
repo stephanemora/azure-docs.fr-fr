@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2019
 ms.author: allensu
-ms.openlocfilehash: c6529e2585a7fca2d160d093d303afa02e6f9379
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 5ada709350802344bfa65cce269735baa416edf6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74215078"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80234448"
 ---
 # <a name="high-availability-ports-overview"></a>Vue d’ensemble des ports haute disponibilité
 
@@ -32,9 +32,9 @@ Les règles d’équilibrage de charge des ports haute disponibilité sont confi
 
 ## <a name="why-use-ha-ports"></a>Pourquoi utiliser des ports haute disponibilité ?
 
-### <a name="nva"></a>Appliances virtuelles réseau
+### <a name="network-virtual-appliances"></a><a name="nva"></a>Appliances virtuelles réseau
 
-Vous pouvez utiliser des appliances virtuelles réseau pour sécuriser votre charge de travail Azure contre plusieurs types de menaces de sécurité. Quand vous utilisez des appliances virtuelles réseau dans ces scénarios, elles doivent être fiables, hautement disponibles et s’adapter à la demande.
+Vous pouvez utiliser des appliances virtuelles réseau pour sécuriser votre charge de travail Azure contre plusieurs types de menaces de sécurité. Quand vous utilisez des appliances virtuelles réseau dans ces scénarios, elles doivent être fiables, hautement disponibles et effectuer un scale-out selon la demande.
 
 Vous pouvez atteindre ces objectifs en ajoutant simplement des instances d’appliances virtuelles réseau au pool backend de votre équilibreur de charge interne et en configurant une règle d’équilibreur de charge pour les ports haute disponibilité.
 
@@ -97,7 +97,6 @@ Vous pouvez configurer *une* ressource d’équilibreur de charge standard publi
 - Les règles d’équilibrage de charge des ports haute disponibilité sont utilisables uniquement avec l’équilibreur Standard Load Balancer interne.
 - La combinaison d’une règle d’équilibrage de charge de ports haute disponibilité et d’une règle d’équilibrage de charge sans ports haute disponibilité n’est pas prise en charge.
 - Les fragments IP existants sont transférés par les règles d’équilibrage de charge des ports haute disponibilité vers la même destination que le premier paquet.  La fragmentation IP d’un paquet UDP ou TCP n’est pas prise en charge.
-- Les règles d’équilibrage de charge des ports haute disponibilité ne sont pas disponibles pour IPv6.
 - La symétrie des flux (principalement pour les scénarios d'appliance virtuelle réseau) est prise en charge avec l'instance du serveur back-end et une seule carte réseau (ainsi qu'une seule configuration IP) uniquement en cas d'utilisation tel qu'indiqué dans le diagramme ci-dessus et avec les règles d'équilibrage de charge des ports haute disponibilité. Elle n’est pas fournie dans les autres scénarios. Autrement dit, plusieurs ressources Load Balancer et leurs règles respectives prennent des décisions indépendantes et ne sont jamais coordonnées. Consultez la description et le diagramme des [appliances virtuelles réseau](#nva). Lorsque vous utilisez plusieurs cartes réseau ou insérez l’appliance virtuelle réseau entre un équilibreur de charge public et l’équilibreur de charge Load Balancer interne, la symétrie des flux n’est pas disponible.  Vous serez peut-être en mesure de contourner ce problème en approvisionnant la traduction d’adresses réseau du flux d’entrée vers l’adresse IP de l’appliance pour autoriser la réception de réponses sur la même appliance virtuelle réseau.  Toutefois, nous vous recommandons vivement d'utiliser une seule carte réseau et l'architecture de référence présentée dans le diagramme ci-dessus.
 
 

@@ -14,17 +14,17 @@ ms.topic: tutorial
 ms.date: 08/10/2018
 ms.author: apimpm
 ms.openlocfilehash: 813117bce4abd3550ac559109c1650ea4a7cff5c
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74538263"
 ---
 # <a name="create-and-publish-a-product"></a>Créer et publier un produit  
 
 Dans Gestion des API Azure, un produit contient une ou plusieurs API, ainsi qu’un quota et des conditions d’utilisation. Une fois le produit publié, les développeurs peuvent s'y abonner et commencer à utiliser ses API.  
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créer et publier un produit
@@ -35,7 +35,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 ## <a name="prerequisites"></a>Prérequis
 
 + Apprenez la [terminologie relative à Gestion des API Azure](api-management-terminology.md).
-+ Suivez ce guide de démarrage rapide : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
++ Suivez ce guide de démarrage rapide : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
 + Effectuez également toutes les étapes du tutoriel suivant : [Importer et publier votre première API](import-and-publish.md).
 
 ## <a name="create-and-publish-a-product"></a>Créer et publier un produit
@@ -69,7 +69,7 @@ Afficher/ajouter des abonnés au produit à partir de l’onglet **Abonnements**
 
 Définissez la visibilité d’un produit pour les développeurs ou invités à partir de l’onglet **Contrôle d’accès**.
 
-## <a name="add-apis"></a>Ajout d’API à un produit
+## <a name="add-apis-to-a-product"></a><a name="add-apis"> </a>Ajouter des API à un produit
 
 Les produits sont des associations d’une ou de plusieurs API. Vous pouvez inclure un certain nombre d’API et les proposer aux développeurs dans le portail des développeurs. Vous pouvez ajouter une API existante pendant la création du produit. Vous pouvez ajouter une API au produit ultérieurement, soit à partir de la page **Paramètres** des produits, soit pendant la création d’une API.
 
@@ -89,7 +89,7 @@ Les développeurs doivent s’abonner à un produit pour obtenir l’accès à l
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Créer et publier un produit

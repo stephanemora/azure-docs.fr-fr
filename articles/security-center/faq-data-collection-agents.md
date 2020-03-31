@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
 ms.openlocfilehash: 8317a13b9ef87679836f55627268deefa4500dce
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77599674"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79225313"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>FAQ – Question relatives à la collecte de données, aux agents et aux espaces de travail
 
@@ -85,7 +85,7 @@ Pour sélectionner un espace de travail Log Analytics existant :
 
     - Pour annuler l’opération, sélectionnez **Annuler**.
 
-## Que se passe-t-il si l’agent Microsoft Monitoring Agent est déjà installé en tant qu’extension sur la machine virtuelle ?<a name="mmaextensioninstalled"></a>
+## <a name="what-if-the-microsoft-monitoring-agent-was-already-installed-as-an-extension-on-the-vm"></a>Que se passe-t-il si l’agent Microsoft Monitoring Agent est déjà installé en tant qu’extension sur la machine virtuelle ?<a name="mmaextensioninstalled"></a>
 
 Lorsque l’Agent Monitoring est installé en tant qu’extension, la configuration de l’extension permet de rendre compte à un seul espace de travail. Security Center n’écrase pas les connexions existantes des espaces de travail utilisateur. Security Center stocke les données de sécurité à partir d’une machine virtuelle dans un espace de travail qui est déjà connecté, sous réserve que la solution « Security » ou « SecurityCenterFree » y soit installée. Security Center peut mettre à niveau la version de l'extension vers la dernière version lors de ce processus.
 
@@ -93,7 +93,7 @@ Pour plus d’informations, voir [Approvisionnement automatique en cas d’insta
 
 
 
-## Que se passe-t-il si Microsoft Monitoring Agent est installé directement sur la machine, mais pas en tant qu’extension (Direct Agent) ?<a name="directagentinstalled"></a>
+## <a name="what-if-a-microsoft-monitoring-agent-is-directly-installed-on-the-machine-but-not-as-an-extension-direct-agent"></a>Que se passe-t-il si Microsoft Monitoring Agent est installé directement sur la machine, mais pas en tant qu’extension (Direct Agent) ?<a name="directagentinstalled"></a>
 
 Si l’agent Microsoft Monitoring Agent est installé directement sur la machine virtuelle (pas en tant qu’extension Azure), Security Center installe l’extension Microsoft Monitoring Agent, et peut mettre à niveau Microsoft Monitoring Agent vers la dernière version.
 
@@ -107,7 +107,7 @@ Pour des machines existantes sur des abonnements intégrés à Security Center a
 
 Pour plus d’informations, consultez la prochaine section, [Que se passe-t-il si l’agent direct System Center Operations Manager ou OMS est déjà installé sur ma machine virtuelle ?](#scomomsinstalled)
 
-## Que se passe-t-il si un agent Operations Manager est déjà installé sur ma machine virtuelle ?<a name="scomomsinstalled"></a>
+## <a name="what-if-a-system-center-operations-manager-agent-is-already-installed-on-my-vm"></a>Que se passe-t-il si un agent Operations Manager est déjà installé sur ma machine virtuelle ?<a name="scomomsinstalled"></a>
 
 Security Center installe l’extension Microsoft Monitoring Agent parallèlement à l’agent System Center Operations Manager existant. L’agent existant continue de rendre compte normalement au serveur System Center Operations Manager. Notez que l’agent Operations Manager et Microsoft Monitoring Agent partagent des bibliothèques runtime communes, qui sont mises à jour vers la dernière version lors de ce processus. Remarque : si la version 2012 de l’agent Operations Manager est installée, n’activez pas l’approvisionnement automatique (les fonctionnalités de facilité de gestion peuvent être perdues si la version du serveur Operations Manager date également de 2012).
 
@@ -162,7 +162,7 @@ Vous pouvez connecter l’agent à n’importe quel espace de travail personnali
 Security Center active la solution appropriée sur l’espace de travail en fonction du niveau tarifaire sélectionné.
 
 
-## Comment supprimer des extensions OMS installées par Security Center ?<a name="remove-oms"></a>
+## <a name="how-do-i-remove-oms-extensions-installed-by-security-center"></a>Comment supprimer des extensions OMS installées par Security Center ?<a name="remove-oms"></a>
 
 Vous pouvez supprimer manuellement l’agent Microsoft Monitoring Agent. Ce n’est pas recommandé car cela limite les recommandations de Security Center et les alertes.
 

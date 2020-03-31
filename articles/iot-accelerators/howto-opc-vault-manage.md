@@ -9,10 +9,10 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 890a25ed2cf11d657cad930815d78dbf968cc9f9
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71203656"
 ---
 # <a name="manage-the-opc-vault-certificate-service"></a>Gérer le service de certificats OPC Vault
@@ -95,7 +95,7 @@ Par défaut, l’identité du service dispose uniquement d’autorisations d’a
 1. Ouvrez le portail Azure.
 2. Accédez à votre `resourceGroupName` OPC Vault utilisé pendant le déploiement.
 3. Accédez au `resourceGroupName-xxxxx` Key Vault.
-4. Accédez à **Stratégies d’accès**.
+4. Accédez à **Access Policies** (Stratégies d’accès).
 5. Sélectionnez **Ajouter**.
 6. Ignorez le modèle. Il n’existe aucun modèle conforme aux exigences.
 7. Choisissez **Select Principal** (Sélectionner le principal), puis sélectionnez l’utilisateur à ajouter ou invitez un nouvel utilisateur dans le locataire.

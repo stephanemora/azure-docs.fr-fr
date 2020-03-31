@@ -5,17 +5,17 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: mvc
 ms.openlocfilehash: f5788f07dd4a4f03a95efaea4b741cd64c930ac5
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78251780"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Déployer un cluster Service Fabric Linux dans un réseau virtuel Azure
 
 Dans cet article, vous découvrirez comment déployer un cluster Service Fabric Linux dans un [réseau virtuel Azure](../virtual-network/virtual-networks-overview.md) à l’aide de l’interface Azure CLI et d’un modèle. Lorsque vous avez terminé, vous disposez d’un cluster en cours d’exécution dans le cloud sur lequel vous pouvez déployer des applications. Pour créer un cluster Windows à l’aide de PowerShell, consultez la section relative à la [création d’un cluster Windows sécurisé sur Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer :
 
@@ -42,29 +42,29 @@ Dans la ressource **Microsoft.ServiceFabric/clusters**, un cluster Linux est dé
 
 * Trois types de nœuds
 * Cinq nœuds dans le type de nœud principal (configurable dans les paramètres du modèle) et un nœud dans chacun des autres types
-* Système d’exploitation : Ubuntu 16.04 LTS (configurable dans les paramètres du modèle)
+* système d’exploitation : Ubuntu 16.04 LTS (configurable dans les paramètres du modèle)
 * certificat sécurisé (configurable dans les paramètres du modèle)
 * [service DNS](service-fabric-dnsservice.md) activé
 * [niveau de durabilité](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) Bronze (configurable dans les paramètres du modèle)
 * [niveau de fiabilité](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) Silver (configurable dans les paramètres du modèle)
-* point de terminaison de connexion client : 19000 (configurable dans les paramètres du modèle)
-* point de terminaison de passerelle HTTP : 19080 (configurable dans les paramètres du modèle)
+* point de terminaison de connexion client : 19000 (configurable dans les paramètres du modèle)
+* point de terminaison de passerelle HTTP : 19080 (configurable dans les paramètres du modèle)
 
 ### <a name="azure-load-balancer"></a>Équilibrage de charge Azure
 
 Dans la ressource **Microsoft.Network/loadBalancers**, un équilibreur de charge est configuré et des sondes et règles sont configurées pour les ports suivants :
 
-* point de terminaison de connexion client : 19000
-* point de terminaison de passerelle HTTP : 19080
-* port de l’application : 80
-* port de l’application : 443
+* point de terminaison de connexion client : 19000
+* point de terminaison de passerelle HTTP : 19080
+* port de l’application : 80
+* port de l’application : 443
 
 ### <a name="virtual-network-and-subnet"></a>Réseau virtuel et sous-réseau
 
 Les noms du réseau virtuel et du sous-réseau sont déclarés dans les paramètres du modèle.  Les espaces d’adressage du réseau virtuel et du sous-réseau sont également déclarés dans les paramètres de modèle et configurés dans la ressource **Microsoft.Network/virtualNetworks** :
 
-* Espace d’adressage du réseau virtuel : 10.0.0.0/16
-* Espace d’adressage du sous-réseau Service Fabric : 10.0.2.0/24
+* espace d’adressage du réseau virtuel : 10.0.0.0/16
+* espace d’adressage de sous-réseau Service Fabric : 10.0.2.0/24
 
 Si d’autres ports de l’application sont nécessaires, vous devez ajuster les ressources Microsoft.Network/loadBalancers pour autoriser le trafic entrant.
 

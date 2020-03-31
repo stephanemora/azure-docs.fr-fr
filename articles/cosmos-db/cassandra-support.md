@@ -8,18 +8,18 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: ee8dec821e8cbb4657323c167a463b94b7935ab1
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 0a2ace3f73379cff0b9289a8cebb10cb7930348d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623416"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215027"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Fonctionnalités Apache Cassandra prises en charge par l’API Cassandra Azure Cosmos DB 
 
 Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Vous pouvez communiquer avec l’API Cassandra Azure Cosmos DB via les [pilotes](https://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver) clients Cassandra open source et conformes au [protocole de transmission](https://github.com/apache/cassandra/blob/trunk/doc/native_protocol_v4.spec) du langage de requête Cassandra (CQL) v4. 
 
-En utilisant l’API Cassandra Azure Cosmos DB, vous pouvez bénéficier des avantages des API Cassandra Apache et des fonctionnalités d’entreprise que fournit Azure Cosmos DB. Parmi les fonctionnalités d’entreprise, citons la [distribution mondiale](distribute-data-globally.md), le [partitionnement automatique de la montée en charge](partition-data.md), des garanties de disponibilité et de latence, le chiffrement au repos, les sauvegardes et bien plus encore.
+En utilisant l’API Cassandra Azure Cosmos DB, vous pouvez bénéficier des avantages des API Cassandra Apache et des fonctionnalités d’entreprise que fournit Azure Cosmos DB. Parmi les fonctionnalités d’entreprise, citons la [distribution mondiale](distribute-data-globally.md), le [partitionnement automatique de scale-out](partition-data.md), des garanties de disponibilité et de latence, le chiffrement au repos, les sauvegardes et bien plus encore.
 
 ## <a name="cassandra-protocol"></a>Protocole Cassandra 
 
@@ -145,6 +145,8 @@ Azure Cosmos DB prend en charge les commandes de base de données suivantes sur 
 
 * CREATE KEYSPACE (les paramètres de réplication pour cette commande sont ignorés)
 * CREATE TABLE 
+* CREATE INDEX (Sans spécifier le nom de l’index. Les index gelés complets ne sont pas encore pris en charge)
+* ALLOW FILTERING
 * ALTER TABLE 
 * USE 
 * INSERT 
@@ -179,7 +181,7 @@ Azure Cosmos DB prend en charge le contrôle d’accès en fonction du rôle (RB
 
 ## <a name="keyspace-and-table-options"></a>Options d’espace de clé et de table
 
-Les options pour le nom de région, la classe, replication_factor et le centre de centres dans la commande « CREATE KEYSPACE » sont actuellement ignorées. Le système utilise la méthode de réplication de [distribution globale](global-dist-under-the-hood.md) d’Azure Cosmos DB sous-jacente pour ajouter les régions. Si vous avez besoin de la présence de données inter-régions, vous pouvez l’activer au niveau du compte avec PowerShell, CLI ou le portail. Pour en savoir plus, consultez l’article expliquant [comment ajouter des régions](how-to-manage-database-account.md#addremove-regions-from-your-database-account). Durable_writes ne peut pas être désactivé, car Azure Cosmos DB garantit la durabilité de chaque écriture. Dans chaque région, Azure Cosmos DB réplique les données dans le jeu de réplicas composé de 4 réplicas, et cette [configuration](global-dist-under-the-hood.md) de jeu de réplicas ne peut pas être modifiée.
+Les options pour le nom de région, la classe, replication_factor et le centre de centres dans la commande « CREATE KEYSPACE » sont actuellement ignorées. Le système utilise la méthode de réplication par [distribution globale](global-dist-under-the-hood.md) d’Azure Cosmos DB sous-jacente pour ajouter les régions. Si vous avez besoin de la présence de données inter-régions, vous pouvez l’activer au niveau du compte avec PowerShell, CLI ou le portail. Pour en savoir plus, consultez l’article expliquant [comment ajouter des régions](how-to-manage-database-account.md#addremove-regions-from-your-database-account). Durable_writes ne peut pas être désactivé, car Azure Cosmos DB garantit la durabilité de chaque écriture. Dans chaque région, Azure Cosmos DB réplique les données dans le jeu de réplicas composé de 4 réplicas, et cette [configuration](global-dist-under-the-hood.md) de jeu de réplicas ne peut pas être modifiée.
  
 Toutes les options sont ignorées lors de la création de la table, sauf gc_grace_seconds, qui doit être définie sur zéro.
 L’espace de clé et la table ont une option supplémentaire nommée « cosmosdb_provisioned_throughput » avec une valeur minimale de 400 RU/s. Le débit d’espace de clé permet de partager le débit entre plusieurs tables, et il est utile dans les scénarios où toutes les tables n’utilisent pas le débit provisionné. La commande ALTER TABLE permet de modifier le débit provisionné dans les régions. 

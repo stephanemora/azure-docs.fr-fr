@@ -9,10 +9,10 @@ ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: f74d4cbc17e49345534a37e9e6612a36e19be295
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73903701"
 ---
 Toutefois, si vous souhaitez partager à grande échelle des images hors de votre locataire Azure, vous devez créer une inscription d’application pour faciliter le partage.  À l’aide d’une inscription d’application, vous pouvez activer des scénarios de partage plus complexes, comme : 

@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Replicon | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Replicon | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Replicon.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 06/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b27615b0c76b5c23bbc79788431b0e909b8bf22a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67092766"
 ---
-# <a name="tutorial-integrate-replicon-with-azure-active-directory"></a>Didacticiel : Intégrer Replicon à Azure Active Directory
+# <a name="tutorial-integrate-replicon-with-azure-active-directory"></a>Tutoriel : Intégrer Replicon à Azure Active Directory
 
 Dans ce didacticiel, vous allez apprendre à intégrer Replicon à Azure Active Directory (Azure AD). Quand vous intégrez Replicon à Azure AD, vous pouvez :
 
@@ -169,7 +169,7 @@ L’objectif de cette section est de créer un utilisateur appelé B. Simon dans
 
 4. Dans la section **User Profile** , procédez comme suit :
 
-    ![Profil utilisateur](./media/replicon-tutorial/ic777808.png "Profil utilisateur")
+    ![Profil utilisateur](./media/replicon-tutorial/ic777808.png "User Profile")
 
     a. Dans la zone de texte **ID de connexion**, tapez l’adresse de messagerie Azure AD de l’utilisateur Azure AD que vous souhaitez approvisionner, comme `B.Simon@contoso.com`.
 
@@ -199,4 +199,4 @@ Lorsque vous sélectionnez la vignette Replicon dans le volet d’accès, vous d
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

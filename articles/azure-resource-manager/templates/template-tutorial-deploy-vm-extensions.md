@@ -5,16 +5,16 @@ author: mumian
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 30b7aeaed0bfc2621cb2c71ab3f5e618771a1c26
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 469948d3d3207dd684d5a9b752e0c448ac7e83a9
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250081"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80239267"
 ---
-# <a name="tutorial-deploy-virtual-machine-extensions-with-azure-resource-manager-templates"></a>Tutoriel : Déployer des extensions de machines virtuelles avec des modèles Azure Resource Manager
+# <a name="tutorial-deploy-virtual-machine-extensions-with-arm-templates"></a>Tutoriel : Déployer des extensions de machine virtuelle avec des modèles ARM
 
-Découvrez comment utiliser des [extensions de machines virtuelles Azure](../../virtual-machines/extensions/features-windows.md) pour exécuter des tâches de configuration et d’automatisation post-déploiement sur des machines virtuelles Azure. De nombreuses extensions de machine virtuelle différentes peuvent être utilisées avec les machines virtuelles Azure. Dans ce tutoriel, vous allez déployer une extension de script personnalisée à partir d’un modèle Azure Resource Manager pour exécuter un script PowerShell sur une machine virtuelle Windows.  Le script installe le serveur Web sur la machine virtuelle.
+Découvrez comment utiliser des [extensions de machines virtuelles Azure](../../virtual-machines/extensions/features-windows.md) pour exécuter des tâches de configuration et d’automatisation post-déploiement sur des machines virtuelles Azure. De nombreuses extensions de machine virtuelle différentes peuvent être utilisées avec les machines virtuelles Azure. Dans ce tutoriel, vous allez déployer une extension de script personnalisé à partir d’un modèle Azure Resource Manager (ARM) pour exécuter un script PowerShell sur une machine virtuelle Windows.  Le script installe le serveur Web sur la machine virtuelle.
 
 Ce tutoriel décrit les tâches suivantes :
 
@@ -31,14 +31,14 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléments suivants :
 
-* Visual Studio Code avec l’extension Outils Resource Manager. Consultez [Utiliser Visual Studio Code pour créer des modèles Azure Resource Manager](use-vs-code-to-create-template.md).
+* Visual Studio Code avec l’extension Outils Resource Manager. Consultez [Utiliser Visual Studio Code pour créer des modèles ARM](use-vs-code-to-create-template.md).
 * Pour une sécurité optimale, utilisez un mot de passe généré pour le compte administrateur de la machine virtuelle. Voici un exemple pour générer un mot de passe :
 
     ```console
     openssl rand -base64 32
     ```
 
-    Azure Key Vault a été conçu pour protéger les clés et autres secrets de chiffrement. Pour plus d’informations, consultez [Didacticiel : Intégrer Azure Key Vault à un déploiement de modèle Resource Manager](./template-tutorial-use-key-vault.md). Nous vous recommandons également de mettre à jour votre mot de passe tous les trois mois.
+    Azure Key Vault a été conçu pour protéger les clés et autres secrets de chiffrement. Pour plus d’informations, consultez [Didacticiel : Intégrer Azure Key Vault à un déploiement de modèle ARM](./template-tutorial-use-key-vault.md). Nous vous recommandons également de mettre à jour votre mot de passe tous les trois mois.
 
 ## <a name="prepare-a-powershell-script"></a>Préparer un script PowerShell
 
@@ -52,7 +52,7 @@ Si vous choisissez de publier le fichier sur votre propre emplacement, vous devr
 
 ## <a name="open-a-quickstart-template"></a>Ouvrir un modèle de démarrage rapide
 
-Le référentiel Modèles de démarrage rapide Azure contient les modèles Resource Manager. Au lieu de créer un modèle à partir de zéro, vous pouvez chercher un exemple de modèle et le personnaliser. Le modèle utilisé dans ce didacticiel se nomme [Déployer une machine virtuelle Windows simple](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
+Le dépôt Modèles de démarrage rapide Azure contient les modèles ARM. Au lieu de créer un modèle à partir de zéro, vous pouvez chercher un exemple de modèle et le personnaliser. Le modèle utilisé dans ce didacticiel se nomme [Déployer une machine virtuelle Windows simple](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
 1. Dans Visual Studio Code, sélectionnez **Fichier** > **Ouvrir un fichier**.
 1. Dans la zone **Nom de fichier**, collez l’URL suivante : https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
@@ -107,7 +107,7 @@ Pour plus d’informations sur la définition de cette ressource, consultez les 
 
 ## <a name="deploy-the-template"></a>Déployer le modèle
 
-Pour connaître la procédure de déploiement, consultez la section « Déployer le modèle » du [Tutoriel : Créer des modèles Azure Resource Manager avec des ressources dépendantes](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template). Nous vous recommandons d’utiliser un mot de passe généré pour le compte administrateur de la machine virtuelle. Consultez la section [Prérequis](#prerequisites) de cet article.
+Pour connaître la procédure de déploiement, consultez la section « Déployer le modèle » du [Tutoriel : Créer des modèles ARM avec des ressources dépendantes](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template). Nous vous recommandons d’utiliser un mot de passe généré pour le compte administrateur de la machine virtuelle. Consultez la section [Prérequis](#prerequisites) de cet article.
 
 ## <a name="verify-the-deployment"></a>Vérifier le déploiement
 

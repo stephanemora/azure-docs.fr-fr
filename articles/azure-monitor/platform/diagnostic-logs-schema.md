@@ -5,11 +5,11 @@ ms.subservice: logs
 ms.topic: reference
 ms.date: 10/22/2019
 ms.openlocfilehash: de102c5dc4104aafc44b87b14aeea0b30cb7c083
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77670387"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79226341"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-resource-logs"></a>Services, schémas et catégories pris en charge pour les journaux de ressource Azure
 
@@ -22,7 +22,7 @@ Une combinaison du type de ressource (disponible dans la propriété `resourceId
 
 ## <a name="top-level-resource-logs-schema"></a>Schéma de niveau supérieur des journaux de ressource
 
-| Nom | Obligatoire ou facultatif | Description |
+| Name | Obligatoire ou facultatif | Description |
 |---|---|---|
 | time | Obligatoire | Horodatage (heure UTC) de l’événement. |
 | resourceId | Obligatoire | ID de la ressource qui a émis l’événement. Pour les services abonnés, cet ID prend la forme /tenants/tenant-id/providers/provider-name. |

@@ -4,16 +4,16 @@ description: 'Tutoriel : Préparez votre environnement pour le développement e
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 1/23/2020
+ms.date: 3/12/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9809a9b4d644a1fa11fe9cce1cbd35b037206b29
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 42c776d4d6c3973e7c222c9c9adf3e5105f6c84f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78944291"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79296798"
 ---
 # <a name="tutorial-set-up-an-environment-for-machine-learning-on-iot-edge"></a>Tutoriel : Configurer un environnement - Machine Learning sur Azure IoT Edge
 
@@ -177,7 +177,7 @@ L’exécution du script prend deux minutes. Une fois terminé, le script affich
 
 ## <a name="review-route-to-storage-in-iot-hub"></a>Passer en revue l’itinéraire vers le stockage dans IoT Hub
 
-Dans le cadre de la création du hub IoT, le script que nous avons exécuté à la section précédente a également créé un point de terminaison personnalisé et un itinéraire. Les itinéraires IoT Hub se composent d’une expression de requête et d’un point de terminaison. Si un message correspond à l’expression, les données sont envoyées jusqu’au point final associé via l’itinéraire. Les points de terminaison peuvent être des Event Hubs, des files d’attente de Service Bus et des rubriques. Dans ce cas, le point de terminaison est un conteneur d’objets blob dans un compte de stockage. Nous allons utiliser le Portail Azure pour passer en revue l’itinéraire créé par notre script.
+Dans le cadre de la création du hub IoT, le script que nous avons exécuté à la section précédente a également créé un point de terminaison personnalisé et un itinéraire. Les itinéraires IoT Hub se composent d’une expression de requête et d’un point de terminaison. Si un message correspond à l’expression, les données sont envoyées jusqu’au point final associé via l’itinéraire. Les points de terminaison peuvent être des Event Hubs, des files d’attente de Service Bus et des rubriques. Dans ce cas, le point de terminaison est un conteneur d’objets blob dans un compte de stockage. Nous allons utiliser le portail Azure pour passer en revue la route créée par notre script.
 
 1. Ouvrez le [portail Azure](https://portal.azure.com) et accédez au groupe de ressources que vous utilisez pour ce tutoriel.
 
@@ -189,12 +189,13 @@ Dans le cadre de la création du hub IoT, le script que nous avons exécuté à 
 
 1. Développez la section **Stockage** :
 
-   ![Vérifier que turbofandevicestorage se trouve dans la liste des points de terminaison personnalisés](media/tutorial-machine-learning-edge-02-prepare-environment/custom-endpoints.png)
+   ![Vérifier que turbofanDeviceStorage se trouve dans la liste des points de terminaison personnalisés](media/tutorial-machine-learning-edge-02-prepare-environment/custom-endpoints.png)
 
-   Nous voyons que **turbofandevicestorage** figure dans la liste des points de terminaison personnalisés. Ce point de terminaison présente les caractéristiques suivantes :
+   Nous voyons que **turbofanDeviceStorage** figure dans la liste des points de terminaison personnalisés. Ce point de terminaison présente les caractéristiques suivantes :
 
    * Il pointe vers le conteneur de stockage d’objets blob que vous avez créé (`devicedata`), comme indiqué par **Nom du conteneur**.
    * Son **Format de nom de fichier** a partition comme dernier élément du nom. Ce format est plus pratique pour les opérations de fichier que nous effectuerons avec Azure Notebooks plus loin dans le tutoriel.
+   * Son **État** doit être sain.
 
 1. Sélectionnez l’onglet **Itinéraires**.
 

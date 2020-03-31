@@ -4,12 +4,12 @@ description: Les API classiques de métriques et de mise à l’échelle automat
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 11/19/2018
-ms.openlocfilehash: 980f4e840f7778c6ea3025db9b37a3454267bac7
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 9dfa6b278587f4ed79b1c3cd9eff1defd09ec0bd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77663553"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294657"
 ---
 # <a name="azure-monitor-retirement-of-classic-deployment-model-apis-for-metrics-and-autoscale"></a>Suppression par Azure Monitor d’API du modèle de déploiement classique pour les métriques et la mise à l’échelle automatique
 
@@ -35,7 +35,7 @@ Cet article vous concerne si vous utilisez les composants suivants :
 
 Si vous ne savez pas si votre code ou vos outils personnalisés appellent les API classiques, examinez les éléments suivants :
 
-- Passez en revue l’URI référencé dans votre code ou outil. Les API classiques utilisent l’URI https://management.core.windows.net. Vous devriez utiliser l’URI plus récent pour les API Resource Manager qui commence par https://management.azure.com/.
+- Passez en revue l’URI référencé dans votre code ou outil. Les API classiques utilisent l’URI https://management.core.windows.net. Vous devriez utiliser l’URI plus récent pour les API Resource Manager qui commence par `https://management.azure.com/`.
 
 - Comparez le nom de l’assembly sur votre ordinateur. L’assembly classique plus ancien se trouve dans https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/.
 

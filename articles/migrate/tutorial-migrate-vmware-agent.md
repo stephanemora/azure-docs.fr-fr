@@ -2,14 +2,14 @@
 title: Migrer des machines virtuelles VMware à l’aide de la migration de serveur Azure Migrate avec agent
 description: Découvrez comment exécuter la migration avec agent des machines virtuelles VMware avec Azure Migrate.
 ms.topic: tutorial
-ms.date: 11/19/2019
+ms.date: 03/09/2020
 ms.custom: MVC
-ms.openlocfilehash: 49b576770d67ae9d2b98a8a0004f4219ecf0fae4
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 64873c5185660c58cd4d07d60df3d086364d6288
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77057275"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222026"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>Migrer des machines virtuelles VMware vers Azure (migration basée sur un agent)
 
@@ -57,7 +57,7 @@ Pour savoir quelle migration effectuer, sans agent ou basée sur un agent, passe
 
 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer ce didacticiel, vous devez :
 
@@ -156,7 +156,7 @@ Le service Mobilité doit être installé sur les machines virtuelles que vous s
 
 - L’appliance de réplication Azure Migrate peut effectuer une installation de type push de ce service quand vous activez la réplication pour une machine, ou vous pouvez l’installer manuellement ou à l’aide des outils d’installation.
 - Dans ce tutoriel, nous allons installer le service Mobilité avec l’installation de type push.
-- Pour l’installation de type push, vous devez préparer un compte dont Azure Migrate Server Migration peut se servir pour accéder à la machine virtuelle.
+- Pour l’installation de type push, vous devez préparer un compte dont Azure Migrate Server Migration peut se servir pour accéder à la machine virtuelle. Ce compte est utilisé uniquement pour l’installation Push, si vous n’installez pas le service Mobility manuellement.
 
 Préparez le compte comme suit :
 
@@ -409,7 +409,10 @@ Après avoir vérifié que la migration de test fonctionne comme prévu, vous po
 
 ## <a name="complete-the-migration"></a>Effectuer la migration
 
-1. Une fois la migration terminée, cliquez avec le bouton droit sur la machine virtuelle > **Arrêter la migration**. Cette action arrête la réplication pour la machine locale et nettoie les informations d’état de la réplication de la machine virtuelle.
+1. Une fois la migration terminée, cliquez avec le bouton droit sur la machine virtuelle > **Arrêter la migration**. Cette opération effectue les actions suivantes :
+    - Arrête la réplication pour l’ordinateur local.
+    - Supprime l’ordinateur du nombre **Réplication de serveurs** dans Azure Migrate : Server Migration.
+    - Nettoie les informations d’état de réplication pour la machine virtuelle.
 2. Installez l’agent [Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) ou [Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) de machine virtuelle Azure sur les machines migrées.
 3. Effectuez les éventuels ajustements post-migration de l’application, comme la mise à jour des chaînes de connexion de base de données et les configurations du serveur web.
 4. Effectuez les tests finaux de réception de l’application et de la migration sur l’application migrée qui s’exécute maintenant dans Azure.

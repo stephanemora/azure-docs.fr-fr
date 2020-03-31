@@ -1,6 +1,6 @@
 ---
-title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à G Suite | Microsoft Docs'
-description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et G Suite.
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Google Cloud (G Suite) Connector | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Google Cloud (G Suite) Connector.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,19 +15,19 @@ ms.topic: tutorial
 ms.date: 02/14/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5ef5816759074073c57ef0f616ddea4a159956f
-ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
+ms.openlocfilehash: 5b3282dd88b62a6811031e95672638d67702215a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2020
-ms.locfileid: "77370354"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80048459"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-g-suite"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à G Suite
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-google-cloud-g-suite-connector"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Google Cloud (G Suite) Connector
 
-Dans ce tutoriel, vous allez apprendre à intégrer G Suite à Azure Active Directory (Azure AD). Quand vous intégrez G Suite à Azure AD, vous pouvez :
+Dans ce tutoriel, vous allez apprendre à intégrer Google Cloud (G Suite) Connector à Azure Active Directory (Azure AD). Lorsque vous intégrez Google Cloud (G Suite) Connector à Azure AD, vous pouvez :
 
-* Contrôler dans Azure AD qui a accès à G Suite.
-* Permettre à vos utilisateurs de se connecter automatiquement à G Suite avec leur compte Azure AD.
+* Contrôler dans Azure AD qui a accès à Google Cloud (G Suite) Connector.
+* Autoriser les utilisateurs à se connecter automatiquement à Google Cloud (G Suite) Connector avec leur compte Azure AD.
 * Gérer vos comptes à un emplacement central : le Portail Azure.
 
 Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
@@ -37,11 +37,11 @@ Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, cons
 Pour commencer, vous devez disposer de ce qui suit :
 
 - Un abonnement Azure AD
-- Abonnement G Suite pour lequel l’authentification unique est activée.
+- Un abonnement à Google Cloud (G Suite) Connector pour lequel l’authentification unique est activée.
 - Un abonnement Google Apps ou Google Cloud Platform.
 
 > [!NOTE]
-> Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production. Ce document a été créé à l’aide de la nouvelle expérience utilisateur Authentification unique. Si vous utilisez toujours l’ancienne version, l’installation n’aura pas la même apparence. Vous pouvez activer la nouvelle expérience dans les paramètres d’authentification unique de l’application G Suite. Accédez à **Azure AD, Applications d’entreprise**, sélectionnez **G Suite** et **Authentification unique**, puis cliquez sur **Essayer la nouvelle expérience**.
+> Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production. Ce document a été créé à l’aide de la nouvelle expérience utilisateur Authentification unique. Si vous utilisez toujours l’ancienne version, l’installation n’aura pas la même apparence. Vous pouvez activer la nouvelle expérience dans les paramètres d’authentification unique de l’application G Suite. Accédez à **Azure AD, Applications d’entreprise**, sélectionnez **Google Cloud (G Suite) Connector** et **Authentification unique**, puis cliquez sur **Essayer la nouvelle expérience**.
 
 Vous devez en outre suivre les recommandations ci-dessous :
 
@@ -56,19 +56,19 @@ Vous devez en outre suivre les recommandations ci-dessous :
 
 2. **Q : Les Chromebooks et autres appareils Chrome sont-ils compatibles avec l’authentification unique Azure AD ?**
   
-    A : Oui, les utilisateurs peuvent se connecter à leurs appareils Chromebook en entrant leurs informations d’identification Azure AD. Consultez cet [article du support technique G Suite](https://support.google.com/chrome/a/answer/6060880) pour en savoir plus sur les raisons de la double demande de saisie des informations d’identification.
+    A : Oui, les utilisateurs peuvent se connecter à leurs appareils Chromebook en entrant leurs informations d’identification Azure AD. Consultez cet [article du support technique Google Cloud (G Suite) Connector](https://support.google.com/chrome/a/answer/6060880) pour en savoir plus sur les raisons de la double demande de saisie des informations d’identification.
 
 3. **Q : Si j’ai activé l’authentification unique, les utilisateurs peuvent-ils utiliser leurs informations d’identification Azure AD pour se connecter à un produit Google, comme Google Classroom, Gmail, Google Drive, YouTube, etc. ?**
 
-    A : Oui, en fonction du produit [G Suite](https://support.google.com/a/answer/182442?hl=en&ref_topic=1227583) que vous choisissez d’activer et de désactiver pour votre organisation.
+    A : Oui, en fonction du produit [Google Cloud (G Suite) Connector](https://support.google.com/a/answer/182442?hl=en&ref_topic=1227583) que vous choisissez d’activer et de désactiver pour votre organisation.
 
-4. **Q : Puis-je activer l’authentification unique pour uniquement une partie de mes utilisateurs G Suite ?**
+4. **Q : Puis-je activer l’authentification unique pour seulement une partie des utilisateurs de Google Cloud (G Suite) Connector ?**
 
-    A : Non, si vous activez l’authentification unique, l’ensemble des utilisateurs G Suite doivent s’authentifier avec leurs informations d’identification Azure AD. G Suite ne prenant pas en charge plusieurs fournisseurs d’identité, le fournisseur associé à votre environnement G Suite peut être Azure AD ou Google, mais pas les deux.
+    A : Non, si vous activez l’authentification unique, l’ensemble des utilisateurs de Google Cloud (G Suite) Connector doivent s’authentifier avec leurs informations d’identification Azure AD. Étant donné que Google Cloud (G Suite) Connector ne prend pas en charge les fournisseurs d’identité multiples, le fournisseur d’identité associé à votre environnement Google Cloud (G Suite) Connector peut être Azure AD ou Google, mais pas les deux.
 
-5. **Q : Si un utilisateur est connecté par le biais de Windows, est-il automatiquement authentifié sur G Suite sans qu’il ne lui soit demandé d’entrer un mot de passe ?**
+5. **Q : Si un utilisateur est connecté par le biais de Windows, est-il automatiquement authentifié sur Google Cloud (G Suite) Connector sans qu’il ne lui soit demandé d’entrer un mot de passe ?**
 
-    A : Deux options permettent de prendre en charge ce scénario. Tout d’abord, les utilisateurs peuvent se connecter aux appareils Windows 10 via [Azure Active Directory Join](../device-management-introduction.md). Sinon, les utilisateurs peuvent se connecter aux appareils Windows joints à un domaine au sein d’un répertoire Active Directory sur lequel est activée l’authentification unique à Azure AD via un déploiement [Active Directory Federation Services (AD FS)](../hybrid/plan-connect-user-signin.md) . Quelle que soit l’option choisie, vous devez suivre le didacticiel ci-dessous pour activer l’authentification unique entre Azure AD et G Suite.
+    A : Deux options permettent de prendre en charge ce scénario. Tout d’abord, les utilisateurs peuvent se connecter aux appareils Windows 10 via [Azure Active Directory Join](../device-management-introduction.md). Sinon, les utilisateurs peuvent se connecter aux appareils Windows joints à un domaine au sein d’un répertoire Active Directory sur lequel est activée l’authentification unique à Azure AD via un déploiement [Active Directory Federation Services (AD FS)](../hybrid/plan-connect-user-signin.md) . Quelle que soit l’option choisie, vous devez effectuer le tutoriel ci-dessous pour activer l’authentification unique entre Azure AD et Google Cloud (G Suite) Connector.
 
 6. **Q : Que dois-je faire si j’obtiens un message d’erreur « adresse e-mail non valide » ?**
 
@@ -84,40 +84,40 @@ Vous devez en outre suivre les recommandations ci-dessous :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* G Suite prend en charge l’authentification unique initiée par le **fournisseur de services**
+* Google Cloud (G Suite) Connector prend en charge l’authentification unique lancée par le **fournisseur de services**
 
-* G Suite prend en charge le [provisionnement **automatique** des utilisateurs](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-provisioning-tutorial)
-* Après avoir configuré G Suite, vous pouvez appliquer le contrôle de session qui protège l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrir comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Google Cloud (G Suite) Connector prend en charge le [provisionnement **automatique** des utilisateurs](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-provisioning-tutorial)
+* Après avoir configuré Google Cloud (G Suite) Connector, vous pouvez appliquer le contrôle de session qui protège l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrir comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
-## <a name="adding-g-suite-from-the-gallery"></a>Ajout de G Suite à partir de la galerie
+## <a name="adding-google-cloud-g-suite-connector-from-the-gallery"></a>Ajout de Google Cloud (G Suite) Connector à partir de la galerie
 
-Pour configurer l’intégration de G Suite à Azure AD, vous devez ajouter G Suite, disponible dans la galerie, à votre liste d’applications SaaS gérées.
+Pour configurer l’intégration de Google Cloud (G Suite) Connector à Azure AD, vous devez ajouter Google Cloud (G Suite) Connector à votre liste d’applications SaaS managées, à partir de la galerie.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
 1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
 1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
-1. Dans la section **Ajouter à partir de la galerie**, tapez **G Suite** dans la zone de recherche.
-1. Sélectionnez **G Suite** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
+1. Dans la section **Ajouter à partir de la galerie**, tapez **Google Cloud (G Suite) Connector** dans la zone de recherche.
+1. Sélectionnez **Google Cloud (G Suite) Connector** dans le panneau de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-g-suite"></a>Configurer et tester l’authentification unique Azure AD pour G Suite
+## <a name="configure-and-test-azure-ad-single-sign-on-for-google-cloud-g-suite-connector"></a>Configurer et tester l’authentification unique Azure AD pour Google Cloud (G Suite) Connector
 
-Configurez et testez l’authentification unique Azure AD avec G Suite à l’aide d’un utilisateur de test appelé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur G Suite associé.
+Configurez et testez l’authentification unique Azure AD avec Google Cloud (G Suite) Connector pour un utilisateur de test nommé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur associé dans Google Cloud (G Suite) Connector.
 
-Pour configurer et tester l’authentification unique Azure AD avec G Suite, suivez les indications des sections ci-après :
+Pour configurer et tester l’authentification unique Azure AD avec Google Cloud (G Suite) Connector, suivez les indications des modules ci-après :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
     1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
     1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
-1. **[Configurer l’authentification unique G Suite](#configure-g-suite-sso)** pour configurer les paramètres de l’authentification unique côté application.
-    1. **[Créer un utilisateur de test G Suite](#create-g-suite-test-user)** pour avoir un équivalent de B.Simon dans G Suite lié à la représentation Azure AD associée.
+1. **[Configurer l’authentification unique Google Cloud (G Suite) Connector](#configure-google-cloud-g-suite-connector-sso)** pour configurer les paramètres de l’authentification unique côté application.
+    1. **[Créer un utilisateur de test Google Cloud (G Suite) Connector](#create-google-cloud-g-suite-connector-test-user)** pour avoir dans Google Cloud (G Suite) Connector un équivalent de B.Simon lié à la représentation Azure AD associée.
 1. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
 ## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Dans le [portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **G Suite**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
+1. Dans le [Portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **Google Cloud (G Suite) Connector**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
 1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
 
@@ -165,9 +165,9 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     | `https://google.com/a/<yourdomain.com>` |
 
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. G Suite ne fournit pas de valeur ID d’entité/Identificateur dans la configuration de l’authentification unique. Ainsi, quand vous décochez la case **Use a domain specific issuer** (Utiliser un émetteur spécifique de domaine), la valeur Identificateur est `google.com`. Si vous cochez la case **Utiliser un émetteur spécifique de domaine**, la valeur est `google.com/a/<yourdomainname.com>`. Pour cocher/décocher la case **Utiliser un émetteur spécifique de domaine**, vous devez accéder à la section **Configurer l’authentification unique G Suite**, plus loin dans le tutoriel. Pour plus d’informations, contactez l’[équipe de support technique G Suite](https://www.google.com/contact/).
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Google Cloud (G Suite) Connector ne fournit pas de valeur ID d’entité/Identificateur dans la configuration de l’authentification unique. Ainsi, quand vous décochez la case **Use a domain specific issuer** (Utiliser un émetteur spécifique de domaine), la valeur Identificateur est `google.com`. Si vous cochez la case **Utiliser un émetteur spécifique de domaine**, la valeur est `google.com/a/<yourdomainname.com>`. Pour cocher/décocher la case **Utiliser un émetteur spécifique de domaine**, vous devez accéder à la section **Configurer l’authentification unique Google Cloud (G Suite) Connector**, plus loin dans le tutoriel. Pour plus d’informations, contactez l’[équipe du support technique Google Cloud (G Suite) Connector](https://www.google.com/contact/).
 
-1. Votre application G Suite attend les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration d’attributs de jeton SAML. La capture d’écran suivante montre un exemple : La valeur par défaut pour **Identificateur d’utilisateur unique** est **user.userprincipalname**, mais G Suite s’attend à ce qu’elle soit mappée sur l’adresse e-mail de l’utilisateur. Pour cela, vous pouvez utiliser l’attribut **user.mail** dans la liste ou utiliser la valeur d’attribut appropriée en fonction de la configuration de votre organisation.
+1. Votre application Google Cloud (G Suite) Connector attend les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration d’attributs de jeton SAML. La capture d’écran suivante montre un exemple : La valeur par défaut pour **Identificateur d’utilisateur unique** est **user.userprincipalname**, mais Google Cloud (G Suite) Connector s’attend à ce qu’elle soit mappée sur l’adresse e-mail de l’utilisateur. Pour cela, vous pouvez utiliser l’attribut **user.mail** dans la liste ou utiliser la valeur d’attribut appropriée en fonction de la configuration de votre organisation.
 
     ![image](common/default-attributes.png)
 
@@ -176,7 +176,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     ![Lien Téléchargement de certificat](common/certificatebase64.png)
 
-1. Dans la section **Configurer G Suite**, copiez l’URL ou les URL appropriées en fonction de vos besoins.
+1. Dans la section **Configurer Google Cloud (G Suite) Connector**, copiez la ou les URL appropriées en fonction de vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
@@ -194,10 +194,10 @@ Dans cette section, vous allez créer un utilisateur de test appelé B. Simon da
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
-Dans cette section, vous autorisez B.Simon à utiliser l’authentification unique Azure en lui accordant l’accès à G Suite.
+Dans cette section, vous autorisez B.Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Google Cloud (G Suite) Connector.
 
 1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
-1. Dans la liste des applications, sélectionnez **G Suite**.
+1. Dans la liste des applications, sélectionnez **Google Cloud (G Suite) Connector**.
 1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
 
    ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
@@ -210,9 +210,9 @@ Dans cette section, vous autorisez B.Simon à utiliser l’authentification uniq
 1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-## <a name="configure-g-suite-sso"></a>Configurer l’authentification unique G Suite
+## <a name="configure-google-cloud-g-suite-connector-sso"></a>Configurer l’authentification unique Google Cloud (G Suite) Connector
 
-1. Ouvrez un nouvel onglet dans votre navigateur et utilisez votre compte d’administrateur pour vous connecter à la [Console d’administration de G Suite](https://admin.google.com/).
+1. Ouvrez un nouvel onglet dans votre navigateur et utilisez votre compte d’administrateur pour vous connecter à la [console d’administration de Google Cloud (G Suite) Connector](https://admin.google.com/).
 
 2. Cliquez sur **Sécurité**. Si le lien ne s'affiche pas, il est peut-être masqué par le menu **Autres contrôles** situé en bas de l'écran.
 
@@ -228,26 +228,26 @@ Dans cette section, vous autorisez B.Simon à utiliser l’authentification uniq
 
     a. Sélectionnez **Configurer l'authentification unique avec un fournisseur d'identité tiers**.
 
-    b. Dans le champ **URL de la page de connexion** de G Suite, collez l’**URL de connexion** que vous avez copiée à partir du portail Azure.
+    b. Dans le champ **URL de la page de connexion** de Google Cloud (G Suite) Connector, collez l’**URL de connexion** que vous avez copiée à partir du portail Azure.
 
-    c. Dans le champ **URL de la page de déconnexion** de G Suite, collez l’**URL de déconnexion** que vous avez copiée à partir du portail Azure.
+    c. Dans le champ **URL de la page de déconnexion** de Google Cloud (G Suite) Connector, collez l’**URL de déconnexion** que vous avez copiée à partir du portail Azure.
 
-    d. Dans le champ **Modifier l’URL du mot de passe** de G Suite, collez la valeur de **Modifier l’URL du mot de passe** que vous avez copiée dans le portail Azure.
+    d. Dans le champ **Modifier l’URL du mot de passe** de Google Cloud (G Suite) Connector, collez la valeur de **Modifier l’URL du mot de passe** que vous avez copiée du portail Azure.
 
-    e. Dans G Suite, chargez le certificat que vous avez téléchargé dans le portail Azure pour le **Certificat de vérification**.
+    e. Dans Google Cloud (G Suite) Connector, chargez le certificat que vous avez téléchargé du portail Azure pour l’utiliser comme **Certificat de vérification**.
 
     f. Cochez/décochez la case **Utiliser un émetteur spécifique de domaine** conformément à la note mentionnée dans la section **Configuration SAML de base** ci-dessus dans Azure AD.
 
     g. Cliquez sur **Enregistrer les modifications**.
 
-### <a name="create-g-suite-test-user"></a>Créer un utilisateur de test G Suite
+### <a name="create-google-cloud-g-suite-connector-test-user"></a>Créer un utilisateur de test Google Cloud (G Suite) Connector
 
-L’objectif de cette section est de [créer un utilisateur dans G Suite](https://support.google.com/a/answer/33310?hl=en) (appelé B.Simon). Une fois l’utilisateur créé manuellement dans G Suite, il peut se connecter à l’aide de ses informations d’identification Office 365.
+L’objectif de cette section est de [créer un utilisateur dans Google Cloud (G Suite) Connector](https://support.google.com/a/answer/33310?hl=en), appelé B.Simon. Une fois l’utilisateur créé manuellement dans Google Cloud (G Suite) Connector, il peut se connecter à l’aide de ses informations d’identification Office 365.
 
-G Suite prend également en charge le provisionnement automatique d’utilisateurs. Pour configurer le provisionnement automatique d’utilisateurs, vous devez d’abord [configurer G Suite pour le provisionnement automatique d’utilisateurs](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-provisioning-tutorial).
+Google Cloud (G Suite) Connector prend aussi en charge le provisionnement automatique des utilisateurs. Pour configurer le provisionnement automatique d’utilisateurs, vous devez d’abord [configurer Google Cloud (G Suite) Connector pour le provisionnement automatique d’utilisateurs](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-provisioning-tutorial).
 
 > [!NOTE]
-> Assurez-vous que votre utilisateur existe déjà dans G Suite si l’approvisionnement dans Azure AD n’a pas été activé avant de tester l’authentification unique.
+> Assurez-vous que votre utilisateur existe déjà dans Google Cloud (G Suite) Connector si le provisionnement dans Azure AD n’a pas été activé avant de tester l’authentification unique.
 
 > [!NOTE]
 > Si vous devez créer un utilisateur manuellement, contactez [l’équipe de support Google](https://www.google.com/contact/).
@@ -256,7 +256,7 @@ G Suite prend également en charge le provisionnement automatique d’utilisate
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Lorsque vous cliquez sur la vignette G Suite dans le volet d’accès, vous devez être connecté automatiquement à l’application G Suite pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Lorsque vous cliquez sur la vignette Google Cloud (G Suite) Connector dans le volet d’accès, vous êtes automatiquement connecté à l’application Google Cloud (G Suite) Connector pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
@@ -268,11 +268,11 @@ Lorsque vous cliquez sur la vignette G Suite dans le volet d’accès, vous deve
 
 - [Configurer l’approvisionnement de l’utilisateur](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-provisioning-tutorial)
 
-- [Essayer G Suite avec Azure AD](https://aad.portal.azure.com/)
+- [Essayer Google Cloud (G Suite) Connector avec Azure AD](https://aad.portal.azure.com/)
 
 - [Qu’est-ce que le contrôle de session dans Microsoft Cloud App Security ?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
-- [Guide pratique pour protéger G Suite avec une visibilité et des contrôles avancés](https://docs.microsoft.com/cloud-app-security/protect-gsuite)
+- [Guide pratique pour protéger Google Cloud (G Suite) Connector avec une visibilité et des contrôles avancés](https://docs.microsoft.com/cloud-app-security/protect-gsuite)
 
 <!--Image references-->
 

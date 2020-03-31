@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: fbc814b5d263e20cea1d961891afb19894b78965
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: a502638744009fc34a7f0a27f8034b89d2c8fa26
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74772214"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79527807"
 ---
 # <a name="monitor-azure-database-for-mariadb-performance-with-query-store"></a>Surveiller les performances de Azure Database for MariaDB avec Magasin de données des requêtes
 
@@ -91,14 +91,14 @@ Les options suivantes sont disponibles pour la configuration des paramètres du 
 |---|---|---|---|
 | query_store_capture_mode | Permet d’activer/de désactiver la fonctionnalité magasin de données des requêtes en fonction de la valeur. Remarque : Si performance_schema est désactivé, l’activation de query_store_capture_mode active performance_schema et un sous-ensemble d’instruments de schéma de performances requis pour la fonctionnalité. | ALL | NONE, ALL |
 | query_store_capture_interval | Le magasin de données des requêtes capture l’intervalle en minutes. Permet de spécifier l’intervalle dans lequel les métriques des requêtes sont agrégées | 15 | 5 - 60 |
-| query_store_capture_utility_queries | L’activation/La désactivation permet de capturer toutes les requêtes d’utilitaire qui s’exécute dans le système. | NON | OUI, NON |
+| query_store_capture_utility_queries | L’activation/La désactivation permet de capturer toutes les requêtes d’utilitaire qui s’exécute dans le système. | Non | OUI, NON |
 | query_store_retention_period_in_days | Période de conservation des données du magasin de données des requêtes exprimée en jours. | 7 | 1 - 30 |
 
 Les options suivantes s’appliquent spécifiquement aux statistiques d’attente.
 
 | **Paramètre** | **Description** | **Par défaut** | **Plage** |
 |---|---|---|---|
-| query_store_wait_sampling_capture_mode | Permet d’activer/de désactiver les statistiques d’attente. | AUCUN | NONE, ALL |
+| query_store_wait_sampling_capture_mode | Permet d’activer/de désactiver les statistiques d’attente. | Aucune | NONE, ALL |
 | query_store_wait_sampling_frequency | Permet de modifier la fréquence de wait-sampling en secondes. 5 à 300 secondes. | 30 | 5-300 |
 
 > [!NOTE]
@@ -118,32 +118,32 @@ Cette vue retourne toutes les données du Magasin des requêtes. Il existe une l
 
 | **Nom** | **Type de données** | **IS_NULLABLE** | **Description** |
 |---|---|---|---|
-| `schema_name`| varchar(64) | NON | Nom du schéma |
-| `query_id`| bigint(20) | NON| ID unique généré pour la requête spécifique, si la même requête s’exécute dans un schéma différent, un nouvel ID sera généré |
-| `timestamp_id` | timestamp| NON| Horodatage dans lequel la requête est exécutée. Celui-ci repose sur la configuration de query_store_interval|
-| `query_digest_text`| longtext| NON| Texte de requête normalisé après la suppression de tous les littéraux|
-| `query_sample_text` | longtext| NON| Première apparition de la requête réelle avec des littéraux|
-| `query_digest_truncated` | bit| OUI| Indique si le texte de requête a été tronqué. La valeur sera Oui si la requête est supérieure à 1 Ko|
-| `execution_count` | bigint(20)| NON| Nombre d’exécutions de la requête pour cet ID d’horodatage/pendant la période d’intervalle configurée|
-| `warning_count` | bigint(20)| NON| Nombre d’avertissements générés par cette requête au cours de l’intervalle|
-| `error_count` | bigint(20)| NON| Nombre d’erreurs générées par cette requête au cours de l’intervalle|
-| `sum_timer_wait` | double| OUI| Durée d’exécution totale de cette requête au cours de l’intervalle|
-| `avg_timer_wait` | double| OUI| Durée d’exécution moyenne de cette requête au cours de l’intervalle|
-| `min_timer_wait` | double| OUI| Durée d’exécution minimale pour cette requête|
-| `max_timer_wait` | double| OUI| Durée d’exécution maximale|
-| `sum_lock_time` | bigint(20)| NON| Temps total passé pour tous les verrous pour cette exécution de requête au cours de cette période|
-| `sum_rows_affected` | bigint(20)| NON| Nombre de lignes affectées|
-| `sum_rows_sent` | bigint(20)| NON| Nombre de lignes envoyées au client|
-| `sum_rows_examined` | bigint(20)| NON| Nombre de lignes examinées|
-| `sum_select_full_join` | bigint(20)| NON| Nombre de jointures complètes|
-| `sum_select_scan` | bigint(20)| NON| Nombre d’analyses sélectionnées |
-| `sum_sort_rows` | bigint(20)| NON| Nombre de lignes triées|
-| `sum_no_index_used` | bigint(20)| NON| Nombre de fois que la requête n’a pas utilisé tous les index|
-| `sum_no_good_index_used` | bigint(20)| NON| Nombre de fois que le moteur d’exécution de la requête n’a pas utilisé les index appropriés|
-| `sum_created_tmp_tables` | bigint(20)| NON| Nombre total de tables temporaires créées|
-| `sum_created_tmp_disk_tables` | bigint(20)| NON| Nombre total de tables temporaires créées dans le disque (génère des E/S)|
-| `first_seen` | timestamp| NON| La première occurrence (UTC) de la requête au cours de la période d’agrégation|
-| `last_seen` | timestamp| NON| La dernière occurrence (UTC) de la requête au cours de cette période d’agrégation|
+| `schema_name`| varchar(64) | Non | Nom du schéma |
+| `query_id`| bigint(20) | Non| ID unique généré pour la requête spécifique, si la même requête s’exécute dans un schéma différent, un nouvel ID sera généré |
+| `timestamp_id` | timestamp| Non| Horodatage dans lequel la requête est exécutée. Celui-ci repose sur la configuration de query_store_interval|
+| `query_digest_text`| longtext| Non| Texte de requête normalisé après la suppression de tous les littéraux|
+| `query_sample_text` | longtext| Non| Première apparition de la requête réelle avec des littéraux|
+| `query_digest_truncated` | bit| YES| Indique si le texte de requête a été tronqué. La valeur sera Oui si la requête est supérieure à 1 Ko|
+| `execution_count` | bigint(20)| Non| Nombre d’exécutions de la requête pour cet ID d’horodatage/pendant la période d’intervalle configurée|
+| `warning_count` | bigint(20)| Non| Nombre d’avertissements générés par cette requête au cours de l’intervalle|
+| `error_count` | bigint(20)| Non| Nombre d’erreurs générées par cette requête au cours de l’intervalle|
+| `sum_timer_wait` | double| YES| Durée d’exécution totale de cette requête au cours de l’intervalle|
+| `avg_timer_wait` | double| YES| Durée d’exécution moyenne de cette requête au cours de l’intervalle|
+| `min_timer_wait` | double| YES| Durée d’exécution minimale pour cette requête|
+| `max_timer_wait` | double| YES| Durée d’exécution maximale|
+| `sum_lock_time` | bigint(20)| Non| Temps total passé pour tous les verrous pour cette exécution de requête au cours de cette période|
+| `sum_rows_affected` | bigint(20)| Non| Nombre de lignes affectées|
+| `sum_rows_sent` | bigint(20)| Non| Nombre de lignes envoyées au client|
+| `sum_rows_examined` | bigint(20)| Non| Nombre de lignes examinées|
+| `sum_select_full_join` | bigint(20)| Non| Nombre de jointures complètes|
+| `sum_select_scan` | bigint(20)| Non| Nombre d’analyses sélectionnées |
+| `sum_sort_rows` | bigint(20)| Non| Nombre de lignes triées|
+| `sum_no_index_used` | bigint(20)| Non| Nombre de fois que la requête n’a pas utilisé tous les index|
+| `sum_no_good_index_used` | bigint(20)| Non| Nombre de fois que le moteur d’exécution de la requête n’a pas utilisé les index appropriés|
+| `sum_created_tmp_tables` | bigint(20)| Non| Nombre total de tables temporaires créées|
+| `sum_created_tmp_disk_tables` | bigint(20)| Non| Nombre total de tables temporaires créées dans le disque (génère des E/S)|
+| `first_seen` | timestamp| Non| La première occurrence (UTC) de la requête au cours de la période d’agrégation|
+| `last_seen` | timestamp| Non| La dernière occurrence (UTC) de la requête au cours de cette période d’agrégation|
 
 ### <a name="mysqlquery_store_wait_stats"></a>mysql.query_store_wait_stats
 
@@ -151,15 +151,15 @@ Cette vue retourne les données des événements d’attente du Magasin des requ
 
 | **Nom**| **Type de données** | **IS_NULLABLE** | **Description** |
 |---|---|---|---|
-| `interval_start` | timestamp | NON| Début de l’intervalle (incrément de 15 minutes)|
-| `interval_end` | timestamp | NON| Fin de l’intervalle (incrément de 15 minutes)|
-| `query_id` | bigint(20) | NON| ID unique généré sur la requête normalisée (à partir du magasin de données des requêtes)|
-| `query_digest_id` | varchar(32) | NON| Texte de requête normalisé après suppression de tous les littéraux (à partir du magasin de données des requêtes) |
-| `query_digest_text` | longtext | NON| Première apparition de la requête réelle avec des littéraux (à partir du magasin de données des requêtes) |
-| `event_type` | varchar(32) | NON| Catégorie de l’événement d’attente |
-| `event_name` | varchar(128) | NON| Nom de l’événement d’attente |
-| `count_star` | bigint(20) | NON| Nombre d’événements d’attente échantillonnés au cours de l’intervalle pour la requête |
-| `sum_timer_wait_ms` | double | NON| Temps d’attente total (en millisecondes) de cette requête pendant l’intervalle |
+| `interval_start` | timestamp | Non| Début de l’intervalle (incrément de 15 minutes)|
+| `interval_end` | timestamp | Non| Fin de l’intervalle (incrément de 15 minutes)|
+| `query_id` | bigint(20) | Non| ID unique généré sur la requête normalisée (à partir du magasin de données des requêtes)|
+| `query_digest_id` | varchar(32) | Non| Texte de requête normalisé après suppression de tous les littéraux (à partir du magasin de données des requêtes) |
+| `query_digest_text` | longtext | Non| Première apparition de la requête réelle avec des littéraux (à partir du magasin de données des requêtes) |
+| `event_type` | varchar(32) | Non| Catégorie de l’événement d’attente |
+| `event_name` | varchar(128) | Non| Nom de l’événement d’attente |
+| `count_star` | bigint(20) | Non| Nombre d’événements d’attente échantillonnés au cours de l’intervalle pour la requête |
+| `sum_timer_wait_ms` | double | Non| Temps d’attente total (en millisecondes) de cette requête pendant l’intervalle |
 
 ### <a name="functions"></a>Fonctions
 

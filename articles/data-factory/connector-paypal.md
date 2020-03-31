@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
 ms.openlocfilehash: 2cfe405c6de5b78a003db68053c0a6034c3b241b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74930853"
 ---
 # <a name="copy-data-from-paypal-using-azure-data-factory-preview"></a>Copier des données de PayPal avec Azure Data Factory (préversion)
@@ -48,10 +48,10 @@ Les propriétés suivantes sont prises en charge pour le service lié PayPal :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type doit être définie sur : **PayPal**. | OUI |
-| host | URL de l’instance PayPal (c’est-à-dire api.sandbox.paypal.com).  | OUI |
-| clientId | ID client associé à l’application PayPal.  | OUI |
-| clientSecret | Clé secrète client associée à l’application PayPal. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
+| type | La propriété type doit être définie sur : **PayPal**. | Oui |
+| host | URL de l’instance PayPal (c’est-à-dire api.sandbox.paypal.com).  | Oui |
+| clientId | ID client associé à l’application PayPal.  | Oui |
+| clientSecret | Clé secrète client associée à l’application PayPal. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
 | useEncryptedEndpoints | Indique si les points de terminaison de la source de données sont chiffrés suivant le protocole HTTPS. La valeur par défaut est true.  | Non |
 | useHostVerification | Indique si le nom d’hôte du certificat du serveur doit correspondre à celui du serveur en cas de connexion SSL. La valeur par défaut est true.  | Non |
 | usePeerVerification | Indique s’il faut vérifier l’identité du serveur en cas de connexion SSL. La valeur par défaut est true.  | Non |
@@ -83,7 +83,7 @@ Pour copier des données de PayPal, affectez la valeur **PayPalObject** à la pr
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type du jeu de données doit être définie sur : **PayPalObject**. | OUI |
+| type | La propriété type du jeu de données doit être définie sur : **PayPalObject**. | Oui |
 | tableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
@@ -113,7 +113,7 @@ Pour copier des données de PayPal, affectez la valeur **PayPalSource** au type 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type de la source d’activité de copie doit être définie sur : **PayPalSource**. | OUI |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **PayPalSource**. | Oui |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM Payment_Experience"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**

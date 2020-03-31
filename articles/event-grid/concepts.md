@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: spelluru
 ms.openlocfilehash: 0821c749a6cb718e1b8abb74a2925bc041850eaf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66305270"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231341"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Concepts utilisés dans Azure Event Grid
 
@@ -27,7 +27,7 @@ Tout événement d’une taille jusqu’à 64 Ko est couvert par le contrat de 
 
 Pour les propriétés qui sont envoyées dans un événement, consultez le [schéma d’événements Azure Event Grid](event-schema.md).
 
-## <a name="publishers"></a>Éditeurs
+## <a name="publishers"></a>Serveurs de publication
 
 Un éditeur est l’utilisateur ou organisation qui décide d’envoyer des événements à Event Grid. Microsoft publie des événements pour plusieurs services Azure. Vous pouvez publier des événements à partir de votre propre application. Les organisations qui hébergent des services en dehors d’Azure peuvent publier des événements par le biais d’Event Grid.
 

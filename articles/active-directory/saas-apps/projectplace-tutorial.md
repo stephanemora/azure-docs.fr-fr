@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Projectplace | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Projectplace | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Projectplace.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 05/29/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 179721075484c35c5ebbb3d936b83bc407b75a8d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67093538"
 ---
-# <a name="tutorial-integrate-projectplace-with-azure-active-directory"></a>Didacticiel : Intégrer Projectplace à Azure Active Directory
+# <a name="tutorial-integrate-projectplace-with-azure-active-directory"></a>Tutoriel : Intégrer Projectplace à Azure Active Directory
 
 Dans ce didacticiel, vous allez apprendre à intégrer Projectplace à Azure Active Directory (Azure AD). Lorsque vous intégrez Projectplace à Azure AD, vous pouvez :
 
@@ -143,15 +143,15 @@ Pour autoriser les utilisateurs Azure AD à se connecter à Projectplace, vous d
 
 2. Accédez à **Contacts**, puis cliquez sur **Membres** :
    
-    ![Accéder à Contacts, puis sélectionner Membres](./media/projectplace-tutorial/ic790228.png "Contacts")
+    ![Accéder à People, puis sélectionner Members](./media/projectplace-tutorial/ic790228.png "Personnes")
 
 3. Sélectionnez **Ajouter un membre** :
    
-    ![Sélectionner Ajouter un membre](./media/projectplace-tutorial/ic790232.png "Ajouter des membres")
+    ![Sélectionner Add Member](./media/projectplace-tutorial/ic790232.png "Ajouter des membres")
 
 4. Dans la section **Ajouter un membre**, procédez comme suit.
    
-    ![Section Ajouter un membre](./media/projectplace-tutorial/ic790233.png "Nouveaux membres")
+    ![Section Add Member](./media/projectplace-tutorial/ic790233.png "New Members")
    
     1. Dans la zone **Nouveaux membres**, entrez l'adresse e-mail d'un compte Azure AD valide que vous souhaitez ajouter.
    
@@ -173,4 +173,4 @@ Quand vous sélectionnez la vignette Projectplace dans le volet d’accès, vous
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

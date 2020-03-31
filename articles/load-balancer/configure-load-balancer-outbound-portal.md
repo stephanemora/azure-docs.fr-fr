@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 09/24/2019
 ms.author: allensu
 ms.openlocfilehash: b75f49155991bfc71f788ad88f166c0bec281841
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77589692"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-by-using-the-azure-portal"></a>Configurer des règles d’équilibrage de charge et des règles de trafic sortant dans Standard Load Balancer à l’aide du Portail Azure
@@ -40,9 +40,9 @@ Dans cette section, vous créez un équilibreur de charge qui équilibrera la ch
 
     | Paramètre                 | Valeur                                              |
     | ---                     | ---                                                |
-    | Abonnement               | Sélectionnez votre abonnement.    |    
+    | Subscription               | Sélectionnez votre abonnement.    |    
     | Resource group         | Sélectionnez **Créer**, puis entrez **myResourceGroupSLB** dans la zone de texte.|
-    | Nom                   | **myLoadBalancer**                                   |
+    | Name                   | **myLoadBalancer**                                   |
     | Région         | Sélectionnez **Europe Ouest**.                                        |
     | Type          | Sélectionnez **Public**.                                        |
     | SKU           | Sélectionnez **Standard** ou **De base**. Microsoft recommande de sélectionner Standard pour les charges de travail de production. |
@@ -81,7 +81,7 @@ Une sonde d’intégrité est utilisée pour surveiller l’état de votre appli
     
     | Paramètre | Valeur |
     | ------- | ----- |
-    | Nom | Entrez **MyHealthProbe**. |
+    | Name | Entrez **MyHealthProbe**. |
     | Protocol | Sélectionnez **HTTP**. |
     | Port | Entrez **80**.|
     | Intervalle | Entrez **15** pour **l’intervalle** en secondes entre les tentatives de la sonde. |
@@ -108,7 +108,7 @@ Dans la section suivante, vous allez créer :
     
     | Paramètre | Valeur |
     | ------- | ----- |
-    | Nom | Entrez **MyHTTPRule**. |
+    | Name | Entrez **MyHTTPRule**. |
     | Protocol | Sélectionnez **TCP**. |
     | Port | Entrez **80**.|
     | Port principal | Entrez **80**. |
@@ -130,7 +130,7 @@ Les règles de trafic sortant de l’équilibreur de charge configurent la SNAT 
 
     | Paramètre | Valeur |
     | ------- | ----- |
-    | Nom | Entrez **LoadBalancerFrontEndOutbound**. |
+    | Name | Entrez **LoadBalancerFrontEndOutbound**. |
     | Version de l’adresse IP | Sélectionnez **IPv4**. |
     | Type IP | Sélectionnez **Adresse IP**.|
     | Adresse IP publique | Sélectionnez **Créer nouveau**. Dans la page **Ajouter une adresse IP publique**, entrez **myPublicIPOutbound**.  Sélectionnez **OK**. |
@@ -155,7 +155,7 @@ Les règles de trafic sortant de l’équilibreur de charge configurent la SNAT 
 
     | Paramètre | Valeur |
     | ------- | ----- |
-    | Nom | Entrez **myOutboundRule**. |
+    | Name | Entrez **myOutboundRule**. |
     | Adresse IP du serveur frontal | Sélectionnez **LoadBalancerFrontEndOutbound**. |
     | Délai d’inactivité (minutes) | Déplacez le curseur sur **15 minutes.|
     | Réinitialisation du protocole TCP | Sélectionnez **Enabled**.|

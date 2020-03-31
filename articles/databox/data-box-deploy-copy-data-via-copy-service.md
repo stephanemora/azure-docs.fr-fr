@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: alkohli
-ms.openlocfilehash: 579c1984ee1906519980bbed154921a20ed40b79
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: ef0d79cae11a382bcca0ddb61e1d4a04b5db41e9
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77466975"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79501882"
 ---
 # <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-preview"></a>Tutoriel : Utiliser le service de copie des données pour copier des données dans Azure Data Box (préversion)
 
@@ -28,6 +28,7 @@ Utilisez le service de copie des données :
 Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
+>
 > * Copier des données sur Data Box
 
 ## <a name="prerequisites"></a>Prérequis
@@ -43,9 +44,13 @@ Avant de commencer, assurez-vous que :
 
 Une fois que vous êtes connecté à l’appareil NAS, l’étape suivante consiste à copier vos données. Avant de commencer la copie des données, passez en revue les considérations suivantes :
 
-- Quand vous copiez des données, vérifiez que leur taille est conforme aux limites de taille spécifiées dans l’article [Limitations relatives au Stockage Azure et à Data Box](data-box-limits.md).
-- Si les données chargées par Data Box le sont aussi simultanément par d’autres applications en dehors de Data Box, cela peut entraîner l’échec des tâches de chargement et l’altération des données.
-- Si les données sont modifiées au moment où elles sont lues par le service de copie des données, vous pouvez constater des échecs ou une altération des données.
+* Quand vous copiez des données, vérifiez que leur taille est conforme aux limites de taille spécifiées dans l’article [Limitations relatives au Stockage Azure et à Data Box](data-box-limits.md).
+
+* Si les données chargées par Data Box le sont aussi simultanément par d’autres applications en dehors de Data Box, cela peut entraîner l’échec des tâches de chargement et l’altération des données.
+
+* Si les données sont modifiées au moment où elles sont lues par le service de copie des données, vous pouvez constater des échecs ou une altération des données.
+
+* Veillez à conserver une copie des données sources tant que vous n’avez pas la confirmation que le Data Box a transféré vos données dans Stockage Azure.
 
 Pour copier des données par l’intermédiaire du service de copie des données, vous devez créer une tâche :
 

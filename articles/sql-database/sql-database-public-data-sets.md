@@ -12,17 +12,17 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2018
 ms.openlocfilehash: 4b1c1a963b065411f1a0ab84141bdf1835930ebb
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74973541"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>Jeux de données publics pour la création de prototypes et de tests
 
 Parcourez cette liste de jeux de données publics pour trouver des données que vous pourrez utiliser pour créer des prototypes et tests des services et solutions de stockage et d’analyse.
 
-## <a name="us-government-and-agency-data"></a>Données du gouvernement américain et de ses agences
+## <a name="us-government-and-agency-data"></a>États-Unis du gouvernement américain et de ses agences
 
 | Source de données | À propos des données | À propos des fichiers |
 |---|---|---|

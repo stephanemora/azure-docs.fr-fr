@@ -6,17 +6,17 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69b8cbdba018b9d03dca67573b1f4fe6efa546b6
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: a86d34fca9a88b0df601533a0f3de1cc97ad1a2f
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024039"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80050598"
 ---
 # <a name="what-is-azure-ad-connect-cloud-provisioning"></a>Qu’est-ce que le provisionnement cloud Azure AD Connect ?
 Le provisionnement cloud Azure AD Connect est un nouvel agent Microsoft conçu pour répondre à vos objectifs d’identité hybrides, et vous permettre de les atteindre en matière de synchronisation des utilisateurs, des groupes et des contacts sur Azure AD.  Il peut être utilisé avec la synchronisation Azure AD Connect, et offre les avantages suivants :

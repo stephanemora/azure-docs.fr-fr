@@ -16,10 +16,10 @@ ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 82b5e1d9753fbb65fd81f24b06016d302457144e
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76834091"
 ---
 # <a name="a-web-api-that-calls-web-apis-code-configuration"></a>Une API web qui appelle des API web : Configuration de code
@@ -28,7 +28,7 @@ Une fois que vous avez inscrit votre API web, vous pouvez configurer le code pou
 
 Le code que vous utilisez pour configurer votre API web afin qu’elle appelle des API web en aval s’appuie sur le code utilisé pour protéger une API web. Pour plus d’informations, consultez la section [API web protégée : Configuration d’application](scenario-protected-web-api-app-configuration.md).
 
-# <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
+# <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
 ## <a name="code-subscribed-to-ontokenvalidated"></a>Code faisant l’objet d’un abonnement OnTokenValidated
 
@@ -144,7 +144,7 @@ private void AddAccountToCacheFromJwt(IEnumerable<string> scopes, JwtSecurityTok
      }
 }
 ```
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 Le flux On-behalf-of (OBO) permet d’obtenir un jeton pour appeler l’API web en aval. Dans ce flux, votre API web reçoit de l’application cliente un jeton du porteur avec des permissions déléguées par l’utilisateur, puis échange ce jeton contre un autre jeton d’accès pour appeler l’API web en aval.
 
@@ -213,11 +213,11 @@ class MsalAuthHelper {
 }
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Le flux On-behalf-of (OBO) permet d’obtenir un jeton pour appeler l’API web en aval. Dans ce flux, votre API web reçoit de l’application cliente un jeton du porteur avec des permissions déléguées par l’utilisateur, puis échange ce jeton contre un autre jeton d’accès pour appeler l’API web en aval.
 
-Une API web Python doit utiliser un intergiciel pour valider le jeton du porteur reçu du client. L’API web peut ensuite obtenir le jeton d’accès pour l’API en aval à l’aide de la bibliothèque MSAL Python en appelant la méthode [`acquire_token_on_behalf_of`](https://msal-python.readthedocs.io/en/latest/?badge=latest#msal.ConfidentialClientApplication.acquire_token_on_behalf_of). Aucun exemple illustrant ce flux avec MSAL Python n’est encore disponible.
+Une API web Python doit utiliser un intergiciel pour valider le jeton du porteur reçu du client. L'API web peut ensuite obtenir le jeton d'accès de l'API située en aval à l'aide de la bibliothèque MSAL Python en appelant la méthode [`acquire_token_on_behalf_of`](https://msal-python.readthedocs.io/en/latest/?badge=latest#msal.ConfidentialClientApplication.acquire_token_on_behalf_of). Aucun exemple illustrant ce flux avec MSAL Python n’est encore disponible.
 
 ---
 

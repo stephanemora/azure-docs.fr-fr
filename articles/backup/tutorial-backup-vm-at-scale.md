@@ -1,15 +1,15 @@
 ---
-title: Tutoriel - Sauvegarder des machines virtuelles Azure à grande échelle
+title: 'Tutoriel : Sauvegarder plusieurs machines virtuelles Azure'
 description: Dans ce didacticiel explique comment créer un coffre Recovery Services, définir une stratégie de sauvegarde et à sauvegarder simultanément plusieurs machines virtuelles.
 ms.date: 01/31/2019
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 6034202649e6d9bce75f0069316b79b55e533490
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: f9306f2ef5c4b2a53dcba17cafca9ea13b8dab43
+ms.sourcegitcommit: 940e16ff194d5163f277f98d038833b1055a1a3e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74171849"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80245240"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Utiliser le portail Azure pour sauvegarder plusieurs machines virtuelles
 
@@ -24,7 +24,7 @@ Lorsque vous sauvegardez des données dans Azure, vous stockez celles-ci dans un
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
-Connectez-vous au [Portail Azure](https://portal.azure.com/).
+Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 ## <a name="create-a-recovery-services-vault"></a>Créer un coffre Recovery Services
 
@@ -130,7 +130,7 @@ Pour exécuter un travail de sauvegarde à la demande :
 
     ![Vignette Travaux de sauvegarde](./media/tutorial-backup-vm-at-scale/initial-backup-complete.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous souhaitez suivre les didacticiels suivants, ne nettoyez pas les ressources créées dans celui-ci. Sinon, effectuez les opérations suivantes pour supprimer toutes les ressources créées au cours de ce didacticiel dans le portail Azure.
 

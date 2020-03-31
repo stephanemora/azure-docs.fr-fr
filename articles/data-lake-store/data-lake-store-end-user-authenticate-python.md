@@ -1,5 +1,5 @@
 ---
-title: 'Authentification de l’utilisateur final : Python avec Azure Data Lake Storage Gen1 utilisant Azure Active Directory | Microsoft Docs'
+title: 'Authentification des utilisateurs finaux : Python avec Azure Data Lake Storage Gen1 à l’aide d’Azure Active Directory | Microsoft Docs'
 description: Découvrez comment authentifier les utilisateurs finaux auprès de Data Lake Storage Gen1 à l’aide d’Azure Active Directory et de Python
 services: data-lake-store
 documentationcenter: ''
@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: c69f6c1f587285c5c52280c4c49008764d5b20d8
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76294131"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231505"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-python"></a>Authentification des utilisateurs finaux auprès d’Azure Data Lake Storage Gen1 à l’aide de Python
 > [!div class="op_single_selector"]

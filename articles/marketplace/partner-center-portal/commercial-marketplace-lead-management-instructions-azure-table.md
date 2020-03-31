@@ -1,19 +1,18 @@
 ---
 title: Table Azure | Place de marché Azure
 description: Configurer la gestion des prospects pour Azure Table.
-services: Azure, Marketplace, commercial marketplace, Partner Center
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/30/2019
-ms.author: evansma
-ms.openlocfilehash: 9b24e6eb714c531b49ba08591bf4ed33d0f10101
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: f511a60b533d6d1e0b1ae8847d0ee0fb6be3500c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73812336"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288833"
 ---
 # <a name="configure-lead-management-using-an-azure-table"></a>Configuration de la gestion des prospects à l’aide d’une table Azure
 
@@ -146,7 +145,7 @@ Dans les étapes suivantes, vous allez définir l’action à exécuter selon le
 19. Dans la fenêtre **Office 365 Outlook**, fournissez les informations dans les champs suivants :
 
     1. **À** : entrez l’adresse e-mail de toutes les personnes qui doivent recevoir cette notification.
-    1. **Objet** : indiquez l’objet de l’e-mail. Par exemple :  Nouveaux prospects !
+    1. **Objet** : indiquez l’objet de l’e-mail. Par exemple : Nouveaux prospects !
     1. **Corps** : ajoutez le texte que vous souhaitez inclure dans chaque message électronique (facultatif) et collez-le dans le corps `body('Get_entities')?['value']`.
 
     >[!Note]
@@ -176,13 +175,13 @@ Si vous ne recevez aucune notification de prospect par e-mail, cela signifie qu�
 
 Lorsque vous êtes prêt à configurer les informations de gestion des prospects pour votre offre dans le portail de publication, procédez comme suit :
 
-1. Accédez à la page **Configuration de l’offre** de votre offre.
+1. Accédez à la page **Configuration de l'offre** de votre offre.
 2. Sélectionnez **Connexion** dans la section Gestion des prospects.
 3. Dans la fenêtre contextuelle des détails de la connexion, sélectionnez **Table Azure** pour **Destination du prospect** et collez la chaîne de connexion à partir du compte de stockage Azure que vous avez créé précédemment dans le champ **Chaîne de connexion de compte de stockage**.
 4. Sélectionnez **Enregistrer**. 
 
 >[!Note]
->Pour recevoir des prospects pour l’offre, vous devez terminer la configuration du reste de l’offre et la publier.
+>Vous devez terminer la configuration du reste de l'offre et la publier avant de pouvoir recevoir des prospects pour cette offre.
 
 Quand des prospects sont générés, Microsoft les envoie à la Table Azure. Si vous avez configuré un flux, un message est également envoyé à l’adresse e-mail que vous avez configurée.
 

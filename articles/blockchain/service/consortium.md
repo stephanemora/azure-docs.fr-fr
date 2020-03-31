@@ -5,11 +5,11 @@ ms.date: 11/21/2019
 ms.topic: conceptual
 ms.reviewer: zeyadr
 ms.openlocfilehash: 7b8885ba08d35db20d1eb7e75141cb173913b386
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455737"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79225973"
 ---
 # <a name="azure-blockchain-service-consortium"></a>Consortium Azure Blockchain Service
 
@@ -27,18 +27,18 @@ Le diagramme suivant illustre un réseau en consortiums avec plusieurs participa
 
 Avec la gestion du consortium dans Azure Blockchain Service, vous pouvez gérer les participants dans le réseau en consortium. La gestion du consortium est basée sur le modèle de consensus du réseau. Dans la préversion actuelle, Azure Blockchain Service fournit un modèle de consensus centralisé pour la gestion du consortium. Tout participant privilégié avec un rôle d’administrateur peut effectuer des actions de gestion du consortium, comme l’ajout ou suppression des participants d’un réseau.
 
-## <a name="roles"></a>contrôleur
+## <a name="roles"></a>Rôles
 
 Les participants à un consortium peuvent être des individus ou des organisations et vous pouvez leur affecter un rôle d’utilisateur ou d’administrateur. Le tableau suivant répertorie les principales différences entre ces deux rôles :
 
 | Action | Rôle utilisateur | Rôle administrateur
 |--------|:----:|:------------:|
-| Créer un nouveau membre | OUI | OUI |
-| Inviter de nouveaux membres | Non | OUI |
-| Définir ou modifier le rôle d’un participant membre | Non | OUI |
+| Créer un nouveau membre | Oui | Oui |
+| Inviter de nouveaux membres | Non | Oui |
+| Définir ou modifier le rôle d’un participant membre | Non | Oui |
 | Modifier le nom d’affichage d’un membre | Uniquement pour ses propres membres | Uniquement pour ses propres membres |
-| Supprimer des membres | Uniquement pour ses propres membres | OUI |
-| Participer aux transactions de blockchain | OUI | OUI |
+| Supprimer des membres | Uniquement pour ses propres membres | Oui |
+| Participer aux transactions de blockchain | Oui | Oui |
 
 ### <a name="user-role"></a>Rôle utilisateur
 

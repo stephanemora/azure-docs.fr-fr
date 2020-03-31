@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: yagupta
 ms.openlocfilehash: a009f212bd8baaa353d602dc6090aeeccddd4936
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60878392"
 ---
 # <a name="encryption-of-data-in-azure-data-lake-storage-gen1"></a>Chiffrement des données dans Azure Data Lake Storage Gen1
@@ -21,8 +21,8 @@ Le chiffrement dans Azure Data Lake Storage Gen1 vous permet de protéger vos do
 
 Data Lake Storage Gen1 prend en charge le chiffrement des données au repos et en transit. Pour les données au repos, Data Lake Storage Gen1 s’appuie sur un chiffrement transparent « activé par défaut ». Voici, plus en détails, ce que ces termes signifient :
 
-* **Activé par défaut** : quand vous créez un compte Data Lake Storage Gen1, le paramètre par défaut active le chiffrement. Ainsi, les données stockées dans Data Lake Storage Gen1 sont toujours chiffrées avant d’être stockées sur un support permanent. Ce comportement s’applique à toutes les données et ne peut pas être modifié après la création d’un compte.
-* **Transparent** : Data Lake Storage Gen1 chiffre automatiquement les données avant leur stockage permanent et les déchiffre avant leur récupération. Ce chiffrement est configuré et géré par un administrateur au niveau du compte Data Lake Storage Gen1. Aucune modification n’est apportée aux API d’accès aux données. En raison de ce chiffrement, aucune modification n’est donc requise dans les applications et services qui interagissent avec Data Lake Storage Gen1.
+* **Activé par défaut** : lorsque vous créez un compte Data Lake Storage Gen1, le paramètre par défaut active le chiffrement. Ainsi, les données stockées dans Data Lake Storage Gen1 sont toujours chiffrées avant d’être stockées sur un support permanent. Ce comportement s’applique à toutes les données et ne peut pas être modifié après la création d’un compte.
+* **Transparent** : Data Lake Storage Gen1 chiffre automatiquement les données avant leur stockage permanent et les déchiffre avant leur récupération. Ce chiffrement est configuré et géré par un administrateur au niveau du compte Data Lake Storage Gen1. Aucune modification n’est apportée aux API d’accès aux données. En raison de ce chiffrement, aucune modification n’est donc requise dans les applications et services qui interagissent avec Data Lake Storage Gen1.
 
 De même, les données en transit (ou données en mouvement) sont toujours chiffrées dans Data Lake Storage Gen1. Outre le chiffrement des données avant le stockage sur un support permanent, les données sont également toujours sécurisées en transit à l’aide du protocole HTTPS. HTTPS est le seul protocole pris en charge pour les interfaces REST Data Lake Storage Gen1. Le diagramme suivant illustre le mode de chiffrement des données dans Data Lake Storage Gen1 :
 
@@ -78,7 +78,7 @@ Trois types de clés sont utilisées dans la conception du chiffrement des donn�
 |-----------------------|--------------|-----------------|----------------------------------------------|------------|---------------------------------------------------------------------------------------------------------|
 | Clé de chiffrement principale | MEK          | Un compte Data Lake Storage Gen1 | Key Vault                              | Asymétrique | Peut être gérée par Data Lake Storage Gen1 ou par vous.                                                              |
 | Clé de chiffrement des données   | DEK          | Un compte Data Lake Storage Gen1 | Stockage permanent, géré par le service Data Lake Storage Gen1 | Symétrique  | La DEK est chiffrée par la MEK. La DEK chiffrée est stockée sur un support permanent. |
-| Clé de chiffrement de bloc  | BEK          | Un bloc de données | Aucun                                         | Symétrique  | La BEK est dérivée de la DEK et du bloc de données.                                                      |
+| Clé de chiffrement de bloc  | BEK          | Un bloc de données | None                                         | Symétrique  | La BEK est dérivée de la DEK et du bloc de données.                                                      |
 
 Le schéma suivant illustre ces concepts :
 
@@ -107,7 +107,7 @@ Le schéma suivant illustre ces concepts :
 
 Lorsque vous utilisez des clés gérées par le client, vous pouvez effectuer une rotation de la MEK. Pour savoir comment configurer un compte Data Lake Storage Gen1 avec des clés gérées par le client, voir [Prise en main](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables requises
 
 Au moment où vous avez configuré le compte Data Lake Storage Gen1, vous avez choisi d’utiliser vos propres clés. Cette option ne peut pas être modifiée une fois le compte créé. Les étapes ci-dessous supposent que vous utilisez des clés gérées par le client (c’est-à-dire que vous avez choisi vos propres clés dans Key Vault).
 
@@ -115,7 +115,7 @@ Notez que si vous utilisez les options par défaut pour le chiffrement, vos donn
 
 ### <a name="how-to-rotate-the-mek-in-data-lake-storage-gen1"></a>Comment effectuer une rotation de la MEK dans Data Lake Storage Gen1
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Accédez à l’instance Key Vault dans laquelle sont stockées les clés associées à votre compte Data Lake Storage Gen1. Sélectionnez **Clés**.
 
     ![Capture d’écran de Key Vault](./media/data-lake-store-encryption/keyvault.png)

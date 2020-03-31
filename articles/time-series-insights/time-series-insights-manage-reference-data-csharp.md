@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 01/31/2020
 ms.custom: seodec18
 ms.openlocfilehash: cf5f89197798f95dced5bfd8817f1df050297048
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76961997"
 ---
 # <a name="manage-ga-reference-data-for-an-azure-time-series-insights-environment-using-c"></a>Gérer des données de référence pour un environnement Azure Time Series Insights en C#

@@ -4,10 +4,10 @@ description: Comment Application Insights s’intègre dans le cycle des opérat
 ms.topic: conceptual
 ms.date: 12/21/2018
 ms.openlocfilehash: 24095aade80022d1e1ebb38357971512bfc873c0
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77669690"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Diagnostic approfondi des applications et services web avec Application Insights
@@ -16,7 +16,7 @@ Application Insights surveille votre application web en cours d’exécution. En
 
 ![Aspects de la complexité liée à la distribution d’applications web](./media/devops/010.png)
 
-Il est essentiel de surveiller une application moderne pendant qu’elle s’exécute. Vous voudrez surtout détecter les erreurs avant la plupart de vos clients. Mais aussi détecter et résoudre les problèmes de performances qui, sans être catastrophiques, ralentissent peut-être le fonctionnement ou pénalisent certains de vos utilisateurs. Lorsque le système fonctionne comme vous le souhaitez, il peut être intéressant de savoir ce que les utilisateurs en font : utilisent-ils la dernière version ? Sont-ils satisfaits par celle-ci ?
+Il est essentiel de surveiller une application moderne pendant qu’elle s’exécute. Vous voudrez surtout détecter les erreurs avant la plupart de vos clients. Mais aussi détecter et résoudre les problèmes de performances qui, sans être catastrophiques, ralentissent peut-être le fonctionnement ou pénalisent certains de vos utilisateurs. Et lorsque le système fonctionne comme vous le souhaitez, vous voulez savoir ce que les utilisateurs en font : utilisent-ils la dernière version ? Sont-ils satisfaits par celle-ci ?
 
 Les applications web modernes sont développées selon un cycle continu : publication d’une nouvelle fonctionnalité ou d’une amélioration ; analyse de son fonctionnement pour les utilisateurs ; planification de la prochaine phase de développement en fonction de ces informations. La phase d’observation de ce cycle est essentielle. Application Insights fournit les outils permettant de surveiller les performances et l’utilisation d’une application web.
 
@@ -69,7 +69,7 @@ Les principales catégories de données sont les suivantes :
 * Événements personnalisés que vous pouvez utiliser pour le suivi d’événements commerciaux
 * Traces de journal utilisées pour le débogage.
 
-## <a name="case-study-real-madrid-fc"></a>Étude de cas : Real Madrid
+## <a name="case-study-real-madrid-fc"></a>Étude de cas : Real Madrid F.C.
 Le service web du [club de football Real Madrid](https://www.realmadrid.com/) est visité par environ 450 millions de supporters dans le monde entier. Ils y accèdent à la fois par les navigateurs web et les applications mobiles du Club. Les supporters n’achètent pas seulement des billets, ils consultent des informations et visionnent des vidéos sur les résultats, les joueurs et les prochains matchs. Ils peuvent effectuer des recherches avec des filtres, comme le nombre de buts marqués. Le site contient également des liens vers les réseaux sociaux. L’expérience utilisateur est extrêmement personnalisée et conçue comme une communication bidirectionnelle pour privilégier l’interaction avec les supporters.
 
 La solution [est un système de services et d’applications sur Microsoft Azure](https://www.microsoft.com/inculture/sports/real-madrid/). L’évolutivité est essentielle : le trafic, variable, peut atteindre des sommets avant, pendant et après les matchs.
@@ -93,7 +93,7 @@ Dans les deux cas, l’alerte ne vous signale pas seulement les symptômes déte
 
 ![E-mail issus des diagnostics proactifs](./media/devops/030.png)
 
-Notre client Samtec a déclaré : « Récemment, pendant une interruption du service, nous avons trouvé une base de données sous-dimensionnée qui atteignait la limite de ses ressources, provoquant ainsi des délais. Des alertes de détection proactives nous parvenaient pendant que nous étions en temps de traiter le problème, en quasi temps réel comme annoncé par notre publicité. Ces alertes, couplées à celles de la plateforme Azure, nous ont permis de résoudre le problème presque instantanément. Temps d’arrêt total < 10 minutes. »
+Notre client Samtec a déclaré : « Récemment, pendant une interruption du service, nous avons trouvé une base de données sous-dimensionnée qui atteignait la limite de ses ressources, provoquant des attentes. Des alertes de détection proactives nous parvenaient pendant que nous étions en temps de traiter le problème, en quasi temps réel comme annoncé par notre publicité. Ces alertes, couplées à celles de la plateforme Azure, nous ont permis de résoudre le problème presque instantanément. Temps d’arrêt total < 10 minutes. »
 
 ## <a name="live-metrics-stream"></a>Live Metrics Stream (Flux continu de mesures)
 Le déploiement de la dernière build en date peut être très stressant. S’il y a des problèmes, vous voulez en avoir connaissance immédiatement, afin de corriger la situation si nécessaire. Live Metrics Stream (Flux continu de mesures) fournit des mesures clés avec une latence d’environ une seconde.
@@ -124,7 +124,7 @@ Par exemple, les opérations suivantes sont faciles :
 * Analyser les sessions et les temps de réponse de certains utilisateurs pour permettre aux équipes de support et d’exploitation d’aider les clients instantanément.
 * Déterminer les fonctionnalités d’application fréquemment utilisées pour répondre aux questions sur la hiérarchisation des fonctionnalités.
 
-Notre client DNN a déclaré : « Application Insights a représenté pour nous la pièce manquante du puzzle, en offrant la possibilité de combiner, de trier, d’interroger et de filtrer les données selon les besoins. Le fait que notre équipe puisse utiliser sa propre ingéniosité et sa propre expérience pour trouver des données grâce à un puissant langage d’interrogation nous a permis de mettre au jour des informations et de résoudre des problèmes dont nous-même ignorions l’existence. Beaucoup de réponses intéressantes font suite à des questions commençant par *'' Je me demande si...'' .* »
+Le client DNN a déclaré : « Application Insights nous a fourni la pièce manquante du puzzle, permettant de combiner, trier, interroger et filtrer les données selon les besoins. Le fait que notre équipe puisse utiliser sa propre ingéniosité et sa propre expérience pour trouver des données grâce à un puissant langage d’interrogation nous a permis de mettre au jour des informations et de résoudre des problèmes dont nous-même ignorions l’existence. Beaucoup de réponses intéressantes font suite à des questions commençant par *'' Je me demande si...'' .* »
 
 ## <a name="development-tools-integration"></a>Intégration d’outils de développement
 ### <a name="configuring-application-insights"></a>Configuration d'Application Insights

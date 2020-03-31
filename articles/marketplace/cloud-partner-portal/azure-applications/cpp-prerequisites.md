@@ -1,19 +1,18 @@
 ---
 title: Conditions préalables à une offre Azure Application | Place de marché Azure
 description: Conditions préalables à la publication d’une offre Azure Application sur la Place de marché Microsoft Azure.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.author: pabutler
-ms.openlocfilehash: 261af94e233bdb6189d7819f8f28c7e23b5dd112
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: b927404758dc59419fb3c5e638ac32758d534681
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826143"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80281746"
 ---
 # <a name="azure-application-prerequisites"></a>Conditions préalables à Azure Application
 

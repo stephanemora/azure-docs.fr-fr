@@ -15,14 +15,14 @@ ms.workload: infrastructure
 ms.date: 08/08/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 50ccf0d6db5a50f7dd89732bc870ced6bcf1c2d7
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 9e0ed3454f11907c5f183f08fd2ec51db3384225
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034401"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80154319"
 ---
-# <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>Didacticiel : Créer une pile MongoDB, Express, AngularJS et Node.js (MEAN) sur une machine virtuelle Linux dans Azure
+# <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>Tutoriel : Créer une pile MongoDB, Express, AngularJS et Node.js (MEAN) sur une machine virtuelle Linux dans Azure
 
 Ce didacticiel montre comment implémenter une pile MongoDB, Express, AngularJS et Node.js (MEAN) sur une machine virtuelle Linux dans Azure. La pile MEAN que vous créez permet l’ajout, la suppression et le référencement de livres dans une base de données. Vous allez apprendre à effectuer les actions suivantes :
 
@@ -339,7 +339,7 @@ sudo apt-get install -y nodejs
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez créé une application web qui effectue le suivi d’enregistrements de livre à l’aide d’une pile MEAN sur une machine virtuelle Linux. Vous avez appris à effectuer les actions suivantes :
+Dans ce didacticiel, vous avez créé une application web qui effectue le suivi d’enregistrements de livre à l’aide d’une pile MEAN sur une machine virtuelle Linux. Vous avez appris à :
 
 > [!div class="checklist"]
 > * Créer une machine virtuelle Linux
@@ -349,7 +349,7 @@ Dans ce didacticiel, vous avez créé une application web qui effectue le suivi 
 > * Accéder aux itinéraires avec AngularJS
 > * Exécution de l'application
 
-Passez au didacticiel suivant pour savoir comment mieux protéger les serveurs SSL à l’aide des certificats SSL.
+Passez au tutoriel suivant pour savoir comment mieux protéger les serveurs SSL à l’aide des certificats TLS.
 
 > [!div class="nextstepaction"]
-> [Sécuriser un serveur web avec SSL](tutorial-secure-web-server.md)
+> [Sécuriser un serveur web avec TLS](tutorial-secure-web-server.md)

@@ -1,17 +1,17 @@
 ---
-title: Comment mettre à niveau l’agent Dependency pour Azure Monitor pour machines virtuelles | Microsoft Docs
+title: Comment mettre à niveau l’agent Dependency pour Azure Monitor pour machines virtuelles
 description: Cet article décrit la façon de mettre à niveau l’agent Dependency Azure Monitor pour machines virtuelles en utilisant la ligne de commande, l’assistant d’installation et d’autres méthodes.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/30/2019
-ms.openlocfilehash: c98c48a4494ac37ef4868c44d4a7adacfd0d48da
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.date: 03/12/2020
+ms.openlocfilehash: c55bee9880c4134f2e304a7fc5176225477fe5f3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77662431"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79480757"
 ---
 # <a name="how-to-upgrade-the-azure-monitor-for-vms-dependency-agent"></a>Comment mettre à niveau l’agent Dependency pour Azure Monitor pour machines virtuelles
 

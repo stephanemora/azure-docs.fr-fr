@@ -1,5 +1,5 @@
 ---
-title: 'Exemple : Modéliser la base de données d’inventaire AdventureWorks'
+title: 'Exemple : Modéliser la base de données d’inventaire AdventureWorks'
 titleSuffix: Azure Cognitive Search
 description: Découvrez comment modéliser des données relationnelles, en les transformant en un jeu de données aplati, pour l’indexation et la recherche en texte intégral dans la Recherche cognitive Azure.
 author: HeidiSteen
@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: heidist
 ms.openlocfilehash: edb6162724938962df8a7340afea6e930a0b1049
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72792990"
 ---
-# <a name="example-model-the-adventureworks-inventory-database-for-azure-cognitive-search"></a>Exemple : Modéliser la base de données d’inventaire AdventureWorks pour la Recherche cognitive Azure
+# <a name="example-model-the-adventureworks-inventory-database-for-azure-cognitive-search"></a>Exemple : Modéliser la base de données d’inventaire AdventureWorks pour la Recherche cognitive Azure
 
 La Recherche cognitive Azure accepte un ensemble de lignes aplati comme entrées du [pipeline d’indexation (ingestion des données)](search-what-is-an-index.md). Si vos données sources proviennent d’une base de données relationnelle SQL Server, cet article montre une approche de la création d’un ensemble de lignes aplati avant l’indexation, en utilisant l’exemple de base de données AdventureWorks comme exemple.
 

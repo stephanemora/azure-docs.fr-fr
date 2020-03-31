@@ -3,12 +3,12 @@ title: Guide pratique pour gérer les affectations avec PowerShell
 description: Découvrez comment gérer les affectations de blueprints avec le module PowerShell Azure Blueprint, Az.Blueprint.
 ms.date: 09/30/2019
 ms.topic: how-to
-ms.openlocfilehash: 765ed5e1849443d6ac73fe4507327e97e4fdc4c2
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: b16cf887ba8bfc51616839db5f4af87944ec686d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74973643"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80247399"
 ---
 # <a name="how-to-manage-assignments-with-powershell"></a>Guide pratique pour gérer les affectations avec PowerShell
 
@@ -166,7 +166,7 @@ Si l’affectation de blueprint n’existe pas encore, vous pouvez la créer ave
   - Chemin de la représentation de fichier JSON d’une affectation de blueprint
   - Ce paramètre fait partie d’un jeu de paramètres PowerShell qui comprend uniquement **Name**, **Blueprint** et **SubscriptionId**, ainsi que les paramètres communs.
 
-### <a name="example-1-provide-parameters"></a>Exemple 1 : Fournir des paramètres
+### <a name="example-1-provide-parameters"></a>Exemple 1 : Fournir des paramètres
 
 L’exemple suivant crée une nouvelle affectation de la version « 1.1 » de la définition de blueprint « my-blueprint » extraite avec `Get-AzBlueprint`, définit l’identité managée et l’emplacement de l’objet d’affectation sur « westus2 », verrouille les ressources avec  _AllResourcesReadOnly_, et définit les tables de hachage pour **Parameter** et **ResourceGroupParameter** sur un abonnement spécifique représenté par `{subId}` :
 
@@ -203,7 +203,7 @@ Parameters        : {storageAccount_storageAccountType}
 ResourceGroups    : ResourceGroup
 ```
 
-### <a name="example-2-use-a-json-assignment-definition-file"></a>Exemple 2 : Utiliser un fichier de définition d’attribution JSON
+### <a name="example-2-use-a-json-assignment-definition-file"></a>Exemple 2 : Utiliser un fichier de définition d’attribution JSON
 
 L’exemple suivant crée presque la même attribution que l’[Exemple 1](#example-1-provide-parameters).
 Au lieu de passer des paramètres à l’applet de commande, l’exemple illustre l’utilisation d’un fichier de définition d’attribution JSON et le paramètre **AssignmentFile**. De plus, la propriété **excludedPrincipals** est configurée dans le cadre de **locks**. Il n’existe pas de paramètre PowerShell pour **excludedPrincipals** et la propriété ne peut être configurée qu’en le définissant par le biais du fichier de définition d’attribution JSON.
@@ -247,7 +247,7 @@ $bpAssignment = New-AzBlueprintAssignment -Name 'my-blueprint-assignment' -Subsc
     -AssignmentFile '.\assignment.json'
 ```
 
-Pour obtenir un exemple de fichier de définition d’attribution JSON pour une identité managée affectée par l’utilisateur, consultez le corps de la demande dans [Exemple : Attribution avec identité managée affectée par l’utilisateur](/rest/api/blueprints/assignments/createorupdate#assignment-with-user-assigned-managed-identity) pour l’API REST.
+Pour obtenir un exemple de fichier de définition d’attribution JSON pour une identité managée affectée par l’utilisateur, consultez le corps de la demande dans [Exemple : Attribution avec identité managée affectée par l’utilisateur](/rest/api/blueprints/assignments/createorupdate#examples) pour l’API REST.
 
 ## <a name="update-blueprint-assignments"></a>Mettre à jour des affectations de blueprint
 

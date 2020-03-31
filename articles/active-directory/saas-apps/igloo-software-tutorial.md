@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory avec Igloo Software | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory avec Igloo Software | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Igloo Software.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/06/2019
 ms.author: jeedes
 ms.openlocfilehash: df1d70f895e2e0a81344cf2a4e8e2d9963c951fa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67100581"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-igloo-software"></a>Didacticiel : Intégration d’Azure Active Directory avec Igloo Software
+# <a name="tutorial-azure-active-directory-integration-with-igloo-software"></a>Tutoriel : Intégration d’Azure Active Directory avec Igloo Software
 
 Dans ce didacticiel, vous allez apprendre à intégrer Igloo Software à Azure Active Directory (Azure AD).
 L’intégration d’Igloo Software à Azure AD vous offre les avantages suivants :
@@ -135,11 +135,11 @@ Pour configurer l’authentification unique Azure AD avec Igloo Software, effect
 
 2. Accédez à **Control panel**.
 
-     ![Control Panel (Panneau de configuration)](./media/igloo-software-tutorial/ic799949.png "Control Panel (Panneau de configuration)")
+     ![Panneau de configuration](./media/igloo-software-tutorial/ic799949.png "Control panel")
 
 3. Sous l’onglet **Membership** (Appartenance), cliquez sur **Paramètres de connexion**.
 
-    ![Sign in Settings (Paramètres de connexion)](./media/igloo-software-tutorial/ic783968.png "Sign in Settings (Paramètres de connexion)")
+    ![Paramètres de connexion](./media/igloo-software-tutorial/ic783968.png "Sign In Settings")
 
 4. Dans la section SAML Configuration, cliquez sur **Configure SAML Authentication**.
 
@@ -147,7 +147,7 @@ Pour configurer l’authentification unique Azure AD avec Igloo Software, effect
 
 5. Dans la section **General Configuration** , procédez comme suit :
 
-    ![General Configuration (Configuration générale)](./media/igloo-software-tutorial/ic783970.png "General Configuration (Configuration générale)")
+    ![Configuration générale](./media/igloo-software-tutorial/ic783970.png "General Configuration")
 
     a. Dans la zone de texte **Connection Name** , entrez un nom personnalisé pour votre configuration.
 
@@ -161,7 +161,7 @@ Pour configurer l’authentification unique Azure AD avec Igloo Software, effect
 
 6. Dans **Response and Authentication Configuration**, procédez comme suit :
 
-    ![Response and Authentication Configuration (Configuration de la réponse et de l’authentification)](./media/igloo-software-tutorial/IC783971.png "Response and Authentication Configuration (Configuration de la réponse et de l’authentification)")
+    ![Configuration de la réponse et de l’authentification](./media/igloo-software-tutorial/IC783971.png "Response and Authentication Configuration")
   
     a. Pour **Fournisseur d’identité**, sélectionnez **Microsoft ADFS**.
 
@@ -175,7 +175,7 @@ Pour configurer l’authentification unique Azure AD avec Igloo Software, effect
 
 7. Pour terminer la configuration, procédez comme suit :
 
-    ![Création d’utilisateurs à l’authentification](./media/igloo-software-tutorial/IC783972.png "Création d’utilisateurs à l’authentification") 
+    ![Création de l’utilisateur lors de la connexion](./media/igloo-software-tutorial/IC783972.png "Création d’utilisateurs à l’authentification") 
 
     a. Pour **Création d’utilisateurs à l’authentification**, sélectionnez **Create a new user in your site when they sign in** (Créer un nouvel utilisateur sur votre site au moment de la connexion).
 
@@ -202,7 +202,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
     b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
-    Par exemple, BrittaSimon@contoso.com
+    Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
@@ -252,4 +252,4 @@ Quand vous cliquez sur la vignette Igloo Software dans le volet d’accès, vous
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -18,18 +18,18 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 510e2648db3076a0e3ee2535c6058f7ed212f558
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 9f8697332d34fc044c805db6c6595fdf067ed054
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387496"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80127205"
 ---
-# <a name="tutorial-send-location-based-push-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>Didacticiel : Envoyer des notifications Push en fonction du lieu avec Azure Notification Hubs et les données spatiales Bing
+# <a name="tutorial-send-location-based-push-notifications-with-notification-hubs-and-bing-spatial-data"></a>Tutoriel : Envoyer des notifications Push en fonction du lieu avec Notification Hubs et les données spatiales Bing
 
 Ce didacticiel vous présente comment envoyer des notifications Push en fonction du lieu avec Azure Notification Hubs et les données spatiales Bing.
 
-Dans ce didacticiel, vous effectuez les étapes suivantes :
+Dans ce tutoriel, vous effectuez les étapes suivantes :
 
 > [!div class="checklist"]
 > * Configurer la source de données
@@ -348,7 +348,7 @@ Dans ce didacticiel, vous effectuez les étapes suivantes :
     ```
 
     > [!NOTE]
-    > Définissez le `POST_URL` à l’emplacement de votre application web déployée. Il est possible de l’exécuter localement pour le moment, mais lorsque vous travaillez sur le déploiement d’une version publique, vous devez l’héberger avec un fournisseur externe.
+    > Définissez le `POST_URL` à l’emplacement de votre application web déployée. Il est possible de l’exécuter localement pour le moment, mais quand vous travaillez sur le déploiement d’une version publique, vous devez l’héberger avec un fournisseur externe.
 2. Inscrivez l’application UWP pour les notifications Push. Dans Visual Studio, sélectionnez **Projet** > **Store** > **Associer l’application au Store**.
 
     ![](./media/notification-hubs-geofence/vs-associate-with-store.png)

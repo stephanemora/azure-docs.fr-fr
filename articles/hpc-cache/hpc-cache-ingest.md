@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
 ms.openlocfilehash: a5625341e3dd279d93a59c57cd3325245351723e
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646725"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79233437"
 ---
 # <a name="move-data-to-azure-blob-storage"></a>Déplacer les données dans le stockage d’objets blob Azure
 
@@ -58,7 +58,7 @@ L’utilitaire Average CLFSLoad a besoin des informations suivantes :
 
 Si vous ne souhaitez pas utiliser l’utilitaire Average CLFSLoad ou si vous souhaitez ajouter une grande quantité de données à une cible de stockage Blob existante, vous pouvez la copier via le cache. Azure HPC Cache est conçu pour servir plusieurs clients simultanément. Par conséquent, pour copier des données via le cache, vous devez utiliser des écritures parallèles à partir de plusieurs clients.
 
-![Diagramme illustrant le déplacement des données multithread et multiclient : en haut à gauche, plusieurs flèches partent d’une icône représentant le stockage matériel local. Les flèches pointent vers quatre ordinateurs clients. À partir de chaque ordinateur client, trois flèches pointent vers Azure HPC Cache. À partir d’Azure HPC Cache, plusieurs flèches pointent vers le stockage Blob Azure.](media/hpc-cache-parallel-ingest.png)
+![Diagramme montrant le déplacement des données multiclient et multithread : en haut à gauche, plusieurs flèches proviennent d’une icône pour le stockage matériel local. Les flèches pointent vers quatre ordinateurs clients. À partir de chaque ordinateur client, trois flèches pointent vers Azure HPC Cache. À partir d’Azure HPC Cache, plusieurs flèches pointent vers le stockage Blob Azure.](media/hpc-cache-parallel-ingest.png)
 
 Les commandes ``cp`` ou ``copy`` qui sont généralement utilisées pour transférer des données d’un système de stockage à un autre sont des processus monothread qui ne copient qu’un seul fichier à la fois. Cela signifie que le serveur de fichiers ne reçoit qu’un fichier à la fois, ce qui représente un gaspillage des ressources du cache.
 

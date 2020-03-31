@@ -1,18 +1,18 @@
 ---
 title: Service de recherche dans le cloud basé sur l’intelligence artificielle pour le développement d’applications mobiles avec la Recherche cognitive Azure
 description: Découvrez un service permettant d’utiliser un service de recherche cloud alimenté par l’IA pour développer des applications mobiles.
-author: elamalani
+author: codemillmatt
 ms.assetid: 34a8a070-0123-8982-8345-ccff02097224
 ms.service: vs-appcenter
 ms.topic: article
-ms.date: 10/22/2019
-ms.author: emalani
-ms.openlocfilehash: d7f7c232723493af6b39fe51502e8751641ce735
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/24/2020
+ms.author: masoucou
+ms.openlocfilehash: 48703001317533981f360baacb330b6878a3857e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454508"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80241002"
 ---
 # <a name="ai-powered-cloud-service-with-azure-cognitive-search"></a>Service de recherche dans le cloud basé sur l’intelligence artificielle avec la Recherche cognitive Azure
 La [Recherche cognitive Azure](https://azure.microsoft.com/services/search/) est une solution cloud de recherche en tant que service qui offre aux développeurs des API et des outils permettant d’ajouter une expérience de recherche enrichie sur du contenu privé et hétérogène dans des applications web, mobiles et d’entreprise. Votre code personnalisé appelle l’ingestion de données (indexation) pour créer et charger un index. De l’autre côté, votre code d’application émet des demandes de requête et gère les réponses. L’expérience de recherche est définie dans votre client via la fonctionnalité de la Recherche cognitive Azure, avec l’exécution de requête sur un index persistant que vous créez, possédez et stockez dans votre service.

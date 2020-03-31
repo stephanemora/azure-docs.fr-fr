@@ -5,19 +5,19 @@ services: Marketplace, Compute, Storage, Networking, Blockchain, Security, SaaS
 author: keithcharlie
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/09/2018
 ms.author: kevidal
-ms.openlocfilehash: c213bbcb3c7859aa4718916aafab970b3ffd4613
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 2c1cb755b62812336a306994f6820573130815e6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73813042"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288357"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>Guide de publication de l’offre des applications SaaS
 
-Vous pouvez publier des applications SaaS sur la Place de marché de trois façons différentes : « Me contacter », « Essayer maintenant » et « Obtenir maintenant ». Ce guide détaille ces trois options, y compris les exigences propres à chacune. 
+Des applications SaaS peuvent être publiées sur la place de marché avec trois différents appels à l’action : « Me contacter », « Essayer maintenant » et « Obtenir maintenant ». Ce guide détaille ces trois options, y compris les exigences propres à chacune. 
 
 ## <a name="offer-overview"></a>Vue d’ensemble de l’offre  
 
@@ -28,14 +28,14 @@ Des applications SaaS sont disponibles dans les deux vitrines Azure. Le tableau 
 | AppSource | Oui (Me contacter) | Oui (Power BI/Dynamics) |
 | Place de marché Azure | Non | Oui (Applications SaaS) |   
 
-**Liste** :  l’option de publication Liste consiste en une offre de type Me contacter, et est utilisée quand une participation de niveau Essai ou Transaction n’est pas possible. L’avantage de cette méthode est qu’elle permet aux éditeurs commercialisant une solution de commencer immédiatement à recevoir des prospects convertibles en transactions pour développer leur activité.  
-**Essai/Transaction :**  le client a la possibilité d’acheter directement votre solution ou de demander un essai gratuit pour celle-ci. Proposer une version d’évaluation augmente le niveau d’engagement des clients en leur permettant de découvrir votre solution avant de l’acheter. Avec une expérience d’évaluation, vous augmentez vos chances d’être mieux référencé dans les vitrines, et donc d’obtenir des prospects en plus grand nombre et plus intéressants. Les versions d’essai doivent fournir un support gratuit, au moins pendant la période d’évaluation.  
+**Liste :** L’option de publication Liste consiste en une offre de type Me contacter et est utilisée quand une participation de niveau Essai ou Transaction n’est pas possible. L’avantage de cette méthode est qu’elle permet aux éditeurs commercialisant une solution de commencer immédiatement à recevoir des prospects convertibles en transactions pour développer leur activité.  
+**Essai/Transaction :** Le client a la possibilité d’acheter directement votre solution ou de demander une version d’essai de celle-ci. Proposer une version d’évaluation augmente le niveau d’engagement des clients en leur permettant de découvrir votre solution avant de l’acheter. Avec une expérience d’évaluation, vous augmentez vos chances d’être mieux référencé dans les vitrines, et donc d’obtenir des prospects en plus grand nombre et plus intéressants. Les versions d’essai doivent fournir un support gratuit, au moins pendant la période d’évaluation.  
 
 | Offre d’applications SaaS | Exigences commerciales | Exigences techniques |  
 | --- | --- | --- |  
-| **Nous contacter** | OUI | Non |  
-| **Power BI / Dynamics** | OUI | Oui (Intégration Azure AD) |  
-| **Applications SaaS**| OUI | Oui (Intégration Azure AD) |     
+| **Nous contacter** | Oui | Non |  
+| **Power BI / Dynamics** | Oui | Oui (Intégration Azure AD) |  
+| **Applications SaaS**| Oui | Oui (Intégration Azure AD) |     
 
 ## <a name="saas-list"></a>Liste de SaaS
 
@@ -43,7 +43,7 @@ L’appel à l’action pour obtenir la liste de SaaS sans version d’essai ni 
 
 Vous n’avez pas besoin de configurer Azure Active Directory pour répertorier une application SaaS. 
 
-|Configuration requise  |Détails  |
+|Spécifications  |Détails  |
 |---------|---------|
 |Votre application est une offre SaaS  |   Votre solution est une offre SaaS et vous proposez un produit SaaS mutualisé.      |
 
@@ -53,7 +53,7 @@ Vous n’avez pas besoin de configurer Azure Active Directory pour répertorier 
 Vous fournissez une solution ou une application par le biais d’une version d’évaluation SaaS gratuite. Les offres d’essai gratuit peuvent être proposées sous la forme d’un compte d’essai à durée ou utilisation limitée. 
 
 
-|Configuration requise  |Détails  |
+|Spécifications  |Détails  |
 |---------|---------|
 |Votre application est une offre SaaS  |   Votre solution est une offre SaaS et vous proposez un produit SaaS mutualisé.      |
 |Votre application est compatible avec AAD     |   Le client sera redirigé vers votre domaine et vous effectuerez des transactions directement avec le client.       |
@@ -88,7 +88,7 @@ Pour des didacticiels vidéos, suivez les liens suivants :
 * [Vidéos Microsoft Azure axées sur Active Directory](https://azure.microsoft.com/resources/videos/index/?services=active-directory)
 
 Une formation gratuite à Azure Active Directory est accessible via le lien suivant :  
-* [Série de formations sur Microsoft Azure destinées aux professionnels de l’informatique : Azure Active Directory](https://mva.microsoft.com/training-courses/microsoft-azure-for-it-pros-content-series-azure-active-directory-16754?l=N0e23wtxC_2106218965)
+* [Série de formations sur Microsoft Azure destinées aux professionnels de l’informatique : Azure Active Directory](https://mva.microsoft.com/training-courses/microsoft-azure-for-it-pros-content-series-azure-active-directory-16754?l=N0e23wtxC_2106218965)
 
 En outre, Azure Active Directory fournit un site pour vérifier la disponibilité de mises à jour du service :   
 * [Mises à jour du service Azure AD](https://azure.microsoft.com/updates/?product=active-directory)
@@ -131,7 +131,7 @@ Utilisez le type d’offre Application SaaS pour permettre à votre client d’a
 - Offrez une méthode de mise à niveau ou d’annulation du service à tout moment.
 Microsoft héberge la transaction commerciale. Microsoft facture votre client pour votre compte. Pour proposer une application SaaS sous la forme d’un abonnement, vous devez l’intégrer aux API de traitement SaaS.  Votre service doit prendre en charge le provisionnement, la mise à niveau et l’annulation.
 
-| Prérequis | Détails |  
+| Condition requise | Détails |  
 |:--- |:--- |  
 |Facturation et mesure | Votre offre est facturée en fonction du modèle tarifaire que vous sélectionnez avant la publication (forfaitaire ou par utilisateur).  Si vous utilisez le modèle forfaitaire, vous pouvez inclure des dimensions supplémentaires afin de facturer aux clients une utilisation non comprise dans le forfait. |  
 |Annulation | Votre offre peut être annulée par le client à tout moment. |  
@@ -139,7 +139,7 @@ Microsoft héberge la transaction commerciale. Microsoft facture votre client po
 | API d’abonnement | Vous exposez un service qui peut interagir avec l’abonnement SaaS pour créer, mettre à jour et supprimer un compte utilisateur et un plan de service. Les modifications critiques de l’API doivent être effectuées dans les 24 heures. Des modifications non critiques de l’API sont publiées régulièrement. |  
 
 >[!Note]
->L’abonnement à un réseau de partenaires fournisseurs de solution cloud est maintenant disponible.  Veuillez consulter [Fournisseurs de solutions cloud](./cloud-solution-providers.md) pour plus d’informations sur le marketing de votre offre via les réseaux de partenaires fournisseurs de solutions cloud Microsoft.
+>L’abonnement à un réseau de partenaires fournisseurs de solution cloud est maintenant disponible.  Consultez [Fournisseurs de solutions cloud](./cloud-solution-providers.md) pour plus d’informations sur le marketing de votre offre via les réseaux de partenaires fournisseurs de solutions cloud Microsoft.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Si vous ne l’avez pas déjà fait,

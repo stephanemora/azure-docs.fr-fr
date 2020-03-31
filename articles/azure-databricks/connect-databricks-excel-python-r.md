@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: mamccrea
 ms.openlocfilehash: f7494d36cf9b16ac6c7a1287a6ff96dd2285c6e2
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73601946"
 ---
 # <a name="connect-to-azure-databricks-from-excel-python-or-r"></a>Se connecter à Azure Databricks à partir d’Excel, de Python ou de R
 
 Dans cet article, vous allez apprendre à utiliser le pilote ODBC Databricks pour connecter Azure Databricks avec le langage R, Python ou Microsoft Excel. Une fois que vous avez établi la connexion, vous pouvez accéder aux données dans Azure Databricks à partir des clients Excel, Python ou R. Vous pouvez également utiliser les clients pour analyser les données de façon plus précise. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Vous devez disposer d’un espace de travail Azure Databricks, d’un cluster Spark et d’exemples de données associés à votre cluster. Si vous ne disposez pas de ces éléments, suivez le démarrage rapide [Exécuter une tâche Spark sur Azure Databricks à l’aide du portail Azure](quickstart-create-databricks-workspace-portal.md).
 

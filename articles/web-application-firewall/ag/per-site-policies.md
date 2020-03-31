@@ -9,10 +9,10 @@ ms.date: 01/24/2020
 ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: a04b850857b6abd81934430a05086477acd058d6
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77444902"
 ---
 # <a name="configure-per-site-waf-policies-using-azure-powershell"></a>Configurer des stratégies WAF par site à l’aide d’Azure PowerShell

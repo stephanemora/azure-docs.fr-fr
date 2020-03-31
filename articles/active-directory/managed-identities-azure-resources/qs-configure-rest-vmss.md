@@ -16,11 +16,11 @@ ms.date: 06/25/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dce9894b26d03c351a2209792cc076de91feba54
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429994"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227733"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>Configurer des identités managées sur un groupe de machines virtuelles identiques en utilisant des appels d’API REST
 
@@ -337,7 +337,7 @@ Dans cette section, découvrez comment ajouter et supprimer une identité manag�
    az account get-access-token
    ``` 
 
-4. Créez une identité managée attribuée par l’utilisateur en vous aidant des instructions disponibles ici : [Créer une identité managée attribuée par l’utilisateur](how-to-manage-ua-identity-rest.md#create-a-user-assigned-managed-identity).
+4. Créez une identité managée affectée par l’utilisateur à l’aide des instructions disponibles ici : [Créer une identité managée affectée par l’utilisateur](how-to-manage-ua-identity-rest.md#create-a-user-assigned-managed-identity).
 
 5. Créez un groupe de machines virtuelles identiques à l’aide de CURL pour appeler le point de terminaison REST Azure Resource Manager. L’exemple suivant crée un groupe de machines virtuelles identiques nommé *myVMSS* dans le groupe de ressources *myResourceGroup* avec une identité managée affectée par l’utilisateur `ID1`, telle qu’identifiée dans le corps de la demande par la valeur `"identity":{"type":"UserAssigned"}`. Remplacez `<ACCESS TOKEN>` par la valeur que vous avez reçue à l’étape précédente lorsque vous avez demandé un jeton d’accès du porteur et la valeur `<SUBSCRIPTION ID>` adaptée à votre environnement.
  

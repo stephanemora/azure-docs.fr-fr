@@ -7,12 +7,13 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 12/17/2019
 ms.author: helohr
-ms.openlocfilehash: f38f0cec336061c97daa02798e94d98844d76ea2
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+manager: lizross
+ms.openlocfilehash: 9f9f7f709d31967e892900ccb25657a5963c0379
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368775"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79370217"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop"></a>Tutoriel : Créer un locataire dans Windows Virtual Desktop
 
@@ -72,7 +73,7 @@ L’attribution du rôle d’application TenantCreator à un utilisateur Azure A
 
 Pour attribuer le rôle d’application TenantCreator :
 
-1. Accédez au [Portail Azure](https://portal.azure.com) pour gérer le rôle d’application TenantCreator. Recherchez et sélectionnez **Applications d’entreprise**. Dans le cas où il existe plusieurs locataires Azure Active Directory, il est recommandé d’ouvrir une session de navigation privée, puis de copier-coller les URL dans la barre d’adresse.
+1. Accédez au [portail Azure](https://portal.azure.com) pour gérer le rôle d’application TenantCreator. Recherchez et sélectionnez **Applications d’entreprise**. Dans le cas où il existe plusieurs locataires Azure Active Directory, il est recommandé d’ouvrir une session de navigation privée, puis de copier-coller les URL dans la barre d’adresse.
 
    ![Capture d’écran de la recherche d’applications d’entreprise dans le Portail Azure](media/azure-portal-enterprise-applications.png)
 2. Dans **Applications d’entreprise**, recherchez **Windows Virtual Desktop**. Les deux applications pour lesquelles vous avez donné votre consentement dans la section précédente s’affichent. Entre ces deux applications, sélectionnez **Windows Virtual Desktop**.
@@ -81,7 +82,7 @@ Pour attribuer le rôle d’application TenantCreator :
 3. Sélectionnez **Utilisateurs et groupes**. Comme vous pouvez le constater, l’administrateur qui a donné son consentement à l’application apparaît déjà avec le rôle **Accès par défaut**. Ce n’est pas suffisant pour créer un locataire Windows Virtual Desktop. Continuez à suivre ces instructions pour ajouter le rôle **TenantCreator** à un utilisateur.
    
    ![Capture d’écran des utilisateurs et des groupes affectés à la gestion de l’application d’entreprise « Windows Virtual Desktop ». La capture d’écran ne montre qu’une attribution pour « Accès par défaut ».](media/tenant-default-access.png)
-4. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans le panneau **Ajouter une attribution**.
+4. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** sous l’onglet **Ajouter une attribution**.
 5. Recherchez un compte d’utilisateur qui va créer votre locataire Windows Virtual Desktop. Pou rester simple, ce peut être le compte d’administrateur général.
    - Si vous utilisez un fournisseur d’identité Microsoft comme contosoadmin@live.com ou contosoadmin@outlook.com, vous ne pourrez peut-être pas vous connecter à Windows Virtual Desktop. Nous vous recommandons plutôt d’utiliser un compte propre au domaine comme admin@contoso.com ou admin@contoso.onmicrosoft.com.
 

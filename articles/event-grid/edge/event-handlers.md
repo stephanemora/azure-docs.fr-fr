@@ -9,10 +9,10 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 35bf5af90aa5f0456aa8d68f0e4e8aaacc6cf84f
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76851324"
 ---
 # <a name="event-handlers-and-destinations-in-event-grid-on-edge"></a>Gestionnaires d’événements et destinations dans Event Grid sur Edge
@@ -86,7 +86,7 @@ Pour publier dans un module Edge Hub, définissez `endpointType` sur `edgeHub` e
 
 Pour publier sur un hub d’événements, définissez `endpointType` sur `eventHub` et indiquez :
 
-* connectionString : chaîne de connexion pour le hub d’événements particulier que vous ciblez, générée par le biais d’une stratégie d’accès partagé.
+* connectionString : chaîne de connexion pour l'Event Hub spécifique que vous ciblez, générée par le biais d’une stratégie d’accès partagé.
 
     >[!NOTE]
     > La chaîne de connexion doit être propre à l’entité. L’utilisation d’une chaîne de connexion d’espace de noms ne fonctionne pas. Vous pouvez générer une chaîne de connexion spécifique à une entité en accédant au hub d’événements sur lequel vous souhaitez publier dans le portail Azure, et en cliquant sur **Stratégies d’accès partagé** pour générer une chaîne de connexion propre à l’entité.
@@ -108,7 +108,7 @@ Pour publier sur un hub d’événements, définissez `endpointType` sur `eventH
 
 Pour publier dans une file d’attente Service Bus, définissez `endpointType` sur `serviceBusQueue` et indiquez :
 
-* connectionString : chaîne de connexion pour la file d’attente Service Bus particulière que vous ciblez, générée par le biais d’une stratégie d’accès partagé.
+* connectionString : chaîne de connexion pour la file d’attente Service Bus spécifique que vous ciblez, générée par le biais d’une stratégie d’accès partagé.
 
     >[!NOTE]
     > La chaîne de connexion doit être propre à l’entité. L’utilisation d’une chaîne de connexion d’espace de noms ne fonctionne pas. Générez une chaîne de connexion spécifique à une entité en accédant à la file d’attente Service Bus sur laquelle vous souhaitez publier dans le portail Azure, et en cliquant sur **Stratégies d’accès partagé** pour générer une chaîne de connexion propre à l’entité.
@@ -130,7 +130,7 @@ Pour publier dans une file d’attente Service Bus, définissez `endpointType` s
 
 Pour publier dans une rubrique Service Bus, définissez `endpointType` sur `serviceBusTopic` et indiquez :
 
-* connectionString : chaîne de connexion pour la rubrique Service Bus particulière que vous ciblez, générée par le biais d’une stratégie d’accès partagé.
+* connectionString : chaîne de connexion pour la rubrique Service Bus spécifique que vous ciblez, générée par le biais d’une stratégie d’accès partagé.
 
     >[!NOTE]
     > La chaîne de connexion doit être propre à l’entité. L’utilisation d’une chaîne de connexion d’espace de noms ne fonctionne pas. Générez une chaîne de connexion spécifique à une entité en accédant à la rubrique Service Bus sur laquelle vous souhaitez publier dans le portail Azure, et en cliquant sur **Stratégies d’accès partagé** pour générer une chaîne de connexion propre à l’entité.
@@ -156,7 +156,7 @@ Pour publier dans une file d’attente de stockage, définissez `endpointType` s
 * connectionString : chaîne de connexion pour le compte de stockage dans lequel se trouve la file d'attente de stockage.
 
     >[!NOTE]
-    > Contrairement aux hubs d’événements, aux rubriques et files d’attente Service Bus, la chaîne de connexion utilisée pour les files d’attente de stockage n’est pas propre à l’entité. C’est la chaîne de connexion du compte de stockage qui doit être utilisée à la place.
+    > Contrairement aux Event Hubs, aux rubriques et files d’attente Service Bus, la chaîne de connexion utilisée pour les files d’attente de stockage n’est pas propre à l’entité. C’est la chaîne de connexion du compte de stockage qui doit être utilisée à la place.
 
     ```json
         {

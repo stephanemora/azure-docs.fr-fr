@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 7a15db6bbbcd9dfd43b025b780fda5a8b1d79da2
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 3b1988656e2c15515e121df3ee71e31ce7edd750
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78946158"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79212963"
 ---
 # <a name="tutorial-transfer-data-with-azure-data-box-edge"></a>Tutoriel : Transférer des données avec Azure Data Box Edge
 
@@ -59,26 +59,28 @@ Pour créer un partage, procédez comme suit :
     Le type peut être **SMB** ou **NFS**, SMB étant la valeur par défaut. SMB est la norme pour les clients Windows, tandis que NFS est utilisé pour les clients Linux.  
     Selon que vous choisissez un partage SMB ou NFS, les autres options diffèrent légèrement. 
 
-    c. Fournissez un compte de stockage dans lequel résidera le partage. 
+    c. Fournissez un compte de stockage dans lequel résidera le partage.
 
-    
+      > [!IMPORTANT]
+      > Vérifiez que le compte de stockage Azure que vous utilisez n’a pas de stratégies d’immuabilité définies si vous l’utilisez avec un appareil Azure Stack Edge ou Data Box Gateway. Pour plus d’informations, consultez [Définir et gérer des stratégies d’immuabilité pour le stockage Blob](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+
     d. Dans la liste déroulante **Service de stockage**, sélectionnez **Objet blob de blocs**, **Objet blob de pages** ou **Fichiers**.  
     Le type de service que vous sélectionnez varie selon le format dans lequel vous souhaitez que les données soient utilisées dans Azure. Dans cet exemple, comme nous voulons que les données soient des objets blob de blocs dans Azure, nous sélectionnons **Objet blob de blocs**. Si vous sélectionnez **Objet blob de pages**, assurez-vous que vos données sont de 512 octets alignés. Par exemple, un VHDX est toujours de 512 octets alignés.
 
     e. Créez un conteneur d’objets blob ou utilisez-en un existant dans la liste déroulante. Si vous créez un conteneur d’objets blob, fournissez un nom de conteneur. S’il n’existe pas de conteneur, un conteneur est créé dans le compte de stockage avec le nom du nouveau partage.
-   
-    f. Selon que vous avez créé un partage SMB ou un partage NFS, effectuez l’une des étapes suivantes : 
-     
-    - **Partage SMB** : Sous **Utilisateur local avec tous les privilèges**, sélectionnez **Créer** ou **Utiliser l’existant**. Si vous créez un nouvel utilisateur local, entrez un nom d’utilisateur et un mot de passe, puis confirmez le mot de passe. Cette action affecte des autorisations à l’utilisateur local. La modification des autorisations au niveau du partage n’est actuellement pas prise en charge.
+
+    f. Selon que vous avez créé un partage SMB ou un partage NFS, effectuez l’une des étapes suivantes :
+
+    * **Partage SMB** : Sous **Utilisateur local avec tous les privilèges**, sélectionnez **Créer** ou **Utiliser l’existant**. Si vous créez un nouvel utilisateur local, entrez un nom d’utilisateur et un mot de passe, puis confirmez le mot de passe. Cette action affecte des autorisations à l’utilisateur local. La modification des autorisations au niveau du partage n’est actuellement pas prise en charge.
 
         Si vous cochez la case **Autoriser uniquement les opérations de lecture** pour ces données de partage, vous pouvez indiquer des utilisateurs en lecture seule.
 
         ![Ajouter un partage SMB](./media/data-box-edge-deploy-add-shares/add-share-smb-1.png)
-   
-    - **Partage NFS** : Entrez les adresses IP des clients autorisés pouvant accéder au partage.
+
+    * **Partage NFS** : Entrez les adresses IP des clients autorisés pouvant accéder au partage.
 
         ![Ajouter un partage NFS](./media/data-box-edge-deploy-add-shares/add-share-nfs-1.png)
-   
+
 4. Sélectionnez **Créer** pour créer le partage.
     
     Vous êtes averti que le partage est en cours de création. Une fois le partage créé avec les paramètres spécifiés, la vignette **Partages** s’actualise pour refléter le nouveau partage.

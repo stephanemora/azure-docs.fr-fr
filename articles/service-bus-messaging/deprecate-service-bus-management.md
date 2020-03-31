@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 01/22/2020
 ms.author: spelluru
 ms.openlocfilehash: d263381667319b98a28ee6168e2de75c4041b58a
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77589660"
 ---
 # <a name="deprecation-of-azure-service-manager-support-for-azure-service-bus-relay-and-event-hubs"></a>Dépréciation de la prise en charge d’Azure Service Manager pour Azure Service Bus, Relay et Event Hubs

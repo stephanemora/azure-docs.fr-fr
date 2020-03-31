@@ -11,50 +11,49 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/25/2019
-ms.openlocfilehash: 0494ab163e7fb7e8ea93cf255837bfda2d7b1570
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b229aa8976705c5e3ad83c468ebc10a261f14a4f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691539"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80067390"
 ---
 # <a name="use-cli-to-scale-an-elastic-pool-in-azure-sql-database"></a>Utiliser l’interface CLI pour mettre à l’échelle un pool élastique dans Azure SQL Database
 
 Cet exemple de script Azure CLI crée des pools élastiques, déplace des bases de données mises en pool et modifie les tailles de calcul d’un pool élastique.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
 Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0 ou une version ultérieure pour poursuivre la procédure décrite dans cet article. Exécutez `az --version` pour trouver la version. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI]( /cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Exemple de script
 
+### <a name="sign-in-to-azure"></a>Connexion à Azure
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+### <a name="run-the-script"></a>Exécuter le script
+
 [!code-azurecli-interactive[main](../../../cli_scripts/sql-database/scale-pool/scale-pool.sh "Move database between pools")]
 
-## <a name="clean-up-deployment"></a>Nettoyer le déploiement
+### <a name="clean-up-deployment"></a>Nettoyer le déploiement
 
 Utilisez la commande suivante pour supprimer le groupe de ressources et toutes les ressources associées.
 
 ```azurecli-interactive
-az group delete --name $resourceGroupName
+az group delete --name $resource
 ```
 
-## <a name="script-explanation"></a>Explication du script
+## <a name="sample-reference"></a>Informations de référence sur l’exemple
 
-Ce script utilise les commandes suivantes pour créer un groupe de ressources, un serveur SQL Database, une instance de base de données et des règles de pare-feu SQL Database. Chaque commande du tableau renvoie à une documentation spécifique.
+Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à une documentation spécifique.
 
-| Commande | Notes |
+| | |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
-| [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#az-sql-server-create) | Crée un serveur SQL Database qui héberge des bases de données uniques et des pools élastiques. |
-| [az sql elastic-pools create](https://docs.microsoft.com/cli/azure/sql/elastic-pool#az-sql-elastic-pool-create) | Crée un pool élastique. |
-| [az sql db create](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create) | Crée une base de données unique ou mise en pool. |
-| [az sql elastic-pools update](https://docs.microsoft.com/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update) | Met à jour un pool élastique : dans cet exemple, modifie l’eDTU affecté. |
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
+| [az sql server](/cli/azure/sql/server) | Commandes de serveur. |
+| [az sql db](/cli/azure/sql/db) | Commandes de base de données. |
+| [az sql elastic-pools](/cli/azure/sql/elastic-pool) | Commandes de pool élastique. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](https://docs.microsoft.com/cli/azure).
+Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](/cli/azure).
 
 Vous trouverez des exemples supplémentaires de scripts CLI SQL Database dans [Documentation Azure SQL Database](../sql-database-cli-samples.md).

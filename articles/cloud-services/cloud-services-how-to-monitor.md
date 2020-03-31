@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: tagore
 ms.openlocfilehash: 61c794ba03934ae1828ba310f3f776bfb61b652b
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75972940"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79233813"
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>Introduction à la surveillance des services cloud
 
-Vous pouvez surveiller les principales mesures de performances pour n’importe quel service cloud. Chaque rôle de service cloud collecte un nombre minimal de données : utilisation du processeur, utilisation du réseau et utilisation du disque. Si le service cloud a l’extension `Microsoft.Azure.Diagnostics` appliquée à un rôle, ce rôle peut collecter des points de données supplémentaires. Cet article vous fournit une présentation de Diagnostics Azure pour Cloud Services.
+Vous pouvez surveiller les principales mesures de performances pour n’importe quel service cloud. Chaque rôle de service cloud collecte des données de base : utilisation du processeur, utilisation du réseau et utilisation du disque. Si le service cloud a l’extension `Microsoft.Azure.Diagnostics` appliquée à un rôle, ce rôle peut collecter des points de données supplémentaires. Cet article vous fournit une présentation de Diagnostics Azure pour Cloud Services.
 
 Avec la surveillance de base, les données des compteurs de performances des instances de rôle sont échantillonnées et collectées toutes les 3 minutes. Ces données de surveillance de base ne sont pas stockées dans votre compte de stockage et ne représentent aucun coût supplémentaire associé.
 

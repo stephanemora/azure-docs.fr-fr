@@ -13,12 +13,12 @@ ms.date: 09/12/2019
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
-ms.openlocfilehash: bb44e078a3958a788d23356c970b62fd97cbf420
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 9e35ba5a3f3705a52e80262da9bbfbfda489bf83
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76696314"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80050375"
 ---
 # <a name="android-microsoft-authentication-library-configuration-file"></a>Fichier de configuration de la bibliothèque d’authentification Microsoft Authentication Android
 
@@ -88,11 +88,11 @@ Liste des autorités que vous connaissez et que vous approuvez. En plus des auto
 
 | Type | Public visé | ID client | Authority_Url | Point de terminaison obtenu | Notes |
 |------|------------|------------|----------------|----------------------|---------|
-| AAD | AzureADandPersonalMicrosoftAccount | | | https://login.microsoftonline.com/common | `common` est un alias de locataire pour l’emplacement du compte. Exemple : un locataire Azure Active Directory spécifique ou le système de comptes Microsoft. |
-| AAD | AzureADMyOrg | contoso.com | | https://login.microsoftonline.com/contoso.com | Seuls les comptes présents dans contoso.com peuvent acquérir un jeton. Tout domaine vérifié, ou GUID de locataire, peut être utilisé comme ID de locataire. |
-| AAD | AzureADMultipleOrgs | | | https://login.microsoftonline.com/organizations | Seuls les comptes Azure Active Directory peuvent être utilisés avec ce point de terminaison. Les comptes Microsoft peuvent être membres d’organisations. Pour acquérir un jeton à l’aide d’un compte Microsoft pour une ressource au sein d’une organisation, spécifiez le locataire organisationnel à partir duquel vous souhaitez obtenir le jeton. |
-| AAD | PersonalMicrosoftAccount | | | https://login.microsoftonline.com/consumers | Seuls les comptes Microsoft peuvent utiliser ce point de terminaison. |
-| B2C | | | Consultez Point de terminaison obtenu. | https://login.microsoftonline.com/tfp/contoso.onmicrosoft.com/B2C_1_SISOPolicy/ | Seuls les comptes présents dans le locataire contoso.onmicrosoft.com peuvent acquérir un jeton. Dans cet exemple, la stratégie B2C fait partie du chemin de l’URL de l’autorité. |
+| AAD | AzureADandPersonalMicrosoftAccount | | | `https://login.microsoftonline.com/common` | `common` est un alias de locataire pour l’emplacement du compte. Exemple : un locataire Azure Active Directory spécifique ou le système de comptes Microsoft. |
+| AAD | AzureADMyOrg | contoso.com | | `https://login.microsoftonline.com/contoso.com` | Seuls les comptes présents dans contoso.com peuvent acquérir un jeton. Tout domaine vérifié, ou GUID de locataire, peut être utilisé comme ID de locataire. |
+| AAD | AzureADMultipleOrgs | | | `https://login.microsoftonline.com/organizations` | Seuls les comptes Azure Active Directory peuvent être utilisés avec ce point de terminaison. Les comptes Microsoft peuvent être membres d’organisations. Pour acquérir un jeton à l’aide d’un compte Microsoft pour une ressource au sein d’une organisation, spécifiez le locataire organisationnel à partir duquel vous souhaitez obtenir le jeton. |
+| AAD | PersonalMicrosoftAccount | | | `https://login.microsoftonline.com/consumers` | Seuls les comptes Microsoft peuvent utiliser ce point de terminaison. |
+| B2C | | | Consultez Point de terminaison obtenu. | `https://login.microsoftonline.com/tfp/contoso.onmicrosoft.com/B2C_1_SISOPolicy/` | Seuls les comptes présents dans le locataire contoso.onmicrosoft.com peuvent acquérir un jeton. Dans cet exemple, la stratégie B2C fait partie du chemin de l’URL de l’autorité. |
 
 > [!NOTE]
 > La validation des autorités ne peut pas être activée et désactivée dans MSAL.

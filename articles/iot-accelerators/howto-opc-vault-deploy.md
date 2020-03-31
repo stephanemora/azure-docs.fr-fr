@@ -9,10 +9,10 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: f577059e1ebf70e3a9dfe9e538a9d3d49d7c8e96
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71199991"
 ---
 # <a name="build-and-deploy-the-opc-vault-certificate-management-service"></a>Générer et déployer le service de gestion de certificats OPC Vault
@@ -22,7 +22,7 @@ Cet article explique comment déployer le service de gestion de certificats OPC�
 > [!NOTE]
 > Pour plus d’informations, consultez le [dépôt OPC Vault](https://github.com/Azure/azure-iiot-opc-vault-service) sur GitHub.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 ### <a name="install-required-software"></a>Installer les logiciels nécessaires
 
@@ -88,9 +88,9 @@ Une fois le déploiement effectué, vous pouvez commencer à utiliser les servic
 
 ## <a name="delete-the-services-from-the-subscription"></a>Supprimer les services de l’abonnement
 
-Voici comment procéder :
+Voici comment faire :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Accédez au groupe de ressources dans lequel le service a été déployé.
 3. Sélectionnez **Supprimer le groupe de ressources** et confirmez.
 4. Après quelques instants, tous les composants du service déployés sont supprimés.

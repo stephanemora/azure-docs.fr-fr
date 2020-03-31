@@ -4,16 +4,16 @@ description: Installer l’outil d’explorateur Azure IoT et l’utiliser pour 
 author: miagdp
 ms.author: miag
 ms.date: 12/27/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: fd180404ca18b5ea84c745a543ae7e87bf16c27d
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 963421fa1ef06599448c9a4197f0d7a6ad2e142d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75529624"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80159181"
 ---
 # <a name="install-and-use-azure-iot-explorer"></a>Installer et utiliser l’explorateur Azure IoT
 
@@ -24,7 +24,7 @@ Cet article vous montre comment :
 - Installer et configurer l’explorateur Azure IoT.
 - Utiliser l’outil pour interagir avec vos appareils et les tester.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour utiliser l’outil qu’est l’explorateur Azure IoT, vous avez besoin des éléments suivants :
 

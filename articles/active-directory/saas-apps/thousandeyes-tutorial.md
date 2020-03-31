@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à ThousandEyes | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à ThousandEyes | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et ThousandEyes.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 10/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cd179049f88454c62244cf1819cee08ef78d0633
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72373248"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-thousandeyes"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à ThousandEyes
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-thousandeyes"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à ThousandEyes
 
 Dans ce tutoriel, vous allez apprendre à intégrer ThousandEyes à Azure Active Directory (Azure AD). Quand vous intégrez ThousandEyes à Azure AD, vous pouvez :
 
@@ -142,11 +142,11 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 4. Cliquez sur l’onglet **Security & Authentication (Sécurité et authentification)** .
 
-    ![Sécurité et authentification](./media/thousandeyes-tutorial/ic790068.png "Sécurité et authentification")
+    ![Sécurité et authentification](./media/thousandeyes-tutorial/ic790068.png "Security & Authentication")
 
 5. Dans la section **Setup Single Sign-On** , procédez comme suit :
 
-    ![Configurer l’authentification unique](./media/thousandeyes-tutorial/ic790069.png "Configurer l’authentification unique")
+    ![Configurer l’authentification unique](./media/thousandeyes-tutorial/ic790069.png "Setup Single Sign-On")
 
     a. Sélectionnez **Activer l'authentification unique**.
 
@@ -162,7 +162,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 ### <a name="create-thousandeyes-test-user"></a>Créer un utilisateur de test ThousandEyes
 
-L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans ThousandEyes. ThousandEyes prend en charge l’attribution automatique d’utilisateurs, qui est activée par défaut. Vous trouverez [ici](thousandeyes-provisioning-tutorial.md) plus d’informations sur la façon de configurer l’attribution automatique d’utilisateurs.
+L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans ThousandEyes. ThousandEyes prend en charge l’attribution automatique d’utilisateurs, qui est activée par défaut. Vous trouverez plus d’informations [ici](thousandeyes-provisioning-tutorial.md) sur la façon de configurer l’attribution automatique d’utilisateurs.
 
 **Si vous avez besoin de créer un utilisateur manuellement, procédez comme suit :**
 
@@ -178,11 +178,11 @@ L’objectif de cette section est de créer un utilisateur appelé Britta Simon 
 
 4. Cliquez sur l’onglet **Accounts & Users (Comptes et utilisateurs)** .
 
-    ![Comptes et utilisateurs](./media/thousandeyes-tutorial/IC790073.png "Comptes et utilisateurs")
+    ![Comptes et utilisateurs](./media/thousandeyes-tutorial/IC790073.png "Accounts & Users")
 
 5. Dans la section **Add Users & Accounts (Ajouter des utilisateurs et des comptes)** , procédez comme suit :
 
-    ![Ajouter des comptes d’utilisateurs](./media/thousandeyes-tutorial/IC790074.png "Ajouter des comptes d’utilisateurs")
+    ![Ajouter des comptes d’utilisateur](./media/thousandeyes-tutorial/IC790074.png "Add User Accounts")
 
     a. Dans la zone de texte **Name** (Nom), tapez le nom d’un utilisateur, par exemple **B.Simon**.
 

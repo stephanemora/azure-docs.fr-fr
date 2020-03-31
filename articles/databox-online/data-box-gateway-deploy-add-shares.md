@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/08/2019
 ms.author: alkohli
-ms.openlocfilehash: 623ec5e082a8ed889329936d020bf28434a56fbf
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 32466cc0a1ab9b86fc2fb8eb791c232ae13f1c01
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78942530"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79213574"
 ---
 # <a name="tutorial-transfer-data-with-azure-data-box-gateway"></a>Tutoriel : Transférer des données avec Azure Data Box Gateway
 
@@ -27,9 +27,9 @@ Cette procédure peut prendre environ dix minutes.
 Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
+>
 > * Ajouter un partage
 > * Vous connecter à un partage
-
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -56,6 +56,8 @@ Pour créer un partage, procédez comme suit :
     2. Sélectionnez un **type** de partage. Le type peut être SMB ou NFS, SMB étant la valeur par défaut. SMB est la norme pour les clients Windows, tandis que NFS est utilisé pour les clients Linux. Selon que vous choisissez un partage SMB ou NFS, les options proposées diffèrent légèrement.
 
     3. Fournissez un compte de stockage dans lequel résidera le partage. S’il n’existe pas de conteneur, un conteneur est créé dans le compte de stockage avec le nom du nouveau partage. Si le conteneur existe déjà, ce conteneur est utilisé.
+       > [!IMPORTANT]
+       > Vérifiez que le compte de stockage Azure que vous utilisez n’a pas de stratégies d’immuabilité définies si vous l’utilisez avec un appareil Azure Stack Edge ou Data Box Gateway. Pour plus d’informations, consultez [Définir et gérer des stratégies d’immuabilité pour le stockage Blob](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
     
     4. Choisissez le **service de stockage** d’objet blob de blocs, d’objet blob de pages ou de fichier. Le type de service choisi varie selon le format dans lequel vous souhaitez que les données résident dans Azure. Par exemple, dans cette instance, nous voulons que les données résident en tant qu’objets blob de blocs dans Azure. C’est pourquoi nous sélectionnons Objet blob de blocs. Si vous choisissez un objet blob de pages, vous devez vous assurer que vos données sont de 512 octets alignés. Par exemple, un VHDX est toujours de 512 octets alignés.
    

@@ -11,10 +11,10 @@ ms.date: 06/18/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 9a02ad3ea43ae9d91489417bc314e3c23d54a958
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78188764"
 ---
 # <a name="set-up-direct-sign-in-using-azure-active-directory-b2c"></a>Configurer la connexion directe avec Azure Active Directory B2C

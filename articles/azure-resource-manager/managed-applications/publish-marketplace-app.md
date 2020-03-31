@@ -5,14 +5,14 @@ author: tfitzmac
 ms.topic: tutorial
 ms.date: 07/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: 73d4ccbda854d631248daef439aa3bd232d42e06
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: a42ee5d6f7f40d391acb743ef85f671f25804749
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75649066"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79472994"
 ---
-# <a name="azure-managed-applications-in-the-marketplace"></a>Applications gérées Azure sur la Place de marché
+# <a name="tutorial-publish-azure-managed-applications-in-the-marketplace"></a>Tutoriel : Publier des applications managées Azure dans la Place de marché
 
 Les fournisseurs peuvent utiliser les applications managées Azure pour offrir leurs solutions à tous les clients de la Place de marché Azure. Il peut s’agir de fournisseurs de services managés, d’éditeurs de logiciels indépendants et d’intégrateurs de système. Les applications managées réduisent les opérations de maintenance et de mise à jour des clients. Les fournisseurs vendent des infrastructures et des logiciels sur la Place de marché. Ils peuvent joindre des services et le support opérationnel pour les applications gérées. Pour plus d’informations, consultez [Vue d’ensemble des applications gérées](overview.md).
 

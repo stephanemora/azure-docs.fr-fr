@@ -1,7 +1,7 @@
 ---
 title: 'Tutoriel sur la classification d’images : Déployer des modèles'
 titleSuffix: Azure Machine Learning
-description: Ce tutoriel montre comment utiliser Azure Machine Learning pour déployer un modèle de classification d’images avec scikit-learn dans un notebook Jupyter Python. Ce tutoriel est le deuxième d’une série de deux.
+description: Ce tutoriel, qui est le deuxième d’une série de deux, montre comment utiliser Azure Machine Learning pour déployer un modèle de classification d’images avec scikit-learn dans un notebook Jupyter Python.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,19 +10,17 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 02/10/2020
 ms.custom: seodec18
-ms.openlocfilehash: 071a8dd40d87e5df6fc5c65b789bb63b515dc60a
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 81e02492f7e79b87e1513a910afe4719908adbbb
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77116509"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80159069"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Tutoriel : Déployer un modèle de classification d’images dans Azure Container Instances
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Ce tutoriel est le **deuxième d’une série de deux**. Dans le [tutoriel précédent](tutorial-train-models-with-aml.md), vous avez entraîné des modèles Machine Learning, puis vous avez inscrit un modèle dans votre espace de travail sur le cloud.  
-
-Vous êtes maintenant prêt à déployer le modèle en tant que service web dans [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/). Un service web est une image, dans le cas présent une image Docker. Elle encapsule la logique de scoring et le modèle proprement dit. 
+Ce tutoriel est le **deuxième d’une série de deux**. Dans le [tutoriel précédent](tutorial-train-models-with-aml.md), vous avez entraîné des modèles Machine Learning, puis vous avez inscrit un modèle dans votre espace de travail sur le cloud.  Vous êtes maintenant prêt à déployer le modèle en tant que service web. Un service web est une image, dans le cas présent une image Docker. Elle encapsule la logique de scoring et le modèle proprement dit. 
 
 Dans cette partie du tutoriel, vous utilisez Azure Machine Learning pour effectuer les tâches suivantes :
 
@@ -38,7 +36,7 @@ Container Instances est une excellente solution pour comprendre et tester le wor
 >[!NOTE]
 > Le code présenté dans cet article a été testé avec le SDK Azure Machine Learning version 1.0.41.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour exécuter le notebook, effectuez tout d’abord l’entraînement du modèle dans le [Tutoriel (partie 1) : Entraîner un modèle de classification d’images](tutorial-train-models-with-aml.md).   Ouvrez ensuite le notebook *img-classification-part2-deploy.ipynb* dans le dossier *tutorials/image-classification-mnist-data* cloné.
 
@@ -50,7 +48,7 @@ Vous trouverez également ce tutoriel sur [GitHub](https://github.com/Azure/Mach
 > Basculez maintenant vers le notebook Jupyter si vous voulez lire le code à mesure que vous l’exécutez.
 > Pour exécuter une seule cellule de code dans un notebook, cliquez sur celle-ci et appuyez sur **Maj + Entrée**. Sinon, exécutez l’intégralité du notebook en choisissant **Run all** (Tout exécuter) dans la barre d’outils supérieure.
 
-## <a name="start"></a>Configurer l’environnement
+## <a name="set-up-the-environment"></a><a name="start"></a>Configurer l’environnement
 
 Commencez par configurer un environnement de test.
 
@@ -299,7 +297,6 @@ Obtenir le point de terminaison HTTP du service web de scoring qui accepte les a
 ```python
 print(service.scoring_uri)
 ```
-
 
 ## <a name="test-the-deployed-service"></a>Tester le service déployé
 

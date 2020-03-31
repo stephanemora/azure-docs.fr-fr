@@ -10,14 +10,14 @@ ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 09/03/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 05ea21f7b3221425e5b052797d79e629fdfe3ba5
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 9e3c5c12157a007bcad59a78b4623ff4d5a0041f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818035"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222586"
 ---
-# <a name="tutorial-secure-a-single-or-pooled-database"></a>Didacticiel : Sécuriser une base de données unique ou mise en pool
+# <a name="tutorial-secure-a-single-or-pooled-database"></a>Tutoriel : Sécuriser une base de données unique ou mise en pool
 
 Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
@@ -149,7 +149,7 @@ Pour plus d’informations sur la configuration d’Azure AD, consultez :
 
 ## <a name="manage-database-access"></a>Gérer l’accès à la base de données
 
-Gérez l’accès à la base de données en ajoutant des utilisateurs à la base de données ou en autorisant l’accès utilisateur avec des chaînes de connexion sécurisées. Les chaînes de connexion s’avèrent utiles pour les applications externes. Pour plus d’informations, consultez [Contrôle d’accès SQL Azure](sql-database-control-access.md) et [Authentification AD](sql-database-aad-authentication.md).
+Gérez l’accès à la base de données en ajoutant des utilisateurs à la base de données ou en autorisant l’accès utilisateur avec des chaînes de connexion sécurisées. Les chaînes de connexion s’avèrent utiles pour les applications externes. Pour plus d’informations, consultez [Gérer les connexions et les comptes d’utilisateurs](sql-database-manage-logins.md) et [Authentification AD](sql-database-aad-authentication.md).
 
 Pour ajouter des utilisateurs, choisissez le type d’authentification de base de données :
 
@@ -296,12 +296,12 @@ Pour activer l’audit :
 
 1. Vous pouvez maintenant sélectionner **Afficher les journaux d’audit** pour voir les données des événements de la base de données.
 
-    ![Enregistrements d’audit](./media/sql-database-security-tutorial/audit-records.png)
+    ![Auditer des enregistrements](./media/sql-database-security-tutorial/audit-records.png)
 
 > [!IMPORTANT]
 > Consultez [Audit des bases de données SQL](sql-database-auditing.md) pour plus d’informations sur la façon de personnaliser davantage les événements d’audit à l’aide de PowerShell ou de l’API REST.
 
-### <a name="dynamic-data-masking"></a>Masquage des données dynamiques
+### <a name="dynamic-data-masking"></a>Masquage dynamique des données
 
 La fonctionnalité de masquage des données permet de masquer automatiquement les données sensibles dans votre base de données.
 
@@ -331,14 +331,14 @@ Pour activer ou vérifier le chiffrement :
 
 1. Si nécessaire, définissez **Chiffrement des données** sur **ACTIVÉ**. Sélectionnez **Enregistrer**.
 
-    ![Chiffrement transparent des données](./media/sql-database-security-tutorial/encryption-settings.png)
+    ![chiffrement transparent des données](./media/sql-database-security-tutorial/encryption-settings.png)
 
 > [!NOTE]
 > Pour voir l’état du chiffrement, connectez-vous à la base de données à l’aide de [SSMS](./sql-database-connect-query-ssms.md) et interrogez la colonne `encryption_state` de la vue [sys.dm_database_encryption_keys](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql). L’état `3` indique que la base de données est chiffrée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à renforcer la sécurité de votre base de données en quelques étapes simples. Vous avez appris à effectuer les actions suivantes :
+Dans ce tutoriel, vous avez appris à renforcer la sécurité de votre base de données en quelques étapes simples. Vous avez appris à :
 
 > [!div class="checklist"]
 > - Créer des règles de pare-feu au niveau du serveur et de la base de données

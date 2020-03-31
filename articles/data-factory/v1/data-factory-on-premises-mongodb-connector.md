@@ -10,11 +10,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/13/2018
 ms.openlocfilehash: edddd100bddab1d642a8169353298a2d20620274
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928129"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79236349"
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Déplacer des données depuis MongoDB à l’aide d’Azure Data Factory
 
@@ -26,7 +26,7 @@ ms.locfileid: "74928129"
 > Cet article s’applique à la version 1 de Data Factory. Si vous utilisez la version actuelle du service Data Factory, consultez [Connecteur MongoDB dans V2](../connector-mongodb.md).
 
 
-Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour déplacer des données à partir d’une base de données MongoDB locale. Il s’appuie sur l’article relatif aux [activités de déplacement des données](data-factory-data-movement-activities.md), qui présente une vue d’ensemble du déplacement des données avec l’activité de copie.
+Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour déplacer des données à partir d’une base de données MongoDB locale. Il s’appuie sur l’article [Activités de déplacement des données](data-factory-data-movement-activities.md), qui présente une vue d’ensemble du déplacement de données avec l’activité de copie.
 
 Vous pouvez copier les données d’un magasin de données MongoDB local dans tout magasin de données récepteur pris en charge. Consultez le tableau [Magasins de données pris en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats) pour obtenir la liste des magasins de données pris en charge en tant que récepteurs par l’activité de copie. Actuellement, les fabriques de données ne prennent en charge que le déplacement des données d’un magasin de données MongoDB vers d’autres magasins de données, mais pas l’inverse.
 
@@ -44,7 +44,7 @@ Pour permettre au service Azure Data Factory de se connecter à votre base de do
 ## <a name="getting-started"></a>Prise en main
 Vous pouvez créer un pipeline avec une activité de copie qui déplace les données d’un magasin de données MongoDB local à l’aide de différents outils/API.
 
-Le moyen le plus simple de créer un pipeline consiste à utiliser **l’Assistant Copie**. Consultez le [tutoriel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Copie](data-factory-copy-data-wizard-tutorial.md) pour obtenir une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copie de données.
+Le moyen le plus simple de créer un pipeline consiste à utiliser **l’Assistant Copie**. Voir le [tutoriel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Copie](data-factory-copy-data-wizard-tutorial.md) pour obtenir une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copie de données.
 
 Vous pouvez également utiliser les outils suivants pour créer un pipeline : **Visual Studio**, **Azure PowerShell**, **modèle Azure Resource Manager**, **.NET API** et **API REST**. Pour obtenir des instructions détaillées sur la création d’un pipeline avec une activité de copie, consultez le [didacticiel sur l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
@@ -63,15 +63,15 @@ La table suivante fournit une description des éléments JSON spécifiques au se
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| type |La propriété type doit être définie sur : **OnPremisesMongoDb** |OUI |
-| server |Nom d’hôte ou adresse IP du serveur MongoDB. |OUI |
+| type |La propriété type doit être définie sur : **OnPremisesMongoDb** |Oui |
+| server |Nom d’hôte ou adresse IP du serveur MongoDB. |Oui |
 | port |Le port TCP utilisé par le serveur MongoDB pour écouter les connexions clientes. |Facultatif, valeur par défaut : 27017 |
-| authenticationType |De base ou anonyme. |OUI |
+| authenticationType |De base ou anonyme. |Oui |
 | username |Compte d’utilisateur pour accéder à MongoDB. |Oui (si l’authentification de base est utilisée). |
-| password |Mot de passe pour l’utilisateur. |Oui (si l’authentification de base est utilisée). |
+| mot de passe |Mot de passe pour l’utilisateur. |Oui (si l’authentification de base est utilisée). |
 | authSource |Nom de la base de données MongoDB que vous souhaitez utiliser pour vérifier vos informations d’identification pour l’authentification. |Facultatif (si l’authentification de base est utilisée). Par défaut : utilise le compte d’administrateur et la base de données spécifiée à l’aide de la propriété databaseName. |
-| databaseName |Nom de la base de données MongoDB à laquelle vous souhaitez accéder. |OUI |
-| gatewayName |Nom de la passerelle qui accède au magasin de données. |OUI |
+| databaseName |Nom de la base de données MongoDB à laquelle vous souhaitez accéder. |Oui |
+| gatewayName |Nom de la passerelle qui accède au magasin de données. |Oui |
 | encryptedCredential |Informations d’identification chiffrées par la passerelle. |Facultatif |
 
 ## <a name="dataset-properties"></a>Propriétés du jeu de données
@@ -290,7 +290,7 @@ Comme mentionné dans l’article consacré aux [activités de déplacement des 
 
 Lors du déplacement de données vers MongoDB, les mappages suivants sont utilisés pour passer des types MongoDB aux types .NET.
 
-| Type MongoDB | Type de .NET Framework |
+| Type MongoDB | Type .NET Framework |
 | --- | --- |
 | Binary |Byte[] |
 | Boolean |Boolean |
@@ -298,8 +298,8 @@ Lors du déplacement de données vers MongoDB, les mappages suivants sont utilis
 | NumberDouble |Double |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
-| ObjectID |Chaîne |
-| Chaîne |Chaîne |
+| ObjectID |String |
+| String |String |
 | UUID |Guid |
 | Object |Renormalisé dans des colonnes aplaties avec « _ » comme séparateur imbriqué |
 
@@ -318,20 +318,20 @@ Les tables virtuelles font référence aux données présentées dans la table r
 
 Vous pouvez utiliser [l’Assistant de copie](data-factory-data-movement-activities.md#create-a-pipeline-with-copy-activity) afin d’afficher de manière intuitive la liste des tables dans la base de données MongoDB, y compris les tables virtuelles, et de prévisualiser les données qui s’y trouvent. Vous pouvez également construire une requête dans l’Assistant de copie et valider pour voir le résultat.
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 Par exemple, « ExampleTable » ci-dessous est une table MongoDB qui dispose d’une colonne avec un tableau d’objets dans chaque cellule (Factures) et d’une colonne avec un tableau de types scalaires (Évaluations).
 
 | _id | Nom du client | Factures | Niveau de service | Évaluations |
 | --- | --- | --- | --- | --- |
-| 1111 |ABC |[{invoice_id:”123”, item:”toaster”, price:”456”, discount:”0.2”}, {invoice_id:”124”, item:”oven”, price: ”1235”, discount: ”0.2”}] |Silver |[5,6] |
-| 2222 |XYZ |[{invoice_id:”135”, item:”fridge”, price: ”12543”, discount: ”0.0”}] |Gold |[1,2] |
+| 1111 |ABC |[{invoice_id:”123”, item:”toaster”, price:”456”, discount:”0.2”}, {invoice_id:”124”, item:”oven”, price: ”1235”, discount: ”0.2”}] |Argent |[5,6] |
+| 2222 |XYZ |[{invoice_id:”135”, item:”fridge”, price: ”12543”, discount: ”0.0”}] |Or |[1,2] |
 
 Le pilote génère plusieurs tables virtuelles pour représenter cette table. La première table virtuelle est la table de base ci-dessous nommée « ExampleTable ». La table de base contient toutes les données de la table d’origine, mais les données dans les tableaux ont été omises et sont développées dans les tables virtuelles.
 
 | _id | Nom du client | Niveau de service |
 | --- | --- | --- |
-| 1111 |ABC |Silver |
-| 2222 |XYZ |Gold |
+| 1111 |ABC |Argent |
+| 2222 |XYZ |Or |
 
 Les tables suivantes montrent les tables virtuelles qui représentent les tableaux d’origine dans l’exemple. Ces tables contiennent les éléments suivants :
 
@@ -351,7 +351,7 @@ Table « ExampleTable_Ratings » :
 
 | _id | ExampleTable_Ratings_dim1_idx | ExampleTable_Ratings |
 | --- | --- | --- |
-| 1111 |0 |5\. |
+| 1111 |0 |5 |
 | 1111 |1 |6 |
 | 2222 |0 |1 |
 | 2222 |1 |2 |
