@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: cherylmc
 ms.openlocfilehash: f28e76e9dcaf1331fd26a2321cd4deca1027e693
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151380"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79235733"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-using-powershell"></a>Générer et exporter des certificats pour les connexions de point à site à l’aide de PowerShell
 
@@ -25,7 +25,7 @@ Si vous n’avez pas accès à un ordinateur Windows 10 ou Windows Server 2016
 
 [!INCLUDE [generate and export certificates](../../includes/vpn-gateway-generate-export-certificates-include.md)]
 
-## <a name="install"></a>Installer un certificat client exporté
+## <a name="install-an-exported-client-certificate"></a><a name="install"></a>Installer un certificat client exporté
 
 Chaque client qui se connecte au réseau virtuel via une connexion P2S a besoin d’un certificat client installé localement.
 

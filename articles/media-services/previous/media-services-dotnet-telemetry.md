@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 1ffaefc51121aeb7421d6e49a3c0e58c76d4391e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61464944"
 ---
 # <a name="configuring-azure-media-services-telemetry-with-net"></a>Configuration de la télémétrie Azure Media Services avec .NET 
@@ -32,7 +32,7 @@ Vous pouvez utiliser les données de télémétrie ainsi :
 
 - Lire les données directement à partir de Stockage Table Azure (par exemple en utilisant le kit SDK Stockage). Pour obtenir la description des tables de stockage de télémétrie, consultez les **Informations sur l’utilisation de la télémétrie** dans [cet](https://msdn.microsoft.com/library/mt742089.aspx) article.
 
-Ou
+ou
 
 - Utiliser le support dans le SDK .NET Media Services pour lire les données de stockage. Cet article montre comment activer la télémétrie pour le compte AMS spécifié et comment interroger les métriques à l’aide du kit SDK .NET Azure Media Services.  
 
@@ -75,7 +75,7 @@ Pour plus d’informations sur l’utilisation de la télémétrie, consultez [c
         <add key="StorageAccountName" value="storage_name" />
     ```
  
-## <a name="example"></a>Exemples  
+## <a name="example"></a>Exemple  
     
 L’exemple suivant montre comment activer la télémétrie pour le compte AMS spécifié et comment interroger les métriques à l’aide du SDK .NET Azure Media Services.  
 

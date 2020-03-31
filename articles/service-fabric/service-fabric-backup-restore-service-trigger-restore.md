@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: aagup
 ms.openlocfilehash: 1737102ee652cc2263bd0a908c1336bc93a6757b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75377903"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>Restauration de la sauvegarde dans Azure Service Fabric
@@ -23,7 +23,7 @@ Par exemple, vous pouvez configurer un service pour qu’il sauvegarde ses donn�
 - **Cas de perte de données** : Suppression accidentelle ou altération du service. Par exemple, un administrateur supprime le service par erreur.
 - **Cas d’altération des données** : Bogues dans le service qui provoquent l’altération des données. Par exemple, l’altération des données peut se produire lorsqu’une mise à niveau de code de service écrit des données erronées dans une collection fiable. Dans ce cas, le code et les données devront peut-être être restaurés à un état antérieur.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Pour déclencher une restauration, le _service FAS (Fault Analysis Service)_ doit être activé pour le cluster.
 - Le _service BRS (Backup Restore Service)_ a créé la sauvegarde.

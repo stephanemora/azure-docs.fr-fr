@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5b19c80378aa40a7f791a3eb61130b013217ddee
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74848576"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Fonctionnement : Réinitialisation de mot de passe en libre-service Azure AD
@@ -58,7 +58,7 @@ Si SSPR est activé, vous devez sélectionner au moins l’une des options suiva
 
 * Notification sur l’application mobile
 * Code de l’application mobile
-* Email
+* E-mail
 * Téléphone mobile
 * Téléphone de bureau
 * Questions de sécurité
@@ -66,7 +66,7 @@ Si SSPR est activé, vous devez sélectionner au moins l’une des options suiva
 Les utilisateurs peuvent uniquement réinitialiser leur mot de passe s’ils ont des données présentes dans les méthodes d’authentification que l’administrateur a activées.
 
 > [!IMPORTANT]
-> Depuis mars 2019, les options d’appel téléphonique ne sont plus disponibles pour les utilisateurs MFA et SSPR dans des locataires Azure AD gratuits ou à l’essai. Cette modification n’affecte pas les messages SMS. Les appels téléphoniques continueront à être disponibles pour les utilisateurs de locataires Azure AD payants. Cette modification affecte uniquement les locataires Azure AD gratuits ou à l’essai.
+> Depuis mars 2019, les options d’appel téléphonique ne sont plus disponibles pour les utilisateurs MFA et SSPR dans des locataires Azure AD gratuits ou à l’essai. Cette modification n’affecte pas les messages SMS. Les appels téléphoniques continueront à être disponibles pour les utilisateurs de locataires Azure AD payants. Ce changement affecte uniquement les locataires Azure AD gratuits ou à l’essai.
 
 > [!WARNING]
 > Les rôles d’administrateur Azure auxquels sont assignés des comptes seront nécessaires pour utiliser les méthodes définies dans la section [Différences en matière de stratégie de réinitialisation par l’administrateur](concept-sspr-policy.md#administrator-reset-policy-differences).
@@ -107,7 +107,7 @@ Les utilisateurs n’auront pas la possibilité d’inscrire leur application mo
 
 Si vous démarrez avec une stratégie qui présente une seule méthode d’authentification requise pour la réinitialisation ou le déverrouillage et que vous optez ensuite pour deux méthodes, que se passe-t-il ?
 
-| Nombre de méthodes inscrites | Nombre de méthodes requises | Résultat |
+| Nombre de méthodes inscrites | Nombre de méthodes requises | Résultats |
 | :---: | :---: | :---: |
 | 1 ou plus | 1 | Réinitialisation ou déverrouillage **possible** |
 | 1 | 2 | Réinitialisation ou déverrouillage **impossible** |
@@ -115,7 +115,7 @@ Si vous démarrez avec une stratégie qui présente une seule méthode d’authe
 
 Si vous changez les types de méthodes d’authentification qu’un utilisateur peut employer, vous risquez d’empêcher par inadvertance les utilisateurs d’employer SSPR s’ils ne disposent pas de la quantité minimale de données.
 
-Exemple :
+Exemple :
 1. La stratégie d’origine est configurée avec deux méthodes d’authentification requises. Elle utilise uniquement le numéro de téléphone professionnel et les questions de sécurité. 
 2. L’administrateur change la stratégie pour ne plus utiliser les questions de sécurité, mais permet l’utilisation d’un téléphone mobile et d’une autre adresse de messagerie.
 3. Les utilisateurs dont les champs de téléphone mobile ou d’autre adresse de messagerie ne sont pas renseignés ne peuvent pas réinitialiser leur mot de passe.
@@ -155,7 +155,7 @@ Si cette option est définie sur **Oui**, les utilisateurs qui réinitialisent l
 
 Si cette option est définie sur **Oui**, *tous les administrateurs* reçoivent un e-mail sur leur adresse de messagerie principale sur fichier dans Azure AD. Cet e-mail les informe qu’un autre administrateur a changé son mot de passe à l’aide de SSPR.
 
-Exemple : quatre administrateurs font partie d’un environnement. L’administrateur A réinitialise son mot de passe à l’aide de SSPR. Les administrateurs B, C et D reçoivent un e-mail les informant de la réinitialisation de mot de passe.
+Exemple : quatre administrateurs font partie d’un environnement. L’administrateur A réinitialise son mot de passe à l’aide de SSPR. Les administrateurs B, C et D reçoivent un e-mail les informant de la réinitialisation de mot de passe.
 
 ## <a name="on-premises-integration"></a>Intégration locale
 

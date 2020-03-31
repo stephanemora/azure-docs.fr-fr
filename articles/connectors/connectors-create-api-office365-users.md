@@ -8,10 +8,10 @@ ms.date: 08/18/2016
 ms.topic: article
 tags: connectors
 ms.openlocfilehash: 179c7538d8072f0e1a4f7d049cf521971efd7a21
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75666854"
 ---
 # <a name="get-and-manage-profiles-in-office-365-users-by-using-azure-logic-apps"></a>Obtenir et gérer des profils dans Office 365 Users à l’aide d’Azure Logic Apps
@@ -35,7 +35,7 @@ Après avoir créé la connexion, vous entrez les propriétés Office 365 Users,
 
 ## <a name="connector-specific-details"></a>Détails spécifiques du connecteur
 
-Pour obtenir des détails techniques sur les déclencheurs, les actions et les limites, qui sont décrits par la description Swagger du connecteur, consultez la [page de référence du connecteur](/connectors/officeusers/).
+Pour obtenir des détails techniques sur les déclencheurs, les actions et les limites, qui sont fournis par la description OpenAPI du connecteur (anciennement Swagger), consultez la [page de référence du connecteur](/connectors/officeusers/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

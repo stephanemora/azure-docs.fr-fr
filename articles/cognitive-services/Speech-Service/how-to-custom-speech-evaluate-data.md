@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
 ms.openlocfilehash: f710b8bfdd4dcfd3b7a63aa0b457036ab7037016
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74806094"
 ---
 # <a name="evaluate-custom-speech-accuracy"></a>Évaluer la précision de Custom Speech
@@ -53,16 +53,16 @@ Pour évaluer des modèles côte à côte :
 
 1. Connectez-vous au [portail Custom Speech](https://speech.microsoft.com/customspeech).
 2. Accédez à **Speech-to-text > Custom Speech > Testing**.
-3. Cliquez sur **Ajouter un test**.
+3. Cliquez sur **Add Test** (Ajouter un test).
 4. Sélectionnez **Évaluer la précision**. Donnez au test un nom et une description et sélectionnez votre jeu de données de transcription audio + étiquetées à la main.
-5. Sélectionnez jusqu'à deux modèles à tester.
+5. Sélectionnez les modèles que vous voulez tester (deux au maximum).
 6. Cliquez sur **Créer**.
 
 Une fois votre test créé, vous pouvez comparer les résultats côte à côte.
 
 ## <a name="side-by-side-comparison"></a>Comparaison côte à côte
 
-Une fois terminé (ce qu’indique le passage à l’état *Réussi*), le test comporte un nombre WER pour les deux modèles. Cliquez sur le nom du test pour afficher la page de détails correspondante. Elle liste tous les énoncés du jeu de données soumis, en indiquant les résultats de reconnaissance des deux modèles avec la transcription associée. Pour inspecter plus facilement la comparaison côte à côte, vous pouvez afficher les différents types d’erreurs (insertion, suppression et substitution). En écoutant l’audio et en comparant les résultats de la reconnaissance dans les deux colonnes (transcription étiquetée à la main et résultats des deux modèles de reconnaissance vocale), vous pouvez identifier le modèle qui répond à vos besoins et déterminer où un apprentissage et des améliorations s’imposent.
+Une fois terminé (ce qu’indique le passage à l’état *Réussi*), le test comporte un nombre WER pour les deux modèles. Cliquez sur le nom du test pour afficher la page de détails correspondante. Cette page de détails liste tous les énoncés de votre jeu de données, indiquant les résultats de la reconnaissance des deux modèles avec la transcription du jeu de données soumis. Pour inspecter plus facilement la comparaison côte à côte, vous pouvez voir les différents types d’erreurs (insertion, suppression et substitution). En écoutant l’audio et en comparant les résultats de la reconnaissance dans les deux colonnes (transcription étiquetée à la main et résultats des deux modèles de reconnaissance vocale), vous pouvez identifier le modèle qui répond à vos besoins et déterminer où un apprentissage et des améliorations s’imposent.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -72,4 +72,4 @@ Une fois terminé (ce qu’indique le passage à l’état *Réussi*), le test c
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Préparer et tester les données](how-to-custom-speech-test-data.md)
-* [Inspectez les données](how-to-custom-speech-inspect-data.md)
+* [Inspecter les données](how-to-custom-speech-inspect-data.md)

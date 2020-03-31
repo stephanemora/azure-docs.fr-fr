@@ -8,20 +8,20 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: f655b7793bfbb5bbeddfc2f1f8e7bc973dabeb4c
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74687357"
 ---
 # <a name="introduction-to-app-service-environment-v1"></a>Présentation d’App Service Environment v1
 
 > [!NOTE]
-> Cet article traite de l’environnement App Service v1.  Il existe une version plus récente de l’environnement App Service Environment, plus facile à utiliser et qui s’exécute sur des infrastructures plus puissantes. Pour en savoir plus sur la nouvelle version, commencez par la section [Présentation de l’environnement App Service Environment](intro.md).
+> Cet article traite de l’environnement App Service Environment v1.  Il existe une version plus récente de l’environnement App Service Environment, plus facile à utiliser et qui s’exécute sur des infrastructures plus puissantes. Pour en savoir plus sur la nouvelle version, commencez par la section [Présentation de l’environnement App Service Environment](intro.md).
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
-Un environnement App Service est une option de plan de service [Premium][PremiumTier] [Azure App Service](../overview.md) qui fournit un environnement totalement isolé et dédié pour exécuter en toute sécurité des applications Azure App Service à grande échelle, comme des applications web, mobiles et d’API.  
+Un environnement App Service est une option de plan de service [Premium][PremiumTier][Azure App Service](../overview.md) qui fournit un environnement totalement isolé et dédié pour exécuter en toute sécurité des applications Azure App Service à grande échelle, comme des applications web, mobiles et d’API.  
 
 Les environnements App Service constituent le meilleur choix pour les charges de travail applicatives avec les exigences suivantes :
 

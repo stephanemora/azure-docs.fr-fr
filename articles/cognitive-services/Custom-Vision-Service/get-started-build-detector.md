@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: anroth
 ms.openlocfilehash: 8aef46f0b9c3dc526f1fbed3d9bc59f97771b509
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76170004"
 ---
 # <a name="quickstart-how-to-build-an-object-detector-with-custom-vision"></a>Démarrage rapide : Créer un détecteur d’objets avec Custom Vision
@@ -23,7 +23,7 @@ Dans ce guide de démarrage rapide, vous allez découvrir comment créer un dét
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Un ensemble d’images avec lequel entraîner votre modèle de détecteur. Vous pouvez utiliser l’ensemble d’[exemples d’images](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/vision/images) disponible sur GitHub, ou choisir vos propres images à l’aide des conseils ci-dessous.
 

@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: df85edc3de00e2b0342bc3102fe9e85564a9835b
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76719991"
 ---
 # <a name="sample-data-in-azure-hdinsight-hive-tables"></a>Échantillonner des données dans des tables Hive Azure HDInsight
@@ -33,7 +33,7 @@ Cette tâche d’échantillonnage est une étape du [processus TDSP (Team Data S
 ## <a name="how-to-submit-hive-queries"></a>Envoi de requêtes Hive
 Les requêtes Hive peuvent être envoyées à partir de console de ligne de commande Hadoop, sur le nœud principal du cluster Hadoop.  Connectez-vous au nœud principal du cluster Hadoop, ouvrez la console de ligne de commande Hadoop, puis émettez les requêtes Hive à partir de là. Pour plus d’informations sur la soumission de requêtes Hive dans la console de ligne de commande Hadoop, voir [Envoi de requêtes Hive](move-hive-tables.md#submit).
 
-## <a name="uniform"></a> Échantillonnage aléatoire uniforme
+## <a name="uniform-random-sampling"></a><a name="uniform"></a> Échantillonnage aléatoire uniforme
 Le terme « échantillonnage aléatoire uniforme » signifie que chaque ligne du jeu de données a la même chance d’être échantillonnée que les autres. Vous pouvez l’implémenter en ajoutant un champ supplémentaire rand() au jeu de données dans la requête « select » interne et dans la requête « select » externe conditionnant ce champ aléatoire.
 
 Voici un exemple de requête :
@@ -51,7 +51,7 @@ Voici un exemple de requête :
 
 Dans cet exemple, la chaîne `<sample rate, 0-1>` spécifie la proportion d’enregistrements que les utilisateurs veulent échantillonner.
 
-## <a name="group"></a> Échantillonnage aléatoire par groupe
+## <a name="random-sampling-by-groups"></a><a name="group"></a> Échantillonnage aléatoire par groupe
 Lorsque vous échantillonnez des données catégorielles, vous pouvez choisir d’inclure ou d’exclure toutes les instances d’une valeur spécifique de la valeur catégorielle. Ce type d’échantillonnage est appelé « échantillonnage par groupe ». Par exemple, si vous disposez d’une valeur catégorielle « *État* », qui présente les valeurs, comme NY, MA, CA, NJ et PA, vous voulez que les enregistrements de chaque État soient toujours regroupés, qu’ils soient ou non échantillonnés.
 
 Voici un exemple de requête effectuant un échantillonnage par groupe :
@@ -80,7 +80,7 @@ Voici un exemple de requête effectuant un échantillonnage par groupe :
         )c
     on b.catfield=c.catfield
 
-## <a name="stratified"></a>Échantillonnage stratifié
+## <a name="stratified-sampling"></a><a name="stratified"></a>Échantillonnage stratifié
 L’échantillonnage aléatoire est stratifié par rapport à une variable catégorielle lorsque les échantillons obtenus comportent des valeurs de cette catégorie qui existent dans la même proportion que dans la population parente. En prenant le même exemple que ci-dessus, supposons que vos données présentent les observations suivantes par État : NJ présente 100 observations, NY 60 observations et WA 300 observations. Si vous spécifiez un taux d’échantillonnage stratifié de 0,5, l’échantillon obtenu pour NJ, NY et WA sera respectivement d’environ 50, 30 et 150 observations.
 
 Voici un exemple de requête :

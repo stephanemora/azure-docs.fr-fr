@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
 ms.openlocfilehash: 2cc2ac08b9624c1d1d9bee9ce91a7c91189d7f2c
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74792420"
 ---
 # <a name="exchange-rosettanet-messages-for-b2b-enterprise-integration-in-azure-logic-apps"></a>Échanger des messages RosettaNet pour l’intégration d’entreprise B2B dans Azure Logic Apps
@@ -81,9 +81,9 @@ Pour ajouter une configuration de processus PIP à votre compte d’intégration
 
    | Propriété | Obligatoire | Description |
    |----------|----------|-------------|
-   | **Nom** | OUI | Nom de votre PIP |
-   | **PIP Code** (Code de PIP) | OUI | Code à trois chiffres du processus PIP. Pour plus d’informations, consultez les [processus PIP RosettaNet](https://docs.microsoft.com/biztalk/adapters-and-accelerators/accelerator-rosettanet/rosettanet-pips). |
-   | **PIP Version** (Version de PIP) | OUI | Numéro de version du processus PIP, disponible en fonction de votre code de PIP sélectionné |
+   | **Nom** | Oui | Nom de votre PIP |
+   | **PIP Code** (Code de PIP) | Oui | Code à trois chiffres du processus PIP. Pour plus d’informations, consultez les [processus PIP RosettaNet](https://docs.microsoft.com/biztalk/adapters-and-accelerators/accelerator-rosettanet/rosettanet-pips). |
+   | **PIP Version** (Version de PIP) | Oui | Numéro de version du processus PIP, disponible en fonction de votre code de PIP sélectionné |
    ||||
 
    Pour plus d’informations sur ces propriétés de processus PIP, visitez le [site web de RosettaNet](https://resources.gs1us.org/RosettaNet-Standards/Standards-Library/PIP-Directory#1043208-pipsreg).
@@ -112,15 +112,15 @@ Pour ajouter une configuration de processus PIP à votre compte d’intégration
 
    | Propriété | Obligatoire | Description |
    |----------|----------|-------------|
-   | **Nom** | OUI | Nom du contrat |
-   | **Type d'accord** | OUI | Sélectionnez **RosettaNet**. |
-   | **Partenaire hôte** | OUI | Un contrat nécessite un partenaire hôte et un partenaire invité. Le partenaire hôte représente l’organisation qui configure le contrat. |
-   | **Identité de l'hôte** | OUI | Identificateur du partenaire hôte. |
-   | **Partenaire invité** | OUI | Un contrat nécessite un partenaire hôte et un partenaire invité. Le partenaire invité représente l’organisation qui travaille avec le partenaire hôte. |
-   | **Identité de l'invité** | OUI | Identificateur du partenaire invité. |
-   | **Paramètres de réception** | Varie | Ces propriétés s’appliquent à tous les messages reçus par le partenaire hôte |
-   | **Paramètres d'envoi** | Varie | Ces propriétés s’appliquent à tous les messages envoyés par le partenaire hôte |  
-   | **RosettaNet PIP references** (Références de processus PIP RosettaNet) | OUI | Références de processus PIP du contrat. Tous les messages RosettaNet nécessitent des configurations de processus PIP. |
+   | **Nom** | Oui | Nom du contrat |
+   | **Type d'accord** | Oui | Sélectionnez **RosettaNet**. |
+   | **Partenaire hôte** | Oui | Un contrat nécessite un partenaire hôte et un partenaire invité. Le partenaire hôte représente l’organisation qui configure le contrat. |
+   | **Identité de l'hôte** | Oui | Identificateur du partenaire hôte. |
+   | **Partenaire invité** | Oui | Un contrat nécessite un partenaire hôte et un partenaire invité. Le partenaire invité représente l’organisation qui travaille avec le partenaire hôte. |
+   | **Identité de l'invité** | Oui | Identificateur du partenaire invité. |
+   | **Paramètres de réception** | Variable | Ces propriétés s’appliquent à tous les messages reçus par le partenaire hôte |
+   | **Paramètres d'envoi** | Variable | Ces propriétés s’appliquent à tous les messages envoyés par le partenaire hôte |  
+   | **RosettaNet PIP references** (Références de processus PIP RosettaNet) | Oui | Références de processus PIP du contrat. Tous les messages RosettaNet nécessitent des configurations de processus PIP. |
    ||||
 
 1. Pour configurer votre contrat pour recevoir des messages entrants du partenaire invité, sélectionnez **Paramètres de réception**.
@@ -159,8 +159,8 @@ Pour ajouter une configuration de processus PIP à votre compte d’intégration
 
       | Propriété | Obligatoire | Description |
       |----------|----------|-------------|
-      | **URL d’action** |  OUI | URL à utiliser pour envoyer des messages d’action. L’URL est un champ obligatoire pour les messages synchrones et asynchrones. |
-      | **Acknowledgment URL** (URL d’accusé de réception) | OUI | URL à utiliser pour envoyer des messages d’accusé de réception. L’URL est un champ obligatoire pour les messages synchrones. |
+      | **URL d’action** |  Oui | URL à utiliser pour envoyer des messages d’action. L’URL est un champ obligatoire pour les messages synchrones et asynchrones. |
+      | **Acknowledgment URL** (URL d’accusé de réception) | Oui | URL à utiliser pour envoyer des messages d’accusé de réception. L’URL est un champ obligatoire pour les messages synchrones. |
       ||||
 
 1. Pour configurer votre contrat avec les références de processus PIP RosettaNet pour les partenaires, sélectionnez **RosettaNet PIP references** (Références de processus PIP RosettaNet). Sous **PIP Name** (Nom de PIP), sélectionnez le nom de votre processus PIP créé précédemment.
@@ -201,9 +201,9 @@ Pour accélérer le développement et recommander des modèles d’intégration,
 
    | Propriété | Obligatoire | Description |
    |----------|----------|-------------|
-   | **Message** | OUI | Message RosettaNet à décoder  |
-   | **En-têtes** | OUI | En-têtes HTTP fournissant les valeurs de version, à savoir la version RNIF, et de type de réponse, qui indique le type de communication entre les partenaires et peut être synchrone ou asynchrone |
-   | **Rôle** | OUI | Rôle du partenaire hôte dans le processus PIP |
+   | **Message** | Oui | Message RosettaNet à décoder  |
+   | **En-têtes** | Oui | En-têtes HTTP fournissant les valeurs de version, à savoir la version RNIF, et de type de réponse, qui indique le type de communication entre les partenaires et peut être synchrone ou asynchrone |
+   | **Rôle** | Oui | Rôle du partenaire hôte dans le processus PIP |
    ||||
 
    Dans l’action RosettaNet Decode, la sortie, ainsi que d’autres propriétés, inclut **Outbound signal** (Signal sortant), que vous pouvez choisir d’encoder et renvoyer au partenaire, ou d’effectuer toute autre action sur cette sortie.
@@ -230,14 +230,14 @@ Pour accélérer le développement et recommander des modèles d’intégration,
 
    | Propriété | Obligatoire | Description |
    |----------|----------|-------------|
-   | **Message** | OUI | Message RosettaNet à encoder  |
-   | **Partenaire hôte** | OUI | Nom du partenaire hôte |
-   | **Partenaire invité** | OUI | Nom du partenaire invité |
-   | **PIP Code** (Code de PIP) | OUI | Code de processus PIP |
-   | **PIP Version** (Version de PIP) | OUI | Version de processus PIP |  
-   | **PIP instance identity** (Identité d’instance PIP) | OUI | Identificateur unique de ce message de processus PIP |  
-   | **Type de message** | OUI | Type du message à encoder |  
-   | **Rôle** | OUI | Rôle du partenaire hôte |
+   | **Message** | Oui | Message RosettaNet à encoder  |
+   | **Partenaire hôte** | Oui | Nom du partenaire hôte |
+   | **Partenaire invité** | Oui | Nom du partenaire invité |
+   | **PIP Code** (Code de PIP) | Oui | Code de processus PIP |
+   | **PIP Version** (Version de PIP) | Oui | Version de processus PIP |  
+   | **PIP instance identity** (Identité d’instance PIP) | Oui | Identificateur unique de ce message de processus PIP |  
+   | **Type de message** | Oui | Type du message à encoder |  
+   | **Rôle** | Oui | Rôle du partenaire hôte |
    ||||
 
    Le message encodé est maintenant prêt à envoyer au partenaire.

@@ -16,10 +16,10 @@ ms.date: 09/11/2018
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 38a9ef04389318d3588649117c930ff6efa3fe4e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65784476"
 ---
 # <a name="problem-adding-a-non-gallery-application"></a>Problème d’ajout d’une application hors galerie
@@ -96,7 +96,7 @@ Consultez les descriptions suivantes pour plus d’informations sur les notifica
 
 - **UPN** : utilisateur qui a effectué l’opération
 
-  *  Example : **tperkins\@f128.info**
+  *  Exemple : **tperkins\@f128.info**
 
 - **ID de locataire** : ID unique du locataire dont l’utilisateur ayant effectué l’opération était membre
 
@@ -110,7 +110,7 @@ Consultez les descriptions suivantes pour plus d’informations sur les notifica
 
 - **Nom d’affichage** : **(peut être vide)** nom d’affichage plus détaillé de l’erreur
 
-  *  Exemple : **paramètres de proxy d’application**
+  *  Exemple : **Paramètres de proxy d’application**
 
 - **État** : état spécifique de la notification
 

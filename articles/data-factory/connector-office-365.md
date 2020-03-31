@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 10/20/2019
 ms.author: jingwang
 ms.openlocfilehash: d97b3caccc92f0fdfeb229d94e30ee6499c26181
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74912403"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory"></a>Copier des données dans Azure depuis Office 365 avec Azure Data Factory
@@ -63,11 +63,11 @@ Si ADF est créé dans le cadre d’une application managée et que les affectat
 
 Vous pouvez créer un pipeline avec l’activité de copie à l’aide d’un des outils ou kits de développement logiciel suivants. Sélectionnez un lien pour accéder à un didacticiel contenant des instructions détaillées pour créer un pipeline avec une activité de copie. 
 
-- [Portail Azure](quickstart-create-data-factory-portal.md)
+- [Azure portal](quickstart-create-data-factory-portal.md)
 - [Kit de développement logiciel (SDK) .NET](quickstart-create-data-factory-dot-net.md)
 - [Kit de développement logiciel (SDK) Python](quickstart-create-data-factory-python.md)
 - [Azure PowerShell](quickstart-create-data-factory-powershell.md)
-- [API REST](quickstart-create-data-factory-rest-api.md)
+- [REST API](quickstart-create-data-factory-rest-api.md)
 - [Modèle Azure Resource Manager](quickstart-create-data-factory-resource-manager-template.md) 
 
 Les sections suivantes fournissent des informations détaillées sur les propriétés utilisées pour définir les entités Data Factory spécifiques du connecteur Office 365.
@@ -78,11 +78,11 @@ Les propriétés prises en charge pour le service lié Office 365 sont les suiva
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type doit être définie sur : **Office365** | OUI |
-| office365TenantId | ID de locataire Azure auquel le compte Office 365 appartient. | OUI |
-| servicePrincipalTenantId | Spécifiez les informations du locataire où se trouve votre application web Azure AD. | OUI |
-| servicePrincipalId | Spécifiez l’ID client de l’application. | OUI |
-| servicePrincipalKey | Spécifiez la clé de l’application. Marquez ce champ comme SecureString pour le stocker de façon sécurisée dans Data Factory. | OUI |
+| type | La propriété type doit être définie sur : **Office365** | Oui |
+| office365TenantId | ID de locataire Azure auquel le compte Office 365 appartient. | Oui |
+| servicePrincipalTenantId | Spécifiez les informations du locataire où se trouve votre application web Azure AD. | Oui |
+| servicePrincipalId | Spécifiez l’ID client de l’application. | Oui |
+| servicePrincipalKey | Spécifiez la clé de l’application. Marquez ce champ comme SecureString pour le stocker de façon sécurisée dans Data Factory. | Oui |
 | connectVia | Runtime d’intégration à utiliser pour la connexion à la banque de données.  À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. | Non |
 
 >[!NOTE]
@@ -118,8 +118,8 @@ Pour copier des données depuis Office 365, les propriétés suivantes sont pris
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type du jeu de données doit être définie sur : **Office365Table** | OUI |
-| tableName | Nom du jeu de données à extraire d’Office 365. Cliquez [ici](https://docs.microsoft.com/graph/data-connect-datasets#datasets) pour obtenir la liste des jeux de données Office 365 disponibles pour l’extraction. | OUI |
+| type | La propriété type du jeu de données doit être définie sur : **Office365Table** | Oui |
+| tableName | Nom du jeu de données à extraire d’Office 365. Cliquez [ici](https://docs.microsoft.com/graph/data-connect-datasets#datasets) pour obtenir la liste des jeux de données Office 365 disponibles pour l’extraction. | Oui |
 
 Si vous avez défini `dateFilterColumn`, `startTime`, `endTime` et `userScopeFilterUri` dans le jeu de données, il reste pris en charge tel quel, mais nous vous suggérons d’utiliser le nouveau modèle dans la source d’activité à l’avenir.
 
@@ -152,7 +152,7 @@ Pour copier des données à partir d’Office 365, les propriétés prises en c
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type de la source d’activité de copie doit être définie sur : **Office365Source** | OUI |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **Office365Source** | Oui |
 | allowedGroups | Prédicat de sélection de groupe.  Cette propriété permet de sélectionner jusqu'à 10 groupes d’utilisateurs pour lesquels les données seront récupérées.  Si aucun groupe n’est spécifié, les données sont retournées pour toute l’organisation. | Non |
 | userScopeFilterUri | Lorsque la propriété `allowedGroups` n’est pas spécifiée, vous pouvez utiliser une expression de prédicat appliquée sur l’ensemble du locataire pour filtrer les lignes spécifiques à extraire d’Office 365. Le format de prédicat doit correspondre au format de requête des API Microsoft Graph, par exemple, `https://graph.microsoft.com/v1.0/users?$filter=Department eq 'Finance'`. | Non |
 | dateFilterColumn | Nom de la colonne de filtre de date/heure. Cette propriété permet de limiter l’intervalle de temps pendant lequel les données Office 365 sont extraites. | Oui, si le jeu de données comporte une ou plusieurs colonnes de date/heure. Reportez-vous [ici](https://docs.microsoft.com/graph/data-connect-filtering#filtering) pour obtenir la liste des jeux de données qui nécessitent ce filtre de date/heure. |

@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 85f600c8bd46e699e80bf7b596574dc01467ef79
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67109312"
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>Déterminer la stratégie d’adoption du cycle de vie des identités hybrides
@@ -36,7 +36,7 @@ Le contrôle d’accès est une fonction essentielle d’un système d’approvi
 
 Dans les entreprises informatiques modernes, les comptes contiennent des centaines de paramètres qui définissent les autorités, et ces informations peuvent être contrôlées par votre système d’approvisionnement. Les nouveaux utilisateurs peuvent être identifiés avec les données que vous fournissez à partir de la source faisant autorité. La fonctionnalité d’approbation des demandes d’accès lance les processus qui approuvent (ou refusent) l’approvisionnement des ressources qui leur sont destinées.
 
-| Phase de gestion du cycle de vie | En local | Cloud | Hybride |
+| Phase de gestion du cycle de vie | Localement | Cloud | Hybride |
 | --- | --- | --- | --- |
 | Gestion des comptes et approvisionnement |En utilisant le rôle de serveur des services de domaine Active Directory® (AD DS), vous pouvez créer une infrastructure évolutive, sécurisée et gérable pour l’utilisateur et la gestion des ressources, et fournir une assistance pour les applications utilisant des répertoires telles que Microsoft® Exchange Server. <br><br> [Vous pouvez configurer des groupes dans AD DS via un gestionnaire d’identité](https://technet.microsoft.com/library/ff686261.aspx) <br>[Vous pouvez configurer des utilisateurs dans AD DS](https://technet.microsoft.com/library/ff686263.aspx) <br><br> Les administrateurs peuvent utiliser le contrôle d’accès pour gérer l’accès utilisateur aux ressources partagées pour des raisons de sécurité. Dans Active Directory, le contrôle d’accès est géré au niveau de l’objet en définissant différents niveaux d’accès, ou des autorisations sur les objets, par exemple Contrôle total, Écriture, Lecture ou Aucun accès. Le contrôle d’accès dans Active Directory définit la manière dont les différents utilisateurs peuvent utiliser les objets Active Directory. Par défaut, les autorisations sur les objets dans Active Directory sont définies sur le paramètre le plus sécurisé. |Vous devez créer un compte pour chaque utilisateur ayant besoin d’accéder à un service cloud Microsoft. Vous pouvez également modifier des comptes d’utilisateurs ou les supprimer lorsqu’ils ne sont plus nécessaires. Par défaut, les utilisateurs ne reçoivent pas d’autorisations d’administrateur, mais vous pouvez éventuellement leur affecter de telles autorisations. <br><br> Dans Azure Active Directory, l’une des principales fonctionnalités est la possibilité de gérer l’accès aux ressources. Ces ressources peuvent faire partie du répertoire, comme dans le cas des autorisations de gestion des objets via des rôles dans le répertoire ou les ressources externes au répertoire, comme les applications SaaS, les services Azure et les sites SharePoint ou les ressources locales. <br><br> Les groupes de sécurité sont au cœur de la solution de gestion de l’accès Azure Active Directory. Le propriétaire de la ressource (ou l’administrateur de l’annuaire) peut affecter un groupe pour fournir un certain droit d’accès aux ressources dont il dispose. Les membres de groupe se voient fournir l’accès et le propriétaire de la ressource peut déléguer le droit de gérer la liste des membres d’un groupe à quelqu’un d’autre, comme le chef de service ou l’administrateur du support technique.<br> <br> La section Gestion de groupes dans Azure AD fournit de plus amples informations sur la gestion de l’accès via les groupes. |Étendre des identités Active Directory dans le cloud via la synchronisation et la fédération |
 

@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 10/17/2019
 ms.author: juliako
 ms.openlocfilehash: 5a4f7e31cb17f47e8796ab99c1f8a089339903df
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74888425"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Quotas et limitations dans Azure Media Services v3
@@ -32,7 +32,7 @@ Cet article décrit les quotas et les limitations dans Azure Media Services v3.
 | Fichiers par JobInput|10 (fixe)|
 | Taille du fichier| Dans certains scénarios, la taille maximale des fichiers pris en charge pour le traitement dans Media Services est soumise à une limite. <sup>(1)</sup> |
 | Travaux par compte Media Services | 500 000 <sup>(2)</sup> (fixe)|
-| Événements en temps réel par compte Media Services |5\.|
+| Événements en temps réel par compte Media Services |5|
 | Comptes Media Services dans un même abonnement | 25 (fixe) |
 | Sorties en direct par événement en direct |3 <sup>(3)</sup> |
 | Durée maximale de la sortie en direct | 25 heures |

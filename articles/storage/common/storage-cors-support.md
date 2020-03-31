@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: bb296db0d97382deac984369704777de5d5cb362
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65147685"
 ---
 # <a name="cross-origin-resource-sharing-cors-support-for-the-azure-storage-services"></a>Prise en charge du service Partage des ressources cross-origine (CORS) pour les services Azure Storage
@@ -166,12 +166,12 @@ Le tableau suivant indique comment le stockage Azure répond aux demandes GET/HE
 | --- | --- | --- | --- | --- | --- | --- |
 | **En-tête d’origine présent dans la demande** |**Règle(s) CORS spécifiée(s) pour ce service** |**Règle de correspondance existante qui autorise toutes les origines(*)** |**Règle de correspondance existante pour la correspondance exacte d’origine** |**La réponse inclut l’en-tête Vary avec la valeur Origin** |**La réponse inclut l’en-tête Access-Control-Allowed-Origin : « * »** |**La réponse inclut l’en-têteAccess-Control-Exposed-Headers** |
 | Non |Non |Non |Non |Non |Non |Non |
-| Non |OUI |Non |Non |OUI |Non |Non |
-| Non |OUI |OUI |Non |Non |OUI |OUI |
-| OUI |Non |Non |Non |Non |Non |Non |
-| OUI |OUI |Non |OUI |OUI |Non |OUI |
-| OUI |OUI |Non |Non |OUI |Non |Non |
-| OUI |OUI |OUI |Non |Non |OUI |OUI |
+| Non |Oui |Non |Non |Oui |Non |Non |
+| Non |Oui |Oui |Non |Non |Oui |Oui |
+| Oui |Non |Non |Non |Non |Non |Non |
+| Oui |Oui |Non |Oui |Oui |Non |Oui |
+| Oui |Oui |Non |Non |Oui |Non |Non |
+| Oui |Oui |Oui |Non |Non |Oui |Oui |
 
 ## <a name="billing-for-cors-requests"></a>Facturation des demandes CORS
 Les demandes préliminaires ayant abouti sont facturées si vous avez activé CORS pour l’un des services de stockage de votre compte (en appelant [Set Blob Service Properties](https://msdn.microsoft.com/library/hh452235.aspx), [Set Queue Service Properties](https://msdn.microsoft.com/library/hh452232.aspx) ou [Set Table Service Properties](https://msdn.microsoft.com/library/hh452240.aspx)). Pour réduire les coûts, attribuez une valeur plus élevée à l’élément **MaxAgeInSeconds** dans vos règles CORS, de façon que l’agent utilisateur mette en cache la demande.

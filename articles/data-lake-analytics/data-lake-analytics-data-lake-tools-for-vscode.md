@@ -10,10 +10,10 @@ ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.topic: conceptual
 ms.date: 02/09/2018
 ms.openlocfilehash: 5042d89f1cb5e928444e4b3c9a23db7bb1d66585
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60509095"
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Utiliser Azure Data Lake Tools pour Visual Studio Code
@@ -38,7 +38,7 @@ Après avoir installé les prérequis, vous pouvez installer Azure Data Lake Too
 
 **Pour installer Azure Data Lake Tools**
 
-1. Ouvrez Visual Studio Code.
+1. Ouvrez Visual Studio Code.
 2. Sélectionnez **Extensions** dans le volet gauche. Entrez **Azure Data Lake Tools** dans la zone de recherche.
 3. Sélectionnez **Installer** en regard de **Azure Data Lake Tools**. 
 
@@ -89,7 +89,7 @@ Ouvrez la palette de commandes (Ctrl+Maj+P) et entrez **ADL: Open Sample Script*
 **Pour compiler un script U-SQL**
 
 1. Sélectionnez Ctrl+Maj+P pour ouvrir la palette de commandes. 
-2. Entrez **ADL: Compile Script**. Les résultats de la compilation s’affichent dans la fenêtre **Output**. Vous pouvez également cliquer avec le bouton droit sur un fichier de script, puis sélectionner**ADL: Compile Script** pour compiler un travail U-SQL. Le résultat de la compilation s’affiche dans le volet **Output**.
+2. Entrez **ADL: Compile Script**. Les résultats de la compilation s’affichent dans la fenêtre **Output**. Vous pouvez également cliquer avec le bouton droit sur un fichier de script, puis sélectionner **ADL: Compile Script** pour compiler un travail U-SQL. Le résultat de la compilation s’affiche dans le volet **Output**.
  
 **Pour envoyer un script U-SQL**
 
@@ -492,5 +492,5 @@ Data Lake Tools pour VS Code prend en charge les fonctionnalités suivantes :
 ## <a name="next-steps"></a>Étapes suivantes
 - [Développer en U-SQL avec Python, R et C Sharp pour Azure Data Lake Analytics dans VS Code](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
 - [Exécution locale et débogage local U-SQL avec Visual Studio Code](data-lake-tools-for-vscode-local-run-and-debug.md)
-- [Tutoriel : Prise en main d’Azure Data Lake Analytics](data-lake-analytics-get-started-portal.md)
-- [Tutoriel : Développer des scripts U-SQL à l’aide de Data Lake Tools pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
+- [Tutoriel : Prise en main d’Azure Data Lake Analytics](data-lake-analytics-get-started-portal.md)
+- [Tutoriel : Développer des scripts U-SQL à l’aide de Data Lake Tools pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)

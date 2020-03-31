@@ -15,21 +15,21 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 358a44c59112aa4d2a235adcae1d34313afe6859
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61129642"
 ---
 # <a name="h264-multiple-bitrate-16x9-for-ios"></a>H264 – Vitesse de transmission multiple – 16 x 9 pour iOS
 `Media Encoder Standard` définit un ensemble de présélections d’encodage à utiliser lors de la création des travaux d’encodage. Vous pouvez utiliser un `preset name` afin de spécifier le format dans lequel vous souhaitez encoder votre fichier multimédia. Sinon, vous pouvez créer vos propres présélections basées sur JSON ou XML (à l’aide de l’encodage UTF-8 ou UTF-16). Vous pouvez ensuite transmettre la présélection personnalisée à l’encodeur. Pour obtenir la liste de tous les noms de présélections pris en charge par cet encodeur `Media Encoder Standard`, consultez [Présélections de tâches pour Media Encoder Standard](media-services-mes-presets-overview.md).  
   
- Cette rubrique présente la présélection `H264 Multiple Bitrate 16x9 for iOS` aux formats XML et JSON.  
+ Cette rubrique représente la présélection `H264 Multiple Bitrate 16x9 for iOS` aux formats XML et JSON.  
   
  Cette présélection produit un ensemble de 8 fichiers MP4 alignés sur le groupe d’images, de 8 500 kbit/s à 200 kbit/s, et de l’audio stéréo AAC. Pour plus d’informations sur le profil, la vitesse de transmission, la fréquence d’échantillonnage, etc. de cette présélection, examinez le code XML ou JSON présenté ci-dessous. Pour consulter une explication de la signification des éléments des présélections et les valeurs valides pour chaque élément, consultez la rubrique [Schéma Media Encoder Standard](media-services-mes-schema.md).  
   
 > [!NOTE]
->  Lorsque vous modifiez les valeurs `Width` et `Height` sur les couches, assurez-vous que les proportions demeurent constantes. Par exemple :  1920x1080, 1280x720, 1080x576, 640x360. Vous ne devez pas utiliser un mélange de proportions, comme : 1280x720, 720x480, 640x360.  
+>  Lorsque vous modifiez les valeurs `Width` et `Height` sur les couches, assurez-vous que les proportions demeurent constantes. Par exemple : 1920x1080, 1280x720, 1080x576, 640x360. Vous ne devez pas utiliser un mélange de proportions, comme : 1280x720, 720x480, 640x360.  
   
  XML  
   

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
 ms.openlocfilehash: f506cc526a824d45ae2d6b7a75e1c1a99dae4d64
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75426457"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Créer une solution IoT à l’aide de Stream Analytics
@@ -28,7 +28,7 @@ Dans cette solution, vous allez apprendre à utiliser Azure Stream Analytics pou
 * développer des solutions de streaming pour vos clients à l’aide de Stream Analytics en toute confiance ;
 * vous appuyer sur l’expérience de surveillance et de journalisation pour résoudre les problèmes.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 Pour effectuer cette solution, vous avez besoin des prérequis suivants :
 * Un [abonnement Azure](https://azure.microsoft.com/pricing/free-trial/)
 
@@ -282,10 +282,10 @@ Exemple de sortie :
     }
 ```
 
-## <a name="scale-out-the-job"></a>Montée en charge de la tâche
+## <a name="scale-out-the-job"></a>Effectuer un scale-out de la tâche
 Azure Stream Analytics est conçu pour adapter son échelle en souplesse afin de pouvoir gérer de grands volumes de données. La requête d’Azure Stream Analytics peut utiliser une clause **PARTITION BY** pour informer le système que cette étape fait l’objet d’une montée en charge. **PartitionId** est une colonne spéciale ajoutée par le système, qui correspond à l’ID de partition de l’entrée (hub d’événements).
 
-Pour monter en charge la requête aux partitions, modifiez la syntaxe de requête pour qu’elle suive le code suivant :
+Pour effectuer un scale-out de la requête aux partitions, modifiez la syntaxe de requête pour qu’elle suive le code suivant :
 ```sql
 SELECT TollId, System.Timestamp AS WindowEnd, COUNT(*)AS Count
 INTO CosmosDB
@@ -322,6 +322,6 @@ Vous pouvez également accéder aux **Journaux d’activité** à partir de la z
 3. Sélectionnez **Supprimer le groupe de ressources**. Tapez le nom du groupe de ressources pour confirmer la suppression.
 
 ## <a name="conclusion"></a>Conclusion
-Cette solution vous a présenté le service Azure Stream Analytics. Il vous a expliqué comment configurer les entrées et sorties de la tâche Stream Analytics. À l’aide du scénario sur les données de péage, la solution vous a expliqué les types courants de problèmes qui surviennent dans l’espace de données en mouvement et comment les résoudre avec de simples requêtes de type SQL dans Azure Stream Analytics. Elle a décrit des constructions d’extension SQL en vue d’une utilisation avec des données temporelles. Il a montré comment joindre des flux de données et enrichir le flux de données avec des données de référence statiques, et comment faire monter en charge une requête pour obtenir un débit plus élevé.
+Cette solution vous a présenté le service Azure Stream Analytics. Il vous a expliqué comment configurer les entrées et sorties de la tâche Stream Analytics. À l’aide du scénario sur les données de péage, la solution vous a expliqué les types courants de problèmes qui surviennent dans l’espace de données en mouvement et comment les résoudre avec de simples requêtes de type SQL dans Azure Stream Analytics. Elle a décrit des constructions d’extension SQL en vue d’une utilisation avec des données temporelles. Il a montré comment joindre des flux de données et enrichir le flux de données avec des données de référence statiques, et comment effectuer un scale-out d’une requête pour obtenir un débit plus élevé.
 
 Bien que cette solution constitue une bonne introduction, elle n’est en aucun cas complète. Vous pouvez trouver plusieurs modèles de requête utilisant le langage SAQL dans [Exemples de requête pour les modes d’utilisation courants dans Stream Analytics](stream-analytics-stream-analytics-query-patterns.md).

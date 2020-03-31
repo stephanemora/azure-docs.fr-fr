@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: c8eba538a7015648611e6054ce85b381dcfc9105
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76760996"
 ---
 # <a name="enable-diagnostics-logs-for-service-bus"></a>Activer les journaux de diagnostics pour Service Bus
@@ -37,7 +37,7 @@ Tous les journaux sont stockés au format JSON (JavaScript Object Notation) dans
 
 Les chaînes JSON du journal des opérations incluent les éléments répertoriés dans le tableau suivant :
 
-| Name | Description |
+| Nom | Description |
 | ------- | ------- |
 | ActivityId | ID interne, utilisé pour identifier l’activité spécifiée |
 | EventName | Nom d’opération |
@@ -79,7 +79,7 @@ Les opérations de gestion suivantes sont capturées dans les journaux des opér
 | Espace de noms | <ul> <li> Créer l'espace de noms</li> <li> Mettre à jour un espace de noms </li> <li> Supprimer un espace de noms </li>  </ul> | 
 | File d'attente | <ul> <li> Créer une file d’attente</li> <li> Mettre à jour une file d’attente</li> <li> Supprimer une file d’attente </li> </ul> | 
 | Rubrique | <ul> <li> Créer une rubrique </li> <li> Mettre à jour une rubrique </li> <li> Supprimer une rubrique </li> </ul> |
-| Subscription | <ul> <li> Créer un abonnement </li> <li> Mettre à jour un abonnement </li> <li> Supprimer un abonnement </li> </ul> |
+| Abonnement | <ul> <li> Créer un abonnement </li> <li> Mettre à jour un abonnement </li> <li> Supprimer un abonnement </li> </ul> |
 
 > [!NOTE]
 > Actuellement, les opérations de *lecture* ne font pas l’objet d’un suivi dans les journaux des opérations.

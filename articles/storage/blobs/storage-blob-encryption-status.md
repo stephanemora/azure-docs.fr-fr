@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 5cef0e94a43b3ef16d45f7f43658f962e07b5345
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74707593"
 ---
 # <a name="check-the-encryption-status-of-a-blob"></a>Vérifier l’état de chiffrement d’un objet blob
@@ -26,7 +26,7 @@ Cet article explique comment déterminer si un objet blob donné a été chiffr�
 
 Utilisez le portail Azure, PowerShell ou Azure CLI pour déterminer si un objet blob est chiffré sans code.
 
-### <a name="azure-portaltabportal"></a>[Portail Azure](#tab/portal)
+### <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 Pour utiliser le portail Azure en vue de vérifier si un objet blob a été chiffré, effectuez les étapes suivantes :
 
@@ -37,7 +37,7 @@ Pour utiliser le portail Azure en vue de vérifier si un objet blob a été chif
 
     ![Capture d’écran montrant comment vérifier la propriété Serveur chiffré dans le portail Azure](media/storage-blob-encryption-status/blob-encryption-property-portal.png)
 
-### <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+### <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Pour utiliser PowerShell en vue de vérifier si un objet blob a été chiffré, vérifiez sa propriété **IsServerEncrypted**. N’oubliez pas de remplacer les valeurs d’espace réservé entre crochets par vos propres valeurs :
 
@@ -56,7 +56,7 @@ Pour déterminer quand l’objet blob a été créé, vérifiez la valeur de la 
 $blob.ICloudBlob.Properties.IsServerEncrypted
 ```
 
-### <a name="azure-clitabcli"></a>[Interface de ligne de commande Azure](#tab/cli)
+### <a name="azure-cli"></a>[Azure CLI](#tab/cli)
 
 Pour utiliser Azure CLI en vue de vérifier si un objet blob a été chiffré, vérifiez sa propriété **IsServerEncrypted**. N’oubliez pas de remplacer les valeurs d’espace réservé entre crochets par vos propres valeurs :
 

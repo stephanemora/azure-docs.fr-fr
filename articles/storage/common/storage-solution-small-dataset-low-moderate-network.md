@@ -9,17 +9,17 @@ ms.topic: article
 ms.date: 12/05/2018
 ms.author: alkohli
 ms.openlocfilehash: 3e6f4f3eb312f0d4d96a008c0944a9608d0bf4a7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60397275"
 ---
 # <a name="data-transfer-for-small-datasets-with-low-to-moderate-network-bandwidth"></a>Transférer de petits jeux de données avec une bande passante réseau faible ou modérée
  
 Cet article fournit une vue d'ensemble des solutions de transfert de données adaptées aux environnements disposant d'une bande passante réseau faible à modérée et au transfert de petits jeux de données. Il décrit également les options de transfert de données recommandées et la matrice de fonctionnalités clés correspondant à ce scénario.
 
-Pour une vue d'ensemble de toutes les options de transfert de données disponibles, accédez à [Choisir une solution de transfert de données Azure](storage-choose-data-transfer-solution.md).
+Pour une vue d’ensemble de toutes les options de transfert de données disponibles, voir [Choisir une solution de transfert de données Azure](storage-choose-data-transfer-solution.md).
 
 ## <a name="scenario-description"></a>Description du scénario
 
@@ -39,7 +39,7 @@ Les options recommandées dans ce scénario sont :
 
 - **Outils de script/programmatique** comme les API REST AzCopy/PowerShell/Azure CLI et du stockage Azure.
 
-    - **AzCopy** : utilisez cet outil en ligne de commande pour copier facilement des données vers et depuis le Stockage Blob Azure, Azure Files et Table Azure avec des performances optimales. Il prend en charge la concurrence et le parallélisme, ainsi que la possibilité de reprendre les opérations de copie après une interruption.
+    - **AzCopy** – utilisez cet outil en ligne de commande pour copier facilement des données vers et à partir du Stockage Blob, Fichier et Table Azure avec des performances optimales. Il prend en charge la concurrence et le parallélisme, ainsi que la possibilité de reprendre les opérations de copie après une interruption.
     - **Azure PowerShell** : pour les utilisateurs qui connaissent l’administration système, il est possible de se servir du module de stockage Azure dans Azure PowerShell pour transférer des données.
     - **Azure CLI** : utilisez cet outil multiplateforme pour gérer les services Azure et charger des données sur le Stockage Azure.
     - **API/kits SDK Stockage Azure** : lorsque vous créez une application, vous pouvez la développer à l'aide des API REST/SDK Stockage Azure et utiliser les bibliothèques clientes disponibles en plusieurs langues.
@@ -52,13 +52,13 @@ Le tableau suivant résume les différences entre les principales fonctionnalit�
 | Fonctionnalité | Explorateur de stockage Azure | Portail Azure | AzCopy<br>Azure PowerShell<br>Azure CLI | API REST ou SDK Stockage Azure |
 |---------|------------------------|--------------|-----------------------------------------|---------------------------------|
 | Disponibilité | Télécharger et installer <br>Outils autonomes | Outils d’exploration basés sur le web dans le portail Azure | Outil de ligne de commande |Interfaces programmables dans .NET, Java, Python, JavaScript, C++, Go, Ruby et PHP |
-| Interface graphique | OUI | OUI | Non | Non |
+| Interface graphique | Oui | Oui | Non | Non |
 | Plateformes prises en charge | Windows, Mac, Linux | Basé sur le Web |Windows, Mac, Linux |Toutes les plateformes |
-| Opérations de stockage Blob autorisées<br>pour les blobs et les dossiers | Télécharger<br>Téléchargement<br>gérer | Télécharger<br>Téléchargement<br>gérer |Télécharger<br>Téléchargement<br>gérer | Oui, personnalisable |
-| Stockage Data Lake Gen1 autorisé<br>opérations pour les fichiers et les dossiers | Télécharger<br>Téléchargement<br>gérer | Non |Télécharger<br>Téléchargement<br>gérer                   | Non |
-| Opérations de stockage de fichiers autorisées<br>pour les fichiers et les répertoires | Télécharger<br>Téléchargement<br>gérer | Télécharger<br>Téléchargement<br>gérer   |Télécharger<br>Téléchargement<br>gérer | Oui, personnalisable |
-| Opérations de stockage de tables autorisées<br>pour les tables |gérer | Non |Prise en charge des tables dans AzCopy v7 |Oui, personnalisable|
-| Stockage File d'attente autorisé | gérer | Non  |Non | Oui, personnalisable|
+| Opérations de stockage Blob autorisées<br>pour les blobs et les dossiers | Télécharger<br>Téléchargement<br>Gérer | Télécharger<br>Téléchargement<br>Gérer |Télécharger<br>Téléchargement<br>Gérer | Oui, personnalisable |
+| Stockage Data Lake Gen1 autorisé<br>opérations pour les fichiers et les dossiers | Télécharger<br>Téléchargement<br>Gérer | Non |Télécharger<br>Téléchargement<br>Gérer                   | Non |
+| Opérations de stockage de fichiers autorisées<br>pour les fichiers et les répertoires | Télécharger<br>Téléchargement<br>Gérer | Télécharger<br>Téléchargement<br>Gérer   |Télécharger<br>Téléchargement<br>Gérer | Oui, personnalisable |
+| Opérations de stockage de tables autorisées<br>pour les tables |Gérer | Non |Prise en charge des tables dans AzCopy v7 |Oui, personnalisable|
+| Stockage File d'attente autorisé | Gérer | Non  |Non | Oui, personnalisable|
 
 
 ## <a name="next-steps"></a>Étapes suivantes

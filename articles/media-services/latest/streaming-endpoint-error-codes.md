@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: juliako
 ms.openlocfilehash: ebcda6026f79bc88df91471d8be88316ba57bfc6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65411369"
 ---
 # <a name="streaming-endpoint-origin-errors"></a>Erreurs (d’origine) du point de terminaison de streaming 
@@ -28,7 +28,7 @@ Cette rubrique décrit les erreurs que vous pouvez recevoir du [service de point
 
 La demande contient des informations non valides et est rejetée avec ces codes d’erreur pour l’une des raisons suivantes :
 
-|Code d'erreur|Valeur hexadécimale |Description de l’erreur|
+|Code d'erreur|Valeur hexadécimale |Description de l'erreur|
 |---|---|---|
 |MPE_BAD_URL_SYNTAX |0x80890201|Une erreur de format ou de syntaxe d’URL. Les exemples incluent des demandes pour un type non valide, un fragment non valide ou une piste non valide. |
 |MPE_ENC_ENCRYPTION_NOT_SPECIFIED_IN_URL |0x8088024C|La demande n’a pas de balise de chiffrement dans l’URL. Les demandes CMAF exigent une balise de chiffrement dans l’URL. D’autres protocoles configurés avec plusieurs types de chiffrement nécessitent également la balise de chiffrement pour éviter les ambiguïtés. |
@@ -38,7 +38,7 @@ La demande contient des informations non valides et est rejetée avec ces codes 
 
 La demande n’est pas autorisée pour l’une des raisons suivantes :
 
-|Code d'erreur|Valeur hexadécimale |Description de l’erreur|
+|Code d'erreur|Valeur hexadécimale |Description de l'erreur|
 |---|---|---|
 |MPE_STORAGE_AUTHENTICATION_FAILED |0x808900EA|La demande de stockage pour répondre à la demande a échoué avec une erreur de type Authentification. Cela peut se produire si les clés de stockage ont été permutées et que le service n’a pas pu synchroniser les clés de stockage. <br/><br/>Contactez le support Azure en accédant à [Aide + Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) dans le portail Azure.|
 |MPE_STORAGE_INSUFFICIENT_ACCOUNT_PERMISSIONS |0x808900EB |Erreur d’opération de stockage, l’accès a échoué en raison d’autorisations de compte insuffisantes. |
@@ -52,7 +52,7 @@ La demande n’est pas autorisée pour l’une des raisons suivantes :
 
 L’opération tente d’agir sur une ressource qui n’existe plus. Par exemple, la ressource peut déjà avoir été supprimée.
 
-|Code d'erreur|Valeur hexadécimale |Description de l’erreur|
+|Code d'erreur|Valeur hexadécimale |Description de l'erreur|
 |---|---|---|
 |MPE_EGRESS_TRACK_NOT_FOUND |0x80890209 |La piste demandée est introuvable. |
 |MPE_RESOURCE_NOT_FOUND |0x808901F9 |La ressource demandée est introuvable. |
@@ -70,13 +70,13 @@ L’opération tente d’agir sur une ressource qui n’existe plus. Par exemple
 
 L’ID fourni pour une ressource sur une opération `PUT` ou `POST` a été prise par une ressource existante. Pour résoudre ce problème, utilisez un autre ID pour la ressource.
 
-|Code d'erreur|Valeur hexadécimale |Description de l’erreur|
+|Code d'erreur|Valeur hexadécimale |Description de l'erreur|
 |---|---|---|
 |MPE_STORAGE_CONFLICT  |0x808900EE  |Erreur d’opération de stockage, erreur de conflit.  |
 
 ## <a name="410"></a>410
 
-|Code d'erreur|Valeur hexadécimale |Description de l’erreur|
+|Code d'erreur|Valeur hexadécimale |Description de l'erreur|
 |---|---|---|
 |MPE_FILTER_FORCE_END_LEFT_EDGE_CROSSED_DVR_WINDOW|0x80890263|Pour le streaming en direct, lorsque le filtre dont l’élément forceEndTimestamp est défini sur true, le timestamp de départ ou de fin est en dehors de la fenêtre du magnétoscope numérique actuelle.|
 
@@ -84,7 +84,7 @@ L’ID fourni pour une ressource sur une opération `PUT` ou `POST` a été pris
 
 L’opération spécifiait un eTag différent de la version disponible sur le serveur, c’est-à-dire une erreur d’accès concurrentiel optimiste. Effectuez une nouvelle tentative de requête après avoir lu la dernière version de la ressource et mis à jour l’eTag sur la requête.
 
-|Code d'erreur|Valeur hexadécimale |Description de l’erreur|
+|Code d'erreur|Valeur hexadécimale |Description de l'erreur|
 |---|---|---|
 |MPE_FRAGMENT_NOT_READY |0x80890200 |Le fragment demandé n’est pas prêt.|
 |MPE_STORAGE_PRECONDITION_FAILED| 0x808900EF|Erreur d’opération de stockage, un échec de la précondition.|
@@ -93,7 +93,7 @@ L’opération spécifiait un eTag différent de la version disponible sur le se
 
 Le format de charge utile envoyé par le client est dans un format non pris en charge.
 
-|Code d'erreur|Valeur hexadécimale |Description de l’erreur|
+|Code d'erreur|Valeur hexadécimale |Description de l'erreur|
 |---|---|---|
 |MPE_ENC_ALREADY_ENCRYPTED| 0x8088021F| Ne doit pas appliquer le chiffrement sur le contenu déjà chiffré.|
 |MPE_ENC_INVALID_INPUT_ENCRYPTION_FORMAT|0x8088021D |Le chiffrement est non valide pour le format d’entrée.|
@@ -165,7 +165,7 @@ Pour les exemples et articles dédiés au direct, consultez :
 
 ## <a name="416-range-not-satisfiable"></a>416 Plage non satisfaite
 
-|Code d'erreur|Valeur hexadécimale |Description de l’erreur|
+|Code d'erreur|Valeur hexadécimale |Description de l'erreur|
 |---|---|---|
 |MPE_STORAGE_INVALID_RANGE|0x808900F1|Erreur d’opération de stockage, erreur http 416 renvoyée, plage non valide.|
 
@@ -173,7 +173,7 @@ Pour les exemples et articles dédiés au direct, consultez :
 
 Lors du traitement de la demande, Media Services rencontre une erreur qui empêche la poursuite du traitement.  
 
-|Code d'erreur|Valeur hexadécimale |Description de l’erreur|
+|Code d'erreur|Valeur hexadécimale |Description de l'erreur|
 |---|---|---|
 |MPE_STORAGE_SOCKET_TIMEOUT|0x808900F4|Réception et traduction depuis le code d’erreur Winhttp de ERROR_WINHTTP_TIMEOUT (0x00002ee2).|
 |MPE_STORAGE_SOCKET_CONNECTION_ERROR|0x808900F5|Réception et traduction depuis le code d’erreur Winhttp de ERROR_WINHTTP_CONNECTION_ERROR (0x00002efe).|
@@ -190,7 +190,7 @@ Le serveur est actuellement incapable de recevoir des demandes. Cette erreur peu
 > Examinez le message d’erreur et la chaîne de code d’erreur pour obtenir des informations plus détaillées sur la raison pour laquelle vous avez reçu l’erreur 503. Cette erreur n’indique pas toujours une limitation.
 > 
 
-|Code d'erreur|Valeur hexadécimale |Description de l’erreur|
+|Code d'erreur|Valeur hexadécimale |Description de l'erreur|
 |---|---|---|
 |MPE_STORAGE_SERVER_BUSY|0x808900E8|Erreur d’opération de stockage, réception d’erreur 503 de serveur occupé.|
 
@@ -201,7 +201,7 @@ Découvrez l’article [Communauté Azure Media Services](media-services-communi
 ## <a name="see-also"></a>Voir aussi
 
 - [Codes d’erreur d’encodage](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode)
-- [Media Services concepts](concepts-overview.md) (Concepts de Media Services)
+- [Concepts Azure Media Services](concepts-overview.md)
 - [Quotas et limitations](limits-quotas-constraints.md)
 
 ## <a name="next-steps"></a>Étapes suivantes

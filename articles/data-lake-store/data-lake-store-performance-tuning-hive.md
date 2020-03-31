@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 12/19/2016
 ms.author: stewu
 ms.openlocfilehash: 433c6b7d70cea9406b67d65e23cc357939cb5aa0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61437274"
 ---
 # <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Recommandations en matière d’optimisation des performances pour Hive sur HDInsight et Azure Data Lake Storage Gen1
@@ -26,12 +26,12 @@ Les paramètres par défaut ont été définis de manière à offrir de bonnes p
 ## <a name="prerequisites"></a>Prérequis
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Un compte Data Lake Storage Gen1**. Pour savoir comment en créer un, consultez [Prise en main d’Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
+* **Un compte Data Lake Storage Gen1**. Pour savoir comment en créer un, voir [Prise en main d’Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md).
 * **Cluster Azure HDInsight** avec accès à un compte Data Lake Storage Gen1. Voir [Créer un cluster HDInsight avec Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Veillez à activer le Bureau à distance pour le cluster.
 * **Exécution de Hive sur HDInsight**.  Pour en savoir plus sur l’exécution de travaux Hive sur HDInsight, voir [Utiliser Hive dans HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-hive)
 * **Recommandations en matière d’optimisation des performances sur Data Lake Storage Gen1**.  Pour des concepts généraux sur les performances, consultez [Recommandations en matière d’optimisation des performances de Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance)
 
-## <a name="parameters"></a>parameters
+## <a name="parameters"></a>Paramètres
 
 Voici les principaux paramètres à définir pour améliorer les performances de Data Lake Storage Gen1 :
 
@@ -77,7 +77,7 @@ Supposons que vous disposiez d’un cluster D14 à 8 nœuds.
 
 **Limitation de bande passante Data Lake Storage Gen1** 
 
-Vous pouvez constater des échecs de tâche si vous atteignez les limites de la bande passante fournie par Data Lake Storage Gen1. Vous pouvez identifier le problème en consultant les erreurs de limitation dans les journaux d’activité des tâches.  Vous pouvez réduire le parallélisme en augmentant la taille du conteneur Tez.  Si vous avez besoin de davantage de simultanéité pour votre travail, contactez-nous.
+Vous pouvez constater des échecs de tâche si vous atteignez les limites de la bande passante fournie par Data Lake Storage Gen1. Vous pouvez identifier le problème en consultant les erreurs de limitation dans les journaux d’activité des tâches.  Vous pouvez réduire le parallélisme en augmentant la taille du conteneur Tez.  Si vous avez besoin de davantage de simultanéité pour votre travail, veuillez nous contacter.
 
 Pour vérifier si une limitation est appliquée, vous devez activer la journalisation du débogage côté client. Voici comment procéder :
 

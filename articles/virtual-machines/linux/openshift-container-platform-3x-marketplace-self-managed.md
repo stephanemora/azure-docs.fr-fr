@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
 ms.openlocfilehash: 235efd746562ea4bd52b9cb57da0d8165d60de02
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75561318"
 ---
 # <a name="configure-prerequisites"></a>Configuration préalable requise
@@ -67,9 +67,9 @@ Entrez les valeurs des paramètres d’entrée et cliquez sur **OK**.
 |-----------------------|-----------------|
 | Nom d’utilisateur administrateur de la machine virtuelle | Utilisateur administrateur à créer sur toutes les instances de machine virtuelle |
 | Clé publique SSH pour l’utilisateur administrateur | Clé publique SSH utilisée pour se connecter à la machine virtuelle, ne doit pas utiliser de phrase secrète |
-| Subscription | Abonnement Azure dans lequel déployer un cluster |
+| Abonnement | Abonnement Azure dans lequel déployer un cluster |
 | Groupe de ressources | Pour les ressources de cluster, créez un groupe de ressources ou sélectionnez un groupe de ressources vide existant |
-| Location | Région Azure dans laquelle déployer le cluster |
+| Emplacement | Région Azure dans laquelle déployer le cluster |
 
    ![Panneau des concepts de base de l’offre](media/openshift-marketplace-self-managed/ocp-basics.png)  
 <br>

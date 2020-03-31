@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
 ms.openlocfilehash: 6c77cd43231d4596535c11564313a0fe90633cdb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60947744"
 ---
 # <a name="azure-traffic-manager-with-azure-site-recovery"></a>Azure Traffic Manager avec Azure Site Recovery
@@ -99,7 +99,7 @@ Pour éviter ce problème et garantir la résilience des applications, la **soci
 
 ![Application multirégion après](./media/concepts-traffic-manager-with-site-recovery/geographic-application-after.png)
 
-Par exemple, si le point de terminaison Centre de l’Allemagne échoue, l’application peut rapidement être récupérée vers la région Nord-Est de l’Allemagne. Le nouveau point de terminaison gère le trafic en provenance d’Allemagne avec un temps d’arrêt minimal pour les utilisateurs. De même, une panne de point de terminaison dans la région Europe Ouest peut être gérée en récupérant la charge de travail d’application vers la région Europe Nord, et en utilisant Azure Traffic Manager pour gérer les redirections DNS vers le point de terminaison disponible.
+Par exemple, si le point de terminaison Allemagne Centre échoue, l’application peut rapidement être récupérée vers la région Allemagne Nord-Est. Le nouveau point de terminaison gère le trafic en provenance d’Allemagne avec un temps d’arrêt minimal pour les utilisateurs. De même, une panne de point de terminaison dans la région Europe Ouest peut être gérée en récupérant la charge de travail d’application vers la région Europe Nord, et en utilisant Azure Traffic Manager pour gérer les redirections DNS vers le point de terminaison disponible.
 
 La configuration ci-dessus peut être développée pour inclure autant de combinaisons de régions et de points de terminaison que nécessaire. Traffic Manager permet jusqu’à 10 niveaux de profils imbriqués et n’autorise pas les boucles au sein de la configuration imbriquée.
 

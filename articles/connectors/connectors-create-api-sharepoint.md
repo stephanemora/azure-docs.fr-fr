@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
 ms.openlocfilehash: bb82ef2d6fb83c2e1b0fa81aa9504c9bb7d8234b
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74789254"
 ---
 # <a name="monitor-and-manage-sharepoint-resources-with-azure-logic-apps"></a>Superviser et gérer les ressources SharePoint avec Azure Logic Apps
@@ -63,7 +63,7 @@ Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azu
 
    Pour les applications logiques existantes, sous la dernière étape où vous souhaitez ajouter une action SharePoint, choisissez **Nouvelle étape**. 
    Dans la zone de recherche, entrez le filtre « sharepoint ». 
-   Sous la liste des actions, sélectionnez l’action souhaitée.
+   Dans la liste des actions, sélectionnez l’action souhaitée.
 
    Pour ajouter une action entre des étapes, placez votre pointeur au-dessus de la flèche qui les sépare. 
    Cliquez sur le signe plus ( **+** ) qui s’affiche, puis sélectionnez **Ajouter une action**.

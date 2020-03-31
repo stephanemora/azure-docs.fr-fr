@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/16/2018
 ms.openlocfilehash: 1c12a10dfdf8e69cf05ab30d0e6aa48fea5803a3
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74912894"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Transformer des données à l’aide d’une activité de diffusion en continu Hadoop dans Azure Data Factory
@@ -69,18 +69,18 @@ Si vous découvrez Azure Data Factory, lisez la [présentation d’Azure Data Fa
 
 | Propriété          | Description                              | Obligatoire |
 | ----------------- | ---------------------------------------- | -------- |
-| name              | Nom de l’activité                     | OUI      |
+| name              | Nom de l’activité                     | Oui      |
 | description       | Texte décrivant la raison motivant l’activité. | Non       |
-| Type              | Pour l’activité de diffusion en continu Hadoop, le type d’activité est HDInsightStreaming. | OUI      |
-| linkedServiceName | Référence au cluster HDInsight enregistré en tant que service lié dans Data Factory. Pour en savoir plus sur ce service lié, consultez l’article [Services liés de calcul](compute-linked-services.md). | OUI      |
-| mappeur            | Spécifie le nom de l’exécutable du mappeur. | OUI      |
-| raccord de réduction           | Spécifie le nom de l’exécutable du raccord de réduction. | OUI      |
+| type              | Pour l’activité de diffusion en continu Hadoop, le type d’activité est HDInsightStreaming. | Oui      |
+| linkedServiceName | Référence au cluster HDInsight enregistré en tant que service lié dans Data Factory. Pour en savoir plus sur ce service lié, consultez l’article [Services liés de calcul](compute-linked-services.md). | Oui      |
+| mappeur            | Spécifie le nom de l’exécutable du mappeur. | Oui      |
+| raccord de réduction           | Spécifie le nom de l’exécutable du raccord de réduction. | Oui      |
 | combinateur          | Spécifie le nom de l’exécutable du combinateur. | Non       |
 | fileLinkedService | Référence à un service lié de stockage Azure utilisée pour stocker les programmes du mappeur, du combinateur et du raccord de réduction à exécuter. Si vous ne spécifiez pas ce service lié, le service lié Stockage Azure défini dans le service lié HDInsight est utilisé. | Non       |
-| filePath          | Fournissez un tableau du chemin vers les programmes du mappeur, du combinateur et du raccord de réduction stockés dans le stockage Azure référencé par fileLinkedService. Le chemin respecte la casse. | OUI      |
-| entrée             | Spécifie le chemin WASB vers le fichier d’entrée du mappeur. | OUI      |
-| sortie            | Spécifie le chemin WASB vers le fichier de sortie du raccord de réduction. | OUI      |
-| getDebugInfo      | Spécifie quand les fichiers journaux sont copiés vers le stockage Azure utilisé par le cluster HDInsight (ou) spécifié par scriptLinkedService. Valeurs autorisées : None, Always ou Failure. Valeur par défaut : Aucune. | Non       |
+| filePath          | Fournissez un tableau du chemin vers les programmes du mappeur, du combinateur et du raccord de réduction stockés dans le stockage Azure référencé par fileLinkedService. Le chemin d'accès respecte la casse. | Oui      |
+| entrée             | Spécifie le chemin WASB vers le fichier d’entrée du mappeur. | Oui      |
+| sortie            | Spécifie le chemin WASB vers le fichier de sortie du raccord de réduction. | Oui      |
+| getDebugInfo      | Spécifie quand les fichiers journaux sont copiés vers le stockage Azure utilisé par le cluster HDInsight (ou) spécifié par scriptLinkedService. Valeurs autorisées : None, Always ou Failure. Valeur par défaut : Aucun. | Non       |
 | arguments         | Spécifie un tableau d’arguments pour un travail Hadoop. Les arguments sont passés sous la forme d’arguments de ligne de commande à chaque tâche. | Non       |
 | defines           | Spécifier les paramètres sous forme de paires clé/valeur pour le référencement au sein du script Hive. | Non       | 
 

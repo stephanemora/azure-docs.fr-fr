@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: d48973cc7c5ed1fc7ae3f96128d488f3f1df3a05
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76263861"
 ---
 # <a name="how-to-use-notification-hubs-from-java"></a>Utilisation de Notification Hubs à partir de Java
@@ -372,7 +372,7 @@ L’objet de Notification est simplement un corps avec des en-têtes. Certaines 
 
 L’exécution de votre code Java produit normalement une notification qui apparaît sur votre appareil cible.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a><a name="next-steps"></a>Étapes suivantes
 
 Cette rubrique vous a montré comment créer un client REST Java simple pour Notification Hubs. À partir de là, vous pouvez :
 

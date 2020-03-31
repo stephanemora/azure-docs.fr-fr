@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8a829d39ff21a1abeafd3b4362747894d196d9d4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67109384"
 ---
 # <a name="plan-for-hybrid-identity-lifecycle"></a>Planifier le cycle de vie des identités hybrides
@@ -67,7 +67,7 @@ Un des objectifs d'un gestionnaire d'identités pour être en mesure de mettre t
 *    Quelles sont les options de fédération d’identité entre B2B et B2C ?
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Déterminer la stratégie d’adoption de la gestion des identités hybrides](plan-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md)
+[Déterminer la stratégie d'adoption de la gestion des identités hybrides](plan-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md)
 
 ## <a name="see-also"></a>Voir aussi
 [Présentation des considérations relatives à la conception](plan-hybrid-identity-design-considerations-overview.md)

@@ -10,10 +10,10 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 5fa515515c06466e121a5c0ee925fd4d14245363
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74895231"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>Gestion du stockage dans les clouds indépendants Azure avec PowerShell
@@ -60,7 +60,7 @@ Get-AzLocation | select Location, DisplayName
 
 Le tableau suivant présente les emplacements retournés pour le cloud allemand.
 
-|Location | Nom d’affichage |
+|Emplacement | Nom d’affichage |
 |----|----|
 | `germanycentral` | Centre de l’Allemagne|
 | `germanynortheast` | Nord-Est de l’Allemagne |
@@ -84,7 +84,7 @@ Get-AzEnvironment | select Name, StorageEndpointSuffix
 
 Cette commande retourne les résultats suivants.
 
-| Name| StorageEndpointSuffix|
+| Nom| StorageEndpointSuffix|
 |----|----|
 | AzureChinaCloud | core.chinacloudapi.cn|
 | AzureCloud | core.windows.net |
@@ -154,7 +154,7 @@ table endpoint = http://myexistingstorageaccount.table.core.usgovcloudapi.net/
 
 Pour poursuivre, vous pouvez utiliser le même code PowerShell que celui utilisé pour gérer vos comptes de stockage et accéder au plan de données comme indiqué dans l’article [Utilisation d’Azure PowerShell avec Stockage Azure](storage-powershell-guide-full.md).
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous avez créé un groupe de ressources et un compte de stockage pour cet exercice, vous pouvez supprimer les deux ressources en supprimant le groupe de ressources. La suppression du groupe de ressources supprime toutes les ressources qu’il contient.
 

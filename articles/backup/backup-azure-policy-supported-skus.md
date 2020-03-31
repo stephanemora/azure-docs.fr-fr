@@ -4,15 +4,15 @@ description: Article décrivant les références SKU de machine virtuelle (par �
 ms.topic: conceptual
 ms.date: 11/08/2019
 ms.openlocfilehash: 1b6a94b0f57ecfea946654c6cae38ac335335e00
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74979938"
 ---
 # <a name="supported-vm-skus-for-azure-policy"></a>Références SKU Machines virtuelles prises en charge pour Azure Policy
 
-Sauvegarde Azure fournit une stratégie intégrée (via Azure Policy) qui peut être attribuée à **toutes les machines virtuelles Azure dans un emplacement spécifié d’un abonnement ou d’un groupe de ressources**. Quand cette stratégie est affectée à une étendue donnée, toutes les machines virtuelles créées dans cette étendue sont automatiquement configurées pour la sauvegarde dans **un coffre existant au même emplacement et dans le même abonnement**. Le tableau ci-dessous liste toutes les références SKU de machine virtuelle prises en charge par cette stratégie.
+Sauvegarde Azure fournit une stratégie intégrée (via Azure Policy) qui peut être attribuée à **toutes les machines virtuelles Azure dans un emplacement spécifié d’un abonnement ou d’un groupe de ressources**. Quand cette stratégie est affectée à une étendue donnée, toutes les machines virtuelles créées dans cette étendue sont automatiquement configurées pour la sauvegarde dans un **coffre existant au même emplacement et dans le même abonnement**. Le tableau ci-dessous liste toutes les références SKU de machine virtuelle prises en charge par cette stratégie.
 
 ### <a name="supported-vms"></a>**Machines virtuelles prises en charge**
 

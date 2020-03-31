@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: ea8254f108aed9d40e6970a27409035b1e10ab41
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74806998"
 ---
 # <a name="specify-a-customer-provided-key-on-a-request-to-blob-storage-with-net"></a>Spécifier une clé fournie par le client sur une demande au stockage d’objets blob avec .NET
@@ -26,7 +26,7 @@ Cet article explique comment spécifier une clé fournie par le client sur une d
 
 Pour en savoir plus sur la façon de s’authentifier avec de la bibliothèque cliente Azure Identity à partir du Stockage Azure, consultez la section intitulée **S’authentifier avec la bibliothèque d’identité Azure** dans [Autoriser l’accès aux objets blob et files d’attente avec Azure Active Directory et les identités managées pour les ressources Azure](../common/storage-auth-aad-msi.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#authenticate-with-the-azure-identity-library).
 
-## <a name="example-use-a-customer-provided-key-to-upload-a-blob"></a>Exemple : Utiliser une clé fournie par le client pour charger un objet blob
+## <a name="example-use-a-customer-provided-key-to-upload-a-blob"></a>Exemple : Utiliser une clé fournie par le client pour charger un objet blob
 
 L’exemple suivant crée une clé fournie par le client et utilise cette clé pour charger un objet blob. Le code charge un bloc, puis valide la liste de blocs pour écrire l’objet blob dans Stockage Azure.
 

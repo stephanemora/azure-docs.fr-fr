@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 12/12/2019
 ms.author: cherylmc
 ms.openlocfilehash: 48ecfcc0d6241e7926892a3ca1c9925b0dc07241
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75436837"
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>Déplacer un peering public vers le peering Microsoft
@@ -22,7 +22,7 @@ Le peering public Azure possède une adresse IP NAT associée à chaque session 
 
 Une fois le peering public activé, vous êtes en mesure de vous connecter à tous les services Azure. Nous ne vous permettons pas de sélectionner les services pour lesquels nous publions les itinéraires. Pour sa part, le peering Microsoft est une connectivité bidirectionnelle où la connexion peut être lancée à partir du service Microsoft Azure avec votre réseau étendu. Pour plus d’informations sur les domaines de routage et le peering, consultez [Circuits ExpressRoute et domaines de routage](expressroute-circuit-peerings.md).
 
-## <a name="before"></a>Avant de commencer
+## <a name="before-you-begin"></a><a name="before"></a>Avant de commencer
 
 Pour vous connecter au peering Microsoft, vous devez configurer et gérer un processus NAT. Votre fournisseur de connectivité peut-configurer et gérer le processus NAT en tant que service géré. Si vous envisagez d’accéder aux services SaaS et PaaS Azure avec le peering Microsoft, vous devez dimensionner le pool d’adresses IP NAT correctement. Pour plus d’informations sur le processus NAT pour ExpressRoute, consultez [Configuration NAT requise pour le peering Microsoft](expressroute-nat.md#nat-requirements-for-microsoft-peering). Quand vous vous connectez à Microsoft via Azure ExpressRoute (peering Microsoft), vous disposez de plusieurs connexions à Microsoft. L’une d’elles est votre connexion Internet existante, et l’autre est celle établie via ExpressRoute. Il se peut qu’une partie du trafic circulant vers Microsoft passe par Internet mais revienne via ExpressRoute, et inversement.
 
@@ -36,7 +36,7 @@ Reportez-vous à [Routage asymétrique avec chemins d’accès réseau multiples
 * Si vous utilisez le peering public et disposez actuellement de règles de réseau IP pour les adresses IP publiques qui sont utilisées pour accéder au [Stockage Azure](../storage/common/storage-network-security.md) ou à [Azure SQL Database](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md), vérifiez que le pool d’adresses IP NAT configuré avec l’appairage Microsoft se trouve bien dans la liste des adresses IP publiques du compte de stockage Azure ou du compte Azure SQL.<br>
 * Pour passer au peering Microsoft sans temps d’arrêt, suivez les étapes fournies dans cet article, dans l’ordre indiqué.
 
-## <a name="create"></a>1. Créer un peering Microsoft
+## <a name="1-create-microsoft-peering"></a><a name="create"></a>1. Créer un peering Microsoft
 
 Si le peering Microsoft n’a pas été créé, utilisez un des articles suivants pour le créer. Si votre fournisseur de connectivité propose des services gérés de couche 3, vous pouvez lui demander d’activer le peering Microsoft pour votre circuit.
 
@@ -58,7 +58,7 @@ Vous trouverez des instructions détaillées pour activer le peering Microsoft d
 * [Créer le peering Microsoft à l’aide d’Azure PowerShell](expressroute-howto-routing-arm.md#msft)<br>
 * [Créer le peering Microsoft à l’aide de l’interface de ligne de commande Azure](howto-routing-cli.md#msft)
 
-## <a name="validate"></a>2. Vérifier que le peering Microsoft est activé
+## <a name="2-validate-microsoft-peering-is-enabled"></a><a name="validate"></a>2. Vérifier que le peering Microsoft est activé
 
 Vérifiez que le peering Microsoft est activé et que les préfixes publics publiés sont dans l’état configuré.
 
@@ -66,7 +66,7 @@ Vérifiez que le peering Microsoft est activé et que les préfixes publics publ
 * [Azure PowerShell](expressroute-howto-routing-arm.md#getmsft)<br>
 * [Azure CLI](howto-routing-cli.md#getmsft)
 
-## <a name="routefilter"></a>3. Configurer un filtre de routes et le joindre au circuit
+## <a name="3-configure-and-attach-a-route-filter-to-the-circuit"></a><a name="routefilter"></a>3. Configurer un filtre de routes et le joindre au circuit
 
 Par défaut, le peering Microsoft ne publie pas de préfixes tant qu’un filtre de routes n’est pas joint au circuit. Quand vous créez une règle de filtre de routes, vous pouvez spécifier la liste des communautés de service pour les régions Azure que vous souhaitez utiliser pour les services PaaS Azure. Vous pouvez ainsi filtrer les routes en toute souplesse, comme l’illustre la capture d’écran suivante :
 
@@ -78,14 +78,14 @@ Configurez les filtres de routes à l’aide des articles suivants :
 * [Configurer des filtres de routes pour le peering Microsoft à l’aide d’Azure PowerShell](how-to-routefilter-powershell.md)<br>
 * [Configurer des filtres de routes pour le peering Microsoft à l’aide de l’interface de ligne de commande Azure](how-to-routefilter-cli.md)
 
-## <a name="delete"></a>4. Supprimer le peering public
+## <a name="4-delete-the-public-peering"></a><a name="delete"></a>4. Supprimer le peering public
 
 Après avoir vérifié que le peering Microsoft est configuré et que les préfixes que vous souhaitez utiliser sont correctement publiés sur le peering Microsoft, vous pouvez supprimer le peering public. Pour supprimer le peering public, utilisez l’un des articles suivants :
 
 * [Supprimer un peering public Azure à l’aide d’Azure PowerShell](about-public-peering.md#powershell)
 * [Supprimer un peering public Azure à l’aide de l’interface de ligne de commande](about-public-peering.md#cli)
   
-## <a name="view"></a>5. Afficher les peerings
+## <a name="5-view-peerings"></a><a name="view"></a>5. Afficher les peerings
   
 Vous pouvez afficher une liste de tous les circuits et peerings ExpressRoute dans le portail Azure. Pour plus d’informations, consultez [Afficher les détails de peering Microsoft](expressroute-howto-routing-portal-resource-manager.md#getmsft).
 

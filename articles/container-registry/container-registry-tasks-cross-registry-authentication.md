@@ -4,10 +4,10 @@ description: Configurez une tâche Azure Container Registry (Tâche ACR) pour ac
 ms.topic: article
 ms.date: 01/14/2020
 ms.openlocfilehash: 47b2a50784cf56b089fea0981e5a06d581b8ba3a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76842489"
 ---
 # <a name="cross-registry-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>Authentification multiregistre dans une tâche ACR à l’aide d’une identité managée par Azure 
@@ -26,7 +26,7 @@ Cet exemple montre les étapes à effectuer à l’aide d’une identité manag�
 
 Dans un scénario réel, une organisation peut conserver un ensemble d’images de base utilisées par toutes les équipes de développement pour créer leurs applications. Ces images de base sont stockées dans un registre de l’entreprise, chaque équipe de développement ne disposant que de droits d’extraction. 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour cet article, vous avez besoin de deux registres de conteneurs Azure :
 

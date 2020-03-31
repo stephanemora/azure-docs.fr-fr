@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 04/11/2019
 ms.openlocfilehash: 75d9660eb35b5d7ddc644d177c11ae489e2853dc
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74792106"
 ---
 # <a name="get-more-data-items-or-records-by-using-pagination-in-azure-logic-apps"></a>Obtenir plus de données, d'éléments ou d'enregistrements à l'aide de la pagination dans Azure Logic Apps
@@ -33,7 +33,7 @@ La liste suivante répertorie quelques-uns des connecteurs avec lesquels vous po
 * [HTTP](https://docs.microsoft.com/azure/connectors/connectors-native-http)
 * [IBM DB2](https://docs.microsoft.com/connectors/db2/)
 * [Microsoft Teams](https://docs.microsoft.com/connectors/teams/)
-* [Oracle Database](https://docs.microsoft.com/connectors/oracle/)
+* [Base de données Oracle](https://docs.microsoft.com/connectors/oracle/)
 * [Salesforce](https://docs.microsoft.com/connectors/salesforce/)
 * [SharePoint](https://docs.microsoft.com/connectors/sharepointonline/)
 * [SQL Server](https://docs.microsoft.com/connectors/sql/)
@@ -42,7 +42,7 @@ La liste suivante répertorie quelques-uns des connecteurs avec lesquels vous po
 
 * Un abonnement Azure. Si vous n’avez pas encore d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
 
-* L'application logique et l'action pour laquelle vous souhaitez activer la pagination. Si vous n'avez pas d'application logique, consultez [Démarrage rapide : Créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* L'application logique et l'action pour laquelle vous souhaitez activer la pagination. Si vous n’avez pas d’application logique, consultez la section [Démarrage rapide : Créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="turn-on-pagination"></a>Activer la pagination
 

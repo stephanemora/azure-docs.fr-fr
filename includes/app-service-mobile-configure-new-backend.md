@@ -1,6 +1,6 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: app-service\mobile
 author: conceptdev
 ms.service: app-service-mobile
@@ -9,10 +9,10 @@ ms.date: 05/06/2019
 ms.author: crdun
 ms.custom: include file
 ms.openlocfilehash: a7e543dcad9ad1b016d1244451cd87cda5ad7492
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67440222"
 ---
 1. Télécharger les démarrages rapides du kit de développement logiciel (SDK) client pour les plateformes suivantes :
@@ -34,7 +34,7 @@ ms.locfileid: "67440222"
 
     - **Créer une nouveau magasin de données** : Si vous créez un magasin de données, utilisez le démarrage rapide suivant :
 
-        [Démarrage rapide : Prise en main de bases de données uniques dans Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-quickstart-guide)
+        [Démarrage rapide : Prise en main de bases de données uniques dans Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-quickstart-guide)
 
     - **Source de données existante** : Suivez les instructions ci-dessous si vous souhaitez utiliser une connexion de base de données existante
 

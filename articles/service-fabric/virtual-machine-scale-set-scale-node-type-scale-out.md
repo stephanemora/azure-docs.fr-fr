@@ -1,13 +1,13 @@
 ---
 title: Ajouter un type de nœud à un cluster Azure Service Fabric
-description: Découvrez comment monter en charge un cluster Service Fabric en ajoutant un groupe de machines virtuelles identiques.
+description: Découvrez comment effectuer un scale-out d’un cluster Service Fabric en ajoutant un groupe de machines virtuelles identiques.
 ms.topic: article
 ms.date: 02/13/2019
 ms.openlocfilehash: 1e7bae89561d43d717eb4d15e95183761b077443
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75463977"
 ---
 # <a name="scale-a-service-fabric-cluster-out-by-adding-a-virtual-machine-scale-set"></a>Montez en charge un cluster Service Fabric en ajoutant un groupe de machines virtuelles identiques

@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ae83cea866367fa6a6596caa683d0287bea96c29
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60456123"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Résolution des problèmes d’authentification directe Azure Active Directory
@@ -44,12 +44,12 @@ Assurez-vous que la fonctionnalité d’authentification directe est toujours **
 
 Si l’utilisateur ne peut pas se connecter avec l’authentification directe, l’un des messages d’erreur suivants peut s’afficher sur l’écran de connexion Azure AD : 
 
-|Error|Description|Résolution :
+|Error|Description|Résolution
 | --- | --- | ---
 |AADSTS80001|Impossible de se connecter à Active Directory|Assurez-vous que les serveurs des agents sont membres de la même forêt Active Directory que les utilisateurs dont les mots de passe doivent être validés, et qu’ils peuvent se connecter à Active Directory.  
 |AADSTS8002|Délai d’attente dépassé lors de la connexion à Active Directory|Vérifiez qu’Active Directory est disponible et répond aux demandes des agents.
 |AADSTS80004|Le nom d’utilisateur envoyé à l’agent n’était pas valide|Vérifiez que l’utilisateur tente de se connecter avec le nom d’utilisateur correct.
-|AADSTS80005|La validation a rencontré une WebException imprévisible|Erreur temporaire. relancez la requête. Si l’erreur se reproduit, contactez le Support Microsoft.
+|AADSTS80005|La validation a rencontré une WebException imprévisible|Erreur temporaire. Relancez la requête. Si l’erreur se reproduit, contactez le Support Microsoft.
 |AADSTS80007|Une erreur s’est produite lors de la communication avec Active Directory|Consultez les journaux d’activité de l’agent pour plus d’informations, et vérifiez qu’Active Directory fonctionne comme prévu.
 
 ### <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center-needs-premium-license"></a>Raisons des échecs de connexion dans le Centre d’administration Azure Active Directory (licence Premium requise)
@@ -60,14 +60,14 @@ Si votre locataire dispose d’une licence Azure AD Premium, vous pouvez égal
 
 Accédez à **Azure Active Directory** -> **Connexions** dans le [Centre d’administration Azure Active Directory](https://aad.portal.azure.com/), puis cliquez sur une activité de connexion. Recherchez le champ **Code d’erreur de connexion**. Notez la valeur de ce champ et cherchez dans le tableau suivant la raison de l’échec et la solution à appliquer :
 
-|Code d’erreur de connexion|Raison de l’échec de connexion|Résolution :
+|Code d’erreur de connexion|Raison de l’échec de connexion|Résolution
 | --- | --- | ---
 | 50144 | Le mot de passe Active Directory de l’utilisateur est arrivé à expiration. | Réinitialisez le mot de passe dans votre instance locale d’Active Directory.
 | 80001 | Agents d’authentification non disponibles. | Installez l’agent d’authentification, puis procédez à son inscription.
 | 80002 | La demande de validation du mot de passe de l’Agent d’authentification est arrivée à expiration. | Vérifiez que l’agent d’authentification peut accéder à Active Directory.
 | 80003 | Réponse non valide reçue par l’Agent d’authentification. | Si le problème se produit pour tous les utilisateurs, vérifiez votre configuration Active Directory.
 | 80004 | Nom d’utilisateur principal (UPN) incorrect utilisé dans la demande de connexion. | Demandez à l’utilisateur de se connecter avec le bon nom d’utilisateur.
-| 80005 | Agent d’authentification : Une erreur s’est produite. | Erreur temporaire. Réessayez ultérieurement.
+| 80005 | Agent d’authentification : Une erreur s’est produite. | Erreur temporaire. Réessayez plus tard.
 | 80007 | L’Agent d’authentification ne peut pas se connecter à Active Directory. | Vérifiez que l’agent d’authentification peut accéder à Active Directory.
 | 80010 | L’Agent d’authentification ne peut pas déchiffrer le mot de passe. | Si le problème se produit régulièrement, installez un nouvel agent d’authentification, puis inscrivez-le. Veillez à désinstaller l’agent actuel. 
 | 80011 | L’Agent d’authentification n’a pas pu récupérer la clé de déchiffrement. | Si le problème se produit régulièrement, installez un nouvel agent d’authentification, puis inscrivez-le. Veillez à désinstaller l’agent actuel.

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 7f5ea80a055c34cddeab042c33071c6f5799a443
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61463665"
 ---
 # <a name="h264-multiple-bitrate-4x3-sd-audio-51"></a>H264 – Vitesse de transmission multiple – 4 x 3 SD – Audio 5.1
@@ -29,7 +29,7 @@ ms.locfileid: "61463665"
  Cette présélection produit un ensemble de 5 fichiers MP4 alignés sur le groupe d’images, de 1 600 kbit/s à 400 kbit/s, et de l’audio AAC 5.1. Pour plus d’informations sur le profil, la vitesse de transmission, la fréquence d’échantillonnage, etc. de cette présélection, examinez le code XML ou JSON présenté ci-dessous. Pour consulter une explication de la signification des éléments et les valeurs valides pour chaque élément, consultez la rubrique [Media Encoder Standard schema](media-services-mes-schema.md) (Schéma Media Encoder Standard).  
   
 > [!NOTE]
->  Lorsque vous modifiez les valeurs `Width` et `Height` sur les couches, assurez-vous que les proportions demeurent constantes. Par exemple :  1920x1080, 1280x720, 1080x576, 640x360. Vous ne devez pas utiliser un mélange de proportions, comme : 1280x720, 720x480, 640x360.  
+>  Lorsque vous modifiez les valeurs `Width` et `Height` sur les couches, assurez-vous que les proportions demeurent constantes. Par exemple : 1920x1080, 1280x720, 1080x576, 640x360. Vous ne devez pas utiliser un mélange de proportions, comme : 1280x720, 720x480, 640x360.  
   
  XML  
   

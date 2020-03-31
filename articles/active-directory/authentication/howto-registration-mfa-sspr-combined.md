@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry, calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 25c64d9e959b1d68de23e83e26d3495bd3939986
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75425197"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>Activer l’inscription d’informations de sécurité combinée (préversion)

@@ -11,10 +11,10 @@ ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9a1b8abf15233c06e8ff9e507b315cc8a3703970
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60454657"
 ---
 # <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect :  Documentation de référence concernant ADSyncTools PowerShell
@@ -25,7 +25,7 @@ La documentation suivante fournit des informations de référence sur le module 
 ### <a name="synopsis"></a>SYNOPSIS
 Désactiver mS-Ds-ConsistencyGuid de l’utilisateur AD
 
-### <a name="syntax"></a>SYNTAXE
+### <a name="syntax"></a>SYNTAX
 
 ```
 Clear-ADSyncToolsConsistencyGuid [-User] <Object> [<CommonParameters>]
@@ -46,7 +46,7 @@ Example of how to use this cmdlet
 Another example of how to use this cmdlet
 ```
 
-### <a name="parameters"></a>PARAMÈTRES
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-user"></a>-User
 Utilisateur cible dans AD à définir
@@ -72,7 +72,7 @@ Pour plus d’informations, consultez about_CommonParameters (https://go.microso
 ### <a name="synopsis"></a>SYNOPSIS
 {{Renseigner le résumé}}
 
-### <a name="syntax"></a>SYNTAXE
+### <a name="syntax"></a>SYNTAX
 
 ```
 Confirm-ADSyncToolsADModuleLoaded
@@ -95,7 +95,7 @@ PS C:\> {{ Add example code here }}
 ### <a name="synopsis"></a>SYNOPSIS
 {{Renseigner le résumé}}
 
-### <a name="syntax"></a>SYNTAXE
+### <a name="syntax"></a>SYNTAX
 
 ```
 Connect-AdSyncDatabase [-Server] <String> [[-Instance] <String>] [[-Database] <String>] [[-UserName] <String>]
@@ -114,7 +114,7 @@ PS C:\> {{ Add example code here }}
 
 {{ Ajouter l’exemple de description ici }}
 
-### <a name="parameters"></a>PARAMÈTRES
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-database"></a>-Database
 {{Renseigner la description de la base de données}}
@@ -200,7 +200,7 @@ Pour plus d’informations, consultez about_CommonParameters (https://go.microso
 ### <a name="synopsis"></a>SYNOPSIS
 Exporter le rapport ConsistencyGuid
 
-### <a name="syntax"></a>SYNTAXE
+### <a name="syntax"></a>SYNTAX
 
 ```
 Export-ADSyncToolsConsistencyGuidMigration [-AlternativeLoginId] [-UserPrincipalName] <String>
@@ -222,7 +222,7 @@ Import-Csv .\AllSyncUsers.csv | Export-ADSyncToolsConsistencyGuidMigration -Outp
 Another example of how to use this cmdlet
 ```
 
-### <a name="parameters"></a>PARAMÈTRES
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-alternativeloginid"></a>-AlternativeLoginId
 Utiliser un ID de connexion alternatif (adresse e-mail)
@@ -293,7 +293,7 @@ Pour plus d’informations, consultez about_CommonParameters (https://go.microso
 ### <a name="synopsis"></a>SYNOPSIS
 {{Renseigner le résumé}}
 
-### <a name="syntax"></a>SYNTAXE
+### <a name="syntax"></a>SYNTAX
 
 ```
 Get-ADSyncSQLBrowserInstances [[-hostName] <String>]
@@ -311,7 +311,7 @@ PS C:\> {{ Add example code here }}
 
 {{ Ajouter l’exemple de description ici }}
 
-### <a name="parameters"></a>PARAMÈTRES
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-hostname"></a>-hostName
 {{Renseigner la description du nom d’hôte}}
@@ -333,7 +333,7 @@ Accept wildcard characters: False
 ### <a name="synopsis"></a>SYNOPSIS
 Obtenir l’utilisateur à partir d’AD
 
-### <a name="syntax"></a>SYNTAXE
+### <a name="syntax"></a>SYNTAX
 
 ```
 Get-ADSyncToolsADuser [-User] <Object> [<CommonParameters>]
@@ -354,7 +354,7 @@ Example of how to use this cmdlet
 Another example of how to use this cmdlet
 ```
 
-### <a name="parameters"></a>PARAMÈTRES
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-user"></a>-User
 Utilisateur cible dans AD pour définir ConsistencyGuid
@@ -380,7 +380,7 @@ Pour plus d’informations, consultez about_CommonParameters (https://go.microso
 ### <a name="synopsis"></a>SYNOPSIS
 Obtenir le mS-Ds-ConsistencyGuid de l’utilisateur AD
 
-### <a name="syntax"></a>SYNTAXE
+### <a name="syntax"></a>SYNTAX
 
 ```
 Get-ADSyncToolsConsistencyGuid [-User] <Object> [<CommonParameters>]
@@ -401,7 +401,7 @@ Example of how to use this cmdlet
 Another example of how to use this cmdlet
 ```
 
-### <a name="parameters"></a>PARAMÈTRES
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-user"></a>-User
 Utilisateur cible dans AD à définir
@@ -427,7 +427,7 @@ Pour plus d’informations, consultez about_CommonParameters (https://go.microso
 ### <a name="synopsis"></a>SYNOPSIS
 Obtenir l’ObjectGUID de l’utilisateur AD
 
-### <a name="syntax"></a>SYNTAXE
+### <a name="syntax"></a>SYNTAX
 
 ```
 Get-ADSyncToolsObjectGuid [-User] <Object> [<CommonParameters>]
@@ -448,7 +448,7 @@ Example of how to use this cmdlet
 Another example of how to use this cmdlet
 ```
 
-### <a name="parameters"></a>PARAMÈTRES
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-user"></a>-User
 Utilisateur cible dans AD à définir
@@ -474,7 +474,7 @@ Pour plus d’informations, consultez about_CommonParameters (https://go.microso
 ### <a name="synopsis"></a>SYNOPSIS
 Obtenir l’historique des exécutions de AAD Connect
 
-### <a name="syntax"></a>SYNTAXE
+### <a name="syntax"></a>SYNTAX
 
 ```
 Get-ADSyncToolsRunHistory [[-Days] <Int32>] [<CommonParameters>]
@@ -495,7 +495,7 @@ Get-ADSyncToolsRunHistory
 Get-ADSyncToolsRunHistory -Days 1
 ```
 
-### <a name="parameters"></a>PARAMÈTRES
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-days"></a>-Days
 {{Renseigner la description des jours}}
@@ -521,7 +521,7 @@ Pour plus d’informations, consultez about_CommonParameters (https://go.microso
 ### <a name="synopsis"></a>SYNOPSIS
 Obtenir des utilisateurs avec des erreurs SourceAnchor modifiées
 
-### <a name="syntax"></a>SYNTAXE
+### <a name="syntax"></a>SYNTAX
 
 ```
 Get-ADSyncToolsSourceAnchorChanged [-sourcePath] <Object> [-outputPath] <Object> [<CommonParameters>]
@@ -546,7 +546,7 @@ $sourcePath = Read-Host -Prompt « Entrez un nom de fichier pour votre chemin d'
 Another example of how to use this cmdlet
 ```
 
-### <a name="parameters"></a>PARAMÈTRES
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-sourcepath"></a>-sourcePath
 {{Renseigner la description du sourcePath}}
@@ -587,7 +587,7 @@ Pour plus d’informations, consultez about_CommonParameters (https://go.microso
 ### <a name="synopsis"></a>SYNOPSIS
 Importer la valeur ImmutableID à partir de AAD
 
-### <a name="syntax"></a>SYNTAXE
+### <a name="syntax"></a>SYNTAX
 
 ```
 Import-ADSyncToolsImmutableIdMigration [-Output] <String> [-IncludeSyncUsersFromRecycleBin]
@@ -609,7 +609,7 @@ Import-ADSyncToolsImmutableIdMigration -OutputFile '.\AllSyncUsers.csv'
 Another example of how to use this cmdlet
 ```
 
-### <a name="parameters"></a>PARAMÈTRES
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-output"></a>-Output
 Fichier CSV de sortie
@@ -651,7 +651,7 @@ Pour plus d’informations, consultez about_CommonParameters (https://go.microso
 ### <a name="synopsis"></a>SYNOPSIS
 {{Renseigner le résumé}}
 
-### <a name="syntax"></a>SYNTAXE
+### <a name="syntax"></a>SYNTAX
 
 ```
 Invoke-AdSyncDatabaseQuery [-SqlConnection] <SqlConnection> [[-Query] <String>] [<CommonParameters>]
@@ -669,7 +669,7 @@ PS C:\> {{ Add example code here }}
 
 {{ Ajouter l’exemple de description ici }}
 
-### <a name="parameters"></a>PARAMÈTRES
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-query"></a>-Query
 {{Renseigner la description de la requête}}
@@ -710,7 +710,7 @@ Pour plus d’informations, consultez about_CommonParameters (https://go.microso
 ### <a name="synopsis"></a>SYNOPSIS
 Script pour supprimer les certificats arrivés à expiration de l’attribut UserCertificate
 
-### <a name="syntax"></a>SYNTAXE
+### <a name="syntax"></a>SYNTAX
 
 ```
 Remove-ADSyncToolsExpiredCertificates [-TargetOU] <String> [[-BackupOnly] <Boolean>] [-ObjectClass] <String>
@@ -739,7 +739,7 @@ Delete Expired Certs from all Computer objects in target OU - Expired Certificat
 
 Remove-ADSyncToolsExpiredCertificates -TargetOU "OU=Computers,OU=Corp,DC=Contoso,DC=com" -ordinateur ObjectClass -$false BackupOnly
 
-### <a name="parameters"></a>PARAMÈTRES
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-targetou"></a>-TargetOU
 Unité d’organisation cible pour rechercher des objets AD
@@ -793,9 +793,9 @@ Pour plus d’informations, consultez about_CommonParameters (https://go.microso
 ## <a name="repair-adsynctoolsautoupgradestate"></a>Repair-ADSyncToolsAutoUpgradeState
 
 ### <a name="synopsis"></a>SYNOPSIS
-Brève description
+Description courte
 
-### <a name="syntax"></a>SYNTAXE
+### <a name="syntax"></a>SYNTAX
 
 ```
 Repair-ADSyncToolsAutoUpgradeState
@@ -821,7 +821,7 @@ Another example of how to use this cmdlet
 ### <a name="synopsis"></a>SYNOPSIS
 {{Renseigner le résumé}}
 
-### <a name="syntax"></a>SYNTAXE
+### <a name="syntax"></a>SYNTAX
 
 ```
 Resolve-ADSyncHostAddress [[-hostName] <String>]
@@ -839,7 +839,7 @@ PS C:\> {{ Add example code here }}
 
 {{ Ajouter l’exemple de description ici }}
 
-### <a name="parameters"></a>PARAMÈTRES
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-hostname"></a>-hostName
 {{Renseigner la description du nom d’hôte}}
@@ -861,7 +861,7 @@ Accept wildcard characters: False
 ### <a name="synopsis"></a>SYNOPSIS
 (À FAIRE) Restaure l’attribut UserCertificate de AD à partir d’un fichier de certificat
 
-### <a name="syntax"></a>SYNTAXE
+### <a name="syntax"></a>SYNTAX
 
 ```
 Restore-ADSyncToolsExpiredCertificates
@@ -887,7 +887,7 @@ Another example of how to use this cmdlet
 ### <a name="synopsis"></a>SYNOPSIS
 Définir mS-Ds-ConsistencyGuid pour l’utilisateur AD
 
-### <a name="syntax"></a>SYNTAXE
+### <a name="syntax"></a>SYNTAX
 
 ```
 Set-ADSyncToolsConsistencyGuid [-User] <Object> [-Value] <Object> [<CommonParameters>]
@@ -908,7 +908,7 @@ Example of how to use this cmdlet
 Another example of how to use this cmdlet
 ```
 
-### <a name="parameters"></a>PARAMÈTRES
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-user"></a>-User
 Utilisateur cible dans AD pour définir ConsistencyGuid
@@ -949,7 +949,7 @@ Pour plus d’informations, consultez about_CommonParameters (https://go.microso
 ### <a name="synopsis"></a>SYNOPSIS
 {{Renseigner le résumé}}
 
-### <a name="syntax"></a>SYNTAXE
+### <a name="syntax"></a>SYNTAX
 
 ```
 Test-ADSyncNetworkPort [[-hostName] <String>] [[-port] <String>]
@@ -967,7 +967,7 @@ PS C:\> {{ Add example code here }}
 
 {{ Ajouter l’exemple de description ici }}
 
-### <a name="parameters"></a>PARAMÈTRES
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-hostname"></a>-hostName
 {{Renseigner la description du nom d’hôte}}
@@ -1004,7 +1004,7 @@ Accept wildcard characters: False
 ### <a name="synopsis"></a>SYNOPSIS
 Crée un fichier de trace à partir d’une étape d’importation AD
 
-### <a name="syntax"></a>SYNTAXE
+### <a name="syntax"></a>SYNTAX
 
 ```
 Trace-ADSyncToolsADImport [[-ADConnectorXML] <String>] [[-dc] <String>] [[-rootDN] <String>]
@@ -1026,7 +1026,7 @@ Example of how to use this cmdlet
 Another example of how to use this cmdlet
 ```
 
-### <a name="parameters"></a>PARAMÈTRES
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-adconnectorxml"></a>-ADConnectorXML
 {{Renseigner la description de ADConnectorXML}}
@@ -1126,9 +1126,9 @@ Pour plus d’informations, consultez about_CommonParameters (https://go.microso
 ## <a name="trace-adsynctoolsldapquery"></a>Trace-ADSyncToolsLdapQuery
 
 ### <a name="synopsis"></a>SYNOPSIS
-Brève description
+Description courte
 
-### <a name="syntax"></a>SYNTAXE
+### <a name="syntax"></a>SYNTAX
 
 ```
 Trace-ADSyncToolsLdapQuery [-Context] <String> [-Server] <String> [-Port] <Int32> [-Filter] <String>
@@ -1150,7 +1150,7 @@ Example of how to use this cmdlet
 Another example of how to use this cmdlet
 ```
 
-### <a name="parameters"></a>PARAMÈTRES
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-context"></a>-Context
 Description d’aide du param1
@@ -1221,7 +1221,7 @@ Pour plus d’informations, consultez about_CommonParameters (https://go.microso
 ### <a name="synopsis"></a>SYNOPSIS
 Met à jour des utilisateurs avec la nouvelle valeur ConsistencyGuid (ImmutableId)
 
-### <a name="syntax"></a>SYNTAXE
+### <a name="syntax"></a>SYNTAX
 
 ```
 Update-ADSyncToolsConsistencyGuidMigration [[-DistinguishedName] <String>] [-ImmutableIdGUID] <String>
@@ -1243,7 +1243,7 @@ Import-Csv .\AllSyncUsersTEST-Report.csv -Delimiter "`t"| Update-ADSyncToolsCons
 Import-Csv .\AllSyncUsersTEST-Report.csv -Delimiter "`t"| Update-ADSyncToolsConsistencyGuidMigration -Output .\AllSyncUsersTEST-Result2
 ```
 
-### <a name="parameters"></a>PARAMÈTRES
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-distinguishedname"></a>-DistinguishedName
 DistinguishedName

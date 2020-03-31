@@ -13,13 +13,13 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: de76467cc741a65a851e5f3a7ec424d0326aebb2
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74851517"
 ---
-# <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
+# <a name="frequently-asked-questions"></a>Forum aux questions
 Vous avez des questions ? Pour plus d’informations, consultez le forum aux questions suivant.
 
 ## <a name="general-faq"></a>FAQ général
@@ -170,7 +170,7 @@ Credential Scanner s’appuie sur un ensemble de chercheurs de contenu général
 
 Un chercheur de contenu est défini comme suit :
 
-- **Nom** : Nom descriptif du chercheur à utiliser dans les fichiers de sortie de Credential Scanner. Nous vous recommandons d’utiliser la convention de nommage avec une casse mixte pour les noms des chercheurs.
+- **Name** : Nom descriptif du chercheur à utiliser dans les fichiers de sortie de Credential Scanner. Nous vous recommandons d’utiliser la convention de nommage avec une casse mixte pour les noms des chercheurs.
 - **RuleId** : ID opaque stable du chercheur :
     - Un chercheur Credential Scanner par défaut se voit attribuer une valeur **RuleId** telle que CSCAN0010, CSCAN0020 ou CSCAN0030. Le dernier chiffre est réservé à la fusion ou à la division des groupes de chercheurs par le biais d’expressions régulières.
     - La valeur **RuleId** d'un chercheur personnalisé doit disposer de son propre espace de noms. À titre d'exemple, il peut s'agir de ce qui suit : CSCAN-\<Espace de noms\>0010, CSCAN-\<Espace de noms\>0020 et CSCAN-\<Espace de noms\>0030.

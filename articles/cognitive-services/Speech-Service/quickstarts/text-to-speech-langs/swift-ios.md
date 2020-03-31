@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 12/09/2019
 ms.author: yulili
 ms.openlocfilehash: 5fd7f125037777c55b748b45df49f8f5cd2d0409
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74975888"
 ---
 # <a name="quickstart-synthesize-speech-in-swift-on-ios-using-the-speech-sdk"></a>Démarrage rapide : Synthèse vocale en Swift sur iOS avec le SDK Speech
@@ -32,7 +32,7 @@ Avant de commencer, voici une liste de prérequis :
 
 [!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
-Notez que ce tutoriel ne fonctionnera pas avec une version du SDK antérieure à la version 1.7.0.
+Notez que ce tutoriel ne fonctionne pas avec une version du SDK antérieure à la version 1.7.0.
 
 Le SDK Speech de Cognitive Services pour iOS est actuellement distribué sous la forme d’un bundle de framework.
 Il peut être utilisé dans les projets Xcode comme [CocoaPod](https://cocoapods.org/), ou téléchargé depuis https://aka.ms/csspeech/macosbinary et lié manuellement. Ce guide utilise un CocoaPod.
@@ -59,7 +59,7 @@ Dans les boîtes de dialogue qui suivent, effectuez les sélections suivantes :
 
 1. Placez un nouveau fichier d’en-tête avec le nom `MicrosoftCognitiveServicesSpeech-Bridging-Header.h` dans le répertoire `helloworld` dans le projet helloworld, puis collez le code suivant dedans :  
    [!code-objectivec[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/swift/ios/text-to-speech/helloworld/helloworld/MicrosoftCognitiveServicesSpeech-Bridging-Header.h#code)]
-1. Ajoutez le chemin d’accès relatif `helloworld/MicrosoftCognitiveServicesSpeech-Bridging-Header.h` à l’en-tête de pontage dans les paramètres de projet Swift pour la cible helloworld dans le champ *En-tête de pontage Objective-C* ![Propriétés d’en-tête](~/articles/cognitive-services/Speech-Service/media/sdk/qs-swift-ios-bridging-header.png)
+1. Ajoutez le chemin d’accès relatif `helloworld/MicrosoftCognitiveServicesSpeech-Bridging-Header.h` à l’en-tête de pontage dans les paramètres de projet Swift pour la cible helloworld dans le champ *En-tête de pontage Objective-C*![Propriétés d’en-tête](~/articles/cognitive-services/Speech-Service/media/sdk/qs-swift-ios-bridging-header.png)
 1. Remplacez le contenu du fichier `AppDelegate.swift` généré automatiquement par :  
    [!code-swift[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/swift/ios/text-to-speech/helloworld/helloworld/AppDelegate.swift#code)]
 1. Remplacez le contenu du fichier `ViewController.swift` généré automatiquement par :  

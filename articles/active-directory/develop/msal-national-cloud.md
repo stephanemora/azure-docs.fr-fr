@@ -14,10 +14,10 @@ ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.openlocfilehash: dfca2b1311f1b55f19d5709f7c9ca7c3e366769c
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76695736"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>Utiliser MSAL dans un environnement de cloud national
@@ -34,7 +34,7 @@ Outre le cloud global, Azure Active Directory (Azure AD) est déployé dans les 
 
 Ce guide montre comment se connecter à des comptes professionnels et scolaires, obtenir un jeton accès et appeler l’API Microsoft Graph dans l’environnement [cloud Azure Government](https://azure.microsoft.com/global-infrastructure/government/).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer, vérifiez que vous répondez aux exigences suivantes.
 
@@ -55,7 +55,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Pour plus d’informations sur l’utilisation d’un cloud national avec un langage de programmation particulier, choisissez l’onglet correspondant à votre langage :
 
-## <a name="nettabdonet"></a>[.NET](#tab/donet)
+## <a name="net"></a>[.NET](#tab/donet)
 
 Vous pouvez utiliser MSAL.NET pour connecter des utilisateurs, acquérir des jetons et appeler l’API Microsoft Graph dans des clouds nationaux.
 
@@ -64,7 +64,7 @@ Les didacticiels suivants montrent comment créer une application Web MVC .NET C
 - Pour connecter des utilisateurs et acquérir des jetons, suivez ce didacticiel : [Créez une application web de base ASP.NET en connectant les utilisateurs dans des clouds souverains avec la plateforme d’identité Microsoft](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-4-Sovereign#build-an-aspnet-core-web-app-signing-in-users-in-sovereign-clouds-with-the-microsoft-identity-platform).
 - Pour appeler l’API Microsoft Graph, suivez ce didacticiel : [Utilisation de la plateforme Microsoft Identity pour appeler l’API Microsoft Graph à partir d’une application web ASP.NET Core 2.x, pour le compte d’un utilisateur qui se connecte à l’aide de son compte professionnel et scolaire dans le cloud national Microsoft](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-4-Sovereign-Call-MSGraph#using-the-microsoft-identity-platform-to-call-the-microsoft-graph-api-from-an-an-aspnet-core-2x-web-app-on-behalf-of-a-user-signing-in-using-their-work-and-school-account-in-microsoft-national-cloud).
 
-## <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+## <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Pour activer votre application MSAL.js pour les clouds souverains :
 
@@ -136,7 +136,7 @@ Dans ce code :
 
    Pour rechercher des points de terminaison Microsoft Graph pour tous les clouds nationaux, consultez [Points de terminaison Microsoft Graph dans des clouds nationaux](https://docs.microsoft.com/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
 
-## <a name="pythontabpython"></a>[Python](#tab/python)
+## <a name="python"></a>[Python](#tab/python)
 
 Pour activer votre application MSAL Python pour les clouds souverains :
 
@@ -159,7 +159,7 @@ Pour activer votre application MSAL Python pour les clouds souverains :
     "scope": "User.Read"
     ```
     
-## <a name="javatabjava"></a>[Java](#tab/java)
+## <a name="java"></a>[Java](#tab/java)
 
 Pour activer votre application MSAL pour Java pour les clouds souverains :
 
@@ -182,7 +182,7 @@ Voici un exemple de point de terminaison Graph, avec l’étendue :
 "scope": "User.Read"
 ```
 
-## <a name="objective-ctabobjc"></a>[Objective-C](#tab/objc)
+## <a name="objective-c"></a>[Objective-C](#tab/objc)
 
 MSAL pour iOS et macOS peut être utilisé pour acquérir des jetons dans les clouds ​​nationaux, mais une configuration supplémentaire est nécessaire lors de la création de `MSALPublicClientApplication`.
 
@@ -205,7 +205,7 @@ MSALPublicClientApplication *application =
                 [[MSALPublicClientApplication alloc] initWithConfiguration:config error:&applicationError];
 ```
 
-## <a name="swifttabswift"></a>[Swift](#tab/swift)
+## <a name="swift"></a>[Swift](#tab/swift)
 
 MSAL pour iOS et macOS peut être utilisé pour acquérir des jetons dans les clouds ​​nationaux, mais une configuration supplémentaire est nécessaire lors de la création de `MSALPublicClientApplication`.
 

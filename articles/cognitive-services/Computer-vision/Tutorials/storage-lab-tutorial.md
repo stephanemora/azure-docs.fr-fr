@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Générer des métadonnées pour les images Azure'
+title: 'Tutoriel : Générer des métadonnées pour les images Azure'
 titleSuffix: Azure Cognitive Services
 description: Ce tutoriel vous montre comment intégrer le service Azure Vision par ordinateur dans une application web afin de générer des métadonnées pour des images.
 services: cognitive-services
@@ -11,13 +11,13 @@ ms.topic: tutorial
 ms.date: 12/05/2019
 ms.author: pafarley
 ms.openlocfilehash: 7c83350dbecaf20e9b35f159b2c01824777bc665
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74973711"
 ---
-# <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>Didacticiel : Utiliser le service Vision par ordinateur pour générer des métadonnées des images dans le stockage Azure
+# <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>Tutoriel : Utiliser le service Vision par ordinateur pour générer des métadonnées des images dans le stockage Azure
 
 Ce tutoriel vous montre comment intégrer le service Vision par ordinateur d’Azure dans une application web afin de générer ensuite des métadonnées pour les images chargées. Cela est utile pour les scénarios de [gestion des actifs numériques](../Home.md#computer-vision-for-digital-asset-management), par exemple si une entreprise souhaite générer rapidement des sous-titres descriptifs ou des mots clés de recherche pour toutes ses images.
 
@@ -137,7 +137,7 @@ Pour voir toutes les métadonnées attachées, affichez le conteneur de stockage
 
 ![Fenêtre de dialogue des propriétés de l’image, avec les balises de métadonnées listées](../Images/blob-metadata.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous souhaitez continuer à travailler sur votre application web, passez à la section [Étapes suivantes](#next-steps). Si vous n’avez plus besoin de cette application, supprimez toutes les ressources propres à l’application. Pour supprimer les ressources, vous pouvez supprimer le groupe de ressources qui contient votre abonnement Stockage Azure et la ressource Vision par ordinateur. Cette opération supprime le compte de stockage, les objets blob qui y ont été chargés ainsi que la ressource App Service utilisée pour vous connecter à l’application web ASP.NET. 
 

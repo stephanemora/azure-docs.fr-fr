@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/04/2019
 ms.openlocfilehash: 93880269edd72477f3aa85b2dbdc9d9f3ec8ef25
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75435943"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>Gérer des clusters HDInsight avec le pack Sécurité Entreprise
@@ -65,7 +65,7 @@ L’utilisation d’API standard est utile en matière de sécurité. Vous bén�
 - **Gestion** : vous pouvez gérer votre code et automatiser vos travaux à l’aide des API standard, comme Livy, HS2, etc.
 - **Audit** – Avec SSH, il n’y a aucun moyen de contrôler qui utilise SSH pour accéder au cluster. La situation est différente lorsque les travaux sont construits via des points de terminaison standard puisqu’ils sont exécutés dans le contexte de l’utilisateur.
 
-### <a name="beeline"></a>Utiliser BeeLine
+### <a name="use-beeline"></a><a name="beeline"></a>Utiliser BeeLine
 
 Installez Beeline sur votre ordinateur et connectez-vous via l’Internet public, puis utilisez les paramètres suivants :
 

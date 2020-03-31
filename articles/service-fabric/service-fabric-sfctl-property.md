@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: a9bd75e0b7f8bfceb50a71ca83b60ff1e7b45508
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76905835"
 ---
 # <a name="sfctl-property"></a>sfctl property
@@ -19,7 +19,7 @@ Stocke et interroge des propriétés avec des noms Service Fabric.
 
 |Commande|Description|
 | --- | --- |
-| delete | Permet de supprimer la propriété Service Fabric spécifiée. |
+| supprimer | Permet de supprimer la propriété Service Fabric spécifiée. |
 | get | Permet d’obtenir la propriété Service Fabric spécifiée. |
 | list | Permet d’obtenir des informations sur toutes les propriétés Service Fabric sous un nom donné. |
 | put | Permet de créer ou mettre à jour une propriété Service Fabric. |

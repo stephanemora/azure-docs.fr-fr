@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 12/06/2019
 ms.author: cherylmc
 ms.openlocfilehash: 05602538f206032d924b39a7dd8f4325c48a5224
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74931370"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>Créer et modifier le peering pour un circuit ExpressRoute (Classic)
 > [!div class="op_single_selector"]
-> * [Portail Azure](expressroute-howto-routing-portal-resource-manager.md)
+> * [Azure portal](expressroute-howto-routing-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-routing-arm.md)
-> * [Interface de ligne de commande Azure](howto-routing-cli.md)
+> * [Azure CLI](howto-routing-cli.md)
 > * [Vidéo - Peering privé](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
 > * [Vidéo - Peering public](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
 > * [Vidéo - Peering Microsoft](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
@@ -88,7 +88,7 @@ Cette section fournit des instructions sur la façon de créer, obtenir, mettre 
    * Un sous-réseau /30 pour le lien secondaire. Ce sous-réseau ne doit faire partie d’aucun espace d'adressage réservé aux réseaux virtuels.
    * Un ID VLAN valide pour établir ce peering. Vérifiez qu'aucun autre peering sur le circuit n'utilise le même ID VLAN.
    * Un numéro AS pour le peering. Vous pouvez utiliser des numéros à 2 et 4 octets. Vous pouvez utiliser un numéro AS privé pour ce peering. Veillez à ne pas utiliser le numéro 65515.
-   * Un hachage MD5 si vous choisissez d’en utiliser un. **Facultative**.
+   * Un hachage MD5 si vous choisissez d’en utiliser un. **Facultatif**.
      
    Vous pouvez utiliser l’exemple suivant pour configurer le peering privé Azure pour votre circuit :
 
@@ -195,7 +195,7 @@ Cette section fournit des instructions sur la façon de créer, d’obtenir, de 
    * Un sous-réseau /30 pour le lien secondaire. Ce doit être un préfixe IPv4 public valide.
    * Un ID VLAN valide pour établir ce peering. Vérifiez qu'aucun autre peering sur le circuit n'utilise le même ID VLAN.
    * Un numéro AS pour le peering. Vous pouvez utiliser des numéros à 2 et 4 octets.
-   * Un hachage MD5 si vous choisissez d’en utiliser un. **Facultative**.
+   * Un hachage MD5 si vous choisissez d’en utiliser un. **Facultatif**.
 
    > [!IMPORTANT]
    > Veillez à spécifier votre numéro AS comme ASN de peering et non pas comme ASN client.
@@ -300,8 +300,8 @@ Cette section fournit des instructions sur la façon de créer, d’obtenir, de 
    * Un ID VLAN valide pour établir ce peering. Vérifiez qu'aucun autre peering sur le circuit n'utilise le même ID VLAN.
    * Un numéro AS pour le peering. Vous pouvez utiliser des numéros à 2 et 4 octets.
    * Préfixes publiés : Vous devez fournir la liste de tous les préfixes que vous prévoyez de publier sur la session BGP. Seuls les préfixes d'adresses IP publiques sont acceptés. Vous pouvez envoyer une liste séparée par des virgules si vous prévoyez d'envoyer un jeu de préfixes. Ces préfixes doivent être enregistrés en votre nom dans un registre RIR / IRR.
-   * ASN client : Si vous publiez des préfixes non enregistrés dans le numéro AS de peering, vous pouvez spécifier le numéro AS avec lequel ils sont enregistrés. **Facultative**.
-   * Nom du registre de routage : Vous pouvez spécifier les registres RIR/IRR par rapport auquel le numéro AS et les préfixes sont enregistrés.
+   * ASN client : si vous publiez des préfixes non enregistrés dans le numéro AS de peering, vous pouvez spécifier le numéro AS avec lequel ils sont enregistrés. **Facultatif**.
+   * Nom du registre de routage : Vous pouvez spécifier les registres RIR/IRR sur lesquels le numéro AS et les préfixes sont inscrits.
    * Un hachage MD5 si vous choisissez d’en utiliser un. **Facultatif.**
      
    Exécutez l'applet de commande suivante afin de configurer le peering Microsoft pour votre circuit :

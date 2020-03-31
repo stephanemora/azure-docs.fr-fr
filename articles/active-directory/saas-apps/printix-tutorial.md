@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Printix | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Printix | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Printix.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.date: 06/29/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e883833f7998c073b574c892ed5c7777e01faab4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "62111445"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-printix"></a>Didacticiel : Intégration d’Azure Active Directory à Printix
+# <a name="tutorial-azure-active-directory-integration-with-printix"></a>Tutoriel : Intégration d’Azure Active Directory à Printix
 
 Dans ce didacticiel, vous allez apprendre à intégrer Printix à Azure Active Directory (Azure AD).
 
@@ -66,11 +66,11 @@ Pour configurer l’intégration de Printix à Azure AD, vous devez ajouter Prin
 
 1. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
-    ![APPLICATIONS][2]
+    ![Applications][2]
     
 1. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
-    ![APPLICATIONS][3]
+    ![Applications][3]
 
 1. Dans la zone de recherche, tapez **Printix**.
 
@@ -103,15 +103,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le Portail Azure, sur la page d’intégration de l’application **Printix**, cliquez sur **Authentification unique**.
 
-    ![Configurer l'authentification unique][4]
+    ![Configure Single Sign-On][4]
 
 1. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configurer l'authentification unique](./media/printix-tutorial/tutorial_printix_samlbase.png)
+    ![Configure Single Sign-On](./media/printix-tutorial/tutorial_printix_samlbase.png)
 
 1. Dans la section **Domaine et URL Printix**, procédez comme suit :
 
-    ![Configurer l'authentification unique](./media/printix-tutorial/tutorial_printix_url.png)
+    ![Configure Single Sign-On](./media/printix-tutorial/tutorial_printix_url.png)
 
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<subdomain>.printix.net`
 
@@ -124,29 +124,29 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configurer l'authentification unique](./media/printix-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On](./media/printix-tutorial/tutorial_general_400.png)
 
 1. Connectez-vous à votre client Printix en tant qu’administrateur.
 
 1. Dans le menu situé en haut, cliquez sur l’icône dans le coin supérieur droit et sélectionnez**Authentification**(Authentification).
    
-    ![Configurer l'authentification unique](./media/printix-tutorial/tutorial_printix_06.png)
+    ![Configure Single Sign-On](./media/printix-tutorial/tutorial_printix_06.png)
 
 1. Sous l’onglet **Setup** (Configuration), sélectionnez **Enable Azure/Office 365 authentication** (Activer l’authentification Azure/Office 365).
    
-    ![Configurer l'authentification unique](./media/printix-tutorial/tutorial_printix_07.png)
+    ![Configure Single Sign-On](./media/printix-tutorial/tutorial_printix_07.png)
 
 1. Sous l’onglet **Azure**, entrez l’URL des métadonnées de fédération dans la zone de texte **Federation metadata document** (Document de métadonnées de fédération). 
 
     Envoyez le fichier XML de métadonnées que vous avez téléchargé sur Azure AD à [l’équipe de support Printix](mailto:support@printix.net). Elle charge alors le fichier XML et vous fournit une URL des métadonnées de fédération.
    
-    ![Configurer l'authentification unique](./media/printix-tutorial/tutorial_printix_08.png)
+    ![Configure Single Sign-On](./media/printix-tutorial/tutorial_printix_08.png)
    
 1. Cliquez sur le bouton **Test**, puis sur le bouton **OK** si le test a réussi.
    
      La page Azure Active Directory s’affiche après que vous avez cliqué sur le bouton **Test**. Le message « Test réussi » signifie qu’après avoir entré les informations d’identification de votre compte test Azure, le message « Paramètres testés correctement » s’affiche. Cliquez alors sur le bouton **OK**.
    
-    ![Configurer l'authentification unique](./media/printix-tutorial/tutorial_printix_09.png)
+    ![Configure Single Sign-On](./media/printix-tutorial/tutorial_printix_09.png)
 
 1. Cliquez sur le bouton **Save** (Enregistrer) dans la page **Authentication** (Authentification).
 
@@ -210,7 +210,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 1. Dans la liste des applications, sélectionnez **Printix**.
 
-    ![Configurer l'authentification unique](./media/printix-tutorial/tutorial_printix_app.png) 
+    ![Configure Single Sign-On](./media/printix-tutorial/tutorial_printix_app.png) 
 
 1. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 

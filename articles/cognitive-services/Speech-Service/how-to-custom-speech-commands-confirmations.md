@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 12/05/2019
 ms.author: encorona
 ms.openlocfilehash: afa197c83b4f66f12863de4185ef7763447f3ed9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75453364"
 ---
 # <a name="how-to-add-a-confirmation-to-a-custom-command-preview"></a>Procédure : Ajouter une confirmation à une commande personnalisée (préversion)
 
 Cet article montre comment ajouter une confirmation à une commande.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Vous devez avoir effectué les étapes décrites dans les articles suivants :
 
@@ -38,7 +38,7 @@ Pour illustrer les validations, commençons par créer une commande permettant �
 
    | Paramètre           | Valeur suggérée                                          | Description                                                                                      |
    | ----------------- | ---------------------------------------------------------| ------------------------------------------------------------------------------------------------ |
-   | Name              | DateTime                                                 | Nom descriptif de votre paramètre de commande                                                    |
+   | Nom              | DateTime                                                 | Nom descriptif de votre paramètre de commande                                                    |
    | Obligatoire          | true                                                     | Case à cocher indiquant si une valeur de ce paramètre est requise avant d'exécuter la commande |
    | Modèle de réponse | "- What time?"                                           | Invite permettant de demander la valeur de ce paramètre lorsqu'elle n'est pas connue                              |
    | Type              | DateTime                                                 | Type du paramètre, par exemple Nombre, Chaîne ou Date/heure                                      |

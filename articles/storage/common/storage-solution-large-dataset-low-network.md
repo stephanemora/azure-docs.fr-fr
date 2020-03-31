@@ -9,17 +9,17 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: alkohli
 ms.openlocfilehash: 4c4ac9489b9613b2eeaf26a3df9f4cbc664a1026
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60730688"
 ---
 # <a name="data-transfer-for-large-datasets-with-low-or-no-network-bandwidth"></a>Transférer des jeux de données volumineux avec une bande passante réseau faible ou aucune bande passante réseau
  
 Cet article fournit une vue d’ensemble des solutions de transfert de données adaptées aux environnements disposant d’une bande passante réseau faible ou ne disposant d’aucune bande passante réseau et au transfert de jeux de données volumineux. Il décrit également les options de transfert de données recommandées et la matrice de fonctionnalités clés correspondant à ce scénario.
 
-Pour une vue d’ensemble de toutes les options de transfert de données disponibles, accédez à [Choisir une solution de transfert de données Azure](storage-choose-data-transfer-solution.md).
+Pour une vue d’ensemble de toutes les options de transfert de données disponibles, voir [Choisir une solution de transfert de données Azure](storage-choose-data-transfer-solution.md).
 
 ## <a name="offline-transfer-or-network-transfer"></a>Transfert hors connexion ou transfert réseau
 
@@ -45,14 +45,14 @@ Les options disponibles dans ce scénario sont les appareils destinés au transf
 
 Le tableau suivant résume les différences entre les principales fonctionnalités.
 
-|                                     |    Data Box Disk      |    Data Box                                      |    Data Box Heavy              |    Importation/Exportation                       |
+|                                     |    Data Box Disk      |    Data Box                                      |    Data Box Heavy              |    Importer/Exporter                       |
 |-------------------------------------|---------------------------------|--------------------------------------------------|------------------------------------------|----------------------------------------|
 |    Taille des données                        |    Jusqu’à 35 To                 |    Jusqu’à 80 To par appareil                       |    Jusqu’à 800 To par appareil               |    Variable                            |
 |    Type de données                        |    Objets blob Azure                  |    Objets blob Azure<br>Azure Files                    |    Objets blob Azure<br>Azure Files            |    Objets blob Azure<br>Azure Files          |
 |    Facteur de forme                      |    5 disques SSD par commande             |    1 x appareil de 50 lb de taille bureau par commande    |    1 x gros appareil d’environ 500 lb par commande    |    Jusqu’à 10 disques HDD/SSD par commande        |
 |    Temps d’installation initial               |    Faible <br>(15 minutes)            |    Faible à modéré <br> (< 30 minutes)               |    Modéré<br>(1 à 2 heures)               |    Modéré à difficile<br>(variable) |
-|    Envoyer des données vers Azure               |    OUI                          |    OUI                                           |    OUI                                   |    OUI                                 |
-|    Exporter des données à partir d’Azure           |    Non                           |    Non                                            |    Non                                    |    OUI                                 |
+|    Envoyer des données vers Azure               |    Oui                          |    Oui                                           |    Oui                                   |    Oui                                 |
+|    Exporter des données à partir d’Azure           |    Non                           |    Non                                            |    Non                                    |    Oui                                 |
 |    Chiffrement                       |    AES 128 bits                  |    AES 256 bits                                   |    AES 256 bits                           |    AES 128 bits                         |
 |    Matériel                         |     Fourni par Microsoft          |    Fourni par Microsoft                            |    Fourni par Microsoft                    |    Fourni par le client                   |
 |    interface réseau                |    USB 3.1/SATA                 |    RJ45, SFP+                                   |    RJ45, QSFP+                           |    SATA II/SATA III                    |

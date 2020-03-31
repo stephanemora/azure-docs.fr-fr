@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/15/2019
 ms.author: alkohli
 ms.openlocfilehash: 3a8d1f93930d2b298eeb7d10a73624b9a19bcc0e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60756203"
 ---
 # <a name="troubleshoot-your-azure-data-box-edge-issues"></a>Résoudre les problèmes d’Azure Data Box Edge 
@@ -52,11 +52,11 @@ Pour collecter un package de support, procédez comme suit.
 
 1. Dans l’interface utilisateur web locale, accédez à **Dépannage > Support**. Cliquez sur **Créer un package de support**. Le système commence à collecter le package de support. La collection du package peut nécessiter plusieurs minutes.
 
-    ![Résolution des problèmes](media/data-box-edge-troubleshoot/collect-logs-1.png)
+    ![Ajout d’une planification](media/data-box-edge-troubleshoot/collect-logs-1.png)
  
 2. Une fois le package de support créé, cliquez sur **Télécharger le package de support**. Un package compressé est téléchargé dans le chemin d’accès que vous avez choisi. Vous pouvez décompresser le package et visualiser les fichiers journaux système.
 
-    ![Résolution des problèmes](media/data-box-edge-troubleshoot/collect-logs-2.png)
+    ![Ajout d’une planification](media/data-box-edge-troubleshoot/collect-logs-2.png)
 
 ## <a name="use-logs-to-troubleshoot"></a>Utiliser les journaux d’activité pour résoudre les problèmes
 

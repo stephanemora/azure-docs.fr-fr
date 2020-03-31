@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: b7f0b77ba11a0c9c1670ec240caf45fcf61a934d
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74896018"
 ---
 #  <a name="use-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Utiliser Media Encoder Standard pour générer automatiquement une échelle des vitesses de transmission  
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Cet article explique comment utiliser Media Encoder Standard (MES) pour générer automatiquement une échelle des vitesses de transmission (paires vitesse-résolution) basée sur la résolution d’entrée et la vitesse de transmission. La présélection générée automatiquement ne dépassera jamais la résolution d’entrée et la vitesse de transmission. Par exemple, si l’entrée est 720p à 3 Mbits/s, la sortie reste à 720p maximum et démarre à des vitesses inférieures à 3 Mbits/s.
 
@@ -34,7 +34,7 @@ Si votre objectif est d’encoder votre vidéo source uniquement pour la diffusi
 
 Si vos objectifs sont d’encoder votre vidéo source pour la diffusion en continu et produire des fichiers MP4 pour le téléchargement progressif, il vous faut utiliser la présélection « Contenu adaptatif MP4 à plusieurs débits » lors de la création d’une tâche d’encodage. Lorsque vous utilisez la présélection **Contenu adaptative MP4 à plusieurs débits**, l’encodeur MES applique la même logique de codage que celle indiquée ci-dessus, mais désormais la ressource en sortie contient des fichiers MP4 pour les flux audio et vidéo entrelacés. Vous pouvez utiliser un de ces fichiers MP4 (par exemple, la version la plus élevée à débit binaire) en tant que fichier de téléchargement progressif.
 
-## <a id="encoding_with_dotnet"></a>Encodage à l’aide du Kit de développement logiciel (SDK) .NET de Media Services
+## <a name="encoding-with-media-services-net-sdk"></a><a id="encoding_with_dotnet"></a>Encodage à l’aide du Kit de développement logiciel (SDK) .NET de Media Services
 
 Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Services pour effectuer les tâches suivantes :
 
@@ -49,7 +49,7 @@ Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Se
 
 Configurez votre environnement de développement et ajoutez des informations de connexion au fichier app.config selon la procédure décrite dans l’article [Développement Media Services avec .NET](media-services-dotnet-how-to-use.md). 
 
-#### <a name="example"></a>Exemples
+#### <a name="example"></a>Exemple
 
 ```
 using System;
@@ -167,7 +167,7 @@ namespace AdaptiveStreamingMESPresest
 }
 ```
 
-## <a id="output"></a>Sortie
+## <a name="output"></a><a id="output"></a>Sortie
 
 Cette section présente trois exemples de couches de sortie produits par MES suite à un encodage avec la présélection **Diffusion adaptative**. 
 
@@ -180,7 +180,7 @@ Une source avec une hauteur de « 1080 » et une fréquence d’images de « 29.
 |2|720|1 280|3520|
 |3|540|960|2210|
 |4|360|640|1150|
-|5\.|270|480|720|
+|5|270|480|720|
 |6|180|320|380|
 
 ### <a name="example-2"></a>Exemple 2
@@ -192,7 +192,7 @@ Une source avec une hauteur de « 720 » et une fréquence d’images de « 23.9
 |2|540|960|1850|
 |3|360|640|960|
 |4|270|480|600|
-|5\.|180|320|320|
+|5|180|320|320|
 
 ### <a name="example-3"></a>Exemple 3
 Une source avec une hauteur de « 360 » et une fréquence d’images de « 29.970 » crée 3 couches vidéo :

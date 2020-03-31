@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: bced6a9e6c59dc32657dbabef986e29e0447b28b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60947200"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Rapport d’estimation de coût du planificateur de déploiement Azure Site Recovery 
@@ -52,7 +52,7 @@ La première section indique le coût global de récupération d’urgence par c
 
 **Calcul** : coût des machines virtuelles IaaS exécutées sur Azure pour les besoins de la reprise d’activité. Il inclut les machines virtuelles créées par Site Recovery au cours des tests de récupération d’urgence (tests de basculement). Il comprend aussi les machines virtuelles exécutées sur Azure, comme SQL Server avec les groupes de disponibilité Always On et les contrôleurs de domaine ou serveurs de noms de domaine.
 
-**Stockage** : coût de consommation de stockage Azure pour les besoins de la reprise d’activité. Il inclut la consommation du stockage pour la réplication et au cours des exercices de récupération d’urgence.
+**Stockage** : coût de consommation de stockage Azure pour les besoins de la reprise d’activité. Il inclut la consommation du stockage pour la réplication et au cours des exercices de récupération d’urgence.
 
 **Réseau** : coût d’ExpressRoute et du VPN site à site pour les besoins de la reprise d’activité. 
 

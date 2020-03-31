@@ -7,17 +7,17 @@ ms.author: sujie
 ms.date: 11/14/2019
 ms.topic: conceptual
 ms.openlocfilehash: 34ce91a1385f951847abeedd3a6b526d3a07af35
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75660849"
 ---
 # <a name="test-stream-analytics-queries-locally-against-live-stream-input-by-using-visual-studio-code"></a>Tester des requêtes Stream Analytics localement par rapport à une entrée de stream en direct à l'aide de Visual Studio Code
 
 Vous pouvez utiliser Azure Stream Analytics Tools pour Visual Studio Code afin de tester vos travaux Stream Analytics localement par rapport à une entrée de stream en direct. L'entrée peut provenir d'une source comme Azure Event Hubs ou Azure IoT Hub. Les résultats sont envoyés sous forme de fichiers JSON vers un dossier de votre projet nommé **LocalRunOutputs**.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Installez le [kit SDK .NET Core](https://dotnet.microsoft.com/download) et redémarrez Visual Studio Code.
 
@@ -45,7 +45,7 @@ Vous pouvez utiliser Azure Stream Analytics Tools pour Visual Studio Code afin d
 
     ![Sélectionner parmi des abonnements](./media/quick-create-vs-code/add-input-select-subscription.png)
 
-5. Configurez le fichier JSON qui vient d'être généré. Vous pouvez vous aider de la fonctionnalité CodeLens pour entrer une chaîne, opérer une sélection dans une liste déroulante ou modifier le texte directement dans le fichier. La capture d'écran suivante montre **Sélectionner parmi vos abonnements** à titre d'exemple.
+5. Configurez le fichier JSON qui vient d'être généré. Vous pouvez vous aider de la fonctionnalité CodeLens pour entrer une chaîne, opérer une sélection dans une liste déroulante ou modifier le texte directement dans le fichier. La capture d’écran suivante montre **Sélectionner parmi vos abonnements** à titre d’exemple.
 
    ![Configurer l’entrée dans Visual Studio Code](./media/quick-create-vs-code/configure-input.png)
 

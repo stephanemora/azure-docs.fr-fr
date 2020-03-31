@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/17/2019
 ms.openlocfilehash: bc119f1ce8efb821781dabfb9dd259cc5c8d9c23
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74792469"
 ---
 # <a name="manage-artifact-metadata-in-integration-accounts-with-azure-logic-apps-and-enterprise-integration-pack"></a>Gérer des métadonnées d’artefact à partir de comptes d’intégration avec Azure Logic Apps et Enterprise Integration Pack
@@ -61,10 +61,10 @@ Vous pouvez définir des métadonnées personnalisées pour les artefacts dans l
 
 1. Fournissez les informations suivantes pour l’artefact que vous voulez rechercher :
 
-   | Propriété | Obligatoire | Value | Description | 
+   | Propriété | Obligatoire | Valeur | Description | 
    |----------|---------|-------|-------------| 
-   | **Type d’artefact** | OUI | **Schéma**, **Carte**, **Partenaire**, **Contrat** ou un type personnalisé | Le type souhaité pour l’artefact | 
-   | **Nom de l’artefact** | OUI | <*nom_artefact*> | Nom souhaité pour l’artefact | 
+   | **Type d’artefact** | Oui | **Schéma**, **Carte**, **Partenaire**, **Contrat** ou un type personnalisé | Le type souhaité pour l’artefact | 
+   | **Nom de l’artefact** | Oui | <*nom_artefact*> | Nom souhaité pour l’artefact | 
    ||| 
 
    Par exemple, supposons que vous voulez obtenir les métadonnées d’un artefact de partenaire commercial :
@@ -83,10 +83,10 @@ Vous pouvez définir des métadonnées personnalisées pour les artefacts dans l
 
       Par exemple, supposons que vous voulez obtenir les métadonnées `routingUrl` qui ont été ajoutées précédemment dans cette rubrique. Voici les valeurs de propriété que vous pouvez spécifier : 
 
-      | Propriété | Obligatoire | Value | Description | 
+      | Propriété | Obligatoire | Valeur | Description | 
       |----------|----------|-------|-------------| 
-      | **Méthode** | OUI | <*operation-to-run*> | Opération HTTP à exécuter sur l’artefact. Par exemple, cette action HTTP utilise la méthode **GET**. | 
-      | **URI** | OUI | <*metadata-location*> | Pour accéder à la valeur de métadonnées `routingUrl` à partir de l’artefact que vous avez récupéré, vous pouvez utiliser une expression ; par exemple : <p>`@{outputs('Integration_Account_Artifact_Lookup')['properties']['metadata']['routingUrl']}` | 
+      | **Méthode** | Oui | <*operation-to-run*> | Opération HTTP à exécuter sur l’artefact. Par exemple, cette action HTTP utilise la méthode **GET**. | 
+      | **URI** | Oui | <*metadata-location*> | Pour accéder à la valeur de métadonnées `routingUrl` à partir de l’artefact que vous avez récupéré, vous pouvez utiliser une expression ; par exemple : <p>`@{outputs('Integration_Account_Artifact_Lookup')['properties']['metadata']['routingUrl']}` | 
       | **En-têtes** | Non | <*header-values*> | Toute sortie d’en-tête du déclencheur que vous voulez passer dans l’action HTTP. Par exemple, pour passer la valeur de propriété `headers` du déclencheur, vous pouvez utiliser une expression ; par exemple : <p>`@triggeroutputs()['headers']` | 
       | **Corps** | Non | <*body-content*> | Tout autre contenu que vous voulez passer par le biais de la propriété `body` de l’action HTTP. Cet exemple passe les valeurs `properties` de l’artefact dans l’action HTTP : <p>1. Cliquez dans la propriété **Body** pour afficher la liste de contenu dynamique. Si aucune propriété ne s’affiche, choisissez **Afficher plus**. <br>2. Dans la liste de contenu dynamique, sous **Recherche d’artefact de compte d’intégration**, sélectionnez **Propriétés**. | 
       |||| 

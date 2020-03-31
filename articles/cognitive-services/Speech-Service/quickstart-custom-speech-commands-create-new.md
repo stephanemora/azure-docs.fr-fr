@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: donkim
 ms.openlocfilehash: 4ae8f13b4887bbc41b17defa3f9a20c07ed0cb45
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76155585"
 ---
 # <a name="quickstart-create-a-custom-command-preview"></a>Démarrage rapide : Créer une commande personnalisée (préversion)
@@ -22,7 +22,7 @@ ms.locfileid: "76155585"
 Cet article décrit comment créer et tester une application de commandes personnalisées hébergée.
 L’application reconnaît un énoncé tel que « Allume la télévision » et répond avec un simple message « D’accord, j’allume la télévision ».
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Abonnement Speech.
 

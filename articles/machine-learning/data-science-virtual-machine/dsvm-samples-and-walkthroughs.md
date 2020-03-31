@@ -11,10 +11,10 @@ ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: d064e940997d13e51be4fd38e9f678b778ce31f4
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74900049"
 ---
 # <a name="samples-on-azure-data-science-virtual-machines"></a>Exemples sur Data Science Virtual Machine
@@ -32,7 +32,7 @@ Pour exécuter ces exemples, vous devez avoir approvisionné une Data Science Vi
 | ------------- | ------------- | ------------- |
 | Langage R  | Les exemples illustrent des scénarios tels que la connexion aux magasins de données cloud basés sur Azure et la comparaison de R et de Microsoft Machine Learning Server open source. Ils expliquent également comment rendre les modèles opérationnels sur Microsoft Machine Learning Server et SQL Server. <br/> [Langage R](#r-language) | <br/>`~notebooks` <br/> <br/> `~samples/MicrosoftR` <br/> <br/> `~samples/RSqlDemo` <br/> <br/> `~samples/SQLRServices`<br/> <br/>|
 | Langage Python  | Les exemples décrivent des scénarios tels que la connexion aux magasins de données cloud basés sur Azure et l’utilisation d’Azure Machine Learning.  <br/> [Langage Python](#python-language) | <br/>`~notebooks` <br/><br/>|
-| Langage Julia  | Fournit une description détaillée du traçage et du Deep Learning dans Julia. Explique également comment appeler les langages C et Python à partir de Julia. <br/> [Langage Julia](#julia-language) |<br/> Windows :<br/> `~notebooks/Julia_notebooks`<br/><br/> Linux :<br/> `~notebooks/julia`<br/><br/> |
+| Langage Julia  | Fournit une description détaillée du traçage et du Deep Learning dans Julia. Explique également comment appeler les langages C et Python à partir de Julia. <br/> [Langage Julia](#julia-language) |<br/> Windows :<br/> `~notebooks/Julia_notebooks`<br/><br/> Linux :<br/> `~notebooks/julia`<br/><br/> |
 | Azure Machine Learning  | Générez des modèles Machine Learning et d’apprentissage profond avec Machine Learning. Déployez-les n’importe où. Utilisez le réglage intelligent des hyperparamètres et le réglage Machine Learning automatisé, ainsi que la gestion des modèles et la formation distribuée. <br/> [Machine Learning](#azure-machine-learning) | <br/>`~notebooks/AzureML`<br/> <br/>|
 | Blocs-notes PyTorch  | Exemples Deep Learning qui utilisent des réseaux neuronaux basés sur PyTorch. La gamme des blocs-notes s’étend des scénarios pour débutants aux scénarios pour utilisateurs avancés.  <br/> [Blocs-notes PyTorch](#pytorch) | <br/>`~notebooks/Deep_learning_frameworks/pytorch`<br/> <br/>|
 | TensorFlow  |  Variété d’exemples et techniques de réseau neuronal implémentés à l’aide de l’infrastructure TensorFlow. <br/> [TensorFlow](#tensorflow) | <br/>`~notebooks/Deep_learning_frameworks/tensorflow`<br/><br/> |
@@ -40,7 +40,7 @@ Pour exécuter ces exemples, vous devez avoir approvisionné une Data Science Vi
 | Caffe2 | Exemples Deep Learning qui utilisent des réseaux neuronaux basés sur Caffe2. Plusieurs blocs-notes permettent de familiariser les utilisateurs avec l’infrastructure Caffe2 et d’apprendre à l’utiliser efficacement. Les exemples incluent la création de jeux de données et le prétraitement des images, ainsi que la régression et l’utilisation des modèles préentraînés. <br/> [Caffe2](#caffe2) | <br/>`~notebooks/Deep_learning_frameworks/caffe2`<br/><br/> |
 | H2O   | Exemples basés sur Python qui utilisent H2O pour des scénarios problématiques concrets. <br/> [H2O](#h2o) | <br/>`~notebooks/h2o`<br/><br/> |
 | Langage SparkML  | Exemples utilisant les fonctionnalités de la boîte à outils Apache Spark MLLib via pySpark et MMLSpark : Microsoft Machine Learning pour Apache Spark sur Apache Spark 2.x.  <br/> [Langage SparkML](#sparkml) | <br/>`~notebooks/SparkML/pySpark`<br/>`~notebooks/MMLSpark`<br/><br/>  |
-| XGBoost | Exemples d’apprentissage automatique standard dans XGBoost pour les scénarios tels que la classification et la régression. <br/> [XGBoost](#xgboost) | <br/>Windows :<br/>`\dsvm\samples\xgboost\demo`<br/><br/> |
+| XGBoost | Exemples d’apprentissage automatique standard dans XGBoost pour les scénarios tels que la classification et la régression. <br/> [XGBoost](#xgboost) | <br/>Windows :<br/>`\dsvm\samples\xgboost\demo`<br/><br/> |
 
 <br/>
 

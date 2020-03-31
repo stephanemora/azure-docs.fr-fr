@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 03/12/2019
 ms.author: spelluru
 ms.openlocfilehash: c5998ff428c4b6f4c1f7a4087c6ccb27d93773eb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60345462"
 ---
 # <a name="azure-event-grid-event-schema-for-container-registry"></a>Schéma d’événement Azure Event Grid pour Container Registry
@@ -181,9 +181,9 @@ L’objet cible comporte les propriétés suivantes :
 | Propriété | Type | Description |
 | -------- | ---- | ----------- |
 | mediaType | string | Type MIME de l’objet référencé. |
-| size | integer | Nombre d’octets du contenu. Identique au champ Longueur. |
+| taille | entier | Nombre d’octets du contenu. Identique au champ Longueur. |
 | digest | string | Résumé du contenu, tel que défini par la spécification d’API du Registre V2 HTTP. |
-| length | integer | Nombre d’octets du contenu. Identique au champ Taille. |
+| length | entier | Nombre d’octets du contenu. Identique au champ Taille. |
 | repository | string | Nom du référentiel. |
 | tag | string | Nom de la balise. |
 | name | string | Nom du chart. |

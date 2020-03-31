@@ -13,10 +13,10 @@ ms.author: abnarain
 manager: anandsub
 robots: noindex
 ms.openlocfilehash: c6d3510dfdd02bf2eb07d656c706c44d895c582d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74927897"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transformer des données en exécutant des scripts U-SQL sur Azure Data Lake Analytics 
@@ -47,8 +47,8 @@ Le tableau suivant décrit les propriétés génériques utilisées dans la déf
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| **type** |La propriété de type doit être définie sur : **AzureDataLakeAnalytics**. |OUI |
-| **accountName** |Nom du compte du service Analytique Azure Data Lake. |OUI |
+| **type** |La propriété de type doit être définie sur : **AzureDataLakeAnalytics**. |Oui |
+| **accountName** |Nom du compte du service Analytique Azure Data Lake. |Oui |
 | **dataLakeAnalyticsUri** |URI du service Analytique Azure Data Lake. |Non |
 | **subscriptionId** |ID d’abonnement Azure |Non (si non spécifié, l’abonnement de la fabrique de données est utilisé). |
 | **resourceGroupName** |Nom du groupe de ressources Azure |Non (si non spécifié, le groupe de ressources de la fabrique de données est utilisé). |
@@ -63,9 +63,9 @@ Utilisez l’authentification par principal de service en spécifiant les propri
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| **servicePrincipalId** | Spécifiez l’ID client de l’application. | OUI |
-| **servicePrincipalKey** | Spécifiez la clé de l’application. | OUI |
-| **client** | Spécifiez les informations de locataire (nom de domaine ou ID de locataire) dans lesquels se trouve votre application. Vous pouvez le récupérer en pointant la souris dans le coin supérieur droit du portail Azure. | OUI |
+| **servicePrincipalId** | Spécifiez l’ID client de l’application. | Oui |
+| **servicePrincipalKey** | Spécifiez la clé de l’application. | Oui |
+| **client** | Spécifiez les informations de locataire (nom de domaine ou ID de locataire) dans lesquels se trouve votre application. Vous pouvez le récupérer en pointant la souris dans le coin supérieur droit du portail Azure. | Oui |
 
 **Exemple : Authentification d’un principal de service**
 ```json
@@ -91,8 +91,8 @@ Vous pouvez également utiliser l’authentification par informations d’identi
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| **authorization** | Cliquez sur le bouton **Autoriser** dans Data Factory Editor et saisissez vos informations d’identification, ce qui affecte l’URL d’autorisation générée automatiquement à cette propriété. | OUI |
-| **sessionId** | ID de session OAuth issu de la session d’autorisation OAuth. Chaque ID de session est unique et ne peut être utilisé qu’une seule fois. Ce paramètre est généré automatiquement lorsque vous utilisez Data Factory Editor. | OUI |
+| **autorisation** | Cliquez sur le bouton **Autoriser** dans Data Factory Editor et saisissez vos informations d’identification, ce qui affecte l’URL d’autorisation générée automatiquement à cette propriété. | Oui |
+| **sessionId** | ID de session OAuth issu de la session d’autorisation OAuth. Chaque ID de session est unique et ne peut être utilisé qu’une seule fois. Ce paramètre est généré automatiquement lorsque vous utilisez Data Factory Editor. | Oui |
 
 **Exemple : Authentification des informations d’identification utilisateur**
 ```json
@@ -207,8 +207,8 @@ Le tableau suivant indique les noms et les descriptions des propriétés qui son
 
 | Propriété            | Description                              | Obligatoire                                 |
 | :------------------ | :--------------------------------------- | :--------------------------------------- |
-| Type                | La propriété de type doit être définie sur **DataLakeAnalyticsU-SQL**. | OUI                                      |
-| linkedServiceName   | Référence au Azure Data Lake Analytics enregistré en tant que service lié dans Data Factory | OUI                                      |
+| type                | La propriété de type doit être définie sur **DataLakeAnalyticsU-SQL**. | Oui                                      |
+| linkedServiceName   | Référence au Azure Data Lake Analytics enregistré en tant que service lié dans Data Factory | Oui                                      |
 | scriptPath          | Chemin d'accès au dossier qui contient le script SQL-U. Le nom de fichier respecte la casse. | Non (si vous utilisez le script)                   |
 | scriptLinkedService | Service lié qui lie le stockage qui contient le script à la fabrique de données | Non (si vous utilisez le script)                   |
 | script              | Spécifiez un script en ligne au lieu de spécifier scriptPath et scriptLinkedService. Par exemple : `"script": "CREATE DATABASE test"`. | Non (si vous utilisez scriptPath et scriptLinkedService) |

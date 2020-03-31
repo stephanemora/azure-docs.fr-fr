@@ -9,10 +9,10 @@ ms.date: 02/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: f3044a2701b0f1cd0e5f9ab3ab60c1d60cfb8f45
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75436808"
 ---
 # <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>Configurer un réseau VPN de site à site via le peering Microsoft ExpressRoute
@@ -26,7 +26,7 @@ Cet article a été conçu pour vous aider à configurer une connectivité chiff
 
 [!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a><a name="architecture"></a>Architecture
 
 
   ![présentation de la connectivité](./media/site-to-site-vpn-over-microsoft-peering/IPsecER_Overview.png)
@@ -43,7 +43,7 @@ Les tunnels VPN qui utilisent le peering Microsoft peuvent être terminés à l�
 >
 >
 
-## <a name="workflow"></a>Flux de travail
+## <a name="workflow"></a><a name="workflow"></a>Flux de travail
 
 1. Configurez le peering Microsoft pour votre circuit ExpressRoute.
 2. Publiez les préfixes publics régionaux Azure sélectionnés sur votre réseau local via le peering Microsoft.
@@ -53,7 +53,7 @@ Les tunnels VPN qui utilisent le peering Microsoft peuvent être terminés à l�
 6. (Facultatif) Configurez les pare-feu ou le filtrage sur des appareils VPN locaux.
 7. Testez et validez la communication IPsec via le circuit ExpressRoute.
 
-## <a name="peering"></a>1. Configurer le peering Microsoft
+## <a name="1-configure-microsoft-peering"></a><a name="peering"></a>1. Configurer le peering Microsoft
 
 Pour configurer une connexion VPN de site à site via ExpressRoute, vous devez utiliser le peering Microsoft ExpressRoute.
 
@@ -65,7 +65,7 @@ Une fois que vous avez configuré votre circuit et le peering Microsoft, vous po
 
 ![circuit](./media/site-to-site-vpn-over-microsoft-peering/ExpressRouteCkt.png)
 
-## <a name="routefilter"></a>2. Configurer des filtres de routage
+## <a name="2-configure-route-filters"></a><a name="routefilter"></a>2. Configurer des filtres de routage
 
 Un filtre de routage vous permet d’identifier les services que vous souhaitez utiliser via le peering Microsoft de votre circuit ExpressRoute. Il s’agit essentiellement de la liste verte de toutes les valeurs de la communauté BGP. 
 
@@ -75,11 +75,11 @@ Dans cet exemple, le déploiement a lieu uniquement dans la région *Azure USA O
 
 Dans le filtre de routage, vous devez également choisir les circuits ExpressRoute auxquels s’applique le filtre. Vous pouvez choisir les circuits ExpressRoute en sélectionnant **Ajouter un circuit**. Dans la figure précédente, le filtre de routage est associé à l’exemple de circuit ExpressRoute.
 
-### <a name="configfilter"></a>2.1 Configurer le filtre de routage
+### <a name="21-configure-the-route-filter"></a><a name="configfilter"></a>2.1 Configurer le filtre de routage
 
 Configurez le filtre de routage. Pour connaître les étapes à suivre, consultez [Configurer des filtres de routage pour le peering Microsoft](how-to-routefilter-portal.md).
 
-### <a name="verifybgp"></a>2.2 Vérifier les itinéraires BGP
+### <a name="22-verify-bgp-routes"></a><a name="verifybgp"></a>2.2 Vérifier les itinéraires BGP
 
 Une fois que vous avez créé le peering Microsoft sur votre circuit ExpressRoute et associé un filtre de routage au circuit, vous pouvez vérifier les itinéraires BGP envoyés par les MSEE sur les appareils PE qui sont appairés aux MSEE. La commande de vérification varie selon le système d’exploitation de vos appareils PE.
 
@@ -112,7 +112,7 @@ Pour vérifier que vous recevez le bon jeu de préfixes, vous pouvez effectuer u
 Get-AzBgpServiceCommunity
 ```
 
-## <a name="vpngateway"></a>3. Configurer la passerelle VPN et les tunnels IPsec
+## <a name="3-configure-the-vpn-gateway-and-ipsec-tunnels"></a><a name="vpngateway"></a>3. Configurer la passerelle VPN et les tunnels IPsec
 
 Dans cette section, les tunnels VPN IPsec sont créés entre la passerelle VPN Azure et le périphérique VPN local. Les exemples utilisent des périphériques VPN Cisco Cloud Service Router (CSR1000).
 
@@ -137,7 +137,7 @@ Dans les exemples, la fin de la passerelle VPN et la fin du tunnel IPsec sont co
 >
 >
 
-### <a name="variables3"></a>3.1 Déclarer les variables
+### <a name="31-declare-the-variables"></a><a name="variables3"></a>3.1 Déclarer les variables
 
 Dans cet exemple, les déclarations de variable sont relatives à l’exemple de réseau. Lorsque vous déclarez des variables, modifiez cette section en fonction de votre environnement.
 
@@ -175,7 +175,7 @@ Dans cet exemple, les déclarations de variable sont relatives à l’exemple de
 },
 ```
 
-### <a name="vnet"></a>3.2 Créer un réseau virtuel
+### <a name="32-create-virtual-network-vnet"></a><a name="vnet"></a>3.2 Créer un réseau virtuel
 
 Si vous associez un réseau virtuel existant à des tunnels VPN, vous pouvez ignorer cette étape.
 
@@ -210,7 +210,7 @@ Si vous associez un réseau virtuel existant à des tunnels VPN, vous pouvez ign
 },
 ```
 
-### <a name="ip"></a>3.3 Affecter des adresses IP publiques aux instances de passerelles VPN
+### <a name="33-assign-public-ip-addresses-to-vpn-gateway-instances"></a><a name="ip"></a>3.3 Affecter des adresses IP publiques aux instances de passerelles VPN
  
 Affectez une adresse IP publique à chaque instance de passerelle VPN.
 
@@ -237,7 +237,7 @@ Affectez une adresse IP publique à chaque instance de passerelle VPN.
   },
 ```
 
-### <a name="termination"></a>3.4 Spécifier la fin du tunnel VPN local (passerelle de réseau local)
+### <a name="34-specify-the-on-premises-vpn-tunnel-termination-local-network-gateway"></a><a name="termination"></a>3.4 Spécifier la fin du tunnel VPN local (passerelle de réseau local)
 
 Les appareils VPN locaux sont désignés comme des **passerelles de réseau local**. L’extrait de code json suivant spécifie également les informations du pair BGP distant :
 
@@ -262,7 +262,7 @@ Les appareils VPN locaux sont désignés comme des **passerelles de réseau loca
 },
 ```
 
-### <a name="creategw"></a>3.5 Créer la passerelle VPN
+### <a name="35-create-the-vpn-gateway"></a><a name="creategw"></a>3.5 Créer la passerelle VPN
 
 Cette section du modèle configure la passerelle VPN à l’aide des paramètres nécessaires à une configuration en mode actif/passif. Gardez à l’esprit les exigences suivantes :
 
@@ -324,7 +324,7 @@ Cette section du modèle configure la passerelle VPN à l’aide des paramètres
   },
 ```
 
-### <a name="ipsectunnel"></a>3.6 Établir les tunnels IPsec
+### <a name="36-establish-the-ipsec-tunnels"></a><a name="ipsectunnel"></a>3.6 Établir les tunnels IPsec
 
 La dernière action du script crée les tunnels IPsec entre la passerelle VPN Azure et l’appareil VPN local.
 
@@ -354,7 +354,7 @@ La dernière action du script crée les tunnels IPsec entre la passerelle VPN Az
   }
 ```
 
-## <a name="device"></a>4. Configurer l’appareil VPN local
+## <a name="4-configure-the-on-premises-vpn-device"></a><a name="device"></a>4. Configurer l’appareil VPN local
 
 La passerelle VPN Azure est compatible avec la plupart des appareils VPN des différents fournisseurs. Pour plus d’informations sur la configuration et les appareils qui ont été validés pour fonctionner avec la passerelle VPN, consultez [À propos des appareils VPN](../vpn-gateway/vpn-gateway-about-vpn-devices.md).
 
@@ -365,7 +365,7 @@ Pour configurer votre appareil VPN, vous avez besoin des éléments suivants :
 
 En règle générale, les pairs eBGP sont directement connectés (souvent via une connexion WAN). Toutefois, lorsque vous configurez eBGP sur des tunnels VPN IPsec via le peering ExpressRoute Microsoft, il existe plusieurs domaines de routage entre les pairs eBGP. Utilisez la commande **ebgp-multihop** pour établir la relation de voisin eBGP entre les deux pairs connectés indirectement. L’entier qui suit la commande ebgp-multihop spécifie la valeur de durée de vie dans les paquets BGP. La commande **maximum-paths eibgp 2** permet l’équilibrage de charge du trafic entre les deux chemins BGP.
 
-### <a name="cisco1"></a>Exemple Cisco CSR1000
+### <a name="cisco-csr1000-example"></a><a name="cisco1"></a>Exemple Cisco CSR1000
 
 L’exemple suivant montre une configuration Cisco CSR1000 sur une machine virtuelle Hyper-V en tant que appareil VPN local :
 
@@ -475,11 +475,11 @@ ip route 10.2.0.229 255.255.255.255 Tunnel1
 !
 ```
 
-## <a name="firewalls"></a>5. Configurer le filtrage des appareils VPN et les pare-feu (facultatif)
+## <a name="5-configure-vpn-device-filtering-and-firewalls-optional"></a><a name="firewalls"></a>5. Configurer le filtrage des appareils VPN et les pare-feu (facultatif)
 
 Configurez votre pare-feu et votre filtrage selon vos besoins.
 
-## <a name="testipsec"></a>6. Tester et valider le tunnel IPsec
+## <a name="6-test-and-validate-the-ipsec-tunnel"></a><a name="testipsec"></a>6. Tester et valider le tunnel IPsec
 
 L’état des tunnels IPsec peut être vérifié sur la passerelle VPN Azure à l’aide de commandes Powershell :
 
@@ -597,7 +597,7 @@ csr1#show crypto ipsec sa | inc encaps|decaps
     #pkts decaps: 746, #pkts decrypt: 746, #pkts verify: 746
 ```
 
-### <a name="verifye2e"></a>Vérifier la connectivité de bout en bout entre l’intérieur du réseau local et le réseau virtuel Azure
+### <a name="verify-end-to-end-connectivity-between-the-inside-network-on-premises-and-the-azure-vnet"></a><a name="verifye2e"></a>Vérifier la connectivité de bout en bout entre l’intérieur du réseau local et le réseau virtuel Azure
 
 Si les tunnels IPsec sont activés et les itinéraires statiques correctement définis, vous devez pouvoir effectuer un test ping sur l’adresse IP du pair BGP distant :
 
@@ -615,7 +615,7 @@ Sending 5, 100-byte ICMP Echos to 10.2.0.229, timeout is 2 seconds:
 Success rate is 100 percent (5/5), round-trip min/avg/max = 4/5/6 ms
 ```
 
-### <a name="verifybgp"></a>Vérifier les sessions BGP sur IPsec
+### <a name="verify-the-bgp-sessions-over-ipsec"></a><a name="verifybgp"></a>Vérifier les sessions BGP sur IPsec
 
 Sur la passerelle VPN Azure, vérifiez l’état du pair BGP :
 

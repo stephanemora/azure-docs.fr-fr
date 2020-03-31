@@ -13,10 +13,10 @@ ms.date: 02/22/2019
 tags: ''
 keywords: ''
 ms.openlocfilehash: 13c83c53cdad719d6a4bed4cc1852b85d62082e8
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68834589"
 ---
 # <a name="ibm-workloads-on-azure"></a>Charges de travail IBM dans Azure
@@ -37,7 +37,7 @@ Un écosystème de partenaires étendu se tient à votre disposition pour vous a
 
 **Étapes suivantes**
 
-- [Migration d’ordinateurs mainframe : mythes et réalités](https://docs.microsoft.com/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/myths-and-facts)
+- [Migration de mainframe : mythes et réalités](https://docs.microsoft.com/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/myths-and-facts)
 - [Installer l’environnement de développement/test IBM zD&T sur Azure](./install-ibm-z-environment.md)
 - [Configurer une instance ADCD (Application Developers Controlled Distribution) dans IBM zD&T v1](./demo.md)
 - [IBM DB2 pureScale sur Azure](https://docs.microsoft.com/azure/virtual-machines/linux/ibm-db2-purescale-azure)

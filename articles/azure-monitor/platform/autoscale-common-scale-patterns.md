@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 05/07/2017
 ms.subservice: autoscale
 ms.openlocfilehash: a77cf1704c20abb77d432eab16569071208f6da8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75396089"
 ---
 # <a name="overview-of-common-autoscale-patterns"></a>Vue d’ensemble des modèles courants de mise à l’échelle automatique
@@ -24,7 +24,7 @@ Cet article suppose que vous êtes familiarisé avec la mise à l’échelle aut
 
 Vous avez une application web (/VMSS/rôle de service cloud) et
 
-- Vous souhaitez faire augmenter/diminuer les tailles d’instance sur la base du processeur.
+- Vous souhaitez effectuer un scale-out/scale-in sur la base du processeur.
 - Vous souhaitez en outre vous assurer qu’il existe un nombre minimal d’instances.
 - Vous souhaitez aussi vous assurer que vous définissez une limite maximale pour le nombre d’instances, vers lequel vous pouvez faire évoluer.
 

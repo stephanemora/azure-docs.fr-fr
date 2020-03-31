@@ -11,10 +11,10 @@ ms.service: active-directory
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c198b329f07c5c7459f25165b2dc0a3bfa032276
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60382067"
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Remplissage de UserPrincipalName dans Azure AD
@@ -142,7 +142,7 @@ Objet utilisateur du locataire Azure AD :
 - MailNickName : us4
 - UserPrincipalName : us4@contoso.onmicrosoft.com
 
-### <a name="scenario-4-non-verified-upn-suffix--update-primary-smtp-address-and-on-premises-mail-attribute"></a>Scénario 4 : Suffixe UPN non vérifié – mise à jour de l'adresse SMTP principale et de l'attribut mail local
+### <a name="scenario-4-non-verified-upn-suffix--update-primary-smtp-address-and-on-premises-mail-attribute"></a>Scénario 4 : Suffixe UPN non vérifié – mise à jour de l'adresse SMTP principale et de l'attribut mail local
 
 ![Scénario 4](./media/plan-connect-userprincipalname/example4.png)
 
@@ -159,7 +159,7 @@ Objet utilisateur du locataire Azure AD :
 - MailNickName : us4
 - UserPrincipalName : us4@contoso.onmicrosoft.com
 
-### <a name="scenario-5-verified-upn-suffix--update-on-premises-userprincipalname-attribute-suffix"></a>Scénario 5 : Suffixe UPN vérifié – mise à jour du suffixe d'attribut UserPrincipalName local
+### <a name="scenario-5-verified-upn-suffix--update-on-premises-userprincipalname-attribute-suffix"></a>Scénario 5 : Suffixe UPN vérifié – mise à jour du suffixe d'attribut UserPrincipalName local
 
 ![Scénario 5](./media/plan-connect-userprincipalname/example5.png)
 

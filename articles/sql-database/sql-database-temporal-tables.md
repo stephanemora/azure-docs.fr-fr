@@ -12,10 +12,10 @@ ms.author: bonova
 ms.reviewer: carlrab
 ms.date: 06/26/2019
 ms.openlocfilehash: 98fd2658f3fbcb0e7e29114d29f8dc6ed39eedf2
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73820718"
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Prise en main des tables temporelles dans Azure SQL Database
@@ -28,11 +28,11 @@ Cet article illustre les étapes permettant d’utiliser les tables temporelles 
 
 Le modèle de base de données pour ce scénario est très simple : la mesure de l’activité utilisateur est représentée par un champ d’entier unique, **PageVisited**, et est capturée en même temps que des informations de base sur le profil utilisateur. En outre, pour l’analyse temporelle, vous conservez une série de lignes pour chaque utilisateur, où chaque ligne représente le nombre de pages visitées par un utilisateur au cours d’une période spécifique.
 
-![Schéma](./media/sql-database-temporal-tables/AzureTemporal1.png)
+![schéma](./media/sql-database-temporal-tables/AzureTemporal1.png)
 
 Heureusement, vous n’avez pas besoin d’intervenir sur votre application pour gérer les informations de cette activité. Avec les tables temporelles, ce processus est automatisé : ce qui vous donne une grande souplesse pour concevoir le site web et davantage de temps pour vous concentrer sur l’analyse des données. La seule chose que vous avez à faire est de garantir que la table **WebSiteInfo** est configurée en tant que table [temporelle avec versions gérées par le système](https://msdn.microsoft.com/library/dn935015.aspx#Anchor_0). Les étapes à suivre pour utiliser les tables temporelles dans ce scénario sont décrites ci-dessous.
 
-## <a name="step-1-configure-tables-as-temporal"></a>Étape 1 : Configurer les tables comme tables temporelles
+## <a name="step-1-configure-tables-as-temporal"></a>Étape 1 : Configurer les tables comme tables temporelles
 Selon que vous commencez le développement d’une nouvelle application ou que vous mettez à niveau une application existante, vous créez des tables temporelles ou vous modifiez des tables existantes en ajoutant des attributs temporels. En général, votre scénario peut être une combinaison de ces deux options. Exécutez ces opérations à l’aide de [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) (SSMS), [SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx) (SSDT) ou tout autre outil de développement Transact-SQL.
 
 > [!IMPORTANT]
@@ -82,7 +82,7 @@ WITH (DROP_EXISTING = ON);
 
 Les tables temporelles sont représentées dans l’Explorateur d’objets avec une icône spécifique pour faciliter l’identification, tandis que la table d’historique s’affiche comme un nœud enfant.
 
-![AlterTable](./media/sql-database-temporal-tables/AzureTemporal4.png)
+![ALTER table](./media/sql-database-temporal-tables/AzureTemporal4.png)
 
 ### <a name="alter-existing-table-to-temporal"></a>Transformer une table existante en table temporelle
 Examinons l’autre scénario dans lequel la table WebsiteUserInfo existe déjà, mais n’a pas été conçue pour conserver un historique des modifications. Dans ce cas, vous pouvez simplement étendre la table existante pour qu’elle devienne temporelle, comme indiqué dans l’exemple suivant :
@@ -105,7 +105,7 @@ ON dbo.WebsiteUserInfoHistory
 WITH (DROP_EXISTING = ON); 
 ```
 
-## <a name="step-2-run-your-workload-regularly"></a>Étape 2 : Exécuter régulièrement votre charge de travail
+## <a name="step-2-run-your-workload-regularly"></a>Étape 2 : Exécuter régulièrement votre charge de travail
 Le principal avantage des tables temporelles est que vous n’avez pas besoin de modifier ou d’ajuster votre site web de quelque façon que ce soit pour effectuer le suivi des modifications. Une fois créées, les tables temporelles conservent en toute transparence les versions précédentes des lignes chaque fois que vous effectuez des modifications sur vos données. 
 
 Pour tirer parti du suivi automatique des modifications dans ce scénario particulier, nous allons simplement mettre à jour la colonne **PagesVisited** chaque fois qu’un utilisateur met fin à sa session sur le site web :
@@ -188,7 +188,7 @@ ALTER TABLE dbo.WebsiteUserInfo
 Vous pouvez également utiliser la dernière version de [SSDT](https://msdn.microsoft.com/library/mt204009.aspx) pour modifier un schéma de table temporelle quand vous êtes connecté à la base de données (mode en ligne) ou dans le cadre du projet de base de données (mode hors connexion).
 
 ## <a name="controlling-retention-of-historical-data"></a>Contrôle de la rétention des données historiques
-Avec les tables temporelles avec versions gérées par le système, la table d’historique peut augmenter la taille de la base de données davantage que les tables normales. Une table d’historique volumineuse qui continue à croître peut devenir un problème non seulement en raison des coûts de stockage, mais aussi parce qu’elle a un impact négatif sur les performances de l’interrogation temporelle. Par conséquent, le développement d’une stratégie de rétention des données pour gérer les données dans la table d’historique est un aspect important de la planification et de la gestion du cycle de vie de chaque table temporelle. Avec Azure SQL Database, vous bénéficiez des approches suivantes pour gérer les données historiques dans la table temporelle :
+Avec les tables temporelles avec versions gérées par le système, la table d’historique peut augmenter la taille de la base de données davantage que les tables normales. Une table d’historique volumineuse et qui ne cesse de croître peut devenir un problème en termes de coûts de stockage purs et parce qu’elle nuit aux performances d’interrogation temporelle. Par conséquent, le développement d’une stratégie de rétention des données pour gérer les données dans la table d’historique est un aspect important de la planification et de la gestion du cycle de vie de chaque table temporelle. Avec Azure SQL Database, vous bénéficiez des approches suivantes pour gérer les données historiques dans la table temporelle :
 
 * [Partitionnement de tables](https://msdn.microsoft.com/library/mt637341.aspx#Anchor_2)
 * [Script de nettoyage personnalisé](https://msdn.microsoft.com/library/mt637341.aspx#Anchor_3)

@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2018
 ms.openlocfilehash: 257c71f7994b889540ec8cc5d0f384f3f8894f4d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74913268"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transformer des données en exécutant des scripts U-SQL sur Azure Data Lake Analytics 
@@ -36,8 +36,8 @@ Le tableau suivant décrit les propriétés génériques utilisées dans la déf
 
 | Propriété                 | Description                              | Obligatoire                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
-| **type**                 | La propriété de type doit être définie sur : **AzureDataLakeAnalytics**. | OUI                                      |
-| **accountName**          | Nom du compte du service Analytique Azure Data Lake.  | OUI                                      |
+| **type**                 | La propriété de type doit être définie sur : **AzureDataLakeAnalytics**. | Oui                                      |
+| **accountName**          | Nom du compte du service Analytique Azure Data Lake.  | Oui                                      |
 | **dataLakeAnalyticsUri** | URI du service Analytique Azure Data Lake.           | Non                                       |
 | **subscriptionId**       | ID d’abonnement Azure                    | Non                                       |
 | **resourceGroupName**    | Nom du groupe de ressources Azure                | Non                                       |
@@ -55,9 +55,9 @@ Utilisez l’authentification par principal de service en spécifiant les propri
 
 | Propriété                | Description                              | Obligatoire |
 | :---------------------- | :--------------------------------------- | :------- |
-| **servicePrincipalId**  | Spécifiez l’ID client de l’application.     | OUI      |
-| **servicePrincipalKey** | Spécifiez la clé de l’application.           | OUI      |
-| **client**              | Spécifiez les informations de locataire (nom de domaine ou ID de locataire) dans lesquels se trouve votre application. Vous pouvez le récupérer en pointant la souris dans le coin supérieur droit du portail Azure. | OUI      |
+| **servicePrincipalId**  | Spécifiez l’ID client de l’application.     | Oui      |
+| **servicePrincipalKey** | Spécifiez la clé de l’application.           | Oui      |
+| **client**              | Spécifiez les informations de locataire (nom de domaine ou ID de locataire) dans lesquels se trouve votre application. Vous pouvez le récupérer en pointant la souris dans le coin supérieur droit du portail Azure. | Oui      |
 
 **Exemple : Authentification d’un principal de service**
 ```json
@@ -119,17 +119,17 @@ Le tableau suivant indique les noms et les descriptions des propriétés qui son
 
 | Propriété            | Description                              | Obligatoire |
 | :------------------ | :--------------------------------------- | :------- |
-| Nom                | Nom de l’activité dans le pipeline     | OUI      |
+| name                | Nom de l’activité dans le pipeline     | Oui      |
 | description         | Texte décrivant l’activité.  | Non       |
-| Type                | Pour l’activité U-SQL Data Lake Analytics, le type d’activité est **DataLakeAnalyticsU-SQL**. | OUI      |
-| linkedServiceName   | Service lié à Azure Data Lake Analytics. Pour en savoir plus sur ce service lié, consultez l’article [Services liés de calcul](compute-linked-services.md).  |OUI       |
-| scriptPath          | Chemin d'accès au dossier qui contient le script SQL-U. Le nom de fichier respecte la casse. | OUI      |
-| scriptLinkedService | Service lié qui lie **Azure Data Lake Store** ou le **stockage Azure** qui contient le script à la fabrique de données | OUI      |
+| type                | Pour l’activité U-SQL Data Lake Analytics, le type d’activité est **DataLakeAnalyticsU-SQL**. | Oui      |
+| linkedServiceName   | Service lié à Azure Data Lake Analytics. Pour en savoir plus sur ce service lié, consultez l’article [Services liés de calcul](compute-linked-services.md).  |Oui       |
+| scriptPath          | Chemin d'accès au dossier qui contient le script SQL-U. Le nom de fichier respecte la casse. | Oui      |
+| scriptLinkedService | Service lié qui lie **Azure Data Lake Store** ou le **stockage Azure** qui contient le script à la fabrique de données | Oui      |
 | degreeOfParallelism | Le nombre maximal de nœuds utilisés simultanément pour exécuter le travail. | Non       |
 | priority            | Détermine les travaux parmi tous ceux qui sont en file d'attente qui doivent être sélectionnés pour s'exécuter en premier. Plus le numéro est faible, plus la priorité est élevée. | Non       |
 | parameters          | Paramètres à transmettre au script U-SQL.    | Non       |
 | runtimeVersion      | Version du runtime du moteur U-SQL à utiliser. | Non       |
-| compilationMode     | <p>Mode de compilation d’U-SQL. Doit avoir l’une des valeurs suivantes : **Semantic :** Exécuter uniquement les vérifications sémantiques et les contrôles d’intégrité nécessaires. **Full :** Effectuer la compilation complète, y compris la vérification de la syntaxe, l’optimisation, la génération de code, etc. **SingleBox :** Effectuer la compilation complète, avec le paramètre TargetType défini sur SingleBox. Si vous ne spécifiez pas de valeur pour cette propriété, le serveur détermine le mode de compilation optimal. | Non |
+| compilationMode     | <p>Mode de compilation d’U-SQL. Doit avoir l’une des valeurs suivantes : **Semantic :** Exécuter uniquement les vérifications sémantiques et les contrôles d’intégrité nécessaires. **Full :** Effectuer la compilation complète, y compris la vérification de la syntaxe, l’optimisation, la génération de code, etc. **SingleBox :** effectuer la compilation complète, avec le paramètre TargetType défini sur SingleBox. Si vous ne spécifiez pas de valeur pour cette propriété, le serveur détermine le mode de compilation optimal. | Non |
 
 Vous trouverez la définition du script dans la section [SearchLogProcessing.txt](#sample-u-sql-script). 
 

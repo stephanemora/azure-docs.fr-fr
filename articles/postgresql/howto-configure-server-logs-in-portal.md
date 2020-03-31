@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 3da48a9b6d3acb1f2811bc279de7963fa1d83918
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74763689"
 ---
 # <a name="configure-and-access-azure-database-for-postgresql---single-server-logs-from-the-azure-portal"></a>Configurer et consulter les journaux Azure Database pour PostgreSQL – Serveur unique à partir du portail Azure
@@ -23,11 +23,11 @@ Les étapes décrites dans cet article supposent que vous disposez d’un [serve
 ## <a name="configure-logging"></a>Configuration de la journalisation
 Configurer l’accès aux journaux d’activité des requêtes et journaux d’activité des erreurs. 
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 2. Sélectionnez votre serveur Azure Database pour PostgreSQL.
 
-3. En dessous de la section **Supervision** dans la barre latérale, sélectionnez **Journaux du serveur**. 
+3. Dans la section **Supervision** de la barre latérale, sélectionnez **Journaux du serveur**. 
 
    ![Capture d’écran des options Journaux du serveur](./media/howto-configure-server-logs-in-portal/1-select-server-logs-configure.png)
 
@@ -48,7 +48,7 @@ Une fois que la journalisation a commencé, vous pouvez voir la liste des journa
 
 2. Sélectionnez votre serveur Azure Database pour PostgreSQL.
 
-3. En dessous de la section **Supervision** dans la barre latérale, sélectionnez **Journaux du serveur**. La page présente la liste de vos fichiers journaux.
+3. Dans la section **Supervision** de la barre latérale, sélectionnez **Journaux du serveur**. La page présente la liste de vos fichiers journaux.
 
    ![Capture d’écran de la page Journaux du serveur, avec la liste des journaux mise en évidence](./media/howto-configure-server-logs-in-portal/4-server-logs-list.png)
 

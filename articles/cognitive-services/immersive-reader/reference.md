@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
 ms.openlocfilehash: b20a3e6dd3b32b183bbf34dbefd76f0e4cd56b99
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76156401"
 ---
 # <a name="immersive-reader-sdk-reference-guide"></a>Guide de référence du SDK du Lecteur immersif
@@ -41,7 +41,7 @@ launchAsync(token: string, subdomain: string, content: Content, options?: Option
 
 ### <a name="parameters"></a>Paramètres
 
-| Name | Type | Description |
+| Nom | Type | Description |
 | ---- | ---- |------------ |
 | `token` | string | Le jeton d’authentification Azure AD. |
 | `subdomain` | string | Sous-domaine personnalisé de votre ressource Lecteur immersif dans Azure. |
@@ -80,7 +80,7 @@ renderButtons(options?: RenderButtonsOptions): void;
 
 ### <a name="parameters"></a>Paramètres
 
-| Name | Type | Description |
+| Nom | Type | Description |
 | ---- | ---- |------------ |
 | `options` | [RenderButtonsOptions](#renderbuttonsoptions) | Options de configuration de certains comportements de la fonction renderButtons. facultatif. |
 

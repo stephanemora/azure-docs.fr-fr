@@ -14,15 +14,15 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
 ms.openlocfilehash: 939798d5d9eb2843d7bbbbe74680342e4ce6ce95
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60702450"
 ---
 # <a name="write-advanced-r-functions-in-azure-sql-database-using-machine-learning-services-preview"></a>Écrire des fonctions R avancées dans Azure SQL Database avec Machine Learning Services (préversion)
 
-Cet article décrit comment incorporer des fonctions mathématiques et utilitaires R dans une procédure stockée SQL. Les fonctions statistiques avancées difficiles à implémenter en T-SQL peuvent être créées en R avec une seule ligne de code.
+Cet article décrit comment incorporer des fonctions mathématiques et utilitaires R dans une procédure stockée SQL. Les fonctions statistiques avancées qui sont difficiles à implémenter dans T-SQL peuvent être créées dans R avec une seule ligne de code.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
@@ -38,7 +38,7 @@ Cet article décrit comment incorporer des fonctions mathématiques et utilitair
 
 Par souci de simplicité, nous allons utiliser le package `stats` R installé et chargé par défaut avec Azure SQL Database à l’aide de Machine Learning Services (préversion). Le package contient des centaines de fonctions pour des tâches statistiques courantes, notamment la fonction `rnorm`. Cette fonction génère un nombre spécifié de nombres aléatoires à l’aide de la distribution normale, étant donné un écart type et des moyennes.
 
-Par exemple, le code R suivant retourne 100 nombres sur une moyenne de 50, compte tenu d’un écart type de 3.
+Par exemple, le code R suivant retourne 100 nombres sur une moyenne de 50, compte tenu d’un écart type de 3.
 
 ```R
 as.data.frame(rnorm(100, mean = 50, sd = 3));
@@ -57,7 +57,7 @@ WITH RESULT SETS(([Density] FLOAT NOT NULL));
 
 Que se passe-t-il si vous voulez simplifier la génération d’un autre ensemble de nombres alétaoires ?
 
-Rien de plus facile avec une combinaison avec SQL. Vous définissez une procédure stockée qui obtient les arguments par le biais de l’utilisateur, puis vous passez ces arguments dans le script R en tant que variables.
+Rien de plus facile avec une combinaison avec SQL. Vous définissez une procédure stockée qui obtient les arguments de l’utilisateur, puis transmettez ces arguments dans le script R en tant que variables.
 
 ```sql
 CREATE PROCEDURE MyRNorm (

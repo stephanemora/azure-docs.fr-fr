@@ -15,10 +15,10 @@ ms.date: 12/08/2018
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 6d4b7ba842d08723b90a4f2491d9e79e68dd932e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60733570"
 ---
 # <a name="apple-fairplay-license-requirements-and-configuration"></a>Configuration et conditions de licence Apple FairPlay 
@@ -27,7 +27,7 @@ Azure Media Services vous permet de chiffrer votre contenu HLS avec **Apple Fair
 
 Media Services propose également des API qui vous permettent de configurer vos licences FairPlay. Cette rubrique décrit les conditions de licence FairPlay et montre comment vous pouvez configurer une licence **FairPlay** à l’aide des API Media Services. 
 
-## <a name="requirements"></a>Configuration requise
+## <a name="requirements"></a>Spécifications
 
 Les éléments suivants sont nécessaires lors de l’utilisation de Media Services pour chiffrer votre contenu HLS avec **Apple FairPlay** et fournir des licences FairPlay :
 

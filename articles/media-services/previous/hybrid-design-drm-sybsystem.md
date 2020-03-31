@@ -16,17 +16,17 @@ ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: juliako
 ms.openlocfilehash: d2f4ddfbff791fbfeb2eb006a628c0fdeb4fdce1
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74975191"
 ---
 # <a name="hybrid-design-of-drm-subsystems"></a>Conception de modèles hybrides de sous-systèmes de DRM 
 
 Cette rubrique explique comment concevoir des modèles hybrides de sous-systèmes de gestion des droits numériques (DRM) à l’aide d’Azure Media Services.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Azure Media Services assure la prise en charge des trois systèmes de DRM suivants :
 
@@ -97,11 +97,11 @@ Sur la base des explications de la section précédente, les cinq scénarios hyb
 
 |**Hébergement et origine du contenu**|**Chiffrement DRM**|**Remise de licence DRM**|**Configuration de la clé de contenu**|**Configurer une stratégie de distribution d’éléments multimédias**|**Exemple**|
 |---|---|---|---|---|---|
-|AMS|AMS|AMS|OUI|OUI|Exemple 1|
-|AMS|AMS|Tiers|OUI|OUI|Exemple 2|
-|AMS|Tiers|AMS|OUI|Non|Exemple 3|
+|AMS|AMS|AMS|Oui|Oui|Exemple 1|
+|AMS|AMS|Tiers|Oui|Oui|Exemple 2|
+|AMS|Tiers|AMS|Oui|Non|Exemple 3|
 |AMS|Tiers|Extérieur|Non|Non|Exemple 4|
-|Tiers|Tiers|AMS|OUI|Non|    
+|Tiers|Tiers|AMS|Oui|Non|    
 
 Dans les exemples, la protection PlayReady fonctionne à la fois pour DASH et la diffusion en continu lisse. Les URL de vidéos ci-dessous sont des URL de diffusion en continu lisse. Pour obtenir l’URL DASH correspondante, il vous suffit d’ajouter « (format=mpd-time-csf) ». Vous pouvez utiliser le lecteur [Azure Media Test](https://aka.ms/amtest) pour effectuer des tests dans un navigateur. Il vous permet de configurer le protocole de diffusion en continu à utiliser, sous la technologie de votre choix. IE11 et Microsoft Edge sur Windows 10 prennent en charge PlayReady via EME. Pour plus d’informations, consultez [ce billet de blog sur l’outil de test](https://blogs.msdn.microsoft.com/playready4/2016/02/28/azure-media-test-tool/).
 

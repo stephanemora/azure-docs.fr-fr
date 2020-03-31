@@ -8,24 +8,38 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 02/26/2020
 ms.author: erhopf
 ms.custom: seodec18, seo-javascript-october2019
-ms.openlocfilehash: 3ddba414ef1801b812d157ad734847099a8a9f25
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: f74e3ea3d20ad2666b434e009cf62add6f88d200
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806182"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79218683"
 ---
 # <a name="try-the-speech-service-for-free"></a>Essayez le service Speech gratuitement
 
-L’utilisation du service Speech est simple et économique. Deux options sont disponibles gratuitement pour que vous puissiez découvrir ce que le service peut faire et de déterminer s’il convient à vos besoins :
+Dans cet article, vous sélectionnez une option pour facilement et gratuitement le service Speech afin de découvrir les possibilités du service et déterminer s’il convient à vos besoins. Choisissez l’une des deux options suivantes en fonction de votre situation et cas d’utilisation :
 
-- Obtenir une évaluation gratuite sans fournir d’informations sur votre carte de crédit (vous devez disposer d’un compte Azure existant)
-- Créer gratuitement un compte Azure pour une période d’essai (informations de carte de crédit requises)
+- [Option 1](#no-card) : Obtenir immédiatement les clés API d'**évaluation gratuite** sans fournir d’informations sur votre carte de crédit (vous devez disposer d’un compte Azure existant). L'**évaluation gratuite** dure 30 jours au terme desquels les données sont supprimées. Cette option est idéale pour une expérimentation rapide du service.
+- [Option 2](#new-resource) : Créer gratuitement une ressource Speech dans Azure à l’aide d’un **abonnement gratuit** (informations de carte de crédit requises). Un **abonnement gratuit** présente principalement des limites de taux plus strictes qu’un abonnement payant. Cette option est recommandée si vous souhaitez tester le service tout en planifiant une mise à niveau vers un abonnement payant, sans perdre de données.
 
-Dans cet article, vous allez choisir celle de ces options qui répond le mieux à vos besoins.
+## <a name="try-the-speech-service-without-credit-card-info"></a><a id="no-card"></a>Essayer le service Speech sans informations de carte de crédit
+
+Procédez comme suit pour activer une évaluation gratuite de 30 jours et obtenir des clés API. La période d’évaluation commence immédiatement une fois les étapes suivantes terminées.
+
+1. Accédez à [Essayez Cognitive Services](https://azure.microsoft.com/try/cognitive-services/).
+1. Sélectionnez l’onglet **API Reconnaissance vocale**.
+1. Choisissez **Obtenir la clé API**.
+
+Des options de facturation s’affichent. Choisissez l’option gratuite, puis lisez et acceptez le contrat d’utilisation. Des clés vous seront proposées pour vous permettre d’essayer le service Speech pendant une période de 30 jours.
+
+## <a name="try-the-speech-service-by-creating-an-azure-resource"></a><a id="new-resource"></a>Essayer le service Speech en créant une ressource Azure
+
+Pour les étapes suivantes, vous devez disposer d'un compte Microsoft et d’un compte Azure. Si vous n’avez pas de compte Microsoft, vous pouvez vous inscrire gratuitement sur le [portail de compte Microsoft](https://account.microsoft.com/account). Sélectionnez **Se connecter avec Microsoft** puis, à l’invite de connexion, sélectionnez **Créer un compte Microsoft**. Suivez les étapes pour créer et vérifier votre nouveau compte Microsoft.
+
+Lorsque vous disposez d’un compte Microsoft, accédez à la [page d’inscription Azure](https://azure.microsoft.com/free/ai/), sélectionnez **Démarrer gratuitement** et créez un compte Azure à l’aide de votre compte Microsoft.
 
 > [!NOTE]
 > Le service Speech propose deux niveaux de service, gratuit et abonnement, chacun présentant des limitations et des avantages différents. Lorsque vous vous inscrivez pour obtenir un compte Azure gratuit, celui-ci est fourni avec 200 $ de crédit de service que vous pouvez utiliser pour un abonnement au service Speech payant, valide pendant 30 jours.
@@ -34,33 +48,7 @@ Dans cet article, vous allez choisir celle de ces options qui répond le mieux �
 >
 > Pour plus d’informations, consultez [Tarifs de Cognitive Services - Service Speech](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
-## <a name="try-the-speech-service-without-credit-card-info"></a>Essayer le service Speech sans informations de carte de crédit
-
-Bien que nous vous recommandons de tester le service Speech à l’aide des instructions de la section suivante, vous êtes susceptible de préférer les instructions de cette section si les conditions suivantes s’appliquent :
-
-- Vous disposez déjà d’un compte Azure actif.
-- Vous souhaitez évaluer le service Speech sans créer de compte Azure.
-- Vous préférez qu’aucune carte de crédit ne soit requise et qu’aucune donnée ne soit enregistrée après la période d’évaluation.
-
-> [!NOTE]
-> La période d’évaluation commence immédiatement une fois les étapes suivantes terminées.
-
-1. Accédez à [Essayez Cognitive Services](https://azure.microsoft.com/try/cognitive-services/).
-1. Sélectionnez l’onglet **API Reconnaissance vocale**.
-1. Choisissez **Obtenir la clé API**.
-
-Des options de facturation s’affichent. Choisissez l’option gratuite, puis lisez et acceptez le contrat d’utilisation. Des clés vous seront proposées pour vous permettre d’essayer le service Speech pendant une période limitée.
-
-## <a name="try-the-speech-service-using-a-new-azure-account"></a>Essayer le service Speech à l’aide d’un nouveau compte Azure
-
-Pour vous inscrire à un nouveau compte Azure, vous avez besoin d’un compte Microsoft. Si vous n’avez pas de compte Microsoft, vous pouvez vous inscrire gratuitement sur le [portail de compte Microsoft](https://account.microsoft.com/account). Sélectionnez **Se connecter avec Microsoft** puis, à l’invite de connexion, sélectionnez **Créer un compte Microsoft**. Suivez les étapes pour créer et vérifier votre nouveau compte Microsoft.
-
-Lorsque vous disposez d’un compte Microsoft, accédez à la [page d’inscription Azure](https://azure.microsoft.com/free/ai/), sélectionnez **Démarrer gratuitement** et créez un compte Azure à l’aide de votre compte Microsoft.
-
-### <a name="create-a-speech-resource-in-azure"></a>Créer une ressource Speech dans Azure
-
-> [!NOTE]
-> Vous pouvez créer autant d’abonnements de niveau standard que vous le souhaitez dans une ou plusieurs régions. Toutefois, vous ne pouvez créer qu’un seul abonnement de niveau gratuit. Les modèles de déploiement au niveau gratuit qui restent inutilisés durant sept jours sont supprimés automatiquement.
+### <a name="create-the-resource"></a>Créer la ressource
 
 Pour ajouter une ressource de service Speech (niveau gratuit ou payant) à votre compte Azure
 
@@ -78,12 +66,15 @@ Pour ajouter une ressource de service Speech (niveau gratuit ou payant) à votre
 
 1. Sélectionnez **Créer**, puis :
 
-   - Donnez un nom unique à votre nouvelle ressource. Ce nom vous permet de faire la distinction entre plusieurs abonnements au même service.
+   - Donnez un nom unique à votre nouvelle ressource. Ce nom vous permet de faire la distinction entre plusieurs abonnements liés au même service.
    - Choisissez l’abonnement Azure associé à la nouvelle ressource pour déterminer la façon dont les frais sont facturés.
    - Choisissez la [région](regions.md) où la ressource sera utilisée.
    - Choisissez soit un niveau tarifaire payant (S0) ou gratuit (F0). Pour obtenir des informations complètes sur la tarification et les quotas d’utilisation pour chaque niveau, sélectionnez **Afficher tous les détails de la tarification**.
    - Créez un groupe de ressources pour cet abonnement Speech ou affectez l’abonnement à un groupe de ressources existant. Les groupes de ressources vous permettent d’organiser vos différents abonnements Azure.
    - Sélectionnez **Create** (Créer). Cela vous permet d’atteindre la vue d’ensemble du déploiement et d’afficher les messages de progression de ce dernier.
+
+> [!NOTE]
+> Vous pouvez créer autant d’abonnements de niveau standard que vous le souhaitez dans une ou plusieurs régions. Toutefois, vous ne pouvez créer qu’un seul abonnement de niveau gratuit. Les modèles de déploiement au niveau gratuit qui restent inutilisés durant sept jours sont supprimés automatiquement.
 
 Le déploiement de votre nouvelle ressource Speech prend quelques instants. Une fois le déploiement terminé, sélectionnez **Accéder à la ressource** et, dans le volet de navigation gauche, sélectionnez **Clés** pour afficher vos clés d’abonnement au service Speech. Chaque abonnement dispose de deux clés ; vous pouvez utiliser l’une ou l’autre dans votre application. Pour copier-coller rapidement une clé dans votre éditeur de code ou dans un autre emplacement, cliquez sur le bouton Copier à côté de chaque clé, puis changez de fenêtre pour coller le contenu du Presse-papiers à l’emplacement souhaité.
 

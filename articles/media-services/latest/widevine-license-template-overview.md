@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
 ms.openlocfilehash: 94ce5e45a9a43e81020096ddc0a67429b286d9b1
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76705630"
 ---
 # <a name="media-services-v3-with-widevine-license-template-overview"></a>Vue d’ensemble du modèle de licence Widevine avec Media Services v3
@@ -60,7 +60,7 @@ Une demande de licence Widevine se présente sous forme de message JSON.
 
 ## <a name="json-message"></a>Message JSON
 
-| Name | Valeur | Description |
+| Nom | Valeur | Description |
 | --- | --- | --- |
 | payload |Chaîne codée en Base64 |La demande de licence envoyée par un client. |
 | content_id |Chaîne codée en Base64 |Identificateur utilisé afin de dériver l’ID de clé et la clé de contenu pour chaque content_key_specs.track_type. |
@@ -78,7 +78,7 @@ En présence d’une stratégie préexistante, il est inutile de spécifier des 
 
 Chaque valeur content_key_specs doit être spécifiée pour toutes les pistes, quelle que soit l’option use_policy_overrides_exclusively. 
 
-| Name | Valeur | Description |
+| Nom | Valeur | Description |
 | --- | --- | --- |
 | content_key_specs. track_type |string |Un nom de type de piste. Si la valeur content_key_specs est spécifiée dans la demande de licence, assurez-vous de spécifier tous les types de pistes de façon explicite. Dans le cas contraire, vous serez confronté à un échec de lecture des 10 dernières secondes. |
 | content_key_specs  <br/> security_level |uint32 |Définit la configuration requise de robustesse du client pour la lecture. <br/> - Chiffrement whitebox logiciel requis. <br/> - Chiffrement logiciel et décodeur masqué requis. <br/> - Le matériel de clé et les opérations de chiffrement doivent être effectués dans un environnement d’exécution approuvé soutenu par le matériel. <br/> - Le chiffrement et le décodage du contenu doivent être effectués dans un environnement d’exécution approuvé soutenu par le matériel.  <br/> - Le chiffrement, le décodage et le traitement du support (compressé et décompressé) doivent être gérés dans un environnement d’exécution approuvé soutenu par le matériel. |
@@ -87,7 +87,7 @@ Chaque valeur content_key_specs doit être spécifiée pour toutes les pistes, q
 | content_key_specs.key_id |Chaîne binaire codée en Base64, 16 octets |Identificateur unique pour la clé. |
 
 ## <a name="policy-overrides"></a>Remplacements de stratégies
-| Name | Valeur | Description |
+| Nom | Valeur | Description |
 | --- | --- | --- |
 | policy_overrides&#46;can_play |Booléen, true ou false |Indique que la lecture du contenu est autorisée. La valeur par défaut est false. |
 | policy_overrides&#46;can_persist |Booléen, true ou false |Indique que la licence peut être rendue persistante dans le stockage non volatile pour une utilisation hors connexion. La valeur par défaut est false. |
@@ -102,7 +102,7 @@ Chaque valeur content_key_specs doit être spécifiée pour toutes les pistes, q
 | policy_overrides&#46;renew_with_usage |Booléen, true ou false |Indique que la licence est envoyée pour renouvellement quand l’utilisation commence. Ce champ est utilisé uniquement si can_renew a la valeur true. |
 
 ## <a name="session-initialization"></a>Initialisation de la session
-| Name | Valeur | Description |
+| Nom | Valeur | Description |
 | --- | --- | --- |
 | provider_session_token |Chaîne codée en Base64 |Ce jeton de session est repassé dans la licence et existe dans les renouvellements suivants. Le jeton de session n’est pas persistant au-delà des sessions. |
 | provider_client_token |Chaîne codée en Base64 |Jeton client à renvoyer dans la réponse de la licence. Si la demande de licence contient un jeton client, cette valeur est ignorée. Le jeton client persiste au-delà des sessions de la licence. |
@@ -125,7 +125,7 @@ ContentKeyPolicyWidevineConfiguration objContentKeyPolicyWidevineConfiguration =
 };
 ```
 
-### <a id="classes"></a> Définir les classes nécessaires et sérialiser en JSON
+### <a name="define-needed-classes-and-serialize-to-json"></a><a id="classes"></a> Définir les classes nécessaires et sérialiser en JSON
 
 #### <a name="define-classes"></a>Définir les classes
 

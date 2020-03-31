@@ -1,16 +1,16 @@
 ---
 title: Bien démarrer avec TmaxSoft OpenFrame dans les machines virtuelles Azure
-description: Réhébergez vos charges de travail mainframe IBM z/OS en utilisant l’environnement TmaxSoft OpenFrame dans les machines virtuelles Azure.
+description: Réhébergez vos charges de travail mainframe IBM z/OS en utilisant l’environnement TmaxSoft OpenFrame sur des machines virtuelles Azure.
 author: njray
 ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 ms.openlocfilehash: 408e0166e52af9efd3d4c64f1b29bddcfc1cca4c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61485397"
 ---
 # <a name="get-started-with-tmaxsoft-openframe-on-azure"></a>Bien démarrer avec TmaxSoft OpenFrame sur Azure
@@ -26,7 +26,7 @@ Configurez un environnement OpenFrame dans Azure pour des charges de travail de 
 > [!NOTE]
 > Pour exécuter l’environnement OpenFrame dans Azure, vous devez disposer d’une licence produit valide ou d’une licence d’essai fournie par TmaxSoft.
 
-## <a name="openframe-components"></a>Composants OpenFrame
+## <a name="openframe-components"></a>Composants d’OpenFrame
 
 Les composants suivants font partie de l’environnement OpenFrame dans Azure :
 

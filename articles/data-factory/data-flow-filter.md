@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/16/2019
 ms.openlocfilehash: 84b935d1646ea4f13d5926fc68797fd8efd03dea
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74930350"
 ---
 # <a name="filter-transformation-in-mapping-data-flow"></a>Transformation de filtre dans un flux de données de mappage
@@ -36,7 +36,7 @@ Utilisez le générateur d’expressions de flux de données afin d’entrer une
     ) ~> <filterTransformationName>
 ```
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 L’exemple ci-dessous illustre une transformation de filtre nommée `FilterBefore1960` traitant le flux entrant `CleanData`. La condition de filtre est l’expression `year <= 1960`.
 

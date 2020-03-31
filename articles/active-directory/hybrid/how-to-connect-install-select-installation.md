@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 90a624a6b3b4696899af0d8606f653df260cc201
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60348278"
 ---
 # <a name="select-which-installation-type-to-use-for-azure-ad-connect"></a>Sélectionner le type d’installation à utiliser pour Azure AD Connect
@@ -47,7 +47,7 @@ Cas où vous pouvez toujours utiliser Express :
 - Si vous ne voulez pas synchroniser toutes les UO, vous pouvez néanmoins utiliser Express et, sur la dernière page, désélectionner **Démarrer le processus de synchronisation...**\*. Réexécutez ensuite l’Assistant Installation, changez les unités d’organisation dans les [options de configuration](how-to-connect-installation-wizard.md#customize-synchronization-options) et activez la synchronisation planifiée.
 - Vous voulez activer une des fonctionnalités dans Azure AD Premium, comme la réécriture du mot de passe. Choisissez d’abord Express pour effectuer l’installation initiale. Réexécutez ensuite l’Assistant Installation et changez les [options de configuration](how-to-connect-installation-wizard.md#customize-synchronization-options).
 
-## <a name="custom"></a>Personnalisée
+## <a name="custom"></a>Custom
 L’installation personnalisée offre beaucoup plus d’options que l’installation Express. Elle doit être utilisée dans tous les cas où la configuration décrite dans la section précédente pour Express n’est pas représentative de votre organisation.
 
 Utilisez-la quand :

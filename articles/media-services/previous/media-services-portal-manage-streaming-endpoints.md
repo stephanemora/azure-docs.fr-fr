@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 57ec22cb02512577f8737718cae9175403fb5603
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74900877"
 ---
 # <a name="manage-streaming-endpoints-with-the-azure-portal"></a>Gérer les points de terminaison de streaming avec le Portail Azure 
@@ -60,7 +60,7 @@ Pour ajouter/supprimer un point de terminaison de streaming à l’aide du Porta
     ![point de terminaison de diffusion en continu](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints2.png)
 
 
-## <a id="configure_streaming_endpoints"></a>Configuration du point de terminaison de diffusion en continu
+## <a name="configuring-the-streaming-endpoint"></a><a id="configure_streaming_endpoints"></a>Configuration du point de terminaison de diffusion en continu
 Le point de terminaison de streaming vous permet de configurer les propriétés suivantes :
 
 * Contrôle d’accès
@@ -89,7 +89,7 @@ Vous trouverez une brève description des champs ci-dessous.
 
 Pour plus d’informations, consultez [cet](media-services-portal-scale-streaming-endpoints.md) article.
 
-## <a id="enable_cdn"></a>Activer l’intégration au CDN Azure
+## <a name="enable-azure-cdn-integration"></a><a id="enable_cdn"></a>Activer l’intégration au CDN Azure
 
 Lorsque vous créez un compte, l’intégration CDN Azure du point de terminaison de streaming par défaut est activée par défaut.
 

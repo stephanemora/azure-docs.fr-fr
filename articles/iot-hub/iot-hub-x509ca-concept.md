@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
 ms.openlocfilehash: 3c7e1167b3326620863d35cb2d4b07235cbd5517
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61320235"
 ---
 # <a name="conceptual-understanding-of-x509-ca-certificates-in-the-iot-industry"></a>Informations conceptuelles sur les certificats de l’autorité de certification X.509 dans l’industrie IoT
@@ -29,7 +29,7 @@ Cet article aborde les points suivants :
 
 * Comment les appareils approuvés par l’autorité de certification X.509 se connectent à IoT Hub
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 L’authentification par l’autorité de certification X.509 est une approche permettant d’authentifier les appareils dans IoT Hub à l’aide d’une méthode qui simplifie considérablement la création d’une identité d’appareil et la gestion du cycle de vie dans la chaîne logistique.
 

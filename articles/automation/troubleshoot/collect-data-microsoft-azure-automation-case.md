@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 09/23/2019
 ms.author: v-miegge
 ms.openlocfilehash: 4839ce7a0188c782656fd3a4c42cbdd116b165e9
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74849375"
 ---
 # <a name="data-to-collect-when-you-open-a-case-for-microsoft-azure-automation"></a>Données à collecter quand vous ouvrez un cas pour Microsoft Azure Automation
@@ -54,7 +54,7 @@ Collectez les données décrites dans l’article [4034605](https://support.micr
 
 1. Exportez les journaux d’événements suivants au format EVTX :
 
-   * System
+   * Système
    * Application
    * Sécurité
    * Operations Manager

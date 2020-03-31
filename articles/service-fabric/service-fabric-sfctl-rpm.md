@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 1787c0c8a8d5994ce1f1e9e4c55f155bbca6934c
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76904944"
 ---
 # <a name="sfctl-rpm"></a>sfctl rpm
@@ -20,7 +20,7 @@ Interroge et envoie des commandes vers le service gestionnaire de réparation.
 |Commande|Description|
 | --- | --- |
 | approve-force | Force l’approbation de la tâche de réparation donnée. |
-| delete | Supprime une tâche de réparation terminée. |
+| supprimer | Supprime une tâche de réparation terminée. |
 | list | Permet d’obtenir une liste de tâches de réparation correspondant aux filtres donnés. |
 
 ## <a name="sfctl-rpm-approve-force"></a>sfctl rpm approve-force
@@ -77,7 +77,7 @@ Cette API prend en charge la plateforme Service Fabric ; elle n’est pas cens
 |Argument|Description|
 | --- | --- |
 | --executor-filter | Nom de l’Exécuteur de réparations dont les tâches revendiquées doivent être incluses dans la liste. |
-| --state-filter | OR au niveau du bit des valeurs suivantes, qui spécifie les états de tâches qu’il convient d’inclure dans la liste des résultats. <ul><li>1 – Créée</li><li>2 – Revendiquée</li><li>4 – En cours de préparation</li><li>8 – Approuvée</li><li>16 – En cours d’exécution</li><li>32 – En cours de restauration</li><li>64 – Terminée</li></ul>
+| --state-filter | OR au niveau du bit des valeurs suivantes, qui spécifie les états de tâches qu’il convient d’inclure dans la liste des résultats. <ul><li>1 - Créé</li><li>2 – Revendiquée</li><li>4 – En cours de préparation</li><li>8 – Approuvée</li><li>16 – En cours d’exécution</li><li>32 – En cours de restauration</li><li>64 - Terminé</li></ul>
 | --task-id-filter | Préfixe d’ID de tâche de réparation à mettre en correspondance. |
 
 ### <a name="global-arguments"></a>Arguments globaux

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: manayar
 ms.openlocfilehash: cde3fb8b56d8509a45bde00dde55e3c69d015b8e
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76278054"
 ---
 # <a name="sequence-extension-provisioning-in-virtual-machine-scale-sets"></a>Séquencer le provisionnement des extensions dans des groupes de machines virtuelles identiques
@@ -21,7 +21,7 @@ Si vous utilisez plusieurs extensions sur une machine virtuelle, il est importan
 
 Cet article explique comment séquencer les extensions configurées pour les instances de machine virtuelle dans les groupes de machines virtuelles identiques.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 Cet article suppose de connaître :
 -   Les [extensions](../virtual-machines/extensions/overview.md) de machine virtuelle Azure
 -   La [modification](virtual-machine-scale-sets-upgrade-scale-set.md) des groupes de machines virtuelles identiques

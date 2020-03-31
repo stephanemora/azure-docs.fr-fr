@@ -1,5 +1,5 @@
 ---
-title: Monter en charge (scale out) une base de données
+title: Effectuer un scale-out d’une base de données
 description: Utilisation de ShardMapManager, la bibliothèque cliente de base de données élastique
 services: sql-database
 ms.service: sql-database
@@ -12,15 +12,15 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: 8175563d8c1c2ec59b4195b2ede06f6e1dbf8556
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823556"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228633"
 ---
-# <a name="scale-out-databases-with-the-shard-map-manager"></a>Monter en charge les bases de données avec le Gestionnaire de cartes de partitions
+# <a name="scale-out-databases-with-the-shard-map-manager"></a>Effectuer un scale-out des bases de données avec le Gestionnaire de cartes de partitions
 
-Pour monter facilement en charge les bases de données sur SQL Azure, utilisez un Gestionnaire de cartes de partitions. Le Gestionnaire de cartes de partitions est une base de données spéciale qui gère les informations de mappage global sur toutes les partitions (bases de données) dans un ensemble de partitions. Les métadonnées permettent à une application de se connecter à la base de données qui convient en fonction de la valeur de la **clé de partitionnement**. En outre, chaque partition de l’ensemble contient les cartes qui suivent les données de partitions locales (appelées **shardlets**).
+Pour facilement effectuer un scale-out des bases de données sur SQL Azure, utilisez un Gestionnaire de cartes de partitions. Le Gestionnaire de cartes de partitions est une base de données spéciale qui gère les informations de mappage global sur toutes les partitions (bases de données) dans un ensemble de partitions. Les métadonnées permettent à une application de se connecter à la base de données qui convient en fonction de la valeur de la **clé de partitionnement**. En outre, chaque partition de l’ensemble contient les cartes qui suivent les données de partitions locales (appelées **shardlets**).
 
 ![Gestion des cartes de partitions](./media/sql-database-elastic-scale-shard-map-management/glossary.png)
 
@@ -53,11 +53,11 @@ L’infrastructure élastique prend en charge les types suivants en tant que cl�
 
 | .NET | Java |
 | --- | --- |
-| integer |integer |
+| entier |entier |
 | long |long |
-| GUID |uuid |
+| guid |uuid |
 | byte[]  |byte[] |
-| datetime | timestamp |
+| DATETIME | timestamp |
 | intervalle de temps | duration|
 | datetimeoffset |offsetdatetime |
 

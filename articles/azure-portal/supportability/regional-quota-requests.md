@@ -8,10 +8,10 @@ ms.topic: article
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
 ms.openlocfilehash: 9236989f7bbb4695db24f86a2a049f5bb58f302a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76843682"
 ---
 # <a name="standard-quota-increase-limits-by-region"></a>Quota standard : augmenter les limites par région
@@ -78,7 +78,7 @@ Pour demander une augmentation des quotas de processeurs virtuels par région à
 
 1. Dans le [portail Azure](https://portal.azure.com), recherchez et sélectionnez **Abonnements**.
 
-   ![Accéder à « Abonnements » dans le portail Azure](./media/resource-manager-core-quotas-request/search-for-subscriptions.png)
+   ![Accéder à Abonnements dans le portail Azure](./media/resource-manager-core-quotas-request/search-for-subscriptions.png)
 
 1. Sélectionnez l’abonnement pour lequel vous souhaitez augmenter le quota.
 

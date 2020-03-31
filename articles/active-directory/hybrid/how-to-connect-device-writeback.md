@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 632f6f80184c6ba3409bd30ae070cbaefc77f036
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67109499"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect : Activation de la réécriture d’appareil
@@ -40,10 +40,10 @@ Cela fournit une sécurité supplémentaire et l’assurance que l’accès aux 
 > <li>Les appareils doivent se trouver dans la même forêt que les utilisateurs. Étant donné que les appareils doivent être réécrits dans une seule forêt, cette fonctionnalité ne prend pas en charge un déploiement à plusieurs forêts d’utilisateurs pour l’instant.</li>
 > <li>Vous ne pouvez ajouter qu’un seul objet de configuration d’enregistrement d’appareil à la forêt Active Directory locale. Cette fonctionnalité n’est pas compatible avec une topologie dans laquelle le domaine Active Directory local est synchronisé à plusieurs annuaires Azure AD.</li>
 
-## <a name="part-1-install-azure-ad-connect"></a>Partie 1 : Installer Azure AD Connect
+## <a name="part-1-install-azure-ad-connect"></a>Première partie : Installer Azure AD Connect
 Installez Azure AD Connect à l’aide de paramètres personnalisés ou Express. Microsoft recommande de commencer par synchroniser correctement tous les utilisateurs et groupes avant d’activer l’écriture différée des appareils.
 
-## <a name="part-2-enable-device-writeback-in-azure-ad-connect"></a>Partie 2 : Activer la réécriture d’appareil dans Azure AD Connect
+## <a name="part-2-enable-device-writeback-in-azure-ad-connect"></a>Deuxième partie : Activer la réécriture d’appareil dans Azure AD Connect
 1. Réexécutez l’Assistant d’installation. Sur la page Tâches supplémentaires, sélectionnez **Configurer les options de l’appareil**, puis cliquez sur **Suivant**. 
 
     ![Tâche Configurer les options de l’appareil](./media/how-to-connect-device-writeback/deviceoptions.png)
@@ -85,7 +85,7 @@ L’écriture différée des appareils doit désormais fonctionner correctement.
 ## <a name="enable-conditional-access"></a>Activer l’accès conditionnel
 Des instructions détaillées pour activer ce scénario sont disponibles dans [Configuration d’un accès conditionnel en local à l’aide du service d’inscription d’appareils Azure Active Directory](../../active-directory/active-directory-device-registration-on-premises-setup.md)
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 ### <a name="the-writeback-checkbox-is-still-disabled"></a>La case à cocher de l'écriture différée est toujours désactivée.
 Si la case à cocher pour l'écriture différée des appareils n'est pas activée alors que vous avez suivi les étapes ci-dessus, la procédure suivante vous guidera dans ce que l'Assistant d'installation vérifie avant l'activation de la case.
 

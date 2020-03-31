@@ -3,22 +3,22 @@ title: Nouvelle expérience d’inscription d’applications dans le portail Azu
 titleSuffix: Microsoft identity platform
 description: Présentation de la nouvelle expérience d’inscription d’application dans le portail Azure
 services: active-directory
-author: archieag
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/8/2019
-ms.author: aragra
+ms.author: marsma
 ms.reviewer: lenalepa, alamaral
 ms.custom: aaddev
-ms.openlocfilehash: 835924c92d0c5768c1125b3b1d26ee72cf2cec70
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 50c88dd1785bd9177219054fed3800ca725a5274
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76698269"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154591"
 ---
 # <a name="the-new-azure-portal-app-registration-experience"></a>La nouvelle expérience d’inscription d’applications dans le Portail Azure
 
@@ -30,7 +30,7 @@ La nouvelle expérience relative aux [inscriptions d’applications](https://go.
 
     > [!NOTE]
     > Vous devez vous connecter avec le compte que vous avez utilisé pour inscrire des applications afin de les trouver dans le portail Azure. Nous vous recommandons de vérifier que l’utilisateur connecté dans le portail Azure correspond à l’utilisateur qui était connecté au portail d’inscription d’applications en comparant l’adresse e-mail issue de votre profil.
-    > 
+    >
     > Dans certains cas, en particulier lorsque vous vous connectez à l’aide de comptes Microsoft personnels (par exemple, Outlook, Live, Xbox, etc.) avec une adresse e-mail Azure AD, nous avons découvert que lorsque vous accédez au portail Azure à partir de l’ancienne expérience, vous êtes connecté à un compte différent avec la même adresse e-mail que celle dans votre locataire Azure AD. Si vous pensez toujours que vos applications sont manquantes, déconnectez-vous et connectez-vous avec le compte approprié.
 
 - Les applications SDK Live créées à l’aide de comptes Microsoft personnels ne sont pas encore prises en charge dans le portail Azure et seront conservées dans l’ancienne expérience pour le moment.
@@ -86,14 +86,14 @@ Dans la nouvelle expérience, les URL de réponse figurent dans la section Authe
 
 Les API web sont configurées dans la page Exposer une API.
 
-> [!NOTE] 
+> [!NOTE]
 > Essayez la nouvelle expérience des paramètres d’authentification vous permettant de configurer les paramètres de votre application en fonction de la plateforme ou de l’appareil que vous souhaitez cibler. [En savoir plus](quickstart-configure-app-access-web-apis.md#configure-platform-settings-for-your-application)
 
 ## <a name="microsoft-graph-permissionsapi-permissions"></a>Autorisations Microsoft Graph/Autorisations d’API
 
 -   Lors de la sélection d’une API dans l’ancienne expérience, vous pouviez uniquement choisir parmi les API Microsoft Graph. Dans la nouvelle expérience, vous pouvez choisir parmi de nombreuses API Microsoft, notamment Microsoft Graph, des API de votre organisation et vos API. Trois onglets sont à votre disposition : API Microsoft, API utilisées par mon organisation ou Mes API. La barre de recherche figurant sur API utilisées par mon organisation utilise les recherches d’onglet par le biais des principaux de service dans le locataire.
-    
-    > [!NOTE] 
+
+    > [!NOTE]
     > Cet onglet n’apparaît pas si votre application n’est pas associée à un locataire. Pour plus d’informations sur la procédure à suivre pour demander des autorisations à l’aide de la nouvelle expérience, consultez [ce démarrage rapide](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory/develop/quickstart-configure-app-access-web-apis.md).
 
 -   L’ancienne expérience n’avait pas de bouton **Accorder des autorisations**. Dans la nouvelle expérience, une section Donner son consentement comportant un bouton **Accorder le consentement administrateur** apparaît dans la section Autorisations d’API d’une application. Seul un administrateur peut accorder le consentement et ce bouton est activé uniquement pour les administrateurs. Lorsqu’un administrateur sélectionne le bouton **Accorder le consentement administrateur**, le consentement de l’administrateur est accordé pour toutes les autorisations demandées.

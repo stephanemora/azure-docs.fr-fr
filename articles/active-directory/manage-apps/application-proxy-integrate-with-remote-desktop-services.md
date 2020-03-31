@@ -17,10 +17,10 @@ ms.custom: it-pro
 ms.reviewer: harshja
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d6ca64e2de5734c567173fc735776074f4c87fbc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67108464"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publier le Bureau à distance avec le proxy d’application Azure AD
@@ -44,7 +44,7 @@ Dans un déploiement RDS, le rôle Site Web Bureau à distance et le rôle Passe
 >[!TIP]
 >Si vous n’avez pas déployé RDS au préalable, ou si vous souhaitez en savoir plus avant de commencer, découvrez comment [déployer RDS de manière transparente avec Azure Resource Manager et Azure Marketplace](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure).
 
-## <a name="requirements"></a>Configuration requise
+## <a name="requirements"></a>Spécifications
 
 - Utilisez un client autre que le client web Bureau à distance, dans la mesure où le client web ne prend pas en charge le proxy d’application.
 
@@ -124,7 +124,7 @@ Testez le scénario avec Internet Explorer sur un ordinateur Windows 7 ou 10.
 
 La configuration décrite dans cet article est destinée aux utilisateurs Windows 7 ou 10, dotés d’Internet Explorer et du module complémentaire ActiveX Service de données distant. Toutefois, le cas échéant, vous pouvez prendre en charge d’autres systèmes d’exploitation et navigateurs. La différence réside dans la méthode d’authentification que vous utilisez.
 
-| Méthode d’authentification | Configuration client prise en charge |
+| Méthode d'authentification | Configuration client prise en charge |
 | --------------------- | ------------------------------ |
 | Pré-authentification    | Windows 7/10 avec Internet Explorer + module complémentaire ActiveX Service de données distant |
 | PassThrough | Tout autre système d’exploitation prenant en charge l’application Bureau à distance Microsoft |

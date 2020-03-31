@@ -9,10 +9,10 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.openlocfilehash: e41be4b76245f2567015eb0ede317830120ee61a
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75549483"
 ---
 # <a name="cloud-provisioning-troubleshooting"></a>Résolution des problèmes de provisionnement cloud
@@ -22,7 +22,7 @@ Le provisionnement cloud a une incidence sur bien des éléments et compte de no
 
 ## <a name="common-troubleshooting-areas"></a>Zones courantes de résolution de problème
 
-|Name|Description|
+|Nom|Description|
 |-----|-----|
 |[Problèmes rencontrés avec l’agent](#agent-problems)|Vérifiez que l’agent a été correctement installé et qu’il communique avec Azure Active Directory (Azure AD).|
 |[Problèmes de synchronisation des objets](#object-synchronization-problems)|Utilisez les journaux de provisionnement pour résoudre les problèmes de synchronisation des objets.|

@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 873bc4ab5e435b91ff4400a39c92db0d0bb9baa8
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74968763"
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>Protéger votre contenu HLS avec Apple FairPlay ou Microsoft PlayReady
 
 > [!NOTE]
-> Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).   > Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consultez aussi [Conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md).
+> Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Pour plus d’informations, consultez [Essai gratuit Azure](https://azure.microsoft.com/pricing/free-trial/).   > Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consultez aussi [Conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md).
 >
 
 Azure Media Services vous permet de chiffrer dynamiquement votre contenu HTTP Live Streaming (HLS) à l’aide des formats suivants :  
@@ -98,7 +98,7 @@ Voici les étapes générales que vous devez suivre pour protéger vos élément
 1. Créer un élément multimédia et y charger des fichiers.
 2. Encoder l’élément multimédia qui contient le fichier au débit adaptatif MP4 défini.
 3. Créer une clé de contenu et l’associer à l’élément multimédia encodé.  
-4. Configurer la stratégie d'autorisation de la clé de contenu. Spécifiez les valeurs suivantes :
+4. Configurer la stratégie d'autorisation de la clé de contenu. Spécifiez les éléments suivants :
 
    * La méthode de remise (dans ce cas, FairPlay).
    * la configuration des options de stratégie FairPlay. Pour plus d’informations sur la configuration de FairPlay, consultez la méthode **ConfigureFairPlayPolicyOptions()** dans l’exemple ci-dessous.
@@ -157,7 +157,7 @@ Les considérations suivantes s'appliquent :
     <add key="Audience" value="urn:test"/>
     ```
 
-## <a name="example"></a>Exemples
+## <a name="example"></a>Exemple
 
 L’exemple suivant illustre la possibilité d’utiliser Media Services pour distribuer votre contenu chiffré avec FairPlay. Cette fonctionnalité a été introduite dans le Kit de développement logiciel (SDK) Azure Media Services pour .NET version 3.6.0. 
 

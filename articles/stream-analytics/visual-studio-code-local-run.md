@@ -7,17 +7,17 @@ ms.author: sujie
 ms.date: 11/10/2019
 ms.topic: conceptual
 ms.openlocfilehash: c29d0d9ecd856ee9611df21d23b1b2b763e24652
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75476979"
 ---
 # <a name="test-stream-analytics-queries-locally-with-sample-data-using-visual-studio-code"></a>Tester des requêtes Stream Analytics localement avec des exemples de données à l’aide de Visual Studio Code
 
 Vous pouvez utiliser Azure Stream Analytics Tools pour Visual Studio Code afin de tester vos travaux Stream Analytics localement à l’aide d’exemples de données. Vous pouvez trouver les résultats de la requête dans des fichiers JSON dans le dossier **LocalRunOutputs** de votre projet.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Installez le [SDK .NET Core](https://dotnet.microsoft.com/download) et redémarrez Visual Studio Code.
 

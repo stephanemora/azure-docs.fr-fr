@@ -5,17 +5,17 @@ ms.topic: conceptual
 ms.date: 02/22/2016
 ms.subservice: autoscale
 ms.openlocfilehash: e22806ff94ce2eb830bb6918bfc7f80e5ad3ba0a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75364218"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Configuration avancée de la mise à l’échelle automatique à l’aide des modèles Resource Manager pour VM Scale Sets
 Vous pouvez diminuer ou augmenter la taille des instances dans VM Scale Sets en fonction de certains seuils de métriques de performances, selon une planification périodique ou à une date donnée. Vous pouvez également configurer des e-mails et des webhooks de notification pour les actions de mise à l’échelle. Cette procédure pas à pas présente un exemple de configuration de ces objets à l’aide d’un modèle Resource Manager sur un groupe de machines virtuelles identiques (VM Scale Set).
 
 > [!NOTE]
-> Bien que cette procédure pas à pas explique les étapes pour les Virtual Machine Scale Sets, les mêmes informations s’appliquent pour la mise à l’échelle des [services cloud](https://azure.microsoft.com/services/cloud-services/), [d’App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) et des [services Gestion des API](https://docs.microsoft.com/azure/api-management/api-management-key-concepts) Pour paramétrer de façon simple une diminution ou augmentation de la taille des instances d’un élément VM Scale Set basé sur une métrique de performances simple, reportez-vous aux documents [Linux](../../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-cli.md) et [Windows](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md)
+> Bien que cette procédure pas à pas explique les étapes pour les Virtual Machine Scale Sets, les mêmes informations s’appliquent pour la mise à l’échelle des [services cloud](https://azure.microsoft.com/services/cloud-services/), [d’App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) et des [services Gestion des API](https://docs.microsoft.com/azure/api-management/api-management-key-concepts) Pour paramétrer de façon simple un scale-in/out d’un élément VM Scale Set basé sur une métrique de performances simple, reportez-vous aux documents [Linux](../../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-cli.md) et [Windows](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md)
 >
 >
 
@@ -43,7 +43,7 @@ Dans cette procédure pas à pas, nous utilisons [Azure Resource Explorer](https
 
 4. Voici un scénario de mise à l’échelle hypothétique que nous utiliserons pour cette procédure pas à pas.
 
-   * **Selon la charge** : je souhaite diminuer ou augmenter la taille des instances en fonction de la charge de mon application hébergée sur mon groupe de machines virtuelles identiques.*
+   * **Selon la charge** : je souhaite effectuer un scale-out ou un scale-in en fonction de la charge de mon application hébergée sur mon groupe de machines virtuelles identiques.*
    * **Taille de la file d’attente** : j’utilise une file d’attente Service Bus pour les messages entrants dans mon application. J’utilise le nombre de messages de la file d’attente et le % processeur, et je configure un profil par défaut pour déclencher une action de mise à l’échelle si le nombre de messages ou le % processeur atteint le seuil défini.\*
    * **Heure de la journée** : je souhaite définir un profil hebdomadaire basé sur « l’heure de la journée », appelé « Heures dans la matinée, en semaine ». Au vu des données historiques, je sais qu’il est préférable d’avoir un certain nombre d’instances de machine virtuelle pour gérer la charge de mon application pendant cette période.\*
    * **Dates particulières** : j’ai ajouté un profil « Jour de lancement de produit ». Je planifie à l’avance des dates spécifiques afin que mon application soit prête à gérer la charge, en fonction des annonces marketing et des dates d’introduction de nouveaux produits dans l’application.\*

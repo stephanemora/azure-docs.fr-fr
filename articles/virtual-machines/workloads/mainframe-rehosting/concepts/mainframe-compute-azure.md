@@ -7,10 +7,10 @@ ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: 97f354d0a313d58c671366dd0e5f485504823e13
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76288929"
 ---
 # <a name="move-mainframe-compute-to-azure"></a>Déplacer le calcul mainframe vers Azure
@@ -43,7 +43,7 @@ Un processeur mainframe peut être configuré avec l’un des types suivants :
 
 ## <a name="scaling-mainframe-compute-up-and-out"></a>Montée en puissance et augmentation du calcul mainframe
 
-Les mainframes IBM offrent la possibilité de mettre à l'échelle jusqu'à 240 cœurs (la taille z14 actuelle pour un seul système). De plus, la taille des mainframes IBM peut être augmentée grâce à une fonctionnalité appelée Coupling Facility (CF). La fonctionnalité CF permet à plusieurs systèmes mainframe d'accéder simultanément aux mêmes données. Grâce à CF, la technologie Mainframe Parallel Sysplex regroupe les processeurs mainframe en clusters. Au moment de la rédaction de ce guide, la fonction Parallel Sysplex prenait en charge 32 groupes de 64 processeurs chacun. Jusqu'à 2 048 processeurs peuvent être regroupés de cette manière pour augmenter la capacité de calcul.
+Les mainframes IBM offrent la possibilité de mettre à l'échelle jusqu'à 240 cœurs (la taille z14 actuelle pour un seul système). De plus, les mainframes IBM peuvent effectuer un scale-out grâce à une fonctionnalité appelée Coupling Facility (CF). La fonctionnalité CF permet à plusieurs systèmes mainframe d'accéder simultanément aux mêmes données. Grâce à CF, la technologie Mainframe Parallel Sysplex regroupe les processeurs mainframe en clusters. Au moment de la rédaction de ce guide, la fonction Parallel Sysplex prenait en charge 32 groupes de 64 processeurs chacun. Jusqu'à 2 048 processeurs peuvent être regroupés de cette manière pour effectuer un scale-out de la capacité de calcul.
 
 CF permet aux clusters de calcul de partager des données avec un accès direct. Elle est utilisé pour verrouiller les informations, les informations en cache et la liste des ressources de données partagées. Un système Parallel Sysplex avec une ou plusieurs CF peut être considéré comme un cluster de calcul « tout partagé » avec montée en puissance. Pour plus d’informations sur ces fonctionnalités, consultez [Parallel Sysplex sur IBM Z](https://www.ibm.com/it-infrastructure/z/technologies/parallel-sysplex-resources) sur le site web d’IBM.
 
@@ -57,7 +57,7 @@ Les machines virtuelles Azure fournissent une puissance de calcul dans une large
 
 Actuellement, l’éventail des tailles de machines virtuelles Azure s’étend de 1 à 128 vCPU. Les types de machines virtuelles (VM) sont optimisés pour des charges de travail spécifiques. Par exemple, la liste suivante montre les types de machine virtuelle (à jour au moment de la rédaction du présent document) et leurs utilisations recommandées :
 
-| Size     | Type et description                                                                 |
+| Taille     | Type et description                                                                 |
 |----------|--------------------------------------------------------------------------------------|
 | Série D | Usage général avec 64 vCPU et jusqu'à 3,5 GHz de fréquence d’horloge                           |
 | Série E | Optimisé pour la mémoire avec jusqu'à 64 vCPU                                                 |
@@ -92,7 +92,7 @@ L'approche consiste à migrer les LPAR vers des machines virtuelles individuelle
 
 ## <a name="azure-compute-scale-out"></a>Montée en charge du calcul Azure
 
-L'un des avantages d'une solution basée sur Azure est la possibilité de monter en charge. Cette montée en charge permet à une application de disposer d'une capacité de calcul presque illimitée. Azure prend en charge plusieurs méthodes pour augmenter la puissance de calcul :
+L'un des avantages d'une solution basée sur Azure est la possibilité d’effectuer un scale-out. Cette montée en charge permet à une application de disposer d'une capacité de calcul presque illimitée. Azure prend en charge plusieurs méthodes pour effectuer un scale-out de la puissance de calcul :
 
 - **Équilibrage de la charge sur un cluster.** Dans ce scénario, une application peut utiliser un [ équilibreur de charge](/azure/load-balancer/load-balancer-overview) ou un gestionnaire de ressources pour répartir la charge de travail entre plusieurs machines virtuelles dans un cluster. Si une plus grande capacité de calcul est nécessaire, des machines virtuelles supplémentaires sont ajoutées au cluster.
 

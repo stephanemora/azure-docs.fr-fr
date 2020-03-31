@@ -10,10 +10,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 07/18/2019
 ms.author: robinsh
 ms.openlocfilehash: ad1fcb67704e79f5aef62a59604e47f477804405
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68385719"
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Surveillance à distance IoT et notifications avec Azure Logic Apps connectant votre IoT Hub et votre boîte aux lettres
@@ -58,7 +58,7 @@ Dans cette rubrique, vous configurez le routage sur votre IOT Hub pour envoyer d
 
 ## <a name="what-you-need"></a>Ce dont vous avez besoin
 
-* Effectuez le didacticiel [Simulateur en ligne Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) ou un des didacticiels sur l’appareil, par exemple [Raspberry Pi avec node.js](iot-hub-raspberry-pi-kit-node-get-started.md). Ceux-ci couvrent les exigences suivantes :
+* Suivre le tutoriel [Simulateur en ligne Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) ou un des tutoriels de l’appareil, par exemple [Raspberry Pi avec node.js](iot-hub-raspberry-pi-kit-node-get-started.md). Ceux-ci couvrent les exigences suivantes :
 
   * Un abonnement Azure actif.
   * Une instance Azure IoT Hub associée à votre abonnement.
@@ -74,7 +74,7 @@ Créez un espace de noms et une file d’attente Service Bus. Plus loin dans cet
 
 1. Dans le volet **Créer un espace de noms**, fournissez les informations suivantes :
 
-   **Nom** : Nom de l’espace de noms Service Bus. L’espace de noms doit être unique dans tout Azure.
+   **Name** : Nom de l’espace de noms Service Bus. L’espace de noms doit être unique dans tout Azure.
 
    **Niveau tarifaire** : Sélectionnez **De base** dans la liste déroulante. Le niveau de base est suffisant pour ce didacticiel.
 
@@ -84,7 +84,7 @@ Créez un espace de noms et une file d’attente Service Bus. Plus loin dans cet
 
    ![Créer un espace de noms Service Bus dans le portail Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/1-create-service-bus-namespace-azure-portal.png)
 
-1. Sélectionnez **Créer**. Attendez que le déploiement se termine avant de passer à l’étape suivante.
+1. Sélectionnez **Create** (Créer). Attendez que le déploiement se termine avant de passer à l’étape suivante.
 
 ### <a name="add-a-service-bus-queue-to-the-namespace"></a>Ajouter une file d’attente Service Bus avec l’espace de noms
 
@@ -124,7 +124,7 @@ Ajoutez un point de terminaison personnalisé pour la file d’attente Service B
 
    ![Ajouter un point de terminaison à votre IoT Hub dans le portail Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/3-add-iot-hub-endpoint-azure-portal.png)
 
-1. Sélectionnez **Créer**. Lorsque le point de terminaison est créé, passez à l’étape suivante.
+1. Sélectionnez **Create** (Créer). Lorsque le point de terminaison est créé, passez à l’étape suivante.
 
 ### <a name="add-a-routing-rule"></a>Ajouter une règle de routage
 
@@ -132,7 +132,7 @@ Ajoutez un point de terminaison personnalisé pour la file d’attente Service B
 
 1. Dans le volet **Ajouter une route**, entrez les informations suivantes :
 
-   **Nom** : Nom de la règle d’acheminement.
+   **Name** : Nom de la règle d’acheminement.
 
    **Point de terminaison** : Sélectionnez le point de terminaison que vous avez créé.
 
@@ -154,7 +154,7 @@ Dans la section précédente, vous avez configuré votre hub IoT pour router les
 
 1. Entrez les informations suivantes :
 
-   **Nom** : Nom de l’application logique.
+   **Name** : Nom de l’application logique.
 
    **Groupe de ressources** : utilisez le même groupe de ressources que celui de votre hub IoT.
 
@@ -162,7 +162,7 @@ Dans la section précédente, vous avez configuré votre hub IoT pour router les
 
    ![Créer une application logique dans le Portail Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-a-logic-app.png)
 
-1. Sélectionnez **Créer**.
+1. Sélectionnez **Create** (Créer).
 
 ### <a name="configure-the-logic-app-trigger"></a>Configurer le déclencheur d’application logique
 

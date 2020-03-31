@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 01/03/2020
 ms.author: twooley
 ms.openlocfilehash: 455e73ece2d46a508b3077c13c8106fe53beb4de
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75638831"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen1"></a>Utiliser l’outil DistCp pour copier des données entre des objets blob de stockage Azure et Azure Data Lake Storage Gen1
@@ -23,7 +23,7 @@ ms.locfileid: "75638831"
 
 Si vous avez un cluster HDInsight avec un accès à Azure Data Lake Storage Gen1, vous pouvez utiliser des outils de l’écosystème Hadoop comme DistCp pour copier des données vers et à partir d’un stockage de cluster HDInsight (WASB) dans un compte Data Lake Storage Gen1. Cet article explique comment utiliser l’outil DistCp.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Un compte Azure Data Lake Storage Gen1**. Pour savoir comment en créer un, voir [Prise en main d’Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md).

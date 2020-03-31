@@ -16,17 +16,17 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4db330a875b8241b642bcbc71fb0866c9833ee7e
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75638678"
 ---
 # <a name="configure-azure-resource-role-settings-in-privileged-identity-management"></a>Configurer les paramètres des rôles de ressource Azure dans Privileged Identity Management
 
 Lorsque vous configurez les paramètres des rôles de ressources Azure, vous définissez les paramètres par défaut appliqués aux attributions de rôles de ressources Azure dans Azure Active Directory (Azure AD) Privileged Identity Management (PIM). Utilisez les procédures suivantes pour configurer le flux de travail d’approbation et spécifier qui peut approuver ou refuser les demandes.
 
-## <a name="open-role-settings"></a>Ouvrir les paramètres des rôles
+## <a name="open-role-settings"></a>Ouvrir les paramètres de rôle
 
 Suivez ces étapes pour ouvrir les paramètres pour un rôle de ressource Azure.
 
@@ -95,7 +95,7 @@ Vous pouvez choisir l’une de ces options de durée d’attribution **active**�
 
 ## <a name="require-multi-factor-authentication"></a>Exiger une authentification multifacteur
 
-Privileged Identity Management permet également l’application facultative d’Azure Multi-Factor Authentication dans deux scénarios distincts.
+Privileged Identity Management permet également l’implémentation facultative d’Azure Multi-Factor Authentication dans deux scénarios distincts.
 
 ### <a name="require-multi-factor-authentication-on-active-assignment"></a>Demander l'authentification multifacteur lors de l'attribution active
 
@@ -111,9 +111,9 @@ Pour exiger l’authentification multifacteur avant l’activation, cochez la ca
 
 Pour plus d’informations, consultez [Authentification multifacteur et Privileged Identity Management](pim-how-to-require-mfa.md).
 
-## <a name="activation-maximum-duration"></a>Durée maximum d'activation
+## <a name="activation-maximum-duration"></a>Durée maximum d’activation
 
-Utilisez le curseur **Durée maximum d'activation** pour définir la durée maximale, en heures, pendant laquelle un rôle reste actif avant d’expirer. Cette valeur peut être comprise entre 1 et 24 heures.
+Utilisez le curseur **Durée maximum d’activation** pour définir la durée maximale, en heures, pendant laquelle un rôle reste actif avant d’expirer. Cette valeur peut être comprise entre 1 et 24 heures.
 
 ## <a name="require-justification"></a>Demander une justification
 
@@ -121,7 +121,7 @@ Vous pouvez exiger que les utilisateurs saisissent une justification métier lor
 
 ## <a name="require-approval-to-activate"></a>Demander une approbation pour activation
 
-Si vous souhaitez exiger une approbation pour activer un rôle, procédez comme suit.
+Si vous souhaitez exiger l’approbation pour activer un rôle, suivez ces étapes.
 
 1. Cochez la case **Exiger une approbation pour activer**.
 
@@ -131,7 +131,7 @@ Si vous souhaitez exiger une approbation pour activer un rôle, procédez comme 
 
 1. Sélectionnez au moins un utilisateur ou un groupe, puis cliquez sur **Sélectionner**. Vous pouvez ajouter n’importe quelle combinaison d’utilisateurs et de groupes. Vous devez sélectionner au moins un approbateur. Il n’existe aucun approbateur par défaut.
 
-    Vos sélections figurent dans la liste des approbateurs sélectionnés.
+    Vos sélections apparaissent dans la liste des approbateurs sélectionnés.
 
 1. Une fois que vous avez spécifié tous vos paramètres de rôle, sélectionnez **Mettre à jour** pour enregistrer vos modifications.
 

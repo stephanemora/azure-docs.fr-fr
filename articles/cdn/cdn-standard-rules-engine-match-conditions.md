@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/01/2019
 ms.author: magattus
 ms.openlocfilehash: 425266e2a7ca42bb17ca598ddfc2f2b86591f32e
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74900190"
 ---
 # <a name="match-conditions-in-the-standard-rules-engine-for-azure-cdn"></a>Conditions de correspondance du moteur de règles Standard pour Azure CDN
@@ -36,7 +36,7 @@ Identifie les requêtes effectuées à partir d’un appareil mobile ou de burea
 
 #### <a name="required-fields"></a>Champs obligatoires
 
-Operator | Valeurs prises en charge
+Opérateur | Valeurs prises en charge
 ---------|----------------
 Égal à, Non égal à | Mobile et Bureau
 
@@ -46,7 +46,7 @@ Identifie les requêtes en fonction de la version HTTP de la requête.
 
 #### <a name="required-fields"></a>Champs obligatoires
 
-Operator | Valeurs prises en charge
+Opérateur | Valeurs prises en charge
 ---------|----------------
 Égal à, Non égal à | 2.0, 1.1, 1.0, 0.9, Tout
 
@@ -56,9 +56,9 @@ Identifie les requêtes en fonction des informations des cookies figurant dans l
 
 #### <a name="required-fields"></a>Champs obligatoires
 
-Nom du cookie | Operator | Valeur du cookie | Transformation de cas
+Nom du cookie | Opérateur | Valeur du cookie | Transformation de cas
 ------------|----------|--------------|---------------
-Chaîne | [Liste des opérateurs standard](#standard-operator-list) | Chaîne, Int | Aucune transformation, en majuscules, en minuscules
+String | [Liste des opérateurs standard](#standard-operator-list) | Chaîne, Int | Aucune transformation, en majuscules, en minuscules
 
 #### <a name="key-information"></a>Informations essentielles
 
@@ -75,9 +75,9 @@ Identifie les requêtes en fonction des arguments définis pour la méthode de d
 
 #### <a name="required-fields"></a>Champs obligatoires
 
-Nom de l’argument | Operator | Valeur de l’argument | Transformation de cas
+Nom de l’argument | Opérateur | Valeur de l’argument | Transformation de cas
 --------------|----------|----------------|---------------
-Chaîne | [Liste des opérateurs standard](#standard-operator-list) | Chaîne, Int | Aucune transformation, en majuscules, en minuscules
+String | [Liste des opérateurs standard](#standard-operator-list) | Chaîne, Int | Aucune transformation, en majuscules, en minuscules
 
 ### <a name="query-string"></a>Chaîne de requête
 
@@ -85,7 +85,7 @@ Identifie les requêtes qui contiennent un paramètre de chaîne de requête sp�
 
 #### <a name="required-fields"></a>Champs obligatoires
 
-Operator | Chaîne de requête | Transformation de cas
+Opérateur | Chaîne de requête | Transformation de cas
 ---------|--------------|---------------
 [Liste des opérateurs standard](#standard-operator-list) | Chaîne, Int | Aucune transformation, en majuscules, en minuscules
 
@@ -95,7 +95,7 @@ Identifie les requêtes en fonction de l’emplacement ou de l’adresse IP du d
 
 #### <a name="required-fields"></a>Champs obligatoires
 
-Operator | Valeurs prises en charge
+Opérateur | Valeurs prises en charge
 ---------|-----------------
 Quelconque | N/A
 Géocorrespondance | Code pays
@@ -120,7 +120,7 @@ Identifie les requêtes en fonction d’un texte spécifique qui apparaît dans 
 
 #### <a name="required-fields"></a>Champs obligatoires
 
-Operator | Corps de la demande | Transformation de cas
+Opérateur | Corps de la demande | Transformation de cas
 ---------|--------------|---------------
 [Liste des opérateurs standard](#standard-operator-list) | Chaîne, Int | Aucune transformation, en majuscules, en minuscules
 
@@ -130,9 +130,9 @@ Identifie les requêtes qui utilisent un en-tête spécifique dans la requête.
 
 #### <a name="required-fields"></a>Champs obligatoires
 
-Nom de l’en-tête | Operator | Valeur de l’en-tête | Transformation de cas
+Nom de l’en-tête | Opérateur | Valeur de l’en-tête | Transformation de cas
 ------------|----------|--------------|---------------
-Chaîne | [Liste des opérateurs standard](#standard-operator-list) | Chaîne, Int | Aucune transformation, en majuscules, en minuscules
+String | [Liste des opérateurs standard](#standard-operator-list) | Chaîne, Int | Aucune transformation, en majuscules, en minuscules
 
 ### <a name="request-method"></a>Méthode de requête
 
@@ -140,7 +140,7 @@ Identifie les requêtes qui utilisent la méthode de demande spécifiée.
 
 #### <a name="required-fields"></a>Champs obligatoires
 
-Operator | Valeurs prises en charge
+Opérateur | Valeurs prises en charge
 ---------|----------------
 Égal à, Non égal à | GET, POST, PUT, DELETE, HEAD, OPTIONS, TRACE
 
@@ -154,7 +154,7 @@ Identifie les requêtes qui utilisent le protocole spécifié.
 
 #### <a name="required-fields"></a>Champs obligatoires
 
-Operator | Valeurs prises en charge
+Opérateur | Valeurs prises en charge
 ---------|----------------
 Égal à, Non égal à | HTTP, HTTPS
 
@@ -164,7 +164,7 @@ Identifie les requêtes qui correspondent à l’URL spécifiée.
 
 #### <a name="required-fields"></a>Champs obligatoires
 
-Operator | URL de la demande | Transformation de cas
+Opérateur | URL de la demande | Transformation de cas
 ---------|-------------|---------------
 [Liste des opérateurs standard](#standard-operator-list) | Chaîne, Int | Aucune transformation, en majuscules, en minuscules
 
@@ -178,7 +178,7 @@ Identifie les requêtes qui incluent l’extension de fichier spécifiée dans l
 
 #### <a name="required-fields"></a>Champs obligatoires
 
-Operator | Extension | Transformation de cas
+Opérateur | Extension | Transformation de cas
 ---------|-----------|---------------
 [Liste des opérateurs standard](#standard-operator-list) | Chaîne, Int | Aucune transformation, en majuscules, en minuscules
 
@@ -192,7 +192,7 @@ Identifie les requêtes qui incluent le nom de fichier spécifié dans l’URL d
 
 #### <a name="required-fields"></a>Champs obligatoires
 
-Operator | Nom de fichier | Transformation de cas
+Opérateur | Nom de fichier | Transformation de cas
 ---------|-----------|---------------
 [Liste des opérateurs standard](#standard-operator-list) | Chaîne, Int | Aucune transformation, en majuscules, en minuscules
 
@@ -206,7 +206,7 @@ Identifie les requêtes qui incluent le chemin d’accès spécifié dans l’UR
 
 #### <a name="required-fields"></a>Champs obligatoires
 
-Operator | Valeur | Transformation de cas
+Opérateur | Valeur | Transformation de cas
 ---------|-------|---------------
 [Liste des opérateurs standard](#standard-operator-list) | Chaîne, Int | Aucune transformation, en majuscules, en minuscules
 
@@ -222,9 +222,9 @@ Pour les règles qui acceptent les valeurs de la liste des opérateurs standard,
 
 - Quelconque
 - Égal à 
-- Contains 
+- Contient 
 - Commence par 
-- Ends with (Se termine par) 
+- Se termine par 
 - Inférieur à
 - Inférieur ou égal à
 - Supérieur à

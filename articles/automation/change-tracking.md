@@ -6,10 +6,10 @@ ms.subservice: change-inventory-management
 ms.date: 01/28/2019
 ms.topic: conceptual
 ms.openlocfilehash: 83babd65fdf22ab40b0137d93a1cbe7f1fd7ff04
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76844800"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Suivre les modifications apportées à votre environnement grâce à la solution Suivi des modifications
@@ -60,7 +60,7 @@ Les distributions Linux suivantes sont officiellement prises en charge. Toutefoi
 * Debian GNU/Linux 8 et 9
 * Ubuntu Linux 14.04 LTS et 16.04 LTS
 
-## <a name="onboard"></a>Activer Change Tracking et l’inventaire
+## <a name="enable-change-tracking-and-inventory"></a><a name="onboard"></a>Activer Change Tracking et l’inventaire
 
 Pour commencer à suivre les modifications, vous devez activer la solution Change Tracking et Inventory. Il existe de nombreuses façons d’intégrer les machines à Change Tracking et Inventory. Voici des méthodes recommandées et prises en charge pour intégrer la solution.
 
@@ -161,7 +161,7 @@ Utilisez les étapes suivantes pour configurer le suivi des clés de Registre su
 |activé     | Détermine si le paramètre est appliqué.        |
 |Item Name     | Nom convivial de la clé de Registre à suivre.        |
 |Groupe     | Nom de groupe pour le regroupement logique des clés de Registre.        |
-|Clé de Registre Windows   | Chemin dans lequel rechercher la clé de Registre. Par exemple :  « HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup »      |
+|Clé de Registre Windows   | Chemin dans lequel rechercher la clé de Registre. Par exemple : « HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup »      |
 
 ## <a name="limitations"></a>Limites
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/17/2020
 ms.author: spelluru
 ms.openlocfilehash: a2d0b9bdfba1b96ad42e45d54faf106b2361e29d
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76264783"
 ---
 # <a name="configure-autoshutdown-for-lab-and-compute-virtual-machines-in-azure-devtest-labs"></a>Configurer l’arrêt automatique pour les machines virtuelles lab et de calcul dans Azure DevTest Labs
@@ -181,7 +181,7 @@ Pour commencer, créez une application logique dans votre abonnement Azure en pr
         ![Option Envoyer un courrier](./media/devtest-lab-auto-shutdown/select-send-email.png)
     3. Sélectionnez **Se connecter** pour vous connecter à votre compte de courrier. 
     4. Sélectionnez le champ **TO** (À), puis choisissez propriétaire.
-    5. Sélectionnez **SUBJECT** (OBJET), et saisissez l’objet de la notification par e-mail. Par exemple :  « Arrêt de la machine vmName du labo labName. »
+    5. Sélectionnez **SUBJECT** (OBJET), et saisissez l’objet de la notification par e-mail. Par exemple : « Arrêt de la machine vmName du labo labName. »
     6. Sélectionnez **BODY** (CORPS), puis définissez le contenu du corps de la notification. Par exemple : « L’arrêt de vmName est prévu dans 15 minutes. Pour ignorer cet arrêt, cliquez sur : URL. Arrêt différé d’une heure : delayUrl60. Arrêt différé de deux heures : delayUrl120. »
 
         ![Schéma JSON du corps de la demande](./media/devtest-lab-auto-shutdown/email-options.png)

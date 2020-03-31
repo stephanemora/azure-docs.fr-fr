@@ -14,19 +14,19 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2019
 ms.author: akjosh
 ms.openlocfilehash: 6ea61acfc2db3c8f1f5c9c0ac8da8f19897d441e
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073747"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79226881"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Extension du pilote GPU NVIDIA pour Linux
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Cette extension installe des pilotes GPU NVIDIA sur des machines virtuelles Linux de gamme N. En fonction de la famille de machine virtuelle, l’extension installe des pilotes CUDA ou GRID. Lorsque vous installez des pilotes NVIDIA à l’aide de cette extension, vous acceptez les termes du [contrat de licence utilisateur final NVIDIA](https://go.microsoft.com/fwlink/?linkid=874330). Pendant le processus d’installation, la machine virtuelle peut redémarrer pour terminer l’installation du pilote.
 
-Des instructions sur l’installation manuelle des pilotes et les versions prises en charge actuelles sont disponibles [ici](
+Des instructions sur l’installation manuelle des pilotes et les versions actuellement prises en charge sont disponibles [ici](
 https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup).
 Une extension est également disponible pour installer les pilotes GPU NVIDIA sur [des machines virtuelles de gamme N Windows](hpccompute-gpu-windows.md).
 
@@ -70,11 +70,11 @@ Le JSON suivant illustre le schéma pour l’extension.
 }
 ```
 
-### <a name="properties"></a>properties
+### <a name="properties"></a>Propriétés
 
 | Nom | Valeur/Exemple | Type de données |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | date |
+| apiVersion | 2015-06-15 | Date |
 | publisher | Microsoft.HpcCompute | string |
 | type | NvidiaGpuDriverLinux | string |
 | typeHandlerVersion | 1.2 | int |
@@ -136,7 +136,7 @@ Set-AzVMExtension
     }'
 ```
 
-### <a name="azure-cli"></a>D’Azure CLI
+### <a name="azure-cli"></a>Azure CLI
 
 L’exemple suivant reprend les exemples Azure Resource Manager et PowerShell ci-dessus et ajoute des paramètres personnalisés afin d’illustrer l’installation personnalisée du pilote. Plus précisément, il met à jour le noyau du système d’exploitation et installe un pilote de la version spécifique du kit de ressources CUDA.
 
@@ -155,7 +155,7 @@ az vm extension set `
 
 ## <a name="troubleshoot-and-support"></a>Dépannage et support technique
 
-### <a name="troubleshoot"></a>Résolution des problèmes
+### <a name="troubleshoot"></a>Dépanner
 
 Vous pouvez récupérer les données sur l’état des déploiements d’extension à partir du portail Azure, ainsi qu’à l’aide d’Azure PowerShell et de l’interface de ligne de commande Azure. Pour afficher l’état du déploiement des extensions pour une machine virtuelle donnée, exécutez la commande suivante.
 
@@ -193,4 +193,4 @@ Si vous avez besoin d’une aide supplémentaire à quelque étape que ce soit d
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur les extensions, consultez la page [Extensions et fonctionnalités de machine virtuelle pour Linux](features-linux.md).
 
-Pour plus d’informations sur les machines virtuelles de gamme N, voir [Tailles de machine virtuelle à GPU optimisé](../linux/sizes-gpu.md).
+Pour plus d’informations sur les machines virtuelles de gamme N, consultez la page [Tailles de machine virtuelle à GPU optimisé](../linux/sizes-gpu.md).

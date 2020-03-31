@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 93ec5e740ac6acf9420a9d980092ed772ac1618e
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76720977"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Accédez aux jeux de données avec Python grâce à la bibliothèque cliente Python d'Azure Machine Learning
@@ -28,7 +28,7 @@ Cette rubrique fournit des instructions pour les procédures suivantes :
 * accès aux jeux de données intermédiaires à partir d'expériences
 * utilisation de la bibliothèque cliente Python pour énumérer les jeux de données, accéder aux métadonnées, lire le contenu d’un jeu de données, créer de nouveaux jeux de données et mettre à jour des jeux de données existants
 
-## <a name="prerequisites"></a>Configuration requise
+## <a name="prerequisites"></a><a name="prerequisites"></a>Configuration requise
 La bibliothèque cliente Python a été testée dans les environnements suivants :
 
 * Windows, Mac et Linux
@@ -42,7 +42,7 @@ Il a une dépendance sur les packages suivants :
 
 Nous vous invitons à utiliser une distribution Python telle qu’[Anaconda](http://continuum.io/downloads#all) ou [Canopy](https://store.enthought.com/downloads/), qui est fournie avec Python, IPython et les trois packages listés ci-dessus installés. Bien que IPython n'est pas formellement requis, il s'agit d'un environnement idéal pour la manipulation et la visualisation interactive des données.
 
-### <a name="installation"></a>Installation de la bibliothèque cliente Python d'Azure Machine Learning
+### <a name="how-to-install-the-azure-machine-learning-python-client-library"></a><a name="installation"></a>Installation de la bibliothèque cliente Python d'Azure Machine Learning
 Installez la bibliothèque cliente Python d’Azure Machine Learning pour effectuer les tâches décrites dans cette rubrique. Cette bibliothèque est disponible depuis le [Python Package Index](https://pypi.python.org/pypi/azureml). Pour l'installer dans votre environnement Python, exécutez la commande suivante à partir de votre environnement Python local :
 
     pip install azureml
@@ -56,12 +56,12 @@ Si vous avez installé git sur votre ordinateur, vous pouvez utiliser pip pour l
     pip install git+https://github.com/Azure/Azure-MachineLearning-ClientLibrary-Python.git
 
 
-## <a name="datasetAccess"></a>Utilisation des extraits de code pour accéder aux jeux de données
+## <a name="use-code-snippets-to-access-datasets"></a><a name="datasetAccess"></a>Utilisation des extraits de code pour accéder aux jeux de données
 La bibliothèque cliente Python vous offre un accès par programme à vos jeux de données existants à partir des expériences qui ont été exécutées.
 
 Depuis l’interface web Azure Machine Learning Studio (classique), vous pouvez générer des extraits de code qui incluent toutes les informations nécessaires pour télécharger et désérialiser des jeux de données en tant qu’objets DataFrame de pandas sur votre ordinateur local.
 
-### <a name="security"></a>Sécurité relative à l'accès aux données
+### <a name="security-for-data-access"></a><a name="security"></a>Sécurité relative à l'accès aux données
 Les extraits de code fournis par Azure Machine Learning Studio (classique) pour une utilisation avec la bibliothèque de client Python incluent votre ID d’espace de travail et votre jeton d’autorisation. Ceux-ci vous permettent un accès complet à votre espace de travail et doivent être protégés, par exemple avec un mot de passe.
 
 Pour des raisons de sécurité, la fonctionnalité d'extrait de code est uniquement disponible pour les utilisateurs qui ont leur rôle défini en tant que **Propriétaire** de l'espace de travail. Votre rôle s’affiche dans Azure Machine Learning Studio (classique) dans la page **UTILISATEURS** sous **Paramètres**.
@@ -82,7 +82,7 @@ Une fois que les développeurs ont obtenu l’ID de l’espace de travail et le 
 
 Les jetons d’autorisation sont gérés sur la page **JETONS D’AUTORISATION** sous **PARAMÈTRES**. Vous pouvez les régénérer, mais cette procédure entraîne la révocation de l’accès au jeton précédent.
 
-### <a name="accessingDatasets"></a>Accès aux jeux de données depuis une application Python locale
+### <a name="access-datasets-from-a-local-python-application"></a><a name="accessingDatasets"></a>Accès aux jeux de données depuis une application Python locale
 1. Dans Machine Learning Studio (classique), cliquez sur **JEUX DE DONNÉES** dans la barre de navigation à gauche.
 2. Sélectionnez le jeu de données auquel vous souhaitez accéder. Vous pouvez sélectionner un des jeux de données depuis la liste **MES JEUX DE DONNÉES** ou **EXEMPLES**.
 3. Dans la barre d’outils inférieure, cliquez sur **Générer un code d’accès aux données**. Ce bouton est désactivé si les données sont dans un format incompatible avec la bibliothèque cliente Python.
@@ -95,7 +95,7 @@ Les jetons d’autorisation sont gérés sur la page **JETONS D’AUTORISATION**
    
     ![Collez le code dans le notebook][ipython-dataset]
 
-## <a name="accessingIntermediateDatasets"></a>Accès aux jeux de données intermédiaires à partir d'expériences de Machine Learning
+## <a name="access-intermediate-datasets-from-machine-learning-experiments"></a><a name="accessingIntermediateDatasets"></a>Accès aux jeux de données intermédiaires à partir d'expériences de Machine Learning
 Après l’exécution d’une expérience dans Machine Learning Studio (classique), il est possible d’accéder aux jeux de données intermédiaires depuis les nœuds de modules de sortie. Les jeux de données intermédiaires sont des données qui ont été créées et utilisées pour les étapes intermédiaires lorsqu'un outil de modèle a été exécuté.
 
 Les jeux de données intermédiaires sont accessibles tant que le format de données est compatible avec la bibliothèque cliente Python.
@@ -139,7 +139,7 @@ Les étapes suivantes proposent un exemple qui créé une expérience, l'exécut
     
     ![Histogramme][ipython-histogram]
 
-## <a name="clientApis"></a>Utilisation de la bibliothèque cliente Python de Machine Learning pour accéder, lire, créer et gérer des jeux de données
+## <a name="use-the-machine-learning-python-client-library-to-access-read-create-and-manage-datasets"></a><a name="clientApis"></a>Utilisation de la bibliothèque cliente Python de Machine Learning pour accéder, lire, créer et gérer des jeux de données
 ### <a name="workspace"></a>Espace de travail
 L'espace de travail est le point d'entrée de la bibliothèque cliente Python. Il fournit la classe `Workspace` avec l’ID de votre espace de travail et le jeton d’autorisation pour créer une instance :
 

@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 3e398ff8a1a0a28fd9d0650a7c9d18ba04817d33
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76906019"
 ---
 # <a name="sfctl-mesh-gateway"></a>sfctl mesh gateway
@@ -19,7 +19,7 @@ Récupère et supprime des ressources de la passerelle maillée.
 
 |Commande|Description|
 | --- | --- |
-| delete | Supprime la ressource de passerelle. |
+| supprimer | Supprime la ressource de passerelle. |
 | list | Répertorie toutes les ressources de passerelle. |
 | show | Récupère la ressource de passerelle portant le nom spécifié. |
 

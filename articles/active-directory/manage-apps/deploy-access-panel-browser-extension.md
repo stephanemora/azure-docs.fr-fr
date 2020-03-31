@@ -16,13 +16,13 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 71c342ede77349b3f6c22093e5877ad5f5ce6549
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67807680"
 ---
-# <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Activation Déploiement de l’extension du volet d’accès pour Internet Explorer à l’aide de la stratégie de groupe
+# <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Procédure : Déploiement de l’extension du volet d’accès pour Internet Explorer à l’aide de la stratégie de groupe
 
 Ce didacticiel montre comment utiliser la stratégie de groupe pour installer à distance l’extension Volet d’accès pour Internet Explorer sur les ordinateurs de vos utilisateurs. Cette extension est requise pour les utilisateurs d’Internet Explorer qui ont besoin de se connecter à des applications configurées à l’aide de l’ [authentification unique par mot de passe](what-is-single-sign-on.md#password-based-sso).
 
@@ -35,7 +35,7 @@ L’extension Volet d’accès est également disponible pour [Chrome](https://g
 * Vous avez configuré les [services de domaine Active Directory](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx)et vous avez joint les ordinateurs de vos utilisateurs à votre domaine.
 * Vous devez disposer de l’autorisation « Modifier les paramètres » pour modifier l’objet de stratégie de groupe (GPO). Par défaut, les membres des groupes de sécurité suivants ont cette autorisation : administrateurs de domaine, administrateurs d’entreprise et propriétaires de créateur de stratégie de groupe. [En savoir plus.](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx)
 
-## <a name="step-1-create-the-distribution-point"></a>Étape 1 : créer le point de distribution
+## <a name="step-1-create-the-distribution-point"></a>Étape 1 : créer le point de distribution
 
 Tout d’abord, vous devez placer le package d’installation sur un emplacement réseau accessible à tous les ordinateurs sur lesquels vous souhaitez installer l’extension à distance. Pour ce faire, procédez comme suit :
 
@@ -56,7 +56,7 @@ Tout d’abord, vous devez placer le package d’installation sur un emplacement
 
 1. Vérifiez que vos ordinateurs client sont en mesure d’accéder au package d’installation à partir du partage.
 
-## <a name="step-2-create-the-group-policy-object"></a>Étape 2 : créer l’objet de stratégie de groupe
+## <a name="step-2-create-the-group-policy-object"></a>Étape 2 : créer l’objet de stratégie de groupe
 
 1. Ouvrez une session sur le serveur qui héberge votre installation AD DS (Active Directory Domain Services).
 1. Dans le Gestionnaire de serveur, accédez à **Outils** > **Gestion des stratégies de groupe**.

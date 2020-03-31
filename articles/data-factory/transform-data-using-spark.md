@@ -11,10 +11,10 @@ manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 05/31/2018
 ms.openlocfilehash: eb887a7d9081875c28964ddb1e3d1b2e609862fd
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74912966"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Transformer des données à l’aide d’une activité Spark dans Azure Data Factory
@@ -59,18 +59,18 @@ Le tableau suivant décrit les propriétés JSON utilisées dans la définition 
 
 | Propriété              | Description                              | Obligatoire |
 | --------------------- | ---------------------------------------- | -------- |
-| name                  | Nom de l'activité dans le pipeline.    | OUI      |
+| name                  | Nom de l'activité dans le pipeline.    | Oui      |
 | description           | Texte décrivant l’activité.  | Non       |
-| Type                  | Pour l’activité Spark, le type d’activité est HDinsightSpark. | OUI      |
-| linkedServiceName     | Nom du service lié HDInsight Spark sur lequel s’exécute le programme Spark. Pour en savoir plus sur ce service lié, consultez l’article [Services liés de calcul](compute-linked-services.md). | OUI      |
+| type                  | Pour l’activité Spark, le type d’activité est HDinsightSpark. | Oui      |
+| linkedServiceName     | Nom du service lié HDInsight Spark sur lequel s’exécute le programme Spark. Pour en savoir plus sur ce service lié, consultez l’article [Services liés de calcul](compute-linked-services.md). | Oui      |
 | SparkJobLinkedService | Service lié de stockage Azure qui contient le fichier de travail, les dépendances et les journaux d’activité Spark.  Si vous ne spécifiez pas de valeur pour cette propriété, le stockage associé au cluster HDInsight est utilisé. La valeur de cette propriété ne peut être qu’un service lié de Stockage Azure. | Non       |
-| rootPath              | Conteneur d’objets blob Azure et dossier contenant le fichier Spark. Le nom de fichier respecte la casse. Reportez-vous à la section décrivant la structure des dossiers (section suivante) pour obtenir plus d’informations sur la structure de ce dossier. | OUI      |
-| entryFilePath         | Chemin d’accès relatif au dossier racine du code/package Spark. Le fichier d’entrée doit être un fichier Python ou un fichier .jar. | OUI      |
-| className             | Classe principale Java/Spark de l’application.      | Non       |
+| rootPath              | Conteneur d’objets blob Azure et dossier contenant le fichier Spark. Le nom de fichier respecte la casse. Reportez-vous à la section décrivant la structure des dossiers (section suivante) pour obtenir plus d’informations sur la structure de ce dossier. | Oui      |
+| entryFilePath         | Chemin d’accès relatif au dossier racine du code/package Spark. Le fichier d’entrée doit être un fichier Python ou un fichier .jar. | Oui      |
+| ClassName             | Classe principale Java/Spark de l’application.      | Non       |
 | arguments             | Liste d’arguments de ligne de commande du programme Spark. | Non       |
 | proxyUser             | Identité du compte d’utilisateur à emprunter pour exécuter le programme Spark. | Non       |
 | sparkConfig           | Spécifiez les valeurs des propriétés de configuration de Spark listées dans la rubrique : [Configuration Spark - Propriétés de l’application](https://spark.apache.org/docs/latest/configuration.html#available-properties). | Non       |
-| getDebugInfo          | Spécifie quand les fichiers journaux de Spark sont copiés vers le stockage Azure utilisé par le cluster HDInsight (ou) spécifié par sparkJobLinkedService. Valeurs autorisées : None, Always ou Failure. Valeur par défaut : Aucune. | Non       |
+| getDebugInfo          | Spécifie quand les fichiers journaux de Spark sont copiés vers le stockage Azure utilisé par le cluster HDInsight (ou) spécifié par sparkJobLinkedService. Valeurs autorisées : None, Always ou Failure. Valeur par défaut : Aucun. | Non       |
 
 ## <a name="folder-structure"></a>Structure de dossiers
 Les travaux Spark sont plus extensibles que les travaux Pig/Hive. Pour les travaux Spark, vous pouvez fournir plusieurs dépendances, telles que des packages jar (placés dans le CLASSPATH Java), des fichiers Python (placés dans le PYTHONPATH) et tout autre fichier.
@@ -79,8 +79,8 @@ Créez la structure de dossiers suivante dans le stockage Blob Azure référenc�
 
 | Path                  | Description                              | Obligatoire | Type   |
 | --------------------- | ---------------------------------------- | -------- | ------ |
-| `.` (racine)            | Chemin d’accès racine du travail Spark dans le service lié de stockage | OUI      | Dossier |
-| &lt;défini par l’utilisateur &gt; | Chemin d’accès pointant vers le fichier d’entrée du travail Spark | OUI      | Fichier   |
+| `.` (racine)            | Chemin d’accès racine du travail Spark dans le service lié de stockage | Oui      | Dossier |
+| &lt;défini par l’utilisateur &gt; | Chemin d’accès pointant vers le fichier d’entrée du travail Spark | Oui      | Fichier   |
 | ./jars                | Tous les fichiers dans ce dossier sont téléchargés et placés dans le classpath Java du cluster | Non       | Dossier |
 | ./pyFiles             | Tous les fichiers dans ce dossier sont téléchargés et placés dans le PYTHONPATH du cluster | Non       | Dossier |
 | ./files               | Tous les fichiers dans ce dossier sont téléchargés et placés dans le répertoire de travail de l’exécuteur | Non       | Dossier |

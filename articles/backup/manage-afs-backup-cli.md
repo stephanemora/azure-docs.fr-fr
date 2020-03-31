@@ -4,10 +4,10 @@ description: Découvrez comment utiliser l'interface de ligne de commande Azure 
 ms.topic: conceptual
 ms.date: 01/15/2020
 ms.openlocfilehash: 44a49913abd99b285397b8b78ad9d4c0f9df52ea
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76934888"
 ---
 # <a name="manage-azure-file-share-backups-with-the-azure-cli"></a>Gérer les sauvegardes de partage de fichiers Azure avec l'interface de ligne de commande Azure
@@ -18,7 +18,7 @@ L’interface de ligne de commande Azure permet de gérer les ressources Azure. 
 
 Pour installer et utiliser l’interface CLI en local, vous devez exécuter Azure CLI version 2.0.18 ou une version ultérieure. Pour trouver la version de CLI, exécutez `az --version`. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Cet article suppose que vous disposez déjà d’un partage de fichiers Azure sauvegardé par [Sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-overview). Si ce n'est pas le cas, consultez [Sauvegarder des partages de fichiers Azure avec l’interface de ligne de commande](backup-afs-cli.md) afin de configurer la sauvegarde pour vos partage de fichiers. Pour cet article, vous allez utiliser les ressources suivantes :
 

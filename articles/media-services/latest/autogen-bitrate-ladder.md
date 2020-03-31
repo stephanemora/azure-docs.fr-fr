@@ -15,15 +15,15 @@ ms.date: 02/10/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: c25c32f35adc1c017f0f4c012c82bd7e0af8d452
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60733315"
 ---
 #  <a name="encode-with-an-auto-generated-bitrate-ladder"></a>Encoder avec une échelle de débit générée automatiquement
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Cet article explique comment utiliser l’encodeur standard dans Media Services pour encoder une vidéo d’entrée dans une échelle de débit générée automatiquement (paires débit-résolution) en fonction de la résolution d’entrée et du débit. Ce paramètre d’encodeur intégré, ou présélection, ne dépassera jamais la résolution d’entrée et le débit. Par exemple, si l’entrée est 720p à 3 Mbits/s, la sortie reste à 720p maximum et démarre à des vitesses inférieures à 3 Mbits/s.
 
@@ -33,7 +33,7 @@ Quand vous utilisez le préréglage **AdaptiveStreaming** dans une **transformat
 
 Pour voir un exemple d’utilisation de cette présélection, consultez [Diffuser un fichier](stream-files-dotnet-quickstart.md).
 
-## <a name="output"></a>Sortie
+## <a name="output"></a>Output
 
 Cette section présente trois exemples de couches vidéo de sortie produites par l’encodeur Media Services suite à un encodage avec la présélection **AdaptiveStreaming**. Dans tous les cas, la sortie contient un fichier MP4 audio uniquement avec des données audio stéréo encodées à 128 Kbits/s.
 
@@ -46,8 +46,8 @@ Une source avec une hauteur de « 1080 » et une fréquence d’images de « 29.
 |2|720|1 280|3520|
 |3|540|960|2210|
 |4|360|640|1150|
-|5\.|270|480|720|
-|6\.|180|320|380|
+|5|270|480|720|
+|6|180|320|380|
 
 ### <a name="example-2"></a>Exemple 2
 Une source avec une hauteur de « 720 » et une fréquence d’images de « 23.970 » crée 5 couches vidéo :
@@ -58,7 +58,7 @@ Une source avec une hauteur de « 720 » et une fréquence d’images de « 23.9
 |2|540|960|1850|
 |3|360|640|960|
 |4|270|480|600|
-|5\.|180|320|320|
+|5|180|320|320|
 
 ### <a name="example-3"></a>Exemple 3
 Une source avec une hauteur de « 360 » et une fréquence d’images de « 29.970 » crée 3 couches vidéo :

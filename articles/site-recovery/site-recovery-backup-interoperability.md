@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: sideeksh
 ms.openlocfilehash: d8c896bc655339fbd7d51f738fb629450e8c12ae
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72376217"
 ---
 # <a name="support-for-using-site-recovery-with-azure-backup"></a>Prise en charge de l’utilisation de Site Recovery avec Sauvegarde Azure
@@ -20,8 +20,8 @@ Cet article résume la prise en charge de l’utilisation conjointe du [service 
 
 **Action** | **Prise en charge de Site Recovery** | **Détails**
 --- | --- | ---
-**Déployer les services ensemble** | Pris en charge | Les services sont interopérables et peuvent être configurés conjointement.
-**Sauvegarde/restauration de fichier** | Pris en charge | Lorsque les fonctions de sauvegarde et de réplication sont activées pour une machine virtuelle, et que les sauvegardes sont effectuées, il n’existe aucun problème de restauration de fichiers sur les machines virtuelles ou le groupe de machines virtuelles côté source. La réplication se poursuit comme d’habitude, sans que l’intégrité de la réplication s’en trouve modifiée.
+**Déployer les services ensemble** | Prise en charge | Les services sont interopérables et peuvent être configurés conjointement.
+**Sauvegarde/restauration de fichier** | Prise en charge | Lorsque les fonctions de sauvegarde et de réplication sont activées pour une machine virtuelle, et que les sauvegardes sont effectuées, il n’existe aucun problème de restauration de fichiers sur les machines virtuelles ou le groupe de machines virtuelles côté source. La réplication se poursuit comme d’habitude, sans que l’intégrité de la réplication s’en trouve modifiée.
 **Restauration de disque** | Aucune prise en charge actuelle | Si vous restaurez un disque sauvegardé, vous devez à nouveau désactiver et réactiver la réplication pour la machine virtuelle.
 **Restauration de machines virtuelles** | Aucune prise en charge actuelle | Si vous restaurez une machine virtuelle ou un groupe de machines virtuelles, vous devez désactiver et réactiver la réplication pour ces machines virtuelles.  
 

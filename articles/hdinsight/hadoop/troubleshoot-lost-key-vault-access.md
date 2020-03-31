@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.openlocfilehash: 2ae389be25cd8633a53a49cf000796c1510733a1
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76965326"
 ---
 # <a name="scenario-azure-hdinsight-clusters-with-disk-encryption-lose-key-vault-access"></a>Scénario : Les clusters Azure HDInsight avec chiffrement de disque perdent l’accès à Key Vault
@@ -22,7 +22,7 @@ Cet article décrit les éventuelles solutions à appliquer pour résoudre les p
 
 L’alerte du Resource Health Center (RHC), `The HDInsight cluster is unable to access the key for BYOK encryption at rest`, s’affiche pour les clusters Bring Your Own Key (BYOK), lorsque les nœuds de cluster ont perdu l’accès aux clients Key Vault (KV). Des alertes similaires peuvent également s’afficher sur l’interface utilisateur d’Apache Ambari.
 
-## <a name="cause"></a>Cause :
+## <a name="cause"></a>Cause
 
 L’alerte garantit que KV est accessible à partir des nœuds de cluster, garantissant ainsi la connexion réseau, l’intégrité de KV et la stratégie d’accès de l’identité managée affectée par l’utilisateur. Cette alerte est uniquement un avertissement de l’arrêt imminent du répartiteur lors des redémarrages ultérieurs du nœud ; le cluster continue de fonctionner jusqu’au redémarrage des nœuds.
 

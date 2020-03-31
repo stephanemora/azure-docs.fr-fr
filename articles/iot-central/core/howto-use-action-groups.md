@@ -5,15 +5,15 @@ services: iot-central
 author: dominicbetts
 ms.author: dobett
 ms.date: 12/06/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-central
 manager: philmea
-ms.openlocfilehash: 7c60728ab501d03e9c40928e730225575e76efbc
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: b447f44d0c95693e560fd5bbfbff8c8daeec964e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023818"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80157685"
 ---
 # <a name="group-multiple-actions-to-run-from-one-or-more-rules"></a>Regrouper plusieurs actions à exécuter à partir d’une ou plusieurs règles
 
@@ -21,7 +21,7 @@ ms.locfileid: "77023818"
 
 Dans Azure IoT Central, vous créez des règles pour exécuter des actions quand une condition est satisfaite. Les règles sont basées sur la télémétrie des appareils ou sur des événements. Par exemple, vous pouvez avertir un opérateur quand la température d’un appareil dépasse un certain seuil. Cet article explique comment utiliser des *groupes d’actions* [Azure Monitor](../../azure-monitor/overview.md) pour attacher plusieurs actions à une règle IoT Central. Vous pouvez attacher un groupe d’actions à plusieurs règles. Un [groupe d’actions](../../azure-monitor/platform/action-groups.md) est une collection de préférences de notification définies par le propriétaire d’un abonnement Azure.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Application créée avec un plan tarifaire Standard
 - Un compte et un abonnement Azure pour créer et gérer des groupes d’actions Azure Monitor
@@ -59,7 +59,7 @@ Le tableau suivant récapitule les informations envoyées aux types d’actions 
 
 | Type d'action | Format de sortie |
 | ----------- | -------------- |
-| Email       | Modèle d’e-mail standard IoT Central |
+| E-mail       | Modèle d’e-mail standard IoT Central |
 | sms         | Alerte Azure IoT Central : ${nom_application} - « ${nom_règle} » déclenchée sur « ${nom_appareil} » le ${date_déclenchement} ${date_déclenchement} |
 | Voix       | Alerte Azure I.O.T Central : règle « ${nom_règle} » déclenchée sur l’appareil « ${nom_appareil} » le ${date_déclenchement} ${date_déclenchement}, dans l’application ${nom_application} |
 | webhook     | { « schemaId » : "AzureIoTCentralRuleWebhook", "data": {[charge utile normale du webhook](howto-create-webhooks.md#payload)}} |

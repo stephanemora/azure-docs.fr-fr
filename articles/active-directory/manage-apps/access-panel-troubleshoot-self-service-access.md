@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: japere,asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a981dfb1d72c21eccf2ad7119ea219114ed15aed
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65784276"
 ---
 # <a name="problem-using-self-service-application-access"></a>Problème lié à l’accès aux applications en libre-service
@@ -63,7 +63,7 @@ Pour activer l’accès en libre-service à une application, procédez comme sui
 
 9. Ensuite, pour sélectionner le groupe auquel les utilisateurs qui demandent l’accès à cette application doivent être ajoutés, cliquez sur le sélecteur en regard de l’étiquette **À quel groupe les utilisateurs attribués doivent-ils être ajoutés ?** et sélectionnez un groupe.
 
-10. **Facultatif** : Si vous souhaitez exiger une approbation d’entreprise avant d’accorder l’accès aux utilisateurs, définissez l’option **Demander une approbation avant d’accorder l’accès à cette application ?** sur **Oui**.
+10. **Facultatif :** Si vous souhaitez exiger une approbation d’entreprise avant d’accorder l’accès aux utilisateurs, définissez l’option **Demander une approbation avant d’accorder l’accès à cette application ?** sur **Oui**.
 
 11. **Facultatif : Pour les applications utilisant uniquement l’authentification unique par mot de passe,** si vous souhaitez autoriser ces approbateurs d’entreprise à spécifier les mots de passe envoyés à cette application pour les utilisateurs approuvés, définissez l’option **Autoriser les approbateurs à définir les mots de passe de l’utilisateur pour cette application ?** sur **Oui**.
 
@@ -88,7 +88,7 @@ Ouvrez un ticket de support en fournissant les informations suivantes, dans la m
 
 -   ID d’erreur de corrélation
 
--   UPN (adresse e-mail de l’utilisateur)
+-   Nom d’utilisateur principal (adresse de messagerie de l’utilisateur)
 
 -   ID de locataire
 

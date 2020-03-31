@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: hich
 ms.openlocfilehash: 536b95eb07619d0ce2d02ec01e1f51ed52c1b5e1
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75649201"
 ---
 # <a name="deploy-associations-for-a-custom-provider-using-azure-policy"></a>Déployer des associations pour un fournisseur personnalisé avec une stratégie Azure
@@ -29,7 +29,7 @@ Pour plus d’informations sur les associations, consultez [Intégration des res
 
 ## <a name="how-to-use-the-deploy-associations-built-in-policy"></a>Utiliser la stratégie intégrée de déploiement des associations 
 
-### <a name="prerequisites"></a>Conditions préalables requises
+### <a name="prerequisites"></a>Prérequis
 Si le fournisseur personnalisé a besoin d’autorisations sur l’étendue de la stratégie pour effectuer une action, le déploiement de stratégie de la ressource d’association ne fonctionnera pas si vous n’accordez pas les autorisations nécessaires.
 
 ### <a name="policy-assignment"></a>Affectation de rôle

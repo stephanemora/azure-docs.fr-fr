@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: 0890e13acbba8dae31de28d7c78a81bd9b516853
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 38144d5df04427a82989b78843466ecd55386196
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76312258"
 ---
 # <a name="evaluate-recommender"></a>Évaluer le générateur de recommandations
 
-Cet article décrit comment utiliser le module Évaluer le générateur de recommandations dans le concepteur Azure Machine Learning. L’objectif est de mesurer la justesse des prédictions effectuées par un modèle de recommandation. Grâce à ce module, vous pouvez évaluer différents types de recommandations :  
+Cet article décrit comment utiliser le module Évaluer le générateur de recommandations dans le concepteur Azure Machine Learning (préversion). L’objectif est de mesurer la justesse des prédictions effectuées par un modèle de recommandation. Grâce à ce module, vous pouvez évaluer différents types de recommandations :  
   
 -   Notations prédites pour un utilisateur et un élément    
 -   Éléments recommandés pour un utilisateur  

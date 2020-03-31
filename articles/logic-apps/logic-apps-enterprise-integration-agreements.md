@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
 ms.openlocfilehash: 521a0ef4053be55e6c7322da5af26ccfc6c844e5
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74790742"
 ---
 # <a name="create-and-manage-trading-partner-agreements-in-azure-logic-apps"></a>Créer et gérer des contrats de partenariat commercial dans Azure Logic Apps
@@ -40,7 +40,7 @@ Pour créer des contrats pour l’échange de messages RosettaNet, consultez [É
 
 ## <a name="create-agreements"></a>Créer des accords
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 Dans le menu principal Azure, sélectionnez **Tous les services**. Dans la zone de recherche, entrez « intégration » comme filtre. Dans les résultats, sélectionnez la ressource suivante : **Comptes d’intégration**
 
    ![Recherche du compte d’intégration](./media/logic-apps-enterprise-integration-agreements/find-integration-accounts.png)
@@ -57,16 +57,16 @@ Dans le menu principal Azure, sélectionnez **Tous les services**. Dans la zone 
 
    ![Choisir « Ajouter »](./media/logic-apps-enterprise-integration-agreements/agreement-2.png)
 
-   | Propriété | Obligatoire | Value | Description |
+   | Propriété | Obligatoire | Valeur | Description |
    |----------|----------|-------|-------------|
-   | **Nom** | OUI | <*nom de l'accord*> | Nom de votre accord |
-   | **Type d'accord** | OUI | **AS2**, **X12** ou **EDIFACT** | Type de protocole de votre accord. Lorsque vous créez le fichier de votre accord, son contenu doit correspondre au type de l'accord. | |  
-   | **Partenaire hôte** | OUI | <*nom du partenaire hôte*> | Le partenaire hôte représente l'organisation qui spécifie l'accord. |
-   | **Identité de l'hôte** | OUI | <*identificateur du partenaire hôte*> | Identificateur du partenaire hôte. |
-   | **Partenaire invité** | OUI | <*nom du partenaire invité*> | Le partenaire invité représente l’organisation qui travaille avec le partenaire hôte. |
-   | **Identité de l'invité** | OUI | <*identificateur du partenaire invité*> | Identificateur du partenaire invité. |
-   | **Paramètres de réception** | Varie | Varie | Ces propriétés spécifient comment le partenaire hôte reçoit tous les messages entrants du partenaire invité dans le contrat. Pour plus d'informations, consultez le type d'accord correspondant : <p>- [Paramètres des messages AS2](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [Paramètres des messages EDIFACT](logic-apps-enterprise-integration-edifact.md) <br>- [Paramètres des messages X12](logic-apps-enterprise-integration-x12.md) |
-   | **Paramètres d'envoi** | Varie | Varie | Ces propriétés spécifient comment le partenaire hôte envoie tous les messages sortants au partenaire invité dans le contrat. Pour plus d'informations, consultez le type d'accord correspondant : <p>- [Paramètres des messages AS2](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [Paramètres des messages EDIFACT](logic-apps-enterprise-integration-edifact.md) <br>- [Paramètres des messages X12](logic-apps-enterprise-integration-x12.md) |
+   | **Nom** | Oui | <*nom de l'accord*> | Nom de votre accord |
+   | **Type d'accord** | Oui | **AS2**, **X12** ou **EDIFACT** | Type de protocole de votre accord. Lorsque vous créez le fichier de votre accord, son contenu doit correspondre au type de l'accord. | |  
+   | **Partenaire hôte** | Oui | <*nom du partenaire hôte*> | Le partenaire hôte représente l'organisation qui spécifie l'accord. |
+   | **Identité de l'hôte** | Oui | <*identificateur du partenaire hôte*> | Identificateur du partenaire hôte. |
+   | **Partenaire invité** | Oui | <*nom du partenaire invité*> | Le partenaire invité représente l’organisation qui travaille avec le partenaire hôte. |
+   | **Identité de l'invité** | Oui | <*identificateur du partenaire invité*> | Identificateur du partenaire invité. |
+   | **Paramètres de réception** | Variable | Variable | Ces propriétés spécifient comment le partenaire hôte reçoit tous les messages entrants du partenaire invité dans le contrat. Pour plus d'informations, consultez le type d'accord correspondant : <p>- [Paramètres des messages AS2](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [Paramètres des messages EDIFACT](logic-apps-enterprise-integration-edifact.md) <br>- [Paramètres des messages X12](logic-apps-enterprise-integration-x12.md) |
+   | **Paramètres d'envoi** | Variable | Variable | Ces propriétés spécifient comment le partenaire hôte envoie tous les messages sortants au partenaire invité dans le contrat. Pour plus d'informations, consultez le type d'accord correspondant : <p>- [Paramètres des messages AS2](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [Paramètres des messages EDIFACT](logic-apps-enterprise-integration-edifact.md) <br>- [Paramètres des messages X12](logic-apps-enterprise-integration-x12.md) |
    |||||
 
 1. Une fois votre accord créé, sur la page **Ajouter**, choisissez **OK** et revenez à votre compte d'intégration.

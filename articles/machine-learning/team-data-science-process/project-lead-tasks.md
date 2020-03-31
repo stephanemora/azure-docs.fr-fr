@@ -11,10 +11,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 4a4d3a1480a852218e698862a509c4af45e49eb8
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76714417"
 ---
 # <a name="project-lead-tasks-in-the-team-data-science-process"></a>Tâches du coordinateur de projet dans Team Data Science Process
@@ -36,7 +36,7 @@ Pour l’étape 6 (Configurer le contrôle de sécurité du dépôt de projet),
 > [!NOTE] 
 > Cet article s’appuie sur Azure Repos pour configurer un projet TDSP, car c’est ainsi que Microsoft implémente le processus TDSP. Si votre équipe utilise une autre plateforme d’hébergement de code, les tâches du coordinateur de projet sont les mêmes, mais la façon de les accomplir peut être différente.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Ce tutoriel part du principe que les ressources et autorisations suivantes ont été créées par votre [responsable de groupe](group-manager-tasks.md) et votre [chef d’équipe](team-lead-tasks.md) :
 

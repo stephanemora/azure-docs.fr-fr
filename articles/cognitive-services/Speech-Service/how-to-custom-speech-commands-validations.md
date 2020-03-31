@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: donkim
 ms.openlocfilehash: cf6e4e4f0bfab43fb738f8415022e55fcbcbd05a
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76156452"
 ---
 # <a name="how-to-add-validations-to-custom-command-parameters-preview"></a>Procédure : ajouter des validations aux paramètres de commande personnalisée (préversion)
 
 Dans cet article, vous allez apprendre à ajouter des validations aux paramètres et à demander une correction.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Vous devez avoir effectué les étapes décrites dans les articles suivants :
 
@@ -41,7 +41,7 @@ Pour illustrer les validations, commençons par créer une commande permettant �
 
    | Paramètre           | Valeur suggérée                                          | Description                                                                                      |
    | ----------------- | -------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-   | Name              | Température                                              | Nom descriptif de votre paramètre de commande                                                    |
+   | Nom              | Température                                              | Nom descriptif de votre paramètre de commande                                                    |
    | Obligatoire          | true                                                     | Case à cocher indiquant si une valeur de ce paramètre est requise avant d'exécuter la commande |
    | Modèle de réponse | « - Quelle température aimeriez-vous ? »                     | Invite permettant de demander la valeur de ce paramètre lorsqu'elle n'est pas connue                              |
    | Type              | Number                                                   | Type du paramètre, par exemple Nombre, Chaîne ou Date/heure                                      |

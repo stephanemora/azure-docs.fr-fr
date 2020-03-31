@@ -9,10 +9,10 @@ ms.date: 12/11/2019
 ms.author: charwen
 ms.custom: seodec18
 ms.openlocfilehash: 5a7ac1b6a9f75655f7e07cc8af89b676ec611421
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76905473"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>Configurer ExpressRoute des connexions coexistantes de site à site en utilisant PowerShell
@@ -83,7 +83,7 @@ Vous avez le choix entre deux ensembles de procédures. La procédure de configu
 [!INCLUDE [working with cloud shell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
 
-## <a name="new"></a>Créer un réseau virtuel et des connexions qui coexistent
+## <a name="to-create-a-new-virtual-network-and-coexisting-connections"></a><a name="new"></a>Créer un réseau virtuel et des connexions qui coexistent
 Cette procédure vous guide dans la création d’un réseau virtuel et de connexions de site à site et ExpressRoute appelées à coexister. Les cmdlets que vous utilisez pour cette configuration peuvent être légèrement différentes de celles que vous connaissez. Utilisez les applets de commande spécifiées dans ces instructions.
 
 1. Connectez-vous et sélectionnez votre abonnement.
@@ -185,7 +185,7 @@ Cette procédure vous guide dans la création d’un réseau virtuel et de conne
     New-AzVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -VirtualNetworkGateway1 $gw -PeerId $ckt.Id -ConnectionType ExpressRoute
     ```
 
-## <a name="add"></a>Pour configurer des connexions coexistantes pour un réseau virtuel existant
+## <a name="to-configure-coexisting-connections-for-an-already-existing-vnet"></a><a name="add"></a>Pour configurer des connexions coexistantes pour un réseau virtuel existant
 Si vous disposez d’un réseau virtuel qui n’a qu’une seule passerelle de réseau virtuel (disons une passerelle VPN de site à site) et que vous souhaitez ajouter une autre passerelle d’un autre type (par exemple, une passerelle ExpressRoute), vérifiez la taille de sous-réseau de passerelle. Si le sous-réseau de passerelle est /27 ou plus, vous pouvez ignorer les étapes ci-dessous et suivre les étapes décrites dans la section précédente pour ajouter une passerelle VPN de site à site ou une passerelle ExpressRoute. Si le sous-réseau de la passerelle est /28 ou /29, vous devez tout d’abord supprimer la passerelle de réseau virtuel et augmenter la taille du sous-réseau de la passerelle. Les étapes décrites dans cette section vous indiquent la marche à suivre.
 
 Les cmdlets que vous utilisez pour cette configuration peuvent être légèrement différentes de celles que vous connaissez. Utilisez les applets de commande spécifiées dans ces instructions.

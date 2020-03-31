@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: ghogen
 ms.openlocfilehash: 6e5db9b4e46019aa386057d51d956ff11d90f498
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71970875"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Publier une application web ASP.NET sur une machine virtuelle Azure à partir de Visual Studio
@@ -125,7 +125,7 @@ Pour configurer un pipeline de livraison continue avec Azure Pipelines, voir [D�
 [Sélecteur de machine virtuelle Azure]: ../../../includes/media/publish-web-app-from-visual-studio/ChooseVM-SelectVM.png
 [Connexion à WebDeploy]: ../../../includes/media/publish-web-app-from-visual-studio/WebDeployLogin.png
 [Erreur de certificat]: ../../../includes/media/publish-web-app-from-visual-studio/CertificateError.png
-[Fenêtre Sortie]: ../../../includes/media/publish-web-app-from-visual-studio/OutputWindow.png
+[Sortie, fenêtre]: ../../../includes/media/publish-web-app-from-visual-studio/OutputWindow.png
 [Page Publier - Bouton Publier]: ../../../includes/media/publish-web-app-from-visual-studio/PublishPagePublishButton.png
 [Page Publier - Bouton Paramètres]: ../../../includes/media/publish-web-app-from-visual-studio/PublishPageSettingsButton.png
 [Paramètres de publication - Page Connexion]: ../../../includes/media/publish-web-app-from-visual-studio/PublishSettingsConnectionPage.png

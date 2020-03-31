@@ -13,10 +13,10 @@ ms.date: 07/26/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 7ddef1e78b4f8f62145e10b4cabc4537e28aba2f
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74969902"
 ---
 # <a name="content-key-policies"></a>Stratégies de clé de contenu
@@ -45,7 +45,7 @@ En général, vous associez votre stratégie clé de contenu à votre [localisat
 
    Généralement, vous utilisez une clé à longue durée de vie et vous vérifiez l’existence de la stratégie de clé de contenu avec [Get](https://docs.microsoft.com/rest/api/media/contentkeypolicies/get). Pour vous procurer la clé, vous devez appeler une méthode d'action distincte afin d'obtenir des informations d'identification ou des secrets ; reportez-vous à l'exemple ci-dessous.
 
-## <a name="example"></a>Exemples
+## <a name="example"></a>Exemple
 
 Pour accéder à la clé, utilisez `GetPolicyPropertiesWithSecretsAsync`, comme indiqué dans l’exemple [Obtenir une clé de signature à partir de la stratégie existante](get-content-key-policy-dotnet-howto.md#get-contentkeypolicy-with-secrets).
 

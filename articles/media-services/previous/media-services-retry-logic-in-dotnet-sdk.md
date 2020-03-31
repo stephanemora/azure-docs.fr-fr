@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 63715f668438519131eba5bfff7aa38fc73267d0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61094645"
 ---
 # <a name="retry-logic-in-the-media-services-sdk-for-net"></a>Logique de nouvelle tentative dans le Kit de développement logiciel (SDK) Media Services pour .NET  
@@ -39,47 +39,47 @@ Le tableau suivant décrit les exceptions que le Kit de développement logiciel 
 
 | Exception | Web Request | Stockage | Requête | SaveChanges |
 | --- | --- | --- | --- | --- |
-| WebException<br/>Pour plus d’informations, voir la section [Codes d’état WebException](media-services-retry-logic-in-dotnet-sdk.md#WebExceptionStatus). |OUI |OUI |OUI |OUI |
-| DataServiceClientException<br/> Pour plus d’informations, voir [Codes d’état d’erreur HTTP](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Non |OUI |OUI |OUI |
-| DataServiceQueryException<br/> Pour plus d’informations, voir [Codes d’état d’erreur HTTP](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Non |OUI |OUI |OUI |
-| DataServiceRequestException<br/> Pour plus d’informations, voir [Codes d’état d’erreur HTTP](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Non |OUI |OUI |OUI |
-| DataServiceTransportException |Non |Non |OUI |OUI |
-| TimeoutException |OUI |OUI |OUI |Non |
-| SocketException |OUI |OUI |OUI |OUI |
-| StorageException |Non |OUI |Non |Non |
-| IOException |Non |OUI |Non |Non |
+| WebException<br/>Pour plus d’informations, voir la section [Codes d’état WebException](media-services-retry-logic-in-dotnet-sdk.md#WebExceptionStatus). |Oui |Oui |Oui |Oui |
+| DataServiceClientException<br/> Pour plus d’informations, voir [Codes d’état d’erreur HTTP](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Non |Oui |Oui |Oui |
+| DataServiceQueryException<br/> Pour plus d’informations, voir [Codes d’état d’erreur HTTP](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Non |Oui |Oui |Oui |
+| DataServiceRequestException<br/> Pour plus d’informations, voir [Codes d’état d’erreur HTTP](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Non |Oui |Oui |Oui |
+| DataServiceTransportException |Non |Non |Oui |Oui |
+| TimeoutException |Oui |Oui |Oui |Non |
+| SocketException |Oui |Oui |Oui |Oui |
+| StorageException |Non |Oui |Non |Non |
+| IOException |Non |Oui |Non |Non |
 
-### <a name="WebExceptionStatus"></a> Codes d’état WebException
+### <a name="webexception-status-codes"></a><a name="WebExceptionStatus"></a> Codes d’état WebException
 Le tableau suivant présente les codes d’erreur WebException pour lesquels la logique de nouvelle tentative est implémentée. L’énumération [WebExceptionStatus](https://msdn.microsoft.com/library/system.net.webexceptionstatus.aspx) définit les codes d’état.  
 
 | Statut | Web Request | Stockage | Requête | SaveChanges |
 | --- | --- | --- | --- | --- |
-| ConnectFailure |OUI |OUI |OUI |OUI |
-| NameResolutionFailure |OUI |OUI |OUI |OUI |
-| ProxyNameResolutionFailure |OUI |OUI |OUI |OUI |
-| SendFailure |OUI |OUI |OUI |OUI |
-| PipelineFailure |OUI |OUI |OUI |Non |
-| ConnectionClosed |OUI |OUI |OUI |Non |
-| KeepAliveFailure |OUI |OUI |OUI |Non |
-| UnknownError |OUI |OUI |OUI |Non |
-| ReceiveFailure |OUI |OUI |OUI |Non |
-| RequestCanceled |OUI |OUI |OUI |Non |
-| Délai d'expiration |OUI |OUI |OUI |Non |
-| ProtocolError <br/>La nouvelle tentative sur ProtocolError est contrôlée par la gestion des codes d’état HTTP. Pour plus d’informations, voir [Codes d’état d’erreur HTTP](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |OUI |OUI |OUI |OUI |
+| ConnectFailure |Oui |Oui |Oui |Oui |
+| NameResolutionFailure |Oui |Oui |Oui |Oui |
+| ProxyNameResolutionFailure |Oui |Oui |Oui |Oui |
+| SendFailure |Oui |Oui |Oui |Oui |
+| PipelineFailure |Oui |Oui |Oui |Non |
+| ConnectionClosed |Oui |Oui |Oui |Non |
+| KeepAliveFailure |Oui |Oui |Oui |Non |
+| UnknownError |Oui |Oui |Oui |Non |
+| ReceiveFailure |Oui |Oui |Oui |Non |
+| RequestCanceled |Oui |Oui |Oui |Non |
+| Délai d'expiration |Oui |Oui |Oui |Non |
+| ProtocolError <br/>La nouvelle tentative sur ProtocolError est contrôlée par la gestion des codes d’état HTTP. Pour plus d’informations, voir [Codes d’état d’erreur HTTP](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Oui |Oui |Oui |Oui |
 
-### <a name="HTTPStatusCode"></a> Codes d’état d’erreur HTTP
+### <a name="http-error-status-codes"></a><a name="HTTPStatusCode"></a> Codes d’état d’erreur HTTP
 Lorsque les opérations Query et SaveChanges lèvent les exceptions DataServiceClientException, DataServiceQueryException ou DataServiceQueryException, le code d’état d’erreur HTTP est retourné dans la propriété StatusCode.  Le tableau suivant présente les codes d’erreur pour lesquels la logique de nouvelle tentative est implémentée.  
 
 | Statut | Web Request | Stockage | Requête | SaveChanges |
 | --- | --- | --- | --- | --- |
-| 401 |Non |OUI |Non |Non |
-| 403 |Non |OUI<br/>Gestion des nouvelles tentatives avec attentes plus longues. |Non |Non |
-| 408 |OUI |OUI |OUI |OUI |
-| 429 |OUI |OUI |OUI |OUI |
-| 500 |OUI |OUI |OUI |Non |
-| 502 |OUI |OUI |OUI |Non |
-| 503 |OUI |OUI |OUI |OUI |
-| 504 |OUI |OUI |OUI |Non |
+| 401 |Non |Oui |Non |Non |
+| 403 |Non |Oui<br/>Gestion des nouvelles tentatives avec attentes plus longues. |Non |Non |
+| 408 |Oui |Oui |Oui |Oui |
+| 429 |Oui |Oui |Oui |Oui |
+| 500 |Oui |Oui |Oui |Non |
+| 502 |Oui |Oui |Oui |Non |
+| 503 |Oui |Oui |Oui |Oui |
+| 504 |Oui |Oui |Oui |Non |
 
 Pour l’implémentation réelle du Kit de développement logiciel (SDK) Media Services pour la logique de nouvelle tentative .NET, voir [azure-sdk-for-media-services](https://github.com/Azure/azure-sdk-for-media-services/tree/dev/src/net/Client/TransientFaultHandling).
 

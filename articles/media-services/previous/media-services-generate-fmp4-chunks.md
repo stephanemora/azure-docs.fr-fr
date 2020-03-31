@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 48c09a6100586c0c99f3d54f9708c770488c681f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61463840"
 ---
 #  <a name="create-an-encoding-task-that-generates-fmp4-chunks"></a>Création d’une tâche qui génère des segments fMP4
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Cet article explique comment créer une tâche d’encodage qui génère des segments fragmentés au format MP4 (fMP4) au lieu de fichiers MP4 ISO. Pour générer des segments fMP4, utilisez l’encodeur **Media Encoder Standard** ou **Media Encoder Premium Workflow** afin de créer une tâche d’encodage puis spécifiez l’option **AssetFormatOption.AdaptiveStreaming**, comme indiqué dans cet extrait de code :  
     
@@ -32,7 +32,7 @@ Cet article explique comment créer une tâche d’encodage qui génère des seg
             formatOption: AssetFormatOption.AdaptiveStreaming);
 ```
 
-## <a id="encoding_with_dotnet"></a>Encodage à l’aide du Kit de développement logiciel (SDK) .NET de Media Services
+## <a name="encoding-with-media-services-net-sdk"></a><a id="encoding_with_dotnet"></a>Encodage à l’aide du Kit de développement logiciel (SDK) .NET de Media Services
 
 Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Services pour effectuer les tâches suivantes :
 
@@ -47,7 +47,7 @@ Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Se
 
 Configurez votre environnement de développement et ajoutez des informations de connexion au fichier app.config selon la procédure décrite dans l’article [Développement Media Services avec .NET](media-services-dotnet-how-to-use.md). 
 
-#### <a name="example"></a>Exemples
+#### <a name="example"></a>Exemple
 
 ```csharp
 using System;

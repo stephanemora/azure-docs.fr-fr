@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 75c62b54ff3aa7f3af344aa3e1ca81d431ae0ab2
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76905631"
 ---
 # <a name="sfctl-store"></a>sfctl store
@@ -19,7 +19,7 @@ Effectue des opérations élémentaires au niveau des fichiers dans le magasin d
 
 |Commande|Description|
 | --- | --- |
-| delete | Supprime le contenu du magasin d’images. |
+| supprimer | Supprime le contenu du magasin d’images. |
 | root-info | Permet d’obtenir les informations de contenu à la racine du magasin d’images. |
 | stat | Permet d’obtenir les informations de contenu du magasin d’images. |
 

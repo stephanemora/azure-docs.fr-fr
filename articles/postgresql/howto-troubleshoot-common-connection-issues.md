@@ -8,10 +8,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: c74b819893133116b8ac6905988f3fe11220ed95
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74770065"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---single-server"></a>Résoudre les problèmes de connexion à la base de données Azure Database pour PostgreSQL - Serveur unique
@@ -39,7 +39,7 @@ Des erreurs transitoires se produisent lorsque la maintenance est effectuée, lo
 
 1. Consultez le [tableau de bord du service Microsoft Azure](https://azure.microsoft.com/status) pour obtenir la liste des coupures prévues qui se sont produites au moment où les erreurs ont été signalées par l’application.
 2. Les applications qui se connectent à un service cloud, tel que la base de données Azure Database pour PostgreSQL, doivent s’attendre à des erreurs périodiques de reconfiguration et implémenter une logique de nouvelle tentative pour gérer ces erreurs au lieu d’afficher ces événements en tant qu’erreurs de l’application aux utilisateurs. Reportez-vous à [Gestion des erreurs de connectivité temporaires pour Azure Database pour PostgreSQL](concepts-connectivity.md) afin de connaître les meilleures pratiques et les instructions de conception pour la gestion des erreurs temporaires.
-3. Lorsqu’un serveur approche des limites de ressources, les erreurs peuvent s’apparenter à un problème de connectivité transitoire. Reportez-vous à [Limitations des bases de données Azure pour PostgreSQL](concepts-limits.md).
+3. Lorsqu’un serveur approche des limites de ressources, les erreurs peuvent s’apparenter à un problème de connectivité temporaire. Reportez-vous à [Limitations des bases de données Azure pour PostgreSQL](concepts-limits.md).
 4. Si les problèmes de connectivité persistent ou si la durée pendant laquelle votre application rencontre une erreur dépasse les 60 secondes ou si plusieurs occurrences de l’erreur s’affichent dans un jour donné, créez une demande de support Azure en sélectionnant **Obtenir de l’aide** sur le site du [support Azure](https://azure.microsoft.com/support/options) .
 
 ## <a name="troubleshoot-persistent-errors"></a>Résoudre les erreurs persistantes

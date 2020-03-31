@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e3b87f40d75d4045155e7dd953dc76ffd9de2b34
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60348737"
 ---
 # <a name="azure-ad-connect-sync-understand-and-customize-synchronization"></a>Synchronisation d’Azure AD Connect : Comprendre et personnaliser la synchronisation
@@ -47,7 +47,7 @@ Le service de synchronisation se compose de deux composants, le composant local 
 | [Meilleures pratiques pour la modification de la configuration par défaut](how-to-connect-sync-best-practices-changing-default-configuration.md) |Prend en charge les limitations imposées à la configuration fournie par défaut et l’insertion de modifications. |
 | [Configurer le filtrage](how-to-connect-sync-configure-filtering.md) |Décrit les différentes options permettant de limiter le nombre d’objets en cours de synchronisation vers Azure AD et explique comment les configurer, étape par étape. |
 | **Fonctionnalités et scénarios** | |
-| [Prévention des suppressions accidentelles](how-to-connect-sync-feature-prevent-accidental-deletes.md) |Décrit la fonctionnalité de *prévention des suppressions accidentelles* et explique comment la configurer. |
+| [prévention des suppressions accidentelles](how-to-connect-sync-feature-prevent-accidental-deletes.md) |Décrit la fonctionnalité de *prévention des suppressions accidentelles* et explique comment la configurer. |
 | [Scheduler](how-to-connect-sync-feature-scheduler.md) |Décrit le planificateur intégré qui importe, synchronise et exporte les données. |
 | [Implémenter la synchronisation de hachage du mot de passe](how-to-connect-password-hash-synchronization.md) |Décrit le fonctionnement de la synchronisation de mot de passe, en indiquant comment l’implémenter, comment l’utiliser et comment résoudre les problèmes associés. |
 | [Écriture différée des appareils](how-to-connect-device-writeback.md) |Décrit le fonctionnement de l’écriture différée des appareils dans Azure AD Connect. |

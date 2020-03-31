@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: c926aac3ea4360793ff52b616a55dc6198357c8a
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76721776"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Création de fonctionnalités pour les données dans un cluster Hadoop à l’aide de requêtes Hive
@@ -27,7 +27,7 @@ Des exemples de requêtes propres aux scénarios mettant en œuvre le jeu de don
 
 Cette tâche est une étape du [processus TDSP (Team Data Science Process)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 Cet article suppose que vous avez :
 
 * Créé un compte de stockage Azure. Pour des instructions, voir [Créer un compte Stockage Azure](../../storage/common/storage-account-create.md).
@@ -35,7 +35,7 @@ Cet article suppose que vous avez :
 * Chargé les données dans les tables Hive de clusters Hadoop Azure HDInsight. Si tel n’est pas le cas, commencez par suivre la procédure [Créer et charger des données dans les tables Hive](move-hive-tables.md).
 * Activé l’accès à distance au cluster. Si vous avez besoin d'aide, consultez [Accéder au nœud principal du cluster Hadoop](customize-hadoop-cluster.md).
 
-## <a name="hive-featureengineering"></a>Génération de fonctionnalités
+## <a name="feature-generation"></a><a name="hive-featureengineering"></a>Génération de fonctionnalités
 Dans cette section, plusieurs exemples de création de fonctionnalités à l'aide de requêtes Hive sont décrits. Lorsque vous avez généré des fonctionnalités supplémentaires, vous pouvez soit les ajouter sous la forme de colonnes à la table existante, soit créer une table avec les fonctionnalités supplémentaires et la clé principale, sur lesquelles vous pouvez créer une jointure à la table d’origine. Voici les exemples présentés :
 
 1. [Génération de fonctionnalités basées sur la fréquence](#hive-frequencyfeature)
@@ -44,7 +44,7 @@ Dans cette section, plusieurs exemples de création de fonctionnalités à l'aid
 4. [Extraction de fonctionnalités à partir de champs de texte](#hive-textfeatures)
 5. [Calcul de la distance entre des coordonnées GPS](#hive-gpsdistance)
 
-### <a name="hive-frequencyfeature"></a>Génération de fonctionnalités basées sur la fréquence
+### <a name="frequency-based-feature-generation"></a><a name="hive-frequencyfeature"></a>Génération de fonctionnalités basées sur la fréquence
 Parfois, il est intéressant de calculer les fréquences des niveaux d’une variable catégorielle ou des niveaux combinés de plusieurs variables catégorielles. Les utilisateurs peuvent utiliser les scripts suivants pour calculer ces fréquences :
 
         select
@@ -58,7 +58,7 @@ Parfois, il est intéressant de calculer les fréquences des niveaux d’une var
         order by frequency desc;
 
 
-### <a name="hive-riskfeature"></a>Risques de variables catégorielles en classification binaire
+### <a name="risks-of-categorical-variables-in-binary-classification"></a><a name="hive-riskfeature"></a>Risques de variables catégorielles en classification binaire
 En classification binaire, les variables catégorielles non numériques doivent être converties en fonctionnalités numériques, lorsque les modèles utilisés n’acceptent que les fonctionnalités numériques. Pour ce faire, chaque niveau non numérique est remplacé par un risque numérique. Cette section présente certaines requêtes Hive génériques qui calculent les valeurs de risque (« log odds ») d’une variable catégorielle.
 
         set smooth_param1=1;
@@ -83,7 +83,7 @@ Dans cet exemple, les variables `smooth_param1` et `smooth_param2` sont configur
 
 Une fois la table de risque calculée, les utilisateurs peuvent attribuer les valeurs de risque à une table en créant une jointure à la table de risque. La requête de jointure Hive est fournie dans la section précédente.
 
-### <a name="hive-datefeatures"></a>Extraction de fonctionnalités à partir de champs d’horodatage
+### <a name="extract-features-from-datetime-fields"></a><a name="hive-datefeatures"></a>Extraction de fonctionnalités à partir de champs d’horodatage
 Hive est livré avec un ensemble de FDU pour traiter des champs d’horodatage. Dans Hive, le format d’horodatage par défaut est « aaaa-MM-jj 00:00:00 » (comme « 1970-01-01 12:21:32 »). Cette section montre comment extraire le jour du mois et le mois d’un champ d’horodatage, ainsi que des exemples qui convertissent une chaîne d’horodatage d’un format autre que le format par défaut en une chaîne d’horodatage au format par défaut.
 
         select day(<datetime field>), month(<datetime field>)
@@ -103,13 +103,13 @@ Dans cette requête, si le *\<datetime field>* suit le modèle *03/26/2015 12:04
 
 Dans cette requête, la table *hivesampletable* est installée par défaut sur tous les clusters Hadoop Azure HDInsight lors de leur approvisionnement.
 
-### <a name="hive-textfeatures"></a>Extraction de fonctionnalités à partir de champs de texte
+### <a name="extract-features-from-text-fields"></a><a name="hive-textfeatures"></a>Extraction de fonctionnalités à partir de champs de texte
 Lorsque la table Hive a un champ de texte qui contient plusieurs mots séparés par un espace, la requête suivante extrait la longueur de la chaîne et le nombre de mots de celle-ci.
 
         select length(<text field>) as str_len, size(split(<text field>,' ')) as word_num
         from <databasename>.<tablename>;
 
-### <a name="hive-gpsdistance"></a>Calcul de la distance entre des coordonnées GPS
+### <a name="calculate-distances-between-sets-of-gps-coordinates"></a><a name="hive-gpsdistance"></a>Calcul de la distance entre des coordonnées GPS
 La requête fournie dans cette section peut être directement appliquée aux données du jeu « NYC Taxi Trip ». Cette requête montre comment appliquer une fonction mathématique intégrée dans Hive pour générer des fonctionnalités.
 
 Les champs utilisés dans cette requête sont des coordonnées GPS des emplacements de départ et d’arrivée, intitulés *pickup\_longitude*, *pickup\_latitude*, *dropoff\_longitude* *dropoff\_latitude*. Les requêtes permettant de calculer la distance directe entre les coordonnées de départ et d’arrivée sont :
@@ -136,7 +136,7 @@ Les équations mathématiques calculant la distance entre deux coordonnées GPS
 
 La liste complète des FDU Hive intégrées est disponible dans la section **Fonctions intégrées** du <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">wiki Apache Hive</a>.  
 
-## <a name="tuning"></a> Rubriques avancées : Ajuster les paramètres Hive pour accélérer le traitement des requêtes
+## <a name="advanced-topics-tune-hive-parameters-to-improve-query-speed"></a><a name="tuning"></a> Rubriques avancées : Ajuster les paramètres Hive pour accélérer le traitement des requêtes
 Les paramètres par défaut du cluster Hive peuvent ne pas convenir aux requêtes Hive et aux données qu’elles traitent. Cette section présente certains paramètres que les utilisateurs peuvent ajuster pour accélérer le traitement des requêtes Hive. Les requêtes d’ajustement des paramètres doivent précéder les requêtes de traitement des données.
 
 1. **Espace de tas Java** : les requêtes impliquant la jointure de jeux de données volumineux ou le traitement d’enregistrements longs peuvent générer une erreur de type **espace du tas insuffisant**. Cette erreur peut être évitée en définissant les paramètres *mapreduce.map.java.opts* et *mapreduce.task.io.sort.mb* sur les valeurs souhaitées. Voici un exemple :

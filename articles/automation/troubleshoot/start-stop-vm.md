@@ -10,15 +10,15 @@ ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 97ea98fc38fc8d06dc1bc65ee057241da6f15488
-ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78851381"
 ---
 # <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>Résoudre les problèmes liés à la solution Start/Stop VMs during off-hours
 
-## <a name="deployment-failure"></a>Scénario : Le déploiement de la solution Start/Stop VMs ne fonctionne pas correctement
+## <a name="scenario-the-startstop-vm-solution-fails-to-properly-deploy"></a><a name="deployment-failure"></a>Scénario : Le déploiement de la solution Start/Stop VMs ne fonctionne pas correctement
 
 ### <a name="issue"></a>Problème
 
@@ -52,7 +52,7 @@ A parameter cannot be found that matches parameter name 'TagName'
 Start-AzureRmVm : Run Login-AzureRmAccount to login
 ```
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 Les déploiements peuvent échouer pour les raisons suivantes :
 
@@ -77,13 +77,13 @@ Examinez la liste suivante pour trouver des solutions possibles à votre problè
 4. Si votre espace de travail Log Analytics est verrouillé, accédez-y sur le Portail Azure et supprimez tous les verrous de la ressource.
 5. Si les solutions ci-dessus ne résolvent pas votre problème, suivez les instructions sous [Mettre à jour la solution](../automation-solution-vm-management.md#update-the-solution) pour redéployer la solution Start/Stop.
 
-## <a name="all-vms-fail-to-startstop"></a>Scénario : Le démarrage/l’arrêt de toutes les machines virtuelles échouent
+## <a name="scenario-all-vms-fail-to-startstop"></a><a name="all-vms-fail-to-startstop"></a>Scénario : Le démarrage/l’arrêt de toutes les machines virtuelles échouent
 
 ### <a name="issue"></a>Problème
 
 Vous avez configuré la solution Start/Stop VM, mais elle ne démarre pas ou n’arrête pas toutes les machines virtuelles configurées.
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 Cette erreur peut être due à l’une des raisons suivantes :
 
@@ -118,13 +118,13 @@ Examinez la liste suivante pour trouver des solutions possibles à votre problè
   Get-AzureRmAutomationVariable -Name External_ExcludeVMNames -AutomationAccountName <automationAccountName> -ResourceGroupName <resourceGroupName> | Select-Object Value
   ```
 
-## <a name="some-vms-fail-to-startstop"></a>Scénario : Le démarrage/l’arrêt de certaines de mes machines virtuelles échouent
+## <a name="scenario-some-of-my-vms-fail-to-start-or-stop"></a><a name="some-vms-fail-to-startstop"></a>Scénario : Le démarrage/l’arrêt de certaines de mes machines virtuelles échouent
 
 ### <a name="issue"></a>Problème
 
 Vous avez configuré la solution Start/Stop VMs, mais elle ne démarre pas ou n’arrête pas certaines des machines virtuelles configurées.
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 Cette erreur peut être due à l’une des raisons suivantes :
 
@@ -155,13 +155,13 @@ Examinez la liste suivante pour trouver des solutions possibles à votre problè
 
 * Vérifiez les [flux de tâches](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) afin de détecter d’éventuelles erreurs. Dans le portail, accédez à votre compte Automation, puis sélectionnez **Tâches** sous **Automatisation des processus**.
 
-## <a name="custom-runbook"></a>Scénario : Mon runbook personnalisé ne parvient pas à démarrer ou à arrêter mes machines virtuelles
+## <a name="scenario-my-custom-runbook-fails-to-start-or-stop-my-vms"></a><a name="custom-runbook"></a>Scénario : Mon runbook personnalisé ne parvient pas à démarrer ou à arrêter mes machines virtuelles
 
 ### <a name="issue"></a>Problème
 
 Vous avez créé un runbook personnalisé ou vous en avez téléchargé un à partir de PowerShell Gallery, et il ne fonctionne pas correctement.
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 Les causes de l’échec peuvent être diverses. Accédez à votre compte Automation dans le portail Azure, puis sélectionnez **Tâches** sous **Automatisation des processus**. Dans la page **Tâches**, recherchez les tâches de votre runbook pour afficher les éventuels échecs des tâches.
 
@@ -169,13 +169,13 @@ Les causes de l’échec peuvent être diverses. Accédez à votre compte Automa
 
 Il est recommandé d’utiliser la [solution Start/Stop VMs during off-hours](../automation-solution-vm-management.md) pour démarrer et arrêter des machines virtuelles dans Azure Automation. Cette solution a été créée par Microsoft. Les runbooks personnalisés ne sont pas pris en charge par Microsoft. Vous pouvez trouver une solution pour votre runbook personnalisé en consultant l’article relatif à la [résolution des problèmes liés aux runbooks](runbooks.md). Cet article fournit des conseils généraux et de résolution des problèmes liés aux runbooks de tous types. Vérifiez les [flux de tâches](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) afin de détecter d’éventuelles erreurs. Dans le portail, accédez à votre compte Automation, puis sélectionnez **Tâches** sous **Automatisation des processus**.
 
-## <a name="dont-start-stop-in-sequence"></a>Scénario : Les machines virtuelles ne démarrent pas ou ne s’arrêtent pas dans l’ordre approprié
+## <a name="scenario-vms-dont-start-or-stop-in-the-correct-sequence"></a><a name="dont-start-stop-in-sequence"></a>Scénario : Les machines virtuelles ne démarrent pas ou ne s’arrêtent pas dans l’ordre approprié
 
 ### <a name="issue"></a>Problème
 
 Les machines virtuelles que vous avez configurées dans la solution ne démarrent pas ou ne s’arrêtent pas dans l’ordre approprié.
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 Cela est dû à un balisage incorrect sur les machines virtuelles.
 
@@ -189,13 +189,13 @@ Effectuez les étapes suivantes pour vérifier que la solution est correctement 
 
 Pour obtenir des instructions plus détaillées et des instructions supplémentaires sur l’utilisation de la solution pour démarrer et arrêter des machines virtuelles dans l’ordre, consultez [Démarrer/arrêter les machines virtuelles dans un certain ordre](../automation-solution-vm-management.md#scenario-2-startstop-vms-in-sequence-by-using-tags).
 
-## <a name="403"></a>Scénario : Échec de la tâche Start/Stop VM (Démarrage/arrêt de machines virtuelles) avec l’état 403 forbidden (Interdit)
+## <a name="scenario-startstop-vm-job-fails-with-403-forbidden-status"></a><a name="403"></a>Scénario : Échec de la tâche Start/Stop VM (Démarrage/arrêt de machines virtuelles) avec l’état 403 forbidden (Interdit)
 
 ### <a name="issue"></a>Problème
 
 Vous trouvez des tâches qui ont échoué avec une erreur `403 forbidden` pour les runbooks de la solution Start/Stop VMs during off-hours.
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 Ce problème peut être dû à un compte d’identification incorrectement configuré ou ayant expiré. Il peut également être dû à des autorisations inappropriées pour les ressources des machines virtuelles accordées par le compte d’identification des comptes Automation.
 
@@ -209,13 +209,13 @@ Si le certificat a expiré pour votre compte d’identification, suivez les éta
 
 Le problème peut être causé par des autorisations manquantes. Pour savoir comment vérifier les autorisations sur une ressource, consultez [Démarrage rapide : Afficher les rôles attribués à un utilisateur à l’aide du portail Azure](../../role-based-access-control/check-access.md). Vous devez fournir l’ID d’application du principal de service utilisé par le compte d’identification. Pour récupérer cette valeur, accédez à votre compte Automation dans le portail Azure, sélectionnez **Comptes d’identification** sous **Paramètres de compte**, puis cliquez sur le compte d’identification approprié.
 
-## <a name="other"></a>Scénario : Mon problème n’est pas listé ci-dessus
+## <a name="scenario-my-problem-isnt-listed-above"></a><a name="other"></a>Scénario : Mon problème n’est pas listé ci-dessus
 
 ### <a name="issue"></a>Problème
 
 Lors de l’utilisation de la solution Start/Stop VMs during off-hours, vous rencontrez un problème ou vous obtenez un résultat inattendu non listés sur cette page.
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 Souvent, les erreurs peuvent être dues à l’utilisation d’une ancienne version obsolète de la solution.
 

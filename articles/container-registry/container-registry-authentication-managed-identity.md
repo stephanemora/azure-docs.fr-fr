@@ -4,10 +4,10 @@ description: Donnez accès aux images de votre registre de conteneurs privé à 
 ms.topic: article
 ms.date: 01/16/2019
 ms.openlocfilehash: 9b8bed78629d3a9739ec00772ad5c8216a04c122
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74456495"
 ---
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>Utiliser une identité managée Azure pour s’authentifier auprès d’un registre de conteneurs Azure 
@@ -102,7 +102,7 @@ Suivez les étapes de la section [Installer Azure CLI avec apt](/cli/azure/insta
 
 Quittez la session SSH.
 
-## <a name="example-1-access-with-a-user-assigned-identity"></a>Exemple 1 : Accès avec une identité affectée par l’utilisateur
+## <a name="example-1-access-with-a-user-assigned-identity"></a>Exemple 1 : Accès avec une identité affectée par l’utilisateur
 
 ### <a name="create-an-identity"></a>Créer une identité
 
@@ -178,7 +178,7 @@ Un message `Login succeeded` devrait apparaître. Vous pouvez maintenant exécut
 docker pull mycontainerregistry.azurecr.io/aci-helloworld:v1
 ```
 
-## <a name="example-2-access-with-a-system-assigned-identity"></a>Exemple 2 : Accès avec une identité affectée par le système
+## <a name="example-2-access-with-a-system-assigned-identity"></a>Exemple 2 : Accès avec une identité affectée par le système
 
 ### <a name="configure-the-vm-with-a-system-managed-identity"></a>Configurer la machine virtuelle avec une identité managée par le système
 

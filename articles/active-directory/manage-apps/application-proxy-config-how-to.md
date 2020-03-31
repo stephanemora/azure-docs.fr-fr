@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7aaf2eb282bc3fd0b9f3853ce493c479a3d3c3a9
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67807855"
 ---
 # <a name="how-to-configure-an-application-proxy-application"></a>Comment configurer une application du proxy d’application
@@ -42,7 +42,7 @@ Si vous suivez les étapes décrites dans la documentation [Publier des applicat
 - Vous êtes un administrateur autorisé à créer une application de proxy d’application
 - L’URL interne est unique
 - L’URL externe est unique
-- L’URL commence par http ou https et se terminer par un « / »
+- Les URL commencent par http ou https et se terminent par un signe « / »
 - L’URL doit être un nom de domaine, et non une adresse IP
 
 Le message d’erreur s’affiche en haut à droite lorsque vous créez l’application. Vous pouvez également sélectionner l’icône de notification pour afficher les messages d’erreur.

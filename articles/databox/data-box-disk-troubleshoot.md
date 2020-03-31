@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 06/14/2019
 ms.author: alkohli
 ms.openlocfilehash: f8116ec0836623adf803991017950ddc7f960923
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67805703"
 ---
 # <a name="use-logs-to-troubleshoot-validation-issues-in-azure-data-box-disk"></a>Utiliser des journaux pour résoudre les problèmes de validation dans Azure Data Box Disk
@@ -75,7 +75,7 @@ Les erreurs contenues dans le fichier *error.xml* et les actions recommandées a
 
 | Code d'erreur| Description                       | Actions recommandées               |
 |------------|--------------------------|-----------------------------------|
-| `None` | Les données ont été validées avec succès. | Aucune action n’est requise. |
+| `None` | Les données ont été validées avec succès. | Aucune action n'est requise. |
 | `InvalidXmlCharsInPath` |Impossible de créer un fichier manifeste car le chemin d’accès du fichier contient des caractères non valides. | Supprimez ces caractères pour continuer.  |
 | `OpenFileForReadFailed`| Impossible de traiter le fichier. Cela peut être dû à un problème d’accès ou un système de fichiers endommagé.|Impossible de lire le fichier en raison d’une erreur. Les détails de l’erreur sont fournis dans l’exception. |
 | `Not512Aligned` | Le format de ce fichier n’est pas un format valide pour le dossier PageBlob.| Chargez uniquement des données de 512 octets alignés sur le dossier `PageBlob`. Supprimer le fichier du dossier PageBlob ou déplacez-le vers le dossier BlockBlob. Réessayez la validation.|

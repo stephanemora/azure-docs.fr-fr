@@ -17,15 +17,15 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 44825f32a13db0a221252c042dc9f23ec43a9c8f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65825425"
 ---
 # <a name="problems-signing-in-to-an-application-using-a-deeplink"></a>Problèmes de connexion à une application à l’aide d’un lien profond
 
-Le volet d’accès est un portail web qui permet à un utilisateur disposant d’un compte professionnel ou scolaire dans Azure Active Directory (Azure AD) d’afficher et de démarrer des applications basées sur le cloud auxquelles l’administrateur Azure AD lui a accordé un accès. 
+Le volet d’accès est un portail Web qui permet à un utilisateur disposant d’un compte professionnel ou scolaire dans Azure Active Directory (Azure AD) d’afficher et de démarrer des applications basées sur le cloud auxquelles l’administrateur Azure AD lui a accordé un accès. 
 
 Ces applications sont configurées pour le compte de l’utilisateur dans le portail Azure AD. Pour que l’application soit visible dans le volet d’accès, elle doit être correctement configurée et affectée à l’utilisateur ou à un groupe dont est membre l’utilisateur.
 
@@ -121,7 +121,7 @@ Pour configurer une application à partir de la galerie Azure AD, vous devez eff
 
 Pour ajouter une application à partir de la galerie Azure AD, procédez comme suit :
 
-1.  Ouvrez le [portail Azure](https://portal.azure.com) et connectez-vous en tant **qu’Administrateur général** ou que **Coadministrateur**.
+1.  Ouvrez le [portail Azure](https://portal.azure.com) et connectez-vous en tant **qu’administrateur général** ou que **coadministrateur**.
 
 2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Tous les services** en haut du menu de navigation principal de gauche.
 
@@ -179,7 +179,7 @@ Pour configurer une application à partir de la galerie Azure AD, vous devez eff
 
 Pour ajouter une application à partir de la galerie Azure AD, procédez comme suit :
 
-1.  Ouvrez le [portail Azure](https://portal.azure.com) et connectez-vous en tant **qu’Administrateur général** ou que **Coadministrateur**.
+1.  Ouvrez le [portail Azure](https://portal.azure.com) et connectez-vous en tant **qu’administrateur général** ou que **coadministrateur**.
 
 2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Tous les services** en haut du menu de navigation principal de gauche.
 
@@ -263,11 +263,11 @@ Après une courte période, les utilisateurs que vous avez sélectionnés sont e
 
 ## <a name="if-these-troubleshooting-steps-do-not-the-resolve-the-issue"></a>Si ces étapes de dépannage ne résolvent pas le problème, 
 
-créez un ticket de support en fournissant les informations suivantes, si disponibles :
+Ouvrez un ticket de support en fournissant les informations suivantes, dans la mesure du possible :
 
 -   ID d’erreur de corrélation
 
--   UPN (adresse e-mail de l’utilisateur)
+-   Nom d’utilisateur principal (adresse de messagerie de l’utilisateur)
 
 -   ID de locataire
 

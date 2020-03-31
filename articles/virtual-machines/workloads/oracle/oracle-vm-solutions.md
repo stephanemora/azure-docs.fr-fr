@@ -15,10 +15,10 @@ ms.date: 05/23/2019
 ms.author: rogirdh
 ms.custom: seodec18
 ms.openlocfilehash: 3abc09f8c82442e3b24a9edf6ef4fb42f19dfde8
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74806947"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>Images de machine virtuelle Oracle et leur déploiement sur Microsoft Azure
@@ -70,7 +70,7 @@ Les disques attachés s’appuient sur le service de stockage d’objets blob M
 Azure NetApp Files a été conçu pour répondre aux besoins essentiels de l’exécution de charges de travail hautes performances comme des bases de données dans le cloud, et fournit ;
 - un service de stockage NFS partagé natif Azure pour l’exécution de charges de travail Oracle via un client NFS natif de machine virtuelle ou Oracle dNFS ;
 - des niveaux de performances évolutifs qui reflètent la portée réelle des demandes IOPS ;
-- une latence faible ;
+- Latence faible
 - Une haute disponibilité, une durabilité élevée et une facilité de gestion à grande échelle, généralement nécessaires pour des charges de travail critiques de l’entreprise (par exemple, SAP et Oracle) ;
 - une sauvegarde rapide et efficace pour obtenir des contrats SLA de RTO et RPO agressifs.
 

@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: iainfou
 ms.openlocfilehash: 83d1011d28eb13ed2e45587df8d385ebf19abbd1
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67483339"
 ---
 # <a name="azure-ad-domain-services---contact-us"></a>Services de domaine Azure AD : nous contacter

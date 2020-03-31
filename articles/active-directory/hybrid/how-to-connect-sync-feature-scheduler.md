@@ -17,18 +17,18 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 309adfbebd4f4b615ac1f4061823ca01f3d3ee15
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65139287"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79230113"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Synchronisation d’Azure AD Connect : Scheduler
 Cette rubrique décrit le planificateur intégré dans Azure AD Connect Sync (moteur de synchronisation).
 
 Cette fonctionnalité a été introduite avec la version 1.1.105.0 (publiée en février 2016).
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 La synchronisation Azure AD Connect synchronise les modifications dans votre répertoire local à l’aide d’un planificateur. Il existe deux processus de planificateur, l’un pour la synchronisation de mot de passe et l’autre pour la synchronisation d’attribut/d’objet, ainsi que des tâches de maintenance. Cette rubrique couvre ce dernier.
 
 Dans les versions antérieures, le planificateur utilisé pour les objets et attributs était externe au moteur de synchronisation. Il utilisait le Planificateur de tâches Windows ou un service Windows distinct pour déclencher le processus de synchronisation. Le planificateur de la version 1.1 est intégré au moteur de synchronisation et permet de personnaliser certains aspects. La nouvelle valeur de la fréquence de synchronisation par défaut est de 30 minutes.
@@ -134,13 +134,13 @@ Pour éviter d'exécuter un cycle de synchronisation complète, vous pouvez indi
 
 `Get-ADSyncSchedulerConnectorOverride -Connector <ConnectorGuid>` 
 
-Exemple :  Si vous avez apporté des modifications aux règles de synchronisation du connecteur « Forêt AD A » et qu'il n'est pas nécessaire d'importer de nouveaux attributs, utilisez les cmdlets suivantes pour exécuter un cycle de synchronisation delta ayant également suivi une étape Synchronisation complète pour ce connecteur.
+Exemple :  Si vous avez apporté des modifications aux règles de synchronisation du connecteur « Forêt AD A » et qu'il n'est pas nécessaire d'importer de nouveaux attributs, utilisez les cmdlets suivantes pour exécuter un cycle de synchronisation delta ayant également suivi une étape Synchronisation complète pour ce connecteur.
 
 `Set-ADSyncSchedulerConnectorOverride -ConnectorName “AD Forest A” -FullSyncRequired $true`
 
 `Start-ADSyncSyncCycle -PolicyType Delta`
 
-Exemple :  Si vous avez apporté des modifications aux règles de synchronisation du connecteur « Forêt AD A » et qu'il est désormais nécessaire d'importer un nouvel attribut, utilisez les cmdlets suivantes pour exécuter un cycle de synchronisation delta ayant également suivi une étape Importation complète, Synchronisation complète pour ce connecteur.
+Exemple :  Si vous avez apporté des modifications aux règles de synchronisation du connecteur « Forêt AD A » et qu'il est désormais nécessaire d'importer un nouvel attribut, utilisez les cmdlets suivantes pour exécuter un cycle de synchronisation delta ayant également suivi une étape Importation complète, Synchronisation complète pour ce connecteur.
 
 `Set-ADSyncSchedulerConnectorOverride -ConnectorName “AD Forest A” -FullImportRequired $true`
 

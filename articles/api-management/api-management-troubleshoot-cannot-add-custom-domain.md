@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/19/2019
 ms.author: tehnoonr
 ms.openlocfilehash: a09c15466a4a9f62b2696b087cb7ab23cc767379
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75430576"
 ---
 # <a name="failed-to-update-api-management-service-hostnames"></a>Échec de la mise à jour des noms d’hôte du service Gestion des API
@@ -30,7 +30,7 @@ Lorsque vous tentez d’ajouter un domaine personnalisé pour votre service Gest
 
 - Échec de la mise à jour des noms d’hôte du service Gestion des API. La requête envoyée à la ressource « https://vaultname.vault.azure.net/secrets/secretname/?api-version=7.0  » a échoué avec le code d’état : Forbidden pour RequestId : Message d’exception : L’opération a retourné un code d’état non valide : « Forbidden ».
 
-## <a name="cause"></a>Cause :
+## <a name="cause"></a>Cause
 
 Le service Gestion des API n’est pas autorisé à accéder au coffre de clés que vous tentez d’utiliser pour le domaine personnalisé.
 

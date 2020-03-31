@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 8f696f1c6c414cd9db082e79e0f34c56156e1ee0
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76722490"
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Déplacement de données à partir d’un serveur SQL local vers SQL Azure avec Azure Data Factory
@@ -24,7 +24,7 @@ Cet article explique comment déplacer des données à partir d’une base de do
 
 Pour accéder à un tableau résumant les différentes options de déplacement de données dans une base de données Azure SQL, consultez [Déplacer des données dans une base de données Azure SQL pour Azure Machine Learning](move-sql-azure.md).
 
-## <a name="intro"></a>Présentation : Qu’est-ce qu’ADF et quand doit-il être utilisé pour migrer des données ?
+## <a name="introduction-what-is-adf-and-when-should-it-be-used-to-migrate-data"></a><a name="intro"></a>Présentation : Qu’est-ce qu’ADF et quand doit-il être utilisé pour migrer des données ?
 Azure Data Factory est un service d’intégration de données dans le cloud entièrement géré qui gère et automatise le déplacement et la transformation des données. Le concept clé du modèle ADF est le pipeline. Un pipeline est un regroupement logique d’activités, chacune d'elles définissant les actions à effectuer sur les données contenues dans des groupes de données. Les services liés sont utilisés pour définir les informations nécessaires à Data Factory pour se connecter à des ressources de données.
 
 Avec ADF, les services de traitement de données existants peuvent être composés dans des pipelines de données, à disponibilité élevée et gérés dans le cloud. Ces pipelines de données peuvent être soumis à planification pour la réception, la préparation, la transformation, l’analyse et la publication de données. ADF gère et orchestre les données et les dépendances de traitement complexes. Les solutions peuvent être rapidement créées et déployées dans le cloud, afin de connecter un nombre croissant de sources de données locales et cloud.
@@ -36,7 +36,7 @@ Utilisez plutôt ADF :
 
 ADF permet la planification et la surveillance des travaux à l'aide de scripts JSON simples qui gèrent le déplacement des données sur une base périodique. ADF dispose également d'autres fonctionnalités comme la prise en charge des opérations complexes. Pour plus d'informations sur ADF, consultez la documentation relative à [Azure Data Factory (ADF)](https://azure.microsoft.com/services/data-factory/).
 
-## <a name="scenario"></a>Scénario
+## <a name="the-scenario"></a><a name="scenario"></a>Scénario
 Nous allons configurer un pipeline ADF qui se compose de deux activités de migration de données. Ensemble, ces activités déplacent les données quotidiennement entre une instance SQL Database locale et une instance Azure SQL Database dans le cloud. Les deux activités sont :
 
 * copie de données depuis une base de données SQL Server locale vers un compte de stockage d’objets blob Azure ;
@@ -47,7 +47,7 @@ Nous allons configurer un pipeline ADF qui se compose de deux activités de migr
 >
 >
 
-## <a name="prereqs"></a>Configuration requise
+## <a name="prerequisites"></a><a name="prereqs"></a>Configuration requise
 Ce didacticiel part du principe que vous disposez de :
 
 * Un **abonnement Azure**. Si vous n’avez pas d’abonnement, vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).
@@ -60,12 +60,12 @@ Ce didacticiel part du principe que vous disposez de :
 >
 >
 
-## <a name="upload-data"></a> Téléchargement des données sur votre SQL Server local
+## <a name="upload-the-data-to-your-on-premises-sql-server"></a><a name="upload-data"></a> Téléchargement des données sur votre SQL Server local
 Nous utilisons le [jeu de données NYC Taxi](https://chriswhong.com/open-data/foil_nyc_taxi/) pour illustrer le processus de migration. Le jeu de données NYC Taxi est disponible, comme mentionné dans cet article, sur Azure Blob Storage [données NYC Taxi](https://www.andresmh.com/nyctaxitrips/). Les données comprennent deux fichiers : le fichier trip_data.csv qui contient les détails de voyage et le fichier trip_far.csv qui contient les détails des prix payés pour chaque voyage. Un échantillon et une description de ces fichiers sont fournis dans la [description du jeu de données des voyages NYC Taxi](sql-walkthrough.md#dataset).
 
 Vous pouvez adapter les procédures fournies ici à un jeu de vos propres données ou suivre les étapes décrites à l'aide du jeu de données NYC Taxi. Pour télécharger le jeu de données NYC Taxi dans votre base de données SQL Server locale, suivez la procédure décrite dans [Importer des données en bloc dans SQL Server Database](sql-walkthrough.md#dbload). Ces instructions concernent un SQL Server sur une machine virtuelle Azure, mais la procédure de téléchargement vers le serveur local SQL Server est la même.
 
-## <a name="create-adf"></a> Création d’une Azure Data Factory
+## <a name="create-an-azure-data-factory"></a><a name="create-adf"></a> Création d’une Azure Data Factory
 Les instructions pour la création d’une fabrique de données Azure Data Factory et d’un groupe de ressources dans le [portail Azure](https://portal.azure.com/) sont fournies dans [Créer une fabrique de données Azure Data Factory](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-data-factory). Nommez la nouvelle instance ADF *adfdsp* et nommez le groupe de ressources créé *adfdsprg*.
 
 ## <a name="install-and-configure-azure-data-factory-integration-runtime"></a>Installer et configurer Azure Data Factory Integration Runtime
@@ -73,7 +73,7 @@ Integration Runtime est une infrastructure d’intégration de données gérée 
 
 Pour le configurer, [suivez les instructions de création d’un pipeline](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal#create-a-pipeline)
 
-## <a name="adflinkedservices"></a>Création de services liés pour la connexion aux ressources de données
+## <a name="create-linked-services-to-connect-to-the-data-resources"></a><a name="adflinkedservices"></a>Création de services liés pour la connexion aux ressources de données
 Un service lié définit les informations nécessaires à Azure Data Factory pour se connecter à des ressources de données. Dans ce scénario, nous avons trois ressources pour lesquelles les services liés sont nécessaires :
 
 1. SQL Server local
@@ -83,7 +83,7 @@ Un service lié définit les informations nécessaires à Azure Data Factory p
 La procédure pas à pas pour la création de services liés est fournie dans [Créer des services liés](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-pipeline).
 
 
-## <a name="adf-tables"></a>Définir et créer des tables pour spécifier l’accès aux jeux de données
+## <a name="define-and-create-tables-to-specify-how-to-access-the-datasets"></a><a name="adf-tables"></a>Définir et créer des tables pour spécifier l’accès aux jeux de données
 Créez des tables qui spécifient la structure, l'emplacement et la disponibilité des jeux de données avec les procédures reposant sur des scripts suivantes. Les fichiers JSON sont utilisés pour définir les tables. Pour plus d'informations sur la structure de ces fichiers, consultez [Jeux de données](../../data-factory/concepts-datasets-linked-services.md).
 
 > [!NOTE]
@@ -107,7 +107,7 @@ Trois définitions de table sont nécessaires pour ce pipeline ADF :
 >
 >
 
-### <a name="adf-table-onprem-sql"></a>Table SQL locale
+### <a name="sql-on-premises-table"></a><a name="adf-table-onprem-sql"></a>Table SQL locale
 La définition de table pour le SQL Server local est spécifié dans le fichier JSON suivant :
 
 ```json
@@ -143,7 +143,7 @@ Copiez la définition JSON de la table dans un fichier appelé *onpremtabledef.j
     New-AzureDataFactoryTable -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp –File C:\temp\onpremtabledef.json
 
 
-### <a name="adf-table-blob-store"></a>Table d'objets blob
+### <a name="blob-table"></a><a name="adf-table-blob-store"></a>Table d'objets blob
 La définition de la table pour l’emplacement d’objets blob de sortie est la suivante (cela mappe les données ingérées localement vers un objet blob Azure) :
 
 ```json
@@ -175,7 +175,7 @@ Copiez la définition JSON de la table dans un fichier appelé *bloboutputtabled
 
     New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\bloboutputtabledef.json
 
-### <a name="adf-table-azure-sql"></a>Table SQL Azure
+### <a name="sql-azure-table"></a><a name="adf-table-azure-sql"></a>Table SQL Azure
 La définition de la table pour la sortie SQL Azure est la suivante (ce schéma mappe les données provenant de l'objet blob) :
 
 ```json
@@ -208,7 +208,7 @@ Copiez la définition JSON de la table dans un fichier appelé *AzureSqlTable.js
     New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\AzureSqlTable.json
 
 
-## <a name="adf-pipeline"></a>Définir et créer le pipeline
+## <a name="define-and-create-the-pipeline"></a><a name="adf-pipeline"></a>Définir et créer le pipeline
 Spécifiez les activités appartenant au pipeline et créez le pipeline avec les procédures reposant sur des scripts suivantes. Un fichier JSON est utilisé pour définir les propriétés du pipeline.
 
 * Le script suppose que le **nom du pipeline** est *AMLDSProcessPipeline*.
@@ -293,7 +293,7 @@ Copiez cette définition JSON du pipeline dans un fichier appelé *pipelinedef.j
     New-AzureDataFactoryPipeline  -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\pipelinedef.json
 
 
-## <a name="adf-pipeline-start"></a>Lancer le pipeline
+## <a name="start-the-pipeline"></a><a name="adf-pipeline-start"></a>Lancer le pipeline
 Le pipeline peut maintenant être exécuté à l'aide de la commande suivante :
 
     Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp -StartDateTime startdateZ –EndDateTime enddateZ –Name AMLDSProcessPipeline

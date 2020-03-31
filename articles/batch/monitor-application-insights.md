@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 04/05/2018
 ms.author: labrenne
 ms.openlocfilehash: b1f4fb0207d4f659861dbd3fdfd1b2d502409935
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77022458"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Surveiller et déboguer une application .NET Azure Batch avec Application Insights
@@ -30,7 +30,7 @@ Un exemple de solution C# avec du code pour accompagner cet article est disponib
 > Vous pouvez également configurer votre solution Batch pour afficher des données Application Insights, comme des compteurs de performances de machines virtuelles dans Batch Explorer. [Batch Explorer](https://github.com/Azure/BatchExplorer) est un outil client autonome gratuit, doté de nombreuses fonctionnalités aidant à créer, déboguer et surveiller les applications Azure Batch. Téléchargez un [package d’installation](https://azure.github.io/BatchExplorer/) pour Mac, Linux ou Windows. Consultez le [référentiel batch-insights](https://github.com/Azure/batch-insights) pour obtenir les étapes à suivre pour activer les données Application Insights dans Batch Explorer. 
 >
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 * [Visual Studio 2017 ou version ultérieure](https://www.visualstudio.com/vs)
 
 * [Compte Batch et compte de stockage lié](batch-account-create-portal.md)

@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9122e3a7af2230dc0f68e72b28891d488b01a80a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65137835"
 ---
 # <a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>Fédérer plusieurs instances d’Azure AD avec une seule instance d’AD FS
@@ -40,11 +40,11 @@ Une même batterie AD FS à haute disponibilité peut fédérer plusieurs forêt
 
 Prenons un domaine contoso.com dans Azure Active Directory : contoso.onmicrosoft.com est déjà fédéré à AD FS local installé dans l’environnement Active Directory local contoso.com. Fabrikam.com est un domaine dans Azure Active Directory fabrikam.onmicrosoft.com.
 
-## <a name="step-1-establish-a-two-way-trust"></a>Étape 1 : Établir une relation d’approbation bidirectionnelle
+## <a name="step-1-establish-a-two-way-trust"></a>Étape 1 : Établir une relation d’approbation bidirectionnelle
  
 Pour qu’AD FS dans contoso.com puisse authentifier les utilisateurs de fabrikam.com, une approbation bidirectionnelle est nécessaire entre contoso.com et fabrikam.com. Suivez les instructions de cet [article](https://technet.microsoft.com/library/cc816590.aspx) pour créer l’approbation bidirectionnelle.
  
-## <a name="step-2-modify-contosocom-federation-settings"></a>Étape 2 : Modifier les paramètres de fédération contoso.com 
+## <a name="step-2-modify-contosocom-federation-settings"></a>Étape 2 : Modifier les paramètres de fédération contoso.com 
  
 L’émetteur par défaut défini pour un seul domaine fédéré sur AD FS est « http\://ADFSServiceFQDN/adfs/services/trust » ; par exemple, `http://fs.contoso.com/adfs/services/trust`. Azure Active Directory nécessite un émetteur unique pour chaque domaine fédéré. Étant donné qu’une même instance d’AD FS va fédérer deux domaines, la valeur de l’émetteur doit être modifiée pour être propre à chaque domaine qu’AD FS fédère avec Azure Active Directory. 
  

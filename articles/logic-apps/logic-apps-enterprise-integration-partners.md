@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
 ms.openlocfilehash: e58cbe85f30ea09adde45d55bb7b80c710c45495
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74792445"
 ---
 # <a name="add-trading-partners-to-integration-accounts-for-azure-logic-apps"></a>Ajouter des partenaires commerciaux à des comptes d’intégration pour Azure Logic Apps
@@ -35,7 +35,7 @@ Dans un contrat, vous spécifiez les détails pour la gestion des messages entra
 
 ## <a name="create-partner"></a>Créer un partenaire
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
 1. Dans le menu principal Azure, sélectionnez **Tous les services**. Dans la zone de recherche, entrez « intégration », puis sélectionnez **Comptes d’intégration**.
 
@@ -55,9 +55,9 @@ Dans un contrat, vous spécifiez les détails pour la gestion des messages entra
 
    | Propriété | Obligatoire | Description |
    |----------|----------|-------------|
-   | **Nom** | OUI | Nom du partenaire |
-   | **Qualificateur** | OUI | Corps d’authentification qui fournit des identités d’entreprise uniques aux organisations, par exemple **D-U-N-S (Dun & Bradstreet)** . <p>Les partenaires peuvent opter pour une identité d’entreprise définie mutuellement. Pour ces scénarios, sélectionnez **Défini mutuellement** pour EDIFACT ou **Défini mutuellement (X12)** pour X12. <p>Pour RosettaNet, sélectionnez uniquement **DUNS**, qui est la norme. |
-   | **Valeur** | OUI | Valeur qui identifie les documents que vos applications logiques reçoivent. <p>Pour RosettaNet, cette valeur doit être un nombre à neuf chiffres qui correspond au numéro DUNS. |
+   | **Nom** | Oui | Nom du partenaire |
+   | **Qualificateur** | Oui | Corps d’authentification qui fournit des identités d’entreprise uniques aux organisations, par exemple **D-U-N-S (Dun & Bradstreet)** . <p>Les partenaires peuvent opter pour une identité d’entreprise définie mutuellement. Pour ces scénarios, sélectionnez **Défini mutuellement** pour EDIFACT ou **Défini mutuellement (X12)** pour X12. <p>Pour RosettaNet, sélectionnez uniquement **DUNS**, qui est la norme. |
+   | **Valeur** | Oui | Valeur qui identifie les documents que vos applications logiques reçoivent. <p>Pour RosettaNet, cette valeur doit être un nombre à neuf chiffres qui correspond au numéro DUNS. |
    ||||
 
    > [!NOTE]

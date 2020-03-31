@@ -15,10 +15,10 @@ ms.date: 06/13/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 74516aa921e45917f327a193a1c972b021c9c8ff
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74896068"
 ---
 # <a name="creating-filters-with-cli"></a>Créer des filtres avec l’interface CLI 
@@ -90,7 +90,7 @@ az ams account-filter create -a amsAccount -g resourceGroup -n filterName --trac
 
 Voir aussi [Exemples de filtres JSON](https://docs.microsoft.com/rest/api/media/accountfilters/createorupdate#create-an-account-filter).
 
-## <a name="create-asset-filters"></a>Créer des filtres d’actif multimédia
+## <a name="create-asset-filters"></a>Créer des filtres d’élément multimédia
 
 La commande [az ams asset-filter](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest) ci-dessous crée un filtre d’actif multimédia qui filtre les sélections de pistes [définies précédemment](#define-a-filter). 
 
@@ -120,7 +120,7 @@ Lorsque vous définissez des filtres, vos clients peuvent les utiliser dans l'UR
 
 Le tableau suivant présente des exemples d’URL utilisant des filtres :
 
-|Protocol|Exemples|
+|Protocol|Exemple|
 |---|---|
 |HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`|
 |MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
@@ -132,4 +132,4 @@ Le tableau suivant présente des exemples d’URL utilisant des filtres :
 
 ## <a name="see-also"></a>Voir aussi
 
-[Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+[Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)

@@ -9,14 +9,14 @@ ms.date: 12/20/2017
 ms.author: jonor
 ms.custom: seodec18
 ms.openlocfilehash: bb68919fba731caa32dcca3f4c991b8881afc6f9
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74869644"
 ---
 # <a name="troubleshooting-network-performance"></a>Résolution des problèmes de performances réseau
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Azure met à votre disposition des moyens stables et rapides pour vous connecter à Azure à partir de votre réseau local. Les méthodes telles que le VPN de site à site et ExpressRoute sont couramment utilisées par les clients de grande et petite tailles pour exécuter leurs activités dans Azure. Mais que se passe-t-il quand les performances ne sont pas à la hauteur de vos attentes ou expériences passées ? Ce document peut vous aider à standardiser la façon de tester et de planifier votre environnement.
 
 Ce document vous montre comment tester la latence réseau et la bande passante entre deux hôtes de façon aisée et cohérente. Il fournit également des conseils sur la façon d’examiner le réseau Azure et d’isoler les points problématiques. Le script PowerShell et les outils présentés nécessitent deux hôtes sur le réseau (à chaque extrémité de la liaison testée). L’un des hôtes doit être doté de Windows Server ou Windows Desktop, l’autre peut être doté de Windows ou de Linux. 
@@ -97,7 +97,7 @@ L’utilisation de cette boîte à outils pour tester les performances comprend 
 
     Les résultats détaillés de tous les tests PSPing et iPerf se trouvent dans des fichiers texte individuels dans le répertoire des outils AzureCT à l’emplacement « C:\ACTTools ».
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 Si le test de performance ne fournit pas les résultats attendus, une approche étape par étape progressive peut s’avérer pertinente. Étant donné le nombre de composants jalonnant le chemin, une approche systématique permet généralement de résoudre les problèmes plus rapidement qu’une approche empirique au cours de laquelle un même test risque d’être inutilement effectué plusieurs fois.
 
 >[!NOTE]
@@ -130,7 +130,7 @@ Si deux réseaux virtuels (réseaux virtuels A et B dans le diagramme) sont conn
 ### <a name="test-plan"></a>Plan de test
 1. Exécutez le test Get-LinkPerformance entre VM1 et VM2. Ce test indique si le problème est local ou non. Si ce test génère des résultats acceptables concernant la latence et la bande passante, vous pouvez marquer le réseau virtuel local comme étant correct.
 2. En supposant que le trafic du réseau virtuel local est correct, exécutez le test Get-LinkPerformance entre VM1 et VM3. Ce test teste la connexion via le réseau Microsoft jusqu’au MSEE, puis jusqu’à Azure. Si ce test génère des résultats acceptables concernant la latence et la bande passante, vous pouvez marquer le réseau Azure comme étant correct.
-3. Si Azure est écarté, vous pouvez effectuer une séquence similaire de tests sur votre réseau d’entreprise. Si ces tests sont également concluants, il est temps de collaborer avec votre fournisseur de services ou fournisseur de services Internet pour diagnostiquer votre connexion WAN. Exemple : Exécuter ce test entre deux succursales, ou entre votre bureau et un serveur de centre de données. Selon ce que vous testez, recherchez des points de terminaison (serveurs, PC, etc.) qui peuvent constituer ce chemin.
+3. Si Azure est écarté, vous pouvez effectuer une séquence similaire de tests sur votre réseau d’entreprise. Si ces tests sont également concluants, il est temps de collaborer avec votre fournisseur de services ou fournisseur de services Internet pour diagnostiquer votre connexion WAN. Exemple : Exécuter ce test entre deux succursales, ou entre votre bureau et un serveur de centre de données. Selon ce que vous testez, recherchez des points de terminaison (serveurs, PC, etc.) qui peuvent constituer ce chemin.
 
 >[!IMPORTANT]
 > Il est essentiel que pour chaque test vous notiez l’heure du jour à laquelle vous l’exécutez et que vous centralisiez l’enregistrement des résultats (j’ai un faible pour OneNote ou Excel). Chaque série de tests doit avoir une sortie identique afin que vous puissiez comparer les données résultantes entre les séries de tests et que vous n’ayez pas de « trous » dans les données. L’importance de la cohérence entre les différents tests est la raison principale qui m’amène à utiliser la boîte à outils AzureCT pour la résolution des problèmes. Ce ne sont pas les scénarios de charge exacts que j’exécute qui importent, mais le fait que j’obtiens une *sortie de données* et *de test cohérente* à l’issue de chaque test. Le fait d’enregistrer l’heure et d’avoir systématiquement des données cohérentes s’avère particulièrement utile si vous êtes amené à constater que le problème est sporadique. Faites preuve de diligence avec la collecte de données en amont ; vous devriez ainsi éviter de passer des heures à tester les mêmes scénarios plusieurs fois (je l’ai appris à mes dépens il y a de nombreuses années).
@@ -146,7 +146,7 @@ Dans le cas du réseau étendu, partager vos résultats de tests avec votre four
 
 Avec Azure, une fois que vous avez isolé le problème aussi précisément que possible, vous pouvez examiner la [documentation sur le réseau Azure][Network Docs] et, si nécessaire, [ouvrir un ticket de support][Ticket Link].
 
-## <a name="references"></a>Références
+## <a name="references"></a>References
 ### <a name="latencybandwidth-expectations"></a>Attentes en termes de latence et de bande passante
 >[!TIP]
 > La latence géographique (miles ou kilomètres) entre les points de terminaison que vous testez est de loin le composant de la latence le plus important. Même s’il existe une latence liée aux équipements (composants physiques et virtuels, le nombre de tronçons, etc.), il s’avère que le critère géographique est le composant le plus important de la latence globale concernant les connexions WAN. Il est également important de noter que la distance est la distance en fibre optique, pas la distance à vol d’oiseau ou routière. Cette distance est extrêmement difficile à obtenir avec précision. Ainsi, j’utilise généralement un outil de calcul de distance entre villes sur Internet. Cette méthode est certes approximative, mais elle suffit pour définir une attente générale.
@@ -179,7 +179,7 @@ Configuration des tests :
 
 | | | | | | |
 |-|-|-|-|-|-|
-|ExpressRoute<br/>Location|Azure<br/>Région|Distance<br/>estimée (km)|Latence|1 Session<br/>Bande passante|Maximale<br/>Bande passante|
+|ExpressRoute<br/>Emplacement|Azure<br/>Région|Distance<br/>estimée (km)|Latence|1 Session<br/>Bande passante|Maximale<br/>Bande passante|
 | Seattle | USA Ouest 2        |    191 km |   5 ms | 262,0 Mbits/s |  3,74 Gbits/s |
 | Seattle | USA Ouest          |  1\.094 km |  18 ms |  82,3 Mbits/s |  3,70 Gbits/s |
 | Seattle | USA Centre       |  2\.357 km |  40 ms |  38,8 Mbits/s |  2,55 Gbits/s |

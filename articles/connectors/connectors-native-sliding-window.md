@@ -7,10 +7,10 @@ ms.reviewer: deli, klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/25/2019
 ms.openlocfilehash: ab4bf802772c95d8c48a8cdba48def05e8a2761b
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74786909"
 ---
 # <a name="schedule-and-run-tasks-for-contiguous-data-by-using-the-sliding-window-trigger-in-azure-logic-apps"></a>Planifier et exécuter des tâches pour les données contiguës à l’aide du déclencheur Fenêtre glissante dans Azure Logic Apps
@@ -34,11 +34,11 @@ Pour connaître les différences entre ce déclencheur et le déclencheur Pério
 
 * Un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [vous inscrire pour obtenir un compte Azure gratuitement](https://azure.microsoft.com/free/).
 
-* Connaissance de base sur les [applications logiques](../logic-apps/logic-apps-overview.md). Si vous débutez avec les applications logiques, découvrez [comment créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Connaissances de base sur les [applications logiques](../logic-apps/logic-apps-overview.md). Si vous débutez avec les applications logiques, découvrez [comment créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="add-sliding-window-trigger"></a>Ajouter un déclencheur Fenêtre glissante
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com). Créez une application logique vide.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Créez une application logique vide.
 
 1. Une fois que le concepteur Logic Apps s’affiche, entrez « fenêtre glissante » comme filtre dans la zone de recherche. Dans la liste des déclencheurs, sélectionnez ce déclencheur pour la première étape dans votre workflow d’application logique : **Fenêtre glissante**
 
@@ -50,8 +50,8 @@ Pour connaître les différences entre ce déclencheur et le déclencheur Pério
 
    | Propriété | Obligatoire | Nom JSON | Type | Description |
    |----------|----------|-----------|------|-------------|
-   | **Intervalle** | OUI | interval | Integer | Nombre entier positif qui décrit la fréquence à laquelle le flux de travail s’exécute en fonction de la fréquence. Les intervalles minimaux et maximaux sont les suivants : <p>- Heure : 1-12 000 heures </br>- Minute : 1-72 000 minutes </br>- Seconde : 1-9 999 999 secondes<p>Par exemple, si l’intervalle est défini sur 6 et la fréquence sur « Heure », la périodicité est toutes les 6 heures. |
-   | **Fréquence** | OUI | frequency | Chaîne | Unité de temps à utiliser pour la récurrence : **Seconde**, **Minute** ou **Heure** |
+   | **Intervalle** | Oui | interval | Integer | Nombre entier positif qui décrit la fréquence à laquelle le flux de travail s’exécute en fonction de la fréquence. Les intervalles minimaux et maximaux sont les suivants : <p>- Heure : 1-12 000 heures </br>- Minute : 1-72 000 minutes </br>- Seconde : 1-9 999 999 secondes<p>Par exemple, si l’intervalle est défini sur 6 et la fréquence sur « Heure », la périodicité est toutes les 6 heures. |
+   | **Fréquence** | Oui | frequency | String | Unité de temps à utiliser pour la récurrence : **Seconde**, **Minute** ou **Heure** |
    ||||||
 
    ![Options de périodicité avancées](./media/connectors-native-sliding-window/sliding-window-trigger-more-options-details.png)
@@ -61,9 +61,9 @@ Pour connaître les différences entre ce déclencheur et le déclencheur Pério
 
    | Propriété | Obligatoire | Nom JSON | Type | Description |
    |----------|----------|-----------|------|-------------|
-   | **Retard** | Non | delay | Chaîne | Valeur de délai pour retarder chaque périodicité à l’aide de la [spécification date/heure ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations) |
-   | **Fuseau horaire** | Non | timeZone | Chaîne | S’applique uniquement quand vous spécifiez une heure de début, car ce déclencheur n’accepte pas le [décalage UTC](https://en.wikipedia.org/wiki/UTC_offset). Sélectionnez le fuseau horaire à appliquer. |
-   | **Heure de début** | Non | startTime | Chaîne | Indiquez une date et une heure de début au format suivant : <p>AAAA-MM-JJThh:mm:ss si vous sélectionnez un fuseau horaire <p>-ou- <p>AAAA-MM-JJThh:mm:ssZ si vous ne sélectionnez pas de fuseau horaire <p>Par exemple, si vous choisissez le 18 septembre 2017 à 14h00, alors spécifiez « 2017-09-18T14:00:00 » et sélectionnez un fuseau horaire tel que « Pacific Standard Time » (Heure standard du Pacifique). Vous pouvez également spécifier « 2017-09-18T14:00:00Z » sans fuseau horaire. <p>**Remarque :** Cette heure de début doit être conforme à la [spécification de date/heure ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) au [format de date/heure UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), mais sans [décalage UTC](https://en.wikipedia.org/wiki/UTC_offset). Si vous ne sélectionnez pas de fuseau horaire, vous devez ajouter la lettre « Z » à la fin sans espace. Ce « Z » fait référence au [temps nautique](https://en.wikipedia.org/wiki/Nautical_time) équivalent. <p>Pour les planifications simples, l’heure de début est la première occurrence, tandis que, pour les périodicités complexes, le déclencheur ne s’active pas avant l’heure de début. [*Comment puis-je utiliser la date et l’heure de début ?* ](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
+   | **Retard** | Non | delay | String | Valeur de délai pour retarder chaque périodicité à l’aide de la [spécification date/heure ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations) |
+   | **Fuseau horaire** | Non | timeZone | String | S’applique uniquement quand vous spécifiez une heure de début, car ce déclencheur n’accepte pas le [décalage UTC](https://en.wikipedia.org/wiki/UTC_offset). Sélectionnez le fuseau horaire à appliquer. |
+   | **Heure de début** | Non | startTime | String | Indiquez une date et une heure de début au format suivant : <p>AAAA-MM-JJThh:mm:ss si vous sélectionnez un fuseau horaire <p>-ou- <p>AAAA-MM-JJThh:mm:ssZ si vous ne sélectionnez pas de fuseau horaire <p>Par exemple, si vous choisissez le 18 septembre 2017 à 14h00, alors spécifiez « 2017-09-18T14:00:00 » et sélectionnez un fuseau horaire tel que « Pacific Standard Time » (Heure standard du Pacifique). Vous pouvez également spécifier « 2017-09-18T14:00:00Z » sans fuseau horaire. <p>**Remarque :** Cette heure de début doit être conforme à la [spécification de date/heure ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) au [format de date/heure UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), mais sans [décalage UTC](https://en.wikipedia.org/wiki/UTC_offset). Si vous ne sélectionnez pas de fuseau horaire, vous devez ajouter la lettre « Z » à la fin sans espace. Ce « Z » fait référence au [temps nautique](https://en.wikipedia.org/wiki/Nautical_time) équivalent. <p>Pour les planifications simples, l’heure de début est la première occurrence, tandis que, pour les périodicités complexes, le déclencheur ne s’active pas avant l’heure de début. [*Comment puis-je utiliser la date et l’heure de début ?* ](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
    |||||
 
 1. Créez maintenant votre flux de travail restant avec d’autres actions. Pour connaître les autres actions que vous pouvez ajouter, voir [Connecteurs pour Azure Logic Apps](../connectors/apis-list.md).

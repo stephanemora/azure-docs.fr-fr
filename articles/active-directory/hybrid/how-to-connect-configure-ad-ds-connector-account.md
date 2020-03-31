@@ -12,17 +12,17 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: eeb80c3a94e63a886e4a16c0b8fa445b2a8a34e4
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72515818"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect : Configurer les autorisations du compte de connecteur AD DS 
 
 Le module PowerShell dénommé [ADSyncConfig.psm1](reference-connect-adsyncconfig.md) a été introduit avec la version 1.1.880.0 (sortie en août 2018). Il fournit une collection de cmdlets pour vous aider à configurer les autorisations Active Directory adéquates pour votre déploiement Azure AD Connect. 
 
-## <a name="overview"></a>Vue d'ensemble 
+## <a name="overview"></a>Vue d’ensemble 
 Les applets de commande PowerShell suivantes vous permettent de définir les autorisations du compte de connecteur AD DS, pour chaque fonctionnalité que vous sélectionnez pour l’activer dans Azure AD Connect. Pour éviter tout problème, vous devez définir les autorisations Active Directory préalablement à toute installation d’Azure AD Connect à l’aide d’un compte de domaine personnalisé, pour pouvoir ensuite vous connecter à votre forêt. Ce module ADSyncConfig est également utile pour configurer les autorisations après le déploiement d’Azure AD Connect.
 
 ![présentation d’un compte ad ds](media/how-to-connect-configure-ad-ds-connector-account/configure1.png)
@@ -48,7 +48,7 @@ Le module ADSyncConfig nécessite les [outils d’administration de serveur dist
 ``` powershell
 Install-WindowsFeature RSAT-AD-Tools 
 ```
-![Configuration](media/how-to-connect-configure-ad-ds-connector-account/configure2.png)
+![Configurer](media/how-to-connect-configure-ad-ds-connector-account/configure2.png)
 
 >[!NOTE]
 >Vous pouvez également copier le fichier **C:\Program Files\Microsoft Azure Active Directory Connect\AdSyncConfig\ADSyncConfig.psm1** sur un contrôleur de domaine où sont déjà installés les outils d’administration de serveur distant pour AD DS et utiliser ensuite ce module PowerShell à partir de ce contrôleur.
@@ -136,15 +136,15 @@ Set-ADSyncBasicReadPermissions -ADConnectorAccountDN <String> [-ADobjectDN <Stri
 Cette applet de commande définit les autorisations suivantes : 
  
 
-|Type |Nom |Access |S'applique à| 
+|Type |Nom |Accès |S'applique à| 
 |-----|-----|-----|-----|
-|AUTORISER |Compte de connecteur AD DS |Lire toutes les propriétés |Objets appareil descendants| 
-|AUTORISER |Compte de connecteur AD DS|Lire toutes les propriétés |Objets InetOrgPerson descendants| 
-|AUTORISER |Compte de connecteur AD DS |Lire toutes les propriétés |Objets ordinateur descendants| 
-|AUTORISER |Compte de connecteur AD DS |Lire toutes les propriétés |Objets foreignSecurityPrincipal descendants| 
-|AUTORISER |Compte de connecteur AD DS |Lire toutes les propriétés |Objets groupe descendants| 
-|AUTORISER |Compte de connecteur AD DS |Lire toutes les propriétés |Objets utilisateur descendants| 
-|AUTORISER |Compte de connecteur AD DS |Lire toutes les propriétés |Objets contact descendants| 
+|Allow |Compte de connecteur AD DS |Lire toutes les propriétés |Objets appareil descendants| 
+|Allow |Compte de connecteur AD DS|Lire toutes les propriétés |Objets InetOrgPerson descendants| 
+|Allow |Compte de connecteur AD DS |Lire toutes les propriétés |Objets ordinateur descendants| 
+|Allow |Compte de connecteur AD DS |Lire toutes les propriétés |Objets foreignSecurityPrincipal descendants| 
+|Allow |Compte de connecteur AD DS |Lire toutes les propriétés |Objets groupe descendants| 
+|Allow |Compte de connecteur AD DS |Lire toutes les propriétés |Objets utilisateur descendants| 
+|Allow |Compte de connecteur AD DS |Lire toutes les propriétés |Objets contact descendants| 
 
  
 ### <a name="configure-ms-ds-consistency-guid-permissions"></a>Configurer les autorisations MS-DS-Consistency-Guid 
@@ -162,9 +162,9 @@ Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountDN <String> [-ADobje
 
 Cette applet de commande définit les autorisations suivantes : 
 
-|Type |Nom |Access |S'applique à|
+|Type |Nom |Accès |S'applique à|
 |-----|-----|-----|-----| 
-|AUTORISER|Compte de connecteur AD DS|Lecture/Écriture de la propriété|Objets utilisateur descendants|
+|Allow|Compte de connecteur AD DS|Lecture/Écriture de la propriété|Objets utilisateur descendants|
 
 ### <a name="permissions-for-password-hash-synchronization"></a>Autorisations pour la synchronisation du hachage de mot de passe 
 Pour définir les autorisations du compte de connecteur AD DS quand la synchronisation du hachage de mot de passe est activée, exécutez : 
@@ -182,10 +182,10 @@ Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN <String> [<CommonPar
 
 Cette applet de commande définit les autorisations suivantes : 
 
-|Type |Nom |Access |S'applique à|
+|Type |Nom |Accès |S'applique à|
 |-----|-----|-----|-----| 
-|AUTORISER |Compte de connecteur AD DS |Réplication des modifications de l’annuaire |Cet objet uniquement (racine du domaine)| 
-|AUTORISER |Compte de connecteur AD DS |Réplication de toutes les modifications de l’annuaire |Cet objet uniquement (racine du domaine)| 
+|Allow |Compte de connecteur AD DS |Réplication des modifications de l’annuaire |Cet objet uniquement (racine du domaine)| 
+|Allow |Compte de connecteur AD DS |Réplication de toutes les modifications de l’annuaire |Cet objet uniquement (racine du domaine)| 
   
 ### <a name="permissions-for-password-writeback"></a>Autorisations pour la réécriture du mot de passe 
 Pour définir les autorisations du compte de connecteur AD DS quand la réécriture du mot de passe est activée, exécutez : 
@@ -202,11 +202,11 @@ Set-ADSyncPasswordWritebackPermissions -ADConnectorAccountDN <String> [-ADobject
 ```
 Cette applet de commande définit les autorisations suivantes : 
 
-|Type |Nom |Access |S'applique à|
+|Type |Nom |Accès |S'applique à|
 |-----|-----|-----|-----| 
-|AUTORISER |Compte de connecteur AD DS |Réinitialiser le mot de passe |Objets utilisateur descendants| 
-|AUTORISER |Compte de connecteur AD DS |Écriture de la propriété lockoutTime |Objets utilisateur descendants| 
-|AUTORISER |Compte de connecteur AD DS |Écriture de la propriété pwdLastSet |Objets utilisateur descendants| 
+|Allow |Compte de connecteur AD DS |Réinitialiser le mot de passe |Objets utilisateur descendants| 
+|Allow |Compte de connecteur AD DS |Écriture de la propriété lockoutTime |Objets utilisateur descendants| 
+|Allow |Compte de connecteur AD DS |Écriture de la propriété pwdLastSet |Objets utilisateur descendants| 
 
 ### <a name="permissions-for-group-writeback"></a>Autorisations pour la réécriture de groupe 
 Pour définir les autorisations du compte de connecteur AD DS quand la réécriture de groupe est activée, exécutez : 
@@ -222,11 +222,11 @@ Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN <String> [-ADob
  
 Cette applet de commande définit les autorisations suivantes : 
 
-|Type |Nom |Access |S'applique à|
+|Type |Nom |Accès |S'applique à|
 |-----|-----|-----|-----| 
-|AUTORISER |Compte de connecteur AD DS |Lecture/Écriture générique |Tous les attributs d’un groupe de types d’objets et des sous-objets| 
-|AUTORISER |Compte de connecteur AD DS |Création/Suppression de l’objet enfant |Tous les attributs d’un groupe de types d’objets et des sous-objets| 
-|AUTORISER |Compte de connecteur AD DS |Suppression/Suppression d’objets d’arborescence|Tous les attributs d’un groupe de types d’objets et des sous-objets|
+|Allow |Compte de connecteur AD DS |Lecture/Écriture générique |Tous les attributs d’un groupe de types d’objets et des sous-objets| 
+|Allow |Compte de connecteur AD DS |Création/Suppression de l’objet enfant |Tous les attributs d’un groupe de types d’objets et des sous-objets| 
+|Allow |Compte de connecteur AD DS |Suppression/Suppression d’objets d’arborescence|Tous les attributs d’un groupe de types d’objets et des sous-objets|
 
 ### <a name="permissions-for-exchange-hybrid-deployment"></a>Autorisations pour le déploiement Exchange hybride 
 Pour définir les autorisations du compte de connecteur AD DS quand le déploiement Exchange hybride est activé, exécutez : 
@@ -245,12 +245,12 @@ Set-ADSyncExchangeHybridPermissions -ADConnectorAccountDN <String> [-ADobjectDN 
 Cette applet de commande définit les autorisations suivantes :  
  
 
-|Type |Nom |Access |S'applique à|
+|Type |Nom |Accès |S'applique à|
 |-----|-----|-----|-----| 
-|AUTORISER |Compte de connecteur AD DS |Lecture/écriture de toutes les propriétés |Objets utilisateur descendants| 
-|AUTORISER |Compte de connecteur AD DS |Lecture/écriture de toutes les propriétés |Objets InetOrgPerson descendants| 
-|AUTORISER |Compte de connecteur AD DS |Lecture/écriture de toutes les propriétés |Objets groupe descendants| 
-|AUTORISER |Compte de connecteur AD DS |Lecture/écriture de toutes les propriétés |Objets contact descendants| 
+|Allow |Compte de connecteur AD DS |Lecture/écriture de toutes les propriétés |Objets utilisateur descendants| 
+|Allow |Compte de connecteur AD DS |Lecture/écriture de toutes les propriétés |Objets InetOrgPerson descendants| 
+|Allow |Compte de connecteur AD DS |Lecture/écriture de toutes les propriétés |Objets groupe descendants| 
+|Allow |Compte de connecteur AD DS |Lecture/écriture de toutes les propriétés |Objets contact descendants| 
 
 ### <a name="permissions-for-exchange-mail-public-folders-preview"></a>Autorisations pour les dossiers publics de la messagerie Exchange (préversion) 
 Pour définir les autorisations du compte de connecteur AD DS quand les dossiers publics de la messagerie Exchange sont activés, exécutez : 
@@ -267,9 +267,9 @@ Set-ADSyncExchangeMailPublicFolderPermissions -ADConnectorAccountDN <String> [-A
 ```
 Cette applet de commande définit les autorisations suivantes : 
 
-|Type |Nom |Access |S'applique à|
+|Type |Nom |Accès |S'applique à|
 |-----|-----|-----|-----| 
-|AUTORISER |Compte de connecteur AD DS |Lire toutes les propriétés |Objets PublicFolder descendants| 
+|Allow |Compte de connecteur AD DS |Lire toutes les propriétés |Objets PublicFolder descendants| 
 
 ### <a name="restrict-permissions-on-the-ad-ds-connector-account"></a>Restreindre les autorisations du compte de connecteur AD DS 
 Ce script PowerShell réduit les autorisations du compte de connecteur AD fourni comme paramètre. La réduction des autorisations implique les étapes suivantes : 
@@ -283,7 +283,7 @@ Ce script PowerShell réduit les autorisations du compte de connecteur AD fourni
 Set-ADSyncRestrictedPermissions [-ADConnectorAccountDN] <String> [-Credential] <PSCredential> [-DisableCredentialValidation] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```
  
-Par exemple : 
+Par exemple : 
 
 ``` powershell
 $credential = Get-Credential 
@@ -292,18 +292,18 @@ Set-ADSyncRestrictedPermissions -ADConnectorAccountDN'CN=ADConnectorAccount,CN=U
 
 Cette applet de commande définit les autorisations suivantes : 
 
-|Type |Nom |Access |S'applique à|
+|Type |Nom |Accès |S'applique à|
 |-----|-----|-----|-----| 
-|AUTORISER |SYSTEM |Contrôle total |Cet objet 
-|AUTORISER |Administrateurs de l’entreprise |Contrôle total |Cet objet 
-|AUTORISER |Admins du domaine |Contrôle total |Cet objet 
-|AUTORISER |Administrateurs |Contrôle total |Cet objet 
-|AUTORISER |Contrôleurs de domaine d’entreprise |Lister le contenu |Cet objet 
-|AUTORISER |Contrôleurs de domaine d’entreprise |Lire toutes les propriétés |Cet objet 
-|AUTORISER |Contrôleurs de domaine d’entreprise |Autorisations de lecture |Cet objet 
-|AUTORISER |Utilisateurs authentifiés |Lister le contenu |Cet objet 
-|AUTORISER |Utilisateurs authentifiés |Lire toutes les propriétés |Cet objet 
-|AUTORISER |Utilisateurs authentifiés |Autorisations de lecture |Cet objet 
+|Allow |SYSTEM |Contrôle total |Cet objet 
+|Allow |Administrateurs de l’entreprise |Contrôle total |Cet objet 
+|Allow |Admins du domaine |Contrôle total |Cet objet 
+|Allow |Administrateurs |Contrôle total |Cet objet 
+|Allow |Contrôleurs de domaine d’entreprise |Lister le contenu |Cet objet 
+|Allow |Contrôleurs de domaine d’entreprise |Lire toutes les propriétés |Cet objet 
+|Allow |Contrôleurs de domaine d’entreprise |Autorisations de lecture |Cet objet 
+|Allow |Utilisateurs authentifiés |Lister le contenu |Cet objet 
+|Allow |Utilisateurs authentifiés |Lire toutes les propriétés |Cet objet 
+|Allow |Utilisateurs authentifiés |Autorisations de lecture |Cet objet 
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Azure AD Connect : comptes et autorisations](reference-connect-accounts-permissions.md)

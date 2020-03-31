@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: donkim
 ms.openlocfilehash: 9e324af0b90f595b5b7af2a417a562efb193d854
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76156775"
 ---
 # <a name="quickstart-connect-to-a-custom-commands-application-with-the-speech-sdk-preview"></a>Démarrage rapide : Se connecter à une application Commandes personnalisées avec le kit de développement logiciel (SDK) Speech (préversion)
@@ -26,7 +26,7 @@ Dans cet article, vous allez :
 - Publier une application Commandes personnalisées et obtenir un identificateur d’application (ID d’application)
 - Créer une application cliente à l’aide du kit de développement logiciel (SDK) Speech pour vous permettre de parler avec votre application Commandes personnalisées
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Vous devez disposer d’une application Commandes personnalisées pour poursuivre cet article. Si vous n’avez pas encore créé d’application Commandes personnalisée, vous pouvez le faire dans les démarrages rapides suivants :
 

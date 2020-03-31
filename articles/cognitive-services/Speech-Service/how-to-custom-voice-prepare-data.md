@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
 ms.openlocfilehash: 5427e9f996fb77d455aa8064fc7cb1c65e1fcf7e
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74805975"
 ---
 # <a name="prepare-data-to-create-a-custom-voice"></a>Préparer des données en vue de créer une voix personnalisée
@@ -31,7 +31,7 @@ Dans certains cas, vous n’aurez peut-être pas à disposition le jeu de donné
 
 Ce tableau liste les types de données et la façon dont chacun est utilisé pour créer un modèle vocal personnalisé pour la synthèse vocale.
 
-| Type de données | Description | Quand utiliser | Autre service nécessaire | Quantité nécessaire pour l’entraînement d’un modèle | Paramètres régionaux |
+| Type de données | Description | Quand l’utiliser | Autre service nécessaire | Quantité nécessaire pour l’entraînement d’un modèle | Paramètres régionaux |
 | --------- | ----------- | ----------- | --------------------------- | ----------------------------- | --------- |
 | **Énoncés individuels + transcription correspondante** | Collection (.zip) de fichiers audio (.wav) correspondant à des énoncés individuels. Chaque fichier audio est limité à 15 secondes et est associé à une transcription formatée (.txt). | Enregistrements professionnels avec transcriptions correspondantes | Prêt pour l’entraînement. | Pas d’exigence spécifique pour les langues en-US et zh-CN. Plus de 2 000 énoncés distinctes pour les autres paramètres régionaux. | [Tous les paramètres régionaux de Custom Voice](language-support.md#customization) |
 | **Contenu audio long + transcription (bêta)** | Collection (.zip) de fichiers audio longs et non segmentés (plus de 20 secondes), associés à une transcription (.txt) qui contient tous les mots prononcés. | Vous disposez de fichiers audio et des transcriptions correspondantes, mais ils ne sont pas segmentés en énoncés. | Segmentation (à l’aide de la transcription Batch).<br>Transformation du format audio, si nécessaire. | Pas d’exigence précise  | [Tous les paramètres régionaux de Custom Voice](language-support.md#customization) |

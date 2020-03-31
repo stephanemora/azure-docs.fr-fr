@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: db7b2787df68e5e9baadddc7e6e6159cfff26097
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 69627c961d9224a124fda09f40901f837d627281
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75887238"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79233673"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Planification de la capacité pour les clusters HDInsight
 
@@ -56,7 +56,7 @@ Un cluster peut accéder à une combinaison de différents comptes de stockage. 
 * Quand vous souhaitez rendre accessibles au cluster des données déjà chargées dans un conteneur d’objets blob.
 * Quand vous souhaitez isoler différentes parties du stockage pour des raisons de sécurité ou pour simplifier l’administration.
 
-Pour un cluster à 48 nœuds, nous recommandons 4 à 8 comptes de stockage. Bien que le stockage total actuel puisse être suffisant, chaque compte de stockage fournit une bande passante réseau supplémentaire pour les nœuds de calcul. Quand vous avez plusieurs comptes de stockage, utilisez un nom aléatoire pour chaque compte de stockage, sans préfixe. L’objectif de l’attribution aléatoire des noms est de réduire le risque de goulot d’étranglement de stockage (limitation) ou les défaillances en mode commun parmi tous les comptes. Pour de meilleures performances, utilisez un seul conteneur par compte de stockage.
+Pour de meilleures performances, utilisez un seul conteneur par compte de stockage.
 
 ## <a name="choose-a-cluster-type"></a>Choisir un type de cluster
 
@@ -76,7 +76,7 @@ L’échelle d’un cluster est déterminée par la quantité de ses nœuds de m
 
 En fonction de votre type de cluster, l’augmentation du nombre de nœuds worker ajoute de la capacité de calcul supplémentaire (par exemple, davantage de cœurs), mais peut également ajouter à la quantité totale de mémoire requise pour que l’ensemble du cluster prenne en charge le stockage en mémoire des données en cours de traitement. Comme avec le choix de la taille et du type de machine virtuelle, la sélection de l’échelle de cluster appropriée est généralement effectuée de manière empirique, à l’aide de charges de travail simulées ou de requêtes canary.
 
-Vous pouvez faire monter en puissance votre cluster afin de répondre aux pics de charge, puis annuler la montée en puissance quand les nœuds supplémentaires ne sont plus nécessaires. La [fonctionnalité Mise à l’échelle automatique](hdinsight-autoscale-clusters.md) vous permet de mettre automatiquement à l’échelle votre cluster en fonction de métriques et de minutages prédéterminés. Pour plus d’informations sur la mise à l’échelle manuelle de vos clusters, consultez [Mettre à l’échelle des clusters HDInsight](hdinsight-scaling-best-practices.md).
+Vous pouvez effectuer un scale-out de votre cluster afin de répondre aux pics de charge, puis effectuer un scale-down quand les nœuds supplémentaires ne sont plus nécessaires. La [fonctionnalité Mise à l’échelle automatique](hdinsight-autoscale-clusters.md) vous permet de mettre automatiquement à l’échelle votre cluster en fonction de métriques et de minutages prédéterminés. Pour plus d’informations sur la mise à l’échelle manuelle de vos clusters, consultez [Mettre à l’échelle des clusters HDInsight](hdinsight-scaling-best-practices.md).
 
 ### <a name="cluster-lifecycle"></a>Cycle de vie du cluster
 
@@ -92,7 +92,7 @@ Parfois, des erreurs peuvent se produire à cause de l’exécution en parallèl
 
 ## <a name="quotas"></a>Quotas
 
-Après avoir déterminé la taille, l’échelle et le type de la machine virtuelle de votre cluster cible, vérifiez les limites de capacité de quota actuelles de votre abonnement. Quand vous atteignez une limite de quota, vous risquez de ne pas pouvoir déployer de nouveaux clusters ou de faire monter en puissance des clusters existants en ajoutant des nœuds worker. La seule limite de quota est le quota de cœurs de processeur qui existe au niveau régional pour chaque abonnement. Par exemple, votre abonnement peut avoir une limite de 30 cœurs dans la région USA Est. 
+Après avoir déterminé la taille, l’échelle et le type de la machine virtuelle de votre cluster cible, vérifiez les limites de capacité de quota actuelles de votre abonnement. Quand vous atteignez une limite de quota, vous risquez de ne pas pouvoir déployer de nouveaux clusters ou d’effectuer un scale-out des clusters existants en ajoutant des nœuds worker. La seule limite de quota est le quota de cœurs de processeur qui existe au niveau régional pour chaque abonnement. Par exemple, votre abonnement peut avoir une limite de 30 cœurs dans la région USA Est. 
 
 Pour vérifier vos cœurs disponibles, procédez comme suit :
 

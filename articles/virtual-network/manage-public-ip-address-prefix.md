@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 05/13/2019
 ms.author: anavin
 ms.openlocfilehash: 26d8ee34c735cab8f1033a9aad897ec0b1bed524
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65952679"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Créer, changer ou supprimer un préfixe d’adresse IP publique
@@ -47,11 +47,11 @@ Les préfixes d’adresse IP publique ont un coût. Pour en savoir plus, consult
 
    |Paramètre|Requis ?|Détails|
    |---|---|---|
-   |Abonnement|OUI|Doit exister dans le même [abonnement](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) que la ressource à laquelle vous voulez associer l’adresse IP publique.|
-   |Groupe de ressources|OUI|Peut exister dans un [groupe de ressources](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) identique ou différent de celui de la ressource à laquelle vous voulez associer l’adresse IP publique.|
-   |Nom|OUI|Le nom doit être unique au sein du groupe de ressources que vous avez sélectionné.|
-   |Région|OUI|Il doit exister dans la même [région](https://azure.microsoft.com/regions) que les adresses IP publiques auxquelles vous attribuez des adresses de la plage.|
-   |Taille de préfixe|OUI| Taille du préfixe dont vous avez besoin. La valeur par défaut est une adresse IP A/28 ou 16.
+   |Abonnement|Oui|Doit exister dans le même [abonnement](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) que la ressource à laquelle vous voulez associer l’adresse IP publique.|
+   |Resource group|Oui|Peut exister dans un [groupe de ressources](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) identique ou différent de celui de la ressource à laquelle vous voulez associer l’adresse IP publique.|
+   |Nom|Oui|Le nom doit être unique au sein du groupe de ressources que vous avez sélectionné.|
+   |Région|Oui|Il doit exister dans la même [région](https://azure.microsoft.com/regions) que les adresses IP publiques auxquelles vous attribuez des adresses de la plage.|
+   |Taille de préfixe|Oui| Taille du préfixe dont vous avez besoin. La valeur par défaut est une adresse IP A/28 ou 16.
 
 **Commandes**
 
@@ -70,7 +70,7 @@ Une fois que vous avez créé un préfixe, vous devez créer des adresses IP sta
 
    |Paramètre|Requis ?|Détails|
    |---|---|---|
-   |Nom|OUI|Le nom de l’adresse IP publique doit être unique au sein du groupe de ressources sélectionné.|
+   |Nom|Oui|Le nom de l’adresse IP publique doit être unique au sein du groupe de ressources sélectionné.|
    |Délai d’inactivité (minutes)|Non|Durée (en minutes) de maintien d’une connexion TCP ou HTTP ouverte sans utiliser les clients pour envoyer des messages keep-alive. |
    |Étiquette du nom DNS|Non|Elle doit être unique dans la région Azure où vous créez le nom (pour tous les abonnements et tous les clients). Azure inscrit automatiquement le nom et l’adresse IP dans son DNS pour que vous puissiez vous connecter à une ressource avec le nom. Azure ajoute un sous-réseau par défaut de type *emplacement.cloudapp.azure.com* (où emplacement est l’emplacement que vous fournissez) pour créer le nom DNS complet. Pour plus d’informations, consultez [Utiliser Azure DNS avec une adresse IP publique Azure](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).|
 
@@ -87,7 +87,7 @@ Vous pouvez également utiliser l’interface CLI et les commandes PS ci-dessous
 2. Sélectionnez le nom du préfixe d’adresse IP publique que vous voulez voir, dont vous voulez changer les paramètres ou que vous voulez supprimer de la liste.
 3. Choisissez l’une des options suivantes, selon que vous voulez voir le préfixe d’adresse IP publique, le supprimer ou le changer.
    - **Afficher** : La section **Vue d’ensemble** montre les paramètres principaux du préfixe d’adresse IP publique, comme le préfixe.
-   - **Supprimer** : Pour supprimer le préfixe d’adresse IP publique, sélectionnez **Supprimer** dans la section **Vue d’ensemble**. Si les adresses dans le préfixe sont associées à des ressources d’adresse IP publique, vous devez d’abord supprimer les ressources d’adresse IP publique. Consultez [Supprimer une adresse IP publique](virtual-network-public-ip-address.md#view-change-settings-for-or-delete-a-public-ip-address).
+   - **Supprimer** : Pour supprimer le préfixe d’adresse IP publique, sélectionnez **Supprimer** dans la section **Vue d’ensemble**. Si les adresses dans le préfixe sont associées à des ressources d’adresse IP publique, vous devez d’abord supprimer les ressources d’adresse IP publique. Consultez [Supprimer une adresse IP publique](virtual-network-public-ip-address.md#view-change-settings-for-or-delete-a-public-ip-address).
 
 **Commandes**
 

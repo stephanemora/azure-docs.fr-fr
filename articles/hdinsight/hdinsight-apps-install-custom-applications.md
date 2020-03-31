@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
-ms.openlocfilehash: c109f5309837de8c9b4bd3e4bc5a5da0a6da534e
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 8fe9e551a4ca7dea8f53e0f8c2975ca3d88c48f7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806862"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79366255"
 ---
 # <a name="install-custom-apache-hadoop-applications-on-azure-hdinsight"></a>Installer des applications Apache Hadoop personnalisées sur Azure HDInsight
 
@@ -23,7 +23,7 @@ Une application HDInsight est une application que les utilisateurs peuvent insta
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour installer des applications HDInsight sur un cluster HDInsight existant, vous devez disposer d’un cluster HDInsight. Pour en créer un, consultez [Créer des clusters](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster). Vous pouvez également installer des applications HDInsight lorsque vous créez un cluster HDInsight.
+Pour installer des applications HDInsight sur un cluster HDInsight existant, vous devez disposer d’un cluster HDInsight. Pour en créer un, consultez [Créer des clusters](hadoop/apache-hadoop-linux-tutorial-get-started.md). Vous pouvez également installer des applications HDInsight lorsque vous créez un cluster HDInsight.
 
 ## <a name="install-hdinsight-applications"></a>Install custom HDInsight applications
 
@@ -77,13 +77,13 @@ Pour **Hue**, suivez ces étapes :
 
 ### <a name="azure-portal"></a>Portail Azure
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Sélectionnez le cluster dans lequel vous avez installé l’application.
 1. Dans le menu **Paramètres**, sélectionnez **Applications**.
 1. Sélectionnez **hue** dans la liste pour voir les propriétés.  
 1. Sélectionnez le lien vers la page web pour valider le site web.
 
-### <a name="azure-cli"></a>D’Azure CLI
+### <a name="azure-cli"></a>Azure CLI
 
 Remplacez `CLUSTERNAME` et `RESOURCEGROUP` par les valeurs pertinentes, puis entrez les commandes suivantes :
 
@@ -125,13 +125,13 @@ En cas d’échec de l’installation d’une application, des messages d’erre
 
 ### <a name="azure-portal"></a>Portail Azure
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Sélectionnez le cluster dans lequel vous avez installé l’application.
 1. Dans le menu **Paramètres**, sélectionnez **Applications**.
 1. Cliquez avec le bouton droit sur l’application à supprimer, puis sélectionnez **Supprimer**.
 1. Sélectionnez **Oui** pour confirmer.
 
-### <a name="azure-cli"></a>D’Azure CLI
+### <a name="azure-cli"></a>Azure CLI
 
 Remplacez `NAME`, `CLUSTERNAME` et `RESOURCEGROUP` par les valeurs pertinentes, puis entrez la commande suivante :
 

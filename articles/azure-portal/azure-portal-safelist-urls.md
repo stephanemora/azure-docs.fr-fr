@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
 ms.openlocfilehash: c5bba7296a05cfbb72698a991ece1ef298689bd1
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76900659"
 ---
 # <a name="safelist-the-azure-portal-urls-on-your-firewall-or-proxy-server"></a>Mettre sur liste fiable les URL du portail Microsoft Azure sur votre pare-feu ou serveur proxy
@@ -26,7 +26,7 @@ Les administrateurs réseau déploient souvent des serveurs proxy, des pare-feu 
 
 Les points de terminaison d’URL à mettre sur liste fiable pour le portail Azure sont spécifiques au cloud Azure sur lequel votre organisation est déployée. Pour autoriser le trafic réseau vers ces points de terminaison à contourner les restrictions, sélectionnez votre cloud. Ajoutez ensuite la liste des URL à votre serveur proxy ou pare-feu.
 
-#### <a name="public-cloudtabpublic-cloud"></a>[Cloud public](#tab/public-cloud)
+#### <a name="public-cloud"></a>[Cloud public](#tab/public-cloud)
 
 ```
 *.aadcdn.microsoftonline-p.com
@@ -50,7 +50,7 @@ Les points de terminaison d’URL à mettre sur liste fiable pour le portail Azu
 *.windows-int.net
 ```
 
-#### <a name="us-government-cloudtabus-government-cloud"></a>[U.S. U.S. Government](#tab/us-government-cloud)
+#### <a name="us-government-cloud"></a>[U.S. U.S. Government](#tab/us-government-cloud)
 
 ```
 *.azure.us
@@ -63,7 +63,7 @@ Les points de terminaison d’URL à mettre sur liste fiable pour le portail Azu
 *.windowsazure.us
 ```
 
-#### <a name="china-government-cloudtabchina-government-cloud"></a>[Cloud China Government](#tab/china-government-cloud)
+#### <a name="china-government-cloud"></a>[Cloud China Government](#tab/china-government-cloud)
 
 ```
 *.azure.cn

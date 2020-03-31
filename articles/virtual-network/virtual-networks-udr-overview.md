@@ -17,11 +17,11 @@ ms.date: 10/26/2017
 ms.author: malop
 ms.reviewer: kumud
 ms.openlocfilehash: 8b95bb45436f45dc0e62fb12d6ab1b24c37372e1
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78356470"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79235957"
 ---
 # <a name="virtual-network-traffic-routing"></a>Routage du trafic de réseau virtuel
 
@@ -149,7 +149,7 @@ Lorsque le trafic est destiné à une adresse IP en dehors des préfixes d’adr
 
 Consultez [Exemple de routage](#routing-example) pour une table de routage complète avec des explications des itinéraires de la table.
 
-## <a name="default-route"></a>Préfixe d’adresse 0.0.0.0/0
+## <a name="00000-address-prefix"></a><a name="default-route"></a>Préfixe d’adresse 0.0.0.0/0
 
 Un itinéraire avec le préfixe d’adresse 0.0.0.0/0 indique à Azure la façon d’acheminer le trafic destiné à une adresse IP qui n’est pas dans le préfixe d’adresse de n’importe quel autre itinéraire de la table de routage d’un sous-réseau. Lors de la création d’un sous-réseau, Azure crée un itinéraire [par défaut](#default) vers le préfixe d’adresse 0.0.0.0/0, avec **Internet** comme type de tronçon suivant. Si vous ne substituez pas cet itinéraire, Azure achemine tout le trafic destiné à des adresses IP non incluses dans le préfixe d’adresse de n’importe quel autre itinéraire vers Internet. L’exception est que le trafic destiné aux adresses IP publiques des services Azure reste sur le réseau principal Azure et qu’il n’est pas routé vers Internet. Si vous substituez cet itinéraire avec un itinéraire [personnalisé](#custom-routes), le trafic destiné à des adresses qui ne sont pas comprises dans les préfixes d’adresse de n’importe quel autre itinéraire dans la table de routage est envoyé à une appliance virtuelle de réseau ou une passerelle de réseau virtuel, en fonction de l’option choisie dans un itinéraire personnalisé.
 

@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e7f8dd49f3668b8f68753681123a04d21edac46c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60381459"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations"></a>Considérations relatives à la conception d'identités hybrides Azure Active Directory
@@ -44,7 +44,7 @@ Vous pouvez utiliser ce guide pour apprendre à concevoir une solution d’ident
 
 Le schéma suivant illustre un exemple de solution d'identité hybride permettant aux administrateurs informatiques d'intégrer leur solution actuelle Windows Server Active Directory, locale, avec Microsoft Azure Active Directory pour permettre aux utilisateurs d'utiliser l'authentification unique sur l'ensemble des applications cloud et locales.
 
-![Exemples](media/plan-hybrid-identity-design-considerations/hybridID-example.png)
+![Exemple](media/plan-hybrid-identity-design-considerations/hybridID-example.png)
 
 L’illustration ci-dessus est un exemple de solution d’identité hybride qui exploite les services cloud et les intègre aux fonctionnalités locales afin de garantir une expérience unique pour le processus d’authentification de l’utilisateur final et de faciliter la gestion de ces ressources par le service informatique. Bien que cet exemple puisse être courant, le modèle d’identité hybride de chaque organisation est probablement différent de l’exemple illustré dans la Figure 1 en raison de la diversité des exigences. 
 

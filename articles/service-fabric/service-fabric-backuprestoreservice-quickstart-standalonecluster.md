@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 5/24/2019
 ms.author: hrushib
 ms.openlocfilehash: 938cbbde9f53c52350ef64715f6c61c4aa961057
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75526241"
 ---
 # <a name="periodic-backup-and-restore-in-a-standalone-service-fabric"></a>Sauvegarde et restauration périodiques dans un Service Fabric autonome
@@ -44,7 +44,7 @@ Service Fabric fournit un ensemble d’API pour obtenir les fonctions suivantes 
 - Suspendre temporairement les sauvegardes
 - Gérer la rétention des sauvegardes (à venir)
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 * Cluster Service Fabric avec Fabric version 6.4 ou ultérieure. Consultez cet [article](service-fabric-cluster-creation-for-windows-server.md) pour la procédure de téléchargement du package nécessaire.
 * Certificat X.509 pour le chiffrement des secrets nécessaire pour se connecter au stockage pour stocker les sauvegardes. Consultez [l’article](service-fabric-windows-cluster-x509-security.md) pour savoir comment acquérir ou créer un certificat X.509 auto-signé.
 
