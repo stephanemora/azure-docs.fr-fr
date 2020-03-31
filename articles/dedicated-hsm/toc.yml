@@ -26,6 +26,8 @@
   items:
     - name: Choix de l’architecture de déploiement
       href: deployment-architecture.md
+    - name: Dépannage
+      href: troubleshoot.md
 - name: Ressources
   items:
     - name: Forum aux questions

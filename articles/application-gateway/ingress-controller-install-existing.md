@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: dec43a4d7eb5a9546fcd77cce972b93542ea3b10
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 048ab7249b27839890bab3e677154ca3c7a0cc98
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795958"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80239437"
 ---
 # <a name="install-an-application-gateway-ingress-controller-agic-using-an-existing-application-gateway"></a>Installer un contrôleur d’entrée Application Gateway (AGIC) à l’aide d’une instance Application Gateway existante
 
@@ -22,8 +22,8 @@ AGIC surveille les ressources [d’entrée](https://kubernetes.io/docs/concepts/
 ## <a name="outline"></a>Plan :
 - [Composants requis](#prerequisites)
 - [Authentification Azure Resource Manager (ARM)](#azure-resource-manager-authentication)
-    - Option 1 : [Configurer aad-pod-identity](#set-up-aad-pod-identity) et créer une identité Azure sur ARM
-    - Option 2 : [Utiliser un principal du service](#using-a-service-principal)
+    - Option 1 : [Configurer aad-pod-identity](#set-up-aad-pod-identity) et créer une identité Azure sur ARM
+    - Option n°2 : [Utiliser un principal du service](#using-a-service-principal)
 - [Installer le contrôleur d’entrée avec Helm](#install-ingress-controller-as-a-helm-chart)
 - [Instance Application Gateway partagée/sur plusieurs clusters](#multi-cluster--shared-application-gateway) : Installez AGIC dans un environnement où l’instance Application Gateway est partagée entre un ou plusieurs clusters AKS et/ou d’autres composants Azure.
 
@@ -81,13 +81,13 @@ Utilisez [Cloud Shell](https://shell.azure.com/) pour exécuter toutes les comma
 
 1. Créez une identité Azure **dans le même groupe de ressources que les nœuds AKS**. Il est important de choisir le groupe de ressources approprié. Le groupe de ressources requis dans la commande ci-dessous n’est *pas* celui référencé dans le volet du portail AKS. Il s’agit du groupe de ressources des machines virtuelles `aks-agentpool`. En général, le groupe de ressources commence par `MC_` et contient le nom de votre instance AKS. Par exemple : `MC_resourceGroup_aksABCD_westus`
 
-    ```bash
+    ```azurecli
     az identity create -g <agent-pool-resource-group> -n <identity-name>
     ```
 
 1. Pour les commandes d’attribution de rôle ci-dessous, nous devons obtenir `principalId` pour l’identité nouvellement créée :
 
-    ```bash
+    ```azurecli
     az identity show -g <resourcegroup> -n <identity-name>
     ```
 
@@ -95,7 +95,7 @@ Utilisez [Cloud Shell](https://shell.azure.com/) pour exécuter toutes les comma
 
     Récupérez la liste des ID de l’instance Application Gateway dans votre abonnement avec : `az network application-gateway list --query '[].id'`
 
-    ```bash
+    ```azurecli
     az role assignment create \
         --role Contributor \
         --assignee <principalId> \
@@ -104,7 +104,7 @@ Utilisez [Cloud Shell](https://shell.azure.com/) pour exécuter toutes les comma
 
 1. Donnez à l’identité un accès `Reader` au groupe de ressources Application Gateway. L’ID du groupe de ressources ressemble à ce qui suit : `/subscriptions/A/resourceGroups/B`. Vous pouvez récupérer tous les groupes de ressources avec : `az group list --query '[].id'`
 
-    ```bash
+    ```azurecli
     az role assignment create \
         --role Reader \
         --assignee <principalId> \
@@ -116,7 +116,7 @@ Il est également possible de fournir un accès AGIC à ARM via un secret Kubern
 
 1. Créez un principal du service Azure Active Directory et encodez-le en base64. L’encodage base64 est requis pour enregistrer le blob JSON dans Kubernetes.
 
-```bash
+```azurecli
 az ad sp create-for-rbac --subscription <subscription-uuid> --sdk-auth | base64 -w0
 ```
 
@@ -137,7 +137,7 @@ Les premières étapes consistent à installer Tiller de Helm sur votre cluster 
     helm repo update
     ```
 
-1. Téléchargez helm-config.yam pour configurer AGIC :
+1. Téléchargez helm-config.yaml pour configurer AGIC :
     ```bash
     wget https://raw.githubusercontent.com/Azure/application-gateway-kubernetes-ingress/master/docs/examples/sample-helm-config.yaml -O helm-config.yaml
     ```

@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ee07fdb6f8a4e69600297bdb16b6ad74793f10c9
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74007721"
 ---
 # <a name="i-cant-find-all-the-data-in-the-azure-active-directory-activity-logs-i-downloaded"></a>Je ne parviens pas à trouver toutes les donnée dans les journaux d’activité Azure Active Directory que j’ai téléchargés
@@ -30,13 +30,13 @@ ms.locfileid: "74007721"
 
 J’ai téléchargé les journaux d’activité (d’audit ou de connexion) et tous les enregistrements correspondant à la période choisie n’apparaissent pas. Pourquoi ? 
 
- ![Reporting](./media/troubleshoot-missing-data-download/01.png)
+ ![Signalement](./media/troubleshoot-missing-data-download/01.png)
  
-## <a name="cause"></a>Cause :
+## <a name="cause"></a>Cause
 
 Lorsque vous téléchargez des journaux d'activité sur le portail Azure, nous limitons l'échelle à 250 000 enregistrements, classés dans l'ordre du plus récent au moins récent. 
 
-## <a name="resolution"></a>Résolution :
+## <a name="resolution"></a>Résolution
 
 Vous pouvez tirer parti des [API de création de rapports Azure AD](concept-reporting-api.md) pour extraire jusqu’à un million d’enregistrements pour un point donné.
 

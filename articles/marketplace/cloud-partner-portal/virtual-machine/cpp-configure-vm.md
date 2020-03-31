@@ -1,19 +1,18 @@
 ---
 title: Configurer la machine virtuelle hébergée sur Microsoft Azure pour la Place de marché Microsoft Azure
 description: Cet article explique comment dimensionner, mettre à jour et généraliser une machine virtuelle hébergée sur Azure.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/19/2018
-ms.author: pabutler
-ms.openlocfilehash: ce7fe49b07dc250a9f56ff73229e347b997f0cc0
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: b0ed430098203c5c1a0d00eb7bf17da1be0000cb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824495"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278090"
 ---
 # <a name="configure-the-azure-hosted-vm"></a>Configurer la machine virtuelle hébergée sur Azure
 

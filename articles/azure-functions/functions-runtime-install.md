@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: anwestg
 ms.openlocfilehash: 7ad748aa9a5b45af10121648a668344548484cf7
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74226739"
 ---
 # <a name="install-the-azure-functions-runtime-preview-2"></a>Installer la préversion 2 du runtime Azure Functions
@@ -75,7 +75,7 @@ Pour terminer l’installation du runtime d’Azure Functions, vous devez termin
 
     ![Configuration de la base de données de la préversion du runtime d’Azure Functions][8]
 
-1. Cliquez sur l’onglet **Informations d’identification**.  Ici, vous devez créer deux nouveaux jeux d’informations d’identification à utiliser avec un partage de fichiers pour l’hébergement de toutes vos applications de fonction.  Spécifiez les combinaisons de **nom d’utilisateur** et de **mot de passe** du **propriétaire du partage de fichiers** et de l’**utilisateur du partage de fichiers**, puis cliquez sur **Appliquer**.
+1. Cliquez sur l’onglet **Informations d’identification** .  Ici, vous devez créer deux nouveaux jeux d’informations d’identification à utiliser avec un partage de fichiers pour l’hébergement de toutes vos applications de fonction.  Spécifiez les combinaisons de **nom d’utilisateur** et de **mot de passe** du **propriétaire du partage de fichiers** et de l’**utilisateur du partage de fichiers**, puis cliquez sur **Appliquer**.
 
     ![Informations d’identification de la préversion du runtime d’Azure Functions][9]
 

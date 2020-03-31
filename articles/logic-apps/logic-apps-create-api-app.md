@@ -7,11 +7,11 @@ ms.reviewer: klam, jehollan, logicappspm
 ms.topic: article
 ms.date: 05/26/2017
 ms.openlocfilehash: bb6c99ea12e5b53631d42a04b36b7bfef2337e42
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77191443"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79233025"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Créer des API personnalisées que vous pouvez appeler à partir d’Azure Logic Apps
 
@@ -100,7 +100,7 @@ Voici les étapes spécifiques que votre API doit suivre, décrites du point de 
    
    La réponse `202 ACCEPTED` doit inclure ces en-têtes :
    
-   * *Obligatoire* : un en-tête `location` qui spécifie le chemin absolu à une URL permettant au moteur Logic Apps de vérifier l’état du travail de votre API.
+   * *Requis* : un en-tête `location` qui spécifie le chemin d’accès absolu à une URL permettant au moteur Logic Apps de vérifier l’état du travail de votre API
 
    * *Facultatif* : un en-tête `retry-after` qui spécifie le nombre de secondes pendant lesquelles le moteur doit attendre avant de vérifier l’URL `location` pour connaître l’état du travail. 
 
@@ -130,7 +130,7 @@ Lorsque le travail est terminé, votre API utilise l’URL pour en informer le m
 
 Pour ce modèle, définissez deux points de terminaison sur votre contrôleur : `subscribe` et `unsubscribe`
 
-*  Point de terminaison `subscribe` : quand l’exécution atteint l’action de votre API dans le workflow, le moteur Logic Apps appelle le point de terminaison `subscribe`. Cette étape entraîne la création par l’application logique d’une URL de rappel que votre API enregistre, avant d’attendre le rappel de votre API lorsque le travail est terminé. Votre API envoie ensuite un rappel avec un élément POST HTTP à l’URL et transmet à l’application logique les en-têtes et le contenu renvoyés en tant qu’entrées.
+*  Point de terminaison `subscribe` : lorsque l’exécution atteint l’action de votre API dans le flux de travail, le moteur Logic Apps appelle le point de terminaison `subscribe`. Cette étape entraîne la création par l’application logique d’une URL de rappel que votre API enregistre, avant d’attendre le rappel de votre API lorsque le travail est terminé. Votre API envoie ensuite un rappel avec un élément POST HTTP à l’URL et transmet à l’application logique les en-têtes et le contenu renvoyés en tant qu’entrées.
 
 * Point de terminaison `unsubscribe` : si l’exécution de l’application logique est annulée, le moteur Logic Apps appelle le point de terminaison `unsubscribe`. Votre API peut alors annuler l’inscription de l’URL de rappel, et arrêter tous les processus selon les besoins.
 
@@ -192,9 +192,9 @@ Par exemple, pour vérifier périodiquement la présence de nouveaux fichiers da
 Un déclencheur Webhook est un *déclencheur d’émission* qui attend et écoute les nouvelles données ou les événements au point de terminaison de votre service. Si de nouvelles données ou un événement remplissent la condition spécifiée, le déclencheur est activé et crée une instance d’application logique, qui traite ensuite les données en tant qu’entrée.
 Les déclencheurs Webhook agissent de façon très similaire aux [actions Webhook](#webhook-actions) précédemment décrites dans cette rubrique. Ils sont configurés avec les points de terminaison `subscribe` et `unsubscribe`. 
 
-* Point de terminaison `subscribe` : quand vous ajoutez et enregistrez un déclencheur de webhook dans votre application logique, le moteur Logic Apps appelle le point de terminaison `subscribe`. Cette étape entraîne la création par l’application logique d’une URL de rappel que votre API enregistre. Lorsque de nouvelles données ou un événement remplissent la condition spécifiée, votre API envoie un rappel avec un élément POST HTTP à l’URL. La charge utile de contenu et les en-têtes sont transmis à l’application logique en tant qu’entrée.
+* Point de terminaison `subscribe` : lorsque vous ajoutez et enregistrez un déclencheur Webhook dans votre application logique, le moteur Logic Apps appelle le point de terminaison `subscribe`. Cette étape entraîne la création par l’application logique d’une URL de rappel que votre API enregistre. Lorsque de nouvelles données ou un événement remplissent la condition spécifiée, votre API envoie un rappel avec un élément POST HTTP à l’URL. La charge utile de contenu et les en-têtes sont transmis à l’application logique en tant qu’entrée.
 
-* Point de terminaison `unsubscribe` : si le déclencheur de webhook ou l’intégralité de l’application logique est supprimé, le moteur Logic Apps appelle le point de terminaison `unsubscribe`. Votre API peut alors annuler l’inscription de l’URL de rappel, et arrêter tous les processus selon les besoins.
+* Point de terminaison `unsubscribe` : si le déclencheur Webhook ou l’intégralité de l’application logique est supprimé, le moteur Logic Apps appelle le point de terminaison `unsubscribe`. Votre API peut alors annuler l’inscription de l’URL de rappel, et arrêter tous les processus selon les besoins.
 
 ![Modèle de déclencheur Webhook](./media/logic-apps-create-api-app/custom-api-webhook-trigger-pattern.png)
 

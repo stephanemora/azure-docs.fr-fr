@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 01/22/2020
 ms.author: jaredro
 ms.openlocfilehash: 2722a852b1119ef619bc414bce5cb3a8ff6f8f00
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77031610"
 ---
 # <a name="how-to-configure-expressroute-direct"></a>Comment configurer ExpressRoute Direct
 
 ExpressRoute Direct vous offre la possibilité de vous connecter directement au réseau mondial Microsoft à partir d’emplacements de peering qui sont distribués stratégiquement dans le monde entier. Pour plus d’informations, consultez [A propos d’ExpressRoute Direct](expressroute-erdirect-about.md).
 
-## <a name="resources"></a>Créer la ressource
+## <a name="create-the-resource"></a><a name="resources"></a>Créer la ressource
 
 1. Connectez-vous à Azure et sélectionnez l’abonnement. La ressource ExpressRoute Direct et les circuits ExpressRoute doivent se trouver dans le même abonnement.
 
@@ -155,7 +155,7 @@ ExpressRoute Direct vous offre la possibilité de vous connecter directement au 
    Circuits                   : []
    ```
 
-## <a name="state"></a>Changer l’état Administrateur de liens
+## <a name="change-admin-state-of-links"></a><a name="state"></a>Changer l’état Administrateur de liens
 
   Ce processus doit être utilisé pour effectuer un test de la couche 1, en s’assurant que chaque connexion croisée est correctement reliée dans chaque routeur principal et secondaire.
 1. Obtenez des détails sur ExpressRoute Direct.
@@ -225,7 +225,7 @@ ExpressRoute Direct vous offre la possibilité de vous connecter directement au 
 
    Utilisez la même procédure avec `AdminState = "Disabled"` pour désactiver les ports.
 
-## <a name="circuit"></a>Créer un circuit
+## <a name="create-a-circuit"></a><a name="circuit"></a>Créer un circuit
 
 Par défaut, vous pouvez créer 10 circuits dans l’abonnement où se trouve la ressource ExpressRoute Direct. Ce nombre peut être augmenté par le support. Vous êtes responsable du suivi de la bande passante approvisionnée et utilisée. La bande passante approvisionnée équivaut à la somme de la bande passante de tous les circuits sur la ressource ExpressRoute Direct et la bande passante utilisée équivaut à l’utilisation physique des interfaces physiques sous-jacentes.
 

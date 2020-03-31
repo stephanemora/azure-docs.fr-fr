@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: cdf447239da2f99c208ebd555f3d68e0302699b8
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: f8c1500dbbd9135a850e145199de8fea68cc4630
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806233"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79218999"
 ---
 # <a name="get-the-cognitive-services-speech-devices-sdk"></a>Obtenir le kit de développement logiciel (SDK) Speech Devices de Cognitive Services
 
@@ -25,10 +25,10 @@ Le kit SDK Speech Devices est une bibliothèque préconfigurée conçue pour fon
 
 |Appareils|Caractéristique|Description|Scénarios|
 |--|--|--|--|
-|[Kit de développement Roobo Smart Audio](https://ddk.roobo.com)</br>[Configuration](speech-devices-sdk-roobo-v1.md) / [Démarrage rapide](speech-devices-sdk-android-quickstart.md)![Kit de développement Roobo Smart Audio](media/speech-devices-sdk/device-roobo-v1.jpg)|Ensemble de 7 micros, SoC ARM, Wi-Fi, sortie audio, E/S. </br>[Android](speech-devices-sdk-android-quickstart.md)|Le premier kit SDK Speech Devices à adapter l’ensemble Microsoft Mic Array et le kit SDK de traitement frontal pour développer des scénarios de transcription et de reconnaissance vocale de qualité.|Transcription de conversation, enceinte connectée, agent vocal, technologie portable|
-|[Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)</br>[Configurer](https://docs.microsoft.com/azure/Kinect-dk/set-up-azure-kinect-dk) / [Démarrage rapide](speech-devices-sdk-windows-quickstart.md)![Azure Kinect DK](media/speech-devices-sdk/device-azure-kinect-dk.jpg)|Caméras de profondeur et RVB avec ensemble de 7 micros. </br>[Windows](speech-devices-sdk-windows-quickstart.md)/[Linux](speech-devices-sdk-linux-quickstart.md)|Kit de développement doté de capteurs d’intelligence artificielle (IA) avancés pour élaborer des modèles vocaux et des modèles de vision par ordinateur sophistiqués. Il associe un ensemble de microphones spatiaux de pointe et une caméra de profondeur à une caméra vidéo et à un capteur d'orientation, le tout au sein d'un petit dispositif doté de différents modes, options et kits SDK pour gérer différents types de calcul.|Transcription de conversation, robotique, bâtiment intelligent|
-|Kit de développement Roobo Smart Audio 2![Kit de développement Roobo Smart Audio 2](media/speech-devices-sdk/device-roobo-v2.jpg)|Ensemble de 7 micros, SoC ARM, Wi-Fi, Bluetooth, E/S. </br>Linux|Le kit SDK Speech Devices deuxième génération, qui offre un autre système d’exploitation et des fonctionnalités supplémentaires dans une conception de référence économique.|Transcription de conversation, enceinte connectée, agent vocal, technologie portable|
-|Carte de développement URbetter T11![Kit DDK URbetter](media/speech-devices-sdk/device-urbetter.jpg)|Ensemble de 7 micros, SoC ARM, Wi-Fi, Ethernet, HDMI, caméra USB. </br>Linux|Un kit SDK Speech Devices de niveau industriel qui adapte l’ensemble Microsoft Mic Array et prend en charge de nombreuses E/S, comme HDMI/Ethernet et d’autres périphériques USB.|Transcription de conversation, enseignement, hôpital, robots, boîte OTT, la agent vocal, Drive Thru|
+|[Kit de développement Roobo Smart Audio](https://ddk.roobo.com)<br>[Configuration](speech-devices-sdk-roobo-v1.md) / [Démarrage rapide](speech-devices-sdk-android-quickstart.md)![Kit de développement Roobo Smart Audio](media/speech-devices-sdk/device-roobo-v1.jpg)|Ensemble de 7 micros, SoC ARM, Wi-Fi, sortie audio, E/S. <br>[Android](speech-devices-sdk-android-quickstart.md)|Le premier kit SDK Speech Devices à adapter l’ensemble Microsoft Mic Array et le kit SDK de traitement frontal pour développer des scénarios de transcription et de reconnaissance vocale de qualité.|Transcription de conversation, enceinte connectée, agent vocal, technologie portable|
+|[Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)<br>[Configurer](https://docs.microsoft.com/azure/Kinect-dk/set-up-azure-kinect-dk) / [Démarrage rapide](speech-devices-sdk-windows-quickstart.md)![Azure Kinect DK](media/speech-devices-sdk/device-azure-kinect-dk.jpg)|Caméras de profondeur et RVB avec ensemble de 7 micros. <br>[Windows](speech-devices-sdk-windows-quickstart.md)/[Linux](speech-devices-sdk-linux-quickstart.md)|Kit de développement doté de capteurs d’intelligence artificielle (IA) avancés pour élaborer des modèles vocaux et des modèles de vision par ordinateur sophistiqués. Il associe un ensemble de microphones spatiaux de pointe et une caméra de profondeur à une caméra vidéo et à un capteur d'orientation, le tout au sein d'un petit dispositif doté de différents modes, options et kits SDK pour gérer différents types de calcul.|Transcription de conversation, robotique, bâtiment intelligent|
+|Kit de développement Roobo Smart Audio 2<br>[Paramétrage](speech-devices-sdk-roobo-v2.md)<br>![Kit de développement Roobo Smart Audio 2](media/speech-devices-sdk/device-roobo-v2.jpg)|Ensemble de 7 micros, SoC ARM, Wi-Fi, Bluetooth, E/S. <br>Linux|Le kit SDK Speech Devices deuxième génération, qui offre un autre système d’exploitation et des fonctionnalités supplémentaires dans une conception de référence économique.|Transcription de conversation, enceinte connectée, agent vocal, technologie portable|
+|Carte de développement URbetter T11![Kit DDK URbetter](media/speech-devices-sdk/device-urbetter.jpg)|Ensemble de 7 micros, SoC ARM, Wi-Fi, Ethernet, HDMI, caméra USB. <br>Linux|Un kit SDK Speech Devices de niveau industriel qui adapte l’ensemble Microsoft Mic Array et prend en charge de nombreuses E/S, comme HDMI/Ethernet et d’autres périphériques USB.|Transcription de conversation, enseignement, hôpital, robots, boîte OTT, la agent vocal, Drive Thru|
 
 ## <a name="download-the-speech-devices-sdk"></a>Télécharger le kit de développement logiciel (SDK) Speech Devices
 

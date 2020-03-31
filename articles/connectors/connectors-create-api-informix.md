@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 01/07/2020
 tags: connectors
 ms.openlocfilehash: dccb715c974037b4e3080f3e51576feae34c03df
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76757966"
 ---
 # <a name="manage-ibm-informix-database-resources-by-using-azure-logic-apps"></a>Gérer des ressources de base de données IBM Informix à l’aide d’Azure Logic Apps
@@ -25,7 +25,7 @@ Avec [Azure Logic Apps](../logic-apps/logic-apps-overview.md) et le [connecteur 
 
 Cette rubrique décrit comment utiliser le connecteur dans une application logique pour traiter les opérations de base de données.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
 
@@ -83,7 +83,7 @@ Cette rubrique décrit comment utiliser le connecteur dans une application logiq
    | Nom de la connexion | `name` | Oui | `informix-demo-connection` | Nom à utiliser pour la connexion à votre base de données Informix |
    | Serveur | `server` | Oui | - Cloud : `informixdemo.cloudapp.net:9089` <br>- Local : `informixdemo:9089` | L’adresse TCP/IP ou l’alias au format IPv4 ou IPv6, suivi de deux-points et d’un numéro de port TCP/IP |
    | Base de données | `database` | Oui | `nwind` | Nom de la base de données relationnelle DRDA (RDBNAM) ou nom de la base de données Informix (dbname). Informix accepte une chaîne de 128 octets. |
-   | Authentication | `authentication` | Local uniquement | **De base** ou **Windows** (Kerberos) | Type d’authentification requis par votre base de données Informix. Cette propriété s’affiche uniquement quand vous sélectionnez **Se connecter via une passerelle de données locale**. |
+   | Authentification | `authentication` | Local uniquement | **De base** ou **Windows** (Kerberos) | Type d’authentification requis par votre base de données Informix. Cette propriété s’affiche uniquement quand vous sélectionnez **Se connecter via une passerelle de données locale**. |
    | Nom d’utilisateur | `username` | Non | <*nom_utilisateur_base_de_données*> | Nom d’utilisateur pour la base de données |
    | Mot de passe | `password` | Non | <*mot-de_passe_base_de_données*> | Mot de passe pour la base de données |
    | Passerelle | `gateway` | Local uniquement | - <*abonnement_Azure*> <br>- <*ressource_passerelle_de_données_locale_Azure*> | Abonnement Azure et nom de la ressource Azure pour la passerelle de données locale que vous avez créée dans le portail Azure. La propriété **Passerelle** et les sous-propriétés s’affichent uniquement quand vous sélectionnez **Se connecter via une passerelle de données locale**. |

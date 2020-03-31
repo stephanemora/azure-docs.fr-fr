@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 11/19/2018
 ms.author: genli
 ms.openlocfilehash: 4c10a2dcd55c1605cfafe6c67cfefd9d8a3c5f9d
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71057983"
 ---
 # <a name="cannot-connect-remotely-to-a-windows-10-or-windows-server-2016-vm-in-azure-because-of-netvscsys"></a>Impossible de se connecter à distance à une machine virtuelle Windows 10 ou Windows Server 2016 dans Azure en raison de netvsc.sys
@@ -29,7 +29,7 @@ Vous n’arrivez pas à vous connecter à une machine virtuelle Azure Windows 1
 
 En règle générale, ce problème se produit dans Windows [build 14393](https://support.microsoft.com/help/4093120/) et [build 15063](https://support.microsoft.com/help/4015583/). Si la version de votre système d’exploitation est postérieure à ces versions, cet article ne s’applique pas à votre scénario. Pour vérifier la version du système, ouvrez une session CMD dans [la fonctionnalité Console d’accès série](serial-console-windows.md), puis exécutez **Ver**.
 
-## <a name="cause"></a>Cause :
+## <a name="cause"></a>Cause
 
 Ce problème risque de se produire si la version du fichier système netvsc.sys installé est **10.0.14393.594** ou **10.0.15063.0**. Ces versions de netvsc.sys risquent d’empêcher le système d’interagir avec la plateforme Azure.
 

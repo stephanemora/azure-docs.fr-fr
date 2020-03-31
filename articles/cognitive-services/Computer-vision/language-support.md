@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.openlocfilehash: a834c68119340d796f87971912a07fc0524a6d21
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718610"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79218855"
 ---
 # <a name="language-support-for-computer-vision"></a>Prise en charge des langues pour la Vision par ordinateur
 
@@ -27,7 +27,7 @@ La Vision par ordinateur peut reconnaître du texte dans de nombreuses langues. 
 
 L’OCR détecte automatiquement la langue du matériau d’entrée ; il est donc inutile de spécifier un code de langue dans l’appel d’API. Les codes de langue sont toujours retournés dans la valeur du nœud `"language"` de la réponse JSON.
 
-|Langage| Code de langue | API OCR |
+|Langage| Code langue | API OCR |
 |:-----|:----:|:-----:|
 |Arabe | `ar`|✔ |
 |Chinois (simplifié) | `zh-Hans`|✔ |
@@ -37,7 +37,7 @@ L’OCR détecte automatiquement la langue du matériau d’entrée ; il est don
 |Néerlandais | `nl` |✔ |
 |Anglais | `en` |✔ |
 |Finnois | `fi` |✔ |
-|Anglais | `fr` |✔ |
+|Français | `fr` |✔ |
 |Allemand | `de` |✔ |
 |Grec | `el` |✔ |
 |Hongrois | `hu` |✔ |
@@ -60,7 +60,7 @@ L’OCR détecte automatiquement la langue du matériau d’entrée ; il est don
 
 Certaines actions de l’API [Analyser – Image](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) peuvent retourner des résultats dans d’autres langues, spécifiées avec le paramètre de requête `language`. D’autres donnent des résultats en anglais indépendamment de la langue spécifiée ; les dernières lèvent une exception pour les langues non prises en charge. Les actions sont spécifiées avec les paramètres de requête `visualFeatures` et `details` ; pour connaître la liste des actions possibles avec l’analyse d’image, voir la [Vue d’ensemble](home.md).
 
-|Langage | Code de langue | Catégories | Balises | Description | Adulte | Marques | Couleur | Visages | ImageType | Objets | Célébrités | Points de repère |
+|Langage | Code langue | Catégories | Balises | Description | Adulte | Marques | Couleur | Visages | ImageType | Objets | Célébrités | Points de repère |
 |:---|:---:|:----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |Chinois | `zh`    | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
 |Anglais | `en`   | ✔ | ✔| ✔|✔|✔|✔|✔|✔|✔|✔|✔|

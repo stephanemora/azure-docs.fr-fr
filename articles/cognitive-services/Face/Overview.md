@@ -9,14 +9,16 @@ ms.subservice: face-api
 ms.topic: overview
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: c4e2253229f4461bcb6a2a9fe3e561f3cde29760
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: c433d99fd96e99d418fd5500c1075e68dfb1742c
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76170256"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80053595"
 ---
 # <a name="what-is-the-azure-face-service"></a>Présentation du service Visage Azure
+
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 Le service Visage d’Azure Cognitive Services fournit des algorithmes qui sont utilisés pour détecter, reconnaître et analyser les visages humains dans des images. La capacité à traiter les informations relatives aux visages humains concerne de nombreux scénarios logiciels. La reconnaissance faciale est notamment utilisée dans la sécurité, l’interface utilisateur naturelle, l’analyse et la gestion du contenu de l’image, les applications mobiles et la robotique.
 
@@ -57,7 +59,7 @@ L’API de regroupement divise un ensemble de visages inconnus en plusieurs grou
 
 ## <a name="person-identification"></a>Identification de personnes
 
-L’API d’identification permet d’identifier un visage détecté en le comparant à ceux d’une base de données de personnes. Cette fonctionnalité peut être utile pour étiqueter automatiquement les images dans les logiciels de gestion de photos. Vous créez la base de données à l’avance,qui pourra ensuite être modifiée au fil du temps.
+L’API d’identification permet d’identifier un visage détecté en le comparant à ceux d’une base de données de personnes. Cette fonctionnalité peut être utile pour baliser automatiquement les images dans les logiciels de gestion de photos. Vous créez la base de données à l’avance,qui pourra ensuite être modifiée au fil du temps.
 
 L’image suivante est un exemple de base de données nommée `"myfriends"`. Chaque groupe peut contenir jusqu’à 1 million d’objets Personne différents. Chaque objet Personne peut avoir jusqu’à 248 visages enregistrés.
 

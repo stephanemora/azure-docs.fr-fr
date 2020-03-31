@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
 ms.openlocfilehash: 176b0634fe2c7ee2f47162e439c4ea16bde77a8a
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75772616"
 ---
 # <a name="troubleshoot-azure-virtual-machine-performance-on-linux-or-windows"></a>Résoudre les problèmes de performances des machines virtuelles Azure sur Linux ou Windows
@@ -216,7 +216,7 @@ Avec les nouvelles offres de disque sous le stockage standard, les limites de d�
 
 La bande passante du compte de stockage est mesurée à l’aide des métriques de compte de stockage : TotalIngress et TotalEgress. Les seuils de bande passante sont différents selon le type de redondance et les régions.
 
-* [Objectifs de scalabilité et de performances pour les comptes de stockage standard](../../storage/common/scalability-targets-standard-account.md)
+* [Objectifs d’extensibilité et de performances pour les comptes de stockage standard](../../storage/common/scalability-targets-standard-account.md)
 
 Comparez les valeurs TotalIngress et TotalEgress aux limites d’entrée et de sortie pour le type de redondance et la région du compte de stockage.
 

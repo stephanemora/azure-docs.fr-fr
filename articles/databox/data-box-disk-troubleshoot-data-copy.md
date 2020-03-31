@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 06/13/2019
 ms.author: alkohli
 ms.openlocfilehash: 760f5c6c929aa082993683d7a466a71c6484289a
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67148133"
 ---
 # <a name="troubleshoot-data-copy-issues-in-azure-data-box-disk"></a>Résoudre les problèmes de copie de données rencontrés dans Azure Data Box Disk

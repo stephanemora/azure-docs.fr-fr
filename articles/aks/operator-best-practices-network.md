@@ -5,10 +5,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.openlocfilehash: 93659a0891b09c83db9f63fe0756fcf4d7e87f6a
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77594683"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Meilleures pratiques pour la connectivité réseau et la sécurité dans Azure Kubernetes Service (AKS)
@@ -44,7 +44,7 @@ Avec une mise en réseau Azure CNI, la ressource de réseau virtuel se trouve da
 
 Pour plus d’informations sur la délégation du principal du service AKS, voir [Déléguer l’accès à d’autres ressources Azure][sp-delegation].
 
-Dans la mesure où chaque nœud et chaque pod reçoit sa propre adresse IP, planifiez les plages d’adresses des sous-réseaux AKS. Le sous-réseau doit être assez grand pour offrir une adresse IP à chacun des nœuds, pods et ressources réseau déployés. Chaque cluster AKS doit être placé dans son propre sous-réseau. Pour autoriser la connexion à des réseaux locaux ou en peering dans Azure, n’utilisez pas de plages d’adresses IP qui recouvrent des ressources réseau existantes. Des limites par défaut s’appliquent au nombre de pods qu’exécute chaque nœud avec une mise en réseau Kubenet ou Azure CNI. Pour gérer les événements de montée en charge et les mises à niveau de cluster, des adresses IP supplémentaires sont également nécessaires dans le sous-réseau attribué. Cet espace d’adressage supplémentaire est particulièrement important si vous utilisez des conteneurs Windows Server (actuellement en préversion dans AKS), car ces pools de nœuds nécessitent une mise à niveau pour appliquer les derniers correctifs de sécurité. Pour plus d’informations sur les nœuds Windows Server, consultez [Mettre à niveau un pool de nœuds dans AKS][nodepool-upgrade].
+Dans la mesure où chaque nœud et chaque pod reçoit sa propre adresse IP, planifiez les plages d’adresses des sous-réseaux AKS. Le sous-réseau doit être assez grand pour offrir une adresse IP à chacun des nœuds, pods et ressources réseau déployés. Chaque cluster AKS doit être placé dans son propre sous-réseau. Pour autoriser la connexion à des réseaux locaux ou en peering dans Azure, n’utilisez pas de plages d’adresses IP qui recouvrent des ressources réseau existantes. Des limites par défaut s’appliquent au nombre de pods qu’exécute chaque nœud avec une mise en réseau Kubenet ou Azure CNI. Pour gérer les événements de scale-out et les mises à niveau de cluster, des adresses IP supplémentaires sont également nécessaires dans le sous-réseau attribué. Cet espace d’adressage supplémentaire est particulièrement important si vous utilisez des conteneurs Windows Server (actuellement en préversion dans AKS), car ces pools de nœuds nécessitent une mise à niveau pour appliquer les derniers correctifs de sécurité. Pour plus d’informations sur les nœuds Windows Server, consultez [Mettre à niveau un pool de nœuds dans AKS][nodepool-upgrade].
 
 Pour calculer l’adresse IP requise, voir [Configurer la mise en réseau Azure CNI dans AKS][advanced-networking].
 

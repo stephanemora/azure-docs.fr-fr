@@ -1,19 +1,18 @@
 ---
 title: Publier une offre d’image de conteneurs Azure | Place de marché Azure
 description: Guide pratique pour publier une offre de conteneur Azure.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/01/2018
-ms.author: pabutler
-ms.openlocfilehash: cf422e3d77fa0722fe10a52073cf89ab2a76dcc0
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: c612d2234e6c3c4e93c3c984242bb283ed85c27f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823168"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80279978"
 ---
 # <a name="publish-container-offer"></a>Publier l’offre de conteneur
 
@@ -32,9 +31,9 @@ Le tableau suivant décrit chaque étape de publication. Une estimation du temps
 |  -------------------           | --------    | ---------------                                                            |
 | Valider les prérequis         | 15 min   | Les informations de l’offre et les paramètres de l’offre sont validés.                        |
 | Certification                  | 1 semaine | L’offre est analysée par l’équipe de certification d’Azure. Elle vérifie la présence de virus, de programmes malveillants, de problèmes de sécurité, ainsi que la conformité aux normes de sécurité. L’offre est vérifiée pour voir si elle répond aux critères d’éligibilité. Pour plus d’informations, consultez les articles décrivant les [prérequis](./cpp-prerequisites.md) et la [préparation de vos ressources techniques](./cpp-create-technical-assets.md). Si un problème est détecté, des commentaires sont fournis. |
-| Packaging | 1 heure  | Les ressources techniques de l’offre sont empaquetées à des fins d’utilisation par le client, et les systèmes de prospection sont installés et configurés. |
+| Packaging | 1 heure  | Les ressources techniques de l’offre sont packagées de façon à être utilisées par le client, et les systèmes de prospection sont installés et configurés. |
 |  Approbation de l’éditeur             |  -        | Révision finale de l’éditeur et confirmation avant la mise en ligne de l’offre. Vous pouvez déployer votre offre dans les abonnements sélectionnés (dans les étapes d’informations de l’offre) pour vérifier qu’elle répond à toutes vos exigences.  Sélectionnez **Démarrer** pour faire passer votre offre à l’étape suivante. |
-| Packaging                 | 1 heure | L’offre finalisée est répliquée dans les régions et systèmes de production de place de marché. | 
+| Packaging                 | 1 heure | L’offre finalisée est répliquée dans les régions et systèmes de production de place de marché. | 
 | En direct                           | 4 jours |L’offre est publiée, répliquée dans les régions requises et mise à la disposition du public. |
 
 Allouez jusqu’à 10 jours ouvrables aux phases d’achèvement du processus de publication et de mise en production de l’offre. Une fois que vous avez terminé le processus de publication, votre offre de conteneur est répertoriée dans [Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules).

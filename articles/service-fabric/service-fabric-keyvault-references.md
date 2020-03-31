@@ -4,17 +4,17 @@ description: Cet article explique comment utiliser la prise en charge de Service
 ms.topic: article
 ms.date: 09/20/2019
 ms.openlocfilehash: f7d8a083ea5ec4b66c29d392ee98927915465875
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76545481"
 ---
 #  <a name="keyvaultreference-support-for-service-fabric-applications-preview"></a>Prise en charge de KeyVaultReference pour les applications Service Fabric (préversion)
 
 Un défi courant lors de la création d’applications Cloud est de savoir comment stocker en toute sécurité les secrets requis par votre application. Par exemple, vous souhaiterez peut-être stocker les informations d’identification du référentiel de conteneurs dans le coffre de clés et les référencer dans le manifeste de l’application. Service Fabric KeyVaultReference utilise les identités managées Service Fabric et facilite la référence aux secrets du coffre de clés. Le reste de cet article explique comment utiliser Service Fabric KeyVaultReference et inclut un cas d’utilisation classique.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Identité managée pour application (MIT)
     

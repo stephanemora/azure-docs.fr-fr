@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 05/09/2019
 ms.author: glenga
 ms.openlocfilehash: 4643bb7f95e4fd1249d3ab6699c1f835c77f18fe
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77198341"
 ---
 | Ressource | [Plan Consommation](../articles/azure-functions/functions-scale.md#consumption-plan) | [Plan Premium](../articles/azure-functions/functions-scale.md#premium-plan) | [Plan App Service](../articles/azure-functions/functions-scale.md#app-service-plan)<sup>1</sup> |
 | --- | --- | --- | --- |
-| Montée en charge | Basé sur les événements | Basé sur les événements | [Manuel/Mise à l’échelle automatique](../articles/app-service/manage-scale-up.md) | 
+| Scale-out | Basé sur les événements | Basé sur les événements | [Manuel/Mise à l’échelle automatique](../articles/app-service/manage-scale-up.md) | 
 | Nombre maximal d’instances | 200 | 100 | 10-20 |
 |[Durée du délai d’expiration](../articles/azure-functions/functions-scale.md#timeout) (min) par défaut |5 | 30 |30<sup>2</sup> |
 |[Durée du délai d’expiration](../articles/azure-functions/functions-scale.md#timeout) maximum (min) |10 | illimité<sup>8</sup> | illimité<sup>3</sup> |

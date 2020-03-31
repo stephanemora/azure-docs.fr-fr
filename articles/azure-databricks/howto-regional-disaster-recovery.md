@@ -9,10 +9,10 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.openlocfilehash: 2604d5b357feacce3493b4a4ded971144262611d
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77161934"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Récupération d’urgence régionale pour les clusters Azure Databricks
@@ -31,7 +31,7 @@ L’un des avantages de cette architecture est que les utilisateurs peuvent conn
 
 ## <a name="how-to-create-a-regional-disaster-recovery-topology"></a>Créer une topologie de récupération d’urgence régionale
 
-Comme on peut le remarquer dans la description de l’architecture précédente, différents composants sont utilisés pour un pipeline de Big Data avec Azure Databricks :  Stockage Azure, Azure Database et d’autres sources de données. Azure Databricks est le volet *calcul* du pipeline de Big Data. Il est *éphémère* par nature, ce qui signifie qu’il est possible de terminer le *calcul* (cluster Azure Databricks) afin de ne pas avoir à le payer inutilement, tandis que les données restent disponibles dans le Stockage Azure. Le *calcul* (Azure Databricks) et les sources de stockage doivent être dans la même région pour éviter que les travaux ne subissent une latence élevée.  
+Comme on peut le remarquer dans la description de l’architecture précédente, différents composants sont utilisés pour un pipeline de Big Data avec Azure Databricks : le Stockage Azure, Azure Database et d’autres sources de données. Azure Databricks est le volet *calcul* du pipeline de Big Data. Il est *éphémère* par nature, ce qui signifie qu’il est possible de terminer le *calcul* (cluster Azure Databricks) afin de ne pas avoir à le payer inutilement, tandis que les données restent disponibles dans le Stockage Azure. Le *calcul* (Azure Databricks) et les sources de stockage doivent être dans la même région pour éviter que les travaux ne subissent une latence élevée.  
 
 Pour créer votre propre topologie de récupération d’urgence régionale, respectez les exigences suivantes :
 

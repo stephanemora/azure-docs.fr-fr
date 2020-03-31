@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 09f0371bc189fcf7b25ec3261e2e1f5eaf1892ae
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78194486"
 ---
 # <a name="configuring-asset-delivery-policies"></a>Configuration des stratégies de remise de ressources
@@ -37,7 +37,7 @@ Vous pouvez appliquer des stratégies différentes à la même ressource. Par ex
 
 Si vous souhaitez remettre une ressource à chiffrement de stockage, vous devez configurer la stratégie de remise de la ressource. Avant de pouvoir diffuser votre ressource en continu, le serveur de diffusion supprime le chiffrement de stockage et transmet en continu votre contenu à l’aide de la stratégie de remise spécifiée. Par exemple, pour remettre votre ressource chiffrée avec la clé de chiffrement d'enveloppe AES (Advanced Encryption Standard), définissez le type de stratégie sur **DynamicEnvelopeEncryption**. Pour supprimer le chiffrement de stockage et diffuser la ressource en clair, définissez le type de stratégie sur **NoDynamicEncryption**. Vous trouverez des exemples qui montrent comment configurer ces types de stratégie ci-dessous.
 
-Selon la configuration de la stratégie de remise des ressources, vous pourrez empaqueter dynamiquement, chiffrer dynamiquement et diffuser les protocoles suivants en continu : Smooth Streaming, HLS et MPEG DASH.
+Selon la configuration de la stratégie de remise de ressources, vous pourrez empaqueter dynamiquement, chiffrer dynamiquement et diffuser les protocoles de diffusion en continu suivants : Smooth Streaming, HLS et MPEG DASH.
 
 La liste suivante présente les formats utilisés pour diffuser en continu Smooth, HLS et DASH.
 
@@ -71,8 +71,8 @@ Pour savoir comment publier une ressource et générer une URL de diffusion en c
 Pour savoir comment vous connecter à l’API AMS, consultez [Accéder à l’API Azure Media Services avec l’authentification Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
 ## <a name="clear-asset-delivery-policy"></a>Stratégie de remise de ressources
-### <a id="create_asset_delivery_policy"></a>Création d’une stratégie de remise d’éléments multimédias
-La requête HTTP suivante permet de créer une stratégie de remise d’éléments multimédias qui précise de ne pas appliquer de chiffrement dynamique et de fournir le flux selon l’un des protocoles suivants :  MPEG DASH, HLS et Smooth Streaming. 
+### <a name="create-asset-delivery-policy"></a><a id="create_asset_delivery_policy"></a>Création d’une stratégie de remise d’éléments multimédias
+La requête HTTP suivante permet de créer une stratégie de remise d’éléments multimédias qui précise de ne pas appliquer de chiffrement dynamique et de fournir le flux avec l’un des protocoles suivants : MPEG DASH, HLS et Smooth Streaming. 
 
 Pour plus d'informations sur les valeurs que vous pouvez spécifier au moment de la création d'une AssetDeliveryPolicy, consultez la section [Types utilisés au moment de la définition d'AssetDeliveryPolicy](#types) .   
 
@@ -120,7 +120,7 @@ Réponse :
     "Created":"2015-02-08T06:21:27.6908329Z",
     "LastModified":"2015-02-08T06:21:27.6908329Z"}
 
-### <a id="link_asset_with_asset_delivery_policy"></a>Liaison d’un élément multimédia à la stratégie de remise d’élément multimédia
+### <a name="link-asset-with-asset-delivery-policy"></a><a id="link_asset_with_asset_delivery_policy"></a>Liaison d’un élément multimédia à la stratégie de remise d’élément multimédia
 La demande HTTP suivante lie la ressource spécifiée à la stratégie de remise de ressources.
 
 Demande :
@@ -145,9 +145,9 @@ Réponse :
 
 ## <a name="dynamicenvelopeencryption-asset-delivery-policy"></a>Stratégie de remise de ressources DynamicEnvelopeEncryption
 ### <a name="create-content-key-of-the-envelopeencryption-type-and-link-it-to-the-asset"></a>Création de la clé de contenu de type EnvelopeEncryption et liaison à la ressource
-Lorsque vous spécifiez la stratégie de remise DynamicEnvelopeEncryption, vous devez veiller à lier votre ressource à une clé de contenu de type EnvelopeEncryption. Pour plus d'informations, consultez les pages suivantes : [Création de clés de contenu](media-services-rest-create-contentkey.md)).
+Lorsque vous spécifiez la stratégie de remise DynamicEnvelopeEncryption, vous devez veiller à lier votre ressource à une clé de contenu de type EnvelopeEncryption. Pour plus d’informations, consultez la page [Création d’une clé de contenu](media-services-rest-create-contentkey.md)).
 
-### <a id="get_delivery_url"></a>Obtention de l’URL de remise
+### <a name="get-delivery-url"></a><a id="get_delivery_url"></a>Obtention de l’URL de remise
 Obtenez l’URL de remise pour la méthode de remise spécifiée de la clé de contenu créée à l’étape précédente. Un client utilise l’URL retournée pour demander une clé AES ou une licence PlayReady afin de lire le contenu protégé.
 
 Spécifiez le type d’URL à obtenir dans le corps de la demande HTTP. Si vous protégez votre contenu avec PlayReady, demandez une URL d’acquisition de licence PlayReady Media Services, en utilisant 1 pour keyDeliveryType : {"keyDeliveryType":1}. Si vous protégez votre contenu avec le chiffrement d’enveloppe, demandez une URL d’acquisition de clé en spécifiant 2 pour keyDeliveryType :{"keyDeliveryType":2}.
@@ -231,7 +231,7 @@ Consultez la rubrique [Liaison d’un élément multimédia à la stratégie de 
 
 ## <a name="dynamiccommonencryption-asset-delivery-policy"></a>Stratégie de remise de ressources DynamicCommonEncryption
 ### <a name="create-content-key-of-the-commonencryption-type-and-link-it-to-the-asset"></a>Création de la clé de contenu de type CommonEncryption et liaison à la ressource
-Lorsque vous spécifiez la stratégie de remise DynamicCommonEncryption, vous devez veiller à lier votre ressource à une clé de contenu de type CommonEncryption. Pour plus d'informations, consultez les pages suivantes : [Création de clés de contenu](media-services-rest-create-contentkey.md)).
+Lorsque vous spécifiez la stratégie de remise DynamicCommonEncryption, vous devez veiller à lier votre ressource à une clé de contenu de type CommonEncryption. Pour plus d’informations, consultez la page [Création d’une clé de contenu](media-services-rest-create-contentkey.md)).
 
 ### <a name="get-delivery-url"></a>Obtention de l’URL de remise
 Obtenez l’URL de remise pour la méthode de remise PlayReady de la clé de contenu créée à l’étape précédente. Un client utilise l’URL retournée pour demander une licence PlayReady afin de lire le contenu protégé. Pour plus d’informations, consultez la rubrique [Obtention de l’URL de remise](#get_delivery_url).
@@ -258,7 +258,7 @@ Demande :
     {"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":1,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{\"Key\":2,\"Value\":\"https:\\/\\/amsaccount1.keydelivery.mediaservices.windows.net\/PlayReady\/"}]"}
 
 
-Si vous souhaitez protéger votre contenu à l’aide de Widevine DRM, mettez à jour les valeurs AssetDeliveryConfiguration pour utiliser WidevineLicenseAcquisitionUrl (dont la valeur est 7) et indiquez l’URL d’un service de remise de licence. Vous pouvez utiliser les partenaires AMS suivants pour vous aider à fournir des licences Widevine : [Axinom](https://www.axinom.com), [EZDRM](https://ezdrm.com/) et [castLabs](https://castlabs.com/company/partners/azure/).
+Si vous souhaitez protéger votre contenu à l’aide de Widevine DRM, mettez à jour les valeurs AssetDeliveryConfiguration pour utiliser WidevineLicenseAcquisitionUrl (dont la valeur est 7) et indiquez l’URL d’un service de remise de licence. Vous pouvez utiliser les partenaires AMS suivants pour vous aider à fournir des licences Widevine : [Axinom](https://www.axinom.com), [EZDRM](https://ezdrm.com/), [castLabs](https://castlabs.com/company/partners/azure/).
 
 Par exemple : 
 
@@ -272,7 +272,7 @@ Par exemple :
 ### <a name="link-asset-with-asset-delivery-policy"></a>Liaison d’un élément multimédia à la stratégie de remise d’élément multimédia
 Consultez la rubrique [Liaison d’un élément multimédia à la stratégie de remise d’élément multimédia](#link_asset_with_asset_delivery_policy)
 
-## <a id="types"></a>Types utilisés durant la définition de AssetDeliveryPolicy
+## <a name="types-used-when-defining-assetdeliverypolicy"></a><a id="types"></a>Types utilisés durant la définition de AssetDeliveryPolicy
 
 ### <a name="assetdeliveryprotocol"></a>AssetDeliveryProtocol
 

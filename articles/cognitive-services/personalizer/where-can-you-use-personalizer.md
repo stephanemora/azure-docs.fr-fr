@@ -4,11 +4,11 @@ description: Personalizer peut être appliqué dans tous les cas où votre appli
 ms.topic: conceptual
 ms.date: 02/18/2020
 ms.openlocfilehash: 63e66315898242beb5da59927e8d506e6f2cff78
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77622714"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79218559"
 ---
 # <a name="where-and-how-to-use-personalizer"></a>Où et comment utiliser Personalizer
 

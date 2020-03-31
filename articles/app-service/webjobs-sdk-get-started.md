@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
 ms.openlocfilehash: bfbae282f9c383c19aae84a70dfc53f754bd9367
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77592609"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Prise en main du Kit de développement logiciel (SDK) Azure WebJobs pour le traitement en arrière-plan basé sur les événements
@@ -421,7 +421,7 @@ Dans cette section, vous allez effectuer une nouvelle exécution locale pour vé
 
 1. Fermez la fenêtre de console.
 
-## <a name="deploy-as-a-webjob"></a>Déployer sur Azure
+## <a name="deploy-to-azure"></a><a name="deploy-as-a-webjob"></a>Déployer sur Azure
 
 Lors du déploiement, vous créez une instance App Service dans laquelle exécuter vos fonctions. Lorsque vous publiez une application console .NET Core vers App Service dans Azure, celle-ci est automatiquement exécutée en tant que tâche web. Pour plus d'informations sur la publication, consultez [Développer et déployer des WebJobs à l’aide de Visual Studio](webjobs-dotnet-deploy-vs.md).
 

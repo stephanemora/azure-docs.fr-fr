@@ -17,17 +17,17 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3d61f4b4bce9b8287dc13237f071684ea5d135fa
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74275465"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>Erreur « Impossible d’accéder à cette application d’entreprise » lors de l’utilisation d’une application Proxy d’application
 
 Cet article vous aide à résoudre les problèmes couramment associés à l’erreur « Impossible d’accéder à cette application d’entreprise » sur une application Proxy d’application Azure AD.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Lorsque vous voyez cette erreur, recherchez le code d’état indiqué dans la page. Ce code est généralement l’un des suivants :
 
@@ -37,7 +37,7 @@ Lorsque vous voyez cette erreur, recherchez le code d’état indiqué dans la p
 
 Pour trouver le code, examinez le champ « Code d’état » situé en bas à gauche du message d’erreur. Recherchez également d’éventuels conseils supplémentaires au bas de la page.
 
-![Exemple : Erreur liée au dépassement du délai de la passerelle](./media/application-proxy-sign-in-bad-gateway-timeout-error/connection-problem.png)
+![Exemple : Erreur liée au dépassement du délai de la passerelle](./media/application-proxy-sign-in-bad-gateway-timeout-error/connection-problem.png)
 
 Pour plus d’informations sur la résolution de la cause racine de ces erreurs et sur les suggestions de correction, consultez la section appropriée ci-dessous.
 
@@ -101,7 +101,7 @@ Si votre application est configurée pour utiliser l’authentification Windows 
 
 Si l’erreur persiste, accédez à l’ordinateur sur lequel le connecteur est installé, ouvrez un navigateur et essayez d’atteindre l’URL interne utilisée pour l’application. Le connecteur agit comme un autre client à partir du même ordinateur. Si vous ne pouvez pas atteindre l’application, cherchez à savoir pourquoi cet ordinateur vous en empêche ou utilisez un connecteur sur un serveur capable d’accéder à l’application.
 
-Si vous pouvez atteindre l’application à partir de cet ordinateur, recherchez des problèmes ou des erreurs liés au connecteur proprement dit. Certaines erreurs courantes sont listées dans le [document de dépannage](application-proxy-troubleshoot.md#connector-errors). Vous pouvez également consulter directement les journaux d’activité du connecteur pour identifier d’éventuelles erreurs. La plupart des messages d’erreur indiquent des recommandations plus spécifiques sur les corrections à apporter. Pour savoir comment afficher les journaux d’activité, consultez [notre documentation sur les connecteurs](application-proxy-connectors.md#under-the-hood).
+Si vous pouvez atteindre l’application à partir de cet ordinateur, recherchez des problèmes ou des erreurs liés au connecteur proprement dit. Certaines erreurs courantes sont répertoriées dans le [document de dépannage](application-proxy-troubleshoot.md#connector-errors). Vous pouvez également consulter directement les journaux d’activité du connecteur pour identifier d’éventuelles erreurs. La plupart des messages d’erreur indiquent des recommandations plus spécifiques sur les corrections à apporter. Pour savoir comment afficher les journaux d’activité, consultez [notre documentation sur les connecteurs](application-proxy-connectors.md#under-the-hood).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

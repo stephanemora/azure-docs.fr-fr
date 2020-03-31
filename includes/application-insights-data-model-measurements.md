@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: mbullwin
 ms.openlocfilehash: 91141e314bf276d9138157c8a9d85d5262ac5907
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67176821"
 ---
 Collection des mesures personnalisées. Utilisez cette collection pour présenter des mesures nommées associées à l’élément de télémétrie. Les cas d’utilisation classiques sont :
@@ -27,4 +27,4 @@ customEvents
  > [!NOTE]
  > Des mesures personnalisées sont associées à l’élément de télémétrie auquel elles appartiennent. Elles sont soumises à un échantillonnage à l’aide de l’élément de télémétrie dans lequel ces mesures sont contenues. Pour effectuer le suivi d’une mesure dont la valeur est indépendante de tout autre type de données de télémétrie, utilisez [Télémétrie des mesures](../articles/azure-monitor/app/api-custom-events-metrics.md).
 
-Longueur de clé maximale : 150
+Longueur maximale de clé  : 150

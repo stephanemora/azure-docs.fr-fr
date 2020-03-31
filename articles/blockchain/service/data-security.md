@@ -5,10 +5,10 @@ ms.date: 11/22/2019
 ms.topic: conceptual
 ms.reviewer: janders
 ms.openlocfilehash: 06bf4e0fa4037b07505a4f816fc7af56c14576d8
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75982223"
 ---
 # <a name="azure-blockchain-service-security"></a>Sécurité d’Azure Blockchain Service
@@ -25,7 +25,7 @@ Les ressources Azure Blockchain Service sont isolées dans un réseau virtuel pr
 
 Les données utilisateur sont stockées dans le service Stockage Azure. Elles sont chiffrées en transit et au repos à des fins de sécurité et de confidentialité. Pour plus d'informations, consultez les pages suivantes : [Guide de sécurité du Stockage Azure](../../storage/blobs/security-recommendations.md).
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Authentification
 
 Les transactions peuvent être envoyées aux nœuds de blockchain par le biais d’un point de terminaison RPC. Les clients communiquent avec un nœud de transaction à l’aide d’un serveur proxy inverse qui gère l’authentification utilisateur et chiffre les données par l’intermédiaire du protocole SSL.
 

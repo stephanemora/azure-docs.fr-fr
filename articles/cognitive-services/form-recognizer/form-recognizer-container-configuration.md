@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/07/2019
 ms.author: dapine
 ms.openlocfilehash: 5439ec0c0aab5b8c127b651147e4b25d27c58390
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75379621"
 ---
 # <a name="configure-form-recognizer-containers"></a>Configurer des conteneurs Form Recognizer
@@ -48,7 +48,7 @@ Le paramètre `Billing` permet de spécifier l’URI de point de terminaison de 
 
 Ce paramètre figure dans le portail Azure, dans **Form Recognizer Overview (Présentation de Form Recognizer)** , sous **Point de terminaison**.
 
-|Obligatoire| Name | Type de données | Description |
+|Obligatoire| Nom | Type de données | Description |
 |--|------|-----------|-------------|
 |Oui| `Billing` | String | URI de point de terminaison de facturation. Pour plus d’informations sur la façon d’obtenir l’URI de facturation, consultez [Collecte des paramètres requis](form-recognizer-container-howto.md#gathering-required-parameters). Pour obtenir plus d’informations et une liste complète des points de terminaison régionaux, consultez [Noms de sous-domaines personnalisés pour Cognitive Services](../cognitive-services-custom-subdomains.md). |
 
@@ -77,7 +77,7 @@ Le conteneur Form Recognizer nécessite un montage d’entrée et de sortie. Le 
 
 La syntaxe exacte de l’emplacement de montage d’hôte varie en fonction du système d’exploitation hôte. De plus, l’emplacement de montage de l’[ordinateur hôte](form-recognizer-container-howto.md#the-host-computer) peut ne pas être accessible en raison d’un conflit entre les autorisations de compte de service Docker et les autorisations d’emplacement du montage d’hôte.
 
-|Facultatif| Name | Type de données | Description |
+|Facultatif| Nom | Type de données | Description |
 |-------|------|-----------|-------------|
 |Obligatoire| `Input` | String | Cible du montage d’entrée. La valeur par défaut est `/input`.    <br><br>Exemple :<br>`--mount type=bind,src=c:\input,target=/input`|
 |Obligatoire| `Output` | String | Cible du montage de sortie. La valeur par défaut est `/output`.  <br><br>Exemple :<br>`--mount type=bind,src=c:\output,target=/output`|

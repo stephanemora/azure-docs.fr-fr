@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 09/18/2019
 ms.author: juliako
 ms.openlocfilehash: b8f4de1a5b9d8216ae2442631f5f9135c3c72d0b
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74899887"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79232801"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Se connecter à l’API Media Services v3 - .NET
 
@@ -228,9 +228,9 @@ namespace ConsoleApp1
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Tutoriel : Charger, encoder et diffuser des vidéos en continu - .NET](stream-files-tutorial-with-api.md) 
-- [Tutoriel : Diffuser en direct avec Media Services v3 - .NET](stream-live-tutorial-with-api.md)
-- [Tutoriel : Analyser des vidéos avec Media Services v3 - .NET](analyze-videos-tutorial-with-api.md)
+- [Tutoriel : Charger, encoder et diffuser des vidéos en continu - .NET](stream-files-tutorial-with-api.md) 
+- [Tutoriel : Diffuser en direct avec Media Services v3 - .NET](stream-live-tutorial-with-api.md)
+- [Tutoriel : Analyser des vidéos avec Media Services v3 - .NET](analyze-videos-tutorial-with-api.md)
 - [Créer une entrée de travail à partir d’un fichier local - .NET](job-input-from-local-file-how-to.md)
 - [Créer une entrée de travail à partir d’une URL HTTPS - .NET](job-input-from-http-how-to.md)
 - [Encoder avec une transformation personnalisée - .NET](customize-encoder-presets-how-to.md)

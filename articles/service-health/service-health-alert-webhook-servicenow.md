@@ -4,10 +4,10 @@ description: Obtenir des notifications personnalisées sur les événements d’
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.openlocfilehash: 3daae05aabff571010d043cf5602847e95ea29f0
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77654101"
 ---
 # <a name="send-azure-service-health-alerts-with-servicenow-using-webhooks"></a>Envoyer des alertes Azure Service Health avec ServiceNow à l’aide de webhooks

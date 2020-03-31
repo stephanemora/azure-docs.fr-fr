@@ -1,19 +1,18 @@
 ---
 title: Mettre à jour une offre d’application Azure existante | Place de marché Azure
 description: Comment mettre à jour une offre d’application Azure existante sur la place de marché Azure.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: pabutler
-ms.openlocfilehash: 6854e445ea63639866e9e39a6afc725237bbc8fe
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 152fd24fbc5d2762d381ffce2a937bc448858b0a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826114"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80275949"
 ---
 # <a name="update-an-existing-azure-application-offer"></a>Mettre à jour une offre d’application Azure existante
 
@@ -71,7 +70,7 @@ Pour mettre à jour les métadonnées de Place de marché associées à votre of
 4. Cliquez sur **Publier** pour démarrer le flux de travail et publier vos modifications.
  
 >[!Note]
->L’abonnement à un réseau de partenaires fournisseurs de solution cloud est maintenant disponible.  Veuillez consulter [Fournisseurs de solutions cloud](../../cloud-solution-providers.md) pour plus d’informations sur le marketing de votre offre via les réseaux de partenaires fournisseurs de solutions cloud Microsoft.
+>L’abonnement à un réseau de partenaires fournisseurs de solution cloud est maintenant disponible.  Consultez [Fournisseurs de solutions cloud](../../cloud-solution-providers.md) pour plus d’informations sur le marketing de votre offre via les réseaux de partenaires fournisseurs de solutions cloud Microsoft.
 
 ## <a name="deleting-an-existing-offer"></a>Suppression d’une offre existante
 
@@ -84,7 +83,7 @@ Pour plus d’informations, consultez [Supprimer une offre/référence SKU de la
 
 ## <a name="compare-feature"></a>Fonctionnalité Comparer
 
-Lorsque vous apportez des modifications à une offre publiée, vous pouvez utiliser la fonctionnalité « Comparer » pour les vérifier.
+Lorsque vous apportez des modifications à une offre publiée, vous pouvez utiliser la fonctionnalité Comparer pour les vérifier.
 
 Pour utiliser la fonctionnalité Comparer :
 

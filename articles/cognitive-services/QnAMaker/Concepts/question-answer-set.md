@@ -4,10 +4,10 @@ description: Une base de connaissances QnA Maker est composée d’un jeu de que
 ms.topic: conceptual
 ms.date: 01/27/2020
 ms.openlocfilehash: cb71de0f6a3e372d8c1c1fede67ba0c0354532ca
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76844314"
 ---
 # <a name="question-and-answer-set-concepts"></a>Concepts des jeux de questions-réponses
@@ -31,7 +31,7 @@ Les paramètres **facultatifs** pour un jeu sont les suivants :
 
 ![ID de base de connaissances QnA Maker](../media/qnamaker-concepts-knowledgebase/knowledgebase.png)
 
-## <a name="editorially-add-to-knowledge-base"></a>Ajouter à la base de connaissances en tant que rédacteur
+## <a name="editorially-add-to-knowledge-base"></a>Ajouter à la base de connaissances de manière éditoriale
 
 Si vous n’avez aucun contenu préexistant pour alimenter la base de connaissances, vous pouvez ajouter des séries QnA en tant que rédacteur dans le portail QnA Maker. Découvrez comment mettre à jour votre base de connaissances [ici](../How-To/edit-knowledge-base.md).
 

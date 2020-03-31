@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 51fffbd170daecfec6fcea95caa0526e6d881407
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "64724123"
 ---
 # <a name="media-services-development-with-net"></a>Développement Media Services avec .NET 
@@ -94,7 +94,7 @@ Vous pouvez également obtenir les dernières informations relatives au Kit de d
 
     À ce stade, vous êtes prêt à commencer le développement d’une application Media Services.    
 
-## <a name="example"></a>Exemples
+## <a name="example"></a>Exemple
 
 Ce court exemple permet de se connecter à l’API AMS et de répertorier tous les processeurs multimédias disponibles.
 

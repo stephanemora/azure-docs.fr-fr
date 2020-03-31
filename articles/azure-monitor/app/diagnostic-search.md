@@ -4,11 +4,11 @@ description: Recherchez et filtrez la télémétrie brute envoyée par votre app
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.openlocfilehash: 8039a55784f63030f330d6c1e2061e99b8b63bbf
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77669673"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79234701"
 ---
 # <a name="using-search-in-application-insights"></a>Utilisation de la recherche dans Application Insights
 
@@ -133,9 +133,9 @@ En plus de la télémétrie fournie par le Kit de développement logiciel (SDK) 
 
 [Découvrez comment envoyer les journaux d’activité et la télémétrie personnalisée à Application Insights](../../azure-monitor/app/asp-net-trace-logs.md).
 
-## <a name="questions"></a>Questions et réponses
+## <a name="q--a"></a><a name="questions"></a>Questions et réponses
 
-### <a name="limits"></a>Quelle est la quantité de données conservée ?
+### <a name="how-much-data-is-retained"></a><a name="limits"></a>Quelle est la quantité de données conservée ?
 
 Voir la section [Synthèse des limites](../../azure-monitor/app/pricing.md#limits-summary).
 
@@ -143,7 +143,7 @@ Voir la section [Synthèse des limites](../../azure-monitor/app/pricing.md#limit
 
 Nous n’enregistrons pas automatiquement les données POST, mais vous pouvez utiliser [TrackTrace ou le journal des appels](../../azure-monitor/app/asp-net-trace-logs.md). Placez les données POST dans le paramètre de message. Vous ne pouvez pas filtrer les messages comme vous le feriez pour les propriétés, mais la limite de taille est plus importante.
 
-## <a name="add"></a>Étapes suivantes
+## <a name="next-steps"></a><a name="add"></a>Étapes suivantes
 
 * [Écrire des requêtes complexes dans Analytics](../../azure-monitor/log-query/get-started-portal.md)
 * [Envoi des journaux d’activité et de la télémétrie personnalisée à Application Insights](../../azure-monitor/app/asp-net-trace-logs.md)

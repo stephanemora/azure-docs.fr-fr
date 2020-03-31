@@ -5,17 +5,17 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
 ms.openlocfilehash: 34de38e91d47457d215c7ebf65d04ed2dbae5324
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74224379"
 ---
 Le tableau suivant répertorie les limites associées aux différents niveaux de service (S1, S2, S3 et F1). Pour en savoir plus sur le coût de chaque *unité* dans chaque couche, consultez [la tarification relative à Azure IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 | Ressource | S1 Standard | S2 Standard | S3 Standard | F1 Gratuit |
 | --- | --- | --- | --- | --- |
-| Messages par jour |400 000 |6 000 000 |300 000 000 |8 000 |
+| Messages par jour |400 000 |6 000 000 |300 000 000 |8,000 |
 | Nombre maximum d'unités |200 |200 |10 |1 |
 
 > [!NOTE]

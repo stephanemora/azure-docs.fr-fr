@@ -1,19 +1,18 @@
 ---
 title: Supprimer des offres sur une place de marché | Place de marché Azure
 description: Supprimer des offres des places de marché Microsoft Azure et AppSource à l’aide du Portail Cloud Partner
-services: Azure, AppSource, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/09/2019
-ms.author: pabutler
-ms.openlocfilehash: 6a75fbb0c4b9c364342a406a8076128346943101
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: fa8ee834bd6d9261c47c540e9517c200c894b6c2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826776"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80286453"
 ---
 # <a name="delete-azure-marketplace-and-appsource-offers-or-skus"></a>Supprimer des références SKU ou des offres de la Place de marché Microsoft Azure et d’AppSource
 
@@ -36,7 +35,7 @@ Vous pouvez supprimer une référence SKU publiée de la Place de marché Micros
 
 1.  Connectez-vous au [portail Cloud Partner](https://cloudpartner.azure.com/).
 2.  Dans la page **All offers**, sélectionnez votre offre.  Votre offre doit apparaître sous l’onglet **Editor**.
-3.  Dans la barre d’outils de gauche, sélectionnez l’onglet **SKUs** (Références SKU). 
+3.  Dans la barre d’outils de gauche, sélectionnez l’onglet **SKUs**. 
 4.  Sélectionnez la référence à supprimer, puis cliquez sur le bouton **Delete**.
 5.  [Republiez](./cpp-publish-offer.md) l’offre sur la Place de marché Azure.
 

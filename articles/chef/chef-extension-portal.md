@@ -5,20 +5,20 @@ keywords: azure, chef, devops, client, installation, portail
 ms.date: 02/22/2020
 ms.topic: article
 ms.openlocfilehash: 6e46133c598c44b314077f2d020852416d3d2745
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77586357"
 ---
 # <a name="install-the-chef-client-from-the-azure-portal"></a>Installer le client Chef à partir du portail Azure
 Vous pouvez ajouter l’extension du client Chef directement sur une machine Linux ou Windows à partir du portail Azure. Cet article vous guide tout au long du processus, qui utilise une machine virtuelle Linux.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-- **Abonnement Azure** : Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer.
+- **Abonnement Azure** : si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer.
 
-- **Chef** : Si vous n’avez pas de compte Chef actif, inscrivez-vous pour [un essai gratuit de Hosted Chef](https://manage.chef.io/signup). Pour suivre les instructions de cet article, vous aurez besoin des informations suivantes concernant votre compte Chef :
+- **Chef** : si vous n’avez pas de compte Chef actif, inscrivez-vous pour [essayer gratuitement Hosted Chef](https://manage.chef.io/signup). Pour suivre les instructions de cet article, vous aurez besoin des informations suivantes concernant votre compte Chef :
   - clé organization_validation
   - rb
   - run_list

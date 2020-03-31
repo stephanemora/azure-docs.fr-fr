@@ -11,10 +11,10 @@ ms.subservice: common
 services: storage
 tags: ''
 ms.openlocfilehash: 2197a149235c0dca98a24a57549538b2a4cbb1c8
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74196520"
 ---
 # <a name="troubleshoot-latency-using-storage-analytics-logs"></a>Résoudre les problèmes de latence avec les journaux Storage Analytics
@@ -99,10 +99,10 @@ Les étapes suivantes montrent comment identifier et résoudre les problèmes de
 
    |   |RequestStatus =<br>Succès|RequestStatus =<br>(SAS)NetworkError|Recommandation|
    |---|---|---|---|
-   |GetBlob|OUI|Non|[**Opération GetBlob :** RequestStatus = Success](#getblob-operation-requeststatus--success)|
-   |GetBlob|Non|OUI|[**Opération GetBlob :** RequestStatus = (SAS)NetworkError](#getblob-operation-requeststatus--sasnetworkerror)|
-   |PutBlob|OUI|Non|[**Opération Put :** RequestStatus = Success](#put-operation-requeststatus--success)|
-   |PutBlob|Non|OUI|[**Opération Put :** RequestStatus = (SAS)NetworkError](#put-operation-requeststatus--sasnetworkerror)|
+   |GetBlob|Oui|Non|[**Opération GetBlob :** RequestStatus = Success](#getblob-operation-requeststatus--success)|
+   |GetBlob|Non|Oui|[**Opération GetBlob :** RequestStatus = (SAS)NetworkError](#getblob-operation-requeststatus--sasnetworkerror)|
+   |PutBlob|Oui|Non|[**Opération Put :** RequestStatus = Success](#put-operation-requeststatus--success)|
+   |PutBlob|Non|Oui|[**Opération Put :** RequestStatus = (SAS)NetworkError](#put-operation-requeststatus--sasnetworkerror)|
 
 ## <a name="status-results"></a>Résultats de l’état
 

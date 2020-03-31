@@ -3,12 +3,12 @@ title: Bonnes pratiques - QnA Maker
 description: Suivez ces bonnes pratiques pour améliorer votre base de connaissances et fournir des résultats plus pertinents aux utilisateurs finaux de votre application/bot conversationnel.
 ms.topic: conceptual
 ms.date: 02/15/2020
-ms.openlocfilehash: fb935aeed7b492a3a0c213d6d7166bd5d80144c1
-ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
+ms.openlocfilehash: 9a6f7f7d6edc4544942476050a1ed3c2011af7fb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2020
-ms.locfileid: "77370104"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80053133"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Bonnes pratiques pour une base de connaissances QnA Maker
 
@@ -111,7 +111,7 @@ Les [questions alternatives](../How-To/edit-knowledge-base.md) augmentent la pro
 
 ### <a name="use-metadata-tags-to-filter-questions-and-answers"></a>Utiliser des balises de métadonnées pour filtrer les questions et les réponses
 
-Les [métadonnées](../How-To/edit-knowledge-base.md) ajoutent à une application cliente la possibilité de savoir qu’elle ne doit pas récupérer toutes les réponses, mais réduire les résultats d’une requête utilisateur en fonction des balises de métadonnées. La réponse de la base de connaissances peut varier en fonction du mot clé de métadonnées, même si la requête est la même. Par exemple, dans le cas d’une chaîne de restaurants, la question *« Où se trouve le parking ? »* peut donner une réponse diffère en fonction du lieu du restaurant (ici, les métadonnées sont *Location: Seattle* versus *Location: Redmond*).
+Les [métadonnées](../How-To/edit-knowledge-base.md) ajoutent à une application cliente la possibilité de savoir qu’elle ne doit pas récupérer toutes les réponses, mais réduire les résultats d’une requête utilisateur en fonction des balises de métadonnées. La réponse de la base de connaissances peut varier en fonction du mot clé de métadonnées, même si la requête est la même. Par exemple, dans le cas d’une chaîne de restaurants, la question *« Où se trouve le parking ? »* peut donner une réponse différente en fonction du lieu du restaurant (ici, les métadonnées sont *Location: Seattle* et *Location: Redmond*.)
 
 ### <a name="use-synonyms"></a>Utiliser des synonymes
 Les synonymes en langue anglaise sont pris en charge. Utilisez des variantes de mots (sans respect de la casse) avec [l’API Alterations](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace), afin d’ajouter des synonymes à des mots clés qui prennent différentes formes. Les synonymes sont ajoutés au niveau du service QnA Maker et partagés par toutes les bases de connaissances du service.
@@ -139,7 +139,7 @@ QnA Maker permet aux utilisateurs de [travailler en collaboration](../How-to/col
 
 ## <a name="active-learning"></a>Apprentissage actif
 
-L’[apprentissage actif](../How-to/improve-knowledge-base.md) est le plus à même de suggérer d’autres questions quand il dispose d’un large éventail qualitatif et quantitatif de requêtes utilisateur. Il est important d’autoriser les requêtes utilisateur des applications clientes à participer à la boucle de commentaires sur l’apprentissage actif sans censure. Une fois les questions suggérées dans le portail QnA Maker, vous pouvez **[appliquer un filtre par suggestions](../How-To/improve-knowledge-base.md#accept-an-active-learning-suggestion-in-the-knowledge-base)** , puis vérifier et accepter, ou rejeter, ces suggestions.
+L’[apprentissage actif](../How-to/use-active-learning.md) est le plus à même de suggérer d’autres questions quand il dispose d’un large éventail qualitatif et quantitatif de requêtes utilisateur. Il est important d’autoriser les requêtes utilisateur des applications clientes à participer à la boucle de commentaires sur l’apprentissage actif sans censure. Une fois les questions suggérées dans le portail QnA Maker, vous pouvez **[appliquer un filtre par suggestions](../How-To/improve-knowledge-base.md#accept-an-active-learning-suggestion-in-the-knowledge-base)** , puis vérifier et accepter, ou rejeter, ces suggestions.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

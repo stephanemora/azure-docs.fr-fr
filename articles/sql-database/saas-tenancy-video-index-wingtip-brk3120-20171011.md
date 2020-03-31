@@ -4,19 +4,17 @@ description: Cet article de la conférence Ignite, qui s’est tenue le 11 octob
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
-ms.custom: ''
-ms.devlang: ''
-ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: 0194d99a10eb34ecd8ad10fa0a1509baf8436381
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.topic: conceptual
+ms.openlocfilehash: 1ee8f2fff958045f652b72358ab928f82920fd6b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818473"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80067611"
 ---
 # <a name="video-indexed-and-annotated-for-multi-tenant-saas-app-using-azure-sql-database"></a>Vidéo indexée et annotée pour l’application SaaS multi-locataire à l’aide d’Azure SQL Database
 
@@ -90,7 +88,7 @@ Les titres suivants sont des liens vers leurs sections annotées correspondantes
 Cliquer sur une image de la capture d’écran vous permet d’extraire l’emplacement de temps dans la vidéo.
 
 
-&nbsp;<a name="anchor-image-wtip-min00001"/>
+&nbsp; <a name="anchor-image-wtip-min00001"/>
 #### <a name="1-start-welcome-slide-00001"></a>1. *(Début)* Diapositive d’accueil, 0:00:01
 
 *À propos de MYOB : Modèles de conception pour des applications SaaS sur Azure SQL Database – BRK3120*
@@ -103,7 +101,7 @@ Cliquer sur une image de la capture d’écran vous permet d’extraire l’empl
 - Session Microsoft Ignite BRK3120, Orlando, FL USA, 11 octobre 2017
 
 
-&nbsp;<a name="anchor-image-wtip-min00311"/>
+&nbsp; <a name="anchor-image-wtip-min00311"/>
 #### <a name="2-session-objectives-00153"></a>2. Objectifs des sessions, 0:01:53
 [![Objectifs des sessions][image-wtip-min00311-session]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=113)
 
@@ -113,181 +111,181 @@ Cliquer sur une image de la capture d’écran vous permet d’extraire l’empl
 - Fonctionnalités SaaS + modèles SaaS font de SQL Database une plateforme de données hautement évolutive et rentable pour des SaaS multi-locataire.
 
 
-&nbsp;<a name="anchor-image-wtip-min00417"/>
+&nbsp; <a name="anchor-image-wtip-min00417"/>
 #### <a name="3-agenda-00409"></a>3. Agenda, 0:04:09
 [![Agenda][image-wtip-min00417-agenda]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=249)
 
 
-&nbsp;<a name="anchor-image-wtip-min00505"/>
+&nbsp; <a name="anchor-image-wtip-min00505"/>
 #### <a name="4-multi-tenant-web-app-00500"></a>4. Application web multi-locataire, 0:05:00
 [![Application SaaS Wingtip : Application web multi-locataire][image-wtip-min00505-web-app]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=300)
 
 
-&nbsp;<a name="anchor-image-wtip-min00555"/>
+&nbsp; <a name="anchor-image-wtip-min00555"/>
 #### <a name="5-app-web-form-in-action-00539"></a>5. Formulaire web d’application en action, 0:05:39
 [![Formulaire web d’application en action][image-wtip-min00555-app-web-form]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=339)
 
 
-&nbsp;<a name="anchor-image-wtip-min00931"/>
+&nbsp; <a name="anchor-image-wtip-min00931"/>
 #### <a name="6-per-tenant-cost-scale-isolation-recovery-00658"></a>6. Coût par locataire (mise à l’échelle, isolation, récupération), 0:06:58
 [![Coût par locataire, mise à l’échelle, isolation, récupération][image-wtip-min00931-per-tenant-cost]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=418)
 
 
-&nbsp;<a name="anchor-image-wtip-min01159"/>
+&nbsp; <a name="anchor-image-wtip-min01159"/>
 #### <a name="7-database-models-for-multi-tenant-pros-and-cons-00952"></a>7. Modèles de bases de données pour multi-locataire : pour et contre, 0:09:52
 [![Modèles de bases de données pour multi-locataire : pour et contre][image-wtip-min01159-db-models-pros-cons]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=592)
 
 
-&nbsp;<a name="anchor-image-wtip-min01301"/>
+&nbsp; <a name="anchor-image-wtip-min01301"/>
 #### <a name="8-hybrid-model-blends-benefits-of-mtst-01229"></a>8. Le modèle hybride mélange des avantages de MT/ST, 0:12:29
 [![Le modèle hybride mélange des avantages de MT/ST][image-wtip-min01301-hybrid]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=749)
 
 
-&nbsp;<a name="anchor-image-wtip-min01644"/>
+&nbsp; <a name="anchor-image-wtip-min01644"/>
 #### <a name="9-single-tenant-vs-multi-tenant-pros-and-cons-01311"></a>9. Locataire unique et multi-locataire : le pour et le contre, 0:13:11
 [![Locataire unique et multi-locataire : le pour et le contre][image-wtip-min01644-st-vs-mt]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=791)
 
 
-&nbsp;<a name="anchor-image-wtip-min01936"/>
+&nbsp; <a name="anchor-image-wtip-min01936"/>
 #### <a name="10-pools-are-cost-effective-for-unpredictable-workloads-01749"></a>10. Les pools sont rentables pour des charges de travail non prédictibles, 0:17:49
 [![Les pools sont rentables pour des charges de travail non prévisibles][image-wtip-min01936-pools-cost]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=1069)
 
 
-&nbsp;<a name="anchor-image-wtip-min02008"/>
+&nbsp; <a name="anchor-image-wtip-min02008"/>
 #### <a name="11-demo-of-database-per-tenant-and-hybrid-stmt-01959"></a>11. Démonstration de ST/MT de base de données par locataire et hybrides, 0:19:59
 [![Démonstration de ST/MT de base de données par locataire et hybrides][image-wtip-min02008-demo-st-hybrid]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=1199)
 
 
-&nbsp;<a name="anchor-image-wtip-min02029"/>
+&nbsp; <a name="anchor-image-wtip-min02029"/>
 #### <a name="12-live-app-form-showing-dojo-02010"></a>12. Formulaire d’application en direct affichant Dojo, 0:20:10
 [![Formulaire d’application en direct affichant Dojo][image-wtip-min02029-live-app-form-dojo]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=1210)
 
-&nbsp;<a name="anchor-image-wtip-min02854"/>
+&nbsp; <a name="anchor-image-wtip-min02854"/>
 #### <a name="13-myob-and-not-a-dba-in-sight-02506"></a>13. MYOB et pas une DBA en vue, 0:25:06
 [![MYOB et pas une DBA en vue][image-wtip-min02854-myob-no-dba]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=1506)
 
 
-&nbsp;<a name="anchor-image-wtip-min02940"/>
+&nbsp; <a name="anchor-image-wtip-min02940"/>
 #### <a name="14-myob-elastic-pool-usage-example-02930"></a>14. Exemple d’utilisation de pool élastique MYOB, 0:29:30
 [![Exemple d’utilisation de pool élastique MYOB][image-wtip-min02940-myob-elastic]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=1770)
 
 
-&nbsp;<a name="anchor-image-wtip-min03136"/>
+&nbsp; <a name="anchor-image-wtip-min03136"/>
 #### <a name="15-learning-from-myob-and-other-isvs-03125"></a>15. En savoir plus sur MYOB et autres ISV, 0:31:25
 [![En savoir plus sur MYOB et autres ISV][image-wtip-min03136-learning-isvs]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=1885)
 
 
-&nbsp;<a name="anchor-image-wtip-min04315"/>
+&nbsp; <a name="anchor-image-wtip-min04315"/>
 #### <a name="16-patterns-compose-into-e2e-saas-scenario-03142"></a>16. Modèles composés en scénarios SaaS E2E, 0:31:42
 [![Modèles composés en scénarios SaaS E2E][image-wtip-min04315-patterns-compose]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=1902)
 
 
-&nbsp;<a name="anchor-image-wtip-min04733"/>
+&nbsp; <a name="anchor-image-wtip-min04733"/>
 #### <a name="17-canonical-hybrid-multi-tenant-saas-app-04604"></a>17. Application SaaS multi-locataire hybride Canonical, 0:46:04
 [![Application SaaS multi-locataire hybride Canonical][image-wtip-min04733-canonical-hybrid]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=2764)
 
 
-&nbsp;<a name="anchor-image-wtip-min04810"/>
+&nbsp; <a name="anchor-image-wtip-min04810"/>
 #### <a name="18-wingtip-saas-sample-app-04801"></a>18. Application exemple SaaS Wingtip, 0:48:01
 [![Application exemple SaaS Wingtip][image-wtip-min04810-wingtip-saas-app]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=2881)
 
 
-&nbsp;<a name="anchor-image-wtip-min04910"/>
+&nbsp; <a name="anchor-image-wtip-min04910"/>
 #### <a name="19-scenarios-and-patterns-explored-in-the-tutorials-04900"></a>19. Scénarios et modèles explorés dans les didacticiels, 0:49:00
 [![Scénarios et modèles explorés dans les didacticiels][image-wtip-min04910-scenarios-tutorials]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=2940)
 
 
-&nbsp;<a name="anchor-image-wtip-min05018"/>
+&nbsp; <a name="anchor-image-wtip-min05018"/>
 #### <a name="20-demo-of-tutorials-and-github-repository-05012"></a>20. Didacticiels de démonstration et référentiel GitHub, 0:50:12
 [![Didacticiels de démonstration et réf GitHub][image-wtip-min05018-demo-tutorials-github]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=3012)
 
 
-&nbsp;<a name="anchor-image-wtip-min05038"/>
+&nbsp; <a name="anchor-image-wtip-min05038"/>
 #### <a name="21-github-repo-microsoftwingtipsaas-05032"></a>21. Réf GitHub Microsoft/WingtipSaaS, 0:50:32
 [![Réf GitHub Microsoft/WingtipSaaS][image-wtip-min05038-github-wingtipsaas]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=3032)
 
 
-&nbsp;<a name="anchor-image-wtip-min05620"/>
+&nbsp; <a name="anchor-image-wtip-min05620"/>
 #### <a name="22-exploring-the-patterns-05615"></a>22. Exploration des modèles, 0:56:15
 [![Exploration des modèles][image-wtip-min05620-exploring-patterns]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=3375)
 
 
-&nbsp;<a name="anchor-image-wtip-min05744"/>
+&nbsp; <a name="anchor-image-wtip-min05744"/>
 #### <a name="23-provisioning-tenants-and-onboarding-05619"></a>23. Approvisionnement de locataires et intégration, 0:56:19
 [![Approvisionnement de locataires et intégration][image-wtip-min05744-provisioning-tenants-onboarding-1]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=3379)
 
 
-&nbsp;<a name="anchor-image-wtip-min05858"/>
+&nbsp; <a name="anchor-image-wtip-min05858"/>
 #### <a name="24-provisioning-tenants-and-application-connection-05752"></a>24. Approvisionnement de locataires et connexion d’application, 0:57:52
 [![Approvisionnement de locataires et connexion d’application][image-wtip-min05858-provisioning-tenants-app-connection-2]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=3472)
 
 
-&nbsp;<a name="anchor-image-wtip-min05943"/>
+&nbsp; <a name="anchor-image-wtip-min05943"/>
 #### <a name="25-demo-of-management-scripts-provisioning-a-single-tenant-05936"></a>25. Démonstration de scripts de gestion approvisionnant un locataire unique, 0:59:36
 [![Démonstration de scripts de gestion approvisionnant un locataire unique][image-wtip-min05943-demo-management-scripts-st]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=3576)
 
 
-&nbsp;<a name="anchor-image-wtip-min10002"/>
+&nbsp; <a name="anchor-image-wtip-min10002"/>
 #### <a name="26-powershell-to-provision-and-catalog-05956"></a>26. PowerShell pour approvisionner et cataloguer, 0:59:56
 [![PowerShell pour approvisionner et cataloguer][image-wtip-min10002-powershell-provision-catalog]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=3596)
 
 
-&nbsp;<a name="anchor-image-wtip-min10330"/>
+&nbsp; <a name="anchor-image-wtip-min10330"/>
 #### <a name="27-t-sql-select--from-tenantsextended-10325"></a>27. T-SQL SELECT * FROM TenantsExtended, 1:03:25
 [![T-SQL SELECT * FROM TenantsExtended][image-wtip-min10330-sql-select-tenantsextended]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=3805)
 
 
-&nbsp;<a name="anchor-image-wtip-min10436"/>
+&nbsp; <a name="anchor-image-wtip-min10436"/>
 #### <a name="28-managing-unpredictable-tenant-workloads-10334"></a>28. Gestion des charges de travail de locataire imprévisibles, 1:03:34
 [![Gestion des charges de travail de locataire imprévisibles][image-wtip-min10436-managing-unpredictable-workloads]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=3814)
 
 
-&nbsp;<a name="anchor-image-wtip-min10639"/>
+&nbsp; <a name="anchor-image-wtip-min10639"/>
 #### <a name="29-elastic-pool-monitoring-10632"></a>29. Surveillance du pool élastique, 1:06:32
 [![Surveillance du pool élastique][image-wtip-min10639-elastic-pool-monitoring]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=3992)
 
 
-&nbsp;<a name="anchor-image-wtip-min10942"/>
+&nbsp; <a name="anchor-image-wtip-min10942"/>
 #### <a name="30-load-generation-and-performance-monitoring-10937"></a>30. Surveillance de la génération et des performances de charge, 1:09:37
 [![Surveillance de la génération et des performances de charge][image-wtip-min10942-load-generation]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=4117)
 
 
-&nbsp;<a name="anchor-image-wtip-min11033"/>
+&nbsp; <a name="anchor-image-wtip-min11033"/>
 #### <a name="31-schema-management-at-scale-10940"></a>31. Gestion des schémas à l’échelle, 1:09:40
 [![Gestion des schémas à l’échelle][image-wtip-min11033-schema-management-scale]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=34120)
 
 
-&nbsp;<a name="anchor-image-wtip-min11221"/>
+&nbsp; <a name="anchor-image-wtip-min11221"/>
 #### <a name="32-distributed-query-across-tenant-databases-11118"></a>32. Requête distribuée dans des bases de données de locataire, 1:11:18
 [![Requête distribuée dans des bases de données de locataire][image-wtip-min11221-distributed-query]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=4278)
 
 
-&nbsp;<a name="anchor-image-wtip-min11232"/>
+&nbsp; <a name="anchor-image-wtip-min11232"/>
 #### <a name="33-demo-of-ticket-generation-11228"></a>33. Démonstration de la génération de tickets, 1:12:28
 [![Démonstration de la génération de tickets][image-wtip-min11232-demo-ticket-generation]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=4348)
 
 
-&nbsp;<a name="anchor-image-wtip-min11246"/>
+&nbsp; <a name="anchor-image-wtip-min11246"/>
 #### <a name="34-ssms-adhoc-analytics-11235"></a>34. Analyse ad hoc SSMS, 1:12:35
 [![Analyse ad hoc SSMS][image-wtip-min11246-ssms-adhoc-analytics]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=4355)
 
 
-&nbsp;<a name="anchor-image-wtip-min11632"/>
+&nbsp; <a name="anchor-image-wtip-min11632"/>
 #### <a name="35-extract-tenant-data-into-sql-dw-11546"></a>35. Extraire les données de locataire dans DW SQL, 1:15:46
 [![Extraire les données de locataire dans DW SQL][image-wtip-min11632-extract-tenant-data-sql-dw]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=4546)
 
 
-&nbsp;<a name="anchor-image-wtip-min11648"/>
+&nbsp; <a name="anchor-image-wtip-min11648"/>
 #### <a name="36-graph-of-daily-sale-distribution-11638"></a>36. Graph de la distribution des ventes quotidiennes, 1:16:38
 [![Graph de la distribution des ventes quotidiennes][image-wtip-min11648-graph-daily-sale-distribution]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=4598)
 
 
-&nbsp;<a name="anchor-image-wtip-min11952"/>
+&nbsp; <a name="anchor-image-wtip-min11952"/>
 #### <a name="37-wrap-up-and-call-to-action-11743"></a>37. Conclusion et instructions, 1:17:43
 [![Conclusion et instructions][image-wtip-min11952-wrap-up-call-action]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=4663)
 
 
-&nbsp;<a name="anchor-image-wtip-min12042"/>
+&nbsp; <a name="anchor-image-wtip-min12042"/>
 #### <a name="38-resources-for-more-information-12035"></a>38. Ressources pour plus d’informations, 1:20:35
 [![Ressources pour plus d’informations][image-wtip-min12042-resources-more-info]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=4835)
 

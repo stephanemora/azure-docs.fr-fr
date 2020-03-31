@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: dapine
 ms.openlocfilehash: 7ae8fbd404c9c2b650e4eed30c219e8ffafe55f7
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74383524"
 ---
 # <a name="deploy-a-text-analytics-container-to-azure-container-instances"></a>Déployer un conteneur Analyse de texte dans Azure Container Instances
 
 Découvrez comment déployer le conteneur [Analyse de texte][install-and-run-containers] de Cognitive Services sur Azure [Container Instances][container-instances]. Cette procédure illustre la création d’une ressource Analyse de texte, la création d’une image Analyse des sentiments associée et la possibilité de procéder à l’orchestration des deux depuis un navigateur. L’utilisation de conteneurs peut détourner l’attention des développeurs de la gestion de l’infrastructure, au lieu de se concentrer sur le développement d’applications.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Utilisez un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -29,15 +29,15 @@ Découvrez comment déployer le conteneur [Analyse de texte][install-and-run-con
 
 [!INCLUDE [Create a Text Analytics Containers on Azure Container Instances](../../containers/includes/create-container-instances-resource.md)]
 
-#### <a name="key-phrase-extractiontabkeyphrase"></a>[Extraction d’expressions clés](#tab/keyphrase)
+#### <a name="key-phrase-extraction"></a>[Extraction d’expressions clés](#tab/keyphrase)
 
 [!INCLUDE [Verify the Key Phrase Extraction container instance](../includes/verify-key-phrase-extraction-container.md)]
 
-#### <a name="language-detectiontablanguage"></a>[Détection de la langue](#tab/language)
+#### <a name="language-detection"></a>[Détection de la langue](#tab/language)
 
 [!INCLUDE [Verify the Language Detection container instance](../includes/verify-language-detection-container.md)]
 
-#### <a name="sentiment-analysistabsentiment"></a>[Analyse des sentiments](#tab/sentiment)
+#### <a name="sentiment-analysis"></a>[Analyse des sentiments](#tab/sentiment)
 
 [!INCLUDE [Verify the Sentiment Analysis container instance](../includes/verify-sentiment-analysis-container.md)]
 

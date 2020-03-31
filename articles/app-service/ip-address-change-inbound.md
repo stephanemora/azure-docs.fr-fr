@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 06/28/2018
 ms.custom: seodec18
 ms.openlocfilehash: 999511c4759ee761f028a61fbfaa0310ac93d9b4
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74672413"
 ---
 # <a name="how-to-prepare-for-an-inbound-ip-address-change"></a>Comment se préparer à un changement d’adresse IP entrante
@@ -17,13 +17,13 @@ Si vous avez reçu une notification indiquant que l’adresse IP entrante de vot
 
 ## <a name="determine-if-you-have-to-do-anything"></a>Déterminer si vous avez quelque chose à faire
 
-* Option 1 : si votre application app Service ne dispose pas d’un domaine personnalisé, aucune action n’est requise.
+* Option 1 : si votre application app Service ne dispose pas d’un domaine personnalisé, aucune action n’est requise.
 
-* Option 2 : si seul un enregistrement CNAME (enregistrement DNS qui pointe vers un URI) est configuré dans votre portail d’inscription de domaine (fournisseur DNS tiers ou Azure DNS), aucune action n’est requise.
+* Option n°2 : si seul un enregistrement CNAME (enregistrement DNS qui pointe vers un URI) est configuré dans votre portail d’inscription de domaine (fournisseur DNS tiers ou Azure DNS), aucune action n’est requise.
 
-* Option 3 : si un enregistrement A (enregistrement DNS qui pointe directement vers votre adresse IP) est configuré dans votre portail d’inscription de domaine (fournisseur DNS tiers ou Azure DNS), remplacez l’adresse IP existante par la nouvelle. Vous trouverez la nouvelle adresse IP en suivant les instructions fournies dans la section suivante.
+* Option 3 : si un enregistrement A (enregistrement DNS qui pointe directement vers votre adresse IP) est configuré dans votre portail d’inscription de domaine (fournisseur DNS tiers ou Azure DNS), remplacez l’adresse IP existante par la nouvelle. Vous trouverez la nouvelle adresse IP en suivant les instructions fournies dans la section suivante.
 
-* Option 4 : si votre application se trouve derrière un équilibreur de charge, filtre IP ou tout autre mécanisme IP nécessitant l’adresse IP de votre application, remplacez l’adresse IP existante par la nouvelle. Vous trouverez la nouvelle adresse IP en suivant les instructions fournies dans la section suivante.
+* Option 4 : si votre application se trouve derrière un équilibreur de charge, filtre IP ou tout autre mécanisme IP nécessitant l’adresse IP de votre application, remplacez l’adresse IP existante par la nouvelle. Vous trouverez la nouvelle adresse IP en suivant les instructions fournies dans la section suivante.
 
 ## <a name="find-the-new-inbound-ip-address-in-the-azure-portal"></a>Trouver la nouvelle adresse IP entrante sur le Portail Azure
 

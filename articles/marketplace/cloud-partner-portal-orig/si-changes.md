@@ -1,19 +1,18 @@
 ---
 title: Notes de publication de Seller Insights
 description: Fournit des informations sur les modifications apportées à la fonctionnalité Seller Insights.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 3/3/2019
-ms.author: pabutler
-ms.openlocfilehash: 4f7e461241793b27d838c04311509f43932df291
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 1b88a8353c1cb9f97f18d720171f0827d7d85254
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73808957"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80285399"
 ---
 # <a name="seller-insights-release-notes"></a>Notes de publication de Seller Insights 
 

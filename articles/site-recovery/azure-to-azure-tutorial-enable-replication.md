@@ -5,12 +5,12 @@ ms.topic: tutorial
 ms.date: 1/24/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 979b390f65363b43f33ce2f09d26844c3cc1a2e8
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: c5d2bbe920f87421550fadf30a7e7e9d23931bfd
+ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759787"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80292483"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Configurer la récupération d’urgence pour les machines virtuelles Azure
 
@@ -27,7 +27,7 @@ Ce didacticiel vous montre comment configurer la récupération d’urgence pour
 > [!NOTE]
 > Cet article fournit des instructions pour déployer la reprise d’activité après sinistre avec les paramètres les plus simples. Si vous souhaitez en savoir plus sur les paramètres personnalisés, consultez les articles listés dans la [section Procédures](azure-to-azure-how-to-enable-replication.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce tutoriel :
 
@@ -75,7 +75,7 @@ Si vous utilisez un proxy de pare-feu basé sur des URL pour contrôler la conne
 
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>Connectivité sortante pour les plages d’adresses IP
 
-Si vous utilisez un groupe de sécurité réseau, créez des règles de groupe de sécurité réseau basées sur des balises de service pour l’accès à Stockage Azure, à Azure Active Directory, au service Site Recovery et à la supervision Site Recovery. [Plus d’informations](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges)
+Si vous utilisez un groupe de sécurité réseau, créez des règles de groupe de sécurité réseau basées sur des balises de service pour l’accès à Stockage Azure, à Azure Active Directory, au service Site Recovery et à la supervision Site Recovery. [Plus d’informations](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags)
 
 ## <a name="verify-azure-vm-certificates"></a>Vérifier les certificats des machines virtuelles Azure
 

@@ -1,26 +1,20 @@
 ---
-title: Fichier Include
-description: Fichier Include
-services: commercial marketplace
+title: Fichier include
+description: Fichier include
 documentationcenter: partner-center-commercial-marketplace
 author: qianw211
-manager: evansma
-editor: ''
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.devlang: na
 ms.topic: include
-ms.tgt_pltfrm: na
-ms.workload: identity
 ms.date: 10/09/2019
-ms.author: v-qiwe
+ms.author: dsindona
 ms.custom: include file
-ms.openlocfilehash: b8fae52224d601fabce1470d9886512aa5acfd4c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: f79b25c98ae2e764f607fc5a12bc311ed0edacae
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825571"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80286181"
 ---
 Connectez-vous avec les clients directement en répertoriant votre offre dans les Places de marché et en introduisant votre système CRM afin de recevoir les informations de contact des clients immédiatement après qu’un client ait exprimé son intérêt ou déployé votre produit.
 

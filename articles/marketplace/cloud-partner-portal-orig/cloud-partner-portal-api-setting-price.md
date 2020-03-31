@@ -1,19 +1,18 @@
 ---
 title: Tarification des offres de machine virtuelle| Place de marché Azure
 description: Décrit les trois méthodes disponibles la tarification des offres de machine virtuelle.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: c7ea5afeb46c30837c2ae53e871bb64f5d8cf292
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: b96dcfa6a140d5c16208fd8183003a7462b1aa56
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827339"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280437"
 ---
 <a name="pricing-for-virtual-machine-offers"></a>Tarification des offres de machine virtuelle
 ==================================
@@ -168,7 +167,7 @@ Le tableau suivant présente les différentes régions que vous pouvez spécifie
 | NL         | Pays-bas          | EUR               |
 | NZ         | Nouvelle-Zélande          | NZD               |
 | NG         | Nigeria              | NGN               |
-| NON         | Norvège               | NOK               |
+| Non         | Norvège               | NOK               |
 | OM         | Oman                 | OMR               |
 | PK         | Pakistan             | PKR               |
 | PA         | Panama               | USD               |
@@ -198,7 +197,7 @@ Le tableau suivant présente les différentes régions que vous pouvez spécifie
 | TR         | Turquie               | TRY               |
 | UA         | Ukraine              | UAH               |
 | AE         | Émirats Arabes Unis | EUR               |
-| GB         | Royaume-Uni       | GBP               |
+| Go         | United Kingdom       | GBP               |
 | US         | États-Unis        | USD               |
 | UY         | Uruguay              | UYU               |
 | VE         | Venezuela            | USD               |

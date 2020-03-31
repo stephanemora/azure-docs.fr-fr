@@ -2,17 +2,16 @@
 Description: Pour comprendre vos motifs fiscaux pour la sélection des prix, les implications en termes de paiement et la responsabilité fiscale, consultez vos pays/régions de distribution dans les tableaux ci-dessous.
 title: Détails des taxes | Place de marché Azure
 ms.date: 2/13/2020
-ms.topic: article
-author: MaggiePucciEvans
-manager: evansma
-ms.author: evansma
+ms.topic: conceptual
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
-ms.openlocfilehash: cd580c43aa25dd4cc33ceb7138785a94a021b771
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 2546de2b63c70d7456712ba39086cd7fb540cf82
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210446"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80285161"
 ---
 # <a name="tax-details-for-commercial-marketplace-publishers"></a>Détails des taxes pour les éditeurs de la place de marché commerciale
 

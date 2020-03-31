@@ -8,12 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: manayar
-ms.openlocfilehash: aa2b0013818f897f01945d394266a57016ecb0bb
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 99ad4249a4134bcc1b1cf5aba92b8a95a034db33
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76275843"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79534420"
 ---
 # <a name="understand-instance-ids-for-azure-vm-scale-set-vms"></a>Présentation des ID d’instance des machines virtuelles d’un groupe identique de machines virtuelles Azure
 Cet article décrit les ID d’instance des groupes identiques ainsi que les différents modes de surface.
@@ -40,8 +40,11 @@ Vous pouvez également utiliser [resources.azure.com](https://resources.azure.co
 
 La sortie exacte varie selon les options que vous fournissez à la commande. Voici toutefois un exemple de sortie pour l’interface CLI :
 
+```azurecli
+az vmss show -g {resourceGroupName} -n {vmScaleSetName}
 ```
-$ az vmss show -g {resourceGroupName} -n {vmScaleSetName}
+
+```output
 [
   {
     "instanceId": "85",
@@ -70,7 +73,7 @@ La partie {instance-id} du nom est le même nombre décimal que la propriété �
 
 Si vous interrogez les [métadonnées de l’instance](../virtual-machines/windows/instance-metadata-service.md) dans une machine virtuelle de groupe identique, vous pouvez observer la propriété « name » dans la sortie :
 
-```
+```output
 {
   "compute": {
     "location": "westus",

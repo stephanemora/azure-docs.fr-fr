@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: charwen
 ms.openlocfilehash: 15abee4688a2f6aefa2b08ad2b8eee6622d56be2
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77087274"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>Utiliser l’accès au groupe de sécurité réseau et Azure Bastion
@@ -28,7 +28,7 @@ Dans ce diagramme :
 * Intégration de la connexion : session RDP/SSH en un clic dans le navigateur
 * Aucune adresse IP publique n’est requise sur la machine virtuelle Azure.
 
-## <a name="nsg"></a>Groupes de sécurité réseau
+## <a name="network-security-groups"></a><a name="nsg"></a>Groupes de sécurité réseau
 
 Cette section décrit le trafic réseau entre l’utilisateur et Azure Bastion et jusqu’aux machines virtuelles cibles de votre réseau virtuel :
 
@@ -50,7 +50,7 @@ Azure Bastion est spécifiquement déployé dans le sous-réseau AzureBastionSub
 
    * **Trafic d’entrée à partir d’Azure Bastion :** Azure Bastion atteindra les machines virtuelles cibles via l’adresse IP privée. Les ports RDP et SSH (3389 et 22 respectivement) doivent être ouverts du côté de la machine virtuelle cible sur l’adresse IP privée. Une bonne pratique consiste à ajouter la plage d’adresses IP du sous-réseau Azure Bastion à cette règle pour autoriser Bastion à ouvrir ces ports sur les machines virtuelles cibles de votre sous-réseau de machines virtuelles cible uniquement.
 
-## <a name="apply"></a>Appliquer des groupes de sécurité réseau à AzureBastionSubnet
+## <a name="apply-nsgs-to-azurebastionsubnet"></a><a name="apply"></a>Appliquer des groupes de sécurité réseau à AzureBastionSubnet
 
 Si vous créez un groupe de sécurité réseau et l’appliquez à ***AzureBastionSubnet***, vérifiez que vous avez ajouté les règles suivantes à votre groupe de sécurité réseau. Si vous n’ajoutez pas ces règles, la création/mise à jour du groupe de sécurité réseau échouera :
 

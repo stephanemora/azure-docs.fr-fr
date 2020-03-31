@@ -4,12 +4,12 @@ description: Ce guide de démarrage rapide vous montre comment créer et gérer 
 ms.topic: quickstart
 ms.date: 01/13/2020
 zone_pivot_groups: programming-languages-set-six
-ms.openlocfilehash: 33725eb54e8a78547f4bf82d6a8f6fae58fdb5cb
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 065f88ce12037109773b7023972c151d968840a8
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77524416"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "79218481"
 ---
 # <a name="quickstart-create-and-manage-knowledge-base"></a>Démarrage rapide : Créer et gérer la base de connaissances
 
@@ -30,7 +30,7 @@ Démarrez avec la bibliothèque de client QnA Maker. Suivez les étapes suivante
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
->[Tutoriel : Créer et interroger une base de connaissances](../tutorials/create-publish-query-in-portal.md)
+>[Tutoriel : Tester votre base de connaissances avec un fichier de commandes](./batch-testing.md)
 
 * [Qu’est-ce que l’API QnA Maker ?](../Overview/overview.md)
 * [Modifier une base de connaissances](../how-to/edit-knowledge-base.md)

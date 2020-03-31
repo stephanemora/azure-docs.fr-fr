@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/03/2016
 ms.custom: seodec18
 ms.openlocfilehash: 98c11a72b5aea0fac15d943977402289dc33a970
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74688313"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Résoudre les problèmes de baisse de performances d’une application dans Azure App Service
@@ -22,7 +22,7 @@ Si vous avez besoin d'aide supplémentaire concernant n'importe quel point de ce
 ## <a name="symptom"></a>Symptôme
 Lorsque vous parcourez l’application, le chargement des pages est lent et il est possible que le délai soit dépassé.
 
-## <a name="cause"></a>Cause :
+## <a name="cause"></a>Cause
 Ce problème est souvent dû à des problèmes au niveau de l’application, tels que :
 
 * requêtes réseau chronophages ;

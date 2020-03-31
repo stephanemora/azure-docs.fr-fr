@@ -63,6 +63,8 @@
           href: concepts-data-access-security-private-link.md
         - name: Protection avancée contre les menaces
           href: concepts-data-access-and-security-threat-protection.md
+        - name: Base de référence de la sécurité
+          href: security-baseline.md
     - name: Continuité de l’activité
       items:
         - name: Introduction à la continuité de l’activité
@@ -138,6 +140,10 @@
           href: howto-auto-grow-storage-portal.md
         - name: Azure CLI
           href: howto-auto-grow-storage-cli.md
+    - name: Refuser l’accès au réseau public
+      items:
+        - name: Portail Azure
+          href: howto-deny-public-network-access.md
     - name: Accéder aux journaux d’activité du serveur
       items:
         - name: Journaux des requêtes lentes

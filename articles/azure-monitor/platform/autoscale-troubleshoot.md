@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 11/4/2019
 ms.subservice: autoscale
 ms.openlocfilehash: 9780cf88070110c4efc13c477d65307aa3985fe5
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75751335"
 ---
 # <a name="troubleshooting-azure-autoscale"></a>Résolution des problèmes de mise à l’échelle automatique Azure
@@ -60,15 +60,15 @@ Passons en revue les métriques du service de mise à l’échelle automatique.
 Dans la figure 1b, le **seuil de métrique** (ligne bleu clair) de la règle de montée en charge est de 70.  La **capacité observée** (ligne bleu foncé) indique le nombre d’instances actives, actuellement 3. 
 
 > [!NOTE]
-> Vous devez filtrer le **seuil de métrique** par règle de déclenchement de montée en charge (augmentation) pour afficher le seuil de montée en charge et par règle de diminution de taille. 
+> Vous devez filtrer le **seuil de métrique** par règle de déclenchement de scale-out (augmentation) pour afficher le seuil de scale-out et par règle de scale-in (diminution). 
 
 ## <a name="example-2---advanced-autoscaling-for-a-virtual-machine-scale-set"></a>Exemple 2 : Mise à l’échelle automatique avancée pour un groupe de machines virtuelles identiques
 
-Nous disposons d’un paramètre de mise à l’échelle automatique qui permet à une ressource de groupe de machines virtuelles identiques d’évoluer en fonction de sa propre métrique **Flux sortants**. Notez que l’option **diviser la métrique par le nombre d’instances** pour le seuil de métrique est cochée. 
+Nous disposons d’un paramètre de mise à l’échelle automatique qui permet à une ressource de groupe de machines virtuelles identiques d’effectuer un scale-out en fonction de sa propre métrique **Flux sortants**. Notez que l’option **diviser la métrique par le nombre d’instances** pour le seuil de métrique est cochée. 
 
 La règle d’action de mise à l’échelle est : 
 
-Si la valeur de **Flux sortants par instance** est supérieure à 10, le service de mise à l’échelle automatique doit monter en charge de 1 instance. 
+Si la valeur de **Flux sortants par instance** est supérieure à 10, le service de mise à l’échelle automatique doit effectuer un scale-out de 1 instance. 
 
 Dans ce cas, la valeur de métrique observée du moteur de mise à l’échelle automatique est calculée en tant que valeur métrique réelle divisée par le nombre d’instances. Si la valeur de métrique observée est inférieure au seuil, aucune action de montée en charge n’est initiée. 
  

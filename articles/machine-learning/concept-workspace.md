@@ -10,10 +10,10 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 12/27/2019
 ms.openlocfilehash: 03bc49c24e3c2d32e97f3e5e03bd39da63428a6e
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77505577"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Qu’est-ce qu’un espace de travail Azure Machine Learning ?
@@ -81,7 +81,7 @@ Vous pouvez également effectuer les tâches de gestion de l’espace de travail
 > [!WARNING]
 > Le déplacement de votre espace de travail Azure Machine Learning vers un autre abonnement, ou le déplacement de l’abonnement propriétaire vers un nouveau locataire, n’est pas pris en charge. En effet, cela peut provoquer des erreurs.
 
-## <a name='create-workspace'></a> Créer un espace de travail
+## <a name="create-a-workspace"></a><a name='create-workspace'></a> Créer un espace de travail
 
 Lorsque vous créez un espace de travail, vous décidez de le créer avec [l’édition De base ou Enterprise](overview-what-is-azure-ml.md#sku). L’édition détermine les fonctionnalités disponibles dans l’espace de travail. Parmi d’autres fonctionnalités, l’édition Enterprise vous permet d’accéder au [concepteur Azure Machine Learning](concept-designer.md) et à la version studio de la génération [d’expériences Machine Learning automatisées](tutorial-first-experiment-automated-ml.md).  Pour plus de détails et pour obtenir des informations sur la tarification, consultez [Tarifs Azure Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/).
 
@@ -95,11 +95,11 @@ Il existe plusieurs moyens de créer un espace de travail :
 > [!NOTE]
 > Le nom de l’espace de travail n’est pas sensible à la casse.
 
-## <a name="upgrade"></a> Mise à jour vers l’édition Enterprise
+## <a name="upgrade-to-enterprise-edition"></a><a name="upgrade"></a> Mise à jour vers l’édition Enterprise
 
 Vous pouvez [mettre à niveau votre espace de travail depuis l’édition De base vers l’édition Enterprise](how-to-manage-workspace.md#upgrade) à l’aide du portail Azure. Vous ne pouvez pas rétrograder un espace de travail Édition Entreprise vers une édition De base. 
 
-## <a name="resources"></a> Ressources associées
+## <a name="associated-resources"></a><a name="resources"></a> Ressources associées
 
 Lorsque vous créez un nouvel espace de travail, celui-ci crée automatiquement plusieurs ressources Azure qui sont utilisées par l’espace de travail :
 

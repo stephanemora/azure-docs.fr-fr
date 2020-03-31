@@ -3,12 +3,12 @@ title: Sauvegarde des fichiers et des dossiers - Questions courantes
 description: Cette section répond aux questions courantes liées à la sauvegarde des fichiers et des dossiers avec Sauvegarde Microsoft Azure.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: 7b80932d49038bb42fa93f71b3ac0194c2869489
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: adcbf5c3b404de46634423f8f59c4798d44bebe0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425066"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79233913"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>Questions courantes sur la sauvegarde de fichiers et de dossiers
 
@@ -149,7 +149,7 @@ Le dossier du cache et les métadonnées du disque dur virtuel ne possèdent les
 
 ### <a name="is-there-a-way-to-adjust-the-amount-of-bandwidth-used-for-backup"></a>Existe-t-il un moyen d’adapter la quantité de bande passante utilisée pour la sauvegarde ?
 
-Oui. Vous pouvez utiliser l’option **Modifier les propriétés** de l’agent MARS pour régler la bande passante et la durée. [Plus d’informations](backup-configure-vault.md#enable-network-throttling)
+Oui. Vous pouvez utiliser l’option **Modifier les propriétés** de l’agent MARS pour régler la bande passante et la durée. [Plus d’informations](backup-windows-with-mars-agent.md#enable-network-throttling)
 
 ## <a name="restore"></a>Restaurer
 

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/18/2016
 tags: connectors
 ms.openlocfilehash: 8ac6b7b411e7f42dd076c5b16e7b500a819c617f
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75665783"
 ---
 # <a name="manage-videos-in-office365-video-by-using-azure-logic-apps"></a>Gérer des vidéos dans Office 365 Video à l’aide d’Azure Logic Apps

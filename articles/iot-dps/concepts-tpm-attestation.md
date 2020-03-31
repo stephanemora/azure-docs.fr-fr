@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: briz
 ms.openlocfilehash: 624171ffc10a06ac3089b6dceb1683c63c88dbda
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74975276"
 ---
 # <a name="tpm-attestation"></a>Attestation TPM
@@ -25,7 +25,7 @@ Cet article concerne uniquement les appareils utilisant un TPM 2.0 avec la prise
 
 Les Kits de développement logiciel (SDK) d’appareil du service Device Provisioning gèrent pour vous tout ce qui est décrit dans cet article. Vous n’avez pas besoin d’implémenter quoi que ce soit si vous utilisez les Kits de développement logiciel (SDK) sur vos appareils. Cet article vous aidera à comprendre, d’un point de vue conceptuel, ce qui se passe avec votre processeur de sécurité TPM lorsque votre appareil est approvisionné et pourquoi cette opération est si sécurisée.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Les TPM utilisent une paire de clés de type EK en tant que clé racine sécurisée de confiance. La paire de clés de type EK est unique au TPM et sa modification transforme l’appareil en un autre appareil.
 

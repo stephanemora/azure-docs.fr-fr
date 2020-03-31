@@ -13,10 +13,10 @@ ms.workload: identity
 ms.date: 02/26/2020
 ms.author: rolyon
 ms.openlocfilehash: 3204cdf51f3f37588f684f801a811f569b337d13
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77674699"
 ---
 # <a name="create-or-update-azure-custom-roles-using-the-azure-portal-preview"></a>Créer ou mettre à jour des rôles personnalisés Azure à l’aide du portail Azure (préversion)
@@ -155,7 +155,7 @@ Si vous préférez, vous pouvez spécifier la plupart des valeurs de votre rôle
 
 1. Passez à l’[étape 3 : Paramètres de base](#step-3-basics).
 
-## <a name="step-3-basics"></a>Étape 3 : Paramètres de base
+## <a name="step-3-basics"></a>Étape 3 : Concepts de base
 
 Sous l’onglet **Paramètres de base**, spécifiez le nom, la description et les autorisations de base pour votre rôle personnalisé.
 
@@ -225,7 +225,7 @@ Au lieu d’ajouter toutes ces autorisations, vous pouvez simplement ajouter une
 Microsoft.CostManagement/exports/*
 ```
 
-Si vous souhaitez ajouter une nouvelle autorisation générique, vous ne pouvez pas le faire à l’aide du volet **Ajouter des autorisations**. Pour ajouter une autorisation générique, vous devez procéder manuellement à l’aide de l’onglet **JSON**. Pour plus d’informations, voir l’[Étape 6 : JSON](#step-6-json).
+Si vous souhaitez ajouter une nouvelle autorisation générique, vous ne pouvez pas le faire à l’aide du volet **Ajouter des autorisations**. Pour ajouter une autorisation générique, vous devez procéder manuellement à l’aide de l’onglet **JSON**. Pour plus d’informations, consultez [Étape 6 : JSON](#step-6-json).
 
 ### <a name="exclude-permissions"></a>Exclure les autorisations
 

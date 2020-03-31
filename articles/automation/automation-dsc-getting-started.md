@@ -10,10 +10,10 @@ ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 9fce9a769dd6d88c9926913d22716666284938c1
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74850956"
 ---
 # <a name="getting-started-with-azure-automation-state-configuration"></a>Prise en main d’Azure Automation State Configuration
@@ -67,7 +67,7 @@ Cette configuration appelle une ressource dans chaque bloc de nœuds, la [ressou
 
 Ensuite, vous importez la configuration dans le compte Automation.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Sur la gauche, cliquez sur **Toutes les ressources**, puis sur le nom de votre compte Automation.
 1. Sur la page **Compte Automation**, sélectionnez **State Configuration (DSC)** sous **Gestion de la configuration**.
 1. Sur la page **State Configuration (DSC)** , cliquez sur l’onglet **Configurations**, puis cliquez sur **+ Ajouter**.
@@ -81,7 +81,7 @@ Ensuite, vous importez la configuration dans le compte Automation.
 
 Après avoir importé une configuration, vous pouvez l’afficher dans le portail Azure.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Sur la gauche, cliquez sur **Toutes les ressources**, puis sur le nom de votre compte Automation.
 1. Sur la page **Compte Automation**, sélectionnez **State Configuration (DSC)** sous **Gestion de la configuration**.
 1. Sur la page **State Configuration (DSC)** , cliquez sur l’onglet **Configurations**, puis sur **TestConfig** (il s’agit du nom de la configuration que vous avez importée dans la procédure précédente).
@@ -96,7 +96,7 @@ Après avoir importé une configuration, vous pouvez l’afficher dans le portai
 Avant de pouvoir appliquer un état souhaité à un nœud, vous devez compiler une configuration DSC définissant cet état dans une ou plusieurs configurations de nœuds (documents MOF) et la placer sur le serveur Pull Automation DSC. Pour obtenir une description plus détaillée de la compilation des configurations dans Azure Automation State Configuration, consultez [Compilation de configurations dans Azure Automation State Configuration](automation-dsc-compile.md).
 Pour plus d’informations sur la compilation des configurations, consultez [Configurations DSC](/powershell/scripting/dsc/configurations/configurations).
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Sur la gauche, cliquez sur **Toutes les ressources**, puis sur le nom de votre compte Automation.
 1. Sur la page **Compte Automation**, cliquez sur **State Configuration (DSC)** sous **Gestion de la configuration**.
 1. Sur la page **State Configuration (DSC)** , cliquez sur l’onglet **Configurations**, puis sur **TestConfig** (le nom de la configuration que vous avez importée précédemment).
@@ -111,7 +111,7 @@ Pour plus d’informations sur la compilation des configurations, consultez [Con
 
 Après avoir démarré une compilation, vous pouvez l’afficher sur la mosaïque **Travaux de compilation** de la page **Configuration**. La mosaïque **Tâches de compilation** affiche les tâches en cours d’exécution, terminées et en échec. Quand vous ouvrez la page d’une tâche de compilation, vous obtenez des informations sur cette tâche, notamment les erreurs ou les avertissements rencontrés, les paramètres d’entrée utilisés dans la configuration et les journaux d’activité de compilation.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Sur la gauche, cliquez sur **Toutes les ressources**, puis sur le nom de votre compte Automation.
 1. Sur la page **Compte Automation**, cliquez sur **State Configuration (DSC)** sous **Gestion de la configuration**.
 1. Sur la page **State Configuration (DSC)** , cliquez sur l’onglet **Configurations**, puis sur **TestConfig** (le nom de la configuration que vous avez importée précédemment).
@@ -125,7 +125,7 @@ Après avoir démarré une compilation, vous pouvez l’afficher sur la mosaïqu
 
 La réussite d’une tâche de compilation a pour effet de créer une ou plusieurs configurations de nœud. Une configuration de nœud est un document MOF déployé sur le serveur Pull et prêt à être extrait et appliqué par un ou plusieurs nœuds. Vous pouvez afficher les configurations de nœuds de votre compte Automation dans la page **State Configuration (DSC)** . Une configuration de nœud possède un nom au format *NomConfiguration*.*NomNœud*.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Sur la gauche, cliquez sur **Toutes les ressources**, puis sur le nom de votre compte Automation.
 1. Dans le panneau **Compte Automation**, cliquez sur **State Configuration (DSC)** sous **Gestion de la configuration**.
 1. Sur la page **State Configuration (DSC)** , cliquez sur l’onglet **Configurations compilées**.
@@ -138,7 +138,7 @@ Azure Automation State Configuration vous permet de gérer vos machines virtuell
 
 ### <a name="to-onboard-an-azure-resource-manager-vm-for-management-by-azure-automation-state-configuration"></a>Pour intégrer une machine virtuelle Azure Resource Manager pour la gérer via Azure Automation State Configuration, procédez comme suit.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Sur la gauche, cliquez sur **Toutes les ressources**, puis sur le nom de votre compte Automation.
 1. Dans le panneau **Compte Automation**, cliquez sur **State Configuration (DSC)** sous **Gestion de la configuration**.
 1. Dans la page **State Configuration (DSC)** et sous l’onglet **Nœuds**, cliquez sur **+ Ajouter**.
@@ -164,7 +164,7 @@ Azure lance le processus d’intégration de la machine virtuelle. Une fois ce p
 
 Vous pouvez utiliser l’onglet **Nœuds** de la page **Configuration d’état (DSC)** pour afficher la liste de toutes les machines qui ont été intégrées afin d’être gérées dans votre compte Automation.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Sur la gauche, cliquez sur **Toutes les ressources**, puis sur le nom de votre compte Automation.
 1. Dans le panneau **Compte Automation**, cliquez sur **State Configuration (DSC)** sous **Gestion de la configuration**.
 1. Dans la page **State Configuration (DSC)** , cliquez sur l’onglet **Nœuds**.
@@ -173,7 +173,7 @@ Vous pouvez utiliser l’onglet **Nœuds** de la page **Configuration d’état 
 
 Chaque fois qu’Azure Automation State Configuration effectue une vérification de cohérence sur un nœud géré, le nœud envoie un rapport d’état sur le serveur Pull. Vous pouvez consulter ces rapports sur la page correspondant à ce nœud.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Sur la gauche, cliquez sur **Toutes les ressources**, puis sur le nom de votre compte Automation.
 1. Dans le panneau **Compte Automation**, cliquez sur **State Configuration (DSC)** sous **Gestion de la configuration**.
 1. Dans la page **State Configuration (DSC)** , cliquez sur l’onglet **Nœuds**. Ici, vous pouvez voir la vue d’ensemble de l’état de la configuration et les détails de chaque nœud.
@@ -203,7 +203,7 @@ Vous risquez de devoir attendre un certain temps après l’intégration d’un 
 
 Vous pouvez attribuer un nœud à une configuration de nœud différente de celle qui lui a été initialement affectée.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Sur la gauche, cliquez sur **Toutes les ressources**, puis sur le nom de votre compte Automation.
 1. Dans le panneau **Compte Automation**, cliquez sur **State Configuration (DSC)** sous **Gestion de la configuration**.
 1. Dans la page **State Configuration (DSC)** , cliquez sur l’onglet **Nœuds**.
@@ -220,7 +220,7 @@ Vous pouvez attribuer un nœud à une configuration de nœud différente de cell
 
 Si vous ne souhaitez plus qu’un nœud soit géré par Azure Automation DSC, vous pouvez annuler son inscription.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Sur la gauche, cliquez sur **Toutes les ressources**, puis sur le nom de votre compte Automation.
 1. Dans le panneau **Compte Automation**, cliquez sur **State Configuration (DSC)** sous **Gestion de la configuration**.
 1. Dans la page **State Configuration (DSC)** , cliquez sur l’onglet **Nœuds**.
@@ -233,6 +233,6 @@ Si vous ne souhaitez plus qu’un nœud soit géré par Azure Automation DSC, vo
 
 - [Vue d’ensemble d’Azure Automation State Configuration](automation-dsc-overview.md)
 - [Intégration des machines pour la gestion avec Azure Automation State Configuration](automation-dsc-onboarding.md)
-- [Vue d’ensemble d’Azure Automation DSC](/powershell/scripting/dsc/overview/overview)
+- [Vue d’ensemble de la configuration d’état souhaité Windows PowerShell](/powershell/scripting/dsc/overview/overview)
 - [Applets de commande d’Azure Automation State Configuration](/powershell/module/azurerm.automation/#automation)
 - [Tarification d’Azure Automation State Configuration](https://azure.microsoft.com/pricing/details/automation/)

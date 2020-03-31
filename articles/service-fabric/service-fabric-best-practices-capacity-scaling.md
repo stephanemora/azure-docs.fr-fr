@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
 ms.openlocfilehash: bf228e17ca24df9833f96f0c6fd3ef232cdf7ae6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75377461"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79229473"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Planification et mise à l’échelle de la capacité pour Azure Service Fabric
 
@@ -28,7 +28,7 @@ L’utilisation de la mise à l’échelle automatique via des groupes de machin
    Outre la mise à l’échelle manuelle, vous pouvez configurer un [pipeline d’intégration et livraison continue dans les Services Azure DevOps à l’aide de projets de déploiement de groupe de ressources Azure](https://docs.microsoft.com/azure/vs-azure-tools-resource-groups-ci-in-vsts). Ce pipeline est couramment déclenché par une application logique qui utilise des métriques de performances de machine virtuelle interrogées depuis l’[API REST Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/rest-api-walkthrough). Le pipeline met automatiquement à l’échelle les mesures souhaitées de manière efficace, tout en optimisant les modèles Resource Manager.
 * Vous devez mettre à l’échelle horizontale uniquement un nœud de groupe de machines virtuelles identiques à la fois.
    
-   Pour effectuer un scale out de trois nœuds ou plus à la fois, vous devez [effectuer le scale out d’un cluster Service Fabric en ajoutant un groupe de machines virtuelles identiques](virtual-machine-scale-set-scale-node-type-scale-out.md). Il est plus sûr d’effectuer un scale in et un scale out de groupe de machines virtuelles identiques à l’horizontale, un nœud à la fois.
+   Pour effectuer un scale-out de trois nœuds ou plus à la fois, vous devez [effectuer le scale-out d’un cluster Service Fabric en ajoutant un groupe de machines virtuelles identiques](virtual-machine-scale-set-scale-node-type-scale-out.md). Il est plus sûr d’effectuer un scale-in et un scale-out de groupe de machines virtuelles identiques à l’horizontale, un nœud à la fois.
 * Vous bénéficiez d’une fiabilité Silver ou supérieure pour votre cluster Service Fabric, ainsi qu’une durabilité Silver ou supérieure pour tous les groupes identiques, où vous configurez des règles de mise à l’échelle automatique.
   
    La capacité minimale pour les règles de mise à l’échelle doit être égale ou supérieure à cinq instances de machine virtuelle. Elle doit également être égale ou supérieure au minimum de votre niveau de fiabilité pour votre type de nœud principal.
@@ -81,7 +81,7 @@ Vous pouvez effectuer une mise à l’échelle horizontale [manuellement](https:
 
 ### <a name="scaling-out"></a>Montée en charge
 
-Montez en charge un cluster Service Fabric en augmentant le nombre d’instances d’un groupe de machines virtuelles identiques donné. Cette montée en charge peut se faire par programmation, à l’aide d`AzureClient` et de l’ID du groupe de machines virtuelles souhaité.
+Effectuez un scale-out d’un cluster Service Fabric en augmentant le nombre d’instances d’un groupe de machines virtuelles identiques donné. Ce scale-out peut se faire par programmation, à l'aide de `AzureClient` et de l'ID du groupe de machines virtuelles souhaité.
 
 ```csharp
 var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
@@ -89,7 +89,7 @@ var newCapacity = (int)Math.Min(MaximumNodeCount, scaleSet.Capacity + 1);
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
 ```
 
-Pour une montée en charge manuelle, mettez à jour la capacité dans la propriété de référence SKU de la ressource [Groupe de machines virtuelles identiques](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile) souhaitée.
+Pour effectuer un scale-out manuel, mettez à jour la capacité dans la propriété de référence SKU de la ressource [Groupe de machines virtuelles identiques](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile) souhaitée.
 
 ```json
 "sku": {
@@ -106,14 +106,14 @@ La mise à l'échelle requiert une plus grande attention que la montée en charg
 * Les services système Service Fabric s’exécutent sur le type de nœud principal de votre cluster. Vous ne devez jamais arrêter ou faire descendre en puissance le nombre d’instances pour ces types de nœuds sur une valeur d'instances inférieure à celle garantie par le niveau de fiabilité. 
 * Pour un service avec état, un certain nombre de nœuds doivent toujours fonctionner afin de maintenir la disponibilité et de conserver l’état de votre service. Au minimum, le nombre de nœuds doit être égal au nombre de jeux de réplicas cibles du service ou de la partition.
 
-Pour une mise à l'échelle manuelle, procédez comme suit :
+Pour effectuer un scale-in manuel, procédez comme suit :
 
 1. À partir de PowerShell, exécutez `Disable-ServiceFabricNode` avec l’intention `RemoveNode` pour désactiver le nœud que vous vous apprêtez à supprimer. Supprimez le type de nœud présentant le nombre le plus élevé. Par exemple, en présence d’un cluster à six nœuds, supprimez l’instance de machine virtuelle « MyNodeType_5 ».
 2. Exécutez `Get-ServiceFabricNode` pour vous assurer que le nœud a bien été désactivé. Si ce n’est pas le cas, patientez jusqu'à ce que le nœud soit désactivé. Cette opération peut prendre plusieurs heures pour chaque nœud. Ne continuez pas tant que le nœud n'a pas été désactivé.
 3. Réduisez une à une le nombre de machines virtuelles dans ce type de nœud. L'instance de machine virtuelle la plus élevée va à présent être supprimée.
 4. Répétez les étapes 1 à 3 selon vos besoins, jusqu’à approvisionner la capacité souhaitée. Ne faites jamais descendre en puissance le nombre d’instances sur les types de nœuds principaux sur une valeur inférieure à celle garantie par le niveau de fiabilité. Pour obtenir la liste des instances recommandées, consultez [Planification de la capacité du cluster Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
 
-Pour une mise à l’échelle manuelle, mettez à jour la capacité dans la propriété de référence SKU de la ressource [Groupe de machines virtuelles identiques](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile) souhaitée.
+Pour effectuer un scale-in manuel, mettez à jour la capacité dans la propriété de référence SKU de la ressource [Groupe de machines virtuelles identiques](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile) souhaitée.
 
 ```json
 "sku": {
@@ -123,7 +123,7 @@ Pour une mise à l’échelle manuelle, mettez à jour la capacité dans la prop
 }
 ```
 
-Vous devez préparer le nœud à l’arrêt pour une mise à l’échelle par programmation. Recherchez le nœud à supprimer (le nœud de l’instance la plus élevée). Par exemple :
+Vous devez préparer le nœud à l’arrêt pour effectuer un scale-in programmatiquement. Recherchez le nœud à supprimer (le nœud de l’instance la plus élevée). Par exemple :
 
 ```csharp
 using (var client = new FabricClient())

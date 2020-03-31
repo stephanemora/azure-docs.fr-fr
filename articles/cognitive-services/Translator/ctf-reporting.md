@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: swmachan
 ms.openlocfilehash: 6a197095d97e67f7548e60375148cff57e47b797
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68595941"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>Guide pratique pour utiliser le compte-rendu CTF (Collaborative Translation Framework)
 
 > [!NOTE]
-> Cette méthode est dépréciée. Elle n’est pas disponible dans la version 3.0 de l’API de traduction de texte Translator Text.
+> Cette méthode est déconseillée. Elle n’est pas disponible dans la version 3.0 de l’API de traduction de texte Translator Text.
 > 
 > L’infrastructure CTF (Collaborative Translation Framework), disponible pour la version 2.0 de l’API de traduction de texte Translator Text, a été dépréciée à compter du 1er février 2018. Les fonctions AddTranslation et AddTranslationArray permettent aux utilisateurs d’activer les corrections via l’infrastructure CTF. Depuis le 31 janvier 2018, ces deux fonctions n’ont pas accepté de nouvelles soumissions de phrases, et les utilisateurs reçoivent un message d’erreur. Ces fonctions ont été mises hors service et ne seront pas remplacées.
 
@@ -76,16 +76,16 @@ Cette méthode permet d’obtenir le nombre des traductions qui sont créées pa
 |:---|:---|
 | appId | **Requis** Si l’en-tête Autorisation est utilisé, laissez le champ appid vide. Sinon, spécifiez une chaîne contenant « Beare » + « » + un jeton d’accès.|
 | uriPrefix | **Facultatif** Chaîne contenant le préfixe d’URI de la traduction.|
-| from | **Facultatif** Chaîne représentant le code de langue du texte de traduction. |
+| de | **Facultatif** Chaîne représentant le code de langue du texte de traduction. |
 | to | **Facultatif** Chaîne représentant le code de la langue dans laquelle le texte doit être traduit.|
 | minRating| **Facultatif** Entier représentant le niveau de qualité minimal pour le texte traduit. La valeur valide est comprise entre -10 et 10. La valeur par défaut est 1.|
 | maxRating| **Facultatif** Entier représentant le niveau de qualité maximal pour le texte traduit. La valeur valide est comprise entre -10 et 10. La valeur par défaut est 1.|
-| user | **Facultatif** Chaîne utilisée pour filtrer le résultat en fonction de la personne à l’origine de la soumission. |
-| category| **Facultatif** Chaîne contenant la catégorie ou le domaine de la traduction. Ce paramètre prend en charge uniquement l’option par défaut générale.|
+| utilisateur | **Facultatif** Chaîne utilisée pour filtrer le résultat en fonction de la personne à l’origine de la soumission. |
+| catégorie| **Facultatif** Chaîne contenant la catégorie ou le domaine de la traduction. Ce paramètre prend en charge uniquement l’option par défaut générale.|
 | minDateUtc| **Facultatif** Date à partir de laquelle vous souhaitez récupérer les traductions. La date doit être au format UTC. |
 | maxDateUtc| **Facultatif** Date jusqu’à laquelle vous souhaitez récupérer les traductions. La date doit être au format UTC. |
 | skip| **Facultatif** Nombre de résultats que vous souhaitez ignorer sur une page. Par exemple, si vous souhaitez ignorer les 20 premières lignes des résultats et affichez les résultats à partir du 21e enregistrement, spécifiez 20 pour ce paramètre. La valeur par défaut pour ce paramètre est 0.|
-| take | **Facultatif** Nombre de résultats que vous souhaitez récupérer. Le nombre maximal de chaque demande est 100. La valeur par défaut est 100.|
+| take | **Facultatif** Nombre de résultats que vous souhaitez récupérer. Le nombre maximal de chaque demande est 100. La valeur par défaut est 100.|
 
 > [!NOTE]
 > Les paramètres de demande skip et take permettent la pagination d’un grand nombre d’enregistrements de résultats.
@@ -147,12 +147,12 @@ Cette méthode récupère les traductions créées par l’utilisateur. Elle fou
 |:---|:---|
 | appId | **Requis** Si l’en-tête Autorisation est utilisé, laissez le champ appid vide. Sinon, spécifiez une chaîne contenant « Beare » + « » + un jeton d’accès.|
 | uriPrefix| **Facultatif** Chaîne contenant le préfixe d’URI de la traduction.|
-| from| **Facultatif** Chaîne représentant le code de langue du texte de traduction.|
+| de| **Facultatif** Chaîne représentant le code de langue du texte de traduction.|
 | to| **Facultatif** Chaîne représentant le code de la langue dans laquelle le texte doit être traduit.|
 | minRating| **Facultatif** Entier représentant le niveau de qualité minimal pour le texte traduit. La valeur valide est comprise entre -10 et 10. La valeur par défaut est 1.|
 | maxRating| **Facultatif** Entier représentant le niveau de qualité maximal pour le texte traduit. La valeur valide est comprise entre -10 et 10. La valeur par défaut est 1.|
-| user| **Facultatif. Chaîne utilisée pour filtrer le résultat en fonction de la personne à l’origine de la soumission**|
-| category| **Facultatif** Chaîne contenant la catégorie ou le domaine de la traduction. Ce paramètre prend en charge uniquement l’option par défaut générale.|
+| utilisateur| **Facultatif. Chaîne utilisée pour filtrer le résultat en fonction de la personne à l’origine de la soumission**|
+| catégorie| **Facultatif** Chaîne contenant la catégorie ou le domaine de la traduction. Ce paramètre prend en charge uniquement l’option par défaut générale.|
 | minDateUtc| **Facultatif** Date à partir de laquelle vous souhaitez récupérer les traductions. La date doit être au format UTC.|
 | maxDateUtc| **Facultatif** Date jusqu’à laquelle vous souhaitez récupérer les traductions. La date doit être au format UTC.|
 | skip| **Facultatif** Nombre de résultats que vous souhaitez ignorer sur une page. Par exemple, si vous souhaitez ignorer les 20 premières lignes des résultats et affichez les résultats à partir du 21e enregistrement, spécifiez 20 pour ce paramètre. La valeur par défaut pour ce paramètre est 0.|

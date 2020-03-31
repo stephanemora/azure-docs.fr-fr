@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: harahma
 ms.openlocfilehash: 69c7edb08693937aad5a658e0b22b00cd2a81647
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75464578"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79236673"
 ---
 # <a name="azure-service-fabric-hosting-model"></a>Modèle d’hébergement Azure Service Fabric
 Cet article fournit une vue d’ensemble des modèles d’hébergement d’applications fournis par Azure Service Fabric et décrit les différences entre les modèles à **processus partagé** et à **processus exclusif**. Il décrit le fonctionnement d’une application déployée sur un nœud Service Fabric, et présente la relation entre les réplicas (ou instances) du service et le processus hôte du service.
@@ -111,7 +111,7 @@ Pour connaître le **ServicePackageActivationId** d’un package de services dé
 > [!NOTE]
 >- Sous le modèle d’hébergement à processus partagé, une seule copie d’un *ServicePackage* est activée sur un nœud donné et pour une application donnée. Le **ServicePackageActivationId** est alors égal à une *chaîne vide* et il n’est pas nécessaire de le spécifier lors de l’exécution des opérations associées au package de services déployé. 
 >
-> - Sous le modèle d’hébergement à processus exclusif, une ou plusieurs copies d’un *ServicePackage* peuvent être actives sur un nœud donné et pour une application donnée. Chaque activation est associée à un **ServicePackageActivationId** *non vide*, spécifié lors de l’exécution des opérations associées au package de services déployé. 
+> - Sous le modèle d’hébergement à processus exclusif, une ou plusieurs copies d’un *ServicePackage* peuvent être actives sur un nœud donné et pour une application donnée. Chaque activation est associée à un *ServicePackageActivationId* **non vide**, spécifié lors de l’exécution des opérations associées au package de services déployé. 
 >
 > - Si le **ServicePackageActivationId** est omis, la valeur par défaut est une *chaîne vide*. En présence d’un package de services déployé qui a été activé sous le modèle à processus partagé, l’opération est exécutée dans ce package. Dans le cas contraire, l’opération échoue.
 >

@@ -12,10 +12,10 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 12/18/2018
 ms.openlocfilehash: 9d628583168883276e67d9e2f2fcafdce292769e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73807493"
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>Configurer et gérer la sécurité Azure SQL Database pour la géo-restauration ou le basculement
@@ -98,6 +98,6 @@ La dernière étape consiste à accéder au(x) serveur(s) cible, et à générer
 
 * Pour plus d’informations sur la gestion de l’accès aux bases de données et des connexions, voir [Sécurité SQL Database : gérer la sécurité de l’accès aux bases de données et des connexions](sql-database-manage-logins.md).
 * Pour plus d’informations sur les utilisateurs de base de données autonome, consultez [Utilisateurs de base de données autonome - Rendre votre base de données portable](https://msdn.microsoft.com/library/ff929188.aspx).
-* Pour plus d’informations sur la géoréplication active, voir [Géoréplication active](sql-database-active-geo-replication.md).
+* Pour plus d’informations sur la géoréplication active, voir la section [Géoréplication active](sql-database-active-geo-replication.md).
 * Pour plus d’informations sur les groupes de basculement automatique, voir [Groupes de basculement automatique](sql-database-auto-failover-group.md).
 * Pour plus d’informations sur l’utilisation de la géorestauration, voir [Géorestauration](sql-database-recovery-using-backups.md#geo-restore).

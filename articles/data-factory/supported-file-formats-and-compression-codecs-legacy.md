@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: jingwang
 ms.openlocfilehash: 423706c391e8d8c2c609798d9f50e5a22f5c39bb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75475979"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79229993"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory-legacy"></a>Formats de fichier et codecs de compression pris en charge dans Azure Data Factory (hérité)
 
@@ -23,7 +23,7 @@ ms.locfileid: "75475979"
 >[!IMPORTANT]
 >Data Factory a introduit un nouveau modèle de jeu de données en fonction du format. Pour plus d’informations, consultez l’article relatif à chaque format : <br>- [Format Avro](format-avro.md)<br>- [Format binaire](format-binary.md)<br>- [Format de texte délimité](format-delimited-text.md)<br>- [Format JSON](format-json.md)<br>- [Format ORC](format-orc.md)<br>- [Format Parquet](format-parquet.md)<br>Les autres configurations mentionnées dans cet article sont toujours prises en charge telles quelles pour des raisons de compatibilité descendante. Nous vous suggérons d’utiliser le nouveau modèle à l’avenir. 
 
-## <a name="text-format"></a> Format texte (hérité)
+## <a name="text-format-legacy"></a><a name="text-format"></a> Format texte (hérité)
 
 >[!NOTE]
 >Découvrez le nouveau modèle dans l’article [Format de texte délimité](format-delimited-text.md). Les configurations suivantes liées au jeu de données d'une banque de données basée sur un fichier sont toujours prises en charge telles que à des fins de rétrocompatibilité. Nous vous suggérons d’utiliser le nouveau modèle à l’avenir.
@@ -77,7 +77,7 @@ Pour utiliser un caractère `escapeChar` au lieu de `quoteChar`, remplacez la li
 * Vous copiez à partir d’un fichier texte contenant une ligne d’en-tête vers un récepteur hors fichier et souhaitez supprimer cette ligne. Définissez le paramètre `firstRowAsHeader` sur true dans le jeu de données d’entrée.
 * Vous copiez à partir d’un fichier texte et souhaitez ignorer quelques lignes au début, qui ne contiennent ni données, ni informations d’en-tête. Spécifiez le paramètre `skipLineCount` pour indiquer le nombre de lignes à ignorer. Si le reste du fichier contient une ligne d’en-tête, vous pouvez également spécifier `firstRowAsHeader`. Si les paramètres `skipLineCount` et `firstRowAsHeader` sont tous deux spécifiés, les lignes sont d’abord ignorées, puis les informations d’en-tête sont lues à partir du fichier d’entrée.
 
-## <a name="json-format"></a> Format JSON (hérité)
+## <a name="json-format-legacy"></a><a name="json-format"></a> Format JSON (hérité)
 
 >[!NOTE]
 >Découvrez le nouveau modèle dans l’article [Format JSON](format-json.md). Les configurations suivantes liées au jeu de données d'une banque de données basée sur un fichier sont toujours prises en charge telles que à des fins de rétrocompatibilité. Nous vous suggérons d’utiliser le nouveau modèle à l’avenir.
@@ -404,7 +404,7 @@ Le jeu de données de sortie présentant le type **JsonFormat** est défini comm
 }
 ```
 
-## <a name="parquet-format"></a> Format Parquet (hérité)
+## <a name="parquet-format-legacy"></a><a name="parquet-format"></a> Format Parquet (hérité)
 
 >[!NOTE]
 >Découvrez le nouveau modèle dans l’article [Format Parquet](format-parquet.md). Les configurations suivantes liées au jeu de données d'une banque de données basée sur un fichier sont toujours prises en charge telles que à des fins de rétrocompatibilité. Nous vous suggérons d’utiliser le nouveau modèle à l’avenir.
@@ -464,7 +464,7 @@ Exemple : donnez la valeur `-Xms256m -Xmx16g` à la variable `_JAVA_OPTIONS`. L
 | Char | Binary | Utf8 | Utf8 |
 | CharArray | Non pris en charge | N/A | N/A |
 
-## <a name="orc-format"></a> Format ORC (hérité)
+## <a name="orc-format-legacy"></a><a name="orc-format"></a> Format ORC (hérité)
 
 >[!NOTE]
 >Découvrez le nouveau modèle dans l’article [Format ORC](format-orc.md). Les configurations suivantes liées au jeu de données d'une banque de données basée sur un fichier sont toujours prises en charge telles que à des fins de rétrocompatibilité. Nous vous suggérons d’utiliser le nouveau modèle à l’avenir.
@@ -516,7 +516,7 @@ Dans le cas de copies s’exécutant sur l’IR auto-hébergé avec sérialisati
 | Guid | String |
 | Char | Char (1) |
 
-## <a name="avro-format"></a> Format Avro (hérité)
+## <a name="avro-format-legacy"></a><a name="avro-format"></a> Format Avro (hérité)
 
 >[!NOTE]
 >Découvrez le nouveau modèle dans l’article [Format Avro](format-avro.md). Les configurations suivantes liées au jeu de données d'une banque de données basée sur un fichier sont toujours prises en charge telles que à des fins de rétrocompatibilité. Nous vous suggérons d’utiliser le nouveau modèle à l’avenir.
@@ -536,7 +536,7 @@ Notez les points suivants :
 
 * [Les types de données complexes](https://avro.apache.org/docs/current/spec.html#schema_complex) ne sont pas pris en charge (enregistrements, enums, tables, cartes, unions et fixes).
 
-## <a name="compression-support"></a> Prise en charge de la compression (hérité)
+## <a name="compression-support-legacy"></a><a name="compression-support"></a> Prise en charge de la compression (hérité)
 
 Azure Data Factory prend en charge la compression/décompression des données pendant la copie. Quand vous spécifiez la propriété `compression` dans un jeu de données d’entrée, l’activité de copie lit les données compressées à partir de la source, puis les décompresse. Quand vous spécifiez la propriété dans un jeu de données de sortie, l’activité de copie compresse les données, puis les écrit dans le récepteur. Voici quelques exemples de scénarios :
 

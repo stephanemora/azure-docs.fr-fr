@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.openlocfilehash: 619c68b84291bc35b8216194ac4534393fde454c
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77191487"
 ---
 # <a name="set-up-a-single-ip-address-for-one-or-more-integration-service-environments-in-azure-logic-apps"></a>Configurer une adresse IP unique pour un ou plusieurs environnements de service d’intégration dans Azure Logic Apps
@@ -19,7 +19,7 @@ Quand vous utilisez Azure Logic Apps, vous pouvez configurer un [*environnement
 
 Cette rubrique montre comment router le trafic sortant via un Pare-feu Azure, mais vous pouvez appliquer des concepts similaires à une appliance virtuelle de réseau, comme un pare-feu tiers de la Place de marché Azure. Cette rubrique porte sur la configuration pour plusieurs instances d’environnement ISE, mais vous pouvez également utiliser cette approche pour un environnement ISE unique lorsque votre scénario nécessite de limiter le nombre d’adresses IP qui ont besoin d’un accès. Déterminez si les coûts supplémentaires pour le pare-feu ou l’appliance de réseau virtuel ont un sens pour votre scénario. Découvrez plus en détail la [tarification du Pare-feu Azure](https://azure.microsoft.com/pricing/details/azure-firewall/).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Un pare-feu Azure qui s’exécute dans le même réseau virtuel que votre environnement ISE. Si vous ne disposez pas d’un pare-feu, commencez par [ajouter un sous-réseau](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet) nommé `AzureFirewallSubnet` à votre réseau virtuel. Vous pouvez ensuite [créer et déployer un pare-feu](../firewall/tutorial-firewall-deploy-portal.md#deploy-the-firewall) dans votre réseau virtuel.
 

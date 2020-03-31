@@ -11,17 +11,17 @@ ms.topic: quickstart
 ms.date: 02/08/2020
 ms.author: diberry
 ms.openlocfilehash: e16166c741b99c1af5b36f2c7ccd25b01f7544ba
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77108996"
 ---
 # <a name="quickstart-test-knowledge-base-with-batch-questions-and-expected-answers"></a>Démarrage rapide : Base de connaissances de test avec des questions par lots et les réponses attendues
 
 Utilisez l’outil de test par lot QnA Maker pour tester les bases de connaissances dans votre ressource QnA Maker pour les réponses attendues, les scores de confiance et les invites multitours.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [Créez un service QnA Maker](create-publish-knowledge-base.md) ou utilisez un service existant, qui utilise la langue anglaise.

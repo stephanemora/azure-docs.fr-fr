@@ -9,12 +9,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 02/20/2020
 ms.reviewer: ''
-ms.openlocfilehash: c18e1b1a1feba5c528a692b7d63287b3751b62cf
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.openlocfilehash: 9c1260bb1fab23ede2d1a96725c3086dc128fffc
+ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77506212"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80387646"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database"></a>Playbook pour répondre aux exigences de sécurité courantes avec Azure SQL Database
 
@@ -46,7 +46,7 @@ Ce guide vise le public des clients qui sont confrontés à des questions sur la
 - Responsables de la confidentialité
 - Ingénieurs de la sécurité
 
-### <a id="using"></a> Comment utiliser ce guide
+### <a name="using-this-guide"></a><a id="using"></a> Comment utiliser ce guide
 
 Ce document accompagne notre documentation existante sur la [sécurité d’Azure SQL Database](sql-database-security-overview.md).
 
@@ -63,7 +63,7 @@ Sauf indication contraire, nous vous recommandons de suivre toutes les meilleure
 
 Nous prévoyons de continuer d’actualiser les recommandations et meilleures pratiques énumérées ici. Fournissez vos contributions ou corrections en lien avec ce document en suivant le lien **Commentaires** au bas de cet article.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Authentification
 
 L’authentification est le processus consistant à prouver que l’utilisateur est bien celui qu’il prétend être. Azure SQL Database prend en charge deux types d’authentification :
 
@@ -657,7 +657,7 @@ Le suivi des événements de base de données vous aide à comprendre l’activi
 **Bonnes pratiques** :
 
 - Si vous configurez l’[Audit SQL Database](sql-database-auditing.md) sur votre serveur de base de données pour auditer des événements, toutes les bases de données existantes et nouvellement créées sur ce serveur sont auditées.
-- Par défaut, la stratégie d’audit couvre toutes les actions (requêtes, procédures stockées et connexions ayant réussi et échoué) sur les bases de données. Cela peut entraîner un volume élevé de journaux d’audit. Il est recommandé aux clients de [configurer l’audit pour différents types d’actions et de groupes d’actions à l’aide de PowerShell](sql-database-auditing.md#subheading-7). Cette configuration aide à contrôler le nombre d’actions auditées et à réduire le risque de perte d’événements. La configuration d’audit personnalisée permet aux clients de capturer uniquement les données d’audit nécessaires.
+- Par défaut, la stratégie d’audit couvre toutes les actions (requêtes, procédures stockées et connexions ayant réussi et échoué) sur les bases de données. Cela peut entraîner un volume élevé de journaux d’audit. Il est recommandé aux clients de [configurer l’audit pour différents types d’actions et de groupes d’actions à l’aide de PowerShell](sql-database-auditing.md#manage-auditing). Cette configuration aide à contrôler le nombre d’actions auditées et à réduire le risque de perte d’événements. La configuration d’audit personnalisée permet aux clients de capturer uniquement les données d’audit nécessaires.
 - Les journaux d’audit peuvent être utilisés directement dans le [portail Azure](https://portal.azure.com/), ou à partir de l’emplacement de stockage configuré. 
 
 

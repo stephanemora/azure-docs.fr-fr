@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.custom: mvc
 ms.openlocfilehash: f3f8693d1a9a12e7c35d126ab3e3ca53448e5e40
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74533660"
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Azure Container Instances et les orchestrateurs de conteneurs
@@ -24,7 +24,7 @@ La définition standard de l’orchestration comprend les tâches suivantes :
 - **Planification** : avec une image conteneur et une requête de ressource données, rechercher une machine adaptée sur laquelle exécuter le conteneur.
 - **Affinité/Anti-affinité** : spécifier que les conteneurs d’un ensemble doivent s’exécuter à proximité les uns des autres (à des fins de performances) ou suffisamment éloignés les uns des autres (à des fins de disponibilité).
 - **Supervision de l’intégrité** : détecter les échecs de conteneur et les replanifier automatiquement.
-- **Basculement** : effectuer le suivi de ce qui s’exécute sur chaque machine et replanifier des conteneurs à partir des machines ayant échoué sur des nœuds sains.
+- **Basculement** : effectuer le suivi de ce qui s’exécute sur chaque machine et replanifier des conteneurs à partir des machines ayant échoué sur des nœuds sains.
 - **Mise à l’échelle** : ajouter ou supprimer des instances de conteneurs en fonction de la demande, manuellement ou automatiquement.
 - **Réseau** : fournir un réseau superposé pour la coordination des conteneurs et la communication entre plusieurs machines hôtes.
 - **Détection de service** : permettre aux conteneurs de se trouver mutuellement et automatiquement, même quand ils sont déplacés entre des machines hôtes et que leur adresse IP est modifiée.
