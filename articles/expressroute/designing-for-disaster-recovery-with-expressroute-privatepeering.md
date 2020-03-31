@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/25/2019
 ms.author: rambala
 ms.openlocfilehash: 726a014983c0da959d72b7976fef2ebb2c6e9b9e
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74076705"
 ---
 # <a name="designing-for-disaster-recovery-with-expressroute-private-peering"></a>Conception pour une reprise d’activité avec le peering privé ExpressRoute
@@ -116,7 +116,7 @@ Vous pouvez concevoir le scénario au moyen de la pondération de connexion afin
 
 [![8]][8]
 
-### <a name="scenario-2"></a>Scénario 2
+### <a name="scenario-2"></a>Scénario 2
 
 Le scénario 2 est illustré dans le diagramme suivant. Dans le diagramme, les lignes vertes indiquent les chemins pour le flux de trafic entre les réseaux VNet1 et locaux. Les lignes bleues indiquent les chemins pour le flux de trafic entre les réseaux VNet2 et locaux. Dans l’état stable (lignes pleines dans le diagramme), tout le trafic entre les réseaux virtuels et les emplacements emprunte essentiellement l’infrastructure Microsoft dorsale, et ne transite par l’interconnexion entre les emplacements locaux que si un circuit ExpressRoute se trouve en état d’échec (lignes en pointillés dans le diagramme).
 

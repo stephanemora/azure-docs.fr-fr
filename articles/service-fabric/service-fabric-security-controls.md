@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
 ms.openlocfilehash: a8bb49e20ec5812a4882966c6918cf2bd59f36a0
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75645427"
 ---
 # <a name="security-controls-for-azure-service-fabric"></a>Contrôles de sécurité pour Azure Service Fabric
@@ -39,7 +39,7 @@ Cet article décrit les contrôles de sécurité intégrés à Azure Service Fab
 
 | Contrôle de sécurité | Oui/Non | Notes|
 |---|---|--|
-| Authentication| Oui | L’authentification est effectuée via Azure Active Directory. |
+| Authentification| Oui | L’authentification est effectuée via Azure Active Directory. |
 | Autorisation| Oui | Gestion des identités et des accès (IAM) pour les appels via SFRP. Les appels effectués directement au point de terminaison du cluster prennent en charge deux rôles : utilisateur et administrateur. Le client peut mapper les API sur n’importe lequel des deux rôles. |
 
 ## <a name="data-protection"></a>Protection de données

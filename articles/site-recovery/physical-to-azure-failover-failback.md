@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 12/17/2019
 ms.author: raynew
 ms.openlocfilehash: ea5893f45962d67f4b6f3e9a261c65aa0ec926bf
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75497860"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Basculer et restaurer automatiquement des serveurs physiques répliqués vers Azure
@@ -74,15 +74,15 @@ Après le basculement vers Azure, vous reprotégez les machines virtuelles Azure
 
 1. Les serveurs physiques répliqués dans Azure à l’aide de Site Recovery peuvent être restaurés automatiquement en tant que machines virtuelles VMware. Vous avez besoin d’une infrastructure VMware locale pour la restauration automatique. Suivez les étapes décrites dans [cet article](vmware-azure-prepare-failback.md) pour préparer la reprotection et la restauration automatique, notamment la configuration d’un serveur de processus dans Azure et d’un serveur cible maître local, ainsi que la configuration d’un VPN de site à site ou d’une homologation privée ExpressRoute pour la restauration automatique.
 2. Vérifiez que le serveur de configuration local est en cours d’exécution et qu’il est connecté à Azure. Pendant le basculement vers Azure, le site local risque de ne pas être accessible et le serveur de configuration peut être indisponible ou à l’arrêt. Lors de la restauration automatique, la machine virtuelle doit exister dans la base de données du serveur de configuration. Sinon, la restauration automatique échoue.
-3. Supprimez des instantanés sur le serveur cible maître local. La reprotection ne fonctionnera pas s’il y a des instantanés.  Les captures instantanées sur la machine virtuelle sont fusionnées automatiquement lors d’un travail de reprotection.
-4. Si vous reprotégez des machines virtuelles rassemblées dans un groupe de réplication pour assurer la cohérence de plusieurs machines virtuelles, assurez-vous qu’elles ont toutes le même système d’exploitation (Windows ou Linux) et que le serveur cible maître que vous déployez a le même type de système d’exploitation. Toutes les machines virtuelles d’un groupe de réplication doivent utiliser le même serveur cible maître.
+3. Supprimez les captures instantanées sur le serveur cible maître local. La reprotection ne fonctionnera pas en présence de captures instantanées.  Les captures instantanées sur la machine virtuelle sont automatiquement fusionnées lors d’une tâche de reprotection.
+4. Si vous reprotégez des machines virtuelles rassemblées dans un groupe de réplication pour assurer la cohérence de plusieurs machines virtuelles, vérifiez qu’elles ont toutes le même système d’exploitation (Windows ou Linux) et que le serveur cible maître que vous déployez a le même type de système d’exploitation. Toutes les machines virtuelles d’un groupe de réplication doivent utiliser le même serveur cible maître.
 5. Ouvrez [les ports requis](vmware-azure-prepare-failback.md#ports-for-reprotectionfailback) pour la restauration automatique.
-6. Assurez-vous que le serveur vCenter Server est connecté avant la restauration automatique. Sinon, la déconnexion des disques et leur attachement à la machine virtuelle échouent.
-7. Si un serveur vCenter gère les machines virtuelles vers lesquelles vous allez effectuer une restauration automatique, vérifiez que vous disposez des autorisations nécessaires. Si vous effectuez une découverte utilisateur vCenter en mode lecture seule et protégez des machines virtuelles, la protection réussit et le basculement fonctionne. Cependant, pendant la reprotection, le basculement échoue parce que les magasins de données ne peuvent pas être détectés et ne sont pas mentionnés. Pour résoudre ce problème, vous pouvez mettre à jour les informations d’identification vCenter avec un [compte approprié/des autorisations](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery), puis faire une nouvelle tentative. 
-8. Si vous avez utilisé un modèle pour créer vos machines virtuelles, assurez-vous que chaque machine virtuelle possède son UUID pour les disques. Si l’UUID de la machine virtuelle locale est en conflit avec l’UUID du serveur cible maître (car ceux-ci ont été créés à partir du même modèle), la reprotection échoue. Déployer à partir d’un autre modèle.
-9. Si vous effectuez une restauration automatique vers un autre serveur vCenter, vérifiez que le nouveau serveur vCenter et le serveur cible maître sont détectés. Généralement, si cela n’est pas le cas, les magasins de données ne sont pas accessibles ou sont invisibles dans **Reprotéger**.
+6. Assurez-vous que le serveur vCenter est connecté avant la restauration automatique. Sinon, la déconnexion des disques et leur attachement à la machine virtuelle échouent.
+7. Si un serveur vCenter gère les machines virtuelles vers lesquelles vous allez effectuer une restauration automatique, vérifiez que vous disposez des autorisations nécessaires. Si vous effectuez une découverte utilisateur vCenter en mode lecture seule et protégez des machines virtuelles, la protection réussit et le basculement fonctionne. Cependant, pendant la reprotection, le basculement échoue parce que les magasins de données ne peuvent pas être détectés et ne sont pas listés. Pour résoudre ce problème, vous pouvez mettre à jour les informations d’identification vCenter avec [des autorisations ou un compte appropriés](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery), puis faire une nouvelle tentative. 
+8. Si vous avez utilisé un modèle pour créer vos machines virtuelles, vérifiez que chaque machine virtuelle possède son propre UUID pour les disques. Si l’UUID de la machine virtuelle locale est en conflit avec l’UUID du serveur cible maître (car les deux ont été créés à partir du même modèle), la reprotection échoue. Déployez à partir d’un autre modèle.
+9. Si vous effectuez une restauration automatique vers un autre serveur vCenter, vérifiez que le nouveau serveur vCenter et le serveur cible maître sont détectés. Généralement, si cela n’est pas le cas, les magasins de données ne sont pas accessibles ou ne sont pas visibles dans **Reprotéger**.
 10. Vérifiez les scénarios suivants, qui ne permettent pas de restauration automatique :
-    - Si vous utilisez les éditions gratuites d’ESXi 5.5 ou de l’hyperviseur vSphere 6. Effectuez une mise à niveau vers une autre version.
+    - Si vous utilisez les éditions gratuites d’ESXi 5.5 ou de vSphere Hypervisor 6. Effectuez une mise à niveau vers une autre version.
     - Si vous avez un serveur physique Windows Server 2008 R2 SP1.
     - Machines virtuelles qui ont [été migrées](migrate-overview.md#what-do-we-mean-by-migration).
     - Une machine virtuelle qui a été déplacée vers un autre groupe de ressources.
@@ -115,7 +115,7 @@ Effectuez le basculement en procédant comme suit :
 1. Dans la page **Éléments répliqués**, cliquez avec le bouton droit sur la machine virtuelle > **Basculement non planifié**.
 2. Dans **Confirmer le basculement**, vérifiez que le sens du basculement est depuis Azure.
 3.Sélectionnez le point de récupération à utiliser pour le basculement.
-    - Nous vous recommandons d’utiliser le **dernier** point de récupération. Le point de cohérence des applications se situe derrière le point le plus récent et entraîne une perte de données.
+    - Nous vous recommandons d’utiliser le **dernier** point de récupération. Le point de cohérence d’application se situe derrière le point le plus récent et entraîne une perte de données.
     - Le **dernier** point de récupération est cohérent en cas d’incident.
     - Quand le basculement est effectué, Site Recovery arrête les machines virtuelles Azure et démarre la machine virtuelle locale. Il faut prévoir un temps d’indisponibilité : choisissez donc un moment approprié.
 4. Cliquez avec le bouton droit sur la machine, puis cliquez sur **Valider**. Ceci déclenche une tâche qui supprime les machines virtuelles Azure.
@@ -132,4 +132,4 @@ Les données doivent maintenant être de retour sur votre site local, mais elles
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Une fois le travail de reprotection terminé, la machine virtuelle locale est répliquée vers Azure. Si nécessaire, vous pouvez [exécuter un autre basculement](site-recovery-failover.md) vers Azure.
+Une fois la tâche de reprotection terminée, la machine virtuelle locale est répliquée vers Azure. Si nécessaire, vous pouvez [exécuter un autre basculement](site-recovery-failover.md) vers Azure.

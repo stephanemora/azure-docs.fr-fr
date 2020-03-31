@@ -16,10 +16,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9e45249245aaab97070b7e774d4b6bab6827bdc9
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74021998"
 ---
 # <a name="complete-an-access-review-of-azure-resource-roles-in-privileged-identity-management"></a>Terminer une révision d’accès des rôles de ressources Azure dans Privileged Identity Management
@@ -56,7 +56,7 @@ Vous pouvez réinitialiser une révision d’accès afin de supprimer toutes les
 
 Une fois une révision d’accès terminée, utilisez le bouton **Appliquer** pour implémenter le résultat de la révision. Si l’accès d’un utilisateur a été refusé lors de la révision, cette étape entraîne la suppression de son attribution de rôle.  
 
-### <a name="delete"></a>Supprimer
+### <a name="delete"></a>DELETE
 
 Si la révision ne vous intéresse plus, supprimez-la. Sélectionnez **Supprimer** pour supprimer la révision du service Privileged Identity Management.
 

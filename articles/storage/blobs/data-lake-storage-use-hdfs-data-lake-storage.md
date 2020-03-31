@@ -10,10 +10,10 @@ ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: artek
 ms.openlocfilehash: 1d5313f3f0fff128dd09f9c9857b7dd9921ea4f8
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69992215"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>Utilisation de l’interface CLI HDFS avec Data Lake Storage Gen2
@@ -58,7 +58,7 @@ La chaîne de connexion se trouve dans la section « Connexion SSH + Cluster » 
 
 Remplacez l’espace réservé `<path>` par l’URI du conteneur ou du dossier du conteneur.
 
-Par exemple : `hdfs dfs -ls abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name`
+Par exemple : `hdfs dfs -ls abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name`
 
 ## <a name="create-a-directory"></a>Créer un répertoire
 
@@ -66,7 +66,7 @@ Par exemple : `hdfs dfs -ls abfs://my-file-system@mystorageaccount.dfs.core.win
 
 Remplacez l’espace réservé `<path>` par le nom du conteneur racine ou par un dossier de votre conteneur.
 
-Par exemple : `hdfs dfs -mkdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/`
+Par exemple : `hdfs dfs -mkdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/`
 
 ## <a name="delete-a-file-or-directory"></a>Supprimer un fichier ou répertoire
 
@@ -74,13 +74,13 @@ Par exemple : `hdfs dfs -mkdir abfs://my-file-system@mystorageaccount.dfs.core.
 
 Remplacez l'espace réservé `<path>` par l'URI du fichier ou du dossier à supprimer.
 
-Par exemple : `hdfs dfs -rmdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name/my-file-name`
+Par exemple : `hdfs dfs -rmdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name/my-file-name`
 
 ## <a name="display-the-access-control-lists-acls-of-files-and-directories"></a>Afficher les listes de contrôle d’accès (ACL) des fichiers et répertoires
 
     hdfs dfs -getfacl [-R] <path>
 
-Exemple :
+Exemple :
 
 `hdfs dfs -getfacl -R /dir`
 
@@ -90,7 +90,7 @@ Voir [getfacl](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-
 
     hdfs dfs -setfacl [-R] [-b|-k -m|-x <acl_spec> <path>]|[--set <acl_spec> <path>]
 
-Exemple :
+Exemple :
 
 `hdfs dfs -setfacl -m user:hadoop:rw- /file`
 

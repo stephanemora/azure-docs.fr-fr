@@ -12,10 +12,10 @@ ms.topic: troubleshooting
 ms.date: 09/19/2019
 ms.author: iainfou
 ms.openlocfilehash: 959f1e3f25602938d769c574ea975c4bba9300e1
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71258004"
 ---
 # <a name="known-issues-network-configuration-alerts-in-azure-active-directory-domain-services"></a>Problèmes connus : Alertes de configuration réseau dans Azure Active Directory Domain Services
@@ -26,7 +26,7 @@ Cet article vous aide à comprendre et à résoudre les alertes courantes décou
 
 ## <a name="alert-aadds104-network-error"></a>Alerte AADDS104 : Erreur réseau
 
-### <a name="alert-message"></a>Message d'alerte
+### <a name="alert-message"></a>Message d’alerte
 
 *Microsoft ne peut pas atteindre les contrôleurs de domaine pour ce domaine géré. Cela peut se produire si un groupe de sécurité réseau (NSG) configuré sur votre réseau virtuel bloque l’accès à un domaine géré. Une autre raison possible est s’il existe un itinéraire défini par l’utilisateur qui bloque le trafic entrant à partir d’Internet.*
 
@@ -40,19 +40,19 @@ Les règles de sécurité de trafic entrant et sortant par défaut suivantes son
 
 | Priority | Nom | Port | Protocol | Source | Destination | Action |
 |----------|------|------|----------|--------|-------------|--------|
-| 101      | AllowSyncWithAzureAD | 443 | TCP | AzureActiveDirectoryDomainServices | Quelconque | AUTORISER |
-| 201      | AllowRD | 3389 | TCP | CorpNetSaw | Quelconque | AUTORISER |
-| 301      | AllowPSRemoting | 5986| TCP | AzureActiveDirectoryDomainServices | Quelconque | AUTORISER |
-| 65 000    | AllVnetInBound | Quelconque | Quelconque | VirtualNetwork | VirtualNetwork | AUTORISER |
-| 65 001    | AllowAzureLoadBalancerInBound | Quelconque | Quelconque | AzureLoadBalancer | Quelconque | AUTORISER |
+| 101      | AllowSyncWithAzureAD | 443 | TCP | AzureActiveDirectoryDomainServices | Quelconque | Allow |
+| 201      | AllowRD | 3389 | TCP | CorpNetSaw | Quelconque | Allow |
+| 301      | AllowPSRemoting | 5986| TCP | AzureActiveDirectoryDomainServices | Quelconque | Allow |
+| 65 000    | AllVnetInBound | Quelconque | Quelconque | VirtualNetwork | VirtualNetwork | Allow |
+| 65 001    | AllowAzureLoadBalancerInBound | Quelconque | Quelconque | AzureLoadBalancer | Quelconque | Allow |
 | 65 500    | DenyAllInBound | Quelconque | Quelconque | Quelconque | Quelconque | Deny |
 
 ### <a name="outbound-security-rules"></a>Règles de sécurité de trafic entrant
 
 | Priority | Nom | Port | Protocol | Source | Destination | Action |
 |----------|------|------|----------|--------|-------------|--------|
-| 65 000    | AllVnetOutBound | Quelconque | Quelconque | VirtualNetwork | VirtualNetwork | AUTORISER |
-| 65 001    | AllowAzureLoadBalancerOutBound | Quelconque | Quelconque |  Quelconque | Internet | AUTORISER |
+| 65 000    | AllVnetOutBound | Quelconque | Quelconque | VirtualNetwork | VirtualNetwork | Allow |
+| 65 001    | AllowAzureLoadBalancerOutBound | Quelconque | Quelconque |  Quelconque | Internet | Allow |
 | 65 500    | DenyAllOutBound | Quelconque | Quelconque | Quelconque | Quelconque | Deny |
 
 >[!NOTE]

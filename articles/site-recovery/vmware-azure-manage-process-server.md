@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 04/28/2019
 ms.author: ramamill
 ms.openlocfilehash: ef16e3b75ca8e051b1b7abb1a92843279884c697
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954349"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228937"
 ---
 # <a name="manage-process-servers"></a>Gérer des serveurs de processus
 
@@ -61,7 +61,7 @@ Déplacez la charge de travail entière gérée par un serveur de processus vers
 3. Cliquez sur le serveur de processus à partir duquel vous souhaitez basculer la charge de travail.
 4. Cliquez sur **Basculer**, puis sélectionnez le serveur de processus cible vers lequel vous souhaitez déplacer la charge de travail. Cliquez ensuite sur **OK**.
 
-    ![Switch](media/vmware-azure-manage-process-server/Switch.PNG)
+    ![Commutateur](media/vmware-azure-manage-process-server/Switch.PNG)
 
 5. Dans le coffre, suivez la progression du travail sous **Surveillance** > **Travaux Site Recovery**.
 
@@ -138,4 +138,4 @@ Si un logiciel antivirus s’exécute sur un serveur de processus scale-out (ou 
 - C:\ProgramData\ASRSetupLogs
 - C:\ProgramData\LogUploadServiceLogs
 - C:\ProgramData\Microsoft Azure Site Recovery
-- Répertoire d’installation du serveur de processus. Par exemple :  C:\Program Files (x86)\Microsoft Azure Site Recovery
+- Répertoire d’installation du serveur de processus. Par exemple : C:\Program Files (x86)\Microsoft Azure Site Recovery

@@ -12,10 +12,10 @@ ms.topic: troubleshooting
 ms.date: 09/20/2019
 ms.author: iainfou
 ms.openlocfilehash: 175bfe63176b78c5aeafc7147c46dd5ab1110325
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71257958"
 ---
 # <a name="known-issues-service-principal-alerts-in-azure-active-directory-domain-services"></a>Problèmes connus : Alertes liées aux principaux de service dans Azure AD Domain Services
@@ -40,7 +40,7 @@ Pour vérifier quel principal de service est manquant et doit être recréé, ef
 1. Sélectionnez **Applications d’entreprise**. Choisissez *Toutes les application* dans le menu déroulant **Type d’application**, puis sélectionnez **Appliquer**.
 1. Recherchez chacun des ID d’applications. Si aucune application existante n’est trouvée, suivez les étapes de *Résolution* pour créer le principal de service ou réinscrivez l’espace de noms.
 
-    | ID de l'application | Résolution : |
+    | ID de l'application | Résolution |
     | :--- | :--- |
     | 2565bd9d-da50-47d4-8b85-4c97f669dc36 | [Recréer un principal de service manquant](#recreate-a-missing-service-principal) |
     | 443155a6-77f3-45e3-882b-22b3a8d431fb | [Réinscrire l’espace de noms Microsoft.AAD](#re-register-the-microsoft-aad-namespace) |
@@ -85,7 +85,7 @@ L’intégrité du domaine managé Azure AD DS se met automatiquement à jour da
 
 Azure AD DS synchronise automatiquement les comptes d’utilisateur et les informations d’identification à partir d’Azure AD. En cas de problème avec l’application Azure AD utilisée pour ce processus, la synchronisation des informations d’identification entre Azure AD DS et Azure AD échoue.
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 Pour recréer l’application Azure AD utilisée pour la synchronisation des informations d’identification, effectuez les étapes suivantes avec Azure AD PowerShell. Pour plus d’informations, consultez [Installer Azure AD PowerShell](/powershell/azure/active-directory/install-adv2).
 

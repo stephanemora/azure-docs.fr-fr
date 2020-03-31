@@ -13,13 +13,13 @@ ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e350d6338b6ca589ab18d068ef6a314363fe205c
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74272828"
 ---
-# <a name="example-direct-federation-with-active-directory-federation-services-ad-fs-preview"></a>Exemple : Fédération directe avec les services de fédération Active Directory (AD FS) (préversion)
+# <a name="example-direct-federation-with-active-directory-federation-services-ad-fs-preview"></a>Exemple : Fédération directe avec les services de fédération Active Directory (AD FS) (préversion)
 |     |
 | --- |
 | La fédération directe est une fonctionnalité d’évaluation publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
@@ -38,7 +38,7 @@ Pour configurer la fédération directe, les attributs suivants doivent être re
 |Attribut  |Valeur  |
 |---------|---------|
 |AssertionConsumerService     |`https://login.microsoftonline.com/login.srf`         |
-|Audience     |`urn:federation:MicrosoftOnline`         |
+|Public visé     |`urn:federation:MicrosoftOnline`         |
 |Émetteur     |L’URI de l’émetteur du fournisseur d’identité partenaire, par exemple `http://www.example.com/exk10l6w90DHM0yi...`         |
 
 Les revendications suivantes doivent être configurées dans le jeton SAML 2.0 émis par le fournisseur d’identité :
@@ -111,7 +111,7 @@ Pour configurer la fédération directe, les attributs suivants doivent être re
 |Attribut  |Valeur  |
 |---------|---------|
 |PassiveRequestorEndpoint     |`https://login.microsoftonline.com/login.srf`         |
-|Audience     |`urn:federation:MicrosoftOnline`         |
+|Public visé     |`urn:federation:MicrosoftOnline`         |
 |Émetteur     |L’URI de l’émetteur du fournisseur d’identité partenaire, par exemple `http://www.example.com/exk10l6w90DHM0yi...`         |
 
 Revendications requises pour le jeton WS-Fed émis par le fournisseur d’identité :

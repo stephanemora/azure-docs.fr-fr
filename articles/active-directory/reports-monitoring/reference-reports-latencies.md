@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6d031546bb4f1f05e9ea2abb5b74fe911b0b507f
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74007703"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Latences de création de rapports Azure Active Directory
@@ -59,25 +59,25 @@ Il existe deux types de rapports de sécurité :
 
 Le tableau suivant répertorie les informations de latence pour les rapports de sécurité.
 
-| Rapport | Minimale | Moyenne | Maximale |
+| Rapport | Minimum | Average | Maximale |
 | :-- | --- | --- | --- |
-| Les utilisateurs à risque          | 5 minutes   | 15 minutes  | 2 heures  |
-| Connexions risquées         | 5 minutes   | 15 minutes  | 2 heures  |
+| Les utilisateurs à risque          | 5 minutes   | 15 minutes  | 2 heures  |
+| Connexions risquées         | 5 minutes   | 15 minutes  | 2 heures  |
 
 ## <a name="risk-detections"></a>Détections de risques
 
-Azure AD utilise les algorithmes Machine Learning et des modèles heuristiques adaptatifs pour détecter les actions suspectes liées aux comptes de votre utilisateur. Chaque action suspecte détectée est stockée dans un enregistrement appelé **détection de risque**.
+Azure AD utilise les algorithmes Machine Learning et des modèles heuristiques adaptatifs pour détecter les actions suspectes liées aux comptes de votre utilisateur. Chaque action suspecte détectée est stockée dans un enregistrement appelé **détection d’événement à risque**.
 
 Le tableau suivant répertorie les informations de latence pour les détections de risques.
 
-| Rapport | Minimale | Moyenne | Maximale |
+| Rapport | Minimum | Average | Maximale |
 | :-- | --- | --- | --- |
-| Connexions depuis des adresses IP anonymes |5 minutes |15 minutes |2 heures |
-| Connexions depuis des emplacements non connus |5 minutes |15 minutes |2 heures |
-| Utilisateurs avec des informations d’identification volées |2 heures |4 heures |8 heures |
-| Voyage impossible vers des emplacements inhabituels |5 minutes |1 heure |8 heures  |
-| Connexions depuis des appareils infectés |2 heures |4 heures |8 heures  |
-| Connexions depuis des adresses IP avec des activités suspectes |2 heures |4 heures |8 heures  |
+| Connexions depuis des adresses IP anonymes |5 minutes |15 minutes |2 heures |
+| Connexions depuis des emplacements non connus |5 minutes |15 minutes |2 heures |
+| Utilisateurs avec des informations d’identification volées |2 heures |4 heures |8 heures |
+| Voyage impossible vers des emplacements inhabituels |5 minutes |1 heure |8 heures  |
+| Connexions depuis des appareils infectés |2 heures |4 heures |8 heures  |
+| Connexions depuis des adresses IP avec des activités suspectes |2 heures |4 heures |8 heures  |
 
 
 ## <a name="next-steps"></a>Étapes suivantes

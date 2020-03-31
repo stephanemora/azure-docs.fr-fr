@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/01/2019
 tags: connectors
 ms.openlocfilehash: b34fdc36bd0b1ce294a92b2ae8fa5da01568e5a9
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74787367"
 ---
 # <a name="call-rest-endpoints-by-using-azure-logic-apps"></a>Appeler des points de terminaison REST à l'aide d'Azure Logic Apps
@@ -42,7 +42,7 @@ Avec [Azure Logic Apps](../logic-apps/logic-apps-overview.md) et le connecteur i
 
 Ce déclencheur intégré envoie une requête HTTP vers une URL de fichier Swagger décrivant une API REST et renvoie une réponse dans laquelle figure le contenu de ce fichier.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com). Ouvrez votre application logique vide dans le Concepteur d’application logique.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Ouvrez votre application logique vide dans le Concepteur d’application logique.
 
 1. Dans la zone de recherche du Concepteur, entrez le filtre « swagger ». Dans la liste **Déclencheurs**, sélectionnez le déclencheur **HTTP + Swagger**.
 
@@ -78,7 +78,7 @@ Ce déclencheur intégré envoie une requête HTTP vers une URL de fichier Swagg
 
 Cette action intégrée effectue une requête HTTP vers l'URL du fichier Swagger décrivant une API REST et renvoie une réponse dans laquelle figure le contenu de ce fichier.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com). Ouvrez votre application logique dans le Concepteur d’applications logiques.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Ouvrez votre application logique dans le Concepteur d’applications logiques.
 
 1. Sous l’étape à laquelle vous souhaitez ajouter l’action HTTP + Swagger, sélectionnez **Nouvelle étape**.
 
@@ -145,7 +145,7 @@ Pour référencer un fichier Swagger non hébergé ou ne répondant pas aux exig
 
 Voici d’autres informations sur les sorties d’un déclencheur ou d’une action HTTP + Swagger. L'appel HTTP + Swagger renvoie les informations suivantes :
 
-| Nom de la propriété | type | Description |
+| Nom de la propriété | Type | Description |
 |---------------|------|-------------|
 | headers | object | En-têtes de la requête |
 | body | object | Objet JSON | Objet avec le contenu du corps de la requête |

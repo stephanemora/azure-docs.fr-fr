@@ -8,11 +8,11 @@ ms.date: 4/9/2019
 ms.topic: conceptual
 ms.author: ramamill
 ms.openlocfilehash: 467c70a722b8a243be6ac2826188a4ba3459aa06
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961353"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79229049"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Planifier la capacité et la mise à l’échelle pour la récupération d’urgence VMware vers Azure
 
@@ -38,9 +38,9 @@ Un serveur de configuration qui utilise un serveur de processus intégré pour p
 
 UC | Mémoire | Taille du disque cache | Taux de modification des données | Machines protégées
 --- | --- | --- | --- | ---
-8 processeurs virtuels (2 sockets * 4 cœurs \@ 2,5 GHz) | 16 Go | 300 Go | 500 Go ou moins | Permet de répliquer moins de 100 machines.
+8 processeurs virtuels (2 sockets * 4 cœurs \@ 2,5 GHz) | 16 Go | 300 Go | 500 Go ou moins | Permet de répliquer moins de 100 machines.
 12 processeurs virtuels (2 sockets * 6 cœurs \@ 2,5 GHz) | 18 Go | 600 Go | 501 Go à 1 To | Permet de répliquer de 100 à 150 machines.
-16 processeurs virtuels (2 sockets * 8 cœurs \@ 2,5 GHz) | 32 Go | 1 To | >1 To à 2 To | Permet de répliquer de 151 à 200 machines.
+16 processeurs virtuels (2 sockets * 8 cœurs \@ 2,5 GHz) | 32 Go | 1 To | >1 To à 2 To | Permet de répliquer de 151 à 200 machines.
 Déployez un autre serveur de configuration à l’aide du [modèle OVF](vmware-azure-deploy-configuration-server.md#deploy-a-configuration-server-through-an-ova-template). | | | | Déployez un nouveau serveur de configuration si vous répliquez plus de 200 machines.
 Déployez un autre [serveur de processus](vmware-azure-set-up-process-server-scale.md#download-installation-file). | | | > 2 To| Déployez un nouveau serveur de processus de scale-out si le taux total quotidien de modifications est supérieur à 2 To.
 
@@ -51,7 +51,7 @@ Dans ces configurations :
 
 ## <a name="size-recommendations-for-the-process-server"></a>Recommandations de taille pour le serveur de processus
 
-Le serveur de processus est le composant qui gère le processus de réplication de données dans Azure Site Recovery. Si la quantité de modifications quotidiennes est supérieure à 2 To, vous devez ajouter des serveurs de processus de scale-out pour gérer la charge de réplication. Pour augmenter la taille des instances, vous pouvez :
+Le serveur de processus est le composant qui gère le processus de réplication de données dans Azure Site Recovery. Si la quantité de modifications quotidiennes est supérieure à 2 To, vous devez ajouter des serveurs de processus de scale-out pour gérer la charge de réplication. Pour effectuer un scale-out, vous pouvez :
 
 * Augmenter le nombre de serveurs de configuration en déployant à l’aide d’un [modèle OVF](vmware-azure-deploy-configuration-server.md#deploy-a-configuration-server-through-an-ova-template). Par exemple, vous pouvez protéger jusqu’à 400 machines avec deux serveurs de configuration.
 * Ajoutez des [serveurs de processus de scale-out](vmware-azure-set-up-process-server-scale.md#download-installation-file). Utilisez des serveurs de processus de scale-out pour gérer le trafic de réplication à la place (ou en plus) du serveur de configuration.
@@ -68,7 +68,7 @@ Serveur de processus supplémentaire | Taille du disque cache | Taux de modifica
 8 processeurs virtuels (2 sockets * 4 cœurs \@ 2,5 GHz), 12 Go de mémoire | 600 Go | 251 Go à 1 To | Permet de répliquer de 86 à 150 machines.
 12 processeurs virtuels (2 sockets \@ 6 cœurs @ 2,5 GHz), 24 Go de mémoire | 1 To | >1 To à 2 To | Permet de répliquer de 151 à 225 machines.
 
-Le mode de mise à l’échelle de vos serveurs dépend de votre préférence pour un modèle de montée en puissance ou de montée en charge. Pour monter en puissance, déployez quelques serveurs de configuration et serveurs de processus haut de gamme. Pour monter en charge, déployez davantage de serveurs comptant moins de ressources. Par exemple, si vous souhaitez protéger 200 machines avec taux global quotidien de modifications de données de 1,5 To, vous pouvez effectuer l’une des actions suivantes :
+Le mode de mise à l’échelle de vos serveurs dépend de votre préférence pour un modèle de montée en puissance ou de montée en charge. Pour monter en puissance, déployez quelques serveurs de configuration et serveurs de processus haut de gamme. Pour effectuer un scale-out, déployez davantage de serveurs comptant moins de ressources. Par exemple, si vous souhaitez protéger 200 machines avec taux global quotidien de modifications de données de 1,5 To, vous pouvez effectuer l’une des actions suivantes :
 
 * Configurer un seul serveur de processus (16 processeurs virtuels, 24 Go de RAM).
 * Configurer deux serveurs de processus (2 x 8 processeurs virtuels, 2 * 12 Go de RAM).
@@ -120,7 +120,7 @@ Avant de configurer l’infrastructure Azure Site Recovery, accédez à l’envi
 
 ## <a name="deploy-additional-process-servers"></a>Déployer d’autres serveurs de traitement
 
-Si vous faites monter en charge votre déploiement au-delà de 200 machines sources, ou si votre taux d’activités quotidien dépasse 2 To, vous devez ajouter des serveurs de processus pour gérer le volume du trafic. Nous avons amélioré le produit dans la version 9.24 afin de proposer des [alertes de serveur de traitement](vmware-physical-azure-monitor-process-server.md#process-server-alerts) quand vous configurez un serveur de traitement scale-out. [Configurez le serveur de traitement](vmware-azure-set-up-process-server-scale.md) pour protéger les nouvelles machines sources ou [équilibrer la charge](vmware-azure-manage-process-server.md#move-vms-to-balance-the-process-server-load).
+Si vous effectuez un scale-out de votre déploiement au-delà de 200 machines sources, ou si votre taux d’activités quotidien dépasse 2 To, vous devez ajouter des serveurs de processus pour gérer le volume du trafic. Nous avons amélioré le produit dans la version 9.24 afin de proposer des [alertes de serveur de traitement](vmware-physical-azure-monitor-process-server.md#process-server-alerts) quand vous configurez un serveur de traitement scale-out. [Configurez le serveur de traitement](vmware-azure-set-up-process-server-scale.md) pour protéger les nouvelles machines sources ou [équilibrer la charge](vmware-azure-manage-process-server.md#move-vms-to-balance-the-process-server-load).
 
 ### <a name="migrate-machines-to-use-the-new-process-server"></a>Migrez les machines pour utiliser le nouveau serveur de traitement
 

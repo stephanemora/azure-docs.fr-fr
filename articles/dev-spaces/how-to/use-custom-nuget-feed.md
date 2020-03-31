@@ -9,10 +9,10 @@ description: Utilisez un flux NuGet personnalisé pour accéder à des packages 
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, conteneurs
 manager: gwallace
 ms.openlocfilehash: 39984a3b3a1be64a497fb8088559ccfcdee4f1c6
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74325723"
 ---
 # <a name="use-a-custom-nuget-feed-with-azure-dev-spaces"></a>Utiliser un flux NuGet personnalisé avec Azure Dev Spaces

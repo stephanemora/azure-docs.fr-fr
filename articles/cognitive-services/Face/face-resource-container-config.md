@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 11/07/2019
 ms.author: dapine
 ms.openlocfilehash: 3c78c9eb85c3a8be236be5c3a24bd877db204b6c
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76167976"
 ---
 # <a name="configure-face-docker-containers"></a>Configurer des conteneurs Docker Visage
@@ -51,7 +51,7 @@ Vous trouverez ce paramètre à l’emplacement suivant :
 
 Pensez à ajouter le routage _Visage_ à l’URI de point de terminaison, comme dans l’exemple suivant. 
 
-|Obligatoire| Name | Type de données | Description |
+|Obligatoire| Nom | Type de données | Description |
 |--|------|-----------|-------------|
 |Oui| `Billing` | String | URI de point de terminaison de facturation. Pour plus d’informations sur la façon d’obtenir l’URI de facturation, consultez [Collecte des paramètres requis](face-how-to-install-containers.md#gathering-required-parameters). Pour obtenir plus d’informations et une liste complète des points de terminaison régionaux, consultez [Noms de sous-domaines personnalisés pour Cognitive Services](../cognitive-services-custom-subdomains.md). |
 
@@ -61,7 +61,7 @@ Pensez à ajouter le routage _Visage_ à l’URI de point de terminaison, comme 
 
 Les paramètres de configuration de la section `CloudAI` fournissent des options de conteneur propres à votre conteneur. Les paramètres et les objets suivants sont pris en charge pour le conteneur Visage dans la section `CloudAI`
 
-| Name | Type de données | Description |
+| Nom | Type de données | Description |
 |------|-----------|-------------|
 | `Storage` | Object | Scénario de stockage utilisé par le conteneur Visage. Pour plus d’informations sur les scénarios de stockage et les paramètres associés pour les objets `Storage`, consultez [Paramètres de scénario de stockage](#storage-scenario-settings). |
 
@@ -80,7 +80,7 @@ Le conteneur Visage stocke des données d’objet blob, de cache, de métadonné
 
 Les scénarios de stockage et les paramètres de configuration associés sont gérés par l’objet `Storage`, sous la section de configuration `CloudAI`. Les paramètres de configuration suivants sont disponibles dans l’objet `Storage` :
 
-| Name | Type de données | Description |
+| Nom | Type de données | Description |
 |------|-----------|-------------|
 | `StorageScenario` | String | Scénario de stockage pris en charge par le conteneur. Les valeurs disponibles sont les suivantes :<br/>`Memory` - Valeur par défaut. Le conteneur utilise un stockage non persistant, non réparti et en mémoire pour une utilisation temporaire sur un nœud unique. Si le conteneur est arrêté ou supprimé, son stockage est détruit.<br/>`Azure` - Le conteneur utilise des ressources Azure pour le stockage. Si le conteneur est arrêté ou supprimé, son stockage est conservé.|
 | `ConnectionStringOfAzureStorage` | String | Chaîne de connexion de la ressource Stockage Azure utilisée par le conteneur.<br/>Ce paramètre s’applique uniquement si `Azure` est spécifié pour le paramètre de configuration `StorageScenario`. |
@@ -122,7 +122,7 @@ Les conteneurs Visage n’utilisent pas de montage d’entrée ou de sortie pour
 
 La syntaxe exacte de l’emplacement de montage d’hôte varie en fonction du système d’exploitation hôte. De plus, l’emplacement de montage de l’[ordinateur hôte](face-how-to-install-containers.md#the-host-computer) peut ne pas être accessible en raison d’un conflit entre les autorisations utilisées par le compte de service Docker et les autorisations de l’emplacement de montage de l’hôte. 
 
-|Facultatif| Name | Type de données | Description |
+|Facultatif| Nom | Type de données | Description |
 |-------|------|-----------|-------------|
 |Non autorisé| `Input` | String | Les conteneurs Visage n’utilisent pas cet élément.|
 |Facultatif| `Output` | String | Cible du montage de sortie. La valeur par défaut est `/output`. Il s’agit de l’emplacement des journaux d’activité. Les journaux d’activité de conteneur sont inclus. <br><br>Exemple :<br>`--mount type=bind,src=c:\output,target=/output`|

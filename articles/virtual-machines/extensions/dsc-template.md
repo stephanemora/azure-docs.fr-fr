@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 10/05/2018
 ms.author: robreed
 ms.openlocfilehash: ef781653332984a7fb6d71ef91d53cbf77e6c91c
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72437956"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Extension de configuration d’état souhaité avec des modèles Azure Resource Manager
@@ -177,7 +177,7 @@ Pour obtenir la liste des arguments disponibles pour le script de configuration 
 
 ## <a name="details"></a>Détails
 
-| Nom de la propriété | type | Description |
+| Nom de la propriété | Type | Description |
 | --- | --- | --- |
 | settings.wmfVersion |string |Spécifie la version de Windows Management Framework (WMF) qui doit être installée sur votre machine virtuelle. Lorsque cette propriété est définie sur **latest**, la version la plus récente de WMF est installée. Actuellement, les seules valeurs possibles pour cette propriété sont **4.0**, **5.0**, **5.1** et **latest**. Les valeurs possibles font l’objet de mises à jour. La valeur par défaut est **latest**. |
 | settings.configuration.url |string |Spécifie l’adresse URL de téléchargement de votre fichier .zip de configuration DSC. Si l’accès à l’URL fournie nécessite un jeton SAP, définissez la propriété **protectedSettings.configurationUrlSasToken** sur la valeur de votre jeton SAP. Cette propriété est requise si la propriété **settings.configuration.script** ou **settings.configuration.function** est définie. Si aucune valeur n’est indiquée pour ces propriétés, l’extension appelle le script de configuration par défaut pour définir les métadonnées du gestionnaire de configuration locale (LCM) et les arguments doivent être fournis. |
@@ -196,7 +196,7 @@ Pour obtenir la liste des arguments disponibles pour le script de configuration 
 Pour plus d’informations sur les valeurs suivantes, consultez la page de documentation [Paramètres de base du gestionnaire de configuration locale](/powershell/scripting/dsc/managing-nodes/metaConfig#basic-settings).
 Vous pouvez utiliser le script de configuration par défaut de l’extension DSC pour configurer uniquement les propriétés du gestionnaire de configuration locale qui sont répertoriées dans le tableau suivant.
 
-| Nom de la propriété | type | Description |
+| Nom de la propriété | Type | Description |
 | --- | --- | --- |
 | protectedSettings.configurationArguments.RegistrationKey |PSCredential |Propriété requise. Spécifie la clé utilisée pour un nœud à inscrire avec le service Azure Automation en tant que mot de passe d’un objet d’informations d’identification PowerShell. Cette valeur peut être découverte automatiquement à l’aide de la méthode **listkeys** sur le compte Automation.  Reportez-vous à l’[exemple](#example-using-referenced-azure-automation-registration-values). |
 | settings.configurationArguments.RegistrationUrl |string |Propriété requise. Spécifie l’URL du point de terminaison Automation où le nœud tente de s’inscrire. Cette valeur peut être découverte automatiquement à l’aide de la méthode **reference** sur le compte Automation. |
@@ -345,7 +345,7 @@ Voici comment le format précédent s’adapte au format actuel :
 | protectedSettings.configurationUrlSasToken |settings.SasToken |
 | protectedSettings.configurationDataUrlSasToken |Jeton SAP de protectedSettings.DataBlobUri |
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 Voici certaines des erreurs que vous risquez de rencontrer et la manière dont vous pouvez les résoudre.
 

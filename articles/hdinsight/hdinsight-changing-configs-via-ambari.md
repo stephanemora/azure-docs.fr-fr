@@ -9,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.openlocfilehash: 15a2c75a7619a815655be0fd9fd3044d86acd057
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74150124"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79233649"
 ---
 # <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>Utiliser Apache Ambari pour optimiser les configurations de cluster HDInsight
 
@@ -175,10 +175,10 @@ En général, les travaux Hadoop subissent des goulots d’étranglement au nive
 
 Les types de compression disponibles sont :
 
-| Format | Outil | Algorithme | Extension de fichier | Fractionnable ? |
+| Format | Outil | Algorithm | Extension de fichier | Fractionnable ? |
 | -- | -- | -- | -- | -- |
 | Gzip | Gzip | DEFLATE | .gz | Non |
-| Bzip2 | Bzip2 | Bzip2 |.bz2 | OUI |
+| Bzip2 | Bzip2 | Bzip2 |.bz2 | Oui |
 | LZO | Lzop | LZO | .lzo | Oui, si indexé |
 | Snappy | N/A | Snappy | Snappy | Non |
 

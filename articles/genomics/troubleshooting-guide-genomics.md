@@ -12,10 +12,10 @@ ms.workload: genomics
 ms.topic: troubleshooting
 ms.date: 10/29/2018
 ms.openlocfilehash: f6ef56e4188a7541036db096e4ab35a1b95fc141
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73486005"
 ---
 # <a name="troubleshooting-guide"></a>Guide de résolution des problèmes
@@ -23,7 +23,7 @@ ms.locfileid: "73486005"
 Voici quelques conseils de dépannage pour certains des problèmes courants que vous pouvez rencontrer lors de l’utilisation du service Microsoft Genomics, ou MSGEN.
 
  Pour accéder aux questions fréquentes (FAQ), qui ne sont pas liées à la résolution des problèmes, consultez [Questions courantes](frequently-asked-questions-genomics.md).
-## <a name="step-1-locate-error-codes-associated-with-the-workflow"></a>Étape 1 : Rechercher les codes d’erreur associés au flux de travail
+## <a name="step-1-locate-error-codes-associated-with-the-workflow"></a>Étape 1 : Rechercher les codes d’erreur associés au flux de travail
 
 Vous pouvez localiser les messages d’erreur associés au flux de travail en :
 
@@ -93,7 +93,7 @@ Recherchez le conteneur de sortie pour le flux de travail en question. MSGEN cr�
 Pour la résolution des problèmes, examinez le contenu de standardoutput.txt et notez les messages d’erreur qui s’affichent.
 
 
-## <a name="step-2-try-recommended-steps-for-common-errors"></a>Étape 2 : Essayer les étapes recommandées pour les erreurs courantes
+## <a name="step-2-try-recommended-steps-for-common-errors"></a>Étape 2 : Essayer les étapes recommandées pour les erreurs courantes
 
 Cette section présente brièvement les résultats d’erreurs courantes obtenus par le service Microsoft Genomics (msgen) et les stratégies que vous pouvez utiliser pour les résoudre. 
 

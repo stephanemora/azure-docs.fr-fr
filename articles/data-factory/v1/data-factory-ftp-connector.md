@@ -13,11 +13,11 @@ ms.date: 05/02/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 55c8bf2210eb0990a91aeff1f90e4af4db2c22ab
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927176"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79236369"
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>Déplacer des données à partir d’un serveur FTP à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -39,10 +39,10 @@ Si vous déplacez des données d’un serveur FTP **local** vers un magasin de d
 
 Vous pouvez installer la passerelle sur le même ordinateur local ou sur la machine virtuelle IaaS Azure que le serveur FTP. Toutefois, nous vous recommandons d’installer la passerelle sur un ordinateur/une machine virtuelle IaaS distincts afin d’éviter les conflits de ressources, ainsi que pour obtenir de meilleures performances. Lorsque vous installez la passerelle sur un ordinateur distinct, l’ordinateur doit être en mesure au serveur FTP.
 
-## <a name="get-started"></a>Prise en main
+## <a name="get-started"></a>Bien démarrer
 Vous pouvez créer un pipeline avec une activité de copie qui déplace les données d’une source FTP à l’aide de différents outils ou API.
 
-Le moyen le plus simple de créer un pipeline consiste à utiliser **l’Assistant Copie de Data Factory**. Consultez le [tutoriel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Data Factory Copy](data-factory-copy-data-wizard-tutorial.md) pour obtenir une procédure pas à pas rapide.
+Le moyen le plus simple de créer un pipeline consiste à utiliser **l’Assistant Copie de Data Factory**. Voir le [tutoriel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Data Factory Copy](data-factory-copy-data-wizard-tutorial.md) pour obtenir une procédure pas à pas rapide.
 
 Vous pouvez également utiliser les outils suivants pour créer un pipeline : **Visual Studio**, **PowerShell**, **modèle Azure Resource Manager**, **.NET API** et **REST API**. Pour obtenir des instructions détaillées sur la création d’un pipeline avec une activité de copie, consultez le [didacticiel sur l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
@@ -64,11 +64,11 @@ Le tableau suivant décrit les éléments JSON spécifiques pour un service FTP 
 
 | Propriété | Description | Obligatoire | Default |
 | --- | --- | --- | --- |
-| Type |Définissez ceci sur FtpServer. |OUI |&nbsp; |
-| host |Spécifiez le nom ou l’adresse IP du serveur FTP. |OUI |&nbsp; |
-| authenticationType |Spécifiez le type d’authentification. |OUI |Basic, anonyme |
+| type |Définissez ceci sur FtpServer. |Oui |&nbsp; |
+| host |Spécifiez le nom ou l’adresse IP du serveur FTP. |Oui |&nbsp; |
+| authenticationType |Spécifiez le type d’authentification. |Oui |Basic, anonyme |
 | username |Spécifiez l’utilisateur ayant accès au serveur FTP. |Non |&nbsp; |
-| password |Spécifiez le mot de passe de l’utilisateur (username). |Non |&nbsp; |
+| mot de passe |Spécifiez le mot de passe de l’utilisateur (username). |Non |&nbsp; |
 | encryptedCredential |Spécifiez les informations d’identification chiffrées pour accéder au serveur FTP. |Non |&nbsp; |
 | gatewayName |Spécifiez le nom de la passerelle dans Passerelle de gestion des données pour la connexion à un serveur FTP local |Non |&nbsp; |
 | port |Spécifiez le port sur lequel le serveur FTP écoute. |Non |21 |
@@ -154,7 +154,7 @@ La section **typeProperties** est différente pour chaque type de jeu de donnée
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| folderPath |Sous-chemin d’accès au dossier. Utilisez le caractère d’échappement « \ » pour les caractères spéciaux contenus dans la chaîne. Consultez la section Exemples de définitions de jeux de données et de service liés pour obtenir des exemples.<br/><br/>Vous pouvez également combiner cette propriété avec **partitionBy** pour que les chemins d’accès soient basés sur les dates et heures de début et de fin de la tranche. |OUI |
+| folderPath |Sous-chemin d’accès au dossier. Utilisez le caractère d’échappement « \ » pour les caractères spéciaux contenus dans la chaîne. Pour obtenir des exemples, consultez la section Exemples de définitions de jeux de données et de services liés.<br/><br/>Vous pouvez également combiner cette propriété avec **partitionBy** pour que les chemins d’accès soient basés sur les dates et heures de début et de fin de la tranche. |Oui |
 | fileName |Spécifiez le nom du fichier dans l’élément **folderPath** si vous souhaitez que la table se réfère à un fichier spécifique du dossier. Si vous ne spécifiez aucune valeur pour cette propriété, le tableau pointe vers tous les fichiers du dossier.<br/><br/>Lorsque **fileName** n’est pas spécifié pour un jeu de données de sortie, le nom du fichier généré est au format suivant : <br/><br/>`Data.<Guid>.txt` (Exemple : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Non |
 | fileFilter |Spécifiez un filtre à utiliser pour sélectionner un sous-ensemble de fichiers dans le **folderPath** plutôt que tous les fichiers.<br/><br/>Les valeurs autorisées sont : `*` (plusieurs caractères) et `?` (caractère unique).<br/><br/>Exemple 1 : `"fileFilter": "*.log"`<br/>Exemple 2 : `"fileFilter": 2014-1-?.txt"`<br/><br/> **fileFilter** s’applique à un jeu de données FileShare d’entrée. Cette propriété n’est pas pris en charge avec le Système de fichiers DFS Hadoop (HDFS). |Non |
 | partitionedBy |Utilisé pour spécifier un **folderPath** et un **fileName** dynamiques pour des données de série chronologique. Par exemple, vous pouvez spécifier un **folderPath** paramétré pour chaque heure de données. |Non |
@@ -389,7 +389,7 @@ Le pipeline contient une activité de copie qui est configurée pour utiliser le
 > Pour savoir comment mapper des colonnes d’un jeu de données source sur des colonnes d’un jeu de données récepteur, consultez [Mappage de colonnes des jeux de données dans Azure Data Factory](data-factory-map-columns.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez les articles suivants :
+Voir les articles suivants :
 
 * Pour découvrir les facteurs clés affectant les performances de déplacement des données (activité de copie) dans Azure Data Factory et les différentes manières de les optimiser, voir [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md).
 

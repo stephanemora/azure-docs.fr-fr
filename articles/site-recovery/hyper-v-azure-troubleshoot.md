@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/14/2019
 ms.author: rajanaki
 ms.openlocfilehash: 0a3e5c922009353e4ba9ccab12cf70ea2b5992da
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73961483"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Résoudre les problèmes de réplication et de basculement de Hyper-V sur Azure
@@ -123,7 +123,7 @@ Une capture instantanée de cohérence des applications est un instantané à un
 ### <a name="vss-failing-inside-the-hyper-v-host"></a>Échec de VSS à l’intérieur de l’hôte Hyper-V
 
 1. Recherchez les erreurs et recommandations pour VSS dans les journaux d’événements :
-    - Sur le serveur hôte Hyper-V, ouvrez le journal des événements de l’administrateur Hyper-V dans **Observateur d’événements** > **Journaux des applications et des services** > **Microsoft**  >  **Windows** > **Hyper-V** > **Admin**.
+    - Sur le serveur hôte Hyper-V, ouvrez le journal des événements de l’administrateur Hyper-V dans **Observateur d’événements** > **Journaux des applications et des services** > **Microsoft** > **Windows** > **Hyper-V** > **Admin**.
     - Vérifiez si des événements signalent des défaillances des captures instantanées de cohérence des applications.
     - Erreur type : « Hyper-V failed to generate VSS snapshot s et for virtual machine ’XYZ’: The writer experienced a non-transient error. Restarting the VSS service might resolve issues if the service is unresponsive. (Hyper-V n’a pas pu générer l’ensemble de captures instantanées VSS pour la machine virtuelle 'XYZ' : L’enregistreur a rencontré une erreur non transitoire. Le redémarrage du service VSS peut résoudre le problème si le service ne répond pas.) »
 

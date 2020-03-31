@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: anroth
 ms.openlocfilehash: b9606c63ec7b53fb0b69918c21bdd9206f34c555
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73647577"
 ---
 # <a name="custom-vision-service-release-notes"></a>Notes de publication du service Vision personnalisée
@@ -23,7 +23,7 @@ ms.locfileid: "73647577"
 
 - Résolution des bogues et améliorations de backend
 
-## <a name="may-23-2019"></a>23 mai 2019
+## <a name="may-23-2019"></a>23 mai 2019
 
 - Expérience UX du portail améliorée concernant les abonnements Azure, vous permettant de sélectionner vos annuaires Azure plus facilement.
 

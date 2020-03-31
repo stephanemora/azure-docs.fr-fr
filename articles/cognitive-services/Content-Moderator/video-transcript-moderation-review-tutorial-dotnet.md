@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Modérer des vidéos et des transcriptions dans .NET - Content Moderator'
+title: 'Tutoriel : Modérer des vidéos et des transcriptions dans .NET - Content Moderator'
 titleSuffix: Azure Cognitive Services
 description: Ce tutoriel explique comment concevoir une solution de modération de vidéos et de transcriptions complète à l’aide de la modération assistée par ordinateur et de la création de révisions pour une intervention humaine.
 services: cognitive-services
@@ -11,13 +11,13 @@ ms.topic: tutorial
 ms.date: 12/05/2019
 ms.author: pafarley
 ms.openlocfilehash: 2fbd4270221cb23a4f99a0f8155bb1de76472f31
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74976976"
 ---
-# <a name="tutorial-video-and-transcript-moderation"></a>Didacticiel : Modération de vidéos et de transcriptions
+# <a name="tutorial-video-and-transcript-moderation"></a>Tutoriel : Modération de vidéos et de transcriptions
 
 Ce tutoriel explique comment créer une solution de modération de vidéos et de transcriptions complète avec la modération assistée par ordinateur et l’intégration d’une révision humaine.
 
@@ -42,7 +42,7 @@ Ce didacticiel vous explique les procédures suivantes :
 
 ## <a name="enter-credentials"></a>Entrer les informations d’identification
 
-Modifiez le fichier `App.config` et ajoutez le nom du locataire Active Directory, les points de terminaison de service et les clés d’abonnement indiquées par `#####`. Vous avez besoin des informations suivantes :
+Modifiez le fichier `App.config` et ajoutez le nom du locataire Active Directory, les points de terminaison de service et les clés d’abonnement indiquées par `#####`. Les informations suivantes sont nécessaires :
 
 |Clé|Description|
 |-|-|
@@ -121,7 +121,7 @@ Le code qui compresse un seul fichier vidéo est la classe `AmsComponent` dans `
 
 [!code-csharp[CompressVideo](~/VideoReviewConsoleApp/Microsoft.ContentModerator.AMSComponent/AMSComponentClient/AMSComponent.cs?range=31-59)]
 
-Le code effectue les étapes suivantes :
+Le code effectue les actions suivantes :
 
 - Vérifie que la configuration dans `App.config` contient toutes les données nécessaires
 - Vérifie que le binaire `ffmpeg` est présent

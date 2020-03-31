@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
 ms.openlocfilehash: 83ee8e0c0583cba72da8702e196f0f38128f8d8a
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "72935935"
 ---
 # <a name="define-and-use-moderation-jobs-rest"></a>Définir et utiliser des travaux de modération (REST)
@@ -23,10 +23,10 @@ Un travail de modération est une forme de wrapper des fonctionnalités de modé
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Connectez-vous ou créez un compte sur le site [Outil de révision](https://contentmoderator.cognitive.microsoft.com/) de Content Moderator.
+- Connectez-vous ou créez un compte sur le site de l’[outil de révision](https://contentmoderator.cognitive.microsoft.com/) de Content Moderator.
 - (Facultatif) [Définissez un flux de travail personnalisé](./Review-Tool-User-Guide/Workflows.md) à utiliser avec votre travail ; vous pouvez également utiliser le flux de travail par défaut.
 
-## <a name="create-a-job"></a>Création d’un travail
+## <a name="create-a-job"></a>Créer un travail
 
 Pour créer un travail de modération, accédez à la page de référence API [Travail – Créer](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) et sélectionnez le bouton de votre région d’abonnement (que vous trouverez dans l’URL du point de terminaison, sur la page **Informations d’identification** de [l’Outil de révision](https://contentmoderator.cognitive.microsoft.com/)). La console d’API, qui permet de construire et d’exécuter des appels d’API REST, se lance.
 

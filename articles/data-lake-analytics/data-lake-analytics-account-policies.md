@@ -10,10 +10,10 @@ ms.assetid: 0a6102d1-7554-4df2-b487-4dae9a7287b6
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.openlocfilehash: 4689714073047e383a53a04bd0069a8a27afdf9d
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72966124"
 ---
 # <a name="manage-azure-data-lake-analytics-using-account-policies"></a>Gérer Azure Data Lake Analytics à l’aide de stratégies de compte
@@ -68,7 +68,7 @@ Les stratégies au niveau du travail vous permettent de contrôler les unités A
 
 Data Lake Analytics inclut deux stratégies que vous pouvez définir au niveau du travail :
 
-* **Limite d’unités Analytique par travail** : les utilisateurs peuvent uniquement soumettre des travaux dont le nombre maximal d’unités Analytique est inférieur ou égal à cette valeur. Par défaut, cette limite est identique à la limite maximale d’unités Analytics du compte.
+* **Limite d’unités Analytics par travail** : les utilisateurs peuvent uniquement soumettre des travaux dont le nombre maximal d’unités Analytics est inférieur ou égal à cette valeur. Par défaut, cette limite est identique à la limite maximale d’unités Analytics du compte.
 * **Priorité** : les utilisateurs peuvent uniquement soumettre les travaux dont la priorité est inférieure ou égale à cette valeur. Un nombre plus élevé indique une priorité plus faible. Par défaut, cette limite est définie sur 1, qui est la priorité la plus élevée.
 
 Chaque compte contient une stratégie par défaut. La stratégie par défaut s’applique à tous les utilisateurs du compte. Vous pouvez créer des stratégies supplémentaires pour des utilisateurs et des groupes spécifiques. 
@@ -82,10 +82,10 @@ Chaque compte contient une stratégie par défaut. La stratégie par défaut s�
 1. Dans le portail Azure, accédez à votre compte Data Lake Analytics.
 2. Cliquez sur **Limites et stratégies**.
 3. Sous **Limites d’envoi de tâches**, cliquez sur le bouton **Ajouter une stratégie**. Puis, sélectionnez ou saisissez les paramètres suivants :
-    1. **Nom de la stratégie de calcul** : entrez un nom de stratégie, pour vous rappeler de l’objectif de la stratégie.
-    2. **Sélectionner un utilisateur ou un groupe** : sélectionnez l’utilisateur ou le groupe auquel la stratégie s’applique.
-    3. **Définir la limite d’unités Analytique du travail** : définissez la limite d’unités Analytique qui s’applique à l’utilisateur ou au groupe sélectionné.
-    4. **Définir la limite de priorité** : définissez la limite de priorité qui s’applique à l’utilisateur ou au groupe sélectionné.
+    1. **Nom de la stratégie de calcul** : entrez un nom de stratégie, pour vous rappeler de l’objectif de la stratégie.
+    2. **Sélectionner un utilisateur ou un groupe** : sélectionnez l’utilisateur ou le groupe auquel la stratégie s’applique.
+    3. **Définir la limite d’unités Analytics du travail** : définissez la limite d’unités Analytics qui s’applique à l’utilisateur ou au groupe sélectionné.
+    4. **Définir la limite de priorité** : définissez la limite de priorité qui s’applique à l’utilisateur ou au groupe sélectionné.
 
 4. Cliquez sur **OK**.
 

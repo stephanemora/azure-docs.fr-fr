@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
 ms.openlocfilehash: 8480299c2c889a243150028ac9651f4b62656aec
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74110347"
 ---
 # <a name="voice-assistants-frequently-asked-questions"></a>Questions fréquentes sur les assistants vocaux
 
 Si vous ne trouvez pas de réponses à vos questions dans ce document, consultez les [autres options de support](support.md).
 
-## <a name="general"></a>Généralités
+## <a name="general"></a>Général
 
 **Q : Qu’est-ce qu’un assistant vocal ?**
 

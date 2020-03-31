@@ -12,13 +12,13 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/25/2019
 ms.openlocfilehash: 759e35ba353f470ea3abc5f5d4182fa2b2ea0e73
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71212520"
 ---
-# <a name="deprecated-configure-baidu-cloud-push-settings-for-a-notification-hub-in-the-azure-portal"></a>Déconseillé : Configurer les paramètres de Baidu Cloud Push pour un hub de notification sur le portail Azure
+# <a name="deprecated-configure-baidu-cloud-push-settings-for-a-notification-hub-in-the-azure-portal"></a>Dépréciation : Configurer les paramètres de Baidu Cloud Push pour un hub de notification sur le portail Azure
 
 Cet article explique comment configurer les paramètres de Baidu Cloud Push pour un hub de notification Azure à l'aide du portail Azure.
 

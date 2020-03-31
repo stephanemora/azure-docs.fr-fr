@@ -7,11 +7,11 @@ ms.reviewer: deli, klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/25/2019
 ms.openlocfilehash: 0f6ec158cf6ab855191e6796be3abec7d37439a0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75456666"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79233033"
 ---
 # <a name="schedule-and-run-recurring-automated-tasks-processes-and-workflows-with-azure-logic-apps"></a>Créer et exécuter des tâches et des workflows récurrents avec Azure Logic Apps
 
@@ -81,7 +81,7 @@ Voici quelques modèles qui montrent comment vous pouvez contrôler la périodic
 
 > [!IMPORTANT]
 > Lorsque les récurrences ne spécifient pas d’options de planification avancées, les récurrences ultérieures sont basées sur l’heure de la dernière exécution.
-> Les heures de début de ces récurrences peuvent dériver en raison de facteurs tels que la latence lors des appels de stockage. Pour vous assurer que votre application logique ne manque pas de récurrence, en particulier lorsque la fréquence est en jours ou plus, utilisez l’une des options suivantes :
+> Les heures de début de ces récurrences peuvent dériver en raison de facteurs tels que la latence lors des appels de stockage. Pour vous assurer que votre application logique ne manque pas de récurrence, en particulier quand la fréquence est en jours ou plus, utilisez l’une des options suivantes :
 > 
 > * Indiquez une heure de début pour la récurrence.
 > 

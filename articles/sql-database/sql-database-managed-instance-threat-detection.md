@@ -12,10 +12,10 @@ ms.author: ronmat
 ms.reviewer: vanto
 ms.date: 08/05/2019
 ms.openlocfilehash: 69292a934af8b8777f11ab58ed3fe306abf8b408
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73822551"
 ---
 # <a name="configure-advanced-threat-protection-in-azure-sql-database-managed-instance"></a>Configurer la protection avancée contre les menaces dans Instance managée Azure SQL Database

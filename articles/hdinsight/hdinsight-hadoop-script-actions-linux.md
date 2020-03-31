@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/28/2019
 ms.openlocfilehash: ad9b4b69b0be34c89d03b677c1889e486aae0379
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75931694"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Développement d’actions de script avec HDInsight
@@ -34,7 +34,7 @@ Les actions de script peuvent être appliquées selon les méthodes suivantes :
 
 Pour plus d’informations sur l’utilisation de ces méthodes pour appliquer des actions de script, consultez [Personnalisation de clusters HDInsight à l’aide d’actions de script](hdinsight-hadoop-customize-cluster-linux.md).
 
-## <a name="bestPracticeScripting"></a>Meilleures pratiques relatives au développement de scripts
+## <a name="best-practices-for-script-development"></a><a name="bestPracticeScripting"></a>Meilleures pratiques relatives au développement de scripts
 
 Quand vous développez un script personnalisé pour un cluster HDInsight, tenez compte des meilleures pratiques suivantes :
 
@@ -52,7 +52,7 @@ Quand vous développez un script personnalisé pour un cluster HDInsight, tenez 
 > [!IMPORTANT]  
 > Les actions de script doivent se terminer dans les 60 minutes, ou le processus échoue. Lors de l’approvisionnement du nœud, le script s’exécute en même temps que les autres processus d'installation et de configuration. En raison de cette concurrence pour les ressources, par exemple au niveau du temps processeur ou de la bande passante, l’exécution du script risque de prendre plus de temps que dans votre environnement de développement.
 
-### <a name="bPS1"></a>Cibler la version Apache Hadoop
+### <a name="target-the-apache-hadoop-version"></a><a name="bPS1"></a>Cibler la version Apache Hadoop
 
 Différentes versions de HDInsight sont équipées de différentes versions de services Hadoop et des composants installés. Si votre script attend une version de service ou de composant spécifique, vous devez utiliser uniquement le script avec la version de HDInsight qui inclut les composants requis. Vous trouverez des informations sur les versions de composant incluses dans HDInsight à l’aide du document [Contrôle des versions du composant HDInsight](hdinsight-component-versioning.md) .
 
@@ -73,7 +73,7 @@ elif [[ $OS_VERSION == 16* ]]; then
 fi
 ```
 
-### <a name="bps10"></a> Cibler la version du système d’exploitation
+### <a name="target-the-operating-system-version"></a><a name="bps10"></a> Cibler la version du système d’exploitation
 
 HDInsight est basé sur la distribution Ubuntu Linux. Les différentes versions de HDInsight s’appuient sur des versions différentes d’Ubuntu, ce qui peut avoir une incidence sur le comportement de votre script. Par exemple, HDInsight 3.4 et les versions antérieures sont basées sur des versions Ubuntu qui utilisent Upstart. Les versions 3.5 et supérieures sont basées sur Ubuntu 16.04, qui utilise Systemd. Systemd et Upstart reposent sur différentes commandes, donc votre script doit être écrit pour travailler avec les deux.
 
@@ -114,7 +114,7 @@ Pour la version d’Ubuntu utilisée par HDInsight, consultez le document [Versi
 
 Pour comprendre les différences entre Systemd et Upstart, consultez [Systemd pour les utilisateurs Upstart](https://wiki.ubuntu.com/SystemdForUpstartUsers).
 
-### <a name="bPS2"></a>Fournir des liens stables vers les ressources de script
+### <a name="provide-stable-links-to-script-resources"></a><a name="bPS2"></a>Fournir des liens stables vers les ressources de script
 
 Le script et les ressources associées doivent rester disponibles pendant toute la durée de vie du cluster. Ces ressources sont requises si de nouveaux nœuds sont ajoutés au cluster pendant les opérations de mise à l'échelle.
 
@@ -125,24 +125,24 @@ La meilleure pratique consiste à tout télécharger et à tout archiver dans un
 
 Par exemple, les exemples fournis par Microsoft sont stockés dans le compte de stockage [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/). Cet emplacement est un conteneur public en lecture seule géré par l’équipe de HDInsight.
 
-### <a name="bPS4"></a>Utiliser des ressources précompilées
+### <a name="use-pre-compiled-resources"></a><a name="bPS4"></a>Utiliser des ressources précompilées
 
 Pour réduire le temps nécessaire à l’exécution du script, évitez les opérations qui compilent des ressources depuis le code source. Par exemple, précompilez les ressources et stockez-les dans un compte de stockage de blobs Azure dans le même centre de données que HDInsight.
 
-### <a name="bPS3"></a>S’assurer que le script de personnalisation du cluster est idempotent
+### <a name="ensure-that-the-cluster-customization-script-is-idempotent"></a><a name="bPS3"></a>S’assurer que le script de personnalisation du cluster est idempotent
 
 Les scripts doivent être idempotents. Si le script est exécuté plusieurs fois, il doit retourner le cluster au même état à chaque fois.
 
 Par exemple, un script qui modifie les fichiers de configuration ne doit pas ajouter d’entrées en double s’il est exécuté plusieurs fois.
 
-### <a name="bPS5"></a>Garantir la haute disponibilité de l’architecture du cluster
+### <a name="ensure-high-availability-of-the-cluster-architecture"></a><a name="bPS5"></a>Garantir la haute disponibilité de l’architecture du cluster
 
 Les clusters HDInsight basés sur Linux proposent deux nœuds principaux actifs au sein du cluster, et les actions de script sont exécutées sur les deux nœuds. Si les composants que vous installez n’attendent qu’un seul nœud principal, n’installez pas les composants sur les deux nœuds principaux.
 
 > [!IMPORTANT]  
 > Les services fournis dans le cadre de HDInsight sont conçus pour basculer entre les deux nœuds principaux si nécessaire. Cette fonctionnalité n’est pas étendue aux composants personnalisés installés à l’aide d’actions de script. Si vous avez besoin que les composants personnalisés soient très disponibles, vous devez implémenter votre propre mécanisme de basculement.
 
-### <a name="bPS6"></a>Configurer les composants personnalisés pour utiliser le stockage d’objets blob Azure
+### <a name="configure-the-custom-components-to-use-azure-blob-storage"></a><a name="bPS6"></a>Configurer les composants personnalisés pour utiliser le stockage d’objets blob Azure
 
 Les composants que vous installez sur le cluster peuvent être configurés par défaut pour utiliser le stockage HDFS (Apache Hadoop Distributed File System). HDInsight utilise Stockage Azure ou Data Lake Storage comme stockage par défaut. Chacun d’eux fournit un système de fichiers compatible HDFS qui rend persistantes les données même en cas de suppression du cluster. Vous devrez peut-être configurer les composants que vous installez pour utiliser WASB ou ADL au lieu de HDFS.
 
@@ -154,7 +154,7 @@ hdfs dfs -put /usr/hdp/current/hadoop-client/hadoop-common.jar /example/jars/
 
 Dans cet exemple, la commande `hdfs` utilise en toute transparence l’emplacement de stockage de cluster par défaut. Pour certaines opérations, vous devrez peut-être spécifier l’URI. Par exemple, `adl:///example/jars` pour Azure Data Lake Storage Gen1, `abfs:///example/jars` pour Data Lake Storage Gen2 ou `wasb:///example/jars` pour Stockage Azure.
 
-### <a name="bPS7"></a>Écrire des informations sur STDOUT et STDERR
+### <a name="write-information-to-stdout-and-stderr"></a><a name="bPS7"></a>Écrire des informations sur STDOUT et STDERR
 
 HDInsight journalise la sortie de script qui est écrite dans STDOUT et STDERR. Vous pouvez afficher ces informations à l’aide de l’interface utilisateur web d’Ambari.
 
@@ -177,7 +177,7 @@ Cela redirige les informations écrites dans STDOUT vers STDERR (2) à la place.
 
 Pour plus d’informations sur l’affichage des informations consignées par les actions de script, voir [Personnalisation de clusters HDInsight à l’aide d’une action de script](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting)
 
-### <a name="bps8"></a> Enregistrer des fichiers au format ASCII avec les fins de ligne LF
+### <a name="save-files-as-ascii-with-lf-line-endings"></a><a name="bps8"></a> Enregistrer des fichiers au format ASCII avec les fins de ligne LF
 
 Les scripts d’interpréteur de commandes doivent être stockés au format ASCII, avec des lignes terminées se terminant par LF. Les fichiers qui sont stockés au format UTF-8 ou utilisent CRLF comme fin de ligne peuvent échouer avec l’erreur suivante :
 
@@ -186,7 +186,7 @@ $'\r': command not found
 line 1: #!/usr/bin/env: No such file or directory
 ```
 
-### <a name="bps9"></a> Utilisation de la logique de nouvelle tentative pour récupérer après une erreur temporaire
+### <a name="use-retry-logic-to-recover-from-transient-errors"></a><a name="bps9"></a> Utilisation de la logique de nouvelle tentative pour récupérer après une erreur temporaire
 
 Lors du téléchargement de fichiers, de l’installation de packages à l’aide d’apt-get ou de l’exécution d’autres actions qui transmettent des données sur Internet, l’action peut échouer à cause d’erreurs réseau temporaires. Par exemple, la ressource distante avec laquelle vous communiquez peut être en cours de basculement vers un nœud de sauvegarde.
 
@@ -224,7 +224,7 @@ retry ls -ltr foo
 retry wget -O ./tmpfile.sh https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
 ```
 
-## <a name="helpermethods"></a>Méthodes d'assistance pour les scripts personnalisés
+## <a name="helper-methods-for-custom-scripts"></a><a name="helpermethods"></a>Méthodes d'assistance pour les scripts personnalisés
 
 Les méthodes d’assistance aux actions de script sont des utilitaires que vous pouvez utiliser lors de l’écriture de scripts personnalisés. Ces méthodes sont contenues dans le script [https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh). Pour les télécharger et les utiliser dans le cadre de votre script, utilisez les éléments suivants :
 
@@ -248,7 +248,7 @@ Les programmes d’assistance suivants disponibles pour une utilisation dans vot
 | `get_primary_headnode_number` |Obtient le suffixe numérique du nœud principal primaire. Une chaîne vide est renvoyée en cas d’erreur. |
 | `get_secondary_headnode_number` |Obtient le suffixe numérique du nœud principal secondaire. Une chaîne vide est renvoyée en cas d’erreur. |
 
-## <a name="commonusage"></a>Modes d'utilisation courants
+## <a name="common-usage-patterns"></a><a name="commonusage"></a>Modes d'utilisation courants
 
 Cette section fournit des conseils sur l'implémentation de certains des modèles d'utilisation courants que vous pouvez rencontrer lors de l'écriture de votre propre script personnalisé.
 
@@ -300,7 +300,7 @@ Le stockage des fichiers dans un compte Stockage Azure ou Azure Data Lake Storag
 > [!NOTE]  
 > Le format d’URI utilisé pour référencer le script diffère selon le service utilisé. Pour les comptes de stockage associés au cluster HDInsight, utilisez `wasb://` ou `wasbs://`. Pour des URI lisibles publiquement, utilisez `http://` ou `https://`. Pour Data Lake Storage, utilisez `adl://`.
 
-## <a name="deployScript"></a>Liste de vérification pour le déploiement d'une action de script
+## <a name="checklist-for-deploying-a-script-action"></a><a name="deployScript"></a>Liste de vérification pour le déploiement d'une action de script
 
 Voici les étapes à suivre avant de déployer un script :
 
@@ -309,7 +309,7 @@ Voici les étapes à suivre avant de déployer un script :
 * Utilisez un dossier de fichiers temporaires /tmp pour conserver le fichier téléchargé utilisé par les scripts, puis nettoyez-les une fois que les scripts ont été exécutés.
 * Si les paramètres au niveau du système d’exploitation ou les fichiers de configuration du service Hadoop sont modifiés, vous pouvez redémarrer les services HDInsight.
 
-## <a name="runScriptAction"></a>Comment exécuter une action de script
+## <a name="how-to-run-a-script-action"></a><a name="runScriptAction"></a>Comment exécuter une action de script
 
 Vous pouvez utiliser des actions de script pour personnaliser des clusters HDInsight à l’aide des méthodes suivantes :
 
@@ -320,7 +320,7 @@ Vous pouvez utiliser des actions de script pour personnaliser des clusters HDIns
 
 Pour plus d’informations sur l’utilisation de chaque méthode, consultez [Comment utiliser une action de script](hdinsight-hadoop-customize-cluster-linux.md).
 
-## <a name="sampleScripts"></a>Exemples de scripts personnalisés
+## <a name="custom-script-samples"></a><a name="sampleScripts"></a>Exemples de scripts personnalisés
 
 Microsoft fournit des exemples de scripts pour installer des composants sur un cluster HDInsight. Consultez [Installer et utiliser Hue sur les clusters HDInsight](hdinsight-hadoop-hue-linux.md) pour obtenir un exemple d’action de script.
 
@@ -356,7 +356,7 @@ Ce problème se produit souvent lorsque le script est créé dans un environneme
 
 Remplacez `INFILE` par le fichier contenant la marque d’ordre d’octet. `OUTFILE` doit être un nouveau nom de fichier contenant le script sans la marque d’ordre d’octet.
 
-## <a name="seeAlso"></a>Étapes suivantes
+## <a name="next-steps"></a><a name="seeAlso"></a>Étapes suivantes
 
 * Découvrez comment [Personnaliser des clusters HDInsight à l’aide d’une action de script](hdinsight-hadoop-customize-cluster-linux.md)
 * Utilisez la [Référence du Kit de développement logiciel (SDK) .NET HDInsight](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight) pour en savoir plus sur la création d’applications .NET qui gèrent HDInsight

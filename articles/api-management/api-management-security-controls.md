@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/23/2019
 ms.author: vlvinogr
 ms.openlocfilehash: 670050efe01fb658fab52a43914f193e9798b828
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75751125"
 ---
 # <a name="security-controls-for-api-management"></a>Contrôles de sécurité pour Gestion des API
@@ -42,7 +42,7 @@ Cet article décrit les contrôles de sécurité intégrés à Gestion des API.
 
 | Contrôle de sécurité | Oui/Non | Notes| Documentation |
 |---|---|--|--|
-| Authentication| Oui | |  |
+| Authentification| Oui | |  |
 | Autorisation| Oui | |  |
 
 ## <a name="data-protection"></a>Protection de données

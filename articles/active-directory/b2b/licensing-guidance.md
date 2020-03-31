@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 28d02160163da4081ad8adbe233b27fee970a0df
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74868845"
 ---
 # <a name="azure-active-directory-b2b-collaboration-licensing-guidance"></a>Guide d’attribution de licences pour Azure Active Directory B2B Collaboration
@@ -29,7 +29,7 @@ L’attribution de licences aux utilisateurs invités B2B est automatiquement ca
 
 De plus, les utilisateurs invités peuvent utiliser des fonctionnalités Azure AD gratuites sans avoir besoin de licences supplémentaires. Les utilisateurs invités ont accès à des fonctionnalités Azure AD gratuites même si vous n’avez acheté aucune licence Azure AD. 
 
-## <a name="examples-calculating-guest-user-licenses"></a>Exemples : Calculer le nombre de licences d’utilisateur invité
+## <a name="examples-calculating-guest-user-licenses"></a>Exemples : Calculer le nombre de licences d’utilisateur invité
 Une fois que vous avez déterminé le nombre d’utilisateurs invités qui a besoin d’accéder à vos services Azure AD payants, assurez-vous que vous avez suffisamment de licences Azure AD payantes pour couvrir les utilisateurs invités selon un ratio de 1 à 5. Voici quelques exemples :
 
 - Vous souhaitez permettre à 100 utilisateurs invités d’utiliser vos applications ou services Azure AD et fournir la gestion et le provisionnement des accès. Vous souhaitez également imposer à 50 d’entre eux une authentification multifacteur et un accès conditionnel, et vous avez besoin de 10 licences Azure AD Premium P1 pour ces fonctionnalités. Si vous envisagez d’utiliser des fonctionnalités de protection de l’identité avec vos utilisateurs invités, vous avez besoin de licences Azure AD Premium P2 pour couvrir les utilisateurs invités et ce toujours selon un ratio de 1 à 5.

@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 06/02/2017
-ms.openlocfilehash: 6ecf5ba01b03ab899fec96b8ecd282a29e5ce3e0
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: de395f7167f0ab7d7c6429c14d5efce46831b576
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168901"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79218238"
 ---
 # <a name="how-to-consume-an-azure-machine-learning-studio-classic-web-service"></a>Guide pratique pour utiliser un service web Azure Machine Learning Studio (classique)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Une fois que vous avez déployé un modèle prédictif Azure Machine Learning Studio (classique) en tant que service web, vous pouvez utiliser une API REST pour lui envoyer des données et obtenir des prédictions. Vous pouvez envoyer les données en temps réel ou par lot.
 
@@ -67,7 +69,7 @@ Pour récupérer la clé API pour un service web Machine Learning classique :
 1. Dans Machine Learning Studio (cliquez), cliquez sur l’option **SERVICES WEB** à gauche.
 2. Cliquez sur un service web. La **clé API** figure sur l’onglet **TABLEAU DE BORD**.
 
-## <a id="connect"></a>Se connecter à un service web Machine Learning
+## <a name="connect-to-a-machine-learning-web-service"></a><a id="connect"></a>Se connecter à un service web Machine Learning
 Vous pouvez vous connecter à un service web Machine Learning à l’aide de n’importe quel langage de programmation qui prend en charge les requêtes et réponses HTTP. Vous pouvez consulter des exemples en C#, Python et R sur l’une des pages d’aide du service web Machine Learning.
 
 **Aide de l’API Machine Learning** L’aide de l’API Machine Learning est créée quand vous déployez un service web. Consultez le [Tutoriel 3 : Déployer un modèle de risque de crédit](tutorial-part3-credit-risk-deploy.md).

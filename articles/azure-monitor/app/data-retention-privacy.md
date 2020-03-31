@@ -1,18 +1,14 @@
 ---
 title: Conservation et stockage des données dans Azure Application Insights | Microsoft Docs
 description: Retention and privacy policy statement
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 09/29/2019
-ms.openlocfilehash: ba8a76cd4d3804bcb062ae0554e3fe7002804ed2
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 30878eecf795c85713b9f09b8325b326416022b8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77031678"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79234705"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Collecte, rétention et stockage des données dans Application Insights
 
@@ -174,6 +170,12 @@ services.AddSingleton(typeof(ITelemetryChannel), new ServerTelemetryChannel () {
 Par défaut, `%TEMP%/appInsights-node{INSTRUMENTATION KEY}` est utilisé pour les données persistantes. Les autorisations d’accès à ce dossier sont limitées à l’utilisateur actuel et aux administrateurs. (Consultez l’[implémentation](https://github.com/Microsoft/ApplicationInsights-node.js/blob/develop/Library/Sender.ts) ici.)
 
 Le préfixe du dossier `appInsights-node` peut être substitué en modifiant la valeur d’exécution de la variable statique `Sender.TEMPDIR_PREFIX` trouvée dans [Sender.ts](https://github.com/Microsoft/ApplicationInsights-node.js/blob/7a1ecb91da5ea0febf5ceab13d6a4bf01a63933d/Library/Sender.ts#L384).
+
+### <a name="javascript-browser"></a>Javascript (navigateur)
+
+Le [stockage de session HTML5](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) est utilisé pour faire persister les données. Deux mémoires tampons distinctes sont utilisées : `AI_buffer` et `AI_sent_buffer`. Les données de télémétrie traitées par lots et en attente d’envoi sont stockées dans `AI_buffer`. Les données de télémétrie qui viennent d’être envoyées sont placées dans `AI_sent_buffer` jusqu’à ce que le serveur d’ingestion réponde qu’elles ont bien été reçues. Une fois que les données de télémétrie ont bien été reçues, elles sont supprimées de toutes les mémoires tampons. En cas de défaillances temporaires (par exemple, perte de connectivité pour un utilisateur), les données de télémétrie restent dans `AI_buffer` jusqu’à ce qu’elles soient bien reçues ou que le serveur d’ingestion réponde que les données de télémétrie ne sont pas valides (schéma incorrect ou trop ancien, par exemple).
+
+Les mémoires tampons de télémétrie peuvent être désactivées en définissant [`enableSessionStorageBuffer`](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/legacy/JavaScript/JavaScriptSDK.Interfaces/IConfig.ts#L31) sur `false`. Quand le stockage de session est désactivé, une baie locale est utilisée comme stockage persistant. Comme le kit SDK JavaScript s’exécute sur un appareil client, l’utilisateur a accès à cet emplacement de stockage via les outils de développement de son navigateur.
 
 ### <a name="opencensus-python"></a>OpenCensus Python
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: 9ff961638aa170948d51793a21e86d18dd7e1d80
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69016790"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Génération d'une application Windows Store de diffusion en continu lisse  
@@ -71,8 +71,8 @@ Pour plus d'informations sur le développement d'une application Windows Store, 
     | Groupe de modèles |Installed/Templates/Visual C#/Windows Store |
     | Modèle |Application vide (XAML) |
     | Nom |SSPlayer |
-    | Location |C:\SSTutorials |
-    | Nom de la solution |SSPlayer |
+    | Emplacement |C:\SSTutorials |
+    | Nom de solution |SSPlayer |
     | Créer un répertoire pour la solution |(sélectionné) |
 
 1. Cliquez sur **OK**.
@@ -819,7 +819,7 @@ La diffusion en continu lisse permet de diffuser du contenu en continu proposant
 
 Vous avez terminé la leçon 3.  Dans cette leçon, vous avez ajouté la fonctionnalité permettant de choisir des flux.
 
-## <a name="lesson-4-select-smooth-streaming-tracks"></a>Leçon 4 : Sélectionner des pistes Smooth Streaming
+## <a name="lesson-4-select-smooth-streaming-tracks"></a>Leçon 4 : Sélectionner des pistes Smooth Streaming
 
 Une présentation de diffusion en continu lisse peut contenir plusieurs fichiers vidéo encodés comportant des niveaux de qualité (débit) et des résolutions différents. Cette leçon vous expliquera comment permettre aux utilisateurs de sélectionner des pistes. Cette leçon aborde les procédures suivantes :
 

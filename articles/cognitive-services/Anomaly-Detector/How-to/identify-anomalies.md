@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: aahi
 ms.openlocfilehash: ca93de71f64efaf21c78b37b9c9aee193d13b28d
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "71840225"
 ---
-# <a name="how-to-use-the-anomaly-detector-api-on-your-time-series-data"></a>Activation Utiliser l’API Détecteur d’anomalies sur vos données de série chronologique  
+# <a name="how-to-use-the-anomaly-detector-api-on-your-time-series-data"></a>Procédure : Utiliser l’API Détecteur d’anomalies sur vos données de série chronologique  
 
 [L’API Détecteur d’anomalies](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector/operations/post-timeseries-entire-detect) propose deux méthodes de détection des anomalies. Vous pouvez soit détecter les anomalies sous forme de lot tout au long de votre série chronologique, soit au moment où vos données sont générées en détectant l’état d’anomalie du dernier point de données. Le modèle de détection retourne les résultats d’anomalie, ainsi que la valeur attendue de chaque point de données et les limites supérieure et inférieure de la détection d’anomalie. Vous pouvez utiliser ces valeurs pour visualiser la plage des valeurs normales et les anomalies dans les données.
 
@@ -26,10 +26,10 @@ ms.locfileid: "71840225"
 L’API Détecteur d’anomalies fournit des modes de détection : batch et diffusion en continu.
 
 > [!NOTE]
-> Les URL de demande suivantes doivent être combinées avec le point de terminaison approprié pour votre abonnement. Par exemple : `https://<your-custom-subdomain>.api.cognitive.microsoft.com/anomalydetector/v1.0/timeseries/entire/detect`
+> Les URL de demande suivantes doivent être combinées avec le point de terminaison approprié pour votre abonnement. Par exemple : `https://<your-custom-subdomain>.api.cognitive.microsoft.com/anomalydetector/v1.0/timeseries/entire/detect`
 
 
-### <a name="batch-detection"></a>Détection batch
+### <a name="batch-detection"></a>Détection par lot
 
 Pour détecter les anomalies tout au long d’un lot de points de données sur une période donnée, utilisez l’URI de demande suivant avec vos données de série chronologique : 
 
@@ -71,4 +71,4 @@ Les exemples suivants montrent un résultat de l’API Détecteur d’anomalies 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Présentation de l’API Détecteur d’anomalies](../overview.md)
-* [Démarrage rapide : Détecter des anomalies dans vos données de séries chronologiques avec l’API Détecteur d’anomalies](../quickstarts/detect-data-anomalies-csharp.md)
+* [Démarrage rapide : Détecter des anomalies dans vos données de séries chronologiques avec l’API Détecteur d’anomalies](../quickstarts/detect-data-anomalies-csharp.md)

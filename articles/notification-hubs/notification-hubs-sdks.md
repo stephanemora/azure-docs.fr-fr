@@ -15,17 +15,17 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 02/14/2019
 ms.openlocfilehash: 8a4b05c0ee76aca07fd740a16a76a634727504e9
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71213028"
 ---
 # <a name="azure-notification-hubs-sdks"></a>Kits de développement logiciel (SDK) Microsoft Azure Notification Hubs
 
 Microsoft et des tiers publient des kits de développement logiciel (SDK) pour Microsoft Azure Notification Hubs. Les référentiels Microsoft pour Android, iOS et .NET présentent également des exemples d’applications pour chaque plateforme cible.
 
-| Kit SDK            | Publisher      |
+| Kit SDK            | Serveur de publication      |
 | -------------- | -------------- |
 | [.NET Server](https://github.com/Azure/azure-notificationhubs-dotnet) | Microsoft |
 | [Android](https://github.com/Azure/azure-notificationhubs-android)  |Microsoft |

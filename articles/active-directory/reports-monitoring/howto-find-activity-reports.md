@@ -15,10 +15,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d356f8c10ae3770d9f4ade100ab0496ee58d772f
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74008215"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Trouver les rapports d’activité sur le Portail Azure
@@ -55,8 +55,8 @@ Les catégories sont les suivantes :
 - Tous
 - AdministrativeUnit
 - ApplicationManagement
-- Authentication
-- Authorization
+- Authentification
+- Autorisation
 - Contact
 - Appareil
 - DeviceConfiguration
@@ -114,7 +114,7 @@ Vous pouvez utiliser le rapport de connexions pour afficher des détails sur l�
 
 Les rapports d’activités anormales fournissent des informations sur les détections d’événements à risque qu’Azure AD est capable de signaler.
 
-Le tableau suivant liste les rapports d’activités anormales Azure AD et les types de détections d’événements à risque correspondants dans le portail Azure. Pour plus d’informations, consultez [Détections d’événements à risque dans Azure Active Directory](concept-risk-events.md).  
+Le tableau suivant liste les rapports d’activités anormales Azure AD et les types de détections d’événements à risque correspondants dans le portail Azure. Pour plus d’informations, consultez [Détections des risques dans Azure Active Directory](concept-risk-events.md).  
 
 
 | Rapport d’activités anormales Azure AD |  Type de détection d’événement à risque Identity Protection|
@@ -149,13 +149,13 @@ Vous pouvez accéder aux rapports sur les détections d’événements à risque
 
 J’ai téléchargé les journaux d’activité (d’audit ou de connexion) et tous les enregistrements correspondant à la période choisie n’apparaissent pas. Pourquoi ? 
 
- ![Reporting](./media/troubleshoot-missing-data-download/01.png)
+ ![Signalement](./media/troubleshoot-missing-data-download/01.png)
  
-#### <a name="cause"></a>Cause :
+#### <a name="cause"></a>Cause
 
 Lorsque vous téléchargez des journaux d’activité à partir du portail Azure, nous limitons l’échelle à 250 000 enregistrements, classés du plus récent au moins récent. 
 
-#### <a name="resolution"></a>Résolution :
+#### <a name="resolution"></a>Résolution
 
 Vous pouvez tirer parti des [API de création de rapports Azure AD](concept-reporting-api.md) pour extraire jusqu’à un million d’enregistrements pour un point donné.
 
@@ -165,9 +165,9 @@ Vous pouvez tirer parti des [API de création de rapports Azure AD](concept-repo
 
 J’ai réalisé certaines actions dans le portail Azure et je pensais pouvoir consulter les journaux d’audit associés dans le panneau `Activity logs > Audit Logs`, mais je ne les trouve pas.
 
- ![Reporting](./media/troubleshoot-missing-audit-data/01.png)
+ ![Signalement](./media/troubleshoot-missing-audit-data/01.png)
  
-#### <a name="cause"></a>Cause :
+#### <a name="cause"></a>Cause
 
 Les actions n’apparaissent pas immédiatement dans les journaux d’activité. Le tableau ci-dessous énumère nos valeurs de latence pour les journaux d’activité. 
 
@@ -176,7 +176,7 @@ Les actions n’apparaissent pas immédiatement dans les journaux d’activité.
 | Audit de répertoire | &nbsp; | 2 minutes | 5 minutes |
 | Activité de connexion | &nbsp; | 2 minutes | 5 minutes | 
 
-#### <a name="resolution"></a>Résolution :
+#### <a name="resolution"></a>Résolution
 
 Attendez entre 15 minutes et deux heures pour voir si les actions apparaissent dans le journal. Si vous ne voyez toujours pas les journaux d’activité après deux heures, [créez un ticket de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) et nous l’étudierons.
 
@@ -186,9 +186,9 @@ Attendez entre 15 minutes et deux heures pour voir si les actions apparaissent d
 
 Je me suis connecté récemment au portail Azure et je pensais pouvoir consulter les journaux d’activité de connexion associés dans le panneau `Activity logs > Sign-ins`, mais je ne les trouve pas.
 
- ![Reporting](./media/troubleshoot-missing-audit-data/02.png)
+ ![Signalement](./media/troubleshoot-missing-audit-data/02.png)
  
-#### <a name="cause"></a>Cause :
+#### <a name="cause"></a>Cause
 
 Les actions n’apparaissent pas immédiatement dans les journaux d’activité. Le tableau ci-dessous énumère nos valeurs de latence pour les journaux d’activité. 
 
@@ -197,7 +197,7 @@ Les actions n’apparaissent pas immédiatement dans les journaux d’activité.
 | Audit de répertoire | &nbsp; | 2 minutes | 5 minutes |
 | Activité de connexion | &nbsp; | 2 minutes | 5 minutes | 
 
-#### <a name="resolution"></a>Résolution :
+#### <a name="resolution"></a>Résolution
 
 Attendez entre 15 minutes et deux heures pour voir si les actions apparaissent dans le journal. Si vous ne voyez toujours pas les journaux d’activité après deux heures, [créez un ticket de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) et nous l’étudierons.
 
@@ -207,20 +207,20 @@ Attendez entre 15 minutes et deux heures pour voir si les actions apparaissent d
 
 Je n’arrive pas à afficher plus de 30 jours de données de connexion et d’audit dans le portail Azure. Pourquoi ? 
 
- ![Reporting](./media/troubleshoot-missing-audit-data/03.png)
+ ![Signalement](./media/troubleshoot-missing-audit-data/03.png)
 
-#### <a name="cause"></a>Cause :
+#### <a name="cause"></a>Cause
 
 Selon votre licence, les actions Azure Active Directory stockent les rapports d’activité pour les durées suivantes :
 
 | Rapport           | &nbsp; |  Azure AD Gratuit | Azure AD Premium P1 | Azure AD Premium P2 |
 | ---              | ----   |  ---           | ---                 | ---                 |
 | Audit de répertoire  | &nbsp; |   7 jours     | 30 jours             | 30 jours             |
-| Activité de connexion | &nbsp; | Non disponible Vous ne pouvez pas accéder à vos propres connexions pendant 7 jours depuis le panneau de profil utilisateur individuel | 30 jours | 30 jours             |
+| Activité de connexion | &nbsp; | Non disponible. Vous ne pouvez pas accéder à vos propres connexions pendant 7 jours depuis le panneau de profil utilisateur individuel | 30 jours | 30 jours             |
 
 Pour plus d’informations, consultez [Stratégies de rétention des rapports Azure Active Directory](reference-reports-data-retention.md).  
 
-#### <a name="resolution"></a>Résolution :
+#### <a name="resolution"></a>Résolution
 
 Vous avez deux options pour conserver les données pendant plus de 30 jours. Vous pouvez utiliser les [API de création de rapports Azure AD](concept-reporting-api.md) pour récupérer les données par programmation et les stocker dans une base de données. Sinon, vous pouvez intégrer des journaux d’audit dans un système SIEM tiers tel que Splunk ou SumoLogic.
 

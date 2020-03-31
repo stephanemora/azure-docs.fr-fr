@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/18/2019
 ms.author: cynthn
 ms.openlocfilehash: 587acd37f465dda7e514b595f8451afe3d259dea
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74039147"
 ---
 # <a name="create-a-vm-from-a-vhd-by-using-the-azure-portal"></a>Créer une machine virtuelle à partir d’un disque dur virtuel à l’aide du portail Azure
@@ -46,7 +46,7 @@ Créez une capture instantanée, puis créez un disque à partir de cette captur
 4. Dans le menu du haut, sélectionnez **Créer une capture instantanée**. 
 5. Entrez un **nom** pour la capture instantanée.
 6. Choisissez un **groupe de ressources** pour l’instantané. Vous pouvez utiliser un groupe de ressources existant ou en créer un.
-7. Comme **Type de compte**, choisissez le stockage **Standard (HDD)** ou **Premium (SSD)** .
+7. Pour **Type de compte**, choisissez le stockage **Standard (HDD)** ou **Premium (SSD)** .
 8. Quand vous avez terminé, sélectionnez **Créer** pour créer la capture instantanée.
 9. Une fois la capture instantanée créée, sélectionnez **Créer une ressource** dans le menu de gauche.
 10. Dans la zone de recherche, entrez **disque managé**, puis sélectionnez **Disques managés** dans la liste.

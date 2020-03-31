@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/16/2019
 ms.author: terrylan
 ms.openlocfilehash: 8f16105d6bda1798828bc423ec8a158d49e0cf2b
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72518145"
 ---
 # <a name="shared-responsibility-in-the-cloud"></a>Responsabilité partagée dans le cloud
@@ -38,7 +38,7 @@ Quel que soit le type de déploiement, vous conservez toujours les responsabilit
 - Données
 - Points de terminaison
 - Compte
-- gestion de l’accès
+- Gestion de l’accès
 
 ## <a name="cloud-security-advantages"></a>Avantages du cloud en matière de sécurité
 Le cloud offre des avantages significatifs quand il s’agit de faire face à l’éternel problème de la sécurité des informations. Dans un environnement local, les organisations ont probablement des obligations non respectées et des ressources limitées pour investir dans la sécurité, avec pour résultat un environnement où les pirates informatiques sont en mesure d’exploiter des vulnérabilités à tous les niveaux.

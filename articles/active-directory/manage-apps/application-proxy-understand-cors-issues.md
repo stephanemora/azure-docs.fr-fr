@@ -12,10 +12,10 @@ ms.date: 05/23/2019
 ms.author: celested
 ms.reviewer: japere
 ms.openlocfilehash: c49535ad11139ac5145d4f283374bf9cc6d71f52
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72025787"
 ---
 # <a name="understand-and-solve-azure-active-directory-application-proxy-cors-issues"></a>Comprendre et résoudre les problèmes CORS dans le proxy d’application Azure Active Directory
@@ -64,11 +64,11 @@ L’application CORSWebClient fonctionne lorsque vous l’hébergez localement, 
 
 Vous pouvez résoudre le problème CORS précédent de plusieurs façons différentes.
 
-### <a name="option-1-set-up-a-custom-domain"></a>Option 1 : Configurer un domaine personnalisé
+### <a name="option-1-set-up-a-custom-domain"></a>Option 1 : Configurer un domaine personnalisé
 
 Utilisez un [domaine personnalisé](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains) de proxy d’application Azure AD pour publier à partir de la même origine sans avoir à apporter de modifications aux origines, au code ni aux en-têtes de l’application. 
 
-### <a name="option-2-publish-the-parent-directory"></a>Option 2 : Publier le répertoire parent
+### <a name="option-2-publish-the-parent-directory"></a>Option n°2 : Publier le répertoire parent
 
 Publiez le répertoire parent des deux applications. Cette solution fonctionne particulièrement bien si vous avez seulement deux applications sur le serveur web. Au lieu de publier chaque application séparément, vous pouvez publier le répertoire parent commun, ce qui se traduit par la même origine.
 
@@ -85,7 +85,7 @@ Les URL d’application obtenues résolvent efficacement le problème CORS :
 - https:\//corswebclient-contoso.msappproxy.net/CORSWebService
 - https:\//corswebclient-contoso.msappproxy.net/CORSWebClient
 
-### <a name="option-3-update-http-headers"></a>Option 3 : Mettre à jour les en-têtes HTTP
+### <a name="option-3-update-http-headers"></a>Option 3 : Mettre à jour les en-têtes HTTP
 
 Ajoutez un en-tête de réponse HTTP personnalisé sur le service web pour établir une correspondance avec la demande d’origine. Pour les sites web en cours d’exécution dans Internet Information Services (IIS), utilisez le Gestionnaire IIS pour modifier l’en-tête :
 
@@ -106,7 +106,7 @@ X-AspNet-Version: 4.0.30319\
 X-Powered-By: ASP.NET\
 Content-Length: 17
 
-### <a name="option-4-modify-the-app"></a>Option 4 : Modifier l’application
+### <a name="option-4-modify-the-app"></a>Option 4 : Modifier l’application
 
 Vous pouvez modifier votre application pour prendre en charge CORS en ajoutant l’en-tête Access-Control-Allow-Origin avec les valeurs appropriées. La façon d’ajouter l’en-tête dépend du langage de code de l’application. La modification du code est l’option la moins recommandée, car elle nécessite le plus d’efforts.
 
@@ -115,6 +115,6 @@ Vous pouvez modifier votre application pour prendre en charge CORS en ajoutant l
 Certains problèmes CORS ne peuvent pas être résolus ; par exemple, lorsque votre application redirige vers *login.microsoftonline.com* pour l’authentification et que le jeton d’accès expire. L’appel CORS échoue alors. Une solution de contournement pour ce scénario consiste à étendre la durée de vie du jeton d’accès, pour éviter qu’il arrive à expiration lors d’une session utilisateur. Pour plus d’informations sur la procédure à suivre, consultez [Durées de vie de jeton configurables dans Azure AD](../develop/active-directory-configurable-token-lifetimes.md).
 
 ## <a name="see-also"></a>Voir aussi
-- [Tutoriel : Ajouter une application locale pour un accès à distance via le proxy d'application d'Azure Active Directory](application-proxy-add-on-premises-application.md) 
+- [Tutoriel : Ajouter une application locale pour un accès à distance via le proxy d’application d’Azure Active Directory](application-proxy-add-on-premises-application.md) 
 - [Planifier un déploiement du proxy d’application Azure AD](application-proxy-deployment-plan.md) 
 - [Accès à distance aux applications locales via le proxy d’application Azure Active Directory](application-proxy.md) 

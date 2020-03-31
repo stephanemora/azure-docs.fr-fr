@@ -10,17 +10,17 @@ ms.date: 09/27/2019
 ms.author: normesta
 ms.reviewer: dineshm
 ms.openlocfilehash: 8ce949ac997ba7ee38cb057752d89f4b4d22388f
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73838700"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Déplacer un compte Stockage Azure vers une autre région
 
 Pour déplacer un compte de stockage, créez une copie de votre compte de stockage dans une autre région. Utilisez ensuite AzCopy ou un autre outil de votre choix pour déplacer vos données vers ce compte.
 
-Cet article porte sur les points suivants :
+Dans cet article, vous allez apprendre à :
 
 > [!div class="checklist"]
 > 
@@ -47,11 +47,11 @@ Pour commencer, exportez un modèle Resource Manager et modifiez-le.
 
 Ce modèle contient des paramètres qui décrivent votre compte de stockage. 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portail](#tab/azure-portal)
 
 Pour exporter un modèle à l’aide du portail Azure :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
 2. Choisissez **Toutes les ressources**, puis sélectionnez votre compte de stockage.
 
@@ -63,7 +63,7 @@ Pour exporter un modèle à l’aide du portail Azure :
 
    Ce fichier zip contient les fichiers .json qui composent le modèle et des scripts pour le déployer.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Pour exporter un modèle à l’aide de PowerShell :
 
@@ -97,7 +97,7 @@ Pour exporter un modèle à l’aide de PowerShell :
 
 Modifiez le modèle en changeant le nom et la région du compte de stockage.
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portail](#tab/azure-portal)
 
 Pour déployer le modèle à l’aide du portail Azure :
 
@@ -139,7 +139,7 @@ Pour déployer le modèle à l’aide du portail Azure :
     ```
     Pour obtenir les codes d’emplacement des régions, consultez [Emplacements Azure](https://azure.microsoft.com/global-infrastructure/locations/).  Le code d’une région est le nom de la région sans espace, **USA Centre** = **centralus**.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Pour déployer le modèle à l’aide de PowerShell :
 
@@ -180,7 +180,7 @@ Pour déployer le modèle à l’aide de PowerShell :
 
 Déployez le modèle pour créer un compte de stockage dans la région cible. 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portail](#tab/azure-portal)
 
 1. Enregistrez le fichier **template.json**.
 
@@ -194,7 +194,7 @@ Déployez le modèle pour créer un compte de stockage dans la région cible.
 
 3. Cochez la case **J’accepte les termes et conditions mentionnés ci-dessus**, puis cliquez sur le bouton **Sélectionner un achat**.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 1. Obtenez l’ID de l’abonnement dans lequel vous souhaitez déployer l’adresse IP publique cible avec [Get-AzSubscription](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-2.5.0) :
 
@@ -246,7 +246,7 @@ Vous trouverez ci-après quelques méthodes pour déplacer vos données.
 
   Consultez [Bien démarrer avec AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-:heavy_check_mark: **Azure Data Factory** 
+:heavy_check_mark: **Azure Data Factory**. 
 
   Utilisez cet outil uniquement si vous avez besoin de fonctionnalités qui ne sont pas prises en charge dans la version actuelle d’AzCopy. Par exemple, dans la version actuelle d’AzCopy, vous ne pouvez pas copier d’objets blob entre des comptes qui ont un espace de noms hiérarchique. De plus, AzCopy ne conserve ni les listes de contrôle d’accès aux fichiers ni les horodateurs des fichiers (qui indiquent par exemple l’heure de création ou de modification d’un fichier). 
 
@@ -264,7 +264,7 @@ Après le déploiement, si vous souhaitez recommencer, vous pouvez supprimer le 
 
 Pour valider les changements et terminer le déplacement d’un compte de stockage, supprimez le compte de stockage source.
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portail](#tab/azure-portal)
 
 Pour supprimer un compte de stockage à l’aide du Portail Azure :
 
@@ -274,7 +274,7 @@ Pour supprimer un compte de stockage à l’aide du Portail Azure :
 
 3. Sélectionnez **Supprimer**, puis confirmez.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Pour supprimer le groupe de ressources et les ressources associées, y compris le nouveau compte de stockage, utilisez la commande [Remove-AzStorageAccount](/powershell/module/az.resources/remove-azstorageaccount) :
 

@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
 ms.openlocfilehash: 6101e00ab98b0d8d901f2e42bf4083d40d0a3227
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73823854"
 ---
 # <a name="using-the-recoverymanager-class-to-fix-shard-map-problems"></a>Utilisation de la classe RecoveryManager pour résoudre les problèmes de correspondance de partitionnement
@@ -42,7 +42,7 @@ Le GSM et le LSM peuvent devenir désynchronisés pour les raisons suivantes :
 
 Pour plus d’informations sur les outils de base de données élastique, la géoréplication et la restauration d’Azure SQL Database, voir les rubriques suivantes :
 
-* [Présentation : Continuité de l’activité cloud et récupération d’urgence de base de données avec SQL Database](sql-database-business-continuity.md).
+* [Vue d’ensemble : Continuité de l’activité cloud et récupération d’urgence de base de données avec SQL Database](sql-database-business-continuity.md).
 * [Prise en main des outils de base de données élastiques](sql-database-elastic-scale-get-started.md)  
 * [Gestion de ShardMap](sql-database-elastic-scale-shard-map-management.md)
 
@@ -129,7 +129,7 @@ Cet exemple ajoute une partition dans le mappage de la partition venant d'être 
 
 En cas de basculement géographique, la base de données secondaire est accessible en lecture et devient la nouvelle base de données primaire. Le nom du serveur et éventuellement la base de données (selon votre configuration), peut être différent de celui du site principal d’origine. Par conséquent, les entrées de mappage de la partition dans le GSM et LSM doivent être corrigées. De même, si la base de données est restaurée avec un autre nom ou  un emplacement, ou un  point antérieur dans le temps, ceci peut entraîner des incohérences dans les mappages de partition. Le Gestionnaire de mappage de partition gère la distribution des connexions ouvertes sur la base de données. La distribution est basée sur les données de la carte de partitions et la valeur de la clé de partitionnement cible de la demande d’application. Après un basculement géographique, cette information doit être mise à jour avec le bon nom de serveur, nom de base de données et mappage de partition de la base de données récupérée.
 
-## <a name="best-practices"></a>Bonnes pratiques
+## <a name="best-practices"></a>Meilleures pratiques
 
 Le basculement géographique et la restauration sont des opérations généralement gérées par un administrateur de cloud de l’application en utilisant intentionnellement l’une des fonctionnalités de continuité d’activité des bases de données Azure SQL. La planification de la continuité des activités requiert des processus, des procédures et des mesures garantissant que les opérations de l’entreprise peuvent continuer sans interruption. Les méthodes disponibles en tant que partie de la classe RecoveryManager doivent être utilisées dans ce flux de travail pour s’assurer que le GSM et LSM sont actualisés en fonction de l’opération de récupération exécutée. Il existe cinq opérations de base pour s’assurer que GSM et LSM reflètent bien les informations précises après un événement de basculement. Le code d’application servant à exécuter ces opérations peut être intégré dans des outils et de flux de travail existants.
 

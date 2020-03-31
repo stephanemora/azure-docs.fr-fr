@@ -5,10 +5,10 @@ ms.date: 12/18/2019
 ms.topic: article
 ms.reviewer: coborn
 ms.openlocfilehash: 7e9af5c501b58f6828360ee280440ea85698bf16
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75387503"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Déployer le modèle de solution Ethereum de consortium de preuve d’autorité sur Azure
@@ -91,9 +91,9 @@ Adresse de messagerie | Une fois votre déploiement terminé, vous recevez par e
 Nom d’utilisateur de la machine virtuelle | Nom d’utilisateur de l’administrateur pour chaque machine virtuelle déployée | 1 à 64 caractères alphanumériques
 Type d'authentification | Méthode d’authentification auprès de la machine virtuelle. | Mot de passe
 Mot de passe | Mot de passe du compte administrateur pour chacune des machines virtuelles déployées. Dans un premier temps, toutes les machines virtuelles disposent du même mot de passe. Vous pouvez modifier ce mot de passe au terme de l’approvisionnement. | 12 à 72 caractères 
-Subscription | Abonnement vers lequel vous déployez le réseau de consortium. |
+Abonnement | Abonnement vers lequel vous déployez le réseau de consortium. |
 Groupe de ressources| Groupe de ressources sur lequel déployez le réseau de consortium. | myResourceGroup
-Location | Région Azure du groupe de ressources. | USA Ouest 2
+Emplacement | Région Azure du groupe de ressources. | USA Ouest 2
 
 Sélectionnez **OK**.
 
@@ -162,7 +162,7 @@ Paramètre | Description | Valeur d'exemple
 ----------|-------------|--------------
 Surveillance | Option permettant d’activer la surveillance | Activer
 Se connecter à des journaux Azure Monitor existants | Option permettant de créer une instance de journaux Azure Monitor ou de rejoindre une instance existante | Création
-Location | Région dans laquelle la nouvelle instance est déployée | USA Est
+Emplacement | Région dans laquelle la nouvelle instance est déployée | USA Est
 ID de l’espace de travail Log Analytics existant (Se connecter à des journaux Azure Monitor existants = Rejoindre existant)|ID d’espace de travail de l’instance de journaux Azure Monitor existante||N/D
 Clé primaire de l’instance Log Analytics existante (Se connecter à des journaux Azure Monitor existants = Rejoindre existant)|Clé primaire utilisée pour se connecter à l’instance de journaux Azure Monitor existante||N/D
 
@@ -545,7 +545,7 @@ Dans la partie supérieure droite figurent votre alias de compte Ethereum et l�
 
 ![Compte](./media/ethereum-poa-deployment/governance-dapp-account.png)
 
-## Développement Ethereum<a id="tutorials"></a>
+## <a name="ethereum-development"></a>Développement Ethereum<a id="tutorials"></a>
 
 Pour compiler, déployer et tester des contrats intelligents, voici quelques options à envisager à des fins de développement Ethereum :
 * [Suite Truffle](https://www.trufflesuite.com/docs/truffle/overview) : environnement de développement Ethereum basé sur le client
@@ -555,7 +555,7 @@ Pour compiler, déployer et tester des contrats intelligents, voici quelques opt
 
 Dans l’exemple suivant, vous créez un contrat intelligent simple. Vous utilisez Truffle pour compiler et déployer le contrat intelligent sur votre réseau blockchain. Une fois déployé, vous appelez une fonction de contrat intelligent par le biais d’une transaction.
 
-#### <a name="prerequisites"></a>Conditions préalables requises
+#### <a name="prerequisites"></a>Prérequis
 
 * Installez [Python 2.7.15](https://www.python.org/downloads/release/python-2715/). Python est requis pour Truffle et Web3. Sélectionnez l’option d’installation permettant d'inclure Python dans votre chemin d’accès.
 * Installez Truffle v5.0.5 `npm install -g truffle@v5.0.5`. Truffle nécessite que plusieurs outils soient installés, notamment [Node.js](https://nodejs.org) et [Git](https://git-scm.com/). Pour plus d’informations, consultez la [documentation Truffle](https://github.com/trufflesuite/truffle).

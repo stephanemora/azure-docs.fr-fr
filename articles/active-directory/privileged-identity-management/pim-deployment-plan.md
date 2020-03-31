@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b8c77b3454026aa309d979bd938674e7c3ae7b6a
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77025994"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Déployer Azure AD Privileged Identity Management (PIM)
@@ -99,7 +99,7 @@ La section suivante vous permet d’identifier tous les participants impliqués 
 
 #### <a name="stakeholders-privileged-identity-management-for-azure-ad-roles"></a>Participants : Privileged Identity Management pour les rôles Azure AD
 
-| Name | Role | Action |
+| Nom | Role | Action |
 | --- | --- | --- |
 | Nom et e-mail | **Architecte de l’identité ou administrateur général Azure**<br/>Représentant de l’équipe de gestion des identités responsable de la définition de l’alignement de cette modification sur l’infrastructure principale de gestion des identités dans votre organisation. | SO/R/I |
 | Nom et e-mail | **Propriétaire de service / Supérieur hiérarchique**<br/>Représentant des propriétaires du service informatique d’un service ou d’un groupe de services. Ils sont essentiels à la prise de décisions et au déploiement de Privileged Identity Management pour leur équipe. | SO/R/I |
@@ -109,7 +109,7 @@ La section suivante vous permet d’identifier tous les participants impliqués 
 
 #### <a name="stakeholders-privileged-identity-management-for-azure-resource-roles"></a>Participants : Azure AD Privileged Identity Management pour les rôles de ressources Azure
 
-| Name | Role | Action |
+| Nom | Role | Action |
 | --- | --- | --- |
 | Nom et e-mail | **Propriétaire de l’abonnement / de la ressource**<br/>Un représentant des propriétaires du service informatique de chaque abonnement ou ressource pour lequel ou laquelle vous voulez déployer Privileged Identity Management | SO/R/I |
 | Nom et e-mail | **Responsable de la sécurité**<br/>Représentant de l’équipe de sécurité qui peut valider que le plan répond aux exigences de sécurité de votre organisation. | SO/R |

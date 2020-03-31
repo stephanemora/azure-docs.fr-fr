@@ -1,5 +1,5 @@
 ---
-title: Migrer des bases de données existantes pour la montée en charge | Microsoft Docs
+title: Migration de bases de données existantes pour effectuer un scale-out | Microsoft Docs
 description: Conversion de bases de données partitionnées pour utiliser les outils de base de données élastique en créant un gestionnaire de cartes de partitions
 services: sql-database
 ms.service: sql-database
@@ -12,17 +12,17 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: c776f4ac09626f0abd1eb754cde391a1c5447627
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74421224"
 ---
-# <a name="migrate-existing-databases-to-scale-out"></a>Migration de bases de données existantes pour une mise à l’échelle
+# <a name="migrate-existing-databases-to-scale-out"></a>Migration de bases de données existantes pour effectuer un scale-out
 
 Gérez facilement vos bases de données partitionnées et montées en charge existantes à l’aide des outils de base de données Azure SQL Database (comme la [bibliothèque cliente de base de données élastique](sql-database-elastic-database-client-library.md)). Convertissez d’abord un ensemble existant de bases de données pour utiliser le [Gestionnaire de cartes de partitions](sql-database-elastic-scale-shard-map-management.md).
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Pour migrer une base de données partitionnée existante :
 
@@ -100,7 +100,7 @@ Pour utiliser ce modèle de mappage, les valeurs d’ID client doivent être des
 $ShardMap = New-RangeShardMap -KeyType $([int]) -RangeShardMapName 'RangeShardMap' -ShardMapManager $ShardMapManager
 ```
 
-### <a name="option-3-list-mappings-on-an-individual-database"></a>Option 3 : Mappages de liste sur une base de données individuelle
+### <a name="option-3-list-mappings-on-an-individual-database"></a>Option 3 : Mappages de liste sur une base de données individuelle
 
 La configuration de ce modèle nécessite également la création d’un mappage de liste comme indiqué à l’étape 2, option 1.
 

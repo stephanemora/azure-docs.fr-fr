@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 02/08/2020
 ms.author: diberry
 ms.openlocfilehash: 25c0fe549dfc850a53b06f79f348a87cba3b70a1
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77109932"
 ---
 # <a name="quickstart-add-questions-and-answer-with-qna-maker-portal"></a>Démarrage rapide : Ajouter des questions et des réponses à l’aide du portail QnA Maker
@@ -33,7 +33,7 @@ Une fois les métadonnées ajoutées à un jeu QnA, l’application cliente peut
 * Recevoir toutes les réponses, mais les traiter ensuite en fonction des métadonnées de chaque réponse
 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Suivre le guide de [démarrage rapide précédent](./create-publish-knowledge-base.md)
 
@@ -88,12 +88,12 @@ L’ajout de métadonnées à une série de questions et réponses permet à vot
 
 1. Recherchez la première réponse dans le tableau, `How large a knowledge base can I create?`.
 
-1. Ajoutez des paires de métadonnées pour les deux mêmes étiquettes de métadonnées :
+1. Ajoutez des paires de métadonnées pour les deux mêmes balises de métadonnées :
 
     `link_in_answer` : `true`<br>
     `server`: `qna_maker`
 
-    Vous avez désormais deux questions avec les mêmes étiquettes de métadonnées et des valeurs différentes.
+    Vous avez désormais deux questions avec les mêmes balises de métadonnées et des valeurs différentes.
 
 1. Sélectionnez **Save and train** (Enregistrer et entraîner) pour réentraîner la base de connaissances.
 

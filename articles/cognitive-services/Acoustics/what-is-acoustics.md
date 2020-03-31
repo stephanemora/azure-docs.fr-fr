@@ -12,10 +12,10 @@ ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
 ms.openlocfilehash: 65678f08399f378b8580eed79e49197dd4d84c64
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71351138"
 ---
 # <a name="what-is-project-acoustics"></a>Qu’est-ce que Project Acoustics ?
@@ -33,7 +33,7 @@ L’innovation clé de Project Acoustics est de coupler la simulation acoustique
 ## <a name="video-presentation-from-gdc-2019-30-min"></a>Présentation vidéo de GDC 2019 (~ 30 minutes)
 [![Vidéo Project Acoustics](https://img.youtube.com/vi/uY4G-GUAQIE/0.jpg)](https://www.youtube.com/watch?v=uY4G-GUAQIE "Cliquer pour lire la vidéo")
 
-## <a name="setup"></a>Paramétrage
+## <a name="setup"></a>Programme d’installation
 [L’intégration d’Unity dans Project Acoustics](unity-integration.md) se fait par glisser-déposer et inclut un plug-in de moteur audio Unity. Augmentez les contrôles de source audio Unity en joignant un composant de contrôles C# Project Acoustics à chaque objet audio.
 
 [L’intégration d’Unreal dans Project Acoustics Unreal](unreal-integration.md) inclut des plug-ins d'éditeur et de jeu pour Unreal, ainsi qu’un plug-in de mélangeur Wwise. Un composant audio personnalisé étend les fonctionnalités familières de Wwise dans Unreal aux contrôles de conception acoustique en direct. Les contrôles de conception sont également exposés sur le plug-in de mélangeur dans Wwise.

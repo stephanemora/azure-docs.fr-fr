@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 4a947c01d63e3842ead91481e480024a54380144
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69015052"
 ---
 # <a name="get-started-with-delivering-content-on-demand-by-using-the-azure-portal"></a>Prise en main de la diffusion de contenus à la demande à l’aide du portail Azure
 
 > [!NOTE]
-> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consultez aussi [Conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md)
+> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consultez aussi [Conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md).
 
 Ce didacticiel explique comment implémenter un service de base de diffusion de contenu vidéo à la demande avec l’application Azure Media Services du portail Azure.
 
@@ -44,14 +44,14 @@ Ce didacticiel comprend les tâches suivantes :
 
 ## <a name="start-the-streaming-endpoint"></a>Démarrer le point de terminaison de streaming
 
-L’un des scénarios les plus courants lorsque vous utilisez Azure Media Services est le streaming à débit adaptatif. Media Services vous offre l’empaquetage dynamique. Avec l’empaquetage dynamique, vous pouvez distribuer votre contenu MP4 encodé à débit adaptatif dans des formats de streaming juste-à-temps pris en charge par Media Services. Parmi les exemples, nous pouvons citer Apple HTTP Live Streaming (HLS), Microsoft Smooth Streaming et Dynamic Adaptive Streaming sur HTTP (DASH, aussi appelé MPEG-DASH). À l’aide du streaming à débit adaptatif de Media Services, vous pouvez diffuser vos vidéos sans stocker les versions préconfigurées de chacun de ces formats de streaming.
+L’un des scénarios les plus courants lorsque vous utilisez Azure Media Services est le streaming à débit adaptatif. Media Services fournit l’empaquetage dynamique. Avec l’empaquetage dynamique, vous pouvez distribuer votre contenu MP4 encodé à débit adaptatif dans des formats de streaming juste-à-temps pris en charge par Media Services. Parmi les exemples, nous pouvons citer Apple HTTP Live Streaming (HLS), Microsoft Smooth Streaming et Dynamic Adaptive Streaming sur HTTP (DASH, aussi appelé MPEG-DASH). À l’aide du streaming à débit adaptatif de Media Services, vous pouvez diffuser vos vidéos sans stocker les versions préconfigurées de chacun de ces formats de streaming.
 
 > [!NOTE]
 > Lorsque vous créez un compte Media Services, un point de terminaison de streaming par défaut est ajouté à votre compte à l’état **Arrêté**. Pour démarrer le streaming de votre contenu et tirer parti de l’empaquetage et du chiffrement dynamiques, le point de terminaison de streaming à partir duquel vous souhaitez diffuser du contenu doit se trouver à l’état **En cours d’exécution**. 
 
 Pour démarrer le point de terminaison de streaming :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Sélectionnez **Paramètres** > **Points de terminaison de streaming**. 
 3. Cliquez sur le point de terminaison de streaming par défaut. La fenêtre **DEFAULT STREAMING ENDPOINT DETAILS** (DÉTAILS DU POINT DE TERMINAISON DE DIFFUSION EN CONTINU PAR DÉFAUT) s’affiche.
 4. Cliquez sur l’icône **Démarrer**.
@@ -91,17 +91,17 @@ Pour encoder votre contenu à l’aide de Media Encoder Standard dans le portail
    Pour vous aider à gérer vos ressources, vous pouvez modifier le nom de l’actif de sortie et le nom de la tâche.
    
    ![Encoder des éléments multimédias](./media/media-services-portal-vod-get-started/media-services-encode1.png)
-5. Sélectionnez **Créer**.
+5. Sélectionnez **Create** (Créer).
 
 ### <a name="monitor-encoding-job-progress"></a>Suivi de la progression de la tâche d’encodage
 Pour surveiller la progression du travail d’encodage, en haut de la page, cliquez sur **Paramètres**, puis sélectionnez **Travaux**.
 
-![Tâches](./media/media-services-portal-vod-get-started/media-services-jobs.png)
+![travaux](./media/media-services-portal-vod-get-started/media-services-jobs.png)
 
 ## <a name="publish-content"></a>Publication de contenu
-Pour fournir aux utilisateurs une URL pouvant être utilisée pour diffuser en continu ou télécharger votre contenu, vous devez d’abord publier votre actif multimédia en créant un localisateur. Les localisateurs assurent l’accès aux fichiers contenus dans la ressource. Azure Media Services prend en charge deux types de localisateurs : 
+Pour fournir aux utilisateurs une URL pouvant être utilisée pour diffuser en continu ou télécharger votre contenu, vous devez d’abord publier votre actif multimédia en créant un localisateur. Les localisateurs assurent l’accès aux fichiers contenus dans la ressource. Azure Media Services prend en charge deux types de localisateurs : 
 
-* **Localisateurs de streaming (OnDemandOrigin)** . Les localisateurs de streaming sont utilisés pour la diffusion en continu adaptative . Exemples de diffusion en continu adaptative de HLS, Smooth Streaming et MPEG-DASH. Pour créer un localisateur de streaming, votre ressource doit contenir un fichier .ism. 
+* **Localisateurs de streaming (OnDemandOrigin)** . Les localisateurs de streaming sont utilisés pour le streaming adaptatif. Exemples de diffusion en continu adaptative de HLS, Smooth Streaming et MPEG-DASH. Pour créer un localisateur de streaming, votre actif multimédia doit contenir un fichier .ism. 
 * **Localisateurs progressifs (signature d’accès partagé)** . Les localisateurs progressifs sont utilisés pour diffuser des vidéos par téléchargement progressif.
 
 Pour créer une URL de streaming HLS, ajoutez *(format=m3u8-aapl)* à l’URL :
@@ -116,12 +116,12 @@ Pour créer une URL de streaming MPEG DASH, ajoutez *(format=mpd-time-csf)* à l
 
     {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest(format=mpd-time-csf)
 
-Une URL de signature d’accès partagé a le format suivant :
+Une URL de signature d’accès partagé a le format suivant :
 
     {blob container name}/{asset name}/{file name}/{shared access signature}
 
 > [!NOTE]
-> Les localisateurs qui ont été créés dans le portail Azure avant mars 2015 ont une date d’expiration de deux ans.  
+> Les localisateurs qui ont été créés dans le portail Azure avant mars 2015 expirent au bout de deux ans.  
 > 
 > 
 
@@ -151,7 +151,7 @@ Sélectionnez la vidéo, puis cliquez sur le bouton **Lecture**.
 Certaines considérations s’appliquent :
 
 * Pour commencer le streaming, démarrez l’exécution du point de terminaison de streaming par défaut.
-* Assurez-vous que la vidéo a été publiée.
+* Vérifiez que la vidéo a été publiée.
 * Le lecteur multimédia du portail Azure effectue la lecture à partir du point de terminaison de streaming par défaut. Si vous souhaitez lire à partir d’un autre point de terminaison de streaming que celui par défaut, sélectionnez et copiez l’URL dans un autre lecteur. Par exemple, vous pouvez tester votre vidéo avec le lecteur [Azure Media Player](https://aka.ms/azuremediaplayer).
 
 ## <a name="provide-feedback"></a>Fournir des commentaires

@@ -16,16 +16,16 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 9d3f4f4ab6cc1c928761fce740d39f3f73426e62
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516791"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79232101"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-hyper-v"></a>Déploiement de StorSimple Virtual Array - Configuration dans Hyper-V
 ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/hyperv4.png)
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 [!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
@@ -70,7 +70,7 @@ Pour configurer et vous connecter à un tableau virtuel, vous devez effectuer le
 
 Chacune de ces étapes est expliquée dans les sections suivantes.
 
-## <a name="step-1-ensure-that-the-host-system-meets-minimum-virtual-array-requirements"></a>Étape 1 : Vérifier que le système hôte répond aux exigences minimales du tableau virtuel
+## <a name="step-1-ensure-that-the-host-system-meets-minimum-virtual-array-requirements"></a>Étape 1 : Vérifier que le système hôte répond aux exigences minimales du tableau virtuel
 Pour créer un tableau virtuel vous devez disposer des éléments suivants :
 
 * Le rôle Hyper-V installé sur Windows Server 2012 R2, Windows Server 2012 ou Windows Server 2008 R2 SP1.
@@ -83,12 +83,12 @@ Assurez-vous que le matériel sous-jacent (système hôte) sur lequel vous crée
 * Une interface réseau.
 * Un disque virtuel de 500 Go pour les données système.
 
-## <a name="step-2-provision-a-virtual-array-in-hypervisor"></a>Étape 2 : Configurer un tableau virtuel dans l’hyperviseur
+## <a name="step-2-provision-a-virtual-array-in-hypervisor"></a>Étape 2 : Configurer un tableau virtuel dans l’hyperviseur
 Procédez comme suit pour configurer un appareil dans votre hyperviseur.
 
 #### <a name="to-provision-a-virtual-array"></a>Pour configurer un tableau virtuel
 1. Sur votre hôte Windows Server, copiez l’image du tableau virtuel sur un disque local. Vous avez téléchargé cette image (VHD ou VHDX) via le portail Azure. Prenez note de l’emplacement où vous avez copié l’image car vous l’utiliserez plus loin dans la procédure.
-2. Ouvrez le **Gestionnaire de serveur**. Dans le coin supérieur droit, cliquez sur **Outils**, puis sélectionnez **Gestionnaire Hyper-V**.
+2. Ouvrez **Gestionnaire de serveur**. Dans le coin supérieur droit, cliquez sur **Outils**, puis sélectionnez **Gestionnaire Hyper-V**.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image1.png)  
 

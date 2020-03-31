@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
 ms.openlocfilehash: 16f7f91e02d118d9f9a295ebb79a6cd0187dd9fd
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68596472"
 ---
 # <a name="security-agent-authentication-methods"></a>Méthodes d'authentification de l’agent de sécurité 
@@ -61,10 +61,10 @@ documentés dans le tableau suivant.
 |Nom du paramètre Linux | Nom du paramètre Windows | Paramètre de raccourci |Description|Options|
 |---------------------|---------------|---------|---------------|---------------|
 |authentication-identity|AuthenticationIdentity|aui|Identité d’authentification| **SecurityModule** ou **Appareil**|
-|authentication-method|AuthenticationMethod|aum|Méthode d’authentification|**SymmetricKey** ou **SelfSignedCertificate**|
+|authentication-method|AuthenticationMethod|aum|Méthode d'authentification|**SymmetricKey** ou **SelfSignedCertificate**|
 |file-path|FilePath|f|Chemin d’accès complet absolu du fichier contenant le certificat ou la clé symétrique| |
-|host-name|HostName|hn|FQDN du hub IoT|Exemple : ContosoIotHub.azure-devices.net|
-|device-id|deviceId|di|ID de périphérique|Exemple : MyDevice1|
+|host-name|HostName|hn|FQDN du hub IoT|Exemple : ContosoIotHub.azure-devices.net|
+|device-id|deviceId|di|ID de périphérique|Exemple : MyDevice1|
 |certificate-location-kind|CertificateLocationKind|cI|Emplacement de stockage des certificats|**LocalFile** ou **Store**|
 |
 

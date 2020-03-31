@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 11/14/2018
 ms.openlocfilehash: 639901975bbb66b9f410bea297d9e48cd96d6d1b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73822432"
 ---
 # <a name="automate-the-replication-of-schema-changes-in-azure-sql-data-sync"></a>Automatiser la réplication des modifications de schéma dans Azure SQL Data Sync
@@ -171,7 +171,7 @@ Data Sync cesse de fonctionner si des colonnes ou des tables sont renommées. Cr
 
 Pour les autres types de modifications de schéma (par exemple, la création de procédures stockées ou la suppression d’un index), la mise à jour du schéma de synchronisation n’est pas requise.
 
-## <a name="troubleshoot"></a> Résoudre les problèmes de réplication de modification de schéma automatisée
+## <a name="troubleshoot-automated-schema-change-replication"></a><a name="troubleshoot"></a> Résoudre les problèmes de réplication de modification de schéma automatisée
 
 La logique de réplication décrite dans cet article s’arrête dans certaines situations, par exemple, si vous avez effectué une modification de schéma dans une base de données locale qui n’est pas prise en charge dans Azure SQL Database. Dans ce cas, la synchronisation de la table de suivi des modifications de schéma échoue. Vous devez corriger ce problème manuellement :
 
@@ -199,7 +199,7 @@ La logique de réplication décrite dans cet article s’arrête dans certaines 
 
 Si vous souhaitez nettoyer les enregistrements dans la table de suivi des modifications de schéma, utilisez DELETE au lieu de TRUNCATE. Ne réamorcez jamais la colonne d’identité dans la table de suivi des modifications de schéma à l’aide de DBCC CHECKIDENT. Vous pouvez créer de nouvelles tables de suivi des modifications de schéma et mettre à jour le nom de la table dans le déclencheur DDL si un réamorçage est requis.
 
-## <a name="other"></a> Autres points à considérer
+## <a name="other-considerations"></a><a name="other"></a> Autres points à considérer
 
 -   Les utilisateurs de base de données qui configurent le concentrateur et les bases de données membres doivent disposer des autorisations suffisantes pour exécuter les commandes de modification de schéma.
 

@@ -4,11 +4,11 @@ description: Définir une ligne de commande pour écraser le point d’entrée d
 ms.topic: article
 ms.date: 04/15/2019
 ms.openlocfilehash: d9554603f78a07fa44af51d8f39a91e1b3c39f70
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533407"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79225821"
 ---
 # <a name="set-the-command-line-in-a-container-instance-to-override-the-default-command-line-operation"></a>Définir la ligne de commande dans une instance de conteneur pour remplacer l’opération de ligne de commande par défaut
 
@@ -20,7 +20,7 @@ Lorsque vous créez une instance de conteneur, vous pouvez spécifier une comman
 
 * Par défaut, la ligne de commande spécifie un *processus unique qui démarre sans interpréteur de commandes* dans le conteneur. Par exemple, la ligne de commande peut exécuter un script Python ou un fichier exécutable. Le processus peut spécifier d'autres paramètres ou arguments.
 
-* Pour exécuter plusieurs commandes, commencez votre ligne de commande en définissant un environnement d’interpréteur de commandes qui est pris en charge dans le système d’exploitation du conteneur. Exemples :
+* Pour exécuter plusieurs commandes, commencez votre ligne de commande en définissant un environnement d’interpréteur de commandes qui est pris en charge dans le système d’exploitation du conteneur. Exemples :
 
   |Système d’exploitation  |Interpréteur de commandes par défaut  |
   |---------|---------|
@@ -52,7 +52,7 @@ La syntaxe de ligne de commande varie en fonction de l’API Azure ou de l’out
 
 ### <a name="examples"></a>Exemples
 
-|    |  D’Azure CLI   | Portail | Modèle | 
+|    |  Azure CLI   | Portail | Modèle | 
 | ---- | ---- | --- | --- |
 | Commande unique | `--command-line "python myscript.py arg1 arg2"` | **Remplacement de commande** : `python, myscript.py, arg1, arg2` | `"command": ["python", "myscript.py", "arg1", "arg2"]` |
 | Commandes multiples | `--command-line "/bin/bash -c 'mkdir test; touch test/myfile; tail -f /dev/null'"` |**Remplacement de commande** : `/bin/bash, -c, mkdir test; touch test/myfile; tail -f /dev/null` | `"command": ["/bin/bash", "-c", "mkdir test; touch test/myfile; tail -f /dev/null"]` |

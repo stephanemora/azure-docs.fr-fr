@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 7fc0fbf3362d18284ad6a80afa6396b6be1270a9
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71057997"
 ---
 # <a name="troubleshoot-an-rdp-general-error-in-azure-vm"></a>Résoudre une erreur générale RDP sur une machine virtuelle Azure
@@ -37,7 +37,7 @@ Au moment d’établir une connexion RDP à une machine virtuelle Windows dans A
 
 **Vérifiez que l’ordinateur distant est allumé et connecté au réseau et que l’accès à distance est activé.**
 
-## <a name="cause"></a>Cause :
+## <a name="cause"></a>Cause
 
 Ce problème peut se produire pour les raisons suivantes :
 
@@ -64,7 +64,7 @@ Pour résoudre ce problème, [sauvegardez le disque du système d’exploitation
 
 ### <a name="serial-console"></a>Console série
 
-#### <a name="step-1-open-cmd-instance-in-serial-console"></a>Étape 1 : ouvrir l’instance CMD dans la console série
+#### <a name="step-1-open-cmd-instance-in-serial-console"></a>Étape 1 : ouvrir l’instance CMD dans la console série
 
 1. Accédez à la [Console série](serial-console-windows.md) en sélectionnant **Support & Troubleshooting (Support et dépannage)**  > **Console série (préversion)** . Si la fonctionnalité est activée sur la machine virtuelle, vous pouvez connecter la machine.
 
@@ -76,7 +76,7 @@ Pour résoudre ce problème, [sauvegardez le disque du système d’exploitation
    ch -si 1
    ```
 
-#### <a name="step-2-check-the-values-of-rdp-registry-keys"></a>Étape 2 : vérifier les valeurs des clés de Registre RDP :
+#### <a name="step-2-check-the-values-of-rdp-registry-keys"></a>Étape 2 : vérifier les valeurs des clés de Registre RDP :
 
 1. Vérifiez si le protocole RDP est désactivé par des stratégies.
 
@@ -163,7 +163,7 @@ Pour résoudre ce problème, [sauvegardez le disque du système d’exploitation
 
 Si le problème persiste, passez à l’étape 2.
 
-#### <a name="step-2-enable-remote-desktop-services"></a>Étape 2 : activer les Services Bureau à distance
+#### <a name="step-2-enable-remote-desktop-services"></a>Étape 2 : activer les Services Bureau à distance
 
 Pour plus d’informations, consultez [Les Services Bureau à distance ne démarrent pas sur une machine virtuelle Azure](troubleshoot-remote-desktop-services-issues.md).
 
@@ -173,13 +173,13 @@ Pour plus d'informations, consultez [Le Bureau à distance se déconnecte régul
 
 ### <a name="offline-repair"></a>Réparation en mode hors connexion
 
-#### <a name="step-1-turn-on-remote-desktop"></a>Étape 1 : activer le Bureau à distance
+#### <a name="step-1-turn-on-remote-desktop"></a>Étape 1 : activer le Bureau à distance
 
 1. [Attachez le disque du système d’exploitation à une machine virtuelle de récupération](../windows/troubleshoot-recovery-disks-portal.md).
 2. Établissez une connexion Bureau à distance avec la machine virtuelle de récupération.
 3. Vérifiez que le disque est marqué comme étant **En ligne** dans la console Gestion des disques. Notez la lettre de lecteur qui est affectée au disque du système d’exploitation attaché.
 4. Établissez une connexion Bureau à distance avec la machine virtuelle de récupération.
-5. Ouvrez une session Invite de commande avec élévation de privilèges (**Exécuter en tant qu’administrateur**). Exécutez les scripts suivants. Dans ce script, nous partons du principe que la lettre de lecteur qui est affectée au disque du système d’exploitation attaché est F. Remplacez cette lettre de lecteur par la valeur appropriée pour votre machine virtuelle.
+5. Ouvrez une session Invite de commande avec élévation de privilèges (**Exécuter en tant qu’administrateur**). Exécutez les scripts suivants. Dans ce script, nous partons du principe que la lettre de lecteur affectée au disque de système d’exploitation attaché est F. Remplacez-la par la valeur correspondant à votre machine virtuelle.
 
       ```
       reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv 
@@ -233,7 +233,7 @@ Pour plus d'informations, consultez [Le Bureau à distance se déconnecte régul
 
 Si le problème persiste, passez à l’étape 2.
 
-#### <a name="step-2-enable-remote-desktop-services"></a>Étape 2 : activer les Services Bureau à distance
+#### <a name="step-2-enable-remote-desktop-services"></a>Étape 2 : activer les Services Bureau à distance
 
 Pour plus d’informations, consultez [Les Services Bureau à distance ne démarrent pas sur une machine virtuelle Azure](troubleshoot-remote-desktop-services-issues.md).
 

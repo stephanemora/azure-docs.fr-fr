@@ -5,10 +5,10 @@ ms.date: 11/22/2019
 ms.topic: article
 ms.reviewer: janders
 ms.openlocfilehash: 682ab282036fcd592e66942d08a84cdce46d8915
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74455852"
 ---
 # <a name="how-to-configure-azure-active-directory-access-for-azure-blockchain-service"></a>Guide pratique pour configurer un accès Azure Active Directory pour Azure Blockchain Service
@@ -29,11 +29,11 @@ Vous pouvez octroyer l’accès à la fois au niveau membre et au niveau nœud. 
 
 Pour octroyer une autorisation d’accès au niveau membre :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Accédez à **Contrôle d’accès (IAM) > Ajouter > Ajouter une attribution de rôle**.
 1. Sélectionnez le rôle **Accès au nœud Membre Blockchain (préversion)** et ajoutez l’objet d’ID Azure AD auquel vous souhaitez octroyer l’accès. L’objet d’ID AD Azure peut correspondre à l’un des éléments suivants :
 
-    | Objet Azure AD | Exemples |
+    | Objet Azure AD | Exemple |
     |-----------------|---------|
     | Utilisateur Azure AD   | `kim@contoso.onmicrosoft.com` |
     | Groupe Azure AD  | `sales@contoso.onmicrosoft.com` |

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alkarche
 ms.openlocfilehash: a80079574dc29c54de89f5275c65637b205742d7
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74227415"
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Prise en charge des métadonnées OpenAPI 2.0 dans Azure Functions (préversion)
@@ -25,7 +25,7 @@ Les [métadonnées OpenAPI](https://swagger.io/) permettent à une grande varié
 >[!TIP]
 >Nous vous conseillons de commencer par le [didacticiel de mise en route](./functions-api-definition-getting-started.md) , puis de revenir à ce document pour en savoir plus sur les fonctionnalités spécifiques.
 
-## <a name="enable"></a>Activer la prise en charge de la définition OpenAPI
+## <a name="enable-openapi-definition-support"></a><a name="enable"></a>Activer la prise en charge de la définition OpenAPI
 Vous pouvez configurer tous les paramètres OpenAPI dans la page **Définition d’API**, dans les **Fonctionnalités de la plateforme** de votre application de fonction.
 
 > [!NOTE]
@@ -33,18 +33,18 @@ Vous pouvez configurer tous les paramètres OpenAPI dans la page **Définition d
 
 Pour activer la génération d’une définition OpenAPI hébergée et d’une définition de démarrage rapide, définissez **Source de définition d’API** sur **Fonction (préversion)** . **L’URL externe** permet à votre fonction d’utiliser une définition OpenAPI qui est hébergée ailleurs.
 
-## <a name="generate-definition"></a>Générer une structure Swagger à partir des métadonnées de votre fonction
+## <a name="generate-a-swagger-skeleton-from-your-functions-metadata"></a><a name="generate-definition"></a>Générer une structure Swagger à partir des métadonnées de votre fonction
 Un modèle peut vous aider à commencer à écrire votre première définition OpenAPI. La fonctionnalité de modèle de définition crée une définition OpenAPI partielle à l’aide de toutes les métadonnées dans le fichier function.json, pour chacune de vos fonctions de déclencheur HTTP. Vous devrez renseigner plus d’informations sur votre API à partir de la [spécification OpenAPI](https://swagger.io/specification/), comme les modèles de requête et de réponse.
 
 Pour des instructions détaillées, consultez le [didacticiel de prise en main](./functions-api-definition-getting-started.md).
 
-### <a name="templates"></a>Modèles disponibles
+### <a name="available-templates"></a><a name="templates"></a>Modèles disponibles
 
 |Nom| Description |
 |:-----|:-----|
 |Définition générée|Une définition OpenAPI avec la quantité maximale d’informations pouvant être déduites à partir de métadonnées existantes de la fonction.|
 
-### <a name="quickstart-details"></a>Métadonnées incluses dans la définition générée
+### <a name="included-metadata-in-the-generated-definition"></a><a name="quickstart-details"></a>Métadonnées incluses dans la définition générée
 
 Le tableau suivant représente les paramètres du portail Azure et les données correspondantes dans function.json telles qu’elles sont mappées sur la structure Swagger générée.
 
@@ -62,7 +62,7 @@ Le tableau suivant représente les paramètres du portail Azure et les données 
 >
 > Consultez [Personnaliser votre définition Swagger pour PowerApps](https://powerapps.microsoft.com/tutorials/customapi-how-to-swagger/) pour en savoir plus.
 
-## <a name="CICD"></a>Définir une définition d’API avec CI/CD
+## <a name="use-cicd-to-set-an-api-definition"></a><a name="CICD"></a>Définir une définition d’API avec CI/CD
 
  Vous devez activer l’hébergement de la définition d’API dans le portail avant d’activer le contrôle de code source pour modifier votre définition d’API à partir du contrôle de code source. Suivez ces instructions :
 

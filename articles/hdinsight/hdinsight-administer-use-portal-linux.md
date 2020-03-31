@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/12/2020
 ms.openlocfilehash: b9d923b3272f9d8b3da39d7cdb771a766eee4eab
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561780"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79233701"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gérer des clusters Apache Hadoop dans HDInsight à l’aide du portail Azure
 
@@ -29,13 +29,13 @@ Un cluster Apache Hadoop existant dans HDInsight.  Consultez [Création de clust
 
 Connectez-vous à [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="showClusters"></a> Lister et afficher les clusters
+## <a name="list-and-show-clusters"></a><a name="showClusters"></a> Lister et afficher les clusters
 
 La page **Clusters HDInsight** liste vos clusters existants.  À partir du portail :
 1. Dans le menu de gauche, sélectionnez **Tous les services**.
 2. Sous **ANALYTICS**, sélectionnez **Clusters HDInsight**.
 
-## <a name="homePage"></a> Page d’accueil de cluster
+## <a name="cluster-home-page"></a><a name="homePage"></a> Page d’accueil de cluster
 
 Sélectionnez le nom de votre cluster dans la page [**Clusters HDInsight**](#showClusters).  Cette opération ouvre la **Vue d’ensemble**, qui est similaire à l’image suivante :
 
@@ -96,7 +96,7 @@ Sélectionnez le nom de votre cluster dans la page [**Clusters HDInsight**](#sho
     |Intégrité des ressources|Consultez [Vue d’ensemble d’Azure Resource Health](../service-health/resource-health-overview.md).|
     |Nouvelle demande de support|permet de créer un ticket de support auprès du support Microsoft.|
 
-## <a name="properties"></a> Propriétés du cluster
+## <a name="cluster-properties"></a><a name="properties"></a> Propriétés du cluster
 
 Dans la [page d’accueil du cluster](#homePage), sous **Paramètres** sélectionnez **Propriétés**.
 

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f84226a631014b51338d47887fe3bafc969dc571
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77063643"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Guide de déploiement des fonctionnalités d’Azure Active Directory
@@ -26,7 +26,7 @@ Une infrastructure d’identités correctement planifiée et exécutée offre un
 
 Par ailleurs, les clients peuvent vérifier leur [degré de sécurisation d’identité](identity-secure-score.md) pour voir s’ils sont conformes aux bonnes pratiques de Microsoft. Vérifiez votre degré de sécurisation avant et après l’implémentation de ces recommandations, pour voir si vous faites mieux (ou moins bien) que les autres organisations de votre secteur ou de même taille que la vôtre.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 La plupart des suggestions de ce guide peuvent être implémentées avec Azure AD Free ou Basic, ou sans licence. Quand une licence est obligatoire, nous indiquons l’édition minimum nécessaire pour accomplir la tâche.
 

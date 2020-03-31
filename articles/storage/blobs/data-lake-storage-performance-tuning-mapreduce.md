@@ -9,10 +9,10 @@ ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: a3ea6858355d6cb921f629bf36134d96371f6244
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74327923"
 ---
 # <a name="tune-performance-mapreduce-hdinsight--azure-data-lake-storage-gen2"></a>Régler les performances : MapReduce, HDInsight et Azure Data Lake Storage Gen2
@@ -27,7 +27,7 @@ Découvrez les facteurs à prendre en compte quand vous réglez les performances
 * **Utilisation de MapReduce sur HDInsight**.  Pour plus d’informations, consultez [Utilisation de MapReduce sur Hadoop sur HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-mapreduce)
 * **Conseils de réglage des performances sur Data Lake Storage Gen2**.  Pour en savoir plus sur les concepts de performance d’ordre général, consultez [Conseils de réglage des performances de Data Lake Storage Gen2](data-lake-storage-performance-tuning-guidance.md)
 
-## <a name="parameters"></a>parameters
+## <a name="parameters"></a>Paramètres
 
 Lors de l’exécution des travaux MapReduce, voici les paramètres que vous pouvez configurer pour améliorer les performances sur Data Lake Storage Gen2 :
 
@@ -45,7 +45,7 @@ Lors de l’exécution des travaux MapReduce, voici les paramètres que vous pou
 > [!NOTE]
 > Les instructions de ce document supposent que votre application est la seule application en cours d’exécution sur votre cluster.
 
-**Étape 1 : Déterminer le nombre de travaux en cours d’exécution**
+**Étape 1 : Déterminer le nombre de travaux en cours d’exécution**
 
 Par défaut, MapReduce utilise l’ensemble du cluster pour votre travail.  Vous pouvez utiliser une partie moindre du cluster en utilisant moins de mappeurs que de conteneurs disponibles.        
 
@@ -67,7 +67,7 @@ Les conteneurs YARN déterminent la quantité de simultanéité disponible pour 
 
     # of YARN containers = total YARN memory / mapreduce.map.memory
 
-**Étape 5 : Configurer mapreduce.job.maps/mapreduce.job.reduces**
+**Étape 5 : Configurer mapreduce.job.maps/mapreduce.job.reduces**
 
 Affectez à mapreduce.job.maps/mapreduce.job.reduces une valeur au moins égale au nombre de conteneurs disponibles.  Vous pouvez expérimenter davantage en augmentant le nombre de mappeurs et de réducteurs pour voir si vous obtenez de meilleures performances.  N’oubliez pas que les mappeurs supplémentaires ajouteront une charge, ainsi un trop grand nombre de mappeurs peut dégrader les performances.  
 
@@ -77,7 +77,7 @@ La planification et l’isolation de processeur sont désactivées par défaut. 
 
 Supposez que vous avez un cluster composé de huit nœuds D14 et que vous souhaitez exécuter une tâche intensive en E/S.  Voici les calculs que vous devez faire :
 
-**Étape 1 : Déterminer le nombre de travaux en cours d’exécution**
+**Étape 1 : Déterminer le nombre de travaux en cours d’exécution**
 
 Dans cet exemple, supposez que votre travail est le seul en cours d’exécution.  
 
@@ -94,7 +94,7 @@ Dans cet exemple, nous exécutons une tâche intensive en E/S et nous décidons 
 
     # of YARN containers = 768GB of available memory / 3 GB of memory =   256
 
-**Étape 5 : Configurer mapreduce.job.maps/mapreduce.job.reduces**
+**Étape 5 : Configurer mapreduce.job.maps/mapreduce.job.reduces**
 
     mapreduce.map.jobs = 256
 

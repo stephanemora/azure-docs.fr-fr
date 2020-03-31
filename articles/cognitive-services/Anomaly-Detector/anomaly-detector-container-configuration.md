@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/07/2019
 ms.author: dapine
 ms.openlocfilehash: f7e04a16fa35d492b8e5e6c53a05220e8b96a38a
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73795846"
 ---
 # <a name="configure-anomaly-detector-containers"></a>Configurer des conteneurs Détecteur d’anomalies
@@ -27,10 +27,10 @@ Ce conteneur a les paramètres de configuration suivants :
 
 |Obligatoire|Paramètre|Objectif|
 |--|--|--|
-|OUI|[ApiKey](#apikey-configuration-setting)|Utilisé pour le suivi des informations de facturation.|
+|Oui|[ApiKey](#apikey-configuration-setting)|Utilisé pour le suivi des informations de facturation.|
 |Non|[ApplicationInsights](#applicationinsights-setting)|Vous permet d’ajouter la prise en charge de la télémétrie [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) à votre conteneur.|
-|OUI|[Billing](#billing-configuration-setting)|Spécifie l’URI de point de terminaison de la ressource de service sur Azure.|
-|OUI|[Eula](#eula-setting)| Indique que vous avez accepté la licence pour le conteneur.|
+|Oui|[Billing](#billing-configuration-setting)|Spécifie l’URI de point de terminaison de la ressource de service sur Azure.|
+|Oui|[Eula](#eula-setting)| Indique que vous avez accepté la licence pour le conteneur.|
 |Non|[Fluentd](#fluentd-settings)|Écrire les données des journaux et, éventuellement, des métriques, sur un serveur Fluentd.|
 |Non|[Proxy HTTP](#http-proxy-credentials-settings)|Configurer un proxy HTTP pour effectuer des requêtes sortantes.|
 |Non|[Logging](#logging-settings)|Fournit la prise en charge de la journalisation ASP.NET Core pour votre conteneur. |
@@ -61,7 +61,7 @@ Vous trouverez ce paramètre à l’emplacement suivant :
 
 |Obligatoire| Nom | Type de données | Description |
 |--|------|-----------|-------------|
-|OUI| `Billing` | Chaîne | URI de point de terminaison de facturation. Pour plus d’informations sur la façon d’obtenir l’URI de facturation, consultez [Collecte des paramètres requis](anomaly-detector-container-howto.md#gathering-required-parameters). Pour obtenir plus d’informations et une liste complète des points de terminaison régionaux, consultez [Noms de sous-domaines personnalisés pour Cognitive Services](../cognitive-services-custom-subdomains.md). |
+|Oui| `Billing` | String | URI de point de terminaison de facturation. Pour plus d’informations sur la façon d’obtenir l’URI de facturation, consultez [Collecte des paramètres requis](anomaly-detector-container-howto.md#gathering-required-parameters). Pour obtenir plus d’informations et une liste complète des points de terminaison régionaux, consultez [Noms de sous-domaines personnalisés pour Cognitive Services](../cognitive-services-custom-subdomains.md). |
 
 ## <a name="eula-setting"></a>Paramètre Eula
 
@@ -90,8 +90,8 @@ La syntaxe exacte de l’emplacement de montage d’hôte varie en fonction du s
 
 |Facultatif| Nom | Type de données | Description |
 |-------|------|-----------|-------------|
-|Non autorisé| `Input` | Chaîne | Les conteneurs Détecteur d’anomalies n’utilisent pas cet élément.|
-|Facultatif| `Output` | Chaîne | Cible du montage de sortie. La valeur par défaut est `/output`. Il s’agit de l’emplacement des journaux d’activité. Les journaux d’activité de conteneur sont inclus. <br><br>Exemple :<br>`--mount type=bind,src=c:\output,target=/output`|
+|Non autorisé| `Input` | String | Les conteneurs Détecteur d’anomalies n’utilisent pas cet élément.|
+|Facultatif| `Output` | String | Cible du montage de sortie. La valeur par défaut est `/output`. Il s’agit de l’emplacement des journaux d’activité. Les journaux d’activité de conteneur sont inclus. <br><br>Exemple :<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Exemples de commandes docker run 
 
@@ -102,7 +102,7 @@ Les exemples suivants utilisent les paramètres de configuration pour illustrer 
 
 Remplacez la valeur entre accolades, `{}`, par vos propres valeurs :
 
-| Placeholder | Valeur | Format ou exemple |
+| Espace réservé | Valeur | Format ou exemple |
 |-------------|-------|---|
 | **{API_KEY}** | Clé de point de terminaison de la ressource `Anomaly Detector` dans la page Clés Azure `Anomaly Detector`. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
 | **{ENDPOINT_URI}** | La valeur de point de terminaison de facturation est disponible dans la page Vue d’ensemble Azure `Anomaly Detector`.| Pour obtenir des exemples explicites, consultez [Collecte des paramètres requis](anomaly-detector-container-howto.md#gathering-required-parameters). |

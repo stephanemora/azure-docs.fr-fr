@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: chlandsi
 ms.openlocfilehash: 9891cdb59c757035afd17339b052d5587ac99b0c
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74109981"
 ---
-# <a name="how-to-select-an-audio-input-device-with-the-speech-sdk"></a>Activation Sélectionner un périphérique d’entrée audio avec le SDK Speech
+# <a name="how-to-select-an-audio-input-device-with-the-speech-sdk"></a>Procédure : Sélectionner un périphérique d’entrée audio avec le SDK Speech
 
 La version 1.3.0 du SDK Speech introduit une API pour sélectionner l’entrée audio. Cet article décrit comment obtenir les ID des appareils audio connectés à un système. Vous pouvez ensuite les utiliser dans le SDK Speech en configurant le périphérique audio par le biais de l’objet `AudioConfig` :
 

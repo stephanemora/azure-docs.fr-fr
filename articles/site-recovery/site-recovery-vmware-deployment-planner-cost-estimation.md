@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 7/29/2019
 ms.author: mayg
 ms.openlocfilehash: 27678fff1c0322f9755e7726026c73934810d5d6
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73953336"
 ---
 # <a name="review-cost-estimations-in-the-vmware-deployment-planner"></a>Examiner les estimations de coût dans le planificateur de déploiement VMware 
@@ -54,7 +54,7 @@ La première section indique le coût global de récupération d’urgence par c
 
 **Calcul** : coût des machines virtuelles IaaS exécutées sur Azure pour les besoins de la reprise d’activité. Il inclut les machines virtuelles créées par Azure Site Recovery pendant les extractions de la récupération d’urgence (basculements de test) et les machines virtuelles exécutées sur Azure telles que SQL Server avec groupes de disponibilité AlwaysOn et contrôleurs de domaine/serveurs de noms de domaine.
 
-**Stockage** : coût de consommation du stockage Azure pour les besoins de la reprise d’activité. Il inclut la consommation du stockage pour la réplication et au cours des exercices de récupération d’urgence.
+**Stockage** : coût de consommation du stockage Azure pour les besoins de la reprise d’activité. Il inclut la consommation du stockage pour la réplication et au cours des exercices de récupération d’urgence.
 Réseau : coût d’ExpressRoute et du VPN site à site pour les besoins de la reprise d’activité. 
 
 **Licence ASR** : coût de la licence Azure Site Recovery pour toutes les machines virtuelles compatibles. Si vous avez saisi manuellement une machine virtuelle dans la table d’analyse des coûts détaillée, le coût de la licence Azure Site Recovery est également inclus pour cette machine virtuelle.
@@ -104,7 +104,7 @@ Pour ajouter manuellement des machines virtuelles :
 * Taille totale de stockage de la machine virtuelle (en Go) de la machine source
 * Nombre d’extractions de la récupération d’urgence par an 
 * Durée de chaque extraction de la récupération d’urgence (en jours) 
-* Type de système d’exploitation
+* Type de système d'exploitation
 * Redondance des données 
 * Azure Hybrid Benefit
 

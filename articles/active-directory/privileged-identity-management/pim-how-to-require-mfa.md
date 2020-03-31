@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6df593909c3ae5962e413eb84e64196fade0326b
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74022151"
 ---
 # <a name="multi-factor-authentication-and-privileged-identity-management"></a>Authentification multifacteur et Privileged Identity Management
@@ -41,4 +41,4 @@ Si les utilisateurs s’authentifient en local, vous pouvez également faire en 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Configurer les paramètres des rôles Azure AD dans Privileged Identity Management](pim-how-to-change-default-settings.md)
-- [Configurer les paramètres des rôles de ressource Azure dans Privileged Identity Management](pim-resource-roles-configure-role-settings.md)
+- [Configurer les paramètres des rôles de ressources Azure dans Privileged Identity Management](pim-resource-roles-configure-role-settings.md)

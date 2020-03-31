@@ -14,10 +14,10 @@ ms.custom: it-pro, seodec18
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f1c83c57be63ae9e2a4d4113accaefe8a2c2b525
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68561962"
 ---
 # <a name="add-or-remove-group-members-using-azure-active-directory"></a>Ajouter ou supprimer les membres d’un groupe avec Azure Active Directory
@@ -25,9 +25,9 @@ ms.locfileid: "68561962"
 
 ## <a name="to-add-group-members"></a>Pour ajouter des membres à un groupe
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com) à l’aide d’un compte Administrateur général pour le répertoire.
+1. Connectez-vous au [portail Azure](https://portal.azure.com) à l’aide d’un compte d’administrateur général pour le répertoire.
 
-2. Sélectionnez **Azure Active Directory**, puis sélectionnez **Groupes**.
+2. Sélectionnez **Azure Active Directory**, puis **Groupes**.
 
 3. Sur la page **Groupes - Tous les groupes**, recherchez et sélectionnez le groupe auquel vous souhaitez ajouter le membre. Dans le cas présent, utilisez notre groupe créé précédemment, **Stratégie GPM - Ouest**.
 

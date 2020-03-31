@@ -8,11 +8,11 @@ ms.topic: troubleshooting
 ms.date: 09/09/2019
 ms.author: raynew
 ms.openlocfilehash: 812cd0293f9627b7438e9870d8985e71dae1d147
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813414"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228817"
 ---
 # <a name="troubleshoot-the-process-server"></a>Dépanner le serveur de traitement
 
@@ -45,13 +45,13 @@ La première étape du dépannage consiste à vérifier l’intégrité et l’�
 
 ![Détecter un problème d’intégrité du serveur de traitement](./media/vmware-physical-azure-troubleshoot-process-server/troubleshoot-process-server-health.png)
 
-## <a name="step-1-troubleshoot-process-server-health-alerts"></a>Étape 1 : Résoudre les alertes d’intégrité du serveur de traitement
+## <a name="step-1-troubleshoot-process-server-health-alerts"></a>Étape 1 : Résoudre les alertes d’intégrité du serveur de traitement
 
 Le serveur de traitement génère un certain nombre d’alertes d’intégrité. Ces alertes et les mesures recommandées sont résumées dans le tableau suivant.
 
 **Type d’alerte** | **Error** | **Résolution des problèmes**
 --- | --- | --- 
-![Healthy][green] | Aucun  | Le serveur de traitement est connecté et en bonne santé.
+![Healthy][green] | None  | Le serveur de processus est connecté et sain.
 ![Avertissement][yellow] | Les services spécifiés ne fonctionnent pas. | 1. Vérifiez que les services sont en cours d’exécution.<br/> 2. Si les services fonctionnent comme prévu, suivez les instructions ci-dessous pour [détecter les problèmes de connectivité et de réplication ](#check-connectivity-and-replication).
 ![Avertissement][yellow]  | Utilisation du processeur > 80 % durant les 15 dernières minutes. | 1. N'ajoutez pas de nouvelles machines.<br/>2. Vérifiez que le nombre de machines virtuelles utilisant le serveur de traitement correspond aux [limites définies](site-recovery-plan-capacity-vmware.md#capacity-considerations), et installez un [serveur de traitement supplémentaire](vmware-azure-set-up-process-server-scale.md) si nécessaire.<br/>3. Suivez les instructions ci-dessous pour [détecter les problèmes de connectivité et de réplication ](#check-connectivity-and-replication).
 ![Critique][red] |  Utilisation du processeur > 95 % durant les 15 dernières minutes. | 1. N'ajoutez pas de nouvelles machines.<br/>2. Vérifiez que le nombre de machines virtuelles utilisant le serveur de traitement correspond aux [limites définies](site-recovery-plan-capacity-vmware.md#capacity-considerations), et installez un [serveur de traitement supplémentaire](vmware-azure-set-up-process-server-scale.md) si nécessaire.<br/>3. Suivez les instructions ci-dessous pour [détecter les problèmes de connectivité et de réplication ](#check-connectivity-and-replication).<br/> 4. Si le problème persiste, exécutez le [Planificateur de déploiement](https://aka.ms/asr-v2a-deployment-planner) pour la réplication VMware ou du serveur physique.
@@ -65,7 +65,7 @@ Le serveur de traitement génère un certain nombre d’alertes d’intégrité.
 ![Clé de table](./media/vmware-physical-azure-troubleshoot-process-server/table-key.png)
 
 
-## <a name="step-2-check-process-server-services"></a>Étape 2 : Vérifier les services du serveur de traitement
+## <a name="step-2-check-process-server-services"></a>Étape 2 : Vérifier les services du serveur de traitement
 
 Les services qui devraient être exécutés sur le serveur de traitement sont résumés dans le tableau suivant. Il existe de légères différences entre les services, selon la façon dont le serveur de traitement est déployé. 
 

@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/25/2018
 ms.openlocfilehash: ae26f669ddbe2cc2c5b6e25a9c1c0229e88dc2e1
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73823923"
 ---
 # <a name="building-scalable-cloud-databases"></a>Conception de bases de données cloud évolutives
@@ -32,7 +32,7 @@ Pour télécharger :
 1. [Prise en main des outils de base de données élastiques](sql-database-elastic-scale-get-started.md)
 2. [Fonctionnalités des bases de données élastiques](sql-database-elastic-scale-introduction.md)
 3. [Gestion des cartes de partitions](sql-database-elastic-scale-shard-map-management.md)
-4. [Migration de bases de données existantes pour une mise à l’échelle](sql-database-elastic-convert-to-use-elastic-tools.md)
+4. [Migration de bases de données existantes pour effectuer un scale-out](sql-database-elastic-convert-to-use-elastic-tools.md)
 5. [Routage dépendant des données](sql-database-elastic-scale-data-dependent-routing.md)
 6. [Requêtes sur plusieurs partitions](sql-database-elastic-scale-multishard-querying.md)
 7. [Ajout d’une partition à l’aide des outils de base de données élastique](sql-database-elastic-scale-add-a-shard.md)

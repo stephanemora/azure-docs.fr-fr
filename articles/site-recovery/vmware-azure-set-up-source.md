@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 04/14/2019
 ms.author: ramamill
 ms.openlocfilehash: ff01aed92669acb193ff149ea9298550134f42a3
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622209"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228877"
 ---
 # <a name="set-up-the-source-environment-for-vmware-to-azure-replication"></a>Configurer l’environnement source pour la réplication VMware vers Azure
 
@@ -69,7 +69,7 @@ Excluez les dossiers suivants du logiciel antivirus pour une réplication sans h
   - C:\ProgramData\ASRSetupLogs
   - C:\ProgramData\LogUploadServiceLogs
   - C:\inetpub
-  - Répertoire d’installation serveur de Site Recovery. Par exemple :  E:\Program Files (x86)\Microsoft Azure Site Recovery
+  - Répertoire d’installation serveur de Site Recovery. Par exemple : E:\Program Files (x86)\Microsoft Azure Site Recovery
 
 ### <a name="if-antivirus-software-is-active-on-scale-out-process-servermaster-target"></a>Si un logiciel antivirus est actif sur le serveur de processus/la cible maître scale-out
 

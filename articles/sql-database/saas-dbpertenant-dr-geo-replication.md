@@ -12,10 +12,10 @@ ms.author: craigg
 ms.reviewer: sstein
 ms.date: 01/25/2019
 ms.openlocfilehash: 0668ccf5ceb972dd120e4e3f37be6d879a12d0a7
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73811704"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Récupération d’urgence d’une application SaaS multi-locataire à l’aide de la géoréplication de bases de données
@@ -51,7 +51,7 @@ Un plan de récupération d’urgence basé sur la géoréplication comprend tro
 
 Toutes les parties doivent être examinées avec précaution, surtout en cas de fonctionnement maximum. Globalement, le plan doit atteindre plusieurs objectifs :
 
-* Paramétrage
+* Programme d’installation
     * Créer un environnement miroir dans la région de récupération et en assurer la maintenance. La création de pools élastiques et la réplication de bases de données dans cet environnement de récupération assurent une capacité de réserve dans la région de récupération. La maintenance de cet environnement comprend la réplication des nouvelles bases de données de locataire, au fur et à mesure de leur approvisionnement.  
 * Récupération
     * Lorsque vous utilisez un environnement de récupération dont la taille a été diminuée pour réduire les coûts quotidiens, les pools et les bases de données doivent être mis à l’échelle pour atteindre une capacité opérationnelle complète dans la région de récupération.

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 08/21/2019
 ms.author: alkohli
 ms.openlocfilehash: 89f981fcda8f40daff49ebdf796b896d90ce1754
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69900627"
 ---
 # <a name="azure-data-box-gateway-security-and-data-protection"></a>Protection des données et sécurité Azure Data Box Gateway
@@ -25,8 +25,8 @@ La solution Data Box Gateway repose sur l’interaction de quatre composants pri
 
 - **Service Data Box Gateway, hébergé dans Azure**. la ressource de gestion qui vous permet de créer la commande de l’appareil, de configurer l’appareil et de suivre la commande jusqu’à son achèvement.
 - **Appareil Data Box Gateway**. L’appareil virtuel que vous approvisionnez dans l’hyperviseur du système que vous fournissez. Cet appareil virtuel est utilisé pour importer vos données locales dans Azure.
-- **Clients/hôtes connectés à l’appareil**. Les clients de votre infrastructure se connectant à l’appareil Data Box Gateway et contenant des données devant être protégées.
-- **Stockage cloud**. Emplacement dans la plateforme cloud Azure où les données sont stockées. Il s’agit généralement du compte de stockage lié à la ressource Data Box Gateway que vous avez créée.
+- **Clients/hôtes connectés à l’appareil** : Les clients de votre infrastructure se connectant à l’appareil Data Box Gateway et contenant des données devant être protégées.
+- **Stockage cloud** : emplacement dans la plateforme cloud Azure où les données sont stockées. Il s’agit généralement du compte de stockage lié à la ressource Data Box Gateway que vous avez créée.
 
 
 ## <a name="data-box-gateway-service-protection"></a>Protection de service Data Box Gateway

@@ -11,10 +11,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: d9942c31b63de77196b8b51b88376cb8ef74b990
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76721249"
 ---
 # <a name="tasks-for-an-individual-contributor-in-the-team-data-science-process"></a>Tâches pour un contributeur individuel dans TDSP (Team Data Science Process)
@@ -32,7 +32,7 @@ Le diagramme suivant montre les tâches que chaque contributeur de projet (scien
 > [!NOTE] 
 > Cet article s’appuie sur Azure Repos et sur une machine virtuelle DSVM (Data Science Virtual Machine) pour mettre en place un environnement TDSP, car c’est ainsi que Microsoft implémente le processus TDSP. Si votre équipe utilise d’autres plateformes d’hébergement de code ou de développement, les tâches de chaque contributeur sont les mêmes, mais la façon de les accomplir peut être différente.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Ce tutoriel part du principe que les ressources et autorisations suivantes ont été configurées par votre [responsable de groupe](group-manager-tasks.md), votre [chef d’équipe](team-lead-tasks.md), et votre [coordinateur de projet](project-lead-tasks.md) :
 

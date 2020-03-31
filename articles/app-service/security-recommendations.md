@@ -8,17 +8,17 @@ ms.date: 06/17/2019
 ms.author: barclayn
 ms.custom: security-recommendations
 ms.openlocfilehash: e3f901fd78436b42729607d38f0ddb533f31cd30
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74684125"
 ---
 # <a name="security-recommendations-for-app-service"></a>Suggestions en matière de sécurité pour App Service
 
 Cet article contient des recommandations de sécurité pour Azure App Service. Mettez en œuvre ces recommandations pour répondre à vos obligations de sécurité comme décrit dans notre modèle de responsabilité partagée et améliorer la sécurité globale de vos solutions d’application web. Pour plus d’informations sur les mesures prises par Microsoft pour répondre à ses responsabilités de fournisseur de services, lisez [Sécurité de l’infrastructure Azure](../security/fundamentals/infrastructure.md).
 
-## <a name="general"></a>Généralités
+## <a name="general"></a>Général
 
 | Recommandation | Commentaires |
 |-|-|----|
@@ -33,7 +33,7 @@ Cet article contient des recommandations de sécurité pour Azure App Service. M
 | Protéger les ressources back-end avec un accès authentifié | Vous pouvez utiliser l’identité de l’utilisateur ou une identité d’application pour vous authentifier auprès d’une ressource principale. Lorsque vous choisissez d’utiliser une identité d’application, utilisez une [identité managée](overview-managed-identity.md).
 | Nécessiter l’authentification par certificat client | L’authentification par certificat client améliore la sécurité en autorisant uniquement les connexions à partir de clients qui peuvent s’authentifier à l’aide de certificats que vous fournissez. |
 
-## <a name="data-protection"></a>Protection des données
+## <a name="data-protection"></a>Protection de données
 
 | Recommandation | Commentaires |
 |-|-|

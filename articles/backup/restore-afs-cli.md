@@ -4,10 +4,10 @@ description: Découvrir comment utiliser l'interface de ligne de commande Azure 
 ms.topic: conceptual
 ms.date: 01/16/2020
 ms.openlocfilehash: 63b2be2fe24c1274ed1581b7b849de578c978842
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76931048"
 ---
 # <a name="restore-azure-file-shares-with-the-azure-cli"></a>Restaurer des partages de fichiers Azure avec l'interface de ligne de commande Azure
@@ -24,7 +24,7 @@ L’interface de ligne de commande Azure permet de gérer les ressources Azure. 
 
 Pour installer et utiliser l’interface CLI en local, vous devez exécuter Azure CLI version 2.0.18 ou une version ultérieure. Pour trouver la version de CLI, exécutez `az --version`. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Cet article suppose que vous disposez déjà d’un partage de fichiers Azure sauvegardé par Sauvegarde Azure. Si ce n'est pas le cas, consultez [Sauvegarder des partages de fichiers Azure avec l’interface de ligne de commande](backup-afs-cli.md) afin de configurer la sauvegarde pour votre partage de fichiers. Pour cet article, vous allez utiliser les ressources suivantes :
 

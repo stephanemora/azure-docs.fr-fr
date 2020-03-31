@@ -12,10 +12,10 @@ ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
 ms.openlocfilehash: d3afcded894f72626a4f24bcbe85c34ac1329c29
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72242917"
 ---
 # <a name="project-acoustics-unrealwwise-quickstart"></a>Démarrage rapide de Project Acoustics Unreal/Wwise
@@ -49,13 +49,13 @@ Ouvrez Wwise Launcher. Sous l’onglet **Plugins** sous **Install New Plugins**,
 
    ![Wwise Launcher affiche le projet Acoustics Game Unreal avec l’option d’intégration mise en surbrillance.](media/wwise-acoustics-game-project.png)
 
-### <a name="extend-wwise-unreal-plug-in-functionality"></a>Étendre les fonctionnalités du plug-in Unreal Wwise
+### <a name="extend-wwise-unreal-plug-in-functionality"></a>Étendre les fonctionnalités du plug-in Wwise Unreal
 Le plug-in Project Acoustics Unreal nécessite l’exposition d’un comportement supplémentaire à partir de l’API du plug-in Unreal Wwise. Exécutez le fichier de commandes par lots fourni avec le plug-in Project Acoustics Unreal pour automatiser ces modifications.
 * Dans *AcousticsGame\Plugins\ProjectAcoustics\Resources*, exécutez *PatchWwise.bat*.
 
     ![Script pour corriger le projet Wwise mis en surbrillance dans une fenêtre de l’Explorateur Windows](media/patch-wwise-script.png)
 
-* Si vous n’avez pas installé le Kit de développement logiciel (SDK) DirectX : En fonction de la version de Wwise que vous utilisez, vous devrez peut-être ajouter un commentaire sur la ligne qui contient `DXSDK_DIR` dans *AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs* :
+* Si vous n’avez pas installé le kit SDK DirectX : En fonction de la version de Wwise que vous utilisez, vous devrez peut-être ajouter un commentaire sur la ligne qui contient `DXSDK_DIR` dans *AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs* :
 
     ![Éditeur de code montrant « DXSDK » avec des commentaires](media/directx-sdk-comment.png)
 

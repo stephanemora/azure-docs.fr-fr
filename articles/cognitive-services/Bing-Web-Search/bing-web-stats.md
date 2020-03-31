@@ -12,10 +12,10 @@ ms.date: 07/17/2019
 ms.author: scottwhi
 ms.custom: seodec2018
 ms.openlocfilehash: 5d1b0b19523eb37aa83aa59b24114be9f76ffa55
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68882771"
 ---
 # <a name="add-analytics-to-the-bing-search-apis"></a>Ajouter une analytique à l’API Recherche Bing
@@ -51,7 +51,7 @@ Par défaut, les graphiques et diagrammes affichent toutes les données et métr
 - **Points de terminaison** : points de terminaison de l’API Recherche Bing. La liste contient tous les points de terminaison pour lesquels vous avez un abonnement payant. Par défaut, tous les points de terminaison sont sélectionnés.  
 
 - **Délai d’exécution** : période de rapport. Vous pouvez spécifier les valeurs suivantes :
-  - **Tout** : Inclut jusqu’à 13 mois de données  
+  - **Tout** : Inclut jusqu’à 13 mois de données  
   - **Dernières 24 heures** : Inclut l’analytique des dernières 24 heures  
   - **Semaine dernière** : Inclut l’analytique des sept derniers jours  
   - **Mois dernier** : Inclut l’analytique des 30 derniers jours  

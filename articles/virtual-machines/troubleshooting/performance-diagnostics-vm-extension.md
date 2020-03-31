@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 6f104fc6513874bfef5f4bf9fe7f536c3e3d69cf
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71057544"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Extension de diagnostic de performance des machines virtuelles Azure pour Windows
@@ -70,7 +70,7 @@ Le code JSON suivant montre le schéma de l’extension de machine virtuelle Dia
 |--------------|-------------------|----------------------------|
 |apiVersion|2015-06-15|Version de l’API.
 |publisher|Microsoft.Azure.Performance.Diagnostics|Espace de noms du serveur de publication de l’extension.
-|Type|AzurePerformanceDiagnostics|Type de l’extension de machine virtuelle.
+|type|AzurePerformanceDiagnostics|Type de l’extension de machine virtuelle.
 |typeHandlerVersion|1.0|Version du gestionnaire d’extensions.
 |performanceScenario|basic|Scénario de performances dont les données seront capturées. Les valeurs valides sont : **basic**, **vmslow**, **azurefiles** et **custom**.
 |traceDurationInSeconds|300|Durée des traces si l’une des options de trace est sélectionnée.
@@ -88,7 +88,7 @@ Le code JSON suivant montre le schéma de l’extension de machine virtuelle Dia
 
 Suivez ces instructions pour installer l’extension sur des machines virtuelles Windows :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Sélectionnez la machine virtuelle sur laquelle vous voulez installer cette extension.
 
     ![Capture du Portail Azure, avec les machines virtuelles mises en surbrillance](media/performance-diagnostics-vm-extension/select-the-virtual-machine.png)

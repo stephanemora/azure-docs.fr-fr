@@ -8,10 +8,10 @@ ms.date: 10/17/2016
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 43849ca7084f2237c37ad537c50f4e94ac4ea7c0
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74688676"
 ---
 # <a name="scaling-apps-in-an-app-service-environment-v1"></a>Mise à l’échelle d’applications dans un environnement App Service v1
@@ -37,7 +37,7 @@ Vous ne pouvez pas mettre à l'échelle votre ASP au-delà du nombre de ressourc
 Vous pouvez créer plusieurs plans App Service à l’aide de ressources de calcul provenant de pools de travaux différents ou vous pouvez utiliser le même pool de travail.  Par exemple, si vous disposez de (10) ressources de calcul disponibles dans le pool de travaux 1, vous pouvez choisir de créer un plan App Service à l’aide de (6) ressources de calcul et planifier un deuxième service d’application qui utilise (4) ressources de calcul.
 
 ### <a name="scaling-the-number-of-instances"></a>Mise à l'échelle du nombre d'instances
-Lorsque vous créez votre application web dans un environnement App Service, elle ne contient qu’1 instance.  Vous pouvez ensuite augmenter le nombre d’instances pour fournir des ressources de calcul supplémentaires à votre application.   
+Lorsque vous créez votre application web dans un environnement App Service, elle ne contient qu’1 instance.  Vous pouvez ensuite effectuer un scale-out pour fournir des ressources de calcul supplémentaires à votre application.   
 
 Si votre environnement Application Service a une capacité suffisante, l'opération est assez simple.  Vous accédez à votre plan App Service qui contient les sites que vous souhaitez mettre à l'échelle et vous sélectionnez Mettre à l'échelle.  Ceci affiche l'interface utilisateur où vous pouvez définir manuellement l'échelle de votre ASP ou configurer des règles de mise à l'échelle automatique pour votre ASP.  Pour mettre à l'échelle manuellement votre application, il vous suffit de définir ***Mise à l'échelle selon*** sur ***un nombre d'instances saisi manuellement***.  À partir de là, faites glisser le curseur vers la quantité souhaitée ou entrez la quantité souhaitée dans la zone à côté du curseur.  
 

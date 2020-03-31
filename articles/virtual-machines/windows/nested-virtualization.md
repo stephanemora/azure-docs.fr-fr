@@ -12,10 +12,10 @@ ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.openlocfilehash: 16f5bed5a2342bb1d120d0d3dc853e0bc44376dc
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74033122"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Guide d’activation de la virtualisation imbriquée dans une machine virtuelle Azure
@@ -54,7 +54,7 @@ Vous pouvez configurer ces paramètres manuellement, ou utiliser le script Power
 ### <a name="option-1-use-a-powershell-script-to-configure-nested-virtualization"></a>Option 1 : Utiliser un script PowerShell pour configurer la virtualisation imbriquée
 Un script PowerShell pour activer la virtualisation imbriquée sur un hôte Windows Server 2016 est disponible sur [GitHub](https://github.com/charlieding/Virtualization-Documentation/tree/live/hyperv-tools/Nested). Le script vérifie les conditions préalables, puis configure la virtualisation imbriquée sur la machine virtuelle Azure. Un redémarrage de la machine virtuelle Azure est nécessaire pour terminer la configuration. Ce script pourrait fonctionner dans d’autres environnements, mais cela n’est pas garanti. Consultez le billet de blog Azure avec une démonstration vidéo sur la virtualisation imbriquée exécutée sur Azure ! https://aka.ms/AzureNVblog.
 
-### <a name="option-2-configure-nested-virtualization-manually"></a>Option 2 : Configurer manuellement la virtualisation imbriquée
+### <a name="option-2-configure-nested-virtualization-manually"></a>Option n°2 : Configurer manuellement la virtualisation imbriquée
 
 1. Sur la machine virtuelle Azure, ouvrez PowerShell en tant qu’administrateur. 
 
@@ -165,7 +165,7 @@ Suivez les étapes ci-dessous pour configurer DHCP sur la machine virtuelle hôt
   
 6. Cliquez sur **Suivant** jusqu'à la fin de l’assistant, en laissant toutes les valeurs par défaut, puis cliquez sur **Terminer**.
     
-### <a name="option-2-manually-set-a-static-ip-address-on-the-guest-virtual-machine"></a>Option 2 : Définir manuellement une adresse IP statique sur la machine virtuelle invitée
+### <a name="option-2-manually-set-a-static-ip-address-on-the-guest-virtual-machine"></a>Option n°2 : Définir manuellement une adresse IP statique sur la machine virtuelle invitée
 Si vous ne configurez pas le protocole DHCP pour attribuer dynamiquement une adresse IP à la machine virtuelle invitée, procédez comme suit pour définir une adresse IP statique.
 
 1. Sur la machine virtuelle Azure, ouvrez PowerShell en tant qu’administrateur.

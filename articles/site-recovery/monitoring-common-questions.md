@@ -9,17 +9,17 @@ ms.date: 07/31/2019
 ms.topic: conceptual
 ms.author: raynew
 ms.openlocfilehash: c1d30a9cdd2cd6ca288edd609a2e2e7bee9174d7
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68718160"
 ---
 # <a name="common-questions-about-site-recovery-monitoring"></a>Questions fréquentes sur la supervision Site Recovery
 
 Cet article répond aux questions fréquemment posées concernant la supervision Azure [Site Recovery](site-recovery-overview.md), effectuée à l’aide de la supervision intégrée Site Recovery et d’Azure Monitor (Log Analytics).
 
-## <a name="general"></a>Généralités
+## <a name="general"></a>Général
 
 ### <a name="how-is-the-rpo-value-logged-different-from-the-latest-available-recovery-point"></a>En quoi le RPO est-il différent du dernier point de récupération disponible ?
 

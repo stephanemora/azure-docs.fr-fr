@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à E Sales Manager Remix | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à E Sales Manager Remix | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et E Sales Manager Remix.
 services: active-directory
 documentationCenter: na
@@ -17,10 +17,10 @@ ms.date: 06/12/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 895fb0d83e383618818325263ac80c5919a0ee7b
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65406949"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Intégrer Azure Active Directory à E Sales Manager Remix
@@ -204,7 +204,7 @@ Dans cette section, vous allez créer un utilisateur de test nommé Britta Simon
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
 
-    d. Sélectionnez **Créer**.
+    d. Sélectionnez **Create** (Créer).
  
 ### <a name="create-an-e-sales-manager-remix-test-user"></a>Créer un utilisateur de test E Sales Manager Remix
 
@@ -258,7 +258,7 @@ Dans cette section, vous allez autoriser l’utilisateur Britta Simon à utilise
 
 1. Dans la liste **Utilisateurs** de la fenêtre **Utilisateurs et groupes**, sélectionnez **Britta Simon**.
 
-1. Cliquez sur le bouton **Sélectionner**.
+1. Sélectionnez le bouton **Sélectionner**.
 
 1. Dans la fenêtre **Ajouter une affectation**, sélectionnez **Affecter**.
     

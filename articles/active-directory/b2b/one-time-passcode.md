@@ -13,11 +13,11 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d6d897bb983eb06baa4f1573f1f875eea8bb8afc
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74272320"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79230821"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>Authentification par code secret à usage unique d’e-mail (préversion)
 
@@ -63,7 +63,7 @@ Vous pouvez afficher les utilisateurs invités qui s’authentifient à l’aide
 > [!NOTE]
 > Lorsqu’un utilisateur accepte un code secret à usage unique, puis obtient un compte Azure AD, MSA, ou un autre compte fédéré, il continue d’être authentifié à l’aide d’un code secret à usage unique. Si vous souhaitez mettre à jour leur méthode d’authentification, vous pouvez supprimer le compte d’utilisateur invité et les inviter à nouveau.
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 L’utilisateur invité alexdoe@gmail.com est invité sur Fabrikam, qui n’a pas de fédération Google configurée. Alex n’a pas de compte Microsoft. Il va recevoir un code secret à usage unique pour s’authentifier.
 
 ## <a name="opting-in-to-the-preview"></a>Choix de la préversion 
@@ -80,7 +80,7 @@ Quelques minutes peuvent être nécessaires à la validation du choix. Après ce
 
 Vous allez devoir commencer par installer la dernière version du module Azure AD PowerShell for Graph (AzureADPreview). Puis vous allez déterminer si les stratégies B2B existent déjà et exécuter les commandes appropriées.
 
-#### <a name="prerequisite-install-the-latest-azureadpreview-module"></a>Configuration requise : Installez la dernière version du module AzureADPreview.
+#### <a name="prerequisite-install-the-latest-azureadpreview-module"></a>Condition préalable : Installez la dernière version du module AzureADPreview.
 Vérifiez d’abord les modules que vous avez installés. Ouvrez Windows PowerShell en tant qu’utilisateur avec privilèges élevés (Exécuter en tant qu’administrateur) et exécutez la commande suivante :
  
 ```powershell  

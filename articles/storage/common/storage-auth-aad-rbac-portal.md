@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: ec32990513d9199c4aaccf1bcfcbf76f348f877b
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75867504"
 ---
 # <a name="use-the-azure-portal-to-assign-an-rbac-role-for-access-to-blob-and-queue-data"></a>Utiliser le Portail Azure afin d’attribuer un rôle RBAC pour l’accès aux données de blob et de file d’attente
@@ -93,7 +93,7 @@ Suivez ces étapes pour attribuer le rôle **Lecteur** afin qu’un utilisateur 
 L’attribution du rôle **Lecteur** est uniquement nécessaire pour les utilisateurs qui doivent accéder aux blobs ou files d’attente à l’aide du Portail Azure.
 
 > [!IMPORTANT]
-> La préversion d’Explorateur Stockage dans le Portail Azure ne prend pas en charge l’utilisation d’informations d’identification Azure AD pour afficher et modifier des données blob ou de file d’attente. Explorateur Stockage dans le Portail Azure utilise toujours les clés de compte pour accéder aux données. Pour utiliser Explorateur Stockage dans le Portail Azure, vous devez être affecté à un rôle qui comprend **Microsoft.Storage/storageAccounts/listkeys/action**.
+> La préversion d’Explorateur Stockage dans le Portail Azure ne prend pas en charge l’utilisation d’informations d’identification Azure AD pour afficher et modifier des données blob ou de file d’attente. Explorateur Stockage dans le portail Azure utilise toujours les clés de compte pour accéder aux données. Pour utiliser Explorateur Stockage dans le Portail Azure, vous devez être affecté à un rôle qui comprend **Microsoft.Storage/storageAccounts/listkeys/action**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -13,10 +13,10 @@ ms.date: 04/02/2019
 tags: ''
 keywords: ''
 ms.openlocfilehash: 67af4eae03b773fad9cf38964152c1fb9d623bd5
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72025938"
 ---
 # <a name="install-ibm-zdt-devtest-environment-on-azure"></a>Installer l’environnement de développement/test IBM zD&T sur Azure
@@ -48,7 +48,7 @@ Cet article vous montre comment configurer zD&T (Z Development and Test Environm
 
 - Vous devez avoir accès au média, qui s’adresse uniquement aux clients et partenaires d’IBM. Pour plus d’informations, contactez votre représentant IBM ou procurez-vous les informations de contact sur le site web [zD&T](https://www.ibm.com/us-en/marketplace/z-systems-development-test-environment).
 
-- Un [serveur de licences](https://www.ibm.com/support/knowledgecenter/en/SSTQBD_12.0.0/com.ibm.zsys.rdt.tools.user.guide.doc/topics/zdt_ee.html). Il s’agit d’une condition d’accès aux environnements. La façon dont vous le créez dépend de la façon dont vous avez acheté vos licences logicielles auprès d’IBM :
+- Un [serveur de licences](https://www.ibm.com/support/knowledgecenter/en/SSTQBD_12.0.0/com.ibm.zsys.rdt.tools.user.guide.doc/topics/zdt_ee.html). Il s’agit d’une condition d’accès aux environnements. La façon dont vous le créez dépend de la façon dont vous avez acheté vos licences logicielles auprès d’IBM :
 
      - Le **serveur de licences matériel** nécessite une unité matérielle USB qui contient les jetons Rational nécessaires à l’accès à toutes les parties des logiciels. Vous devez vous la procurer auprès d’IBM.
 

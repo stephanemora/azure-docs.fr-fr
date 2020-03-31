@@ -4,10 +4,10 @@ description: À l’aide de C#, créez un bot conversationnel intégré avec com
 ms.topic: tutorial
 ms.date: 02/03/2020
 ms.openlocfilehash: 2381f4cba39f81ab593f3149a2708f442156f30d
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76987992"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-c"></a>Tutoriel : Utiliser un Web App Bot activé avec Language Understanding dans C#
@@ -22,7 +22,7 @@ ms.locfileid: "76987992"
 > * Démarrer le bot et l’émulateur localement sur votre ordinateur
 > * Afficher les résultats d’énoncé dans le bot
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * [Émulateur de bot](https://aka.ms/abs/build/emulatordownload)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/)
@@ -39,9 +39,9 @@ ms.locfileid: "76987992"
     |Paramètre|Objectif|Paramétrage suggéré|
     |--|--|--|
     |Nom du robot|Nom de la ressource|`luis-csharp-bot-` + `<your-name>`, par exemple, `luis-csharp-bot-johnsmith`|
-    |Subscription|Abonnement où créer le bot.|Votre abonnement principal.
+    |Abonnement|Abonnement où créer le bot.|Votre abonnement principal.
     |Resource group|Groupe logique de ressources Azure|Créer un groupe pour stocker toutes les ressources utilisées avec ce bot, et nommer le groupe `luis-csharp-bot-resource-group`.|
-    |Location|Région Azure, qui peut différer de la région de création ou de publication LUIS.|`westus`|
+    |Emplacement|Région Azure, qui peut différer de la région de création ou de publication LUIS.|`westus`|
     |Niveau tarifaire|Utilisé pour les limites de demande de service et la facturation.|`F0` est le niveau gratuit.
     |Nom de l’application|Utilisé comme sous-domaine durant le déploiement de votre bot sur le cloud (par exemple, humanresourcesbot.azurewebsites.net).|`luis-csharp-bot-` + `<your-name>`, par exemple, `luis-csharp-bot-johnsmith`|
     |Modèle de bot|Paramètres de Bot Framework : consultez le tableau suivant|

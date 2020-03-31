@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 077671ab4e964d7641aa3a0f0b435b39117eb6aa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65139389"
 ---
 # <a name="changing-the-adsync-service-account-password"></a>Modifier le mot de passe du compte de service ADSync
@@ -95,12 +95,12 @@ Comme les mots de passe existants stockés dans la base de données ne peuvent p
 
 1. Démarrez Synchronization Service Manager (DÉMARRER → Service de synchronisation).
 </br>![Sync Service Manager](./media/how-to-connect-sync-change-serviceacct-pass/startmenu.png)  
-2. Allez dans l’onglet **Connecteurs** .
+2. Accédez à l’onglet **Connecteurs** .
 3. Sélectionnez le **connecteur AD** qui correspond à votre Active Directory local. Si vous avez plusieurs connecteurs AD, répétez les étapes suivantes pour chacun d’entre eux.
 4. Sous **Actions**, sélectionnez **Propriétés**.
-5. Dans la boîte de dialogue contextuelle, sélectionnez **Se connecter à la forêt Active Directory** :
+5. Dans la boîte de dialogue contextuelle, sélectionnez **Se connecter à la forêt Active Directory** :
 6. Dans la zone de texte **Mot de passe**, tapez le mot de passe du compte AD DS. Si vous ne connaissez pas son mot de passe, vous devez le définir sur une valeur connue avant d’effectuer cette étape.
-7. Cliquez sur **OK** pour enregistrer le nouveau mot de passe et fermer la boîte de dialogue contextuelle.
+7. Cliquez sur **OK** pour enregistrer le nouveau mot de passe et fermez la boîte de dialogue contextuelle.
 ![Utilitaire de clé de chiffrement d’Azure AD Connect Sync](./media/how-to-connect-sync-change-serviceacct-pass/key6.png)
 
 #### <a name="reinitialize-the-password-of-the-adsync-service-account"></a>Réinitialiser le mot de passe du compte de service ADSync

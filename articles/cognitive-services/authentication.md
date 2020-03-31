@@ -1,5 +1,5 @@
 ---
-title: Authentication
+title: Authentification
 titleSuffix: Azure Cognitive Services
 description: 'Pour authentifier une requête auprès d’une ressource Azure Cognitive Services, trois options s’offrent à vous : une clé d’abonnement, un jeton du porteur ou un abonnement multiservice. Cet article décrit chaque méthode et explique comment adresser une requête.'
 services: cognitive-services
@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: erhopf
 ms.openlocfilehash: 1c13c2cc4d4e562d3512de90338d874091dfeef6
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74423941"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Authentifier des requêtes auprès d’Azure Cognitive Services
@@ -39,7 +39,7 @@ Passons rapidement en revue les en-têtes d’authentification disponibles en vu
 |--------|-------------|
 | Ocp-Apim-Subscription-Key | Utilisez cet en-tête pour authentifier une requête avec une clé d’abonnement à un service spécifique ou une clé d’abonnement multiservice. |
 | Ocp-Apim-Subscription-Region | Cet en-tête n’est nécessaire que si vous utilisez une clé d’abonnement multiservice avec l’[API de traduction de texte Translator Text](./Translator/reference/v3-0-reference.md). Utilisez cet en-tête pour spécifier la région de l’abonnement. |
-| Authorization | Utilisez cet en-tête si vous utilisez un jeton d’authentification. Les étapes à suivre pour effectuer un échange de jeton sont détaillées dans les sections suivantes. La valeur fournie est au format suivant : `Bearer <TOKEN>`. |
+| Autorisation | Utilisez cet en-tête si vous utilisez un jeton d’authentification. Les étapes à suivre pour effectuer un échange de jeton sont détaillées dans les sections suivantes. La valeur fournie est au format suivant : `Bearer <TOKEN>`. |
 
 ## <a name="authenticate-with-a-single-service-subscription-key"></a>Authentification avec une clé d’abonnement monoservice
 

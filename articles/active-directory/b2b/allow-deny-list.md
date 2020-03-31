@@ -13,10 +13,10 @@ ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8b5100c4406cfd4a8395dfa177dc3cd5e911decb
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74273421"
 ---
 # <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Autoriser ou bloquer des invitations aux utilisateurs B2B à partir d’organisations spécifiques
@@ -41,7 +41,7 @@ Il s’agit du scénario le plus courant, dans lequel votre organisation souhait
 
 Pour ajouter une liste d’exclusion :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Sélectionnez **Azure Active Directory** > **Utilisateurs** > **Paramètres d’utilisateur**.
 3. Sous **Utilisateurs externes**, sélectionnez **Gérer les paramètres de collaboration externe**.
 4. Sous **Restrictions de la collaboration**, sélectionnez **Refuser les invitations aux domaines spécifiés**.
@@ -62,7 +62,7 @@ Si vous souhaitez utiliser une liste verte, veillez à consacrer du temps à év
 
 Pour ajouter un élément à une liste verte :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Sélectionnez **Azure Active Directory** > **Utilisateurs** > **Paramètres d’utilisateur**.
 3. Sous **Utilisateurs externes**, sélectionnez **Gérer les paramètres de collaboration externe**.
 4. Sous **Restrictions de la collaboration**, sélectionnez **Allow invitations only to the specified domains (most restrictive)** (Autoriser les invitations uniquement vers les domaines spécifiés (le plus restrictif)).

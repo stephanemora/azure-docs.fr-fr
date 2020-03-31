@@ -12,10 +12,10 @@ ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
 ms.openlocfilehash: fabdd221ef99414eae0156babbd76dedb1f0745d
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72243016"
 ---
 # <a name="project-acoustics-unity-quickstart"></a>Démarrage rapide de Project Acoustics avec Unity
@@ -50,7 +50,7 @@ Pour importer le package dans un projet existant, consultez [Intégration d’Un
 ## <a name="restart-unity"></a>Redémarrer Unity
 La partie bake de la boîte à outils Acoustics nécessite la version du runtime de script .NET 4.*x*. L’importation de package met à jour les paramètres du lecteur Unity. Redémarrez Unity pour que ce paramètre prenne effet. Pour vérifier que le paramètre a pris effet, ouvrez les paramètres **Player** :
 
-![Menu Settings du projet Unity](media/player-settings.png)  
+![Menu de paramètres du projet Unity](media/player-settings.png)  
 
 ![Panneau Unity Player Settings avec .NET 4.x sélectionné](media/net45.png)  
 

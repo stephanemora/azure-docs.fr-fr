@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: cherylmc
 ms.openlocfilehash: 857b50a04466f43a25cf80d7930cfb4639dc9d65
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78301940"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79224993"
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Création d’une connexion de site à site dans le portail Azure
 
@@ -39,7 +39,7 @@ Vérifiez que vous disposez des éléments ci-dessous avant de commencer votre c
 * Vérifiez que vous disposez d’une adresse IPv4 publique exposée en externe pour votre périphérique VPN.
 * Si vous ne maîtrisez pas les plages d’adresses IP situées dans votre configuration de réseau local, vous devez contacter une personne en mesure de vous aider. Lorsque vous créez cette configuration, vous devez spécifier les préfixes des plages d’adresses IP qu’Azure acheminera vers votre emplacement local. Aucun des sous-réseaux de votre réseau local ne peut chevaucher les sous-réseaux du réseau virtuel auquel vous souhaitez vous connecter. 
 
-### <a name="values"></a>Exemples de valeurs
+### <a name="example-values"></a><a name="values"></a>Exemples de valeurs
 
 Nous utilisons les valeurs suivantes dans les exemples de cet article. Vous pouvez utiliser ces valeurs pour créer un environnement de test ou vous y référer pour mieux comprendre les exemples de cet article. Pour plus d’informations sur les paramètres de la passerelle VPN, voir [À propos des paramètres de la passerelle VPN](vpn-gateway-about-vpn-gateway-settings.md).
 
@@ -59,11 +59,11 @@ Nous utilisons les valeurs suivantes dans les exemples de cet article. Vous pouv
 * **Nom de la connexion :** VNet1toSite1
 * **Clé partagée :** Pour cet exemple, nous utilisons abc123. Toutefois, vous pouvez utiliser n’importe quelle valeur compatible avec votre matériel VPN. L’important est que les valeurs soient les mêmes de part et d’autre de la connexion.
 
-## <a name="CreatVNet"></a>1. Créez un réseau virtuel
+## <a name="1-create-a-virtual-network"></a><a name="CreatVNet"></a>1. Créez un réseau virtuel
 
 [!INCLUDE [Create a virtual network](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
-## <a name="VNetGateway"></a>2. Créer la passerelle VPN
+## <a name="2-create-the-vpn-gateway"></a><a name="VNetGateway"></a>2. Créer la passerelle VPN
 
 Dans cette étape, vous créez la passerelle de réseau virtuel de votre réseau virtuel. La création d’une passerelle nécessite généralement au moins 45 minutes, selon la référence SKU de passerelle sélectionnée.
 
@@ -84,7 +84,7 @@ Dans cette étape, vous créez la passerelle de réseau virtuel de votre réseau
 [!INCLUDE [NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
 
 
-## <a name="LocalNetworkGateway"></a>3. Créer la passerelle de réseau local
+## <a name="3-create-the-local-network-gateway"></a><a name="LocalNetworkGateway"></a>3. Créer la passerelle de réseau local
 
 La passerelle de réseau local fait généralement référence à votre emplacement local. Donnez au site un nom auquel Azure pourra se référer, puis spécifiez l’adresse IP du périphérique VPN local vers lequel vous allez créer une connexion. Spécifiez également les préfixes d’adresses IP qui seront acheminés via la passerelle VPN vers le périphérique VPN. Les préfixes d’adresses que vous spécifiez sont les préfixes situés sur votre réseau local. En cas de modification du réseau ou si vous devez modifier l’adresse IP publique de l’appareil VPN, il est simple de mettre à jour les valeurs ultérieurement.
 
@@ -97,7 +97,7 @@ La passerelle de réseau local fait généralement référence à votre emplacem
 
 [!INCLUDE [Add a local network gateway](../../includes/vpn-gateway-add-local-network-gateway-portal-include.md)]
 
-## <a name="VPNDevice"></a>4. Configuration de votre périphérique VPN
+## <a name="4-configure-your-vpn-device"></a><a name="VPNDevice"></a>4. Configuration de votre périphérique VPN
 
 Les connexions site à site vers un réseau local nécessitent un périphérique VPN. Dans cette étape, vous configurez votre périphérique VPN. Pour configurer votre périphérique VPN, vous avez besoin des éléments suivants :
 
@@ -106,29 +106,29 @@ Les connexions site à site vers un réseau local nécessitent un périphérique
 
 [!INCLUDE [Configure a VPN device](../../includes/vpn-gateway-configure-vpn-device-include.md)]
 
-## <a name="CreateConnection"></a>5. Créer la connexion VPN
+## <a name="5-create-the-vpn-connection"></a><a name="CreateConnection"></a>5. Créer la connexion VPN
 
 Créez la connexion VPN de site à site entre votre passerelle de réseau virtuel et votre périphérique VPN local.
 
 [!INCLUDE [Add a site-to-site connection](../../includes/vpn-gateway-add-site-to-site-connection-portal-include.md)]
 
-## <a name="VerifyConnection"></a>6. Vérifier la connexion VPN
+## <a name="6-verify-the-vpn-connection"></a><a name="VerifyConnection"></a>6. Vérifier la connexion VPN
 
 [!INCLUDE [Verify the connection](../../includes/vpn-gateway-verify-connection-portal-include.md)]
 
-## <a name="connectVM"></a>Se connecter à une machine virtuelle
+## <a name="to-connect-to-a-virtual-machine"></a><a name="connectVM"></a>Se connecter à une machine virtuelle
 
 [!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-s2s-include.md)]
 
-## <a name="reset"></a>Réinitialisation d’une passerelle VPN
+## <a name="how-to-reset-a-vpn-gateway"></a><a name="reset"></a>Réinitialisation d’une passerelle VPN
 
 La réinitialisation d’une passerelle VPN Azure est utile si vous perdez la connectivité VPN entre différents locaux sur un ou plusieurs tunnels VPN de site à site. Dans ce cas, vos périphériques VPN sur site fonctionnent tous correctement, mais ils ne sont pas en mesure d’établir des tunnels IPsec avec les passerelles VPN Azure. Pour obtenir la procédure, consultez [Réinitialiser une passerelle VPN](vpn-gateway-resetgw-classic.md).
 
-## <a name="resize"></a>Modification d’une référence SKU de passerelle (redimensionnement d’une passerelle)
+## <a name="how-to-change-a-gateway-sku-resize-a-gateway"></a><a name="resize"></a>Modification d’une référence SKU de passerelle (redimensionnement d’une passerelle)
 
 Pour obtenir la procédure permettant de modifier une référence SKU de passerelle, consultez [À propos des paramètres de configuration de la passerelle VPN](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
-## <a name="addconnect"></a>Ajout d’une connexion supplémentaire à une passerelle VPN
+## <a name="how-to-add-an-additional-connection-to-a-vpn-gateway"></a><a name="addconnect"></a>Ajout d’une connexion supplémentaire à une passerelle VPN
 
 Vous pouvez ajouter des connexions supplémentaires, à condition que les espaces d’adressage des connexions ne se chevauchent pas.
 
