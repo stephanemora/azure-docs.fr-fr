@@ -8,11 +8,11 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 5c947617f0c27708e72f9bff92e2b0041473cd92
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78355812"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231689"
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>Créer une application web dans un environnement App Service Environment v1
 
@@ -57,7 +57,7 @@ Ce didacticiel part du principe que vous avez créé un environnement App Servic
     Si votre ASE utilise une adresse VIP interne, alors l’URL d’une application de l’ASE aura le format : [*nomsite*]. [*sous-domaine spécifié lors de la création de l’ASE*]   
     Après avoir sélectionné votre ASP lors de la création de l’ASE vous verrez le sous-domaine mis à jour sous **Nom**
 
-## <a name="createplan"></a> Créer un plan App Service
+## <a name="create-an-app-service-plan"></a><a name="createplan"></a> Créer un plan App Service
 Lorsque vous créez un plan App Service dans un environnement App Service, vos choix de travaux sont différents, car il n’existe pas de travaux partagés dans un environnement App Service.  Les travaux que vous devez utiliser sont ceux qui ont été alloués à l’ASE par l’administrateur.  Cela signifie que pour créer un plan, le nombre de travaux alloués à votre pool de travail ASE doit être supérieur au nombre total d’instances à travers l’ensemble de vos plans déjà présents dans ce pool de travail.  Si vous n’avez pas suffisamment de travaux dans votre pool de travail ASE pour créer votre plan, demandez à l’administrateur de votre ASE de les ajouter.
 
 L’absence du choix de tarification constitue une autre différence avec les plans App Service hébergés par un environnement App Service.  Lorsque vous avez un environnement App Service, vous payez les ressources de calcul utilisées par le système et n’avez pas de frais supplémentaires pour les plans de cet environnement.  Normalement lorsque vous créez un plan App Service, vous sélectionnez un niveau de tarification qui détermine votre facturation.  Un environnement App Service est essentiellement un emplacement privé où vous pouvez créer un contenu.  Vous payez l'environnement et non l'hébergement de votre contenu.

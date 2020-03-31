@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 12/1/2016
 ms.author: alkohli
 ms.openlocfilehash: bb6bb491ca71e5ced5aecc8137e9e1cbd950e80b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "62123803"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-virtual-array"></a>Utiliser le service StorSimple Device Manager pour gérer votre StorSimple Virtual Array
 ![flux du processus d'installation](./media/storsimple-virtual-array-manager-service-administration/manage4.png)
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Cet article décrit l’interface du service StorSimple Device Manager, y compris la connexion à ce service et les différentes options disponibles, et fournit des liens vers des flux de travail spécifiques exécutables par le biais de cette interface utilisateur.
 
 À la fin de cet article, vous serez en mesure d’effectuer les opérations suivantes :

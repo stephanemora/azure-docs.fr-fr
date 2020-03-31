@@ -12,12 +12,12 @@ ms.date: 09/11/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: c5005f6438a53215054c6152722d1449aa593b4f
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 56975cebbfe4f6dd6452c850c338d431faea27bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77160914"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80050493"
 ---
 # <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>Meilleures pratiques et recommandations relatives à la plateforme d’identité Microsoft
 
@@ -56,7 +56,7 @@ Utilisez la check-list suivante pour vous assurer que votre application est int�
 
 |   |   |
 |---|---|
-| ![case à cocher](./media/active-directory-integration-checklist/checkbox-two.svg) | Gérez vos URI de redirection : <ul><li>Maintenez la propriété de tous vos URI de redirection et tenez à jour les enregistrements DNS connexes.</li><li>N’utilisez pas les caractères génériques (*) dans vos URI.</li><li>Pour les applications web, assurez-vous que tous les URI sont sécurisés et chiffrés (au moyen, par exemple, de schémas https).</li><li>Pour les clients publics, utilisez les URI de redirection spécifiques à la plateforme, si nécessaire (principalement pour iOS et Android). Sinon, utilisez les URI de redirection avec une grande quantité de caractère aléatoire pour empêcher les collisions lors du rappel à votre application.</li><li>Si votre application est utilisée à partir d’un agent web isolé, vous pouvez utiliser https://login.microsoftonline.com/common/oauth2/nativeclient.</li><li>Passez en revue régulièrement tous les URI de redirection et supprimez ceux qui sont inutiles ou inutilisés.</li></ul> |
+| ![case à cocher](./media/active-directory-integration-checklist/checkbox-two.svg) | Gérez vos URI de redirection : <ul><li>Maintenez la propriété de tous vos URI de redirection et tenez à jour les enregistrements DNS connexes.</li><li>N’utilisez pas les caractères génériques (*) dans vos URI.</li><li>Pour les applications web, assurez-vous que tous les URI sont sécurisés et chiffrés (au moyen, par exemple, de schémas https).</li><li>Pour les clients publics, utilisez les URI de redirection spécifiques à la plateforme, si nécessaire (principalement pour iOS et Android). Sinon, utilisez les URI de redirection avec une grande quantité de caractère aléatoire pour empêcher les collisions lors du rappel à votre application.</li><li>Si votre application est utilisée à partir d’un agent web isolé, vous pouvez utiliser `https://login.microsoftonline.com/common/oauth2/nativeclient`.</li><li>Passez en revue régulièrement tous les URI de redirection et supprimez ceux qui sont inutiles ou inutilisés.</li></ul> |
 | ![case à cocher](./media/active-directory-integration-checklist/checkbox-two.svg) | Si votre application est inscrite dans un annuaire, réduisez et supervisez manuellement la liste des propriétaires d’inscription d’application. |
 | ![case à cocher](./media/active-directory-integration-checklist/checkbox-two.svg) | N’activez pas la prise en charge du [flux d’octroi implicite OAuth2](v2-oauth2-implicit-grant-flow.md), sauf si elle est explicitement demandée. Apprenez-en davantage sur le scénario valide [ici](v2-oauth2-implicit-grant-flow.md#suitable-scenarios-for-the-oauth2-implicit-grant). |
 | ![case à cocher](./media/active-directory-integration-checklist/checkbox-two.svg) | Allez au-delà de la combinaison nom d’utilisateur/mot de passe. N’utilisez pas le [flux d’informations d’identification du mot de passe du propriétaire de la ressource (ROPC)](v2-oauth-ropc.md), qui gère directement les mots de passe des utilisateurs. Ce flux nécessite un degré élevé de confiance et d’exposition des utilisateurs ; il devrait être utilisé seulement lorsqu’il est impossible d’utiliser d’autres flux plus sécurisés. Ce flux reste nécessaire dans certains scénarios (comme DevOps), mais il faut savoir que son utilisation peut imposer des contraintes à votre application.  Pour approches plus modernes, consultez [Flux d’authentification et scénarios d’applications](authentication-flows-app-scenarios.md).|

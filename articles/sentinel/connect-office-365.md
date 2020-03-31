@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/12/2020
 ms.author: yelevin
 ms.openlocfilehash: 43eba727b1dc724aae6eea3ec77de1363c5db73f
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78252515"
 ---
 # <a name="connect-data-from-office-365-logs"></a>Connecter des données de journaux Office 365
@@ -30,7 +30,7 @@ Vous pouvez diffuser des journaux d’audit dans Azure Sentinel en un seul clic
 > [!IMPORTANT]
 > Si vous disposez d’une licence E3, avant de pouvoir accéder aux données par le biais de l’API d’activité de gestion Office 365, vous devez activer la journalisation d’audit unifiée pour votre organisation Office 365. Pour ce faire, activez le journal d’audit Office 365. Pour obtenir des instructions, voir [Activer ou désactiver la recherche dans un journal d’audit Office 365](https://docs.microsoft.com/office365/securitycompliance/turn-audit-log-search-on-or-off). Pour en savoir plus, consultez la section [Référence de l’API Activité de gestion Office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-activity-api-reference).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Vous devez être un administrateur général ou un administrateur de la sécurité sur ce locataire.
 - L’audit unifié doit être activé pour votre locataire. L’audit unifié est activé par défaut pour les locataires dotés des licences Office 365 E3 ou E5. <br>Si votre locataire ne dispose pas d’une de ces licences, vous devez activer l’audit unifié pour celui-ci à l’aide de l’une des méthodes suivantes :

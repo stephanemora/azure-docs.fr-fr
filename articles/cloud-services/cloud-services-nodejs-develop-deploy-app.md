@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 08/17/2017
 ms.author: tagore
 ms.openlocfilehash: 23fbb0b4c506b2f72000add9704618337b8b24cf
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75386185"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Création et déploiement d'une application Node.js dans Azure Cloud Services
@@ -55,8 +55,8 @@ Effectuez les tâches suivantes pour créer un projet Azure Cloud Services, avec
 
     L’applet de commande crée les fichiers suivants :
 
-   * **ServiceConfiguration.Cloud.cscfg**, **ServiceConfiguration.Local.cscfg** et **ServiceDefinition.csdef** : fichiers propres à Azure nécessaires pour publier votre application. Pour plus d'informations, consultez la page [Présentation de la création d'un service hébergé pour Azure].
-   * **deploymentSettings.json** : stocke les paramètres locaux utilisés par les applets de commande de déploiement Azure PowerShell.
+   * **ServiceConfiguration.Cloud.cscfg**, **ServiceConfiguration.Local.cscfg** et **ServiceDefinition.csdef** sont des fichiers propres à Azure, nécessaires à la publication de votre application. Pour plus d'informations, consultez la page [Présentation de la création d'un service hébergé pour Azure].
+   * **deploymentSettings.json**stocke les paramètres locaux utilisés par les cmdlets de déploiement Azure PowerShell.
 4. Entrez la commande suivante pour ajouter un nouveau rôle Web :
 
        Add-AzureNodeWebRole

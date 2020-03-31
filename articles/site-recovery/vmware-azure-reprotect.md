@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: mayg
 ms.openlocfilehash: 976888f57269cc9fe6107a38e30d78c73eb5c124
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75498109"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228913"
 ---
 # <a name="reprotect-from-azure-to-on-premises"></a>Reprotection d’Azure vers votre site local
 
@@ -20,7 +20,7 @@ Après un [basculement](site-recovery-failover.md) de machines virtuelles VMware
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-1. Suivez les étapes décrites dans [cet article](vmware-azure-prepare-failback.md) pour préparer la reprotection et la restauration automatique, notamment la configuration d’un serveur de processus dans Azure et d’un serveur cible maître local, ainsi que la configuration d’une connexion VPN de site à site ou d’un peering privé ExpressRoute pour la restauration automatique.
+1. Suivez les étapes décrites dans [cet article](vmware-azure-prepare-failback.md) pour préparer la reprotection et la restauration automatique, notamment la configuration d’un serveur de processus dans Azure et d’un serveur cible maître local, ainsi que la configuration d’un VPN de site à site ou d’une homologation privée ExpressRoute pour la restauration automatique.
 2. Vérifiez que le serveur de configuration local est en cours d’exécution et qu’il est connecté à Azure. Pendant le basculement vers Azure, le site local risque de ne pas être accessible et le serveur de configuration peut être indisponible ou à l’arrêt. Lors de la restauration automatique, la machine virtuelle doit exister dans la base de données du serveur de configuration. Sinon, la restauration automatique échoue.
 3. Supprimez les captures instantanées sur le serveur cible maître local. La reprotection ne fonctionnera pas en présence de captures instantanées.  Les captures instantanées sur la machine virtuelle sont automatiquement fusionnées lors d’une tâche de reprotection.
 4. Si vous reprotégez des machines virtuelles rassemblées dans un groupe de réplication pour assurer la cohérence de plusieurs machines virtuelles, vérifiez qu’elles ont toutes le même système d’exploitation (Windows ou Linux) et que le serveur cible maître que vous déployez a le même type de système d’exploitation. Toutes les machines virtuelles d’un groupe de réplication doivent utiliser le même serveur cible maître.
@@ -31,13 +31,13 @@ Après un [basculement](site-recovery-failover.md) de machines virtuelles VMware
 9. Si vous effectuez une restauration automatique vers un autre serveur vCenter, vérifiez que le nouveau serveur vCenter et le serveur cible maître sont détectés. Généralement, si cela n’est pas le cas, les magasins de données ne sont pas accessibles ou ne sont pas visibles dans **Reprotéger**.
 10. Vérifiez les scénarios suivants, qui ne permettent pas de restauration automatique :
     - Si vous utilisez les éditions gratuites d’ESXi 5.5 ou de vSphere Hypervisor 6. Effectuez une mise à niveau vers une autre version.
-    - Si vous avez un serveur physique Windows Server 2008 R2 SP1.
+    - Si vous avez un serveur physique Windows Server 2008 R2 SP1.
     - Les machines virtuelles VMware ne peuvent pas effectuer de restauration automatique vers Hyper-V.
     - Machines virtuelles qui ont [été migrées](migrate-overview.md#what-do-we-mean-by-migration).
     - Une machine virtuelle qui a été déplacée vers un autre groupe de ressources.
     - Une machine virtuelle Azure de réplication qui a été supprimée.
     - Une machine virtuelle Azure de réplication qui n’est pas protégée (réplication sur le site local).
-10. [Passez en revue les types de restauration automatique](concepts-types-of-failback.md) que vous pouvez utiliser : récupération à l’emplacement d’origine et récupération à un autre emplacement.
+10. [Examinez en revue les types de restaurations automatiques](concepts-types-of-failback.md) que vous pouvez utiliser : récupération dans l’emplacement d’origine et récupération dans un autre emplacement.
 
 
 ## <a name="enable-reprotection"></a>Activer la reprotection
@@ -65,7 +65,7 @@ Activez la reprotection comme suit :
 
     ![Reprotéger la boîte de dialogue](./media/vmware-azure-reprotect/reprotectinputs.png)
     
-8. Une tâche de réplication de la machine virtuelle Azure sur le site local commence. Vous pouvez en suivre la progression sous l’onglet **Tâches** .
+8. Un travail de réplication de la machine virtuelle Azure sur le site local commence. Vous pouvez en suivre la progression sous l’onglet **Tâches** .
     - Une fois la reprotection réussie, la machine virtuelle passe à l’état protégé.
     - La machine virtuelle locale est désactivée au cours de la reprotection. Cela permet de garantir la cohérence des données pendant la réplication.
     - N’activez pas la machine virtuelle locale une fois la reprotection terminée.

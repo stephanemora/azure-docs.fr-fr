@@ -10,16 +10,16 @@ ms.service: lab-services
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: how-to
 ms.custom: mvc
-ms.date: 09/19/2019
+ms.date: 03/17/2020
 ms.author: spelluru
-ms.openlocfilehash: 2ac9e8b8d0635eceb7d4f85ad867b102f7d064f5
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: db1e60ccd7e05cb8b6923d6b2ec008cdfb76eaa1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73585157"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79501933"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Accéder à un laboratoire de classe dans Azure Lab Services
 Cet article explique comment vous inscrire à un labo de salle de classe, voir tous les labos auxquels vous pouvez accéder, démarrer/arrêter une machine virtuelle dans le labo et vous connecter à la machine virtuelle. 
@@ -60,29 +60,6 @@ Cet article explique comment vous inscrire à un labo de salle de classe, voir t
     3. Pour les machines virtuelles **Linux**, vous pouvez utiliser **SSH** ou **RDP** (s’il est activé) pour vous y connecter. Pour plus d’informations, consultez [Activer la connexion Bureau à distance pour les machines Linux](how-to-enable-remote-desktop-linux.md). 
     1. Si vous utilisez un **Mac** pour vous connecter à la machine virtuelle de laboratoire, suivez les instructions de la section suivante. 
 
-## <a name="connect-to-a-vm-using-rdp-on-a-mac"></a>Se connecter à une machine virtuelle avec RDP sur un Mac
-Cette section montre comment un étudiant peut se connecter à une machine virtuelle à partir d’un Mac en utilisant le protocole RDP.
-
-### <a name="step-1-install-microsoft-remote-desktop-on-a-mac"></a>Étape 1 : Installer Bureau à distance Microsoft sur un Mac
-1. Ouvrez l’App Store sur votre Mac et recherchez **Bureau à distance Microsoft**.
-
-    ![Bureau à distance Microsoft](../media/how-to-use-classroom-lab/install-ms-remote-desktop.png)
-1. Installez la dernière version de Bureau à distance Microsoft. 
-
-### <a name="step-2-access-the-vm-from-your-mac-using-rdp"></a>Étape 2 : Accéder à la machine virtuelle à partir de votre Mac à l’aide de RDP
-1. Ouvrez le fichier **RDP** qui est téléchargé sur votre ordinateur lorsque **Bureau à distance Microsoft** est installé. Il doit commencer à se connecter à la machine virtuelle. 
-
-    ![Se connecter à une machine virtuelle](../media/how-to-use-classroom-lab/connect-linux-vm.png)
-1. Sélectionnez **Continuer** si vous recevez l’avertissement suivant. 
-
-    ![Avertissement de certificat](../media/how-to-use-classroom-lab/certificate-error.png)
-1. Vous devez voir la machine virtuelle. 
-
-    > [!NOTE]
-    > L’exemple suivant correspond à une machine virtuelle CentOS Linux. 
-
-    ![Machine virtuelle](../media/how-to-use-classroom-lab/vm-ui.png)
-
 ## <a name="progress-bar"></a>Barre de progression 
 La barre de progression sur la vignette indique le nombre d’heures d’utilisation par rapport aux [heures de quota](how-to-configure-student-usage.md#set-quotas-for-users) qui vous sont attribuées. Il s’agit du temps qui vous est alloué en plus du temps planifié pour le labo. La couleur de la barre de progression et le texte apparaissant en dessous varient selon les scénarios suivants :
 
@@ -111,7 +88,7 @@ Une fois que vous êtes inscrit, vous pouvez voir tous les labos de classe en ef
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez les articles suivants :
+Voir les articles suivants :
 
 - [En tant qu’administrateur, créer et gérer des comptes de labo](how-to-manage-lab-accounts.md)
 - [En tant que propriétaire de labo, créer et gérer des labos](how-to-manage-classroom-labs.md)

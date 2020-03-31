@@ -7,12 +7,12 @@ ms.review: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: 74f6df1fbc749a5ec015afb954ca6b12cbe0f18f
-ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+ms.openlocfilehash: b19aae8ab6730936a826f5bb069bfdb7d696cdfa
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79086953"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80246634"
 ---
 # <a name="flatten-transformation-in-mapping-data-flow"></a>Transformation d’aplatissement dans le flux de données de mappage
 
@@ -43,23 +43,23 @@ Pour vérifier votre sortie de mappage, reportez-vous à l’onglet Inspection e
 Reportez-vous à l’objet JSON suivant pour les exemples ci-dessous de transformation d’aplatissement.
 
 ``` json
-[{
+{
   "name":"MSFT","location":"Redmond", "satellites": ["Bay Area", "Shanghai"],
   "goods": {
     "trade":true, "customers":["government", "distributer", "retail"],
     "orders":[
         {"orderId":1,"orderTotal":123.34,"shipped":{"orderItems":[{"itemName":"Laptop","itemQty":20},{"itemName":"Charger","itemQty":2}]}},
         {"orderId":2,"orderTotal":323.34,"shipped":{"orderItems":[{"itemName":"Mice","itemQty":2},{"itemName":"Keyboard","itemQty":1}]}}
-    ]}},
+    ]}}
 {"name":"Company1","location":"Seattle", "satellites": ["New York"],
   "goods":{"trade":false, "customers":["store1", "store2"],
   "orders":[
       {"orderId":4,"orderTotal":123.34,"shipped":{"orderItems":[{"itemName":"Laptop","itemQty":20},{"itemName":"Charger","itemQty":3}]}},
       {"orderId":5,"orderTotal":343.24,"shipped":{"orderItems":[{"itemName":"Chair","itemQty":4},{"itemName":"Lamp","itemQty":2}]}}
-    ]}},
+    ]}}
 {"name": "Company2", "location": "Bellevue",
-  "goods": {"trade": true, "customers":["Bank"], "orders": [{"orderId": 4, "orderTotal": 123.34}]}},
-{"name": "Company3", "location": "Kirkland"}]
+  "goods": {"trade": true, "customers":["Bank"], "orders": [{"orderId": 4, "orderTotal": 123.34}]}}
+{"name": "Company3", "location": "Kirkland"}
 ```
 
 ### <a name="no-unroll-root-with-string-array"></a>Aucune racine de déroulement avec tableau de chaînes
@@ -71,12 +71,12 @@ Reportez-vous à l’objet JSON suivant pour les exemples ci-dessous de transfor
 #### <a name="output"></a>Output
 
 ```
-{ 'MSFT', 'government'},
-{ 'MSFT', 'distributer'},
-{ 'MSFT', 'retail'},
-{ 'Company1', 'store'},
-{ 'Company1', 'store2'},
-{ 'Company2', 'Bank'},
+{ 'MSFT', 'government'}
+{ 'MSFT', 'distributer'}
+{ 'MSFT', 'retail'}
+{ 'Company1', 'store'}
+{ 'Company1', 'store2'}
+{ 'Company2', 'Bank'}
 { 'Company3', null}
 ```
 
@@ -89,15 +89,15 @@ Reportez-vous à l’objet JSON suivant pour les exemples ci-dessous de transfor
 #### <a name="output"></a>Output
 
 ```
-{ 'MSFT', 1, 'Laptop', 20, 'Redmond'},
-{ 'MSFT', 1, 'Charger', 2, 'Redmond'},
-{ 'MSFT', 2, 'Mice', 2, 'Redmond'},
-{ 'MSFT', 2, 'Keyboard', 1, 'Redmond'},
-{ 'Company1', 4, 'Laptop', 20, 'Seattle'},
-{ 'Company1', 4, 'Charger', 3, 'Seattle'},
-{ 'Company1', 5, 'Chair', 4, 'Seattle'},
-{ 'Company1', 5, 'Lamp', 2, 'Seattle'},
-{ 'Company2', 4, null, null, 'Bellevue'},
+{ 'MSFT', 1, 'Laptop', 20, 'Redmond'}
+{ 'MSFT', 1, 'Charger', 2, 'Redmond'}
+{ 'MSFT', 2, 'Mice', 2, 'Redmond'}
+{ 'MSFT', 2, 'Keyboard', 1, 'Redmond'}
+{ 'Company1', 4, 'Laptop', 20, 'Seattle'}
+{ 'Company1', 4, 'Charger', 3, 'Seattle'}
+{ 'Company1', 5, 'Chair', 4, 'Seattle'}
+{ 'Company1', 5, 'Lamp', 2, 'Seattle'}
+{ 'Company2', 4, null, null, 'Bellevue'}
 { 'Company3', null, null, null, 'Kirkland'}
 ```
 
@@ -110,10 +110,10 @@ Reportez-vous à l’objet JSON suivant pour les exemples ci-dessous de transfor
 #### <a name="output"></a>Output
 
 ```
-{ 'MSFT', ['Laptop','Charger'], ['government','distributer','retail'], 'Redmond'},
-{ 'MSFT', ['Mice', 'Keyboard'], ['government','distributer','retail'], 'Redmond'},
-{ 'Company1', ['Laptop','Charger'], ['store', 'store2'], 'Seattle'},
-{ 'Company1', ['Chair', 'Lamp'], ['store', 'store2'], 'Seattle'},
+{ 'MSFT', ['Laptop','Charger'], ['government','distributer','retail'], 'Redmond'}
+{ 'MSFT', ['Mice', 'Keyboard'], ['government','distributer','retail'], 'Redmond'}
+{ 'Company1', ['Laptop','Charger'], ['store', 'store2'], 'Seattle'}
+{ 'Company1', ['Chair', 'Lamp'], ['store', 'store2'], 'Seattle'}
 { 'Company2', null, ['Bank'], 'Bellevue'}
 ```
 
@@ -126,14 +126,14 @@ Reportez-vous à l’objet JSON suivant pour les exemples ci-dessous de transfor
 #### <a name="output"></a>Output
 
 ```
-{ 'MSFT', 1, 'Laptop', 20, 'Redmond'},
-{ 'MSFT', 1, 'Charger', 2, 'Redmond'},
-{ 'MSFT', 2, 'Mice', 2, 'Redmond'},
-{ 'MSFT', 2, 'Keyboard', 1, 'Redmond'},
-{ 'Company1', 4, 'Laptop', 20, 'Seattle'},
-{ 'Company1', 4, 'Charger', 3, 'Seattle'},
-{ 'Company1', 5, 'Chair', 4, 'Seattle'},
-{ 'Company1', 5, 'Lamp', 2, 'Seattle'},
+{ 'MSFT', 1, 'Laptop', 20, 'Redmond'}
+{ 'MSFT', 1, 'Charger', 2, 'Redmond'}
+{ 'MSFT', 2, 'Mice', 2, 'Redmond'}
+{ 'MSFT', 2, 'Keyboard', 1, 'Redmond'}
+{ 'Company1', 4, 'Laptop', 20, 'Seattle'}
+{ 'Company1', 4, 'Charger', 3, 'Seattle'}
+{ 'Company1', 5, 'Chair', 4, 'Seattle'}
+{ 'Company1', 5, 'Lamp', 2, 'Seattle'}
 { 'Company2', 4, null, null, 'Bellevue'}
 ```
 

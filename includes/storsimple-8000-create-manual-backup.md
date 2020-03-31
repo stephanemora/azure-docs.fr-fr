@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 4fc92931979aa367bdead435c3d6fd758d66a397
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67177138"
 ---
 #### <a name="to-create-a-manual-backup"></a>Création d’une sauvegarde manuelle
@@ -21,7 +21,7 @@ ms.locfileid: "67177138"
 
 3. Dans le panneau **Back up now** (Sauvegarder maintenant), procédez comme suit :
 
-    1. Dans la liste déroulante, sélectionnez le **Type d'instantané** qui convient : instantané **Local** ou instantané **Cloud**. Sélectionnez une capture instantanée locale pour les restaurations ou sauvegardes rapides et une capture instantanée cloud pour la résilience des données.
+    1. Dans la liste déroulante, choisissez le **type d’instantané** : **Local** ou **Cloud**. Sélectionnez une capture instantanée locale pour les restaurations ou sauvegardes rapides et une capture instantanée cloud pour la résilience des données.
 
         ![Création d’une sauvegarde manuelle](./media/storsimple-8000-create-manual-backup/createmanualbu2.png)
 

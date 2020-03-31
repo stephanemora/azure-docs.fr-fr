@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 53ffc6dd36dbf8588b5e1eb26b461e22c7445092
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 9f4b9d53aaa1cac17fbaae4b638e144654fad4e5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75747681"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79535627"
 ---
 # <a name="create-an-oracle-database-in-an-azure-vm"></a>Créer une base de données Oracle dans une machine virtuelle Azure
 
@@ -35,9 +35,10 @@ Créez un groupe de ressources avec la commande [az group create](/cli/azure/gro
 
 L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *eastus*.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
+
 ## <a name="create-virtual-machine"></a>Créer une machine virtuelle
 
 Pour créer une machine virtuelle, utilisez la commande [az vm create](/cli/azure/vm). 
@@ -56,7 +57,7 @@ az vm create \
 
 Une fois que vous avez créé la machine virtuelle, Azure CLI affiche des informations similaires à l’exemple suivant. Notez la valeur pour `publicIpAddress`. Vous utilisez cette adresse pour accéder à la machine virtuelle.
 
-```azurecli
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/{snip}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -73,7 +74,7 @@ Une fois que vous avez créé la machine virtuelle, Azure CLI affiche des inform
 
 Pour créer une session SSH avec la machine virtuelle, utilisez la commande suivante. Remplacez l’adresse IP par la valeur de `publicIpAddress` pour votre machine virtuelle.
 
-```bash 
+```bash
 ssh azureuser@<publicIpAddress>
 ```
 
@@ -90,7 +91,7 @@ Le logiciel Oracle est déjà installé sur l’image Place de marché. Créer u
 
     Le résultat ressemble à ce qui suit :
 
-    ```bash
+    ```output
     Copyright (c) 1991, 2014, Oracle.  All rights reserved.
 
     Starting /u01/app/oracle/product/12.1.0/dbhome_1/bin/tnslsnr: please wait...
@@ -148,6 +149,7 @@ Avant de vous connecter, vous devez fixer deux variables d’environnement : *O
 ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
 ORACLE_SID=cdb1; export ORACLE_SID
 ```
+
 Vous pouvez également ajouter les variables ORACLE_HOME et ORACLE_SID au fichier .bashrc. Cela aura pour effet de sauvegarder les variables d’environnement lors des connexions futures. Confirmez le fait que les instructions suivantes ont été ajoutées au fichier `~/.bashrc` à l’aide de l’éditeur de votre choix.
 
 ```bash
@@ -181,7 +183,7 @@ Pour un outil de gestion GUI que vous pouvez utiliser pour explorer la base de d
 
     Le résultat ressemble à ce qui suit :
 
-    ```bash
+    ```output
       CON_ID NAME                           OPEN_MODE 
       ----------- ------------------------- ---------- 
       2           PDB$SEED                  READ ONLY 
@@ -202,6 +204,7 @@ Vous devez taper `quit` à la fin de la session sqlplus, puis `exit` pour vous d
 La base de données Oracle par défaut ne s’enclenche pas automatiquement lorsque vous redémarrez la machine virtuelle. Pour configurer la base de données Oracle afin qu’elle démarre automatiquement, connectez-vous d’abord en tant qu’utilisateur racine. Puis, créez et mettez à jour des fichiers système.
 
 1. Connexion en tant qu’utilisateur racine
+
     ```bash
     sudo su -
     ```
@@ -214,7 +217,7 @@ La base de données Oracle par défaut ne s’enclenche pas automatiquement lors
 
 3.  Créez un fichier nommé `/etc/init.d/dbora` et collez le contenu suivant :
 
-    ```
+    ```bash
     #!/bin/sh
     # chkconfig: 345 99 10
     # Description: Oracle auto start-stop script.
@@ -304,7 +307,7 @@ La dernière étape consiste à configurer quelques points de terminaison extern
 
 4.  Connectez-vous à EM Express à partir de votre navigateur. Assurez-vous que votre navigateur est compatible avec EM Express (l’installation de Flash est requise) : 
 
-    ```
+    ```https
     https://<VM ip address or hostname>:5502/em
     ```
 
@@ -316,7 +319,7 @@ Vous pouvez vous connecter à l’aide du compte **SYS**, puis activer la case �
 
 Une fois que vous avez terminé d’explorer votre première base de données Oracle sur Azure et que la machine virtuelle n’est plus nécessaire, vous pouvez utiliser la commande [az group delete](/cli/azure/group) pour supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 

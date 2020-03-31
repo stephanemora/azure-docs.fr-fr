@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
 ms.openlocfilehash: 44368ab90abd189c6a8a0792494828c87142eb20
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77672393"
 ---
 # <a name="collect-data-from-azure-diagnostics-extension-to-azure-monitor-logs"></a>Collecter des données de l’extension de diagnostic Azure et les enregistrer dans des journaux d’activité Azure Monitor
@@ -22,7 +22,7 @@ L’extension de diagnostic Azure est un [agent présent dans Azure Monitor](age
 ## <a name="supported-data-types"></a>Types de données pris en charge
 L’extension de diagnostic Azure stocke des données dans un compte Stockage Azure. Pour que des journaux d’activité Azure Monitor collectent ces données, ceux-ci doivent se trouver dans les emplacements suivants :
 
-| Type de journal | Type de ressource | Emplacement |
+| Type de journal | Type de ressource | Location |
 | --- | --- | --- |
 | Journaux d’activité IIS |Virtual Machines <br> Rôles web <br> Rôles de travail |wad-iis-logfiles (Stockage Blob) |
 | syslog |Virtual Machines |LinuxSyslogVer2v0 (Stockage Table) |

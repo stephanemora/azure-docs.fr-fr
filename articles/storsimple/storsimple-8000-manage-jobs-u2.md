@@ -15,15 +15,15 @@ ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: 462f8dafdffa7ee01e6ccf7945a1abfdff90db42
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64720695"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228205"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-jobs-update-3-and-later"></a>Utiliser le service StorSimple Device Manager pour afficher et gérer des travaux (Update 3 et versions ultérieures)
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Le panneau **Travaux (jobs)** est un portail centralisé unique qui permet de consulter et de gérer les travaux qui ont été lancés sur les appareils connectés à votre service StorSimple Device Manager. Vous pouvez consulter les tâches planifiées, en cours d'exécution, terminées, annulées et en échec pour plusieurs appareils. Les résultats sont présentés sous forme de tableau.
 
 ![Panneau Tâches](./media/storsimple-8000-manage-jobs-u2/jobs1.png)
@@ -40,7 +40,7 @@ Les tâches filtrées sont ensuite affichées sous forme de tableau sur la base 
 * **Nom** : une sauvegarde planifiée, une sauvegarde manuelle, une restauration de sauvegarde, un clonage de volume, un basculement de conteneurs de volumes, une création de volume épinglé localement, une modification de volume, une installation de mises à jour, une collecte de journaux d’activité de support ou une création d’appliance cloud.
 * **État** : en cours d'exécution, terminées, annulées, en échec, en cours d'annulation ou terminées avec des erreurs.
 * **Entité** : les tâches peuvent être associées à un volume, une stratégie de sauvegarde ou un appareil. Par exemple, une tâche de clonage est associée à un volume, tandis qu'une tâche de sauvegarde planifiée est associée à une stratégie de sauvegarde. Une tâche d’appareil est créée à la suite d’une récupération d'urgence ou d’une opération de restauration.
-* **Appareil** : nom de l'appareil sur lequel la tâche a été lancée.
+* **Appareil** : nom de l’appareil sur lequel la tâche a été lancée.
 * **Démarré le** : heure à laquelle la tâche a été lancée.
 * **Durée** : le temps nécessaire pour terminer le travail.
 

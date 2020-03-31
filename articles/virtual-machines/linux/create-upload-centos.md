@@ -1,17 +1,17 @@
 ---
 title: Créer et charger un disque dur virtuel Linux basé sur CentOS
 description: Apprenez à créer et à télécharger un disque dur virtuel (VHD) Azure contenant le système d'exploitation Linux CentOS.
-author: mimckitt
+author: gbowerman
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 11/25/2019
-ms.author: mimckitt
-ms.openlocfilehash: 84dfb3a24d3b3440cb929fa6c7e7f70983051a72
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.author: guybo
+ms.openlocfilehash: 8899249fd284f69fa26bab8cd70aaf6a67fbb83c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78969506"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80066780"
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>Préparation d'une machine virtuelle CentOS pour Azure
 
@@ -21,7 +21,7 @@ Apprenez à créer et à télécharger un disque dur virtuel (VHD) Azure conte
 * [Préparation d’une machine virtuelle CentOS 7.0+ pour Azure](#centos-70)
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Cet article suppose que vous avez déjà installé un système d'exploitation CentOS (ou une distribution dérivée similaire) de Linux dans un disque dur virtuel. Il existe de multiples outils dédiés à la création de fichiers .vhd, comme la solution de virtualisation Hyper-V. Pour obtenir des instructions, consultez la page [Installation du rôle Hyper-V et configuration d'une machine virtuelle](https://technet.microsoft.com/library/hh846766.aspx).
 
@@ -342,7 +342,7 @@ La préparation d'une machine virtuelle CentOS 7 pour Azure est très similai
     sudo grub2-mkconfig -o /boot/grub2/grub.cfg
     ```
 
-10. Si vous générez l’image depuis **VMware, VirtualBox ou KVM :** vérifiez que les pilotes Hyper-V sont inclus dans l’initramfs :
+10. Si vous créez l’image à partir de **VMware, VirtualBox ou KVM :** assurez-vous que les pilotes Hyper-V sont inclus dans l’initramfs :
 
     Modifiez `/etc/dracut.conf`, ajoutez le contenu :
 

@@ -8,10 +8,10 @@ ms.date: 08/29/2019
 ms.author: victorh
 ms.topic: article
 ms.openlocfilehash: e97783d1a32916cad151f1d0858a8190d0005fd0
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73831980"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-cli"></a>Déployer et configurer un pare-feu Azure à l’aide d’Azure CLI
@@ -49,9 +49,9 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-### <a name="azure-cli"></a>D’Azure CLI
+### <a name="azure-cli"></a>Azure CLI
 
 Si vous choisissez d’installer et d’utiliser l’interface CLI localement, exécutez Azure CLI version 2.0.4 ou ultérieure. Pour connaître la version, exécutez **az --version**. Pour plus d’informations sur l’installation ou la mise à niveau, consultez [Installer Azure CLI]( /cli/azure/install-azure-cli).
 
@@ -284,14 +284,14 @@ Testez maintenant le pare-feu pour vérifier qu’il fonctionne comme prévu.
    Invoke-WebRequest -Uri https://www.microsoft.com
    ```
 
-   Les requêtes `www.google.com` doivent réussir, et les requêtes `www.microsoft.com` doivent échouer. Cet exemple montre que vos règles de pare-feu fonctionnent comme prévu.
+   Les requêtes `www.google.com` doivent réussir, et les requêtes `www.microsoft.com` échouer. Cet exemple montre que vos règles de pare-feu fonctionnent comme prévu.
 
 Maintenant que vous avez vérifié que les règles de pare-feu fonctionnent :
 
 * Vous pouvez résoudre les noms DNS à l’aide du serveur DNS externe configuré.
 * Vous pouvez accéder au nom de domaine complet autorisé, mais pas à d’autres.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Conservez vos ressources de pare-feu pour le prochain tutoriel ou, si vous n’en avez plus besoin, supprimez le groupe de ressources **Test-FW-RG** pour supprimer toutes les ressources associées au pare-feu :
 
@@ -302,4 +302,4 @@ az group delete \
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Tutoriel : Superviser les journaux d’activité de Pare-feu Azure](./tutorial-diagnostics.md)
+* [Tutoriel : Surveiller les journaux d’activité de Pare-feu Azure](./tutorial-diagnostics.md)

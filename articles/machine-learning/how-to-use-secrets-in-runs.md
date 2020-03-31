@@ -1,7 +1,7 @@
 ---
-title: Utiliser des secrets dans les cycles d’entraînement
+title: Utiliser des secrets dans les cycles d’apprentissage
 titleSuffix: Azure Machine Learning
-description: Transmettre des secrets à des cycles d’entraînement de manière sécurisée à l’aide du coffre de clés d’espace de travail
+description: Transmettre des secrets à des cycles d’apprentissage de manière sécurisée à l’aide du coffre de clés d’espace de travail
 services: machine-learning
 author: rastala
 ms.author: roastala
@@ -11,16 +11,16 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.openlocfilehash: d877794abf12b8b412cd1ecf4efd72fd1179d768
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78942260"
 ---
-# <a name="use-secrets-in-training-runs"></a>Utiliser des secrets dans les cycles d’entraînement
+# <a name="use-secrets-in-training-runs"></a>Utiliser des secrets dans les cycles d’apprentissage
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Cet article explique comment utiliser des secrets dans des cycles d’entraînement en toute sécurité. Les informations d’authentification, telles que votre nom d’utilisateur et votre mot de passe, sont des secrets. Par exemple, si vous vous connectez à une base de données externe pour interroger des données d’entraînement, vous devez transmettre vos nom d’utilisateur et mot de passe au contexte d’exécution à distance. La programmation de telles valeurs dans des scripts d’entraînement en texte clair n’est pas sécurisée, car elle exposerait le secret. 
+Cet article explique comment utiliser des secrets dans des cycles d’apprentissage en toute sécurité. Les informations d’authentification, telles que votre nom d’utilisateur et votre mot de passe, sont des secrets. Par exemple, si vous vous connectez à une base de données externe pour interroger des données d’entraînement, vous devez transmettre vos nom d’utilisateur et mot de passe au contexte d’exécution à distance. La programmation de telles valeurs dans des scripts d’entraînement en texte clair n’est pas sécurisée, car elle exposerait le secret. 
 
 Au lieu de cela, votre espace de travail Azure Machine Learning a une ressource associée appelée [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview). Utilisez ce coffre de clés pour transmettre des secrets de façon sécurisée aux exécutions distantes par le biais d’un ensemble d’API dans le SDK Python pour Azure Machine Learning.
 
@@ -50,7 +50,7 @@ Ne placez pas la valeur du secret dans votre code Python, car il n’est pas sû
 
 Vous pouvez lister les noms des secrets à l’aide de la méthode [`list_secrets()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.keyvault.keyvault?view=azure-ml-py#list-secrets--), et il existe également une version par lot, [set_secrets()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.keyvault.keyvault?view=azure-ml-py#set-secrets-secrets-batch-), qui vous permet de définir plusieurs secrets à la fois.
 
-## <a name="get-secrets"></a>Obtenir les secrets
+## <a name="get-secrets"></a>Get secrets (Obtenir les secrets)
 
 Dans votre code local, vous pouvez utiliser la méthode [`get_secret()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.keyvault.keyvault?view=azure-ml-py#get-secret-name-) pour obtenir la valeur de secret par son nom.
 

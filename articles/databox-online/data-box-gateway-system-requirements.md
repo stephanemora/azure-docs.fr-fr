@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 05/08/2019
 ms.author: alkohli
 ms.openlocfilehash: e8932097bcdef782b1a551d386c2872e02d8abfd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65442386"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79229841"
 ---
 # <a name="azure-data-box-gateway-system-requirements"></a>Configuration système Azure Data Box Gateway
 
@@ -34,7 +34,7 @@ Le système hôte sous-jacent pour le Data Box Gateway est en mesure de dédier 
 | Processeurs virtuels (cœurs)   | 4 minimum |
 | Mémoire  | 8 Go minimum|
 | Disponibilité|Nœud unique|
-| Disques| Disque de système d’exploitation : 250 Go <br> Disque de données : 2 To minimum, allocation dynamique et sauvegarde sur SSD|
+| Disques| Disque du système d'exploitation : 250 Go <br> Disque de données : 2 To minimum, allocation dynamique et sauvegarde sur SSD|
 | Interfaces réseau|1 ou plusieurs interfaces réseau virtuelles|
 
 
@@ -67,7 +67,7 @@ Le système hôte sous-jacent pour le Data Box Gateway est en mesure de dédier 
 
 [!INCLUDE [Supported browsers for local web UI](../../includes/data-box-edge-gateway-supported-browsers.md)]
 
-## <a name="networking-port-requirements"></a>Configuration requise des ports réseau
+## <a name="networking-port-requirements"></a>Configuration requise du port réseau
 
 Le tableau ci-dessous répertorie les ports qui doivent être ouverts dans votre pare-feu pour autoriser le trafic SMB, cloud ou de gestion. Dans ce tableau, *entrée* ou *entrant* représente la direction à partir de laquelle les requêtes clientes entrantes accèdent à votre appareil. *Sortie* ou *sortant* représente la direction vers laquelle votre appareil Data Box Gateway envoie des données de façon externe, au-delà du déploiement : par exemple, sortant vers Internet.
 

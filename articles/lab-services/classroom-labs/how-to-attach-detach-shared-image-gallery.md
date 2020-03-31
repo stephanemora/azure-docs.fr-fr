@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/24/2020
 ms.author: spelluru
-ms.openlocfilehash: 3e915c26e9469b37ac8bc345c4d5cd1712e7acdb
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 00dbef7b4453ffcb54020340bde51f55827759a0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77597726"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79237265"
 ---
 # <a name="attach-or-detach-a-shared-image-gallery-in-azure-lab-services"></a>Joindre ou détacher une galerie d’images partagées dans Azure Lab Services
 L’administrateur du laboratoire ou des enseignants peuvent enregistrer un modèle d’image de machine virtuelle dans une [galerie d’images partagées](../../virtual-machines/windows/shared-image-galleries.md), afin qu’il puisse être réutilisé par d’autres utilisateurs. Dans un premier temps, l’administrateur de laboratoire associe une galerie d’images partagées existante au compte de laboratoire. Une fois la galerie d’images partagées associée, les laboratoires créés dans le compte de laboratoire peuvent enregistrer des images dans la galerie d’images partagées. D’autres enseignants peuvent sélectionner cette image à partir de la galerie d’images partagées pour créer un modèle pour leurs classes. 
@@ -28,7 +28,7 @@ Quand une image est enregistrée dans une galerie d’images partagées, Azure L
 Cet article vous montre comment joindre ou détacher une galerie d’images partagées pour un compte de laboratoire. 
 
 > [!NOTE]
-> Actuellement, Azure Lab Services prend en charge la création de machines virtuelles basées uniquement sur des images de machine virtuelle **généralisées** (et non pas sur des images spécialisées) d’une galerie d’images partagées. 
+> Actuellement, Azure Lab Services prend en charge la création de modèles de machines virtuelles basés uniquement sur des images de machine virtuelle **généralisées** (et non sur des images spécialisées) d’une galerie d’images partagées. 
 
 
 ## <a name="configure-at-the-time-of-lab-account-creation"></a>Effectuer la configuration au moment de la création du compte lab

@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: memildin
 ms.openlocfilehash: 3f27753b0775f44cbdf9d4c478a19e423b8e1f19
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77604555"
 ---
 # <a name="apply-system-updates-in-azure-security-center"></a>Appliquer les mises à jour système dans Azure Security Center
@@ -46,17 +46,17 @@ Dans cet exemple, nous utilisons **Calcul**.
 
     - NOM : nom de la mise à jour manquante.
     - NOMBRE DE MACHINES VIRTUELLES ET D’ORDINATEURS : nombre total de machines virtuelles et d’ordinateurs sur lesquels cette mise à jour n’a pas été installée.
-    - ÉTAT : état actuel de la recommandation :
+    - ÉTAT : état actuel de la recommandation :
 
-      - Ouverte : la suggestion n’a pas encore été prise en compte.
-      - En cours : la recommandation est actuellement appliquée aux ressources ; aucune action de votre part n’est nécessaire.
-      - Résolue : la recommandation a déjà été achevée. (Une fois problème résolu, l’entrée a été grisée).
+      - Ouverte : la recommandation n’a pas encore été prise en compte.
+      - En cours : la recommandation est actuellement appliquée à ces ressources ; aucune action de votre part n’est nécessaire.
+      - Résolue : la recommandation a déjà été achevée. (Une fois problème résolu, l’entrée a été grisée).
 
-    - Niveau de gravité : Donne le niveau de gravité de chaque recommandation :
+    - GRAVITÉ : donne le niveau de gravité de chaque recommandation :
 
-      - Élevée : Existence d’une vulnérabilité sur une ressource importante (application, machine virtuelle, groupe de sécurité réseau). Le problème doit être analysé.
-      - Moyenne : Certaines étapes supplémentaires sont nécessaires pour terminer un processus ou éliminer une vulnérabilité.
-      - Faible : Existence d’une vulnérabilité devant être prise en compte, mais qui ne nécessite aucune attention immédiate. Par défaut, les recommandations de niveau Faible ne sont pas affichées, mais vous pouvez filtrer les recommandations pour les faire apparaître.
+      - Élevée : existence d’une vulnérabilité sur une ressource importante (application, machine virtuelle, groupe de sécurité réseau). Le problème doit être analysé.
+      - Moyenne : certaines étapes supplémentaires sont nécessaires pour terminer un processus ou éliminer une vulnérabilité.
+      - Faible : existence d’une vulnérabilité devant être prise en compte, mais qui ne nécessite aucune attention immédiate. Par défaut, les recommandations de niveau Faible ne sont pas affichées, mais vous pouvez filtrer les recommandations pour les faire apparaître.
 
 3. Sélectionnez une mise à jour manquante dans la liste pour afficher les détails.
 

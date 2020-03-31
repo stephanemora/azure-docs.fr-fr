@@ -1,25 +1,25 @@
 ---
 title: Afficher des données de trafic sur une carte Android | Microsoft Azure Maps
 description: Dans cet article, vous allez apprendre à afficher des données de trafic sur une carte en utilisant le kit SDK Android Microsoft Azure Maps.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 02/27/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 37de55d671bb19cfcd9fd494c2e76f658fc7db21
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: e5611eeb08ac370e12cf452d57a87e449fbd80da
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78249500"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335375"
 ---
 # <a name="show-traffic-data-on-the-map-using-azure-maps-android-sdk"></a>Afficher des données de trafic sur la carte à l’aide du kit SDK Android Azure Maps
 
 Les données de flux et d’incidents sont deux types de données de trafic qui peut s’afficher sur la carte. Ce guide vous montre comment afficher ces deux types de données de trafic. Les données d’incidents se composent de données de type point et ligne qui peuvent indiquer des travaux, des routes barrées, des accidents, etc. Les données de flux présentent des métriques sur le flux du trafic routier.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de pouvoir afficher le trafic sur la carte, vous devez [créer un compte Azure](quick-demo-map-app.md#create-an-account-with-azure-maps)et [obtenir une clé d’abonnement](quick-demo-map-app.md#get-the-primary-key-for-your-account). Vous devez ensuite installer le kit [SDK Android Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) et charger une carte.
 

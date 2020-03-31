@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 1915cce1878b9b7ec058c13167e03c3c318f3668
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: bd83a1ca731d81edb76a3c1bc07113ce96adb9ec
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035489"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80066590"
 ---
 # <a name="troubleshoot-openshift-container-platform-311-deployment-in-azure"></a>Résoudre les problèmes de déploiement d’OpenShift Container Platform 3.11 dans Azure
 
 Si le cluster OpenShift ne se déploie pas correctement, le portail Azure retourne une sortie d’erreur. La sortie peut être compliquée à lire, ce qui rend difficile l’identification du problème. Examinez rapidement cette sortie pour rechercher le code de sortie 3, 4 ou 5. Ces trois codes de sortie ont les significations suivantes :
 
-- Code de sortie 3 : le nom d’utilisateur/mot de passe ou l’ID d’organisation/clé d’activation de votre abonnement Red Hat sont incorrects
+- Code de sortie 3 : vos nom d’utilisateur/mot de passe ou ID d’organisation/clé d’activation d’abonnement Red Hat sont incorrects
 - Code de sortie 4 : votre ID de pool Red Hat est incorrect ou aucun droit n’est disponible
 - Code de sortie 5 : impossible de provisionner le volume de pool dynamique Docker
 
@@ -102,7 +102,7 @@ La clé privée est copiée dans l’hôte de playbook Ansible - ~/.ssh/id_rsa. 
 
 Les informations fournies dans le modèle ou l’offre de la Place de marché ne sont pas correctes. Vérifiez que vous utilisez l’appId (clientId) et le mot de passe (clientSecret) corrects pour le principal de service. Pour cela, exécutez la commande Azure CLI suivante.
 
-```bash
+```azurecli
 az login --service-principal -u <client id> -p <client secret> -t <tenant id>
 ```
 
@@ -110,7 +110,7 @@ az login --service-principal -u <client id> -p <client secret> -t <tenant id>
 
 Si le fournisseur de cloud Azure est activé, le principal de service utilisé doit avoir l’accès Contributeur au groupe de ressources. Pour cela, exécutez la commande Azure CLI suivante.
 
-```bash
+```azurecli
 az group update -g <openshift resource group> --set tags.sptest=test
 ```
 

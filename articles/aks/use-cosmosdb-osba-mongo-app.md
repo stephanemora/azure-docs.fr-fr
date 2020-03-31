@@ -9,10 +9,10 @@ ms.author: zarhoads
 ms.custom: mvc
 keywords: Cosmos DB, Open Service Broker, Open Service Broker pour Azure
 ms.openlocfilehash: ddaa3b9aa198bc142e1bcbcab6b7b1e028eff2aa
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78247916"
 ---
 # <a name="integrate-existing-mongodb-application-with-azure-cosmos-db-api-for-mongodb-and-open-service-broker-for-azure-osba"></a>Intégrer une application MongoDB existante avec l’API Azure Cosmos DB pour MongoDB et Open Service Broker pour Azure (OSBA)
@@ -21,7 +21,7 @@ Azure Cosmos DB est un service de base de données multimodèle distribué à l�
 
 Dans cet article, vous allez prendre une application Java qui utilise une base de données MongoDB et la mettre à jour de façon à utiliser une base de données Cosmos DB à l’aide d’Open Service Broker pour Azure.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de continuer, vous devez avoir effectué les opérations suivantes :
     

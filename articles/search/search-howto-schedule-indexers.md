@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 72326413d463d449d339b1f3fd241ba2c27b4b6b
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74112947"
 ---
 # <a name="how-to-schedule-indexers-in-azure-cognitive-search"></a>Comment planifier des indexeurs dans la Recherche cognitive Azure
@@ -88,7 +88,7 @@ Vous pouvez également exécuter un indexeur à la demande à tout moment à l�
 
 ## <a name="schedule-using-the-net-sdk"></a>Planification à l’aide du kit de développement logiciel (SDK) REST
 
-Vous pouvez configurer la planification d’un indexeur à l’aide du kit de développement logiciel (SDK) .NET Recherche cognitive Azure. Pour ce faire, ajoutez la propriété **schedule** lors de la création ou de la mise à jour d’un indexeur.
+Vous pouvez configurer la planification d’un indexeur à l’aide du Kit de développement logiciel (SDK) .NET Recherche cognitive Azure. Pour ce faire, ajoutez la propriété **schedule** lors de la création ou de la mise à jour d’un indexeur.
 
 L’exemple C# suivant crée un indexeur à l’aide d’une source de données et d’un index prédéfinis, et définit sa planification pour qu’il s’exécute une fois par jour dans 30 minutes à partir de maintenant :
 

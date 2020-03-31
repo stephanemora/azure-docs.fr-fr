@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: c26cca40b0bf6d02bcec09945043f4ba854fa8e9
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 34a70a4698b69881a06cfb7a7017fa0c30647197
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012228"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80047694"
 ---
 # <a name="api-management-transformation-policies"></a>Stratégies de transformation de la Gestion des API
 Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](https://go.microsoft.com/fwlink/?LinkID=398186).
 
-##  <a name="TransformationPolicies"></a> Stratégies de transformation
+##  <a name="transformation-policies"></a><a name="TransformationPolicies"></a> Stratégies de transformation
 
 -   [Convert JSON to XML](api-management-transformation-policies.md#ConvertJSONtoXML) : convertit le corps de la demande ou de la réponse de JSON en XML.
 
@@ -44,7 +44,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 
 -   [Transform XML using an XSLT](api-management-transformation-policies.md#XSLTransform) : applique une transformation de XSL en XML dans le corps de la réponse ou de la demande.
 
-##  <a name="ConvertJSONtoXML"></a> Convert JSON to XML
+##  <a name="convert-json-to-xml"></a><a name="ConvertJSONtoXML"></a> Convert JSON to XML
  La stratégie `json-to-xml` convertit le corps de la demande ou de la réponse de JSON en XML.
 
 ### <a name="policy-statement"></a>Instruction de la stratégie
@@ -53,7 +53,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 <json-to-xml apply="always | content-type-json" consider-accept-header="true | false" parse-date="true | false"/>
 ```
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 ```xml
 <policies>
@@ -69,16 +69,16 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 
 ### <a name="elements"></a>Éléments
 
-|Nom|Description|Obligatoire|
+|Name|Description|Obligatoire|
 |----------|-----------------|--------------|
-|json-to-xml|Élément racine.|OUI|
+|json-to-xml|Élément racine.|Oui|
 
 ### <a name="attributes"></a>Attributs
 
-|Nom|Description|Obligatoire|Default|
+|Name|Description|Obligatoire|Default|
 |----------|-----------------|--------------|-------------|
-|apply|L’attribut doit avoir l’une des valeurs suivantes.<br /><br /> -   always : toujours appliquer la conversion.<br />-   content-type-json : ne convertir que si l’en-tête de réponse Content-Type indique la présence de JSON.|OUI|N/A|
-|consider-accept-header|L’attribut doit avoir l’une des valeurs suivantes.<br /><br /> -   true : appliquer la conversion si le format JSON est demandé dans l’en-tête d’acceptation de la demande.<br />-   false : toujours appliquer la conversion.|Non|true|
+|apply|L’attribut doit avoir l’une des valeurs suivantes.<br /><br /> -   always : toujours appliquer la conversion.<br />-   content-type-json : ne convertir que si l’en-tête de réponse Content-Type indique la présence de JSON.|Oui|N/A|
+|consider-accept-header|L’attribut doit avoir l’une des valeurs suivantes.<br /><br /> -   true : appliquer la conversion si le format XML est demandé dans l’en-tête d’acceptation de la demande.<br />-   false : toujours appliquer la conversion.|Non|true|
 |date de l’analyse|Quand les valeurs de date sont définies sur `false`, elles sont simplement copiées lors de la transformation|Non|true|
 
 ### <a name="usage"></a>Usage
@@ -88,7 +88,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 
 -   **Étendues de la stratégie :** toutes les étendues
 
-##  <a name="ConvertXMLtoJSON"></a> Convert XML to JSON
+##  <a name="convert-xml-to-json"></a><a name="ConvertXMLtoJSON"></a> Convert XML to JSON
  La stratégie `xml-to-json` convertit le corps de la demande ou de la réponse de XML en JSON. Cette stratégie peut être utilisée pour moderniser les API basées sur des services web exclusivement en XML.
 
 ### <a name="policy-statement"></a>Instruction de la stratégie
@@ -97,7 +97,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 <xml-to-json kind="javascript-friendly | direct" apply="always | content-type-xml" consider-accept-header="true | false"/>
 ```
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 ```xml
 <policies>
@@ -113,17 +113,17 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 
 ### <a name="elements"></a>Éléments
 
-|Nom|Description|Obligatoire|
+|Name|Description|Obligatoire|
 |----------|-----------------|--------------|
-|xml-to-json|Élément racine.|OUI|
+|xml-to-json|Élément racine.|Oui|
 
 ### <a name="attributes"></a>Attributs
 
-|Nom|Description|Obligatoire|Default|
+|Name|Description|Obligatoire|Default|
 |----------|-----------------|--------------|-------------|
-|kind|L’attribut doit avoir l’une des valeurs suivantes.<br /><br /> -   javascript-friendly : le JSON converti présente un format familier aux développeurs JavaScript.<br />-   direct : le JSON converti reflète la structure d’origine du document XML.|OUI|N/A|
-|apply|L’attribut doit avoir l’une des valeurs suivantes.<br /><br /> -   always : toujours convertir.<br />-   content-type-xml : ne convertir que si l’en-tête de réponse Content-Type indique la présence de XML.|OUI|N/A|
-|consider-accept-header|L’attribut doit avoir l’une des valeurs suivantes.<br /><br /> -   true : appliquer la conversion si le format XML est demandé dans l’en-tête d’acceptation de la demande.<br />-   false : toujours appliquer la conversion.|Non|true|
+|kind|L’attribut doit avoir l’une des valeurs suivantes.<br /><br /> -   javascript-friendly : le JSON converti présente un format familier aux développeurs JavaScript.<br />-   direct : le JSON converti reflète la structure d’origine du document XML.|Oui|N/A|
+|apply|L’attribut doit avoir l’une des valeurs suivantes.<br /><br /> -   always : toujours convertir.<br />-   content-type-xml : ne convertir que si l’en-tête de réponse Content-Type indique la présence de XML.|Oui|N/A|
+|consider-accept-header|L’attribut doit avoir l’une des valeurs suivantes.<br /><br /> -   true : appliquer la conversion si le format JSON est demandé dans l’en-tête d’acceptation de la demande.<br />-   false : toujours appliquer la conversion.|Non|true|
 
 ### <a name="usage"></a>Usage
  Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
@@ -132,7 +132,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 
 -   **Étendues de la stratégie :** toutes les étendues
 
-##  <a name="Findandreplacestringinbody"></a> Find and replace string in body
+##  <a name="find-and-replace-string-in-body"></a><a name="Findandreplacestringinbody"></a> Find and replace string in body
  La stratégie `find-and-replace` recherche une sous-chaîne de demande ou de réponse et la remplace par une autre sous-chaîne.
 
 ### <a name="policy-statement"></a>Instruction de la stratégie
@@ -141,7 +141,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 <find-and-replace from="what to replace" to="replacement" />
 ```
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 ```xml
 <find-and-replace from="notebook" to="laptop" />
@@ -149,16 +149,16 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 
 ### <a name="elements"></a>Éléments
 
-|Nom|Description|Obligatoire|
+|Name|Description|Obligatoire|
 |----------|-----------------|--------------|
-|find-and-replace|Élément racine.|OUI|
+|find-and-replace|Élément racine.|Oui|
 
 ### <a name="attributes"></a>Attributs
 
-|Nom|Description|Obligatoire|Default|
+|Name|Description|Obligatoire|Default|
 |----------|-----------------|--------------|-------------|
-|from|Chaîne à rechercher.|OUI|N/A|
-|to|Chaîne de remplacement. Spécifiez une chaîne de remplacement nulle pour supprimer la chaîne de recherche.|OUI|N/A|
+|de|Chaîne à rechercher.|Oui|N/A|
+|to|Chaîne de remplacement. Spécifiez une chaîne de remplacement nulle pour supprimer la chaîne de recherche.|Oui|N/A|
 
 ### <a name="usage"></a>Usage
  Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
@@ -167,7 +167,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 
 -   **Étendues de la stratégie :** toutes les étendues
 
-##  <a name="MaskURLSContent"></a> Mask URLs in content
+##  <a name="mask-urls-in-content"></a><a name="MaskURLSContent"></a> Mask URLs in content
  La stratégie `redirect-content-urls` réécrit (masque) les liens dans le corps de la réponse afin qu’ils pointent vers un lien équivalent par l’intermédiaire de la passerelle. À utiliser dans la section outbound pour réécrire les liens du corps de réponse afin qu’ils pointent vers la passerelle. À utiliser dans la section inbound pour obtenir l’effet opposé.
 
 > [!NOTE]
@@ -179,7 +179,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 <redirect-content-urls />
 ```
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 ```xml
 <redirect-content-urls />
@@ -187,9 +187,9 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 
 ### <a name="elements"></a>Éléments
 
-|Nom|Description|Obligatoire|
+|Name|Description|Obligatoire|
 |----------|-----------------|--------------|
-|redirect-content-urls|Élément racine.|OUI|
+|redirect-content-urls|Élément racine.|Oui|
 
 ### <a name="usage"></a>Usage
  Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
@@ -198,7 +198,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 
 -   **Étendues de la stratégie :** toutes les étendues
 
-##  <a name="SetBackendService"></a> Set backend service
+##  <a name="set-backend-service"></a><a name="SetBackendService"></a> Set backend service
  Utilisez la stratégie `set-backend-service` pour rediriger une demande entrante vers un service principal autre que celui qui est spécifié dans les paramètres d’API de cette opération. Cette stratégie remplace l’URL de base du service principal de la demande entrante par celle qui est spécifiée dans la stratégie.
 
 ### <a name="policy-statement"></a>Instruction de la stratégie
@@ -216,7 +216,7 @@ or
 > [!NOTE]
 > Les entités de back-end peuvent être gérées via l’[API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend) de gestion et [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 ```xml
 <policies>
@@ -244,7 +244,7 @@ Lorsque la déclaration de stratégie [<choose\>](api-management-advanced-polici
 
 Pour effectuer davantage de transformations de la demande, il est possible d’utiliser d’autres [Stratégies de transformation](api-management-transformation-policies.md#TransformationPolicies). Par exemple, pour supprimer le paramètre de requête de la version maintenant que la demande est acheminée vers un service principal propre à la version, la stratégie [Set query string parameter](api-management-transformation-policies.md#SetQueryStringParameter) peut être utilisée afin de supprimer l’attribut de version désormais superflu.
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 ```xml
 <policies>
@@ -260,13 +260,13 @@ Dans cet exemple, la stratégie permet d’acheminer la requête vers un serveur
 
 ### <a name="elements"></a>Éléments
 
-|Nom|Description|Obligatoire|
+|Name|Description|Obligatoire|
 |----------|-----------------|--------------|
-|set-backend-service|Élément racine.|OUI|
+|set-backend-service|Élément racine.|Oui|
 
 ### <a name="attributes"></a>Attributs
 
-|Nom|Description|Obligatoire|Default|
+|Name|Description|Obligatoire|Default|
 |----------|-----------------|--------------|-------------|
 |base-url|Nouvelle URL de base du service principal.|`base-url` ou `backend-id` doit être présent.|N/A|
 |id de principal|Identificateur du serveur principal pour l’acheminement. (Les entités de back-end sont gérées via une [API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend) et [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|`base-url` ou `backend-id` doit être présent.|N/A|
@@ -283,15 +283,15 @@ Dans cet exemple, la stratégie permet d’acheminer la requête vers un serveur
 
 -   **Étendues de la stratégie :** toutes les étendues
 
-##  <a name="SetBody"></a> Set body
+##  <a name="set-body"></a><a name="SetBody"></a> Set body
  Utilisez la stratégie `set-body` pour définir le corps du message pour les demandes entrantes et sortantes. Pour accéder au corps du message, vous pouvez utiliser la propriété `context.Request.Body` ou `context.Response.Body`, selon que la stratégie se trouve dans la section inbound ou outbound.
 
 > [!IMPORTANT]
->  Notez que, par défaut, lorsque vous accédez au corps du message avec `context.Request.Body` ou `context.Response.Body`, le corps du message d’origine est perdu et doit être défini en renvoyant le corps dans l’expression. Pour conserver le contenu du corps, donnez la valeur `true` au paramètre `preserveContent` lorsque vous accédez au message. Si `preserveContent` a la valeur `true` et qu’un autre corps est renvoyé par l’expression, le corps renvoyé est utilisé.
+>  Notez que, par défaut, lorsque vous accédez au corps du message avec `context.Request.Body` ou `context.Response.Body`, le corps du message d’origine est perdu et doit être défini en renvoyant le corps dans l’expression. Pour conserver le contenu du corps, donnez la valeur `preserveContent` au paramètre `true` lorsque vous accédez au message. Si `preserveContent` a la valeur `true` et qu’un autre corps est renvoyé par l’expression, le corps renvoyé est utilisé.
 >
 >  Notez les points suivants lorsque vous utilisez la stratégie `set-body`.
 >
-> - Si vous utilisez la stratégie `set-body` pour renvoyer un nouveau corps ou un corps mis à jour, vous n’avez pas besoin de donner la valeur `true` à `preserveContent` parce que vous fournissez explicitement le nouveau contenu du corps.
+> - Si vous utilisez la stratégie `set-body` pour renvoyer un nouveau corps ou un corps mis à jour, vous n’avez pas besoin de donner la valeur `preserveContent` à `true` parce que vous fournissez explicitement le nouveau contenu du corps.
 >   -   Conserver le contenu d’une réponse dans le pipeline inbound n’est pas judicieux, car il n’existe encore aucune réponse.
 >   -   Conserver le contenu d’une demande dans le pipeline de sortie n’est pas judicieux, car la demande a déjà été envoyée au service principal à ce stade.
 >   -   Si cette stratégie est utilisée en l’absence de corps de message, par exemple dans une requête GET inbound, une exception est levée.
@@ -342,7 +342,7 @@ Dans cet exemple, la stratégie permet d’acheminer la requête vers un serveur
 ```
 
 #### <a name="filter-response-based-on-product"></a>Filtrer la réponse en fonction du produit
- Cet exemple montre comment effectuer un filtrage du contenu en supprimant des éléments de données de la réponse reçue du service principal en cas d’utilisation du produit `Starter`. Pour une démonstration de la configuration et de l’utilisation de cette stratégie, consultez [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) (Cloud Cover, épisode 177 : Plus de fonctionnalités de la Gestion des API avec Vlad Vinogradsky) et rendez-vous directement à 34 min 30 s. Commencez à 31 min 50 s pour voir une présentation de [l’API The Dark Sky Forecast](https://developer.forecast.io/) utilisée pour cette démonstration.
+ Cet exemple montre comment effectuer un filtrage du contenu en supprimant des éléments de données de la réponse reçue du service principal en cas d’utilisation du produit `Starter`. Pour une démonstration de la configuration et de l’utilisation de cette stratégie, consultez la page [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) (Cloud Cover, épisode 177 : Plus de fonctionnalités de la Gestion des API avec Vlad Vinogradsky) et rendez-vous directement à 34 min 30 s. Commencez à 31 min 50 s pour voir une présentation de [l’API The Dark Sky Forecast](https://developer.forecast.io/) utilisée pour cette démonstration.
 
 ```xml
 <!-- Copy this snippet into the outbound section to remove a number of data elements from the response received from the backend service based on the name of the api product -->
@@ -396,13 +396,13 @@ La stratégie `set-body` peut être configurée pour utiliser le langage de mod�
 
 ### <a name="elements"></a>Éléments
 
-|Nom|Description|Obligatoire|
+|Name|Description|Obligatoire|
 |----------|-----------------|--------------|
-|set-body|Élément racine. Contient le corps du texte ou une expression qui renvoie un corps.|OUI|
+|set-body|Élément racine. Contient le corps du texte ou une expression qui renvoie un corps.|Oui|
 
-### <a name="properties"></a>properties
+### <a name="properties"></a>Propriétés
 
-|Nom|Description|Obligatoire|Default|
+|Name|Description|Obligatoire|Default|
 |----------|-----------------|--------------|-------------|
 |template|Permet de modifier le mode de création du modèle dans lequel la stratégie Set body sera exécutée. Actuellement, la seule valeur possible est :<br /><br />- liquid - la stratégie Set body utilisera le moteur de création de modèle Liquid |Non||
 
@@ -453,7 +453,7 @@ OriginalUrl.
 
 -   **Étendues de la stratégie :** toutes les étendues
 
-##  <a name="SetHTTPheader"></a> Set HTTP header
+##  <a name="set-http-header"></a><a name="SetHTTPheader"></a> Set HTTP header
  La stratégie `set-header` affecte une valeur à un en-tête de réponse et/ou de demande existant ou bien ajoute un nouvel en-tête de réponse et/ou de demande.
 
  Insère une liste d'en-têtes HTTP dans un message HTTP. Lorsqu'elle est placée dans un pipeline entrant, cette stratégie définit les en-têtes HTTP pour la demande transmise au service cible. Lorsqu’elle est placée dans un pipeline outbound, cette stratégie définit les en-têtes HTTP pour la réponse envoyée au client de la passerelle.
@@ -484,7 +484,7 @@ OriginalUrl.
 
 
 #### <a name="forward-context-information-to-the-backend-service"></a>Transférer des informations de contexte au service principal
- Cet exemple montre comment appliquer la stratégie au niveau de l’API pour fournir des informations de contexte au service principal. Pour une démonstration de la configuration et de l’utilisation de cette stratégie, consultez [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) (Cloud Cover, épisode 177 : Plus de fonctionnalités de la Gestion des API avec Vlad Vinogradsky) et rendez-vous directement à 10 min 30 s. À 12 min 10 s, une démonstration de l’appel d’une opération dans le portail des développeurs montre la stratégie à l’œuvre.
+ Cet exemple montre comment appliquer la stratégie au niveau de l’API pour fournir des informations de contexte au service principal. Pour une démonstration de la configuration et de l’utilisation de cette stratégie, consultez la page [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) (Cloud Cover, épisode 177 : Plus de fonctionnalités de la Gestion des API avec Vlad Vinogradsky) et rendez-vous directement à 10 min 30 s. À 12 min 10 s, une démonstration de l’appel d’une opération dans le portail des développeurs montre la stratégie à l’œuvre.
 
 ```xml
 <!-- Copy this snippet into the inbound element to forward some context information, user id and the region the gateway is hosted in, to the backend service for logging or evaluation -->
@@ -510,17 +510,17 @@ OriginalUrl.
 
 ### <a name="elements"></a>Éléments
 
-|Nom|Description|Obligatoire|
+|Name|Description|Obligatoire|
 |----------|-----------------|--------------|
-|set-header|Élément racine.|OUI|
+|set-header|Élément racine.|Oui|
 |value|Spécifie la valeur de l'en-tête à définir. Si plusieurs en-têtes portent le même nom, ajoutez d’autres éléments `value`.|Non|
 
-### <a name="properties"></a>properties
+### <a name="properties"></a>Propriétés
 
-|Nom|Description|Obligatoire|Default|
+|Name|Description|Obligatoire|Default|
 |----------|-----------------|--------------|-------------|
 |exists-action|Spécifie l’action à entreprendre lorsque l’en-tête est déjà spécifié. Cet attribut doit avoir une des valeurs suivantes.<br /><br /> - override : remplace la valeur de l’en-tête actuel.<br />- skip : ne remplace pas la valeur de l’en-tête actuel.<br />- append : ajoute la valeur à celle de l’en-tête actuel.<br />- delete : supprime l’en-tête de la demande.<br /><br /> S’il a la valeur `override`, l’inscription de plusieurs entrées portant le même nom fait que l’en-tête est défini selon toutes les entrées (qui figurent plusieurs fois) ; seules les valeurs listées seront définies dans le résultat.|Non|override|
-|Nom|Spécifie le nom de l'en-tête à définir.|OUI|N/A|
+|name|Spécifie le nom de l'en-tête à définir.|Oui|N/A|
 
 ### <a name="usage"></a>Usage
  Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
@@ -529,7 +529,7 @@ OriginalUrl.
 
 -   **Étendues de la stratégie :** toutes les étendues
 
-##  <a name="SetQueryStringParameter"></a> Set query string parameter
+##  <a name="set-query-string-parameter"></a><a name="SetQueryStringParameter"></a> Set query string parameter
  La stratégie `set-query-parameter` ajoute, supprime un paramètre de chaîne de requête de la demande ou le remplace par une autre valeur. Peut être utilisée pour transmettre les paramètres de requête attendus par le service principal qui sont facultatifs ou ne sont jamais présents dans la demande.
 
 ### <a name="policy-statement"></a>Instruction de la stratégie
@@ -542,7 +542,7 @@ OriginalUrl.
 
 ### <a name="examples"></a>Exemples
 
-#### <a name="example"></a>Exemples
+#### <a name="example"></a>Exemple
 
 ```xml
 
@@ -556,7 +556,7 @@ OriginalUrl.
 ```
 
 #### <a name="forward-context-information-to-the-backend-service"></a>Transférer des informations de contexte au service principal
- Cet exemple montre comment appliquer la stratégie au niveau de l’API pour fournir des informations de contexte au service principal. Pour une démonstration de la configuration et de l’utilisation de cette stratégie, consultez [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) (Cloud Cover, épisode 177 : Plus de fonctionnalités de la Gestion des API avec Vlad Vinogradsky) et rendez-vous directement à 10 min 30 s. À 12 min 10 s, une démonstration de l’appel d’une opération dans le portail des développeurs montre la stratégie à l’œuvre.
+ Cet exemple montre comment appliquer la stratégie au niveau de l’API pour fournir des informations de contexte au service principal. Pour une démonstration de la configuration et de l’utilisation de cette stratégie, consultez la page [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) (Cloud Cover, épisode 177 : Plus de fonctionnalités de la Gestion des API avec Vlad Vinogradsky) et rendez-vous directement à 10 min 30 s. À 12 min 10 s, une démonstration de l’appel d’une opération dans le portail des développeurs montre la stratégie à l’œuvre.
 
 ```xml
 <!-- Copy this snippet into the inbound element to forward a piece of context, product name in this example, to the backend service for logging or evaluation -->
@@ -570,17 +570,17 @@ OriginalUrl.
 
 ### <a name="elements"></a>Éléments
 
-|Nom|Description|Obligatoire|
+|Name|Description|Obligatoire|
 |----------|-----------------|--------------|
-|set-query-parameter|Élément racine.|OUI|
-|value|Fournissez une valeur au paramètre de requête à définir. Si plusieurs paramètres de requête portent le même nom, ajoutez d’autres éléments `value`.|OUI|
+|set-query-parameter|Élément racine.|Oui|
+|value|Fournissez une valeur au paramètre de requête à définir. Si plusieurs paramètres de requête portent le même nom, ajoutez d’autres éléments `value`.|Oui|
 
-### <a name="properties"></a>properties
+### <a name="properties"></a>Propriétés
 
-|Nom|Description|Obligatoire|Default|
+|Name|Description|Obligatoire|Default|
 |----------|-----------------|--------------|-------------|
 |exists-action|Spécifie l’action à entreprendre lorsque le paramètre de requête est déjà spécifié. Cet attribut doit avoir une des valeurs suivantes.<br /><br /> - override : remplace la valeur du paramètre actuel.<br />- skip : ne remplace pas la valeur du paramètre de requête actuel.<br />- append : ajoute la valeur à celle du paramètre de requête actuel.<br />- delete : supprime le paramètre de requête de la demande.<br /><br /> S’il a la valeur `override`, l’ajout de plusieurs entrées portant le même nom fait que le paramètre de requête est défini selon toutes les entrées (qui figurent plusieurs fois) ; seules les valeurs listées seront définies dans le résultat.|Non|override|
-|Nom|Spécifie le nom du paramètre de requête à définir.|OUI|N/A|
+|name|Spécifie le nom du paramètre de requête à définir.|Oui|N/A|
 
 ### <a name="usage"></a>Usage
  Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
@@ -589,7 +589,7 @@ OriginalUrl.
 
 -   **Étendues de la stratégie :** toutes les étendues
 
-##  <a name="RewriteURL"></a> Rewrite URL
+##  <a name="rewrite-url"></a><a name="RewriteURL"></a> Rewrite URL
  La stratégie `rewrite-uri` convertit une URL de demande de sa forme publique en une forme attendue par le service web, comme le montre l’exemple suivant.
 
 - URL publique : `http://api.example.com/storenumber/ordernumber`
@@ -607,7 +607,7 @@ OriginalUrl.
 <rewrite-uri template="uri template" copy-unmatched-params="true | false" />
 ```
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 ```xml
 <policies>
@@ -649,15 +649,15 @@ OriginalUrl.
 
 ### <a name="elements"></a>Éléments
 
-|Nom|Description|Obligatoire|
+|Name|Description|Obligatoire|
 |----------|-----------------|--------------|
-|rewrite-uri|Élément racine.|OUI|
+|rewrite-uri|Élément racine.|Oui|
 
 ### <a name="attributes"></a>Attributs
 
 |Attribut|Description|Obligatoire|Default|
 |---------------|-----------------|--------------|-------------|
-|template|URL de service web réelle avec les paramètres de chaîne de requête. Lorsque vous utilisez des expressions, la valeur entière doit être une expression.|OUI|N/A|
+|template|URL de service web réelle avec les paramètres de chaîne de requête. Lorsque vous utilisez des expressions, la valeur entière doit être une expression.|Oui|N/A|
 |copy-unmatched-params|Spécifie si les paramètres de requête dans la requête entrante non présents dans le modèle d’URL d’origine sont ajoutés à l’URL définie par le modèle de réécriture|Non|true|
 
 ### <a name="usage"></a>Usage
@@ -667,7 +667,7 @@ OriginalUrl.
 
 -   **Étendues de la stratégie :** toutes les étendues
 
-##  <a name="XSLTransform"></a> Transform XML using an XSLT
+##  <a name="transform-xml-using-an-xslt"></a><a name="XSLTransform"></a> Transform XML using an XSLT
  La stratégie `Transform XML using an XSLT` applique une transformation de XSL en XML dans le corps de la réponse ou de la demande.
 
 ### <a name="policy-statement"></a>Instruction de la stratégie
@@ -692,7 +692,7 @@ OriginalUrl.
   </xsl-transform>
 ```
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 ```xml
 <policies>
@@ -718,11 +718,11 @@ OriginalUrl.
 
 ### <a name="elements"></a>Éléments
 
-|Nom|Description|Obligatoire|
+|Name|Description|Obligatoire|
 |----------|-----------------|--------------|
-|xsl-transform|Élément racine.|OUI|
+|xsl-transform|Élément racine.|Oui|
 |paramètre|Permet de définir des variables utilisées dans la transformation|Non|
-|xsl:stylesheet|Élément feuille de style racine. Tous les éléments et attributs définis à l’intérieur respectent la [Spécification XSLT](https://www.w3.org/TR/xslt) standard.|OUI|
+|xsl:stylesheet|Élément feuille de style racine. Tous les éléments et attributs définis à l’intérieur respectent la [Spécification XSLT](https://www.w3.org/TR/xslt) standard.|Oui|
 
 ### <a name="usage"></a>Usage
  Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
@@ -733,8 +733,8 @@ OriginalUrl.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations, consultez les rubriques suivantes :
+Pour plus d'informations, voir les rubriques suivantes :
 
 + [Stratégies dans Gestion des API](api-management-howto-policies.md)
 + [Référence de stratégie](api-management-policy-reference.md) pour obtenir la liste complète des instructions et des paramètres de stratégie
-+ [API Management policy samples](policy-samples.md) (Exemples de stratégie de gestion d’API)
++ [Exemples de stratégie](policy-samples.md)

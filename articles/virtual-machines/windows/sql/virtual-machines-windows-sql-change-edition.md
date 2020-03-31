@@ -15,10 +15,10 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: bd9622d3e34198402bc45e5d855d05b0c8e35eb8
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77605463"
 ---
 # <a name="in-place-change-of-sql-server-edition-on-azure-vm"></a>Modification sur place de l’édition SQL Server sur une machine virtuelle Azure
@@ -29,7 +29,7 @@ L’édition de SQL Server est déterminée par la clé de produit (Product Key)
 
 Une fois que l’édition de SQL Server a été modifiée en interne sur la machine virtuelle SQL Server, vous devez ensuite mettre à jour la propriété d’édition de SQL Server dans le Portail Azure à des fins de facturation. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour effectuer une modification sur place de l’édition de SQL Server, voici ce dont vous avez besoin : 
 

@@ -9,10 +9,10 @@ ms.tgt_pltfrm: vm
 ms.date: 03/04/2020
 ms.author: shants
 ms.openlocfilehash: fe03bead238d3fb7bda3ee685bd5587c3e0dbc58
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78304340"
 ---
 # <a name="move-a-maintenance-control-configuration-to-another-region"></a>Déplacer une configuration de contrôle de maintenance vers une autre région
@@ -25,7 +25,7 @@ Le contrôle de maintenance, avec des configurations de maintenance personnalis�
 - Pour déplacer les ressources associées à une configuration de maintenance, mais pas la configuration elle-même, suivez [ces instructions](move-region-maintenance-configuration-resources.md).
 - Pour déplacer la configuration de maintenance et les ressources associées, suivez d’abord les instructions de cet article. Puis, suivez [ces instructions](move-region-maintenance-configuration-resources.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer à déplacer une configuration de contrôle de maintenance :
 

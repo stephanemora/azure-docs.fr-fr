@@ -8,11 +8,11 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/16/2019
 ms.openlocfilehash: 85aeafb2c4461b50d399e40d9abff2ac04b677c0
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75887136"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79233709"
 ---
 # <a name="issues-with-region-servers-in-azure-hdinsight"></a>Problèmes avec les serveurs de région dans Azure HDInsight
 
@@ -30,7 +30,7 @@ multiple regions being unassigned or holes in the chain of regions
 
 Dans l’interface utilisateur Apache HBase Master, vous pouvez voir le nombre de régions en état de déséquilibre sur tous les serveurs régionaux. Vous pouvez ensuite exécuter la commande `hbase hbck` pour afficher les trous dans la chaîne de régions.
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 Les espaces peuvent être le résultat des régions hors connexion.
 
@@ -58,7 +58,7 @@ Corrigez les attributions. Suivez les étapes ci-dessous pour rétablir les rég
 
 Échec du démarrage des serveurs de région.
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 Plusieurs répertoires WAL de fractionnement.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: barclayn
-ms.openlocfilehash: 541039c82d5ea21c43a847da2710bef4162a2bc7
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 5d8fd578c5539c83e37a232d8425ad8bdf22129b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72804041"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80125062"
 ---
 # <a name="azure-encryption-overview"></a>Vue d’ensemble du chiffrement Azure
 
@@ -51,9 +51,9 @@ Avec le chiffrement côté client, les fournisseurs de services cloud n’ont pa
 
 Les trois modèles de chiffrement côté serveur offrent différentes caractéristiques de gestion de clés, que vous pouvez choisir en fonction de vos besoins :
 
-- **Clés gérées par le service** : ce modèle offre une combinaison de contrôles et de fonctionnalités à faible surcharge.
+- **Clés gérées par le service** : ce modèle fournit une combinaison de contrôle et de fonctionnalités avec une faible surcharge.
 
-- **Clés gérées par le client** : ce modèle vous permet de contrôler les clés, avec notamment la prise en charge de l'option BYOK (Bring Your Own Keys), ou d'en générer de nouvelles.
+- **Clés gérées par le client** : ce modèle vous permet de contrôler les clés, avec notamment la prise en charge de BYOK (Bring Your Own Keys), ou d’en générer de nouvelles.
 
 - **Clés gérées par le service sur le matériel contrôlé par le client** : ce modèle vous permet de gérer les clés dans votre référentiel propriétaire, en dehors du contrôle de Microsoft. Cette caractéristique est appelée HYOK (Host Your Own Key). Toutefois, la configuration est complexe et la plupart des services Azure ne prennent pas en charge ce modèle.
 
@@ -79,7 +79,7 @@ Pour en savoir plus et télécharger la bibliothèque cliente de stockage Azure 
 
 Quand vous utilisez le chiffrement côté client avec Key Vault, vos données sont chiffrées à l’aide d’une clé de chiffrement de contenu (CEK) symétrique à usage unique qui est générée par le SDK client de stockage Azure. La clé CEK est chiffrée à l’aide d’une clé de chiffrement de clé (KEK), qui peut être une clé symétrique ou une paire de clés asymétriques. Vous pouvez la gérer localement ou la stocker dans Key Vault. Les données chiffrées sont ensuite chargées vers Stockage Azure.
 
-Pour en savoir plus sur le chiffrement côté client avec Key Vault et obtenir des instructions de démarrage pas à pas, consultez [Tutoriel : Chiffrement et déchiffrement d'objets blob dans le service Stockage Azure à l'aide d'Azure Key Vault](../../storage/blobs/storage-encrypt-decrypt-blobs-key-vault.md).
+Pour en savoir plus sur le chiffrement côté client avec Key Vault et obtenir des instructions de démarrage pas à pas, consultez [Didacticiel : Chiffrement et déchiffrement d’objets blob dans Microsoft Azure Storage à l’aide d’Azure Key Vault](../../storage/blobs/storage-encrypt-decrypt-blobs-key-vault.md).
 
 Pour finir, vous pouvez également utiliser la bibliothèque cliente de stockage Azure pour Java afin d’effectuer un chiffrement côté client avant de charger des données vers le stockage Azure et de déchiffrer les données lors de leur téléchargement vers le client. La bibliothèque prend également en charge l’intégration à [Key Vault](https://azure.microsoft.com/services/key-vault/) pour la gestion des clés de compte de stockage.
 
@@ -87,9 +87,9 @@ Pour finir, vous pouvez également utiliser la bibliothèque cliente de stockage
 
 [Azure SQL Database](../../sql-database/sql-database-technical-overview.md) est une base de données relationnelle à usage général dans Azure qui prend en charge des structures telles que les données relationnelles, JSON, les données spatiales et XML. SQL Database prend en charge le chiffrement côté serveur grâce à la fonctionnalité de chiffrement transparent des données (TDE) et le chiffrement côté client grâce à la fonction Always Encrypted.
 
-#### <a name="transparent-data-encryption"></a>Chiffrement transparent des données
+#### <a name="transparent-data-encryption"></a>chiffrement transparent des données
 
-[TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) est utilisé pour chiffrer les fichiers de données [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), [Azure SQL Database](../../sql-database/sql-database-technical-overview.md) et [Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) en temps réel à l’aide d’une clé de chiffrement de base de données (DEK) stockée dans l’enregistrement de démarrage de la base de données pour une disponibilité lors de la récupération.
+[TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) est utilisé pour chiffrer les fichiers de données [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), [Azure SQL Database](../../sql-database/sql-database-technical-overview.md) et [Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) en temps réel à l’aide d’une clé de chiffrement de base de données (DEK) stockée dans l’enregistrement de démarrage de la base de données pour une disponibilité lors de la récupération.
 
 TDE protège les données et les fichiers journaux, à l’aide d’algorithmes de chiffrement AES et 3DES (Triple Data Encryption Standard). Le chiffrement du fichier de base de données est effectué au niveau de la page. Les pages dans une base de données chiffrée sont chiffrées avant d’être écrites sur le disque, et sont déchiffrées quand elles sont lues en mémoire. TDE est désormais activé par défaut sur les nouvelles bases de données Azure SQL.
 
@@ -171,9 +171,9 @@ Vous pouvez configurer une connexion VPN point à site à un réseau virtuel à 
 
 Pour en savoir plus sur les connexions VPN de point à site à des réseaux virtuels Azure, consultez :
 
-[Configurer une connexion point à site sur un réseau virtuel à l'aide d'une authentification par certification : Portail Azure](../../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md) 
+[Configurer une connexion point à site sur un réseau virtuel à l’aide d’une authentification par certificat Azure native : Portail Azure](../../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md) 
 
-[Configurer une connexion point à site sur un réseau virtuel à l'aide d'une authentification par certificat : PowerShell](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
+[Configurer une connexion point à site à un réseau virtuel à l’aide de l’authentification par certificat Azure native : PowerShell](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 
 ### <a name="site-to-site-vpns"></a>VPN site à site 
 

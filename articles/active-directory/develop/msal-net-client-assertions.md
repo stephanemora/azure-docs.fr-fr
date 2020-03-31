@@ -13,12 +13,12 @@ ms.date: 11/18/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 3d73e803a31867bedbd0ff069b8c9321257b78cb
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 8c97387bfd2a362d3bf5a6b8a3252242f061da31
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76695566"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80050289"
 ---
 # <a name="confidential-client-assertions"></a>Assertions client confidentielles
 
@@ -52,7 +52,7 @@ Les revendications attendues par Azure AD sont :
 
 Type de revendication | Valeur | Description
 ---------- | ---------- | ----------
-aud | https://login.microsoftonline.com/{tenantId}/v2.0 | La revendication « AUD » (audience) identifie les destinataires auxquels le JWT est destiné (ici Azure AD) consultez [RFC 7519, section 4.1.3]
+aud | `https://login.microsoftonline.com/{tenantId}/v2.0` | La revendication « AUD » (audience) identifie les destinataires auxquels le JWT est destiné (ici Azure AD) consultez [RFC 7519, section 4.1.3]
 exp | Jeudi 27 juin 2019 à 15:04:17 GMT+0200 (Romance Daylight Time) | La revendication « exp » (délai d'expiration) indique le délai d'expiration à partir duquel le JWT ne doit PAS être accepté pour être traité. Consultez [RFC 7519, section 4.1.4]
 iss | {ClientID} | La revendication « ISS » (émetteur) identifie le principal qui a émis le jeton JWT. Le traitement de cette revendication est spécifique à l’application. La valeur « ISS » est une chaîne qui respecte la casse et qui contient une valeur StringOrURI. [RFC 7519, section 4.1.1]
 jti | (un guid) | La revendication « JTI » (ID JWT) fournit un identificateur unique pour le jeton JWT. La valeur de l’identificateur DOIT être assignée de manière à garantir qu’il y a une probabilité négligeable que la même valeur soit affectée par accident à un objet de données différent ; si l’application utilise plusieurs émetteurs, les collisions doivent également être évitées parmi les valeurs générées par différents émetteurs. La revendication « JTI » peut être utilisée pour empêcher la relecture du JWT. La valeur « JTI » est une chaîne qui respecte la casse. [RFC 7519, section 4.1.7]

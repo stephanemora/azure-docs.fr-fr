@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
 ms.author: allensu
-ms.openlocfilehash: c2e787a1f81d9f3d31b981c31a0249dd362b7bb9
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c6b8ecb443408f23ae604bd9c8139cb0a2afcd12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225405"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477780"
 ---
 # <a name="configure-high-availability-ports-for-an-internal-load-balancer"></a>Configurer des ports haute disponibilité pour un équilibreur de charge interne
 
 Cet article montre un exemple de déploiement de ports haute disponibilité sur un équilibreur de charge interne. Pour plus d’informations sur les configurations spécifiques aux appliances virtuelles réseau, consultez les sites web des fournisseurs correspondants.
 
 >[!NOTE]
->Azure Load Balancer prend en charge deux types différents : De base et Standard. Cet article décrit un équilibreur de charge standard. Pour plus d’informations sur l’équilibreur de charge de base, voir [Vue d’ensemble de l’équilibreur de charge](load-balancer-overview.md).
+>Azure Load Balancer prend en charge deux types différents : Basic et Standard. Cet article décrit un équilibreur de charge standard. Pour plus d’informations sur l’équilibreur de charge de base, voir [Vue d’ensemble de l’équilibreur de charge](load-balancer-overview.md).
 
 L’illustration montre la configuration suivante de l’exemple de déploiement décrit dans cet article :
 
@@ -98,7 +98,7 @@ lbrule = New-AzLoadBalancerRuleConfig -Name "HAPortsRule" -FrontendIpConfigurati
 À l’étape 4 de la section [Créer un jeu d’équilibreurs de charge internes](load-balancer-get-started-ilb-arm-cli.md), utilisez la commande suivante pour créer la règle d’équilibreur de charge des ports haute disponibilité :
 
 ```azurecli
-azure network lb rule create --resource-group contoso-rg --lb-name contoso-ilb --name haportsrule --protocol all --frontend-port 0 --backend-port 0 --frontend-ip-name feilb --backend-address-pool-name beilb
+az network lb rule create --resource-group contoso-rg --lb-name contoso-ilb --name haportsrule --protocol all --frontend-port 0 --backend-port 0 --frontend-ip-name feilb --backend-address-pool-name beilb
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

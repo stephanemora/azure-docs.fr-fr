@@ -2,19 +2,18 @@
 title: Guide de publication d’une offre d’application managée Azure Application
 description: Cet article décrit les conditions requises pour publier une application managée sur la place de marché
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: MaggiePucciEvans
-manager: evansma
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/14/2018
-ms.author: evansma
-ms.openlocfilehash: 764212ac148b336b07d29c29a72314c5d889d47c
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.author: dsindona
+ms.openlocfilehash: 38323ecfee69460b16542a3e004513f6a7389c41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934648"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288408"
 ---
 # <a name="azure-applications-managed-application-offer-publishing-guide"></a>Applications Azure : Guide de publication d’une offre d’application managée
 

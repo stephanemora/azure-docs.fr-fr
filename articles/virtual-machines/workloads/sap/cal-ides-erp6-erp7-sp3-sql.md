@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 09/16/2016
 ms.author: hermannd
 ms.openlocfilehash: 3efd92226b7c69590f3960458ffec49b63b8364f
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77616706"
 ---
 # <a name="deploy-sap-ides-ehp7-sp3-for-sap-erp-60-on-azure"></a>Déploiement de SAP IDES EHP7 SP3 pour SAP ERP 6.0 sur Azure
@@ -95,7 +95,7 @@ Vous avez correctement créé un compte SAP CAL capable d’effectuer les tâch
 ### <a name="deploy-a-solution"></a>Déployer une solution
 1. Après avoir configuré un compte SAP CAL, sélectionnez la solution **Solution SAP IDES sur Windows et SQL Server**. Cliquez sur **Créer une instance** et vérifiez les conditions d’utilisation. 
 
-1. Sur la page **Mode de base : Créer une instance**, procédez comme suit :
+1. Sur la page **Basic Mode: Create Instance** (Mode de base : Créer une instance), procédez comme suit :
 
     a. Entrez le nom de l’instance dans le champ **Name** (Nom).
 
@@ -103,7 +103,7 @@ Vous avez correctement créé un compte SAP CAL capable d’effectuer les tâch
 
     c.  Entrez le **Mot de passe** maître pour la solution, comme indiqué :
 
-    ![Mode De base SAP CAL : Créer une instance](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic10a.png)
+    ![Mode de base SAP CAL : créer une instance](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic10a.png)
 
 1. Cliquez sur **Créer**. Après un délai variable en fonction de la taille et de la complexité de la solution (SAP CAL en donne une estimation), la solution apparaît comme active et prête à être utilisée : 
 

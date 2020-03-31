@@ -4,11 +4,11 @@ description: Cet article vous explique comment créer et gérer des stratégies 
 ms.date: 01/31/2019
 ms.topic: how-to
 ms.openlocfilehash: 08ed43a464d1dd7de8220428dbc1c61ce9fc3ad6
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982465"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231181"
 ---
 # <a name="programmatically-create-policies"></a>Créer des stratégies par programmation
 

@@ -10,10 +10,10 @@ ms.assetid: 9de1bcf4-b15b-4d0b-9284-8889ecf0c438
 ms.topic: conceptual
 ms.date: 12/05/2016
 ms.openlocfilehash: 21d59f6543df7fe9d1fad47a006260bff9c93e2b
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76988054"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-sdk-for-nodejs"></a>Gestion d’Azure Data Lake Analytics à l’aide du kit de développement logiciel (SDK) Azure pour Node.js
@@ -22,10 +22,10 @@ ms.locfileid: "76988054"
 Cet article décrit comment gérer des comptes Azure Data Lake Analytics, des sources de données, des utilisateurs et des travaux utilisant une application écrite à l’aide du kit de développement logiciel (SDK) Azure pour Node.js. 
 
 Les versions suivantes sont prises en charge :
-* **Version de Node.js : 0.10.0 ou version ultérieure**
-* **Version de l’API REST pour le compte : 2015-10-01-preview**
-* **Version de l’API REST pour le catalogue : 2015-10-01-preview**
-* **Version de l’API REST pour la tâche : 2016-03-20-preview**
+* **Node.js version 0.10.0 ou supérieure**
+* **Version de l’API REST pour le compte : 2015-10-01-preview**
+* **Version de l’API REST pour le catalogue : 2015-10-01-preview**
+* **Version de l’API REST pour la tâche : 2016-03-20-preview**
 
 ## <a name="features"></a>Fonctionnalités
 * Gestion de compte : créer, obtenir, répertorier, mettre à jour et supprimer.

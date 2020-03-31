@@ -15,16 +15,16 @@ ms.date: 06/12/2018
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: afd9599dd1e396dea6975c397688e4b97371fd6d
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593935"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>Créer un point de terminaison CDN Azure
-Cet article décrit tous les paramètres de création d’un point de terminaison [Azure Content Delivery Network (CDN)](cdn-overview.md) dans un profil CDN existant. Après avoir créé un profil et un point de terminaison, vous pouvez commencer à distribuer du contenu à vos clients. Pour créer rapidement un profil et un point de terminaison, consultez [Démarrage rapide : Créer un point de terminaison et un profil de réseau de distribution de contenu Azure](cdn-create-new-endpoint.md).
+Cet article décrit tous les paramètres de création d’un point de terminaison [Azure Content Delivery Network (CDN)](cdn-overview.md) dans un profil CDN existant. Après avoir créé un profil et un point de terminaison, vous pouvez commencer à distribuer du contenu à vos clients. Pour créer rapidement un profil et un point de terminaison, consultez [Démarrage rapide : Créer un point de terminaison et un profil de réseau de distribution de contenu Azure](cdn-create-new-endpoint.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 Avant de créer un point de terminaison CDN, vous devez avoir créé au moins un profil CDN, qui peut contenir un ou plusieurs points de terminaison CDN. Vous pouvez utiliser plusieurs profils pour organiser vos points de terminaison CDN par domaine Internet, application web ou d’autres critères. La tarification CDN s’applique au niveau du profil CDN. Vous devez donc créer plusieurs profils CDN si vous souhaitez utiliser plusieurs niveaux tarifaires Azure CDN. Pour créer un profil CDN, consultez [Créer un profil CDN](cdn-create-new-endpoint.md#create-a-new-cdn-profile).
 
 ## <a name="log-in-to-the-azure-portal"></a>Se connecter au portail Azure.
@@ -101,7 +101,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com) avec votre compte Az
    
     Si vous tentez d’utiliser le nom de domaine CDN avant la propagation de la configuration du point de terminaison aux serveurs de point de présence (POP), vous recevrez probablement un état de réponse HTTP 404. Si plusieurs heures se sont écoulées depuis la création de votre point de terminaison et si vous recevez toujours un état de réponse 404, consultez [Dépannage des points de terminaison de CDN Azure renvoyant un code d’état 404](cdn-troubleshoot-endpoint.md).
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 Pour supprimer un point de terminaison qui n’est plus nécessaire, sélectionnez-le, puis sélectionnez **Supprimer**. 
 
 ## <a name="next-steps"></a>Étapes suivantes

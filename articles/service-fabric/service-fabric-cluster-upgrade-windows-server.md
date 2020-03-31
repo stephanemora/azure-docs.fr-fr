@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/09/2018
 ms.author: dekapur
 ms.openlocfilehash: 489a90180454e2b4a9dad34730fbd3c4f235a2ad
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77598100"
 ---
 # <a name="upgrade-the-service-fabric-version-that-runs-on-your-cluster"></a>Mettre à niveau la version de Service Fabric qui s’exécute sur votre cluster 
@@ -26,7 +26,7 @@ Vous ne pouvez mettre à niveau votre cluster vers la nouvelle version que si vo
 Deux workflows distincts permettent de mettre à niveau votre cluster vers la dernière version ou une version prise en charge de Service Fabric. L’un concerne les clusters disposant d’une connectivité suffisante pour télécharger automatiquement la version la plus récente. L’autre workflow est destiné aux clusters ne disposant pas d’une connectivité suffisante pour télécharger la version de Service Fabric la plus récente.
 
 ## <a name="enable-auto-upgrade-of-the-service-fabric-version-of-your-cluster"></a>Activer la mise à niveau automatique de la version de Service Fabric de votre cluster
-Pour configurer votre cluster afin qu’il télécharge les mises à jour de Service Fabric quand Microsoft publie une nouvelle version, affectez la valeur *true* à la configuration de cluster `fabricClusterAutoupgradeEnabled`. Pour sélectionner manuellement une version prise en charge de Service Fabric pour votre cluster, affectez la valeur *false* à la configuration de cluster `fabricClusterAutoupgradeEnabled`.
+Pour configurer votre cluster afin qu’il télécharge les mises à jour de Service Fabric quand Microsoft publie une nouvelle version, affectez la valeur `fabricClusterAutoupgradeEnabled`true*à la configuration de cluster*. Pour sélectionner manuellement une version prise en charge de Service Fabric pour votre cluster, affectez la valeur `fabricClusterAutoupgradeEnabled`false*à la configuration de cluster*.
 
 ## <a name="upgrade-clusters-that-have-connectivity-to-download-the-latest-code-and-configuration"></a>Mettre à niveau les clusters disposant d’une connectivité suffisante pour télécharger le code et la configuration les plus récents
 Si vos nœuds de cluster disposent d’une connectivité Internet au [Centre de téléchargement Microsoft](https://download.microsoft.com), suivez les étapes ci-après pour mettre à niveau votre cluster vers une version prise en charge.

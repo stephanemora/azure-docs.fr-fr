@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
 ms.openlocfilehash: 3d02d3573902964a8549fa0eeb1f4f1471de1752
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66257575"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79237325"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>Authentification des appareils à l’aide de certificats d’autorité de certification X.509
 
@@ -24,7 +24,7 @@ Cet article décrit comment utiliser des certificats d’autorité de certificat
 * Comment signer des appareils à l’aide de certificats d’autorité de certification X.509
 * Comment les appareils signés à l’aide d’une autorité de certification X.509 sont authentifiés
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 La fonctionnalité d’autorité de certification X.509 permet l’authentification des appareils auprès d’IoT Hub à l’aide d’une autorité de certification. Elle simplifie considérablement le processus d’inscription initial des appareils et la logistique de la chaîne d’approvisionnement lors de la fabrication de l’appareil. [Pour en savoir plus, consultez cet article de scénario sur l’importance d’utiliser des certificats d’autorités de certification X.509](iot-hub-x509ca-concept.md) pour l’authentification des appareils.  Nous vous invitons à lire cet article de scénario avant de poursuivre car il explique l’objectif des étapes qui suivent.
 

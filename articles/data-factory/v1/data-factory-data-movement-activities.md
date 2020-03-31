@@ -13,11 +13,11 @@ ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: fbaa8c3544b35978786404619879f59ab91a6979
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78358537"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79236517"
 ---
 # <a name="move-data-by-using-copy-activity"></a>Déplacer des données à l’aide de l’activité de copie
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -77,7 +77,7 @@ L’activité de copie dans Data Factory permet de copier les données d’un ma
 ### <a name="supported-file-formats"></a>Formats de fichiers pris en charge
 Si vous voulez utiliser une activité de copie pour **copier des fichiers en l’état** entre deux magasins de données basés sur des fichiers, vous pouvez ignorer la [section format](data-factory-create-datasets.md) dans l’entrée et dans la sortie des définitions de dataset. Les données sont copiées efficacement, sans sérialisation/désérialisation.
 
-L’activité de copie permet également de lire et d’écrire dans les fichiers aux formats spécifiés : Les formats **texte, JSON, Avro, ORC et Parquet**, ainsi que les codecs de compression **GZip, Deflate, BZip2 et ZipDeflate** sont pris en charge. Pour plus d’informations, consultez [Formats de fichier et de compression pris en charge](data-factory-supported-file-and-compression-formats.md).
+L’activité de copie peut également lire et écrire dans des fichiers de formats spécifiés : **Texte, Avro, ORC et Parquet**, et les codecs de compression **GZip, Deflate, BZip2 et ZipDeflate** sont pris en charge. Pour plus d’informations, consultez [Formats de fichier et de compression pris en charge](data-factory-supported-file-and-compression-formats.md).
 
 Par exemple, vous pouvez effectuer les activités de copie suivantes :
 
@@ -86,7 +86,7 @@ Par exemple, vous pouvez effectuer les activités de copie suivantes :
 * Copier les fichiers compressés depuis le système de fichiers local, les décompresser, puis accéder à Azure Data Lake Store.
 * Copier des données au format texte compressé GZip (CSV) provenant d’objets blob Azure et les écrire dans une base de données Azure SQL.
 
-## <a name="global"></a>Déplacement des données disponible globalement
+## <a name="globally-available-data-movement"></a><a name="global"></a>Déplacement des données disponible globalement
 Azure Data Factory est disponible uniquement dans les régions Europe Nord, USA Est et USA Ouest. Cependant, le service proposant l’activité de copie est disponible globalement dans les régions et zones géographiques suivantes. La topologie globalement disponible garantit le déplacement efficace des données en évitant généralement les sauts entre régions. Consultez la section [Services par région](https://azure.microsoft.com/regions/#services) pour connaître la disponibilité de Data Factory et du déplacement des données dans une région.
 
 ### <a name="copy-data-between-cloud-data-stores"></a>Copier des données entre des banques de données cloud
@@ -107,7 +107,7 @@ Lorsque les banques de données source et récepteur résident toutes les deux d
 | Brésil | Brésil Sud | Brésil Sud |
 | Europe | Europe Nord | Europe Nord |
 | &nbsp; | Europe Ouest | Europe Ouest |
-| Royaume-Uni | Ouest du Royaume-Uni | Sud du Royaume-Uni |
+| United Kingdom | Ouest du Royaume-Uni | Sud du Royaume-Uni |
 | &nbsp; | Sud du Royaume-Uni | Sud du Royaume-Uni |
 | Asie-Pacifique | Asie Sud-Est | Asie Sud-Est |
 | &nbsp; | Asie Est | Asie Sud-Est |
@@ -137,7 +137,7 @@ Vous pouvez créer un pipeline avec une activité de copie de plusieurs façons 
 L’Assistant Data Factory Copy vous aide à créer un pipeline avec l’activité de copie. Le pipeline vous permet de créer un pipeline pour copier des données de sources prises en charge vers des destinations *sans avoir à écrire de définitions JSON* pour les services liés, les jeux de données et les pipelines. Reportez-vous à [l’Assistant Data Factory Copy](data-factory-copy-wizard.md) pour connaître les détails de cet Assistant.  
 
 ### <a name="by-using-json-scripts"></a>Avec utilisation de scripts JSON
-Vous pouvez utiliser Data Factory Editor dans Visual Studio ou Azure PowerShell pour créer une définition JSON pour un pipeline (en utilisant l’activité de copie). Vous pouvez ensuite le déployer pour créer le pipeline dans Data Factory. Voir le [tutoriel : Utiliser l’activité de copie dans un pipeline Azure Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) pour connaître les instructions des procédures pas à pas.    
+Vous pouvez utiliser Data Factory Editor dans Visual Studio ou Azure PowerShell pour créer une définition JSON pour un pipeline (en utilisant l’activité de copie). Vous pouvez ensuite le déployer pour créer le pipeline dans Data Factory. Consultez le [Didacticiel : Utilisation de l’activité de copie dans un pipeline Azure Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) pour connaître les instructions des procédures pas à pas.    
 
 Les propriétés JSON (le nom, la description, les tables d'entrée et de sortie et les différentes stratégies) sont disponibles pour tous les types d'activités. Les propriétés qui sont disponibles dans la section `typeProperties` de l’activité varient avec chaque type d’activité.
 

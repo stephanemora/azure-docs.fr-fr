@@ -15,17 +15,17 @@ ms.workload: tbd
 ms.date: 04/08/2019
 ms.author: kwill
 ms.openlocfilehash: 5dd57a87658554bf59acf5cee1b6daf67b8692b8
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71162158"
 ---
 #    <a name="workflow-of-windows-azure-classic-vm-architecture"></a>Workflow de l’architecture de machine virtuelle Windows Azure 
 Cet article présente les processus de workflow qui interviennent lorsque vous déployez ou mettez à jour une ressource Azure telle qu'une machine virtuelle. 
 
 > [!NOTE]
->Azure a deux modèles de déploiement différents pour créer et utiliser des ressources : Resource Manager et classique. Cet article traite du modèle de déploiement classique.
+>Azure a deux modèles de déploiement différents pour créer et utiliser des ressources : Resource Manager et le déploiement classique. Cet article traite du modèle de déploiement classique.
 
 Le diagramme suivant présente l’architecture des ressources Azure.
 
@@ -116,7 +116,7 @@ Ce journal contient les mises à jour d'état ainsi que les notifications de pul
 
 `C:\Resources\Directory\<deploymentID>.<role>\IISConfigurator.log`
  
-**Journaux IIS**
+**Journaux d’activité IIS**
 
 `C:\Resources\Directory\<guid>.<role>.DiagnosticStore\LogFiles\W3SVC1`
  

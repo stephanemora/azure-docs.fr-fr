@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/20/2020
 ms.author: spelluru
 ms.openlocfilehash: fcf31fcc266358911612c25e0b73a0a9de696b1d
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77539016"
 ---
 # <a name="create-and-manage-a-classroom-template-in-azure-lab-services"></a>Créer et gérer un modèle de laboratoire de classe dans Azure Lab Services
@@ -47,7 +47,7 @@ Suivez les étapes ci-dessous pour mettre à jour un modèle de machine virtuell
 1. Suivez les étapes de la section suivante pour **publier** le modèle de machine virtuelle mis à jour. 
 
 ## <a name="publish-the-template-vm"></a>Publier le modèle de machine virtuelle  
-Au cours de cette étape, vous allez publier le modèle de machine virtuelle. Quand vous publiez le modèle de machine virtuelle, Azure Lab Services crée les machines virtuelles dans le laboratoire à l’aide du modèle. Toutes les machines virtuelles ont la même configuration que le modèle.
+Au cours de cette étape, vous allez publier le modèle de machine virtuelle. Quand vous publiez le modèle de machine virtuelle, Azure Lab Services crée les machines virtuelles dans le labo à l’aide du modèle. Toutes les machines virtuelles ont la même configuration que le modèle.
 
 
 1. Dans la page **Modèle**, sélectionnez **Publier** dans la barre d’outils. 

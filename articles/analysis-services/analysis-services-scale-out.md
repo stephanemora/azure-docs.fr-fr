@@ -8,10 +8,10 @@ ms.date: 03/02/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 3ea304d038618fc428f20e7ad72b398f593d09a8
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78247991"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Montée en charge d’Azure Analysis Services
@@ -20,7 +20,7 @@ La montée en charge permet de distribuer les requêtes des clients sur plusieur
 
 La montée en charge est disponible pour les serveurs du niveau tarifaire Standard. Chaque réplica de requête est facturé au même prix que votre serveur. Tous les réplicas de la requête sont créés dans la même région que votre serveur. Le nombre de réplicas de requête que vous pouvez configurer est limité par la région de votre serveur. Pour plus d’informations, consultez [Disponibilité par région](analysis-services-overview.md#availability-by-region). La montée en charge n’augmente pas la quantité de mémoire disponible pour votre serveur. Pour augmenter la mémoire, vous devez passer à un forfait supérieur. 
 
-## <a name="why-scale-out"></a>Pourquoi monter en charge ?
+## <a name="why-scale-out"></a>Pourquoi effectuer un scale-out ?
 
 Dans un déploiement de serveur classique, un même serveur est utilisé comme serveur de traitement et comme serveur de requêtes. Si le nombre de requêtes de clients sur des modèles présents sur votre serveur dépasse les unités de traitement des requêtes du plan de votre serveur, ou que le traitement du modèle est effectué en même temps que des charges de travail de requêtes importantes, les performances peuvent diminuer. 
 
@@ -78,7 +78,7 @@ Afin de déterminer si un scale-out est nécessaire pour votre serveur, [supervi
 
 L’indicateur de QPU moyen par ServerResourceType est également intéressant. Cette mesure compare le nombre moyen de QPU pour le serveur principal et le pool de requêtes. 
 
-![Indicateurs de montée en charge des requêtes](media/analysis-services-scale-out/aas-scale-out-monitor.png)
+![Indicateurs de scale-out des requêtes](media/analysis-services-scale-out/aas-scale-out-monitor.png)
 
 **Pour configurer les QPU (unités de traitement des requêtes) par ServerResourceType**
 

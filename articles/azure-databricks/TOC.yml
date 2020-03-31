@@ -27,13 +27,249 @@
       href: databricks-stream-from-eventhubs.md
     - name: Analyse des sentiments à l’aide de Cognitive Services
       href: databricks-sentiment-analysis-cognitive-services.md
+- name: Concepts
+  items:
+    - name: Concepts d’Azure Databricks
+      href: /azure/databricks/getting-started/concepts
+      maintainContext: true
 - name: Guides pratiques
   items:
-    - name: Prise en main
+    - name: Guides des langages
       items:
-        - name: Concepts d’Azure Databricks
-          href: /azure/databricks/getting-started/concepts
+        - name: Python
+          href: /azure/databricks/languages/python
           maintainContext: true
+        - name: R
+          items:
+            - name: Guide R
+              href: /azure/databricks/spark/latest/sparkr/index
+              maintainContext: true
+            - name: Vue d’ensemble de SparkR
+              href: /azure/databricks/spark/latest/sparkr/overview
+              maintainContext: true
+            - name: Tutoriels ML SparkR
+              items:
+                - name: Vue d’ensemble des tutoriels ML SparkR
+                  href: /azure/databricks/spark/latest/sparkr/tutorials/index
+                  maintainContext: true
+                - name: Utiliser glm
+                  href: /azure/databricks/spark/latest/sparkr/tutorials/using-glm
+                  maintainContext: true
+            - name: Informations de référence sur les fonctions SparkR
+              href: /azure/databricks/spark/latest/sparkr/sparkr
+              maintainContext: true
+            - name: "SparkR\_1.6"
+              items:
+                - name: "Vue d’ensemble de SparkR\_1.6"
+                  href: /azure/databricks/spark/1.6/sparkr/overview
+                  maintainContext: true
+                - name: "Informations de référence sur les fonctions SparkR\_1.6"
+                  href: /azure/databricks/spark/1.6/sparkr/functions/index
+                  maintainContext: true
+            - name: sparklyr
+              href: /azure/databricks/spark/latest/sparkr/sparklyr
+              maintainContext: true
+            - name: RStudio sur Azure Databricks
+              href: /azure/databricks/spark/latest/sparkr/rstudio
+              maintainContext: true
+            - name: Shiny sur Azure Databricks
+              href: /azure/databricks/spark/latest/sparkr/shiny
+              maintainContext: true
+        - name: Scala
+          href: /azure/databricks/languages/scala
+          maintainContext: true
+        - name: SQL
+          items:
+            - name: Vue d’ensemble de SQL
+              href: /azure/databricks/spark/latest/spark-sql/index
+              maintainContext: true
+            - name: Manuel du langage SQL
+              items:
+                - name: Modifier la base de données
+                  href: /azure/databricks/spark/latest/spark-sql/language-manual/alter-database
+                  maintainContext: true
+                - name: Modifier la table ou la vue
+                  href: /azure/databricks/spark/latest/spark-sql/language-manual/alter-table-or-view
+                  maintainContext: true
+                - name: Modifier les partitions de la table
+                  href: /azure/databricks/spark/latest/spark-sql/language-manual/alter-table-partitions
+                  maintainContext: true
+                - name: Analyser la table
+                  href: /azure/databricks/spark/latest/spark-sql/language-manual/analyze-table
+                  maintainContext: true
+                - name: Cache
+                  href: /azure/databricks/spark/latest/spark-sql/language-manual/cache-dbio
+                  maintainContext: true
+                - name: Mettre en cache la table
+                  href: /azure/databricks/spark/latest/spark-sql/language-manual/cache-table
+                  maintainContext: true
+                - name: Clear Cache
+                  href: /azure/databricks/spark/latest/spark-sql/language-manual/clear-cache
+                  maintainContext: true
+                - name: Convertir en Delta (Delta Lake sur Azure Databricks)
+                  href: /azure/databricks/spark/latest/spark-sql/language-manual/convert-to-delta
+                  maintainContext: true
+                - name: Créer une base de données
+                  href: /azure/databricks/spark/latest/spark-sql/language-manual/create-database
+                  maintainContext: true
+                - name: Créer une fonction
+                  href: /azure/databricks/spark/latest/spark-sql/language-manual/create-function
+                  maintainContext: true
+                - name: Créer une table
+                  href: /azure/databricks/spark/latest/spark-sql/language-manual/create-table
+                  maintainContext: true
+                - name: Créer une vue
+                  href: /azure/databricks/spark/latest/spark-sql/language-manual/create-view
+                  maintainContext: true
+                - name: Supprimer de (Delta Lake sur Azure Databricks)
+                  href: /azure/databricks/spark/latest/spark-sql/language-manual/delete-from
+                  maintainContext: true
+                - name: Deny
+                  href: /azure/databricks/spark/latest/spark-sql/language-manual/deny
+                  maintainContext: true
+                - name: Décrire la base de données
+                  href: /azure/databricks/spark/latest/spark-sql/language-manual/describe-database
+                  maintainContext: true
+                - name: Décrire la fonction
+                  href: /azure/databricks/spark/latest/spark-sql/language-manual/describe-function
+                  maintainContext: true
+                - name: Décrire l’historique (Delta Lake sur Azure Databricks)
+                  href: /azure/databricks/spark/latest/spark-sql/language-manual/describe-history
+                  maintainContext: true
+                - name: Décrire la table
+                  href: /azure/databricks/spark/latest/spark-sql/language-manual/describe-table
+                  maintainContext: true
+                - name: Supprimer la base de données
+                  href: /azure/databricks/spark/latest/spark-sql/language-manual/drop-database
+                  maintainContext: true
+                - name: Supprimer la fonction
+                  href: /azure/databricks/spark/latest/spark-sql/language-manual/drop-function
+                  maintainContext: true
+                - name: Supprimer la table
+                  href: /azure/databricks/spark/latest/spark-sql/language-manual/drop-table
+                  maintainContext: true
+                - name: Supprimer la vue
+                  href: /azure/databricks/spark/latest/spark-sql/language-manual/drop-view
+                  maintainContext: true
+                - name: Expliquer
+                  href: /azure/databricks/spark/latest/spark-sql/language-manual/explain
+                  maintainContext: true
+                - name: Table de réparation Fsck (Delta Lake sur Azure Databricks)
+                  href: /azure/databricks/spark/latest/spark-sql/language-manual/fsck
+                  maintainContext: true
+                - name: Fonctions
+                  href: /azure/databricks/spark/latest/spark-sql/language-manual/functions
+                  maintainContext: true
+                - name: Accorder
+                  href: /azure/databricks/spark/latest/spark-sql/language-manual/grant
+                  maintainContext: true
+                - name: Generate
+                  href: /azure/databricks/spark/latest/spark-sql/language-manual/generate
+                  maintainContext: true
+                - name: Insérer
+                  href: /azure/databricks/spark/latest/spark-sql/language-manual/insert
+                  maintainContext: true
+                - name: Charger les données
+                  href: /azure/databricks/spark/latest/spark-sql/language-manual/load-data
+                  maintainContext: true
+                - name: Fusionner dans (Delta Lake sur Azure Databricks)
+                  href: /azure/databricks/spark/latest/spark-sql/language-manual/merge-into
+                  maintainContext: true
+                - name: Msck
+                  href: /azure/databricks/spark/latest/spark-sql/language-manual/msck
+                  maintainContext: true
+                - name: Optimiser (Delta Lake sur Azure Databricks)
+                  href: /azure/databricks/spark/latest/spark-sql/language-manual/optimize
+                  maintainContext: true
+                - name: Actualiser la table
+                  href: /azure/databricks/spark/latest/spark-sql/language-manual/refresh-table
+                  maintainContext: true
+                - name: Réinitialiser
+                  href: /azure/databricks/spark/latest/spark-sql/language-manual/reset
+                  maintainContext: true
+                - name: Révoquer
+                  href: /azure/databricks/spark/latest/spark-sql/language-manual/revoke
+                  maintainContext: true
+                - name: Sélectionnez
+                  href: /azure/databricks/spark/latest/spark-sql/language-manual/select
+                  maintainContext: true
+                - name: Définissez
+                  href: /azure/databricks/spark/latest/spark-sql/language-manual/set
+                  maintainContext: true
+                - name: Afficher les colonnes
+                  href: /azure/databricks/spark/latest/spark-sql/language-manual/show-columns
+                  maintainContext: true
+                - name: Afficher Créer la table
+                  href: /azure/databricks/spark/latest/spark-sql/language-manual/show-create-table
+                  maintainContext: true
+                - name: Afficher les bases de données
+                  href: /azure/databricks/spark/latest/spark-sql/language-manual/show-databases
+                  maintainContext: true
+                - name: Afficher les fonctions
+                  href: /azure/databricks/spark/latest/spark-sql/language-manual/show-functions
+                  maintainContext: true
+                - name: Afficher l’octroi
+                  href: /azure/databricks/spark/latest/spark-sql/language-manual/show-grant
+                  maintainContext: true
+                - name: Afficher les partitions
+                  href: /azure/databricks/spark/latest/spark-sql/language-manual/show-partitions
+                  maintainContext: true
+                - name: Afficher les propriétés de la table
+                  href: /azure/databricks/spark/latest/spark-sql/language-manual/show-table-properties
+                  maintainContext: true
+                - name: Afficher les tables
+                  href: /azure/databricks/spark/latest/spark-sql/language-manual/show-tables
+                  maintainContext: true
+                - name: Tronquer la table
+                  href: /azure/databricks/spark/latest/spark-sql/language-manual/truncate-table
+                  maintainContext: true
+                - name: Supprimer la table du cache
+                  href: /azure/databricks/spark/latest/spark-sql/language-manual/uncache-table
+                  maintainContext: true
+                - name: Mettre à jour (Delta Lake sur Azure Databricks)
+                  href: /azure/databricks/spark/latest/spark-sql/language-manual/update
+                  maintainContext: true
+                - name: Utiliser la base de données
+                  href: /azure/databricks/spark/latest/spark-sql/language-manual/use-database
+                  maintainContext: true
+                - name: Nettoyer
+                  href: /azure/databricks/spark/latest/spark-sql/language-manual/vacuum
+                  maintainContext: true
+            - name: Exemples Spark SQL
+              items:
+                - name: Optimiseur basé sur les coûts
+                  href: /azure/databricks/spark/latest/spark-sql/cbo
+                  maintainContext: true
+                - name: Index utilisé pour ignorer des données
+                  href: /azure/databricks/spark/latest/spark-sql/dataskipping-index
+                  maintainContext: true
+                - name: Écritures transactionnelles dans le stockage cloud avec DBIO
+                  href: /azure/databricks/spark/latest/spark-sql/dbio-commit
+                  maintainContext: true
+                - name: Gérer les enregistrements et les fichiers incorrects
+                  href: /azure/databricks/spark/latest/spark-sql/handling-bad-records
+                  maintainContext: true
+                - name: Préemption des tâches pour une concurrence élevée
+                  href: /azure/databricks/spark/latest/spark-sql/preemption
+                  maintainContext: true
+                - name: Gérer des requêtes longues dans des workflows interactifs
+                  href: /azure/databricks/spark/latest/spark-sql/query-watchdog
+                  maintainContext: true
+                - name: Optimiser la conversion entre DataFrames Spark et Pandas
+                  href: /azure/databricks/spark/latest/spark-sql/spark-pandas
+                  maintainContext: true
+                - name: Fonctions d’agrégation définies par l’utilisateur - Scala
+                  href: /azure/databricks/spark/latest/spark-sql/udf-scala
+                  maintainContext: true
+                - name: Fonctions définies par l’utilisateur - Python
+                  href: /azure/databricks/spark/latest/spark-sql/udf-python
+                  maintainContext: true
+                - name: Fonctions définies par l’utilisateur Pandas
+                  href: /azure/databricks/spark/latest/spark-sql/udf-python-pandas
+                  maintainContext: true
+                - name: Compatibilité avec Apache Hive
+                  href: /azure/databricks/spark/latest/spark-sql/compatibility/hive
+                  maintainContext: true
     - name: Runtimes Databricks
       items:
         - name: Vue d’ensemble des runtimes
@@ -219,8 +455,8 @@
             - name: Cosmos DB
               href: /azure/databricks/data/data-sources/azure/cosmosdb-connector
               maintainContext: true
-            - name: Azure SQL Data Warehouse.
-              href: /azure/databricks/data/data-sources/azure/sql-data-warehouse
+            - name: Azure Synapse Analytics
+              href: /azure/databricks/data/data-sources/azure/synapse-analytics
               maintainContext: true
             - name: Fichier binaire
               href: /azure/databricks/data/data-sources/binary-file
@@ -478,234 +714,6 @@
             - name: Bonnes pratiques pour le développement d’applications de streaming
               href: /azure/databricks/spark/latest/rdd-streaming/developing-streaming-applications
               maintainContext: true
-    - name: SQL
-      items:
-        - name: Vue d’ensemble de SQL
-          href: /azure/databricks/spark/latest/spark-sql/index
-          maintainContext: true
-        - name: Manuel du langage SQL
-          items:
-            - name: Modifier la base de données
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/alter-database
-              maintainContext: true
-            - name: Modifier la table ou la vue
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/alter-table-or-view
-              maintainContext: true
-            - name: Modifier les partitions de la table
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/alter-table-partitions
-              maintainContext: true
-            - name: Analyser la table
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/analyze-table
-              maintainContext: true
-            - name: Cache
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/cache-dbio
-              maintainContext: true
-            - name: Mettre en cache la table
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/cache-table
-              maintainContext: true
-            - name: Clear Cache
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/clear-cache
-              maintainContext: true
-            - name: Convertir en Delta (Delta Lake sur Azure Databricks)
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/convert-to-delta
-              maintainContext: true
-            - name: Créer une base de données
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/create-database
-              maintainContext: true
-            - name: Créer une fonction
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/create-function
-              maintainContext: true
-            - name: Créer une table
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/create-table
-              maintainContext: true
-            - name: Créer une vue
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/create-view
-              maintainContext: true
-            - name: Supprimer de (Delta Lake sur Azure Databricks)
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/delete-from
-              maintainContext: true
-            - name: Deny
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/deny
-              maintainContext: true
-            - name: Décrire la base de données
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/describe-database
-              maintainContext: true
-            - name: Décrire la fonction
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/describe-function
-              maintainContext: true
-            - name: Décrire l’historique (Delta Lake sur Azure Databricks)
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/describe-history
-              maintainContext: true
-            - name: Décrire la table
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/describe-table
-              maintainContext: true
-            - name: Supprimer la base de données
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/drop-database
-              maintainContext: true
-            - name: Supprimer la fonction
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/drop-function
-              maintainContext: true
-            - name: Supprimer la table
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/drop-table
-              maintainContext: true
-            - name: Supprimer la vue
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/drop-view
-              maintainContext: true
-            - name: Expliquer
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/explain
-              maintainContext: true
-            - name: Table de réparation Fsck (Delta Lake sur Azure Databricks)
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/fsck
-              maintainContext: true
-            - name: Fonctions
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/functions
-              maintainContext: true
-            - name: Accorder
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/grant
-              maintainContext: true
-            - name: Generate
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/generate
-              maintainContext: true
-            - name: Insérer
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/insert
-              maintainContext: true
-            - name: Charger les données
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/load-data
-              maintainContext: true
-            - name: Fusionner dans (Delta Lake sur Azure Databricks)
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/merge-into
-              maintainContext: true
-            - name: Msck
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/msck
-              maintainContext: true
-            - name: Optimiser (Delta Lake sur Azure Databricks)
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/optimize
-              maintainContext: true
-            - name: Actualiser la table
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/refresh-table
-              maintainContext: true
-            - name: Réinitialiser
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/reset
-              maintainContext: true
-            - name: Révoquer
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/revoke
-              maintainContext: true
-            - name: Sélectionnez
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/select
-              maintainContext: true
-            - name: Définissez
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/set
-              maintainContext: true
-            - name: Afficher les colonnes
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/show-columns
-              maintainContext: true
-            - name: Afficher Créer la table
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/show-create-table
-              maintainContext: true
-            - name: Afficher les bases de données
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/show-databases
-              maintainContext: true
-            - name: Afficher les fonctions
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/show-functions
-              maintainContext: true
-            - name: Afficher l’octroi
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/show-grant
-              maintainContext: true
-            - name: Afficher les partitions
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/show-partitions
-              maintainContext: true
-            - name: Afficher les propriétés de la table
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/show-table-properties
-              maintainContext: true
-            - name: Afficher les tables
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/show-tables
-              maintainContext: true
-            - name: Tronquer la table
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/truncate-table
-              maintainContext: true
-            - name: Supprimer la table du cache
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/uncache-table
-              maintainContext: true
-            - name: Mettre à jour (Delta Lake sur Azure Databricks)
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/update
-              maintainContext: true
-            - name: Utiliser la base de données
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/use-database
-              maintainContext: true
-            - name: Nettoyer
-              href: /azure/databricks/spark/latest/spark-sql/language-manual/vacuum
-              maintainContext: true
-        - name: Exemples Spark SQL
-          items:
-            - name: Optimiseur basé sur les coûts
-              href: /azure/databricks/spark/latest/spark-sql/cbo
-              maintainContext: true
-            - name: Index utilisé pour ignorer des données
-              href: /azure/databricks/spark/latest/spark-sql/dataskipping-index
-              maintainContext: true
-            - name: Écritures transactionnelles dans le stockage cloud avec DBIO
-              href: /azure/databricks/spark/latest/spark-sql/dbio-commit
-              maintainContext: true
-            - name: Gérer les enregistrements et les fichiers incorrects
-              href: /azure/databricks/spark/latest/spark-sql/handling-bad-records
-              maintainContext: true
-            - name: Préemption des tâches pour une concurrence élevée
-              href: /azure/databricks/spark/latest/spark-sql/preemption
-              maintainContext: true
-            - name: Gérer des requêtes longues dans des workflows interactifs
-              href: /azure/databricks/spark/latest/spark-sql/query-watchdog
-              maintainContext: true
-            - name: Optimiser la conversion entre DataFrames Spark et Pandas
-              href: /azure/databricks/spark/latest/spark-sql/spark-pandas
-              maintainContext: true
-            - name: Fonctions d’agrégation définies par l’utilisateur - Scala
-              href: /azure/databricks/spark/latest/spark-sql/udf-scala
-              maintainContext: true
-            - name: Fonctions définies par l’utilisateur - Python
-              href: /azure/databricks/spark/latest/spark-sql/udf-python
-              maintainContext: true
-            - name: Fonctions définies par l’utilisateur Pandas
-              href: /azure/databricks/spark/latest/spark-sql/udf-python-pandas
-              maintainContext: true
-            - name: Compatibilité avec Apache Hive
-              href: /azure/databricks/spark/latest/spark-sql/compatibility/hive
-              maintainContext: true
-    - name: R
-      items:
-        - name: Guide R
-          href: /azure/databricks/spark/latest/sparkr/index
-          maintainContext: true
-        - name: Vue d’ensemble de SparkR
-          href: /azure/databricks/spark/latest/sparkr/overview
-          maintainContext: true
-        - name: Tutoriels ML SparkR
-          items:
-            - name: Vue d’ensemble des tutoriels ML SparkR
-              href: /azure/databricks/spark/latest/sparkr/tutorials/index
-              maintainContext: true
-            - name: Utiliser glm
-              href: /azure/databricks/spark/latest/sparkr/tutorials/using-glm
-              maintainContext: true
-        - name: Informations de référence sur les fonctions SparkR
-          href: /azure/databricks/spark/latest/sparkr/sparkr
-          maintainContext: true
-        - name: "SparkR\_1.6"
-          items:
-            - name: "Vue d’ensemble de SparkR\_1.6"
-              href: /azure/databricks/spark/1.6/sparkr/overview
-              maintainContext: true
-            - name: "Informations de référence sur les fonctions SparkR\_1.6"
-              href: /azure/databricks/spark/1.6/sparkr/functions/index
-              maintainContext: true
-        - name: sparklyr
-          href: /azure/databricks/spark/latest/sparkr/sparklyr
-          maintainContext: true
-        - name: RStudio sur Azure Databricks
-          href: /azure/databricks/spark/latest/sparkr/rstudio
-          maintainContext: true
-        - name: Shiny sur Azure Databricks
-          href: /azure/databricks/spark/latest/sparkr/shiny
-          maintainContext: true
     - name: Apprentissage automatique
       items:
         - name: Vue d’ensemble du machine learning
@@ -913,6 +921,12 @@
         - name: Reproduire des exécutions avec des projets MLflow
           href: /azure/databricks/applications/mlflow/projects
           maintainContext: true
+        - name: Gérer le cycle de vie des modèles MLflow dans le registre de modèle MLflow
+          href: /azure/databricks/applications/mlflow/model-registry
+          maintainContext: true
+        - name: Exemple de registre de modèles MLflow
+          href: /azure/databricks/applications/mlflow/model-registry-example
+          maintainContext: true
     - name: Analyse des graphes
       items:
         - name: Vue d’ensemble de l’analyse des graphes
@@ -1037,6 +1051,9 @@
               maintainContext: true
             - name: Journalisation des diagnostics dans Azure Databricks
               href: /azure/databricks/administration-guide/account-settings/azure-diagnostic-logs
+              maintainContext: true
+            - name: Superviser l’utilisation en utilisant des étiquettes
+              href: /azure/databricks/administration-guide/account-settings/usage-detail-tags-azure
               maintainContext: true
         - name: Gérer les utilisateurs et les groupes
           items:
@@ -1356,6 +1373,9 @@
             - name: Échec du travail avec MaxResultSize
               href: /azure/databricks/kb/jobs/job-fails-maxresultsize-exception
               maintainContext: true
+            - name: Échec du travail en raison de l’erreur du package SQLAlchemy
+              href: /azure/databricks/kb/jobs/job-fails-sqlalchemy
+              maintainContext: true
             - name: Garantir l’idempotence
               href: /azure/databricks/kb/jobs/jobs-idempotency
               maintainContext: true
@@ -1550,7 +1570,7 @@
             - name: Exemples d'API
               href: /azure/databricks/dev-tools/api/latest/examples
               maintainContext: true
-            - name: Authentication
+            - name: Authentification
               href: /azure/databricks/dev-tools/api/latest/authentication
               maintainContext: true
             - name: Clusters
@@ -1752,10 +1772,22 @@
               maintainContext: true
         - name: Runtime Databricks
           items:
-            - name: Prise en charge
+            - name: Notes de publication du runtime
               items:
-                - name: Versions du runtime prises en charge
-                  href: /azure/databricks/release-notes/runtime/supported
+                - name: Versions du runtime
+                  href: /azure/databricks/release-notes/runtime/releases
+                  maintainContext: true
+                - name: "Databricks Runtime\_7.0 (bêta)"
+                  href: /azure/databricks/release-notes/runtime/7.0
+                  maintainContext: true
+                - name: "Databricks Runtime\_6.5 (bêta)"
+                  href: /azure/databricks/release-notes/runtime/6.5
+                  maintainContext: true
+                - name: "Databricks Runtime\_6.5 ML (bêta)"
+                  href: /azure/databricks/release-notes/runtime/6.5ml
+                  maintainContext: true
+                - name: "Databricks Runtime\_6.5 Genomics (bêta)"
+                  href: /azure/databricks/release-notes/runtime/6.5genomics
                   maintainContext: true
                 - name: "Databricks Runtime\_6.4"
                   href: /azure/databricks/release-notes/runtime/6.4
@@ -1831,11 +1863,6 @@
                   maintainContext: true
                 - name: "Databricks Runtime\_5.2 ML"
                   href: /azure/databricks/release-notes/runtime/5.2ml
-                  maintainContext: true
-            - name: Non pris en charge
-              items:
-                - name: Versions du runtime non prises en charge
-                  href: /azure/databricks/release-notes/runtime/unsupported
                   maintainContext: true
                 - name: "Databricks Runtime\_5.1"
                   href: /azure/databricks/release-notes/runtime/5.1

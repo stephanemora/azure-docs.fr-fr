@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: aprameyr
 ms.openlocfilehash: bd46a7776495624affef77a44fcf68334750ba17
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75609993"
 ---
 # <a name="reconfiguration-in-azure-service-fabric"></a>Reconfiguration dans Azure Service Fabric
@@ -23,28 +23,28 @@ Failover Manager lance les reconfigurations en réponse à différents événeme
 Les reconfigurations peuvent être classées selon deux types :
 
 - Reconfigurations où le réplica principal est changé :
-    - **Basculement** : les basculements sont des reconfigurations faisant suite à la défaillance d’un principal en cours d’exécution.
-    - **ÉchangePrincipal** : les échanges sont des reconfigurations où Service Fabric doit déplacer un réplica principal en cours d’exécution d’un nœud à un autre, généralement en réponse à un équilibrage de charge ou à une mise à niveau.
+    - **Basculement**: les basculements sont des reconfigurations faisant suite à la défaillance d’un principal en cours d’exécution.
+    - **ÉchangePrincipal** : les échanges sont des reconfigurations où Service Fabric doit déplacer un réplica principal en cours d’exécution d’un nœud à un autre, généralement en réponse à un équilibrage de charge ou à une mise à niveau.
 
 - Reconfigurations où le réplica principal ne change pas :
 
 ## <a name="reconfiguration-phases"></a>Phases de reconfiguration
 Une reconfiguration se décompose en plusieurs phases :
 
-- **Phase0** : cette phase se produit dans les reconfigurations d’échange de principal, où le réplica principal actuel transfère son état au nouveau réplica principal avant de passer réplica secondaire actif.
+- **Phase0** : cette phase se produit dans les reconfigurations d’échange de principal, où le réplica principal actuel transfère son état au nouveau réplica principal avant de passer réplica secondaire actif.
 
-- **Phase1** : cette phase se produit pendant les reconfigurations où le réplica principal est changé. Au cours de cette phase, Service Fabric identifie le principal approprié parmi les réplicas actuels. Cette phase est inutile pendant les reconfigurations d’échange de principal, car le nouveau réplica principal a déjà été choisi. 
+- **Phase1** : cette phase se produit pendant les reconfigurations où le réplica principal est changé. Au cours de cette phase, Service Fabric identifie le principal approprié parmi les réplicas actuels. Cette phase est inutile pendant les reconfigurations d’échange de principal, car le nouveau réplica principal a déjà été choisi. 
 
-- **Phase2** : au cours de cette phase, Service Fabric permet de s’assurer que toutes les données sont disponibles dans la majorité des réplicas de la configuration actuelle.
+- **Phase2** : au cours de cette phase, Service Fabric permet de s’assurer que toutes les données sont disponibles dans la majorité des réplicas de la configuration actuelle.
 
 Il existe plusieurs autres phases qui sont à usage interne uniquement.
 
 ## <a name="stuck-reconfigurations"></a>Reconfigurations bloquées
 Les reconfigurations peuvent se *bloquer* pour diverses raisons. Voici quelques-unes des raisons les plus courantes :
 
-- **Réplicas arrêtés** : certaines phases de reconfiguration nécessitent que la majorité des réplicas au sein de la configuration soient opérationnels.
-- **Problèmes de réseau ou de communication** : les reconfigurations exigent une connectivité réseau entre les différents nœuds.
-- **Échecs d’API** : le protocole de reconfiguration a besoin que des implémentations de service terminent certaines API. Par exemple, le fait de ne pas respecter le jeton d’annulation dans un service fiable entraîne le blocage des reconfigurations ÉchangePrincipal.
+- **Réplicas arrêtés** : certaines phases de reconfiguration nécessitent que la majorité des réplicas au sein de la configuration soient opérationnels.
+- **Problèmes de réseau ou de communication** : les reconfigurations exigent une connectivité réseau entre les différents nœuds.
+- **Échecs d’API** : le protocole de reconfiguration a besoin que des implémentations de service terminent certaines API. Par exemple, le fait de ne pas respecter le jeton d’annulation dans un service fiable entraîne le blocage des reconfigurations ÉchangePrincipal.
 
 Utilisez les rapports d’intégrité à partir des composants système, tels que System.FM, System.RA et System.RAP, pour diagnostiquer où le blocage d’une reconfiguration a eu lieu. La [page sur les rapports d’intégrité du système](service-fabric-understand-and-troubleshoot-with-system-health-reports.md) décrit ces rapports.
 

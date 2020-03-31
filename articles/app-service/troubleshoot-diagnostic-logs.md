@@ -6,11 +6,11 @@ ms.topic: article
 ms.date: 09/17/2019
 ms.custom: seodec18
 ms.openlocfilehash: 433f8fa36f17f7cb145261273586a684658acda5
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78358217"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79236081"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Activer la journalisation des diagnostics pour les applications dans Azure App Service
 ## <a name="overview"></a>Vue d’ensemble
@@ -191,7 +191,7 @@ Le tableau suivant renseigne sur les types et la descriptions des journaux pris 
 | AppServiceFileAuditLogs | À confirmer | Oui | Modifications de fichiers via FTP et Kudu |
 | AppServiceAppLogs | À confirmer | Java SE et Tomcat | Journaux d’activité d’application |
 
-## <a name="nextsteps"></a>Étapes suivantes
+## <a name="next-steps"></a><a name="nextsteps"></a>Étapes suivantes
 * [Interrogation de journaux d’activité grâce à Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
 * [Surveillance des applications dans Azure App Service](web-sites-monitor.md)
 * [Dépannage d’une application web dans le Service d’application Microsoft Azure à l’aide de Visual Studio](troubleshoot-dotnet-visual-studio.md)

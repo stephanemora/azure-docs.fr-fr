@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 12/01/2019
 ms.author: b-juche
 ms.openlocfilehash: 9e8817f802ca1d73ca0f6bfa2b32b1b14b37d7da
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74773549"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79234117"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Créer un volume NFS pour Azure NetApp Files
 
@@ -98,7 +98,7 @@ Un sous-réseau doit être délégué à Azure NetApp Files.
 
         Le chemin d’accès du fichier doit être unique au sein de chaque abonnement et chaque région. 
 
-    * Sélectionnez la version de NFS (**NFSv3**  ou **NFSv4.1** ) du volume.  
+    * Sélectionnez la version de NFS (**NFSv3** ou **NFSv4.1**) du volume.  
     * Le cas échéant, [configurez une stratégie d’exportation pour le volume NFS](azure-netapp-files-configure-export-policy.md).
 
     ![Spécifier le protocole NFS](../media/azure-netapp-files/azure-netapp-files-protocol-nfs.png)

@@ -13,10 +13,10 @@ ms.date: 01/29/2020
 ms.author: martinco
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0ca5817e744ff81efcd549bc328d7ce5eeedb2d2
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76908732"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Créer une stratégie de gestion du contrôle d'accès résiliente avec Azure Active Directory
@@ -123,8 +123,8 @@ Une stratégie d’accès conditionnel d’urgence est une **stratégie désacti
   * Si votre organisation utilise Microsoft Cloud App Security, n'hésitez pas à avoir recours à une stratégie qui tire parti de MCAS. MCAS autorisera un accès en lecture seule, mais pas les chargements.
 * Nommez vos stratégies pour être certain qu’il soit facile de les trouver pendant une interruption. Incluez les éléments suivants dans le nom de la stratégie :
   * Un *numéro de libellé* pour la stratégie.
-  * Un texte à afficher, cette stratégie n’étant prévue qu’en cas d’urgence. Par exemple :  **ACTIVER EN CAS D’URGENCE**
-  * L’*interruption* à laquelle elle s’applique. Par exemple :  **Pendant une interruption MFA**
+  * Un texte à afficher, cette stratégie n’étant prévue qu’en cas d’urgence. Par exemple : **ACTIVER EN CAS D’URGENCE**
+  * L’*interruption* à laquelle elle s’applique. Par exemple : **Pendant une interruption MFA**
   * Un *numéro de séquence* pour montrer l’ordre dans lequel les stratégies doivent être activées.
   * Les *applications* auxquelles elle s’applique.
   * Les *contrôles* auxquels elle s’appliquera.

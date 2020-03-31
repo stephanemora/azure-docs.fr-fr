@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: twooley
 ms.openlocfilehash: 4e57fffd2f74ae1b14f51537c92299607f193ad5
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75934056"
 ---
 # <a name="storsimple-8000-series-update-2-release-notes"></a>Notes de publication de StorSimple série 8000 Update 2
@@ -53,12 +53,12 @@ La solution Update 2 présente les nouvelles fonctionnalités suivantes :
   * Améliorations du routage, avec des mesures fixes pour les blocs compatibles avec le cloud.
   * Tentatives en ligne des ressources en cas d’échec avant un basculement.
   * Nouvelles alertes pour les échecs de service.
-* **Améliorations des mises à jour** : dans Update 1.2 et les versions antérieures, les appareils StorSimple série 8000 étaient mis à jour via deux canaux : Windows Update pour le clustering, iSCSI et autres, et Microsoft Update pour les fichiers binaires et les microprogrammes.
+* **Améliorations des mises à jour** : dans Update 1.2 et les versions antérieures, les appareils StorSimple série 8000 étaient mis à jour via deux canaux : Windows Update pour le clustering, iSCSI et autres, et Microsoft Update pour les fichiers binaires et les microprogrammes.
     Update 2 utilise Microsoft Update pour tous les packages de mise à jour. Cette solution devrait permettre de réduire le temps des mises à jour correctives ou des basculements à effectuer. 
 * **Mises à jour de microprogramme** : les mises à jour de microprogramme suivantes sont incluses :
   
   * LSI: lsi_sas2.sys Version du produit 2.00.72.10
-  * SSD uniquement (aucune mise à jour HDD) : XMGG, XGEG, KZ50, F6C2 et VR08
+  * Disque SSD uniquement (aucune mise à jour du disque dur) : XMGG, XGEG, KZ50, F6C2 et VR08
 * **Prise en charge proactive** : Update 2 permet à Microsoft d'extraire des informations de diagnostic supplémentaires de l’appareil. Lorsque notre équipe en charge des opérations identifie des appareils qui ont un problème, nous sommes plus à même de collecter des informations à partir de ces appareils et de diagnostiquer les problèmes. **En acceptant d’installer Update 2, vous nous permettez de fournir cette assistance proactive**.    
 
 ## <a name="issues-fixed-in-update-2"></a>Problèmes résolus dans Update 2

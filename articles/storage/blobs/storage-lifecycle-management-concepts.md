@@ -9,10 +9,10 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.openlocfilehash: 238c12baf55b525a24107a727d09588ef06a6bef
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77598304"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gérer le cycle de vie du Stockage Blob Azure
@@ -304,7 +304,7 @@ La gestion du cycle de vie prend en charge la hiérarchisation et la suppression
 |---------------|---------------------------------------------|---------------|
 | tierToCool    | Prend actuellement en charge les objets blob au niveau chaud         | Non pris en charge |
 | tierToArchive | Prend actuellement en charge les objets blob au niveau chaud ou froid | Non pris en charge |
-| supprimer        | Prise en charge                                   | Prise en charge     |
+| delete        | Prise en charge                                   | Prise en charge     |
 
 >[!NOTE]
 >Si vous définissez plusieurs actions sur le même objet blob, la gestion du cycle de vie applique l’action la moins coûteuse à l’objet blob. Par exemple, l’action `delete` est moins coûteuse que l’action `tierToArchive`. L’action `tierToArchive` est moins coûteuse que l’action `tierToCool`.

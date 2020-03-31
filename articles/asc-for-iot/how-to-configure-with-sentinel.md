@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 02/18/2020
 ms.author: mlottner
 ms.openlocfilehash: 082b33332051fee9da2aebe63b0c41edb300afaf
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78303543"
 ---
 > [!IMPORTANT]
@@ -29,13 +29,13 @@ ms.locfileid: "78303543"
 Dans ce guide, découvrez comment connecter vos données Azure Security Center pour IoT à Azure Sentinel.  
 
 > [!div class="checklist"]
-> * Prérequis 
+> * Conditions préalables requises 
 > * Paramètres de connexion
 > * Affichage des alertes Log Analytics 
 
 Connectez les alertes d’Azure Security Center pour IoT et diffusez-les directement dans Azure Sentinel.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Vous devez disposer des autorisations de **lecture** et d’**écriture** pour l’espace de travail.
 - **Azure Security Center pour IoT** doit être **activée** sur votre ou vos IoT Hubs pertinents.

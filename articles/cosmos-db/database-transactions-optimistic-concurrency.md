@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/04/2019
 ms.reviewer: sngun
 ms.openlocfilehash: d453bb4071c4a6972e01b8f7e90375181caf6d01
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74806522"
 ---
 # <a name="transactions-and-optimistic-concurrency-control"></a>Transactions et contrôle d’accès concurrentiel optimiste
@@ -22,17 +22,17 @@ Le moteur de base de données dans Azure Cosmos DB prend en charge les transacti
 
 | **opération**  | **Type d’opération** | **Transaction à un seul ou plusieurs éléments** |
 |---------|---------|---------|
-| Insérer (sans pré/postdéclencheur) | Écrire | Transaction à un seul élément |
+| Insérer (sans pré/postdéclencheur) | Write | Transaction à un seul élément |
 | Insérer (avec pré/postdéclencheur) | Écrire et lire | Transaction à plusieurs éléments |
-| Remplacer (sans pré/postdéclencheur) | Écrire | Transaction à un seul élément |
+| Remplacer (sans pré/postdéclencheur) | Write | Transaction à un seul élément |
 | Remplacer (avec pré/postdéclencheur) | Écrire et lire | Transaction à plusieurs éléments |
-| Upsert (sans pré/postdéclencheur) | Écrire | Transaction à un seul élément |
+| Upsert (sans pré/postdéclencheur) | Write | Transaction à un seul élément |
 | Upsert (avec pré/postdéclencheur) | Écrire et lire | Transaction à plusieurs éléments |
-| Supprimer (sans pré/postdéclencheur) | Écrire | Transaction à un seul élément |
+| Supprimer (sans pré/postdéclencheur) | Write | Transaction à un seul élément |
 | Supprimer (avec pré/postdéclencheur) | Écrire et lire | Transaction à plusieurs éléments |
 | Exécuter une procédure stockée | Écrire et lire | Transaction à plusieurs éléments |
-| Exécution lancée par le système d’une procédure de fusion | Écrire | Transaction à plusieurs éléments |
-| Exécution lancée par le système de la suppression des éléments en fonction de l’expiration (durée de vie ou TTL) d’un élément | Écrire | Transaction à plusieurs éléments |
+| Exécution lancée par le système d’une procédure de fusion | Write | Transaction à plusieurs éléments |
+| Exécution lancée par le système de la suppression des éléments en fonction de l’expiration (durée de vie ou TTL) d’un élément | Write | Transaction à plusieurs éléments |
 | Lire | Lire | Transaction à un seul élément |
 | Modifier le flux | Lire | Transaction à plusieurs éléments |
 | Lecture paginée | Lire | Transaction à plusieurs éléments |
@@ -47,7 +47,7 @@ Les procédures stockées, déclencheurs, fonctions définies par l’utilisateu
 
 La possibilité d’exécuter JavaScript directement dans le moteur de base de données offre une exécution performante et transactionnelle des opérations de base de données sur les éléments d’un conteneur. De plus, comme le moteur de base de données Azure Cosmos prend en charge en mode natif JSON et JavaScript, il n’existe aucun risque d’incohérence en matière d’impédance entre les systèmes de type d’une application et la base de données.
 
-## <a name="optimistic-concurrency-control"></a>Contrôle d'accès concurrentiel optimiste
+## <a name="optimistic-concurrency-control"></a>Contrôle de concurrence optimiste
 
 Le contrôle d’accès concurrentiel optimiste vous permet d’empêcher les suppressions et mises à jour perdues. Les opérations simultanées en conflit sont soumises au verrouillage pessimiste standard du moteur de base de données hébergé par la partition logique qui détient l’élément. Quand deux opérations simultanées tentent de mettre à jour la dernière version d’un élément dans une partition logique, l’une d’elles réussit et l’autre échoue. Toutefois, si l’une ou les deux opérations qui tentent de mettre à jour simultanément le même élément ont déjà lu une ancienne valeur de l’élément, la base de données ne sait pas si la valeur précédemment lue par l’une des opérations en conflit (ou les deux) était effectivement la valeur la plus récente de l’élément. Heureusement, cette situation peut être détectée avec le **contrôle d’accès concurrentiel optimiste** avant de laisser les deux opérations entrer dans la limite de transaction à l’intérieur du moteur de base de données. Le contrôle d’accès concurrentiel optimiste protège vos données contre tout remplacement involontaire de modifications apportées par d’autres utilisateurs. Il empêche également d’autres personnes d’écraser accidentellement vos propres modifications.
 

@@ -4,12 +4,12 @@ description: Découvrez comment créer rapidement un cluster Kubernetes et dépl
 services: container-service
 ms.topic: article
 ms.date: 01/27/2020
-ms.openlocfilehash: 3a3374ea8e88b2494bb48c6835b4c22f1256ec84
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 259728da5ea7f71110ce183ae25bb47a0f873614
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77592661"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79475508"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Préversion - Créer un conteneur Windows Server sur un cluster Azure Kubernetes Service (AKS) à l’aide d’Azure CLI
 
@@ -184,13 +184,13 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 
 Pour vérifier la connexion à votre cluster, utilisez la commande [kubectl get][kubectl-get] pour retourner une liste des nœuds du cluster.
 
-```azurecli-interactive
+```console
 kubectl get nodes
 ```
 
 L’exemple de sortie suivant montre tous les nœuds du cluster. Vérifiez que l’état de tous les nœuds est *Prêt* :
 
-```
+```output
 NAME                                STATUS   ROLES   AGE    VERSION
 aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.15.7
 aksnpwin987654                      Ready    agent   108s   v1.15.7
@@ -252,13 +252,13 @@ spec:
 
 Déployez l’application à l’aide de la commande [kubectl apply][kubectl-apply] et spécifiez le nom de votre manifeste YAML :
 
-```azurecli-interactive
+```console
 kubectl apply -f sample.yaml
 ```
 
 L’exemple de sortie suivant montre que le déploiement et le service ont été créés correctement :
 
-```
+```output
 deployment.apps/sample created
 service/sample created
 ```
@@ -269,20 +269,20 @@ Quand l’application s’exécute, un service Kubernetes expose le front-end de
 
 Pour surveiller la progression, utilisez la commande [kubectl get service][kubectl-get] avec l’argument `--watch`.
 
-```azurecli-interactive
+```console
 kubectl get service sample --watch
 ```
 
 Dans un premier temps, la valeur *EXTERNAL-IP* pour *l’exemple* de service apparaît comme étant *en attente*.
 
-```
+```output
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
 sample             LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 ```
 
 Quand l’adresse *EXTERNAL-IP* passe de l’état *pending* à une adresse IP publique réelle, utilisez `CTRL-C` pour arrêter le processus de surveillance `kubectl`. L’exemple de sortie suivant montre une adresse IP publique valide affectée au service :
 
-```
+```output
 sample  LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 
@@ -308,7 +308,7 @@ az group delete --name myResourceGroup --yes --no-wait
 
 Dans cet article, vous avez déployé un cluster Kubernetes et déployé un exemple d’application ASP.NET dans un conteneur Windows Server vers ce cluster. [Accédez au tableau de bord web Kubernetes][kubernetes-dashboard] pour le cluster que vous venez de créer.
 
-Pour en savoir plus sur AKS et parcourir le code complet de l’exemple de déploiement, passez au tutoriel sur le cluster Kubernetes.
+Pour en savoir plus sur ACS et parcourir le code complet de l’exemple de déploiement, passez au tutoriel sur le cluster Kubernetes.
 
 > [!div class="nextstepaction"]
 > [Didacticiel AKS][aks-tutorial]

@@ -9,16 +9,16 @@ ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
 ms.openlocfilehash: 15daf47a1cb44635932311e60b3690af9ff58677
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74074610"
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Créer une sonde personnalisée pour Application Gateway à l’aide du portail
 
 > [!div class="op_single_selector"]
-> * [Portail Azure](application-gateway-create-probe-portal.md)
+> * [Azure portal](application-gateway-create-probe-portal.md)
 > * [Commandes PowerShell pour Azure Resource Manager](application-gateway-create-probe-ps.md)
 > * [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
 
@@ -32,9 +32,9 @@ Si vous ne disposez pas déjà d’une passerelle d’application, consultez [Cr
 
 Les sondes sont configurées via un processus en deux étapes sur le portail. La première étape consiste à entrer les valeurs requises pour la configuration de la sonde. Dans la deuxième étape, vous testez l’intégrité du serveur back-end à l’aide de la configuration de cette sonde et enregistrez la sonde. 
 
-### <a name="createprobe"></a>Entrer les propriétés de la sonde
+### <a name="enter-probe-properties"></a><a name="createprobe"></a>Entrer les propriétés de la sonde
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com). Si vous ne possédez pas encore de compte, vous pouvez [vous inscrire pour bénéficier d’un essai gratuit d’un mois](https://azure.microsoft.com/free).
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Si vous ne possédez pas encore de compte, vous pouvez [vous inscrire pour bénéficier d’un essai gratuit d’un mois](https://azure.microsoft.com/free).
 
 2. Dans le volet Favoris du portail Azure, cliquez sur Toutes les ressources. Cliquez sur la passerelle d’application dans le panneau Toutes les ressources. Si l’abonnement que vous avez déjà sélectionné comporte déjà plusieurs ressources, vous pouvez entrer partners.contoso.net dans la zone Filtrer par nom… pour accéder facilement à la passerelle d’application.
 
@@ -81,9 +81,9 @@ Après avoir entré les propriétés de la sonde, vous pouvez tester l’intégr
 
 Les sondes sont configurées via un processus en deux étapes sur le portail. La première étape consiste à créer la sonde. Dans la deuxième étape, vous allez ajouter la sonde aux paramètres http backend de la passerelle d’application.
 
-### <a name="createprobe"></a>Créer la sonde
+### <a name="create-the-probe"></a><a name="createprobe"></a>Créer la sonde
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com). Si vous ne possédez pas encore de compte, vous pouvez [vous inscrire pour bénéficier d’un essai gratuit d’un mois](https://azure.microsoft.com/free).
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Si vous ne possédez pas encore de compte, vous pouvez [vous inscrire pour bénéficier d’un essai gratuit d’un mois](https://azure.microsoft.com/free).
 
 2. Dans le volet Favoris du portail Azure, sélectionnez **Toutes les ressources**. Sélectionnez la passerelle d’application dans la page **Toutes les ressources**. Si l’abonnement que vous avez déjà sélectionné comporte déjà plusieurs ressources, vous pouvez entrer partners.contoso.net dans la zone Filtrer par nom… pour accéder facilement à la passerelle d’application.
 

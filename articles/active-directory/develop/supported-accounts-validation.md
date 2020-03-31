@@ -10,12 +10,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: 812ca0d502572f43c968c75dee17f45d066bcf04
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 2a1507b008903085886f9392f3f4e5461997b6e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701295"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80128856"
 ---
 # <a name="validation-differences-by-supported-account-types-signinaudience"></a>Différences de validation par types de comptes pris en charge (signInAudience)
 
@@ -33,7 +33,7 @@ La valeur que vous sélectionnez pour cette propriété a des implications sur d
 
 Consultez le tableau suivant pour connaître les différences de validation de certaines propriétés pour différents types de comptes pris en charge.
 
-| Propriété | `AzureADMyOrg` | `AzureADMultipleOrgs`  | `AzureADandPersonalMicrosoftAccount` |
+| Propriété | `AzureADMyOrg` | `AzureADMultipleOrgs` | `AzureADandPersonalMicrosoftAccount` et `PersonalMicrosoftAccount` |
 |--------------|---------------|----------------|----------------|
 | URI d’ID d’application (`identifierURIs`)  | Doit être unique dans le locataire <br><br> Les schémas urn:// sont pris en charge <br><br> Les caractères génériques ne sont pas pris en charge <br><br> Les fragments et les chaînes de requête sont pris en charge <br><br> Longueur maximale de 255 caractères <br><br> Aucune limite* sur le nombre d’identifierURIs  | elle doit être globalement unique <br><br> Les schémas urn:// sont pris en charge <br><br> Les caractères génériques ne sont pas pris en charge <br><br> Les fragments et les chaînes de requête sont pris en charge <br><br> Longueur maximale de 255 caractères <br><br> Aucune limite* sur le nombre d’identifierURIs | elle doit être globalement unique <br><br> Les schémas urn:// ne sont pas pris en charge <br><br> Les caractères génériques, les fragments et les chaînes de requête ne sont pas pris en charge <br><br> Longueur maximale de 120 caractères <br><br> Maximum de 50 identifierURIs |
 | Certificats (`keyCredentials`) | Clé de signature symétrique | Clé de signature symétrique | Chiffrement et clé de signature asymétrique | 

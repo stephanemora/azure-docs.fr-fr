@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: sfrev
 ms.openlocfilehash: 15dd9bf6ac19bdac7bc8b50fc70e0b3b0a4e9a83
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77083776"
 ---
 # <a name="get-started-with-reliable-services"></a>Prise en main de Reliable Services
@@ -23,10 +23,10 @@ Une application Azure Service Fabric contient un ou plusieurs services qui exéc
 
 Pour prendre en main Reliable Services, il vous suffit de comprendre quelques concepts de base :
 
-* **Type de service** : il s'agit de l'implémentation de votre service. Elle est définie par la classe que vous écrivez qui étend `StatelessService` et tout autre code ou dépendances utilisés ici, ainsi qu’un nom et un numéro de version.
-* **Instance de service nommée** : pour exécuter votre service, vous créez des instances nommées de votre type de service, de la même manière que vous créez des instances d'objet d'un type de classe. Une instance de service a un nom qui se présente sous la forme d’un URI utilisant le schéma « fabric:/ », par exemple « fabric:/MyApp/MyService ».
-* **Hôte de service** : Les instances de service nommées que vous créez doivent s’exécuter au sein d’un processus hôte. L’hôte de service est simplement un processus dans lequel les instances de votre service peuvent s’exécuter.
-* **Inscription du service** : l'inscription rassemble tous les éléments. Le type de service doit être inscrit auprès du runtime Service Fabric dans un hôte de service pour autoriser Service Fabric à créer des instances de ce type à exécuter.  
+* **Type de service** : il s’agit de l’implémentation de votre service. Elle est définie par la classe que vous écrivez qui étend `StatelessService` et tout autre code ou dépendances utilisés ici, ainsi qu’un nom et un numéro de version.
+* **Instance de service nommée** : pour exécuter votre service, vous créez des instances nommées de votre type de service, de la même manière que vous créez des instances d’objet d’un type de classe. Une instance de service a un nom qui se présente sous la forme d’un URI utilisant le schéma « fabric:/ », par exemple « fabric:/MyApp/MyService ».
+* **Hôte de service** : les instances de service nommées que vous créez doivent s’exécuter au sein d’un processus hôte. L’hôte de service est simplement un processus dans lequel les instances de votre service peuvent s’exécuter.
+* **Inscription du service** : l’inscription rassemble tous les éléments. Le type de service doit être inscrit auprès du runtime Service Fabric dans un hôte de service pour autoriser Service Fabric à créer des instances de ce type à exécuter.  
 
 ## <a name="create-a-stateless-service"></a>Création d'un service sans état
 

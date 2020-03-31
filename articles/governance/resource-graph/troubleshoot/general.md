@@ -4,10 +4,10 @@ description: Découvrez comment résoudre les problèmes liés aux différents K
 ms.date: 10/18/2019
 ms.topic: troubleshooting
 ms.openlocfilehash: f881db4f75bcee8c13221717596442ac29a4b1ac
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74303895"
 ---
 # <a name="troubleshoot-errors-using-azure-resource-graph"></a>Résoudre les erreurs à l’aide d’Azure Resource Graph
@@ -20,17 +20,17 @@ La plupart des erreurs sont le résultat d’un problème lors de l’exécution
 
 ## <a name="general-errors"></a>Erreurs générales.
 
-### <a name="toomanysubscription"></a>Scénario : Trop d’abonnements
+### <a name="scenario-too-many-subscriptions"></a><a name="toomanysubscription"></a>Scénario : Trop d’abonnements
 
 #### <a name="issue"></a>Problème
 
 Les clients ayant accès à plus de 1000 abonnements, y compris les abonnements inter-clients avec [Azure Lighthouse](../../../lighthouse/overview.md), ne peuvent pas extraire les données de tous les abonnements dans un seul appel à Azure Resource Graph.
 
-#### <a name="cause"></a>Cause :
+#### <a name="cause"></a>Cause
 
 Azure CLI et PowerShell transfèrent uniquement les 1000 premiers abonnements à Azure Resource Graph. L’API REST pour Azure Resource Graph accepte un nombre maximal d’abonnements pour exécuter la requête.
 
-#### <a name="resolution"></a>Résolution :
+#### <a name="resolution"></a>Résolution
 
 Requêtes par lots pour la requête avec un sous-ensemble d’abonnements à conserver sous la limite d’abonnement de 1000. La solution utilise le paramètre d’**Abonnement** dans PowerShell.
 
@@ -57,31 +57,31 @@ foreach ($batch in $subscriptionsBatch){ $response += Search-AzGraph -Query $que
 $response
 ```
 
-### <a name="rest-contenttype"></a>Scénario : En-tête REST Content-Type non pris en charge
+### <a name="scenario-unsupported-content-type-rest-header"></a><a name="rest-contenttype"></a>Scénario : En-tête REST Content-Type non pris en charge
 
 #### <a name="issue"></a>Problème
 
 Les clients qui interrogent l’API REST Azure Resource Graph reçoivent une réponse _500_ (erreur de serveur interne).
 
-#### <a name="cause"></a>Cause :
+#### <a name="cause"></a>Cause
 
-L’API REST Azure Resource Graph ne prend en charge qu’un `Content-Type`  **application/json**. Certains outils ou agents REST sont par défaut de type **text/plain** que l’API REST ne prend pas en charge.
+L’API REST Azure Resource Graph ne prend en charge qu’un `Content-Type` **application/json**. Certains outils ou agents REST sont par défaut de type **text/plain** que l’API REST ne prend pas en charge.
 
-#### <a name="resolution"></a>Résolution :
+#### <a name="resolution"></a>Résolution
 
 Vérifiez que l’outil ou l’agent que vous utilisez pour interroger Azure Resource Graph a l’en-tête API REST `Content-Type` configuré pour **application/json**.
 
-### <a name="rest-403"></a>Scénario : Aucune autorisation de lecture sur tous les abonnements répertoriés
+### <a name="scenario-no-read-permission-to-all-subscriptions-in-list"></a><a name="rest-403"></a>Scénario : Aucune autorisation de lecture sur tous les abonnements répertoriés
 
 #### <a name="issue"></a>Problème
 
 Les clients qui transmettent explicitement une liste d’abonnements à l’aide d’une requête Azure Resource Graph obtiennent une réponse _403_ (Interdit).
 
-#### <a name="cause"></a>Cause :
+#### <a name="cause"></a>Cause
 
 Si le client ne dispose pas d’autorisation de lecture sur tous les abonnements fournis, la requête est refusée en raison de l’absence de droits de sécurité appropriés.
 
-#### <a name="resolution"></a>Résolution :
+#### <a name="resolution"></a>Résolution
 
 Incluez dans la liste d’abonnements au moins un abonnement auquel le client qui exécute la requête a accès en lecture. Pour plus d’informations, voir [Autorisations dans Azure Resource Graph](../overview.md#permissions-in-azure-resource-graph).
 

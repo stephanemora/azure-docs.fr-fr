@@ -4,10 +4,10 @@ description: Explique en détail comment gérer efficacement la taille du regist
 ms.topic: article
 ms.date: 07/31/2019
 ms.openlocfilehash: 449a1c09bf88e3e0e0aeca4d3b687371d2a6b91a
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78403343"
 ---
 # <a name="delete-container-images-in-azure-container-registry-using-the-azure-cli"></a>Supprimer des images conteneur dans Azure Container Registry à l’aide de l’interface de ligne de commande Azure
@@ -16,9 +16,9 @@ Pour limiter la taille de votre registre de conteneurs Azure, vous devez supprim
 
 Il existe plusieurs façons de supprimer les données d’image, et il est important de comprendre comment chaque opération de suppression affecte l’utilisation du stockage. Cet article décrit plusieurs méthodes de suppression de données d’image :
 
-* Supprimer un [référentiel](#delete-repository) : Supprime toutes les images et toutes les couches uniques au sein du référentiel.
-* Supprimer par [étiquette](#delete-by-tag) : Supprime une image, l’étiquette, toutes les couches référencées par l’image et toutes les autres étiquettes associées à l’image.
-* Supprimer par [code de hachage du manifeste](#delete-by-manifest-digest) : Supprime une image, toutes les couches référencées par l’image et toutes les étiquettes associées à l’image.
+* En supprimant un [référentiel](#delete-repository) : de cette façon, vous supprimez toutes les images et tous les calques contenus dans le référentiel.
+* En supprimant en fonction de [l’étiquette](#delete-by-tag) : de cette façon, vous supprimez une image, son étiquette, tous les calques référencés par l’image et toutes les autres étiquettes associées à l’image.
+* En supprimant en fonction du [code de hachage du manifeste](#delete-by-manifest-digest) : de cette façon, vous supprimez une image, tous les calques référencés par l’image et toutes les autres étiquettes associées à l’image.
 
 Des exemples de scripts sont fournis pour automatiser les opérations de suppression.
 

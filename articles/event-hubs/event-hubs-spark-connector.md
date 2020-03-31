@@ -15,10 +15,10 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: 4c4fd74e9123e1310be297a15090433d365d24cf
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76311680"
 ---
 # <a name="integrating-apache-spark-with-azure-event-hubs"></a>Intégration d’Apache Spark avec Azure Event Hubs

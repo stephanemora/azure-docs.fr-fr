@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7c684d6f1fbd8128ae020b6fd29da928b286aa18
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79126686"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Activer la connexion sans mot de passe avec l'application Microsoft Authenticator (préversion)
@@ -29,7 +29,7 @@ Au lieu d’obtenir une invite de mot de passe après avoir entré un nom d’ut
 > [!NOTE]
 > Cette fonctionnalité est disponible dans l'application Microsoft Authenticator depuis mars 2017. Il est donc possible que lorsque la stratégie est activée pour un répertoire, les utilisateurs rencontrent ce flux immédiatement et voient un message d'erreur s'ils n'ont pas été activés par la stratégie. Gardez ce point à l’esprit et préparez vos utilisateurs à cette modification.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Azure Multi-Factor Authentication, avec notifications push autorisées en tant que méthode de vérification 
 - Installation de la dernière version de Microsoft Authenticator sur des appareils exécutant iOS 8.0 ou une version ultérieure, ou Android 6.0 ou une version ultérieure.

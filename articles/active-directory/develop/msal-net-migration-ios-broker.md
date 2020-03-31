@@ -13,10 +13,10 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: de259daa7fd27cc4f138c294a7f347502ca482a4
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77185827"
 ---
 # <a name="migrate-ios-applications-that-use-microsoft-authenticator-from-adalnet-to-msalnet"></a>Migrer des applications iOS d’ADAL.NET vers MSAL.NET en utilisant Microsoft Authenticator
@@ -25,7 +25,7 @@ Vous utilisez la bibliothèque d’authentification Azure Active Directory pour 
 
 Par où démarrer ? Cet article vous aide à migrer votre application Xamarin iOS d'ADAL vers MSAL.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 Cet article part du principe que vous disposez déjà d’une application Xamarin iOS intégrée avec le répartiteur iOS. Si ce n’est pas le cas, passez directement à MSAL.NET pour commencer à implémenter le répartiteur. Pour des informations sur l’appel du répartiteur iOS dans MSAL.NET avec une nouvelle application, consultez [cette documentation](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Leveraging-the-broker-on-iOS#why-use-brokers-on-xamarinios-and-xamarinandroid-applications).
 
 ## <a name="background"></a>Arrière-plan

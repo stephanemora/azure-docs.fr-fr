@@ -10,10 +10,10 @@ ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 578fcf4cd03a2d4fc8400b9e84f53206750a588c
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77430718"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-azure-monitor-logs"></a>Transférer des données de rapport Azure Automation State Configuration vers des journaux Azure Monitor
@@ -31,7 +31,7 @@ Avec les journaux Azure Monitor, vous pouvez :
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour commencer à envoyer vos rapports Automation State Configuration vers les journaux Azure Monitor, vous devez disposer des éléments suivants :
 
@@ -140,7 +140,7 @@ Les diagnostics d’Azure Automation créent deux catégories d’enregistrement
 | NodeName_s |Le nom du nœud géré. |
 | NodeComplianceStatus_s |Indique si le nœud est conforme. |
 | DscReportStatus |Indique si la vérification de conformité a été correctement exécutée. |
-| ConfigurationMode | La façon dont la configuration est appliquée au nœud. Les valeurs possibles sont les suivantes : <ul><li>*ApplyOnly* : DSC applique la configuration et ne fait rien de plus, sauf si une nouvelle configuration est envoyée au nœud cible ou quand une nouvelle configuration est extraite d’un serveur. Après l’application initiale d’une nouvelle configuration, DSC ne vérifie pas l’écart par rapport à un état configuré précédemment. DSC tente d’appliquer la configuration jusqu’à ce que l’opération réussisse avant que la valeur *ApplyOnly* prenne effet. </li><li>*ApplyAndMonitor* : Il s’agit de la valeur par défaut. Le gestionnaire de configuration locale applique toutes les nouvelles configurations. Après l’application initiale d’une nouvelle configuration, si le nœud cible s’écarte de l’état désiré, DSC signale l’écart dans les journaux d’activité. DSC tente d’appliquer la configuration jusqu’à ce que l’opération réussisse avant que la valeur *ApplyAndMonitor* prenne effet.</li><li>*ApplyAndAutoCorrect* : indique à DSC d’appliquer chaque nouvelle configuration. Après l’application initiale d’une nouvelle configuration, si le nœud cible s’écarte de l’état désiré, DSC signale l’écart dans les journaux d’activité puis applique à nouveau la configuration actuelle.</li></ul> |
+| ConfigurationMode | La façon dont la configuration est appliquée au nœud. Les valeurs possibles sont les suivantes : <ul><li>*ApplyOnly* : DSC applique la configuration et ne fait rien de plus, sauf si une nouvelle configuration est envoyée au nœud cible ou lorsqu’une nouvelle configuration est extraite d’un serveur. Après l’application initiale d’une nouvelle configuration, DSC ne vérifie pas l’écart par rapport à un état configuré précédemment. DSC tente d’appliquer la configuration jusqu’à ce que l’opération réussisse avant que la valeur *ApplyOnly* prenne effet. </li><li>*ApplyAndMonitor* : il s’agit de la valeur par défaut. Le gestionnaire de configuration locale applique toutes les nouvelles configurations. Après l’application initiale d’une nouvelle configuration, si le nœud cible s’écarte de l’état désiré, DSC signale l’écart dans les journaux d’activité. DSC tente d’appliquer la configuration jusqu’à ce que l’opération réussisse avant que la valeur *ApplyAndMonitor* prenne effet.</li><li>La valeur *ApplyAndAutoCorrect* indique à DSC d’appliquer chaque nouvelle configuration. Après l’application initiale d’une nouvelle configuration, si le nœud cible s’écarte de l’état désiré, DSC signale l’écart dans les journaux d’activité puis applique à nouveau la configuration actuelle.</li></ul> |
 | HostName_s | Le nom du nœud géré. |
 | IPAddress | L’adresse IPv4 du nœud géré. |
 | Category | DscNodeStatus. |

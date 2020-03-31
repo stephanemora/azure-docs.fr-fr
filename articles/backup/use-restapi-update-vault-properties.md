@@ -1,15 +1,15 @@
 ---
-title: Mettre à jour les propriétés de configuration du coffre Recovery Services à l’aide de l’API REST
+title: Mettre à jour une configuration de coffre Recovery Services avec une API REST
 description: Dans cet article, découvrez comment mettre à jour la configuration du coffre à l’aide de l’API REST.
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
-ms.openlocfilehash: 3739f95e3962def9ab669970c48b2d1c546fdc0e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6cecbb18e0cd6f548e1688ef978f10dcee7d9fbc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75390534"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227433"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>Mettre à jour les configurations du coffre Azure Recovery Services à l’aide de l’API REST
 

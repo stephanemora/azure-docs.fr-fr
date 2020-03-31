@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: sumi
-ms.openlocfilehash: 97515b308323452e88cf6fd8a517c1f169c9ba6f
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 2cc6c577abdb3698ef6aca1f1f04d239f09d119c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587411"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79236069"
 ---
 # <a name="what-is-azure-private-link-service"></a>Qu’est-ce que le service Azure Private Link ?
 
@@ -112,7 +112,7 @@ Détails TLV personnalisés :
 |  |4        |UINT32 (4 octets) représentant l’ID de lien du point de terminaison privé. Encodé au format Little Endian.|
 
  > [!NOTE]
- > Le fournisseur de service est chargé de s’assurer que le service situé derrière l’équilibreur de charge standard est configuré pour analyser l’en-tête du protocole de proxy conformément à la [spécification](https://www.haproxy.org/download/1.8/doc/proxy-protocol.txt) lorsque le protocole est activé sur un service de liaison privée. La demande échoue si le paramètre de protocole de proxy est activé sur un service de liaison privée qui n’est pas configuré pour analyser l’en-tête. De même, la demande échoue si le service attend un en-tête de protocole de proxy alors que le paramètre n’est pas activé sur le service de liaison privée. Une fois le paramètre de protocole de proxy activé, l’en-tête de protocole de proxy est également inclus dans les sondes d’intégrité HTTP/TCP de l’hôte vers les machines virtuelles principales, même s’il n’y a pas d’informations sur le client dans l’en-tête. 
+ > Le fournisseur de service est chargé de s’assurer que le service situé derrière l’équilibreur de charge standard est configuré pour analyser l’en-tête du protocole de proxy conformément à la [spécification](https://www.haproxy.org/download/1.8/doc/proxy-protocol.txt) lorsque le protocole est activé sur un service de liaison privée. La demande échoue si le paramètre de protocole de proxy est activé sur un service de liaison privée, mais que le service du fournisseur de services n’est pas configuré pour analyser l’en-tête. De même, la demande échoue si le service du fournisseur de services attend un en-tête de protocole de proxy alors que le paramètre n’est pas activé sur le service de liaison privée. Une fois le paramètre de protocole de proxy activé, l’en-tête de protocole de proxy est également inclus dans les sondes d’intégrité HTTP/TCP de l’hôte vers les machines virtuelles principales, même s’il n’y a pas d’informations sur le client dans l’en-tête. 
 
 ## <a name="limitations"></a>Limites
 

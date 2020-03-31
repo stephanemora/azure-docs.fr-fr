@@ -4,11 +4,11 @@ description: Apprenez-en davantage sur l’appliance de réplication Azure Migra
 ms.topic: conceptual
 ms.date: 01/30/2020
 ms.openlocfilehash: 4521fce6310b319d155a2f0c418cd934be7e2cb8
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901561"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79225433"
 ---
 # <a name="replication-appliance"></a>Appliance de réplication
 

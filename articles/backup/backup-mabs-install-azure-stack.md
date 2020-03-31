@@ -4,10 +4,10 @@ description: Dans cet article, vous allez découvrir comment utiliser un serveur
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.openlocfilehash: b78e5a662bdcf23ad38cb33292658d4d2455e579
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77583433"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Installer le serveur de sauvegarde Azure sur Azure Stack
@@ -77,7 +77,7 @@ Si vous souhaitez mettre à l’échelle votre déploiement, vous disposez des o
 
 - Monter en puissance : augmenter la taille de la machine virtuelle du serveur de sauvegarde Azure en passant de la série A à la série D, et augmenter le stockage local [conformément aux instructions relatives à la machine virtuelle Azure Stack](/azure-stack/user/azure-stack-manage-vm-disks).
 - Décharger des données : envoyer des données plus anciennes vers Azure en ne conservant que les données les plus récentes sur le stockage attaché au serveur de sauvegarde Azure.
-- Monter en charge : ajouter des serveurs de sauvegarde Azure pour protéger les charges de travail.
+- Effectuer un scale-out : ajouter des serveurs de sauvegarde Azure pour protéger les charges de travail.
 
 ### <a name="net-framework"></a>.NET Framework
 
@@ -89,7 +89,7 @@ Vous devez associer l’ordinateur virtuel du serveur de sauvegarde Azure à un 
 
 ## <a name="using-an-iaas-vm-in-azure-stack"></a>Utiliser un ordinateur virtuel IaaS dans Azure Stack
 
-Lorsque vous choisissez un serveur et décidez d’en faire un serveur de sauvegarde Azure, mieux vaut commencer par une image de la galerie de Windows Server 2012 R2 Datacenter ou de Windows Server 2016 Datacenter. L’article [Créer votre première machine virtuelle Windows dans le portail Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) propose un didacticiel de prise en main avec la machine virtuelle recommandée. Configuration minimale recommandée pour la machine virtuelle serveur : A2 Standard avec deux cœurs et 3,5 Go de RAM.
+Lorsque vous choisissez un serveur et décidez d’en faire un serveur de sauvegarde Azure, mieux vaut commencer par une image de la galerie de Windows Server 2012 R2 Datacenter ou de Windows Server 2016 Datacenter. L’article [Créer votre première machine virtuelle Windows dans le portail Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) propose un didacticiel de prise en main avec la machine virtuelle recommandée. La configuration minimale recommandée pour la machine virtuelle serveur doit être A2 Standard avec deux cœurs et 3,5 Go de RAM.
 
 La protection des charges de travail à l’aide d’Azure Backup Server peut prendre plusieurs formes. L’article [Installation de DPM en tant que machine virtuelle Azure](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/jj852163(v=sc.12)), permet d’expliquer ces différentes formes. Avant de déployer la machine, lisez cet entièrement cet article.
 

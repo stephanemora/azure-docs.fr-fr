@@ -43,6 +43,8 @@
       href: compliance-certifications.md
     - name: Gestion centralisée
       href: central-management.md
+    - name: Prise en charge du travail à distance
+      href: remote-work-support.md
 - name: Guides pratiques
   items:
     - name: Déployer avec Azure PowerShell

@@ -5,10 +5,10 @@ ms.devlang: php
 ms.topic: article
 ms.date: 03/28/2019
 ms.openlocfilehash: ad121d605e521704597471b446fa79cb43dfccc7
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78255850"
 ---
 # <a name="configure-a-linux-php-app-for-azure-app-service"></a>Configurer une application PHP Linux pour Azure App Service
@@ -44,7 +44,7 @@ az webapp config set --name <app-name> --resource-group <resource-group-name> --
 Si vous déployez votre application à l’aide de packages Git ou zip quand l’automatisation de la génération est activée, ce processus d’automatisation d’App Service exécute pas à pas la séquence suivante :
 
 1. Exécution du script personnalisé s’il est spécifié par `PRE_BUILD_SCRIPT_PATH`.
-1. Exécution de `php composer.phar install`.
+1. Exécutez `php composer.phar install`.
 1. Exécution du script personnalisé s’il est spécifié par `POST_BUILD_SCRIPT_PATH`.
 
 `PRE_BUILD_COMMAND` et `POST_BUILD_COMMAND` sont des variables d’environnement qui sont vides par défaut. Pour exécuter des commandes pré-build, définissez `PRE_BUILD_COMMAND`. Pour exécuter des commandes post-build, définissez `POST_BUILD_COMMAND`.
@@ -112,7 +112,7 @@ S'il vous faut apporter des modifications à votre installation PHP, vous pouvez
 > La meilleure façon de consulter la version de PHP et la configuration actuelle de *php.ini* consiste à appeler [phpinfo()](https://php.net/manual/function.phpinfo.php) dans votre application.
 >
 
-### <a name="Customize-non-PHP_INI_SYSTEM directives"></a>Directives Customize-non-PHP_INI_SYSTEM
+### <a name="customize-non-php_ini_system-directives"></a><a name="Customize-non-PHP_INI_SYSTEM directives"></a>Directives Customize-non-PHP_INI_SYSTEM
 
 Pour personnaliser les directives PHP_INI_USER, PHP_INI_PERDIR et PHP_INI_ALL (consultez les [directives php.ini](https://www.php.net/manual/ini.list.php)), ajoutez un fichier *.htaccess* au répertoire racine de votre application.
 
@@ -132,7 +132,7 @@ Redéployez votre application avec les modifications et redémarrez-la. Si vous 
 
 En guise d'alternative à *.htaccess*, vous pouvez utiliser [ini_set()](https://www.php.net/manual/function.ini-set.php) dans votre application pour personnaliser ces directives non-PHP_INI_SYSTEM.
 
-### <a name="customize-php_ini_system-directives"></a>Personnaliser les directives PHP_INI_SYSTEM
+### <a name="customize-php_ini_system-directives"></a><a name="customize-php_ini_system-directives"></a>Personnaliser les directives PHP_INI_SYSTEM
 
 Pour personnaliser les directives PHP_INI_SYSTEM (consultez les [directives php.ini](https://www.php.net/manual/ini.list.php)), vous ne pouvez pas utiliser l'approche *.htaccess*. App Service propose un mécanisme distinct utilisant le paramètre d’application `PHP_INI_SCAN_DIR`.
 

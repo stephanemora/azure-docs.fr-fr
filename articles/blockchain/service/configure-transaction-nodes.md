@@ -5,11 +5,11 @@ ms.date: 11/20/2019
 ms.topic: article
 ms.reviewer: janders
 ms.openlocfilehash: 4a9a4f660dd171e65b600ec4cd66714ca476b091
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326302"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227401"
 ---
 # <a name="configure-azure-blockchain-service-transaction-nodes"></a>Configurer les nœuds de transaction Azure Blockchain Service
 
@@ -17,7 +17,7 @@ Les nœuds de transaction permettent d’envoyer des transactions blockchain à 
 
 Pour visualiser les détails du nœud de transaction par défaut :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Accédez au membre Azure Blockchain Service. Sélectionnez **Nœuds de transaction**.
 
     ![Sélectionner le nœud de transaction par défaut](./media/configure-transaction-nodes/nodes.png)
@@ -91,7 +91,7 @@ Le nom d’utilisateur correspond au nom de votre nœud et n’est pas modifiabl
 
 Pour utiliser l’URL, remplacez \<password\> par le mot de passe défini lors de l’approvisionnement du nœud. Vous pouvez mettre à jour le mot de passe en sélectionnant **Réinitialiser le mot de passe**.
 
-### <a name="access-keys"></a>Clés d’accès
+### <a name="access-keys"></a>Clés d'accès
 
 Pour l’authentification par clé d’accès, la clé d’accès figure dans l’URL du point de terminaison. Lorsque le nœud de transaction est approvisionné, deux clés d’accès sont générées. Vous pouvez utiliser l’une ou l’autre clé pour l’authentification. Deux clés vous permettent de modifier et de faire pivoter des clés.
 

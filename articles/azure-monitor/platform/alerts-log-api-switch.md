@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 05/30/2019
 ms.subservice: alerts
 ms.openlocfilehash: c1ca85ba9c79f828b5ddcf0d640cfe7f8b6e097c
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78358334"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79226533"
 ---
 # <a name="switch-api-preference-for-log-alerts"></a>Changer de préférence d'API pour les alertes de journal
 

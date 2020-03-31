@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/04/2019
 ms.openlocfilehash: 0c37d77ca73ddbe8b79351f90275a1d639757633
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74923737"
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Copier des données de SAP Business Warehouse à l’aide d’Azure Data Factory
@@ -68,13 +68,13 @@ Les propriétés prises en charge pour le service lié SAP Business Warehouse so
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type doit être définie sur : **SapBw** | OUI |
-| server | Nom du serveur sur lequel réside l’instance SAP BW. | OUI |
-| systemNumber | Numéro de système du système SAP BW.<br/>Valeur autorisée : nombre décimal à deux chiffres représenté sous forme de chaîne. | OUI |
-| clientId | ID client du client dans le système SAP W.<br/>Valeur autorisée : nombre décimal à trois chiffres représenté sous forme de chaîne. | OUI |
-| userName | Nom de l’utilisateur ayant accès au serveur SAP. | OUI |
-| password | Mot de passe pour l’utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
-| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Un Runtime d’intégration autohébergé est nécessaire comme indiqué dans [Prérequis](#prerequisites). |OUI |
+| type | La propriété type doit être définie sur : **SapBw** | Oui |
+| server | Nom du serveur sur lequel réside l’instance SAP BW. | Oui |
+| systemNumber | Numéro de système du système SAP BW.<br/>Valeur autorisée : nombre décimal à deux chiffres représenté sous forme de chaîne. | Oui |
+| clientId | ID client du client dans le système SAP W.<br/>Valeur autorisée : nombre décimal à trois chiffres représenté sous forme de chaîne. | Oui |
+| userName | Nom de l’utilisateur ayant accès au serveur SAP. | Oui |
+| mot de passe | Mot de passe pour l’utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
+| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Un Runtime d’intégration autohébergé est nécessaire comme indiqué dans [Prérequis](#prerequisites). |Oui |
 
 **Exemple :**
 
@@ -136,8 +136,8 @@ Pour copier des données à partir de SAP BW, les propriétés prises en charge 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type de la source d’activité de copie doit être définie sur : **SapBwSource** | OUI |
-| query | Spécifie la requête MDX pour lire les données de l’instance SAP BW. | OUI |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **SapBwSource** | Oui |
+| query | Spécifie la requête MDX pour lire les données de l’instance SAP BW. | Oui |
 
 **Exemple :**
 
@@ -200,7 +200,7 @@ Lors de la copie de données de SAP BW, les mappages suivants sont utilisés ent
 | UNITÉ | String |
 | DATS | String |
 | NUMC | String |
-| TIMS | Chaîne |
+| TIMS | String |
 
 
 ## <a name="lookup-activity-properties"></a>Propriétés de l’activité Lookup

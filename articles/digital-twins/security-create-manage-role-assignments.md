@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 02/07/2020
 ms.custom: seodec18
 ms.openlocfilehash: 1c83ca0abfd17db873bec62f0a0d052703862a45
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77110407"
 ---
 # <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>Créer et gérer des attributions de rôle dans Azure Digital Twins
@@ -36,7 +36,7 @@ Chaque attribution de rôle est conforme à la définition suivante :
 
 Le tableau suivant décrit chaque attribut :
 
-| Attribut | Name | Obligatoire | Type | Description |
+| Attribut | Nom | Obligatoire | Type | Description |
 | --- | --- | --- | --- | --- |
 | roleId | Identificateur de la définition de rôle | Oui | String | ID unique de l’attribution de rôle souhaitée. Pour connaître les définitions de rôles et leurs identificateurs, interrogez l’API système ou reportez-vous au tableau ci-dessous. |
 | objectId | Identificateur d'objet | Oui | String | ID Azure Active Directory, ID objet de principal de service ou nom de domaine. À quoi ou à qui le rôle est attribué. L’attribution de rôle doit être mise en forme en fonction du type qui lui est associé. Pour l’objectIdType `DomainName`, objectId doit commencer par le caractère `“@”`. |

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 393563427e936e07315cd44b78cb793d4292b352
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176567"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79224837"
 ---
 # <a name="product-templates-in-azure-api-management"></a>Modèles Produit dans Gestion des API Azure
 
@@ -37,7 +37,7 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="ProductList"></a> Liste de produits  
+##  <a name="product-list"></a><a name="ProductList"></a> Liste de produits  
  Le modèle **Liste de produits** vous permet de personnaliser le corps de la page Liste de produits dans le portail des développeurs.  
   
  ![Liste de produits](./media/api-management-product-templates/APIM_ProductsListTemplatePage.png "APIM_ProductsListTemplatePage")  
@@ -83,7 +83,7 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
 |--------------|----------|-----------------|  
 |Pagination|Entité [Paging](api-management-template-data-model-reference.md#Paging).|Informations de pagination de la collection de produits.|  
 |Filtrage|Entité [Filtering](api-management-template-data-model-reference.md#Filtering).|Informations de filtrage de la page Liste de produits.|  
-|Produits|Collection d’entités [Product](api-management-template-data-model-reference.md#Product).|Produits visibles par l’utilisateur actuel.|  
+|Products|Collection d’entités [Product](api-management-template-data-model-reference.md#Product).|Produits visibles par l’utilisateur actuel.|  
   
 ### <a name="sample-template-data"></a>Données d’un exemple de modèle  
   
@@ -123,7 +123,7 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
 }  
 ```  
   
-##  <a name="Product"></a> Produit  
+##  <a name="product"></a><a name="Product"></a> Produit  
  Le modèle **Produit** vous permet de personnaliser le corps de la page Produit dans le portail des développeurs.  
   
  ![Page Produit dans le portail des développeurs](./media/api-management-product-templates/APIM_ProductPage.png "APIM_ProductPage")  
@@ -208,8 +208,8 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
 |--------------|----------|-----------------|  
 |Produit|[Produit](api-management-template-data-model-reference.md#Product)|Produit spécifié.|  
 |IsDeveloperSubscribed|boolean|Si l’utilisateur actuel est abonné à ce produit.|  
-|SubscriptionState|number|État de l’abonnement. Les états possibles sont :<br /><br /> -   `0 - suspended` : l’abonnement est bloqué et l’abonné ne peut appeler aucune API du produit.<br />-   `1 - active` : l’abonnement est actif.<br />-   `2 - expired` : l’abonnement a atteint sa date d’expiration et a été désactivé.<br />-   `3 - submitted` : la demande d’abonnement a été effectuée par le développeur, mais n’a pas encore été approuvée ou rejetée.<br />-   `4 - rejected` : la demande d’abonnement a été refusée par un administrateur.<br />-   `5 - cancelled` : l’abonnement a été annulé par le développeur ou l’administrateur.|  
-|limites|array|Cette propriété est déconseillée et ne doit pas être utilisée.|  
+|SubscriptionState|nombre|État de l’abonnement. Les états possibles sont :<br /><br /> -   `0 - suspended` : l’abonnement est bloqué et l’abonné ne peut appeler aucune API du produit.<br />-   `1 - active` : l’abonnement est actif.<br />-   `2 - expired` : l’abonnement a atteint sa date d’expiration et a été désactivé.<br />-   `3 - submitted` : la demande d’abonnement a été effectuée par le développeur, mais n’a pas encore été approuvée ou rejetée.<br />-   `4 - rejected` : la demande d’abonnement a été refusée par un administrateur.<br />-   `5 - cancelled` : l’abonnement a été annulé par le développeur ou l’administrateur.|  
+|limites|tableau|Cette propriété est déconseillée et ne doit pas être utilisée.|  
 |DelegatedSubscriptionEnabled|boolean|Indique si la [délégation](https://azure.microsoft.com/documentation/articles/api-management-howto-setup-delegation/) est activée pour cet abonnement.|  
 |DelegatedSubscriptionUrl|string|Si la délégation est activée, indique l’URL de l’abonnement délégué.|  
 |IsAgreed|boolean|Si le produit est associé à un contrat, indique si l’utilisateur actuel a accepté les termes du contrat.|  

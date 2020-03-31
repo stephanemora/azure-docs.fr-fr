@@ -4,11 +4,11 @@ description: Décrit les fonctions pouvant être utilisées avec les artefacts d
 ms.date: 12/09/2019
 ms.topic: reference
 ms.openlocfilehash: 0aab2fe0511ccc11842d0e132a83d6e3f7fac27f
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74970888"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79236145"
 ---
 # <a name="functions-for-use-with-azure-blueprints"></a>Fonctions à utiliser avec Azure Blueprints
 
@@ -32,13 +32,13 @@ Retourne un objet de propriétés rempli avec ces sorties d’artefacts de bluep
 > [!NOTE]
 > La fonction `artifacts()` ne peut pas être utilisée à partir d’un modèle de Gestionnaire des ressources. La fonction peut être utilisée uniquement dans le JSON de définition du blueprint ou dans le JSON d’artefact lors de la gestion du blueprint avec Azure PowerShell ou l’API REST dans le cadre de [Blueprints-as-code](https://github.com/Azure/azure-blueprints/blob/master/README.md).
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Paramètres
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| artifactName |OUI |string |Nom d’un artefact de blueprint. |
+| artifactName |Oui |string |Nom d’un artefact de blueprint. |
 
-### <a name="return-value"></a>Valeur de retour
+### <a name="return-value"></a>Valeur retournée
 
 Objet de propriétés de sortie. Les propriétés **outputs** dépendent du type d’artefact de blueprint référencé. Tous les types suivent le format :
 
@@ -76,7 +76,7 @@ Les propriétés **outputs** de l’objet retourné sont définies dans le modè
 }
 ```
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 Un artefact de modèle Resource Manager avec l’ID _myTemplateArtifact_ contenant l’exemple de propriété de sortie suivant :
 
@@ -121,22 +121,22 @@ Voici quelques exemples de récupération de données de l’exemple _myTemplate
 
 Combine plusieurs valeurs de chaîne et renvoie la chaîne concaténée.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Paramètres
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| string1 |OUI |string |La première valeur pour la concaténation. |
+| string1 |Oui |string |La première valeur pour la concaténation. |
 | arguments supplémentaires |Non |string |Valeurs supplémentaires en ordre séquentiel pour la concaténation |
 
-### <a name="return-value"></a>Valeur de retour
+### <a name="return-value"></a>Valeur retournée
 
 Chaîne de valeurs concaténées.
 
-### <a name="remarks"></a>Remarques
+### <a name="remarks"></a>Notes
 
 La fonction Azure Blueprint diffère de la fonction de modèle Azure Resource Manager, car elle n’est compatible qu’avec des chaînes.
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 `concat(parameters('organizationName'), '-vm')`
 
@@ -146,21 +146,21 @@ La fonction Azure Blueprint diffère de la fonction de modèle Azure Resource Ma
 
 Retourne une valeur de paramètre de blueprint. Le nom du paramètre spécifié doit être défini dans la définition de blueprint ou dans les artefacts de blueprint.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Paramètres
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| parameterName |OUI |string |Nom du paramètre à retourner. |
+| parameterName |Oui |string |Nom du paramètre à retourner. |
 
-### <a name="return-value"></a>Valeur de retour
+### <a name="return-value"></a>Valeur retournée
 
 Valeur du paramètre de blueprint ou d’artefact de blueprint spécifié.
 
-### <a name="remarks"></a>Remarques
+### <a name="remarks"></a>Notes
 
 La fonction Azure Blueprint diffère de la fonction de modèle Azure Resource Manager, car elle n’est compatible qu’avec des paramètres de blueprint.
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 Définissez les _principalIds_ de paramètre dans la définition de blueprint :
 
@@ -205,7 +205,7 @@ Utilisez ensuite _principalIds_ comme argument pour `parameters()` dans un artef
 
 Renvoie un objet qui représente le groupe de ressources actuel.
 
-### <a name="return-value"></a>Valeur de retour
+### <a name="return-value"></a>Valeur retournée
 
 L’objet renvoyé présente le format suivant :
 
@@ -216,13 +216,13 @@ L’objet renvoyé présente le format suivant :
 }
 ```
 
-### <a name="remarks"></a>Remarques
+### <a name="remarks"></a>Notes
 
 La fonction Azure Blueprint diffère de la fonction de modèle Azure Resource Manager. La fonction `resourceGroup()` ne peut pas être utilisée dans un artefact de niveau d’abonnement ou la définition de blueprint. Elle ne peut être utilisée que dans des artefacts de blueprint faisant partie d’un artefact de groupe de ressources.
 
 Une utilisation courante de la fonction `resourceGroup()` consiste à créer des ressources dans le même emplacement que l’artefact de groupe de ressources.
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 Pour utiliser l’emplacement du groupe de ressources, définissez-le dans la définition de blueprint ou lors de l’affectation comme l’emplacement d’un autre artefact, et déclarez un objet d’espace réservé de groupe de ressources dans votre définition de blueprint. Dans cet exemple, _NetworkingPlaceholder_ est le nom de l’espace réservé de groupe de ressources.
 
@@ -267,13 +267,13 @@ Utilisez ensuite la fonction `resourceGroup()` dans le contexte d’un artefact 
 
 Retourne un objet représentant l’artefact de groupe de ressources spécifié. Contrairement à `resourceGroup()`, où le contexte de l’artefact est nécessaire, cette fonction est utilisée pour obtenir les propriétés d’un espace réservé de groupe de ressources spécifique en l’absence de contexte pour ce groupe de ressources.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Paramètres
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| placeholderName |OUI |string |Nom de l’espace réservé de l’artefact de groupe de ressources à retourner. |
+| placeholderName |Oui |string |Nom de l’espace réservé de l’artefact de groupe de ressources à retourner. |
 
-### <a name="return-value"></a>Valeur de retour
+### <a name="return-value"></a>Valeur retournée
 
 L’objet renvoyé présente le format suivant :
 
@@ -284,7 +284,7 @@ L’objet renvoyé présente le format suivant :
 }
 ```
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 Pour utiliser l’emplacement du groupe de ressources, définissez-le dans la définition de blueprint ou lors de l’affectation comme l’emplacement d’un autre artefact, et déclarez un objet d’espace réservé de groupe de ressources dans votre définition de blueprint. Dans cet exemple, _NetworkingPlaceholder_ est le nom de l’espace réservé de groupe de ressources.
 
@@ -329,7 +329,7 @@ Utilisez ensuite la fonction `resourceGroups()` dans le contexte d’un artefact
 
 Retourne des détails concernant l’abonnement pour l’affectation de blueprint actuelle.
 
-### <a name="return-value"></a>Valeur de retour
+### <a name="return-value"></a>Valeur retournée
 
 L’objet renvoyé présente le format suivant :
 
@@ -342,7 +342,7 @@ L’objet renvoyé présente le format suivant :
 }
 ```
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 Utilisez le nom d’affichage de l’abonnement et la fonction `concat()` pour créer une convention de dénomination transmise sous forme de paramètre _resourceName_ à l’artefact de modèle.
 

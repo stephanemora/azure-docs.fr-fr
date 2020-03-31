@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
 ms.openlocfilehash: c85d958074ea5d41d32f71350164c3c983e372a2
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74976653"
 ---
 # <a name="how-to-use-different-attestation-mechanisms-with-device-provisioning-service-client-sdk-for-c"></a>Utiliser différents mécanismes d’attestation avec le Kit de développement logiciel (SDK) Device Provisioning Service Client pour C
@@ -138,7 +138,7 @@ Générez le kit de développement logiciel (SDK) avant de créer l’inscriptio
 
 ## <a name="create-a-device-enrollment-entry-in-device-provisioning-services"></a>Créer une entrée d’inscription d’appareil dans le service Device Provisioning Service
 
-### <a name="tpm"></a>TPM
+### <a name="tpm"></a>Module de plateforme sécurisée (TPM)
 Si vous utilisez TPM, suivez les instructions de [« Créer et approvisionner un appareil TPM simulé à l’aide du kit de développement logiciel C de périphérique pour le service IoT Hub Device Provisioning »](./quick-create-simulated-device.md) pour créer une entrée d’inscription d’appareil dans votre service Device Provisioning Service et simuler le premier démarrage.
 
 ### <a name="x509"></a>X.509

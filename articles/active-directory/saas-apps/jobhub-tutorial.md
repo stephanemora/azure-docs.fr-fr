@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à JOBHUB | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à JOBHUB | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et JOBHUB.
 services: active-directory
 documentationCenter: na
@@ -17,19 +17,19 @@ ms.date: 05/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bc5f7bf299465b6af272c9b417a62f121b9a4d82
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67164928"
 ---
-# <a name="tutorial-integrate-jobhub-with-azure-active-directory"></a>Didacticiel : Intégrer JOBHUB à Azure Active Directory
+# <a name="tutorial-integrate-jobhub-with-azure-active-directory"></a>Tutoriel : Intégrer JOBHUB à Azure Active Directory
 
 Dans ce tutoriel, vous allez apprendre à intégrer JOBHUB à Azure Active Directory (Azure AD). Lorsque vous intégrez JOBHUB à Azure AD, vous pouvez :
 
 * Contrôler qui a accès à JOBHUB dans Azure AD.
 * Permettre à vos utilisateurs de se connecter automatiquement à JOBHUB avec leur compte Azure AD.
-* Gérez tous vos comptes dans un même emplacement : le portail Azure.
+* Gérer vos comptes à un emplacement central : le Portail Azure.
 
 Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
@@ -70,7 +70,7 @@ Pour configurer et tester l’authentification unique (SSO) Azure AD avec JOBHU
 
 ### <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
-Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le portail Azure.
+Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
 1. Dans le [portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **JOBHUB**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
@@ -149,5 +149,5 @@ Quand vous sélectionnez la vignette JOBHUB dans le volet d’accès, vous devez
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

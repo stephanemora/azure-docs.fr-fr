@@ -6,10 +6,10 @@ ms.date: 03/04/2020
 ms.topic: conceptual
 ms.custom: mvc
 ms.openlocfilehash: 621b429f5dc3a6b6620e4d41ad46763e1d4fa226
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78299522"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Intégrer les solutions Update Management, Change Tracking et Inventory à partir d’une machine virtuelle Azure
@@ -59,7 +59,7 @@ Lorsqu’un ordinateur est ajouté aux solutions Update Management, Change Track
 
 Accédez à votre espace de travail. Sous **Général**, sélectionnez **Recherches enregistrées**. Les deux recherches enregistrées utilisées par ces solutions sont présentées dans le tableau suivant :
 
-|Nom     |Category  |Alias  |
+|Name     |Category  |Alias  |
 |---------|---------|---------|
 |MicrosoftDefaultComputerGroup     |  ChangeTracking       | ChangeTracking__MicrosoftDefaultComputerGroup        |
 |MicrosoftDefaultComputerGroup     | Mises à jour        | Updates__MicrosoftDefaultComputerGroup         |
@@ -95,7 +95,7 @@ Après avoir supprimé ces solutions, vous pouvez effectuer les étapes suivante
 
 Si vous avez utilisé la solution de gestion de la mise à jour, vous pouvez (si vous le souhaitez) supprimer les éléments suivants qui ne sont plus nécessaires après la suppression de la solution.
 
-* Planifications de mise à jour : Chacune a un nom qui correspond aux déploiements de mises à jour que vous avez créés.
+* Planifications de mises à jour – Chacune a un nom qui correspond aux déploiements de mises à jour que vous avez créés.
 
 * Groupes de travail hybrides créés pour la solution : Chacun porte un nom similaire à machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8.
 

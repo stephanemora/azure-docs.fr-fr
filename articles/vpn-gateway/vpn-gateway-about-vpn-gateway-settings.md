@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: cherylmc
 ms.openlocfilehash: d7a2040748d170b4e536df59947ea811f149d931
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78355837"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79225125"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>À propos des paramètres de configuration de la passerelle VPN
 
@@ -30,7 +30,7 @@ Les valeurs figurant dans cet article s’appliquent à des passerelles VPN (pas
 
 
 
-## <a name="gwtype"></a>Types de passerelle
+## <a name="gateway-types"></a><a name="gwtype"></a>Types de passerelle
 
 Chaque réseau virtuel ne peut posséder qu’une seule passerelle de réseau virtuel de chaque type. Lorsque vous créez une passerelle de réseau virtuel, vous devez vous assurer que le type de passerelle convient pour votre configuration.
 
@@ -49,7 +49,7 @@ New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 -VpnType RouteBased
 ```
 
-## <a name="gwsku"></a>SKU de passerelle
+## <a name="gateway-skus"></a><a name="gwsku"></a>SKU de passerelle
 
 [!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
@@ -75,7 +75,7 @@ New-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
 az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWPIP --resource-group TestRG1 --vnet VNet1 --gateway-type Vpn --vpn-type RouteBased --sku VpnGw1 --no-wait
 ```
 
-###  <a name="resizechange"></a>Redimensionnement ou modification d’une référence SKU
+###  <a name="resizing-or-changing-a-sku"></a><a name="resizechange"></a>Redimensionnement ou modification d’une référence SKU
 
 Si vous disposez d’une passerelle VPN et que vous souhaitez utiliser une autre référence SKU de passerelle, vous avez le choix entre redimensionner votre référence SKU de passerelle ou remplacer par une autre référence SKU. Lorsque vous remplacez par une autre référence SKU de passerelle, vous supprimez la passerelle existante dans son ensemble et en créez une nouvelle. La création d’une passerelle peut prendre jusqu’à 45 minutes. En comparaison, lorsque vous redimensionnez une référence SKU de passerelle, le temps d’arrêt sera faible, car vous n’aurez pas à supprimer et à recréer la passerelle. Si vous avez la possibilité de redimensionner votre référence SKU de passerelle plutôt que de la modifier, vous devez le faire. Toutefois, il existe des règles concernant le redimensionnement :
 
@@ -83,15 +83,15 @@ Si vous disposez d’une passerelle VPN et que vous souhaitez utiliser une autre
 2. Lors de l’utilisation des anciennes références SKU de passerelle, vous pouvez effectuer un redimensionnement entre les références SKU Basic, Standard et HighPerformance.
 3. Vous **ne pouvez pas** effectuer de redimensionnement pour passer des références SKU de base/standard/haute performance à des références SKU VpnGw. Au lieu de cela, vous devez [effectuer la modification](#change) vers les nouvelles références SKU.
 
-#### <a name="resizegwsku"></a>Pour redimensionner une passerelle
+#### <a name="to-resize-a-gateway"></a><a name="resizegwsku"></a>Pour redimensionner une passerelle
 
 [!INCLUDE [Resize a SKU](../../includes/vpn-gateway-gwsku-resize-include.md)]
 
-####  <a name="change"></a>Pour passer d’un ancienne référence SKU (héritée) à une nouvelle référence SKU
+####  <a name="to-change-from-an-old-legacy-sku-to-a-new-sku"></a><a name="change"></a>Pour passer d’un ancienne référence SKU (héritée) à une nouvelle référence SKU
 
 [!INCLUDE [Change a SKU](../../includes/vpn-gateway-gwsku-change-legacy-sku-include.md)]
 
-## <a name="connectiontype"></a>Types de connexion
+## <a name="connection-types"></a><a name="connectiontype"></a>Types de connexion
 
 Dans le modèle de déploiement de Resource Manager, chaque configuration nécessite un type spécifique de connexion de passerelle de réseau virtuel. Les valeurs de PowerShell pour Resource Manager disponibles pour `-ConnectionType` sont :
 
@@ -108,7 +108,7 @@ New-AzVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg
 -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
 ```
 
-## <a name="vpntype"></a>Types de VPN
+## <a name="vpn-types"></a><a name="vpntype"></a>Types de VPN
 
 Lorsque vous créez la passerelle de réseau virtuel d’une configuration de passerelle VPN, vous devez spécifier un type de VPN. Le type de VPN que vous choisissez dépend de la topologie de connexion que vous souhaitez créer. Par exemple, une connexion P2S nécessite un VPN de type basé sur un itinéraire. Un type VPN peut également dépendre du matériel utilisé. Les configurations S2S nécessitent un périphérique VPN. Certains périphériques VPN seront ne prennent en charge qu’un certain type de VPN.
 
@@ -126,11 +126,11 @@ New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 -GatewayType Vpn -VpnType RouteBased
 ```
 
-## <a name="requirements"></a>Conditions requises de la passerelle
+## <a name="gateway-requirements"></a><a name="requirements"></a>Conditions requises de la passerelle
 
 [!INCLUDE [vpn-gateway-table-requirements](../../includes/vpn-gateway-table-requirements-include.md)]
 
-## <a name="gwsub"></a>Sous-réseau de passerelle
+## <a name="gateway-subnet"></a><a name="gwsub"></a>Sous-réseau de passerelle
 
 Avant de créer votre passerelle VPN, vous devez d’abord créer un sous-réseau de passerelle. Le sous-réseau de passerelle contient les adresses IP utilisées par les machines virtuelles et les services de passerelle de réseau virtuel. Lors de la création de votre passerelle de réseau virtuel, les machines virtuelles de passerelle sont déployées dans le sous-réseau de passerelle et configurées avec les paramètres de passerelle VPN requis. Ne déployez jamais d’autres éléments (des machines virtuelles supplémentaires, par exemple) dans le sous-réseau de passerelle. Pour fonctionner correctement, le sous-réseau de passerelle doit être nommé ’GatewaySubnet’. En nommant le sous-réseau de passerelle « GatewaySubnet », Azure est informé qu'il s’agit du sous-réseau dans lequel déployer les machines virtuelles et les services de passerelle de réseau virtuel.
 
@@ -150,7 +150,7 @@ Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/2
 
 [!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
-## <a name="lng"></a>Passerelles de réseau local
+## <a name="local-network-gateways"></a><a name="lng"></a>Passerelles de réseau local
 
  Une passerelle de réseau local diffère d'une passerelle de réseau virtuel. Lorsque vous créez une configuration de passerelle VPN, la passerelle du réseau local représente généralement votre emplacement local. Dans le modèle de déploiement classique, la passerelle de réseau local a été appelée Site local.
 
@@ -165,7 +165,7 @@ New-AzLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
 
 Parfois, vous devez modifier les paramètres de passerelle de réseau local. C’est le cas, par exemple, lorsque vous ajoutez ou modifiez la plage d’adresses, ou lorsque l’adresse IP du périphérique VPN change. Voir [Modification des paramètres de passerelle de réseau local à l’aide de PowerShell](vpn-gateway-modify-local-network-gateway.md).
 
-## <a name="resources"></a>API REST, cmdlets PowerShell et CLI
+## <a name="rest-apis-powershell-cmdlets-and-cli"></a><a name="resources"></a>API REST, cmdlets PowerShell et CLI
 
 Pour accéder à des ressources techniques supplémentaires et connaître les exigences spécifiques en matière de syntaxe lors de l’utilisation d’API REST, d’applets de commande PowerShell ou d’Azure CLI pour les configurations de passerelles VPN, consultez les pages suivantes :
 

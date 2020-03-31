@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
 ms.openlocfilehash: 6cb514312db525ffd2ccf9f7b70968daaa94f322
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77672376"
 ---
 # <a name="azure-diagnostics-extension-overview"></a>Vue d’ensemble de l’extension Diagnostics Azure
@@ -91,7 +91,7 @@ Vous pouvez également installer et configurer les deux extensions de diagnostic
 
 Pour plus d’informations sur l’installation et la configuration des extensions de diagnostic pour Windows et Linux, consultez les articles suivants.
 
-- [Installer et configurer l’extension Diagnostics Azure pour Windows (WAD)](diagnostics-extension-windows-install.md)
+- [Installer et configurer l’extension Diagnostics Azure pour Azure (WAD)](diagnostics-extension-windows-install.md)
 - [Utiliser l’extension de diagnostic Linux pour superviser les métriques et les journaux](../../virtual-machines/extensions/diagnostics-linux.md)
 
 ## <a name="other-documentation"></a>Autre documentation

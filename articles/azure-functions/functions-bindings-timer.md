@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: f4fdf25fa1403b8429e7ad7e7fc644d0355b1324
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 566d6ccf43024692e19bcd6639fe5cfbbba0660d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77189815"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80056403"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Déclencheur de minuteur pour Azure Functions 
 
@@ -316,7 +316,7 @@ Exprimé sous forme de chaîne, le format `TimeSpan` est `hh:mm:ss` lorsque la v
 |---------|---------|
 |"01:00:00" | toutes les heures        |
 |"00:01:00"|chaque minute         |
-|"24:00:00" | Toutes les 24 heures        |
+|"24:00:00" | tous les 24 jours        |
 |"1.00:00:00" | chaque jour        |
 
 ## <a name="scale-out"></a>Montée en charge

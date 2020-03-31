@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 11/05/2019
 ms.author: alkohli
 ms.openlocfilehash: 16647b6a13e64073ab570d36a8a380d0e36bd855
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73799813"
 ---
 - Ne copiez pas les fichiers directement sur les partages précréés. Vous devez créer un dossier dans le partage, puis copier les fichiers dans ce dossier.

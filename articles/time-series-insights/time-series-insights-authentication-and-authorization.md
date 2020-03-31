@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 02/03/2020
 ms.custom: seodec18
 ms.openlocfilehash: ff5f7a80e2dcedb1795bae14ee9140c2842303a5
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76984550"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Authentification et autorisation pour l’API Insights Azure Time Series
@@ -107,7 +107,7 @@ Cette section décrit les en-têtes de requête HTTP et les paramètres qui son
 Pour exécuter des requêtes authentifiées sur les [API REST Time Series Insights](https://docs.microsoft.com/rest/api/time-series-insights/), un jeton de porteur OAuth 2.0 valide doit être passé dans l’[en-tête d’autorisation](/rest/api/apimanagement/2019-01-01/authorizationserver/createorupdate) à l’aide du client REST de votre choix (Postman, JavaScript, C#). 
 
 > [!TIP]
-> Pour savoir comment s’authentifier par programmation auprès des API Time Series Insights à l’aide du [Kit de développement logiciel (SDK) JavaScript Client](https://github.com/microsoft/tsiclient/blob/master/docs/API.md), lisez l’[exemple de visualisation hébergé du Kit de développement logiciel (SDK) client](https://tsiclientsample.azurewebsites.net/) Azure Time Series Insights ainsi que des graphes et autres graphiques.
+> Pour savoir comment s’authentifier par programmation auprès des API Time Series Insights à l’aide du [Kit de développement logiciel (SDK) JavaScript Client](https://tsiclientsample.azurewebsites.net/), lisez l’[exemple de visualisation hébergé du Kit de développement logiciel (SDK) client](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) Azure Time Series Insights ainsi que des graphes et autres graphiques.
 
 ### <a name="http-headers"></a>En-têtes HTTP
 
@@ -119,7 +119,7 @@ Les en-têtes de requête obligatoires sont décrits ci-dessous.
 
 > [!IMPORTANT]
 > Le jeton doit être émis exactement vers la ressource `https://api.timeseries.azure.com/` (également appelée « audience » du jeton).
-> * Votre **AuthURL** [Postman](https://www.getpostman.com/) sera donc : `https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?resource=https://api.timeseries.azure.com/`
+> * Votre [AuthURL](https://www.getpostman.com/) **Postman** sera donc : `https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?resource=https://api.timeseries.azure.com/`
 > * `https://api.timeseries.azure.com/` est valide, mais `https://api.timeseries.azure.com` ne l’est pas.
 
 Les en-têtes de requête facultatifs sont décrits ci-dessous.

@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: rezas
-ms.openlocfilehash: 244a71d400493a2029e831b729c63bc0b0dfe559
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 7ab3b48d22f116a707f68cbf6284928c7d2557e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77049651"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79409494"
 ---
 # <a name="tls-support-in-iot-hub"></a>Prise en charge du protocole TLS dans IoT Hub
 
@@ -61,6 +61,8 @@ Les hubs IoT qui requièrent l’utilisation de TLS 1.2 peuvent être créés d
 * USA Est
 * États-Unis - partie centrale méridionale
 * USA Ouest 2
+* Gouvernement des États-Unis – Arizona
+* Gouvernement américain - Virginie
 
 > [!NOTE]
 > Lors des basculements, la propriété `minTlsVersion` de votre IoT Hub reste effective dans la région jumelée géographiquement après le basculement.

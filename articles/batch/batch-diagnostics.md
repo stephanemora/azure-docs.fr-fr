@@ -15,10 +15,10 @@ ms.date: 12/05/2018
 ms.author: labrenne
 ms.custom: seodec18
 ms.openlocfilehash: 68d5976a5a79dbde88b7f80b02b39793ffc86de9
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78254859"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Métriques, alertes et journaux d’activité Batch pour l’évaluation de diagnostic et la supervision
@@ -28,7 +28,7 @@ Cet article explique comment surveiller un compte Batch à l’aide de fonctionn
 
 ## <a name="batch-metrics"></a>Métriques Batch
 
-Les métriques sont des données de télémétrie Azure (également appelées compteurs de performance) émises par vos ressources Azure qui sont consommées par le service Azure Monitor. Parmi les métriques d’un compte Batch figurent par exemple : Les événements de création de pool, le nombre de nœuds à priorité basse et les événements de fin de tâche. 
+Les métriques sont des données de télémétrie Azure (également appelées compteurs de performance) émises par vos ressources Azure qui sont consommées par le service Azure Monitor. Parmi les métriques d’un compte Batch figurent par exemple : Événements de création de pool, Nombre de nœuds à priorité basse et Événements de fin de tâche. 
 
 Consultez la [liste des métriques Batch prises en charge](../azure-monitor/platform/metrics-supported.md#microsoftbatchbatchaccounts).
 

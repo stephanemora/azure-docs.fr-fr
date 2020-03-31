@@ -7,10 +7,10 @@ ms.date: 3/9/2018
 ms.author: masnider
 ms.custom: sfrev
 ms.openlocfilehash: 58259b0d19d68c468779a579bd9c86e77106c18d
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77083506"
 ---
 # <a name="reliable-services-overview"></a>Présentation de Reliable Services
@@ -30,7 +30,7 @@ Service Fabric gère la durée de vie des services, depuis l’approvisionnemen
 Reliable Services vous offre un modèle de programmation global, simple et puissant qui vous aidera à faire ressortir ce qui est important dans votre application. Avec le modèle de programmation Reliable Services, vous obtenez :
 
 * Un accès aux API Service Fabric. Contrairement aux services Service Fabric modélisés en tant que [services exécutables invités](service-fabric-guest-executables-introduction.md), Reliable Services peut directement utiliser les API Service Fabric. Les services peuvent ainsi :
-  * interroger le système
+  * Interrogation du système
   * créer des rapports sur l'intégrité des entités dans le cluster
   * recevoir des notifications sur les modifications de la configuration et du code
   * rechercher d'autres services et communiquer avec eux
@@ -68,7 +68,7 @@ Un *service sans état* est un service dans lequel l'état n'est pas conservé a
 
 Prenons pour exemple une calculatrice dépourvue de mémoire et qui reçoit tous les termes et les opérations à effectuer simultanément.
 
-Dans ce cas, la méthode `RunAsync()` (C#) ou `runAsync()` (Java) du service peut être vide, car ce dernier n’a besoin d’effectuer aucun traitement de tâche en arrière-plan. Quand le service Calculatrice est créé, il renvoie un `ICommunicationListener` (C#) ou un `CommunicationListener` (Java) (par exemple [API web](service-fabric-reliable-services-communication-webapi.md)) qui ouvre un point de terminaison d’écoute sur un port. Ce point de terminaison d’écoute se raccorde aux différentes méthodes de calcul (par exemple : « Add(n1, n2) ») qui définissent l’API publique de la calculatrice.
+Dans ce cas, la méthode `RunAsync()` (C#) ou `runAsync()` (Java) du service peut être vide, car ce dernier n’a besoin d’effectuer aucun traitement de tâche en arrière-plan. Quand le service Calculatrice est créé, il renvoie un `ICommunicationListener` (C#) ou un `CommunicationListener` (Java) (par exemple [API web](service-fabric-reliable-services-communication-webapi.md)) qui ouvre un point de terminaison d’écoute sur un port. Ce point de terminaison d’écoute se raccorde aux différentes méthodes de calcul (exemple : « Add(n1, n2) ») qui définissent l’API publique de la calculatrice.
 
 Lorsqu’un appel est effectué à partir d’un client, la méthode appropriée est appelée ; le service Calculatrice effectue les opérations sur les données fournies et renvoie le résultat. Il ne stocke aucun état.
 

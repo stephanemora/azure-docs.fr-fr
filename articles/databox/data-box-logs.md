@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 08/08/2019
 ms.author: alkohli
 ms.openlocfilehash: 72e1d3b0ad72b1e68b88eb0550cbe839ade9d929
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69535180"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79229789"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy"></a>Suivi et journalisation des événements de votre Azure Data Box et Azure Data Box Heavy
 
@@ -26,7 +26,7 @@ Le tableau suivant récapitule les étapes de la commande Data Box ou Data Box H
 | Créer la commande               | [Configurer le contrôle d’accès sur la commande via RBAC](#set-up-access-control-on-the-order)                                                    |
 | Commande traitée            | [Suivre la commande](#track-the-order) via <ul><li> Portail Azure </li><li> Site web du transporteur </li><li>Notifications par e-mail</ul> |
 | Configurer l’appareil              | Accès aux informations d’identification de l’appareil dans les [journaux d’activité](#query-activity-logs-during-setup)                                              |
-| Copie des données vers l’appareil        | [Consulter les fichiers *error.xml* ](#view-error-log-during-data-copy) pour la copie des données                                                             |
+| Copie des données vers l’appareil        | [Consulter les fichiers *error.xml*](#view-error-log-during-data-copy) pour la copie des données                                                             |
 | Préparer l’expédition            | [Inspecter les fichiers de nomenclature](#inspect-bom-during-prepare-to-ship) ou les fichiers manifeste sur l’appareil                                      |
 | Chargement des données dans Azure       | [Passer en revue les journaux de copie](#review-copy-log-during-upload-to-azure) à la recherche des erreurs survenues pendant le chargement de données dans le centre de données Azure                         |
 | Effacement des données de l’appareil   | [Afficher les journaux d’activité de chaîne de responsabilité](#get-chain-of-custody-logs-after-data-erasure) qui incluent les journaux d’audit et l’historique des commandes                |

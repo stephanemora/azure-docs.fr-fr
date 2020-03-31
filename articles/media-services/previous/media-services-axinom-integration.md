@@ -16,10 +16,10 @@ ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: Mingfeiy;rajputam;Juliako
 ms.openlocfilehash: 2ec3276b9b02c29b80d46e5fd31298c909857182
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78197162"
 ---
 # <a name="using-axinom-to-deliver-widevine-licenses-to-azure-media-services"></a>Utilisation d’Axinom pour fournir des licences Widevine à Azure Media Services 
@@ -32,7 +32,7 @@ ms.locfileid: "78197162"
 ## <a name="overview"></a>Vue d’ensemble
 Azure Media Services (AMS) a ajouté la protection dynamique Google Widevine (voir le [blog de Mingfei](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/) pour plus de détails). En outre, Azure Media Player (AMP) a ajouté la prise en charge de Widevine (voir [Document AMP](https://amp.azure.net/libs/amp/latest/docs/) pour plus d’informations). Il s’agit d’un succès majeur en matière de diffusion en continu de contenu DASH protégé par CENC avec DRM multi-natif (PlayReady et Widevine) sur les navigateurs modernes équipés de MSE et EME.
 
-En commençant par le kit de développement logiciel (SDK) Media Services .NET version 3.5.2, Media Services vous permet de configurer le modèle de licence Widevine et d’obtenir des licences Widevine. Vous pouvez également utiliser les partenaires AMS suivants pour vous aider à fournir des licences Widevine : [Axinom](https://www.axinom.com), [EZDRM](https://ezdrm.com/) et [castLabs](https://castlabs.com/company/partners/azure/).
+En commençant par le kit de développement logiciel (SDK) Media Services .NET version 3.5.2, Media Services vous permet de configurer le modèle de licence Widevine et d’obtenir des licences Widevine. Vous pouvez également utiliser les partenaires AMS suivants pour vous aider à distribuer des licences Widevine : [Axinom](https://www.axinom.com), [EZDRM](https://ezdrm.com/), [castLabs](https://castlabs.com/company/partners/azure/).
 
 Cet article décrit comment intégrer et tester le serveur de licences Widevine géré par Axinom. Il aborde plus précisément :  
 
@@ -45,7 +45,7 @@ Le système complet et la clé de flux de contenu, l’ID de clé, l’amorce de
 ![DASH et CENC](./media/media-services-axinom-integration/media-services-axinom1.png)
 
 ## <a name="content-protection"></a>Protection du contenu
-Pour configurer la stratégie de protection dynamique et de distribution de clés, consultez le blog de Mingfei : [Guide pratique de configuration de l’empaquetage Widevine avec Media Services](https://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services).
+Pour configurer la stratégie de protection dynamique et de distribution de clés, consultez le blog de Mingfei : [Configuration de l’association de packaging Widevine avec Azure Media Services](https://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services).
 
 Vous pouvez configurer la protection CENC dynamique avec DRM multiples pour la diffusion DASH présentant les deux éléments suivants :
 
@@ -206,5 +206,5 @@ Les paramètres suivants sont requis pour la mini-solution qui utilise serveur d
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ### <a name="acknowledgments"></a>Remerciements
-Nous aimerions remercier les personnes suivantes qui ont contribué à la création de ce document : Kristjan Jõgi of Axinom, Mingfei Yan et Amit Rajput.
+Nous aimerions remercier les personnes suivantes qui ont contribué à la création de ce document : Kristjan Jõgi of Axinom, Mingfei Yan et Amit Rajput.
 

@@ -9,10 +9,10 @@ ms.date: 12/03/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: a697c9a62e52e82a550969e1852abd1489ed59b9
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79127742"
 ---
 # <a name="publish-built-in-apps-in-windows-virtual-desktop"></a>Publier des applications intégrées dans Windows Virtual Desktop

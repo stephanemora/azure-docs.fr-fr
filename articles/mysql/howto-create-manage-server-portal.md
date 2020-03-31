@@ -5,19 +5,19 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 3fed615a767fee2fff1700f996b2103f411db825
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.date: 3/18/2020
+ms.openlocfilehash: c0bee0b628a49746a19545d14b8b8761d0e880d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74973473"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80062419"
 ---
 # <a name="manage-an-azure-database-for-mysql-server-using-the-azure-portal"></a>Gérer un serveur Azure Database pour MySQL à l’aide du portail Azure
 Cet article vous explique comment gérer vos serveurs Azure Database pour MySQL. Les tâches de gestion incluent notamment la mise à l’échelle du calcul et du stockage, la réinitialisation de mot de passe et l’affichage des informations relatives au serveur.
 
 ## <a name="sign-in"></a>Se connecter
-Connectez-vous au [Portail Azure](https://portal.azure.com).
+Connectez-vous au [portail Azure](https://portal.azure.com).
 
 ## <a name="create-a-server"></a>Créer un serveur
 Consultez le [guide de démarrage rapide](quickstart-create-mysql-server-database-using-azure-portal.md) pour savoir comment créer et prendre en main un serveur Azure Database pour MySQL.
@@ -75,7 +75,7 @@ Vous pouvez modifier le mot de passe du rôle d’administrateur à l’aide du 
 
 1. Dans le Portail Azure, sélectionnez votre serveur. Dans la fenêtre **Vue d’ensemble**, sélectionnez **Réinitialiser le mot de passe**.
 
-   ![Vue d’ensemble](./media/howto-create-manage-server-portal/overview-reset-password.png)
+   ![vue d'ensemble](./media/howto-create-manage-server-portal/overview-reset-password.png)
 
 2. Entrez un nouveau mot de passe et confirmez-le. La zone de texte vous indique les exigences en matière de complexité du mot de passe.
 

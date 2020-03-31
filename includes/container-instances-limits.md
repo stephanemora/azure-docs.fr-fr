@@ -4,14 +4,14 @@ ms.service: container-instances
 ms.topic: include
 ms.date: 02/13/2019
 ms.author: danlep
-ms.openlocfilehash: 055fbc652d0d72925cccfae40efff8b8eef2a8c2
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: 33a82a55b03cde79d2d80826041ee6d43565476a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75904455"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80334814"
 ---
-| Ressource | Limite par défaut |
+| Ressource | Limite |
 | --- | :--- |
 | Groupes de conteneurs SKU standard par région et par [abonnement](../articles/billing-buy-sign-up-azure-subscription.md) | 100<sup>1</sup> |
 | Groupes de conteneurs SKU dédiés par région et par [abonnement](../articles/billing-buy-sign-up-azure-subscription.md) | 0<sup>1</sup> |

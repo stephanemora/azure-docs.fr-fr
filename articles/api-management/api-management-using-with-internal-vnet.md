@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/31/2019
 ms.author: apimpm
 ms.openlocfilehash: 6054c595bca26dc2a0432c53369a60a61e3efde0
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76841861"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Utiliser le service Gestion des API Azure avec un réseau virtuel interne
@@ -39,7 +39,7 @@ Avec la Gestion des API en mode interne, vous pouvez effectuer les scénarios su
 
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer les étapes décrites dans cet article, vous devez disposer des éléments suivants :
 
@@ -50,7 +50,7 @@ Pour effectuer les étapes décrites dans cet article, vous devez disposer des �
 + **Une instance du service Gestion des API Azure**. Pour en savoir plus, voir [Créer une instance de gestion des API Azure](get-started-create-service-instance.md).
 + Lorsqu’un service Gestion des API est déployé dans un réseau virtuel, une [liste de ports](./api-management-using-with-vnet.md#required-ports) est utilisée et ces derniers doivent être ouverts. 
 
-## <a name="enable-vpn"> </a>Créer une Gestion des API dans un réseau virtuel interne
+## <a name="creating-an-api-management-in-an-internal-virtual-network"></a><a name="enable-vpn"> </a>Créer une Gestion des API dans un réseau virtuel interne
 Le service Gestion des API dans un réseau virtuel interne est hébergé derrière un [équilibreur de charge interne (classique)](https://docs.microsoft.com/azure/load-balancer/load-balancer-get-started-ilb-classic-cloud). Il s'agit là de la seule option disponible et elle ne peut pas être modifiée.
 
 ### <a name="enable-a-virtual-network-connection-using-the-azure-portal"></a>Activer une connexion de réseau virtuel à l’aide du portail Azure
@@ -80,7 +80,7 @@ Vous pouvez également activer une connectivité de réseau virtuel à l’aide 
 
 * Mettre à jour le déploiement existant d'un service Gestion des API au sein d’un réseau virtuel : utilisez la cmdlet [Update-AzApiManagementRegion](/powershell/module/az.apimanagement/update-azapimanagementregion) pour déplacer un service Gestion des API existant au sein d’un réseau virtuel et le configurer de sorte qu’il utilise le type de réseau virtuel interne.
 
-## <a name="apim-dns-configuration"></a>Configuration DNS
+## <a name="dns-configuration"></a><a name="apim-dns-configuration"></a>Configuration DNS
 Lorsque la Gestion des API se trouve en mode réseau virtuel externe, le DNS est géré par Azure. En mode réseau virtuel interne, vous devez gérer votre propre routage.
 
 > [!NOTE]
@@ -122,7 +122,7 @@ Si vous utilisez un serveur DNS personnalisé dans un réseau virtuel, vous pouv
 
 2. Vous pouvez ensuite créer des enregistrements dans votre serveur DNS de façon à accéder aux points de terminaison qui ne sont accessibles qu’à partir de votre réseau virtuel.
 
-## <a name="routing"> </a> Routage
+## <a name="routing"></a><a name="routing"> </a> Routage
 
 * Une adresse IP virtuelle *privée* à charge équilibrée de la plage de sous-réseau est réservée et utilisée pour accéder aux points de terminaison du service Gestion des API à partir du réseau virtuel. Cette adresse IP *privée* se trouve dans le panneau Vue d’ensemble du service sur le portail Azure. Cette adresse doit être inscrite sur les serveurs DNS utilisés par le réseau virtuel.
 * Une adresse IP *publique* à charge équilibrée (adresse IP virtuelle) est également réservée pour fournir l’accès au point de terminaison de service de gestion sur le port 3443. Cette adresse IP *publique* se trouve dans le panneau Vue d’ensemble du service sur le portail Azure. L’adresse IP *publique* est uniquement utilisée pour le trafic du plan de contrôle vers le point de terminaison `management` par le biais du port 3443, et peut être verrouillée sur la balise de service [ApiManagement][ServiceTags].
@@ -130,7 +130,7 @@ Si vous utilisez un serveur DNS personnalisé dans un réseau virtuel, vous pouv
 * Les adresses IP privée et publique à charge équilibrée se trouvent dans le panneau Vue d’ensemble sur le portail Azure.
 * Les adresses IP attribuées pour un accès public et privé peuvent changer si le service est supprimé, puis rajouté au réseau virtuel. Dans ce cas, il peut être nécessaire de mettre à jour les enregistrements DNS, règles d'acheminement et listes de restriction d'adresses IP au sein du réseau virtuel.
 
-## <a name="related-content"> </a>Contenu associé
+## <a name="related-content"></a><a name="related-content"> </a>Contenu associé
 Pour en savoir plus, consultez les articles suivants :
 * [Problèmes courants de configuration réseau lors de la configuration de la Gestion des API Azure dans un réseau virtuel][Common network configuration problems]
 * [FAQ des réseaux virtuels](../virtual-network/virtual-networks-faq.md)

@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/16/2019
 ms.author: amverma
 ms.openlocfilehash: 62e4d3dbd7357f8c98df3307c1c8fe52cbed1c5e
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67707777"
 ---
 # <a name="hb-series-virtual-machines-overview"></a>Vue d’ensemble des machines virtuelles série HB
@@ -60,8 +60,8 @@ Le diagramme suivant illustre la répartition des cœurs réservés pour l’hyp
 | Frameworks supplémentaires       | Unified Communication X, libfabric, PGAS |
 | Prise en charge de Stockage Azure       | Std + Premium (4 disques max) |
 | Prise en charge du système d’exploitation pour SRIOV RDMA   | CentOS/RHEL 7.6+, SLES 12 SP4+, WinServer 2016+  |
-| Prise en charge d’Azure CycleCloud    | OUI                         |
-| Prise en charge d’Azure Batch         | OUI                         |
+| Prise en charge d’Azure CycleCloud    | Oui                         |
+| Prise en charge d’Azure Batch         | Oui                         |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

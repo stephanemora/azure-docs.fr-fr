@@ -1,20 +1,20 @@
 ---
 title: Ajouter une couche d’extrusion de polygone à une carte | Microsoft Azure Maps
 description: Guide pratique pour ajouter une couche d’extrusion de polygone au kit SDK web Microsoft Azure Maps.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 10/08/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 38a7e6c5f4c139343e735ae82616c11a224ae7ca
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 7405098bd4924333aafcd1c285eb2f37bb1d4f75
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209679"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80334539"
 ---
 # <a name="add-a-polygon-extrusion-layer-to-the-map"></a>Ajouter une couche d’extrusion de polygone à la carte
 

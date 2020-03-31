@@ -10,11 +10,11 @@ ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.topic: conceptual
 ms.date: 12/05/2016
 ms.openlocfilehash: 8a6b7cb3fd45e17b84519efcaa826b569083e156
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839473"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231537"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Gérer Azure Data Lake Analytics à l’aide du portail Azure
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -29,10 +29,10 @@ Cet article décrit comment gérer des comptes, des sources de données, des uti
 
 ### <a name="create-an-account"></a>Créer un compte
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Cliquez sur **Créer une ressource** > **Intelligence + analyse**  > **Data Lake Analytics**.
 3. Sélectionnez des valeurs pour les éléments suivants : 
-   1. **Nom** : nom du compte Data Lake Analytics.
+   1. **Name** : nom du compte Data Lake Analytics.
    2. **Abonnement**: abonnement Azure utilisé pour le compte.
    3. **Groupe de ressources** : groupe de ressources Azure dans lequel créer le compte. 
    4. **Emplacement** : centre de données Azure pour le compte Data Lake Analytics. 

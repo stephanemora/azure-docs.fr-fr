@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 785a8a031a10232a37b235711ba919fdc1df35d3
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77061411"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset"></a>Planifier une réinitialisation de mot de passe en libre-service Azure Active Directory
@@ -57,7 +57,7 @@ Pour comparer les éditions et les fonctionnalités et en savoir plus sur l'acti
 
 Pour plus d'informations sur les prix, consultez [Tarifs Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
-### <a name="prerequisites"></a>Conditions préalables requises
+### <a name="prerequisites"></a>Prérequis
 
 * Un locataire Azure AD fonctionnel avec au moins une licence d’essai active. Si nécessaire, [créez-en un gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 

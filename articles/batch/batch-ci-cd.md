@@ -1,19 +1,19 @@
 ---
 title: Utiliser Azure Pipelines pour créer et déployer des solutions HPC - Azure Batch
 description: Découvrez comment déployer un pipeline de build/mise en production pour une application HPC en cours d’exécution sur Azure Batch.
-author: christianreddington
+author: chrisreddington
 ms.author: chredd
 ms.date: 03/28/2019
 ms.topic: conceptual
 ms.custom: fasttrack-new
 services: batch
 ms.service: batch
-ms.openlocfilehash: ee87cd7d80d4b24e8c52fb3c7dbb780d39071066
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 50cb711dfd16c2a8718d13ba9255ace1e7e3e26d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76935136"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79533128"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Utiliser Azure Pipelines pour créer et déployer des solutions HPC
 

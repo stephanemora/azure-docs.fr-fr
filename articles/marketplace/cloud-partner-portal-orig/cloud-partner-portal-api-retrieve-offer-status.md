@@ -1,19 +1,18 @@
 ---
 title: Récupérer l’état de l’offre | Place de marché Azure
 description: L’API récupère l’état actuel de l’offre.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: 5ce546d79497f462f6c262de738036d7e3a30226
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 2f5211716145d6c05bbfb0132c4a6ba2f9cceabe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819665"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280505"
 ---
 <a name="retrieve-offer-status"></a>Récupérer l’état de l’offre 
 =====================
@@ -27,8 +26,8 @@ Récupère l’état actuel de l’offre.
 
 |  **Nom**       |   **Description**                            |  **Type de données** |
 |  -------------  |  ------------------------------------------  |  ------------  |
-|  publisherId    | Identificateur du serveur de publication, par exemple `Contoso`  |     Chaîne     |
-|  offerId        | GUID qui identifie de façon unique l’offre      |     Chaîne     |
+|  publisherId    | Identificateur du serveur de publication, par exemple `Contoso`  |     String     |
+|  offerId        | GUID qui identifie de façon unique l’offre      |     String     |
 |  api-version    | Dernière version de l’API                        |     Date       |
 |  |  |
 
@@ -36,10 +35,10 @@ Récupère l’état actuel de l’offre.
 <a name="header"></a>En-tête
 ------
 
-|  Nom           |  Valeur               |
+|  Name           |  Valeur               |
 |  -------------  | -------------------  |
 |  Content-Type   |  `application/json`  |
-|  Authorization  | `Bearer YOUR_TOKEN`  |
+|  Autorisation  | `Bearer YOUR_TOKEN`  |
 |  |  |
 
 
@@ -158,9 +157,9 @@ Récupère l’état actuel de l’offre.
 |  NeverPublished              | L’offre n’a jamais été publiée.                          |
 |  NotStarted                  | L’offre est nouvelle et n’a pas démarré.                            |
 |  WaitingForPublisherReview   | L’offre est en attente d’approbation du serveur de publication.                 |
-|  Exécution                     | La soumission de l’offre est en cours de traitement.                     |
-|  Succeeded                   | La soumission de l’offre a été traitée.               |
-|  Canceled                    | La soumission de l’offre a été annulée.                           |
+|  Exécution en cours                     | La soumission de l’offre est en cours de traitement.                     |
+|  Opération réussie                   | La soumission de l’offre a été traitée.               |
+|  Opération annulée                    | La soumission de l’offre a été annulée.                           |
 |  Échec                      | La soumission de l’offre a échoué.                                 |
 |  |  |
 
@@ -175,6 +174,6 @@ Récupère l’état actuel de l’offre.
 |  WaitingForApproval          | L’étape est en attente d’approbation du processus.        |
 |  Bloqué                     | L’utilisateur est bloqué.                             |
 |  Rejeté                    | L’étape est rejetée.                            |
-|  Complete                    | L’étape est terminée.                            |
-|  Canceled                    | L’étape a été annulée.                           |
+|  Terminé                    | L’étape est terminée.                            |
+|  Opération annulée                    | L’étape a été annulée.                           |
 |  |  |

@@ -1,19 +1,19 @@
 ---
 title: Obtenir des données de formes sur une carte | Microsoft Azure Maps
 description: Dans cet article, vous allez apprendre à obtenir des données de formes dessinées sur une carte à l’aide du SDK web Microsoft Azure Maps.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 09/04/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 63d947b85e75e3809445c5bc65577aeaed38caa1
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 88db018575f92e777223f383c65cd6db51ba515a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209662"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80334412"
 ---
 # <a name="get-shape-data"></a>Obtenir des données de forme
 

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bdffbc3a140bd13dcd6d352db8c192803d39b03e
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78672365"
 ---
 # <a name="group-policy-and-mdm-settings"></a>Paramètres de stratégie de groupe et de gestion des appareils mobiles
@@ -32,7 +32,7 @@ Les tableaux suivants décrivent les paramètres de stratégie disponibles.
 
 Les paramètres de stratégie de MDM s’appliquent à Windows 10 et à Windows 10 Mobile.  La prise en charge Windows 10 Mobile existe uniquement pour l’itinérance basée sur compte Microsoft via le compte OneDrive de l’utilisateur. Pour plus d’informations sur les appareils pris en charge pour la synchronisation Azure AD, consultez [Appareils et points de terminaison](enterprise-state-roaming-windows-settings-reference.md).
 
-| Nom | Description |
+| Name | Description |
 | --- | --- |
 | Autoriser la connexion de comptes Microsoft |Permet aux utilisateurs de s’authentifier sur l’appareil à l’aide d’un compte Microsoft |
 | Autoriser la synchronisation de mes paramètres |Permet l’itinérance pour les paramètres de Windows et les données d’application. Désactiver cette stratégie désactive la synchronisation, ainsi que les sauvegardes sur les appareils mobiles |
@@ -43,9 +43,9 @@ Les paramètres de stratégie de groupe s’appliquent aux appareils Windows 10
 
 Ces paramètres se trouvent dans : `Computer Configuration > Administrative Templates > Windows Components > Sync your settings` 
 
-| Nom | Description |
+| Name | Description |
 | --- | --- |
-| Comptes : Bloquer des comptes Microsoft |Ce paramètre de stratégie empêche les utilisateurs d’ajouter de nouveaux comptes Microsoft sur l’ordinateur |
+| Comptes : bloquer les comptes Microsoft |Ce paramètre de stratégie empêche les utilisateurs d’ajouter de nouveaux comptes Microsoft sur l’ordinateur |
 | Ne pas synchroniser |Empêche l’itinérance des paramètres Windows et des données d’application des utilisateurs |
 | Ne pas synchroniser les options personnalisées |Désactive la synchronisation du groupe Thèmes |
 | Ne pas synchroniser les paramètres du navigateur |Désactive la synchronisation du groupe Internet Explorer |

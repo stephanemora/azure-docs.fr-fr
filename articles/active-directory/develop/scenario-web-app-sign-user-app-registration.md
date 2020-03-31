@@ -15,10 +15,10 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: f2513b1fee022199f040ba0dcf83110c0b3b1365
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76701567"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>Application web qui connecte les utilisateurs : Inscription d'application
@@ -48,7 +48,7 @@ Vous pouvez utiliser ces liens pour démarrer la création de votre application 
 1. Si votre compte vous permet d’accéder à plusieurs abonnés, cliquez sur votre compte dans le coin supérieur droit. Ensuite, définissez votre session de portail sur l’abonné Azure Active Directory (Azure AD) souhaité.
 1. Dans le volet de gauche, sélectionnez le service **Azure Active Directory**, puis **Inscriptions d’applications** > **Nouvelle inscription**.
 
-# <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
+# <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
 1. Lorsque la page **Inscrire une application** s’affiche, saisissez les informations d’inscription de votre application :
    1. Sélectionnez les types de comptes pris en charge par votre application. (Consultez [Types de comptes pris en charge](./v2-supported-account-types.md).)
@@ -60,7 +60,7 @@ Vous pouvez utiliser ces liens pour démarrer la création de votre application 
    1. Sous **Octroi implicite**, sélectionnez **Jetons d’ID**.
    1. Sélectionnez **Enregistrer**.
 
-# <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
+# <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
 1. Lorsque la page **Inscrire une application** s’affiche, saisissez les informations d’inscription de votre application :
    1. Sélectionnez les types de comptes pris en charge par votre application. (Consultez [Types de comptes pris en charge](./v2-supported-account-types.md).)
@@ -71,7 +71,7 @@ Vous pouvez utiliser ces liens pour démarrer la création de votre application 
 1. Dans la section **Paramètres avancés** |  **Octroi implicite**, sélectionnez **Jetons d’ID**. Ce démarrage rapide requiert l’activation du [flux d’octroi implicite](v2-oauth2-implicit-grant-flow.md) pour la connexion de l’utilisateur.
 1. Sélectionnez **Enregistrer**.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 1. Lorsque la page **Inscrire une application** s’affiche, entrez le nom d’affichage de l’application. Par exemple, entrez **java-webapp**.
 1. Sélectionnez **Comptes dans un annuaire organisationnel et comptes personnels Microsoft (par exemple, Skype, Xbox, Outlook.com)** , puis sélectionnez **Application web / API** comme **Type d’application**.
@@ -95,7 +95,7 @@ Vous pouvez utiliser ces liens pour démarrer la création de votre application 
    1. Sélectionnez **Ajouter**.
    1. Lorsque la valeur de clé apparaît, copiez-la pour l’utiliser ultérieurement. Cette valeur ne sera pas réaffichée ou ne pourra pas être récupérée par d’autres moyens.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 1. Lorsque la page **Inscrire une application** s’affiche, saisissez les informations d’inscription de votre application :
    1. Dans la section **Nom**, saisissez un nom d’application cohérent qui s’affichera pour les utilisateurs de l’application. Par exemple, entrez **python-webapp**.

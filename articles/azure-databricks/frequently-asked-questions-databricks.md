@@ -10,10 +10,10 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.openlocfilehash: 8d7aab43641c6c594ff60368ccb3810e0c060dd7
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78671576"
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Forum aux Questions sur Azure Databricks
@@ -44,7 +44,7 @@ Vous trouverez ci-après certains problèmes éventuellement rencontrés avec Da
 
 #### <a name="error-message"></a>Message d’erreur
 
-« Cet abonnement n’est pas inscrit pour utiliser l’espace de noms "Microsoft.Databricks". Consultez https://aka.ms/rps-not-found pour découvrir comment enregistrer les abonnements. (Code : MissingSubscriptionRegistration) »
+« Cet abonnement n’est pas inscrit pour utiliser l’espace de noms "Microsoft.Databricks". Consultez https://aka.ms/rps-not-found pour découvrir comment enregistrer les abonnements. (Code : MissingSubscriptionRegistration)
 
 #### <a name="solution"></a>Solution
 

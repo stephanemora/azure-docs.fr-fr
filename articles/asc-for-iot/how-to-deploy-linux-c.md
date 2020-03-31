@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
 ms.openlocfilehash: 7578811c37cd0bbe47821dadacce5fa5974f56cf
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68812733"
 ---
 # <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>Déployer l’agent de sécurité Azure Security Center pour IoT basé sur C pour Linux
@@ -31,9 +31,9 @@ Dans ce guide, vous apprendrez comment :
 > * Installer
 > * Vérifier le déploiement
 > * Désinstaller l’agent
-> * Résolution des problèmes 
+> * Dépanner 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour d’autres plateformes et versions de l’agent, consultez [Choisir l’agent de sécurité adéquat](how-to-deploy-agent.md).
 
@@ -84,7 +84,7 @@ Pour désinstaller l’agent, exécutez le script avec le paramètre –-uninsta
 
     ./InstallSecurityAgent.sh -–uninstall
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 Vérifiez l’état du déploiement en exécutant la commande suivante :
 
     systemctl status ASCIoTAgent.service
@@ -92,7 +92,7 @@ Vérifiez l’état du déploiement en exécutant la commande suivante :
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Lire la [Vue d’ensemble](overview.md) du service Microsoft Azure Security Center pour IoT
-- En savoir plus sur [l’architecture](architecture.md) d’Azure Security Center pour IoT
+- En savoir plus sur l’[architecture](architecture.md) d’Azure Security Center pour IoT
 - Activer le [service](quickstart-onboard-iot-hub.md)
 - Consulter les [Questions fréquentes (FAQ)](resources-frequently-asked-questions.md)
 - Comprendre les [alertes de sécurité](concept-security-alerts.md)

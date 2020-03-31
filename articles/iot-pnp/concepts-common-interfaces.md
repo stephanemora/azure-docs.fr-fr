@@ -7,12 +7,12 @@ ms.date: 12/26/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: f697a0d6aba4f137b75faa2a200424c72aa78c3b
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: c6ac90f917b9afc37b3a39d8da679fbcad091778
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75531409"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80234707"
 ---
 # <a name="iot-plug-and-play-preview-common-interfaces"></a>Interfaces communes de la préversion d’IoT Plug-and-Play
 
@@ -20,7 +20,7 @@ Tous les appareils IoT Plug-and-Play sont censés implémenter des interfaces co
 
 ## <a name="summary-of-common-interfaces"></a>Résumé des interfaces communes
 
-| Name | id | Description | Implémentée par le kit de développement logiciel (SDK) Azure IoT | Doit être déclarée dans le modèle de capacité |
+| Nom | id | Description | Implémentée par le kit de développement logiciel (SDK) Azure IoT | Doit être déclarée dans le modèle de capacité |
 | -------- | -------- | -------- | -------- | -------- | -------- |
 | Informations sur le modèle | urn:azureiot:ModelDiscovery:ModelInformation:1 | Pour que les appareils déclarent l’ID et les interfaces du modèle de capacité. Requise pour tous les appareils IoT Plug-and-Play. | Oui | Non |
 | Informations sur le kit de développement logiciel (SDK) de client de jumeau numérique | urn:azureiot:Client:SDKInformation:1 | Kit de développement logiciel (SDK) pour connecter l’appareil à Azure. Requis pour la [certification](tutorial-build-device-certification.md) | Oui | Non |
@@ -37,11 +37,11 @@ Tous les appareils IoT Plug-and-Play sont censés implémenter des interfaces co
 
 Vous pouvez utiliser l’extension Azure IoT pour que l’interface de ligne de commande Azure récupère les interfaces communes dans le référentiel de modèles public.
 
-```cmd/sh
+```azurecli
 az iot pnp interface show --interface {InterfaceID}
 ```
 
-```cmd/sh
+```azurecli
 az iot pnp capability-model show --model {ModelID}
 ```
 

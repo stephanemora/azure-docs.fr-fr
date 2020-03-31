@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: yushwang
 ms.openlocfilehash: f4caa9160280b0f65f84bed36b5209d08d7f7c11
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894691"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79235761"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>À propos des périphériques VPN et des paramètres IPsec/IKE pour les connexions de passerelle VPN site à site
 
@@ -29,7 +29,7 @@ Un périphérique VPN est requis pour configurer une connexion VPN site à site 
   * Routage dynamique = basé sur un itinéraire
 * Sauf indication contraire, les spécifications des passerelles VPN HighPerformance sont identiques à celles des passerelles VPN RouteBased. Par exemple, les périphériques VPN validés qui sont compatibles avec les passerelles VPN RouteBased sont également compatibles avec la passerelle VPN HighPerformance.
 
-## <a name="devicetable"></a>Périphériques VPN validés et guides de configuration des périphériques
+## <a name="validated-vpn-devices-and-device-configuration-guides"></a><a name="devicetable"></a>Périphériques VPN validés et guides de configuration des périphériques
 
 Nous avons validé un ensemble de périphériques VPN standard en partenariat avec des fournisseurs d’appareils. Tous les appareils appartenant aux familles de la liste suivante doivent fonctionner avec les passerelles VPN. Consultez [À propos des paramètres de configuration de la passerelle VPN](vpn-gateway-about-vpn-gateway-settings.md#vpntype) pour comprendre le type de VPN utilisé (PolicyBased ou RouteBased) pour la solution de passerelle VPN que vous souhaitez configurer.
 
@@ -75,7 +75,7 @@ Pour configurer plus facilement votre périphérique VPN, reportez-vous aux lien
 >
 > (\*\*) Les routeurs de la série ISR 7200 prennent uniquement en charge les VPN basés sur des stratégies.
 
-## <a name="configscripts"></a>Télécharger des script de configuration de périphérique VPN à partir d’Azure
+## <a name="download-vpn-device-configuration-scripts-from-azure"></a><a name="configscripts"></a>Télécharger des script de configuration de périphérique VPN à partir d’Azure
 
 Pour certains appareils, vous pouvez télécharger les scripts de configuration directement à partir d’Azure. Pour plus d’informations et des instructions de téléchargement, consultez la page [Télécharger des script de configuration de périphérique VPN](vpn-gateway-download-vpndevicescript.md).
 
@@ -83,11 +83,11 @@ Pour certains appareils, vous pouvez télécharger les scripts de configuration 
 
 [!INCLUDE [scripts](../../includes/vpn-gateway-device-configuration-scripts.md)]
 
-## <a name="additionaldevices"></a>Périphériques VPN non validés
+## <a name="non-validated-vpn-devices"></a><a name="additionaldevices"></a>Périphériques VPN non validés
 
 Si votre appareil n’est pas répertorié dans le tableau des périphériques VPN validés, il peut tout de même fonctionner avec une connexion site à site. Contactez le fabricant de votre périphérique pour obtenir une prise en charge et des instructions de configuration supplémentaires.
 
-## <a name="editing"></a>Modification des exemples de configuration de périphérique
+## <a name="editing-device-configuration-samples"></a><a name="editing"></a>Modification des exemples de configuration de périphérique
 
 Après avoir téléchargé l’exemple de configuration de périphérique VPN fourni, vous devrez remplacer certaines des valeurs spécifiées pour qu’elles reflètent les paramètres de votre environnement.
 
@@ -110,7 +110,7 @@ Après avoir téléchargé l’exemple de configuration de périphérique VPN fo
 | &lt;SP_AzureGatewayIpAddress&gt; |Ces informations sont propres à votre réseau virtuel et figurent dans le portail de gestion sous l’intitulé **Adresse IP de la passerelle**. |
 | &lt;SP_PresharedKey&gt; |Ces informations sont propres à votre réseau virtuel et figurent dans le Portail de gestion sous l’intitulé Gérer la clé. |
 
-## <a name="ipsec"></a>Paramètres IPsec/IKE
+## <a name="ipsecike-parameters"></a><a name="ipsec"></a>Paramètres IPsec/IKE
 
 > [!IMPORTANT]
 > 1. Les tableaux ci-dessous répertorient les combinaisons d’algorithmes et de paramètres utilisées par les passerelles VPN Azure dans la configuration par défaut. Pour les passerelles VPN basées sur le routage créées à l’aide du modèle de déploiement Resource Manager, vous pouvez spécifier une stratégie personnalisée sur chaque connexion. Reportez-vous à [Configurer une stratégie IPsec/IKE](vpn-gateway-ipsecikepolicy-rm-powershell.md) pour obtenir des instructions détaillées.
@@ -146,7 +146,7 @@ Dans les tableaux suivants :
 | Détection d’homologue mort     |Non pris en charge  |Prise en charge                                    |
 
 
-### <a name ="RouteBasedOffers"></a>Offres d’association de sécurité VPN IPsec RouteBased (AS IKE en mode rapide)
+### <a name="routebased-vpn-ipsec-security-association-ike-quick-mode-sa-offers"></a><a name ="RouteBasedOffers"></a>Offres d’association de sécurité VPN IPsec RouteBased (AS IKE en mode rapide)
 
 Le tableau suivant répertorie les offres d’association de sécurité IPsec (IKE en mode rapide). Les offres sont énumérées dans l’ordre de préférence dans lequel elles sont présentées ou acceptées.
 
@@ -195,7 +195,7 @@ Le tableau suivant répertorie les offres d’association de sécurité IPsec (I
 * Vous pouvez spécifier le chiffrement IPsec ESP NULL avec les passerelles VPN RouteBased et HighPerformance. Le chiffrement Null ne fournit pas de protection des données en transit. Il doit être utilisé uniquement lorsqu’un débit maximal et une latence minimale sont requis. Les clients peuvent choisir de l’utiliser dans les scénarios de communication entre les réseaux virtuels ou lorsque le chiffrement est appliqué ailleurs dans la solution.
 * Pour les connexions entre locaux par le biais d’Internet, utilisez les paramètres de passerelle VPN Azure par défaut avec les algorithmes de chiffrement et de hachage répertoriés dans les tableaux ci-dessus pour garantir la sécurité de vos communications cruciales.
 
-## <a name="known"></a>Problèmes de compatibilité connus avec le matériel
+## <a name="known-device-compatibility-issues"></a><a name="known"></a>Problèmes de compatibilité connus avec le matériel
 
 > [!IMPORTANT]
 > Il s’agit de problèmes de compatibilité connus entre les appareils VPN tiers et les passerelles VPN Azure. L’équipe Azure travaille en étroite collaboration avec les fournisseurs pour résoudre les problèmes répertoriés ici. Une fois les problèmes résolus, cette page sera mise à jour avec les informations les plus récentes. Revenez la consulter régulièrement.

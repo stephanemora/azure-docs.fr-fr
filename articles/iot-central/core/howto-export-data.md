@@ -5,15 +5,15 @@ services: iot-central
 author: viv-liu
 ms.author: viviali
 ms.date: 01/30/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-central
 manager: corywink
-ms.openlocfilehash: 0386897b6cecc27781626cfecd6f1f5f8a3752e4
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 725c5acf961fffb1fd4cf9bc17e37a5940f871cc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77524381"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80157906"
 ---
 # <a name="export-iot-data-to-destinations-in-azure"></a>Exporter des données IoT vers des destinations dans Azure
 
@@ -27,7 +27,7 @@ Cet article décrit la façon d’utiliser la fonctionnalité d’exportation co
 > [!Note]
 > Quand vous activez l’exportation de données continue, vous obtenez seulement les données à partir de ce moment. Pour le moment, vous ne pouvez pas récupérer les données d’une période pendant laquelle l’exportation de données continue est désactivée. Pour conserver un historique des données plus étendu, activez l’exportation de données continue tôt dans le processus.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Vous devez être administrateur de votre application IoT Central, ou disposer d’autorisations d’exportation de données.
 
@@ -86,7 +86,7 @@ Maintenant que vous avez une destination pour exporter les données, suivez ces 
 
     ![Créer une exportation de données continue](media/howto-export-data/new-export-definition.png)
 
-4. Dans la zone de liste déroulante, sélectionnez votre **espace de noms Event Hubs **,** espace de noms Service Bus**, **espace de noms du compte de stockage**, ou **saisissez une chaîne de connexion**.
+4. Dans la zone de liste déroulante, sélectionnez votre **espace de noms Event Hubs**, **espace de noms Service Bus**, **espace de noms du compte de stockage**, ou **saisissez une chaîne de connexion**.
 
     - Vous verrez seulement les comptes de stockage, espaces de noms Event Hubs et espaces de noms Service Bus se trouvant dans le même abonnement que votre application IoT Central. Si vous souhaitez exporter les données vers une destination en dehors de cet abonnement, choisissez **Entrer une chaîne de connexion** et reportez-vous à l’étape 5.
     - Pour les applications créées à l’aide du plan Gratuit, le seul moyen de configurer l’exportation de données continue est d’utiliser une chaîne de connexion. Les applications du plan Gratuit ne sont associées à aucun abonnement Azure.

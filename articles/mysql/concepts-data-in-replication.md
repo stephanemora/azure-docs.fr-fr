@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 18c53a53a57b3ddca1168fc1075ae09bcd86f000
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.date: 3/18/2020
+ms.openlocfilehash: 20be34191355e6ade40e0f3b218818bfa5345a28
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77462494"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79533230"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>Répliquer des données dans Azure Database pour MySQL
 
@@ -20,8 +20,8 @@ La Réplication des données entrantes vous permet de synchroniser les données 
 ## <a name="when-to-use-data-in-replication"></a>Quand utiliser la réplication des données entrantes
 Voici les principaux scénarios à prendre en compte avant d’utiliser la réplication des données entrantes :
 
-- **Synchronisation de données hybride :** avec la réplication des données entrantes, vous pouvez maintenir la synchronisation des données entre vos serveurs locaux et Azure Database pour MySQL. Cette synchronisation est utile pour créer des applications hybrides. Cette méthode est intéressante si vous disposez d'un serveur de base de données local mais souhaitez déplacer les données vers une région proche des utilisateurs finaux.
-- **Synchronisation de plusieurs clouds :** pour les solutions cloud complexes, utilisez la réplication des données entrantes pour synchroniser les données entre Azure Database pour MySQL et différents fournisseurs de cloud, notamment les machines virtuelles et les services de base de données hébergés dans ces clouds.
+- **Synchronisation de données hybride :** avec la réplication des données entrantes, vous pouvez maintenir la synchronisation des données entre vos serveurs locaux et Azure Database pour MySQL. Cette synchronisation est utile pour créer des applications hybrides. Cette méthode est intéressante si vous disposez d'un serveur de base de données local mais souhaitez déplacer les données vers une région proche des utilisateurs finaux.
+- **Synchronisation de plusieurs cloud :** pour les solutions de cloud complexes, utilisez la réplication des données entrantes pour synchroniser les données entre Azure Database pour MySQL et différents fournisseurs de cloud, y compris les machines virtuelles et les services de base de données hébergés dans ces clouds.
  
 Pour les scénarios de migration, utilisez [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) (DMS).
 

@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.openlocfilehash: 592be1710893791e80dfe4b20e1323e789b33e69
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77157090"
 ---
 # <a name="designing-highly-available-applications-using-read-access-geo-redundant-storage"></a>Conception d’applications hautement disponibles à l’aide du stockage géoredondant avec accès en lecture
@@ -28,7 +28,7 @@ Les comptes de stockage configurés pour la réplication géoredondante sont ré
 
 Cet article explique comment concevoir votre application pour gérer une panne dans la région primaire. Si la région primaire n’est plus disponible, votre application peut s’adapter pour effectuer des opérations de lecture dans la région secondaire à la place. Avant de commencer, vérifiez que votre compte de stockage est configuré pour RA-GRS ou RA-GZRS.
 
-Pour plus d’informations sur les peerings entre régions primaires et régions secondaires, consultez [Continuité et reprise d’activité : régions jumelées d’Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Pour plus d’informations sur les appairages entre régions primaires et régions secondaires, consultez [Continuité des activités et récupération d’urgence (BCDR) : régions jumelées d’Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
 Vous y trouverez aussi des extraits de code et, à la fin, un lien vers un exemple complet que vous pouvez télécharger et exécuter.
 

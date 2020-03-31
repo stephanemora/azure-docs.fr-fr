@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: yegu
 ms.openlocfilehash: e2b1ed693ea57e3414d465a57a5ba2b1203f67c5
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74121885"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79235317"
 ---
 # <a name="how-to-create-and-manage-azure-cache-for-redis-using-the-azure-classic-cli"></a>Création et gestion du Cache Azure pour Redis à l’aide de l’interface de ligne de commande classique Azure
 > [!div class="op_single_selector"]
@@ -25,7 +25,7 @@ L'interface de ligne de commande classique Azure est un excellent moyen de gére
 > [!NOTE]
 > Pour obtenir les exemples de scripts d’interface de ligne de commande Azure les plus récents, consultez [Exemples de Cache Azure pour Redis d’interface de ligne de commande Azure](cli-samples.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 Pour créer et gérer des instances de Cache Azure pour Redis à l’aide de l’interface de ligne de commande classique Azure, vous devez procéder comme suit.
 
 * Vous devez disposer d’un compte Azure. Si vous n’en avez pas, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) en quelques minutes.
@@ -36,14 +36,14 @@ Pour créer et gérer des instances de Cache Azure pour Redis à l’aide de l�
 ## <a name="azure-cache-for-redis-properties"></a>Propriétés du cache Azure pour Redis
 Les propriétés suivantes sont utilisées lors de la création et de la mise à jour des instances de Cache Azure pour Redis.
 
-| Propriété | Switch | Description |
+| Propriété | Commutateur | Description |
 | --- | --- | --- |
-| Nom |-n, --name |Nom du Cache Azure pour Redis. |
+| name |-n, --name |Nom du Cache Azure pour Redis. |
 | resource group |-g, --resource-group |Nom du groupe de ressources. |
 | location |-l, --location |Emplacement où créer le cache. |
-| size |-z, --size |Taille du Cache Azure pour Redis. Valeurs valides : [C0, C1, C2, C3, C4, C5, C6, P1, P2, P3, P4] |
+| taille |-z, --size |Taille du Cache Azure pour Redis. Valeurs valides : [C0, C1, C2, C3, C4, C5, C6, P1, P2, P3, P4] |
 | sku |-x, --sku |SKU Redis. Doit être une des valeurs : [De Base, Standard, Premium] |
-| enableNonSslPort |-e, --enable-non-ssl-port |Propriété EnableNonSslPort du Cache Azure pour Redis. Ajoutez cet indicateur si vous souhaitez activer le port non-SSL pour votre cache |
+| EnableNonSslPort |-e, --enable-non-ssl-port |Propriété EnableNonSslPort du Cache Azure pour Redis. Ajoutez cet indicateur si vous souhaitez activer le port non-SSL pour votre cache |
 | Configuration de Redis |-c, --redis-configuration |Configuration de Redis. Entrez ici une chaîne au format JSON des clés et des valeurs de configuration. Format :"{"":"","":""}" |
 | Configuration de Redis |-f, --redis-configuration-file |Configuration de Redis. Entrez ici le chemin d’un fichier contenant les clés et les valeurs de configuration. Format pour l’entrée du fichier : {"":"","":""} |
 | Nombre de partitions |-r, --shard-count |Nombre de partitions à créer sur un cache de cluster Premium avec clustering. |
@@ -91,7 +91,7 @@ Pour créer un Cache Azure pour Redis, utilisez la commande suivante :
 
     azure rediscache create [--name <name> --resource-group <resource-group> --location <location> [options]]
 
-Pour plus d’informations sur cette commande, exécutez la commande `azure rediscache create -h` .
+Pour plus d’informations sur cette commande, exécutez la commande `azure rediscache create -h`.
 
     C:\>azure rediscache create -h
     help:    Create an Azure Cache for Redis
@@ -124,7 +124,7 @@ Pour supprimer un Cache Azure pour Redis, utilisez la commande suivante :
 
     azure rediscache delete [--name <name> --resource-group <resource-group> ]
 
-Pour plus d’informations sur cette commande, exécutez la commande `azure rediscache delete -h` .
+Pour plus d’informations sur cette commande, exécutez la commande `azure rediscache delete -h`.
 
     C:\>azure rediscache delete -h
     help:    Delete an existing Azure Cache for Redis
@@ -147,7 +147,7 @@ Pour répertorier tous les caches Azure pour Redis dans votre abonnement ou grou
 
     azure rediscache list [options]
 
-Pour plus d’informations sur cette commande, exécutez la commande `azure rediscache list -h` .
+Pour plus d’informations sur cette commande, exécutez la commande `azure rediscache list -h`.
 
     C:\>azure rediscache list -h
     help:    List all Azure Cache for Redis within your Subscription or Resource Group
@@ -169,7 +169,7 @@ Pour afficher les propriétés d’un Cache Azure pour Redis existant, utilisez 
 
     azure rediscache show [--name <name> --resource-group <resource-group>]
 
-Pour plus d’informations sur cette commande, exécutez la commande `azure rediscache show -h` .
+Pour plus d’informations sur cette commande, exécutez la commande `azure rediscache show -h`.
 
     C:\>azure rediscache show -h
     help:    Show properties of an existing Azure Cache for Redis
@@ -194,7 +194,7 @@ Pour modifier les propriétés d’un Cache Azure pour Redis existant, utilisez 
 
     azure rediscache set [--name <name> --resource-group <resource-group> --redis-configuration <redis-configuration>/--redis-configuration-file <redisConfigurationFile>]
 
-Pour plus d’informations sur cette commande, exécutez la commande `azure rediscache set -h` .
+Pour plus d’informations sur cette commande, exécutez la commande `azure rediscache set -h`.
 
     C:\>azure rediscache set -h
     help:    Change settings of an existing Azure Cache for Redis
@@ -221,7 +221,7 @@ Pour renouveler la clé d’authentification pour un Cache Azure pour Redis, uti
 
 Spécifiez `Primary` ou `Secondary` pour `key-type`.
 
-Pour plus d’informations sur cette commande, exécutez la commande `azure rediscache renew-key -h` .
+Pour plus d’informations sur cette commande, exécutez la commande `azure rediscache renew-key -h`.
 
     C:\>azure rediscache renew-key -h
     help:    Renew the authentication key for an existing Azure Cache for Redis
@@ -245,7 +245,7 @@ Pour répertorier les clés primaire et secondaire d’un Cache Azure pour Redis
 
     azure rediscache list-keys [--name <name> --resource-group <resource-group>]
 
-Pour plus d’informations sur cette commande, exécutez la commande `azure rediscache list-keys -h` .
+Pour plus d’informations sur cette commande, exécutez la commande `azure rediscache list-keys -h`.
 
     C:\>azure rediscache list-keys -h
     help:    Lists Primary and Secondary key of an existing Azure Cache for Redis

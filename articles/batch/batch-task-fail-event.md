@@ -12,10 +12,10 @@ ms.workload: big-compute
 ms.date: 08/15/2019
 ms.author: labrenne
 ms.openlocfilehash: 2bc958d6dca2b3caae665e6f9b080c651ace9ea0
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77022883"
 ---
 # <a name="task-fail-event"></a>Événement d’échec de tâche
@@ -62,27 +62,27 @@ ms.locfileid: "77022883"
 |[`constraints`](#constraints)|Type complexe|Contraintes d’exécution qui s’appliquent à cette tâche.|
 |[`executionInfo`](#executionInfo)|Type complexe|Contient des informations sur l’exécution de la tâche.|
 
-###  <a name="nodeInfo"></a> nodeInfo
+###  <a name="nodeinfo"></a><a name="nodeInfo"></a> nodeInfo
 
 |Nom de l'élément|Type|Notes|
 |------------------|----------|-----------|
 |`poolId`|String|ID du pool sur lequel la tâche a été exécutée.|
 |`nodeId`|String|ID du nœud sur lequel la tâche a été exécutée.|
 
-###  <a name="multiInstanceSettings"></a> multiInstanceSettings
+###  <a name="multiinstancesettings"></a><a name="multiInstanceSettings"></a> multiInstanceSettings
 
 |Nom de l'élément|Type|Notes|
 |------------------|----------|-----------|
 |`numberOfInstances`|Int32|Nombre de nœuds de calcul requis pour la tâche.|
 
-###  <a name="constraints"></a> constraints
+###  <a name="constraints"></a><a name="constraints"></a> constraints
 
 |Nom de l'élément|Type|Notes|
 |------------------|----------|-----------|
 |`maxTaskRetryCount`|Int32|Nombre maximal de fois que la tâche peut être retentée. Le service Batch retente une tâche si le code de sortie de celle-ci diffère de zéro.<br /><br /> Notez que cette valeur contrôle spécifiquement le nombre de nouvelles tentatives. Le service Batch tente la tâche une fois et peut réessayer jusqu’à cette limite. Par exemple, si le nombre maximal de nouvelles tentatives est 3, le service Batch peut tenter d’exécuter la tâche jusqu’à 4 fois (tentative initiale + 3 tentatives supplémentaires).<br /><br /> Si le nombre maximal de tentatives est 0, le service Batch ne réessaye pas d’exécuter des tâches.<br /><br /> Si le nombre maximal de nouvelles tentatives est -1, le service Batch réessaie d’exécuter les tâches sans limite.<br /><br /> La valeur par défaut est 0 (aucune nouvelle tentative).|
 
 
-###  <a name="executionInfo"></a> executionInfo
+###  <a name="executioninfo"></a><a name="executionInfo"></a> executionInfo
 
 |Nom de l'élément|Type|Notes|
 |------------------|----------|-----------|

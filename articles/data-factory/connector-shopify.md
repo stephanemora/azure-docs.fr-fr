@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2019
 ms.openlocfilehash: ec9c8e29adaa03620cc60d189ff4a830e107e782
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74931056"
 ---
 # <a name="copy-data-from-shopify-using-azure-data-factory-preview"></a>Copier des données de Shopify avec Azure Data Factory (préversion)
@@ -48,9 +48,9 @@ Les propriétés prises en charge pour le service lié Shopify sont les suivante
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type doit être définie sur : **Shopify** | OUI |
-| host | Point de terminaison du serveur Shopify (autrement dit, mystore.myshopify.com).  | OUI |
-| accessToken | Jeton d’accès d’API qui peut être utilisé pour accéder aux données de Shopify. Le jeton n’expire pas s’il est en mode hors connexion. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
+| type | La propriété type doit être définie sur : **Shopify** | Oui |
+| host | Point de terminaison du serveur Shopify (autrement dit, mystore.myshopify.com).  | Oui |
+| accessToken | Jeton d’accès d’API qui peut être utilisé pour accéder aux données de Shopify. Le jeton n’expire pas s’il est en mode hors connexion. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
 | useEncryptedEndpoints | Indique si les points de terminaison de la source de données sont chiffrés suivant le protocole HTTPS. La valeur par défaut est true.  | Non |
 | useHostVerification | Indique si le nom d’hôte du certificat du serveur doit correspondre à celui du serveur en cas de connexion SSL. La valeur par défaut est true.  | Non |
 | usePeerVerification | Indique s’il faut vérifier l’identité du serveur en cas de connexion SSL. La valeur par défaut est true.  | Non |
@@ -81,7 +81,7 @@ Pour copier des données de Shopify, affectez la valeur **ShopifyObject** à la 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type du jeu de données doit être définie sur : **ShopifyObject** | OUI |
+| type | La propriété type du jeu de données doit être définie sur : **ShopifyObject** | Oui |
 | tableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
@@ -111,7 +111,7 @@ Pour copier des données à partir de Shopify, définissez **ShopifySource** com
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type de la source d’activité de copie doit être définie sur : **ShopifySource** | OUI |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **ShopifySource** | Oui |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM "Products" WHERE Product_Id = '123'"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**

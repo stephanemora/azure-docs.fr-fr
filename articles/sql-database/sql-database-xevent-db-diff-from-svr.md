@@ -3,7 +3,7 @@ title: Événements étendus
 description: Décrit les événements étendus (XEvents) dans Azure SQL Database et les légères différences entre les sessions d’événements dans Microsoft SQL Server.
 services: sql-database
 ms.service: sql-database
-ms.subservice: monitor
+ms.subservice: performance
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
-ms.openlocfilehash: cab5b5baf318eb9eadc398ce525e0de716d0df2d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: cb4eb4474ad074a3e69dc146c97b48d54343595b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822302"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79213958"
 ---
 # <a name="extended-events-in-sql-database"></a>Événement étendus dans la base de données SQL
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
@@ -31,10 +31,10 @@ Cette rubrique explique les quelques différences entre l’implémentation d’
 
 Des informations complémentaires sur les événements étendus, pour Azure SQL Database et Microsoft SQL Server, sont disponibles dans :
 
-- [Démarrage rapide : Événement étendus dans SQL Server](https://msdn.microsoft.com/library/mt733217.aspx)
+- [Démarrage rapide : Événements étendus dans SQL Server](https://msdn.microsoft.com/library/mt733217.aspx)
 - [Événements étendus](https://msdn.microsoft.com/library/bb630282.aspx)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Cette rubrique part du principe que vous connaissez déjà les éléments suivants :
 
@@ -77,29 +77,29 @@ Des rubriques connexes fournissent deux exemples de code :
 - Il est recommandé d’inclure l’option de session d’événement de **STARTUP_STATE = ON** dans vos instructions **CREATE EVENT SESSION** ou **ALTER EVENT SESSION**.
     - La valeur **= ON** prend en charge le redémarrage automatique après la reconfiguration de la base de données logique en raison d’un basculement.
 
-## <a name="new-catalog-views"></a>Nouvelles vues catalogue
+## <a name="new-catalog-views"></a>Nouveaux affichages catalogue
 
 La fonctionnalité des événements étendus est prise en charge par plusieurs [vues catalogue](https://msdn.microsoft.com/library/ms174365.aspx). Les vues catalogue vous indiquent les *métadonnées ou définitions* des sessions d’événements créées par l’utilisateur dans la base de données actuelle. Les affichages ne renvoient pas d’informations sur les instances des sessions d’événements actives.
 
 | Nom de<br/>la vue catalogue | Description |
 |:--- |:--- |
-| **sys.database_event_session_actions** |Renvoie une ligne pour chaque action sur chaque événement d’une session d’événements. |
+| **sys.database_event_session_actions** |Retourne une ligne pour chaque action d'un événement d'une session d'événements. |
 | **sys.database_event_session_events** |Renvoie une ligne pour chaque événement d’une session d’événements. |
 | **sys.database_event_session_fields** |Renvoie une ligne pour chaque colonne pouvant être personnalisée définie explicitement sur les événements et les cibles. |
-| **sys.database_event_session_targets** |Renvoie une ligne pour chaque cible d’événement pour une session d’événements. |
+| **sys.database_event_session_targets** |Retourne une ligne pour chaque cible d'événement d'une session d'événements. |
 | **sys.database_event_sessions** |Renvoie une ligne pour chaque session d’événements dans la base de données SQL. |
 
 Dans Microsoft SQL Server, les noms des vues catalogue similaires contiennent *.server\_* au lieu de *.database\_* . Les noms suivent le modèle **sys.server_event_%** .
 
-## <a name="new-dynamic-management-views-dmvshttpsmsdnmicrosoftcomlibraryms188754aspx"></a>Nouvelles vues de gestion dynamique [(DMV)](https://msdn.microsoft.com/library/ms188754.aspx)
+## <a name="new-dynamic-management-views-dmvs"></a>Nouvelles vues de gestion dynamique [(DMV)](https://msdn.microsoft.com/library/ms188754.aspx)
 
 Azure SQL Database a des [vues de gestion dynamique (DMV)](https://msdn.microsoft.com/library/bb677293.aspx) qui prennent en charge les événements étendus. Les vues de gestion dynamique vous renseignent sur les sessions d’événements *actives* .
 
 | Nom de la vue de gestion dynamique | Description |
 |:--- |:--- |
-| **sys.dm_xe_database_session_event_actions** |Renvoie des informations sur les actions d’une session d’événements. |
-| **sys.dm_xe_database_session_events** |Renvoie des informations sur les sessions d’événements. |
-| **sys.dm_xe_database_session_object_columns** |Montre les valeurs de configuration pour les objets liés à une session. |
+| **sys.dm_xe_database_session_event_actions** |Retourne des informations sur les actions de la session d'événements. |
+| **sys.dm_xe_database_session_events** |Retourne des informations sur les événements de la session. |
+| **sys.dm_xe_database_session_object_columns** |Indique les valeurs de configuration d'objets liés à une session. |
 | **sys.dm_xe_database_session_targets** |Renvoie des informations sur les cibles d’une session d’événements. |
 | **sys.dm_xe_database_sessions** |Renvoie une ligne pour chaque session d’événements incluse dans la base de données actuelle. |
 
@@ -170,7 +170,7 @@ Vous devez disposer de l’autorisation **Contrôle** sur la base de données po
 Le jeton SAP que vous générez pour votre conteneur Azure Storage doit spécifier **rwl** pour les autorisations. La valeur **rwl** fournit les autorisations suivantes :
 
 - Lire
-- Écrire
+- Write
 - List
 
 ## <a name="performance-considerations"></a>Considérations relatives aux performances

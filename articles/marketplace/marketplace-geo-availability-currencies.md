@@ -1,19 +1,18 @@
 ---
 title: Prise en charge de la disponibilité géographique et des devises | Azure
 description: Disponibilité géographique dans la place de marché Azure et AppSource
-services: Azure, Marketplace, Compute, Storage, Networking
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/29/2020
-ms.author: ellacroi
-ms.openlocfilehash: f2369388f00f6a023ac77865ab8e3540bc35de70
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.author: dsindona
+ms.openlocfilehash: 79965180d897b91afc1fb1a27e777e385108d2c1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905675"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288425"
 ---
 # <a name="geographic-availability-and-currency-support"></a>Prise en charge de la disponibilité géographique et des devises
 

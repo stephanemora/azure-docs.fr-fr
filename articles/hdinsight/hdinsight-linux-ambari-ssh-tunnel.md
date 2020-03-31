@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.openlocfilehash: 6f4efd9a316b92f17f89cea66a7c81e84ac3cf06
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72991351"
 ---
 # <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-uis"></a>Utiliser le tunneling SSH pour accéder à l’interface utilisateur web d’Apache Ambari, JobHistory, NameNode, Apache Oozie et d’autres interfaces utilisateur
@@ -40,7 +40,7 @@ Si vous utilisez des actions de script pour personnaliser votre cluster, tous le
 
 Le [tunneling Secure Shell (SSH)](https://en.wikipedia.org/wiki/Tunneling_protocol#Secure_Shell_tunneling) connecte un port de votre ordinateur local à un nœud principal sur HDInsight. Le trafic envoyé au port local est acheminé vers le nœud principal via une connexion SSH. La requête est résolue comme si elle avait été créée sur le nœud principal. La réponse est alors acheminée via le tunnel sur votre station de travail.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Un client SSH. Pour plus d’informations, consultez [Se connecter à HDInsight (Apache Hadoop) à l’aide de SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -54,7 +54,7 @@ Le [tunneling Secure Shell (SSH)](https://en.wikipedia.org/wiki/Tunneling_protoc
     >
     > Google Chrome repose également sur les paramètres de proxy Windows. Toutefois, vous pouvez installer des extensions qui prennent en charge SOCKS5. Nous vous recommandons [FoxyProxy Standard](https://chrome.google.com/webstore/detail/foxyproxy-standard/gcknhkkoolaabfmlnjonogaaifnjlfnp).
 
-## <a name="usessh"></a>Création d’un tunnel à l'aide de la commande SSH
+## <a name="create-a-tunnel-using-the-ssh-command"></a><a name="usessh"></a>Création d’un tunnel à l'aide de la commande SSH
 
 Utilisez la commande suivante pour créer un tunnel SSH à l'aide de la commande `ssh` . Remplacez `sshuser` par un utilisateur SSH de votre cluster HDInsight et `CLUSTERNAME` par le nom de votre cluster HDInsight.
 
@@ -75,7 +75,7 @@ Cette commande va permettre de créer une connexion qui achemine le trafic vers 
 
 Une fois la commande terminée, le trafic envoyé au port 9876 sur l’ordinateur local est acheminé au nœud principal du cluster.
 
-## <a name="useputty"></a>Création d’un tunnel à l'aide de PuTTY
+## <a name="create-a-tunnel-using-putty"></a><a name="useputty"></a>Création d’un tunnel à l'aide de PuTTY
 
 [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty) est un client SSH graphique pour Windows. Si vous n’êtes pas familiarisé avec PuTTY, voir la [documentation de PuTTY ](https://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html). Pour créer un tunnel SSH à l’aide de PuTTY, procédez comme suit :
 

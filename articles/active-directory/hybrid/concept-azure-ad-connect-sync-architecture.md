@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fac0f9143918d3f273812e53abfb88d6a56f7a71
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65138600"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79230281"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Synchronisation d’Azure AD Connect : Présentation de l’architecture
 Cette rubrique décrit l’architecture de base pour Azure AD Connect Sync. Celle-ci est similaire à ses prédécesseurs MIIS 2003, ILM 2007 et FIM 2010 et ce, sur plusieurs plans. Azure AD Connect Sync représente l’évolution de ces technologies. Si vous connaissez ces technologies plus anciennes, le contenu de cette rubrique vous sera également familier. Si vous ne connaissez pas la synchronisation, cette rubrique est pour vous. Il n’est toutefois pas nécessaire de connaître les détails de cette rubrique pour effectuer des personnalisations de Microsoft Azure AD Connect Sync (appelé « moteur de synchronisation » dans cette rubrique).
@@ -146,8 +146,8 @@ Un objet d’importation est créé en tant qu’objet disjoint. Un objet d’ex
 Le processus de gestion des identités détermine de quelle manière les informations d’identité sont mises à jour entre les différentes sources de données connectées. La gestion des identités s’effectue en trois phases :
 
 * Importer
-* Synchronisation
-* Exportation
+* Synchronization
+* Exporter
 
 Pendant le processus d’importation, le moteur de synchronisation évalue les informations d’identité entrantes à partir d’une source de données connectée. Lorsque des modifications sont détectées, il crée des objets intermédiaires ou met à jour les objets intermédiaires existants dans l’espace connecteur, à des fins de synchronisation.
 
@@ -179,7 +179,7 @@ Si le moteur de synchronisation localise un objet intermédiaire qui correspond 
 
 Les objets intermédiaires avec des données mises à jour sont marqués comme étant en attente d’importation. Plusieurs types d’importation en attente sont disponibles. Selon le résultat du processus d’importation, un objet intermédiaire dans l’espace connecteur présente l’un des types d’importations en attente suivants :
 
-* **None**. Aucune modification des attributs de l’objet intermédiaire n’est disponible. Le moteur de synchronisation ne marque pas ce type d’un indicateur d’attente d’importation.
+* **Aucun**. Aucune modification des attributs de l’objet intermédiaire n’est disponible. Le moteur de synchronisation ne marque pas ce type d’un indicateur d’attente d’importation.
 * **Ajouter**. L’objet intermédiaire est un nouvel objet d’importation dans l’espace connecteur. Le moteur de synchronisation marque ce type d’un indicateur d’attente d’importation à des fins de traitement supplémentaire dans le métaverse.
 * **Mettre à jour**. Le moteur de synchronisation recherche un objet intermédiaire correspondant dans l’espace connecteur et marque ce type d’un indicateur d’attente d’importation, afin que les mises à jour des attributs puissent être traitées dans le métaverse. Les mises à jour comprennent la modification des noms d’objets.
 * **Supprimer**. Le moteur de synchronisation recherche un objet intermédiaire correspondant dans l’espace connecteur et marque ce type d’un indicateur d’attente d’importation afin de pouvoir supprimer l’objet joint.

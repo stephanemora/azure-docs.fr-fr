@@ -1,20 +1,18 @@
 ---
 title: Gérer un profil d’éditeur Place de marché Azure et AppSource
 description: Gestion d’un profil d’éditeur Place de marché Azure et AppSource
-services: Azure, Marketplace, Cloud Partner Portal,
 author: qianw211
-manager: pbutlerm
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/15/2018
-ms.author: pabutler
-ms.openlocfilehash: c9e8e73d18ec0c2a7334fbb5521e89ead4334cc7
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 9b89ff803e08d0ca929eea913be9a1c87664b124
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826371"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280233"
 ---
 # <a name="manage-azure-marketplace-and-appsource-publisher-profile"></a>Gérer un profil d’éditeur « Place de marché Azure » et « AppSource »
 
@@ -24,7 +22,7 @@ Ce document fournit une procédure pas à pas pour afficher et gérer les utilis
 
 Si vous n’avez pas inscrit votre entreprise comme partenaire cloud, consultez [Prise en main du portail Microsoft Cloud Partner](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal).
 
-**Profil d’éditeur** : votre profil d’éditeur permet de démarquer votre société sur la Place de marché Azure et AppSource. Il se compose de votre ID d’éditeur, de votre nom d’affichage et de votre ou vos e-mails de propriétaire. Un profil bien géré augmentera votre visibilité et aidera les utilisateurs marketplace à identifier et sélectionner facilement une offre appropriée.
+**Profil d’éditeur** : votre profil d’éditeur permet de démarquer votre société sur Azure Marketplace et AppSource. Il se compose de votre ID d’éditeur, de votre nom d’affichage et de votre ou vos e-mails de propriétaire. Un profil bien géré augmentera votre visibilité et aidera les utilisateurs marketplace à identifier et sélectionner facilement une offre appropriée.
 
 > [!NOTE]
 > Votre ID d’éditeur et votre e-mail de propriétaire inscrit ne peuvent pas être modifiés une fois que vous avez publié votre première offre. Vous pouvez néanmoins afficher votre profil et modifier le nom d’affichage d’éditeur à partir du portail Cloud Partner.
@@ -40,7 +38,7 @@ Si vous n’avez pas inscrit votre entreprise comme partenaire cloud, consultez 
 
 ![Détails du profil d’éditeur - Détails du profil d’éditeur](./media/cloud-partner-portal-how-to-manage-publisher-profile/publisherprofiledetails.png)
 
-**Liez votre compte Centre de développement** : vous pouvez également lier votre compte Centre de développement à votre profil d’éditeur dans le portail Cloud Partner.
+**Liez votre compte Centre de développement** : vous pouvez également lier votre compte Centre de développement à votre profil d’éditeur sur le portail Cloud Partner.
 Connectez-vous d’abord au portail avec l’adresse e-mail utilisée pour inscrire votre compte du Centre de développement. La page de votre profil d’éditeur affiche ensuite l’état de votre compte du Centre de développement, l’e-mail du propriétaire du compte du Centre de développement et le nom du compte du Centre de développement.
 
 >[!NOTE]

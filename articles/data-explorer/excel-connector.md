@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.openlocfilehash: 42f52581d8f2f80deb5d6250ed54ab64fc1ba4d3
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74849052"
 ---
 # <a name="visualize-data-using-the-azure-data-explorer-connector-for-excel"></a>Visualiser des données à l’aide du connecteur Azure Data Explorer pour Excel
@@ -34,7 +34,7 @@ Le connecteur natif Azure Data Explorer pour Excel permet d’exporter les résu
     |Champ   |Description |
     |---------|---------|
     |**Cluster**   |   Nom du cluster (obligatoire)      |    
-    |**Base de données**     |    Nom de base de données      |    
+    |**Sauvegarde de la base de données**     |    Nom de base de données      |    
     |**Nom de la table ou requête Azure Data Explorer**    |     Nom de la table ou requête Azure Data Explorer    | 
     
     **Options avancées :**

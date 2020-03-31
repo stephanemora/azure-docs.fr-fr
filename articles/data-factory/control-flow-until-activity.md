@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: b4786b612dedb065239f57e0286bafb688180dff
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75440373"
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Activité Until dans Azure Data Factory
@@ -56,7 +56,7 @@ Propriété | Description | Valeurs autorisées | Obligatoire
 name | Nom de l’activité `Until`. | String | Oui
 type | Doit être défini sur **Until**. | String | Oui
 expression | Expression qui doit retourner true ou false | Expression.  | Oui
-délai d'expiration | La boucle do-until expire à la fin du délai d’attente spécifié ici. | Chaîne. `d.hh:mm:ss` (ou) `hh:mm:ss`. La valeur par défaut est de 7 jours. La valeur maximale est : 90 jours. | Non
+délai d'expiration | La boucle do-until expire à la fin du délai d’attente spécifié ici. | Chaîne. `d.hh:mm:ss` (ou) `hh:mm:ss`. La valeur par défaut est de 7 jours. Valeur maximale : 90 jours. | Non
 Activités | Ensemble d’activités qui sont exécutées jusqu’à ce que l’expression retourne `true`. | Tableau des activités. |  Oui
 
 ## <a name="example-1"></a>Exemple 1
@@ -65,7 +65,7 @@ Activités | Ensemble d’activités qui sont exécutées jusqu’à ce que l’
 > Cette section fournit des définitions JSON et des exemples de commandes PowerShell pour exécuter le pipeline. Pour une procédure pas à pas avec des instructions détaillées permettant de créer un pipeline Data Factory en utilisant des définitions JSON et Azure PowerShell, consultez [Didacticiel : créer une fabrique de données avec Azure PowerShell](quickstart-create-data-factory-powershell.md).
 
 ### <a name="pipeline-with-until-activity"></a>Pipeline avec activité Until
-Dans cet exemple, le pipeline a deux activités : **Jusqu’à** et **Attendre**. L’activité Wait attend pendant la période spécifiée avant d’exécuter l’activité Web dans la boucle. Pour en savoir plus sur les expressions et fonctions dans Data Factory, consultez [Langage d’expression et fonctions](control-flow-expression-language-functions.md). 
+Dans cet exemple, le pipeline a deux activités : **Until** et **Wait**. L’activité Wait attend pendant la période spécifiée avant d’exécuter l’activité Web dans la boucle. Pour en savoir plus sur les expressions et fonctions dans Data Factory, consultez [Langage d’expression et fonctions](control-flow-expression-language-functions.md). 
 
 ```json
 {
@@ -246,7 +246,7 @@ Le pipeline définit **folderPath** sur la valeur de paramètre **outputPath1** 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Ces commandes supposent que vous avez enregistré les fichiers JSON dans le dossier : C:\ADF. 
+Ces commandes supposent que vous avez enregistré les fichiers JSON dans le dossier C:\ADF. 
 
 ```powershell
 Connect-AzAccount

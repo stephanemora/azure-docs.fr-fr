@@ -8,13 +8,13 @@
       href: whats-new.md
     - name: Questions courantes
       items:
-        - name: Questions sur Azure Migrate
+        - name: Général
           href: resources-faq.md
-        - name: Questions sur l’appliance Azure Migrate
+        - name: Appliance Azure Migrate
           href: common-questions-appliance.md
-        - name: 'Questions sur la découverte, l’évaluation/la visualisation des dépendances'
+        - name: Outil d’évaluation de serveur/Analyse des dépendances
           href: common-questions-discovery-assessment.md
-        - name: Questions sur la migration de serveur
+        - name: Outil Server Migration
           href: common-questions-server-migration.md
 - name: Tutoriels
   items:
@@ -74,34 +74,40 @@
           href: migrate-appliance.md
         - name: Conditions requises de l’appliance de réplication
           href: migrate-replication-appliance.md
+    - name: Architecture de l’appliance Azure Migrate
+      href: migrate-appliance-architecture.md
     - name: Architecture de la migration Hyper-V
       href: hyper-v-migration-architecture.md
-    - name: Architecture de la migration basée sur agent
+    - name: Architecture de la migration basée sur agent VMware
       href: agent-based-migration-architecture.md
-    - name: Bonnes pratiques pour les évaluations
-      href: best-practices-assessment.md
     - name: Vue d’ensemble des évaluations
       href: concepts-assessment-calculation.md
-    - name: Visualisation de dépendance
+    - name: Bonnes pratiques pour les évaluations
+      href: best-practices-assessment.md
+    - name: Vue d’ensemble de l’analyse des dépendances
       href: concepts-dependency-visualization.md
 - name: Guides pratiques
   items:
-    - name: Utiliser une version antérieure
-      href: migrate-v1.md
     - name: Créer et gérer des projets Azure Migrate
       href: create-manage-projects.md
-    - name: Déployer une appliance VMware
-      href: how-to-set-up-appliance-vmware.md
-    - name: Déployer une appliance Hyper-V
-      href: how-to-set-up-appliance-hyper-v.md
-    - name: Déployer une appliance de serveur physique
-      href: how-to-set-up-appliance-physical.md
-    - name: Découvrir des applications/rôles/fonctionnalités
-      href: how-to-discover-applications.md
     - name: Ajouter un outil pour la première fois
       href: how-to-add-tool-first-time.md
     - name: Ajouter des outils d’évaluation
       href: how-to-assess.md
+    - name: Déployer une appliance Azure Migrate
+      items:
+        - name: Déployer une appliance pour VMware (OVA)
+          href: how-to-set-up-appliance-vmware.md
+        - name: Déployer une appliance pour Hyper-V (VHD)
+          href: how-to-set-up-appliance-hyper-v.md
+        - name: Déployer une appliance pour VMware/Hyper-V (script)
+          href: deploy-appliance-script.md
+        - name: Déployer une appliance pour les serveurs physiques
+          href: how-to-set-up-appliance-physical.md
+    - name: Limiter l’étendue de découverte des machines virtuelles VMware
+      href: set-discovery-scope.md
+    - name: Découvrir des applications/rôles/fonctionnalités
+      href: how-to-discover-applications.md
     - name: Grouper des machines pour l’évaluation
       href: how-to-create-a-group.md
     - name: Analyser les dépendances des machines (basées sur agent)
@@ -122,6 +128,8 @@
       href: prepare-for-migration.md
     - name: Supprimer un projet Azure Migrate
       href: how-to-delete-project.md
+    - name: Utiliser une version antérieure
+      href: migrate-v1.md
     - name: Adapter l’évaluation et la migration
       items:
         - name: Évaluer un grand nombre de machines virtuelles VMware

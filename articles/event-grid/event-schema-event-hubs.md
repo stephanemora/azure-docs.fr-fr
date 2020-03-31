@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 01/17/2019
 ms.author: spelluru
 ms.openlocfilehash: 9c0113687d27bf43375f298057129a5594ec0a06
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60561826"
 ---
 # <a name="azure-event-grid-event-schema-for-event-hubs"></a>Schéma des événements Azure Event Grid des hubs d’événements
@@ -75,10 +75,10 @@ L’objet de données comporte les propriétés suivantes :
 | fileUrl | string | Chemin du fichier de capture. |
 | fileType | string | Type du fichier de capture. |
 | partitionId | string | ID de partition. |
-| sizeInBytes | integer | Taille du fichier. |
-| eventCount | integer | Nombre d’événements dans le fichier. |
-| firstSequenceNumber | integer | Plus petit numéro de séquence de la file d’attente. |
-| lastSequenceNumber | integer | Dernier numéro de séquence de la file d’attente. |
+| sizeInBytes | entier | Taille du fichier. |
+| eventCount | entier | Nombre d’événements dans le fichier. |
+| firstSequenceNumber | entier | Plus petit numéro de séquence de la file d’attente. |
+| lastSequenceNumber | entier | Dernier numéro de séquence de la file d’attente. |
 | firstEnqueueTime | string | Première heure de la file d’attente. |
 | lastEnqueueTime | string | Dernière heure de la file d’attente. |
 

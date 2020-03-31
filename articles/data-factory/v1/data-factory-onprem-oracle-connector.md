@@ -13,11 +13,11 @@ ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 066e32d5ab21f88b170498173606043c54fec586
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928149"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231585"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Copier des données vers ou à partir d’une instance locale d’Oracle à l’aide d’Azure Data Factory
 
@@ -76,11 +76,11 @@ Ce connecteur Oracle prend en charge deux versions de pilotes :
 
 Si vous utilisez l’Assistant Copie pour créer le pipeline de copie, le type de pilote sera déterminé automatiquement. Le pilote Microsoft est utilisé par défaut, sauf si votre version de la passerelle est antérieure à la version 2.7, ou si vous sélectionnez Oracle en tant que récepteur.
 
-## <a name="get-started"></a>Prise en main
+## <a name="get-started"></a>Bien démarrer
 
 Vous pouvez créer un pipeline ayant une activité de copie. Le pipeline déplace les données vers ou à partir d’une base de données Oracle locale, à l’aide de différents outils ou API.
 
-Le moyen le plus simple de créer un pipeline consiste à utiliser l’Assistant de copie. Consultez le [tutoriel : Créer un pipeline à l’aide de l’Assistant Copie de données](data-factory-copy-data-wizard-tutorial.md) pour obtenir une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copie de données.
+Le moyen le plus simple de créer un pipeline consiste à utiliser l’Assistant de copie. Voir le [tutoriel : Créer un pipeline à l’aide de l’Assistant Copie de données](data-factory-copy-data-wizard-tutorial.md) pour obtenir une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copie de données.
 
 Vous pouvez également utiliser un des outils suivants pour créer un pipeline : **Visual Studio**, **Azure PowerShell**, un **modèle Azure Resource Manager**, l’**API .NET** ou l’**API REST**. Pour obtenir des instructions détaillées sur la création d’un pipeline ayant une activité de copie, consultez le [Tutoriel sur l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
@@ -101,10 +101,10 @@ Le tableau suivant décrit les éléments JSON qui sont propres au service lié 
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| Type |La propriété **type** doit être définie sur **OnPremisesOracle**. |OUI |
+| type |La propriété **type** doit être définie sur **OnPremisesOracle**. |Oui |
 | driverType | Spécifiez le pilote à utiliser pour copier les données vers ou à partir de la base de données Oracle. Les valeurs autorisées sont **Microsoft** ou **ODP** (par défaut). Pour plus d’informations sur le pilote, consultez [Version prise en charge et installation](#supported-versions-and-installation). | Non |
-| connectionString | Spécifiez les informations nécessaires pour se connecter à l’instance de base de données Oracle pour la propriété **connectionString**. | OUI |
-| gatewayName | Nom de la passerelle utilisée pour se connecter au serveur Oracle local |OUI |
+| connectionString | Spécifiez les informations nécessaires pour se connecter à l’instance de base de données Oracle pour la propriété **connectionString**. | Oui |
+| gatewayName | Nom de la passerelle utilisée pour se connecter au serveur Oracle local |Oui |
 
 **Exemple : Utilisation du pilote Microsoft**
 
@@ -179,7 +179,7 @@ Dans le cas d’une activité de copie, quand la source est de type **OracleSour
 
 | Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
-| writeBatchTimeout |Temps d’attente avant expiration de l’opération d’insertion de lot. |**timespan**<br/><br/> Exemple : 00:30:00 (30 minutes) |Non |
+| writeBatchTimeout |Temps d’attente avant expiration de l’opération d’insertion de lot. |**timespan**<br/><br/> Exemple : 00:30:00 (30 minutes) |Non |
 | writeBatchSize |Insère des données dans la table SQL quand la taille de la mémoire tampon atteint la valeur de **writeBatchSize**. |Nombre entier (nombre de lignes) |Non (valeur par défaut : 100) |
 | sqlWriterCleanupScript |Spécifie une requête pour exécuter l’activité de copie afin que les données d’un segment spécifique soient nettoyées. |Une instruction de requête. |Non |
 | sliceIdentifierColumnName |Spécifie le nom de la colonne qui doit être remplie avec un identificateur de segment généré automatiquement pour l’activité de copie. La valeur de **sliceIdentifierColumnName** est utilisée pour nettoyer les données d’un segment quand celui-ci est réexécuté. |Nom d’une colonne avec le type de données **binary(32)** . |Non |
@@ -598,27 +598,27 @@ Quand vous déplacez des données à partir d’Oracle, les mappages suivants so
 | --- | --- |
 | BFILE |Byte[] |
 | BLOB |Byte[]<br/>(uniquement pris en charge sur Oracle 10g et versions ultérieures lorsque vous utilisez le pilote Microsoft) |
-| CHAR |Chaîne |
-| CLOB |Chaîne |
+| CHAR |String |
+| CLOB |String |
 | DATE |DateTime |
 | FLOAT |Décimale, chaîne (si précision > 28) |
 | INTEGER |Décimale, chaîne (si précision > 28) |
 | INTERVAL YEAR TO MONTH |Int32 |
-| INTERVAL DAY TO SECOND |intervalle de temps |
-| LONG |Chaîne |
+| INTERVAL DAY TO SECOND |TimeSpan |
+| LONG |String |
 | LONG RAW |Byte[] |
-| NCHAR |Chaîne |
-| NCLOB |Chaîne |
+| NCHAR |String |
+| NCLOB |String |
 | NUMBER |Décimale, chaîne (si précision > 28) |
-| NVARCHAR2 |Chaîne |
+| NVARCHAR2 |String |
 | RAW |Byte[] |
-| ROWID |Chaîne |
-| TIMESTAMP |DateTime |
+| ROWID |String |
+| timestamp |DateTime |
 | TIMESTAMP WITH LOCAL TIME ZONE |DateTime |
 | TIMESTAMP WITH TIME ZONE |DateTime |
-| UNSIGNED INTEGER |NUMBER |
-| VARCHAR2 |Chaîne |
-| XML |Chaîne |
+| UNSIGNED INTEGER |Number |
+| VARCHAR2 |String |
+| XML |String |
 
 > [!NOTE]
 > Les types de données **INTERVAL YEAR TO MONTH** et **INTERVAL DAY TO SECOND** ne sont pas pris en charge lors de l’utilisation du pilote Microsoft.

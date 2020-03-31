@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 9/12/2019
 ms.openlocfilehash: 38010e3aaa2d0544dfbfe19135d25250d2b021a2
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74929777"
 ---
 # <a name="ssis-migration-with-azure-sql-database-managed-instance-as-the-database-workload-destination"></a>Migration SSIS avec une instance gérée Azure SQL Database en tant que destination des charges de travail de base de données
@@ -34,7 +34,7 @@ Une instance managée Azure SQL Database présente un planificateur natif de pre
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction)
+- [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction).
 - [Azure-SSIS Integration Runtime](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)
 - [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview)
 - [Topologies de réseau pour des migrations d’instances managées de bases de données SQL Azure à l’aide d’Azure Database Migration Service](https://docs.microsoft.com/azure/dms/resource-network-topologies)

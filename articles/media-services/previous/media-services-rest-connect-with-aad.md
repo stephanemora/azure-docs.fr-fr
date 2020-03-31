@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: willzhan; johndeu
-ms.openlocfilehash: fc6766943747c066581fe3820481cfe4a35d5296
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: a693eb374365670da3fe8c4b2bb8ce664a024217
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76774975"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80295444"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-media-services-api-with-rest"></a>Utiliser l’authentification Azure AD pour accéder à l’API Media Services avec REST
 
@@ -54,7 +54,7 @@ Dans ce tutoriel, vous allez apprendre à :
 - Consultez l’article [Accéder à l’API Azure Media Services avec l’authentification Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
 - Installez le client REST [Postman](https://www.getpostman.com/) pour exécuter les API REST indiquées dans cet article. 
 
-    Dans ce tutoriel, nous utilisons **Postman**, mais tout autre outil REST serait approprié. Les autres solutions possibles sont : **Visual Studio Code** avec le plug-in REST ou **Telerik Fiddler**. 
+    Dans ce tutoriel, nous utilisons **Postman**, mais tout autre outil REST serait approprié. Les autres solutions sont : **Visual Studio Code** avec le plug-in REST ou **Telerik Fiddler**. 
 
 ## <a name="get-the-authentication-information-from-the-azure-portal"></a>Obtenir les informations d’authentification à partir du portail Azure
 
@@ -83,7 +83,7 @@ Pour obtenir les informations, procédez comme suit :
 5. Sélectionnez une **application Azure AD** existante ou créez-en une (voir ci-dessous).
 
     > [!NOTE]
-    > Pour que la demande Azure Media REST réussisse, l’utilisateur appelant doit avoir un rôle **Collaborateur** ou **Propriétaire** pour le compte Media Services auquel il tente d’accéder. En cas d’exception du type « Le serveur distant a retourné une erreur : (401) Non autorisé », consultez [Contrôle d’accès](media-services-use-aad-auth-to-access-ams-api.md#access-control).
+    > Pour que la demande Azure Media REST réussisse, l’utilisateur appelant doit avoir un rôle **Collaborateur** ou **Propriétaire** pour le compte Media Services auquel il tente d’accéder. S’il obtient une exception avec un message du type « Le serveur distant a retourné une erreur : (401) Non autorisé », consultez [Contrôle d’accès](media-services-use-aad-auth-to-access-ams-api.md#access-control).
 
     Si vous devez créer une application AD, procédez comme suit :
     
@@ -128,7 +128,7 @@ Cette section explique comment utiliser **Postman** pour exécuter une API REST 
 2. Sélectionnez **POST**.
 3. Entrez l’URL qui inclut votre nom de locataire en utilisant le format suivant : le nom du locataire doit se terminer par **. onmicrosoft.com** et l’URL doit se terminer par **oauth2/token** : 
 
-    https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token
+    `https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token`
 
 4. Sélectionnez l’onglet **En-têtes**.
 5. Entrez les informations sur les **en-têtes** à l’aide de la grille de données « Clé/Valeur ». 

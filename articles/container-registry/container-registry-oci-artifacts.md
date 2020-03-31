@@ -4,14 +4,14 @@ description: Envoyer (push) et tirer (pull) des artefacts OCI (Open Container In
 author: SteveLasker
 manager: gwallace
 ms.topic: article
-ms.date: 08/30/2019
+ms.date: 03/11/2020
 ms.author: stevelas
-ms.openlocfilehash: cb58a7ed51ae15d33ffdbb616c9b32ef03bcbfb7
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 2c6b66b635a2513ccc19e0352414d18d8389fef1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456260"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79371050"
 ---
 # <a name="push-and-pull-an-oci-artifact-using-an-azure-container-registry"></a>Envoyer (push) et tirer (pull) un artefact OCI à l’aide d’un registre de conteneurs Azure
 
@@ -19,7 +19,7 @@ Vous pouvez utiliser un registre de conteneurs Azure pour stocker et gérer des 
 
 Pour illustrer cette fonctionnalité, cet article montre comment utiliser l’outil [ORAS (OCI Registry as Storage)](https://github.com/deislabs/oras) pour envoyer (push) un exemple d’artefact (un fichier texte) vers un registre de conteneurs Azure. Ensuite, l’artefact est tiré (pull) du registre. Vous pouvez gérer divers artefacts OCI dans un registre de conteneurs Azure à l’aide de différents outils en ligne de commande adaptés à chaque artefact.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * **Azure Container Registry** : créez un Registre de conteneur dans votre abonnement Azure. Par exemple, utilisez le [portail Azure](container-registry-get-started-portal.md) ou [Azure CLI](container-registry-get-started-azure-cli.md).
 * **Outil ORAS** : téléchargez et installez une version ORAS à jour pour votre système d’exploitation à partir du [dépôt GitHub](https://github.com/deislabs/oras/releases). L’outil est publié en tant que tarball compressé (fichier `.tar.gz`). Extrayez et installez le fichier à l’aide des procédures standard pour votre système d’exploitation.
@@ -66,10 +66,20 @@ echo "Here is an artifact!" > artifact.txt
 
 Utilisez la commande `oras push` pour envoyer (push) ce fichier texte vers votre registre. L’exemple suivant envoie l’exemple de fichier texte vers le dépôt `samples/artifact`. Le registre est identifié par le nom de registre complet *myregistry.azurecr.io* (tout en minuscules). L’artefact est étiqueté `1.0`. L’artefact a un type non défini, par défaut, identifié par la chaîne de *type de média* qui suit le nom de fichier `artifact.txt`. Consultez [OCI Artifacts](https://github.com/opencontainers/artifacts) pour obtenir d’autres types. 
 
+**Linux**
+
 ```bash
 oras push myregistry.azurecr.io/samples/artifact:1.0 \
     --manifest-config /dev/null:application/vnd.unknown.config.v1+json \
     ./artifact.txt:application/vnd.unknown.layer.v1+txt
+```
+
+**Windows**
+
+```cmd
+.\oras.exe push myregistry.azurecr.io/samples/artifact:1.0 ^
+    --manifest-config NUL:application/vnd.unknown.config.v1+json ^
+    .\artifact.txt:application/vnd.unknown.layer.v1+txt
 ```
 
 La sortie d’un envoi (push) exécuté avec succès ressemble à ce qui suit :

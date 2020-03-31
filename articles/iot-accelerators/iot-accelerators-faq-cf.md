@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
 ms.openlocfilehash: c84452ff71fa34a65b2e56ec753b68bf551c7e35
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73826276"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Questions fréquentes sur l’accélérateur de solution d’usine connectée
@@ -23,7 +23,7 @@ Voir aussi les [questions fréquentes (FAQ)](iot-accelerators-faq.md) d’ordre 
 
 Le code source est stocké dans le dépôt GitHub suivant :
 
-* [Accélérateur de solution d’usine connectée](https://github.com/Azure/azure-iot-connected-factory)
+* [Accélérateur de solution Usine connectée](https://github.com/Azure/azure-iot-connected-factory)
 
 ### <a name="what-is-opc-ua"></a>Qu’est-ce que l’UA OPC ?
 
@@ -68,7 +68,7 @@ Si vous avez déployé la solution à partir de www.azureiotsolutions.com, vous 
 1. Le nom d’utilisateur à utiliser est `docker`.
 1. Le mot de passe à utiliser dépend de la version que vous avez utilisée pour le déploiement :
     * Pour les solutions déployées à l’aide du script build.ps1 avant le 1er juin 2017, le mot de passe est `Passw0rd`.
-    * Pour les solutions déployées à l’aide du script build.ps1 après le 1er juin 2017, le mot de passe est `<name of your deployment>.config.user`. Le mot de passe est stocké dans le paramètre **VmAdminPassword**. Le mot de passe est généré de façon aléatoire au moment du déploiement, sauf si vous le spécifiez à l’aide du paramètre `-VmAdminPassword` du script `build.ps1`.
+    * Pour les solutions déployées à l’aide du script build.ps1 après le 1er juin 2017, le mot de passe est `<name of your deployment>.config.user`. Le mot de passe est stocké dans le paramètre **VmAdminPassword**. Le mot de passe est généré de façon aléatoire au moment du déploiement, sauf si vous le spécifiez à l’aide du paramètre `build.ps1` du script `-VmAdminPassword`.
 
 ### <a name="how-do-i-stop-and-start-all-docker-processes-in-the-simulation-vm"></a>Comment arrêter et démarrer tous les processus Docker dans la machine virtuelle de simulation ?
 
@@ -158,7 +158,7 @@ Consultez [Guide pratique sur la gestion de votre compte et de vos clés Azure M
 
 ### <a name="how-do-enable-the-interactive-map-while-debugging-locally"></a>Comment activer la carte interactive pendant un débogage local ?
 
-Pour activer la carte interactive pendant un débogage local, affectez la valeur de la **QueryKey** copiée précédemment au paramètre `MapApiQueryKey` dans les fichiers `local.user.config` et `<yourdeploymentname>.user.config` à la racine de votre déploiement.
+Pour activer la carte interactive pendant un débogage local, affectez la valeur de la `MapApiQueryKey`QueryKey`local.user.config` copiée précédemment au paramètre `<yourdeploymentname>.user.config` dans les fichiers **et** à la racine de votre déploiement.
 
 ### <a name="how-do-i-use-a-different-image-at-the-home-page-of-my-dashboard"></a>Comment utiliser une autre image sur la page d’accueil du tableau de bord ?
 
@@ -192,7 +192,7 @@ Pour envoyer des données de télémétrie à la solution d’usine connectée �
 
 ### <a name="next-steps"></a>Étapes suivantes
 
-Vous pouvez également explorer certaines des autres fonctionnalités et capacités des accélérateurs de solution IoT :
+Vous pouvez également explorer certaines des autres fonctionnalités des accélérateurs de solution IoT :
 
 * [Présentation de l’accélérateur de solution de maintenance prédictive](iot-accelerators-predictive-overview.md)
 * [Déployer l’accélérateur de solution Usine connectée](quickstart-connected-factory-deploy.md)

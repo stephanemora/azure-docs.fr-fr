@@ -3,7 +3,7 @@ title: Code du fichier d’événements XEvent
 description: Fournit PowerShell et Transact-SQL pour un exemple de code en deux phases qui montre l’utilisation de la cible du fichier d’événements dans un événement étendu sur Azure SQL Database. Le service Azure Storage est nécessaire pour ce scénario.
 services: sql-database
 ms.service: sql-database
-ms.subservice: monitor
+ms.subservice: performance
 ms.custom: ''
 ms.devlang: PowerShell
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 03/12/2019
-ms.openlocfilehash: 00f31bdf147c4711715cd600fa8a8fd4bac2162a
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: a9bf28fb1b3c5278d25b417fc646d2ad3d6f1abc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422481"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79213994"
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>Code cible du fichier d’événements pour les événements étendus dans SQL Database
 
@@ -34,12 +34,12 @@ Cette rubrique présente un exemple de code en deux phases :
   - Pour affecter le conteneur Azure Storage à une cible du fichier d’événements.
   - Pour créer et démarrer la session d’événement, etc.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont destinés au module Az.Sql. Pour ces cmdlets, voir [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments des commandes dans le module Az et dans les modules AzureRm sont sensiblement identiques.
+> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont destinés au module Az.Sql. Pour ces cmdlets, voir [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments des commandes dans le module Az sont sensiblement identiques à ceux des modules AzureRm.
 
 - Un compte et un abonnement Azure. Vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).
 - Une base de données dans laquelle vous pouvez créer une table.
@@ -56,7 +56,7 @@ Cette rubrique présente un exemple de code en deux phases :
 
   - Ces modules fournissent des commandes, telles que **New-AzStorageAccount**.
 
-## <a name="phase-1-powershell-code-for-azure-storage-container"></a>Phase 1 : code PowerShell pour conteneur Stockage Azure
+## <a name="phase-1-powershell-code-for-azure-storage-container"></a>Phase 1 : code PowerShell pour le conteneur Azure Storage
 
 Il s’agit de la première phase de l’exemple de code en deux phases.
 
@@ -232,7 +232,7 @@ Now shift to the Transact-SQL portion of the two-part code sample!';
 
 Prenez note des quelques valeurs nommées que le script PowerShell affiche à la fin de son exécution. Vous devrez modifier ces valeurs dans le script Transact-SQL lors de la phase 2 ci-après.
 
-## <a name="phase-2-transact-sql-code-that-uses-azure-storage-container"></a>Phase 2 : code Transact-SQL utilisant un conteneur Stockage Azure
+## <a name="phase-2-transact-sql-code-that-uses-azure-storage-container"></a>Phase 2 : code Transact-SQL utilisant le conteneur Azure Storage
 
 - Lors de la phase 1 de cet exemple de code, vous avez exécuté un script PowerShell pour créer un conteneur Azure Storage.
 - Dans la phase 2, le script Transact-SQL suivant doit utiliser ce conteneur.
@@ -503,15 +503,15 @@ Vous voulez maintenant exécuter l’exemple de code Transact-SQL précédent su
   
   - Vous n’avez pas besoin de compte Azure Storage.
 
-## <a name="more-information"></a>Plus d’informations
+## <a name="more-information"></a>Informations complémentaires
 
 Pour plus d’informations sur les comptes et les conteneurs du service Azure Storage, consultez :
 
 - [Utilisation du stockage d’objets blob à partir de .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 - [Désignation et référencement des conteneurs, des objets BLOB et des métadonnées](https://msdn.microsoft.com/library/azure/dd135715.aspx)
 - [Utilisation du conteneur racine](https://msdn.microsoft.com/library/azure/ee395424.aspx)
-- [Leçon 1 : Créer une stratégie d’accès stockée et une signature d’accès partagé sur un conteneur Azure](https://msdn.microsoft.com/library/dn466430.aspx)
-  - [Leçon 2 : Créer des informations d’identification SQL Server utilisant une signature d’accès partagé](https://msdn.microsoft.com/library/dn466435.aspx)
+- [Leçon 1 : Créer une stratégie d’accès stockée et une signature d’accès partagé sur un conteneur Azure](https://msdn.microsoft.com/library/dn466430.aspx)
+  - [Leçon 2 : Créer des informations d’identification SQL Server à l’aide d’une signature d’accès partagé](https://msdn.microsoft.com/library/dn466435.aspx)
 - [Événements étendus pour Microsoft SQL Server](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events)
 
 <!-- Image references. -->

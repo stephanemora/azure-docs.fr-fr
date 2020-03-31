@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: 8dbb4ff0c9f8df6609d8447e84dcfe878a954fff
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 045f3ccdc8dc09bf657ab39ce15a0d0524c73fcb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77443956"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79235197"
 ---
 # <a name="azure-functions-http-trigger"></a>Déclencheur HTTP Azure Functions
 
@@ -749,7 +749,7 @@ L’utilisateur authentifié est disponible par l’intermédiaire d’[en-tête
 
 ## <a name="authorization-keys"></a>Clés d’autorisation
 
-Functions vous permet d’utiliser des clés pour rendre plus difficile l’accès à vos points de terminaison de fonctions HTTP pendant le développement.  Un déclencheur HTTP standard peut exiger la présence d’une telle clé d’API dans la requête. 
+Functions vous permet d’utiliser des clés pour rendre plus difficile l’accès à vos points de terminaison de fonctions HTTP pendant le développement.  Si le niveau d’autorisation HTTP sur une fonction déclenchée par HTTP n’est pas défini sur `anonymous`, les demandes doivent contenir une clé API. 
 
 > [!IMPORTANT]
 > Alors que les clés peuvent aider à masquer vos points de terminaison HTTP pendant le développement, elles ne sont pas destinées à sécuriser un déclencheur HTTP en production. Pour plus d’informations, consultez [Sécuriser un point de terminaison HTTP en production](#secure-an-http-endpoint-in-production).
@@ -757,14 +757,19 @@ Functions vous permet d’utiliser des clés pour rendre plus difficile l’acc�
 > [!NOTE]
 > Dans le runtime Functions 1.x, les fournisseurs de webhooks peuvent utiliser des clés pour autoriser des requêtes de plusieurs façons, selon ce que le fournisseur prend en charge. Ceci est expliqué dans [Webhooks et clés](#webhooks-and-keys). Le runtime Functions dans les versions 2.x et ultérieures n’inclut pas la prise en charge intégrée pour les fournisseurs de webhooks.
 
-Il existe deux types de clés :
+#### <a name="authorization-scopes-function-level"></a>Étendues d’autorisation (au niveau de la fonction)
 
-* **Clés d’hôte** : Ces clés sont partagées par toutes les fonctions au sein de l’application de fonction. Utilisées en tant que clés API, elles permettent d’accéder à toute fonction au sein de la Function App.
-* **Clés de fonction** : Ces clés s’appliquent uniquement aux fonctions spécifiques sous lesquelles elles sont définies. Utilisées en tant que clés API, elles permettent d’accéder uniquement à ces fonctions.
+Il existe deux étendues d’autorisation pour les clés au niveau de la fonction :
+
+* **Fonction** : Ces clés s’appliquent uniquement aux fonctions spécifiques sous lesquelles elles sont définies. Utilisées en tant que clés API, elles permettent d’accéder uniquement à ces fonctions.
+
+* **Hôte** : Des clés avec une étendue d’hôte permettent d’accéder à toutes les fonctions au sein de l’application de fonction. Utilisées en tant que clés API, elles permettent d’accéder à toute fonction au sein de la Function App. 
 
 Chaque clé est nommée pour référence et il existe une clé par défaut (nommée « default ») au niveau fonction et hôte. Les clés de fonction prennent le pas sur les clés d’hôte. Quand deux clés portent le même nom, la clé de fonction est toujours utilisée.
 
-Chaque application de fonction a également une **clé principale** spéciale. Cette clé est une clé d’hôte nommée `_master`, qui fournit un accès pour l’administration aux API du runtime. Cette clé ne peut pas être révoquée. Quand vous définissez un niveau d’autorisation de `admin`, les requêtes doivent utiliser la clé principale ; toute autre clé provoque l’échec de l’autorisation.
+#### <a name="master-key-admin-level"></a>Clé principale (au niveau de l’administrateur) 
+
+Chaque application de fonction a également une clé d’hôte au niveau de l’administrateur nommée `_master`. En plus de fournir un accès au niveau de l’hôte à toutes les fonctions de l’application, la clé principale fournit un accès administratif aux API REST du runtime. Cette clé ne peut pas être révoquée. Quand vous définissez un niveau d’autorisation de `admin`, les requêtes doivent utiliser la clé principale ; toute autre clé provoque l’échec de l’autorisation.
 
 > [!CAUTION]  
 > En raison des autorisations élevées dans votre application de fonction accordées par la clé principale, vous ne devez pas partager celle-ci avec des tiers, ou la distribuer dans des applications clientes natives. Faites preuve de prudence lorsque vous choisissez le niveau d’autorisation administrateur.
@@ -829,7 +834,7 @@ Une autorisation de webhook est gérée par le composant récepteur de webhook, 
 
 ## <a name="limits"></a>limites
 
-La longueur de la requête HTTP est limitée à 100 Mo (104 857 600 octets) et la longueur de l’URL à 4 Ko (4 096 octets). Ces limites sont spécifiées par l’élément `httpRuntime` du [fichier Web.config](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config) du runtime.
+La longueur de la requête HTTP est limitée à 100 Mo (104 857 600 octets) et la longueur de l’URL à 4 Ko (4 096 octets). Ces limites sont spécifiées par l’élément `httpRuntime` du [fichier Web.config](https://github.com/Azure/azure-functions-host/blob/3.x/src/WebJobs.Script.WebHost/web.config) du runtime.
 
 Si une fonction utilisant le déclencheur HTTP ne se termine pas au bout de 230 secondes, [Azure Load Balancer](../app-service/faq-availability-performance-application-issues.md#why-does-my-request-time-out-after-230-seconds) arrive à expiration et retourne une erreur HTTP 502. La fonction continuera à s’exécuter, mais ne pourra pas renvoyer de réponse HTTP. Pour les fonctions à exécution longues, nous vous recommandons de suivre des modèles asynchrones et de retourner un emplacement où vous pouvez effectuer un test ping de l’état de la requête. Pour plus d’informations sur la durée d’exécution d’une fonction, consultez [Scale and hosting - Consumption plan](functions-scale.md#timeout) (Mise à l’échelle et hébergement – Plan de consommation).
 

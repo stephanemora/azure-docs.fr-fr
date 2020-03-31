@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 57ce6ab31421cd4016f7e204eeabce82f2f7e6a7
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77083990"
 ---
 # <a name="initialize-client-applications-using-msalnet"></a>Initialiser des applications clientes avec MSAL.NET
@@ -25,7 +25,7 @@ Cet article décrit l’initialisation d’applications clientes publiques et co
 
 Avec MSAL.NET 3.x, la méthode recommandée pour instancier une application consiste à utiliser les générateurs d’applications : `PublicClientApplicationBuilder` et `ConfidentialClientApplicationBuilder`. Ils offrent un mécanisme puissant permettant de configurer l’application à partir du code, ou d’un fichier de configuration ou même en combinant ces deux approches.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 Avant d’initialiser une application, vous devez d’abord l’[inscrire](quickstart-register-app.md) afin que votre application puisse être intégrée à la plate-forme d’identité Microsoft.  Après l’inscription, vous aurez peut-être besoin des informations suivantes (que vous trouverez sur le Portail Azure) :
 
 - L’ID client (une chaîne représentant un GUID)

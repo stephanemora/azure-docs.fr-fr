@@ -1,6 +1,6 @@
 ---
-title: Azure VMware Solutions (AVS) - Connecter le cloud privé AVS au réseau Azure avec ExpressRoute
-description: Décrit comment connecter votre environnement de cloud privé AVS au réseau virtuel Azure avec ExpressRoute.
+title: Azure VMware Solution by CloudSimple - Connectez le cloud privé au réseau Azure à l’aide d’ExpressRoute
+description: Décrit comment connecter votre environnement de cloud privé de CloudSimple au réseau virtuel Azure à l’aide d’ExpressRoute
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/14/2019
@@ -8,51 +8,51 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 3d487794e219f63150142db8df4b0c1abf112947
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 9bb68ec68f4de646239477ceeaac50a7a33989fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77015233"
 ---
-# <a name="connect-your-avs-private-cloud-environment-to-the-azure-virtual-network-using-expressroute"></a>Connecter votre environnement de cloud privé AVS au réseau virtuel Azure avec ExpressRoute
+# <a name="connect-your-cloudsimple-private-cloud-environment-to-the-azure-virtual-network-using-expressroute"></a>Connecter votre environnement de cloud privé de CloudSimple au réseau virtuel Azure à l’aide d’ExpressRoute
 
-Votre cloud privé AVS peut être connecté à votre réseau virtuel Azure avec Azure ExpressRoute. Cette connexion à bande passante élevée et à faible latence vous permet d’accéder aux services qui s’exécutent dans votre abonnement Azure à partir de votre environnement de cloud privé AVS.
+Votre cloud privé CloudSimple peut être connecté à votre réseau virtuel Azure à l’aide d’Azure ExpressRoute.  Cette connexion à bande passante élevée et à faible latence vous permet d’accéder aux services qui s’exécutent dans votre abonnement Azure à partir de votre environnement cloud privé.
 
 Une connexion de réseau virtuel vous permet d’effectuer les tâches suivantes :
 
-* Utiliser Azure comme cible de sauvegarde pour les machines virtuelles sur votre cloud privé AVS.
-* Déployer des serveurs KMS dans votre abonnement Azure pour chiffrer le magasin de données vSAN de votre cloud privé AVS.
-* Utiliser des applications hybrides où la couche web de l’application s’exécute dans le cloud public pendant que les couches application et base de données s’exécutent dans votre cloud privé AVS.
+* Utiliser Azure comme cible de sauvegarde pour les machines virtuelles sur votre cloud privé.
+* Déployer des serveurs KMS dans votre abonnement Azure pour chiffrer la banque de données vSAN de votre cloud privé.
+* Utiliser des applications hybrides où la couche web de l’application s’exécute dans le cloud public pendant que les couches application et base de données s’exécutent dans votre cloud privé.
 
 ![Connexion Azure ExpressRoute au réseau virtuel](media/cloudsimple-azure-network-connection.png)
 
 ## <a name="set-up-a-virtual-network-connection"></a>Configurer une connexion de réseau virtuel
 
-Pour configurer la connexion du réseau virtuel à votre cloud privé AVS, vous avez besoin de votre clé d’autorisation, de l’URI du circuit pair et de l’accès à votre abonnement Azure. Ces informations sont disponibles dans la page Connexion au réseau virtuel du portail AVS. Pour plus d’instructions, consultez [Obtenir des informations de peering pour la connexion entre le réseau virtuel Azure et AVS](virtual-network-connection.md). Si vous avez du mal à obtenir ces informations, envoyez une <a href="https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest" target="_blank">demande de support</a>.
+Pour configurer la connexion du réseau virtuel à votre cloud privé, vous avez besoin de votre clé d’autorisation, de l’URI du circuit homologue et de l’accès à votre abonnement Azure. Ces informations sont disponibles sur la page Connexion au réseau virtuel du portail CloudSimple. Pour plus d’instructions, consultez [Obtenir des informations de peering pour la connexion entre le réseau virtuel Azure et CloudSimple](virtual-network-connection.md). Si vous avez du mal à obtenir ces informations, envoyez une <a href="https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest" target="_blank">demande de support</a>.
 
 > [!TIP]
 > Si vous disposez déjà d’un réseau virtuel Azure, d’un sous-réseau de passerelle et d’une passerelle de réseau virtuel, vous pouvez passer à l’étape 4.
 
-1. Créez un réseau virtuel sur votre abonnement Azure et vérifiez que l’espace d’adressage que vous sélectionnez est différent de celui de votre cloud privé AVS. Si vous disposez déjà d’un réseau virtuel Azure, vous pouvez utiliser celui qui existe déjà. Pour plus de détails, consultez [Créer un réseau virtuel au moyen du portail Azure](../virtual-network/quick-create-portal.md).
-2. Créez le sous-réseau de passerelle sur votre réseau virtuel Azure. Si vous disposez déjà d’un sous-réseau de passerelle dans votre réseau virtuel Azure, vous pouvez utiliser celui qui existe déjà. Pour plus d’informations, consultez [Créer le sous-réseau de passerelle](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md#create-the-gateway-subnet).
-3. Créez la passerelle de réseau virtuel sur votre réseau virtuel. Si vous disposez d’une passerelle de réseau virtuel existante, vous pouvez utiliser celle qui existe déjà. Pour plus d’informations, consultez [Créer la passerelle de réseau virtuel](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md#create-the-virtual-network-gateway).
-4. Créez la connexion entre votre réseau virtuel et votre cloud privé AVS en échangeant la clé d’autorisation, comme décrit dans [Connecter un réseau virtuel à un circuit - abonnement différent](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md#connect-a-vnet-to-a-circuit---different-subscription).
+1. Créez un réseau virtuel sur votre abonnement Azure et vérifiez que l’espace d’adressage que vous sélectionnez est différent de l’espace d’adressage de votre cloud privé.  Si vous disposez déjà d’un réseau virtuel Azure, vous pouvez utiliser celui qui existe déjà.  Pour plus de détails, consultez [Créer un réseau virtuel au moyen du portail Azure](../virtual-network/quick-create-portal.md).
+2. Créez le sous-réseau de passerelle sur votre réseau virtuel Azure.  Si vous disposez déjà d’un sous-réseau de passerelle dans votre réseau virtuel Azure, vous pouvez utiliser celui qui existe déjà. Pour plus d’informations, consultez [Créer le sous-réseau de passerelle](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md#create-the-gateway-subnet).
+3. Créez la passerelle de réseau virtuel sur votre réseau virtuel.  Si vous disposez d’une passerelle de réseau virtuel existante, vous pouvez utiliser celle qui existe déjà. Pour plus d’informations, consultez [Créer la passerelle de réseau virtuel](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md#create-the-virtual-network-gateway).
+4. Créez la connexion entre votre réseau virtuel et votre cloud privé en échangeant la clé d’autorisation, comme décrit dans [Connecter un réseau virtuel à un circuit - abonnement différent](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md#connect-a-vnet-to-a-circuit---different-subscription).
 
 > [!WARNING]
-> Si vous utilisez une passerelle de réseau virtuel existante et qu’elle dispose d’une connexion ExpressRoute au même emplacement que le circuit ExpressRoute AVS, la connexion n’est pas établie. Créez un nouveau réseau virtuel et suivez les étapes précédentes.
+> Si vous utilisez une passerelle de réseau virtuel existante et qu’elle dispose d’une connexion ExpressRoute au même emplacement que le circuit ExpressRoute CloudSimple, la connexion n’est pas établie.  Créez un nouveau réseau virtuel et suivez les étapes précédentes.
 
 ## <a name="test-the-virtual-network-connection"></a>Tester la connexion de réseau virtuel Azure
 
-Une fois la connexion créée, vous pouvez vérifier l’état de la connexion en sélectionnant **Propriétés** sous **Paramètres**. Le statut et l'état d’approvisionnement doivent indiquer **Réussite**.
+Une fois la connexion créée, vous pouvez vérifier l’état de la connexion en sélectionnant **Propriétés** sous **Paramètres**.  Le statut et l'état d’approvisionnement doivent indiquer **Réussite**.
 
 ![État de la connexion](media/azure-expressroute-connection.png)
 
 Pour tester la connexion de réseau virtuel :
 
 1. Créez une machine virtuelle dans votre abonnement Azure.
-2. Recherchez l’adresse IP de votre vCenter de cloud privé AVS (reportez-vous à votre e-mail de bienvenue).
+2. Recherchez l’adresse IP de votre vCenter de cloud privé (reportez-vous à votre e-mail de bienvenue).
 3. Exécutez une commande ping sur votre vCenter cloud à partir de la machine virtuelle créée dans votre réseau virtuel Azure.
-4. Exécutez une commande ping sur votre machine virtuelle Azure à partir d’une machine virtuelle en cours d’exécution dans votre vCenter de cloud privé AVS.
+4. Exécutez une commande ping sur votre machine virtuelle Azure à partir d’une machine virtuelle en cours d’exécution dans votre vCenter de cloud privé.
 
 Si vous rencontrez des problèmes lors de l’établissement de la connexion, envoyez une <a href="https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest" target="_blank">demande de support</a>.

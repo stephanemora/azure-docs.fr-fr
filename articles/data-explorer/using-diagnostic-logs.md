@@ -8,17 +8,17 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.openlocfilehash: 3e10979e26cacdc0c2071a6030c945adad21a51c
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76277425"
 ---
 # <a name="monitor-azure-data-explorer-ingestion-operations-using-diagnostic-logs-preview"></a>Superviser les opérations d’ingestion d’Azure Data Explorer à l’aide des journaux de diagnostic (préversion)
 
 Azure Data Explorer est un service d’analytique données rapide et complètement managé pour l’analyse en temps réel de gros volumes de données diffusées en continu par des applications, des sites web, des appareils IoT, etc. Pour utiliser Azure Data Explorer, créez tout d’abord un cluster et une ou plusieurs bases de données dans ce cluster. Ensuite, ingérez (chargez) des données dans une table d’une base de données pour pouvoir exécuter des requêtes dessus. Les [journaux de diagnostic Azure Monitor](/azure/azure-monitor/platform/diagnostic-logs-overview) fournissent des données sur les opérations effectuées sur des ressources Azure. Azure Data Explorer utilise les journaux de diagnostic pour obtenir des insights sur les réussites et les échecs d’ingestion. Vous pouvez exporter les journaux des opérations vers Stockage Azure, Event Hub ou Log Analytics afin de superviser l’état de l’ingestion. Les journaux de Stockage Azure et d’Azure Event Hub peuvent être routés vers une table de votre cluster Azure Data Explorer pour une analyse plus poussée.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Si vous n’avez pas encore d’abonnement Azure, [créez un compte Azure gratuit](https://azure.microsoft.com/free/)
 * Créez [un cluster et une base de données](create-cluster-database-portal.md).
@@ -66,7 +66,7 @@ Tous [les journaux de diagnostic Azure Monitor partagent un schéma de niveau su
 
 Les chaînes JSON des journaux incluent les éléments listés dans le tableau suivant :
 
-|Name               |Description
+|Nom               |Description
 |---                |---
 |time               |Heure du rapport
 |resourceId         |ID de ressource Azure Resource Manager
@@ -100,7 +100,7 @@ Les chaînes JSON des journaux incluent les éléments listés dans le tableau s
 ```
 **Propriétés d’un journal de diagnostic d’une opération réussie**
 
-|Name               |Description
+|Nom               |Description
 |---                |---
 |succeededOn        |Heure d’achèvement de l’ingestion
 |operationId        |ID d’opération de l’ingestion Azure Data Explorer
@@ -141,7 +141,7 @@ Les chaînes JSON des journaux incluent les éléments listés dans le tableau s
 
 **Propriétés d’un journal de diagnostic d’une opération ayant échoué**
 
-|Name               |Description
+|Nom               |Description
 |---                |---
 |failedOn           |Heure d’achèvement de l’ingestion
 |operationId        |ID d’opération de l’ingestion Azure Data Explorer

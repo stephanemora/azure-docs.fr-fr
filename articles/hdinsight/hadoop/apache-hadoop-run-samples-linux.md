@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/12/2019
 ms.openlocfilehash: 58f7d99af638c8d03bbce46b7fcf8204aaca11d9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75435747"
 ---
 # <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>Exécuter les exemples MapReduce inclus dans HDInsight
@@ -172,13 +172,13 @@ Cet exemple utilise seulement 10 Go de données afin de pouvoir être exécuté
 
 Cet exemple utilise trois ensembles de programmes MapReduce :
 
-* **TeraGen** : Programme MapReduce qui génère des lignes de données à trier
+* **TeraGen**: programme MapReduce qui génère des lignes de données à trier
 
-* **TeraSort** : Échantillonne les données d’entrée et utilise MapReduce pour trier les données dans une commande totale
+* **TeraSort**: échantillonne les données d'entrée et utilise MapReduce pour trier les données en une commande totale.
 
     TeraSort est un tri MapReduce standard, à l’exception d’un partitionneur personnalisé. Le partitionneur utilise une liste triée des clés N-1 échantillonnée qui définissent la plage de clés pour chaque réduction. Plus particulièrement, toutes les clés semblables à cet échantillon [i-1] <= key < sample[i] sont envoyées pour réduire i. Le partitionneur garantit que les sorties de réduction i sont toutes inférieures aux sorties de réduction i+1.
 
-* **TeraValidate** : Programme MapReduce qui valide le tri global de la sortie
+* **TeraValidate**: programme MapReduce qui valide le tri global de la sortie
 
     Il crée un mappage par fichier dans le répertoire de sortie et chaque mappage assure que chaque clé est inférieure ou égale à la précédente. La fonction de mappage génère des enregistrements de la première et de la dernière clés de chaque fichier. La fonction de réduction veille à ce que la première clé du fichier i soit supérieure à la dernière clé du fichier i-1. Un problème est signalé comme une sortie de la phase de réduction avec les clés dans le désordre.
 

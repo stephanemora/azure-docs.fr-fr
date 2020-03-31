@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: c1572eddf78ca2d5f8f4e3ee9f1fe47b0d43f5aa
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77190253"
 ---
 # <a name="consumption-model"></a>Modèle de consommation
 
 Le service Route fournit un ensemble de paramètres permettant de décrire en détail le modèle de consommation spécifique à un véhicule.
-Selon la valeur de **vehicleEngineType**, deux grands modèles de consommation sont pris en charge : _Combustion_ et _Electric_. Le système considère comme incorrect le fait de spécifier des paramètres appartenant à des modèles différents dans la même requête. De plus, les paramètres du modèle de consommation ne peuvent pas être utilisés avec les valeurs suivantes pour **travelMode** : _bicycle_ (vélo) et _pedestrian_ (piéton).
+Selon la valeur de **vehicleEngineType**, deux grands modèles de consommation sont pris en charge : _Combustion_ et _Electric_. Le système considère comme incorrect le fait de spécifier des paramètres appartenant à des modèles différents dans la même requête. De plus, les paramètres du modèle de consommation ne peuvent pas être utilisés avec les valeurs suivantes pour **travelMode** : _bicycle_ (vélo) et _pedestrian_ (piéton).
 
 ## <a name="parameter-constraints-for-consumption-model"></a>Contraintes des paramètres pour le modèle de consommation
 

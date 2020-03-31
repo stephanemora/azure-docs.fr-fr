@@ -6,11 +6,11 @@ ms.subservice: process-automation
 ms.date: 04/05/2019
 ms.topic: conceptual
 ms.openlocfilehash: cb1444261a2ba4810f4fddb3d7aa3bc172f09654
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76120908"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79235589"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatiser les ressources de votre centre de données ou de votre cloud à l’aide d’un Runbook Worker hybride
 
@@ -91,7 +91,7 @@ Pour supprimer un groupe, vous devez tout d’abord supprimer les Runbooks Worke
 
    Ce processus peut prendre plusieurs secondes. Vous pouvez suivre la progression sous **Notifications** dans le menu.
 
-## <a name="network-planning"></a>Configurer votre réseau
+## <a name="configure-your-network"></a><a name="network-planning"></a>Configurer votre réseau
 
 ### <a name="hybrid-worker-role"></a>Worker hybride
 
@@ -103,7 +103,7 @@ Si vous utilisez un serveur proxy pour la communication entre l’agent et le se
 
 Les port et URL suivants sont requis pour que le rôle Runbook Worker hybride communique avec Automation :
 
-* Port : seul le port TCP 443 est nécessaire pour l’accès Internet sortant.
+* Port : seul TCP 443 est nécessaire pour l’accès Internet sortant.
 * URL globale : *.azure-automation.net
 * URL globale d’US Gov Virginie : *.azure-automation.us
 * Service de l’agent : https://\<ID_espace_de_travail\>.agentsvc.azure-automation.net

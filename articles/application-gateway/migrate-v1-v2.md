@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
 ms.openlocfilehash: 9909c46015fffb3bea3eef094599312e28b935c5
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77046195"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Migrer la passerelle Azure Application Gateway et le pare-feu d’applications web de v1 à v2
@@ -98,7 +98,7 @@ Pour exécuter le script :
      $appgw.Id
      ```
 
-   * **subnetAddressRange : [chaîne] :  Requis** - Il s’agit de l’espace d’adressage IP que vous avez alloué (ou que vous souhaitez allouer) pour un nouveau sous-réseau qui contient votre nouvelle passerelle v2. Il doit être spécifié dans la notation CIDR. Par exemple :  10.0.0.0/24. Vous n’avez pas besoin de créer ce sous-réseau à l’avance. Le script le crée pour vous s’il n’existe pas.
+   * **subnetAddressRange : [chaîne] :  Requis** - Il s’agit de l’espace d’adressage IP que vous avez alloué (ou que vous souhaitez allouer) pour un nouveau sous-réseau qui contient votre nouvelle passerelle v2. Il doit être spécifié dans la notation CIDR. Par exemple : 10.0.0.0/24. Vous n’avez pas besoin de créer ce sous-réseau à l’avance. Le script le crée pour vous s’il n’existe pas.
    * **appgwName : [chaîne] : Facultatif**. Il s’agit d’une chaîne que vous spécifiez comme nom de la nouvelle passerelle Standard_v2 ou WAF_v2. Si ce paramètre n’est pas fourni, le nom de votre passerelle v1 existante est utilisé avec le suffixe *_v2* ajouté.
    * **sslCertificates : [PSApplicationGatewaySslCertificate] : Facultatif**.  Une liste séparée par des virgules d’objets PSApplicationGatewaySslCertificate que vous créez pour représenter les certificats SSL à partir de votre passerelle v1 doit être chargée sur la nouvelle passerelle v2. Pour chacun de vos certificats SSL configurés pour votre passerelle Standard v1 ou WAF v1, vous pouvez créer un nouvel objet PSApplicationGatewaySslCertificate via la commande `New-AzApplicationGatewaySslCertificate` illustrée ici. Vous avez besoin du mot de passe et du chemin d’accès à votre fichier de certificat SSL.
 

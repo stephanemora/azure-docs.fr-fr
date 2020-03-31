@@ -9,17 +9,17 @@ ms.author: glenga
 ms.reviewer: msangapu;david.ebbo;suwatch;pbatum;naren.soni
 ms.custom: seodec18
 ms.openlocfilehash: 4c568c95a5dbc1799a765c95a2b224de53dfbe9f
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74684206"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79235673"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Exécuter des tâches en arrière-plan avec WebJobs dans Azure App Service
 
 Cet article explique comment déployer WebJobs à l’aide du [portail Azure](https://portal.azure.com) pour charger un fichier exécutable ou un script. Pour plus d’informations sur la façon de développer et de déployer WebJobs à l’aide de Visual Studio, consultez [Déploiement de WebJobs à l’aide de Visual Studio](webjobs-dotnet-deploy-vs.md).
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 WebJobs est une fonctionnalité de [Microsoft Azure App Service](index.yml) qui vous permet d’exécuter un programme ou un script dans un même contexte, en tant qu’application web, application API ou application mobile. L’utilisation des tâches web n’entraîne aucun coût supplémentaire.
 
 > [!IMPORTANT]
@@ -42,7 +42,7 @@ Le tableau suivant décrit les différences entre une tâche Web *continue* et u
 
 [!INCLUDE [webjobs-always-on-note](../../includes/webjobs-always-on-note.md)]
 
-## <a name="acceptablefiles"></a>Types de fichier pris en charge pour les scripts ou les programmes
+## <a name="supported-file-types-for-scripts-or-programs"></a><a name="acceptablefiles"></a>Types de fichier pris en charge pour les scripts ou les programmes
 
 Les types de fichiers suivants sont pris en charge :
 
@@ -54,7 +54,7 @@ Les types de fichiers suivants sont pris en charge :
 * .js (en utilisant Node.js)
 * .jar (en utilisant Java)
 
-## <a name="CreateContinuous"></a> Création d’une tâche web continue
+## <a name="create-a-continuous-webjob"></a><a name="CreateContinuous"></a> Création d’une tâche web continue
 
 <!-- 
 Several steps in the three "Create..." sections are identical; 
@@ -92,7 +92,7 @@ when making changes in one don't forget the other two.
 
     ![Arrêt d’une tâche web continue](./media/web-sites-create-web-jobs/continuousstop.png)
 
-## <a name="CreateOnDemand"></a> Créer une tâche web déclenchée manuellement
+## <a name="create-a-manually-triggered-webjob"></a><a name="CreateOnDemand"></a> Créer une tâche web déclenchée manuellement
 
 <!-- 
 Several steps in the three "Create..." sections are identical; 
@@ -130,7 +130,7 @@ when making changes in one don't forget the other two.
    
     ![Exécuter une tâche Web](./media/web-sites-create-web-jobs/runondemand.png)
 
-## <a name="CreateScheduledCRON"></a> Créer une tâche web planifiée
+## <a name="create-a-scheduled-webjob"></a><a name="CreateScheduledCRON"></a> Créer une tâche web planifiée
 
 <!-- 
 Several steps in the three "Create..." sections are identical; 
@@ -179,7 +179,7 @@ Pour en savoir plus, consultez [Planification d’un WebJob déclenché](webjobs
 
 [!INCLUDE [webjobs-cron-timezone-note](../../includes/webjobs-cron-timezone-note.md)]
 
-## <a name="ViewJobHistory"></a> Affichage de l’historique des tâches
+## <a name="view-the-job-history"></a><a name="ViewJobHistory"></a> Affichage de l’historique des tâches
 
 1. Choisissez la tâche web dont vous souhaitez afficher l’historique, puis sélectionnez le bouton **Journaux d’activité**.
    
@@ -201,6 +201,6 @@ Pour en savoir plus, consultez [Planification d’un WebJob déclenché](webjobs
    
     ![Liste des tâches Web dans le tableau de bord d’historique](./media/web-sites-create-web-jobs/webjobslist.png)
    
-## <a name="NextSteps"></a> Étapes suivantes
+## <a name="next-steps"></a><a name="NextSteps"></a>Étapes suivantes
 
 Le SDK Azure WebJobs peut être utilisé avec WebJobs pour simplifier de nombreuses tâches de programmation. Pour plus d’informations, consultez [Présentation du Kit de développement logiciel (SDK) WebJobs Azure](https://github.com/Azure/azure-webjobs-sdk/wiki).

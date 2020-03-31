@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: stewu
 ms.openlocfilehash: c975af1799d427651b76bb9fde5ff765afed3f86
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73904579"
 ---
 # <a name="performance-tuning-guidance-for-using-powershell-with-azure-data-lake-storage-gen1"></a>Recommandations en matière d’optimisation des performances pour l’utilisation de PowerShell avec Azure Data Lake Storage Gen1
@@ -54,7 +54,7 @@ La question suivante que vous pouvez vous poser porte sur la procédure permetta
 
     `Total thread count = 16 cores * 6 = 96 threads`
 
-* **Étape 2 : Calculer PerFileThreadCount** : nous calculons PerFileThreadCount en fonction de la taille des fichiers. Pour les fichiers inférieurs à 2,5 Go, il est inutile de modifier ce paramètre, car la valeur par défaut de 10 est suffisante. Pour les fichiers supérieurs à 2,5 Go, vous devez utiliser 10 threads en tant que base pour les 2,5 premiers Go, puis ajouter 1 thread chaque fois que la taille du fichier augmente de 256 Mo. Si vous copiez un dossier contenant différentes tailles de fichiers, envisagez de regrouper ces fichiers par tailles similaires. Les différentes tailles de fichiers ne permettent pas d’obtenir des performances optimales. S’il n’est pas possible de regrouper les tailles de fichiers similaires, vous devez définir PerFileThreadCount en fonction de la plus grande taille de fichier.
+* **Étape 2 : Calculer PerFileThreadCount** : nous calculons PerFileThreadCount en fonction de la taille des fichiers. Pour les fichiers inférieurs à 2,5 Go, il est inutile de modifier ce paramètre, car la valeur par défaut de 10 est suffisante. Pour les fichiers supérieurs à 2,5 Go, vous devez utiliser 10 threads en tant que base pour les 2,5 premiers Go, puis ajouter 1 thread chaque fois que la taille du fichier augmente de 256 Mo. Si vous copiez un dossier contenant différentes tailles de fichiers, envisagez de regrouper ces fichiers par tailles similaires. Les différentes tailles de fichiers ne permettent pas d’obtenir des performances optimales. S’il n’est pas possible de regrouper les tailles de fichiers similaires, vous devez définir PerFileThreadCount en fonction de la plus grande taille de fichier.
 
     `PerFileThreadCount = 10 threads for the first 2.5 GB + 1 thread for each additional 256 MB increase in file size`
 
@@ -64,7 +64,7 @@ La question suivante que vous pouvez vous poser porte sur la procédure permetta
 
     `PerFileThreadCount = 10 + ((10 GB - 2.5 GB) / 256 MB) = 40 threads`
 
-* **Étape 3 : Calculer ConcurrentFilecount** : utilisez le nombre total de threads et PerFileThreadCount pour calculer ConcurrentFileCount sur la base de l’équation suivante :
+* **Étape 3 : Calculer ConcurrentFilecount** : utilisez le nombre total de threads et PerFileThreadCount pour calculer ConcurrentFileCount sur la base de l’équation suivante :
 
     `Total thread count = PerFileThreadCount * ConcurrentFileCount`
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/06/2018
 ms.author: magattus
 ms.openlocfilehash: 86696ed6715b4e43a9d02232c013eb64feb61f67
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67594204"
 ---
 # <a name="azure-diagnostic-logs"></a>Journaux de diagnostic Azure
@@ -51,7 +51,7 @@ Pour plus d’informations sur les journaux de diagnostic, consultez [Journaux d
 
 Suivez les étapes suivantes pour activer la journalisation avec l’analytique principale CDN :
 
-Connectez-vous au [Portail Azure](https://portal.azure.com). Si vous n’avez pas déjà activé CDN pour votre flux de travail, [créez un point de terminaison et un profil de réseau de distribution de contenu Azure](cdn-create-new-endpoint.md) avant de continuer.
+Connectez-vous au [portail Azure](https://portal.azure.com). Si vous n’avez pas déjà activé CDN pour votre flux de travail, [créez un point de terminaison et un profil de réseau de distribution de contenu Azure](cdn-create-new-endpoint.md) avant de continuer.
 
 1. Dans le portail Azure, accédez au **profil CDN**.
 
@@ -196,7 +196,7 @@ Les journaux d’activité Core Analytics sont générés toutes les heures et l
 |Nom de profil |Nom du profil CDN|
 |Nom du point de terminaison |Nom du point de terminaison CDN|
 |Year|  Représentation à quatre chiffres de l’année, par exemple, 2017|
-|Mois| Représentation à deux chiffres du mois de l’année. 01 = Janvier ... 12 = Décembre|
+|Month| Représentation à deux chiffres du mois de l’année. 01 = Janvier ... 12 = Décembre|
 |jour|   Représentation à deux chiffres du jour du mois|
 |PT1H.json| Fichier JSON où sont effectivement stockées les données d’analyse|
 
@@ -300,11 +300,11 @@ Vous pouvez afficher des offres et des niveaux tarifaires pour les solutions de 
 
 Vous pouvez personnaliser la vue de vos données à l’aide du **Concepteur de vues**. Pour commencer la conception, accédez à votre espace de travail Log Analytics, puis sélectionnez la mosaïque **Concepteur de vues**.
 
-![Concepteur de vues](./media/cdn-diagnostics-log/27_Designer.png)
+![Concepteur de vue](./media/cdn-diagnostics-log/27_Designer.png)
 
 Faites glisser et déplacez les types de graphiques et renseignez le détail des données que vous souhaitez analyser.
 
-![Concepteur de vues](./media/cdn-diagnostics-log/28_Designer.png)
+![Concepteur de vue](./media/cdn-diagnostics-log/28_Designer.png)
 
     
 ## <a name="log-data-delays"></a>Retards des données de journal
@@ -325,33 +325,33 @@ Le tableau suivant présente la liste des métriques disponibles dans les journa
 
 |Métrique                     | Description | Microsoft | Verizon | Akamai |
 |---------------------------|-------------|-----------|---------|--------|
-| RequestCountTotal         | Nombre total d’occurrences de requêtes pendant cette période. | OUI | OUI |OUI |
-| RequestCountHttpStatus2xx | Nombre total des requêtes ayant abouti à un code HTTP 2xx (par exemple, 200, 202). | OUI | OUI |OUI |
-| RequestCountHttpStatus3xx | Nombre total des requêtes ayant abouti à un code HTTP 3xx (par exemple, 300, 302). | OUI | OUI |OUI |
-| RequestCountHttpStatus4xx | Nombre total des requêtes ayant abouti à un code HTTP 4xx (par exemple, 400, 404). | OUI | OUI |OUI |
-| RequestCountHttpStatus5xx | Nombre total des requêtes ayant abouti à un code HTTP 5xx (par exemple, 500, 504). | OUI | OUI |OUI |
-| RequestCountHttpStatusOthers | Nombre total des autres codes HTTP (en dehors de 2xx-5xx). | OUI | OUI |OUI |
-| RequestCountHttpStatus200 | Nombre total des requêtes ayant abouti à un code HTTP 200. | OUI | Non  |OUI |
-| RequestCountHttpStatus206 | Nombre total des requêtes ayant abouti à un code HTTP 206. | OUI | Non  |OUI |
-| RequestCountHttpStatus302 | Nombre total des requêtes ayant abouti à un code HTTP 302. | OUI | Non  |OUI |
-| RequestCountHttpStatus304 | Nombre total des requêtes ayant abouti à un code HTTP 304. | OUI | Non  |OUI |
-| RequestCountHttpStatus404 | Nombre total des requêtes ayant abouti à un code HTTP 404. | OUI | Non  |OUI |
-| RequestCountCacheHit | Nombre de toutes les requêtes qui ont abouti à un accès au cache. La ressource a été traitée directement du point de présence vers le client. | OUI | OUI | Non  |
-| RequestCountCacheMiss | Nombre de toutes les requêtes qui ont abouti à un échec de cache. Un échec de cache signifie que la ressource est introuvable sur le point de présence le plus proche du client et a donc été récupérée à l’origine. | OUI | OUI | Non |
-| RequestCountCacheNoCache | Nombre de requêtes vers une ressource empêchées d’être mises en cache en raison d’une configuration de l’utilisateur sur le périmètre. | OUI | OUI | Non |
-| RequestCountCacheUncacheable | Nombre total des requêtes de ressources que les en-têtes Cache-Control et Expires empêchent de mettre en cache, et qui indiquent qu’elles ne doivent pas être mises en cache sur un point de présence ou par le client HTTP. | OUI | OUI | Non |
-| RequestCountCacheOthers | Nombre de toutes les requêtes avec un état du cache non traité ci-dessus. | Non | OUI | Non  |
-| EgressTotal | Transfert de données sortantes en Go | OUI |OUI |OUI |
-| EgressHttpStatus2xx | Transfert de données sortantes* pour les réponses avec des codes d’état HTTP 2xx en Go. | OUI | OUI | Non  |
-| EgressHttpStatus3xx | Transfert de données sortantes pour les réponses avec des codes d’état HTTP 3xx en Go. | OUI | OUI | Non  |
-| EgressHttpStatus4xx | Transfert de données sortantes pour les réponses avec des codes d’état HTTP 4xx en Go. | OUI | OUI | Non  |
-| EgressHttpStatus5xx | Transfert de données sortantes pour les réponses avec des codes d’état HTTP 5xx en Go. | OUI | OUI | Non |
-| EgressHttpStatusOthers | Transfert de données sortantes pour les réponses avec d’autres codes d’état HTTP en Go. | OUI | OUI | Non  |
-| EgressCacheHit | Transfert de données sortantes pour les réponses qui ont été livrées directement à partir du cache CDN sur les points de présence/périmètres CDN. | OUI | OUI | Non |
-| EgressCacheMiss. | Transfert des données sortantes pour les réponses introuvables sur le serveur POP le plus proche et récupérées à partir du serveur d’origine. | OUI | OUI | Non |
-| EgressCacheNoCache | Transferts de données sortants pour les ressources empêchés d’être mis en cache en raison d’une configuration de l’utilisateur sur le périmètre. | OUI | OUI | Non |
-| EgressCacheUncacheable | Transfert de données sortantes pour les ressources empêchées d’être mises en cache par les en-têtes Cache-Control et/ou Expires. Cela indique qu’elles ne doivent pas être mises en cache sur un point de présence ou par le client HTTP. | OUI | OUI | Non |
-| EgressCacheOthers | Transfère les données sortantes pour d’autres scénarios de cache. | Non | OUI | Non |
+| RequestCountTotal         | Nombre total d’occurrences de requêtes pendant cette période. | Oui | Oui |Oui |
+| RequestCountHttpStatus2xx | Nombre total des requêtes ayant abouti à un code HTTP 2xx (par exemple, 200, 202). | Oui | Oui |Oui |
+| RequestCountHttpStatus3xx | Nombre total des requêtes ayant abouti à un code HTTP 3xx (par exemple, 300, 302). | Oui | Oui |Oui |
+| RequestCountHttpStatus4xx | Nombre total des requêtes ayant abouti à un code HTTP 4xx (par exemple, 400, 404). | Oui | Oui |Oui |
+| RequestCountHttpStatus5xx | Nombre total des requêtes ayant abouti à un code HTTP 5xx (par exemple, 500, 504). | Oui | Oui |Oui |
+| RequestCountHttpStatusOthers | Nombre total des autres codes HTTP (en dehors de 2xx-5xx). | Oui | Oui |Oui |
+| RequestCountHttpStatus200 | Nombre total des requêtes ayant abouti à un code HTTP 200. | Oui | Non  |Oui |
+| RequestCountHttpStatus206 | Nombre total des requêtes ayant abouti à un code HTTP 206. | Oui | Non  |Oui |
+| RequestCountHttpStatus302 | Nombre total des requêtes ayant abouti à un code HTTP 302. | Oui | Non  |Oui |
+| RequestCountHttpStatus304 | Nombre total des requêtes ayant abouti à un code HTTP 304. | Oui | Non  |Oui |
+| RequestCountHttpStatus404 | Nombre total des requêtes ayant abouti à un code HTTP 404. | Oui | Non  |Oui |
+| RequestCountCacheHit | Nombre de toutes les requêtes qui ont abouti à un accès au cache. La ressource a été traitée directement du point de présence vers le client. | Oui | Oui | Non  |
+| RequestCountCacheMiss | Nombre de toutes les requêtes qui ont abouti à un échec de cache. Un échec de cache signifie que la ressource est introuvable sur le point de présence le plus proche du client et a donc été récupérée à l’origine. | Oui | Oui | Non |
+| RequestCountCacheNoCache | Nombre de requêtes vers une ressource empêchées d’être mises en cache en raison d’une configuration de l’utilisateur sur le périmètre. | Oui | Oui | Non |
+| RequestCountCacheUncacheable | Nombre total des requêtes de ressources que les en-têtes Cache-Control et Expires empêchent de mettre en cache, et qui indiquent qu’elles ne doivent pas être mises en cache sur un point de présence ou par le client HTTP. | Oui | Oui | Non |
+| RequestCountCacheOthers | Nombre de toutes les requêtes avec un état du cache non traité ci-dessus. | Non | Oui | Non  |
+| EgressTotal | Transfert de données sortantes en Go | Oui |Oui |Oui |
+| EgressHttpStatus2xx | Transfert de données sortantes* pour les réponses avec des codes d’état HTTP 2xx en Go. | Oui | Oui | Non  |
+| EgressHttpStatus3xx | Transfert de données sortantes pour les réponses avec des codes d’état HTTP 3xx en Go. | Oui | Oui | Non  |
+| EgressHttpStatus4xx | Transfert de données sortantes pour les réponses avec des codes d’état HTTP 4xx en Go. | Oui | Oui | Non  |
+| EgressHttpStatus5xx | Transfert de données sortantes pour les réponses avec des codes d’état HTTP 5xx en Go. | Oui | Oui | Non |
+| EgressHttpStatusOthers | Transfert de données sortantes pour les réponses avec d’autres codes d’état HTTP en Go. | Oui | Oui | Non  |
+| EgressCacheHit | Transfert de données sortantes pour les réponses qui ont été livrées directement à partir du cache CDN sur les points de présence/périmètres CDN. | Oui | Oui | Non |
+| EgressCacheMiss. | Transfert des données sortantes pour les réponses introuvables sur le serveur POP le plus proche et récupérées à partir du serveur d’origine. | Oui | Oui | Non |
+| EgressCacheNoCache | Transferts de données sortants pour les ressources empêchés d’être mis en cache en raison d’une configuration de l’utilisateur sur le périmètre. | Oui | Oui | Non |
+| EgressCacheUncacheable | Transfert de données sortantes pour les ressources empêchées d’être mises en cache par les en-têtes Cache-Control et/ou Expires. Cela indique qu’elles ne doivent pas être mises en cache sur un point de présence ou par le client HTTP. | Oui | Oui | Non |
+| EgressCacheOthers | Transfère les données sortantes pour d’autres scénarios de cache. | Non | Oui | Non |
 
 \* Le transfert de données sortantes fait référence au trafic produit des serveurs POP CDN vers le client.
 

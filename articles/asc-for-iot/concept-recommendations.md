@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/24/2019
 ms.author: mlottner
 ms.openlocfilehash: a8de821abcedf6bb9a331852a2c0af9b6439667a
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78303577"
 ---
 # <a name="security-recommendations"></a>Recommandations de sécurité
@@ -32,7 +32,7 @@ Vous trouverez dans cet article la liste des recommandations qui peuvent être d
 
 Les recommandations portant sur les appareils offrent des insights et des suggestions d’amélioration de la posture de sécurité des appareils. 
 
-| severity | Nom                                                      | source de données | Description                                                                                                                                                                                           |
+| severity | Name                                                      | source de données | Description                                                                                                                                                                                           |
 |----------|-----------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Moyenne   | Ports ouverts sur l’appareil                                      | Agent       | Un point de terminaison d’écoute a été trouvé sur l’appareil.                                                                                                                                                        |
 | Moyenne   | Stratégie de pare-feu permissive détectée dans l’une des chaînes | Agent       | Une stratégie de pare-feu autorisée a été trouvée (ENTRÉE/SORTIE). Une stratégie de pare-feu doit par défaut refuser tout le trafic et définir des règles pour autoriser la communication nécessaire à l’appareil.                               |
@@ -44,7 +44,7 @@ Les recommandations portant sur les appareils offrent des insights et des sugges
 
 Les recommandations opérationnelles offrent des insights et des suggestions d’amélioration de la configuration de l’agent de sécurité.
 
-| severity | Nom                                    | source de données | Description                                                                       |
+| severity | Name                                    | source de données | Description                                                                       |
 |----------|-----------------------------------------|-------------|-----------------------------------------------------------------------------------|
 | Faible      | L’agent envoie des messages inutilisés          | Agent       | La taille d’au moins 10 % des messages de sécurité était inférieure à 4 Ko au cours des dernières 24 heures.  |
 | Faible      | Configuration du jumeau de sécurité non optimale | Agent       | La configuration du jumeau de sécurité n’est pas optimale.                                        |
@@ -55,7 +55,7 @@ Les recommandations opérationnelles offrent des insights et des suggestions d�
 
 Les alertes de recommandation offrent des insights et des suggestions d’actions visant à améliorer la posture de sécurité de l’environnement.  
 
-| severity | Nom                                                     | source de données | Description                                                                                                                                                                                                             |
+| severity | Name                                                     | source de données | Description                                                                                                                                                                                                             |
 |----------|----------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Élevé     | Informations d’authentification identiques utilisées par plusieurs appareils | IoT Hub     | Des informations d’authentification IoT Hub sont utilisées par plusieurs appareils, ce qui peut indiquer qu’un appareil illégitime usurpe l’identité d’un appareil légitime. Les doublons d’informations d’identification augmentent le risque d’emprunt d’identité de l’appareil par un acteur malveillant. |
 | Moyenne   | La stratégie de filtre IP par défaut devrait être de refuser                  | IoT Hub     | La configuration du filtre IP devrait comporter des règles concernant le trafic autorisé et, par défaut, refuser le reste du trafic.                                                                                                     |

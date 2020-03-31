@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
 ms.openlocfilehash: c110a4e0429ba52e01c472097a2241f91d504cf5
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77616206"
 ---
 # <a name="deploy-sap-s4hana-or-bw4hana-on-azure"></a>Déploiement de SAP S/4HANA ou BW/4HANA sur Azure
@@ -119,7 +119,7 @@ Nous présentons ici la séquence de déploiement de base.
 
     d. Entrez un mot de passe principal pour la solution dans le champ **Password** (Mot de passe). Celui-ci doit comprendre huit ou neuf caractères. Le mot de passe est utilisé pour les administrateurs des différents composants.
 
-   ![Mode De base SAP CAL : Créer une instance](./media/cal-s4h/s4h-pic10a.png)
+   ![Mode de base SAP CAL : créer une instance](./media/cal-s4h/s4h-pic10a.png)
 
 1. Cliquez sur **Create** (Créer), puis, dans la boîte de message qui s’affiche, cliquez sur **OK**.
 

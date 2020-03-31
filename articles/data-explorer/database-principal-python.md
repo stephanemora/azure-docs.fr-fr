@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.openlocfilehash: 8b9c4f4d5427b326c273558db0bff808068b192a
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76965278"
 ---
 # <a name="add-database-principals-for-azure-data-explorer-by-using-python"></a>Ajouter des principaux de base de données pour Azure Data Explorer à l’aide de Python
@@ -92,7 +92,7 @@ poller = kusto_management_client.database_principal_assignments.create_or_update
 | principal_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | ID du principal, qui peut être l’e-mail de l’utilisateur, l’ID de l’application ou le nom du groupe de sécurité.|
 | rôle | *Administrateur* | Rôle de votre principal de base de données, qui peut être « Admin » (Administrateur), « Ingestor » (Ingesteur), « Monitor » (Superviseur), « User » (Utilisateur), « UnrestrictedViewers » (Utilisateurs en lecture sans restrictions) ou « Viewer » (Utilisateur en lecture seule).|
 | tenant_id_for_principal | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | ID de locataire du principal.|
-| principal_type | *Application* | Type du principal, qui peut être « User » (Utilisateur), « App » (Application) ou « Group » (Groupe)|
+| principal_type | *Application* | Type du principal, qui peut être « User » (Utilisateur), « App » (Application) ou « Group » (Groupe).|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

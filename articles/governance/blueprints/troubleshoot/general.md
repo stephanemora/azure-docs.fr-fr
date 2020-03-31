@@ -4,10 +4,10 @@ description: Découvrez comment détecter un problème lié à la création, à 
 ms.date: 01/15/2020
 ms.topic: troubleshooting
 ms.openlocfilehash: 7306e344a479008a87164a954c4444d375950b0b
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76157081"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Résoudre les erreurs à l’aide de blueprints Azure
@@ -30,13 +30,13 @@ Il est courant que l’erreur soit due à un artefact et non au blueprint lui-m�
 
 ## <a name="general-errors"></a>Erreurs générales.
 
-### <a name="policy-violation"></a>Scénario : Violation de stratégie
+### <a name="scenario-policy-violation"></a><a name="policy-violation"></a>Scénario : Violation de stratégie
 
 #### <a name="issue"></a>Problème
 
 Le déploiement du modèle a échoué à cause de la violation de stratégie.
 
-#### <a name="cause"></a>Cause :
+#### <a name="cause"></a>Cause
 
 Une stratégie peut entrer en conflit avec le déploiement pour plusieurs raisons :
 
@@ -47,13 +47,13 @@ Une stratégie peut entrer en conflit avec le déploiement pour plusieurs raison
 
 Modifiez le blueprint pour qu’il ne soit pas en conflit avec les stratégies indiquées dans les détails de l’erreur. Si cette modification n’est pas possible, une autre option consiste à changer l’étendue de l’affectation de stratégie de sorte que le blueprint ne soit plus en conflit avec la stratégie.
 
-### <a name="escape-function-parameter"></a>Scénario : le paramètre de blueprint est une fonction
+### <a name="scenario-blueprint-parameter-is-a-function"></a><a name="escape-function-parameter"></a>Scénario : le paramètre de blueprint est une fonction
 
 #### <a name="issue"></a>Problème
 
 Les paramètres de blueprint qui sont des fonctions sont traitées avant d’être transmises aux artefacts.
 
-#### <a name="cause"></a>Cause :
+#### <a name="cause"></a>Cause
 
 En passant un paramètre de blueprint qui utilise une fonction, comme `[resourceGroup().tags.myTag]`, à un artefact fait que le résultat traité de la fonction est défini sur l’artefact et non sur la fonction dynamique.
 
@@ -63,13 +63,13 @@ Pour passer une fonction en tant que paramètre, ajoutez un caractère d’écha
 
 ## <a name="delete-errors"></a>Supprimer les erreurs
 
-### <a name="assign-delete-timeout"></a>Scénario : Expiration du délai de suppression de l’attribution
+### <a name="scenario-assignment-deletion-timeout"></a><a name="assign-delete-timeout"></a>Scénario : Expiration du délai de suppression de l’attribution
 
 #### <a name="issue"></a>Problème
 
 La suppression d’une attribution de blueprint ne se termine pas.
 
-#### <a name="cause"></a>Cause :
+#### <a name="cause"></a>Cause
 
 Une attribution de blueprint peut être bloquée dans un état non terminal lors de sa suppression. Cet état est dû au fait que les ressources créées par l’attribution de blueprint sont toujours en attente de suppression ou ne retournent pas de code d’état à Azure Blueprints.
 

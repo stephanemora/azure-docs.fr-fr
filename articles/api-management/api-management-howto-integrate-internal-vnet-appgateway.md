@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: sasolank
-ms.openlocfilehash: 129f407dd66b32ea097daf4ed9110ffbba23660c
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 2b8cf66afa1d8aa592d5755ebab70cd6ad2e75fd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77017597"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79298051"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Intégrer le service Gestion des API dans un réseau virtuel interne avec Application Gateway
 
-## <a name="overview"> </a> Vue d’ensemble
+## <a name="overview"></a><a name="overview"> </a> Vue d’ensemble
 
 Le service Gestion des API peut être configuré dans un réseau virtuel en mode interne, ce qui le rend uniquement accessible à partir du réseau virtuel. Azure Application Gateway est un service PAAS qui propose un équilibreur de charge de couche 7. Il agit comme un service proxy inverse et fournit dans son offre un pare-feu d’applications web (WAF).
 
@@ -47,7 +47,7 @@ Pour suivre les étapes décrites dans cet article, vous devez disposer des él�
 
 * Des certificats : pfx et cer pour le nom d’hôte de l’API, et pfx pour le nom d’hôte du portail des développeurs.
 
-## <a name="scenario"> </a> Scénario
+## <a name="scenario"></a><a name="scenario"> </a> Scénario
 
 Dans cet article, nous allons étudier comment utiliser un seul et même service Gestion des API pour les consommateurs internes et externes, et l’utiliser comme serveur frontal sur les API locales et cloud. Vous allez également voir comment exposer uniquement un sous-ensemble de vos API (dans cet exemple, elles sont mises en surbrillance en vert) pour une consommation externe, à l’aide de la fonctionnalité disponible dans Application Gateway.
 
@@ -55,21 +55,21 @@ Dans le premier exemple de configuration, toutes vos API sont gérées uniquemen
 
 ![itinéraire d’URL](./media/api-management-howto-integrate-internal-vnet-appgateway/api-management-howto-integrate-internal-vnet-appgateway.png)
 
-## <a name="before-you-begin"> </a> Avant de commencer
+## <a name="before-you-begin"></a><a name="before-you-begin"> </a> Avant de commencer
 
 * Assurez-vous que vous disposez de la version la plus récente d’Azure PowerShell. Consultez les instructions d’installation sur [Installer Azure PowerShell](/powershell/azure/install-az-ps). 
 
 ## <a name="what-is-required-to-create-an-integration-between-api-management-and-application-gateway"></a>Qu’est-ce qui est nécessaire pour créer une intégration entre le service Gestion des API et Application Gateway ?
 
-* **Pool de serveurs back-end :** Adresse IP virtuelle interne du service Gestion des API.
-* **Paramètres de pool de serveurs back-end :** Chaque pool dispose de paramètres tels que le port, le protocole et l’affinité en fonction des cookies. Ces paramètres sont appliqués à tous les serveurs du pool.
-* **Port front-end :** Il s’agit du port public ouvert sur la passerelle d’application. Le trafic l’atteignant est redirigé vers l’un des serveurs principaux.
-* **Écouteur :** l’écouteur a un port front-end, un protocole (Http ou Https, avec respect de la casse) et le nom du certificat SSL (en cas de configuration du déchargement SSL).
-* **Règle :** La règle relie un écouteur à un pool de serveurs principaux.
+* **Pool de serveurs principaux :** adresse IP virtuelle interne du service Gestion des API.
+* **Paramètres du pool de serveurs principaux :** chaque pool comporte des paramètres tels que le port, le protocole et une affinité basée sur des cookies. Ces paramètres sont appliqués à tous les serveurs du pool.
+* **Port frontal :** port public ouvert sur la passerelle Application Gateway. Le trafic l’atteignant est redirigé vers l’un des serveurs principaux.
+* **Écouteur :** l’écouteur a un port frontal, un protocole (Http ou Https, avec respect de la casse) et le nom du certificat SSL (en cas de configuration du déchargement SSL).
+* **Règle :** la règle relie un écouteur à un pool de serveurs principaux.
 * **Sonde d’intégrité personnalisée :** Application Gateway, par défaut, utilise des sondes basées sur des adresses IP pour déterminer les serveurs actifs dans le BackendAddressPool. Le service Gestion des API répond uniquement aux requêtes avec l’en-tête d’hôte est correct. C’est pourquoi les sondes par défaut échouent. Une sonde d’intégrité personnalisée doit être définie pour aider Application Gateway à déterminer que le service est actif et qu’il doit transférer les demandes.
-* **Certificat de domaine personnalisé :** Pour accéder au service Gestion des API à partir d’Internet, vous devez créer un mappage CNAME de son nom d’hôte au nom DNS frontal d’Application Gateway. Cela garantit que l’en-tête de nom d’hôte et le certificat envoyé à Application Gateway qui est transféré au service Gestion des API peuvent être reconnus comme valides par l’APIM. Dans cet exemple, nous allons utiliser deux certificats : pour le serveur backend et pour le portail des développeurs.  
+* **Certificats de domaine personnalisés :** pour accéder au service Gestion des API à partir d’Internet, vous devez créer un mappage CNAME de son nom d’hôte au nom DNS frontal d’Application Gateway. Cela garantit que l’en-tête de nom d’hôte et le certificat envoyé à Application Gateway qui est transféré au service Gestion des API peuvent être reconnus comme valides par l’APIM. Dans cet exemple, nous allons utiliser deux certificats : pour le serveur backend et pour le portail des développeurs.  
 
-## <a name="overview-steps"> </a> Étapes requises pour l’intégration du service Gestion des API et d’Application Gateway
+## <a name="steps-required-for-integrating-api-management-and-application-gateway"></a><a name="overview-steps"> </a> Étapes requises pour l’intégration du service Gestion des API et d’Application Gateway
 
 1. Créer un groupe de ressources pour Resource Manager
 2. Créer un réseau virtuel, un sous-réseau et une adresse IP publique pour la passerelle Application Gateway Créer un autre sous-réseau pour le service Gestion des API
@@ -84,7 +84,7 @@ Dans le premier exemple de configuration, toutes vos API sont gérées uniquemen
 Dans ce guide, nous allons également exposer le **portail des développeurs** à un public extérieur à l’aide d’Application Gateway. Cela nécessite des étapes supplémentaires pour créer un écouteur, une sonde, des paramètres et des règles pour le portail des développeurs. Tous les détails sont fournis dans les étapes respectives.
 
 > [!WARNING]
-> Si vous utilisez Azure AD ou une authentification tierce partie, veuillez activer la fonctionnalité [Affinité de session basée sur les cookies](https://docs.microsoft.com/azure/application-gateway/overview#session-affinity) dans Application Gateway.
+> Si vous utilisez Azure AD ou une authentification tierce partie, veuillez activer la fonctionnalité [Affinité de session basée sur les cookies](../application-gateway/features.md#session-affinity) dans Application Gateway.
 
 > [!WARNING]
 > Pour empêcher le pare-feu d’applications web Application Gateway de rompre le téléchargement de la spécification OpenAPI dans le portail des développeurs, vous devez désactiver la règle de pare-feu `942200 - "Detects MySQL comment-/space-obfuscated injections and backtick termination"`.
@@ -363,10 +363,10 @@ Le nom DNS de la passerelle Application Gateway doit être utilisé pour créer 
 Get-AzPublicIpAddress -ResourceGroupName $resGroupName -Name "publicIP01"
 ```
 
-## <a name="summary"> </a> Récapitulatif
+## <a name="summary"></a><a name="summary"> </a> Récapitulatif
 Le service Gestion des API Azure configuré dans un réseau virtuel fournit une interface de passerelle unique pour l’ensemble des API configurées, qu’elles soient hébergées en local ou dans le cloud. L’intégration d’Application Gateway au service Gestion des API vous permet d’activer facilement l’accessibilité d’API particulières sur Internet, tout en fournissant un pare-feu d’applications web en tant que pare-feu frontal pour votre instance de service Gestion des API.
 
-## <a name="next-steps"> </a>Étapes suivantes
+## <a name="next-steps"></a><a name="next-steps"> </a>Étapes suivantes
 * En savoir plus sur Azure Application Gateway
   * [Vue d’ensemble d’Application Gateway](../application-gateway/application-gateway-introduction.md)
   * [Pare-feu d’applications web sur Application Gateway](../application-gateway/application-gateway-webapplicationfirewall-overview.md)

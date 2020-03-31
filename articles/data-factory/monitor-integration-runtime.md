@@ -11,11 +11,11 @@ author: djpmsft
 ms.author: daperlov
 manager: anandsub
 ms.openlocfilehash: 2399849b87e44c5cb70d2db987ae18d8d2d9c552
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78355840"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79230133"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Surveiller un runtime d’intégration dans Azure Data Factory  
 Le **runtime d’intégration** est l’infrastructure de calcul utilisée par Azure Data Factory pour fournir des capacités d’intégration de données entre différents environnements réseau. Azure Data Factory propose trois types de runtimes d’intégration :
@@ -78,13 +78,13 @@ Le tableau suivant fournit des descriptions des propriétés de surveillance pou
 | Tâches simultanées (en cours d’exécution/limite) | **Exécution en cours**. Nombre de travaux ou tâches qui s’exécutent sur chaque nœud. Cette valeur est un instantané en quasi temps réel. <br/><br/>**Limite**. La limite correspond au nombre maximal de travaux simultanés pour chaque nœud. Cette valeur est définie selon la taille de l’ordinateur. Vous pouvez augmenter la limite pour monter en puissance l’exécution de tâches simultanées dans les scénarios avancés, quand des activités expirent alors même que le processeur, la mémoire ou le réseau est sous-utilisé. Cette fonctionnalité est également disponible avec un runtime d’intégration d’auto-hébergé à nœud unique. |
 | Role | Il existe deux types de rôles dans un runtime d’intégration auto-hébergé à nœuds multiples : répartiteur et rôle de travail. Tous les nœuds sont des rôles de travail, ce qui signifie qu’ils peuvent tous être utilisés pour exécuter des tâches. Il n’existe qu’un seul nœud répartiteur. Il est utilisé pour extraire des tâches ou des travaux auprès de services cloud et pour les répartir entre différents nœuds rôles de travail. Le nœud répartiteur est également un nœud rôle de travail. |
 
-Certains paramètres de ces propriétés semblent plus logiques dans une configuration d’au moins deux nœuds dans le runtime d’intégration auto-hébergé (autrement dit, dans un scénario d’augmentation du nombre d’instances).
+Certains paramètres de ces propriétés semblent plus logiques dans une configuration d’au moins deux nœuds dans le runtime d’intégration auto-hébergé (autrement dit, dans un scénario de scale-out).
 
 #### <a name="concurrent-jobs-limit"></a>Limite de tâches simultanées
 
 La valeur par défaut de la limite de tâches simultanées est définie selon la taille de la machine. Les facteurs utilisés pour calculer cette valeur dépendent de la quantité de RAM et du nombre de cœurs de processeur de la machine. Ainsi, plus il y a de cœurs et de mémoire, plus la limite par défaut de tâches simultanées est élevée.
 
-Vous montez en charge en augmentant le nombre de nœuds. Lorsque vous augmentez le nombre de nœuds, la limite de tâches simultanées est constituée par la somme des valeurs de limite de tâches simultanées de tous les nœuds disponibles.  Par exemple, si un seul nœud vous permet d’exécuter un maximum de douze tâches simultanées, l’ajout de trois nœuds similaires supplémentaires vous permet d’exécuter un maximum de 48 tâches simultanées (c’est-à-dire 4 x 12). Nous vous recommandons d’augmenter la limite de tâches simultanées uniquement lorsque vous constatez une faible utilisation des ressources avec des valeurs par défaut sur chaque nœud.
+Vous effectuez un scale-out en augmentant le nombre de nœuds. Lorsque vous augmentez le nombre de nœuds, la limite de tâches simultanées est constituée par la somme des valeurs de limite de tâches simultanées de tous les nœuds disponibles.  Par exemple, si un seul nœud vous permet d’exécuter un maximum de douze tâches simultanées, l’ajout de trois nœuds similaires supplémentaires vous permet d’exécuter un maximum de 48 tâches simultanées (c’est-à-dire 4 x 12). Nous vous recommandons d’augmenter la limite de tâches simultanées uniquement lorsque vous constatez une faible utilisation des ressources avec des valeurs par défaut sur chaque nœud.
 
 Vous pouvez remplacer la valeur par défaut calculée dans le portail Azure. Sélectionnez Auteur > Connexions > Runtimes d’intégration > Modifier > Nœuds > Modifier la valeur de tâches simultanées par nœud. Vous pouvez également utiliser la commande PowerShell [update-Azdatafactoryv2integrationruntimenode](https://docs.microsoft.com/powershell/module/az.datafactory/update-Azdatafactoryv2integrationruntimenode#examples).
   
@@ -223,7 +223,7 @@ Pour plus d’informations sur le runtime d’intégration Azure-SSIS, voir les 
 - [Azure-SSIS Integration Runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime) (Runtime d’intégration Azure-SSIS). Cet article fournit des informations conceptuelles sur les runtimes d’intégration en général, y compris sur le runtime d’intégration Azure-SSIS. 
 - [Didacticiel : deploy SSIS packages to Azure](tutorial-create-azure-ssis-runtime-portal.md) (Déployer des packages SSIS vers Azure). Cet article fournit des instructions détaillées pour créer un runtime d’intégration Azure-SSIS qui utilise une base de données Azure SQL pour héberger le catalogue SSIS. 
 - [Procédure : Créer un runtime d’intégration Azure-SSIS](create-azure-ssis-integration-runtime.md). Cet article s’appuie sur le tutoriel et fournit des instructions sur la façon d’utiliser Azure SQL Database Managed Instance et de joindre le runtime d’intégration à un réseau virtuel. 
-- [Manage an Azure-SSIS IR](manage-azure-ssis-integration-runtime.md) (Gérer un runtime d’intégration Azure-SSIS). Cet article vous explique comment arrêter, démarrer ou supprimer un runtime d’intégration Azure-SSIS. Il vous montre également comment le faire évoluer en lui ajoutant des nœuds supplémentaires. 
+- [Manage an Azure-SSIS IR](manage-azure-ssis-integration-runtime.md) (Gérer un runtime d’intégration Azure-SSIS). Cet article vous explique comment arrêter, démarrer ou supprimer un runtime d’intégration Azure-SSIS. Il vous montre également comment effectuer un scale-out en lui ajoutant des nœuds supplémentaires. 
 - [Joindre un runtime d’intégration Azure-SSIS à un réseau virtuel](join-azure-ssis-integration-runtime-virtual-network.md). Cet article fournit des informations conceptuelles sur la façon d’attacher un runtime d’intégration Azure-SSIS à un réseau virtuel Azure. Il décrit également les étapes nécessaires pour utiliser le portail Azure afin de configurer le réseau virtuel de sorte que le runtime d’intégration Azure-SSIS puisse le rejoindre. 
 
 ## <a name="next-steps"></a>Étapes suivantes

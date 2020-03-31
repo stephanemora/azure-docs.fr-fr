@@ -7,11 +7,11 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: sutalasi
 ms.openlocfilehash: 6499c986bef965848303ee9833fd59f5e3f0889c
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773430"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79229165"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Configurer la récupération d’urgence dans Azure pour les machines virtuelles Hyper-V à l’aide de PowerShell et de Azure Resource Manager
 
@@ -42,7 +42,7 @@ De plus, l’exemple décrit dans cet article présente les conditions préalabl
 - Un hôte Hyper-V exécuté sous Windows Server 2012 R2 ou Microsoft Hyper-V Server 2012 R2 et hébergeant une ou plusieurs machines virtuelles. Les serveurs Hyper-V doivent être connectés à Internet, directement ou à travers un proxy.
 - Les machines virtuelles que vous souhaitez répliquer doivent respecter ces [conditions préalables](hyper-v-azure-support-matrix.md#replicated-vms).
 
-## <a name="step-1-sign-in-to-your-azure-account"></a>Étape 1 : Connexion à votre compte Azure
+## <a name="step-1-sign-in-to-your-azure-account"></a>Étape 1 : Connexion à votre compte Azure
 
 1. Ouvrez une console PowerShell et exécutez la commande suivante pour vous connecter à votre compte Azure. L’applet de commande permet d’afficher une page web qui vous demande les informations d’identification de votre compte : `Connect-AzAccount`.
    - Vous pouvez également inclure les informations d’identification de votre compte en tant que paramètre dans l’applet de commande `Connect-AzAccount` à l’aide du paramètre **Credential**.
@@ -71,7 +71,7 @@ De plus, l’exemple décrit dans cet article présente les conditions préalabl
    Get-AzResourceProvider -ProviderNamespace  Microsoft.RecoveryServices
    ```
 
-## <a name="step-2-set-up-the-vault"></a>Étape 2 : Configurer le coffre
+## <a name="step-2-set-up-the-vault"></a>Étape 2 : Configuration du coffre
 
 1. Créez un groupe de ressources Azure Resource Manager dans lequel vous allez créer le coffre, ou utilisez un groupe de ressources existant. Créez un nouveau groupe de ressources de la manière suivante. La variable `$ResourceGroupName` contient le nom du groupe de ressources que vous souhaitez créer et la variable $Geo contient la région Azure dans laquelle créer le groupe de ressources (par exemple, « Brésil Sud »).
 
@@ -88,7 +88,7 @@ De plus, l’exemple décrit dans cet article présente les conditions préalabl
 
 Vous pouvez récupérer la liste des coffres existants avec l’applet de commande `Get-AzRecoveryServicesVault`.
 
-## <a name="step-3-set-the-recovery-services-vault-context"></a>Étape 3 : Définir le contexte du coffre Recovery Services
+## <a name="step-3-set-the-recovery-services-vault-context"></a>Étape 3 : Définition du contexte du coffre Recovery Services
 
 Définissez le contexte d’archivage comme suit :
 
@@ -116,7 +116,7 @@ Set-AzRecoveryServicesAsrVaultContext -Vault $vault
 
 1. Copiez la clé téléchargée sur l’hôte Hyper-V. Vous avez besoin de la clé pour inscrire l’hôte Hyper-V sur le site.
 
-## <a name="step-5-install-the-provider-and-agent"></a>Étape 5 : Installer le fournisseur et l’agent
+## <a name="step-5-install-the-provider-and-agent"></a>Étape 5 : Installez le fournisseur et l’agent
 
 1. Téléchargez le programme d’installation de la dernière version du fournisseur sur le site de [Microsoft](https://aka.ms/downloaddra).
 1. Exécutez le programme d’installation sur l’hôte Hyper-V.
@@ -188,7 +188,7 @@ Avant de commencer, le compte de stockage spécifié doit se trouver dans la mê
    $ProtectionContainerMapping = Get-AzRecoveryServicesAsrProtectionContainerMapping -ProtectionContainer $protectionContainer
    ```
 
-## <a name="step-7-enable-vm-protection"></a>Étape 7 : Activer la protection des machines virtuelles
+## <a name="step-7-enable-vm-protection"></a>Étape 7 : Activation de la protection de machine virtuelle
 
 1. Récupérez l’élément protégeable correspondant à la machine virtuelle que vous souhaitez protéger comme suit :
 
@@ -244,7 +244,7 @@ Avant de commencer, le compte de stockage spécifié doit se trouver dans la mê
 > 1. Créez un objet de dictionnaire à l’aide de l’applet de commande `New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"` destiné à contenir le mappage de l’ID de disque au jeu de chiffrement de disque. Vous devez créer ces jeux de chiffrement de disque au préalable dans la région cible.
 > 1. Mettez à jour les propriétés des machines virtuelles à l’aide de l’applet de commande `Set-AzRecoveryServicesAsrReplicationProtectedItem` en passant l’objet du dictionnaire dans le paramètre **DiskIdToDiskEncryptionSetMap**.
 
-## <a name="step-8-run-a-test-failover"></a>Étape 8 : Exécuter un test de basculement
+## <a name="step-8-run-a-test-failover"></a>Étape 8 : Exécution d’un test de basculement
 
 1. Exécutez un test de basculement, en procédant comme suit :
 

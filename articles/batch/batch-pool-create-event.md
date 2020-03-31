@@ -12,10 +12,10 @@ ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: labrenne
 ms.openlocfilehash: dea025b274278aa5fed2900c95b4a274541ffef9
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77022187"
 ---
 # <a name="pool-create-event"></a>Événement de création de pool
@@ -75,14 +75,14 @@ ms.locfileid: "77022187"
 |`maxTasksPerNode`|Int32|Nombre maximal de tâches pouvant s’exécuter simultanément sur un nœud de calcul unique au sein du pool.|
 |`vmFillType`|String|Définit la manière dont le service Batch distribue les tâches entre les nœuds de calcul au sein du pool. Les valeurs valides sont Spread ou Pack.|
 
-###  <a name="bk_csconf"></a> cloudServiceConfiguration
+###  <a name="cloudserviceconfiguration"></a><a name="bk_csconf"></a> cloudServiceConfiguration
 
 |Nom de l'élément|Type|Notes|
 |------------------|----------|-----------|
 |`osFamily`|String|Famille de systèmes d’exploitation invités d’Azure à installer sur les machines virtuelles au sein du pool.<br /><br /> Les valeurs possibles sont les suivantes :<br /><br /> **2**: famille de systèmes d’exploitation 2, équivalent à Windows Server 2008 R2 SP1.<br /><br /> **3**: famille de systèmes d’exploitation 3, équivalent à Windows Server 2012.<br /><br /> **4**: famille de systèmes d’exploitation 4, équivalent à Windows Server 2012 R2.<br /><br /> Pour plus d’informations, voir [Publications de système d’exploitation invité d’Azure](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases).|
 |`targetOSVersion`|String|Version du système d’exploitation invité d’Azure à installer sur les machines virtuelles du pool.<br /><br /> La valeur par défaut est **\*** qui spécifie la dernière version du système d’exploitation pour la famille spécifiée.<br /><br /> Pour les autres valeurs autorisées, voir [Publications de système d’exploitation invité d’Azure](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases).|
 
-###  <a name="bk_vmconf"></a> virtualMachineConfiguration
+###  <a name="virtualmachineconfiguration"></a><a name="bk_vmconf"></a> virtualMachineConfiguration
 
 |Nom de l'élément|Type|Notes|
 |------------------|----------|-----------|
@@ -90,7 +90,7 @@ ms.locfileid: "77022187"
 |`nodeAgentId`|String|Référence (SKU) de l’agent du nœud Batch configuré sur le nœud de calcul.|
 |[`windowsConfiguration`](#bk_winconf)|Type complexe|Spécifie les paramètres du système d’exploitation Windows sur la machine virtuelle. Cette propriété ne doit pas être spécifiée si la propriété imageReference fait référence à une image de système d’exploitation Linux.|
 
-###  <a name="bk_imgref"></a> imageReference
+###  <a name="imagereference"></a><a name="bk_imgref"></a> imageReference
 
 |Nom de l'élément|Type|Notes|
 |------------------|----------|-----------|
@@ -99,13 +99,13 @@ ms.locfileid: "77022187"
 |`sku`|String|Référence (SKU) de l’image.|
 |`version`|String|La version de l’image.|
 
-###  <a name="bk_winconf"></a> windowsConfiguration
+###  <a name="windowsconfiguration"></a><a name="bk_winconf"></a> windowsConfiguration
 
 |Nom de l'élément|Type|Notes|
 |------------------|----------|-----------|
 |`enableAutomaticUpdates`|Boolean|Indique si la machine virtuelle est activée pour les mises à jour automatiques. Si cette propriété n’est pas spécifiée, la valeur par défaut est true.|
 
-###  <a name="bk_netconf"></a> networkConfiguration
+###  <a name="networkconfiguration"></a><a name="bk_netconf"></a> networkConfiguration
 
 |Nom de l'élément|Type|Notes|
 |------------------|--------------|----------|

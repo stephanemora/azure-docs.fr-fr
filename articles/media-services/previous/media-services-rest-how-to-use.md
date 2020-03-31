@@ -16,10 +16,10 @@ ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: johndeu
 ms.openlocfilehash: 597839f633ed2b925b86c5f859a0fb2d3b64dd59
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76773656"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Vue d’ensemble de l’API REST Media Services Operations 
@@ -76,7 +76,7 @@ Voici un ensemble d’en-têtes facultatifs :
 | --- | --- | --- |
 | Date |Date RFC 1123 |Horodatage de la demande |
 | Acceptation |Type de contenu |Type de contenu demandé pour la réponse, comme :<p> -application/json;odata=verbose<p> - application/atom+xml<p> Les réponses peuvent avoir un type de contenu différent, par exemple une extraction d’objets blob, dans laquelle une réponse correcte contient le flux d’objets blob en tant que charge utile. |
-| Accept-Encoding |Gzip, deflate |Codage GZIP et DEFLATE, le cas échéant. Remarque : Pour les ressources volumineuses, Media Services peut ignorer cet en-tête et retourner des données non compressées. |
+| Accept-Encoding |Gzip, deflate |Codage GZIP et DEFLATE, le cas échéant. Remarque : pour les ressources volumineuses, Media Services peut ignorer cet en-tête et retourner des données non compressées. |
 | Accept-Language |« en », « es » et ainsi de suite. |Spécifie la langue préférée pour la réponse. |
 | Accept-Charset |Type de jeu de caractères comme « UTF-8 » |La valeur par défaut est UTF-8. |
 | X-HTTP-Method |Méthode HTTP |Permet aux clients ou pare-feu ne prenant pas en charge les méthodes HTTP comme PUT ou DELETE d’utiliser ces méthodes, acheminées via un appel GET. |

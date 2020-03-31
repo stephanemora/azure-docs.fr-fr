@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: labrenne
-ms.openlocfilehash: 22ee4aad6d2aabcc26dd97e50a2c716cb14be67a
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: d0238e0b5b882748218835d7f06a147d435a9f90
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77483582"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80245053"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Utiliser des instances RDMA ou GPU dans des pools Batch
 
@@ -42,7 +42,7 @@ Les fonctionnalités RDMA ou GPU des tailles nécessitant beaucoup de ressources
 
 ### <a name="linux-pools---virtual-machine-configuration"></a>Pools Linux - Configuration de machine virtuelle
 
-| Size | Fonctionnalité | Systèmes d’exploitation | Logiciels requis | Paramètres de pool |
+| Taille | Fonctionnalité | Systèmes d’exploitation | Logiciels requis | Paramètres de pool |
 | -------- | -------- | ----- |  -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Ubuntu 16.04 LTS ou<br/>HPC basé sur CentOS<br/>(Place de marché Azure) | Intel MPI 5<br/><br/>Pilotes RDMA Linux | Activer la communication entre les nœuds, désactiver l’exécution simultanée des tâches |
 | [Séries NC, NCv2, NCv3, NDv2](../virtual-machines/linux/n-series-driver-setup.md) | GPU NVIDIA Tesla (varie selon la série) | Ubuntu 16.04 LTS ou<br/>CentOS 7.3 ou 7.4<br/>(Place de marché Azure) | Pilotes NVIDIA CUDA ou CUDA Toolkit | N/A | 
@@ -52,7 +52,7 @@ Les fonctionnalités RDMA ou GPU des tailles nécessitant beaucoup de ressources
 
 ### <a name="windows-pools---virtual-machine-configuration"></a>Pools Windows - Configuration de machine virtuelle
 
-| Size | Fonctionnalité | Systèmes d’exploitation | Logiciels requis | Paramètres de pool |
+| Taille | Fonctionnalité | Systèmes d’exploitation | Logiciels requis | Paramètres de pool |
 | -------- | ------ | -------- | -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/sizes-hpc.md)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/windows/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Windows Server 2016, 2012 R2, ou<br/>2012 (Place de Marché Azure) | Microsoft MPI 2012 R2 ou ultérieur, ou<br/> Intel MPI 5<br/><br/>Pilotes RDMA Windows | Activer la communication entre les nœuds, désactiver l’exécution simultanée des tâches |
 | [Séries NC, NCv2, NCv3, ND, NDv2](../virtual-machines/windows/n-series-driver-setup.md) | GPU NVIDIA Tesla (varie selon la série) | Windows Server 2016 ou <br/>2012 R2 (Place de Marché Azure) | Pilotes NVIDIA CUDA ou CUDA Toolkit| N/A | 
@@ -66,7 +66,7 @@ Les fonctionnalités RDMA ou GPU des tailles nécessitant beaucoup de ressources
 > Les tailles de série N ne sont pas prises en charge dans les pools Batch avec la configuration de service cloud.
 >
 
-| Size | Fonctionnalité | Systèmes d’exploitation | Logiciels requis | Paramètres de pool |
+| Taille | Fonctionnalité | Systèmes d’exploitation | Logiciels requis | Paramètres de pool |
 | -------- | ------- | -------- | -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/sizes-hpc.md) | RDMA | Windows Server 2016, 2012 R2, 2012, ou<br/>2008 R2 (Famille de système d’exploitation invité) | Microsoft MPI 2012 R2 ou ultérieur, ou<br/>Intel MPI 5<br/><br/>Pilotes RDMA Windows | Activer la communication entre les nœuds,<br/> désactiver l’exécution simultanée des tâches |
 
@@ -76,7 +76,7 @@ Pour configurer une taille de machine virtuelle spécialisée pour votre pool Ba
 
 * Pour les pools inclus dans la configuration de machine virtuelle, choisissez une image de machine virtuelle [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/) préconfigurée dotée de pilotes et logiciels préinstallés. Exemples : 
 
-  * [HPC basé sur CentOS 7.4](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased74HPC?tab=Overview) (inclut des pilotes RDMA et Intel MPI 5.1)
+  * [HPC basé sur CentOS 7.4](https://azuremarketplace.microsoft.com/marketplace/apps/openlogic.centos-hpc?tab=Overview) (inclut des pilotes RDMA et Intel MPI 5.1)
 
   * [Data Science Virtual Machine](../machine-learning/data-science-virtual-machine/overview.md) pour Linux ou Windows (inclut des pilotes NVIDIA CUDA)
 
@@ -156,7 +156,7 @@ Pour exécuter des applications Windows MPI sur un pool de nœuds de machine vir
 
 ## <a name="example-intel-mpi-on-a-linux-h16r-vm-pool"></a>Exemple : Intel MPI sur un pool de machines virtuelles H16r Linux
 
-Pour exécuter des applications MPI sur un pool de nœuds de série H Linux, une option consiste à utiliser l’image [HPC basée sur CentOS 7.4 ](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased74HPC?tab=Overview) de la Place de marché Azure. Les pilotes RDMA et Intel MPI Linux sont préinstallés. Cette image prend également en charge les charges de travail de conteneur Docker.
+Pour exécuter des applications MPI sur un pool de nœuds de série H Linux, une option consiste à utiliser l’image [HPC basée sur CentOS 7.4 ](https://azuremarketplace.microsoft.com/marketplace/apps/openlogic.centos-hpc?tab=Overview) de la Place de marché Azure. Les pilotes RDMA et Intel MPI Linux sont préinstallés. Cette image prend également en charge les charges de travail de conteneur Docker.
 
 En utilisant les API Batch ou le portail Azure, créez un pool à l’aide de cette image avec le nombre de nœuds et l’échelle souhaités. Le tableau suivant contient des exemples de paramètres de pool :
 

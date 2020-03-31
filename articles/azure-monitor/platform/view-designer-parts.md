@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/12/2018
 ms.openlocfilehash: 7dc4164cac1998a02ae62d7682f9630aa4faa619
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77658555"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Guide de référence des composants de visualisation du Concepteur de vues dans Azure Monitor
@@ -18,8 +18,8 @@ Grâce au Concepteur de vues d’Azure Monitor, vous pouvez créer plusieurs vue
 
 Pour plus d’informations sur le Concepteur de vues, consultez :
 
-* [Concepteur de vues](view-designer.md) : présentation du Concepteur de vues et des procédures de création et de modification des vues personnalisées.
-* [Référence de vignette](view-designer-tiles.md) : fournit une référence pour les paramètres de chaque vignette disponible dans vos vues personnalisées.
+* [Concepteur de vues](view-designer.md) : fournit une présentation du Concepteur de vues et des procédures de création et de modification des vues personnalisées.
+* [Référence de la vignette](view-designer-tiles.md) : fournit une référence pour les paramètres de chaque vignette disponible dans vos vues personnalisées.
 
 
 Les types de vignettes du Concepteur de vues disponibles sont décrites dans le tableau suivant :
@@ -81,7 +81,7 @@ L’en-tête affiche une valeur qui indique le nombre d’enregistrements obtenu
 | Séparateur de noms et de valeurs |Délimiteur de caractère unique à utiliser pour analyser la propriété de texte en plusieurs valeurs. Pour plus d’informations, consultez [Paramètres courants](#sparklines). |
 | Navigation par clic | Action effectuée lorsque vous cliquez sur un élément dans la liste.  Pour plus d’informations, consultez [Paramètres courants](#click-through-navigation). |
 | **Liste** |**> Titres des colonnes** |
-| Nom |Texte affiché en haut de la première colonne. |
+| Name |Texte affiché en haut de la première colonne. |
 | Valeur |Texte affiché en haut de la deuxième colonne. |
 | **Liste** |**&gt; Seuils** |
 | Activer les seuils |Sélectionnez ce lien pour activer les seuils. Pour plus d’informations, consultez [Paramètres courants](#thresholds). |
@@ -112,7 +112,7 @@ L’en-tête affiche deux valeurs indiquant le nombre d’enregistrements obtenu
 | Séparateur de noms et de valeurs |Délimiteur de caractère unique à utiliser pour analyser la propriété de texte en plusieurs valeurs. Pour plus d’informations, consultez [Paramètres courants](#sparklines). |
 | Navigation par clic | Action effectuée lorsque vous cliquez sur un élément dans la liste.  Pour plus d’informations, consultez [Paramètres courants](#click-through-navigation). |
 | **Liste** |**> Titres des colonnes** |
-| Nom |Texte affiché en haut de la première colonne. |
+| Name |Texte affiché en haut de la première colonne. |
 | Valeur |Texte affiché en haut de la deuxième colonne. |
 | **Liste** |**&gt; Seuils** |
 | Activer les seuils |Sélectionnez ce lien pour activer les seuils. Pour plus d’informations, consultez [Paramètres courants](#thresholds). |
@@ -137,7 +137,7 @@ L’en-tête affiche un nombre unique qui résume une colonne de valeur dans une
 | Navigation par clic | Action effectuée lorsque vous cliquez sur l’en-tête.  Pour plus d’informations, consultez [Paramètres courants](#click-through-navigation). |
 | **Anneau** |**&gt; Centrer** |
 | Texte |Texte affiché sous la valeur à l’intérieur de l’anneau. |
-| Opération |Opération à effectuer sur la valeur de propriété afin de la résumer en une valeur unique.<ul><li>Somme : additionne les valeurs de tous les enregistrements.</li><li>Pourcentage : proportion des enregistrements retournés par les valeurs figurant dans **Valeurs de résultat utilisées dans l’opération relative au centre** par rapport au nombre total d’enregistrements dans la requête.</li></ul> |
+| Opération |Opération à effectuer sur la valeur de propriété afin de la résumer en une valeur unique.<ul><li>Sum : additionne les valeurs de tous les enregistrements.</li><li>Percentage : pourcentage des enregistrements retournés par les valeurs figurant dans **Valeurs de résultat utilisées dans l’opération relative au centre** par rapport au nombre total d’enregistrements dans la requête.</li></ul> |
 | Valeurs de résultat utilisées dans l’opération relative au centre |Vous pouvez sélectionner le signe plus (+) pour ajouter une ou plusieurs valeurs. Les résultats de la requête sont alors limités aux enregistrements dont vous avez spécifié les valeurs de propriété. Si aucune valeur n’est ajoutée, tous les enregistrements sont inclus dans la requête. |
 | **Options supplémentaires** |**&gt; Couleurs** |
 | Couleur 1<br>Couleur 2<br>Couleur 3 |Sélectionnez la couleur pour chacune des valeurs affichées dans l’anneau. |
@@ -153,7 +153,7 @@ L’en-tête affiche un nombre unique qui résume une colonne de valeur dans une
 | Séparateur de noms et de valeurs |Délimiteur de caractère unique à utiliser pour analyser la propriété de texte en plusieurs valeurs. Pour plus d’informations, consultez [Paramètres courants](#sparklines). |
 | Navigation par clic | Action effectuée lorsque vous cliquez sur un élément dans la liste.  Pour plus d’informations, consultez [Paramètres courants](#click-through-navigation). |
 | **Liste** |**> Titres des colonnes** |
-| Nom |Texte affiché en haut de la première colonne. |
+| Name |Texte affiché en haut de la première colonne. |
 | Valeur |Texte affiché en haut de la deuxième colonne. |
 | **Liste** |**&gt; Seuils** |
 | Activer les seuils |Sélectionnez ce lien pour activer les seuils. Pour plus d’informations, consultez [Paramètres courants](#thresholds). |
@@ -176,7 +176,7 @@ L’en-tête affiche les résultats de deux requêtes de journal dans le temps, 
 | Légende |Texte affiché sous la légende de la première série. |
 | Couleur |Couleur à utiliser pour les colonnes de la série. |
 | Requête |Requête à exécuter pour la première série. Le nombre d’enregistrements sur chaque intervalle de temps est représenté par les colonnes de graphique. |
-| Opération |Opération à effectuer sur la valeur de propriété afin de la résumer en une valeur unique pour la légende.<ul><li>Somme : somme des valeurs de tous les enregistrements.</li><li>Moyenne : moyenne des valeurs de tous les enregistrements.</li><li>Dernier exemple : valeur du dernier intervalle inclus dans le graphique.</li><li>Premier exemple : valeur du premier intervalle inclus dans le graphique.</li><li>Nombre : nombre d’enregistrements renvoyés par la requête.</li></ul> |
+| Opération |Opération à effectuer sur la valeur de propriété afin de la résumer en une valeur unique pour la légende.<ul><li>Sum : somme des valeurs de tous les enregistrements.</li><li>Average : moyenne des valeurs de tous les enregistrements.</li><li>Last Sample : valeur du dernier intervalle inclus dans le graphique.</li><li>First Sample : valeur du premier intervalle inclus dans le graphique.</li><li>Count : nombre d’enregistrements retournés par la requête.</li></ul> |
 | **Liste** | |
 | Requête |Requête à exécuter pour obtenir la liste. Le nombre d’enregistrements retournés par la requête est affiché. |
 | Masquer le graphique |Sélectionnez ce lien pour désactiver le graphique à droite de la colonne numérique. |
@@ -185,7 +185,7 @@ L’en-tête affiche les résultats de deux requêtes de journal dans le temps, 
 | Opération |Opération à effectuer pour le graphique Sparkline. Pour plus d’informations, consultez [Paramètres courants](#sparklines). |
 | Navigation par clic | Action effectuée lorsque vous cliquez sur un élément dans la liste.  Pour plus d’informations, consultez [Paramètres courants](#click-through-navigation). |
 | **Liste** |**> Titres des colonnes** |
-| Nom |Texte affiché en haut de la première colonne. |
+| Name |Texte affiché en haut de la première colonne. |
 | Valeur |Texte affiché en haut de la deuxième colonne. |
 | **Liste** |**&gt; Seuils** |
 | Activer les seuils |Sélectionnez ce lien pour activer les seuils. Pour plus d’informations, consultez [Paramètres courants](#thresholds). |
@@ -232,7 +232,7 @@ L’en-tête affiche un graphique en courbes avec plusieurs séries à partir d�
 | **Graphique en courbes** |**&gt; Légende** |
 | Titre de la légende |Texte affiché au-dessus de la valeur de la légende. |
 | Nom de la série |Valeur de propriété pour la série à utiliser pour la valeur de la légende. Si aucune série n’est fournie, tous les enregistrements de la requête sont utilisés. |
-| Opération |Opération à effectuer sur la valeur de propriété afin de la résumer en une valeur unique pour la légende.<ul><li>Moyenne : moyenne des valeurs de tous les enregistrements.</li><li>Nombre : nombre d’enregistrements renvoyés par la requête.</li><li>Dernier exemple : valeur du dernier intervalle inclus dans le graphique.</li><li>Max : valeur maximale des intervalles inclus dans le graphique.</li><li>Min : valeur minimale des intervalles inclus dans le graphique.</li><li>Somme : somme des valeurs de tous les enregistrements.</li></ul> |
+| Opération |Opération à effectuer sur la valeur de propriété afin de la résumer en une valeur unique pour la légende.<ul><li>Average : moyenne des valeurs de tous les enregistrements.</li><li>Count : nombre d’enregistrements retournés par la requête.</li><li>Last Sample : valeur du dernier intervalle inclus dans le graphique.</li><li>Max : valeur maximale des intervalles inclus dans le graphique.</li><li>Min : valeur minimale des intervalles inclus dans le graphique.</li><li>Sum : somme des valeurs de tous les enregistrements.</li></ul> |
 | **Graphique en courbes** |**> Axe Y** |
 | Utiliser l’échelle logarithmique |Sélectionnez ce lien pour utiliser une échelle logarithmique pour l’axe des ordonnées (Y). |
 | Units |Spécifiez les unités à utiliser pour exprimer les valeurs retournées par la requête. Ces informations sont utilisées pour afficher sur le graphique des étiquettes indiquant les types de valeurs et, le cas échéant, pour convertir les valeurs. Le type d’*Unité* spécifie la catégorie de l’unité, et définit les valeurs de type *Unité actuelle* disponibles. Si vous sélectionnez une valeur pour l’option *Convertir en*, les valeurs numériques sont converties du type *Unité actuelle* au type *Convertir en*. |
@@ -246,7 +246,7 @@ L’en-tête affiche un graphique en courbes avec plusieurs séries à partir d�
 | Séparateur de noms et de valeurs |Délimiteur de caractère unique à utiliser pour analyser la propriété de texte en plusieurs valeurs. Pour plus d’informations, consultez [Paramètres courants](#sparklines). |
 | Navigation par clic | Action effectuée lorsque vous cliquez sur un élément dans la liste.  Pour plus d’informations, consultez [Paramètres courants](#click-through-navigation). |
 | **Liste** |**> Titres des colonnes** |
-| Nom |Texte affiché en haut de la première colonne. |
+| Name |Texte affiché en haut de la première colonne. |
 | Valeur |Texte affiché en haut de la deuxième colonne. |
 | **Liste** |**&gt; Seuils** |
 | Activer les seuils |Sélectionnez ce lien pour activer les seuils. Pour plus d’informations, consultez [Paramètres courants](#thresholds). |
@@ -282,7 +282,7 @@ L’en-tête affiche un graphique en courbes avec plusieurs séries à partir d�
 | Séparateur de noms et de valeurs |Délimiteur de caractère unique à utiliser pour analyser la propriété de texte en plusieurs valeurs. Pour plus d’informations, consultez [Paramètres courants](#sparklines). |
 | Navigation par clic | Action effectuée lorsque vous cliquez sur un élément dans la liste.  Pour plus d’informations, consultez [Paramètres courants](#click-through-navigation). |
 | **Liste** |**> Titres des colonnes** |
-| Nom |Texte affiché en haut de la première colonne. |
+| Name |Texte affiché en haut de la première colonne. |
 | Valeur |Texte affiché en haut de la deuxième colonne. |
 | **Liste** |**&gt; Seuils** |
 | Activer les seuils |Sélectionnez ce lien pour activer les seuils. Pour plus d’informations, consultez [Paramètres courants](#thresholds). |
@@ -312,12 +312,12 @@ La pile de graphique en courbes affiche trois graphiques en courbes distincts av
 ## <a name="common-settings"></a>Paramètres courants
 Les sections suivantes décrivent les paramètres communs à plusieurs parties de visualisation.
 
-### <a name="name-value-separator"></a>Séparateur de noms et de valeurs
+### <a name="name-and-value-separator"></a><a name="name-value-separator"></a>Séparateur de noms et de valeurs
 Le séparateur de noms et de valeurs est le délimiteur à caractère unique à utiliser pour analyser la propriété de texte d’une requête de liste en plusieurs valeurs. Si vous spécifiez un délimiteur, vous pouvez fournir des noms pour chaque champ, en les séparant par le même délimiteur que dans le champ **Nom**.
 
 Par exemple, imaginez une propriété nommée *Location* incluant des valeurs telles que *Redmond-Building 41* et *Bellevue-Building 12*. Vous pouvez spécifier un tiret (-) comme séparateur de noms et de valeurs, et *City-Building* comme nom. Chaque valeur est alors analysée en deux propriétés respectivement nommées *City* et *Building*.
 
-### <a name="click-through-navigation"></a>Navigation par clic
+### <a name="click-through-navigation"></a><a name="click-through-navigation"></a>Navigation par clic
 La navigation par clic définit l’action à effectuer quand vous cliquez sur un en-tête ou élément de liste dans une vue.  Soit une requête s’ouvre dans le [Log Analytics](../../azure-monitor/log-query/portals.md), soit une autre vue apparaît.
 
 Le tableau suivant décrit les paramètres de la navigation par clic.
@@ -330,7 +330,7 @@ Le tableau suivant décrit les paramètres de la navigation par clic.
 
 
 
-### <a name="sparklines"></a>Graphiques Sparkline
+### <a name="sparklines"></a><a name="sparklines"></a>Graphiques Sparkline
 Une sparkline est un petit graphique en courbes qui illustre la valeur d’une entrée de liste au fil du temps. Pour les parties de visualisation avec une liste, vous pouvez sélectionner si vous souhaitez afficher une barre horizontale, qui indique la valeur relative d’une colonne numérique, ou un graphique Sparkline, qui indique sa valeur au fil du temps.
 
 Le tableau suivant décrit les paramètres pour les graphiques Sparkline :
@@ -338,9 +338,9 @@ Le tableau suivant décrit les paramètres pour les graphiques Sparkline :
 | Paramètre | Description |
 |:--- |:--- |
 | Activation des sparklines |Sélectionnez ce lien pour afficher un graphique Sparkline au lieu d’une barre horizontale. |
-| Opération |Si les sparklines sont activées, il s’agit de l’opération à effectuer sur chaque propriété dans la liste pour calculer les valeurs du graphique sparkline.<ul><li>Dernier exemple : dernière valeur de la série sur l’intervalle de temps.</li><li>Max : valeur maximale de la série sur l’intervalle de temps.</li><li>Min : valeur minimale de la série sur l’intervalle de temps.</li><li>Somme : somme des valeurs de la série sur l’intervalle de temps.</li><li>Résumé : utilise la même commande `measure` que la requête dans l’en-tête.</li></ul> |
+| Opération |Si les sparklines sont activées, il s’agit de l’opération à effectuer sur chaque propriété dans la liste pour calculer les valeurs du graphique sparkline.<ul><li>Last Sample : dernière valeur de la série sur l’intervalle de temps.</li><li>Max : valeur maximale de la série sur l’intervalle de temps.</li><li>Min : valeur minimale de la série sur l’intervalle de temps.</li><li>Sum : somme des valeurs de la série sur l’intervalle de temps.</li><li>Summary : utilise la même commande `measure` que la requête dans l’en-tête.</li></ul> |
 
-### <a name="thresholds"></a>Seuils
+### <a name="thresholds"></a><a name="thresholds"></a>Seuils
 Les seuils vous permettent d’afficher une icône de couleur en regard de chaque élément dans une liste. Ils fournissent un indicateur visuel rapide des éléments qui dépassent une valeur particulière ou sont compris dans une plage particulière. Par exemple, vous pouvez afficher une icône verte pour les éléments avec une valeur acceptable, jaune si la valeur est dans une plage qui indique un avertissement, et rouge si elle dépasse une valeur d’erreur.
 
 Lorsque vous activez des seuils pour une partie, vous devez spécifier un ou plusieurs seuils. Si la valeur d’un élément est supérieure à une valeur de seuil et inférieure à la valeur de seuil suivante, la couleur de cette valeur est utilisée. Si l’élément est supérieur à la valeur de seuil la plus élevée, une autre couleur est utilisée. 
@@ -352,7 +352,7 @@ Le tableau suivant décrit les paramètres pour les seuils :
 | Paramètre | Description |
 |:--- |:--- |
 | Activer les seuils |Sélectionnez ce lien pour afficher une icône de couleur à gauche de chaque valeur. L’icône indique l’intégrité de la valeur par rapport aux seuils spécifiés. |
-| Nom |Nom de la valeur de seuil. |
+| Name |Nom de la valeur de seuil. |
 | Seuil |Valeur du seuil. La couleur d’intégrité de chaque élément de liste est définie sur la couleur de la valeur du seuil le plus élevé dépassée par la valeur de l’élément. Si aucune valeur de seuil n’est dépassée, une couleur par défaut est utilisée. |
 | Couleur |Couleur qui indique la valeur de seuil. |
 

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: cherylmc
-ms.openlocfilehash: bae44f67a485546ba29148a114d88df198f7c3e6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8c1afac834fb9abb2cbf82f16f046a1624b251f1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75475939"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481131"
 ---
 # <a name="create-and-manage-expressroute-public-peering"></a>Créer et gérer le peering public ExpressRoute
 
@@ -38,7 +38,7 @@ Une fois le peering public activé, vous êtes en mesure de vous connecter à pr
 * Via le domaine de routage de peering publié, en privé, vous pouvez vous connecter à des services hébergés sur des adresses IP publiques (notamment les adresses IP virtuelles de vos services cloud).
 * Vous pouvez connecter le domaine de peering public à votre zone DMZ et vous connecter à tous les services Azure sur leurs adresses IP publiques à partir de votre réseau étendu, sans avoir à vous connecter via Internet.
 
-## <a name="services"></a>Services
+## <a name="services"></a><a name="services"></a>Services
 
 Cette section présente les services disponibles via le peering public. Étant donné que le peering public est déprécié, il n’est pas prévu d’ajouter de nouveaux services ou des services supplémentaires au peering public. Si vous utilisez le peering public et que le service que vous souhaitez utiliser est pris en charge uniquement sur le peering Microsoft, vous devez passer au peering Microsoft. Pour obtenir la liste des services pris en charge, consultez [Peering Microsoft](expressroute-faqs.md#microsoft-peering).
 
@@ -55,7 +55,7 @@ Cette section présente les services disponibles via le peering public. Étant d
 
 Pour valider la disponibilité d’un service spécifique, vous pouvez consulter la documentation de ce service pour voir si une plage réservée est publiée pour ce service. Recherchez ensuite les plages d’adresses IP du service cible et comparez-les aux plages listées dans [Plages d’adresses IP Azure et balises de service - Fichier XML cloud public](https://www.microsoft.com/download/details.aspx?id=56519). Vous pouvez également ouvrir un ticket de support pour le service en question afin de clarifier le problème.
 
-## <a name="compare"></a>Comparaison de peerings
+## <a name="peering-comparison"></a><a name="compare"></a>Comparaison de peerings
 
 [!INCLUDE [peering comparison](../../includes/expressroute-peering-comparison.md)]
 
@@ -67,7 +67,7 @@ Pour valider la disponibilité d’un service spécifique, vous pouvez consulter
 
 Vous pouvez définir des filtres d’itinéraires personnalisés au sein de votre réseau pour utiliser uniquement les itinéraires dont vous avez besoin. Reportez-vous à la page [Routage](expressroute-routing.md) pour plus d'informations sur la configuration du routage.
 
-## <a name="powershell"></a>Étapes dans Azure PowerShell
+## <a name="azure-powershell-steps"></a><a name="powershell"></a>Étapes dans Azure PowerShell
 
 
 [!INCLUDE [CloudShell](../../includes/expressroute-cloudshell-powershell-about.md)]
@@ -135,7 +135,7 @@ Vous pouvez définir des filtres d’itinéraires personnalisés au sein de votr
    > 
    >
 
-### <a name="getpublic"></a>Pour obtenir les détails d’un peering public Azure
+### <a name="to-get-azure-public-peering-details"></a><a name="getpublic"></a>Pour obtenir les détails d’un peering public Azure
 
 Vous pouvez obtenir des détails sur la configuration à l’aide de l’applet de commande suivante :
 
@@ -145,7 +145,7 @@ Vous pouvez obtenir des détails sur la configuration à l’aide de l’applet 
   Get-AzExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -Circuit $ckt
   ```
 
-### <a name="updatepublic"></a>Pour mettre à jour la configuration de peering public Azure
+### <a name="to-update-azure-public-peering-configuration"></a><a name="updatepublic"></a>Pour mettre à jour la configuration de peering public Azure
 
 Vous pouvez mettre à jour toute partie de la configuration à l’aide de l’exemple suivant : Dans cet exemple, l’ID VLAN du circuit est mis à jour de 200 à 600.
 
@@ -155,7 +155,7 @@ Set-AzExpressRouteCircuitPeeringConfig  -Name "AzurePublicPeering" -ExpressRoute
 Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-### <a name="deletepublic"></a>Pour supprimer un peering public Azure
+### <a name="to-delete-azure-public-peering"></a><a name="deletepublic"></a>Pour supprimer un peering public Azure
 
 Vous pouvez supprimer votre configuration de peering en exécutant l’exemple suivant :
 
@@ -164,7 +164,7 @@ Remove-AzExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRou
 Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-## <a name="cli"></a>Étapes dans Azure CLI
+## <a name="azure-cli-steps"></a><a name="cli"></a>Étapes dans Azure CLI
 
 
 [!INCLUDE [CloudShell](../../includes/expressroute-cloudshell-powershell-about.md)]
@@ -177,7 +177,7 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 
    La réponse ressemble à ce qui suit :
 
-   ```azurecli
+   ```output
    "allowClassicOperations": false,
    "authorizations": [],
    "circuitProvisioningState": "Enabled",
@@ -229,7 +229,7 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
    > [!IMPORTANT]
    > Veillez à spécifier votre numéro AS comme ASN de peering et non pas comme ASN client.
 
-### <a name="getpublic"></a>Pour afficher les détails d’un peering public Azure
+### <a name="to-view-azure-public-peering-details"></a><a name="getpublic"></a>Pour afficher les détails d’un peering public Azure
 
 Vous pouvez obtenir les détails de la configuration à l’aide de l’exemple suivant :
 
@@ -239,7 +239,7 @@ az network express-route peering show -g ExpressRouteResourceGroup --circuit-nam
 
 Le résultat ressemble à l’exemple suivant :
 
-```azurecli
+```output
 {
   "azureAsn": 12076,
   "etag": "W/\"2e97be83-a684-4f29-bf3c-96191e270666\"",
@@ -264,7 +264,7 @@ Le résultat ressemble à l’exemple suivant :
 }
 ```
 
-### <a name="updatepublic"></a>Pour mettre à jour la configuration de peering public Azure
+### <a name="to-update-azure-public-peering-configuration"></a><a name="updatepublic"></a>Pour mettre à jour la configuration de peering public Azure
 
 Vous pouvez mettre à jour toute partie de la configuration à l’aide de l’exemple suivant : Dans cet exemple, l’ID VLAN du circuit est mis à jour de 200 à 600.
 
@@ -272,7 +272,7 @@ Vous pouvez mettre à jour toute partie de la configuration à l’aide de l’e
 az network express-route peering update --vlan-id 600 -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzurePublicPeering
 ```
 
-### <a name="deletepublic"></a>Pour supprimer un peering public Azure
+### <a name="to-delete-azure-public-peering"></a><a name="deletepublic"></a>Pour supprimer un peering public Azure
 
 Vous pouvez supprimer votre configuration de peering en exécutant l’exemple suivant :
 
@@ -280,19 +280,19 @@ Vous pouvez supprimer votre configuration de peering en exécutant l’exemple s
 az network express-route peering delete -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzurePublicPeering
 ```
 
-## <a name="portal"></a>Étapes dans le portail Azure
+## <a name="azure-portal-steps"></a><a name="portal"></a>Étapes dans le portail Azure
 
 Pour configurer le peering, utilisez les étapes PowerShell ou CLI contenues dans cet article. Pour gérer un peering, vous pouvez vous référer aux sections ci-dessous. Pour référence, ces étapes ressemblent à la gestion d’un [peering Microsoft dans le portail](expressroute-howto-routing-portal-resource-manager.md#msft).
 
-### <a name="get"></a>Pour afficher les détails d’un peering public Azure
+### <a name="to-view-azure-public-peering-details"></a><a name="get"></a>Pour afficher les détails d’un peering public Azure
 
 Affichez les propriétés du peering public Azure en sélectionnant le peering dans le portail.
 
-### <a name="update"></a>Pour mettre à jour la configuration de peering public Azure
+### <a name="to-update-azure-public-peering-configuration"></a><a name="update"></a>Pour mettre à jour la configuration de peering public Azure
 
 Sélectionnez la ligne du peering, puis modifiez les propriétés de peering.
 
-### <a name="delete"></a>Pour supprimer un peering public Azure
+### <a name="to-delete-azure-public-peering"></a><a name="delete"></a>Pour supprimer un peering public Azure
 
 Supprimez votre configuration de peering en sélectionnant l’icône Supprimer.
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/13/2019
-ms.openlocfilehash: 725bdfd4efe3be600c993e568f1a5c7edccc6952
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 1a4ae0701174278203023c156a86aad8feb1ca4c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74148226"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240617"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Utilisation des signatures d’accès partagé du stockage Azure pour restreindre l’accès aux données dans HDInsight
 
@@ -33,7 +33,7 @@ HDInsight dispose d’un accès total aux données dans les comptes de stockage 
 
 * Un [conteneur de stockage](../storage/blobs/storage-quickstart-blobs-portal.md) existant.  
 
-* Si vous utilisez PowerShell, vous aurez besoin du [module Az](https://docs.microsoft.com/powershell/azure/overview).
+* Si vous utilisez PowerShell, vous aurez besoin du [module Az](https://docs.microsoft.com/powershell/azure/overview).
 
 * Si vous voulez utiliser Azure CLI et que vous ne l’avez pas encore installé, consultez [Installer Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
@@ -88,11 +88,11 @@ Enregistrez le jeton SAP généré à la fin de chaque méthode. Le jeton ressem
 ?sv=2018-03-28&sr=c&si=myPolicyPS&sig=NAxefF%2BrR2ubjZtyUtuAvLQgt%2FJIN5aHJMj6OsDwyy4%3D
 ```
 
-### <a name="using-powershell"></a>Utiliser PowerShell
+### <a name="using-powershell"></a>Utilisation de PowerShell
 
 Remplacez `RESOURCEGROUP`, `STORAGEACCOUNT`, et `STORAGECONTAINER` par les valeurs appropriées pour votre conteneur de stockage existant. Accédez au répertoire `hdinsight-dotnet-python-azure-storage-shared-access-signature-master` ou révisez le paramètre `-File` pour qu’il contienne le chemin d’accès absolu pour `Set-AzStorageblobcontent`. Saisissez la commande PowerShell suivante :
 
-```PowerShell
+```powershell
 $resourceGroupName = "RESOURCEGROUP"
 $storageAccountName = "STORAGEACCOUNT"
 $containerName = "STORAGECONTAINER"
@@ -175,7 +175,7 @@ L’utilisation de variables dans cette section est basée sur un environnement 
 
 2. Définissez la clé primaire récupérée sur une variable pour une utilisation ultérieure. Remplacez `PRIMARYKEY` par la valeur récupérée à l’étape précédente, puis entrez la commande suivante :
 
-    ```azurecli
+    ```console
     #set variable for primary key
     set AZURE_STORAGE_KEY=PRIMARYKEY
     ```

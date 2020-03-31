@@ -11,12 +11,12 @@ author: eedorenko
 manager: davete
 ms.reviewer: larryfr
 ms.date: 01/30/2020
-ms.openlocfilehash: 49b384e9e2d9b77179a0154bf2d96524c064c2ca
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: d987171d41bd6d80bab4cce91ef9ecec1f0dc7a4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76960346"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80247178"
 ---
 # <a name="devops-for-a-data-ingestion-pipeline"></a>DevOps pour un pipeline d’ingestion des données
 
@@ -28,7 +28,7 @@ Examinez le workflow d’ingestion des données suivant :
 
 ![data-ingestion-pipeline](media/how-to-cicd-data-ingestion/data-ingestion-pipeline.png)
 
-Dans cette approche, les données d’apprentissage sont stockées dans un stockage de blobs Azure. Un pipeline Azure Data Factory extrait les données d’un conteneur de blobs d’entrée, les transforme et enregistre les données dans le conteneur de blobs de sortie. Ce conteneur sert de [stockage de données](https://docs.microsoft.com/azure/machine-learning/concept-data#access-data-in-storage) pour l’Azure Machine Learning service. Une fois les données préparées, le pipeline Data Factory appelle un pipeline de Machine Learning de formation pour effectuer l’apprentissage d’un modèle. Dans cet exemple, la transformation des données est effectuée par un notebook Python exécuté sur un cluster Azure Databricks. 
+Dans cette approche, les données d’apprentissage sont stockées dans un stockage de blobs Azure. Un pipeline Azure Data Factory extrait les données d’un conteneur de blobs d’entrée, les transforme et enregistre les données dans le conteneur de blobs de sortie. Ce conteneur sert de [stockage de données](concept-data.md) pour l’Azure Machine Learning service. Une fois les données préparées, le pipeline Data Factory appelle un pipeline de Machine Learning de formation pour effectuer l’apprentissage d’un modèle. Dans cet exemple, la transformation des données est effectuée par un notebook Python exécuté sur un cluster Azure Databricks. 
 
 ## <a name="what-we-are-building"></a>Ce que nous créons
 

@@ -4,15 +4,15 @@ description: Découvrez comment vous connecter à un serveur Azure Analysis Serv
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 03/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: db0c00268c343cd99e439bb49460523cf0563c3c
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 6205c4189abfefc2ee9c4a273ebfd6773ea609b6
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73573097"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411355"
 ---
 # <a name="connect-with-power-bi"></a>Se connecter avec Power BI
 

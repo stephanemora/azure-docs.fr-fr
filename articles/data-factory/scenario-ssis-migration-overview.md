@@ -12,15 +12,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 9/3/2019
 ms.openlocfilehash: 52629b8e2e190cc041116e6f65488480712baf01
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74929802"
 ---
 # <a name="migrate-on-premises-ssis-workloads-to-ssis-in-adf"></a>Migrer des charges de travail SSIS locales vers SSIS dans ADF
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Quand vous migrez des charges de travail de base de données d’un serveur SQL local vers des services de base de données Azure (Azure SQL Database ou Azure SQL Database Managed Instance), vos charges de travail ETL sur SQL Server Integration Services (SSIS), l’un des principaux services à valeur ajoutée, devront également être migrées.
 
@@ -78,7 +78,7 @@ Les étapes de migration des **packages SSIS** et des **travaux de SQL Server Ag
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction)
+- [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction).
 - [Assistant Migration de base de données](https://docs.microsoft.com/sql/dma/dma-overview)
 - [Effectuer un « lift-and-shift » des charges de travail SQL Server Integration Services vers le cloud](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview?view=sql-server-2017)
 - [Faire migrer des packages SSIS vers une instance managée d’Azure SQL Database](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages-managed-instance)

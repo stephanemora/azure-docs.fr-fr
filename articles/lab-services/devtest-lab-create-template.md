@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: 853c138c8cf73b41b0cebb6c1d349865e18eab6a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61296050"
 ---
 # <a name="create-a-custom-image-from-a-vhd-file"></a>Créer une image personnalisée à partir d’un fichier de disque dur virtuel
@@ -33,7 +33,7 @@ ms.locfileid: "61296050"
 
 La procédure suivante décrit comment créer une image personnalisée à partir d’un fichier de disque dur virtuel avec le portail Azure :
 
-1. Connectez-vous au [Portail Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Connectez-vous au [portail Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Sélectionnez **Tous les services**, puis **DevTest Labs** dans la liste.
 
@@ -60,9 +60,9 @@ La procédure suivante décrit comment créer une image personnalisée à partir
 
 1. Vous pouvez également entrer un nom de plan, une offre de plan et un éditeur de plan si l’image utilisée pour créer l’image personnalisée n’est pas une image sous licence (publiée par Microsoft).
 
-   - **Nom du plan :** entrez le nom de l’image (SKU) de la Place de marché à partir de laquelle cette image personnalisée est créée. 
-   - **Offre du plan :** entrez le produit (offre) de l’image de la Place de marché à partir de laquelle cette image personnalisée est créée. 
-   - **Éditeur du plan :** entrez l’éditeur de l’image de la Place de marché à partir de laquelle cette image personnalisée est créée.
+   - **Nom du plan :** entrez le nom de l’image de la Place de marché (SKU) à partir de laquelle cette image personnalisée est créée. 
+   - **Offre du plan :** entrez le produit (offre) de l’image de la Place de marché à partir de laquelle cette image personnalisée est créée. 
+   - **Éditeur du plan :** entrez l’éditeur de l’image de la Place de marché à partir de laquelle cette image personnalisée est créée.
 
    > [!NOTE]
    > Si l’image que vous utilisez pour créer une image personnalisée n’est **pas** une image sous licence, ces champs sont vides et peuvent être renseignés si vous le choisissez. Si l’image **est** une image sous licence, les champs sont renseignés automatiquement avec les informations du plan. Si vous essayez de les modifier, un message d’avertissement s’affiche.

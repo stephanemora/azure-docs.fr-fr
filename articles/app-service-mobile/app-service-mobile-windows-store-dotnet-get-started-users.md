@@ -7,10 +7,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.openlocfilehash: 32d4313b345964a2db13d68e83f81756a4acf0d9
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77458934"
 ---
 # <a name="add-authentication-to-your-windows-app"></a>Ajout de l'authentification à votre application Windows
@@ -21,10 +21,10 @@ Cette rubrique indique comment ajouter l'authentification basée sur le cloud à
 
 Ce didacticiel est basé sur le démarrage rapide de Mobile Apps. Vous devez commencer par suivre le didacticiel [Prise en main de Mobile Apps](app-service-mobile-windows-store-dotnet-get-started.md).
 
-## <a name="register"></a>Inscription de votre application pour l’authentification et configuration d’App Service
+## <a name="register-your-app-for-authentication-and-configure-the-app-service"></a><a name="register"></a>Inscription de votre application pour l’authentification et configuration d’App Service
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-## <a name="redirecturl"></a>Ajouter votre application aux URL de redirection externes autorisées
+## <a name="add-your-app-to-the-allowed-external-redirect-urls"></a><a name="redirecturl"></a>Ajouter votre application aux URL de redirection externes autorisées
 
 L’authentification sécurisée nécessite de définir un nouveau schéma d’URL pour votre application. Cela permet au système d’authentification de vous rediriger vers votre application une fois le processus d’authentification terminé. Dans ce didacticiel, nous utilisons le schéma d’URL _appname_. Toutefois, vous pouvez utiliser le schéma d’URL de votre choix. Il doit être propre à votre application mobile. Pour activer la redirection côté serveur, procédez comme suit :
 
@@ -36,14 +36,14 @@ L’authentification sécurisée nécessite de définir un nouveau schéma d’U
 
 4. Cliquez sur **Enregistrer**.
 
-## <a name="permissions"></a>Restriction des autorisations pour les utilisateurs authentifiés
+## <a name="restrict-permissions-to-authenticated-users"></a><a name="permissions"></a>Restriction des autorisations pour les utilisateurs authentifiés
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 À présent, vous pouvez vérifier que l’accès anonyme à votre serveur principal a été désactivé. Avec le projet d’application Windows défini en tant que projet de démarrage, déployez et exécutez l'application, et vérifiez qu'une exception non prise en charge avec le code d'état 401 (Non autorisé) est déclenchée après le démarrage de l'application. Cette exception se produit, car l’application tente d’accéder à votre code Mobile App en tant qu’utilisateur non authentifié, alors que la table *TodoItem* requiert désormais une authentification.
 
 Ensuite, vous allez mettre à jour l'application pour authentifier les utilisateurs avant de demander des ressources à partir de votre service App Service.
 
-## <a name="add-authentication"></a>Ajout de l’authentification à l’application
+## <a name="add-authentication-to-the-app"></a><a name="add-authentication"></a>Ajout de l’authentification à l’application
 1. Dans le fichier de projet d’application UWP MainPage.xaml.cs, ajoutez l’extrait de code suivant :
    
         // Define a member variable for storing the signed-in user. 
@@ -137,7 +137,7 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
 6. Ouvrez le fichier Package.appxmanifest, accédez à **Déclarations**, dans la liste déroulante **Déclarations disponibles**, sélectionnez **Protocole** et cliquez sur le bouton **Ajouter**. À présent, configurez les **propriétés** de la déclaration **Protocole**. Dans **Nom d’affichage**, ajoutez le nom que vous souhaitez montrer aux utilisateurs de votre application. Dans **Nom**, ajoutez votre {url_scheme_of_your_app}.
 7. Appuyez sur la touche F5 pour exécuter l'application, puis cliquez sur le bouton **Se connecter** pour vous connecter à l'application avec le fournisseur d'identité choisi. Lorsque vous êtes connecté, l'application s'exécute sans erreur, et vous pouvez exécuter des requêtes sur votre backend et mettre à jour les données.
 
-## <a name="tokens"></a>Stockage du jeton d’authentification sur le client
+## <a name="store-the-authentication-token-on-the-client"></a><a name="tokens"></a>Stockage du jeton d’authentification sur le client
 L’exemple précédent montrait une connexion standard, qui nécessite que le client contacte le fournisseur d’identité et le service d’application à chaque démarrage de l’application. Cette méthode est non seulement inefficace, mais vous pouvez rencontrer des problèmes d'utilisation si de nombreux clients tentent de lancer votre application en même temps. Une meilleure approche consiste à mettre en cache le jeton d’autorisation renvoyé par votre service d’application et à l’utiliser en premier avant de faire appel à la connexion via un fournisseur.
 
 > [!NOTE]

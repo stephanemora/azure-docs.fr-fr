@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 03333e853a2ab7606ebe60cc3f68bcb5facfbdb4
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77191015"
 ---
 # <a name="filters-in-azure-cognitive-search"></a>Filtres dans la Recherche cognitive Azure 
@@ -150,7 +150,7 @@ Vous ne pouvez pas modifier des champs existants pour les rendre filtrables. À 
 
 ## <a name="text-filter-fundamentals"></a>Notions de base concernant les filtres de texte
 
-Les filtres de texte comparent les champs de chaîne aux chaînes littérales que vous fournissez dans le filtre. Contrairement à la recherche en texte intégral, les filtres de texte n’appliquent aucune analyse lexicale ou césure de mots. Les comparaisons portent alors uniquement sur des correspondances exactes. Par exemple, supposons un champ *f* contenant les mots « Sunny day » (journée ensoleillée). `$filter=f eq 'sunny day'` sera une correspondance, mais pas `$filter=f eq 'Sunny'`. 
+Les filtres de texte comparent les champs de chaîne aux chaînes littérales que vous fournissez dans le filtre. Contrairement à la recherche en texte intégral, les filtres de texte n’appliquent aucune analyse lexicale ou césure de mots. Les comparaisons portent alors uniquement sur des correspondances exactes. Par exemple, supposons un champ *f* contenant les mots « Sunny day » (journée ensoleillée). `$filter=f eq 'Sunny'` sera une correspondance, mais pas `$filter=f eq 'sunny day'`. 
 
 Les chaînes de texte respectent la casse. Il n’y a pas de conversion en minuscules des mots contenant des majuscules. Ainsi, la chaîne `$filter=f eq 'Sunny day'` ne permet pas de trouver « sunny day ».
 

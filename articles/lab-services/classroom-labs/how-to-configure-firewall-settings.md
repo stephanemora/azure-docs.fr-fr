@@ -7,10 +7,10 @@ ms.date: 02/14/2020
 ms.topic: article
 ms.service: lab-services
 ms.openlocfilehash: fbd45af0c9b94f04fdaad9d9b5c8214a91a8db91
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77443451"
 ---
 # <a name="firewall-settings-for-azure-lab-services"></a>Paramètres de pare-feu pour Azure Lab Services
@@ -39,8 +39,8 @@ Nous connaissons maintenant l’adresse IP publique du labo.  Des règles trafic
 ## <a name="next-steps"></a>Étapes suivantes
 Voir les articles suivants :
 
-- [Autoriser un créateur de labo à choisir l’emplacement du labo](allow-lab-creator-pick-lab-location.md)
-- [Connecter un réseau lab avec un réseau virtuel pair](how-to-connect-peer-virtual-network.md)
+- [Autoriser le créateur du lab à choisir l’emplacement du lab](allow-lab-creator-pick-lab-location.md)
+- [Connecter le réseau de votre labo avec un réseau virtuel pair](how-to-connect-peer-virtual-network.md)
 - [Attacher une galerie d’images partagées à un lab](how-to-attach-detach-shared-image-gallery.md)
 - [Ajouter un utilisateur comme propriétaire de labo](how-to-add-user-lab-owner.md)
 - [Afficher les paramètres de pare-feu pour un labo](how-to-configure-firewall-settings.md)

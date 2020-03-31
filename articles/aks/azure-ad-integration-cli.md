@@ -4,12 +4,12 @@ description: Découvrez comment utiliser Azure CLI pour créer un cluster Azure 
 services: container-service
 ms.topic: article
 ms.date: 04/16/2019
-ms.openlocfilehash: fef22b1b2d81f76e95a15c0e3a746440b95df8ca
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: d17ae12beecf9d83ef6d688af799787c5ccf322b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77596604"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227645"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>Intégrer Azure Active Directory avec Azure Kubernetes Service à l’aide d’Azure AD
 
@@ -27,9 +27,11 @@ Les limites suivantes s'appliquent :
 
 L’interface de ligne de commande Azure (Azure CLI) version 2.0.61 ou une version ultérieure doit avoir été installée et configurée. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][install-azure-cli].
 
+Accédez à [https://shell.azure.com](https://shell.azure.com) pour ouvrir Cloud Shell dans votre navigateur.
+
 Par souci de cohérence et pour faciliter l’exécution des commandes décrites dans cet article, créez une variable pour votre nom de cluster AKS souhaité. L’exemple suivant utilise le nom *myakscluster* :
 
-```azurecli-interactive
+```console
 aksname="myakscluster"
 ```
 
@@ -209,8 +211,10 @@ kubectl get pods --all-namespaces
 Vous recevez une invite de connexion vous demandant de vous authentifier en entrant vos informations d’identification Azure AD dans un navigateur web. Une fois que vous êtes authentifié, la commande `kubectl` affiche les pods figurant dans le cluster AKS, comme illustré dans l’exemple de sortie suivant :
 
 ```console
-$ kubectl get pods --all-namespaces
+kubectl get pods --all-namespaces
+```
 
+```output
 To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code BYMK7UXVD to authenticate.
 
 NAMESPACE     NAME                                    READY   STATUS    RESTARTS   AGE
@@ -229,7 +233,7 @@ Le jeton d’authentification reçu pour `kubectl` est mis en cache. Vous n’ê
 
 Si vous voyez un message d’erreur d’autorisation s’afficher après que vous vous êtes connecté avec succès à l’aide d’un navigateur web, comme dans l’exemple de sortie ci-après, vérifiez les problèmes possibles suivants :
 
-```console
+```output
 error: You must be logged in to the server (Unauthorized)
 ```
 

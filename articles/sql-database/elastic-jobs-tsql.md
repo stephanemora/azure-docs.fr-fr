@@ -12,10 +12,10 @@ author: jaredmoo
 ms.reviewer: sstein
 ms.date: 02/07/2020
 ms.openlocfilehash: c228f3d6591cd72845101c00188f3fc4a55be644
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77087349"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Utiliser Transact-SQL (T-SQL) pour créer et gérer des travaux de base de données élastique
@@ -428,7 +428,7 @@ Les procédures stockées suivantes se trouvent dans la [base de données des tr
 
 
 
-### <a name="sp_add_job"></a>sp_add_job
+### <a name="sp_add_job"></a><a name="sp_add_job"></a>sp_add_job
 
 Ajoute un nouveau travail. 
   
@@ -494,7 +494,7 @@ Par défaut, les membres du rôle serveur fixe sysadmin peuvent exécuter cette 
 
 Pour plus d’informations sur les autorisations de ces rôles, consultez la section Autorisations dans ce document. Seuls des membres de sysadmin peuvent utiliser cette procédure stockée pour modifier les attributs des travaux qui appartiennent à d’autres utilisateurs.
 
-### <a name="sp_update_job"></a>sp_update_job
+### <a name="sp_update_job"></a><a name="sp_update_job"></a>sp_update_job
 
 Met à jour un travail existant.
 
@@ -557,7 +557,7 @@ Pour plus d’informations sur les autorisations de ces rôles, consultez la sec
 
 
 
-### <a name="sp_delete_job"></a>sp_delete_job
+### <a name="sp_delete_job"></a><a name="sp_delete_job"></a>sp_delete_job
 
 Supprime un travail existant.
 
@@ -589,7 +589,7 @@ Pour plus d’informations sur les autorisations de ces rôles, consultez la sec
 
 
 
-### <a name="sp_add_jobstep"></a>sp_add_jobstep
+### <a name="sp_add_jobstep"></a><a name="sp_add_jobstep"></a>sp_add_jobstep
 
 Ajoute une étape à un travail.
 
@@ -715,7 +715,7 @@ Pour plus d’informations sur les autorisations de ces rôles, consultez la sec
 
 
 
-### <a name="sp_update_jobstep"></a>sp_update_jobstep
+### <a name="sp_update_jobstep"></a><a name="sp_update_jobstep"></a>sp_update_jobstep
 
 Met à jour une étape de travail.
 
@@ -840,7 +840,7 @@ Pour plus d’informations sur les autorisations de ces rôles, consultez la sec
 
 
 
-### <a name="sp_delete_jobstep"></a>sp_delete_jobstep
+### <a name="sp_delete_jobstep"></a><a name="sp_delete_jobstep"></a>sp_delete_jobstep
 
 Supprime une étape d'un travail.
 
@@ -886,7 +886,7 @@ Pour plus d’informations sur les autorisations de ces rôles, consultez la sec
 
 
 
-### <a name="sp_start_job"></a>sp_start_job
+### <a name="sp_start_job"></a><a name="sp_start_job"></a>sp_start_job
 
 Démarre l’exécution d’un travail.
 
@@ -917,7 +917,7 @@ Par défaut, les membres du rôle serveur fixe sysadmin peuvent exécuter cette 
 
 Pour plus d’informations sur les autorisations de ces rôles, consultez la section Autorisations dans ce document. Seuls des membres de sysadmin peuvent utiliser cette procédure stockée pour modifier les attributs des travaux qui appartiennent à d’autres utilisateurs.
 
-### <a name="sp_stop_job"></a>sp_stop_job
+### <a name="sp_stop_job"></a><a name="sp_stop_job"></a>sp_stop_job
 
 Arrête l’exécution d’un travail.
 
@@ -946,7 +946,7 @@ Par défaut, les membres du rôle serveur fixe sysadmin peuvent exécuter cette 
 Pour plus d’informations sur les autorisations de ces rôles, consultez la section Autorisations dans ce document. Seuls des membres de sysadmin peuvent utiliser cette procédure stockée pour modifier les attributs des travaux qui appartiennent à d’autres utilisateurs.
 
 
-### <a name="sp_add_target_group"></a>sp_add_target_group
+### <a name="sp_add_target_group"></a><a name="sp_add_target_group"></a>sp_add_target_group
 
 Ajoute un groupe cible.
 
@@ -977,7 +977,7 @@ Par défaut, les membres du rôle serveur fixe sysadmin peuvent exécuter cette 
 
 Pour plus d’informations sur les autorisations de ces rôles, consultez la section Autorisations dans ce document. Seuls des membres de sysadmin peuvent utiliser cette procédure stockée pour modifier les attributs des travaux qui appartiennent à d’autres utilisateurs.
 
-### <a name="sp_delete_target_group"></a>sp_delete_target_group
+### <a name="sp_delete_target_group"></a><a name="sp_delete_target_group"></a>sp_delete_target_group
 
 Supprime un groupe cible.
 
@@ -1005,7 +1005,7 @@ Par défaut, les membres du rôle serveur fixe sysadmin peuvent exécuter cette 
 
 Pour plus d’informations sur les autorisations de ces rôles, consultez la section Autorisations dans ce document. Seuls des membres de sysadmin peuvent utiliser cette procédure stockée pour modifier les attributs des travaux qui appartiennent à d’autres utilisateurs.
 
-### <a name="sp_add_target_group_member"></a>sp_add_target_group_member
+### <a name="sp_add_target_group_member"></a><a name="sp_add_target_group_member"></a>sp_add_target_group_member
 
 Ajoute une base de données ou un groupe de bases de données à un groupe cible.
 
@@ -1094,7 +1094,7 @@ SELECT * FROM [jobs].target_group_members WHERE target_group_name= N'Servers Mai
 GO
 ```
 
-### <a name="sp_delete_target_group_member"></a>sp_delete_target_group_member
+### <a name="sp_delete_target_group_member"></a><a name="sp_delete_target_group_member"></a>sp_delete_target_group_member
 
 Supprime un membre du groupe cible d’un groupe cible.
 
@@ -1145,7 +1145,7 @@ EXEC jobs.sp_delete_target_group_member
 GO
 ```
 
-### <a name="sp_purge_jobhistory"></a>sp_purge_jobhistory
+### <a name="sp_purge_jobhistory"></a><a name="sp_purge_jobhistory"></a>sp_purge_jobhistory
 
 Supprime les enregistrements d'historique d'un travail.
 
@@ -1206,7 +1206,7 @@ Les vues suivantes sont disponibles dans la [base de données des travaux](sql-d
 |[target_group_members](#target_group_members-view)     |   Affiche tous les membres de tous les groupes cibles.      |
 
 
-### <a name="job_executions-view"></a>job_executions view
+### <a name="job_executions-view"></a><a name="job_executions-view"></a>job_executions view
 
 [jobs].[job_executions]
 
@@ -1253,7 +1253,7 @@ Afficher tous les travaux.
 |**schedule_end_time**| datetime2(7)|   Date et heure de la dernière exécution du travail terminé.|
 
 
-### <a name="job_versions-view"></a>affichage de job_versions
+### <a name="job_versions-view"></a><a name="job_versions-view"></a>affichage de job_versions
 
 [jobs].[job_versions]
 
@@ -1301,13 +1301,13 @@ Affiche toutes les étapes dans la version actuelle de chaque travail.
 |**max_parallelism**|   int|    Le nombre maximal de bases de données par pool élastique sur lesquelles l’étape de travail sera exécutée simultanément. La valeur par défaut est NULL, ce qui signifie qu’il n’y a aucune limite. |
 
 
-### <a name="jobstep_versions-view"></a>affichage de jobstep_versions
+### <a name="jobstep_versions-view"></a><a name="jobstep_versions-view"></a>affichage de jobstep_versions
 
 [jobs].[jobstep_versions]
 
 Affiche toutes les étapes dans toutes les versions de chaque travail. Le schéma est identique à [jobsteps](#jobsteps-view).
 
-### <a name="target_groups-view"></a>affichage de target_groups
+### <a name="target_groups-view"></a><a name="target_groups-view"></a>affichage de target_groups
 
 [jobs].[target_groups]
 
@@ -1318,7 +1318,7 @@ Répertorie tous les groupes cibles.
 |**target_group_name**| nvarchar(128)   |Le nom du groupe cible, une collection de bases de données. 
 |**target_group_id**    |UNIQUEIDENTIFIER   |ID unique du groupe cible.
 
-### <a name="target_group_members-view"></a>target_group_members view
+### <a name="target_group_members-view"></a><a name="target_group_members-view"></a>target_group_members view
 
 [jobs].[target_group_members]
 
@@ -1342,7 +1342,7 @@ Affiche tous les membres de tous les groupes cibles.
 
 ## <a name="resources"></a>Ressources
 
- - ![Icône du lien de rubrique](https://docs.microsoft.com/sql/database-engine/configure-windows/media/topic-link.gif "Icône du lien de rubrique") [Conventions de la syntaxe Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)  
+ - ![Icône Lien de rubrique](https://docs.microsoft.com/sql/database-engine/configure-windows/media/topic-link.gif "Icône du lien de rubrique") [Conventions de la syntaxe Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)  
 
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -3,12 +3,12 @@ title: Récupérer des fichiers et des dossiers à partir d’une sauvegarde de 
 description: Dans cet article, découvrez comment récupérer des fichiers et des dossiers à partir d’un point de récupération de machine virtuelle Azure.
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.openlocfilehash: 4565929b5475e2348685fbec77b596b65ed73fd6
-ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
+ms.openlocfilehash: 0e3061ea8fc26adcf39fe415cd9a662de739543a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77114327"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79233877"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Récupérer des fichiers à partir d’une sauvegarde de machine virtuelle Azure
 
@@ -65,7 +65,7 @@ Reportez-vous à la section [Conditions d’accès](#access-requirements) pour v
 
 #### <a name="for-windows"></a>Pour Windows
 
-Lorsque vous exécutez l’exécutable, le système d’exploitation monte les nouveaux volumes et attribue des lettres de lecteur. Vous pouvez utiliser l’Explorateur Windows ou l’Explorateur de fichiers pour parcourir ces lecteurs. Les lettres de lecteur affectées aux volumes peuvent ne pas être les mêmes que celles de la machine virtuelle d’origine. Toutefois, le nom du volume est conservé. Par exemple, si le volume sur la machine virtuelle d’origine était « Disque de données (E:`\` », ce volume peut être connecté sur l’ordinateur local en tant que « Disque de données (n’importe quelle lettre:`\`) ». Parcourez tous les volumes mentionnés dans la sortie du script jusqu’à trouver vos fichiers ou votre dossier.  
+Lorsque vous exécutez l’exécutable, le système d’exploitation monte les nouveaux volumes et attribue des lettres de lecteur. Vous pouvez utiliser l’Explorateur Windows ou l’Explorateur de fichiers pour parcourir ces lecteurs. Les lettres de lecteur affectées aux volumes peuvent ne pas être les mêmes que celles de la machine virtuelle d’origine. Toutefois, le nom du volume est conservé. Par exemple, si le volume de la machine virtuelle d’origine était « Disque de données (E:`\`) », ce volume peut être connecté sur l’ordinateur local en tant que « Disque de données (n’importe quelle lettre:`\`) ». Parcourez tous les volumes mentionnés dans la sortie du script jusqu’à trouver vos fichiers ou votre dossier.  
 
    ![Menu de récupération de fichiers](./media/backup-azure-restore-files-from-vm/volumes-attached.png)
 
@@ -125,7 +125,7 @@ Pour répertorier tous les volumes logiques, les noms et les chemins d’accès 
 
 ```bash
 #!/bin/bash
-lvdisplay <volume-group-name from the pvs command’s results>
+lvdisplay <volume-group-name from the pvs command's results>
 ```
 
 Pour monter les volumes logiques sur le chemin d’accès de votre choix :
@@ -202,11 +202,11 @@ Si vous exécutez le script sur un ordinateur avec un accès restreint, vérifie
 
 - `download.microsoft.com`
 - URL Recovery Services (le nom de zone géographique fait référence à la région où réside le coffre Recovery Services.)
-  - <https://pod01-rec2.geo-name.backup.windowsazure.com> (Pour les zones géographiques Azure publiques)
-  - <https://pod01-rec2.geo-name.backup.windowsazure.cn> (Pour Azure Chine 21Vianet)
-  - <https://pod01-rec2.geo-name.backup.windowsazure.us> (Pour Azure US Government)
-  - <https://pod01-rec2.geo-name.backup.windowsazure.de> (Pour Azure Allemagne)
-- port sortant 3260
+  - `https://pod01-rec2.geo-name.backup.windowsazure.com` (Pour les zones géographiques Azure publiques)
+  - `https://pod01-rec2.geo-name.backup.windowsazure.cn` (Pour Azure Chine 21Vianet)
+  - `https://pod01-rec2.geo-name.backup.windowsazure.us` (Pour Azure US Government)
+  - `https://pod01-rec2.geo-name.backup.windowsazure.de` (Pour Azure Allemagne)
+- Ports sortants 53 (DNS), 443, 3260
 
 > [!NOTE]
 >
@@ -257,9 +257,9 @@ Si vous rencontrez des problèmes lors de la récupération de fichiers à parti
 | ------------------------ | -------------- | ------------------ |
 | Sortie de l’exécutable : *Exception interceptée lors de la connexion à la cible* | Le script n’est pas en mesure d’accéder au point de récupération    | Vérifiez si la machine remplit les [conditions d’accès précédentes](#access-requirements). |  
 | Sortie de l’exécutable : *La cible a déjà été connectée via une session iSCSI.* | Le script a déjà été exécuté sur le même ordinateur et les lecteurs ont été connectés. | Les volumes du point de récupération ont déjà été connectés. Ils NE peuvent PAS être montés avec les mêmes lettres de lecteur que celles de la machine virtuelle d’origine. Parcourez tous les volumes disponibles dans l’explorateur de fichiers pour localiser votre fichier. |
-| Sortie de l’exécutable : *Ce script n’est pas valide, car les disques ont été démontés via le portail/ont dépassé la limite de 12 h. Téléchargez un nouveau script à partir du portail.* |    Les disques ont été démontés à partir du portail, ou la limite de douze heures a été dépassée | Ce fichier exécutable en particulier n’est plus valide et ne peut pas être exécuté. Si vous souhaitez accéder aux fichiers de ce point de récupération dans le temps, visitez le portail pour obtenir un nouveau fichier exe.|
+| Sortie de l’exécutable : *Ce script n’est pas valide, car les disques ont été démontés via le portail/ont dépassé la limite de 12 h. Téléchargez un nouveau script à partir du portail.* |    Les disques ont été démontés à partir du portail, ou la limite de douze heures a été dépassée | Ce fichier exécutable n’est plus valide et ne peut pas être exécuté. Si vous souhaitez accéder aux fichiers de ce point de récupération dans le temps, visitez le portail pour obtenir un nouveau fichier exe.|
 | Sur l’ordinateur où le fichier exécutable s’exécute : Les nouveaux volumes ne seront plus démontés une fois que vous avez cliqué sur le bouton démonter | L’initiateur iSCSI de l’ordinateur ne répond pas, ou n’actualise pas sa connexion à la cible et ne maintient pas le cache. |  Après avoir cliqué sur **Démonter**, patientez quelques minutes. Si les nouveaux volumes ne sont pas démontés, parcourez tous les volumes. L’exploration de tous les volumes force l’initiateur à actualiser la connexion, et le volume est démonté avec un message d’erreur indiquant que le disque n’est pas disponible.|
-| Sortie de l’exécutable : Le script s’exécute correctement mais les « nouveaux volumes attachés » ne s’affichent pas sur la sortie du script |    Il s’agit d’une erreur temporaire.    | Les volumes auront déjà été attachés. Ouvrez l’Explorateur pour parcourir les volumes. Si vous utilisez le même ordinateur pour exécuter des scripts à chaque fois, envisagez de redémarrer la machine et la liste devrait être affichée dans la liste des exécutions du fichier exe ultérieures. |
+| Sortie de l’exécutable : Le script s’exécute correctement, mais les « nouveaux volumes attachés » ne s’affichent pas dans la sortie du script. |    Il s’agit d’une erreur temporaire.    | Les volumes auront déjà été attachés. Ouvrez l’Explorateur pour parcourir les volumes. Si vous utilisez le même ordinateur pour exécuter des scripts à chaque fois, envisagez de redémarrer la machine et la liste devrait être affichée dans la liste des exécutions du fichier exe ultérieures. |
 | Propre à Linux : Impossible d’afficher les volumes souhaités | Le système d’exploitation de la machine sur laquelle est exécuté le script peut ne pas reconnaître le système de fichiers sous-jacent de la machine virtuelle protégée | Vérifiez si le point de récupération est cohérent en cas d’incident ou cohérent avec les fichiers. S’il est cohérent avec les fichiers, exécutez le script sur un autre ordinateur dont le système d’exploitation reconnaît le système de fichiers de la machine virtuelle protégée. |
 | Propre à Windows : Impossible d’afficher les volumes souhaités | Les disques peuvent avoir été attachés, mais les volumes n’ont pas été configurés | À partir de l’écran de gestion de disque, identifiez les disques supplémentaires relatifs au point de récupération. Si aucun de ces disques n’est hors connexion, essayez de les mettre en ligne en cliquant dessus avec le bouton droit, puis en cliquant sur **En ligne**.|
 
@@ -295,7 +295,7 @@ Pour parcourir des fichiers et dossiers, le script utilise l’initiateur iSCSI 
 
 Nous utilisons un mécanisme d’authentification CHAP mutuel afin que les composants s’authentifient les uns les autres. Cela signifie qu’il est extrêmement difficile pour un initiateur factice de se connecter à la cible iSCSI, et pour une fausse cible de se connecter à l’ordinateur où le script est exécuté.
 
-Le flux de données entre le service de récupération et la machine est protégé par la création d’un tunnel SSL sécurisé sur TCP ([TLS 1.2 doit être pris en charge](#system-requirements) sur la machine où le script est exécuté).
+Le flux de données entre le service de récupération et la machine est protégé par la création d’un tunnel TLS sécurisé sur TCP ([TLS 1.2 doit être pris en charge](#system-requirements) sur la machine où le script est exécuté).
 
 Les fichiers de liste de contrôle d’accès (ACL) présents dans la machine virtuelle parente ou sauvegardée sont également conservés dans le système de fichiers montés.
 

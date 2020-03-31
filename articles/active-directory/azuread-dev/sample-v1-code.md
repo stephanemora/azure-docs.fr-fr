@@ -5,24 +5,21 @@ services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
-ms.assetid: a242a5ff-7300-40c2-ba83-fb6035707433
 ms.service: active-directory
 ms.subservice: azuread-dev
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/15/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 74da5b84fafd7f7c60d07fc90b05c051c1fa2a3e
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ROBOTS: NOINDEX
+ms.openlocfilehash: ae283529abb3b71ee50fc710dd1ebe0d17a12be0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77163474"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154829"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Exemples de code Azure Active Directory (point de terminaison v1.0)
 
@@ -54,7 +51,7 @@ Cet exemple montre comment écrire une application monopage sécurisée avec Azu
 
 Les exemples suivants illustrent des applications web qui connectent les utilisateurs. Certaines de ces applications appellent également Microsoft Graph ou votre propre API web dans le nom de l’utilisateur connecté.
 
- Plateforme | Connecte uniquement les utilisateurs | Appelle Microsoft Graph ou AAD Graph| Appelle une autre API web ASP.NET ou ASP.NET Core 2.0
+ Plateforme | Connecte uniquement les utilisateurs | Appelle Microsoft Graph | Appelle une autre API web ASP.NET ou ASP.NET Core 2.0
  -------- | ------------------- | --------------------- | -------------------------
 ![Cette image affiche le logo ASP.NET](media/sample-v2-code/logo-netcore.png)</p>ASP.NET Core 2.0 | [dotnet-webapp-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect-aspnetcore) | [webapp-webapi-multitenant-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-webapp-webapi-multitenant-openidconnect-aspnetcore/) </p>(AAD Graph) | [dotnet-webapp-webapi-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore)
 ![Cette image affiche le logo ASP.NET](media/sample-v2-code/logo-netframework.png)</p> ASP.NET 4.5 |  </p> [webapp-WSFederation-dotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation) </p> [dotnet-webapp-webapi-oauth2-useridentity](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-useridentity) | [dotnet-webapp-multitenant-openidconnect](https://github.com/Azure-Samples/active-directory-dotnet-webapp-multitenant-openidconnect)</p> (AAD Graph) |
@@ -125,10 +122,6 @@ Pour obtenir des exemples et des tutoriels qui illustrent différents modèles d
 
 ## <a name="see-also"></a>Voir aussi
 
-[Guide du développeur Azure Active Directory](v1-overview.md)
-
-[Bibliothèques d’authentification Azure Active Directory](active-directory-authentication-libraries.md)
-
-[Concept et référence de l’API Graph Azure AD](https://msdn.microsoft.com/library/azure/hh974476.aspx)
-
-[Bibliothèque d’assistance de l’API Azure AD Graph](https://www.nuget.org/packages/Microsoft.Azure.ActiveDirectory.GraphClient)
+- [Guide du développeur Azure Active Directory](v1-overview.md)
+- [Bibliothèques d’authentification Azure Active Directory](active-directory-authentication-libraries.md)
+- [Concept et référence de l’API Microsoft Graph](https://docs.microsoft.com/graph/use-the-api)

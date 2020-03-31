@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.openlocfilehash: 0363911574a076b13cb72591fb2564364e096c76
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132939"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79229157"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>Exécuter un test de récupération d’urgence de machines virtuelles Hyper-V sur un site secondaire
 
@@ -30,11 +30,11 @@ Vous exécutez un test de basculement depuis le site principal vers le site seco
     - Exécutez le basculement par le biais d’un réseau existant. Nous vous recommandons de ne pas utiliser de réseau de production.
     - Exécutez le basculement et laissez Site Recovery créer automatiquement le réseau de test. Dans ce cas, Site Recovery crée automatiquement le réseau, puis le nettoie lorsque le test de basculement est terminé.
 - Vous devez sélectionner un point de récupération pour le test de basculement : 
-    - **Dernier point traité** : cette option bascule une machine virtuelle vers le dernier point de récupération traité par Site Recovery. Cette option fournit un objectif de délai de récupération (RTO) faible, car aucun temps n’est consacré à traiter les données non traitées.
-    - **Dernier point de cohérence des applications** : cette option bascule une machine virtuelle vers le dernier point de récupération de cohérence des applications traité par Site Recovery. 
-    - **Dernier point dans le temps** : cette option permet de traiter d’abord toutes les données qui ont été envoyées au service Site Recovery afin de créer un point de récupération pour chaque machine virtuelle avant de basculer vers celui-ci. Elle fournit l’objectif de point de récupération (RPO) le plus faible, car la machine virtuelle créée après le basculement comporte toutes les données répliquées vers Site Recovery au moment où le basculement a été déclenché.
+    - **Dernier point traité** : cette option bascule une machine virtuelle vers le dernier point de récupération traité par Site Recovery. Cette option fournit un objectif de délai de récupération (RTO) faible, car aucun temps n’est consacré à traiter les données non traitées.
+    - **Dernier point de cohérence des applications** : cette option bascule une machine virtuelle vers le dernier point de récupération de cohérence des applications traité par Site Recovery. 
+    - **Dernier point dans le temps** : cette option permet de traiter d’abord toutes les données qui ont été envoyées au service Site Recovery afin de créer un point de récupération pour chaque machine virtuelle avant de basculer les machines virtuelles vers celui-ci. Elle fournit l’objectif de point de récupération (RPO) le plus faible, car la machine virtuelle créée après le basculement comporte toutes les données répliquées vers Site Recovery au moment où le basculement a été déclenché.
     - **Dernier point multimachine virtuelle traité** : disponible pour les plans de récupération qui comportent une ou plusieurs machines virtuelles dont la cohérence multimachine virtuelle est activée. Les machines virtuelles pour lesquelles ce paramètre est activé basculent vers le dernier point de récupération de cohérence multimachine virtuelle commun. Les autres machines virtuelles basculent vers le dernier point de récupération traité.
-    - **Dernière cohérence des applications multimachines virtuelles** : cette option est disponible pour les plans de récupération qui comportent une ou plusieurs machines virtuelles dont la cohérence multimachine virtuelle est activée. Les machines virtuelles qui font partie d’un groupe de réplication basculent vers le dernier point de récupération de cohérence des applications multimachine virtuelle commun. Les autres machines virtuelles basculent vers leur dernier point de récupération de cohérence des applications.
+    - **Dernière cohérence des applications multimachines virtuelles** : cette option est disponible pour les plans de récupération qui comportent une ou plusieurs machines virtuelles pour laquelle ou lesquelles la cohérence multimachine virtuelle est activée. Les machines virtuelles qui font partie d’un groupe de réplication basculent vers le dernier point de récupération de cohérence des applications multimachine virtuelle commun. Les autres machines virtuelles basculent vers leur dernier point de récupération de cohérence des applications.
     - **Personnalisé** : utilisez cette option pour basculer une machine virtuelle spécifique vers un point de récupération particulier.
 
 
@@ -49,7 +49,7 @@ Lorsque vous exécutez un test de basculement, vous êtes invité à sélectionn
 | **Utiliser l’existant** | La machine virtuelle de test est créée sur l’hôte où se trouve la machine virtuelle de réplication. Elle n’est pas ajoutée au cloud.<br/><br/>Créez un réseau de machines virtuelles isolé de votre réseau de production.<br/><br/>Si vous utilisez un réseau basé sur un réseau VLAN, nous vous recommandons de créer un réseau logique distinct (non utilisé en production) dans VMM, à cet effet. Ce réseau logique est utilisé pour créer des réseaux de machines virtuelles pour le test de basculement.<br/><br/>Le réseau logique doit être associé à au moins une des cartes réseau de tous les serveurs Hyper-V hébergeant des machines virtuelles.<br/><br/>Pour les réseaux logiques VLAN, les sites de réseau que vous ajoutez au réseau logique doivent être isolés.<br/><br/>Si vous utilisez un réseau logique basé sur la fonction de virtualisation réseau Windows, Azure Site Recovery crée automatiquement des réseaux de machines virtuelles isolés. | |
 | **Créer un réseau** | Un réseau de test temporaire est créé automatiquement, en fonction du paramètre que vous spécifiez dans le champ **Réseau logique** et sur les sites réseau associés.<br/><br/> Le basculement vérifie que les machines virtuelles sont créées.<br/><br/> Vous devez utiliser cette option si un plan de récupération fait appel à plusieurs réseaux de machines virtuelles.<br/><br/> Si vous exploitez des réseaux de virtualisation de réseau Windows, cette option peut être utilisée pour créer automatiquement des réseaux de machines virtuelles à partir des mêmes paramètres (sous-réseaux et pools d’adresses IP) que ceux du réseau de l’ordinateur virtuel de réplication. Ces réseaux de machines virtuelles sont automatiquement nettoyés une fois le test de basculement terminé.<br/><br/> La machine virtuelle de test est créée sur l’hôte où se trouve la machine virtuelle de réplication. Elle n’est pas ajoutée au cloud.|
 
-### <a name="best-practices"></a>Bonnes pratiques
+### <a name="best-practices"></a>Meilleures pratiques
 
 - Tester un réseau de production entraîne une interruption des charges de travail de production. Demandez aux utilisateurs de ne pas utiliser d’applications associées lorsque la simulation de récupération d’urgence est en cours.
 
@@ -100,8 +100,8 @@ Pour exécuter un test de basculement afin de tester des applications, vous deve
 ### <a name="prepare-dns"></a>Préparer le service DNS
 Préparer un serveur DNS pour le test de basculement en procédant comme suit :
 
-* **DHCP** : si les machines virtuelles utilisent DHCP, l’adresse IP du serveur DNS de test doit être mise à jour sur le serveur DHCP de test. Si vous utilisez un type de réseau associé à la virtualisation de réseau Windows, le serveur VMM joue le rôle de serveur DHCP. Par conséquent, l’adresse IP du serveur DNS doit être mise à jour dans le réseau de test de basculement. Dans ce cas, les machines virtuelles s’enregistrent auprès du serveur DNS pertinent.
-* **Adresse statique** : si les machines virtuelles utilisent une adresse IP statique, l’adresse IP du serveur DNS de test doit être mise à jour dans le réseau de test de basculement. Vous devrez peut-être mettre à jour le service DNS en indiquant l’adresse IP des machines virtuelles de test. À cette fin, vous pouvez utiliser l’exemple de script suivant :
+* **DHCP** : si les machines virtuelles utilisent DHCP, l’adresse IP du serveur DNS de test doit être mise à jour sur le serveur DHCP de test. Si vous utilisez un type de réseau associé à la virtualisation de réseau Windows, le serveur VMM joue le rôle de serveur DHCP. Par conséquent, l’adresse IP du serveur DNS doit être mise à jour dans le réseau de test de basculement. Dans ce cas, les machines virtuelles s’enregistrent auprès du serveur DNS pertinent.
+* **Adresse statique** : si les machines virtuelles utilisent une adresse IP statique, l’adresse IP du serveur DNS de test doit être mise à jour dans le réseau de test de basculement. Vous devrez peut-être mettre à jour le service DNS en indiquant l’adresse IP des machines virtuelles de test. À cette fin, vous pouvez utiliser l’exemple de script suivant :
 
         Param(
         [string]$Zone,

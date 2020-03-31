@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: sngun
 ms.openlocfilehash: 8be17f0b624c5c34709fb420adb434b77dbc0d91
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76721079"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Se connecter à Azure Cosmos DB à l’aide d’outils d’analyse décisionnelle avec le pilote ODBC
@@ -29,7 +29,7 @@ C’est là qu’intervient le pilote ODBC. Grâce au pilote ODBC, vous pouvez �
 
 Familiarisons-nous avec le pilote ODBC.
 
-## <a id="install"></a>Étape 1 : Installer le pilote ODBC Azure Cosmos DB
+## <a name="step-1-install-the-azure-cosmos-db-odbc-driver"></a><a id="install"></a>Étape 1 : Installer le pilote ODBC Azure Cosmos DB
 
 1. Téléchargez les pilotes correspondant à votre environnement :
 
@@ -48,7 +48,7 @@ Familiarisons-nous avec le pilote ODBC.
 
     ![Administrateur de sources de données ODBC Azure Cosmos DB](./media/odbc-driver/odbc-driver.png)
 
-## <a id="connect"></a>Étape 2 : Vous connecter à votre base de données Azure Cosmos
+## <a name="step-2-connect-to-your-azure-cosmos-database"></a><a id="connect"></a>Étape 2 : Vous connecter à votre base de données Azure Cosmos
 
 1. Après l’[installation du pilote ODBC Azure Cosmos DB](#install), dans la fenêtre **Administrateur de sources de données ODBC**, cliquez sur **Ajouter**. Vous pouvez créer un DSN utilisateur ou système. Dans cet exemple, vous allez créer un DSN utilisateur.
 
@@ -88,7 +88,7 @@ Familiarisons-nous avec le pilote ODBC.
 
     ![Nouveau DSN ODBC Azure Cosmos DB dans l’onglet DSN utilisateur](./media/odbc-driver/odbc-driver-user-dsn.png)
 
-## <a id="#container-mapping"></a>Étape 3 : Créer une définition de schéma à l’aide de la méthode de mappage de conteneur
+## <a name="step-3-create-a-schema-definition-using-the-container-mapping-method"></a><a id="#container-mapping"></a>Étape 3 : Créer une définition de schéma à l’aide de la méthode de mappage de conteneur
 
 Il existe deux types de méthodes d’échantillonnage que vous pouvez utiliser : le **mappage de conteneur** et les **délimiteurs de table**. Une session d’échantillonnage peut utiliser ces deux méthodes d’échantillonnage, mais chaque conteneur ne peut utiliser qu’une méthode d’échantillonnage spécifique. Les étapes ci-dessous créent un schéma pour les données d’un ou plusieurs conteneurs à l’aide de la méthode de mappage de conteneur. Cette méthode d’échantillonnage récupère les données dans la page d’un conteneur pour déterminer la structure de ces données. Elle transpose un conteneur en table côté ODBC. Cette méthode d’échantillonnage est rapide et efficace lorsque les données d’un conteneur sont homogènes. Si un conteneur contient des données hétérogènes, nous vous recommandons d’utiliser la [méthode de mappage par délimiteurs de table](#table-mapping), car elle fournit une méthode d’échantillonnage plus robuste pour déterminer les structures des données du conteneur. 
 
@@ -109,7 +109,7 @@ Il existe deux types de méthodes d’échantillonnage que vous pouvez utiliser�
 
 1. Pour utiliser ce schéma avec un nom de source de données (DSN), ouvrez la **fenêtre de configuration du DSN du pilote ODBC Azure Cosmos DB** (par le biais de l’Administrateur de sources de données ODBC), cliquez sur **Options avancées**, puis, dans la boîte de dialogue **Fichier de schéma**, accédez au schéma enregistré. L’enregistrement d’un fichier de schéma dans une source de données existante modifie la connexion de DSN afin de définir l’étendue des données et de la structure définie par le schéma.
 
-## <a id="table-mapping"></a>Étape 4 : Créer une définition de schéma à l’aide de la méthode de mappage des délimiteurs de table
+## <a name="step-4-create-a-schema-definition-using-the-table-delimiters-mapping-method"></a><a id="table-mapping"></a>Étape 4 : Créer une définition de schéma à l’aide de la méthode de mappage des délimiteurs de table
 
 Il existe deux types de méthodes d’échantillonnage que vous pouvez utiliser : le **mappage de conteneur** et les **délimiteurs de table**. Une session d’échantillonnage peut utiliser ces deux méthodes d’échantillonnage, mais chaque conteneur ne peut utiliser qu’une méthode d’échantillonnage spécifique. 
 

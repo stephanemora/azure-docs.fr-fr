@@ -1,19 +1,18 @@
 ---
 title: Créer des ressources techniques d’image conteneur Azure | Place de marché Azure
 description: Créer les ressources techniques pour un conteneur Azure.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/01/2018
-ms.author: pabutler
-ms.openlocfilehash: 6aae1957a3dcc58339eb4f3c9e250513843ceb18
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 71b3ec4bf505c333e5eca170e1f5e808ab51f41a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819049"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280063"
 ---
 # <a name="prepare-your-container-technical-assets"></a>Préparer vos ressources techniques de conteneur
 
@@ -40,7 +39,7 @@ En plus de votre domaine de solution, votre équipe d’ingénierie doit connaî
 Choisissez un ou plusieurs des environnements de scripts suivants pour faciliter la gestion de votre image conteneur :
 
 -   [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
--   [Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure)
+-   [Azure CLI](https://docs.microsoft.com/cli/azure)
 
 En outre, nous vous recommandons d’ajouter les outils suivants à votre environnement de développement :
 
@@ -56,8 +55,8 @@ Nous vous suggérons également d’examiner les outils disponibles sur la page 
 
 Consultez les liens suivants pour plus d’informations :
 
-* [Tutoriel : Créer une image conteneur à déployer sur Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-app)
-* [Tutoriel : Générer et déployer des images conteneurs dans le cloud avec Azure Container Registry Tasks](https://docs.microsoft.com/azure/container-registry/container-registry-tutorial-quick-task)
+* [Tutoriel : Créer une image conteneur à déployer sur Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-app)
+* [Tutoriel : Générer et déployer des images conteneurs dans le cloud avec Azure Container Registry Tasks](https://docs.microsoft.com/azure/container-registry/container-registry-tutorial-quick-task)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

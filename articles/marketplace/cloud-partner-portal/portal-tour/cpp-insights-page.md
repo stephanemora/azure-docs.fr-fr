@@ -1,19 +1,18 @@
 ---
 title: Page Insights pour la Place de marché Azure
 description: Vue d’ensemble de la page Insights sur le Portail Cloud Partner pour la Place de marché Azure.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/14/2018
-ms.author: pabutler
-ms.openlocfilehash: b1b8d716beec17b7da82968ede8d24ced348e04a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 8002d67ebd6dbeb70282bbbae84b115a778cffaf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821520"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288867"
 ---
 # <a name="insights-page"></a>Page Insights
 

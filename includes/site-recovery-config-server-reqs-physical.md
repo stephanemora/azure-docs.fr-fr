@@ -10,10 +10,10 @@ ms.date: 09/03/2018
 ms.author: raynew
 ms.custom: include file
 ms.openlocfilehash: afeae4af9b41bf434b26833a3bd927118a4697ae
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67177289"
 ---
 **Configuration requise des serveurs de configuration/traitement pour la réplication de serveurs physiques**
@@ -22,7 +22,7 @@ ms.locfileid: "67177289"
 --- | ---
 **PARAMÈTRES MATÉRIELS** | 
 Cœurs d’unité centrale | 8 
-RAM | 16 Go
+RAM | 16 Go
 Nombre de disques | 3, y compris le disque du système d’exploitation, le disque de cache du serveur de processus et le lecteur de conservation pour la restauration automatique 
 Espace disque disponible (cache du serveur de traitement) | 600 Go
 Espace disque disponible (disque de rétention) | 600 Go
@@ -48,5 +48,5 @@ Ports | Autorisez le port 443 (orchestration du canal de contrôle)<br/><br/> Au
 --- | --- | --- | --- | ---
 8 processeurs virtuels<br/><br/> 2 sockets * 4 cœurs \@ 2,5 GHz | 16 Go | 300 Go | 500 Go ou moins | < 100 machines
 12 processeurs virtuels<br/><br/> 2 sockets * 6 cœurs \@ 2,5 GHz | 18 Go | 600 Go | 500 Go à 1 To | 100 à 150 machines
-16 processeurs virtuels<br/><br/> 2 sockets * 8 cœurs \@ 2,5 GHz | 32 Go | 1 To | 1 à 2 To | 150 à 200 machines
+16 processeurs virtuels<br/><br/> 2 sockets * 8 cœurs \@ 2,5 GHz | 32 Go | 1 To | 1 à 2 To | 150 à 200 machines
 

@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/06/2019
 ms.openlocfilehash: 18848695327a374f12fbe5a34d03366b050d8b65
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74928360"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Mode de débogage du mappage de flux de données
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Le mode de débogage du flux de données de mappage d’Azure Data Factory permet de suivre de manière interactive la transformation de la forme des données à mesure que vous générez et déboguez vos flux de données. La session de débogage peut être utilisée dans des sessions de conception de flux de données et lors de l’exécution du débogage de flux de données dans un pipeline. Pour activer le mode de débogage, utilisez le bouton « Débogage de flux de données » en haut de l’aire de conception.
 

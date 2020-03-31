@@ -13,18 +13,18 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 09/12/2019
 ms.author: cynthn
-ms.openlocfilehash: 8631b05bc42df86ef6865bf2a07c0e3deaaad2fe
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 2b1b708618c60153b8dbce69b26d832fa18b25aa
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034274"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79476601"
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Installer et configurer le Bureau à distance pour effectuer une connexion à une machine virtuelle Linux dans Azure
 Les machines virtuelles (VM) Linux dans Azure sont généralement gérées à partir de la ligne de commande à l’aide d’une connexion Secure Shell (SSH). Si vous découvrez Linux, ou si vous souhaitez des scénarios de dépannage rapides, l’utilisation du Bureau à distance peut se révéler plus facile. Cet article explique comment installer et configurer un environnement de bureau ([xfce](https://www.xfce.org)) et le Bureau à distance ([xrdp](https://www.xrdp.org)) pour votre machine virtuelle Linux à l’aide du modèle de déploiement Resource Manager.
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 Cet article nécessite que vous disposiez d’une machine virtuelle Ubuntu 18.04 LTS dans Azure. Si vous avez besoin créer une machine virtuelle, utilisez l’une des méthodes suivantes :
 
 - [Azure CLI](quick-create-cli.md)
@@ -48,7 +48,7 @@ Ensuite, installez xfce en utilisant `apt` comme suit :
 
 ```bash
 sudo apt-get update
-sudo apt-get install xfce4
+sudo apt-get -y install xfce4
 ```
 
 ## <a name="install-and-configure-a-remote-desktop-server"></a>Installation et configuration d’un serveur de bureau à distance
@@ -105,7 +105,7 @@ Une fois l’authentification effectuée, l’environnement de bureau xfce se ch
 Si votre client RDP local utilise l’authentification au niveau du réseau, vous devrez peut-être désactiver ce paramètre de connexion. XRDP ne prend pas en charge l’authentification au niveau du réseau. Vous pouvez également consulter les solutions RDP alternatives qui prennent en charge l’authentification au niveau du réseau, telles que [FreeRDP](https://www.freerdp.com).
 
 
-## <a name="troubleshoot"></a>Résolution des problèmes
+## <a name="troubleshoot"></a>Dépanner
 Si vous ne pouvez pas vous connecter à votre machine virtuelle Linux à l’aide d’un client Bureau à distance, utilisez `netstat` sur votre machine virtuelle Linux pour vérifier que votre machine virtuelle écoute les connexions RDP comme suit :
 
 ```bash

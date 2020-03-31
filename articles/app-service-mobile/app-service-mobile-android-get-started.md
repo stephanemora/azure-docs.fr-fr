@@ -7,10 +7,10 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 9be9402bff1a1263de3c6f21b78899464c50c823
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77459564"
 ---
 # <a name="create-an-android-app"></a>Créer une application Android
@@ -21,7 +21,7 @@ Ce didacticiel montre comment ajouter un backend cloud à une application mobile
 
 Le suivi de ce didacticiel est un prérequis pour tous les autres didacticiels Android sur l’utilisation de la fonctionnalité Mobile Apps dans Azure App Service.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 * [Outils de développement Android](https://developer.android.com/sdk/index.html), qui incluent l’environnement de développement intégré Android Studio et la dernière plateforme Android.

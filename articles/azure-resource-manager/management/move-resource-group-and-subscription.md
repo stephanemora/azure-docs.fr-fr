@@ -2,13 +2,13 @@
 title: Déplacer des ressources vers un nouvel abonnement ou un nouveau groupe de ressources
 description: Utilisez Azure Resource Manager ou une API REST pour déplacer des ressources vers un nouveau groupe de ressources ou abonnement.
 ms.topic: conceptual
-ms.date: 11/08/2019
-ms.openlocfilehash: c91081ee25a3b98fa25b8b9b9047da186b22181b
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.date: 03/02/2020
+ms.openlocfilehash: 40432c55a7f7e289d2e5cbc8afe94847074e4ca8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75891350"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79226353"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement
 
@@ -24,7 +24,7 @@ Plusieurs étapes importantes doivent être effectuées avant de déplacer une r
 
 1. Les ressources que vous voulez déplacer doivent prendre en charge l’opération de déplacement. Pour obtenir la liste des ressources prenant en charge l’opération de déplacement, consultez [Prise en charge de l’opération de déplacement pour les ressources](move-support-resources.md).
 
-1. Certains services ont des limitations ou des exigences spécifiques lors du déplacement des ressources. Si vous déplacez un des services suivants, consultez ces conseils avant.
+1. Certains services ont des limitations ou des exigences spécifiques lors du déplacement des ressources. Si vous déplacez l’un des services suivants, consultez d’abord ces conseils.
 
    * [Conseils pour le déplacement d’App Services](./move-limitations/app-service-move-limitations.md)
    * [Conseils pour le déplacement de DevOps Services](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)

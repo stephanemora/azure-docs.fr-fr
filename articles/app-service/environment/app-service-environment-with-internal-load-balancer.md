@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: d8ed6b1806e1cbb0ca7419c5892a4a84bc62e541
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 0c03905017629e28e41cce2adaa65eac347b8185
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688719"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294730"
 ---
 # <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>Utilisation d’un équilibreur de charge interne avec un environnement App Service
 
@@ -22,7 +22,7 @@ ms.locfileid: "74688719"
 
 La fonctionnalité ASE (App Service Environment) est une option de service Premium d’Azure App Service offrant une fonction de configuration améliorée qui n’est pas disponible dans les clusters mutualisés. La fonctionnalité ASE déploie essentiellement Azure App Service sur votre réseau virtuel (VNet) Azure. Pour mieux comprendre les possibilités offertes par les environnements App Service, lisez la documentation [Qu'est-ce qu'un environnement App Service ?][WhatisASE]. Si vous ne connaissez pas les avantages de l’utilisation d’un réseau virtuel, consultez la [FAQ sur le réseau virtuel Azure][virtualnetwork]. 
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Un environnement App Service peut être déployé avec un point de terminaison accessible via Internet ou avec une adresse IP sur votre réseau virtuel. Pour définir l’adresse IP sur une adresse de réseau virtuel, vous devez déployer votre ASE avec un équilibreur de charge interne (ILB). Lorsque votre environnement App Service est configuré avec un équilibreur de charge interne, vous fournissez :
 
 * votre propre domaine ou sous-domaine. Pour simplifier, ce document suppose que vous utilisez un sous-domaine, mais vous pouvez choisir le scénario qui vous convient. 
@@ -93,8 +93,8 @@ Si vous souhaitez essayer le flux avec vos propres certificats et tester l’acc
 4. Créez une application web dans l’environnement App Service après sa création. 
 5. Créez une machine virtuelle si vous n’avez pas de réseau virtuel (ne la placez pas dans le même sous-réseau que l’environnement App Service pour éviter tout dysfonctionnement).
 6. Configurez le DNS de votre sous-domaine. Vous pouvez utiliser un caractère générique avec votre sous-domaine dans votre DNS ou, si vous voulez faire de simples tests, modifier le fichier hosts sur votre machine virtuelle pour définir le nom de l’application web sur l’adresse IP virtuelle. Si votre environnement App Service comprend le sous-domaine .ilbase.com et si vous avez utilisé mytestapp pour votre application web afin de l’adresser vers mytestapp.ilbase.com, définissez cette valeur dans votre fichier hosts. (Sur Windows, le fichier hosts se situe sous C:\Windows\System32\drivers\etc\)
-7. Utilisez un navigateur sur cette machine virtuelle et accédez à https://mytestapp.ilbase.com (ou le nom de votre application web avec votre sous-domaine).
-8. Utilisez un navigateur sur cette machine virtuelle et accédez à https://mytestapp.ilbase.com. Si vous utilisez un certificat auto-signé, vous devez accepter le manque de sécurité. 
+7. Utilisez un navigateur sur cette machine virtuelle et accédez à `https://mytestapp.ilbase.com` (ou le nom de votre application web avec votre sous-domaine).
+8. Utilisez un navigateur sur cette machine virtuelle et accédez à `https://mytestapp.ilbase.com`. Si vous utilisez un certificat auto-signé, vous devez accepter le manque de sécurité. 
 
 L’adresse IP de votre ILB est répertoriée dans vos propriétés en tant qu’adresse IP virtuelle.
 

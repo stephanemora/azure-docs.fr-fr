@@ -1,19 +1,18 @@
 ---
 title: Publier une offre | Place de marché Microsoft Azure
 description: API permettant de publier l’offre spécifiée.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: b7ad8086c417cf1f14d9116fa4abcb0a88030922
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 4163bf5727c327d559b81db42f99684aa0cc8d5b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819652"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280522"
 ---
 <a name="publish-an-offer"></a>Publication d’une offre
 ================
@@ -27,8 +26,8 @@ Démarre le processus de publication pour l’offre spécifiée. Cet appel est u
 
 |  **Nom**      |    **Description**                               |  **Type de données** |
 |  ------------- |  ------------------------------------            |   -----------  |
-|  publisherId   | Identificateur du serveur de publication, par exemple `contoso`      |   Chaîne       |
-|  offerId       | Identificateur de l’offre                                 |   Chaîne       |
+|  publisherId   | Identificateur du serveur de publication, par exemple `contoso`      |   String       |
+|  offerId       | Identificateur de l’offre                                 |   String       |
 |  api-version   | Version la plus récente de l’API                        |   Date         |
 |  |  |
 
@@ -39,7 +38,7 @@ Démarre le processus de publication pour l’offre spécifiée. Cet appel est u
 |  **Nom**        |    **Valeur**          |
 |  --------        |    ---------          |
 |  Content-Type    | `application/json`    |
-|  Authorization   |  `Bearer YOUR_TOKEN`  |
+|  Autorisation   |  `Bearer YOUR_TOKEN`  |
 |  |  |
 
 

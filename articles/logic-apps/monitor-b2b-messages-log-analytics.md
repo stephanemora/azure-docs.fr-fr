@@ -7,22 +7,22 @@ ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 01/30/2020
 ms.openlocfilehash: e9ba5a516293eb72a715dc9d0df7db4d5a4ea3c5
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76907284"
 ---
 # <a name="set-up-azure-monitor-logs-and-collect-diagnostics-data-for-b2b-messages-in-azure-logic-apps"></a>Configurer les journaux Azure Monitor et collecter des données de diagnostic pour des messages B2B dans Azure Logic Apps
 
-Après avoir configuré la communication B2B entre les partenaires commerciaux dans votre compte d’intégration, ces partenaires peuvent échanger des messages à l'aide de protocoles comme AS2, X12 et EDIFACT. Pour vérifier le bon fonctionnement de cette communication, vous pouvez configurer les [journaux Azure Monitor](../azure-monitor/platform/data-platform-logs.md) pour votre compte d’intégration. [Azure Monitor](../azure-monitor/overview.md) vous aide à superviser vos environnements cloud et locaux de manière à vous permettre d'assurer plus facilement leur disponibilité et leurs performances. Les journaux Azure Monitor vous permettent d'enregistrer et de stocker des informations relatives aux données et événements d'exécution, tels que les événements déclencheurs, événements d’exécution et événements d’action dans un [espace de travail Log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md). Pour les messages, la journalisation collecte également des informations, notamment :
+Après avoir configuré la communication B2B entre les partenaires commerciaux dans votre compte d’intégration, ces partenaires peuvent échanger des messages à l'aide de protocoles comme AS2, X12 et EDIFACT. Pour vérifier le bon fonctionnement de cette communication, vous pouvez configurer les [journaux Azure Monitor](../azure-monitor/platform/data-platform-logs.md) pour votre compte d’intégration. [Azure Monitor](../azure-monitor/overview.md) vous permet de superviser vos environnements cloud et locaux afin de vous aider à garantir plus facilement leur disponibilité et leurs performances. Les journaux Azure Monitor vous permettent d'enregistrer et de stocker des informations relatives aux données et événements d'exécution, tels que les événements déclencheurs, événements d’exécution et événements d’action dans un [espace de travail Log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md). Pour les messages, la journalisation collecte également des informations, notamment :
 
 * Nombre et état des messages
 * État des accusés de réception
 * Corrélations entre les messages et les accusés de réception
 * Descriptions détaillées des erreurs en cas d’échec
 
-Azure Monitor vous permet de créer des [requêtes de journal](../azure-monitor/log-query/log-query-overview.md) pour vous aider à rechercher et à consulter ces informations. Vous pouvez également [utiliser ces données de diagnostic avec d’autres services Azure](../logic-apps/monitor-logic-apps-log-analytics.md#extend-data), tels que Stockage Azure et Azure Event Hubs.
+Azure Monitor vous permet de créer des [requêtes de journal](../azure-monitor/log-query/log-query-overview.md) pour vous aider à rechercher et à consulter ces informations. Vous pouvez également [utiliser ces données de diagnostic avec d'autres services Azure](../logic-apps/monitor-logic-apps-log-analytics.md#extend-data), tels que Stockage Azure et Azure Event Hubs.
 
 Pour configurer la journalisation pour votre compte d’intégration, [installez la solution Logic Apps B2B](#install-b2b-solution) dans le portail Azure. Cette solution fournit des informations agrégées pour les événements de message B2B. Ensuite, pour activer la journalisation et créer des requêtes propres à ces informations, configurez les [journaux Azure Monitor](#set-up-resource-logs).
 
@@ -58,11 +58,11 @@ Pour suivre les messages B2B liés à votre application logique avec les journau
 
 1. Dans le volet Vue d’ensemble, sélectionnez **Ajouter**.
 
-   ![Dans le volet Vue d’ensemble, ajoutez la nouvelle solution.](./media/monitor-b2b-messages-log-analytics/add-logic-apps-management-solution.png)
+   ![Dans le volet Vue d'ensemble, ajoutez une nouvelle solution.](./media/monitor-b2b-messages-log-analytics/add-logic-apps-management-solution.png)
 
 1. Une fois la **Place de marché** ouverte, dans la zone de recherche, entrez `logic apps b2b`, puis sélectionnez **Logic Apps B2B**.
 
-   ![À partir de la Place de marché, sélectionnez « Logic Apps Management ».](./media/monitor-b2b-messages-log-analytics/select-logic-apps-b2b-solution.png)
+   ![Sur la Place de marché, sélectionnez « Logic Apps Management ».](./media/monitor-b2b-messages-log-analytics/select-logic-apps-b2b-solution.png)
 
 1. Dans le volet de description de la solution, sélectionnez **Créer**.
 

@@ -15,24 +15,24 @@ ms.workload: TBD
 ms.date: 09/21/2016
 ms.author: alkohli
 ms.openlocfilehash: 7fafe177ea0c6c618dc4ab0727ba14c83cbb0102
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68965012"
 ---
 # <a name="supported-hardware-for-the-10-gbe-network-interfaces-on-your-storsimple-device"></a>Matériel pris en charge pour les interfaces réseau 10 GbE sur votre appareil StorSimple
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Cet article fournit des informations sur le matériel supplémentaire fonctionnant avec votre appareil Microsoft Azure StorSimple.
 
 ## <a name="list-of-devices-tested-by-microsoft"></a>Liste des appareils testés par Microsoft
 Microsoft a testé les câbles, les commutateurs et les transmetteurs enfichables infrarouges à faible encombrement suivants, pour vérifier qu'ils fonctionnent de façon optimale avec les appareils. (Les tableaux suivants sont actualisés lorsque du nouveau matériel est testé.)
 
 ### <a name="sfp-transceivers"></a>Transmetteurs SFP+
-| Make | Modèle |
+| Marque | Modèle |
 | --- | --- |
 | Cisco |SFP-10G-SR |
 

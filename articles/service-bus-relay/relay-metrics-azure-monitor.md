@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/21/2020
 ms.author: spelluru
 ms.openlocfilehash: 159249e2c997e4c414127992b08a83b488281e46
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78273120"
 ---
 # <a name="azure-relay-metrics-in-azure-monitor"></a>Métriques Azure Relay dans Azure Monitor 
@@ -60,24 +60,24 @@ Toutes les valeurs de métriques sont envoyées à Azure Monitor toutes les minu
 
 | Nom de métrique | Description |
 | ------------------- | ----------------- |
-| ListenerConnections-Success  | Nombre de connexions réussies de l’écouteur vers Azure Relay au cours d’une période spécifiée. <br/><br/> Unité : Count <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
-|ListenerConnections-ClientError |Nombre d’erreurs du client sur les connexions de l’écouteur au cours d’une période spécifiée.<br/><br/> Unité : Count <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
-|ListenerConnections-ServerError |Nombre d’erreurs du serveur sur les connexions de l’écouteur au cours d’une période spécifiée.<br/><br/> Unité : Count <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
-|SenderConnections-Success |Nombre de connexions réussies de l’expéditeur au cours d’une période spécifiée.<br/><br/> Unité : Count <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
-|SenderConnections-ClientError |Nombre d’erreurs du client sur les connexions de l’expéditeur au cours d’une période spécifiée.<br/><br/> Unité : Count <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
-|SenderConnections-ServerError |Nombre d’erreurs du serveur sur les connexions de l’expéditeur au cours d’une période spécifiée.<br/><br/> Unité : Count <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
-|ListenerConnections-TotalRequests |Nombre total de connexions de l’écouteur au cours d’une période spécifiée.<br/><br/> Unité : Count <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
-|SenderConnections-TotalRequests |Demandes de connexion effectuées par les expéditeurs sur une période spécifiée.<br/><br/> Unité : Count <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
-|ActiveConnections |Nombre de connexions actives. Cette valeur est une valeur à un point dans le temps.<br/><br/> Unité : Count <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
-|ActiveListeners |Nombre d’écouteurs actifs. Cette valeur est une valeur à un point dans le temps.<br/><br/> Unité : Count <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
-|ListenerDisconnects |Nombre d’écouteurs déconnectés au cours d’une période spécifiée.<br/><br/> Unité : Octets <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
-|SenderDisconnects |Nombre d’expéditeurs déconnectés au cours d’une période spécifiée.<br/><br/> Unité : Octets <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
+| ListenerConnections-Success  | Nombre de connexions réussies de l’écouteur vers Azure Relay au cours d’une période spécifiée. <br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName|
+|ListenerConnections-ClientError |Nombre d’erreurs du client sur les connexions de l’écouteur au cours d’une période spécifiée.<br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName|
+|ListenerConnections-ServerError |Nombre d’erreurs du serveur sur les connexions de l’écouteur au cours d’une période spécifiée.<br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName|
+|SenderConnections-Success |Nombre de connexions réussies de l’expéditeur au cours d’une période spécifiée.<br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName|
+|SenderConnections-ClientError |Nombre d’erreurs du client sur les connexions de l’expéditeur au cours d’une période spécifiée.<br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName|
+|SenderConnections-ServerError |Nombre d’erreurs du serveur sur les connexions de l’expéditeur au cours d’une période spécifiée.<br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName|
+|ListenerConnections-TotalRequests |Nombre total de connexions de l’écouteur au cours d’une période spécifiée.<br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName|
+|SenderConnections-TotalRequests |Demandes de connexion effectuées par les expéditeurs sur une période spécifiée.<br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName|
+|ActiveConnections |Nombre de connexions actives. Cette valeur est une valeur à un point dans le temps.<br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName|
+|ActiveListeners |Nombre d’écouteurs actifs. Cette valeur est une valeur à un point dans le temps.<br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName|
+|ListenerDisconnects |Nombre d’écouteurs déconnectés au cours d’une période spécifiée.<br/><br/> Unité : octets <br/> Type d’agrégation : total <br/> Dimension : EntityName|
+|SenderDisconnects |Nombre d’expéditeurs déconnectés au cours d’une période spécifiée.<br/><br/> Unité : octets <br/> Type d’agrégation : total <br/> Dimension : EntityName|
 
 ## <a name="memory-usage-metrics"></a>Mesures d’utilisation de la mémoire
 
 | Nom de métrique | Description |
 | ------------------- | ----------------- |
-|BytesTransferred |Nombre d’octets transférés au cours d’une période spécifiée.<br/><br/> Unité : Octets <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
+|BytesTransferred |Nombre d’octets transférés au cours d’une période spécifiée.<br/><br/> Unité : octets <br/> Type d’agrégation : total <br/> Dimension : EntityName|
 
 ## <a name="metrics-dimensions"></a>Dimensions de mesures
 

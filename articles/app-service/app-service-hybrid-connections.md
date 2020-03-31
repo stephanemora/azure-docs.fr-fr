@@ -6,15 +6,15 @@ ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
 ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
-ms.custom: fasttrack-edit
-ms.openlocfilehash: ffc5ee32541cfbbda2ae54fd229c1436f133d730
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.custom: seodec18, fasttrack-edit
+ms.openlocfilehash: ec842530f3cae26b869a649617f279d204b98fcc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671522"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80047774"
 ---
-# <a name="azure-app-service-hybrid-connections"></a>Connexions hybrides d’Azure App Service #
+# <a name="azure-app-service-hybrid-connections"></a>Connexions hybrides d’Azure App Service
 
 Les connexions hybrides sont un service dans Azure et une fonctionnalité dans Azure App Service. En tant que service, il exploite et inclut des fonctionnalités qui vont au-delà de celles utilisées dans App Service. Pour en savoir plus sur les connexions hybrides et leur utilisation en dehors d’App Service, consultez [Connexions hybrides Azure Relay][HCService].
 
@@ -56,7 +56,7 @@ Ce que vous ne pouvez pas faire avec les connexions hybrides, notamment :
 - Prendre en charge LDAP, car cela peut utiliser UDP.
 - Prendre en charge Active Directory, car vous ne pouvez pas effectuer la jonction de domaine avec un rôle de travail App Service.
 
-### <a name="prerequisites"></a>Prérequis ###
+### <a name="prerequisites"></a>Conditions préalables requises ###
  - Un service d’application Windows est requis. Il n’est disponible que dans Windows.  
 
 ## <a name="add-and-create-hybrid-connections-in-your-app"></a>Ajouter et créer des connexions hybrides dans votre application ##
@@ -99,7 +99,7 @@ Les connexions hybrides App Service sont uniquement disponibles dans les référ
 
 | Plan tarifaire | Nombre de connexions hybrides utilisables dans le plan |
 |----|----|
-| De base | 5\. |
+| De base | 5 |
 | standard | 25 |
 | Premium | 200 |
 | Isolé | 200 |
@@ -165,7 +165,7 @@ Pour permettre à une personne extérieure à votre abonnement d’héberger une
 
 ![Ajouter manuellement une connexion hybride][11]
 
-### <a name="upgrade"></a>Mise à niveau ###
+### <a name="upgrade"></a>Mettre à niveau ###
 
 Le Hybrid Connection Manager est mis à jour périodiquement pour corriger des problèmes ou fournir des améliorations. Lors de la publication des mises à niveau, une fenêtre contextuelle s’affichera dans l’IU du HCM. Appliquer la mise à niveau appliquera les modifications et redémarrera le HCM. 
 
@@ -220,7 +220,7 @@ Tout utilisateur disposant des autorisations suffisantes sur le relais Azure Ser
 
 Toute personne disposant d’un accès `Reader` au relais peut _voir_ la connexion hybride lorsqu’elle essaye de l’ajouter à son application web dans le portail Azure. Toutefois, elle ne peut pas l’_ajouter_, car elle ne dispose pas des autorisations nécessaires pour récupérer la chaîne de connexion utilisée pour établir la connexion au relais. Pour ajouter la connexion hybride, les utilisateurs doivent disposer de l’autorisation `listKeys` (`Microsoft.Relay/namespaces/hybridConnections/authorizationRules/listKeys/action`). Le rôle `Contributor`, ou tout autre rôle comprenant cette autorisation sur le relais, permettra aux utilisateurs d’utiliser la connexion hybride et de l’ajouter à leurs propres applications web.
 
-## <a name="troubleshooting"></a>Résolution de problèmes ##
+## <a name="troubleshooting"></a>Dépannage ##
 
 L’état « Connecté » signifie qu’au moins un HCM est configuré avec cette connexion hybride et qu’il est en mesure d’atteindre Azure. Si l’état de votre connexion hybride n’indique pas **Connecté**, votre connexion hybride n’est configurée sur aucun HCM ayant accès à Azure.
 

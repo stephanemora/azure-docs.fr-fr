@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: spelluru
 ms.openlocfilehash: 43e626355feaf1e51fc840f82506c559a1859b84
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77621991"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Configurer des clés gérées par le client pour chiffrer les données Azure Event Hubs au repos via le portail Azure
@@ -369,7 +369,7 @@ Dans cette étape, vous allez mettre à jour l’espace de noms Event Hubs avec 
     > - `<EventHubsNamespaceName>` - Nom de votre espace de noms Event Hubs
     > - `<Location>` - Emplacement de votre espace de noms Event Hubs
     > - `<KeyVaultName>` - Nom de votre coffre de clés
-    > - `<KeyName>` - Nom de la clé dans le coffre de clés
+    > - `<KeyName>` : Nom de la clé dans le coffre de clés
 
     ```json
     {

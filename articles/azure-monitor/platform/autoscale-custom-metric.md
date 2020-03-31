@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 05/07/2017
 ms.subservice: autoscale
 ms.openlocfilehash: 7758c440c75af5819099110dcbdaf5a86a1d2a04
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77425117"
 ---
 # <a name="get-started-with-auto-scale-by-custom-metric-in-azure"></a>Prise en main de la mise à l’échelle automatique par métrique personnalisée dans Azure
@@ -25,15 +25,15 @@ Cet article suppose que vous disposez d’une application web avec Application I
   ![Lancer Azure Monitor][3]
 - Cliquez sur le paramètre de mise à l’échelle automatique pour afficher toutes les ressources pour lesquelles la mise à l’échelle automatique est applicable, ainsi que son état actuel de mise à l’échelle automatique ![Découvrir la mise à l’échelle automatique dans Azure Monitor][4]
 - Ouvrez le panneau « Mise à l’échelle automatique » dans Azure Monitor et sélectionnez une ressource à mettre à l’échelle
-  > Remarque : Les étapes ci-dessous utilisent un plan de service d’application associé à une application web qui dispose d’Application Insights configuré.
+  > Remarque : les étapes ci-dessous utilisent un plan de service d’application associé à une application web qui dispose d’Application Insights configuré.
 - Dans le panneau de configuration de mise à l’échelle pour la ressource, notez que le nombre d’instances en cours est 1. Cliquez sur « Activer la mise à l’échelle automatique ».
   ![Paramètre d’échelle pour la nouvelle application web][5]
 - Fournissez un nom pour le paramètre de mise à l’échelle, puis cliquez sur « Ajouter une règle ». Notez les options de règle de mise à l’échelle qui s’ouvrent dans un volet contextuel dans la partie droite. Par défaut, l’option de mise à l’échelle du nombre d’instances de 1 est définie si le pourcentage processeur de la ressource dépasse 70 %. Modifiez la source de mesure en haut sur « Application Insights », sélectionnez la ressource Application Insights dans la liste déroulante « Ressource » et sélectionnez les métriques personnalisées sur la base desquelles vous souhaitez mettre à l’échelle.
   ![Mettre à l’échelle par métrique personnalisée][6]
-- Comme à l’étape précédente, ajoutez une règle de mise à l’échelle qui réduira le nombre de mises à l’échelle de 1 si la métrique personnalisée est inférieure à un seuil.
+- Comme à l’étape précédente, ajoutez une règle de mise à l’échelle qui effectue un scale-in et réduit le nombre de mises à l’échelle de 1 si la métrique personnalisée est inférieure à un seuil.
   ![Mise à l’échelle en fonction du processeur][7]
 - Définissez les limites d’instance. Par exemple, si vous souhaitez mettre à l’échelle entre les 2 et 5 instances en fonction des fluctuations de mesures personnalisées, définissez le minimum sur '2', le maximum sur '5' et la valeur par défaut sur '2'
-  > Remarque : S’il existe un problème de lecture des métriques de ressource et que la capacité actuelle est inférieure à la capacité par défaut, pour garantir la disponibilité de la ressource, la mise à l’échelle automatique sera modifiée sur la valeur par défaut. Si la capacité actuelle est déjà supérieure à la capacité par défaut, la mise à l’échelle n’est pas réduite.
+  > Remarque : s’il existe un problème de lecture des métriques de ressource et que la capacité actuelle est inférieure à la capacité par défaut, pour garantir la disponibilité de la ressource, la mise à l’échelle automatique effectue un scale-out sur la valeur par défaut. Si la capacité actuelle est déjà supérieure à la capacité par défaut, la mise à l’échelle n’effectue pas de scale-in.
 - Cliquez sur « Enregistrer »
 
 Félicitations ! Vous avez correctement créé vos valeurs de mise à l’échelle pour mettre à l’échelle automatiquement votre application web sur la base d’une métrique personnalisée.

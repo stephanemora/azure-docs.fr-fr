@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: b53fca292630ef988ee1357ea50adc4d7b7e9be5
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77162877"
 ---
 # <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>Utiliser l’authentification Azure AD pour accéder à l’API Azure Media Services avec .NET
@@ -125,7 +125,7 @@ L’exemple suivant montre comment créer le jeton Azure AD et le contexte :
     }
 
 >[!NOTE]
->En cas d’exception du type « Le serveur distant a retourné une erreur : (401) Non autorisé », voir la section [Contrôle d'accès](media-services-use-aad-auth-to-access-ams-api.md#access-control) de la vue d’ensemble Accéder à l’API Azure Media Services avec l’authentification Azure AD.
+>Si vous obtenez une exception indiquant que le serveur distant a renvoyé une erreur 401 « Non autorisé », consultez la section sur le [contrôle d’accès](media-services-use-aad-auth-to-access-ams-api.md#access-control) dans la vue d’ensemble de l’accès à l’API Azure Media Services avec l’authentification Azure AD.
 
 ## <a name="use-service-principal-authentication"></a>Utiliser une authentification de principal de service
     

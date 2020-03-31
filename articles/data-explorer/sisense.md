@@ -8,19 +8,19 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 5/29/2019
 ms.openlocfilehash: f0840b90e1036c23fa58d94515bfeb035299c07f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "66358182"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-sisense"></a>Visualiser des données Azure Data Explorer dans Sisense
 
 Sisense est une plateforme décisionnelle analytique qui vous permet de créer des applications analytiques qui offrent des expériences utilisateur hautement interactives. Le logiciel de génération de rapports décisionnels et de tableau de bord vous permet d’accéder à des données et de combiner celles-ci en quelques clics. Il vous permet de vous connecter à des sources de données structurées et non structurées, de joindre des tables de plusieurs sources avec un minimum de scripts et de codage, et de créer des tableaux de bord et des rapports web interactifs. Dans cet article, vous allez apprendre à configurer Azure Data Explorer en tant que source de données pour Sisense, ainsi qu’à visualiser les données d’un exemple de cluster.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-Pour suivre cet article, vous devez :
+Vous avez besoin des éléments suivants dans le cadre de cet article :
 
 * [Télécharger et installer l’application Sisense](https://documentation.sisense.com/latest/getting-started/download-install.htm) 
 

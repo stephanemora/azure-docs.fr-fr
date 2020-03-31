@@ -69,18 +69,24 @@
           href: boot-diagnostics.md
         - name: Erreurs de BitLocker
           href: troubleshoot-bitlocker-boot-error.md
-        - name: Vérification des erreurs du système de fichiers
-          href: troubleshoot-check-disk-boot-error.md
         - name: Erreurs liées à un écran bleu
           href: troubleshoot-common-blue-screen-error.md
-        - name: Blocage du démarrage de la machine virtuelle
-          href: troubleshoot-vm-boot-configure-update.md
+        - name: Vérification des erreurs du système de fichiers
+          href: troubleshoot-check-disk-boot-error.md
+        - name: Processus critique désactivé
+          href: troubleshoot-guide-critical-process-died.md
         - name: Échec du service critique
           href: troubleshoot-critical-service-failed-boot-error.md
+        - name: Disque non amorçable
+          href: troubleshoot-guide-not-bootable-disk.md
         - name: Boucle de redémarrage
           href: troubleshoot-reboot-loop.md
         - name: Bloqué dans Windows Update
           href: troubleshoot-stuck-updating-boot-error.md
+        - name: Blocage du démarrage de la machine virtuelle
+          href: troubleshoot-vm-boot-configure-update.md
+        - name: Impossible de démarrer la machine virtuelle en raison du gestionnaire de démarrage Windows
+          href: troubleshoot-guide-windows-boot-manager-menu.md
 - name: Impossible de se connecter à ma machine virtuelle
   items:
     - name: RDP

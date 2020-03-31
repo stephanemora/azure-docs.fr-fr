@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: jgao
 ms.openlocfilehash: 585e2773ea5d6af184f85e65b63d39b60d632146
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75476095"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79233977"
 ---
 # <a name="use-visual-studio-code-to-create-azure-resource-manager-templates"></a>Utiliser Visual Studio Code pour créer des modèles Azure Resource Manager
 
@@ -120,5 +120,5 @@ Les avertissements sont les suivants :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour en savoir plus sur la création de modèles Azure Resource Manager, consultez [Didacticiel : Créer et déployer votre premier modèle Azure Resource Manager](template-tutorial-create-first-template.md).
+- Pour en savoir plus sur la création de modèles Azure Resource Manager, consultez [Didacticiel : Créer et déployer votre premier modèle Azure Resource Manager](template-tutorial-create-first-template.md)
 - Pour parcourir un guide de démarrage rapide à l’aide de Visual Studio Code, consultez [Démarrage rapide : Créer des modèles Azure Resource Manager à l’aide de Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md)

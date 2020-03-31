@@ -13,14 +13,14 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 361b98a1cde8ee5dee99a370b46d8fc8e0f5af28
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928254"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231573"
 ---
 # <a name="move-data-from-sap-hana-using-azure-data-factory"></a>Déplacer des données depuis SAP HANA à l’aide d’Azure Data Factory
-> [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
+> [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](data-factory-sap-hana-connector.md)
 > * [Version 2 (version actuelle)](../connector-sap-hana.md)
 
@@ -41,7 +41,7 @@ Pour activer la connectivité à l’instance SAP HANA, installez les composants
 ## <a name="getting-started"></a>Prise en main
 Vous pouvez créer un pipeline avec une activité de copie qui déplace les données d’un magasin de données SAP HANA local à l’aide de différents outils/API. 
 
-- Le moyen le plus simple de créer un pipeline consiste à utiliser **l’Assistant Copie**. Consultez le [tutoriel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Copie](data-factory-copy-data-wizard-tutorial.md) pour obtenir une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copie de données. 
+- Le moyen le plus simple de créer un pipeline consiste à utiliser **l’Assistant Copie**. Voir le [tutoriel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Copie](data-factory-copy-data-wizard-tutorial.md) pour obtenir une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copie de données. 
 - Vous pouvez également utiliser les outils suivants pour créer un pipeline : **Visual Studio**, **Azure PowerShell**, **modèle Azure Resource Manager**, **.NET API** et **API REST**. Pour obtenir des instructions détaillées sur la création d’un pipeline avec une activité de copie, consultez le [didacticiel sur l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
 
 Que vous utilisiez des outils ou des API, la création d’un pipeline qui déplace les données d’un magasin de données source vers un magasin de données récepteur implique les étapes suivantes :
@@ -59,11 +59,11 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 
 Propriété | Description | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | --------
-server | Le nom du serveur sur lequel réside l’instance SAP HANA. Si votre serveur utilise un port personnalisé, spécifiez `server:port`. | string | OUI
-authenticationType | Type d'authentification. | chaîne. « Basic » ou « Windows » | OUI 
-username | Nom de l’utilisateur qui a accès au serveur SAP | string | OUI
-password | Mot de passe pour l’utilisateur. | string | OUI
-gatewayName | Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à l’instance SAP HANA locale. | string | OUI
+server | Le nom du serveur sur lequel réside l’instance SAP HANA. Si votre serveur utilise un port personnalisé, spécifiez `server:port`. | string | Oui
+authenticationType | Type d'authentification. | chaîne. « Basic » ou « Windows » | Oui 
+username | Nom de l’utilisateur qui a accès au serveur SAP | string | Oui
+mot de passe | Mot de passe pour l’utilisateur. | string | Oui
+gatewayName | Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à l’instance SAP HANA locale. | string | Oui
 encryptedCredential | La chaîne d’informations d’identification chiffrée. | string | Non
 
 ## <a name="dataset-properties"></a>Propriétés du jeu de données
@@ -81,7 +81,7 @@ Lorsque la source de l’activité de copie est de type **RelationalSource** (qu
 
 | Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
-| query | Spécifie la requête SQL pour lire les données de l’instance SAP HANA. | Requête SQL. | OUI |
+| query | Spécifie la requête SQL pour lire les données de l’instance SAP HANA. | Requête SQL. | Oui |
 
 ## <a name="json-example-copy-data-from-sap-hana-to-azure-blob"></a>Exemple JSON : copier des données de SAP HANA vers Stockage Blob Azure
 L’exemple suivant présente des exemples de définitions JSON que vous pouvez utiliser pour créer un pipeline à l’aide de [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou d’[Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Cet exemple indique comment copier des données depuis SAP HANA vers un système Blob Storage Microsoft Azure. Toutefois, les données peuvent être copiées **directement** vers l’un des récepteurs répertoriés [ici](data-factory-data-movement-activities.md#supported-data-stores-and-formats) , via l’activité de copie d’Azure Data Factory.  
@@ -124,7 +124,7 @@ Ce service lié relie votre instance SAP HANA à la fabrique de données. La pro
 ```
 
 ### <a name="azure-storage-linked-service"></a>Service lié Stockage Azure
-Le service lié relie votre compte de stockage Azure à la fabrique de données. La propriété de type est définie sur **AzureStorage**. La section typeProperties fournit des informations de connexion pour le compte Azure Storage.
+Le service lié relie votre compte de stockage Azure à la fabrique de données. La propriété de type est définie sur **AzureStorage**. La section typeProperties fournit des informations de connexion pour le compte de stockage Azure.
 
 ```json
 {
@@ -142,7 +142,7 @@ Le service lié relie votre compte de stockage Azure à la fabrique de données.
 
 Ce jeu de données définit le jeu de données SAP HANA. Vous définissez le type de données du jeu de données Data Factory sur **RelationalTable**. Actuellement, vous ne spécifiez pas de propriétés propres à un type pour un jeu de données SAP HANA. La requête dans la définition de l’activité de copie spécifie les données à lire à partir de l’instance SAP HANA. 
 
-La définition de la propriété external sur true informe le service Data Factory qu’il s’agit d’un jeu de données qui est externe à la Data Factory et non produit par une activité dans la Data Factory.
+La définition de la propriété external sur true informe le service Data Factory qu’il s’agit d’une table qui est externe à la fabrique de données et non produite par une activité dans la fabrique de données.
 
 Les propriétés de fréquence et d’intervalle définissent la planification. Dans ce cas, les données sont lues à partir de l’instance SAP HANA toutes les heures. 
 
@@ -163,7 +163,7 @@ Les propriétés de fréquence et d’intervalle définissent la planification. 
 ```
 
 ### <a name="azure-blob-output-dataset"></a>Jeu de données de sortie d’objet Blob Azure
-Ce jeu de données définit le jeu de données d’objet blob Azure de sortie. La propriété type est définie sur AzureBlob. La section typeProperties indique l’endroit auquel les données copiées à partir de l’instance SAP HANA sont stockées. Les données sont écrites dans un nouvel objet blob toutes les heures (fréquence : heure, intervalle : 1). Le chemin d’accès du dossier pour l’objet blob est évalué dynamiquement en fonction de l’heure de début du segment en cours de traitement. Le chemin d’accès du dossier utilise l’année, le mois, le jour et l’heure de l’heure de début.
+Ce jeu de données définit le jeu de données d’objet blob Azure de sortie. La propriété du type est définie sur AzureBlob. La section typeProperties indique l’endroit auquel les données copiées à partir de l’instance SAP HANA sont stockées. Les données sont écrites dans un nouvel objet blob toutes les heures (fréquence : heure, intervalle : 1). Le chemin d’accès du dossier pour l’objet blob est évalué dynamiquement en fonction de l’heure de début du segment en cours de traitement. Le chemin d'accès du dossier utilise l'année, le mois, le jour et l'heure de l'heure de début.
 
 ```json
 {
@@ -286,22 +286,22 @@ Type SAP HANA | Type basé sur .NET
 TINYINT | Byte
 SMALLINT | Int16
 INT | Int32
-BIGINT | Int64
-REAL | Unique
+bigint | Int64
+real | Unique
 DOUBLE | Unique
 DECIMAL | Decimal
 BOOLEAN | Byte
-VARCHAR | Chaîne
-NVARCHAR | Chaîne
+VARCHAR | String
+NVARCHAR | String
 CLOB | Byte[]
-ALPHANUM | Chaîne
+ALPHANUM | String
 BLOB | Byte[]
 DATE | DateTime
 TEMPS | TimeSpan
-TIMESTAMP | DateTime
+timestamp | DateTime
 SECONDDATE | DateTime
 
-## <a name="known-limitations"></a>Limites connues
+## <a name="known-limitations"></a>Limitations connues
 Il existe quelques limitations connues lors de la copie des données à partir de SAP HANA :
 
 - Les chaînes NVARCHAR sont tronquées à une longueur maximale de 4 000 caractères Unicode
@@ -309,7 +309,7 @@ Il existe quelques limitations connues lors de la copie des données à partir d
 - VARBINARY n’est pas pris en charge
 - Les dates valides sont celles comprises entre 1899/12/30 et 9999/12/31
 
-## <a name="map-source-to-sink-columns"></a>Mapper les colonnes source aux colonnes de récepteur
+## <a name="map-source-to-sink-columns"></a>Mapper les colonnes source aux colonnes du récepteur
 Pour en savoir plus sur le mappage de colonnes du jeu de données source à des colonnes du jeu de données récepteur, voir [Mappage des colonnes d’un jeu de données dans Azure Data Factory](data-factory-map-columns.md).
 
 ## <a name="repeatable-read-from-relational-sources"></a>Lecture renouvelée de sources relationnelles

@@ -17,11 +17,11 @@ ms.date: 12/12/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f0f0c678f2426d9de58d2ab337c56243394b4d0f
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74183889"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231793"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>FAQ et problèmes connus en lien avec les identités managées pour ressources Azure
 
@@ -84,8 +84,8 @@ Non. Les identités managées ne prennent actuellement pas en charge les scénar
 
 ### <a name="what-azure-rbac-permissions-are-required-to-managed-identity-on-a-resource"></a>Quelles sont les autorisations RBAC Azure nécessaires pour une identité managée sur une ressource ? 
 
-- Identité managée affectée par le système : Vous devez écrire des autorisations sur la ressource. Ainsi, pour les machines virtuelles vous avez besoin de Microsoft.Compute/virtualMachines/write. Cette action est incluse dans les rôles intégrés spécifiques de la ressource, tels que [Contributeur de machines virtuelles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).
-- Identité managée affectée par l’utilisateur : Vous devez écrire des autorisations sur la ressource. Ainsi, pour les machines virtuelles vous avez besoin de Microsoft.Compute/virtualMachines/write. En plus de l’affectation du rôle [Opérateur d’identités managées](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) sur l’identité managée.
+- Identité managée affectée par le système : Vous devez écrire des autorisations sur la ressource. Ainsi, pour les machines virtuelles vous avez besoin de Microsoft.Compute/virtualMachines/write. Cette action est incluse dans les rôles intégrés spécifiques de la ressource, tels que [Contributeur de machines virtuelles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).
+- Identité managée affectée par l’utilisateur : Vous devez écrire des autorisations sur la ressource. Ainsi, pour les machines virtuelles vous avez besoin de Microsoft.Compute/virtualMachines/write. En plus de l’affectation du rôle [Opérateur d’identités managées](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) sur l’identité managée.
 
 ### <a name="how-do-you-restart-the-managed-identities-for-azure-resources-extension"></a>Comment redémarrer l’extension des identités managées pour ressources Azure ?
 Sur Windows et certaines versions de Linux, si l’extension s’arrête, la cmdlet suivante peut être utilisée pour redémarrer manuellement l’extension :

@@ -18,11 +18,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 46e29fff3308f35b16dbff2f9cead82abc222a5c
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014497"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231797"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Journaux d’activité Azure Active Directory dans Azure Monitor
 
@@ -79,7 +79,7 @@ Le tableau suivant contient une estimation des coûts, selon la taille du locata
 | Catégorie de journal | Nombre d’utilisateurs | Événements par jour | Volume de données par mois (estimation) | Coût par mois (estimation) | Coût par an (estimation) |
 |--------------|-----------------|----------------------|--------------------------------------|----------------------------|---------------------------|
 | Audit | 100 000 | 1,5&nbsp;million | 90 Go | 1,93 $ | 23,12 $ |
-| Audit | 1 000 | 15 000 | 900 Mo | 0,02 $ | 0,24 $ |
+| Audit | 1 000 | 15,000 | 900 Mo | 0,02 $ | 0,24 $ |
 | Connexions | 1 000 | 34800 | 4 Go | 0,13 $ | 1,56 $ |
 | Connexions | 100 000 | 15&nbsp;millions | 1,7 To | 35,41 $ | 424,92 $ |
  
@@ -114,7 +114,7 @@ Le tableau suivant contient les coûts approximatifs pour un Event Hub de base d
 | :--                | ---             | ---            | ---                        | --:                          |
 | Audit et connexions | 100 000         | 16 500 000     | 495 000 000                |  1093,00 $                       |
 | Audit              | 100 000         | 1 500 000      | 45 000 000                 |  246,66 $                     |
-| Connexions           | 100 000         | 15 000 000     | 450 000 000                |  847,28 $                     |
+| Connexions           | 100 000         | 15 000 000     | 450 000 000                |  847,28 $                     |
 
 
 
@@ -127,7 +127,7 @@ Le tableau suivant contient les coûts approximatifs pour un Event Hub de base d
 
 Pour connaître les coûts liés à la gestion des journaux d’activité Azure Monitor, consultez [Gérer les coûts en contrôlant le volume et la rétention dans les journaux d’activité Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-cost-storage).
 
-## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
+## <a name="frequently-asked-questions"></a>Forum aux questions
 
 Cette section répond aux questions fréquemment posées et traitent des problèmes rencontrés avec les journaux d’activité Azure Active Directory dans Azure Monitor.
 
