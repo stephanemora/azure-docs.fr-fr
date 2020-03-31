@@ -3,15 +3,15 @@ title: 'Démarrage rapide : Créer une application Python Linux'
 description: Découvrez comment bien démarrer avec les applications Linux sur Azure App Service en déployant votre première application Python sur un conteneur Linux dans App Service.
 ms.topic: quickstart
 ms.date: 10/22/2019
-ms.custom: cli-validate
+ms.custom: seo-python-october2019, cli-validate
 experimental: true
 experiment_id: 01a9132f-eaab-4c
-ms.openlocfilehash: 567e87b43c3fc3d7d2fb0c894ced53c89a133978
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 9cc314edf35d6a327522ed49fcc0c7798c7dcf63
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77524061"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80045668"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Démarrage rapide : Créer une application Python dans Azure App Service sur Linux
 
@@ -90,7 +90,7 @@ Azure CLI fournit de nombreuses commandes pratiques que vous pouvez utiliser à 
 
 Pour exécuter des commandes Azure dans Azure CLI, vous devez d’abord vous connecter à l’aide de la commande `az login`. Cette commande ouvre un navigateur pour recueillir vos informations d’identification.
 
-```terminal
+```azurecli
 az login
 ```
 
@@ -101,7 +101,7 @@ La commande [`az webapp up`](/cli/azure/webapp#az-webapp-up) crée l’applicati
 Dans le dossier *python-docs-hello-world* contenant l’exemple de code, exécutez la commande `az webapp up` suivante. Remplacez `<app-name>` par un nom d’application global unique (les *caractères valides sont `a-z`, `0-9` et `-`* ). Remplacez également `<location-name>` par une région Azure telle que **centralus**, **eastasia**, **westeurope**, **koreasouth**, **brazilsouth**, **centralindia**, etc. (Vous pouvez récupérer une liste de régions autorisées pour votre compte Azure en exécutant la commande [`az account list-locations`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations).)
 
 
-```terminal
+```azurecli
 az webapp up --sku F1 -n <app-name> -l <location-name>
 ```
 
@@ -157,7 +157,7 @@ Enregistrez vos modifications et quittez l’éditeur.
 
 Redéployez l’application à l’aide de la commande `az webapp up` suivante, en utilisant la même commande que celle utilisée pour déployer l’application la première fois, en remplaçant `<app-name>` et `<location-name>` par les mêmes noms que ceux que vous avez utilisés précédemment. 
 
-```terminal
+```azurecli
 az webapp up --sku F1 -n <app-name> -l <location-name>
 ```
 
@@ -174,13 +174,13 @@ Vous pouvez accéder aux journaux de la console générés à l’intérieur de 
 
 Tout d’abord, activez la journalisation de conteneur en exécutant la commande suivante dans un terminal, en remplaçant `<app-name>` par le nom de votre application et `<resource-group-name>` par le nom du groupe de ressources indiqué dans la sortie de la commande `az webapp up` que vous avez utilisée (par exemple « appsvc_rg_Linux_centralus » ) :
 
-```terminal
+```azurecli
 az webapp log config --name <app-name> --resource-group <resource-group-name> --docker-container-logging filesystem
 ```
 
 Une fois la journalisation du conteneur activée, exécutez la commande suivante pour voir le flux de journal :
 
-```terminal
+```azurecli
 az webapp log tail --name <app-name> --resource-group <resource-group-name>
 ```
 
@@ -217,7 +217,7 @@ Au cours des étapes précédentes, vous avez créé des ressources Azure au sei
 
 Si vous n’envisagez pas d’avoir besoin de ces ressources à l’avenir, supprimez le groupe de ressources en exécutant la commande suivante, en remplaçant `<resource-group-name>` par le groupe de ressources affiché dans la sortie de la commande `az webapp up`, par exemple « appsvc_rg_Linux_centralus ». L’exécution de cette commande peut prendre une minute.
 
-```terminal
+```azurecli
 az group delete -n <resource-group-name>
 ```
 

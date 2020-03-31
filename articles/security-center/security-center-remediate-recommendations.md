@@ -14,17 +14,17 @@ ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
 ms.openlocfilehash: 6863f4bbfc6aabc4e7bf4314ad26dd4590d31362
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77603497"
 ---
 # <a name="remediate-recommendations-in-azure-security-center"></a>Appliquer les recommandations d’Azure Security Center
 
 Les recommandations fournissent des suggestions visant à mieux sécuriser vos ressources. Pour appliquer une recommandation, vous devez suivre les étapes de correction qu’elle fournit.
 
-## Étapes de correction <a name="remediation-steps"></a>
+## <a name="remediation-steps"></a>Étapes de correction <a name="remediation-steps"></a>
 
 Après avoir lu toutes les recommandations, vous devez décider laquelle appliquer en premier. Nous vous recommandons de vous baser sur l’[impact du niveau de sécurité](security-center-recommendations.md#monitor-recommendations) pour hiérarchiser les actions à effectuer en priorité.
 
@@ -36,7 +36,7 @@ Après avoir lu toutes les recommandations, vous devez décider laquelle appliqu
 
 1. Une fois l’opération terminée, une notification s’affiche pour vous informer si la mise à jour a réussi.
 
-## Application d’un correctif rapide<a name="one-click"></a>
+## <a name="quick-fix-remediation"></a>Application d’un correctif rapide<a name="one-click"></a>
 
 Le correctif rapide vous permet d’appliquer rapidement une recommandation à plusieurs ressources. Ceci est disponible uniquement pour des recommandations spécifiques. Le correctif rapide simplifie le processus de correction et vous permet d’accroître rapidement votre niveau de sécurité, ce qui entraîne ainsi une amélioration de la sécurité de votre environnement.
 
@@ -65,7 +65,7 @@ Pour mettre en œuvre une application rapide des correctifs :
 
 1. Une fois l’opération terminée, une notification s’affiche pour vous informer si la mise à jour a réussi.
 
-## Journalisation de l’application du correctif rapide dans le journal d’activité <a name="activity-log"></a>
+## <a name="quick-fix-remediation-logging-in-the-activity-log"></a>Journalisation de l’application du correctif rapide dans le journal d’activité <a name="activity-log"></a>
 
 L’opération de correction applique la configuration à la ressource à l’aide d’un déploiement de modèle ou d’un appel à l’API REST PATCH. Ces opérations sont consignées dans le [journal d’activité Azure](../azure-resource-manager/management/view-activity-logs.md).
 

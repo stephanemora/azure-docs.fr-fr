@@ -7,10 +7,10 @@ ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: f66a23c0562ec9f1987bd119a45b7b767f2dfe46
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671628"
 ---
 # <a name="configure-application-insights-profiler"></a>Configurer Application Insights Profiler
@@ -68,7 +68,7 @@ Traces | Nombre de traces associées à des requêtes individuelles.
 % d’UC | Pourcentage d’utilisation du processeur pendant l’exécution du profileur.
 Mémoire (%) | Pourcentage d’utilisation de la mémoire pendant l’exécution du profileur.
 
-## <a id="profileondemand"></a> Utiliser les tests de performances web pour générer du trafic vers votre application
+## <a name="use-web-performance-tests-to-generate-traffic-to-your-application"></a><a id="profileondemand"></a> Utiliser les tests de performances web pour générer du trafic vers votre application
 
 Vous pouvez déclencher manuellement Profiler en un clic. Supposons que vous exécutez un test de performances web. Vous avez besoin des traces pour comprendre comment votre application web s’exécute avec une certaine charge. Pour savoir quand le test de charge est exécuté, vous avez besoin de contrôler le moment de capture des traces. Toutefois, l’intervalle d’échantillonnage aléatoire ne permet pas de le faire.
 

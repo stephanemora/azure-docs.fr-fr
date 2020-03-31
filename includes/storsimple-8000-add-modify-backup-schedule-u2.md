@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 2ab3b089ce65c9f27457fd1cfb360d6776ed6244
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67177252"
 ---
 #### <a name="to-add-or-modify-a-storsimple-backup-schedule"></a>Pour ajouter ou modifier une planification de sauvegarde StorSimple
@@ -19,7 +19,7 @@ ms.locfileid: "67177252"
 
     ![Gérer les planifications](./media/storsimple-8000-add-modify-backup-schedule-u2/addschedule1.png)
 
-3. Dans le panneau **Ajouter une planification**, modifiez le type d’instantané, la fréquence de sauvegarde, la rétention et les date et heure de début. Cliquez sur **Add**.
+3. Dans le panneau **Ajouter une planification**, modifiez le type d’instantané, la fréquence de sauvegarde, la rétention et les date et heure de début. Cliquez sur **Ajouter**.
 
     ![Gérer les planifications](./media/storsimple-8000-add-modify-backup-schedule-u2/addschedule5.png)
 

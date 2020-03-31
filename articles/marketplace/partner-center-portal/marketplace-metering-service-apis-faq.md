@@ -1,19 +1,18 @@
 ---
 title: API de service de mesure de la Place de marché - Questions fréquentes (FAQ) | Place de marché Azure
 description: Émettez l’utilisation d’une offre SaaS dans la place de marché Azure.
-author: MaggiePucciEvans
-manager: evansma
-ms.author: evansma
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: 044d92e79d8a885f553a7d081ce40c8b6de880a1
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 6e5b691a41ef283449f9eeeb90e9d01a91616146
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75931215"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80275779"
 ---
 # <a name="marketplace-metering-service-apis---faq"></a>API de service de mesure de la Place de marché - Questions fréquentes (FAQ)
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/14/2020
 ms.author: spelluru
 ms.openlocfilehash: 52d5628698d1f945a7f672595ee7ce4739b6d13c
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77444364"
 ---
 # <a name="allow-lab-creator-to-pick-location-for-the-lab-in-azure-lab-services"></a>Autoriser un créateur de labo à choisir la localisation du labo dans Azure Lab Services
@@ -39,9 +39,9 @@ Cette option est désactivée si vous sélectionnez un réseau virtuel pair pour
 Après avoir créé le compte lab, vous pouvez activer ou désactiver cette option en effectuant les étapes suivantes : 
 
 1. Dans la page **Compte lab**, sélectionnez **Paramètres lab** dans le menu de gauche.
-2. Sélectionnez l’option **Autoriser le créateur du lab à choisir l’emplacement du lab** si vous souhaitez autoriser le créateur du labo à sélectionner une localisation pour le labo. Si l’option est désactivée, les labos sont automatiquement créés dans la même localisation que celle dans laquelle se trouve le compte lab. 
+2. Sélectionnez l’option **Autoriser le créateur du lab à choisir l’emplacement du lab** si vous souhaitez autoriser le créateur du labo à sélectionner une localisation pour le labo. Si l’option est désactivée, les laboratoires sont automatiquement créés dans le même emplacement que celui dans lequel se trouve le compte de laboratoire. 
     
-    Ce champ est désactivé lorsque vous sélectionnez un réseau virtuel pour le champ **Appairer un réseau virtuel**. Cela s’explique par le fait que les labos dans le compte lab doivent être dans la même région que le compte lab pour pouvoir accéder aux ressources dans le réseau virtuel pair. 
+    Ce champ est désactivé lorsque vous sélectionnez un réseau virtuel pour le champ **Appairer un réseau virtuel**. Cela s’explique par le fait que les laboratoires dans le compte de laboratoire doivent être dans la même région que le compte de laboratoire pour pouvoir accéder aux ressources dans le réseau virtuel de pair. 
 1. Sélectionnez **Enregistrer** dans la barre d’outils. 
 
     ![Paramètres du labo](../media/allow-lab-creator-pick-lab-location/lab-settings.png)
@@ -74,7 +74,7 @@ Jusqu’à présent, les tarifs étaient basés sur la taille de machine virtuel
 Voir les articles suivants :
 
 - [Connecter le réseau de votre labo avec un réseau virtuel pair](how-to-connect-peer-virtual-network.md)
-- [Attacher une galerie d’images partagées à un labo](how-to-attach-detach-shared-image-gallery.md)
+- [Attacher une galerie d’images partagées à un lab](how-to-attach-detach-shared-image-gallery.md)
 - [Ajouter un utilisateur comme propriétaire de labo](how-to-add-user-lab-owner.md)
 - [Afficher les paramètres de pare-feu pour un labo](how-to-configure-firewall-settings.md)
-- [Configurer les autres paramètres d’un labo](how-to-configure-lab-accounts.md)
+- [Configurer les autres paramètres d’un lab](how-to-configure-lab-accounts.md)

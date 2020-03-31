@@ -1,19 +1,18 @@
 ---
 title: Créer un certificat Azure Key Vault | Place de marché Azure
 description: Explique comment inscrire une machine virtuelle à partir d’un disque dur virtuel déployé dans Azure.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/29/2018
-ms.author: pabutler
-ms.openlocfilehash: 4adc6f716050e2d792e0a5c022972e4340d2846a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: dc106ecf40367172f28c0f339bbcce8bddb50a34
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823113"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278073"
 ---
 # <a name="create-certificates-for-azure-key-vault"></a>Créer des certificats pour Azure Key Vault
 

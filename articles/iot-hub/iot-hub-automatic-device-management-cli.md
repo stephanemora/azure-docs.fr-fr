@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: chrisgre
-ms.openlocfilehash: 381f550f6d64dee3c7649a040c1e24b7c9d42f2c
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: 748f3e09fd03a6f37954c8dfaf4b6ae9144384bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78669438"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80235596"
 ---
 # <a name="automatic-iot-device-and-module-management-using-the-azure-cli"></a>Gestion automatique des Modules et des appareils IoT avec Azure CLI
 
@@ -122,7 +122,7 @@ Vous configurez des appareils cibles en créant une configuration composée du c
 
 Utilisez la commande suivante pour créer une configuration :
 
-```cli
+```azurecli
    az iot hub configuration create --config-id [configuration id] \
      --labels [labels] --content [file path] --hub-name [hub name] \
      --target-condition [target query] --priority [int] \
@@ -147,7 +147,7 @@ Utilisez la commande suivante pour créer une configuration :
 
 Utilisez la commande suivante pour afficher le contenu d’une configuration :
 
-```cli
+```azurecli
 az iot hub configuration show --config-id [configuration id] \
   --hub-name [hub name]
 ```
@@ -166,7 +166,7 @@ Inspectez la configuration dans la fenêtre de commande. La propriété **metri
 
 Vous pouvez afficher une liste d’ID d’appareil, d’ID de Module ou d’objets pour chacune des métriques à l’aide de la commande suivante :
 
-```cli
+```azurecli
 az iot hub configuration show-metric --config-id [configuration id] \
    --metric-id [metric id] --hub-name [hub name] --metric-type [type] 
 ```
@@ -193,7 +193,7 @@ Si vous mettez à jour la condition cible, les mises à jour suivantes se produi
 
 Utilisez la commande suivante pour mettre à jour une configuration :
 
-```cli
+```azurecli
 az iot hub configuration update --config-id [configuration id] \
    --hub-name [hub name] --set [property1.property2='value']
 ```
@@ -216,10 +216,11 @@ Quand vous supprimez une configuration, tous les jumeaux d’appareil ou de Modu
 
 Utilisez la commande suivante pour supprimer une configuration :
 
-```cli
+```azurecli
 az iot hub configuration delete --config-id [configuration id] \
    --hub-name [hub name] 
 ```
+
 * --**config-id** : nom de la configuration existante dans le hub IoT.
 
 * --**hub-name** : nom du hub IoT dans lequel la configuration existe. Le hub doit être dans l’abonnement actuel. Basculez vers l’abonnement souhaité avec la commande `az account set -s [subscription name]`.

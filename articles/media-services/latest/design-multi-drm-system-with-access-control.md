@@ -15,10 +15,10 @@ ms.date: 12/21/2018
 ms.author: willzhan
 ms.custom: seodec18
 ms.openlocfilehash: fbc6d6fa8f9a3b424eaec1f04a61b5ca24fe14fc
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77161781"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Concevoir un système de protection de contenu multi-DRM avec contrôle d’accès 
@@ -27,7 +27,7 @@ Il est assez complexe de concevoir et développer un sous-système de gestion de
 
 Ce document s’adresse aux ingénieurs qui travaillent sur des sous-systèmes DRM de solutions OTT ou de solutions de diffusion en continu en ligne/multi-écrans, ou à tout lecteur intéressé par les sous-systèmes de gestion des droits numériques. Les lecteurs doivent connaître au moins une des technologies DRM du marché, telles que PlayReady, Widevine, FairPlay ou Adobe Access.
 
-Dans le cadre de cet article, le terme « multi-DRM » inclut les trois DRM pris en charge par Azure Media Services : le chiffrement commun (CENC) pour PlayReady et Widevine, FairPlay ainsi que le chiffrement à clé en clair AES-128. Le marché de la diffusion en continu en ligne et de l’OTT est marqué par une nouvelle tendance qui consiste à utiliser un système multi-DRM natif sur différentes plateformes clientes. Cette tendance témoigne d’un bouleversement par rapport à l’époque où l’on utilisait un seul système DRM et son SDK client pour différentes plateformes clientes. Lorsque vous utilisez CENC avec un système multi-DRM natif, PlayReady et Widevine sont chiffrés conformément à la spécification [Common Encryption (ISO/IEC 23001-7 CENC)](https://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/).
+Dans cette discussion, le terme « multi-DRM » inclut les trois DRM pris en charge par Azure Media Services : le chiffrement commun (CENC) pour PlayReady et Widevine, FairPlay, ainsi que le chiffrement AES-128 avec clé en clair. Le marché de la diffusion en continu en ligne et de l’OTT est marqué par une nouvelle tendance qui consiste à utiliser un système multi-DRM natif sur différentes plateformes clientes. Cette tendance témoigne d’un bouleversement par rapport à l’époque où l’on utilisait un seul système DRM et son SDK client pour différentes plateformes clientes. Lorsque vous utilisez CENC avec un système multi-DRM natif, PlayReady et Widevine sont chiffrés conformément à la spécification [Common Encryption (ISO/IEC 23001-7 CENC)](https://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/).
 
 Les avantages d’un système multi-DRM natif pour la protection du contenu sont les suivants :
 
@@ -120,7 +120,7 @@ Si vous utilisez un cloud public pour la remise de licences, les licences persis
 
     Nombre total de licences requises pour tous les films/appareils pour enfants = 1
 
-* Abonnement mensuel : utilisation d’une licence non persistante et d’un mappage 1 à 1 entre la clé de contenu et l’élément multimédia. Dans ce cas :
+* Abonnement mensuel : utilisation d’une licence non persistante et du mappage 1 à 1 entre la clé de contenu et l’élément multimédia. Dans ce cas :
 
     Nombre total de licences requises pour tous les films/appareils pour enfants = [nombre de films regardés] x [nombre de séances]
 
@@ -245,7 +245,7 @@ Utilisez les informations de dépannage suivantes pour résoudre vos éventuels 
 
 * Octroi des autorisations de revendications de membre de groupe. Assurez-vous que le fichier de manifeste de l’application Azure AD comprend bien les paramètres suivants : 
 
-    « groupMembershipClaims » : « All »    (la valeur par défaut est Null)
+    « groupMembershipClaims » : « All » (la valeur par défaut est Null)
 
 * Définissez le TokenType approprié lorsque vous créez des conditions de restriction.
 
@@ -286,7 +286,7 @@ Vous pouvez contacter l’un des auteurs pour qu’un compte soit créé ou ajou
 
 Les captures d’écran ci-dessous présentent les différentes pages de connexion utilisées par les différents comptes de domaine :
 
-**Compte de domaine client Azure AD personnalisé** : page de connexion personnalisée du domaine client Azure AD personnalisé.
+**Compte de domaine client Azure AD personnalisé** : page de connexion personnalisée du domaine client Azure AD.
 
 ![Compte de domaine client Azure AD personnalisé 1](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain1.png)
 

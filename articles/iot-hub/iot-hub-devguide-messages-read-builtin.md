@@ -9,11 +9,11 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.openlocfilehash: e7b8f8a33b741a8dcf2d1a68ae3cf86d6e3687eb
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950410"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79237353"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Lire des messages appareil-à-cloud à partir du point de terminaison intégré
 
@@ -53,14 +53,14 @@ Dans le portail, le champ Point de terminaison compatible Event Hub contient une
 | Nom | Valeur |
 | ---- | ----- |
 | Point de terminaison | sb://abcd1234namespace.servicebus.windows.net/ |
-| Nom d’hôte | abcd1234namespace.servicebus.windows.net |
+| HostName | abcd1234namespace.servicebus.windows.net |
 | Espace de noms | abcd1234namespace |
 
 Vous pouvez ensuite utiliser n’importe quelle stratégie d’accès partagé bénéficiant d’autorisations **ServiceConnect** pour vous connecter au Event Hub ci-dessus.
 
 Les kits de développement logiciel que vous pouvez utiliser pour vous connecter au point de terminaison compatible Event Hub intégré exposé par IoT Hub sont les suivants :
 
-| Langage | Kit SDK | Exemples | Notes |
+| Langage | Kit SDK | Exemple | Notes |
 | -------- | --- | ------ | ----- |
 | .NET | https://github.com/Azure/azure-event-hubs-dotnet | [Démarrage rapide](quickstart-send-telemetry-dotnet.md) | Utilise des informations compatibles avec Event Hubs |
  Java | https://github.com/Azure/azure-event-hubs-java | [Démarrage rapide](quickstart-send-telemetry-java.md) | Utilise des informations compatibles avec Event Hubs |

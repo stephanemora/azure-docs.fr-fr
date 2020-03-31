@@ -1,20 +1,19 @@
 ---
 title: API de traitement SaaS v1 | Place de marché Azure
 description: Explique comment créer et gérer une offre SaaS sur la Place de marché Azure à l’aide des API de traitement v1 associées.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 05/23/2019
-ms.author: evansma
+ms.author: dsindona
 ROBOTS: NOINDEX
-ms.openlocfilehash: f56e9b4f6c3db6fb47452c7478f5a27445955e87
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 3ec8373288a2ea5809ee5d349c52c57051586035
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715386"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288340"
 ---
 # <a name="saas-fulfillment-apis-version-1-deprecated"></a>API de traitement SaaS version 1 (obsolète)
 

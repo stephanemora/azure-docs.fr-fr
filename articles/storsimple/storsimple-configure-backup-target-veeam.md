@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 12/06/2016
 ms.author: matd
 ms.openlocfilehash: 3ebf464fed1480e7452f246f04f3906faf0dd219
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67875315"
 ---
 # <a name="storsimple-as-a-backup-target-with-veeam"></a>StorSimple comme cible de sauvegarde avec Veeam
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Azure StorSimple est une solution de stockage cloud hybride de Microsoft. StorSimple s’attaque à la complexité de la croissance exponentielle des données en utilisant un compte de stockage Azure en tant qu’extension de la solution locale et en hiérarchisant automatiquement les données sur le stockage local et sur le stockage cloud.
 
@@ -75,18 +75,18 @@ StorSimple offre les avantages suivants :
 -   Algorithmes de déduplication et de compression uniques qui tirent parti du cloud pour atteindre des niveaux de déduplication inégalés
 -   Haute disponibilité
 -   Géoréplication reposant sur la fonctionnalité de géoréplication Azure
--   Intégration à Azure
+-   Intégration d’Azure
 -   Chiffrement de données dans le cloud
 -   Récupération d’urgence et conformité améliorées
 
 Bien que StorSimple présente deux principaux scénarios de déploiement (cible de sauvegarde principale et secondaire), il s’agit essentiellement d’un dispositif de stockage de bloc. StorSimple exécute la totalité des tâches de compression et de déduplication. Il envoie et récupère de façon transparente les données entre le cloud, l’application et le système de fichiers.
 
-Pour plus d'informations sur StorSimple, consultez l'article [StorSimple série 8000 : une solution de stockage cloud hybride](storsimple-overview.md). En outre, vous pouvez consulter les [caractéristiques techniques de StorSimple série 8000](storsimple-technical-specifications-and-compliance.md).
+Pour plus d’informations sur StorSimple, consultez l’article [StorSimple série 8000 : une solution de stockage de cloud hybride](storsimple-overview.md). En outre, vous pouvez consulter les [caractéristiques techniques de StorSimple série 8000](storsimple-technical-specifications-and-compliance.md).
 
 > [!IMPORTANT]
 > L’utilisation d’un appareil StorSimple comme cible de sauvegarde n’est prise en charge que pour StorSimple 8000 Update 3 et les versions ultérieures.
 
-## <a name="architecture-overview"></a>Présentation de l'architecture
+## <a name="architecture-overview"></a>Vue d’ensemble de l’architecture
 
 Les tableaux ci-après contiennent les informations d’aide initiales concernant l’architecture liée aux différents modèles d’appareil.
 
@@ -186,7 +186,7 @@ Dans cette section, nous fournissons quelques exemples de configuration. Les exe
 
 | Tâches de déploiement StorSimple  | Commentaires supplémentaires |
 |---|---|
-| Déploiement de votre appareil StorSimple local | Versions prises en charge : Update 3 et versions ultérieures. |
+| Déploiement de votre appareil StorSimple local | Versions prises en charge : Update 3 et versions ultérieures. |
 | Activez la cible de sauvegarde. | Utilisez ces commandes pour activer ou désactiver le mode de cible de sauvegarde et pour obtenir l’état. Pour plus d’informations, consultez l’article [Connexion à distance à un appareil StorSimple](storsimple-remote-connect.md).</br> Pour activer le mode de sauvegarde : `Set-HCSBackupApplianceMode -enable`. </br> Pour désactiver le mode de sauvegarde : `Set-HCSBackupApplianceMode -disable`. </br> Pour obtenir l’état actuel des paramètres de mode de sauvegarde : `Get-HCSBackupApplianceMode`. |
 | Création d’un conteneur de volumes commun pour votre volume qui stocke les données de sauvegarde. Toutes les données d’un conteneur de volumes sont dédupliquées. | Les conteneurs de volumes StorSimple définissent les domaines de déduplication.  |
 | Créez les volumes StorSimple. | Créez des volumes en les dimensionnant le plus conformément possible à l’usage que vous prévoyez d’en faire, car la taille du volume a une incidence sur la durée des captures instantanées cloud. Pour plus d’informations sur la taille d’un volume, consultez les [stratégies de rétention](#retention-policies).</br> </br> Utilisez les volumes hiérarchisés StorSimple et cochez la case **Utiliser ce volume pour les données d’archivage auxquelles vous accédez moins souvent**. </br> L’utilisation de volumes épinglés localement uniquement n’est pas prise en charge. |
@@ -289,7 +289,7 @@ Sur la base des hypothèses qui précèdent, créez un volume hiérarchisé Stor
     ![Console d’administration de Veeam, sélection du volume](./media/storsimple-configure-backup-target-using-veeam/veeamimage4.png)
 
 
-5.  Dans la boîte de dialogue **Storage Compatibility Settings (Paramètres de compatibilité du stockage)** , cochez la case **Use per-VM backup files (Utiliser les fichiers de sauvegarde par machine virtuelle)** .
+5.  Dans la boîte de dialogue **Storage Compatibility Settings (Paramètres de conformité du stockage)** , cochez la case **Use per-VM backup files (Utiliser les fichiers de sauvegarde par machine virtuelle)** .
 
     ![Console de gestion Veeam, paramètres de conformité de stockage](./media/storsimple-configure-backup-target-using-veeam/veeamimage5.png)
 
@@ -316,7 +316,7 @@ La figure ci-après illustre le mappage d’un volume classique sur un travail d
 
 Voici un exemple de planification de rotation GFS pour quatre semaines, mensuellement et annuellement :
 
-| Fréquence/type de sauvegarde | Complet | Incrémentielle (jours 1-5)  |   
+| Fréquence/type de sauvegarde | Complète | Incrémentielle (jours 1-5)  |   
 |---|---|---|
 | Hebdomadaire (semaines 1-4) | Samedi | Lundi-vendredi |
 | Mensuelle  | Samedi  |   |
@@ -341,7 +341,7 @@ Pour le scénario de cible de sauvegarde principale, créez un travail quotidien
 
     ![Console d’administration de Veeam, page du nouveau travail de sauvegarde](./media/storsimple-configure-backup-target-using-veeam/veeamimage10.png)
 
-4.  Sélectionnez les valeurs souhaitées pour **Backup proxy (Proxy de sauvegarde)** et **Backup repository (Référentiel de sauvegarde)** . Sélectionnez une valeur pour **Restore points to keep on disk (Points de restauration à conserver sur le disque)** conformément aux définitions des objectifs RPO et RTO de votre environnement sur le stockage connecté localement. Sélectionnez **Advanced (Avancé)** .
+4.  Sélectionnez les valeurs souhaitées pour **Backup proxy (Proxy de sauvegarde)** et **Backup repository (Référentiel de sauvegarde)** . Sélectionnez une valeur pour **Restore points to keep on disk (Points de restauration à conserver sur le disque)** conformément aux définitions des objectifs RPO et RTO de votre environnement sur le stockage connecté localement. Sélectionnez **Avancé**.
 
     ![Console d’administration de Veeam, page du nouveau travail de sauvegarde](./media/storsimple-configure-backup-target-using-veeam/veeamimage11.png)
 
@@ -393,7 +393,7 @@ Le tableau suivant montre comment configurer des sauvegardes à exécuter sur le
 
 planification de rotation GFS hebdomadaire, mensuelle et annuelle
 
-| Semaine | Complet | Incrémentielle jour 1 | Incrémentielle jour 2 | Incrémentielle jour 3 | Incrémentielle jour 4 | Incrémentielle jour 5 |
+| Week | Complète | Incrémentielle jour 1 | Incrémentielle jour 2 | Incrémentielle jour 3 | Incrémentielle jour 4 | Incrémentielle jour 5 |
 |---|---|---|---|---|---|---|
 | Semaine 1 | Volume RAID local  | Volume RAID local | Volume RAID local | Volume RAID local | Volume RAID local | Volume RAID local |
 | Semaine 2 | StorSimple semaines 2 à 4 |   |   |   |   |   |
@@ -459,7 +459,7 @@ La section ci-après décrit comment créer un bref script pour déclencher et s
 
 ![Diagramme du cycle de vie de sauvegarde](./media/storsimple-configure-backup-target-using-veeam/backuplifecycle.png)
 
-### <a name="requirements"></a>Configuration requise
+### <a name="requirements"></a>Spécifications
 
 -   Le serveur qui exécute le script doit avoir accès aux ressources du cloud Azure.
 -   Le compte d’utilisateur doit disposer des autorisations nécessaires.
@@ -507,12 +507,12 @@ Un sinistre peut être dû à plusieurs facteurs. Le tableau ci-après répertor
 | Défaillance du site entraînant la perte du serveur de sauvegarde et de l’appareil StorSimple | Les opérations de sauvegarde et de restauration sont interrompues. | Commencez par restaurer StorSimple, puis restaurez Veeam. | Commencez par restaurer StorSimple, puis restaurez Veeam. Si vous devez procéder à une restauration après la récupération de l’appareil, les jeux de données de travail complets sont récupérés sur le nouvel appareil à partir du cloud. Toutes les opérations sont exécutées à la vitesse du cloud. |
 
 
-## <a name="references"></a>Références
+## <a name="references"></a>References
 
 Les documents référencés dans cet article sont les suivants :
 
 - [StorSimple multipath I/O setup (Configuration de StorSimple MPIO)](storsimple-configure-mpio-windows-server.md)
-- [Scénarios de stockage : Allocation dynamique](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
+- [Storage scenarios: Thin provisioning (Scénarios de stockage : allocation dynamique)](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
 - [Using GPT drives (Utilisation de disques de table de partition GUID)](https://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
 - [Set up shadow copies for shared folders (Configurer des clichés instantanés de dossiers partagés)](https://technet.microsoft.com/library/cc771893.aspx)
 

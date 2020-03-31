@@ -14,10 +14,10 @@ ms.date: 09/10/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 047ea4d07f2b497ac8c7deb90c056d63976094f4
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77617077"
 ---
 # <a name="monitoring-and-troubleshooting-from-hana-side"></a>Surveillance et dépannage à partir de HANA
@@ -26,18 +26,18 @@ Pour analyser efficacement les problèmes liés à SAP HANA sur Azure (grandes i
 
 Des FAQ pertinentes liées aux performances de SAP HANA se trouvent dans les Notes SAP suivantes :
 
-- [Note SAP n° 2222200 - FAQ : Réseau SAP HANA](https://launchpad.support.sap.com/#/notes/2222200)
-- [Note SAP n° 2100040 - FAQ : Processeur SAP HANA](https://launchpad.support.sap.com/#/notes/0002100040)
-- [Note SAP n° 199997 - FAQ : Mémoire SAP HANA](https://launchpad.support.sap.com/#/notes/2177064)
-- [Note SAP n° 200000 - FAQ : Optimisation des performances de SAP HANA](https://launchpad.support.sap.com/#/notes/2000000)
-- [Note SAP n° 199930 - FAQ : Analyse d’E/S SAP HANA](https://launchpad.support.sap.com/#/notes/1999930)
-- [Note SAP n° 2177064 - FAQ : Incidents et redémarrage du service SAP HANA](https://launchpad.support.sap.com/#/notes/2177064)
+- [Note SAP #2222200 – FAQ : réseau SAP HANA](https://launchpad.support.sap.com/#/notes/2222200)
+- [Note SAP #2100040 – FAQ : processeur SAP HANA](https://launchpad.support.sap.com/#/notes/0002100040)
+- [Note SAP #199997 – FAQ : mémoire SAP HANA](https://launchpad.support.sap.com/#/notes/2177064)
+- [Note SAP #200000 – FAQ : optimisation des performances de SAP HANA](https://launchpad.support.sap.com/#/notes/2000000)
+- [Note SAP #199930 – FAQ : analyse d’E/S SAP HANA](https://launchpad.support.sap.com/#/notes/1999930)
+- [Note SAP #2177064 – FAQ : incidents et redémarrage du service SAP HANA](https://launchpad.support.sap.com/#/notes/2177064)
 
 ## <a name="sap-hana-alerts"></a>Alertes SAP HANA
 
-Dans un premier temps, vérifiez les journaux d’activité d’alerte SAP HANA. Dans SAP HANA Studio, accédez à **Console d’administration : Alertes : Afficher : Toutes les alertes**. Cet onglet affiche toutes les alertes SAP HANA ayant des valeurs spécifiques (mémoire physique disponible, utilisation du processeur, etc.) qui se situent en dehors des seuils minimum et maximum définis. Par défaut, les vérifications sont effectuées automatiquement toutes les 15 minutes.
+Dans un premier temps, vérifiez les journaux d’activité d’alerte SAP HANA. Dans SAP HANA Studio, accédez à **Console d’administration: Alertes: Afficher: Toutes les alertes**. Cet onglet affiche toutes les alertes SAP HANA ayant des valeurs spécifiques (mémoire physique disponible, utilisation du processeur, etc.) qui se situent en dehors des seuils minimum et maximum définis. Par défaut, les vérifications sont effectuées automatiquement toutes les 15 minutes.
 
-![Dans SAP HANA Studio, accédez à Console d’administration : Alertes : Afficher : Toutes les alertes](./media/troubleshooting-monitoring/image1-show-alerts.png)
+![Dans SAP HANA Studio, accédez à Console d’administration: Alertes: Afficher: Toutes les alertes](./media/troubleshooting-monitoring/image1-show-alerts.png)
 
 ## <a name="cpu"></a>UC
 
@@ -64,7 +64,7 @@ Le graphique de charge peut indiquer une consommation du processeur élevée, ou
 
 Une alerte déclenchée en raison d’une utilisation élevée du processeur peut être due à plusieurs raisons, notamment, mais pas uniquement : l’exécution de certaines transactions, le chargement de données, des tâches qui ne répondent pas, des instructions SQL dont l’exécution prend beaucoup de longtemps et des mauvaises performances de requêtes (par exemple, avec BW sur des cubes HANA).
 
-Reportez-vous au site [Résolution des problèmes concernant SAP HANA : Causes et solutions liées au processeur](https://help.sap.com/saphelp_hanaplatform/helpdata/en/4f/bc915462db406aa2fe92b708b95189/content.htm?frameset=/en/db/6ca50424714af8b370960c04ce667b/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=46&amp;show_children=false) pour obtenir des étapes détaillées de résolution du problème.
+Reportez-vous au site [Dépannage SAP HANA : causes et solutions liées au processeur](https://help.sap.com/saphelp_hanaplatform/helpdata/en/4f/bc915462db406aa2fe92b708b95189/content.htm?frameset=/en/db/6ca50424714af8b370960c04ce667b/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=46&amp;show_children=false) pour obtenir des étapes de dépannage détaillées.
 
 ## <a name="operating-system"></a>Système d’exploitation
 
@@ -86,7 +86,7 @@ Vous pouvez voir que la quantité de mémoire allouée par la base de données S
 - Utilisation de la mémoire du stockage principal des tables de la banque des colonnes (alerte 45)
 - Fichiers de vidage runtime (alerte 46)
 
-Reportez-vous au site [Résolution des problèmes concernant SAP HANA : Problèmes de mémoire](https://help.sap.com/saphelp_hanaplatform/helpdata/en/db/6ca50424714af8b370960c04ce667b/content.htm?frameset=/en/59/5eaa513dde43758b51378ab3315ebb/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=26&amp;show_children=false) pour obtenir des étapes détaillées de résolution du problème.
+Reportez-vous au site [Dépannage SAP HANA : problèmes de mémoire](https://help.sap.com/saphelp_hanaplatform/helpdata/en/db/6ca50424714af8b370960c04ce667b/content.htm?frameset=/en/59/5eaa513dde43758b51378ab3315ebb/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=26&amp;show_children=false) pour obtenir des étapes de dépannage détaillées.
 
 ## <a name="network"></a>Réseau
 
@@ -103,7 +103,7 @@ Reportez-vous à la [Note SAP #2081065 – Résolution des problèmes de réseau
 
 Utilisez également l’outil open source [IPERF](https://iperf.fr/) (ou tout outil similaire) pour mesurer les véritables performances du réseau d’application.
 
-Reportez-vous au site [Résolution des problèmes concernant SAP HANA : Problèmes de connectivité et de performances réseau](https://help.sap.com/saphelp_hanaplatform/helpdata/en/a3/ccdff1aedc4720acb24ed8826938b6/content.htm?frameset=/en/dc/6ff98fa36541e997e4c719a632cbd8/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=142&amp;show_children=false) pour obtenir des étapes détaillées de résolution du problème.
+Reportez-vous au site [Dépannage SAP HANA : problèmes de connectivité et de performances réseau](https://help.sap.com/saphelp_hanaplatform/helpdata/en/a3/ccdff1aedc4720acb24ed8826938b6/content.htm?frameset=/en/dc/6ff98fa36541e997e4c719a632cbd8/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=142&amp;show_children=false) pour obtenir des étapes de dépannage détaillées.
 
 ## <a name="storage"></a>Stockage
 
@@ -115,7 +115,7 @@ Pour les volumes associés figurant dans la partie inférieure de l’écran, vo
 
 ![Pour les volumes associés figurant dans la partie inférieure de l’écran, vous pouvez voir les détails des volumes, par exemple les fichiers et les statistiques d’E/S](./media/troubleshooting-monitoring/image6-volumes-tab-b.png)
 
-Reportez-vous au site [Résolution des problèmes concernant SAP HANA : Causes principales liées aux E/S et solutions](https://help.sap.com/saphelp_hanaplatform/helpdata/en/dc/6ff98fa36541e997e4c719a632cbd8/content.htm?frameset=/en/47/4cb08a715c42fe9f7cc5efdc599959/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=55&amp;show_children=false) et [Résolution des problèmes concernant SAP HANA : Causes principales liées au disque et solutions](https://help.sap.com/saphelp_hanaplatform/helpdata/en/47/4cb08a715c42fe9f7cc5efdc599959/content.htm?frameset=/en/44/3e1db4f73d42da859008df4f69e37a/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=53&amp;show_children=false) pour obtenir des étapes détaillées de résolution du problème.
+Reportez-vous aux sites [Dépannage SAP HANA : causes principales liées à l’E/S et solutions](https://help.sap.com/saphelp_hanaplatform/helpdata/en/dc/6ff98fa36541e997e4c719a632cbd8/content.htm?frameset=/en/47/4cb08a715c42fe9f7cc5efdc599959/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=55&amp;show_children=false) et [Dépannage SAP HANA : causes principales liées au disque et solutions](https://help.sap.com/saphelp_hanaplatform/helpdata/en/47/4cb08a715c42fe9f7cc5efdc599959/content.htm?frameset=/en/44/3e1db4f73d42da859008df4f69e37a/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=53&amp;show_children=false) pour obtenir des étapes de dépannage détaillées.
 
 ## <a name="diagnostic-tools"></a>Outils de diagnostic
 
@@ -129,15 +129,15 @@ Dans SAP HANA Studio, dans l’onglet **System Information** (Informations syst�
 
 Sélectionnez le fichier SQL Statements.zip enregistré sur votre ordinateur pour qu’un dossier contenant les instructions SQL correspondantes soit importé. À ce stade, plusieurs vérifications de diagnostics peuvent être effectuées avec ces instructions SQL.
 
-Par exemple, pour tester les exigences de bande passante pour la réplication du système SAP HANA, cliquez avec le bouton droit sur l’instruction **Bande passante** sous **Réplication : Bande passante**, puis sélectionnez **Ouvrir** dans la console SQL.
+Par exemple, pour tester les besoins en bande passante pour la réplication du système SAP HANA, cliquez avec le bouton droit de la souris sur l’instruction **Bandwidth** (Bande passante) sous **Replication: Bandwidth** (Réplication : bande passante) et sélectionnez **Open** (Ouvrir) dans la console SQL.
 
 L’instruction SQL s’ouvre. Vous pouvez alors modifier puis exécuter les paramètres d’entrée (section Modification).
 
 ![L’instruction SQL s’ouvre. Vous pouvez alors modifier puis exécuter les paramètres d’entrée (section Modification)](./media/troubleshooting-monitoring/image8-import-statements-b.png)
 
-Autre exemple : cliquez avec le bouton droit sur les instructions sous **Réplication : Vue d’ensemble**. Sélectionnez **Execute** (Exécuter) dans le menu contextuel :
+Autre exemple : cliquez avec le bouton droit de la souris sur les instructions sous **Replication: Overview** (Réplication : vue d’ensemble). Sélectionnez **Execute** (Exécuter) dans le menu contextuel :
 
-![Autre exemple : cliquez avec le bouton droit sur les instructions sous Réplication : Vue d’ensemble. Sélectionnez Execute (Exécuter) dans le menu contextuel](./media/troubleshooting-monitoring/image9-import-statements-c.png)
+![Autre exemple : cliquez avec le bouton droit de la souris sur les instructions sous Replication: Overview (Réplication : vue d’ensemble). Sélectionnez Execute (Exécuter) dans le menu contextuel](./media/troubleshooting-monitoring/image9-import-statements-c.png)
 
 Vous obtenez ainsi des informations qui vous aident à résoudre le problème :
 

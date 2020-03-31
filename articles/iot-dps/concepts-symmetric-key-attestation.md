@@ -9,11 +9,11 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.openlocfilehash: 0e3d343c0a68dd527e4e8e8d23e5b3843a216a78
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975293"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79233325"
 ---
 # <a name="symmetric-key-attestation"></a>Attestation de clé symétrique
 
@@ -48,8 +48,8 @@ Voici les composants de chaque jeton :
 
 | Valeur | Description |
 | --- | --- |
-| {signature} |Chaîne de signature HMAC-SHA256. Pour les inscriptions individuelles, cette signature est produite avec la clé symétrique (principale ou secondaire) pour effectuer le hachage. Pour les groupes d’inscription, une clé dérivée de la clé d’inscription du groupe est utilisée pour effectuer le hachage. Le hachage est effectué sur un message de la forme : `URL-encoded-resourceURI + "\n" + expiry`. **Important !** La clé doit être décodée depuis base64 avec d’être utilisée pour effectuer le calcul HMAC-SHA256. En outre, le résultat de la signature doit être encodé sous forme d’URL. |
-| {resourceURI} |URI du point de terminaison d’inscription qui est accessible avec ce jeton, commençant par l’ID d’étendue pour l’instance du service Device Provisioning. Par exemple, `{Scope ID}/registrations/{Registration ID}` |
+| {signature} |Chaîne de signature HMAC-SHA256. Pour les inscriptions individuelles, cette signature est produite avec la clé symétrique (principale ou secondaire) pour effectuer le hachage. Pour les groupes d’inscription, une clé dérivée de la clé d’inscription du groupe est utilisée pour effectuer le hachage. Le hachage est effectué sur un message de la forme : `URL-encoded-resourceURI + "\n" + expiry`. **Important** : La clé doit être décodée depuis base64 avec d’être utilisée pour effectuer le calcul HMAC-SHA256. En outre, le résultat de la signature doit être encodé sous forme d’URL. |
+| {resourceURI} |URI du point de terminaison d’inscription qui est accessible avec ce jeton, commençant par l’ID d’étendue pour l’instance du service Device Provisioning. Par exemple : `{Scope ID}/registrations/{Registration ID}` |
 | {expiry} |Chaînes UTF8 pour le nombre de secondes depuis l’époque 00:00:00 UTC 1er janvier 1970. |
 | {URL-encoded-resourceURI} |Encodage en URL minuscules de l’URI de ressource en minuscules |
 | {policyName} |Le nom de la stratégie d’accès partagé à laquelle ce jeton fait référence. Le nom de la stratégie utilisé lors du provisionnement avec l’attestation de clé symétrique est **inscription**. |

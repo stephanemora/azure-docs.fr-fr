@@ -1,19 +1,18 @@
 ---
 title: Créer un disque dur virtuel compatible avec Azure pour la Place de marché Microsoft Azure
 description: Explique comment créer un disque dur virtuel d’une offre de machine virtuelle dans la Place de marché Microsoft Azure.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: pbutlerm
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/27/2018
-ms.author: pabutler
-ms.openlocfilehash: 37fecb8100ec40ace02960a4f3390420a8bfc735
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 2014a775edd4e24f5d302d863d0b69d83009b8a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73816817"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80277988"
 ---
 # <a name="create-an-azure-compatible-vhd"></a>Créer un disque dur virtuel compatible avec Azure
 
@@ -62,7 +61,7 @@ Dans le [portail Microsoft Azure](https://ms.portal.azure.com/), créez l’imag
 
    ![Panneau Taille de la nouvelle machine virtuelle](./media/publishvm_015.png)
 
-7. Dans le panneau **Paramètres**, définissez l’option **Use Managed Disk** (Utiliser un disque managé) sur **Non**.  Vous pouvez ainsi gérer manuellement le nouveau disque dur virtuel. (Le panneau **Paramètres** vous permet également d’apporter d’autres modifications aux options de stockage et de réseau, par exemple, en sélectionnant **Premium (SSD)** dans **Type de disque**.)  Cliquez sur **OK** pour continuer.
+7. Dans le panneau **Paramètres**, définissez l’option **Use Managed Disk** (Utiliser un disque managé) sur **Non**.  Vous pouvez ainsi gérer manuellement le nouveau disque dur virtuel. (Le panneau **Paramètres** vous permet également d’apporter d’autres modifications aux options de stockage et de réseau, par exemple, en sélectionnant **Premium (SSD)** dans **Type de disque**.)  Pour continuer, cliquez sur **OK** .
 
     ![Panneau Paramètres de la nouvelle machine virtuelle](./media/publishvm_016.png)
 

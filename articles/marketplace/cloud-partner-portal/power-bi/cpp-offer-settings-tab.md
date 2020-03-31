@@ -1,19 +1,18 @@
 ---
 title: Paramètres d’une offre d’application Power BI | Place de marché Azure
 description: Configurez les paramètres d’une offre d’application Power BI pour la Place de marché Microsoft AppSource.
-services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.author: pabutler
-ms.openlocfilehash: ca326b10a0707d5e4b1a5f05dccc303c9ec28269
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: f3a8d740d391edc09a290d3dba4307af7eec00b1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822677"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80286351"
 ---
 # <a name="power-bi-apps-offer-settings-tab"></a>Onglet des paramètres de l'offre d'application Power BI
 

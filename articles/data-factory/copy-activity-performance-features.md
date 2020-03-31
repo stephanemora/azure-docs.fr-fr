@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/09/2020
-ms.openlocfilehash: a31c6229220142acea9ded571128ab54c50d34b7
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: d37b4648c0a37f16fe5c9d8794bd78417c5780ea
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79125684"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80257884"
 ---
 # <a name="copy-activity-performance-optimization-features"></a>Fonctionnalités d’optimisation des performances de l’activité de copie
 
@@ -92,7 +92,7 @@ Le tableau suivant liste le comportement de copie en parallèle :
 | Entre des magasins de fichiers | `parallelCopies` détermine le parallélisme **au niveau du fichier**. La segmentation au sein de chaque fichier se produit en arrière-plan de manière automatique et transparente. Elle est conçue pour utiliser la taille de segment la plus appropriée pour un type de magasin de données particulier pour charger les données en parallèle. <br/><br/>Le nombre réel de copies en parallèle que l’activité de copie utilise au moment de l’exécution ne dépasse pas le nombre de fichiers dont vous disposez. Si le comportement de copie est défini sur **mergeFile** dans le récepteur de fichier, l’activité de copie ne peut pas tirer parti du parallélisme au niveau du fichier. |
 | D’un magasin de fichiers vers un magasin hors fichier | - Lors de la copie de données dans Azure SQL Database ou Azure Cosmos DB, la copie en parallèle par défaut dépend également du niveau de récepteur (nombre de DTU/RU).<br>- Lors de la copie de données dans une table Azure, la copie en parallèle par défaut est 4. |
 | D’un magasin hors fichier vers un magasin de fichiers | - Lors de la copie de données depuis un magasin de données avec l’option de partition activée (y compris [Oracle](connector-oracle.md#oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [Teradata](connector-teradata.md#teradata-as-source), [SAP HANA](connector-sap-hana.md#sap-hana-as-source), [SAP Table](connector-sap-table.md#sap-table-as-source) et [SAP Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source)), la copie en parallèle par défaut est 4. Le nombre réel de copies en parallèle que l’activité de copie utilise au moment de l’exécution ne dépasse pas le nombre de partitions de données dont vous disposez. Lorsque vous utilisez le runtime d’intégration auto-hébergé et que vous copiez dans Azure Blob/ADLS Gen2, notez que le nombre effectif maximal de copies en parallèle est de 4 ou 5 par nœud de runtime d’intégration.<br>- Pour d’autres scénarios, la copie en parallèle ne prend pas effet. Même si le parallélisme est spécifié, il n’est pas appliqué. |
-| Entre des magasins hors fichiers | - Lors de la copie de données dans Azure SQL Database ou Azure Cosmos DB, la copie en parallèle par défaut dépend également du niveau de récepteur (nombre de DTU/RU).<br/>- Lors de la copie de données dans une table Azure, la copie en parallèle par défaut est 4. |
+| Entre des magasins hors fichiers | - Lors de la copie de données dans Azure SQL Database ou Azure Cosmos DB, la copie en parallèle par défaut dépend également du niveau de récepteur (nombre de DTU/RU).<br/>- Lors de la copie de données depuis un magasin de données avec l’option de partition activée (y compris [Oracle](connector-oracle.md#oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [Teradata](connector-teradata.md#teradata-as-source), [SAP HANA](connector-sap-hana.md#sap-hana-as-source), [SAP Table](connector-sap-table.md#sap-table-as-source) et [SAP Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source)), la copie en parallèle par défaut est 4.<br>- Lors de la copie de données dans une table Azure, la copie en parallèle par défaut est 4. |
 
 Pour contrôler la charge sur les machines qui hébergent vos magasins de données ou pour ajuster les performances de copie, vous pouvez remplacer la valeur par défaut et spécifier une valeur pour la propriété `parallelCopies`. La valeur doit être un nombre entier supérieur ou égal à 1. Au moment de l’exécution, pour des performances optimales, l’activité de copie utilise une valeur inférieure ou égale à la valeur que vous avez définie.
 

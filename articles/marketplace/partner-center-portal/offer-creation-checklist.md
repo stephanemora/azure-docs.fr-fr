@@ -1,19 +1,18 @@
 ---
 title: Liste de contrôle de création d’offre SaaS – Place de marché commerciale pour Azure
 description: Détails que vous pouvez fournir dans le cadre du processus de création d’offre SaaS. – Place de marché commerciale pour Azure
-author: MaggiePucciEvans
-manager: evansma
-ms.author: evansma
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 8b01f15673f68bcc3fb0b205b9dd85a276c9b972
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 60111b6a23c76314383c5f95be3eb4b38f90d3e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75930297"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80281338"
 ---
 # <a name="saas-offer-creation-checklist"></a>Check-list pour la création d’une offre SaaS
 
@@ -79,7 +78,7 @@ La page de référencement vous permet de fournir le texte et les images que les
 
 | **Nom du champ**    | **Remarques**   |
 | :---------------- | :-----------| 
-| Name  | Obligatoire, maximum 50 caractères. |
+| Nom  | Obligatoire, maximum 50 caractères. |
 | Résumé  | Obligatoire, maximum 100 caractères. | 
 | Description  | Obligatoire, maximum 3 000 caractères. |
 | Instructions de prise en main  | Obligatoire, maximum 3 000 caractères. |

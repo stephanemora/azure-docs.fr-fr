@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.openlocfilehash: 2664b1abd4131cf1dca186c7b044e338bf1efa84
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75945819"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search-preview"></a>Créer un point de terminaison privé pour une connexion sécurisée à Recherche cognitive Azure (version préliminaire)
@@ -59,11 +59,11 @@ Dans cette section, vous allez créer un réseau virtuel et un sous-réseau pour
 
     | Paramètre | Valeur |
     | ------- | ----- |
-    | Name | Entrez *MyVirtualNetwork* |
+    | Nom | Entrez *MyVirtualNetwork* |
     | Espace d’adressage | Entrez *10.1.0.0/16* |
-    | Subscription | Sélectionnez votre abonnement|
+    | Abonnement | Sélectionnez votre abonnement|
     | Resource group | Sélectionnez **Créer nouveau**, entrez *myResourceGroup* et cliquez sur **OK** |
-    | Location | Sélectionnez **USA Ouest** ou la région que vous utilisez|
+    | Emplacement | Sélectionnez **USA Ouest** ou la région que vous utilisez|
     | Sous-réseau - Nom | Entrez *mySubnet* |
     | Plage d’adresses du sous-réseau | Entrez *10.1.0.0/24* |
     |||
@@ -82,11 +82,11 @@ Dans cette section, vous allez créer un service Recherche cognitive Azure avec 
     | Paramètre | Valeur |
     | ------- | ----- |
     | **DÉTAILS DU PROJET** | |
-    | Subscription | Sélectionnez votre abonnement. |
+    | Abonnement | Sélectionnez votre abonnement. |
     | Resource group | Sélectionnez **myResourceGroup**. Vous avez créé cela dans la section précédente.|
     | **DÉTAILS DE L’INSTANCE** |  |
     | URL | Entrez un nom unique. |
-    | Location | Sélectionnez la région que vous avez indiquée lors de la demande d’accès à cette fonctionnalité d'évaluation. |
+    | Emplacement | Sélectionnez la région que vous avez indiquée lors de la demande d’accès à cette fonctionnalité d'évaluation. |
     | Niveau tarifaire | Sélectionnez **Modifier le niveau tarifaire**, puis **De base**. Ce niveau est requis pour la version préliminaire. |
     |||
   
@@ -102,10 +102,10 @@ Dans cette section, vous allez créer un service Recherche cognitive Azure avec 
 
     | Paramètre | Valeur |
     | ------- | ----- |
-    | Subscription | Sélectionnez votre abonnement. |
+    | Abonnement | Sélectionnez votre abonnement. |
     | Resource group | Sélectionnez **myResourceGroup**. Vous avez créé cela dans la section précédente.|
-    | Location | Sélectionnez **USA Ouest**.|
-    | Name | Entrez *myPrivateEndpoint*.  |
+    | Emplacement | Sélectionnez **USA Ouest**.|
+    | Nom | Entrez *myPrivateEndpoint*.  |
     | Sous-ressource cible | Conservez le **searchService** par défaut. |
     | **MISE EN RÉSEAU** |  |
     | Réseau virtuel  | Sélectionnez  *MyVirtualNetwork* dans le groupe de ressources *myResourceGroup*. |
@@ -136,14 +136,14 @@ Dans cette section, vous allez créer un service Recherche cognitive Azure avec 
     | Paramètre | Valeur |
     | ------- | ----- |
     | **DÉTAILS DU PROJET** | |
-    | Subscription | Sélectionnez votre abonnement. |
+    | Abonnement | Sélectionnez votre abonnement. |
     | Resource group | Sélectionnez **myResourceGroup**. Vous avez créé cela dans la section précédente.  |
     | **DÉTAILS DE L’INSTANCE** |  |
     | Nom de la machine virtuelle | Entrez *myVm*. |
     | Région | Sélectionnez **USA Ouest** ou la région que vous utilisez. |
     | Options de disponibilité | Conservez la valeur par défaut **Aucune redondance d’infrastructure nécessaire**. |
     | Image | Sélectionnez **Windows Server 2019 Datacenter**. |
-    | Size | Conservez la valeur par défaut **Standard DS1 v2**. |
+    | Taille | Conservez la valeur par défaut **Standard DS1 v2**. |
     | **COMPTE ADMINISTRATEUR** |  |
     | Nom d’utilisateur | Entrez un nom d’utilisateur de votre choix. |
     | Mot de passe | Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|

@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 03/03/2020
-ms.openlocfilehash: 27dae07328af125c25512ab9f1eb81d0f4eda99b
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.date: 03/24/2020
+ms.openlocfilehash: 475f89fc5b33948864fd83c39ee8058ab6908cad
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78271320"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80247195"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Nouveauté dans Recherche cognitive Azure
 
@@ -26,6 +26,12 @@ Découvrir les nouveautés du service. Marquez cette page pour rester au fait de
 Recherche Azure est maintenant renommé  **Recherche cognitive Azure** pour refléter l’utilisation étendue (mais facultative) de compétences cognitives et du traitement par IA dans les opérations de base. Les versions d’API, les packages NuGet, les espaces de noms et les points de terminaison ne sont pas modifiés. Les solutions de recherche, nouvelles et existantes, ne sont pas affectées par le changement de nom du service.
 
 ## <a name="feature-announcements"></a>Annonces de fonctionnalités
+
+### <a name="march-2020"></a>Mars 2020
+
++ Avec la [suppression réversible d’objets blob natifs (préversion)](search-howto-indexing-azure-blob-storage.md#incremental-indexing-and-deletion-detection), l’indexeur du Stockage Blob Azure dans Recherche cognitive Azure reconnaît les objets blob qui sont dans un état de suppression réversible, et supprime le document de recherche correspondant durant l’indexation.
+
++ Une nouvelle [API REST de gestion (13/03/2020)](https://docs.microsoft.com/rest/api/searchmanagement/management-api-versions) stable est désormais disponible. 
 
 ### <a name="february-2020"></a>Février 2020
 
