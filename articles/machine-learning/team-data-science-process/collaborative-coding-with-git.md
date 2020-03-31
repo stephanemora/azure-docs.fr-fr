@@ -11,17 +11,17 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 0708e395eff90ff5b889c05f0fd5e7a98205c5bc
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76721895"
 ---
 # <a name="collaborative-coding-with-git"></a>Développement collaboratif avec Git
 
 Cet article explique comment utiliser Git comme framework de développement de code collaborative pour les projets de science des données. L’article explique comment lier du code dans Azure Repos à des éléments de travail de [développement agile](agile-development.md) dans Azure Boards, comment effectuer des revues de code, et comment créer et fusionner des demandes de tirage (pull requests) pour les changements.
 
-## <a name='Linkaworkitemwithagitbranch-1'></a>Lier un élément de travail à une branche Azure Repos 
+## <a name="link-a-work-item-to-an-azure-repos-branch"></a><a name='Linkaworkitemwithagitbranch-1'></a>Lier un élément de travail à une branche Azure Repos 
 
 Azure DevOps offre un moyen pratique de connecter un élément de travail Récit utilisateur ou Tâche Azure Boards avec une branche d’un dépôt Git d’Azure Repos. Vous pouvez lier votre récit utilisateur ou votre tâche directement au code qui y est associé. 
 
@@ -59,7 +59,7 @@ Vous pouvez également lier un élément de travail à une branche existante. Da
 
 ![4](./media/collaborative-coding-with-git/4-link-to-an-existing-branch.png)
 
-## <a name='WorkonaBranchandCommittheChanges-2'></a>Travailler sur la branche et valider les changements 
+## <a name="work-on-the-branch-and-commit-changes"></a><a name='WorkonaBranchandCommittheChanges-2'></a>Travailler sur la branche et valider les changements 
 
 Après avoir apporté un changement à votre élément de travail, comme l’ajout d’un fichier de script R à la branche `script` de votre machine locale, vous pouvez valider le changement de votre branche locale dans la branche de travail en amont en utilisant les commandes bash Git suivantes :
 
@@ -72,7 +72,7 @@ git push origin script
 
 ![5](./media/collaborative-coding-with-git/5-sprint-push-to-branch.png)
 
-## <a name='CreateapullrequestonVSTS-3'></a>Créer une demande de tirage
+## <a name="create-a-pull-request"></a><a name='CreateapullrequestonVSTS-3'></a>Créer une demande de tirage
 
 Après une ou plusieurs validations et notifications push, quand vous êtes prêt à fusionner votre branche de travail actuelle dans sa branche de base, vous pouvez créer et envoyer une *demande de tirage (pull request)* dans Azure Repos. 
 
@@ -84,7 +84,7 @@ Dans l’écran **Nouvelle demande de tirage**, accédez si nécessaire au dép�
 
 ![7](./media/collaborative-coding-with-git/7-spring-send-pull-request.png)
 
-## <a name='ReviewandMerge-4'></a>Réviser et fusionner
+## <a name="review-and-merge"></a><a name='ReviewandMerge-4'></a>Réviser et fusionner
 
 Une fois que vous avez créé la demande de tirage, vos réviseurs reçoivent une notification par e-mail leur demandant de réviser la demande de tirage. Les réviseurs testent si les changements fonctionnent, et vérifient si possible avec le demandeur les changements apportés. Les réviseurs peuvent formuler des commentaires, demander des changements, et approuver ou rejeter la demande de tirage en fonction de leur évaluation. 
 

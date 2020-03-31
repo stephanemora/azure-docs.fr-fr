@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: ba82b1bea4753cd51e275a78b248247032d79a01
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77086641"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79236245"
 ---
 # <a name="tutorial-publish-subscribe-to-events-locally"></a>Tutoriel : Publier, s'abonner à des événements localement
 
@@ -23,7 +23,7 @@ Cet article vous guide tout au long des étapes nécessaires pour publier et s�
 > [!NOTE]
 > Pour en savoir plus sur les rubriques et les abonnements d’Azure Event Grid, consultez [Concepts d’Event Grid](concepts.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises 
+## <a name="prerequisites"></a>Prérequis 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 * **Abonnement Azure** : Créez un [compte gratuit](https://azure.microsoft.com/free) si vous n’en avez pas encore. 

@@ -15,10 +15,10 @@ ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
 ms.openlocfilehash: 554508b1bf784e306cd12a4a601f908e06320933
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71154974"
 ---
 # <a name="common-issues-that-cause-roles-to-recycle"></a>Problèmes courants provoquant le recyclage des rôles
@@ -39,10 +39,10 @@ Avant de générer et de mettre en package votre application, vérifiez les él�
 Azure est un environnement 64 bits. Par conséquent, les assemblys .NET compilés pour une cible 32 bits ne fonctionneront pas sur Azure.
 
 ## <a name="role-throws-unhandled-exceptions-while-initializing-or-stopping"></a>Le rôle génère des exceptions non gérées lors de l'initialisation ou de l'arrêt
-Les exceptions levées par les méthodes de la classe [RoleEntryPoint], notamment les méthodes [OnStart], [OnStop] et [Run], sont des exceptions non prises en charge. Si une exception non gérée se produit dans une de ces méthodes, le rôle sera recyclé. Si le rôle est recyclé à plusieurs reprises, il peut lever une exception non prise en charge chaque fois qu’il tente de démarrer.
+Les exceptions levées par les méthodes de la classe [RoleEntryPoint], notamment les méthodes [OnStart], [OnStop] et [Exécuter], sont des exceptions non prises en charge. Si une exception non gérée se produit dans une de ces méthodes, le rôle sera recyclé. Si le rôle est recyclé à plusieurs reprises, il peut lever une exception non prise en charge chaque fois qu’il tente de démarrer.
 
 ## <a name="role-returns-from-run-method"></a>Le rôle est renvoyé à partir de la méthode Run
-La méthode [Run] est destinée à être exécutée indéfiniment. Si votre code remplace la méthode [Run] , il devrait être en veille indéfiniment. Si la méthode [Run] est renvoyée, le rôle est recyclé.
+La méthode [Exécuter] est destinée à être exécutée indéfiniment. Si votre code remplace la méthode [Exécuter] , il devrait être en veille indéfiniment. Si la méthode [Exécuter] est renvoyée, le rôle est recyclé.
 
 ## <a name="incorrect-diagnosticsconnectionstring-setting"></a>Chaîne DiagnosticsConnectionString incorrecte
 Si l’application utilise les diagnostics Azure, votre fichier de configuration de service doit spécifier le paramètre de configuration `DiagnosticsConnectionString` . Ce paramètre doit spécifier une connexion HTTPS à votre compte de stockage dans Azure.
@@ -68,4 +68,4 @@ Affichez d’autres scénarios de recyclage des rôles dans la [série du blog d
 [RoleEntryPoint]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx
 [OnStart]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx
 [OnStop]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx
-[Run]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx
+[Exécuter]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx

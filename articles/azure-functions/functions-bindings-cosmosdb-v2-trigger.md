@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
-ms.openlocfilehash: c006aa8c46864b78ae46aa9c351605cca1d1e425
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: de8ad39ef731af3dc272d700eeee346acda64b53
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77606525"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79235189"
 ---
 # <a name="azure-cosmos-db-trigger-for-azure-functions-2x"></a>Déclencheur Azure Cosmos DB pour Azure Functions 2.x
 
@@ -236,7 +236,8 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 |**leaseRenewInterval**| **LeaseRenewInterval**| (Facultatif) Quand ce paramètre est défini, il spécifie, en millisecondes, l’intervalle de renouvellement de tous les baux pour les partitions actuellement détenues par une instance. La valeur par défaut est 17 000 (17 secondes).
 |**checkpointFrequency**| **CheckpointFrequency**| (Facultatif) Quand ce paramètre est défini, il spécifie, en millisecondes, l’intervalle entre les points de contrôle du bail. La valeur par défaut est toujours après chaque appel de fonction.
 |**maxItemsPerInvocation**| **MaxItemsPerInvocation**| (Facultatif) Quand cette propriété est définie, elle détermine le nombrer maximal d’éléments reçus par appel de fonction. Si des opérations de la collection surveillée sont effectuées via des procédures stockées, l’[étendue de transaction](../cosmos-db/stored-procedures-triggers-udfs.md#transactions) est conservée lors de la lecture d’éléments à partir du flux de modification. Par conséquent, le nombre d’éléments reçus pourrait être supérieur à la valeur spécifiée de sorte que les éléments modifiés par la même transaction soient retournés dans le cadre d’un même lot atomique.
-|**startFromBeginning**| **StartFromBeginning**| (Facultatif) Cette option indique au déclencheur de lire les modifications à partir du début de l’historique de changement de la collection au lieu de commencer à l’heure actuelle. La lecture depuis le début fonctionne uniquement au premier démarrage du déclencheur car, lors des exécutions suivantes, les points de contrôle sont déjà stockés. La définition de cette option sur `true` quand des baux ont déjà été créés est sans effet.
+|**startFromBeginning**| **StartFromBeginning**| (Facultatif) Cette option indique au déclencheur de lire les modifications à partir du début de l’historique de changement de la collection au lieu de commencer à l’heure actuelle. La lecture depuis le début fonctionne uniquement au premier démarrage du déclencheur car, lors des exécutions suivantes, les points de contrôle sont déjà stockés. La définition de cette option sur `true` quand des baux ont déjà été créés est sans effet. |
+|**preferredLocations**| **PreferredLocations**| (Facultatif) Définit les endroits par défaut (régions) des comptes de base de données géorépliqués dans le service Azure Cosmos DB. Les valeurs doivent être séparées par des virgules. Par exemple, « USA Est, USA Centre Sud, Europe Nord ». |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

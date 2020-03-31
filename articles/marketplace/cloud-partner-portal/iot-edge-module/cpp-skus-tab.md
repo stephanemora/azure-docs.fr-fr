@@ -1,23 +1,22 @@
 ---
 title: Références SKU de modules Azure IoT Edge | Place de marché Azure
 description: Créez des références SKU pour un module IoT Edge.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/18/2018
-ms.author: pabutler
-ms.openlocfilehash: 230f3d6438d44c4e1e1721c0cb1453c85958e282
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 49ae69263735d6ec35cd911a20100472b32c0b59
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73813849"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80286555"
 ---
 # <a name="iot-edge-module-skus-tab"></a>Onglet Références de modules IoT Edge
 
-L’onglet **Références** de la page **Nouvelle offre** vous permet de créer une ou plusieurs références SKU et de les associer à votre nouvelle offre.  Vous pouvez utiliser différentes références SKU pour différencier une solution par des ensembles de fonctionnalités, des modèles de facturation ou d’autres caractéristiques.
+L’onglet **Références** de la page **Nouvelle offre** permet de créer une ou plusieurs références SKU et de les associer à votre nouvelle offre.  Vous pouvez utiliser différentes références SKU pour différencier une solution par des ensembles de fonctionnalités, des modèles de facturation ou d’autres caractéristiques.
 
 
 ## <a name="sku-settings"></a>Paramètres de la référence SKU

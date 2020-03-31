@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
 ms.openlocfilehash: c2c2d1a9affe13d485bfeef52c781ed259b53bc8
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70100124"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Concevoir et implémenter une base de données Oracle dans Azure
@@ -56,7 +56,7 @@ Le tableau suivant liste certaines des différences qui existent entre une impl�
 > | **Mettre à l'échelle** |Mise à l’échelle verticale |Mise à l’échelle horizontale|
 
 
-### <a name="requirements"></a>Configuration requise
+### <a name="requirements"></a>Spécifications
 
 - Déterminez le taux de croissance et la taille de la base de données.
 - Déterminez les E/S par seconde requises, que vous pouvez estimer en vous basant sur les rapports AWR Oracle ou d’autres outils de surveillance réseau.
@@ -234,5 +234,5 @@ Une fois votre environnement Azure configuré, l’étape suivante consiste à s
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Tutoriel : Créer des machines virtuelles hautement disponibles](../../linux/create-cli-complete.md)
+- [Tutoriel : Créer des machines virtuelles hautement disponibles](../../linux/create-cli-complete.md)
 - [Explorer des exemples Azure CLI de déploiement de machines virtuelles](../../linux/cli-samples.md)

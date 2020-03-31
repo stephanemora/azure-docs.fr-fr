@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/10/2019
-ms.openlocfilehash: e2d63626ec548f0107d7af935af32e90d6972849
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2680304bd73bdbae35b29b89f38ae2665615f5e7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435527"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80239919"
 ---
 # <a name="create-apache-hadoop-clusters-using-the-azure-rest-api"></a>Créer des clusters Apache Hadoop à l’aide de l’API REST Azure
 
@@ -223,7 +223,7 @@ Suivez la procédure décrite dans [Bien démarrer avec Azure CLI](https://docs.
 
 1. À partir d’une ligne de commande, utilisez la commande suivante pour répertorier vos abonnements Azure.
 
-   ```bash
+   ```azurecli
    az account list --query '[].{Subscription_ID:id,Tenant_ID:tenantId,Name:name}'  --output table
    ```
 
@@ -231,7 +231,7 @@ Suivez la procédure décrite dans [Bien démarrer avec Azure CLI](https://docs.
 
 2. Utilisez les commandes suivantes pour créer une application dans Azure Active Directory.
 
-   ```bash
+   ```azurecli
    az ad app create --display-name "exampleapp" --homepage "https://www.contoso.org" --identifier-uris "https://www.contoso.org/example" --password <Your password> --query 'appId'
    ```
 
@@ -244,7 +244,7 @@ Suivez la procédure décrite dans [Bien démarrer avec Azure CLI](https://docs.
 
 3. Utilisez la commande suivante pour créer un principal du service à l’aide de **l’ID de l’application**.
 
-   ```bash
+   ```azurecli
    az ad sp create --id <App ID> --query 'objectId'
    ```
 
@@ -252,7 +252,7 @@ Suivez la procédure décrite dans [Bien démarrer avec Azure CLI](https://docs.
 
 4. Affectez le rôle **Owner** (Propriétaire) au principal du service à l’aide de la valeur **Object ID** (ID d’objet). Utilisez **l’ID d’abonnement** obtenu précédemment.
 
-   ```bash
+   ```azurecli
    az role assignment create --assignee <Object ID> --role Owner --scope /subscriptions/<Subscription ID>/
    ```
 

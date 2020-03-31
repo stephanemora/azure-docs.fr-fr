@@ -11,10 +11,10 @@ ms.subservice: common
 services: storage
 tags: ''
 ms.openlocfilehash: d3a3763a8964810626bcdc47da230a9ee406f1f8
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74196477"
 ---
 # <a name="azure-file-share--failed-to-delete-files-from-azure-file-share"></a>Partage de fichiers Azure : échec de suppression de fichiers du partage de fichiers Azure
@@ -32,11 +32,11 @@ L’échec de suppression de fichiers du partage de fichiers Azure peut avoir pl
 
 Quota insuffisant pour traiter cette commande
 
-## <a name="cause"></a>Cause :
+## <a name="cause"></a>Cause
 
 L’erreur 1816 se produit lorsque vous atteignez la limite de descripteurs ouverts simultanément autorisés pour un fichier sur l’ordinateur où le partage de fichiers est en cours de montage. Pour plus d’informations, voir la [Liste de contrôle des performances et de l’extensibilité de Stockage Azure](https://docs.microsoft.com/azure/storage/blobs/storage-performance-checklist).
 
-## <a name="resolution"></a>Résolution :
+## <a name="resolution"></a>Résolution
 
 Réduisez le nombre de descripteurs ouverts simultanément en fermant certains d’entre eux.
 

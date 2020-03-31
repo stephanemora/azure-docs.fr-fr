@@ -2,22 +2,22 @@
 title: Nouveau guide de formation sur les inscriptions d’applications dans le portail Azure
 description: Présente la nouvelle expérience d’inscription d’applications dans le Portail Azure
 services: active-directory
-author: archieag
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/25/2019
-ms.author: aragra
+ms.author: marsma
 ms.reviewer: lenalepa, keyam
 ms.custom: aaddev
-ms.openlocfilehash: b110929051098917d7c3f73161ca8694d4698070
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: a437d54dac50be7ddaad899a1cf0a3e93aade8f5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76698218"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154574"
 ---
 # <a name="new-azure-portal-app-registration-training-guide"></a>Nouveau guide de formation sur les inscriptions d’applications dans le portail Azure
 

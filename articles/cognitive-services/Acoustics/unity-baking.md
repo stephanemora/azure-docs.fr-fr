@@ -12,10 +12,10 @@ ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
 ms.openlocfilehash: 310decf8053ea16ba46250ba3aabe81c9c254e5e
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72243126"
 ---
 # <a name="project-acoustics-unity-bake-tutorial"></a>Tutoriel de baking Project Acoustics Unity
@@ -57,8 +57,8 @@ Les maillages de navigation qui ont été créés par le biais du workflow Unity
 Les parties de la page d’onglets (illustrées après les descriptions) sont les suivantes :
 
 1. Les boutons de sélection d’onglet (avec l’onglet **Objects** sélectionné). Utilisez ces boutons pour parcourir les différentes étapes de bake acoustique, de gauche à droite.
-1. Une brève description de ce que vous pouvez faire à l’aide de cet onglet.
-1. Les filtres disponibles pour la fenêtre de hiérarchie. Ces options vous permettent de filtrer la fenêtre de hiérarchie pour n’afficher que les objets du type spécifié, afin de simplifier leur marquage. Si vous n’avez encore rien marqué pour l’acoustique, la sélection des deux dernières options ne vous montrera rien. Toutefois, ces options vous aident à trouver des objets une fois qu’ils sont marqués.
+1. Brève description de ce que vous pouvez faire à l’aide de cet onglet.
+1. Filtres disponibles pour la fenêtre de hiérarchie. Ces options vous permettent de filtrer la fenêtre de hiérarchie pour n’afficher que les objets du type spécifié, afin de simplifier leur marquage. Si vous n’avez encore rien marqué pour l’acoustique, la sélection des deux dernières options ne vous montrera rien. Toutefois, ces options vous aident à trouver des objets une fois qu’ils sont marqués.
 1. Quand aucun objet n’est sélectionné, cette section affiche l’état de tous les objets dans la scène.
     * Total : nombre total d’objets actifs et non masqués.
     * Ignored : nombre d’objets qui ne sont pas des renderers de maillage ou des terrains.
@@ -167,12 +167,12 @@ Vous pouvez effectuer un bake de votre scène sur un cluster de calcul dans le c
 8. Cochez cette case afin de configurer votre pool de calcul pour qu’il utilise des [nœuds basse priorité](https://docs.microsoft.com/azure/batch/batch-low-pri-vms). Les nœuds de calcul basse priorité ont un coût nettement inférieur, mais il se peut qu’ils ne soient pas toujours disponibles ou qu’ils soient préemptés à tout moment.
 9. Le nombre de sondes pour votre scène, tel que calculé sous l’onglet **Probes**. Le nombre de sondes détermine le nombre de simulations qui doivent être exécutées dans le cloud. Vous ne pouvez pas spécifier plus de nœuds qu’il n’y a de sondes.
 10. Estimation de la durée nécessaire à l’exécution de votre travail dans le cloud, sans compter le temps de démarrage du nœud. Une fois le travail lancé, ce champ affiche une estimation de la durée jusqu’à obtention des résultats.
-11. Durée totale de temps de traitement nécessaire pour exécuter les simulations. Cette valeur correspond à la quantité totale de temps de calcul de nœud qui sera utilisée dans Azure. Pour plus d’informations, consultez [Estimer le coût d’un bake Azure](#Estimating-bake-cost) plus loin dans cet article.
+11. La durée totale de temps de traitement nécessaire pour exécuter les simulations. Cette valeur correspond à la quantité totale de temps de calcul de nœud qui sera utilisée dans Azure. Pour plus d’informations, consultez [Estimer le coût d’un bake Azure](#Estimating-bake-cost) plus loin dans cet article.
 12. Ce message indique où les résultats du bake seront enregistrés une fois le travail terminé.
 13. *(Utilisation avancée uniquement :)* Ce bouton force Unity à oublier un bake que vous avez soumis. Par exemple, si vous avez téléchargé les résultats à l’aide d’un autre ordinateur, sélectionnez le bouton **Clear State** pour oublier ce travail. Le fichier de résultats, une fois prêt, ne sera *pas* téléchargé. *Cela n’est pas la même chose qu’annuler le travail. Le travail, s’il est en cours d’exécution, continuera à s’exécuter dans le cloud.*
 14. Sélectionnez ce bouton pour envoyer le bake vers le cloud. Pendant l’exécution d’un travail, ce bouton indique **Cancel Job**.
 15. Sélectionnez ce bouton pour préparer le traitement de la [simulation acoustique sur votre PC](#Local-bake).
-16. Cette zone indique l’état du bake. Une fois le bake terminé, elle indique « Downloaded ».
+16. Cette zone indique l’état du baking. Une fois le bake terminé, elle indique « Downloaded ».
 
 Vous pouvez toujours obtenir des informations complètes sur les travaux actifs, les pools de calcul et le stockage dans le [portail Azure](https://portal.azure.com).
 
@@ -201,7 +201,7 @@ Pour des raisons de sécurité, les informations d’identification Azure sont s
    ![État de la tâche de bake](media/azure-batch-task-state.png)  
 
 
-### <a name="Estimating-bake-cost"></a> Estimer le coût d’un bake Azure
+### <a name="estimate-azure-bake-cost"></a><a name="Estimating-bake-cost"></a> Estimer le coût d’un bake Azure
 
 Pour estimer le coût d’un bake, commencez par la valeur **Estimated Compute Cost**, qui est une durée. Multipliez cette valeur par le coût horaire dans votre devise locale pour le **type de nœud de machine virtuelle** que vous sélectionnez. Notez que le résultat n’inclura pas la durée nécessaire pour préparer les nœuds à l’exécution.
 
@@ -209,7 +209,7 @@ Par exemple, imaginez que vous sélectionnez **Standard_F8s_v2** comme type de n
 
 Recherchez le coût horaire des nœuds dans [Tarification Azure Batch](https://azure.microsoft.com/pricing/details/virtual-machines/linux). (Sélectionnez **Optimisée pour le calcul** ou **Calcul haute performance** comme catégorie.)
 
-## <a name="Local-bake"></a> Effectuer le bake de votre scène sur votre PC
+## <a name="bake-your-scene-on-your-pc"></a><a name="Local-bake"></a> Effectuer le bake de votre scène sur votre PC
 Vous pouvez aussi effectuer le bake de votre scène sur votre propre PC. Cette méthode peut être pratique pour faire des essais acoustiques pour de petites scènes avant de créer un compte Azure Batch. Notez toutefois que la simulation acoustique locale peut durer longtemps, en fonction de la taille de la scène.
 
 ### <a name="minimum-hardware-requirements"></a>Conditions matérielles minimales requises
@@ -233,7 +233,7 @@ Installez et configurez Docker sur le PC qui traitera la simulation :
 2. Pour lancer la simulation, exécutez le script *runlocalbake.bat* sur Windows ou le script *runlocalbake.sh* sur MacOS. Ce script extrait l’image Project Acoustics Docker avec l’ensemble d’outils nécessaires au traitement de la simulation, et démarre la simulation.
 3. Une fois la simulation terminée, copiez le fichier *.ace* qui en résulte dans votre projet Unity. Pour veiller à ce qu’Unity l’identifie comme un fichier binaire, ajoutez « .bytes » à l’extension de fichier (par exemple, « Scene1.ace.bytes »). Les journaux détaillés de la simulation sont stockés dans *AcousticsLog.txt.* Si vous rencontrez des problèmes, examinez ce fichier pour vous aider à diagnostiquer le problème.
 
-## <a name="Data-Files"></a> Fichiers de données ajoutés par le processus de bake
+## <a name="data-files-added-by-the-bake-process"></a><a name="Data-Files"></a> Fichiers de données ajoutés par le processus de bake
 
 Les quatre fichiers de données suivants sont créés pendant le processus de bake. Un des fichiers contient les résultats de la simulation et il est fourni avec votre titre. Les autres stockent les données relatives à l’éditeur Unity.
 

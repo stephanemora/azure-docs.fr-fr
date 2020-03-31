@@ -7,10 +7,10 @@ ms.date: 04/02/2019
 ms.topic: article
 ms.service: storage
 ms.openlocfilehash: 86419811cdf2c11204caae0ca5bf6f65fba063d2
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76288912"
 ---
 # <a name="move-mainframe-storage-to-azure"></a>Déplacement du stockage du mainframe vers Azure
@@ -94,7 +94,7 @@ Le type de stockage d’un système donné dépend de la configuration requise d
 
 Les disques SSD offrent les meilleures performances de stockage sur Azure. Les options suivantes sont disponibles (au moment de la rédaction de ce document) :
 
-| Type         | Size           | E/S par seconde                  |
+| Type         | Taille           | E/S par seconde                  |
 |--------------|----------------|-----------------------|
 | Ultra SSD    | 4 Go à 64 To  | 1 200 à 160 000 IOPS |
 | SSD Premium  | 32 Go à 32 To | 12 à 15 000 IOPS     |

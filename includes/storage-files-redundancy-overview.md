@@ -9,10 +9,10 @@ ms.date: 12/27/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 87457bb103f49be4ca3e7bf9f463c5bf63f3a119
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77597795"
 ---
 Pour protéger les données de vos partages de fichiers Azure contre la perte ou l’altération des données, tous les partages de fichiers Azure stockent plusieurs copies de chaque fichier au fur et à mesure de leur écriture. En fonction des exigences de votre charge de travail, vous pouvez sélectionner des degrés de redondance supplémentaires. Azure Files prend actuellement en charge les options de redondance des données suivantes :

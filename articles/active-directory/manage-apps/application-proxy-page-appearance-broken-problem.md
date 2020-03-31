@@ -16,17 +16,17 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 13e73f0ed56648ce162f00d6df5e7b86a922ca01
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68381414"
 ---
 # <a name="application-page-does-not-display-correctly-for-an-application-proxy-application"></a>La page d’application ne s’affiche pas correctement pour une application de proxy d’application
 
 Cet article vous aide à résoudre les problèmes liés aux applications de proxy d’application Azure Active Directory quand vous accédez à la page, mais qu’un élément de la page ne semble pas correct.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Quand vous publiez une application de proxy d’application, seules les pages sous la racine sont accessibles lors de l’accès à l’application. Si la page ne s’affiche pas correctement, l’URL interne racine utilisée pour l’application peut ne pas comporter certaines ressources de la page. Pour résoudre ce problème, vérifiez que vous avez publié *toutes* les ressources de la page dans le cadre de votre application.
 
 Vous pouvez vérifier si les ressources manquantes sont le problème en ouvrant votre dispositif de suivi réseau (tel que Fiddler ou les outils F12 dans Internet Explorer/Microsoft Edge), en chargeant la page et en recherchant les erreurs 404. Cela indique que des pages sont introuvables et doivent encore être publiées.

@@ -4,11 +4,11 @@ description: Effectuer une recherche dans les journaux d’activité générés 
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.openlocfilehash: 273d5a2f4e1155541e159332312bdaa68aa175d7
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77665984"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79234789"
 ---
 # <a name="explore-netnet-core-and-python-trace-logs-in-application-insights"></a>Découvrir les journaux des traces .NET/.NET Core et Python dans Application Insights
 
@@ -193,19 +193,19 @@ Utilisez les [adaptateurs de journaux Java](../../azure-monitor/app/java-trace-l
 * Si vous utilisez System.Diagnostics.Trace, assurez-vous qu’il est [configuré dans *web.config*](https://msdn.microsoft.com/library/system.diagnostics.eventlogtracelistener.aspx).
 * Vérifiez que vous disposez de la dernière version d’Application Insights. Dans Visual Studio, sélectionnez **Outils** > **Extensions et mises à jour**, puis ouvrez l’onglet **Mises à jour**. Si **Developer Analytics Tools** est présent, sélectionnez-le pour le mettre à jour.
 
-### <a name="emptykey"></a>J’obtiens le message d’erreur « Instrumentation key cannot be empty » (La clé d’instrumentation ne peut pas être vide).
+### <a name="i-get-the-instrumentation-key-cannot-be-empty-error-message"></a><a name="emptykey"></a>J’obtiens le message d’erreur « Instrumentation key cannot be empty » (La clé d’instrumentation ne peut pas être vide).
 Vous avez probablement installé le package Nuget de l’adaptateur de journalisation sans installer Application Insights. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur *ApplicationInsights.config*, puis sélectionnez **Mettre à jour Application Insights**. Vous êtes invité à vous connecter à Azure et à créer une ressource Application Insights ou à réutiliser une ressource existante. Ceci devrait corriger le problème.
 
 ### <a name="i-can-see-traces-but-not-other-events-in-diagnostic-search"></a>Je peux voir des traces mais pas d’autres événements dans la recherche de diagnostic
 Le passage des événements et des demandes dans le pipeline peut prendre un certain temps.
 
-### <a name="limits"></a>Quelle est la quantité de données conservée ?
+### <a name="how-much-data-is-retained"></a><a name="limits"></a>Quelle est la quantité de données conservée ?
 Plusieurs facteurs affectent la quantité de données conservées. Consultez la section [Limites](../../azure-monitor/app/api-custom-events-metrics.md#limits) de la page sur les métriques d’événement client pour plus d’informations.
 
 ### <a name="i-dont-see-some-log-entries-that-i-expected"></a>Je ne vois pas certaines entrées de journal que j’attendais
 Si votre application envoie de grandes quantités de données et si vous utilisez le Kit de développement logiciel (SDK) Application Insights pour ASP.NET version 2.0.0-beta3 ou ultérieure, la fonctionnalité d’échantillonnage adaptatif peut fonctionner et transmettre uniquement une portion de vos données de télémétrie. [En savoir plus sur l'échantillonnage.](../../azure-monitor/app/sampling.md)
 
-## <a name="add"></a>Étapes suivantes
+## <a name="next-steps"></a><a name="add"></a>Étapes suivantes
 
 * [Diagnostiquer les défaillances et les exceptions dans ASP.NET][exceptions]
 * [En savoir plus sur Recherche][diagnostic]

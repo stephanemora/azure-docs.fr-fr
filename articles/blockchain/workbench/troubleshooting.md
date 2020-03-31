@@ -5,10 +5,10 @@ ms.date: 10/14/2019
 ms.topic: article
 ms.reviewer: brendal
 ms.openlocfilehash: ef4bce4dfba77aafa9b86c6877c153534b54636e
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74324300"
 ---
 # <a name="azure-blockchain-workbench-preview-troubleshooting"></a>Résolution des problèmes d’Azure Blockchain Workbench Preview
@@ -32,7 +32,7 @@ Le script de dépannage PowerShell est disponible sur GitHub. [Téléchargez un 
 git clone https://github.com/Azure-Samples/blockchain.git
 ```
 
-## <a name="run-the-script"></a>Exécutez le script
+## <a name="run-the-script"></a>Exécuter le script
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
 Exécutez le script `collectBlockchainWorkbenchTroubleshooting.ps1` pour collecter des journaux d’activité et créer un fichier ZIP contenant un dossier des données de dépannage. Par exemple :
@@ -44,8 +44,8 @@ Le script accepte les paramètres suivants :
 
 | Paramètre  | Description | Obligatoire |
 |---------|---------|----|
-| SubscriptionID | ID d’abonnement associé à la création ou l’emplacement de l’ensemble des ressources. | OUI |
-| ResourceGroupName | Nom du groupe de ressources Azure dans lequel a été déployé Blockchain Workbench. | OUI |
+| SubscriptionID | ID d’abonnement associé à la création ou l’emplacement de l’ensemble des ressources. | Oui |
+| ResourceGroupName | Nom du groupe de ressources Azure dans lequel a été déployé Blockchain Workbench. | Oui |
 | OutputDirectory | Chemin d’accès utilisé pour la création du fichier ZIP de sortie. S’il n’est pas spécifié, il est défini par défaut sur le répertoire actuel. | Non |
 | LookbackHours | Nombre d’heures à utiliser lors de l’extraction des données de télémétrie. La valeur par défaut est de 24 heures. La valeur maximale est de 90 heures. | Non |
 | OmsSubscriptionId | ID de l’abonnement dans lequel les journaux Azure Monitor sont déployés. Transmettez ce paramètre uniquement si les journaux Azure Monitor associés au réseau blockchain sont déployés à l’extérieur du groupe de ressources Blockchain Workbench.| Non |

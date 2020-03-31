@@ -2,14 +2,14 @@
 title: Tableau de prise en charge Azure Migrate
 description: Fournit un résumé des limitations et des paramètres de prise en charge pour le service Azure Migrate.
 ms.topic: conceptual
-ms.date: 01/28/2020
+ms.date: 03/22/2020
 ms.author: raynew
-ms.openlocfilehash: 5c3adecf62f9bd15c820baf116dbc01e5d3542fa
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: bf719f9179384ec3dca99d2429f569ef209b5daa
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77014009"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80127704"
 ---
 # <a name="azure-migrate-support-matrix"></a>Tableau de prise en charge Azure Migrate
 
@@ -52,10 +52,10 @@ Migration de serveur Azure Migrate | N/D | Migrer des [machines virtuelles VMwar
 
 **Support** | **Détails**
 --- | ---
-Subscription | Vous pouvez avoir plusieurs projets Azure Migrate par abonnement.
+Abonnement | Vous pouvez avoir plusieurs projets Azure Migrate par abonnement.
 Autorisations Azure | Vous avez besoin d’autorisations Contributeur ou Propriétaire dans l’abonnement pour créer un projet Azure Migrate.
 Machines virtuelles VMware  | Évaluez jusqu’à 35 000 machines virtuelles VMware dans un même projet.
-Machines virtuelles Hyper-V | Évaluez jusqu'à 35 000 machines virtuelles Hyper-V au sein d'un même projet.
+Machines virtuelles Hyper-V    | Évaluez jusqu'à 35 000 machines virtuelles Hyper-V au sein d'un même projet.
 
 Un projet peut inclure à la fois des machines virtuelles VMware et des machines virtuelles Hyper-V, jusqu’aux limites d’évaluation.
 
@@ -85,7 +85,7 @@ France | France Centre
 Inde | Inde Centre ou Inde Sud
 Japon |  Japon Est ou Japon Ouest
 Corée du Sud | Corée Centre ou Corée Sud
-United Kingdom | Royaume-Uni Sud ou Royaume-Uni Ouest
+Royaume-Uni | Royaume-Uni Sud ou Royaume-Uni Ouest
 États-Unis | USA Centre ou USA Ouest 2
 
 
@@ -108,7 +108,7 @@ United Kingdom | Royaume-Uni Sud ou Royaume-Uni Ouest
 
 Il existe deux versions du service Azure Migrate :
 
-- **Version actuelle** : utilisez cette version pour créer des projets Azure Migrate, découvrir des machines locales et orchestrer des évaluations et migrations. [Plus d’informations](whats-new.md#release-version-july-2019)
+- **Version actuelle** : utilisez cette version pour créer des projets Azure Migrate, découvrir des machines locales et orchestrer des évaluations et migrations. [Plus d’informations](whats-new.md)
 - **Version précédente** : les clients utilisant la version précédente d’Azure Migrate (seule l’évaluation des machines virtuelles VMware locales était prise en charge) doivent à présent utiliser la version actuelle. La version précédente ne permet plus de créer des projets Azure Migrate ni d’effectuer de nouvelles découvertes.
 
 ## <a name="next-steps"></a>Étapes suivantes

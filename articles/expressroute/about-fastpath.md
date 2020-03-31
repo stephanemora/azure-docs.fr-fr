@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/16/2019
+ms.date: 03/25/2020
 ms.author: cherylmc
-ms.openlocfilehash: c03be46207e7698d0557729c546488412c0cc5dd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 265004b1171d1df95b3090676d5836b951c28a28
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437095"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80282849"
 ---
 # <a name="about-expressroute-fastpath"></a>À propos d’ExpressRoute FastPath
 
@@ -32,16 +32,6 @@ Pour configurer FastPath, la passerelle de réseau virtuel doit être :
 
 * Ultra-performance
 * ErGw3AZ
-
-#### <a name="aggthroughput"></a>Performances estimées par référence (SKU) de passerelle
-Le tableau ci-dessous présente les types de passerelle et les performances estimées. Cette table s’applique aux modèles de déploiement classique et Resource Manager.
-
-[!INCLUDE [expressroute-table-aggthroughput](../../includes/expressroute-table-aggtput-include.md)]
-
-> [!IMPORTANT]
-> Les performances de l’application dépendent de plusieurs facteurs, tels que la latence de bout en bout et le nombre de flux de trafic que l’application ouvre. Les numéros indiqués dans le tableau représentent la limite supérieure que l’application peut théoriquement atteindre dans un environnement idéal.
->
->
 
 ## <a name="supported-features"></a>Fonctionnalités prises en charge
 

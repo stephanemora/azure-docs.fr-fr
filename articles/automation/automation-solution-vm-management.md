@@ -6,11 +6,11 @@ ms.subservice: process-automation
 ms.date: 02/25/2020
 ms.topic: conceptual
 ms.openlocfilehash: cbf181b9a6d3860854c7b61cca0e6c50810cced9
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77616059"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79235489"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Solution de démarrage/arrêt des machines virtuelles durant les heures creuses dans Azure Automation
 
@@ -347,7 +347,7 @@ Voici un exemple d’e-mail envoyé lorsque la solution arrête les machines vir
 
 ![Page de solution de gestion des mises à jour de Automation](media/automation-solution-vm-management/email.png)
 
-## <a name="add-exclude-vms"></a>Ajouter/exclure des machines virtuelles
+## <a name="addexclude-vms"></a><a name="add-exclude-vms"></a>Ajouter/exclure des machines virtuelles
 
 La solution offre la possibilité d’ajouter des machines virtuelles que la solution doit cible, ou d’exclure spécifiquement des machines de la solution.
 

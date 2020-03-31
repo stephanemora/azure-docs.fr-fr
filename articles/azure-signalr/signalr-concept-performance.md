@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.openlocfilehash: 68cad32be177fa20794399157fca89e87c2f8f59
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74157672"
 ---
 # <a name="performance-guide-for-azure-signalr-service"></a>Guide des performances pour Azure SignalR Service
@@ -31,7 +31,7 @@ Dans ce guide, nous allons présenter les facteurs qui affectent les performance
 
 *Mode serverless* : mode dans lequel Azure SignalR Service accepte uniquement des connexions clientes. Aucune connexion serveur n’est autorisée.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Azure SignalR Service définit sept niveaux standard pour les différentes capacités de performances. Ce guide répond aux questions suivantes :
 
@@ -122,14 +122,14 @@ Le cas d’usage **écho** offre la bande passante entrante maximale, car il a l
 
 |       Écho                        | Unité 1 | Unité 2 | Unité 5 | Unité 10 | Unité 20 | Unité 50 | Unité 100 |
 |-----------------------------------|-------|-------|-------|--------|--------|--------|---------|
-| connexions                       | 1 000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000 | 100 000 |
+| Connexions                       | 1 000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000 | 100 000 |
 | **Bande passante entrante** | **2 Mbits/s**    | **4 Mbits/s**    | **10 Mbits/s**   | **20 Mbits/s**    | **40 Mbits/s**    | **100 Mbits/s**   | **200 Mbits/s**    |
 | Bande passante sortante | 2 Mbits/s   | 4 Mbits/s   | 10 Mbits/s  | 20 Mbits/s   | 40 Mbits/s   | 100 Mbits/s  | 200 Mbits/s   |
 
 
 |     Diffusion             | Unité 1 | Unité 2 | Unité 5  | Unité 10 | Unité 20 | Unité 50  | Unité 100 |
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|
-| connexions               | 1 000 | 2 000 | 5 000  | 10 000 | 20 000 | 50 000  | 100 000 |
+| Connexions               | 1 000 | 2 000 | 5 000  | 10 000 | 20 000 | 50 000  | 100 000 |
 | Bande passante entrante  | 4 Kbits/s   | 4 Kbits/s   | 4 Kbits/s    | 4 Kbits/s    | 4 Kbits/s    | 4 Kbits/s     | 4 Kbits/s    |
 | **Bande passante sortante** | **4 Mbits/s**    | **8 Mbits/s**    | **20 Mbits/s**    | **40 Mbits/s**    | **80  Mbits/s**    | **200 Mbits/s**    | **400  Mbits/s**   |
 
@@ -157,10 +157,10 @@ Le cas d’usage réel est plus complexe. Le message envoyé peut être supérie
 
 Le tableau suivant présente un cas d’usage réel de **diffusion**. Toutefois, la taille de message, le nombre de connexions et le débit d’envoi des messages diffèrent de ce que nous avons supposé dans la section précédente. La question est de savoir comment nous pouvons déduire un de ces éléments (taille de message, nombre de connexions ou débit d’envoi des messages) si nous connaissons seulement deux d’entre eux.
 
-| Diffusion  | Taille des messages | Messages entrants par seconde | connexions | Intervalles d’envoi |
+| Diffusion  | Taille des messages | Messages entrants par seconde | Connexions | Intervalles d’envoi |
 |---|---------------------|--------------------------|-------------|-------------------------|
 | 1 | 20 Ko                | 1                        | 100 000     | 5 secondes                      |
-| 2 | 256 KB               | 1                        | 8 000       | 5 secondes                      |
+| 2 | 256 KB               | 1                        | 8,000       | 5 secondes                      |
 
 La formule suivante est facile à déduire d’après la formule précédente :
 
@@ -213,7 +213,7 @@ Le comportement du cas d’usage **écho** détermine que la bande passante entr
 
 |       Écho                        | Unité 1 | Unité 2 | Unité 5 | Unité 10 | Unité 20 | Unité 50 | Unité 100 |
 |-----------------------------------|-------|-------|-------|--------|--------|--------|---------|
-| connexions                       | 1 000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000 | 100 000 |
+| Connexions                       | 1 000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000 | 100 000 |
 | Messages entrants/sortants par seconde | 1 000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000 | 100 000 |
 | Bande passante entrante/sortante | 2 Mbits/s   | 4 Mbits/s   | 10 Mbits/s  | 20 Mbits/s   | 40 Mbits/s   | 100 Mbits/s  | 200 Mbits/s   |
 
@@ -231,7 +231,7 @@ Même pour ce hub simple, la pression du trafic sur le serveur d’applications 
 
 |    Écho          | Unité 1 | Unité 2 | Unité 5 | Unité 10 | Unité 20 | Unité 50 | Unité 100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
-| connexions      | 1 000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000 | 100 000 |
+| Connexions      | 1 000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000 | 100 000 |
 | Nombre de serveurs d’applications | 2     | 2     | 2     | 3      | 3      | 10     | 20      |
 
 > [!NOTE]
@@ -249,7 +249,7 @@ Le tableau suivant récapitule les connexions clientes maximales, le nombre de m
 
 |     Diffusion             | Unité 1 | Unité 2 | Unité 5  | Unité 10 | Unité 20 | Unité 50  | Unité 100 |
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|
-| connexions               | 1 000 | 2 000 | 5 000  | 10 000 | 20 000 | 50 000  | 100 000 |
+| Connexions               | 1 000 | 2 000 | 5 000  | 10 000 | 20 000 | 50 000  | 100 000 |
 | Messages entrants par seconde  | 2     | 2     | 2      | 2      | 2      | 2       | 2       |
 | Messages sortants par seconde | 2 000 | 4 000 | 10 000 | 20 000 | 40 000 | 100 000 | 200 000 |
 | Bande passante entrante  | 4 Kbits/s   | 4 Kbits/s   | 4 Kbits/s    | 4 Kbits/s    | 4 Kbits/s    | 4 Kbits/s     | 4 Kbits/s     |
@@ -259,7 +259,7 @@ Les clients impliqués dans la diffusion qui publient des messages ne sont pas p
 
 |   Diffusion      | Unité 1 | Unité 2 | Unité 5 | Unité 10 | Unité 20 | Unité 50 | Unité 100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
-| connexions      | 1 000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000 | 100 000 |
+| Connexions      | 1 000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000 | 100 000 |
 | Nombre de serveurs d’applications | 2     | 2     | 2     | 2      | 2      | 2      | 2       |
 
 > [!NOTE]
@@ -287,7 +287,7 @@ Le coût de routage est important pour l’envoi de message à de nombreux petit
 
 |   Envoi à un petit groupe     | Unité 1 | Unité 2 | Unité 5  | Unité 10 | Unité 20 | Unité 50 | Unité 100 |
 |---------------------------|-------|-------|--------|--------|--------|--------|---------|
-| connexions               | 1 000 | 2 000 | 5 000  | 10 000 | 20 000 | 50 000 | 100 000
+| Connexions               | 1 000 | 2 000 | 5 000  | 10 000 | 20 000 | 50 000 | 100 000
 | Nombre de membres par groupe        | 10    | 10    | 10     | 10     | 10     | 10     | 10 
 | Nombre de groupes               | 100   | 200   | 500    | 1 000  | 2 000  | 5 000  | 10 000 
 | Messages entrants par seconde  | 200   | 400   | 1 000  | 2 500  | 4 000  | 7 000  | 7 000   |
@@ -299,7 +299,7 @@ De nombreuses connexions clientes appelant le hub, le nombre de serveurs d’app
 
 |  Envoi à un petit groupe   | Unité 1 | Unité 2 | Unité 5 | Unité 10 | Unité 20 | Unité 50 | Unité 100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
-| connexions      | 1 000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000 | 100 000 |
+| Connexions      | 1 000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000 | 100 000 |
 | Nombre de serveurs d’applications | 2     | 2     | 2     | 3      | 3      | 10     | 20      |
 
 > [!NOTE]
@@ -311,7 +311,7 @@ Pour le cas d’usage **envoi à un grand groupe**, la bande passante sortante d
 
 |    Envoi à un grand groupe      | Unité 1 | Unité 2 | Unité 5  | Unité 10 | Unité 20 | Unité 50  | Unité 100 |
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|
-| connexions               | 1 000 | 2 000 | 5 000  | 10 000 | 20 000 | 50 000  | 100 000
+| Connexions               | 1 000 | 2 000 | 5 000  | 10 000 | 20 000 | 50 000  | 100 000
 | Nombre de membres par groupe        | 100   | 200   | 500    | 1 000  | 2 000  | 5 000   | 10 000 
 | Nombre de groupes               | 10    | 10    | 10     | 10     | 10     | 10      | 10
 | Messages entrants par seconde  | 20    | 20    | 20     | 20     | 20     | 20      | 20      |
@@ -323,7 +323,7 @@ Le nombre de connexions d’envoi n’est pas supérieur à 40. La charge pesant
 
 |  Envoi à un grand groupe  | Unité 1 | Unité 2 | Unité 5 | Unité 10 | Unité 20 | Unité 50 | Unité 100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
-| connexions      | 1 000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000 | 100 000 |
+| Connexions      | 1 000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000 | 100 000 |
 | Nombre de serveurs d’applications | 2     | 2     | 2     | 2      | 2      | 2      | 2       |
 
 > [!NOTE]
@@ -345,15 +345,15 @@ Le tableau suivant est un récapitulatif statistique après de nombreux cycles d
 
 |   Envoi à la connexion   | Unité 1 | Unité 2 | Unité 5 | Unité 10 | Unité 20 | Unité 50          | Unité 100         |
 |------------------------------------|-------|-------|-------|--------|--------|-----------------|-----------------|
-| connexions                        | 1 000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000          | 100 000         |
-| Messages entrants/sortants par seconde | 1 000 | 2 000 | 5 000 | 8 000  | 9 000  | 20 000 | 20 000 |
+| Connexions                        | 1 000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000          | 100 000         |
+| Messages entrants/sortants par seconde | 1 000 | 2 000 | 5 000 | 8,000  | 9 000  | 20 000 | 20 000 |
 | Bande passante entrante/sortante | 2 Mbits/s    | 4 Mbits/s    | 10 Mbits/s   | 16 Mbits/s    | 18 Mbits/s    | 40 Mbits/s       | 40 Mbits/s       |
 
 Ce cas d’usage nécessite une charge élevée côté serveur d’applications. Le tableau suivant indique le nombre de serveurs d’applications suggéré.
 
 |  Envoi à la connexion  | Unité 1 | Unité 2 | Unité 5 | Unité 10 | Unité 20 | Unité 50 | Unité 100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
-| connexions      | 1 000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000 | 100 000 |
+| Connexions      | 1 000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000 | 100 000 |
 | Nombre de serveurs d’applications | 2     | 2     | 2     | 3      | 3      | 10     | 20      |
 
 > [!NOTE]
@@ -369,21 +369,21 @@ Le tableau suivant indique le nombre d’applications web suggéré pour le cas 
 
 |   Écho           | Unité 1 | Unité 2 | Unité 5 | Unité 10 | Unité 20 | Unité 50 | Unité 100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
-| connexions      | 1 000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000 | 100 000 |
+| Connexions      | 1 000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000 | 100 000 |
 | Nombre de serveurs d’applications | 2     | 2     | 4     | 4      | 8      | 32      | 40       |
 
 Le tableau suivant indique le nombre d’applications web suggéré pour le cas d’usage ASP.NET SignalR **diffusion**.
 
 |  Diffusion       | Unité 1 | Unité 2 | Unité 5 | Unité 10 | Unité 20 | Unité 50 | Unité 100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
-| connexions      | 1 000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000 | 100 000 |
+| Connexions      | 1 000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000 | 100 000 |
 | Nombre de serveurs d’applications | 2     | 2     | 2     | 2      | 2      | 2      | 2       |
 
 Le tableau suivant indique le nombre d’applications web suggéré pour le cas d’usage ASP.NET SignalR **envoi à un petit groupe**.
 
 |  Envoi à un petit groupe     | Unité 1 | Unité 2 | Unité 5 | Unité 10 | Unité 20 | Unité 50 | Unité 100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
-| connexions      | 1 000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000 | 100 000 |
+| Connexions      | 1 000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000 | 100 000 |
 | Nombre de serveurs d’applications | 2     | 2     | 4     | 4      | 8      | 32      | 40       |
 
 ### <a name="serverless-mode"></a>Mode serverless
@@ -397,7 +397,7 @@ Tous les clients établissent des connexions WebSocket avec Azure SignalR Servic
 
 |   Diffusion par le biais de l’API REST     | Unité 1 | Unité 2 | Unité 5  | Unité 10 | Unité 20 | Unité 50  | Unité 100 |
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|
-| connexions               | 1 000 | 2 000 | 5 000  | 10 000 | 20 000 | 50 000  | 100 000 |
+| Connexions               | 1 000 | 2 000 | 5 000  | 10 000 | 20 000 | 50 000  | 100 000 |
 | Messages entrants par seconde  | 2     | 2     | 2      | 2      | 2      | 2       | 2       |
 | Messages sortants par seconde | 2 000 | 4 000 | 10 000 | 20 000 | 40 000 | 100 000 | 200 000 |
 | Bande passante entrante  | 4 Kbits/s    | 4 Kbits/s    | 4 Kbits/s     | 4 Kbits/s     | 4 Kbits/s     | 4 Kbits/s      | 4 Kbits/s      |
@@ -408,7 +408,7 @@ Le test d’évaluation attribue des noms d’utilisateur à tous les clients av
 
 |   Envoi à l’utilisateur par le biais de l’API REST | Unité 1 | Unité 2 | Unité 5  | Unité 10 | Unité 20 | Unité 50  | Unité 100 |
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|
-| connexions               | 1 000 | 2 000 | 5 000  | 10 000 | 20 000 | 50 000  | 100 000 |
+| Connexions               | 1 000 | 2 000 | 5 000  | 10 000 | 20 000 | 50 000  | 100 000 |
 | Messages entrants par seconde  | 300   | 600   | 900    | 1 300  | 2 000  | 10 000  | 18 000  |
 | Messages sortants par seconde | 300   | 600   | 900    | 1 300  | 2 000  | 10 000  | 18 000 |
 | Bande passante entrante  | 600 Kbits/s  | 1,2 Mbits/s  | 1,8Mbits/s   | 2,6 Mbits/s   | 4 Mbits/s     | 10 Mbits/s     | 36 Mbits/s    |

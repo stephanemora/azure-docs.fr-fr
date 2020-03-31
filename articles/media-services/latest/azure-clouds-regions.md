@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 01/21/2020
 ms.author: juliako
-ms.openlocfilehash: 58b5b749e81aab4d8563d09cbfd139629520531c
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 1257bf4dfb0d5b2c4995cac760290f97293a0c0f
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76310564"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80382968"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Clouds et régions dans lesquels Azure Media Services v3 existe
 
@@ -37,17 +37,17 @@ Azure Media Services v3 est disponible via le manifeste Azure Resource Manager d
 
 [Régions dans lesquelles le service Azure Media Services est déployé](https://azure.microsoft.com/global-infrastructure/services/?products=media-services)
 
-### <a name="region-code-name"></a>Nom de code de la région 
+### <a name="region-code-name"></a>Nom de code de la région
 
 S'il vous faut fournir le paramètre **location**, vous devez fournir le nom de code de la région comme valeur **location**. Pour obtenir le nom de code de la région dans laquelle se trouve votre compte et vers laquelle votre appel doit être routé, vous pouvez exécuter la ligne suivante dans l’[interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
-```bash
+```azurecli-interactive
 az account list-locations
 ```
 
 Une fois que vous avez exécuté la ligne ci-dessus, vous obtenez une liste de toutes les régions Azure. Accédez à la région Azure qui présente la valeur *displayName* que vous recherchez et utilisez sa valeur *name* pour le paramètre **location**.
 
-Par exemple, pour la région Azure West US 2 (USA Ouest 2) affichée ci-dessous, vous allez utiliser « westus2 » pour le paramètre **location**.
+Par exemple, pour la région Azure USA Ouest 2 affichée ci-dessous, vous allez utiliser « westus2 » pour le paramètre **location**.
 
 ```json
    {
@@ -66,18 +66,18 @@ Il est important de connaître les points de terminaison suivants lors de la con
 
 ### <a name="global-azure"></a>Azure global
 
-|Points de terminaison ||
-| --- | --- | 
+|Points de terminaison||
+| --- | --- |
 | Azure Resource Manager |  `https://management.azure.com/` |
-| Authentication | `https://login.microsoftonline.com/` | 
+| Authentification | `https://login.microsoftonline.com/` |
 | Audience du jeton | `https://management.core.windows.net/` |
 
 ### <a name="azure-government"></a>Azure Government
 
 |Points de terminaison||
-| --- | --- | 
+| --- | --- |
 | Azure Resource Manager |  `https://management.usgovcloudapi.net/` |
-| Authentication | `https://login.microsoftonline.us/` | 
+| Authentification | `https://login.microsoftonline.us/` |
 | Audience du jeton | `https://management.core.usgovcloudapi.net/` |
 
 ### <a name="azure-germany"></a>Azure Germany
@@ -85,15 +85,15 @@ Il est important de connaître les points de terminaison suivants lors de la con
 | Points de terminaison ||
 | --- | --- |  
 | Azure Resource Manager | `https://management.cloudapi.de/` |
-| Authentication | `https://login.microsoftonline.de/` |
+| Authentification | `https://login.microsoftonline.de/` |
 | Audience du jeton | `https://management.core.cloudapi.de/`|
 
 ### <a name="azure-china-21vianet"></a>Azure China 21Vianet
 
 |Points de terminaison||
-| --- | --- | 
+| --- | --- |
 | Azure Resource Manager | `https://management.chinacloudapi.cn/` |
-| Authentication | `https://login.chinacloudapi.cn/` |
+| Authentification | `https://login.chinacloudapi.cn/` |
 | Audience du jeton |  `https://management.core.chinacloudapi.cn/` |
 
 ## <a name="see-also"></a>Voir aussi

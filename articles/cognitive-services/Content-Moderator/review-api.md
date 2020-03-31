@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
 ms.openlocfilehash: 1aba86efb9ea76fbf060e80b47f9f2f6cdf8ee71
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73744426"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79219223"
 ---
 # <a name="content-moderation-reviews-workflows-and-jobs"></a>Révisions, flux de travail et travaux avec modération du contenu
 
@@ -66,9 +66,9 @@ Les flux de travail peuvent être décrits complètement en tant que chaînes JS
 
 Consultez le [guide de l’outil de révision](./review-tool-user-guide/workflows.md) pour commencer à créer et à utiliser des flux de travail, ou le [guide de l’API REST](./try-review-api-workflow.md) pour apprendre à le faire par programmation.
 
-## <a name="jobs"></a>Tâches
+## <a name="jobs"></a>travaux
 
-Un travail de modération est un type de wrapper permettant d’obtenir une modération du contenu, des flux de travail et des révisions. Le travail analyse votre contenu à l’aide de l’API Modération des images ou de l’API Modération du texte de Content Moderator, puis compare le résultat obtenu au flux de travail désigné. Selon les résultats de flux de travail, il crée ou non une révision pour le contenu dans l’[outil de révision](./review-tool-user-guide/human-in-the-loop.md). Même s’il est possible de créer et de configurer des révisions et des flux de travail avec leurs API respectives, l'API de travail vous permet d'obtenir un rapport détaillé de l'ensemble du processus (qui peut être envoyé à un point de terminaison de rappel spécifié).
+Un travail de modération est une forme de wrapper des fonctionnalités de modération du contenu, de flux de travail et de révision. Le travail analyse votre contenu à l’aide de l’API Modération des images ou de l’API Modération du texte de Content Moderator, puis compare le résultat obtenu au flux de travail désigné. Selon les résultats de flux de travail, il crée ou non une révision pour le contenu dans l’[outil de révision](./review-tool-user-guide/human-in-the-loop.md). Même s’il est possible de créer et de configurer des révisions et des flux de travail avec leurs API respectives, l'API de travail vous permet d'obtenir un rapport détaillé de l'ensemble du processus (qui peut être envoyé à un point de terminaison de rappel spécifié).
 
 Consultez le [guide de l’API REST](./try-review-api-job.md) pour commencer à utiliser des travaux.
 

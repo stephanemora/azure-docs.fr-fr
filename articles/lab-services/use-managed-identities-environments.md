@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 10/01/2019
 ms.author: spelluru
 ms.openlocfilehash: a4ba4206c01e492f2ae980c5806de1e72c7051c3
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73931158"
 ---
 # <a name="use-azure-managed-identities-to-deploy-environments-in-a-lab"></a>Utiliser des identités managées Azure pour déployer des environnements dans un labo 
@@ -24,7 +24,7 @@ En tant que propriétaire de labo, vous pouvez utiliser une identité managée p
 > [!NOTE]
 > Actuellement, une seule identité attribuée par l’utilisateur est prise en charge par labo. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 - [Créer, lister, supprimer ou affecter un rôle à une identité managée attribuée par l’utilisateur à l’aide du portail Azure](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). 
 
 ## <a name="use-azure-portal"></a>Utiliser le portail Azure

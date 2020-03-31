@@ -16,10 +16,10 @@ ms.date: 07/11/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ed8bafe7f5bc28cf37205107f8ab6dd5cdb4907c
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74274146"
 ---
 # <a name="problems-configuring-password-single-sign-on-for-a-non-gallery-application"></a>Problèmes de configuration de l’authentification unique avec mot de passe pour une application hors galerie
@@ -46,11 +46,11 @@ Pour configurer l’authentification unique avec mot de passe à l’aide de la 
 
 2. Dans le volet de navigation situé à gauche, sélectionnez **Tous les services** pour ouvrir l’extension Azure AD.
 
-3. Tapez **Azure Active Directory** dans la zone de recherche de filtre, puis sélectionnez **Azure Active Directory**.
+3. Saisissez **Azure Active Directory** dans la zone de recherche de filtre, puis sélectionnez **Azure Active Directory**.
 
 4. Sélectionnez **Applications d’entreprise** dans le volet de navigation Azure AD.
 
-5. Sélectionnez **Toutes les applications** pour afficher la liste de toutes vos applications.
+5. Sélectionnez **Toutes les applications** pour afficher la liste complète de vos applications.
 
    > [!NOTE]
    > Si vous ne voyez pas l’application que vous voulez, utilisez le contrôle **Filtrer** en haut de la liste **Toutes les applications**. Définissez l’option **Afficher** sur « Toutes les applications ».
@@ -79,11 +79,11 @@ Pour configurer l’authentification unique avec mot de passe pour une applicati
 
 2. Dans le volet de navigation situé à gauche, sélectionnez **Tous les services** pour ouvrir l’extension Azure AD.
 
-3. Tapez **Azure Active Directory** dans la zone de recherche de filtre, puis sélectionnez **Azure Active Directory**.
+3. Saisissez **Azure Active Directory** dans la zone de recherche de filtre, puis sélectionnez **Azure Active Directory**.
 
 4. Sélectionnez **Applications d’entreprise** dans le volet de navigation Azure AD.
 
-5. Sélectionnez **Toutes les applications** pour afficher la liste de toutes vos applications.
+5. Sélectionnez **Toutes les applications** pour afficher la liste complète de vos applications.
 
    > [!NOTE] 
    > Si vous ne voyez pas l’application que vous voulez, utilisez le contrôle **Filtrer** en haut de la liste **Toutes les applications**. Définissez l’option **Afficher** sur « Toutes les applications ».
@@ -195,11 +195,11 @@ Les informations suivantes expliquent ce que signifie chaque élément de notifi
 
 - **Titre** : titre descriptif de la notification.
 
-   Exemple : *Paramètres de proxy d’application*
+   Exemple : *Paramètres de proxy d’application*
 
 - **Description** : ce qui s’est produit suite à l’opération.
 
-   Exemple : *L’URL interne entrée est déjà utilisée par une autre application.*
+   Exemple : *L’URL interne entrée est déjà utilisée par une autre application.*
 
 - **ID de notification** : ID unique de la notification.
 
@@ -207,15 +207,15 @@ Les informations suivantes expliquent ce que signifie chaque élément de notifi
 
 - **ID de demande client**: ID de la demande spécifique effectuée par votre navigateur.
 
-    Exemple : *302fd775-3329-4670-a9f3-bea37004f0bc*
+    Exemple : *302fd775-3329-4670-a9f3-bea37004f0bc*
 
 - **Horodatage UTC** : horodatage de l’affichage de la notification, au format UTC.
 
-    Exemple : *2017-03-23T19:50:43.7583681Z*
+    Exemple : *2017-03-23T19:50:43.7583681Z*
 
 - **ID de transaction interne** : ID interne utilisé pour rechercher l’erreur dans nos systèmes.
 
-    Exemple : **71a2f329-ca29-402f-aa72-bc00a7aca603**
+    Exemple : **71a2f329-ca29-402f-aa72-bc00a7aca603**
 
 - **UPN** : L’utilisateur qui a exécuté l’opération.
 
@@ -223,29 +223,29 @@ Les informations suivantes expliquent ce que signifie chaque élément de notifi
 
 - **ID de locataire** : ID unique du locataire dont l’utilisateur ayant exécuté l’opération est membre.
 
-    Exemple : *7918d4b5-0442-4a97-be2d-36f9f9962ece*
+    Exemple : *7918d4b5-0442-4a97-be2d-36f9f9962ece*
 
 - **ID de l’objet utilisateur** : ID unique de l’utilisateur qui a exécuté l’opération.
 
-    Exemple : *17f84be4-51f8-483a-b533-383791227a99*
+    Exemple : *17f84be4-51f8-483a-b533-383791227a99*
 
 ### <a name="detailed-notification-items"></a>Éléments détaillés d’une notification
 
 - **Nom d’affichage** : (peut être vide) nom d’affichage plus détaillé de l’erreur.
 
-    Exemple : *Paramètres de proxy d’application*
+    Exemple : *Paramètres de proxy d’application*
 
 - **État**: état spécifique de la notification.
 
-    Exemple : *Échec*
+    Exemple : *Échec*
 
 - **ID de l’objet** : (peut être vide) ID de l’objet sur lequel l’opération a été exécutée.
 
-   Exemple : *8e08161d-f2fd-40ad-a34a-a9632d6bb599*
+   Exemple : *8e08161d-f2fd-40ad-a34a-a9632d6bb599*
 
 - **Détails** : description détaillée de ce qui s’est produit suite à l’opération.
 
-    Exemple : *L’URL interne « <https://bing.com/> » n’est pas valide car elle est déjà en cours d’utilisation.*
+    Exemple : *L’URL interne « <https://bing.com/> » n’est pas valide car elle est déjà en cours d’utilisation.*
 
 - **Erreur de copie** : Vous permet de sélectionner l’**icône de copie** à droite de la zone de texte **Erreur de copie** pour copier les détails de notification à partager avec le support technique.
 

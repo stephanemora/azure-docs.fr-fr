@@ -1,19 +1,18 @@
 ---
 title: Informations relatives aux contacts pour une offre d’application Power BI | Place de marché Azure
 description: Configurez les champs Contacts d'une offre d'application Power BI pour la Place de marché Microsoft AppSource.
-services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.author: pabutler
-ms.openlocfilehash: ec1ed23b253f705e1830c1c014492fe52b2133f0
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 79cdd12359a0d781b51db2632bc9d534e0d88c6d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826536"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80285229"
 ---
 # <a name="power-bi-app-contacts-tab"></a>Onglet Contacts des applications Power BI
 

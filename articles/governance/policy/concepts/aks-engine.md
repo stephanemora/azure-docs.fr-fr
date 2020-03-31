@@ -4,10 +4,10 @@ description: Découvrez comment Azure Policy utilise CustomResourceDefinitions e
 ms.date: 11/04/2019
 ms.topic: conceptual
 ms.openlocfilehash: c41a9d84dfe43e356e9a4a17af523a37209c2933
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75436421"
 ---
 # <a name="understand-azure-policy-for-aks-engine"></a>Comprendre Azure Policy pour AKS Engine
@@ -29,7 +29,7 @@ Pour activer et utiliser Azure Policy pour AKS Engine avec votre cluster Kuberne
 - [Affecter une définition de stratégie pour AKS Engine](#built-in-policies)
 - [Attendre la validation](#validation-and-reporting-frequency)
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant d’installer le module complémentaire Azure Policy ou d’activer des fonctionnalités du service, vous devez activer le fournisseur de ressources **Microsoft.PolicyInsights** et créer une attribution de rôle pour le principal de service du cluster dans votre abonnement. 
 

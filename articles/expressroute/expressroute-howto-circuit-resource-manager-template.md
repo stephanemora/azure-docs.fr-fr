@@ -9,10 +9,10 @@ ms.date: 11/13/2019
 ms.author: cherylmc
 ms.reviewer: ganesr
 ms.openlocfilehash: 78da84a462566cca1a2800174849159ace8dd6dc
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75981148"
 ---
 # <a name="create-an-expressroute-circuit-by-using-azure-resource-manager-template"></a>Création d’un circuit ExpressRoute en utilisant le modèle Azure Resource Manager
@@ -34,7 +34,7 @@ Découvrez comment créer un circuit ExpressRoute en déployant un modèle Azure
 * Assurez-vous que vous disposez des autorisations nécessaires pour créer des ressources réseau. Contactez votre administrateur de compte si vous n'avez pas les autorisations appropriées.
 * Vous pouvez [visualiser une vidéo](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit) avant de commencer afin de mieux comprendre les étapes.
 
-## <a name="create"></a>Créer et approvisionner un circuit ExpressRoute
+## <a name="create-and-provision-an-expressroute-circuit"></a><a name="create"></a>Créer et approvisionner un circuit ExpressRoute
 
 [Les modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/) comprennent une bonne collection de modèles Resource Manager. Vous utilisez un des [modèles existants](https://azure.microsoft.com/resources/templates/101-expressroute-circuit-create/) pour créer un circuit ExpressRoute.
 
@@ -84,7 +84,7 @@ Dans ce tutoriel, Azure PowerShell permet de déployer le modèle. Pour d’autr
 * [En utilisant Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
 * [En utilisant l’API REST](../azure-resource-manager/templates/deploy-rest.md).
 
-## <a name="delete"></a>Annulation de l’approvisionnement et suppression d’un circuit ExpressRoute
+## <a name="deprovisioning-and-deleting-an-expressroute-circuit"></a><a name="delete"></a>Annulation de l’approvisionnement et suppression d’un circuit ExpressRoute
 
 Vous pouvez supprimer votre circuit ExpressRoute en sélectionnant l’icône **Supprimer** . Notez les informations suivantes :
 

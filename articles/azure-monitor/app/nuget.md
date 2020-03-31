@@ -4,10 +4,10 @@ description: Liste de packages NuGet Azure Monitor Application Insights pour ASP
 ms.topic: reference
 ms.date: 10/16/2018
 ms.openlocfilehash: 5675c0fad61f1b75aa7e93db02246eed43967ec2
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77669996"
 ---
 # <a name="application-insights-nuget-packages"></a>Packages NuGet Application Insights

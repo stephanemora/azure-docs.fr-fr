@@ -10,10 +10,10 @@ ms.author: peterlu
 author: peterclu
 ms.date: 01/09/2020
 ms.openlocfilehash: 59199291589a81d0a0d96b7867078b8196be086f
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77366200"
 ---
 # <a name="use-a-keyboard-to-use-azure-machine-learning-designer-preview"></a>Employer un clavier pour utiliser le concepteur Azure Machine Learning (préversion)

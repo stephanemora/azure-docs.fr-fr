@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
 ms.openlocfilehash: b2d763454b86570b57a16fb9ae2107a2a2bcd23d
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73744378"
 ---
 # <a name="create-video-transcript-reviews-using-net"></a>Révisions de transcriptions de vidéos à l’aide de .NET
@@ -25,7 +25,7 @@ Cet article fournit des informations et des exemples de code destinés à vous a
 - Ajouter une transcription modérée à la révision
 - Publier la révision
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Si ce n’est déjà fait, connectez-vous ou créez un compte sur le site de [l’outil de révision](https://contentmoderator.cognitive.microsoft.com/) de Content Moderator.
 - Cet article suppose que vous avez [modéré la vidéo](video-moderation-api.md) et [créé la révision de la vidéo](video-reviews-quickstart-dotnet.md) dans l’outil de révision pour la prise de décision humaine. Vous souhaitez maintenant ajouter les transcriptions de la vidéo modérée dans l’outil de révision.
@@ -42,13 +42,13 @@ Si vous utilisez la clé d’essai générée par l’outil de révision, votre 
 
 Ajoutez la transcription à une révision de la vidéo. La vidéo doit être publiée en ligne. Vous avez besoin de son point de terminaison de streaming. Le point de terminaison de streaming permet au lecteur vidéo de l’outil de révision de lire la vidéo.
 
-![Miniature de démonstration de vidéo](images/ams-video-demo-view.PNG)
+![Miniature de la démonstration de vidéo](images/ams-video-demo-view.PNG)
 
 - Copiez **l’URL** sur cette page de [démonstration Azure Media Services](https://aka.ms/azuremediaplayer?url=https%3A%2F%2Famssamples.streaming.mediaservices.windows.net%2F91492735-c523-432b-ba01-faba6c2206a2%2FAzureMediaServicesPromo.ism%2Fmanifest) pour l’URL du manifeste.
 
 ## <a name="create-your-visual-studio-project"></a>Créer votre projet Visual Studio
 
-1. Ajoutez un nouveau projet **Application console (.NET Framework)** à votre solution.
+1. Ajoutez un nouveau projet **Console app (.NET Framework)** à votre solution.
 
 1. Nommez le projet **VideoTranscriptReviews**.
 
@@ -154,7 +154,7 @@ Créez une révision de vidéo avec **ContentModeratorClient.Reviews.CreateVideo
 > [!NOTE]
 > **CreateVideoReviews** retourne une chaîne IList\<string>. Chacune de ces chaînes contient un ID de révision de vidéo. Ces ID sont des GUID et sont différents de la valeur de la propriété **ContentId**.
 
-Ajoutez la définition de méthode suivante à l’espace de noms VideoReviews de la classe Program.
+Ajoutez la définition de méthode suivante à la classe Program de l’espace de noms VideoReviews.
 
 ```csharp
 /// <summary>
@@ -190,18 +190,18 @@ private static string CreateReview(ContentModeratorClient client, string id, str
 ```
 
 > [!NOTE]
-> Votre clé de service Content Moderator a une limite de fréquence de requêtes par seconde. Si vous dépassez la limite, le kit SDK lève une exception avec le code d’erreur 429.
+> Votre clé de service Content Moderator a une limite de fréquence des demandes par seconde (RPS). Si vous dépassez la limite, le kit SDK lève une exception avec le code d’erreur 429.
 >
-> Une clé de niveau gratuit a une limite de fréquence d’une requête par seconde.
+> Une clé de niveau gratuit a une limite de fréquence d’une demande par seconde (RSP).
 
 ## <a name="add-transcript-to-video-review"></a>Ajouter la transcription à la révision de la vidéo
 
 Vous ajoutez une transcription à une révision vidéo avec **ContentModeratorClient.Reviews.AddVideoTranscript**. **AddVideoTranscript** a les paramètres requis suivants :
 1. L’ID de votre équipe Content Moderator.
-1. L’ID de révision de vidéo renvoyé par **CreateVideoReviews**.
+1. L’ID de révision de vidéo retourné par **CreateVideoReviews**.
 1. Un objet **Flux** qui contient la transcription.
 
-La transcription doit être au format WebVTT. Pour plus d'informations, consultez [WebVTT : le format Web Video Text Tracks](https://www.w3.org/TR/webvtt1/).
+La transcription doit être au format WebVTT. Pour plus d’informations, consultez [WebVTT: The Web Video Text Tracks Format](https://www.w3.org/TR/webvtt1/) (WebVTT : le format Web Video Text Tracks).
 
 > [!NOTE]
 > Le programme utilise un exemple de transcription au format VTT. Dans une solution réelle, vous utilisez le service Azure Media Indexer pour [générer une transcription](https://docs.microsoft.com/azure/media-services/media-services-index-content) à partir d’une vidéo.
@@ -228,19 +228,19 @@ static void AddTranscript(ContentModeratorClient client, string review_id, strin
 
 ## <a name="add-a-transcript-moderation-result-to-video-review"></a>Ajouter un résultat de modération de transcription à une révision de vidéo
 
-En plus d’ajouter une transcription à une révision de vidéo, vous pouvez également ajouter le résultat de la modération de cette transcription. Vous pouvez le faire avec **ContentModeratorClient.Reviews.AddVideoTranscriptModerationResult**. Pour plus d’informations, consultez la [référence de l’API](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/59e7b93ce7151f0b10d451ff).
+En plus d’ajouter une transcription à une révision de vidéo, vous pouvez également ajouter le résultat de la modération de cette transcription. Vous pouvez le faire avec **ContentModeratorClient.Reviews.AddVideoTranscriptModerationResult**. Pour plus d’informations, consultez les [informations de référence sur l’API](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/59e7b93ce7151f0b10d451ff).
 
 **AddVideoTranscriptModerationResult** a les paramètres requis suivants :
-1. Une chaîne qui contient un type MIME, qui doit être « application/json ». 
+1. Une chaîne contenant un type MIME, qui doit être « application/json ». 
 1. Le nom de votre équipe Content Moderator.
 1. L’ID de révision de vidéo retourné par **CreateVideoReviews**.
 1. Un IList\<TranscriptModerationBodyItem>. Un élément **TranscriptModerationBodyItem** a les propriétés suivantes :
 1. **Termes** Un IList\<TranscriptModerationBodyItemTermsItem>. Un élément **TranscriptModerationBodyItemTermsItem** a les propriétés suivantes :
 1. **Index**. L’index de base zéro du terme.
 1. **Terme**. Une chaîne qui contient le terme.
-1. **Horodatage** Une chaîne qui contient le moment (exprimé en secondes) où se trouvent les termes dans la transcription.
+1. **Timestamp**. Une chaîne qui contient le moment (exprimé en secondes) où se trouvent les termes dans la transcription.
 
-La transcription doit être au format WebVTT. Pour plus d'informations, consultez [WebVTT : le format Web Video Text Tracks](https://www.w3.org/TR/webvtt1/).
+La transcription doit être au format WebVTT. Pour plus d’informations, consultez [WebVTT: The Web Video Text Tracks Format](https://www.w3.org/TR/webvtt1/) (WebVTT : le format Web Video Text Tracks).
 
 Ajoutez la définition de méthode suivante à l’espace de noms VideoTranscriptReview de la classe Program. Cette méthode envoie une transcription à la méthode **ContentModeratorClient.TextModeration.ScreenText**. Elle traduit également le résultat en une IList\<TranscriptModerationBodyItem> et l’envoie à **AddVideoTranscriptModerationResult**.
 
@@ -351,9 +351,9 @@ static void Main(string[] args)
 }
 ```
 
-## <a name="run-the-program-and-review-the-output"></a>Exécuter le programme et réviser la sortie
+## <a name="run-the-program-and-review-the-output"></a>Exécuter le programme et examiner la sortie
 
-Lorsque vous exécutez l’application, vous voyez un résultat sur les lignes suivantes :
+Quand vous exécutez l’application, une sortie s’affiche sur les lignes suivantes :
 
 ```console
 Creating a video review.

@@ -9,10 +9,10 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.openlocfilehash: 4edafc0c07e967acfabf7fdc5b58c481b2cfccc3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75436034"
 ---
 # <a name="create-and-configure-enterprise-security-package-clusters-in-azure-hdinsight"></a>Créer et configurer des clusters de Pack Sécurité Entreprise dans Azure HDInsight
@@ -45,9 +45,9 @@ Dans cette section, vous allez utiliser un modèle de déploiement rapide Azure 
 
     |Propriété | Valeur |
     |---|---|
-    |Subscription|Sélectionnez l’abonnement dans lequel déployer les ressources.|
+    |Abonnement|Sélectionnez l’abonnement dans lequel déployer les ressources.|
     |Resource group|Sélectionnez **Créer**, puis entrez le nom `OnPremADVRG`|
-    |Location|Sélectionnez un emplacement.|
+    |Emplacement|Sélectionnez un emplacement.|
     |Nom d’utilisateur d’administrateur|`HDIFabrikamAdmin`|
     |Mot de passe d’administrateur|Entrez un mot de passe.|
     |Nom de domaine|`HDIFabrikam.com`|
@@ -159,7 +159,7 @@ Créez un administrateur de locataire Azure Active Directory.
     |Propriété |Description |
     |---|---|
     |Nom d'utilisateur|Entrez `fabrikamazureadmin` dans la zone de texte. Dans la liste déroulante du nom de domaine, sélectionnez `hdifabrikam.com`|
-    |Name| Entrez `fabrikamazureadmin`.|
+    |Nom| Entrez `fabrikamazureadmin`.|
 
     **Mot de passe**
     1. Sélectionnez **Me permettre de créer le mot de passe**.
@@ -358,7 +358,7 @@ Vérifiez que le certificat se trouve dans le magasin **personnel** de l’ordin
         | Protocol | Quelconque |
         | Action | Allow |
         | Priority | \<Nombre souhaité> |
-        | Name | Port_LDAP_636 |
+        | Nom | Port_LDAP_636 |
 
     ![Boîte de dialogue « Ajouter une règle de sécurité de trafic entrant »](./media/apache-domain-joined-create-configure-enterprise-security-cluster/add-inbound-security-rule.png)
 

@@ -10,12 +10,12 @@ metadata:
   author: PatAltimore
   ms.author: patricka
   ms.date: 11/04/2019
-  ms.openlocfilehash: 5af8999a32682df18d1e4f1be192c2d4be628860
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: c388f08ae3e1323af48f486730699aee4f205468
+  ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "74285075"
+  ms.lasthandoff: 03/27/2020
+  ms.locfileid: "80348324"
 landingContent:
 - title: À propos d’Azure Blockchain Service
   linkLists:
@@ -47,8 +47,6 @@ landingContent:
       url: connect-metamask.md
     - text: Utiliser Geth pour vous connecter à un nœud de transaction
       url: connect-geth.md
-    - text: Utiliser Truffle pour se connecter à un nœud de transaction
-      url: connect-truffle.md
   - linkListType: tutorial
     links:
     - text: Utiliser Visual Studio Code pour créer, générer et déployer des contrats intelligents

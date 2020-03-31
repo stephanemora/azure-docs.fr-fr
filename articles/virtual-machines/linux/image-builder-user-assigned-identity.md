@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 manager: gwallace
-ms.openlocfilehash: f3990037d75f9f77eaedc7ec4049f14814216d9c
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 27f4073efc8647d331faa14afbda0e15f92b8d50
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78944974"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80060745"
 ---
 # <a name="create-an-image-and-use-a-user-assigned-managed-identity-to-access-files-in-azure-storage"></a>Créer une image et utiliser une identité managée affectée par l’utilisateur pour accéder aux fichiers dans le stockage Azure 
 
@@ -63,7 +63,7 @@ az provider register -n Microsoft.Storage
 Nous allons utiliser certains éléments d’information à plusieurs reprises, donc nous allons créer des variables pour les stocker.
 
 
-```azurecli-interactive
+```console
 # Image resource group name 
 imageResourceGroup=aibmdimsi
 # storage resource group
@@ -78,13 +78,13 @@ runOutputName=u1804ManImgMsiro
 
 Créez une variable pour votre ID d’abonnement. Vous pouvez l’obtenir avec `az account show | grep id`.
 
-```azurecli-interactive
+```console
 subscriptionID=<Your subscription ID>
 ```
 
 Créez les groupes de ressources pour le stockage de script et d’images.
 
-```azurecli-interactive
+```console
 # create resource group for image template
 az group create -n $imageResourceGroup -l $location
 # create resource group for the script storage
@@ -152,7 +152,7 @@ imgBuilderId=/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/p
 
 Téléchargez l’exemple de fichier .json et configurez-le avec les variables que vous avez créées.
 
-```azurecli-interactive
+```console
 curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage/helloImageTemplateMsi.json -o helloImageTemplateMsi.json
 sed -i -e "s/<subscriptionID>/$subscriptionID/g" helloImageTemplateMsi.json
 sed -i -e "s/<rgName>/$imageResourceGroup/g" helloImageTemplateMsi.json
@@ -192,7 +192,7 @@ Attendez la fin de la génération. Cela peut durer environ 15 minutes.
 
 Créez une machine virtuelle à partir de l’image. 
 
-```bash
+```azurecli
 az vm create \
   --resource-group $imageResourceGroup \
   --name aibImgVm00 \
@@ -204,13 +204,13 @@ az vm create \
 
 Une fois la machine virtuelle créée, démarrez une session SSH avec la machine virtuelle.
 
-```azurecli-interactive
+```console
 ssh aibuser@<publicIp>
 ```
 
 Vous devriez voir que l’image a été personnalisée avec un Message du jour dès que votre connexion SSH est établie !
 
-```console
+```output
 
 *******************************************************
 **            This VM was built from the:            **

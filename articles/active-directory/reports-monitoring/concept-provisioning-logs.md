@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c6e0c697f9ab9796feade9b4d5c2a64794f3980b
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73612796"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Approvisionnement des rapports dans le portail Azure Active Directory (version préliminaire)
@@ -118,9 +118,9 @@ Le filtre **État** vous permet de sélectionner les états suivants :
 Le filtre **Action** vous permet de filtrer les éléments suivants :
 
 - Créer 
-- Mettre à jour
-- Supprimer
-- Désactiver
+- Update
+- DELETE
+- Disable
 - Autres
 
 Le filtre **Date** vous permet de définir un intervalle de temps pour les données renvoyées.  

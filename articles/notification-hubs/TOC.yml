@@ -1,4 +1,4 @@
-- name: Documentation Notification Hubs
+- name: Documentation Azure Notification Hubs
   href: index.yml
 - name: Vue d’ensemble
   items:
@@ -11,7 +11,9 @@
   items:
     - name: Créer un hub de notification - Portail Azure
       href: create-notification-hub-portal.md
-    - name: Configurer un hub de notification - Portail Azure
+    - name: "Créer un hub de notification\_- Azure\_CLI"
+      href: create-notification-hub-azure-cli.md
+    - name: Configurer un hub de notification
       href: configure-notification-hub-portal-pns-settings.md
 - name: Tutoriels
   items:
@@ -140,6 +142,8 @@
       href: notification-hubs-push-notification-fixer.md
     - name: Notifications Push avec le push cloud Baidu
       href: notification-hubs-baidu-china-android-notifications-get-started.md
+    - name: Utiliser APNS VoIP par le biais de Notification Hubs
+      href: voip-apns.md
 - name: Informations de référence
   items:
     - name: .NET

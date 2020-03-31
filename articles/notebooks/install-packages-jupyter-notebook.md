@@ -4,10 +4,10 @@ description: Découvrez comment installer des packages Python, R et F# à partir
 ms.topic: how-to
 ms.date: 12/04/2018
 ms.openlocfilehash: f6359b4c010834ffaee00b6208d309997339f36e
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75646226"
 ---
 # <a name="install-packages-from-within-azure-notebooks-preview"></a>Installer des packages à partir de la version préliminaire d’Azure Notebooks

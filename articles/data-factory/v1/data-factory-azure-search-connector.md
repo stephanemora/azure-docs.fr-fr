@@ -13,11 +13,11 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 5b1170f721cf8521cfe1762df0cc616c938ddf28
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74929976"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79236417"
 ---
 # <a name="push-data-to-an-azure-cognitive-search-index-by-using-azure-data-factory"></a>Transmettre des données vers un index de Recherche cognitive Azure à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -37,7 +37,7 @@ La passerelle de gestion des données connecte des sources de données locales �
 ## <a name="getting-started"></a>Prise en main
 Vous pouvez créer un pipeline avec une activité de copie qui transmet les données d’une banque de données source à un index de recherche à l’aide de différents outils/API.
 
-Le moyen le plus simple de créer un pipeline consiste à utiliser **l’Assistant Copie**. Consultez le [tutoriel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Copie](data-factory-copy-data-wizard-tutorial.md) pour obtenir une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copie de données.
+Le moyen le plus simple de créer un pipeline consiste à utiliser **l’Assistant Copie**. Voir le [tutoriel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Copie](data-factory-copy-data-wizard-tutorial.md) pour obtenir une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copie de données.
 
 Vous pouvez également utiliser les outils suivants pour créer un pipeline : **Visual Studio**, **Azure PowerShell**, **modèle Azure Resource Manager**, **.NET API** et **API REST**. Pour obtenir des instructions détaillées sur la création d’un pipeline avec une activité de copie, consultez le [didacticiel sur l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
@@ -57,9 +57,9 @@ Le tableau suivant décrit les éléments JSON propres au service lié Recherche
 
 | Propriété | Description | Obligatoire |
 | -------- | ----------- | -------- |
-| type | La propriété type doit être définie sur : **AzureSearch**. | OUI |
-| url | URL du service de recherche. | OUI |
-| key | Clé d’administration du service de recherche. | OUI |
+| type | La propriété type doit être définie sur : **AzureSearch**. | Oui |
+| url | URL du service de recherche. | Oui |
+| key | Clé d’administration du service de recherche. | Oui |
 
 ## <a name="dataset-properties"></a>Propriétés du jeu de données
 
@@ -67,8 +67,8 @@ Pour obtenir une liste complète des sections et propriétés disponibles pour l
 
 | Propriété | Description | Obligatoire |
 | -------- | ----------- | -------- |
-| Type | La propriété de type doit être définie sur **AzureSearchIndex**.| OUI |
-| indexName | Nom de l’index de recherche. Data Factory ne crée pas l’index. L’index doit exister dans Recherche cognitive Azure. | OUI |
+| type | La propriété de type doit être définie sur **AzureSearchIndex**.| Oui |
+| indexName | Nom de l’index de recherche. Data Factory ne crée pas l’index. L’index doit exister dans Recherche cognitive Azure. | Oui |
 
 
 ## <a name="copy-activity-properties"></a>Propriétés de l’activité de copie
@@ -99,7 +99,7 @@ Le tableau suivant indique si un type de données Recherche cognitive Azure est 
 
 | Type de données Recherche cognitive Azure | Pris en charge dans le récepteur de Recherche cognitive Azure |
 | ---------------------- | ------------------------------ |
-| Chaîne | O |
+| String | O |
 | Int32 | O |
 | Int64 | O |
 | Double | O |
@@ -285,12 +285,12 @@ Si vous copiez des données d’un magasin de données cloud vers Recherche cogn
 }
 ```
 
-Vous pouvez également mapper les colonnes du jeu de données source aux colonnes du jeu de données récepteur dans la définition de l’activité de copie. Pour plus d’informations, consultez [Mappage de colonnes de jeux de données dans Azure Data Factory](data-factory-map-columns.md).
+Vous pouvez également mapper les colonnes du jeu de données source sur les colonnes du jeu de données récepteur dans la définition de l’activité de copie. Pour plus d’informations, consultez [Mappage de colonnes de jeux de données dans Azure Data Factory](data-factory-map-columns.md).
 
 ## <a name="performance-and-tuning"></a>Performances et réglage
 Consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md) pour en savoir plus sur les facteurs clés affectant les performances de déplacement des données (activité de copie) et les différentes manières de les optimiser.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez les articles suivants :
+Voir les articles suivants :
 
 * [Didacticiel de l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) pour obtenir des instructions détaillées sur la création d’un pipeline avec Activité de copie.

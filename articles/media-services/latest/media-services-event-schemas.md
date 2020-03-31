@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: reference
-ms.date: 01/07/2020
+ms.date: 02/25/2020
 ms.author: juliako
-ms.openlocfilehash: b1c094689c7669f03d5355be7a77b1836c90974c
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: d4a206bbddedfe9f23a943df27c6ac4b5fe17e8a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750856"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227121"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Schémas Azure Event Grid pour les événements Media Services
 
@@ -328,18 +328,7 @@ L’objet de données comporte les propriétés suivantes :
 | encoderPort | string | Port de l’encodeur dont provient ce flux. |
 | resultCode | string | Motif de rejet de la connexion. Les codes de résultat sont répertoriés dans le tableau suivant. |
 
-Les codes de résultat sont :
-
-| Code de résultat | Description |
-| ----------- | ----------- |
-| MPE_RTMP_APPID_AUTH_FAILURE | URL d’ingestion incorrecte |
-| MPE_INGEST_ENCODER_CONNECTION_DENIED | L’adresse IP de l’encodeur n’est pas présente dans la liste d’adresses IP autorisées configurée |
-| MPE_INGEST_RTMP_SETDATAFRAME_NOT_RECEIVED | L’encodeur n’a pas envoyé de métadonnées concernant le flux. |
-| MPE_INGEST_CODEC_NOT_SUPPORTED | Le codec spécifié n’est pas pris en charge. |
-| MPE_INGEST_DESCRIPTION_INFO_NOT_RECEIVED | A reçu un fragment avant la réception et l’en-tête pour ce flux. |
-| MPE_INGEST_MEDIA_QUALITIES_EXCEEDED | Le nombre de qualités spécifiées dépasse la limite maximale autorisée. |
-| MPE_INGEST_BITRATE_AGGREGATED_EXCEEDED | Le débit binaire agrégé dépasse la limite maximale autorisée. |
-| MPE_RTMP_FLV_TAG_TIMESTAMP_INVALID | Le timestamp du FLVTag vidéo ou audio n’est pas valide à partir de l’encodeur RTMP. |
+Vous pouvez trouver les codes de résultat d’erreur dans [Codes d’erreur d’événement en direct](live-event-error-codes.md).
 
 ### <a name="liveeventencoderconnected"></a>LiveEventEncoderConnected
 
@@ -409,14 +398,7 @@ L’objet de données comporte les propriétés suivantes :
 | encoderPort | string | Port de l’encodeur dont provient ce flux. |
 | resultCode | string | Motif de déconnexion de l’encodeur. Il peut s’agir d’une déconnexion normale ou due à une erreur. Les codes de résultat sont répertoriés dans le tableau suivant. |
 
-Les codes de résultat d’erreur sont :
-
-| Code de résultat | Description |
-| ----------- | ----------- |
-| MPE_RTMP_SESSION_IDLE_TIMEOUT | La session RTMP a expiré après avoir été inactive pendant le temps maximal autorisé. |
-| MPE_RTMP_FLV_TAG_TIMESTAMP_INVALID | Le timestamp du FLVTag vidéo ou audio n’est pas valide à partir de l’encodeur RTMP. |
-| MPE_CAPACITY_LIMIT_REACHED | L’encodeur envoie les données trop vite. |
-| Codes d’erreur inconnus | Ces codes d’erreur peuvent varier de l’erreur de mémoire à des entrées de table de hachage en double. |
+Vous pouvez trouver les codes de résultat d’erreur dans [Codes d’erreur d’événement en direct](live-event-error-codes.md).
 
 Les codes de résultat de déconnexion normale sont :
 
@@ -692,3 +674,4 @@ Un événement contient les données générales suivantes :
 
 - [Kit de développement logiciel (SDK) .NET EventGrid qui inclut les événements Media Services](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
 - [Définitions d’événements Media Services](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
+- [Codes d’erreur d’événement en direct](live-event-error-codes.md)

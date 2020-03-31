@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
 ms.openlocfilehash: b02a08b7e8d8b867df820868b72a0ce14b6afa40
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71670944"
 ---
 # <a name="microsoft-client-tools-for-working-with-azure-storage"></a>Outils clients Microsoft pour l’utilisation de Stockage Azure
@@ -22,8 +22,8 @@ Microsoft fournit plusieurs outils dotés d’une interface graphique utilisateu
 
 | Outil client Stockage Azure                 | Plateformes prises en charge | Objet blob de blocs | Objet blob de pages | Append Blob | Tables | Files d’attente | Fichiers |
 |-------------------------------------------|---------------------|------------|-----------|-------------|--------|--------|-------|
-| [Portail Azure](https://portal.azure.com)                    | Web                 | OUI          | OUI         | OUI           | OUI      | OUI      | OUI     |
-| [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)          | Windows, OSX        | OUI          | OUI         | OUI           | OUI      | OUI      | OUI     |
-| [Microsoft Visual Studio Cloud Explorer](/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | Windows             | OUI          | OUI         | OUI           | OUI      | OUI      | Non      |
+| [Azure portal](https://portal.azure.com)                    | Web                 | Oui          | Oui         | Oui           | Oui      | Oui      | Oui     |
+| [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)          | Windows, OSX        | Oui          | Oui         | Oui           | Oui      | Oui      | Oui     |
+| [Microsoft Visual Studio Cloud Explorer](/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | Windows             | Oui          | Oui         | Oui           | Oui      | Oui      | Non      |
 
 Il existe également un certain nombre d’outils tiers qui vous permettent d’utiliser les données de Stockage Azure.

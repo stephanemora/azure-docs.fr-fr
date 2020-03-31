@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 4e4081ecca4714c713d105d363a83a4f96a0d3fc
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78356690"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79235373"
 ---
 # <a name="http-api-reference"></a>Référence sur l'API HTTP
 
@@ -434,7 +434,7 @@ Les paramètres de requête pour cette API incluent l’ensemble par défaut men
 | **`runtimeStatus`**   | Chaîne de requête    | Paramètre facultatif. Lorsqu’il est spécifié, filtre la liste des instances vidées selon l’état de leur runtime. Pour obtenir la liste des valeurs d’état d’exécution possibles, consultez l’article [Interrogation des instances](durable-functions-instance-management.md). |
 
 > [!NOTE]
-> Cette opération peut être très gourmande en E/S pour le stockage Azure s’il y a un grand nombre de lignes dans les instances et/ou les tables d’historique. Vous trouverez plus d’informations sur ces tables dans la documentation [Performances et diminution de la taille des instances dans Durable Functions (Azure Functions)](durable-functions-perf-and-scale.md#instances-table).
+> Cette opération peut être très gourmande en E/S pour le stockage Azure s’il y a un grand nombre de lignes dans les instances et/ou les tables d’historique. Vous trouverez plus d’informations sur ces tables dans la documentation [Performances et mise à l’échelle dans Fonctions durables (Azure Functions)](durable-functions-perf-and-scale.md#instances-table).
 
 ### <a name="response"></a>response
 

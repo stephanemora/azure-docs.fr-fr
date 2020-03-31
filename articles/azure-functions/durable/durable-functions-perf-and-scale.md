@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: ee35f26f9433f6ab342c7dce105638122b9d7717
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 260811c4ae15b45de6f7bc1b22e3ed6dcea44259
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77486258"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79235293"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Performances et mise à l’échelle dans Fonctions durables (Azure Functions)
 
@@ -142,7 +142,7 @@ Si le contrôleur de mise à l’échelle détermine que la latence des messages
 
 Les fonctions d’orchestrateur sont exécutées sur un seul thread pour garantir la possibilité d’une exécution déterministe entre les nombreuses relectures. Compte tenu de cette exécution monothread, il est important que les threads de fonction d’orchestrateur n’effectuent pas de tâches nécessitant une utilisation intensive du processeur, effectuent des opérations d’E/S ou se bloquent pour une raison quelconque. Tout travail susceptible de nécessiter un thread d’E/S, un blocage ou plusieurs threads doit être transféré vers les fonctions d’activité.
 
-Les fonctions d’activité ont les mêmes comportements que les fonctions normales déclenchées par une file d’attente. Elles peuvent effectuer en toute sécurité des opérations d’E/S ou des opérations gourmandes en ressources de processeur et utiliser plusieurs threads. Étant donné que les déclencheurs d’activité sont sans état, ils peuvent librement être mis à l’échelle sur un nombre illimité de machines virtuelles.
+Les fonctions d’activité ont les mêmes comportements que les fonctions normales déclenchées par une file d’attente. Elles peuvent effectuer en toute sécurité des opérations d’E/S ou des opérations gourmandes en ressources de processeur et utiliser plusieurs threads. Étant donné que les déclencheurs d’activité sont sans état, ils peuvent librement effectuer un scale-out sur un nombre illimité de machines virtuelles.
 
 Les fonctions d’entité sont également exécutées sur un thread unique et les opérations sont traitées une par une. Toutefois, les fonctions d’entité n’ont aucune restriction quant au type de code qui peut être exécuté.
 
@@ -220,7 +220,7 @@ Les effets spécifiques des sessions étendues sur les fonctions d’orchestrate
 
 ### <a name="orchestrator-function-replay"></a>Relecture de la fonction d’orchestrateur
 
-Comme mentionné précédemment, les fonctions d’orchestrateur sont relues à l’aide du contenu de la table d’**historique**. Par défaut, le code de fonction d’orchestrateur est relu chaque fois qu’un lot de messages est enlevé d’une file d’attente de contrôle. Lorsque des sessions étendues sont activées, les instances de fonction d’orchestrateur sont conservées en mémoire plus longtemps et les nouveaux messages peuvent être traités sans une relecture complète de l’historique.
+Comme mentionné précédemment, les fonctions d’orchestrateur sont relues à l’aide du contenu de la table d’**historique**. Par défaut, le code de fonction d’orchestrateur est relu chaque fois qu’un lot de messages est enlevé d’une file d’attente de contrôle. Même si vous utilisez le modèle fan-out/fan-in et vous attendez à ce que toutes les tâches soient terminées (par exemple, en utilisant `Task.WhenAll` en .NET ou `context.df.Task.all` en JavaScript), des relectures se produisent à mesure que des lots de réponses de tâche sont traités. Lorsque des sessions étendues sont activées, les instances de fonction d’orchestrateur sont conservées en mémoire plus longtemps et les nouveaux messages peuvent être traités sans une relecture complète de l’historique.
 
 L’amélioration des performances des sessions étendues est le plus souvent observée dans les situations suivantes :
 

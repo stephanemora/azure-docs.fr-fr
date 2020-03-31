@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fe2d85d605b9ee418a5709ddcdb448c56be1d918
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74022280"
 ---
 # <a name="complete-an-access-review-of-azure-ad-roles-in-privileged-identity-management"></a>Effectuer une révision d’accès des rôles Azure AD dans Privileged Identity Management
@@ -49,11 +49,11 @@ Toutes les révisions d’accès ont une date de fin, mais vous pouvez utiliser 
 
 Lorsqu’une vérification de l’accès est terminé, soit parce qu’elle a atteint la date de fin ou après un arrêt manuel, le bouton **Appliquer** implémente le résultat de la révision. Si l’accès d’un utilisateur a été refusé lors de la révision, cette étape supprimera l’affectation de son rôle.  
 
-### <a name="export"></a>Exportation
+### <a name="export"></a>Exporter
 
 Si vous souhaitez appliquer manuellement les résultats de la révision d’accès, vous pouvez exporter la révision. Le bouton **Exporter** fait démarrer le téléchargement d'un fichier CSV. Vous pouvez gérer les résultats dans Excel ou d'autres programmes qui s'ouvrent les fichiers CSV.
 
-### <a name="delete"></a>Supprimer
+### <a name="delete"></a>DELETE
 
 Si vous n'êtes plus intéressé par la révision, supprimez-la. Le bouton **Supprimer** supprime la révision du service Privileged Identity Management.
 

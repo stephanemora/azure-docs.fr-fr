@@ -16,10 +16,10 @@ ms.date: 04/02/2019
 ms.author: rimayber
 ms.reviewer: dgoddard, stegag, steveesp, minale, btalb, prachank
 ms.openlocfilehash: bb23484903ac3ce129c6e7a7a27e0765c227fb1d
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68297787"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>Optimisation des performances TCP/IP pour les machines virtuelles Azure
@@ -224,7 +224,7 @@ Voici les paramètres TCP effectifs pour `AutoTuningLevel` :
 | | | | |
 |-|-|-|-|
 |**AutoTuningLevel**|**Facteur de mise à l’échelle**|**Multiplicateur de mise à l'échelle**|**Formule pour<br/> calculer la taille maximale de la fenêtre**|
-|Désactivé|Aucun|Aucun|Taille de la fenêtre|
+|Désactivé|None|None|Taille de la fenêtre|
 |Restreint|4|2^4|Taille de la fenêtre * (2^4)|
 |Très restreinte|2|2^2|Taille de la fenêtre * (2^2)|
 |Normal|8|2^8|Taille de la fenêtre * (2^8)|

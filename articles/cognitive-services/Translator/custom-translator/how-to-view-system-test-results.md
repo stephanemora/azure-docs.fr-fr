@@ -10,10 +10,10 @@ ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
 ms.openlocfilehash: f5e1a21f24fdd2458d4803d6ed1675455fa5037d
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68595603"
 ---
 # <a name="view-system-test-results"></a>Afficher les résultats de test système
@@ -70,12 +70,12 @@ Pour demander un déploiement :
 
 2. Pour un modèle formé réussi, il affiche le bouton « Déployer », s'il n'est pas déployé.
 
-    ![Déployer le modèle](media/how-to/how-to-deploy-model.png)
+    ![Déployer un modèle](media/how-to/how-to-deploy-model.png)
 
 3.  Cliquez sur Déployer.
 4.  Sélectionnez **Deployed (Déployé)** pour la ou les régions où vous souhaitez déployer votre modèle, puis cliquez sur Enregistrer. Vous pouvez sélectionner **Deployed (Déployé)** pour plusieurs régions.
 
-    ![Déployer le modèle](media/how-to/how-to-deploy-model-regions.png)
+    ![Déployer un modèle](media/how-to/how-to-deploy-model-regions.png)
 
 5.  Vous pouvez afficher l’état de votre modèle dans la colonne « État ».
 
@@ -90,12 +90,12 @@ Pour mettre à jour les paramètres de déploiement :
 
 2. Pour un modèle déployé réussi, il affiche le bouton **Update (Mettre à jour)** .
 
-    ![Déployer le modèle](media/how-to/how-to-update-undeploy-model.png)
+    ![Déployer un modèle](media/how-to/how-to-update-undeploy-model.png)
 
 3.  Sélectionnez **Update**.
 4.  Sélectionnez **Deployed (Déployé)** ou **Undeployed (Non déployé)** pour la ou les régions où vous souhaitez déployer votre modèle (ou en annuler le déploiement), puis cliquez sur **Save (Enregistrer)** .
 
-    ![Déployer le modèle](media/how-to/how-to-undeploy-model.png)
+    ![Déployer un modèle](media/how-to/how-to-undeploy-model.png)
 
 >[!Note]
 >Si vous sélectionnez **Undeployed (Non déployé)** pour toutes les régions, le déploiement du modèle est annulé dans toutes les régions et le modèle est mis dans un état annulé. Il n’est plus disponible pour utilisation.

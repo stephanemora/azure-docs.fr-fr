@@ -10,18 +10,18 @@ ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 12/16/2019
 ms.author: aahi
-ms.openlocfilehash: a72859e378bc1f97ebaed6a11ea3b250a33651d5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: aaeb905c9cdc1e7b74e21d3c191f6a24a94fcd7d
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448525"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80053811"
 ---
 # <a name="quickstart-get-news-results-using-the-bing-news-search-rest-api-and-go"></a>Démarrage rapide : Obtenir des résultats de nouvelles à l’aide des API REST Recherche d'actualités Bing et Go
 
 Ce démarrage rapide utilise le langage Go pour appeler l’API Recherche d’actualités Bing. Les résultats incluent les noms et les URL des sources d’actualités identifiés par la chaîne de requête.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 * Installer les [fichiers binaires Go](https://golang.org/dl/)
 * Installez la bibliothèque go-spew pour que cette imprimante affiche les résultats
     * Installez cette bibliothèque : `$ go get -u https://github.com/davecgh/go-spew`
@@ -73,13 +73,13 @@ type NewsAnswer struct {
                 Width   int  `json: "width"`
                 Height  int   `json: "height"`
             } `json: "thumbnail"` 
+            } `json: "image"` 
             Description  string  `json: "description"`
             Provider  []struct   {
                 Type   string    `json: "_type"`
                 Name  string     `json: "name"`
             } `json: "provider"` 
             DatePublished   string   `json: "datePublished"`
-        } `json: "image"` 
     } `json: "value"` 
 }
 

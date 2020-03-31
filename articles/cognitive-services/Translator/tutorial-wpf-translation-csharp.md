@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 02/10/2020
 ms.author: swmachan
 ms.openlocfilehash: ecb42d200eb8808f6bfa4cfb91e98909e350038b
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77118605"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>Tutoriel : Créer une application de traduction avec WPF
@@ -44,7 +44,7 @@ Cette liste inclut les services Cognitive Services utilisés dans ce tutoriel. S
 | Translator Text | [Detect](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect) | Détectez la langue du texte d’entrée. Inclut le score de confiance pour la détection. |
 | Vérification orthographique Bing | [Vérification orthographique](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference) | Corrigez les fautes d’orthographe pour améliorer l’exactitude de la traduction. |
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant de continuer, vous avez besoin des éléments suivants :
 
@@ -114,7 +114,7 @@ Voyons ce que nous créons.
 
 L’interface utilisateur comprend ces composants :
 
-| Name | Type | Description |
+| Nom | Type | Description |
 |------|------|-------------|
 | `FromLanguageComboBox` | Liste déroulante | Affiche la liste des langues prises en charge par Microsoft Translator pour la traduction de texte. L’utilisateur sélectionne la langue de son texte d’origine. |
 | `ToLanguageComboBox` | Liste déroulante | Affiche la même liste de langues que `FromComboBox`, mais permet de sélectionner la langue cible du texte à traduire. |

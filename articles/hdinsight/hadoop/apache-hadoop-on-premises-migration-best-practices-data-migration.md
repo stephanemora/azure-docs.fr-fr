@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/22/2019
 ms.openlocfilehash: 41112359408497d84243ed9bb06f396acf008dc5
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74665999"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>Migrer des clusters Apache Hadoop locaux vers Azure HDInsight – meilleures pratiques concernant la migration de données
@@ -39,9 +39,9 @@ Le tableau suivant indique les durées moyennes de transfert de données en fonc
 |Quantité de données|Bande passante réseau||||
 |---|---|---|---|---|
 || **45 Mbits/s (T3)**|**100 Mbits/s**|**1 Gbit/s**|**10 Gbits/s**|
-|1 To|2 jours|1 jour| 2 heures|14 minutes|
-|10 To|22 jours|10 jours|1 jour|2 heures|
-|35 To|76 jours|34 jours|3 jours|8 heures|
+|1 To|2 jours|1 jour| 2 heures|14 minutes|
+|10 To|22 jours|10 jours|1 jour|2 heures|
+|35 To|76 jours|34 jours|3 jours|8 heures|
 |80 To|173 jours|78 jours|8 jours|19 heures|
 |100 To|216 jours|97 jours|10 jours|1 jour|
 |200 To|1 an|194 jours|19 jours|2 jours|

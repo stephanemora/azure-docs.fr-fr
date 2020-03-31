@@ -9,18 +9,18 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: 08a00342-fee2-4afe-8824-0db1ed4b8fca
 ms.service: virtual-machines-sql
-ms.custom: seo-lt-2019
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
-ms.openlocfilehash: ed5fc923c82fb0d0e4004e18159d943564c6f55e
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 426ba4c0ac84799b4d0e6bf9330508f928437fd8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045827"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80060190"
 ---
 # <a name="tutorial-configure-availability-group-on-azure-sql-server-vm-manually"></a>Tutoriel : Configurer manuellement un groupe de disponibilité sur une machine virtuelle Azure SQL Server
 
@@ -32,7 +32,7 @@ Ce schéma illustre ce que vous allez créer dans ce didacticiel.
 
 ![Groupe de disponibilité](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/00-EndstateSampleNoELB.png)
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Ce didacticiel suppose que vous avez des notions de base sur les groupes de disponibilité AlwaysOn SQL Server. Pour plus d’informations, consultez [Vue d’ensemble des groupes de disponibilité AlwaysOn (SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx).
 
@@ -55,7 +55,7 @@ Avant de commencer ce didacticiel, vous devez [remplir les conditions préalable
   > De nombreuses étapes fournies dans ce didacticiel peuvent maintenant être automatisées à l’aide d’une [interface en ligne de commande de machine virtuelle Azure SQL](virtual-machines-windows-sql-availability-group-cli.md) et de [modèles de démarrage rapide Azure](virtual-machines-windows-sql-availability-group-quickstart-template.md).
 
 
-<!--**Procedure**: *This is the first “step”. Make titles H2’s and short and clear – H2’s appear in the right pane on the web page and are important for navigation.*-->
+<!--**Procedure**: *This is the first "step". Make titles H2's and short and clear – H2's appear in the right pane on the web page and are important for navigation.*-->
 
 <a name="CreateCluster"></a>
 ## <a name="create-the-cluster"></a>Créer le cluster
@@ -95,7 +95,7 @@ Une fois les conditions préalables remplies, la première étape consiste à cr
 
 4. Dans la section **Principales ressources du cluster**, cliquez avec le bouton droit sur le nom du cluster et cliquez sur **Mettre en ligne**. Attendez que les deux ressources soient en ligne. Lorsque la ressource du cluster apparaît en ligne, elle met à jour le serveur de contrôleur de domaine avec un nouveau compte d’ordinateur Active Directory (AD). Utilisez ce compte AD pour exécuter le service en cluster du groupe de disponibilité ultérieurement.
 
-### <a name="addNode"></a>Ajouter l’autre serveur SQL Server au cluster
+### <a name="add-the-other-sql-server-to-cluster"></a><a name="addNode"></a>Ajouter l’autre serveur SQL Server au cluster
 
 Ajoutez l’autre serveur SQL Server au cluster.
 
@@ -228,7 +228,7 @@ Repeat these steps on the second SQL Server.
 7. Dans l’**Explorateur d’objets**, cliquez avec le bouton droit sur **Bases de données**, puis cliquez sur **Nouvelle base de données**.
 8. Dans **Nom de base de données**, saisissez **MyDB1**, puis cliquez sur **OK**.
 
-### <a name="backupshare"></a> Créer un partage de sauvegarde
+### <a name="create-a-backup-share"></a><a name="backupshare"></a> Créer un partage de sauvegarde
 
 1. Sur le premier serveur SQL Server dans **Gestionnaire de serveur**, cliquez sur **outils**. Ouvrez **Gestion de l’ordinateur**.
 
@@ -476,7 +476,7 @@ L’adresse IP du cluster WSFC doit également se trouver sur l’équilibreur d
 
 1. Cliquez sur **OK** pour définir les règles d’équilibrage de charge.
 
-## <a name="configure-listener"></a> Configurer l’écouteur
+## <a name="configure-the-listener"></a><a name="configure-listener"></a> Configurer l’écouteur
 
 La prochaine étape consiste à configurer un écouteur de groupe de disponibilité sur le cluster de basculement.
 

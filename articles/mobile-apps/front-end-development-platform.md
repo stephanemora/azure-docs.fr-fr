@@ -1,19 +1,18 @@
 ---
 title: Choisir la plateforme de développement frontal pour la création d’applications clientes avec Visual Studio et les services Azure
 description: En savoir plus sur les langages natifs et les multiplateformes pris en charge pour créer des applications clientes.
-author: elamalani
-manager: elamalani
+author: codemillmatt
 ms.service: vs-appcenter
 ms.assetid: 355f0959-aa7f-472c-a6c7-9eecea3a34b9
 ms.topic: conceptual
-ms.date: 10/22/2019
-ms.author: emalani
-ms.openlocfilehash: c55c9c36d84c8545f4192e1c9a65d8af0c580396
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/24/2020
+ms.author: masoucou
+ms.openlocfilehash: 714916c755ce50f6e596cee4be85ceb0b142c789
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453149"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240861"
 ---
 # <a name="choose-mobile-development-frameworks"></a>Choisir des infrastructures de développement mobile
 Les développeurs peuvent utiliser des technologies côté client pour créer eux-mêmes des applications mobiles en utilisant des infrastructures et des modèles spécifiques pour une approche multiplateforme. En fonction de leurs facteurs de décision, les développeurs peuvent créer :

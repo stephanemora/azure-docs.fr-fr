@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: jureid
 ms.openlocfilehash: b77efd7e5cf7ff016605e0ba2e74cff9ea8dab89
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75474643"
 ---
 # <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>Accorder l’accès pour créer des abonnements Azure Enterprise (préversion)
@@ -27,7 +27,7 @@ Pour [créer des abonnements sous un compte d’inscription](programmatically-cr
 
     Pour accorder à d’autres utilisateurs le rôle de propriétaire RBAC sur un compte d’inscription, vous devez être le propriétaire du compte ou un propriétaire RBAC du compte.
 
-    # <a name="resttabrest"></a>[REST](#tab/rest)
+    # <a name="rest"></a>[REST](#tab/rest)
 
     Demande pour obtenir la liste de tous les comptes d’inscription auxquels vous avez accès :
 
@@ -62,7 +62,7 @@ Pour [créer des abonnements sous un compte d’inscription](programmatically-cr
 
     Utilisez la propriété `principalName` pour identifier le compte auquel vous souhaitez accorder l’accès RBAC. Copiez l’élément `name` de ce compte. Par exemple, si vous souhaitez accorder l’accès propriétaire RBAC au compte d’inscription SignUpEngineering@contoso.com, vous devez copier ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Il s’agit de l’ID d’objet du compte d’inscription. Collez cette valeur quelque part, de façon à pouvoir l’utiliser à l’étape suivante en tant que `enrollmentAccountObjectId`.
 
-    # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+    # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
     Utilisez l’applet de commande [Get-AzEnrollmentAccount](/powershell/module/az.billing/get-azenrollmentaccount) pour lister tous les comptes d’inscription auxquels vous avez accès. Sélectionnez **Essayer** pour ouvrir [Azure Cloud Shell](https://shell.azure.com/). Pour coller le code, cliquez avec le bouton droit sur la fenêtre de l’interpréteur de commandes, puis sélectionnez **Coller**.
 
@@ -80,7 +80,7 @@ Pour [créer des abonnements sous un compte d’inscription](programmatically-cr
 
     Utilisez la propriété `principalName` pour identifier le compte auquel vous souhaitez accorder l’accès RBAC. Copiez l’élément `ObjectId` de ce compte. Par exemple, si vous souhaitez accorder l’accès propriétaire RBAC au compte d’inscription SignUpEngineering@contoso.com, vous devez copier ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Collez cet ID d’objet quelque part, de façon à pouvoir l’utiliser à l’étape suivante en tant que `enrollmentAccountObjectId`.
 
-    # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
     Utilisez la commande [az billing enrollment-account list](https://aka.ms/EASubCreationPublicPreviewCLI) pour lister tous les comptes d’inscription auxquels vous avez accès. Sélectionnez **Essayer** pour ouvrir [Azure Cloud Shell](https://shell.azure.com/). Pour coller le code, cliquez avec le bouton droit sur la fenêtre de l’interpréteur de commandes, puis sélectionnez **Coller**.
 
@@ -122,7 +122,7 @@ Pour [créer des abonnements sous un compte d’inscription](programmatically-cr
 
     En utilisant les valeurs que vous avez collectées lors des deux premières étapes, accordez à l’utilisateur ou au groupe le rôle de propriétaire RBAC sur le compte d’inscription.
 
-    # <a name="resttabrest-2"></a>[REST](#tab/rest-2)
+    # <a name="rest"></a>[REST](#tab/rest-2)
 
     Exécutez la commande suivante, en remplaçant ```<enrollmentAccountObjectId>``` avec la valeur `name` que vous avez copiée lors de la première étape (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Remplacez ```<userObjectId>``` par l’ID d’objet que vous avez copié lors de la deuxième étape.
 
@@ -156,7 +156,7 @@ Pour [créer des abonnements sous un compte d’inscription](programmatically-cr
     }
     ```
 
-    # <a name="powershelltabazure-powershell-2"></a>[PowerShell](#tab/azure-powershell-2)
+    # <a name="powershell"></a>[PowerShell](#tab/azure-powershell-2)
 
     Exécutez la commande [New-AzRoleAssignment](../../active-directory/role-based-access-control-manage-access-powershell.md) suivante, en remplaçant ```<enrollmentAccountObjectId>``` par la valeur `ObjectId` récupérée lors de la première étape (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Remplacez ```<userObjectId>``` par l’ID d’objet que vous avez récupéré lors de la deuxième étape.
 
@@ -164,7 +164,7 @@ Pour [créer des abonnements sous un compte d’inscription](programmatically-cr
     New-AzRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>
     ```
 
-    # <a name="azure-clitabazure-cli-2"></a>[Azure CLI](#tab/azure-cli-2)
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli-2)
 
     Exécutez la commande [az role assignment create](../../active-directory/role-based-access-control-manage-access-azure-cli.md) suivante, en remplaçant ```<enrollmentAccountObjectId>``` par la valeur `name` copiée lors de la première étape (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Remplacez ```<userObjectId>``` par l’ID d’objet que vous avez récupéré lors de la deuxième étape.
 

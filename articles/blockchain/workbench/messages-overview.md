@@ -5,10 +5,10 @@ ms.date: 09/05/2019
 ms.topic: article
 ms.reviewer: brendal
 ms.openlocfilehash: 14bd0f84bc9490d95d3dbe0b9f122882f0d2059d
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74324505"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Intégration des messages Azure Blockchain Workbench
@@ -38,7 +38,7 @@ La requête requiert les champs suivants :
 | messageSchemaVersion | Version du schéma de messagerie                            |
 | messageName          | **CreateUserRequest**                               |
 
-Exemple :
+Exemple :
 
 ``` json
 {
@@ -117,7 +117,7 @@ La requête requiert les champs suivants :
 | messageSchemaVersion | Version du schéma de messagerie |
 | messageName          | **CreateContractRequest** |
 
-Exemple :
+Exemple :
 
 ``` json
 { 
@@ -221,7 +221,7 @@ La requête requiert les champs suivants :
 | messageSchemaVersion     | Version du schéma de messagerie |
 | messageName              | **CreateContractActionRequest** |
 
-Exemple :
+Exemple :
 
 ``` json
 {
@@ -400,7 +400,7 @@ Contient des informations sur des blocs individuels. *BlockMessage* inclut une s
 |--------------------|-------------|
 | transactionId      | Identificateur unique de la transaction dans Azure Blockchain Workbench |
 | transactionHash    | Code de hachage de la transaction sur le registre |
-| from               | Identificateur unique sur le registre pour l’origine de la transaction |
+| de               | Identificateur unique sur le registre pour l’origine de la transaction |
 | to                 | Identificateur unique sur le registre pour la destination de la transaction |
 | provisioningStatus | Identifie l’état actuel du processus de configuration pour la transaction. Les valeurs possibles sont les suivantes : </br>0 : la transaction a été créée par l’API dans la base de données</br>1 : la transaction a été envoyée au registre</br>2 : la transaction a été validée correctement dans le registre</br>3 ou 4 : échec de la validation de la transaction dans le registre</br>5 : la transaction a été validée correctement dans le registre |
 
@@ -462,7 +462,7 @@ Contient des informations sur un contrat. Le message inclut une section avec des
 |--------------------|-------------|
 | transactionId | Identificateur unique de la transaction dans Azure Blockchain Workbench |
 | transactionHash | Code de hachage de la transaction sur le registre |
-| from | Identificateur unique sur le registre pour l’origine de la transaction |
+| de | Identificateur unique sur le registre pour l’origine de la transaction |
 | to | Identificateur unique sur le registre pour la destination de la transaction |
 
 #### <a name="contract-properties"></a>Propriétés du contrat
@@ -470,7 +470,7 @@ Contient des informations sur un contrat. Le message inclut une section avec des
 | Nom               | Description |
 |--------------------|-------------|
 | workflowPropertyId | Identificateur unique de la propriété du workflow dans Azure Blockchain Workbench |
-| Nom | Nom de la propriété du workflow |
+| name | Nom de la propriété du workflow |
 | value | Valeur de la propriété du workflow |
 
 Exemple de *ContractMessage* de Blockchain Workbench :
@@ -573,7 +573,7 @@ Contient des informations indiquant quand une fonction de contrat est appelée, 
 
 | Nom | Description |
 |------|-------------|
-| Type | Type de l’appelant, comme un utilisateur ou un contrat |
+| type | Type de l’appelant, comme un utilisateur ou un contrat |
 | id | Identificateur unique de l’appelant dans Azure Blockchain Workbench |
 | ledgerIdentifier | Identificateur unique pour l’appelant sur le registre |
 
@@ -581,7 +581,7 @@ Contient des informations indiquant quand une fonction de contrat est appelée, 
 
 | Nom | Description |
 |------|-------------|
-| Nom | Nom du paramètre |
+| name | Nom du paramètre |
 | value | Valeur du paramètre |
 
 #### <a name="event-message-transaction-information"></a>Informations sur les transactions des messages d’événement
@@ -590,7 +590,7 @@ Contient des informations indiquant quand une fonction de contrat est appelée, 
 |--------------------|-------------|
 | transactionId      | Identificateur unique de la transaction dans Azure Blockchain Workbench |
 | transactionHash    | Code de hachage de la transaction sur le registre |
-| from               | Identificateur unique sur le registre pour l’origine de la transaction |
+| de               | Identificateur unique sur le registre pour l’origine de la transaction |
 | to                 | Identificateur unique sur le registre pour la destination de la transaction |
 
 Exemple de *EventMessage ContractFunctionInvocation* de Blockchain Workbench :
@@ -638,7 +638,7 @@ Contient des informations indiquant quand une application est chargée sur Workb
 |------|-------------|
 | eventName | **ApplicationIngestion** |
 | applicationId | Identificateur unique pour l’application dans Azure Blockchain Workbench |
-| applicationName | Nom de l’application |
+| applicationName | Nom de l'application |
 | applicationDisplayName | Nom d’affichage de l’application |
 | applicationVersion | Version de l’application |
 | applicationDefinitionLocation | URL de l’emplacement du fichier de configuration de l’application |
@@ -663,14 +663,14 @@ Contient des informations indiquant quand une application est chargée sur Workb
 | Nom | Description |
 |------|-------------|
 | id | Identificateur unique pour le rôle d’application dans Azure Blockchain Workbench |
-| Nom | Nom du rôle d’application |
+| name | Nom du rôle d’application |
 
 #### <a name="application-workflow-information"></a>Informations de workflow d’application
 
 | Nom | Description |
 |------|-------------|
 | id | Identificateur unique pour le workflow d’application dans Azure Blockchain Workbench |
-| Nom | Nom du workflow d’application |
+| name | Nom du workflow d’application |
 | displayName | Nom d’affichage du workflow d’application |
 | functions | Collection de [fonctions pour le workflow d’application](#workflow-function-information)|
 | unis | Collection d’[états pour le workflow d’application](#workflow-state-information) |
@@ -681,14 +681,14 @@ Contient des informations indiquant quand une application est chargée sur Workb
 | Nom | Description |
 |------|-------------|
 | id | Identificateur unique pour la fonction de workflow d’application dans Azure Blockchain Workbench |
-| Nom | Nom de la fonction |
+| name | Nom de la fonction |
 | parameters | Paramètres pour la fonction |
 
 ##### <a name="workflow-state-information"></a>Informations d’état du workflow
 
 | Nom | Description |
 |------|-------------|
-| Nom | Nom de l’état |
+| name | Nom de l’état |
 | displayName | Nom d’affichage de l’état |
 | style | Style d’état (réussite ou échec) |
 
@@ -697,8 +697,8 @@ Contient des informations indiquant quand une application est chargée sur Workb
 | Nom | Description |
 |------|-------------|
 | id | Identificateur unique pour la propriété de workflow d’application dans Azure Blockchain Workbench |
-| Nom | Nom de la propriété |
-| Type | Type de propriété |
+| name | Nom de la propriété |
+| type | Type de propriété |
 
 Exemple de *EventMessage ApplicationIngestion* de Blockchain Workbench :
 
@@ -832,7 +832,7 @@ Contient des informations indiquant quand un rôle est attribué à un utilisate
 |------|-------------|
 | eventName | **RoleAssignment** |
 | applicationId | Identificateur unique pour l’application dans Azure Blockchain Workbench |
-| applicationName | Nom de l’application |
+| applicationName | Nom de l'application |
 | applicationDisplayName | Nom d’affichage de l’application |
 | applicationVersion | Version de l’application |
 | applicationRole        | Informations sur le [rôle d’application](#roleassignment-application-role) |
@@ -848,14 +848,14 @@ Contient des informations indiquant quand un rôle est attribué à un utilisate
 | Nom | Description |
 |------|-------------|
 | id | Identificateur unique pour le rôle d’application dans Azure Blockchain Workbench |
-| Nom | Nom du rôle d’application |
+| name | Nom du rôle d’application |
 
 #### <a name="roleassignment-assigner"></a>Personne ayant effectué l’attribution RoleAssignment
 
 | Nom | Description |
 |------|-------------|
 | id | Identificateur unique de l’utilisateur dans Azure Blockchain Workbench |
-| Type | Type de personne ayant effectué l’attribution |
+| type | Type de personne ayant effectué l’attribution |
 | chainIdentifier | Identificateur unique de l’utilisateur sur le registre |
 
 #### <a name="roleassignment-assignee"></a>Personne ayant reçu l’attribution RoleAssignment
@@ -863,7 +863,7 @@ Contient des informations indiquant quand un rôle est attribué à un utilisate
 | Nom | Description |
 |------|-------------|
 | id | Identificateur unique de l’utilisateur dans Azure Blockchain Workbench |
-| Type | Type de la personne ayant reçu l’attribution |
+| type | Type de la personne ayant reçu l’attribution |
 | chainIdentifier | Identificateur unique de l’utilisateur sur le registre |
 
 Exemple de *EventMessage RoleAssignment* de Blockchain Workbench :

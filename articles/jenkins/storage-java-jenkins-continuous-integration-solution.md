@@ -5,10 +5,10 @@ keywords: Jenkins, Azure, DevOps, Stockage, CI/CD
 ms.topic: article
 ms.date: 08/13/2019
 ms.openlocfilehash: df1d59c40fd09fb055db9d7622d86ff9c82991b8
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77624484"
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>Utilisation de Stockage Azure avec une solution d’intégration continue Jenkins
