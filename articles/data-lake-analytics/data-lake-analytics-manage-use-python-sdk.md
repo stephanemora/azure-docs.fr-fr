@@ -10,10 +10,10 @@ ms.assetid: d4213a19-4d0f-49c9-871c-9cd6ed7cf731
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.openlocfilehash: d40658e1510c9ae8a2e3e1f865df7ac95f61abfb
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68355985"
 ---
 # <a name="manage-azure-data-lake-analytics-using-python"></a>Gérer Azure Data Lake Analytics à l’aide de Python
@@ -144,7 +144,7 @@ adlaJobClient = DataLakeAnalyticsJobManagementClient(
     credentials, 'azuredatalakeanalytics.net')
 ```
 
-## <a name="create-an-azure-resource-group"></a>Créer un groupe de ressources Azure
+## <a name="create-an-azure-resource-group"></a>Créer un groupe de ressources Azure
 
 ```python
 armGroupResult = resourceClient.resource_groups.create_or_update(

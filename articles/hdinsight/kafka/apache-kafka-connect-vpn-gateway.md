@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 03/04/2020
 ms.openlocfilehash: 36ff0d5f1fc96b2013555d37a869ebf629a22be7
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78302132"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79233513"
 ---
 # <a name="connect-to-apache-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Se connecter à Apache Kafka sur HDInsight via un réseau virtuel Azure
 
@@ -58,7 +58,7 @@ HDInsight n’autorise pas la connexion directe à Kafka via l’internet public
 
 Pour plus d’informations sur l’utilisation de HDInsight dans un réseau virtuel, voir [Plan a virtual network for Azure HDInsight clusters (Planifier un réseau virtuel pour des clusters Azure HDInsight)](../hdinsight-plan-virtual-network-deployment.md).
 
-## <a id="on-premises"></a> Se connecter à Apache Kafka à partir d’un réseau local
+## <a name="connect-to-apache-kafka-from-an-on-premises-network"></a><a id="on-premises"></a> Se connecter à Apache Kafka à partir d’un réseau local
 
 Pour créer un cluster Kafka qui communique avec votre réseau local, suivez les étapes du document [Connecter HDInsight à votre réseau local](./../connect-on-premises-network.md).
 
@@ -72,9 +72,9 @@ Les étapes ci-après créent la configuration suivante :
 * Compte de stockage Azure (utilisé par HDInsight)
 * Kafka sur HDInsight
 
-Pour vérifier qu’un client Kafka peut se connecter localement au cluster, utilisez les étapes décrites à la section [Exemple : client Python](#python-client).
+Pour vérifier qu’un client Kafka peut se connecter localement au cluster, utilisez les étapes décrites dans la section [Exemple : client Python](#python-client).
 
-## <a id="vpnclient"></a> Se connecter à Apache Kafka avec un client VPN
+## <a name="connect-to-apache-kafka-with-a-vpn-client"></a><a id="vpnclient"></a> Se connecter à Apache Kafka avec un client VPN
 
 En suivant les étapes de cette section, vous pouvez créer la configuration ci-dessous :
 
@@ -290,7 +290,7 @@ Par défaut, Apache Zookeeper retourne le nom de domaine des répartiteurs Kafka
 
 Pour vous connecter à la passerelle VPN, suivez la section __Connexion à Azure__ du document [Configuration d’une connexion de point à site à un réseau virtuel à l’aide de PowerShell](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#connect).
 
-## <a id="python-client"></a> Exemple : client Python
+## <a name="example-python-client"></a><a id="python-client"></a> Exemple : client Python
 
 Pour valider la connectivité à Kafka, procédez comme suit pour créer et exécuter un producteur et un consommateur Python :
 

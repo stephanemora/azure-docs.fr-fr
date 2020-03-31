@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/11/2018
 ms.author: spelluru
 ms.openlocfilehash: 4500fcfa6fbfb346a6e5c7fd045ba0046a901b91
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60561634"
 ---
 # <a name="redeploy-a-vm-in-a-lab-in-azure-devtest-labs"></a>Redéployer une machine virtuelle dans un labo dans Azure DevTest Labs
@@ -27,7 +27,7 @@ Si vous ne pouvez pas vous connecter à une machine virtuelle dans un labo via u
 ## <a name="steps-to-redeploy-a-vm-in-a-lab"></a>Étapes du redéploiement d’une machine virtuelle dans un labo 
 Pour redéployer une machine virtuelle dans un labo dans Azure DevTest Labs, effectuez les étapes suivantes : 
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Sélectionnez **Tous les services**, puis **DevTest Labs** dans la liste.
 3. Dans la liste des labos, sélectionnez celui dans lequel se trouve la machine virtuelle que vous souhaitez redéployer.  
 4. Dans le panneau de gauche, sélectionnez **Mes machines virtuelles**. 

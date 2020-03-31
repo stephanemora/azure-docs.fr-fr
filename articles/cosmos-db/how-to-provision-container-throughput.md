@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: mjbrown
 ms.openlocfilehash: e416501cb3c532b3ba0a262442b35b236875a463
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78273293"
 ---
 # <a name="provision-throughput-on-an-azure-cosmos-container"></a>Provisionner du débit sur un conteneur Azure Cosmos
@@ -48,7 +48,7 @@ Pour créer un conteneur avec un débit dédié, voir
 > [!Note]
 > Utilisez les SDK Cosmos pour l’API SQL afin de provisionner le débit de toutes les API Cosmos DB, à l’exception de l’API Cassandra.
 
-### <a id="dotnet-most"></a>API SQL, MongoDB, Gremlin et Table
+### <a name="sql-mongodb-gremlin-and-table-apis"></a><a id="dotnet-most"></a>API SQL, MongoDB, Gremlin et Table
 ### <a name="net-v2-sdk"></a>SDK .Net v2
 
 ```csharp
@@ -96,7 +96,7 @@ offer.content.offerThroughput = 2000;
 await client.offer(offer.id).replace(offer);
 ```
 
-### <a id="dotnet-cassandra"></a>API Cassandra
+### <a name="cassandra-api"></a><a id="dotnet-cassandra"></a>API Cassandra
 
 Des commandes similaires peuvent être émises avec n’importe quel pilote conforme à CQL.
 

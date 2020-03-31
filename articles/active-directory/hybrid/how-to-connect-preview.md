@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect : Fonctionnalités en préversion | Microsoft Docs'
+title: 'Azure AD Connect : fonctionnalités de la version préliminaire | Microsoft Docs'
 description: Cette rubrique décrit en détail les fonctionnalités disponibles en version préliminaire dans Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b7def733a80aea1be77825bb9069217f5f43e003
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60347802"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79230177"
 ---
 # <a name="more-details-about-features-in-preview"></a>Plus de détails sur les fonctionnalités de la version préliminaire
 Cette rubrique décrit l’utilisation des fonctionnalités disponibles dans la version préliminaire.

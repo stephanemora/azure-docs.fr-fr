@@ -5,43 +5,43 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.reviewer: sergkanz
 ms.openlocfilehash: d8a28063bf6780c3cace4ead81e289779b95eb9a
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671900"
 ---
-# <a name="request-telemetry-application-insights-data-model"></a>Télémétrie des demandes : Modèle de données Application Insights
+# <a name="request-telemetry-application-insights-data-model"></a>Télémétrie des requêtes : modèle de données Application Insights
 
-Un élément de télémétrie de demande (dans [Application Insights](../../azure-monitor/app/app-insights-overview.md)) représente la séquence logique d’exécution déclenchée par une demande externe à votre application. Chaque exécution de requête est identifiée par un `ID` et une `url` uniques contenant tous les paramètres d’exécution. Vous pouvez regrouper des requêtes par `name` logique et définir la `source` de cette requête. L’exécution du code peut donner `success` ou `duration` et a une certain durée (`fail`). Les échecs et les réussites d’exécution peuvent être regroupés par `resultCode`. L’heure de début de la télémétrie des requêtes est définie sur le niveau enveloppe.
+Un élément de télémétrie de demande (dans [Application Insights](../../azure-monitor/app/app-insights-overview.md)) représente la séquence logique d’exécution déclenchée par une demande externe à votre application. Chaque exécution de requête est identifiée par un `ID` et une `url` uniques contenant tous les paramètres d’exécution. Vous pouvez regrouper des requêtes par `name` logique et définir la `source` de cette requête. L’exécution du code peut donner `success` ou `fail` et a une certain durée (`duration`). Les échecs et les réussites d’exécution peuvent être regroupés par `resultCode`. L’heure de début de la télémétrie des requêtes est définie sur le niveau enveloppe.
 
 La télémétrie des requêtes prend en charge le modèle d’extensibilité standard en utilisant des propriétés (`properties`) et des mesures (`measurements`) personnalisées.
 
-## <a name="name"></a>Nom
+## <a name="name"></a>Name
 
 Le nom de la requête représente le chemin de code utilisé pour traiter la requête. La valeur de faible cardinalité permet de mieux regrouper les requêtes. Pour les requêtes HTTP, elle représente la méthode HTTP et le modèle de chemin d’URL comme `GET /values/{id}` sans la valeur `id` réelle.
 
 Le Kit de développement logiciel (SDK) Web d’Application Insights envoie le nom de la requête « en l’état », c’est-à-dire en respectant la casse. Le regroupement sur l’interface utilisateur est sensible à la casse, si bien que `GET /Home/Index` est comptabilisé séparément de `GET /home/INDEX`, même s’ils entraînent souvent la même exécution de contrôleur et d’action. Cela est dû au fait que les URL sont généralement [sensibles à la casse](https://www.w3.org/TR/WD-html40-970708/htmlweb.html). Vous souhaiterez peut-être savoir si toutes les erreurs `404` ont été générées pour des URL tapées en majuscules. Vous pouvez en apprendre plus sur la collecte de noms de requêtes par le SDK Web ASP.NET dans ce [billet de blog](https://apmtips.com/blog/2015/02/23/request-name-and-url/).
 
-Longueur maximale : 1 024 caractères
+Longueur maximale : 1024 caractères
 
 ## <a name="id"></a>id
 
 Identificateur d’une instance d’appel de requête. Utilisé pour la corrélation entre la requête et d’autres éléments de télémétrie. L’ID doit être globalement unique. Pour plus d’informations, consultez la page relative à la [corrélation](../../azure-monitor/app/correlation.md).
 
-Longueur maximale : 128 caractères
+Longueur maximale : 128 caractères
 
 ## <a name="url"></a>Url
 
 URL de requête avec tous les paramètres de chaîne de requête.
 
-Longueur maximale : 2 048 caractères
+Longueur maximale : 2048 caractères
 
 ## <a name="source"></a>Source
 
 Source de la requête. Il s’agit par exemple de la clé d’instrumentation de l’appelant ou de l’adresse IP de l’appelant. Pour plus d’informations, consultez la page relative à la [corrélation](../../azure-monitor/app/correlation.md).
 
-Longueur maximale : 1 024 caractères
+Longueur maximale : 1024 caractères
 
 ## <a name="duration"></a>Duration
 
@@ -51,7 +51,7 @@ Durée de la requête au format : `DD.HH:MM:SS.MMMMMM`. Doit être positive et 
 
 Résultat de l’exécution d’une requête. Code d’état HTTP des requêtes HTTP. Cela peut-être une valeur `HRESULT` ou un type d’exception pour les autres types de requêtes.
 
-Longueur maximale : 1 024 caractères
+Longueur maximale : 1024 caractères
 
 ## <a name="success"></a>Succès
 

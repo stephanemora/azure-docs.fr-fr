@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: vigunase
 ms.subservice: B2C
-ms.openlocfilehash: 6c737af85e2a7205dca6a56174dfda565da1410d
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: a76852a6e3cc5ffcdfcac62ce29fe47c97af3df1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78304320"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79136157"
 ---
 # <a name="recommendations-and-best-practices-for-azure-active-directory-b2c"></a>Suggestions et bonnes pratiques pour Azure Active Directory B2C
 
@@ -43,7 +43,7 @@ Définissez l’architecture de vos applications et services, inventoriez les sy
 | Créer un plan de migration |Une planification anticipée peut rendre la migration plus fluide. Apprenez-en davantage sur la [migration utilisateur](user-migration.md).|
 | Facilité d’utilisation et sécurité | Votre solution doit bien équilibrer la facilité d’utilisation des applications et le niveau de risque que votre organisation peut accepter. |
 | Déplacer les dépendances locales vers le cloud | Pour garantir une solution résiliente, envisagez de déplacer les dépendances des applications existantes vers le cloud. |
-| Migrer les applications existantes vers b2clogin.com | La dépréciation de login.microsoftonline.com a pris effet pour tous les locataires Azure AD B2C le 4 décembre 2020. [Plus d’informations](b2clogin.md) |
+| Migrer les applications existantes vers b2clogin.com | La dépréciation de login.microsoftonline.com a pris effet pour tous les locataires Azure AD B2C le 4 décembre 2020. [En savoir plus](b2clogin.md). |
 
 ## <a name="implementation"></a>Implémentation
 
@@ -51,7 +51,7 @@ Au cours de la phase d’implémentation, tenez compte des suggestions suivantes
 
 |  |  |
 |--|--|
-| Modifier les stratégies personnalisées avec l’extension Azure AD B2C pour Visual Studio Code | Téléchargez Visual Studio Code et cette extension générée par la communauté [à partir de la Place de marché Visual Studio Code]((https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c)). Bien qu’il ne s’agisse pas d’un produit Microsoft officiel, l’extension Azure AD B2C pour Visual Studio Code comprend plusieurs fonctionnalités qui facilitent l’utilisation de stratégies personnalisées. |
+| Modifier les stratégies personnalisées avec l’extension Azure AD B2C pour Visual Studio Code | Téléchargez Visual Studio Code et cette extension générée par la communauté [à partir de la Place de marché Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c). Bien qu’il ne s’agisse pas d’un produit Microsoft officiel, l’extension Azure AD B2C pour Visual Studio Code comprend plusieurs fonctionnalités qui facilitent l’utilisation de stratégies personnalisées. |
 | En savoir plus sur la résolution des problèmes liés à Azure AD B2C | Découvrez comment [résoudre les problèmes de stratégies personnalisées](https://docs.microsoft.com/azure/active-directory-b2c/troubleshoot-custom-policies?tabs=applications) au cours du développement. Découvrez à quoi ressemble un flux d’authentification normal et utilisez des outils pour découvrir les anomalies et les erreurs. Par exemple, utilisez [Application Insights](troubleshoot-with-application-insights.md) pour passer en revue les journaux de sortie des parcours utilisateur. |
 | Tirer parti de notre bibliothèque de modèles de stratégie personnalisés éprouvés | Recherchez des [exemples](https://github.com/azure-ad-b2c/samples) pour plusieurs parcours utilisateur de gestion des accès et des identités des clients Azure AD B2C améliorés. |
 

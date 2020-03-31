@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: mjbrown
 ms.openlocfilehash: f8c98915ad3b682af00492acc7bc51672ec874a8
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74870732"
 ---
 # <a name="scalar-expressions-in-azure-cosmos-db-sql-queries"></a>Expressions scalaires dans les requêtes SQL Azure Cosmos DB
@@ -97,7 +97,7 @@ La [clause SELECT](sql-query-select.md) prend en charge les expressions scalaire
   
    Représente une valeur du nom de paramètre spécifié. Les noms de paramètre doivent avoir un \@ unique comme premier caractère.  
   
-## <a name="remarks"></a>Remarques
+## <a name="remarks"></a>Notes
   
   Lors de l’appel à une fonction scalaire intégrée ou définie par l’utilisateur, tous les arguments doivent être définis. Si un des arguments n’est pas défini, la fonction n’est pas appelée et le résultat est Undefined.  
   
@@ -143,4 +143,4 @@ Les résultats sont :
 
 - [Présentation d’Azure Cosmos DB](introduction.md)
 - [Exemples .NET Azure Cosmos DB](https://github.com/Azure/azure-cosmos-dotnet-v3)
-- [Sous-requêtes](sql-query-subquery.md)
+- [Subqueries](sql-query-subquery.md)

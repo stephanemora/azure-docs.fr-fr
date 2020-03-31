@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 01/22/2020
 ms.author: iainfou
 ms.openlocfilehash: bc5371ccbd3ba66117d5c613090b70ce7f07d51e
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78298839"
 ---
 # <a name="join-an-ubuntu-linux-virtual-machine-to-an-azure-ad-domain-services-managed-domain"></a>Joindre une machine virtuelle Ubuntu Linux à un domaine managé Azure AD Domain Services
@@ -24,7 +24,7 @@ Pour permettre aux utilisateurs de se connecter à des machines virtuelles dans 
 
 Cet article vous montre comment joindre une machine virtuelle Ubuntu Linux à un domaine managé Azure AD DS.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour effectuer ce tutoriel, vous avez besoin des ressources et des privilèges suivants :
 
@@ -63,7 +63,7 @@ sudo vi /etc/hosts
 
 Dans le fichier *hosts*, mettez à jour l’adresse *localhost*. Dans l’exemple suivant :
 
-* *aaddscontoso.com* est le nom de domaine DNS de votre domaine managé Azure AD DS.
+* *aaddscontoso.com* est le nom de domaine DNS de votre domaine managé Azure AD DS.
 * *ubuntu* est le nom d’hôte de votre machine virtuelle Ubuntu que vous joignez au domaine managé.
 
 Mettez à jour ces noms avec vos propres valeurs :

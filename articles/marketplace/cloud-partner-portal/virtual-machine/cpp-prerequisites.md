@@ -1,19 +1,18 @@
 ---
 title: Prérequis des machines virtuelles pour Microsoft Azure | Place de marché Azure
 description: Liste des conditions préalables requises pour publier une offre de machine virtuelle sur la place de marché Azure.
-services: Azure, Marketplace, Cloud Partner Portal
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/13/2019
-ms.author: pabutler
-ms.openlocfilehash: a657ceaacf3680de54dc0d639a3f1a0aff6a6a03
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 24c560aff9e8ba7ca0858fdb7fa11a59301c2360
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824419"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80277614"
 ---
 # <a name="virtual-machine-prerequisites"></a>Configuration requise pour les machines virtuelles
 

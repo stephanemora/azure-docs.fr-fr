@@ -1,18 +1,18 @@
 ---
 title: Distribution et accélération de contenu sécurisées et fiables à l’échelle mondiale avec Azure Content Delivery Network
 description: Découvrez les services permettant de créer une distribution de contenu sécurisée et fiable à l’échelle mondiale pour les applications mobiles.
-author: elamalani
+author: codemillmatt
 ms.assetid: 34a8a070-0123-4678-8588-ccff02097224
 ms.service: vs-appcenter
 ms.topic: article
-ms.date: 10/22/2019
-ms.author: emalani
-ms.openlocfilehash: e72118ea0f90cfbb08d81ebded6ca7edf08a06c9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/24/2020
+ms.author: masoucou
+ms.openlocfilehash: 1daff5c610092b009b122d05655ea637d5da5c3b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454517"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80241026"
 ---
 # <a name="content-delivery-network-on-azure-with-azure-content-delivery-network"></a>Réseau de distribution de contenu sur Azure avec Azure Content Delivery Network
 [Azure Content Delivery Network](https://azure.microsoft.com/services/cdn/) offre aux développeurs une solution internationale pour la distribution rapide de contenu haut débit comme des vidéos, images ou fichiers statiques aux utilisateurs en mettant en cache leur contenu sur des centaines de points de présence dans le Monde entier. Content Delivery Network peut également accélérer le contenu dynamique, qui ne peut pas être mis en cache, pour réduire les temps de chargement, économiser la bande passante et améliorer la réactivité. Vous bénéficiez de ces avantages si vous développez ou gérez des sites web ou des applications Mobiles, ou si vous encodez et distribuez média de diffusion en continu, des logiciels de jeu, des mises à jour de microprogramme ou des points de terminaison IoT.

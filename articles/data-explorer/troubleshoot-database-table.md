@@ -8,13 +8,13 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: 67e4c33498b05884fe667a7977ddb40e647ab4c8
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77562392"
 ---
-# <a name="troubleshoot-failure-to-create-or-delete-a-database-or-table-in-azure-data-explorer"></a>Résoudre les problèmes : Échec de création ou de suppression d’une base de données ou d’une table dans l’Explorateur de données Azure
+# <a name="troubleshoot-failure-to-create-or-delete-a-database-or-table-in-azure-data-explorer"></a>Résolution des problèmes : Échec de création ou de suppression d’une base de données ou d’une table dans l’Explorateur de données Azure
 
 Dans l’Explorateur de données Azure, vous utilisez régulièrement des bases de données et des tables. Cet article indique la procédure de résolution des problèmes qui peuvent se poser.
 
@@ -36,7 +36,7 @@ Veillez à disposer des autorisations appropriées. Pour supprimer ou renommer u
 
     Pour plus d’informations sur les autorisations, consultez [Gérer des autorisations de base de données](manage-database-permissions.md).
 
-1. Vérifiez qu’une table portant le même nom n’existe pas déjà. Si elle existe, vous pouvez : Créer une table avec un autre nom, renommer la table existante (nécessite le rôle *Administrateur de table*) ou supprimer la table existante (nécessite le rôle *Administrateur de base de données*). Utilisez les commandes suivantes.
+1. Vérifiez qu’une table portant le même nom n’existe pas déjà. Si elle existe, vous pouvez alors créer une table avec un autre nom, renommer la table existante (nécessite le rôle *Administrateur de table*) ou supprimer la table existante (nécessite le rôle *Administrateur de base de données*). Utilisez les commandes suivantes.
 
     ```Kusto
     .drop table <TableName>

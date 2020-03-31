@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 7e3ad3a5928b36c221bb83b1c4012c3c9e14f35d
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67594180"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Prise en main du développement Azure CDN
@@ -73,7 +73,7 @@ Rédigeons la structure de base de notre programme.
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     using Microsoft.Rest;
     ```
-2. Nous devons définir certaines constantes que nos méthodes utiliseront.  Dans la classe `Program` mais avant la méthode `Main`, ajoutez le code suivant.  Veillez à remplacer les espaces réservés, y compris les **&lt;éléments entre chevrons&gt;** , par vos propres valeurs, si nécessaire.
+2. Nous devons définir certaines constantes que nos méthodes utiliseront.  Dans la classe `Program` mais avant la méthode `Main`, ajoutez le code suivant.  Veillez à remplacer les espaces réservés, notamment les **&lt;éléments entre chevrons&gt;** , par vos propres valeurs, si nécessaire.
    
     ```csharp
     //Tenant app constants
@@ -329,7 +329,7 @@ Nous pouvons maintenant compiler et exécuter le programme en cliquant sur le bo
 
 Lorsque le programme atteint l’invite ci-dessus, vous pouvez revenir à votre groupe de ressources dans le portail Azure et vérifier que le profil a été créé.
 
-![Vous avez réussi !](./media/cdn-app-dev-net/cdn-success.png)
+![Opération réussie.](./media/cdn-app-dev-net/cdn-success.png)
 
 Nous pouvons alors confirmer les invites pour exécuter le reste du programme.
 

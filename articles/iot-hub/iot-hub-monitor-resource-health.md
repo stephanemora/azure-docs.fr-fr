@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: kgremban
 ms.openlocfilehash: f801abc40caf273c28a0c01dedf9735f5198c2af
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73929690"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79233193"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Surveiller l’intégrité d’Azure IoT Hub et diagnostiquer rapidement les problèmes
 
@@ -42,7 +42,7 @@ Pour en savoir plus sur les mesures et les événements spécifiques surveillés
 
 Azure Monitor effectue le suivi des différentes opérations qui se produisent dans IoT Hub. Chaque catégorie dispose d’un schéma qui définit la façon dont les événements de cette catégorie sont signalés.
 
-#### <a name="connections"></a>connexions
+#### <a name="connections"></a>Connexions
 
 La catégorie de connexions suit les événements de connexions et de déconnexion des appareils à partir d’un hub IoT, ainsi que les erreurs. Cette catégorie est utile pour identifier les tentatives de connexion non autorisées et/ou donner l’alerte lorsque vous êtes déconnecté des appareils.
 
@@ -379,8 +379,8 @@ Dans la section `properties`, ce journal contient des informations supplémentai
 
 | Propriété | Type | Description |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **isRoutingEnabled** | Chaîne | Indique si le routage des messages est activé (true) ou non (false) dans le hub IoT |
-| **parentSpanId** | Chaîne | [span-id](https://w3c.github.io/trace-context/#parent-id) du message parent, qui serait la trace du message D2C dans ce cas-ci |
+| **isRoutingEnabled** | String | Indique si le routage des messages est activé (true) ou non (false) dans le hub IoT |
+| **parentSpanId** | String | [span-id](https://w3c.github.io/trace-context/#parent-id) du message parent, qui serait la trace du message D2C dans ce cas-ci |
 
 ##### <a name="iot-hub-egress-logs"></a>Journaux d’activité de sortie IoT Hub
 
@@ -411,9 +411,9 @@ Dans la section `properties`, ce journal contient des informations supplémentai
 
 | Propriété | Type | Description |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **endpointName** | Chaîne | Nom du point de terminaison de routage |
-| **endpointType** | Chaîne | Type du point de terminaison de routage |
-| **parentSpanId** | Chaîne | [span-id](https://w3c.github.io/trace-context/#parent-id) du message parent, qui serait la trace du message d’entrée IoT Hub dans ce cas-ci |
+| **endpointName** | String | Nom du point de terminaison de routage |
+| **endpointType** | String | Type du point de terminaison de routage |
+| **parentSpanId** | String | [span-id](https://w3c.github.io/trace-context/#parent-id) du message parent, qui serait la trace du message d’entrée IoT Hub dans ce cas-ci |
 
 #### <a name="configurations"></a>Configurations
 
@@ -540,7 +540,7 @@ Azure IoT Hub indique l’intégrité au niveau régional. Si une panne régiona
 
 Pour vérifier l’intégrité de vos IoT Hubs, procédez comme suit :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
 2. Accédez à **Service Health** > **Resource Health**.
 

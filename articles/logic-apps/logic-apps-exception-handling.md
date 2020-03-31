@@ -9,11 +9,11 @@ ms.reviewer: klam, estfan, logicappspm
 ms.date: 01/11/2020
 ms.topic: article
 ms.openlocfilehash: 73b116117530e5a2103b604efbf757d691006508
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906701"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79237177"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Gérer les erreurs et les exceptions dans Azure Logic Apps
 
@@ -114,11 +114,11 @@ Bien que cela ne soit pas défini explicitement dans votre action ou déclencheu
 
 ### <a name="none"></a>None
 
-Pour spécifier que l’action ou le déclencheur n’effectue pas de nouvelle tentative en cas d’échec de requête, affectez la valeur `none` à <*retry-policy-type*>.
+Pour spécifier que l’action ou le déclencheur n’effectue pas de nouvelle tentative en cas d’échec de requête, affectez la valeur  *à <* retry-policy-type`none`>.
 
 ### <a name="fixed-interval"></a>Intervalle fixe
 
-Pour spécifier que l’action ou le déclencheur attend l’intervalle spécifié avant d’envoyer la requête suivante, affectez la valeur `fixed` à <*retry-policy-type*>.
+Pour spécifier que l’action ou le déclencheur attend l’intervalle spécifié avant d’envoyer la requête suivante, affectez la valeur  *à <* retry-policy-type`fixed`>.
 
 *Exemple*
 
@@ -143,7 +143,7 @@ Cette stratégie de nouvelle tentative tente d’obtenir les dernières actualit
 
 ### <a name="exponential-interval"></a>Intervalle exponentiel
 
-Pour spécifier que l’action ou le déclencheur attend un intervalle aléatoire avant d’envoyer la requête suivante, affectez la valeur `exponential` à <*retry-policy-type*>. L’intervalle aléatoire est sélectionné parmi une plage à croissance exponentielle. Si vous le souhaitez, vous pouvez également substituer les intervalles minimaux et maximaux par défaut en spécifiant vos propres intervalles minimaux et maximaux.
+Pour spécifier que l’action ou le déclencheur attend un intervalle aléatoire avant d’envoyer la requête suivante, affectez la valeur  *à <* retry-policy-type`exponential`>. L’intervalle aléatoire est sélectionné parmi une plage à croissance exponentielle. Si vous le souhaitez, vous pouvez également substituer les intervalles minimaux et maximaux par défaut en spécifiant vos propres intervalles minimaux et maximaux.
 
 **Plage des variables aléatoires**
 

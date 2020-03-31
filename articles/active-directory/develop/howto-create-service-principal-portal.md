@@ -8,16 +8,16 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 02/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 2283f4f3cf1d31f0d67e01e1a63ee20557ef5633
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: c5f65adfe401f2f6e99234d08b8e8dabeff7d5db
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77591572"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231049"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Procédure : Utiliser le portail pour créer une application et un principal du service Azure AD pouvant accéder aux ressources
 
@@ -42,7 +42,7 @@ Vous avez créé votre application Azure AD et le principal de service.
 
 ## <a name="assign-a-role-to-the-application"></a>Attribuer un rôle à l’application
 
-Pour accéder aux ressources de votre abonnement, vous devez attribuer un rôle à l’application. Déterminez quel rôle fournit les autorisations appropriées pour l’application. Pour en savoir plus sur les rôles disponibles, consultez [RBAC : rôles intégrés](../../role-based-access-control/built-in-roles.md).
+Pour accéder aux ressources de votre abonnement, vous devez attribuer un rôle à l’application. Déterminez quel rôle fournit les autorisations appropriées pour l’application. Pour en savoir plus sur les rôles disponibles, consultez [RBAC : rôles intégrés](../../role-based-access-control/built-in-roles.md).
 
 Vous pouvez définir l’étendue au niveau de l’abonnement, du groupe de ressources ou de la ressource. Les autorisations sont héritées des niveaux inférieurs de l’étendue (par exemple, l’ajout d’une application au rôle Lecteur pour un groupe de ressources signifie qu’elle peut lire le groupe de ressources et toutes les ressources qu’il contient).
 
@@ -85,7 +85,7 @@ Les applications démon peuvent utiliser deux formes d’informations d’identi
 
 ### <a name="upload-a-certificate"></a>Téléchargement d'un certificat
 
-Vous pouvez utiliser un certificat existant si vous en avez un.  Vous pouvez également utiliser un certificat auto-signé à des fins de test. Ouvrez PowerShell et exécutez [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) avec les paramètres suivants pour créer un certificat auto-signé dans le magasin de certificats utilisateur sur votre ordinateur : 
+Vous pouvez utiliser un certificat existant si vous en avez un.  Vous pouvez également utiliser un certificat auto-signé *à des fins de test uniquement*. Ouvrez PowerShell et exécutez [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) avec les paramètres suivants pour créer un certificat auto-signé dans le magasin de certificats utilisateur sur votre ordinateur : 
 
 ```powershell
 $cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocation "Cert:\CurrentUser\My"  -KeyExportPolicy Exportable -KeySpec Signature
@@ -93,8 +93,18 @@ $cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocati
 
 Exportez ce certificat dans un fichier à l’aide du composant logiciel enfichable MMC [Gérer un certificat utilisateur](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) accessible depuis le Panneau de configuration Windows.
 
+1. Sélectionnez **Exécuter** dans le menu **Démarrer**, puis entrez **certmgr.msc**.
+
+   L’outil Gestionnaire de certificats pour l’utilisateur actuel s’affiche.
+
+1. Pour afficher vos certificats, sous **Certificats - Utilisateur actuel** dans le volet gauche, développez le répertoire **Personnel**.
+1. Cliquez avec le bouton droit sur le certificat que vous avez créé, sélectionnez **Toutes les tâches->Exporter**.
+1. Suivez les instructions de l’Assistant Exportation de certificat.  Exportez la clé privée, spécifiez un mot de passe pour le fichier de certificat, puis exportez-le vers un fichier.
+
 Pour charger le certificat :
 
+1. Sélectionnez **Azure Active Directory**.
+1. Dans **Inscriptions d’applications** dans Azure AD, sélectionnez votre application.
 1. Cliquez sur **Certificats et secrets**.
 1. Sélectionnez **Charger un certificat**, puis sélectionnez le certificat (un certificat existant ou le certificat auto-signé que vous avez exporté).
 
@@ -146,15 +156,21 @@ Dans votre abonnement Azure, votre compte doit disposer d’un accès `Microsoft
 
 Pour vérifier vos autorisations d’abonnement :
 
-1. Sélectionnez votre compte dans le coin supérieur droit, puis **... -> Mes autorisations**.
+1. Recherchez et sélectionnez **Abonnements**, ou sélectionnez **Abonnements** sur la **page d’accueil**.
 
-   ![Sélectionnez votre compte et vos autorisations utilisateur.](./media/howto-create-service-principal-portal/select-my-permissions.png)
+   ![Recherche](./media/howto-create-service-principal-portal/select-subscription.png)
 
-1. Dans la liste déroulante, sélectionnez l’abonnement où vous souhaitez créer le principal de service. Ensuite, sélectionnez **Cliquer ici pour afficher les détails d’accès complet pour cet abonnement**.
+1. Sélectionnez l’abonnement dans lequel vous souhaitez créer le principal de service.
+
+   ![Sélectionner l’abonnement pour l’assignation](./media/howto-create-service-principal-portal/select-one-subscription.png)
+
+   Si vous ne voyez pas l’abonnement recherché, sélectionnez le **filtre des abonnements généraux**. Assurez-vous que l’abonnement souhaité est sélectionné dans le portail.
+
+1. Sélectionner **Mes autorisations**. Ensuite, sélectionnez **Cliquer ici pour afficher les détails d’accès complet pour cet abonnement**.
 
    ![Sélectionnez l’abonnement où vous souhaitez créer le principal de service.](./media/howto-create-service-principal-portal/view-details.png)
 
-1. Sélectionnez **Attributions de rôles** pour afficher les rôles qui vous sont attribués et déterminez si vous disposez des autorisations appropriées pour attribuer un rôle à une application AD. Si ce n’est pas le cas, demandez à votre administrateur d’abonnement de vous ajouter un rôle Administrateur de l’accès utilisateur. Dans l’image suivante, le rôle Propriétaire est attribué à l’utilisateur, ce qui signifie que l’utilisateur dispose des autorisations appropriées.
+1. Sélectionnez **Affichage** dans **Attributions de rôles** pour afficher les rôles qui vous sont attribués, et déterminer si vous disposez des autorisations appropriées pour attribuer un rôle à une application AD. Si ce n’est pas le cas, demandez à votre administrateur d’abonnement de vous ajouter un rôle Administrateur de l’accès utilisateur. Dans l’image suivante, le rôle Propriétaire est attribué à l’utilisateur, ce qui signifie que l’utilisateur dispose des autorisations appropriées.
 
    ![Cet exemple montre que le rôle Propriétaire est attribué à l’utilisateur](./media/howto-create-service-principal-portal/view-user-role.png)
 

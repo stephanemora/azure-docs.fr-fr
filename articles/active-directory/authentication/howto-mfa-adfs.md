@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 00200436784eca970f736c4a7f2afebd652c9577
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76155211"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Sécurisation des ressources de cloud avec le serveur Azure Multi-Factor Authentication et AD FS
@@ -64,7 +64,7 @@ La première chose à faire consiste à configurer les revendications AD FS. Cr�
    ![Ajout de règle de revendication](./media/howto-mfa-adfs/trustedip2.png)
 5. Dans l’Assistant Ajout de règle de revendication de transformation, sélectionnez **Passer ou filtrer une revendication entrante** dans la liste déroulante et cliquez sur **Suivant**.
    ![Assistant Ajouter une règle de revendication de transformation](./media/howto-mfa-adfs/trustedip3.png)
-6. Dans la zone en regard du nom de la règle de revendication, nommez votre règle. Par exemple :  InsideCorpNet.
+6. Dans la zone en regard du nom de la règle de revendication, nommez votre règle. Par exemple : InsideCorpNet.
 7. Dans la liste déroulante, en regard du type de revendication entrante, sélectionnez **Dans le périmètre du réseau d’entreprise**.
    ![Ajout d’une revendication dans le périmètre du réseau d’entreprise](./media/howto-mfa-adfs/trustedip4.png)
 8. Cliquez sur **Terminer**.
