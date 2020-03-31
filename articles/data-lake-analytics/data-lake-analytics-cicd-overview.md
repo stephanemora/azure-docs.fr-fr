@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 09/14/2018
 ms.openlocfilehash: b035be727df2dfecb613da79681affd740c69bec
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60333858"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Comment configurer un pipeline CI/CD pour Azure Data Lake Analytics  
@@ -459,7 +459,7 @@ Suivez les étapes ci-dessous pour configurer une tâche de déploiement d’une
 |Package|Chemin du package de déploiement de base de données U-SQL à déployer|null|true|
 |Base de données|Nom de la base données à créer ou dans laquelle le déploiement doit être effectué|master|false|
 |LogFile|Chemin du fichier de journalisation. Par défaut, défini sur sortie standard (console).|null|false|
-|LogLevel|Niveau de journal : détaillé, normal, avertissement ou erreur.|LogLevel.Normal|false|
+|LogLevel|Niveau de journal : détaillé, normal, avertissement ou erreur|LogLevel.Normal|false|
 
 #### <a name="parameter-for-local-deployment"></a>Paramètre pour le déploiement local
 

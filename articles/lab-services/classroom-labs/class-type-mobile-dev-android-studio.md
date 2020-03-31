@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 1/23/2020
 ms.author: enewman
 ms.openlocfilehash: 0c257589a2e93ac4c15a639e7156d0c0944b033c
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76851336"
 ---
 # <a name="set-up-a-lab-to-teach-data-mobile-application-development-with-android-studio"></a>Configurer un labo pour enseigner le développement d’applications mobiles de données avec Android Studio
@@ -39,7 +39,7 @@ Lorsque la création de la machine modèle est terminée, [démarrez la machine 
 4. Téléchargement et installation d’Android Studio
 5. Configuration de Visual Studio Emulator pour Android Studio
 
-## <a name="add-hyper-v-role"></a>Ajouter le rôle Hyper-V
+## <a name="add-hyper-v-role"></a>Ajout du rôle Hyper-V
 
 Hyper-V doit être activé pour la réussite de l’installation de Visual Studio Emulator pour Android.  Suivez les instructions de l’article [Guide pratique pour activer la virtualisation imbriquée dans une machine virtuelle modèle](how-to-enable-nested-virtualization-template-vm.md).
 

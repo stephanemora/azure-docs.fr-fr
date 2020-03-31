@@ -10,10 +10,10 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 07/12/2019
 ms.openlocfilehash: 1a0a6cf5a26854539dc4bbb0ae0254bbf08dad1f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73494595"
 ---
 # <a name="failure-spark-job-debugging-with-azure-toolkit-for-intellij-preview"></a>Échec du débogage du travail Spark avec le kit de ressources Azure pour IntelliJ (préversion)
@@ -46,7 +46,7 @@ Créer un projet Spark 2.3.2 pour continuer l’échec de débogage, prenez l�
 
    c. Sélectionnez **Suivant**.
 
-2. Dans la fenêtre **Nouveau projet**, faites les étapes suivantes :
+2. Dans la boîte de dialogue **New Project** (Nouveau projet), effectuez les étapes suivantes :
 
    ![Nouveau projet IntelliJ - Sélection de la version Spark](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-project.png)
 
@@ -114,9 +114,9 @@ En cas d’échec de l’envoi du travail, vous pouvez télécharger le profil d
 
 1. Après le débogage, si le projet se termine correctement, vous pouvez renvoyer le travail ayant échoué à votre cluster Spark sur HDInsight.
 
-## <a name="seealso"></a>Étapes suivantes
+## <a name="next-steps"></a><a name="seealso"></a>Étapes suivantes
 
-* [Présentation : Déboguer les applications Apache Spark](apache-spark-intellij-tool-debug-remotely-through-ssh.md)
+* [Vue d’ensemble : Déboguer les applications Apache Spark](apache-spark-intellij-tool-debug-remotely-through-ssh.md)
 
 ### <a name="demo"></a>Démonstration
 
@@ -127,7 +127,7 @@ En cas d’échec de l’envoi du travail, vous pouvez télécharger le profil d
 
 * [Apache Spark avec BI : Effectuer une analyse interactive des données à l’aide de Spark dans HDInsight avec les outils décisionnels](apache-spark-use-bi-tools.md)
 * [Apache Spark avec Machine Learning : utiliser Spark dans HDInsight pour analyser la température de bâtiments à l’aide des données des systèmes HVAC](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark avec Machine Learning : utiliser Spark dans HDInsight pour prédire les résultats de l’inspection des aliments](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark avec Machine Learning : utiliser Spark dans HDInsight pour prédire les résultats de l’inspection d’aliments](apache-spark-machine-learning-mllib-ipython.md)
 * [Analyse des journaux de site web à l’aide d’Apache Spark dans HDInsight](../hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Création et exécution d’applications
@@ -149,4 +149,4 @@ En cas d’échec de l’envoi du travail, vous pouvez télécharger le profil d
 ### <a name="manage-resources"></a>Gestion des ressources
 
 * [Gérer les ressources du cluster Apache Spark dans Azure HDInsight](apache-spark-resource-manager.md)
-* [Suivi et débogage des tâches en cours d’exécution sur un cluster Apache Spark dans HDInsight](apache-spark-job-debugging.md)
+* [Track and debug jobs running on an Apache Spark cluster in HDInsight (Suivi et débogage des tâches en cours d’exécution sur un cluster Apache Spark dans HDInsight)](apache-spark-job-debugging.md)

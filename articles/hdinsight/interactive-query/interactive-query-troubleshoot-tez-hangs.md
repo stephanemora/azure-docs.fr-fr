@@ -8,10 +8,10 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/09/2019
 ms.openlocfilehash: ec5a0d6e8c0a5236ae3929560e81033d983d4dfb
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75895114"
 ---
 # <a name="scenario-apache-tez-application-hangs-in-azure-hdinsight"></a>Scénario : L’application Apache Tez se bloque dans Azure HDInsight
@@ -22,7 +22,7 @@ Cet article décrit les éventuelles solutions à appliquer pour résoudre les p
 
 Après l’envoi d’un travail Apache Hive, l’état du travail dans la vue Tez indique « en cours d’exécution », mais il ne semble pas avancer
 
-## <a name="cause"></a>Cause :
+## <a name="cause"></a>Cause
 
 Trop de travaux envoyés ; longue file d’attente Yarn.
 

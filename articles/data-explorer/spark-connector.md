@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 1/14/2020
 ms.openlocfilehash: b358287664ac6d6a3b641e1ab63073810ceb4c40
-ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78208589"
 ---
 # <a name="azure-data-explorer-connector-for-apache-spark"></a>Connecteur Azure Data Explorer pour Apache Spark
@@ -99,7 +99,7 @@ Pour en savoir plus, consultez la section relative à [l’utilisation des conne
 
     ![Ajout de dépendances](media/spark-connector/db-not-maven.png)
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Authentification
 
 Le connecteur Azure Data Explorer pour Spark vous permet de vous authentifier auprès d’Azure Active Directory (Azure AD) à l’aide de l’une des méthodes suivantes :
 * Avec une [application Azure AD](#azure-ad-application-authentication)

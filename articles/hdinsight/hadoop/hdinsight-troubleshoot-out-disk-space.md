@@ -8,10 +8,10 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/05/2019
 ms.openlocfilehash: fbfd82473b68f5032d19834ac809191d498a5a67
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75894127"
 ---
 # <a name="scenario-cluster-node-runs-out-of-disk-space-in-azure-hdinsight"></a>Scénario : L’espace disque est insuffisant sur le nœud de cluster dans Azure HDInsight
@@ -24,7 +24,7 @@ Un travail peut échouer avec un message d’erreur semblable à celui-ci : `/us
 
 Vous pouvez également recevoir une alerte Apache Ambari similaire à ce qui suit : `local-dirs usable space is below configured utilization percentage`.
 
-## <a name="cause"></a>Cause :
+## <a name="cause"></a>Cause
 
 Le cache d’application Apache Yarn peut avoir consommé tout l’espace disque disponible. Votre application Spark s’exécute probablement de manière inefficace.
 

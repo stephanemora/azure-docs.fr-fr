@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: b12cb94832a1ea977fb13f5f2271984dc8780cee
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68736375"
 ---
 # <a name="how-to-discover-data-sources-in-azure-data-catalog"></a>Comment détecter les sources de données dans Azure Data Catalog
@@ -33,11 +33,11 @@ En combinant recherche et filtrage, vous pouvez parcourir rapidement les sources
 
 La recherche en texte libre par défaut est simple et intuitive. Cependant, vous pouvez également utiliser la syntaxe de recherche de Data Catalog pour mieux contrôler les résultats de recherche. La recherche avec Data Catalog prend en charge les techniques suivantes :
 
-| Technique | Utilisation | Exemples |
+| Technique | Utilisation | Exemple |
 | --- | --- | --- |
 | Recherche de base |Recherche de base à l’aide d’un ou plusieurs termes de recherche. Les résultats sont constitués de toutes les ressources correspondant à une propriété quelconque avec un ou plusieurs termes spécifiés. |`sales data` |
 | Étendue de la propriété |Retourne des sources de données uniquement si le terme de recherche correspond à la propriété spécifiée. |`name:finance` |
-| Opérateurs booléens |Les opérations booléennes permettent d’étendre et de limiter une recherche. |`finance NOT corporate` |
+| opérateurs booléens |Les opérations booléennes permettent d’étendre et de limiter une recherche. |`finance NOT corporate` |
 | Parenthèses de regroupement |Utilisez des parenthèses pour grouper les parties de la requête à isoler logiquement, notamment lorsque vous appliquez des opérateurs booléens. |`name:finance AND (tags:Q1 OR tags:Q2)` |
 | Opérateurs de comparaison |Utilisez des comparaisons autres que l’égalité pour les propriétés comportant des types de données numériques et de date. |`modifiedTime > "11/05/2014"` |
 

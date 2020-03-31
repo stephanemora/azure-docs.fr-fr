@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/01/2019
 ms.author: spelluru
 ms.openlocfilehash: cc82355ee43f9fee4f9c2e1bb1bcc0481e4dcea3
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73608541"
 ---
 # <a name="azlabservices-powershell-module-preview"></a>Module PowerShell Az.LabServices (préversion)
@@ -33,7 +33,7 @@ Voici un exemple d’utilisation d’une commande PowerShell pour arrêter toute
 Get-AzLabAccount | Get-AzLab | Get-AzLabVm -Status Running | Stop-AzLabVm
 ```
 
-## <a name="get-started"></a>Prise en main
+## <a name="get-started"></a>Bien démarrer
 1. Installez [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) s’il n’existe pas sur votre ordinateur. 
 2. Téléchargez [Az.LabServices.psm1](https://github.com/Azure/azure-devtestlab/blob/master/samples/ClassroomLabs/Modules/Library/Az.LabServices.psm1) sur votre machine.
 3. Importez le module :

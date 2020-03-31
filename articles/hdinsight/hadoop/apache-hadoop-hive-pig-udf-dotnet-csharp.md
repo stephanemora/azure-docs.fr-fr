@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
 ms.openlocfilehash: 9ef9eada9b9aec50642a8bf357edab0677868817
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74949387"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-on-apache-hadoop-in-hdinsight"></a>Utilisation des fonctions définies par l’utilisateur C# avec Apache Hive et Apache Pig sur Apache Hadoop dans HDInsight
@@ -58,7 +58,7 @@ Pour créer un projet C# pour une fonction définie par l’utilisateur Apache H
 
 3. Dans la fenêtre **Créer un projet**, choisissez le modèle **Application console (.NET Framework)** (version C#). Sélectionnez ensuite **Suivant**.
 
-4. Dans la fenêtre **Configurer votre nouveau projet**, entrez le **Nom de projet** *HiveCSharp*, puis accédez à ou créez un **Emplacement** auquel enregistrer le nouveau projet. Sélectionnez ensuite **Créer**.
+4. Dans la fenêtre **Configurer votre nouveau projet**, entrez le **Nom de projet***HiveCSharp*, puis accédez à ou créez un **Emplacement** auquel enregistrer le nouveau projet. Sélectionnez ensuite **Créer**.
 
 5. Dans l’IDE Visual Studio, remplacez le contenu de *Program.cs* par le code suivant :
 
@@ -125,7 +125,7 @@ Pour créer un projet C# pour une fonction définie par l’utilisateur Apache H
 
 3. Dans la fenêtre **Créer un projet**, choisissez le modèle **Application console (.NET Framework)** (version C#). Sélectionnez ensuite **Suivant**.
 
-4. Dans la fenêtre **Configurer votre nouveau projet**, entrez le **Nom de projet** *PigUDF*, puis accédez à ou créez un **Emplacement** auquel enregistrer le nouveau projet. Sélectionnez ensuite **Créer**.
+4. Dans la fenêtre **Configurer votre nouveau projet**, entrez le **Nom de projet***PigUDF*, puis accédez à ou créez un **Emplacement** auquel enregistrer le nouveau projet. Sélectionnez ensuite **Créer**.
 
 5. Dans l’IDE Visual Studio, remplacez le contenu de *Program.cs* par le code suivant :
 

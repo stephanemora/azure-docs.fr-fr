@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: apimpm
 ms.openlocfilehash: 2df57477ae5270405a1774b7a4f04ed185fea396
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70071699"
 ---
 # <a name="how-to-set-or-edit-azure-api-management-policies"></a>Comment définir ou modifier des stratégies dans Gestion des API Azure
@@ -83,7 +83,7 @@ L’étendue globale est configurée pour **toutes les API** dans votre instance
     ![Étendue globale](./media/api-management-howto-policies/global-scope.png)
 
 3. Cliquez sur l’icône de triangle.
-4. Sélectionnez **Éditeur de code**.
+4. Sélectionnez **Éditeur de Code**.
 5. Ajoutez ou modifiez des stratégies.
 6. Appuyez sur **Enregistrer**. 
 
@@ -112,7 +112,7 @@ L’étendue de l’API est configurée pour **toutes les opérations** de l’A
 
 2. Sélectionnez **Toutes les opérations**.
 3. Cliquez sur l’icône de triangle.
-4. Sélectionnez **Éditeur de code**.
+4. Sélectionnez **Éditeur de Code**.
 5. Ajoutez ou modifiez des stratégies.
 6. Appuyez sur **Enregistrer**. 
 
@@ -126,7 +126,7 @@ L’étendue de l’opération est configurée pour l’opération sélectionné
     ![Étendue opération](./media/api-management-howto-policies/operation-scope.png)
 
 3. Cliquez sur l’icône de triangle.
-4. Sélectionnez **Éditeur de code**.
+4. Sélectionnez **Éditeur de Code**.
 5. Ajoutez ou modifiez des stratégies.
 6. Appuyez sur **Enregistrer**. 
 
@@ -136,4 +136,4 @@ Consultez les rubriques associées suivantes :
 
 + [Transform and protect your API](transform-api.md) (Transformer et protéger votre API)
 + [Référence de stratégie](api-management-policy-reference.md) pour obtenir la liste complète des instructions et des paramètres de stratégie
-+ [API Management policy samples](policy-samples.md) (Exemples de stratégie de gestion d’API)
++ [Exemples de stratégie](policy-samples.md)

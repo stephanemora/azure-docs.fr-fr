@@ -13,10 +13,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: a7f07365da699a40f5b51917104a68a62affa3d9
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74703364"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Transformer des données à l’aide d’une activité de diffusion en continu Hadoop dans Azure Data Factory
@@ -41,7 +41,7 @@ Vous pouvez utiliser l’activité HDInsightStreamingActivity pour appeler une t
 L’activité de streaming HDInsight dans un [pipeline](data-factory-create-pipelines.md) Data Factory exécute des programmes de streaming Hadoop sur votre cluster HDInsight [propre](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) ou [à la demande](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) sous Windows ou Linux. Cet article s'appuie sur l'article [Activités de transformation des données](data-factory-data-transformation-activities.md) qui présente une vue d'ensemble de la transformation des données et les activités de transformation prises en charge.
 
 > [!NOTE] 
-> Si vous découvrez Azure Data Factory, lisez la [présentation d’Azure Data Factory](data-factory-introduction.md) et suivez le tutoriel : [Générer votre premier pipeline de données](data-factory-build-your-first-pipeline.md) avant de lire cet article. 
+> Si vous découvrez Azure Data Factory, lisez la [Présentation d’Azure Data Factory](data-factory-introduction.md) et suivez le didacticiel : [Générer votre premier pipeline de données](data-factory-build-your-first-pipeline.md) avant de lire cet article. 
 
 ## <a name="json-sample"></a>Exemple JSON
 Le cluster HDInsight est automatiquement rempli avec les données (davinci.txt) et les exemples de programmes (wc.exe et cat.exe). Par défaut, le nom du conteneur utilisé par le cluster HDInsight est le nom du cluster lui-même. Par exemple, si votre nom de cluster est myhdicluster, le nom du conteneur d’objets blob associé est myhdicluster. 
@@ -110,7 +110,7 @@ Notez les points suivants :
 > 
 > 
 
-## <a name="example"></a>Exemples
+## <a name="example"></a>Exemple
 Le pipeline dans cette procédure pas à pas exécute le programme de diffusion en continu Map/Reduce de calcul du nombre de mots sur votre cluster Azure HDInsight. 
 
 ### <a name="linked-services"></a>Services liés
@@ -174,7 +174,7 @@ Le pipeline de cet exemple n’accepte pas d’entrées. Vous spécifiez un jeu 
 ```
 
 ### <a name="pipeline"></a>Pipeline
-Le pipeline de cet exemple n’a qu’une seule activité, de type **HDInsightStreaming**. 
+Le pipeline de cet exemple n’a qu’une seule activité de type : **HDInsightStreaming**. 
 
 Le cluster HDInsight est automatiquement rempli avec les données (davinci.txt) et les exemples de programmes (wc.exe et cat.exe). Par défaut, le nom du conteneur utilisé par le cluster HDInsight est le nom du cluster lui-même. Par exemple, si votre nom de cluster est myhdicluster, le nom du conteneur d’objets blob associé est myhdicluster.  
 

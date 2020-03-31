@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 69031550bdab1535213c78f81426fa76e8ea62ad
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75773644"
 ---
 # <a name="create-or-modify-a-direct-peering-using-powershell"></a>Créer ou modifier un Peering direct à l’aide de PowerShell
 
-Cet article explique comment créer un Peering direct Microsoft à l’aide des cmdlets PowerShell et du modèle de déploiement Resource Manager. Cet article vous montre également comment vérifier l’état de la ressource, la mettre à jour, la supprimer et la déprovisionner.
+Cet article explique comment créer un Peering direct Microsoft à l’aide des cmdlets PowerShell et du modèle de déploiement Resource Manager. Il montre également comment vérifier l’état de la ressource, la mettre à jour, la supprimer et la déprovisionner.
 
 Si vous préférez, vous pouvez suivre ce guide à l’aide du [portail](howto-direct-portal.md).
 
@@ -28,24 +28,24 @@ Si vous préférez, vous pouvez suivre ce guide à l’aide du [portail](howto-d
 ### <a name="working-with-azure-powershell"></a>Utilisation d’Azure PowerShell
 [!INCLUDE [CloudShell](./includes/cloudshell-powershell-about.md)]
 
-## <a name="create-and-provision-a-direct-peering"></a>Créer et approvisionner un Peering direct
+## <a name="create-and-provision-a-direct-peering"></a>Créer et provisionner un Peering direct
 
 ### <a name="sign-in-to-your-azure-account-and-select-your-subscription"></a>Vous connecter à votre compte Azure et sélectionner votre abonnement
 [!INCLUDE [Account](./includes/account-powershell.md)]
 
-### <a name=direct-location></a>Obtenir la liste des emplacements de Peering compatibles avec le Peering direct
+### <a name="get-the-list-of-supported-peering-locations-for-direct-peering"></a><a name=direct-location></a>Obtenir la liste des emplacements de Peering compatibles avec le Peering direct
 [!INCLUDE [direct-location](./includes/direct-powershell-create-location.md)]
 
-### <a name=create></a>Créer un Peering direct
+### <a name="create-a-direct-peering"></a><a name=create></a>Créer un Peering direct
 [!INCLUDE [direct-peering](./includes/direct-powershell-create-connection.md)]
 
-### <a name=get></a>Vérifier un Peering direct
+### <a name="verify-direct-peering"></a><a name=get></a>Vérifier un Peering direct
 [!INCLUDE [peering-direct-get](./includes/direct-powershell-get.md)]
 
-## <a name="modify"></a>Modifier un Peering direct
+## <a name="modify-a-direct-peering"></a><a name="modify"></a>Modifier un Peering direct
 [!INCLUDE [peering-direct-modify](./includes/direct-powershell-modify.md)]
 
-## <a name="delete"></a>Déprovisionner un Peering direct
+## <a name="deprovision-a-direct-peering"></a><a name="delete"></a>Déprovisionner un Peering direct
 [!INCLUDE [peering-direct-delete](./includes/delete.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -60,4 +60,4 @@ Vous pouvez obtenir une description détaillée de tous les paramètres en exéc
 Get-Help Get-AzPeering -detailed
 ```
 
-Pour plus d’informations, consultez [FAQ sur le Peering Internet](faqs.md)
+Pour plus d’informations, consultez [FAQ sur le peering Internet](faqs.md).

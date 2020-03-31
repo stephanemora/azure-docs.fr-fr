@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 8/30/2019
 ms.openlocfilehash: afccbdbbfd5b8ddeefa621448d6170d937b518f0
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74931446"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-hadoop-cluster-to-azure-storage"></a>Utiliser Azure Data Factory pour migrer des données d'un cluster Hadoop local vers le service Stockage Azure 
@@ -43,7 +43,7 @@ DistCp utilise MapReduce pour sa distribution, pour la gestion et la récupérat
 
 Le mode Runtime d'intégration native de Data Factory permet également le parallélisme à différents niveaux. Vous pouvez utiliser le parallélisme pour exploiter pleinement votre bande passante réseau, ainsi que les IOPS et la bande passante de stockage afin d'optimiser le débit de déplacement des données :
 
-- Une seule activité de copie peut tirer parti de plusieurs ressources de calcul évolutives. Avec un runtime d'intégration auto-hébergé, vous pouvez procéder à une montée en puissance manuelle de la machine ou à une montée en charge vers plusieurs machines ([jusqu'à quatre nœuds](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)). Une activité de copie unique partitionne son ensemble de fichiers sur tous les nœuds. 
+- Une seule activité de copie peut tirer parti de plusieurs ressources de calcul évolutives. Avec un runtime d'intégration auto-hébergé, vous pouvez effectuer un scale-up manuel de la machine ou un scale-out vers plusieurs machines ([jusqu'à quatre nœuds](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)). Une activité de copie unique partitionne son ensemble de fichiers sur tous les nœuds. 
 - Une activité de copie unique lit et écrit dans le magasin de données à l'aide de plusieurs conversations. 
 - Le flux de contrôle Data Factory peut démarrer plusieurs activités de copie en parallèle. Par exemple, vous pouvez utiliser une [boucle ForEach](https://docs.microsoft.com/azure/data-factory/control-flow-for-each-activity). 
 
@@ -80,9 +80,9 @@ Cette image illustre une migration de données via un lien privé :
 
 - Dans cette architecture, les données sont migrées sur un lien de peering privé via Azure ExpressRoute. Les données ne transitent jamais par l'Internet public.
 - L'outil DistCp ne prend pas en charge le peering privé ExpressRoute avec un point de terminaison de réseau virtuel Stockage Azure. Nous vous recommandons d'utiliser la fonctionnalité native de Data Factory via le runtime d'intégration pour migrer les données.
-- Pour cette architecture, vous devez installer le runtime d'intégration auto-hébergé de Data Factory sur une machine virtuelle Windows de votre réseau virtuel Azure. Vous pouvez procéder à une montée en puissance manuelle de vos machines virtuelles ou à une montée en charge sur plusieurs machines virtuelles pour utiliser pleinement votre réseau ainsi que vos IOPS ou votre bande passante de stockage.
+- Pour cette architecture, vous devez installer le runtime d'intégration auto-hébergé de Data Factory sur une machine virtuelle Windows de votre réseau virtuel Azure. Vous pouvez effectuer manuellement un scale-up de vos machines virtuelles ou effectuer un scale-out sur plusieurs machines virtuelles pour utiliser pleinement votre réseau et vos IOPS ou bande passante de stockage.
 - La configuration de démarrage recommandée pour chaque machine virtuelle Azure (avec le runtime d'intégration auto-hébergé de Data Factory installé) est Standard_D32s_v3 avec 32 processeurs virtuels et 128 Go de mémoire. Vous pouvez surveiller l'utilisation de l'UC et de la mémoire de la machine virtuelle pendant la migration des données afin de déterminer si vous devez monter en puissance pour améliorer les performances de la machine virtuelle ou descendre en puissance pour réduire les coûts.
-- Vous pouvez également monter en charge en associant jusqu'à quatre nœuds de machine virtuelle à un seul runtime d'intégration auto-hébergé. Une seule tâche de copie exécutée sur un runtime d'intégration auto-hébergé partitionne automatiquement le jeu de fichiers et tire parti de tous les nœuds de machine virtuelle pour copier les fichiers en parallèle. Pour une haute disponibilité, nous vous recommandons de commencer avec deux nœuds de machine virtuelle afin d'éviter un scénario de point de défaillance unique pendant la migration des données.
+- Vous pouvez également effectuer un scale-out en associant jusqu'à quatre nœuds de machine virtuelle à un seul runtime d'intégration auto-hébergé. Une seule tâche de copie exécutée sur un runtime d'intégration auto-hébergé partitionne automatiquement le jeu de fichiers et tire parti de tous les nœuds de machine virtuelle pour copier les fichiers en parallèle. Pour une haute disponibilité, nous vous recommandons de commencer avec deux nœuds de machine virtuelle afin d'éviter un scénario de point de défaillance unique pendant la migration des données.
 - Lorsque vous utilisez cette architecture, la migration initiale des données d'instantané et la migration des données delta sont à votre disposition.
 
 ## <a name="implementation-best-practices"></a>Meilleures pratiques en matière d’implémentation

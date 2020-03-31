@@ -8,10 +8,10 @@ ms.author: babanisa
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.openlocfilehash: 1d07227249806b7d54523af66817a170c19354ee
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72786558"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>Gérer des rubriques et publier des événements à l’aide de domaines de l’événement
@@ -35,7 +35,7 @@ Pour en savoir plus sur les domaines d’événements, consultez [Comprendre les
 
 Pour gérer de grands ensembles de rubriques, créez un domaine d’événements.
 
-# <a name="azure-clitabazurecli"></a>[Interface de ligne de commande Azure](#tab/azurecli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azurecli)
 
 ```azurecli-interactive
 # If you haven't already installed the extension, do it now.
@@ -48,7 +48,7 @@ az eventgrid domain create \
   -l <location>
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 ```azurepowershell-interactive
 # If you have not already installed the module, do it now.
 # This module is required for preview features.
@@ -86,7 +86,7 @@ La gestion de l’accès aux rubriques est effectuée par le biais d’une [attr
 
 Event Grid a deux rôles intégrés que vous pouvez utiliser pour attribuer à des utilisateurs spécifiques l’accès à différentes rubriques au sein d’un domaine. Ces rôles sont `EventGrid EventSubscription Contributor (Preview)`, qui permet de créer et de supprimer des abonnements, et `EventGrid EventSubscription Reader (Preview)`, qui permet uniquement de répertorier les abonnements aux événements.
 
-# <a name="azure-clitabazurecli"></a>[Interface de ligne de commande Azure](#tab/azurecli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azurecli)
 La commande Azure CLI suivante limite `alice@contoso.com` à la création et à la suppression d’abonnements aux événements uniquement sur la rubrique `demotopic1` :
 
 ```azurecli-interactive
@@ -96,7 +96,7 @@ az role assignment create \
   --scope /subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/demotopic1
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 La commande PowerShell suivante limite `alice@contoso.com` à la création et à la suppression d’abonnements aux événements uniquement sur la rubrique `demotopic1` :
 
 ```azurepowershell-interactive
@@ -117,7 +117,7 @@ L’abonnement à une rubrique dans un domaine est identique à l’abonnement �
 
 Généralement, l’utilisateur auquel vous avez accordé l’accès dans la section précédente créera l’abonnement. Pour plus de simplicité dans cet article, c’est vous qui créez l’abonnement. 
 
-# <a name="azure-clitabazurecli"></a>[Interface de ligne de commande Azure](#tab/azurecli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azurecli)
 
 ```azurecli-interactive
 az eventgrid event-subscription create \
@@ -126,7 +126,7 @@ az eventgrid event-subscription create \
   --endpoint https://contoso.azurewebsites.net/api/updates
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 ```azurepowershell-interactive
 New-AzureRmEventGridSubscription `
@@ -175,7 +175,7 @@ La publication d’événements sur un domaine est similaire à la [publication 
 }]
 ```
 
-# <a name="azure-clitabazurecli"></a>[Interface de ligne de commande Azure](#tab/azurecli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azurecli)
 Pour obtenir le point de terminaison de domaine avec Azure CLI, utilisez
 
 ```azurecli-interactive
@@ -192,7 +192,7 @@ az eventgrid domain key list \
   -n <my-domain>
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 Pour obtenir le point de terminaison de domaine avec PowerShell, utilisez
 
 ```azurepowershell-interactive

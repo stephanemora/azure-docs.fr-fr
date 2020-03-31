@@ -10,10 +10,10 @@ ms.assetid: db35f16e-1565-4873-a851-bd987accdc58
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.openlocfilehash: 16c503fe2d584d5f8256c65bfc49825b300f6a36
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71672730"
 ---
 # <a name="adding-a-user-in-the-azure-portal"></a>Ajout d’un utilisateur dans le portail Azure
@@ -23,7 +23,7 @@ ms.locfileid: "71672730"
 2. Cliquez sur **Assistant Ajouter un utilisateur**.
 3. Dans l’étape **Sélectionner un utilisateur**, recherchez l’utilisateur que vous voulez ajouter. Cliquez sur **Sélectionner**.
 4. Dans l’étape **Sélectionner un rôle**, choisissez **Développeur Data Lake Analytics**. Ce rôle dispose de l’ensemble minimal d’autorisations requises pour envoyer/contrôler/gérer les travaux U-SQL. Assignez ce rôle si le groupe n’est pas conçu pour gérer les services Azure.
-5. Dans l’étape **Sélectionner des autorisations de catalogue**, sélectionnez les bases de données supplémentaires auxquelles l’utilisateur doit avoir accès. Un accès Lecture et écriture à la base de données MASTER est requis pour envoyer des travaux. Une fois ces opérations effectuées, cliquez sur **OK**.
+5. Dans l’étape **Sélectionner des autorisations de catalogue**, sélectionnez les bases de données supplémentaires auxquelles l’utilisateur doit avoir accès. Un accès Lecture et écriture à la base de données MASTER est requis pour envoyer des travaux. Lorsque vous avez terminé, cliquez sur **OK**.
 6. Dans la dernière étape appelée **Affecter les autorisations sélectionnées**, passez en revue les modifications que l’Assistant apportera. Cliquez sur **OK**.
 
 
@@ -34,7 +34,7 @@ Accordez « R-X » ou « RWX », si nécessaire, sur les dossiers contenant 
 ## <a name="optionally-add-the-user-to-the-azure-data-lake-storage-gen1-role-reader-role"></a>Ajoutez, si vous le souhaitez, l’utilisateur au rôle **Lecteur** d’Azure Data Lake Storage Gen1.
 1.  Cherchez votre compte Azure Data Lake Storage Gen1.
 2.  Cliquez sur **Utilisateurs**.
-3. Cliquez sur **Add**.
+3. Cliquez sur **Ajouter**.
 4.  Sélectionnez un rôle RBAC Azure à assigner à ce groupe.
 5.  Assignez le rôle Lecteur. Ce rôle dispose de l’ensemble minimal d’autorisations requises pour parcourir/gérer les données stockées dans des ADLSGen1. Assignez ce rôle si le groupe n’est pas conçu pour gérer les services Azure.
 6.  Saisissez le nom du groupe.
@@ -42,7 +42,7 @@ Accordez « R-X » ou « RWX », si nécessaire, sur les dossiers contenant 
 
 ## <a name="adding-a-user-using-powershell"></a>Ajout d’un utilisateur à l’aide de PowerShell
 
-1. Suivez les instructions de ce guide : [Guide pratique pour installer et configurer Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
+1. Suivez les instructions de ce guide : [Installation et configuration d’Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
 2. Téléchargez le script PowerShell [Add-AdlaJobUser.ps1](https://github.com/Azure/AzureDataLake/blob/master/Samples/PowerShell/ADLAUsers/Add-AdlaJobUser.ps1).
 3. Exécutez le script PowerShell. 
 

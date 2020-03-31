@@ -4,10 +4,10 @@ description: Découvrez comment mettre à niveau l’agent Microsoft Azure Recov
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.openlocfilehash: 49daf438b855d19961519d93b6c3ec535de4756f
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78672894"
 ---
 # <a name="upgrade-the-microsoft-azure-recovery-services-mars-agent"></a>Mettre à niveau l’agent Microsoft Azure Recovery Services (MARS)

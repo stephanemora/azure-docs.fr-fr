@@ -8,10 +8,10 @@ services: iot-accelerators
 ms.date: 04/19/2018
 ms.topic: conceptual
 ms.openlocfilehash: 1552c54afe2195d58a032e9cc7bfa5aa70c844b1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61447622"
 ---
 # <a name="customize-and-redeploy-a-microservice"></a>Personnaliser et redéployer un microservice
@@ -20,7 +20,7 @@ Ce tutoriel vous montre comment modifier un des [microservices](https://azure.co
 
 La solution de supervision à distance utilise des microservices qui sont générés à l’aide d’images Docker extraites d’un hub Docker. 
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 >[!div class="checklist"]
 > * Modifier et générer un microservice dans la solution de supervision à distance
@@ -29,7 +29,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Extraire la nouvelle image Docker
 > * Visualiser les modifications 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -45,7 +45,7 @@ Dans cette partie, vous appelez l’API de microservice Gestionnaire IoT Hub par
 1. Vérifiez que la solution de supervision à distance est en cours d’exécution localement sur votre ordinateur.
 2. Recherchez l’endroit où vous avez téléchargé Postman et ouvrez-le.
 3. Dans Postman, entrez ce qui suit dans la zone GET : `http://localhost:8080/iothubmanager/v1/status`.
-4. Affichez la valeur de retour : vous devez voir « Status » : « OK:Alive and Well ».
+4. Affichez la valeur de retour et vous devez voir "Status": "OK:Alive and Well".
 
     ![Message Postman Alive and Well](./media/iot-accelerators-microservices-example/postman-alive-well.png)
 
@@ -144,11 +144,11 @@ Terminez en redéployant une instance locale de la solution de supervision à di
     ```
 
 3. Recherchez l’endroit où vous avez téléchargé Postman et ouvrez-le.
-4. Dans Postman, entrez la requête suivante dans la zone GET : `http://localhost:8080/iothubmanager/v1/status`. Vous devez maintenant voir, « Status » : « OK: New Edits Made Here! ».
+4. Dans Postman, entrez la requête suivante dans la zone GET : `http://localhost:8080/iothubmanager/v1/status`. Vous devez maintenant voir "Status": "OK: New Edits Made Here!".
 
 ![Message Postman New Edits Made Here](./media/iot-accelerators-microservices-example/new-postman-message.png)
 
-## <a name="Troubleshoot"></a>Résolution des problèmes
+## <a name="troubleshoot"></a><a name="Troubleshoot"></a>Résolution des problèmes
 
 Si vous rencontrez des problèmes, essayez de supprimer les images Docker et les conteneurs sur l’ordinateur local.
 
@@ -171,7 +171,7 @@ Si vous rencontrez des problèmes, essayez de supprimer les images Docker et les
     docker ps -aq 
     ```
 
-    Si vous avez supprimé tous les conteneurs, rien ne doit s’afficher.
+    Si vous avez supprimé toutes les images, rien ne doit s’afficher.
 
 4. Vous pouvez vérifier si des images sont présentes sur l’ordinateur en tapant
 

@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: spelluru
 ms.openlocfilehash: b86d535e4cbc275b3ee777d7c70146f7711c502c
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71212973"
 ---
 # <a name="expose-an-on-premises-wcf-service-to-a-web-application-in-the-cloud-by-using-azure-relay"></a>Exposer un service WCF local sur une application web dans le cloud à l’aide d’Azure Relay
@@ -41,7 +41,7 @@ Dans ce didacticiel, vous allez effectuer les tâches suivantes :
 > * Déployer l’application web sur Azure.
 > * Exécuter l’application sur Azure.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour effectuer ce didacticiel, vous avez besoin de ce qui suit :
 
@@ -86,7 +86,7 @@ La première étape consiste à créer un espace de noms et à obtenir une clé 
 
 Pour commencer, vous créez un système local de catalogue de produits (simulation).  Ce projet est une application console Visual Studio et utilise le [package NuGet Service Bus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) pour inclure les bibliothèques et les paramètres de configuration Service Bus. <a name="create-the-project"></a>
 
-1. Lancez Microsoft Visual Studio en tant qu'administrateur. Pour cela, cliquez avec le bouton droit sur l’icône de programme Visual Studio, puis sélectionnez **Exécuter en tant qu’administrateur**.
+1. Lancez Microsoft Visual Studio en tant qu'administrateur. Pour ce faire, cliquez avec le bouton droit sur l’icône de programme Visual Studio, puis sélectionnez **Exécuter en tant qu’administrateur**.
 1. Dans Visual Studio, sélectionnez **Créer un nouveau projet**.
 1. Dans **Créer un projet**, sélectionnez **Application console (.NET Framework)** pour C#, puis **Suivant**.
 1. Nommez le projet *ProductsServer* et sélectionnez **Créer**.
@@ -94,7 +94,7 @@ Pour commencer, vous créez un système local de catalogue de produits (simulati
    ![Configurer votre nouveau projet][11]
 
 1. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le projet **ProductsServer**, puis sélectionnez **Gérer les packages NuGet**.
-1. Sélectionnez **Parcourir**, puis recherchez et sélectionnez **WindowsAzure.ServiceBus**. Sélectionnez **Installer**et acceptez les conditions d’utilisation.
+1. Sélectionnez **Parcourir**, puis recherchez et sélectionnez **WindowsAzure.ServiceBus**. Sélectionnez **Installer** et acceptez les conditions d’utilisation.
 
    ![Sélectionner un package NuGet][13]
 
@@ -197,7 +197,7 @@ Apportez les modifications de code suivantes à votre solution :
     }
     ```
 
-1. Dans **l’Explorateur de solutions**, double-cliquez sur le fichier **App.config** pour l’ouvrir dans l’éditeur Visual Studio. En bas de l’élément `<system.ServiceModel>` (mais toujours au sein de `<system.ServiceModel>`), ajoutez le code XML suivant. Veillez à remplacer `yourServiceNamespace` par le nom de votre espace de noms, et `yourKey` par la clé SAS que vous avez récupérée précédemment dans le portail :
+1. Dans l'**Explorateur de solutions**, double-cliquez sur le fichier **App.config** pour l’ouvrir dans l’éditeur Visual Studio. En bas de l’élément `<system.ServiceModel>` (mais toujours au sein de `<system.ServiceModel>`), ajoutez le code XML suivant. Veillez à remplacer `yourServiceNamespace` par le nom de votre espace de noms, et `yourKey` par la clé SAS que vous avez récupérée précédemment dans le portail :
 
     ```xml
     <system.serviceModel>

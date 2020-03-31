@@ -9,13 +9,13 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: cd51eca0ea4563e1b56f74677df0829669d9e177
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75773724"
 ---
-1. Dans la page **Créer un Peering**, sous l’onglet **Configuration**, remplissez les champs comme indiqué ci-dessous.
+1. Dans la page **Créer un peering**, sous l’onglet **Configuration**, remplissez les champs comme indiqué ci-dessous.
 
     > [!div class="mx-imgBorder"]
     > ![Configuration du Peering – Exchange](../media/setup-exchange-conf-tab.png)
@@ -50,7 +50,7 @@ ms.locfileid: "75773724"
         1. Entrez le nombre de préfixes IPv4 et IPv6 que vous publierez dans les champs **Nombre maximum d’adresses IPv4 publiées** et **Nombre maximum d’adresses IPv6 publiées** respectivement.
         1. Cliquez sur **OK** pour enregistrer vos paramètres de connexion.
 
-1. Répétez l’étape ci-dessus pour ajouter d’autres connexions dans toute installation où Microsoft est colocalisé avec votre réseau, au sein de la zone **Métro** sélectionnée précédemment.
+1. Répétez l’étape ci-dessus pour ajouter d’autres connexions dans toute installation où Microsoft est colocalisée avec votre réseau, au sein de la zone **Métro** sélectionnée précédemment.
 
 1. Après avoir ajouté toutes les connexions requises, cliquez sur **Vérifier + créer**.
 
@@ -65,9 +65,9 @@ ms.locfileid: "75773724"
 1. Une fois que *Validation réussie* s’affiche, vérifiez vos informations et envoyez la requête en cliquant sur **Créer**. Si vous avez besoin de modifier votre requête, cliquez sur **Précédent** et répétez les étapes ci-dessus.
 
     > [!div class="mx-imgBorder"]
-    > ![Envoi du Peering](../media/setup-exchange-review-tab-submit.png)
+    > ![Envoi de peering](../media/setup-exchange-review-tab-submit.png)
 
-1. Une fois que vous avez envoyé la requête, attendez qu’elle termine le déploiement. Si le déploiement échoue, contactez l’assistance [Peering Microsoft](mailto:peering@microsoft.com). Un déploiement réussi s’affiche comme ci-dessous.
+1. Une fois que vous avez envoyé la requête, attendez qu’elle termine le déploiement. Si le déploiement échoue, contactez l’assistance [Peering Microsoft](mailto:peering@microsoft.com). Un déploiement réussi présente l’apparence suivante.
 
     > [!div class="mx-imgBorder"]
-    > ![Peering réussi](../media/setup-direct-success.png)
+    > ![Réussite du peering](../media/setup-direct-success.png)

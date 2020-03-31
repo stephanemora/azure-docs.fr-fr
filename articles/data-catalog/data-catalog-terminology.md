@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: d6c813dec3922334f7462b1226ea22371fd5f43b
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68736289"
 ---
 # <a name="azure-data-catalog-terminology"></a>Terminologie d’Azure Data Catalog
@@ -86,4 +86,4 @@ L'inscription représente le fait d’extraire des métadonnées de ressources d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Démarrage rapide : Créer un catalogue Azure Data Catalog](data-catalog-get-started.md) 
+[Démarrage rapide : Créer un catalogue Azure Data Catalog](data-catalog-get-started.md) 

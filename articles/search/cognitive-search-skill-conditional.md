@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: b5f1fc7f877854dd06fbbe09ff82e47208fa12d0
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72792043"
 ---
 # <a name="conditional-cognitive-skill"></a>Compétence cognitive conditionnelle
@@ -43,14 +43,14 @@ Les éléments suivants sont des valeurs valides d’une expression :
 
 -   Chemins d’accès d’annotation (les chemins d’accès dans les expressions doivent être délimités par "$(" et ")").
  <br/>
-    Exemples :
+    Exemples :
     ```
         "= $(/document)"
         "= $(/document/content)"
     ```
 
 -  Littéraux (chaînes, nombres, true, false, null) <br/>
-    Exemples :
+    Exemples :
     ```
        "= 'this is a string'"   // string (note the single quotation marks)
        "= 34"                   // number
@@ -59,21 +59,21 @@ Les éléments suivants sont des valeurs valides d’une expression :
     ```
 
 -  Expressions qui utilisent des opérateurs de comparaison (==, !=, >=, >, <=, <) <br/>
-    Exemples :
+    Exemples :
     ```
         "= $(/document/language) == 'en'"
         "= $(/document/sentiment) >= 0.5"
     ```
 
 -   Expressions qui utilisent des opérateurs booléens (&&, ||, !, ^) <br/>
-    Exemples :
+    Exemples :
     ```
         "= $(/document/language) == 'en' && $(/document/sentiment) > 0.5"
         "= !true"
     ```
 
 -   Expressions qui utilisent des opérateurs numériques (+, -, \*, /, %) <br/>
-    Exemples : 
+    Exemples : 
     ```
         "= $(/document/sentiment) + 0.5"         // addition
         "= $(/document/totalValue) * 1.10"       // multiplication
@@ -87,7 +87,7 @@ Les entrées respectent la casse.
 
 | Entrée   | Description |
 |-------------|-------------|
-| condition   | Cette entrée est un [champ évalué](#evaluated-fields) qui représente la condition à évaluer. Cette condition doit être évaluée selon une valeur booléenne (*true* ou *false*).   <br/>  Exemples : <br/> "= true" <br/> "= $(/document/language) =='fr'" <br/> "= $(/document/pages/\*/language) == $(/document/expectedLanguage)" <br/> |
+| condition   | Cette entrée est un [champ évalué](#evaluated-fields) qui représente la condition à évaluer. Cette condition doit être évaluée selon une valeur booléenne (*true* ou *false*).   <br/>  Exemples : <br/> "= true" <br/> "= $(/document/language) =='fr'" <br/> "= $(/document/pages/\*/language) == $(/document/expectedLanguage)" <br/> |
 | whenTrue    | Cette entrée est un [champ évalué](#evaluated-fields) qui représente la valeur à renvoyer si la condition est évaluée sur *true*. Les chaînes constantes doivent être renvoyées entre guillemets simples (' et '). <br/>Exemples de valeurs : <br/> "= 'contract'"<br/>"= $(/document/contractType)" <br/> "= $(/document/entities/\*)" <br/> |
 | whenFalse   | Cette entrée est un [champ évalué](#evaluated-fields) qui représente la valeur à renvoyer si la condition est évaluée sur *false*. <br/>Exemples de valeurs : <br/> "= 'contract'"<br/>"= $(/document/contractType)" <br/> "= $(/document/entities/\*)" <br/>
 

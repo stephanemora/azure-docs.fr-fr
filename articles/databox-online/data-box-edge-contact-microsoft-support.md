@@ -4,16 +4,16 @@ description: Découvrez comment enregistrer une demande de support pour les prob
 services: databox
 author: alkohli
 ms.service: databox
-ms.subservice: ''
+ms.subservice: edge
 ms.topic: article
 ms.date: 07/11/2019
 ms.author: alkohli
-ms.openlocfilehash: 9db119733bb80d9ae1462b70c3ffe555b2493405
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: c93a2e2f3162891e72cf6d57f3df6c3ceaf0c7fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68361325"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80064986"
 ---
 # <a name="open-a-support-ticket-for-azure-data-box-edge-and-azure-data-box-gateway"></a>Ouvrir un ticket de support pour Azure Data Box Edge et Azure Data Box Gateway
 
@@ -57,7 +57,7 @@ Procédez comme suit pour créer une demande de support.
 
         ![Problème](./media/data-box-edge-contact-microsoft-support/data-box-edge-support-request-2.png)
 
-4. Dans l'onglet **Vérifier + créer**, vérifiez les informations de votre ticket de support. Sélectionnez **Créer**. 
+4. Dans l'onglet **Vérifier + créer**, vérifiez les informations de votre ticket de support. Sélectionnez **Create** (Créer). 
 
     ![Problème](./media/data-box-edge-contact-microsoft-support/data-box-edge-support-request-3.png)
 

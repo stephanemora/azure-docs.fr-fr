@@ -8,10 +8,10 @@ ms.topic: guide
 ms.date: 10/16/2019
 ms.author: mebeatty
 ms.openlocfilehash: a4a5b058666fab3e9048a7d92726dccd1360ff37
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74184250"
 ---
 # <a name="azure-internet-analyzer-faq-preview"></a>FAQ sur Azure Internet Analyzer (Préversion)
@@ -22,7 +22,7 @@ Il s’agit de la FAQ sur Azure Internet Analyzer. Si vous avez des questions su
 
 La préversion est disponible pour certains clients. Si vous souhaitez disposer de la préversion, veuillez procéder ainsi :
 
-1. Connectez-vous au [Portail Azure](https://ms.portal.azure.com).
+1. Connectez-vous au [portail Azure](https://ms.portal.azure.com).
 2. Accédez à la page **Abonnements**.
 3. Cliquez sur l’abonnement Azure avec lequel vous envisagez d’utiliser l’Internet Analyzer.
 4. Accédez aux paramètres des **Fournisseurs de ressources** de l’abonnement.

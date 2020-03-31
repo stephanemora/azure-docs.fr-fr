@@ -13,10 +13,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 49ad9be7c70602132436b14234f01a4086d8e1fe
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70139134"
 ---
 # <a name="use-case---product-recommendations"></a>Cas d’utilisation - Recommandations de produits
@@ -38,7 +38,7 @@ Troisièmement, les recommandations doivent être immédiatement communiquées �
 
 Enfin, les détaillants doivent mesurer l'efficacité de leur approche par un suivi des ventes croisées et incitatives réalisées, et ajuster leurs prochaines recommandations.
 
-## <a name="solution-overview"></a>Vue d’ensemble de la solution
+## <a name="solution-overview"></a>Vue d'ensemble de la solution
 Cet exemple de cas d’utilisation a été résolu et implémenté par de vrais utilisateurs Azure avec Azure Data Factory et d’autres services Cortana Intelligence, notamment [HDInsight](https://azure.microsoft.com/services/hdinsight/) et [Power BI](https://powerbi.microsoft.com/).
 
 Le détaillant en ligne utilise un magasin d'objets blob Azure, un serveur SQL local, une base de données SQL Azure et un mini-Data Warehouse relationnel options de stockage des données tout au long du flux de travail.  Le magasin d'objets blob contient des informations sur les clients, des données sur les habitudes des clients et des informations sur les produits. Les informations sur les produits incluent des informations sur les marques de produits ainsi qu’un catalogue de produits stocké localement dans un SQL Data Warehouse. 

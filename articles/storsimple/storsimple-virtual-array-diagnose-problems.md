@@ -15,14 +15,14 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 ms.openlocfilehash: 9d222097f9fb99a24f6213584a3419ed777f4a22
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61408414"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-troubleshoot-the-storsimple-virtual-array"></a>Utiliser le service StorSimple Device Manager pour corriger les problèmes de votre instance StorSimple Virtual Array
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 StorSimple Device Manager procure un paramètre **Diagnostiquer et résoudre les problèmes** au sein du panneau de synthèse des services, qui met en évidence certains des problèmes fréquemment identifiés avec votre tableau virtuel et fournit des méthodes de résolution. Ce didacticiel présente la fonctionnalité de dépannage libre-service fournie avec le service StorSimple Device Manager.
 

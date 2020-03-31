@@ -14,10 +14,10 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: 9d98660230e0ab9f4edcd9a7af8a3797106dd17a
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78255663"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Développer des applications sécurisées sur Azure
@@ -48,8 +48,7 @@ Traitez toutes les entrées comme si elles n’étaient pas fiables pour protég
 
 Validez les entrées au début du flux de données pour vous assurer que seules des données correctement formatées pénètre le flux de travail. Vous ne voulez pas que des données incorrectes demeurent dans votre base de données ou déclenchent une défaillance dans un composant en aval.
 
-Établir une liste rouge
- et une liste rouge sont deux approches générales en matière de validation de la syntaxe des entrées :
+Établir une liste noire et une liste rouge sont deux approches générales en matière de validation de la syntaxe des entrées :
 
   - La mise en liste rouge tente de vérifier qu’une entrée utilisateur donnée ne contient pas de contenu « réputé malveillant ».
 

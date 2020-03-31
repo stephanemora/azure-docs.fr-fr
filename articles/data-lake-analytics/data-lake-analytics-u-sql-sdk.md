@@ -9,10 +9,10 @@ ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 03/01/2017
 ms.openlocfilehash: 51d9060eaf4b30c696ef2a3b5f798a31e2f2a98a
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71309695"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Exécuter et tester U-SQL à l’aide du Kit de développement logiciel (SDK) Azure Data Lake U-SQL
@@ -223,7 +223,7 @@ Voici un exemple d’utilisation :
 
 Les interfaces de programmation se trouvent toutes dans LocalRunHelper.exe. Vous pouvez les utiliser pour intégrer les fonctionnalités du kit SDK U-SQL, et l’infrastructure de test C# pour mettre à l’échelle votre test local du script SQL-U. Dans cet article, je vais utiliser le projet de test unitaire C# standard pour montrer comment utiliser ces interfaces afin de tester un script U-SQL.
 
-### <a name="step-1-create-c-unit-test-project-and-configuration"></a>Étape 1 : Créer une configuration et un projet de test unitaire C#
+### <a name="step-1-create-c-unit-test-project-and-configuration"></a>Étape 1 : Créer une configuration et un projet de test unitaire C#
 
 - Créez un projet de test unitaire C# dans Fichier > Nouveau > Projet > Visual C# > Test > Projet de test unitaire.
 - Ajoutez LocalRunHelper.exe comme référence du projet. LocalRunHelper.exe se trouve dans \build\runtime\LocalRunHelper.exe, dans le package NuGet.
@@ -240,7 +240,7 @@ Les interfaces de programmation se trouvent toutes dans LocalRunHelper.exe. Vous
 
 - Veillez à copier tous les fichiers de dépendance sous NugetPackage\build\runtime\ dans le répertoire de travail qui se trouve généralement sous ProjectFolder\bin\x64\Debug.
 
-### <a name="step-2-create-u-sql-script-test-case"></a>Étape 2 : Créer des cas de test du script U-SQL
+### <a name="step-2-create-u-sql-script-test-case"></a>Étape 2 : Créer des cas de test du script U-SQL
 
 Voici l’exemple de code de test du script U-SQL. Pour le test, vous devez préparer les scripts, les fichiers d’entrée et les fichiers sortie attendus.
 
@@ -332,7 +332,7 @@ LocalRunHelper.exe fournit les interfaces de programmation pour la compilation, 
 
 public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
-|Paramètre|type|Description|
+|Paramètre|Type|Description|
 |---------|----|-----------|
 |messageOutput|System.IO.TextWriter|pour les messages de sortie, donner la valeur null pour utiliser la Console|
 

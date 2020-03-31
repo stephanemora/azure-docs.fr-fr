@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: spelluru
 ms.openlocfilehash: d17026dba26b3c1cb846d60967180c29563c425d
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74545585"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>Authentifier l’accès aux ressources Event Hubs avec des signatures d’accès partagé
@@ -63,7 +63,7 @@ SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
 
 Le jeton contient les valeurs non hachées afin que le destinataire puisse recalculer le hachage avec les mêmes paramètres, en vérifiant que l’émetteur est en possession d’une clé de signature valide.
 
-L’URI de ressource est l’URI complet de la ressource Service Bus à laquelle vous souhaitez accéder. Par exemple, `http://contoso.servicebus.windows.net/eventhubs/eh1` pour http://<namespace>.servicebus.windows.net/<entityPath> ou `sb://<namespace>.servicebus.windows.net/<entityPath>;`.
+L’URI de ressource est l’URI complet de la ressource Service Bus à laquelle vous souhaitez accéder. Par exemple, <namespace> pour http://<entityPath>.servicebus.windows.net/`sb://<namespace>.servicebus.windows.net/<entityPath>;` ou `http://contoso.servicebus.windows.net/eventhubs/eh1`.
 
 L’URI doit être encodée en pourcentage.
 
@@ -223,7 +223,7 @@ Par exemple, pour définir des règles d’autorisation limitées à l’envoi e
 Pour authentifier les applications back-end qui consomment des données générées par des producteurs Event hubs, l’authentification par jeton Event Hubs nécessite que les clients disposent des droits de **gestion** ou des privilèges d’**écoute** attribués à l’espace de noms Event hubs ou à l’instance ou la rubrique de hub d’événements. Les données sont consommées à partir de Event Hubs par le biais de groupes de consommateurs. Même si la stratégie SAS vous donne une étendue granulaire, cette étendue est définie uniquement au niveau de l’entité et non au niveau du consommateur. Cela signifie que les privilèges définis au niveau de l’espace de noms ou au niveau de la rubrique ou de l’instance du hub d’événements seront appliqués aux groupes de consommateurs de cette entité.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez les articles suivants :
+Voir les articles suivants :
 
 - [Autorisation avec des signatures d’accès partagé](authenticate-shared-access-signature.md)
 - [Autorisation avec le contrôle d’accès en fonction du rôle (RBAC)](authenticate-shared-access-signature.md)
@@ -233,5 +233,5 @@ Consultez les articles associés suivants :
 
 - [Authentifier les requêtes adressées à Azure Event Hubs à partir d’une application à l’aide d’Azure Active Directory](authenticate-application.md)
 - [Authentifier une identité managée avec Azure Active Directory pour accéder aux ressources Event Hubs](authenticate-managed-identity.md)
-- [Autoriser l’accès aux ressources Event Hubs avec Azure Active Directory](authorize-access-azure-active-directory.md)
+- [Autoriser l’accès aux ressources Event Hubs à l’aide d’Azure Active Directory](authorize-access-azure-active-directory.md)
 - [Authentifier l’accès aux ressources Event Hubs avec des signatures d’accès partagé](authorize-access-shared-access-signature.md)

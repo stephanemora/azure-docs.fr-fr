@@ -8,10 +8,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 12/16/2019
 ms.openlocfilehash: d61ca8fe7c6f5e7cc400714d7c31a0a7e50b8a88
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78402793"
 ---
 # <a name="deprecation-of-tls-10-and-11-in-iot-hub-and-device-provisioning-service"></a>Dépréciation de TLS 1.0 et 1.1 dans IoT Hub et le service de provisionnement des appareils

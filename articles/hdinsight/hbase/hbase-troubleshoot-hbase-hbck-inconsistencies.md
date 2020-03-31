@@ -8,10 +8,10 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/08/2019
 ms.openlocfilehash: fa02ac0dfe229f3e82d1c1c62d83ca06a81efca6
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75887323"
 ---
 # <a name="scenario-hbase-hbck-command-returns-inconsistencies-in-azure-hdinsight"></a>Scénario : la commande `hbase hbck` retourne des incohérences dans Azure HDInsight
@@ -22,7 +22,7 @@ Cet article décrit les éventuelles solutions à appliquer pour résoudre les p
 
 Région xxx sur HDFS, mais non listée dans `hbase:meta` ou déployée sur un serveur de région.
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 Varie.
 
@@ -45,7 +45,7 @@ Varie.
 
 Région XXX non déployée sur un RegionServer. Cela signifie que la région est dans `hbase:meta`, mais hors connexion.
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 Varie.
 
@@ -61,7 +61,7 @@ hbase hbck -ignorePreCheckPermission –fixAssignment
 
 ## <a name="issue-regions-have-the-same-startend-keys"></a>Problème : Les régions ont les mêmes clés de début/fin
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 Varie.
 
@@ -85,7 +85,7 @@ Dans ce scénario, vous devez fusionner RegionA et RegionC, définir RegionD ave
 
 Impossible de charger `.regioninfo` pour la région `/hbase/data/default/tablex/regiony`.
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 Cela est probablement dû à la suppression partielle de la région lorsque RegionServer se bloque ou la machine virtuelle redémarre. Actuellement, le Stockage Azure est un système de fichiers d’objets blob plat et certaines opérations sur les fichiers ne sont pas atomiques.
 

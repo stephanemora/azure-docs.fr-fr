@@ -3,11 +3,11 @@ title: FAQ Azure Resource Health
 description: Vue d’ensemble d’Azure Resource Health
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 9f626dc4366cbdd9215704de97bb03fad19422eb
-ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
+ms.openlocfilehash: 5a15ded1c279e700fb71e5ea7aa866e5afc29f8a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75912780"
 ---
 # <a name="azure-resource-health-faq"></a>FAQ Azure Resource Health
@@ -46,7 +46,7 @@ Oui, lorsqu’une ressource n’est pas disponible, Resource Health identifie l�
 Sur le portail, les actions initiées par l’utilisateur sont affichées à l’aide d’une icône de notification bleue, tandis que les événements planifiés et non planifiés sont affichés à l’aide d’une icône d’avertissement rouge. Pour plus d’informations, voir [Vue d’ensemble d’Azure Resource Health](Resource-health-overview.md).  
 
 ## <a name="can-i-integrate-resource-health-with-my-monitoring-tools"></a>Puis-je intégrer Resource Health à mes outils d’analyse ?
-Resource Health propose un [support](resource-health-alert-arm-template-guide.md) pour les alertes basées sur le journal d’activité. Les alertes du journal d'activité utilisent des [groupes d'actions](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) pour avertir les utilisateurs qu'une alerte a été déclenchée. Les groupes d'actions prennent en charge différents canaux de notification (e-mail, SMS, webhook, actions de gestion des services informatiques, etc.).
+Resource Health propose un [support (préversion)](resource-health-alert-arm-template-guide.md) pour les alertes basées sur le journal d'activité. Les alertes du journal d'activité utilisent des [groupes d'actions](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) pour avertir les utilisateurs qu'une alerte a été déclenchée. Les groupes d'actions prennent en charge différents canaux de notification (e-mail, SMS, webhook, actions de gestion des services informatiques, etc.).
 
 ## <a name="where-do-i-find-resource-health"></a>Où trouver Resource Health ?
 Une fois connecté au portail Azure, vous pouvez accéder à Resource Health de plusieurs manières :

@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/16/2019
 ms.openlocfilehash: 916c54c3739d1164e4e9c1db67aa1f4e0dbd0c6c
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76157658"
 ---
 # <a name="migrate-azure-hdinsight-36-apache-storm-to-hdinsight-40-apache-spark"></a>Migrer Azure HDInsight 3.6 Apache Storm vers HDInsight 4.0 Apache Spark
@@ -40,7 +40,7 @@ Apache Storm peut fournir différents niveaux de traitement de message garanti.
 |**Garantie de traitement des événements**|Au moins une fois <br> Une seule fois (Trident) |[Une seule fois](https://spark.apache.org/docs/latest/streaming-programming-guide.html)|[Une seule fois](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)|
 |**Modèle de traitement**|Temps réel <br> Micro-Batch  (Trident) |Micro-Batch |Micro-Batch |
 |**Prise en charge de l’heure de l’événement**|[Oui](https://storm.apache.org/releases/2.0.0/Windowing.html)|Non|[Oui](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)|
-|**Langages**|Java, etc.|Scala, Java, Python|Python, R, Scala, Java, SQL|
+|**Langues**|Java, etc.|Scala, Java, Python|Python, R, Scala, Java, SQL|
 
 ### <a name="spark-streaming-vs-spark-structured-streaming"></a>Spark Streaming vs Spark Structured Streaming
 
@@ -48,7 +48,7 @@ Spark Structured Streaming remplace Spark Streaming (DStreams). Structured Strea
 
 ## <a name="streaming-single-event-processing-vs-micro-batch-processing"></a>Traitement en streaming (événement unique) vs traitement Micro-Batch
 
-Storm fournit un modèle qui traite chaque événement unique. Cela signifie que tous les enregistrements entrants sont traités dès leur arrivée. Les applications Spark Streaming doivent attendre quelques fractions de seconde avant de pouvoir collecter chaque micro-batch d’événements et envoyer ce lot pour traitement. En revanche, une application basée sur les événements traite chaque événement immédiatement. La latence de Spark Streaming est généralement inférieure à quelques secondes. Les avantages de l’approche par micro-batch sont un traitement plus efficace des données et des calculs d’agrégation plus simples.
+Storm fournit un modèle qui traite chaque événement unique. Cela signifie que tous les enregistrements entrants sont traités dès leur arrivée. Les applications Spark Streaming doivent attendre quelques fractions de seconde avant de pouvoir collecter chaque micro-batch d’événements et envoyer ce lot pour traitement. En revanche, une application basée sur les événements traite chaque événement immédiatement. La latence de Spark Streaming est généralement inférieure à quelques secondes. Les avantages de l’approche par micro-lots sont un traitement plus efficace des données et des calculs d’agrégation plus simples.
 
 > [!div class="mx-imgBorder"]
 > ![streaming et traitement micro-batch](./media/migrate-storm-to-spark/streaming-and-micro-batch-processing.png)

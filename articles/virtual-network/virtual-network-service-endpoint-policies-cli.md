@@ -18,15 +18,15 @@ ms.date: 02/03/2020
 ms.author: rdhillon
 ms.custom: ''
 ms.openlocfilehash: e01af052a936403162115965f2dc5b3ad46dd9cf
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78271184"
 ---
 # <a name="manage-data-exfiltration-to-azure-storage-accounts-with-virtual-network-service-endpoint-policies-using-the-azure-cli"></a>Gérer l’exfiltration de données vers des comptes Stockage Azure avec des stratégies de points de terminaison de service de réseau virtuel à l’aide d’Azure CLI
 
-Les stratégies de points de terminaison de service de réseau virtuel vous permettent d’appliquer un contrôle d’accès sur des comptes Stockage Azure depuis un réseau virtuel sur des points de terminaison de service. Il s’agit d’un stratégie clé pour sécuriser vos charges de travail, gérer les comptes de stockage ainsi que les destinations d’exfiltration de données autorisés.
+Les stratégies de points de terminaison de service de réseau virtuel vous permettent d’appliquer un contrôle d’accès sur des comptes Stockage Azure depuis un réseau virtuel sur des points de terminaison de service. Il s’agit d’une stratégie clé pour sécuriser vos charges de travail, gérer les comptes de stockage autorisés et gérer les destinations d’exfiltration de données autorisées.
 Dans cet article, vous apprendrez comment :
 
 * Créer un réseau virtuel et ajouter un sous-réseau.
@@ -363,4 +363,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez appliqué une stratégie de point de terminaison de service sur un point de terminaison de service de réseau virtuel Azure au stockage Azure. Vous avez créé des compte de stockage Azure et vous avez limité l’accès réseau à certains comptes de stockage (et refusé l’accès à d’autres) à partir d’un sous-réseau de réseau virtuel. Pour en savoir plus sur les stratégies de point de terminaison de service, consultez [Vue d’ensemble des stratégies de points de terminaison de service](virtual-network-service-endpoint-policies-overview.md).
+Dans le cadre de cet article, vous avez appliqué une stratégie de point de terminaison de service sur un point de terminaison de service de réseau virtuel Azure au stockage Azure. Vous avez créé des comptes de stockage Azure et vous avez limité l’accès réseau à certains comptes de stockage (et refusé l’accès à d’autres) à partir d’un sous-réseau de réseau virtuel. Pour en savoir plus sur les stratégies de point de terminaison de service, consultez [Vue d’ensemble des stratégies de points de terminaison de service](virtual-network-service-endpoint-policies-overview.md).

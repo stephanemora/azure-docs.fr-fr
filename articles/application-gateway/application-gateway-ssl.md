@@ -8,19 +8,19 @@ ms.topic: article
 ms.date: 11/13/2019
 ms.author: victorh
 ms.openlocfilehash: c456a0856adb0d36349b5f96ba0ab8bab3eec5c9
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74047916"
 ---
 # <a name="configure-an-application-gateway-for-ssl-offload-by-using-the-classic-deployment-model"></a>Configurer une passerelle d’application pour le déchargement SSL en utilisant le modèle de déploiement classique
 
 > [!div class="op_single_selector"]
-> * [Portail Azure](application-gateway-ssl-portal.md)
+> * [Azure portal](application-gateway-ssl-portal.md)
 > * [Commandes PowerShell pour Azure Resource Manager](application-gateway-ssl-arm.md)
 > * [Azure Classic PowerShell](application-gateway-ssl.md)
-> * [Interface de ligne de commande Azure](application-gateway-ssl-cli.md)
+> * [Azure CLI](application-gateway-ssl-cli.md)
 
 Il est possible de configurer Azure Application Gateway de façon à mettre fin à la session SSL (Secure Sockets Layer) sur la passerelle pour éviter les tâches de déchiffrement SSL coûteuses au niveau de la batterie de serveurs web. Le déchargement SSL simplifie aussi la configuration de serveur principal et la gestion de l’application web.
 
@@ -92,17 +92,17 @@ La configuration d'une passerelle Application Gateway se compose de plusieurs va
 
 Les valeurs sont :
 
-* **Pool de serveurs principaux** : Liste des adresses IP des serveurs principaux. Les adresses IP répertoriées doivent appartenir au sous-réseau du réseau virtuel ou doivent correspondre à une adresse IP/VIP publique.
-* **Paramètres du pool de serveurs principaux** : Chaque pool dispose de paramètres tels que le port, le protocole et l’affinité en fonction des cookies. Ces paramètres sont liés à un pool et sont appliqués à tous les serveurs du pool.
-* **Port frontal** : Il s’agit du port public ouvert sur la passerelle d’application. Le trafic atteint ce port, puis il est redirigé vers l’un des serveurs principaux.
-* **Écouteur** : L’écouteur dispose d’un port frontal, d’un protocole (HTTP ou HTTPS ; valeurs sensibles à la casse) et du nom du certificat SSL (en cas de configuration du déchargement SSL).
-* **Règle** : La règle lie l’écouteur et le pool de serveurs principaux et définit le pool de serveurs principaux vers lequel le trafic doit être dirigé quand il atteint un écouteur spécifique. Actuellement, seule la règle *de base* est prise en charge. La règle de *base* est la distribution de charge par tourniquet.
+* **Pool de serveurs principaux :** la liste des adresses IP des serveurs principaux. Les adresses IP répertoriées doivent appartenir au sous-réseau du réseau virtuel ou doivent correspondre à une adresse IP/VIP publique.
+* **Paramètres du pool de serveurs principaux** : chaque pool comporte des paramètres tels que le port, le protocole et une affinité basée sur des cookies. Ces paramètres sont liés à un pool et sont appliqués à tous les serveurs du pool.
+* **Port frontal** : il s’agit du port public ouvert sur la passerelle d’application. Le trafic atteint ce port, puis il est redirigé vers l’un des serveurs principaux.
+* **Écouteur** : l’écouteur a un port frontal, un protocole (Http ou Https ; avec respect de la casse) et le nom du certificat SSL (en cas de configuration du déchargement SSL).
+* **Règle** : la règle lie l’écouteur et le pool de serveurs principaux et définit vers quel pool de serveurs principaux le trafic doit être dirigé quand il atteint un écouteur spécifique. Actuellement, seule la règle *de base* est prise en charge. La règle de *base* est la distribution de charge par tourniquet.
 
 **Notes de configuration supplémentaires :**
 
 Pour configurer des certificats SSL, le protocole dans **HttpListener** doit passer à **Https** (sensible à la casse). Ajoutez l’élément **SslCert** à **HttpListener** avec la valeur définie sur le même nom que celui utilisé dans la section [Charger des certificats SSL](#upload-ssl-certificates). Le port du serveur frontal doit être mis à jour sur **443**.
 
-**Pour activer l’affinité en fonction des cookies** : Vous pouvez configurer une passerelle d’application pour garantir qu’une requête issue d’une session client est toujours dirigée vers la même machine virtuelle dans la batterie de serveurs Web. Pour ce faire, insérez un cookie de session permettant à la passerelle de diriger le trafic de manière appropriée. Pour activer l’affinité basée sur les cookies, définissez **CookieBasedAffinity** sur **Activé** dans l’élément **BackendHttpSettings**.
+**Pour activer l’affinité basée sur les cookies** : vous pouvez configurer une passerelle Application Gateway pour garantir qu’une requête d’une session client est toujours dirigée vers la même machine virtuelle dans la batterie de serveurs web. Pour ce faire, insérez un cookie de session permettant à la passerelle de diriger le trafic de manière appropriée. Pour activer l’affinité basée sur les cookies, définissez **CookieBasedAffinity** sur **Activé** dans l’élément **BackendHttpSettings**.
 
 Vous pouvez construire votre configuration en créant un objet de configuration ou en utilisant un fichier XML de configuration.
 Pour construire votre configuration à l’aide d’un fichier XML de configuration, entrez l’exemple suivant :

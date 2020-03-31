@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 79c24eb078cc3de764ecc1c814e5b8772777eab6
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78199493"
 ---
 # <a name="use-playready-andor-widevine-dynamic-common-encryption"></a>Utilisation du chiffrement commun dynamique PlayReady et/ou Widevine
@@ -98,17 +98,17 @@ Avec le chiffrement dynamique, vous créez un élément multimédia qui contient
 
 Pour savoir comment encoder, consultez [Encodage d’un élément multimédia à l’aide de Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md).
 
-## <a id="create_contentkey"></a>Créer une clé de contenu et l’associer à l’élément multimédia encodé
+## <a name="create-a-content-key-and-associate-it-with-the-encoded-asset"></a><a id="create_contentkey"></a>Créer une clé de contenu et l’associer à l’élément multimédia encodé
 Dans Media Services, la clé de contenu contient la clé que vous souhaitez utiliser pour chiffrer un élément multimédia.
 
 Pour plus d’informations, consultez [Création d’une clé de contenu](media-services-dotnet-create-contentkey.md).
 
-## <a id="configure_key_auth_policy"></a>Configurer la stratégie d’autorisation de la clé de contenu
+## <a name="configure-the-content-keys-authorization-policy"></a><a id="configure_key_auth_policy"></a>Configurer la stratégie d’autorisation de la clé de contenu
 Media Services prend en charge plusieurs méthodes d’authentification des utilisateurs effectuant des demandes de clé. Vous devez configurer la stratégie d’autorisation de clé de contenu. Le client (lecteur) doit répondre à la stratégie avant que la clé de contenu ne lui soit remise. La stratégie d’autorisation de la clé de contenu peut comporter une ou plusieurs restrictions d’autorisation, ouvertes ou à jeton.
 
 Pour plus d’informations, consultez la section [Configuration de la stratégie d’autorisation de clé de contenu](media-services-dotnet-configure-content-key-auth-policy.md#playready-dynamic-encryption).
 
-## <a id="configure_asset_delivery_policy"></a>Configurer la stratégie de distribution d’un élément multimédia
+## <a name="configure-an-asset-delivery-policy"></a><a id="configure_asset_delivery_policy"></a>Configurer la stratégie de distribution d’un élément multimédia
 Configurez la stratégie de remise pour votre élément multimédia. Certains éléments inclus par la configuration de la stratégie de distribution de l'élément multimédia :
 
 * L’URL d’acquisition de licence PlayReady.
@@ -117,7 +117,7 @@ Configurez la stratégie de remise pour votre élément multimédia. Certains é
 
 Pour plus d'informations, consultez la section [Configuration de la stratégie de distribution d’un élément multimédia](media-services-dotnet-configure-asset-delivery-policy.md).
 
-## <a id="create_locator"></a>Créer un localisateur de diffusion en continu à la demande afin d’obtenir une URL de diffusion en continu
+## <a name="create-an-ondemand-streaming-locator-to-get-a-streaming-url"></a><a id="create_locator"></a>Créer un localisateur de diffusion en continu à la demande afin d’obtenir une URL de diffusion en continu
 Vous devrez fournir aux utilisateurs l’URL de diffusion en continu pour Smooth Streaming, DASH ou HLS.
 
 > [!NOTE]

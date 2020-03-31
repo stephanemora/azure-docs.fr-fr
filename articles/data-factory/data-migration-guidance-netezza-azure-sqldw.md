@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 9/03/2019
 ms.openlocfilehash: 80c9929f37b4890387a7625f04db6ce3e37f0cdd
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74922117"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-netezza-server-to-azure"></a>Utiliser Azure Data Factory pour migrer des données d’un serveur Netezza local vers Azure 
@@ -41,7 +41,7 @@ Le diagramme précédent peut être interprété comme suit :
 
 - Une seule activité de copie peut tirer parti de plusieurs ressources de calcul évolutives. Quand vous utilisez Azure Integration Runtime, vous pouvez spécifier [jusqu’à 256 DIU](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#data-integration-units) pour chaque activité de copie de manière serverless. Avec un runtime d’intégration auto-hébergé (IR auto-hébergé), vous pouvez effectuer un scale-up manuel de votre machine ou un scale-out vers plusieurs machines ([jusqu’à quatre nœuds](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)), de sorte qu’une activité de copie unique distribue sa partition sur tous les nœuds. 
 
-- Une activité de copie unique lit et écrit dans le magasin de données à l’aide de plusieurs conversations. 
+- Une activité de copie unique lit et écrit dans le magasin de données à l'aide de plusieurs conversations. 
 
 - Le flux de contrôle Azure Data Factory peut démarrer plusieurs activités de copie en parallèle. Par exemple, il peut les démarrer à l’aide d’une [boucle For Each](https://docs.microsoft.com/azure/data-factory/control-flow-for-each-activity). 
 
@@ -97,19 +97,19 @@ Le diagramme précédent peut être interprété comme suit :
 
 - Pour vous authentifier auprès du stockage d’objets blob Azure : 
 
-   - Nous vous recommandons vivement d’utiliser des [identités managées pour les ressources Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#managed-identity). Basées sur une identité Azure Data Factory automatiquement managée dans Azure Active Directory (Azure AD), les identités managées vous permettent de configurer des pipelines sans avoir à fournir d’informations d’identification dans la définition du service lié.  
+   - Nous vous recommandons vivement d'utiliser des [identités managées pour les ressources Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#managed-identity). Basées sur une identité Azure Data Factory automatiquement managée dans Azure Active Directory (Azure AD), les identités managées vous permettent de configurer des pipelines sans avoir à fournir d’informations d’identification dans la définition du service lié.  
 
    - Vous pouvez également vous authentifier auprès de Stockage Blob Azure à l’aide du [principal de service](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#service-principal-authentication), d’une [signature d’accès partagé](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#shared-access-signature-authentication) ou d’une [clé de compte de stockage](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#account-key-authentication). 
 
 - Pour vous authentifier auprès d’Azure Data Lake Storage Gen2 : 
 
-   - Nous vous recommandons vivement d’utiliser des [identités managées pour les ressources Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#managed-identity).
+   - Nous vous recommandons vivement d'utiliser des [identités managées pour les ressources Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#managed-identity).
    
    - Vous pouvez également utiliser le [principal de service](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication) ou une [clé de compte de stockage](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#account-key-authentication). 
 
 - Pour s’authentifier sur Azure SQL Data Warehouse :
 
-   - Nous vous recommandons vivement d’utiliser des [identités managées pour les ressources Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#managed-identity).
+   - Nous vous recommandons vivement d'utiliser des [identités managées pour les ressources Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#managed-identity).
    
    - Vous pouvez également utiliser le [principal de service](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#service-principal-authentication) ou l’[authentification SQL](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#sql-authentication).
 

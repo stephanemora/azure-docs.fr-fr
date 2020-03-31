@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 07/12/2017
 ms.author: alkohli
 ms.openlocfilehash: b5490c4e79ee1458b498f539c0db2cc189fce7f7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60723304"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-device"></a>Utiliser le service StorSimple Device Manager pour gérer votre appareil StorSimple
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Cet article décrit l’interface du service StorSimple Device Manager, y compris la procédure pour s’y connecter et les options disponibles, et offre des liens vers les flux de travail spécifiques exécutables via cette interface utilisateur. Ce guide s’applique à la fois aux appareils physiques StorSimple et à StorSimple Cloud Appliance.
 
@@ -55,7 +55,7 @@ Pour plus d'informations sur chaque flux de travail, cliquez sur la procédure a
 | Créer un service</br>Supprimer un service</br>Obtenir la clé d’inscription au service</br>Régénération d’une clé d’inscription de service |[Déployer un service StorSimple Device Manager](storsimple-8000-manage-service.md) |
 | Afficher les journaux d’activité |[Utiliser le panneau de synthèse du service StorSimple Device Manager](storsimple-8000-service-dashboard.md) |
 | Modifier la clé de chiffrement des données de service</br>Affichage des journaux d’activité des opérations |[Utilisation du tableau de bord du service StorSimple Device Manager](storsimple-8000-service-dashboard.md) |
-| Désactiver un appareil</br>Suppression d’un appareil |[Désactivation ou suppression d’un appareil](storsimple-8000-deactivate-and-delete-device.md) |
+| Désactiver un appareil</br>Supprimer une unité |[Désactivation ou suppression d’un appareil](storsimple-8000-deactivate-and-delete-device.md) |
 | En savoir plus sur le basculement entre appareils et la récupération d’urgence</br>Basculement vers un appareil physique</br>Basculement vers un appareil virtuel</br>Continuité d’activité et récupération d’urgence (Business Continuity Disaster Recovery - BCDR) |[Basculement et récupération d’urgence pour votre appareil StorSimple](storsimple-8000-device-failover-disaster-recovery.md) |
 | Liste des sauvegardes d’un volume</br>Sélectionner un jeu de sauvegarde</br>Supprimer un jeu de sauvegarde |[Gestion des sauvegardes](storsimple-8000-manage-backup-catalog.md) |
 | Clonage d’un volume |[Clonage d’un volume](storsimple-8000-clone-volume-u2.md) |

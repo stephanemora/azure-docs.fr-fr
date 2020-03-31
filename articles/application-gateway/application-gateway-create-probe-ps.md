@@ -9,16 +9,16 @@ ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
 ms.openlocfilehash: 1fef24f4065ca6fc749f35a07143487e049ee6ea
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74075270"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-by-using-powershell-for-azure-resource-manager"></a>Création d'une sonde personnalisée pour Azure Application Gateway avec PowerShell pour Azure Resource Manager
 
 > [!div class="op_single_selector"]
-> * [Portail Azure](application-gateway-create-probe-portal.md)
+> * [Azure portal](application-gateway-create-probe-portal.md)
 > * [Commandes PowerShell pour Azure Resource Manager](application-gateway-create-probe-ps.md)
 > * [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
 
@@ -94,7 +94,7 @@ Avant de créer la passerelle Application Gateway, vous devez installer tous les
 | **Sonde d’intégrité** | Sonde personnalisée utilisée pour surveiller l’état des membres du pool back-end.|
 | **Paramètres HTTP** | Collection de paramètres comprenant le port, le protocole, l’affinité basée sur les cookies, la sonde et le délai d’expiration.  Ces paramètres déterminent la façon dont le trafic est acheminé vers les membres du pool back-end.|
 | **Port frontal** | Port sur lequel la passerelle d’application écoute le trafic.|
-| **Écouteur** | Combinaison d’un protocole, d’une configuration d’adresses IP frontales et d’un port frontal. C’est ce qui écoute les demandes entrantes.
+| **Port d'écoute** | Combinaison d’un protocole, d’une configuration d’adresses IP frontales et d’un port frontal. C’est ce qui écoute les demandes entrantes.
 |**Règle**| Route le trafic vers le back-end approprié en fonction des paramètres HTTP.|
 
 ```powershell
@@ -197,5 +197,5 @@ DnsSettings              : {
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Apprenez à configurer le déchargement SSL en consultant : [Configurer le déchargement SSL](application-gateway-ssl-arm.md)
+Apprenez à configurer le déchargement SSL en consultant [Configurer le déchargement SSL](application-gateway-ssl-arm.md)
 

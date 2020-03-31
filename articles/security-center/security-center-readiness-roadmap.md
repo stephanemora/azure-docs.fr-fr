@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 04/03/2018
 ms.author: yurid
 ms.openlocfilehash: 4603240a76ec72223b88853c63ed11152707201c
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76281289"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Feuille de route de préparation de Azure Security Center
@@ -105,7 +105,7 @@ Articles
 
 * [Atelier pratique du Security Center](https://www.microsoft.com/handsonlabs/SelfPacedLabs/?storyGuid=78871abf-6f35-4aa0-840f-d801f5cdbd72)
 * [Playbook de recommandations du pare-feu d’applications web (WAF) dans Security Center](https://gallery.technet.microsoft.com/ASC-Playbook-Protect-38bd47ff)
-* [Playbook Azure Security Center : alertes de sécurité](https://gallery.technet.microsoft.com/Azure-Security-Center-f621a046)
+* [Playbook Azure Security Center : Alertes de sécurité](https://gallery.technet.microsoft.com/Azure-Security-Center-f621a046)
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 * [Page de documentation de Security Center](https://docs.microsoft.com/azure/security-center/)

@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.openlocfilehash: a05bcdef2b7456fbab852e9728c156e57f847f57
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71123564"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Rendre opérationnel un cluster ML Services sur Azure HDInsight
@@ -21,7 +21,7 @@ Après avoir utilisé un cluster ML Services dans HDInsight pour effectuer votr
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un cluster ML Services sur HDInsight. Consultez [Création clusters Apache Hadoop à l’aide du portail Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) et sélectionnez **ML Services** pour le **Type de cluster**.
+* Un cluster ML Services sur HDInsight. Consultez [Création clusters Apache Hadoop à l’aide du Portail Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) et sélectionnez **ML Services** pour le **Type de cluster**.
 
 * Un client Secure Shell (SSH) : un client SSH est utilisé pour se connecter à distance au cluster HDInsight et exécuter des commandes directement sur celui-ci. Pour en savoir plus, voir [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -136,9 +136,9 @@ Une fois votre session SSH active, le trafic à partir du port 12800 de votre m
 
 Pour mettre à l’échelle les nœuds de calcul, vous devez d’abord désactiver les nœuds Worker, puis configurer les nœuds de calcul sur les nœuds de travail désactivés.
 
-### <a name="step-1-decommission-the-worker-nodes"></a>Étape 1 : Désactiver les nœuds Worker
+### <a name="step-1-decommission-the-worker-nodes"></a>Étape 1 : Désactiver les nœuds Worker
 
-Le cluster ML Services n’est pas géré via [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html). Si les nœuds Worker ne sont pas désactivés, le gestionnaire de ressources YARN ne fonctionne pas comme prévu, car il n’a pas connaissance des ressources prises en charge par le serveur. Afin d’éviter ce problème, nous vous recommandons de désactiver les nœuds Worker avant d’augmenter la taille des nœuds de calcul.
+Le cluster ML Services n’est pas géré via [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html). Si les nœuds Worker ne sont pas désactivés, le gestionnaire de ressources YARN ne fonctionne pas comme prévu, car il n’a pas connaissance des ressources prises en charge par le serveur. Afin d’éviter ce problème, nous vous recommandons de désactiver les nœuds Worker avant d’effectuer un scale-out des nœuds de calcul.
 
 Pour désactiver les nœuds Worker, procédez comme suit :
 
@@ -158,7 +158,7 @@ Pour désactiver les nœuds Worker, procédez comme suit :
 * Désélectionnez les nœuds Worker et sélectionnez les nœuds principaux.
 * Sélectionnez **Actions** > **Hôtes sélectionnés** > **Hôtes** > **Redémarrer tous les composants**.
 
-### <a name="step-2-configure-compute-nodes-on-each-decommissioned-worker-nodes"></a>Étape 2 : Configurer les nœuds de calcul sur chaque nœud Worker désactivé
+### <a name="step-2-configure-compute-nodes-on-each-decommissioned-worker-nodes"></a>Étape 2 : Configurer les nœuds de calcul sur chaque nœud Worker désactivé
 
 1. Utilisez SSH dans chaque nœud Worker désactivé.
 

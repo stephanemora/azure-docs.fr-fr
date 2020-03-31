@@ -14,10 +14,10 @@ ms.custom: seodec18
 ms.date: 01/16/2020
 ms.author: shvija
 ms.openlocfilehash: de5b95bd10bf72f60ba5d63c4b3a799556fcce33
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76309776"
 ---
 # <a name="troubleshooting-guide-for-azure-event-hubs"></a>Guide de dépannage pour Azure Event Hubs
@@ -83,11 +83,11 @@ Cette erreur peut se produire pour deux raisons :
 
 1. La charge n’est pas répartie de manière égale entre toutes les partitions du hub d’événements et une partition atteint la limite d’unité de débit locale.
     
-    Résolution : Passez en revue la stratégie de distribution de partition ou essayez [EventHubClient.Send(eventDataWithOutPartitionKey)](/dotnet/api/microsoft.servicebus.messaging.eventhubclient).
+    Résolution : revoir la stratégie de distribution de partition ou essayer [EventHubClient.Send(eventDataWithOutPartitionKey)](/dotnet/api/microsoft.servicebus.messaging.eventhubclient).
 
 2. L’espace de noms Event Hubs n’a pas suffisamment d’unités de débit (pour le vérifier, consultez l’écran **Métriques** dans la fenêtre de l’espace de noms Event Hubs du [portail Azure](https://portal.azure.com)). Le portail affiche des informations agrégées (1 minute), mais nous mesurons le débit en temps réel. Cette valeur n’est donc qu’une estimation.
 
-    Résolution : Augmentez les unités de débit sur l’espace de noms. Vous pouvez réaliser cette opération sur le portail, dans la fenêtre **Mise à l’échelle** de l’écran de l’espace de noms Event Hubs. Vous pouvez également utiliser la [majoration automatique](event-hubs-auto-inflate.md).
+    Résolution : augmenter les unités de débit sur l’espace de noms. Vous pouvez réaliser cette opération sur le portail, dans la fenêtre **Mise à l’échelle** de l’écran de l’espace de noms Event Hubs. Vous pouvez également utiliser la [majoration automatique](event-hubs-auto-inflate.md).
 
 #### <a name="error-code-50001"></a>Code d’erreur 50001
 
@@ -103,7 +103,7 @@ ExceptionId: 00000000000-00000-0000-a48a-9c908fbe84f6-ServerBusyException: The r
 ## <a name="connectivity-certificate-or-timeout-issues"></a>Problèmes de connectivité, de certificat ou de délai d’expiration
 Aidez-vous des étapes suivantes pour résoudre les problèmes de connectivité, de certificat ou de délai d’expiration pour tous les services sous *.servicebus.windows.net. 
 
-- Accédez à `https://<yournamespacename>.servicebus.windows.net/` ou utilisez [wget](https://www.gnu.org/software/wget/). Cet outil facilite les vérifications quand vous rencontrez des problèmes avec le filtrage des adresses IP, le réseau virtuel ou les chaînes de certificats (problème fréquent avec le SDK Java).
+- Accédez à [ ou utilisez ](https://www.gnu.org/software/wget/)wget`https://<yournamespacename>.servicebus.windows.net/`. Cet outil facilite les vérifications quand vous rencontrez des problèmes avec le filtrage des adresses IP, le réseau virtuel ou les chaînes de certificats (problème fréquent avec le SDK Java).
 
     Voici un exemple de message de réussite :
     
@@ -132,7 +132,7 @@ Aidez-vous des étapes suivantes pour résoudre les problèmes de connectivité,
     ```shell
     telnet <yournamespacename>.servicebus.windows.net 5671
     ```
-- Si vous constatez des problèmes de connectivité intermittents, exécutez la commande suivante pour détecter les paquets supprimés. Cette commande essaiera d’établir 25 connexions TCP différentes toutes les une seconde avec le service. Ensuite, vous pouvez vérifier le nombre d’entre elles ayant réussi ou échoué, ainsi que la latence de connexion TCP. Vous pouvez télécharger l’outil `psping` à partir d’[ici](/sysinternals/downloads/psping).
+- Si vous constatez des problèmes de connectivité intermittents, exécutez la commande suivante pour détecter les paquets supprimés. Cette commande essaiera d’établir 25 connexions TCP différentes toutes les 1 seconde avec le service. Ensuite, vous pouvez vérifier le nombre d’entre elles ayant réussi ou échoué, ainsi que la latence de connexion TCP. Vous pouvez télécharger l’outil `psping` à partir d’[ici](/sysinternals/downloads/psping).
 
     ```shell
     .\psping.exe -n 25 -i 1 -q <yournamespacename>.servicebus.windows.net:5671 -nobanner     

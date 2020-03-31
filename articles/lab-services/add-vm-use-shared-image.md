@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/02/2019
 ms.author: spelluru
 ms.openlocfilehash: c13b2c3d00a0ab0af0f7785feae645d907ffdaa3
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68775785"
 ---
 # <a name="add-a-vm-using-an-image-from-the-attached-shared-image-gallery"></a>Ajouter une machine virtuelle à l'aide d'une image de la galerie d'images partagées jointe

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: a64a9ce5e080308674893273e90a0e83686e339e
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73795509"
 ---
 # <a name="troubleshoot-common-questions-or-issues-with-ingress-controller"></a>Résoudre les problèmes courants liés à Ingress Controller
@@ -228,7 +228,7 @@ Les éléments suivants doivent être en place pour que AGIC fonctionne comme pr
   - Dans votre navigateur à l’aide de l’[interface utilisateur web de Kubernetes (tableau de bord)](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/).
 
 
-## <a name="logging-levels"></a>Niveau de journalisation
+## <a name="logging-levels"></a>Niveaux de journalisation
 
 AGIC a 3 niveaux de journalisation. Le niveau 1 est celui par défaut et affiche le nombre minimal de lignes de journal.
 Le niveau 5 affiche, en revanche, tous les journaux, notamment le contenu assaini de la configuration appliquée à ARM.
@@ -240,7 +240,7 @@ La communauté Kubernetes a établi 9 niveaux de journalisation pour l’outil 
 |-----------|-------------|
 |  1        | Niveau de journalisation par défaut ; affiche les détails, les avertissements et les erreurs de démarrage |
 |  3        | Informations étendues sur les événements et les modifications ; listes d’objets créés |
-|  5\.        | Journalise les objets marshalés ; affiche la configuration JSON expurgée appliquée à ARM |
+|  5        | Journalise les objets marshalés ; affiche la configuration JSON expurgée appliquée à ARM |
 
 
 Les niveaux de détail sont ajustables via la variable `verbosityLevel` dans le fichier [helm-config.yaml](#sample-helm-config-file). Augmentez le niveau de détail à `5` pour que la configuration JSON soit envoyée à [ARM](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) :

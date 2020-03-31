@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 11/09/2018
 ms.author: edprice
 ms.openlocfilehash: 98e912894a4d93a057a2f6a2153d0690deaed250
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78968895"
 ---
 # <a name="deploy-ibm-db2-purescale-on-azure"></a>Déployer IBM DB2 pureScale sur Azure
@@ -48,7 +48,7 @@ Le script deploy.sh crée et configure les ressources Azure pour cette architect
 
 -   Crée une machine virtuelle Windows à utiliser pour le test, mais n'installe rien sur celle-ci.
 
-Ensuite, les scripts de déploiement configurent un réseau de zone de stockage virtuel (vSAN) iSCSI pour le stockage partagé sur Azure. Dans cet exemple, iSCSI se connecte au cluster de stockage partagé. Dans la solution client d'origine, GlusterFS était utilisé. Toutefois, IBM ne prend plus en charge cette approche. Pour continuer à bénéficier de la prise en charge d'IBM, vous devez utiliser un système de fichiers compatible iSCSI pris en charge. Les espaces de stockage direct sont proposés en option par Microsoft.
+Ensuite, les scripts de déploiement configurent un réseau de zone de stockage virtuel (vSAN) iSCSI pour le stockage partagé sur Azure. Dans cet exemple, iSCSI se connecte au cluster de stockage partagé. Dans la solution client d'origine, GlusterFS était utilisé. Toutefois, IBM ne prend plus en charge cette approche. Pour continuer à bénéficier de la prise en charge d’IBM, vous devez utiliser un système de fichiers compatible iSCSI pris en charge. Les espaces de stockage direct sont proposés en option par Microsoft.
 
 Cette solution vous donne également la possibilité d’installer les cibles iSCSI sous la forme d’un nœud Windows unique. iSCSI fournit une interface de stockage de bloc partagé sur TCP/IP qui permet à la procédure d’installation deDB2 pureScale d’utiliser une interface d’appareil pour se connecter à un stockage partagé.
 

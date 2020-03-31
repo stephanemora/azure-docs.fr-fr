@@ -6,10 +6,10 @@ ms.date: 01/17/2020
 author: dkkapur
 ms.author: dekapur
 ms.openlocfilehash: adad0ddfc78530b3a3a7c139d9a95ec4790c8053
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76934148"
 ---
 # <a name="deploy-on-dedicated-hosts"></a>Déployer sur des hôtes dédiés
@@ -18,7 +18,7 @@ ms.locfileid: "76934148"
 
 La référence SKU dédiée est appropriée pour les charges de travail de conteneur qui requièrent l’isolation de la charge de travail du point de vue du serveur physique.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * La limite par défaut d’un abonnement pour utiliser la référence SKU dédiée est 0. Si vous souhaitez utiliser cette référence SKU pour vos déploiements de conteneur de production, créez une [demande de support Azure][azure-support] afin d'augmenter la limite.
 

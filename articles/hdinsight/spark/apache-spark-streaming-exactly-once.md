@@ -9,19 +9,19 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.openlocfilehash: ee4f9b84e822cb370e5fe3d55fcceb9c8a9f2ab9
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74228973"
 ---
 # <a name="create-apache-spark-streaming-jobs-with-exactly-once-event-processing"></a>Créer des tâches Apache Spark Streaming avec traitement unique des événements
 
 Les applications de traitement de flux adoptent différentes approches quant à la façon dont elles gèrent le retraitement des messages après une panne dans le système :
 
-* Au moins une fois : chaque message est incontestablement traité, mais il peut l’être plusieurs fois.
-* Au plus une fois : chaque message peut être traité ou non. Si un message est traité, il ne l’est qu’une seule fois.
-* Une seule fois : chaque message est incontestablement traité, mais qu’une seule fois.
+* Au moins une fois : chaque message est traité, mais il peut l’être plusieurs fois.
+* Au plus une fois : chaque message peut être traité ou non. Si un message est traité, il ne l’est qu’une seule fois.
+* Une seule fois : chaque message est traité, mais une seule fois.
 
 Cet article explique comment configurer Spark Streaming afin de traiter les événements une seule fois.
 

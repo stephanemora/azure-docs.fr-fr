@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/16/2017
 ms.author: manayar
 ms.openlocfilehash: 923967a902f611ce845fbdc096fd2c02e681bb6e
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76272432"
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Dépannage de la mise à l’échelle automatique avec des jeux de mise à l’échelle de machine virtuelle
@@ -34,11 +34,11 @@ Parmi les éléments à prendre en considération :
     ![Journaux d’audit][audit]
 * Les seuils d’augmentation et de diminution de la taille des instances sont-ils suffisamment différents ?
   
-    Supposons que vous définissiez une règle d’augmentation de la taille des instances lorsque l’utilisation moyenne du processeur est supérieure à 50 % pendant cinq minutes et une règle de diminution de la taille des instances lorsque l’utilisation moyenne du processeur est inférieure à 50 %. Ce paramètre entraîne un problème d’oscillation lorsque l’utilisation du processeur est proche de ce seuil, avec des actions de mise à l’échelle entraînant constamment l’augmentation et la diminution de la taille du groupe. De ce fait, le service de mise à l’échelle automatique tente d’empêcher l’oscillation, ce qui peut se manifester par une absence de mise à l’échelle. Par conséquent, assurez-vous que les seuils d’augmentation et de diminution de la taille des instances sont suffisamment différents pour laisser une marge lors de la mise à l’échelle.
+    Supposons que vous définissez une règle pour effectuer un scale-out lorsque l’utilisation moyenne du processeur est supérieure à 50 % pendant cinq minutes et une règle pour effectuer un scale-in lorsque l’utilisation moyenne du processeur est inférieure à 50 %. Ce paramètre entraîne un problème d’oscillation lorsque l’utilisation du processeur est proche de ce seuil, avec des actions de mise à l’échelle entraînant constamment l’augmentation et la diminution de la taille du groupe. De ce fait, le service de mise à l’échelle automatique tente d’empêcher l’oscillation, ce qui peut se manifester par une absence de mise à l’échelle. Par conséquent, assurez-vous que les seuils d’augmentation et de diminution de la taille des instances sont suffisamment différents pour laisser une marge lors de la mise à l’échelle.
 * Avez-vous écrit votre propre modèle JSON ?
   
     Il est facile de commettre des erreurs. Commencez avec un modèle comme celui ci-dessus, dont l’efficacité a été prouvée, et apportez de petites modifications incrémentielles. 
-* Pouvez vous procéder manuellement à une augmentation ou à une diminution de la taille des instances ?
+* Pouvez vous effectuer manuellement un scale-in ou un scale-out ?
   
     Essayez de redéployer la ressource du groupe de machines virtuelles identiques avec un paramètre de capacité différent pour modifier le nombre de machines virtuelles manuellement. Un exemple de modèle se trouve ici : https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing – Vous devrez peut-être modifier le modèle pour vous assurer qu’il a la même taille de machine que votre groupe identique. Si vous pouvez modifier le nombre de machines virtuelles manuellement, vous savez que le problème est lié à la mise à l’échelle automatique.
 * Consultez vos ressources Microsoft.Compute/virtualMachineScaleSet et Microsoft.Insights dans [l’explorateur de ressources Azure](https://resources.azure.com/)

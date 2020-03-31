@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: alkohli
 ms.openlocfilehash: bb1a56d204a46f89213f20e317494120f0ea565e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60580604"
 ---
 # <a name="deactivate-and-delete-a-storsimple-virtual-array"></a>Désactiver et supprimer un StorSimple Virtual Array
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Quand vous désactivez une instance StorSimple Virtual Array, vous interrompez la connexion entre l’appareil et le service StorSimple Device Manager correspondant. Ce didacticiel explique comment :
 
@@ -36,9 +36,9 @@ Les informations publiées dans cet article s'appliquent uniquement aux instance
 
 La désactivation est une opération DÉFINITIVE et ne peut pas être annulée. Un appareil désactivé avec le service  StorSimple Device Manager ne peut pas être de nouveau enregistré. Vous pouvez être amené à désactiver et à supprimer une instance StorSimple Virtual Array dans les scénarios suivants :
 
-* **Basculement planifié** : votre appareil est en ligne et vous envisagez de le basculer. Si vous envisagez de mettre à niveau vers un appareil plus grand, il vous faudra peut-être basculer votre appareil. Une fois la propriété des données transférée et le basculement exécuté, l’appareil source est automatiquement supprimé.
-* **Basculement non planifié** : votre appareil est hors ligne, vous devez le basculer. Ce scénario peut se produire durant un incident, lorsqu’une panne est identifiée dans le centre de données et que votre appareil principal est arrêté. Vous envisagez de basculer l’appareil vers un appareil secondaire. Une fois la propriété des données transférée et le basculement exécuté, l’appareil source est automatiquement supprimé.
-* **Désactivation** : vous souhaitez désactiver l’appareil. Vous devez dans un premier temps désactiver l’appareil, puis le supprimer. Si vous désactivez un appareil, il n’est plus possible d’accéder aux données stockées en local. Vous pouvez seulement accéder aux données stockées dans le cloud, et les récupérer. Si vous envisagez de conserver les données de l’appareil après la désactivation, vous devez préalablement prendre un instantané de cloud de toutes vos données. Cet instantané cloud vous permet de récupérer ultérieurement l’ensemble des données.
+* **Basculement planifié** : Votre appareil est en ligne et vous envisagez de le basculer. Si vous envisagez de mettre à niveau vers un appareil plus grand, il vous faudra peut-être basculer votre appareil. Une fois la propriété des données transférée et le basculement exécuté, l’appareil source est automatiquement supprimé.
+* **Basculement non planifié** : Votre appareil est hors ligne, vous devez le basculer. Ce scénario peut se produire durant un incident, lorsqu’une panne est identifiée dans le centre de données et que votre appareil principal est arrêté. Vous envisagez de basculer l’appareil vers un appareil secondaire. Une fois la propriété des données transférée et le basculement exécuté, l’appareil source est automatiquement supprimé.
+* **Désactivation** : Vous souhaitez désactiver l’appareil. Vous devez dans un premier temps désactiver l’appareil, puis le supprimer. Si vous désactivez un appareil, il n’est plus possible d’accéder aux données stockées en local. Vous pouvez seulement accéder aux données stockées dans le cloud, et les récupérer. Si vous envisagez de conserver les données de l’appareil après la désactivation, vous devez préalablement prendre un instantané de cloud de toutes vos données. Cet instantané cloud vous permet de récupérer ultérieurement l’ensemble des données.
 
 ## <a name="deactivate-a-device"></a>Désactiver un appareil
 

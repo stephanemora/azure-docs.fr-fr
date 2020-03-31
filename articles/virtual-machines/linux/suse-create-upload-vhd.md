@@ -3,7 +3,7 @@ title: Création et téléchargement d'un disque dur virtuel SUSE Linux dans 
 description: Apprenez à créer et à télécharger un disque dur virtuel (VHD) Azure contenant un système d'exploitation SUSE Linux.
 services: virtual-machines-linux
 documentationcenter: ''
-author: mimckitt
+author: gbowerman
 manager: gwallace
 editor: tysonn
 tags: azure-resource-manager,azure-service-management
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 03/12/2018
-ms.author: mimckitt
-ms.openlocfilehash: d64fc55159ddc3ce88397879958a63bf30808ad9
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.author: guybo
+ms.openlocfilehash: 7bfe0aabbf2318643b59d57519be1475648a12ef
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251575"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80066567"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Préparation d'une machine virtuelle SLES ou openSUSE pour Azure
 
@@ -141,7 +141,7 @@ Comme alternative à la création de votre propre disque dur virtuel, SUSE publi
 7. Il est recommandé de modifier le fichier « /etc/sysconfig/network/dhcp » et le paramètre `DHCLIENT_SET_HOSTNAME` comme suit :
    
      DHCLIENT_SET_HOSTNAME="no"
-8. **Important :** Sous « /etc/sudoers », commentez ou supprimez les lignes suivantes (si elles sont présentes) :
+8. **Important :** sous « /etc/sudoers », commentez ou supprimez les lignes suivantes (si elles sont présentes) :
      
      ```
      Defaults targetpw   # ask for the password of the target user i.e. root

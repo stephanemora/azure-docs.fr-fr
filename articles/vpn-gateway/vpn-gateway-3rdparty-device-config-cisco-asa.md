@@ -8,13 +8,13 @@ ms.topic: article
 ms.date: 10/19/2018
 ms.author: yushwang
 ms.openlocfilehash: 96e5c26ea7b5f1baa33fd8830491ee3aa1e60221
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75778080"
 ---
-# <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Exemple de configuration : Appareil Cisco ASA (IKEv2/pas de BGP)
+# <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Exemple de configuration : appareil Cisco ASA (IKEv2/sans BGP)
 Cet article fournit des exemples de configurations pour la connexion de périphériques Cisco ASA (Adaptive Security Appliance) à des passerelles VPN Azure. L’exemple s’applique à des périphériques Cisco ASA qui exécutent IKEv2 sans protocole de passerelle frontière (BGP). 
 
 ## <a name="device-at-a-glance"></a>Aperçu de l’appareil
@@ -115,7 +115,7 @@ Le script fournit un exemple qui se base sur la configuration et les paramètres
   - **Azure_Gateway_Public_IP**
   - **OnPrem_Device_Public_IP**
   - IKE : **Pre_Shared_Key**
-  - Noms du réseau virtuel et de la passerelle de réseau local : **VNetName** et **LNGName**
+  - Noms du réseau virtuel et de la passerelle réseau locale : **VNetName** et **LNGName**
   - **Préfixes** d’adresse du réseau virtuel et du réseau local
   - **Masques de réseau** appropriés
 

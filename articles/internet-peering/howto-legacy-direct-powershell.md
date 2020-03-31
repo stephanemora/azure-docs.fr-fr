@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: ba41f4ad8014ba3e85174b7c32e11394f0068643
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75773884"
 ---
 # <a name="convert-a-legacy-direct-peering-to-azure-resource-using-powershell"></a>Convertir un Peering direct hérité en ressource Azure à l’aide de PowerShell
@@ -32,7 +32,7 @@ Si vous préférez, vous pouvez suivre ce guide à l’aide du [portail](howto-l
 ### <a name="sign-in-to-your-azure-account-and-select-your-subscription"></a>Vous connecter à votre compte Azure et sélectionner votre abonnement
 [!INCLUDE [Account](./includes/account-powershell.md)]
 
-### <a name= get></a>Obtenir le Peering direct hérité pour la conversion
+### <a name="get-legacy-direct-peering-for-conversion"></a><a name= get></a>Obtenir le Peering direct hérité pour la conversion
 Vous trouverez ci-dessous un exemple pour obtenir un Peering direct hérité à l’emplacement de Peering Seattle
 
 ```powershell
@@ -118,7 +118,7 @@ Vous pouvez obtenir une description détaillée de tous les paramètres en exéc
 Get-Help Get-AzPeering -detailed
 ```
 
-Pour plus d’informations, consultez [FAQ sur le Peering Internet](faqs.md).
+Pour plus d’informations, consultez [FAQ sur le peering Internet](faqs.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

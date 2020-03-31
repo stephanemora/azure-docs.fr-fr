@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/13/2019
 ms.openlocfilehash: 56cc7425eea184cd26010cde48e42e38b27e68a4
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75893293"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Copie de données d’Amazon Simple Storage Service à l’aide d’Azure Data Factory
@@ -234,7 +234,7 @@ Pour en savoir plus sur les propriétés, consultez [Activité Delete](delete-ac
 ## <a name="legacy-models"></a>Modèles hérités
 
 >[!NOTE]
->Les modèles suivants sont toujours pris en charge tels quels, à des fins de compatibilité descendante. Nous vous suggérons d’utiliser le nouveau modèle mentionné dans les sections ci-dessus à partir de maintenant. L’interface utilisateur de création ADF peut désormais générer ce nouveau modèle.
+>Les Modèles suivants sont toujours pris en charge tels quels à des fins de compatibilité descendante. Il est recommandé d’utiliser le nouveau Modèle mentionné dans les sections ci-dessus à partir de maintenant. L’interface utilisateur de création ADF peut désormais générer ce nouveau Modèle.
 
 ### <a name="legacy-dataset-model"></a>Modèle de jeu de données hérité
 

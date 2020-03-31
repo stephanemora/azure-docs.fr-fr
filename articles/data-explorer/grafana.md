@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.openlocfilehash: a1c52007ea86ca0812c4a73a92ce81db6ddadc7b
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74038011"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-grafana"></a>Visualiser des données Azure Data Explorer dans Grafana
@@ -24,7 +24,7 @@ Grafana est une plateforme d’analytique qui vous permet d’interroger et de v
 
 Vous pouvez également [configurer la source de données](#configure-the-data-source) et [visualiser les données](#visualize-data) comme expliqué dans l’article ci-dessous.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Vous avez besoin des éléments suivants dans le cadre de cet article :
 
@@ -32,7 +32,7 @@ Vous avez besoin des éléments suivants dans le cadre de cet article :
 
 * Le [plug-in Azure Data Explorer](https://grafana.com/plugins/grafana-azure-data-explorer-datasource/installation) pour Grafana
 
-* Un cluster qui inclut l’exemple de données StormEvents. Pour plus d’informations, consultez [Démarrage rapide : Créer un cluster et une base de données Azure Data Explorer](create-cluster-database-portal.md) et [Ingérer des exemples de données dans Azure Data Explorer](ingest-sample-data.md).
+* Un cluster qui inclut l’exemple de données StormEvents. Pour plus d’informations, consultez [Démarrage rapide : Créer un cluster et une base de données Explorateur de données Azure](create-cluster-database-portal.md) et [Ingérer des exemples de données dans l’Explorateur de données Azure](ingest-sample-data.md).
 
     [!INCLUDE [data-explorer-storm-events](../../includes/data-explorer-storm-events.md)]
 
@@ -56,7 +56,7 @@ Maintenant que le principal de service est affecté au rôle *observateurs*, vou
 
     ![Propriétés de connexion](media/grafana/connection-properties.png)
 
-    | Interface utilisateur de Grafana | Portail Azure | D’Azure CLI |
+    | Interface utilisateur de Grafana | Portail Azure | Azure CLI |
     | --- | --- | --- |
     | ID d’abonnement | ID D’ABONNEMENT | SubscriptionId |
     | ID client | ID du répertoire | tenant |

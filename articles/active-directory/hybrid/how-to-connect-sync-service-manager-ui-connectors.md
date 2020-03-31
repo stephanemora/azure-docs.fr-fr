@@ -18,11 +18,11 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ae932191c7b76590ea217386dfd729add5566f87
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60384107"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79230105"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Utilisation de connecteurs avec Azure AD Connect Sync Service Manager
 
@@ -34,7 +34,7 @@ L’onglet Connecteurs permet de gérer tous les systèmes auquel le moteur de s
 | Action | Commentaire |
 | --- | --- |
 | Créer |Ne pas utiliser. Pour la connexion à des forêts Active Directory supplémentaires, utilisez l’Assistant Installation. |
-| properties |Permet le filtrage de domaine et d’unité organisationnelle. |
+| Propriétés |Permet le filtrage de domaine et d’unité organisationnelle. |
 | [Supprimer](#delete) |Permet de supprimer les données dans l’espace connecteur ou de supprimer la connexion à une forêt. |
 | [Configurer les profils d’exécution](#configure-run-profiles) |À l’exception du filtrage de domaine, il n’y a rien à configurer ici. Vous pouvez vous servir de cette action pour voir les profils d’exécution déjà configurés. |
 | Exécuter |Permet de lancer l’exécution unique d’un profil. |
@@ -45,7 +45,7 @@ L’onglet Connecteurs permet de gérer tous les systèmes auquel le moteur de s
 | Actualiser le schéma |Actualise le schéma mis en cache. Il est préférable d’utiliser l’option dans l’Assistant Installation, car les règles de synchronisation sont également mises à jour. |
 | [Espace de connecteur de recherche](#search-connector-space) |Permet de rechercher des objets et de Suivre un objet et ses données dans le système. |
 
-### <a name="delete"></a>Supprimer
+### <a name="delete"></a>DELETE
 L’action de suppression est utilisée dans deux cas.  
 ![Sync Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/connectordelete.png)
 

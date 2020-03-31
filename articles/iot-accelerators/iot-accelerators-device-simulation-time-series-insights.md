@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 2bbd7911a40d6a256d478e2533ad2469b8fd6973
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73889348"
 ---
 # <a name="use-time-series-insights-to-visualize-telemetry-sent-from-the-device-simulation-solution-accelerator"></a>Time Series Insights permet de visualiser la télémétrie envoyée par l’accélérateur de solution Simulation d’appareil
 
 L’accélérateur de solution Simulation d’appareil vous permet de générer une télémétrie à partir d’appareils simulés pour tester vos solutions IoT. Ce guide vous montre comment visualiser et analyser la télémétrie simulée à l’aide d’un environnement Time Series Insights.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre les étapes décrites dans ce guide, vous avez besoin d’un abonnement Azure actif. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -55,7 +55,7 @@ Les étapes suivantes utilisent l’interface Azure CLI dans Azure Cloud Shell p
 
 [Azure Time Series Insights](../../articles/time-series-insights/time-series-insights-overview.md) est un service entièrement managé d’analytique, de stockage et de visualisation pour la gestion des données chronologiques IoT dans le cloud. Pour créer un environnement Time Series Insights :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 1. Sélectionnez **Créer une ressource** > **Internet des objets** > **Time Series Insights** :
 
@@ -68,7 +68,7 @@ Les étapes suivantes utilisent l’interface Azure CLI dans Azure Cloud Shell p
     | Nom de l’environnement | La capture d’écran suivante utilise le nom **Contoso-TSI**. Choisissez votre propre nom unique quand vous effectuez cette étape. |
     | Subscription | Sélectionnez votre abonnement Azure dans la liste déroulante. |
     | Resource group | **contoso-simulation**. Utilisez le nom de votre accélérateur de solution. |
-    | Location | Cet exemple utilise la région **East US**. Créez votre environnement dans la même région que votre accélérateur de solution Simulation d’appareil. |
+    | Location | Cet exemple utilise la région **USA Est**. Créez votre environnement dans la même région que votre accélérateur de solution Simulation d’appareil. |
     | Sku |**S1** |
     | Capacité | **1** |
 
@@ -163,7 +163,7 @@ L’Explorateur Time Series Insights est une application web que vous pouvez uti
 
     ![Tableau de bord de l’Explorateur Time Series Insights](./media/iot-accelerators-device-simulation-time-series-insights/time-series-insights-dashboard.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous envisagez de l’explorer davantage, laissez l’accélérateur de solution déployé.
 

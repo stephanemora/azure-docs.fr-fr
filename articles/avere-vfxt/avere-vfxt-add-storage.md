@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: rohogue
 ms.openlocfilehash: dfffef90201ba4bbb5a912df6101e8338012df44
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76153987"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227509"
 ---
 # <a name="configure-storage"></a>Configurer le stockage
 
@@ -130,7 +130,7 @@ Pour ajouter le stockage d’objets blob après avoir créé le cluster, effectu
    | Credential name (Nom des informations d’identification) | Tout nom descriptif |
    | Type de service | (sélectionnez la clé d’accès du stockage Azure) |
    | Locataire | nom du compte de stockage |
-   | Subscription | ID d’abonnement |
+   | Abonnement | ID d’abonnement |
    | Storage Access Key (Clé d’accès de stockage) | Clé du compte de stockage Azure (copiée à l’étape précédente) |
 
    Cliquez sur **Envoyer**.

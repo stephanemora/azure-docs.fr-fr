@@ -10,10 +10,10 @@ ms.suite: infrastructure-services
 ms.topic: article
 ms.date: 11/14/2018
 ms.openlocfilehash: b85932bf0d4fd080afadef2bc28d6a218b2d627a
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78898600"
 ---
 # <a name="build-advanced-schedules-and-recurrences-for-jobs-in-azure-scheduler"></a>Créer des planifications et des périodicités avancées pour les travaux dans Azure Scheduler
@@ -25,13 +25,13 @@ ms.locfileid: "78898600"
 
 La planification constitue le cœur d’un travail [Azure Scheduler](../scheduler/scheduler-intro.md), car elle détermine quand et comment Azure Scheduler exécute le travail. Avec Scheduler, vous pouvez créer plusieurs planifications ponctuelles et récurrentes pour un travail. Les planifications ponctuelles se déclenchent une seule fois à un moment précis. Il s’agit en fait de planifications récurrentes qui ne s’exécutent qu’une seule fois. Les planifications récurrentes se déclenchent selon une fréquence définie. Cette flexibilité vous permet d’utiliser Scheduler dans divers scénarios d’entreprise, comme les exemples ci-après :
 
-* **Nettoyage périodique des données** : créez un travail quotidien qui supprime tous les tweets datant de plus de trois mois.
+* **Nettoyage périodique des données** : créez un travail quotidien qui supprime tous les tweets qui datent de plus de trois mois.
 
-* **Archivage des données** : créez un travail mensuel qui envoie (push) l'historique de facturation vers un service de sauvegarde.
+* **Archivage des données** : créez un travail mensuel qui envoie (push) l’historique de facturation vers un service de sauvegarde.
 
-* **Demande de données externes** : créez un travail qui s'exécute toutes les 15 minutes et tire (pull) un nouveau rapport météo de la NOAA.
+* **Demande de données externes** : créez un travail qui s’exécute toutes les 15 minutes et tire (pull) un nouveau rapport météo de la NOAA.
 
-* **Traitement des images** : créez un travail qui s'exécute tous les jours ouvrables, pendant les heures creuses, et utilise le cloud computing pour compresser les images chargées pendant la journée.
+* **Traitement des images** : créez un travail qui s’exécute tous les jours ouvrables, pendant les heures creuses, et utilise le cloud computing pour compresser les images chargées pendant la journée.
 
 Cet article décrit des exemples de travaux que vous pouvez créer à l’aide de Scheduler et de l’[API REST Azure Scheduler](/rest/api/scheduler). Il fournit également la définition JSON (JavaScript Object Notation) de chaque planification. 
 
@@ -68,7 +68,7 @@ Ce tableau fournit une vue d’ensemble des principaux éléments JSON que vous 
 |---------|----------|-------------|
 | **startTime** | Non | Valeur de chaîne DateHeure au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) qui spécifie quand le travail démarre la première fois dans une planification de base. <p>Pour les planifications complexes, le travail ne démarre pas avant **startTime**. | 
 | **recurrence** | Non | Spécifie les règles de périodicité selon lesquelles le travail est exécuté. L’objet **recurrence** prend en charge les éléments suivants : **frequency**, **interval**, **schedule**, **count** et **endTime**. <p>Si vous définissez l’élément **recurrence**, vous devez également définir l’élément **frequency**. Les autres éléments **recurrence** sont facultatifs. |
-| **frequency** | Oui, si vous définissez **recurrence** | Unité de temps entre les occurrences. Les valeurs prises en charge sont : « Minute », « Hour », « Day », « Week », « Month » et « Year » | 
+| **frequency** | Oui, si vous définissez **recurrence** | Unité de temps entre les occurrences. Les valeurs prises en charge sont : « Minute », « Hour », « Day », « Week », « Month » et « Year ». | 
 | **interval** | Non | Entier positif qui détermine le nombre d’unités de temps entre les occurrences, en fonction de l’élément **frequency**. <p>Par exemple, si **interval** a la valeur 10 et que **frequency** est défini sur « Week », le travail se répète toutes les 10 semaines. <p>Voici le plus grand nombre d’intervalles pour chaque fréquence : <p>- 18 mois <br>- 78 semaines <br>- 548 jours <br>- Pour les heures et les minutes, la plage est 1 <= <*interval*> <= 1 000. | 
 | **schedule** | Non | Définit les changements de périodicité selon les minutes, heures, jours de la semaine et jours du mois spécifiés. | 
 | **count** | Non | Entier positif qui spécifie le nombre de fois où le travail s’exécute avant de finir. <p>Par exemple, quand un travail quotidien a une valeur **count** égale à 7 et une date de début définie au lundi, le travail finit de s’exécuter le dimanche. Si la date de début est passée, la première exécution est calculée d’après l’heure de création. <p>Si la valeur **endTime** ou **count** n’est pas spécifiée, le travail s’exécute indéfiniment. Vous ne pouvez pas utiliser à la fois **count** et **endTime** dans le même travail, mais la règle qui finit en premier est appliquée. | 
@@ -168,7 +168,7 @@ Le tableau suivant décrit les éléments schedule en détail :
 | **monthlyOccurrences** |Détermine les jours du mois où le travail s’exécute. Peut être spécifié uniquement avec une fréquence mensuelle. |Tableau d’objets **monthlyOccurrence** :<br /> `{ "day": day, "occurrence": occurrence}`<br /><br /> **day** est le jour de la semaine où le travail s’exécute. Par exemple, *{Sunday}* correspond à tous les dimanche du mois. Obligatoire.<br /><br />**occurrence** est l’occurrence du jour au cours du mois. Par exemple, *{Sunday, -1}* correspond au dernier dimanche du mois. facultatif. |
 | **monthDays** |Jour du mois où le travail s’exécute. Peut être spécifié uniquement avec une fréquence mensuelle. |Tableau des valeurs suivantes :<br />- Toute valeur <= -1 et >= -31<br />- Toute valeur >= 1 et <= 31|
 
-## <a name="examples-recurrence-schedules"></a>Exemples : planifications de périodicité
+## <a name="examples-recurrence-schedules"></a>Exemples : planifications de périodicité
 
 Les exemples suivants montrent différentes planifications de périodicité. Ils se concentrent sur l’objet de planification et ses sous-éléments.
 

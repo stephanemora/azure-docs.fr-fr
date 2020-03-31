@@ -16,13 +16,13 @@ ms.topic: conceptual
 ms.date: 1/3/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 64d8481200359b4a4421e3f3c99e4fc5a32ef23f
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.custom: aaddev, fasttrack-edit
+ms.openlocfilehash: f4b51641ed6bd7317060b567cf839775be426ac8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77159539"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80050055"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Autorisations et consentement dans le point de terminaison de la plateforme d’identités Microsoft
 
@@ -37,11 +37,10 @@ La plateforme d’identité Microsoft implémente le protocole d’autorisation 
 
 * Microsoft Graph : `https://graph.microsoft.com`
 * API de messagerie Office 365 : `https://outlook.office.com`
-* Azure AD Graph : `https://graph.windows.net`
 * Azure Key Vault : `https://vault.azure.net`
 
 > [!NOTE]
-> Nous vous recommandons fortement d’utiliser Microsoft Graph au lieu d’Azure AD Graph, l’API de messagerie Office 365, etc.
+> Nous vous recommandons fortement d’utiliser Microsoft Graph à la place de l’API de messagerie Office 365, etc.
 
 Cela s’applique également aux ressources tierces intégrées à la plateforme d’identité Microsoft. Ces ressources peuvent également définir un ensemble d’autorisations à utiliser pour diviser la fonctionnalité de cette ressource en fragments plus réduits. Par exemple, [Microsoft Graph](https://graph.microsoft.com) a défini des autorisations pour effectuer les tâches suivantes, entre autres :
 
@@ -123,7 +122,7 @@ Le paramètre `scope` correspond à une liste d’autorisations déléguées sé
 Une fois que l’utilisateur a entré ses informations d’identification, le point de terminaison de la plateforme d’identités Microsoft recherche un enregistrement correspondant du *consentement d’utilisateur*. Si, par le passé, l’utilisateur n’a jamais accepté les autorisations demandées et qu’un administrateur n’a jamais accepté ces autorisations pour le compte de toute l’organisation, le point de terminaison de la plateforme d’identités Microsoft demande à l’utilisateur d’accorder les autorisations demandées.
 
 > [!NOTE]
-> À ce stade, les autorisations `offline_access` (« Conserver l’accès aux données auxquelles vous lui avez donné l’accès ») et `user.read` (« Vous connecter et lire votre profil ») sont automatiquement incluses dans le consentement initial pour une application.  Ces autorisations sont généralement requises pour la fonctionnalité d’application appropriée : `offline_access` fournit à l’application l’accès aux jetons d’actualisation, critiques pour les applications natives et web, tandis que `user.read` donne accès à la revendication `sub`, ce qui permet au client ou à l’application d’identifier correctement l’utilisateur au fil du temps et d’accéder aux informations utilisateur de base.  
+>À ce stade, les autorisations `offline_access` (« Conserver l’accès aux données auxquelles vous lui avez donné l’accès ») et `user.read` (« Vous connecter et lire votre profil ») sont automatiquement incluses dans le consentement initial pour une application.  Ces autorisations sont généralement requises pour la fonctionnalité d’application appropriée : `offline_access` fournit à l’application l’accès aux jetons d’actualisation, critiques pour les applications natives et web, tandis que `user.read` donne accès à la revendication `sub`, ce qui permet au client ou à l’application d’identifier correctement l’utilisateur au fil du temps et d’accéder aux informations utilisateur de base.  
 
 ![Capture d’écran de consentement dans le compte professionnel](./media/v2-permissions-and-consent/work_account_consent.png)
 
@@ -166,16 +165,16 @@ Pour voir un exemple de code qui implémente les étapes, consultez [l’exemple
 
 ### <a name="request-the-permissions-in-the-app-registration-portal"></a>Demander les autorisations dans le portail d’inscription de l’application
 
-Les applications sont en mesure de noter les autorisations dont elles ont besoin (autorisations déléguées et d'application) dans le portail d’inscription des applications.  Il est ainsi possible d'utiliser l’`/.default` étendue et l'option « Accorder un consentement administrateur » du portail Azure.  En général, il est recommandé de veiller à ce que les autorisations définies de manière statique pour une application donnée constituent un sur-ensemble des autorisations qui seront demandées de façon dynamique/incrémentielle.
+Les applications sont en mesure de noter les autorisations dont elles ont besoin (autorisations déléguées et d'application) dans le portail d’inscription des applications.  Il est ainsi possible d’utiliser l’étendue `/.default` et l’option « Accorder un consentement administrateur » du portail Azure.  En général, il est recommandé de veiller à ce que les autorisations définies de manière statique pour une application donnée constituent un sur-ensemble des autorisations qui seront demandées de façon dynamique/incrémentielle.
 
 > [!NOTE]
-Les autorisations d’application ne peuvent être demandées qu’à l’aide de [`/.default`](#the-default-scope). Dès lors, si votre application requiert des autorisations d'application, vérifiez qu'elles sont répertoriées dans le portail d’inscription des applications.  
+>Les autorisations d’application ne peuvent être demandées qu’à l’aide de [`/.default`](#the-default-scope). Dès lors, si votre application requiert des autorisations d'application, vérifiez qu'elles sont répertoriées dans le portail d’inscription des applications.
 
 #### <a name="to-configure-the-list-of-statically-requested-permissions-for-an-application"></a>Configuration de la liste des autorisations demandées de manière statique pour une application
 
 1. Accédez à votre application dans l’environnement [Inscriptions d’applications du portail Azure](https://go.microsoft.com/fwlink/?linkid=2083908) ou [créez une application](quickstart-register-app.md), si ce n’est pas déjà fait.
 2. Recherchez la section **Autorisations des API** et, dans les autorisations des API, cliquez sur Ajouter une autorisation.
-3. Sélectionnez votre ressource préférée (par exemple, **Microsoft Graph**) dans la liste des API disponibles, puis ajoutez les autorisations dont votre application a besoin.
+3. Sélectionnez **Microsoft Graph** dans la liste des API disponibles, puis ajoutez les autorisations dont votre application a besoin.
 3. **Enregistrez** l’inscription de l’application.
 
 ### <a name="recommended-sign-the-user-into-your-app"></a>Recommandé : connecter l’utilisateur à votre application
@@ -200,13 +199,13 @@ Lorsque vous êtes prêt à demander les autorisations à l’administrateur de 
 ```
 
 
-| Paramètre     | Condition     | Description                                                                               |
+| Paramètre        | Condition        | Description                                                                                |
 |:--------------|:--------------|:-----------------------------------------------------------------------------------------|
 | `tenant` | Obligatoire | Le client d’annuaire auquel vous souhaitez demander l’autorisation. Peut être fourni au format GUID ou sous forme de nom convivial OU référencé de manière générique avec des organisations comme indiqué dans l’exemple. N’utilisez pas « common », car les comptes personnels ne peuvent pas fournir le consentement de l’administrateur, sauf dans le contexte d’un locataire. Pour garantir une meilleure compatibilité avec les comptes personnels qui gèrent les locataires, utilisez l’ID de locataire, dans la mesure du possible. |
 | `client_id` | Obligatoire | L’**ID (client) d’application** attribué à votre application par l’environnement [Inscriptions d’applications du portail Azure](https://go.microsoft.com/fwlink/?linkid=2083908). |
 | `redirect_uri` | Obligatoire |L'URI de redirection où vous souhaitez que la réponse soit envoyée pour être gérée par votre application. Il doit correspondre exactement à l’un des URI de redirection que vous avez inscrits dans le portail d’inscription des applications. |
 | `state` | Recommandé | Une valeur incluse dans la requête, qui sera également renvoyée dans la réponse de jeton. Il peut s’agir d’une chaîne du contenu de votre choix. Utilisez l’état pour encoder les informations sur l’état de l’utilisateur dans l’application avant la requête d’authentification, comme la page ou la vue sur laquelle ou laquelle il était positionné. |
-|`scope`        | Obligatoire      | Définit l’ensemble des autorisations demandées par l’application. Il peut s’agir d’étendues statiques (utilisant [`/.default`](#the-default-scope)) ou dynamiques.  Cela peut inclure les étendues OIDC (`openid`, `profile`, `email`). S'il vous faut des autorisations d’application, vous devez utiliser `/.default` pour demander la liste d’autorisations configurée statiquement.  | 
+|`scope`        | Obligatoire        | Définit l’ensemble des autorisations demandées par l’application. Il peut s’agir d’étendues statiques (utilisant [`/.default`](#the-default-scope)) ou dynamiques.  Cela peut inclure les étendues OIDC (`openid`, `profile`, `email`). S'il vous faut des autorisations d’application, vous devez utiliser `/.default` pour demander la liste d’autorisations configurée statiquement.  | 
 
 
 À ce stade, Azure AD nécessite qu’un administrateur client se connecte pour terminer la demande. L’administrateur est invité à approuver toutes les autorisations que vous avez demandées dans le paramètre `scope`.  Si vous avez utilisé une valeur (`/.default`) statique, celle-ci fonctionne comme le point de terminaison de consentement administrateur v 1.0 et demande un consentement pour toutes les étendues trouvées dans les autorisations requises pour l’application.
@@ -265,7 +264,7 @@ Pour en savoir plus sur le protocole OAuth 2.0 et sur la méthode pour obtenir d
 
 ## <a name="the-default-scope"></a>Étendue /.default
 
-Vous pouvez utiliser l’étendue `/.default` pour faciliter la migration de vos applications à partir du point de terminaison v1.0 vers le point de terminaison de la plateforme d’identités Microsoft. Il s’agit d’une étendue intégrée pour chaque application qui fait référence à la liste statique des autorisations configurées sur l’inscription d’application. Une valeur `scope``https://graph.microsoft.com/.default` est fonctionnellement identique aux points de terminaison v1.0 `resource=https://graph.microsoft.com`, autrement dit elle demande un jeton avec les étendues sur Microsoft Graph auxquelles l’application s’est inscrite dans le portail Azure.  Elle est créée à l’aide de l’URI de ressource + `/.default` (par exemple, si l’URI de ressource est `https://contosoApp.com`, l’étendue demandée est `https://contosoApp.com/.default`).  Pour savoir quand vous devez inclure une deuxième barre oblique afin de correctement demander le jeton, consultez la [section relative aux barres obliques de fin](#trailing-slash-and-default).  
+Vous pouvez utiliser l’étendue `/.default` pour faciliter la migration de vos applications à partir du point de terminaison v1.0 vers le point de terminaison de la plateforme d’identités Microsoft. Il s’agit d’une étendue intégrée pour chaque application qui fait référence à la liste statique des autorisations configurées sur l’inscription d’application. Une valeur `scope``https://graph.microsoft.com/.default` est fonctionnellement identique aux points de terminaison v1.0 `resource=https://graph.microsoft.com`, autrement dit elle demande un jeton avec les étendues sur Microsoft Graph auxquelles l’application s’est inscrite dans le portail Azure.  Elle est créée à l’aide de l’URI de ressource + `/.default` (par exemple, si l’URI de ressource est `https://contosoApp.com`, l’étendue demandée est `https://contosoApp.com/.default`).  Pour savoir quand vous devez inclure une deuxième barre oblique afin de correctement demander le jeton, consultez la [section relative aux barres obliques de fin](#trailing-slash-and-default).
 
 L’étendue /.default peut être utilisée dans n’importe quel flux OAuth 2.0, mais elle est nécessaire dans le [flux On-Behalf-Of](v2-oauth2-on-behalf-of-flow.md) et le [flux des informations d’identification du client](v2-oauth2-client-creds-grant-flow.md), de même que lors de l’utilisation du point de terminaison de consentement administrateur v2 pour demander des autorisations d’application.  
 
@@ -286,7 +285,7 @@ Dans cet exemple, l’utilisateur (ou un administrateur de locataire) a accordé
 
 #### <a name="example-2-the-user-hasnt-granted-permissions-between-the-client-and-the-resource"></a>Exemple 2 : L’utilisateur n’a pas accordé d’autorisations entre le client et la ressource
 
-Dans cet exemple, aucun consentement pour l’utilisateur n’existe entre le client et Microsoft Graph. Le client s’est inscrit aux autorisations `user.read` et `contacts.read` ainsi qu’à l’étendue Azure Key Vault `https://vault.azure.net/user_impersonation`. Quand le client demande un jeton pour `scope=https://graph.microsoft.com/.default`, l’utilisateur voit un écran de consentement pour les étendues `user.read`, `contacts.read` et Key Vault `user_impersonation`. Le jeton renvoyé présente uniquement les étendues `user.read` et `contacts.read`, et peut uniquement être utilisé sur Microsoft Graph. 
+Dans cet exemple, aucun consentement pour l’utilisateur n’existe entre le client et Microsoft Graph. Le client s’est inscrit aux autorisations `user.read` et `contacts.read` ainsi qu’à l’étendue Azure Key Vault `https://vault.azure.net/user_impersonation`. Quand le client demande un jeton pour `scope=https://graph.microsoft.com/.default`, l’utilisateur voit un écran de consentement pour les étendues `user.read`, `contacts.read` et Key Vault `user_impersonation`. Le jeton renvoyé présente uniquement les étendues `user.read` et `contacts.read`, et peut uniquement être utilisé sur Microsoft Graph.
 
 #### <a name="example-3-the-user-has-consented-and-the-client-requests-additional-scopes"></a>Exemple 3 : L’utilisateur a donné son consentement et le client demande des étendues supplémentaires
 
@@ -313,7 +312,7 @@ Cela génère un écran de consentement pour toutes les autorisations inscrites 
 
 Certains URI de ressource sont dotés d'une barre oblique de fin (`https://contoso.com/` par opposition à `https://contoso.com`), ce qui peut entraîner des problèmes de validation des jetons.  Cela survient principalement en cas de demande de jeton pour la gestion des ressources Azure (`https://management.azure.com/`), qui présente une barre oblique de fin dans leur URI de ressource et dont la présence est requise lorsque le jeton est demandé.  Ainsi, en cas de demande de jeton pour `https://management.azure.com/` et à l'aide de `/.default`, vous devez demander `https://management.azure.com//.default` (notez de la double barre oblique). 
 
-En général, si vous avez validé l'émission du jeton et que celui-ci est rejeté par l’API qui doit l’accepter, ajoutez une deuxième barre oblique, puis réessayez. Cela est dû au fait que le serveur de connexion émet un jeton avec une audience correspondant aux URI du paramètre `scope`, avec suppression de `/.default`.  Si cette opération supprime la barre oblique de fin, le serveur de connexion continue de traiter la demande et la valide par rapport à l’URI de ressource, même s’ils ne correspondent plus, ce qui n'est pas conforme. 
+En général, si vous avez validé l'émission du jeton et que celui-ci est rejeté par l’API qui doit l’accepter, ajoutez une deuxième barre oblique, puis réessayez. Cela est dû au fait que le serveur de connexion émet un jeton avec une audience correspondant aux URI du paramètre `scope`, avec suppression de `/.default`.  Si cette opération supprime la barre oblique de fin, le serveur de connexion continue de traiter la demande et la valide par rapport à l’URI de ressource, même s’ils ne correspondent plus, ce qui n'est pas conforme.  
 
 ## <a name="troubleshooting-permissions-and-consent"></a>Résolution des problèmes d’autorisations et de consentement
 

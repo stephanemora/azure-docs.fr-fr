@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 55e6bbc338c1ac6f9ef935b4a3a05c32f2b5e9f5
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72755222"
 ---
 # <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>Sécuriser les clés Azure Cosmos à l’aide d’Azure Key Vault 
@@ -33,8 +33,8 @@ Les étapes suivantes sont nécessaires pour stocker et lire les clés d’accè
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).  
 2. Sélectionnez **Créer une ressource > Sécurité > Coffre de clés**.  
 3. Dans la section **Créer un coffre de clés**, renseignez les informations suivantes :  
-   * **Nom :** fournissez un nom unique pour votre coffre de clés.  
-   * **Abonnement :** choisissez l’abonnement à utiliser.  
+   * **Nom** : fournissez un nom unique pour votre coffre de clés.  
+   * **Abonnement** : choisissez l’abonnement à utiliser.  
    * Sous **Groupe de ressources**, choisissez **Créer** et entrez le nom du groupe de ressources.  
    * Dans le menu déroulant Emplacement, choisissez un emplacement.  
    * Conservez les valeurs par défaut des autres options.  

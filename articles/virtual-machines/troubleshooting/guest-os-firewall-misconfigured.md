@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
 ms.openlocfilehash: 8f04d943e1db49beed13c183fbd06e401546fc03
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71153893"
 ---
 # <a name="azure-vm-guest-os-firewall-is-misconfigured"></a>Le pare-feu du système d'exploitation invité de la machine virtuelle Azure est mal configuré
@@ -49,13 +49,13 @@ Connectez-vous à la [console série et ouvrez une instance PowerShell](serial-c
 
 Les règles suivantes peuvent être modifiées pour activer l’accès à la machine virtuelle (via RDP) ou faciliter la résolution du problème :
 
-*   Bureau à distance (TCP-In) : il s’agit de la règle standard qui fournit l’accès principal à la machine virtuelle en autorisant RDP dans Azure.
+*   Bureau à distance (TCP-In) : il s’agit de la règle standard qui fournit l’accès principal à la machine virtuelle en autorisant RDP dans Azure.
 
-*   Gestion à distance de Windows (HTTP-In) : cette règle vous permet de vous connecter à la machine virtuelle à l’aide de PowerShell. Dans Azure, ce type d’accès vous permet d’utiliser l’aspect de script et le dépannage à distance.
+*   Gestion à distance de Windows (HTTP-In) : cette règle vous permet de vous connecter à la machine virtuelle à l’aide de PowerShell. Dans Azure, ce type d’accès vous permet d'utiliser l’aspect de script et le dépannage à distance.
 
-*   Partage de fichiers et d’imprimantes (SMB-In) : cette règle permet l’accès au partage réseau comme option de résolution des problèmes.
+*   Partage de fichiers et d’imprimantes (SMB-In) : cette règle permet l’accès au partage réseau comme option de résolution des problèmes.
 
-*   Partage de fichiers et d’imprimantes (Requête Echo - ICMPv4-In) : Cette règle permet d’effectuer un test ping sur la machine virtuelle.
+*   Partage de fichiers et d’imprimantes (demande d’écho – ICMPv4-In) : cette règle vous permet d’effectuer un test ping sur la machine virtuelle.
 
 Dans l’instance d’accès à la console série, vous pouvez interroger l’état actuel de la règle de pare-feu.
 

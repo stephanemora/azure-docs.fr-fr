@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 02/27/2020
 ms.custom: subject-moving-resources
 ms.openlocfilehash: 7e68f12ce062831ad361c88345188aca61922c4c
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77921724"
 ---
 # <a name="move-an-app-service-app-to-another-region"></a>Déplacer une application App Service vers une autre région
@@ -19,7 +19,7 @@ Les ressources App Service sont spécifiques à une région et ne peuvent pas ê
 
 Pour faciliter la copie de votre application, vous pouvez [cloner une application App Service individuelle](app-service-web-app-cloning.md) dans le plan App Service d’une autre région, mais cette méthode a ses [limites](app-service-web-app-cloning.md#current-restrictions), notamment parce qu’elle ne prend pas en charge les applications Linux.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Vérifiez que l’application App Service se trouve dans la région Azure à partir de laquelle vous souhaitez effectuer le déplacement.
 - Assurez-vous que la région cible prend en charge App Service et tout service associé dont vous souhaitez déplacer les ressources.

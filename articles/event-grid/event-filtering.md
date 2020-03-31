@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: spelluru
 ms.openlocfilehash: f9fca0a9fefb5959747a4492139ae422a118db02
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70390172"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Comprendre le filtrage d’événements pour les abonnements Event Grid
@@ -97,7 +97,7 @@ Si vous spécifiez plusieurs filtres différents, une opération **ET** est effe
 ]
 ```
 
-### <a name="operator"></a>Operator
+### <a name="operator"></a>Opérateur
 
 Les opérateurs disponibles pour les nombres sont les suivants :
 
@@ -108,7 +108,7 @@ Les opérateurs disponibles pour les nombres sont les suivants :
 * NumberIn
 * NumberNotIn
 
-L’opérateur disponible pour les valeurs booléennes est : BoolEquals
+L’opérateur disponible pour les valeurs booléennes est : BoolEquals
 
 Les opérateurs disponibles pour les chaînes sont les suivants :
 
@@ -145,10 +145,10 @@ Pour le schéma d’entrée personnalisé, utilisez les champs de données d’�
 
 Les valeurs peuvent être les suivantes :
 
-* number
+* nombre
 * string
 * boolean
-* array
+* tableau
 
 ### <a name="limitations"></a>Limites
 

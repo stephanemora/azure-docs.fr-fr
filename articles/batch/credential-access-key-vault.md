@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 02/13/2020
 ms.author: lahugh
 ms.openlocfilehash: 0134e7d92ddca9bd3b45abaf642f33de9d209b33
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78192300"
 ---
 # <a name="securely-access-key-vault-with-batch"></a>Accéder de façon sécurisée à Key Vault avec Batch

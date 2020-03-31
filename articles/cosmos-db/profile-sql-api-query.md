@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: girobins
 ms.openlocfilehash: 48b9a67de5c870a187ee008bd97265760ca6c341
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70998363"
 ---
 # <a name="get-sql-query-execution-metrics-and-analyze-query-performance-using-net-sdk"></a>Obtenir des métriques d’exécution de requête SQL et analyser les performances de requête à l’aide du Kit de développement logiciel (SDK) .NET
@@ -233,7 +233,7 @@ Cette requête peut désormais être servie à partir de l’index.
 
 Pour en savoir plus sur le réglage des performances des requêtes, voir l’article [Régler les performances des requêtes](https://docs.microsoft.com/azure/cosmos-db/documentdb-sql-query-metrics).
 
-## <a id="References"></a>Références
+## <a name="references"></a><a id="References"></a>Références
 
 - [Spécification SQL Azure Cosmos DB](https://go.microsoft.com/fwlink/p/?LinkID=510612)
 - [ANSI SQL 2011](https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)

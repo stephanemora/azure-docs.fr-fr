@@ -8,15 +8,15 @@ ms.topic: reference
 ms.date: 01/12/2019
 ms.author: spelluru
 ms.openlocfilehash: 4994063dfc3bce88489f70969c06bf36b591f907
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60561674"
 ---
 # <a name="azure-event-grid-event-schema-for-subscriptions"></a>Schéma d’événement Azure Event Grid pour les abonnements
 
-Cet article fournit les propriétés et les schémas des événements d’abonnement Azure. Pour une présentation des schémas d’événement, consultez [Schéma d’événement Azure Event Grid](event-schema.md).
+Cet article fournit les propriétés et les schémas des événements d’abonnement Azure. Pour une présentation des schémas d’événements, consultez [Schéma d’événements Azure Event Grid](event-schema.md).
 
 Les abonnements Azure et les groupes de ressources émettent les mêmes types d’événements. Les types d’événements sont liés aux modifications ou actions des ressources. La principale différence est que les groupes de ressources émettent des événements pour les ressources appartenant au groupe de ressources, alors que les abonnements Azure émettent des événements pour les ressources de l’abonnement.
 
@@ -241,7 +241,7 @@ Un événement contient les données générales suivantes :
 | eventType | string | Un des types d’événements inscrits pour cette source d’événement. |
 | eventTime | string | L’heure à quelle l’événement est généré selon l’heure UTC du fournisseur. |
 | id | string | Identificateur unique de l’événement. |
-| données | object | Données d’événement d’abonnement. |
+| data | object | Données d’événement d’abonnement. |
 | dataVersion | string | Version du schéma de l’objet de données. Le serveur de publication définit la version du schéma. |
 | metadataVersion | string | Version du schéma des métadonnées d’événement. Event Grid définit le schéma des propriétés de niveau supérieur. Event Grid fournit cette valeur. |
 

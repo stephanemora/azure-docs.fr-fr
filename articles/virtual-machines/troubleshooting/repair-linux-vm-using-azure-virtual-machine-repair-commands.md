@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 09/10/2019
 ms.author: v-miegge
 ms.openlocfilehash: 49fdfde402938ce8d0ee1b141a47e68c99c502e7
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73796197"
 ---
 # <a name="repair-a-linux-vm-by-using-the-azure-virtual-machine-repair-commands"></a>Réparer une machine virtuelle Linux à l’aide des commandes de réparation de machine virtuelle Azure
@@ -84,7 +84,7 @@ Pour obtenir de la documentation et des instructions supplémentaires, consultez
 
 L’exemple suivant active l’extension de diagnostic sur la machine virtuelle nommée ``myVMDeployed``, dans le groupe de ressources nommé ``myResourceGroup`` :
 
-D’Azure CLI
+Azure CLI
 
 ```azurecli-interactive
 az vm boot-diagnostics enable --name myVMDeployed --resource-group myResourceGroup --storage https://mystor.blob.core.windows.net/

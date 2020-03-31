@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 09/17/2019
 ms.author: allensu
 ms.openlocfilehash: f8e431124155fe23853fe61e985fe4db522c3f77
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75644271"
 ---
 # <a name="move-azure-internal-load-balancer-to-another-region-using-powershell"></a>Déplacer un Azure Load Balancer interne vers une autre région à l’aide de PowerShell

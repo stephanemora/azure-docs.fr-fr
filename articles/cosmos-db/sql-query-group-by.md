@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/11/2019
 ms.author: tisande
 ms.openlocfilehash: e41e81457421bfe27e3c0313fc06e39e6df4cdce
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73819103"
 ---
 # <a name="group-by-clause-in-azure-cosmos-db"></a>Clause GROUP BY dans Azure Cosmos DB
@@ -41,7 +41,7 @@ La clause GROUP BY divise les résultats de la requête en fonction des valeurs 
   
    Toutes les expressions scalaires sont autorisées à l’exception des sous-requêtes scalaires et des agrégats scalaires. Chaque expression scalaire doit contenir au moins une référence de propriété. Il n’existe aucune limite quant au nombre d’expressions individuelles ou à la cardinalité de chaque expression.
 
-## <a name="remarks"></a>Remarques
+## <a name="remarks"></a>Notes
   
   Quand une requête utilise une clause GROUP BY, la clause SELECT ne peut contenir que le sous-ensemble de propriétés et de fonctions système incluses dans la clause GROUP BY. Les [fonctions système d’agrégation](sql-query-aggregates.md) font exception. Elles peuvent apparaître dans la clause SELECT sans être incluses dans la clause GROUP BY. Par ailleurs, vous pouvez toujours inclure des valeurs littérales dans la clause SELECT.
 
@@ -173,6 +173,6 @@ Les résultats sont :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Prise en main](sql-query-getting-started.md)
+- [Bien démarrer](sql-query-getting-started.md)
 - [Clause SELECT](sql-query-select.md)
 - [Fonctions d’agrégation](sql-query-aggregates.md)

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: cynthn
 ms.openlocfilehash: ecd80f49f0161c8bbc6ab7309f2af89e2ded1fe9
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76278196"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Mettre à l’échelle automatiquement un groupe de machines virtuelles identiques dans le portail Azure
@@ -25,7 +25,7 @@ Cet article explique comment créer avec le portail Azure des règles de mise à
 Pour créer des règles de mise à l’échelle, vous avez besoin d’un groupe de machines virtuelles identiques. Vous pouvez créer un groupe identique avec le [portail Azure](quick-create-portal.md), [Azure PowerShell](quick-create-powershell.md) ou [Azure CLI](quick-create-cli.md).
 
 
-## <a name="create-a-rule-to-automatically-scale-out"></a>Créer une règle d’augmentation automatique du nombre d’instances
+## <a name="create-a-rule-to-automatically-scale-out"></a>Créer une règle de scale-out automatique
 Si la demande de votre application augmente, la charge sur les instances de machine virtuelle dans votre groupe identique augmente. Si cette augmentation de la charge est cohérente, au lieu d’une brève demande, vous pouvez configurer des règles de mise à l’échelle automatique pour augmenter le nombre d’instances de machine virtuelle dans le groupe identique. Lorsque ces instances de machine virtuelle sont créées et que vos applications sont déployées, le groupe identique commence à distribuer le trafic vers les instances via l’équilibreur de charge. Vous contrôlez les métriques à surveiller, telles que l’usage du processeur ou du disque, la durée pendant laquelle la charge de l’application doit respecter un seuil donné, et le nombre d’instances de machine virtuelle à ajouter au groupe identique.
 
 1. Ouvrez le portail Azure et sélectionnez **Groupes de ressources** dans le menu à gauche du tableau de bord.
@@ -59,7 +59,7 @@ Si la demande de votre application augmente, la charge sur les instances de mach
 6. Pour créer la règle, sélectionnez **Ajouter**
 
 
-## <a name="create-a-rule-to-automatically-scale-in"></a>Créer une règle pour diminuer automatiquement le nombre d’instances
+## <a name="create-a-rule-to-automatically-scale-in"></a>Créer une règle pour effectuer automatiquement un scale-in
 Au cours d’une soirée ou d’un week-end, la demande de votre application peut diminuer. Si cette charge réduite est constante pendant un certain temps, vous pouvez configurer des règles de mise à l’échelle automatique pour réduire le nombre d’instances de machine virtuelle dans le groupe identique. Cette action de diminution du nombre d’instances a pour effet de réduire le coût d’exécution de votre groupe identique, car vous seul exécutez le nombre d’instances requis pour répondre à la demande en cours.
 
 1. Choisissez de nouveau l’option **Ajouter une règle**.
@@ -78,7 +78,7 @@ Au cours d’une soirée ou d’un week-end, la demande de votre application peu
 
 
 ## <a name="define-autoscale-instance-limits"></a>Définir des limites pour la mise à l’échelle automatique des instances
-Votre profil de mise à l’échelle automatique doit définir un nombre minimal, maximal et par défaut d’instances de machine virtuelle. Lorsque vos règles de mise à l’échelle automatique sont appliquées, assurez-vous que votre montée en charge ne dépasse pas le nombre maximal d’instances ou ne descend pas en dessous du nombre minimal d’instances.
+Votre profil de mise à l’échelle automatique doit définir un nombre minimal, maximal et par défaut d’instances de machine virtuelle. Lorsque vos règles de mise à l’échelle automatique sont appliquées, assurez-vous que votre scale-out ne dépasse pas le nombre maximal d’instances ou que votre scale-in ne descend pas en dessous du nombre minimal d’instances.
 
 1. Définissez les limites d’instance suivantes :
 
@@ -96,13 +96,13 @@ Pour voir le nombre et l’état des instances de machine virtuelle, sélectionn
 
 
 ## <a name="autoscale-based-on-a-schedule"></a>Mise à l’échelle automatique en fonction d’une planification
-Les exemples précédents ont automatiquement mis à l’échelle un groupe identique en fonction de métriques de base de l’ordinateur hôte, telles que l’utilisation du processeur. Vous pouvez également créer des règles de mise à l’échelle automatique basées sur des planifications. Ces règles basées sur une planification vous permettent d’augmenter automatiquement le nombre d’instances de machine virtuelle avant une augmentation anticipée de la demande d’une application, par exemple, aux heures de travail habituelles, et diminuer automatiquement le nombre d’instances aux heures auxquelles vous anticipez moins de demandes, par exemple, durant le week-end.
+Les exemples précédents ont automatiquement mis à l’échelle un groupe identique en fonction de métriques de base de l’ordinateur hôte, telles que l’utilisation du processeur. Vous pouvez également créer des règles de mise à l’échelle automatique basées sur des planifications. Ces règles basées sur une planification vous permettent d’effectuer un scale-out automatiquement du nombre d’instances de machine virtuelle avant une augmentation anticipée de la demande d’une application, par exemple, aux heures de travail habituelles, et d’effectuer un scale-in automatiquement du nombre d’instances aux heures auxquelles vous anticipez moins de demandes, par exemple, durant le week-end.
 
 1. Choisissez **Mise à l’échelle** dans le menu à gauche de la fenêtre des groupes identiques. Pour supprimer des règles de mise à l’échelle automatique existantes créées dans les exemples précédents, choisissez l’icône Corbeille.
 
     ![Supprimer les règles de la mise à l’échelle automatique existantes](media/virtual-machine-scale-sets-autoscale-portal/delete-rules.png)
 
-2. Choisissez **Ajouter une condition de mise à l’échelle**. Sélectionnez l’icône crayon en regard du nom de la règle puis saisissez un nom comme *Monter en charge à chaque journée de travail*.
+2. Choisissez **Ajouter une condition de mise à l’échelle**. Sélectionnez l’icône crayon en regard du nom de la règle puis saisissez un nom comme *Scale-out à chaque journée de travail*.
 
     ![Renommer la règle de mise à l’échelle automatique par défaut](media/virtual-machine-scale-sets-autoscale-portal/rename-rule.png)
 
@@ -111,7 +111,7 @@ Les exemples précédents ont automatiquement mis à l’échelle un groupe iden
 5. Choisissez **Répéter des jours spécifiques** pour le type **Planification**.
 6. Sélectionnez tous les jours de travail, du lundi au vendredi.
 7. Choisissez le fuseau horaire approprié, puis réglez **l’heure de début** sur *09:00*.
-8. Choisissez de nouveau **Ajouter une condition de mise à l’échelle**. Répétez cette procédure pour créer une planification nommée *Diminuer le nombre d’instances en soirée* qui réduit à *3* le nombre d’instances, se répète tous les jours de la semaine et commence à *18:00*.
+8. Choisissez de nouveau **Ajouter une condition de mise à l’échelle**. Répétez cette procédure pour créer une planification nommée *Effectuer un scale-in en soirée* qui réduit à *3* le nombre d’instances, se répète tous les jours de la semaine et commence à *18:00*.
 9. Pour appliquer vos règles de mise à l’échelle automatique basées sur une planification, sélectionnez **Enregistrer**.
 
     ![Créer des règles de mise à l’échelle automatique basée sur une planification](media/virtual-machine-scale-sets-autoscale-portal/schedule-autoscale.PNG)

@@ -5,11 +5,11 @@ ms.date: 11/04/2019
 ms.topic: article
 ms.reviewer: chroyal
 ms.openlocfilehash: 03c22a7a23f1579a846746f21ce048b3425399c3
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977015"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79233833"
 ---
 # <a name="configure-blockchain-data-manager-using-the-azure-portal"></a>Configurer Blockchain Data Manager avec le Portail Azure
 
@@ -32,7 +32,7 @@ Une instance Blockchain Data Manager se connecte à un nœud de transaction Azur
 
 Une connexion sortante envoie des données blockchain à Azure Event Grid. Vous configurez une seule connexion sortante lorsque vous créez l’instance. Blockchain Data Manager prend en charge plusieurs connexions sortantes de rubrique Event Grid pour une instance de Data Manager Blockchain donnée. Vous pouvez envoyer des données blockchain à une ou plusieurs destinations. Pour ajouter une autre destination, ajoutez simplement des connexions sortantes à l’instance.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Accédez au membre Azure Blockchain Service que vous souhaitez connecter à Blockchain Data Manager. Sélectionnez **Blockchain Data Manager**.
 1. Sélectionnez **Ajouter**.
 
@@ -44,7 +44,7 @@ Une connexion sortante envoie des données blockchain à Azure Event Grid. Vous 
     --------|------------
     Nom | Entrez un nom unique pour un Blockchain Data Manager. Le nom du Blockchain Data Manager peut contenir des lettres minuscules et des chiffres et ne doit pas dépasser 20 caractères.
     Nœud de transaction | Choisissez un nœud de transaction. Seuls les nœuds de transaction pour lesquels vous disposez d’un accès en lecture sont répertoriés.
-    Nom de connexion | Entrez un nom unique pour la connexion sortante dans laquelle les données de transaction blockchain sont envoyées.
+    Nom de la connexion | Entrez un nom unique pour la connexion sortante dans laquelle les données de transaction blockchain sont envoyées.
     Point de terminaison Event Grid | Choisissez une rubrique Event Grid dans le même abonnement que l’instance Blockchain Data Manager.
 
 1. Sélectionnez **OK**.

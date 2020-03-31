@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 835b3a69e779b536961110b674ae67f4e8c13ce0
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76845050"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnostiquer la connectivité locale par le biais de passerelles VPN
@@ -38,7 +38,7 @@ Vous pouvez configurer une connexion site à site entre Azure et votre site loca
 1. Connexion site à site (basée sur l’itinéraire) : [Connexion entre la passerelle VPN et le routeur local](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#CreateConnection)
 1. [Configuration de FortiGate](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/Site-to-Site_VPN_using_FortiGate.md)
 
-Vous trouverez des instructions étape par étape détaillées sur la configuration d’une connexion de site à site en consultant : [Créer un réseau virtuel avec une connexion de site à site à l’aide du portail Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+Vous trouverez des instructions étape par étape détaillées sur la configuration d’une connexion de site à site en consultant [Création d’un réseau virtuel avec une connexion de site à site à l’aide du portail Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
 
 L’une des étapes critiques de configuration consiste à configurer les paramètres de communication IPsec. Une mauvaise configuration entraîne une perte de connectivité entre le réseau local et Azure. Les passerelles VPN Azure sont actuellement configurées pour prendre en charge les paramètres IPsec suivants pour la phase 1. Comme vous pouvez le voir dans le tableau ci-dessous, les algorithmes de chiffrement pris en charge par la passerelle VPN Azure sont AES256 AES128 et 3DES.
 

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: kenchen
 ms.openlocfilehash: cf0f345b0fbf9fea2512f72c1996c9a1597cc0cd
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73747647"
 ---
 # <a name="resiliency-and-disaster-recovery"></a>Résilience et reprise d’activité après sinistre
@@ -65,7 +65,7 @@ Le nom est facultatif mais il sera utile si vous souhaitez personnaliser davanta
 
 Si vous préférez stocker les chaînes de connexion à un autre endroit, vous pouvez également les lire dans votre code et les utiliser comme paramètres lorsque vous appelez `AddAzureSignalR()` (dans ASP.NET Core) ou `MapAzureSignalR()` (dans ASP.NET).
 
-Exemple de code :
+Voici l'exemple de code :
 
 ASP.NET Core :
 

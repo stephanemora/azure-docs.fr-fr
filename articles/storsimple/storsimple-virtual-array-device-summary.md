@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 11/29/2016
 ms.author: manuaery
 ms.openlocfilehash: 9edc0b552f5c2f38e646bc4b44dd8df5c16b0457
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61408482"
 ---
 # <a name="use-the-device-summary-blade-for-storsimple-device-manager-connected-to-storsimple-virtual-array"></a>Utiliser le panneau de synthèse des appareils pour StorSimple Device Manager connecté à StorSimple Virtual Array
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Le panneau de synthèse des appareils StorSimple Device Manager procure un résumé d’une instance StorSimple Virtual Array enregistrée auprès d’un service StorSimple Device Manager, en mettant en évidence les problèmes qui nécessitent l’intervention d’un administrateur système. Ce didacticiel présente le panneau de synthèse des appareils, explique le contenu et la fonctionnalité et décrit les travaux que vous pouvez effectuer à partir de ce panneau.
 
@@ -33,7 +33,7 @@ Le panneau de synthèse des appareils affiche les informations suivantes :
 
 
 
-## <a name="management"></a>gestion
+## <a name="management"></a>Gestion
 
 Dans le panneau des appareils StorSimple, vous avez accès aux options de gestion de votre appareil StorSimple. Les commandes de gestion se trouvent dans la partie supérieure et sur le côté gauche du panneau. Utilisez ces options pour ajouter des partages ou des volumes, ou pour mettre à jour ou basculer votre tableau virtuel.
 

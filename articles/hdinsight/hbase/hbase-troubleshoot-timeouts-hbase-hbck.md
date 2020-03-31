@@ -8,10 +8,10 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/16/2019
 ms.openlocfilehash: 5604b42e1611830f3aaea9ae180cdb8142ab0942
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75887187"
 ---
 # <a name="scenario-timeouts-with-hbase-hbck-command-in-azure-hdinsight"></a>Scénario : Délais d’attente avec la commande « HBase Hbck » dans Azure HDInsight
@@ -22,7 +22,7 @@ Cet article décrit les éventuelles solutions à appliquer pour résoudre les p
 
 La commande `hbase hbck` rencontre des délais d’attente lors de la résolution d’attributions de région.
 
-## <a name="cause"></a>Cause :
+## <a name="cause"></a>Cause
 
 Les problèmes de délai d’expiration rencontrés lors de l’utilisation de la commande `hbck` peuvent être dus à la présence de plusieurs régions en état de transition pendant un certain temps. Ces régions apparaissent comme étant hors connexion dans l’interface utilisateur HBase Master. En raison du grand nombre de régions en tentative de transition, HBase Master pourrait connaître un problème de délai d’expiration et ne pas parvenir à remettre ces régions en ligne.
 

@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.openlocfilehash: 44aadecfa80524345932c03abb51e8ebd040a902
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73666978"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Surveiller et gérer les pipelines Azure Data Factory à l’aide du portail Azure et de PowerShell
@@ -46,7 +46,7 @@ Cet article décrit comment surveiller, gérer et déboguer vos pipelines à l�
 Cette section décrit également comment une tranche de jeu de données passe d’un état à un autre.   
 
 ### <a name="navigate-to-your-data-factory"></a>Accédez à votre fabrique de données
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Cliquer sur **Fabriques de données** dans le menu de gauche. Si vous ne voyez pas cette option, cliquez sur **Autres services >** , puis sur **Fabriques de données** dans la catégorie **INTELLIGENCE + ANALYSE**.
 
    ![Parcourir tout > Fabriques de données](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
@@ -124,7 +124,7 @@ Voici la liste des différents états possibles pour les tranches d’un jeu de 
 <td rowspan="4">Échec</td><td>TimedOut</td><td>L'exécution de l’activité a pris plus de temps que l’activité ne l’autorise.</td>
 </tr>
 <tr>
-<td>Canceled</td><td>La tranche a été annulée par l’action de l’utilisateur.</td>
+<td>Opération annulée</td><td>La tranche a été annulée par l’action de l’utilisateur.</td>
 </tr>
 <tr>
 <td>Validation</td><td>La validation a échoué.</td>
@@ -135,10 +135,10 @@ Voici la liste des différents états possibles pour les tranches d’un jeu de 
 <td>Ready</td><td>-</td><td>La tranche est prête à être consommée.</td>
 </tr>
 <tr>
-<td>Ignoré</td><td>Aucun</td><td>La tranche n’est pas en cours de traitement.</td>
+<td>Ignoré</td><td>None</td><td>La tranche n’est pas en cours de traitement.</td>
 </tr>
 <tr>
-<td>Aucun</td><td>-</td><td>Tranche qui a été réinitialisée alors qu’elle existait avec un état différent.</td>
+<td>None</td><td>-</td><td>Tranche qui a été réinitialisée alors qu’elle existait avec un état différent.</td>
 </tr>
 </table>
 

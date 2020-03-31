@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 07/23/2018
 ms.author: alkohli
 ms.openlocfilehash: 116ac5c4efda87b5d16336dd326d516299f6955d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61481941"
 ---
 # <a name="deactivate-and-delete-a-storsimple-device"></a>Désactiver et supprimer un appareil StorSimple
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Cet article explique comment désactiver et supprimer un appareil StorSimple qui est connecté à un service StorSimple Device Manager. Les instructions de cet article s’appliquent uniquement aux appareils de la gamme StorSimple 8000, y compris les instances StorSimple Cloud Appliance. Si vous utilisez un StorSimple Virtual Array, consultez [Désactiver et supprimer un StorSimple Virtual Array](storsimple-virtual-array-deactivate-and-delete-device.md).
 

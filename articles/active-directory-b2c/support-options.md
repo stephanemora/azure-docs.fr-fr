@@ -11,13 +11,13 @@ ms.date: 12/06/2016
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 5195241003b1ce4ea505002e2cc3c10410e6cde1
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78183718"
 ---
-# <a name="azure-active-directory-b2c-file-support-requests"></a>Azure Active Directory B2C : Déposer des demandes de support
+# <a name="azure-active-directory-b2c-file-support-requests"></a>Azure Active Directory B2C : dépôt de demandes de support
 Pour déposer des demandes de support pour Azure Active Directory B2C (Azure AD B2C) dans le portail Azure, procédez comme suit :
 
 1. Basculez de votre client B2C vers un autre client auquel un abonnement Azure est associé. En règle générale, ce dernier est le client de vos employés ou le client par défaut créé pour vous lorsque vous avez souscrit un abonnement Azure. Pour en savoir plus, consultez [Association d’un abonnement Azure à Azure AD](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
@@ -58,7 +58,7 @@ Pour déposer des demandes de support pour Azure Active Directory B2C (Azure AD 
 
 1. Après avoir soumis votre demande d’assistance, vous pouvez la surveiller en cliquant sur **Aide + support** dans le tableau d’accueil, puis sur **Gérer les demandes de support**.
 
-## <a name="known-issue-filing-a-support-request-in-the-context-of-a-b2c-tenant"></a>Problème connu : Dépôt d’une demande de support dans le contexte d’un client B2C
+## <a name="known-issue-filing-a-support-request-in-the-context-of-a-b2c-tenant"></a>Problème connu : dépôt d’une demande de support dans le contexte d’un client B2C
 
 Si vous avez manqué l'étape 2 décrite ci-dessus et essayez de créer une demande de support dans le contexte de votre client B2C, l'erreur suivante s'affiche.
 

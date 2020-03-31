@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 10/25/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 17404388b2b6c3fee1c6ab666f7233a66817f642
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74082866"
 ---
 # <a name="azure-event-grid-event-schema-for-azure-key-vault-preview"></a>Schéma des événements Azure Event Grid pour Azure Key Vault (préversion)
@@ -72,8 +72,8 @@ Un événement contient les données générales suivantes :
 | objectType | string | Type de l’objet qui a déclenché cet événement |
 | objectName | string | Nom de l’objet qui a déclenché cet événement |
 | version | string | Version de l’objet qui a déclenché cet événement |
-| nbf | number | Date not-before, en secondes, depuis 1970-01-01T00:00:00Z de l’objet qui a déclenché cet événement |
-| exp | number | Date d’expiration, en secondes, depuis 1970-01-01T00:00:00Z de l’objet qui a déclenché cet événement |
+| nbf | nombre | Date not-before, en secondes, depuis 1970-01-01T00:00:00Z de l’objet qui a déclenché cet événement |
+| exp | nombre | Date d’expiration, en secondes, depuis 1970-01-01T00:00:00Z de l’objet qui a déclenché cet événement |
 
 
 ## <a name="next-steps"></a>Étapes suivantes

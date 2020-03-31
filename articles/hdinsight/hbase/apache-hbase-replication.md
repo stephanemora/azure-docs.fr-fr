@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.openlocfilehash: 1e6465584dd4e67f736b94d2939678c1a69163bf
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75435668"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurer la réplication de cluster Apache HBase dans les réseaux virtuels Azure
@@ -260,11 +260,11 @@ sudo service bind9 status
 Créez un cluster [Apache HBase](https://hbase.apache.org/) dans chacun des deux réseaux virtuels avec la configuration suivante :
 
 - **Nom du groupe de ressources** : utilisez le même nom de groupe de ressources que vous avez créé pour les réseaux virtuels.
-- **Type de cluster** : hbase
-- **Version** : HBase 1.1.2 (HDI 3.6)
-- **Emplacement** : utilisez le même emplacement que pour le réseau virtuel.  Par défaut, vnet1 représente *USA Ouest*, et vnet2 correspond à *USA Est*.
+- **Type de cluster** : HBase
+- **Version** : HBase 1.1.2 (HDI 3.6)
+- **Emplacement** : utilisez l’emplacement du réseau virtuel.  Par défaut, vnet1 représente *USA Ouest*, et vnet2 correspond à *USA Est*.
 - **Stockage** : créez un nouveau compte de stockage pour le cluster.
-- **Réseau virtuel** (à partir des Paramètres avancés sur le portail) : sélectionnez le réseau vnet1 que vous avez créé lors de la dernière procédure.
+- **Réseau virtuel** (dans les paramètres avancés sur le portail) : sélectionnez l’élément vnet1 que vous avez créé dans la dernière procédure.
 - **Sous-réseau** : le nom par défaut utilisé dans le modèle est **subnet1**.
 
 Pour garantir que l’environnement est correctement configuré, vous devez pouvoir effectuer un test ping sur le nom de domaine complet du nœud principal entre les deux clusters.
@@ -273,7 +273,7 @@ Pour garantir que l’environnement est correctement configuré, vous devez pouv
 
 Lorsque vous répliquez un cluster, vous devez spécifier les tables à répliquer. Dans cette section, vous chargez des données dans le cluster source. Dans la section suivante, vous allez activer la réplication entre les deux clusters.
 
-Pour créer une table **Contacts** et y insérer des données, suivez les instructions du [tutoriel HBase : bien démarrer avec Apache HBase dans HDInsight Linux](apache-hbase-tutorial-get-started-linux.md).
+Pour créer une table **Contacts** et y insérer des données, suivez les instructions du [Tutoriel Apache HBase : Bien démarrer avec Apache HBase dans HDInsight](apache-hbase-tutorial-get-started-linux.md).
 
 > [!NOTE]
 > Si vous voulez répliquer des tables à partir d’un espace de noms personnalisé, vous devez vous assurer que les espaces de noms personnalisés appropriés sont également définis sur le cluster de destination.
@@ -291,10 +291,10 @@ Les étapes suivantes décrivent comment appeler le script d’action de script 
 4. En haut de la page, sélectionnez **Soumettre nouveau**.
 5. Sélectionnez ou saisissez les informations suivantes :
 
-   1. **Name** : entrez **Activer la réplication**.
-   2. **URL du script Bash** : Entrez **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh** .
-   3. **Principal** : assurez-vous que cette option est sélectionnée. Supprimez les autres types de nœuds.
-   4. **Paramètres** : les paramètres d'exemple suivants activent la réplication pour toutes les tables existantes, puis copient toutes les données du cluster source vers le cluster de destination :
+   1. **Nom** : saisissez **Activer la réplication**.
+   2. **URL du script Bash** : entrez **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh** .
+   3. **Principal** : assurez-vous que cette option est sélectionnée. Supprimez les autres types de nœuds.
+   4. **Paramètres** : les paramètres d’exemple suivants activent la réplication pour toutes les tables existantes, puis copient toutes les données du cluster source vers le cluster de destination :
 
           -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
     

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: 9431cc7fa12b86371ce6b2325aca8e13d264442e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60885340"
 ---
 # <a name="get-started-with-azure-data-lake-store-using-azure-cli"></a>Bien démarrer avec Azure Data Lake Store à l’aide d’Azure CLI
@@ -22,9 +22,9 @@ ms.locfileid: "60885340"
 [!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
 
 > [!div class="op_single_selector"]
-> * [Portal](data-lake-store-get-started-portal.md)
+> * [Portail](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
-> * [Interface de ligne de commande Azure](data-lake-store-get-started-cli-2.0.md)
+> * [Azure CLI](data-lake-store-get-started-cli-2.0.md)
 >
 > 
 
@@ -40,7 +40,7 @@ Avant de commencer cet article, vous devez disposer des éléments suivants :
 
 * **Azure CLI** - Voir [Installer Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) pour plus d’instructions.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Authentification
 
 Pour l’authentification auprès de Data Lake Storage Gen1, cet article utilise une approche plus simple où vous vous connectez en tant qu’utilisateur final. Le niveau d’accès au compte et au système de fichiers Data Lake Storage Gen1 est alors régi par le niveau d’accès de l’utilisateur connecté. Cependant, il existe d’autres approches pour l’authentification sur Data Lake Storage Gen1, à savoir **l’authentification de l’utilisateur final** ou **l’authentification de service à service**. Pour obtenir des instructions et plus d’informations sur l’authentification, consultez [l’authentification de l’utilisateur final](data-lake-store-end-user-authenticate-using-active-directory.md) ou [l’authentification de service à service](data-lake-store-authenticate-using-active-directory.md).
 
@@ -185,7 +185,7 @@ Dans cette section, vous allez apprendre à gérer les listes ACL et les autoris
     az dls fs access show --account mydatalakestoragegen1 --path /mynewfolder/vehicle1_09142014.csv
     ```
 
-    Le résultat doit ressembler à ce qui suit :
+    La sortie doit ressembler à ce qui suit :
 
         {
             "entries": [

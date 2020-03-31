@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 06/17/2019
 ms.author: hrasheed
 ms.openlocfilehash: c8ead7abc454df387db31b2ce65d2ba714b0067d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73494081"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Utiliser Apache Spark MLlib pour créer une application de Machine Learning et analyser un jeu de données
@@ -23,7 +23,7 @@ Découvrez comment utiliser Apache Spark [MLlib](https://spark.apache.org/mllib/
 MLLib est une bibliothèque principale Spark qui fournit de nombreux utilitaires pratiques pour l’exécution de tâches de Machine Learning. Certains de ces utilitaires conviennent pour les tâches suivantes :
 
 * classification ;
-* Régression
+* régression ;
 * Clustering
 * Modélisation de rubrique
 * Décomposition de valeur singulière (SVD) et analyse des composants principaux (PCA)
@@ -197,7 +197,7 @@ Commençons par nous faire une idée de ce que contient le jeu de données.
 
     ![Sortie de l’application de Machine Learning Spark : graphique en secteurs avec cinq résultats d’inspection distincts](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-1.png "Sortie des résultats Spark Machine Learning")
 
-    Pour prédire un résultat d’inspection de produits alimentaires, vous devez développer un modèle basé sur les violations. Étant donné que la régression logistique est une méthode de classification binaire, il est judicieux de regrouper les données de résultat en deux catégories : **Échec** et **Réussite** :
+    Pour prédire un résultat d’inspection de produits alimentaires, vous devez développer un modèle basé sur les violations. Étant donné que la régression logistique est une méthode de classification binaire, il est judicieux de regrouper les données de résultat en deux catégories : **Échec** et **Réussite** :
 
    - Réussite
        - Réussite
@@ -359,12 +359,12 @@ Vous pouvez désormais construire une visualisation finale pour faciliter l’ex
 ## <a name="shut-down-the-notebook"></a>Arrêtez le bloc-notes
 Une fois l’exécution de l’application terminée, fermez le bloc-notes pour libérer les ressources. Pour ce faire, dans le menu **Fichier** du bloc-notes, sélectionnez **Fermer et arrêter**. Cela a pour effet d’arrêter et de fermer le bloc-notes.
 
-## <a name="seealso"></a>Voir aussi
-* [Présentation : Apache Spark sur Azure HDInsight](apache-spark-overview.md)
+## <a name="see-also"></a><a name="seealso"></a>Voir aussi
+* [Vue d’ensemble : Apache Spark sur Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Scénarios
-* [Apache Spark avec BI : effectuer une analyse interactive des données à l’aide de Spark sur HDInsight avec des outils décisionnels](apache-spark-use-bi-tools.md)
-* [Apache Spark avec Machine Learning : utiliser Spark dans HDInsight pour l’analyse de la température de bâtiments à l’aide des données des systèmes HVAC](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark avec BI : effectuer une analyse interactive des données à l’aide de Spark dans HDInsight avec des outils BI](apache-spark-use-bi-tools.md)
+* [Apache Spark avec Machine Learning : Utiliser Spark dans HDInsight pour analyser la température d’un bâtiment à l’aide de données issues des systèmes de chauffage, de ventilation et de climatisation](apache-spark-ipython-notebook-machine-learning.md)
 * [Analyse des journaux de site web à l’aide d’Apache Spark dans HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Création et exécution d’applications

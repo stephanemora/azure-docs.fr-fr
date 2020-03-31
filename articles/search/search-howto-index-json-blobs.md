@@ -10,10 +10,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 37fc78971124240077a59d4ad99aa06cc408dbae
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74533967"
 ---
 # <a name="how-to-index-json-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>Guide pratique pour indexer des objets blob JSON avec un indexeur d’objets blob dans Recherche cognitive Azure
@@ -143,7 +143,7 @@ Vous pouvez trouver ces valeurs dans le portail :
 
 3. Basculez vers les pages du portail pour votre compte de stockage. Dans le volet de navigation gauche, sous **Paramètres**, sélectionnez **Clés d’accès**. Cette page fournit le nom du compte et la clé. Copiez le nom du compte de stockage et une des clés dans le bloc-notes.
 
-### <a name="2---create-a-data-source"></a>2 - Créer une source de données
+### <a name="2---create-a-data-source"></a>2 - Création d'une source de données
 
 Cette étape consiste à fournir les informations de connexion à la source de données utilisées par l’indexeur. La source de données est un objet nommé dans Recherche cognitive Azure qui rend persistantes les informations de connexion. Le type de source de données, `azureblob`, détermine les comportements d’extraction de données appelés par l’indexeur. 
 
@@ -429,4 +429,4 @@ Vous pouvez également faire référence à des éléments de tableau en utilisa
 + [Indexeurs dans Recherche cognitive Azure](search-indexer-overview.md)
 + [Indexation de Stockage Blob Azure avec Recherche cognitive Azure](search-howto-index-json-blobs.md)
 + [Indexation d’objets blob CSV avec l’indexeur d’objets blob de Recherche cognitive Azure](search-howto-index-csv-blobs.md)
-+ [Tutoriel : Rechercher des données semi-structurées à partir de Stockage Blob Azure](search-semi-structured-data.md)
++ [Tutoriel : Rechercher des données semi-structurées à partir de Stockage Blob Azure](search-semi-structured-data.md)

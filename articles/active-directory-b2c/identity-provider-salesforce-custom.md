@@ -12,10 +12,10 @@ ms.date: 02/27/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 67fe9ef4ad2b025d11f88976973658c9cd8ae693
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78187948"
 ---
 # <a name="set-up-sign-in-with-a-salesforce-saml-provider-by-using-custom-policies-in-azure-active-directory-b2c"></a>Configurer la connexion avec un fournisseur SAML Salesforce en utilisant des stratégies personnalisées dans Azure Active Directory B2C
@@ -150,7 +150,7 @@ Vous pouvez définir un compte Salesforce en tant que fournisseur de revendicati
 
 1. Mettez à jour la valeur de **PartnerEntity** avec l’URL des métadonnées de Salesforce que vous avez copiée précédemment.
 1. Mettez à jour la valeur des deux instances de **StorageReferenceId** avec le nom de la clé de votre certificat de signature. Par exemple, B2C_1A_SAMLSigningCert.
-1. Recherchez la section `<ClaimsProviders>` et ajoutez l’extrait de code XML suivant. Si votre stratégie contient déjà le profil technique `SM-Saml-idp`, passez à l’étape suivante. Pour plus d’informations, consultez [Gestion de sessions d’authentification unique](custom-policy-reference-sso.md).
+1. Recherchez la section `<ClaimsProviders>` et ajoutez l’extrait de code XML suivant. Si votre stratégie contient déjà le profil technique `SM-Saml-idp`, passez à l’étape suivante. Pour plus d’informations, voir [Gestion de sessions d’authentification unique](custom-policy-reference-sso.md).
 
     ```XML
     <ClaimsProvider>

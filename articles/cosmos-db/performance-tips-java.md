@@ -1,6 +1,6 @@
 ---
 title: Conseils sur les performances Azure Cosmos DB pour Java
-description: Découvrez les options de configuration clientes pour améliorer les performances de base de données Azure Cosmos
+description: Découvrez les options de configuration clientes disponibles pour améliorer les performances de la base de données Azure Cosmos
 author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: java
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.openlocfilehash: 3b7d221c2afc952f40da035c6e2c282b3b932aa5
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69616758"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-java"></a>Conseils sur les performances pour Azure Cosmos DB et Java
@@ -29,7 +29,7 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
 ## <a name="networking"></a>Mise en réseau
 <a id="direct-connection"></a>
 
-1. **Mode de connexion : Utiliser DirectHttps**
+1. **Mode de connexion : utiliser DirectHttps**
 
     La façon dont un client se connecte à Azure Cosmos DB a des conséquences importantes sur les performances, notamment en termes de latence côté client. Il existe un paramètre de configuration clé disponible pour configurer la stratégie de connexion ([ConnectionPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionpolicy)) du client : le mode de connexion [ConnectionMode](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionmode).  Les deux modes de connexion disponibles sont les suivants :
 
@@ -67,7 +67,7 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
 1. **Installation du kit de développement logiciel (SDK) le plus récent**
 
     Les SDK Azure Cosmos DB sont constamment améliorés pour fournir des performances optimales. Consultez les pages du [SDK Azure Cosmos DB](documentdb-sdk-java.md) pour déterminer quel est le SDK le plus récent et passer en revue les améliorations.
-2. **Utilisation d’un client Azure Cosmos DB singleton pour la durée de vie de votre application**
+2. **Utiliser un client Azure Cosmos DB singleton pour la durée de vie de votre application**
 
     Chaque instance de [DocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.documentclient) est thread-safe et effectue une gestion des connexions efficace et une mise en cache d’adresses quand le mode direct est sélectionné. Pour permettre une gestion des connexions efficace et améliorer les performances par DocumentClient, nous vous recommandons d’utiliser une seule instance de DocumentClient par AppDomain pour la durée de vie de l’application.
 
@@ -92,7 +92,7 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
 
     Lors du test de performances, vous devez augmenter la charge jusqu’à une limite d’un petit nombre de requêtes. En cas de limitation, l’application cliente doit s’interrompre à la limitation pour l’intervalle de nouvelle tentative spécifié sur le serveur Le respect de l’interruption garantit un temps d’attente minimal entre chaque tentative. La prise en charge de la stratégie de nouvelle tentative est incluse dans les versions 1.8.0 et supérieures du [SDK Java](documentdb-sdk-java.md). Pour plus d’informations, consultez la section [getRetryAfterInMilliseconds](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.documentclientexception.getretryafterinmilliseconds).
 
-6. **Augmentation de la taille des instances de votre charge de travail cliente**
+6. **Effectuer un scale-out de votre charge de travail cliente**
 
     Si vous effectuez des tests à des niveaux de débit élevé (> 50 000 RU/s), l’application cliente peut devenir un goulet d’étranglement en raison du plafonnement sur l’utilisation du processeur ou du réseau. Si vous atteignez ce point, vous pouvez continuer à augmenter le compte Azure Cosmos DB en augmentant la taille des instances de vos applications clientes sur plusieurs serveurs.
 
@@ -109,7 +109,7 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
 
     Vous pouvez également définir la taille de la page à l’aide de la [méthode setPageSize](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedoptionsbase.setpagesize).
 
-## <a name="indexing-policy"></a>Stratégie d'indexation
+## <a name="indexing-policy"></a>Stratégie d’indexation
  
 1. **Exclusion des chemins d’accès inutilisés de l’indexation pour des écritures plus rapides**
 

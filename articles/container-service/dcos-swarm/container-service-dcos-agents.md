@@ -8,10 +8,10 @@ ms.date: 01/04/2017
 ms.author: iainfou
 ms.custom: mvc
 ms.openlocfilehash: bb9b33bf537ebd5a563f8e8a8afd45cd2e5b292d
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76278384"
 ---
 # <a name="deprecated-dcos-agent-pools-for-azure-container-service"></a>(DÉPRÉCIÉ) Pools d’agents DC/OS pour Azure Container Service
@@ -21,9 +21,9 @@ ms.locfileid: "76278384"
 Des clusters DC/OS d’Azure Container Service contiennent des nœuds d’agent dans deux pools, un pool public et un pool privé. Une application peut être déployée dans un pool, ce qui affecte l’accessibilité entre les machines de votre service de conteneur. Les machines peuvent être exposées à internet (publiques) ou conservées en interne (privées). Cet article explique brièvement pourquoi il existe des pools publics et privés.
 
 
-* **Agents privés** : Les nœuds d’un agent privé sont exécutés via un réseau non routable. Ce réseau n’est accessible qu’à partir de la zone administrateur ou par le biais du routeur Edge de la zone publique. Par défaut, DC/OS lance les applications sur les nœuds de l’agent privé. 
+* **Agents privés** : les nœuds d’un agent privé sont exécutés via un réseau non routable. Ce réseau n’est accessible qu’à partir de la zone administrateur ou par le biais du routeur Edge de la zone publique. Par défaut, DC/OS lance les applications sur les nœuds de l’agent privé. 
 
-* **Agents publics** : Les nœuds d’un agent public exécutent les services et les applications DC/OS sur un réseau accessible publiquement. 
+* **Agents publics** : les nœuds d’un agent public exécutent des services et des applications DC/OS sur un réseau accessible publiquement. 
 
 Pour plus d’informations sur la sécurité réseau DC/OS, consultez la [documentation DC/OS](https://docs.mesosphere.com/) .
 

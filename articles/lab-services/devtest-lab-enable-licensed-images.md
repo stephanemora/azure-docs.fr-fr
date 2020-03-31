@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: 11b6553fe8aceef0d3d15977998dd870c275128a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61294253"
 ---
 # <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>Activer une image sous licence dans votre laboratoire Azure DevTest Labs
@@ -28,7 +28,7 @@ Dans Azure DevTest Labs, une image sous licence est une image qui inclut des con
 ## <a name="determining-whether-a-licensed-image-is-available-to-users"></a>Pour déterminer si une image sous licence est accessible aux utilisateurs
 La première étape pour permettre aux utilisateurs de créer des machines virtuelles à partir d’une image sous licence consiste à vérifier que les conditions générales ont été acceptées pour l’image sous licence. Les étapes suivantes montrent comment afficher l’état de l’offre d’une image sous licence et, si nécessaire, accepter les conditions générales.
 
-1. Connectez-vous au [Portail Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Connectez-vous au [portail Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Sélectionnez **Tous les services**, puis **DevTest Labs** dans la liste.
 

@@ -13,10 +13,10 @@ ms.date: 02/20/2020
 ms.author: curtand
 ms.reviewer: kexia
 ms.openlocfilehash: c28b63749cfdbcd16b94cbd3ca7dd4023f46a351
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78897724"
 ---
 # <a name="common-problems-with-two-factor-verification-and-your-work-or-school-account"></a>Problèmes courants avec la vérification en deux étapes et votre compte professionnel ou scolaire

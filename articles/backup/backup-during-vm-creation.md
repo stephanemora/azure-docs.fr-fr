@@ -4,11 +4,11 @@ description: Explique comment activer la sauvegarde quand vous créez une machin
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.openlocfilehash: 0cfea6579791c4fd23c1b7acdfe722d57b5ec2fd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75449918"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79226045"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Activer la sauvegarde quand vous créez une machine virtuelle Azure
 
@@ -50,7 +50,7 @@ Si vous n’êtes pas connecté à votre compte, connectez-vous sur le [portail 
 
 ## <a name="azure-backup-resource-group-for-virtual-machines"></a>Groupe de ressources Sauvegarde Azure pour les machines virtuelles
 
-Le service de sauvegarde crée un groupe de ressources (RG) distinct du groupe de ressources de la machine virtuelle afin de stocker la collection de points de restauration (RPC). La RPC héberge les points de récupération instantanée des machines virtuelles managées. Le format de nom par défaut du groupe de ressources créé par le service de sauvegarde est le suivant : `AzureBackupRG_<Geo>_<number>`. Par exemple :  *AzureBackupRG_northeurope_1*. Vous pouvez maintenant personnaliser le nom du groupe de ressources créé par Sauvegarde Azure.
+Le service de sauvegarde crée un groupe de ressources (RG) distinct du groupe de ressources de la machine virtuelle afin de stocker la collection de points de restauration (RPC). La RPC héberge les points de récupération instantanée des machines virtuelles managées. Le format de nom par défaut du groupe de ressources créé par le service de sauvegarde est le suivant : `AzureBackupRG_<Geo>_<number>`. Par exemple : *AzureBackupRG_northeurope_1*. Vous pouvez maintenant personnaliser le nom du groupe de ressources créé par Sauvegarde Azure.
 
 Points à noter :
 

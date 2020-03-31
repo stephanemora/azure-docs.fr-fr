@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: a683ad71f5e80c91728262dc7bbabf36e9d68deb
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75773948"
 ---
 # <a name="peering-policy"></a>Stratégie de peering
@@ -65,7 +65,7 @@ Les exigences générales de Microsoft concernant votre réseau sont décrites d
     | Europe                   |   2 Gbit/s                       |
     | AMLAT                    |   2 Gbit/s                       |
     | Moyen-Orient              | 500 Mbits/s                       |
-    | N/A                       |   2 Gbit/s                       |
+    | N/D                       |   2 Gbit/s                       |
 
 * **Diversité :**
     * Dans les zones N/A, Europe, APAC et AMLAT, interconnectez dans au moins trois emplacements géographiquement différents si cela est faisable, et maintenir une capacité diversifiée afin de permettre au trafic de basculer au sein de chaque métro.
@@ -74,4 +74,4 @@ Les exigences générales de Microsoft concernant votre réseau sont décrites d
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour plus d’informations sur les étapes de configuration du Peering direct avec Microsoft, suivez la [procédure pas à pas de configuration du Peering direct](walkthrough-direct-all.md).
-* Pour plus d’informations sur les étapes de configuration du Peering Exchange avec Microsoft, suivez la [procédure pas à pas de configuration du Peering Exchange](walkthrough-exchange-all.md).
+* Pour plus d’informations sur les étapes de configuration d’un Peering Exchange avec Microsoft, suivez la [procédure pas à pas de configuration d’un Peering Exchange](walkthrough-exchange-all.md).

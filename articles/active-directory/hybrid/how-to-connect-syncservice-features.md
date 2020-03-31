@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5486a8d8bd4c295f49e0ab847daf45d0fcab47ad
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78300534"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Fonctionnalités de service de synchronisation d’Azure AD Connect
@@ -57,12 +57,12 @@ Les paramètres suivants sont configurés par Azure AD Connect et ne peuvent pas
 
 | DirSyncFeature | Commentaire |
 | --- | --- |
-| DeviceWriteback |[Azure AD Connect : Activation de la réécriture d’appareil](how-to-connect-device-writeback.md) |
-| DirectoryExtensions |[Synchronisation Azure AD Connect : Extensions d’annuaire](how-to-connect-sync-feature-directory-extensions.md) |
+| DeviceWriteback |[Azure AD Connect : Activation de l’écriture différée des appareils](how-to-connect-device-writeback.md) |
+| DirectoryExtensions |[Azure AD Connect Sync : extensions d’annuaire](how-to-connect-sync-feature-directory-extensions.md) |
 | [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |Permet à un attribut d’être mis en quarantaine lorsqu’il est un doublon d’un autre objet, plutôt que mettre en échec l’objet entier lors de l’exportation. |
 | Synchronisation de hachage de mot de passe |[Implémenter la synchronisation du hachage de mot de passe avec Azure AD Connect Sync](how-to-connect-password-hash-synchronization.md) |
 |Authentification directe|[Connexion de l’utilisateur avec l’authentification directe Azure Active Directory](how-to-connect-pta.md)|
-| UnifiedGroupWriteback |[Préversion : Réécriture de groupe](how-to-connect-preview.md#group-writeback) |
+| UnifiedGroupWriteback |[Version préliminaire : Écriture différée de groupe](how-to-connect-preview.md#group-writeback) |
 | UserWriteback |Non pris en charge actuellement. |
 
 ## <a name="duplicate-attribute-resiliency"></a>Résilience d’attribut en double

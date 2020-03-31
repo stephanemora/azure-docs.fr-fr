@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: 69d2bfe4576a9350e905fc10f3d7617619e6284a
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 712ec177996cd54d7bd6d184fea306009b58b083
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77915484"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79531020"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Extension de machine virtuelle Agent Network Watcher pour Linux
 
@@ -29,7 +29,7 @@ ms.locfileid: "77915484"
 
 Cet article présente les plateformes et options de déploiement qui sont prises en charge pour l’extension de machine virtuelle de l’agent Network Watcher pour Linux. L’installation de l’agent n’est pas perturbante et ne nécessite pas de redémarrage de la machine virtuelle. Vous pouvez déployer l’extension dans les machines virtuelles que vous déployez. Si la machine virtuelle est déployée par un service Azure, consultez la documentation relative au service pour déterminer si elle autorise l’installation d’extensions dans la machine virtuelle.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 ### <a name="operating-system"></a>Système d’exploitation
 
@@ -75,7 +75,7 @@ Le JSON suivant illustre le schéma de l’extension Agent Network Watcher. L’
 
 ### <a name="property-values"></a>Valeurs de propriétés
 
-| Nom | Valeur/Exemple |
+| Name | Valeur/Exemple |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.Azure.NetworkWatcher |
@@ -92,7 +92,7 @@ Vous pouvez déployer les extensions de machines virtuelles Azure avec un modèl
 
 L’exemple suivant déploie l’extension de machine virtuelle de l’agent Network Watcher sur une machine virtuelle existante et déployée à l’aide du modèle de déploiement classique :
 
-```azurecli
+```console
 azure config mode asm
 azure vm extension set myVM1 NetworkWatcherAgentLinux Microsoft.Azure.NetworkWatcher 1.4
 ```

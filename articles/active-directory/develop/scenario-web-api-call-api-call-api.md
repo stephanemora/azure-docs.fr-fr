@@ -15,10 +15,10 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: d66a08d4e84a3771d6c3fa46b96c975869435452
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76833377"
 ---
 # <a name="a-web-api-that-calls-web-apis-call-an-api"></a>Une API web qui appelle des API web : Appeler une API
@@ -27,7 +27,7 @@ Après avoir obtenu un jeton, vous pouvez appeler une API web protégée. Pour c
 
 ## <a name="controller-code"></a>Code de contrôle
 
-# <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
+# <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
 Le code suivant poursuit l’exemple de code illustré dans [Une API web qui appelle des API web : Acquérir un jeton pour l’application](scenario-web-api-call-api-acquire-token.md). Le code est appelé dans les actions des contrôleurs d’API. Il appelle une API en aval nommée *todolist*.
 
@@ -59,7 +59,7 @@ HttpResponseMessage response = await _httpClient.GetAsync(TodoListBaseAddress + 
 }
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 Le code suivant poursuit l’exemple de code illustré dans [Une API web qui appelle des API web : Acquérir un jeton pour l’application](scenario-web-api-call-api-acquire-token.md). Le code est appelé dans les actions des contrôleurs d’API. Il appelle l’API MS Graph en aval.
 
@@ -83,7 +83,7 @@ private String callMicrosoftGraphMeEndpoint(String accessToken){
 }
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 Aucun exemple illustrant ce flux avec MSAL Python n’est encore disponible.
 
 ---

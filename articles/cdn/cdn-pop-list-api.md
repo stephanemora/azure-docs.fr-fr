@@ -16,10 +16,10 @@ ms.date: 08/22/2019
 ms.author: magattus
 ms.custom: ''
 ms.openlocfilehash: 95b85aa11d99ddd48c90c8d9fa28789e79ee979f
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72299239"
 ---
 # <a name="retrieve-the-current-pop-ip-list-for-azure-cdn"></a>Récupérer la liste d’adresses IP POP actuelle pour Azure CDN

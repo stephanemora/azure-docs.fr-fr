@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 ms.openlocfilehash: 82a6cdb6c9a39a0d196049a7ba662681ea06b36a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "62116864"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-shares-on-the-storsimple-virtual-array"></a>Utiliser le service StorSimple Device Manager pour gérer des partages sur l’instance StorSimple Virtual Array
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Ce didacticiel explique comment utiliser le service StorSimple Device Manager pour créer et gérer des partages sur votre instance StorSimple Virtual Array.
 
@@ -33,7 +33,7 @@ Le service StorSimple Device Manager est une extension dans le portail Azure 
 
 Les partages StorSimple peuvent être les suivants :
 
-* **Épinglé localement** : les données de ces partages demeurent à tout moment sur le tableau ; elles ne débordent pas sur le cloud.
+* **Attaché localement** : les données de ces partages demeurent à tout moment sur le tableau ; elles ne débordent pas sur le cloud.
 * **Hiérarchisé** : les données de ces partages peuvent déborder sur le cloud. Lorsque vous créez un partage à plusieurs niveaux, environ 10 % de l’espace est configuré au niveau local et 90 % dans le cloud. Par exemple, si vous avez configuré un partage de 1 To, 100 Go résident dans l’espace local et 900 Go sont utilisés dans le cloud lorsque les données sont stockées en niveaux. Cela implique que si vous n’avez plus d’espace local sur l’appareil, vous ne pouvez pas configurer un partage à plusieurs niveaux (car les 10 % requis sur l’espace local ne seront pas disponibles).
 
 ### <a name="provisioned-capacity"></a>Capacité allouée

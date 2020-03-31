@@ -8,17 +8,17 @@ ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 71b3b7815d2a4b0b4de3afdca9db93156f505445
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73572879"
 ---
 # <a name="deploy-a-model-from-visual-studio"></a>Déployer un modèle à partir de Visual Studio
 
 Une fois que vous avez créé un serveur dans votre abonnement Azure, vous êtes prêt à déployer une base de données de modèle tabulaire sur celui-ci. Vous pouvez utiliser Visual Studio avec des projets de Analysis Services pour générer et déployer un projet de modèle tabulaire sur lequel vous travaillez. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour commencer, vous avez besoin des éléments suivants :
 
@@ -53,7 +53,7 @@ Dans **Portail Azure** > Serveur > **Présentation** > **Nom du serveur**, copie
 C’est tout !
 
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 Si le déploiement échoue lors du déploiement de métadonnées, il est probable que Visual Studio n’ait pas pu se connecter à votre serveur. Vérifiez que vous pouvez vous connecter à votre serveur à l’aide de SSMS. Vérifiez ensuite que la propriété Serveur de déploiement du projet est correcte.
 

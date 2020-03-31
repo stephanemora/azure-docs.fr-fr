@@ -8,10 +8,10 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/30/2019
 ms.openlocfilehash: ab334dfb15044fd0734a107c12003ca2c1f86906
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75895188"
 ---
 # <a name="scenario-joins-in-apache-hive-leads-to-an-outofmemory-error-in-azure-hdinsight"></a>Scénario : Les jointures dans Apache Hive provoquent une erreur OutOfMemory dans Azure HDInsight
@@ -22,7 +22,7 @@ Cet article décrit la procédure à suivre pour résoudre les problèmes rencon
 
 Le comportement par défaut pour les jointures Apache Hive consiste à charger l’intégralité du contenu d’une table dans la mémoire afin qu’une jointure puisse être effectuée sans avoir à effectuer une étape de mappage/réduction. Si la table Hive est trop grande pour tenir dans la mémoire, la requête peut échouer.
 
-## <a name="cause"></a>Cause :
+## <a name="cause"></a>Cause
 
 Lors de l’exécution de jointures dans une ruche de taille suffisante, l’erreur suivante se produit :
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
 ms.openlocfilehash: 877467b65d346c871dd93f4b3f96b2c1664fa4b9
-ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73906793"
 ---
 # <a name="compare-message-routing-and-event-grid-for-iot-hub"></a>Comparer le routage des messages et Event Grid pour IoT Hub
@@ -21,9 +21,9 @@ Azure IoT Hub permet de diffuser des données à partir de vos appareils connect
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-**[Routage des messages IoT Hub](iot-hub-devguide-messages-d2c.md)** : Cette fonctionnalité IoT Hub permet aux utilisateurs d’acheminer les messages appareil-à-cloud vers des points de terminaison de service, tels que des conteneurs de stockage Azure, des hubs d’événements, des files d’attente Service Bus et des rubriques Service Bus. Le routage fournit également une fonctionnalité de requête pour filtrer les données avant de les router vers les points de terminaison. En plus des données de télémétrie d’appareil, vous pouvez également envoyer des [événements non liés à la télémétrie](iot-hub-devguide-messages-d2c.md#non-telemetry-events) qui peuvent être utilisés pour déclencher des actions. 
+**[Routage des messages IoT Hub](iot-hub-devguide-messages-d2c.md)** : cette fonctionnalité IoT Hub permet aux utilisateurs d’acheminer les messages appareil-à-cloud vers des points de terminaison de service, tels que des conteneurs de stockage Azure, des hubs d’événements, des files d’attente Service Bus et des rubriques Service Bus. Le routage fournit également une fonctionnalité de requête pour filtrer les données avant de les router vers les points de terminaison. En plus des données de télémétrie d’appareil, vous pouvez également envoyer des [événements non liés à la télémétrie](iot-hub-devguide-messages-d2c.md#non-telemetry-events) qui peuvent être utilisés pour déclencher des actions. 
 
-**Intégration d’IoT Hub avec Event Grid** : Azure Event Grid est un service de routage d'événement complètement managé qui utilise le modèle publication-abonnement. IoT Hub et Event Grid collaborent afin [d’intégrer les événements IoT Hub dans les services Azure et non-Azure](iot-hub-event-grid.md), quasiment en temps réel. IoT Hub publie à la fois des [événements d’appareil](iot-hub-event-grid.md#event-types) et des événements de télémétrie.
+**Intégration d’IoT Hub avec Event Grid** : Azure Event Grid est un service de routage d’événement entièrement géré qui utilise le modèle Publication-Abonnement. IoT Hub et Event Grid collaborent afin [d’intégrer les événements IoT Hub dans les services Azure et non-Azure](iot-hub-event-grid.md), quasiment en temps réel. IoT Hub publie à la fois des [événements d’appareil](iot-hub-event-grid.md#event-types) et des événements de télémétrie.
 
 ## <a name="differences"></a>Différences
 
@@ -34,7 +34,7 @@ Le routage des messages et Event Grid permettent tous deux de configurer des ale
 | **Messages et événements d’appareil** | Oui, le routage des messages peut être utilisé pour les données de télémétrie, les changements de jumeau des appareils de rapport, les événements de cycle de vie des appareils et les événements de changement de jumeau numérique (qui font partie de la [préversion publique d’IoT Plug-and-Play](../iot-pnp/overview-iot-plug-and-play.md)). | Oui, Event Grid peut être utilisé pour les données de télémétrie, mais peut également signaler la création, la suppression, la connexion et la déconnexion d’appareils de IoT Hub |
 | **Ordonnancement** | Oui, l’ordonnancement des événements est conservé.  | Non, l’ordonnancement des événements n’est pas garanti. | 
 | **Filtering** | Filtrage élaboré opérant sur les propriétés de l’application de messagerie, les propriétés système des messages, le corps des messages, ainsi que les étiquettes et propriétés de jumeaux d’appareil. Le filtrage n’est pas appliqué aux événements de changement de jumeau numérique. Pour obtenir des exemples, consultez [Syntaxe des requêtes de routage des messages](iot-hub-devguide-routing-query-syntax.md). | Filtrage basé sur le type d’événement, le type de sujet et les attributs de chaque événement. Pour des exemples, voir [Comprendre les événements de filtrage dans les inscriptions à Event Grid](../event-grid/event-filtering.md). Lorsque vous vous abonnez à des événements de télémétrie, vous pouvez appliquer des filtres supplémentaires sur les données pour filtrer les propriétés du message, le corps du message et le jumeau d’appareil dans votre IoT Hub, avant la publication dans Event Grid. Voir [Comment filtrer les événements](../iot-hub/iot-hub-event-grid.md#filter-events). |
-| **Points de terminaison** | <ul><li>Event Hubs</li> <li>un stockage Azure Blob</li> <li>File d’attente Service Bus</li> <li>Rubriques Service Bus</li></ul><br>Les références SKU IoT Hub payantes (S1, S2 et S3) sont limitées à 10 points de terminaison personnalisés. Vous pouvez créer 100 itinéraires par hub IoT. | <ul><li>Azure Functions</li> <li>Azure Automation</li> <li>Event Hubs</li> <li>Logic Apps</li> <li>Storage Blob</li> <li>Rubriques personnalisées</li> <li>Stockage File d’attente</li> <li>Microsoft Flow</li> <li>Services tiers par le biais de WebHooks</li></ul><br>500 points de terminaison sont pris en charge pour chaque instance IoT Hub. Pour obtenir la liste la plus récente des points de terminaison, consultez [Gestionnaires d’événements Event Grid](../event-grid/overview.md#event-handlers). |
+| **Points de terminaison** | <ul><li>Event Hubs</li> <li>Stockage Blob Azure</li> <li>File d’attente Service Bus</li> <li>Rubriques Service Bus</li></ul><br>Les références SKU IoT Hub payantes (S1, S2 et S3) sont limitées à 10 points de terminaison personnalisés. Vous pouvez créer 100 itinéraires par hub IoT. | <ul><li>Azure Functions</li> <li>Azure Automation</li> <li>Event Hubs</li> <li>Logic Apps</li> <li>Storage Blob</li> <li>Rubriques personnalisées</li> <li>Stockage File d’attente</li> <li>Microsoft Flow</li> <li>Services tiers par le biais de WebHooks</li></ul><br>500 points de terminaison sont pris en charge pour chaque instance IoT Hub. Pour obtenir la liste la plus récente des points de terminaison, consultez [Gestionnaires d’événements Event Grid](../event-grid/overview.md#event-handlers). |
 | **Coût** | Le routage des messages n’est pas facturé séparément. Seule l’entrée de télémétrie dans IoT Hub est facturée. Par exemple, si vous avez un message acheminé vers trois points de terminaison différents, un seul message vous est facturé. | Aucun frais IoT Hub n’est facturé. Avec Event Grid, les 100 000 premières opérations par mois sont gratuites. Ensuite, le coût est de 0,60 $ par million d’opérations par la suite. |
 
 ## <a name="similarities"></a>Similitudes
@@ -44,9 +44,9 @@ Le routage des messages IoT Hub et Event Grid offrent aussi quelques similitudes
 | Fonctionnalité | Routage des messages IoT Hub | Intégration d’IoT Hub avec Event Grid |
 | ------- | --------------- | ---------- |
 | **Taille de message maximale** | 256 Ko, appareil-à-cloud | 256 Ko, appareil-à-cloud |
-| **Fiabilité** | Élevée : Remet chaque message au point de terminaison au moins une fois pour chaque itinéraire. Provoque l’expiration de tous les messages qui ne sont pas remis dans l’heure. | Élevée : Remet chaque message au webhook au moins une fois pour chaque abonnement. Provoque l’expiration de tous les événements qui ne sont pas remis dans les 24 heures. | 
-| **Extensibilité** | Élevée : Optimisé pour prendre en charge des millions d’appareils connectés simultanément et envoyant plusieurs millions de messages. | Élevée : Capable d’acheminer 10 000 000 d’événements par seconde et par région. |
-| **Latence** | Faible : Quasiment en temps réel. | Faible : Quasiment en temps réel. |
+| **Fiabilité** | Élevée : remet chaque message au point de terminaison au moins une fois pour chaque itinéraire. Provoque l’expiration de tous les messages qui ne sont pas remis dans l’heure. | Élevée : remet chaque message au webhook au moins une fois pour chaque abonnement. Provoque l’expiration de tous les événements qui ne sont pas remis dans les 24 heures. | 
+| **Extensibilité** | Élevée : optimisé pour prendre en charge des millions d’appareils connectés simultanément et envoyant plusieurs millions de messages. | Élevée : capable d’acheminer 10 000 000 d’événements par seconde et par région. |
+| **Latence** | Faible : quasiment en temps réel. | Faible : quasiment en temps réel. |
 | **Envoi à plusieurs points de terminaison** | Oui, envoi d’un message unique à plusieurs points de terminaison. | Oui, envoi d’un message unique à plusieurs points de terminaison.  
 | **Sécurité** | Iot Hub fournit une identité par appareil et un contrôle d’accès révocable. Pour plus d’informations, consultez [Contrôle d’accès IoT Hub](iot-hub-devguide-security.md). | Event Grid fournit une validation à trois points : abonnements aux événements, publication d’événements et remise d’événements webhook. Pour en savoir plus, consultez la page [Sécurité et authentification pour Event Grid](../event-grid/security-authentication.md). |
 

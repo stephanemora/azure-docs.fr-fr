@@ -18,26 +18,26 @@ ms.date: 02/03/2020
 ms.author: rdhillon
 ms.custom: ''
 ms.openlocfilehash: 673431e2ddfc9a641bb1c640891daac79350cb3a
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78253162"
 ---
 # <a name="manage-data-exfiltration-to-azure-storage-accounts-with-virtual-network-service-endpoint-policies-using-azure-powershell"></a>Gérer l’exfiltration de données vers des comptes de stockage Azure avec des stratégies de point de terminaison de service de réseau virtuel à l’aide d’Azure PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Les stratégies de point de terminaison de service de réseau virtuel vous permettent d’appliquer un contrôle d’accès sur des comptes de stockage Azure à partir d’un réseau virtuel sur des points de terminaison de service. Il s’agit d’une stratégie clé pour sécuriser vos charges de travail, gérer les comptes de stockage autorisés et gérer les destinations d’exfiltration de données autorisées.
+Les stratégies de points de terminaison de service de réseau virtuel vous permettent d’appliquer un contrôle d’accès sur des comptes Stockage Azure depuis un réseau virtuel sur des points de terminaison de service. Il s’agit d’une stratégie clé pour sécuriser vos charges de travail, gérer les comptes de stockage autorisés et gérer les destinations d’exfiltration de données autorisées.
 Dans cet article, vous apprendrez comment :
 
 * Créez un réseau virtuel.
 * Ajouter un sous-réseau et activer un point de terminaison de service pour le stockage Azure
-* Créer deux comptes de stockage Azure et autoriser l’accès réseau à ces derniers à partir du sous-réseau précédemment créé
-* Créer une stratégie de point de terminaison de service pour autoriser l’accès à l’un des comptes de stockage uniquement
-* Déployer une machine virtuelle sur le sous-réseau
-* Vérifier l’accès au compte de stockage autorisé à partir du sous-réseau
-* Vérifier que l’accès au compte de stockage non autorisé à partir du sous-réseau est refusé
+* Créer deux comptes de stockage Azure et autoriser l’accès réseau à ces derniers à partir du sous-réseau précédemment créé.
+* Créer une stratégie de point de terminaison de service pour autoriser l’accès à l’un des comptes de stockage uniquement.
+* Déployer une machine virtuelle sur le sous-réseau.
+* Vérifier l’accès au compte de stockage autorisé à partir du sous-réseau.
+* Vérifier que l’accès au compte de stockage non autorisé à partir du sous-réseau est refusé.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -147,7 +147,7 @@ Set-AzVirtualNetworkSubnetConfig `
 $virtualNetwork | Set-AzVirtualNetwork
 ```
 
-## <a name="restrict-network-access-to-azure-storage-accounts"></a>Restreindre l’accès réseau aux comptes de stockage Azure
+## <a name="restrict-network-access-to-azure-storage-accounts"></a>Restreindre l’accès réseau aux comptes Stockage Azure
 
 Les étapes nécessaires pour restreindre l’accès réseau aux ressources créées par le biais des services Azure avec activation des points de terminaison varient d’un service à l’autre. Pour connaître les étapes à suivre, consultez la documentation relative à chacun des services. La suite de cet article comprend des étapes permettant de restreindre l’accès réseau pour un compte Stockage Azure.
 

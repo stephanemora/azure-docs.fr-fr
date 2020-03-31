@@ -15,17 +15,17 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 28b4be46dc686c6e1b55f1ab36e0607057ebdbbd
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76758969"
 ---
 # <a name="a-web-app-that-calls-web-apis-call-a-web-api"></a>Application web appelant des API web : Appeler une API web
 
 Maintenant que vous avez un jeton, vous pouvez appeler une API web protégée.
 
-# <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
+# <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
 Voici le code simplifié pour l’action du `HomeController`. Ce code obtient un jeton pour appeler Microsoft Graph. Du code a été ajouté pour montrer comment appeler Microsoft Graph en tant qu’API REST. L’URL de l’API Microsoft Graph est fournie dans le fichier appsettings.json et lue dans une variable nommée `webOptions` :
 
@@ -86,7 +86,7 @@ public async Task<IActionResult> Profile()
 >
 > La plupart des API web fournissent un Kit de développement logiciel (SDK) qui simplifie l’appel de l’API. C’est également le cas de Microsoft Graph. Dans l’article suivant, vous allez apprendre où trouver un tutoriel illustrant l’utilisation de l’API.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 ```Java
 private String getUserInfoFromGraph(String accessToken) throws Exception {
@@ -112,7 +112,7 @@ private String getUserInfoFromGraph(String accessToken) throws Exception {
 
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 ```Python
 @app.route("/graphcall")

@@ -5,10 +5,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/13/2019
 ms.openlocfilehash: b1d9e59109f5ace25abb9840b48e44ff03d394e7
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78255905"
 ---
 # <a name="configure-a-linux-aspnet-core-app-for-azure-app-service"></a>Configurer une application ASP.NET Core pour Azure App Service

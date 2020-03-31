@@ -17,17 +17,17 @@ ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 99de022b7259b33baab3aa825673a8f85e932bff
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78968742"
 ---
 # <a name="review-access-of-an-access-package-in-azure-ad-entitlement-management"></a>Révision de l’accès d’un package d’accès dans la gestion des droits d’utilisation Azure AD
 
 La gestion des droits d'utilisation d’Azure AD simplifie la gestion de l’accès aux groupes, aux applications et aux sites SharePoint pour les entreprises. Cet article explique comment effectuer des révisions d’accès pour d’autres utilisateurs affectés à un package d’accès en tant que réviseur désigné.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour examiner les attributions de packages d’accès actives des utilisateurs, vous devez remplir les conditions préalables requises pour effectuer une révision d’accès :
 - Azure AD Premium P2

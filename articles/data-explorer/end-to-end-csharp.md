@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.openlocfilehash: 0711484c4fff24c5dcd3c18effce596a92bc30c3
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76964513"
 ---
 # <a name="end-to-end-blob-ingestion-into-azure-data-explorer-through-c"></a>Ingestion d’objets blob de bout en bout dans Azure Data Explorer par le biais de C#
@@ -25,7 +25,7 @@ Azure Data Explorer est un service d’exploration de données rapide et évolut
 
 Vous allez apprendre à créer par programmation un groupe de ressources, un compte de stockage et un conteneur, un Event Hub et un cluster et une base de données Azure Data Explorer. Vous apprendrez également à configurer Azure Data Explorer de manière programmatique pour ingérer des données à partir du nouveau compte de stockage.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
 

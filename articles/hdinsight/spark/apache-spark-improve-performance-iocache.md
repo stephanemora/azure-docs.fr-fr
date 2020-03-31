@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/23/2019
 ms.openlocfilehash: 43875b87d26f144b85454077fd3c044c820132bf
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75494992"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache"></a>Améliorer les performances des charges de travail Apache Spark à l’aide d’Azure HDInsight IO Cache
@@ -77,4 +77,4 @@ Si cela ne fonctionne pas, désactivez le cache d’E/S.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur le Cache d’E/S, notamment les tests de performances, consultez ce billet de blog : [Les tâches Apache Spark bénéficient d’une vitesse neuf fois plus rapide avec HDInsight IO Cache](https://azure.microsoft.com/blog/apache-spark-speedup-with-hdinsight-io-cache/)
+Obtenez plus de détails sur IO Cache, notamment avec des tests de performances, dans ce billet de blog : [Apache Spark jobs gain up to 9x speed up with HDInsight IO Cache (Vitesse des travaux Apache Spark accélérée par 9 avec HDInsight IO Cache)](https://azure.microsoft.com/blog/apache-spark-speedup-with-hdinsight-io-cache/)

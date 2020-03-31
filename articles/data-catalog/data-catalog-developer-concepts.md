@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: 80adc98255cfc9145d583ac775bbc490d599234e
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68976828"
 ---
 # <a name="azure-data-catalog-developer-concepts"></a>Concepts de développeur Azure Data Catalog
@@ -46,7 +46,7 @@ Une **ressource** est l’élément que vous ajoutez ou supprimez d’un catalog
 
 Une **ressource** est constituée de son nom, de son emplacement et de son type ainsi que d’annotations apportant une description supplémentaire.
 
-### <a name="annotations"></a>annotations
+### <a name="annotations"></a>Annotations
 Les annotations sont des éléments qui représentent des métadonnées sur les ressources.
 
 Les annotations sont, par exemple, des descriptions, des balises, un schéma, une documentation, etc. La liste complète des types de ressources et d’annotations figure dans la section Modèle d’objet de ressource.
@@ -76,7 +76,7 @@ L'expérience utilisateur permet alors l’affichage de la combinaison. Il exist
 Comme décrit dans la section Concepts clés, le modèle d’objet **Azure Data Catalog** comprend des éléments pouvant être des ressources ou des annotations. Les éléments ont des propriétés, qui peuvent être facultatives ou obligatoires. Certaines propriétés s'appliquent à tous les éléments. Certaines propriétés s'appliquent à toutes les ressources. Certaines propriétés s'appliquent uniquement à des types de ressources spécifiques.
 
 ### <a name="system-properties"></a>Propriétés système
-<table><tr><td><b>Nom de la propriété</b></td><td><b>Type de données</b></td><td><b>Commentaires</b></td></tr><tr><td>timestamp</td><td>DateTime</td><td>L’heure de la dernière modification de l’élément. Ce champ est généré par le serveur lors de l’insertion ou de la mise à jour d’un élément. La valeur de cette propriété est ignorée lors de l’entrée d’opérations de publication.</td></tr><tr><td>id</td><td>Uri</td><td>URL absolue de l’élément (en lecture seule). Il s’agit de l’URI adressable unique de l’élément.  La valeur de cette propriété est ignorée lors de l’entrée d’opérations de publication.</td></tr><tr><td>Type</td><td>Chaîne</td><td>Le type de ressource (lecture seule)</td></tr><tr><td>etag</td><td>Chaîne</td><td>Chaîne correspondant à la version de l’élément utilisable pour un contrôle d’accès concurrentiel optimiste lors de l’exécution d’opérations de mise à jour d’éléments dans le catalogue. « * » peut être utilisé pour correspondre à n’importe quelle valeur.</td></tr></table>
+<table><tr><td><b>Nom de la propriété</b></td><td><b>Type de données</b></td><td><b>Commentaires</b></td></tr><tr><td>timestamp</td><td>DateTime</td><td>L’heure de la dernière modification de l’élément. Ce champ est généré par le serveur lors de l’insertion ou de la mise à jour d’un élément. La valeur de cette propriété est ignorée lors de l’entrée d’opérations de publication.</td></tr><tr><td>id</td><td>Uri</td><td>URL absolue de l’élément (en lecture seule). Il s’agit de l’URI adressable unique de l’élément.  La valeur de cette propriété est ignorée lors de l’entrée d’opérations de publication.</td></tr><tr><td>type</td><td>String</td><td>Le type de ressource (lecture seule)</td></tr><tr><td>etag</td><td>String</td><td>Chaîne correspondant à la version de l’élément utilisable pour un contrôle d’accès concurrentiel optimiste lors de l’exécution d’opérations de mise à jour d’éléments dans le catalogue. « * » peut être utilisé pour correspondre à n’importe quelle valeur.</td></tr></table>
 
 ### <a name="common-properties"></a>Propriétés communes
 Ces propriétés s'appliquent à tous les types de ressources racines et tous les types d'annotations.
@@ -90,21 +90,21 @@ Ces propriétés s'appliquent à tous les types de ressources racines et tous le
 <p>
 Ces propriétés s'appliquent à tous les types de ressources racines.
 
-<table><tr><td><b>Nom de la propriété</b></td><td><b>Type de données</b></td><td><b>Commentaires</b></td></tr><tr><td>Nom</td><td>Chaîne</td><td>Un nom dérivé des informations d’emplacement de source de données</td></tr><tr><td>dsl</td><td>DataSourceLocation</td><td>Décrit la source de données de manière unique et est un des identificateurs de la ressource. (Voir la section identité double).  La structure du dsl varie selon le type de protocole et de source.</td></tr><tr><td>dataSource</td><td>DataSourceInfo</td><td>Plus de détails sur le type de ressource.</td></tr><tr><td>lastRegisteredBy</td><td>SecurityPrincipal</td><td>Décrit l'utilisateur qui a enregistré cette ressource le plus récemment.  Contient l’ID unique de l’utilisateur (l’UPN) ainsi qu’un nom complet (nom et prénom).</td></tr><tr><td>containerId</td><td>Chaîne</td><td>ID de la ressource de conteneur pour la source de données. Cette propriété n'est pas prise en charge pour le type Conteneur.</td></tr></table>
+<table><tr><td><b>Nom de la propriété</b></td><td><b>Type de données</b></td><td><b>Commentaires</b></td></tr><tr><td>name</td><td>String</td><td>Un nom dérivé des informations d’emplacement de source de données</td></tr><tr><td>dsl</td><td>DataSourceLocation</td><td>Décrit la source de données de manière unique et est un des identificateurs de la ressource. (Voir la section identité double).  La structure du dsl varie selon le type de protocole et de source.</td></tr><tr><td>dataSource</td><td>DataSourceInfo</td><td>Plus de détails sur le type de ressource.</td></tr><tr><td>lastRegisteredBy</td><td>SecurityPrincipal</td><td>Décrit l'utilisateur qui a enregistré cette ressource le plus récemment.  Contient l’ID unique de l’utilisateur (l’UPN) ainsi qu’un nom complet (nom et prénom).</td></tr><tr><td>containerId</td><td>String</td><td>ID de la ressource de conteneur pour la source de données. Cette propriété n'est pas prise en charge pour le type Conteneur.</td></tr></table>
 
 ### <a name="common-non-singleton-annotation-properties"></a>Propriétés d’annotation non singleton courantes
 Ces propriétés s’appliquent à tous les types d’annotations non singleton (c’est-à-dire des annotations pouvant être multiples par ressource).
 
 <table>
 <tr><td><b>Nom de la propriété</b></td><td><b>Type de données</b></td><td><b>Commentaires</b></td></tr>
-<tr><td>key</td><td>Chaîne</td><td>Clé spécifiée par l’utilisateur, qui identifie de façon unique l’annotation dans la collection actuelle. La longueur de la clé ne peut pas dépasser 256 caractères.</td></tr>
+<tr><td>key</td><td>String</td><td>Clé spécifiée par l’utilisateur, qui identifie de façon unique l’annotation dans la collection actuelle. La longueur de la clé ne peut pas dépasser 256 caractères.</td></tr>
 </table>
 
 ### <a name="root-asset-types"></a>Types de ressources racines
 Les types de ressources racines sont des types qui représentent les différents types de ressources de données pouvant être enregistrés dans le catalogue. Pour chaque type de racine, une vue permet de décrire la ressource et les annotations contenues dans la vue. Le nom de la vue doit être utilisé dans le segment d’URL {nom_vue} correspondant au moment de publier une ressource à l’aide de l’API REST.
 
-<table><tr><td><b>Type de ressource (nom de la vue)</b></td><td><b>Propriétés supplémentaires</b></td><td><b>Type de données</b></td><td><b>Annotations autorisées</b></td><td><b>Commentaires</b></td></tr><tr><td>Table (« tables »)</td><td></td><td></td><td>Description<p>FriendlyName<p>Tag<p>Schéma<p>ColumnDescription<p>ColumnTag<p> Expert<p>PRÉVERSION<p>AccessInstruction<p>TableDataProfile<p>ColumnDataProfile<p>ColumnDataClassification<p>Documentation<p></td><td>Une table représente des données tabulaires.  Par exemple :  Une table SQL, un affichage SQL, une table tabulaire Analysis Services, une dimension multidimensionnelle Analysis Services, une table Oracle, etc.   </td></tr><tr><td>Mesures (« measures »)</td><td></td><td></td><td>Description<p>FriendlyName<p>Tag<p>Expert<p>AccessInstruction<p>Documentation<p></td><td>Ce type représente une mesure Analysis Services.</td></tr><tr><td></td><td>mesure</td><td>Colonne</td><td></td><td>Métadonnées décrivant la mesure</td></tr><tr><td></td><td>isCalculated </td><td>Boolean</td><td></td><td>Indique si la mesure est calculée ou non.</td></tr><tr><td></td><td>measureGroup</td><td>Chaîne</td><td></td><td>Conteneur physique de mesure</td></tr><td>KPI (« kpis »)</td><td></td><td></td><td>Description<p>FriendlyName<p>Tag<p>Expert<p>AccessInstruction<p>Documentation</td><td></td></tr><tr><td></td><td>measureGroup</td><td>Chaîne</td><td></td><td>Conteneur physique de mesure</td></tr><tr><td></td><td>goalExpression</td><td>Chaîne</td><td></td><td>Une expression numérique MDX ou un calcul qui retourne la valeur cible de l'indicateur de performance clé.</td></tr><tr><td></td><td>valueExpression</td><td>Chaîne</td><td></td><td>Une expression numérique MDX qui retourne la valeur réelle de l'indicateur de performance clé.</td></tr><tr><td></td><td>statusExpression</td><td>Chaîne</td><td></td><td>Une expression MDX qui représente l'état de l'indicateur de performance clé à un point spécifié dans le temps.</td></tr><tr><td></td><td>trendExpression</td><td>Chaîne</td><td></td><td>Une expression MDX qui évalue la valeur de l’indicateur de performance clé au fil du temps. La tendance peut être n'importe quel critère de temps utile dans un contexte d’entreprise spécifique.</td>
-<tr><td>Report (« reports »)</td><td></td><td></td><td>Description<p>FriendlyName<p>Tag<p>Expert<p>AccessInstruction<p>Documentation<p></td><td>Ce type représente un rapport SQL Server Reporting Services </td></tr><tr><td></td><td>assetCreatedDate</td><td>Chaîne</td><td></td><td></td></tr><tr><td></td><td>assetCreatedBy</td><td>Chaîne</td><td></td><td></td></tr><tr><td></td><td>assetModifiedDate</td><td>Chaîne</td><td></td><td></td></tr><tr><td></td><td>assetModifiedBy</td><td>Chaîne</td><td></td><td></td></tr><tr><td>Container (« containers »)</td><td></td><td></td><td>Description<p>FriendlyName<p>Tag<p>Expert<p>AccessInstruction<p>Documentation<p></td><td>Ce type représente un conteneur d'autres ressources telles qu'une base de données SQL, un conteneur d'objets Blob Azure ou un modèle Analysis Services.</td></tr></table>
+<table><tr><td><b>Type de ressource (nom de la vue)</b></td><td><b>Propriétés supplémentaires</b></td><td><b>Type de données</b></td><td><b>Annotations autorisées</b></td><td><b>Commentaires</b></td></tr><tr><td>Table (« tables »)</td><td></td><td></td><td>Description<p>FriendlyName<p>Tag<p>schéma<p>ColumnDescription<p>ColumnTag<p> Expert<p>PRÉVERSION<p>AccessInstruction<p>TableDataProfile<p>ColumnDataProfile<p>ColumnDataClassification<p>Documentation<p></td><td>Une table représente des données tabulaires.  Par exemple : Une table SQL, un affichage SQL, une table tabulaire Analysis Services, une dimension multidimensionnelle Analysis Services, une table Oracle, etc.   </td></tr><tr><td>Mesures (« measures »)</td><td></td><td></td><td>Description<p>FriendlyName<p>Tag<p>Expert<p>AccessInstruction<p>Documentation<p></td><td>Ce type représente une mesure Analysis Services.</td></tr><tr><td></td><td>mesure</td><td>Colonne</td><td></td><td>Métadonnées décrivant la mesure</td></tr><tr><td></td><td>isCalculated </td><td>Boolean</td><td></td><td>Indique si la mesure est calculée ou non.</td></tr><tr><td></td><td>measureGroup</td><td>String</td><td></td><td>Conteneur physique de mesure</td></tr><td>KPI (« kpis »)</td><td></td><td></td><td>Description<p>FriendlyName<p>Tag<p>Expert<p>AccessInstruction<p>Documentation</td><td></td></tr><tr><td></td><td>measureGroup</td><td>String</td><td></td><td>Conteneur physique de mesure</td></tr><tr><td></td><td>goalExpression</td><td>String</td><td></td><td>Expression numérique MDX ou calcul qui retourne la valeur cible du KPI.</td></tr><tr><td></td><td>valueExpression</td><td>String</td><td></td><td>Expression numérique MDX qui retourne la valeur réelle du KPI.</td></tr><tr><td></td><td>statusExpression</td><td>String</td><td></td><td>Expression MDX qui représente l'état du KPI à un moment donné.</td></tr><tr><td></td><td>trendExpression</td><td>String</td><td></td><td>Expression MDX qui évalue la valeur du KPI dans le temps. La tendance peut correspondre à n'importe quel critère de temps ayant une utilité dans un contexte d'entreprise.</td>
+<tr><td>Report (« reports »)</td><td></td><td></td><td>Description<p>FriendlyName<p>Tag<p>Expert<p>AccessInstruction<p>Documentation<p></td><td>Ce type représente un rapport SQL Server Reporting Services </td></tr><tr><td></td><td>assetCreatedDate</td><td>String</td><td></td><td></td></tr><tr><td></td><td>assetCreatedBy</td><td>String</td><td></td><td></td></tr><tr><td></td><td>assetModifiedDate</td><td>String</td><td></td><td></td></tr><tr><td></td><td>assetModifiedBy</td><td>String</td><td></td><td></td></tr><tr><td>Container (« containers »)</td><td></td><td></td><td>Description<p>FriendlyName<p>Tag<p>Expert<p>AccessInstruction<p>Documentation<p></td><td>Ce type représente un conteneur d'autres ressources telles qu'une base de données SQL, un conteneur d'objets Blob Azure ou un modèle Analysis Services.</td></tr></table>
 
 ### <a name="annotation-types"></a>Types d'annotation
 Les types d'annotation représentent des types de métadonnées qui peuvent être attribuées à d'autres types dans le catalogue.
@@ -125,12 +125,12 @@ Les types d'annotation représentent des types de métadonnées qui peuvent êtr
 <tr><td></td><td>colonnes</td><td>Column[]</td><td>Un tableau d'objets de colonne. Ils décrivent la colonne avec des informations issues de la source de données.</td></tr>
 
 <tr><td>ColumnDescription (« columnDescriptions »)</td><td></td><td></td><td>Cette propriété contient une description de la colonne.  Chaque utilisateur du système peut ajouter ses propres descriptions pour plusieurs colonnes (au maximum une par colonne). Seul l’utilisateur ayant créé des objets ColumnDescription peut les modifier.  (Les propriétaires des ressources et les administrateurs peuvent supprimer l’objet ColumnDescription mais pas le modifier). Le système conserve séparément les descriptions des colonnes de ces utilisateurs.  Il y a donc un tableau d’objets ColumnDescription sur chaque ressource (un par colonne pour chaque utilisateur ayant partagé sa connaissance de la colonne, plus éventuellement un autre contenant des informations dérivées de la source de données).  ColumnDescription est étroitement lié au schéma et peut donc parfois être désynchronisé. ColumnDescription peut décrire une colonne qui n’existe plus dans le schéma.  C’est à celui qui écrit qu’il incombe de synchroniser la description et le schéma.  La source de données peut également contenir des informations descriptives des colonnes. D’autres objets ColumnDescription doivent être créés lors de l’exécution de l’outil.</td></tr>
-<tr><td></td><td>columnName</td><td>Chaîne</td><td>Nom de la colonne à laquelle cette description fait référence.</td></tr>
-<tr><td></td><td>description</td><td>Chaîne</td><td>Brève description (2 ou 3 lignes) de la colonne.</td></tr>
+<tr><td></td><td>columnName</td><td>String</td><td>Nom de la colonne à laquelle cette description fait référence.</td></tr>
+<tr><td></td><td>description</td><td>String</td><td>Brève description (2 ou 3 lignes) de la colonne.</td></tr>
 
 <tr><td>ColumnTag (« columnTags »)</td><td></td><td></td><td>Cette propriété contient une balise pour une colonne. Chaque utilisateur du système peut ajouter plusieurs balises pour une colonne donnée et pour plusieurs colonnes. Seul l’utilisateur qui a créé des objets ColumnTag permettre les modifier. (Les propriétaires des ressources et les administrateurs peuvent supprimer l’objet ColumnTag mais pas le modifier). Le système conserve séparément les balises des colonnes de ces utilisateurs.  Il y a donc un tableau d’objets ColumnTag sur chaque ressource.  ColumnTag est étroitement lié au schéma et peut donc parfois être désynchronisé. ColumnTag peut décrire une colonne qui n’existe plus dans le schéma.  C’est à celui qui écrit qu’il incombe de synchroniser la balise de la colonne et le schéma.</td></tr>
-<tr><td></td><td>columnName</td><td>Chaîne</td><td>Nom de la colonne à laquelle cette balise fait référence.</td></tr>
-<tr><td></td><td>tag</td><td>Chaîne</td><td>Balise décrivant la colonne.</td></tr>
+<tr><td></td><td>columnName</td><td>String</td><td>Nom de la colonne à laquelle cette balise fait référence.</td></tr>
+<tr><td></td><td>tag</td><td>String</td><td>Balise décrivant la colonne.</td></tr>
 
 <tr><td>Expert (« experts »)</td><td></td><td></td><td>Cette propriété contient un utilisateur considéré comme un expert dans le jeu de données. Les avis d’experts (des descriptions) sont propagés vers le haut de l’expérience utilisateur lors de l’affichage des descriptions. Chaque utilisateur peut spécifier ses propres experts. Seul cet utilisateur peut modifier l’objet Experts. (Les propriétaires des ressources et les administrateurs peuvent supprimer les objets Expert mais pas les modifier).</td></tr>
 <tr><td></td><td>expert</td><td>SecurityPrincipal</td><td></td></tr>
@@ -140,11 +140,11 @@ Les types d'annotation représentent des types de métadonnées qui peuvent êtr
 
 <tr><td>AccessInstruction (« accessInstructions »)</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>mimeType</td><td>string</td><td>Le type mime du contenu.</td></tr>
-<tr><td></td><td>Contenu</td><td>string</td><td>Les instructions pour accéder à cette ressource de données. Il peut s’agir d’une URL, d’une adresse de messagerie ou d’un ensemble d’instructions.</td></tr>
+<tr><td></td><td>content</td><td>string</td><td>Les instructions pour accéder à cette ressource de données. Il peut s’agir d’une URL, d’une adresse de messagerie ou d’un ensemble d’instructions.</td></tr>
 
 <tr><td>TableDataProfile (« tableDataProfiles »)</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>numberOfRows</td></td><td>int</td><td>Le nombre de lignes dans le jeu de données</td></tr>
-<tr><td></td><td>size</td><td>long</td><td>La taille en octets du jeu de données.  </td></tr>
+<tr><td></td><td>taille</td><td>long</td><td>La taille en octets du jeu de données.  </td></tr>
 <tr><td></td><td>schemaModifiedTime</td><td>string</td><td>L'heure de dernière modification du schéma</td></tr>
 <tr><td></td><td>dataModifiedTime</td><td>string</td><td>L’heure de dernière modification du jeu de données (données ajoutées, modifiées ou supprimées)</td></tr>
 
@@ -152,12 +152,12 @@ Les types d'annotation représentent des types de métadonnées qui peuvent êtr
 <tr><td></td><td>colonnes</td></td><td>ColumnDataProfile[]</td><td>Tableau de profils de données de colonne.</td></tr>
 
 <tr><td>ColumnDataClassification (« columnDataClassifications »)</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>columnName</td><td>Chaîne</td><td>Le nom de la colonne que désigne cette classification.</td></tr>
-<tr><td></td><td>classification ;</td><td>Chaîne</td><td>La classification des données dans cette colonne.</td></tr>
+<tr><td></td><td>columnName</td><td>String</td><td>Le nom de la colonne que désigne cette classification.</td></tr>
+<tr><td></td><td>classification ;</td><td>String</td><td>La classification des données dans cette colonne.</td></tr>
 
 <tr><td>Documentation (« documentation »)</td><td></td><td></td><td>Une seule documentation peut être associée à une ressource donnée.</td></tr>
 <tr><td></td><td>mimeType</td><td>string</td><td>Le type mime du contenu.</td></tr>
-<tr><td></td><td>Contenu</td><td>string</td><td>Le contenu de la documentation.</td></tr>
+<tr><td></td><td>content</td><td>string</td><td>Le contenu de la documentation.</td></tr>
 
 </table>
 
@@ -167,12 +167,12 @@ Les types courants peuvent être utilisés comme les types de propriétés, mais
 <table>
 <tr><td><b>Type courant</b></td><td><b>Propriétés</b></td><td><b>Type de données</b></td><td><b>Commentaires</b></td></tr>
 <tr><td>DataSourceInfo</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>sourceType</td><td>string</td><td>Décrit le type de source de données.  Par exemple :  SQL Server, Oracle Database, etc.  </td></tr>
-<tr><td></td><td>objectType</td><td>string</td><td>Décrit le type d’objet dans la source de données. Par exemple :  Table, affichage pour SQL Server.</td></tr>
+<tr><td></td><td>sourceType</td><td>string</td><td>Décrit le type de source de données.  Par exemple : SQL Server, Oracle Database, etc.  </td></tr>
+<tr><td></td><td>objectType</td><td>string</td><td>Décrit le type d’objet dans la source de données. Par exemple : Table, affichage pour SQL Server.</td></tr>
 
 <tr><td>DataSourceLocation</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>protocol</td><td>string</td><td>Requis. Décrit le protocole utilisé pour communiquer avec la source de données. Par exemple : « tds » pour SQl Server, « oracle » pour Oracle, etc. Reportez-vous à <a href="https://docs.microsoft.com/azure/data-catalog/data-catalog-dsr">Spécification de référence de la source de données - Structure DSL</a> pour obtenir la liste des protocoles actuellement pris en charge.</td></tr>
-<tr><td></td><td>address</td><td>Dictionnaire&lt;chaîne, objet&gt;</td><td>Requis. Cette propriété est un jeu de données propre au protocole qui sert à identifier la source de données référencée. Les données d’adresse sont limitées à un protocole particulier, ce qui signifie qu’elles n’ont aucun sens si le protocole n’est pas connu.</td></tr>
+<tr><td></td><td>protocol</td><td>string</td><td>Obligatoire. Décrit le protocole utilisé pour communiquer avec la source de données. Par exemple : « tds » pour SQl Server, « oracle » pour Oracle, etc. Reportez-vous à <a href="https://docs.microsoft.com/azure/data-catalog/data-catalog-dsr">Spécification de référence de la source de données - Structure DSL</a> pour obtenir la liste des protocoles actuellement pris en charge.</td></tr>
+<tr><td></td><td>address</td><td>Dictionnaire&lt;chaîne, objet&gt;</td><td>Obligatoire. Cette propriété est un jeu de données propre au protocole qui sert à identifier la source de données référencée. Les données d’adresse sont limitées à un protocole particulier, ce qui signifie qu’elles n’ont aucun sens si le protocole n’est pas connu.</td></tr>
 <tr><td></td><td>Authentification</td><td>string</td><td>facultatif. Schéma d’authentification utilisé pour communiquer avec la source de données. Par exemple : windows, oauth, etc.</td></tr>
 <tr><td></td><td>connectionProperties</td><td>Dictionnaire&lt;chaîne, objet&gt;</td><td>facultatif. Informations supplémentaires sur la façon de se connecter à une source de données.</td></tr>
 
@@ -183,8 +183,8 @@ Les types courants peuvent être utilisés comme les types de propriétés, mais
 <tr><td></td><td>lastName</td><td>string</td><td>Nom de l'utilisateur (à des fins d'affichage). facultatif. Valide uniquement dans le contexte de la propriété « lastRegisteredBy ». Ne peut pas être spécifié lors de la fourniture du principal de sécurité pour « roles », « permissions » et « experts ».</td></tr>
 
 <tr><td>Colonne</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>Nom</td><td>string</td><td>Nom de la colonne ou de l'attribut.</td></tr>
-<tr><td></td><td>Type</td><td>string</td><td>type de données de la colonne ou de l'attribut. Les types autorisés dépendent du sourceType de données de la ressource.  Seul un sous-ensemble des types est pris en charge.</td></tr>
+<tr><td></td><td>name</td><td>string</td><td>Nom de la colonne ou de l'attribut.</td></tr>
+<tr><td></td><td>type</td><td>string</td><td>type de données de la colonne ou de l'attribut. Les types autorisés dépendent du sourceType de données de la ressource.  Seul un sous-ensemble des types est pris en charge.</td></tr>
 <tr><td></td><td>maxLength</td><td>int</td><td>La longueur maximale autorisée pour la colonne ou l'attribut. Dérivé de la source de données. Applicable uniquement à certains types de sources.</td></tr>
 <tr><td></td><td>precision</td><td>byte</td><td>La précision de la colonne ou de l'attribut. Dérivé de la source de données. Applicable uniquement à certains types de sources.</td></tr>
 <tr><td></td><td>isNullable</td><td>Boolean</td><td>Si la colonne est autorisée à avoir une valeur null ou non. Dérivé de la source de données. Applicable uniquement à certains types de sources.</td></tr>
@@ -192,7 +192,7 @@ Les types courants peuvent être utilisés comme les types de propriétés, mais
 
 <tr><td>ColumnDataProfile</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>columnName </td><td>string</td><td>Nom de la colonne</td></tr>
-<tr><td></td><td>Type </td><td>string</td><td>Type de la colonne</td></tr>
+<tr><td></td><td>type </td><td>string</td><td>Type de la colonne</td></tr>
 <tr><td></td><td>min </td><td>string</td><td>Valeur minimale dans le jeu de données</td></tr>
 <tr><td></td><td>max </td><td>string</td><td>Valeur maximale dans le jeu de données</td></tr>
 <tr><td></td><td>avg </td><td>double</td><td>Valeur moyenne dans le jeu de données</td></tr>
@@ -214,19 +214,19 @@ L’ensemble des protocoles pris en charge peut être étendu par programmation 
 <tr><td><b>Type</b></td><td><b>Propriétés</b></td><td><b>Type de données</b></td><td><b>Commentaires</b></td></tr>
 
 <tr><td>DataSourceProtocol</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>namespace</td><td>string</td><td>Espace de noms du protocole. L’espace de noms doit se composer de 1 à 255 caractères, contenir une ou plusieurs parties non vides séparées par un point (.). Chaque partie doit se composer de 1 à 255 caractères, commencer par une lettre et contenir uniquement des chiffres et des lettres.</td></tr>
-<tr><td></td><td>Nom</td><td>string</td><td>Nom du protocole. Le nom doit se composer de 1 à 255 caractères, commencer par une lettre et contenir uniquement des chiffres, des lettres et des tirets (-).</td></tr>
+<tr><td></td><td>espace de noms</td><td>string</td><td>Espace de noms du protocole. L’espace de noms doit se composer de 1 à 255 caractères, contenir une ou plusieurs parties non vides séparées par un point (.). Chaque partie doit se composer de 1 à 255 caractères, commencer par une lettre et contenir uniquement des chiffres et des lettres.</td></tr>
+<tr><td></td><td>name</td><td>string</td><td>Nom du protocole. Le nom doit se composer de 1 à 255 caractères, commencer par une lettre et contenir uniquement des chiffres, des lettres et des tirets (-).</td></tr>
 <tr><td></td><td>identityProperties</td><td>DataSourceProtocolIdentityProperty[]</td><td>Liste des propriétés d’identité ; doit contenir au moins une propriété, mais pas plus de 20. Par exemple : « server », « database », « schema », « object » sont des propriétés d’identité du protocole « tds ».</td></tr>
 <tr><td></td><td>identitySets</td><td>DataSourceProtocolIdentitySet[]</td><td>Liste de jeux d’identité. Définit des ensembles de propriétés d’identité qui représentent l’identité valide d’une ressource. Doit contenir au moins un jeu, mais pas plus de 20. Par exemple : {« server », « database », « schema » et « object »} est un jeu d’identité pour le protocole « tds », qui définit l’identité d’une ressource de table SQL Server.</td></tr>
 
 <tr><td>DataSourceProtocolIdentityProperty</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>Nom</td><td>string</td><td>Nom de la propriété. Le nom doit se composer de 1 à 100 caractères, commencer par une lettre et ne peut contenir que des chiffres et des lettres.</td></tr>
-<tr><td></td><td>Type</td><td>string</td><td>Type de la propriété. Les valeurs prises en charge sont les suivantes : « bool, « boolean », « byte », « guid », « int », « integer », « long », « string », « url »</td></tr>
+<tr><td></td><td>name</td><td>string</td><td>Nom de la propriété. Le nom doit se composer de 1 à 100 caractères, commencer par une lettre et ne peut contenir que des chiffres et des lettres.</td></tr>
+<tr><td></td><td>type</td><td>string</td><td>Type de la propriété. Les valeurs prises en charge sont les suivantes : « bool, « boolean », « byte », « guid », « int », « integer », « long », « string », « url »</td></tr>
 <tr><td></td><td>ignoreCase</td><td>bool</td><td>Indique si la casse doit être ignorée lors de l’utilisation de valeur de la propriété. Ne peut être spécifié que pour les propriétés de type « string ». La valeur par défaut est false.</td></tr>
 <tr><td></td><td>urlPathSegmentsIgnoreCase</td><td>bool[]</td><td>Indique si la casse doit être ignorée pour chaque segment du chemin de l’URL. Ne peut être spécifié que pour les propriétés de type « url ». La valeur par défaut est [false].</td></tr>
 
 <tr><td>DataSourceProtocolIdentitySet</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>Nom</td><td>string</td><td>Nom du jeu d’identité.</td></tr>
+<tr><td></td><td>name</td><td>string</td><td>Nom du jeu d’identité.</td></tr>
 <tr><td></td><td>properties</td><td>string[]</td><td>Liste des propriétés d’identité incluses dans ce jeu d’identité. Elle ne peut pas contenir de doublons. Chaque propriété référencée par un jeu d’identité doit être définie dans la liste « identityProperties » du protocole.</td></tr>
 
 </table>
@@ -240,7 +240,7 @@ Azure Data Catalog utilise deux mécanismes d'autorisation :
 * Autorisation par rôle
 * Autorisation basée sur les autorisations
 
-### <a name="roles"></a>contrôleur
+### <a name="roles"></a>Rôles
 Il existe trois rôles : **Administrateur**, **Propriétaire** et **Contributeur**.  Chaque rôle a une portée et des droits, lesquels sont résumés dans le tableau suivant.
 
 <table><tr><td><b>Rôle</b></td><td><b>Portée</b></td><td><b>Droits</b></td></tr><tr><td>Administrateur</td><td>Catalogue (toutes les ressources/annotations dans le catalogue)</td><td>Lecture Suppression ViewRoles

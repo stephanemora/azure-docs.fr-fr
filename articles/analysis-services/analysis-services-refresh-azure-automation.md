@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: chlound
 ms.openlocfilehash: a79123d57f80474e1871ef68f9a92ea9417089ac
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73572351"
 ---
 # <a name="refresh-with-azure-automation"></a>Actualiser avec Azure Automation
@@ -21,7 +21,7 @@ L’exemple présenté dans cet article utilise les [modules SqlServer PowerShel
 
 Un exemple de runbook PowerShell illustrant l’actualisation d’un modèle est fourni plus loin dans cet article.  
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Authentification
 
 Tous les appels doivent être authentifiés avec un jeton Azure Active Directory (OAuth 2) valide.  L’exemple fourni dans cet article utilise un principal de service (SPN) pour s’authentifier auprès d’Azure Analysis Services.
 
@@ -135,7 +135,7 @@ Pour utiliser le runbook à l’aide d’Azure Data Factory, commencez par crée
 
 3. Dans Data Factory, configurez une **activité web**.
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
    ![Exemple d’activité web.](./media/analysis-services-refresh-azure-automation/19.png)
 
@@ -146,9 +146,9 @@ Le **corps** est un document JSON qui doit contenir les propriétés suivantes 
 
 |Propriété  |Valeur  |
 |---------|---------|
-|**AnalysisServicesDatabase**     |Nom de la base de données Azure Analysis Services. <br/> Exemple : AdventureWorksDB         |
+|**AnalysisServicesDatabase**     |Nom de la base de données Azure Analysis Services. <br/> Exemple : AdventureWorksDB         |
 |**AnalysisServicesServer**     |Nom du serveur Azure Analysis Services. <br/> Par exemple : https:\//westus.asazure.windows.net/servers/myserver/models/AdventureWorks/         |
-|**DatabaseRefreshType**     |Type d’actualisation à effectuer. <br/> Exemple : Complet         |
+|**DatabaseRefreshType**     |Type d’actualisation à effectuer. <br/> Exemple : Complète         |
 
 Exemple de corps JSON :
 
@@ -227,4 +227,4 @@ else
 ## <a name="next-steps"></a>Étapes suivantes
 
 [Exemples](analysis-services-samples.md)  
-[API REST](https://docs.microsoft.com/rest/api/analysisservices/servers)
+[REST API](https://docs.microsoft.com/rest/api/analysisservices/servers)

@@ -7,19 +7,19 @@ ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: tisande
 ms.openlocfilehash: e15a8236723c1efd80f27f2d253e9bbc44af4b0b
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74870817"
 ---
 # <a name="parameterized-queries-in-azure-cosmos-db"></a>Requêtes paramétrables dans Azure Cosmos DB
 
-Cosmos DB prend en charge les requêtes avec des paramètres exprimées par la notation @ classique. SQL paramétré fournit une gestion et un échappement robustes de l’entrée utilisateur et empêche l’exposition accidentelle des données par l’intermédiaire de l’injection SQL.
+Cosmos DB prend en charge les requêtes avec des paramètres exprimées par la notation @ classique. SQL paramétré fournit une gestion et un échappement robustes de l’entrée utilisateur et empêche l’exposition accidentelle des données via l’injection SQL.
 
 ## <a name="examples"></a>Exemples
 
-Par exemple, vous pouvez écrire une requête qui accepte `lastName` et `address.state` comme paramètres et l’exécuter pour différentes valeurs de `lastName` et `address.state` basées sur l’entrée d’utilisateur.
+Par exemple, vous pouvez écrire une requête qui accepte `lastName` et `address.state` comme paramètres, et l’exécuter pour différentes valeurs de `lastName` et `address.state` basées sur l’entrée d’utilisateur.
 
 ```sql
     SELECT *

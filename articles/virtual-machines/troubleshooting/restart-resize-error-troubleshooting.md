@@ -14,10 +14,10 @@ ms.date: 06/15/2018
 ms.author: delhan
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a6532558107463311c4225b9855bc4cd3f19eed9
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75965625"
 ---
 # <a name="troubleshoot-deployment-issues-with-restarting-or-resizing-an-existing-windows-vm-in-azure"></a>Résoudre les problèmes de déploiement liés au redémarrage ou au redimensionnement d’une machine virtuelle Windows existante dans Azure
@@ -32,7 +32,7 @@ Pour résoudre les problèmes, commencez par collecter les journaux d’activit�
 
 [Afficher les journaux d’activité pour gérer les ressources Azure](../../resource-group-audit.md)
 
-## <a name="issue-error-when-starting-a-stopped-vm"></a>Problème : Erreur lors du démarrage d’une machine virtuelle arrêtée
+## <a name="issue-error-when-starting-a-stopped-vm"></a>Problème : erreur lors du démarrage d’une machine virtuelle arrêtée
 Vous essayez de démarrer une machine virtuelle arrêtée, mais obtenez un échec d’allocation.
 
 ### <a name="cause"></a>Cause :
@@ -45,7 +45,7 @@ La demande de démarrage de la machine virtuelle arrêtée doit être exécutée
   2. Après l’arrêt de toutes les machines virtuelles, sélectionnez chacune des machines arrêtées et cliquez sur Démarrer.
 * Relancez la demande de redémarrage ultérieurement.
 
-## <a name="issue-error-when-resizing-an-existing-vm"></a>Problème : Erreur lors du redimensionnement d’une machine virtuelle existante
+## <a name="issue-error-when-resizing-an-existing-vm"></a>Problème : erreur lors du redimensionnement d’une machine virtuelle existante
 Vous essayez de redimensionner une machine virtuelle existante, mais obtenez un échec d’allocation.
 
 ### <a name="cause"></a>Cause :

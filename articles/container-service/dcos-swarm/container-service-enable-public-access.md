@@ -10,10 +10,10 @@ ms.date: 08/26/2016
 ms.author: saudas
 ms.custom: mvc
 ms.openlocfilehash: 3e4ba15fa1925ca40ad7760acbd14331fbdd1343
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61457332"
 ---
 # <a name="deprecated-enable-public-access-to-an-azure-container-service-application"></a>(DÉPRÉCIÉ) Autoriser l’accès public à une application Azure Container Service
@@ -37,9 +37,9 @@ Tout d’abord, il faut ouvrir le port désiré.
    
    | Champ | Description |
    | --- | --- |
-   | Nom |Nom descriptif de la sonde. |
+   | Name |Nom descriptif de la sonde. |
    | Port |Port du conteneur à tester. |
-   | path |(En mode HTTP) Le chemin relatif du site à la sonde. HTTPS non pris en charge. |
+   | Path |(En mode HTTP) Le chemin relatif du site à la sonde. HTTPS non pris en charge. |
    | Intervalle |Intervalle de temps entre les tentatives de la sonde, en secondes. |
    | Seuil de défaillance sur le plan de l’intégrité |Nombre de tentatives consécutives effectuées par la sonde avant de considérer que le conteneur est défectueux. |
 6. De retour sur les propriétés de l’équilibrage de charge de l’agent, cliquez sur **Règles d’équilibrage de la charge**, puis sur **Ajouter**.
@@ -49,12 +49,12 @@ Tout d’abord, il faut ouvrir le port désiré.
    
    | Champ | Description |
    | --- | --- |
-   | Nom |Nom descriptif de l’équilibrage de charge. |
+   | Name |Nom descriptif de l’équilibrage de charge. |
    | Port |Port entrant public. |
    | Port principal |Port interne public du conteneur vers lequel le trafic est acheminé. |
    | Pool principal |Les conteneurs de ce pool seront les cibles de cet équilibrage de charge. |
    | Sonde |Sonde utilisée pour déterminer si une cible du **pool principal** est saine. |
-   | Persistance de session |Détermine comment le trafic provenant d’un client doit être géré pendant la durée de la session.<br><br>**Aucune** : les requêtes successives provenant d’un même client peuvent être gérées par n’importe quel conteneur.<br>**Adresse IP cliente** : les requêtes successives provenant d’une même adresse IP cliente sont gérées par le même conteneur.<br>**Adresse IP cliente et protocole** : les requêtes successives provenant d’une même combinaison d’adresse IP cliente et de protocole sont managées par le même conteneur. |
+   | Persistance de session |Détermine comment le trafic provenant d’un client doit être géré pendant la durée de la session.<br><br>**Aucune** : les demandes successives provenant d’un même client peuvent être gérées par n’importe quel conteneur.<br>**Adresse IP client** : les demandes successives provenant d’une même adresse IP client sont gérées par le même conteneur.<br>**Adresse IP cliente et protocole**: les demandes successives provenant d’une même combinaison d’adresse IP client et de protocole sont gérées par le même conteneur. |
    | Délai d’inactivité |(TCP uniquement) Durée en minutes pendant laquelle maintenir un client TCP/HTTP ouvert sans faire appel à des messages *keep-alive* . |
 
 ## <a name="add-a-security-rule-portal"></a>Ajouter une règle de sécurité (portail)
@@ -72,11 +72,11 @@ Ensuite, il faut ajouter une règle de sécurité qui achemine le trafic à part
    
    | Champ | Description |
    | --- | --- |
-   | Nom |Nom descriptif de la règle de pare-feu. |
-   | Priorité |Rang de priorité de la règle. Plus le numéro de priorité est faible, plus la priorité de la règle est élevée. |
+   | Name |Nom descriptif de la règle de pare-feu. |
+   | Priority |Rang de priorité de la règle. Plus le numéro de priorité est faible, plus la priorité de la règle est élevée. |
    | Source |Restreindre la plage d’adresses IP entrante pour qu’elle soit autorisée ou interdite par cette règle. Utilisez **Any** (Aucune) pour ne spécifier aucune restriction. |
    | Service |Sélectionner un ensemble de services prédéfinis concerné par cette règle de sécurité. Sinon, utilisez **Personnalisé** pour créer votre propre ensemble de services. |
-   | Protocole |Restreindre le trafic basé sur **TCP** ou **UDP**. Utilisez **Any** (Aucune) pour ne spécifier aucune restriction. |
+   | Protocol |Restreindre le trafic basé sur **TCP** ou **UDP**. Utilisez **Any** (Aucune) pour ne spécifier aucune restriction. |
    | Plage de ports |Lorsque le **Service** est **Personnalisé**, spécifie la plage de ports affectée par cette règle. Vous pouvez utiliser un port unique, tel que **80** ou une plage comme **1024-1500**. |
    | Action |Autoriser ou refuser le trafic qui répond aux critères. |
 

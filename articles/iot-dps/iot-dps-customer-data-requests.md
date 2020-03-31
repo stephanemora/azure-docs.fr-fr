@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: 1dcf1b9f62f94b8f75ef2fe77f3e237a387c53eb
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73890651"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Résumé des fonctionnalités de demande de données client
@@ -22,7 +22,7 @@ Le Service Azure IoT Hub Device Provisioning est un service cloud basé sur l’
 
 Chaque appareil reçoit un identifiant d’inscription et un identifiant d’appareil attribué par un administrateur client. Les données transmises par ces appareils et les concernant sont basées sur ces identifiants. Microsoft ne conserve aucune information et n’a pas accès aux données permettant la corrélation entre ces appareils et un individu.
 
-La plupart des appareils gérés dans Service Device Provisioning ne sont pas des appareils personnels. Il peut s’agir d’un thermostat de bureau ou d’un robot d’usine, par exemple. Cependant, les clients peuvent décider que certains appareils sont personnels et gérer eux-mêmes leurs propres méthodes de gestion des ressources ou de l’inventaire afin d’associer des appareils à des personnes. Le service Device Provisioning gère et stocke toutes les données associées aux appareils comme s’il s’agissait de données personnelles.
+La plupart des appareils gérés dans Service Device Provisioning ne sont pas des appareils personnels. Il peut s’agir d’un thermostat de bureau ou d’un robot d’usine, par exemple. Toutefois, les clients peuvent décider que certains appareils sont personnels et gérer eux-mêmes leurs propres méthodes de suivi des ressources ou de l’inventaire afin d’associer des appareils à des personnes. Le service Device Provisioning gère et stocke toutes les données associées aux appareils comme s’il s’agissait de données personnelles.
 
 Les administrateurs clients peuvent utiliser le portail Azure ou les API REST du service pour répondre aux demandes d’informations en exportant ou en supprimant les données associées à un identifiant d’appareil ou d’inscription.
 

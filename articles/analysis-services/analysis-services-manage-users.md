@@ -8,10 +8,10 @@ ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 4a054c3c042e18f1679acd75e5ba5ad74f66edff
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73572761"
 ---
 # <a name="authentication-and-user-permissions"></a>Authentification et autorisations utilisateur
@@ -74,11 +74,11 @@ Les rôles à ce niveau s’appliquent aux utilisateurs ou comptes qui doivent e
 
  Les rôles définis pour un modèle tabulaire sont des rôles de bases de données. Autrement dit, les rôles contiennent des membres constitués d’utilisateurs d’Azure AD et les groupes de sécurité qui ont des autorisations spécifiques qui définissent l’action que ces membres peuvent effectuer sur une base de données du modèle. Un rôle de bases de données est créé en tant qu’objet distinct dans la base de données et s’applique uniquement à la base de données dans laquelle il est créé.   
   
- Par défaut, lorsque vous créez un nouveau projet de modèle tabulaire, le projet de modèle n’a aucun rôle. Les rôles peuvent être définis à l’aide de la boîte de dialogue Gestionnaire de rôles dans Visual Studio. Lorsque les rôles sont définis lors de la conception du projet de modèle, ils sont appliqués uniquement à la base de données de l’espace de travail modèle. Lorsque le modèle est déployé, les mêmes rôles sont appliqués au modèle déployé. Après avoir déployé un modèle, les administrateurs de serveurs et de bases de données peuvent gérer les rôles et les membres à l’aide de SSMS. Pour en savoir plus, consultez [Gérer les rôles et les utilisateurs de bases de données](analysis-services-database-users.md).
+ Par défaut, lorsque vous créez un projet de modèle tabulaire, le projet de modèle n'a aucun rôle. Les rôles peuvent être définis à l’aide de la boîte de dialogue Gestionnaire de rôles dans Visual Studio. Lorsque les rôles sont définis lors de la conception du projet de modèle, ils sont appliqués uniquement à la base de données de l’espace de travail modèle. Lorsque le modèle est déployé, les mêmes rôles sont appliqués au modèle déployé. Après avoir déployé un modèle, les administrateurs de serveurs et de bases de données peuvent gérer les rôles et les membres à l’aide de SSMS. Pour en savoir plus, consultez [Gérer les rôles et les utilisateurs de bases de données](analysis-services-database-users.md).
   
 ## <a name="next-steps"></a>Étapes suivantes
 
 [Gérer l’accès aux ressources avec les groupes Azure Active Directory](../active-directory/fundamentals/active-directory-manage-groups.md)   
 [Gérer les utilisateurs et rôles de bases de données](analysis-services-database-users.md)  
-[Gérer les administrateurs de serveurs](analysis-services-server-admins.md)  
+[Gérer les administrateurs de serveur](analysis-services-server-admins.md)  
 [Contrôle d’accès en fonction du rôle](../role-based-access-control/overview.md)  

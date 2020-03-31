@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/05/2018
 ms.author: spelluru
 ms.openlocfilehash: d5a8e165fcee23c5feecd5935983dd77d3ec6c30
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76759661"
 ---
 # <a name="sqlfilter-syntax"></a>Syntaxe SQLFilter
@@ -119,9 +119,9 @@ Un `<regular_identifier>` ne peut pas être un mot-clé réservé.
   
 `<pattern>` doit être une expression évaluée comme chaîne. Il est utilisé comme modèle pour l’opérateur LIKE.      Il peut contenir les caractères génériques suivants :  
   
--   `%`:  Toute chaîne de zéro caractère ou plus.  
+-   `%` : toute chaîne de zéro caractère ou plus.  
   
--   `_`: N'importe quel caractère.  
+-   `_` : n’importe quel caractère unique.  
   
 ## <a name="escape_char"></a>escape_char  
   

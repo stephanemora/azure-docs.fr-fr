@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/18/2019
 ms.author: raynew
 ms.openlocfilehash: 6bcb65912627356215769ccc8380ee1a7404f6f7
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74185963"
 ---
 # <a name="add-migration-tools"></a>Ajouter des outils de migration
@@ -55,7 +55,7 @@ Si vous choisissez un [outil de ISV](migrate-services-overview.md#isv-integratio
 ## <a name="select-a-database-migration-tool"></a>Sélectionnez un outil de migration de base de données
 
 1. Cliquez sur **Évaluer et migrer des bases de données**
-2. Dans **Bases de données**,cliquez sur **Ajouter des outils**.
+2. Dans **Bases de données**, cliquez sur **Ajouter des outils**.
 3. Dans Ajouter un outil > **Sélectionner un outil de migration**, sélectionnez l’outil que vous souhaitez utiliser pour migrer votre base de données.
 
 ## <a name="select-a-web-app-migration-tool"></a>Sélectionnez un outil de migration d’application web

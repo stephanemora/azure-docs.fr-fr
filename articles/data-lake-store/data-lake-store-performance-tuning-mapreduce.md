@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/19/2016
 ms.author: stewu
 ms.openlocfilehash: a645049665bc1d51efa94a879b9d2e4e5529282f
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73904586"
 ---
 # <a name="performance-tuning-guidance-for-mapreduce-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Recommandations en matière d’optimisation des performances pour MapReduce sur HDInsight et Azure Data Lake Storage Gen1
@@ -18,12 +18,12 @@ ms.locfileid: "73904586"
 ## <a name="prerequisites"></a>Prérequis
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Un compte Azure Data Lake Storage Gen1**. Pour savoir comment en créer un, consultez [Prise en main d’Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
+* **Un compte Azure Data Lake Storage Gen1**. Pour savoir comment en créer un, voir [Prise en main d’Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md).
 * **Cluster Azure HDInsight** avec accès à un compte Data Lake Storage Gen1. Voir [Créer un cluster HDInsight avec Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Veillez à activer le Bureau à distance pour le cluster.
 * **Utilisation de MapReduce sur HDInsight**. Pour plus d’informations, consultez [Utilisation de MapReduce sur Hadoop sur HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-mapreduce)
 * **Passez en revue les recommandations en matière d’optimisation des performances pour Data Lake Storage Gen1**. Pour des concepts généraux sur les performances, consultez [Recommandations en matière d’optimisation des performances de Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance)
 
-## <a name="parameters"></a>parameters
+## <a name="parameters"></a>Paramètres
 
 Lors de l’exécution des travaux MapReduce, voici les paramètres les plus importants que vous pouvez configurer pour améliorer les performances sur Data Lake Storage Gen1 :
 
@@ -44,11 +44,11 @@ Détermine le nombre maximal de mappeurs ou de réducteurs à créer. Le nombre 
 
 ## <a name="guidance"></a>Assistance
 
-### <a name="step-1-determine-number-of-jobs-running"></a>Étape 1 : Déterminer le nombre de travaux en cours d’exécution
+### <a name="step-1-determine-number-of-jobs-running"></a>Étape 1 : Déterminer le nombre de travaux en cours d’exécution
 
 Par défaut, MapReduce utilise l’ensemble du cluster pour votre travail. Vous pouvez utiliser une partie moindre du cluster en utilisant moins de mappeurs que de conteneurs disponibles. Les instructions de ce document supposent que votre application est la seule application en cours d’exécution sur votre cluster.
 
-### <a name="step-2-set-mapreducemapmemorymapreducereducememory"></a>Étape 2 : Configurer mapreduce.map.memory/mapreduce.reduce.memory
+### <a name="step-2-set-mapreducemapmemorymapreducereducememory"></a>Étape 2 : Configurer mapreduce.map.memory/mapreduce.reduce.memory
 
 La taille de la mémoire pour les tâches de mappage et de réduction dépend du travail en question. Vous pouvez réduire la taille de la mémoire si vous souhaitez augmenter la simultanéité. Le nombre de tâches exécutées simultanément varie selon le nombre de conteneurs. En réduisant la quantité de mémoire par mappeur ou réducteur, il est possible de créer plus de conteneurs, pour permettre à plus de mappeurs ou réducteurs de s’exécuter simultanément. Trop réduire la quantité de mémoire risque de causer des problèmes de mémoire insuffisante pour certains processus. Si vous obtenez une erreur de segment de mémoire lors de l’exécution de votre travail, augmentez la mémoire par mappeur ou réducteur. Prenez en compte le fait que l’ajout de conteneurs ajoute une charge pour chaque conteneur supplémentaire, ce qui peut dégrader les performances. Une autre solution consiste à obtenir davantage de mémoire à l’aide d’un cluster qui possède une quantité supérieure de mémoire ou en augmentant le nombre de nœuds de votre cluster. Une mémoire plus importante permettra d’utiliser plus de conteneurs, pour plus de simultanéité.
 
@@ -76,11 +76,11 @@ La planification et l’isolation de processeur sont désactivées par défaut. 
 
 Supposons que vous avez actuellement un cluster composé de 8 nœuds D14 et que vous souhaitez exécuter une tâche intensive en E/S. Voici les calculs que vous devez faire :
 
-### <a name="step-1-determine-number-of-jobs-running"></a>Étape 1 : Déterminer le nombre de travaux en cours d’exécution
+### <a name="step-1-determine-number-of-jobs-running"></a>Étape 1 : Déterminer le nombre de travaux en cours d’exécution
 
 Dans notre exemple, nous supposons que notre travail est le seul en cours d’exécution.
 
-### <a name="step-2-set-mapreducemapmemorymapreducereducememory"></a>Étape 2 : Configurer mapreduce.map.memory/mapreduce.reduce.memory
+### <a name="step-2-set-mapreducemapmemorymapreducereducememory"></a>Étape 2 : Configurer mapreduce.map.memory/mapreduce.reduce.memory
 
 Pour notre exemple, vous exécutez une tâche intensive en E/S et nous décidons que 3 Go de mémoire pour les tâches de mappage suffisent.
 

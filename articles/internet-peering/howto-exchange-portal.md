@@ -1,7 +1,7 @@
 ---
-title: Créer ou modifier un Peering Exchange à l’aide du portail
+title: Créer ou modifier un peering Exchange en utilisant le portail
 titleSuffix: Azure
-description: Créer ou modifier un Peering Exchange à l’aide du portail
+description: Créer ou modifier un peering Exchange en utilisant le portail
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 2c186decf68d167ab2c5ab7696c2dfb51d77a071
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75773748"
 ---
-# <a name="create-or-modify-an-exchange-peering-using-the-portal"></a>Créer ou modifier un Peering Exchange à l’aide du portail
+# <a name="create-or-modify-an-exchange-peering-using-the-portal"></a>Créer ou modifier un peering Exchange en utilisant le portail
 
 Cet article explique comment créer un Peering Microsoft Exchange à l’aide du portail. Il montre également comment vérifier l’état de la ressource, la mettre à jour, la supprimer et la déprovisionner.
 
@@ -30,7 +30,7 @@ Si vous préférez, vous pouvez suivre ce guide à l’aide de [PowerShell](howt
 ### <a name="sign-in-to-portal-and-select-your-subscription"></a>Connexion au portail et sélection de votre abonnement
 [!INCLUDE [Account](./includes/account-portal.md)]
 
-### <a name=create></a>Créer un Peering Exchange
+### <a name="create-an-exchange-peering"></a><a name=create></a>Créer un Peering Exchange
 
 Vous pouvez créer une nouvelle demande de Peering à l’aide d’une ressource de **Peering**.
 
@@ -40,13 +40,13 @@ Vous pouvez créer une nouvelle demande de Peering à l’aide d’une ressource
 #### <a name="configure-connections-and-submit"></a>Configurer les connexions et les soumettre
 [!INCLUDE [exchange-peering-configuration](./includes/exchange-portal-configuration.md)]
 
-### <a name=get></a>Vérifier un Peering Exchange
+### <a name="verify-an-exchange-peering"></a><a name=get></a>Vérifier un Peering Exchange
 [!INCLUDE [peering-exchange-get-portal](./includes/exchange-portal-get.md)]
 
-## <a name="modify"></a>Modifier un Peering Exchange
+## <a name="modify-an-exchange-peering"></a><a name="modify"></a>Modifier un Peering Exchange
 [!INCLUDE [peering-exchange-modify-portal](./includes/exchange-portal-modify.md)]
 
-## <a name="delete"></a>Annuler le provisionnement d’un Peering Exchange
+## <a name="deprovision-an-exchange-peering"></a><a name="delete"></a>Déprovisionner un Peering Exchange
 [!INCLUDE [peering-exchange-delete-portal](./includes/delete.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -56,4 +56,4 @@ Vous pouvez créer une nouvelle demande de Peering à l’aide d’une ressource
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-Pour plus d’informations, consultez [FAQ sur le Peering Internet](faqs.md).
+Pour plus d’informations, consultez [FAQ sur le peering Internet](faqs.md).

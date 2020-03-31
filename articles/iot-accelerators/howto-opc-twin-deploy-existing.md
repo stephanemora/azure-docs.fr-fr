@@ -9,10 +9,10 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: b971ec13c71ccfd7d28ae6987593d09201b9b764
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73824115"
 ---
 # <a name="deploy-opc-twin-to-an-existing-project"></a>Déployer OPC Twin dans un projet existant
@@ -28,7 +28,7 @@ Le cœur du module est l’identité Superviseur. Le superviseur gère les jumea
 > [!NOTE]
 > Pour obtenir des informations détaillées et des instructions sur le déploiement, consultez le [dépôt](https://github.com/Azure/azure-iiot-opc-twin-module) GitHub.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Vérifiez que PowerShell et les extensions [AzureRM PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) sont installés. Si ce n’est déjà fait, clonez ce dépôt GitHub. Exécutez les commandes suivantes dans PowerShell :
 

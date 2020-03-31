@@ -9,10 +9,10 @@ ms.workload: storage
 ms.topic: conceptual
 ms.date: 10/18/2019
 ms.openlocfilehash: b96fca3a5627a1c6c96c8db5c1c209a51c5e102a
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75551556"
 ---
 # <a name="configure-export-policy-for-an-nfs-volume"></a>Configurer une stratégie d’exportation pour un volume NFS

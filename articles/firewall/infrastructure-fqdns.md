@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: victorh
 ms.openlocfilehash: d4de81bad1ddda2f5b54f47c1be78925ad4cdbf3
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74168977"
 ---
 # <a name="infrastructure-fqdns"></a>Noms de domaine complets d’infrastructure
@@ -26,7 +26,7 @@ Les services suivants sont inclus dans le regroupement de règles intégré :
 
 ## <a name="overriding"></a>Remplacement 
 
-Vous pouvez remplacer ce regroupement de règles d’infrastructure intégré en créant un regroupement de règles d’application Refuser tout qui sera traité en dernier. Il sera toujours traité avant le groupe de règles d’infrastructure. Tout ce qui ne se trouve pas dans le regroupement de règles d’infrastructure est refusé par défaut.
+Vous pouvez remplacer ce regroupement de règles d’infrastructure intégré en créant un regroupement de règles d’application {1}Refuser tout{2} qui sera traité en dernier. Il sera toujours traité avant le groupe de règles d’infrastructure. Tout ce qui ne se trouve pas dans le regroupement de règles d’infrastructure est refusé par défaut.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

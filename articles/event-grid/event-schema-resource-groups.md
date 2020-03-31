@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 01/12/2019
 ms.author: spelluru
 ms.openlocfilehash: 6cbfc06f380d7c4818ca82e858c23bb18849fb7c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60561691"
 ---
 # <a name="azure-event-grid-event-schema-for-resource-groups"></a>Schéma d’événements Azure Event Grid pour les groupes de ressources
@@ -241,7 +241,7 @@ Un événement contient les données générales suivantes :
 | eventType | string | Un des types d’événements inscrits pour cette source d’événement. |
 | eventTime | string | L’heure à quelle l’événement est généré selon l’heure UTC du fournisseur. |
 | id | string | Identificateur unique de l’événement. |
-| données | string | Données d’événement du groupe de ressources. |
+| data | object | Données d’événement du groupe de ressources. |
 | dataVersion | string | Version du schéma de l’objet de données. Le serveur de publication définit la version du schéma. |
 | metadataVersion | string | Version du schéma des métadonnées d’événement. Event Grid définit le schéma des propriétés de niveau supérieur. Event Grid fournit cette valeur. |
 
@@ -249,10 +249,10 @@ L’objet de données comporte les propriétés suivantes :
 
 | Propriété | Type | Description |
 | -------- | ---- | ----------- |
-| autorisation | string | Autorisation demandée pour l’opération. |
-| réclamations | string | Propriétés des revendications. Pour en savoir plus, consultez la [Spécification JWT](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
+| autorisation | object | Autorisation demandée pour l’opération. |
+| réclamations | object | Propriétés des revendications. Pour en savoir plus, consultez la [Spécification JWT](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
 | correlationId | string | ID d’opération pour le dépannage. |
-| httpRequest | string | Détails de l’opération. Cet objet est inclus uniquement lors de la mise à jour ou de la suppression d’une ressource existante. |
+| httpRequest | object | Détails de l’opération. Cet objet est inclus uniquement lors de la mise à jour ou de la suppression d’une ressource existante. |
 | resourceProvider | string | Fournisseur de ressources pour l’opération. |
 | resourceUri | string | URI de la ressource dans l’opération. |
 | operationName | string | Opération effectuée. |

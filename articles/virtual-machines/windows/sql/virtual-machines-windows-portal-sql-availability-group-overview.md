@@ -16,10 +16,10 @@ ms.date: 01/13/2017
 ms.author: mikeray
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 8119990ab4ab4a918e325976092100086a547aa4
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74037494"
 ---
 # <a name="introducing-sql-server-availability-groups-on-azure-virtual-machines"></a>Présentation des groupes de disponibilité SQL Server sur des machines virtuelles Azure
@@ -40,10 +40,10 @@ Pour accroître la redondance et la haute disponibilité, les machines virtuelle
 
 |  | Version de Windows Server | Version de SQL Server | Édition SQL Server | Configuration de Quorum WSFC | Récupération d'urgence avec plusieurs régions | Prise en charge de plusieurs sous-réseaux | Prise en charge d'un domaine d'application existant | Récupération d'urgence dans plusieurs zones de la même région | Prise en charge Dist-AG sans domaine AD | Prise en charge Dist-AG sans cluster |  
 | :------ | :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----|
-| [Interface CLI des machines virtuelles SQL](virtual-machines-windows-sql-availability-group-cli.md) | 2016 | 2017 </br>2016   | Ent | Témoin de cloud | Non | OUI | OUI | OUI | Non | Non |
-| [Modèles de démarrage rapide](virtual-machines-windows-sql-availability-group-quickstart-template.md) | 2016 | 2017</br>2016  | Ent | Témoin de cloud | Non | OUI | OUI | OUI | Non | Non |
+| [Interface CLI des machines virtuelles SQL](virtual-machines-windows-sql-availability-group-cli.md) | 2016 | 2017 </br>2016   | Ent | Témoin de cloud | Non | Oui | Oui | Oui | Non | Non |
+| [Modèles de démarrage rapide](virtual-machines-windows-sql-availability-group-quickstart-template.md) | 2016 | 2017</br>2016  | Ent | Témoin de cloud | Non | Oui | Oui | Oui | Non | Non |
 | [Modèle du portail](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) | 2016 </br>2012 R2 | 2016</br>2014 | Ent | Partage de fichiers | Non | Non | Non | Non | Non | Non |
-| [Manuel](virtual-machines-windows-portal-sql-availability-group-prereq.md) | Tous | Tous | Tous | Tous | OUI | OUI | OUI | OUI | OUI | OUI |
+| [Manuel](virtual-machines-windows-portal-sql-availability-group-prereq.md) | Tous | Tous | Tous | Tous | Oui | Oui | Oui | Oui | Oui | Oui |
 | &nbsp; | &nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |
 
 Lorsque vous êtes prêt à générer un groupe de disponibilité SQL Server sur des machines virtuelles Azure, consultez ces didacticiels.
@@ -51,7 +51,7 @@ Lorsque vous êtes prêt à générer un groupe de disponibilité SQL Server sur
 ## <a name="manually-with-azure-cli"></a>Manuellement avec Azure CLI
 L'utilisation d'Azure CLI pour configurer et déployer un groupe de disponibilité est l'option recommandée, car il s'agit de la meilleure solution en termes de simplicité et de rapidité de déploiement. Avec Azure CLI, les opérations de création du cluster de basculement Windows, de jonction des machines virtuelles SQL Server au cluster, et de création de l'écouteur et de l'équilibreur de charge interne peuvent toutes être réalisées en moins de 30 minutes. Cette option nécessite toujours une création manuelle du groupe de disponibilité, mais automatise toutes les autres étapes de configuration nécessaires. 
 
-Pour plus d'informations, consultez [Utiliser l'interface CLI de machine virtuelle SQL Azure pour configurer un groupe de disponibilité Always On pour SQL Server sur une machine virtuelle Azure](virtual-machines-windows-sql-availability-group-cli.md). 
+Pour plus d’informations, consultez [Utiliser l’interface CLI de machine virtuelle SQL Azure pour configurer un groupe de disponibilité Always On pour SQL Server sur une machine virtuelle Azure](virtual-machines-windows-sql-availability-group-cli.md). 
 
 ## <a name="automatically-with-azure-quickstart-templates"></a>Automatiquement avec les modèles de démarrage rapide Azure
 Les modèles de démarrage rapide Azure utilisent le fournisseur de ressources de machines virtuelles SQL pour déployer le cluster de basculement Windows, y joindre des machines virtuelles SQL Server, créer l'écouteur et configurer l'équilibreur de charge interne. Cette option nécessite toujours une création manuelle du groupe de disponibilité et de l'équilibreur de charge interne (ILB) mais automatise et simplifie toutes les autres étapes de configuration nécessaires (y compris la configuration de l'ILB). 
@@ -66,7 +66,7 @@ Pour plus d’informations, consultez [Utiliser un modèle de démarrage rapide 
 
 ## <a name="manually-in-azure-portal"></a>Manuellement sur le portail Azure
 
-Vous pouvez également créer les machines virtuelles vous-même sans le modèle. Tout d’abord, remplissez les conditions requises, puis créez le groupe de disponibilité. Consultez les rubriques suivantes : 
+Vous pouvez également créer les machines virtuelles vous-même sans le modèle. Tout d’abord, remplissez les conditions requises, puis créez le groupe de disponibilité. Consultez les rubriques suivantes : 
 
 - [Remplir les conditions requises pour les groupes de disponibilité AlwaysOn SQL Server sur les machines virtuelles Azure](virtual-machines-windows-portal-sql-availability-group-prereq.md)
 

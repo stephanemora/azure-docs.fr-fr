@@ -12,10 +12,10 @@ ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 ms.openlocfilehash: e245b58449ab773914fc60be056082b82f05035a
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78184483"
 ---
 # <a name="manage-user-data-in-azure-active-directory-b2c"></a>Gérer les données utilisateur dans Azure Active Directory B2C
@@ -47,8 +47,8 @@ Le processus d’exportation de données client à partir d’Azure AD B2C est
 
 Les données d’utilisateur d’Azure AD B2C sont limitées à ce qui suit :
 
-- **Données stockées dans Azure Active Directory** : vous pouvez récupérer les données d'un parcours utilisateur d'authentification Azure AD B2C à l'aide de l'ID d'objet ou d'un nom de connexion, comme une adresse e-mail ou un nom d'utilisateur.
-- **Rapport sur les événements d'audit spécifiques à l'utilisateur** : vous pouvez indexer des données à l'aide de l'ID d'objet.
+- **Données stockées dans Azure Active Directory** : vous pouvez récupérer les données dans un parcours utilisateur d’authentification Azure AD B2C à l’aide de l’ID objet ou de tout nom de connexion, tel qu’une adresse e-mail ou un nom d’utilisateur.
+- **Rapport d’événements d’audit spécifiques de l’utilisateur** : vous pouvez indexer les données à l’aide de l’ID objet.
 
 Dans l’exemple suivant de flux de données d’exportation, les étapes décrites comme étant effectuées par l’application peuvent également être réalisées par un processus principal ou par un utilisateur avec un rôle d’administrateur dans l’annuaire :
 

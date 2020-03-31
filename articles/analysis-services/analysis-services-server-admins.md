@@ -8,10 +8,10 @@ ms.date: 10/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: f7c57a5751f2ff34abb26b7653070ce4ee5010fe
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73572626"
 ---
 # <a name="manage-server-administrators"></a>Gérer des administrateurs de serveur
@@ -53,6 +53,6 @@ Utilisez [Mettre à jour](https://docs.microsoft.com/rest/api/analysisservices/s
 ## <a name="next-steps"></a>Étapes suivantes 
 
 [Authentification et autorisations utilisateur](analysis-services-manage-users.md)  
-[Gérer les utilisateurs et rôles de base de données](analysis-services-database-users.md)  
+[Gérer les utilisateurs et rôles de bases de données](analysis-services-database-users.md)  
 [Contrôle d’accès en fonction du rôle](../role-based-access-control/overview.md)  
 

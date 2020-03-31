@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
 ms.openlocfilehash: 0cbd1a24f5c460e248d55777735da6809befba63
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72028801"
 ---
 # <a name="azure-vm-guest-os-firewall-is-blocking-inbound-traffic"></a>Le pare-feu du système d’exploitation invité des machines virtuelles Azure bloque le trafic entrant
@@ -112,8 +112,8 @@ Connectez-vous à la [console série et ouvrez une instance PowerShell](serial-c
 
     > [!Note]
     > Les instructions suivantes s’appliquent à la stratégie de pare-feu, en fonction de la façon dont elle est configurée :
-    >    * *BlockInbound* : l’ensemble du trafic entrant est bloqué, sauf si vous avez une règle effective pour autoriser ce trafic.
-    >    * *BlockInboundAlways* : toutes les règles de pare-feu sont ignorées et l’ensemble du trafic est bloqué.
+    >    * *BlockInbound* : L’ensemble du trafic entrant est bloqué, sauf si vous avez une règle effective pour autoriser ce trafic.
+    >    * *BlockInboundAlways* : Toutes les règles de pare-feu sont ignorées et l’ensemble du trafic est bloqué.
 
 2.  Modifiez l’action *DefaultInboundAction* de sorte que ces profils **autorisent** le trafic. Pour ce faire, exécutez la commande suivante :
 

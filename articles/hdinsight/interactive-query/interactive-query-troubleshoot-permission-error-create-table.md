@@ -8,10 +8,10 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/09/2019
 ms.openlocfilehash: 8ebad9300c126193ddb96d5f07057b9a825dbfcd
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75895142"
 ---
 # <a name="scenario-permission-denied-error-when-trying-to-create-an-apache-hive-table-in-azure-hdinsight"></a>Scénario : Erreur de refus d’autorisation lors de la tentative de création d’une table Apache Hive dans Azure HDInsight
@@ -32,7 +32,7 @@ Vous verrez un message d’erreur similaire si vous exécutez la commande de sto
 hdfs dfs -mkdir wasbs://data@xxxxx.blob.core.windows.net/path/table
 ```
 
-## <a name="cause"></a>Cause :
+## <a name="cause"></a>Cause
 
 La possibilité de créer une table dans Apache Hive est déterminée par les autorisations appliquées au compte de stockage du cluster. Si les autorisations du compte de stockage de cluster sont incorrectes, vous ne pourrez pas créer de tables. Cela signifie que vous pouvez avoir les stratégies Ranger appropriées pour la création de table et voir néanmoins des erreurs « Autorisation refusée ».
 

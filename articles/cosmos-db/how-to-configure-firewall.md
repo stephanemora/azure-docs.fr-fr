@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: mjbrown
 ms.openlocfilehash: 1c24782285ac9b06d5499351eebe1693ade07297
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78162942"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Configurer un pare-feu IP dans Azure Cosmos DB
@@ -21,7 +21,7 @@ Vous pouvez sécuriser les données stockées dans votre compte Azure Cosmos DB 
 * De manière déclarative en utilisant un modèle Azure Resource Manager
 * Par programmation avec Azure CLI ou Azure PowerShell en mettant à jour la propriété **ipRangeFilter**
 
-## <a id="configure-ip-policy"></a> Configurer un pare-feu IP à l’aide du portail Azure
+## <a name="configure-an-ip-firewall-by-using-the-azure-portal"></a><a id="configure-ip-policy"></a> Configurer un pare-feu IP à l’aide du portail Azure
 
 Pour définir la stratégie de contrôle d’accès IP dans le portail Azure, accédez à la page du compte Azure Cosmos DB, puis sélectionnez **Pare-feu et réseaux virtuels** dans le menu de navigation. Définissez la valeur **Autoriser l’accès depuis** sur **Réseaux sélectionnés**, puis choisissez **Enregistrer**.
 
@@ -76,7 +76,7 @@ Vous pouvez récupérer des adresses IP pour vos services cloud dans le portail 
 
 ![Capture d’écran illustrant l’adresse IP publique pour un service cloud affichée dans le portail Azure](./media/how-to-configure-firewall/public-ip-addresses.png)
 
-Quand vous montez en charge votre service cloud en ajoutant des instances de rôle, ces nouvelles instances ont automatiquement accès au compte Azure Cosmos DB car elles font partie du même service cloud.
+Quand vous effectuez un scale-out de votre service cloud en ajoutant des instances de rôle, ces nouvelles instances ont automatiquement accès au compte Azure Cosmos DB car elles font partie du même service cloud.
 
 ### <a name="requests-from-virtual-machines"></a>Demandes à partir de machines virtuelles
 
@@ -92,7 +92,7 @@ Quand vous ajoutez des instances de machine virtuelle au groupe, elles ont autom
 
 Quand vous accédez à votre compte Azure Cosmos DB à partir d’un ordinateur sur Internet, l’adresse IP ou la plage d’adresses IP de l’ordinateur doit être ajoutée à la liste d’adresses IP autorisées pour votre compte.
 
-## <a id="configure-ip-firewall-arm"></a>Configurer un pare-feu IP à l’aide d’un modèle Resource Manager
+## <a name="configure-an-ip-firewall-by-using-a-resource-manager-template"></a><a id="configure-ip-firewall-arm"></a>Configurer un pare-feu IP à l’aide d’un modèle Resource Manager
 
 Pour configurer le contrôle d’accès à votre compte Azure Cosmos DB, vérifiez que le modèle Resource Manager spécifie l’attribut **ipRangeFilter** avec une liste de plages d’adresses IP autorisées. Si vous configurez le pare-feu IP sur un compte Cosmos déjà déployé, vérifiez que le tableau `locations` correspond à ce qui est actuellement déployé. Vous ne pouvez pas modifier simultanément le tableau `locations` et d’autres propriétés. Pour plus d’informations et pour obtenir des exemples de modèles Azure Resource Manager pour Azure Cosmos DB, consultez [Modèles Azure Resource Manager pour Azure Cosmos DB](resource-manager-samples.md).
 
@@ -113,7 +113,7 @@ Pour configurer le contrôle d’accès à votre compte Azure Cosmos DB, vérifi
 }
 ```
 
-## <a id="configure-ip-firewall-cli"></a>Configurer une stratégie de contrôle d’accès IP à l’aide d’Azure CLI
+## <a name="configure-an-ip-access-control-policy-by-using-the-azure-cli"></a><a id="configure-ip-firewall-cli"></a>Configurer une stratégie de contrôle d’accès IP à l’aide d’Azure CLI
 
 La commande suivante montre comment créer un compte Azure Cosmos DB avec le contrôle d’accès IP :
 
@@ -132,7 +132,7 @@ az cosmosdb create \
     --ip-range-filter $ipRangeFilter
 ```
 
-## <a id="configure-ip-firewall-ps"></a>Configurer une stratégie de contrôle d’accès IP à l’aide de PowerShell
+## <a name="configure-an-ip-access-control-policy-by-using-powershell"></a><a id="configure-ip-firewall-ps"></a>Configurer une stratégie de contrôle d’accès IP à l’aide de PowerShell
 
 Le script suivant montre comment créer un compte Azure Cosmos DB avec contrôle d’accès IP :
 
@@ -159,7 +159,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
     -Name $accountName -PropertyObject $CosmosDBProperties
 ```
 
-## <a id="troubleshoot-ip-firewall"></a>Résoudre les problèmes de stratégie de contrôle d’accès IP
+## <a name="troubleshoot-issues-with-an-ip-access-control-policy"></a><a id="troubleshoot-ip-firewall"></a>Résoudre les problèmes de stratégie de contrôle d’accès IP
 
 Vous pouvez résoudre les problèmes de stratégie de contrôle d’accès IP en utilisant les options suivantes :
 

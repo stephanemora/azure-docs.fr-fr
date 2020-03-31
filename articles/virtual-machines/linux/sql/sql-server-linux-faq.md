@@ -13,10 +13,10 @@ ms.date: 12/13/2017
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 1e729c608a2cad28c810f8d5236360c909a496b0
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70082026"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-linux-azure-virtual-machines"></a>Forum Aux Questions (FAQ) concernant SQL Server sur les machines virtuelles Linux Azure
@@ -32,7 +32,7 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
 
 [!INCLUDE [support-disclaimer](../../../../includes/support-disclaimer.md)]
 
-## <a id="images"></a> Images
+## <a name="images"></a><a id="images"></a> Images
 
 1. **Quelles images de galerie de machines virtuelles SQL Server sont disponibles ?**
 
@@ -60,7 +60,7 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
 
    Les machines virtuelles RHEL et SLES exigent un abonnement sans aucune limite de dépense et un mode de paiement vérifié (généralement une carte de crédit) associé à l’abonnement. Si vous configurez une machine virtuelle RHEL ou SLES sans supprimer la limite de dépense, votre abonnement est désactivé et toutes les machines virtuelles/tous les services sont arrêtés. Si vous parvenez à cette situation, pour réactiver l’abonnement, [supprimez la limite de dépense](https://account.windowsazure.com/subscriptions). Vos crédits restants sont restaurés pour le cycle de facturation en cours, mais un surcoût pour l’image de machine virtuelle RHEL ou SLES est débité sur votre carte de crédit si vous choisissez de redémarrer votre abonnement et de continuer à l’exécuter.
 
-## <a name="licensing"></a>Gestion des licences
+## <a name="licensing"></a>Licence
 
 1. **Comment installer ma copie sous licence de SQL Server sur une machine virtuelle Azure ?**
 
@@ -90,7 +90,7 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
 
    Il n'existe actuellement aucune mise à niveau sur place pour une instance SQL Server exécutée sur une machine virtuelle Azure. Créez une machine virtuelle Azure avec la version/édition de SQL Server souhaitée, puis migrez vos bases de données vers le nouveau serveur à l’aide des [techniques de migration de données standard](https://docs.microsoft.com/sql/linux/sql-server-linux-migrate-overview).
 
-## <a name="general"></a>Généralités
+## <a name="general"></a>Général
 
 1. **Les solutions de haute disponibilité SQL Server sont-elles prises en charge sur les machines virtuelles Azure ?**
 

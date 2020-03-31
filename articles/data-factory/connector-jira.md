@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: jingwang
 ms.openlocfilehash: 04509ac2ca229ee6175ca7be827eabb0caf0bc70
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74929234"
 ---
 # <a name="copy-data-from-jira-using-azure-data-factory"></a>Copier des données de Jira avec Azure Data Factory
@@ -45,11 +45,11 @@ Les propriétés prises en charge pour le service lié Jira sont les suivantes :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type doit être définie sur : **Jira** | OUI |
-| host | Adresse IP ou nom d’hôte du serveur Jira (par exemple, jira.exemple.com).  | OUI |
+| type | La propriété type doit être définie sur : **Jira** | Oui |
+| host | Adresse IP ou nom d’hôte du serveur Jira (par exemple, jira.exemple.com).  | Oui |
 | port | Port TCP utilisé par le serveur Jira pour écouter les connexions clientes. La valeur par défaut est 443 si vous vous connectez via HTTPS, ou 8080 via HTTP.  | Non |
-| username | Nom d’utilisateur utilisé pour accéder au service Jira.  | OUI |
-| password | Mot de passe correspondant au nom d’utilisateur indiqué dans le champ username. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
+| username | Nom d’utilisateur utilisé pour accéder au service Jira.  | Oui |
+| mot de passe | Mot de passe correspondant au nom d’utilisateur indiqué dans le champ username. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
 | useEncryptedEndpoints | Indique si les points de terminaison de la source de données sont chiffrés suivant le protocole HTTPS. La valeur par défaut est true.  | Non |
 | useHostVerification | Indique si le nom d’hôte du certificat du serveur doit correspondre à celui du serveur en cas de connexion SSL. La valeur par défaut est true.  | Non |
 | usePeerVerification | Indique s’il faut vérifier l’identité du serveur en cas de connexion SSL. La valeur par défaut est true.  | Non |
@@ -82,7 +82,7 @@ Pour copier des données de Jira, affectez la valeur **JiraObject** à la propri
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type du jeu de données doit être définie sur : **JiraObject** | OUI |
+| type | La propriété type du jeu de données doit être définie sur : **JiraObject** | Oui |
 | tableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
@@ -112,7 +112,7 @@ Pour copier des données de Jira, définissez le type de source dans l’activit
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type de la source d’activité de copie doit être définie sur : **JiraSource** | OUI |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **JiraSource** | Oui |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**

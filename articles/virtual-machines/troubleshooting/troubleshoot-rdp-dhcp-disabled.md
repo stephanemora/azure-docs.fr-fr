@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
 ms.openlocfilehash: 2c5b0556554d280e57b2df51875e1b057b5fb4a8
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75749895"
 ---
 #  <a name="cannot-rdp-to-azure-virtual-machines-because-the-dhcp-client-service-is-disabled"></a>Impossible d’établir une connexion RDP à des machines virtuelles Azure car le service client DHCP est désactivé
@@ -44,7 +44,7 @@ Pour les machines virtuelles Resource Manager, vous pouvez utiliser la fonctionn
 
 Pour les machines virtuelles classiques, vous devez travailler en mode HORS CONNEXION et collecter les journaux d’activité manuellement.
 
-## <a name="cause"></a>Cause :
+## <a name="cause"></a>Cause
 
 Le service client DHCP ne s’exécute pas sur la machine virtuelle.
 

@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.openlocfilehash: e0a24b52c12bce6a8e016a926dfa64a1e36a7cc6
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72753322"
 ---
 # <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>Optimiser le coût multirégion dans Azure Cosmos DB
@@ -27,7 +27,7 @@ Le débit approvisionné avec une seule région d’écriture coûte 0,008 $/heu
 
 Dans un système multimaître, les unités de requête nettes disponibles pour les opérations d’écriture sont multipliées par `N`, où `N` est le nombre de régions d’écriture. Contrairement aux régions d’écriture uniques, toutes les régions sont désormais accessibles en écriture et doivent prendre en charge la résolution des conflits. La quantité de charges de travail en écriture a augmenté. Du point de vue du coût de planification, pour effectuer `M` RU/seconde d’écritures dans le monde, vous devez approvisionner M `RUs` au niveau de la base de données ou du conteneur. Vous pouvez ensuite ajouter autant de régions que vous le souhaitez et les utiliser pour les écritures pour effectuer `M` RU d’écritures dans le monde entier. 
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 Supposons que vous disposez d’un conteneur dans la région USA Ouest qui est provisionné avec un débit de 10 000 unités de requêtes par seconde et qui stocke 1 To de données ce mois. Prenons un exemple. Vous ajoutez trois régions : USA Est, Europe Nord et Asie Est. Les capacités de stockage et les débits de ces régions sont identiques. Vous souhaitez pouvoir écrire dans les conteneurs des 4 régions à partir de votre application globalement distribuée. Votre facture mensuelle totale est (en supposant un mois de 31 jours) :
 

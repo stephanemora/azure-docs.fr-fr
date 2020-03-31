@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 8/04/2019
 ms.openlocfilehash: 6f2db91a35573bc2cbdd0df2cb1ac09914cc956b
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76122642"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-amazon-s3-to-azure-storage"></a>Utiliser Azure Data Factory pour migrer des données d’Amazon S3 vers le stockage Azure 
@@ -39,7 +39,7 @@ Les clients ont réussi à migrer des pétaoctets de données constitués de cen
 
 L’image ci-dessus montre comment vous pouvez obtenir des vitesses de déplacement de données exceptionnelles à travers différents niveaux de parallélisme:
  
-- Une seule activité de copie peut tirer parti des ressources de calcul évolutives : lorsque vous utilisez Azure Integration Runtime, vous pouvez spécifier [jusqu'à 256 DIUs](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#data-integration-units) pour chaque activité de copie serverless ; lorsque vous utilisez des Integration Runtime auto-hébergés, vous pouvez mettre à l’échelle manuellement la machine ou la monter en charge sur plusieurs machines ([jusqu’à 4 nœuds](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)), et une seule activité de copie partitionnera son jeu de fichiers sur tous les nœuds. 
+- Une seule activité de copie peut tirer parti des ressources de calcul évolutives : lorsque vous utilisez Azure Integration Runtime, vous pouvez spécifier [jusqu'à 256 DIUs](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#data-integration-units) pour chaque activité de copie serverless ; lorsque vous utilisez des Integration Runtime auto-hébergés, vous pouvez effectuer un scale-up de la machine ou un scale-out vers plusieurs machines ([jusqu’à 4 nœuds](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)), et une seule activité de copie partitionnera son jeu de fichiers sur tous les nœuds. 
 - Une activité de copie unique lit et écrit dans le magasin de données à l’aide de plusieurs conversations. 
 - Le flux de contrôle ADF peut démarrer plusieurs activités de copie en parallèle, par exemple [Pour chaque boucle](https://docs.microsoft.com/azure/data-factory/control-flow-for-each-activity). 
 
@@ -71,7 +71,7 @@ Migrer des données via un lien privé :
 ![solution-architecture-private-network](media/data-migration-guidance-s3-to-azure-storage/solution-architecture-private-network.png)
 
 - Dans cette architecture, la migration des données s’effectue via un lien de peering privé entre AWS Direct Connect et Azure Express Route, de telle sorte que les données ne transitent jamais sur l’Internet public.  Cela nécessite l'utilisation de AWS VPC et du réseau virtuel Azure. 
-- Vous devez installer le runtime d'intégration ADF auto-hébergé sur une machine virtuelle Windows au sein de votre réseau virtuel Azure pour réaliser cette architecture.  Vous pouvez mettre à l’échelle manuellement vos machines virtuelles IR auto-hébergées ou les mettre à l’échelle sur plusieurs machines virtuelles (jusqu’à 4 nœuds) pour utiliser pleinement votre réseau et vos IOPS/bande passante de stockage. 
+- Vous devez installer le runtime d'intégration ADF auto-hébergé sur une machine virtuelle Windows au sein de votre réseau virtuel Azure pour réaliser cette architecture.  Vous pouvez effectuer un scale-up manuel de vos machines virtuelles IR auto-hébergées ou effectuer un scale-out sur plusieurs machines virtuelles (jusqu’à 4 nœuds) pour utiliser pleinement votre réseau et vos IOPS/bande passante de stockage. 
 - S’il est acceptable de transférer des données sur HTTPS mais que vous souhaitez verrouiller l’accès réseau à la source S3 à une plage d’adresses IP spécifique, vous pouvez adopter une variante de cette architecture en supprimant l’AWS VPC et en remplaçant le lien privé par HTTPS.  Vous devez conserver le runtime d’intégration virtuel Azure et auto-hébergé sur une machine virtuelle Azure, afin de pouvoir utiliser une adresse IP publiquement routable à des fins de liste verte. 
 - Cette architecture permet à la fois la migration initiale des données instantanées et la migration des données delta. 
 
@@ -101,7 +101,7 @@ En guise d’alternative, si vos données de AWS S3 ne sont pas partitionnées, 
 Si vous migrez des données via un lien privé ou si vous souhaitez autoriser une plage d’adresses IP spécifiques sur un pare-feu Amazon S3, vous devez installer le runtime d’intégration auto-hébergé sur une machine virtuelle Windows Azure. 
 
 - La configuration de démarrage recommandée pour chaque machine virtuelle Azure est Standard_D32s_v3 avec des processeurs virtuels 32 et 128 Go de mémoire.  Vous pouvez conserver à surveiller l’utilisation du processeur et de la mémoire de la machine virtuelle IR pendant la migration des données afin de déterminer si vous devez augmenter la taille de la machine virtuelle pour améliorer les performances ou réduire la taille de la machine virtuelle pour réduire les coûts. 
-- Vous pouvez également effectuer une montée en charge en associant jusqu’à 4 nœuds de machine virtuelle à un seul runtime d’intégration auto-hébergé.  Une seule tâche de copie exécutée sur un runtime d’intégration auto-hébergé partitionne automatiquement le jeu de fichiers et tire parti de tous les nœuds de machine virtuelle pour copier les fichiers en parallèle.  Pour une haute disponibilité, il est recommandé de commencer par deux nœuds de machine virtuelle pour éviter un point de défaillance unique pendant la migration des données. 
+- Vous pouvez également effectuer un scale-out en associant jusqu’à 4 nœuds de machine virtuelle à un seul runtime d’intégration auto-hébergé.  Une seule tâche de copie exécutée sur un runtime d’intégration auto-hébergé partitionne automatiquement le jeu de fichiers et tire parti de tous les nœuds de machine virtuelle pour copier les fichiers en parallèle.  Pour une haute disponibilité, il est recommandé de commencer par deux nœuds de machine virtuelle pour éviter un point de défaillance unique pendant la migration des données. 
 
 ### <a name="rate-limiting"></a>Limitation du débit 
 

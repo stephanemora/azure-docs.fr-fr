@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: jejiang
 ms.openlocfilehash: a5117f72f933e1e48dc471a75624a8d3921f55af
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73832256"
 ---
 # <a name="manage-azure-data-lake-storage-gen1-resources-by-using-storage-explorer"></a>Gérer les ressources Azure Data Lake Storage Gen1 en utilisant l’Explorateur Stockage
@@ -19,7 +19,7 @@ ms.locfileid: "73832256"
 
 Autre avantage : vous n’avez pas besoin de posséder une autorisation d’abonnement pour gérer les données Data Lake Storage Gen1. Dans l’Explorateur Stockage, vous pouvez joindre le chemin d’accès Data Lake Storage Gen1 au nœud **Local and Attached** (Local et attaché) tant qu’un utilisateur l’autorise.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour effectuer les étapes indiquées dans cet article, vous avez besoin des éléments requis suivants :
 

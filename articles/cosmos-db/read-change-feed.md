@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/25/2019
 ms.openlocfilehash: fc7e78a44d03af8952c1e178a3e92b1ee0c6fe66
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74688131"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>Lire le flux de modification Azure Cosmos DB

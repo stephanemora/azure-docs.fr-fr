@@ -10,15 +10,15 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/05/2018
 ms.openlocfilehash: 406eb1c9153e1ddbdc196cd64378c17cfa986dac
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71672705"
 ---
 # <a name="get-started-with-the-cognitive-capabilities-of-u-sql"></a>Bien démarrer avec les capacités cognitives U-SQL
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Les fonctionnalités cognitives de U-SQL permettent aux développeurs d’utiliser l’intelligence PUT dans leurs programmes de Big Data. 
 
 Voici la liste des exemples disponibles utilisant des fonctionnalités cognitives :

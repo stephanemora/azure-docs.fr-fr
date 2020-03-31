@@ -10,10 +10,10 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: c82f1edfc3acd73c1d38425f963aaaf2976a1cc5
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76844585"
 ---
 # <a name="tutorial-publish-subscribe-to-events-in-cloud"></a>Tutoriel : Publier des événements et s’y abonner dans le cloud
@@ -22,7 +22,7 @@ Cet article vous guide tout au long des étapes nécessaires pour publier des é
 
 Consultez [Concepts d’Event Grid](concepts.md) pour comprendre ce que sont une rubrique et un abonnement Event Grid avant de continuer.
 
-## <a name="prerequisites"></a>Conditions préalables requises 
+## <a name="prerequisites"></a>Prérequis 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 * **Abonnement Azure** : Créez un [compte gratuit](https://azure.microsoft.com/free) si vous n’en avez pas encore. 

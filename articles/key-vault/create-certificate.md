@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: c27cde85952ca6d982accddad59eceae76e3f1e8
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78194455"
 ---
 # <a name="certificate-creation-methods"></a>Méthodes de création de certificats
 
  Un certificat Key Vault (KV) peut être créé ou importé dans un coffre de clés. Lors de la création d’un certificat KV, la clé privée est créée dans le coffre de clés et n’est jamais exposée au propriétaire du certificat. Vous trouverez ci-dessous des méthodes de création d’un certificat dans Key Vault :  
 
--   **Créer un certificat auto-signé :** crée une paire de clés publique-privée et l’associe à un certificat. Le certificat est signé par sa propre clé.  
+-   **Créer un certificat auto-signé :** créer une paire de clés publique-privée et l’associer à un certificat. Le certificat est signé par sa propre clé.  
 
--    **Créer un certificat manuellement :** crée une paire de clés publique-privée et génère une demande de signature de certificat X.509. La demande de signature peut être signée par votre autorité de certification ou autorité d’inscription. Le certificat X509 signé peut être fusionné avec la paire de clés en attente afin de terminer la création du certificat KV dans Key Vault. Bien que cette méthode nécessite davantage d’étapes, elle offre une plus grande sécurité, car la clé privée est créée dans Key Vault et restreinte à ce dernier. Ceci est expliqué dans le diagramme ci-dessous.  
+-    **Créer un certificat manuellement :** créer une paire de clés publique-privée et générer une demande de signature de certificat X.509. La demande de signature peut être signée par votre autorité de certification ou autorité d’inscription. Le certificat X509 signé peut être fusionné avec la paire de clés en attente afin de terminer la création du certificat KV dans Key Vault. Bien que cette méthode nécessite davantage d’étapes, elle offre une plus grande sécurité, car la clé privée est créée dans Key Vault et restreinte à ce dernier. Ceci est expliqué dans le diagramme ci-dessous.  
 
 ![Créer un certificat avec votre propre autorité de certification](media/certificate-authority-1.png)  
 
@@ -35,7 +35,7 @@ Les descriptions suivantes correspondent aux étapes écrites en vert dans le di
 4. L’autorité de certification que vous avez choisie répond avec un certificat X509.
 5. Votre application termine la création du certificat par le biais d’une fusion avec le certificat X509 provenant de votre autorité de certification.
 
--   **Créer un certificat avec un fournisseur émetteur connu :** cette méthode requiert une tâche unique consistant à créer un objet émetteur. Une fois qu’un objet émetteur est créé dans votre coffre de clés, son nom peut être référencé dans la stratégie du certificat KV. La demande de création d’un tel certificat KV crée une paire de clés dans le coffre et communique avec le service de fournisseur émetteur à l’aide des informations dans l’objet émetteur référencé pour obtenir un certificat X509. Le certificat X509 est récupéré à partir du service de l’émetteur et fusionné avec la paire de clés pour terminer la création du certificat KV.  
+-   **Créer un certificat avec un fournisseur émetteur connu :** cette méthode requiert une tâche unique consistant à créer un objet émetteur. Une fois qu’un objet émetteur est créé dans votre coffre de clés, son nom peut être référencé dans la stratégie du certificat KV. La demande de création d’un tel certificat KV crée une paire de clés dans le coffre et communique avec le service de fournisseur émetteur à l’aide des informations dans l’objet émetteur référencé pour obtenir un certificat X509. Le certificat X509 est récupéré à partir du service de l’émetteur et fusionné avec la paire de clés pour terminer la création du certificat KV.  
 
 ![Créer un certificat auprès d’une autorité de certification associée à Key Vault](media/certificate-authority-2.png)  
 
@@ -54,7 +54,7 @@ Quand une demande de création d’un certificat KV est terminée, l’objet en 
 
 ## <a name="first-creation"></a>Première création
  Lorsqu’un certificat KV est créé pour la première fois, un secret et une clé adressables sont également créés avec le même nom que celui du certificat. Si le nom est déjà utilisé, l’opération échoue avec un code d’état HTTP 409 (Conflit).
-Le secret et la clé adressables obtiennent leurs attributs à partir des attributs du certificat KV. Le secret et la clé adressables ainsi créés sont marqués en tant que secrets et clés managés, dont la durée de vie est gérée par Key Vault. Les secrets et les clés managés sont en lecture seule. Remarque : Si un certificat KV arrive à expiration ou est désactivé, le secret et la clé correspondants deviennent inutilisables.  
+Le secret et la clé adressables obtiennent leurs attributs à partir des attributs du certificat KV. Le secret et la clé adressables ainsi créés sont marqués en tant que secrets et clés managés, dont la durée de vie est gérée par Key Vault. Les secrets et les clés managés sont en lecture seule. Remarque : si un certificat KV arrive à expiration ou est désactivé, le secret et la clé correspondants deviennent inutilisables.  
 
  S’il s’agit de la première création d’un certificat KV, alors une stratégie est requise.  Une stratégie peut également être fournie avec les opérations de création suivantes pour remplacer la ressource de la stratégie. Si aucune stratégie n’est fournie, la ressource de la stratégie sur le service est utilisée pour créer une prochaine version du certificat KV. Notez que lorsqu’une demande de création d’une prochaine version est en cours, le certificat KV actuel, ainsi que le secret et la clé adressables correspondants, restent inchangés.  
 
@@ -89,7 +89,7 @@ La création du certificat peut être effectuée manuellement ou à l’aide d�
 
 Notez que lorsqu’une commande est passée auprès du fournisseur émetteur, elle peut respecter ou remplacer les extensions du certificat X509 et la période de validité du certificat en fonction du type de certificat.  
 
- Autorisation : nécessite l’autorisation de création/certificats.
+ Autorisation : autorisation certificates/create requise.
 
 ## <a name="see-also"></a>Voir aussi
  - [Présentation des clés, des secrets et des certificats](about-keys-secrets-and-certificates.md)

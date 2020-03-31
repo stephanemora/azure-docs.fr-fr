@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: victorh
 ms.openlocfilehash: 33dcebf14f4d534962783a30ec94f7ff6529ae0d
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74195921"
 ---
 # <a name="deploy-an-azure-firewall-with-availability-zones-using-azure-powershell"></a>Déployer un pare-feu Azure avec des zones de disponibilité à l’aide d’Azure PowerShell
@@ -60,4 +60,4 @@ New-AzFirewall `
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Tutoriel : Superviser les journaux d’activité de Pare-feu Azure](./tutorial-diagnostics.md)
+- [Tutoriel : Surveiller les journaux d’activité de Pare-feu Azure](./tutorial-diagnostics.md)

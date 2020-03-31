@@ -8,10 +8,10 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/01/2019
 ms.openlocfilehash: 49b547829a369ea6df35e2f1c2f7d60458e41040
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75887170"
 ---
 # <a name="scenario-apache-hbase-rest-not-responding-to-requests-in-azure-hdinsight"></a>Scénario : Le REST Apache HBase ne répond pas aux requêtes dans Azure HDInsight
@@ -22,7 +22,7 @@ Cet article décrit les éventuelles solutions à appliquer pour résoudre les p
 
 Le service REST Apache HBase ne répond pas aux requêtes dans Azure HDInsight.
 
-## <a name="cause"></a>Cause :
+## <a name="cause"></a>Cause
 
 La cause possible ici peut être que le service REST Apache HBase présente des fuites de sockets, ce qui est particulièrement courant lorsque le service s’exécute depuis longtemps (par exemple, des mois). À partir du kit de développement logiciel (SDK) client, un message d’erreur semblable à celui-ci peut s’afficher :
 

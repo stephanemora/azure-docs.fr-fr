@@ -8,10 +8,10 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/13/2019
 ms.openlocfilehash: 21269f7d5a9ec832a49a613351702dd24be156af
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75894161"
 ---
 # <a name="unable-to-access-data-lake-storage-files-in-azure-hdinsight"></a>Impossible d’accéder aux fichiers de stockage Data Lake dans Azure HDInsight
@@ -26,7 +26,7 @@ Vous recevez un message d’erreur similaire au suivant :
 LISTSTATUS failed with error 0x83090aa2 (Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.).
 ```
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 L’utilisateur peut avoir révoqué les autorisations de principal du service (SP) sur les fichiers/dossiers.
 
@@ -50,7 +50,7 @@ Vous recevez un message d’erreur similaire au suivant :
 Token Refresh failed - Received invalid http response: 500
 ```
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 Le certificat fourni pour l’accès du principal du service a peut-être expiré.
 

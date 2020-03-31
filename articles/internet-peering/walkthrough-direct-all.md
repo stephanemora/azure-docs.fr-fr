@@ -1,7 +1,7 @@
 ---
-title: Procédure pas à pas pour le Peering direct
+title: Procédure pas à pas pour le peering direct
 titleSuffix: Azure
-description: Procédure pas à pas pour le Peering direct
+description: Procédure pas à pas pour le peering direct
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: d88fcfc4d3e073bf544f2ca0f4d01dbe305b45da
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75774036"
 ---
-# <a name="direct-peering-walkthrough"></a>Procédure pas à pas pour le Peering direct
+# <a name="direct-peering-walkthrough"></a>Procédure pas à pas pour le peering direct
 
 Cette section explique les étapes à suivre pour configurer et gérer un Peering direct.
 
@@ -38,7 +38,7 @@ Vous devez effectuer les étapes suivantes pour provisionner un Peering direct 
 
 Notez qu’il ne faut pas confondre les états de connexion avec les états de session [BGP](https://en.wikipedia.org/wiki/Border_Gateway_Protocol) standard.
 
-## <a name="convert-a-legacy-direct-peering-to-azure-resource"></a>Convertir un Peering direct hérité en ressource Azure
+## <a name="convert-a-legacy-direct-peering-to-azure-resource"></a>Convertir un peering direct existant en ressource Azure
 Vous devez effectuer les étapes suivantes pour convertir un Peering direct hérité en ressource Azure :
 1. Suivez les instructions de [Convertir un Peering direct hérité en ressource Azure](howto-legacy-direct-powershell.md).
 1. Une fois que vous avez envoyé une demande de conversion, Microsoft examine la demande et vous contacte si nécessaire.

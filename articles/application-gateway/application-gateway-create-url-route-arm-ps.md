@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
 ms.openlocfilehash: e7934ba0b33bff7ffb8e89e7b56c5b998a232289
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74048053"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-azure-powershell"></a>Créer une passerelle d’application avec des règles d’acheminement par chemin d’accès URL à l’aide d’Azure PowerShell
@@ -258,7 +258,7 @@ Set-AzApplicationGateway -ApplicationGateway $appgw
 
 ## <a name="create-virtual-machine-scale-sets"></a>Créer des groupes de machines virtuelles identiques
 
-Cet exemple crée trois groupes de machines virtuelles identiques prenant en charge les trois pools principaux qui ont été créés. Les groupes identiques créés se nomment *myvmss1*, *myvmss2* et *myvmss3*. Chacun contient deux instances de machines virtuelles sur lesquelles IIS sera installé. Vous assignez le groupe identique au pool principal lorsque vous configurez les paramètres IP.
+Cet exemple crée trois groupes de machines virtuelles identiques prenant en charge les trois pools principaux qui ont été créés. Ils sont nommés *myvmss1*, *myvmss2* et *myvmss3*. Chacun contient deux instances de machines virtuelles sur lesquelles IIS sera installé. Vous assignez le groupe identique au pool principal lorsque vous configurez les paramètres IP.
 
 ```azurepowershell-interactive
 $vnet = Get-AzVirtualNetwork `
@@ -371,4 +371,4 @@ Dans cet article, vous avez appris à effectuer les opérations suivantes :
 > * Créer une passerelle d’application avec une carte d’URL
 > * Créer des groupes de machines virtuelles identiques avec les pools principaux
 
-Pour plus d’informations sur les passerelles d’application et leurs ressources associées, consultez les articles de procédures.
+Pour plus d’informations sur les passerelles d’application et leurs ressources associées, consultez les articles de guide pratique.

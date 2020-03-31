@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.custom: seodec18
 ms.openlocfilehash: 9345b6fb28aa282e85f1167f6f2531e5f990e3a2
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74688323"
 ---
 # <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-azure-app-service"></a>Corriger les erreurs HTTP « 502 Passerelle incorrecte » et « 503 Service indisponible » sur Azure App Service
@@ -22,7 +22,7 @@ Si vous avez besoin d'aide supplémentaire concernant n'importe quel point de ce
 ## <a name="symptom"></a>Symptôme
 Lorsque vous accédez à l'application, celle-ci renvoie un message d'erreur HTTP « 502 Passerelle incorrecte » ou HTTP « 503 Service non disponible ».
 
-## <a name="cause"></a>Cause :
+## <a name="cause"></a>Cause
 Ce problème est souvent dû à des problèmes au niveau de l’application, tels que :
 
 * demandes exigeant beaucoup de temps ;
@@ -92,7 +92,7 @@ Pour plus d'informations sur les fonctionnalités disponibles dans Kudu, consult
 #### <a name="scale-the-app"></a>Mettre l’application à l’échelle
 Dans Azure App Service, pour améliorer les performances et le débit, vous pouvez ajuster l’échelle à laquelle vous exécutez votre application. La mise à l’échelle d’une application implique deux actions associées : l’évolution de votre plan App Service vers un niveau tarifaire supérieur et la configuration de certains paramètres après le passage à ce niveau tarifaire supérieur.
 
-Pour plus d'informations sur la mise à l'échelle, consultez [Mise à l'échelle des applications dans un environnement Azure App Service](manage-scale-up.md).
+Pour plus d’informations sur la mise à l’échelle, consultez [Mise à l’échelle des applications dans un environnement Azure App Service](manage-scale-up.md).
 
 En outre, vous pouvez choisir d’exécuter votre application sur plusieurs instances. Non seulement cela vous offre plus de capacité de traitement, mais également un certain niveau de tolérance aux pannes. Si le processus s’arrête sur une instance, l’autre instance continue de servir les requêtes.
 
@@ -103,10 +103,10 @@ La correction automatique (AutoHeal) recycle le processus de travail pour votre 
 
 Pour plus d'informations, consultez [Correction automatique de Sites Web Azure](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites/).
 
-#### <a name="restart-the-app"></a>Redémarrer l'application
+#### <a name="restart-the-app"></a>Redémarrer l’application
 Il s’agit souvent du moyen le plus simple de résoudre des problèmes à usage unique. Sur le [portail Azure](https://portal.azure.com/), vous pouvez arrêter ou redémarrer votre application à partir du panneau de celle-ci.
 
  ![redémarrer l’application pour résoudre les erreurs HTTP de type « 502 Passerelle incorrecte » et « 503 Service indisponible »](./media/app-service-web-troubleshoot-HTTP-502-503/2-restart.png)
 
-Vous pouvez également gérer votre application à l'aide d'Azure PowerShell. Pour plus d'informations, consultez [Utilisation d'Azure PowerShell avec le Gestionnaire de ressources Azure](../powershell-azure-resource-manager.md).
+Vous pouvez également gérer votre application à l’aide d’Azure PowerShell. Pour plus d'informations, consultez [Utilisation d'Azure PowerShell avec le Gestionnaire de ressources Azure](../powershell-azure-resource-manager.md).
 

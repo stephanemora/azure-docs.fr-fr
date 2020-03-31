@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 09/16/2019
 ms.author: genli
 ms.openlocfilehash: 941b6ac86941824351f83592998e8735e3eb8ee5
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75780366"
 ---
 # <a name="integrate-azure-vpn-gateway-radius-authentication-with-nps-server-for-multi-factor-authentication"></a>Intégrer l’authentification RADIUS de la passerelle VPN Azure avec un serveur NPS pour l’authentification multifacteur 
@@ -32,7 +32,7 @@ Pour activer l’authentification multifacteur, les utilisateurs doivent être d
 
 ## <a name="detailed-steps"></a>Procédure détaillée
 
-### <a name="step-1-create-a-virtual-network-gateway"></a>Étape 1 : Créer une passerelle de réseau virtuel
+### <a name="step-1-create-a-virtual-network-gateway"></a>Étape 1 : créer une passerelle de réseau virtuel
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Dans le réseau virtuel qui hébergera la passerelle de réseau virtuel, sélectionnez **Sous-réseaux**, puis **Sous-réseau de passerelle** pour créer un sous-réseau. 
@@ -40,10 +40,10 @@ Pour activer l’authentification multifacteur, les utilisateurs doivent être d
     ![Image relative à l’ajout d’une passerelle de sous-réseau](./media/vpn-gateway-radiuis-mfa-nsp/gateway-subnet.png)
 3. Créez une passerelle de réseau virtuel en spécifiant les paramètres suivants :
 
-    - **Type de passerelle** : Sélectionnez **VPN**.
-    - **Type de VPN** : Sélectionnez **Route-based**.
-    - **SKU** : Sélectionnez un type de référence SKU en fonction de vos exigences.
-    - **Réseau virtuel** : Sélectionnez le réseau virtuel dans lequel vous avez créé le sous-réseau de passerelle.
+    - **Type de passerelle** : sélectionnez **VPN**.
+    - **Type de VPN** : sélectionnez **Route-based**.
+    - **Référence SKU** : sélectionnez un type de référence SKU en fonction de vos besoins.
+    - **Réseau virtuel** : sélectionnez le réseau virtuel dans lequel vous avez créé le sous-réseau de passerelle.
 
         ![Image relative aux paramètres de passerelle de réseau virtuel](./media/vpn-gateway-radiuis-mfa-nsp/create-vpn-gateway.png)
 
@@ -54,8 +54,8 @@ Pour activer l’authentification multifacteur, les utilisateurs doivent être d
 1. Sur le serveur NPS, [installez l’extension NPS pour Azure MFA](../active-directory/authentication/howto-mfa-nps-extension.md#install-the-nps-extension).
 2. Ouvrez la console NPS, cliquez avec le bouton droit sur **Clients RADIUS**, puis sélectionnez **Nouveau**. Créez le client RADIUS en spécifiant les paramètres suivants :
 
-    - **Nom convivial** : Saisissez un nom.
-    - **Adresse (IP ou DNS)**  : Indiquez le sous-réseau de passerelle que vous avez créé à l’étape 1.
+    - **Nom convivial** : saisissez n’importe quel nom.
+    - **Adresse (IP ou DNS)** : indiquez le sous-réseau de passerelle que vous avez créé à l’étape 1.
     - **Secret partagé** : saisissez une clé secrète et gardez-la en mémoire pour plus tard.
 
       ![Image relative aux paramètres du client RADIUS](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client1.png)
@@ -73,9 +73,9 @@ Pour activer l’authentification multifacteur, les utilisateurs doivent être d
 2. Ouvrez la passerelle de réseau virtuel que vous avez créée. Assurez-vous que le type de passerelle est défini sur **VPN** et que le type VPN est **Route-based**.
 3. Cliquez sur **Configuration point à site** > **Configurer maintenant**, puis spécifiez les paramètres suivants :
 
-    - **Pool d’adresses** : Indiquez le sous-réseau de passerelle que vous avez créé à l’étape 1.
-    - **Type d'authentification** : Sélectionnez **Authentification RADIUS**.
-    - **Adresse IP du serveur** : Tapez l’adresse IP du serveur NPS.
+    - **Pool d’adresses** : indiquez le sous-réseau de passerelle que vous avez créé à l’étape 1.
+    - **Type d’authentification** : sélectionnez **Authentification RADIUS**.
+    - **Adresse IP du serveur** : tapez l’adresse IP du serveur NPS.
 
       ![Image relative aux paramètres point à site](./media/vpn-gateway-radiuis-mfa-nsp/configure-p2s.png)
 

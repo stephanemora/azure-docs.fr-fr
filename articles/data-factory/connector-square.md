@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2019
 ms.openlocfilehash: de795d082069ff5ad895c48b7a507512449d0208
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74931003"
 ---
 # <a name="copy-data-from-square-using-azure-data-factory-preview"></a>Copier des données de Square avec Azure Data Factory (préversion)
@@ -50,11 +50,11 @@ Les propriétés suivantes sont prises en charge pour le service lié Square :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type doit être définie sur : **Square** | OUI |
-| host | URL de l’instance Square. (c’est-à-dire mystore.mysquare.com).  | OUI |
-| clientId | ID client associé à l’application Square.  | OUI |
-| clientSecret | Clé secrète client associée à l’application Square. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
-| redirectUri | URL de redirection affectée dans le tableau de bord de l’application Square (c’est-à-dire http:\//localhost:2500)  | OUI |
+| type | La propriété type doit être définie sur : **Square** | Oui |
+| host | URL de l’instance Square. (c’est-à-dire mystore.mysquare.com).  | Oui |
+| clientId | ID client associé à l’application Square.  | Oui |
+| clientSecret | Clé secrète client associée à l’application Square. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
+| redirectUri | URL de redirection affectée dans le tableau de bord de l’application Square (c’est-à-dire http:\//localhost:2500)  | Oui |
 | useEncryptedEndpoints | Indique si les points de terminaison de la source de données sont chiffrés suivant le protocole HTTPS. La valeur par défaut est true.  | Non |
 | useHostVerification | Indique si le nom d’hôte du certificat du serveur doit correspondre à celui du serveur en cas de connexion SSL. La valeur par défaut est true.  | Non |
 | usePeerVerification | Indique s’il faut vérifier l’identité du serveur en cas de connexion SSL. La valeur par défaut est true.  | Non |
@@ -87,7 +87,7 @@ Pour copier des données de Square, affectez la valeur **SquareObject** à la pr
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type du jeu de données doit être définie sur : **SquareObject** | OUI |
+| type | La propriété type du jeu de données doit être définie sur : **SquareObject** | Oui |
 | tableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
@@ -117,7 +117,7 @@ Pour copier des données de Square, affectez la valeur **SquareSource** au type 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type de la source d’activité de copie doit être définie sur : **SquareSource** | OUI |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **SquareSource** | Oui |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM Business"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**

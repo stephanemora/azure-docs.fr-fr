@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 11889bd6df0bcc9564c17fdaacc333df1d418660
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77918307"
 ---
 # <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Utilisation d’Azure Media Analytics pour convertir le contenu texte de fichiers vidéo en texte numérique  
@@ -36,7 +36,7 @@ Le processeur multimédia **Azure Media OCR** est actuellement en version préli
 Cet article donne des précisions sur **Azure Media OCR** et montre comment l’utiliser avec le kit SDK Media Services pour .NET. Pour plus d’informations et d’exemples, consultez [ce blog](https://azure.microsoft.com/blog/announcing-video-ocr-public-preview-new-config/).
 
 ## <a name="ocr-input-files"></a>Fichiers d'entrée OCR
-Fichiers vidéo. Actuellement, les formats suivants sont pris en charge : MP4, MOV et WMV.
+Fichiers vidéo. Les formats suivants sont actuellement pris en charge : MP4, MOV et WMV.
 
 ## <a name="task-configuration"></a>Configuration de la tâche
 Configuration de la tâche (préconfiguration). Lors de la création d’une tâche **Azure Media OCR**, vous devez spécifier une présélection de configuration avec JSON ou XML. 
@@ -49,8 +49,8 @@ Configuration de la tâche (préconfiguration). Lors de la création d’une tâ
 | Nom de l’attribut | Description |
 | --- | --- |
 |AdvancedOutput| Si vous définissez AdvancedOutput sur true, le résultat JSON contient les données sur la position de chaque mot unique (en plus des régions et des expressions). Si vous ne souhaitez pas voir ces détails, définissez l’indicateur sur False. La valeur par défaut est false. Pour plus d’informations, consultez [ce blog](https://azure.microsoft.com/blog/azure-media-ocr-simplified-output/).|
-| Langage |(facultatif) indique la langue du texte à rechercher. Celui-ci peut avoir l'une des valeurs suivantes : AutoDetect (par défaut), Arabic, ChineseSimplified, ChineseTraditional, Czech, Danish, Dutch, English, Finnish, French, German, Greek, Hungarian, Italian, Japanese, Korean, Norwegian, Polish, Portuguese, Romanian, Russian, SerbianCyrillic, SerbianLatin, Slovak, Spanish, Swedish, Turkish. |
-| TextOrientation |(facultatif) indique l’orientation du texte à rechercher.  « Left » signifie que la partie supérieure de toutes les lettres pointe vers la gauche.  Par défaut, le texte peut être affiché en mode « Up » (comme dans un livre).  Celui-ci peut avoir l'une des valeurs suivantes : AutoDetect (par défaut), Up, Right, Down, Left. |
+| Langage |(facultatif) indique la langue du texte à rechercher. Une des valeurs suivantes : AutoDetect (par défaut), Arabic, ChineseSimplified, ChineseTraditional, Czech, Danish, Dutch, English, Finnish, French, German, Greek, Hungarian, Italian, Japanese, Korean, Norwegian, Polish, Portuguese, Romanian, Russian, SerbianCyrillic, SerbianLatin, Slovak, Spanish, Swedish, Turkish. |
+| TextOrientation |(facultatif) indique l’orientation du texte à rechercher.  « Left » signifie que la partie supérieure de toutes les lettres pointe vers la gauche.  Par défaut, le texte peut être affiché en mode « Up » (comme dans un livre).  Une des valeurs suivantes : AutoDetect (par défaut), Up, Right, Down, Left. |
 | TimeInterval |(facultatif) décrit le taux d’échantillonnage.  La valeur par défaut est chaque demie seconde.<br/>Format JSON – HH:mm:ss.SSS (par défaut : 00:00:00.500)<br/>Format XML – durée de la primitive W3C XSD (par défaut PT0.5) |
 | DetectRegions |(facultatif) Tableau d’objets DetectRegion spécifiant des zones au sein de l’image vidéo dans lesquelles détecter le texte.<br/>Un objet DetectRegion est constitué de quatre valeurs entières suivantes :<br/>Gauche – pixels à partir de la marge de gauche<br/>Haut – pixels à partir de la marge supérieure<br/>Largeur – largeur de la zone en pixels<br/>Height – hauteur de la zone en pixels |
 

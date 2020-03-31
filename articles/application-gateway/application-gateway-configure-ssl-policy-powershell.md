@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
 ms.openlocfilehash: 105b0b3e40e6e9433ee456914cd5babc1d17d036
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74075228"
 ---
 # <a name="configure-ssl-policy-versions-and-cipher-suites-on-application-gateway"></a>Configurer les versions de stratégie SSL et les suites de chiffrement sur Application Gateway
@@ -108,7 +108,7 @@ CipherSuites:
 
 ## <a name="configure-a-custom-ssl-policy"></a>Configurer une stratégie SSL personnalisée
 
-Quand vous configurez une stratégie SSL personnalisée, vous transmettez les paramètres suivants : PolicyType, MinProtocolVersion, CipherSuite et ApplicationGateway. Si vous essayez de passer d’autres paramètres, vous obtiendrez une erreur lors de la création ou de la mise à jour de la passerelle Application Gateway. 
+Lorsque vous configurez une stratégie SSL personnalisée, vous transmettez les paramètres suivants : PolicyType, MinProtocolVersion, CipherSuite et ApplicationGateway. Si vous essayez de passer d’autres paramètres, vous obtiendrez une erreur lors de la création ou de la mise à jour de la passerelle Application Gateway. 
 
 L’exemple suivant définit une stratégie SSL personnalisée sur une passerelle d’application. Il définit la version de protocole minimale sur `TLSv1_1` et active les suites de chiffrement suivantes :
 
@@ -134,7 +134,7 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 
 ## <a name="create-an-application-gateway-with-a-pre-defined-ssl-policy"></a>Créer une passerelle d’application avec une stratégie SSL prédéfinie
 
-Quand vous configurez une stratégie SSL prédéfinie, vous transmettez les paramètres suivants : PolicyType, PolicyName et ApplicationGateway. Si vous essayez de passer d’autres paramètres, vous obtiendrez une erreur lors de la création ou de la mise à jour de la passerelle Application Gateway.
+Lorsque vous configurez une stratégie SSL prédéfinie, vous transmettez les paramètres suivants : PolicyType, PolicyName et ApplicationGateway. Si vous essayez de passer d’autres paramètres, vous obtiendrez une erreur lors de la création ou de la mise à jour de la passerelle Application Gateway.
 
 L’exemple suivant crée une nouvelle passerelle d’application avec une stratégie SSL prédéfinie.
 

@@ -8,10 +8,10 @@ ms.date: 08/21/2019
 ms.author: sngun
 ms.reviewer: sngun
 ms.openlocfilehash: 746232a85e326f08d44cf2dbe0a4ae718c7cc312
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69983346"
 ---
 # <a name="migrate-data-from-cassandra-to-azure-cosmos-db-cassandra-api-account-using-blitzz"></a>Migrer des données de Cassandra vers un compte API Cassandra Azure Cosmos DB à l'aide de Blitzz
@@ -30,7 +30,7 @@ Il existe plusieurs façons de migrer des charges de travail de base de données
 
 La solution de migration de Blitzz suit une approche étape par étape pour migrer les charges de travail opérationnelles complexes. Voici quelques-uns des aspects clés du plan de migration sans interruption de Blitzz :
 
-* Il offre une migration automatique de la logique métier (tables, index, vues) de la base de données Apache Cassandra vers Azure Cosmos DB. Vous n'êtes pas tenu de créer des schémas manuellement.
+* Il offre une migration automatique de la logique métier (tables, index, vues) de la base de données Apache Cassandra vers Azure Cosmos DB. Vous n’êtes pas tenu de créer des schémas manuellement.
 
 * Blitzz offre une réplication de base de données parallèle et à haut volume. Il permet de synchroniser les plateformes source et cible pendant la migration à l'aide d'une technique appelée « Change-Data-Capture » (CDC). En utilisant CDC, Blitzz extrait en continu un flux de modifications de la base de données source (Apache Cassandra) et l'applique à la base de données de destination (Azure Cosmos DB).
 
@@ -42,7 +42,7 @@ La solution de migration de Blitzz suit une approche étape par étape pour migr
 
 Cette section décrit les étapes à suivre pour configurer Blitzz et migrer les données d'une base de données Apache Cassandra vers Azure Cosmos DB.
 
-1. À partir de l'ordinateur sur lequel vous prévoyez d'installer l'outil de réplication Blitzz, ajoutez un certificat de sécurité. Ce certificat est requis par l'outil de réplication Blitzz pour établir une connexion SSL avec le compte Azure Cosmos DB spécifié. Pour ajouter le certificat, procédez comme suit :
+1. À partir de l’ordinateur sur lequel vous envisagez d’installer le replicant Blitzz, ajoutez un certificat de sécurité. Ce certificat est requis par l'outil de réplication Blitzz pour établir une connexion SSL avec le compte Azure Cosmos DB spécifié. Pour ajouter le certificat, procédez comme suit :
 
    ```bash
    wget https://cacert.omniroot.com/bc2025.crt
@@ -90,15 +90,15 @@ Cette section décrit les étapes à suivre pour configurer Blitzz et migrer les
 
 1. Vous allez ensuite procéder à la configuration de la base de données de destination. Avant d'entamer la configuration, [créez un compte API Cassandra Azure Cosmos DB](create-cassandra-dotnet.md#create-a-database-account), puis créez un espace de clés et une table pour stocker les données migrées. Comme vous procédez à une migration d'Apache Cassandra vers l'API Cassandra Azure Cosmos DB, vous pouvez utiliser la même clé de partition que celle utilisée avec Apache Cassandra.
 
-1. Avant de migrer les données, augmentez le débit du conteneur jusqu'à la quantité requise pour que votre application migre rapidement. Par exemple, vous pouvez augmenter le débit jusqu'à 100 000 RU. La mise à l'échelle du débit avant le début de la migration vous aidera à migrer vos données plus rapidement.
+1. Avant de migrer les données, augmentez le débit du conteneur jusqu'à la quantité requise pour que votre application migre rapidement. Par exemple, vous pouvez augmenter le débit jusqu'à 100 000 RU. La mise à l’échelle du débit avant le début de la migration vous aidera à migrer vos données plus rapidement.
 
    ![Mettre à l'échelle le débit d'un conteneur Azure Cosmos](./media/cassandra-migrate-cosmos-db-blitzz/scale-throughput.png)
 
-   Au terme de la migration, réduisez le débit. En fonction de la quantité de données stockées et des RU requises pour chaque opération, vous pouvez estimer le débit requis après la migration des données. Pour en savoir plus sur l'estimation des RU requises, consultez [Approvisionner le débit sur les conteneurs et les bases de données](set-throughput.md)et [Estimer le nombre d'unités de requête/seconde à l'aide du planificateur de capacité Azure Cosmos DB](estimate-ru-with-capacity-planner.md).
+   Au terme de la migration, réduisez le débit. En fonction de la quantité de données stockées et des RU requises pour chaque opération, vous pouvez estimer le débit requis après la migration des données. Pour en savoir plus sur la façon d’estimer les RU requises, voir [Approvisionner le débit sur les conteneurs et les bases de données](set-throughput.md)et [Estimer le nombre d’unités de requête/seconde à l’aide du planificateur de capacité Azure Cosmos DB](estimate-ru-with-capacity-planner.md).
 
-1. Procurez-vous le **point de contact, le port, le nom d'utilisateur** et le **mot de passe principal** de votre compte Azure Cosmos dans le volet **Chaîne de connexion**. Vous utiliserez ces valeurs dans le fichier de configuration.
+1. Procurez-vous le **point de contact, le port, le nom d’utilisateur** et le **mot de passe principal** de votre compte Azure Cosmos dans le volet **Chaîne de connexion**. Vous utiliserez ces valeurs dans le fichier de configuration.
 
-1. Depuis le terminal CLI, procédez à la configuration de la base de données de destination. Ouvrez le fichier de configuration à l'aide de la commande **`vi conf/conn/cosmosdb.yml`** et ajoutez une liste séparée par des virgules contenant l'URI hôte, le numéro de port, le nom d'utilisateur, le mot de passe et les autres paramètres requis. L'exemple suivant présente le contenu du fichier de configuration :
+1. Depuis le terminal CLI, procédez à la configuration de la base de données de destination. Ouvrez le fichier de configuration à l’aide de la commande **`vi conf/conn/cosmosdb.yml`** et ajoutez une liste délimitée contenant l’URI hôte, le numéro de port, le nom d’utilisateur, le mot de passe et les autres paramètres requis. L'exemple suivant présente le contenu du fichier de configuration :
 
    ```bash
    type: COSMOSDB
@@ -112,28 +112,28 @@ Cette section décrit les étapes à suivre pour configurer Blitzz et migrer les
    max-connections: 30
    ```
 
-1. Migrez ensuite les données à l'aide de Blitzz. Vous pouvez exécuter l'outil de réplication Blizz en mode **complet** ou **instantané** :
+1. Migrez ensuite les données à l'aide de Blitzz. Vous pouvez exécuter le replicant Blizz en mode **complet** ou **instantané** :
 
-   * **Mode complet** - Dans ce mode, l'outil de réplication continue de s'exécuter après la migration et surveille les modifications éventuelles sur le système Apache Cassandra source. Si des modifications sont détectées, elles sont répliquées en temps réel sur le compte Azure Cosmos cible.
+   * **Mode complet** - Dans ce mode, l'outil de réplication continue de s'exécuter après la migration et surveille les modifications éventuelles sur le système Apache Cassandra source. S’il détecte des changements, ceux-ci sont répliqués sur le compte cible Azure Cosmos en temps réel.
 
    * **Mode instantané** - Dans ce mode, vous pouvez effectuer une migration de schéma et une réplication ponctuelle de données. La réplication en temps réel n'est pas prise en charge avec cette option.
 
-   En utilisant les deux modes ci-dessus, la migration peut être effectuée sans temps d'arrêt. 
+   En utilisant les deux modes ci-dessus, la migration peut être effectuée sans temps d’arrêt. 
 
-1. Pour migrer les données, à partir du terminal CLI de l'outil de réplication Blitzz, exécutez la commande suivante :
+1. Pour migrer les données, à partir du terminal CLI du replicant Blitzz, exécutez la commande suivante :
 
    ```bash
    ./bin/replicant full conf/conn/cassandra.yaml conf/conn/cosmosdb.yaml --filter filter/cassandra_filter.yaml --replace-existing
    ```
 
-   L'interface utilisateur de l'outil de réplication affiche la progression de la réplication. Une fois la migration du schéma et l'opération de capture instantanée terminée, la progression indique 100 %. Au terme de la migration, vous pouvez valider les données sur la base de données Azure Cosmos cible.
+   L'interface utilisateur de l'outil de réplication affiche la progression de la réplication. Une fois la migration du schéma et l’opération de capture instantanée terminées, la progression est affiche 100 %. Au terme de la migration, vous pouvez valider les données sur la base de données Azure Cosmos cible.
 
    ![Sortie de la migration des données Cassandra](./media/cassandra-migrate-cosmos-db-blitzz/cassandra-data-migration-output.png)
 
 
 1. Comme vous avez utilisé le mode complet pour la migration, vous pouvez effectuer des opérations telles que l'insertion, la mise à jour ou la suppression de données dans la base de données Apache Cassandra source. Par la suite, vous constaterez leur réplication en temps réel sur la base de données Azure Cosmos cible. Après la migration, veillez à diminuer le débit configuré pour votre conteneur Azure Cosmos.
 
-1. Vous pouvez arrêter l'outil de réplication n'importe quand et le redémarrer à l'aide du commutateur **--resume**. La réplication reprend à partir du moment où elle s'est arrêtée sans compromettre la cohérence des données. La commande suivante montre comment utiliser le commutateur --resume.
+1. Vous pouvez arrêter le replicant à n’importe quel point et le redémarrer avec le commutateur **--resume**. La réplication reprend à partir du moment où elle s’est arrêtée sans compromettre la cohérence des données. La commande suivante montre comment utiliser le commutateur --resume.
 
    ```bash
    ./bin/replicant full conf/conn/cassandra.yaml conf/conn/cosmosdb.yaml --filter filter/cassandra_filter.yaml --replace-existing --resume

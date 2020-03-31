@@ -13,17 +13,17 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: stewu
 ms.openlocfilehash: 0bf0843314f38c0de28820c82e95b7921297bf40
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60518457"
 ---
 # <a name="migrate-azure-data-lake-storage-gen1-across-regions"></a>Migrer Azure Data Lake Storage Gen1 entre les régions
 
 La disponibilité d’Azure Data Lake Storage Gen1 s’étendant à davantage de régions, vous pouvez décider d’effectuer une migration à usage unique pour tirer parti d’une nouvelle région. Découvrez ce que vous devez prendre en compte lorsque vous planifiez et effectuez la migration.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * **Un abonnement Azure**. Pour plus d’informations, consultez [Créer votre compte Azure gratuit](https://azure.microsoft.com/pricing/free-trial/).
 * **Un compte Data Lake Storage Gen1 dans deux régions différentes**. Pour plus d’informations, consultez [Prise en main d’Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md).

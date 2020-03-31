@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
 ms.openlocfilehash: 782240c51833fc841af9f4260860db4c03897c03
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71086450"
 ---
 # <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>Activer ou désactiver une règle de pare-feu sur un système d’exploitation invité d’une machine virtuelle Azure
@@ -35,7 +35,7 @@ La façon dont vous configurez les règles de pare-feu dépend du niveau d’acc
 
 ### <a name="online-troubleshooting"></a>Résolution des problèmes en ligne 
 
-#### <a name="mitigation-1-custom-script-extension"></a>Atténuation 1 : Extension de script personnalisé
+#### <a name="mitigation-1-custom-script-extension"></a>Atténuation 1 : extension de script personnalisé
 
 1.  Créez votre script en utilisant l’exemple suivant.
 
@@ -51,7 +51,7 @@ La façon dont vous configurez les règles de pare-feu dépend du niveau d’acc
 
 2.  Chargez ce script dans le portail Azure en utilisant la fonctionnalité [Extension de script personnalisé](../extensions/custom-script-windows.md). 
 
-#### <a name="mitigation-2-remote-powershell"></a>Atténuation 2 : PowerShell à distance
+#### <a name="mitigation-2-remote-powershell"></a>Atténuation 2 : PowerShell à distance
 
 Si la machine virtuelle est en ligne et accessible sur une autre machine virtuelle sur le même réseau virtuel, vous pouvez atténuer les risques suivants à l’aide de l’autre machine virtuelle.
 
@@ -73,7 +73,7 @@ Si la machine virtuelle est en ligne et accessible sur une autre machine virtuel
         exit
         ```
 
-#### <a name="mitigation-3-pstools-commands"></a>Atténuation 3 : Commandes PSTools
+#### <a name="mitigation-3-pstools-commands"></a>Atténuation 3 : commandes PSTools
 
 Si la machine virtuelle est en ligne et accessible sur une autre machine virtuelle sur le même réseau virtuel, vous pouvez atténuer les risques suivants à l’aide de l’autre machine virtuelle.
 
@@ -93,7 +93,7 @@ Si la machine virtuelle est en ligne et accessible sur une autre machine virtuel
         netsh advfirewall firewall set rule dir=in name="Remote Desktop - User Mode (TCP-In)" new enable=no
         ```
 
-#### <a name="mitigation-4-remote-registry"></a>Atténuation 4 : Registre distant
+#### <a name="mitigation-4-remote-registry"></a>Atténuation 4 : Registre à distance
 
 Si la machine virtuelle est en ligne et accessible sur une autre machine virtuelle sur le même réseau virtuel, vous pouvez utiliser [Registre à distance](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry) sur l’autre machine virtuelle.
 

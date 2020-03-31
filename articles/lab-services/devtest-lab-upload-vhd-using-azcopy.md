@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: spelluru
 ms.openlocfilehash: 49dc70788bf2a44b6925c5f3f8226fdadab8768c
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76757420"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-azcopy"></a>Télécharger un fichier de disque dur virtuel dans le compte de stockage d’un laboratoire avec AzCopy

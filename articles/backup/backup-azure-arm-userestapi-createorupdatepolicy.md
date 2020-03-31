@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
 ms.openlocfilehash: 0718ebc3612f53f1c2cc279096dd92de69bb5ef6
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76963850"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Créer des stratégies de sauvegarde Azure Recovery Services à l’aide de l’API REST
@@ -29,7 +29,7 @@ PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 Par exemple, voici les composants du corps de la requête pour une stratégie de sauvegarde de machine virtuelle Azure.
 
-|Name  |Obligatoire  |Type  |Description  |
+|Nom  |Obligatoire  |Type  |Description  |
 |---------|---------|---------|---------|
 |properties     |   True      |  ProtectionPolicy :[AzureIaaSVMProtectionPolicy](/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | Propriétés de ProtectionPolicyResource        |
 |tags     |         | Object        |  Balises de ressource       |
@@ -137,7 +137,7 @@ La création/mise à jour de la stratégie de sauvegarde est une [opération asy
 
 Elle retourne deux réponses : 202 (Accepté) lors de la création d’une autre opération, puis 200 (OK) quand cette opération est terminée.
 
-|Name  |Type  |Description  |
+|Nom  |Type  |Description  |
 |---------|---------|---------|
 |200 OK     |    [Protection PolicyResource](/rest/api/backup/protectionpolicies/createorupdate#protectionpolicyresource)     |  OK       |
 |202 Accepté     |         |     Acceptée    |

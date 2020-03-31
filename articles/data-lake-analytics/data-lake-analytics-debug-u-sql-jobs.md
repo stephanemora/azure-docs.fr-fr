@@ -10,10 +10,10 @@ ms.assetid: bcd0b01e-1755-4112-8e8a-a5cabdca4df2
 ms.topic: conceptual
 ms.date: 11/30/2017
 ms.openlocfilehash: 72239fc1679d2ebbfd9c9b5be6b79b58efb760cb
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71315811"
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Débogage de code C# défini par l’utilisateur pour des travaux U-SQL ayant échoué
@@ -28,7 +28,7 @@ La vidéo suivante montre la fonctionnalité Débogage d'échec du vertex dans A
 >
 
 > [!IMPORTANT]
-> Visual Studio nécessite les deux mises à jour suivantes pour utiliser cette fonctionnalité : [Microsoft Visual C++ 2015 Redistributable Update 3](https://www.microsoft.com/en-us/download/details.aspx?id=53840) et [Runtime C Windows universel](https://www.microsoft.com/download/details.aspx?id=50410).
+> Visual Studio a besoin des deux mises à jour suivantes pour utiliser cette fonctionnalité : [Microsoft Visual C++ 2015 Redistributable Update 3](https://www.microsoft.com/en-us/download/details.aspx?id=53840) et [Universal C Runtime pour Windows](https://www.microsoft.com/download/details.aspx?id=50410).
 >
 
 ## <a name="download-failed-vertex-to-local-machine"></a>Télécharger le vertex ayant échoué sur l’ordinateur local

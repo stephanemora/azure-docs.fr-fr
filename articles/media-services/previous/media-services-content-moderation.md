@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: sajagtap
 ms.openlocfilehash: 83fe7867a3128ac82597c028452863a1ad681ace
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77914311"
 ---
 # <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Utiliser Azure Media Content Moderator pour détecter du contenu potentiellement osé et réservé aux adultes 
@@ -34,7 +34,7 @@ Le processeur multimédia **Azure Media Content Moderator** est actuellement dis
 Cet article apporte des précisions sur **Azure Media Content Moderator** et illustre son utilisation avec le kit SDK Media Services pour .NET.
 
 ## <a name="content-moderator-input-files"></a>Fichiers d’entrée de Content Moderator
-Fichiers vidéo. Actuellement, les formats suivants sont pris en charge : MP4, MOV et WMV.
+Fichiers vidéo. Les formats suivants sont actuellement pris en charge : MP4, MOV et WMV.
 
 ## <a name="content-moderator-output-files"></a>Fichiers de sortie de Content Moderator
 La sortie modérée au format JSON inclut les images clés et les captures détectées automatiquement. Les images clés sont retournées avec des scores de confiance sur le contenu potentiellement osé ou réservé aux adultes. Elles comprennent également un indicateur booléen qui indique si un passage en revue est recommandé. Les valeurs de l’indicateur de recommandation de passage en revue sont attribuées en fonction des seuils internes pour les scores relatifs au contenu osé et réservé aux adultes.

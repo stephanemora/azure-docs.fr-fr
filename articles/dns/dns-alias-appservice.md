@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/10/2019
 ms.author: rohink
 ms.openlocfilehash: 8ba96a028d51e6e5503bb4a8e6735b48033c9ba1
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76937363"
 ---
 # <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>Héberger des applications web Azure à charge équilibrée à l’extrémité de la zone
@@ -30,7 +30,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Vous devez disposer d’un nom de domaine disponible, que vous pouvez héberger dans Azure DNS pour le test. Vous devez disposer d’un contrôle total de ce domaine. Le contrôle total comprend notamment la possibilité de définir les enregistrements de serveur de noms pour le domaine.
 
-Pour obtenir des instructions sur l’hébergement de votre domaine dans Azure DNS, consultez [Tutoriel : Héberger votre domaine dans Azure DNS](dns-delegate-domain-azure-dns.md).
+Pour obtenir des instructions pour héberger votre domaine dans Azure DNS, consultez [Tutoriel : Héberger votre domaine dans Azure DNS](dns-delegate-domain-azure-dns.md).
 
 L’exemple de domaine utilisé pour ce tutoriel est contoso.com, mais utilisez votre propre nom de domaine.
 
@@ -76,7 +76,7 @@ Notez maintenant l’adresse IP et le nom d’hôte des applications web.
 
 Créez un profil Traffic Manager dans votre groupe de ressources. Utilisez les valeurs par défaut et tapez un nom unique sur l’espace de noms trafficmanager.net.
 
-Pour plus d’informations sur la création d’un profil Traffic Manager, consultez [Démarrage rapide : Créer un profil Traffic Manager pour une application web hautement disponible](../traffic-manager/quickstart-create-traffic-manager-profile.md).
+Pour plus d’informations sur la création d’un profil Traffic Manager, voir [Démarrage rapide : Créer un profil Traffic Manager pour une application web hautement disponible](../traffic-manager/quickstart-create-traffic-manager-profile.md).
 
 ### <a name="create-endpoints"></a>Créer des points de terminaison
 
@@ -94,7 +94,7 @@ Vous pouvez maintenant créer les points de terminaison pour les deux applicatio
 
 ## <a name="create-dns-zone"></a>Créer une zone DNS
 
-Vous pouvez utiliser une zone DNS existante à des fins de test, ou en créer une nouvelle. Pour créer et déléguer une nouvelle zone DNS dans Azure, consultez [Tutoriel : Héberger votre domaine dans Azure DNS](dns-delegate-domain-azure-dns.md).
+Vous pouvez utiliser une zone DNS existante à des fins de test, ou en créer une nouvelle. Pour créer et déléguer une nouvelle zone DNS dans Azure, voir [Tutoriel : Héberger un domaine dans Azure DNS](dns-delegate-domain-azure-dns.md).
 
 ## <a name="add-a-txt-record-for-custom-domain-validation"></a>Ajouter un enregistrement TXT pour la validation d’un domaine personnalisé
 
@@ -156,8 +156,8 @@ Vous pouvez maintenant passer aux tests, pour vérifier que vous pouvez atteindr
 
 Pour en savoir plus sur les enregistrements d’alias, consultez les articles suivant :
 
-- [Tutoriel : Configurer un enregistrement d'alias pour faire référence à une adresse IP publique](tutorial-alias-pip.md)
-- [Tutoriel : Configurer un enregistrement d'alias pour prendre en charge des noms de domaine d'apex avec Traffic Manager](tutorial-alias-tm.md)
+- [Tutoriel : Configurer un enregistrement d’alias pour référencer une adresse IP publique Azure](tutorial-alias-pip.md)
+- [Tutoriel : configurer un enregistrement d’alias pour prendre en charge les noms de domaine apex avec Traffic Manager](tutorial-alias-tm.md)
 - [FAQ DNS](https://docs.microsoft.com/azure/dns/dns-faq#alias-records)
 
 Pour savoir comment migrer un nom DNS actif, consultez [Migrer un nom DNS actif vers Azure App Service](../app-service/manage-custom-dns-migrate-domain.md).

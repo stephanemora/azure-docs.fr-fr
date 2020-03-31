@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/01/2019
 ms.author: magattus
 ms.openlocfilehash: 53280bc90f629d93ff8a045c80f34a73970b43f6
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74171634"
 ---
 # <a name="actions-in-the-standard-rules-engine-for-azure-cdn"></a>Actions du moteur de règles Standard pour Azure CDN
@@ -63,9 +63,9 @@ Utilisez cette action pour modifier les en-têtes présents dans les requêtes e
 
 Action | Nom de l’en-tête HTTP | Valeur
 -------|------------------|------
-Append | Lorsque cette option est sélectionnée et que la règle correspond, l’en-tête spécifié dans **Nom de l’en-tête** est ajouté à la requête avec la valeur spécifiée. Si l’en-tête est déjà présent, la valeur sera ajoutée à la valeur existante. | Chaîne
-Remplacer | Lorsque cette option est sélectionnée et que la règle correspond, l’en-tête spécifié dans **Nom de l’en-tête** est ajouté à la requête avec la valeur spécifiée. Si l’en-tête est déjà présent, la valeur spécifiée remplace la valeur existante. | Chaîne
-Supprimer | Lorsque cette option est sélectionnée, que la règle correspond et que l’en-tête spécifié dans la règle est présent, l’en-tête est supprimé de la requête. | Chaîne
+Ajouter | Lorsque cette option est sélectionnée et que la règle correspond, l’en-tête spécifié dans **Nom de l’en-tête** est ajouté à la requête avec la valeur spécifiée. Si l’en-tête est déjà présent, la valeur sera ajoutée à la valeur existante. | String
+Remplacer | Lorsque cette option est sélectionnée et que la règle correspond, l’en-tête spécifié dans **Nom de l’en-tête** est ajouté à la requête avec la valeur spécifiée. Si l’en-tête est déjà présent, la valeur spécifiée remplace la valeur existante. | String
+DELETE | Lorsque cette option est sélectionnée, que la règle correspond et que l’en-tête spécifié dans la règle est présent, l’en-tête est supprimé de la requête. | String
 
 ### <a name="modify-response-header"></a>Modifier l’en-tête de réponse
 
@@ -75,9 +75,9 @@ Utilisez cette action pour modifier les en-têtes présents dans les réponses r
 
 Action | Nom de l’en-tête HTTP | Valeur
 -------|------------------|------
-Append | Lorsque cette option est sélectionnée et que la règle correspond, l’en-tête spécifié dans **Nom de l’en-tête** est ajouté à la réponse à l’aide de la **Valeur** spécifiée. Si l’en-tête est déjà présent, **Valeur** est ajoutée à la valeur existante. | Chaîne
-Remplacer | Lorsque cette option est sélectionnée et que la règle correspond, l’en-tête spécifié dans **Nom de l’en-tête** est ajouté à la réponse à l’aide de la **Valeur** spécifiée. Si l’en-tête est déjà présent, **Valeur** remplace la valeur existante. | Chaîne
-Supprimer | Lorsque cette option est sélectionnée, que la règle correspond et que l’en-tête spécifié dans la règle est présent, l’en-tête est supprimé de la réponse. | Chaîne
+Ajouter | Lorsque cette option est sélectionnée et que la règle correspond, l’en-tête spécifié dans **Nom de l’en-tête** est ajouté à la réponse à l’aide de la **Valeur** spécifiée. Si l’en-tête est déjà présent, **Valeur** est ajoutée à la valeur existante. | String
+Remplacer | Lorsque cette option est sélectionnée et que la règle correspond, l’en-tête spécifié dans **Nom de l’en-tête** est ajouté à la réponse à l’aide de la **Valeur** spécifiée. Si l’en-tête est déjà présent, **Valeur** remplace la valeur existante. | String
+DELETE | Lorsque cette option est sélectionnée, que la règle correspond et que l’en-tête spécifié dans la règle est présent, l’en-tête est supprimé de la réponse. | String
 
 ### <a name="url-redirect"></a>Redirection d’URL
 
@@ -89,7 +89,7 @@ Champ | Description
 ------|------------
 Type | Sélectionnez le type de réponse à renvoyer au demandeur : Trouvé (302), Déplacé (301), Redirection temporaire (307) et Redirection permanente (308).
 Protocol | Requête correspondante, HTTP ou HTTPS.
-Nom d’hôte | Sélectionnez le nom d’hôte vers lequel vous souhaitez rediriger la requête. Laissez vide pour conserver l’hôte entrant.
+HostName | Sélectionnez le nom d’hôte vers lequel vous souhaitez rediriger la requête. Laissez vide pour conserver l’hôte entrant.
 Path | Définissez le chemin d’accès à utiliser dans la redirection. Laissez vide pour conserver le chemin d’accès entrant.  
 Chaîne de requête | Définissez la chaîne de requête utilisée dans la redirection. Laissez vide pour conserver la chaîne de requête entrante. 
 Fragment | Définissez le fragment à utiliser dans la redirection. Laissez vide pour conserver le fragment entrant. 

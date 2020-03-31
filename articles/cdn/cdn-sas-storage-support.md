@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/21/2018
 ms.author: magattus
 ms.openlocfilehash: e7a170eaf74531cf4bd8c28aafaa5873f2459d0b
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69982409"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Utilisation d’Azure CDN avec SAP
@@ -32,7 +32,7 @@ Avec une signature SAP, vous pouvez définir différents paramètres d’accès 
 ## <a name="setting-up-azure-cdn-to-work-with-storage-sas"></a>Configuration d’Azure CDN pour fonctionner avec une SAP de stockage
 Les trois options suivantes sont recommandées pour l’utilisation de SAP avec Azure CDN. Toutes les options partent du principe que vous avez déjà créé une SAP opérationnelle (voir les prérequis). 
  
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables requises
 Pour commencer, créez un compte de stockage, puis générez une SAP pour votre ressource. Vous pouvez générer deux types de signatures d’accès partagé : une SAP de service ou une SAP de compte. Pour plus d’informations, consultez [Types de signatures d’accès partagé](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1#types-of-shared-access-signatures).
 
 Après avoir généré un jeton SAP, vous pouvez accéder à votre fichier de stockage d’objets blob en ajoutant `?sv=<SAS token>` à l’URL. Cette URL a le format suivant : 
@@ -48,7 +48,7 @@ Pour plus d’informations sur la définition des paramètres, consultez [Consid
 
 ![Paramètres de SAP CDN](./media/cdn-sas-storage-support/cdn-sas-settings.png)
 
-### <a name="option-1-using-sas-with-pass-through-to-blob-storage-from-azure-cdn"></a>Option 1 : Utilisation de SAP avec transfert direct vers le stockage blob à partir d'Azure CDN
+### <a name="option-1-using-sas-with-pass-through-to-blob-storage-from-azure-cdn"></a>Option 1 : Utilisation de SAP avec transfert direct vers le stockage blob à partir d’Azure CDN
 
 Cette option est la plus simple. Elle utilise un jeton SAP unique, qui est passé d’Azure CDN au serveur d’origine.
  
@@ -67,7 +67,7 @@ Cette option est la plus simple. Elle utilise un jeton SAP unique, qui est pass�
    
 3. Affinez la durée du cache à l’aide de règles de mise en cache ou en ajoutant des en-têtes `Cache-Control` au serveur d’origine. Étant donné qu’Azure CDN traite le jeton SAP comme une chaîne de requête simple, la bonne pratique consiste à définir une durée de mise en cache qui expire au plus tard au moment de l’expiration de la signature SAP. Dans le cas contraire, si un fichier est mis en cache pour une durée plus longue que celle pendant laquelle la signature SAP est active, le fichier peut être accessible à partir du serveur d’origine Azure CDN après l’expiration de la SAP. Si ce cas se produit et que vous souhaitez rendre votre fichier de mise en cache inaccessible, vous devez effectuer une opération de vidage sur le fichier afin de le supprimer du cache. Pour plus d’informations sur la définition de la durée du cache sur Azure CDN, consultez [Contrôler le comportement de mise en cache d’Azure CDN avec des règles de mise en cache](cdn-caching-rules.md).
 
-### <a name="option-2-hidden-cdn-sas-token-using-a-rewrite-rule"></a>Option 2 : Jeton SAP CDN masqué utilisant une règle de réécriture
+### <a name="option-2-hidden-cdn-sas-token-using-a-rewrite-rule"></a>Option 2 : Jeton SAP CDN masqué à l’aide d’une règle de réécriture
  
 Cette option est disponible uniquement pour les profils **Azure CDN Premium de Verizon**. Avec cette option, vous pouvez sécuriser le stockage blob sur le serveur d’origine. Vous pouvez utiliser cette option si vous n’avez pas besoin de restrictions d’accès spécifiques pour le fichier, mais que vous voulez empêcher les utilisateurs d’accéder à l’origine du stockage directement afin d’accélérer le temps de déchargement d’Azure CDN. Le jeton SAP, qui est inconnu de l’utilisateur, est nécessaire à quiconque accède aux fichiers dans le conteneur spécifié du serveur d’origine. Toutefois, en raison de la règle de réécriture d’URL, le jeton SAP n’est pas nécessaire sur le point de terminaison CDN.
  
@@ -97,7 +97,7 @@ Cette option est disponible uniquement pour les profils **Azure CDN Premium de V
 
 3. Affinez la durée du cache à l’aide de règles de mise en cache ou en ajoutant des en-têtes `Cache-Control` au serveur d’origine. Étant donné qu’Azure CDN traite le jeton SAP comme une chaîne de requête simple, la bonne pratique consiste à définir une durée de mise en cache qui expire au plus tard au moment de l’expiration de la signature SAP. Dans le cas contraire, si un fichier est mis en cache pour une durée plus longue que celle pendant laquelle la signature SAP est active, le fichier peut être accessible à partir du serveur d’origine Azure CDN après l’expiration de la SAP. Si ce cas se produit et que vous souhaitez rendre votre fichier de mise en cache inaccessible, vous devez effectuer une opération de vidage sur le fichier afin de le supprimer du cache. Pour plus d’informations sur la définition de la durée du cache sur Azure CDN, consultez [Contrôler le comportement de mise en cache d’Azure CDN avec des règles de mise en cache](cdn-caching-rules.md).
 
-### <a name="option-3-using-cdn-security-token-authentication-with-a-rewrite-rule"></a>Option 3 : Utilisation de l'authentification de jeton de sécurité de CDN avec une règle de réécriture
+### <a name="option-3-using-cdn-security-token-authentication-with-a-rewrite-rule"></a>Option 3 : Utilisation de l’authentification de jeton de sécurité de CDN avec une règle de réécriture
 
 Pour utiliser l’authentification de jeton de sécurité d’Azure CDN, vous devez avoir un profil **Azure CDN Premium de Verizon**. Cette option est la plus sécurisée et personnalisable. L’accès du client est basé sur les paramètres de sécurité que vous avez définis sur le jeton de sécurité. Une fois que vous aurez créé et configuré le jeton de sécurité, il sera nécessaire sur toutes les URL de point de terminaison CDN. Toutefois, en raison de la règle de réécriture d’URL, le jeton SAP n’est pas nécessaire sur le point de terminaison CDN. Si le jeton SAP devient non valide, Azure CDN ne peut plus revalider le contenu à partir du serveur d’origine.
 
@@ -135,7 +135,7 @@ Azure CDN ne peut pas changer son comportement de remise en se basant sur les pa
 
 | Nom du paramètre SAP | Description |
 | --- | --- |
-| Start | Heure à laquelle Azure CDN peut commencer à accéder au fichier blob. En raison des variations d’horloges (quand un signal d’horloge arrive à des moments différents pour différents composants), vous devez choisir une heure 15 minutes plus tôt si vous souhaitez que la ressource soit disponible immédiatement. |
+| Démarrer | Heure à laquelle Azure CDN peut commencer à accéder au fichier blob. En raison des variations d’horloges (quand un signal d’horloge arrive à des moments différents pour différents composants), vous devez choisir une heure 15 minutes plus tôt si vous souhaitez que la ressource soit disponible immédiatement. |
 | End | Heure après laquelle Azure CDN ne peut plus accéder au fichier blob. Les fichiers précédemment mis en cache sur Azure CDN sont toujours accessibles. Pour contrôler le délai d’expiration de fichier, définissez le délai d’expiration approprié sur le jeton de sécurité Azure CDN ou nettoyez la ressource. |
 | Adresses IP autorisées | facultatif. Si vous utilisez **Azure CDN de Verizon**, vous pouvez affecter à ce paramètre les plages définies dans [Azure CDN from Verizon Edge Server IP Ranges (Plages d’adresses IP de serveur Edge Azure CDN de Verizon)](/azure/cdn/cdn-pop-list-api). Si vous utilisez **CDN Azure d’Akamai**, vous ne pouvez pas définir le paramètre de plages IP, car les adresses IP ne sont pas statiques.|
 | Protocoles autorisés | Protocole(s) autorisé(s) pour une requête effectuée avec la SAP de compte. Le paramètre HTTPS est recommandé.|
@@ -144,6 +144,6 @@ Azure CDN ne peut pas changer son comportement de remise en se basant sur les pa
 
 Pour plus d'informations sur les SAP, voir les articles suivants :
 - [Utilisation des signatures d’accès partagé (SAP)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
-- [Signatures d’accès partagé, partie 2 : Créer et utiliser une signature d’accès partagé avec Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2)
+- [Signatures d’accès partagé, partie 2 : créer et utiliser une signature d’accès partagé avec Stockage Blob](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2)
 
 Pour plus d’informations sur la configuration de l’authentification par jeton, voir [Sécuriser des ressources Azure Content Delivery Network avec l’authentification par jeton](https://docs.microsoft.com/azure/cdn/cdn-token-auth).

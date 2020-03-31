@@ -8,10 +8,10 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/05/2019
 ms.openlocfilehash: 701e314ad2a3762b1e8ca022ce18d9435ce2db37
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75894101"
 ---
 # <a name="scenario-watchdog-bug-soft-lockup---cpu-error-from-an-azure-hdinsight-cluster"></a>Scénario : Erreur « watchdog: BUG: soft lockup - CPU » sur un cluster Azure HDInsight
@@ -22,7 +22,7 @@ Cet article décrit les éventuelles solutions à appliquer pour résoudre les p
 
 Les journaux syslogs du noyau contiennent le message d’erreur : `watchdog: BUG: soft lockup - CPU`.
 
-## <a name="cause"></a>Cause :
+## <a name="cause"></a>Cause
 
 Un [bogue](https://bugzilla.kernel.org/show_bug.cgi?id=199437) dans le noyau Linux est à l’origine de verrouillages logiciels du processeur.
 
@@ -39,7 +39,7 @@ Appliquer le correctif du noyau. Le script ci-dessous met à niveau le noyau Lin
     | Propriété | Valeur |
     | --- | --- |
     | Type de script | -Personnalisé |
-    | Name |Correctif pour le problème de verrouillage logiciel du noyau |
+    | Nom |Correctif pour le problème de verrouillage logiciel du noyau |
     | URI de script bash |`https://raw.githubusercontent.com/hdinsight/hdinsight.github.io/master/ClusterCRUD/KernelSoftLockFix/scripts/KernelSoftLockIssue_FixAndReboot.sh` |
     | Type(s) de nœud |Worker, Zookeeper |
     | Paramètres |N/A |

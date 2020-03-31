@@ -8,10 +8,10 @@ ms.service: cosmos-db
 ms.date: 09/26/2019
 ms.reviewer: sngun
 ms.openlocfilehash: d0b5042c1401a95cc75f4c01ace843659b6babfe
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73681736"
 ---
 # <a name="solutions-using-globally-distributed-analytics-in-azure-cosmos-db"></a>Solutions utilisant l’analytique distribuée à l’échelle mondiale dans Azure Cosmos DB

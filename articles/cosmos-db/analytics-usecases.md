@@ -8,10 +8,10 @@ ms.service: cosmos-db
 ms.date: 09/26/2019
 ms.reviewer: sngun
 ms.openlocfilehash: b9bac14ff47107a4b39f12989685e2e510569ba2
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72757074"
 ---
 # <a name="use-cases-for-built-in-analytics-with-azure-cosmos-db"></a>Cas d’utilisation de l’analytique intégrée à Azure Cosmos DB

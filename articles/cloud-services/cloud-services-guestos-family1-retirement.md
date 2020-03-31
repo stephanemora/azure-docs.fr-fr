@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 5/21/2017
 ms.author: raiye
 ms.openlocfilehash: ae2df6f47d99fc5d452a6d3ea70f2dd2e4e7416b
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68359581"
 ---
 # <a name="guest-os-family-1-retirement-notice"></a>Informations relatives à la suppression de la famille 1 des systèmes d’exploitation invités
@@ -32,7 +32,7 @@ Vos services cloud sont concernés si l'une des conditions suivantes s'applique�
 2. Vous n'avez pas de valeur pour osFamily explicitement spécifiée dans le fichier ServiceConfiguration.cscfg pour votre service cloud. Actuellement, le système utilise la valeur par défaut « 1 » dans ce cas.
 3. Le portail Azure répertorie votre valeur de famille des systèmes d’exploitation invités en tant que « Windows Server 2008 ».
 
-Pour connaître la famille de systèmes d’exploitation exécutée par les services cloud, vous pouvez exécuter le script suivant dans Azure PowerShell. Vous devrez toutefois commencer par [configurer Azure PowerShell](/powershell/azureps-cmdlets-docs). Pour plus d’informations sur le script, consultez [Fin de vie de la famille 1 des SE invités d’Azure : juin 2014](https://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx).
+Pour connaître la famille de systèmes d’exploitation exécutée par les services cloud, vous pouvez exécuter le script suivant dans Azure PowerShell. Vous devrez toutefois commencer par [configurer Azure PowerShell](/powershell/azureps-cmdlets-docs). Pour plus d’informations sur le script, consultez [Fin de vie de la famille 1 des SE invités d'Azure : juin 2014](https://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx).
 
 ```Powershell
 foreach($subscription in Get-AzureSubscription) {

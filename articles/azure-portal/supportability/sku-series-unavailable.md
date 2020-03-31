@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 01/27/2020
 ms.author: xingwan
 ms.openlocfilehash: b0f0762ded6804c0b0d90a19223c082f0fb8fd49
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76843626"
 ---
-# <a name="region-or-sku-unavailable"></a>Région ou référence SKU non disponible
+# <a name="region-or-sku-unavailable"></a>Région ou référence (SKU) non disponible
 
-Cet article décrit comment résoudre le problème quand un abonnement Azure n’a pas accès à une région ou à une référence SKU de machine virtuelle.
+Cet article décrit comment résoudre le problème quand un abonnement Azure n’a pas accès à une région ou à un SKU de machine virtuelle.
 
 ## <a name="symptoms"></a>Symptômes
 

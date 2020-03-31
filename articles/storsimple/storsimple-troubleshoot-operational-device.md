@@ -15,15 +15,15 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: twooley
 ms.openlocfilehash: ca79e4240c1a82e46bea44a9d018a3c681920480
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75933289"
 ---
 # <a name="troubleshoot-an-operational-storsimple-device"></a>Résolution des problèmes d'un appareil StorSimple opérationnel
 > [!NOTE]
-> Le portail Azure Classic pour StorSimple est déconseillé. Vos instances de StorSimple Device Manager seront automatiquement déplacées vers le nouveau portail Azure à la date de désapprobation planifiée. Vous serez prévenu de ce déplacement par un e-mail et une notification du portail. Ce document sera également bientôt retiré. Si vous avez des questions concernant le déplacement, consultez [FAQ : Déplacement vers le portail Azure](storsimple-8000-move-azure-portal-faq.md).
+> Le portail Azure Classic pour StorSimple est déconseillé. Vos instances de StorSimple Device Manager seront automatiquement déplacées vers le nouveau portail Azure à la date de désapprobation planifiée. Vous serez prévenu de ce déplacement par un e-mail et une notification du portail. Ce document sera également bientôt retiré. Si vous avez des questions concernant le déplacement, consultez [FAQ : Déplacement vers le portail Azure](storsimple-8000-move-azure-portal-faq.md).
 
 ## <a name="overview"></a>Vue d’ensemble
 Cet article fournit des conseils de dépannage pour résoudre les problèmes de configuration que vous pouvez rencontrer une fois votre appareil StorSimple déployé et opérationnel. Il décrit les problèmes courants, les causes possibles et les étapes recommandées pour vous aider à résoudre les problèmes que vous pouvez rencontrer lorsque vous démarrez Microsoft Azure StorSimple. Ces informations s’appliquent à l’appareil physique local StorSimple et à l’appareil virtuel StorSimple.
@@ -47,10 +47,10 @@ Le tableau suivant décrit les erreurs que vous pouvez rencontrer lorsque vous e
 
 | Non. | Message d'erreur ou condition | Causes possibles | Action recommandée |
 |:--- |:--- |:--- |:--- |
-| 1 |Erreur 350032 : Cet appareil a déjà été désactivé. |Cette erreur survient si vous exécutez l’Assistant Installation sur un appareil désactivé. |[contactez le support technique Microsoft](storsimple-contact-microsoft-support.md) . Un appareil désactivé ne peut pas être mis en service. Une réinitialisation des paramètres peut être nécessaire avant la réactivation de l’appareil. |
-| 2 |Invoke-HcsSetupWizard : ERROR_INVALID_FUNCTION (Exception de HRESULT : 0x80070001) |La mise à jour du serveur DNS a échoué. Les paramètres DNS sont des paramètres globaux et sont appliqués à toutes les interfaces réseau activées. |Activez l'interface et appliquez de nouveau les paramètres DNS. Cela peut perturber le réseau pour les autres interfaces activées, car ces paramètres sont globaux. |
+| 1 |Erreur 350032 : cet appareil a déjà été désactivé. |Cette erreur survient si vous exécutez l’Assistant Installation sur un appareil désactivé. |[contactez le support technique Microsoft](storsimple-contact-microsoft-support.md) . Un appareil désactivé ne peut pas être mis en service. Une réinitialisation des paramètres peut être nécessaire avant la réactivation de l’appareil. |
+| 2 |Invoke-HcsSetupWizard : ERROR_INVALID_FUNCTION(exception de HRESULT: 0x80070001) |La mise à jour du serveur DNS a échoué. Les paramètres DNS sont des paramètres globaux et sont appliqués à toutes les interfaces réseau activées. |Activez l'interface et appliquez de nouveau les paramètres DNS. Cela peut perturber le réseau pour les autres interfaces activées, car ces paramètres sont globaux. |
 | 3 |L’appareil semble être en ligne dans le portail du service StorSimple Manager, mais lorsque vous essayez d'exécuter le programme d'installation minimale et d’enregistrer la configuration, l'opération échoue. |Pendant l'installation initiale, le proxy web n'a pas été configuré, même si un serveur proxy était en place. |Utilisez l’[applet de commande Test-HcsmConnection][2] pour localiser l’erreur. [contactez le support technique Microsoft](storsimple-contact-microsoft-support.md) . |
-| 4 |Invoke-HcsSetupWizard : La valeur n’est pas comprise dans la plage attendue. |Cette erreur est générée par un masque de sous-réseau incorrect. Les causes possibles sont : <ul><li> Le masque de sous-réseau est manquant ou vide.</li><li>Le format de préfixe IPv6 est incorrect.</li><li>L’interface est activée pour le cloud, mais la passerelle est manquante ou incorrecte.</li></ul>Notez que l’interface réseau DATA 0 est automatiquement activée pour le cloud si elle est configurée via l'Assistant Installation. |Pour déterminer le problème, utilisez le sous-réseau 0.0.0.0 ou 256.256.256.256, puis examinez la sortie. Entrez les valeurs correctes pour le masque de sous-réseau, la passerelle et le préfixe Ipv6, le cas échéant. |
+| 4 |Invoke-HcsSetupWizard : la valeur ne figure pas dans la plage attendue. |Cette erreur est générée par un masque de sous-réseau incorrect. Les causes possibles sont : <ul><li> Le masque de sous-réseau est manquant ou vide.</li><li>Le format de préfixe IPv6 est incorrect.</li><li>L’interface est activée pour le cloud, mais la passerelle est manquante ou incorrecte.</li></ul>Notez que l’interface réseau DATA 0 est automatiquement activée pour le cloud si elle est configurée via l'Assistant Installation. |Pour déterminer le problème, utilisez le sous-réseau 0.0.0.0 ou 256.256.256.256, puis examinez la sortie. Entrez les valeurs correctes pour le masque de sous-réseau, la passerelle et le préfixe Ipv6, le cas échéant. |
 
 ## <a name="error-codes"></a>Codes d’erreur
 Les erreurs sont répertoriées dans l'ordre numérique.

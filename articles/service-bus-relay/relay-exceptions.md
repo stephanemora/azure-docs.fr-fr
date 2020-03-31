@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/20/2017
 ms.author: spelluru
 ms.openlocfilehash: fe8f057443b978e70e7cdd2591affd455fefdca8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60749034"
 ---
 # <a name="azure-relay-exceptions"></a>Exceptions Azure Relay
@@ -29,18 +29,18 @@ Cet article répertorie certaines exceptions pouvant être générées par les A
 
 Les API Relay génèrent des exceptions entrant dans les catégories suivantes. Sont également répertoriées les actions suggérées que vous pouvez prendre pour aider à résoudre les exceptions.
 
-*   **Erreur de codage utilisateur :** [System.ArgumentException](https://msdn.microsoft.com/library/system.argumentexception.aspx), [System.InvalidOperationException](https://msdn.microsoft.com/library/system.argumentexception.aspx), [System.OperationCanceledException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx), [System.Runtime.Serialization.SerializationException](https://msdn.microsoft.com/library/system.runtime.serialization.serializationexception.aspx). 
+*   **Erreur de codage utilisateur** : [System.ArgumentException](https://msdn.microsoft.com/library/system.argumentexception.aspx), [System.InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx), [System.OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx), [System.Runtime.Serialization.SerializationException](https://msdn.microsoft.com/library/system.runtime.serialization.serializationexception.aspx). 
 
     **Action générale** : essayez de corriger le code avant de poursuivre.
-*   **Erreur d’installation ou de configuration** : [System.UnauthorizedAccessException](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx). 
+*   **Erreur d’installation/configuration** : [System.UnauthorizedAccessException](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx). 
 
-    **Action générale** : Passez en revue votre configuration. Si nécessaire, modifiez-la.
+    **Action générale**: révisez votre configuration. Si nécessaire, modifiez-la.
 *   **Exceptions temporaires** : [Microsoft.ServiceBus.Messaging.MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception), [Microsoft.ServiceBus.Messaging.ServerBusyException](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception), [Microsoft.ServiceBus.Messaging.MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception). 
 
     **Action générale** : relancez l’opération ou avertissez les utilisateurs.
 *   **Autres exceptions** : [System.Transactions.TransactionException](https://msdn.microsoft.com/library/system.transactions.transactionexception.aspx), [System.TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx). 
 
-    **Action générale** : propre au type d’exception. Consultez le tableau dans la section suivante. 
+    **Action générale**: propre au type d’exception. Consultez le tableau dans la section suivante. 
 
 ## <a name="exception-types"></a>Types d'exceptions
 
@@ -52,7 +52,7 @@ Le tableau suivant répertorie les types d’exceptions de la messagerie et leur
 | [Opération non valide](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx) |L'opération utilisateur demandée n'est pas autorisée sur le serveur ou le service. Consultez le message de l'exception pour obtenir plus d'informations. |Vérifiez le code et consultez la documentation. Vérifiez que l’opération demandée est valide. |Une nouvelle tentative ne sera pas bénéfique. |
 | [Opération annulée](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx) |Une tentative est effectuée pour appeler une opération sur un objet qui a déjà été fermé, abandonné ou supprimé. Dans de rares cas, la transaction ambiante est déjà supprimée. |Vérifiez le code et assurez-vous qu'il n'appelle pas d'opérations sur un objet supprimé. |Une nouvelle tentative ne sera pas bénéfique. |
 | [Accès non autorisé](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx) |L'objet [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) n'a pas pu obtenir de jeton, le jeton n'est pas valide ou le jeton ne contient pas les revendications requises pour effectuer l'opération. |Vérifiez que le fournisseur de jetons est créé avec les valeurs correctes. Vérifiez la configuration du service de contrôle d'accès (ACS). |Dans certains cas, l'exécution d'une nouvelle tentative peut aider ; ajouter une logique de nouvelle tentative au code. |
-| [Exception d’argument](https://msdn.microsoft.com/library/system.argumentexception.aspx)<br /> [Argument Null](https://msdn.microsoft.com/library/system.argumentnullexception.aspx)<br />[Argument hors plage](https://msdn.microsoft.com/library/system.argumentoutofrangeexception.aspx) |Un ou plusieurs des problèmes suivants se sont produits :<br />Un ou plusieurs des arguments fournis à la méthode ne sont pas valides.<br /> L’URI fourni à [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) ou [Create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory.create) contient un ou plusieurs segments de chemin d’accès.<br />Le schéma d’URI fourni à [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) ou [Ceate](/dotnet/api/microsoft.servicebus.messaging.messagingfactory.create) n’est pas valide. <br />La valeur de la propriété est supérieure à 32 ko. |Vérifiez le code appelant et assurez-vous que les arguments sont corrects. |Une nouvelle tentative ne sera pas bénéfique. |
+| [Exception d’argument](https://msdn.microsoft.com/library/system.argumentexception.aspx)<br /> [Argument Null](https://msdn.microsoft.com/library/system.argumentnullexception.aspx)<br />[Argment hors plage](https://msdn.microsoft.com/library/system.argumentoutofrangeexception.aspx) |Un ou plusieurs des problèmes suivants se sont produits :<br />Un ou plusieurs des arguments fournis à la méthode ne sont pas valides.<br /> L’URI fourni à [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) ou [Create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory.create) contient un ou plusieurs segments de chemin d’accès.<br />Le schéma d’URI fourni à [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) ou [Ceate](/dotnet/api/microsoft.servicebus.messaging.messagingfactory.create) n’est pas valide. <br />La valeur de la propriété est supérieure à 32 ko. |Vérifiez le code appelant et assurez-vous que les arguments sont corrects. |Une nouvelle tentative ne sera pas bénéfique. |
 | [Serveur occupé](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception) |Le service n'est pas en mesure de traiter la demande pour l'instant. |Le client peut attendre pendant un certain temps, puis recommencer l'opération. |Le client peut réessayer après un intervalle spécifique. Si une nouvelle tentative provoque une exception différente, vérifiez le comportement de nouvelle tentative de cette exception. |
 | [Quota dépassé](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception) |L'entité de messagerie a atteint sa taille maximale autorisée. |Créez de l’espace dans l’entité en recevant des messages à partir de l’entité ou de ses files d’attente secondaires. Consultez [QuotaExceededException](#quotaexceededexception). |Une nouvelle tentative peut aider si des messages ont été supprimés entre-temps. |
 | [Taille des messages dépassée](/dotnet/api/microsoft.servicebus.messaging.messagesizeexceededexception) |Une charge utile de message dépasse la limite de 256 Ko. Notez que la limite de 256 Ko correspond à la taille totale du message. Celle-ci peut inclure des propriétés système et toute surcharge Microsoft .NET. |Réduisez la taille de la charge utile de message, puis recommencez l'opération. |Une nouvelle tentative ne sera pas bénéfique. |
@@ -73,7 +73,7 @@ Pour Relay, vous pouvez recevoir des exceptions de délai d’attente lors de la
 *   La valeur [OpenTimeout](https://msdn.microsoft.com/library/wcf.opentimeout.aspx) est peut-être trop petite (même d’une fraction de seconde).
 * Un écouteur de relais local n’est peut-être pas réactif (ou peut rencontrer des problèmes de règles de pare-feu interdisant aux écouteurs d’accepter de nouvelles connexions client) et la valeur [OpenTimeout](https://msdn.microsoft.com/library/wcf.opentimeout.aspx) est inférieure à environ 20 secondes.
 
-Exemple :
+Exemple :
 
 ```
 'System.TimeoutException’: The operation did not complete within the allotted timeout of 00:00:10.

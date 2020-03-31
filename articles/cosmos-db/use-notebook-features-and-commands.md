@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/07/2019
 ms.author: dech
 ms.openlocfilehash: 61d46bbf0ccdeb5cd2e95e36e19f1aa81cfeeb48
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76513397"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-preview"></a>Utiliser les fonctionnalités et commandes de notebook intégrées dans Azure Cosmos DB

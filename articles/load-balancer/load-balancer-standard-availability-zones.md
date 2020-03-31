@@ -14,17 +14,17 @@ ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
 ms.openlocfilehash: 5a65982c5c13eb4e4273efcfd8d14910b0f35572
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78197145"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Référence Standard de Load Balancer et zones de disponibilité
 
 Azure Standard Load Balancer prend en charge les scénarios des [zones de disponibilité](../availability-zones/az-overview.md). Vous pouvez utiliser Standard Load Balancer pour optimiser la disponibilité de votre scénario de bout en bout en alignant les ressources sur des zones et en les distribuant parmi les zones.  Consultez les [zones de disponibilité](../availability-zones/az-overview.md) pour obtenir des informations sur les zones de disponibilité, les régions qui les prennent actuellement en charge et d’autres concepts et produits connexes. Les zones de disponibilité associées à Standard Load Balancer constituent un ensemble de fonctionnalités vaste et flexible capable de créer de nombreux scénarios différents.  Consultez ce document pour comprendre ces [concepts](#concepts) et obtenir des [conseils de conception](#design) de scénarios.
 
-## <a name="concepts"></a> Concepts des zones de disponibilité appliqués à Load Balancer
+## <a name="availability-zones-concepts-applied-to-load-balancer"></a><a name="concepts"></a> Concepts des zones de disponibilité appliqués à Load Balancer
 
 Une ressource Load Balancer elle-même est régionale mais jamais zonale. La granularité de ce que vous pouvez configurer est restreinte par chaque configuration de définition de pool principal, frontal et de règle.
 Dans le contexte des zones de disponibilité, le comportement et les propriétés d’une règle d’équilibreur de charge sont décrits comme redondants interzone ou zonaux.  Ces adjectifs décrivent la zonalité d’une propriété.  Dans le contexte de Load Balancer, la redondance interzone implique toujours *plusieurs zones* tandis que l’adjectif zonal implique une isolation du service dans une *zone unique*.
@@ -77,7 +77,7 @@ Vos définitions de sonde d’intégrité existantes restent telles qu’elles s
 
 Quand vous utilisez des front-ends redondants interzone, Load Balancer développe son modèle d’intégrité interne pour sonder indépendamment l’accessibilité d’une machine virtuelle à partir de chaque zone de disponibilité et arrêter les chemins entre les zones susceptibles d’avoir été en échec sans intervention du client.  Si un chemin donné n’est pas disponible à partir de l’infrastructure Load Balancer d’une zone vers une machine virtuelle située dans une autre zone, Load Balancer peut détecter et éviter cet échec. Les autres zones qui peuvent accéder à cette machine virtuelle peuvent continuer de servir la machine virtuelle à partir de leurs frontends respectifs.  Par conséquent, il est possible que pendant des événements d’échec, chaque zone ait des distributions légèrement différentes des nouveaux flux pendant qu’elle protège l’intégrité globale de votre service de bout en bout.
 
-## <a name="design"></a> Remarques relatives à la conception
+## <a name="design-considerations"></a><a name="design"></a> Remarques relatives à la conception
 
 Load Balancer est volontairement flexible dans le contexte des zones de disponibilité. Vous pouvez choisir de vous aligner sur des zones ou d’être redondant interzone pour chaque règle.  Une disponibilité accrue peut s’obtenir au prix d’une complexité accrue. C’est pourquoi vous devez concevoir la disponibilité à des fins de performances optimales.  Examinons certains points importants liés à la conception.
 
@@ -87,7 +87,7 @@ Avec Load Balancer, il est simple d’avoir une adresse IP unique comme frontend
 
 La redondance dans une zone n’implique pas de chemin de données ni de plan de contrôle sans réponse ; il s’agit expressément d’un plan de données. Les flux redondants interzone peuvent utiliser toutes les zones et les flux d’un client utilise toutes les zones saines dans une région. En cas d’échec de zone, les flux de trafic qui utilisent les zones saines à ce moment-là ne sont pas impactés.  Les flux de trafic qui font appel à une zone au moment de la défaillance de cette dernière peuvent être affectés, mais les applications peuvent récupérer. Ces flux peuvent se poursuivre dans les zones saines restantes dans la région après retransmission ou rétablissement, une fois qu’Azure a convergé autour de l’échec de zone.
 
-### <a name="xzonedesign"></a> Limites entre les zones
+### <a name="cross-zone-boundaries"></a><a name="xzonedesign"></a> Limites entre les zones
 
 Il est important de comprendre que dès lors qu’un service de bout en bout traverse des zones, vous partagez le sort non pas d’une seule zone mais éventuellement de plusieurs.  Par conséquent, votre service de bout en bout n’a peut-être pas obtenu de disponibilité sur des déploiements non zonaux.
 

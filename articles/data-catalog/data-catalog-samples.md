@@ -7,10 +7,10 @@ ms.author: jasonh
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: 7d0e27802745dda62f87e412053650907e9b812c
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68950153"
 ---
 # <a name="azure-data-catalog-developer-samples"></a>Exemples de développement Azure Data Catalog

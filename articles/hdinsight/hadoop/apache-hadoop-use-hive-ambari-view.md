@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.openlocfilehash: 6c199a0dd75b89d9c9368e799c97a28b73758d06
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73097097"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Utiliser la vue Apache Ambari Hive avec Apache Hadoop dans HDInsight
@@ -21,14 +21,14 @@ ms.locfileid: "73097097"
 
 Découvrez comment exécuter des requêtes Hive avec la vue Apache Ambari Hive. L’affichage Hive vous permet de créer, d’optimiser et d’exécuter des requêtes Hive à partir du navigateur web.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Un cluster Hadoop sur HDInsight. Consultez [Bien démarrer avec HDInsight sur Linux](./apache-hadoop-linux-tutorial-get-started.md).
 * Un navigateur web
 
 ## <a name="run-a-hive-query"></a>Exécution d'une tâche Hive
 
-1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez votre cluster.  Pour obtenir des instructions, consultez la page [Énumération et affichage des clusters](../hdinsight-administer-use-portal-linux.md#showClusters). Le cluster est ouvert dans un nouveau panneau du portail.
+1. Dans le [Portail Azure](https://portal.azure.com/), sélectionnez votre cluster.  Pour obtenir des instructions, consultez la page [Énumération et affichage des clusters](../hdinsight-administer-use-portal-linux.md#showClusters). Le cluster est ouvert dans un nouveau panneau du portail.
 
 1. Dans **Tableaux de bord du cluster**, sélectionnez **Vues Ambari**. Lorsque vous êtes invité à vous authentifier, utilisez le nom de compte et le mot de passe de connexion de cluster (`admin` par défaut) que vous avez fournis lors de la création du cluster. Vous pouvez également accéder à `https://CLUSTERNAME.azurehdinsight.net/#/main/views` dans votre navigateur, où `CLUSTERNAME` est le nom de votre cluster.
 
@@ -61,16 +61,16 @@ Découvrez comment exécuter des requêtes Hive avec la vue Apache Ambari Hive. 
 
     Ces instructions effectuent les opérations suivantes :
 
-   * `DROP TABLE`: Supprime la table et le fichier de données, si la table existe déjà.
+   * `DROP TABLE` : supprime la table et le fichier de données, si la table existe déjà.
 
-   * `CREATE EXTERNAL TABLE`: Crée une nouvelle table « externe » dans Hive.
+   * `CREATE EXTERNAL TABLE` : crée une table « externe » dans Hive.
      Les tables externes stockent uniquement la définition de table dans Hive. Les données restent à l'emplacement d'origine.
 
-   * `ROW FORMAT`: Montre la mise en forme des données. Dans ce cas, les champs de chaque journal sont séparés par un espace.
+   * `ROW FORMAT` : montre la mise en forme des données. Dans ce cas, les champs de chaque journal sont séparés par un espace.
 
-   * `STORED AS TEXTFILE LOCATION`: Montre où sont stockées les données, et qu’elles sont stockées sous forme de texte.
+   * `STORED AS TEXTFILE LOCATION` : montre où sont stockées les données, et qu’elles sont stockées sous forme de texte.
 
-   * `SELECT`: Sélectionne toutes les lignes où la colonne t4 contient la valeur [ERROR].
+   * `SELECT` : sélectionne toutes les lignes où la colonne t4 contient la valeur [ERROR].
 
    > [!IMPORTANT]  
    > Conservez la sélection __Base de données__ par __défaut__. Les exemples de ce document utilisent la base de données par défaut incluse avec HDInsight.
@@ -100,7 +100,7 @@ Sélectionnez l’onglet **Tez UI** (IU Tez) au-dessous de la feuille de calcul 
 > [!IMPORTANT]  
 > Tez n’est pas utilisé pour résoudre toutes les requêtes. Vous pouvez résoudre de nombreuses requêtes sans utiliser Tez.
 
-## <a name="view-job-history"></a>Afficher l’historique des tâches
+## <a name="view-job-history"></a>Afficher l’historique des travaux
 
 L’onglet __Travaux__ affiche un historique des requêtes Hive.
 
@@ -161,7 +161,7 @@ Pour plus d’informations sur l’utilisation des fonctions définies par l’u
 
 Vous pouvez modifier différents paramètres Hive, par exemple pour passer du moteur d’exécution Tez (par défaut) à MapReduce pour Hive.
 
-## <a id="nextsteps"></a>Étapes suivantes
+## <a name="next-steps"></a><a id="nextsteps"></a>Étapes suivantes
 
 Pour obtenir des informations générales sur Hive dans HDInsight :
 

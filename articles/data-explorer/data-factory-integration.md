@@ -9,10 +9,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/20/2020
 ms.openlocfilehash: bb08cf4db45a378b35a8245eadd56a2ab3e48bab
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76293621"
 ---
 # <a name="integrate-azure-data-explorer-with-azure-data-factory"></a>Intégrer Azure Data Explorer avec Azure Data Factory

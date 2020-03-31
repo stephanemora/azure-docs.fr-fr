@@ -1,6 +1,6 @@
 ---
-title: Azure VMware Solutions (AVS) - Modèle d’autorisation de cloud privé AVS
-description: Décrit le modèle d’autorisation de cloud privé AVS, les groupes et les catégories
+title: Azure VMware Solution by CloudSimple – Modèle d’autorisation de cloud privé
+description: Décrit le modèle d’autorisation, les groupes et les catégories de cloud privé CloudSimple
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/16/2019
@@ -8,42 +8,42 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 9488c59ead23fb68633ccc56a0df905ebfeea079
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 28c4dc7831f97d66eb4d47f08e640344d5cca0d1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77014944"
 ---
-# <a name="avs-private-cloud-permission-model-of-vmware-vcenter"></a>Modèle d’autorisation de cloud privé AVS de VMware vCenter
+# <a name="cloudsimple-private-cloud-permission-model-of-vmware-vcenter"></a>Modèle d’autorisation de cloud privé CloudSimple de VMware vCenter
 
-AVS conserve un accès administratif complet à l’environnement de cloud privé AVS. Chaque client AVS bénéficie de privilèges administratifs suffisants pour pouvoir déployer et gérer les machines virtuelles dans son environnement. Si nécessaire, vous pouvez élever temporairement vos privilèges pour effectuer des fonctions d’administration.
+CloudSimple conserve un accès administratif complet à l’environnement de cloud privé. Chaque client CloudSimple dispose de privilèges Administrateur suffisants pour pouvoir déployer et gérer les machines virtuelles dans son environnement.  Si nécessaire, vous pouvez élever temporairement vos privilèges pour effectuer des fonctions d’administration.
 
 ## <a name="cloud-owner"></a>Propriétaire de cloud
 
-Lorsque vous créez un cloud privé AVS, un utilisateur **CloudOwner** est créé dans le domaine d’authentification unique vCenter avec un accès **Cloud-Owner-Role** pour gérer des objets dans le cloud privé AVS. Cet utilisateur peut également configurer des [sources d’identité vCenter](set-vcenter-identity.md) supplémentaires et d’autres utilisateurs sur le serveur vCenter de cloud privé AVS.
+Lorsque vous créez un Cloud privé, un utilisateur **CloudOwner**  est créé dans le domaine d’authentification unique vCenter avec un accès **de rôle de propriétaire Cloud** pour gérer des objets dans le cloud privé. Cet utilisateur peut également configurer des [sources d’identité vCenter](set-vcenter-identity.md) supplémentaires et d’autres utilisateurs sur le cloud privé vCenter.
 
 > [!NOTE]
-> L’utilisateur par défaut de votre serveur vCenter de cloud privé AVS est cloudowner@AVS.local quand un cloud privé AVS est créé.
+> L’utilisateur par défaut de votre cloud privé CloudSimple vCenter est cloudowner@cloudsimple.local.
 
 ## <a name="user-groups"></a>Groupes d’utilisateurs
 
-Un groupe nommé **Cloud-Owner-Group** est créé lors du déploiement d’un cloud privé AVS. Les utilisateurs de ce groupe peuvent administrer diverses parties de l’environnement vSphere sur le cloud privé AVS. Ce groupe obtient automatiquement des privilèges **Cloud-Owner-Role** et l’utilisateur **CloudOwner** est ajouté en tant que membre de ce groupe. AVS crée des groupes supplémentaires disposant de privilèges limités pour faciliter la gestion. Vous pouvez ajouter n'importe quel utilisateur à ces groupes préalablement créés. Les privilèges définis ci-dessous sont automatiquement attribués aux utilisateurs de ces groupes.
+Un groupe nommé **Cloud-owner-Group** est créé lors du déploiement d’un cloud privé. Les utilisateurs de ce groupe peuvent administrer diverses parties de l’environnement vSphere sur le cloud privé. Ce groupe obtient automatiquement des privilèges **Cloud-Owner-Role** et l’utilisateur **CloudOwner** est ajouté en tant que membre de ce groupe.  CloudSimple crée des groupes supplémentaires disposant de privilèges limités pour faciliter la gestion.  Vous pouvez ajouter n'importe quel utilisateur à ces groupes préalablement créés. Les privilèges définis ci-dessous sont automatiquement attribués aux utilisateurs de ces groupes.
 
 ### <a name="pre-created-groups"></a>Groupes précréés
 
 | Nom du groupe | Objectif | Role |
 | -------- | ------- | ------ |
-| Cloud-owner-Group | Les membres de ce groupe disposent de privilèges administratifs sur le serveur vCenter de cloud privé AVS | [Cloud-Owner-Role](#cloud-owner-role) |
-| Cloud-Global-Cluster-Admin-Group | Les membres de ce groupe disposent de privilèges administratifs sur le cluster vCenter de cloud privé AVS | [Cloud-Cluster-Admin-Role](#cloud-cluster-admin-role) |
-| Cloud-Global-Storage-admin-Group | Les membres de ce groupe peuvent gérer le stockage sur le serveur vCenter de cloud privé AVS | [Cloud-Storage-Admin-Role](#cloud-storage-admin-role) |
-| Cloud-Global-Network-Admin-Group | Les membres de ce groupe peuvent gérer les groupes de ports réseau et distribués sur le serveur vCenter de cloud privé AVS | [Cloud-Network-Admin-Role](#cloud-network-admin-role) |
-| Cloud-Global-VM-Admin-Group | Les membres de ce groupe peuvent gérer des machines virtuelles sur le serveur vCenter de cloud privé AVS | [Cloud-VM-Admin-Role](#cloud-vm-admin-role) |
+| Cloud-owner-Group | Les membres de ce groupe disposent de privilèges Administrateur sur le cloud privé vCenter | [Cloud-Owner-Role](#cloud-owner-role) |
+| Cloud-Global-Cluster-Admin-Group | Les membres de ce groupe disposent de privilèges Administrateur sur le cluster vCenter | [Cloud-Cluster-Admin-Role](#cloud-cluster-admin-role) |
+| Cloud-Global-Storage-admin-Group | Les membres de ce groupe peuvent gérer le stockage sur le cloud privé vCenter | [Cloud-Storage-Admin-Role](#cloud-storage-admin-role) |
+| Cloud-Global-Network-Admin-Group | Les membres de ce groupe peuvent gérer les groupes de ports réseau et distribués sur le cloud privé vCenter | [Cloud-Network-Admin-Role](#cloud-network-admin-role) |
+| Cloud-Global-VM-Admin-Group | Les membres de ce groupe peuvent gérer des machines virtuelles sur le cloud privé vCenter | [Cloud-VM-Admin-Role](#cloud-vm-admin-role) |
 
-Pour accorder à des utilisateurs individuels des autorisations leur permettant de gérer le cloud privé AVS, créez des comptes d’utilisateur et ajoutez-les aux groupes appropriés.
+Pour accorder à des utilisateurs individuels des autorisations leur permettant de gérer le cloud privé, créez des comptes d’utilisateur à ajoutez-les aux groupes appropriés.
 
 > [!CAUTION]
-> Les nouveaux utilisateurs doivent être ajoutés uniquement à *Cloud-Owner-Group*, à *Cloud-Global-Cluster-Admin-Group*, à *Cloud-Global-Storage-Admin-Group*, à *Cloud-Global-Network-Admin-Group* ou à *Cloud-Global-VM-Admin-Group*.  Les utilisateurs ajoutés au groupe *Administrateurs* seront automatiquement supprimés.  Seuls les comptes de service doivent être ajoutés au groupe *Administrateurs* et les comptes de service ne doivent pas être utilisés pour se connecter à l’interface utilisateur web de vSphere.
+> Les nouveaux utilisateurs doivent être ajoutés uniquement à *Cloud-Owner-Group*, à *Cloud-Global-Cluster-Admin-Group*, à *Cloud-Global-Storage-Admin-Group*, à *Cloud-Global-Network-Admin-Group* ou à *Cloud-Global-VM-Admin-Group*.  Les utilisateurs ajoutés au groupe *Administrateurs* seront automatiquement supprimés.  Seuls des comptes de service doivent être ajoutés au groupe *Administrateurs*, et les comptes de service en doivent pas être utilisés pour se connecter à l’interface utilisateur web de vSphere.
 
 ## <a name="list-of-vcenter-privileges-for-default-roles"></a>Liste des privilèges vCenter pour les rôles par défaut
 
@@ -52,7 +52,7 @@ Pour accorder à des utilisateurs individuels des autorisations leur permettant 
 | **Catégorie** | **Privilège** |
 |----------|-----------|
 | **Alarmes** | Confirmer la réception de l’alerte <br> Créer une alerte <br> Désactiver l’action d’alarme <br> Modifier l’alarme <br> Supprimer l’alarme <br> Définir l’état de l’alarme |
-| **autorisations** | Modifier l’autorisation |
+| **Autorisations** | Modifier l’autorisation |
 | **Bibliothèque de contenu** | Ajouter un élément de bibliothèque <br> Créer une bibliothèque locale <br> Créer une bibliothèque abonnée <br> Supprimer un élément de bibliothèque <br> Supprimer une bibliothèque locale <br> Supprimer une bibliothèque abonnée <br> Télécharger les fichiers <br> Expulser un élément de bibliothèque <br> Expulser une bibliothèque abonnée <br> Importer un stockage <br> Informations d’abonnement de probe <br> Lire le stockage <br> Synchroniser un élément de bibliothèque <br> Synchroniser une bibliothèque abonnée <br> Introspection de type <br> Mettre à jour les paramètres de configuration du système <br> Mettre à jour les fichiers <br> Mettre à jour la bibliothèque <br> Mettre à jour un élément de bibliothèque <br> Mettre à jour une bibliothèque locale <br> Mettre à jour une bibliothèque abonnée <br> Afficher les paramètres de configuration |
 | **Opérations de chiffrement** | Ajouter un disque <br> Clone <br> Decrypt (Déchiffrer) <br> Accès direct <br> Encrypt (Chiffrer) <br> Chiffrer nouveau <br> Gérer KMS <br> Gérer les stratégies de chiffrement <br> Gérer les clés <br> Migrer <br> Chiffrer à nouveau <br> Inscrire la machine virtuelle <br> Inscrire l’hôte |
 | **groupe dvPort** | Créer <br> DELETE <br> Modifier <br> Opération de stratégie <br> Étendue de l’opération |

@@ -10,10 +10,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.openlocfilehash: a21e8d6c76c93b3084619c09f6a7664a25c1929c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73682202"
 ---
 # <a name="selecting-the-right-vm-size-for-your-azure-hdinsight-cluster"></a>Sélection de la taille de machine virtuelle adaptée à votre cluster Azure HDInsight
@@ -55,13 +55,13 @@ Le tableau suivant décrit les types de cluster et les types de nœuds qui peuve
 
 | Type du cluster | Version | Nœud Worker | Nœud principal | Nœud Zookeeper |
 |---|---|---|---|---|
-| Spark | Tous | F4 et plus | no | no |
-| Hadoop | Tous | F4 et plus | no | no |
-| Kafka | Tous | F4 et plus | no | no |
-| hbase | Tous | F4 et plus | no | no |
-| LLAP | disabled | no | no | no |
-| Storm | disabled | no | no | no |
-| ML Service | HDI 3.6 UNIQUEMENT | F4 et plus | no | no |
+| Spark | Tous | F4 et plus | non | non |
+| Hadoop | Tous | F4 et plus | non | non |
+| Kafka | Tous | F4 et plus | non | non |
+| hbase | Tous | F4 et plus | non | non |
+| LLAP | disabled | non | non | non |
+| Storm | disabled | non | non | non |
+| ML Service | HDI 3.6 UNIQUEMENT | F4 et plus | non | non |
 
 Pour afficher les spécifications de chaque référence (SKU) de la série F, consultez les [Tailles de machine virtuelle de la série F](https://azure.microsoft.com/blog/f-series-vm-size/).
 

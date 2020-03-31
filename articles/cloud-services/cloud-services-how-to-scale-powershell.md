@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 12/01/2016
 ms.author: memccror
 ms.openlocfilehash: a1945aad12eb34bad1b593878779e1ceb0dae686
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68359047"
 ---
 # <a name="how-to-scale-a-cloud-service-in-powershell"></a>Mise à l’échelle d’un service cloud dans PowerShell
@@ -50,9 +50,9 @@ Vous devriez obtenir des informations sur le rôle, y compris la version actuell
 
 ![Informations sur le rôle](./media/cloud-services-how-to-scale-powershell/get-azure-role.png)
 
-## <a name="scale-out-the-role-by-adding-more-instances"></a>Augmentation de la taille du rôle en ajoutant des instances
+## <a name="scale-out-the-role-by-adding-more-instances"></a>Effectuer un scale-out du rôle en ajoutant des instances
 
-Pour augmenter la taille de votre rôle, passez le nombre souhaité d’instances en tant que paramètre **Count** paramètre à l’applet de commande **Set-AzureRole** :
+Pour effectuer un scale-out de votre rôle, passez le nombre souhaité d’instances en tant que paramètre **Count** paramètre à l’applet de commande **Set-AzureRole** :
 
 ```powershell
 Set-AzureRole -ServiceName '<your_service_name>' -RoleName '<your_role_name>' -Slot <target_slot> -Count <desired_instances>
@@ -66,9 +66,9 @@ Une fois les nouvelles instances démarrées, l’applet de commande renvoie cor
 
 ![Augmentation du nombre d’instances du rôle réussie](./media/cloud-services-how-to-scale-powershell/set-azure-role-success.png)
 
-## <a name="scale-in-the-role-by-removing-instances"></a>Diminution de la taille du rôle en supprimant des instances
+## <a name="scale-in-the-role-by-removing-instances"></a>Effectuer un scale-in du rôle en supprimant des instances
 
-Vous pouvez diminuer la taille d’un rôle en supprimant des instances de la même façon. Définissez le paramètre **Count** paramètre sur **Set-AzureRole** pour le nombre d’instances que vous souhaitez avoir une fois l’opération de mise à l’échelle terminée.
+Vous pouvez effectuer un scale-in d’un rôle en supprimant des instances de la même façon. Définissez le paramètre **Count** paramètre sur **Set-AzureRole** pour le nombre d’instances que vous souhaitez avoir une fois l’opération de scale-in terminée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

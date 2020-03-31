@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.openlocfilehash: e128aaf6e1726b7a1341fefc6df3cdafd3beb880
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73500168"
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Utiliser Azure Data Lake Tools pour Visual Studio avec le Bac à sable (sandbox) Hortonworks
@@ -21,7 +21,7 @@ Azure Data Lake inclut des outils permettant de travailler avec des clusters Apa
 
 Hortonworks Sandbox permet de travailler avec Hadoop localement sur votre environnement de développement. Après avoir développé une solution, lorsque vous souhaitez la déployer à grande échelle, vous pouvez passer à un cluster HDInsight.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Le Bac à sable (sandbox) Hortonworks s’exécutant sur une machine virtuelle dans votre environnement de développement. Ce document a été écrit et testé avec le bac à sable s’exécutant sur Oracle VirtualBox. Pour plus d’informations sur le paramétrage du bac à sable, consultez [Get started with the Hortonworks sandbox](hadoop/apache-hadoop-emulator-get-started.md) (Prise en main du bac à sable Hortonworks) document.
 
@@ -155,7 +155,7 @@ Contrairement à Hive qui offre un langage de type SQL pour travailler avec des 
 
     ![Capture d’écran d’un travail Pig terminé](./media/hdinsight-hadoop-emulator-visual-studio/completed-apache-pig.png)
 
-## <a name="view-jobs"></a>Affichage des tâches
+## <a name="view-jobs"></a>Afficher les travaux
 
 Les outils Data Lake Tools permettent également d’afficher facilement les informations relatives aux travaux exécutés sur Hadoop. Pour afficher les travaux exécutés sur le cluster local, procédez comme suit.
 
@@ -187,7 +187,7 @@ Vous pouvez afficher les propriétés d’une base de données ou d’une table.
 
 ![Capture d’écran de le fenêtre Propriétés](./media/hdinsight-hadoop-emulator-visual-studio/hdi-properties-window.png)
 
-### <a name="create-a-table"></a>Création d’une table
+### <a name="create-a-table"></a>Créer une table
 
 Pour créer une table, cliquez avec le bouton droit sur une base de données, puis sélectionnez **Créer une table**.
 

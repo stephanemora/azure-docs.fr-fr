@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: victorh
 ms.openlocfilehash: 6396f8292a4c54f7fce237439f37c3e8156d59e8
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74169049"
 ---
 # <a name="fqdn-tags-overview"></a>Présentation des balises FQDN
@@ -42,4 +42,4 @@ Le tableau suivant présente les balises FQDN que vous pouvez actuellement utili
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour savoir comment déployer un pare-feu Azure, consultez le [didacticiel : Déployer et configurer un pare-feu Azure à l’aide du portail Azure](tutorial-firewall-deploy-portal.md)
+Pour apprendre à déployer un pare-feu Azure, voir [Didacticiel : Déployer et configurer un pare-feu Azure à l’aide du portail Azure](tutorial-firewall-deploy-portal.md).

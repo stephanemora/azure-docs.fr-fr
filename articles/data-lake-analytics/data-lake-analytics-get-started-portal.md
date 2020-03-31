@@ -9,10 +9,10 @@ ms.assetid: b1584d16-e0d2-4019-ad1f-f04be8c5b430
 ms.topic: conceptual
 ms.date: 03/21/2017
 ms.openlocfilehash: 46da3750e4d0ac78c5fd9df91ae37670e541302d
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71315759"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-the-azure-portal"></a>Prise en main d’Azure Data Lake Analytics à l’aide du portail Azure
@@ -31,7 +31,7 @@ Avant de commencer ce didacticiel, vous devez disposer d’un **abonnement Azure
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Cliquez sur **Créer une ressource** >  **Données + Analytique**  > **Data Lake Analytics**.
 3. Sélectionnez des valeurs pour les éléments suivants :
-   * **Nom** : donnez un nom à votre compte Data Lake Analytics (seuls les lettres minuscules et les chiffres sont autorisés).
+   * **Name** : donnez un nom à votre compte Data Lake Analytics (seuls les lettres minuscules et les chiffres sont autorisés).
    * **Abonnement**: choisissez l’abonnement Azure utilisé pour le compte Analytics.
    * **Groupe de ressources**. Sélectionnez un groupe de ressources Azure existant ou créez-en un.
    * **Emplacement**. Sélectionnez un centre de données Azure pour le compte Data Lake Analytics.

@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/26/2019
 ms.author: mlottner
 ms.openlocfilehash: 0172ada68ffa652fb0c301c89238beca4f4ce2f9
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74664189"
 ---
 # <a name="understanding-the-local-configuration-file-c-agent"></a>Compréhension du fichier de configuration local (agent C#)
@@ -86,7 +86,7 @@ Pour Windows :
 | deviceId | string | ID de l’appareil (comme inscrit dans Azure IoT Hub). || schedulerInterval | Chaîne TimeSpan | Intervalle du planificateur interne. |
 | gatewayHostname | string | Nom d’hôte du hub Azure Iot Hub. En général, il s’agit de <mon-hub>.azure-devices.net |
 | filePath | Chaîne - Chemin d’accès au fichier | Chemin d’accès au fichier qui contient le secret d’authentification.|
-| Type | "SymmetricKey", "SelfSignedCertificate" | Secret de l’utilisateur pour l’authentification. Choisissez *SymmetricKey* si le secret de l’utilisateur est une clé symétrique, ou *SelfSignedCertificate* si le secret est un certificat auto-signé. |
+| type | "SymmetricKey", "SelfSignedCertificate" | Secret de l’utilisateur pour l’authentification. Choisissez *SymmetricKey* si le secret de l’utilisateur est une clé symétrique, ou *SelfSignedCertificate* si le secret est un certificat auto-signé. |
 | identité | "DPS", "Module", "Device" | Identité d’authentification : « DPS » si l’authentification est effectuée via DPS, « Module » si elle est effectuée via les informations d’identification du module de sécurité ou « Device » si elle est effectuée avec les informations d’identification de l’appareil.
 | certificateLocationKind |  "LocalFile", "Store" | « LocalFile » si le certificat est stocké dans un fichier, « store » s’il se trouve dans un magasin de certificats. |
 | idScope | string | Étendue de l’ID de DPS. |

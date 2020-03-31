@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
 ms.openlocfilehash: a9b271b5f7d4e53dbf871d03dd43b62b9299aa53
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71309924"
 ---
 # <a name="use-a-u-sql-database-project-to-develop-a-u-sql-database-for-azure-data-lake"></a>Utiliser un projet de base de données U-SQL afin de développer une base de données U-SQL pour Azure Data Lake
@@ -99,8 +99,8 @@ Vous pouvez déployer une base de données U-SQL via un projet de base de donné
 
 Un projet U-SQL peut référencer un projet de base de données U-SQL. La référence affecte deux charges de travail :
 
-- *Création du projet* : configurez les environnements de base de données référencés avant de générer les scripts U-SQL. 
-- *Exécution locale vs compte (projet local)*  : les environnements de base de données référencés sont déployés dans le compte (de projet local) avant l’exécution du script U-SQL. [En savoir plus sur l’exécution locale et sur la différence entre le compte (ordinateur local) et le compte (projet local)](data-lake-analytics-data-lake-tools-local-run.md).
+- *Build de projet* : configurez les environnements de base de données référencés avant de générer les scripts U-SQL. 
+- *Exécution locale vs compte (projet local)* : les environnements de base de données référencés sont déployés dans le compte (de projet local) avant l’exécution du script U-SQL. [En savoir plus sur l’exécution locale et sur la différence entre le compte (ordinateur local) et le compte (projet local)](data-lake-analytics-data-lake-tools-local-run.md).
 
 ### <a name="how-to-add-a-u-sql-database-reference"></a>Comment ajouter une référence de base de données U-SQL
 

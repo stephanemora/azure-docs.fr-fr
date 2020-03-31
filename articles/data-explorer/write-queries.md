@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/07/2019
 ms.openlocfilehash: 80d3eaaf7e588766d62f5e5885d75e61c590970e
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68881194"
 ---
 # <a name="write-queries-for-azure-data-explorer"></a>Rédiger des requêtes pour l’Explorateur de données Azure
@@ -472,7 +472,7 @@ MyTrace
 | project resourceName ,totalSlices , sliceNumber , lockTime , releaseTime , previousLockTime
 ```
 
-## <a name="time-series-analysis"></a>Analyse des séries chronologiques
+## <a name="time-series-analysis"></a>Analyse de série chronologique
 
 ### <a name="make-series"></a>make-series
 
@@ -841,7 +841,7 @@ range _day from _start to _end step 1d
 
 ### <a name="new_activity_metrics-plugin"></a>plug-in new_activity_metrics
 
-[**plug-in new_activity_metrics**](https://docs.microsoft.com/azure/kusto/query/new-activity-metrics-plugin) : calcule des métriques d’activité utiles (valeurs de nombre distinct, nombre distinct de nouvelles valeurs, taux de conservation et taux de variation) pour la cohorte de nouveaux utilisateurs. Le concept de ce plug-in est similaire au [ **plug-in activity_metrics**](https://docs.microsoft.com/azure/kusto/query/activity-metrics-plugin), mais se concentre sur les nouveaux utilisateurs.
+[**plug-in new_activity_metrics**](https://docs.microsoft.com/azure/kusto/query/new-activity-metrics-plugin) : calcule des métriques d’activité utiles (valeurs de nombre distinct, nombre distinct de nouvelles valeurs, taux de conservation et taux de variation) pour la cohorte de nouveaux utilisateurs. Le concept de ce plug-in est similaire au [**plug-in activity_metrics**](https://docs.microsoft.com/azure/kusto/query/activity-metrics-plugin), mais se concentre sur les nouveaux utilisateurs.
 
 La requête suivante calcule des taux de variation et de conservation avec une fenêtre sur plusieurs semaines pour la cohorte de nouveaux utilisateurs (utilisateurs qui sont arrivés la première semaine).
 
