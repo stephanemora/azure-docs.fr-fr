@@ -7,10 +7,10 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/30/2016
 ms.openlocfilehash: 0cc4309fa57a29997bdd2f650634efd0723e6965
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77458747"
 ---
 # <a name="offline-data-sync-in-azure-mobile-apps"></a>Synchronisation des données hors connexion dans Azure Mobile Apps
@@ -55,7 +55,7 @@ Un *contexte de synchronisation* est associé à un objet client mobile (comme `
 
 Un magasin local est associé au contexte de synchronisation à l’aide d’une méthode d’initialisation comme `IMobileServicesSyncContext.InitializeAsync(localstore)` dans le [Kit de développement logiciel (SDK) client .NET].
 
-## <a name="how-sync-works"></a>Fonctionnement de la synchronisation hors connexion
+## <a name="how-offline-synchronization-works"></a><a name="how-sync-works"></a>Fonctionnement de la synchronisation hors connexion
 Quand vous utilisez des tables de synchronisation, votre code client détermine à quel moment les modifications locales sont synchronisées avec une application principale Azure Mobile App. Rien n’est envoyé au backend tant que n’a pas été émis un appel pour *envoyer* les modifications locales. De même, le magasin local n’est rempli avec de nouvelles données que si un appel pour *extraire* les données est émis.
 
 * **Push** : l’envoi est une opération sur le contexte de synchronisation, qui consiste à envoyer tous les changements CUD survenus depuis le dernier envoi. Notez qu’il n’est pas possible d’envoyer uniquement les modifications d’une table spécifique, car sinon les opérations pourraient être envoyées dans le désordre. L’envoi exécute une série d’appels REST à destination de votre application principale Azure Mobile App qui, à son tour, modifie votre base de données serveur.

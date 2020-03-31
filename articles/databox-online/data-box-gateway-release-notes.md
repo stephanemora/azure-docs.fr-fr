@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: alkohli
 ms.openlocfilehash: f4ee3a5bd754335ab1c7f124671e9c37307a6a28
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60754197"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231445"
 ---
 # <a name="azure-data-box-edgeazure-data-box-gateway-general-availability-release-notes"></a>Notes de mise à disponibilité générale d’Azure Data Box Edge/Azure Data Box Gateway
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Les notes de publication suivantes identifient les problèmes majeurs existants et les problèmes résolus dans la version en disponibilité générale (GA) d’Azure Data Box Edge et Azure Data Box Gateway.
 
@@ -36,7 +36,7 @@ La version en disponibilité générale correspond aux versions logicielles :
 - **Résilience du stockage** : votre appareil Data Box Edge peut résister à la défaillance d’un disque de données grâce à la fonctionnalité de résilience du stockage. Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire. Vous pouvez activer la résilience du stockage en sélectionnant l’option **Résilient** dans les **Paramètres de stockage** dans l’interface utilisateur web locale.
 
 
-## <a name="known-issues-in-ga-release"></a>Problèmes connus dans la version en disponibilité générale
+## <a name="known-issues-in-ga-release"></a>Problèmes connus dans la version mise à la disposition générale
 
 Le tableau suivant résume les problèmes connus pour la version actuelle de Data Box Gateway.
 

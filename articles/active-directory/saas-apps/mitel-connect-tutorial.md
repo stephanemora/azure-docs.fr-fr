@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Mitel Connect | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Mitel Connect | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Mitel Connect.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 05/03/2019
 ms.author: jeedes
 ms.openlocfilehash: 30a4dcbd15d8a47d99b3a61879a7e61938d3b133
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73160541"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-mitel-micloud-connect"></a>Didacticiel : Intégration d’Azure Active Directory à Mitel MiCloud Connect
+# <a name="tutorial-azure-active-directory-integration-with-mitel-micloud-connect"></a>Tutoriel : Intégration d’Azure Active Directory à Mitel MiCloud Connect
 
 Dans ce tutoriel, vous allez apprendre à intégrer Mitel MiCloud Connect à Azure Active Directory (Azure AD). L’intégration de MiCloud Connect à Azure AD vous offre les avantages suivants :
 
@@ -128,7 +128,7 @@ Pour configurer MiCloud Connect avec l’authentification unique pour Azure AD, 
     * **https://portal.shoretelsky.com** pour utiliser le portail de compte Mitel en tant qu’application Mitel par défaut.
     * **https://teamwork.shoretel.com** pour utiliser Teamwork en tant qu’application Mitel par défaut.
 
-    **REMARQUE** : L’application Mitel par défaut est celle à laquelle un utilisateur accède quand il clique sur la vignette Mitel Connect dans le volet d’accès. Il s’agit également de l’application sollicitée lors d’une configuration de test à partir d’Azure AD.
+    **REMARQUE** : L’application Mitel par défaut est celle à laquelle un utilisateur accède quand il clique sur la vignette Mitel Connect dans le volet d’accès. Il s’agit également de l’application sollicitée lors d’une configuration de test à partir d’Azure AD.
 
 8. Cliquez sur **Enregistrer** dans la boîte de dialogue **Configuration SAML de base** dans le portail Azure.
 
@@ -228,4 +228,4 @@ Quand vous cliquez sur la vignette Mitel Connect dans le volet d’accès, vous 
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

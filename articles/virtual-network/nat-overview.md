@@ -1,5 +1,6 @@
 ---
 title: Présentation du service NAT de Réseau virtuel Azure
+titlesuffix: Azure Virtual Network
 description: Vue d’ensemble des fonctionnalités, des ressources, de l’architecture et de l’implémentation du service NAT de Réseau virtuel. Découvrez le fonctionnement du service NAT de Réseau virtuel et comment utiliser des ressources de passerelle NAT dans le cloud.
 services: virtual-network
 documentationcenter: na
@@ -11,16 +12,16 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/05/2020
+ms.date: 03/14/2020
 ms.author: allensu
-ms.openlocfilehash: 205826a6ad952383582f5a8086cbd8b85dbc3794
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 4b34d4208d8686cdac3f8164d2cf7efb2d881346
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78359250"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79409896"
 ---
-# <a name="what-is-virtual-network-nat-public-preview"></a>Présentation du service NAT de Réseau virtuel (préversion publique)
+# <a name="what-is-virtual-network-nat"></a>Qu’est-ce que le service NAT de Réseau virtuel ?
 
 Le service NAT (traduction d’adresses réseau) de Réseau virtuel simplifie la connectivité Internet sortante uniquement pour les réseaux virtuels. Quand il est configuré sur un sous-réseau, toute la connectivité sortante utilise vos adresses IP publiques statiques spécifiées.  Une connectivité sortante est possible sans équilibreur de charge ni adresses IP publiques directement attachées aux machines virtuelles. NAT est complètement managé et hautement résilient.
 
@@ -36,10 +37,6 @@ Le service NAT (traduction d’adresses réseau) de Réseau virtuel simplifie la
 
 
 *Figure : Service NAT de Réseau virtuel*
-
-
->[!NOTE] 
->Le service NAT de Réseau virtuel est disponible en préversion publique pour l’instant. Actuellement, il n’est disponible que dans un ensemble limité de [régions](#region-availability). Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Consultez les [Conditions d’utilisation supplémentaires des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms).
 
 ## <a name="static-ip-addresses-for-outbound-only"></a>Adresses IP statiques pour le trafic sortant uniquement
 
@@ -91,9 +88,9 @@ Le côté privé de NAT envoie des paquets de réinitialisation TCP pour les ten
 
 Le côté public de NAT ne génère pas de paquets de réinitialisation TCP ni tout autre trafic.  Seul le trafic produit par le réseau virtuel du client est émis.
 
-## <a name="configurable-idle-timeout"></a>Délai d’inactivité configurable
+## <a name="configurable-tcp-idle-timeout"></a>Délai d’inactivité TCP configurable
 
-Un délai d’inactivité par défaut de 4 minutes est utilisé et peut être augmenté jusqu’à 120 minutes. Toute activité sur un flux peut également réinitialiser le délai d’inactivité, y compris les conservations de connexion active TCP.
+Un délai d’inactivité TCP par défaut de 4 minutes est utilisé et peut être augmenté à 120 minutes maximum. Toute activité sur un flux peut également réinitialiser le délai d’inactivité, y compris les conservations de connexion active TCP.
 
 ## <a name="regional-or-zone-isolation-with-availability-zones"></a>Isolement régional ou zonal avec des zones de disponibilité
 
@@ -125,48 +122,6 @@ Vous pouvez superviser le fonctionnement de votre NAT par le biais de métriques
 
 En disponibilité générale, le chemin de données NAT est au moins disponible à 99,9 %.
 
-## <a name = "region-availability"></a>Disponibilité dans les régions
-
-NAT est actuellement disponible dans les régions suivantes :
-
-- Europe occidentale
-- Japon Est
-- USA Est 2
-- USA Ouest
-- USA Ouest 2
-- USA Centre-Ouest
-
-## <a name = "enable-preview"></a>Participation à la préversion publique
-
-Les abonnements doivent être inscrits pour permettre la participation à la préversion publique.  La participation nécessite un processus en deux étapes et des instructions sont fournies ci-dessous pour Azure CLI et Azure PowerShell.  L’activation peut prendre plusieurs minutes.
-
-### <a name="azure-cli"></a>Azure CLI
-
-1. inscrire un abonnement à la préversion publique
-
-    ```azurecli-interactive
-      az feature register --namespace Microsoft.Network --name AllowNatGateway
-    ```
-
-2. activer l’inscription
-
-    ```azurecli-interactive
-      az provider register --namespace Microsoft.Network
-    ```
-
-### <a name="azure-powershell"></a>Azure PowerShell
-
-1. inscrire un abonnement à la préversion publique
-
-    ```azurepowershell-interactive
-      Register-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowNatGateway
-    ```
-
-2. activer l’inscription
-
-    ```azurepowershell-interactive
-      Register-AzResourceProvider -ProviderNamespace Microsoft.Network
-    ```
 
 ## <a name="pricing"></a>Tarifs
 
@@ -180,7 +135,9 @@ La passerelle NAT est facturée avec deux compteurs distincts :
 Les heures de ressource tiennent compte de la durée pendant laquelle une ressource de passerelle NAT existe.
 Les données traitées tiennent compte de tout le trafic traité par une ressource de passerelle NAT.
 
-Pendant la préversion publique, les tarifs font l’objet d’une remise de 50 %.
+## <a name="availability"></a>Disponibilité
+
+Le service NAT de réseau virtuel et la ressource de passerelle NAT sont disponibles dans toutes les [régions](https://azure.microsoft.com/global-infrastructure/regions/) du cloud public Azure.
 
 ## <a name="support"></a>Support
 
@@ -188,12 +145,13 @@ NAT est pris en charge par le biais des canaux normaux.
 
 ## <a name="feedback"></a>Commentaires
 
-Nous aimerions savoir comment nous pouvons améliorer le service. Faites-nous part de vos [commentaires sur la préversion publique](https://aka.ms/natfeedback).  Proposez-nous de nouvelles fonctionnalités et votez pour celles que vous préférez en nous contactant sur [UserVoice for NAT](https://aka.ms/natuservoice).
+Nous aimerions savoir comment nous pouvons améliorer le service. Proposez-nous de nouvelles fonctionnalités et votez pour celles que vous préférez en nous contactant sur [UserVoice for NAT](https://aka.ms/natuservoice).
+
 
 ## <a name="limitations"></a>Limites
 
-* NAT est compatible avec des ressources d’adresses IP publiques, de préfixes d’adresses IP publiques et d’équilibreur de charge de la référence SKU standard.   Les ressources de base (par exemple, un équilibreur de charge de base) et tous les produits dérivés de celles-ci ne sont pas compatibles avec NAT.  Les ressources de base doivent être placées sur un sous-réseau non configuré avec NAT.
-* La famille d’adresses IPv4 est prise en charge.  NAT n’interagit pas avec la famille d’adresses IPv6.  NAT ne peut pas être déployé sur un sous-réseau avec préfixe IPv6.
+* NAT est compatible avec des ressources d’adresses IP publiques, de préfixes d’adresses IP publiques et d’équilibreur de charge de la référence SKU standard. Les ressources de base (par exemple, un équilibreur de charge de base) et tous les produits qui en dérivent ne sont pas compatibles avec NAT.  Les ressources de base doivent être placées sur un sous-réseau non configuré avec NAT.
+* La famille d’adresses IPv4 est prise en charge.  NAT n’interagit pas avec la famille d’adresses IPv6.  NAT ne peut pas être déployé sur un sous-réseau avec un préfixe IPv6.
 * La journalisation des flux de groupe de sécurité réseau n’est pas prise en charge lors de l’utilisation de NAT.
 * NAT ne peut pas s’étendre sur plusieurs réseaux virtuels.
 
@@ -201,4 +159,4 @@ Nous aimerions savoir comment nous pouvons améliorer le service. Faites-nous pa
 
 * Apprenez-en davantage sur la [ressource de passerelle NAT](./nat-gateway-resource.md).
 * [Utilisez UserVoice pour nous faire part des prochains développements dont vous aimeriez bénéficier concernant le service NAT de réseau virtuel](https://aka.ms/natuservoice).
-* [Faites-nous part de vos commentaires sur la préversion publique](https://aka.ms/natfeedback).
+

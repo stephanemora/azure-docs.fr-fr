@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 63c531cc0e600d82df74154adb212be76ba9b4de
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: c1a847a315a264591c0d003ff691d9938c2bf0f5
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368545"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79474422"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Tutoriel : Déploiement de modules HSM sur un réseau virtuel existant à l’aide de PowerShell
 
@@ -250,15 +250,7 @@ Si vous n’avez plus besoin du module HSM, vous pouvez le supprimer en tant qu
 > [!NOTE]
 > Si vous rencontrez un problème avec la configuration d’un module Gemalto, vous devez contacter le [support technique Gemalto](https://safenet.gemalto.com/technical-support/).
 
-Si vous souhaitez supprimer uniquement la ressource HSM dans Azure, vous pouvez utiliser la commande suivante en remplaçant les variables « $ » par vos paramètres uniques :
-
-```powershel
-
-Remove-AzureRmResource -Resourceid ` /subscriptions/$subId/resourceGroups/$resourceGroupName/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/$resourceName
-
-```
-
-Si vous n’avez plus besoin des ressources du groupe de ressources, vous pouvez les supprimer avec la commande suivante :
+Si vous souhaitez supprimer la ressource HSM dans Azure, vous pouvez utiliser la commande suivante en remplaçant les variables « $ » par vos paramètres uniques :
 
 ```powershell
 

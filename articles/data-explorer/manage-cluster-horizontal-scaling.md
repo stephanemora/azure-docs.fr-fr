@@ -1,6 +1,6 @@
 ---
 title: Gérer la mise à l’échelle horizontale (scale-out) d’un cluster pour répondre à la demande dans Azure Data Explorer
-description: Cet article décrit les étapes à suivre pour augmenter et diminuer la taille d’un cluster Azure Data Explorer en fonction des fluctuations de la demande.
+description: Cet article décrit les étapes à suivre pour effectuer un scale-out et un scale-in dans un cluster Azure Data Explorer en fonction des fluctuations de la demande.
 author: orspod
 ms.author: orspodek
 ms.reviewer: gabil
@@ -8,13 +8,13 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.openlocfilehash: ff7420619cffc2287ab8ff6332df605d56329549
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77664131"
 ---
-# <a name="manage-cluster-horizontal-scaling-scale-out-in-azure-data-explorer-to-accommodate-changing-demand"></a>Gérer la mise à l'échelle horizontale d'un cluster (montée en puissance) dans Azure Data Explorer pour prendre en compte les fluctuations de la demande
+# <a name="manage-cluster-horizontal-scaling-scale-out-in-azure-data-explorer-to-accommodate-changing-demand"></a>Gérer la mise à l'échelle horizontale d'un cluster (scale-out) dans Azure Data Explorer pour prendre en compte les fluctuations de la demande
 
 Dimensionner un cluster de manière appropriée est essentiel pour les performances de l’Explorateur de données Azure. Une taille de cluster statique peut conduire à une sous-utilisation ou à une surutilisation, ce qui n’est idéal dans aucun des cas. La demande de cluster n'étant pas prévisible de manière précise, la meilleure approche consiste à *mettre à l’échelle* un cluster, en ajoutant et en supprimant de la capacité et des ressources d’UC en fonction des fluctuations de la demande. 
 
@@ -27,9 +27,9 @@ Cet article explique le workflow de mise à l’échelle horizontale.
 
 La mise à l’échelle horizontale vous permet de mettre à l’échelle le nombre d’instances automatiquement en fonction de planifications et de règles prédéfinies. Pour spécifier les paramètres de mise à l’échelle automatique pour votre cluster :
 
-1. Dans le portail Azure, accédez à votre ressource de cluster Azure Data Explorer. Sous **Paramètres**, sélectionnez **Scale out**. 
+1. Dans le portail Azure, accédez à votre ressource de cluster Azure Data Explorer. Sous **Paramètres**, sélectionnez **Scale-out**. 
 
-2. Dans la fenêtre **Scale out**, sélectionnez la méthode de mise à l’échelle automatique de votre choix : **Mise à l’échelle manuelle**, **Mise à l’échelle automatique optimisée** ou **Mise à l’échelle personnalisée**.
+2. Dans la fenêtre **Scale-out**, sélectionnez la méthode de mise à l’échelle automatique de votre choix : **Mise à l’échelle manuelle**, **Mise à l’échelle automatique optimisée** ou **Mise à l’échelle personnalisée**.
 
 ### <a name="manual-scale"></a>Mise à l’échelle manuelle
 
@@ -53,22 +53,22 @@ La mise à l’échelle automatique optimisée commence. Ses actions sont désor
 
 #### <a name="logic-of-optimized-autoscale"></a>Logique de la mise à l’échelle automatique optimisée 
 
-**Augmenter la taille des instances**
+**Scale-out**
 
-Si votre cluster approche un état de surutilisation, montez-le en charge pour qu’il conserve des performances optimales. La montée en charge se produit dans les cas suivants :
+Si votre cluster approche un état de surutilisation, effectuez un scale-out pour qu’il conserve des performances optimales. Le scale-out se produit dans les cas suivants :
 * Le nombre d’instances de cluster est inférieur au nombre maximal d’instances défini par l’utilisateur.
 * L’utilisation du cache est élevée pendant plus d’une heure.
 * L'UC reste élevée pendant plus d'une heure.
 * L’utilisation de l’ingestion est élevée pendant plus d’une heure.
 
 > [!NOTE]
-> La logique de montée en charge ne prend actuellement pas en compte la mesure de l'utilisation de l'ingestion. Si cette mesure est importante pour votre cas d'usage, utilisez la [mise à l'échelle automatique personnalisée](#custom-autoscale).
+> La logique de scale-out ne prend actuellement pas en compte la mesure de l'utilisation de l'ingestion. Si cette mesure est importante pour votre cas d'usage, utilisez la [mise à l'échelle automatique personnalisée](#custom-autoscale).
 
-**Diminuer la taille des instances**
+**Scale-in**
 
-Si votre cluster approche un état de sous-utilisation, diminuer la taille des instances pour réduire’ les coûts tout en maintenant les performances. Plusieurs mesures sont utilisées pour vérifier qu’il est possible de diminuer la taille des instances du cluster en toute sécurité. Les règles suivantes sont évaluées toutes les heures pendant six heures avant la diminution de la taille des instances :
+Si votre cluster approche un état de sous-utilisation, effectuez un scale-in pour réduire les coûts tout en maintenant les performances. Plusieurs mesures sont utilisées pour vérifier qu’il est possible d’effectuer un scale-in du cluster en toute sécurité. Les règles suivantes sont évaluées toutes les heures pendant six heures avant la diminution de la taille des instances :
 * Le nombre d’instances est supérieur à 2 et excède le nombre minimum d’instances défini.
-* Pour garantir qu’il n’y a pas de surcharge des ressources, vérifiez les mesures suivantes avant de diminuer la taille des instances : 
+* Pour garantir qu’il n’y a pas de surcharge des ressources, vérifiez les mesures suivantes avant d’effectuer un scale-in : 
     * L’utilisation du cache n’est pas élevée
     * L’UC est inférieur à la moyenne 
     * L’utilisation de l’ingestion est inférieure à la moyenne 
@@ -78,7 +78,7 @@ Si votre cluster approche un état de sous-utilisation, diminuer la taille des i
     * Le nombre de requêtes ayant échoué est inférieur à la valeur minimale définie.
 
 > [!NOTE]
-> La logique de diminution de la taille des instances nécessite actuellement une évaluation de 7 jours avant l’implémentation de la diminution de la taille des instances optimisée. Cette évaluation a lieu toutes les 24 heures. Si vous souhaitez effectuer un changement rapide, utilisez la [mise à l’échelle manuelle](#manual-scale).
+> La logique de scale-in nécessite actuellement une évaluation de 7 jours avant l’implémentation du scale-in optimisé. Cette évaluation a lieu toutes les 24 heures. Si vous souhaitez effectuer un changement rapide, utilisez la [mise à l’échelle manuelle](#manual-scale).
 
 ### <a name="custom-autoscale"></a>Mise à l’échelle automatique personnalisée
 
@@ -110,7 +110,7 @@ Utiliser la méthode de mise à l’échelle automatique personnalisée vous per
 
     | Paramètre | Description et valeur |
     | --- | --- |
-    | **opération** | Choisissez l’option appropriée pour diminuer ou augmenter la taille. |
+    | **opération** | Choisissez l’option appropriée pour effectuer un scale-in ou un scale-out. |
     | **Nombre d’instances** | Choisissez le nombre de nœuds ou d’instances que vous voulez ajouter ou supprimer quand une condition de métrique est remplie. |
     | **Refroidissement (minutes)** | Choisissez un intervalle de temps d’attente approprié entre les opérations de mise à l’échelle. Commencez avec la valeur par défaut, cinq minutes. |
     |  |  |

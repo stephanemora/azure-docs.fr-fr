@@ -15,10 +15,10 @@ ms.date: 08/20/2019
 ms.author: negoe
 ms.custom: aaddev
 ms.openlocfilehash: d5d48a2fc7aca184cf8b6e7761584a8800ca5151
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77160064"
 ---
 # <a name="single-page-application-acquire-a-token-to-call-an-api"></a>Application monopage : Acquérir un jeton pour appeler une API
@@ -42,7 +42,7 @@ Vous pouvez définir les étendues d’API qui doivent être incluses dans le je
 
 ## <a name="acquire-a-token-with-a-pop-up-window"></a>Acquérir un jeton avec une fenêtre contextuelle
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Le code suivant combine le modèle décrit précédemment aux méthodes offrant une expérience de fenêtre contextuelle :
 
@@ -69,7 +69,7 @@ userAgentApplication.acquireTokenSilent(accessTokenRequest).then(function(access
 });
 ```
 
-# <a name="angulartabangular"></a>[Angular](#tab/angular)
+# <a name="angular"></a>[Angular](#tab/angular)
 
 Le wrapper MSAL Angular fournit l’intercepteur HTTP, qui acquiert automatiquement des jetons d’accès en mode silencieux et les joint aux requêtes HTTP destinées aux API.
 
@@ -115,7 +115,7 @@ Sinon, vous pouvez explicitement acquérir des jetons à l’aide des méthodes 
 
 ## <a name="acquire-a-token-with-a-redirect"></a>Acquérir un jeton avec une redirection
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Le modèle suivant est tel qu’il a été décrit précédemment, mais il est présenté avec une méthode de redirection qui permet d’acquérir les jetons de manière interactive. Vous devez inscrire le rappel de redirection, comme indiqué plus haut.
 
@@ -173,7 +173,7 @@ myMSALObj.acquireTokenPopup(request);
 
 Pour en savoir plus, consultez [Revendications facultatives](active-directory-optional-claims.md).
 
-# <a name="angulartabangular"></a>[Angular](#tab/angular)
+# <a name="angular"></a>[Angular](#tab/angular)
 
 Ce code est identique à celui qui est décrit plus haut.
 

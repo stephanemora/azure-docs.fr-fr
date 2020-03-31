@@ -7,10 +7,10 @@ ms.topic: troubleshooting
 ms.date: 11/04/2019
 ms.author: brendm
 ms.openlocfilehash: 5dcdb03a6d4ec4f448108dbd771a44f362aa7f20
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76277581"
 ---
 # <a name="troubleshoot-common-azure-spring-cloud-issues"></a>Résoudre les problèmes courants liés à Azure Spring Cloud
@@ -74,7 +74,7 @@ Pour déterminer quelle situation s’applique, procédez comme suit :
 2. Ajoutez un filtre **App=** pour spécifier l’application que vous souhaitez analyser.
 3. Fractionnez les métriques par **Instance**.
 
-Si *toutes les instances* connaissent une utilisation élevée de l’UC ou de la mémoire, vous devez monter en charge l’application ou monter en puissance l’utilisation de l’UC ou de la mémoire. Pour plus d’informations, consultez [Didacticiel : Mettre à l’échelle une application dans Azure Spring Cloud](spring-cloud-tutorial-scale-manual.md).
+Si *toutes les instances* connaissent une utilisation élevée de l’UC ou de la mémoire, vous devez effectuer un scale-out de l’application ou un scale-up de l’utilisation de l’UC ou de la mémoire. Pour plus d’informations, consultez [Didacticiel : Mettre à l’échelle une application dans Azure Spring Cloud](spring-cloud-tutorial-scale-manual.md).
 
 Si *certaines instances* présentent une utilisation élevée de l’UC ou de la mémoire, vérifiez l’état de l’instance et son état de détection.
 

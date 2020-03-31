@@ -8,11 +8,11 @@ ms.date: 10/14/2016
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: 8a83c2f6ac7599ff37237834a85b7771cf4ee502
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688745"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79224821"
 ---
 # <a name="network-configuration-details-for-app-service-environment-for-powerapps-with-azure-expressroute"></a>Détails de la configuration réseau pour l’environnement App Service pour PowerApps avec Azure ExpressRoute
 
@@ -94,13 +94,13 @@ Cette section présente un exemple de configuration d’itinéraire défini par 
 > [!IMPORTANT]
 > Ne déployez un environnement App Service qu’après avoir terminé les étapes de configuration. Ces étapes permettent de garantir que la connectivité réseau sortante est disponible avant la tentative de déploiement d’un environnement App Service.
 
-### <a name="step-1-create-a-route-table"></a>Étape 1 : Créer une table de routage
+### <a name="step-1-create-a-route-table"></a>Étape 1 : Créer une table de routage
 
 Créer une table de routage nommée **DirectInternetRouteTable** dans la région Azure USA Ouest, comme le montre l’extrait de code suivant :
 
 `New-AzureRouteTable -Name 'DirectInternetRouteTable' -Location uswest`
 
-### <a name="step-2-create-routes-in-the-table"></a>Étape 2 : Créer des itinéraires dans la table
+### <a name="step-2-create-routes-in-the-table"></a>Étape 2 : Créer des itinéraires dans la table
 
 Ajoutez des itinéraires à la table de routage pour autoriser l’accès internet sortant.  
 

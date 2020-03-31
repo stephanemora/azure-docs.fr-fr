@@ -10,15 +10,15 @@ ms.service: lab-services
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/20/2020
 ms.author: spelluru
-ms.openlocfilehash: ac990141ccc694ed7460763e84126d9fefdbb609
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.openlocfilehash: cc937589b2fc4f394b44cf6890a352d770751d15
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77539448"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79502024"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Gérer des laboratoires de classe dans Azure Lab Services 
 Cet article décrit comment créer et supprimer un laboratoire de classe. Il montre également comment afficher tous les laboratoires de classe dans un compte de laboratoire. 
@@ -97,7 +97,7 @@ Pour configurer un laboratoire de classe dans un compte de laboratoire, vous dev
 
 ### <a name="vm-sizes"></a>Tailles de machine virtuelle  
 
-| Size | Cœurs | RAM | Description | 
+| Taille | Cœurs | RAM | Description | 
 | ---- | ----- | --- | ----------- | 
 | Petite | 2 | 3,5 Go | Cette taille est idéale pour la ligne de commande, l’ouverture d’un navigateur web, les serveurs web à faible trafic et les bases de données de petite et moyenne taille. |
 | Moyenne | 4 | 7 Go | Cette taille est idéale pour les bases de données relationnelles, le caching en mémoire et l’analyse | 

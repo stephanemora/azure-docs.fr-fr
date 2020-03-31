@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: 387d04cbbb125006efcc4efc53a02015fe3f5919
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77588584"
 ---
 # <a name="connect-data-from-azure-advanced-threat-protection-atp"></a>Connecter des données d’Azure Advanced Threat Protection (ATP)
@@ -29,7 +29,7 @@ ms.locfileid: "77588584"
 
 Vous pouvez diffuser des journaux dans Azure Sentinel avec un seul clic à partir d’[Azure Advanced Threat Protection](https://docs.microsoft.com/azure-advanced-threat-protection/what-is-atp).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Utilisateur, doté d’autorisations d’administrateur général ou d’administrateur de la sécurité
 - Vous devez être un client de la préversion d’Azure ATP et activer l’intégration entre Azure ATP et Microsoft Cloud App Security. Pour plus d’informations, consultez [Azure Advanced Protection Integration](https://docs.microsoft.com/cloud-app-security/aatp-integration).

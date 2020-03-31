@@ -10,10 +10,10 @@ ms.tgt_pltfrm: na
 ms.date: 03/25/2018
 ms.author: yushwang
 ms.openlocfilehash: 3917101ee7ac151cf624e5be0f51ccf01c8cb1cc
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77161883"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>Configurer le transit par passerelle VPN pour le peering de réseaux virtuels
@@ -48,7 +48,7 @@ Consultez les documents suivants pour connaître les procédures associées :
 2. [Créer un peering de réseaux virtuels présentant le même modèle de déploiement](../virtual-network/tutorial-connect-virtual-networks-portal.md)
 3. [Créer un peering de réseaux virtuels présentant des modèles de déploiement différents](../virtual-network/create-peering-different-deployment-models.md)
 
-## <a name="permissions"></a>Autorisations
+## <a name="permissions"></a><a name="permissions"></a>Autorisations
 
 Les comptes que vous utilisez pour créer un peering de réseaux virtuels doivent être dotés des autorisations ou des rôles nécessaires. Dans l’exemple ci-dessous, si vous avez effectué un peering entre deux réseaux virtuels nommés Hub-RM et Spoke-Classic, votre compte doit être doté des autorisations ou des rôles suivants pour chaque réseau virtuel :
     

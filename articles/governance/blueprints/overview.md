@@ -4,10 +4,10 @@ description: Découvrez comment Azure Blueprints vous permet de créer, de défi
 ms.date: 11/21/2019
 ms.topic: overview
 ms.openlocfilehash: 07d84d658d88e977cd73176861e5c5e080c02857
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74321764"
 ---
 # <a name="what-is-azure-blueprints"></a>Qu’est-ce qu’Azure Blueprint ?
@@ -50,7 +50,7 @@ Un blueprint est composé _d’artefacts_. Les blueprints prennent actuellement 
 
 |Ressource  | Options de hiérarchie| Description  |
 |---------|---------|---------|
-|Groupes de ressources | Subscription | Crée un groupe de ressources pour une utilisation par d’autres artefacts dans le blueprint.  Ces groupes de ressources réservés vous permettent d’organiser les ressources en totale conformité avec la structure souhaitée. Ils fournissent aussi un limiteur d’étendue pour les artefacts de stratégie et d’attribution de rôle inclus, et des modèles Azure Resource Manager. |
+|Groupes de ressources | Abonnement | Crée un groupe de ressources pour une utilisation par d’autres artefacts dans le blueprint.  Ces groupes de ressources réservés vous permettent d’organiser les ressources en totale conformité avec la structure souhaitée. Ils fournissent aussi un limiteur d’étendue pour les artefacts de stratégie et d’attribution de rôle inclus, et des modèles Azure Resource Manager. |
 |Modèle Azure Resource Manager | Abonnement, groupe de ressources | Des modèles, tels que les modèles imbriqués et liés, sont utilisés pour composer des environnements complexes. Exemples d’environnements : une batterie de serveurs SharePoint, une configuration de l’état Azure Automation ou un espace de travail Log Analytics. |
 |Affectation de rôle | Abonnement, groupe de ressources | Permet l’affectation d’une stratégie ou d’une initiative à l’abonnement auquel le blueprint est affecté. La stratégie ou l’initiative doit se trouver à l’intérieur de l’étendue de l’emplacement de définition du blueprint. Si la stratégie ou l’initiative comporte des paramètres, ceux-ci sont affectés au moment de la création du blueprint ou durant son affectation. |
 |Attribution de rôle | Abonnement, groupe de ressources | Ajoutez un utilisateur ou un groupe existant à un rôle intégré pour vous assurer que les personnes adéquates disposent d’un accès approprié à vos ressources. Vous pouvez définir des attributions de rôle pour l’ensemble de l’abonnement ou les imbriquer dans un groupe de ressources spécifique inclus dans le blueprint. |
@@ -77,7 +77,7 @@ Quand vous créez un blueprint, celui-ci est initialement en mode **Brouillon**.
 
 ## <a name="blueprint-assignment"></a>Affectation de blueprint
 
-Chaque **Version** **publiée** d’un blueprint peut être attribuée à un abonnement existant (le nom ne doit pas excéder 90 caractères). Dans le portail, le blueprint par défaut correspond à la dernière **Version** **Publiée**. Si des paramètres d’artefact (ou des paramètres de blueprint) sont présents, ils sont définis durant le processus d’affectation.
+Chaque **version** **publiée** d’un blueprint peut être affectée à un abonnement existant (la longueur maximale du nom est de 90 caractères). Dans le portail, le blueprint par défaut correspond à la dernière **Version** **Publiée**. Si des paramètres d’artefact (ou des paramètres de blueprint) sont présents, ils sont définis durant le processus d’affectation.
 
 ## <a name="permissions-in-azure-blueprints"></a>Autorisations dans Azure Blueprint
 

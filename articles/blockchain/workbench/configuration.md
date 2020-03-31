@@ -5,11 +5,11 @@ ms.date: 12/09/2019
 ms.topic: article
 ms.reviewer: brendal
 ms.openlocfilehash: 661e795f0e85f872b1072a8f641b8938115c5d7a
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74972440"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227381"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Référence de configuration Azure Blockchain Workbench
 
@@ -35,11 +35,11 @@ Une application blockchain contient des métadonnées de configuration, des work
 
 | Champ | Description | Obligatoire |
 |-------|-------------|:--------:|
-| ApplicationName | Nom d’application unique. Le contrat intelligent correspondant doit utiliser la même propriété **ApplicationName** pour la classe de contrat applicable.  | OUI |
-| DisplayName | Nom d’affichage convivial de l’application. | OUI |
-| Description | Description de l’application. | Non |
-| ApplicationRoles | Collection d’[ApplicationRoles](#application-roles). Rôles utilisateur autorisés à agir ou à participer au sein de l’application.  | OUI |
-| Workflows | Collection de [Workflows](#workflows). Chaque workflow agit comme une machine à états pour contrôler le flux de la logique métier. | OUI |
+| ApplicationName | Nom d’application unique. Le contrat intelligent correspondant doit utiliser la même propriété **ApplicationName** pour la classe de contrat applicable.  | Oui |
+| DisplayName | Nom d’affichage convivial de l’application. | Oui |
+| Description | Description de l'application. | Non |
+| ApplicationRoles | Collection d’[ApplicationRoles](#application-roles). Rôles utilisateur autorisés à agir ou à participer au sein de l’application.  | Oui |
+| Workflows | Collection de [Workflows](#workflows). Chaque workflow agit comme une machine à états pour contrôler le flux de la logique métier. | Oui |
 
 Pour obtenir un exemple, consultez l’[exemple de fichier de configuration](#configuration-file-example).
 
@@ -49,15 +49,15 @@ La logique métier d’une application peut être modélisée comme une machine 
 
 | Champ | Description | Obligatoire | Longueur maximale |
 |-------|-------------|:--------:|-----------:|
-| Name | Nom unique du workflow. Le contrat intelligent correspondant doit utiliser la même propriété **Name** pour la classe de contrat applicable. | OUI | 50 |
-| DisplayName | Nom d’affichage convivial du workflow. | OUI | 255 |
+| Name | Nom unique du workflow. Le contrat intelligent correspondant doit utiliser la même propriété **Name** pour la classe de contrat applicable. | Oui | 50 |
+| DisplayName | Nom d’affichage convivial du workflow. | Oui | 255 |
 | Description | Description du workflow. | Non | 255 |
-| Initiateurs | Collection d’[ApplicationRoles](#application-roles). Rôles attribués aux utilisateurs qui sont autorisés à créer des contrats dans le workflow. | OUI | |
-| StartState | Nom de l’état initial du workflow. | OUI | |
-| properties | Collection d’[identificateurs](#identifiers). Représente des données qui peuvent être lues hors de la chaîne ou visualisées dans un outil d’expérience utilisateur. | OUI | |
-| Constructeur | Définit les paramètres d’entrée pour la création d’une instance du workflow. | OUI | |
-| Fonctions | Collection de [fonctions](#functions) qui peut être exécutée dans le workflow. | OUI | |
-| États | Collection d’[états](#states) de workflow. | OUI | |
+| Initiateurs | Collection d’[ApplicationRoles](#application-roles). Rôles attribués aux utilisateurs qui sont autorisés à créer des contrats dans le workflow. | Oui | |
+| StartState | Nom de l’état initial du workflow. | Oui | |
+| Propriétés | Collection d’[identificateurs](#identifiers). Représente des données qui peuvent être lues hors de la chaîne ou visualisées dans un outil d’expérience utilisateur. | Oui | |
+| Constructeur | Définit les paramètres d’entrée pour la création d’une instance du workflow. | Oui | |
+| Fonctions | Collection de [fonctions](#functions) qui peut être exécutée dans le workflow. | Oui | |
+| États | Collection d’[états](#states) de workflow. | Oui | |
 
 Pour obtenir un exemple, consultez l’[exemple de fichier de configuration](#configuration-file-example).
 
@@ -68,7 +68,7 @@ Types de données pris en charge.
 | Type | Description |
 |-------|-------------|
 | address  | Type d’adresse blockchain, par exemple *contracts* ou *users*. |
-| array    | Tableau à un seul niveau de type integer, bool, money ou time. Les tableaux peuvent être statiques ou dynamiques. Utilisez **ElementType** pour spécifier le type de données des éléments dans le tableau. Consultez [l’exemple de configuration](#example-configuration-of-type-array). |
+| tableau    | Tableau à un seul niveau de type integer, bool, money ou time. Les tableaux peuvent être statiques ou dynamiques. Utilisez **ElementType** pour spécifier le type de données des éléments dans le tableau. Consultez [l’exemple de configuration](#example-configuration-of-type-array). |
 | bool     | Type de données Boolean. |
 | contract | Adresse de type contract. |
 | enum     | Ensemble énuméré de valeurs nommées. Lorsque vous utilisez le type enum, vous spécifiez également une liste de valeurs d’énumération. Chaque valeur est limitée à 255 caractères. Les valeurs peuvent contenir des lettres majuscules et minuscules (A-Z, a-z) et des chiffres (0-9). Consultez [l’exemple de configuration et d’utilisation de Solidity](#example-configuration-of-type-enum). |
@@ -76,7 +76,7 @@ Types de données pris en charge.
 | money    | Type de données Money. |
 | state    | État du workflow. |
 | string  | Type de données String. 4 000 caractères au maximum. Consultez [l’exemple de configuration](#example-configuration-of-type-string). |
-| user     | Adresse de type user. |
+| utilisateur     | Adresse de type user. |
 | time     | Type de données Time. |
 |`[ Application Role Name ]`| N’importe quel nom spécifié dans le rôle d’application. Limite les utilisateurs à ce type de rôle. |
 
@@ -170,7 +170,7 @@ Définit les paramètres d’entrée pour une instance de workflow.
 
 | Champ | Description | Obligatoire |
 |-------|-------------|:--------:|
-| parameters | Collection d’[identificateurs](#identifiers) requise pour initialiser un contrat intelligent. | OUI |
+| Paramètres | Collection d’[identificateurs](#identifiers) requise pour initialiser un contrat intelligent. | Oui |
 
 ### <a name="constructor-example"></a>Exemple de constructeur
 
@@ -203,10 +203,10 @@ Définit les fonctions qui peuvent être exécutées dans le workflow.
 
 | Champ | Description | Obligatoire | Longueur maximale |
 |-------|-------------|:--------:|-----------:|
-| Name | Nom unique de la fonction. Le contrat intelligent correspondant doit utiliser la même propriété **Name** pour la fonction applicable. | OUI | 50 |
-| DisplayName | Nom d’affichage convivial de la fonction. | OUI | 255 |
+| Name | Nom unique de la fonction. Le contrat intelligent correspondant doit utiliser la même propriété **Name** pour la fonction applicable. | Oui | 50 |
+| DisplayName | Nom d’affichage convivial de la fonction. | Oui | 255 |
 | Description | Description de la fonction | Non | 255 |
-| parameters | Collection d’[identificateurs](#identifiers) correspondant aux paramètres de la fonction. | OUI | |
+| Paramètres | Collection d’[identificateurs](#identifiers) correspondant aux paramètres de la fonction. | Oui | |
 
 ### <a name="functions-example"></a>Exemples de fonctions
 
@@ -251,11 +251,11 @@ Collection d’états uniques au sein d’un workflow. Chaque état capture une 
 
 | Champ | Description | Obligatoire | Longueur maximale |
 |-------|-------------|:--------:|-----------:|
-| Name | Nom unique de l’état. Le contrat intelligent correspondant doit utiliser la même propriété **Name** pour l’état applicable. | OUI | 50 |
-| DisplayName | Nom d’affichage convivial de l’état. | OUI | 255 |
+| Name | Nom unique de l’état. Le contrat intelligent correspondant doit utiliser la même propriété **Name** pour l’état applicable. | Oui | 50 |
+| DisplayName | Nom d’affichage convivial de l’état. | Oui | 255 |
 | Description | Description de l’état. | Non | 255 |
-| PercentComplete | Valeur entière qui apparaît dans l’interface utilisateur Blockchain Workbench pour afficher la progression dans le flux de contrôle de logique métier. | OUI | |
-| Style | Indicateur visuel qui indique si l’état représente un état de réussite ou d’échec. Il existe deux valeurs valides : `Success` ou `Failure`. | OUI | |
+| PercentComplete | Valeur entière qui apparaît dans l’interface utilisateur Blockchain Workbench pour afficher la progression dans le flux de contrôle de logique métier. | Oui | |
+| Style | Indicateur visuel qui indique si l’état représente un état de réussite ou d’échec. Il existe deux valeurs valides : `Success` ou `Failure`. | Oui | |
 | Transitions | Collection de [transitions](#transitions) disponibles de l’état actuel vers l’ensemble d’états suivant. | Non | |
 
 ### <a name="states-example"></a>Exemple d’états
@@ -322,10 +322,10 @@ Actions disponibles à l’état suivant. Un ou plusieurs rôles d’utilisateur
 |-------|-------------|:--------:|
 | AllowedRoles | Liste des rôles d’application autorisés à initier la transition. Tous les utilisateurs du rôle spécifié peuvent effectuer l’action. | Non |
 | AllowedInstanceRoles | Liste des rôles d’utilisateur participant ou spécifiés dans le contrat intelligent, autorisés à initier la transition. Les rôles d’instance sont définis dans **Propriétés** au sein des workflows. AllowedInstanceRoles représente un utilisateur appartenant à une instance dans un contrat intelligent. AllowedInstanceRoles vous permet d’empêcher un rôle d’utilisateur d’effectuer une action dans une instance de contrat.  Par exemple, vous souhaitez que seul l’utilisateur qui a créé le contrat (InstanceOwner) puisse le clore plutôt que tous les utilisateurs appartenant au type de rôle (Propriétaire) si vous avez spécifié le rôle dans AllowedRoles. | Non |
-| DisplayName | Nom d’affichage convivial de la transition. | OUI |
+| DisplayName | Nom d’affichage convivial de la transition. | Oui |
 | Description | Description de la transition. | Non |
-| Fonction | Nom de la fonction permettant d’initier la transition. | OUI |
-| NextStates | Collection d’états potentiels après une transition réussie. | OUI |
+| Fonction | Nom de la fonction permettant d’initier la transition. | Oui |
+| NextStates | Collection d’états potentiels après une transition réussie. | Oui |
 
 ### <a name="transitions-example"></a>Exemple de transitions
 
@@ -365,7 +365,7 @@ Les rôles d’application définissent un ensemble de rôles qui peuvent être 
 
 | Champ | Description | Obligatoire | Longueur maximale |
 |-------|-------------|:--------:|-----------:|
-| Name | Nom unique du rôle d’application. Le contrat intelligent correspondant doit utiliser la même propriété **Name** pour le rôle applicable. Les noms de type de base sont réservés. Vous ne pouvez pas nommer un rôle d’application de la même manière que [Type](#type)| OUI | 50 |
+| Name | Nom unique du rôle d’application. Le contrat intelligent correspondant doit utiliser la même propriété **Name** pour le rôle applicable. Les noms de type de base sont réservés. Vous ne pouvez pas nommer un rôle d’application de la même manière que [Type](#type)| Oui | 50 |
 | Description | Description du rôle d’application. | Non | 255 |
 
 ### <a name="application-roles-example"></a>Exemple de rôles d’application
@@ -388,10 +388,10 @@ Les identificateurs représentent une collection d’informations utilisées pou
 
 | Champ | Description | Obligatoire | Longueur maximale |
 |-------|-------------|:--------:|-----------:|
-| Name | Nom unique de la propriété ou du paramètre. Le contrat intelligent correspondant doit utiliser la même propriété **Name** pour la propriété ou le paramètre applicable. | OUI | 50 |
-| DisplayName | Nom d’affichage convivial pour la propriété ou le paramètre. | OUI | 255 |
+| Name | Nom unique de la propriété ou du paramètre. Le contrat intelligent correspondant doit utiliser la même propriété **Name** pour la propriété ou le paramètre applicable. | Oui | 50 |
+| DisplayName | Nom d’affichage convivial pour la propriété ou le paramètre. | Oui | 255 |
 | Description | Description de la propriété ou du paramètre. | Non | 255 |
-| Type | [Type de données](#type) de propriété. | OUI |
+| Type | [Type de données](#type) de propriété. | Oui |
 
 ### <a name="identifiers-example"></a>Exemple d’identificateurs
 

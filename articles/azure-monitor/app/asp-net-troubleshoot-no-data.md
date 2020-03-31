@@ -4,10 +4,10 @@ description: Vous ne voyez pas de données dans Azure Application Insights ? E
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.openlocfilehash: 2627fde55f4177798d04aab02db169f3117d32dd
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77665899"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>Résolution des problèmes liés à l’absence de données - Application Insights pour .NET et .NET Core
@@ -38,7 +38,7 @@ ms.locfileid: "77665899"
 
 * Consultez [Résolution des problèmes liés à Status Monitor](../../azure-monitor/app/monitor-performance-live-website-now.md#troubleshoot).
 
-## <a name="q01"></a>Aucune option « Ajouter Application Insights » dans Visual Studio
+## <a name="no-add-application-insights-option-in-visual-studio"></a><a name="q01"></a>Aucune option « Ajouter Application Insights » dans Visual Studio
 *Lorsque j’effectue un clic droit sur le projet existant dans l’Explorateur de solutions, je ne vois aucune option Application Insights.*
 
 * Les outils ne prennent pas en charge tous les types de projets .NET. Les projets Web et WCF sont pris en charge. Pour les autres types de projets, notamment les applications de bureau ou de service, vous avez toujours la possibilité [d’ajouter un kit de développement logiciel Application Insights à votre projet manuellement](../../azure-monitor/app/windows-desktop.md).
@@ -46,7 +46,7 @@ ms.locfileid: "77665899"
 * Sélectionnez **Outils**, **Extensions et mises à jour**, puis vérifiez l’installation et l’activation des outils **Analyse développeur**. Dans ce cas, cliquez sur **Mises à jour** pour voir si une mise à jour est disponible.
 * Ouvrez la boîte de dialogue Nouveau projet et sélectionnez l’application Web ASP.NET. Si vous voyez l’option Application Insights à cet endroit, les outils sont installés. Si ce n’est pas le cas, essayez de désinstaller, puis de réinstaller Developer Analytics Tools.
 
-## <a name="q02"></a>Échec de l’ajout d’Application Insights
+## <a name="adding-application-insights-failed"></a><a name="q02"></a>Échec de l’ajout d’Application Insights
 *Lorsque j’essaie d’ajouter Application Insights à un projet existant, je reçois un message d’erreur.*
 
 Causes probables :
@@ -61,12 +61,12 @@ Correctif :
 * Dans votre navigateur, vérifiez que vous avez accès au [portail Azure](https://portal.azure.com). Ouvrez Paramètres et vérifiez s’il existe des restrictions.
 * [Ajout d’Application Insights à votre projet existant](../../azure-monitor/app/asp-net.md) : Dans l’Explorateur de solutions, cliquez avec le bouton droit sur votre projet, puis sélectionnez « Ajouter Application Insights ».
 
-## <a name="emptykey"></a>J’obtiens une erreur « La clé d’instrumentation ne peut pas être vide ».
+## <a name="i-get-an-error-instrumentation-key-cannot-be-empty"></a><a name="emptykey"></a>J’obtiens une erreur « La clé d’instrumentation ne peut pas être vide ».
 Il semble qu'une erreur est survenue durant l'installation d'Application Insights ou d'un enregistreur de données.
 
 Dans l’explorateur de solutions, cliquez avec le bouton droit sur votre projet, puis sélectionnez **Application Insights > Configurer Application Insights**. Une boîte de dialogue vous invite à vous connecter à Azure et à créer une ressource Application Insights, ou à réutiliser une ressource existante.
 
-## <a name="NuGetBuild"></a> « Packages NuGet manquants » sur mon serveur de builds
+## <a name="nuget-packages-are-missing-on-my-build-server"></a><a name="NuGetBuild"></a> « Packages NuGet manquants » sur mon serveur de builds
 *Sur ma machine de développement, tout fonctionne correctement, mais j’obtiens une erreur NuGet sur le serveur de builds.*
 
 Consultez les sections relatives à la [restauration des packages NuGet](https://docs.nuget.org/Consume/Package-Restore) et à la [restauration automatique des packages](https://docs.nuget.org/Consume/package-restore/migrating-to-automatic-package-restore).
@@ -120,7 +120,7 @@ Correctif :
   Vous allez voir certains graphiques récapitulatifs. Vous pouvez cliquer dessus pour afficher d’autres détails.
 * Dans Visual Studio, cliquez sur le bouton Application Insights, pendant le débogage de votre application.
 
-## <a name="q03"></a> Aucune donnée sur serveur (ou aucune donnée)
+## <a name="no-server-data-or-no-data-at-all"></a><a name="q03"></a> Aucune donnée sur serveur (ou aucune donnée)
 *J’ai exécuté mon application, puis j’ai ouvert le service Application Insights dans Microsoft Azure, mais tous les graphiques affichent « Découvrez comment collecter... » ou « Non configuré ».* Ou *Mode page et données utilisateur uniquement, mais aucune donnée de serveur.*
 
 * Exécutez votre application en mode Débogage dans Visual Studio (F5). Utilisez l’application afin de générer des données de télémétrie. Vérifiez que vous pouvez voir les événements consignés dans la fenêtre Sortie de Visual Studio.  
@@ -136,7 +136,7 @@ Correctif :
 * Avez-vous écrit du code pour le [kit de développement logiciel côté serveur](../../azure-monitor/app/api-custom-events-metrics.md) susceptible de modifier la clé d’instrumentation dans les instances `TelemetryClient` ou dans `TelemetryContext` ? Ou avez-vous rédigé une [configuration de filtre ou d’échantillonnage](../../azure-monitor/app/api-filtering-sampling.md) trop exclusive ?
 * Si vous avez modifié ApplicationInsights.config, vérifiez attentivement la configuration de [TelemetryInitializers et de TelemetryProcessors](../../azure-monitor/app/api-filtering-sampling.md). Un type ou un paramètre nommé de manière incorrecte peut empêcher le kit de développement logiciel d'envoyer des données.
 
-## <a name="q04"></a>Aucune donnée sur l’affichage des pages, les navigateurs et l’utilisation
+## <a name="no-data-on-page-views-browsers-usage"></a><a name="q04"></a>Aucune donnée sur l’affichage des pages, les navigateurs et l’utilisation
 *Je vois des données dans les graphiques Heures de réponse de serveur et Demandes de serveur, mais aucune donnée Temps de chargement de la page consultée, ou dans les panneaux Navigateur ou Utilisation.*
 
 Les données proviennent de scripts dans les pages web. 
@@ -228,7 +228,7 @@ La dernière version de Microsoft.ApplicationInsights.AspNetCore est 2.8.2 et el
 4. Dès que vous avez terminé, annulez ces modifications.
 
 
-## <a name="PerfView"></a> Collecter des journaux avec PerfView
+## <a name="collect-logs-with-perfview"></a><a name="PerfView"></a> Collecter des journaux avec PerfView
 [PerfView](https://github.com/Microsoft/perfview) est un outil d’analyse des performances et de diagnostic gratuit qui aide à isoler le processeur, la mémoire et d’autres problèmes en collectant et en visualisant des informations relatives aux diagnostics provenant de nombreuses sources.
 
 Le kit de développement logiciel (SDK) Application Insights enregistre les journaux EventSource de résolution automatique des problèmes qui peuvent être capturés par PerfView.

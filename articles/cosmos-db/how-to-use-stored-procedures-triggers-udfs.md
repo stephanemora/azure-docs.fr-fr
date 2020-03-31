@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 02/24/2020
 ms.author: mjbrown
 ms.openlocfilehash: 00740bc2255962089789682e3227ce414fd0ce64
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77582498"
 ---
 # <a name="how-to-register-and-use-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Comment inscrire et utiliser des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur dans Azure Cosmos DB
 
 L’API SQL dans Azure Cosmos DB prend en charge l’inscription et l’appel de procédures stockées, déclencheurs et fonctions définies par l’utilisateur (UDF) écrites en JavaScript. Vous pouvez utiliser les SDK API SQL [.NET](sql-api-sdk-dotnet.md), [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript](sql-api-sdk-node.md), [Node.js](sql-api-sdk-node.md) ou [Python](sql-api-sdk-python.md) pour inscrire et appeler les procédures stockées. Après avoir défini des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur, vous pouvez les charger et les afficher dans le [portail Azure](https://portal.azure.com/) à l’aide de l’Explorateur de données.
 
-## <a id="stored-procedures"></a> Comment exécuter des procédures stockées
+## <a name="how-to-run-stored-procedures"></a><a id="stored-procedures"></a> Comment exécuter des procédures stockées
 
 Les procédures stockées sont écrites à l’aide de JavaScript. Elles peuvent créer, mettre à jour, lire, interroger et supprimer des éléments dans un conteneur Azure Cosmos. Pour plus d’informations concernant l’écriture des procédures stockées dans Azure Cosmos DB, consultez l’article [Comment écrire des procédures stockées dans Azure Cosmos DB](how-to-write-stored-procedures-triggers-udfs.md#stored-procedures).
 
@@ -195,7 +195,7 @@ new_item = [{
 client.ExecuteStoredProcedure(sproc_link, new_item, {'partitionKey': 'Personal'}
 ```
 
-## <a id="pre-triggers"></a>Comment exécuter les pré-déclencheurs
+## <a name="how-to-run-pre-triggers"></a><a id="pre-triggers"></a>Comment exécuter les pré-déclencheurs
 
 Les exemples suivants montrent comment inscrire et appeler un pré-déclencheur à l’aide des kits de développement logiciel (SDK) Azure Cosmos DB. Reportez-vous à [Exemple de pré-déclencheur](how-to-write-stored-procedures-triggers-udfs.md#pre-triggers) puisque la source pour ce pré-déclencheur est enregistrée en tant que `trgPreValidateToDoItemTimestamp.js`.
 
@@ -353,7 +353,7 @@ client.CreateItem(container_link, item, {
                   'preTriggerInclude': 'trgPreValidateToDoItemTimestamp'})
 ```
 
-## <a id="post-triggers"></a>Comment exécuter les post-déclencheurs
+## <a name="how-to-run-post-triggers"></a><a id="post-triggers"></a>Comment exécuter les post-déclencheurs
 
 Les exemples suivants montrent comment inscrire un post-déclencheur à l’aide des kits de développement logiciel (SDK) Azure Cosmos DB. Reportez-vous à [Exemple de post-déclencheur](how-to-write-stored-procedures-triggers-udfs.md#post-triggers) puisque la source pour ce post-déclencheur est enregistrée en tant que `trgPostUpdateMetadata.js`.
 
@@ -500,7 +500,7 @@ client.CreateItem(container_link, item, {
                   'postTriggerInclude': 'trgPostUpdateMetadata'})
 ```
 
-## <a id="udfs"></a> Comment utiliser des fonctions définies par l’utilisateur
+## <a name="how-to-work-with-user-defined-functions"></a><a id="udfs"></a> Comment utiliser des fonctions définies par l’utilisateur
 
 Les exemples suivants montrent comment inscrire une fonction définie par l’utilisateur à l’aide des kits de développement logiciel (SDK) Azure Cosmos DB. Reportez-vous à [Exemple de fonction définie par l’utilisateur](how-to-write-stored-procedures-triggers-udfs.md#udfs) puisque la source pour ce post-déclencheur est enregistrée en tant que `udfTax.js`.
 

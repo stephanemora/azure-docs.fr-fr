@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
 ms.openlocfilehash: 6614e70d130abe46067c657bda3ccdd7000caddc
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845280"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79224861"
 ---
 # <a name="api-management-policy-expressions"></a>Expressions de stratégie de la Gestion des API
 Cet article décrit la syntaxe des expressions de stratégie dans C# 7. Chaque expression a accès à la variable de [contexte](api-management-policy-expressions.md#ContextVariables) fournie implicitement et à un [sous-ensemble](api-management-policy-expressions.md#CLRTypes) autorisé de types .NET Framework.
@@ -33,12 +33,12 @@ Pour plus d'informations :
 - Pour télécharger les instructions de stratégie, consultez le référentiel GitHub [api-management-samples/policies](https://github.com/Azure/api-management-samples/tree/master/policies).
 
 
-## <a name="Syntax"></a> Syntaxe
+## <a name="syntax"></a><a name="Syntax"></a> Syntaxe
 Les expressions à instruction unique sont entre `@(expression)`, où `expression` est une instruction d’expression C# bien formée.
 
 Les expressions à instructions multiples sont entre `@{expression}`. Tous les chemins d’accès de code au sein des expressions à instructions multiples doivent se terminer par une instruction `return`.
 
-## <a name="PolicyExpressionsExamples"></a> Exemples
+## <a name="examples"></a><a name="PolicyExpressionsExamples"></a> Exemples
 
 ```
 @(true)
@@ -65,13 +65,13 @@ Les expressions à instructions multiples sont entre `@{expression}`. Tous les c
 }
 ```
 
-## <a name="PolicyExpressionsUsage"></a>Utilisation
+## <a name="usage"></a><a name="PolicyExpressionsUsage"></a>Utilisation
 Les expressions peuvent être utilisées comme valeurs d’attribut ou valeurs de texte dans l’une des [stratégies](api-management-policies.md) de la Gestion des API, sauf si la référence de la stratégie le spécifie autrement.
 
 > [!IMPORTANT]
 > Lorsque vous utilisez des expressions de stratégie, elles ne font l’objet que d’une vérification limitée lors de la définition de la stratégie. Les expressions sont exécutées par la passerelle lors de l’exécution, et toutes les exceptions générées par les expressions de stratégie entraînent une erreur d’exécution.
 
-## <a name="CLRTypes"></a> Types .NET Framework autorisés dans les expressions de stratégie
+## <a name="net-framework-types-allowed-in-policy-expressions"></a><a name="CLRTypes"></a> Types .NET Framework autorisés dans les expressions de stratégie
 Le tableau suivant liste les types .NET Framework et leurs membres qui sont autorisés dans les expressions de stratégie.
 
 |Type|Membres pris en charge|
@@ -156,7 +156,7 @@ Le tableau suivant liste les types .NET Framework et leurs membres qui sont auto
 |System.Security.Cryptography.SymmetricAlgorithm|Tous|
 |System.Security.Cryptography.X509Certificates.PublicKey|Tous|
 |System.Security.Cryptography.X509Certificates.RSACertificateExtensions|Tous|
-|System.Security.Cryptography.X509Certificates.X500DistinguishedName|Name|
+|System.Security.Cryptography.X509Certificates.X500DistinguishedName|Nom|
 |System.Security.Cryptography.X509Certificates.X509Certificate|Tous|
 |System.Security.Cryptography.X509Certificates.X509Certificate2|Tous|
 |System.Security.Cryptography.X509Certificates.X509ContentType|Tous|
@@ -205,7 +205,7 @@ Le tableau suivant liste les types .NET Framework et leurs membres qui sont auto
 |System.Xml.Linq.XText|Tous|
 |System.Xml.XmlNodeType|Tous|
 
-## <a name="ContextVariables"></a> Variable de contexte
+## <a name="context-variable"></a><a name="ContextVariables"></a> Variable de contexte
 Une variable nommée `context` est implicitement disponible dans toutes les [expressions](api-management-policy-expressions.md#Syntax) de stratégie. Ses membres fournissent des informations pertinentes pour la `\request`. Tous les membres `context` sont en lecture seule.
 
 |Variable de contexte|Méthodes, propriétés et valeurs de paramètres autorisées|

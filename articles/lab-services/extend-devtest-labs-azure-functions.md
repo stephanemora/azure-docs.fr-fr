@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 08/22/2019
 ms.author: spelluru
 ms.openlocfilehash: dd1fc4c1076d89c12b25837db9fa6a0ac3e1f3a5
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70014228"
 ---
 # <a name="use-azure-functions-to-extend-devtest-labs"></a>Utiliser Azure Functions pour étendre DevTest Labs
@@ -27,7 +27,7 @@ Vous pouvez utiliser Azure Functions pour prendre en charge des scénarios en pl
 - Permettre aux utilisateurs d’effectuer des opérations qui nécessitent des autorisations accrues dans l’abonnement
 - [Démarrage de workflows basés sur des événements DevTest Labs](https://github.com/RogerBestMsft/DTL-SecureArtifactData)
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 [Azure Functions](../azure-functions/functions-overview.md) est une plateforme calcul Serverless dans Azure. L’utilisation d’Azure Functions dans une solution avec DevTest Labs nous permet d’augmenter les fonctionnalités existantes avec notre propre code personnalisé. Pour plus d’informations sur Azure Functions, voir la [Documentation Azure Functions](../azure-functions/functions-overview.md). Pour illustrer la façon dont Azure Functions peut vous aider à répondre à vos besoins ou à exécuter des scénarios complets dans DevTest Labs, cet article présente un exemple de fourniture de synthèse générale des machines virtuelles dans le labo comme suit :
 
 **Exemple d’exigence/de scénario** : Les utilisateurs peuvent afficher des détails sur toutes les machines virtuelles d’un labo, y compris le système d’exploitation, le propriétaire et tous les artefacts appliqués.  De plus, si l’artefact **Appliquer les mises à jour Windows** n’a pas été appliqué récemment, il existe un moyen simple de l’appliquer.
@@ -51,12 +51,12 @@ Pour exécuter une autre action sur toutes les machines virtuelles auxquelles le
 ## <a name="step-by-step-walkthrough"></a>Procédure pas à pas
 Cette section fournit des instructions pas à pas pour la configuration des ressources Azure nécessaires pour mettre à jour la page **Support interne**. Cette procédure pas à pas fournit un exemple d’extension de DevTest Labs. Vous pouvez utiliser ce modèle pour d’autres scénarios.
 
-### <a name="step-1-create-a-service-principal"></a>Étape 1 : Créer un principal du service 
+### <a name="step-1-create-a-service-principal"></a>Étape 1 : Créer un principal du service 
 La première étape consiste à obtenir un principal de service avec l’autorisation d’accès à l’abonnement contenant le labo. Le principal de service doit utiliser l’authentification par mot de passe. Cela est possible avec [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest), [Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps?view=azps-2.5.0) ou le [portail Azure](../active-directory/develop/howto-create-service-principal-portal.md). Si vous avez déjà un principal de service à utiliser, vous pouvez ignorer cette étape.
 
 Notez l’**ID d’application**, la **clé** et l’**ID de locataire** pour le principal de service. Vous en aurez besoin plus loin dans le cadre de cette procédure pas à pas. 
 
-### <a name="step-2-download-the-sample-and-open-in-visual-studio-2019"></a>Étape 2 : Télécharger et ouvrir l’exemple dans Visual Studio 2019
+### <a name="step-2-download-the-sample-and-open-in-visual-studio-2019"></a>Étape 2 : Télécharger et ouvrir l’exemple dans Visual Studio 2019
 Téléchargez une copie de l’[Exemple Azure Functions C#](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/AzureFunctions/CSharp) localement (en clonant le dépôt ou en le téléchargeant [à partir d’ici](https://github.com/Azure/azure-devtestlab/archive/master.zip)).  
 
 1. Ouvrez l’exemple de solution avec Visual Studio 2019.  
@@ -113,7 +113,7 @@ La dernière étape de cette procédure pas à pas consiste à tester la fonctio
 Azure Functions peut vous aider à étendre les fonctionnalités de DevTest Labs au-delà de ce qui est déjà intégré, ainsi qu’aider des clients à répondre aux besoins uniques de leurs équipes. Ce modèle peut être étendu et développé davantage pour en couvrir encore davantage de fonctions.  Pour plus d’informations sur DevTest Labs, voir les articles suivants : 
 
 - [Architecture de référence d’entreprise pour Azure DevTest Labs](devtest-lab-reference-architecture.md)
-- [Forum Aux Questions](devtest-lab-faq.md)
+- [Questions fréquentes (FAQ)](devtest-lab-faq.md)
 - [Montée en puissance de DevTest Labs](devtest-lab-guidance-scale.md)
 - [Automatisation de DevTest Labs avec PowerShell](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Modules/Library/Tests)
 

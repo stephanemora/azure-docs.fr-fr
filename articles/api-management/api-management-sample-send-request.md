@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: 1c86570850894a47f57a2d3587811411cc9a76eb
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77190012"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Utilisation de services externes à partir du service de gestion des API Azure
@@ -74,7 +74,7 @@ Une fonction majeure de la gestion des API consiste à protéger les ressources 
 Par le passé, il n’existait aucun moyen normalisé de vérifier un jeton de référence auprès d’un serveur d’autorisation. Néanmoins, une norme récemment proposée, [RFC 7662](https://tools.ietf.org/html/rfc7662) , qui définit comment un serveur de ressources peut vérifier la validité d’un jeton, a été publiée par l’IETF.
 
 ### <a name="extracting-the-token"></a>Extraction du jeton
-La première étape consiste à extraire le jeton de l’en-tête d’autorisation. Conformément à la norme [RFC 6750](https://tools.ietf.org/html/rfc6750#section-2.1), la valeur d’en-tête doit prendre la forme du modèle d’autorisation `Bearer`, suivi d’un seul espace et du jeton d’autorisation. Malheureusement, il existe des cas où le modèle d’autorisation est omis. Pour en tenir compte lors de l’analyse, le service Gestion des API fractionne la valeur d’en-tête sur un espace et sélectionne la dernière chaîne dans le tableau de chaînes renvoyé. Une solution de contournement est ainsi trouvée pour les en-têtes d’autorisation mal formés.
+La première étape consiste à extraire le jeton de l’en-tête d’autorisation. Conformément à la norme `Bearer`RFC 6750[, la valeur d’en-tête doit prendre la forme du modèle d’autorisation ](https://tools.ietf.org/html/rfc6750#section-2.1), suivi d’un seul espace et du jeton d’autorisation. Malheureusement, il existe des cas où le modèle d’autorisation est omis. Pour en tenir compte lors de l’analyse, le service Gestion des API fractionne la valeur d’en-tête sur un espace et sélectionne la dernière chaîne dans le tableau de chaînes renvoyé. Une solution de contournement est ainsi trouvée pour les en-têtes d’autorisation mal formés.
 
 ```xml
 <set-variable name="token" value="@(context.Request.Headers.GetValueOrDefault("Authorization","scheme param").Split(' ').Last())" />

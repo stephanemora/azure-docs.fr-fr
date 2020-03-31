@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 01/22/2020
-ms.openlocfilehash: 267779afc749fccba41935741630a759576d6e77
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.date: 03/11/2020
+ms.openlocfilehash: 38d44f5a2ce22de15cb14ea5aa7a9ca1ea7c03cf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76515018"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481063"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Limites de ressources pour des bases de données uniques suivant le modèle d’achat vCore
 
@@ -102,6 +102,7 @@ Le [niveau de calcul serverless](sql-database-serverless.md) est actuellement di
 |Taille maximale des données TempDB (Go)|32|64|96|128|160|192|
 |Type de stockage| [Remarque 1](#notes) |[Remarque 1](#notes)|[Remarque 1](#notes) |[Remarque 1](#notes) |[Remarque 1](#notes) |[Remarque 1](#notes) |
 |Nombre maximal d’IOPS de données *|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|
+|Taux de journalisation maximal (Mbits/s)|100 |100 |100 |100 |100 |100 |
 |Latence d’E/S (approximative)|[Remarque 3](#notes)|[Remarque 3](#notes)|[Remarque 3](#notes)|[Remarque 3](#notes)|[Remarque 3](#notes)|[Remarque 3](#notes)|
 |Nombre maximal d’ouvriers simultanés (demandes)|200|400|600|800|1 000|1200|
 |Nombre maximal de sessions simultanées|30,000|30,000|30,000|30,000|30,000|30,000|
@@ -126,6 +127,7 @@ Le [niveau de calcul serverless](sql-database-serverless.md) est actuellement di
 |Taille maximale des données TempDB (Go)|224|256|288|320|512|768|
 |Type de stockage| [Remarque 1](#notes) |[Remarque 1](#notes) |[Remarque 1](#notes) |[Remarque 1](#notes) |[Remarque 1](#notes) |[Remarque 1](#notes) |
 |Nombre maximal d’IOPS de données *|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|
+|Taux de journalisation maximal (Mbits/s)|100 |100 |100 |100 |100 |100 |
 |Latence d’E/S (approximative)|[Remarque 3](#notes)|[Remarque 3](#notes)|[Remarque 3](#notes)|[Remarque 3](#notes)|[Remarque 3](#notes)|[Remarque 3](#notes)|
 |Nombre maximal d’ouvriers simultanés (demandes)|1400|1 600|1800|2000|3200|4 800|
 |Nombre maximal de sessions simultanées|30,000|30,000|30,000|30,000|30,000|30,000|
@@ -154,6 +156,7 @@ Le [niveau de calcul serverless](sql-database-serverless.md) est actuellement di
 |Taille maximale des données TempDB (Go)|64|128|192|256|320|384|448|
 |Type de stockage| [Remarque 1](#notes) |[Remarque 1](#notes)|[Remarque 1](#notes) |[Remarque 1](#notes) |[Remarque 1](#notes) |[Remarque 1](#notes) |[Remarque 1](#notes) |
 |Nombre maximal d’IOPS de données *|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|
+|Taux de journalisation maximal (Mbits/s)|100 |100 |100 |100 |100 |100 |100 |
 |Latence d’E/S (approximative)|[Remarque 3](#notes)|[Remarque 3](#notes)|[Remarque 3](#notes)|[Remarque 3](#notes)|[Remarque 3](#notes)|[Remarque 3](#notes)|[Remarque 3](#notes)|
 |Nombre maximal d’ouvriers simultanés (demandes)|200|400|600|800|1 000|1200|1400|
 |Nombre maximal de sessions simultanées|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
@@ -180,6 +183,7 @@ Le [niveau de calcul serverless](sql-database-serverless.md) est actuellement di
 |Taille maximale des données TempDB (Go)|512|576|640|768|1 024|1 280|2560|
 |Type de stockage| [Remarque 1](#notes) |[Remarque 1](#notes)|[Remarque 1](#notes)|[Remarque 1](#notes) |[Remarque 1](#notes) |[Remarque 1](#notes) |[Remarque 1](#notes) |
 |Nombre maximal d’IOPS de données *|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|
+|Taux de journalisation maximal (Mbits/s)|100 |100 |100 |100 |100 |100 |100 |
 |Latence d’E/S (approximative)|[Remarque 3](#notes)|[Remarque 3](#notes)|[Remarque 3](#notes)|[Remarque 3](#notes)|[Remarque 3](#notes)|[Remarque 3](#notes)|[Remarque 3](#notes)|
 |Nombre maximal d’ouvriers simultanés (demandes)|1 600|1800|2000|2 400|3200|4000|8000|
 |Nombre maximal de sessions simultanées|30,000|30,000|30,000|30,000|30,000|30,000|30,000|

@@ -9,10 +9,10 @@ ms.date: 10/7/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 4d8be13a75e276d5be6ec71141a13f95601869f0
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78301435"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Développer pour Azure Files avec .NET
@@ -34,7 +34,7 @@ Pour en savoir plus sur Azure Files, consultez [Qu’est-ce qu’Azure Files ?]
 
 ## <a name="understanding-the-net-apis"></a>Compréhension des API .NET
 
-Azure Files fournit deux approches globales pour les applications clientes : SMB et REST. Dans .NET, l’abstraction de ces approches est fournie par les API `System.IO` et `WindowsAzure.Storage`.
+Azure Files fournit deux grandes approches pour les applications clientes : Server Message Block (SMB) et REST. Dans .NET, l’abstraction de ces approches est fournie par les API `System.IO` et `WindowsAzure.Storage`.
 
 API | Quand l’utiliser | Notes
 ----|-------------|------
@@ -420,7 +420,7 @@ L’exemple suivant permet de supprimer un instantané de partage de fichier.
 CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTime); mySnapshot.Delete(null, null, null);
 ```
 
-## Résoudre les problèmes liés à Azure Files à l’aide de métriques<a name="troubleshooting-azure-files-using-metrics"></a>
+## <a name="troubleshoot-azure-files-by-using-metrics"></a>Résoudre les problèmes liés à Azure Files à l’aide de métriques<a name="troubleshooting-azure-files-using-metrics"></a>
 
 Azure Storage Analytics prend à présent en charge les métriques pour Azure Files. Avec les données de métriques, vous pouvez suivre les demandes et diagnostiquer les problèmes.
 

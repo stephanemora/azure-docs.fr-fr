@@ -15,10 +15,10 @@ ms.author: curtand
 ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4bf65ad595fb1ab70eb6613b6d54ac2a4f69141e
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78329590"
 ---
 # <a name="view-activity-and-audit-history-for-azure-resource-roles-in-privileged-identity-management"></a>Affichez l’activité et l’historique d’audit des rôles de ressources Azure dans Privileged Identity Management
@@ -115,20 +115,20 @@ Mon audit vous permet d’afficher votre activité personnelle de rôle.
 
 ## <a name="get-reason-approver-and-ticket-number-for-approval-events"></a>Obtenir la raison, l’approbateur et le numéro de ticket pour les événements d’approbation
 
-1. Connectez-vous au [Portail Azure](https://aad.portal.azure.com) avec les autorisations du rôle Administrateur de rôle privilégié, puis ouvrez Azure AD.
+1. Connectez-vous au [portail Azure](https://aad.portal.azure.com) avec les autorisations du rôle Administrateur de rôle privilégié, puis ouvrez Azure AD.
 1. Sélectionnez **Journaux d’audit**.
 1. Utilisez le filtre **Service** pour afficher uniquement les événements d’audit qui concernent le service Privileged Identity Management. Sur la page **Journaux d’audit**, vous pouvez :
 
-    - Consulter la raison d’un événement d’audit dans la colonne **Motif de l’état**.
+    - Consulter la raison d’un événement d’audit dans la colonne **Motif du statut**.
     - Consulter l’approbateur dans la colonne **Initié par (acteur)** pour l’événement « Demande d’ajout de membre au rôle approuvée ».
 
     [![Filter the audit log for the PIM service](media/azure-pim-resource-rbac/filter-audit-logs.png "Filtrer le journal d’audit pour le service PIM")](media/azure-pim-resource-rbac/filter-audit-logs.png)
 
-1. Sélectionnez un événement de journal d’audit pour afficher le numéro de ticket dans l’onglet **Activité** du volet **Détails**.
+1. Sélectionnez un événement de journal d’audit pour afficher le numéro de ticket sous l’onglet **Activité** du volet **Détails**.
   
     [![Check the ticket number for the audit event](media/azure-pim-resource-rbac/audit-event-ticket-number.png "Vérifier le numéro de ticket pour l’événement d’audit")](media/azure-pim-resource-rbac/audit-event-ticket-number.png)]
 
-1. Vous pouvez afficher le demandeur (personne qui active le rôle) dans l’onglet **Cibles** du volet **Détails** d’un événement d’audit. Il existe trois types de cibles pour les rôles de ressources Azure :
+1. Vous pouvez afficher le demandeur (personne qui active le rôle) sous l’onglet **Cibles** du volet **Détails** d’un événement d’audit. Il existe trois types de cibles pour les rôles de ressources Azure :
 
     - Le rôle (**Type** = Rôle)
     - Le demandeur (**Type** = Autre)

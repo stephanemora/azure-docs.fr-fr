@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 01153317b49e4543f10faa517bce7bcc01ce22d4
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895831"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79232777"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Utiliser le chiffrement dynamique AES-128 et le service de distribution des clés
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.locfileid: "74895831"
 >  
 
 > [!NOTE]
-> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consultez aussi [Conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md)
+> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consultez aussi [Conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md).
 
 Vous pouvez utiliser Media Services pour transmettre du contenu HTTP Live Streaming (HLS) et Smooth Streaming chiffré avec AES à l’aide de clés de chiffrement 128 bits. Media Services assure également le service de distribution des clés qui fournit des clés de chiffrement aux utilisateurs autorisés. Si vous souhaitez que Media Services chiffre un élément multimédia, associez une clé de chiffrement à l'élément multimédia et configurez des stratégies d'autorisation pour la clé. Lorsqu’un lecteur demande un flux de données, Media Services utilise la clé spécifiée pour chiffrer dynamiquement votre contenu à l’aide du chiffrement AES. Pour déchiffrer le flux de données, le lecteur demande la clé au service de remise de clé. Pour déterminer si l’utilisateur est autorisé à obtenir la clé, le service évalue les stratégies d’autorisation que vous avez spécifiées pour la clé.
 
@@ -71,35 +71,35 @@ L'illustration suivante montre le flux de travail décrit précédemment. Ici, l
 
 Le reste de cet article fournit des explications, des exemples de code et des liens vers des rubriques qui vous expliquent comment réaliser les tâches décrites précédemment.
 
-## <a name="current-limitations"></a>Limitations actuelles
+## <a name="current-limitations"></a>Limites actuelles
 Si vous ajoutez ou mettez à jour la stratégie de distribution de votre élément multimédia, vous devez supprimer tout localisateur existant et en créer un nouveau.
 
-## <a id="create_asset"></a>Créer un élément multimédia et télécharger des fichiers dans l’élément multimédia
+## <a name="create-an-asset-and-upload-files-into-the-asset"></a><a id="create_asset"></a>Créer un élément multimédia et télécharger des fichiers dans l’élément multimédia
 Pour gérer, encoder et diffuser vos vidéos, vous devez d'abord télécharger votre contenu dans Media Services. Une fois téléchargé, votre contenu est stocké en toute sécurité dans le cloud et peut faire l’objet d’un traitement et d’une diffusion en continu. 
 
-Pour plus d’informations, consultez [Charger des fichiers vers un compte Media Services](media-services-dotnet-upload-files.md).
+Pour plus d’informations, consultez la section [Charger des fichiers vers un compte Media Services](media-services-dotnet-upload-files.md).
 
-## <a id="encode_asset"></a>Encoder l’élément multimédia qui contient le fichier au débit adaptatif MP4 défini
-Avec le chiffrement dynamique, vous créez un élément multimédia qui contient un ensemble de fichiers MP4 multidébits ou de fichiers sources de diffusion en continu lisse multidébits. Ensuite, en fonction du format spécifié dans le manifeste ou la demande de fragment, le serveur de diffusion en continu à la demande s'assure que vous recevez le flux conforme au protocole que vous avez sélectionné. Ensuite, vous devez stocker et payer uniquement les fichiers dans un format de stockage unique. Media Services crée et fournit la réponse appropriée aux demandes du client. Pour plus d’informations, consultez [Vue d’ensemble de l’empaquetage dynamique](media-services-dynamic-packaging-overview.md).
+## <a name="encode-the-asset-that-contains-the-file-to-the-adaptive-bitrate-mp4-set"></a><a id="encode_asset"></a>Encoder l’élément multimédia qui contient le fichier au débit adaptatif MP4 défini
+Avec le chiffrement dynamique, vous créez un élément multimédia qui contient un ensemble de fichiers MP4 multidébit ou de fichiers sources de diffusion en continu lisse multidébit. Ensuite, en fonction du format spécifié dans le manifeste ou la demande de fragment, le serveur de diffusion en continu à la demande s'assure que vous recevez le flux conforme au protocole que vous avez sélectionné. Ensuite, vous devez stocker et payer uniquement les fichiers dans un format de stockage unique. Media Services crée et fournit la réponse appropriée aux demandes du client. Pour plus d’informations, consultez la section [Vue d’ensemble de l’empaquetage dynamique](media-services-dynamic-packaging-overview.md).
 
 >[!NOTE]
->Une fois votre compte Media Services créé, un point de terminaison de streaming par défaut est ajouté à votre compte à l’état « Arrêté ». Pour démarrer la diffusion en continu de votre contenu et tirer parti de l’empaquetage et du chiffrement dynamiques, le point de terminaison de streaming à partir duquel vous souhaitez diffuser du contenu doit se trouver à l’état « En cours d’exécution ». 
+>Une fois votre compte Media Services créé, un point de terminaison de streaming par défaut est ajouté à votre compte à l’état « Arrêté ». Pour démarrer la diffusion en continu de votre contenu et tirer parti de l’empaquetage et du chiffrement dynamiques, le point de terminaison de streaming à partir duquel vous souhaitez diffuser du contenu doit se trouver à l’état « En cours d’exécution ». 
 >
 >De plus, pour utiliser l’empaquetage et le chiffrement dynamiques, votre ressource doit contenir un ensemble de MP4 à débit adaptatif ou des fichiers de diffusion en continu lisse à débit adaptatif.
 
 Pour savoir comment encoder, consultez [Encodage d’un élément multimédia à l’aide de Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md).
 
-## <a id="create_contentkey"></a>Créer une clé de contenu et l’associer à l’élément multimédia encodé
+## <a name="create-a-content-key-and-associate-it-with-the-encoded-asset"></a><a id="create_contentkey"></a>Créer une clé de contenu et l’associer à l’élément multimédia encodé
 Dans Media Services, la clé de contenu contient la clé que vous souhaitez utiliser pour chiffrer un élément multimédia.
 
 Pour plus d’informations, consultez [Création d’une clé de contenu](media-services-dotnet-create-contentkey.md).
 
-## <a id="configure_key_auth_policy"></a>Configurer la stratégie d’autorisation de la clé de contenu
+## <a name="configure-the-content-keys-authorization-policy"></a><a id="configure_key_auth_policy"></a>Configurer la stratégie d’autorisation de la clé de contenu
 Media Services prend en charge plusieurs méthodes d’authentification des utilisateurs effectuant des demandes de clé. Vous devez configurer la stratégie d’autorisation de clé de contenu. Le client (lecteur) doit répondre à la stratégie avant que la clé de contenu ne puisse lui être remise. La stratégie d’autorisation des clés de contenu peut avoir une ou plusieurs restrictions d’autorisations : ouvert, restriction par jeton ou restriction IP.
 
-Pour plus d’informations, consultez [Configuration de la stratégie d’autorisation de clé de contenu](media-services-dotnet-configure-content-key-auth-policy.md).
+Pour plus d’informations, consultez la section [Configuration de la stratégie d’autorisation de clé de contenu](media-services-dotnet-configure-content-key-auth-policy.md).
 
-## <a id="configure_asset_delivery_policy"></a>Configurer la stratégie de distribution d’un élément multimédia
+## <a name="configure-an-asset-delivery-policy"></a><a id="configure_asset_delivery_policy"></a>Configurer la stratégie de distribution d’un élément multimédia
 Configurez la stratégie de remise pour votre élément multimédia. Certains éléments inclus par la configuration de la stratégie de distribution de l'élément multimédia :
 
 * L'URL d'acquisition de la clé. 
@@ -109,7 +109,7 @@ Configurez la stratégie de remise pour votre élément multimédia. Certains é
 
 Pour plus d'informations, consultez la section [Configuration de la stratégie de distribution d’un élément multimédia](media-services-dotnet-configure-asset-delivery-policy.md).
 
-## <a id="create_locator"></a>Créer un localisateur de diffusion en continu à la demande afin d’obtenir une URL de diffusion en continu
+## <a name="create-an-ondemand-streaming-locator-to-get-a-streaming-url"></a><a id="create_locator"></a>Créer un localisateur de diffusion en continu à la demande afin d’obtenir une URL de diffusion en continu
 Vous devrez fournir aux utilisateurs l’URL de diffusion en continu pour Smooth Streaming, DASH ou HLS.
 
 > [!NOTE]
@@ -137,7 +137,7 @@ Obtenez un jeton de test basé sur la restriction par jeton utilisée pour la st
 
 Vous pouvez utiliser le [lecteur Azure Media Services](https://aka.ms/azuremediaplayer) pour tester votre flux.
 
-## <a id="client_request"></a>Comment votre client peut-il demander une clé à partir du service de distribution des clés ?
+## <a name="how-can-your-client-request-a-key-from-the-key-delivery-service"></a><a id="client_request"></a>Comment votre client peut-il demander une clé à partir du service de distribution des clés ?
 Dans l'étape précédente, vous avez construit l'URL qui pointe vers un fichier manifeste. Votre client doit extraire les informations nécessaires à partir des fichiers manifeste de diffusion en continu afin d'effectuer une demande au service de distribution des clés.
 
 ### <a name="manifest-files"></a>Fichiers manifeste
@@ -246,7 +246,7 @@ Le code suivant montre comment envoyer une requête au service de distribution d
     <add key="Audience" value="urn:test"/>
     ```
 
-### <a id="example"></a>Exemple
+### <a name="example"></a><a id="example"></a>Exemple
 
 Remplacez le code dans votre fichier Program.cs par le code présenté dans cette section.
  

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 327f53fb39e58f7b70040eb41b6cd80aca18e510
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: ca6ef244a887e75a0d8b9bb663d5325a33cd1e89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77522031"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79230985"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-with-azure-active-directory-preview"></a>Activer la connexion par clé de sécurité sans mot de passe à des appareils Windows 10 à l’aide d’Azure Active Directory (préversion)
 
@@ -35,7 +35,7 @@ Ce document met l’accent sur l’activation de l’authentification sans mot d
 | [Inscription d’informations de sécurité combinée – Préversion](concept-registration-mfa-sspr-combined.md) | X | X |
 | [Clés de sécurité FIDO2](concept-authentication-passwordless.md#fido2-security-keys) compatibles | X | X |
 | WebAuthN nécessite Windows 10 version 1809 ou plus | X | X |
-| [Les appareils joints à Azure AD](../devices/concept-azure-ad-join.md) nécessitent Windows 10 version 1809 ou ultérieure | X |   |
+| [Les appareils joints à Azure AD](../devices/concept-azure-ad-join.md) nécessitent Windows 10 version 1903 ou ultérieure | X |   |
 | [Les appareils joints à Azure AD Hybride](../devices/concept-azure-ad-join-hybrid.md) nécessitent Windows 10 Insider Build 18945 ou une version ultérieure |   | X |
 | Contrôleurs de domaine Windows Server 2016/2019 entièrement corrigés |   | X |
 | [Azure AD Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect) version 1.4.32.0 ou ultérieure |   | X |
@@ -54,6 +54,7 @@ Les scénarios suivants ne sont pas pris en charge :
 - Connexion à un serveur à l’aide d’une clé de sécurité.
 - Si vous n’avez pas utilisé votre clé de sécurité pour vous connecter à votre appareil lorsqu’il est en ligne, vous ne pouvez pas l’utiliser pour vous connecter ou le déverrouiller hors connexion.
 - Connexion ou déverrouillage d’un appareil Windows 10 avec une clé de sécurité contenant plusieurs comptes Azure AD. Ce scénario utilise le dernier compte ajouté à la clé de sécurité. WebAuthN permet aux utilisateurs de choisir le compte qu’ils souhaitent utiliser.
+- Déverrouillez un appareil exécutant Windows 10 version 1809. Vous bénéficierez d’une expérience optimale sur Windows 10 version 1903 ou ultérieure.
 
 ## <a name="prepare-devices-for-preview"></a>Préparer les appareils pour la préversion
 

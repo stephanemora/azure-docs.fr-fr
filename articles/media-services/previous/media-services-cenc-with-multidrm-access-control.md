@@ -15,10 +15,10 @@ ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: kilroyh;yanmf;juliako
 ms.openlocfilehash: 68f42aa13288c2416257f3ba6c0b6072c1572977
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77162988"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Conception d’un système de protection du contenu avec contrôle d’accès à l’aide d’Azure Media Services 
@@ -135,7 +135,7 @@ Si vous utilisez un cloud public pour la remise de licences, les licences persis
 
     Nombre total de licences requises pour tous les films/appareils pour enfants = 1
 
-* Abonnement mensuel : utilisation d’une licence non persistante et d’un mappage 1 à 1 entre la clé de contenu et l’élément multimédia. Dans ce cas :
+* Abonnement mensuel : utilisation d’une licence non persistante et du mappage 1 à 1 entre la clé de contenu et l’élément multimédia. Dans ce cas :
 
     Nombre total de licences requises pour tous les films/appareils pour enfants = [nombre de films regardés] x [nombre de séances]
 
@@ -257,7 +257,7 @@ Utilisez les informations de dépannage suivantes pour résoudre vos éventuels 
 
 * Octroi des autorisations de revendications de membre de groupe. Assurez-vous que le fichier de manifeste de l’application Azure AD comprend bien les paramètres suivants : 
 
-    « groupMembershipClaims » : « All »    (la valeur par défaut est Null)
+    « groupMembershipClaims » : « All » (la valeur par défaut est Null)
 
 * Définissez le TokenType approprié lorsque vous créez des conditions de restriction.
 
@@ -374,7 +374,7 @@ Il existe deux types de clés de sécurité :
 > [!NOTE]
 > Si vous utilisez .NET Framework/C# en tant que plateforme de développement, le certificat X509 utilisé pour la clé de sécurité asymétrique doit avoir une longueur d’au moins 2 048 bits. Il s’agit d’une exigence de la classe System.IdentityModel.Tokens.X509AsymmetricSecurityKey dans .NET Framework. Dans le cas contraire, l’exception suivante est générée :
 > 
-> IDX10630 : la longueur de la signature « System.IdentityModel.Tokens.X509AsymmetricSecurityKey » ne peut pas être inférieure à « 2048 » bits.
+> IDX10630 : la longueur de la signature « System.IdentityModel.Tokens.X509AsymmetricSecurityKey » ne peut pas être inférieure à « 2048 » bits.
 
 ## <a name="the-completed-system-and-test"></a>Le système et le test terminé
 Cette section décrit quelques scénarios dans le système achevé de bout en bout afin que vous puissiez avoir une vision générale du comportement avant d’obtenir un compte de connexion :
@@ -408,7 +408,7 @@ Vous pouvez contacter l’un des auteurs pour qu’un compte soit créé ou ajou
 
 Les captures d’écran ci-dessous présentent les différentes pages de connexion utilisées par les différents comptes de domaine :
 
-**Compte de domaine client Azure AD personnalisé** : page de connexion personnalisée du domaine client Azure AD personnalisé.
+**Compte de domaine client Azure AD personnalisé** : page de connexion personnalisée du domaine client Azure AD.
 
 ![compte de domaine client Azure personnalisé](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain1.png)
 

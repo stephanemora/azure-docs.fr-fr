@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.date: 02/14/2020
 ms.openlocfilehash: 0b746963cea5a950ba47d8b4dfeb074cb0910436
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77471021"
 ---
 # <a name="add-custom-apache-hive-libraries-when-creating-your-hdinsight-cluster"></a>Ajouter des bibliothèques Apache Hive personnalisées lors de la création de votre cluster HDInsight
@@ -59,7 +59,7 @@ L’utilisation de l’action de script dans cet article rend les bibliothèques
     |Propriété |Valeur |
     |---|---|
     |Type de script|- Personnalisé|
-    |Nom|Bibliothèques |
+    |Name|Bibliothèques |
     |URI de script bash|`https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh`|
     |Type(s) de nœud|Head, Worker|
     |Paramètres|entrez l’adresse WASB du compte de stockage et du conteneur qui contiennent les fichiers jar. Par exemple : `wasbs://libs@mystorage.blob.core.windows.net/`.|

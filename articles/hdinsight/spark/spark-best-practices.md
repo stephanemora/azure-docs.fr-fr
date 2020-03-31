@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.openlocfilehash: 20033e52e862f086d1491c06d38cdf4f2c57ba8d
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71106881"
 ---
 # <a name="apache-spark-best-practices"></a>Bonnes pratiques d’utilisation d’Apache Spark
@@ -23,9 +23,9 @@ Cet article présente quelques-unes des bonnes pratiques à adopter pour utilise
 | Option | Documents |
 |---|---|
 | VSCode | [Utiliser les outils Spark et Hive pour Visual Studio Code](../hdinsight-for-vscode.md) |
-| Blocs-notes Jupyter | [Tutoriel : Charger des données et exécuter des requêtes sur un cluster Apache Spark dans Azure HDInsight](./apache-spark-load-data-run-query.md) |
-| IntelliJ | [Tutoriel : Utiliser Azure Toolkit for IntelliJ pour créer des applications Apache Spark pour un cluster HDInsight](./apache-spark-intellij-tool-plugin.md) |
-| IntelliJ | [Tutoriel : Créer une application Scala Maven pour Apache Spark dans HDInsight à l’aide d’IntelliJ](./apache-spark-create-standalone-application.md) |
+| Notebooks Jupyter | [Tutoriel : Charger des données et exécuter des requêtes sur un cluster Apache Spark dans Azure HDInsight](./apache-spark-load-data-run-query.md) |
+| IntelliJ | [Tutoriel : Utiliser Azure Toolkit for IntelliJ pour créer des applications Apache Spark pour un cluster HDInsight](./apache-spark-intellij-tool-plugin.md) |
+| IntelliJ | [Tutoriel : Créer une application Scala Maven pour Apache Spark dans HDInsight à l’aide d’IntelliJ](./apache-spark-create-standalone-application.md) |
 | Notebooks Zeppelin | [Utiliser des blocs-notes Apache Zeppelin avec un cluster Apache Spark sur HDInsight](./apache-spark-zeppelin-notebook.md) |
 | Envoi de travaux à distance avec Livy | [Utiliser l’API REST Spark Apache pour envoyer des travaux à distance à un cluster Spark HDInsight](./apache-spark-livy-rest-interface.md) |
 
@@ -51,7 +51,7 @@ Cet article présente quelques-unes des bonnes pratiques à adopter pour utilise
 |---|---|
 | Apache Hive sur HDInsight | [Intégrer Apache Spark et Apache Hive au le connecteur d’entrepôt Hive](../interactive-query/apache-hive-warehouse-connector.md) |
 | Apache HBase sur HDInsight | [Utiliser Apache Spark pour lire et écrire des données Apache HBase](../hdinsight-using-spark-query-hbase.md) |
-| Apache Kafka sur HDInsight | [Tutoriel : Utiliser Apache Spark Structured Streaming avec Apache Kafka sur HDInsight](../hdinsight-apache-kafka-spark-structured-streaming.md) |
+| Apache Kafka sur HDInsight | [Tutoriel : Utiliser Apache Spark Structured Streaming avec Apache Kafka sur HDInsight](../hdinsight-apache-kafka-spark-structured-streaming.md) |
 | Azure Cosmos DB | [Azure Cosmos DB : Implémenter une architecture lambda sur la plateforme Azure](../../cosmos-db/lambda-architecture.md) |
 
 ## <a name="what-are-my-storage-options"></a>Quelles sont mes options de stockage ?
@@ -60,7 +60,7 @@ Cet article présente quelques-unes des bonnes pratiques à adopter pour utilise
 |---|---|
 | Data Lake Storage Gen2 | [Utiliser Azure Data Lake Storage Gen2 avec des clusters Azure HDInsight](../hdinsight-hadoop-use-data-lake-storage-gen2.md) |
 | Data Lake Storage Gen 1 | [Utiliser Data Lake Storage Gen1 avec des clusters Azure HDInsight](../hdinsight-hadoop-use-data-lake-store.md) |
-| un stockage Azure Blob | [Utiliser Stockage Azure avec des clusters Azure HDInsight](../hdinsight-hadoop-use-blob-storage.md) |
+| Stockage Blob Azure | [Utiliser Stockage Azure avec des clusters Azure HDInsight](../hdinsight-hadoop-use-blob-storage.md) |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

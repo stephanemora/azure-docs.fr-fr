@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à ScreenSteps | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à ScreenSteps | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et ScreenSteps.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 864a9243a9f737506fd4d8cbc3940d7a86711f20
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67091664"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-screensteps"></a>Didacticiel : Intégration d’Azure AD à ScreenSteps
+# <a name="tutorial-azure-active-directory-integration-with-screensteps"></a>Tutoriel : Intégration d’Azure AD à ScreenSteps
 
 Dans ce didacticiel, vous allez apprendre à intégrer ScreenSteps à Azure Active Directory (Azure AD).
 L’intégration de ScreenSteps à Azure AD vous offre les avantages suivants :
@@ -130,19 +130,19 @@ Pour configurer l’authentification unique Azure AD avec ScreenSteps, effectuez
 
 1. Cliquez sur **Account Settings** (Paramètres du compte).
 
-    ![Account management](./media/screensteps-tutorial/ic778523.png "Account management")
+    ![Gestion du compte](./media/screensteps-tutorial/ic778523.png "Account management")
 
 1. Cliquez sur **Single Sign-on**.
 
-    ![Remote authentication](./media/screensteps-tutorial/ic778524.png "Remote authentication")
+    ![Authentification à distance](./media/screensteps-tutorial/ic778524.png "Remote Authentication")
 
 1. Cliquez sur **Créer un point de terminaison d’authentification unique**.
 
-    ![Remote authentication](./media/screensteps-tutorial/ic778525.png "Remote authentication")
+    ![Authentification à distance](./media/screensteps-tutorial/ic778525.png "Remote Authentication")
 
 1. Dans la section **Créer un point de terminaison d’authentification unique**, procédez comme suit :
 
-    ![Create an authentication endpoint](./media/screensteps-tutorial/ic778526.png "Create an authentication endpoint")
+    ![Créer un point de terminaison d’authentification](./media/screensteps-tutorial/ic778526.png "Create an Authentication Endpoint")
 
     a. Dans la zone de texte **Title** , tapez un titre.
 
@@ -152,11 +152,11 @@ Pour configurer l’authentification unique Azure AD avec ScreenSteps, effectuez
 
 1. Cliquez sur **Edit** (Modifier) pour modifier le nouveau point de terminaison.
 
-    ![Modifier un point de terminaison](./media/screensteps-tutorial/ic778528.png "Modifier un point de terminaison")
+    ![Modifier le point de terminaison](./media/screensteps-tutorial/ic778528.png "Ajouter un point de terminaison")
 
 1. Dans la section **Edit Single Sign-on Endpoint (Modifier un point de terminaison d’authentification unique)** , procédez comme suit :
 
-    ![Remote authentication endpoint](./media/screensteps-tutorial/ic778527.png "Remote authentication endpoint")
+    ![Point de terminaison d’authentification distant](./media/screensteps-tutorial/ic778527.png "Remote Authentication Endpoint")
 
     a. Cliquez sur **Upload new SAML Certificate file** (Charger le nouveau fichier de certificat SAML), puis chargez le certificat que vous avez téléchargé à partir du portail Azure.
 
@@ -193,7 +193,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
     b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
-    Par exemple, BrittaSimon@contoso.com
+    Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
@@ -241,4 +241,4 @@ Le fait de cliquer sur la vignette ScreenSteps dans le panneau d’accès doit v
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
