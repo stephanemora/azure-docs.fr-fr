@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 02/11/2020
 ms.author: cherylmc
 ms.openlocfilehash: e386e5fc9c4d62266e0ca23869bf30ccaffeb91d
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201558"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79224997"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Création d’une connexion de site à site à l’aide du portail Azure (Classic)
 
@@ -31,7 +31,7 @@ Une connexion de passerelle VPN de site à site permet de connecter votre résea
 
 ![Schéma de connexion intersite d’une passerelle VPN site à site](./media/vpn-gateway-howto-site-to-site-classic-portal/site-to-site-diagram.png)
 
-## <a name="before"></a>Avant de commencer
+## <a name="before-you-begin"></a><a name="before"></a>Avant de commencer
 
 Vérifiez que vous disposez des éléments ci-dessous avant de commencer votre configuration :
 
@@ -41,7 +41,7 @@ Vérifiez que vous disposez des éléments ci-dessous avant de commencer votre c
 * Si vous ne maîtrisez pas les plages d’adresses IP situées dans votre configuration de réseau local, vous devez contacter une personne en mesure de vous aider. Lorsque vous créez cette configuration, vous devez spécifier les préfixes des plages d’adresses IP qu’Azure acheminera vers votre emplacement local. Aucun des sous-réseaux de votre réseau local ne peut chevaucher les sous-réseaux du réseau virtuel auquel vous souhaitez vous connecter.
 * PowerShell est requis pour spécifier la clé partagée et créer la connexion de passerelle VPN. [!INCLUDE [vpn-gateway-classic-powershell](../../includes/vpn-gateway-powershell-classic-locally.md)]
 
-### <a name="values"></a>Exemples de valeurs de configuration pour cet exercice
+### <a name="sample-configuration-values-for-this-exercise"></a><a name="values"></a>Exemples de valeurs de configuration pour cet exercice
 
 Nous utilisons les valeurs suivantes dans les exemples de cet article. Vous pouvez utiliser ces valeurs pour créer un environnement de test ou vous y référer pour mieux comprendre les exemples de cet article.
 
@@ -59,7 +59,7 @@ Nous utilisons les valeurs suivantes dans les exemples de cet article. Vous pouv
 * **Nom du site local :** Site2
 * **Espace d’adressage du client :** Espace d’adressage qui se trouve sur votre site local.
 
-## <a name="CreatVNet"></a>1. Créez un réseau virtuel
+## <a name="1-create-a-virtual-network"></a><a name="CreatVNet"></a>1. Créez un réseau virtuel
 
 Lorsque vous créez un réseau virtuel qui sera utilisé pour une connexion de site à site, vous devez vous assurer que les espaces d’adressage que vous spécifiez ne se chevauchent pas avec les espaces d’adressage du client pour les sites locaux auxquels vous souhaitez vous connecter. Si vos sous-réseaux se chevauchent, votre connexion ne fonctionnera pas correctement.
 
@@ -81,7 +81,7 @@ Lorsque vous créez un réseau virtuel qui sera utilisé pour une connexion de s
 8. Cliquez sur **Créer** pour créer votre réseau virtuel.
 9. Une fois que vous avez cliqué sur Créer, une vignette apparaît sur le tableau de bord pour indiquer la progression de votre réseau virtuel. La vignette change lorsque le réseau virtuel est créé.
 
-## <a name="additionaladdress"></a>2. Ajouter un espace d’adressage supplémentaire
+## <a name="2-add-additional-address-space"></a><a name="additionaladdress"></a>2. Ajouter un espace d’adressage supplémentaire
 
 Après avoir créé votre réseau virtuel, vous pouvez ajouter un espace d’adressage supplémentaire. L’ajout d’un espace d’adressage supplémentaire n’est pas obligatoire dans une configuration de site à site. Toutefois, si vous avez besoin de plusieurs espaces d’adressage, procédez comme suit :
 
@@ -89,7 +89,7 @@ Après avoir créé votre réseau virtuel, vous pouvez ajouter un espace d’adr
 2. Sur la page de votre réseau virtuel, dans la section **Paramètres**, cliquez sur **Espace d’adressage**.
 3. Sur la page Espace d’adressage, cliquez sur **+Ajouter** et indiquez un espace d’adressage supplémentaire.
 
-## <a name="dns"></a>3. Spécifier un serveur DNS
+## <a name="3-specify-a-dns-server"></a><a name="dns"></a>3. Spécifier un serveur DNS
 
 Les paramètres DNS ne sont pas indispensables à une configuration de site à site. Toutefois, vous devrez les configurer pour bénéficier de la résolution de noms. La définition d’une valeur n’entraîne pas la création de serveur DNS. L’adresse IP du serveur DNS que vous spécifiez doit pouvoir résoudre les noms des ressources auxquelles vous vous connectez. Pour les paramètres de l’exemple, nous avons utilisé une adresse IP privée. L’adresse IP que nous utilisons n’est probablement pas l’adresse IP de votre serveur DNS. Veillez à utiliser vos propres valeurs.
 
@@ -100,7 +100,7 @@ Après avoir créé votre réseau virtuel, vous pouvez ajouter l’adresse IP d�
 3. Ajoutez un serveur DNS.
 4. Pour enregistrer vos paramètres, cliquez sur **Enregistrer** en haut de la page.
 
-## <a name="localsite"></a>4. Configurer le site local
+## <a name="4-configure-the-local-site"></a><a name="localsite"></a>4. Configurer le site local
 
 Le site local fait généralement référence à votre emplacement local. Il contient l’adresse IP du périphérique VPN avec lequel vous allez créer une connexion et les plages d’adresses IP qui seront acheminées via la passerelle VPN vers le périphérique VPN.
 
@@ -116,7 +116,7 @@ Le site local fait généralement référence à votre emplacement local. Il con
 
 Cliquez sur **OK** pour fermer la page Site local. **Ne cliquez pas sur OK pour fermer la page Nouvelle connexion VPN**.
 
-## <a name="gatewaysubnet"></a>5. Configurer le sous-réseau de passerelle
+## <a name="5-configure-the-gateway-subnet"></a><a name="gatewaysubnet"></a>5. Configurer le sous-réseau de passerelle
 
 Vous devez créer un sous-réseau de passerelle pour votre passerelle VPN. Le sous-réseau de passerelle contient les adresses IP qui sont utilisées par les services de passerelle VPN.
 
@@ -132,7 +132,7 @@ Vous devez créer un sous-réseau de passerelle pour votre passerelle VPN. Le so
 
    ![Ajouter un sous-réseau de passerelle](./media/vpn-gateway-howto-site-to-site-classic-portal/addgwsubnet.png "Ajouter un sous-réseau de passerelle")
 
-## <a name="sku"></a>6. Spécifier la référence et le type de VPN
+## <a name="6-specify-the-sku-and-vpn-type"></a><a name="sku"></a>6. Spécifier la référence et le type de VPN
 
 1. Sélectionnez la **taille** de la passerelle. Il s’agit de la référence de passerelle que vous utilisez pour créer votre passerelle de réseau virtuel. Les passerelles VPN classiques utilisent les anciennes références SKU de passerelles. Pour en savoir plus sur les anciennes références SKU de passerelle, consultez la section [Utilisation des références SKU de passerelle de réseau virtuel (anciennes références SKU)](vpn-gateway-about-skus-legacy.md).
 
@@ -141,7 +141,7 @@ Vous devez créer un sous-réseau de passerelle pour votre passerelle VPN. Le so
 3. Cliquez sur **OK** pour enregistrer les paramètres.
 4. Dans la page **Nouvelle connexion VPN**, cliquez au bas de cette page sur **OK** pour commencer à déployer votre passerelle de réseau virtuel. Selon la référence SKU que vous sélectionnez, cela peut prendre jusqu’à 45 minutes pour créer une passerelle de réseau virtuel.
 
-## <a name="vpndevice"></a>7. Configuration de votre périphérique VPN
+## <a name="7-configure-your-vpn-device"></a><a name="vpndevice"></a>7. Configuration de votre périphérique VPN
 
 Les connexions site à site vers un réseau local nécessitent un périphérique VPN. Dans cette étape, vous configurez votre périphérique VPN. Pour configurer votre périphérique VPN, vous avez besoin des éléments suivants :
 
@@ -150,7 +150,7 @@ Les connexions site à site vers un réseau local nécessitent un périphérique
 
 [!INCLUDE [vpn-gateway-configure-vpn-device-rm](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
 
-## <a name="CreateConnection"></a>8. Créer la connexion
+## <a name="8-create-the-connection"></a><a name="CreateConnection"></a>8. Créer la connexion
 Désormais, vous allez définir la clé partagée et créer la connexion. La clé que vous définissez doit être la même que celle qui a été utilisée lors la configuration de votre périphérique VPN.
 
 > [!NOTE]
@@ -201,17 +201,17 @@ Lorsque vous créez un réseau virtuel classique dans le portail (sans utiliser 
    ```
    Quand la connexion est créée, le résultat est : **État : Réussi**.
 
-## <a name="verify"></a>9. Vérifier votre connexion
+## <a name="9-verify-your-connection"></a><a name="verify"></a>9. Vérifier votre connexion
 
 [!INCLUDE [vpn-gateway-verify-connection-azureportal-classic](../../includes/vpn-gateway-verify-connection-azureportal-classic-include.md)]
 
 Si vous rencontrez des problèmes de connexion, consultez la section **Dépanner** dans la table des matières du volet gauche.
 
-## <a name="reset"></a>Réinitialisation d’une passerelle VPN
+## <a name="how-to-reset-a-vpn-gateway"></a><a name="reset"></a>Réinitialisation d’une passerelle VPN
 
 La réinitialisation d’une passerelle VPN Azure est utile si vous perdez la connectivité VPN entre différents locaux sur un ou plusieurs tunnels VPN de site à site. Dans ce cas, vos périphériques VPN sur site fonctionnent tous correctement, mais ils ne sont pas en mesure d’établir des tunnels IPsec avec les passerelles VPN Azure. Pour obtenir la procédure, consultez [Réinitialiser une passerelle VPN](vpn-gateway-resetgw-classic.md#resetclassic).
 
-## <a name="changesku"></a>Modification d’une référence SKU de passerelle
+## <a name="how-to-change-a-gateway-sku"></a><a name="changesku"></a>Modification d’une référence SKU de passerelle
 
 Pour obtenir la procédure permettant de modifier une référence SKU de passerelle, consultez [Utilisation des références SKU de passerelle de réseau virtuel (anciennes références SKU)](vpn-gateway-about-SKUS-legacy.md#classicresize).
 

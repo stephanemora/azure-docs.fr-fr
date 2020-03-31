@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 77bfd9d5bcae7bedd673354e32464d5f59bdc9b4
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76720869"
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>Déplacer des données vers ou depuis Stockage Blob Azure à l’aide de connecteurs SSIS
@@ -34,7 +34,7 @@ Pour une présentation de scénarios canoniques utilisant SSIS pour répondre au
 > 
 > 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 Pour exécuter les tâches décrites dans cet article, vous devez disposer d’un abonnement Azure et d’un compte de stockage Azure. Pour charger ou télécharger des données, vous devez connaître le nom et la clé du compte de stockage Azure.
 
 * Pour configurer un **abonnement Azure**, consultez la section [Essai gratuit pendant un mois](https://azure.microsoft.com/pricing/free-trial/).

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 06/30/2017
 ms.author: stewu
 ms.openlocfilehash: 2521700e0f07691541ee6cbbf085a8be72f08129
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73904627"
 ---
 # <a name="tune-azure-data-lake-storage-gen1-for-performance"></a>Optimisation d’Azure Data Lake Storage Gen1 pour le niveau de performance
@@ -46,7 +46,7 @@ Après avoir traité les goulots d’étranglement du matériel source et de la 
 | PowerShell       | PerFileThreadCount, ConcurrentFileCount | [Lien](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-powershell) |
 | AdlCopy    | Unités Azure Data Lake Analytics | [Lien](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob#performance-considerations-for-using-adlcopy)         |
 | DistCp            | -m (mappeur) | [Lien](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-wasb-distcp#performance-considerations-while-using-distcp)                             |
-| Azure Data Factory| parallelCopies | [Lien](../data-factory/copy-activity-performance.md)                          |
+| Azure Data Factory| parallelCopies | [Lien](../data-factory/copy-activity-performance.md)                          |
 | Sqoop           | fs.azure.block.size, -m (mappeur) | [Lien](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/)        |
 
 ## <a name="structure-your-data-set"></a>Structure de votre jeu de données

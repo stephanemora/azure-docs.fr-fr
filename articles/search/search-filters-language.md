@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 5dbf32610e54df4ff009d4cb0a0b080babb4ec73
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74112065"
 ---
 # <a name="how-to-filter-by-language-in-azure-cognitive-search"></a>Comment filtrer par langue dans la Recherche cognitive Azure 
@@ -21,7 +21,7 @@ Une condition requise dans une application de recherche multilingue est la possi
 
 Des paramètres de requête appliqués à la demande sont utilisés pour déterminer l’étendue de l’opération de recherche, puis écarter les résultats de tous les champs qui ne fournissent pas de contenu compatible avec l’expérience de recherche que vous souhaitez offrir.
 
-| parameters | Objectif |
+| Paramètres | Objectif |
 |-----------|--------------|
 | **searchFields** | Limite la recherche en texte intégral à la liste des champs nommés. |
 | **$select** | Réduit la réponse pour inclure uniquement les champs que vous spécifiez. Par défaut, tous les champs récupérables sont retournés. Le paramètre **$select** vous permet de choisir les champs à retourner. |

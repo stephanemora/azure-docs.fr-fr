@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 05/30/2019
 ms.author: jimmyca
 ms.openlocfilehash: fe0274f723692eea3cfd25cc0e9e146b35dce2ae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "66735780"
 ---
 # <a name="azure-event-grid-event-schema-for-azure-app-configuration"></a>Schéma des événements Azure Event Grid pour Azure App Configuration
@@ -75,22 +75,22 @@ Un événement contient les données générales suivantes :
 
 | Propriété | Type | Description |
 | -------- | ---- | ----------- |
-| rubrique | chaîne | Chemin d’accès complet à la source de l’événement. Ce champ n’est pas modifiable. Event Grid fournit cette valeur. |
-| subject | chaîne | Chemin de l’objet de l’événement, défini par le serveur de publication. |
-| eventType | chaîne | Un des types d’événements inscrits pour cette source d’événement. |
-| eventTime | chaîne | L’heure à quelle l’événement est généré selon l’heure UTC du fournisseur. |
-| id | chaîne | Identificateur unique de l’événement. |
-| données | objet | Données de l’événement App Configuration. |
-| dataVersion | chaîne | Version du schéma de l’objet de données. Le serveur de publication définit la version du schéma. |
-| metadataVersion | chaîne | Version du schéma des métadonnées d’événement. Event Grid définit le schéma des propriétés de niveau supérieur. Event Grid fournit cette valeur. |
+| topic | string | Chemin d’accès complet à la source de l’événement. Ce champ n’est pas modifiable. Event Grid fournit cette valeur. |
+| subject | string | Chemin de l’objet de l’événement, défini par le serveur de publication. |
+| eventType | string | Un des types d’événements inscrits pour cette source d’événement. |
+| eventTime | string | L’heure à quelle l’événement est généré selon l’heure UTC du fournisseur. |
+| id | string | Identificateur unique de l’événement. |
+| data | object | Données de l’événement App Configuration. |
+| dataVersion | string | Version du schéma de l’objet de données. Le serveur de publication définit la version du schéma. |
+| metadataVersion | string | Version du schéma des métadonnées d’événement. Event Grid définit le schéma des propriétés de niveau supérieur. Event Grid fournit cette valeur. |
 
 L’objet de données comporte les propriétés suivantes :
 
 | Propriété | Type | Description |
 | -------- | ---- | ----------- |
-| key | chaîne | Clé de la valeur de clé qui a été modifiée ou supprimée. |
-| label | chaîne | Clé de la valeur de clé qui a été modifiée ou supprimée. |
-| etag | chaîne | Pour le paramètre `KeyValueModified`, etag de la nouvelle valeur de clé. Pour le paramètre `KeyValueDeleted`, etag de la valeur de clé qui a été supprimée. |
+| key | string | La clé de la paire clé-valeur qui a été modifiée ou supprimée. |
+| label | string | Le cas échéant, l’étiquette de la paire clé-valeur qui a été modifiée ou supprimée. |
+| etag | string | Pour le paramètre `KeyValueModified`, l’etag de la nouvelle paire clé-valeur. Pour le paramètre `KeyValueDeleted`, l’etag de la paire clé-valeur qui a été supprimée. |
  
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -4,10 +4,10 @@ description: Découvrez comment restaurer la clé et la clé secrète du Key Vau
 ms.topic: conceptual
 ms.date: 08/28/2017
 ms.openlocfilehash: 35bcb919cadd46c603b1f2ad49742c5435f873d2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75450064"
 ---
 # <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>Restaurer la clé et le secret du Key Vault pour les machines virtuelles chiffrées à l’aide d’Azure Backup
@@ -16,7 +16,7 @@ Cet article décrit l’utilisation de Sauvegarde de VM Azure pour restaurer des
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * **Sauvegarder les machines virtuelles chiffrées** : les machines virtuelles Azure chiffrées ont été sauvegardées à l’aide d’Azure Backup. Pour plus d’informations sur la sauvegarde de machines virtuelles Azure chiffrées, consultez [Gérer la sauvegarde et la restauration de machines virtuelles Azure à l’aide de PowerShell](backup-azure-vms-automation.md).
 * **Configurer Azure Key Vault**: assurez-vous que le Key Vault dans lequel les clés et secrets doivent être restaurés est déjà présent. Pour plus d’informations sur la gestion du Key Vault, voir [Prise en main d’Azure Key Vault](../key-vault/key-vault-get-started.md).

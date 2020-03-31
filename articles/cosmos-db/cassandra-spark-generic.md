@@ -9,10 +9,10 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/01/2019
 ms.openlocfilehash: cb34ea44c069f067d13a6480531a94a1a515f380
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70241239"
 ---
 # <a name="connect-to-azure-cosmos-db-cassandra-api-from-spark"></a>Connecter l’API Cassandra Azure Cosmos DB à partir de Spark
@@ -43,11 +43,11 @@ Le tableau suivant répertorie les paramètres de configuration du débit spéci
 | **Nom de la propriété** | **Valeur par défaut** | **Description** |
 |---------|---------|---------|
 | spark.cassandra.output.batch.size.rows |  1 |Nombre de lignes par lot. Définissez ce paramètre sur 1. Ce paramètre est utilisé pour obtenir un débit plus élevé pour les charges de travail importantes. |
-| spark.cassandra.connection.connections_per_executor_max  | Aucun | Nombre maximal de connexions par nœud et par exécuteur. 10*n équivaut à 10 connexions par nœud dans un cluster Cassandra de n nœuds. Par conséquent, si vous avez besoin de 5 connexions par nœud et par exécuteur pour un cluster Cassandra à 5 nœuds, vous devez définir cette configuration sur 25. Modifiez cette valeur en fonction du degré de parallélisme ou du nombre d’exécuteurs pour lesquels vos travaux Spark sont configurés.   |
+| spark.cassandra.connection.connections_per_executor_max  | None | Nombre maximal de connexions par nœud et par exécuteur. 10*n équivaut à 10 connexions par nœud dans un cluster Cassandra de n nœuds. Par conséquent, si vous avez besoin de 5 connexions par nœud et par exécuteur pour un cluster Cassandra à 5 nœuds, vous devez définir cette configuration sur 25. Modifiez cette valeur en fonction du degré de parallélisme ou du nombre d’exécuteurs pour lesquels vos travaux Spark sont configurés.   |
 | spark.cassandra.output.concurrent.writes  |  100 | Définit le nombre d’écritures parallèles qui peuvent se produire par exécuteur. Étant donné que vous avez défini « batch.size.rows » sur 1, veillez à augmenter cette valeur en conséquence. Modifiez cette valeur selon le degré de parallélisme ou le débit que vous souhaitez obtenir pour votre charge de travail. |
 | spark.cassandra.concurrent.reads |  512 | Définit le nombre de lectures parallèles qui peuvent se produire par exécuteur. Modifiez cette valeur selon le degré de parallélisme ou le débit que vous souhaitez obtenir pour votre charge de travail.  |
-| spark.cassandra.output.throughput_mb_per_sec  | Aucun | Définit le débit d’écriture total par exécuteur. Ce paramètre peut être utilisé comme limite supérieure pour le débit de vos travaux Spark et le baser sur le débit provisionné de votre conteneur Cosmos.   |
-| spark.cassandra.input.reads_per_sec| Aucun   | Définit le débit de lecture total par exécuteur. Ce paramètre peut être utilisé comme limite supérieure pour le débit de vos travaux Spark et le baser sur le débit provisionné de votre conteneur Cosmos.  |
+| spark.cassandra.output.throughput_mb_per_sec  | None | Définit le débit d’écriture total par exécuteur. Ce paramètre peut être utilisé comme limite supérieure pour le débit de vos travaux Spark et le baser sur le débit provisionné de votre conteneur Cosmos.   |
+| spark.cassandra.input.reads_per_sec| None   | Définit le débit de lecture total par exécuteur. Ce paramètre peut être utilisé comme limite supérieure pour le débit de vos travaux Spark et le baser sur le débit provisionné de votre conteneur Cosmos.  |
 | spark.cassandra.output.batch.grouping.buffer.size |  1 000  | Définit le nombre de lots par tâche Spark qui peuvent être stockés en mémoire avant d’être envoyés à l’API Cassandra. |
 | spark.cassandra.connection.keep_alive_ms | 60000 | Définit la période pendant laquelle les connexions inutilisées sont disponibles. | 
 

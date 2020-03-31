@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: yegu
 ms.openlocfilehash: ce50c665fa79c361f638fda4ec373d5215c407f8
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74129416"
 ---
 # <a name="how-to-set-up-geo-replication-for-azure-cache-for-redis"></a>Configurer la géoréplication pour Azure Cache pour Redis

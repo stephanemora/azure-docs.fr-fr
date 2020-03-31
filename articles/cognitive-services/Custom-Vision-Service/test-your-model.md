@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: anroth
 ms.openlocfilehash: c6ed8869f6d33609381a42fd22d728e9e5542802
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73721200"
 ---
 # <a name="test-and-retrain-a-model-with-custom-vision-service"></a>Tester et recycler un modèle avec Service Vision personnalisée
@@ -39,7 +39,7 @@ Vous pouvez maintenant ajouter cette image de test à votre modèle, puis le rec
 
 Pour utiliser l’image précédemment envoyée pour former le modèle, procédez comme suit :
 
-1. Pour afficher des images envoyées au classifieur, ouvrez la [page web Service Vision personnalisée](https://customvision.ai) et sélectionnez l’onglet __Prédictions__.
+1. Pour voir les images soumises au classifieur, ouvrez la [page web Custom Vision](https://customvision.ai) et sélectionnez l’onglet __Predictions__.
 
     ![Image de l’onglet des prédictions](./media/test-your-model/predictions-tab.png)
 

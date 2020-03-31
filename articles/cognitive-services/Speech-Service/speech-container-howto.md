@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/04/2019
+ms.date: 03/10/2020
 ms.author: dapine
-ms.openlocfilehash: 5d30693eb13104504d1cf27ffdbfb8d098d4ef9e
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 2beee81bc365d00e59a62cacabacc5f5d6b62a42
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367758"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79474779"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Installer et exécuter des conteneurs du service Speech (préversion)
 
@@ -28,8 +28,8 @@ Les conteneurs Speech permettent aux clients de créer une architecture d’appl
 
 | Fonction | Fonctionnalités | Latest |
 |--|--|--|
-| Reconnaissance vocale | Transcrit en continu de la parole en temps réel ou des enregistrements audio en texte, avec des résultats intermédiaires. | 2.0.0 |
-| Reconnaissance vocale personnalisée | À l’aide d’un modèle personnalisé issu du [portail Custom Speech](https://speech.microsoft.com/customspeech), transcrit en continu de la parole en temps réel ou des enregistrements audio en texte, avec des résultats intermédiaires. | 2.0.0 |
+| Reconnaissance vocale | Transcrit en continu de la parole en temps réel ou des enregistrements audio en texte, avec des résultats intermédiaires. | 2.1.1 |
+| Reconnaissance vocale personnalisée | À l’aide d’un modèle personnalisé issu du [portail Custom Speech](https://speech.microsoft.com/customspeech), transcrit en continu de la parole en temps réel ou des enregistrements audio en texte, avec des résultats intermédiaires. | 2.1.1 |
 | Synthèse vocale | Convertit le texte en paroles naturelles par le biais d’une entrée de texte brut ou du langage de balisage SSML (Speech Synthesis Markup Language). | 1.3.0 |
 | Synthèse vocale personnalisée | À l’aide d’un modèle personnalisé issu du [portail Custom Voice](https://aka.ms/custom-voice-portal), convertit le texte en paroles naturelles par le biais d’une entrée de texte brut ou du langage de balisage SSML (Speech Synthesis Markup Language). | 1.3.0 |
 
@@ -164,7 +164,7 @@ Toutes les balises, à l’exception de `latest`, respectent le format suivant e
 La balise suivante illustre le format :
 
 ```
-2.0.0-amd64-en-us-preview
+2.1.1-amd64-en-us-preview
 ```
 
 Pour tous les paramètres régionaux pris en charge du conteneur de **reconnaissance vocale**, consultez les [étiquettes d’images de reconnaissance vocale](../containers/container-image-tags.md#speech-to-text).

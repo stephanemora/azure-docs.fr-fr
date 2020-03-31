@@ -3,7 +3,7 @@ title: Distributions Linux approuvées sur Azure
 description: Découvrez les distributions Linux approuvées sur Azure, notamment des instructions pour Ubuntu, CentOS, Oracle et SUSE.
 services: virtual-machines-linux
 documentationcenter: ''
-author: mimckitt
+author: gbowerman
 manager: gwallace
 editor: tysonn
 tags: azure-service-management,azure-resource-manager
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: mimckitt
-ms.openlocfilehash: 7318095dce77856087ad7dd949e91e0eb7936294
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.author: guybo
+ms.openlocfilehash: cc2fedcd4816b55aaed3573ce2593919770a4152
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251641"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80062656"
 ---
 # <a name="endorsed-linux-distributions-on-azure"></a>Distributions Linux approuvées sur Azure
 Les partenaires fournissent des images Linux dans la Place de marché Microsoft Azure. Nous collaborons avec différentes communautés Linux pour étoffer la liste des distributions approuvée. En attendant, pour les distributions qui ne sont pas disponibles sur la Place de marché, vous pouvez toujours apporter votre propre distribution Linux en suivant les instructions fournies dans [Créer et charger un disque dur virtuel contenant le système d’exploitation Linux](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic).

@@ -14,10 +14,10 @@ ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 9f817880f938f5d03024e3aacd9b84817a5ac721
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77138300"
 ---
 # <a name="add-role-assignments-using-azure-rbac-and-azure-resource-manager-templates"></a>Ajouter des attributions de rôles avec le RBAC Azure et les modèles Azure Resource Manager
@@ -361,7 +361,7 @@ L’exemple suivant illustre l’attribution du rôle contributeur à un nouveau
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Démarrage rapide : Créer et déployer des modèles Azure Resource Manager à l’aide du portail Azure](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)
+- [Démarrage rapide : Créer et déployer des modèles Azure Resource Manager à l’aide du portail Azure](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)
 - [Comprendre la structure et la syntaxe des modèles Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
 - [Créer des groupes de ressources et des ressources au niveau de l’abonnement](../azure-resource-manager/templates/deploy-to-subscription.md)
 - [Modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/?term=rbac)

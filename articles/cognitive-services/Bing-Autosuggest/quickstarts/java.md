@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 12/11/2019
+ms.date: 03/24/2020
 ms.author: aahi
-ms.openlocfilehash: 1593d4079cf7f50d5473f24ecf57351c9d7786e9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b3f279ea50e9923e63f7d6090f4dbaca939eb16c
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75384915"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80238963"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-java"></a>Démarrage rapide : Suggérer des requêtes de recherche avec l’API REST Suggestion automatique Bing et Java
 
 
 Utilisez ce démarrage rapide pour commencer à effectuer des appels à l’API Suggestion automatique Bing et à obtenir la réponse JSON. Cette application Java simple envoie une requête de recherche partielle à l’API et retourne des suggestions pour les recherches. Alors que cette application est écrite en Java, l’API est un service web RESTful compatible avec la plupart des langages de programmation. Le code source de cet exemple est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingAutosuggestv7.java)
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Le [JDK (Java Development Kit)](https://www.oracle.com/technetwork/java/javase/downloads/)
 * La [bibliothèque Gson](https://github.com/google/gson)

@@ -8,10 +8,10 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: b37708e27887b20604a1fe921f14e51387793737
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74687254"
 ---
 # <a name="configuring-an-app-service-environment-v1"></a>Configuration d’un environnement App Service Environment v1
@@ -20,7 +20,7 @@ ms.locfileid: "74687254"
 > Cet article traite de l’environnement App Service Environment v1.  Il existe une version plus récente de l’environnement App Service Environment, plus facile à utiliser et qui s’exécute sur des infrastructures plus puissantes. Pour en savoir plus sur la nouvelle version, commencez par la section [Présentation de l’environnement App Service Environment](intro.md).
 > 
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Globalement, un environnement Azure App Service se compose de plusieurs composants principaux :
 
 * Des ressources de calcul s’exécutant dans le service hébergé d’environnement App Service
@@ -37,14 +37,14 @@ Les hôtes présents dans les pools de ressources (des serveurs frontaux et de t
 Vous pouvez définir la taille et la quantité des pools de ressources. Dans un environnement App Service, vous disposez de quatre options de taille (P1 à P4). Pour plus de détails sur ces tailles et leur tarification, voir [Tarification de App Service](https://azure.microsoft.com/pricing/details/app-service/).
 La modification de la quantité ou de la taille est une opération appelée « mise à l’échelle ».  Il ne peut y avoir qu’une seule opération de mise à l’échelle en cours à la fois.
 
-**Front-ends** : les front-ends sont les points de terminaison HTTP/HTTPS pour vos applications contenues dans votre environnement App Service (ASE). Les charges de travail ne sont pas exécutées dans les serveurs frontaux.
+**Serveurs frontaux :** les front-ends sont les points de terminaison HTTP/HTTPS pour vos applications contenues dans votre environnement App Service (ASE). Les charges de travail ne sont pas exécutées dans les serveurs frontaux.
 
 * Un environnement App Service commence avec deux P2, ce qui est suffisant pour les charges de travail de développement et de test et les charges de travail de production de bas niveau. Nous vous recommandons vivement d’utiliser des P3 pour des charges de travail de production moyennes et lourdes.
 * Il est recommandé d’avoir au moins quatre P3 pour les charges de travail moyennes et lourdes, afin de garantir l’exécution d’un nombre suffisant de serveurs frontaux pendant la maintenance planifiée. Les activités de maintenance planifiées interrompront un seul serveur frontal à la fois. Cela réduit la capacité globale disponible des serveurs frontaux pendant les activités de maintenance.
 * L’approvisionnement des serveurs frontaux peut prendre jusqu’à une heure. 
 * Pour un ajustement optimal de la mise à l’échelle, vous devez analyser le pourcentage UC, le pourcentage de mémoire ainsi que les mesures des demandes actives pour le pool frontal. Si le pourcentage UC ou de mémoire est supérieur à 70 % lorsque vous exécutez des P3, ajoutez davantage de serveurs frontaux. Si la valeur moyenne des demandes actives oscille entre 15 000 et 20 000 demandes par serveur frontal, vous devez également ajouter davantage de serveurs frontaux. L’objectif est de maintenir le pourcentage UC et de mémoire en dessous de 70 % et le nombre moyen des demandes actives en dessous de 15 000 par serveur frontal lorsque vous exécutez des P3.  
 
-**Workers** : les workers sont l’emplacement où s’exécutent en réalité vos applications. Lorsque vous faites monter en puissance vos plans App Service, cette opération utilise des Workers dans le pool de travail associé.
+**Workers** : les workers sont l’emplacement où s’exécutent en réalité vos applications. Lorsque vous faites monter en puissance vos plans App Service, cette opération utilise des Workers dans le pool de travail associé.
 
 * L’ajout instantané de Workers n’est pas possible. Leur approvisionnement peut prendre jusqu’à une heure.
 * La mise à l’échelle d’une ressource de calcul pour un pool quelconque prendra moins de 1 heure par domaine de mise à jour. Un environnement App Service contient 20 domaines de mise à jour. Si vous mettez à l’échelle la taille de calcul d’un pool de travail contenant 10 instances, cette opération peut prendre jusqu’à 10 heures.
@@ -154,7 +154,7 @@ Pour utiliser l’opération de mise à l’échelle sur le panneau de l’ASE, 
 
 ![Interface utilisateur Mise à l’échelle][6]
 
-Pour utiliser les fonctionnalités de mise à l’échelle automatique ou manuelle dans un pool de ressources spécifique, accédez à **Paramètres** > **Pool frontal** / **Pools de travail**, selon le cas. Ouvrez ensuite le pool que vous souhaitez modifier. Accédez à **Paramètres** > **Augmenter la taille des instances** ou **Paramètres** > **Monter en puissance**. Le panneau **Augmenter la taille des instances** vous permet de contrôler la quantité des instances. **Monter en puissance** vous permet de contrôler la taille de la ressource.  
+Pour utiliser les fonctionnalités de mise à l’échelle automatique ou manuelle dans un pool de ressources spécifique, accédez à **Paramètres** > **Pool frontal** / **Pools de travail**, selon le cas. Ouvrez ensuite le pool que vous souhaitez modifier. Accédez à **Paramètres** > **Scale-out** ou **Paramètres** > **Scale-up**. Le panneau **Scale-out** vous permet de contrôler la quantité des instances. **Monter en puissance** vous permet de contrôler la taille de la ressource.  
 
 ![Interface utilisateur Paramètres de mise à l’échelle][7]
 

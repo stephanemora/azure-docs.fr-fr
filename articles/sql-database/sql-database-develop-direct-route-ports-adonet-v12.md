@@ -12,10 +12,10 @@ ms.author: genemi
 ms.reviewer: sstein
 ms.date: 04/03/2019
 ms.openlocfilehash: c0012b61cf43d01afd5e7f5f52948310b5eb8420
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73828056"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>Ports au-delà de 1433 pour ADO.NET 4.5
@@ -83,6 +83,6 @@ Cette section clarifie les monikers qui font référence aux versions du produit
 * [Liste des versions du protocole TDS](https://www.freetds.org/userguide/tdshistory.htm)
 * [Vue d’ensemble du développement de base de données SQL](sql-database-develop-overview.md)
 * [Pare-feu Azure SQL Database](sql-database-firewall-configure.md)
-* [Guide pratique pour Configuration des paramètres du pare-feu sur SQL Database](sql-database-configure-firewall-settings.md)
+* [Procédure : Configuration des paramètres du pare-feu sur SQL Database](sql-database-configure-firewall-settings.md)
 
 

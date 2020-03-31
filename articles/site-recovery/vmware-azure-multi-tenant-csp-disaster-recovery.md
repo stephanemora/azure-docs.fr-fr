@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: 77b64f09b7fd1429eb23c4407c729dfc0aafdf2b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60460981"
 ---
 # <a name="set-up-vmware-disaster-recovery-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>Configurer la récupération d'urgence VMware dans un environnement multilocataire avec le programme du fournisseur de solutions cloud
@@ -22,7 +22,7 @@ Avec [Azure Site Recovery](site-recovery-overview.md), en tant que partenaires, 
 
 Cet article décrit comment un partenaire peut créer et gérer des abonnements de locataires par le biais du fournisseur de solutions cloud, dans le cadre d’un scénario de réplication VMware multilocataire.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour configurer la réplication VMware, vous avez besoin d’effectuer les opérations suivantes :
 
@@ -39,7 +39,7 @@ Pour configurer la réplication VMware, vous avez besoin d’effectuer les opér
 
     ![La page Informations du compte](./media/vmware-azure-multi-tenant-csp-disaster-recovery/customer-add-filled.png)
 
-5. Cliquez ensuite sur **Suivant : Abonnements**.
+5. Ensuite, cliquez sur **Suivant : Abonnements**.
 6. Dans la page de sélection des abonnements, cochez la case **Microsoft Azure**. Vous pouvez ajouter d’autres abonnements maintenant ou à tout moment.
 7. Sur la page **Révision**, vérifiez les détails du locataire, puis cliquez sur **Envoyer**.
 8. Une fois que vous avez créé le compte locataire, une page de confirmation affichant les détails du compte par défaut et le mot de passe de cet abonnement apparaît. Enregistrez les informations et modifiez le mot de passe ultérieurement si nécessaire, par le biais de la page de connexion au portail Azure.
@@ -91,9 +91,9 @@ Il existe trois modèles multilocataires principaux :
 
 * **Fournisseur de services d’hébergement partagé (HSP)** : le partenaire possède l’infrastructure physique et utilise des ressources partagées (vCenter, centres de données, stockage physique, etc.) pour héberger les machines virtuelles de plusieurs locataires sur la même infrastructure. Le partenaire peut fournir la gestion de la récupération d’urgence en tant que service géré, ou le locataire peut disposer de la récupération d’urgence en tant que solution en libre-service.
 
-* **Fournisseur de services d’hébergement dédié** : le partenaire possède l’infrastructure physique mais utilise des ressources dédiées (plusieurs vCenter, magasins de données physiques, etc.) pour héberger les machines virtuelles de chaque locataire sur une infrastructure distincte. Le partenaire peut fournir la gestion de la récupération d’urgence en tant que service géré, ou le locataire peut en disposer en tant que solution en libre-service.
+* **Fournisseur de services d’hébergement dédié** : le partenaire possède l’infrastructure physique mais utilise des ressources dédiées (plusieurs vCenter, magasins de données physiques, etc.) pour héberger les machines virtuelles de chaque locataire sur une infrastructure distincte. Le partenaire peut fournir la gestion de la récupération d’urgence en tant que service géré, ou le locataire peut en disposer en tant que solution en libre-service.
 
-* **Fournisseur de services gérés (MSP)** : le client possède l’infrastructure physique qui héberge les machines virtuelles, et le partenaire réalise l’activation et la gestion de la reprise d’activité.
+* **Fournisseur de services gérés (MSP)** : le client possède l’infrastructure physique qui héberge les machines virtuelles, et le partenaire réalise l’activation et la gestion de la récupération d’urgence.
 
 En configurant les abonnements du client comme décrit dans cet article, vous pouvez démarrer rapidement l’activation des clients dans un des modèles d’architecture mutualisée pertinents. Plus d’informations sur les différents modèles d’architecture mutualisée et l’activation locale des contrôles d’accès, consultez [cette page](vmware-azure-multi-tenant-overview.md).
 

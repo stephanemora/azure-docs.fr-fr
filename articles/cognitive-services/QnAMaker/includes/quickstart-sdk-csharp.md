@@ -4,10 +4,10 @@ description: Ce guide de démarrage rapide montre comment bien démarrer avec la
 ms.topic: quickstart
 ms.date: 01/13/2020
 ms.openlocfilehash: 2911c74226c3b682b75e8d10b0b4b7617a48ec64
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75945982"
 ---
 Utilisez la bibliothèque de client QnA Maker pour .NET afin de :
@@ -21,7 +21,7 @@ Utilisez la bibliothèque de client QnA Maker pour .NET afin de :
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/)
 * Version actuelle de [.NET Core](https://dotnet.microsoft.com/download/dotnet-core)

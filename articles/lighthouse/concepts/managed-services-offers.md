@@ -1,14 +1,14 @@
 ---
 title: Offres de services managés dans la Place de marché Azure
 description: Les offres de services managés permettent aux fournisseurs de services de vendre des offres de gestion des ressources à des clients sur la Place de marché Azure.
-ms.date: 12/16/2019
+ms.date: 03/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1b4f0d7457a74afe710a48f429cfe47535a9b122
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2d6e39f753736c0582e9d91870a99b66ae41255b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453581"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79500783"
 ---
 # <a name="managed-services-offers-in-azure-marketplace"></a>Offres de services managés dans la Place de marché Azure
 
@@ -31,7 +31,7 @@ Les plans publics vous permettent de promouvoir vos services auprès de nouveaux
 Le cas échéant, vous pouvez inclure des plans publics et privés dans la même offre.
 
 > [!IMPORTANT]
-> Une fois que vous avez publié un plan public, vous ne pouvez plus le changer en plan privé. Pour contrôler les clients qui peuvent accepter votre offre et déléguer des ressources, utilisez un plan privé. Avec un plan public, vous ne pouvez pas limiter la disponibilité à des clients spécifiques ou à un certain nombre de clients (en revanche, vous pouvez arrêter complètement la vente du plan si vous le souhaitez). Il n’existe actuellement aucun mécanisme permettant de rejeter ou supprimer des délégations une fois qu’un client accepte une offre, bien que vous puissiez toujours contacter un client et lui demander de [supprimer votre accès](../how-to/view-manage-service-providers.md#add-or-remove-service-provider-offers).
+> Une fois que vous avez publié un plan public, vous ne pouvez plus le changer en plan privé. Pour contrôler les clients qui peuvent accepter votre offre et déléguer des ressources, utilisez un plan privé. Avec un plan public, vous ne pouvez pas limiter la disponibilité à des clients spécifiques ou à un certain nombre de clients (en revanche, vous pouvez arrêter complètement la vente du plan si vous le souhaitez). Vous pouvez [supprimer l’accès à une délégation](../how-to/onboard-customer.md#remove-access-to-a-delegation) après qu’un client a accepté une offre uniquement si vous avez inclus une **Autorisation** avec la **Définition de rôle** définie sur [Inscription des services managés, attribution Supprimer le rôle](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) lors de la publication de l’offre. Vous pouvez également contacter le client et lui demander de [supprimer votre accès](../how-to/view-manage-service-providers.md#add-or-remove-service-provider-offers).
 
 ## <a name="publish-managed-service-offers"></a>Publier des offres de services managés
 

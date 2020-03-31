@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 01/29/2020
 ms.author: shvija
 ms.openlocfilehash: 808e813ad90626acec893a021634566f091c895f
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76904485"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Disponibilité et cohérence dans Event Hubs
@@ -47,7 +47,7 @@ Avec cette configuration, gardez à l’esprit que si la partition particulière
 
 Pour garantir le classement tout en optimisant aussi le temps d’activité, vous pouvez regrouper les événements dans le cadre de votre application de traitement des événements. Pour cela, le moyen le plus simple consiste à marquer votre événement avec une propriété de numéro de séquence personnalisée. Le code suivant montre un exemple :
 
-#### <a name="azuremessagingeventhubs-500-or-latertablatest"></a>[Azure.Messaging.EventHubs (version 5.0.0 ou ultérieure)](#tab/latest)
+#### <a name="azuremessagingeventhubs-500-or-later"></a>[Azure.Messaging.EventHubs (version 5.0.0 ou ultérieure)](#tab/latest)
 
 ```csharp
 // create a producer client that you can use to send events to an event hub
@@ -73,7 +73,7 @@ await using (var producerClient = new EventHubProducerClient(connectionString, e
 }
 ```
 
-#### <a name="microsoftazureeventhubs-410-or-earliertabold"></a>[Microsoft.Azure.EventHubs (version 4.1.0 ou ultérieure)](#tab/old)
+#### <a name="microsoftazureeventhubs-410-or-earlier"></a>[Microsoft.Azure.EventHubs (version 4.1.0 ou ultérieure)](#tab/old)
 ```csharp
 // Create an Event Hubs client
 var client = new EventHubClient(connectionString, eventHubName);

@@ -12,10 +12,10 @@ ms.author: sashan
 ms.reviewer: sstein, carlrab
 ms.date: 08/29/2019
 ms.openlocfilehash: 0713e1ed98cc87b95cad1f84672148cd062e0b58
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75979987"
 ---
 # <a name="save-costs-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Réduire les coûts des ressources de calcul SQL Database avec une capacité réservée Azure SQL Database
@@ -51,7 +51,7 @@ Le tableau suivant décrit les champs requis.
 
 | Champ      | Description|
 |------------|--------------|
-|Subscription|Abonnement utilisé pour payer la réservation de capacité réservée SQL Database. Les coûts initiaux de la réservation de capacité réservée SQL Database sont facturés selon le mode de paiement défini sur l’abonnement. Le type d’abonnement doit être Accord Entreprise (numéros de l’offre : MS-AZR-0017P ou MS-AZR-0148p) ou un accord individuel avec paiement à l’utilisation (numéros de l’offre : MS-AZR-0003P ou MS-AZR-0023P). Pour un abonnement Entreprise, les frais sont déduits du solde d’engagement monétaire de l’inscription ou facturés comme un dépassement. Pour un abonnement individuel avec paiement à l’utilisation, les frais sont facturés sur le mode de paiement par carte de crédit ou par facture sur l’abonnement.|
+|Abonnement|Abonnement utilisé pour payer la réservation de capacité réservée SQL Database. Les coûts initiaux de la réservation de capacité réservée SQL Database sont facturés selon le mode de paiement défini sur l’abonnement. Le type d’abonnement doit être Accord Entreprise (numéros de l’offre : MS-AZR-0017P ou MS-AZR-0148p) ou un accord individuel avec paiement à l’utilisation (numéros de l’offre : MS-AZR-0003P ou MS-AZR-0023P). Pour un abonnement Entreprise, les frais sont déduits du solde d’engagement monétaire de l’inscription ou facturés comme un dépassement. Pour un abonnement individuel avec paiement à l’utilisation, les frais sont facturés sur le mode de paiement par carte de crédit ou par facture sur l’abonnement.|
 |Étendue       |L’étendue de la réservation vCore peut couvrir un seul abonnement ou plusieurs abonnements (étendue partagée). Si vous sélectionnez : <br/><br/>**Partagé** : la remise de réservation vCore est appliquée aux instances SQL Database en cours d’exécution dans tous les abonnements de votre contexte de facturation. Pour les clients Entreprise, l'étendue partagée correspond à l'inscription et inclut tous les abonnements compris dans l'inscription. Pour les clients Paiement à l’utilisation, l’étendue partagée correspond à tous les abonnements Paiement à l’utilisation créés par l’administrateur de compte.<br/><br/>**Abonnement unique** : la remise de réservation vCore est appliquée aux instances SQL Database incluses dans cet abonnement. <br/><br/>**Groupe de ressources unique** : la remise de réservation est appliquée aux instances SQL Database incluses dans l’abonnement sélectionné et dans le groupe de ressources sélectionné dans cet abonnement.|
 |Région      |Région Azure couverte par la réservation de capacité réservée SQL Database.|
 |Type de déploiement|Type de ressource SQL pour laquelle vous voulez acheter la réservation.|

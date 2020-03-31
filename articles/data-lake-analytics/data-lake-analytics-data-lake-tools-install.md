@@ -10,24 +10,24 @@ ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.openlocfilehash: 08f0456b6a8b663f0af68fbb179de14b9e3acf79
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70914080"
 ---
 # <a name="install-data-lake-tools-for-visual-studio"></a>Installation de Data Lake Tools pour Visual Studio
 
 Découvrez comment utiliser Visual Studio pour créer des comptes Azure Data Lake Analytics. Vous pouvez définir des tâches dans [U-SQL](data-lake-analytics-u-sql-get-started.md), et soumettre des tâches au service Data Lake Analytics. Pour plus d’informations sur Analytique Data Lake, consultez [Présentation d’Analytique Data Lake Azure](data-lake-analytics-overview.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-* **Visual Studio** : toutes les éditions sauf Express sont prises en charge.
+* **Visual Studio** : toutes les éditions sauf Express sont prises en charge.
 
   * Visual Studio 2019
   * Visual Studio 2017
-  * Visual Studio 2015
-  * Visual Studio 2013
+  * Visual Studio 2015
+  * Visual Studio 2013
 
 * **Kit SDK Microsoft Azure pour .NET** version 2.7.1 ou ultérieure. Installez-le à l’aide de [Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx).
 * Un compte**Data Lake Analytics**. Pour créer un compte, consultez [Prise en main d’Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-get-started-portal.md).

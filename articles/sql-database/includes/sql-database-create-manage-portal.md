@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 08/23/2019
 ms.author: sstein
 ms.openlocfilehash: 2a8b9322f7c03d76cd8a31c832c343cde9e2e355
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74935769"
 ---
 ## <a name="create-and-manage-azure-sql-resources-with-the-azure-portal"></a>Créer et gérer des ressources Azure SQL avec le portail Azure
@@ -29,7 +29,7 @@ Après avoir sélectionné **+ Ajouter**, affichez des informations supplémenta
 
 ![Détails de la vignette Bases de données](../media/sql-database-technical-overview/single-sql-database-deployment-options.png)
 
-Pour plus d'informations, consultez les rubriques :
+Pour plus d’informations, consultez :
 
 - [Créer une base de données unique](../sql-database-single-database-get-started.md)
 - [Créer un pool élastique](../sql-database-elastic-pool.md#creating-a-new-sql-database-elastic-pool-using-the-azure-portal)

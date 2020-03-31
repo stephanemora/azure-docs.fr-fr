@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 06/07/2019
 ms.author: rogarana
 ms.openlocfilehash: b28427b3ede0cfaeb9e08d3c73b15ea7f2961f1b
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "71180046"
 ---
 #### <a name="additional-premium-file-share-level-limits"></a>Limites du niveau de partage de fichiers premium supplémentaires
@@ -29,5 +29,5 @@ ms.locfileid: "71180046"
 |Nb max. d’IOPS par fichier     |5 000         |1 000|
 |Descripteurs simultanés    |2 000         |2 000|
 |Sortie  |300 Mio/s|      Consultez les valeurs de débit de fichier standard|
-|Entrée  |200 Mio/s| Consultez les valeurs de débit de fichier standard|
+|Entrée  |200 Mio/s| Consultez les valeurs de débit de fichier standard|
 |Débit| Voir les valeurs d’entrée et de sortie des fichiers Premium| Jusqu’à 60 Mio/s|

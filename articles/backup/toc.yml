@@ -15,12 +15,12 @@
       href: quick-backup-vm-powershell.md
     - name: Sauvegarder une machine virtuelle - CLI
       href: quick-backup-vm-cli.md
-    - name: Sauvegarder une machine virtuelle - Modèle Resource Manager
-      displayName: ARM
+    - name: "Sauvegarder une machine virtuelle\_- Modèle ARM"
+      displayName: Resource Manager
       href: quick-backup-vm-template.md
 - name: Tutoriels
   items:
-    - name: Sauvegarder des machines virtuelles Azure à l’échelle
+    - name: Sauvegarder plusieurs machines virtuelles Azure
       href: tutorial-backup-vm-at-scale.md
     - name: Sauvegarder des machines virtuelles Azure avec PowerShell
       href: tutorial-backup-azure-vm.md
@@ -58,6 +58,8 @@
           href: backup-support-matrix-mabs-dpm.md
         - name: Matrice de prise en charge de l’agent MARS
           href: backup-support-matrix-mars-agent.md
+        - name: "Matrice de prise en charge de la sauvegarde SQL\_Server"
+          href: sql-support-matrix.md
         - name: Tableau de prise en charge de sauvegarde SAP HANA
           href: sap-hana-backup-support-matrix.md
         - name: Références SKU Machines virtuelles prises en charge pour Azure Policy

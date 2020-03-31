@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 01280b6ee9dda15af3c0fc707a385501580c624c
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72794304"
 ---
 # <a name="security-filters-for-trimming-azure-cognitive-search-results-using-active-directory-identities"></a>Utilisation de filtres de sécurité pour filtrer les résultats de Recherche cognitive Azure à l’aide d’identités Active Directory
@@ -30,7 +30,7 @@ Cet article décrit les tâches suivantes :
 > [!NOTE]
 > Dans cet article, les exemples d’extraits de code sont écrits en C#. L’intégralité du code source est disponible [sur GitHub](https://aka.ms/search-dotnet-howto). 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Votre index dans Recherche cognitive Azure doit avoir un [champ de sécurité](search-security-trimming-for-azure-search.md) pour stocker la liste des identités de groupe disposant d’un accès en lecture pour le document. Ce cas d’usage implique une correspondance exacte entre un élément sécurisable (par exemple l’application d’un établissement scolaire) et un champ de sécurité spécifiant qui a accès à cet élément (personnel en charge des admissions).
 
@@ -63,7 +63,7 @@ Toutefois, si vous n’avez pas d’utilisateurs existants, vous pouvez utiliser
 
 La gestion des groupes et des utilisateurs peut s’avérer très fluide, en particulier dans les grandes organisations. Le code qui génère les identités d’utilisateur et de groupe doit s’exécuter assez souvent pour tenir compte des modifications apportées aux groupes de l’organisation. De même, votre index Recherche cognitive Azure requiert une planification de mise à jour similaire pour refléter l’état actuel des utilisateurs et des ressources autorisés.
 
-### <a name="step-1-create-aad-grouphttpsdocsmicrosoftcomgraphapigroup-post-groupsviewgraph-rest-10"></a>Étape 1 : Créer un [groupe AAD](https://docs.microsoft.com/graph/api/group-post-groups?view=graph-rest-1.0) 
+### <a name="step-1-create-aad-group"></a>Étape 1 : Créer un [groupe AAD](https://docs.microsoft.com/graph/api/group-post-groups?view=graph-rest-1.0) 
 ```csharp
 // Instantiate graph client 
 GraphServiceClient graph = new GraphServiceClient(new DelegateAuthenticationProvider(...));
@@ -77,7 +77,7 @@ Group group = new Group()
 Group newGroup = await graph.Groups.Request().AddAsync(group);
 ```
    
-### <a name="step-2-create-aad-userhttpsdocsmicrosoftcomgraphapiuser-post-usersviewgraph-rest-10"></a>Étape 2 : Créer un [utilisateur AAD](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0)
+### <a name="step-2-create-aad-user"></a>Étape 2 : Créer un [utilisateur AAD](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0)
 ```csharp
 User user = new User()
 {
@@ -92,12 +92,12 @@ User user = new User()
 User newUser = await graph.Users.Request().AddAsync(user);
 ```
 
-### <a name="step-3-associate-user-and-group"></a>Étape 3 : Associer les utilisateurs et les groupes
+### <a name="step-3-associate-user-and-group"></a>Étape 3 : Associer les utilisateurs et les groupes
 ```csharp
 await graph.Groups[newGroup.Id].Members.References.Request().AddAsync(newUser);
 ```
 
-### <a name="step-4-cache-the-groups-identifiers"></a>Étape 4 : Mettre en cache les identificateurs de groupe
+### <a name="step-4-cache-the-groups-identifiers"></a>Étape 4 : Mettre en cache les identificateurs de groupe
 Si vous le souhaitez, pour réduire la latence du réseau, vous pouvez mettre en cache les associations utilisateurs-groupes. Ainsi, lorsqu’une demande de recherche est émise, les groupes sont renvoyés à partir du cache, ce qui évite un aller-retour dans AAD. Vous pouvez utiliser l'[API de Batch AAD](https://developer.microsoft.com/graph/docs/concepts/json_batching) pour envoyer une requête Http unique avec plusieurs utilisateurs et générer le cache.
 
 Microsoft Graph est conçu pour gérer un volume élevé de demandes. Si un trop grand nombre de demandes sont émises, Microsoft Graph génère une erreur avec le code d’état HTTP 429. Pour plus d’informations, consultez le document [Limitation dans Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/throttling).
@@ -136,7 +136,7 @@ Pour des raisons de filtrage de sécurité, les valeurs du champ de sécurité d
 
 Pour filtrer les documents renvoyés dans les résultats de la recherche en fonction des groupes de l’utilisateur qui émet la demande, procédez comme suit.
 
-### <a name="step-1-retrieve-users-group-identifiers"></a>Étape 1 : Récupérer les identificateurs de groupe de l’utilisateur
+### <a name="step-1-retrieve-users-group-identifiers"></a>Étape 1 : Récupérer les identificateurs de groupe de l’utilisateur
 
 Si les groupes de l’utilisateur n’ont pas encore été mis en cache, ou si le cache a expiré, exécutez la demande [groupes](https://docs.microsoft.com/graph/api/directoryobject-getmembergroups?view=graph-rest-1.0).
 ```csharp
@@ -164,7 +164,7 @@ private static async Task<List<string>> GetGroupIdsForUser(string userPrincipalN
 }
 ``` 
 
-### <a name="step-2-compose-the-search-request"></a>Étape 2 : Composer la requête de recherche
+### <a name="step-2-compose-the-search-request"></a>Étape 2 : Composer la demande de recherche
 
 En supposant que vous connaissez les groupes de l’utilisateur, vous pouvez émettre la demande de recherche avec les valeurs de filtre appropriées.
 
@@ -178,7 +178,7 @@ SearchParameters parameters = new SearchParameters()
 
 DocumentSearchResult<SecuredFiles> results = _indexClient.Documents.Search<SecuredFiles>("*", parameters);
 ```
-### <a name="step-3-handle-the-results"></a>Étape 3 : Gérer les résultats
+### <a name="step-3-handle-the-results"></a>Étape 3 : Gérer les résultats
 
 La réponse inclut une liste répertoriant uniquement les documents que l’utilisateur est autorisé à afficher. Selon la façon dont vous construisez la page de résultats, vous pouvez inclure des repères visuels pour matérialiser le jeu de résultats obtenu.
 
@@ -189,5 +189,5 @@ Dans cette procédure pas à pas, vous avez découvert comment utiliser les conn
 ## <a name="see-also"></a>Voir aussi
 
 + [Contrôle d’accès basé sur l’identité à l’aide des filtres Recherche cognitive Azure](search-security-trimming-for-azure-search.md)
-+ [Filtres dans Recherche cognitive Azure](search-filters.md)
++ [Filtres dans la Recherche cognitive Azure](search-filters.md)
 + [Sécurité des données et contrôle d'accès dans les opérations de Recherche cognitive Azure](search-security-overview.md)

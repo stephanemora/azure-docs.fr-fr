@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: sanpil
 author: sanpil
 ms.date: 11/11/2019
-ms.openlocfilehash: 474a184b24ca3318a33adb89b25640939a814474
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: a677aaa891e21f4c9eeda02eebcb94e9d79a55ad
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771630"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79368823"
 ---
 # <a name="define-machine-learning-pipelines-in-yaml"></a>Définir des pipelines d’apprentissage automatique en YAML
 
@@ -32,7 +32,7 @@ Le tableau suivant répertorie les éléments qui sont ou non actuellement pris 
 | DataTransferStep | Oui |
 | AutoMLStep | Non |
 | HyperDriveStep | Non |
-| ModuleStep | Non |
+| ModuleStep | Oui |
 | MPIStep | Non |
 | EstimatorStep | Non |
 

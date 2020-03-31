@@ -10,11 +10,11 @@ ms.workload: storage-backup-recovery
 ms.date: 01/08/2020
 ms.author: mayg
 ms.openlocfilehash: 6de37daa0b9e0ebc711a5dacbdce352e3675a3db
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75754422"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79229089"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Résoudre les erreurs se produisant lors du basculement d’une machine virtuelle VMware ou d'une machine physique vers Azure
 
@@ -24,7 +24,7 @@ Vous pouvez recevoir les erreurs suivantes lorsque vous procédez au basculement
 
 Site Recovery n’a pas pu créer de machine virtuelle basculée dans Azure. L’une des raisons suivantes peut en être la cause :
 
-* Le quota est suffisant pour créer la machine virtuelle : Vous pouvez vérifier le quota disponible en accédant à Abonnement -> Utilisation + quotas. Vous pouvez ouvrir une [nouvelle demande de support](https://aka.ms/getazuresupport) pour augmenter le quota.
+* Le quota disponible n’est pas suffisant pour créer la machine virtuelle : vous pouvez vérifier le quota disponible en accédant à Abonnement -> Utilisation + quotas. Vous pouvez ouvrir une [nouvelle demande de support](https://aka.ms/getazuresupport) pour augmenter le quota.
 
 * Vous tentez de basculer des machines virtuelles de familles de taille différentes dans le même groupe à haute disponibilité. Veillez à choisir le même ordre de grandeur de taille pour toutes les machines virtuelles d’un même groupe à haute disponibilité. Changez la taille en accédant aux paramètres Calcul et réseau de la machine virtuelle, puis réessayez le basculement.
 

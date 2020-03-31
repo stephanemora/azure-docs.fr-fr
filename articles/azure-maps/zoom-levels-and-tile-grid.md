@@ -1,19 +1,19 @@
 ---
 title: Niveaux de zoom et grille mosaïque | Microsoft Azure Maps
 description: Dans cet article, vous allez découvrir les niveaux de zoom et la grille mosaïque dans Microsoft Azure Maps.
-author: jingjing-z
+author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 01/22/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 6ee697ac9b7849a0231d9916c6fa8bc73ef7f9b7
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: d58c9f6940dceefdc25211f4540b34522aec935d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76765839"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79530289"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>Niveaux de zoom et grille mosaïque
 
@@ -167,7 +167,7 @@ Enfin, les `quadkeys` fournissent une clé d’index unidimensionnelle qui prés
 
 L’exemple de code suivant montre comment implémenter les fonctions décrites dans ce document. Ces fonctions peuvent être facilement traduites dans d’autres langages de programmation selon les besoins.
 
-#### <a name="ctabcsharp"></a>[C#](#tab/csharp)
+#### <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 using System;
@@ -566,7 +566,7 @@ namespace AzureMaps
 }
 ```
 
-#### <a name="typescripttabtypescript"></a>[TypeScript](#tab/typescript)
+#### <a name="typescript"></a>[TypeScript](#tab/typescript)
 
 ```typescript
 module AzureMaps {

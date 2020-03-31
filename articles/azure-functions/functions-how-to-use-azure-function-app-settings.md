@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 08/14/2019
 ms.custom: cc996988-fb4f-47
 ms.openlocfilehash: 662a04dbcc39f3fa95b0098eb8fe556b18b3495b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230571"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79234997"
 ---
 # <a name="manage-your-function-app"></a>Gérer votre application de fonction 
 
@@ -23,17 +23,17 @@ Les chaînes de connexion, les variables d’environnement et d’autres paramè
 Cet article explique comment configurer et gérer vos applications de fonction. 
 
 > [!TIP]  
-> De nombreuses options de configuration peuvent également être gérées à l’aide d’[Interface de ligne de commande Azure]. 
+> De nombreuses options de configuration peuvent également être gérées à l’aide d’[Azure CLI]. 
 
 ## <a name="get-started-in-the-azure-portal"></a>Bien démarrer dans le portail Azure
 
-Commencez par accéder au [portail Azure] et connectez-vous à votre compte Azure. Dans la barre de recherche en haut du portail, tapez le nom de votre Function App et sélectionnez-la dans la liste. Après avoir sélectionné votre Function App, la page suivante s’affiche :
+Commencez par accéder au [Azure portal] et connectez-vous à votre compte Azure. Dans la barre de recherche en haut du portail, tapez le nom de votre Function App et sélectionnez-la dans la liste. Après avoir sélectionné votre Function App, la page suivante s’affiche :
 
 ![Vue d’ensemble de Function App dans le portail Azure](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
 
 Vous pouvez accéder à tout ce dont vous avez besoin pour gérer votre application de fonction à partir de la page Vue d’ensemble, en particulier les **[paramètres de l’application](#settings)** et les **[fonctionnalités de la plateforme](#platform-features)** .
 
-## <a name="settings"></a>Paramètres de l’application
+## <a name="application-settings"></a><a name="settings"></a>Paramètres de l’application
 
 L’onglet **Paramètres de l’application** conserve les paramètres qui sont utilisés par votre application de fonction. Ces paramètres sont chiffrés et stockés, et vous devez sélectionner **Afficher les valeurs** pour afficher les valeurs dans le portail. Vous pouvez également accéder aux paramètres d’application à l’aide d’Azure CLI.
 
@@ -43,7 +43,7 @@ Pour ajouter un paramètre dans le portail, sélectionnez **Nouveau paramètre d
 
 ![Paramètres de l’application de fonction sur le portail Azure.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
 
-### <a name="azure-cli"></a>D’Azure CLI
+### <a name="azure-cli"></a>Azure CLI
 
 La commande [`az functionapp config appsettings list`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-list) retourne les paramètres d’application existants, comme dans l’exemple suivant :
 
@@ -87,7 +87,7 @@ Le reste de ce article se concentre sur les fonctionnalités App Service du port
 
 Pour plus d’informations sur l’utilisation des paramètres App Service, consultez [Configurer des applications web dans Azure App Service](../app-service/configure-common.md).
 
-### <a name="editor"></a>Éditeur App Service
+### <a name="app-service-editor"></a><a name="editor"></a>Éditeur App Service
 
 ![L’éditeur App Service](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-appservice-editor.png)
 
@@ -95,26 +95,26 @@ L’éditeur App Service est un éditeur avancé intégré au portail. Vous pouv
 
 Nous vous recommandons d’envisager de développer vos fonctions sur votre ordinateur local. Quand vous développez localement et publiez sur Azure, vos fichiers projet sont en lecture seule dans le portail. Pour en savoir plus, consultez [Coder et tester Azure Functions localement](functions-develop-local.md).
 
-### <a name="console"></a>Console
+### <a name="console"></a><a name="console"></a>Console
 
 ![Console Function App](./media/functions-how-to-use-azure-function-app-settings/configure-function-console.png)
 
 La console intégrée au portail est un outil de développement idéal lorsque vous souhaitez interagir avec Function App à partir de la ligne de commande. Les commandes courantes incluent la création de fichiers et de répertoires et la navigation, ainsi que l’exécution de scripts et de fichiers de commandes. 
 
-Quand vous développez localement, nous vous recommandons d’utiliser [Azure Functions Core Tools](functions-run-local.md) et [Interface de ligne de commande Azure].
+Quand vous développez localement, nous vous recommandons d’utiliser [Azure Functions Core Tools](functions-run-local.md) et [Azure CLI].
 
-### <a name="kudu"></a>Outils avancés (Kudu)
+### <a name="advanced-tools-kudu"></a><a name="kudu"></a>Outils avancés (Kudu)
 
 ![Configurer Kudu](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-kudu.png)
 
 Les outils avancés pour App Service (également appelé Kudu) donnent accès aux fonctionnalités d’administration avancées de votre Function App. Dans Kudu, vous pouvez gérer les informations système, les paramètres d’application, les variables d’environnement, les extensions de site, les en-têtes HTTP et les variables de serveur. Vous pouvez également lancer **Kudu** en naviguant vers le point de terminaison SCM pour votre Function App, comme `https://<myfunctionapp>.scm.azurewebsites.net/`. 
 
 
-### <a name="deployment"></a>Centre de déploiement
+### <a name="deployment-center"></a><a name="deployment"></a>Centre de déploiement
 
 Quand vous utilisez une solution de contrôle de code source pour développer et gérer le code de vos fonctions, le centre de déploiement vous permet de générer et de déployer à partir du contrôle de code source. Votre projet est généré et déployé sur Azure quand vous effectuez des mises à jour. Pour plus d’informations, consultez [Technologies de déploiement dans Azure Functions](functions-deployment-technologies.md).
 
-### <a name="cors"></a>Partage des ressources cross-origin
+### <a name="cross-origin-resource-sharing"></a><a name="cors"></a>Partage des ressources cross-origin
 
 Pour empêcher l’exécution de code malveillant sur le client, les navigateurs modernes bloquent les requêtes des applications web vers les ressources qui s’exécutent dans un domaine distinct. Le [partage des ressources cross-origin (CORS)](https://developer.mozilla.org/docs/Web/HTTP/CORS) permet à un en-tête `Access-Control-Allow-Origin` de déclarer les origines autorisées à appeler des points de terminaison sur votre application de fonction.
 
@@ -136,7 +136,7 @@ az functionapp cors add --name <FUNCTION_APP_NAME> \
 
 Utilisez la commande [`az functionapp cors show`](/cli/azure/functionapp/cors#az-functionapp-cors-show) pour lister les origines autorisées actuelles.
 
-### <a name="auth"></a>Authentification
+### <a name="authentication"></a><a name="auth"></a>Authentification
 
 ![Configurer l’authentification pour une Function App](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-authentication.png)
 
@@ -148,5 +148,5 @@ Lorsque les fonctions utilisent un déclencheur HTTP, vous pouvez exiger l’aut
 + [Configurer des applications web dans Azure App Service](../app-service/configure-common.md)
 + [Déploiement continu pour Azure Functions](functions-continuous-deployment.md)
 
-[Interface de ligne de commande Azure]: /cli/azure/
-[Portail Azure]: https://portal.azure.com
+[Azure CLI]: /cli/azure/
+[Azure portal]: https://portal.azure.com

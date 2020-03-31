@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.subservice: autoscale
 ms.openlocfilehash: 3c32f15208a8e692054ee6c1f7effc6b7c89de3d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75395944"
 ---
 # <a name="azure-monitor-autoscale-actions-resource-log-schema"></a>Schéma du journal des ressources des actions de mise à l’échelle automatique Azure Monitor
@@ -175,7 +175,7 @@ Enregistrement lorsque la mise à l’échelle automatique met à jour le nombre
 
 ## <a name="scale-action"></a>Action de mise à l’échelle
 
-Enregistrement lorsque la mise à l’échelle automatique lance une action de mise à l’échelle, en amont ou en aval. 
+Enregistrement lorsque la mise à l’échelle automatique lance une action de mise à l’échelle, un scale-up ou un scale-down. 
 ```json
 {
   "time": "2018-09-10 18:12:00.6132593",

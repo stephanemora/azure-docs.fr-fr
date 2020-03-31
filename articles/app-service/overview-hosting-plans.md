@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.custom: seodec18
 ms.openlocfilehash: f1012f8c00de4b19bbf6206408ec1a806e09e54f
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77482341"
 ---
 # <a name="azure-app-service-plan-overview"></a>Présentation des plans d’Azure App Service
@@ -26,7 +26,7 @@ Quand vous créez un plan App Service dans une région (par exemple, Europe Oues
 
 Le _niveau tarifaire_ d’un plan App Service détermine les fonctionnalités App Service que vous obtenez et combien vous payez pour le plan. Il existe plusieurs catégories de niveaux tarifaires :
 
-- **Calcul partagé** : Les deux niveaux de base, **Gratuit** et **Partagé**, exécutent une application sur la même machine virtuelle Azure que les autres applications App Service, y compris les applications d’autres clients. Ces niveaux allouent des quotas d’UC à chaque application qui s’exécute sur les ressources partagées, et les ressources ne peuvent pas être mises à l’échelle.
+- **Calcul partagé** : Les deux niveaux de base, **Gratuit** et **Partagé**, exécutent une application sur la même machine virtuelle Azure que les autres applications App Service, y compris les applications d’autres clients. Ces niveaux allouent des quotas d’UC à chaque application qui s’exécute sur les ressources partagées, et les ressources ne peuvent pas effectuer un scale-out.
 - **Calcul dédié** : Les niveaux **De base**, **Standard**, **Premium** et **PremiumV2** exécutent les applications sur des machines virtuelles Azure dédiées. Seules les applications qui se trouvent dans un même plan App Service partagent les mêmes ressources de calcul. Plus le niveau est élevé, plus vous disposez d’instances de machine virtuelle pour une mises à l’échelle.
 - **Isolé** : Ce niveau exécute des machines virtuelles Azure dédiées sur des réseaux virtuels Azure dédiés. Il fournit à vos applications l’isolement réseau au-dessus de l’isolation du calcul. Il fournit les fonctionnalités de mises à l’échelle maximales.
 
@@ -51,13 +51,13 @@ En outre, chaque niveau fournit un sous-ensemble spécifique de fonctionnalités
 
 ## <a name="how-does-my-app-run-and-scale"></a>Comment mon application s’exécute-t-elle et se met-elle à l’échelle ?
 
-Dans les niveaux **Gratuit** et **Partagé**, une application reçoit des minutes d’UC sur une instance de machine virtuelle partagée et ne peut pas être mise à l’échelle. Dans les autres niveaux, une application s’exécute et se met à l’échelle comme suit.
+Dans les niveaux **Gratuit** et **Partagé**, une application reçoit des minutes d’UC sur une instance de machine virtuelle partagée et ne peut pas effectuer un scale-out. Dans les autres niveaux, une application s’exécute et se met à l’échelle comme suit.
 
 Quand vous créez une application dans App Service, elle est placée dans un plan App Service. Quand l’application s’exécute, elle s’exécute sur toutes les instances de machine virtuelle configurées dans le plan App Service. Si plusieurs applications sont dans le même plan App Service, elles partagent toutes les mêmes instances de machine virtuelle. Si vous avez plusieurs emplacements de déploiement pour une application, tous les emplacements de déploiement s’exécutent également sur les mêmes instances de machine virtuelle. Si vous activez les journaux de diagnostic, effectuez des sauvegardes ou exécutez des tâches web, ils utilisent également des cycles d’UC et de la mémoire sur ces instances de machine virtuelle.
 
 Ainsi, le plan App Service est l’unité d’échelle des applications App Service. Si le plan est configuré pour exécuter cinq instances de machine virtuelle, toutes les applications dans le plan s’exécutent sur les cinq instances. Si le plan est configuré pour une mise à l’échelle automatique, toutes les applications dans le plan sont mises à l’échelle ensemble en fonction des paramètres de mise à l’échelle.
 
-Pour plus d’informations la mise à l’échelle d’une application, consultez [Mise à l’échelle manuelle ou automatique du nombre d’instances](../monitoring-and-diagnostics/insights-how-to-scale.md).
+Pour plus d’informations le scale-out d’une application, consultez [Mise à l’échelle manuelle ou automatique du nombre d’instances](../monitoring-and-diagnostics/insights-how-to-scale.md).
 
 <a name="cost"></a>
 

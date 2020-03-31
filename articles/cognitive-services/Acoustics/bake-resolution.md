@@ -12,16 +12,16 @@ ms.date: 04/05/2019
 ms.author: noelc
 ROBOTS: NOINDEX
 ms.openlocfilehash: d8eb3b2cbaf7b4e842d8338eefde756f6d381111
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68854351"
 ---
 # <a name="project-acoustics-bake-resolution"></a>Résolution de bake Project Acoustics
 Cette vue d’ensemble conceptuelle décrit la différence entre les résolutions grossières et fines tout en effectuant des bakes acoustiques. Vous choisissez ce paramètre lors de l’étape Sondes du flux de travail de bake.
 
-## <a name="Coarse-vs-Fine-Resolution"></a>Résolution grossière ou fine
+## <a name="coarse-vs-fine-resolution"></a><a name="Coarse-vs-Fine-Resolution"></a>Résolution grossière ou fine
 
 La seule différence entre les paramètres de résolution grossière et fine est la fréquence à laquelle la simulation est effectuée. La résolution fine utilise une fréquence deux fois plus élevée que la résolution grossière. Cela a plusieurs implications sur la simulation acoustique :
 

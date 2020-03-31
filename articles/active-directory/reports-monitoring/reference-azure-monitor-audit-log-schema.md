@@ -3,7 +3,7 @@ title: Interpréter le schéma des journaux d’audit Azure Active Directory dan
 description: Décrire le schéma de journal d’audit Azure AD pour une utilisation dans Azure Monitor
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/18/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f75af14e388626a9ebbb54d43079f30dcfdd98a
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: d9f58b213e50a021651f35112a48d8f74ae59571
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68987954"
 ---
 # <a name="interpret-the-azure-ad-audit-logs-schema-in-azure-monitor-preview"></a>Interpréter le schéma des journaux d’audit Azure Active Directory dans Azure Monitor (préversion)
@@ -152,9 +152,9 @@ Cet article décrit le schéma de journal d’audit Azure Active Directory (Azur
 | time       | Date et heure (UTC). |
 | operationName | Nom de l’opération. |
 | operationVersion | Version d’API REST demandée par le client. |
-| category | Actuellement, *Audit* est la seule valeur prise en charge. |
+| catégorie | Actuellement, *Audit* est la seule valeur prise en charge. |
 | tenantId | GUID de locataire associé aux journaux d’activité. |
-| resultType | Résultat de l’opération. Le résultat peut être *Success* (Réussite) ou *Failure* (Échec). |
+| resultType | Résultat de l'opération. Le résultat peut être *Success* (Réussite) ou *Failure* (Échec). |
 | resultSignature |  Ce champ n’étant pas mappé, vous pouvez l’ignorer en toute sécurité. | 
 | resultDescription | Description supplémentaire du résultat, si disponible. | 
 | durationMS |  Ce champ n’étant pas mappé, vous pouvez l’ignorer en toute sécurité. |
@@ -171,7 +171,7 @@ Cet article décrit le schéma de journal d’audit Azure Active Directory (Azur
 |---------------|-------------|
 | AuditEventCategory | Type d’événement d’audit. Il peut s’agir de *Gestion des utilisateurs*, de *Gestion des applications*, ou d’un autre type.|
 | Type d'identité | Il peut s’agir d’*Application* ou d’*Utilisateur*. |
-| Type d'opération | Il peut s’agir d’*Ajouter*, de *Mettre à jour*, de *Supprimer*, ou d’*autre* chose. |
+| Type d’opération | Il peut s’agir d’*Ajouter*, de *Mettre à jour*, de *Supprimer*, ou d’*autre* chose. |
 | Type de ressource cible | Spécifie le type de ressource cible sur lequel a été effectuée l’opération. Il peut s’agir d’*Application*, d’*Utilisateur*, de *Rôle* ou de *Stratégie*. | 
 | Nom de ressource cible | Nom de la ressource cible. Il peut s’agir d’un nom d’application, d’un nom de rôle, d’un nom d’utilisateur principal ou d’un nom de principal du service. |
 | additionalTargets | Répertorie les propriétés supplémentaires pour des opérations spécifiques. Par exemple, pour une opération de mise à jour, les valeurs anciennes et nouvelles sont répertoriées sous *targetUpdatedProperties*. | 

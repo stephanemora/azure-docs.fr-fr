@@ -4,11 +4,11 @@ description: Découvrez comment exécuter une commande dans un conteneur qui est
 ms.topic: article
 ms.date: 03/30/2018
 ms.openlocfilehash: de48e6ac246e2b0751561b4c60bb63d88b599bdf
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250017"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79225845"
 ---
 # <a name="execute-a-command-in-a-running-azure-container-instance"></a>Exécuter une commande dans une instance de conteneur Azure en cours d’exécution
 

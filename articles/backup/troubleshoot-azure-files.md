@@ -4,11 +4,11 @@ description: Cet article contient des informations de dépannage concernant les 
 ms.date: 08/20/2019
 ms.topic: troubleshooting
 ms.openlocfilehash: 050df5b96c265e468346535ff011e1baf7d86ad5
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293944"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227441"
 ---
 # <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>Résoudre les problèmes de sauvegarde des partages de fichiers Azure
 
@@ -33,7 +33,7 @@ Le tableau suivant concerne la configuration de la sauvegarde :
 
 | Messages d’erreur | Conseils de résolution ou solution de contournement |
 | ------------------ | ----------------------------- |
-| Mon compte de stockage pour configurer la sauvegarde du partage de fichiers Azure est introuvable | <ul><li>Attendez la fin de la découverte. <li>Vérifiez si un partage de fichiers du compte de stockage est déjà protégé par un autre coffre Recovery Services. **Remarque** : Tous les partages de fichiers dans un compte de stockage peuvent être protégés sous un seul coffre Recovery Services. <li>Assurez-vous que le partage de fichiers ne fait pas partie d’un compte de stockage non pris en charge.<li> Assurez-vous que la case **Autoriser les services Microsoft approuvés à accéder à ce compte de stockage** est cochée dans le compte de stockage.[En savoir plus.](../storage/common/storage-network-security.md)|
+| Mon compte de stockage pour configurer la sauvegarde du partage de fichiers Azure est introuvable | <ul><li>Attendez la fin de la découverte. <li>Vérifiez si un partage de fichiers du compte de stockage est déjà protégé par un autre coffre Recovery Services. **Remarque**: tous les partages de fichiers dans un compte de stockage peuvent être protégés sous un seul coffre Recovery Services. <li>Assurez-vous que le partage de fichiers ne fait pas partie d’un compte de stockage non pris en charge.<li> Assurez-vous que la case **Autoriser les services Microsoft approuvés à accéder à ce compte de stockage** est cochée dans le compte de stockage.[En savoir plus.](../storage/common/storage-network-security.md)|
 | Erreur : échec de la découverte des états du portail des comptes de stockage. | Si votre abonnement est partenaire (CSP activé), ignorez l’erreur. Si votre abonnement ne dispose pas du CSP activé, et que vos comptes de stockage ne peuvent pas être découverts, contactez le support technique.|
 | Échec de la validation ou de l’enregistrement du compte de stockage sélectionné.| Réessayez l’opération et contactez le support technique si le problème persiste.|
 | Impossible de répertorier ou de trouver les partages de fichiers du compte de stockage sélectionné. | <ul><li> Assurez-vous que le compte de stockage existe dans le groupe de ressources (et qu’il n’a pas été supprimé ou déplacé après la dernière validation ou le dernier enregistrement dans le coffre).<li>Assurez-vous que le partage de fichiers que vous souhaitez protéger n’a pas été supprimé. <li>Assurez-vous que le compte de stockage est bien pris en charge par la sauvegarde de partage de fichiers.<li>Vérifiez si le partage de fichiers est déjà protégé dans le même coffre Recovery Services.|
@@ -46,7 +46,7 @@ Le tableau suivant concerne la configuration de la sauvegarde :
 | -------------- | ----------------------------- |
 | Échec de l’opération car le partage de fichiers est introuvable. | Assurez-vous que le partage de fichiers que vous souhaitez protéger n’a pas été supprimé.|
 | Compte de stockage introuvable ou non pris en charge. | <ul><li>Assurez-vous que le compte de stockage existe dans le groupe de ressources et qu’il n’a pas été supprimé ou retiré après la dernière validation. <li> Assurez-vous que le compte de stockage est bien pris en charge par la sauvegarde de partage de fichiers.|
-| Vous avez atteint la limite maximale d’instantanés pour ce partage de fichiers, vous serez en mesure d’en effectuer davantage une fois que les anciens ont expiré. | <ul><li> Cette erreur peut se produire lorsque vous créez plusieurs sauvegardes à la demande pour un fichier. <li> Il existe une limite de 200 instantanés par partage de fichiers, y compris ceux pris par Azure Backup. Les anciennes sauvegardes (ou instantanés) planifiées sont nettoyées automatiquement. Les sauvegardes (ou instantanés) à la demande doivent être supprimées si la limite maximale est atteinte.<li> Supprimez les sauvegardes à la demande (instantanés du partage de fichiers Azure) à partir du portail de fichiers Azure. **Remarque** : Si vous supprimez les instantanés créés par Sauvegarde Azure, vous perdez les points de récupération. |
+| Vous avez atteint la limite maximale d’instantanés pour ce partage de fichiers, vous serez en mesure d’en effectuer davantage une fois que les anciens ont expiré. | <ul><li> Cette erreur peut se produire lorsque vous créez plusieurs sauvegardes à la demande pour un fichier. <li> Il existe une limite de 200 instantanés par partage de fichiers, y compris ceux pris par Azure Backup. Les anciennes sauvegardes (ou instantanés) planifiées sont nettoyées automatiquement. Les sauvegardes (ou instantanés) à la demande doivent être supprimées si la limite maximale est atteinte.<li> Supprimez les sauvegardes à la demande (instantanés du partage de fichiers Azure) à partir du portail de fichiers Azure. **Remarque**: Si vous supprimez les instantanés créés par Sauvegarde Azure, vous perdez les points de récupération. |
 | La sauvegarde ou la restauration du partage de fichiers a échoué en raison d’une limitation de bande passante du service de stockage. Cela peut être dû au fait que le service de stockage est occupé à traiter d’autres demandes pour le compte de stockage donné.| Réessayez l’opération après un certain temps. |
 | Échec de la restauration avec le partage de fichier cible introuvable. | <ul><li>Assurez-vous que le compte de stockage sélectionné existe et que le partage de fichiers cible n’est pas supprimé. <li> Assurez-vous que le compte de stockage est bien pris en charge par la sauvegarde de partage de fichiers. |
 | Échec des travaux de sauvegarde ou de restauration en raison de l’état verrouillé du compte de stockage. | Supprimez le verrou sur le compte de stockage ou utilisez supprimer verrou au lieu de lire verrou et recommencez l’opération. |

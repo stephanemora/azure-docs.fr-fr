@@ -10,10 +10,10 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: 7ae11734eb804715f3eb1b5edcb02fc328dafec8
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77208554"
 ---
 # <a name="add-a-bubble-layer-to-a-map"></a>Ajouter une couche de bulles à une carte
@@ -62,7 +62,7 @@ Vous trouverez ci-dessous l’exemple de code d’exécution complet de la fonct
 
 ## <a name="show-labels-with-a-bubble-layer"></a>Afficher les étiquettes avec une couche de bulles
 
-Ce code montre comment utiliser une couche de bulles pour afficher un point sur la carte. Il montre également comment utiliser une couche de symboles pour afficher une étiquette. Pour masquer l’icône de la couche de symboles, affectez la valeur `'none'` à la propriété `image` des options d’icône.
+Ce code montre comment utiliser une couche de bulles pour afficher un point sur la carte. Il montre également comment utiliser une couche de symboles pour afficher une étiquette. Pour masquer l’icône de la couche de symboles, affectez la valeur `image` à la propriété `'none'` des options d’icône.
 
 <br/>
 

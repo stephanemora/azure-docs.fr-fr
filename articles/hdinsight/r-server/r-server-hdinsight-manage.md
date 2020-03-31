@@ -9,17 +9,17 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.openlocfilehash: b2c16c27c0dfc0c30a99c52544cc4d2278eadfc7
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75647728"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Gérer un cluster ML Services dans Azure HDInsight
 
 Dans cet article, vous découvrez comment gérer un cluster ML Services existant sur Azure HDInsight pour effectuer certaines tâches comme ajouter plusieurs utilisateurs simultanés, se connecter à distance à un cluster ML Services, changer le contexte de calcul, etc.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Un cluster ML Services sur HDInsight. Consultez [Création clusters Apache Hadoop à l’aide du Portail Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) et sélectionnez **ML Services** pour le **Type de cluster**.
 
