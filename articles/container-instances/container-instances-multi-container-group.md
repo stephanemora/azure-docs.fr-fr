@@ -5,13 +5,13 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.custom: mvc
 ms.openlocfilehash: d2b4e20520cad28c5d62118f6c9d10fcc43ac89e
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74533636"
 ---
-# <a name="tutorial-deploy-a-multi-container-group-using-a-resource-manager-template"></a>Didacticiel : Déployer un groupe de plusieurs conteneurs avec un modèle Resource Manager
+# <a name="tutorial-deploy-a-multi-container-group-using-a-resource-manager-template"></a>Tutoriel : Déployer un groupe de plusieurs conteneurs avec un modèle Resource Manager
 
 > [!div class="op_single_selector"]
 > * [YAML](container-instances-multi-container-yaml.md)
@@ -222,7 +222,7 @@ Comme vous pouvez le voir, l’annexe envoie régulièrement une requête HTTP �
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez utilisé un modèle Resource Manager pour déployer un groupe de plusieurs conteneurs dans Azure Container Instances. Vous avez appris à effectuer les actions suivantes :
+Dans ce tutoriel, vous avez utilisé un modèle Resource Manager pour déployer un groupe de plusieurs conteneurs dans Azure Container Instances. Vous avez appris à :
 
 > [!div class="checklist"]
 > * Configurer un modèle de groupe de plusieurs conteneurs

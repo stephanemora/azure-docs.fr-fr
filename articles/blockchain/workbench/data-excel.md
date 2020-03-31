@@ -5,10 +5,10 @@ ms.date: 09/05/2019
 ms.topic: article
 ms.reviewer: mmercuri
 ms.openlocfilehash: a84858ead83782cc9b6ef1b1d7f905172600fb8a
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74326045"
 ---
 # <a name="view-azure-blockchain-workbench-data-with-microsoft-excel"></a>Afficher des données Azure Blockchain Workbench dans Microsoft Excel
@@ -19,7 +19,7 @@ Vous pouvez utiliser Microsoft Excel pour afficher des données dans la base de 
 * Consulter les tables et vues de la base de données Blockchain Workbench
 * Charger les données des vues Blockchain Workbench dans Excel
 
-## <a name="connect-to-the-blockchain-workbench-database"></a>Vous connecter à la base de données Blockchain Workbench
+## <a name="connect-to-the-blockchain-workbench-database"></a>Se connecter à la base de données Blockchain Workbench
 
 Pour vous connecter à une base de données Blockchain Workbench :
 

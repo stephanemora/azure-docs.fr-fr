@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: japere,asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 771ba79f067cbff1ab8bbfece64f4028b4ca50b0
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74275857"
 ---
 # <a name="install-the-access-panel-browser-extension"></a>Installer l’extension de navigateur du volet d’accès
@@ -121,7 +121,7 @@ Pour accéder à un outil de diagnostic et pour obtenir des informations sur la 
 Créez un ticket de support en fournissant les informations suivantes, si disponibles :
 
 -   ID d’erreur de corrélation
--   UPN (adresse e-mail de l’utilisateur)
+-   Nom d’utilisateur principal (adresse de messagerie de l’utilisateur)
 -   ID de locataire
 -   Type de navigateur
 -   Fuseau horaire et heure ou période à laquelle l’erreur s’est produite
