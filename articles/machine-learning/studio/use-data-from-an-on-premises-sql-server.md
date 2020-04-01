@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/13/2017
-ms.openlocfilehash: 9afac1adef801956f176dd339c795e2df533a2c7
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 648dbdb7e9e9d1b20c55d3fa5b314b7e4657d5e7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169115"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79204180"
 ---
 # <a name="perform-analytics-with-azure-machine-learning-studio-classic-using-an-on-premises-sql-server-database"></a>Effectuer des analyses avec Azure Machine Learning Studio (classique) à l’aide d’une base de données SQL Server locale
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Souvent, les entreprises qui travaillent avec des données locales souhaitent tirer parti de l’échelle et de l’agilité du cloud pour leurs charges de travail d’apprentissage automatique. Mais elles ne souhaitent pas perturber leurs processus métier et leurs flux de travail actuels en déplaçant leurs données locales vers le cloud. Azure Machine Learning Studio (classique) prend désormais en charge la lecture des données dans une base de données SQL Server locale, puis l’entraînement et l’évaluation d’un modèle avec ces données. Vous n’avez plus à copier et à synchroniser manuellement les données entre le cloud et votre serveur local. Au lieu de cela, le module **Importer des données** dans Azure Machine Learning Studio (classique) peut maintenant lire directement dans votre base de données SQL Server locale pour vos travaux d’apprentissage et d’évaluation.
 

@@ -1,5 +1,5 @@
 ---
-title: À propos du SDK Speech Devices – Service Speech
+title: Kit de développement logiciel (SDK) Speech Devices – Service Speech
 titleSuffix: Azure Cognitive Services
 description: Démarrez avec le kit SDK Speech Devices. Le service Speech fonctionne avec une large gamme d’appareils et de sources audio. Le SDK Speech Devices est une bibliothèque préconfigurée qui est associée à des kits de développement de réseau de microphones sur mesure.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 03/11/2020
 ms.author: erhopf
-ms.openlocfilehash: 43d08b466076672587e7f6545193e326283c0031
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.openlocfilehash: add0d27ae6a612fed0320b5329d19236b7bbbd01
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78330785"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79370642"
 ---
-# <a name="about-the-speech-devices-sdk"></a>À propos du kit de développement logiciel (SDK) de dispositifs vocaux
+# <a name="what-is-the-speech-devices-sdk"></a>Qu’est-ce que le Kit de développement logiciel (SDK) toujours ?
 
 Le [service Speech](overview.md) fonctionne avec une large gamme d’appareils et de sources audio. Vous pouvez maintenant faire passer vos applications de reconnaissance vocale au niveau supérieur en y associant du matériel et des logiciels. Le SDK Speech Devices est une bibliothèque préconfigurée qui est associée à des kits de développement de réseau de microphones sur mesure.
 
@@ -49,7 +49,7 @@ L’application est créée avec le package du SDK Speech et l’IDE Eclipse Jav
 Pour Linux, l’exemple d’application est fourni en tant qu’application Java multiplateforme. Téléchargez la dernière version du [SDK Speech Devices JRE](https://aka.ms/sdsdk-download-JRE).
 L’application est créée avec le package du SDK Speech et l’IDE Eclipse Java (v4) sur Linux 64 bits (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8). Elle s’exécute sur un environnement d’exécution Java 8 (JRE) 64 bits.
 
-Des fichiers binaires supplémentaires sont fournis pour prendre en charge les appareils à venir, le [DDK Roobo v2](https://aka.ms/sdsdk-download-roobov2) et le [DDK Urbetter](https://aka.ms/sdsdk-download-urbetter).
+Des fichiers binaires supplémentaires sont fournis pour prendre en charge les appareils à venir, [Kit DDK Roobo v2](https://aka.ms/sdsdk-download-roobov2), [Kit DDK Urbetter](https://aka.ms/sdsdk-download-urbetter) et [GGEC Speaker](https://aka.ms/sdsdk-download-speaker).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

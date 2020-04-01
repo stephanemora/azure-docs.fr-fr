@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 7/29/2019
+ms.date: 3/13/2020
 ms.author: mayg
-ms.openlocfilehash: 72b1311227f5c9f9efc35b2940d3c843a21dc261
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 07c1f7f258dbea7bcf7a6e7ea51fdcfdfaa006aa
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954010"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79368721"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>À propos du planificateur de déploiement Azure Site Recovery pour la récupération d’urgence de Hyper-V sur Azure
 
@@ -72,7 +72,7 @@ L’outil fournit les informations suivantes :
 
 | | **VMware vers Azure** |**Hyper-V vers Azure**|**Azure vers Azure**|**Hyper-V vers un site secondaire**|**VMware vers un site secondaire**
 --|--|--|--|--|--
-Scénarios pris en charge |OUI|OUI|Non|Oui*|Non
+Scénarios pris en charge |Oui|Oui|Non|Oui*|Non
 Version prise en charge | vCenter 6.7, 6.5, 6.0 ou 5.5| Windows Server 2016, Windows Server 2012 R2 | N/D |Windows Server 2016, Windows Server 2012 R2|N/D
 Configuration prise en charge|vCenter, ESXi| Cluster Hyper-V, hôte Hyper-V|N/D|Cluster Hyper-V, hôte Hyper-V|N/D|
 Nombre de serveurs pouvant être profilés par instance en cours d’exécution du planificateur de déploiement Azure Site Recovery |Unique (des machines virtuelles appartenant à un vCenter Server ou un serveur ESXi peuvent être profilées à la fois)|Plusieurs (des machines virtuelles sur plusieurs hôtes ou clusters hôtes peuvent être profilées à la fois)| N/D |Plusieurs (des machines virtuelles sur plusieurs hôtes ou clusters hôtes peuvent être profilées à la fois)| N/D
@@ -84,7 +84,7 @@ L’outil comprend trois phases principales pour Hyper-V : obtention de la list
 
 | Configuration requise du serveur | Description |
 |---|---|
-|Obtention de la liste de machines virtuelles, profilage et mesure du débit |<ul><li>Système d’exploitation : Microsoft Windows Server 2016 ou Microsoft Windows Server 2012 R2 </li><li>Configuration de l’ordinateur : 8 processeurs virtuels, 16 Go de RAM, disque dur de 300 Go</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Microsoft Visual C++ Redistributable pour Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Accès Internet à Azure à partir de ce serveur</li><li>Compte Azure Storage</li><li>Accès administrateur sur le serveur</li><li>Au minimum 100 Go d’espace disque disponible (en supposant que 1 000 machines virtuelles avec une moyenne de trois disques chacune, profilage pour 30 jours)</li><li>La machine virtuelle sur laquelle vous exécutez l’outil de planification du déploiement Azure Site Recovery doit être ajoutée à la liste des hôtes approuvés de tous les serveurs Hyper-V.</li><li>Tous les serveurs Hyper-V à profiler doivent être ajoutées à la liste des hôtes approuvés de la machine virtuelle client sur laquelle l’outil est exécuté. [En savoir plus sur l’ajout de serveurs à la liste des hôtes approuvés](#steps-to-add-servers-into-trustedhosts-list). </li><li> L’outil doit être exécuté avec des privilèges d’administrateur à partir de PowerShell ou de la console de ligne de commande sur le client</ul></ul>|
+|Obtention de la liste de machines virtuelles, profilage et mesure du débit |<ul><li>Système d’exploitation : Microsoft Windows Server 2016 ou Microsoft Windows Server 2012 R2 </li><li>Configuration de l’ordinateur : 8 processeurs virtuels, 16 Go de RAM, disque dur de 300 Go</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Microsoft Visual C++ Redistributable pour Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Accès Internet à Azure (*.blob.core.windows.net) à partir de ce serveur, port 443<br>[Cette étape est facultative. Vous pouvez choisir de fournir manuellement la bande passante disponible pendant la génération de rapport.]</li><li>Compte Azure Storage</li><li>Accès administrateur sur le serveur</li><li>Au minimum 100 Go d’espace disque disponible (en supposant que 1 000 machines virtuelles avec une moyenne de trois disques chacune, profilage pour 30 jours)</li><li>La machine virtuelle sur laquelle vous exécutez l’outil de planification du déploiement Azure Site Recovery doit être ajoutée à la liste des hôtes approuvés de tous les serveurs Hyper-V.</li><li>Tous les serveurs Hyper-V à profiler doivent être ajoutées à la liste des hôtes approuvés de la machine virtuelle client sur laquelle l’outil est exécuté. [En savoir plus sur l’ajout de serveurs à la liste des hôtes approuvés](#steps-to-add-servers-into-trustedhosts-list). </li><li> L’outil doit être exécuté avec des privilèges d’administrateur à partir de PowerShell ou de la console de ligne de commande sur le client</ul></ul>|
 | Génération de rapport | Un PC Windows ou serveur Windows Server doté de Microsoft Excel 2013 ou version ultérieure |
 | Autorisations utilisateur | Compte Administrateur pour accéder au cluster Hyper-V/ à l’hôte Hyper-V au moment de l’obtention de la liste de machines virtuelles virtuels et du profilage.<br>Tous les hôtes à profiler doivent disposer d’un compte Administrateur de domaine avec les mêmes informations d’identification, à savoir le nom d’utilisateur et le mot de passe
  |
@@ -115,7 +115,7 @@ Configuration recommandée pour la machine virtuelle : 8 processeurs virtuels, 1
 1.  Extrayez le dossier .zip.
 Le dossier contient plusieurs fichiers et sous-dossiers. Le fichier exécutable s’appelle ASRDeploymentPlanner.exe dans le dossier parent.
 
-Exemple : Copiez le fichier .zip sur le lecteur E:\ et extrayez-le. E:\ASR Deployment Planner_v2.3.zip
+Exemple : Copiez le fichier .zip sur le lecteur E:\ et extrayez-le. E:\ASR Deployment Planner_v2.3.zip
 
 E:\ASR Deployment Planner_v2.3\ASRDeploymentPlanner.exe
 

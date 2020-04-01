@@ -1,7 +1,7 @@
 ---
-title: Filtrage, classement et pagination d’entités Media Services v3
+title: Filtrage, classement et pagination d’entités Media Services
 titleSuffix: Azure Media Services
-description: Découvrez en plus sur le filtrage, le tri et la pagination des entités Azure Media Services.
+description: Apprenez-en davantage sur le filtrage, le tri et la pagination des entités Azure Media Services v3.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 01/21/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: c5ae9839b7bbb86e28c9f8adab0aa0ec5e885087
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: bc5c983bc98c3b62df977c6765978cd45cd3c93b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76311697"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79500037"
 ---
 # <a name="filtering-ordering-and-paging-of-media-services-entities"></a>Filtrage, classement et pagination d’entités Media Services
 
@@ -47,7 +47,7 @@ Opérateurs de plage :
 
 ## <a name="filter"></a>Filtrer
 
-Utiliser `$filter` pour fournir un paramètre de filtre OData afin de rechercher uniquement les objets qui vous intéressent.
+Utilisez `$filter` pour fournir un paramètre de filtre OData afin de rechercher uniquement les objets qui vous intéressent.
 
 L’exemple REST suivant filtre sur la valeur `alternateId` d’une ressource :
 
@@ -81,7 +81,7 @@ Dans Media Services v3, vous ne pouvez pas configurer la taille de la page. La t
 Si des entités sont créées ou supprimées pendant que vous paginez la collection, les changements sont reflétés dans les résultats retournés (si ces changements concernent la partie de la collection qui n’a pas été téléchargée).
 
 > [!TIP]
-> Vous devez toujours utiliser `nextLink` pour énumérer la collection et ne pas dépendre d’une taille de page particulière.
+> Utilisez toujours `nextLink` pour énumérer la collection et ne pas dépendre d’une taille de page particulière.
 >
 > La valeur `nextLink` est présente uniquement s’il y a plus d’une page d’entités.
 

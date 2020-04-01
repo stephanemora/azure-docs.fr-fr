@@ -16,12 +16,12 @@ ms.date: 05/21/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a35558b81d064680981bcf403a3584e3a3d00e4f
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: 466e1ce0efbdec3f5475634f3857d02554d93d98
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311746"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80049133"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problèmes lors de l’installation du connecteur d’agent de proxy d’application
 
@@ -48,7 +48,7 @@ En cas d’échec de l’installation d’un connecteur, la cause est générale
 
 2.  Si un de ces ports ne réussit pas, vérifiez que le pare-feu ou proxy principal a accès aux domaines et ports requis. Voir [Préparer votre environnement local](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
 
-3.  Ouvrez un navigateur (ou un nouvel onglet) et accédez à la page web suivante : <https://login.microsoftonline.com>. Ensuite, vérifiez que vous pouvez vous connecter à cette page.
+3.  Ouvrez un navigateur (ou un nouvel onglet) et accédez à la page web suivante : `https://login.microsoftonline.com`. Ensuite, vérifiez que vous pouvez vous connecter à cette page.
 
 ## <a name="verify-machine-and-backend-components-support-for-application-proxy-trust-cert"></a>Vérification de la prise en charge du certificat de confiance du proxy d’application par la machine et les composants principaux
 
@@ -71,9 +71,9 @@ En cas d’échec de l’installation d’un connecteur, la cause est générale
 
 **Pour vérifier que les informations d’identification sont correctes :**
 
-Connectez-vous à <https://login.microsoftonline.com> en utilisant les mêmes informations d’identification. Vérifiez que la connexion a réussi. Vous pouvez vérifier le rôle utilisateur en sélectionnant **Azure Active Directory** -&gt; **Utilisateurs et groupes** -&gt; **Tous les utilisateurs**. 
+Connectez-vous à `https://login.microsoftonline.com` en utilisant les mêmes informations d’identification. Vérifiez que la connexion a réussi. Vous pouvez vérifier le rôle utilisateur en sélectionnant **Azure Active Directory** -&gt; **Utilisateurs et groupes** -&gt; **Tous les utilisateurs**. 
 
-Sélectionnez votre compte d’utilisateur, puis sélectionnez « Rôle d’annuaire » dans le menu qui s’affiche. Vérifiez que le rôle sélectionné est « Administrateur d’application ». Si vous ne pouvez accéder à aucune des pages de ces étapes, vous n’avez pas de rôle requis.
+Sélectionnez votre compte d’utilisateur, puis « Rôle d’annuaire » dans le menu qui s’affiche. Vérifiez que le rôle sélectionné est « Administrateur d’application ». Si vous ne pouvez accéder à aucune des pages de ces étapes, vous n’avez pas de rôle requis.
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Présentation des connecteurs de proxy d’application Azure AD](application-proxy-connectors.md)

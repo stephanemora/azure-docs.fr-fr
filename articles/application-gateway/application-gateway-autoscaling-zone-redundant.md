@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 02/26/2020
+ms.date: 03/24/2020
 ms.author: victorh
-ms.openlocfilehash: 39b7e94747f556b61f661968f7126d122156d9cf
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 4cd2969f9a56c96af2b2c6db216f6829a080260c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77622012"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80371275"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Application Gateway v2 avec mise à l’échelle automatique et redondance interzone 
 
@@ -169,7 +169,7 @@ Le tableau suivant répertorie les fonctionnalités disponibles avec chaque réf
 |--|--|
 |Certificat d’authentification|Non pris en charge.<br>Pour plus d’informations, consultez [Présentation du chiffrement SSL de bout en bout sur la passerelle Application Gateway](ssl-overview.md#end-to-end-ssl-with-the-v2-sku).|
 |Combinaison de Standard_v2 et Standard Application Gateway sur le même sous-réseau|Non pris en charge|
-|Route définie par l’utilisateur sur le sous-réseau d’Application Gateway|Non pris en charge|
+|Itinéraire défini par l’utilisateur sur le sous-réseau d’Application Gateway|Pris en charge (scénarios spécifiques). En préversion.<br> Pour plus d’informations sur les scénarios pris en charge, voir [Présentation de la configuration d’Application Gateway](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet).|
 |Groupe de sécurité réseau pour plage de ports entrants| - 65 200 à 65 535 pour référence (SKU) Standard_v2<br>- 65 503 à 65 534 pour référence (SKU) Standard<br>Pour plus d’informations, visitez le [FAQ](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
 |Journaux d’activité de performances dans les diagnostics Azure|Non pris en charge.<br>Les métriques Azure doivent être utilisées.|
 |Facturation|Facturation planifiée pour le 1er juillet 2019.|

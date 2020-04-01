@@ -1,6 +1,6 @@
 ---
-title: Azure Front Door Service - Réécriture d’URL | Microsoft Docs
-description: Cet article explique comment Azure Front Door Service effectue la réécriture d’URL pour vos itinéraires, si cette option est configurée.
+title: Azure Front Door – Réécriture d’URL | Microsoft Docs
+description: Cet article explique comment Azure Front Door effectue la réécriture d’URL pour vos itinéraires, si cette option est configurée.
 services: front-door
 documentationcenter: ''
 author: sharad4u
@@ -11,15 +11,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: dc2126276e3e8e0d35ce8ed1f835544386659eff
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 1e5bd565be7a1cabf08ddf33c65eb12b5294249f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "60736177"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79471470"
 ---
 # <a name="url-rewrite-custom-forwarding-path"></a>Réécriture d’URL (chemin de transfert personnalisé)
-Azure Front Door Service prend en charge la réécriture d’URL. Vous pouvez ainsi configurer un **chemin de transfert personnalisé** facultatif à utiliser lors de la construction d’une requête à transférer au backend. Par défaut, si aucun chemin de transfert personnalisé n’est fourni, Front Door copie le chemin d’URL entrant dans l’URL utilisée dans la requête transférée. L’en-tête d’hôte utilisé dans la requête transférée est tel que configuré pour le backend sélectionné. Pour découvrir ce qu’il fait et comment vous pouvez le configurer, consultez [En-tête d’hôte backend](front-door-backend-pool.md#hostheader).
+Azure Front Door prend en charge la **réécriture d’URL**. Vous pouvez ainsi configurer un chemin de transfert personnalisé facultatif à utiliser lors de la construction d’une requête à transférer au backend. Par défaut, si aucun chemin de transfert personnalisé n’est fourni, Front Door copie le chemin d’URL entrant dans l’URL utilisée dans la requête transférée. L’en-tête d’hôte utilisé dans la requête transférée est tel que configuré pour le backend sélectionné. Pour découvrir ce qu’il fait et comment vous pouvez le configurer, consultez [En-tête d’hôte backend](front-door-backend-pool.md#hostheader).
 
 L’un des principaux avantages offerts par la réécriture d’URL à l’aide du chemin de transfert personnalisé est qu’elle copie toute partie du chemin entrant correspondant à un chemin contenant des caractères génériques dans le chemin transféré (ces segments de chemins sont les segments **verts** dans l’exemple ci-dessous) :
 </br>

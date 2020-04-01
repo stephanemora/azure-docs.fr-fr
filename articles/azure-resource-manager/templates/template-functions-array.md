@@ -3,16 +3,16 @@ title: Fonctions des modèles - tableaux et objets
 description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour travailler avec des tableaux et des objets.
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: 1359951c00ba04e641ae84636459a8836924c729
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 0b4bb80f6d7a7cc20a8b2dcc71e890f2ada7c5be
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77591181"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80156373"
 ---
-# <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Fonctions de tableau et d’objet pour les modèles Azure Resource Manager
+# <a name="array-and-object-functions-for-arm-templates"></a>Fonctions de tableau et d’objet pour les modèles ARM
 
-Resource Manager fournit les fonctions ci-après pour travailler avec des tableaux et des objets.
+Resource Manager fournit plusieurs fonctions pour travailler avec des tableaux et des objets dans votre modèle Azure Resource Manager (ARM).
 
 * [array](#array)
 * [coalesce](#coalesce)
@@ -102,7 +102,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/array.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/array.json
 ```
 
 Pour déployer cet exemple de modèle avec PowerShell, utilisez :
@@ -126,7 +126,7 @@ Retourne la première valeur non null à partir des paramètres. Les chaînes vi
 
 ### <a name="return-value"></a>Valeur retournée
 
-Valeur des premiers paramètres non null. Il peut s’agir d’une chaîne, d’un entier, d’un tableau ou d’un objet. Null si tous les paramètres sont null. 
+Valeur des premiers paramètres non null. Il peut s’agir d’une chaîne, d’un entier, d’un tableau ou d’un objet. Null si tous les paramètres sont null.
 
 ### <a name="example"></a>Exemple
 
@@ -140,7 +140,7 @@ Valeur des premiers paramètres non null. Il peut s’agir d’une chaîne, d’
         "objectToTest": {
             "type": "object",
             "defaultValue": {
-                "null1": null, 
+                "null1": null,
                 "null2": null,
                 "string": "default",
                 "int": 1,
@@ -189,7 +189,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/coalesce.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/coalesce.json
 ```
 
 Pour déployer cet exemple de modèle avec PowerShell, utilisez :
@@ -202,7 +202,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 `concat(arg1, arg2, arg3, ...)`
 
-Combine plusieurs tableaux et retourne le tableau concaténé, ou combine plusieurs valeurs de chaîne et renvoie la chaîne concaténée. 
+Combine plusieurs tableaux et retourne le tableau concaténé, ou combine plusieurs valeurs de chaîne et renvoie la chaîne concaténée.
 
 ### <a name="parameters"></a>Paramètres
 
@@ -225,22 +225,22 @@ Chaîne ou tableau de valeurs concaténées.
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
-    "parameters": { 
-        "firstArray": { 
-            "type": "array", 
-            "defaultValue": [ 
-                "1-1", 
-                "1-2", 
-                "1-3" 
-            ] 
+    "parameters": {
+        "firstArray": {
+            "type": "array",
+            "defaultValue": [
+                "1-1",
+                "1-2",
+                "1-3"
+            ]
         },
         "secondArray": {
-            "type": "array", 
-            "defaultValue": [ 
-                "2-1", 
+            "type": "array",
+            "defaultValue": [
+                "2-1",
                 "2-2",
-                "2-3" 
-            ] 
+                "2-3"
+            ]
         }
     },
     "resources": [
@@ -263,7 +263,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-array.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-array.json
 ```
 
 Pour déployer cet exemple de modèle avec PowerShell, utilisez :
@@ -303,7 +303,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-string.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-string.json
 ```
 
 Pour déployer cet exemple de modèle avec PowerShell, utilisez :
@@ -396,7 +396,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/contains.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/contains.json
 ```
 
 Pour déployer cet exemple de modèle avec PowerShell, utilisez :
@@ -475,7 +475,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/createarray.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/createarray.json
 ```
 
 Pour déployer cet exemple de modèle avec PowerShell, utilisez :
@@ -552,7 +552,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/empty.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/empty.json
 ```
 
 Pour déployer cet exemple de modèle avec PowerShell, utilisez :
@@ -616,7 +616,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
 ```
 
 Pour déployer cet exemple de modèle avec PowerShell, utilisez :
@@ -694,7 +694,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/intersection.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/intersection.json
 ```
 
 Pour déployer cet exemple de modèle avec PowerShell, utilisez :
@@ -767,7 +767,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/json.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/json.json
 ```
 
 Pour déployer cet exemple de modèle avec PowerShell, utilisez :
@@ -831,7 +831,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/last.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/last.json
 ```
 
 Pour déployer cet exemple de modèle avec PowerShell, utilisez :
@@ -854,7 +854,7 @@ Retourne le nombre d’éléments d’un tableau, les caractères d’une chaîn
 
 ### <a name="return-value"></a>Valeur retournée
 
-Un entier. 
+Un entier.
 
 ### <a name="example"></a>Exemple
 
@@ -919,7 +919,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/length.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/length.json
 ```
 
 Pour déployer cet exemple de modèle avec PowerShell, utilisez :
@@ -993,7 +993,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/max.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/max.json
 ```
 
 Pour déployer cet exemple de modèle avec PowerShell, utilisez :
@@ -1056,7 +1056,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/min.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/min.json
 ```
 
 Pour déployer cet exemple de modèle avec PowerShell, utilisez :
@@ -1119,7 +1119,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/range.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/range.json
 ```
 
 Pour déployer cet exemple de modèle avec PowerShell, utilisez :
@@ -1199,7 +1199,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/skip.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/skip.json
 ```
 
 Pour déployer cet exemple de modèle avec PowerShell, utilisez :
@@ -1279,7 +1279,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/take.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/take.json
 ```
 
 Pour déployer cet exemple de modèle avec PowerShell, utilisez :
@@ -1357,7 +1357,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/union.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/union.json
 ```
 
 Pour déployer cet exemple de modèle avec PowerShell, utilisez :

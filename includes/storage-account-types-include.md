@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/05/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: ab7496c82e3a2b1f70a5de38b8008bb5ff504a01
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: 726fc9cc0e4eb5a8f9bed5cca8dd4d3df588ac7c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78672117"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79371548"
 ---
 Le stockage Azure offre plusieurs types de comptes de stockage. Chaque type prend en charge différentes fonctionnalités et a son propre modèle tarifaire. Avant de créer un compte de stockage, tenez compte de ces différences pour déterminer l’option qui convient le mieux à vos applications. Les types de comptes de stockage proposés sont les suivants :
 
@@ -37,7 +37,7 @@ Le tableau suivant répertorie les types de comptes de stockage disponibles et l
 
 <div id="encryption"><sup>2</sup>Dans tous les comptes de stockage, les données au repos sont chiffrées à l’aide de Storage Service Encryption (SSE). Pour plus d’informations, consultez <a href="https://docs.microsoft.com/azure/storage/common/storage-service-encryption">Azure Storage Service Encryption pour les données au repos</a>.</div><br/>
 
-<div id="archive"><sup>3</sup>L’archivage est disponible uniquement au niveau de chaque objet blob, et n’est pas disponible au niveau du compte de stockage. Seuls les objets blob de blocs et d’ajout peuvent être archivés. Pour plus d’informations, consultez <a href="https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers">Stockage Blob Azure : Niveaux de stockage chaud, à froid et archivage</a>.</div><br/>
+<div id="archive"><sup>3</sup> Le stockage archive et la hiérarchisation au niveau de l’objet blob prennent en charge uniquement les objets blob de blocs. L’archivage est disponible uniquement au niveau de chaque objet blob, pas au niveau du compte de stockage. Pour plus d’informations, consultez <a href="https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers">Stockage Blob Azure : Niveaux de stockage chaud, à froid et archivage</a>.</div><br/>
 
 <div id="zone-redundant-storage"><sup>4</sup>Le stockage redondant interzone (ZRS) et le stockage géoredondant interzone (GZRS/RA-GZRS) (préversion) sont disponibles uniquement pour les comptes universels v2 standard, BlockBlobStorage et FileStorage dans certaines régions. Pour plus d’informations sur les options de redondance de Stockage Azure, consultez <a href="https://docs.microsoft.com/azure/storage/common/storage-redundancy">Redondance du stockage Azure</a>.</div><br/>
 

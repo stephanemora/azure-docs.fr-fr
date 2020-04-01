@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 6863e7f8ef8e2f263cda824fd13186dc7b035454
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 69225da1506ced879363b10b098d939df93cbfba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78943615"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79502383"
 ---
 # <a name="storsimple-1200-migration-to-azure-file-sync"></a>Migration à partir de StorSimple 1200 vers Azure File Sync
 
@@ -113,11 +113,43 @@ Exécutez la première copie locale vers votre dossier Windows Server cible :
 La commande RoboCopy suivante rappelle les fichiers de votre stockage Azure StorSimple sur votre stockage StorSimple local, puis les déplace vers le dossier Windows Server cible. Le serveur Windows Server va le synchroniser avec le(s) partage(s) de fichiers Azure. Quand le volume Windows Server local se remplit, la hiérarchisation cloud intervient et hiérarchise les fichiers qui ont déjà été correctement synchronisés. La hiérarchisation cloud génère suffisamment d’espace pour poursuivre la copie à partir de l’appliance virtuelle StorSimple. La hiérarchisation cloud effectue une vérification toutes les heures pour déterminer ce qui a été synchronisé et libérer de l’espace disque pour atteindre l’espace de volume libre de 99 %.
 
 ```console
-Robocopy /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
+Robocopy /MT:32 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
 ```
 
 Arrière-plan :
 
+:::row:::
+   :::column span="1":::
+      /MT
+   :::column-end:::
+   :::column span="1":::
+      Permet à RoboCopy de s’exécuter en multithread. La valeur par défaut est 8, le maximum est 128.
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      /UNILOG:<file name>
+   :::column-end:::
+   :::column span="1":::
+      Renvoie l’état au fichier LOG au format UNICODE (remplace le journal existant).
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      /TEE
+   :::column-end:::
+   :::column span="1":::
+      Génère les sorties dans la fenêtre de la console. Utilisé conjointement avec la sortie dans un fichier journal.
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      /B
+   :::column-end:::
+   :::column span="1":::
+      Exécute RoboCopy dans le même mode qu’une application de sauvegarde. Permet à RoboCopy de déplacer des fichiers pour lesquels l’utilisateur actuel n’a pas d’autorisations.
+   :::column-end:::
+:::row-end:::
 :::row:::
    :::column span="1":::
       /MIR

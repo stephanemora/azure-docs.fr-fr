@@ -7,12 +7,12 @@ author: winthrop28
 ms.service: web-application-firewall
 ms.date: 02/01/2020
 ms.author: victorh
-ms.openlocfilehash: d90c887c2e93b44a8dd13dab0b4f03665ea335c3
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: fff4fb5707c07098fd7fac261a36909224365cdf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76960342"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80060267"
 ---
 # <a name="azure-web-application-firewall-waf-policy-overview"></a>Vue d'ensemble de la stratégie du pare-feu d’applications web (WAF) Azure
 
@@ -57,7 +57,7 @@ Dans cet exemple, vous disposez d’une stratégie globale qui s’applique à d
 
 ## <a name="existing-waf-configurations"></a>Configurations WAF existantes
 
-Tous les nouveaux paramètres WAF du pare-feu d’applications web (règles personnalisées, configurations d’ensemble de règles managé, exclusions, etc.) sont présents dans une stratégie WAF. Si vous disposez d’un WAF, ces paramètres peuvent toujours exister dans la configuration de votre WAF. Pour plus d’informations sur l'adoption de la nouvelle stratégie WAF, consultez (lien : Migrer une configuration WAF vers une stratégie WAF). 
+Tous les nouveaux paramètres WAF du pare-feu d’applications web (règles personnalisées, configurations d’ensemble de règles managé, exclusions, etc.) sont présents dans une stratégie WAF. Si vous disposez d’un WAF, ces paramètres peuvent toujours exister dans la configuration de votre WAF. Pour plus d’informations sur l’adoption de la nouvelle stratégie WAF, voir [Migrer une configuration WAF vers une stratégie WAF](https://docs.microsoft.com/azure/web-application-firewall/ag/migrate-policy). 
 
 
 ## <a name="next-steps"></a>Étapes suivantes

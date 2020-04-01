@@ -1,6 +1,6 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: functions
 author: ggailey777
 ms.service: azure-functions
@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 04/06/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: b1bbc11d7772e4f56d7dc6ead580b0a0cbd3cd8d
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 266cd52117f36b282fdd4bc8615a15e451cc203f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68669621"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80132554"
 ---
 La solution Azure Functions facilite l’ajout de l’intégration d’Application Insights à une application de fonction à partir du [portail Azure].
 
-1. Dans le [portail][portail Azure], sélectionnez **Tous les services > Applications de fonction**, sélectionnez votre application de fonction, puis choisissez la bannière **Application Insights** en haut de la fenêtre.
+1. Dans le [portail][portail Azure], tapez `Function Apps` dans la barre de recherche en haut de la page, choisissez votre application de fonction, puis sélectionnez la bannière **Application Insights n’est pas configuré** en haut de la fenêtre. Si vous ne voyez pas cette bannière, cela signifie que votre application a déjà Application Insights activé.
 
     ![Activer Application Insights à partir du portail](media/functions-connect-new-app-insights/enable-application-insights.png)
 

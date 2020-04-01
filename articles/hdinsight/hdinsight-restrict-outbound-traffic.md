@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/23/2019
-ms.openlocfilehash: 6771cdb206920c8e3b746e28573de1742543b4c8
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.date: 03/11/2020
+ms.openlocfilehash: 6e0c98cffef06fb6d6345fc2b23bbc22715909b4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646691"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79370183"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Configurer le trafic réseau sortant pour les clusters Azure HDInsight à l’aide du pare-feu
 
@@ -26,12 +26,13 @@ Plusieurs dépendances requièrent un trafic entrant. Le trafic de gestion entra
 
 Les dépendances de trafic sortant HDInsight sont presque entièrement définies avec des noms FQDN, qui n’ont pas d’adresses IP statiques sous-jacentes. L’absence d’adresses statiques signifie que les groupes de sécurité réseau (NSG) ne peuvent pas être utilisés pour verrouiller le trafic sortant d’un cluster. Les adresses changent assez souvent et il n’est donc pas possible de définir des règles basées sur la résolution de noms actuelle et de les utiliser pour configurer des règles NSG.
 
-La solution pour sécuriser les adresses sortantes réside dans l’utilisation d’un dispositif de pare-feu pouvant contrôler le trafic sortant en fonction des noms de domaine. Le pare-feu Azure peut restreindre le trafic HTTP et HTTPS sortant en fonction du nom de domaine complet de la destination ou des [étiquettes FQDN](https://docs.microsoft.com/azure/firewall/fqdn-tags).
+La solution pour sécuriser les adresses sortantes réside dans l’utilisation d’un dispositif de pare-feu pouvant contrôler le trafic sortant en fonction des noms de domaine. Le pare-feu Azure peut restreindre le trafic HTTP et HTTPS sortant en fonction du nom de domaine complet de la destination ou des [étiquettes FQDN](../firewall/fqdn-tags.md).
 
 ## <a name="configuring-azure-firewall-with-hdinsight"></a>Configuration du pare-feu Azure avec HDInsight
 
 Voici le résumé des étapes pour verrouiller les sorties de votre cluster HDInsight existant avec le pare-feu Azure :
 
+1. Créez un sous-réseau.
 1. Créez un pare-feu.
 1. Ajoutez des règles d’application au pare-feu.
 1. Ajoutez des règles de réseau au pare-feu.
@@ -61,23 +62,23 @@ Créez un regroupement de règles d’application permettant au cluster d’envo
 
     | Propriété|  Valeur|
     |---|---|
-    |Name| FwAppRule|
+    |Nom| FwAppRule|
     |Priority|200|
     |Action|Allow|
 
     **Section des étiquettes FQDN**
 
-    | Name | Adresse source | Balise FQDN | Notes |
+    | Nom | Adresse source | Balise FQDN | Notes |
     | --- | --- | --- | --- |
     | Rule_1 | * | WindowsUpdate et HDInsight | Requis pour les services HDI |
 
     **Section des noms de domaine complets cibles**
 
-    | Name | Adresses sources | Protocole:Port | Noms de domaine complets cibles | Notes |
+    | Nom | Adresses sources | Protocole:Port | Noms de domaine complets cibles | Notes |
     | --- | --- | --- | --- | --- |
     | Rule_2 | * | https:443 | login.windows.net | Autorise les activités de connexion Windows |
     | Rule_3 | * | https:443 | login.microsoftonline.com | Autorise les activités de connexion Windows |
-    | Rule_4 | * | https:443,http:80 | storage_account_name.blob.core.windows.net | Remplacez `storage_account_name` par votre nom de compte de stockage réel. Si votre cluster s’appuie sur WASB, ajoutez une règle pour WASB. Pour utiliser UNIQUEMENT les connexions https, veillez à ce que l’option [« Transfert sécurisé requis »](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) soit activée sur le compte de stockage. |
+    | Rule_4 | * | https:443,http:80 | storage_account_name.blob.core.windows.net | Remplacez `storage_account_name` par votre nom de compte de stockage réel. Si votre cluster s’appuie sur WASB, ajoutez une règle pour WASB. Pour utiliser UNIQUEMENT les connexions https, veillez à ce que l’option [« Transfert sécurisé requis »](../storage/common/storage-require-secure-transfer.md) soit activée sur le compte de stockage. |
 
    ![Titre : Entrer les détails de la collection de règles d’application](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
 
@@ -95,13 +96,13 @@ Créez les règles de réseau pour configurer correctement votre cluster HDInsig
 
     | Propriété|  Valeur|
     |---|---|
-    |Name| FwNetRule|
+    |Nom| FwNetRule|
     |Priority|200|
     |Action|Allow|
 
     **Section des adresses IP**
 
-    | Name | Protocol | Adresses sources | Adresses de destination | Ports de destination | Notes |
+    | Nom | Protocol | Adresses sources | Adresses de destination | Ports de destination | Notes |
     | --- | --- | --- | --- | --- | --- |
     | Rule_1 | UDP | * | * | 123 | Service de temps |
     | Rule_2 | Quelconque | * | DC_IP_Address_1, DC_IP_Address_2 | * | Si vous utilisez le Pack Sécurité Entreprise (ESP), ajoutez une règle de réseau dans la section Adresses IP permettant la communication avec AAD-DS pour les clusters ESP. Vous pouvez trouver les adresses IP des contrôleurs de domaine dans la section AAD-DS du portail. |
@@ -110,7 +111,7 @@ Créez les règles de réseau pour configurer correctement votre cluster HDInsig
 
     **Section des étiquettes de service**
 
-    | Name | Protocol | Adresses sources | Étiquettes de service | Ports de destination | Notes |
+    | Nom | Protocol | Adresses sources | Étiquettes de service | Ports de destination | Notes |
     | --- | --- | --- | --- | --- | --- |
     | Rule_7 | TCP | * | SQL | 1433 | Configurez une règle de réseau dans la section Étiquettes de service pour SQL qui vous permettra d’enregistrer et d’auditer le trafic SQL, sauf si vous avez configuré des points de terminaison de service pour SQL Server sur le sous-réseau HDInsight, qui contournent le pare-feu. |
 

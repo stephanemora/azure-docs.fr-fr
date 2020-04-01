@@ -6,13 +6,13 @@ ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: b2458c42a77ffee6985165252b0ebab836fce457
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/27/2020
+ms.openlocfilehash: a2a9efceed84c4c57d1ad2cae47dd4440fd4eb42
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74774135"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80373012"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Comment sauvegarder et restaurer un serveur dans Azure Database pour MySQL à l’aide d’Azure CLI
 
@@ -23,8 +23,6 @@ Pour utiliser ce guide pratique, il vous faut :
 - Un [serveur et une base de données Azure Database pour MySQL](quickstart-create-mysql-server-database-using-azure-cli.md)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
- 
 
 > [!IMPORTANT]
 > Ce guide de procédures requiert l’utilisation de la version 2.0 Azure CLI ou version ultérieure. Pour vérifier la version, à l’invite de commande de l’interface Azure CLI, entrez `az --version`. Pour installer ou mettre à niveau Azure CLI, consultez [Installer Azure CLI]( /cli/azure/install-azure-cli).
@@ -81,7 +79,7 @@ Les valeurs d’emplacement et de niveau tarifaire du serveur restauré restent 
 
 Une fois la restauration terminée, recherchez le nouveau serveur et vérifiez que les données ont été restaurées correctement. Le nouveau serveur a le même nom de connexion d’administrateur et le même mot de passe que le serveur qui existait au moment du lancement de la restauration. Le mot de passe peut être modifié sur la page **Vue d’ensemble** du nouveau serveur.
 
-Le nouveau serveur créé lors d’une restauration ne dispose pas des règles de pare-feu ou des points de terminaison de service de réseau virtuel qui se trouvaient sur le serveur d’origine. Ces règles doivent être définies séparément pour ce nouveau serveur.
+Le nouveau serveur créé lors d’une restauration ne dispose pas des points de terminaison de service de réseau virtuel qui se trouvaient sur le serveur d’origine. Ces règles doivent être définies séparément pour ce nouveau serveur. Les règles de pare-feu du serveur d’origine sont restaurées.
 
 ## <a name="geo-restore"></a>Restauration géographique
 Si vous avez configuré votre serveur pour les sauvegardes redondantes géographiquement, un serveur peut être créé à partir de la sauvegarde de ce serveur existant. Ce nouveau serveur peut être créé dans toutes les régions dans lesquelles Azure Database pour MySQL est disponible.  
@@ -120,7 +118,7 @@ Lorsque vous créez un nouveau serveur par une restauration géographique, il h�
 
 Une fois la restauration terminée, recherchez le nouveau serveur et vérifiez que les données ont été restaurées correctement. Le nouveau serveur a le même nom de connexion d’administrateur et le même mot de passe que le serveur qui existait au moment du lancement de la restauration. Le mot de passe peut être modifié sur la page **Vue d’ensemble** du nouveau serveur.
 
-Le nouveau serveur créé lors d’une restauration ne dispose pas des règles de pare-feu ou des points de terminaison de service de réseau virtuel qui se trouvaient sur le serveur d’origine. Ces règles doivent être définies séparément pour ce nouveau serveur.
+Le nouveau serveur créé lors d’une restauration ne dispose pas des points de terminaison de service de réseau virtuel qui se trouvaient sur le serveur d’origine. Ces règles doivent être définies séparément pour ce nouveau serveur. Les règles de pare-feu du serveur d’origine sont restaurées.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - En savoir plus sur les [sauvegardes](concepts-backup.md) du service.

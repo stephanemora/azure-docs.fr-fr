@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b1654d306d50ff8521193b93da1ce4be624ed70
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: e71c1d28a90af72890b2399d5da24d08885f3cce
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848219"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80051207"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-20"></a>Configuration du serveur Azure Multi-Factor Authentication pour travailler avec AD FS 2.0
 
@@ -39,17 +39,17 @@ Pour sécuriser AD FS 2.0 avec un proxy, installez le serveur Azure Multi-Facto
 
    ![Fenêtre de l’authentification IIS dans MFA Server](./media/howto-mfaserver-adfs-2/setup1.png)
 
-4. Pour détecter automatiquement les variables de nom d’utilisateur, de mot de passe et de domaine, entrez l’URL de connexion (par exemple, https://sso.contoso.com/adfs/ls) ) dans la boîte de dialogue Configuration automatique du site Web basé sur des formulaires et cliquez sur **OK**.
+4. Pour détecter automatiquement les variables de nom d’utilisateur, de mot de passe et de domaine, entrez l’URL de connexion (par exemple, `https://sso.contoso.com/adfs/ls`) dans la boîte de dialogue Configuration automatique du site web basé sur des formulaires et cliquez sur **OK**.
 5. Cochez la case de **correspondance d’utilisateur Authentification multifacteur Azure requise** si tous les utilisateurs ont été ou seront importés sur le serveur et soumis à la vérification en deux étapes. Si un grand nombre d’utilisateurs n’ont pas encore été importés sur le serveur et/ou ne seront pas soumis à la vérification en deux étapes, laissez la case désactivée.
 6. Si les variables de page ne peuvent pas être détectées automatiquement, cliquez sur le bouton **Spécifier manuellement...** dans la boîte de dialogue Auto-configurer un site Web basé sur formulaire.
-7. Dans la boîte de dialogue Ajouter un site Web basé sur formulaire, entrez l’URL de la page de connexion AD FS dans le champ URL de soumission (par exemple, https://sso.contoso.com/adfs/ls) ) et entrez un nom d’application. Le nom de l'application apparaît dans les rapports du serveur Azure Multi-Factor Authentication et peut être affiché dans les messages d'authentification SMS ou d’application mobile.
+7. Dans la boîte de dialogue Ajouter un site Web basé sur formulaire, entrez l’URL de la page de connexion AD FS dans le champ URL de soumission (par exemple, `https://sso.contoso.com/adfs/ls`) et entrez un nom d’application. Le nom de l'application apparaît dans les rapports du serveur Azure Multi-Factor Authentication et peut être affiché dans les messages d'authentification SMS ou d’application mobile.
 8. Définissez le format de demande sur **POST ou GET**.
 9. Entrez les variables de nom d'utilisateur (ctl00$ ContentPlaceHolder1$ UsernameTextBox) et de mot de passe (ctl00$ ContentPlaceHolder1$ PasswordTextBox). Si votre page de connexion basée sur formulaire affiche une zone de texte de domaine, entrez la variable de domaine également. Pour rechercher les noms des zones de saisie dans la page de connexion, accédez à la page de connexion dans un navigateur web, cliquez avec le bouton droit sur la page et sélectionnez **Afficher la source**.
 10. Cochez la case de **correspondance d’utilisateur Authentification multifacteur Azure requise** si tous les utilisateurs ont été ou seront importés sur le serveur et soumis à la vérification en deux étapes. Si un grand nombre d’utilisateurs n’ont pas encore été importés sur le serveur et/ou ne seront pas soumis à la vérification en deux étapes, laissez la case désactivée.
 
     ![Ajouter à MFA Server un site web basé sur des formulaires](./media/howto-mfaserver-adfs-2/manual.png)
 
-11. Cliquez sur **Avancé...** pour passer en revue les paramètres avancés. Vous pouvez notamment :
+11. Cliquez sur **Avancé…** pour passer en revue les paramètres avancés. Vous pouvez notamment :
 
     - Sélectionner un fichier de page de refus personnalisé
     - Mettre en cache les authentifications réussies sur le site web à l’aide de cookies
@@ -99,7 +99,7 @@ Vous pouvez sécuriser AD FS lorsque le proxy AD FS n’est pas utilisé. Instal
 1. Depuis le serveur Azure Multi-Factor Authentication, cliquez sur l’icône **Authentification IIS** dans le menu de gauche.
 2. Cliquez sur l’onglet **HTTP**.
 3. Cliquez sur **Add**.
-4. Dans la boîte de dialogue Ajouter une URL de base, entrez l’URL du site web AD FS où l’authentification HTTP est effectuée (par exemple, https://sso.domain.com/adfs/ls/auth/integrated) ) dans le champ URL de base. Ensuite, entrez un nom d’application (facultatif). Le nom de l'application apparaît dans les rapports du serveur Azure Multi-Factor Authentication et peut être affiché dans les messages d'authentification SMS ou d’application mobile.
+4. Dans la boîte de dialogue Ajouter une URL de base, entrez l’URL du site web AD FS où l’authentification HTTP est effectuée (par exemple, `https://sso.domain.com/adfs/ls/auth/integrated`) dans le champ URL de base. Ensuite, entrez un nom d’application (facultatif). Le nom de l'application apparaît dans les rapports du serveur Azure Multi-Factor Authentication et peut être affiché dans les messages d'authentification SMS ou d’application mobile.
 5. Si vous le souhaitez, vous pouvez régler le délai de déconnexion en cas d'inactivité et la durée maximale des sessions.
 6. Cochez la case de **correspondance d’utilisateur Authentification multifacteur Azure requise** si tous les utilisateurs ont été ou seront importés sur le serveur et soumis à la vérification en deux étapes. Si un grand nombre d’utilisateurs n’ont pas encore été importés sur le serveur et/ou ne seront pas soumis à la vérification en deux étapes, laissez la case désactivée.
 7. Cochez la case de cache de cookie si vous le souhaitez.

@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-ms.date: 03/12/2019
-ms.openlocfilehash: 9db6b5ff517a1b0d67e59591ee634dfad685527b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/18/2019
+ms.openlocfilehash: af88fdf3378a6290c773c658ea6dd3469d7c92cc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75461470"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79531275"
 ---
 # <a name="azure-sql-database-and-azure-sql-data-warehouse-ip-firewall-rules"></a>Règles de pare-feu IP Azure SQL Database et Azure SQL Data Warehouse
 
@@ -39,7 +39,7 @@ Les tentatives de connexion à partir d’Internet et d’Azure doivent franchir
 
 ### <a name="server-level-ip-firewall-rules"></a>Règles de pare-feu IP au niveau du serveur
 
-  Ces règles permettent aux clients d’accéder à la totalité de votre serveur Azure SQL, c’est-à-dire à toutes les bases de données du même serveur SQL Database. Les règles sont stockées dans la base de données *MASTER*. Vous pouvez avoir un maximum de 128 règles de pare-feu IP au niveau du serveur par serveur Azure SQL.
+  Ces règles permettent aux clients d’accéder à la totalité de votre serveur Azure SQL, c’est-à-dire à toutes les bases de données du même serveur SQL Database. Les règles sont stockées dans la base de données *MASTER*. Vous pouvez avoir un maximum de 128 règles de pare-feu IP au niveau du serveur par serveur Azure SQL. Si le paramètre **Autoriser les services et les ressources Azure à accéder à ce serveur** est activé, cela compte comme une seule règle de pare-feu pour Azure SQL Server.
   
   Vous pouvez configurer des règles de pare-feu IP au niveau du serveur à l’aide du portail Azure, de PowerShell ou d’instructions Transact-SQL.
   - Pour utiliser le portail ou PowerShell, vous devez être le propriétaire ou un contributeur de l’abonnement.

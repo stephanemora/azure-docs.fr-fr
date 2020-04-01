@@ -1,5 +1,6 @@
 ---
 title: Mondes de sécurité Azure Key Vault | Microsoft Docs
+description: Azure Key Vault est un service mutualisé. Il utilise un pool de modules HSM dans chaque emplacement Azure. Tous les emplacements au sein d’une région géographique partagent une limite de chiffrement.
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
@@ -7,12 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 07/03/2017
-ms.openlocfilehash: 35d2683495a12b864378f8fb6f5edb6663d92c27
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 3584f83c5e1a5e83d069373395227b70c084eae9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78194918"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79457387"
 ---
 # <a name="azure-key-vault-security-worlds-and-geographic-boundaries"></a>Mondes de sécurité Azure Key Vault et limites géographiques
 
