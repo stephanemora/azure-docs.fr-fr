@@ -1,22 +1,14 @@
 ---
 title: 'Démarrage rapide : Créer une application - LUIS'
-titleSuffix: Azure Cognitive Services
 description: Ce guide de démarrage rapide montre comment créer une application LUIS qui utilise le domaine prédéfini `HomeAutomation` pour allumer et éteindre des lumières et des appareils électriques. Ce domaine prédéfini vous fournit les intentions, les entités et des exemples d’énoncés. À la fin du processus, vous disposerez d’un point de terminaison LUIS exécuté dans le cloud.
-services: cognitive-services
-author: diberry
-ms.custom: seodec18
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 12/17/2019
-ms.author: diberry
-ms.openlocfilehash: 302321a36a6ce7526ad5e3144f87b88edbfaaec7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/24/2020
+ms.openlocfilehash: de6cf5e95ee63fc9500cf1b5edab78597bdb18af
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448099"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80287796"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Démarrage rapide : Utiliser une application domotique prédéfinie
 
@@ -29,11 +21,11 @@ Dans ce guide de démarrage rapide, vous allez créer une application LUIS qui u
 ## <a name="create-a-new-app"></a>Créer une application
 Vous pouvez créer et gérer vos applications sur la page **Mes applications**.
 
-1. Dans le portail LUIS, dans la liste Mes applications, sélectionnez **+ Créer**.
+1. Dans la liste My apps, sélectionnez **+ New app for conversation** (Nouvelle application pour la conversation).
 
-    ![Dans le portail LUIS, dans la liste Mes applications, sélectionnez « + Créer ».](./media/create-app-in-portal.png)
+1. Dans la boîte de dialogue, nommez votre application `Home Automation`. Sélectionnez **English** comme culture. La description est facultative et n’est pas utilisée pour la création ou la prédiction. La ressource de prédiction est également facultative lors de la création d’une application LUIS. Sélectionnez **Terminé**.
 
-1. Dans la boîte de dialogue, nommez votre application `Home Automation`, puis sélectionnez **Terminé**. LUIS crée l’application. La description est facultative et n’est pas utilisée pour la création ou la prédiction. La ressource de prédiction est également facultative lors de la création d’une application LUIS. Lorsque vous publiez votre application en production, vous devez affecter une ressource de prédiction afin que votre application puisse gérer de nombreuses requêtes.
+    LUIS crée l’application. Lorsque vous publiez votre application en production, vous devez affecter une ressource de prédiction afin que votre application puisse gérer de nombreuses requêtes.
 
     ![Dans la boîte de dialogue, nommez votre application « Home Automation ».](./media/create-new-app-details.png)
 
@@ -66,23 +58,25 @@ Sélectionnez l’intention **HomeAutomation.TurnOff**. Vous pouvez voir que l�
 [!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
 
 ## <a name="test-your-app"></a>Test de l'application
-Une fois que vous avez formé votre application, vous pouvez la tester. Sélectionnez **Test**. Saisissez un énoncé de test tel que `Turn off the lights` dans le volet de test interactif, puis appuyez sur Entrée.
+Une fois que vous avez formé votre application, vous pouvez la tester.
 
-```
-Turn off the lights
-```
+1. Sélectionnez **Test** dans le menu en haut à droite. 1. Saisissez un énoncé de test tel que `Turn off the lights` dans le volet de test interactif, puis appuyez sur Entrée.
 
-Vérifiez que l’intention avec le score le plus élevé correspond à l’intention attendue pour chaque énoncé de test.
+    ```
+    Turn off the lights
+    ```
 
-Dans cet exemple, `Turn off the lights` est identifié correctement comme l’intention avec le score le plus élevé pour **HomeAutomation.TurnOff**.
+    Vérifiez que l’intention avec le score le plus élevé correspond à l’intention attendue pour chaque énoncé de test.
 
-![Capture d’écran du panneau Test avec l’énoncé mis en surbrillance](media/luis-quickstart-new-app/review-test-inspection-pane-in-portal.png)
+    Dans cet exemple, `Turn off the lights` est identifié correctement comme l’intention avec le score le plus élevé pour **HomeAutomation.TurnOff**.
 
-Sélectionnez **Inspecter** pour passer en revue des informations supplémentaires sur la prédiction.
+    ![Capture d’écran du panneau Test avec l’énoncé mis en surbrillance](media/luis-quickstart-new-app/review-test-inspection-pane-in-portal.png)
 
-![Capture d’écran du panneau Test avec les informations d’inspection](media/luis-quickstart-new-app/test.png)
+1. Sélectionnez **Inspecter** pour passer en revue des informations supplémentaires sur la prédiction.
 
-Sélectionnez à nouveau **Tester** pour réduire le volet de test.
+    ![Capture d’écran du panneau Test avec les informations d’inspection](media/luis-quickstart-new-app/test.png)
+
+1. Fermez le volet de test.
 
 <a name="publish-your-app"></a>
 
@@ -96,14 +90,14 @@ Sélectionnez à nouveau **Tester** pour réduire le volet de test.
 
 [!INCLUDE [LUIS How to get endpoint first step](./includes/v3-prediction-endpoint.md)]
 
-1. Dans la barre d’adresse du navigateur, pour la chaîne de requête, assurez-vous que les barres de noms et de valeurs suivantes figurent dans l’URL. Si elles ne figurent pas dans la chaîne de requête, ajoutez-les :
+2. Dans la barre d’adresse du navigateur, pour la chaîne de requête, assurez-vous que les barres de noms et de valeurs suivantes figurent dans l’URL. Si elles ne figurent pas dans la chaîne de requête, ajoutez-les :
 
     |Paire nom/valeur|
     |--|
     |`verbose=true`|
     |`show-all-intents=true`|
 
-1. Dans la barre d’adresse du navigateur, allez à la fin de l’URL et entrez `turn off the living room light` pour la valeur _requête_, puis appuyez sur Entrée.
+3. Dans la barre d’adresse du navigateur, allez à la fin de l’URL et entrez `turn off the living room light` pour la valeur _requête_, puis appuyez sur Entrée.
 
     ```json
     {

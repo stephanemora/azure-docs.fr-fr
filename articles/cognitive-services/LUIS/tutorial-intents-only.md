@@ -1,22 +1,14 @@
 ---
 title: 'Tutoriel : Prédire les intentions - LUIS'
-titleSuffix: Azure Cognitive Services
 description: Dans ce tutoriel, vous allez créer une application personnalisée qui prédit l’intention d’un utilisateur. Cette application est le type d’application LUIS le plus simple, car elle n’extrait pas divers éléments de données du texte de l’énoncé tels que les adresses e-mail ou les dates.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/17/2019
-ms.author: diberry
-ms.openlocfilehash: 89fb76f8c5cc4323e1211524340c0965a7d0716d
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.date: 03/24/2020
+ms.openlocfilehash: c58c96f717de77c065d7f844928714eb4fb3e4db
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76262745"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80286742"
 ---
 # <a name="tutorial-build-a-luis-app-to-determine-user-intentions"></a>Tutoriel : Générer une application LUIS pour déterminer les intentions d’un utilisateur
 
@@ -53,7 +45,11 @@ Ces intentions sont classées dans la catégorie **intentions**.
 
 ## <a name="create-a-new-intent"></a>Créer une intention
 
-1. Sur le portail, dans la section **Générer**, sélectionnez **+ Créer**. Entrez le nom de l’intention (`OrderPizza`), puis sélectionnez **Terminé**.
+Une intention sert à classifier les énoncés utilisateur en fonction de l’intention de l’utilisateur, déterminée à partir du texte en langage naturel.
+
+Pour classifier un énoncé, l’intention a besoin d’exemples d’énoncés utilisateur qui doivent être classifiés avec cette intention.
+
+1. Dans la section **Générer**, dans la page **Intentions**, sélectionnez **+Créer** pour créer une intention. Entrez le nom de l’intention (`OrderPizza`), puis sélectionnez **Terminé**.
 
     L’intention `OrderPizza` est prédite quand un utilisateur veut commander une pizza.
 
@@ -70,7 +66,7 @@ Ces intentions sont classées dans la catégorie **intentions**.
 
     ![Ajouter des exemples d’énoncés](media/tutorial-intents-only/add-example-utterances-for-pizza-order.png)
 
-    En fournissant des _exemples d’énoncés_, vous entraînez LUIS à déterminer les types d’énoncés à prédire pour cette intention.
+    En fournissant des _exemples d’énoncés_, vous formez LUIS à déterminer les types d’énoncés à prédire pour cette intention.
 
     [!INCLUDE [Do not use too few utterances](includes/do-not-use-too-few-utterances.md)]
 

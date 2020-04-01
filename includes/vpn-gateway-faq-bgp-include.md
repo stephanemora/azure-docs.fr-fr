@@ -1,6 +1,6 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -8,15 +8,15 @@ ms.topic: include
 ms.date: 02/12/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 0e3f996ab2a42057198368759c75f10e911d5f54
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 608b148dc3929065df44530da65e695df19be03e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68936798"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79485983"
 ---
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>Le protocole BGP est-il pris en charge sur toutes les références de passerelle VPN Azure ?
-Non, le protocole BGP est pris en charge sur les passerelles VPN Azure **VpnGw1**, **VpnGw2**, **VpnGw3**, **Standard** et **HighPerformance**. La référence **De base** N’EST PAS prise en charge.
+Le protocole BGP est pris en charge sur toutes les références SKU de passerelle VPN Azure, à l’exception de Basic SKU.
 
 ### <a name="can-i-use-bgp-with-azure-policy-based-vpn-gateways"></a>Puis-je utiliser le protocole BGP avec les passerelles VPN Azure basées sur des stratégies ?
 Non. Le protocole BGP est pris en charge uniquement sur les passerelles VPN basées sur des itinéraires.
@@ -24,8 +24,8 @@ Non. Le protocole BGP est pris en charge uniquement sur les passerelles VPN bas�
 ### <a name="can-i-use-private-asns-autonomous-system-numbers"></a>Puis-je utiliser des NSA (numéros de système autonomes) privés ?
 Oui, vous pouvez utiliser vos propres NSA publics ou privés pour vos réseaux locaux et les réseaux virtuels Azure.
 
-### <a name="can-i-use-32-bit-asns-autonomous-system-numbers"></a>Puis-je utiliser des NSA (numéros de système autonomes) 32 bits ?
-Non, les passerelles VPN Azure ne prennent en charge que les NSA 16 bits pour le moment.
+### <a name="can-i-use-32-bit-4-byte-asns-autonomous-system-numbers"></a>Puis-je utiliser des NSA (numéros de système autonomes) 32 bits (4 octets) ?
+Oui, les passerelles VPN Azure prennent désormais en charge les NSA 32 bits (4 octets). Utilisez PowerShell/CLI/SDK pour configurer l’utilisation des NSA au format décimal.
 
 ### <a name="are-there-asns-reserved-by-azure"></a>Existe-t-il des NSA réservés par Azure ?
 Oui. Les NSA suivants sont réservés par Azure pour les peerings internes et externes :

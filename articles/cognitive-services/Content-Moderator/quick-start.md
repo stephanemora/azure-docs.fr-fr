@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 03/13/2020
 ms.author: pafarley
-ms.openlocfilehash: a641893fece37c759480ab31f505b1673f50e2b9
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 666b70ba8b632cb2cadf20de384e3e615acb2b3d
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74973609"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "79203555"
 ---
 # <a name="quickstart-try-content-moderator-on-the-web"></a>Démarrage rapide : Essayer Content Moderator sur le web
 
@@ -32,9 +32,23 @@ L’outil de révision Content Moderator est un outil web qui permet aux révise
 
 ## <a name="create-a-review-team"></a>Créer une équipe de révision
 
-Ensuite, créez une équipe de révision. Dans un scénario professionnel, il s’agit du groupe de personnes qui vérifiera manuellement les décisions de modération du service. Pour l’instant, vous ne créez qu’un nom d’équipe. Si vous souhaitez intégrer des collègues dans l’équipe, entrez leurs adresses e-mail ici.
+Ensuite, créez une équipe de révision. Dans un scénario professionnel, il s’agit du groupe de personnes qui vérifiera manuellement les décisions de modération du service. Pour créer une équipe, vous devez sélectionner une **Région** et spécifier un **Nom d’équipe** et un **ID d’équipe**. Si vous souhaitez intégrer des collègues dans l’équipe, entrez leurs adresses e-mail ici.
 
-![Inviter un membre d’équipe](images/QuickStart-2-small.png)
+> [!NOTE]
+> **Nom de l’équipe** est un nom convivial pour votre équipe de revue. Il s’agit du nom affiché dans le portail Azure. L’**ID de l’équipe** est utilisé pour identifier l’équipe de revue par programmation.
+
+> [!div class="mx-imgBorder"]
+> ![Inviter un membre d’équipe](images/create-team.png)
+
+Si vous choisissez de chiffrer les données à l’aide d’une clé gérée par le client (CMK), vous êtes invité à fournir l’**ID de ressource** de votre ressource Content Moderator dans le niveau tarifaire E0. La ressource que vous fournissez doit être nouvelle. 
+
+> [!div class="mx-imgBorder"]
+> ![Inviter un membre de l’équipe avec une clé CMK](images/create-team-cmk.png)
+
+Si vous essayez de réutiliser une ressource Content Moderator, cet avertissement s’affiche : 
+
+> [!div class="mx-imgBorder"]
+> ![Échec de la clé CMK](images/create-team-cmk-fail.png)
 
 ## <a name="upload-sample-content"></a>Charger un contenu exemple
 

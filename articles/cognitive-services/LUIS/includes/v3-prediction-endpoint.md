@@ -8,18 +8,18 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: bc6e43faca47e360daa8214e6b9f6e9df4a2f130
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 23e7f88b23ac7af7470183877eeb1be89e79779c
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495257"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80287745"
 ---
-1. Dans le portail LUIS, dans la section Gérer (menu en haut à droite), dans la page Clés et points de terminaison (menu gauche), sélectionnez l’URL de point de terminaison en bas de la page.
+1. Dans le portail LUIS, dans la section **Manage** (Gérer) (menu en haut à droite), dans la page **Azure Resources** (Ressources Azure) (menu de gauche), sous l’onglet **Prediction Resources** (Ressources de prédiction), copiez l’exemple de requête (**example Query**) en bas de la page.
 
-    Cette action ouvre un onglet de navigateur avec l’URL de point de terminaison affichée dans la barre d’adresse.
+    Collez l’URL dans un nouvel onglet de navigateur.
 
     L’URL contient votre ID d’application, votre clé et le nom de l’emplacement. L’URL du point de terminaison de prédiction V3 ressemble à ce qui suit :
 
-    `https://REGION.api.cognitive.microsoft.com/luis/prediction/v3.0/apps/APP-ID/slots/SLOT-NAME/predict?subscription-key=YOUR-KEY&<optional-name-value-pairs>&query=UTTERANCE-TEXT.`
+    `https://REGION.api.cognitive.microsoft.com/luis/prediction/v3.0/apps/APP-ID/slots/SLOT-NAME/predict?subscription-key=YOUR-KEY&<optional-name-value-pairs>&query=YOUR_QUERY_HERE`
 

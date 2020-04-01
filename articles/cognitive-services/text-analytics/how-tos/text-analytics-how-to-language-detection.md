@@ -11,13 +11,13 @@ ms.topic: sample
 ms.date: 07/30/2019
 ms.author: aahi
 ms.openlocfilehash: d34f3a03e1bcd35c270d13c4dda57d0394a36e4b
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70387785"
 ---
-# <a name="example-detect-language-with-text-analytics"></a>Exemple : Détecter la langue avec Analyse de texte
+# <a name="example-detect-language-with-text-analytics"></a>Exemple : Détecter la langue avec Analyse de texte
 
 La fonctionnalité [Détection de langue](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) de l’API REST Analyse de texte évalue le texte en entrée pour chaque document et retourne les identificateurs de langue avec un score qui indique la puissance de l’analyse.
 
@@ -63,7 +63,7 @@ La taille du document doit être inférieure à 5 120 caractères par document.
     }
 ```
 
-## <a name="step-1-structure-the-request"></a>Étape 1 : Structurer la requête
+## <a name="step-1-structure-the-request"></a>Étape 1 : Structurer la requête
 
 Pour plus d’informations sur la définition de la requête, consultez [Appeler l’API Analyse de texte](text-analytics-how-to-call-api.md). Les points suivants sont réaffirmés pour des raisons pratiques :
 
@@ -78,7 +78,7 @@ Pour plus d’informations sur la définition de la requête, consultez [Appeler
 > [!Tip]
 > Utilisez [Postman](text-analytics-how-to-call-api.md) ou ouvrez la **console de test d’API** dans la [documentation](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) pour structurer une demande et la publier dans le service.
 
-## <a name="step-2-post-the-request"></a>Étape 2 : Publier la requête
+## <a name="step-2-post-the-request"></a>Étape 2 : Publier la requête
 
 L’analyse est effectuée à la réception de la demande. Pour connaître la taille et le nombre de requêtes que vous pouvez envoyer par minute et seconde, consultez la section [Limites de données](../overview.md#data-limits) dans la vue d’ensemble.
 
@@ -274,7 +274,7 @@ Dans cet article, vous avez vu les concepts et le flux de travail de détection 
 
 ## <a name="see-also"></a>Voir aussi
 
- [Vue d’ensemble Analyse de texte](../overview.md) [Questions fréquentes (FAQ)](../text-analytics-resource-faq.md)</br>
+ [Vue d’ensemble d’Analyse de texte](../overview.md)[Questions fréquentes (FAQ)](../text-analytics-resource-faq.md)</br>
  [Page produit d’Analyse de texte](//go.microsoft.com/fwlink/?LinkID=759712)
 
 ## <a name="next-steps"></a>Étapes suivantes

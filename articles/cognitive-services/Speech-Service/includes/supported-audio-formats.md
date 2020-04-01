@@ -2,16 +2,16 @@
 author: IEvangelist
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/10/2020
+ms.date: 03/16/2020
 ms.author: dapine
-ms.openlocfilehash: fe895bc3c3a46c7b6ed9ccd34e3b1201152e4f5d
-ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
+ms.openlocfilehash: 69856734e3b15886df1a3b2e876bffddbd042b83
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79037281"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80374019"
 ---
-Le format de streaming audio par défaut est WAV (16 KHz, 16 bits et PCM Mono). Outre WAV/PCM, les formats d’entrées compressées par codec pris en charge sont également les suivants :
+Le format de streaming audio par défaut est WAV (16 KHz ou 8 KHz, 16 bits et PCM Mono). En plus de WAV/PCM, les formats d’entrées compressées listés ci-dessous sont également pris en charge. Une [configuration supplémentaire](../how-to-use-codec-compressed-audio-input-streams.md) est nécessaire pour activer les formats listés ci-dessous.
 
 - MP3
 - OPUS/OGG

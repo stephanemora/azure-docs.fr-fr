@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 28724f85ada989cbe3ce754418fb781bb0468de4
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 8752585e731f905636f57d31741e2be67f7140b3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77465965"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335041"
 ---
-<a name="azure-resource-manager-virtual-networking-limits"></a>Limites de mise en réseau - Azure Resource Manager 
-Les limites suivantes s’appliquent uniquement aux ressources de réseau gérées par le biais **d’Azure Resource Manager** par région et par abonnement. Découvrez comment [afficher l’utilisation actuelle de vos ressources par rapport aux limites de votre abonnement](../articles/networking/check-usage-against-limits.md).
+### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Limites de mise en réseau - Azure Resource Manager
+Les limites suivantes s’appliquent uniquement aux ressources de réseau gérées par le biais d’**Azure Resource Manager** par région et par abonnement. Découvrez comment [afficher l’utilisation actuelle de vos ressources par rapport aux limites de votre abonnement](../articles/networking/check-usage-against-limits.md).
 
 > [!NOTE]
 > Récemment, nous avons augmenté toutes les limites par défaut à leur niveau maximal. Si aucune colonne de limite maximale n’est présente, la ressource spécifiée ne possède pas de limites ajustables. Si ces limites ont été augmentées par le support dans le passé et si vous ne voyez pas les limites mises à jour dans les tables suivantes, vous pouvez [ouvrir une demande de support clientèle en ligne sans frais](../articles/azure-resource-manager/templates/error-resource-quota.md)
 
-| Ressource | Limite par défaut/maximale | 
+| Ressource | Limite | 
 | --- | --- |
 | Réseaux virtuels |1 000 |
 | Nombre de sous-réseaux par réseau virtuel |3 000 |
@@ -49,7 +49,7 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 | TAP de réseau virtuel |100 |
 | Configurations TAP d’interface réseau de chaque réseau virtuel TAP |100 |
 
-#### <a name="publicip-address"></a>Limites de l’adresse IP publique
+#### <a name="public-ip-address-limits"></a><a name="publicip-address"></a>Limites de l’adresse IP publique
 | Ressource | Limite par défaut | Limite maximale |
 | --- | --- | --- |
 | Adresse IP publique<sup>1</sup> | 10 pour De base. | Contactez le support technique. |
@@ -60,12 +60,12 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 
 <sup>1</sup>Les limites par défaut pour les adresses IP publiques varient selon le type de catégorie d’offre, comme Essai gratuit, Paiement à l’utilisation, CSP. Par exemple, la valeur par défaut pour les abonnements Accord Entreprise est 1 000.
 
-#### <a name="load-balancer"></a>Limites de l’équilibreur de charge
+#### <a name="load-balancer-limits"></a><a name="load-balancer"></a>Limites de l’équilibreur de charge
 Les limites suivantes s’appliquent uniquement aux ressources de réseau gérées par le biais d’Azure Resource Manager par région et par abonnement. Découvrez comment [afficher l’utilisation actuelle de vos ressources par rapport aux limites de votre abonnement](../articles/networking/check-usage-against-limits.md).
 
 **Standard Load Balancer**
 
-| Ressource                                | Limite par défaut/maximale         |
+| Ressource                                | Limite         |
 |-----------------------------------------|-------------------------------|
 | Équilibreurs de charge                          | 1 000                         |
 | Règles par ressource                      | 1 500                         |
@@ -73,12 +73,13 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 | Configurations d’adresses IP frontales              | 600                           |
 | Taille de pool de serveur principal                       | 1 000 configurations d’adresses IP, réseau virtuel unique |
 | Ports de haute disponibilité                 | 1 par serveur frontal interne       |
-| Règles de trafic sortant par Load Balancer         | 20                            |
+| Règles de trafic sortant par Load Balancer        | 20                            |
+| [Délai d’inactivité TCP](https://docs.microsoft.com/azure/load-balancer/load-balancer-tcp-idle-timeout#tcp-idle-timeout) | 4 minutes/30 minutes          |
 
 
 **Load Balancer de base**
 
-| Ressource                                | Limite par défaut/maximale        |
+| Ressource                                | Limite        |
 |-----------------------------------------|------------------------------|
 | Équilibreurs de charge                          | 1 000                        |
 | Règles par ressource                      | 250                          |
@@ -87,7 +88,7 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 | Taille de pool de serveur principal                       | 300 configurations d’adresses IP, groupe à haute disponibilité |
 | Groupes à haute disponibilité par Load Balancer     | 150                          |
 
-#### <a name="virtual-networking-limits-classic"></a>Les limites suivantes s’appliquent uniquement aux ressources de réseau gérées par le biais du modèle de déploiement **classique** par abonnement. Découvrez comment [afficher l’utilisation actuelle de vos ressources par rapport aux limites de votre abonnement](../articles/networking/check-usage-against-limits.md).
+<a name="virtual-networking-limits-classic"></a>Les limites suivantes s’appliquent uniquement aux ressources de réseau gérées par le biais du modèle de déploiement **classique** par abonnement. Découvrez comment [afficher l’utilisation actuelle de vos ressources par rapport aux limites de votre abonnement](../articles/networking/check-usage-against-limits.md).
 
 | Ressource | Limite par défaut | Limite maximale |
 | --- | --- | --- |

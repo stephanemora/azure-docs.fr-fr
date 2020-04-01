@@ -11,14 +11,16 @@ ms.topic: overview
 ms.date: 01/27/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: eb338c39ed3b1a095c1ad31e3f695e8d3fec0ed3
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.openlocfilehash: af49e80766d7ac4bd2d9ed677a2571fb0a5a3189
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77565959"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80131749"
 ---
 # <a name="what-is-computer-vision"></a>Qu’est-ce que le service Vision par ordinateur ?
+
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 Le service Vision par ordinateur d’Azure offre aux développeurs un accès à des algorithmes avancés permettant de traiter des images et de retourner des informations en fonction des caractéristique visuelles qui vous intéressent. Par exemple, le service Vision par ordinateur peut déterminer si une image contient du contenu pour adultes ou rechercher tous les visages humains dans une image.
 
@@ -77,6 +79,6 @@ Comme avec tous les services Cognitive Services, les développeurs utilisant le 
 
 Démarrez avec le service Vision par ordinateur en suivant un guide de démarrage rapide :
 
-- [Démarrage rapide : SDK .NET Vision par ordinateur](quickstarts-sdk/csharp-sdk.md)
-- [Démarrage rapide : SDK Python Vision par ordinateur](quickstarts-sdk/python-sdk.md)
-- [Démarrage rapide : SDK Java Vision par ordinateur](quickstarts-sdk/java-sdk.md)
+- [Démarrage rapide : Bibliothèque de client .NET Vision par ordinateur](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+- [Démarrage rapide : Bibliothèque de client Python Vision par ordinateur](./quickstarts-sdk/client-library.md?pivots=programming-language-python)
+- [Démarrage rapide : Bibliothèque de client Java Vision par ordinateur](./quickstarts-sdk/client-library.md?pivots=programming-language-java)

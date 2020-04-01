@@ -1,22 +1,14 @@
 ---
 title: 'Tutoriel : Entité de liste - LUIS'
-titleSuffix: Azure Cognitive Services
 description: Obtenez des données qui correspondent à une liste d’éléments prédéfinie. Chaque élément de la liste peut avoir des synonymes qui correspondent également exactement
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/17/2019
-ms.author: diberry
-ms.openlocfilehash: 056c64657f42d56879928f518598206d45493f60
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/12/2020
+ms.openlocfilehash: 1cfeccbd54e8ef8ec315d53fc7a766760c92a0d1
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75447780"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "79297405"
 ---
 # <a name="tutorial-get-exact-text-matched-data-from-an-utterance-with-list-entity"></a>Tutoriel : Obtenir des données exactes correspondant au texte d’un énoncé avec une entité de liste
 
@@ -42,7 +34,7 @@ Une entité de type liste est un choix approprié pour ce type de données lorsq
 
 * Les valeurs des données sont un ensemble connu.
 * L’ensemble ne dépasse pas les [limites](luis-boundaries.md) maximum de LUIS pour ce type d’entité.
-* Le texte de l’énoncé est une correspondance exacte avec un synonyme ou le nom canonique. LUIS n’utilise pas la liste au-delà des correspondances de texte exactes. Une simple entité de liste ne suffit pas pour résoudre la recherche de radical, les pluriels et autres variantes. Pour gérer les variantes, envisagez d’utiliser un [modèle](reference-pattern-syntax.md#syntax-to-mark-optional-text-in-a-template-utterance) avec la syntaxe de texte facultative.
+* Le texte de l’énoncé est une correspondance insensible à la casse avec un synonyme ou le nom canonique. LUIS n’utilise pas la liste au-delà de la correspondance. Une simple entité de liste ne suffit pas pour résoudre la recherche de radical, les pluriels et autres variantes. Pour gérer les variantes, envisagez d’utiliser un [modèle](reference-pattern-syntax.md#syntax-to-mark-optional-text-in-a-template-utterance) avec la syntaxe de texte facultative.
 
 > [!CAUTION]
 > Si vous n’êtes pas sûr de vouloir une entité de liste ou une entité apprise par la machine avec une liste d’expressions comme descripteur, la pratique la plus efficace et la plus souple consiste à utiliser une entité apprise par la machine avec une liste d’expressions comme descripteur. Cette méthode permet à LUIS d’apprendre et d’étendre les valeurs des données à extraire.

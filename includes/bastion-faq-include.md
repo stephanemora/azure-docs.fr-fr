@@ -5,21 +5,21 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: include
-ms.date: 03/02/2020
+ms.date: 03/25/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 17d391a7e6b8ef0558fb73afe363cd96deb60a7d
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 57a764b62fcda333f042794e176c24c8e6cc5526
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78262593"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80374044"
 ---
-### <a name="regions"></a>Quelles régions sont disponibles ?
+### <a name="which-regions-are-available"></a><a name="regions"></a>Quelles régions sont disponibles ?
 
 [!INCLUDE [region](bastion-regions-include.md)]
 
-### <a name="publicip"></a>Ai-je besoin d’une adresse IP publique sur ma machine virtuelle ?
+### <a name="do-i-need-a-public-ip-on-my-virtual-machine"></a><a name="publicip"></a>Ai-je besoin d’une adresse IP publique sur ma machine virtuelle ?
 
 Quand vous vous connectez à une machine virtuelle avec Azure Bastion, vous n’avez PAS besoin d’une adresse IP publique sur la machine virtuelle Azure à laquelle vous vous connectez. Le service Bastion va ouvrir la session/connexion RDP/SSH à votre machine virtuelle sur l’adresse IP privée de celle-ci, au sein de votre réseau virtuel.
 
@@ -27,22 +27,27 @@ Quand vous vous connectez à une machine virtuelle avec Azure Bastion, vous n’
 
 IPv6 n’est actuellement pas pris en charge. Azure Bastion prend en charge IPv4 uniquement.
 
-### <a name="rdpssh"></a>Ai-je besoin d’un client RDP ou SSH ?
+### <a name="do-i-need-an-rdp-or-ssh-client"></a><a name="rdpssh"></a>Ai-je besoin d’un client RDP ou SSH ?
 
 Vous n’avez pas besoin d’un client RDP ou SSH pour accéder par RDP/SSH à votre machine virtuelle Azure dans votre portail Azure. Utilisez le [portail Azure](https://portal.azure.com) pour obtenir un accès RDP/SSH à votre machine virtuelle directement dans le navigateur.
 
-### <a name="rdscal"></a>Est-ce qu’Azure Bastion nécessite une licence d’accès client aux services Bureau à distance à des fins d’administration sur les machines virtuelles hébergées par Azure ?
+### <a name="does-azure-bastion-require-an-rds-cal-for-administrative-purposes-on-azure-hosted-vms"></a><a name="rdscal"></a>Est-ce qu’Azure Bastion nécessite une licence d’accès client aux services Bureau à distance à des fins d’administration sur les machines virtuelles hébergées par Azure ?
 Non, l’accès aux machines virtuelles Windows Server par Azure Bastion ne nécessite pas de [licence d’accès client aux services Bureau à distance](https://www.microsoft.com/en-us/p/windows-server-remote-desktop-services-cal/dg7gmgf0dvsv?activetab=pivot:overviewtab) quand elles sont utilisées exclusivement à des fins d’administration.
 
-### <a name="agent"></a>Ai-je besoin d’un agent exécuté sur la machine virtuelle Azure ?
+### <a name="how-many-concurrent-rdp-and-ssh-sessions-does-each-azure-bastion-support"></a><a name="limits"></a>Combien de sessions RDP et SSH simultanées chaque bastion Azure prend-il en charge ?
+RDP et SSH sont tous deux des protocoles basés sur l’utilisation. Une utilisation intensive des sessions entraîne la prise en charge d’un nombre total inférieur de sessions par l’hôte bastion. Les nombres ci-dessous concernent des workflows quotidiens normaux.
+
+[!INCLUDE [limits](bastion-limits.md)]
+
+### <a name="do-i-need-an-agent-running-in-the-azure-virtual-machine"></a><a name="agent"></a>Ai-je besoin d’un agent exécuté sur la machine virtuelle Azure ?
 
 Vous n’avez pas besoin d’installer un agent ou un logiciel sur votre navigateur ou sur votre machine virtuelle Azure. Le service Bastion est sans agent et ne nécessite aucun logiciel supplémentaire pour RDP/SSH.
 
-### <a name="browsers"></a>Quels sont les navigateurs pris en charge ?
+### <a name="which-browsers-are-supported"></a><a name="browsers"></a>Quels sont les navigateurs pris en charge ?
 
 Utilisez le navigateur Microsoft Edge ou Google Chrome sous Windows. Pour Apple Mac, utilisez le navigateur Google Chrome. Microsoft Edge Chromium est également pris en charge sur Windows et Mac, respectivement.
 
-### <a name="roles"></a>Certains rôles sont-ils obligatoires pour accéder à une machine virtuelle ?
+### <a name="are-any-roles-required-to-access-a-virtual-machine"></a><a name="roles"></a>Certains rôles sont-ils obligatoires pour accéder à une machine virtuelle ?
 
 Pour établir une connexion, les rôles suivants sont nécessaires :
 
@@ -50,23 +55,27 @@ Pour établir une connexion, les rôles suivants sont nécessaires :
 * Rôle de lecteur sur la carte réseau avec adresse IP privée de la machine virtuelle
 * Rôle de lecteur sur la ressource Azure Bastion
 
-### <a name="pricingpage"></a>Quel est la tarification ?
+### <a name="what-is-the-pricing"></a><a name="pricingpage"></a>Quel est la tarification ?
 
 Pour plus d’informations, consultez la [page relative aux prix appliqués](https://aka.ms/BastionHostPricing).
 
-### <a name="session"></a>Pourquoi le message d’erreur « Votre session a expiré » s’affiche avant le démarrage de la session Bastion ?
+### <a name="why-do-i-get-your-session-has-expired-error-message-before-the-bastion-session-starts"></a><a name="session"></a>Pourquoi le message d’erreur « Votre session a expiré » s’affiche avant le démarrage de la session Bastion ?
 
 Une session ne doit être lancée qu’à partir du portail Azure. Connectez-vous au portail Azure, puis redémarrez votre session. Si vous accédez à l’URL directement à partir d’une autre session de navigateur ou d’un autre onglet, cette erreur est normale. Cela permet de sécuriser votre session, en évitant qu’elle soit accessible en dehors du portail Azure.
 
-### <a name="keyboard"></a>Quelles sont les dispositions de clavier prises en charge pendant la session à distance Bastion ?
+### <a name="what-keyboard-layouts-are-supported-during-the-bastion-remote-session"></a><a name="keyboard"></a>Quelles sont les dispositions de clavier prises en charge pendant la session à distance Bastion ?
 
 Azure Bastion prend actuellement en charge la disposition de clavier en-US-QWERTY dans la machine virtuelle.  La prise en charge d’autres paramètres régionaux pour la disposition de clavier est en cours de développement.
 
-### <a name="udr"></a>Le routage défini par l’utilisateur (UDR) est-il pris en charge sur un sous-réseau Azure Bastion ?
+### <a name="is-user-defined-routing-udr-supported-on-an-azure-bastion-subnet"></a><a name="udr"></a>Le routage défini par l’utilisateur (UDR) est-il pris en charge sur un sous-réseau Azure Bastion ?
 
 Non. Le routage UDR n’est pas pris en charge sur un sous-réseau Azure Bastion.
 Pour les scénarios qui incluent Azure Bastion et Pare-feu Azure/Appliance virtuelle réseau (NVA) dans le même réseau virtuel, vous n’avez pas besoin de forcer le trafic d’un sous-réseau Azure Bastion vers le Pare-feu Azure, car la communication entre Azure Bastion et vos machines virtuelles est privée. Pour plus d’informations, consultez [Accès aux machines virtuelles derrière le pare-feu Azure avec Bastion](https://azure.microsoft.com/blog/accessing-virtual-machines-behind-azure-firewall-with-azure-bastion/).
 
-### <a name="filetransfer"></a>Le transfert de fichiers est-il pris en charge avec une session RDP Azure Bastion ?
+### <a name="is-file-transfer-supported-with-azure-bastion-rdp-session"></a><a name="filetransfer"></a>Le transfert de fichiers est-il pris en charge avec une session RDP Azure Bastion ?
 
 Nous déployons tous les efforts nécessaires pour ajouter de nouvelles fonctionnalités. Pour le moment, le transfert de fichiers n’est pas pris en charge, mais il fait partie de notre feuille de route. N’hésitez pas à nous faire part de vos commentaires sur les nouvelles fonctionnalités dans la [page des commentaires Azure Bastion](https://feedback.azure.com/forums/217313-networking?category_id=367303).
+
+### <a name="how-do-i-handle-deployment-failures"></a><a name="udr"></a>Comment gérer les échecs de déploiement ?
+
+Passez en revue les messages d’erreur et [déclenchez une demande de support dans le portail Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) en fonction des besoins. Les échecs de déploiement peuvent être dus aux [limites, quotas et contraintes de l’abonnement Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits). Plus précisément, les clients peuvent rencontrer une limite relative au nombre d’adresses IP publiques autorisées par abonnement, qui entraîne l’échec du déploiement Azure Bastion.

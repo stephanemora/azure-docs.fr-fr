@@ -1,41 +1,33 @@
 ---
 title: 'Démarrage rapide : Créer une application dans le portail LUIS'
-titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous créez les éléments de base d’une application, les intentions et les entités, et vous les testez avec l’exemple d’énoncé dans le portail LUIS.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 12/17/2019
-ms.author: diberry
-ms.openlocfilehash: 55ba025b9174f727a54ce0cd63da11c8661af91c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/24/2020
+ms.openlocfilehash: f0c8f0c77f832e049dfc494f82e90edb61a8cb2a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75381985"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80244612"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Démarrage rapide : Créer une application dans le portail LUIS
 
-Dans ce guide de démarrage rapide, vous allez créer une application dans le portail LUIS. Vous commencez par créer les composants de base d’une application, les **intentions**, et les **entités**. Ensuite, vous testez l'application en fournissant un exemple d’énoncé utilisateur dans le panneau de test interactif afin d’obtenir l’intention prévue.
-
-La création d’une application est gratuite et ne nécessite pas d’abonnement Azure. Lorsque vous êtes prêt à déployer votre application, consultez le [guide de démarrage rapide pour déployer une application](get-started-portal-deploy-app.md). Il indique comment créer une ressource Azure Cognitive Service et l'affecter à l’application.
+Dans ce guide de démarrage rapide, vous allez créer une application dans le portail LUIS. Tout d’abord, créez les composants de base d’une application, les **intentions** et les **entités**. Ensuite, testez l’application en fournissant un exemple d’énoncé utilisateur dans le panneau de test interactif afin d’obtenir l’intention prédite.
 
 [!INCLUDE [Sign in to LUIS](./includes/sign-in-process.md)]
 
 ## <a name="create-an-app"></a>Créer une application
 
-1. Sélectionnez **+ Créer** dans la barre d’outils contextuelle.
+1. Sélectionnez **+ New App for conversation** (Nouvelle application pour conversation) dans la barre d’outils du contexte, puis **New App for conversation**.
 
-   [![Créer une application dans le portail LUIS](./media/create-app-in-portal.png)](./media/create-app-in-portal.png#lightbox)
+    > [!div class="mx-imgBorder"]
+    > [![Créer une application dans le portail LUIS](./media/create-app-in-portal.png)](./media/create-app-in-portal.png#lightbox)
 
 1. Dans la fenêtre indépendante, configurez l’application avec les paramètres suivants, puis sélectionnez **Terminé**.
 
    |Nom du paramètre| Valeur | Objectif|
    |--|--|--|
-   |Name|`myEnglishApp`|Nom d’application LUIS unique<br>Obligatoire|
+   |Nom|`myEnglishApp`|Nom d’application LUIS unique<br>Obligatoire|
    |Culture|**Anglais**|Langue des énoncés des utilisateurs, à savoir **en-us**<br>Obligatoire|
    |Description (Facultatif)|`App made with LUIS Portal`|Description de l’application<br>facultatif|
    |Ressource de prédiction (Facultatif) |-  |Ne sélectionnez pas. LUIS vous donne une clé de démarrage à utiliser gratuitement, pour la création et 1 000 requêtes de point de terminaison de prédiction. |
@@ -70,7 +62,8 @@ Après avoir créé des intentions, vous ajoutez des exemples d'énoncés. Les e
 
 Dans cet exemple d'intention d’application `FindForm`, les exemples d'énoncés incluent le numéro de formulaire. L’application cliente a besoin du numéro de formulaire pour répondre à la demande l’utilisateur. Il est donc important de l’inclure dans l’énoncé.
 
-[![Entrer des exemples d’énoncés pour l’intention FindForm](./media/get-started-portal-build-app/add-example-utterance.png)](./media/get-started-portal-build-app/add-example-utterance.png#lightbox)
+> [!div class="mx-imgBorder"]
+> [![Entrer des exemples d’énoncés pour l’intention FindForm](./media/get-started-portal-build-app/add-example-utterance.png)](./media/get-started-portal-build-app/add-example-utterance.png#lightbox)
 
 Ajoutez les 15 exemples d'énoncés suivants à l’intention `FindForm`.
 
@@ -147,7 +140,8 @@ Les exemples d’énoncés de l’intention **None** doivent figurer en dehors d
 
    L’entité est marquée à l’emplacement où elle figure dans les exemples d’énoncés. Pour afficher le texte d’origine au lieu du nom d’entité, désactivez **Entities View** (Afficher les entités) dans la barre d’outils.
 
-   [![Tous les exemples d’énoncés marqués avec des entités](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png)](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png#lightbox)
+   > [!div class="mx-imgBorder"]
+   > [![Tous les exemples d’énoncés marqués avec des entités](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png)](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png#lightbox)
 
 ## <a name="test-your-new-app-with-the-interactive-test-pane"></a>Tester votre nouvelle application avec le volet de test interactif
 
@@ -159,7 +153,10 @@ Utilisez le volet interactif **Test** du portail LUIS pour valider que l’entit
 
    ```Is there a form named hrf-234098```
 
-   ![Tester le nouvel énoncé dans le volet de test](./media/get-started-portal-build-app/test-new-utterance.png)
+    Sélectionnez **Inspect** pour voir les prédictions d’entité.
+
+   > [!div class="mx-imgBorder"]
+   > ![Tester le nouvel énoncé dans le volet de test](./media/get-started-portal-build-app/test-new-utterance.png)
 
    L'intention prédite supérieure est bien **FindForm** avec plus de 90 % (0,977) de confiance. L'entité **Human Resources Form Number** (numéro de formulaire de ressources humaines) est extraite avec la valeur hrf-234098.
 
