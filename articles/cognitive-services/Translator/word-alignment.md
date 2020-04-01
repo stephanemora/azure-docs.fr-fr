@@ -12,10 +12,10 @@ ms.date: 06/04/2019
 ms.author: swmachan
 ms.custom: seodec18
 ms.openlocfilehash: dd4ff1e39c062910f4627973c801dc3c51f345e5
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73837225"
 ---
 # <a name="how-to-receive-word-alignment-information"></a>Guide pratique pour recevoir des informations concernant l’alignement des mots
@@ -26,7 +26,7 @@ Pour recevoir des informations d’alignement, utilisez la méthode de traductio
 ## <a name="alignment-information-format"></a>Format des informations d’alignement
 L’alignement est retourné en tant que valeur de chaîne au format suivant pour chaque mot de la source. Les informations pour chaque mot sont séparées par un espace, y compris pour les langues non séparées par des espaces (scripts) comme le chinois :
 
-[[SourceTextStartIndex]:[SourceTextEndIndex]–[TgtTextStartIndex]:[TgtTextEndIndex]] *
+[[SourceTextStartIndex]\:[SourceTextEndIndex]–[TgtTextStartIndex]\:[TgtTextEndIndex]] *
 
 Exemple de chaîne d’alignement : « 0:0-7:10 1:2-11:20 3:4-0:3 3:4-4:6 5:5-21:21 ».
 
@@ -38,7 +38,7 @@ L’alignement est retourné uniquement pour un sous-ensemble des paires de lang
 * de toute langue vers l’anglais, à l’exception du chinois simplifié, du chinois traditionnel et du letton vers l’anglais ;
 * du japonais vers le coréen ou du coréen vers le japonais. Vous ne recevrez pas les informations d’alignement si la phrase est une traduction définie. Des traductions définies sont, par exemple, « Ceci est un test », « Je t’aime » et d’autres phrases extrêmement fréquentes.
 
-## <a name="example"></a>Exemples
+## <a name="example"></a>Exemple
 
 Exemple JSON
 

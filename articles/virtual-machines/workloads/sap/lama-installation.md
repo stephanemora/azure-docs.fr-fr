@@ -14,22 +14,22 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: sedusch
-ms.openlocfilehash: 2df0bfe8041216e207193832c8f7ca48967c4e5b
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: fda62ff0af29c7cf681d9438b02420d299535701
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76842433"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80293946"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Connecteur SAP LaMa pour Azure
 
-[1877727]: https://launchpad.support.sap.com/#/notes/1877727
-[2343511]: https://launchpad.support.sap.com/#/notes/2343511
-[2350235]: https://launchpad.support.sap.com/#/notes/2350235
-[2562184]: https://launchpad.support.sap.com/#/notes/2562184
-[2628497]: https://launchpad.support.sap.com/#/notes/2628497
-[2445033]: https://launchpad.support.sap.com/#/notes/2445033
-[2815988]: https://launchpad.support.sap.com/#/notes/2815988
+[1877727]:https://launchpad.support.sap.com/#/notes/1877727
+[2343511]:https://launchpad.support.sap.com/#/notes/2343511
+[2350235]:https://launchpad.support.sap.com/#/notes/2350235
+[2562184]:https://launchpad.support.sap.com/#/notes/2562184
+[2628497]:https://launchpad.support.sap.com/#/notes/2628497
+[2445033]:https://launchpad.support.sap.com/#/notes/2445033
+[2815988]:https://launchpad.support.sap.com/#/notes/2815988
 [Logo_Linux]:media/virtual-machines-shared-sap-shared/Linux.png
 [Logo_Windows]:media/virtual-machines-shared-sap-shared/Windows.png
 [dbms-guide]:dbms-guide.md
@@ -77,7 +77,7 @@ Le connecteur Azure est fourni à partir de la version SAP LaMa 3.0 SP05. Nous v
 
 Le connecteur Azure utilise l’API Azure Resource Manager pour gérer vos ressources Azure. SAP LaMa peut utiliser un principal de service ou une identité managée pour s’authentifier auprès de cette API. Si votre SAP LaMa s’exécute sur une machine virtuelle Azure, nous vous recommandons d’utiliser une identité managée comme décrit dans le chapitre [Utiliser une identité managée pour accéder à l’API Azure](lama-installation.md#af65832e-6469-4d69-9db5-0ed09eac126d). Si vous voulez utiliser un principal de service, suivez les étapes décrites dans le chapitre [Utiliser un principal de service pour accéder à l’API Azure](lama-installation.md#913c222a-3754-487f-9c89-983c82da641e).
 
-### <a name="913c222a-3754-487f-9c89-983c82da641e"></a>Utiliser un principal de service pour accéder à l’API Azure
+### <a name="use-a-service-principal-to-get-access-to-the-azure-api"></a><a name="913c222a-3754-487f-9c89-983c82da641e"></a>Utiliser un principal de service pour accéder à l’API Azure
 
 Le connecteur Azure peut utiliser un principal de service pour l’autorisation sur Microsoft Azure. Pour créer un principal de service pour SAP Landscape Management (LaMa), procédez comme suit.
 
@@ -103,7 +103,7 @@ Par défaut, le principal de service ne possède pas les autorisations d’accé
 1. Cliquez sur Enregistrer.
 1. Répétez les étapes 3 à 8 pour tous les groupes de ressources que vous souhaitez utiliser dans SAP LaMa.
 
-### <a name="af65832e-6469-4d69-9db5-0ed09eac126d"></a>Utiliser une identité managée pour accéder à l’API Azure
+### <a name="use-a-managed-identity-to-get-access-to-the-azure-api"></a><a name="af65832e-6469-4d69-9db5-0ed09eac126d"></a>Utiliser une identité managée pour accéder à l’API Azure
 
 Pour pouvoir utiliser une identité managée, votre instance SAP LaMa doit s’exécuter sur une machine virtuelle Azure disposant qui a une identité affectée par le système ou par l’utilisateur. Pour plus d’informations sur les identités managées, consultez [Qu’est-ce que les identités managées pour les ressources Azure ?](../../../active-directory/managed-identities-azure-resources/overview.md) et [Configurer des identités managées pour ressources Azure sur une machine virtuelle en utilisant le portail Azure](../../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md).
 
@@ -129,7 +129,7 @@ Ouvrez le site web SAP LaMa et accédez à Infrastructure (Infrastructure). Acc�
 * Étiquette : choisissez un nom pour l’instance de connecteur.
 * Nom d’utilisateur : ID d’application du principal de service ou ID de l’identité affectée par l’utilisateur de la machine virtuelle. Pour plus d’informations, consultez [Utilisation d’une identité affectée par le système ou par l’utilisateur]
 * Mot de passe : Clé/mot de passe du principal de service. Vous pouvez laisser ce champ vide si vous utilisez une identité affectée par le système ou par l’utilisateur.
-* URL : conservez l’URL par défaut https://management.azure.com/.
+* URL : conservez l’URL par défaut `https://management.azure.com/`.
 * Intervalle de supervision (secondes) : doit être au moins égal à 300.
 * Utiliser l’identité managée : SAP LaMa peut utiliser l’identité affectée par le système ou par l’utilisateur pour s’authentifier auprès de l’API Azure. Consultez le chapitre [Utiliser une identité managée pour accéder à l’API Azure](lama-installation.md#af65832e-6469-4d69-9db5-0ed09eac126d) dans ce guide.
 * ID d’abonnement : ID d’abonnement Azure

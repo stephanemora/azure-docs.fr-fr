@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/16/2019
 ms.author: sedusch
-ms.openlocfilehash: 19dc9f25cc7355eb540b68f009a77b1ca1e5fb86
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 7fb87380047d046a580d1ad62b1d7107a94bb297
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77614898"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80239881"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Déploiement de machines virtuelles Azure pour SAP NetWeaver
 
@@ -28,18 +28,18 @@ ms.locfileid: "77614898"
 [773830]:https://launchpad.support.sap.com/#/notes/773830
 [826037]:https://launchpad.support.sap.com/#/notes/826037
 [965908]:https://launchpad.support.sap.com/#/notes/965908
-[1031096]: https://launchpad.support.sap.com/#/notes/1031096
+[1031096]:https://launchpad.support.sap.com/#/notes/1031096
 [1139904]:https://launchpad.support.sap.com/#/notes/1139904
 [1173395]:https://launchpad.support.sap.com/#/notes/1173395
 [1245200]:https://launchpad.support.sap.com/#/notes/1245200
-[1409604]: https://launchpad.support.sap.com/#/notes/1409604
+[1409604]:https://launchpad.support.sap.com/#/notes/1409604
 [1558958]:https://launchpad.support.sap.com/#/notes/1558958
 [1585981]:https://launchpad.support.sap.com/#/notes/1585981
 [1588316]:https://launchpad.support.sap.com/#/notes/1588316
 [1590719]:https://launchpad.support.sap.com/#/notes/1590719
-[1597355]: https://launchpad.support.sap.com/#/notes/1597355
+[1597355]:https://launchpad.support.sap.com/#/notes/1597355
 [1605680]:https://launchpad.support.sap.com/#/notes/1605680
-[1619720]: https://launchpad.support.sap.com/#/notes/1619720
+[1619720]:https://launchpad.support.sap.com/#/notes/1619720
 [1619726]:https://launchpad.support.sap.com/#/notes/1619726
 [1619967]:https://launchpad.support.sap.com/#/notes/1619967
 [1750510]:https://launchpad.support.sap.com/#/notes/1750510
@@ -53,22 +53,22 @@ ms.locfileid: "77614898"
 [1882376]:https://launchpad.support.sap.com/#/notes/1882376
 [1909114]:https://launchpad.support.sap.com/#/notes/1909114
 [1922555]:https://launchpad.support.sap.com/#/notes/1922555
-[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1941500]:https://launchpad.support.sap.com/#/notes/1941500
 [1956005]:https://launchpad.support.sap.com/#/notes/1956005
 [1973241]:https://launchpad.support.sap.com/#/notes/1973241
-[1984787]: https://launchpad.support.sap.com/#/notes/1984787
-[1999351]: https://launchpad.support.sap.com/#/notes/1999351
-[2002167]: https://launchpad.support.sap.com/#/notes/2002167
-[2015553]: https://launchpad.support.sap.com/#/notes/2015553
+[1984787]:https://launchpad.support.sap.com/#/notes/1984787
+[1999351]:https://launchpad.support.sap.com/#/notes/1999351
+[2002167]:https://launchpad.support.sap.com/#/notes/2002167
+[2015553]:https://launchpad.support.sap.com/#/notes/2015553
 [2039619]:https://launchpad.support.sap.com/#/notes/2039619
-[2069760]: https://launchpad.support.sap.com/#/notes/2069760
+[2069760]:https://launchpad.support.sap.com/#/notes/2069760
 [2121797]:https://launchpad.support.sap.com/#/notes/2121797
 [2134316]:https://launchpad.support.sap.com/#/notes/2134316
-[2178632]: https://launchpad.support.sap.com/#/notes/2178632
-[2191498]: https://launchpad.support.sap.com/#/notes/2191498
+[2178632]:https://launchpad.support.sap.com/#/notes/2178632
+[2191498]:https://launchpad.support.sap.com/#/notes/2191498
 [2233094]:https://launchpad.support.sap.com/#/notes/2233094
-[2243692]: https://launchpad.support.sap.com/#/notes/2243692
+[2243692]:https://launchpad.support.sap.com/#/notes/2243692
 [2367194]:https://launchpad.support.sap.com/#/notes/2367194
 
 [azure-cli]:../../../cli-install-nodejs.md
@@ -236,7 +236,7 @@ ms.locfileid: "77614898"
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/management/overview.md
 [resource-groups-networking]:../../../networking/network-overview.md
-[sap-pam]: https://support.sap.com/pam (Tableau de disponibilité des produits SAP)
+[sap-pam]:https://support.sap.com/pam (Tableau de disponibilité des produits SAP)
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
 [sap-templates-2-tier-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image-md%2Fazuredeploy.json
 [sap-templates-2-tier-os-disk]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-disk%2Fazuredeploy.json
@@ -363,7 +363,7 @@ Dans Azure Resource Manager, vous pouvez utiliser des groupes de ressources pour
 
 ## <a name="resources"></a>Ressources
 
-### <a name="42ee2bdb-1efc-4ec7-ab31-fe4c22769b94"></a>Ressources SAP
+### <a name="sap-resources"></a><a name="42ee2bdb-1efc-4ec7-ab31-fe4c22769b94"></a>Ressources SAP
 
 Lorsque vous configurez votre déploiement de logiciels SAP, vous avez besoin des ressources SAP suivantes :
 
@@ -388,7 +388,7 @@ Lorsque vous configurez votre déploiement de logiciels SAP, vous avez besoin de
 * Applets de commande PowerShell spécifiques à SAP qui font partie d’[Azure PowerShell][azure-ps].
 * Commandes d’interface de ligne de commande Azure spécifiques à SAP faisant partie de l’[interface de ligne de commande Azure][azure-cli].
 
-### <a name="42ee2bdb-1efc-4ec7-ab31-fe4c22769b94"></a>Ressources Windows
+### <a name="windows-resources"></a><a name="42ee2bdb-1efc-4ec7-ab31-fe4c22769b94"></a>Ressources Windows
 
 Ces articles Microsoft couvrent les déploiements SAP dans Azure :
 
@@ -396,11 +396,11 @@ Ces articles Microsoft couvrent les déploiements SAP dans Azure :
 * [Déploiement de machines virtuelles Azure pour SAP NetWeaver (le présent article)][deployment-guide]
 * [Déploiement SGBD de machines virtuelles Azure pour SAP NetWeaver][dbms-guide]
 
-## <a name="b3253ee3-d63b-4d74-a49b-185e76c4088e"></a>Scénarios de déploiement de logiciels SAP sur des machines virtuelles Azure
+## <a name="deployment-scenarios-for-sap-software-on-azure-vms"></a><a name="b3253ee3-d63b-4d74-a49b-185e76c4088e"></a>Scénarios de déploiement de logiciels SAP sur des machines virtuelles Azure
 
 Vous avez plusieurs possibilités pour déployer des machines virtuelles et les disques associés dans Azure. Il est important de comprendre les différences entre les options de déploiement, car les étapes de préparation de vos machines virtuelles pour le déploiement dépendront du type de déploiement que vous choisirez.
 
-### <a name="db477013-9060-4602-9ad4-b0316f8bb281"></a>Scénario 1 : Déploiement d’une machine virtuelle à partir d’Azure Marketplace pour SAP
+### <a name="scenario-1-deploying-a-vm-from-the-azure-marketplace-for-sap"></a><a name="db477013-9060-4602-9ad4-b0316f8bb281"></a>Scénario 1 : Déploiement d’une machine virtuelle à partir d’Azure Marketplace pour SAP
 
 Vous pouvez utiliser une image fournie par Microsoft ou par un tiers dans Azure Marketplace pour déployer votre machine virtuelle. Marketplace propose certaines images standard de Windows Server et de différentes distributions de Linux. Vous pouvez également déployer une image qui inclut les SKU du système de gestion de la base de données (SGBD), par exemple Microsoft SQL Server. Pour plus d’informations sur l’utilisation des images avec les SKU SGBD, consultez [Déploiement SGBD de machines virtuelles Azure pour SAP NetWeaver][dbms-guide].
 
@@ -514,7 +514,7 @@ Selon la configuration de votre réseau local, vous devrez peut-être configurer
 
 Si votre déploiement Azure est connecté à une instance Active Directory ou DNS locale via une connexion VPN de site à site Azure ou via ExpressRoute (connexion *intersite* dans [SAP NetWeaver sur machines virtuelles Azure – Guide de planification et d’implémentation][planning-guide]), la machine virtuelle doit être jointe à un domaine local. Pour plus d’informations sur les éléments à prendre en compte pour cette tâche, consultez [Joindre une machine virtuelle à un domaine local (Windows uniquement)][deployment-guide-4.3].
 
-#### <a name="ec323ac3-1de9-4c3a-b770-4ff701def65b"></a>Configurer une extension de machine virtuelle
+#### <a name="configure-vm-extension"></a><a name="ec323ac3-1de9-4c3a-b770-4ff701def65b"></a>Configurer une extension de machine virtuelle
 
 Pour être sûr que SAP est compatible avec votre environnement, configurez l’extension Azure pour SAP, comme décrit dans [Configurer l’extension Azure pour SAP][deployment-guide-4.5]. Consultez la configuration requise de SAP pour connaître les versions minimales requises pour le noyau SAP et l’agent hôte SAP dans les ressources listées dans [Ressources SAP][deployment-guide-2.2].
 
@@ -528,7 +528,7 @@ Après avoir créé et déployé la machine virtuelle, vous devez installer les 
 
 Une fois que vous avez déployé votre machine virtuelle dans Azure, utilisez les mêmes instructions et outils pour installer les logiciels SAP sur votre machine virtuelle comme vous le feriez dans un environnement local. Pour installer les logiciels SAP sur une machine virtuelle Azure, SAP et Microsoft recommandent de charger et stocker le support d’installation SAP sur des disques durs virtuels Azure ou sur la fonctionnalité Disques managés, ou de créer une machine virtuelle Azure faisant office de serveur de fichiers contenant tous les supports d’installation SAP nécessaires.
 
-### <a name="54a1fc6d-24fd-4feb-9c57-ac588a55dff2"></a>Scénario 2 : Déploiement d’une machine virtuelle avec une image personnalisée pour SAP
+### <a name="scenario-2-deploying-a-vm-with-a-custom-image-for-sap"></a><a name="54a1fc6d-24fd-4feb-9c57-ac588a55dff2"></a>Scénario 2 : Déploiement d’une machine virtuelle avec une image personnalisée pour SAP
 
 Dans la mesure où les différentes versions d’un système d’exploitation ou d’un SGBD ont des exigences différentes en matière de correctif, les images disponibles dans Azure Marketplace ne répondront peut-être pas à vos besoins. Peut-être préférerez-vous créer une machine virtuelle à l’aide de votre propre image de machine virtuelle du système d’exploitation/SGBD, que vous pourrez de nouveau déployer ultérieurement.
 Différentes étapes permettent de créer une image privée pour Linux et pour Windows.
@@ -665,7 +665,7 @@ Pour être sûr que SAP est compatible avec votre environnement, configurez l’
 Vérifiez si l’extension de machine virtuelle pour SAP fonctionne, comme décrit dans [Vérifications et résolution des problèmes pour la collecte de données de bout en bout pour l’agent hôte SAP][deployment-guide-troubleshooting-chapter].
 
 
-### <a name="a9a60133-a763-4de8-8986-ac0fa33aa8c1"></a>Scénario 3 : Déplacement d’une machine virtuelle locale à l’aide d’un disque dur virtuel Azure non généralisé avec SAP
+### <a name="scenario-3-moving-an-on-premises-vm-by-using-a-non-generalized-azure-vhd-with-sap"></a><a name="a9a60133-a763-4de8-8986-ac0fa33aa8c1"></a>Scénario 3 : Déplacement d’une machine virtuelle locale à l’aide d’un disque dur virtuel Azure non généralisé avec SAP
 
 Dans ce scénario, vous souhaitez déplacer un système SAP spécifique d’un environnement local vers Azure. Pour ce faire, vous pouvez charger le disque dur virtuel qui contient le système d’exploitation, les fichiers binaires SAP et les éventuels fichiers binaires du SGBD, ainsi que les disques durs virtuels contenant les fichiers de données et les fichiers journaux du SGBD vers Azure. Contrairement au scénario décrit dans [Scénario 2 : Déploiement d’une machine virtuelle avec une image personnalisée pour SAP][deployment-guide-3.3], dans le cas présent, vous conservez le nom d’hôte, le SID SAP et les comptes d’utilisateur SAP dans la machine virtuelle Azure, dans la mesure où ils ont été configurés dans l’environnement local. Il est inutile de généraliser le système d’exploitation. Ce scénario s’applique généralement aux scénarios intersites où une partie du paysage SAP s’exécute en local et une autre partie sur Azure.
 
@@ -769,7 +769,7 @@ Pour mettre à jour les paramètres, mettez à jour la configuration de l’exte
 
 Cette section détaille les étapes permettant d’effectuer des tâches spécifiques lors du processus de configuration et de déploiement.
 
-### <a name="604bcec2-8b6e-48d2-a944-61b0f5dee2f7"></a>Déploiement d’applets de commande Azure PowerShell
+### <a name="deploy-azure-powershell-cmdlets"></a><a name="604bcec2-8b6e-48d2-a944-61b0f5dee2f7"></a>Déploiement d’applets de commande Azure PowerShell
 
 1. Accédez à [Téléchargements Microsoft Azure](https://azure.microsoft.com/downloads/).
 1. Sous **Outils de ligne de commande**, sous **PowerShell**, sélectionnez **Installation Windows**.
@@ -785,9 +785,11 @@ Cette section détaille les étapes permettant d’effectuer des tâches spécif
 Recherchez régulièrement les mises à jour des applets de commande PowerShell, qui sont généralement publiées une fois par mois. Pour rechercher les mises à jour, le plus simple consiste à effectuer les étapes d’installation précédentes jusqu’à la page d’installation représentée à l’étape 5. La date de publication et le numéro de version des applets de commande sont inclus sur la page représentée à l’étape 5. Sauf indication contraire dans les notes SAP [1928533] ou [2015553], nous vous recommandons d’utiliser la dernière version des applets de commande Azure PowerShell.
 
 Pour vérifier la version des applets de commande Azure PowerShell installées sur votre ordinateur, exécutez cette commande PowerShell :
+
 ```powershell
 (Get-Module Az.Compute).Version
 ```
+
 Le résultat ressemble à ceci :
 
 ![Résultat du contrôle de version de l’applet de commande Azure PowerShell][deployment-guide-figure-600]
@@ -798,7 +800,7 @@ Si la version de l’applet de commande Azure installée sur votre ordinateur es
 ![Page d’installation pour les applets de commande Azure PowerShell indiquant que la version la plus récente des applets de commande Azure PowerShell est installée][deployment-guide-figure-700]
 <a name="figure-7"></a>
 
-### <a name="1ded9453-1330-442a-86ea-e0fd8ae8cab3"></a>Déploiement de l’interface de ligne de commande Azure
+### <a name="deploy-azure-cli"></a><a name="1ded9453-1330-442a-86ea-e0fd8ae8cab3"></a>Déploiement de l’interface de ligne de commande Azure
 
 1. Accédez à [Téléchargements Microsoft Azure](https://azure.microsoft.com/downloads/).
 1. Sous **Outils de ligne de commande**, sous **Interface de ligne de commande Azure**, sélectionnez le lien **Installer** correspondant à votre système d’exploitation.
@@ -814,7 +816,8 @@ Si la version de l’applet de commande Azure installée sur votre ordinateur es
 Recherchez régulièrement les mises à jour de l’interface de ligne de commande Azure, qui sont généralement publiées une fois par mois. Pour rechercher les mises à jour, le plus simple consiste à effectuer les étapes d’installation précédentes jusqu’à la page d’installation représentée à l’étape 5.
 
 Pour vérifier la version de l’interface de ligne de commande Azure installée sur votre ordinateur, exécutez cette commande :
-```
+
+```console
 azure --version
 ```
 
@@ -823,19 +826,19 @@ Le résultat ressemble à ceci :
 ![Résultat du contrôle de la version de l’interface de ligne de commande Azure][deployment-guide-figure-760]
 <a name="0ad010e6-f9b5-4c21-9c09-bb2e5efb3fda"></a>
 
-### <a name="31d9ecd6-b136-4c73-b61e-da4a29bbc9cc"></a>Joindre une machine virtuelle à un domaine local (Windows uniquement)
+### <a name="join-a-vm-to-an-on-premises-domain-windows-only"></a><a name="31d9ecd6-b136-4c73-b61e-da4a29bbc9cc"></a>Joindre une machine virtuelle à un domaine local (Windows uniquement)
 
 Si vous déployez des machines virtuelles SAP dans le cadre d’un scénario intersite où les instances Active Directory et DNS locales sont étendues dans Azure, les machines virtuelles doivent être jointes à un domaine local. Les étapes détaillées de connexion d’une machine virtuelle à un domaine local et les logiciels supplémentaires requis pour les membres d’un domaine local dépendent du client. Généralement, pour joindre une machine virtuelle à un domaine local, vous devez installer des logiciels supplémentaires, tels que des logiciels anti-programme malveillant et des logiciels de sauvegarde ou d’analyse.
 
 Dans ce scénario, vous devez également vous assurer que si les paramètres du proxy Internet sont forcés lorsqu’une machine virtuelle rejoint un domaine dans votre environnement, les paramètres de proxy du compte système local Windows (S-1-5-18) de la machine virtuelle invitée sont identiques. Le plus simple est d’imposer le proxy avec une stratégie de groupe de domaine qui s’applique aux systèmes du domaine.
 
-### <a name="c7cbb0dc-52a4-49db-8e03-83e7edc2927d"></a>Télécharger, installer et activer l’agent de machine virtuelle Azure
+### <a name="download-install-and-enable-the-azure-vm-agent"></a><a name="c7cbb0dc-52a4-49db-8e03-83e7edc2927d"></a>Télécharger, installer et activer l’agent de machine virtuelle Azure
 
 Pour les machines virtuelles qui sont déployées à partir d’une image du système d’exploitation non généralisée (par exemple, une image qui ne provient pas de l’outil de préparation du système Windows, ou sysprep), vous devez télécharger, installer et activer manuellement l’agent de machine virtuelle Azure.
 
 Si vous déployez une machine virtuelle à partir d’Azure Marketplace, cette étape n’est pas nécessaire. Les images provenant d’Azure Marketplace disposent déjà de l’agent de machine virtuelle Azure.
 
-#### <a name="b2db5c9a-a076-42c6-9835-16945868e866"></a>Windows
+#### <a name="windows"></a><a name="b2db5c9a-a076-42c6-9835-16945868e866"></a>Windows
 
 1. Téléchargez l’agent de machine virtuelle Azure :
    1.  Téléchargez le [package d’installation de l’agent de machine virtuelle Azure](https://go.microsoft.com/fwlink/?LinkId=394789).
@@ -849,25 +852,25 @@ Si vous déployez une machine virtuelle à partir d’Azure Marketplace, cette �
 
 Aucune interaction de l’utilisateur n’est requise pour mettre à jour l’agent de machine virtuelle Azure. L’agent de machine virtuelle est automatiquement mis à jour, sans nécessiter de redémarrage de la machine virtuelle.
 
-#### <a name="6889ff12-eaaf-4f3c-97e1-7c9edc7f7542"></a>Linux
+#### <a name="linux"></a><a name="6889ff12-eaaf-4f3c-97e1-7c9edc7f7542"></a>Linux
 
 Utilisez les commandes suivantes pour installer l’agent de machine virtuelle pour Linux :
 
 * **SUSE Linux Enterprise Server (SLES)**
 
-  ```
+  ```console
   sudo zypper install WALinuxAgent
   ```
 
 * **Red Hat Enterprise Linux (RHEL) ou Oracle Linux**
 
-  ```
+  ```console
   sudo yum install WALinuxAgent
   ```
 
 Si l’agent est déjà installé, pour mettre à jour l’agent Linux Azure, suivez les étapes décrites dans [Mettre à jour l’agent Linux Azure sur une machine virtuelle vers la dernière version à partir de GitHub][virtual-machines-linux-update-agent].
 
-### <a name="baccae00-6f79-4307-ade4-40292ce4e02d"></a>Configurer le proxy
+### <a name="configure-the-proxy"></a><a name="baccae00-6f79-4307-ade4-40292ce4e02d"></a>Configurer le proxy
 
 Les étapes à suivre pour configurer le proxy sous Windows sont différentes de celles utilisées pour configurer le proxy sous Linux.
 
@@ -891,18 +894,22 @@ Configurez le proxy approprié dans le fichier de configuration de l’agent inv
 Définissez les paramètres suivants :
 
 1. **Hôte proxy HTTP**. Par exemple, définissez-le sur **proxy.corp.local**.
-   ```
+
+   ```console
    HttpProxy.Host=<proxy host>
 
    ```
+
 1. **Port proxy HTTP**. Par exemple, définissez-le sur **80**.
-   ```
+
+   ```console
    HttpProxy.Port=<port of the proxy host>
 
    ```
+
 1. Redémarrez l’agent.
 
-   ```
+   ```console
    sudo service waagent restart
    ```
 
@@ -925,13 +932,13 @@ Les paramètres de proxy dans \\etc\\waagent.conf s’appliquent également aux 
 
 Pour plus d’informations sur les routes définies par l’utilisateur, consultez [Routes définies par l’utilisateur et transfert IP][virtual-networks-udr-overview].
 
-### <a name="d98edcd3-f2a1-49f7-b26a-07448ceb60ca"></a>Configurer l’extension Azure pour SAP
+### <a name="configure-the-azure-extension-for-sap"></a><a name="d98edcd3-f2a1-49f7-b26a-07448ceb60ca"></a>Configurer l’extension Azure pour SAP
 
 Une fois que la machine virtuelle est préparée comme décrit dans [Scénarios de déploiement de machines virtuelles pour SAP sur Azure][deployment-guide-3], l’agent de machine virtuelle Azure est installé sur la machine virtuelle. L’étape suivante consiste à déployer l’extension Azure pour SAP, qui est disponible dans le référentiel d’extensions Azure dans les centres de données mondiaux d’Azure. Pour plus d’informations, consultez [SAP NetWeaver sur machines virtuelles Azure – Guide de planification et d’implémentation][planning-guide-9.1].
 
 Vous pouvez utiliser PowerShell ou l’interface de ligne de commande Azure pour installer et configurer l’extension Azure pour SAP. Pour installer l’extension sur une machine virtuelle Windows ou Linux à l’aide d’une machine Windows, consultez [Azure PowerShell][deployment-guide-4.5.1]. Pour installer l’extension sur une machine virtuelle Linux à l’aide d’un ordinateur de bureau Linux, consultez [Interface de ligne de commande Azure][deployment-guide-4.5.2].
 
-#### <a name="987cf279-d713-4b4c-8143-6b11589bb9d4"></a>Azure PowerShell pour les machines virtuelles Linux et Windows
+#### <a name="azure-powershell-for-linux-and-windows-vms"></a><a name="987cf279-d713-4b4c-8143-6b11589bb9d4"></a>Azure PowerShell pour les machines virtuelles Linux et Windows
 
 Pour installer l’extension Azure pour SAP à l’aide de PowerShell :
 
@@ -964,26 +971,26 @@ La sortie du script comprend les informations suivantes :
 * Pour vérifier que toutes les étapes de configuration de l’extension de machine virtuelle Azure pour SAP ont été exécutées correctement et que l’infrastructure Azure fournit les données nécessaires, vérifiez la disponibilité de l’extension Azure pour SAP, comme décrit dans [Vérification de la disponibilité de l’extension Azure pour SAP][deployment-guide-5.1].
 * Attendez 15 à 30 minutes pour que les diagnostics Azure collectent les données pertinentes.
 
-#### <a name="408f3779-f422-4413-82f8-c57a23b4fc2f"></a>Interface de ligne de commande Azure pour machines virtuelles Linux
+#### <a name="azure-cli-for-linux-vms"></a><a name="408f3779-f422-4413-82f8-c57a23b4fc2f"></a>Interface de ligne de commande Azure pour machines virtuelles Linux
 
 Pour installer l’extension Azure pour SAP à l’aide d’Azure CLI :
 
    1. Installez l’interface de ligne de commande Azure Classic comme décrit dans [Installer l’interface de ligne de commande Azure Classic][azure-cli].
    1. Connectez-vous à votre compte Azure :
 
-      ```
+      ```console
       azure login
       ```
 
    1. Basculez en mode Azure Resource Manager :
 
-      ```
+      ```console
       azure config mode arm
       ```
 
    1. Activez l’extension Azure pour SAP :
 
-      ```
+      ```console
       azure vm enable-aem <resource-group-name> <vm-name>
       ```
 
@@ -992,43 +999,44 @@ Pour installer l’extension Azure pour SAP à l’aide d’Azure CLI :
    1. Installez Azure CLI 2.0, comme décrit dans [Installer Azure CLI 2.0][azure-cli-2].
    1. Connectez-vous à votre compte Azure :
 
-      ```
+      ```azurecli
       az login
       ```
 
    1. Installer l’extension Azure CLI AEM
   
-      ```
+      ```azurecli
       az extension add --name aem
       ```
   
    1. Installez l’extension avec
   
-      ```
+      ```azurecli
       az vm aem set -g <resource-group-name> -n <vm name>
       ```
 
 1. Vérifiez que l’extension Azure pour SAP est active sur la machine virtuelle Azure Linux. Vérifiez si le fichier \\var\\lib\\AzureEnhancedMonitor\\PerfCounters existe. S’il existe, à l’invite de commandes, exécutez cette commande pour afficher les informations collectées par l’extension Azure pour SAP :
 
-   ```
+   ```console
    cat /var/lib/AzureEnhancedMonitor/PerfCounters
    ```
 
    Le résultat se présente ainsi :
-   ```
+
+   ```output
    ...
    2;cpu;Current Hw Frequency;;0;2194.659;MHz;60;1444036656;saplnxmon;
    2;cpu;Max Hw Frequency;;0;2194.659;MHz;0;1444036656;saplnxmon;
    ...
    ```
 
-## <a name="564adb4f-5c95-4041-9616-6635e83a810b"></a>Vérifications et résolution des problèmes liés à la collecte de données de bout en bout pour l’agent hôte SAP
+## <a name="checks-and-troubleshooting-for-end-to-end-data-collection-for-sap-host-agent"></a><a name="564adb4f-5c95-4041-9616-6635e83a810b"></a>Vérifications et résolution des problèmes liés à la collecte de données de bout en bout pour l’agent hôte SAP
 
 Une fois que vous avez déployé votre machine virtuelle Azure et configuré l’extension Azure pour SAP appropriée, vérifiez si tous les composants de l’extension fonctionnent correctement.
 
 Vérifiez la disponibilité de l’extension Azure pour SAP, comme décrit dans [Vérification de la disponibilité de l’extension Azure pour SAP][deployment-guide-5.1]. Si tous les résultats de la vérification de disponibilité sont positifs et que tous les compteurs de performances ont le statut OK, l’extension Azure pour SAP a été correctement configurée. Vous pouvez poursuivre l’installation de l’agent hôte SAP, comme décrit dans les notes SAP sous [Ressources SAP][deployment-guide-2.2]. Si la vérification de disponibilité signale des compteurs manquants, effectuez un contrôle d’intégrité de l’extension Azure pour SAP, comme décrit dans [Contrôle d’intégrité de la configuration de l’extension Azure pour SAP][deployment-guide-5.2]. Pour obtenir davantage d’options de résolution des problèmes, consultez [Résolution des problèmes de l’extension Azure pour SAP][deployment-guide-5.3].
 
-### <a name="bb61ce92-8c5c-461f-8c53-39f5e5ed91f2"></a>Vérification de la disponibilité de l’extension Azure pour SAP
+### <a name="readiness-check-for-the-azure-extension-for-sap"></a><a name="bb61ce92-8c5c-461f-8c53-39f5e5ed91f2"></a>Vérification de la disponibilité de l’extension Azure pour SAP
 
 Cette vérification vous assure que tous les indicateurs de performance affichés au sein de votre application SAP sont fournis par l’extension Azure pour SAP sous-jacente.
 
@@ -1127,12 +1135,13 @@ Si vous avez déjà installé un serveur d’applications ABAP NetWeaver SAP, ou
 
 Si l’une de ces vérifications échoue et pour plus d’informations sur la façon de redéployer l’extension, consultez [Résolution des problèmes de l’extension Azure pour SAP][deployment-guide-5.3].
 
-### <a name="e2d592ff-b4ea-4a53-a91a-e5521edb6cd1"></a>Contrôle d’intégrité de la configuration de l’extension Azure pour SAP
+### <a name="health-check-for-the-azure-extension-for-sap-configuration"></a><a name="e2d592ff-b4ea-4a53-a91a-e5521edb6cd1"></a>Contrôle d’intégrité de la configuration de l’extension Azure pour SAP
 
 Si certaines des données d’infrastructure ne sont pas fournies correctement, comme indiqué par le test décrit dans [Vérification de la disponibilité de l’extension Azure pour SAP][deployment-guide-5.1], exécutez l’applet de commande `Test-AzVMAEMExtension` pour tester si l’infrastructure Azure et l’extension Azure pour SAP sont correctement configurées.
 
 1. Assurez-vous d’avoir installé la dernière version de l’applet de commande Azure PowerShell, comme décrit dans le chapitre [Déploiement d’applets de commande Azure PowerShell][deployment-guide-4.1].
 1. Exécutez l’applet de commande PowerShell suivant. Pour afficher la liste des environnements disponibles, exécutez l’applet de commande `Get-AzEnvironment`. Pour utiliser la version globale d’Azure, sélectionnez l’environnement **AzureCloud**. Pour Azure en Chine, sélectionnez **AzureChinaCloud**.
+
    ```powershell
    $env = Get-AzEnvironment -Name <name of the environment>
    Connect-AzAccount -Environment $env
@@ -1154,7 +1163,7 @@ Assurez-vous que le résultat de chaque vérification d’intégrité est **OK**
 > Vous pouvez recevoir des avertissements si vous utilisez des disques Azure standard managés. Les tests ne retournent pas « OK » et des avertissements s’affichent. Il s’agit d’un comportement normal et attendu pour ce type de disque. Voir aussi [Résolution des problèmes liés à l’extension Azure pour SAP][deployment-guide-5.3]
 > 
 
-### <a name="fe25a7da-4e4e-4388-8907-8abc2d33cfd8"></a>Résolution des problèmes liés à l’extension Azure pour SAP
+### <a name="troubleshooting-azure-extension-for-sap"></a><a name="fe25a7da-4e4e-4388-8907-8abc2d33cfd8"></a>Résolution des problèmes liés à l’extension Azure pour SAP
 
 #### <a name="windowslogo_windows-azure-performance-counters-do-not-show-up-at-all"></a>![Windows][Logo_Windows] Les compteurs de performances Azure ne s’affichent pas
 
