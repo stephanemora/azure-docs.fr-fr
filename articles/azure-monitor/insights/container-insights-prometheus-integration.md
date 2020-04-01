@@ -4,10 +4,10 @@ description: Cet article explique comment configurer l’agent Azure Monitor pou
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.openlocfilehash: b774bf042778ca9118a7bc9f051655b200d87659
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75931417"
 ---
 # <a name="configure-scraping-of-prometheus-metrics-with-azure-monitor-for-containers"></a>Configurer la capture des métriques Prometheus avec Azure Monitor pour conteneurs
@@ -77,7 +77,7 @@ Quand une URL est spécifiée, Azure Monitor pour conteneurs ne capture que le p
 |------|-----|-----------|-------|-------------|
 | À l’ensemble du cluster | | | | Spécifiez l’une des trois méthodes suivantes pour capturer les points de terminaison pour les mesures. |
 | | `urls` | String | Tableau séparé par des virgules | Point de terminaison HTTP (adresse IP ou chemin d’URL valide spécifié). Par exemple : `urls=[$NODE_IP/metrics]`. ($NODE_IP est un paramètre Azure Monitor spécifique pour conteneurs et peut être utilisé à la place d’une adresse IP de nœud. Doit être tout en majuscules.) |
-| | `kubernetes_services` | String | Tableau séparé par des virgules | Tableau de services Kubernetes pour la capture des mesures à partir des kube-state-metrics. Par exemple : `kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics", http://my-service-dns.my-namespace:9100/metrics]`.|
+| | `kubernetes_services` | String | Tableau séparé par des virgules | Tableau de services Kubernetes pour la capture des mesures à partir des kube-state-metrics. Par exemple : `kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics",http://my-service-dns.my-namespace:9100/metrics]`.|
 | | `monitor_kubernetes_pods` | Boolean | True ou False | Lorsque la valeur `true` est définie sur dans les paramètres du cluster, Azure Monitor de l’agent des conteneurs capture les pod Kubernetes sur l’ensemble du cluster pour les annotations Prometheus suivantes :<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
 | | `prometheus.io/scrape` | Boolean | True ou False | Permet la capture du pod. `monitor_kubernetes_pods` doit être défini sur `true`. |
 | | `prometheus.io/scheme` | String | http ou https | La valeur par défaut est la capture de HTTP. Si nécessaire, affectez la valeur `https`. | 

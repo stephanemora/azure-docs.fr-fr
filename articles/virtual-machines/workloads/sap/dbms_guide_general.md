@@ -16,28 +16,28 @@ ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a852ddc68a6f51e677e5ff2e641ada25f4bf0105
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70101365"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Facteurs à prendre en compte pour le déploiement SGBD des machines virtuelles Azure pour la charge de travail SAP
-[1114181]: https://launchpad.support.sap.com/#/notes/1114181
-[1409604]: https://launchpad.support.sap.com/#/notes/1409604
-[1597355]: https://launchpad.support.sap.com/#/notes/1597355
-[1928533]: https://launchpad.support.sap.com/#/notes/1928533
-[1984787]: https://launchpad.support.sap.com/#/notes/1984787
-[1999351]: https://launchpad.support.sap.com/#/notes/1999351
-[2002167]: https://launchpad.support.sap.com/#/notes/2002167
-[2015553]: https://launchpad.support.sap.com/#/notes/2015553
-[2039619]: https://launchpad.support.sap.com/#/notes/2039619
-[2069760]: https://launchpad.support.sap.com/#/notes/2069760
-[2171857]: https://launchpad.support.sap.com/#/notes/2171857
-[2178632]: https://launchpad.support.sap.com/#/notes/2178632
-[2191498]: https://launchpad.support.sap.com/#/notes/2191498
-[2233094]: https://launchpad.support.sap.com/#/notes/2233094
-[2243692]: https://launchpad.support.sap.com/#/notes/2243692
+[1114181]:https://launchpad.support.sap.com/#/notes/1114181
+[1409604]:https://launchpad.support.sap.com/#/notes/1409604
+[1597355]:https://launchpad.support.sap.com/#/notes/1597355
+[1928533]:https://launchpad.support.sap.com/#/notes/1928533
+[1984787]:https://launchpad.support.sap.com/#/notes/1984787
+[1999351]:https://launchpad.support.sap.com/#/notes/1999351
+[2002167]:https://launchpad.support.sap.com/#/notes/2002167
+[2015553]:https://launchpad.support.sap.com/#/notes/2015553
+[2039619]:https://launchpad.support.sap.com/#/notes/2039619
+[2069760]:https://launchpad.support.sap.com/#/notes/2069760
+[2171857]:https://launchpad.support.sap.com/#/notes/2171857
+[2178632]:https://launchpad.support.sap.com/#/notes/2178632
+[2191498]:https://launchpad.support.sap.com/#/notes/2191498
+[2233094]:https://launchpad.support.sap.com/#/notes/2233094
+[2243692]:https://launchpad.support.sap.com/#/notes/2243692
 [deployment-guide]:deployment-guide.md
 [deployment-guide-3]:deployment-guide.md#b3253ee3-d63b-4d74-a49b-185e76c4088e
 [planning-guide]:planning-guide.md
@@ -108,7 +108,7 @@ Vous devez avoir une connaissance pratique de l’architecture Microsoft Azure a
 En règle générale, les processus d’installation et de configuration sur Windows, Linux ou SGBD sont globalement les mêmes que pour une machine virtuelle ou un système nu que vous installez en local. Les décisions relatives à l’implémentation de l’architecture et de la gestion des systèmes diffèrent sur certains points lorsque vous utilisez Azure IaaS. Ce document explique les différences spécifiques de l’architecture et de la gestion des systèmes que vous devez prendre en compte quand vous utilisez Azure IaaS.
 
 
-## <a name="65fa79d6-a85f-47ee-890b-22e794f51a64"></a>Structure du stockage d’une machine virtuelle pour les déploiements SGBDR
+## <a name="storage-structure-of-a-vm-for-rdbms-deployments"></a><a name="65fa79d6-a85f-47ee-890b-22e794f51a64"></a>Structure du stockage d’une machine virtuelle pour les déploiements SGBDR
 Pour suivre le présent chapitre, lisez d’abord attentivement le contenu de [ce chapitre][deployment-guide-3] du [Guide de déploiement][deployment-guide]. Vous devez comprendre et connaître les différentes séries de machines virtuelles ainsi que les différences entre le stockage Standard et Premium. 
 
 Pour découvrir le stockage Azure sur les machines virtuelles Azure, consultez :
@@ -192,7 +192,7 @@ Pour convertir des disques non managés en disques managés, consultez :
 - [Convertir les disques non managés d’une machine virtuelle Linux en disques managés](https://docs.microsoft.com/azure/virtual-machines/linux/convert-unmanaged-to-managed-disks).
 
 
-### <a name="c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f"></a>Mise en cache pour les machines virtuelles et les disques de données
+### <a name="caching-for-vms-and-data-disks"></a><a name="c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f"></a>Mise en cache pour les machines virtuelles et les disques de données
 Lorsque vous montez des disques sur des machines virtuelles, vous pouvez choisir de mettre ou non en cache le trafic d’E/S entre la machine virtuelle et les disques situés dans le stockage Azure. Le stockage Standard et le stockage Premium font appel à deux technologies différentes pour ce type de mise en cache.
 
 Les recommandations qui suivent s’appliquent à ces caractéristiques d’E/S dans les environnements SGBD standard :
@@ -205,7 +205,7 @@ Les recommandations qui suivent s’appliquent à ces caractéristiques d’E/S 
 
 Pour le stockage Standard, les types de mise en cache possibles sont les suivants :
 
-* Aucun
+* None
 * Lire
 * Lecture/écriture
 
@@ -213,7 +213,7 @@ Pour obtenir des performances homogènes et déterministes, définissez la mise 
 
 Pour le stockage Premium, les options de mise en cache suivantes sont disponibles :
 
-* Aucun
+* None
 * Lire
 * Lecture/écriture
 * Aucun + Accélérateur d’écriture, option uniquement disponible pour les machines virtuelles Azure de série M
@@ -244,7 +244,7 @@ Pour plus d’informations, consultez [Understand the temporary drive on Windows
 
 
 
-### <a name="10b041ef-c177-498a-93ed-44b3441ab152"></a>Résilience du Stockage Microsoft Azure
+### <a name="microsoft-azure-storage-resiliency"></a><a name="10b041ef-c177-498a-93ed-44b3441ab152"></a>Résilience du Stockage Microsoft Azure
 Le stockage Microsoft Azure stocke le disque dur virtuel de base, avec le système d’exploitation et les disques ou objets blob associés, sur au moins trois nœuds de stockage distincts. Ce type de stockage est appelé stockage localement redondant (LRS). Il s’agit du type de stockage par défaut pour tous les stockages dans Azure.
 
 Il existe d’autres méthodes de redondance. Pour plus d’informations, consultez l’article [Réplication de Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).

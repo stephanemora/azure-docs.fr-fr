@@ -5,24 +5,27 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 01/23/2020
+ms.date: 03/19/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0a71da025b8b2bb571dc9b00e23bc691ecdd44c
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 043e0f3a0ff2c1c642c63a387c571b575f77cf7d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76758278"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80050834"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Utilisation d'invitations Azure Active Directory B2B Collaboration
 
 Cet article décrit les différentes façons dont les utilisateurs invités peuvent accéder à vos ressources, et le processus de consentement qu’ils vont rencontrer. Si vous envoyez un e-mail d’invitation à l’invité, l’invitation comprend un lien que l’invité peut utiliser pour obtenir l’accès à votre application ou portail. L’e-mail d’invitation n’est qu’une des possibilités permettant aux invités d’obtenir l’accès à vos ressources. Comme alternative, vous pouvez ajouter des invités à votre annuaire et leur donner un lien direct vers le portail ou l’application que vous souhaitez partager. Quelle que soit la méthode qu’ils utilisent, les invités sont guidés dans un processus de consentement initial. Ce processus garantit que vos invités sont d’accord avec les conditions de confidentialité, et qu’ils acceptent les [conditions d’utilisation](https://docs.microsoft.com/azure/active-directory/governance/active-directory-tou) que vous avez définies.
 
 Lorsque vous ajoutez un utilisateur invité à votre annuaire, le compte d’utilisateur invité présente un état de consentement (affichable dans PowerShell) qui est initialement défini sur **PendingAcceptance**. Ce paramètre est maintenu jusqu’à ce que l’invité accepte votre invitation et approuve votre politique de confidentialité ainsi que vos conditions d’utilisation. Après cela, l’état de consentement passe à **Accepté**, et les pages de consentement ne sont plus présentées à l’invité.
+
+   > [!IMPORTANT]
+   > **À compter du 31 mars 2021**, Microsoft ne prendra plus en charge l’échange d’invitations en créant des locataires et des comptes Azure AD non managés pour les scénarios de collaboration B2B. Dans cette optique, nous encourageons les clients à choisir l’[authentification par code secret à usage unique](one-time-passcode.md). Nous serions heureux de recevoir vos commentaires sur cette fonctionnalité d’évaluation publique, et sommes ravis de vous proposer encore plus de moyens de collaborer.
 
 ## <a name="redemption-through-the-invitation-email"></a>Acceptation via l’e-mail d’invitation
 

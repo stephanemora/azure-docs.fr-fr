@@ -16,10 +16,10 @@ ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a0fbed1f4dd62b2d75d39f475d2fe124c55a2b97
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75645801"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Déploiement SGBD de machines virtuelles SQL Server Azure pour SAP NetWeaver
@@ -27,7 +27,7 @@ ms.locfileid: "75645801"
 [767598]:https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830
 [826037]:https://launchpad.support.sap.com/#/notes/826037
-[965908]: https://launchpad.support.sap.com/#/notes/965908
+[965908]:https://launchpad.support.sap.com/#/notes/965908
 [1031096]:https://launchpad.support.sap.com/#/notes/1031096
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
 [1139904]:https://launchpad.support.sap.com/#/notes/1139904
@@ -49,12 +49,12 @@ ms.locfileid: "75645801"
 [1757928]:https://launchpad.support.sap.com/#/notes/1757928
 [1758182]:https://launchpad.support.sap.com/#/notes/1758182
 [1758496]:https://launchpad.support.sap.com/#/notes/1758496
-[1772688]: https://launchpad.support.sap.com/#/notes/1772688
+[1772688]:https://launchpad.support.sap.com/#/notes/1772688
 [1814258]:https://launchpad.support.sap.com/#/notes/1814258
 [1882376]:https://launchpad.support.sap.com/#/notes/1882376
 [1909114]:https://launchpad.support.sap.com/#/notes/1909114
 [1922555]:https://launchpad.support.sap.com/#/notes/1922555
-[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1941500]:https://launchpad.support.sap.com/#/notes/1941500
 [1956005]:https://launchpad.support.sap.com/#/notes/1956005
 [1973241]:https://launchpad.support.sap.com/#/notes/1973241
@@ -436,7 +436,7 @@ Une description plus que détaillée de cette méthode de sauvegarde, qui ajoute
 Pour un certain nombre de clients SAP, il n’y avait aucune possibilité de recommencer et d’introduire de toutes nouvelles solutions de sauvegarde pour leur environnement SAP qui s’exécutait sur Azure. En conséquence, les solutions de sauvegarde existantes devaient être utilisées et étendues dans Azure. L’extension des solutions de sauvegarde existantes dans Azure fonctionnait généralement bien avec la plupart des principaux fournisseurs de cet espace. 
 
 
-## <a name="1b353e38-21b3-4310-aeb6-a77e7c8e81c8"></a>Utilisation d’une image SQL Server issue de la Place de marché Microsoft Azure
+## <a name="using-a-sql-server-image-out-of-the-microsoft-azure-marketplace"></a><a name="1b353e38-21b3-4310-aeb6-a77e7c8e81c8"></a>Utilisation d’une image SQL Server issue de la Place de marché Microsoft Azure
 Dans la Place de marché Azure, Microsoft propose des machines virtuelles qui contiennent déjà des versions de SQL Server. Pour les clients SAP qui requièrent des licences pour SQL Server et Windows, l’utilisation de ces images peut être l’occasion de répondre aux besoins en termes de licences, en configurant des machines virtuelles déjà dotées de SQL Server. Pour pouvoir utiliser ces images pour SAP, vous devez tenir compte des considérations suivantes :
 
 * Les versions de SQL Server autres que les versions d’évaluation nécessitent des frais d’acquisition plus élevés que les machines virtuelles « Windows uniquement » qui sont déployées à partir de la Place de marché Azure. Pour comparer les prix, consultez les articles <https://azure.microsoft.com/pricing/details/virtual-machines/windows/> et <https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/>. 
@@ -546,7 +546,7 @@ Vous trouverez plus d’informations sur l’utilisation d’Azure Key Vault pou
 >En utilisant SQL Server TDE, notamment avec Azure Key Vault, il est recommandé d’utiliser les derniers correctifs de SQL Server 2014, SQL Server 2016 et SQL Server 2017. En effet, des optimisations et correctifs ont été appliqués au code suite aux commentaires de clients. À titre d’exemple, consultez l’article de la Base de connaissances [KBA n°4058175](https://support.microsoft.com/help/4058175/tde-enabled-backup-and-restore-slow-if-encryption-key-is-stored-in-ekm).
 >  
 
-## <a name="9053f720-6f3b-4483-904d-15dc54141e30"></a>Résumé – SQL Server général pour SAP sur Azure
+## <a name="general-sql-server-for-sap-on-azure-summary"></a><a name="9053f720-6f3b-4483-904d-15dc54141e30"></a>Résumé – SQL Server général pour SAP sur Azure
 Ce guide offre de nombreuses recommandations. Nous vous invitons à les parcourir plusieurs fois avant de planifier votre déploiement Azure. Cependant, de manière générale, vous devez suivre les principales recommandations générales propres à la fonction SGBD sur Azure :
 
 1. Utilisez la dernière version du système SGBD, comme SQL Server 2017, qui présente les avantages les plus intéressants dans Azure. 
