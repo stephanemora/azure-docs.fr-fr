@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 11/12/2019
+ms.date: 03/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1fb9ef702de4cec2a655aadebe0bc4d69f583ff7
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: b6436059cc8b3637edfc2a146d0aab3e2beae6a8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79128206"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154336"
 ---
 # <a name="connect-with-the-windows-desktop-client"></a>Se connecter avec le client Windows Desktop
 
@@ -23,6 +23,9 @@ Vous pouvez accéder aux ressources Windows Virtual Desktop sur des appareils Wi
 
 > [!IMPORTANT]
 > Windows Virtual Desktop ne prend pas en charge le client RADC (Connexions RemoteApp et Bureau à distance) ni le client MSTSC (Connexion Bureau à distance).
+
+> [!IMPORTANT]
+> Windows Virtual Desktop ne prend pas actuellement en charge le client Bureau à distance à partir du Microsoft Store. La prise en charge de ce client sera ajoutée dans une version ultérieure.
 
 ## <a name="install-the-windows-desktop-client"></a>Installer le client Windows Desktop
 
